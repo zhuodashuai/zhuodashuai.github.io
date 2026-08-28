@@ -15,6 +15,26 @@ export const LOCAL_CORRECTIONS = {
   wierd: "weird"
 };
 
+// These are valid lexical forms whose punctuation, digits or capitalization
+// makes them poor candidates for a generic sentence spell-checker.  They are
+// spelling assertions only; dictionary content still has to come from a
+// trusted local or external source.
+export const EXACT_SPELLINGS = new Map([
+  ["24/7", "24/7"],
+  ["beijing", "Beijing"],
+  ["c++", "C++"],
+  ["can't", "can't"],
+  ["centre", "centre"],
+  ["colour", "colour"],
+  ["covid-19", "COVID-19"],
+  ["e.g.", "e.g."],
+  ["github", "GitHub"],
+  ["iphone", "iPhone"],
+  ["ph.d.", "Ph.D."],
+  ["realise", "realise"],
+  ["u.s.", "U.S."]
+]);
+
 export const LOCAL_ENTRIES = {
   "jab at": {
     headword: "jab",

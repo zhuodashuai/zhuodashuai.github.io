@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "generatedAt": "2026-08-28T03:07:43.237Z",
+  "dataset": {
+    "name": "卓同学的秘密单词屋 100 项质量金标准",
+    "path": "datasets/vocab-100.json",
+    "total": 100
+  },
+  "summary": {
+    "total": 100,
+    "passed": 100,
+    "failed": 0,
+    "passRate": 100
+  },
+  "duplicateRound": {
+    "status": "passed",
+    "inputCount": 100,
+    "finalUniqueCount": 100,
+    "providerRequests": 0
+  },
+  "network": {
+    "status": "passed",
+    "requestCount": 0,
+    "unexpectedRequestCount": 0,
+    "scope": "deterministic offline accuracy pipeline"
+  },
+  "categories": [
+    { "key": "ordinary", "label": "普通词", "total": 40, "passed": 40, "status": "passed" },
+    { "key": "polysemy", "label": "多义词", "total": 20, "passed": 20, "status": "passed" },
+    { "key": "phrase", "label": "短语", "total": 20, "passed": 20, "status": "passed" },
+    { "key": "spelling", "label": "拼写", "total": 10, "passed": 10, "status": "passed" },
+    { "key": "special", "label": "大小写与标点", "total": 10, "passed": 10, "status": "passed" }
+  ],
+  "notes": [
+    "确定性查词管线100/100通过；核心中文释义测试未请求任何外部接口。",
+    "全新浏览器词库逐项输入100次后得到100个唯一词条且没有待完善项；同一批完整重复后仍为100个。",
+    "第二轮重复输入在补充释义前被拦截，外部提供方请求为0；20路同词并发测试为1次新增、19次重复。",
+    "实网契约4/4通过：hip保持名词和解剖义，look after按完整短语返回，MyMemory裸词结果始终拒绝入库，LanguageTool en-GB 能纠正并经词典验证未知错拼。",
+    "报告只使用公开测试词，不读取个人词库、GitHub令牌或同步配置。"
+  ]
+}

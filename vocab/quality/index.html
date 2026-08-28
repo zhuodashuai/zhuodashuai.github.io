@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#173d35">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>卓同学的秘密单词屋 · 质量报告</title>
+  <meta name="description" content="卓同学的秘密单词屋公开测试数据质量报告。">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="report.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#report-main">跳到质量报告</a>
+
+  <header class="site-header">
+    <a class="brand" href="../?mode=personal" aria-label="返回卓同学的秘密单词屋">
+      <span class="brand-mark" aria-hidden="true">卓</span>
+      <span><strong>卓同学的秘密单词屋</strong><small>QUALITY DESK</small></span>
+    </a>
+    <a class="back-link" href="../?mode=personal">返回单词屋 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="report-main">
+    <section class="hero" aria-labelledby="report-title">
+      <div>
+        <p class="eyebrow">A public quality ledger</p>
+        <h1 id="report-title">卓同学的秘密单词屋<br><em>质量报告</em></h1>
+      </div>
+      <div class="hero-note">
+        <span class="status-pill pending" id="overall-status">等待测试</span>
+        <p>这是一份只读质量看板。它使用固定的100项公开测试数据，不读取个人词库、复习记录、GitHub令牌或同步配置。</p>
+      </div>
+    </section>
+
+    <section class="metric-grid" aria-label="总体质量指标">
+      <article class="metric-card primary-card">
+        <span>100词测试</span>
+        <strong id="total-count">—</strong>
+        <small>固定公开样本</small>
+      </article>
+      <article class="metric-card">
+        <span>通过率</span>
+        <strong id="pass-rate">—</strong>
+        <small id="pass-detail">尚未运行</small>
+      </article>
+      <article class="metric-card">
+        <span>重复输入轮</span>
+        <strong id="duplicate-result">待运行</strong>
+        <small id="duplicate-detail">不会预设为通过</small>
+      </article>
+      <article class="metric-card">
+        <span>核心测试外部请求</span>
+        <strong id="network-requests">—</strong>
+        <small id="network-detail">确定性准确性管线</small>
+      </article>
+    </section>
+
+    <section class="report-section category-section" aria-labelledby="category-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Coverage map</p>
+          <h2 id="category-title">100词分类</h2>
+        </div>
+        <p>40普通词＋20多义词＋20短语＋10拼写＋10大小写与标点</p>
+      </div>
+      <div class="category-list" id="category-list" aria-live="polite">
+        <p class="loading-copy">正在读取公开测试数据…</p>
+      </div>
+    </section>
+
+    <section class="report-section audit-section" aria-labelledby="audit-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Observed evidence only</p>
+          <h2 id="audit-title">报告状态</h2>
+        </div>
+        <p>只根据真实运行更新；若任何词、重复轮或提供方契约失败，报告会原样显示失败。</p>
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-copy">
+          <dl>
+            <div><dt>生成时间</dt><dd id="generated-at">—</dd></div>
+            <div><dt>数据集</dt><dd id="dataset-name">—</dd></div>
+            <div><dt>数据性质</dt><dd>公开、非个人测试数据</dd></div>
+          </dl>
+          <ul class="notes" id="report-notes"></ul>
+        </div>
+        <div class="sample-panel">
+          <span>测试样本预览</span>
+          <div class="sample-list" id="sample-list" aria-label="测试样本预览"></div>
+          <p>这里仅展示固定金标准中的输入词，不连接个人 IndexedDB，也不执行在线查词。</p>
+        </div>
+      </div>
+      <div class="rerun-panel">
+        <div>
+          <strong>在你的浏览器重新核对</strong>
+          <p>只读取本站的 ECDICT 核心与100项公开金标准，不读取或改动个人词库，也不请求外部翻译接口。</p>
+        </div>
+        <button type="button" id="run-core-check">运行100词本地检测</button>
+        <p id="run-core-result" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <p class="load-error" id="load-error" role="alert" hidden></p>
+  </main>
+
+  <footer>
+    <p>卓同学的秘密单词屋 · Public test evidence only</p>
+    <p>你可以在本页独立重跑100词本地检测。</p>
+  </footer>
+</body>
+</html>

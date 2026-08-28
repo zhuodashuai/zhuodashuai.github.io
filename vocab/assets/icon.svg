@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">Wordbook icon</title>
-  <desc id="desc">A cream letter W on a deep green rounded square with a lime bookmark.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">卓同学的秘密单词屋</title>
   <rect width="512" height="512" rx="112" fill="#20372f"/>
-  <path d="M360 0h152v184l-76-45-76 45z" fill="#dbe47a" opacity=".96"/>
-  <circle cx="256" cy="268" r="150" fill="#f2eee5"/>
-  <text x="256" y="337" text-anchor="middle" fill="#20372f" font-family="Georgia, 'Times New Roman', serif" font-size="220" font-weight="600">W</text>
+  <rect x="45" y="45" width="422" height="422" rx="88" fill="none" stroke="#dbe47a" stroke-width="10"/>
+  <circle cx="403" cy="104" r="34" fill="#e8a47a"/>
+  <text x="256" y="337" text-anchor="middle" fill="#f7f2e8" font-family="Noto Sans SC, Microsoft YaHei UI, sans-serif" font-size="262" font-weight="600">卓</text>
+  <path d="M146 392h220" stroke="#dbe47a" stroke-width="12" stroke-linecap="round"/>
 </svg>

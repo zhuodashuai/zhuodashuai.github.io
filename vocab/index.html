@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="浏览卓达帅的公开词库，或创建、安装并同步属于自己的英语词库；支持拼写纠正、中文释义、名言出处候选与复习计划。">
+  <meta name="description" content="卓同学的秘密单词屋：只输入英文，准确整理中文释义、短语、拼写与复习计划；支持本地保存、桌面安装和可选 GitHub 同步。">
   <meta name="theme-color" content="#20372f">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.languagetool.org https://freedictionaryapi.com https://api.mymemory.translated.net https://en.wikiquote.org https://api.github.com; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://zhuodashuai.github.io/vocab/">
@@ -11,30 +11,32 @@
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Wordbook · 我的英语词库">
-  <meta property="og:description" content="浏览公开词库，或创建并安装自己的英语词库；自动整理释义、出处与复习计划。">
+  <meta property="og:title" content="卓同学的秘密单词屋">
+  <meta property="og:description" content="只管写下英文，它会自己长成准确、可复习的词条。">
   <meta property="og:url" content="https://zhuodashuai.github.io/vocab/">
-  <meta property="og:image" content="https://zhuodashuai.github.io/vocab/assets/wordbook-og.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1733">
+  <meta property="og:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1734">
   <meta property="og:image:height" content="907">
-  <meta property="og:image:alt" content="Wordbook — Write English. Keep the meaning.">
+  <meta property="og:image:alt" content="深绿色书房中摆放着木质索引卡柜与整齐词卡，象征卓同学的秘密单词屋。">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wordbook · 我的英语词库">
-  <meta name="twitter:description" content="公开浏览、个人收藏、桌面安装与可选 GitHub 同步。">
-  <meta name="twitter:image" content="https://zhuodashuai.github.io/vocab/assets/wordbook-og.jpg">
-  <title>Wordbook · 我的英语词库</title>
+  <meta name="twitter:title" content="卓同学的秘密单词屋">
+  <meta name="twitter:description" content="可信释义、智能防重、个人收藏、桌面安装与可选 GitHub 同步。">
+  <meta name="twitter:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
+  <meta name="twitter:image:alt" content="深绿色书房中摆放着木质索引卡柜与整齐词卡，象征卓同学的秘密单词屋。">
+  <title>卓同学的秘密单词屋</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Wordbook 首页">
-      <span class="brand-mark" aria-hidden="true">W</span>
-      <span><strong>Wordbook</strong><small>我的英语词库</small></span>
+    <a class="brand" href="./" aria-label="卓同学的秘密单词屋首页">
+      <span class="brand-mark" aria-hidden="true">卓</span>
+      <span><strong>秘密单词屋</strong><small>ZHUO'S WORD CABINET</small></span>
     </a>
     <div class="header-actions">
+      <button class="settings-button" id="preferences-button" type="button" hidden>入库设置</button>
       <button class="install-button" id="install-button" type="button">安装到桌面</button>
       <a class="profile-link" href="../">返回个人主页 <span aria-hidden="true">↗</span></a>
     </div>
@@ -43,8 +45,8 @@
   <main id="main">
     <section class="collection-switcher" aria-label="选择词库">
       <div class="collection-tabs" id="collection-tabs">
-        <button type="button" data-mode="public" aria-pressed="true">卓达帅的公开词库</button>
-        <button type="button" data-mode="personal" aria-pressed="false">我的个人词库</button>
+        <button type="button" data-mode="public" aria-pressed="true">卓同学的公开收藏</button>
+        <button type="button" data-mode="personal" aria-pressed="false">我的秘密词库</button>
       </div>
       <p id="collection-note">公开浏览、搜索和朗读；复制后即可加入你自己的复习计划。</p>
     </section>
@@ -58,42 +60,48 @@
         <form class="word-form" id="word-form" novalidate hidden>
           <label for="word-input">输入英文单词、短语或名言</label>
           <div class="input-row">
-            <input id="word-input" name="word" type="text" lang="en" spellcheck="true" autocomplete="off" placeholder="例如：jab at / accomodate / 一句英文名言" required>
+            <input id="word-input" name="word" type="text" lang="en" spellcheck="false" autocomplete="off" placeholder="例如：hip / look after / accomodate" required>
             <button type="submit">自动整理 <span aria-hidden="true">→</span></button>
           </div>
-          <p class="form-hint" id="form-hint" role="status" aria-live="polite">单词会检查拼写；名言会搜索候选出处，并明确标记是否已经核验。</p>
-          <p class="privacy-line">在线补充会发送当前英文内容，以及为该词查询到、需要翻译的字典例句；请勿填写私人信息。</p>
+          <p class="form-hint" id="form-hint" role="status" aria-live="polite">先查本地可信词典，再补充英文词典；重复输入不会再次联网或加入。</p>
+          <p class="privacy-line">中文核心释义来自本地词典。英文词典、拼写与名言出处需要联网时，只发送当前英文内容；请勿填写私人信息。</p>
         </form>
 
         <ul class="feature-line" aria-label="核心功能">
-          <li>拼写纠正</li>
-          <li>中文释义</li>
-          <li>双语例句</li>
-          <li>复习计划</li>
+          <li>可信中文释义</li>
+          <li>短语整条查询</li>
+          <li>输入自动防重</li>
+          <li>可切换入库方式</li>
         </ul>
       </div>
 
-      <aside class="today-card" aria-labelledby="today-title" id="selected-card">
-        <div class="card-topline"><span id="selected-kicker">FIRST ENTRY</span><span id="selected-index">01</span></div>
+      <aside class="today-card" aria-labelledby="today-title" id="selected-card" hidden>
+        <div class="card-topline"><span id="selected-kicker"></span><span id="selected-index"></span></div>
         <div class="word-heading-line">
           <div>
-            <p class="word-type" id="selected-type">verb phrase · noun collocation</p>
-            <h2 id="today-title" lang="en">jab at</h2>
+            <p class="word-type" id="selected-type"></p>
+            <h2 id="today-title" lang="en"></h2>
           </div>
-          <button class="sound-button" id="sound-button" type="button" aria-label="朗读 jab at">◖</button>
+          <button class="sound-button" id="sound-button" type="button" aria-label="朗读当前词条">◖</button>
         </div>
-        <p class="phonetic" id="selected-phonetic" lang="en">jab /d͡ʒæb/ + at /ət, æt/</p>
-        <p class="meaning" id="selected-meaning">① 朝某人或某物猛戳、猛刺或快速击打；<br>② （言语上）抨击、挖苦或嘲讽</p>
-        <div class="example">
+        <p class="phonetic" id="selected-phonetic" lang="en"></p>
+        <p class="quality-note" id="selected-quality" hidden></p>
+        <p class="meaning" id="selected-meaning"></p>
+        <div class="definition-block" id="selected-definition-block" hidden>
+          <span>ENGLISH DEFINITION</span>
+          <p lang="en" id="selected-definition"></p>
+        </div>
+        <div class="example" id="selected-example-block" hidden>
           <span>EXAMPLE</span>
-          <p lang="en" id="selected-example-en">He jabbed at the elevator button with his finger.</p>
-          <p id="selected-example-zh">他用手指快速地反复戳按电梯按钮。</p>
+          <p lang="en" id="selected-example-en"></p>
+          <p id="selected-example-zh"></p>
         </div>
-        <p class="usage-note" id="selected-usage">动词结构：jab at + sb/sth。表示“讥讽”时，也常见 a jab at 或 take a jab at。</p>
+        <p class="usage-note" id="selected-usage" hidden></p>
         <p class="source-note" id="selected-source" hidden></p>
-        <div class="tag-row" id="selected-tags" aria-label="标签"><span>短语</span><span>动作</span><span>批评与讽刺</span></div>
+        <div class="tag-row" id="selected-tags" aria-label="标签"></div>
         <div class="card-actions">
           <button type="button" id="copy-selected">收藏到我的词库</button>
+          <button type="button" id="edit-selected" hidden>编辑词条</button>
           <button type="button" id="review-selected" hidden>复习这个词</button>
           <button type="button" id="delete-selected" class="danger-button" hidden>删除</button>
         </div>
@@ -103,8 +111,8 @@
     <section class="lookup-panel" id="lookup-panel" aria-labelledby="lookup-title" hidden>
       <div class="lookup-heading">
         <div>
-          <p class="eyebrow">Review before saving</p>
-          <h2 id="lookup-title">确认新词条</h2>
+           <p class="eyebrow" id="lookup-eyebrow">Review before saving</p>
+           <h2 id="lookup-title" tabindex="-1">确认新词条</h2>
         </div>
         <button type="button" class="close-button" id="close-lookup" aria-label="关闭新词条">×</button>
       </div>
@@ -116,14 +124,14 @@
 
       <form id="draft-form" class="draft-form">
         <div class="draft-grid compact-grid">
-          <label>英文词条<input id="draft-term" name="term" lang="en" required></label>
+          <label>英文词条<input id="draft-term" name="term" lang="en" required readonly aria-describedby="draft-term-note"><small id="draft-term-note">避免词义错配，词条名称不可在此直接改；请关闭后重新查询。</small></label>
           <label>类型<select id="draft-entry-type" name="entryType"><option value="word">单词</option><option value="phrase">短语</option><option value="quote">名言</option><option value="proverb">谚语</option></select></label>
           <label>词性<input id="draft-pos" name="partOfSpeech" placeholder="noun / verb / phrase"></label>
           <label>音标<input id="draft-phonetic" name="phonetic" lang="en" placeholder="/…/"></label>
           <label>标签<input id="draft-tags" name="tags" placeholder="用逗号分隔"></label>
         </div>
         <div class="draft-grid">
-          <label>中文释义<textarea id="draft-meaning" name="meaning" rows="4" required></textarea></label>
+          <label>中文释义<textarea id="draft-meaning" name="meaning" rows="4" placeholder="不确定时可以留空，词条会标记为待完善"></textarea></label>
           <label>英文释义<textarea id="draft-definition" name="definition" rows="4" lang="en"></textarea></label>
           <label>英文例句<textarea id="draft-example-en" name="exampleEn" rows="4" lang="en"></textarea></label>
           <label>例句翻译<textarea id="draft-example-zh" name="exampleZh" rows="4"></textarea></label>
@@ -141,10 +149,11 @@
           <div class="source-candidates" id="source-candidates" aria-live="polite"></div>
           <p><button type="button" class="text-button" id="retry-attribution">重新搜索出处</button> · 自动搜索只提供候选。标记“已核对原始文本”前，请确认作品、版本及页码或章节；引文本身的版权可能不同于候选页面的许可。</p>
         </fieldset>
+        <p class="quality-note lookup-quality" id="lookup-quality" hidden></p>
         <p class="lookup-warning" id="lookup-warning" role="status"></p>
         <div class="draft-actions">
           <button type="submit" class="primary-action">保存到词库</button>
-          <span>自动内容只是候选，你可以先修改再保存。</span>
+           <span>本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。</span>
         </div>
       </form>
     </section>
@@ -153,10 +162,10 @@
       <div class="workspace-heading">
         <div>
           <p class="eyebrow">Your collection</p>
-          <h2 id="library-title">卓达帅的公开词库</h2>
+          <h2 id="library-title">卓同学的公开收藏</h2>
         </div>
         <div class="summary" aria-label="词库概览">
-          <span><strong id="entry-count">1</strong> 个词条</span>
+          <span><strong id="entry-count">0</strong> 个词条</span>
           <button type="button" id="start-review" hidden><strong id="due-count">0</strong> 今日待复习</button>
         </div>
       </div>
@@ -175,16 +184,7 @@
         <input id="library-search" type="search" lang="en" placeholder="搜索词库" aria-label="搜索词库">
       </div>
 
-      <div id="library-list" class="library-list">
-        <article class="word-row">
-          <button class="word-main" type="button" aria-label="打开 jab at 词条">
-            <span class="word-index">001</span>
-            <span><strong lang="en">jab at</strong><small>朝……猛戳；抨击、挖苦</small></span>
-          </button>
-          <span class="status new">新词</span>
-          <time datetime="2026-08-27">今天</time>
-        </article>
-      </div>
+      <div id="library-list" class="library-list"><p class="library-empty">正在读取词库…</p></div>
 
       <div class="empty-guidance">
         <span aria-hidden="true">+</span>
@@ -211,21 +211,40 @@
   </main>
 
   <footer>
-    <p>Local-first vocabulary notebook · 个人数据保存在当前浏览器，请定期备份。</p>
+    <p>卓同学的秘密单词屋 · 个人数据保存在当前浏览器，请定期备份。</p>
     <p id="personal-footer-tools" hidden><button type="button" class="text-button" id="export-button">导出备份</button> · <button type="button" class="text-button" id="import-button">导入词库</button><input id="import-file" type="file" accept="application/json" hidden></p>
-    <p class="attribution">在线补充来自 <a href="https://languagetool.org/" target="_blank" rel="noopener noreferrer">LanguageTool</a>、<a href="https://freedictionaryapi.com/" target="_blank" rel="noopener noreferrer">FreeDictionaryAPI</a>、<a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary（CC BY-SA）</a>、<a href="https://en.wikiquote.org/" target="_blank" rel="noopener noreferrer">Wikiquote</a> 与 <a href="https://mymemory.translated.net/" target="_blank" rel="noopener noreferrer">MyMemory</a>。Wikiquote 只提供未核验候选并链接具体页面；页面文本采用 CC BY-SA，引文本身可能另有版权。</p>
+    <p class="attribution">核心中英词典来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT（MIT）</a>；英文补充来自 <a href="https://freedictionaryapi.com/" target="_blank" rel="noopener noreferrer">FreeDictionaryAPI</a> 与 <a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary（CC BY-SA）</a>。<a href="quality/">查看 100 词质量报告</a>。<a href="https://languagetool.org/" target="_blank" rel="noopener noreferrer">LanguageTool</a> 仅在本地与字典均无法确认拼写时辅助；名言翻译及 Wikiquote 搜索只作为未核验候选。</p>
   </footer>
 
   <dialog id="install-dialog" class="utility-dialog" aria-labelledby="install-title">
     <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭安装说明">×</button></form>
-    <p class="eyebrow">Install Wordbook</p>
-    <h2 id="install-title">把 Wordbook 放到桌面</h2>
+    <p class="eyebrow">Install the word cabinet</p>
+    <h2 id="install-title">把秘密单词屋放到桌面</h2>
     <ol>
       <li>在 Chrome 或 Edge 中打开本页。</li>
-      <li>点击地址栏右侧的“安装”图标，或在浏览器菜单中选择“安装 Wordbook”。</li>
-      <li>安装后会生成桌面／开始菜单快捷方式，并直接进入“我的个人词库”。</li>
+      <li>点击地址栏右侧的“安装”图标，或在浏览器菜单中选择“安装秘密单词屋”。</li>
+      <li>安装后会生成桌面／开始菜单快捷方式，并直接进入“我的秘密词库”。</li>
     </ol>
     <p>首次联网打开后，主要界面可离线使用；自动释义、出处搜索和 GitHub 同步仍需要网络。</p>
+  </dialog>
+
+  <dialog id="preferences-dialog" class="utility-dialog preferences-dialog" aria-labelledby="preferences-title">
+    <form method="dialog" class="dialog-close-row"><button id="preferences-close" value="close" aria-label="关闭入库设置">×</button></form>
+    <p class="eyebrow">How should new words enter?</p>
+    <h2 id="preferences-title">新词怎样进屋？</h2>
+    <p id="preferences-intro">先选一次，以后可以随时在右上角“入库设置”里更改。</p>
+    <form id="preferences-form" class="preferences-form">
+      <label class="choice-card">
+        <input type="radio" name="saveMode" value="auto" required>
+        <span><strong>可靠结果直接加入</strong><small>不再逐条确认；若释义还不可靠，就保留空白并标记“待完善”，绝不乱填。</small></span>
+      </label>
+      <label class="choice-card">
+        <input type="radio" name="saveMode" value="review" required>
+        <span><strong>每次保存前让我确认</strong><small>自动整理后打开编辑页，由你检查或修改再保存。</small></span>
+      </label>
+      <p class="preference-note">无论选择哪种方式，重复词都只定位原词条：不会重复加入、不会覆盖释义，也不会重复联网。</p>
+      <button type="submit" class="primary-action">保存入库方式</button>
+    </form>
   </dialog>
 
   <dialog id="sync-dialog" class="utility-dialog" aria-labelledby="sync-dialog-title">

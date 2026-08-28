@@ -1,0 +1,926 @@
+{
+  "schemaVersion": 1,
+  "name": "卓同学的秘密单词屋 100 项质量金标准",
+  "description": "公开、非个人测试数据。用于验证规范词、类型、拼写策略和中文核心义项，不包含任何个人词库内容。",
+  "forbiddenText": [
+    "kamus",
+    "ke bi",
+    "MYMEMORY WARNING",
+    "YOU USED ALL AVAILABLE FREE TRANSLATIONS",
+    "QUERY LENGTH LIMIT EXCEEDED",
+    "INVALID LANGUAGE PAIR SPECIFIED",
+    "NO QUERY SPECIFIED",
+    "[object Object]",
+    "undefined",
+    "<html"
+  ],
+  "expectedCategoryCounts": {
+    "ordinary": 40,
+    "polysemy": 20,
+    "phrase": 20,
+    "spelling": 10,
+    "special": 10
+  },
+  "entries": [
+    {
+      "id": "ordinary-001",
+      "category": "ordinary",
+      "input": "apple",
+      "canonicalTerm": "apple",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["苹果"]]
+    },
+    {
+      "id": "ordinary-002",
+      "category": "ordinary",
+      "input": "book",
+      "canonicalTerm": "book",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["书", "书籍"]]
+    },
+    {
+      "id": "ordinary-003",
+      "category": "ordinary",
+      "input": "chair",
+      "canonicalTerm": "chair",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["椅子", "座椅"]]
+    },
+    {
+      "id": "ordinary-004",
+      "category": "ordinary",
+      "input": "city",
+      "canonicalTerm": "city",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["城市"]]
+    },
+    {
+      "id": "ordinary-005",
+      "category": "ordinary",
+      "input": "doctor",
+      "canonicalTerm": "doctor",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["医生", "医师"]]
+    },
+    {
+      "id": "ordinary-006",
+      "category": "ordinary",
+      "input": "family",
+      "canonicalTerm": "family",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["家庭", "家人"]]
+    },
+    {
+      "id": "ordinary-007",
+      "category": "ordinary",
+      "input": "garden",
+      "canonicalTerm": "garden",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["花园", "园地"]]
+    },
+    {
+      "id": "ordinary-008",
+      "category": "ordinary",
+      "input": "house",
+      "canonicalTerm": "house",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["房子", "住宅"]]
+    },
+    {
+      "id": "ordinary-009",
+      "category": "ordinary",
+      "input": "language",
+      "canonicalTerm": "language",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["语言"]]
+    },
+    {
+      "id": "ordinary-010",
+      "category": "ordinary",
+      "input": "water",
+      "canonicalTerm": "water",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["水"]]
+    },
+    {
+      "id": "ordinary-011",
+      "category": "ordinary",
+      "input": "accept",
+      "canonicalTerm": "accept",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["接受", "接纳"]]
+    },
+    {
+      "id": "ordinary-012",
+      "category": "ordinary",
+      "input": "build",
+      "canonicalTerm": "build",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["建造", "建立"]]
+    },
+    {
+      "id": "ordinary-013",
+      "category": "ordinary",
+      "input": "choose",
+      "canonicalTerm": "choose",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["选择", "挑选"]]
+    },
+    {
+      "id": "ordinary-014",
+      "category": "ordinary",
+      "input": "discover",
+      "canonicalTerm": "discover",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["发现"]]
+    },
+    {
+      "id": "ordinary-015",
+      "category": "ordinary",
+      "input": "explain",
+      "canonicalTerm": "explain",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["解释", "说明"]]
+    },
+    {
+      "id": "ordinary-016",
+      "category": "ordinary",
+      "input": "improve",
+      "canonicalTerm": "improve",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["改善", "提高"]]
+    },
+    {
+      "id": "ordinary-017",
+      "category": "ordinary",
+      "input": "remember",
+      "canonicalTerm": "remember",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["记得", "记住"]]
+    },
+    {
+      "id": "ordinary-018",
+      "category": "ordinary",
+      "input": "solve",
+      "canonicalTerm": "solve",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["解决", "解答"]]
+    },
+    {
+      "id": "ordinary-019",
+      "category": "ordinary",
+      "input": "travel",
+      "canonicalTerm": "travel",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["旅行", "旅游"]]
+    },
+    {
+      "id": "ordinary-020",
+      "category": "ordinary",
+      "input": "write",
+      "canonicalTerm": "write",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["写", "书写"]]
+    },
+    {
+      "id": "ordinary-021",
+      "category": "ordinary",
+      "input": "careful",
+      "canonicalTerm": "careful",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["小心", "仔细"]]
+    },
+    {
+      "id": "ordinary-022",
+      "category": "ordinary",
+      "input": "difficult",
+      "canonicalTerm": "difficult",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["困难", "难的"]]
+    },
+    {
+      "id": "ordinary-023",
+      "category": "ordinary",
+      "input": "efficient",
+      "canonicalTerm": "efficient",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["高效", "效率高"]]
+    },
+    {
+      "id": "ordinary-024",
+      "category": "ordinary",
+      "input": "familiar",
+      "canonicalTerm": "familiar",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["熟悉"]]
+    },
+    {
+      "id": "ordinary-025",
+      "category": "ordinary",
+      "input": "generous",
+      "canonicalTerm": "generous",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["慷慨", "大方"]]
+    },
+    {
+      "id": "ordinary-026",
+      "category": "ordinary",
+      "input": "honest",
+      "canonicalTerm": "honest",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["诚实", "正直"]]
+    },
+    {
+      "id": "ordinary-027",
+      "category": "ordinary",
+      "input": "practical",
+      "canonicalTerm": "practical",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["实用", "实际"]]
+    },
+    {
+      "id": "ordinary-028",
+      "category": "ordinary",
+      "input": "quiet",
+      "canonicalTerm": "quiet",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["安静", "宁静"]]
+    },
+    {
+      "id": "ordinary-029",
+      "category": "ordinary",
+      "input": "responsible",
+      "canonicalTerm": "responsible",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["负责", "有责任"]]
+    },
+    {
+      "id": "ordinary-030",
+      "category": "ordinary",
+      "input": "useful",
+      "canonicalTerm": "useful",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["有用", "有益"]]
+    },
+    {
+      "id": "ordinary-031",
+      "category": "ordinary",
+      "input": "actually",
+      "canonicalTerm": "actually",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["实际上", "其实"]]
+    },
+    {
+      "id": "ordinary-032",
+      "category": "ordinary",
+      "input": "carefully",
+      "canonicalTerm": "carefully",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["仔细地", "小心地"]]
+    },
+    {
+      "id": "ordinary-033",
+      "category": "ordinary",
+      "input": "frequently",
+      "canonicalTerm": "frequently",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["经常", "频繁"]]
+    },
+    {
+      "id": "ordinary-034",
+      "category": "ordinary",
+      "input": "however",
+      "canonicalTerm": "however",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["然而", "不过"]]
+    },
+    {
+      "id": "ordinary-035",
+      "category": "ordinary",
+      "input": "probably",
+      "canonicalTerm": "probably",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["可能", "大概"]]
+    },
+    {
+      "id": "ordinary-036",
+      "category": "ordinary",
+      "input": "analyze",
+      "canonicalTerm": "analyze",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["分析"]]
+    },
+    {
+      "id": "ordinary-037",
+      "category": "ordinary",
+      "input": "evidence",
+      "canonicalTerm": "evidence",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["证据", "证明"]]
+    },
+    {
+      "id": "ordinary-038",
+      "category": "ordinary",
+      "input": "hypothesis",
+      "canonicalTerm": "hypothesis",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["假设", "假说"]]
+    },
+    {
+      "id": "ordinary-039",
+      "category": "ordinary",
+      "input": "significant",
+      "canonicalTerm": "significant",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["重要", "显著"]]
+    },
+    {
+      "id": "ordinary-040",
+      "category": "ordinary",
+      "input": "variable",
+      "canonicalTerm": "variable",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["变量"], ["可变", "易变"]]
+    },
+    {
+      "id": "polysemy-001",
+      "category": "polysemy",
+      "input": "hip",
+      "canonicalTerm": "hip",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["髋", "髋部", "臀部"], ["时髦", "赶时髦"]]
+    },
+    {
+      "id": "polysemy-002",
+      "category": "polysemy",
+      "input": "bank",
+      "canonicalTerm": "bank",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["银行"], ["河岸", "堤岸"]]
+    },
+    {
+      "id": "polysemy-003",
+      "category": "polysemy",
+      "input": "bat",
+      "canonicalTerm": "bat",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["蝙蝠"], ["球棒", "球拍"]]
+    },
+    {
+      "id": "polysemy-004",
+      "category": "polysemy",
+      "input": "charge",
+      "canonicalTerm": "charge",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["收费", "费用"], ["指控", "控告"], ["充电", "电荷"]]
+    },
+    {
+      "id": "polysemy-005",
+      "category": "polysemy",
+      "input": "current",
+      "canonicalTerm": "current",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["当前", "目前"], ["电流", "水流", "气流"]]
+    },
+    {
+      "id": "polysemy-006",
+      "category": "polysemy",
+      "input": "fair",
+      "canonicalTerm": "fair",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["公平", "公正"], ["集市", "博览会"]]
+    },
+    {
+      "id": "polysemy-007",
+      "category": "polysemy",
+      "input": "file",
+      "canonicalTerm": "file",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["文件", "档案"], ["锉刀", "锉"]]
+    },
+    {
+      "id": "polysemy-008",
+      "category": "polysemy",
+      "input": "issue",
+      "canonicalTerm": "issue",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["问题", "议题"], ["发行", "发布"]]
+    },
+    {
+      "id": "polysemy-009",
+      "category": "polysemy",
+      "input": "light",
+      "canonicalTerm": "light",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["光", "灯"], ["轻", "轻的"]]
+    },
+    {
+      "id": "polysemy-010",
+      "category": "polysemy",
+      "input": "match",
+      "canonicalTerm": "match",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["比赛"], ["匹配", "相配"], ["火柴"]]
+    },
+    {
+      "id": "polysemy-011",
+      "category": "polysemy",
+      "input": "mean",
+      "canonicalTerm": "mean",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["意思是", "意味着"], ["平均数", "平均值"], ["刻薄", "吝啬"]]
+    },
+    {
+      "id": "polysemy-012",
+      "category": "polysemy",
+      "input": "pitch",
+      "canonicalTerm": "pitch",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["投掷", "投球"], ["音高"], ["推销", "推介"]]
+    },
+    {
+      "id": "polysemy-013",
+      "category": "polysemy",
+      "input": "right",
+      "canonicalTerm": "right",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["正确", "对的"], ["右边", "右侧"], ["权利"]]
+    },
+    {
+      "id": "polysemy-014",
+      "category": "polysemy",
+      "input": "rock",
+      "canonicalTerm": "rock",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["岩石", "石头"], ["摇滚"], ["摇动", "摇晃"]]
+    },
+    {
+      "id": "polysemy-015",
+      "category": "polysemy",
+      "input": "run",
+      "canonicalTerm": "run",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["跑", "奔跑"], ["运行", "运转"], ["经营", "管理"]]
+    },
+    {
+      "id": "polysemy-016",
+      "category": "polysemy",
+      "input": "scale",
+      "canonicalTerm": "scale",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["规模", "程度"], ["秤", "天平"], ["鳞", "鳞片"]]
+    },
+    {
+      "id": "polysemy-017",
+      "category": "polysemy",
+      "input": "set",
+      "canonicalTerm": "set",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["设置", "放置"], ["一套", "一组"]]
+    },
+    {
+      "id": "polysemy-018",
+      "category": "polysemy",
+      "input": "spring",
+      "canonicalTerm": "spring",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["春天", "春季"], ["弹簧"], ["跳起", "跃起"]]
+    },
+    {
+      "id": "polysemy-019",
+      "category": "polysemy",
+      "input": "board",
+      "canonicalTerm": "board",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["木板", "板"], ["董事会", "委员会"], ["登上", "上车", "上船"]]
+    },
+    {
+      "id": "polysemy-020",
+      "category": "polysemy",
+      "input": "date",
+      "canonicalTerm": "date",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["日期", "日子"], ["约会"], ["枣", "海枣"]]
+    },
+    {
+      "id": "phrase-001",
+      "category": "phrase",
+      "input": "look after",
+      "canonicalTerm": "look after",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["照顾", "照料"]]
+    },
+    {
+      "id": "phrase-002",
+      "category": "phrase",
+      "input": "give up",
+      "canonicalTerm": "give up",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["放弃", "戒除"]]
+    },
+    {
+      "id": "phrase-003",
+      "category": "phrase",
+      "input": "take off",
+      "canonicalTerm": "take off",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["脱下", "脱掉"], ["起飞"]]
+    },
+    {
+      "id": "phrase-004",
+      "category": "phrase",
+      "input": "run into",
+      "canonicalTerm": "run into",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["偶遇", "碰见"], ["撞上", "撞到"]]
+    },
+    {
+      "id": "phrase-005",
+      "category": "phrase",
+      "input": "carry out",
+      "canonicalTerm": "carry out",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["执行", "实施"]]
+    },
+    {
+      "id": "phrase-006",
+      "category": "phrase",
+      "input": "account for",
+      "canonicalTerm": "account for",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["解释", "说明原因"], ["占", "占据"]]
+    },
+    {
+      "id": "phrase-007",
+      "category": "phrase",
+      "input": "put up with",
+      "canonicalTerm": "put up with",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["忍受", "容忍"]]
+    },
+    {
+      "id": "phrase-008",
+      "category": "phrase",
+      "input": "get along with",
+      "canonicalTerm": "get along with",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["与…相处", "和…相处"]]
+    },
+    {
+      "id": "phrase-009",
+      "category": "phrase",
+      "input": "come across",
+      "canonicalTerm": "come across",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["偶然遇到", "无意中发现"]]
+    },
+    {
+      "id": "phrase-010",
+      "category": "phrase",
+      "input": "turn down",
+      "canonicalTerm": "turn down",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["拒绝"], ["调低", "关小"]]
+    },
+    {
+      "id": "phrase-011",
+      "category": "phrase",
+      "input": "figure out",
+      "canonicalTerm": "figure out",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["弄明白", "想出", "解决"]]
+    },
+    {
+      "id": "phrase-012",
+      "category": "phrase",
+      "input": "break down",
+      "canonicalTerm": "break down",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["出故障", "坏掉"], ["分解", "拆分"]]
+    },
+    {
+      "id": "phrase-013",
+      "category": "phrase",
+      "input": "bring about",
+      "canonicalTerm": "bring about",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["导致", "引起"]]
+    },
+    {
+      "id": "phrase-014",
+      "category": "phrase",
+      "input": "point out",
+      "canonicalTerm": "point out",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["指出", "指明"]]
+    },
+    {
+      "id": "phrase-015",
+      "category": "phrase",
+      "input": "rely on",
+      "canonicalTerm": "rely on",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["依赖", "依靠"]]
+    },
+    {
+      "id": "phrase-016",
+      "category": "phrase",
+      "input": "deal with",
+      "canonicalTerm": "deal with",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["处理", "应对"]]
+    },
+    {
+      "id": "phrase-017",
+      "category": "phrase",
+      "input": "set up",
+      "canonicalTerm": "set up",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["建立", "设立", "设置"]]
+    },
+    {
+      "id": "phrase-018",
+      "category": "phrase",
+      "input": "take part in",
+      "canonicalTerm": "take part in",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["参加", "参与"]]
+    },
+    {
+      "id": "phrase-019",
+      "category": "phrase",
+      "input": "in charge of",
+      "canonicalTerm": "in charge of",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["负责", "主管"]]
+    },
+    {
+      "id": "phrase-020",
+      "category": "phrase",
+      "input": "by and large",
+      "canonicalTerm": "by and large",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["总的来说", "总体而言"]]
+    },
+    {
+      "id": "spelling-001",
+      "category": "spelling",
+      "input": "accomodate",
+      "canonicalTerm": "accommodate",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["容纳", "适应", "为…提供便利"]]
+    },
+    {
+      "id": "spelling-002",
+      "category": "spelling",
+      "input": "definately",
+      "canonicalTerm": "definitely",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["肯定地", "确实"]]
+    },
+    {
+      "id": "spelling-003",
+      "category": "spelling",
+      "input": "enviroment",
+      "canonicalTerm": "environment",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["环境"]]
+    },
+    {
+      "id": "spelling-004",
+      "category": "spelling",
+      "input": "neccessary",
+      "canonicalTerm": "necessary",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["必要", "必需"]]
+    },
+    {
+      "id": "spelling-005",
+      "category": "spelling",
+      "input": "recieve",
+      "canonicalTerm": "receive",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["收到", "接受"]]
+    },
+    {
+      "id": "spelling-006",
+      "category": "spelling",
+      "input": "seperate",
+      "canonicalTerm": "separate",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["分开", "分离", "单独"]]
+    },
+    {
+      "id": "spelling-007",
+      "category": "spelling",
+      "input": "wierd",
+      "canonicalTerm": "weird",
+      "expectedType": "word",
+      "correctionPolicy": "correct",
+      "requiredMeaningGroups": [["奇怪", "怪异"]]
+    },
+    {
+      "id": "spelling-008",
+      "category": "spelling",
+      "input": "colour",
+      "canonicalTerm": "colour",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["颜色", "色彩"]]
+    },
+    {
+      "id": "spelling-009",
+      "category": "spelling",
+      "input": "centre",
+      "canonicalTerm": "centre",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["中心", "中央"]]
+    },
+    {
+      "id": "spelling-010",
+      "category": "spelling",
+      "input": "realise",
+      "canonicalTerm": "realise",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["意识到", "实现"]]
+    },
+    {
+      "id": "special-001",
+      "category": "special",
+      "input": "Beijing",
+      "canonicalTerm": "Beijing",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["北京"]]
+    },
+    {
+      "id": "special-002",
+      "category": "special",
+      "input": "iPhone",
+      "canonicalTerm": "iPhone",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["苹果手机", "智能手机"]]
+    },
+    {
+      "id": "special-003",
+      "category": "special",
+      "input": "COVID-19",
+      "canonicalTerm": "COVID-19",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["新冠肺炎", "2019冠状病毒病"]]
+    },
+    {
+      "id": "special-004",
+      "category": "special",
+      "input": "e.g.",
+      "canonicalTerm": "e.g.",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["例如", "举例来说"]]
+    },
+    {
+      "id": "special-005",
+      "category": "special",
+      "input": "Ph.D.",
+      "canonicalTerm": "Ph.D.",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["博士学位", "哲学博士"]]
+    },
+    {
+      "id": "special-006",
+      "category": "special",
+      "input": "24/7",
+      "canonicalTerm": "24/7",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["全天候", "全天不间断"]]
+    },
+    {
+      "id": "special-007",
+      "category": "special",
+      "input": "New York",
+      "canonicalTerm": "New York",
+      "expectedType": "phrase",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["纽约"]]
+    },
+    {
+      "id": "special-008",
+      "category": "special",
+      "input": "U.S.",
+      "canonicalTerm": "U.S.",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["美国"]]
+    },
+    {
+      "id": "special-009",
+      "category": "special",
+      "input": "can't",
+      "canonicalTerm": "can't",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["不能", "无法"]]
+    },
+    {
+      "id": "special-010",
+      "category": "special",
+      "input": "C++",
+      "canonicalTerm": "C++",
+      "expectedType": "word",
+      "correctionPolicy": "preserve",
+      "requiredMeaningGroups": [["C++编程语言", "C++语言"]]
+    }
+  ]
+}

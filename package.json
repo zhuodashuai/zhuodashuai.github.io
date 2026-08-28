@@ -1,0 +1,11 @@
+{
+  "name": "zhuodashuai-github-pages",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test vocab/tests/*.test.mjs tests/*.test.mjs",
+    "test:live": "node --test tests/live/provider-contract.mjs",
+    "test:vocab-data": "node --test vocab/tests/vocab-100.test.mjs",
+    "report:vocab:init": "node scripts/generate-vocab-quality-report.mjs"
+  }
+}

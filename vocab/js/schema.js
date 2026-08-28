@@ -3,6 +3,9 @@ export const SNAPSHOT_SCHEMA_VERSION = 2;
 const ENTRY_TYPES = new Set(["word", "phrase", "quote", "proverb"]);
 const ATTRIBUTION_STATES = new Set(["unverified", "candidate", "source-backed", "verified", "disputed"]);
 const RATINGS = new Set(["again", "hard", "good", "easy", null]);
+const QUALITY_STATES = new Set(["trusted", "machine-candidate", "incomplete"]);
+const LEXICAL_TOKEN = /^(?=.*[\p{Script=Latin}\p{Number}])[\p{Script=Latin}\p{Mark}\p{Number}'./+#&-]+$/u;
+const ABBREVIATION_WITH_FINAL_PERIOD = /^(?=(?:[^.]*\.){2,}$)[\p{Script=Latin}.]+$/u;
 
 function newId() {
   if (crypto.randomUUID) return crypto.randomUUID();
@@ -43,21 +46,73 @@ function nonNegativeInteger(value, fallback = 0) {
 export function cleanEnglishInput(value) {
   return String(value || "")
     .trim()
-    .replace(/[‘’]/g, "'")
-    .replace(/[“”]/g, '"')
+    .replace(/[‘’‚‛′‵ʼ❛❜]/g, "'")
+    .replace(/[“”„‟″‶❝❞]/g, '"')
     .replace(/\s+/g, " ");
 }
 
+function normalizeKeyPunctuation(value) {
+  return value
+    .normalize("NFKC")
+    .replace(/[‘’‚‛′‵ʼ❛❜]/g, "'")
+    .replace(/[“”„‟″‶❝❞]/g, '"')
+    .replace(/[\u00AD\u058A\u2010-\u2015\u2212\u2043\u2E3A\u2E3B\uFE58\uFE63\uFF0D]/g, "-")
+    .replace(/[\u200B\u200C\u200D\u2060]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isLexicalToken(value) {
+  return LEXICAL_TOKEN.test(value);
+}
+
+function unwrapLexicalBoundary(value) {
+  const pairs = new Map([
+    ['"', '"'],
+    ["'", "'"],
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"]
+  ]);
+  const closing = pairs.get(value[0]);
+  if (!closing || value.at(-1) !== closing || value.length < 3) return value;
+  const inner = value.slice(1, -1).trim();
+  const innerType = classifyEntry(inner);
+  return ["word", "phrase"].includes(innerType) ? inner : value;
+}
+
+function trimLexicalTerminalPunctuation(value) {
+  let candidate = unwrapLexicalBoundary(value);
+  if (classifyEntry(candidate) === "quote") return candidate;
+  const withoutNonPeriodTerminators = candidate
+    .replace(/^[,;:!?…]+/u, "")
+    .replace(/[,;:!?…]+$/u, "")
+    .trim();
+  if (["word", "phrase"].includes(classifyEntry(withoutNonPeriodTerminators))) {
+    candidate = withoutNonPeriodTerminators;
+  }
+
+  if (!ABBREVIATION_WITH_FINAL_PERIOD.test(candidate)) {
+    const withoutPeriods = candidate.replace(/^\.+|\.+$/g, "").trim();
+    const type = classifyEntry(withoutPeriods);
+    const compactLexical = !withoutPeriods.includes(" ") && isLexicalToken(withoutPeriods);
+    if (["word", "phrase"].includes(type) || compactLexical) candidate = withoutPeriods;
+  }
+  return candidate;
+}
+
 export function normalizeKey(value) {
-  return cleanEnglishInput(value).toLocaleLowerCase("en-US");
+  const canonical = normalizeKeyPunctuation(cleanEnglishInput(value));
+  return trimLexicalTerminalPunctuation(canonical).toLocaleLowerCase("en-US");
 }
 
 export function validateEntryInput(value) {
   const cleaned = cleanEnglishInput(value);
   if (!cleaned) throw new Error("请输入一个英文单词、短语或名言。");
   if (cleaned.length > 500) throw new Error("一次请输入不超过 500 个字符。");
-  if (!/[\p{Script=Latin}]/u.test(cleaned)) throw new Error("请输入英文内容。");
-  if (!/^[\p{Script=Latin}\p{Mark}\p{Number}\p{Punctuation}\p{Separator}]+$/u.test(cleaned)) {
+  const numericExpression = /^\p{Number}+(?:[./:-]\p{Number}+)+$/u.test(cleaned);
+  if (!/[\p{Script=Latin}]/u.test(cleaned) && !numericExpression) throw new Error("请输入英文内容。");
+  if (!/^[\p{Script=Latin}\p{Mark}\p{Number}\p{Punctuation}\p{Symbol}\p{Separator}]+$/u.test(cleaned)) {
     throw new Error("这里只接收英文及常见标点，请不要混入中文或其他文字。");
   }
   return cleaned;
@@ -65,10 +120,25 @@ export function validateEntryInput(value) {
 
 export function classifyEntry(value) {
   const cleaned = cleanEnglishInput(value);
+  if (!cleaned) return "word";
+  const canonical = normalizeKeyPunctuation(cleaned);
+  if (isLexicalToken(canonical)) return "word";
+
+  const unwrapped = canonical.match(/^(?:"([\s\S]+)"|'([\s\S]+)')$/u);
+  const body = (unwrapped?.[1] ?? unwrapped?.[2] ?? canonical).trim();
+  const singleWithoutTerminator = body.replace(/[.!?…]+$/u, "").trim();
+  if (!singleWithoutTerminator.includes(" ") && isLexicalToken(singleWithoutTerminator)) return "word";
+
   const words = cleaned.match(/[\p{Script=Latin}\p{Mark}]+(?:['-][\p{Script=Latin}\p{Mark}]+)*/gu) || [];
-  const simple = /^[\p{Script=Latin}\p{Mark}' -]+$/u.test(cleaned);
-  if (simple && words.length === 1) return "word";
-  if (simple && words.length <= 7 && !(words.length >= 3 && /^[A-Z]/.test(cleaned))) return "phrase";
+  if (unwrapped && words.length >= 2) return "quote";
+  if (words.length >= 2 && /[.!?…]["')\]}]*$/u.test(canonical)) return "quote";
+  if (words.length > 7) return "quote";
+  const phraseBody = body.replace(/^[,;:]+|[,;:]+$/g, "").trim();
+  const phraseTokens = phraseBody.split(" ").filter(Boolean);
+  if (phraseTokens.length >= 2 && phraseTokens.length <= 7
+    && phraseTokens.every((token) => isLexicalToken(token))) return "phrase";
+  if (words.length === 1) return "word";
+  if (words.length >= 2 && words.length <= 7 && !/[!?…]/u.test(canonical)) return "phrase";
   return "quote";
 }
 
@@ -103,6 +173,17 @@ export function sanitizeEntry(candidate, { existing = null, preserveId = false, 
         source: text(candidate.correction.source, 80)
       }
     : null;
+  const qualitySource = candidate.quality && typeof candidate.quality === "object"
+    ? candidate.quality
+    : (existing?.quality && typeof existing.quality === "object" ? existing.quality : null);
+  const quality = qualitySource
+    ? {
+        status: QUALITY_STATES.has(qualitySource.status) ? qualitySource.status : "incomplete",
+        source: text(qualitySource.source, 160),
+        autoSave: qualitySource.autoSave === true,
+        reason: text(qualitySource.reason, 600)
+      }
+    : null;
   const rawHistory = Array.isArray(candidate.history) ? candidate.history : (existing?.history || []);
   const history = rawHistory.slice(-60).map((event) => ({
     at: isoDate(event?.at, now),
@@ -120,6 +201,10 @@ export function sanitizeEntry(candidate, { existing = null, preserveId = false, 
     headword: text(candidate.headword || term, 500),
     entryType,
     correction,
+    quality,
+    needsAttention: typeof candidate.needsAttention === "boolean"
+      ? candidate.needsAttention
+      : Boolean(existing?.needsAttention),
     phonetic: text(candidate.phonetic, 300),
     partOfSpeech: text(candidate.partOfSpeech, 160),
     meaning: text(candidate.meaning, 4000),

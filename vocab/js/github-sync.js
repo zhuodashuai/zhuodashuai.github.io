@@ -11,6 +11,13 @@ export class SyncConflictError extends Error {
   }
 }
 
+export function isRetryableSyncError(error) {
+  if (error instanceof SyncConflictError) return false;
+  if (error?.retryable === true) return true;
+  const status = Number(error?.status);
+  return [408, 425, 429].includes(status) || status >= 500;
+}
+
 function apiHeaders() {
   if (!sessionToken) throw new Error("请先输入 GitHub 访问令牌并连接。");
   return {
@@ -82,11 +89,17 @@ function contentsUrl(config) {
 }
 
 async function githubRequest(url, options = {}) {
-  const response = await fetch(url, {
-    ...options,
-    headers: { ...apiHeaders(), ...(options.headers || {}) },
-    cache: "no-store"
-  });
+  let response;
+  try {
+    response = await fetch(url, {
+      ...options,
+      headers: { ...apiHeaders(), ...(options.headers || {}) },
+      cache: "no-store"
+    });
+  } catch (error) {
+    if (error && typeof error === "object") error.retryable = true;
+    throw error;
+  }
   let payload = null;
   try {
     payload = await response.json();
@@ -96,6 +109,7 @@ async function githubRequest(url, options = {}) {
   if (!response.ok) {
     const error = new Error(payload?.message || `GitHub 请求失败（${response.status}）。`);
     error.status = response.status;
+    error.retryable = isRetryableSyncError(error);
     throw error;
   }
   return payload;
@@ -145,7 +159,7 @@ export async function writeRemoteSnapshot(candidate, snapshot, expectedSha = "")
     throw new Error("同步快照超过 900 KB，请先拆分词库或仅使用导出备份。");
   }
   const body = {
-    message: `Sync Wordbook (${snapshot.entries?.length || 0} entries)`,
+    message: `Sync Zhuo's secret word cabinet (${snapshot.entries?.length || 0} entries)`,
     content: encodeBase64(serialized),
     branch: config.branch
   };

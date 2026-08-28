@@ -1,4 +1,4 @@
-const CACHE_NAME = "wordbook-shell-v3";
+const CACHE_NAME = "wordbook-shell-v12";
 const CACHE_PREFIX = "wordbook-shell-";
 const APP_SHELL = [
   "./",
@@ -8,15 +8,28 @@ const APP_SHELL = [
   "./styles.css",
   "./manifest.webmanifest",
   "./data/owner-wordbook.json",
+  "./data/ecdict-core.json",
   "./js/app.js",
+  "./js/core-dictionary.js",
   "./js/data.js",
   "./js/github-sync.js",
   "./js/schema.js",
   "./js/services.js",
+  "./js/settings.js",
   "./js/storage.js",
+  "./js/workflow.js",
+  "./quality/",
+  "./quality/index.html",
+  "./quality/styles.css",
+  "./quality/report.js",
+  "./quality/generated-report.json",
+  "./quality/datasets/vocab-100.json",
+  "./assets/icon.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
-  "./assets/wordbook-og.jpg"
+  "./assets/icon-maskable-192.png",
+  "./assets/icon-maskable-512.png",
+  "./assets/word-cabinet-og.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -36,10 +49,13 @@ async function networkFirst(request, fallback = "./index.html") {
   const cache = await caches.open(CACHE_NAME);
   try {
     const response = await fetch(request);
-    if (response.ok) await cache.put(request, response.clone());
-    return response;
+    if (response.ok) {
+      await cache.put(request, response.clone());
+      return response;
+    }
+    return (await cache.match(request)) || (await cache.match(fallback)) || response;
   } catch {
-    return (await cache.match(request)) || (await cache.match(fallback));
+    return (await cache.match(request)) || (await cache.match(fallback)) || Response.error();
   }
 }
 
@@ -64,6 +80,10 @@ self.addEventListener("fetch", (event) => {
   }
   if (url.pathname.endsWith("/data/owner-wordbook.json")) {
     event.respondWith(networkFirst(request, "./data/owner-wordbook.json"));
+    return;
+  }
+  if (url.pathname.endsWith("/quality/generated-report.json")) {
+    event.respondWith(networkFirst(request, "./quality/generated-report.json"));
     return;
   }
   event.respondWith(cacheFirst(request));

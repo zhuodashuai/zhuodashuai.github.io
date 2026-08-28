@@ -1,8 +1,8 @@
 {
   "id": "./?mode=personal",
-  "name": "Wordbook · 我的英语词库",
-  "short_name": "Wordbook",
-  "description": "只输入英文，自动整理释义、出处与复习计划。",
+  "name": "卓同学的秘密单词屋",
+  "short_name": "秘密单词屋",
+  "description": "只输入英文，准确整理中文释义、短语、拼写与复习计划。",
   "lang": "zh-CN",
   "dir": "ltr",
   "start_url": "./?mode=personal",
@@ -16,25 +16,37 @@
       "src": "assets/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
     {
-      "name": "我的个人词库",
+      "name": "我的秘密词库",
       "short_name": "我的词库",
       "url": "./?mode=personal#add",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "卓达帅的公开词库",
-      "short_name": "公开词库",
+      "name": "卓同学的公开收藏",
+      "short_name": "公开收藏",
       "url": "./?mode=public",
       "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
     }
