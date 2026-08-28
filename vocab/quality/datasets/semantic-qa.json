@@ -86,7 +86,7 @@
       "category": "polysemy",
       "input": "bank",
       "severity": "High",
-      "expected": {"canonicalKey": "bank", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/bæŋk/"], "senses": [{"conceptId": "financial-institution", "pos": "noun", "priority": 1}, {"conceptId": "river-side", "pos": "noun", "priority": 1}, {"conceptId": "deposit-or-rely", "pos": "verb", "priority": 2}], "forbidden": ["merge financial institution and river side into one sense"]}
+      "expected": {"canonicalKey": "bank", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/bæŋk/"], "senses": [{"conceptId": "financial-institution", "pos": "noun", "priority": 1, "englishConcepts": ["financial institution"], "chineseConcepts": ["银行", "银行机构"]}, {"conceptId": "river-side", "pos": "noun", "priority": 1, "englishConcepts": ["land beside a river", "river side"], "chineseConcepts": ["河岸", "堤岸"]}, {"conceptId": "deposit-money", "pos": "verb", "priority": 2, "englishConcepts": ["deposit money", "put money in a bank"], "chineseConcepts": ["存钱", "把钱存入银行", "存入"]}, {"conceptId": "rely-bank-on", "pos": "verb", "priority": 2, "englishConcepts": ["rely on", "depend on"], "chineseConcepts": ["依靠", "指望"]}], "forbidden": ["merge financial institution and river side into one sense", "merge depositing money and bank on into one sense"]}
     },
     {
       "id": "polysemy-charge",

@@ -91,6 +91,7 @@ describe("AI organizer", () => {
     const fallbackConfig: AppConfig = {
       ...config,
       AI_FALLBACK_PROVIDER: "anthropic",
+      ALLOW_PAID_AI_FALLBACK: "true",
       ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
       ANTHROPIC_MODEL: "claude-test-model"
     };
@@ -123,6 +124,7 @@ describe("AI organizer", () => {
       ...config,
       OPENAI_API_KEY: undefined,
       AI_FALLBACK_PROVIDER: "anthropic",
+      ALLOW_PAID_AI_FALLBACK: "true",
       ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
       ANTHROPIC_MODEL: "claude-test-model"
     };

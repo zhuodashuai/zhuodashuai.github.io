@@ -6,6 +6,7 @@ const manifest = JSON.parse(await readFile(new URL("../manifest.webmanifest", im
 const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8");
 const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf8");
+const stylesSource = await readFile(new URL("../styles.css", import.meta.url), "utf8");
 const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
 const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
 const workerConfigSource = await readFile(new URL("../../wordbook-api/wrangler.jsonc", import.meta.url), "utf8");
@@ -55,18 +56,24 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v23/);
+  assert.match(serviceWorker, /zhuo-wordbook-v35/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=23/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=35/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=23"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=23"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=35"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=35"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
   assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
   assert.match(ownerHtml, /第一阶段只为卓本人开放编辑/);
-  assert.match(ownerHtml, /OpenAI.*Claude.*备用/);
+  assert.match(ownerHtml, /Cloudflare Workers AI.*UTC 日最多 20 次 AI 整理/);
+  assert.match(ownerHtml, /第二款免费方案可用模型/);
+  assert.match(ownerHtml, /不是“永久免费”承诺/);
+  assert.match(ownerHtml, /默认生产配置.*不会切换到可能收费的引擎/);
+  assert.match(stylesSource, /\.update-banner\s*\{[^}]*top:\s*1rem[^}]*right:\s*1rem/s);
+  assert.doesNotMatch(stylesSource, /\.update-banner\s*\{[^}]*bottom:\s*1rem/s);
+  assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
   assert.match(runtimeConfigSource, /https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\//);

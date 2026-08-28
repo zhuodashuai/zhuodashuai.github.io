@@ -1,4 +1,4 @@
-import { OWNER_USER_ID, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS, type AppConfig } from "./config";
+import { AI_DAILY_REQUEST_LIMIT, OWNER_USER_ID, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS, type AppConfig } from "./config";
 import {
   readRemoteWordbook,
   revokeOAuthToken,
@@ -230,19 +230,26 @@ export class OwnerControl implements DurableObject {
       auth: { limit: 10, windowMs: 60_000 },
       callback: { limit: 20, windowMs: 60_000 },
       publish: { limit: 10, windowMs: 60_000 },
-      ai: { limit: 6, windowMs: 60_000 }
+      ai: { limit: 6, windowMs: 60_000 },
+      "ai-daily": { limit: AI_DAILY_REQUEST_LIMIT, windowMs: 24 * 60 * 60_000 }
     };
     const rule = allowed[kind];
     if (!rule) throw new ApiError(400, "invalid_internal_request", "Unknown rate kind");
     const bucket = Math.floor(Date.now() / rule.windowMs);
     const key = `rate:${kind}:${subject}:${bucket}`;
-    const current = await this.ctx.storage.get<RateRecord>(key);
-    const record: RateRecord = current && current.resetAt > Date.now()
-      ? { ...current, count: current.count + 1 }
-      : { count: 1, resetAt: (bucket + 1) * rule.windowMs };
-    await this.ctx.storage.put(key, record);
+    const record = await this.ctx.storage.transaction(async (transaction) => {
+      const current = await transaction.get<RateRecord>(key);
+      const next: RateRecord = current && current.resetAt > Date.now()
+        ? { ...current, count: current.count + 1 }
+        : { count: 1, resetAt: (bucket + 1) * rule.windowMs };
+      await transaction.put(key, next);
+      return next;
+    });
     if (record.count > rule.limit) {
-      throw new ApiError(429, "rate_limited", "操作过于频繁，请稍后再试。", { retryAfter: Math.max(1, Math.ceil((record.resetAt - Date.now()) / 1000)) });
+      const retryAfter = Math.max(1, Math.ceil((record.resetAt - Date.now()) / 1000));
+      throw kind === "ai-daily"
+        ? new ApiError(429, "free_ai_daily_limit", `为保护免费额度，今天的 ${AI_DAILY_REQUEST_LIMIT} 次 AI 整理已经用完；请在 UTC 00:00 后再试，手动草稿仍可使用。`, { retryAfter, resetAt: record.resetAt })
+        : new ApiError(429, "rate_limited", "操作过于频繁，请稍后再试。", { retryAfter });
     }
     return jsonResponse({ ok: true, remaining: rule.limit - record.count, resetAt: record.resetAt });
   }

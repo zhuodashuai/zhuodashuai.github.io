@@ -3,7 +3,9 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [cloudflareTest({
-    wrangler: { configPath: "./wrangler.jsonc" },
+    // Keep deterministic tests completely offline. Production uses the real
+    // Workers AI binding; unit tests inject a fake `AI.run` object directly.
+    wrangler: { configPath: "./wrangler.test.jsonc" },
     miniflare: {
       bindings: {
         GITHUB_APP_CLIENT_ID: "Iv1.test-client-id",

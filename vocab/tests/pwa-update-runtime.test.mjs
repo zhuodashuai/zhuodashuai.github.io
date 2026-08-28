@@ -119,7 +119,7 @@ test("Service Worker activation deletes stale wordbook caches and preserves unre
       clients: { async claim() { claimed += 1; } }
     },
     caches: {
-      async keys() { return ["zhuo-wordbook-v18", "zhuo-wordbook-v19", "zhuo-wordbook-v20", "zhuo-wordbook-v21", "zhuo-wordbook-v22", "another-app-v1"]; },
+      async keys() { return ["zhuo-wordbook-v18", "zhuo-wordbook-v22", "zhuo-wordbook-v32", "another-app-v1"]; },
       async delete(key) { deleted.push(key); return true; }
     },
     URL,
@@ -131,6 +131,6 @@ test("Service Worker activation deletes stale wordbook caches and preserves unre
   let activation;
   listeners.get("activate")({ waitUntil(promise) { activation = promise; } });
   await activation;
-  assert.deepEqual(deleted.sort(), ["zhuo-wordbook-v18", "zhuo-wordbook-v19", "zhuo-wordbook-v20", "zhuo-wordbook-v21", "zhuo-wordbook-v22"]);
+  assert.deepEqual(deleted.sort(), ["zhuo-wordbook-v18", "zhuo-wordbook-v22", "zhuo-wordbook-v32"]);
   assert.equal(claimed, 1);
 });

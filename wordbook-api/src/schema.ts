@@ -173,7 +173,7 @@ export const PublicEntrySchema = z.object({
   attributionStatus: z.enum(ATTRIBUTION_STATES),
   attributionNote: bounded(1500),
   sources: z.array(SourceSchema).max(20),
-  organizationMethod: z.enum(["manual", "local-dictionary", "ai-openai", "ai-anthropic", "mixed"]),
+  organizationMethod: z.enum(["manual", "local-dictionary", "ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]),
   createdAt: isoDate,
   updatedAt: isoDate
 }).strict().superRefine((entry, context) => {
@@ -459,7 +459,7 @@ export type PublishRequest = z.infer<typeof PublishRequestSchema>;
 export function makeEntryFromAi(
   input: string,
   organized: AiOrganized,
-  provider: "openai" | "anthropic",
+  provider: "cloudflare" | "openai" | "anthropic",
   sources: SourceRecord[],
   correctionConfidence = 0.55
 ): PublicEntry {

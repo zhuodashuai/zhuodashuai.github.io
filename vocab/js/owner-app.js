@@ -1,4 +1,4 @@
-import { getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation } from "./owner-api.js";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation } from "./owner-api.js";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,14 +17,14 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
-import { classifySyncFailure, nextRetryAt, rebaseOperation } from "./sync-logic.js";
+import { ENTRY_TYPES, createBlankEntry, findDuplicate, hasCompletedAiOrganization, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
   "owner-identity-text", "sync-dot", "sync-label", "sync-detail", "capture-form", "capture-input", "organize-button",
-  "manual-button", "capture-status", "draft-list", "retry-queue", "export-backup", "import-backup", "import-file",
+  "manual-button", "ai-service-status", "capture-status", "draft-list", "retry-queue", "export-backup", "import-backup", "import-file",
   "editor-empty", "entry-form", "editor-kicker", "editor-title", "draft-state", "correction-card", "correction-original",
   "correction-suggestion", "accept-suggestion", "keep-original", "manual-correction", "field-original-input", "field-term",
   "field-standard-form", "field-entry-type", "field-part-of-speech", "field-phonetic", "field-meaning", "field-definition",
@@ -33,7 +33,7 @@ const ids = [
   "field-source-work", "field-source-date", "field-attribution-status", "field-source-url", "field-attribution-note",
   "source-candidates", "editor-error", "save-local", "publish-button", "discard-draft", "refresh-remote", "owner-entry-count",
   "owner-search", "owner-entry-list", "conflict-dialog", "conflict-message", "conflict-fields", "conflict-use-merged",
-  "conflict-use-remote", "conflict-close", "install-button", "update-banner", "apply-update"
+  "conflict-use-remote", "conflict-close", "reorganize-current", "install-button", "update-banner", "apply-update"
 ];
 const refs = Object.fromEntries(ids.map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 const state = {
@@ -62,6 +62,18 @@ function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
 
+function editorNeedsAiCompletion(entry) {
+  if (needsAiCompletion(entry)) return true;
+  if (entry?.entryType !== "word") return false;
+  if (hasCompletedAiOrganization(entry)) return false;
+  // A migrated draft can carry a legacy/internal phonetic value that does not
+  // survive normalization into the visible editor. Judge the visible field as
+  // the final safety check so an apparently blank IPA is never treated as a
+  // complete word.
+  const pronunciations = refs.fieldPhonetic.value.normalize("NFKC").match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+  return !pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+}
+
 function hasVerifiedOwnerUi() {
   return state.session?.login === "zhuodashuai" && Number(state.session?.id) === 156042078 && Boolean(state.csrfToken);
 }
@@ -84,6 +96,28 @@ function setSyncState(kind, label, detail = "") {
   refs.syncDot.parentElement.classList.toggle("error", kind === "error");
   setStatus(refs.syncLabel, label);
   setStatus(refs.syncDetail, detail);
+}
+
+async function refreshAiStatus() {
+  try {
+    const health = await getHealth();
+    const activeProvider = health.aiEffectiveProvider || null;
+    const dailyLimit = Number(health.aiDailyRequestLimit) || 20;
+    if (activeProvider === "cloudflare") {
+      setStatus(refs.aiServiceStatus, health.paidFallbackEnabled
+        ? `当前实际使用 Cloudflare Workers AI；本站每天最多 ${dailyLimit} 次整理，但还显式启用了可能收费的备用引擎，请留意配置。`
+        : `已接通两款 Cloudflare 免费方案可用模型；本站按 UTC 日最多 ${dailyLimit} 次整理。不需要 OpenAI / Claude key，也不会自动切换到付费引擎。最终是否产生 Cloudflare 超额费用仍取决于账户套餐及同账户其他用量。`);
+      return;
+    }
+    if (activeProvider === "openai" || activeProvider === "anthropic") {
+      const fallbackNote = activeProvider !== health.aiProvider ? "备用" : "";
+      setStatus(refs.aiServiceStatus, `当前实际启用${fallbackNote}${activeProvider === "openai" ? " OpenAI" : " Claude"}，调用可能产生 API 费用。`);
+      return;
+    }
+    setStatus(refs.aiServiceStatus, "AI 当前未接通；手动草稿功能仍可正常使用。");
+  } catch {
+    setStatus(refs.aiServiceStatus, "暂时无法读取 AI 接通状态；草稿仍会先保存在本机。");
+  }
 }
 
 function showEditorError(message = "") {
@@ -429,30 +463,17 @@ async function loadRemote({ quiet = false } = {}) {
   }
 }
 
-async function openNewDraft(input, { ai = false } = {}) {
-  requireVerifiedOwnerUi();
-  await flushPendingDraftSave();
-  const cleaned = validateEnglishInput(input);
-  const blank = createBlankEntry(cleaned);
-  const duplicate = state.snapshot ? findDuplicate(state.snapshot.entries, blank) : null;
-  if (duplicate) {
-    const draft = await saveDraft(createDraft(duplicate, { mode: "edit", baseEntry: duplicate }));
-    fillEditor(draft);
-    setStatus(refs.captureStatus, `“${cleaned}” 已存在，没有重复创建；已打开合并编辑草稿。`);
-    return;
-  }
-  let draft = await saveDraft(createDraft(blank));
+async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } = {}) {
   const aiBaseline = structuredClone(draft.value);
   fillEditor(draft);
-  setStatus(refs.captureStatus, "空白草稿已先保存在本机。 ");
-  if (!ai) return;
   if (!state.session) {
     setStatus(refs.captureStatus, "当前离线且无法验证会话；空白草稿已保存，联网并重新验证后再使用 AI。 ");
     return;
   }
   refs.organizeButton.disabled = true;
   refs.manualButton.disabled = true;
-  setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，刚才的空白草稿仍然保留。 ");
+  refs.reorganizeCurrent.disabled = true;
+  setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
   try {
     const result = await organizeWithAi(cleaned, state.csrfToken);
     if (state.currentDraft?.id !== draft.id) return;
@@ -461,25 +482,21 @@ async function openNewDraft(input, { ai = false } = {}) {
     if (!latestDraft || state.currentDraft?.id !== draft.id) return;
     const aiEntry = validatePublicEntry(result.entry);
     const currentEntry = latestDraft.value;
-    const mergedEntry = structuredClone(currentEntry);
-    let preservedManualChanges = false;
-    for (const [key, candidateValue] of Object.entries(aiEntry)) {
-      if (["originalInput", "createdAt", "updatedAt"].includes(key)) continue;
-      if (JSON.stringify(currentEntry[key]) === JSON.stringify(aiBaseline[key])) mergedEntry[key] = structuredClone(candidateValue);
-      else preservedManualChanges = true;
-    }
+    const mergeResult = mergeAiCandidate(aiBaseline, currentEntry, aiEntry, { fillMissingOnly });
+    const mergedEntry = mergeResult.merged;
+    const preservedManualChanges = mergeResult.preservedManualChanges;
     mergedEntry.originalInput = currentEntry.originalInput;
     mergedEntry.createdAt = currentEntry.createdAt;
     mergedEntry.updatedAt = isoNow();
     draft = {
       ...latestDraft,
-      entryId: mergedEntry.id,
+      entryId: latestDraft.entryId,
       value: mergedEntry,
       updatedAt: isoNow()
     };
     state.currentDraft = await saveDraft(draft);
     fillEditor(state.currentDraft);
-    const providerName = result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : "AI";
+    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : "AI";
     setStatus(refs.captureStatus, [
       ...(result.warnings || []),
       preservedManualChanges
@@ -487,11 +504,52 @@ async function openNewDraft(input, { ai = false } = {}) {
         : `${providerName} 候选已写入草稿，请核对后再发布。`
     ].join(" "));
   } catch (error) {
-    setStatus(refs.captureStatus, `${error.message || "AI 暂时不可用"} 空白草稿仍可手动填写。`);
+    const message = error.message || "AI 暂时不可用";
+    setStatus(refs.captureStatus, /草稿/.test(message) ? message : `${message} 空白草稿仍可手动填写。`);
   } finally {
     refs.organizeButton.disabled = false;
     refs.manualButton.disabled = false;
+    refs.reorganizeCurrent.disabled = false;
   }
+}
+
+async function openNewDraft(input, { ai = false } = {}) {
+  requireVerifiedOwnerUi();
+  await flushPendingDraftSave();
+  const cleaned = validateEnglishInput(input);
+  const blank = createBlankEntry(cleaned);
+  const localDrafts = await listDrafts();
+  const duplicate = state.snapshot ? findDuplicate(state.snapshot.entries, blank) : null;
+  if (duplicate) {
+    const existing = localDrafts.find((candidate) => candidate.mode === "edit"
+      && candidate.entryId === duplicate.id && candidate.localState !== "published");
+    const draft = existing || await saveDraft(createDraft(duplicate, { mode: "edit", baseEntry: duplicate }));
+    fillEditor(draft);
+    if (ai && editorNeedsAiCompletion(draft.value)) {
+      setStatus(refs.captureStatus, `已找到“${cleaned}”的未完成编辑草稿，正在只补空白字段；不会新增第二条公开词条。`);
+      await organizeDraftWithAi(draft, cleaned, { fillMissingOnly: true });
+      return;
+    }
+    setStatus(refs.captureStatus, existing
+      ? `“${cleaned}”的公开词条已存在；已打开现有编辑草稿，不会新增第二条公开记录。`
+      : `“${cleaned}”的公开词条已存在；已建立编辑草稿，不会新增第二条公开记录。`);
+    return;
+  }
+  const localDuplicate = localDrafts.find((candidate) => findDuplicate([candidate.value], blank));
+  if (localDuplicate) {
+    fillEditor(localDuplicate);
+    if (ai && editorNeedsAiCompletion(localDuplicate.value)) {
+      setStatus(refs.captureStatus, `已找到“${cleaned}”的未完成草稿，正在只补空白字段；不会新增第二条草稿。`);
+      await organizeDraftWithAi(localDuplicate, cleaned, { fillMissingOnly: true });
+      return;
+    }
+    setStatus(refs.captureStatus, `“${cleaned}” 已有本地草稿，没有重复创建，也没有重复消耗 AI 额度；如需刷新内容，请点击“重新用 AI 整理”。`);
+    return;
+  }
+  const draft = await saveDraft(createDraft(blank));
+  fillEditor(draft);
+  setStatus(refs.captureStatus, "空白草稿已先保存在本机。 ");
+  if (ai) await organizeDraftWithAi(draft, cleaned);
 }
 
 async function queueCurrentPublish() {
@@ -688,6 +746,7 @@ async function verifySession({ forceGate = false } = {}) {
     refs.ownerWorkspace.inert = false;
     refs.logoutButton.hidden = false;
     refs.organizeButton.disabled = false;
+    await refreshAiStatus();
     await renderDrafts();
     await loadRemote().catch(() => {});
     const quarantineCount = await getQuarantineCount();
@@ -757,6 +816,17 @@ refs.manualCorrection.addEventListener("click", () => {
   scheduleDraftSave();
 });
 refs.saveLocal.addEventListener("click", () => persistCurrentDraft({ announce: true }).catch((error) => showEditorError(error.message)));
+refs.reorganizeCurrent.addEventListener("click", async () => {
+  try {
+    requireVerifiedOwnerUi();
+    await flushPendingDraftSave();
+    const draft = state.currentDraft && await getDraft(state.currentDraft.id);
+    if (!draft) throw new Error("请先打开一份草稿。");
+    await organizeDraftWithAi(draft, validateEnglishInput(draft.value.originalInput || draft.value.term));
+  } catch (error) {
+    setStatus(refs.captureStatus, error.message || "AI 暂时无法重新整理当前草稿。");
+  }
+});
 refs.entryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   refs.publishButton.disabled = true;

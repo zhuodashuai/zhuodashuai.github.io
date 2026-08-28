@@ -8,7 +8,7 @@
 - `?mode=personal` 不再代表身份，也不能解锁编辑功能。
 - 所有者管理页由 `wordbook-api/` 的 Cloudflare Worker 同源托管。
 - 只有 GitHub App OAuth 实际验证为 `zhuodashuai` 且 user ID 为 `156042078` 时，服务端才授予添加、编辑、删除、AI 整理和发布权限。
-- GitHub token、OAuth client secret、OpenAI/Anthropic key只存在于服务端；前端不提供 PAT 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
+- GitHub token、OAuth client secret和任何可选的 OpenAI/Anthropic key只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
 
 ## 数据与离线
 
@@ -20,11 +20,13 @@
 
 ## AI 与出处
 
-- 管理端只发送当前英文输入给服务端 AI provider；默认 OpenAI，配置后可在主引擎失败时自动转到 Claude。
-- 两个 provider 共用同一份严格结构和语义质量校验；AI 输出只进入草稿，不能绕过卓的人工核对直接发布。
+- 默认使用 Worker 自带的 Cloudflare Workers AI binding，无需 OpenAI/Claude API key。首轮由 `@cf/zai-org/glm-4.7-flash` 整理；若结果未通过服务端质量闸门，唯一一次重试会换成 `@cf/google/gemma-4-26b-a4b-it`。两者都属于当前 Workers Free 可用模型并共享账户 allocation；生产配置不设付费 fallback，且整个 Owner 账户每 UTC 日最多 20 次 AI 整理，额度不可用时只保留本地草稿。
+- 上述应用上限控制本站请求，但不能感知同一 Cloudflare 账户中其他 Worker 的用量；Workers Paid 账户仍可能在免费 allocation 之外产生 Cloudflare 用量费用。严格零超额费用还需要账户保持 Workers Free 或使用账户侧预算控制。
+- Cloudflare 路径先读取完整英文词条对应的本地 ECDICT 证据，再让模型做分义项、中文组织和例句补充。没有本地证据时会显示更强的人工复核警告。
+- Cloudflare、OpenAI 和 Claude 共用同一份严格结构和语义质量校验；AI 输出只进入草稿，不能绕过卓的人工核对直接发布。OpenAI/Claude 只有在主动改配置时才会使用，并可能产生 API 费用。
 - 拼写更正始终是建议；`recieve → receive` 必须由卓选择采用、保留或手动修改。
 - `jab at` 作为完整短语处理，不拆成 `jab`。
-- 名言与谚语使用英文来源搜索；只能标记 `verified`、`candidate`、`unverified` 或 `disputed`。没有可复查来源时作者、作品、年份和 URL 保持空白。
+- 名言与谚语只能标记 `verified`、`candidate`、`unverified` 或 `disputed`。Cloudflare 默认路径没有实时网页证据，因此作者、作品、年份和 URL 强制保持空白；只有实际取得可复查来源后才允许填写候选出处。
 
 ## 验证
 

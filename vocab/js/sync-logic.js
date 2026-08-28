@@ -6,6 +6,42 @@ function equal(left, right) {
   return JSON.stringify(left) === JSON.stringify(right);
 }
 
+function blankDraftValue(value) {
+  return value == null
+    || (typeof value === "string" && !value.trim())
+    || (Array.isArray(value) && value.length === 0);
+}
+
+export function mergeAiCandidate(baseline, current, candidate, { fillMissingOnly = false } = {}) {
+  const merged = structuredClone(current);
+  let preservedManualChanges = false;
+  for (const [key, candidateValue] of Object.entries(candidate)) {
+    // AI may suggest content, but it never owns the identity or concurrency
+    // metadata of either a new local draft or an existing GitHub entry.
+    if (["id", "revision", "normalized", "originalInput", "createdAt", "updatedAt"].includes(key)) continue;
+    const unchanged = equal(current[key], baseline[key]);
+    // Older local drafts can represent one empty field as undefined while a
+    // fresh schema-normalized save represents it as "" or []. Treat those as
+    // the same empty baseline, but never overwrite a field the owner cleared
+    // after starting the AI request.
+    const equivalentEmptyBaseline = blankDraftValue(current[key]) && blankDraftValue(baseline[key]);
+    if (fillMissingOnly) {
+      if (key === "organizationMethod") continue;
+      if (key === "correction") {
+        const ownerDecided = ["accepted", "kept"].includes(current.correction?.status);
+        if (!ownerDecided && unchanged) merged[key] = structuredClone(candidateValue);
+        else if (!equal(current[key], candidateValue)) preservedManualChanges = true;
+        continue;
+      }
+      if (equivalentEmptyBaseline) merged[key] = structuredClone(candidateValue);
+      else if (!equal(current[key], candidateValue)) preservedManualChanges = true;
+    } else if (unchanged || equivalentEmptyBaseline) merged[key] = structuredClone(candidateValue);
+    else preservedManualChanges = true;
+  }
+  if (fillMissingOnly) merged.organizationMethod = preservedManualChanges ? "mixed" : candidate.organizationMethod;
+  return { merged, preservedManualChanges };
+}
+
 export function threeWayMergeEntry(base, local, remote) {
   if (!base || !local || !remote) return { merged: local, conflicts: [{ path: "$", base, local, remote }] };
   const immutable = new Set(["id", "createdAt", "updatedAt", "revision", "normalized"]);

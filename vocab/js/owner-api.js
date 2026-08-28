@@ -54,6 +54,10 @@ export function getSession() {
   return request("/session");
 }
 
+export function getHealth() {
+  return request("/health");
+}
+
 export function logout(csrfToken) {
   return request("/auth/logout", { method: "POST", csrfToken, body: {} });
 }

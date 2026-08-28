@@ -98,12 +98,45 @@ describe("worker API integration", () => {
   it("serves health and hardened static owner assets", async () => {
     const health = await api("/api/v1/health");
     expect(health.status).toBe(200);
-    expect(await health.json()).toMatchObject({ ok: true, ownerAuthConfigured: true, aiConfigured: true });
+    expect(await health.json()).toMatchObject({
+      ok: true,
+      version: "2.2.0",
+      ownerAuthConfigured: true,
+      aiConfigured: true,
+      aiEffectiveProvider: "openai",
+      aiAccessMode: "provider-api-billing",
+      aiDailyRequestLimit: 20
+    });
     const asset = await api("/owner.html");
     expect(asset.status).toBe(200);
     expect(asset.headers.get("x-frame-options")).toBe("DENY");
     expect(asset.headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
     expect(asset.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+  });
+
+  it("enforces one account-wide UTC-day ceiling for free AI requests", async () => {
+    const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+    const request = (subject = "zhuo-owner-account") => stub.fetch("https://owner.internal/rate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subject, kind: "ai-daily" })
+    });
+    for (let index = 0; index < 20; index += 1) {
+      expect((await request()).status, `request ${index + 1}`).toBe(200);
+    }
+    const blocked = await request();
+    expect(blocked.status).toBe(429);
+    expect(await blocked.json()).toMatchObject({
+      error: {
+        code: "free_ai_daily_limit",
+        message: expect.stringContaining("20 次 AI 整理"),
+        details: { retryAfter: expect.any(Number), resetAt: expect.any(Number) }
+      }
+    });
+
+    const concurrent = await Promise.all(Array.from({ length: 25 }, () => request("zhuo-owner-concurrent")));
+    expect(concurrent.filter((response) => response.status === 200)).toHaveLength(20);
+    expect(concurrent.filter((response) => response.status === 429)).toHaveLength(5);
   });
 
   it("fails closed for unauthenticated session and publish requests", async () => {

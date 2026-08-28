@@ -4,11 +4,12 @@ import {
   entryLookupKeys,
   createBlankEntry,
   findDuplicate,
+  needsAiCompletion,
   parsePublicSnapshot,
   safeHttpsUrl,
   validatePublicEntry
 } from "../js/wordbook-schema.js";
-import { classifySyncFailure, nextRetryAt, rebaseOperation, threeWayMergeEntry } from "../js/sync-logic.js";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation, threeWayMergeEntry } from "../js/sync-logic.js";
 
 function entry(term = "jab at", overrides = {}) {
   const blank = createBlankEntry(term);
@@ -20,6 +21,75 @@ test("v3 browser schema keeps jab at whole and rejects unknown fields", () => {
   assert.equal(value.entryType, "phrase");
   assert.equal(value.standardForm, "jab at");
   assert.throws(() => validatePublicEntry({ ...value, html: "<img onerror=alert(1)>" }), /未知字段/);
+});
+
+test("v3 browser schema accepts a Cloudflare-organized draft", () => {
+  const value = entry("hip", { organizationMethod: "ai-cloudflare" });
+  assert.equal(value.organizationMethod, "ai-cloudflare");
+});
+
+test("AI completion detection retries incomplete words but preserves complete duplicates", () => {
+  const blankHip = createBlankEntry("hip");
+  assert.equal(needsAiCompletion(blankHip), true);
+  const completeHip = entry("hip", {
+    phonetic: "/hɪp/",
+    definition: "The side of the body below the waist.",
+    senses: [{
+      partOfSpeech: "noun", meaningZh: "髋部", definitionEn: "The side of the body below the waist.",
+      usageNotes: "", register: "neutral", collocations: [],
+      examples: [{ en: "She hurt her hip.", zh: "她伤到了髋部。" }], confusables: []
+    }]
+  });
+  assert.equal(needsAiCompletion(completeHip), false);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "\u200b" }), true);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "/\u200b/" }), true);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "hip" }), true);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "", organizationMethod: "ai-cloudflare" }), false);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "", organizationMethod: "mixed" }), false);
+  assert.equal(needsAiCompletion({ ...completeHip, phonetic: "", organizationMethod: "manual" }), true);
+  for (const entryType of ["quote", "proverb", "sentence"]) {
+    const completeNonLexical = entry("Knowledge is power.", {
+      entryType,
+      definition: "A complete non-lexical learning entry.",
+      senses: [],
+      phonetic: ""
+    });
+    assert.equal(needsAiCompletion(completeNonLexical), false, `${entryType} does not require lexical senses`);
+  }
+  assert.equal(needsAiCompletion({ ...completeHip, entryType: "phrase", senses: [] }), true);
+});
+
+test("AI fills schema-equivalent blank legacy fields without overwriting edits made in flight", () => {
+  const baseline = { id: "stable-id", revision: 4, phonetic: undefined, meaning: "old", collocations: [] };
+  const current = { id: "stable-id", revision: 4, phonetic: "", meaning: "owner edit", collocations: [] };
+  const candidate = { id: "ai-generated-id", revision: 1, phonetic: "/hɪp/", meaning: "AI replacement", collocations: ["hip joint"] };
+  const result = mergeAiCandidate(baseline, current, candidate);
+  assert.equal(result.merged.id, "stable-id");
+  assert.equal(result.merged.revision, 4);
+  assert.equal(result.merged.phonetic, "/hɪp/");
+  assert.equal(result.merged.meaning, "owner edit");
+  assert.deepEqual(result.merged.collocations, ["hip joint"]);
+  assert.equal(result.preservedManualChanges, true);
+});
+
+test("automatic AI completion fills blanks without replacing earlier manual content", () => {
+  const baseline = {
+    id: "stable-id", revision: 4, meaning: "卓手工释义", definition: "", phonetic: "", senses: [],
+    correction: { status: "exact" }, organizationMethod: "manual"
+  };
+  const candidate = {
+    id: "ai-id", revision: 1, meaning: "AI释义", definition: "AI definition", phonetic: "/hɪp/",
+    senses: [{ partOfSpeech: "noun", meaningZh: "髋部" }], correction: { status: "exact", source: "ai" },
+    organizationMethod: "ai-cloudflare"
+  };
+  const result = mergeAiCandidate(baseline, structuredClone(baseline), candidate, { fillMissingOnly: true });
+  assert.equal(result.merged.id, "stable-id");
+  assert.equal(result.merged.meaning, "卓手工释义");
+  assert.equal(result.merged.definition, "AI definition");
+  assert.equal(result.merged.phonetic, "/hɪp/");
+  assert.equal(result.merged.senses.length, 1);
+  assert.equal(result.merged.organizationMethod, "mixed");
+  assert.equal(result.preservedManualChanges, true);
 });
 
 test("v3 browser schema migrates the real legacy shape without accepting schema zero", () => {

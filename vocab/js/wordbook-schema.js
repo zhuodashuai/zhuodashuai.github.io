@@ -149,7 +149,7 @@ export function validatePublicEntry(candidate) {
   const attributionStatus = string(source.attributionStatus, "出处状态", 30, { required: true });
   if (!ATTRIBUTION_STATES.includes(attributionStatus)) throw new Error("出处状态不受支持。");
   const organizationMethod = string(source.organizationMethod, "整理方式", 30, { required: true });
-  if (!["manual", "local-dictionary", "ai-openai", "ai-anthropic", "mixed"].includes(organizationMethod)) throw new Error("整理方式不受支持。");
+  if (!["manual", "local-dictionary", "ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"].includes(organizationMethod)) throw new Error("整理方式不受支持。");
   const term = string(source.term, "英文词条", 2000, { required: true });
   validateEnglishInput(term);
   const id = string(source.id, "词条编号", 180, { required: true });
@@ -347,6 +347,32 @@ export function createBlankEntry(input) {
     attributionStatus: "unverified", attributionNote: "", sources: [], organizationMethod: "manual",
     createdAt: now, updatedAt: now
   };
+}
+
+export function hasCompletedAiOrganization(entry) {
+  return ["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"].includes(entry?.organizationMethod);
+}
+
+export function needsAiCompletion(entry) {
+  if (!entry || typeof entry !== "object") return true;
+  const lexicalTypes = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
+  const missingRequiredSenses = lexicalTypes.has(entry.entryType)
+    && (!Array.isArray(entry.senses) || entry.senses.length === 0);
+  const missingCore = !String(entry.meaning || "").trim()
+    || !String(entry.definition || "").trim()
+    || missingRequiredSenses;
+  const phonetic = String(entry.phonetic || "").normalize("NFKC");
+  const pronunciations = phonetic.match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+  const hasDelimitedPronunciation = pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+  // The organizer is explicitly allowed to leave uncertain IPA blank. Once an
+  // AI pass has otherwise completed the entry, do not burn another request on
+  // every duplicate lookup just to ask for the same uncertain pronunciation.
+  // Manual and migrated local entries still request completion when IPA is
+  // missing so older drafts can be improved.
+  const lexicalWordNeedsPronunciation = entry.entryType === "word"
+    && !hasDelimitedPronunciation
+    && !hasCompletedAiOrganization(entry);
+  return missingCore || lexicalWordNeedsPronunciation;
 }
 
 export function buildPublicSnapshot(entries, { lastMutationId = "" } = {}) {

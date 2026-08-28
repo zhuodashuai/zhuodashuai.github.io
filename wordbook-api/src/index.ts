@@ -1,5 +1,15 @@
 import { organizeEntry } from "./ai";
-import { OAUTH_STATE_TTL_SECONDS, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS } from "./config";
+import {
+  aiProviderConfigured,
+  aiProviderOrder,
+  AI_DAILY_REQUEST_LIMIT,
+  effectiveAiProvider,
+  OAUTH_STATE_TTL_SECONDS,
+  readConfig,
+  requireOwnerSecrets,
+  SESSION_TTL_SECONDS,
+  type AiProvider
+} from "./config";
 import {
   createAuthorizationUrl,
   exchangeOAuthCode,
@@ -7,7 +17,7 @@ import {
   revokeOAuthToken,
   verifyOwnerAndRepository
 } from "./github";
-import { PublishRequestSchema } from "./schema";
+import { PublishRequestSchema, validateEnglishInput } from "./schema";
 import {
   ApiError,
   assertSameOriginWrite,
@@ -182,9 +192,13 @@ async function organize(request: Request, env: Env): Promise<Response> {
   const session = await sessionContext(request);
   const csrfToken = csrfValue(request);
   await controlCall(env, "/session/assert", { sessionHash: session.hash, csrfToken });
-  await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
   const body = await readJsonBody(request, 8 * 1024);
-  const input = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).input : undefined;
+  const rawInput = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).input : undefined;
+  const input = validateEnglishInput(rawInput);
+  await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
+  // This account-wide guard is deliberately independent of browser sessions.
+  // Its UTC-day bucket aligns with Cloudflare's documented daily reset.
+  await controlCall(env, "/rate", { subject: "zhuo-owner-account", kind: "ai-daily" });
   return jsonResponse(await organizeEntry(input, config));
 }
 
@@ -230,20 +244,38 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
   const path = new URL(request.url).pathname;
   if (path === `${API_PREFIX}/health` && request.method === "GET") {
     const config = readConfig(env);
-    const providerConfigured = (provider: "openai" | "anthropic" | undefined) => provider === "openai"
-      ? Boolean(config.OPENAI_API_KEY)
-      : provider === "anthropic"
-        ? Boolean(config.ANTHROPIC_API_KEY && config.ANTHROPIC_MODEL)
-        : false;
+    const fallback = config.AI_FALLBACK_PROVIDER;
+    const paidFallbackEnabled = config.ALLOW_PAID_AI_FALLBACK === "true"
+      && (fallback === "openai" || fallback === "anthropic");
+    const effectiveProvider = effectiveAiProvider(config);
+    const allowedProviders = aiProviderOrder(config);
+    const providerModel = (provider: AiProvider | null) => provider === "cloudflare"
+      ? config.CLOUDFLARE_AI_MODEL || "@cf/zai-org/glm-4.7-flash"
+      : provider === "openai"
+        ? config.OPENAI_MODEL || null
+        : provider === "anthropic"
+          ? config.ANTHROPIC_MODEL || null
+          : null;
     return jsonResponse({
       ok: true,
-      version: "2.0.0",
+      version: "2.2.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
-      aiFallbackProvider: config.AI_FALLBACK_PROVIDER || null,
-      aiConfigured: providerConfigured(config.AI_PROVIDER) || providerConfigured(config.AI_FALLBACK_PROVIDER),
-      aiPrimaryConfigured: providerConfigured(config.AI_PROVIDER),
-      aiFallbackConfigured: providerConfigured(config.AI_FALLBACK_PROVIDER)
+      aiEffectiveProvider: effectiveProvider,
+      aiModel: providerModel(effectiveProvider),
+      aiRetryModel: effectiveProvider === "cloudflare"
+        ? config.CLOUDFLARE_AI_RETRY_MODEL || "@cf/google/gemma-4-26b-a4b-it"
+        : null,
+      aiAccessMode: effectiveProvider === "cloudflare"
+        ? "cloudflare-account-quota"
+        : effectiveProvider ? "provider-api-billing" : "unavailable",
+      aiFreeRetryConfigured: effectiveProvider === "cloudflare" && Boolean(config.AI),
+      aiFallbackProvider: fallback && allowedProviders.includes(fallback) ? fallback : null,
+      paidFallbackEnabled,
+      aiConfigured: Boolean(effectiveProvider),
+      aiPrimaryConfigured: aiProviderConfigured(config.AI_PROVIDER, config),
+      aiFallbackConfigured: Boolean(fallback && allowedProviders.includes(fallback) && aiProviderConfigured(fallback, config)),
+      aiDailyRequestLimit: AI_DAILY_REQUEST_LIMIT
     });
   }
   if (path === `${API_PREFIX}/auth/login` && request.method === "GET") return login(request, env);

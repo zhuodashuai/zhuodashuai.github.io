@@ -93,6 +93,18 @@ function organizedEntry(input) {
       }
     ];
   }
+  if (!entry.senses.length) {
+    entry.senses = [{
+      partOfSpeech: entry.partOfSpeech || "expression",
+      meaningZh: entry.meaning,
+      definitionEn: entry.definition,
+      usageNotes: entry.usage,
+      register: "neutral",
+      collocations: [],
+      examples: [{ en: entry.exampleEn, zh: entry.exampleZh }],
+      confusables: []
+    }];
+  }
   if (lower === "recieve") {
     entry.standardForm = "receive";
     entry.correction = { status: "suggested", original: "recieve", suggestion: "receive", chosen: "recieve", confidence: .99, source: "e2e-ai" };
@@ -104,12 +116,12 @@ function organizedEntry(input) {
     entry.attributionStatus = "unverified";
     entry.attributionNote = "出处未核验；E2E 不提供虚构作者。";
   }
-  entry.organizationMethod = "ai-openai";
+  entry.organizationMethod = "ai-cloudflare";
   return validatePublicEntry(entry);
 }
 
 async function api(request, response, url) {
-  if (url.pathname === "/api/v1/health" && request.method === "GET") return json(response, 200, { ok: true, ownerAuthConfigured: true, aiProvider: "openai", aiConfigured: true });
+  if (url.pathname === "/api/v1/health" && request.method === "GET") return json(response, 200, { ok: true, ownerAuthConfigured: true, aiProvider: "cloudflare", aiEffectiveProvider: "cloudflare", aiModel: "@cf/zai-org/glm-4.7-flash", aiRetryModel: "@cf/google/gemma-4-26b-a4b-it", aiAccessMode: "cloudflare-account-quota", aiConfigured: true, aiPrimaryConfigured: true, aiFreeRetryConfigured: true, paidFallbackEnabled: false, aiDailyRequestLimit: 20 });
   if (url.pathname === "/api/v1/auth/login" && request.method === "GET") {
     response.writeHead(302, { Location: "/owner.html?login=ok", "Set-Cookie": "e2e_auth=owner; Path=/; HttpOnly; SameSite=Lax" });
     return response.end();
@@ -136,7 +148,7 @@ async function api(request, response, url) {
     const entry = organizedEntry(payload.input);
     const warnings = entry.correction.status === "suggested" ? ["拼写只作为建议，发布前请选择。"] : [];
     if (entry.entryType === "quote") warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");
-    return json(response, 200, { entry, provider: "openai", warnings });
+    return json(response, 200, { entry, provider: "cloudflare", warnings });
   }
   if (url.pathname === "/api/v1/owner/publish" && request.method === "POST") {
     const payload = await body(request);

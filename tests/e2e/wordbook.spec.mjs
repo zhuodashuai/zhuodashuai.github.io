@@ -27,6 +27,8 @@ async function loginOwner(page) {
   await page.getByRole("link", { name: "使用 GitHub 登录" }).click();
   await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
   await expect(page.getByText(/已验证 GitHub @zhuodashuai/)).toBeVisible();
+  await expect(page.locator("#ai-service-status")).toContainText("UTC 日最多 20 次");
+  await expect(page.locator("#ai-service-status")).toContainText("不会自动切换到付费引擎");
 }
 
 async function addWithAi(page, input) {
@@ -93,14 +95,66 @@ test("卓登录后添加 jab at、发布、刷新保留并防止重复", async (
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("jab at");
   await expect(page.getByRole("combobox", { name: "类型", exact: true })).toHaveValue("phrase");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/猛戳/);
+  await context.addCookies([{ name: "e2e_ai_fail", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await page.getByLabel("英文内容").fill("jab at");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.locator("#capture-status")).toContainText("已有本地草稿，没有重复创建");
+  await expect(page.locator("#capture-status")).toContainText("没有重复消耗 AI 额度");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.reload();
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.getByLabel("英文内容").fill("jab at");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
-  await expect(page.locator("#capture-status")).toContainText("已存在，没有重复创建");
+  await expect(page.locator("#capture-status")).toContainText("已建立编辑草稿");
+  await expect(page.locator("#capture-status")).toContainText("不会新增第二条公开记录");
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.locator("#capture-status")).toContainText("已打开现有编辑草稿");
+  await expect(page.locator("#draft-list > button")).toHaveCount(2);
+});
+
+test("顶部 AI 会补全同一份未完成草稿，完整后重复输入不再消耗额度", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let aiRequestCount = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+  });
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("hip");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
+  await page.getByLabel("中文释义", { exact: true }).fill("卓手工释义");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓手工释义");
+  await expect(page.getByLabel("词性", { exact: true })).toHaveValue("noun · adjective");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  expect(aiRequestCount).toBe(1);
+
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.locator("#capture-status")).toContainText("没有重复消耗 AI 额度");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  expect(aiRequestCount).toBe(1);
+});
+
+test("重新整理已发布词条时保留远端身份并正常更新而不是新增", async ({ page }) => {
+  await loginOwner(page);
+  const beforePayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
+  const beforeEntry = beforePayload.snapshot.entries.find((entry) => entry.term === "jab at");
+  await page.locator(".owner-entry-row", { hasText: "jab at" }).getByRole("button", { name: "编辑" }).click();
+  await page.getByRole("button", { name: "重新用 AI 整理" }).click();
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/猛戳/);
+  await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await expect(page.locator(".owner-entry-row", { hasText: "jab at" })).toHaveCount(1);
+  const afterPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
+  const afterEntry = afterPayload.snapshot.entries.find((entry) => entry.term === "jab at");
+  expect(afterEntry.id).toBe(beforeEntry.id);
+  expect(afterEntry.revision).toBe(beforeEntry.revision + 1);
 });
 
 test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、发布和标点去重", async ({ context, page }) => {
@@ -121,7 +175,8 @@ test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、�
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.getByLabel("英文内容").fill("HIP!");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
-  await expect(page.locator("#capture-status")).toContainText("已存在，没有重复创建");
+  await expect(page.locator("#capture-status")).toContainText("公开词条已存在");
+  await expect(page.locator("#capture-status")).toContainText("不会新增第二条公开记录");
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.goto("/");
   await page.getByLabel("搜索英文、中文、标签或作者").fill("hip");
@@ -320,7 +375,7 @@ test("恶意 HTML 仅作为文本显示，PWA 条件成立", async ({ page }) =>
   await page.goto("/");
   await page.getByLabel("搜索英文、中文、标签或作者").fill("xssword");
   await page.getByRole("button", { name: "查看 xssword 的完整词条" }).click();
-  await expect(page.getByRole("dialog").getByText(/<img src=x onerror=window.__xss=1>/)).toBeVisible();
+  await expect(page.getByRole("dialog").getByText(/<img src=x onerror=window.__xss=1>/).first()).toBeVisible();
   expect(await page.evaluate(() => window.__xss)).toBe(0);
   expect(await page.evaluate(async () => (await navigator.serviceWorker.ready).scope)).toBe("http://127.0.0.1:4187/");
   const manifest = await page.evaluate(async () => fetch(document.querySelector('link[rel="manifest"]').href).then((response) => response.json()));

@@ -1,17 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "zhuo-wordbook-api",
+  "name": "zhuo-wordbook-api-test",
   "main": "src/index.ts",
   "compatibility_date": "2026-08-27",
-  "workers_dev": true,
-  "observability": { "enabled": true },
   "assets": {
     "directory": "../vocab",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
     "run_worker_first": true
   },
-  "ai": { "binding": "AI" },
   "vars": {
     "PUBLIC_SITE_URL": "https://zhuodashuai.github.io/vocab/",
     "GITHUB_OWNER": "zhuodashuai",
@@ -20,9 +17,8 @@
     "GITHUB_REPOSITORY_ID": "1309360291",
     "GITHUB_BRANCH": "main",
     "GITHUB_WORDBOOK_PATH": "vocab/data/owner-wordbook.json",
-    "AI_PROVIDER": "cloudflare",
-    "CLOUDFLARE_AI_MODEL": "@cf/zai-org/glm-4.7-flash",
-    "CLOUDFLARE_AI_RETRY_MODEL": "@cf/google/gemma-4-26b-a4b-it"
+    "AI_PROVIDER": "openai",
+    "OPENAI_MODEL": "gpt-5.6-terra"
   },
   "durable_objects": {
     "bindings": [
