@@ -72,6 +72,99 @@ export function normalizeEnglish(value) {
   return canonicalizeLookupInput(value).toLocaleLowerCase("en-US");
 }
 
+const CIRCLED_NUMBER_START = 0x2460;
+const ENGLISH_PART_OF_SPEECH_WORDS = new Set([
+  "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "determiner",
+  "article", "interjection", "auxiliary", "modal", "participle", "infinitive", "gerund", "phrasal",
+  "phrase", "idiom", "collocation", "countable", "uncountable", "transitive", "intransitive", "plural",
+  "singular", "proper", "and"
+]);
+
+function circledNumber(index) {
+  return String.fromCodePoint(CIRCLED_NUMBER_START + index);
+}
+
+function cleanMeaningItem(value, { stripTrailingSeparator = false } = {}) {
+  const text = String(value || "").trim();
+  return stripTrailingSeparator ? text.replace(/[；;]\s*$/u, "").trim() : text;
+}
+
+function parseCircledMeaning(value) {
+  const text = String(value || "").trim();
+  if (!text) return null;
+  const matches = [...text.matchAll(/[①-⑳]/gu)];
+  if (!matches.length || text.slice(0, matches[0].index).trim()) return null;
+  if (matches.length > 20 || matches.some((match, index) => match[0].codePointAt(0) !== CIRCLED_NUMBER_START + index)) return null;
+  const items = matches.map((match, index) => cleanMeaningItem(
+    text.slice(match.index + match[0].length, matches[index + 1]?.index ?? text.length),
+    { stripTrailingSeparator: index < matches.length - 1 }
+  ));
+  return items.every(Boolean) ? items : null;
+}
+
+function parseArabicNumberedMeaning(value) {
+  const text = String(value || "").trim();
+  if (!text) return null;
+  // A marker must start the text or follow a real list boundary. The dot form
+  // rejects a following digit so values such as "1.5 倍" stay untouched.
+  const markerPattern = /(^|[\s；;])(\d{1,2})(?:\.(?!\d)[\t ]*|[、)）][\t ]*)/gu;
+  const matches = [...text.matchAll(markerPattern)];
+  if (matches.length < 2 || matches[0].index !== 0 || matches.length > 20) return null;
+  if (matches.some((match, index) => Number(match[2]) !== index + 1)) return null;
+  const items = matches.map((match, index) => cleanMeaningItem(
+    text.slice(match.index + match[0].length, matches[index + 1]?.index ?? text.length),
+    { stripTrailingSeparator: index < matches.length - 1 }
+  ));
+  return items.every(Boolean) ? items : null;
+}
+
+function isPartOfSpeechLabel(value) {
+  const label = String(value || "").normalize("NFKC").trim().toLocaleLowerCase("en-US");
+  if (!label || label.length > 80) return false;
+  if (/^(?:(?:名词|动词|形容词|副词|代词|介词|连词|限定词|冠词|感叹词|助动词|短语|习语|搭配)(?:\s*[·/、，,和及]\s*)?)+$/u.test(label)) return true;
+  const words = label.match(/[a-z]+/g) || [];
+  const residue = label.replace(/[a-z]+/g, "").replace(/[\s·/,&()+-]/g, "");
+  return words.length > 0 && !residue && words.every((word) => ENGLISH_PART_OF_SPEECH_WORDS.has(word));
+}
+
+function parsePartOfSpeechLines(value) {
+  const lines = String(value || "").split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+  if (lines.length < 2 || lines.length > 20) return null;
+  const items = lines.map((line) => {
+    const match = line.match(/^([^:：]{1,80})[:：]\s*(.+)$/u);
+    return match && isPartOfSpeechLabel(match[1]) ? cleanMeaningItem(match[2]) : "";
+  });
+  return items.every(Boolean) ? items : null;
+}
+
+function meaningFingerprint(value) {
+  return String(value || "").normalize("NFKC").toLocaleLowerCase("zh-CN").replace(/[\p{P}\p{S}\s]+/gu, "");
+}
+
+export function meaningItemsForDisplay(entry) {
+  const meaning = String(entry?.meaning || "").trim();
+  // Explicit owner-authored structure wins over possibly stale AI senses.
+  const authoredItems = parseCircledMeaning(meaning)
+    || parseArabicNumberedMeaning(meaning)
+    || parsePartOfSpeechLines(meaning);
+  const senseItems = Array.isArray(entry?.senses)
+    ? entry.senses.map((sense) => cleanMeaningItem(sense?.meaningZh)).filter(Boolean).slice(0, 20)
+    : [];
+  if (authoredItems) return authoredItems;
+  if (!meaning) return senseItems;
+  // Use structured boundaries for a plain AI aggregate only when its complete
+  // semantic character sequence is identical. Any different owner-authored
+  // wording remains authoritative even if older AI senses are still attached.
+  if (senseItems.length > 1 && meaningFingerprint(meaning) === meaningFingerprint(senseItems.join(""))) return senseItems;
+  return [meaning];
+}
+
+export function formatMeaningForDisplay(entry) {
+  const items = meaningItemsForDisplay(entry);
+  if (items.length <= 1) return items[0] || "";
+  return items.map((item, index) => `${circledNumber(index)} ${item}`).join("\n");
+}
+
 export function validateEnglishInput(value) {
   const cleaned = normalizeTypography(value);
   if (!cleaned || cleaned.length > 2000 || !/[A-Za-z]/.test(cleaned)) throw new Error("请输入 1 至 2,000 个字符的英文内容。");

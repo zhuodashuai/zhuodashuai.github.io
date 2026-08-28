@@ -45,6 +45,7 @@
 - 私人复习状态永远不写入公开 JSON。
 - v1/v2 JSON 和 v4 IndexedDB 通过纯 migration 升级；无法安全迁移的记录进入 quarantine，不伪造或静默删除。
 - 重复判断使用 canonical normalized term 和 correction alias；`jab at` 作为完整短语保存。
+- 多义词在管理列表、公开卡片与详情中统一显示为 `① ② ③`。卓可以在释义框输入普通的 `1.`、`1)` 或 `1、` 编号；展示层会自动规范为圆圈序号，单义词不编号，已有 `①②` 不重复编号。该规则不改写 canonical JSON、草稿或导出文件中的原始 `meaning`。
 - 顶层 `synonyms` 只属于当前词条，不加入 canonical/alias lookup key。AI 只能从卓已经亲自输入的草稿或公开词条中挑选同义词，未输入的候选确定性丢弃；发布时还要求每个同义词对应另一条真实公开词条。旧 schema v3 快照或本地草稿缺少该字段时安全补为 `[]`，未知字段仍按严格 schema 拒绝。
 
 ## 本地验证

@@ -75,6 +75,15 @@ Passing threshold: at least **28/32**, with no fabricated source, incorrect core
 
 `/hɪp/` and `/ˈhɪp/` are acceptable representations. Every sense must have its own aligned English definition, Chinese definition, English example, and translated example.
 
+### Multi-sense display regression
+
+| ID | Input/scenario | Expected | Severity | Actual / evidence |
+|---|---|---|---|---|
+| display-existing-circled | Published `jab at` meaning already contains `①` and `②` | Owner list, public card and detail show exactly one `①` and one `②`; never double-number. | Medium | Automated unit + E2E |
+| display-pos-lines | Published `hip` / `surveillance` meaning contains two POS-prefixed lines | Both senses appear in source order as `①` and `②` in every display surface. | Medium | Automated unit + E2E |
+| display-owner-arabic | Owner types `1. 人工释义` and `2. 第二义` (also accept `1)` and `1、`) | UI displays `① 人工释义` and `② 第二义`; stored API and exported JSON retain the exact owner-authored text. | High | Automated unit + E2E |
+| display-single-sense | Entry has one Chinese sense | Meaning remains unnumbered. | Low | Automated unit + E2E |
+
 ## 2. Multiword expressions
 
 | ID | Input | Required result | Severity | Actual / evidence |

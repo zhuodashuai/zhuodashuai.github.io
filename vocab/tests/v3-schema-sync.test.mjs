@@ -7,6 +7,7 @@ import {
   createBlankEntry,
   findDuplicate,
   filterSynonymsToOwnerTerms,
+  formatMeaningForDisplay,
   hasChineseHanText,
   needsAiCompletion,
   parsePublicSnapshot,
@@ -20,6 +21,64 @@ function entry(term = "jab at", overrides = {}) {
   const blank = createBlankEntry(term);
   return validatePublicEntry({ ...blank, meaning: "测试释义", ...overrides });
 }
+
+test("polysemous meanings render as stable circled items without changing stored text", () => {
+  const hip = {
+    meaning: "noun：髋部;臀部;髋关节\nadjective：时髦的;了解最新潮流的",
+    senses: [
+      { meaningZh: "旧的髋部释义" },
+      { meaningZh: "旧的时髦释义" }
+    ]
+  };
+  assert.equal(
+    formatMeaningForDisplay(hip),
+    "① 髋部;臀部;髋关节\n② 时髦的;了解最新潮流的"
+  );
+  assert.equal(hip.meaning, "noun：髋部;臀部;髋关节\nadjective：时髦的;了解最新潮流的");
+
+  assert.equal(
+    formatMeaningForDisplay({
+      meaning: "noun：监视, 监督\nnoun：[电] 侦测",
+      senses: [{ meaningZh: "监视, 监督" }, { meaningZh: "[电] 侦测" }]
+    }),
+    "① 监视, 监督\n② [电] 侦测"
+  );
+  assert.equal(
+    formatMeaningForDisplay({ meaning: "① 朝某人猛戳；② （言语上）抨击；挖苦", senses: [] }),
+    "① 朝某人猛戳\n② （言语上）抨击；挖苦"
+  );
+});
+
+test("owner numbering styles are normalized while ordinary punctuation is never guessed as sense boundaries", () => {
+  assert.equal(
+    formatMeaningForDisplay({ meaning: "1. 第一义；内部说明\n2. 第二义", senses: [] }),
+    "① 第一义；内部说明\n② 第二义"
+  );
+  assert.equal(
+    formatMeaningForDisplay({ meaning: "1、第一义；内部说明；2、第二义", senses: [] }),
+    "① 第一义；内部说明\n② 第二义"
+  );
+  assert.equal(
+    formatMeaningForDisplay({ meaning: "1) first sense; detail\n2）second sense", senses: [] }),
+    "① first sense; detail\n② second sense"
+  );
+  assert.equal(
+    formatMeaningForDisplay({ meaning: "1. 第一义 2. 第二义", senses: [] }),
+    "① 第一义\n② 第二义"
+  );
+  assert.equal(formatMeaningForDisplay({ meaning: "1. 仅有一个标记", senses: [] }), "1. 仅有一个标记");
+  assert.equal(formatMeaningForDisplay({ meaning: "监视；监督；侦测", senses: [] }), "监视；监督；侦测");
+  assert.equal(formatMeaningForDisplay({ meaning: "1.5 倍的增长", senses: [] }), "1.5 倍的增长");
+  assert.equal(formatMeaningForDisplay({ meaning: "1. 第一义\n3. 第三义", senses: [] }), "1. 第一义\n3. 第三义");
+});
+
+test("structured senses only replace an empty or provably equivalent aggregate meaning", () => {
+  const senses = [{ meaningZh: "减轻；缓和" }, { meaningZh: "使容易" }];
+  assert.equal(formatMeaningForDisplay({ meaning: "", senses }), "① 减轻；缓和\n② 使容易");
+  assert.equal(formatMeaningForDisplay({ meaning: "减轻,缓和;使容易", senses }), "① 减轻；缓和\n② 使容易");
+  assert.equal(formatMeaningForDisplay({ meaning: "卓手工改写后的准确释义", senses }), "卓手工改写后的准确释义");
+  assert.equal(formatMeaningForDisplay({ meaning: "卓手工单义项", senses: [{ meaningZh: "旧义项" }] }), "卓手工单义项");
+});
 
 test("v3 browser schema keeps jab at whole and rejects unknown fields", () => {
   const value = entry("jab at");

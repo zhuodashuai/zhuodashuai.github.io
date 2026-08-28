@@ -17,7 +17,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -85,6 +85,15 @@ function setStatus(element, message) { element.textContent = message || ""; }
 function commaList(value, maximumItems = 30) { return String(value || "").split(/[,，;；\n]/).map((item) => item.trim()).filter(Boolean).slice(0, maximumItems); }
 function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
+
+function setMultilineText(element, value) {
+  const lines = String(value || "").split("\n");
+  element.replaceChildren();
+  lines.forEach((line, index) => {
+    if (index) element.append(document.createElement("br"));
+    element.append(line);
+  });
+}
 function isoNow() { return new Date().toISOString(); }
 
 function updateOwnerTermIndexes(drafts) {
@@ -685,7 +694,7 @@ function renderOwnerEntries() {
     const summary = document.createElement("div");
     summary.className = "owner-entry-summary";
     const meaning = document.createElement("p");
-    meaning.textContent = entry.meaning;
+    setMultilineText(meaning, formatMeaningForDisplay(entry));
     const synonyms = document.createElement("p");
     synonyms.className = "owner-entry-synonyms";
     synonyms.hidden = entry.synonyms.length === 0;

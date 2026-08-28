@@ -48,6 +48,83 @@ async function publishOpenDraft(page) {
   await expect(page.getByText("已发布", { exact: true }).first()).toBeVisible();
 }
 
+test("多义释义在 Owner 现有列表、公开卡片和详情统一显示 ①②", async ({ page }) => {
+  await loginOwner(page);
+  await page.locator("#owner-search").fill("hip");
+  const ownerHip = page.locator(".owner-entry-row", { hasText: "hip" });
+  await expect(ownerHip).toHaveCount(1);
+  await expect(ownerHip.locator("p").first()).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
+
+  await page.goto("/");
+  await page.locator("#library-search").fill("hip");
+  const publicHip = page.locator(".word-card", { hasText: "hip" });
+  await expect(publicHip).toHaveCount(1);
+  await expect(publicHip.locator(".card-meaning")).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
+  await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
+  await expect(page.locator("#dialog-meaning")).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
+});
+
+test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与旧 senses 不被改写", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+
+  await addWithAi(page, "singleword");
+  await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  const ownerSingle = page.locator(".owner-entry-row", { hasText: "singleword" });
+  await expect(ownerSingle.locator("p").first()).toHaveText("自动整理的测试释义");
+  await expect(ownerSingle.locator("p").first()).not.toContainText(/①|②|③/);
+
+  await page.goto("/");
+  await page.locator("#library-search").fill("singleword");
+  const publicSingle = page.locator(".word-card", { hasText: "singleword" });
+  await expect(publicSingle.locator(".card-meaning")).toHaveText("自动整理的测试释义");
+  await expect(publicSingle.locator(".card-meaning")).not.toContainText(/①|②|③/);
+  await page.getByRole("button", { name: "查看 singleword 的完整词条" }).click();
+  await expect(page.locator("#dialog-meaning")).toHaveText("自动整理的测试释义");
+  await expect(page.locator("#dialog-meaning")).not.toContainText(/①|②|③/);
+  await page.getByRole("button", { name: "关闭词条详情" }).click();
+
+  const rawMeaning = "1. 人工释义 2. 第二义";
+  await page.goto("/owner.html");
+  await addWithAi(page, "polymanual");
+  await expect(page.locator("#sense-list .sense-item")).toHaveCount(1);
+  await expect(page.locator("#sense-list")).toContainText("自动整理的测试释义");
+  await page.getByLabel("中文释义", { exact: true }).fill(rawMeaning);
+  await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+
+  const ownerManual = page.locator(".owner-entry-row", { hasText: "polymanual" });
+  await expect(ownerManual.locator("p").first()).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
+  await expect(ownerManual.locator("p").first()).not.toContainText("自动整理的测试释义");
+  const ownerPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
+  const storedManual = ownerPayload.snapshot.entries.find((entry) => entry.term === "polymanual");
+  expect(storedManual.meaning).toBe(rawMeaning);
+  expect(storedManual.senses).toHaveLength(1);
+  expect(storedManual.senses[0].meaningZh).toBe("自动整理的测试释义");
+
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  await page.locator("#library-search").fill("polymanual");
+  const publicManual = page.locator(".word-card", { hasText: "polymanual" });
+  await expect(publicManual.locator(".card-meaning")).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
+  await expect(publicManual.locator(".card-meaning")).not.toContainText("自动整理的测试释义");
+  await page.getByRole("button", { name: "查看 polymanual 的完整词条" }).click();
+  await expect(page.locator("#dialog-meaning")).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
+  await expect(page.locator("#dialog-meaning")).not.toContainText("自动整理的测试释义");
+  await page.getByRole("button", { name: "关闭词条详情" }).click();
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
+  const download = await downloadPromise;
+  const exported = JSON.parse(await readFile(await download.path(), "utf8"));
+  const exportedManual = exported.entries.find((entry) => entry.term === "polymanual");
+  expect(exportedManual.meaning).toBe(rawMeaning);
+  expect(exportedManual.senses[0].meaningZh).toBe("自动整理的测试释义");
+  const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
+});
+
 test("访客浏览、搜索、详情、导出，并且没有写入入口", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();

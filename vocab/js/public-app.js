@@ -1,6 +1,6 @@
 import { getPublicCache, putPublicCache } from "./owner-storage.js";
 import { ownerAdminUrl } from "./runtime-config.js";
-import { parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
+import { formatMeaningForDisplay, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 
 const refs = Object.fromEntries([
@@ -21,6 +21,16 @@ const adminUrl = ownerAdminUrl();
 
 function setText(element, value) {
   if (element) element.textContent = value || "";
+}
+
+function setMultilineText(element, value) {
+  if (!element) return;
+  const lines = String(value || "").split("\n");
+  element.replaceChildren();
+  lines.forEach((line, index) => {
+    if (index) element.append(document.createElement("br"));
+    element.append(line);
+  });
 }
 
 function normalizedSearch(entry) {
@@ -55,7 +65,7 @@ function showDetails(entry) {
   setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
   setText(refs.dialogTerm, entry.term);
   setText(refs.dialogPhonetic, [entry.phonetic, entry.partOfSpeech].filter(Boolean).join(" · "));
-  setText(refs.dialogMeaning, entry.meaning || "中文释义尚待完善");
+  setMultilineText(refs.dialogMeaning, formatMeaningForDisplay(entry) || "中文释义尚待完善");
   refs.dialogDefinitionSection.hidden = !entry.definition;
   setText(refs.dialogDefinition, entry.definition);
   refs.dialogExampleSection.hidden = !entry.exampleEn && !entry.exampleZh;
@@ -132,7 +142,7 @@ function render() {
     phonetic.textContent = entry.phonetic;
     const meaning = document.createElement("p");
     meaning.className = "card-meaning";
-    meaning.textContent = entry.meaning || "释义待完善";
+    setMultilineText(meaning, formatMeaningForDisplay(entry) || "释义待完善");
     const synonyms = document.createElement("p");
     synonyms.className = "card-synonyms";
     synonyms.hidden = entry.synonyms.length === 0;
@@ -209,7 +219,7 @@ refs.dialogSpeak.addEventListener("click", () => speak(state.selected?.term));
 refs.dialogCopy.addEventListener("click", async () => {
   if (!state.selected) return;
   const entry = state.selected;
-  const text = [entry.term, entry.phonetic, entry.meaning, entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
+  const text = [entry.term, entry.phonetic, formatMeaningForDisplay(entry), entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
     .filter(Boolean).join("\n");
   try {
     await navigator.clipboard.writeText(text);

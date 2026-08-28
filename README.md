@@ -34,6 +34,8 @@ Open `index.html` directly, or serve the repository with any static file server.
 
 Wordbook uses JavaScript modules and IndexedDB, so preview it through a local server at `/vocab/` rather than opening its HTML file directly.
 
+Wordbook formats multiple Chinese senses consistently in the Owner list, public cards and detail view. The Owner may type ordinary `1.` / `2.` (also `1)` / `2)` or `1、` / `2、`); the interface displays them as `①` / `②` without rewriting the stored or exported meaning. A single sense stays unnumbered.
+
 The first production phase intentionally does not expose a visitor personal-wordbook editor. Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `docs/wordbook-owner-v2.md` for the security model and one-time deployment setup.
 
 ## Publishing

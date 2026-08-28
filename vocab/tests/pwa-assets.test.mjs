@@ -58,14 +58,14 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v41/);
+  assert.match(serviceWorker, /zhuo-wordbook-v42/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=41/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=42/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=41"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=41"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=41"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=41"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=42"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=42"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=42"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=42"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -95,4 +95,11 @@ test("synonyms remain one entry field throughout owner editing and public discov
   assert.match(publicAppSource, /同义词：\$\{entry\.synonyms\.join/);
   assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
+});
+
+test("polysemous meaning formatting is wired into owner, public card, detail and copy views", () => {
+  assert.match(ownerAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)\)/);
+  assert.match(publicAppSource, /setMultilineText\(refs\.dialogMeaning, formatMeaningForDisplay\(entry\)/);
+  assert.match(publicAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)/);
+  assert.match(publicAppSource, /entry\.phonetic, formatMeaningForDisplay\(entry\), entry\.definition/);
 });
