@@ -7,6 +7,7 @@ import { entryMatchesCanonical } from "../js/storage.js";
 import {
   addTerm,
   createSyncDirtyTracker,
+  invalidateEditorAndRequests,
   invalidateEditingSession
 } from "../js/workflow.js";
 
@@ -210,6 +211,19 @@ test("invalidating an editing session removes every stale write handle", () => {
   assert.equal(state.editingBaselineUpdatedAt, null);
   assert.equal(state.unrelated, true);
   assert.equal(invalidateEditingSession(state), false);
+});
+
+test("scope invalidation cancels in-flight lookups even before a draft exists", () => {
+  const state = {
+    draft: null,
+    editingId: null,
+    editingBaselineUpdatedAt: null,
+    lookupRequestId: 7,
+    attributionLookupId: 11
+  };
+  assert.equal(invalidateEditorAndRequests(state), false);
+  assert.equal(state.lookupRequestId, 8);
+  assert.equal(state.attributionLookupId, 12);
 });
 
 test("sync dirty tracking preserves changes made during an in-flight push", () => {

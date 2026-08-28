@@ -1,4 +1,4 @@
-import { getMeta, setMeta } from "./storage.js";
+import { getMeta, setMeta } from "./storage.js?v=13";
 
 export const SETTINGS_SCHEMA_VERSION = 1;
 export const SETTINGS_META_KEY = "wordbookSettings";

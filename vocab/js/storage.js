@@ -1,4 +1,4 @@
-import { normalizeKey, sanitizeEntries, sanitizeEntry, validateEntryInput } from "./schema.js";
+import { normalizeKey, sanitizeEntries, sanitizeEntry, validateEntryInput } from "./schema.js?v=13";
 
 const BASE_DB_NAME = "wordbook-db";
 const DB_VERSION = 4;

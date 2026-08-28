@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
   <meta name="twitter:image:alt" content="深绿色书房中摆放着木质索引卡柜与整齐词卡，象征卓同学的秘密单词屋。">
   <title>卓同学的秘密单词屋</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -45,10 +45,24 @@
   <main id="main">
     <section class="collection-switcher" aria-label="选择词库">
       <div class="collection-tabs" id="collection-tabs">
-        <button type="button" data-mode="public" aria-pressed="true">卓同学的公开收藏</button>
-        <button type="button" data-mode="personal" aria-pressed="false">我的秘密词库</button>
+        <button type="button" data-mode="public" aria-pressed="true">卓同学的公开词库</button>
+        <button type="button" data-mode="personal" aria-pressed="false">我的本地词库</button>
       </div>
-      <p id="collection-note">公开浏览、搜索和朗读；复制后即可加入你自己的复习计划。</p>
+      <p id="collection-note" aria-live="polite">公开浏览、搜索和朗读；复制后即可加入你自己的复习计划。</p>
+    </section>
+
+    <section class="owner-access" id="owner-access" aria-labelledby="owner-access-title">
+      <div>
+        <p class="eyebrow">Owner access</p>
+        <p class="owner-title" id="owner-access-title">站主管理</p>
+        <p class="owner-status" id="owner-status" role="status" aria-live="polite">当前是访客只读模式。卓本人验证 GitHub 身份后，可以新增、编辑和删除公开词条。</p>
+        <a id="owner-commit-link" href="#" target="_blank" rel="noopener noreferrer" hidden>查看最近一次公开词库提交 ↗</a>
+      </div>
+      <div class="owner-actions">
+        <button type="button" id="owner-login">卓本人登录</button>
+        <button type="button" id="owner-refresh" hidden>刷新远端</button>
+        <button type="button" id="owner-logout" hidden>退出管理</button>
+      </div>
     </section>
 
     <section class="hero" aria-labelledby="page-title">
@@ -152,8 +166,8 @@
         <p class="quality-note lookup-quality" id="lookup-quality" hidden></p>
         <p class="lookup-warning" id="lookup-warning" role="status"></p>
         <div class="draft-actions">
-          <button type="submit" class="primary-action">保存到词库</button>
-           <span>本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。</span>
+          <button type="submit" class="primary-action" id="draft-submit">保存到词库</button>
+          <span id="draft-submit-note">本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。</span>
         </div>
       </form>
     </section>
@@ -223,7 +237,7 @@
     <ol>
       <li>在 Chrome 或 Edge 中打开本页。</li>
       <li>点击地址栏右侧的“安装”图标，或在浏览器菜单中选择“安装秘密单词屋”。</li>
-      <li>安装后会生成桌面／开始菜单快捷方式，并直接进入“我的秘密词库”。</li>
+      <li>安装后会生成桌面／开始菜单快捷方式，并直接进入“我的本地词库”。</li>
     </ol>
     <p>首次联网打开后，主要界面可离线使用；自动释义、出处搜索和 GitHub 同步仍需要网络。</p>
   </dialog>
@@ -266,6 +280,23 @@
     </form>
   </dialog>
 
+  <dialog id="owner-dialog" class="utility-dialog owner-dialog" aria-labelledby="owner-dialog-title">
+    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭卓本人登录">×</button></form>
+    <p class="eyebrow">Verify Zhuo on GitHub</p>
+    <h2 id="owner-dialog-title">卓本人登录</h2>
+    <form id="owner-login-form" class="sync-form">
+      <label>Fine-grained GitHub token
+        <input id="owner-token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="owner-token-help" required>
+      </label>
+      <p id="owner-token-help">令牌只在本次打开期间保存在内存中，不写入浏览器、词库或 GitHub 文件。请只选择 <strong>zhuodashuai.github.io</strong> 仓库，并只授予 <strong>Contents: Read and write</strong>。</p>
+      <p>系统会同时核对 GitHub 账号、固定仓库与文件 SHA；访客令牌无法发布。第一次真正发布时，GitHub 才会最终确认 Contents 写权限。</p>
+      <p>公开词条会进入 Git 历史；以后从页面删除，不代表旧提交中的内容也被清除。请勿在公开词条里写私人信息。</p>
+      <p class="owner-auth-status" id="owner-auth-status" role="status" aria-live="polite"></p>
+      <p class="setup-links"><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">创建最小权限 token ↗</a><a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">管理已有 token ↗</a></p>
+      <button type="submit" class="primary-action">验证并进入站主管理</button>
+    </form>
+  </dialog>
+
   <dialog id="review-dialog" class="review-dialog" aria-labelledby="review-term">
     <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭复习">×</button></form>
     <p class="eyebrow">Recall first</p>
@@ -284,6 +315,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/app.js?v=13"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ A lightweight, accessible academic profile for GitHub Pages.
 ## Repository map
 
 - `/` — academic profile and GitHub Pages homepage
-- `/vocab/` — installable **Wordbook** PWA with a public owner collection, private personal collections and optional GitHub backup
+- `/vocab/` — installable **Wordbook** PWA with a public owner collection, device-local personal collections, optional private GitHub backup and a GitHub-verified owner publishing mode
 - `/U1L1_coding.ipynb` — existing coursework notebook, retained in its original location
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.
@@ -33,6 +33,8 @@ The public suggestion box and guestbook are defined in `.github/ISSUE_TEMPLATE/`
 Open `index.html` directly, or serve the repository with any static file server.
 
 Wordbook uses JavaScript modules and IndexedDB, so preview it through a local server at `/vocab/` rather than opening its HTML file directly.
+
+Personal wordbooks never require sign-in. The owner publishing control is separate: it accepts a session-only fine-grained token, pins the authenticated account and public repository identifiers, reads the latest file SHA, and writes only the public-safe fields in `vocab/data/owner-wordbook.json`. The token should select only `zhuodashuai.github.io`, grant only `Contents: Read and write`, and use a short expiration.
 
 ## Publishing
 

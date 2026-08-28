@@ -1,6 +1,6 @@
-import { EXACT_SPELLINGS, LOCAL_CORRECTIONS, LOCAL_ENTRIES } from "./data.js";
-import { lookupCoreEntry, normalizeCoreKey } from "./core-dictionary.js";
-import { classifyEntry, cleanEnglishInput, normalizeKey, validateEntryInput } from "./schema.js";
+import { EXACT_SPELLINGS, LOCAL_CORRECTIONS, LOCAL_ENTRIES } from "./data.js?v=13";
+import { lookupCoreEntry, normalizeCoreKey } from "./core-dictionary.js?v=13";
+import { classifyEntry, cleanEnglishInput, normalizeKey, validateEntryInput } from "./schema.js?v=13";
 
 const TIMEOUT_MS = 7000;
 const LEXICAL_TOKEN = /^[\p{Script=Latin}\p{Mark}\p{Number}.'’+\-/#&]+$/u;

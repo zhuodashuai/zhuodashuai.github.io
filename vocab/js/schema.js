@@ -310,9 +310,20 @@ export function toPublicEntry(entry) {
   const {
     rawInput, correction, note, history, attributionCandidates, retrievedAt, ...publicEntry
   } = sanitized;
+  const publicCorrection = correction?.status === "autocorrected"
+    && normalizeKey(correction.original) !== normalizeKey(correction.chosen)
+    ? {
+        status: "autocorrected",
+        original: correction.original,
+        chosen: correction.chosen,
+        confidence: correction.confidence,
+        source: correction.source
+      }
+    : null;
   return {
     ...publicEntry,
     id: publicEntry.id.startsWith("public-") ? publicEntry.id : `public-${publicEntry.id}`,
+    ...(publicCorrection ? { correction: publicCorrection } : {}),
     attributionStatus: sanitized.attributionStatus,
     retrievedAt: sanitized.retrievedAt
   };

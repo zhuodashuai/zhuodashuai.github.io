@@ -1,4 +1,4 @@
-import { classifyEntry, normalizeKey, sanitizeEntry, validateEntryInput } from "./schema.js";
+import { classifyEntry, normalizeKey, sanitizeEntry, validateEntryInput } from "./schema.js?v=13";
 
 export function qualityStatus(draft) {
   const status = draft?.quality?.status;
@@ -51,6 +51,14 @@ export function invalidateEditingSession(target) {
   target.draft = null;
   target.editingId = null;
   target.editingBaselineUpdatedAt = null;
+  return hadSession;
+}
+
+export function invalidateEditorAndRequests(target) {
+  if (!target || typeof target !== "object") return false;
+  const hadSession = invalidateEditingSession(target);
+  target.lookupRequestId = (Number(target.lookupRequestId) || 0) + 1;
+  target.attributionLookupId = (Number(target.attributionLookupId) || 0) + 1;
   return hadSession;
 }
 

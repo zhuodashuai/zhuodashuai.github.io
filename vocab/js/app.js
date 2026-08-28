@@ -1,4 +1,4 @@
-import { REVIEW_INTERVALS, createSeedEntry } from "./data.js";
+import { REVIEW_INTERVALS, createSeedEntry } from "./data.js?v=13";
 import {
   EntryConflictError,
   deleteEntry,
@@ -10,16 +10,22 @@ import {
   replaceEntries,
   setMeta,
   updateEntry
-} from "./storage.js";
-import { enrichResolved, lookupTerm, resolveSpelling } from "./services.js";
-import { getSettingsState, saveSettings } from "./settings.js";
+} from "./storage.js?v=13";
+import { enrichResolved, lookupTerm, resolveSpelling } from "./services.js?v=13";
+import { getSettingsState, saveSettings } from "./settings.js?v=13";
 import {
   addTerm,
   createSyncDirtyTracker,
-  invalidateEditingSession,
+  invalidateEditorAndRequests,
   preparePersonalEntry,
   qualityStatus
-} from "./workflow.js";
+} from "./workflow.js?v=13";
+import {
+  PublicEntryConflictError,
+  findPublicEntryByNormalized,
+  planPublicEntryDelete,
+  planPublicEntrySave
+} from "./public-owner.js?v=13";
 import {
   buildSnapshot,
   classifyEntry,
@@ -27,22 +33,39 @@ import {
   parseSnapshot,
   sanitizeEntry,
   validateEntryInput
-} from "./schema.js";
+} from "./schema.js?v=13";
 import {
+  OwnerConflictError,
   SyncConflictError,
+  authenticateOwnerGitHub,
   connectGitHub,
+  connectOwnerGitHub,
   disconnectGitHub,
+  disconnectOwnerGitHub,
   isGitHubConnected,
+  isOwnerGitHubConnected,
   isRetryableSyncError,
+  readOwnerPublicSnapshot,
   readRemoteSnapshot,
   testGitHubConnection,
   validateSyncConfig,
+  writeOwnerPublicSnapshot,
   writeRemoteSnapshot
-} from "./github-sync.js";
+} from "./github-sync.js?v=13";
 
 const refs = {
   collectionTabs: document.querySelector("#collection-tabs"),
   collectionNote: document.querySelector("#collection-note"),
+  ownerAccess: document.querySelector("#owner-access"),
+  ownerStatus: document.querySelector("#owner-status"),
+  ownerCommitLink: document.querySelector("#owner-commit-link"),
+  ownerLogin: document.querySelector("#owner-login"),
+  ownerRefresh: document.querySelector("#owner-refresh"),
+  ownerLogout: document.querySelector("#owner-logout"),
+  ownerDialog: document.querySelector("#owner-dialog"),
+  ownerLoginForm: document.querySelector("#owner-login-form"),
+  ownerToken: document.querySelector("#owner-token"),
+  ownerAuthStatus: document.querySelector("#owner-auth-status"),
   preferencesButton: document.querySelector("#preferences-button"),
   preferencesDialog: document.querySelector("#preferences-dialog"),
   preferencesClose: document.querySelector("#preferences-close"),
@@ -67,6 +90,8 @@ const refs = {
   correctedSpelling: document.querySelector("#corrected-spelling"),
   keepOriginal: document.querySelector("#keep-original"),
   draftForm: document.querySelector("#draft-form"),
+  draftSubmit: document.querySelector("#draft-submit"),
+  draftSubmitNote: document.querySelector("#draft-submit-note"),
   draftTerm: document.querySelector("#draft-term"),
   draftEntryType: document.querySelector("#draft-entry-type"),
   draftPos: document.querySelector("#draft-pos"),
@@ -163,6 +188,11 @@ const state = {
   syncBusy: false,
   autoSyncTimer: null,
   syncDirty: false,
+  ownerSession: null,
+  ownerBusy: false,
+  ownerMessage: "",
+  ownerCommitUrl: "",
+  ownerAuthRequestId: 0,
   attributionLookupId: 0,
   lookupRequestId: 0,
   saveMode: null,
@@ -183,6 +213,14 @@ const ATTRIBUTION_LABELS = {
 
 function isPersonal() {
   return state.mode === "personal";
+}
+
+function isOwnerSessionActive() {
+  return Boolean(state.ownerSession && isOwnerGitHubConnected());
+}
+
+function canManagePublic() {
+  return !isPersonal() && isOwnerSessionActive();
 }
 
 function isDue(entry) {
@@ -209,13 +247,10 @@ function showToast(message) {
 }
 
 function invalidateOpenEditor({ hidePanel = true } = {}) {
-  const hadSession = invalidateEditingSession(state);
-  if (!hadSession) return false;
-  state.lookupRequestId += 1;
-  state.attributionLookupId += 1;
+  const hadSession = invalidateEditorAndRequests(state);
   refs.retryAttribution.disabled = false;
   if (hidePanel) refs.lookupPanel.hidden = true;
-  return true;
+  return hadSession;
 }
 
 function formatCreated(value) {
@@ -272,9 +307,9 @@ function renderSelected() {
   document.body.classList.toggle("has-no-selection", !entry);
   refs.selectedCard.hidden = !entry;
   refs.copySelected.hidden = isPersonal() || !entry;
-  refs.editSelected.hidden = !isPersonal() || !entry;
+  refs.editSelected.hidden = !(isPersonal() || canManagePublic()) || !entry;
   refs.reviewSelected.hidden = !isPersonal() || !entry;
-  refs.deleteSelected.hidden = !isPersonal() || !entry;
+  refs.deleteSelected.hidden = !(isPersonal() || canManagePublic()) || !entry;
   if (!entry) return;
   const index = state.entries.findIndex((item) => item.id === entry.id) + 1;
   refs.selectedCard.classList.toggle("quote-card", entry.entryType === "quote" || entry.entryType === "proverb");
@@ -420,42 +455,101 @@ function updateModeUrl() {
   history.replaceState({}, "", url);
 }
 
+function renderOwnerState(message = state.ownerMessage) {
+  const connected = isOwnerSessionActive();
+  const freezeMutations = connected && state.ownerBusy;
+  state.ownerMessage = message || "";
+  refs.ownerAccess.dataset.connected = String(connected);
+  refs.ownerLogin.hidden = connected;
+  refs.ownerRefresh.hidden = !connected;
+  refs.ownerLogout.hidden = !connected;
+  refs.ownerLogin.disabled = state.ownerBusy;
+  refs.ownerRefresh.disabled = state.ownerBusy;
+  refs.ownerLogout.disabled = state.ownerBusy;
+  refs.collectionTabs.querySelectorAll("button[data-mode]").forEach((button) => {
+    button.disabled = freezeMutations;
+  });
+  refs.wordForm.querySelectorAll("input, button").forEach((control) => {
+    control.disabled = freezeMutations;
+  });
+  refs.draftForm.querySelectorAll("input, textarea, select, button").forEach((control) => {
+    control.disabled = freezeMutations;
+  });
+  refs.closeLookup.disabled = freezeMutations;
+  refs.copySelected.disabled = freezeMutations;
+  refs.editSelected.disabled = freezeMutations;
+  refs.deleteSelected.disabled = freezeMutations;
+  refs.ownerStatus.textContent = state.ownerMessage || (connected
+    ? (isPersonal()
+        ? `@${state.ownerSession.login} 的站主会话仍有效；当前编辑的是本地词库。切回公开词库即可管理或发布。`
+        : `已登录为 @${state.ownerSession.login}。你可以在公开词库中新增、编辑和删除；每次发布都用 GitHub 文件 SHA 防止覆盖。`)
+    : "当前是访客只读模式。卓本人验证 GitHub 身份后，可以新增、编辑和删除公开词条。");
+  refs.ownerCommitLink.hidden = !state.ownerCommitUrl;
+  if (state.ownerCommitUrl) refs.ownerCommitLink.href = state.ownerCommitUrl;
+}
+
 function applyModeUi() {
   const personal = isPersonal();
+  const owner = canManagePublic();
   refs.collectionTabs.querySelectorAll("button[data-mode]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.mode === state.mode));
   });
-  refs.wordForm.hidden = !personal;
+  refs.wordForm.hidden = !(personal || owner);
   refs.preferencesButton.hidden = !personal;
-  if (!personal) refs.lookupPanel.hidden = true;
+  if (!personal && !owner) refs.lookupPanel.hidden = true;
   refs.startReview.hidden = !personal;
   refs.personalFooterTools.hidden = !personal;
   refs.syncPanel.hidden = !personal;
+  refs.ownerAccess.hidden = personal && !isOwnerSessionActive();
   refs.filterGroup.querySelectorAll(".personal-filter").forEach((button) => {
     button.hidden = !personal;
   });
   if (personal) {
-    refs.collectionNote.textContent = "这间小屋只属于当前浏览器；可安装到桌面，也可连接你自己的私有 GitHub 仓库。";
+    refs.collectionNote.textContent = isOwnerSessionActive()
+      ? `无需登录即可添加本地词条；@${state.ownerSession.login} 的站主会话仍有效，可在下方退出或切回公开词库管理。`
+      : "无需登录即可添加；本地词库只属于当前浏览器。卓本人管理公开内容时，请切换到公开词库登录。";
     refs.heroEyebrow.textContent = "Zhuo's private word cabinet";
     refs.pageTitle.innerHTML = "只管写下英文，<br><em>它会自己长成词条。</em>";
     refs.heroText.textContent = "先用本地中英词典锁定可信释义，再补充词性、音标与英文例句；短语不会被拆开，重复词不会覆盖旧记录。";
-    refs.libraryTitle.textContent = "我的秘密词库";
+    refs.libraryTitle.textContent = "我的本地词库";
     refs.emptyGuidanceCopy.textContent = "写下第一个英文。可靠结果会按你的入库设置保存，不确定内容宁可留空，也不会胡乱翻译。";
     refs.preferencesButton.textContent = state.saveMode === "auto" ? "直接入库" : (state.saveMode === "review" ? "逐条确认" : "设置入库方式");
+    refs.draftSubmit.textContent = "保存到我的词库";
+    refs.draftSubmitNote.textContent = "本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。";
+  } else if (owner) {
+    refs.collectionNote.textContent = `已登录为 @${state.ownerSession.login}；现在修改的是卓同学的公开词库，不是浏览器本地词库。`;
+    refs.heroEyebrow.textContent = "Zhuo's public word cabinet · owner";
+    refs.pageTitle.innerHTML = "写下你的词，<br><em>交给 GitHub 发布。</em>";
+    refs.heroText.textContent = "继续使用同一套防重、纠错和可信释义管线；公开词条一律先检查，再提交到 GitHub 发布。";
+    refs.libraryTitle.textContent = "卓同学的公开词库";
+    refs.emptyGuidanceCopy.textContent = "输入英文并检查词卡；确认发布后，当前会话立即显示，GitHub Pages 稍后向访客更新。";
+    refs.formHint.textContent = "站主管理模式：重复词会先在公开词库中拦截；整理完成后必须人工确认再发布。";
+    refs.draftSubmit.textContent = "发布到公开词库";
+    refs.draftSubmitNote.textContent = "发布会提交到 GitHub 并进入版本历史；请先核对中文释义与出处。";
   } else {
     refs.collectionNote.textContent = "公开浏览、搜索和朗读；复制后即可加入你自己的复习计划。";
     refs.heroEyebrow.textContent = "A public collection";
     refs.pageTitle.innerHTML = "看看他的词，<br><em>再建立你自己的。</em>";
     refs.heroText.textContent = "公开词库可以浏览、搜索与朗读；收藏后会生成一份只属于你的本地词库。";
-    refs.libraryTitle.textContent = "卓同学的公开收藏";
+    refs.libraryTitle.textContent = "卓同学的公开词库";
     refs.emptyGuidanceCopy.textContent = "浏览公开词库，喜欢的词条可以一键复制到你自己的词库。";
+    refs.draftSubmit.textContent = "保存到词库";
+    refs.draftSubmitNote.textContent = "本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。";
   }
+  renderOwnerState();
 }
 
 async function setMode(mode, { updateUrl = true, keepSelection = false } = {}) {
   const nextMode = mode === "personal" ? "personal" : "public";
+  if (state.ownerBusy && isOwnerSessionActive() && nextMode !== state.mode) {
+    showToast("公开词库正在与 GitHub 确认，请完成后再切换词库。");
+    return;
+  }
   if (nextMode === "personal" && !(await ensurePersonalReady())) return;
-  if (nextMode !== state.mode) invalidateOpenEditor();
+  if (nextMode !== state.mode) {
+    invalidateOpenEditor();
+    state.ownerMessage = "";
+  }
   state.mode = nextMode;
   state.filter = "all";
   refs.filterGroup.querySelectorAll("button[data-filter]").forEach((button) => {
@@ -472,7 +566,7 @@ function openPreferences({ required = false } = {}) {
   refs.preferencesClose.hidden = required;
   refs.preferencesTitle.textContent = required ? "新词怎样进屋？" : "更改入库方式";
   refs.preferencesIntro.textContent = required
-    ? "先选一次，以后可以随时在右上角更改。"
+    ? "个人词库不需要登录；先选一次入库方式，以后可以随时在右上角更改。"
     : "改动只影响以后输入的新词，不会重写已有词条。";
   const selected = refs.preferencesForm.querySelector(`input[value="${state.saveMode || "auto"}"]`);
   if (selected) selected.checked = true;
@@ -513,7 +607,122 @@ refs.preferencesForm.addEventListener("submit", async (event) => {
 
 refs.collectionTabs.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-mode]");
-  if (button) setMode(button.dataset.mode);
+  if (button && !button.disabled) setMode(button.dataset.mode);
+});
+
+function clearOwnerSession(message = "") {
+  state.ownerAuthRequestId += 1;
+  disconnectOwnerGitHub();
+  state.ownerSession = null;
+  state.ownerBusy = false;
+  state.ownerCommitUrl = "";
+  state.ownerMessage = message;
+  invalidateOpenEditor();
+  applyModeUi();
+  renderSelected();
+  window.setTimeout(() => {
+    const target = isPersonal()
+      ? refs.collectionTabs.querySelector("button[data-mode='public']")
+      : refs.ownerLogin;
+    target?.focus();
+  }, 0);
+}
+
+async function refreshOwnerRemote() {
+  if (!isOwnerSessionActive() || state.ownerBusy) return;
+  if (state.draft && !window.confirm("刷新远端会关闭当前未发布的词条表单。确定继续吗？")) {
+    renderOwnerState("已取消刷新；当前未发布表单仍然保留。");
+    return;
+  }
+  state.ownerBusy = true;
+  renderOwnerState("正在从 GitHub 读取最新公开词库…");
+  try {
+    const remote = await readOwnerPublicSnapshot();
+    if (!remote.exists) throw new Error("GitHub 上找不到公开词库文件。");
+    state.ownerSession = { ...state.ownerSession, lastSha: remote.sha };
+    state.publicEntries = remote.snapshot.entries;
+    invalidateOpenEditor();
+    await refreshEntries({ keepSelection: true });
+    state.ownerMessage = `已刷新 GitHub 远端，共 ${remote.snapshot.entries.length} 个公开词条。`;
+    showToast("公开词库已刷新到最新版本。");
+  } catch (error) {
+    if ([401, 403].includes(Number(error?.status))) {
+      clearOwnerSession("GitHub 会话已失效，请重新登录站主管理。");
+      showToast("GitHub 会话已失效，未改动公开词库。");
+      return;
+    }
+    state.ownerMessage = `刷新失败：${error.message || "请稍后重试"}`;
+  } finally {
+    state.ownerBusy = false;
+    renderOwnerState();
+  }
+}
+
+refs.ownerLogin.addEventListener("click", () => {
+  if (state.ownerBusy) return;
+  refs.ownerToken.value = "";
+  refs.ownerAuthStatus.textContent = "";
+  refs.ownerDialog.showModal();
+  window.setTimeout(() => refs.ownerToken.focus(), 0);
+});
+refs.ownerDialog.addEventListener("close", () => {
+  if (state.ownerBusy && !state.ownerSession) {
+    state.ownerAuthRequestId += 1;
+    disconnectOwnerGitHub();
+    state.ownerMessage = "已取消卓本人登录；公开词库仍保持只读。";
+  }
+  refs.ownerToken.value = "";
+  refs.ownerAuthStatus.textContent = "";
+});
+refs.ownerLoginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (state.ownerBusy) return;
+  const requestId = ++state.ownerAuthRequestId;
+  state.ownerBusy = true;
+  refs.ownerAuthStatus.textContent = "正在核对 GitHub 账号、仓库和远端文件…";
+  refs.ownerLoginForm.querySelector("button[type='submit']").disabled = true;
+  try {
+    const pendingDraft = Boolean(state.draft);
+    connectOwnerGitHub(refs.ownerToken.value);
+    const verified = await authenticateOwnerGitHub();
+    if (requestId !== state.ownerAuthRequestId || !refs.ownerDialog.open) {
+      disconnectOwnerGitHub();
+      return;
+    }
+    state.ownerSession = {
+      login: verified.login,
+      avatarUrl: verified.avatarUrl,
+      lastSha: verified.sha
+    };
+    state.publicEntries = verified.snapshot.entries;
+    state.ownerMessage = `已验证 @${verified.login} 和固定发布仓库；第一次发布时将由 GitHub 最终确认 Contents 写权限。`;
+    state.ownerCommitUrl = "";
+    if (!pendingDraft) invalidateOpenEditor();
+    refs.ownerDialog.close();
+    applyModeUi();
+    await refreshEntries({ keepSelection: false });
+    if (pendingDraft) refs.lookupPanel.hidden = false;
+    showToast("卓本人身份已验证，现在可以管理公开词库。");
+  } catch (error) {
+    if (requestId !== state.ownerAuthRequestId || !refs.ownerDialog.open) return;
+    disconnectOwnerGitHub();
+    state.ownerSession = null;
+    refs.ownerAuthStatus.textContent = `卓本人登录失败：${error.message || "无法验证 GitHub 身份"}`;
+    state.ownerMessage = "卓本人登录未完成；公开词库仍保持访客只读。";
+  } finally {
+    state.ownerBusy = false;
+    refs.ownerToken.value = "";
+    refs.ownerLoginForm.querySelector("button[type='submit']").disabled = false;
+    renderOwnerState();
+    if (isOwnerSessionActive() && !refs.ownerDialog.open) window.setTimeout(() => refs.wordInput.focus(), 0);
+  }
+});
+refs.ownerRefresh.addEventListener("click", refreshOwnerRemote);
+refs.ownerLogout.addEventListener("click", async () => {
+  if (state.draft && !window.confirm("退出站主管理会关闭当前未发布的词条表单。确定继续吗？")) return;
+  clearOwnerSession("已退出站主管理；公开词库恢复为访客只读。");
+  await refreshEntries({ keepSelection: true });
+  showToast("已退出站主管理，令牌已从内存清除。");
 });
 
 function renderAttributionCandidates(candidates = []) {
@@ -591,8 +800,13 @@ function fillDraft(draft, { editing = false } = {}) {
 }
 
 async function runLookup(value, options = {}) {
-  if (!isPersonal()) await setMode("personal");
-  if (!state.saveMode) {
+  const ownerPublic = canManagePublic();
+  if (ownerPublic && state.ownerBusy) {
+    showToast("公开词库正在与 GitHub 确认，请稍候。");
+    return;
+  }
+  if (!isPersonal() && !ownerPublic) return;
+  if (isPersonal() && !state.saveMode) {
     openPreferences({ required: true });
     return;
   }
@@ -604,14 +818,19 @@ async function runLookup(value, options = {}) {
   button.textContent = "正在整理…";
   refs.formHint.textContent = "正在先查重复与本地中英词典，再按需补充英文词典…";
   try {
+    const findExisting = ownerPublic
+      ? async (normalized) => findPublicEntryByNormalized(state.publicEntries, normalized)
+      : getEntryByNormalized;
     const result = await addTerm({
       rawInput: value,
-      saveMode: state.saveMode,
-      findExisting: getEntryByNormalized,
+      saveMode: ownerPublic ? "review" : state.saveMode,
+      findExisting,
       resolveSpelling,
       enrichResolved,
       lookupTerm,
-      insertEntry: insertEntryIfAbsent,
+      insertEntry: ownerPublic
+        ? async () => { throw new Error("公开词条必须检查后发布。"); }
+        : insertEntryIfAbsent,
       skipCorrection: Boolean(options.skipCorrection),
       forceEntryType: options.forceEntryType || ""
     });
@@ -628,9 +847,10 @@ async function runLookup(value, options = {}) {
     }
     if (result.status === "review") {
       fillDraft(result.draft);
+      const action = ownerPublic ? "发布" : "保存";
       refs.formHint.textContent = result.draft.correction?.status === "autocorrected"
-        ? `已更正：${result.draft.correction.original} → ${result.draft.correction.chosen}；请检查后保存。`
-        : `“${result.draft.term}” 已整理，请检查后保存。`;
+        ? `已更正：${result.draft.correction.original} → ${result.draft.correction.chosen}；请检查后${action}。`
+        : `“${result.draft.term}” 已整理，请检查后${action}。`;
       return;
     }
     state.selectedId = result.entry.id;
@@ -662,12 +882,15 @@ async function runLookup(value, options = {}) {
 
 refs.wordForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (state.ownerBusy && canManagePublic()) return;
   runLookup(refs.wordInput.value);
 });
 refs.closeLookup.addEventListener("click", () => {
+  if (state.ownerBusy && canManagePublic()) return;
   invalidateOpenEditor();
 });
 refs.keepOriginal.addEventListener("click", () => {
+  if (state.ownerBusy && canManagePublic()) return;
   const original = state.draft?.correction?.original;
   if (original) runLookup(original, { skipCorrection: true });
 });
@@ -776,9 +999,57 @@ function validatedSourceUrl(value) {
   return url.href;
 }
 
+function ownerCredentialRejected(error) {
+  return Number(error?.status) === 401
+    || (Number(error?.status) === 403 && /credential|resource not accessible|requires authentication|bad credentials/i.test(error?.message || ""));
+}
+
+async function publishOwnerEntries(entries, { selectedId, actionLabel }) {
+  if (!canManagePublic()) throw new Error("站主管理会话已失效，请重新登录。");
+  if (state.ownerBusy) throw new Error("上一项公开词库操作仍在进行，请稍候。");
+  const expectedSha = state.ownerSession.lastSha;
+  state.ownerBusy = true;
+  refs.draftSubmit.disabled = true;
+  renderOwnerState(`正在${actionLabel}并提交到 GitHub…`);
+  try {
+    const result = await writeOwnerPublicSnapshot(entries, expectedSha);
+    state.publicEntries = result.snapshot.entries;
+    state.ownerSession = { ...state.ownerSession, lastSha: result.sha };
+    state.selectedId = selectedId;
+    state.ownerCommitUrl = result.commitSha
+      ? `https://github.com/zhuodashuai/zhuodashuai.github.io/commit/${encodeURIComponent(result.commitSha)}`
+      : result.htmlUrl;
+    state.ownerMessage = result.recovered
+      ? `GitHub 的响应曾中断，但已从远端确认${actionLabel}成功；Pages 正在发布。`
+      : `${actionLabel}已提交到 GitHub；当前会话已更新，其他访客会在 Pages 发布后看到。`;
+    await refreshEntries({ keepSelection: true });
+    return result;
+  } catch (error) {
+    if (ownerCredentialRejected(error)) {
+      disconnectOwnerGitHub();
+      state.ownerSession = null;
+      state.ownerMessage = "GitHub 凭据已失效或没有 Contents 写权限；当前草稿没有发布，请重新登录。";
+      applyModeUi();
+      renderSelected();
+      window.setTimeout(() => refs.ownerLogin.focus(), 0);
+    } else if (error instanceof OwnerConflictError) {
+      state.ownerMessage = `${error.message} 当前表单和页面内容都没有被覆盖。`;
+    } else {
+      state.ownerMessage = `${actionLabel}失败：${error.message || "请稍后重试"}。当前页面内容没有变化。`;
+    }
+    throw error;
+  } finally {
+    state.ownerBusy = false;
+    refs.draftSubmit.disabled = false;
+    renderOwnerState();
+  }
+}
+
 refs.draftForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (!isPersonal()) return;
+  const ownerPublic = canManagePublic();
+  if (ownerPublic && state.ownerBusy) return;
+  if (!isPersonal() && !ownerPublic) return;
   try {
     const term = validateEntryInput(refs.draftTerm.value);
     const normalized = normalizeKey(term);
@@ -798,12 +1069,15 @@ refs.draftForm.addEventListener("submit", async (event) => {
       throw new Error("Wikiquote 只能作为出处候选；请改用原始作品或可靠来源链接后再提升核验状态。");
     }
     const meaning = refs.draftMeaning.value.trim();
+    if (ownerPublic && !meaning) throw new Error("公开词条必须先确认一条准确的中文释义；不确定时请暂不发布。");
     const meaningChanged = meaning !== String(draft.meaning || "").trim();
-    const quality = meaning
+    const quality = ownerPublic
+      ? { status: "trusted", autoSave: false, source: "卓同学确认", reason: "站主在公开发布前检查并确认" }
+      : (meaning
       ? (meaningChanged || !draft.quality
           ? { status: "trusted", autoSave: false, source: "用户确认", reason: "用户在保存前确认或编辑" }
           : draft.quality)
-      : { status: "incomplete", autoSave: false, source: draft.quality?.source || "", reason: "中文释义为空" };
+      : { status: "incomplete", autoSave: false, source: draft.quality?.source || "", reason: "中文释义为空" });
     const candidate = {
       ...draft,
       id: existing?.id || draft.id,
@@ -832,6 +1106,31 @@ refs.draftForm.addEventListener("submit", async (event) => {
       review: existing?.review || { level: 0, dueAt: now, reviewCount: 0, lapseCount: 0, lastRating: null },
       history: existing?.history || []
     };
+    if (ownerPublic) {
+      const plan = planPublicEntrySave(state.publicEntries, candidate, {
+        editingId: state.editingId || "",
+        expectedUpdatedAt: editingBaselineUpdatedAt,
+        now
+      });
+      if (plan.status === "duplicate") {
+        state.selectedId = plan.entry.id;
+        invalidateOpenEditor();
+        await refreshEntries();
+        refs.wordInput.value = "";
+        refs.formHint.textContent = `“${plan.entry.term}” 已在公开词库中，没有重复发布或覆盖。`;
+        showToast(`“${plan.entry.term}” 已存在，没有重复发布。`);
+        return;
+      }
+      await publishOwnerEntries(plan.entries, {
+        selectedId: plan.entry.id,
+        actionLabel: plan.status === "updated" ? `更新 “${plan.entry.term}”` : `发布 “${plan.entry.term}”`
+      });
+      invalidateOpenEditor();
+      refs.wordInput.value = "";
+      refs.formHint.textContent = `“${plan.entry.term}” 已提交；GitHub Pages 发布完成后，其他访客即可看到。`;
+      showToast(plan.status === "updated" ? `已提交更新公开词条 “${plan.entry.term}”` : `已提交发布 “${plan.entry.term}”`);
+      return;
+    }
     const entry = preparePersonalEntry(candidate, { now, existing });
     let saved;
     let wasDuplicate = false;
@@ -857,6 +1156,11 @@ refs.draftForm.addEventListener("submit", async (event) => {
       await refreshEntries();
       refs.formHint.textContent = error.message;
       showToast(error.message);
+      return;
+    }
+    if (error instanceof PublicEntryConflictError || error instanceof OwnerConflictError) {
+      refs.lookupWarning.textContent = `${error.message} 请点击“刷新远端”后重新打开词条。`;
+      showToast("公开词库未被覆盖；请刷新远端后重试。");
       return;
     }
     refs.lookupWarning.textContent = error.message || "保存失败，请检查词条内容。";
@@ -885,6 +1189,7 @@ async function copyPublicEntryToPersonal(entry) {
 }
 
 refs.copySelected.addEventListener("click", async () => {
+  if (state.ownerBusy && isOwnerSessionActive()) return;
   const entry = selectedEntry();
   if (!entry || !(await ensurePersonalReady())) return;
   if (!state.saveMode) {
@@ -922,21 +1227,46 @@ refs.soundButton.addEventListener("click", () => {
   speechSynthesis.speak(utterance);
 });
 refs.editSelected.addEventListener("click", () => {
-  if (!isPersonal()) return;
+  if (state.ownerBusy && isOwnerSessionActive()) return;
+  if (!isPersonal() && !canManagePublic()) return;
   const entry = selectedEntry();
   if (!entry) return;
   fillDraft({ ...entry, warnings: [] }, { editing: true });
 });
 refs.deleteSelected.addEventListener("click", async () => {
-  if (!isPersonal()) return;
+  if (state.ownerBusy && isOwnerSessionActive()) return;
+  const ownerPublic = canManagePublic();
+  if (!isPersonal() && !ownerPublic) return;
   const entry = selectedEntry();
-  if (!entry || !window.confirm(`确定从词库中删除 “${entry.term}” 吗？`)) return;
-  await deleteEntry(entry.id);
-  invalidateOpenEditor();
-  state.selectedId = null;
-  await refreshEntries({ keepSelection: false });
-  showToast(`已删除 “${entry.term}”`);
-  scheduleAutoSync();
+  const warning = ownerPublic
+    ? `确定从公开词库撤下 “${entry?.term || ""}” 吗？这会提交到 GitHub；旧提交仍会保留历史版本。`
+    : `确定从词库中删除 “${entry?.term || ""}” 吗？`;
+  if (!entry || !window.confirm(warning)) return;
+  if (ownerPublic) {
+    try {
+      const plan = planPublicEntryDelete(state.publicEntries, entry.id, { expectedUpdatedAt: entry.updatedAt });
+      const nextSelectedId = plan.entries[0]?.id || null;
+      await publishOwnerEntries(plan.entries, { selectedId: nextSelectedId, actionLabel: `撤下 “${entry.term}”` });
+      invalidateOpenEditor();
+      showToast(`已提交撤下公开词条 “${entry.term}”`);
+    } catch (error) {
+      const message = error instanceof OwnerConflictError || error instanceof PublicEntryConflictError
+        ? `${error.message} 请刷新远端后重试。`
+        : `撤下失败：${error.message || "请稍后重试"}`;
+      showToast(message);
+    }
+    return;
+  }
+  try {
+    await deleteEntry(entry.id);
+    invalidateOpenEditor();
+    state.selectedId = null;
+    await refreshEntries({ keepSelection: false });
+    showToast(`已删除 “${entry.term}”`);
+    scheduleAutoSync();
+  } catch (error) {
+    showToast(`删除失败：${error.message || "请稍后重试"}`);
+  }
 });
 
 function daysLabel(days) {
@@ -1261,6 +1591,25 @@ refs.installButton.addEventListener("click", async () => {
     return;
   }
   refs.installDialog.showModal();
+});
+window.addEventListener("pagehide", () => {
+  state.ownerAuthRequestId += 1;
+  disconnectOwnerGitHub();
+  state.ownerSession = null;
+  state.ownerBusy = false;
+  state.ownerMessage = "";
+  state.ownerCommitUrl = "";
+});
+window.addEventListener("pageshow", async (event) => {
+  if (!event.persisted) return;
+  disconnectOwnerGitHub();
+  state.ownerSession = null;
+  state.ownerBusy = false;
+  state.ownerMessage = "页面已从浏览器历史恢复；为安全起见，请重新进行卓本人登录。";
+  state.ownerCommitUrl = "";
+  invalidateOpenEditor();
+  applyModeUi();
+  await refreshEntries({ keepSelection: true });
 });
 window.addEventListener("wordbook:storage-blocked", () => {
   showToast("词库升级被另一个标签页阻塞，请关闭其他秘密单词屋页面后重试。");

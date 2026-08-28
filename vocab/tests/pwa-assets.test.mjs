@@ -4,6 +4,8 @@ import test from "node:test";
 
 const manifest = JSON.parse(await readFile(new URL("../manifest.webmanifest", import.meta.url), "utf8"));
 const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8");
+const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
+const githubSyncSource = await readFile(new URL("../js/github-sync.js", import.meta.url), "utf8");
 const profileHtml = await readFile(new URL("../../index.html", import.meta.url), "utf8");
 
 async function pngDimensions(path) {
@@ -36,4 +38,17 @@ test("quality evidence is network-first with an offline fallback", () => {
 
 test("the academic profile provides a discoverable route to the word cabinet", () => {
   assert.match(profileHtml, /href="vocab\/"[^>]*>卓同学的秘密单词屋/);
+});
+
+test("the PWA shell includes the owner publisher and exposes a separate accessible login surface", () => {
+  assert.match(serviceWorker, /wordbook-shell-v13/);
+  assert.match(serviceWorker, /\.\/js\/public-owner\.js/);
+  assert.match(serviceWorker, /\.\/js\/app\.js\?v=13/);
+  assert.match(vocabHtml, /src="js\/app\.js\?v=13"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=13"/);
+  assert.match(vocabHtml, /id="owner-login"[^>]*>卓本人登录/);
+  assert.match(vocabHtml, /id="owner-dialog"[^>]*aria-labelledby="owner-dialog-title"/);
+  assert.match(vocabHtml, /id="owner-auth-status"[^>]*role="status"/);
+  assert.match(vocabHtml, /令牌只在本次打开期间保存在内存中/);
+  assert.doesNotMatch(githubSyncSource, /localStorage|sessionStorage|setMeta\([^)]*owner/i);
 });
