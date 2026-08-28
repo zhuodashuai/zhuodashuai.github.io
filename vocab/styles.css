@@ -177,6 +177,10 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
 .sense-preview summary { cursor: pointer; font-weight: 750; }
 .sense-item { padding: .75rem 0; border-top: 1px solid var(--line); }
 .sense-item:first-child { border-top: 0; }
+.sense-item p { margin: .35rem 0; }
+.sense-example { color: var(--ink); font-family: Georgia, serif; }
+.sense-example::before { content: "Example · "; color: var(--muted); font: 700 .72rem/1.2 system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.sense-example-zh, .sense-note { color: var(--muted); }
 .source-candidates { display: grid; gap: .5rem; margin-top: .8rem; }
 .source-candidate { padding: .7rem; border-radius: 10px; background: #eef1eb; }
 .source-candidate a { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }

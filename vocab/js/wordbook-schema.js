@@ -46,28 +46,45 @@ function isoDate(value, label) {
   return date.toISOString();
 }
 
-export function normalizeEnglish(value) {
+function normalizeTypography(value) {
   return String(value || "")
     .normalize("NFKC")
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201C\u201D]/g, '"')
     .replace(/[\u2013\u2014]/g, "-")
     .replace(/\s+/g, " ")
-    .trim()
-    .toLocaleLowerCase("en-US");
+    .trim();
+}
+
+export function canonicalizeLookupInput(value) {
+  const original = normalizeTypography(value);
+  let cleaned = original;
+  const wrapped = cleaned.match(/^(["'])(.+)\1$/);
+  if (wrapped) cleaned = wrapped[2].trim();
+  const withoutTerminalPunctuation = cleaned.replace(/[.!?,;:]+$/u, "").trim();
+  return /^[A-Za-z]+(?:['-][A-Za-z]+)*$/u.test(withoutTerminalPunctuation)
+    ? withoutTerminalPunctuation
+    : original;
+}
+
+export function normalizeEnglish(value) {
+  return canonicalizeLookupInput(value).toLocaleLowerCase("en-US");
 }
 
 export function validateEnglishInput(value) {
-  const cleaned = String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim();
+  const cleaned = normalizeTypography(value);
   if (!cleaned || cleaned.length > 2000 || !/[A-Za-z]/.test(cleaned)) throw new Error("请输入 1 至 2,000 个字符的英文内容。");
   if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(cleaned)) throw new Error("输入包含不支持的控制字符。");
+  if (/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/u.test(cleaned)) throw new Error("这里只接收英文内容；请移除中文后再试。");
+  if (/<\/?[A-Za-z][^>]*>|javascript\s*:/iu.test(cleaned)) throw new Error("输入看起来像 HTML 或 JavaScript，已安全拒绝。");
   return cleaned;
 }
 
 export function classifyInput(value) {
   const cleaned = validateEnglishInput(value);
+  if (/^["']?[A-Za-z]+(?:['-][A-Za-z]+)*[.!?,;:]?["']?$/u.test(cleaned)) return "word";
   const words = cleaned.match(/[A-Za-z]+(?:['-][A-Za-z]+)*/g) || [];
-  if (words.length === 1 && !/[.!?]$/.test(cleaned)) return "word";
+  if (words.length === 1) return "word";
   if (/^['"].+['"]$/.test(cleaned) || words.length > 7 || /[.!?]$/.test(cleaned)) return "quote";
   return "phrase";
 }
@@ -133,7 +150,7 @@ export function validatePublicEntry(candidate) {
   if (!ATTRIBUTION_STATES.includes(attributionStatus)) throw new Error("出处状态不受支持。");
   const organizationMethod = string(source.organizationMethod, "整理方式", 30, { required: true });
   if (!["manual", "local-dictionary", "ai-openai", "ai-anthropic", "mixed"].includes(organizationMethod)) throw new Error("整理方式不受支持。");
-  const term = string(source.term, "英文词条", 500, { required: true });
+  const term = string(source.term, "英文词条", 2000, { required: true });
   validateEnglishInput(term);
   const id = string(source.id, "词条编号", 180, { required: true });
   if (!/^[A-Za-z0-9._:-]+$/.test(id)) throw new Error("词条编号格式不正确。");
@@ -144,7 +161,7 @@ export function validatePublicEntry(candidate) {
   const createdAt = isoDate(source.createdAt, "创建时间");
   const updatedAt = isoDate(source.updatedAt, "更新时间");
   if (new Date(updatedAt) < new Date(createdAt)) throw new Error("更新时间不能早于创建时间。");
-  const normalized = string(source.normalized, "标准键", 500, { required: true });
+  const normalized = string(source.normalized, "标准键", 2000, { required: true });
   if (normalized !== normalizeEnglish(term)) throw new Error("词条标准键与英文词条不一致。");
   if (!Array.isArray(source.senses) || source.senses.length > 20) throw new Error("义项格式不正确。");
   if (!Array.isArray(source.sources) || source.sources.length > 20) throw new Error("来源记录格式不正确。");
@@ -161,13 +178,13 @@ export function validatePublicEntry(candidate) {
     originalInput: string(source.originalInput, "原始输入", 2000),
     term,
     normalized,
-    standardForm: string(source.standardForm, "标准形式", 500, { required: true }),
+    standardForm: string(source.standardForm, "标准形式", 2000, { required: true }),
     entryType,
     correction: {
       status: correctionStatus,
-      original: string(correctionSource.original, "原始拼写", 500),
-      suggestion: string(correctionSource.suggestion, "建议拼写", 500),
-      chosen: string(correctionSource.chosen, "选定拼写", 500),
+      original: string(correctionSource.original, "原始拼写", 2000),
+      suggestion: string(correctionSource.suggestion, "建议拼写", 2000),
+      chosen: string(correctionSource.chosen, "选定拼写", 2000),
       confidence,
       source: string(correctionSource.source, "拼写来源", 120)
     },
@@ -246,7 +263,7 @@ function migrateLegacyEntry(candidate, fallbackDate) {
     originalInput: String(source.rawInput || term).slice(0, 2000),
     term,
     normalized: normalizeEnglish(term),
-    standardForm: entryType === "word" ? (String(source.headword || term).trim().slice(0, 500) || term) : term,
+    standardForm: entryType === "word" ? (String(source.headword || term).trim().slice(0, 2000) || term) : term,
     entryType,
     correction: { status: "exact", original: term, suggestion: "", chosen: term, confidence: 1, source: "legacy-migration" },
     phonetic: String(source.phonetic || "").slice(0, 300),

@@ -12,7 +12,11 @@ const config: AppConfig = {
 function organized(overrides: Record<string, unknown> = {}) {
   return {
     suggestedTerm: "receive", standardForm: "receive", entryType: "word", phonetic: "/rɪˈsiːv/", partOfSpeech: "verb",
-    meaning: "收到；接收", definition: "To get or be given something.", senses: [], collocations: ["receive a letter"],
+    meaning: "收到；接收", definition: "To get or be given something.", senses: [{
+      partOfSpeech: "verb", meaningZh: "收到；接收", definitionEn: "To get or be given something.",
+      usageNotes: "Often used for things, messages, or visitors.", register: "neutral", collocations: ["receive a letter"],
+      examples: [{ en: "I received the letter.", zh: "我收到了这封信。" }], confusables: ["receipt"]
+    }], collocations: ["receive a letter"],
     exampleEn: "I received the letter.", exampleZh: "我收到了这封信。", usage: "Do not confuse it with receipt.", register: "neutral",
     confusedWith: ["receipt"], forms: ["received", "receiving"], tags: ["常用词"], author: "", sourceTitle: "", sourceWork: "",
     sourceDate: "", attributionNote: "", ...overrides
@@ -26,6 +30,19 @@ function response(output: Record<string, unknown>, annotations: unknown[] = []) 
 afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe("AI organizer", () => {
+  it("enables English web search for a single word so dictionary evidence can be cross-checked", async () => {
+    const mock = vi.fn(async (_input, init) => {
+      const body = JSON.parse(String(init?.body));
+      expect(body.tools).toEqual([{ type: "web_search" }]);
+      expect(body.instructions).toMatch(/at least two independent authoritative English dictionaries/i);
+      return response(organized());
+    });
+    vi.stubGlobal("fetch", mock);
+    const result = await organizeEntry("receive", config);
+    expect(result.entry.term).toBe("receive");
+    expect(mock).toHaveBeenCalledOnce();
+  });
+
   it("returns recieve as an explicit suggestion without overwriting the original", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => response(organized())));
     const result = await organizeEntry("recieve", config);

@@ -57,7 +57,15 @@ function showDetails(entry) {
   refs.dialogUsageSection.hidden = !usage;
   setText(refs.dialogUsage, usage);
   const extra = [
-    ...(entry.senses || []).map((sense, index) => `${index + 1}. ${[sense.partOfSpeech, sense.meaningZh, sense.definitionEn].filter(Boolean).join(" · ")}`),
+    ...(entry.senses || []).map((sense, index) => [
+      `${index + 1}. ${[sense.partOfSpeech, sense.meaningZh, sense.definitionEn].filter(Boolean).join(" · ")}`,
+      ...sense.examples.flatMap((example) => [
+        example.en ? `   Example: ${example.en}` : "",
+        example.zh ? `   例句翻译：${example.zh}` : ""
+      ]),
+      sense.usageNotes ? `   Usage: ${sense.usageNotes}` : "",
+      sense.register ? `   Register: ${sense.register}` : ""
+    ].filter(Boolean).join("\n")),
     entry.forms.length ? `词形：${entry.forms.join("；")}` : "",
     entry.confusedWith.length ? `易混淆：${entry.confusedWith.join("；")}` : ""
   ].filter(Boolean).join("\n");

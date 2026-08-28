@@ -33,19 +33,28 @@ export function threeWayMergeEntry(base, local, remote) {
 
 export function rebaseOperation(operation, remoteSnapshot, remoteSha) {
   const request = structuredClone(operation.request);
+  const originalMutation = structuredClone(request.mutation);
   request.baseSha = remoteSha;
   const mutation = request.mutation;
+  const rebased = (remote) => {
+    // The server binds an idempotency key to the semantic mutation before it
+    // checks the Git blob SHA. If a three-way rebase changes the mutation
+    // itself, retrying with the old key must fail closed as key reuse. Give the
+    // newly reviewed/merged intent a fresh remote mutation ID instead.
+    if (!equal(mutation, originalMutation)) request.mutationId = crypto.randomUUID();
+    return { status: "rebased", conflicts: [], remote, request };
+  };
   if (mutation.type === "add") {
     const duplicate = findDuplicate(remoteSnapshot.entries, mutation.entry);
     if (duplicate) return { status: "conflict", conflicts: [{ path: "term", base: null, local: mutation.entry, remote: duplicate }], remote: duplicate, request };
-    return { status: "rebased", conflicts: [], remote: null, request };
+    return rebased(null);
   }
   const remote = remoteSnapshot.entries.find((entry) => entry.id === operation.entryId) || null;
   if (mutation.type === "delete") {
     if (!remote) return { status: "idempotent", conflicts: [], remote: null, request };
     if (equal(remote, operation.baseEntry)) {
       mutation.expectedUpdatedAt = remote.updatedAt;
-      return { status: "rebased", conflicts: [], remote, request };
+      return rebased(remote);
     }
     return { status: "conflict", conflicts: [{ path: "$delete", base: operation.baseEntry, local: null, remote }], remote, request };
   }
@@ -53,7 +62,9 @@ export function rebaseOperation(operation, remoteSnapshot, remoteSha) {
   const result = threeWayMergeEntry(operation.baseEntry, mutation.entry, remote);
   mutation.entry = result.merged;
   mutation.expectedUpdatedAt = remote.updatedAt;
-  return { status: result.conflicts.length ? "conflict" : "rebased", conflicts: result.conflicts, remote, request };
+  return result.conflicts.length
+    ? { status: "conflict", conflicts: result.conflicts, remote, request }
+    : rebased(remote);
 }
 
 export function classifySyncFailure(error) {

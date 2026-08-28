@@ -228,6 +228,30 @@ test("completion preserves newer local content instead of falsely marking it pub
   assert.equal(preserved.lastOperationId, null);
 });
 
+test("idempotent completion does not mark a draft published when the current remote entry has moved on", async () => {
+  const queued = await enqueueTestOperation({ draftId: "draft-remote-superseded", mutationId: "mutation-remote-superseded", term: "remotelychanged" });
+  const claimed = await storage.claimNextOperation({ tabId: "tab-remote-superseded", now: new Date() });
+  assert.equal(claimed.operationId, "mutation-remote-superseded");
+  const newerRemoteEntry = {
+    ...queued.operation.desiredEntry,
+    meaning: "远端后续修改",
+    revision: 2,
+    updatedAt: new Date(Date.now() + 2000).toISOString()
+  };
+
+  const result = await storage.completeOperation(claimed.operationId, {
+    tabId: "tab-remote-superseded",
+    sha: "e".repeat(40),
+    snapshot: publicSnapshot([newerRemoteEntry], "a-later-mutation")
+  });
+
+  const preserved = await storage.getDraft(queued.draft.id);
+  assert.deepEqual(result, { superseded: true });
+  assert.equal(preserved.value.meaning, queued.operation.desiredEntry.meaning);
+  assert.equal(preserved.localState, "local_saved");
+  assert.equal(preserved.lastOperationId, null);
+});
+
 test("completion recognizes an unchanged queued deletion intent", async () => {
   const entry = { ...createBlankEntry("deleteword"), meaning: "将被删除" };
   const draft = await storage.saveDraft({
@@ -253,6 +277,50 @@ test("completion recognizes an unchanged queued deletion intent", async () => {
   });
   assert.deepEqual(result, { superseded: false });
   assert.equal((await storage.getDraft(draft.id)).localState, "published");
+});
+
+test("startup reconciles a response-lost commit without sending a second publish", async () => {
+  const queued = await enqueueTestOperation({ draftId: "draft-response-lost", mutationId: "mutation-response-lost", term: "responsegone" });
+  const claimed = await storage.claimNextOperation({ tabId: "tab-that-refreshed", now: new Date() });
+  assert.equal(claimed.operationId, queued.operation.operationId);
+  await storage.requireReviewForStoredOperations();
+  const committedEntry = {
+    ...queued.operation.desiredEntry,
+    revision: 1,
+    updatedAt: new Date(Date.now() + 2000).toISOString()
+  };
+
+  const reconciled = await storage.reconcileCommittedOperations(
+    publicSnapshot([committedEntry], queued.operation.request.mutationId),
+    "f".repeat(40)
+  );
+
+  assert.deepEqual(reconciled, [{ operationId: queued.operation.operationId, superseded: false }]);
+  assert.equal((await storage.getDraft(queued.draft.id)).localState, "published");
+  const stored = (await storage.listOutbox({ includeCompleted: true })).find((operation) => operation.operationId === queued.operation.operationId);
+  assert.equal(stored.status, "published");
+  assert.equal(stored.publishedSha, "f".repeat(40));
+});
+
+test("startup refuses reconciliation when a matching mutation id does not have matching remote content", async () => {
+  const queued = await enqueueTestOperation({ draftId: "draft-reconcile-mismatch", mutationId: "mutation-reconcile-mismatch", term: "mismatchword" });
+  const claimed = await storage.claimNextOperation({ tabId: "tab-reconcile-mismatch", now: new Date() });
+  assert.equal(claimed.operationId, queued.operation.operationId);
+  await storage.requireReviewForStoredOperations();
+  const mismatchedRemote = {
+    ...queued.operation.desiredEntry,
+    meaning: "并非这次操作提交的内容",
+    revision: 2,
+    updatedAt: new Date(Date.now() + 2000).toISOString()
+  };
+
+  assert.deepEqual(await storage.reconcileCommittedOperations(
+    publicSnapshot([mismatchedRemote], queued.operation.request.mutationId),
+    "1".repeat(40)
+  ), []);
+  const stored = (await storage.listOutbox({ includeCompleted: true })).find((operation) => operation.operationId === queued.operation.operationId);
+  assert.equal(stored.status, "review_required");
+  assert.equal((await storage.getDraft(queued.draft.id)).localState, "queued");
 });
 
 test("stored auto-publish states require review before one operation can be explicitly requeued", async () => {

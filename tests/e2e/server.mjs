@@ -63,17 +63,36 @@ function assertWrite(request, response, payload) {
 function organizedEntry(input) {
   const entry = createBlankEntry(input);
   const lower = normalizeEnglish(input);
-  entry.meaning = lower === "jab at" ? "朝某人或某物猛戳；（言语上）挖苦或抨击"
+  entry.meaning = lower === "hip" ? "noun：髋部；髋关节；臀部两侧\nadjective：时髦的；了解最新潮流的"
+    : lower === "jab at" ? "朝某人或某物猛戳；（言语上）挖苦或抨击"
     : lower === "recieve" ? "收到；接收"
       : lower === "xssword" ? "<img src=x onerror=window.__xss=1> 只应显示为文本"
         : "自动整理的测试释义";
-  entry.definition = lower === "jab at" ? "To make a quick sharp movement or criticism toward someone or something." : "A test definition.";
-  entry.phonetic = lower === "jab at" ? "/dʒæb æt/" : "/test/";
-  entry.partOfSpeech = lower === "jab at" ? "verb phrase" : "word";
-  entry.exampleEn = lower === "jab at" ? "He jabbed at the button." : "This is a natural example.";
-  entry.exampleZh = lower === "jab at" ? "他猛戳按钮。" : "这是一个自然的例句。";
+  entry.definition = lower === "hip"
+    ? "noun: Either side of the body below the waist, including the joint connecting the leg and pelvis.\nadjective: Fashionable or aware of current trends."
+    : lower === "jab at" ? "To make a quick sharp movement or criticism toward someone or something." : "A test definition.";
+  entry.phonetic = lower === "hip" ? "/hɪp/" : lower === "jab at" ? "/dʒæb æt/" : "/test/";
+  entry.partOfSpeech = lower === "hip" ? "noun · adjective" : lower === "jab at" ? "verb phrase" : "word";
+  entry.exampleEn = lower === "hip" ? "She injured her hip while running." : lower === "jab at" ? "He jabbed at the button." : "This is a natural example.";
+  entry.exampleZh = lower === "hip" ? "她跑步时伤了髋部。" : lower === "jab at" ? "他猛戳按钮。" : "这是一个自然的例句。";
   entry.usage = "Review this candidate before publishing.";
   entry.tags = ["E2E"];
+  if (lower === "hip") {
+    entry.senses = [
+      {
+        partOfSpeech: "noun", meaningZh: "髋部；髋关节；臀部两侧",
+        definitionEn: "Either side of the body below the waist, including the joint connecting the leg and pelvis.",
+        usageNotes: "常见身体部位义项优先。", register: "neutral", collocations: ["hip joint"],
+        examples: [{ en: "She injured her hip while running.", zh: "她跑步时伤了髋部。" }], confusables: []
+      },
+      {
+        partOfSpeech: "adjective", meaningZh: "时髦的；了解最新潮流的",
+        definitionEn: "Fashionable or aware of the newest ideas and trends.",
+        usageNotes: "Informal.", register: "informal", collocations: ["hip café"],
+        examples: [{ en: "The neighbourhood is full of hip cafés.", zh: "这个街区到处都是时髦的咖啡馆。" }], confusables: []
+      }
+    ];
+  }
   if (lower === "recieve") {
     entry.standardForm = "receive";
     entry.correction = { status: "suggested", original: "recieve", suggestion: "receive", chosen: "recieve", confidence: .99, source: "e2e-ai" };
@@ -122,6 +141,9 @@ async function api(request, response, url) {
   if (url.pathname === "/api/v1/owner/publish" && request.method === "POST") {
     const payload = await body(request);
     if (!assertWrite(request, response, payload)) return;
+    if (cookies(request).e2e_github_timeout === "1") {
+      return error(response, 503, "github_unreachable", "暂时无法连接 GitHub；草稿和发布任务仍保存在本机。");
+    }
     const state = runState(request);
     if (state.snapshot.lastMutationId === payload.mutationId) return json(response, 200, { sha: state.sha, snapshot: state.snapshot, action: "idempotent", recovered: true });
     if (cookies(request).e2e_conflict === "1" && !state.conflictInjected) {

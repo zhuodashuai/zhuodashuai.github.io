@@ -33,6 +33,15 @@ describe("publish mutation planning", () => {
     })).toThrow(ApiError);
   });
 
+  it("does not reserve a spelling suggestion that the owner explicitly rejected", () => {
+    const keptOriginal = entry({
+      id: "desert", term: "desert", normalized: "desert", standardForm: "desert", entryType: "word",
+      correction: { status: "kept", original: "desert", suggestion: "dessert", chosen: "desert", confidence: .6, source: "ai-openai" }
+    });
+    const legitimateSuggestionWord = entry({ id: "dessert", term: "dessert", normalized: "dessert", standardForm: "dessert", entryType: "word" });
+    expect(findDuplicate([keptOriginal], legitimateSuggestionWord)).toBeNull();
+  });
+
   it("rejects stale edits and stale deletes", () => {
     const original = entry();
     const changed = entry({ ...original, meaning: "本地修改" });

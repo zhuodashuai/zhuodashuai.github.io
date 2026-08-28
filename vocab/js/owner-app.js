@@ -12,6 +12,7 @@ import {
   listOutbox,
   markOperation,
   putPublicCache,
+  reconcileCommittedOperations,
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
@@ -114,6 +115,23 @@ function renderSenses(entry) {
     const meaning = document.createElement("p");
     meaning.textContent = [sense.meaningZh, sense.definitionEn].filter(Boolean).join(" · ");
     section.append(title, meaning);
+    for (const example of sense.examples || []) {
+      const english = document.createElement("p");
+      english.className = "sense-example";
+      english.lang = "en";
+      english.textContent = example.en;
+      const chinese = document.createElement("p");
+      chinese.className = "sense-example-zh";
+      chinese.textContent = example.zh;
+      section.append(english, chinese);
+    }
+    const notes = [sense.usageNotes, sense.register ? `Register: ${sense.register}` : ""].filter(Boolean).join(" · ");
+    if (notes) {
+      const note = document.createElement("small");
+      note.className = "sense-note";
+      note.textContent = notes;
+      section.append(note);
+    }
     return section;
   });
   if (!fragments.length) {
@@ -519,6 +537,7 @@ async function handleConflict(operation, error, tabId) {
   if (result.status === "rebased") {
     await markOperation(operation.operationId, "pending", {
       request: result.request,
+      idempotencyKey: result.request.mutationId,
       baseRemoteSha: details.sha,
       baseEntry: result.remote,
       desiredEntry: result.request.mutation.entry || null,
@@ -828,8 +847,15 @@ setupPwa({
 async function initializeOwnerApp() {
   const recovered = await requireReviewForStoredOperations();
   await verifySession();
-  if (recovered.length && state.session) {
-    setStatus(refs.captureStatus, `发现 ${recovered.length} 个上次页面遗留的发布任务。它们不会自动发布；请打开对应草稿，由卓本人复核后重新发布。`);
+  const reconciled = state.session && state.snapshot && /^[0-9a-f]{40}$/i.test(state.remoteSha)
+    ? await reconcileCommittedOperations(state.snapshot, state.remoteSha)
+    : [];
+  if (reconciled.length) await renderDrafts();
+  const remaining = Math.max(0, recovered.length - reconciled.length);
+  if (remaining && state.session) {
+    setStatus(refs.captureStatus, `已从 GitHub 核对完成 ${reconciled.length} 个响应中断任务；另有 ${remaining} 个遗留发布任务不会自动发布，请打开对应草稿，由卓本人复核后重新发布。`);
+  } else if (reconciled.length) {
+    setStatus(refs.captureStatus, `已从 GitHub 核对并恢复 ${reconciled.length} 个发布成功但响应中断的任务，没有重复提交。`);
   }
 }
 

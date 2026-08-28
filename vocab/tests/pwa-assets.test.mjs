@@ -37,17 +37,26 @@ test("quality evidence is network-first with an offline fallback", () => {
   assert.match(serviceWorker, /return new Response\("Offline", \{ status: 503/);
 });
 
+test("mutable script, style and manifest assets revalidate online before using the offline cache", () => {
+  const mutableRoute = serviceWorker.indexOf('/\\.(?:js|css|webmanifest)$/i.test(url.pathname)');
+  const mutableNetworkFirst = serviceWorker.indexOf("event.respondWith(networkFirst(request));", mutableRoute);
+  const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request))");
+  assert.ok(mutableRoute >= 0, "mutable assets need an explicit route");
+  assert.ok(mutableNetworkFirst > mutableRoute, "mutable assets must be network-first");
+  assert.ok(genericCacheFirst > mutableNetworkFirst, "only immutable assets should reach cache-first");
+});
+
 test("the academic profile provides a discoverable route to the word cabinet", () => {
   assert.match(profileHtml, /href="vocab\/"[^>]*>卓同学的秘密单词屋/);
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v20/);
+  assert.match(serviceWorker, /zhuo-wordbook-v21/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=20/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=21/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=20"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=20"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=21"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=21"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);

@@ -6,6 +6,7 @@ import {
   makeEntryFromAi,
   normalizeEnglish,
   safeHttpsUrl,
+  validateEnglishInput,
   validateSnapshot
 } from "../src/schema";
 import { entry, snapshot } from "./fixtures";
@@ -14,6 +15,24 @@ describe("wordbook schema", () => {
   it("normalizes smart punctuation and whitespace without destroying the phrase", () => {
     expect(normalizeEnglish("  Jab   at  ")).toBe("jab at");
     expect(normalizeEnglish("Don’t—panic")).toBe("don't-panic");
+  });
+
+  it("deduplicates case and ordinary punctuation variants of one lexical item", () => {
+    for (const value of ["hip", " Hip ", "HIP", "hip!", '"hip"', "“hip”"]) {
+      expect(normalizeEnglish(value)).toBe("hip");
+      expect(classifyInput(value)).toBe("word");
+    }
+    expect(normalizeEnglish("Knowledge is power.")).toBe("knowledge is power.");
+    expect(classifyInput("Knowledge is power.")).toBe("quote");
+  });
+
+  it("rejects mixed-language markup and JavaScript-like organizer input before AI", () => {
+    for (const value of ["hello世界", "<script>alert(1)</script>", "<b>hip</b>", "javascript:alert(1)"]) {
+      expect(() => validateEnglishInput(value)).toThrow();
+    }
+    expect(validateEnglishInput("a")).toBe("a");
+    expect(validateEnglishInput("a".repeat(2000))).toHaveLength(2000);
+    expect(() => validateEnglishInput("a".repeat(2001))).toThrow();
   });
 
   it("classifies jab at as a whole phrase", () => {

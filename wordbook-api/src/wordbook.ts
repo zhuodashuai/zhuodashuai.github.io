@@ -10,8 +10,12 @@ import {
 
 function lookupKeys(entry: PublicEntry): string[] {
   const values = [entry.term, entry.normalized, entry.standardForm];
-  if (["accepted", "suggested", "kept"].includes(entry.correction.status)) {
+  if (["accepted", "suggested"].includes(entry.correction.status)) {
     values.push(entry.correction.original, entry.correction.suggestion, entry.correction.chosen);
+  } else if (entry.correction.status === "kept") {
+    // The owner explicitly rejected the suggestion. It must remain available
+    // as a separate legitimate headword rather than becoming an alias here.
+    values.push(entry.correction.original, entry.correction.chosen);
   }
   return [...new Set(values.map((value) => normalizeEnglish(value)).filter(Boolean))];
 }

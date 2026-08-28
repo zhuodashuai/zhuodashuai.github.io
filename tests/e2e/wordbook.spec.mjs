@@ -94,6 +94,36 @@ test("卓登录后添加 jab at、发布、刷新保留并防止重复", async (
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
 });
 
+test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、发布和标点去重", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+  await addWithAi(page, "hip");
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("hip");
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("词性", { exact: true })).toHaveValue("noun · adjective");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部[\s\S]*时髦/);
+  await expect(page.locator("#sense-list")).toContainText("1. noun");
+  await expect(page.locator("#sense-list")).toContainText("髋关节");
+  await expect(page.locator("#sense-list")).toContainText("2. adjective");
+  await expect(page.locator("#sense-list")).toContainText("了解最新潮流");
+  await expect(page.locator("#sense-list")).toContainText("The neighbourhood is full of hip cafés.");
+  await publishOpenDraft(page);
+  await page.reload();
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await page.getByLabel("英文内容").fill("HIP!");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.locator("#capture-status")).toContainText("已存在，没有重复创建");
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await page.goto("/");
+  await page.getByLabel("搜索英文、中文、标签或作者").fill("hip");
+  await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
+  await expect(page.getByRole("dialog")).toContainText("/hɪp/");
+  await expect(page.getByRole("dialog")).toContainText("noun");
+  await expect(page.getByRole("dialog")).toContainText("adjective");
+  await expect(page.getByRole("dialog")).toContainText("She injured her hip while running.");
+  await expect(page.getByRole("dialog")).toContainText("The neighbourhood is full of hip cafés.");
+});
+
 test("recieve 只显示 receive 建议，必须由卓明确采用", async ({ page }) => {
   await loginOwner(page);
   await addWithAi(page, "recieve");
@@ -126,6 +156,8 @@ test("AI 故障回退到手动草稿，不会丢失输入", async ({ context, pa
   await loginOwner(page);
   await addWithAi(page, "fallbackword");
   await expect(page.locator("#capture-status")).toContainText("草稿仍可手动填写");
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("fallbackword");
   await page.getByLabel("中文释义", { exact: true }).fill("手动补充释义");
   await publishOpenDraft(page);
@@ -140,6 +172,26 @@ test("AI 返回较慢时保留卓已经输入的人工修改", async ({ context,
   await page.getByLabel("中文释义", { exact: true }).fill("卓在等待 AI 时手动写的释义");
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓在等待 AI 时手动写的释义");
+});
+
+test("AI 尚未返回时再次提交只允许最新草稿接收最新结果", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("firstslowword");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.getByRole("heading", { name: /firstslowword/ })).toBeVisible();
+
+  await page.getByLabel("英文内容").fill("secondslowword");
+  await page.locator("#capture-form").evaluate((form) => {
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  });
+  await expect(page.getByRole("heading", { name: /secondslowword/ })).toBeVisible();
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("secondslowword");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义", { timeout: 8_000 });
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
+  await expect(page.locator("#draft-list").getByRole("button", { name: /firstslowword/ })).toHaveCount(1);
+  await expect(page.locator("#draft-list").getByRole("button", { name: /secondslowword/ })).toHaveCount(1);
 });
 
 test("400ms 自动保存期间切换草稿不会丢最后输入", async ({ page }) => {
@@ -163,6 +215,23 @@ test("离线保存进入等待队列，恢复网络后自动发布", async ({ co
   await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
   await context.setOffline(false);
   await expect(page.getByText("已发布", { exact: true }).first()).toBeVisible({ timeout: 12_000 });
+});
+
+test("GitHub 超时保留草稿和队列，显式重试后只发布一次", async ({ context, page }) => {
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("githubtimeoutword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByLabel("中文释义", { exact: true }).fill("GitHub 超时后仍应保留");
+  await context.addCookies([{ name: "e2e_github_timeout", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.getByText("同步失败，将安全重试", { exact: true }).first()).toBeVisible();
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("githubtimeoutword");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("GitHub 超时后仍应保留");
+
+  await context.addCookies([{ name: "e2e_github_timeout", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await page.getByRole("button", { name: "重试", exact: true }).click();
+  await expect(page.getByText("已发布", { exact: true }).first()).toBeVisible({ timeout: 8_000 });
+  await expect(page.locator(".owner-entry-row", { hasText: "githubtimeoutword" })).toHaveCount(1);
 });
 
 test("删除离线草稿会同时取消待发布任务，恢复网络也不会偷偷发布", async ({ context, page }) => {
@@ -260,4 +329,53 @@ test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", as
   await expect(searchBox).toBeFocused();
   const boxes = await page.locator("button:visible, a:visible").evaluateAll((elements) => elements.slice(0, 12).map((element) => element.getBoundingClientRect().height));
   expect(boxes.every((height) => height >= 40)).toBe(true);
+});
+
+test("真实多标签页能看到已保存草稿，前进后退不会丢失管理状态", async ({ context, page }) => {
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("tabword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await expect(page.getByRole("heading", { name: /tabword/ })).toBeVisible();
+  await page.getByLabel("中文释义", { exact: true }).fill("多标签页测试词");
+  await page.getByRole("button", { name: "保存本地草稿" }).click();
+  await expect(page.locator("#capture-status")).toContainText("草稿已可靠保存在当前设备");
+
+  const secondPage = await context.newPage();
+  await secondPage.goto("/owner.html");
+  await expect(secondPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(secondPage.locator("#draft-list")).toContainText("tabword");
+  await secondPage.close();
+
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.locator("#draft-list")).toContainText("tabword");
+});
+
+test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ context, page }) => {
+  const cdp = await context.newCDPSession(page);
+  await cdp.send("Network.enable");
+  await cdp.send("Network.emulateNetworkConditions", {
+    offline: false,
+    latency: 400,
+    downloadThroughput: 187_500,
+    uploadThroughput: 93_750,
+    connectionType: "cellular3g"
+  });
+  try {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+    await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
+    await page.getByLabel("搜索英文、中文、标签或作者").fill("jab at");
+    await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();
+  } finally {
+    await cdp.send("Network.emulateNetworkConditions", {
+      offline: false,
+      latency: 0,
+      downloadThroughput: -1,
+      uploadThroughput: -1,
+      connectionType: "none"
+    });
+  }
 });

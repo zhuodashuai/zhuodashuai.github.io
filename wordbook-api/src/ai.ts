@@ -12,6 +12,7 @@ import {
   type SourceRecord
 } from "./schema";
 import { ApiError } from "./security";
+import { estimateCorrectionConfidence, validateAndHarmonizeAiOutput } from "./semantic-quality";
 
 const SYSTEM_PROMPT = `You are the server-side organizer for Zhuo's English wordbook. Return only data matching the supplied JSON schema.
 
@@ -19,7 +20,13 @@ Accuracy rules:
 - Preserve the user's original input. suggestedTerm is only a spelling or standard-form suggestion; never silently replace it.
 - Treat multiword expressions as a whole. "jab at" is a valid phrase; never reduce it to "jab".
 - Give concise, idiomatic Simplified Chinese meanings and accurate English definitions. Separate genuinely different senses.
-- Include natural examples, register, collocations, confusing words and useful tags. Do not fabricate IPA when uncertain; use an empty string.
+- For every word, phrase, phrasal verb, idiom or collocation, return at least one fully populated sense. Each sense must have its own part of speech, Chinese meaning, English definition and at least one natural bilingual example. Never merge different parts of speech into one sense.
+- Order common contemporary meanings before rare, archaic, technical or botanical meanings. Never choose a rare sense merely because it appears first in a source.
+- Make each example demonstrate only the sense it belongs to. Do not reuse the same example for multiple senses.
+- Include register, collocations, confusing words and useful tags. Use slash- or bracket-delimited IPA when known; never copy ordinary spelling into the phonetic field and never fabricate IPA when uncertain.
+- Support valid British and Australian spelling. A regional spelling may be noted as a variant, but must not be labelled as a misspelling or silently converted to US spelling.
+- suggestedTerm is a corrected surface form only. For inflections, preserve the surface form in suggestedTerm and put the lemma in standardForm.
+- For lexical entries, search in English and cross-check the common meanings and pronunciation against at least two independent authoritative English dictionaries when results are available. Prefer Cambridge, Oxford Learner's Dictionaries, Merriam-Webster and Collins. Do not claim that a source was checked unless it appears in the response citations.
 - Distinguish word, phrase, phrasal-verb, idiom, collocation, sentence, quote and proverb.
 - For quotes, proverbs and text that plausibly carries an attribution, use English-language web search and prioritize primary or authoritative sources.
 - Do not invent author, work, date or source. Only include attribution fields when supported by web-search evidence in this response. If uncertain, leave them empty and say the source is unverified.
@@ -86,7 +93,9 @@ function extractOpenAiSources(payload: Record<string, unknown>): SourceRecord[] 
 
 async function openAiAttempt(input: string, config: AppConfig, attempt: number): Promise<{ organized: AiOrganized; sources: SourceRecord[] }> {
   if (!config.OPENAI_API_KEY) throw new ApiError(503, "ai_not_configured", "AI 尚未配置；草稿仍可手动填写并保存。");
-  const mayNeedAttributionSearch = classifyInput(input) === "quote" || countEnglishTokens(input) >= 2;
+  // Accuracy is the product priority: every organizer run may consult current
+  // English-language sources, not only quotations and multiword inputs.
+  const mayNeedAttributionSearch = classifyInput(input) === "quote" || countEnglishTokens(input) >= 1;
   let response: Response;
   try {
     response = await fetch("https://api.openai.com/v1/responses", {
@@ -126,7 +135,7 @@ async function openAiAttempt(input: string, config: AppConfig, attempt: number):
   let candidate: unknown;
   try { candidate = JSON.parse(text); } catch { throw new Error("OpenAI returned invalid JSON"); }
   return {
-    organized: AiOrganizedSchema.parse(candidate),
+    organized: validateAndHarmonizeAiOutput(input, AiOrganizedSchema.parse(candidate)),
     sources: mayNeedAttributionSearch ? extractOpenAiSources(payload) : []
   };
 }
@@ -166,7 +175,7 @@ async function anthropicAttempt(input: string, config: AppConfig, attempt: numbe
   if (!response.ok) throw new ApiError(response.status === 429 ? 429 : 503, "ai_error", "Claude 暂时没有完成整理；草稿已保留，可以手动填写。");
   let candidate: unknown;
   try { candidate = JSON.parse(extractAnthropicText(payload)); } catch { throw new Error("Anthropic returned invalid JSON"); }
-  return { organized: AiOrganizedSchema.parse(candidate), sources: [] };
+  return { organized: validateAndHarmonizeAiOutput(input, AiOrganizedSchema.parse(candidate)), sources: [] };
 }
 
 export async function organizeEntry(rawInput: unknown, config: AppConfig): Promise<{ entry: PublicEntry; provider: string; warnings: string[] }> {
@@ -177,7 +186,8 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig): Promi
       const result = config.AI_PROVIDER === "anthropic"
         ? await anthropicAttempt(input, config, attempt)
         : await openAiAttempt(input, config, attempt);
-      const entry = makeEntryFromAi(input, result.organized, config.AI_PROVIDER, result.sources);
+      const confidence = estimateCorrectionConfidence(input, result.organized.suggestedTerm);
+      const entry = makeEntryFromAi(input, result.organized, config.AI_PROVIDER, result.sources, confidence);
       const warnings: string[] = [];
       if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus !== "candidate") {
         warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");

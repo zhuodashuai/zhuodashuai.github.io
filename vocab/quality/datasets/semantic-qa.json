@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "name": "English wordbook semantic QA gold set",
+  "description": "Public, synthetic language-quality cases derived from the independent QA brief. It contains no personal vocabulary or account data.",
+  "rubric": {
+    "id": "semantic-16-v1",
+    "scale": {
+      "0": "wrong, missing, irrelevant, or contradictory",
+      "1": "partly correct but incomplete, weak, or unnatural",
+      "2": "accurate, natural, sufficiently complete, and internally aligned"
+    },
+    "passThreshold": 28,
+    "hardFailRule": "Any fabricated source, incorrect core meaning, silent incorrect correction, sense/example mismatch, or score of 0 on a critical dimension fails the case regardless of total.",
+    "dimensions": [
+      {"id": "input_recognition", "label": "Input recognition is correct", "critical": true},
+      {"id": "spelling_judgment", "label": "Spelling judgment is correct", "critical": true},
+      {"id": "common_sense_priority", "label": "Common senses are prioritized", "critical": true},
+      {"id": "part_of_speech", "label": "Parts of speech are correct", "critical": true},
+      {"id": "ipa", "label": "IPA is reasonable", "critical": false},
+      {"id": "chinese_definition", "label": "Chinese definitions are natural and accurate", "critical": true},
+      {"id": "english_definition", "label": "English definitions are accurate", "critical": true},
+      {"id": "sense_separation", "label": "Distinct senses are clearly separated", "critical": true},
+      {"id": "example_naturalness", "label": "English examples are natural", "critical": false},
+      {"id": "example_sense_alignment", "label": "Each example matches its sense", "critical": true},
+      {"id": "example_translation", "label": "Chinese example translations are accurate", "critical": true},
+      {"id": "usage_notes", "label": "Usage notes add real value", "critical": false},
+      {"id": "no_duplicates", "label": "Content is not duplicated", "critical": false},
+      {"id": "relevance", "label": "Content is relevant to the input", "critical": false},
+      {"id": "source_integrity", "label": "Sources and attributions are not fabricated", "critical": true},
+      {"id": "internal_consistency", "label": "Fields do not contradict one another", "critical": true}
+    ]
+  },
+  "expectedCategoryCounts": {
+    "polysemy": 12,
+    "multiword": 8,
+    "misspelling": 6,
+    "regional_spelling": 7,
+    "inflection": 7,
+    "idiom": 5,
+    "quote": 4,
+    "normalization": 8,
+    "adversarial": 14
+  },
+  "sources": [
+    {"id": "cambridge-hip", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/dictionary/english/hip"},
+    {"id": "cambridge-hip-zh", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/dictionary/english-chinese-simplified/hip"},
+    {"id": "oxford-hip-noun", "publisher": "Oxford University Press", "url": "https://www.oxfordlearnersdictionaries.com/definition/english/hip_1"},
+    {"id": "oxford-hip-adjective", "publisher": "Oxford University Press", "url": "https://www.oxfordlearnersdictionaries.com/definition/english/hip_2"},
+    {"id": "merriam-webster-hip", "publisher": "Merriam-Webster", "url": "https://www.merriam-webster.com/dictionary/hip"},
+    {"id": "collins-hip", "publisher": "HarperCollins", "url": "https://www.collinsdictionary.com/dictionary/english/hip"},
+    {"id": "oxford-jab", "publisher": "Oxford University Press", "url": "https://www.oxfordlearnersdictionaries.com/definition/english/jab_1"},
+    {"id": "merriam-webster-take-a-jab-at", "publisher": "Merriam-Webster", "url": "https://www.merriam-webster.com/dictionary/take%20a%20jab%20at"},
+    {"id": "cambridge-phrasal-verbs", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/grammar/british-grammar/phrasal-verbs"},
+    {"id": "cambridge-record-pronunciation", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/pronunciation/english/record"},
+    {"id": "cambridge-issue-pronunciation", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/pronunciation/english/issue"},
+    {"id": "cambridge-regional-spelling", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/dictionary/english/program"},
+    {"id": "australian-style-spelling", "publisher": "Australian Government", "url": "https://www.stylemanual.gov.au/grammar-punctuation-and-conventions/spelling"},
+    {"id": "national-archives-fdr", "publisher": "U.S. National Archives", "url": "https://www.archives.gov/education/lessons/fdr-inaugural"},
+    {"id": "washington-post-misattribution", "publisher": "The Washington Post", "url": "https://www.washingtonpost.com/history/2019/05/07/misquoting-einstein-jefferson-ghandi-congressional-pasttime/"},
+    {"id": "cambridge-idioms", "publisher": "Cambridge University Press", "url": "https://dictionary.cambridge.org/dictionary/english/spill-the-beans"}
+  ],
+  "cases": [
+    {
+      "id": "polysemy-hip",
+      "category": "polysemy",
+      "input": "hip",
+      "severity": "High",
+      "expected": {
+        "canonicalKey": "hip",
+        "classification": "word",
+        "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false},
+        "corePos": ["noun", "adjective"],
+        "ipaAllowed": ["/hɪp/", "/ˈhɪp/"],
+        "senses": [
+          {"conceptId": "body-or-hip-joint", "pos": "noun", "priority": 1, "englishConcepts": ["body side between waist and upper leg", "joint connecting leg and pelvis"], "chineseConcepts": ["髋部", "髋关节", "臀部两侧", "胯部"]},
+          {"conceptId": "fashionable-or-current", "pos": "adjective", "priority": 2, "register": "informal", "englishConcepts": ["fashionable", "aware of current trends"], "chineseConcepts": ["时髦的", "时尚的", "了解最新潮流的"]},
+          {"conceptId": "rose-fruit", "pos": "noun", "priority": 3, "optional": true, "register": "mainly UK", "englishConcepts": ["fruit of a rose"], "chineseConcepts": ["蔷薇果", "玫瑰果"]}
+        ],
+        "behavior": ["Keep each POS and sense in a separate record with its own aligned example.", "Body or joint meaning must be first; the rose-fruit sense must never outrank common senses."],
+        "forbidden": ["mark as misspelled", "replace with another headword", "verb-only result", "translate only as 屁股", "put rose-fruit first"]
+      },
+      "sourceIds": ["cambridge-hip", "cambridge-hip-zh", "oxford-hip-noun", "oxford-hip-adjective", "merriam-webster-hip", "collins-hip"]
+    },
+    {
+      "id": "polysemy-bank",
+      "category": "polysemy",
+      "input": "bank",
+      "severity": "High",
+      "expected": {"canonicalKey": "bank", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/bæŋk/"], "senses": [{"conceptId": "financial-institution", "pos": "noun", "priority": 1}, {"conceptId": "river-side", "pos": "noun", "priority": 1}, {"conceptId": "deposit-or-rely", "pos": "verb", "priority": 2}], "forbidden": ["merge financial institution and river side into one sense"]}
+    },
+    {
+      "id": "polysemy-charge",
+      "category": "polysemy",
+      "input": "charge",
+      "severity": "High",
+      "expected": {"canonicalKey": "charge", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/tʃɑːdʒ/", "/tʃɑːrdʒ/"], "senses": [{"conceptId": "price-or-fee", "pos": "noun", "priority": 1}, {"conceptId": "formal-accusation", "pos": "noun", "priority": 1}, {"conceptId": "ask-a-price-or-accuse", "pos": "verb", "priority": 1}, {"conceptId": "electrical-charge-or-recharge", "pos": "noun-or-verb", "priority": 2}, {"conceptId": "responsibility-or-attack", "pos": "noun-or-verb", "priority": 2}], "forbidden": ["represent every sense as a fee"]}
+    },
+    {
+      "id": "polysemy-fair",
+      "category": "polysemy",
+      "input": "fair",
+      "severity": "High",
+      "expected": {"canonicalKey": "fair", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["adjective", "noun"], "ipaAllowed": ["/feə/", "/fer/"], "senses": [{"conceptId": "just-or-equitable", "pos": "adjective", "priority": 1}, {"conceptId": "public-event-or-exhibition", "pos": "noun", "priority": 1}, {"conceptId": "light-complexion-or-moderately-good-or-clear-weather", "pos": "adjective", "priority": 2}], "forbidden": ["return only 公平的"]}
+    },
+    {
+      "id": "polysemy-fine",
+      "category": "polysemy",
+      "input": "fine",
+      "severity": "High",
+      "expected": {"canonicalKey": "fine", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["adjective", "noun", "verb"], "ipaAllowed": ["/faɪn/"], "senses": [{"conceptId": "satisfactory-or-high-quality", "pos": "adjective", "priority": 1}, {"conceptId": "monetary-penalty", "pos": "noun-or-verb", "priority": 1}, {"conceptId": "thin-delicate-or-precise", "pos": "adjective", "priority": 2}], "forbidden": ["mix satisfactory condition with monetary punishment"]}
+    },
+    {
+      "id": "polysemy-light",
+      "category": "polysemy",
+      "input": "light",
+      "severity": "High",
+      "expected": {"canonicalKey": "light", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "adjective", "verb"], "ipaAllowed": ["/laɪt/"], "senses": [{"conceptId": "brightness-or-lamp", "pos": "noun", "priority": 1}, {"conceptId": "not-heavy", "pos": "adjective", "priority": 1}, {"conceptId": "pale-or-not-intense", "pos": "adjective", "priority": 2}, {"conceptId": "ignite-or-illuminate", "pos": "verb", "priority": 2}], "forbidden": ["use one example for brightness and weight"]}
+    },
+    {
+      "id": "polysemy-mean",
+      "category": "polysemy",
+      "input": "mean",
+      "severity": "High",
+      "expected": {"canonicalKey": "mean", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["verb", "adjective", "noun"], "ipaAllowed": ["/miːn/"], "senses": [{"conceptId": "signify-or-denote", "pos": "verb", "priority": 1}, {"conceptId": "intend", "pos": "verb", "priority": 1}, {"conceptId": "unkind-or-stingy", "pos": "adjective", "priority": 1}, {"conceptId": "average", "pos": "noun-or-adjective", "priority": 2}], "forbidden": ["translate average as 意思"]}
+    },
+    {
+      "id": "polysemy-issue",
+      "category": "polysemy",
+      "input": "issue",
+      "severity": "High",
+      "expected": {"canonicalKey": "issue", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/ˈɪʃuː/", "/ˈɪsjuː/", "/ˈɪʃ.uː/", "/ˈɪs.juː/"], "senses": [{"conceptId": "topic-or-problem", "pos": "noun", "priority": 1}, {"conceptId": "edition-or-number-of-publication", "pos": "noun", "priority": 1}, {"conceptId": "publish-or-supply", "pos": "verb", "priority": 1}], "forbidden": ["reject an accepted pronunciation variant"]},
+      "sourceIds": ["cambridge-issue-pronunciation"]
+    },
+    {
+      "id": "polysemy-scale",
+      "category": "polysemy",
+      "input": "scale",
+      "severity": "High",
+      "expected": {"canonicalKey": "scale", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/skeɪl/"], "senses": [{"conceptId": "size-range-or-ratio", "pos": "noun", "priority": 1}, {"conceptId": "weighing-device", "pos": "noun", "priority": 1}, {"conceptId": "fish-or-reptile-plate", "pos": "noun", "priority": 1}, {"conceptId": "musical-notes", "pos": "noun", "priority": 2}, {"conceptId": "climb-or-resize", "pos": "verb", "priority": 2}], "forbidden": ["collapse unrelated noun meanings"]}
+    },
+    {
+      "id": "polysemy-pitch",
+      "category": "polysemy",
+      "input": "pitch",
+      "severity": "High",
+      "expected": {"canonicalKey": "pitch", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/pɪtʃ/"], "senses": [{"conceptId": "throw", "pos": "noun-or-verb", "priority": 1}, {"conceptId": "sound-frequency", "pos": "noun", "priority": 1}, {"conceptId": "sports-playing-area", "pos": "noun", "priority": 1}, {"conceptId": "sales-proposal", "pos": "noun-or-verb", "priority": 1}, {"conceptId": "set-up-a-tent", "pos": "verb", "priority": 2}], "forbidden": ["put bitumen meaning ahead of common meanings"]}
+    },
+    {
+      "id": "polysemy-draft",
+      "category": "polysemy",
+      "input": "draft",
+      "severity": "High",
+      "expected": {"canonicalKey": "draft", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowed": ["/drɑːft/", "/dræft/"], "senses": [{"conceptId": "preliminary-text-or-plan", "pos": "noun", "priority": 1}, {"conceptId": "compose-a-preliminary-text", "pos": "verb", "priority": 1}, {"conceptId": "military-conscription", "pos": "noun-or-verb", "priority": 1}, {"conceptId": "air-current", "pos": "noun", "priority": 2, "register": "US spelling; UK usually draught"}], "forbidden": ["present draft and draught as universally interchangeable without a dialect note"]}
+    },
+    {
+      "id": "polysemy-record",
+      "category": "polysemy",
+      "input": "record",
+      "severity": "High",
+      "expected": {"canonicalKey": "record", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["noun", "verb"], "ipaAllowedByPos": {"noun-or-adjective": ["/ˈrek.ɔːd/", "/ˈrek.ɚd/"], "verb": ["/rɪˈkɔːd/", "/rɪˈkɔːrd/"]}, "senses": [{"conceptId": "stored-information-or-history", "pos": "noun", "priority": 1}, {"conceptId": "best-achievement", "pos": "noun", "priority": 1}, {"conceptId": "music-or-sound-recording", "pos": "noun", "priority": 1}, {"conceptId": "capture-or-store", "pos": "verb", "priority": 1}], "forbidden": ["use noun stress for the verb", "use verb stress for the noun"]},
+      "sourceIds": ["cambridge-record-pronunciation"]
+    },
+
+    {"id": "multiword-jab-at", "category": "multiword", "input": "jab at", "severity": "High", "expected": {"canonicalKey": "jab at", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["verb-pattern"], "senses": [{"conceptId": "quick-poke-prod-or-boxing-jab-toward", "pos": "verb-pattern", "priority": 1}], "behavior": ["Preserve the complete expression and do not query or display only jab."], "forbidden": ["replace with jab", "equate with take a jab at", "make criticize the sole primary meaning"]}, "sourceIds": ["oxford-jab", "merriam-webster-take-a-jab-at"]},
+    {"id": "multiword-look-up", "category": "multiword", "input": "look up", "severity": "High", "expected": {"canonicalKey": "look up", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "search-for-information", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "situation-improves", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "visit-or-contact", "pos": "phrasal-verb", "priority": 2}], "forbidden": ["define only look", "literal translate as 向上看 only"]}},
+    {"id": "multiword-take-off", "category": "multiword", "input": "take off", "severity": "High", "expected": {"canonicalKey": "take off", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "remove-clothing-or-object", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "aircraft-leaves-ground", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "become-successful-quickly", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "leave-suddenly", "pos": "phrasal-verb", "priority": 2}], "forbidden": ["define only take", "literal word-by-word Chinese"]}},
+    {"id": "multiword-break-down", "category": "multiword", "input": "break down", "severity": "High", "expected": {"canonicalKey": "break down", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "machine-stops-working", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "system-or-relationship-fails", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "lose-emotional-control", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "divide-or-analyse", "pos": "phrasal-verb", "priority": 1}], "forbidden": ["define only break", "merge transitive analysis with intransitive failure"]}},
+    {"id": "multiword-come-across", "category": "multiword", "input": "come across", "severity": "High", "expected": {"canonicalKey": "come across", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "find-or-meet-by-chance", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "give-an-impression", "pos": "phrasal-verb", "priority": 1}], "forbidden": ["define only come", "translate literally as 穿过"]}},
+    {"id": "multiword-account-for", "category": "multiword", "input": "account for", "severity": "High", "expected": {"canonicalKey": "account for", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "explain-or-be-the-cause-of", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "constitute-a-proportion", "pos": "phrasal-verb", "priority": 1}], "forbidden": ["define only account", "translate as 为账户"]}},
+    {"id": "multiword-figure-out", "category": "multiword", "input": "figure out", "severity": "High", "expected": {"canonicalKey": "figure out", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-verb"], "senses": [{"conceptId": "understand-or-solve", "pos": "phrasal-verb", "priority": 1}, {"conceptId": "calculate-or-determine", "pos": "phrasal-verb", "priority": 1}], "forbidden": ["define only figure", "translate literally as 数字出来"]}},
+    {"id": "multiword-put-up-with", "category": "multiword", "input": "put up with", "severity": "High", "expected": {"canonicalKey": "put up with", "classification": "multiword_expression", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "corePos": ["phrasal-prepositional-verb"], "senses": [{"conceptId": "tolerate", "pos": "phrasal-prepositional-verb", "priority": 1}], "behavior": ["Treat the inseparable three-word expression as one lexical unit."], "forbidden": ["replace with put up", "literal word-by-word Chinese"]}},
+
+    {"id": "misspelling-recieve", "category": "misspelling", "input": "recieve", "severity": "High", "expected": {"canonicalKey": "receive", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["receive"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+    {"id": "misspelling-accomodate", "category": "misspelling", "input": "accomodate", "severity": "High", "expected": {"canonicalKey": "accommodate", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["accommodate"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+    {"id": "misspelling-enviroment", "category": "misspelling", "input": "enviroment", "severity": "High", "expected": {"canonicalKey": "environment", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["environment"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+    {"id": "misspelling-definately", "category": "misspelling", "input": "definately", "severity": "High", "expected": {"canonicalKey": "definitely", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["definitely"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+    {"id": "misspelling-seperate", "category": "misspelling", "input": "seperate", "severity": "High", "expected": {"canonicalKey": "separate", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["separate"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+    {"id": "misspelling-occured", "category": "misspelling", "input": "occured", "severity": "High", "expected": {"canonicalKey": "occurred", "classification": "misspelling_candidate", "correction": {"status": "suggestion_required", "suggestions": ["occurred"], "confidenceBand": "high", "mustPreserveOriginal": true, "mustRequireConfirmation": true, "mustAutoApply": false}, "forbidden": ["silently replace the input"]}},
+
+    {"id": "regional-colour", "category": "regional_spelling", "input": "colour", "severity": "High", "expected": {"canonicalKey": "colour", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["color"], "mustNotMarkMisspelled": true}}},
+    {"id": "regional-organise", "category": "regional_spelling", "input": "organise", "severity": "High", "expected": {"canonicalKey": "organise", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["organize"], "mustNotMarkMisspelled": true}}},
+    {"id": "regional-learnt", "category": "regional_spelling", "input": "learnt", "severity": "High", "expected": {"canonicalKey": "learnt", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["learned"], "mustNotMarkMisspelled": true}, "lemma": {"term": "learn", "relation": "past simple or past participle"}}},
+    {"id": "regional-travelling", "category": "regional_spelling", "input": "travelling", "severity": "High", "expected": {"canonicalKey": "travelling", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["traveling"], "mustNotMarkMisspelled": true}, "lemma": {"term": "travel", "relation": "present participle or gerund"}}},
+    {"id": "regional-enrolment", "category": "regional_spelling", "input": "enrolment", "severity": "High", "expected": {"canonicalKey": "enrolment", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["enrollment"], "mustNotMarkMisspelled": true}}},
+    {"id": "regional-judgement", "category": "regional_spelling", "input": "judgement", "severity": "High", "expected": {"canonicalKey": "judgement", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British", "Australian"], "relatedForms": ["judgment"], "note": "Australian legal material often prefers judgment.", "mustNotMarkMisspelled": true}}},
+    {"id": "regional-programme", "category": "regional_spelling", "input": "programme", "severity": "High", "expected": {"canonicalKey": "programme", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "variant": {"status": "valid_regional", "regions": ["British"], "relatedForms": ["program"], "note": "Australian English usually prefers program; programme remains a valid British form.", "mustNotMarkMisspelled": true}}, "sourceIds": ["cambridge-regional-spelling", "australian-style-spelling"]},
+
+    {"id": "inflection-hips", "category": "inflection", "input": "hips", "severity": "Medium", "expected": {"canonicalKey": "hips", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "hip", "relation": "plural noun"}, "ipaAllowed": ["/hɪps/"], "senses": [{"conceptId": "body-or-hip-joint", "pos": "plural noun", "priority": 1}]}},
+    {"id": "inflection-went", "category": "inflection", "input": "went", "severity": "Medium", "expected": {"canonicalKey": "went", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "go", "relation": "past simple"}, "ipaAllowed": ["/went/"]}},
+    {"id": "inflection-better", "category": "inflection", "input": "better", "severity": "High", "expected": {"canonicalKey": "better", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"terms": ["good", "well"], "relation": "comparative adjective or comparative adverb; context may also support standalone noun or verb"}, "ipaAllowed": ["/ˈbet.ə/", "/ˈbet.ər/", "/ˈbet̬.ɚ/"], "forbidden": ["claim that only good can be the lemma", "claim that only well can be the lemma"]}},
+    {"id": "inflection-children", "category": "inflection", "input": "children", "severity": "Medium", "expected": {"canonicalKey": "children", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "child", "relation": "irregular plural noun"}, "ipaAllowed": ["/ˈtʃɪl.drən/"]}},
+    {"id": "inflection-mice", "category": "inflection", "input": "mice", "severity": "Medium", "expected": {"canonicalKey": "mice", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "mouse", "relation": "irregular plural noun"}, "ipaAllowed": ["/maɪs/"], "senses": [{"conceptId": "small-rodent", "pos": "plural noun", "priority": 1}, {"conceptId": "computer-pointing-devices", "pos": "plural noun", "priority": 1}]}},
+    {"id": "inflection-studying", "category": "inflection", "input": "studying", "severity": "Medium", "expected": {"canonicalKey": "studying", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "study", "relation": "present participle or gerund; exact syntax requires context"}, "ipaAllowed": ["/ˈstʌd.i.ɪŋ/"]}},
+    {"id": "inflection-written", "category": "inflection", "input": "written", "severity": "High", "expected": {"canonicalKey": "written", "classification": "inflected_form", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "lemma": {"term": "write", "relation": "past participle; also an adjective in appropriate context"}, "ipaAllowed": ["/ˈrɪt.ən/", "/ˈrɪt̬.ən/"], "corePos": ["past-participle", "adjective"]}},
+
+    {"id": "idiom-spill-the-beans", "category": "idiom", "input": "spill the beans", "severity": "High", "expected": {"canonicalKey": "spill the beans", "classification": "idiom", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "senses": [{"conceptId": "reveal-secret-information", "pos": "idiom", "priority": 1, "chineseConcepts": ["泄露秘密", "说漏嘴"]}], "forbidden": ["literal bean-spilling translation"]}, "sourceIds": ["cambridge-idioms"]},
+    {"id": "idiom-blessing-in-disguise", "category": "idiom", "input": "a blessing in disguise", "severity": "High", "expected": {"canonicalKey": "a blessing in disguise", "classification": "idiom", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "senses": [{"conceptId": "apparent-misfortune-with-later-benefit", "pos": "idiom", "priority": 1, "chineseConcepts": ["因祸得福", "看似坏事却带来好结果"]}], "forbidden": ["literal blessing wearing a disguise"]}},
+    {"id": "idiom-grain-of-salt", "category": "idiom", "input": "take it with a grain of salt", "severity": "High", "expected": {"canonicalKey": "take it with a grain of salt", "classification": "idiom", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "senses": [{"conceptId": "do-not-believe-completely", "pos": "idiom", "priority": 1, "chineseConcepts": ["持保留态度", "不要完全相信"]}], "variant": {"status": "valid_regional", "regions": ["American"], "relatedForms": ["take it with a pinch of salt"], "note": "The pinch form is usual in British English.", "mustNotMarkMisspelled": true}, "forbidden": ["literal grain-of-salt instruction"]}},
+    {"id": "idiom-hit-the-nail", "category": "idiom", "input": "hit the nail on the head", "severity": "High", "expected": {"canonicalKey": "hit the nail on the head", "classification": "idiom", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "senses": [{"conceptId": "identify-the-exact-point-or-cause", "pos": "idiom", "priority": 1, "chineseConcepts": ["说中要害", "说到点子上"]}], "forbidden": ["literal hammering definition only"]}},
+    {"id": "idiom-under-the-weather", "category": "idiom", "input": "under the weather", "severity": "High", "expected": {"canonicalKey": "under the weather", "classification": "idiom", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "senses": [{"conceptId": "feel-ill-or-not-completely-well", "pos": "idiom", "priority": 1, "chineseConcepts": ["身体不适", "不舒服"]}], "forbidden": ["literal weather-position definition"]}},
+
+    {"id": "quote-verified-fdr", "category": "quote", "input": "The only thing we have to fear is fear itself.", "severity": "Critical", "expected": {"canonicalKey": "the only thing we have to fear is fear itself", "classification": "quotation", "correction": {"status": "not_applicable", "mustPreserveOriginal": true, "mustAutoApply": false}, "attribution": {"status": "verified", "author": "Franklin D. Roosevelt", "work": "First Inaugural Address", "date": "1933-03-04", "sourceUrl": "https://www.archives.gov/education/lessons/fdr-inaugural", "requiredSourceHost": "www.archives.gov"}, "forbidden": ["omit the direct source while claiming verified"]}, "sourceIds": ["national-archives-fdr"]},
+    {"id": "quote-misattributed-gandhi", "category": "quote", "input": "Be the change you wish to see in the world.", "severity": "Critical", "expected": {"canonicalKey": "be the change you wish to see in the world", "classification": "quotation", "correction": {"status": "not_applicable", "mustPreserveOriginal": true, "mustAutoApply": false}, "attribution": {"allowedStatuses": ["candidate", "unverified"], "mustDescribe": "Commonly attributed to Gandhi, but the exact wording lacks a verified primary source.", "forbiddenVerifiedAuthors": ["Mahatma Gandhi"], "mustNotInventWorkOrYear": true}, "forbidden": ["verified Gandhi attribution"]}, "sourceIds": ["washington-post-misattribution"]},
+    {"id": "quote-no-reliable-source", "category": "quote", "input": "Courage grows quietly before anyone notices.", "severity": "Critical", "expected": {"canonicalKey": "courage grows quietly before anyone notices", "classification": "quotation", "correction": {"status": "not_applicable", "mustPreserveOriginal": true, "mustAutoApply": false}, "attribution": {"status": "unverified", "mustLeaveBlank": ["author", "work", "date", "sourceUrl"]}, "forbidden": ["invent author", "invent book or speech", "invent year", "invent source URL"]}},
+    {"id": "quote-deliberately-fabricated", "category": "quote", "input": "When violet clocks forgive the rain, the silent compass wakes.", "severity": "Critical", "expected": {"canonicalKey": "when violet clocks forgive the rain, the silent compass wakes", "classification": "quotation", "correction": {"status": "not_applicable", "mustPreserveOriginal": true, "mustAutoApply": false}, "attribution": {"status": "unverified", "fixtureProvenance": "deliberately fabricated for QA", "mustLeaveBlank": ["author", "work", "date", "sourceUrl"]}, "forbidden": ["invent any attribution"]}},
+
+    {"id": "normalization-lowercase", "category": "normalization", "input": "hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"displayInput": "hip", "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-titlecase", "category": "normalization", "input": "Hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"displayInput": "Hip", "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-uppercase", "category": "normalization", "input": "HIP", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"displayInput": "HIP", "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-identical-repeat", "category": "normalization", "input": "hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"scenario": "repeat identical lookup", "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-trailing-punctuation", "category": "normalization", "input": "hip!", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"displayInput": "hip!", "stripOnlyBoundaryPunctuation": true, "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-wrapped-quotes", "category": "normalization", "input": "\"hip\"", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "normalization_scenario", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"displayInput": "\"hip\"", "stripOnlyPairedBoundaryQuotes": true, "dedupeTarget": "hip", "mustCreateNewEntry": false}}},
+    {"id": "normalization-rapid-double", "category": "normalization", "input": "hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "workflow_race", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"inputSequence": ["hip", "hip"], "dedupeTarget": "hip", "expectedUniqueEntries": 1, "mustCreateNewEntry": false}, "behavior": ["At most one organization/publish operation may win; duplicate requests must be coalesced or idempotent."]}},
+    {"id": "normalization-after-save", "category": "normalization", "input": "hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "workflow_race", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "normalization": {"scenario": "submit after an existing hip entry has been saved", "dedupeTarget": "hip", "expectedUniqueEntries": 1, "mustCreateNewEntry": false}, "behavior": ["Open or update the existing entry rather than append a duplicate."]}},
+
+    {"id": "adversarial-empty", "category": "adversarial", "input": "", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "invalid_input", "behavior": ["Reject before any AI or dictionary request.", "Show a clear validation message and end loading state."], "forbidden": ["network request", "empty draft creation"]}},
+    {"id": "adversarial-spaces", "category": "adversarial", "input": "   ", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "invalid_input", "behavior": ["Trim for validation, reject before network work, and keep the UI responsive."], "forbidden": ["network request", "blank entry creation"]}},
+    {"id": "adversarial-single-letter", "category": "adversarial", "input": "a", "severity": "Medium", "expected": {"canonicalKey": "a", "classification": "word", "correction": {"status": "valid", "mustPreserveOriginal": true, "mustAutoApply": false}, "behavior": ["Do not reject solely because length is one; a and I are valid words and letters can be legitimate entries."], "forbidden": ["minimum-length-only rejection"]}},
+    {"id": "adversarial-overlong", "category": "adversarial", "input": "<generated-overlong-text>", "inputGenerator": {"unit": "a", "repeat": 4097}, "severity": "High", "expected": {"canonicalKey": null, "classification": "invalid_input", "behavior": ["Apply the documented length limit with a clear message or route valid sentence-length text to quotation handling.", "Never truncate silently."], "forbidden": ["silent truncation", "partial entry creation"]}},
+    {"id": "adversarial-numbers", "category": "adversarial", "input": "12345", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "unsupported_input", "behavior": ["Reject or offer an explicit manual path without inventing an English definition."], "forbidden": ["hallucinated word entry"]}},
+    {"id": "adversarial-emoji", "category": "adversarial", "input": "🧠✨", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "unsupported_input", "behavior": ["Reject or offer an explicit manual path without crashing."], "forbidden": ["hallucinated English headword"]}},
+    {"id": "adversarial-chinese", "category": "adversarial", "input": "学习", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "unsupported_input", "behavior": ["Explain that the organizer expects English input or offer a deliberate manual workflow."], "forbidden": ["silently treat as an English word"]}},
+    {"id": "adversarial-mixed-language", "category": "adversarial", "input": "hello世界", "severity": "Medium", "expected": {"canonicalKey": null, "classification": "unsupported_input", "behavior": ["Reject or offer a deliberate manual path; do not silently extract only one language."], "forbidden": ["silent partial parsing"]}},
+    {"id": "adversarial-script", "category": "adversarial", "input": "<script>alert(1)</script>", "severity": "Critical", "expected": {"canonicalKey": null, "classification": "security_input", "behavior": ["Render only as escaped text in any error or draft display and never execute it."], "forbidden": ["DOM execution", "innerHTML insertion"]}},
+    {"id": "adversarial-html", "category": "adversarial", "input": "<b>hip</b>", "severity": "Critical", "expected": {"canonicalKey": null, "classification": "security_input", "behavior": ["Treat tags as untrusted text; reject or escape them rather than interpreting markup."], "forbidden": ["render active HTML"]}},
+    {"id": "adversarial-javascript-url", "category": "adversarial", "input": "javascript:alert(1)", "severity": "Critical", "expected": {"canonicalKey": null, "classification": "security_input", "behavior": ["Never create a clickable source link; allow source URLs only under an explicit safe scheme policy such as HTTPS."], "forbidden": ["javascript URL navigation"]}},
+    {"id": "adversarial-corrupt-json", "category": "adversarial", "input": "{\"entries\":[", "severity": "High", "expected": {"canonicalKey": null, "classification": "import_error", "behavior": ["Reject the entire import atomically with a clear parse or schema error.", "Preserve all pre-existing data."], "forbidden": ["partial import", "existing data deletion"]}},
+    {"id": "adversarial-double-save", "category": "adversarial", "input": "hip", "severity": "High", "expected": {"canonicalKey": "hip", "classification": "workflow_race", "behavior": ["Use an idempotency key or equivalent lock so duplicate clicks produce one stored/published mutation.", "End every loading state."], "forbidden": ["duplicate entry", "duplicate remote commit"]}},
+    {"id": "adversarial-ai-race", "category": "adversarial", "input": "hip", "inputSequence": ["hip", "bank"], "severity": "High", "expected": {"canonicalKey": "bank", "classification": "workflow_race", "behavior": ["Abort or supersede the first request; only the latest input may populate the current draft.", "Manual edits made after request start must not be overwritten."], "forbidden": ["late hip response overwrites bank", "stuck loading state"]}}
+  ]
+}

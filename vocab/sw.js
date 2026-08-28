@@ -1,8 +1,8 @@
-const CACHE_NAME = "zhuo-wordbook-v20";
+const CACHE_NAME = "zhuo-wordbook-v21";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const SHELL = [
-  "./", "./index.html", "./owner.html", "./styles.css?v=20", "./manifest.webmanifest",
-  "./js/public-app.js?v=20", "./js/owner-app.js?v=20", "./js/pwa.js", "./js/runtime-config.js",
+  "./", "./index.html", "./owner.html", "./styles.css?v=21", "./manifest.webmanifest",
+  "./js/public-app.js?v=21", "./js/owner-app.js?v=21", "./js/pwa.js", "./js/runtime-config.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/sync-logic.js", "./js/wordbook-schema.js",
   "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
@@ -67,6 +67,14 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/quality/generated-report.json")) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+  // JavaScript, CSS and the manifest can change independently of the cache
+  // namespace. Revalidate them online so a missed manual version bump cannot
+  // strand a client on a stale module graph; the precache remains the offline
+  // fallback.
+  if (/\.(?:js|css|webmanifest)$/i.test(url.pathname)) {
     event.respondWith(networkFirst(request));
     return;
   }

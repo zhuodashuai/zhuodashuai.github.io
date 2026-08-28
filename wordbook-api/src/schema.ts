@@ -9,25 +9,51 @@ const CORRECTION_DECISIONS = ["exact", "suggested", "accepted", "kept"] as const
 const bounded = (maximum: number) => z.string().trim().max(maximum);
 const isoDate = z.string().datetime({ offset: true });
 
-export function normalizeEnglish(value: string): string {
+function normalizeTypography(value: string): string {
   return value
     .normalize("NFKC")
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201C\u201D]/g, '"')
     .replace(/[\u2013\u2014]/g, "-")
     .replace(/\s+/g, " ")
-    .trim()
+    .trim();
+}
+
+/**
+ * Remove ordinary wrapper punctuation only when the whole input is one
+ * lexical item. This makes hip, Hip, HIP, hip! and “hip” share one lookup
+ * key without stripping punctuation from sentences and quotations.
+ */
+export function canonicalizeLookupInput(value: string): string {
+  let cleaned = normalizeTypography(value);
+  const wrapped = cleaned.match(/^(["'])(.+)\1$/);
+  if (wrapped) cleaned = wrapped[2].trim();
+  const withoutTerminalPunctuation = cleaned.replace(/[.!?,;:]+$/u, "").trim();
+  if (/^[A-Za-z]+(?:['-][A-Za-z]+)*$/u.test(withoutTerminalPunctuation)) {
+    return withoutTerminalPunctuation;
+  }
+  return normalizeTypography(value);
+}
+
+export function normalizeEnglish(value: string): string {
+  return canonicalizeLookupInput(value)
     .toLocaleLowerCase("en-US");
 }
 
 export function validateEnglishInput(value: unknown): string {
   if (typeof value !== "string") throw new ApiError(400, "invalid_input", "请输入英文内容。");
-  const cleaned = value.normalize("NFKC").replace(/\s+/g, " ").trim();
+  const cleaned = normalizeTypography(value);
   if (!cleaned || cleaned.length > 2000 || !/[A-Za-z]/.test(cleaned)) {
     throw new ApiError(400, "invalid_input", "请输入 1 至 2,000 个字符的英文内容。");
   }
   if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(cleaned)) {
     throw new ApiError(400, "invalid_input", "输入包含不支持的控制字符。");
+  }
+  if (/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/u.test(cleaned)) {
+    throw new ApiError(400, "invalid_input", "这里只接收英文内容；请移除中文后再试。");
+  }
+  if (/<\/?[A-Za-z][^>]*>|javascript\s*:/iu.test(cleaned)) {
+    throw new ApiError(400, "invalid_input", "输入看起来像 HTML 或 JavaScript，已安全拒绝。");
   }
   return cleaned;
 }
@@ -38,8 +64,9 @@ export function countEnglishTokens(value: string): number {
 
 export function classifyInput(value: string): (typeof ENTRY_TYPES)[number] {
   const cleaned = validateEnglishInput(value);
+  if (/^["']?[A-Za-z]+(?:['-][A-Za-z]+)*[.!?,;:]?["']?$/u.test(cleaned)) return "word";
   const wordCount = countEnglishTokens(cleaned);
-  if (wordCount === 1 && !/[.!?]$/.test(cleaned)) return "word";
+  if (wordCount === 1) return "word";
   if (/^['\"].+['\"]$/.test(cleaned) || wordCount > 7 || /[.!?]$/.test(cleaned)) return "quote";
   return "phrase";
 }
@@ -89,9 +116,9 @@ const SenseSchema = z.object({
 
 const CorrectionSchema = z.object({
   status: z.enum(CORRECTION_DECISIONS),
-  original: bounded(500),
-  suggestion: bounded(500),
-  chosen: bounded(500),
+  original: bounded(2000),
+  suggestion: bounded(2000),
+  chosen: bounded(2000),
   confidence: z.number().min(0).max(1),
   source: bounded(120)
 }).strict().superRefine((correction, context) => {
@@ -120,9 +147,9 @@ export const PublicEntrySchema = z.object({
   id: z.string().trim().min(1).max(180).regex(/^[A-Za-z0-9._:-]+$/),
   revision: z.number().int().min(1),
   originalInput: bounded(2000),
-  term: bounded(500).min(1),
-  normalized: bounded(500).min(1),
-  standardForm: bounded(500).min(1),
+  term: bounded(2000).min(1),
+  normalized: bounded(2000).min(1),
+  standardForm: bounded(2000).min(1),
   entryType: z.enum(ENTRY_TYPES),
   correction: CorrectionSchema,
   phonetic: bounded(300),
@@ -202,8 +229,8 @@ const AiSenseSchema = z.object({
 }).strict();
 
 export const AiOrganizedSchema = z.object({
-  suggestedTerm: bounded(500).min(1),
-  standardForm: bounded(500).min(1),
+  suggestedTerm: bounded(2000).min(1),
+  standardForm: bounded(2000).min(1),
   entryType: z.enum(ENTRY_TYPES),
   phonetic: bounded(300),
   partOfSpeech: bounded(160),
@@ -236,8 +263,8 @@ export const AI_JSON_SCHEMA = {
     "author", "sourceTitle", "sourceWork", "sourceDate", "attributionNote"
   ],
   properties: {
-    suggestedTerm: { type: "string", maxLength: 500 },
-    standardForm: { type: "string", maxLength: 500 },
+    suggestedTerm: { type: "string", maxLength: 2000 },
+    standardForm: { type: "string", maxLength: 2000 },
     entryType: { type: "string", enum: ENTRY_TYPES },
     phonetic: { type: "string", maxLength: 300 },
     partOfSpeech: { type: "string", maxLength: 160 },
@@ -388,10 +415,15 @@ export function validateSnapshot(payload: unknown): PublicSnapshot {
     if (ids.has(entry.id)) throw new ApiError(400, "duplicate_id", `公开词库存在重复 ID：${entry.id}`);
     ids.add(entry.id);
     const aliases = [entry.normalized, normalizeEnglish(entry.standardForm)];
-    if (["suggested", "accepted", "kept"].includes(entry.correction.status)) {
+    if (["suggested", "accepted"].includes(entry.correction.status)) {
       aliases.push(
         normalizeEnglish(entry.correction.original),
         normalizeEnglish(entry.correction.suggestion),
+        normalizeEnglish(entry.correction.chosen)
+      );
+    } else if (entry.correction.status === "kept") {
+      aliases.push(
+        normalizeEnglish(entry.correction.original),
         normalizeEnglish(entry.correction.chosen)
       );
     }
@@ -412,11 +444,25 @@ export const PublishRequestSchema = z.object({
     z.object({ type: z.literal("update"), entry: PublicEntrySchema, expectedUpdatedAt: isoDate }).strict(),
     z.object({ type: z.literal("delete"), id: z.string().trim().min(1).max(180), expectedUpdatedAt: isoDate }).strict()
   ])
-}).strict();
+}).strict().superRefine((request, context) => {
+  if (request.mutation.type !== "delete" && request.mutation.entry.correction.status === "suggested") {
+    context.addIssue({
+      code: "custom",
+      path: ["mutation", "entry", "correction", "status"],
+      message: "publishing requires an explicit accept, keep or manual spelling decision"
+    });
+  }
+});
 
 export type PublishRequest = z.infer<typeof PublishRequestSchema>;
 
-export function makeEntryFromAi(input: string, organized: AiOrganized, provider: "openai" | "anthropic", sources: SourceRecord[]): PublicEntry {
+export function makeEntryFromAi(
+  input: string,
+  organized: AiOrganized,
+  provider: "openai" | "anthropic",
+  sources: SourceRecord[],
+  correctionConfidence = 0.55
+): PublicEntry {
   const now = new Date().toISOString();
   const inputWordCount = countEnglishTokens(input);
   const preservesMultiwordExpression = (value: string): boolean => inputWordCount < 2 || countEnglishTokens(value) >= 2;
@@ -441,8 +487,8 @@ export function makeEntryFromAi(input: string, organized: AiOrganized, provider:
       original: input,
       suggestion: hasSuggestion ? suggested : "",
       chosen: input,
-      confidence: hasSuggestion ? 0.9 : 1,
-      source: `ai-${provider}`
+      confidence: hasSuggestion ? Math.max(0, Math.min(1, correctionConfidence)) : 1,
+      source: hasSuggestion ? `ai-${provider}+edit-distance-heuristic` : `ai-${provider}`
     },
     phonetic: organized.phonetic,
     partOfSpeech: organized.partOfSpeech,

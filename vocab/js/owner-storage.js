@@ -235,6 +235,15 @@ function sameSemanticEntry(left, right) {
   return JSON.stringify(semanticEntryValue(left)) === JSON.stringify(semanticEntryValue(right));
 }
 
+function remoteMatchesOperation(operation, snapshot) {
+  const remoteEntry = operation.entryId
+    ? snapshot.entries.find((entry) => entry.id === operation.entryId) || null
+    : null;
+  return operation.kind === "delete"
+    ? remoteEntry === null
+    : Boolean(remoteEntry && sameSemanticEntry(remoteEntry, operation.desiredEntry));
+}
+
 function draftRecord(candidate) {
   if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) throw new Error("草稿格式不正确。");
   rejectSecrets(candidate);
@@ -457,8 +466,9 @@ export async function completeOperation(operationId, { tabId, sha, snapshot }) {
   if (draft) {
     const expectedEntry = operation.kind === "delete" ? operation.baseEntry : operation.desiredEntry;
     const contentStillMatches = sameSemanticEntry(draft.value, expectedEntry);
+    const remoteMatchesIntent = remoteMatchesOperation(operation, validated);
     const operationStillOwnsDraft = !draft.lastOperationId || draft.lastOperationId === operationId;
-    superseded = !contentStillMatches || !operationStillOwnsDraft;
+    superseded = !contentStillMatches || !operationStillOwnsDraft || !remoteMatchesIntent;
     if (!superseded) {
       drafts.put({ ...draft, localState: "published", publishedAt: now, updatedAt: now });
     } else if (operationStillOwnsDraft) {
@@ -479,6 +489,54 @@ export async function completeOperation(operationId, { tabId, sha, snapshot }) {
   await bumpRevision(transaction, [STORES.outbox, STORES.drafts, STORES.publicCache], [operationId, operation.draftId, "owner"]);
   await transactionDone(transaction);
   return { superseded };
+}
+
+export async function reconcileCommittedOperations(snapshot, sha) {
+  const validated = parsePublicSnapshot(snapshot, { allowLegacy: false });
+  const publishedSha = String(sha || "");
+  if (!/^[0-9a-f]{40}$/i.test(publishedSha)) throw new Error("远端 Git SHA 格式不正确，不能核对遗留任务。");
+  if (!validated.lastMutationId) return [];
+
+  const database = await openDatabase();
+  const transaction = database.transaction([STORES.outbox, STORES.drafts, STORES.meta], "readwrite");
+  const outbox = transaction.objectStore(STORES.outbox);
+  const operations = await requestValue(outbox.getAll());
+  const operation = operations.find((candidate) => candidate.status === "review_required"
+    && candidate.request?.mutationId === validated.lastMutationId);
+  if (!operation || !remoteMatchesOperation(operation, validated)) {
+    await transactionDone(transaction);
+    return [];
+  }
+
+  const now = new Date().toISOString();
+  outbox.put({
+    ...operation,
+    status: "published",
+    publishedSha,
+    completedAt: now,
+    updatedAt: now,
+    leaseOwner: null,
+    leaseExpiresAt: null,
+    lastError: null,
+    recoveredFromRemote: true
+  });
+  const drafts = transaction.objectStore(STORES.drafts);
+  const draft = await requestValue(drafts.get(operation.draftId));
+  let superseded = !draft;
+  if (draft) {
+    const expectedEntry = operation.kind === "delete" ? operation.baseEntry : operation.desiredEntry;
+    const contentStillMatches = sameSemanticEntry(draft.value, expectedEntry);
+    const operationStillOwnsDraft = !draft.lastOperationId || draft.lastOperationId === operation.operationId;
+    superseded = !contentStillMatches || !operationStillOwnsDraft;
+    if (!superseded) {
+      drafts.put({ ...draft, localState: "published", publishedAt: now, updatedAt: now });
+    } else if (operationStillOwnsDraft) {
+      drafts.put({ ...draft, localState: "local_saved", lastOperationId: null, publishedAt: null, updatedAt: now });
+    }
+  }
+  await bumpRevision(transaction, [STORES.outbox, STORES.drafts], [operation.operationId, operation.draftId]);
+  await transactionDone(transaction);
+  return [{ operationId: operation.operationId, superseded }];
 }
 
 export async function requireReviewForStoredOperations() {

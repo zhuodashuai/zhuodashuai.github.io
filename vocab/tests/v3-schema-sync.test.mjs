@@ -81,6 +81,29 @@ test("operation rebasing never overwrites a remotely changed delete", () => {
   assert.equal(result.conflicts[0].path, "$delete");
 });
 
+test("a semantic rebase rotates the remote mutation id instead of reusing a bound idempotency key", () => {
+  const base = entry("receive", { id: "receive", entryType: "word", meaning: "收到", usage: "base" });
+  const local = { ...base, meaning: "收到；接收" };
+  const remote = { ...base, usage: "remote usage", updatedAt: "2026-08-28T01:00:00.000Z", revision: 2 };
+  const originalMutationId = "mutation-update-bound-1";
+  const result = rebaseOperation({
+    entryId: "receive",
+    baseEntry: base,
+    request: {
+      baseSha: "a".repeat(40),
+      mutationId: originalMutationId,
+      mutation: { type: "update", entry: local, expectedUpdatedAt: base.updatedAt }
+    }
+  }, { entries: [remote] }, "b".repeat(40));
+
+  assert.equal(result.status, "rebased");
+  assert.equal(result.request.baseSha, "b".repeat(40));
+  assert.equal(result.request.mutation.entry.meaning, "收到；接收");
+  assert.equal(result.request.mutation.entry.usage, "remote usage");
+  assert.notEqual(result.request.mutationId, originalMutationId);
+  assert.match(result.request.mutationId, /^[0-9a-f-]{36}$/i);
+});
+
 test("retry classification and backoff distinguish conflicts and transient failures", () => {
   assert.deepEqual(classifySyncFailure({ status: 409 }), { state: "conflict", retryable: false });
   assert.deepEqual(classifySyncFailure({ status: 503 }), { state: "retry_wait", retryable: true });
