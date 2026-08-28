@@ -167,14 +167,14 @@ These are eight distinct interaction cases even though some intentionally repeat
 
 ## 9. Synonyms as entry metadata
 
-同义词是当前输入词条的附属候选，不是自动收藏列表。它们不能占用 canonical key，也不能把后来由卓亲自输入的词挡在词库之外。
+同义词是卓已经亲自输入的词条之间的附属关系，不是模型扩写列表。未输入的 AI 候选必须丢弃；关系不能占用 canonical key，也不能把后来由卓亲自输入的词挡在词库之外。
 
 | ID | Input/scenario | Expected | Severity | Actual / evidence |
 |---|---|---|---|---|
-| synonyms-one-entry | 输入并发布 `alleviate`，AI 给出 `ease / lessen / mitigate` | 词库只增加 `alleviate` 一条；卡片、详情、复制、搜索和导出保留同义词。 | High | Automated E2E |
-| synonyms-independent-entry | `ease` 已是 `alleviate` 的同义词，之后卓主动输入 `ease` | 允许建立并发布第二条独立词条；再次输入 `ease` 才按自身 term 去重。 | High | Automated E2E |
-| synonyms-exact-first | 搜索 `ease`，同时存在独立 `ease` 与 synonyms 含 `ease` 的 `alleviate` | 两条均可命中，但精确 `ease` 必须排第一。 | Medium | Automated unit + E2E |
-| synonyms-safety | 同义词包含当前词、词形、易混词、中文、HTML/JS 或大小写重复 | 拒绝或安全过滤；句子、名言和谚语的同义词必须为空。 | High | Automated browser + Worker schema tests |
+| synonyms-unentered-rejected | 只输入 `alleviate`，AI 候选包含 `ease / mitigate / soothe` | 同义词为空，词库只增加 `alleviate`；候选不成为词条，也不可被搜索或导出。 | High | Automated E2E |
+| synonyms-owner-whitelist | 已发布 `alleviate` 后，卓主动输入 `ease`；AI 候选为 `alleviate / lessen / relieve` | 只保留已输入的 `alleviate`；`lessen / relieve` 丢弃，`ease` 仍是第二条独立词条。 | High | Automated E2E + Worker integration |
+| synonyms-exact-first | 搜索 `alleviate`，同时存在精确 `alleviate` 与 synonyms 含它的 `ease` | 两条均可命中，但精确 `alleviate` 必须排第一。 | Medium | Automated unit + E2E |
+| synonyms-safety | 同义词包含未输入词、当前词、词形、易混词、中文、HTML/JS 或大小写重复 | 拒绝或安全过滤；发布快照不得引用不存在词条；句子、名言和谚语的同义词必须为空。 | High | Automated browser + Worker schema tests |
 
 ## 10. Boundary, adversarial, and race inputs
 

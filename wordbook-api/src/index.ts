@@ -17,7 +17,7 @@ import {
   revokeOAuthToken,
   verifyOwnerAndRepository
 } from "./github";
-import { PublishRequestSchema, validateEnglishInput } from "./schema";
+import { PublishRequestSchema, validateAllowedSynonyms, validateEnglishInput } from "./schema";
 import {
   ApiError,
   assertSameOriginWrite,
@@ -193,8 +193,10 @@ async function organize(request: Request, env: Env): Promise<Response> {
   const csrfToken = csrfValue(request);
   await controlCall(env, "/session/assert", { sessionHash: session.hash, csrfToken });
   const body = await readJsonBody(request, 8 * 1024);
-  const rawInput = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).input : undefined;
+  const bodyRecord = body && typeof body === "object" && !Array.isArray(body) ? body as Record<string, unknown> : {};
+  const rawInput = bodyRecord.input;
   const input = validateEnglishInput(rawInput);
+  const allowedSynonyms = validateAllowedSynonyms(bodyRecord.allowedSynonyms);
   try {
     await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
   } catch (error) {
@@ -221,7 +223,7 @@ async function organize(request: Request, env: Env): Promise<Response> {
     }
     throw error;
   }
-  return jsonResponse(await organizeEntry(input, config));
+  return jsonResponse(await organizeEntry(input, config, allowedSynonyms));
 }
 
 async function publish(request: Request, env: Env): Promise<Response> {

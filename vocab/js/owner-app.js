@@ -17,7 +17,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, assertCompleteAiCandidate, createBlankEntry, findDuplicate, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -57,6 +57,8 @@ const state = {
   commitLockedDraftId: null,
   draftAiStatus: new Map(),
   phoneticEditRevisions: new Map(),
+  ownerEnteredTerms: [],
+  ownerPublishedTerms: [],
   queueRecoveryComplete: false,
   runClosing: false,
   publishAbortController: null
@@ -84,6 +86,21 @@ function commaList(value, maximumItems = 30) { return String(value || "").split(
 function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
+
+function updateOwnerTermIndexes(drafts) {
+  const publicEntries = state.snapshot?.entries || [];
+  state.ownerEnteredTerms = buildOwnerEnteredTermAllowlist(drafts, publicEntries);
+  state.ownerPublishedTerms = buildOwnerEnteredTermAllowlist([], publicEntries);
+}
+
+function allowedSynonymsFor(term, candidates) {
+  return filterSynonymsToOwnerTerms(candidates, state.ownerEnteredTerms, term);
+}
+
+function sameNormalizedTermLists(left, right) {
+  return left.length === right.length
+    && left.every((term, index) => normalizeEnglish(term) === normalizeEnglish(right[index]));
+}
 
 async function discoverActiveOwnerRuns() {
   if (!runPresenceChannel) return [];
@@ -429,6 +446,11 @@ function renderSources(entry) {
 function fillEditor(draft, { focus = true } = {}) {
   state.currentDraft = structuredClone(draft);
   const entry = state.currentDraft.value;
+  const storedSynonyms = Array.isArray(entry.synonyms) ? entry.synonyms : [];
+  const cleanedSynonyms = allowedSynonymsFor(entry.term, storedSynonyms);
+  const changedStoredSynonyms = JSON.stringify(cleanedSynonyms) !== JSON.stringify(storedSynonyms);
+  const removedStaleSynonyms = !sameNormalizedTermLists(cleanedSynonyms, storedSynonyms);
+  entry.synonyms = cleanedSynonyms;
   refs.editorEmpty.hidden = true;
   refs.entryForm.hidden = false;
   // The short AI commit lock belongs to one draft. If the owner opens another
@@ -468,8 +490,11 @@ function fillEditor(draft, { focus = true } = {}) {
   renderSources(entry);
   renderDraftCompletionNotice(entry);
   renderEditorAiStatus(draft.id);
-  showEditorError();
+  showEditorError(removedStaleSynonyms
+    ? "旧草稿中有同义词并不是你已输入并保留的独立词条，已从本地草稿移除，也不会发布。"
+    : "");
   renderDrafts();
+  if (changedStoredSynonyms) scheduleDraftSave();
   if (focus) window.setTimeout(() => refs.editorTitle.focus({ preventScroll: true }), 0);
 }
 
@@ -477,6 +502,17 @@ function collectEntry({ strict = false } = {}) {
   if (!state.currentDraft) throw new Error("没有打开的草稿。");
   const previous = state.currentDraft.value;
   const term = value("fieldTerm");
+  const rawSynonyms = LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : [];
+  const synonyms = allowedSynonymsFor(term, rawSynonyms);
+  if (strict && !sameNormalizedTermLists(synonyms, rawSynonyms)) {
+    throw new Error("同义词只能从你已经通过主输入框建立、且当前仍存在的词条中选择；请移除未输入的候选后再发布。");
+  }
+  if (strict) {
+    const publishedSynonyms = filterSynonymsToOwnerTerms(synonyms, state.ownerPublishedTerms, term);
+    if (!sameNormalizedTermLists(publishedSynonyms, synonyms)) {
+      throw new Error("这些同义词目前只有本地草稿、尚未公开。请先发布对应词条，再回来发布当前词条；或暂时从同义词字段移除。 ");
+    }
+  }
   const entry = {
     ...structuredClone(previous),
     originalInput: value("fieldOriginalInput"),
@@ -489,7 +525,7 @@ function collectEntry({ strict = false } = {}) {
     meaning: value("fieldMeaning"),
     definition: value("fieldDefinition"),
     collocations: commaList(value("fieldCollocations")),
-    synonyms: LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : [],
+    synonyms,
     exampleEn: value("fieldExampleEn"),
     exampleZh: value("fieldExampleZh"),
     usage: value("fieldUsage"),
@@ -538,14 +574,21 @@ async function persistCurrentDraft({ announce = false } = {}) {
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
   state.pendingSave = null;
+  const collected = collectEntry();
+  const rawSynonyms = commaList(value("fieldSynonyms"), 20);
+  const changedSynonymDisplay = JSON.stringify(rawSynonyms) !== JSON.stringify(collected.synonyms);
+  const removedUnenteredSynonyms = !sameNormalizedTermLists(rawSynonyms, collected.synonyms);
+  if (announce && changedSynonymDisplay) setValue("fieldSynonyms", collected.synonyms.join("，"));
   const snapshot = {
     ...structuredClone(state.currentDraft),
-    value: collectEntry(),
+    value: collected,
     localState: state.currentDraft.localState === "conflict" ? "conflict" : "local_saved"
   };
   state.currentDraft = await saveDraft(snapshot);
   refs.draftState.textContent = STATE_LABELS[state.currentDraft.localState];
-  if (announce) setStatus(refs.captureStatus, "草稿已可靠保存在当前设备。 ");
+  if (announce) setStatus(refs.captureStatus, removedUnenteredSynonyms
+    ? "草稿已保存；未由你通过主输入框建立的同义词候选已移除。"
+    : "草稿已可靠保存在当前设备。 ");
   await renderDrafts();
   return state.currentDraft;
 }
@@ -588,6 +631,7 @@ function scheduleDraftSave() {
 
 async function renderDrafts() {
   const [drafts, operations] = await Promise.all([listDrafts(), listOutbox({ includeCompleted: true })]);
+  updateOwnerTermIndexes(drafts);
   const operationById = new Map(operations.map((operation) => [operation.operationId, operation]));
   const items = drafts.map((draft) => {
     const operation = draft.lastOperationId ? operationById.get(draft.lastOperationId) : null;
@@ -680,6 +724,7 @@ async function loadRemote({ quiet = false } = {}) {
     const remote = await getOwnerWordbook();
     state.snapshot = parsePublicSnapshot(remote.snapshot);
     state.remoteSha = String(remote.sha || "");
+    updateOwnerTermIndexes(await listDrafts());
     await putPublicCache(state.snapshot, state.remoteSha, "authenticated-owner-api");
     setSyncState("synced", "已连接 GitHub", `${state.snapshot.entries.length} 个公开词条 · SHA ${state.remoteSha.slice(0, 7)}`);
     renderOwnerEntries();
@@ -690,6 +735,7 @@ async function loadRemote({ quiet = false } = {}) {
       if (cache?.snapshot) {
         state.snapshot = parsePublicSnapshot(cache.snapshot);
         state.remoteSha = cache.sha || "";
+        updateOwnerTermIndexes(await listDrafts());
         renderOwnerEntries();
       }
     } catch { /* no valid cache */ }
@@ -718,10 +764,23 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   }
   setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
   try {
-    const result = await organizeWithAi(cleaned, state.csrfToken);
+    updateOwnerTermIndexes(await listDrafts());
+    const allowedSynonyms = state.ownerEnteredTerms
+      .filter((term) => normalizeEnglish(term) !== normalizeEnglish(draft.value.term))
+      .slice(0, 200);
+    const result = await organizeWithAi(cleaned, state.csrfToken, { allowedSynonyms });
     const warnings = Array.isArray(result.warnings) ? result.warnings.map(String) : [];
+    updateOwnerTermIndexes(await listDrafts());
+    const stillAllowedSynonyms = filterSynonymsToOwnerTerms(allowedSynonyms, state.ownerEnteredTerms, draft.value.term);
+    const responseEntry = result.entry && typeof result.entry === "object" && !Array.isArray(result.entry) ? result.entry : {};
+    const rawResponseSynonyms = Array.isArray(responseEntry.synonyms) ? responseEntry.synonyms : [];
+    const filteredResponseSynonyms = filterSynonymsToOwnerTerms(rawResponseSynonyms, stillAllowedSynonyms, responseEntry.term || draft.value.term);
+    if (filteredResponseSynonyms.length !== rawResponseSynonyms.length) {
+      warnings.push("AI 提出的未输入同义词已丢弃；这里只保留你已通过主输入框建立且仍存在的词条。");
+    }
+    const filteredResponseEntry = { ...responseEntry, synonyms: filteredResponseSynonyms };
     const claimsCuratedPhonetic = warnings.some((warning) => /音标.*(?:校订|词典).*锁定/u.test(warning));
-    const responsePhonetic = typeof result.entry?.phonetic === "string" ? result.entry.phonetic.normalize("NFKC") : "";
+    const responsePhonetic = typeof filteredResponseEntry.phonetic === "string" ? filteredResponseEntry.phonetic.normalize("NFKC") : "";
     const pronunciations = responsePhonetic.match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
     const hasPlausiblePhonetic = pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
     if (claimsCuratedPhonetic && !hasPlausiblePhonetic) {
@@ -730,7 +789,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
         code: "ai_response_contract"
       });
     }
-    const aiEntry = validatePublicEntry(result.entry);
+    const aiEntry = validatePublicEntry(filteredResponseEntry);
     let reviewRequired = result.reviewRequired === true;
     if (!reviewRequired) {
       try {
@@ -886,6 +945,7 @@ async function openNewDraft(input, { ai = false } = {}) {
   const cleaned = validateEnglishInput(input);
   const blank = createBlankEntry(cleaned);
   const localDrafts = await listDrafts();
+  updateOwnerTermIndexes(localDrafts);
   const duplicate = state.snapshot ? findDuplicate(state.snapshot.entries, blank) : null;
   if (duplicate) {
     const existing = localDrafts.find((candidate) => candidate.mode === "edit"
@@ -914,6 +974,7 @@ async function openNewDraft(input, { ai = false } = {}) {
     return;
   }
   const draft = await saveDraft(createDraft(blank));
+  updateOwnerTermIndexes([draft, ...localDrafts]);
   fillEditor(draft);
   setStatus(refs.captureStatus, "空白草稿已先保存在本机。 ");
   if (ai) await organizeDraftWithAi(draft, cleaned);

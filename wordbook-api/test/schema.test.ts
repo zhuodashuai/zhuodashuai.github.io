@@ -8,6 +8,7 @@ import {
   makeEntryFromAi,
   normalizeEnglish,
   safeHttpsUrl,
+  validateAllowedSynonyms,
   validateEnglishInput,
   validateSnapshot
 } from "../src/schema";
@@ -53,6 +54,18 @@ describe("wordbook schema", () => {
     expect(result.originalInput).toBe("recieve");
     expect(result.correction).toMatchObject({ status: "suggested", original: "recieve", suggestion: "receive", chosen: "recieve" });
     expect(result.synonyms).toEqual(["get", "obtain"]);
+  });
+
+  it("normalizes, bounds and deduplicates the owner-entered synonym allowlist", () => {
+    expect(validateAllowedSynonyms(undefined)).toEqual([]);
+    expect(validateAllowedSynonyms([" Stylish ", "stylish", "look  after", "Knowledge is power."])).toEqual([
+      "Stylish",
+      "look after"
+    ]);
+    expect(() => validateAllowedSynonyms("stylish")).toThrow(/最多 200 项/);
+    expect(() => validateAllowedSynonyms(Array.from({ length: 201 }, (_, index) => `word${index}`))).toThrow(/最多 200 项/);
+    expect(() => validateAllowedSynonyms(["a".repeat(201)])).toThrow(/超过 200/);
+    expect(() => validateAllowedSynonyms(["<b>stylish<\/b>"])).toThrow(/安全的英文内容/);
   });
 
   it("requires synonyms in strict AI output while defaulting old public entries safely", () => {
@@ -200,6 +213,13 @@ describe("wordbook schema", () => {
       correction: { status: "accepted", original: "recieve", suggestion: "receive", chosen: "receive", confidence: .99, source: "test" }
     });
     expect(() => validateSnapshot(snapshot([receive, typo]))).toThrow(/重复词条/);
+  });
+
+  it("requires every published synonym to reference another real entry term", () => {
+    const alleviate = entry({ id: "alleviate", term: "alleviate", entryType: "word" });
+    const ease = entry({ id: "ease", term: "ease", entryType: "word", synonyms: ["alleviate"] });
+    expect(validateSnapshot(snapshot([alleviate, ease])).entries[1].synonyms).toEqual(["alleviate"]);
+    expect(() => validateSnapshot(snapshot([ease]))).toThrow(/尚未发布的同义词引用/);
   });
 
   it("does not treat empty correction aliases as duplicate terms", () => {

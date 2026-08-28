@@ -115,6 +115,22 @@ describe("worker API integration", () => {
     expect(asset.headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
   });
 
+  it("rejects a malformed allowedSynonyms contract before consuming an AI request", async () => {
+    const csrf = await seedSession();
+    const response = await api("/api/v1/owner/ai/organize", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf
+      },
+      body: JSON.stringify({ input: "hip", allowedSynonyms: "stylish" })
+    });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ error: { code: "invalid_allowed_synonyms" } });
+  });
+
   it("enforces one account-wide UTC-day ceiling for free AI requests", async () => {
     const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
     const request = (subject = "zhuo-owner-account") => stub.fetch("https://owner.internal/rate", {
@@ -425,6 +441,36 @@ describe("worker API integration", () => {
     expect(await reused.json()).toMatchObject({ error: { code: "idempotency_key_reused" } });
     const putCalls = github.mock.mock.calls.filter(([input, init]) => asUrl(input).pathname.includes("owner-wordbook.json") && init?.method === "PUT");
     expect(putCalls).toHaveLength(1);
+  });
+
+  it("rejects a published synonym that does not reference another published term", async () => {
+    const csrf = await seedSession();
+    const alleviate = entry({ id: "alleviate", term: "alleviate", entryType: "word" });
+    const github = ownerGitHubMock(snapshot([alleviate]));
+    vi.stubGlobal("fetch", github.mock);
+    const help = entry({ id: "help", term: "help", entryType: "word", synonyms: ["unentered"] });
+    const mutationId = "mutation-api-invalid-synonym";
+    const response = await api("/api/v1/owner/publish", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Sec-Fetch-Site": "same-origin",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf,
+        "Idempotency-Key": mutationId
+      },
+      body: JSON.stringify({
+        ...V38_PROTOCOL,
+        baseSha: "a".repeat(40),
+        mutationId,
+        mutation: { type: "add", entry: help }
+      })
+    });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ error: { code: "invalid_synonym_reference" } });
+    const putCalls = github.mock.mock.calls.filter(([input, init]) => asUrl(input).pathname.includes("owner-wordbook.json") && init?.method === "PUT");
+    expect(putCalls).toHaveLength(0);
   });
 
   it("rejects an unaligned local-dictionary candidate at the server boundary even if an old client posts it", async () => {

@@ -310,57 +310,81 @@ test("前端拒绝保存声称已锁定音标却缺少 IPA 的自相矛盾响应
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
 });
 
-test("AI 同义词只附在输入词条，公开词表可见且同义词本身仍可独立新增", async ({ context, page }) => {
+test("AI 只保留卓实际输入过的单向同义词，不创建候选词条且重复输入不消耗 AI", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   let aiRequestCount = 0;
+  const aiRequests = [];
   page.on("request", (request) => {
-    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) {
+      aiRequestCount += 1;
+      aiRequests.push(request.postDataJSON());
+    }
   });
 
   await loginOwner(page);
   await addWithAi(page, "alleviate");
-  await expect(page.locator("#field-synonyms")).toHaveValue("ease，lessen，mitigate");
+  await expect(page.locator("#field-synonyms")).toHaveValue("");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  await expect(page.locator("#owner-entry-count")).toHaveText("0");
+  expect(aiRequests[0]).toEqual({ input: "alleviate", allowedSynonyms: [] });
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
-  await expect(page.locator(".owner-entry-row", { hasText: "alleviate" })).toContainText("同义词：ease；lessen；mitigate");
+  await expect(page.locator(".owner-entry-row", { hasText: "alleviate" }).locator(".owner-entry-synonyms")).toBeHidden();
   expect(aiRequestCount).toBe(1);
 
   await page.goto("/");
   await expect(page.locator("#entry-count")).toHaveText("1");
   const alleviateCard = page.locator(".word-card", { hasText: "alleviate" });
-  await expect(alleviateCard).toContainText("同义词：ease；lessen；mitigate");
+  await expect(alleviateCard.locator(".card-synonyms")).toBeHidden();
   const publicSearch = page.getByLabel("搜索卓已发布的英文、中文、同义词、标签或作者（不是在线词典）");
   await publicSearch.fill("mitigate");
-  await expect(page.locator(".word-card")).toHaveCount(1);
-  await expect(page.locator(".word-card h3")).toHaveText("alleviate");
-  await page.getByRole("button", { name: "查看 alleviate 的完整词条" }).click();
-  await expect(page.getByRole("dialog")).toContainText("同义词：ease；lessen；mitigate");
-  await page.getByRole("button", { name: "关闭词条详情" }).click();
+  await expect(page.locator(".word-card")).toHaveCount(0);
 
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
   const download = await downloadPromise;
   const exported = JSON.parse(await readFile(await download.path(), "utf8"));
   expect(exported.entries).toHaveLength(1);
-  expect(exported.entries[0]).toMatchObject({ term: "alleviate", synonyms: ["ease", "lessen", "mitigate"] });
+  expect(exported.entries[0]).toMatchObject({ term: "alleviate", synonyms: [] });
 
   await page.goto("/owner.html");
   await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
   await addWithAi(page, "ease");
-  await expect(page.locator("#field-synonyms")).toHaveValue("alleviate，lessen，relieve");
+  await expect(page.locator("#field-synonyms")).toHaveValue("alleviate");
+  await expect(page.locator("#draft-list > button")).toHaveCount(2);
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  expect(aiRequests[1]).toEqual({ input: "ease", allowedSynonyms: ["alleviate"] });
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
   expect(aiRequestCount).toBe(2);
 
   await page.locator("#owner-search").fill("ease");
-  await expect(page.locator(".owner-entry-row")).toHaveCount(2);
+  await expect(page.locator(".owner-entry-row")).toHaveCount(1);
   await expect(page.locator(".owner-entry-row strong").first()).toHaveText("ease");
+  await expect(page.locator(".owner-entry-row").first()).toContainText("同义词：alleviate");
+  await page.locator("#owner-search").fill("alleviate");
+  await expect(page.locator(".owner-entry-row")).toHaveCount(2);
+  await expect(page.locator(".owner-entry-row strong").first()).toHaveText("alleviate");
 
   await page.goto("/");
   await publicSearch.fill("ease");
-  await expect(page.locator(".word-card")).toHaveCount(2);
+  await expect(page.locator(".word-card")).toHaveCount(1);
   await expect(page.locator(".word-card h3").first()).toHaveText("ease");
+  await expect(page.locator(".word-card").first()).toContainText("同义词：alleviate");
+  await page.getByRole("button", { name: "查看 ease 的完整词条" }).click();
+  await expect(page.getByRole("dialog")).toContainText("同义词：alleviate");
+  await page.getByRole("button", { name: "关闭词条详情" }).click();
+  await publicSearch.fill("alleviate");
+  await expect(page.locator(".word-card")).toHaveCount(2);
+  await expect(page.locator(".word-card h3").first()).toHaveText("alleviate");
+  const linkedDownloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
+  const linkedDownload = await linkedDownloadPromise;
+  const linkedExport = JSON.parse(await readFile(await linkedDownload.path(), "utf8"));
+  expect(linkedExport.entries.find((entry) => entry.term === "alleviate")?.synonyms).toEqual([]);
+  expect(linkedExport.entries.find((entry) => entry.term === "ease")?.synonyms).toEqual(["alleviate"]);
+  await publicSearch.fill("lessen");
+  await expect(page.locator(".word-card")).toHaveCount(0);
 
   await page.goto("/owner.html");
   await page.getByLabel("英文内容").fill("ease");
@@ -368,6 +392,76 @@ test("AI 同义词只附在输入词条，公开词表可见且同义词本身�
   await expect(page.locator("#capture-status")).toContainText(/已有|已建立|已打开/);
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
   expect(aiRequestCount).toBe(2);
+});
+
+test("旧本地草稿中的未输入同义词会在发布前移除", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let publishedEntry = null;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/publish")) {
+      publishedEntry = request.postDataJSON()?.mutation?.entry || null;
+    }
+  });
+
+  await loginOwner(page);
+  await page.evaluate(async () => {
+    const { createBlankEntry } = await import("/js/wordbook-schema.js");
+    const entry = createBlankEntry("temper");
+    entry.meaning = "使缓和；使温和";
+    entry.definition = "To make something less severe or intense.";
+    entry.phonetic = "/ˈtempə/";
+    entry.partOfSpeech = "verb";
+    entry.exampleEn = "Time tempered their anger.";
+    entry.exampleZh = "时间缓和了他们的愤怒。";
+    entry.usage = "A complete legacy draft for E2E migration coverage.";
+    entry.senses = [{
+      partOfSpeech: "verb",
+      meaningZh: entry.meaning,
+      definitionEn: entry.definition,
+      usageNotes: entry.usage,
+      register: "neutral",
+      collocations: [],
+      examples: [{ en: entry.exampleEn, zh: entry.exampleZh }],
+      confusables: []
+    }];
+    entry.synonyms = ["mitigate", "soothe"];
+    const now = new Date().toISOString();
+    const request = indexedDB.open("wordbook-db", 6);
+    const database = await new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    const transaction = database.transaction("drafts", "readwrite");
+    transaction.objectStore("drafts").put({
+      schemaVersion: 1,
+      id: "legacy-draft-with-unentered-synonyms",
+      scope: "owner-public",
+      mode: "create",
+      entryId: entry.id,
+      value: entry,
+      base: { entry: null, entryUpdatedAt: null, remoteSha: "a".repeat(40) },
+      localState: "local_saved",
+      createdAt: now,
+      updatedAt: now,
+      publishedAt: null,
+      lastOperationId: null,
+      contentRevision: 1
+    });
+    await new Promise((resolve, reject) => {
+      transaction.oncomplete = resolve;
+      transaction.onerror = () => reject(transaction.error);
+      transaction.onabort = () => reject(transaction.error);
+    });
+    database.close();
+  });
+
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await page.locator("#draft-list > button", { hasText: "temper" }).click();
+  await expect(page.locator("#field-synonyms")).toHaveValue("");
+  await publishOpenDraft(page);
+  expect(publishedEntry).toMatchObject({ term: "temper", synonyms: [] });
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
 });
 
 test("前端拒绝 200 响应中的空中文并在同一草稿就地重试", async ({ context, page }) => {

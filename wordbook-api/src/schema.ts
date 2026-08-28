@@ -64,6 +64,34 @@ export function validateEnglishInput(value: unknown): string {
   return cleaned;
 }
 
+export function validateAllowedSynonyms(value: unknown): string[] {
+  if (value === undefined) return [];
+  if (!Array.isArray(value) || value.length > 200) {
+    throw new ApiError(400, "invalid_allowed_synonyms", "同义词白名单必须是最多 200 项的英文数组。");
+  }
+  const result: string[] = [];
+  const seen = new Set<string>();
+  for (let index = 0; index < value.length; index += 1) {
+    const candidate = value[index];
+    let cleaned: string;
+    try {
+      cleaned = validateEnglishInput(candidate);
+    } catch {
+      throw new ApiError(400, "invalid_allowed_synonyms", `同义词白名单第 ${index + 1} 项不是安全的英文内容。`);
+    }
+    if (cleaned.length > 200) {
+      throw new ApiError(400, "invalid_allowed_synonyms", `同义词白名单第 ${index + 1} 项超过 200 个字符。`);
+    }
+    if (!LEXICAL_ENTRY_TYPES.has(classifyInput(cleaned))) continue;
+    const key = normalizeEnglish(cleaned);
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(cleaned);
+    }
+  }
+  return result;
+}
+
 export function countEnglishTokens(value: string): number {
   return value.match(/[A-Za-z]+(?:['-][A-Za-z]+)*/g)?.length || 0;
 }
@@ -250,7 +278,21 @@ export const PublicSnapshotSchema = z.object({
   revisionId: z.string().trim().min(12).max(180),
   lastMutationId: z.string().trim().max(180),
   entries: z.array(PublicEntrySchema).max(10_000)
-}).strict();
+}).strict().superRefine((snapshot, context) => {
+  const termOwners = new Map(snapshot.entries.map((entry, index) => [normalizeEnglish(entry.term), index]));
+  snapshot.entries.forEach((entry, entryIndex) => {
+    entry.synonyms.forEach((synonym, synonymIndex) => {
+      const ownerIndex = termOwners.get(normalizeEnglish(synonym));
+      if (ownerIndex === undefined || ownerIndex === entryIndex) {
+        context.addIssue({
+          code: "custom",
+          path: ["entries", entryIndex, "synonyms", synonymIndex],
+          message: "synonym must reference another published entry term"
+        });
+      }
+    });
+  });
+});
 
 export type PublicSnapshot = z.infer<typeof PublicSnapshotSchema>;
 
@@ -444,7 +486,13 @@ export function validateSnapshot(payload: unknown): PublicSnapshot {
   } else {
     const parsed = PublicSnapshotSchema.safeParse(payload);
     if (!parsed.success) {
-      throw new ApiError(400, "invalid_snapshot", "公开词库没有通过严格 schema 校验。", parsed.error.issues);
+      const hasDanglingSynonym = parsed.error.issues.some((issue) => issue.message === "synonym must reference another published entry term");
+      throw new ApiError(
+        400,
+        "invalid_snapshot",
+        hasDanglingSynonym ? "公开词库包含未实际输入或尚未发布的同义词引用。" : "公开词库没有通过严格 schema 校验。",
+        parsed.error.issues
+      );
     }
     snapshot = parsed.data;
   }
@@ -473,7 +521,11 @@ export function validateSnapshot(payload: unknown): PublicSnapshot {
       keys.set(key, entry.id);
     }
   }
-  return snapshot;
+  const integrity = PublicSnapshotSchema.safeParse(snapshot);
+  if (!integrity.success) {
+    throw new ApiError(400, "invalid_snapshot", "公开词库包含未实际输入或尚未发布的同义词引用。", integrity.error.issues);
+  }
+  return integrity.data;
 }
 
 export const PublishRequestSchema = z.object({

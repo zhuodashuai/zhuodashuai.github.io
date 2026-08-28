@@ -67,8 +67,8 @@ export function getOwnerWordbook() {
   return request("/owner/wordbook");
 }
 
-export function organizeWithAi(input, csrfToken) {
-  return request("/owner/ai/organize", { method: "POST", csrfToken, body: { input } });
+export function organizeWithAi(input, csrfToken, { allowedSynonyms = [] } = {}) {
+  return request("/owner/ai/organize", { method: "POST", csrfToken, body: { input, allowedSynonyms } });
 }
 
 export function publishMutation(publishRequest, csrfToken, { signal } = {}) {

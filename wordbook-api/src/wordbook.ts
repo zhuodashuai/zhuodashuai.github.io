@@ -50,6 +50,45 @@ function prepareEntry(candidate: PublicEntry, existing: PublicEntry | null, now:
   return entry;
 }
 
+function rewriteSynonymReferences(
+  entries: PublicEntry[],
+  oldTerm: string,
+  replacement: string,
+  excludeId: string,
+  now: string
+): void {
+  const oldKey = normalizeEnglish(oldTerm);
+  if (!oldKey) return;
+  for (let index = 0; index < entries.length; index += 1) {
+    const candidate = entries[index];
+    if (candidate.id === excludeId || !candidate.synonyms.some((synonym) => normalizeEnglish(synonym) === oldKey)) continue;
+    const selfKeys = new Set([
+      candidate.term,
+      candidate.standardForm,
+      candidate.correction.original,
+      candidate.correction.suggestion,
+      candidate.correction.chosen,
+      ...candidate.forms,
+      ...candidate.confusedWith
+    ].map((value) => normalizeEnglish(value)).filter(Boolean));
+    const seen = new Set<string>();
+    const synonyms: string[] = [];
+    for (const synonym of candidate.synonyms) {
+      const rewritten = normalizeEnglish(synonym) === oldKey ? replacement : synonym;
+      const key = normalizeEnglish(rewritten);
+      if (!key || selfKeys.has(key) || seen.has(key)) continue;
+      seen.add(key);
+      synonyms.push(rewritten);
+    }
+    entries[index] = PublicEntrySchema.parse({
+      ...candidate,
+      synonyms,
+      revision: candidate.revision + 1,
+      updatedAt: now
+    });
+  }
+}
+
 export interface MutationResult {
   snapshot: PublicSnapshot;
   entry: PublicEntry | null;
@@ -100,6 +139,7 @@ export function applyPublishMutation(
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 与已有词条冲突，请合并信息。`, { duplicate });
     }
     entries[index] = entry;
+    if (existing.term !== entry.term) rewriteSynonymReferences(entries, existing.term, entry.term, entry.id, now);
     action = "updated";
   } else {
     const index = entries.findIndex((candidate) => candidate.id === mutation.id);
@@ -118,15 +158,28 @@ export function applyPublishMutation(
     }
     entry = existing;
     entries.splice(index, 1);
+    rewriteSynonymReferences(entries, existing.term, "", existing.id, now);
     action = "deleted";
   }
 
-  const snapshot = PublicSnapshotSchema.parse({
+  const parsedSnapshot = PublicSnapshotSchema.safeParse({
     schemaVersion: 3,
     exportedAt: now,
     revisionId: crypto.randomUUID(),
     lastMutationId: request.mutationId,
     entries
   });
-  return { snapshot, entry, action };
+  if (!parsedSnapshot.success) {
+    const danglingSynonyms = parsedSnapshot.error.issues.filter((issue) => issue.message === "synonym must reference another published entry term");
+    if (danglingSynonyms.length) {
+      throw new ApiError(
+        400,
+        "invalid_synonym_reference",
+        "同义词只能引用卓已经输入并发布的其他词条；请先发布目标词条或移除该同义词。",
+        danglingSynonyms
+      );
+    }
+    throw new ApiError(400, "invalid_snapshot", "本次修改后的公开词库没有通过完整性校验。", parsedSnapshot.error.issues);
+  }
+  return { snapshot: parsedSnapshot.data, entry, action };
 }

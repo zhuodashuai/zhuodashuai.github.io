@@ -77,6 +77,16 @@ test("owner API converts a rejected request into a stable network error", async 
   });
 });
 
+test("owner AI requests carry only the browser-computed synonym allowlist", async () => {
+  await withFetch(async (url, init) => {
+    assert.equal(url, "/api/v1/owner/ai/organize");
+    assert.deepEqual(JSON.parse(init.body), { input: "ease", allowedSynonyms: ["alleviate"] });
+    return Response.json({ ok: true });
+  }, async () => {
+    await organizeWithAi("ease", "csrf-test", { allowedSynonyms: ["alleviate"] });
+  });
+});
+
 test("owner API rejects non-JSON 200 and exposes retry metadata on 429", async () => {
   await withFetch(async () => new Response("not json", {
     status: 200,

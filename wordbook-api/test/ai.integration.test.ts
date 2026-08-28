@@ -43,11 +43,13 @@ describe("AI organizer", () => {
       expect(body.max_tool_calls).toBe(4);
       expect(body.include).toEqual(["web_search_call.action.sources"]);
       expect(body.instructions).toMatch(/at least two independent authoritative English dictionaries/i);
+      expect(body.input).toContain('OWNER_ENTERED_TERMS (the only permitted synonym candidates):\n["get"]');
       return response(organized());
     });
     vi.stubGlobal("fetch", mock);
-    const result = await organizeEntry("receive", config);
+    const result = await organizeEntry("receive", config, ["get"]);
     expect(result.entry.term).toBe("receive");
+    expect(result.entry.synonyms).toEqual(["get"]);
     expect(mock).toHaveBeenCalledOnce();
   });
 
@@ -105,6 +107,7 @@ describe("AI organizer", () => {
       expect(body.output_config.format.type).toBe("json_schema");
       expect(body.output_config.format.schema.required).toContain("senses");
       expect(JSON.stringify(body.output_config.format.schema)).not.toContain("maxLength");
+      expect(body.messages[0].content).toContain('OWNER_ENTERED_TERMS (the only permitted synonym candidates):\n["obtain"]');
       return Response.json({
         stop_reason: "end_turn",
         content: [{ type: "text", text: JSON.stringify(organized()) }]
@@ -112,9 +115,10 @@ describe("AI organizer", () => {
     });
     vi.stubGlobal("fetch", mock);
 
-    const result = await organizeEntry("receive", fallbackConfig);
+    const result = await organizeEntry("receive", fallbackConfig, ["obtain"]);
     expect(result.provider).toBe("anthropic");
     expect(result.entry.organizationMethod).toBe("ai-anthropic");
+    expect(result.entry.synonyms).toEqual(["obtain"]);
     expect(result.warnings.join(" ")).toMatch(/OpenAI.*Claude.*备用引擎/);
     expect(mock).toHaveBeenCalledTimes(2);
   });

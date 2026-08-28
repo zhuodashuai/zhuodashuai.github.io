@@ -45,7 +45,7 @@
 - 私人复习状态永远不写入公开 JSON。
 - v1/v2 JSON 和 v4 IndexedDB 通过纯 migration 升级；无法安全迁移的记录进入 quarantine，不伪造或静默删除。
 - 重复判断使用 canonical normalized term 和 correction alias；`jab at` 作为完整短语保存。
-- 顶层 `synonyms` 只属于当前词条，不加入 canonical/alias lookup key。自动生成的同义词不会变成新词条；卓日后主动输入该词时仍可独立新增。旧 schema v3 快照或本地草稿缺少该字段时安全补为 `[]`，未知字段仍按严格 schema 拒绝。
+- 顶层 `synonyms` 只属于当前词条，不加入 canonical/alias lookup key。AI 只能从卓已经亲自输入的草稿或公开词条中挑选同义词，未输入的候选确定性丢弃；发布时还要求每个同义词对应另一条真实公开词条。旧 schema v3 快照或本地草稿缺少该字段时安全补为 `[]`，未知字段仍按严格 schema 拒绝。
 
 ## 本地验证
 
@@ -110,7 +110,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 - GitHub JSON 是公开内容的权威源；管理端发现 SHA 冲突时应先刷新并逐字段处理，不能覆盖。
 - AI 不可用时继续使用手动草稿；引用找不到权威出处时保存为 `unverified`，作者/作品/年份保持空白。
 - 所有 AI 都只能生成候选；无论由哪个 provider 返回，都必须通过同一份 Zod schema、分义项完整性、IPA 形态、双语例句和重复义项检查。Cloudflare 默认结果使用本地词典证据但没有实时网页引用，因此不会自动把名言出处升级为已核验。
-- 同义词是词条级候选而不是新的收藏项。AI 只为 lexical entry 生成少量安全英文同义表达，排除自身、词形和易混词；多义词的顶层同义词仍需卓按具体义项人工核对。
+- 同义词是卓本人词库内部的词条关系，不是模型扩写列表。AI 只在 owner 输入白名单中判断 lexical entry 的同义关系，并排除自身、词形和易混词；空白名单必须返回空数组。多义词的顶层同义词仍需卓按具体义项人工核对。
 - Workers Free 当前有每日账户免费额度；本站另有每 UTC 日 20 次整理硬上限。达到本站上限、Cloudflare 额度或容量限制后请求会失败。系统不显示伪造的“剩余额度”，也不把该政策宣传为永久无限免费；以 Cloudflare 实际账户和官方政策为准。
 - PWA 新版本只在用户点击“立即更新”后切换并刷新，首次安装不会打断输入。
 - 若 Worker 暂时不可用，GitHub Pages 公开词库仍可浏览；管理端 fail closed。

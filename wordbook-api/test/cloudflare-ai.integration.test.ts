@@ -101,7 +101,7 @@ afterEach(() => {
 describe("Cloudflare free-first AI organizer", () => {
   it("uses the fixed free-plan model, JSON schema and local dictionary evidence", async () => {
     const run = vi.fn(async (_model: string, input: Record<string, unknown>) => ({ response: organized() }));
-    const result = await organizeEntry("hip", cloudflareConfig(run));
+    const result = await organizeEntry("hip", cloudflareConfig(run), ["stylish"]);
 
     expect(result.provider).toBe("cloudflare");
     expect(result.entry.organizationMethod).toBe("ai-cloudflare");
@@ -116,13 +116,15 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(JSON.stringify(input.messages)).toContain("exact local dictionary record: hip");
     expect(JSON.stringify(input.messages)).toContain("髋部");
     expect(JSON.stringify(input.messages)).toContain("Synonyms are attached metadata for the exact input only");
+    const messages = input.messages as Array<{ role: string; content: string }>;
+    expect(messages[1].content).toContain('OWNER_ENTERED_TERMS (the only permitted synonym candidates):\n["stylish"]');
   });
 
   it("keeps synonyms as deduplicated metadata without changing the input term", async () => {
     const run = vi.fn(async () => ({ response: organized({
       synonyms: ["hip", "Fashionable", "fashionable", "hips", "Stylish", "stylish"]
     }) }));
-    const result = await organizeEntry("hip", cloudflareConfig(run));
+    const result = await organizeEntry("hip", cloudflareConfig(run), ["Fashionable", "Stylish"]);
 
     expect(result.entry.term).toBe("hip");
     expect(result.entry.standardForm).toBe("hip");
@@ -134,11 +136,23 @@ describe("Cloudflare free-first AI organizer", () => {
     const run = vi.fn()
       .mockResolvedValueOnce({ response: organized({ synonyms: ["<script>alert(1)</script>"] }) })
       .mockResolvedValueOnce({ response: organized({ synonyms: ["fashionable", "stylish"] }) });
-    const result = await organizeEntry("hip", cloudflareConfig(run));
+    const result = await organizeEntry("hip", cloudflareConfig(run), ["fashionable", "stylish"]);
 
     expect(run).toHaveBeenCalledTimes(2);
     expect(JSON.stringify(run.mock.calls[1]?.[1]?.messages)).toContain("unsafe or non-English content");
     expect(result.entry.synonyms).toEqual(["fashionable", "stylish"]);
+  });
+
+  it("keeps only owner-entered synonyms and returns none without an allowlist", async () => {
+    const run = vi.fn(async () => ({ response: organized({
+      synonyms: ["fashionable", "stylish", "trendy"]
+    }) }));
+    const allowed = await organizeEntry("hip", cloudflareConfig(run), [" stylish ", "STYLISH", "elegant"]);
+    expect(allowed.entry.synonyms).toEqual(["stylish"]);
+    expect(allowed.entry.term).toBe("hip");
+
+    const withoutAllowlist = await organizeEntry("hip", cloudflareConfig(run));
+    expect(withoutAllowlist.entry.synonyms).toEqual([]);
   });
 
   it("accepts the JSON-string response form returned by some binding adapters", async () => {

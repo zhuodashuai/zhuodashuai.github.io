@@ -12,6 +12,7 @@ const CORRECTION_KEYS = ["status", "original", "suggestion", "chosen", "confiden
 const SENSE_KEYS = ["partOfSpeech", "meaningZh", "definitionEn", "usageNotes", "register", "collocations", "examples", "confusables"];
 const EXAMPLE_KEYS = ["en", "zh"];
 const SOURCE_KEYS = ["title", "url", "kind", "retrievedAt"];
+const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 
 function record(value, label) {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} 格式不正确。`);
@@ -181,7 +182,7 @@ export function validatePublicEntry(candidate) {
   const synonyms = stringList(source.synonyms, "同义词", 20, 180);
   const confusedWith = stringList(source.confusedWith, "易混词", 30, 180);
   const forms = stringList(source.forms, "词形", 30, 180);
-  if (!["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(entryType) && synonyms.length) {
+  if (!LEXICAL_ENTRY_TYPES.has(entryType) && synonyms.length) {
     throw new Error("只有单词、短语、短语动词、习语和搭配可以保存同义词。");
   }
   const selfKeys = new Set([
@@ -273,6 +274,55 @@ export function rankExactEntryMatches(entries, query) {
     }))
     .sort((left, right) => Number(right.exact) - Number(left.exact) || left.index - right.index)
     .map(({ entry }) => entry);
+}
+
+export function buildOwnerEnteredTermAllowlist(drafts = [], publicEntries = [], { excludeTerm = "", limit = Infinity } = {}) {
+  const excluded = normalizeEnglish(excludeTerm);
+  const maximum = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : Infinity;
+  const records = [
+    ...drafts.map((draft, index) => ({
+      entry: draft?.value,
+      updatedAt: draft?.updatedAt || draft?.value?.updatedAt || "",
+      index
+    })),
+    ...publicEntries.map((entry, index) => ({
+      entry,
+      updatedAt: entry?.updatedAt || "",
+      index: drafts.length + index
+    }))
+  ].sort((left, right) => String(right.updatedAt).localeCompare(String(left.updatedAt)) || left.index - right.index);
+  const terms = new Map();
+  for (const { entry } of records) {
+    if (!entry || !LEXICAL_ENTRY_TYPES.has(entry.entryType)) continue;
+    const term = String(entry.term || "").trim();
+    if (!term || term.length > 200) continue;
+    try { validateEnglishInput(term); } catch { continue; }
+    const key = normalizeEnglish(term);
+    if (!key || key === excluded || terms.has(key)) continue;
+    terms.set(key, term);
+    if (terms.size >= maximum) break;
+  }
+  return [...terms.values()];
+}
+
+export function filterSynonymsToOwnerTerms(synonyms, allowedTerms, currentTerm = "") {
+  const self = normalizeEnglish(currentTerm);
+  const allowed = new Map();
+  for (const candidate of Array.isArray(allowedTerms) ? allowedTerms : []) {
+    const term = String(candidate || "").trim();
+    if (!term) continue;
+    const key = normalizeEnglish(term);
+    if (key && key !== self && !allowed.has(key)) allowed.set(key, term);
+  }
+  const filtered = [];
+  const seen = new Set();
+  for (const candidate of Array.isArray(synonyms) ? synonyms : []) {
+    const key = normalizeEnglish(candidate);
+    if (!key || seen.has(key) || !allowed.has(key)) continue;
+    seen.add(key);
+    filtered.push(allowed.get(key));
+  }
+  return filtered;
 }
 
 function legacySource(name, retrievedAt) {

@@ -2,9 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   assertCompleteAiCandidate,
+  buildOwnerEnteredTermAllowlist,
   entryLookupKeys,
   createBlankEntry,
   findDuplicate,
+  filterSynonymsToOwnerTerms,
   hasChineseHanText,
   needsAiCompletion,
   parsePublicSnapshot,
@@ -46,6 +48,26 @@ test("synonyms stay metadata and never reserve another headword", () => {
   const alleviate = entry("alleviate", { id: "alleviate", synonyms: ["ease", "lessen"] });
   assert.deepEqual(entryLookupKeys(alleviate), ["alleviate"]);
   assert.equal(findDuplicate([alleviate], entry("ease", { id: "ease" })), null);
+});
+
+test("owner synonym allowlists contain only independently entered current terms", () => {
+  const alleviate = entry("alleviate", { id: "alleviate", updatedAt: "2027-08-27T01:00:00.000Z" });
+  const ease = entry("ease", { id: "ease", updatedAt: "2027-08-28T01:00:00.000Z" });
+  const quote = entry("Knowledge is power.", { id: "quote", entryType: "quote", updatedAt: "2027-08-29T01:00:00.000Z" });
+  const drafts = [
+    { updatedAt: ease.updatedAt, value: ease },
+    { updatedAt: quote.updatedAt, value: quote }
+  ];
+  assert.deepEqual(buildOwnerEnteredTermAllowlist(drafts, [alleviate], { excludeTerm: "ease", limit: 200 }), ["alleviate"]);
+  assert.deepEqual(
+    filterSynonymsToOwnerTerms(["Alleviate", "mitigate", "alleviate"], ["alleviate", "ease"], "ease"),
+    ["alleviate"]
+  );
+  const many = Array.from({ length: 205 }, (_, index) => ({
+    updatedAt: new Date(1_800_000_000_000 - index).toISOString(),
+    value: entry(`term ${index}`, { id: `term-${index}` })
+  }));
+  assert.equal(buildOwnerEnteredTermAllowlist(many, [], { limit: 200 }).length, 200);
 });
 
 test("an independently published synonym ranks before entries that only mention it", () => {

@@ -47,23 +47,75 @@ describe("publish mutation planning", () => {
   it("does not treat attached synonyms as independent entries or lookup aliases", () => {
     const hip = entry({ id: "hip", term: "hip", entryType: "word", synonyms: ["fashionable", "stylish"] });
     const fashionable = entry({ id: "fashionable", term: "fashionable", entryType: "word" });
+    const stylish = entry({ id: "stylish", term: "stylish", entryType: "word" });
     expect(findDuplicate([hip], fashionable)).toBeNull();
 
-    const withHip = applyPublishMutation(snapshot([]), {
+    const withHip = applyPublishMutation(snapshot([fashionable, stylish]), {
       ...V38_PROTOCOL,
       baseSha: SHA,
       mutationId: "mutation-synonym-parent",
       mutation: { type: "add", entry: hip }
     }, "2026-08-28T01:00:00.000Z");
-    expect(withHip.snapshot.entries.map((candidate) => candidate.term)).toEqual(["hip"]);
+    expect(withHip.snapshot.entries.map((candidate) => candidate.term)).toEqual(["fashionable", "stylish", "hip"]);
+  });
 
-    const withIndependentSynonym = applyPublishMutation(withHip.snapshot, {
+  it("allows references to existing terms but rejects unentered synonym targets", () => {
+    const alleviate = entry({ id: "alleviate", term: "alleviate", entryType: "word" });
+    const ease = entry({ id: "ease", term: "ease", entryType: "word", synonyms: ["alleviate"] });
+    const added = applyPublishMutation(snapshot([alleviate]), {
       ...V38_PROTOCOL,
       baseSha: SHA,
-      mutationId: "mutation-synonym-independent",
-      mutation: { type: "add", entry: fashionable }
-    }, "2026-08-28T01:01:00.000Z");
-    expect(withIndependentSynonym.snapshot.entries.map((candidate) => candidate.term)).toEqual(["hip", "fashionable"]);
+      mutationId: "mutation-valid-synonym-reference",
+      mutation: { type: "add", entry: ease }
+    }, "2026-08-28T01:00:00.000Z");
+    expect(added.snapshot.entries).toHaveLength(2);
+
+    const invented = entry({ id: "invented-ref", term: "help", entryType: "word", synonyms: ["unentered"] });
+    expect(() => applyPublishMutation(snapshot([alleviate]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-invalid-synonym-reference",
+      mutation: { type: "add", entry: invented }
+    }, "2026-08-28T01:01:00.000Z")).toThrow(/已经输入并发布/);
+  });
+
+  it("rewrites synonym references on rename and removes them on delete", () => {
+    const alleviate = entry({ id: "alleviate", term: "alleviate", entryType: "word" });
+    const ease = entry({ id: "ease", term: "ease", entryType: "word", synonyms: ["alleviate"] });
+    const renamed = entry({
+      ...alleviate,
+      term: "mitigate",
+      normalized: "mitigate",
+      standardForm: "mitigate",
+      originalInput: "mitigate",
+      correction: { status: "exact", original: "mitigate", suggestion: "", chosen: "mitigate", confidence: 1, source: "manual" }
+    });
+    const updated = applyPublishMutation(snapshot([alleviate, ease]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-rename-synonym-target",
+      mutation: { type: "update", entry: renamed, expectedUpdatedAt: alleviate.updatedAt }
+    }, "2026-08-28T02:00:00.000Z");
+    expect(updated.snapshot.entries.find((candidate) => candidate.id === "ease")).toMatchObject({
+      synonyms: ["mitigate"],
+      revision: 2,
+      updatedAt: "2026-08-28T02:00:00.000Z"
+    });
+
+    const target = updated.snapshot.entries.find((candidate) => candidate.id === "alleviate")!;
+    const deleted = applyPublishMutation(updated.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-delete-synonym-target",
+      mutation: { type: "delete", id: target.id, expectedUpdatedAt: target.updatedAt }
+    }, "2026-08-28T03:00:00.000Z");
+    expect(deleted.snapshot.entries).toHaveLength(1);
+    expect(deleted.snapshot.entries[0]).toMatchObject({
+      id: "ease",
+      synonyms: [],
+      revision: 3,
+      updatedAt: "2026-08-28T03:00:00.000Z"
+    });
   });
 
   it("rejects stale edits and stale deletes", () => {

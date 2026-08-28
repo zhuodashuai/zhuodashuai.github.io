@@ -64,7 +64,7 @@ function organizedEntry(input) {
   const entry = createBlankEntry(input);
   const lower = normalizeEnglish(input);
   entry.synonyms = lower === "alleviate"
-    ? ["ease", "lessen", "mitigate"]
+    ? ["ease", "mitigate", "soothe"]
     : lower === "ease"
       ? ["alleviate", "lessen", "relieve"]
       : [];

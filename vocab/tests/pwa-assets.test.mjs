@@ -58,14 +58,14 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v40/);
+  assert.match(serviceWorker, /zhuo-wordbook-v41/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=40/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=41/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=40"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=40"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=40"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=40"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=41"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=41"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=41"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=41"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -85,9 +85,11 @@ test("the PWA shell separates the public reader from the authenticated owner app
 });
 
 test("synonyms remain one entry field throughout owner editing and public discovery", () => {
-  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="用逗号分隔/);
-  assert.match(ownerHtml, /同义词（只附在当前词条，不会新建词条）/);
-  assert.match(ownerAppSource, /synonyms:\s*LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
+  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="系统只从你的现有词条中匹配/);
+  assert.match(ownerHtml, /同义词（只采用卓已经输入过的词）/);
+  assert.match(ownerAppSource, /const rawSynonyms = LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
+  assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
+  assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
   assert.match(publicAppSource, /\.\.\.entry\.synonyms/);
   assert.match(publicAppSource, /同义词：\$\{entry\.synonyms\.join/);
