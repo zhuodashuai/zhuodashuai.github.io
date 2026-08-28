@@ -127,6 +127,14 @@ function organizedEntry(input) {
 
 async function api(request, response, url) {
   if (url.pathname === "/api/v1/health" && request.method === "GET") return json(response, 200, { ok: true, ownerAuthConfigured: true, aiProvider: "cloudflare", aiEffectiveProvider: "cloudflare", aiModel: "@cf/zai-org/glm-4.7-flash", aiRetryModel: "@cf/google/gemma-4-26b-a4b-it", aiAccessMode: "cloudflare-account-quota", aiConfigured: true, aiPrimaryConfigured: true, aiFreeRetryConfigured: true, paidFallbackEnabled: false, aiDailyRequestLimit: 20 });
+  if (url.pathname === "/api/v1/public/wordbook" && request.method === "GET") {
+    if (cookies(request).e2e_public_fail === "1") return error(response, 503, "public_snapshot_unavailable", "即时公开源测试故障。");
+    const state = runState(request);
+    return json(response, 200, state.snapshot, {
+      "Access-Control-Allow-Origin": "http://127.0.0.1:4187",
+      Vary: "Origin"
+    });
+  }
   if (url.pathname === "/api/v1/auth/login" && request.method === "GET") {
     response.writeHead(302, { Location: "/owner.html?login=ok", "Set-Cookie": "e2e_auth=owner; Path=/; HttpOnly; SameSite=Lax" });
     return response.end();
@@ -235,7 +243,28 @@ const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url, "http://127.0.0.1:4187");
     if (url.pathname.startsWith("/api/")) return await api(request, response, url);
-    if (url.pathname === "/data/owner-wordbook.json") return json(response, 200, runState(request).snapshot);
+    if (url.pathname === "/__e2e__/append-public" && request.method === "POST") {
+      const payload = await body(request);
+      const term = normalizeEnglish(String(payload.term || ""));
+      const state = runState(request);
+      const candidate = organizedEntry(term);
+      const duplicate = findDuplicate(state.snapshot.entries, candidate);
+      if (duplicate) return error(response, 409, "duplicate_term", "测试词条已经存在。");
+      const now = new Date().toISOString();
+      state.snapshot = parsePublicSnapshot({
+        ...state.snapshot,
+        exportedAt: now,
+        revisionId: `revision-e2e-fresh-${term}`,
+        lastMutationId: `mutation-e2e-fresh-${term}`,
+        entries: [...state.snapshot.entries, { ...candidate, createdAt: now, updatedAt: now }]
+      }, { allowLegacy: false });
+      state.sha = "e".repeat(40);
+      return json(response, 200, state.snapshot);
+    }
+    if (url.pathname === "/data/owner-wordbook.json") {
+      const snapshot = cookies(request).e2e_pages_stale === "1" ? baseline : runState(request).snapshot;
+      return json(response, 200, snapshot);
+    }
     const rawPath = url.pathname.endsWith("/") ? `${url.pathname}index.html` : url.pathname;
     const safe = normalize(rawPath).replace(/^(?:\.\.[/\\])+/, "").replace(/^[/\\]+/, "");
     const file = resolve(root, safe);

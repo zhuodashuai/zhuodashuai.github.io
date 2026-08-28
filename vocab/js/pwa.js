@@ -1,4 +1,4 @@
-export function setupPwa({ installButton, updateBanner, applyUpdateButton, beforeApplyUpdate }) {
+export function setupPwa({ installButton, updateBanner, applyUpdateButton, beforeApplyUpdate, autoApplyUpdate = false }) {
   let installPrompt = null;
   let refreshing = false;
   let waitingWorker = null;
@@ -61,9 +61,39 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
     // explicitly accepts an update so initial typing and focus are preserved.
     void reloadAfterFinalSave();
   });
+  const acceptWaitingUpdate = async () => {
+    if (!waitingWorker || refreshing || reloadTask || (updateAccepted && !reloadBlocked)) return;
+    updateAccepted = false;
+    reloadBlocked = false;
+    try {
+      if (beforeApplyUpdate) await beforeApplyUpdate();
+    } catch {
+      reloadBlocked = true;
+      if (applyUpdateButton) applyUpdateButton.textContent = "草稿保存失败，暂不更新";
+      return;
+    }
+    updateAccepted = true;
+    try {
+      waitingWorker.postMessage({ type: "SKIP_WAITING" });
+    } catch {
+      updateAccepted = false;
+      reloadBlocked = true;
+      if (applyUpdateButton) applyUpdateButton.textContent = "新版本启用失败，请稍后重试";
+      return;
+    }
+    // controllerchange is the normal path, but older/stale worker graphs have
+    // occasionally failed to deliver it. A bounded reload keeps updates moving.
+    window.setTimeout?.(() => {
+      void reloadAfterFinalSave();
+    }, 2_000);
+  };
   const showUpdate = (worker) => {
     waitingWorker = worker;
-    if (updateBanner) updateBanner.hidden = false;
+    if (autoApplyUpdate) {
+      void acceptWaitingUpdate();
+    } else if (updateBanner) {
+      updateBanner.hidden = false;
+    }
   };
   navigator.serviceWorker.register("sw.js", { scope: "./", updateViaCache: "none" })
     .then((registration) => {
@@ -74,37 +104,15 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
           if (worker.state === "installed" && navigator.serviceWorker.controller) showUpdate(worker);
         });
       });
-      window.setInterval(() => registration.update().catch(() => {}), 60 * 60 * 1000);
+      const checkForUpdate = () => registration.update().catch(() => {});
+      window.setInterval(checkForUpdate, 60_000);
+      window.addEventListener?.("focus", checkForUpdate);
+      globalThis.document?.addEventListener?.("visibilitychange", () => {
+        if (globalThis.document?.visibilityState === "visible") checkForUpdate();
+      });
     })
     .catch(() => {
       // The app remains usable when Service Worker registration is unavailable.
   });
-  applyUpdateButton?.addEventListener("click", async () => {
-    if (!waitingWorker || refreshing || reloadTask || (updateAccepted && !reloadBlocked)) return;
-    updateAccepted = false;
-    reloadBlocked = false;
-    try {
-      if (beforeApplyUpdate) await beforeApplyUpdate();
-    } catch {
-      reloadBlocked = true;
-      applyUpdateButton.textContent = "草稿保存失败，暂不更新";
-      return;
-    }
-    updateAccepted = true;
-    try {
-      waitingWorker.postMessage({ type: "SKIP_WAITING" });
-    } catch {
-      updateAccepted = false;
-      reloadBlocked = true;
-      applyUpdateButton.textContent = "新版本启用失败，请稍后重试";
-      return;
-    }
-    // controllerchange is the normal path, but older/stale worker graphs have
-    // occasionally failed to deliver it after the user clicked “立即更新”. A
-    // bounded reload keeps that button effective without introducing reloads
-    // during first install or before a draft has been flushed safely.
-    window.setTimeout?.(() => {
-      void reloadAfterFinalSave();
-    }, 2_000);
-  });
+  applyUpdateButton?.addEventListener("click", acceptWaitingUpdate);
 }

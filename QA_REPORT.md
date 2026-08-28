@@ -16,11 +16,11 @@
 
 ## 结论
 
-Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、仅限卓本人输入词的同义词整理、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 121、Worker/API 119、Playwright 41，共 **281 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
+Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、仅限卓本人输入词的同义词整理、严格 AI 质量闸门、即时公开快照和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 124、Worker/API 121、Playwright 43，共 **288 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
 
-生产 Worker 健康检查为 `2.2.0`，主模型是 `@cf/zai-org/glm-4.7-flash`，质量重试模型是 `@cf/google/gemma-4-26b-a4b-it`。两者都通过同一个 Cloudflare Workers AI binding 调用，不需要 OpenAI/Claude API key。`paidFallbackEnabled` 在生产环境明确为 `false`，所以额度或服务不可用时请求会失败并保留本地草稿，不会静默调用 OpenAI/Claude。服务端另设所有会话共享的每 UTC 日 20 次整理上限，错误输入在计数前即被拒绝。
+生产 Worker 健康检查为 `2.3.0`，主模型是 `@cf/zai-org/glm-4.7-flash`，质量重试模型是 `@cf/google/gemma-4-26b-a4b-it`。两者都通过同一个 Cloudflare Workers AI binding 调用，不需要 OpenAI/Claude API key。`paidFallbackEnabled` 在生产环境明确为 `false`，所以额度或服务不可用时请求会失败并保留本地草稿，不会静默调用 OpenAI/Claude。服务端另设所有会话共享的每 UTC 日 20 次整理上限，错误输入在计数前即被拒绝。
 
-正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 3 条：`jab at`、`hip` 与 Owner 本人刚发布的 `surveillance`；本轮合并保留了该并发远端写入，没有覆盖或回滚。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。前端静态资源缓存已升级为 v42；发布协议仍保持 v38。`bank`、`rigorous` 与生产语义实测产生的 `serendipity`、`alleviate` 仍只在当前浏览器草稿中。
+正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 3 条：`jab at`、`hip` 与 Owner 本人刚发布的 `surveillance`；本轮合并保留了该并发远端写入，没有覆盖或回滚。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。前端静态资源缓存已升级为 v43；发布协议仍保持 v38。`bank`、`rigorous` 与生产语义实测产生的 `serendipity`、`alleviate` 仍只在当前浏览器草稿中。
 
 本报告不承诺“绝对没有 bug”。它只陈述已经自动覆盖和真实实测的行为，并明确列出仍需人工判断或受第三方政策影响的边界。
 
@@ -86,11 +86,12 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 | 重复词 | 100 个输入首轮只写入一次；完整重复轮保持 100 条且产生 0 次 provider 请求；大小写和普通边界标点共用 canonical key |
 | 同义词 | AI 只可从卓已经输入的当前草稿或公开词条白名单中选择；响应后浏览器再次取交集，发布端再要求引用真实公开词条；未输入候选、旧草稿脏数据和悬空引用均不能发布；精确搜索结果优先 |
 | 多义释义显示 | 已有 `①②`、Owner 输入的 `1.` / `1)` / `1、` 和 AI 的多行词性释义统一显示为 `①②③`；单义词不编号；展示与复制不会改写原始 `meaning` 或导出 JSON；手工释义优先于旧 AI senses |
+| 公开更新及时性 | GitHub 写入确认后同步到 Worker 只读即时快照；公开页 focus、visible、online 与前台每 30 秒刷新；即时源失败时回退且禁止旧 Pages snapshot 覆盖较新页面；相同 revision 不重复写盘或重绘 |
 | AI 质量 | JSON/Zod、中文字符质量、英文定义、独立 sense、独立例句、IPA、拼写/lemma、本地 ECDICT 与 curated gold grounding；200 空中文在浏览器端也会拒绝 |
 | 拼写 | `recieve → receive` 仅作为建议；英式/澳式合法拼写不被静默改为美式 |
 | 短语 | `jab at`、phrasal verb、idiom 按完整表达处理，不截成第一个单词 |
 | 引语出处 | 免费模型没有实时网页检索时，作者、作品、年份和 URL 保持未核验及空白，不凭模型记忆编造 |
-| PWA | desktop/mobile、standalone manifest、Service Worker v42 network-first 更新、API network-only、旧 cache 清理 |
+| PWA | desktop/mobile、standalone manifest、Service Worker v43；公开页自动应用新版本，Owner 仍经两次草稿落盘后手动更新；API network-only、旧 cache 清理 |
 | 故障 | AI 401/429/5xx/timeout/非 JSON/错误 schema、ECDICT 资产首次加载失败后重试、GitHub timeout/损坏 JSON/SHA conflict 均 fail closed |
 | 异步编辑 | 整理 A 时切换到 B，结果只写回 A；A 被删除后迟到响应不会复活；离线时禁用 AI 但仍可手工保存草稿 |
 
@@ -98,10 +99,10 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 
 | Suite | Result |
 |---|---:|
-| Frontend/data Node unit | 121 passed |
-| Worker/API Vitest | 119 passed |
-| Playwright browser E2E | 41 passed |
-| Total | **281 passed, 0 failed** |
+| Frontend/data Node unit | 124 passed |
+| Worker/API Vitest | 121 passed |
+| Playwright browser E2E | 43 passed |
+| Total | **288 passed, 0 failed** |
 | TypeScript `tsc --noEmit` | PASS |
 | Wrangler `types --include-runtime=false --check` | PASS |
 | Secret boundary scan | PASS（118 repository files） |

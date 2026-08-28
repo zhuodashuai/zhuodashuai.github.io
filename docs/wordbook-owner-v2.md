@@ -43,6 +43,8 @@
 - IndexedDB `wordbook-db` v6：`entries`、`reviewStates`、`drafts`、`outbox`、`publicCache`、`quarantine`、`meta`。
 - 草稿先本地保存，再加入持久 outbox；刷新、离线或关闭 PWA 后仍可恢复。
 - 私人复习状态永远不写入公开 JSON。
+- GitHub 确认发布后，Worker 会把同一份已校验 snapshot 写入只读即时缓存；公开页优先读取 `/api/v1/public/wordbook`，不再等待 GitHub Pages 构建。该 GET 不需要登录，只返回本来就公开的 schema v3 数据，并只向固定 GitHub Pages origin 开放浏览器跨域读取；Worker 或即时缓存不可用时回退到 Pages JSON，再回退到已验证的 IndexedDB 缓存。
+- 公开页在首次载入、重新聚焦、恢复可见、恢复联网以及前台每 30 秒自动检查；相同 `revisionId` 不重复写 IndexedDB 或重建 DOM，较旧 `exportedAt` 不能覆盖当前较新数据。
 - v1/v2 JSON 和 v4 IndexedDB 通过纯 migration 升级；无法安全迁移的记录进入 quarantine，不伪造或静默删除。
 - 重复判断使用 canonical normalized term 和 correction alias；`jab at` 作为完整短语保存。
 - 多义词在管理列表、公开卡片与详情中统一显示为 `① ② ③`。卓可以在释义框输入普通的 `1.`、`1)` 或 `1、` 编号；展示层会自动规范为圆圈序号，单义词不编号，已有 `①②` 不重复编号。该规则不改写 canonical JSON、草稿或导出文件中的原始 `meaning`。
@@ -113,6 +115,6 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 - 所有 AI 都只能生成候选；无论由哪个 provider 返回，都必须通过同一份 Zod schema、分义项完整性、IPA 形态、双语例句和重复义项检查。Cloudflare 默认结果使用本地词典证据但没有实时网页引用，因此不会自动把名言出处升级为已核验。
 - 同义词是卓本人词库内部的词条关系，不是模型扩写列表。AI 只在 owner 输入白名单中判断 lexical entry 的同义关系，并排除自身、词形和易混词；空白名单必须返回空数组。多义词的顶层同义词仍需卓按具体义项人工核对。
 - Workers Free 当前有每日账户免费额度；本站另有每 UTC 日 20 次整理硬上限。达到本站上限、Cloudflare 额度或容量限制后请求会失败。系统不显示伪造的“剩余额度”，也不把该政策宣传为永久无限免费；以 Cloudflare 实际账户和官方政策为准。
-- PWA 新版本只在用户点击“立即更新”后切换并刷新，首次安装不会打断输入。
+- 公开只读页发现 PWA 新版本后自动切换；Owner 管理端仍只在卓点击“立即更新”并完成两次草稿落盘后切换，首次安装不会打断输入。
 - 若 Worker 暂时不可用，GitHub Pages 公开词库仍可浏览；管理端 fail closed。
 - 回滚前先导出管理端备份，并通过普通 Git commit/revert 操作处理；不要 force push 或改写历史。

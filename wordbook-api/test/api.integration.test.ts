@@ -101,7 +101,7 @@ describe("worker API integration", () => {
     expect(health.status).toBe(200);
     expect(await health.json()).toMatchObject({
       ok: true,
-      version: "2.2.0",
+      version: "2.3.0",
       ownerAuthConfigured: true,
       aiConfigured: true,
       aiEffectiveProvider: "openai",
@@ -441,6 +441,51 @@ describe("worker API integration", () => {
     expect(await reused.json()).toMatchObject({ error: { code: "idempotency_key_reused" } });
     const putCalls = github.mock.mock.calls.filter(([input, init]) => asUrl(input).pathname.includes("owner-wordbook.json") && init?.method === "PUT");
     expect(putCalls).toHaveLength(1);
+  });
+
+  it("makes a successful publish immediately visible through the unauthenticated public snapshot endpoint", async () => {
+    const csrf = await seedSession();
+    const github = ownerGitHubMock();
+    vi.stubGlobal("fetch", github.mock);
+    const receive = entry({ id: "public-fresh-receive", term: "receive", normalized: "receive", standardForm: "receive", entryType: "word" });
+    const mutationId = "mutation-public-fresh-0001";
+    const publishBody = { ...V38_PROTOCOL, baseSha: "a".repeat(40), mutationId, mutation: { type: "add", entry: receive } };
+    const publishHeaders = {
+      Cookie: SESSION_COOKIE,
+      Origin: "https://admin.example",
+      "Sec-Fetch-Site": "same-origin",
+      "Content-Type": "application/json",
+      "X-CSRF-Token": csrf,
+      "Idempotency-Key": mutationId
+    };
+    const published = await api("/api/v1/owner/publish", { method: "POST", headers: publishHeaders, body: JSON.stringify(publishBody) });
+    expect(published.status).toBe(200);
+
+    const publicResponse = await api("/api/v1/public/wordbook", {
+      headers: { Origin: "https://zhuodashuai.github.io" }
+    });
+    expect(publicResponse.status).toBe(200);
+    expect(publicResponse.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
+    expect(publicResponse.headers.get("vary")).toContain("Origin");
+    expect(publicResponse.headers.get("cache-control")).toMatch(/no-store/i);
+    expect(await publicResponse.json()).toMatchObject({
+      lastMutationId: mutationId,
+      entries: [expect.objectContaining({ id: "public-fresh-receive", term: "receive" })]
+    });
+
+    const idempotent = await api("/api/v1/owner/publish", { method: "POST", headers: publishHeaders, body: JSON.stringify(publishBody) });
+    expect(idempotent.status).toBe(200);
+    expect(await idempotent.json()).toMatchObject({ action: "idempotent", recovered: true });
+    const afterRetry = await api("/api/v1/public/wordbook");
+    expect(afterRetry.status).toBe(200);
+    expect(await afterRetry.json()).toMatchObject({ lastMutationId: mutationId, entries: [{ term: "receive" }] });
+  });
+
+  it("never grants an untrusted origin cross-origin access to the public snapshot", async () => {
+    const response = await api("/api/v1/public/wordbook", {
+      headers: { Origin: "https://evil.example" }
+    });
+    expect(response.headers.get("access-control-allow-origin")).not.toBe("https://evil.example");
   });
 
   it("rejects a published synonym that does not reference another published term", async () => {

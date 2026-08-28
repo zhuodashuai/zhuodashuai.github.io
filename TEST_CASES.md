@@ -187,6 +187,15 @@ These are eight distinct interaction cases even though some intentionally repeat
 
 ## 10. Boundary, adversarial, and race inputs
 
+### Public freshness and safe app updates
+
+| ID | Input/scenario | Expected | Severity | Actual / evidence |
+|---|---|---|---|---|
+| freshness-immediate-publish | Owner publishes while GitHub Pages has not rebuilt | Read-only Worker endpoint immediately returns the schema-validated new snapshot; public readers do not wait for Pages. | High | Automated Worker + E2E |
+| freshness-open-tab | A public tab remains open while another entry is published | Focus, visible, online and 30-second foreground checks update cards/count without a full-page reload. | High | Automated E2E |
+| freshness-no-rollback | Live source is unavailable and Pages fallback is older than the currently displayed snapshot | Keep the newer in-memory snapshot; never roll the entry count or revision backward. | High | Automated E2E |
+| freshness-pwa-safety | New app code is available on public and Owner pages | Public reader auto-activates it; Owner requires explicit acceptance plus pre-activation and pre-reload draft flushes. | High | Automated unit + E2E |
+
 | ID | Input/scenario | Expected safe behaviour | Severity | Actual / evidence |
 |---|---|---|---|---|
 | adversarial-empty | empty string | Reject before network work; clear message; loading ends. | Medium | Not run |

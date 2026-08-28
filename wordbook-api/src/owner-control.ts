@@ -6,7 +6,7 @@ import {
   writeRemoteWordbook,
   type GitHubIdentity
 } from "./github";
-import { PublishRequestSchema, type PublishRequest } from "./schema";
+import { PublishRequestSchema, type PublicSnapshot, type PublishRequest } from "./schema";
 import {
   ApiError,
   decryptSecret,
@@ -52,8 +52,16 @@ interface MutationRecord {
   expiresAt: number;
 }
 
+interface PublicSnapshotRecord {
+  snapshot: PublicSnapshot;
+  sha: string;
+  htmlUrl: string;
+  confirmedAt: number;
+}
+
 const MUTATION_TTL_MS = 90 * 24 * 60 * 60 * 1000;
 const STORAGE_DELETE_BATCH_SIZE = 128;
+const PUBLIC_SNAPSHOT_KEY = "public-snapshot:latest";
 
 function canonicalJson(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map((item) => canonicalJson(item)).join(",")}]`;
@@ -259,7 +267,33 @@ export class OwnerControl implements DurableObject {
     const session = await this.loadSession(sessionHash);
     const token = await this.tokenForSession(session);
     const remote = await readRemoteWordbook(token, this.config);
+    await this.rememberPublicSnapshot(remote);
     return jsonResponse(remote);
+  }
+
+  private async rememberPublicSnapshot(remote: { snapshot: PublicSnapshot; sha: string; htmlUrl?: string }): Promise<boolean> {
+    try {
+      await this.ctx.storage.put<PublicSnapshotRecord>(PUBLIC_SNAPSHOT_KEY, {
+        snapshot: remote.snapshot,
+        sha: remote.sha,
+        htmlUrl: remote.htmlUrl || "",
+        confirmedAt: Date.now()
+      });
+      return true;
+    } catch {
+      // GitHub is canonical. A cache acceleration failure must never turn an
+      // already-confirmed publish into an apparent failure for the Owner.
+      console.error("Public snapshot cache write failed after canonical confirmation");
+      return false;
+    }
+  }
+
+  private async publicSnapshot(): Promise<Response> {
+    const current = await this.ctx.storage.get<PublicSnapshotRecord>(PUBLIC_SNAPSHOT_KEY);
+    if (!current) {
+      throw new ApiError(503, "public_snapshot_unavailable", "最新公开词库尚未进入即时缓存。");
+    }
+    return jsonResponse(current);
   }
 
   private async runPublish(body: Record<string, unknown>): Promise<Response> {
@@ -309,6 +343,7 @@ export class OwnerControl implements DurableObject {
     await verifyOwnerAndRepository(token, this.config);
     const remote = await readRemoteWordbook(token, this.config);
     if (boundMutationRecord.status === "committed") {
+      await this.rememberPublicSnapshot(remote);
       return jsonResponse({ ...remote, action: "idempotent", recovered: true });
     }
     if (remote.snapshot.lastMutationId === request.mutationId) {
@@ -319,6 +354,7 @@ export class OwnerControl implements DurableObject {
         });
       }
       await commitMutationRecord();
+      await this.rememberPublicSnapshot(remote);
       return jsonResponse({ ...remote, action: "idempotent", recovered: true });
     }
     if (remote.sha.toLowerCase() !== request.baseSha.toLowerCase()) {
@@ -337,6 +373,7 @@ export class OwnerControl implements DurableObject {
         message: `${result.action === "deleted" ? "Remove" : "Update"} ${result.entry?.term || "entry"} in Zhuo's public wordbook`
       });
       await commitMutationRecord();
+      await this.rememberPublicSnapshot({ ...written, snapshot: result.snapshot });
       return jsonResponse({ ...written, snapshot: result.snapshot, entry: result.entry, action: result.action, recovered: false });
     } catch (error) {
       if (error instanceof ApiError && [409, 401, 403, 413, 429].includes(error.status)) throw error;
@@ -344,6 +381,7 @@ export class OwnerControl implements DurableObject {
         const confirmed = await readRemoteWordbook(token, this.config);
         if (confirmed.snapshot.lastMutationId === request.mutationId) {
           await commitMutationRecord();
+          await this.rememberPublicSnapshot(confirmed);
           return jsonResponse({ ...confirmed, entry: result.entry, action: result.action, recovered: true });
         }
         if (confirmed.sha !== remote.sha) {
@@ -386,6 +424,7 @@ export class OwnerControl implements DurableObject {
         case "/session/assert": return await this.assertSession(body);
         case "/session/delete": return await this.deleteSession(body);
         case "/rate": return await this.applyRate(body);
+        case "/public/snapshot": return await this.publicSnapshot();
         case "/owner/snapshot": return await this.ownerSnapshot(body);
         case "/owner/publish": return await this.publish(body);
         default: throw new ApiError(404, "internal_not_found", "Internal route not found");

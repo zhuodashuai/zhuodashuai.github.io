@@ -17,7 +17,7 @@ import {
   revokeOAuthToken,
   verifyOwnerAndRepository
 } from "./github";
-import { PublishRequestSchema, validateAllowedSynonyms, validateEnglishInput } from "./schema";
+import { PublishRequestSchema, validateAllowedSynonyms, validateEnglishInput, validateSnapshot } from "./schema";
 import {
   ApiError,
   assertSameOriginWrite,
@@ -186,6 +186,41 @@ async function ownerSnapshot(request: Request, env: Env): Promise<Response> {
   return jsonResponse(await controlCall(env, "/owner/snapshot", { sessionHash: session.hash }));
 }
 
+function publicReadHeaders(env: Env): Record<string, string> {
+  return {
+    "Access-Control-Allow-Origin": new URL(env.PUBLIC_SITE_URL).origin,
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Accept",
+    "Cross-Origin-Resource-Policy": "cross-origin",
+    Vary: "Origin"
+  };
+}
+
+async function publicSnapshot(request: Request, env: Env): Promise<Response> {
+  const headers = publicReadHeaders(env);
+  try {
+    const current = await controlCall(env, "/public/snapshot", {});
+    const snapshot = validateSnapshot(current.snapshot);
+    return jsonResponse(snapshot, 200, {
+      ...headers,
+      ETag: `"${snapshot.revisionId}"`,
+      "X-Wordbook-Source": "owner-confirmed"
+    });
+  } catch {
+    // The live cache is an acceleration layer. The deployed, schema-validated
+    // snapshot keeps public reading available if Durable Object access fails.
+    const assetUrl = new URL("/data/owner-wordbook.json", request.url);
+    const asset = await env.ASSETS.fetch(new Request(assetUrl, { headers: { Accept: "application/json" } }));
+    if (!asset.ok) throw new ApiError(503, "public_snapshot_unavailable", "公开词库暂时不可读取。");
+    const snapshot = validateSnapshot(await asset.json());
+    return jsonResponse(snapshot, 200, {
+      ...headers,
+      ETag: `"${snapshot.revisionId}"`,
+      "X-Wordbook-Source": "deployed-fallback"
+    });
+  }
+}
+
 async function organize(request: Request, env: Env): Promise<Response> {
   assertSameOriginWrite(request);
   const config = readConfig(env);
@@ -282,7 +317,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
           : null;
     return jsonResponse({
       ok: true,
-      version: "2.2.0",
+      version: "2.3.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,
@@ -302,6 +337,10 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
       aiDailyRequestLimit: AI_DAILY_REQUEST_LIMIT
     });
   }
+  if (path === `${API_PREFIX}/public/wordbook` && request.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: publicReadHeaders(env) });
+  }
+  if (path === `${API_PREFIX}/public/wordbook` && request.method === "GET") return publicSnapshot(request, env);
   if (path === `${API_PREFIX}/auth/login` && request.method === "GET") return login(request, env);
   if (path === `${API_PREFIX}/auth/callback` && request.method === "GET") return callback(request, env);
   if (path === `${API_PREFIX}/session` && request.method === "GET") return sessionInfo(request, env);
@@ -322,7 +361,8 @@ function secureHeaders(response: Response, request: Request): Response {
   }
   headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
   headers.set("Cross-Origin-Opener-Policy", "same-origin");
-  headers.set("Cross-Origin-Resource-Policy", "same-origin");
+  const publicWordbook = new URL(request.url).pathname === `${API_PREFIX}/public/wordbook`;
+  headers.set("Cross-Origin-Resource-Policy", publicWordbook ? "cross-origin" : "same-origin");
   headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com; frame-ancestors 'none'; upgrade-insecure-requests");
   if (new URL(request.url).protocol === "https:") headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });

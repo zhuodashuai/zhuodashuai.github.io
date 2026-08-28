@@ -58,14 +58,14 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v42/);
+  assert.match(serviceWorker, /zhuo-wordbook-v43/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=42/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=43/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=42"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=42"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=42"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=42"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=43"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=43"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=43"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=43"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -102,4 +102,10 @@ test("polysemous meaning formatting is wired into owner, public card, detail and
   assert.match(publicAppSource, /setMultilineText\(refs\.dialogMeaning, formatMeaningForDisplay\(entry\)/);
   assert.match(publicAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)/);
   assert.match(publicAppSource, /entry\.phonetic, formatMeaningForDisplay\(entry\), entry\.definition/);
+});
+
+test("the public reader auto-applies app updates while the owner keeps the draft-safe manual gate", () => {
+  assert.match(publicAppSource, /setupPwa\(\{[\s\S]*?autoApplyUpdate:\s*true[\s\S]*?\}\)/);
+  assert.doesNotMatch(ownerAppSource, /autoApplyUpdate:\s*true/);
+  assert.match(ownerAppSource, /beforeApplyUpdate:\s*flushPendingDraftSave/);
 });

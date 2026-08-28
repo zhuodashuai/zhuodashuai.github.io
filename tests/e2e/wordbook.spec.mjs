@@ -128,7 +128,7 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
 test("访客浏览、搜索、详情、导出，并且没有写入入口", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
-  await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
+  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
   await page.locator("#library-search").fill("jab at");
@@ -385,6 +385,69 @@ test("前端拒绝保存声称已锁定音标却缺少 IPA 的自相矛盾响应
   await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
+});
+
+test("公开页在 focus、重新可见、恢复联网和 30 秒前台轮询时获取最新快照且不整页重载", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-08-28T19:00:00.000Z") });
+
+  await page.goto("/");
+  await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
+  const documentIdentity = await page.evaluate(() => {
+    window.__freshnessDocumentIdentity = crypto.randomUUID();
+    return window.__freshnessDocumentIdentity;
+  });
+
+  await page.evaluate((term) => fetch("/__e2e__/append-public", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ term })
+  }).then((response) => { if (!response.ok) throw new Error(`append failed: ${response.status}`); }), "focusfresh");
+  await page.clock.fastForward(3_100);
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect(page.getByRole("button", { name: "查看 focusfresh 的完整词条" })).toBeVisible();
+
+  await page.evaluate((term) => fetch("/__e2e__/append-public", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ term })
+  }).then((response) => { if (!response.ok) throw new Error(`append failed: ${response.status}`); }), "visiblefresh");
+  await page.clock.fastForward(3_100);
+  await page.evaluate(() => {
+    Object.defineProperty(document, "visibilityState", { configurable: true, value: "visible" });
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(page.getByRole("button", { name: "查看 visiblefresh 的完整词条" })).toBeVisible();
+
+  await page.evaluate((term) => fetch("/__e2e__/append-public", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ term })
+  }).then((response) => { if (!response.ok) throw new Error(`append failed: ${response.status}`); }), "onlinefresh");
+  await page.clock.fastForward(3_100);
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+  await expect(page.getByRole("button", { name: "查看 onlinefresh 的完整词条" })).toBeVisible();
+
+  await page.evaluate((term) => fetch("/__e2e__/append-public", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ term })
+  }).then((response) => { if (!response.ok) throw new Error(`append failed: ${response.status}`); }), "pollfresh");
+  await page.clock.fastForward(30_000);
+  await expect(page.getByRole("button", { name: "查看 pollfresh 的完整词条" })).toBeVisible();
+  expect(await page.evaluate(() => window.__freshnessDocumentIdentity)).toBe(documentIdentity);
+});
+
+test("即时源短暂失败时旧的 Pages 备用快照不能把公开页回滚", async ({ context, page }) => {
+  await page.clock.install({ time: new Date("2026-08-28T19:00:00.000Z") });
+  await page.goto("/");
+  await page.evaluate((term) => fetch("/__e2e__/append-public", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ term })
+  }).then((response) => { if (!response.ok) throw new Error(`append failed: ${response.status}`); }), "neverrollback");
+  await page.clock.fastForward(3_100);
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect(page.getByRole("button", { name: "查看 neverrollback 的完整词条" })).toBeVisible();
+  await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
+
+  await context.addCookies([
+    { name: "e2e_public_fail", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
+    { name: "e2e_pages_stale", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  await page.clock.fastForward(3_100);
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect(page.getByRole("button", { name: "查看 neverrollback 的完整词条" })).toBeVisible();
+  await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
 });
 
 test("AI 只保留卓实际输入过的单向同义词，不创建候选词条且重复输入不消耗 AI", async ({ context, page }) => {
@@ -1041,7 +1104,7 @@ test("恶意 HTML 仅作为文本显示，PWA 条件成立", async ({ page }) =>
 test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
-  await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
+  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
   const searchBox = page.locator("#library-search");

@@ -1,5 +1,5 @@
 import { getPublicCache, putPublicCache } from "./owner-storage.js";
-import { ownerAdminUrl } from "./runtime-config.js";
+import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { formatMeaningForDisplay, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 
@@ -12,12 +12,17 @@ const refs = Object.fromEntries([
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const state = { snapshot: null, filter: "all", query: "", selected: null };
+const FOREGROUND_REFRESH_MS = 30_000;
+const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
   sentence: "句子", quote: "名言", proverb: "谚语"
 };
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
 const adminUrl = ownerAdminUrl();
+const liveSnapshotUrl = publicSnapshotUrl();
+let loadTask = null;
+let lastLoadStartedAt = 0;
 
 function setText(element, value) {
   if (element) element.textContent = value || "";
@@ -174,19 +179,56 @@ function render() {
   refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || entries.length === 0;
 }
 
-async function loadWordbook() {
-  refs.entryGrid.setAttribute("aria-busy", "true");
+async function fetchLatestSnapshot() {
+  const candidates = [
+    { url: liveSnapshotUrl, source: "live" },
+    { url: new URL("data/owner-wordbook.json", window.location.href).href, source: "pages" }
+  ];
+  let lastError = new Error("没有可用的公开词库来源");
+  for (const candidate of candidates) {
+    try {
+      const url = new URL(candidate.url);
+      if (candidate.source === "live") url.searchParams.set("sync", String(Date.now()));
+      const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return { snapshot: parsePublicSnapshot(await response.json()), response, source: candidate.source };
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+    }
+  }
+  throw lastError;
+}
+
+async function performLoad({ background = false } = {}) {
+  if (!background) refs.entryGrid.setAttribute("aria-busy", "true");
   refs.loadError.hidden = true;
   try {
-    const response = await fetch("data/owner-wordbook.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const snapshot = parsePublicSnapshot(await response.json());
+    const { snapshot, response, source } = await fetchLatestSnapshot();
+    if (state.snapshot && Date.parse(snapshot.exportedAt) < Date.parse(state.snapshot.exportedAt)) {
+      refs.entryGrid.setAttribute("aria-busy", "false");
+      refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
+      return;
+    }
+    if (state.snapshot?.revisionId === snapshot.revisionId) {
+      refs.entryGrid.setAttribute("aria-busy", "false");
+      refs.dataStatus.textContent = source === "live"
+        ? `已即时同步最新公开词库 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`
+        : `即时源暂不可用，当前已是 GitHub Pages 最新备用快照 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`;
+      return;
+    }
     state.snapshot = snapshot;
     await putPublicCache(snapshot, "", response.url, { etag: response.headers.get("etag") || "" });
-    refs.dataStatus.textContent = `已验证 GitHub 公开快照 · 更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`;
+    refs.dataStatus.textContent = source === "live"
+      ? `已即时同步最新公开词库 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`
+      : `即时源暂不可用，已读取 GitHub Pages 备用快照 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`;
     refs.exportPublic.disabled = false;
     render();
   } catch (networkError) {
+    if (state.snapshot) {
+      refs.entryGrid.setAttribute("aria-busy", "false");
+      refs.dataStatus.textContent = `自动刷新暂时失败，继续显示 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的已验证词库。`;
+      return;
+    }
     try {
       const cache = await getPublicCache();
       if (!cache?.snapshot) throw new Error("No validated cache");
@@ -206,6 +248,15 @@ async function loadWordbook() {
   }
 }
 
+function loadWordbook({ background = false, force = false } = {}) {
+  if (loadTask) return loadTask;
+  const now = Date.now();
+  if (!force && state.snapshot && now - lastLoadStartedAt < MIN_REFRESH_GAP_MS) return Promise.resolve();
+  lastLoadStartedAt = now;
+  loadTask = performLoad({ background }).finally(() => { loadTask = null; });
+  return loadTask;
+}
+
 refs.filterRow.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-filter]");
   if (!button) return;
@@ -214,7 +265,7 @@ refs.filterRow.addEventListener("click", (event) => {
   render();
 });
 refs.librarySearch.addEventListener("input", () => { state.query = refs.librarySearch.value; render(); });
-refs.retryLoad.addEventListener("click", loadWordbook);
+refs.retryLoad.addEventListener("click", () => { void loadWordbook({ force: true }); });
 refs.dialogSpeak.addEventListener("click", () => speak(state.selected?.term));
 refs.dialogCopy.addEventListener("click", async () => {
   if (!state.selected) return;
@@ -245,6 +296,13 @@ else {
   refs.ownerLink.href = "owner.html";
   refs.ownerLink.title = "管理后端完成一次性部署后，这里会连接到安全管理域名";
 }
-setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate });
-window.addEventListener("online", () => { if (!state.snapshot) loadWordbook(); });
-loadWordbook();
+setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true });
+const refreshWhileVisible = () => {
+  if (document.visibilityState === "hidden" || navigator.onLine === false) return;
+  void loadWordbook({ background: true });
+};
+window.addEventListener("focus", refreshWhileVisible);
+document.addEventListener("visibilitychange", refreshWhileVisible);
+window.addEventListener("online", () => { void loadWordbook({ background: Boolean(state.snapshot), force: true }); });
+window.setInterval(refreshWhileVisible, FOREGROUND_REFRESH_MS);
+void loadWordbook({ force: true });

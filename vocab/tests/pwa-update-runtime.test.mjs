@@ -77,6 +77,75 @@ test("a waiting Service Worker updates only after draft flush and explicit user 
   });
 });
 
+test("the public reader activates a waiting Service Worker automatically and reloads exactly once", async () => {
+  await withBrowserGlobals(async () => {
+    const serviceWorker = new FakeEventTarget();
+    serviceWorker.controller = {};
+    const registration = new FakeEventTarget();
+    const waitingWorker = { messages: [], postMessage(message) { this.messages.push(message); } };
+    registration.waiting = waitingWorker;
+    registration.installing = null;
+    registration.update = async () => {};
+    serviceWorker.register = async () => registration;
+
+    let reloads = 0;
+    globalThis.window = Object.assign(new FakeEventTarget(), {
+      location: { reload: () => { reloads += 1; } },
+      setInterval: () => 1,
+      setTimeout: () => 1
+    });
+    Object.defineProperty(globalThis, "navigator", { configurable: true, value: { serviceWorker } });
+
+    setupPwa({
+      installButton: null,
+      updateBanner: { hidden: true },
+      applyUpdateButton: null,
+      autoApplyUpdate: true
+    });
+    await Promise.resolve();
+    await Promise.resolve();
+
+    assert.deepEqual(waitingWorker.messages, [{ type: "SKIP_WAITING" }]);
+    assert.equal(reloads, 0, "activation must finish before the reader reloads");
+    await serviceWorker.dispatch("controllerchange");
+    await Promise.resolve();
+    assert.equal(reloads, 1);
+    await serviceWorker.dispatch("controllerchange");
+    assert.equal(reloads, 1, "duplicate controllerchange events must not reload twice");
+  });
+});
+
+test("public auto-update never reloads for a first install that has no waiting update", async () => {
+  await withBrowserGlobals(async () => {
+    const serviceWorker = new FakeEventTarget();
+    serviceWorker.controller = null;
+    const registration = new FakeEventTarget();
+    registration.waiting = null;
+    registration.installing = null;
+    registration.update = async () => {};
+    serviceWorker.register = async () => registration;
+    let reloads = 0;
+    globalThis.window = Object.assign(new FakeEventTarget(), {
+      location: { reload: () => { reloads += 1; } },
+      setInterval: () => 1,
+      setTimeout: () => 1
+    });
+    Object.defineProperty(globalThis, "navigator", { configurable: true, value: { serviceWorker } });
+
+    setupPwa({
+      installButton: null,
+      updateBanner: { hidden: true },
+      applyUpdateButton: null,
+      autoApplyUpdate: true
+    });
+    await Promise.resolve();
+    await Promise.resolve();
+    await serviceWorker.dispatch("controllerchange");
+    await Promise.resolve();
+    assert.equal(reloads, 0);
+  });
+});
+
 test("a failed draft flush prevents Service Worker activation", async () => {
   await withBrowserGlobals(async () => {
     const serviceWorker = new FakeEventTarget();

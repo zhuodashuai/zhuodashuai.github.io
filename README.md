@@ -36,6 +36,8 @@ Wordbook uses JavaScript modules and IndexedDB, so preview it through a local se
 
 Wordbook formats multiple Chinese senses consistently in the Owner list, public cards and detail view. The Owner may type ordinary `1.` / `2.` (also `1)` / `2)` or `1、` / `2、`); the interface displays them as `①` / `②` without rewriting the stored or exported meaning. A single sense stays unnumbered.
 
+Published entries reach the public reader through a schema-validated, read-only Worker snapshot as soon as GitHub confirms the write, without waiting for a GitHub Pages rebuild. Visible public tabs refresh on focus, reconnect and every 30 seconds; the deployed Pages JSON and IndexedDB remain validated fallbacks. Public app-code updates activate automatically, while the Owner editor keeps its draft-safe confirmation gate.
+
 The first production phase intentionally does not expose a visitor personal-wordbook editor. Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `docs/wordbook-owner-v2.md` for the security model and one-time deployment setup.
 
 ## Publishing
