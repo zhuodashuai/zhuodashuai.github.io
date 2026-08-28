@@ -1,47 +1,40 @@
-# 卓同学的秘密单词屋
+# 卓的公开词库
 
-一个面向中文英语学习者的 local-first 单词、短语、名言整理工具。访客可以只读浏览卓同学的公开收藏，也可以在自己的浏览器里建立完全独立的私人词库。
+`/vocab/` 是一个可安装的只读公共词库 PWA。公开页面支持搜索、类型筛选、朗读、详情与 JSON 导出；公开 canonical data 位于 `data/owner-wordbook.json`（schema v3）。
 
-## 查词与入库
+## 权限边界
 
-- 首次使用只选择一次：`可靠结果直接加入` 或 `每次保存前让我确认`；以后可在右上角随时切换。
-- 中文核心释义优先来自随站点发布的 7,500 条 ECDICT 子集；在线英文词典只补充词性、音标、英文释义和例句。
-- 单词、短语和特殊写法使用统一规范键防重，但保留 `Beijing`、`iPhone`、`COVID-19`、`Ph.D.`、`C++` 等展示写法。
-- `look after` 之类的短语按完整短语查询，不会退化成只查 `look`。
-- 常见错拼先用人工审核规则纠正；有效英式拼写与技术词不会交给 LanguageTool 误改。
-- 裸词和短语不采用 MyMemory 机器翻译。没有可靠中文来源时宁可留空并标记待完善。
-- 重复输入会在补充查询前定位已有词条，不新增、不覆盖、不重复请求外部提供方。
+- 访客只能浏览公开快照，没有浏览器端写入入口。
+- `?mode=personal` 不再代表身份，也不能解锁编辑功能。
+- 所有者管理页由 `wordbook-api/` 的 Cloudflare Worker 同源托管。
+- 只有 GitHub App OAuth 实际验证为 `zhuodashuai` 且 user ID 为 `156042078` 时，服务端才授予添加、编辑、删除、AI 整理和发布权限。
+- GitHub token、OAuth client secret、OpenAI/Anthropic key只存在于服务端；前端不提供 PAT 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
 
-## 数据边界与同步
+## 数据与离线
 
-- `data/owner-wordbook.json` 是随 GitHub Pages 发布的公开只读收藏。
-- 私人词条、复习历史和设置默认只保存在当前浏览器 IndexedDB。
-- 导入、导出使用完整 JSON 快照。
-- GitHub 同步是可选备份：用户自行选择专用私有仓库；令牌只驻留当前 JavaScript 会话，不写入 IndexedDB、Cache Storage、源码或导出文件。
-- 推送会检查远端 SHA，远端变化时停止而不是静默覆盖；拉取前必须确认，之后完整替换本机快照。
-- 自动备份在最后一次本地修改 30 秒后运行，避免每个操作都创建提交。Git 历史会保留旧快照，因此不要在同步词条中写敏感信息。
+- IndexedDB v5 分离草稿、发布队列、公开缓存、复习状态和隔离记录。
+- 草稿先落本机，显式发布才产生 GitHub commit。
+- 发布使用 Git blob SHA 与幂等 mutation ID；远端变化时进入冲突流程，绝不静默覆盖。
+- 公开快照和私人复习状态严格分离。
+- Service Worker 对 `/api/*` network-only；首次安装不会打断输入，新版本由用户点击后更新。
 
-## 安装
+## AI 与出处
 
-通过 HTTPS 在 Chrome 或 Edge 打开 `/vocab/`，点击“安装到桌面”。安装后的 PWA 会从桌面或开始菜单进入私人词库；首次完整加载后，界面、本地中英词典和公开收藏可离线使用。在线英文补充、出处候选与 GitHub 同步仍需要网络。
+- 管理端只发送当前英文输入给选定的服务端 AI provider。
+- 拼写更正始终是建议；`recieve → receive` 必须由卓选择采用、保留或手动修改。
+- `jab at` 作为完整短语处理，不拆成 `jab`。
+- 名言与谚语使用英文来源搜索；只能标记 `verified`、`candidate`、`unverified` 或 `disputed`。没有可复查来源时作者、作品、年份和 URL 保持空白。
 
-## 数据来源
+## 验证
 
-- [ECDICT](https://github.com/skywind3000/ECDICT)（MIT）：本地可信中英核心。
-- [FreeDictionaryAPI](https://freedictionaryapi.com/) / Wiktionary：英文释义、IPA、词形、例句与分义项人工翻译。
-- [LanguageTool](https://languagetool.org/)：仅在本地核心和英文词典都无法确认时提供拼写候选，候选还必须经过字典验证。
-- [MyMemory](https://mymemory.translated.net/)：只可能成为较长上下文的未核验机器候选，不会成为裸词或短语的可信中文释义。
-- [Wikiquote](https://en.wikiquote.org/)：名言出处候选，核对前始终标为未验证。
-
-前端不保存任何第三方 API 密钥。不要把私人信息当作查词内容发送。
-
-## 质量验证
+从仓库根目录运行：
 
 ```powershell
-npm test
-npm run test:live
+pnpm test:security
+pnpm test
+pnpm --dir wordbook-api check
+pnpm --dir wordbook-api exec wrangler deploy --dry-run
+pnpm test:e2e
 ```
 
-确定性套件覆盖 100 项公开金标准、完整重复轮、20 路并发写入、短语整查、拼写边界和脏翻译拒绝。实网套件单独检查当前 FreeDictionary、MyMemory 与 LanguageTool 契约，避免外部服务临时故障污染确定性结果。
-
-浏览器可在 `/vocab/quality/` 查看已发布证据，并独立重跑不读取私人词库的 100 词本地检测。
+完整架构、迁移、安全设计和一次性生产配置见 `docs/wordbook-owner-v2.md`。`quality/` 保留 100 词公开质量数据与历史词典管线证据，但不参与所有者身份验证或发布。

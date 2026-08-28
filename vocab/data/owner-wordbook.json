@@ -1,30 +1,76 @@
 {
-  "schemaVersion": 2,
-  "owner": {
-    "name": "Zhuodashuai",
-    "profileUrl": "https://zhuodashuai.github.io/"
-  },
-  "updatedAt": "2026-08-27T00:00:00.000Z",
+  "schemaVersion": 3,
+  "exportedAt": "2026-08-28T04:36:37.663Z",
+  "revisionId": "migration-v3-2026-08-28",
+  "lastMutationId": "",
   "entries": [
     {
       "id": "public-jab-at",
+      "revision": 1,
+      "originalInput": "jab at",
       "term": "jab at",
       "normalized": "jab at",
-      "headword": "jab",
+      "standardForm": "jab at",
       "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "jab at",
+        "suggestion": "",
+        "chosen": "jab at",
+        "confidence": 1,
+        "source": "legacy-migration"
+      },
       "phonetic": "jab /d͡ʒæb/ + at /ət, æt/",
       "partOfSpeech": "verb phrase · noun collocation",
       "meaning": "① 朝某人或某物猛戳、猛刺或快速击打；② （言语上）抨击、挖苦或嘲讽",
       "definition": "To make a quick, sharp poking or striking movement toward someone or something; also, a pointed criticism or mocking remark.",
+      "senses": [],
+      "collocations": [],
       "exampleEn": "He jabbed at the elevator button with his finger.\nThat comment sounded like a jab at his former teammate.",
       "exampleZh": "他用手指快速地反复戳按电梯按钮。\n那句话听起来像是在挖苦他的前队友。",
       "usage": "动词结构：jab at + sb/sth。表示“讥讽”时，也常见 a jab at 或 take a jab at。",
-      "forms": ["jab", "jabs", "jabbed", "jabbing"],
-      "tags": ["短语", "动词 + 介词", "动作", "批评与讽刺"],
-      "sources": ["curated", "FreeDictionaryAPI", "Wiktionary"],
+      "register": "",
+      "confusedWith": [],
+      "forms": [
+        "jab",
+        "jabs",
+        "jabbed",
+        "jabbing"
+      ],
+      "tags": [
+        "短语",
+        "动词 + 介词",
+        "动作",
+        "批评与讽刺"
+      ],
+      "author": "",
       "sourceTitle": "Wiktionary: jab",
+      "sourceWork": "",
+      "sourceDate": "",
       "sourceUrl": "https://en.wiktionary.org/wiki/jab",
-      "attributionStatus": "source-backed",
+      "attributionStatus": "unverified",
+      "attributionNote": "由公开词库旧版本安全迁移；出处状态需要重新核验。",
+      "sources": [
+        {
+          "title": "FreeDictionaryAPI",
+          "url": "https://freedictionaryapi.com/",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-27T00:00:00.000Z"
+        },
+        {
+          "title": "Wiktionary",
+          "url": "https://en.wiktionary.org/",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-27T00:00:00.000Z"
+        },
+        {
+          "title": "Wiktionary: jab",
+          "url": "https://en.wiktionary.org/wiki/jab",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-27T00:00:00.000Z"
+        }
+      ],
+      "organizationMethod": "local-dictionary",
       "createdAt": "2026-08-27T00:00:00.000Z",
       "updatedAt": "2026-08-27T00:00:00.000Z"
     }

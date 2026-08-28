@@ -3,318 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="卓同学的秘密单词屋：只输入英文，准确整理中文释义、短语、拼写与复习计划；支持本地保存、桌面安装和可选 GitHub 同步。">
-  <meta name="theme-color" content="#20372f">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.languagetool.org https://freedictionaryapi.com https://api.mymemory.translated.net https://en.wikiquote.org https://api.github.com; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="description" content="卓的公开词库：精确整理的英文单词、短语、搭配、句子、名言与谚语。">
+  <meta name="theme-color" content="#183b32">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://zhuodashuai.github.io/vocab/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="卓同学的秘密单词屋">
-  <meta property="og:description" content="只管写下英文，它会自己长成准确、可复习的词条。">
+  <meta property="og:title" content="卓的公开词库">
+  <meta property="og:description" content="认真收下每一个词，也认真标明它从哪里来。">
   <meta property="og:url" content="https://zhuodashuai.github.io/vocab/">
   <meta property="og:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1734">
-  <meta property="og:image:height" content="907">
-  <meta property="og:image:alt" content="深绿色书房中摆放着木质索引卡柜与整齐词卡，象征卓同学的秘密单词屋。">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="卓同学的秘密单词屋">
-  <meta name="twitter:description" content="可信释义、智能防重、个人收藏、桌面安装与可选 GitHub 同步。">
-  <meta name="twitter:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
-  <meta name="twitter:image:alt" content="深绿色书房中摆放着木质索引卡柜与整齐词卡，象征卓同学的秘密单词屋。">
-  <title>卓同学的秘密单词屋</title>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <title>卓的公开词库 · Zhuo's Word Cabinet</title>
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
-<body>
+<body data-page="public">
   <a class="skip-link" href="#main">跳到主要内容</a>
-
-  <header class="site-header">
-    <a class="brand" href="./" aria-label="卓同学的秘密单词屋首页">
-      <span class="brand-mark" aria-hidden="true">卓</span>
-      <span><strong>秘密单词屋</strong><small>ZHUO'S WORD CABINET</small></span>
-    </a>
-    <div class="header-actions">
-      <button class="settings-button" id="preferences-button" type="button" hidden>入库设置</button>
-      <button class="install-button" id="install-button" type="button">安装到桌面</button>
-      <a class="profile-link" href="../">返回个人主页 <span aria-hidden="true">↗</span></a>
-    </div>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="卓的公开词库首页"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的公开词库</strong><small>ZHUO'S WORD CABINET</small></span></a>
+    <nav class="top-actions" aria-label="页面操作">
+      <button class="quiet-button" id="install-button" type="button">安装应用</button>
+      <a class="quiet-link" href="../">学术主页</a>
+      <a class="primary-link" id="owner-link" href="owner.html">所有者登录</a>
+    </nav>
   </header>
-
   <main id="main">
-    <section class="collection-switcher" aria-label="选择词库">
-      <div class="collection-tabs" id="collection-tabs">
-        <button type="button" data-mode="public" aria-pressed="true">卓同学的公开词库</button>
-        <button type="button" data-mode="personal" aria-pressed="false">我的本地词库</button>
-      </div>
-      <p id="collection-note" aria-live="polite">公开浏览、搜索和朗读；复制后即可加入你自己的复习计划。</p>
+    <section class="public-hero" aria-labelledby="page-title">
+      <div><p class="eyebrow">A curated public collection</p><h1 id="page-title">把词记下来，<br><em>也把依据留下来。</em></h1><p class="lede">这是卓公开分享的英文词库。访客可以搜索、筛选、朗读和导出；编辑与发布只在经过 GitHub 身份验证的“卓的管理模式”中进行。</p></div>
+      <aside class="principles-card" aria-label="词库原则"><p>词库原则</p><ol><li><span>01</span> 保留原始输入，不静默改写</li><li><span>02</span> 释义和用法可以复查</li><li><span>03</span> 名言找不到出处就明确写未核验</li></ol></aside>
     </section>
-
-    <section class="owner-access" id="owner-access" aria-labelledby="owner-access-title">
-      <div>
-        <p class="eyebrow">Owner access</p>
-        <p class="owner-title" id="owner-access-title">站主管理</p>
-        <p class="owner-status" id="owner-status" role="status" aria-live="polite">当前是访客只读模式。卓本人验证 GitHub 身份后，可以新增、编辑和删除公开词条。</p>
-        <a id="owner-commit-link" href="#" target="_blank" rel="noopener noreferrer" hidden>查看最近一次公开词库提交 ↗</a>
+    <section class="library-shell" aria-labelledby="library-heading">
+      <div class="section-heading"><div><p class="eyebrow">Public wordbook</p><h2 id="library-heading">卓的公开词库</h2><p class="data-status" id="data-status" role="status" aria-live="polite">正在读取经过验证的公开数据…</p></div><div class="count-block"><strong id="entry-count">0</strong><span>ENTRIES</span></div></div>
+      <div class="toolbar">
+        <label class="search-field" for="library-search"><span>搜索英文、中文、标签或作者</span><input id="library-search" type="search" autocomplete="off" placeholder="例如：jab at / receive / courage"></label>
+        <div class="filter-row" id="filter-row" aria-label="按类型筛选"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="word" aria-pressed="false">单词</button><button type="button" data-filter="phrase" aria-pressed="false">短语</button><button type="button" data-filter="phrasal-verb" aria-pressed="false">Phrasal verb</button><button type="button" data-filter="idiom" aria-pressed="false">Idiom</button><button type="button" data-filter="collocation" aria-pressed="false">Collocation</button><button type="button" data-filter="sentence" aria-pressed="false">句子</button><button type="button" data-filter="quote" aria-pressed="false">名言</button><button type="button" data-filter="proverb" aria-pressed="false">谚语</button></div>
       </div>
-      <div class="owner-actions">
-        <button type="button" id="owner-login">卓本人登录</button>
-        <button type="button" id="owner-refresh" hidden>刷新远端</button>
-        <button type="button" id="owner-logout" hidden>退出管理</button>
-      </div>
-    </section>
-
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-copy">
-        <p class="eyebrow" id="hero-eyebrow">A public collection</p>
-        <h1 id="page-title">看看他的词，<br><em>再建立你自己的。</em></h1>
-        <p class="hero-text" id="hero-text">公开词库可以浏览、搜索与朗读；收藏后会生成一份只属于你的本地词库。</p>
-
-        <form class="word-form" id="word-form" novalidate hidden>
-          <label for="word-input">输入英文单词、短语或名言</label>
-          <div class="input-row">
-            <input id="word-input" name="word" type="text" lang="en" spellcheck="false" autocomplete="off" placeholder="例如：hip / look after / accomodate" required>
-            <button type="submit">自动整理 <span aria-hidden="true">→</span></button>
-          </div>
-          <p class="form-hint" id="form-hint" role="status" aria-live="polite">先查本地可信词典，再补充英文词典；重复输入不会再次联网或加入。</p>
-          <p class="privacy-line">中文核心释义来自本地词典。英文词典、拼写与名言出处需要联网时，只发送当前英文内容；请勿填写私人信息。</p>
-        </form>
-
-        <ul class="feature-line" aria-label="核心功能">
-          <li>可信中文释义</li>
-          <li>短语整条查询</li>
-          <li>输入自动防重</li>
-          <li>可切换入库方式</li>
-        </ul>
-      </div>
-
-      <aside class="today-card" aria-labelledby="today-title" id="selected-card" hidden>
-        <div class="card-topline"><span id="selected-kicker"></span><span id="selected-index"></span></div>
-        <div class="word-heading-line">
-          <div>
-            <p class="word-type" id="selected-type"></p>
-            <h2 id="today-title" lang="en"></h2>
-          </div>
-          <button class="sound-button" id="sound-button" type="button" aria-label="朗读当前词条">◖</button>
-        </div>
-        <p class="phonetic" id="selected-phonetic" lang="en"></p>
-        <p class="quality-note" id="selected-quality" hidden></p>
-        <p class="meaning" id="selected-meaning"></p>
-        <div class="definition-block" id="selected-definition-block" hidden>
-          <span>ENGLISH DEFINITION</span>
-          <p lang="en" id="selected-definition"></p>
-        </div>
-        <div class="example" id="selected-example-block" hidden>
-          <span>EXAMPLE</span>
-          <p lang="en" id="selected-example-en"></p>
-          <p id="selected-example-zh"></p>
-        </div>
-        <p class="usage-note" id="selected-usage" hidden></p>
-        <p class="source-note" id="selected-source" hidden></p>
-        <div class="tag-row" id="selected-tags" aria-label="标签"></div>
-        <div class="card-actions">
-          <button type="button" id="copy-selected">收藏到我的词库</button>
-          <button type="button" id="edit-selected" hidden>编辑词条</button>
-          <button type="button" id="review-selected" hidden>复习这个词</button>
-          <button type="button" id="delete-selected" class="danger-button" hidden>删除</button>
-        </div>
-      </aside>
-    </section>
-
-    <section class="lookup-panel" id="lookup-panel" aria-labelledby="lookup-title" hidden>
-      <div class="lookup-heading">
-        <div>
-           <p class="eyebrow" id="lookup-eyebrow">Review before saving</p>
-           <h2 id="lookup-title" tabindex="-1">确认新词条</h2>
-        </div>
-        <button type="button" class="close-button" id="close-lookup" aria-label="关闭新词条">×</button>
-      </div>
-
-      <div class="correction-banner" id="correction-banner" hidden>
-        <div><span>发现可能的拼写错误</span><strong><del id="original-spelling"></del> → <ins id="corrected-spelling"></ins></strong></div>
-        <button type="button" id="keep-original">保留原拼写</button>
-      </div>
-
-      <form id="draft-form" class="draft-form">
-        <div class="draft-grid compact-grid">
-          <label>英文词条<input id="draft-term" name="term" lang="en" required readonly aria-describedby="draft-term-note"><small id="draft-term-note">避免词义错配，词条名称不可在此直接改；请关闭后重新查询。</small></label>
-          <label>类型<select id="draft-entry-type" name="entryType"><option value="word">单词</option><option value="phrase">短语</option><option value="quote">名言</option><option value="proverb">谚语</option></select></label>
-          <label>词性<input id="draft-pos" name="partOfSpeech" placeholder="noun / verb / phrase"></label>
-          <label>音标<input id="draft-phonetic" name="phonetic" lang="en" placeholder="/…/"></label>
-          <label>标签<input id="draft-tags" name="tags" placeholder="用逗号分隔"></label>
-        </div>
-        <div class="draft-grid">
-          <label>中文释义<textarea id="draft-meaning" name="meaning" rows="4" placeholder="不确定时可以留空，词条会标记为待完善"></textarea></label>
-          <label>英文释义<textarea id="draft-definition" name="definition" rows="4" lang="en"></textarea></label>
-          <label>英文例句<textarea id="draft-example-en" name="exampleEn" rows="4" lang="en"></textarea></label>
-          <label>例句翻译<textarea id="draft-example-zh" name="exampleZh" rows="4"></textarea></label>
-        </div>
-        <label class="wide-field">用法提醒<textarea id="draft-usage" name="usage" rows="2"></textarea></label>
-        <fieldset class="attribution-fields" id="attribution-fields" hidden>
-          <legend>名言与谚语出处</legend>
-          <div class="draft-grid compact-grid attribution-grid">
-            <label>作者／传统来源<input id="draft-author" name="author" placeholder="作者未知时请留空"></label>
-            <label>作品／演讲／出版物<input id="draft-source-title" name="sourceTitle"></label>
-            <label>页码／章节<input id="draft-source-locator" name="sourceLocator"></label>
-            <label>核验状态<select id="draft-attribution-status" name="attributionStatus"><option value="candidate">候选出处，未核验</option><option value="source-backed">可靠二手来源</option><option value="verified">已核对原始文本</option><option value="disputed">存在争议／误传</option><option value="unverified">来源未知</option></select></label>
-          </div>
-          <label class="wide-field">来源链接<input id="draft-source-url" name="sourceUrl" type="url" inputmode="url" placeholder="https://…"></label>
-          <div class="source-candidates" id="source-candidates" aria-live="polite"></div>
-          <p><button type="button" class="text-button" id="retry-attribution">重新搜索出处</button> · 自动搜索只提供候选。标记“已核对原始文本”前，请确认作品、版本及页码或章节；引文本身的版权可能不同于候选页面的许可。</p>
-        </fieldset>
-        <p class="quality-note lookup-quality" id="lookup-quality" hidden></p>
-        <p class="lookup-warning" id="lookup-warning" role="status"></p>
-        <div class="draft-actions">
-          <button type="submit" class="primary-action" id="draft-submit">保存到词库</button>
-          <span id="draft-submit-note">本地词典为可信来源；联网候选会明确标记，宁可留空也不写错。</span>
-        </div>
-      </form>
-    </section>
-
-    <section class="workspace" aria-labelledby="library-title">
-      <div class="workspace-heading">
-        <div>
-          <p class="eyebrow">Your collection</p>
-          <h2 id="library-title">卓同学的公开收藏</h2>
-        </div>
-        <div class="summary" aria-label="词库概览">
-          <span><strong id="entry-count">0</strong> 个词条</span>
-          <button type="button" id="start-review" hidden><strong id="due-count">0</strong> 今日待复习</button>
-        </div>
-      </div>
-
-      <div class="library-toolbar" aria-label="筛选词库">
-        <div class="filter-group" id="filter-group">
-          <button type="button" data-filter="all" aria-pressed="true">全部</button>
-          <button type="button" data-filter="word" aria-pressed="false">单词</button>
-          <button type="button" data-filter="phrase" aria-pressed="false">短语</button>
-          <button type="button" data-filter="quote" aria-pressed="false">名言</button>
-          <button type="button" data-filter="proverb" aria-pressed="false">谚语</button>
-          <button type="button" class="personal-filter" data-filter="new" aria-pressed="false" hidden>新词</button>
-          <button type="button" class="personal-filter" data-filter="due" aria-pressed="false" hidden>待复习</button>
-          <button type="button" class="personal-filter" data-filter="mastered" aria-pressed="false" hidden>已掌握</button>
-        </div>
-        <input id="library-search" type="search" lang="en" placeholder="搜索词库" aria-label="搜索词库">
-      </div>
-
-      <div id="library-list" class="library-list"><p class="library-empty">正在读取词库…</p></div>
-
-      <div class="empty-guidance">
-        <span aria-hidden="true">+</span>
-        <p id="empty-guidance-copy">浏览公开词库，喜欢的词条可以一键复制到你自己的词库。</p>
-      </div>
-    </section>
-
-    <section class="sync-panel" id="sync-panel" aria-labelledby="sync-title" hidden>
-      <div>
-        <p class="eyebrow">Optional private backup</p>
-        <h2 id="sync-title">GitHub 同步</h2>
-        <p>本地词库仍是主要副本。连接你自己的专用私有仓库后，可以备份整份 JSON 快照；拉取会先确认并替换本机，远端变化时推送会停止，不会静默覆盖。</p>
-      </div>
-      <div class="sync-actions">
-        <p class="sync-status" id="sync-status">尚未连接。访问令牌不会保存到浏览器或导出文件。</p>
-        <div>
-          <button type="button" id="sync-connect">连接 GitHub</button>
-          <button type="button" id="sync-pull" disabled>拉取</button>
-          <button type="button" id="sync-push" disabled>推送</button>
-          <button type="button" id="sync-disconnect" disabled>断开</button>
-        </div>
-      </div>
+      <div class="state-panel error-panel" id="load-error" hidden><strong>暂时无法读取可信词库</strong><p id="load-error-message">没有可验证的网络数据或本地缓存。本页不会用示例词冒充真实收藏。</p><button type="button" id="retry-load">重新读取</button></div>
+      <div class="entry-grid" id="entry-grid" aria-live="polite" aria-busy="true"></div>
+      <p class="empty-message" id="empty-message" hidden>没有符合当前条件的词条。</p>
+      <div class="library-footer-actions"><button type="button" id="export-public" disabled>导出公开词库 JSON</button><span>导出文件只包含公开词条，不含登录信息、草稿或复习记录。</span></div>
     </section>
   </main>
-
-  <footer>
-    <p>卓同学的秘密单词屋 · 个人数据保存在当前浏览器，请定期备份。</p>
-    <p id="personal-footer-tools" hidden><button type="button" class="text-button" id="export-button">导出备份</button> · <button type="button" class="text-button" id="import-button">导入词库</button><input id="import-file" type="file" accept="application/json" hidden></p>
-    <p class="attribution">核心中英词典来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT（MIT）</a>；英文补充来自 <a href="https://freedictionaryapi.com/" target="_blank" rel="noopener noreferrer">FreeDictionaryAPI</a> 与 <a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary（CC BY-SA）</a>。<a href="quality/">查看 100 词质量报告</a>。<a href="https://languagetool.org/" target="_blank" rel="noopener noreferrer">LanguageTool</a> 仅在本地与字典均无法确认拼写时辅助；名言翻译及 Wikiquote 搜索只作为未核验候选。</p>
-  </footer>
-
-  <dialog id="install-dialog" class="utility-dialog" aria-labelledby="install-title">
-    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭安装说明">×</button></form>
-    <p class="eyebrow">Install the word cabinet</p>
-    <h2 id="install-title">把秘密单词屋放到桌面</h2>
-    <ol>
-      <li>在 Chrome 或 Edge 中打开本页。</li>
-      <li>点击地址栏右侧的“安装”图标，或在浏览器菜单中选择“安装秘密单词屋”。</li>
-      <li>安装后会生成桌面／开始菜单快捷方式，并直接进入“我的本地词库”。</li>
-    </ol>
-    <p>首次联网打开后，主要界面可离线使用；自动释义、出处搜索和 GitHub 同步仍需要网络。</p>
+  <footer class="site-footer"><p><strong>卓的公开词库</strong> · canonical public data is stored in GitHub.</p><p>AI 只负责生成可编辑候选；名言出处必须保留核验状态和可复查链接。<a href="quality/">查看 100 词质量报告</a></p></footer>
+  <dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">
+    <form method="dialog" class="dialog-close"><button value="close" aria-label="关闭词条详情">×</button></form>
+    <p class="eyebrow" id="dialog-type"></p><div class="dialog-title-row"><h2 id="dialog-term" lang="en"></h2><div class="button-row"><button type="button" id="dialog-copy" class="quiet-button">复制词条</button><button type="button" id="dialog-speak" class="round-button" aria-label="朗读词条">◖</button></div></div><p class="phonetic" id="dialog-phonetic" lang="en"></p><p class="meaning" id="dialog-meaning"></p>
+    <section class="detail-section" id="dialog-definition-section"><h3>English definition</h3><p id="dialog-definition" lang="en"></p></section>
+    <section class="detail-section" id="dialog-example-section"><h3>Example</h3><p id="dialog-example-en" lang="en"></p><p id="dialog-example-zh"></p></section>
+    <section class="detail-section" id="dialog-usage-section"><h3>Usage & register</h3><p id="dialog-usage"></p></section>
+    <section class="detail-section" id="dialog-extra-section"><h3>词形、义项与易混淆词</h3><p id="dialog-extra"></p></section>
+    <section class="detail-section" id="dialog-source-section"><h3>Source & attribution</h3><p id="dialog-source-status"></p><a id="dialog-source-link" target="_blank" rel="noopener noreferrer"></a><ul id="dialog-source-list"></ul></section>
+    <div class="tag-list" id="dialog-tags"></div>
   </dialog>
-
-  <dialog id="preferences-dialog" class="utility-dialog preferences-dialog" aria-labelledby="preferences-title">
-    <form method="dialog" class="dialog-close-row"><button id="preferences-close" value="close" aria-label="关闭入库设置">×</button></form>
-    <p class="eyebrow">How should new words enter?</p>
-    <h2 id="preferences-title">新词怎样进屋？</h2>
-    <p id="preferences-intro">先选一次，以后可以随时在右上角“入库设置”里更改。</p>
-    <form id="preferences-form" class="preferences-form">
-      <label class="choice-card">
-        <input type="radio" name="saveMode" value="auto" required>
-        <span><strong>可靠结果直接加入</strong><small>不再逐条确认；若释义还不可靠，就保留空白并标记“待完善”，绝不乱填。</small></span>
-      </label>
-      <label class="choice-card">
-        <input type="radio" name="saveMode" value="review" required>
-        <span><strong>每次保存前让我确认</strong><small>自动整理后打开编辑页，由你检查或修改再保存。</small></span>
-      </label>
-      <p class="preference-note">无论选择哪种方式，重复词都只定位原词条：不会重复加入、不会覆盖释义，也不会重复联网。</p>
-      <button type="submit" class="primary-action">保存入库方式</button>
-    </form>
-  </dialog>
-
-  <dialog id="sync-dialog" class="utility-dialog" aria-labelledby="sync-dialog-title">
-    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭 GitHub 设置">×</button></form>
-    <p class="eyebrow">Session-only credential</p>
-    <h2 id="sync-dialog-title">连接专用私有仓库</h2>
-    <form id="sync-form" class="sync-form">
-      <label>Fine-grained GitHub token<input id="sync-token" type="password" autocomplete="off" required></label>
-      <div class="draft-grid">
-        <label>GitHub 用户名<input id="sync-owner" autocomplete="off" required></label>
-        <label>私有仓库名<input id="sync-repo" autocomplete="off" required></label>
-        <label>分支<input id="sync-branch" value="main" autocomplete="off" required></label>
-        <label>JSON 路径<input id="sync-path" value="vocab-sync/wordbook.json" autocomplete="off" required></label>
-      </div>
-      <label class="checkbox-field"><input id="sync-auto" type="checkbox"> 本次打开期间，修改停止 30 秒后自动备份</label>
-      <p>建议新建一个专用私有仓库，并让令牌只访问该仓库、只授予 Contents 读写权限、设置较短有效期。令牌关闭应用即清除。Git 会保留旧版本历史，请不要同步敏感笔记。</p>
-      <p class="setup-links"><a href="https://github.com/new" target="_blank" rel="noopener noreferrer">新建专用私有仓库 ↗</a><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">创建 fine-grained token ↗</a></p>
-      <button type="submit" class="primary-action">测试并连接</button>
-    </form>
-  </dialog>
-
-  <dialog id="owner-dialog" class="utility-dialog owner-dialog" aria-labelledby="owner-dialog-title">
-    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭卓本人登录">×</button></form>
-    <p class="eyebrow">Verify Zhuo on GitHub</p>
-    <h2 id="owner-dialog-title">卓本人登录</h2>
-    <form id="owner-login-form" class="sync-form">
-      <label>Fine-grained GitHub token
-        <input id="owner-token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="owner-token-help" required>
-      </label>
-      <p id="owner-token-help">令牌只在本次打开期间保存在内存中，不写入浏览器、词库或 GitHub 文件。请只选择 <strong>zhuodashuai.github.io</strong> 仓库，并只授予 <strong>Contents: Read and write</strong>。</p>
-      <p>系统会同时核对 GitHub 账号、固定仓库与文件 SHA；访客令牌无法发布。第一次真正发布时，GitHub 才会最终确认 Contents 写权限。</p>
-      <p>公开词条会进入 Git 历史；以后从页面删除，不代表旧提交中的内容也被清除。请勿在公开词条里写私人信息。</p>
-      <p class="owner-auth-status" id="owner-auth-status" role="status" aria-live="polite"></p>
-      <p class="setup-links"><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">创建最小权限 token ↗</a><a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">管理已有 token ↗</a></p>
-      <button type="submit" class="primary-action">验证并进入站主管理</button>
-    </form>
-  </dialog>
-
-  <dialog id="review-dialog" class="review-dialog" aria-labelledby="review-term">
-    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭复习">×</button></form>
-    <p class="eyebrow">Recall first</p>
-    <h2 id="review-term" lang="en">jab at</h2>
-    <button type="button" id="reveal-answer" class="reveal-button">显示答案</button>
-    <div id="review-answer" hidden>
-      <p class="review-meaning" id="review-meaning"></p>
-      <p class="review-example" id="review-example"></p>
-      <div class="rating-grid" id="rating-grid">
-        <button type="button" data-rating="again"><strong>忘了</strong><span>10 分钟后</span></button>
-        <button type="button" data-rating="hard"><strong>模糊</strong><span>稍后再看</span></button>
-        <button type="button" data-rating="good"><strong>记住</strong><span>升一级</span></button>
-        <button type="button" data-rating="easy"><strong>很熟</strong><span>升两级</span></button>
-      </div>
-    </div>
-  </dialog>
-
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-  <script type="module" src="js/app.js?v=13"></script>
+  <aside class="update-banner" id="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">立即更新</button></aside>
+  <script type="module" src="js/public-app.js?v=20"></script>
 </body>
 </html>

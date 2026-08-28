@@ -1,0 +1,66 @@
+name: Wordbook CI
+
+on:
+  pull_request:
+    paths:
+      - "vocab/**"
+      - "wordbook-api/**"
+      - "tests/**"
+      - "scripts/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "playwright.config.mjs"
+      - ".github/workflows/wordbook-ci.yml"
+  push:
+    branches: [main, "codex/**"]
+    paths:
+      - "vocab/**"
+      - "wordbook-api/**"
+      - "tests/**"
+      - "scripts/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "playwright.config.mjs"
+      - ".github/workflows/wordbook-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Secret boundary scan
+        run: pnpm test:security
+      - name: Unit and Worker integration tests
+        run: pnpm test
+      - name: TypeScript check
+        run: pnpm --dir wordbook-api check
+      - name: Cloudflare Worker dry run
+        run: pnpm --dir wordbook-api exec wrangler deploy --dry-run
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Desktop, mobile, offline and PWA E2E
+        run: pnpm test:e2e
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7

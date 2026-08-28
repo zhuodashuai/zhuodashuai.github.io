@@ -1,41 +1,17 @@
-const CACHE_NAME = "wordbook-shell-v13";
-const CACHE_PREFIX = "wordbook-shell-";
-const APP_SHELL = [
-  "./",
-  "./index.html",
-  "./?mode=public",
-  "./?mode=personal",
-  "./styles.css?v=13",
-  "./manifest.webmanifest",
-  "./data/owner-wordbook.json",
-  "./data/ecdict-core.json",
-  "./js/app.js?v=13",
-  "./js/core-dictionary.js?v=13",
-  "./js/data.js?v=13",
-  "./js/github-sync.js?v=13",
-  "./js/public-owner.js?v=13",
-  "./js/schema.js?v=13",
-  "./js/services.js?v=13",
-  "./js/settings.js?v=13",
-  "./js/storage.js?v=13",
-  "./js/workflow.js?v=13",
-  "./quality/",
-  "./quality/index.html",
-  "./quality/styles.css",
-  "./quality/report.js",
-  "./quality/generated-report.json",
-  "./quality/datasets/vocab-100.json",
-  "./assets/icon.svg",
-  "./assets/icon-192.png",
-  "./assets/icon-512.png",
-  "./assets/icon-maskable-192.png",
-  "./assets/icon-maskable-512.png",
-  "./assets/word-cabinet-og.png"
+const CACHE_NAME = "zhuo-wordbook-v20";
+const CACHE_PREFIX = "zhuo-wordbook-";
+const SHELL = [
+  "./", "./index.html", "./owner.html", "./styles.css?v=20", "./manifest.webmanifest",
+  "./js/public-app.js?v=20", "./js/owner-app.js?v=20", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/owner-api.js", "./js/owner-storage.js", "./js/sync-logic.js", "./js/wordbook-schema.js",
+  "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
+  "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
+  "./quality/", "./quality/index.html", "./quality/styles.css", "./quality/report.js",
+  "./quality/generated-report.json", "./quality/datasets/vocab-100.json"
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
-  self.skipWaiting();
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(SHELL)));
 });
 
 self.addEventListener("activate", (event) => {
@@ -46,17 +22,24 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-async function networkFirst(request, fallback = "./index.html") {
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
+});
+
+async function networkFirst(request, fallbackUrl = "") {
   const cache = await caches.open(CACHE_NAME);
   try {
     const response = await fetch(request);
-    if (response.ok) {
-      await cache.put(request, response.clone());
-      return response;
-    }
-    return (await cache.match(request)) || (await cache.match(fallback)) || response;
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
   } catch {
-    return (await cache.match(request)) || (await cache.match(fallback)) || Response.error();
+    const cached = await cache.match(request, { ignoreSearch: false });
+    if (cached) return cached;
+    if (fallbackUrl) {
+      const fallback = await cache.match(fallbackUrl);
+      if (fallback) return fallback;
+    }
+    return new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
   }
 }
 
@@ -74,17 +57,17 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
-
+  if (url.pathname.startsWith("/api/")) {
+    event.respondWith(fetch(request));
+    return;
+  }
   if (request.mode === "navigate") {
+    const fallback = url.pathname.endsWith("/owner.html") ? "./owner.html" : "./index.html";
+    event.respondWith(networkFirst(request, fallback));
+    return;
+  }
+  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/quality/generated-report.json")) {
     event.respondWith(networkFirst(request));
-    return;
-  }
-  if (url.pathname.endsWith("/data/owner-wordbook.json")) {
-    event.respondWith(networkFirst(request, "./data/owner-wordbook.json"));
-    return;
-  }
-  if (url.pathname.endsWith("/quality/generated-report.json")) {
-    event.respondWith(networkFirst(request, "./quality/generated-report.json"));
     return;
   }
   event.respondWith(cacheFirst(request));

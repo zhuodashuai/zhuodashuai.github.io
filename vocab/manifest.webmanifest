@@ -1,54 +1,24 @@
 {
-  "id": "./?mode=personal",
-  "name": "卓同学的秘密单词屋",
-  "short_name": "秘密单词屋",
-  "description": "只输入英文，准确整理中文释义、短语、拼写与复习计划。",
+  "id": "./",
+  "name": "卓的公开词库",
+  "short_name": "卓的词库",
+  "description": "卓公开分享并持续整理的英文单词、短语、句子、名言与谚语词库。",
   "lang": "zh-CN",
   "dir": "ltr",
-  "start_url": "./?mode=personal",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f2eee5",
-  "theme_color": "#20372f",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#f6f2e9",
+  "theme_color": "#183b32",
   "prefer_related_applications": false,
   "icons": [
-    {
-      "src": "assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "assets/icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    {
-      "name": "我的秘密词库",
-      "short_name": "我的词库",
-      "url": "./?mode=personal#add",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "卓同学的公开收藏",
-      "short_name": "公开收藏",
-      "url": "./?mode=public",
-      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
-    }
+    { "name": "浏览卓的公开词库", "short_name": "公开词库", "url": "./", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ]
 }

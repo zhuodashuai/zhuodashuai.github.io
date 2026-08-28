@@ -1,3 +1,11 @@
 node_modules/
 test-results/
 playwright-report/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
+.wrangler/
+coverage/
+.artifacts/

@@ -1,0 +1,103 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { organizeEntry } from "../src/ai";
+import type { AppConfig } from "../src/config";
+
+const config: AppConfig = {
+  PUBLIC_SITE_URL: "https://zhuodashuai.github.io/vocab/",
+  GITHUB_OWNER: "zhuodashuai", GITHUB_OWNER_ID: 156042078, GITHUB_REPOSITORY: "zhuodashuai.github.io", GITHUB_REPOSITORY_ID: 1309360291,
+  GITHUB_BRANCH: "main", GITHUB_WORDBOOK_PATH: "vocab/data/owner-wordbook.json", AI_PROVIDER: "openai",
+  OPENAI_API_KEY: "sk-test-not-real-000000000000", OPENAI_MODEL: "gpt-5.6-terra"
+};
+
+function organized(overrides: Record<string, unknown> = {}) {
+  return {
+    suggestedTerm: "receive", standardForm: "receive", entryType: "word", phonetic: "/rɪˈsiːv/", partOfSpeech: "verb",
+    meaning: "收到；接收", definition: "To get or be given something.", senses: [], collocations: ["receive a letter"],
+    exampleEn: "I received the letter.", exampleZh: "我收到了这封信。", usage: "Do not confuse it with receipt.", register: "neutral",
+    confusedWith: ["receipt"], forms: ["received", "receiving"], tags: ["常用词"], author: "", sourceTitle: "", sourceWork: "",
+    sourceDate: "", attributionNote: "", ...overrides
+  };
+}
+
+function response(output: Record<string, unknown>, annotations: unknown[] = []) {
+  return Response.json({ output: [{ type: "message", content: [{ type: "output_text", text: JSON.stringify(output), annotations }] }] });
+}
+
+afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
+
+describe("AI organizer", () => {
+  it("returns recieve as an explicit suggestion without overwriting the original", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(organized())));
+    const result = await organizeEntry("recieve", config);
+    expect(result.entry).toMatchObject({ term: "recieve", originalInput: "recieve", standardForm: "receive" });
+    expect(result.entry.correction).toMatchObject({ status: "suggested", suggestion: "receive", chosen: "recieve" });
+  });
+
+  it("forces jab at to remain a whole phrase even when the provider mislabels it", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(organized({ suggestedTerm: "jab", standardForm: "jab", entryType: "word", meaning: "猛戳；挖苦" }))));
+    const result = await organizeEntry("jab at", config);
+    expect(result.entry).toMatchObject({ term: "jab at", standardForm: "jab at", entryType: "phrase" });
+    expect(result.entry.correction).toMatchObject({ status: "exact", suggestion: "", chosen: "jab at" });
+  });
+
+  it("prevents any multiword expression from collapsing to one headword", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(organized({ suggestedTerm: "look", standardForm: "look", entryType: "word" }))));
+    const result = await organizeEntry("look after", config);
+    expect(result.entry).toMatchObject({ term: "look after", standardForm: "look after", entryType: "phrase" });
+    expect(result.entry.correction).toMatchObject({ status: "exact", suggestion: "", chosen: "look after" });
+  });
+
+  it("retries one malformed JSON result and validates the repaired object", async () => {
+    const mock = vi.fn()
+      .mockResolvedValueOnce(Response.json({ output: [{ content: [{ text: "not-json", annotations: [] }] }] }))
+      .mockResolvedValueOnce(response(organized()));
+    vi.stubGlobal("fetch", mock);
+    const result = await organizeEntry("receive", config);
+    expect(result.entry.meaning).toContain("收到");
+    expect(mock).toHaveBeenCalledTimes(2);
+  });
+
+  it("fails safely when the provider is unavailable", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ error: { code: "server_error" } }, { status: 500 })));
+    await expect(organizeEntry("receive", config)).rejects.toMatchObject({ status: 503, code: "ai_error" });
+  });
+
+  it("does not publish remembered quote attribution without a web citation", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(organized({
+      suggestedTerm: "Knowledge is power.", standardForm: "Knowledge is power.", entryType: "quote", meaning: "知识就是力量。",
+      author: "Francis Bacon", sourceTitle: "Meditationes Sacrae", sourceWork: "Essay", sourceDate: "1597", attributionNote: "from memory"
+    }))));
+    const result = await organizeEntry("Knowledge is power.", config);
+    expect(result.entry).toMatchObject({ attributionStatus: "unverified", author: "", sourceTitle: "", sourceUrl: "" });
+    expect(result.warnings.join(" ")).toContain("未找到可核验出处");
+  });
+
+  it("uses English web search citations only as candidate evidence", async () => {
+    const mock = vi.fn(async (_input, init) => {
+      const body = JSON.parse(String(init?.body));
+      expect(body.tools).toEqual([{ type: "web_search" }]);
+      return response(organized({
+        suggestedTerm: "Knowledge is power.", standardForm: "Knowledge is power.", entryType: "quote", meaning: "知识就是力量。",
+        author: "Francis Bacon", sourceTitle: "Meditationes Sacrae", sourceWork: "Meditationes Sacrae", sourceDate: "1597", attributionNote: "candidate found"
+      }), [{ type: "url_citation", title: "Authoritative archive", url: "https://example.edu/bacon" }]);
+    });
+    vi.stubGlobal("fetch", mock);
+    const result = await organizeEntry("Knowledge is power.", config);
+    expect(result.entry).toMatchObject({ attributionStatus: "candidate", author: "Francis Bacon", sourceUrl: "https://example.edu/bacon" });
+    expect(result.entry.sources[0]).toMatchObject({ kind: "candidate", url: "https://example.edu/bacon" });
+  });
+
+  it("enables web search for a short unpunctuated quotation or proverb", async () => {
+    const mock = vi.fn(async (_input, init) => {
+      const body = JSON.parse(String(init?.body));
+      expect(body.tools).toEqual([{ type: "web_search" }]);
+      return response(organized({
+        suggestedTerm: "Knowledge is power", standardForm: "Knowledge is power", entryType: "quote", meaning: "知识就是力量。"
+      }));
+    });
+    vi.stubGlobal("fetch", mock);
+    const result = await organizeEntry("Knowledge is power", config);
+    expect(result.entry.entryType).toBe("quote");
+    expect(mock).toHaveBeenCalledOnce();
+  });
+});

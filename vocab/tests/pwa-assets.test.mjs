@@ -5,7 +5,8 @@ import test from "node:test";
 const manifest = JSON.parse(await readFile(new URL("../manifest.webmanifest", import.meta.url), "utf8"));
 const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8");
 const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
-const githubSyncSource = await readFile(new URL("../js/github-sync.js", import.meta.url), "utf8");
+const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf8");
+const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
 const profileHtml = await readFile(new URL("../../index.html", import.meta.url), "utf8");
 
 async function pngDimensions(path) {
@@ -27,28 +28,29 @@ test("PWA publishes separate any and safe maskable icons at declared sizes", asy
 
 test("quality evidence is network-first with an offline fallback", () => {
   const reportRoute = serviceWorker.indexOf('url.pathname.endsWith("/quality/generated-report.json")');
-  const reportNetworkFirst = serviceWorker.indexOf('networkFirst(request, "./quality/generated-report.json")');
+  const reportNetworkFirst = serviceWorker.indexOf("event.respondWith(networkFirst(request));", reportRoute);
   const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request))");
   assert.ok(reportRoute >= 0);
   assert.ok(reportNetworkFirst > reportRoute);
   assert.ok(genericCacheFirst > reportNetworkFirst);
-  assert.match(serviceWorker, /cache\.match\(request\)\) \|\| \(await cache\.match\(fallback\)\) \|\| response/);
-  assert.match(serviceWorker, /cache\.match\(fallback\)\) \|\| Response\.error\(\)/);
+  assert.match(serviceWorker, /const cached = await cache\.match\(request/);
+  assert.match(serviceWorker, /return new Response\("Offline", \{ status: 503/);
 });
 
 test("the academic profile provides a discoverable route to the word cabinet", () => {
   assert.match(profileHtml, /href="vocab\/"[^>]*>卓同学的秘密单词屋/);
 });
 
-test("the PWA shell includes the owner publisher and exposes a separate accessible login surface", () => {
-  assert.match(serviceWorker, /wordbook-shell-v13/);
-  assert.match(serviceWorker, /\.\/js\/public-owner\.js/);
-  assert.match(serviceWorker, /\.\/js\/app\.js\?v=13/);
-  assert.match(vocabHtml, /src="js\/app\.js\?v=13"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=13"/);
-  assert.match(vocabHtml, /id="owner-login"[^>]*>卓本人登录/);
-  assert.match(vocabHtml, /id="owner-dialog"[^>]*aria-labelledby="owner-dialog-title"/);
-  assert.match(vocabHtml, /id="owner-auth-status"[^>]*role="status"/);
-  assert.match(vocabHtml, /令牌只在本次打开期间保存在内存中/);
-  assert.doesNotMatch(githubSyncSource, /localStorage|sessionStorage|setMeta\([^)]*owner/i);
+test("the PWA shell separates the public reader from the authenticated owner app", () => {
+  assert.match(serviceWorker, /zhuo-wordbook-v20/);
+  assert.match(serviceWorker, /\.\/owner\.html/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=20/);
+  assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=20"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=20"/);
+  assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
+  assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
+  assert.match(ownerHtml, /Fail-closed owner authentication/);
+  assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
+  assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
 });

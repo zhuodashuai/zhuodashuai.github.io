@@ -1,0 +1,284 @@
+import { organizeEntry } from "./ai";
+import { OAUTH_STATE_TTL_SECONDS, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS } from "./config";
+import {
+  createAuthorizationUrl,
+  exchangeOAuthCode,
+  readRemoteWordbook,
+  revokeOAuthToken,
+  verifyOwnerAndRepository
+} from "./github";
+import { PublishRequestSchema } from "./schema";
+import {
+  ApiError,
+  assertSameOriginWrite,
+  clearOauthStateCookie,
+  clearSessionCookie,
+  jsonResponse,
+  oauthStateCookie,
+  parseCookies,
+  randomToken,
+  readJsonBody,
+  redirectResponse,
+  sessionCookie,
+  sha256Base64Url,
+  sha256Hex,
+  signedCookieValue,
+  verifySignedCookie
+} from "./security";
+
+export { OwnerControl } from "./owner-control";
+
+const API_PREFIX = "/api/v1";
+const OAUTH_COOKIE = "__Host-zhuo_oauth";
+const SESSION_COOKIE = "__Host-zhuo_session";
+
+function requestId(request: Request): string {
+  return request.headers.get("cf-ray") || crypto.randomUUID();
+}
+
+function controlStub(env: Env): DurableObjectStub {
+  return env.OWNER_CONTROL.get(env.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+}
+
+async function controlCall(env: Env, path: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  const response = await controlStub(env).fetch(`https://owner.internal${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  let payload: Record<string, unknown> = {};
+  try { payload = await response.json() as Record<string, unknown>; } catch { /* handled below */ }
+  if (!response.ok) {
+    const error = payload.error && typeof payload.error === "object" ? payload.error as Record<string, unknown> : {};
+    throw new ApiError(response.status, String(error.code || "owner_control_error"), String(error.message || "管理服务暂时不可用。"), error.details);
+  }
+  return payload;
+}
+
+function sessionValue(request: Request): string {
+  const value = parseCookies(request).get(SESSION_COOKIE) || "";
+  if (!/^[A-Za-z0-9_-]{40,200}$/.test(value)) throw new ApiError(401, "authentication_required", "请先以卓本人身份登录。");
+  return value;
+}
+
+async function sessionContext(request: Request): Promise<{ raw: string; hash: string }> {
+  const raw = sessionValue(request);
+  return { raw, hash: await sha256Hex(raw) };
+}
+
+function csrfValue(request: Request): string {
+  const value = request.headers.get("x-csrf-token") || "";
+  if (!/^[A-Za-z0-9_-]{40,200}$/.test(value)) throw new ApiError(403, "csrf_failed", "页面验证已失效，请刷新后重试。");
+  return value;
+}
+
+async function rateByIp(request: Request, env: Env, kind: "auth" | "callback"): Promise<void> {
+  const address = request.headers.get("cf-connecting-ip") || "local-development";
+  await controlCall(env, "/rate", { subject: await sha256Hex(address), kind });
+}
+
+function callbackUrl(request: Request): string {
+  return new URL(`${API_PREFIX}/auth/callback`, request.url).href;
+}
+
+async function login(request: Request, env: Env): Promise<Response> {
+  const config = readConfig(env);
+  const secrets = requireOwnerSecrets(config);
+  await rateByIp(request, env, "auth");
+  const state = randomToken(32);
+  const verifier = randomToken(64);
+  const challenge = await sha256Base64Url(verifier);
+  await controlCall(env, "/oauth/create", {
+    stateHash: await sha256Hex(state),
+    verifier,
+    expiresAt: Date.now() + OAUTH_STATE_TTL_SECONDS * 1000
+  });
+  const authorization = createAuthorizationUrl(secrets.GITHUB_APP_CLIENT_ID, callbackUrl(request), state, challenge);
+  return redirectResponse(authorization, {
+    "Set-Cookie": oauthStateCookie(await signedCookieValue(state, secrets.SESSION_SECRET), OAUTH_STATE_TTL_SECONDS)
+  });
+}
+
+async function callback(request: Request, env: Env): Promise<Response> {
+  const config = readConfig(env);
+  const secrets = requireOwnerSecrets(config);
+  await rateByIp(request, env, "callback");
+  const url = new URL(request.url);
+  const state = url.searchParams.get("state") || "";
+  const code = url.searchParams.get("code") || "";
+  const oauthCookie = parseCookies(request).get(OAUTH_COOKIE) || "";
+  let issuedToken = "";
+  try {
+    if (!/^[A-Za-z0-9_-]{40,200}$/.test(state) || !/^[A-Za-z0-9_-]{8,500}$/.test(code)
+      || !await verifySignedCookie(oauthCookie, state, secrets.SESSION_SECRET)) {
+      throw new ApiError(401, "oauth_state_invalid", "GitHub 登录验证不匹配，请重新开始。");
+    }
+    const transaction = await controlCall(env, "/oauth/consume", { stateHash: await sha256Hex(state) });
+    const verifier = typeof transaction.verifier === "string" ? transaction.verifier : "";
+    const token = await exchangeOAuthCode({
+      clientId: secrets.GITHUB_APP_CLIENT_ID,
+      clientSecret: secrets.GITHUB_APP_CLIENT_SECRET,
+      code,
+      verifier,
+      callbackUrl: callbackUrl(request)
+    });
+    issuedToken = token.accessToken;
+    const identity = await verifyOwnerAndRepository(token.accessToken, config);
+    await readRemoteWordbook(token.accessToken, config);
+    const rawSession = randomToken(48);
+    const created = await controlCall(env, "/session/create", {
+      sessionHash: await sha256Hex(rawSession),
+      githubToken: token.accessToken,
+      githubTokenExpiresAt: token.expiresAt,
+      identity
+    });
+    const expiresAt = Number(created.expiresAt);
+    const ttl = Number.isFinite(expiresAt)
+      ? Math.max(1, Math.min(SESSION_TTL_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)))
+      : SESSION_TTL_SECONDS;
+    const response = redirectResponse("/owner.html?login=ok", {
+      "Set-Cookie": sessionCookie(rawSession, ttl)
+    });
+    response.headers.append("Set-Cookie", clearOauthStateCookie());
+    return response;
+  } catch (error) {
+    if (issuedToken) await revokeOAuthToken(secrets.GITHUB_APP_CLIENT_ID, secrets.GITHUB_APP_CLIENT_SECRET, issuedToken);
+    const codeValue = error instanceof ApiError ? error.code : "oauth_failed";
+    const response = redirectResponse(`/owner.html?login=error&reason=${encodeURIComponent(codeValue)}`);
+    response.headers.append("Set-Cookie", clearOauthStateCookie());
+    return response;
+  }
+}
+
+async function sessionInfo(request: Request, env: Env): Promise<Response> {
+  try {
+    const session = await sessionContext(request);
+    return jsonResponse(await controlCall(env, "/session/view", { sessionHash: session.hash }));
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 401) {
+      return jsonResponse({ authenticated: false }, 200, { "Set-Cookie": clearSessionCookie() });
+    }
+    throw error;
+  }
+}
+
+async function logout(request: Request, env: Env): Promise<Response> {
+  assertSameOriginWrite(request);
+  const session = await sessionContext(request);
+  const csrfToken = csrfValue(request);
+  await readJsonBody(request, 1024);
+  await controlCall(env, "/session/delete", { sessionHash: session.hash, csrfToken });
+  return jsonResponse({ ok: true }, 200, { "Set-Cookie": clearSessionCookie() });
+}
+
+async function ownerSnapshot(request: Request, env: Env): Promise<Response> {
+  const session = await sessionContext(request);
+  return jsonResponse(await controlCall(env, "/owner/snapshot", { sessionHash: session.hash }));
+}
+
+async function organize(request: Request, env: Env): Promise<Response> {
+  assertSameOriginWrite(request);
+  const config = readConfig(env);
+  const session = await sessionContext(request);
+  const csrfToken = csrfValue(request);
+  await controlCall(env, "/session/assert", { sessionHash: session.hash, csrfToken });
+  await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
+  const body = await readJsonBody(request, 8 * 1024);
+  const input = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).input : undefined;
+  return jsonResponse(await organizeEntry(input, config));
+}
+
+async function publish(request: Request, env: Env): Promise<Response> {
+  assertSameOriginWrite(request);
+  const session = await sessionContext(request);
+  const csrfToken = csrfValue(request);
+  const raw = await readJsonBody(request, 1_100_000);
+  const parsed = PublishRequestSchema.safeParse(raw);
+  if (!parsed.success) throw new ApiError(400, "invalid_publish_request", "发布内容没有通过严格校验。", parsed.error.issues);
+  const idempotencyKey = request.headers.get("idempotency-key") || "";
+  if (idempotencyKey !== parsed.data.mutationId) {
+    throw new ApiError(400, "idempotency_mismatch", "Idempotency-Key 必须与 mutationId 一致。");
+  }
+  const payload = await controlCall(env, "/owner/publish", {
+    sessionHash: session.hash,
+    csrfToken,
+    publishRequest: parsed.data
+  });
+  return jsonResponse(payload);
+}
+
+function apiErrorResponse(error: unknown, request: Request): Response {
+  const safe = error instanceof ApiError
+    ? error
+    : new ApiError(500, "internal_error", "服务暂时无法完成请求，请稍后重试。");
+  const headers: HeadersInit = {};
+  if (safe.status === 429 && safe.details && typeof safe.details === "object") {
+    const retryAfter = Number((safe.details as Record<string, unknown>).retryAfter);
+    if (Number.isFinite(retryAfter)) headers["Retry-After"] = String(Math.max(1, Math.ceil(retryAfter)));
+  }
+  return jsonResponse({
+    error: {
+      code: safe.code,
+      message: safe.message,
+      requestId: requestId(request),
+      ...([400, 409].includes(safe.status) && safe.details !== undefined ? { details: safe.details } : {})
+    }
+  }, safe.status, headers);
+}
+
+async function routeApi(request: Request, env: Env): Promise<Response> {
+  const path = new URL(request.url).pathname;
+  if (path === `${API_PREFIX}/health` && request.method === "GET") {
+    const config = readConfig(env);
+    return jsonResponse({
+      ok: true,
+      version: "2.0.0",
+      ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
+      aiProvider: config.AI_PROVIDER,
+      aiConfigured: config.AI_PROVIDER === "openai"
+        ? Boolean(config.OPENAI_API_KEY)
+        : Boolean(config.ANTHROPIC_API_KEY && config.ANTHROPIC_MODEL)
+    });
+  }
+  if (path === `${API_PREFIX}/auth/login` && request.method === "GET") return login(request, env);
+  if (path === `${API_PREFIX}/auth/callback` && request.method === "GET") return callback(request, env);
+  if (path === `${API_PREFIX}/session` && request.method === "GET") return sessionInfo(request, env);
+  if (path === `${API_PREFIX}/auth/logout` && request.method === "POST") return logout(request, env);
+  if (path === `${API_PREFIX}/owner/wordbook` && request.method === "GET") return ownerSnapshot(request, env);
+  if (path === `${API_PREFIX}/owner/ai/organize` && request.method === "POST") return organize(request, env);
+  if (path === `${API_PREFIX}/owner/publish` && request.method === "POST") return publish(request, env);
+  throw new ApiError(404, "api_not_found", "管理接口不存在。");
+}
+
+function secureHeaders(response: Response, request: Request): Response {
+  const headers = new Headers(response.headers);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "DENY");
+  const currentReferrerPolicy = (headers.get("Referrer-Policy") || "").trim().toLowerCase();
+  if (!["no-referrer", "same-origin", "strict-origin", "strict-origin-when-cross-origin"].includes(currentReferrerPolicy)) {
+    headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  }
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
+  headers.set("Cross-Origin-Opener-Policy", "same-origin");
+  headers.set("Cross-Origin-Resource-Policy", "same-origin");
+  headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com; frame-ancestors 'none'; upgrade-insecure-requests");
+  if (new URL(request.url).protocol === "https:") headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const path = new URL(request.url).pathname;
+    try {
+      if (path.startsWith("/api/")) return secureHeaders(await routeApi(request, env), request);
+      const asset = await env.ASSETS.fetch(request);
+      const headers = new Headers(asset.headers);
+      if (headers.get("content-type")?.includes("text/html")) headers.set("Cache-Control", "no-cache, must-revalidate");
+      else if (/\.(?:js|css|webmanifest)$/i.test(path)) headers.set("Cache-Control", "no-cache");
+      return secureHeaders(new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers }), request);
+    } catch (error) {
+      if (path.startsWith("/api/")) return secureHeaders(apiErrorResponse(error, request), request);
+      return secureHeaders(new Response("Not found", { status: 404 }), request);
+    }
+  }
+};
