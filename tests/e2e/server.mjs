@@ -63,6 +63,11 @@ function assertWrite(request, response, payload) {
 function organizedEntry(input) {
   const entry = createBlankEntry(input);
   const lower = normalizeEnglish(input);
+  entry.synonyms = lower === "alleviate"
+    ? ["ease", "lessen", "mitigate"]
+    : lower === "ease"
+      ? ["alleviate", "lessen", "relieve"]
+      : [];
   entry.meaning = lower === "hip" ? "noun：髋部；髋关节；臀部两侧\nadjective：时髦的；了解最新潮流的"
     : lower === "jab at" ? "朝某人或某物猛戳；（言语上）挖苦或抨击"
     : lower === "recieve" ? "收到；接收"

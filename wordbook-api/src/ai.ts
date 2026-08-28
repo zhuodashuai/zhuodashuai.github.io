@@ -120,6 +120,7 @@ Accuracy rules:
 - For every word, phrase, phrasal verb, idiom or collocation, return at least one fully populated sense. Each sense must have its own part of speech, Chinese meaning, English definition and at least one natural bilingual example. Never merge different parts of speech into one sense.
 - Order common contemporary meanings before rare, archaic, technical or botanical meanings. Never choose a rare sense merely because it appears first in a source.
 - Make each example demonstrate only the sense it belongs to. Do not reuse the same example for multiple senses.
+- Put a small, useful set of genuine same-sense English alternatives in synonyms. Synonyms are attached metadata for the exact input only: never create another entry, never replace or change the input term because of a synonym, and never include the input itself. Exclude inflected forms, merely related words and commonly confused words; those belong in forms or confusedWith instead.
 - Include register, collocations, confusing words and useful tags. Use slash- or bracket-delimited IPA when known; never copy ordinary spelling into the phonetic field and never fabricate IPA when uncertain.
 - Support valid British and Australian spelling. A regional spelling may be noted as a variant, but must not be labelled as a misspelling or silently converted to US spelling.
 - suggestedTerm is a corrected surface form only. For inflections, preserve the surface form in suggestedTerm and put the lemma in standardForm.
@@ -466,6 +467,7 @@ function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): 
     meaning,
     definition,
     senses: candidateSenses,
+    synonyms: [],
     collocations: [],
     exampleEn: "",
     exampleZh: "",

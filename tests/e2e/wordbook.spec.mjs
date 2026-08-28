@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 
 let browserErrors;
 let expectedOfflineNetworkError;
@@ -48,11 +49,11 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText("2");
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("jab at");
+  await page.locator("#library-search").fill("jab at");
   await page.getByRole("button", { name: "查看 jab at 的完整词条" }).click();
   await expect(page.getByRole("dialog").getByRole("heading", { name: "jab at" })).toBeVisible();
   await page.getByRole("button", { name: "关闭词条详情" }).click();
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("hip");
+  await page.locator("#library-search").fill("hip");
   await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
   await expect(page.getByRole("dialog")).toContainText("/hɪp/");
   await expect(page.getByRole("dialog")).toContainText("髋部");
@@ -73,7 +74,7 @@ test("公开搜索无结果时说明不是在线词典，并只把卓本人引�
   });
 
   await page.goto("/");
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("unpublishedtestword");
+  await page.locator("#library-search").fill("unpublishedtestword");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
   await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；unpublishedtestword 尚未发布。");
   await expect(page.locator("#search-empty")).toContainText("公开页不会联网查词或调用 AI，也不会替访客创建草稿");
@@ -81,13 +82,13 @@ test("公开搜索无结果时说明不是在线词典，并只把卓本人引�
   await expect(ownerRoute).toHaveAttribute("href", "http://127.0.0.1:4187/owner.html?input=unpublishedtestword");
   expect(aiRequestCount).toBe(0);
 
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("unpublishedtestword & <script>");
+  await page.locator("#library-search").fill("unpublishedtestword & <script>");
   const encodedOwnerUrl = new URL(await page.locator("#search-owner-link").getAttribute("href"));
   expect(encodedOwnerUrl.pathname).toBe("/owner.html");
   expect(encodedOwnerUrl.searchParams.get("input")).toBe("unpublishedtestword & <script>");
   expect(aiRequestCount).toBe(0);
 
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("jab at");
+  await page.locator("#library-search").fill("jab at");
   await expect(page.locator("#search-empty")).toBeHidden();
   await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();
 });
@@ -304,6 +305,66 @@ test("前端拒绝保存声称已锁定音标却缺少 IPA 的自相矛盾响应
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
 });
 
+test("AI 同义词只附在输入词条，公开词表可见且同义词本身仍可独立新增", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let aiRequestCount = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+  });
+
+  await loginOwner(page);
+  await addWithAi(page, "alleviate");
+  await expect(page.locator("#field-synonyms")).toHaveValue("ease，lessen，mitigate");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await expect(page.locator(".owner-entry-row", { hasText: "alleviate" })).toContainText("同义词：ease；lessen；mitigate");
+  expect(aiRequestCount).toBe(1);
+
+  await page.goto("/");
+  await expect(page.locator("#entry-count")).toHaveText("1");
+  const alleviateCard = page.locator(".word-card", { hasText: "alleviate" });
+  await expect(alleviateCard).toContainText("同义词：ease；lessen；mitigate");
+  const publicSearch = page.getByLabel("搜索卓已发布的英文、中文、同义词、标签或作者（不是在线词典）");
+  await publicSearch.fill("mitigate");
+  await expect(page.locator(".word-card")).toHaveCount(1);
+  await expect(page.locator(".word-card h3")).toHaveText("alleviate");
+  await page.getByRole("button", { name: "查看 alleviate 的完整词条" }).click();
+  await expect(page.getByRole("dialog")).toContainText("同义词：ease；lessen；mitigate");
+  await page.getByRole("button", { name: "关闭词条详情" }).click();
+
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
+  const download = await downloadPromise;
+  const exported = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(exported.entries).toHaveLength(1);
+  expect(exported.entries[0]).toMatchObject({ term: "alleviate", synonyms: ["ease", "lessen", "mitigate"] });
+
+  await page.goto("/owner.html");
+  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await addWithAi(page, "ease");
+  await expect(page.locator("#field-synonyms")).toHaveValue("alleviate，lessen，relieve");
+  await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  expect(aiRequestCount).toBe(2);
+
+  await page.locator("#owner-search").fill("ease");
+  await expect(page.locator(".owner-entry-row")).toHaveCount(2);
+  await expect(page.locator(".owner-entry-row strong").first()).toHaveText("ease");
+
+  await page.goto("/");
+  await publicSearch.fill("ease");
+  await expect(page.locator(".word-card")).toHaveCount(2);
+  await expect(page.locator(".word-card h3").first()).toHaveText("ease");
+
+  await page.goto("/owner.html");
+  await page.getByLabel("英文内容").fill("ease");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.locator("#capture-status")).toContainText(/已有|已建立|已打开/);
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  expect(aiRequestCount).toBe(2);
+});
+
 test("前端拒绝 200 响应中的空中文并在同一草稿就地重试", async ({ context, page }) => {
   await context.addCookies([
     { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
@@ -478,7 +539,7 @@ test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、�
   await expect(page.locator("#capture-status")).toContainText("不会新增第二条公开记录");
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.goto("/");
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("hip");
+  await page.locator("#library-search").fill("hip");
   await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
   await expect(page.getByRole("dialog")).toContainText("/hɪp/");
   await expect(page.getByRole("dialog")).toContainText("noun");
@@ -509,7 +570,7 @@ test("无可靠来源的名言保持未核验且不虚构作者", async ({ page 
   await expect(page.getByLabel("核验说明", { exact: true })).toHaveValue(/出处未核验/);
   await publishOpenDraft(page);
   await page.goto("/");
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("quotation");
+  await page.locator("#library-search").fill("quotation");
   await page.getByRole("button", { name: `查看 ${quote} 的完整词条` }).click();
   await expect(page.getByText(/出处未核验/).first()).toBeVisible();
 });
@@ -792,7 +853,7 @@ test("恶意 HTML 仅作为文本显示，PWA 条件成立", async ({ page }) =>
   await addWithAi(page, "xssword");
   await publishOpenDraft(page);
   await page.goto("/");
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("xssword");
+  await page.locator("#library-search").fill("xssword");
   await page.getByRole("button", { name: "查看 xssword 的完整词条" }).click();
   await expect(page.getByRole("dialog").getByText(/<img src=x onerror=window.__xss=1>/).first()).toBeVisible();
   expect(await page.evaluate(() => window.__xss)).toBe(0);
@@ -807,7 +868,7 @@ test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", as
   await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
-  const searchBox = page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）");
+  const searchBox = page.locator("#library-search");
   await searchBox.focus();
   await expect(searchBox).toBeFocused();
   const boxes = await page.locator("button:visible, a:visible").evaluateAll((elements) => elements.slice(0, 12).map((element) => element.getBoundingClientRect().height));
@@ -850,7 +911,7 @@ test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ 
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
     await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
-    await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("jab at");
+    await page.locator("#library-search").fill("jab at");
     await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();
   } finally {
     await cdp.send("Network.emulateNetworkConditions", {

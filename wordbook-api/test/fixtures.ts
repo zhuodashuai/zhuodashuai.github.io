@@ -17,6 +17,7 @@ export function entry(overrides: Partial<PublicEntry> = {}): PublicEntry {
     meaning: "朝某人或某物猛戳；言语上挖苦",
     definition: "To make a quick sharp movement or criticism toward someone or something.",
     senses: [],
+    synonyms: [],
     collocations: ["take a jab at"],
     exampleEn: "He jabbed at the button.",
     exampleZh: "他猛戳按钮。",

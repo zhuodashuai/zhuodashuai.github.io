@@ -33,6 +33,7 @@ function organized(overrides: Record<string, unknown> = {}) {
         confusables: []
       }
     ],
+    synonyms: ["fashionable", "stylish"],
     collocations: ["hip joint", "hip café"],
     exampleEn: "She injured her hip while running.",
     exampleZh: "她跑步时伤了髋部。",
@@ -111,8 +112,33 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(model).toBe("@cf/zai-org/glm-4.7-flash");
     expect(input.response_format).toMatchObject({ type: "json_schema" });
     expect(JSON.stringify(input.response_format)).toContain("senses");
+    expect(JSON.stringify(input.response_format)).toContain("synonyms");
     expect(JSON.stringify(input.messages)).toContain("exact local dictionary record: hip");
     expect(JSON.stringify(input.messages)).toContain("髋部");
+    expect(JSON.stringify(input.messages)).toContain("Synonyms are attached metadata for the exact input only");
+  });
+
+  it("keeps synonyms as deduplicated metadata without changing the input term", async () => {
+    const run = vi.fn(async () => ({ response: organized({
+      synonyms: ["hip", "Fashionable", "fashionable", "hips", "Stylish", "stylish"]
+    }) }));
+    const result = await organizeEntry("hip", cloudflareConfig(run));
+
+    expect(result.entry.term).toBe("hip");
+    expect(result.entry.standardForm).toBe("hip");
+    expect(result.entry.synonyms).toEqual(["Fashionable", "Stylish"]);
+    expect(result.entry.correction.status).toBe("exact");
+  });
+
+  it("retries unsafe synonym content instead of storing it", async () => {
+    const run = vi.fn()
+      .mockResolvedValueOnce({ response: organized({ synonyms: ["<script>alert(1)</script>"] }) })
+      .mockResolvedValueOnce({ response: organized({ synonyms: ["fashionable", "stylish"] }) });
+    const result = await organizeEntry("hip", cloudflareConfig(run));
+
+    expect(run).toHaveBeenCalledTimes(2);
+    expect(JSON.stringify(run.mock.calls[1]?.[1]?.messages)).toContain("unsafe or non-English content");
+    expect(result.entry.synonyms).toEqual(["fashionable", "stylish"]);
   });
 
   it("accepts the JSON-string response form returned by some binding adapters", async () => {
@@ -383,6 +409,7 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(result.entry.organizationMethod).toBe("local-dictionary");
     expect(result.entry.meaning).toContain("髋部");
     expect(result.entry.definition).toContain("either side of the body");
+    expect(result.entry.synonyms).toEqual([]);
     expect(run.mock.calls.map(([model]) => model)).toEqual([
       "@cf/zai-org/glm-4.7-flash",
       "@cf/google/gemma-4-26b-a4b-it"
@@ -529,5 +556,6 @@ describe("Cloudflare free-first AI organizer", () => {
       sourceDate: "",
       sourceUrl: ""
     });
+    expect(result.entry.synonyms).toEqual([]);
   });
 });

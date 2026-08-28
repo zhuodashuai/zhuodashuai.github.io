@@ -16,7 +16,7 @@ function organized(overrides: Record<string, unknown> = {}) {
       partOfSpeech: "verb", meaningZh: "收到；接收", definitionEn: "To get or be given something.",
       usageNotes: "Often used for things, messages, or visitors.", register: "neutral", collocations: ["receive a letter"],
       examples: [{ en: "I received the letter.", zh: "我收到了这封信。" }], confusables: ["receipt"]
-    }], collocations: ["receive a letter"],
+    }], synonyms: ["get", "obtain"], collocations: ["receive a letter"],
     exampleEn: "I received the letter.", exampleZh: "我收到了这封信。", usage: "Do not confuse it with receipt.", register: "neutral",
     confusedWith: ["receipt"], forms: ["received", "receiving"], tags: ["常用词"], author: "", sourceTitle: "", sourceWork: "",
     sourceDate: "", attributionNote: "", ...overrides

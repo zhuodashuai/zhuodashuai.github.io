@@ -2,6 +2,7 @@ import {
   classifyInput,
   countEnglishTokens,
   normalizeEnglish,
+  validateEnglishInput,
   type AiOrganized
 } from "./schema";
 
@@ -119,6 +120,11 @@ function harmonizeType(input: string, proposed: AiOrganized["entryType"]): AiOrg
  */
 export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized): AiOrganized {
   const issues: string[] = [];
+  const selfKeys = new Set([
+    normalizeEnglish(input),
+    normalizeEnglish(value.suggestedTerm),
+    normalizeEnglish(value.standardForm)
+  ].filter(Boolean));
   const organized: AiOrganized = {
     ...value,
     senses: value.senses.map((sense) => ({
@@ -127,6 +133,9 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
       confusables: uniqueStrings(sense.confusables),
       examples: sense.examples.map((example) => ({ en: compact(example.en), zh: compact(example.zh) }))
     })),
+    synonyms: uniqueStrings(value.synonyms)
+      .filter((synonym) => !selfKeys.has(normalizeEnglish(synonym)))
+      .slice(0, 12),
     collocations: uniqueStrings(value.collocations),
     confusedWith: uniqueStrings(value.confusedWith),
     forms: uniqueStrings(value.forms),
@@ -134,6 +143,12 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
   };
 
   organized.entryType = harmonizeType(input, organized.entryType);
+  if (!LEXICAL_TYPES.has(organized.entryType)) organized.synonyms = [];
+  const relatedFieldKeys = new Set([
+    ...organized.forms,
+    ...organized.confusedWith
+  ].map((value) => normalizeEnglish(value)).filter(Boolean));
+  organized.synonyms = organized.synonyms.filter((synonym) => !relatedFieldKeys.has(normalizeEnglish(synonym)));
   if (protectedRegionalInput(input) && normalizeEnglish(organized.suggestedTerm) !== normalizeEnglish(input)) {
     organized.suggestedTerm = input;
     organized.standardForm = input;
@@ -144,6 +159,14 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
   if (inputTokenCount > 1 && countEnglishTokens(organized.standardForm) < 2) organized.standardForm = input;
 
   if (!isPlausiblePhonetic(organized.phonetic)) issues.push("phonetic field is not plausible IPA notation");
+  organized.synonyms.forEach((synonym, index) => {
+    if (!isPlausibleEnglishText(synonym)) issues.push(`synonym ${index + 1} is not plausible English text`);
+    try {
+      validateEnglishInput(synonym);
+    } catch {
+      issues.push(`synonym ${index + 1} contains unsafe or non-English content`);
+    }
+  });
 
   if (LEXICAL_TYPES.has(organized.entryType)) {
     if (!organized.senses.length) issues.push("lexical entry has no structured senses");

@@ -35,6 +35,7 @@ function organized(overrides: Record<string, unknown> = {}) {
       examples: [{ en: "I received the letter.", zh: "我收到了这封信。" }],
       confusables: ["receipt"]
     }],
+    synonyms: ["get", "obtain"],
     collocations: ["receive a letter"],
     exampleEn: "I received the letter.",
     exampleZh: "我收到了这封信。",

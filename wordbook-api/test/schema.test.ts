@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  AI_JSON_SCHEMA,
   AiOrganizedSchema,
   PublishRequestSchema,
   PublicEntrySchema,
@@ -43,7 +44,7 @@ describe("wordbook schema", () => {
   it("keeps a spelling suggestion separate from the original input", () => {
     const organized = AiOrganizedSchema.parse({
       suggestedTerm: "receive", standardForm: "receive", entryType: "word", phonetic: "/rɪˈsiːv/", partOfSpeech: "verb",
-      meaning: "收到；接收", definition: "To get or be given something.", senses: [], collocations: [], exampleEn: "I received the letter.",
+      meaning: "收到；接收", definition: "To get or be given something.", senses: [], synonyms: ["get", "obtain"], collocations: [], exampleEn: "I received the letter.",
       exampleZh: "我收到了信。", usage: "", register: "neutral", confusedWith: ["receipt"], forms: ["received", "receiving"],
       tags: ["常用词"], author: "", sourceTitle: "", sourceWork: "", sourceDate: "", attributionNote: ""
     });
@@ -51,6 +52,15 @@ describe("wordbook schema", () => {
     expect(result.term).toBe("recieve");
     expect(result.originalInput).toBe("recieve");
     expect(result.correction).toMatchObject({ status: "suggested", original: "recieve", suggestion: "receive", chosen: "recieve" });
+    expect(result.synonyms).toEqual(["get", "obtain"]);
+  });
+
+  it("requires synonyms in strict AI output while defaulting old public entries safely", () => {
+    expect(AI_JSON_SCHEMA.required).toContain("synonyms");
+    expect(AI_JSON_SCHEMA.properties.synonyms).toMatchObject({ type: "array", maxItems: 12 });
+    const legacyShapedPublicEntry = { ...entry() } as Record<string, unknown>;
+    delete legacyShapedPublicEntry.synonyms;
+    expect(PublicEntrySchema.parse(legacyShapedPublicEntry).synonyms).toEqual([]);
   });
 
   it("rejects private-network and javascript source URLs", () => {
@@ -61,6 +71,42 @@ describe("wordbook schema", () => {
 
   it("strictly rejects unknown entry fields", () => {
     expect(() => PublicEntrySchema.parse({ ...entry(), html: "<img onerror=alert(1)>" })).toThrow();
+  });
+
+  it("rejects unsafe, self-repeating, duplicate and misclassified public synonyms", () => {
+    expect(() => PublicEntrySchema.parse(entry({ term: "hip", entryType: "word", synonyms: ["HIP"] }))).toThrow(/canonical form/);
+    expect(() => PublicEntrySchema.parse(entry({ synonyms: ["Stylish", "stylish"] }))).toThrow(/unique/);
+    expect(() => PublicEntrySchema.parse(entry({ synonyms: ["<b>stylish<\/b>"] }))).toThrow(/safe English/);
+    expect(() => PublicEntrySchema.parse(entry({ synonyms: ["jabbed at"], forms: ["jabbed at"] }))).toThrow(/form or confused word/);
+  });
+
+  it("rejects synonyms on non-lexical writes without affecting deletes", () => {
+    const quote = entry({
+      id: "quote-with-synonym",
+      term: "Knowledge is power.",
+      entryType: "quote",
+      synonyms: ["Wisdom gives strength"]
+    });
+    expect(() => PublicEntrySchema.parse(quote)).toThrow(/non-lexical entries/);
+
+    const requestBase = {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: "a".repeat(40),
+      mutationId: "non-lexical-synonym-guard"
+    } as const;
+    expect(PublishRequestSchema.safeParse({
+      ...requestBase,
+      mutation: { type: "add", entry: quote }
+    }).success).toBe(false);
+    expect(PublishRequestSchema.safeParse({
+      ...requestBase,
+      mutation: { type: "update", entry: quote, expectedUpdatedAt: quote.updatedAt }
+    }).success).toBe(false);
+    expect(PublishRequestSchema.safeParse({
+      ...requestBase,
+      mutation: { type: "delete", id: quote.id, expectedUpdatedAt: quote.updatedAt }
+    }).success).toBe(true);
   });
 
   it("requires the v38 client and run-bound queue protocols for every publish", () => {
@@ -139,7 +185,7 @@ describe("wordbook schema", () => {
       }]
     });
     expect(migrated.schemaVersion).toBe(3);
-    expect(migrated.entries[0]).toMatchObject({ term: "jab at", standardForm: "jab at", entryType: "phrase" });
+    expect(migrated.entries[0]).toMatchObject({ term: "jab at", standardForm: "jab at", entryType: "phrase", synonyms: [] });
   });
 
   it("rejects schema version zero and future versions", () => {

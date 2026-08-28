@@ -1,6 +1,6 @@
 import { getPublicCache, putPublicCache } from "./owner-storage.js";
 import { ownerAdminUrl } from "./runtime-config.js";
-import { parsePublicSnapshot } from "./wordbook-schema.js";
+import { parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 
 const refs = Object.fromEntries([
@@ -24,7 +24,7 @@ function setText(element, value) {
 }
 
 function normalizedSearch(entry) {
-  return [entry.term, entry.standardForm, entry.meaning, entry.definition, entry.author, entry.sourceTitle, ...entry.tags, ...entry.collocations]
+  return [entry.term, entry.standardForm, entry.meaning, entry.definition, entry.author, entry.sourceTitle, ...entry.tags, ...entry.collocations, ...entry.synonyms]
     .join(" ").toLocaleLowerCase("zh-CN");
 }
 
@@ -75,6 +75,7 @@ function showDetails(entry) {
       sense.register ? `   Register: ${sense.register}` : ""
     ].filter(Boolean).join("\n")),
     entry.forms.length ? `词形：${entry.forms.join("；")}` : "",
+    entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "",
     entry.confusedWith.length ? `易混淆：${entry.confusedWith.join("；")}` : ""
   ].filter(Boolean).join("\n");
   refs.dialogExtraSection.hidden = !extra;
@@ -112,7 +113,10 @@ function showDetails(entry) {
 function render() {
   const entries = state.snapshot?.entries || [];
   const query = state.query.trim().toLocaleLowerCase("zh-CN");
-  const queryMatches = entries.filter((entry) => !query || normalizedSearch(entry).includes(query));
+  const queryMatches = rankExactEntryMatches(
+    entries.filter((entry) => !query || normalizedSearch(entry).includes(query)),
+    query
+  );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
   const cards = filtered.map((entry) => {
     const article = document.createElement("article");
@@ -129,6 +133,10 @@ function render() {
     const meaning = document.createElement("p");
     meaning.className = "card-meaning";
     meaning.textContent = entry.meaning || "释义待完善";
+    const synonyms = document.createElement("p");
+    synonyms.className = "card-synonyms";
+    synonyms.hidden = entry.synonyms.length === 0;
+    synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
     const tags = document.createElement("div");
     tags.className = "tag-list";
     const shownTags = entry.tags.slice(0, 3);
@@ -139,7 +147,7 @@ function render() {
     button.className = "card-open";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
     button.addEventListener("click", () => showDetails(entry));
-    article.append(kicker, title, phonetic, meaning, tags, button);
+    article.append(kicker, title, phonetic, meaning, synonyms, tags, button);
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
@@ -201,7 +209,7 @@ refs.dialogSpeak.addEventListener("click", () => speak(state.selected?.term));
 refs.dialogCopy.addEventListener("click", async () => {
   if (!state.selected) return;
   const entry = state.selected;
-  const text = [entry.term, entry.phonetic, entry.meaning, entry.definition, entry.exampleEn, entry.exampleZh, entry.usage]
+  const text = [entry.term, entry.phonetic, entry.meaning, entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
     .filter(Boolean).join("\n");
   try {
     await navigator.clipboard.writeText(text);

@@ -7,6 +7,8 @@ const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8
 const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf8");
 const stylesSource = await readFile(new URL("../styles.css", import.meta.url), "utf8");
+const ownerAppSource = await readFile(new URL("../js/owner-app.js", import.meta.url), "utf8");
+const publicAppSource = await readFile(new URL("../js/public-app.js", import.meta.url), "utf8");
 const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
 const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
 const workerConfigSource = await readFile(new URL("../../wordbook-api/wrangler.jsonc", import.meta.url), "utf8");
@@ -56,12 +58,14 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v39/);
+  assert.match(serviceWorker, /zhuo-wordbook-v40/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=39/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=40/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=39"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=39"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=40"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=40"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=40"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=40"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -78,4 +82,15 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
   assert.match(runtimeConfigSource, /https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\//);
   assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
+});
+
+test("synonyms remain one entry field throughout owner editing and public discovery", () => {
+  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="用逗号分隔/);
+  assert.match(ownerHtml, /同义词（只附在当前词条，不会新建词条）/);
+  assert.match(ownerAppSource, /synonyms:\s*LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
+  assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
+  assert.match(publicAppSource, /\.\.\.entry\.synonyms/);
+  assert.match(publicAppSource, /同义词：\$\{entry\.synonyms\.join/);
+  assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
+  assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });

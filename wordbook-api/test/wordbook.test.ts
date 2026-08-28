@@ -44,6 +44,28 @@ describe("publish mutation planning", () => {
     expect(findDuplicate([keptOriginal], legitimateSuggestionWord)).toBeNull();
   });
 
+  it("does not treat attached synonyms as independent entries or lookup aliases", () => {
+    const hip = entry({ id: "hip", term: "hip", entryType: "word", synonyms: ["fashionable", "stylish"] });
+    const fashionable = entry({ id: "fashionable", term: "fashionable", entryType: "word" });
+    expect(findDuplicate([hip], fashionable)).toBeNull();
+
+    const withHip = applyPublishMutation(snapshot([]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-parent",
+      mutation: { type: "add", entry: hip }
+    }, "2026-08-28T01:00:00.000Z");
+    expect(withHip.snapshot.entries.map((candidate) => candidate.term)).toEqual(["hip"]);
+
+    const withIndependentSynonym = applyPublishMutation(withHip.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-independent",
+      mutation: { type: "add", entry: fashionable }
+    }, "2026-08-28T01:01:00.000Z");
+    expect(withIndependentSynonym.snapshot.entries.map((candidate) => candidate.term)).toEqual(["hip", "fashionable"]);
+  });
+
   it("rejects stale edits and stale deletes", () => {
     const original = entry();
     const changed = entry({ ...original, meaning: "本地修改" });

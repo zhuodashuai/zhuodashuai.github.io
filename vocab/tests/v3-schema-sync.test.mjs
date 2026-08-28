@@ -8,6 +8,7 @@ import {
   hasChineseHanText,
   needsAiCompletion,
   parsePublicSnapshot,
+  rankExactEntryMatches,
   safeHttpsUrl,
   validatePublicEntry
 } from "../js/wordbook-schema.js";
@@ -22,7 +23,52 @@ test("v3 browser schema keeps jab at whole and rejects unknown fields", () => {
   const value = entry("jab at");
   assert.equal(value.entryType, "phrase");
   assert.equal(value.standardForm, "jab at");
+  assert.deepEqual(value.synonyms, []);
   assert.throws(() => validatePublicEntry({ ...value, html: "<img onerror=alert(1)>" }), /未知字段/);
+});
+
+test("v3 browser schema defaults old entries to an empty synonym list without weakening exact keys", () => {
+  const current = entry("alleviate", { synonyms: ["ease", "lessen", "ease"] });
+  assert.deepEqual(current.synonyms, ["ease", "lessen"]);
+  const { synonyms: _omitted, ...oldV3Entry } = current;
+  const migrated = parsePublicSnapshot({
+    schemaVersion: 3,
+    exportedAt: current.updatedAt,
+    revisionId: "old-v3-before-synonyms",
+    lastMutationId: "",
+    entries: [oldV3Entry]
+  });
+  assert.deepEqual(migrated.entries[0].synonyms, []);
+  assert.throws(() => validatePublicEntry({ ...oldV3Entry, unexpected: [] }), /未知字段/);
+});
+
+test("synonyms stay metadata and never reserve another headword", () => {
+  const alleviate = entry("alleviate", { id: "alleviate", synonyms: ["ease", "lessen"] });
+  assert.deepEqual(entryLookupKeys(alleviate), ["alleviate"]);
+  assert.equal(findDuplicate([alleviate], entry("ease", { id: "ease" })), null);
+});
+
+test("an independently published synonym ranks before entries that only mention it", () => {
+  const alleviate = entry("alleviate", { id: "alleviate", synonyms: ["ease", "lessen"] });
+  const mitigate = entry("mitigate", { id: "mitigate", synonyms: ["ease"] });
+  const ease = entry("ease", { id: "ease" });
+  assert.deepEqual(
+    rankExactEntryMatches([alleviate, mitigate, ease], "ease").map((candidate) => candidate.term),
+    ["ease", "alleviate", "mitigate"]
+  );
+  assert.deepEqual(
+    rankExactEntryMatches([alleviate, mitigate, ease], "unknown").map((candidate) => candidate.term),
+    ["alleviate", "mitigate", "ease"]
+  );
+});
+
+test("browser synonym validation mirrors publish boundaries", () => {
+  assert.throws(() => entry("hip", { synonyms: ["HIP"] }), /不能重复当前词条/);
+  assert.throws(() => entry("hip", { synonyms: ["Stylish", "stylish"] }), /不能重复/);
+  assert.throws(() => entry("hip", { synonyms: ["<b>stylish<\/b>"] }), /安全的英文/);
+  assert.throws(() => entry("jab at", { synonyms: ["jabbed at"], forms: ["jabbed at"] }), /词形或易混词/);
+  assert.throws(() => entry("hip", { synonyms: Array.from({ length: 21 }, (_, index) => `alternative ${index}`) }), /格式不正确/);
+  assert.throws(() => entry("Knowledge is power.", { entryType: "quote", synonyms: ["wisdom grants strength"] }), /只有单词、短语/);
 });
 
 test("v3 browser schema accepts a Cloudflare-organized draft", () => {
@@ -98,12 +144,12 @@ test("AI fills schema-equivalent blank legacy fields without overwriting edits m
 
 test("automatic AI completion fills blanks without replacing earlier manual content", () => {
   const baseline = {
-    id: "stable-id", revision: 4, meaning: "卓手工释义", definition: "", phonetic: "", senses: [],
+    id: "stable-id", revision: 4, meaning: "卓手工释义", definition: "", phonetic: "", senses: [], synonyms: [],
     correction: { status: "exact" }, organizationMethod: "manual"
   };
   const candidate = {
     id: "ai-id", revision: 1, meaning: "AI释义", definition: "AI definition", phonetic: "/hɪp/",
-    senses: [{ partOfSpeech: "noun", meaningZh: "髋部" }], correction: { status: "exact", source: "ai" },
+    senses: [{ partOfSpeech: "noun", meaningZh: "髋部" }], synonyms: ["pelvis"], correction: { status: "exact", source: "ai" },
     organizationMethod: "ai-cloudflare"
   };
   const result = mergeAiCandidate(baseline, structuredClone(baseline), candidate, { fillMissingOnly: true });
@@ -112,6 +158,7 @@ test("automatic AI completion fills blanks without replacing earlier manual cont
   assert.equal(result.merged.definition, "AI definition");
   assert.equal(result.merged.phonetic, "/hɪp/");
   assert.equal(result.merged.senses.length, 1);
+  assert.deepEqual(result.merged.synonyms, ["pelvis"]);
   assert.equal(result.merged.organizationMethod, "mixed");
   assert.equal(result.preservedManualChanges, true);
 });
@@ -123,7 +170,16 @@ test("v3 browser schema migrates the real legacy shape without accepting schema 
   }] });
   assert.equal(migrated.schemaVersion, 3);
   assert.equal(migrated.entries[0].standardForm, "jab at");
+  assert.deepEqual(migrated.entries[0].synonyms, []);
   assert.throws(() => parsePublicSnapshot({ schemaVersion: 0, entries: [] }), /不支持/);
+});
+
+test("legacy v1 backups migrate with an empty synonym list", () => {
+  const migrated = parsePublicSnapshot({ schemaVersion: 1, updatedAt: "2026-08-27T00:00:00.000Z", entries: [{
+    id: "public-legacy-ease", term: "ease", entryType: "word", meaning: "减轻",
+    createdAt: "2026-08-27T00:00:00.000Z", updatedAt: "2026-08-27T00:00:00.000Z"
+  }] });
+  assert.deepEqual(migrated.entries[0].synonyms, []);
 });
 
 test("duplicate detection covers correction and standard-form aliases", () => {
@@ -162,6 +218,15 @@ test("three-way merge keeps one-sided changes and reports same-field conflicts",
   const conflicted = threeWayMergeEntry(base, { ...base, meaning: "本地" }, { ...remote, meaning: "远端" });
   assert.deepEqual(conflicted.conflicts.map((item) => item.path), ["meaning"]);
   assert.equal(conflicted.merged.meaning, "本地");
+});
+
+test("three-way merge treats synonym edits as one field and reports real conflicts", () => {
+  const base = entry("alleviate", { id: "alleviate", synonyms: ["ease"] });
+  const local = { ...base, synonyms: ["ease", "lessen"] };
+  const remote = { ...base, synonyms: ["mitigate"], updatedAt: "2026-08-28T01:00:00.000Z", revision: 2 };
+  const result = threeWayMergeEntry(base, local, remote);
+  assert.deepEqual(result.conflicts.map((item) => item.path), ["synonyms"]);
+  assert.deepEqual(result.merged.synonyms, ["ease", "lessen"]);
 });
 
 test("operation rebasing never overwrites a remotely changed delete", () => {

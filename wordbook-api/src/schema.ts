@@ -3,6 +3,7 @@ import { ApiError } from "./security";
 
 export const PUBLIC_SCHEMA_VERSION = 3;
 const ENTRY_TYPES = ["word", "phrase", "phrasal-verb", "idiom", "collocation", "sentence", "quote", "proverb"] as const;
+const LEXICAL_ENTRY_TYPES = new Set<(typeof ENTRY_TYPES)[number]>(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const ATTRIBUTION_STATES = ["verified", "candidate", "unverified", "disputed"] as const;
 const CORRECTION_DECISIONS = ["exact", "suggested", "accepted", "kept"] as const;
 
@@ -162,6 +163,7 @@ export const PublicEntrySchema = z.object({
   meaning: bounded(4000),
   definition: bounded(4000),
   senses: z.array(SenseSchema).max(20),
+  synonyms: z.array(bounded(180)).max(20).default([]),
   collocations: z.array(bounded(180)).max(30),
   exampleEn: bounded(4000),
   exampleZh: bounded(4000),
@@ -188,6 +190,36 @@ export const PublicEntrySchema = z.object({
   if (normalizeEnglish(entry.correction.chosen) !== normalizeEnglish(entry.term)) {
     context.addIssue({ code: "custom", path: ["correction", "chosen"], message: "correction chosen must match term" });
   }
+  const selfKeys = new Set([
+    entry.term,
+    entry.standardForm,
+    entry.correction.original,
+    entry.correction.suggestion,
+    entry.correction.chosen
+  ].map((value) => normalizeEnglish(value)).filter(Boolean));
+  const relatedFieldKeys = new Set([...entry.forms, ...entry.confusedWith].map((value) => normalizeEnglish(value)).filter(Boolean));
+  const synonymKeys = new Set<string>();
+  if (!LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.synonyms.length) {
+    context.addIssue({ code: "custom", path: ["synonyms"], message: "non-lexical entries cannot have synonyms" });
+  }
+  entry.synonyms.forEach((synonym, index) => {
+    const key = normalizeEnglish(synonym);
+    try {
+      validateEnglishInput(synonym);
+    } catch {
+      context.addIssue({ code: "custom", path: ["synonyms", index], message: "synonym must be safe English text" });
+    }
+    if (selfKeys.has(key)) {
+      context.addIssue({ code: "custom", path: ["synonyms", index], message: "synonym cannot repeat the entry term or canonical form" });
+    }
+    if (relatedFieldKeys.has(key)) {
+      context.addIssue({ code: "custom", path: ["synonyms", index], message: "synonym cannot duplicate a form or confused word" });
+    }
+    if (synonymKeys.has(key)) {
+      context.addIssue({ code: "custom", path: ["synonyms", index], message: "synonyms must be unique" });
+    }
+    if (key) synonymKeys.add(key);
+  });
   if (entry.attributionStatus === "candidate" && entry.author
     && !entry.sourceUrl
     && !entry.sources.some((source) => source.kind === "candidate" && source.url)) {
@@ -242,6 +274,7 @@ export const AiOrganizedSchema = z.object({
   meaning: bounded(4000),
   definition: bounded(4000),
   senses: z.array(AiSenseSchema).max(12),
+  synonyms: z.array(bounded(180)).max(12),
   collocations: z.array(bounded(180)).max(20),
   exampleEn: bounded(4000),
   exampleZh: bounded(4000),
@@ -264,7 +297,7 @@ export const AI_JSON_SCHEMA = {
   additionalProperties: false,
   required: [
     "suggestedTerm", "standardForm", "entryType", "phonetic", "partOfSpeech", "meaning", "definition",
-    "senses", "collocations", "exampleEn", "exampleZh", "usage", "register", "confusedWith", "forms", "tags",
+    "senses", "synonyms", "collocations", "exampleEn", "exampleZh", "usage", "register", "confusedWith", "forms", "tags",
     "author", "sourceTitle", "sourceWork", "sourceDate", "attributionNote"
   ],
   properties: {
@@ -291,6 +324,7 @@ export const AI_JSON_SCHEMA = {
         }
       }
     },
+    synonyms: { type: "array", maxItems: 12, items: { type: "string", maxLength: 180 } },
     collocations: { type: "array", maxItems: 20, items: { type: "string", maxLength: 180 } },
     exampleEn: { type: "string", maxLength: 4000 },
     exampleZh: { type: "string", maxLength: 4000 },
@@ -363,6 +397,7 @@ function migrateLegacyEntry(candidate: Record<string, unknown>, now: string): Pu
     meaning: typeof candidate.meaning === "string" ? candidate.meaning : "",
     definition: typeof candidate.definition === "string" ? candidate.definition : "",
     senses: [],
+    synonyms: toArray(candidate.synonyms, 20),
     collocations: [],
     exampleEn: typeof candidate.exampleEn === "string" ? candidate.exampleEn : "",
     exampleZh: typeof candidate.exampleZh === "string" ? candidate.exampleZh : "",
@@ -521,6 +556,7 @@ export function makeEntryFromAi(
     meaning: organized.meaning,
     definition: organized.definition,
     senses: organized.senses,
+    synonyms: organized.synonyms,
     collocations: organized.collocations,
     exampleEn: organized.exampleEn,
     exampleZh: organized.exampleZh,

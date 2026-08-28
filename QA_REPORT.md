@@ -16,11 +16,11 @@
 
 ## 结论
 
-Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 108、Worker/API 106、Playwright 37，共 **251 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
+Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、同义词附属整理、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 115、Worker/API 112、Playwright 38，共 **265 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
 
 生产 Worker 健康检查为 `2.2.0`，主模型是 `@cf/zai-org/glm-4.7-flash`，质量重试模型是 `@cf/google/gemma-4-26b-a4b-it`。两者都通过同一个 Cloudflare Workers AI binding 调用，不需要 OpenAI/Claude API key。`paidFallbackEnabled` 在生产环境明确为 `false`，所以额度或服务不可用时请求会失败并保留本地草稿，不会静默调用 OpenAI/Claude。服务端另设所有会话共享的每 UTC 日 20 次整理上限，错误输入在计数前即被拒绝。
 
-正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 2 条：原有的 `jab at` 与 `hip`。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。前端静态资源缓存已升级为 v39；发布协议仍保持 v38。`bank`、`rigorous` 与生产语义实测产生的 `serendipity` 仍只在当前浏览器草稿中。
+正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 2 条：原有的 `jab at` 与 `hip`。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。前端静态资源缓存已升级为 v40；发布协议仍保持 v38。`bank`、`rigorous` 与生产语义实测产生的 `serendipity`、`alleviate` 仍只在当前浏览器草稿中。
 
 本报告不承诺“绝对没有 bug”。它只陈述已经自动覆盖和真实实测的行为，并明确列出仍需人工判断或受第三方政策影响的边界。
 
@@ -84,11 +84,12 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 | 草稿可靠性 | IndexedDB v6、刷新/离线恢复、多标签页、失败重试、response-lost 对账、备份导入导出 |
 | 发布授权 | 每次发布绑定收到卓点击的页面运行实例；重试不能跨页抢队列；旧 v37 客户端被 Worker 的 `clientProtocol` + `queueProtocol` 门禁拒绝；服务端拒绝空/不可见/无汉字中文和任何仍带“待复核”标签的写入 |
 | 重复词 | 100 个输入首轮只写入一次；完整重复轮保持 100 条且产生 0 次 provider 请求；大小写和普通边界标点共用 canonical key |
+| 同义词 | `synonyms` 只作为当前词条字段；卡片、详情、搜索、复制、导出与草稿合并贯通；同义词本身可由卓日后独立新增，精确搜索结果优先 |
 | AI 质量 | JSON/Zod、中文字符质量、英文定义、独立 sense、独立例句、IPA、拼写/lemma、本地 ECDICT 与 curated gold grounding；200 空中文在浏览器端也会拒绝 |
 | 拼写 | `recieve → receive` 仅作为建议；英式/澳式合法拼写不被静默改为美式 |
 | 短语 | `jab at`、phrasal verb、idiom 按完整表达处理，不截成第一个单词 |
 | 引语出处 | 免费模型没有实时网页检索时，作者、作品、年份和 URL 保持未核验及空白，不凭模型记忆编造 |
-| PWA | desktop/mobile、standalone manifest、Service Worker network-first 更新、API network-only、旧 cache 清理 |
+| PWA | desktop/mobile、standalone manifest、Service Worker v40 network-first 更新、API network-only、旧 cache 清理 |
 | 故障 | AI 401/429/5xx/timeout/非 JSON/错误 schema、ECDICT 资产首次加载失败后重试、GitHub timeout/损坏 JSON/SHA conflict 均 fail closed |
 | 异步编辑 | 整理 A 时切换到 B，结果只写回 A；A 被删除后迟到响应不会复活；离线时禁用 AI 但仍可手工保存草稿 |
 
@@ -96,10 +97,10 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 
 | Suite | Result |
 |---|---:|
-| Frontend/data Node unit | 108 passed |
-| Worker/API Vitest | 106 passed |
-| Playwright browser E2E | 37 passed |
-| Total | **251 passed, 0 failed** |
+| Frontend/data Node unit | 115 passed |
+| Worker/API Vitest | 112 passed |
+| Playwright browser E2E | 38 passed |
+| Total | **265 passed, 0 failed** |
 | TypeScript `tsc --noEmit` | PASS |
 | Wrangler `types --include-runtime=false --check` | PASS |
 | Secret boundary scan | PASS（118 repository files） |

@@ -17,7 +17,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, assertCompleteAiCandidate, createBlankEntry, findDuplicate, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, assertCompleteAiCandidate, createBlankEntry, findDuplicate, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -29,7 +29,7 @@ const ids = [
   "retry-ai-draft", "draft-completion-notice", "draft-completion-message", "complete-draft", "correction-card", "correction-original",
   "correction-suggestion", "accept-suggestion", "keep-original", "manual-correction", "field-original-input", "field-term",
   "field-standard-form", "field-entry-type", "field-part-of-speech", "field-phonetic", "field-meaning", "field-definition",
-  "field-example-en", "field-example-zh", "field-usage", "field-register", "field-collocations", "field-confused",
+  "field-example-en", "field-example-zh", "field-usage", "field-register", "field-collocations", "synonyms-field", "field-synonyms", "field-confused",
   "field-forms", "field-tags", "sense-list", "attribution-fieldset", "field-author", "field-source-title",
   "field-source-work", "field-source-date", "field-attribution-status", "field-source-url", "field-attribution-note",
   "source-candidates", "editor-error", "save-local", "publish-button", "discard-draft", "refresh-remote", "owner-entry-count",
@@ -80,7 +80,7 @@ const STATE_LABELS = {
 };
 
 function setStatus(element, message) { element.textContent = message || ""; }
-function commaList(value) { return String(value || "").split(/[,，;；\n]/).map((item) => item.trim()).filter(Boolean).slice(0, 30); }
+function commaList(value, maximumItems = 30) { return String(value || "").split(/[,，;；\n]/).map((item) => item.trim()).filter(Boolean).slice(0, maximumItems); }
 function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
@@ -450,6 +450,8 @@ function fillEditor(draft, { focus = true } = {}) {
   setValue("fieldUsage", entry.usage);
   setValue("fieldRegister", entry.register);
   setValue("fieldCollocations", entry.collocations?.join("，"));
+  setValue("fieldSynonyms", entry.synonyms?.join("，"));
+  refs.synonymsField.hidden = !LEXICAL_ENTRY_TYPES.has(entry.entryType);
   setValue("fieldConfused", entry.confusedWith?.join("，"));
   setValue("fieldForms", entry.forms?.join("，"));
   setValue("fieldTags", entry.tags?.join("，"));
@@ -487,6 +489,7 @@ function collectEntry({ strict = false } = {}) {
     meaning: value("fieldMeaning"),
     definition: value("fieldDefinition"),
     collocations: commaList(value("fieldCollocations")),
+    synonyms: LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : [],
     exampleEn: value("fieldExampleEn"),
     exampleZh: value("fieldExampleZh"),
     usage: value("fieldUsage"),
@@ -624,7 +627,10 @@ async function renderDrafts() {
 function renderOwnerEntries() {
   const entries = state.snapshot?.entries || [];
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
-  const shown = entries.filter((entry) => !query || [entry.term, entry.meaning, entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query));
+  const shown = rankExactEntryMatches(
+    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
+    query
+  );
   refs.ownerEntryCount.textContent = String(entries.length);
   refs.ownerEntryList.replaceChildren(...shown.map((entry) => {
     const row = document.createElement("article");
@@ -632,8 +638,15 @@ function renderOwnerEntries() {
     const term = document.createElement("strong");
     term.lang = "en";
     term.textContent = entry.term;
+    const summary = document.createElement("div");
+    summary.className = "owner-entry-summary";
     const meaning = document.createElement("p");
     meaning.textContent = entry.meaning;
+    const synonyms = document.createElement("p");
+    synonyms.className = "owner-entry-synonyms";
+    synonyms.hidden = entry.synonyms.length === 0;
+    synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
+    summary.append(meaning, synonyms);
     const actions = document.createElement("div");
     actions.className = "button-row";
     const edit = document.createElement("button");
@@ -656,7 +669,7 @@ function renderOwnerEntries() {
     remove.textContent = "删除";
     remove.addEventListener("click", () => queueDelete(entry));
     actions.append(edit, remove);
-    row.append(term, meaning, actions);
+    row.append(term, summary, actions);
     return row;
   }));
 }
@@ -779,7 +792,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
       // result arrives, replace each untouched candidate field while preserving
       // anything Zhu edited during or before this request.
       const candidateFields = [
-        "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations",
+        "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations", "synonyms",
         "exampleEn", "exampleZh", "usage", "register", "confusedWith", "forms",
         "tags", "sources", "attributionNote"
       ];
@@ -1192,6 +1205,13 @@ refs.entryForm.addEventListener("input", (event) => {
 });
 refs.fieldEntryType.addEventListener("change", () => {
   refs.attributionFieldset.hidden = !["quote", "proverb"].includes(refs.fieldEntryType.value);
+  refs.synonymsField.hidden = !LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value);
+  if (refs.synonymsField.hidden && refs.fieldSynonyms.value.trim()) {
+    refs.fieldSynonyms.value = "";
+    showEditorError("句子、名言和谚语不保存同义词；原同义词内容已从这份草稿中移除。");
+  } else {
+    showEditorError();
+  }
   scheduleDraftSave();
 });
 refs.acceptSuggestion.addEventListener("click", () => {

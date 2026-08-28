@@ -4,7 +4,7 @@ export const ATTRIBUTION_STATES = Object.freeze(["verified", "candidate", "unver
 
 const ENTRY_KEYS = [
   "id", "revision", "originalInput", "term", "normalized", "standardForm", "entryType", "correction",
-  "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations", "exampleEn", "exampleZh",
+  "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations", "synonyms", "exampleEn", "exampleZh",
   "usage", "register", "confusedWith", "forms", "tags", "author", "sourceTitle", "sourceWork", "sourceDate",
   "sourceUrl", "attributionStatus", "attributionNote", "sources", "organizationMethod", "createdAt", "updatedAt"
 ];
@@ -138,7 +138,13 @@ function validateSense(candidate) {
 }
 
 export function validatePublicEntry(candidate) {
-  const source = record(candidate, "公开词条");
+  const rawSource = record(candidate, "公开词条");
+  // synonyms was added without changing the public v3 version. Old GitHub
+  // snapshots and recoverable IndexedDB drafts therefore omit it; normalize
+  // that one known omission while continuing to reject every unknown field.
+  const source = Object.prototype.hasOwnProperty.call(rawSource, "synonyms")
+    ? rawSource
+    : { ...rawSource, synonyms: [] };
   exactKeys(source, ENTRY_KEYS, "公开词条");
   const correctionSource = record(source.correction, "拼写建议");
   exactKeys(correctionSource, CORRECTION_KEYS, "拼写建议");
@@ -172,6 +178,29 @@ export function validatePublicEntry(candidate) {
     if (!sourceUrl || !sourceTitle || !attributionNote) throw new Error("已核验出处必须包含标题、链接和核验说明。");
     if (new URL(sourceUrl).hostname.toLowerCase().endsWith("wikiquote.org")) throw new Error("Wikiquote 不能作为唯一的已核验来源。");
   }
+  const synonyms = stringList(source.synonyms, "同义词", 20, 180);
+  const confusedWith = stringList(source.confusedWith, "易混词", 30, 180);
+  const forms = stringList(source.forms, "词形", 30, 180);
+  if (!["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(entryType) && synonyms.length) {
+    throw new Error("只有单词、短语、短语动词、习语和搭配可以保存同义词。");
+  }
+  const selfKeys = new Set([
+    term,
+    source.standardForm,
+    correctionSource.original,
+    correctionSource.suggestion,
+    correctionSource.chosen
+  ].map(normalizeEnglish).filter(Boolean));
+  const relatedFieldKeys = new Set([...forms, ...confusedWith].map(normalizeEnglish).filter(Boolean));
+  const synonymKeys = new Set();
+  for (const synonym of synonyms) {
+    try { validateEnglishInput(synonym); } catch { throw new Error("同义词必须是安全的英文内容。"); }
+    const key = normalizeEnglish(synonym);
+    if (selfKeys.has(key)) throw new Error("同义词不能重复当前词条或标准形式。");
+    if (relatedFieldKeys.has(key)) throw new Error("同义词不能同时列为词形或易混词。");
+    if (synonymKeys.has(key)) throw new Error("同义词不能重复（忽略大小写）。");
+    if (key) synonymKeys.add(key);
+  }
   return {
     id,
     revision,
@@ -194,12 +223,13 @@ export function validatePublicEntry(candidate) {
     definition: string(source.definition, "英文释义", 4000),
     senses: source.senses.map(validateSense),
     collocations: stringList(source.collocations, "常见搭配", 30, 180),
+    synonyms,
     exampleEn: string(source.exampleEn, "英文例句", 4000),
     exampleZh: string(source.exampleZh, "例句翻译", 4000),
     usage: string(source.usage, "用法提醒", 4000),
     register: string(source.register, "语域", 160),
-    confusedWith: stringList(source.confusedWith, "易混词", 30, 180),
-    forms: stringList(source.forms, "词形", 30, 180),
+    confusedWith,
+    forms,
     tags: stringList(source.tags, "标签", 30, 80),
     author: string(source.author, "作者", 300),
     sourceTitle,
@@ -230,6 +260,19 @@ export function entryLookupKeys(entry) {
 export function findDuplicate(entries, candidate, excludeId = "") {
   const wanted = new Set(entryLookupKeys(candidate));
   return entries.find((entry) => entry.id !== excludeId && entryLookupKeys(entry).some((key) => wanted.has(key))) || null;
+}
+
+export function rankExactEntryMatches(entries, query) {
+  const wanted = normalizeEnglish(query);
+  if (!wanted) return [...entries];
+  return entries
+    .map((entry, index) => ({
+      entry,
+      index,
+      exact: [entry.term, entry.normalized, entry.standardForm].some((value) => normalizeEnglish(value) === wanted)
+    }))
+    .sort((left, right) => Number(right.exact) - Number(left.exact) || left.index - right.index)
+    .map(({ entry }) => entry);
 }
 
 function legacySource(name, retrievedAt) {
@@ -272,6 +315,7 @@ function migrateLegacyEntry(candidate, fallbackDate) {
     definition: String(source.definition || "").slice(0, 4000),
     senses: [],
     collocations: [],
+    synonyms: Array.isArray(source.synonyms) ? source.synonyms.map(String).slice(0, 20) : [],
     exampleEn: String(source.exampleEn || "").slice(0, 4000),
     exampleZh: String(source.exampleZh || "").slice(0, 4000),
     usage: String(source.usage || "").slice(0, 4000),
@@ -341,7 +385,7 @@ export function createBlankEntry(input) {
     standardForm: original,
     entryType: classifyInput(original),
     correction: { status: "exact", original, suggestion: "", chosen: original, confidence: 1, source: "manual" },
-    phonetic: "", partOfSpeech: "", meaning: "", definition: "", senses: [], collocations: [],
+    phonetic: "", partOfSpeech: "", meaning: "", definition: "", senses: [], collocations: [], synonyms: [],
     exampleEn: "", exampleZh: "", usage: "", register: "", confusedWith: [], forms: [], tags: [],
     author: "", sourceTitle: "", sourceWork: "", sourceDate: "", sourceUrl: "",
     attributionStatus: "unverified", attributionNote: "", sources: [], organizationMethod: "manual",
