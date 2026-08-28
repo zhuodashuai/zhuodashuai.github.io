@@ -152,6 +152,16 @@ async function api(request, response, url) {
       entry.phonetic = "";
       warnings.push("音标已按本地校订数据锁定，不采用模型猜测。");
     }
+    if (cookies(request).e2e_ai_empty_meaning === "1") {
+      entry.meaning = "";
+      return json(response, 200, { entry, provider: "cloudflare", warnings });
+    }
+    if (cookies(request).e2e_dictionary_no_examples === "1") {
+      entry.senses = entry.senses.map((sense) => ({ ...sense, examples: [] }));
+      entry.exampleEn = "";
+      entry.exampleZh = "";
+      return json(response, 200, { entry, provider: "local-dictionary", warnings, reviewRequired: false });
+    }
     if (cookies(request).e2e_dictionary_review === "1") {
       entry.phonetic = "/bæŋk/";
       entry.partOfSpeech = "noun · verb";

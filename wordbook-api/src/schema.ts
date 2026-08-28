@@ -9,6 +9,11 @@ const CORRECTION_DECISIONS = ["exact", "suggested", "accepted", "kept"] as const
 const bounded = (maximum: number) => z.string().trim().max(maximum);
 const isoDate = z.string().datetime({ offset: true });
 
+function hasVisibleChineseMeaning(value: string): boolean {
+  const visible = value.normalize("NFKC").replace(/[\p{Cc}\p{Cf}]/gu, "").trim();
+  return /\p{Script=Han}/u.test(visible);
+}
+
 function normalizeTypography(value: string): string {
   return value
     .normalize("NFKC")
@@ -458,12 +463,18 @@ export const PublishRequestSchema = z.object({
   }
   if (request.mutation.type !== "delete") {
     const entry = request.mutation.entry;
-    const lexical = ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(entry.entryType);
-    if (lexical && entry.tags.includes("待复核") && entry.senses.length === 0) {
+    if (!hasVisibleChineseMeaning(entry.meaning)) {
+      context.addIssue({
+        code: "custom",
+        path: ["mutation", "entry", "meaning"],
+        message: "publishing requires a visible Chinese meaning"
+      });
+    }
+    if (entry.tags.includes("待复核")) {
       context.addIssue({
         code: "custom",
         path: ["mutation", "entry", "tags"],
-        message: "an unaligned local-dictionary candidate cannot be published until explicitly reviewed"
+        message: "a review-required candidate cannot be published until explicitly reviewed"
       });
     }
   }

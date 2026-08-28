@@ -190,6 +190,49 @@ describe("worker API integration", () => {
     expect(await candidateOnly.json()).toMatchObject({ error: { code: "free_ai_daily_limit" } });
   });
 
+  it("serves only exact local dictionary evidence after the per-minute AI ceiling", async () => {
+    const csrf = await seedSession();
+    const sessionHash = await sha256Hex(SESSION_ID);
+    const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+    for (let index = 0; index < 6; index += 1) {
+      const response = await stub.fetch("https://owner.internal/rate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ subject: sessionHash, kind: "ai" })
+      });
+      expect(response.status).toBe(200);
+    }
+    const providerFetch = vi.fn(async () => { throw new Error("provider must not be called after the minute ceiling"); });
+    vi.stubGlobal("fetch", providerFetch);
+    const request = (input: string) => api("/api/v1/owner/ai/organize", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf
+      },
+      body: JSON.stringify({ input })
+    });
+
+    const exact = await request("hip");
+    expect(exact.status).toBe(200);
+    expect(await exact.json()).toMatchObject({
+      provider: "local-dictionary",
+      warnings: expect.arrayContaining([expect.stringContaining("本分钟的 AI 请求过于频繁")]),
+      entry: {
+        originalInput: "hip",
+        meaning: expect.stringContaining("髋部"),
+        organizationMethod: "local-dictionary"
+      }
+    });
+
+    const unknown = await request("xyzzy");
+    expect(unknown.status).toBe(429);
+    expect(await unknown.json()).toMatchObject({ error: { code: "rate_limited" } });
+    expect(providerFetch).not.toHaveBeenCalled();
+  });
+
   it("fails closed for unauthenticated session and publish requests", async () => {
     const sessionResponse = await api("/api/v1/session");
     expect(await sessionResponse.json()).toEqual({ authenticated: false });
@@ -376,7 +419,7 @@ describe("worker API integration", () => {
     expect(github.state().remoteSnapshot.entries).toHaveLength(1);
     const retry = await api("/api/v1/owner/publish", { method: "POST", headers, body: JSON.stringify(body) });
     expect(await retry.json()).toMatchObject({ action: "idempotent", recovered: true });
-    const changedBody = { ...body, mutation: { type: "add", entry: { ...receive, meaning: "a different payload" } } };
+    const changedBody = { ...body, mutation: { type: "add", entry: { ...receive, meaning: "另一个不同的释义" } } };
     const reused = await api("/api/v1/owner/publish", { method: "POST", headers, body: JSON.stringify(changedBody) });
     expect(reused.status).toBe(409);
     expect(await reused.json()).toMatchObject({ error: { code: "idempotency_key_reused" } });

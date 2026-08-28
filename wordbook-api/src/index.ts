@@ -195,7 +195,18 @@ async function organize(request: Request, env: Env): Promise<Response> {
   const body = await readJsonBody(request, 8 * 1024);
   const rawInput = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).input : undefined;
   const input = validateEnglishInput(rawInput);
-  await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
+  try {
+    await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
+  } catch (error) {
+    if (error instanceof ApiError && error.code === "rate_limited") {
+      const dictionaryFallback = await organizeExactDictionaryFallback(input, config);
+      if (dictionaryFallback) {
+        dictionaryFallback.warnings.unshift("本分钟的 AI 请求过于频繁；本次没有调用 AI，已改用本地词典精确匹配。");
+        return jsonResponse(dictionaryFallback);
+      }
+    }
+    throw error;
+  }
   // This account-wide guard is deliberately independent of browser sessions.
   // Its UTC-day bucket aligns with Cloudflare's documented daily reset.
   try {

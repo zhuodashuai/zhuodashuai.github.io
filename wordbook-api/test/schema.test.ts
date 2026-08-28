@@ -77,6 +77,49 @@ describe("wordbook schema", () => {
     expect(PublishRequestSchema.safeParse(missingQueueProtocol).success).toBe(false);
   });
 
+  it("rejects publishing entries without a visible Chinese meaning", () => {
+    const request = (meaning: string) => ({
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: "a".repeat(40),
+      mutationId: `meaning-guard-${crypto.randomUUID()}`,
+      mutation: { type: "add", entry: entry({ id: "meaning-guard", meaning }) }
+    });
+    for (const meaning of ["", "   ", "\u200b\u2060", "English only"]) {
+      expect(PublishRequestSchema.safeParse(request(meaning)).success).toBe(false);
+    }
+    expect(PublishRequestSchema.safeParse(request("准确的中文释义")).success).toBe(true);
+  });
+
+  it("rejects every review-required publish even when senses are present", () => {
+    const candidate = entry({
+      id: "review-required",
+      tags: ["待复核"],
+      senses: [{
+        partOfSpeech: "verb",
+        meaningZh: "测试",
+        definitionEn: "To test something.",
+        usageNotes: "",
+        register: "neutral",
+        collocations: [],
+        examples: [{ en: "We test it.", zh: "我们测试它。" }],
+        confusables: []
+      }]
+    });
+    const request = {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: "a".repeat(40),
+      mutationId: "review-required-with-sense",
+      mutation: { type: "add", entry: candidate }
+    };
+    expect(PublishRequestSchema.safeParse(request).success).toBe(false);
+    expect(PublishRequestSchema.safeParse({
+      ...request,
+      mutation: { ...request.mutation, entry: { ...candidate, tags: [] } }
+    }).success).toBe(true);
+  });
+
   it("requires non-Wikiquote evidence before marking attribution verified", () => {
     const base = entry({
       entryType: "quote", term: "Knowledge is power.", normalized: "knowledge is power.", standardForm: "Knowledge is power.",

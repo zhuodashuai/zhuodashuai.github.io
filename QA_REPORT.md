@@ -16,22 +16,24 @@
 
 ## 结论
 
-Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 107、Worker/API 101、Playwright 33，共 **241 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
+Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 108、Worker/API 106、Playwright 37，共 **251 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
 
 生产 Worker 健康检查为 `2.2.0`，主模型是 `@cf/zai-org/glm-4.7-flash`，质量重试模型是 `@cf/google/gemma-4-26b-a4b-it`。两者都通过同一个 Cloudflare Workers AI binding 调用，不需要 OpenAI/Claude API key。`paidFallbackEnabled` 在生产环境明确为 `false`，所以额度或服务不可用时请求会失败并保留本地草稿，不会静默调用 OpenAI/Claude。服务端另设所有会话共享的每 UTC 日 20 次整理上限，错误输入在计数前即被拒绝。
 
-正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 2 条：原有的 `jab at` 与 `hip`。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。`bank` 与 `rigorous` 仍只在当前浏览器草稿中。
+正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 2 条：原有的 `jab at` 与 `hip`。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。前端静态资源缓存已升级为 v39；发布协议仍保持 v38。`bank`、`rigorous` 与生产语义实测产生的 `serendipity` 仍只在当前浏览器草稿中。
 
 本报告不承诺“绝对没有 bug”。它只陈述已经自动覆盖和真实实测的行为，并明确列出仍需人工判断或受第三方政策影响的边界。
 
 ## 免费 AI 方案
 
 - 精确词条先走内置、可测试的 ECDICT/curated 词典层；`hip` 等已锁定词即使 AI 或外网服务不可用，也会返回非空且经过校验的中文释义、词性和 IPA。
+- ECDICT 精确命中但英文释义不完整时，不再丢掉已有中文；页面会保留中文候选、明确标记“待复核”并禁止发布，等待 AI 补全或 Owner 手工修订。每分钟限流时，精确词条也可走同一安全本地兜底；未知词仍返回限流错误。
 - 对 `bank`、`run`、`lead` 这类无法可靠逐义对齐的多义词，本地词典会保留可见中英文原始候选，但标记“待复核”且阻止直接发布；宁可要求复核，也不拼接成伪准确义项。
 - 第一轮：Cloudflare `@cf/zai-org/glm-4.7-flash`。
 - 第一轮输出只要缺义项、混合不相关义项、缺双语例句、IPA 不合格、拼写与本地证据冲突或结构不完整，就不能进入草稿。
 - 唯一一次质量重试：自动换为 `@cf/google/gemma-4-26b-a4b-it`，并把安全、白名单化的失败原因交给第二模型修正。
 - 第二轮仍不合格：返回明确错误，保留旧草稿，允许手动填写或稍后重试。
+- 浏览器端再次验证返回语义：即使服务端意外返回 HTTP 200，只要中文、英文释义、义项或双语例句为空，前端也拒绝覆盖草稿并显示原位重试；等待中的空框不会再被表现成成功结果。
 - OpenAI 与 Claude 只保留为以后可选的显式配置；除非 Owner 同时配置 provider 和 `ALLOW_PAID_AI_FALLBACK=true`，否则不会调用。
 - Durable Object 为整个 Owner 账户设定每 UTC 日 20 次 AI 整理的硬上限，而不是每个浏览器各 20 次；达到上限后只允许手动草稿。
 
@@ -62,6 +64,17 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 
 四个 sense 分离、各有自己的双语例句，IPA 锁定为 `/bæŋk/`。这证明模型切换不是盲目重试：第一轮错误没有进入草稿，第二轮也必须满足同一质量标准才能写入。
 
+### `serendipity`
+
+在正式管理站、真实 GitHub Owner 会话中输入不在 curated/gold 固定词表内的 `serendipity`，生产 Worker 通过 Cloudflare Workers AI 返回：
+
+- 中文：`noun：意外发现珍奇事物的运气；机缘凑巧`；
+- IPA：`/ˌser.ənˈdɪp.ə.ti/`；
+- 非空英文定义与一组对应的英中双语例句；
+- 页面状态明确显示候选来自 Cloudflare Workers AI。
+
+该记录只保存在本地草稿，没有点击发布；公开词库仍为 2 条。这证明默认路径并不依赖 OpenAI/Claude API key，并可对本地固定词表之外的真实输入返回中文。
+
 ## 关键回归覆盖
 
 | 范围 | 已验证行为 |
@@ -69,23 +82,24 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 | Owner 权限 | 只有服务端验证后的 `zhuodashuai` 固定数字 ID 可编辑；访客即使修改 URL 或 DOM 也不能获得写权限 |
 | GitHub 安全 | HttpOnly session、CSRF、Origin、repository ID、Git blob SHA、幂等 mutation ID 与冲突处理 |
 | 草稿可靠性 | IndexedDB v6、刷新/离线恢复、多标签页、失败重试、response-lost 对账、备份导入导出 |
-| 发布授权 | 每次发布绑定收到卓点击的页面运行实例；重试不能跨页抢队列；旧 v37 客户端被 Worker 的 `clientProtocol` + `queueProtocol` 门禁拒绝 |
+| 发布授权 | 每次发布绑定收到卓点击的页面运行实例；重试不能跨页抢队列；旧 v37 客户端被 Worker 的 `clientProtocol` + `queueProtocol` 门禁拒绝；服务端拒绝空/不可见/无汉字中文和任何仍带“待复核”标签的写入 |
 | 重复词 | 100 个输入首轮只写入一次；完整重复轮保持 100 条且产生 0 次 provider 请求；大小写和普通边界标点共用 canonical key |
-| AI 质量 | JSON/Zod、中文字符质量、英文定义、独立 sense、独立例句、IPA、拼写/lemma、本地 ECDICT 与 curated gold grounding |
+| AI 质量 | JSON/Zod、中文字符质量、英文定义、独立 sense、独立例句、IPA、拼写/lemma、本地 ECDICT 与 curated gold grounding；200 空中文在浏览器端也会拒绝 |
 | 拼写 | `recieve → receive` 仅作为建议；英式/澳式合法拼写不被静默改为美式 |
 | 短语 | `jab at`、phrasal verb、idiom 按完整表达处理，不截成第一个单词 |
 | 引语出处 | 免费模型没有实时网页检索时，作者、作品、年份和 URL 保持未核验及空白，不凭模型记忆编造 |
 | PWA | desktop/mobile、standalone manifest、Service Worker network-first 更新、API network-only、旧 cache 清理 |
-| 故障 | AI 401/429/5xx/timeout/非 JSON/错误 schema、GitHub timeout/损坏 JSON/SHA conflict 均 fail closed |
+| 故障 | AI 401/429/5xx/timeout/非 JSON/错误 schema、ECDICT 资产首次加载失败后重试、GitHub timeout/损坏 JSON/SHA conflict 均 fail closed |
+| 异步编辑 | 整理 A 时切换到 B，结果只写回 A；A 被删除后迟到响应不会复活；离线时禁用 AI 但仍可手工保存草稿 |
 
 ## 最终自动化结果
 
 | Suite | Result |
 |---|---:|
-| Frontend/data Node unit | 107 passed |
-| Worker/API Vitest | 101 passed |
-| Playwright browser E2E | 33 passed |
-| Total | **241 passed, 0 failed** |
+| Frontend/data Node unit | 108 passed |
+| Worker/API Vitest | 106 passed |
+| Playwright browser E2E | 37 passed |
+| Total | **251 passed, 0 failed** |
 | TypeScript `tsc --noEmit` | PASS |
 | Wrangler `types --include-runtime=false --check` | PASS |
 | Secret boundary scan | PASS（118 repository files） |
@@ -99,7 +113,7 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 - Cloudflare 默认路径没有实时网页检索。普通词汇由本地 ECDICT、curated semantic QA 和 100-word gold 数据约束；名言名句的可靠出处仍需要有网页检索能力的后续模块或人工核验。
 - AI 结果始终是候选，不能绕过卓的人工复核直接发布。
 - 本轮发现旧 v37 队列曾真实发布 `hip`；报告没有掩盖这次写入。v38 的浏览器与服务端回归专门固定了该事故路径，其余测试词没有写入生产 GitHub。
-- 当前浏览器中仍有 `hip`、`bank`、`rigorous` 等本地草稿。它们可继续人工核对或由卓自行删除；本轮没有代替 Owner 做破坏性删除。
+- 当前浏览器中仍有 `hip`、`bank`、`rigorous`、`serendipity` 等本地草稿。它们可继续人工核对或由卓自行删除；本轮没有代替 Owner 做破坏性删除。
 
 ## 复现命令
 

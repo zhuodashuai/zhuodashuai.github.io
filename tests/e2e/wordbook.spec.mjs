@@ -304,6 +304,72 @@ test("前端拒绝保存声称已锁定音标却缺少 IPA 的自相矛盾响应
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
 });
 
+test("前端拒绝 200 响应中的空中文并在同一草稿就地重试", async ({ context, page }) => {
+  await context.addCookies([
+    { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
+    { name: "e2e_ai_empty_meaning", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  await loginOwner(page);
+  await addWithAi(page, "hip");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "error");
+  await expect(page.locator("#editor-ai-message")).toContainText("中文释义没有有效汉字");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("");
+  await expect(page.getByRole("button", { name: "重试补全这份草稿" })).toBeVisible();
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+
+  await context.addCookies([{ name: "e2e_ai_empty_meaning", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await page.getByRole("button", { name: "重试补全这份草稿" }).click();
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部/);
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+});
+
+test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保存原请求", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("draft b");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByLabel("中文释义", { exact: true }).fill("B 的人工释义");
+  await page.getByRole("button", { name: "保存本地草稿" }).click();
+
+  let markStarted;
+  let releaseRequest;
+  const started = new Promise((resolve) => { markStarted = resolve; });
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    if (route.request().postDataJSON()?.input === "backgroundword") {
+      markStarted();
+      await held;
+    }
+    await route.continue();
+  });
+
+  await page.getByLabel("英文内容").fill("backgroundword");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await started;
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
+  await expect(page.locator("#editor-ai-message")).toContainText("当前空白");
+  await expect(page.locator("#editor-ai-message")).toContainText("不是查询结果");
+  await expect(page.locator("#entry-form")).toHaveAttribute("aria-busy", "true");
+  await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "true");
+  await expect(page.locator("#organize-button .button-busy-label")).toBeVisible();
+
+  await page.locator("#draft-list").getByRole("button", { name: /draft b/ }).click();
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("draft b");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("B 的人工释义");
+  await expect(page.locator("#editor-ai-status")).toBeHidden();
+  await expect(page.locator("#entry-form")).not.toHaveAttribute("aria-busy", "true");
+  releaseRequest();
+  await expect(page.locator("#capture-status")).toContainText("已在后台完成并保存");
+  await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "false");
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("draft b");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("B 的人工释义");
+
+  await page.locator("#draft-list").getByRole("button", { name: /backgroundword/ }).click();
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+});
+
 test("无法可靠对齐的本地词典多义词保留中文但保持待复核且不能直接发布", async ({ context, page }) => {
   await context.addCookies([
     { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
@@ -317,6 +383,9 @@ test("无法可靠对齐的本地词典多义词保留中文但保持待复核�
   await page.getByLabel("英文内容").fill("bank");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/银行[\s\S]*河岸/);
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "review");
+  await expect(page.locator("#editor-ai-message")).toContainText("已保留有效中文候选");
+  await expect(page.getByRole("button", { name: "继续用 AI 补全" })).toBeVisible();
   await expect(page.locator("#draft-completion-notice")).toBeVisible();
   await expect(page.locator("#draft-completion-message")).toContainText("可靠对齐的分义项");
   await expect(page.getByLabel("标签", { exact: true })).toHaveValue(/待复核/);
@@ -336,6 +405,38 @@ test("无法可靠对齐的本地词典多义词保留中文但保持待复核�
   await expect(page.getByLabel("Usage notes", { exact: true })).toHaveValue(/卓人工笔记/);
   await expect(page.getByLabel("标签", { exact: true })).not.toHaveValue(/待复核|ECDICT 原始释义/);
   await expect(page.locator("#sense-list .sense-item")).toHaveCount(1);
+  await expect(page.locator("#draft-completion-notice")).toBeHidden();
+});
+
+test("缺少双语例句的本地词典 200 响应降级为待复核而不是成功", async ({ context, page }) => {
+  await context.addCookies([
+    { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
+    { name: "e2e_dictionary_no_examples", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  let publishRequests = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/publish")) publishRequests += 1;
+  });
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("hip");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部/);
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "review");
+  await expect(page.locator("#editor-ai-message")).toContainText("缺少双语例句");
+  await expect(page.getByLabel("标签", { exact: true })).toHaveValue(/待复核/);
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.locator("#editor-error")).toContainText("不能当作 AI 整理成功直接发布");
+  expect(publishRequests).toBe(0);
+
+  await context.addCookies([
+    { name: "e2e_dictionary_no_examples", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  await page.getByRole("button", { name: "继续用 AI 补全" }).click();
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+  await expect(page.locator("#sense-list .sense-item")).toHaveCount(2);
+  await expect(page.locator("#sense-list .sense-example").first()).toHaveText("She injured her hip while running.");
+  await expect(page.locator("#sense-list .sense-example-zh").first()).toHaveText("她跑步时伤了髋部。");
+  await expect(page.getByLabel("标签", { exact: true })).not.toHaveValue(/待复核|ECDICT 原始释义/);
   await expect(page.locator("#draft-completion-notice")).toBeHidden();
 });
 
@@ -418,11 +519,38 @@ test("AI 故障回退到手动草稿，不会丢失输入", async ({ context, pa
   await loginOwner(page);
   await addWithAi(page, "fallbackword");
   await expect(page.locator("#capture-status")).toContainText("草稿仍可手动填写");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "error");
+  await expect(page.locator("#editor-ai-message")).toContainText("AI 测试故障");
+  await expect(page.getByRole("button", { name: "重试补全这份草稿" })).toBeVisible();
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
   await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("fallbackword");
-  await page.getByLabel("中文释义", { exact: true }).fill("手动补充释义");
+  await context.addCookies([{ name: "e2e_ai_fail", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await page.getByRole("button", { name: "重试补全这份草稿" }).click();
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
   await publishOpenDraft(page);
+});
+
+test("离线时只保留手动草稿能力并禁用全部 AI 补全入口", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("offlineword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await expect(page.locator("#draft-completion-notice")).toBeVisible();
+
+  await context.setOffline(true);
+  await expect(page.locator("#network-chip")).toContainText("离线");
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "补全这份草稿" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
+
+  await context.setOffline(false);
+  await expect(page.locator("#network-chip")).toHaveText("在线");
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "补全这份草稿" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeEnabled();
 });
 
 test("AI 返回较慢时保留卓已经输入的人工修改", async ({ context, page }) => {

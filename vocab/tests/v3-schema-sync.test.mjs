@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  assertCompleteAiCandidate,
   entryLookupKeys,
   createBlankEntry,
   findDuplicate,
+  hasChineseHanText,
   needsAiCompletion,
   parsePublicSnapshot,
   safeHttpsUrl,
@@ -26,6 +28,28 @@ test("v3 browser schema keeps jab at whole and rejects unknown fields", () => {
 test("v3 browser schema accepts a Cloudflare-organized draft", () => {
   const value = entry("hip", { organizationMethod: "ai-cloudflare" });
   assert.equal(value.organizationMethod, "ai-cloudflare");
+});
+
+test("browser rejects structurally valid AI candidates with blank bilingual semantics", () => {
+  const complete = entry("hip", {
+    meaning: "髋部",
+    definition: "The side of the body below the waist.",
+    senses: [{
+      partOfSpeech: "noun", meaningZh: "髋部", definitionEn: "The side of the body below the waist.",
+      usageNotes: "", register: "neutral", collocations: [],
+      examples: [{ en: "She hurt her hip.", zh: "她伤到了髋部。" }], confusables: []
+    }],
+    organizationMethod: "ai-cloudflare"
+  });
+  assert.equal(assertCompleteAiCandidate(complete), complete);
+  assert.equal(hasChineseHanText("\u200b"), false);
+  assert.throws(() => assertCompleteAiCandidate({ ...complete, meaning: "\u200b" }), /中文释义没有有效汉字/);
+  assert.throws(() => assertCompleteAiCandidate({ ...complete, definition: "" }), /英文释义为空/);
+  assert.throws(() => assertCompleteAiCandidate({ ...complete, senses: [] }), /没有分义项/);
+  assert.throws(() => assertCompleteAiCandidate({
+    ...complete,
+    senses: [{ ...complete.senses[0], examples: [{ en: "She hurt her hip.", zh: "" }] }]
+  }), /不完整的双语例句/);
 });
 
 test("AI completion detection retries incomplete words but preserves complete duplicates", () => {

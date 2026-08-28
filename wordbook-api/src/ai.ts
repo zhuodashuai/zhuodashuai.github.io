@@ -191,7 +191,8 @@ async function loadEcdictIndex(config: AppConfig): Promise<Map<string, EcdictRow
   const binding = config.ASSETS as unknown as object;
   const cached = ecdictIndexes.get(binding);
   if (cached) return cached;
-  const loading = (async () => {
+  let loading: Promise<Map<string, EcdictRow>>;
+  loading = (async () => {
     const response = await config.ASSETS!.fetch(new Request("https://wordbook-assets.internal/data/ecdict-core.json"));
     if (!response.ok) throw new Error(`ECDICT asset returned ${response.status}`);
     const payload = await response.json() as { entries?: unknown[] };
@@ -202,7 +203,15 @@ async function loadEcdictIndex(config: AppConfig): Promise<Map<string, EcdictRow
       index.set(normalizeEnglish(candidate[0]), candidate as EcdictRow);
     }
     return index;
-  })().catch(() => new Map<string, EcdictRow>());
+  })().catch((error) => {
+    // A transient static-assets failure must not poison the isolate for every
+    // later lookup. Concurrent callers may share this one empty result, while
+    // the next request is allowed to fetch the snapshot again.
+    if (ecdictIndexes.get(binding) === loading) ecdictIndexes.delete(binding);
+    const diagnostic = error instanceof Error ? error.message.slice(0, 200) : "unknown error";
+    console.warn("ecdict_asset_load_failed", { diagnostic });
+    return new Map<string, EcdictRow>();
+  });
   ecdictIndexes.set(binding, loading);
   return loading;
 }
@@ -399,15 +408,18 @@ function groupDictionaryGlosses(glosses: DictionaryGloss[]): Map<string, string[
 /**
  * Produce a conservative, deterministic draft only from an exact ECDICT row.
  * Similar-spelling candidates and curated expectations are deliberately not
- * enough: neither is a source for the user's exact input.  Both bilingual
- * gloss columns must be present, so this path never fabricates a translation.
+ * enough: neither is a source for the user's exact input. The exact Chinese
+ * column is sufficient to avoid losing trustworthy source text. Missing
+ * English evidence remains blank and makes the draft explicitly
+ * incomplete; this path never fabricates a translation or aligned sense.
  */
 function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): { entry: PublicEntry; reliable: boolean } | null {
   const row = evidence.exactRow;
   if (!row) return null;
   const meaning = String(row[4] || "").trim();
   const definition = String(row[5] || "").trim();
-  if (!meaning || !definition) return null;
+  if (!meaning) return null;
+  const hasEnglishDefinition = Boolean(definition);
 
   const defaultPart = evidencePartOfSpeech(row[3]) || "unspecified";
   const chineseGroups = groupDictionaryGlosses(parseDictionaryGlosses(meaning, defaultPart));
@@ -427,7 +439,7 @@ function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): 
 
   // Some rows do not prefix both columns consistently.  Keeping each complete
   // source column together is safer than guessing how unmatched lines align.
-  if (!candidateSenses.length) {
+  if (hasEnglishDefinition && !candidateSenses.length) {
     candidateSenses.push({
       partOfSpeech: defaultPart,
       meaningZh: meaning,
@@ -444,7 +456,7 @@ function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): 
   const englishParts = new Set(englishGroups.keys());
   const completePartCoverage = chineseParts.size === englishParts.size
     && [...chineseParts].every((part) => englishParts.has(part));
-  const candidatePartOfSpeech = [...new Set(candidateSenses.map((sense) => sense.partOfSpeech))].join(" · ");
+  const candidatePartOfSpeech = [...new Set(candidateSenses.map((sense) => sense.partOfSpeech))].join(" · ") || defaultPart;
   const candidateOrganized = AiOrganizedSchema.parse({
     suggestedTerm: input,
     standardForm: String(row[1] || row[0] || input).trim() || input,
@@ -482,7 +494,7 @@ function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): 
   // separated meanings. Only concept-level semantic QA is strong enough to
   // promote a fallback to aligned senses; every other exact match remains a
   // visible Chinese/English candidate that is explicitly blocked from publish.
-  const reliable = completePartCoverage && groundingPassed && Boolean(evidence.semanticGold);
+  const reliable = hasEnglishDefinition && completePartCoverage && groundingPassed && Boolean(evidence.semanticGold);
 
   const rawParts = rowPartsOfSpeech(row);
   const partOfSpeech = reliable
@@ -493,13 +505,19 @@ function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): 
     ...candidateOrganized,
     partOfSpeech,
     senses: reliable ? candidateSenses : [],
-    usage: reliable ? "" : "【待复核】ECDICT 的中英文原始释义无法按义项可靠对齐；请核对并补全义项后再发布。",
+    usage: reliable
+      ? ""
+      : hasEnglishDefinition
+        ? "【待复核】ECDICT 的中英文原始释义无法按义项可靠对齐；请核对并补全义项后再发布。"
+        : "【待复核】ECDICT 精确词条只有中文释义，缺少英文定义；请补全英文定义和分义项后再发布。",
     tags: reliable
       ? candidateOrganized.tags
       : [...new Set(["待复核", "ECDICT 原始释义", ...candidateOrganized.tags])].slice(0, 20),
     attributionNote: reliable
       ? candidateOrganized.attributionNote
-      : "仅保留本地 ECDICT 精确词条的原始中英文栏位；尚未完成逐义项对齐。"
+      : hasEnglishDefinition
+        ? "仅保留本地 ECDICT 精确词条的原始中英文栏位；尚未完成逐义项对齐。"
+        : "仅保留本地 ECDICT 精确词条的原始中文栏位；英文定义和逐义项仍待补全。"
   });
   const entry = makeEntryFromAi(input, organized, "cloudflare", exactDictionarySources, 1);
   return { entry: PublicEntrySchema.parse({
@@ -520,11 +538,17 @@ function localDictionaryFallbackResult(input: string, evidence: LexicalEvidence)
   const fallback = makeExactDictionaryFallback(input, evidence);
   if (!fallback) return null;
   const { entry, reliable } = fallback;
+  const missingEnglishDefinition = !entry.definition.trim();
   const warnings = reliable
     ? [
       "AI 暂时未能完成整理；系统已用与原输入完全匹配的本地 ECDICT 词条填入中英文释义。",
       "该结果已通过本地词性与校订要求检查，但没有生成例句；请由卓复核后再发布。"
     ]
+    : missingEnglishDefinition
+      ? [
+        "AI 暂时未能完成整理；系统已保留精确 ECDICT 词条的原始中文释义，避免留下中文空白。",
+        "【必须复核】本地词条缺少英文定义，因此英文定义和 senses 保持空白；请手动核对并补全后再发布。"
+      ]
     : [
       "AI 暂时未能完成整理；系统仅保留了精确 ECDICT 词条的原始中文释义和英文释义，避免留下空白。",
       "【必须复核】中英文义项无法可靠逐项对齐，因此没有生成可发布的 sense；请手动核对并补全后再发布。"

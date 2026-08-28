@@ -407,6 +407,58 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(result.entry.organizationMethod).toBe("local-dictionary");
   });
 
+  it("preserves exact Chinese-only ECDICT evidence as an incomplete, blocked draft", async () => {
+    const row = ["a bit", "a bit", "", "", "一点儿；有一点儿", "", 0, 1, 0, 0, "", []];
+    const assets = {
+      fetch: vi.fn(async () => Response.json({ entries: [row] }))
+    } as unknown as Fetcher;
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+
+    const result = await organizeEntry("a bit", cloudflareConfig(run, assets));
+
+    expect(result).toMatchObject({ provider: "local-dictionary", reviewRequired: true });
+    expect(result.entry).toMatchObject({
+      originalInput: "a bit",
+      term: "a bit",
+      meaning: "一点儿；有一点儿",
+      definition: "",
+      senses: [],
+      organizationMethod: "local-dictionary"
+    });
+    expect(result.entry.tags).toEqual(expect.arrayContaining(["待复核", "ECDICT 原始释义"]));
+    expect(result.entry.usage).toMatch(/缺少英文定义.*再发布/);
+    expect(result.warnings.join(" ")).toMatch(/保留.*中文释义.*英文定义和 senses 保持空白/);
+    expect(run).toHaveBeenCalledOnce();
+  });
+
+  it("retries the ECDICT asset after a transient load failure instead of caching an empty index", async () => {
+    const row = [
+      "recoverword", "recoverword", "", "noun", "n. 恢复词",
+      "n. a test word used to verify dictionary recovery", 0, 0, 0, 0, "", []
+    ];
+    const assetFetch = vi.fn()
+      .mockResolvedValueOnce(new Response("temporarily unavailable", { status: 503 }))
+      .mockResolvedValueOnce(Response.json({ entries: [row] }));
+    const assets = { fetch: assetFetch } as unknown as Fetcher;
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+    const warning = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    const config = cloudflareConfig(run, assets);
+
+    await expect(organizeEntry("recoverword", config)).rejects.toMatchObject({
+      status: 429,
+      code: "ai_rate_limited"
+    });
+    const recovered = await organizeEntry("recoverword", config);
+
+    expect(recovered).toMatchObject({ provider: "local-dictionary", reviewRequired: true });
+    expect(recovered.entry.meaning).toContain("恢复词");
+    expect(recovered.entry.definition).toContain("verify dictionary recovery");
+    expect(assetFetch).toHaveBeenCalledTimes(2);
+    expect(warning).toHaveBeenCalledWith("ecdict_asset_load_failed", {
+      diagnostic: "ECDICT asset returned 503"
+    });
+  });
+
   it("does not turn a mere spelling candidate into a dictionary fallback", async () => {
     const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
     await expect(organizeEntry("hep", cloudflareConfig(run))).rejects.toMatchObject({

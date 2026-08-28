@@ -353,6 +353,46 @@ export function hasCompletedAiOrganization(entry) {
   return ["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"].includes(entry?.organizationMethod);
 }
 
+function visibleText(value) {
+  return String(value || "").normalize("NFKC").replace(/[\p{Cc}\p{Cf}]/gu, "").trim();
+}
+
+export function hasChineseHanText(value) {
+  return /\p{Script=Han}/u.test(visibleText(value));
+}
+
+/**
+ * Browser-side defence in depth for a provider response that passed the JSON
+ * shape check but is not a usable bilingual learning entry. The server applies
+ * stronger semantic checks; this guard prevents an old or regressed endpoint
+ * from being presented as a successful organization result.
+ */
+export function assertCompleteAiCandidate(entry) {
+  const issues = [];
+  if (!hasChineseHanText(entry?.meaning)) issues.push("中文释义没有有效汉字");
+  if (!visibleText(entry?.definition)) issues.push("英文释义为空");
+  if (new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]).has(entry?.entryType)) {
+    if (!Array.isArray(entry?.senses) || entry.senses.length === 0) {
+      issues.push("词汇词条没有分义项");
+    } else {
+      entry.senses.forEach((sense, index) => {
+        const label = `第 ${index + 1} 个义项`;
+        if (!hasChineseHanText(sense?.meaningZh)) issues.push(`${label}缺少有效中文`);
+        if (!visibleText(sense?.definitionEn)) issues.push(`${label}缺少英文释义`);
+        if (!Array.isArray(sense?.examples) || sense.examples.length === 0) {
+          issues.push(`${label}缺少双语例句`);
+        } else if (sense.examples.some((example) => !visibleText(example?.en) || !hasChineseHanText(example?.zh))) {
+          issues.push(`${label}存在不完整的双语例句`);
+        }
+      });
+    }
+  }
+  if (issues.length) {
+    throw new Error(`AI 返回内容未通过前端完整性检查：${[...new Set(issues)].join("；")}。`);
+  }
+  return entry;
+}
+
 export function needsAiCompletion(entry) {
   if (!entry || typeof entry !== "object") return true;
   const lexicalTypes = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
