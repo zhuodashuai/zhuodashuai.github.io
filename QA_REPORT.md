@@ -8,15 +8,17 @@
 
 ## 结论
 
-本地候选版本的自动化、确定性浏览器和安全边界测试全部通过；但**正式环境仍不具备新版 Owner 登录、AI 整理和 GitHub 写入链路**。正式 GitHub Pages 当前仍是旧版 v13/PAT 管理界面，`/vocab/owner.html` 与 `/api/v1/session` 返回 404。Cloudflare Worker、GitHub App、服务端 secret 和 `OWNER_ADMIN_URL` 尚未配置，因此真实 `zhuodashuai` 身份、真实 AI 输出、真实 GitHub commit、正式环境数据生命周期都为 **BLOCKED**，不是 Passed。
+本地候选版本的自动化、确定性浏览器和安全边界测试全部通过。提交 `1461006` 已快进发布到 `main`；GitHub Pages deployment `33167176269` 与 main 分支 Wordbook CI `33167177860` 均成功。正式主页、公开词库与 `/vocab/owner.html` 已完成 Chromium smoke test，公开快照显示 1 条 `jab at`，页面无 console warning/error。
+
+但**正式环境仍不具备 Owner 登录、AI 整理和 GitHub 写入链路**。线上管理页目前会正确 fail closed，并说明只读副本不能持有凭据；Cloudflare Worker、GitHub App、服务端 secret 和 `OWNER_ADMIN_URL` 尚未配置，GitHub Pages 上的 `/api/v1/session` 仍不可用。因此真实 `zhuodashuai` 后端身份、真实 AI 输出、真实 GitHub API commit 与完整生产数据生命周期仍为 **BLOCKED**，不是 Passed。
 
 退出条件因此尚未全部满足。本报告没有把 mock OAuth、fixture 或本地 dry-run 冒充成正式环境成功。
 
-## 首次线上黑盒：`hip`
+## 修复前首次线上黑盒：`hip`
 
 黑盒测试在查看当前实现之前完成。逐步截图和原始记录位于 [`qa-artifacts/black-box/`](qa-artifacts/black-box/)。为避免删除已有浏览器数据，又使用尾点主机名 `https://zhuodashuai.github.io./vocab/` 取得独立 origin，确认空本地词库下的首次添加路径。
 
-### 当前线上实际结果
+### 修复前线上实际结果
 
 - 未被判断为拼写错误，也没有被替换。
 - IPA 为 `/hɪp/`。
@@ -38,7 +40,7 @@
 4. `rose hip` 的植物果实义可以低优先级收录，不能压过常见义。
 5. 每个 POS/sense 都有自己的英文解释和对应双语例句。
 
-当前线上结果在拼写、IPA 和核心释义上基本正确，但在多词性结构与例句完整性上失败。
+修复前线上结果在拼写、IPA 和核心释义上基本正确，但在多词性结构与例句完整性上失败。部署 `1461006` 后，公开页已改为 GitHub canonical snapshot 的只读阅读器；因为生产 Owner Worker 尚未配置，不能把本地 mock 的新版 `hip` 发布流程冒充成线上复测。
 
 ## `hip` 过去为什么会出现 `verb + kamus在线bm ke bi`
 
@@ -77,9 +79,9 @@
 
 | ID | Input | Expected | Actual | Severity | Root cause | Fix | Regression test | Local result | Live result |
 | -- | ----- | -------- | ------ | -------- | ---------- | --- | --------------- | ------------ | ----------- |
-| QA-001 | `hip` | noun 与 informal adjective 分开；每义项有双语例句 | 正式站点只有 `noun` 标签，定义混入 adjective；例句为空 | High | 旧扁平词条模型只容纳一个 POS | 通用 sense schema、语义闸门、由 senses 重建顶层字段 | API `hip` semantic regression；Playwright 完整发布/详情 | PASS | **FAIL / 未部署** |
-| QA-002 | `hip`（用户旧截图） | 常用 noun 首位、干净中文 | 旧结果选罕见 verb，并出现 `kamus在线bm ke bi` | High | verb-first 选择器 + 未过滤公共 MT 结果 | 旧层已用 noun-first editorial/垃圾过滤；新版不再采用该 MT 管线 | `core-accuracy`、dirty-translation、API dirty-top-level fixture | PASS | Gross error 不再复现；结构问题仍 FAIL |
-| QA-003 | Owner 登录 | GitHub OAuth；浏览器不接触 token | 正式站点要求 fine-grained PAT；新版 `/owner.html`/API 404 | Critical | 新 Worker/GitHub App 没有部署，Pages 仍是 v13 | 本地已实现 HttpOnly session、账户+数值 ID+repo ID 校验、CSRF、Origin 与 idempotency | auth/security/API/E2E | PASS（mock + integration） | **BLOCKED** |
+| QA-001 | `hip` | noun 与 informal adjective 分开；每义项有双语例句 | 修复前站点只有 `noun` 标签，定义混入 adjective；例句为空 | High | 旧扁平词条模型只容纳一个 POS | 通用 sense schema、语义闸门、由 senses 重建顶层字段 | API `hip` semantic regression；Playwright 完整发布/详情 | PASS | **BLOCKED（Owner Worker 未部署）** |
+| QA-002 | `hip`（用户旧截图） | 常用 noun 首位、干净中文 | 旧结果选罕见 verb，并出现 `kamus在线bm ke bi` | High | verb-first 选择器 + 未过滤公共 MT 结果 | 旧层已用 noun-first editorial/垃圾过滤；新版不再采用该 MT 管线 | `core-accuracy`、dirty-translation、API dirty-top-level fixture | PASS | 旧写入路径已下线；新版 live AI 仍 BLOCKED |
+| QA-003 | Owner 登录 | GitHub OAuth；浏览器不接触 token | `/owner.html` 已上线并 fail closed；Worker session API 尚未部署 | Critical | Worker/GitHub App 与服务端 secrets 未完成一次性配置 | 本地已实现 HttpOnly session、账户+数值 ID+repo ID 校验、CSRF、Origin 与 idempotency | auth/security/API/E2E | PASS（mock + integration） | **PARTIAL：安全锁定 PASS，真实登录 BLOCKED** |
 | QA-004 | `hip!`, `"hip"`, case variants | 去重为 `hip`，保留用户原文 | 修复前会分类为 quote 或产生不同 key | High | normalization 只处理大小写/空格 | 单词边界标点 canonicalization，同步到浏览器与 Worker | schema + browser normalization + Playwright `HIP!` | PASS | BLOCKED（未部署） |
 | QA-005 | `<script>…`, HTML, `javascript:`、混合中英文 | AI 前安全拒绝 | 修复前含英文字母即可进入 AI 流程 | High | 输入验证只检查是否含 `[A-Za-z]` | HTML/JS/CJK/control/length guards；DOM 始终使用 textContent | schema、resilience、XSS Playwright | PASS | BLOCKED（Owner API 未部署） |
 | QA-006 | AI duplicate sense / empty examples / invalid IPA format | 不创建半个词条；重试后可手填 | 旧 shape-only Zod 可接受 | High | 只验证 JSON 类型，不验证语义一致性 | `semantic-quality.ts` 通用闸门与 retry | failure-simulations + complete `hip` | PASS | BLOCKED（无真实 AI） |
@@ -113,7 +115,7 @@
 
 16 维评分为每项 0/1/2，阈值 28/32；错误核心义、虚构来源、静默误纠正、例句错配或任何关键维度为 0 会直接 Fail。
 
-这 71 项的**预期、严重程度与禁止行为**已全部建立并通过 fixture 一致性测试；它们不是 71 次真实线上 AI 输出。由于正式 Owner AI 未部署，当前只有 `hip` 完成线上黑盒实际值采集，其余 live AI actual 均为 BLOCKED。
+这 71 项的**预期、严重程度与禁止行为**已全部建立并通过 fixture 一致性测试；它们不是 71 次真实线上 AI 输出。由于正式 Owner AI 未部署，当前只有修复前的 `hip` 完成线上黑盒实际值采集，其余 live AI actual 均为 BLOCKED。
 
 另有旧本地词典的 100 词金标准和 100 次重复输入测试通过；该结果验证旧 offline pipeline 与去重逻辑，不替代新版真实 provider 的 71 项 live semantic evaluation。
 
@@ -138,7 +140,7 @@
 
 ### 浏览器
 
-- 正式站点：Codex in-app Chromium 可见操作与截图，无 console error；完整 network waterfall 不可用。
+- 正式站点：提交 `1461006` 发布后，Codex in-app Chromium 已验证主页、公开词库和 fail-closed 管理页；公开快照成功加载 `jab at`，无 console warning/error。完整 network waterfall 不可用。
 - 本地：Chrome/Chromium desktop、375×812 mobile、键盘 focus/touch target、快速双提交、back/forward、多标签页、offline/online、Slow 3G、PWA manifest `display: standalone`、Service Worker install/update/activate 均有自动覆盖。
 - 当前自动化验证 standalone manifest/installability 和 standalone-safe layout，未在真实操作系统桌面图标中启动一次安装后的独立窗口；正式 PWA 安装 smoke test 为部署后的人工步骤。
 
@@ -158,14 +160,13 @@
 
 ## 生产阻塞与下一步
 
-当前机器没有 `gh` CLI/可用 Git push credential，Wrangler 明确返回 `You are not authenticated`。生产 Worker 还需要由 Owner 在隐藏 secret prompt 中配置 GitHub App client ID/client secret、随机 session secret 和 OpenAI API key；如需 Claude 备用，再配置 Anthropic API key。之后还要把准确的 Worker origin 写入 `vocab/js/runtime-config.js`。
+GitHub 设备授权和推送已经完成；`main` 与 `codex/wordbook-owner-v2` 都指向 `1461006`。GitHub Pages 与 Wordbook CI 均成功，公开端已经上线。Wrangler 仍明确返回 `You are not authenticated`。生产 Worker 还需要由 Owner 完成 Cloudflare 官方登录，并在隐藏 secret prompt 中配置 GitHub App client ID/client secret、随机 session secret 和 OpenAI API key；如需 Claude 备用，再配置 Anthropic API key。之后还要把准确的 Worker origin 写入 `vocab/js/runtime-config.js`。
 
 完成这些授权前：
 
-- 不能推送并发布这次 QA 修复；
 - 不能真实登录为 `zhuodashuai`；
 - 不能运行 71 项正式 AI 语义矩阵；
-- 不能核对最终 GitHub JSON、API response 与正式页面；
+- 不能核对一次真实 Worker 发布后的 GitHub JSON、认证 API response 与正式页面三方一致性；
 - 不能关闭 QA-003、QA-016 或宣布“不存在 Critical/High 问题”。
 
 所需生产配置和不泄露 secret 的步骤见 [`docs/wordbook-owner-v2.md`](docs/wordbook-owner-v2.md)。
