@@ -5,7 +5,7 @@ A lightweight, accessible academic profile for GitHub Pages.
 ## Repository map
 
 - `/` — academic profile and GitHub Pages homepage
-- `/vocab/` — standalone **Wordbook** vocabulary organiser
+- `/vocab/` — installable **Wordbook** PWA with a public owner collection, private personal collections and optional GitHub backup
 - `/U1L1_coding.ipynb` — existing coursework notebook, retained in its original location
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.

@@ -1,7 +1,7 @@
-import { createSeedEntry } from "./data.js";
+import { normalizeKey, sanitizeEntries, sanitizeEntry, validateEntryInput } from "./schema.js";
 
 const DB_NAME = "wordbook-db";
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 const STORE = "entries";
 const META_STORE = "meta";
 let databasePromise;
@@ -27,18 +27,40 @@ function openDatabase() {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
     request.onupgradeneeded = () => {
       const database = request.result;
-      if (!database.objectStoreNames.contains(STORE)) {
-        const store = database.createObjectStore(STORE, { keyPath: "id" });
-        store.createIndex("normalized", "normalized", { unique: true });
-        store.createIndex("dueAt", "review.dueAt", { unique: false });
-        store.createIndex("createdAt", "createdAt", { unique: false });
-      }
+      const transaction = request.transaction;
+      const store = database.objectStoreNames.contains(STORE)
+        ? transaction.objectStore(STORE)
+        : database.createObjectStore(STORE, { keyPath: "id" });
+      if (!store.indexNames.contains("normalized")) store.createIndex("normalized", "normalized", { unique: true });
+      if (!store.indexNames.contains("dueAt")) store.createIndex("dueAt", "review.dueAt", { unique: false });
+      if (!store.indexNames.contains("createdAt")) store.createIndex("createdAt", "createdAt", { unique: false });
       if (!database.objectStoreNames.contains(META_STORE)) {
         database.createObjectStore(META_STORE, { keyPath: "key" });
       }
     };
-    request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error);
+    request.onblocked = () => {
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("wordbook:storage-blocked"));
+      }
+    };
+    request.onsuccess = () => {
+      const database = request.result;
+      database.onversionchange = () => {
+        database.close();
+        databasePromise = null;
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new CustomEvent("wordbook:storage-versionchange"));
+        }
+      };
+      database.onclose = () => {
+        databasePromise = null;
+      };
+      resolve(database);
+    };
+    request.onerror = () => {
+      databasePromise = null;
+      reject(request.error);
+    };
   });
   return databasePromise;
 }
@@ -46,17 +68,6 @@ function openDatabase() {
 async function storeFor(mode = "readonly") {
   const database = await openDatabase();
   return database.transaction(STORE, mode).objectStore(STORE);
-}
-
-export async function ensureSeed() {
-  const database = await openDatabase();
-  const metaStore = database.transaction(META_STORE, "readonly").objectStore(META_STORE);
-  const seeded = await requestResult(metaStore.get("seeded"));
-  if (seeded?.value) return;
-  const existing = await getEntryByNormalized("jab at");
-  if (!existing) await saveEntry(createSeedEntry());
-  const writeMeta = database.transaction(META_STORE, "readwrite").objectStore(META_STORE);
-  await requestResult(writeMeta.put({ key: "seeded", value: true, at: new Date().toISOString() }));
 }
 
 export async function getAllEntries() {
@@ -71,69 +82,47 @@ export async function getEntryByNormalized(normalized) {
 }
 
 export async function saveEntry(entry) {
-  const store = await storeFor("readwrite");
-  await requestResult(store.put(entry));
-  return entry;
+  const clean = sanitizeEntry(entry, { existing: null, preserveId: true, includeReview: true });
+  const database = await openDatabase();
+  const transaction = database.transaction(STORE, "readwrite");
+  transaction.objectStore(STORE).put(clean);
+  await transactionResult(transaction);
+  return clean;
 }
 
 export async function deleteEntry(id) {
-  const store = await storeFor("readwrite");
-  await requestResult(store.delete(id));
+  const database = await openDatabase();
+  const transaction = database.transaction(STORE, "readwrite");
+  transaction.objectStore(STORE).delete(id);
+  await transactionResult(transaction);
 }
 
 export async function importEntries(entries) {
+  if (!Array.isArray(entries)) throw new Error("词库数据必须是数组。");
   const candidatesByTerm = new Map();
-  for (const candidate of entries) {
-    if (!candidate || typeof candidate.term !== "string") continue;
-    const normalized = candidate.term
-      .trim()
-      .replace(/[’‘]/g, "'")
-      .replace(/\s+/g, " ")
-      .toLowerCase();
-    if (!normalized || normalized.length > 80 || !/^[a-z][a-z' -]*$/.test(normalized)) continue;
-    candidatesByTerm.set(normalized, candidate);
+  for (const candidate of entries.slice(0, 10000)) {
+    try {
+      const normalized = normalizeKey(validateEntryInput(candidate?.term));
+      candidatesByTerm.set(normalized, candidate);
+    } catch {
+      // Invalid items are counted by the caller and skipped here.
+    }
   }
-
   const prepared = [];
   for (const [normalized, candidate] of candidatesByTerm) {
     const existing = await getEntryByNormalized(normalized);
-    const now = new Date().toISOString();
-    const candidateReview = candidate.review && typeof candidate.review === "object" ? candidate.review : {};
-    const existingReview = existing?.review || {};
-    const levelNumber = Number(candidateReview.level ?? existingReview.level ?? 0);
-    const level = Number.isFinite(levelNumber) ? Math.min(7, Math.max(0, Math.trunc(levelNumber))) : 0;
-    const validDate = (value, fallback) => {
-      const date = new Date(value);
-      return Number.isNaN(date.getTime()) ? fallback : date.toISOString();
-    };
-    const nonNegativeInteger = (value, fallback = 0) => {
-      const number = Number(value);
-      return Number.isFinite(number) ? Math.max(0, Math.trunc(number)) : fallback;
-    };
-    const entry = {
-      ...(existing || {}),
-      ...candidate,
-      id: existing?.id || crypto.randomUUID(),
-      normalized,
-      term: normalized,
-      tags: Array.isArray(candidate.tags) ? candidate.tags.map(String).filter(Boolean) : (existing?.tags || []),
-      forms: Array.isArray(candidate.forms) ? candidate.forms.map(String).filter(Boolean) : (existing?.forms || []),
-      history: Array.isArray(candidate.history) ? candidate.history.slice(-60) : (existing?.history || []),
-      createdAt: validDate(existing?.createdAt || candidate.createdAt, now),
-      updatedAt: now,
-      review: {
-        ...existingReview,
-        ...candidateReview,
-        level,
-        dueAt: validDate(candidateReview.dueAt || existingReview.dueAt, now),
-        reviewCount: nonNegativeInteger(candidateReview.reviewCount, existingReview.reviewCount || 0),
-        lapseCount: nonNegativeInteger(candidateReview.lapseCount, existingReview.lapseCount || 0),
-        lastRating: ["again", "hard", "good", "easy", null].includes(candidateReview.lastRating)
-          ? candidateReview.lastRating
-          : (existingReview.lastRating || null)
-      }
-    };
-    prepared.push(entry);
+    const merged = existing
+      ? {
+          ...existing,
+          ...candidate,
+          id: existing.id,
+          review: candidate.review && typeof candidate.review === "object"
+            ? { ...existing.review, ...candidate.review }
+            : existing.review,
+          history: Array.isArray(candidate.history) ? candidate.history : existing.history
+        }
+      : candidate;
+    prepared.push(sanitizeEntry(merged, { existing, preserveId: false, includeReview: true }));
   }
 
   const database = await openDatabase();
@@ -153,4 +142,40 @@ export async function importEntries(entries) {
   }
   await completion;
   return prepared.length;
+}
+
+export async function replaceEntries(entries) {
+  const prepared = sanitizeEntries(entries, { preserveIds: true, includeReview: true });
+  const database = await openDatabase();
+  const transaction = database.transaction(STORE, "readwrite");
+  const store = transaction.objectStore(STORE);
+  const completion = transactionResult(transaction);
+  try {
+    store.clear();
+    prepared.forEach((entry) => store.put(entry));
+  } catch (error) {
+    try {
+      transaction.abort();
+    } catch {
+      // The completion promise below still settles with the transaction state.
+    }
+    await completion.catch(() => {});
+    throw error;
+  }
+  await completion;
+  return prepared.length;
+}
+
+export async function getMeta(key) {
+  const database = await openDatabase();
+  const store = database.transaction(META_STORE, "readonly").objectStore(META_STORE);
+  return (await requestResult(store.get(key)))?.value ?? null;
+}
+
+export async function setMeta(key, value) {
+  const database = await openDatabase();
+  const transaction = database.transaction(META_STORE, "readwrite");
+  transaction.objectStore(META_STORE).put({ key, value, updatedAt: new Date().toISOString() });
+  await transactionResult(transaction);
+  return value;
 }

@@ -1,0 +1,42 @@
+{
+  "id": "./?mode=personal",
+  "name": "Wordbook · 我的英语词库",
+  "short_name": "Wordbook",
+  "description": "只输入英文，自动整理释义、出处与复习计划。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./?mode=personal",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2eee5",
+  "theme_color": "#20372f",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "我的个人词库",
+      "short_name": "我的词库",
+      "url": "./?mode=personal#add",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "卓达帅的公开词库",
+      "short_name": "公开词库",
+      "url": "./?mode=public",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
