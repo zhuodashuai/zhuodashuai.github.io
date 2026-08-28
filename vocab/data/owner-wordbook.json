@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-08-28T04:36:37.663Z",
-  "revisionId": "migration-v3-2026-08-28",
-  "lastMutationId": "",
+  "exportedAt": "2026-08-28T15:35:53.287Z",
+  "revisionId": "83722f12-b787-406e-89df-26ccc74054b0",
+  "lastMutationId": "8f15f4ac-376e-43d1-97fb-5691049c88d9",
   "entries": [
     {
       "id": "public-jab-at",
@@ -73,6 +73,128 @@
       "organizationMethod": "local-dictionary",
       "createdAt": "2026-08-27T00:00:00.000Z",
       "updatedAt": "2026-08-27T00:00:00.000Z"
+    },
+    {
+      "id": "public-00c3cb7d-d073-4bdc-91b2-d97e566c019b",
+      "revision": 1,
+      "originalInput": "hip",
+      "term": "hip",
+      "normalized": "hip",
+      "standardForm": "hip",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "hip",
+        "suggestion": "",
+        "chosen": "hip",
+        "confidence": 1,
+        "source": "ai-cloudflare"
+      },
+      "phonetic": "/hɪp/",
+      "partOfSpeech": "noun · adjective",
+      "meaning": "noun：髋部;臀部;髋关节\nadjective：时髦的;了解最新潮流的",
+      "definition": "noun: Either side of the body below the waist and above the thigh; the joint where the thigh bone meets the pelvis.\nadjective: Fashionable or up-to-date; aware of current trends.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "髋部；臀部；髋关节",
+          "definitionEn": "Either side of the body below the waist and above the thigh; the joint where the thigh bone meets the pelvis.",
+          "usageNotes": "In anatomy, the hip joint connects the femur to the pelvis. Colloquially, 'hip' can refer to the buttocks.",
+          "register": "general",
+          "collocations": [
+            "hip joint",
+            "hip replacement",
+            "hip width"
+          ],
+          "examples": [
+            {
+              "en": "She has very wide hips.",
+              "zh": "她的胯部很宽。"
+            },
+            {
+              "en": "The doctor examined his hip joint.",
+              "zh": "医生检查了他的髋关节。"
+            }
+          ],
+          "confusables": []
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "时髦的；了解最新潮流的",
+          "definitionEn": "Fashionable or up-to-date; aware of current trends.",
+          "usageNotes": "This sense is informal and often used in phrases like 'keep up with the times' or 'be hip to something'.",
+          "register": "informal",
+          "collocations": [
+            "keep up with the times",
+            "be hip to",
+            "very hip"
+          ],
+          "examples": [
+            {
+              "en": "The club is very hip and attracts young people.",
+              "zh": "这家俱乐部非常时髦,吸引了很多年轻人。"
+            },
+            {
+              "en": "He is hip to the latest technology trends.",
+              "zh": "他了解最新的技术潮流。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "hip joint",
+        "hip replacement",
+        "hip width",
+        "keep up with the times",
+        "be hip to",
+        "very hip"
+      ],
+      "exampleEn": "She has very wide hips.",
+      "exampleZh": "她的胯部很宽。",
+      "usage": "The word 'hip' is used in both anatomical and informal contexts. In the anatomical sense, it refers to the body part connecting the leg to the torso. In the informal sense, it describes someone who is fashionable or knowledgeable about current trends.",
+      "register": "general/informal",
+      "confusedWith": [],
+      "forms": [
+        "hips",
+        "hippest",
+        "hipper"
+      ],
+      "tags": [
+        "cet6",
+        "ky",
+        "editorial"
+      ],
+      "author": "",
+      "sourceTitle": "",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "https://github.com/skywind3000/ECDICT",
+      "attributionStatus": "unverified",
+      "attributionNote": "unverified",
+      "sources": [
+        {
+          "title": "ECDICT local dictionary snapshot",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-28T15:35:21.998Z"
+        },
+        {
+          "title": "Zhuo wordbook curated semantic QA",
+          "url": "https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/vocab/quality/datasets/semantic-qa.json",
+          "kind": "secondary",
+          "retrievedAt": "2026-08-28T15:35:21.998Z"
+        },
+        {
+          "title": "Zhuo wordbook 100-word gold dataset",
+          "url": "https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/vocab/quality/datasets/vocab-100.json",
+          "kind": "secondary",
+          "retrievedAt": "2026-08-28T15:35:21.998Z"
+        }
+      ],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-28T15:35:25.513Z",
+      "updatedAt": "2026-08-28T15:35:53.287Z"
     }
   ]
 }
