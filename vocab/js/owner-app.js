@@ -17,7 +17,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, createBlankEntry, findDuplicate, hasCompletedAiOrganization, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, createBlankEntry, findDuplicate, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -52,7 +52,8 @@ const state = {
   conflict: null,
   ownerSearch: "",
   ownerInputHandled: false,
-  organizingToken: null
+  organizingToken: null,
+  phoneticEditRevisions: new Map()
 };
 const OWNER_INPUT_LIMIT = 240;
 const PENDING_OWNER_INPUT_KEY = "zhuo-wordbook:pending-owner-input";
@@ -132,12 +133,9 @@ function renderDraftCompletionNotice(entry) {
 function editorNeedsAiCompletion(entry) {
   if (needsAiCompletion(entry)) return true;
   if (entry?.entryType !== "word") return false;
-  if (hasCompletedAiOrganization(entry)) return false;
-  // A migrated draft can carry a legacy/internal phonetic value that does not
-  // survive normalization into the visible editor. Judge the visible field as
-  // the final safety check so an apparently blank IPA is never treated as a
-  // complete word.
-  return !hasUsablePronunciation(refs.fieldPhonetic.value);
+  // Older AI drafts may be otherwise complete but still lack an IPA. Judge the
+  // duplicate itself rather than whichever draft happens to be open in the DOM.
+  return !hasUsablePronunciation(entry.phonetic);
 }
 
 function hasVerifiedOwnerUi() {
@@ -597,6 +595,8 @@ async function loadRemote({ quiet = false } = {}) {
 async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } = {}) {
   const aiBaseline = structuredClone(draft.value);
   fillEditor(draft);
+  const phoneticRevisionAtRequest = state.phoneticEditRevisions.get(draft.id) || 0;
+  let commitWindowLocked = false;
   if (!state.session) {
     setStatus(refs.captureStatus, "当前离线且无法验证会话；空白草稿已保存，联网并重新验证后再使用 AI。 ");
     return;
@@ -616,6 +616,14 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
         code: "ai_response_contract"
       });
     }
+    // From this point until the merged draft has been committed, no editor
+    // event may race the IndexedDB flush/get/save sequence. Edits made while
+    // the provider was running have already raised their field revisions and
+    // will be flushed below; the short commit window is then atomic from the
+    // owner's point of view.
+    refs.entryForm.inert = true;
+    refs.entryForm.setAttribute("aria-busy", "true");
+    commitWindowLocked = true;
     await flushPendingDraftSave();
     const latestDraft = await getDraft(draft.id);
     if (!latestDraft || state.currentDraft?.id !== draft.id) return;
@@ -626,7 +634,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
       || (aiBaseline.tags?.includes("待复核") && !(aiBaseline.senses || []).length ? aiBaseline : null);
     const mergeResult = mergeAiCandidate(aiBaseline, currentEntry, aiEntry, { fillMissingOnly });
     const mergedEntry = mergeResult.merged;
-    const preservedManualChanges = mergeResult.preservedManualChanges;
+    let preservedManualChanges = mergeResult.preservedManualChanges;
     const completingUnreviewedDictionary = Boolean(dictionaryCandidateBaseline)
       && result.reviewRequired !== true
       && aiEntry.senses.length > 0;
@@ -648,6 +656,18 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     }
     if (result.reviewRequired !== true && aiEntry.senses.length) {
       mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
+    }
+    const phoneticTouchedDuringRequest = (state.phoneticEditRevisions.get(draft.id) || 0) !== phoneticRevisionAtRequest;
+    if (phoneticTouchedDuringRequest) {
+      // This final override runs after every dictionary/AI merge so even an
+      // empty value the owner deliberately restored is not mistaken for an
+      // untouched legacy blank.
+      mergedEntry.phonetic = currentEntry.phonetic;
+      preservedManualChanges = true;
+    } else if (hasPlausiblePhonetic && !hasUsablePronunciation(mergedEntry.phonetic)) {
+      // An unchanged legacy blank must accept the validated response IPA even
+      // if older draft metadata made the generic merge treat it as different.
+      mergedEntry.phonetic = responsePhonetic;
     }
     mergedEntry.originalInput = currentEntry.originalInput;
     mergedEntry.createdAt = currentEntry.createdAt;
@@ -677,6 +697,11 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   } catch (error) {
     const message = error.message || "AI 暂时不可用";
     setStatus(refs.captureStatus, /草稿/.test(message) ? message : `${message} 空白草稿仍可手动填写。`);
+  } finally {
+    if (commitWindowLocked) {
+      refs.entryForm.inert = false;
+      refs.entryForm.removeAttribute("aria-busy");
+    }
   }
 }
 
@@ -963,7 +988,11 @@ refs.manualButton.addEventListener("click", async () => {
     setStatus(refs.captureStatus, error.message);
   }
 });
-refs.entryForm.addEventListener("input", () => {
+refs.entryForm.addEventListener("input", (event) => {
+  if (event.target === refs.fieldPhonetic && state.currentDraft?.id) {
+    const draftId = state.currentDraft.id;
+    state.phoneticEditRevisions.set(draftId, (state.phoneticEditRevisions.get(draftId) || 0) + 1);
+  }
   renderDraftCompletionNotice(collectEntry());
   scheduleDraftSave();
 });

@@ -203,6 +203,29 @@ test("顶部 AI 会补全同一份未完成草稿，完整后重复输入不再�
   expect(aiRequestCount).toBe(1);
 });
 
+test("已由 AI 整理但 IPA 被清空的旧草稿会重新补全音标", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let aiRequestCount = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+  });
+  await loginOwner(page);
+  await addWithAi(page, "hip");
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+
+  await page.getByLabel("IPA", { exact: true }).fill("");
+  await page.getByRole("button", { name: "保存本地草稿" }).click();
+  await expect(page.locator("#draft-completion-notice")).toBeVisible();
+  await expect(page.locator("#draft-completion-message")).toContainText("IPA 音标");
+
+  await page.getByLabel("英文内容").fill("hip");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.locator("#draft-completion-notice")).toBeHidden();
+  await expect(page.locator("#capture-status")).toContainText("候选已写入草稿");
+  expect(aiRequestCount).toBe(2);
+});
+
 test("顶部整理和草稿补全的快速双击共用全局锁，只请求一次且按钮全程锁定", async ({ context, page }) => {
   await context.addCookies([
     { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
@@ -394,8 +417,31 @@ test("AI 返回较慢时保留卓已经输入的人工修改", async ({ context,
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: /slowword/ })).toBeVisible();
   await page.getByLabel("中文释义", { exact: true }).fill("卓在等待 AI 时手动写的释义");
+  await page.getByLabel("IPA", { exact: true }).fill("/ˈsləʊ.wɜːd/");
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓在等待 AI 时手动写的释义");
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/ˈsləʊ.wɜːd/");
+  await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
+  await expect(page.locator("#entry-form")).not.toHaveAttribute("aria-busy", "true");
+});
+
+test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await loginOwner(page);
+  await addWithAi(page, "hip");
+  await page.getByLabel("IPA", { exact: true }).fill("");
+  await page.getByRole("button", { name: "保存本地草稿" }).click();
+  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+
+  await page.getByRole("button", { name: "重新用 AI 整理" }).click();
+  await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
+  await page.getByLabel("IPA", { exact: true }).fill("/temporary/");
+  await page.getByLabel("IPA", { exact: true }).fill("");
+
+  await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部/);
+  await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
 });
 
 test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ context, page }) => {
