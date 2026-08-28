@@ -1,4 +1,4 @@
-import { organizeEntry } from "./ai";
+import { organizeEntry, organizeExactDictionaryFallback } from "./ai";
 import {
   aiProviderConfigured,
   aiProviderOrder,
@@ -198,7 +198,18 @@ async function organize(request: Request, env: Env): Promise<Response> {
   await controlCall(env, "/rate", { subject: session.hash, kind: "ai" });
   // This account-wide guard is deliberately independent of browser sessions.
   // Its UTC-day bucket aligns with Cloudflare's documented daily reset.
-  await controlCall(env, "/rate", { subject: "zhuo-owner-account", kind: "ai-daily" });
+  try {
+    await controlCall(env, "/rate", { subject: "zhuo-owner-account", kind: "ai-daily" });
+  } catch (error) {
+    if (error instanceof ApiError && error.code === "free_ai_daily_limit") {
+      const dictionaryFallback = await organizeExactDictionaryFallback(input, config);
+      if (dictionaryFallback) {
+        dictionaryFallback.warnings.unshift("今日免费 AI 整理次数已达到上限；本次没有调用 AI，已改用本地词典精确匹配。");
+        return jsonResponse(dictionaryFallback);
+      }
+    }
+    throw error;
+  }
   return jsonResponse(await organizeEntry(input, config));
 }
 

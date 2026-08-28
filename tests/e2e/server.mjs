@@ -147,6 +147,21 @@ async function api(request, response, url) {
     if (cookies(request).e2e_ai_delay === "1") await new Promise((resolveDelay) => setTimeout(resolveDelay, 700));
     const entry = organizedEntry(payload.input);
     const warnings = entry.correction.status === "suggested" ? ["拼写只作为建议，发布前请选择。"] : [];
+    if (cookies(request).e2e_ai_contract_break === "1") {
+      entry.phonetic = "";
+      warnings.push("音标已按本地校订数据锁定，不采用模型猜测。");
+    }
+    if (cookies(request).e2e_dictionary_review === "1") {
+      entry.phonetic = "/bæŋk/";
+      entry.partOfSpeech = "noun · verb";
+      entry.meaning = "n. 银行；银行机构\nn. 河岸；堤岸";
+      entry.definition = "n. sloping land beside a body of water\nn. a long ridge or pile";
+      entry.senses = [];
+      entry.usage = "【待复核】ECDICT 的中英文原始释义无法按义项可靠对齐；请核对并补全义项后再发布。";
+      entry.tags = ["待复核", "ECDICT 原始释义"];
+      warnings.push("【必须复核】中英文义项无法可靠逐项对齐，因此没有生成可发布的 sense；请手动核对并补全后再发布。");
+      return json(response, 200, { entry, provider: "local-dictionary", warnings, reviewRequired: true });
+    }
     if (entry.entryType === "quote") warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");
     return json(response, 200, { entry, provider: "cloudflare", warnings });
   }

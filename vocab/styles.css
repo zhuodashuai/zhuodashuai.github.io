@@ -92,6 +92,14 @@ input:focus, textarea:focus, select:focus { border-color: var(--green-2); box-sh
 .state-panel { padding: 1.4rem; border-radius: 14px; margin-bottom: 1rem; }
 .state-panel p { margin: .35rem 0 .8rem; }
 .error-panel { color: #652626; border: 1px solid #e0b8b2; background: #fff3f0; }
+.search-empty-panel { margin-top: 1rem; color: var(--ink); border: 1px solid #d1c092; background: #fff8e8; }
+.search-empty-panel strong { display: block; font: 600 clamp(1.15rem, 2vw, 1.45rem)/1.45 Georgia, "Noto Serif SC", serif; }
+.search-empty-panel .primary-link { width: fit-content; }
+.draft-completion-notice { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 1.25rem; padding: 1rem 1.1rem; border: 1px solid #d1c092; border-left: 5px solid var(--gold); border-radius: 12px; background: #fff8e8; }
+.draft-completion-notice[hidden] { display: none; }
+.draft-completion-notice strong { display: block; color: var(--ink); font: 600 1.05rem/1.4 Georgia, "Noto Serif SC", serif; }
+.draft-completion-notice p { margin: .3rem 0 0; color: var(--muted); }
+.draft-completion-notice .primary-button { flex: 0 0 auto; }
 .empty-message { padding: 3rem; text-align: center; color: var(--muted); }
 .library-footer-actions { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); }
 .site-footer { width: min(1480px, calc(100% - 40px)); margin: 0 auto; padding: 1.5rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
@@ -222,6 +230,8 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .sync-indicator { width: 100%; min-width: 0; }
   .form-grid.two, .form-grid.three { grid-template-columns: 1fr; }
   .owner-entry-row { grid-template-columns: 1fr; }
+  .draft-completion-notice { align-items: stretch; flex-direction: column; }
+  .draft-completion-notice .primary-button { width: 100%; }
   .editor-actions { position: static; margin: 1rem 0 0; padding-inline: 0; }
 }
 

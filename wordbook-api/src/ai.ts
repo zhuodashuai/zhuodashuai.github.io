@@ -2,6 +2,7 @@ import { aiProviderConfigured, aiProviderOrder, type AiProvider, type AppConfig 
 import {
   AI_JSON_SCHEMA,
   AiOrganizedSchema,
+  PublicEntrySchema,
   classifyInput,
   countEnglishTokens,
   makeEntryFromAi,
@@ -21,6 +22,13 @@ interface ProviderResult {
   organized: AiOrganized;
   sources: SourceRecord[];
   warnings: string[];
+}
+
+interface OrganizationResult {
+  entry: PublicEntry;
+  provider: string;
+  warnings: string[];
+  reviewRequired?: boolean;
 }
 
 interface LexicalEvidence {
@@ -347,6 +355,197 @@ function curatedPhoneticValue(evidence: LexicalEvidence, candidate = ""): string
     .filter(Boolean);
   if (requiredPronunciations.length) selected = requiredPronunciations.join("; ");
   return selected;
+}
+
+interface DictionaryGloss {
+  partOfSpeech: string;
+  text: string;
+}
+
+/**
+ * ECDICT stores compact WordNet-style part-of-speech prefixes in both gloss
+ * columns.  Parse only those explicit prefixes; everything else remains exact
+ * dictionary text and is attached to the preceding/default part of speech.
+ */
+function parseDictionaryGlosses(value: string, defaultPartOfSpeech: string): DictionaryGloss[] {
+  const result: DictionaryGloss[] = [];
+  let activePart = defaultPartOfSpeech;
+  for (const rawLine of value.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    const match = line.match(/^(n|v|vt|vi|adj|adv|a|s|r|prep|pron|conj|interj|art)\.?(?:\s+|$)(.*)$/i);
+    if (match) {
+      activePart = evidencePartOfSpeech(match[1]) || defaultPartOfSpeech;
+      const text = match[2].trim();
+      if (text) result.push({ partOfSpeech: activePart, text });
+      continue;
+    }
+    result.push({ partOfSpeech: activePart, text: line });
+  }
+  return result;
+}
+
+function groupDictionaryGlosses(glosses: DictionaryGloss[]): Map<string, string[]> {
+  const groups = new Map<string, string[]>();
+  for (const gloss of glosses) {
+    const part = gloss.partOfSpeech || "unspecified";
+    const values = groups.get(part) || [];
+    if (!values.includes(gloss.text)) values.push(gloss.text);
+    groups.set(part, values);
+  }
+  return groups;
+}
+
+/**
+ * Produce a conservative, deterministic draft only from an exact ECDICT row.
+ * Similar-spelling candidates and curated expectations are deliberately not
+ * enough: neither is a source for the user's exact input.  Both bilingual
+ * gloss columns must be present, so this path never fabricates a translation.
+ */
+function makeExactDictionaryFallback(input: string, evidence: LexicalEvidence): { entry: PublicEntry; reliable: boolean } | null {
+  const row = evidence.exactRow;
+  if (!row) return null;
+  const meaning = String(row[4] || "").trim();
+  const definition = String(row[5] || "").trim();
+  if (!meaning || !definition) return null;
+
+  const defaultPart = evidencePartOfSpeech(row[3]) || "unspecified";
+  const chineseGroups = groupDictionaryGlosses(parseDictionaryGlosses(meaning, defaultPart));
+  const englishGroups = groupDictionaryGlosses(parseDictionaryGlosses(definition, defaultPart));
+  const candidateSenses = [...chineseGroups.keys()]
+    .filter((part) => chineseGroups.get(part)?.length && englishGroups.get(part)?.length)
+    .map((part) => ({
+      partOfSpeech: part,
+      meaningZh: chineseGroups.get(part)!.join("\n"),
+      definitionEn: englishGroups.get(part)!.join("\n"),
+      usageNotes: "",
+      register: "",
+      collocations: [],
+      examples: [],
+      confusables: []
+    }));
+
+  // Some rows do not prefix both columns consistently.  Keeping each complete
+  // source column together is safer than guessing how unmatched lines align.
+  if (!candidateSenses.length) {
+    candidateSenses.push({
+      partOfSpeech: defaultPart,
+      meaningZh: meaning,
+      definitionEn: definition,
+      usageNotes: "",
+      register: "",
+      collocations: [],
+      examples: [],
+      confusables: []
+    });
+  }
+
+  const chineseParts = new Set(chineseGroups.keys());
+  const englishParts = new Set(englishGroups.keys());
+  const completePartCoverage = chineseParts.size === englishParts.size
+    && [...chineseParts].every((part) => englishParts.has(part));
+  const candidatePartOfSpeech = [...new Set(candidateSenses.map((sense) => sense.partOfSpeech))].join(" · ");
+  const candidateOrganized = AiOrganizedSchema.parse({
+    suggestedTerm: input,
+    standardForm: String(row[1] || row[0] || input).trim() || input,
+    entryType: classifyInput(input),
+    phonetic: curatedPhoneticValue(evidence) || String(row[2] || "").trim(),
+    partOfSpeech: candidatePartOfSpeech,
+    meaning,
+    definition,
+    senses: candidateSenses,
+    collocations: [],
+    exampleEn: "",
+    exampleZh: "",
+    usage: "",
+    register: "",
+    confusedWith: [],
+    forms: Array.isArray(row[11]) ? row[11].filter((value): value is string => typeof value === "string").slice(0, 20) : [],
+    tags: String(row[10] || "").split(/\s+/).filter(Boolean).slice(0, 20),
+    author: "",
+    sourceTitle: "",
+    sourceWork: "",
+    sourceDate: "",
+    attributionNote: "释义来自本地 ECDICT 精确匹配；未使用相似拼写候选。"
+  });
+  let groundingPassed = true;
+  try {
+    // This checks ECDICT POS coverage plus every curated core POS, distinct
+    // semantic concept and required Chinese meaning group.  In particular it
+    // rejects a single merged bank noun sense as coverage for both concepts.
+    assertCuratedGrounding(input, candidateOrganized, evidence);
+  } catch {
+    groundingPassed = false;
+  }
+  // ECDICT's two columns describe the same headword but do not promise
+  // sense-by-sense alignment—even one physical line can contain several comma-
+  // separated meanings. Only concept-level semantic QA is strong enough to
+  // promote a fallback to aligned senses; every other exact match remains a
+  // visible Chinese/English candidate that is explicitly blocked from publish.
+  const reliable = completePartCoverage && groundingPassed && Boolean(evidence.semanticGold);
+
+  const rawParts = rowPartsOfSpeech(row);
+  const partOfSpeech = reliable
+    ? candidatePartOfSpeech
+    : (rawParts.length ? rawParts.join(" · ") : defaultPart);
+  const exactDictionarySources = evidence.sources.filter((source) => source.kind === "dictionary");
+  const organized = AiOrganizedSchema.parse({
+    ...candidateOrganized,
+    partOfSpeech,
+    senses: reliable ? candidateSenses : [],
+    usage: reliable ? "" : "【待复核】ECDICT 的中英文原始释义无法按义项可靠对齐；请核对并补全义项后再发布。",
+    tags: reliable
+      ? candidateOrganized.tags
+      : [...new Set(["待复核", "ECDICT 原始释义", ...candidateOrganized.tags])].slice(0, 20),
+    attributionNote: reliable
+      ? candidateOrganized.attributionNote
+      : "仅保留本地 ECDICT 精确词条的原始中英文栏位；尚未完成逐义项对齐。"
+  });
+  const entry = makeEntryFromAi(input, organized, "cloudflare", exactDictionarySources, 1);
+  return { entry: PublicEntrySchema.parse({
+    ...entry,
+    correction: { ...entry.correction, source: "local-dictionary-exact" },
+    organizationMethod: "local-dictionary"
+  }), reliable };
+}
+
+interface DictionaryFallbackResult {
+  entry: PublicEntry;
+  provider: string;
+  warnings: string[];
+  reviewRequired: boolean;
+}
+
+function localDictionaryFallbackResult(input: string, evidence: LexicalEvidence): DictionaryFallbackResult | null {
+  const fallback = makeExactDictionaryFallback(input, evidence);
+  if (!fallback) return null;
+  const { entry, reliable } = fallback;
+  const warnings = reliable
+    ? [
+      "AI 暂时未能完成整理；系统已用与原输入完全匹配的本地 ECDICT 词条填入中英文释义。",
+      "该结果已通过本地词性与校订要求检查，但没有生成例句；请由卓复核后再发布。"
+    ]
+    : [
+      "AI 暂时未能完成整理；系统仅保留了精确 ECDICT 词条的原始中文释义和英文释义，避免留下空白。",
+      "【必须复核】中英文义项无法可靠逐项对齐，因此没有生成可发布的 sense；请手动核对并补全后再发布。"
+    ];
+  warnings.push("本地词典兜底不会采用相似拼写候选，也不会编造例句。");
+  if (entry.phonetic && !/^[/\[].+[/\]]$/.test(entry.phonetic)) {
+    warnings.push("音标沿用 ECDICT 原始记法，未必是国际音标（IPA），发布前请核对。");
+  }
+  return { entry, provider: "local-dictionary", warnings, reviewRequired: !reliable };
+}
+
+/**
+ * Account-level request guards may need this deterministic path before any AI
+ * call is permitted.  Keep the same exact-row gate used after provider failure.
+ */
+export async function organizeExactDictionaryFallback(
+  rawInput: unknown,
+  config: AppConfig
+): Promise<DictionaryFallbackResult | null> {
+  const input = validateEnglishInput(rawInput);
+  return localDictionaryFallbackResult(input, await collectLexicalEvidence(input, config));
 }
 
 function assertCuratedGrounding(input: string, organized: AiOrganized, evidence: LexicalEvidence): void {
@@ -743,13 +942,15 @@ function providerAttempt(
   return provider === "anthropic" ? anthropicAttempt(input, config, attempt) : openAiAttempt(input, config, attempt);
 }
 
-export async function organizeEntry(rawInput: unknown, config: AppConfig): Promise<{ entry: PublicEntry; provider: string; warnings: string[] }> {
+export async function organizeEntry(rawInput: unknown, config: AppConfig): Promise<OrganizationResult> {
   const input = validateEnglishInput(rawInput);
+  const evidence = await collectLexicalEvidence(input, config);
   const configuredProviders = aiProviderOrder(config).filter((provider) => aiProviderConfigured(provider, config));
   if (!configuredProviders.length) {
+    const dictionaryFallback = localDictionaryFallbackResult(input, evidence);
+    if (dictionaryFallback) return dictionaryFallback;
     throw new ApiError(503, "ai_not_configured", "AI 尚未配置；草稿仍可手动填写并保存。");
   }
-  const evidence = configuredProviders.includes("cloudflare") ? await collectLexicalEvidence(input, config) : EMPTY_EVIDENCE;
 
   const failures: Array<{ provider: AiProvider; error: unknown }> = [];
   for (const provider of configuredProviders) {
@@ -759,11 +960,19 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig): Promi
       try {
         const result = await providerAttempt(provider, input, config, attempt, evidence, retryFeedback);
         const confidence = estimateCorrectionConfidence(input, result.organized.suggestedTerm);
-        const entry = makeEntryFromAi(input, result.organized, provider, result.sources, confidence);
+        const baseEntry = makeEntryFromAi(input, result.organized, provider, result.sources, confidence);
         const warnings: string[] = [...result.warnings];
-        const curatedPhonetic = provider === "cloudflare" ? curatedPhoneticValue(evidence, entry.phonetic) : "";
+        const curatedPhonetic = provider === "cloudflare" ? curatedPhoneticValue(evidence, baseEntry.phonetic) : "";
+        // Re-parse the complete object instead of mutating a previously parsed
+        // entry.  The serialized API response must contain the exact IPA whenever
+        // the accompanying warning says that curated phonetic data was locked.
+        const entry = curatedPhonetic
+          ? PublicEntrySchema.parse({ ...baseEntry, phonetic: curatedPhonetic })
+          : baseEntry;
         if (curatedPhonetic) {
-          entry.phonetic = curatedPhonetic;
+          if (entry.phonetic !== curatedPhonetic) {
+            throw new ApiError(502, "ai_response_contract", "AI 音标校订结果没有通过响应契约；草稿未被覆盖。");
+          }
           warnings.push("音标已按本地校订数据锁定，不采用模型猜测。");
         }
         if (provider !== config.AI_PROVIDER) {
@@ -787,6 +996,9 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig): Promi
     }
     failures.push({ provider, error: providerError });
   }
+
+  const dictionaryFallback = localDictionaryFallbackResult(input, evidence);
+  if (dictionaryFallback) return dictionaryFallback;
 
   if (failures.length === 1) {
     const error = failures[0].error;

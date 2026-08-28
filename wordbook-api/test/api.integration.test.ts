@@ -139,6 +139,56 @@ describe("worker API integration", () => {
     expect(concurrent.filter((response) => response.status === 429)).toHaveLength(5);
   });
 
+  it("serves an exact local dictionary draft after the account AI-day ceiling without admitting spelling candidates", async () => {
+    const csrf = await seedSession();
+    const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+    for (let index = 0; index < 20; index += 1) {
+      const response = await stub.fetch("https://owner.internal/rate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ subject: "zhuo-owner-account", kind: "ai-daily" })
+      });
+      expect(response.status).toBe(200);
+    }
+
+    const exact = await api("/api/v1/owner/ai/organize", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf
+      },
+      body: JSON.stringify({ input: "hip" })
+    });
+    expect(exact.status).toBe(200);
+    expect(await exact.json()).toMatchObject({
+      provider: "local-dictionary",
+      warnings: expect.arrayContaining([expect.stringContaining("今日免费 AI 整理次数已达到上限")]),
+      entry: {
+        originalInput: "hip",
+        term: "hip",
+        phonetic: "/hɪp/",
+        organizationMethod: "local-dictionary",
+        meaning: expect.stringContaining("髋部"),
+        definition: expect.stringContaining("either side of the body")
+      }
+    });
+
+    const candidateOnly = await api("/api/v1/owner/ai/organize", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf
+      },
+      body: JSON.stringify({ input: "hep" })
+    });
+    expect(candidateOnly.status).toBe(429);
+    expect(await candidateOnly.json()).toMatchObject({ error: { code: "free_ai_daily_limit" } });
+  });
+
   it("fails closed for unauthenticated session and publish requests", async () => {
     const sessionResponse = await api("/api/v1/session");
     expect(await sessionResponse.json()).toEqual({ authenticated: false });
@@ -298,6 +348,47 @@ describe("worker API integration", () => {
     expect(await reused.json()).toMatchObject({ error: { code: "idempotency_key_reused" } });
     const putCalls = github.mock.mock.calls.filter(([input, init]) => asUrl(input).pathname.includes("owner-wordbook.json") && init?.method === "PUT");
     expect(putCalls).toHaveLength(1);
+  });
+
+  it("rejects an unaligned local-dictionary candidate at the server boundary even if an old client posts it", async () => {
+    const csrf = await seedSession();
+    const mutationId = "mutation-review-block-01";
+    const unreviewed = entry({
+      id: "public-bank-review",
+      term: "bank",
+      normalized: "bank",
+      standardForm: "bank",
+      entryType: "word",
+      meaning: "n. 银行；银行机构\nn. 河岸；堤岸",
+      definition: "n. sloping land beside a body of water",
+      senses: [],
+      tags: ["待复核", "ECDICT 原始释义"],
+      organizationMethod: "local-dictionary"
+    });
+    const response = await api("/api/v1/owner/publish", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf,
+        "Idempotency-Key": mutationId
+      },
+      body: JSON.stringify({
+        baseSha: "a".repeat(40),
+        mutationId,
+        mutation: { type: "add", entry: unreviewed }
+      })
+    });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({
+      error: {
+        code: "invalid_publish_request",
+        details: expect.arrayContaining([
+          expect.objectContaining({ path: ["mutation", "entry", "tags"] })
+        ])
+      }
+    });
   });
 
   it("fails closed repeatedly when a remote mutation ID has no durable semantic record", async () => {

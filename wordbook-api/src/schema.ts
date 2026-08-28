@@ -452,6 +452,17 @@ export const PublishRequestSchema = z.object({
       message: "publishing requires an explicit accept, keep or manual spelling decision"
     });
   }
+  if (request.mutation.type !== "delete") {
+    const entry = request.mutation.entry;
+    const lexical = ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(entry.entryType);
+    if (lexical && entry.tags.includes("待复核") && entry.senses.length === 0) {
+      context.addIssue({
+        code: "custom",
+        path: ["mutation", "entry", "tags"],
+        message: "an unaligned local-dictionary candidate cannot be published until explicitly reviewed"
+      });
+    }
+  }
 });
 
 export type PublishRequest = z.infer<typeof PublishRequestSchema>;

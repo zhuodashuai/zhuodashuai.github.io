@@ -5,7 +5,7 @@ import { setupPwa } from "./pwa.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-search", "filter-row", "entry-grid", "entry-count", "data-status", "load-error",
-  "load-error-message", "retry-load", "empty-message", "export-public", "entry-dialog", "dialog-type", "dialog-term",
+  "load-error-message", "retry-load", "empty-message", "search-empty", "search-empty-title", "search-owner-link", "export-public", "entry-dialog", "dialog-type", "dialog-term",
   "dialog-speak", "dialog-copy", "dialog-phonetic", "dialog-meaning", "dialog-definition-section", "dialog-definition", "dialog-example-section",
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "install-button", "update-banner", "apply-update"
@@ -17,6 +17,7 @@ const TYPE_LABELS = {
   sentence: "句子", quote: "名言", proverb: "谚语"
 };
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
+const adminUrl = ownerAdminUrl();
 
 function setText(element, value) {
   if (element) element.textContent = value || "";
@@ -25,6 +26,13 @@ function setText(element, value) {
 function normalizedSearch(entry) {
   return [entry.term, entry.standardForm, entry.meaning, entry.definition, entry.author, entry.sourceTitle, ...entry.tags, ...entry.collocations]
     .join(" ").toLocaleLowerCase("zh-CN");
+}
+
+function ownerUrlForInput(input) {
+  const target = new URL(adminUrl || "owner.html", window.location.href);
+  const safeInput = String(input || "").replace(/\s+/g, " ").trim().slice(0, 240);
+  if (safeInput) target.searchParams.set("input", safeInput);
+  return target.href;
 }
 
 function speak(text) {
@@ -104,8 +112,8 @@ function showDetails(entry) {
 function render() {
   const entries = state.snapshot?.entries || [];
   const query = state.query.trim().toLocaleLowerCase("zh-CN");
-  const filtered = entries.filter((entry) => (state.filter === "all" || entry.entryType === state.filter)
-    && (!query || normalizedSearch(entry).includes(query)));
+  const queryMatches = entries.filter((entry) => !query || normalizedSearch(entry).includes(query));
+  const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
   const cards = filtered.map((entry) => {
     const article = document.createElement("article");
     article.className = "word-card";
@@ -137,7 +145,15 @@ function render() {
   refs.entryGrid.replaceChildren(...cards);
   refs.entryGrid.setAttribute("aria-busy", "false");
   refs.entryCount.textContent = String(entries.length);
-  refs.emptyMessage.hidden = filtered.length > 0 || entries.length === 0;
+  const searchMiss = Boolean(query) && queryMatches.length === 0;
+  refs.searchEmpty.hidden = !searchMiss;
+  if (searchMiss) {
+    const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
+    refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
+    refs.searchOwnerLink.textContent = `仅卓本人：去管理模式用 AI 整理 ${displayQuery}`;
+    refs.searchOwnerLink.href = ownerUrlForInput(state.query);
+  }
+  refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || entries.length === 0;
 }
 
 async function loadWordbook() {
@@ -206,7 +222,6 @@ refs.exportPublic.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
-const adminUrl = ownerAdminUrl();
 if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";

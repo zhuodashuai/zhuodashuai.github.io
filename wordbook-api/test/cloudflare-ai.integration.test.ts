@@ -149,9 +149,12 @@ describe("Cloudflare free-first AI organizer", () => {
     const missingIpa = organized({ phonetic: "" });
     const run = vi.fn().mockResolvedValueOnce({ response: missingIpa });
     const result = await organizeEntry("hip", cloudflareConfig(run));
+    const rawBody = await Response.json(result).text();
+    const payload = JSON.parse(rawBody) as typeof result;
     expect(JSON.stringify(run.mock.calls[0]?.[1]?.messages)).toContain("ipaAllowed");
-    expect(result.entry.phonetic).toBe("/hɪp/");
-    expect(result.warnings.join(" ")).toContain("音标已按本地校订数据锁定");
+    expect(rawBody).toContain('"phonetic":"/hɪp/"');
+    expect(payload.entry.phonetic).toBe("/hɪp/");
+    expect(payload.warnings.join(" ")).toContain("音标已按本地校订数据锁定");
     expect(run).toHaveBeenCalledOnce();
   });
 
@@ -285,7 +288,7 @@ describe("Cloudflare free-first AI organizer", () => {
     ]);
   });
 
-  it("maps free-quota/capacity failure and never silently calls a paid provider", async () => {
+  it("uses an exact local-dictionary draft when the free AI quota is exhausted and never calls a paid provider", async () => {
     const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
     const config = {
       ...cloudflareConfig(run),
@@ -296,9 +299,130 @@ describe("Cloudflare free-first AI organizer", () => {
     const paidFetch = vi.fn();
     vi.stubGlobal("fetch", paidFetch);
 
-    await expect(organizeEntry("hip", config)).rejects.toMatchObject({ status: 429, code: "ai_rate_limited" });
+    const result = await organizeEntry("hip", config);
+    expect(result.provider).toBe("local-dictionary");
+    expect(result.reviewRequired).toBe(false);
+    expect(result.entry).toMatchObject({
+      originalInput: "hip",
+      term: "hip",
+      standardForm: "hip",
+      phonetic: "/hɪp/",
+      organizationMethod: "local-dictionary",
+      meaning: "n. 髋部；臀部\nadj. 时髦的；消息灵通的",
+      definition: "n. either side of the body below the waist and above the thigh\nn. the joint where the thigh bone meets the pelvis\nadj. fashionable or up-to-date"
+    });
+    expect(result.entry.correction).toMatchObject({ status: "exact", chosen: "hip", source: "local-dictionary-exact" });
+    expect(result.entry.senses).toEqual(expect.arrayContaining([
+      expect.objectContaining({ partOfSpeech: "noun", meaningZh: "髋部；臀部" }),
+      expect.objectContaining({ partOfSpeech: "adjective", meaningZh: "时髦的；消息灵通的" })
+    ]));
+    expect(result.entry.senses.every((item) => item.meaningZh && item.definitionEn)).toBe(true);
+    expect(result.warnings.join(" ")).toMatch(/完全匹配.*本地 ECDICT.*不会采用相似拼写候选/);
     expect(run).toHaveBeenCalledOnce();
     expect(paidFetch).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ["bank", "银行", ["bank", "bank", "bæŋk", "noun", "n. 银行；银行机构\nn. 河岸；堤岸", "n. sloping land (especially the slope beside a body of water)\nn. a long ridge or pile\nn. an arrangement of similar objects in a row or in tiers", 1, 1, 406, 663, "zk gk ielts editorial", ["banks", "banking", "banked"]]],
+    ["run", "跑", ["run", "run", "rʌn", "noun", "n. 跑, 赛跑, 奔跑, 奔跑的路程, 趋向, 流出, 运转时间, 连续\nvi. 跑, 奔跑, 跑步, 赛跑, 竞赛, 行驶, 运转, 进行, 蔓延\nvt. 使跑, 参赛, 追究, 驾驶, 开动, 管理, 经营, 使流出, 运行\na. 熔化的, 融化的, 浇铸的", "n. a score in baseball made by a runner touching all four bases safely\nn. (American football) a play in which a player attempts to carry the ball through or past the opposing team\nn. a regular trip", 5, 1, 208, 202, "zk gk", ["ran", "running", "run", "runs"]]],
+    ["lead", "铅", ["lead", "lead", "li:d. led", "noun", "n. 铅, 铅条, 领导, 超前量, 领引, 榜样, 主角, 导线\nvt. 引导, 带领, 领导, 指挥, 致使, 加铅于, 用铅包\nvi. 领导, 带头, 导致, 用测深锤测深, 被铅覆盖\na. 带头的, 最重要的", "n. an advantage held by a competitor in a race\nn. a soft heavy toxic malleable metallic element; bluish white when freshly cut but tarnishes readily to dull grey\nn. evidence pointing to a possible solution", 2, 1, 263, 318, "zk gk cet4 ky toefl", ["led", "leading", "leads"]]]
+  ])("keeps %s dictionary text visible but marks unsafe cross-language alignment incomplete", async (term, chineseEvidence, row) => {
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+    const result = await organizeEntry(term, cloudflareConfig(run, {
+      fetch: vi.fn(async () => Response.json({ entries: [row] }))
+    } as unknown as Fetcher));
+    expect(result.provider).toBe("local-dictionary");
+    expect(result.reviewRequired).toBe(true);
+    expect(result.entry.organizationMethod).toBe("local-dictionary");
+    expect(result.entry.meaning).toContain(chineseEvidence);
+    expect(result.entry.definition).not.toBe("");
+    expect(result.entry.senses).toEqual([]);
+    expect(result.entry.tags).toContain("待复核");
+    expect(result.entry.usage).toContain("无法按义项可靠对齐");
+    expect(result.warnings.join(" ")).toMatch(/必须复核.*没有生成可发布的 sense/);
+    expect(run).toHaveBeenCalledOnce();
+  });
+
+  it("does not call an uncurated single-POS multi-gloss row aligned merely because every line says noun", async () => {
+    const row = [
+      "harborbank", "harborbank", "", "noun",
+      "n. 港口银行\nn. 海港岸边",
+      "n. land beside a harbor\nn. a row of stored objects",
+      0, 0, 0, 0, "", []
+    ];
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+    const result = await organizeEntry("harborbank", cloudflareConfig(run, {
+      fetch: vi.fn(async () => Response.json({ entries: [row] }))
+    } as unknown as Fetcher));
+    expect(result.reviewRequired).toBe(true);
+    expect(result.entry.meaning).toContain("港口银行");
+    expect(result.entry.senses).toEqual([]);
+    expect(result.entry.tags).toContain("待复核");
+  });
+
+  it.each([
+    ["again", "adv. 再一次, 又, 到原处", "r. anew"],
+    ["accordingly", "adv. 相应地, 因此, 于是", "r. in accordance with"]
+  ])("keeps the real one-line multi-gloss shape for %s visible but never calls it aligned", async (term, meaning, definition) => {
+    const row = [term, term, "", "adverb", meaning, definition, 0, 0, 0, 0, "", []];
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+    const result = await organizeEntry(term, cloudflareConfig(run, {
+      fetch: vi.fn(async () => Response.json({ entries: [row] }))
+    } as unknown as Fetcher));
+    expect(result.reviewRequired).toBe(true);
+    expect(result.entry.meaning).toBe(meaning);
+    expect(result.entry.definition).toBe(definition);
+    expect(result.entry.senses).toEqual([]);
+    expect(result.entry.tags).toContain("待复核");
+  });
+
+  it("uses the exact dictionary fallback after both free models are out of capacity", async () => {
+    const run = vi.fn(async (_model: string) => { throw new Error("HTTP 429 (3040) out of capacity"); });
+    const result = await organizeEntry("hip", cloudflareConfig(run));
+    expect(result.provider).toBe("local-dictionary");
+    expect(result.entry.organizationMethod).toBe("local-dictionary");
+    expect(result.entry.meaning).toContain("髋部");
+    expect(result.entry.definition).toContain("either side of the body");
+    expect(run.mock.calls.map(([model]) => model)).toEqual([
+      "@cf/zai-org/glm-4.7-flash",
+      "@cf/google/gemma-4-26b-a4b-it"
+    ]);
+  });
+
+  it("uses the exact dictionary fallback after both model responses are invalid", async () => {
+    const run = vi.fn(async () => ({ response: "not-json" }));
+    const result = await organizeEntry("hip", cloudflareConfig(run));
+    expect(result.provider).toBe("local-dictionary");
+    expect(result.entry.senses).toHaveLength(2);
+    expect(result.entry.exampleEn).toBe("");
+    expect(result.entry.exampleZh).toBe("");
+    expect(run).toHaveBeenCalledTimes(2);
+  });
+
+  it("uses an exact ECDICT row even when the AI binding itself is unavailable", async () => {
+    const config: AppConfig = { ...cloudflareConfig(vi.fn()), AI: undefined };
+    const result = await organizeEntry("hip", config);
+    expect(result.provider).toBe("local-dictionary");
+    expect(result.entry.phonetic).toBe("/hɪp/");
+    expect(result.entry.organizationMethod).toBe("local-dictionary");
+  });
+
+  it("does not turn a mere spelling candidate into a dictionary fallback", async () => {
+    const run = vi.fn(async () => { throw new Error("3036 daily neuron quota exceeded"); });
+    await expect(organizeEntry("hep", cloudflareConfig(run))).rejects.toMatchObject({
+      status: 429,
+      code: "ai_rate_limited"
+    });
+    expect(run).toHaveBeenCalledOnce();
+  });
+
+  it("still fails safely when neither exact dictionary evidence nor AI output exists", async () => {
+    const run = vi.fn(async () => { throw new Error("model service unavailable"); });
+    await expect(organizeEntry("xyzzy", cloudflareConfig(run))).rejects.toMatchObject({
+      status: 503,
+      code: "ai_unreachable"
+    });
+    expect(run).toHaveBeenCalledTimes(2);
   });
 
   it("only permits a paid fallback when the owner explicitly enables it", async () => {

@@ -25,7 +25,8 @@ const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
   "owner-identity-text", "sync-dot", "sync-label", "sync-detail", "capture-form", "capture-input", "organize-button",
   "manual-button", "ai-service-status", "capture-status", "draft-list", "retry-queue", "export-backup", "import-backup", "import-file",
-  "editor-empty", "entry-form", "editor-kicker", "editor-title", "draft-state", "correction-card", "correction-original",
+  "editor-empty", "entry-form", "editor-kicker", "editor-title", "draft-state", "draft-completion-notice", "draft-completion-message",
+  "complete-draft", "correction-card", "correction-original",
   "correction-suggestion", "accept-suggestion", "keep-original", "manual-correction", "field-original-input", "field-term",
   "field-standard-form", "field-entry-type", "field-part-of-speech", "field-phonetic", "field-meaning", "field-definition",
   "field-example-en", "field-example-zh", "field-usage", "field-register", "field-collocations", "field-confused",
@@ -49,8 +50,13 @@ const state = {
   authChecking: false,
   tabId: crypto.randomUUID(),
   conflict: null,
-  ownerSearch: ""
+  ownerSearch: "",
+  ownerInputHandled: false,
+  organizingToken: null
 };
+const OWNER_INPUT_LIMIT = 240;
+const PENDING_OWNER_INPUT_KEY = "zhuo-wordbook:pending-owner-input";
+const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const STATE_LABELS = {
   local_saved: "本地已保存", queued: "等待同步", pending: "等待同步", syncing: "正在同步", retry_wait: "同步失败，将安全重试",
   awaiting_auth: "等待重新登录", review_required: "等待卓本人复核", conflict: "同步冲突", failed: "同步失败", published: "已发布", cancelled: "已取消"
@@ -62,6 +68,67 @@ function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
 
+function setOrganizingControlsDisabled(disabled) {
+  refs.organizeButton.disabled = disabled;
+  refs.manualButton.disabled = disabled;
+  refs.reorganizeCurrent.disabled = disabled;
+  refs.completeDraft.disabled = disabled;
+}
+
+function beginOrganizing() {
+  if (state.organizingToken) {
+    setStatus(refs.captureStatus, "已有一项 AI 整理正在进行；没有重复提交，也不会重复建立草稿。");
+    return null;
+  }
+  const token = crypto.randomUUID();
+  state.organizingToken = token;
+  setOrganizingControlsDisabled(true);
+  return token;
+}
+
+function finishOrganizing(token) {
+  // A delayed/stale finally must never unlock controls owned by a newer run.
+  if (state.organizingToken !== token) return;
+  state.organizingToken = null;
+  setOrganizingControlsDisabled(false);
+}
+
+async function withOrganizingLock(task) {
+  const token = beginOrganizing();
+  if (!token) return false;
+  try {
+    await task();
+    return true;
+  } finally {
+    finishOrganizing(token);
+  }
+}
+
+function hasUsablePronunciation(value) {
+  const pronunciations = String(value || "").normalize("NFKC").match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+  return pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+}
+
+function draftCompletionGaps(entry) {
+  const gaps = [];
+  if (!String(entry?.meaning || "").trim()) gaps.push("中文释义");
+  if (!String(entry?.definition || "").trim()) gaps.push("英文释义");
+  if (entry?.entryType === "word" && !hasUsablePronunciation(entry.phonetic)) gaps.push("IPA 音标");
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && !String(entry?.partOfSpeech || "").trim()) gaps.push("词性");
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType)
+    && entry?.tags?.includes("待复核")
+    && !(entry?.senses || []).length) gaps.push("可靠对齐的分义项");
+  return gaps;
+}
+
+function renderDraftCompletionNotice(entry) {
+  const gaps = draftCompletionGaps(entry);
+  refs.draftCompletionNotice.hidden = gaps.length === 0;
+  setStatus(refs.draftCompletionMessage, gaps.length
+    ? `仍缺少：${gaps.join("、")}。草稿没有损坏，也没有自动发布；可以一键只补空白字段。`
+    : "");
+}
+
 function editorNeedsAiCompletion(entry) {
   if (needsAiCompletion(entry)) return true;
   if (entry?.entryType !== "word") return false;
@@ -70,8 +137,7 @@ function editorNeedsAiCompletion(entry) {
   // survive normalization into the visible editor. Judge the visible field as
   // the final safety check so an apparently blank IPA is never treated as a
   // complete word.
-  const pronunciations = refs.fieldPhonetic.value.normalize("NFKC").match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
-  return !pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+  return !hasUsablePronunciation(refs.fieldPhonetic.value);
 }
 
 function hasVerifiedOwnerUi() {
@@ -84,6 +150,67 @@ function requireVerifiedOwnerUi() {
     status: 401,
     code: "authentication_required"
   });
+}
+
+function ownerInputRecordFromUrl() {
+  const params = new URLSearchParams(location.search);
+  if (!params.has("input")) return null;
+  const input = params.get("input") || "";
+  try {
+    if (input.length > OWNER_INPUT_LIMIT) throw new Error(`管理链接中的英文输入不能超过 ${OWNER_INPUT_LIMIT} 个字符。`);
+    return { input: validateEnglishInput(input), error: "" };
+  } catch (error) {
+    return { input: "", error: error.message || "管理链接中的英文输入无效。" };
+  }
+}
+
+function rememberOwnerInputForLogin() {
+  const record = ownerInputRecordFromUrl();
+  if (!record) {
+    try { sessionStorage.removeItem(PENDING_OWNER_INPUT_KEY); } catch { /* optional handoff storage */ }
+    return;
+  }
+  try { sessionStorage.setItem(PENDING_OWNER_INPUT_KEY, JSON.stringify(record)); } catch { /* OAuth can continue without storage. */ }
+}
+
+function pendingOwnerInputRecord() {
+  try {
+    const raw = sessionStorage.getItem(PENDING_OWNER_INPUT_KEY);
+    if (!raw) return null;
+    const record = JSON.parse(raw);
+    if (record?.error) return { input: "", error: String(record.error).slice(0, 300) };
+    const input = String(record?.input || "");
+    if (input.length > OWNER_INPUT_LIMIT) throw new Error(`管理链接中的英文输入不能超过 ${OWNER_INPUT_LIMIT} 个字符。`);
+    return { input: validateEnglishInput(input), error: "" };
+  } catch (error) {
+    return { input: "", error: error.message || "管理链接中的英文输入无效。" };
+  }
+}
+
+function clearOwnerInputHandoff() {
+  try { sessionStorage.removeItem(PENDING_OWNER_INPUT_KEY); } catch { /* optional handoff storage */ }
+  const url = new URL(location.href);
+  if (!url.searchParams.has("input")) return;
+  url.searchParams.delete("input");
+  history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
+function consumeOwnerInputAfterAuthentication() {
+  if (state.ownerInputHandled || !hasVerifiedOwnerUi()) return;
+  const record = ownerInputRecordFromUrl() || pendingOwnerInputRecord();
+  state.ownerInputHandled = true;
+  clearOwnerInputHandoff();
+  if (!record) return;
+  if (record.error) {
+    setStatus(refs.captureStatus, `${record.error} 未建立草稿，也没有调用 AI。`);
+    return;
+  }
+  refs.captureInput.value = record.input;
+  setStatus(refs.captureStatus, `已从公开页带入“${record.input}”。请点击“AI 自动整理”；尚未调用 AI，也没有建立或发布草稿。`);
+  window.setTimeout(() => {
+    refs.captureInput.focus({ preventScroll: true });
+    refs.captureInput.scrollIntoView({ block: "center" });
+  }, 0);
 }
 
 function setNetworkState() {
@@ -247,6 +374,7 @@ function fillEditor(draft, { focus = true } = {}) {
   renderCorrection(entry);
   renderSenses(entry);
   renderSources(entry);
+  renderDraftCompletionNotice(entry);
   showEditorError();
   renderDrafts();
   if (focus) window.setTimeout(() => refs.editorTitle.focus({ preventScroll: true }), 0);
@@ -290,6 +418,9 @@ function collectEntry({ strict = false } = {}) {
   if (!strict) return entry;
   validateEnglishInput(term);
   if (!entry.meaning) throw new Error("公开词条发布前必须确认准确的中文释义。");
+  if (LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.tags.includes("待复核") && !entry.senses.length) {
+    throw new Error("这仍是中英文义项尚未可靠对齐的本地词典候选。请重新用 AI 补全；若你已人工核对，可从标签中移除“待复核”后再发布。");
+  }
   if (entry.correction?.status === "suggested") throw new Error("请先选择“使用建议”“保留原文”或手动修改，不能静默采用拼写建议。");
   if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "candidate"
     && !entry.sourceUrl && !(entry.sources || []).some((source) => source.kind === "candidate" && source.url)) {
@@ -470,35 +601,75 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     setStatus(refs.captureStatus, "当前离线且无法验证会话；空白草稿已保存，联网并重新验证后再使用 AI。 ");
     return;
   }
-  refs.organizeButton.disabled = true;
-  refs.manualButton.disabled = true;
-  refs.reorganizeCurrent.disabled = true;
   setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
   try {
     const result = await organizeWithAi(cleaned, state.csrfToken);
     if (state.currentDraft?.id !== draft.id) return;
+    const warnings = Array.isArray(result.warnings) ? result.warnings.map(String) : [];
+    const claimsCuratedPhonetic = warnings.some((warning) => /音标.*(?:校订|词典).*锁定/u.test(warning));
+    const responsePhonetic = typeof result.entry?.phonetic === "string" ? result.entry.phonetic.normalize("NFKC") : "";
+    const pronunciations = responsePhonetic.match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+    const hasPlausiblePhonetic = pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+    if (claimsCuratedPhonetic && !hasPlausiblePhonetic) {
+      throw new OwnerApiError("AI 响应自相矛盾：服务声称已锁定音标，但没有返回有效 IPA。当前草稿没有被 AI 覆盖，请稍后重试。", {
+        status: 502,
+        code: "ai_response_contract"
+      });
+    }
     await flushPendingDraftSave();
     const latestDraft = await getDraft(draft.id);
     if (!latestDraft || state.currentDraft?.id !== draft.id) return;
     const aiEntry = validatePublicEntry(result.entry);
     const currentEntry = latestDraft.value;
+    const storedDictionaryCandidate = latestDraft.base?.dictionaryCandidate;
+    const dictionaryCandidateBaseline = storedDictionaryCandidate
+      || (aiBaseline.tags?.includes("待复核") && !(aiBaseline.senses || []).length ? aiBaseline : null);
     const mergeResult = mergeAiCandidate(aiBaseline, currentEntry, aiEntry, { fillMissingOnly });
     const mergedEntry = mergeResult.merged;
     const preservedManualChanges = mergeResult.preservedManualChanges;
+    const completingUnreviewedDictionary = Boolean(dictionaryCandidateBaseline)
+      && result.reviewRequired !== true
+      && aiEntry.senses.length > 0;
+    if (completingUnreviewedDictionary) {
+      // The raw dictionary columns were deliberately retained only so Chinese
+      // was not blank; they were not declared aligned. Once a validated AI
+      // result arrives, replace each untouched candidate field while preserving
+      // anything Zhu edited during or before this request.
+      const candidateFields = [
+        "phonetic", "partOfSpeech", "meaning", "definition", "collocations",
+        "exampleEn", "exampleZh", "usage", "register", "confusedWith", "forms",
+        "tags", "sources", "attributionNote"
+      ];
+      for (const field of candidateFields) {
+        if (JSON.stringify(currentEntry[field]) === JSON.stringify(dictionaryCandidateBaseline[field])) {
+          mergedEntry[field] = structuredClone(aiEntry[field]);
+        }
+      }
+    }
+    if (result.reviewRequired !== true && aiEntry.senses.length) {
+      mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
+    }
     mergedEntry.originalInput = currentEntry.originalInput;
     mergedEntry.createdAt = currentEntry.createdAt;
     mergedEntry.updatedAt = isoNow();
+    const nextBase = structuredClone(latestDraft.base || { entry: null, entryUpdatedAt: null, remoteSha: null });
+    if (result.reviewRequired === true && !nextBase.dictionaryCandidate) {
+      nextBase.dictionaryCandidate = structuredClone(mergedEntry);
+    } else if (completingUnreviewedDictionary) {
+      delete nextBase.dictionaryCandidate;
+    }
     draft = {
       ...latestDraft,
+      base: nextBase,
       entryId: latestDraft.entryId,
       value: mergedEntry,
       updatedAt: isoNow()
     };
     state.currentDraft = await saveDraft(draft);
     fillEditor(state.currentDraft);
-    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : "AI";
+    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : result.provider === "local-dictionary" ? "本地 ECDICT 词典" : "AI";
     setStatus(refs.captureStatus, [
-      ...(result.warnings || []),
+      ...warnings,
       preservedManualChanges
         ? `${providerName} 返回期间的人工修改已保留，其余空白字段已补充。`
         : `${providerName} 候选已写入草稿，请核对后再发布。`
@@ -506,10 +677,6 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   } catch (error) {
     const message = error.message || "AI 暂时不可用";
     setStatus(refs.captureStatus, /草稿/.test(message) ? message : `${message} 空白草稿仍可手动填写。`);
-  } finally {
-    refs.organizeButton.disabled = false;
-    refs.manualButton.disabled = false;
-    refs.reorganizeCurrent.disabled = false;
   }
 }
 
@@ -745,7 +912,7 @@ async function verifySession({ forceGate = false } = {}) {
     refs.ownerWorkspace.hidden = false;
     refs.ownerWorkspace.inert = false;
     refs.logoutButton.hidden = false;
-    refs.organizeButton.disabled = false;
+    setOrganizingControlsDisabled(Boolean(state.organizingToken));
     await refreshAiStatus();
     await renderDrafts();
     await loadRemote().catch(() => {});
@@ -783,12 +950,23 @@ async function verifySession({ forceGate = false } = {}) {
 
 refs.captureForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  try { await openNewDraft(refs.captureInput.value, { ai: true }); } catch (error) { setStatus(refs.captureStatus, error.message); }
+  try {
+    await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: true }));
+  } catch (error) {
+    setStatus(refs.captureStatus, error.message);
+  }
 });
 refs.manualButton.addEventListener("click", async () => {
-  try { await openNewDraft(refs.captureInput.value, { ai: false }); } catch (error) { setStatus(refs.captureStatus, error.message); }
+  try {
+    await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: false }));
+  } catch (error) {
+    setStatus(refs.captureStatus, error.message);
+  }
 });
-refs.entryForm.addEventListener("input", scheduleDraftSave);
+refs.entryForm.addEventListener("input", () => {
+  renderDraftCompletionNotice(collectEntry());
+  scheduleDraftSave();
+});
 refs.fieldEntryType.addEventListener("change", () => {
   refs.attributionFieldset.hidden = !["quote", "proverb"].includes(refs.fieldEntryType.value);
   scheduleDraftSave();
@@ -816,17 +994,21 @@ refs.manualCorrection.addEventListener("click", () => {
   scheduleDraftSave();
 });
 refs.saveLocal.addEventListener("click", () => persistCurrentDraft({ announce: true }).catch((error) => showEditorError(error.message)));
-refs.reorganizeCurrent.addEventListener("click", async () => {
-  try {
-    requireVerifiedOwnerUi();
-    await flushPendingDraftSave();
-    const draft = state.currentDraft && await getDraft(state.currentDraft.id);
-    if (!draft) throw new Error("请先打开一份草稿。");
-    await organizeDraftWithAi(draft, validateEnglishInput(draft.value.originalInput || draft.value.term));
-  } catch (error) {
-    setStatus(refs.captureStatus, error.message || "AI 暂时无法重新整理当前草稿。");
-  }
-});
+async function organizeCurrentDraft({ fillMissingOnly = false } = {}) {
+  await withOrganizingLock(async () => {
+    try {
+      requireVerifiedOwnerUi();
+      await flushPendingDraftSave();
+      const draft = state.currentDraft && await getDraft(state.currentDraft.id);
+      if (!draft) throw new Error("请先打开一份草稿。");
+      await organizeDraftWithAi(draft, validateEnglishInput(draft.value.originalInput || draft.value.term), { fillMissingOnly });
+    } catch (error) {
+      setStatus(refs.captureStatus, error.message || "AI 暂时无法重新整理当前草稿。");
+    }
+  });
+}
+refs.reorganizeCurrent.addEventListener("click", () => organizeCurrentDraft());
+refs.completeDraft.addEventListener("click", () => organizeCurrentDraft({ fillMissingOnly: true }));
 refs.entryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   refs.publishButton.disabled = true;
@@ -838,6 +1020,7 @@ refs.discardDraft.addEventListener("click", async () => {
   state.currentDraft = null;
   refs.entryForm.hidden = true;
   refs.editorEmpty.hidden = false;
+  refs.draftCompletionNotice.hidden = true;
   await renderDrafts();
 });
 refs.refreshRemote.addEventListener("click", () => loadRemote().catch(() => {}));
@@ -853,6 +1036,7 @@ refs.retryQueue.addEventListener("click", async () => {
   await drainQueue();
 });
 refs.ownerSearch.addEventListener("input", () => { state.ownerSearch = refs.ownerSearch.value; renderOwnerEntries(); });
+refs.loginLink.addEventListener("click", rememberOwnerInputForLogin);
 refs.logoutButton.addEventListener("click", async () => {
   await flushPendingDraftSave().catch(() => {});
   try { await logout(state.csrfToken); } catch { /* local gate still closes */ }
@@ -953,6 +1137,7 @@ async function initializeOwnerApp() {
   } else if (reconciled.length) {
     setStatus(refs.captureStatus, `已从 GitHub 核对并恢复 ${reconciled.length} 个发布成功但响应中断的任务，没有重复提交。`);
   }
+  consumeOwnerInputAfterAuthentication();
 }
 
 initializeOwnerApp().catch((error) => {
