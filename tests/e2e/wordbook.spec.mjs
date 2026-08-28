@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
+const canonicalSnapshot = JSON.parse(
+  await readFile(new URL("../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")
+);
+const CANONICAL_ENTRY_COUNT = canonicalSnapshot.entries.length;
+
 let browserErrors;
 let expectedOfflineNetworkError;
 
@@ -47,7 +52,7 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
   await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
-  await expect(page.locator("#entry-count")).toHaveText("2");
+  await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
   await page.locator("#library-search").fill("jab at");
   await page.getByRole("button", { name: "查看 jab at 的完整词条" }).click();
@@ -509,7 +514,7 @@ test("重新整理已发布词条时保留远端身份并正常更新而不是�
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/猛戳/);
   await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.locator(".owner-entry-row", { hasText: "jab at" })).toHaveCount(1);
   const afterPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
   const afterEntry = afterPayload.snapshot.entries.find((entry) => entry.term === "jab at");
@@ -725,7 +730,7 @@ test("删除离线草稿会同时取消待发布任务，恢复网络也不会�
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByRole("button", { name: "删除草稿" }).click();
   await context.setOffline(false);
-  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.locator(".owner-entry-row", { hasText: "cancelledword" })).toHaveCount(0);
 });
 
@@ -743,11 +748,11 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
   await context.setOffline(false);
   await page.reload();
   await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible();
-  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await page.locator("#draft-list").getByRole("button", { name: /reviewword/ }).click();
   await expect(page.locator("#capture-status")).toContainText("旧任务已取消");
   await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("3");
+  await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
 });
 
 test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自动发布", async ({ context, page }) => {
@@ -769,7 +774,7 @@ test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自
   await page.evaluate(() => window.dispatchEvent(new Event("online")));
 
   await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible({ timeout: 8_000 });
-  await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.locator(".owner-entry-row", { hasText: "oauthraceword" })).toHaveCount(0);
 });
 
@@ -805,11 +810,11 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
   await context.setOffline(false);
   await otherPage.waitForTimeout(1_200);
   expect(publishRequests).toBe(0);
-  await expect(otherPage.locator("#owner-entry-count")).toHaveText("2");
+  await expect(otherPage.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
 
   await otherPage.reload();
   await expect(otherPage.getByText("等待卓本人复核", { exact: true })).toBeVisible();
-  await expect(otherPage.locator("#owner-entry-count")).toHaveText("2");
+  await expect(otherPage.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(otherPage.locator(".owner-entry-row", { hasText: "crossrunword" })).toHaveCount(0);
   expect(publishRequests).toBe(0);
 });
