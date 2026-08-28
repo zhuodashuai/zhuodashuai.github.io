@@ -1,0 +1,44 @@
+name: Guestbook message
+description: Leave a short public note on Qianjun Zhuo's academic profile.
+title: "[Guestbook] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to the guestbook. Keep your note respectful and concise, and do not include private or sensitive information.
+  - type: input
+    id: display-name
+    attributes:
+      label: How would you like to be addressed?
+      description: A first name, initials or professional name is enough.
+      placeholder: Your name or initials
+    validations:
+      required: false
+  - type: dropdown
+    id: connection
+    attributes:
+      label: What brings you here?
+      options:
+        - Fellow student
+        - Researcher or educator
+        - Industry professional
+        - Potential collaborator
+        - Friend or supporter
+        - General visitor
+    validations:
+      required: false
+  - type: textarea
+    id: message
+    attributes:
+      label: Message
+      description: Leave a short public note, introduction or word of encouragement.
+      placeholder: Write your message here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Public submission
+      options:
+        - label: I understand that this message and my GitHub username will be publicly visible.
+          required: true

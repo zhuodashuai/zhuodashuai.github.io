@@ -1,0 +1,46 @@
+name: Suggestion box
+description: Suggest an improvement, correction or research idea for this academic profile.
+title: "[Suggestion] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to share a suggestion. This submission will be public, so please do not include private or sensitive information.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the profile does your suggestion relate to?
+      options:
+        - Research interests
+        - Selected quantitative work
+        - Education or experience
+        - Accessibility or design
+        - Factual correction
+        - New opportunity or collaboration idea
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: Explain the change or idea as clearly as you can.
+      placeholder: What would you change, add or clarify?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why would this help?
+      description: Optional context, supporting information or a public reference link.
+      placeholder: Add context or a source if useful.
+    validations:
+      required: false
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Public submission
+      options:
+        - label: I understand that this suggestion and my GitHub username will be publicly visible.
+          required: true
