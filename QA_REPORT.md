@@ -8,11 +8,11 @@
 
 ## 结论
 
-本地候选版本的自动化、确定性浏览器和安全边界测试全部通过。提交 `1461006` 已快进发布到 `main`；GitHub Pages deployment `33167176269` 与 main 分支 Wordbook CI `33167177860` 均成功。正式主页、公开词库与 `/vocab/owner.html` 已完成 Chromium smoke test，公开快照显示 1 条 `jab at`，页面无 console warning/error。
+自动化、确定性浏览器和安全边界测试全部通过：Frontend/data 98、Worker/API 66、Playwright 21，共 **185 passed, 0 failed**。GitHub Pages 上的主页与公开词库已上线，公开 canonical snapshot 显示 1 条 `jab at`。
 
-但**正式环境仍不具备 Owner 登录、AI 整理和 GitHub 写入链路**。线上管理页目前会正确 fail closed，并说明只读副本不能持有凭据；Cloudflare Worker、GitHub App、服务端 secret 和 `OWNER_ADMIN_URL` 尚未配置，GitHub Pages 上的 `/api/v1/session` 仍不可用。因此真实 `zhuodashuai` 后端身份、真实 AI 输出、真实 GitHub API commit 与完整生产数据生命周期仍为 **BLOCKED**，不是 Passed。
+生产 Cloudflare Worker 已部署到 <https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/>（版本 `fef06c89-0806-4939-a958-eb24d254f28c`）。GitHub App `Zhuo Wordbook Owner` 只安装到目标仓库，client secret 与 session secret 只保存在 Worker；正式 OAuth 已真实登录为 `@zhuodashuai`，核对固定 user ID `156042078`、目标 repository 与当前公开快照，并确认浏览器没有收到 GitHub token。`OWNER_ADMIN_URL` 已接入该 Worker。真实 HTTP 检查也确认管理页由 Worker 先处理并带有 CSP、DENY framing、Referrer Policy、Permissions Policy、HSTS 与 `no-cache`。
 
-退出条件因此尚未全部满足。本报告没有把 mock OAuth、fixture 或本地 dry-run 冒充成正式环境成功。
+仍未关闭的生产项只有两类：OpenAI/Claude API key 尚未配置，所以真实 AI 输出和 71 项 live semantic matrix 尚未执行；为避免污染公开词库，生产 Worker 的 add/edit/delete GitHub commit 生命周期也尚未用测试数据执行。本报告明确区分真实 OAuth、确定性 mock、dry-run 与尚未执行的 live AI/写入，不承诺“绝对零 bug”。
 
 ## 修复前首次线上黑盒：`hip`
 
@@ -40,7 +40,7 @@
 4. `rose hip` 的植物果实义可以低优先级收录，不能压过常见义。
 5. 每个 POS/sense 都有自己的英文解释和对应双语例句。
 
-修复前线上结果在拼写、IPA 和核心释义上基本正确，但在多词性结构与例句完整性上失败。部署 `1461006` 后，公开页已改为 GitHub canonical snapshot 的只读阅读器；因为生产 Owner Worker 尚未配置，不能把本地 mock 的新版 `hip` 发布流程冒充成线上复测。
+修复前线上结果在拼写、IPA 和核心释义上基本正确，但在多词性结构与例句完整性上失败。公开页现已改为 GitHub canonical snapshot 的只读阅读器，生产 Owner OAuth 也已接通；但 OpenAI key 尚未配置，因此不能把本地 mock 的新版 `hip` 发布流程冒充成线上 AI 复测。
 
 ## `hip` 过去为什么会出现 `verb + kamus在线bm ke bi`
 
@@ -79,23 +79,23 @@
 
 | ID | Input | Expected | Actual | Severity | Root cause | Fix | Regression test | Local result | Live result |
 | -- | ----- | -------- | ------ | -------- | ---------- | --- | --------------- | ------------ | ----------- |
-| QA-001 | `hip` | noun 与 informal adjective 分开；每义项有双语例句 | 修复前站点只有 `noun` 标签，定义混入 adjective；例句为空 | High | 旧扁平词条模型只容纳一个 POS | 通用 sense schema、语义闸门、由 senses 重建顶层字段 | API `hip` semantic regression；Playwright 完整发布/详情 | PASS | **BLOCKED（Owner Worker 未部署）** |
+| QA-001 | `hip` | noun 与 informal adjective 分开；每义项有双语例句 | 修复前站点只有 `noun` 标签，定义混入 adjective；例句为空 | High | 旧扁平词条模型只容纳一个 POS | 通用 sense schema、语义闸门、由 senses 重建顶层字段 | API `hip` semantic regression；Playwright 完整发布/详情 | PASS | **BLOCKED（AI key 未配置）** |
 | QA-002 | `hip`（用户旧截图） | 常用 noun 首位、干净中文 | 旧结果选罕见 verb，并出现 `kamus在线bm ke bi` | High | verb-first 选择器 + 未过滤公共 MT 结果 | 旧层已用 noun-first editorial/垃圾过滤；新版不再采用该 MT 管线 | `core-accuracy`、dirty-translation、API dirty-top-level fixture | PASS | 旧写入路径已下线；新版 live AI 仍 BLOCKED |
-| QA-003 | Owner 登录 | GitHub OAuth；浏览器不接触 token | `/owner.html` 已上线并 fail closed；Worker session API 尚未部署 | Critical | Worker/GitHub App 与服务端 secrets 未完成一次性配置 | 本地已实现 HttpOnly session、账户+数值 ID+repo ID 校验、CSRF、Origin 与 idempotency | auth/security/API/E2E | PASS（mock + integration） | **PARTIAL：安全锁定 PASS，真实登录 BLOCKED** |
-| QA-004 | `hip!`, `"hip"`, case variants | 去重为 `hip`，保留用户原文 | 修复前会分类为 quote 或产生不同 key | High | normalization 只处理大小写/空格 | 单词边界标点 canonicalization，同步到浏览器与 Worker | schema + browser normalization + Playwright `HIP!` | PASS | BLOCKED（未部署） |
-| QA-005 | `<script>…`, HTML, `javascript:`、混合中英文 | AI 前安全拒绝 | 修复前含英文字母即可进入 AI 流程 | High | 输入验证只检查是否含 `[A-Za-z]` | HTML/JS/CJK/control/length guards；DOM 始终使用 textContent | schema、resilience、XSS Playwright | PASS | BLOCKED（Owner API 未部署） |
+| QA-003 | Owner 登录 | GitHub OAuth；浏览器不接触 token | Worker 与 GitHub App 已正式部署 | Critical | 旧静态页无法安全认证 | HttpOnly session、账户+数值 ID+repo ID 校验、CSRF、Origin 与 idempotency | auth/security/API/E2E + production OAuth | PASS（mock + integration） | **PASS：真实 `@zhuodashuai` / ID / repo / snapshot 已核对** |
+| QA-004 | `hip!`, `"hip"`, case variants | 去重为 `hip`，保留用户原文 | 修复前会分类为 quote 或产生不同 key | High | normalization 只处理大小写/空格 | 单词边界标点 canonicalization，同步到浏览器与 Worker | schema + browser normalization + Playwright `HIP!` | PASS | NOT RUN（等待 live AI/write） |
+| QA-005 | `<script>…`, HTML, `javascript:`、混合中英文 | AI 前安全拒绝 | 修复前含英文字母即可进入 AI 流程 | High | 输入验证只检查是否含 `[A-Za-z]` | HTML/JS/CJK/control/length guards；DOM 始终使用 textContent | schema、resilience、XSS Playwright | PASS | NOT RUN（AI key 未配置） |
 | QA-006 | AI duplicate sense / empty examples / invalid IPA format | 不创建半个词条；重试后可手填 | 旧 shape-only Zod 可接受 | High | 只验证 JSON 类型，不验证语义一致性 | `semantic-quality.ts` 通用闸门与 retry | failure-simulations + complete `hip` | PASS | BLOCKED（无真实 AI） |
 | QA-007 | `colour`, `organise`, `learnt`, `travelling`, `enrolment`, `judgement`, `programme` | 合法英/澳式，不自动改成美式 | 旧 US-oriented 拼写器可能误改 | High | 区域变体未受保护 | 区域词形保护 + prompt 明示 | 71-case semantic fixture + API | PASS（规则/fixture） | BLOCKED（无真实 AI） |
-| QA-008 | `recieve` 等 | 建议并等待明确决定；合理置信依据 | 旧代码使用固定 `.9` 且 direct API 可发布 unresolved suggestion | High | 伪置信度；发布 schema 未封锁 | edit-distance heuristic 来源标签；PublishRequest 拒绝 `suggested` | API schema + correction E2E | PASS | BLOCKED（未部署） |
+| QA-008 | `recieve` 等 | 建议并等待明确决定；合理置信依据 | 旧代码使用固定 `.9` 且 direct API 可发布 unresolved suggestion | High | 伪置信度；发布 schema 未封锁 | edit-distance heuristic 来源标签；PublishRequest 拒绝 `suggested` | API schema + correction E2E | PASS | NOT RUN（AI key 未配置） |
 | QA-009 | GitHub SHA conflict | rebase 后安全重试一次，不覆盖远端 | rebase 改了语义 payload 却复用已绑定旧 hash 的 mutation ID | High | idempotency key 未随语义 payload 旋转 | 语义 rebase 生成新 mutation ID | v3 sync regression | PASS | BLOCKED（无真实 GitHub write） |
 | QA-010 | response-lost refresh / idempotent replay | 不重复发布，也不把不匹配草稿标为已发布 | 旧恢复路径可能冲突或出现假 Published | High | 启动恢复缺少远端语义对账 | mutation ID + remote semantic equality 双条件只读对账 | owner-storage recovery tests | PASS | BLOCKED（无真实 GitHub write） |
-| QA-011 | kept `desert` after rejecting `dessert` | 后续可建立合法 `dessert` | backend 仍把 rejected suggestion 当 alias | Medium | browser/server alias 规则不一致 | kept 仅保留 original+chosen alias | schema/sync tests | PASS | BLOCKED（未部署） |
-| QA-012 | 501–2,000 字符英文 | 统一接受或明确拒绝，不在后段崩溃 | input 允许 2,000，term/correction 只允许 500 | Medium | schema 长度不一致 | 相关字段统一 2,000；2,001 明确拒绝 | schema boundary test | PASS | BLOCKED（未部署） |
+| QA-011 | kept `desert` after rejecting `dessert` | 后续可建立合法 `dessert` | backend 仍把 rejected suggestion 当 alias | Medium | browser/server alias 规则不一致 | kept 仅保留 original+chosen alias | schema/sync tests | PASS | NOT RUN（等待 live AI/write） |
+| QA-012 | 501–2,000 字符英文 | 统一接受或明确拒绝，不在后段崩溃 | input 允许 2,000，term/correction 只允许 500 | Medium | schema 长度不一致 | 相关字段统一 2,000；2,001 明确拒绝 | schema boundary test | PASS | NOT RUN（不向生产 AI 发送边界测试） |
 | QA-013 | AI/API/GitHub failure | 草稿保留、loading 结束、可重试/手填 | 原覆盖不完整 | Medium | 缺少故障注入矩阵 | 401/429/500/timeout/non-JSON/wrong-type/GitHub timeout/corrupt JSON tests | failure/resilience/E2E | PASS | BLOCKED（真实 provider 未配置） |
-| QA-014 | SW 旧资源 | 明确更新、草稿 flush 后才激活、旧 cache 清除 | cache-first 可能长期保留旧 JS/CSS/manifest | Medium | mutable asset 缓存策略过强 | network-first revalidation + explicit update + old-cache cleanup | PWA runtime + E2E | PASS | BLOCKED（未部署） |
-| QA-015 | live security headers | CSP、frame、referrer 等由响应头强制 | GitHub Pages 当前只有页面 meta CSP，不能提供完整自定义 header | Medium | GitHub Pages header 能力有限 | Worker asset response 已有 CSP/X-Frame-Options；Pages meta 继续兜底 | dry-run + source scan | PASS（Worker local） | **OPEN until Worker serves admin** |
+| QA-014 | SW 旧资源 | 明确更新、草稿 flush 后才激活、旧 cache 清除 | cache-first 可能长期保留旧 JS/CSS/manifest | Medium | mutable asset 缓存策略过强 | network-first revalidation + explicit update + old-cache cleanup | PWA runtime + E2E | PASS | PASS（Worker v23；Pages 发布后复核） |
+| QA-015 | live security headers | CSP、frame、referrer 等由响应头强制 | 首次 Worker 部署因 assets 绕过 Worker 而缺失响应头 | Medium | `run_worker_first` 仅匹配 `/api/*` | 所有 Worker assets 先进入安全响应包装 | config regression + real HTTP headers | PASS | **PASS：CSP/frame/referrer/permissions/HSTS 已实测** |
 | QA-016 | 格式合法但语义错误的 `/hɑp/`；自然但放错 sense 的例句 | 自动识别所有语义错误 | 确定性闸门无法通用证明语音/例句语义 | High residual | 语义真值不能由 schema/regex 完全证明 | 已加权威 web cross-check、gold fixtures、Owner 发布前复核；仍需真实 provider eval | known-error fixtures 可捕获已知案例 | PARTIAL | **BLOCKED** |
-| QA-017 | 未登录访客用脚本移除 `hidden`/`inert` | 仍不能建立或保存 Owner 草稿 | 旧监听器在隐藏 UI 上仍会执行本地写入 | High | 只依赖可见性，没有在写操作入口复核认证状态 | 所有本地与远端写入口统一调用 verified-owner guard | unauthenticated programmatic-unhide E2E | PASS | BLOCKED（未部署） |
+| QA-017 | 未登录访客用脚本移除 `hidden`/`inert` | 仍不能建立或保存 Owner 草稿 | 旧监听器在隐藏 UI 上仍会执行本地写入 | High | 只依赖可见性，没有在写操作入口复核认证状态 | 所有本地与远端写入口统一调用 verified-owner guard | unauthenticated programmatic-unhide E2E | PASS | PARTIAL（真实未登录 fail closed；脚本解锁为本地自动化） |
 | QA-018 | OpenAI 故障、Claude fallback；中文污染结果 | 主 provider 失败时明确回退；脏中文不能保存 | 旧实现只有 OpenAI；中文只校验非空 | High | 无 provider orchestration；无脚本文本质量闸门 | OpenAI→Claude 显式回退、实际 provider 回传、中文/英文脚本比例校验 | AI integration + semantic failure simulations | PASS | BLOCKED（真实 provider 未配置） |
 
 ## 语言测试矩阵
@@ -115,7 +115,7 @@
 
 16 维评分为每项 0/1/2，阈值 28/32；错误核心义、虚构来源、静默误纠正、例句错配或任何关键维度为 0 会直接 Fail。
 
-这 71 项的**预期、严重程度与禁止行为**已全部建立并通过 fixture 一致性测试；它们不是 71 次真实线上 AI 输出。由于正式 Owner AI 未部署，当前只有修复前的 `hip` 完成线上黑盒实际值采集，其余 live AI actual 均为 BLOCKED。
+这 71 项的**预期、严重程度与禁止行为**已全部建立并通过 fixture 一致性测试；它们不是 71 次真实线上 AI 输出。Owner API 已部署，但 provider key 尚未配置；当前只有修复前的 `hip` 完成线上黑盒实际值采集，其余 live AI actual 均为 BLOCKED。
 
 另有旧本地词典的 100 词金标准和 100 次重复输入测试通过；该结果验证旧 offline pipeline 与去重逻辑，不替代新版真实 provider 的 71 项 live semantic evaluation。
 
@@ -130,17 +130,17 @@
 - 未登录访客、错误账号、离线未认证、直接 API 写入、错误 Origin/CSRF/idempotency、过期会话均 fail closed。
 - 本地 E2E 的 `zhuodashuai` 是确定性 mock，只证明 UI 和协议行为。
 - 浏览器 asset 未发现 token/API key/secret 字面值、credential 输入框或 credential 持久化路径。
-- 真实 GitHub App identity、数值 owner ID `156042078` 和 repository ID 的线上验证为 BLOCKED。
+- 正式 Worker 已真实完成 GitHub App OAuth；页面显示 `@zhuodashuai`、数值 owner ID `156042078`、目标 repository 与安装信息，浏览器没有 GitHub token。
 
 ### 数据生命周期
 
 本地 E2E 已覆盖：输入 → AI 候选 → 人工修改 → IndexedDB 草稿 → mock 发布 → 刷新 → 离线查看/排队 → 联网同步 → 编辑 → 再发布 → 导出 → 删除 → 导入。并覆盖多标签页、刷新恢复、并发冲突和重复提交。
 
-真实 GitHub JSON、真实 API response、正式公开页面之间的一致性尚未执行，因为没有生产 Worker/GitHub App 授权；不得视为通过。
+真实 OAuth 后的 owner snapshot 与 GitHub canonical JSON 均显示 1 条 `jab at`，读取链路已通过。真实 GitHub 写入/刷新/编辑/删除尚未执行；不得把 mock publish 冒充为生产写入通过。
 
 ### 浏览器
 
-- 正式站点：提交 `1461006` 发布后，Codex in-app Chromium 已验证主页、公开词库和 fail-closed 管理页；公开快照成功加载 `jab at`，无 console warning/error。完整 network waterfall 不可用。
+- 正式站点：Codex in-app Chromium 已验证主页、公开词库、未登录 fail-closed 管理页和真实登录后的 Owner workspace；公开快照成功加载 `jab at`，Owner workspace 显示同一快照，无 console warning/error。完整 network waterfall 不可用。
 - 本地：Chrome/Chromium desktop、375×812 mobile、键盘 focus/touch target、快速双提交、back/forward、多标签页、offline/online、Slow 3G、PWA manifest `display: standalone`、Service Worker install/update/activate 均有自动覆盖。
 - 当前自动化验证 standalone manifest/installability 和 standalone-safe layout，未在真实操作系统桌面图标中启动一次安装后的独立窗口；正式 PWA 安装 smoke test 为部署后的人工步骤。
 
@@ -158,15 +158,17 @@
 | Secret boundary scan | PASS |
 | Cloudflare Worker `wrangler deploy --dry-run` | PASS |
 
-## 生产阻塞与下一步
+## 生产剩余项
 
-GitHub 设备授权和推送已经完成；`main` 与 `codex/wordbook-owner-v2` 都指向 `1461006`。GitHub Pages 与 Wordbook CI 均成功，公开端已经上线。Wrangler 仍明确返回 `You are not authenticated`。生产 Worker 还需要由 Owner 完成 Cloudflare 官方登录，并在隐藏 secret prompt 中配置 GitHub App client ID/client secret、随机 session secret 和 OpenAI API key；如需 Claude 备用，再配置 Anthropic API key。之后还要把准确的 Worker origin 写入 `vocab/js/runtime-config.js`。
+GitHub 推送授权、Cloudflare 登录、Worker 部署、GitHub App 创建与单仓库安装、client/session secrets、`OWNER_ADMIN_URL` 和真实 `zhuodashuai` OAuth 都已完成。Owner 登录不再需要重复设置；日常只会在会话过期或主动退出后重新登录。
 
-完成这些授权前：
+仍需要由 Owner 在本机隐藏终端提示中录入至少一个 AI provider key：推荐先配置 `OPENAI_API_KEY`；如需 Claude 备用，再配置 `ANTHROPIC_API_KEY`。API key 不应发到聊天、浏览器表单或提交到 GitHub。配置后再执行 `hip`、`jab at`、`recieve`、英/澳式拼写和名言出处的真实阻断集，确认质量后才进行真实 GitHub 发布。
 
-- 不能真实登录为 `zhuodashuai`；
-- 不能运行 71 项正式 AI 语义矩阵；
-- 不能核对一次真实 Worker 发布后的 GitHub JSON、认证 API response 与正式页面三方一致性；
-- 不能关闭 QA-003、QA-016 或宣布“不存在 Critical/High 问题”。
+在完成真实 AI 和至少一次人工复核后的生产发布前：
+
+- 不能把 71 项 fixture/mocked matrix 描述为 71 次 live AI 通过；
+- 不能把本地 publish 生命周期描述成真实 GitHub write 通过；
+- QA-016 的语义真值残余风险仍需人工复核与真实 provider eval；
+- 不声明“不存在任何 bug”，只声明当前已覆盖测试与实测链路的结果。
 
 所需生产配置和不泄露 secret 的步骤见 [`docs/wordbook-owner-v2.md`](docs/wordbook-owner-v2.md)。

@@ -7,6 +7,8 @@ const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8
 const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf8");
 const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
+const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
+const workerConfigSource = await readFile(new URL("../../wordbook-api/wrangler.jsonc", import.meta.url), "utf8");
 const profileHtml = await readFile(new URL("../../index.html", import.meta.url), "utf8");
 
 async function pngDimensions(path) {
@@ -53,12 +55,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v22/);
+  assert.match(serviceWorker, /zhuo-wordbook-v23/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=22/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=23/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=22"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=22"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=23"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=23"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -67,4 +69,6 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(ownerHtml, /OpenAI.*Claude.*备用/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
+  assert.match(runtimeConfigSource, /https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\//);
+  assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
 });

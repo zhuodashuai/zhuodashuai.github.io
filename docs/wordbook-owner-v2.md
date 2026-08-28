@@ -60,7 +60,17 @@ pnpm test:e2e
 
 E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真实 token 或 API key。真实 provider 合同测试必须显式提供服务端测试环境，并且不属于普通 CI。
 
-## 一次性生产配置
+## 当前生产状态（2026-08-28）
+
+- 管理端已部署到 <https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/owner.html>；健康检查为 `ok: true`。
+- GitHub App `Zhuo Wordbook Owner` 已创建，并且只安装到 `zhuodashuai/zhuodashuai.github.io`；权限仅为 Metadata 只读与 Contents 读写。
+- GitHub App client secret 和随机 session secret 已通过 Wrangler 隐藏输入保存为 Worker secret，没有写入浏览器、仓库或文档。
+- 已在正式 Worker 完成真实 GitHub OAuth：页面显示 `@zhuodashuai`、固定 user ID `156042078`、已连接的目标仓库与 1 条公开词条；浏览器未收到 GitHub token。
+- `vocab/js/runtime-config.js` 已指向上述 Worker origin，公开站的“所有者登录”会进入同源安全管理端。
+- OpenAI 与 Claude 的 API key 尚未配置，因此 AI 自动整理当前明确显示为未配置并回退到手动草稿；这不影响卓本人登录、查看快照和手动编辑。没有真实 provider 结果前，不把 mock 结果写成线上通过。
+- 尚未用生产 Worker 执行真实 GitHub 写入。第一次正式发布应选一个可保留的词条，人工复核后再发布，不用垃圾测试数据污染公开词库。
+
+## 一次性生产配置（重建或迁移时使用）
 
 不要把 secret 写入 `.env`、聊天、GitHub Actions 日志或仓库。下面的输入都在 GitHub/Cloudflare 官方页面或 `wrangler secret put` 的隐藏提示里完成。
 
