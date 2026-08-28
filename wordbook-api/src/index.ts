@@ -230,14 +230,20 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
   const path = new URL(request.url).pathname;
   if (path === `${API_PREFIX}/health` && request.method === "GET") {
     const config = readConfig(env);
+    const providerConfigured = (provider: "openai" | "anthropic" | undefined) => provider === "openai"
+      ? Boolean(config.OPENAI_API_KEY)
+      : provider === "anthropic"
+        ? Boolean(config.ANTHROPIC_API_KEY && config.ANTHROPIC_MODEL)
+        : false;
     return jsonResponse({
       ok: true,
       version: "2.0.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
-      aiConfigured: config.AI_PROVIDER === "openai"
-        ? Boolean(config.OPENAI_API_KEY)
-        : Boolean(config.ANTHROPIC_API_KEY && config.ANTHROPIC_MODEL)
+      aiFallbackProvider: config.AI_FALLBACK_PROVIDER || null,
+      aiConfigured: providerConfigured(config.AI_PROVIDER) || providerConfigured(config.AI_FALLBACK_PROVIDER),
+      aiPrimaryConfigured: providerConfigured(config.AI_PROVIDER),
+      aiFallbackConfigured: providerConfigured(config.AI_FALLBACK_PROVIDER)
     });
   }
   if (path === `${API_PREFIX}/auth/login` && request.method === "GET") return login(request, env);

@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#173d35">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <title>卓同学的秘密单词屋 · 质量报告</title>
-  <meta name="description" content="卓同学的秘密单词屋公开测试数据质量报告。">
+  <title>卓的公开词库 · 质量报告</title>
+  <meta name="description" content="卓的公开词库测试数据质量报告。">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="report.js"></script>
 </head>
@@ -15,22 +15,22 @@
   <a class="skip-link" href="#report-main">跳到质量报告</a>
 
   <header class="site-header">
-    <a class="brand" href="../?mode=personal" aria-label="返回卓同学的秘密单词屋">
+    <a class="brand" href="../" aria-label="返回卓的公开词库">
       <span class="brand-mark" aria-hidden="true">卓</span>
-      <span><strong>卓同学的秘密单词屋</strong><small>QUALITY DESK</small></span>
+      <span><strong>卓的公开词库</strong><small>QUALITY DESK</small></span>
     </a>
-    <a class="back-link" href="../?mode=personal">返回单词屋 <span aria-hidden="true">↗</span></a>
+    <a class="back-link" href="../">返回公开词库 <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="report-main">
     <section class="hero" aria-labelledby="report-title">
       <div>
         <p class="eyebrow">A public quality ledger</p>
-        <h1 id="report-title">卓同学的秘密单词屋<br><em>质量报告</em></h1>
+        <h1 id="report-title">卓的公开词库<br><em>质量报告</em></h1>
       </div>
       <div class="hero-note">
         <span class="status-pill pending" id="overall-status">等待测试</span>
-        <p>这是一份只读质量看板。它使用固定的100项公开测试数据，不读取个人词库、复习记录、GitHub令牌或同步配置。</p>
+        <p>这是一份只读质量看板。它使用固定的100项公开测试数据，不读取所有者草稿、复习记录、GitHub令牌或同步配置。</p>
       </div>
     </section>
 
@@ -91,13 +91,13 @@
         <div class="sample-panel">
           <span>测试样本预览</span>
           <div class="sample-list" id="sample-list" aria-label="测试样本预览"></div>
-          <p>这里仅展示固定金标准中的输入词，不连接个人 IndexedDB，也不执行在线查词。</p>
+          <p>这里仅展示固定金标准中的输入词，不连接管理端 IndexedDB，也不执行在线查词。</p>
         </div>
       </div>
       <div class="rerun-panel">
         <div>
           <strong>在你的浏览器重新核对</strong>
-          <p>只读取本站的 ECDICT 核心与100项公开金标准，不读取或改动个人词库，也不请求外部翻译接口。</p>
+          <p>只读取本站的 ECDICT 核心与100项公开金标准，不读取或改动所有者草稿和发布队列，也不请求外部翻译接口。</p>
         </div>
         <button type="button" id="run-core-check">运行100词本地检测</button>
         <p id="run-core-result" role="status" aria-live="polite"></p>
@@ -108,7 +108,7 @@
   </main>
 
   <footer>
-    <p>卓同学的秘密单词屋 · Public test evidence only</p>
+    <p>卓的公开词库 · Public test evidence only</p>
     <p>你可以在本页独立重跑100词本地检测。</p>
   </footer>
 </body>

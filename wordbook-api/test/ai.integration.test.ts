@@ -33,7 +33,15 @@ describe("AI organizer", () => {
   it("enables English web search for a single word so dictionary evidence can be cross-checked", async () => {
     const mock = vi.fn(async (_input, init) => {
       const body = JSON.parse(String(init?.body));
-      expect(body.tools).toEqual([{ type: "web_search" }]);
+      expect(body.tools).toEqual([{ type: "web_search", filters: { allowed_domains: [
+        "dictionary.cambridge.org",
+        "www.oxfordlearnersdictionaries.com",
+        "www.merriam-webster.com",
+        "www.collinsdictionary.com"
+      ] } }]);
+      expect(body.tool_choice).toBe("required");
+      expect(body.max_tool_calls).toBe(4);
+      expect(body.include).toEqual(["web_search_call.action.sources"]);
       expect(body.instructions).toMatch(/at least two independent authoritative English dictionaries/i);
       return response(organized());
     });
@@ -79,6 +87,59 @@ describe("AI organizer", () => {
     await expect(organizeEntry("receive", config)).rejects.toMatchObject({ status: 503, code: "ai_error" });
   });
 
+  it("falls back from OpenAI to Claude and gives Claude the same structured schema contract", async () => {
+    const fallbackConfig: AppConfig = {
+      ...config,
+      AI_FALLBACK_PROVIDER: "anthropic",
+      ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
+      ANTHROPIC_MODEL: "claude-test-model"
+    };
+    const mock = vi.fn(async (input, init) => {
+      const url = String(input);
+      if (url.includes("api.openai.com")) {
+        return Response.json({ error: { code: "server_error" } }, { status: 500 });
+      }
+      expect(url).toContain("api.anthropic.com/v1/messages");
+      const body = JSON.parse(String(init?.body));
+      expect(body.output_config.format.type).toBe("json_schema");
+      expect(body.output_config.format.schema.required).toContain("senses");
+      expect(JSON.stringify(body.output_config.format.schema)).not.toContain("maxLength");
+      return Response.json({
+        stop_reason: "end_turn",
+        content: [{ type: "text", text: JSON.stringify(organized()) }]
+      });
+    });
+    vi.stubGlobal("fetch", mock);
+
+    const result = await organizeEntry("receive", fallbackConfig);
+    expect(result.provider).toBe("anthropic");
+    expect(result.entry.organizationMethod).toBe("ai-anthropic");
+    expect(result.warnings.join(" ")).toMatch(/OpenAI.*Claude.*备用引擎/);
+    expect(mock).toHaveBeenCalledTimes(2);
+  });
+
+  it("uses the configured Claude fallback when the OpenAI secret is not present", async () => {
+    const fallbackOnly: AppConfig = {
+      ...config,
+      OPENAI_API_KEY: undefined,
+      AI_FALLBACK_PROVIDER: "anthropic",
+      ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
+      ANTHROPIC_MODEL: "claude-test-model"
+    };
+    const mock = vi.fn(async (input) => {
+      expect(String(input)).toContain("api.anthropic.com/v1/messages");
+      return Response.json({
+        stop_reason: "end_turn",
+        content: [{ type: "text", text: JSON.stringify(organized()) }]
+      });
+    });
+    vi.stubGlobal("fetch", mock);
+
+    const result = await organizeEntry("receive", fallbackOnly);
+    expect(result.provider).toBe("anthropic");
+    expect(mock).toHaveBeenCalledOnce();
+  });
+
   it("does not publish remembered quote attribution without a web citation", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => response(organized({
       suggestedTerm: "Knowledge is power.", standardForm: "Knowledge is power.", entryType: "quote", meaning: "知识就是力量。",
@@ -93,6 +154,7 @@ describe("AI organizer", () => {
     const mock = vi.fn(async (_input, init) => {
       const body = JSON.parse(String(init?.body));
       expect(body.tools).toEqual([{ type: "web_search" }]);
+      expect(body.tool_choice).toBe("required");
       return response(organized({
         suggestedTerm: "Knowledge is power.", standardForm: "Knowledge is power.", entryType: "quote", meaning: "知识就是力量。",
         author: "Francis Bacon", sourceTitle: "Meditationes Sacrae", sourceWork: "Meditationes Sacrae", sourceDate: "1597", attributionNote: "candidate found"
@@ -108,6 +170,7 @@ describe("AI organizer", () => {
     const mock = vi.fn(async (_input, init) => {
       const body = JSON.parse(String(init?.body));
       expect(body.tools).toEqual([{ type: "web_search" }]);
+      expect(body.tool_choice).toBe("required");
       return response(organized({
         suggestedTerm: "Knowledge is power", standardForm: "Knowledge is power", entryType: "quote", meaning: "知识就是力量。"
       }));
@@ -116,5 +179,20 @@ describe("AI organizer", () => {
     const result = await organizeEntry("Knowledge is power", config);
     expect(result.entry.entryType).toBe("quote");
     expect(mock).toHaveBeenCalledOnce();
+  });
+
+  it("records sources returned by the web-search action even when the text annotation omits them", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({
+      output: [
+        { type: "web_search_call", action: { type: "search", sources: [
+          { title: "Cambridge Dictionary", url: "https://dictionary.cambridge.org/dictionary/english/receive" },
+          { title: "Merriam-Webster", url: "https://www.merriam-webster.com/dictionary/receive" }
+        ] } },
+        { type: "message", content: [{ type: "output_text", text: JSON.stringify(organized()), annotations: [] }] }
+      ]
+    })));
+    const result = await organizeEntry("receive", config);
+    expect(result.entry.sources).toHaveLength(2);
+    expect(result.warnings.join(" ")).not.toContain("不足 2 个");
   });
 });

@@ -53,6 +53,9 @@
 
 ## 修复摘要
 
+- 第一阶段明确收窄为 Owner-only：公开页只读，管理工作区默认 `hidden + inert`；只有服务端确认 GitHub 登录名、固定数值 ID `156042078` 和目标 repository 后，浏览器才开放新建、保存、发布、删除与备份操作。
+- OpenAI Responses API 作为主整理器，短词汇查询强制执行 web search 并优先限定 Cambridge、Oxford、Merriam-Webster、Collins；可选 Claude 只在 OpenAI 不可用时回退，页面显示实际使用的 provider。两者都只能生成待人工核对的本地草稿。
+- 中文字段不仅要求非空，还必须包含足够比例的汉字；英文定义和例句必须以英文为主，防止 `kamus在线bm ke bi` 一类拉丁字母占主导的污染文本穿过结构校验。
 - 新增通用 AI 语义闸门：词汇型输入必须至少有一个完整 sense；每个 sense 必须有 POS、中文、英文定义和双语例句；重复 sense、重复例句、非 IPA 格式会触发一次重试，连续失败则保留手动草稿并明确报错。
 - 从 sense 确定性重建顶层 POS、中文、英文和首条例句，防止 `verb` 顶层字段与 noun/adjective senses 自相矛盾。
 - 所有单词和短语均允许英文 web search，并要求模型优先交叉核对 Cambridge、Oxford、Merriam-Webster、Collins 等权威英英词典；引用只有真正出现在 response citation 时才能保存。
@@ -90,6 +93,8 @@
 | QA-014 | SW 旧资源 | 明确更新、草稿 flush 后才激活、旧 cache 清除 | cache-first 可能长期保留旧 JS/CSS/manifest | Medium | mutable asset 缓存策略过强 | network-first revalidation + explicit update + old-cache cleanup | PWA runtime + E2E | PASS | BLOCKED（未部署） |
 | QA-015 | live security headers | CSP、frame、referrer 等由响应头强制 | GitHub Pages 当前只有页面 meta CSP，不能提供完整自定义 header | Medium | GitHub Pages header 能力有限 | Worker asset response 已有 CSP/X-Frame-Options；Pages meta 继续兜底 | dry-run + source scan | PASS（Worker local） | **OPEN until Worker serves admin** |
 | QA-016 | 格式合法但语义错误的 `/hɑp/`；自然但放错 sense 的例句 | 自动识别所有语义错误 | 确定性闸门无法通用证明语音/例句语义 | High residual | 语义真值不能由 schema/regex 完全证明 | 已加权威 web cross-check、gold fixtures、Owner 发布前复核；仍需真实 provider eval | known-error fixtures 可捕获已知案例 | PARTIAL | **BLOCKED** |
+| QA-017 | 未登录访客用脚本移除 `hidden`/`inert` | 仍不能建立或保存 Owner 草稿 | 旧监听器在隐藏 UI 上仍会执行本地写入 | High | 只依赖可见性，没有在写操作入口复核认证状态 | 所有本地与远端写入口统一调用 verified-owner guard | unauthenticated programmatic-unhide E2E | PASS | BLOCKED（未部署） |
+| QA-018 | OpenAI 故障、Claude fallback；中文污染结果 | 主 provider 失败时明确回退；脏中文不能保存 | 旧实现只有 OpenAI；中文只校验非空 | High | 无 provider orchestration；无脚本文本质量闸门 | OpenAI→Claude 显式回退、实际 provider 回传、中文/英文脚本比例校验 | AI integration + semantic failure simulations | PASS | BLOCKED（真实 provider 未配置） |
 
 ## 语言测试矩阵
 
@@ -144,16 +149,16 @@
 | Suite | Result |
 |---|---:|
 | Frontend/data Node unit | 98 passed |
-| Worker/API Vitest | 60 passed |
+| Worker/API Vitest | 66 passed |
 | Playwright browser E2E | 21 passed |
-| Total automated assertions/tests | **179 passed, 0 failed** |
+| Total automated assertions/tests | **185 passed, 0 failed** |
 | TypeScript `tsc --noEmit` | PASS |
 | Secret boundary scan | PASS |
 | Cloudflare Worker `wrangler deploy --dry-run` | PASS |
 
 ## 生产阻塞与下一步
 
-当前机器没有 `gh` CLI/可用 Git push credential，Wrangler 明确返回 `You are not authenticated`。生产 Worker 还需要由 Owner 在隐藏 secret prompt 中配置 GitHub App client ID/client secret、随机 session secret 和 OpenAI API key，再把准确的 Worker origin 写入 `vocab/js/runtime-config.js`。
+当前机器没有 `gh` CLI/可用 Git push credential，Wrangler 明确返回 `You are not authenticated`。生产 Worker 还需要由 Owner 在隐藏 secret prompt 中配置 GitHub App client ID/client secret、随机 session secret 和 OpenAI API key；如需 Claude 备用，再配置 Anthropic API key。之后还要把准确的 Worker origin 写入 `vocab/js/runtime-config.js`。
 
 完成这些授权前：
 
@@ -164,4 +169,3 @@
 - 不能关闭 QA-003、QA-016 或宣布“不存在 Critical/High 问题”。
 
 所需生产配置和不泄露 secret 的步骤见 [`docs/wordbook-owner-v2.md`](docs/wordbook-owner-v2.md)。
-

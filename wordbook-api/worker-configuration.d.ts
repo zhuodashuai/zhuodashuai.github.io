@@ -12,6 +12,7 @@ interface Env {
   GITHUB_APP_CLIENT_SECRET?: string;
   SESSION_SECRET?: string;
   AI_PROVIDER: "openai" | "anthropic";
+  AI_FALLBACK_PROVIDER?: "openai" | "anthropic";
   OPENAI_API_KEY?: string;
   OPENAI_MODEL?: string;
   ANTHROPIC_API_KEY?: string;

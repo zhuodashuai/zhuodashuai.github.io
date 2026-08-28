@@ -21,7 +21,8 @@
        ├─ Static Assets: 同一套 vocab 前端
        ├─ GitHub App OAuth: state + PKCE + 服务端 code exchange
        ├─ Durable Object: one-time state、加密 token、1 小时会话、CSRF、限流、幂等串行发布
-       ├─ OpenAI Responses API: 严格 JSON Schema，名言类输入启用 web search
+       ├─ OpenAI Responses API: 主整理引擎，严格 JSON Schema + 英文 web search
+       ├─ Claude Messages API: 可选备用引擎，同一 JSON Schema + 服务端语义校验
        └─ GitHub Contents API: 固定仓库/分支/路径 + blob SHA 乐观并发
 ```
 
@@ -86,7 +87,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
    pnpm exec wrangler secret put OPENAI_API_KEY
    ```
 
-   `SESSION_SECRET` 必须是至少 32 个随机字节的 base64url 值；不要复用密码。Anthropic 仅在把 `AI_PROVIDER` 改为 `anthropic` 时再配置 `ANTHROPIC_API_KEY` 与当前稳定模型。
+   `SESSION_SECRET` 必须是至少 32 个随机字节的 base64url 值；不要复用密码。默认 `AI_PROVIDER=openai`。如果需要 OpenAI 故障时自动切换到 Claude，再通过隐藏提示配置 `ANTHROPIC_API_KEY`，在 Worker variables 中填写当前稳定的 `ANTHROPIC_MODEL`，并保留 `AI_FALLBACK_PROVIDER=anthropic`。Claude 未配置时会被安全跳过，不影响 OpenAI 主流程。
 4. 再运行一次 `pnpm exec wrangler deploy`；打开 `<Worker origin>/api/v1/health`，确认 owner auth 与所选 AI provider 均显示 configured。
 5. 把这个公开 origin 写入 `vocab/js/runtime-config.js` 的 `OWNER_ADMIN_URL`，提交并让 GitHub Pages 发布。不要在这里写 client secret 或 token。
 6. 在正式 Worker origin 打开 `/owner.html`，点击 GitHub 登录。必须实际显示 `@zhuodashuai` 与 user ID `156042078`，再用一个测试词条完成发布、刷新、编辑和删除。
@@ -95,6 +96,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 
 - GitHub JSON 是公开内容的权威源；管理端发现 SHA 冲突时应先刷新并逐字段处理，不能覆盖。
 - AI 不可用时继续使用手动草稿；引用找不到权威出处时保存为 `unverified`，作者/作品/年份保持空白。
+- OpenAI 与 Claude 都只能生成候选；无论由哪个 provider 返回，都必须通过同一份 Zod schema、分义项完整性、IPA 形态、双语例句和重复义项检查。Claude 的严格 JSON 输出与 web-search 引用当前不能放在同一次请求中，因此 Claude 备用结果不会自动把名言出处升级为已核验。
 - PWA 新版本只在用户点击“立即更新”后切换并刷新，首次安装不会打断输入。
 - 若 Worker 暂时不可用，GitHub Pages 公开词库仍可浏览；管理端 fail closed。
 - 回滚前先导出管理端备份，并通过普通 Git commit/revert 操作处理；不要 force push 或改写历史。

@@ -1,4 +1,4 @@
-import { readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS, type AppConfig } from "./config";
+import { OWNER_USER_ID, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS, type AppConfig } from "./config";
 import {
   readRemoteWordbook,
   revokeOAuthToken,
@@ -166,7 +166,8 @@ export class OwnerControl implements DurableObject {
     }
     const identity = identityValue as unknown as GitHubIdentity;
     const now = Date.now();
-    if (identity.login !== "zhuodashuai" || !Number.isInteger(identity.id) || !Number.isInteger(identity.installationId)
+    if (identity.login !== "zhuodashuai" || identity.id !== OWNER_USER_ID
+      || !Number.isInteger(identity.installationId) || identity.installationId <= 0
       || !Number.isFinite(githubTokenExpiresAt) || githubTokenExpiresAt <= now) {
       throw new ApiError(400, "invalid_internal_request", "Invalid owner session");
     }

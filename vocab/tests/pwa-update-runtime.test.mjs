@@ -131,6 +131,6 @@ test("Service Worker activation deletes stale wordbook caches and preserves unre
   let activation;
   listeners.get("activate")({ waitUntil(promise) { activation = promise; } });
   await activation;
-  assert.deepEqual(deleted.sort(), ["zhuo-wordbook-v18", "zhuo-wordbook-v19", "zhuo-wordbook-v20"]);
+  assert.deepEqual(deleted.sort(), ["zhuo-wordbook-v18", "zhuo-wordbook-v19", "zhuo-wordbook-v20", "zhuo-wordbook-v21"]);
   assert.equal(claimed, 1);
 });

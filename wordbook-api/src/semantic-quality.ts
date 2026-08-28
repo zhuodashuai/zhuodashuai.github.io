@@ -36,6 +36,22 @@ function semanticKey(value: string): string {
   return compact(value).toLocaleLowerCase("en-US").replace(/[\p{P}\p{S}\s]+/gu, "");
 }
 
+function scriptCount(value: string, pattern: RegExp): number {
+  return [...compact(value).matchAll(pattern)].length;
+}
+
+export function isPlausibleChineseText(value: string): boolean {
+  const text = compact(value);
+  const han = scriptCount(text, /\p{Script=Han}/gu);
+  const latin = scriptCount(text, /\p{Script=Latin}/gu);
+  return han > 0 && han / Math.max(1, han + latin) >= 0.2;
+}
+
+export function isPlausibleEnglishText(value: string): boolean {
+  const text = compact(value);
+  return /\p{Script=Latin}/u.test(text) && !/\p{Script=Han}/u.test(text);
+}
+
 function partOfSpeechKey(value: string): string {
   const raw = compact(value).toLocaleLowerCase("en-US").replace(/[._]/g, " ");
   const aliases: Array<[RegExp, string]> = [
@@ -127,8 +143,6 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
   if (inputTokenCount > 1 && countEnglishTokens(organized.suggestedTerm) < 2) organized.suggestedTerm = input;
   if (inputTokenCount > 1 && countEnglishTokens(organized.standardForm) < 2) organized.standardForm = input;
 
-  if (!compact(organized.meaning)) issues.push("top-level Chinese meaning is empty");
-  if (!compact(organized.definition)) issues.push("top-level English definition is empty");
   if (!isPlausiblePhonetic(organized.phonetic)) issues.push("phonetic field is not plausible IPA notation");
 
   if (LEXICAL_TYPES.has(organized.entryType)) {
@@ -138,11 +152,13 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
     organized.senses.forEach((sense, index) => {
       const label = `sense ${index + 1}`;
       if (!compact(sense.partOfSpeech)) issues.push(`${label} part of speech is empty`);
-      if (!compact(sense.meaningZh)) issues.push(`${label} Chinese meaning is empty`);
-      if (!compact(sense.definitionEn)) issues.push(`${label} English definition is empty`);
+      if (!isPlausibleChineseText(sense.meaningZh)) issues.push(`${label} Chinese meaning is missing or script-contaminated`);
+      if (!isPlausibleEnglishText(sense.definitionEn)) issues.push(`${label} English definition is missing or script-contaminated`);
       if (!sense.examples.length) issues.push(`${label} has no paired example`);
       sense.examples.forEach((example, exampleIndex) => {
         if (!example.en || !example.zh) issues.push(`${label} example ${exampleIndex + 1} is not bilingual`);
+        if (example.en && !isPlausibleEnglishText(example.en)) issues.push(`${label} example ${exampleIndex + 1} English side is script-contaminated`);
+        if (example.zh && !isPlausibleChineseText(example.zh)) issues.push(`${label} example ${exampleIndex + 1} Chinese side is missing or script-contaminated`);
         const exampleKey = semanticKey(example.en);
         if (exampleKey && exampleKeys.has(exampleKey)) issues.push(`${label} repeats an example from another sense`);
         if (exampleKey) exampleKeys.add(exampleKey);
@@ -151,6 +167,9 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
       if (senseKeys.has(key)) issues.push(`${label} duplicates another sense`);
       senseKeys.add(key);
     });
+  } else {
+    if (!isPlausibleChineseText(organized.meaning)) issues.push("top-level Chinese meaning is missing or script-contaminated");
+    if (!isPlausibleEnglishText(organized.definition)) issues.push("top-level English definition is missing or script-contaminated");
   }
 
   if (issues.length) throw new SemanticQualityError([...new Set(issues)]);
@@ -214,4 +233,3 @@ export function estimateCorrectionConfidence(original: string, suggestion: strin
   if (distance <= 2 && distance / longest <= 0.25) return 0.74;
   return 0.55;
 }
-

@@ -60,6 +60,15 @@ test("未登录与错误账号状态保持 fail closed", async ({ context, page 
   await page.goto("/owner.html");
   await expect(page.locator("#owner-workspace")).toBeHidden();
   await expect(page.getByRole("button", { name: "发布到 GitHub" })).toBeHidden();
+  await page.locator("#owner-workspace").evaluate((element) => {
+    element.hidden = false;
+    element.inert = false;
+  });
+  await page.getByLabel("英文内容").fill("visitor must not create this");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await expect(page.locator("#capture-status")).toContainText("没有通过验证的卓本人会话");
+  const databases = await page.evaluate(async () => (await indexedDB.databases()).map((database) => database.name));
+  expect(databases).not.toContain("wordbook-db");
   await context.addCookies([{ name: "e2e_auth", value: "other", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await page.reload();
   await expect(page.locator("#owner-workspace")).toBeHidden();

@@ -62,6 +62,18 @@ function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
 
+function hasVerifiedOwnerUi() {
+  return state.session?.login === "zhuodashuai" && Number(state.session?.id) === 156042078 && Boolean(state.csrfToken);
+}
+
+function requireVerifiedOwnerUi() {
+  if (hasVerifiedOwnerUi()) return;
+  throw new OwnerApiError("当前没有通过验证的卓本人会话；管理功能保持锁定。", {
+    status: 401,
+    code: "authentication_required"
+  });
+}
+
 function setNetworkState() {
   refs.networkChip.textContent = navigator.onLine ? "在线" : "离线 · 草稿仍可保存";
   refs.networkChip.classList.toggle("offline", !navigator.onLine);
@@ -262,6 +274,7 @@ function collectEntry({ strict = false } = {}) {
 }
 
 async function persistCurrentDraft({ announce = false } = {}) {
+  requireVerifiedOwnerUi();
   if (!state.currentDraft) return null;
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
@@ -417,6 +430,7 @@ async function loadRemote({ quiet = false } = {}) {
 }
 
 async function openNewDraft(input, { ai = false } = {}) {
+  requireVerifiedOwnerUi();
   await flushPendingDraftSave();
   const cleaned = validateEnglishInput(input);
   const blank = createBlankEntry(cleaned);
@@ -465,9 +479,12 @@ async function openNewDraft(input, { ai = false } = {}) {
     };
     state.currentDraft = await saveDraft(draft);
     fillEditor(state.currentDraft);
+    const providerName = result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : "AI";
     setStatus(refs.captureStatus, [
       ...(result.warnings || []),
-      preservedManualChanges ? "AI 返回期间的人工修改已保留，其余空白字段已补充。" : "AI 候选已写入草稿，请核对后再发布。"
+      preservedManualChanges
+        ? `${providerName} 返回期间的人工修改已保留，其余空白字段已补充。`
+        : `${providerName} 候选已写入草稿，请核对后再发布。`
     ].join(" "));
   } catch (error) {
     setStatus(refs.captureStatus, `${error.message || "AI 暂时不可用"} 空白草稿仍可手动填写。`);
@@ -478,7 +495,7 @@ async function openNewDraft(input, { ai = false } = {}) {
 }
 
 async function queueCurrentPublish() {
-  if (!state.session || !state.csrfToken) throw new Error("当前没有通过验证的卓本人会话；只能保存草稿，不能建立发布任务。");
+  requireVerifiedOwnerUi();
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
   state.pendingSave = null;
@@ -503,6 +520,7 @@ async function queueCurrentPublish() {
 }
 
 async function queueDelete(entry) {
+  requireVerifiedOwnerUi();
   if (!window.confirm(`确定要从公开词库撤下 “${entry.term}” 吗？远端变化时删除会停止，不会覆盖。`)) return;
   const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
   await enqueuePublish(draft, {
@@ -667,6 +685,7 @@ async function verifySession({ forceGate = false } = {}) {
     refs.ownerIdentityText.textContent = `已验证 GitHub @${session.user.login}（ID ${session.user.id}）。浏览器没有收到 GitHub token。`;
     refs.authGate.hidden = true;
     refs.ownerWorkspace.hidden = false;
+    refs.ownerWorkspace.inert = false;
     refs.logoutButton.hidden = false;
     refs.organizeButton.disabled = false;
     await renderDrafts();
@@ -687,6 +706,7 @@ async function verifySession({ forceGate = false } = {}) {
     state.session = null;
     state.csrfToken = "";
     refs.ownerWorkspace.hidden = true;
+    refs.ownerWorkspace.inert = true;
     refs.logoutButton.hidden = true;
     refs.authGate.hidden = false;
     const onGitHubPages = location.hostname === "zhuodashuai.github.io";
@@ -775,6 +795,7 @@ refs.conflictUseRemote.addEventListener("click", () => resolveConflict("remote")
 refs.conflictClose.addEventListener("click", () => refs.conflictDialog.close());
 
 refs.exportBackup.addEventListener("click", async () => {
+  try { requireVerifiedOwnerUi(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
   const drafts = await listDrafts();
   const backup = { backupVersion: 1, exportedAt: isoNow(), owner: "zhuodashuai", drafts, publicSnapshot: state.snapshot };
   const blob = new Blob([`${JSON.stringify(backup, null, 2)}\n`], { type: "application/json" });
@@ -785,8 +806,11 @@ refs.exportBackup.addEventListener("click", async () => {
   link.click();
   URL.revokeObjectURL(url);
 });
-refs.importBackup.addEventListener("click", () => refs.importFile.click());
+refs.importBackup.addEventListener("click", () => {
+  try { requireVerifiedOwnerUi(); refs.importFile.click(); } catch (error) { setStatus(refs.captureStatus, error.message); }
+});
 refs.importFile.addEventListener("change", async () => {
+  try { requireVerifiedOwnerUi(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
   const file = refs.importFile.files?.[0];
   refs.importFile.value = "";
   if (!file) return;
@@ -845,8 +869,10 @@ setupPwa({
   beforeApplyUpdate: flushPendingDraftSave
 });
 async function initializeOwnerApp() {
-  const recovered = await requireReviewForStoredOperations();
   await verifySession();
+  if (!hasVerifiedOwnerUi()) return;
+  const recovered = await requireReviewForStoredOperations();
+  if (recovered.length) await renderDrafts();
   const reconciled = state.session && state.snapshot && /^[0-9a-f]{40}$/i.test(state.remoteSha)
     ? await reconcileCommittedOperations(state.snapshot, state.remoteSha)
     : [];

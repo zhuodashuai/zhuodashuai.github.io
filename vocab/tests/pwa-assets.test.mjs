@@ -47,19 +47,24 @@ test("mutable script, style and manifest assets revalidate online before using t
 });
 
 test("the academic profile provides a discoverable route to the word cabinet", () => {
-  assert.match(profileHtml, /href="vocab\/"[^>]*>卓同学的秘密单词屋/);
+  assert.match(profileHtml, /href="vocab\/"[^>]*>卓的公开词库/);
+  assert.match(profileHtml, /Owner-only GitHub publishing/);
+  assert.doesNotMatch(profileHtml, /optional private GitHub backup/);
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v21/);
+  assert.match(serviceWorker, /zhuo-wordbook-v22/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=21/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=22/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=21"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=21"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=22"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=22"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
+  assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
+  assert.match(ownerHtml, /第一阶段只为卓本人开放编辑/);
+  assert.match(ownerHtml, /OpenAI.*Claude.*备用/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
 });

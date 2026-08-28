@@ -152,6 +152,23 @@ describe("AI provider failure simulations", () => {
     expect(mock).toHaveBeenCalledTimes(2);
   });
 
+  it("rejects Latin-dominant garbage in a Chinese sense or example instead of repeating the old translation bug", async () => {
+    const baseSense = (organized().senses as Array<Record<string, unknown>>)[0];
+    const contaminated = [
+      organized({ senses: [{ ...baseSense, meaningZh: "kamus在线bm ke bi" }] }),
+      organized({ senses: [{ ...baseSense, examples: [{ en: "I received the letter.", zh: "machine translation output" }] }] })
+    ];
+    const mock = vi.fn();
+    vi.stubGlobal("fetch", mock);
+
+    for (const candidate of contaminated) {
+      mock.mockReset();
+      mock.mockResolvedValue(providerResponse(candidate));
+      await expect(organizeEntry("receive", config)).rejects.toMatchObject({ status: 502, code: "ai_invalid_output" });
+      expect(mock).toHaveBeenCalledTimes(2);
+    }
+  });
+
   it("rejects an obviously invalid IPA field and a lexical sense without paired examples", async () => {
     const withoutExamples = {
       partOfSpeech: "noun",

@@ -117,6 +117,30 @@ describe("worker API integration", () => {
     expect(publishResponse.status).toBe(401);
   });
 
+  it.each([
+    { id: 42, installationId: 99 },
+    { id: 156042078, installationId: 0 }
+  ])("durable session creation independently rejects an invalid fixed owner identity %#", async (identity) => {
+    const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+    const response = await stub.fetch("https://owner.internal/session/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionHash: "x".repeat(64),
+        githubToken: "github-test-token-000000000",
+        githubTokenExpiresAt: Date.now() + 3_600_000,
+        identity: {
+          login: "zhuodashuai",
+          id: identity.id,
+          avatarUrl: "https://avatars.githubusercontent.com/u/156042078?v=4",
+          installationId: identity.installationId
+        }
+      })
+    });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ error: { code: "invalid_internal_request" } });
+  });
+
   it("starts OAuth with PKCE, one-time state and __Host cookie", async () => {
     const response = await api("/api/v1/auth/login", { headers: { "CF-Connecting-IP": "203.0.113.10" }, redirect: "manual" });
     expect(response.status).toBe(302);

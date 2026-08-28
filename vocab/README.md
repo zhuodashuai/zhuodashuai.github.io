@@ -20,7 +20,8 @@
 
 ## AI 与出处
 
-- 管理端只发送当前英文输入给选定的服务端 AI provider。
+- 管理端只发送当前英文输入给服务端 AI provider；默认 OpenAI，配置后可在主引擎失败时自动转到 Claude。
+- 两个 provider 共用同一份严格结构和语义质量校验；AI 输出只进入草稿，不能绕过卓的人工核对直接发布。
 - 拼写更正始终是建议；`recieve → receive` 必须由卓选择采用、保留或手动修改。
 - `jab at` 作为完整短语处理，不拆成 `jab`。
 - 名言与谚语使用英文来源搜索；只能标记 `verified`、`candidate`、`unverified` 或 `disputed`。没有可复查来源时作者、作品、年份和 URL 保持空白。
