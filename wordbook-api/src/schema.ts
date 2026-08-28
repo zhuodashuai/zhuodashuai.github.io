@@ -437,6 +437,10 @@ export function validateSnapshot(payload: unknown): PublicSnapshot {
 }
 
 export const PublishRequestSchema = z.object({
+  // Server-enforced rollout gate: old owner pages that predate the run-bound
+  // queue protocol must refresh before they can mutate GitHub.
+  clientProtocol: z.literal("v38"),
+  queueProtocol: z.literal("v38"),
   baseSha: z.string().regex(/^[0-9a-f]{40}$/i),
   mutationId: z.string().trim().min(12).max(180),
   mutation: z.discriminatedUnion("type", [

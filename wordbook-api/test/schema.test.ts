@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   AiOrganizedSchema,
+  PublishRequestSchema,
   PublicEntrySchema,
   classifyInput,
   makeEntryFromAi,
@@ -60,6 +61,20 @@ describe("wordbook schema", () => {
 
   it("strictly rejects unknown entry fields", () => {
     expect(() => PublicEntrySchema.parse({ ...entry(), html: "<img onerror=alert(1)>" })).toThrow();
+  });
+
+  it("requires the v38 client and run-bound queue protocols for every publish", () => {
+    const valid = {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: "a".repeat(40),
+      mutationId: "mutation-protocol-v38",
+      mutation: { type: "add", entry: entry({ id: "protocol-v38", term: "protocolword", entryType: "word" }) }
+    };
+    expect(PublishRequestSchema.safeParse(valid).success).toBe(true);
+    expect(PublishRequestSchema.safeParse({ ...valid, clientProtocol: "v37" }).success).toBe(false);
+    const { queueProtocol: _queueProtocol, ...missingQueueProtocol } = valid;
+    expect(PublishRequestSchema.safeParse(missingQueueProtocol).success).toBe(false);
   });
 
   it("requires non-Wikiquote evidence before marking attribution verified", () => {

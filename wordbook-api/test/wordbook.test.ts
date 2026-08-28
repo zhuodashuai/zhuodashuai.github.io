@@ -4,11 +4,12 @@ import { applyPublishMutation, findDuplicate } from "../src/wordbook";
 import { entry, snapshot } from "./fixtures";
 
 const SHA = "a".repeat(40);
+const V38_PROTOCOL = { clientProtocol: "v38", queueProtocol: "v38" } as const;
 
 describe("publish mutation planning", () => {
   it("adds a valid entry and stamps a single idempotency key", () => {
     const receive = entry({ id: "public-receive", term: "receive", normalized: "receive", standardForm: "receive", entryType: "word" });
-    const result = applyPublishMutation(snapshot(), { baseSha: SHA, mutationId: "mutation-add-0001", mutation: { type: "add", entry: receive } }, "2026-08-28T01:00:00.000Z");
+    const result = applyPublishMutation(snapshot(), { ...V38_PROTOCOL, baseSha: SHA, mutationId: "mutation-add-0001", mutation: { type: "add", entry: receive } }, "2026-08-28T01:00:00.000Z");
     expect(result.action).toBe("added");
     expect(result.snapshot.entries).toHaveLength(2);
     expect(result.snapshot.lastMutationId).toBe("mutation-add-0001");
@@ -16,7 +17,7 @@ describe("publish mutation planning", () => {
 
   it("returns idempotently when the same mutation is retried", () => {
     const remote = { ...snapshot(), lastMutationId: "mutation-repeat-01" };
-    const result = applyPublishMutation(remote, { baseSha: SHA, mutationId: "mutation-repeat-01", mutation: { type: "delete", id: "missing", expectedUpdatedAt: "2026-08-28T00:00:00.000Z" } });
+    const result = applyPublishMutation(remote, { ...V38_PROTOCOL, baseSha: SHA, mutationId: "mutation-repeat-01", mutation: { type: "delete", id: "missing", expectedUpdatedAt: "2026-08-28T00:00:00.000Z" } });
     expect(result.action).toBe("idempotent");
     expect(result.snapshot).toBe(remote);
   });
@@ -29,6 +30,7 @@ describe("publish mutation planning", () => {
     });
     expect(findDuplicate([existing], typo)?.id).toBe("receive");
     expect(() => applyPublishMutation(snapshot([existing]), {
+      ...V38_PROTOCOL,
       baseSha: SHA, mutationId: "mutation-dupe-001", mutation: { type: "add", entry: typo }
     })).toThrow(ApiError);
   });
@@ -46,9 +48,11 @@ describe("publish mutation planning", () => {
     const original = entry();
     const changed = entry({ ...original, meaning: "本地修改" });
     expect(() => applyPublishMutation(snapshot([original]), {
+      ...V38_PROTOCOL,
       baseSha: SHA, mutationId: "mutation-stale-edit", mutation: { type: "update", entry: changed, expectedUpdatedAt: "2020-01-01T00:00:00.000Z" }
     })).toThrow(/远端更新/);
     expect(() => applyPublishMutation(snapshot([original]), {
+      ...V38_PROTOCOL,
       baseSha: SHA, mutationId: "mutation-stale-delete", mutation: { type: "delete", id: original.id, expectedUpdatedAt: "2020-01-01T00:00:00.000Z" }
     })).toThrow(/删除前已被修改/);
   });
@@ -57,6 +61,7 @@ describe("publish mutation planning", () => {
     const original = entry();
     const changed = entry({ ...original, meaning: "更新后的释义" });
     const result = applyPublishMutation(snapshot([original]), {
+      ...V38_PROTOCOL,
       baseSha: SHA, mutationId: "mutation-update-01", mutation: { type: "update", entry: changed, expectedUpdatedAt: original.updatedAt }
     }, "2026-08-28T02:00:00.000Z");
     expect(result.entry).toMatchObject({ revision: 2, createdAt: original.createdAt, updatedAt: "2026-08-28T02:00:00.000Z" });
@@ -68,6 +73,7 @@ describe("publish mutation planning", () => {
       entryType: "quote", author: "Invented Author", sourceTitle: "Invented Work", attributionStatus: "candidate", attributionNote: "AI memory", sources: []
     });
     expect(() => applyPublishMutation(snapshot([]), {
+      ...V38_PROTOCOL,
       baseSha: SHA, mutationId: "mutation-quote-01", mutation: { type: "add", entry: quote }
     })).toThrow(/candidate author requires/);
   });

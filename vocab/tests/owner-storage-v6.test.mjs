@@ -62,7 +62,7 @@ function publicSnapshot(entries, lastMutationId) {
   };
 }
 
-async function enqueueTestOperation({ draftId, mutationId, term = mutationId, meaning = "测试释义" }) {
+async function enqueueTestOperation({ draftId, mutationId, term = mutationId, meaning = "测试释义", authorizedRunId = "" }) {
   const entry = { ...createBlankEntry(term), meaning };
   const draft = await storage.saveDraft({
     id: draftId,
@@ -74,14 +74,17 @@ async function enqueueTestOperation({ draftId, mutationId, term = mutationId, me
     localState: "local_saved"
   });
   return storage.enqueuePublish(draft, {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
     baseSha: "a".repeat(40),
     mutationId,
     mutation: { type: "add", entry }
-  });
+  }, { authorizedRunId });
 }
 
-test("IndexedDB v5 migration creates separated stores and preserves legacy review state", async () => {
+test("IndexedDB v6 migration creates separated stores and preserves legacy review state", async () => {
   const db = await storage.openDatabase();
+  assert.equal(db.version, 6);
   for (const name of ["entries", "meta", "drafts", "outbox", "publicCache", "reviewStates", "quarantine"]) {
     assert.equal(db.objectStoreNames.contains(name), true, `${name} should exist`);
   }
@@ -152,10 +155,12 @@ test("enqueue saves the draft and durable operation in one flow with a stable id
     id: "draft-queue", scope: "owner-public", mode: "create", entryId: entry.id, value: entry,
     base: { entry: null, entryUpdatedAt: null, remoteSha: "a".repeat(40) }, localState: "local_saved"
   });
-  const request = { baseSha: "a".repeat(40), mutationId: "mutation-storage-001", mutation: { type: "add", entry } };
+  const request = { clientProtocol: "v38", queueProtocol: "v38", baseSha: "a".repeat(40), mutationId: "mutation-storage-001", mutation: { type: "add", entry } };
   const queued = await storage.enqueuePublish(draft, request);
   assert.equal(queued.operation.operationId, request.mutationId);
   assert.equal(queued.operation.idempotencyKey, request.mutationId);
+  assert.equal(queued.operation.request.clientProtocol, "v38");
+  assert.equal(queued.operation.request.queueProtocol, "v38");
   assert.equal((await storage.getDraft(draft.id)).localState, "queued");
 });
 
@@ -170,11 +175,35 @@ test("two tabs cannot claim the same queued operation", async () => {
   assert.ok(["tab-left", "tab-right"].includes(claimed.leaseOwner));
 });
 
+test("a queued publish is claimable only by the page run that received the owner click", async () => {
+  const queued = await enqueueTestOperation({
+    draftId: "draft-run-bound",
+    mutationId: "mutation-run-bound",
+    term: "runboundword",
+    authorizedRunId: "page-run-owner"
+  });
+  assert.equal(queued.operation.authorizedRunId, "page-run-owner");
+  assert.equal(await storage.claimNextOperation({
+    tabId: "another-tab",
+    authorizedRunId: "another-page-run",
+    now: new Date(Date.now() + 86_400_000)
+  }), null);
+  const claimed = await storage.claimNextOperation({
+    tabId: "owner-tab",
+    authorizedRunId: "page-run-owner",
+    now: new Date(Date.now() + 86_400_000)
+  });
+  assert.equal(claimed.operationId, queued.operation.operationId);
+  assert.equal(claimed.leaseOwner, "owner-tab");
+});
+
 test("deleting a draft atomically cancels every unfinished operation that belongs to it", async () => {
   const original = await storage.getDraft("draft-queue");
   assert.ok(original);
   const secondEntry = { ...original.value, meaning: "第二个本地意图", updatedAt: new Date().toISOString() };
   await storage.enqueuePublish({ ...original, value: secondEntry }, {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
     baseSha: "a".repeat(40),
     mutationId: "mutation-storage-002",
     mutation: { type: "add", entry: secondEntry }
@@ -264,6 +293,8 @@ test("completion recognizes an unchanged queued deletion intent", async () => {
     localState: "local_saved"
   });
   await storage.enqueuePublish(draft, {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
     baseSha: "c".repeat(40),
     mutationId: "mutation-delete-complete",
     mutation: { type: "delete", id: entry.id, expectedUpdatedAt: entry.updatedAt }
@@ -330,7 +361,7 @@ test("stored auto-publish states require review before one operation can be expl
   const auth = await enqueueTestOperation({ draftId: "draft-review-auth", mutationId: "review-auth", term: "reviewauth" });
   const conflict = await enqueueTestOperation({ draftId: "draft-review-conflict", mutationId: "review-conflict", term: "reviewconflict" });
   await storage.markOperation(retry.operation.operationId, "retry_wait", { nextAttemptAt: new Date().toISOString() });
-  await storage.markOperation(syncing.operation.operationId, "syncing", { leaseOwner: "stale-tab", leaseExpiresAt: new Date(Date.now() + 60_000).toISOString() });
+  await storage.markOperation(syncing.operation.operationId, "syncing", { leaseOwner: "stale-tab", leaseExpiresAt: new Date(Date.now() - 60_000).toISOString() });
   await storage.markOperation(auth.operation.operationId, "awaiting_auth");
   await storage.markOperation(conflict.operation.operationId, "conflict");
 
@@ -358,6 +389,27 @@ test("stored auto-publish states require review before one operation can be expl
   assert.equal(requeuedDraft.localState, "queued");
   assert.equal(requeuedDraft.lastOperationId, pending.operation.operationId);
   await assert.rejects(storage.requeueOperationForReview(pending.operation.operationId), /待确认任务/);
+});
+
+test("startup recovery leaves another live page's leased publish untouched", async () => {
+  const live = await enqueueTestOperation({
+    draftId: "draft-live-lease",
+    mutationId: "review-live-lease",
+    term: "livelease",
+    authorizedRunId: "live-page-run"
+  });
+  await storage.markOperation(live.operation.operationId, "syncing", {
+    leaseOwner: "live-page-run",
+    leaseExpiresAt: new Date(Date.now() + 60_000).toISOString()
+  });
+
+  const isolated = await storage.requireReviewForStoredOperations({ activeRunIds: ["live-page-run"] });
+  assert.equal(isolated.includes(live.operation.operationId), false);
+  const stored = (await storage.listOutbox({ includeCompleted: true }))
+    .find((operation) => operation.operationId === live.operation.operationId);
+  assert.equal(stored.status, "syncing");
+  assert.equal(stored.authorizedRunId, "live-page-run");
+  assert.equal(stored.leaseOwner, "live-page-run");
 });
 
 test("an invalid public snapshot never overwrites the last valid cache", async () => {

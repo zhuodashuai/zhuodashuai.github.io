@@ -95,7 +95,7 @@ test("owner API rejects non-JSON 200 and exposes retry metadata on 429", async (
     headers: { "Retry-After": "37" }
   }), async () => {
     await assert.rejects(
-      publishMutation({ mutationId: "mutation-test-0001" }, "csrf-test"),
+      publishMutation({ clientProtocol: "v38", queueProtocol: "v38", mutationId: "mutation-test-0001" }, "csrf-test"),
       (error) => error instanceof OwnerApiError
         && error.status === 429
         && error.code === "github_rate_limited"

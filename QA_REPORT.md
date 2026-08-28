@@ -10,20 +10,24 @@
 
 测试分支：`codex/wordbook-owner-v2`
 
-测试前基线：`bce796a1992deaabbf7f31402a058edcd83cbc21`
+本轮代码修复起点：`a2601737b9681f09db12a30548fd38bd2c777ec3`
+
+本轮远端数据起点：`001542b`（保留已经进入公开词库的 `hip`）
 
 ## 结论
 
-Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 102、Worker/API 86、Playwright 23，共 **211 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
+Owner-only 词库、GitHub OAuth、可恢复草稿、重复词识别、严格 AI 质量闸门和免费优先 AI 路径已经接通。最终全量自动化为：Frontend/data 107、Worker/API 101、Playwright 33，共 **241 passed, 0 failed**；TypeScript、Wrangler 配置类型检查、secret boundary scan 和 Wrangler dry-run 也全部通过。
 
 生产 Worker 健康检查为 `2.2.0`，主模型是 `@cf/zai-org/glm-4.7-flash`，质量重试模型是 `@cf/google/gemma-4-26b-a4b-it`。两者都通过同一个 Cloudflare Workers AI binding 调用，不需要 OpenAI/Claude API key。`paidFallbackEnabled` 在生产环境明确为 `false`，所以额度或服务不可用时请求会失败并保留本地草稿，不会静默调用 OpenAI/Claude。服务端另设所有会话共享的每 UTC 日 20 次整理上限，错误输入在计数前即被拒绝。
 
-正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 仍只有 1 条原有的 `jab at`；本轮生产 AI 测试建立的 `hip`、`bank` 都只保存在当前浏览器的 IndexedDB 草稿中，没有发布或污染公开词库。
+正式 OAuth 已真实验证为 GitHub `@zhuodashuai`、user ID `156042078` 和固定目标仓库。当前 GitHub 公开 canonical snapshot 有 2 条：原有的 `jab at` 与 `hip`。`hip` 是旧 v37 页面留下的待发布任务在 OAuth 恢复窗口中被自动提交的；它的中文、IPA 与义项内容正确，因此本轮保留，没有擅自删除。v38 已加入启动恢复屏障、页面运行实例绑定、关闭页面中止、IndexedDB v6 和 Worker 端双协议门禁，旧页面及旧队列不能再静默发布。`bank` 与 `rigorous` 仍只在当前浏览器草稿中。
 
 本报告不承诺“绝对没有 bug”。它只陈述已经自动覆盖和真实实测的行为，并明确列出仍需人工判断或受第三方政策影响的边界。
 
 ## 免费 AI 方案
 
+- 精确词条先走内置、可测试的 ECDICT/curated 词典层；`hip` 等已锁定词即使 AI 或外网服务不可用，也会返回非空且经过校验的中文释义、词性和 IPA。
+- 对 `bank`、`run`、`lead` 这类无法可靠逐义对齐的多义词，本地词典会保留可见中英文原始候选，但标记“待复核”且阻止直接发布；宁可要求复核，也不拼接成伪准确义项。
 - 第一轮：Cloudflare `@cf/zai-org/glm-4.7-flash`。
 - 第一轮输出只要缺义项、混合不相关义项、缺双语例句、IPA 不合格、拼写与本地证据冲突或结构不完整，就不能进入草稿。
 - 唯一一次质量重试：自动换为 `@cf/google/gemma-4-26b-a4b-it`，并把安全、白名单化的失败原因交给第二模型修正。
@@ -64,7 +68,8 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 |---|---|
 | Owner 权限 | 只有服务端验证后的 `zhuodashuai` 固定数字 ID 可编辑；访客即使修改 URL 或 DOM 也不能获得写权限 |
 | GitHub 安全 | HttpOnly session、CSRF、Origin、repository ID、Git blob SHA、幂等 mutation ID 与冲突处理 |
-| 草稿可靠性 | IndexedDB v5、刷新/离线恢复、多标签页、失败重试、response-lost 对账、备份导入导出 |
+| 草稿可靠性 | IndexedDB v6、刷新/离线恢复、多标签页、失败重试、response-lost 对账、备份导入导出 |
+| 发布授权 | 每次发布绑定收到卓点击的页面运行实例；重试不能跨页抢队列；旧 v37 客户端被 Worker 的 `clientProtocol` + `queueProtocol` 门禁拒绝 |
 | 重复词 | 100 个输入首轮只写入一次；完整重复轮保持 100 条且产生 0 次 provider 请求；大小写和普通边界标点共用 canonical key |
 | AI 质量 | JSON/Zod、中文字符质量、英文定义、独立 sense、独立例句、IPA、拼写/lemma、本地 ECDICT 与 curated gold grounding |
 | 拼写 | `recieve → receive` 仅作为建议；英式/澳式合法拼写不被静默改为美式 |
@@ -77,10 +82,10 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 
 | Suite | Result |
 |---|---:|
-| Frontend/data Node unit | 102 passed |
-| Worker/API Vitest | 86 passed |
-| Playwright browser E2E | 23 passed |
-| Total | **211 passed, 0 failed** |
+| Frontend/data Node unit | 107 passed |
+| Worker/API Vitest | 101 passed |
+| Playwright browser E2E | 33 passed |
+| Total | **241 passed, 0 failed** |
 | TypeScript `tsc --noEmit` | PASS |
 | Wrangler `types --include-runtime=false --check` | PASS |
 | Secret boundary scan | PASS（118 repository files） |
@@ -93,8 +98,8 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 - 免费 AI 不是离线模型，也不是永久无限资源；Cloudflare 改政策、模型下线、容量不足、本站 20 次日上限或账户当日额度用完时，自动整理会暂时不可用，但手动草稿和公开词库仍可用。
 - Cloudflare 默认路径没有实时网页检索。普通词汇由本地 ECDICT、curated semantic QA 和 100-word gold 数据约束；名言名句的可靠出处仍需要有网页检索能力的后续模块或人工核验。
 - AI 结果始终是候选，不能绕过卓的人工复核直接发布。
-- 本轮没有对 GitHub 执行测试词的 add/edit/delete 生产写入；这是为了保留公开词库现有内容。同步协议的完整生命周期由 API integration 与 Playwright mock GitHub 测试覆盖。
-- 当前浏览器中有 `hip` 和 `bank` 两份未发布测试草稿。它们可继续人工核对或由卓自行删除；本轮没有代替 Owner 做破坏性删除。
+- 本轮发现旧 v37 队列曾真实发布 `hip`；报告没有掩盖这次写入。v38 的浏览器与服务端回归专门固定了该事故路径，其余测试词没有写入生产 GitHub。
+- 当前浏览器中仍有 `hip`、`bank`、`rigorous` 等本地草稿。它们可继续人工核对或由卓自行删除；本轮没有代替 Owner 做破坏性删除。
 
 ## 复现命令
 
@@ -102,7 +107,7 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 pnpm test:unit
 pnpm --dir wordbook-api test
 pnpm --dir wordbook-api check
-pnpm --dir wordbook-api exec wrangler types --include-runtime=false --check
+pnpm --dir wordbook-api exec wrangler types --check
 pnpm test:security
 pnpm --dir wordbook-api exec wrangler deploy --dry-run
 pnpm test:e2e

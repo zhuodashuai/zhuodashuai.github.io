@@ -46,11 +46,19 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
   await expect(page.getByText(/已验证 GitHub 公开快照/)).toBeVisible();
-  await expect(page.locator("#entry-count")).toHaveText("1");
+  await expect(page.locator("#entry-count")).toHaveText("2");
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
   await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("jab at");
   await page.getByRole("button", { name: "查看 jab at 的完整词条" }).click();
   await expect(page.getByRole("dialog").getByRole("heading", { name: "jab at" })).toBeVisible();
+  await page.getByRole("button", { name: "关闭词条详情" }).click();
+  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("hip");
+  await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
+  await expect(page.getByRole("dialog")).toContainText("/hɪp/");
+  await expect(page.getByRole("dialog")).toContainText("髋部");
+  await expect(page.getByRole("dialog")).toContainText("时髦");
+  await expect(page.getByRole("dialog")).toContainText("noun");
+  await expect(page.getByRole("dialog")).toContainText("adjective");
   await page.getByRole("button", { name: "关闭词条详情" }).click();
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
@@ -65,18 +73,18 @@ test("公开搜索无结果时说明不是在线词典，并只把卓本人引�
   });
 
   await page.goto("/");
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("hip");
+  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("unpublishedtestword");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
-  await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；hip 尚未发布。");
+  await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；unpublishedtestword 尚未发布。");
   await expect(page.locator("#search-empty")).toContainText("公开页不会联网查词或调用 AI，也不会替访客创建草稿");
-  const ownerRoute = page.getByRole("link", { name: "仅卓本人：去管理模式用 AI 整理 hip" });
-  await expect(ownerRoute).toHaveAttribute("href", "http://127.0.0.1:4187/owner.html?input=hip");
+  const ownerRoute = page.getByRole("link", { name: "仅卓本人：去管理模式用 AI 整理 unpublishedtestword" });
+  await expect(ownerRoute).toHaveAttribute("href", "http://127.0.0.1:4187/owner.html?input=unpublishedtestword");
   expect(aiRequestCount).toBe(0);
 
-  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("hip & <script>");
+  await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("unpublishedtestword & <script>");
   const encodedOwnerUrl = new URL(await page.locator("#search-owner-link").getAttribute("href"));
   expect(encodedOwnerUrl.pathname).toBe("/owner.html");
-  expect(encodedOwnerUrl.searchParams.get("input")).toBe("hip & <script>");
+  expect(encodedOwnerUrl.searchParams.get("input")).toBe("unpublishedtestword & <script>");
   expect(aiRequestCount).toBe(0);
 
   await page.getByLabel("搜索卓已发布的英文、中文、标签或作者（不是在线词典）").fill("jab at");
@@ -148,6 +156,12 @@ test("未认证页面断网后仍 fail closed，不能用 IndexedDB 冒充卓", 
 });
 
 test("卓登录后添加 jab at、发布、刷新保留并防止重复", async ({ context, page }) => {
+  let publishEnvelope = null;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().includes("/api/v1/owner/publish")) {
+      publishEnvelope = request.postDataJSON();
+    }
+  });
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
   await addWithAi(page, "jab at");
@@ -161,6 +175,7 @@ test("卓登录后添加 jab at、发布、刷新保留并防止重复", async (
   await expect(page.locator("#capture-status")).toContainText("没有重复消耗 AI 额度");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
   await publishOpenDraft(page);
+  expect(publishEnvelope).toMatchObject({ clientProtocol: "v38", queueProtocol: "v38" });
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.reload();
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
@@ -332,7 +347,7 @@ test("重新整理已发布词条时保留远端身份并正常更新而不是�
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/猛戳/);
   await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
   await expect(page.locator(".owner-entry-row", { hasText: "jab at" })).toHaveCount(1);
   const afterPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
   const afterEntry = afterPayload.snapshot.entries.find((entry) => entry.term === "jab at");
@@ -521,7 +536,7 @@ test("删除离线草稿会同时取消待发布任务，恢复网络也不会�
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByRole("button", { name: "删除草稿" }).click();
   await context.setOffline(false);
-  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
   await expect(page.locator(".owner-entry-row", { hasText: "cancelledword" })).toHaveCount(0);
 });
 
@@ -539,11 +554,75 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
   await context.setOffline(false);
   await page.reload();
   await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible();
-  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  await expect(page.locator("#owner-entry-count")).toHaveText("2");
   await page.locator("#draft-list").getByRole("button", { name: /reviewword/ }).click();
   await expect(page.locator("#capture-status")).toContainText("旧任务已取消");
   await publishOpenDraft(page);
+  await expect(page.locator("#owner-entry-count")).toHaveText("3");
+});
+
+test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自动发布", async ({ context, page }) => {
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("oauthraceword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByLabel("中文释义", { exact: true }).fill("OAuth 恢复窗口不应自动发布");
+  await context.setOffline(true);
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
+  expectedOfflineNetworkError = true;
+  await page.reload();
+  await expect(page.locator("#owner-workspace")).toBeHidden();
+
+  await context.addCookies([{ name: "e2e_owner_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  await context.setOffline(false);
+  await page.reload();
+  await expect(page.locator("#owner-workspace")).toBeVisible();
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+
+  await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible({ timeout: 8_000 });
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  await expect(page.locator(".owner-entry-row", { hasText: "oauthraceword" })).toHaveCount(0);
+});
+
+test("另一个已登录页面不能领取并发布不属于本次页面点击的队列任务", async ({ context, page }) => {
+  await loginOwner(page);
+  const otherPage = await context.newPage();
+  otherPage.on("pageerror", (error) => browserErrors.push(`second pageerror: ${error.message}`));
+  otherPage.on("console", (message) => {
+    const expectedOfflineFailure = expectedOfflineNetworkError && message.text() === "Failed to load resource: net::ERR_FAILED";
+    if (message.type() === "error" && !expectedOfflineFailure && !message.text().startsWith("Failed to load resource: the server responded with a status of")) {
+      browserErrors.push(`second console: ${message.text()}`);
+    }
+  });
+  await otherPage.goto("/owner.html");
+  await expect(otherPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  let publishRequests = 0;
+  const countPublishRequest = (request) => {
+    if (request.method() === "POST" && request.url().includes("/api/v1/owner/publish")) publishRequests += 1;
+  };
+  page.on("request", countPublishRequest);
+  otherPage.on("request", countPublishRequest);
+
+  await page.getByLabel("英文内容").fill("crossrunword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByLabel("中文释义", { exact: true }).fill("只能由收到发布点击的页面提交");
+  await context.setOffline(true);
+  await expect(page.locator("#network-chip")).toContainText("离线");
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
+  expectedOfflineNetworkError = true;
+  await page.close();
+
+  await context.setOffline(false);
+  await otherPage.waitForTimeout(1_200);
+  expect(publishRequests).toBe(0);
+  await expect(otherPage.locator("#owner-entry-count")).toHaveText("2");
+
+  await otherPage.reload();
+  await expect(otherPage.getByText("等待卓本人复核", { exact: true })).toBeVisible();
+  await expect(otherPage.locator("#owner-entry-count")).toHaveText("2");
+  await expect(otherPage.locator(".owner-entry-row", { hasText: "crossrunword" })).toHaveCount(0);
+  expect(publishRequests).toBe(0);
 });
 
 test("远端同字段变化打开冲突面板且保留本地草稿", async ({ context, page }) => {

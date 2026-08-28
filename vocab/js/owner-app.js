@@ -53,8 +53,21 @@ const state = {
   ownerSearch: "",
   ownerInputHandled: false,
   organizingToken: null,
-  phoneticEditRevisions: new Map()
+  phoneticEditRevisions: new Map(),
+  queueRecoveryComplete: false,
+  runClosing: false,
+  publishAbortController: null
 };
+let resolveQueueRecovery;
+const queueRecoveryPromise = new Promise((resolve) => { resolveQueueRecovery = resolve; });
+const runPresenceChannel = typeof BroadcastChannel === "function"
+  ? new BroadcastChannel("wordbook-owner-run-presence-v1")
+  : null;
+runPresenceChannel?.addEventListener("message", (event) => {
+  const message = event.data;
+  if (state.runClosing || message?.type !== "probe" || !message.requestId || message.requesterRunId === state.tabId) return;
+  runPresenceChannel.postMessage({ type: "present", requestId: message.requestId, runId: state.tabId });
+});
 const OWNER_INPUT_LIMIT = 240;
 const PENDING_OWNER_INPUT_KEY = "zhuo-wordbook:pending-owner-input";
 const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
@@ -68,6 +81,33 @@ function commaList(value) { return String(value || "").split(/[,，;；\n]/).map
 function value(id) { return refs[id].value.trim(); }
 function setValue(id, candidate) { refs[id].value = candidate || ""; }
 function isoNow() { return new Date().toISOString(); }
+
+async function discoverActiveOwnerRuns() {
+  if (!runPresenceChannel) return [];
+  const requestId = crypto.randomUUID();
+  const activeRunIds = new Set();
+  const receivePresence = (event) => {
+    const message = event.data;
+    if (message?.type === "present" && message.requestId === requestId && message.runId) {
+      activeRunIds.add(String(message.runId));
+    }
+  };
+  runPresenceChannel.addEventListener("message", receivePresence);
+  runPresenceChannel.postMessage({ type: "probe", requestId, requesterRunId: state.tabId });
+  await new Promise((resolve) => window.setTimeout(resolve, 180));
+  runPresenceChannel.removeEventListener("message", receivePresence);
+  return [...activeRunIds];
+}
+
+async function waitForQueueRecovery() {
+  if (state.runClosing) throw new Error("当前页面正在关闭；没有执行任何远端更改。 ");
+  if (state.queueRecoveryComplete) return;
+  await Promise.race([
+    queueRecoveryPromise,
+    new Promise((resolve) => window.setTimeout(resolve, 5_000))
+  ]);
+  if (!state.queueRecoveryComplete) throw new Error("发布队列仍在安全恢复中；没有执行任何远端更改，请稍后重新点击。 ");
+}
 
 function setOrganizingControlsDisabled(disabled) {
   refs.organizeButton.disabled = disabled;
@@ -746,6 +786,7 @@ async function openNewDraft(input, { ai = false } = {}) {
 
 async function queueCurrentPublish() {
   requireVerifiedOwnerUi();
+  await waitForQueueRecovery();
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
   state.pendingSave = null;
@@ -757,13 +798,15 @@ async function queueCurrentPublish() {
   state.currentDraft.value = entry;
   const mutationId = crypto.randomUUID();
   const request = {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
     baseSha: state.remoteSha,
     mutationId,
     mutation: state.currentDraft.mode === "edit"
       ? { type: "update", entry, expectedUpdatedAt: state.currentDraft.base.entryUpdatedAt }
       : { type: "add", entry }
   };
-  const queued = await enqueuePublish(state.currentDraft, request);
+  const queued = await enqueuePublish(state.currentDraft, request, { authorizedRunId: state.tabId });
   state.currentDraft = queued.draft;
   fillEditor(state.currentDraft, { focus: false });
   await drainQueue();
@@ -771,13 +814,16 @@ async function queueCurrentPublish() {
 
 async function queueDelete(entry) {
   requireVerifiedOwnerUi();
+  try { await waitForQueueRecovery(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
   if (!window.confirm(`确定要从公开词库撤下 “${entry.term}” 吗？远端变化时删除会停止，不会覆盖。`)) return;
   const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
   await enqueuePublish(draft, {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
     baseSha: state.remoteSha,
     mutationId: crypto.randomUUID(),
     mutation: { type: "delete", id: entry.id, expectedUpdatedAt: entry.updatedAt }
-  });
+  }, { authorizedRunId: state.tabId });
   await renderDrafts();
   await drainQueue();
 }
@@ -823,16 +869,33 @@ async function handleConflict(operation, error, tabId) {
 }
 
 async function drainQueue() {
-  if (state.queueBusy || !state.session || !navigator.onLine) return;
+  if (state.runClosing || state.queueBusy || !state.queueRecoveryComplete || !state.session || !navigator.onLine) return;
   state.queueBusy = true;
   refs.retryQueue.disabled = true;
   try {
-    while (navigator.onLine) {
-      const operation = await claimNextOperation({ tabId: state.tabId });
+    while (!state.runClosing && navigator.onLine) {
+      const operation = await claimNextOperation({ tabId: state.tabId, authorizedRunId: state.tabId });
       if (!operation) break;
+      if (state.runClosing) {
+        await markOperation(operation.operationId, "review_required", {
+          reviewRequiredAt: isoNow(),
+          lastError: null
+        }, { leaseOwner: state.tabId }).catch(() => {});
+        break;
+      }
       setSyncState("loading", "正在同步", operation.desiredEntry?.term || operation.entryId || "公开词库");
       try {
-        const result = await publishMutation(operation.request, state.csrfToken);
+        const abortController = new AbortController();
+        state.publishAbortController = abortController;
+        const result = await publishMutation(operation.request, state.csrfToken, { signal: abortController.signal });
+        if (state.publishAbortController === abortController) state.publishAbortController = null;
+        if (state.runClosing) {
+          await markOperation(operation.operationId, "review_required", {
+            reviewRequiredAt: isoNow(),
+            lastError: null
+          }, { leaseOwner: state.tabId }).catch(() => {});
+          break;
+        }
         const snapshot = parsePublicSnapshot(result.snapshot, { allowLegacy: false });
         const completion = await completeOperation(operation.operationId, { tabId: state.tabId, sha: result.sha, snapshot });
         state.snapshot = snapshot;
@@ -848,6 +911,14 @@ async function drainQueue() {
         );
         renderOwnerEntries();
       } catch (error) {
+        state.publishAbortController = null;
+        if (state.runClosing) {
+          await markOperation(operation.operationId, "review_required", {
+            reviewRequiredAt: isoNow(),
+            lastError: null
+          }, { leaseOwner: state.tabId }).catch(() => {});
+          break;
+        }
         if (error.status === 409) {
           await handleConflict(operation, error, state.tabId);
           continue;
@@ -956,6 +1027,7 @@ async function verifySession({ forceGate = false } = {}) {
     }
     state.session = null;
     state.csrfToken = "";
+    state.queueRecoveryComplete = false;
     refs.ownerWorkspace.hidden = true;
     refs.ownerWorkspace.inert = true;
     refs.logoutButton.hidden = true;
@@ -1056,6 +1128,7 @@ refs.refreshRemote.addEventListener("click", () => loadRemote().catch(() => {}))
 refs.retryQueue.addEventListener("click", async () => {
   const operations = await listOutbox();
   for (const operation of operations) {
+    if (String(operation.authorizedRunId || "") !== state.tabId) continue;
     if (operation.status === "review_required") continue;
     if (operation.status === "awaiting_auth" || operation.status === "retry_wait"
       || (operation.status === "failed" && operation.lastError?.retryable)) {
@@ -1071,6 +1144,7 @@ refs.logoutButton.addEventListener("click", async () => {
   try { await logout(state.csrfToken); } catch { /* local gate still closes */ }
   state.session = null;
   state.csrfToken = "";
+  state.queueRecoveryComplete = false;
   await verifySession({ forceGate: true });
 });
 refs.conflictUseMerged.addEventListener("click", () => resolveConflict("merged"));
@@ -1134,14 +1208,26 @@ for (const type of ENTRY_TYPES) {
 setNetworkState();
 window.addEventListener("online", () => {
   setNetworkState();
-  if (!state.session) verifySession({ forceGate: true });
-  else drainQueue();
+  window.setTimeout(() => {
+    if (state.runClosing) return;
+    if (!state.session) verifySession({ forceGate: true });
+    else drainQueue();
+  }, 50);
 });
 window.addEventListener("offline", setNetworkState);
+window.addEventListener("pagehide", () => {
+  state.runClosing = true;
+  state.publishAbortController?.abort();
+  flushPendingDraftSave().catch(() => {});
+});
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "hidden") flushPendingDraftSave().catch(() => {});
 });
-window.addEventListener("pageshow", (event) => { if (event.persisted) verifySession({ forceGate: true }); });
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
+  state.runClosing = false;
+  verifySession({ forceGate: true });
+});
 window.addEventListener("wordbook:storage-blocked", () => setStatus(refs.captureStatus, "另一个旧页面阻止数据库升级；请关闭其他词库页面后刷新。"));
 window.addEventListener("wordbook:storage-upgrade-needed", () => setStatus(refs.captureStatus, "词库存储已在另一个页面升级，请刷新当前页面。"));
 subscribeStorageChanges(() => { renderDrafts(); });
@@ -1154,13 +1240,20 @@ setupPwa({
 async function initializeOwnerApp() {
   await verifySession();
   if (!hasVerifiedOwnerUi()) return;
-  const recovered = await requireReviewForStoredOperations();
+  const activeRunIds = await discoverActiveOwnerRuns();
+  const recovered = await requireReviewForStoredOperations({ activeRunIds });
   if (recovered.length) await renderDrafts();
   const reconciled = state.session && state.snapshot && /^[0-9a-f]{40}$/i.test(state.remoteSha)
     ? await reconcileCommittedOperations(state.snapshot, state.remoteSha)
     : [];
   if (reconciled.length) await renderDrafts();
   const remaining = Math.max(0, recovered.length - reconciled.length);
+  // Only after every pre-existing operation has been reconciled or converted
+  // to explicit review may online events, retry timers, or owner actions drain
+  // the queue.  This closes the OAuth/startup window where a network event
+  // could otherwise publish an old request before recovery finished.
+  state.queueRecoveryComplete = true;
+  resolveQueueRecovery();
   if (remaining && state.session) {
     setStatus(refs.captureStatus, `已从 GitHub 核对完成 ${reconciled.length} 个响应中断任务；另有 ${remaining} 个遗留发布任务不会自动发布，请打开对应草稿，由卓本人复核后重新发布。`);
   } else if (reconciled.length) {
@@ -1170,6 +1263,7 @@ async function initializeOwnerApp() {
 }
 
 initializeOwnerApp().catch((error) => {
+  resolveQueueRecovery();
   refs.ownerWorkspace.hidden = true;
   refs.authGate.hidden = false;
   refs.authMessage.textContent = `管理端初始化失败：${error.message || "未知错误"}。没有执行任何发布。`;

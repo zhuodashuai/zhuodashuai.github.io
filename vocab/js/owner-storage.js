@@ -1,7 +1,7 @@
 import { entryLookupKeys, parsePublicSnapshot } from "./wordbook-schema.js";
 
 const BASE_DB_NAME = "wordbook-db";
-export const DB_VERSION = 5;
+export const DB_VERSION = 6;
 export const LOCAL_RECORD_SCHEMA_VERSION = 1;
 const STORES = Object.freeze({
   entries: "entries",
@@ -16,7 +16,7 @@ const OUTBOX_STATES = new Set(["pending", "syncing", "retry_wait", "awaiting_aut
 const REVIEW_REQUIRED_STATES = new Set(["pending", "syncing", "retry_wait", "awaiting_auth"]);
 const COMPLETED_OUTBOX_STATES = new Set(["published", "cancelled"]);
 let databasePromise;
-const channel = typeof BroadcastChannel === "function" ? new BroadcastChannel("wordbook-v5") : null;
+const channel = typeof BroadcastChannel === "function" ? new BroadcastChannel("wordbook-v6") : null;
 
 export function resolveDatabaseName(targetLocation = globalThis.location) {
   if (!targetLocation) return BASE_DB_NAME;
@@ -343,7 +343,7 @@ export async function deleteDraft(id) {
   await deleteDraftAndCancelOutbox(id);
 }
 
-export async function enqueuePublish(candidateDraft, request) {
+export async function enqueuePublish(candidateDraft, request, { authorizedRunId = "" } = {}) {
   const draft = draftRecord({ ...candidateDraft, localState: "queued" });
   rejectSecrets(request);
   const now = new Date().toISOString();
@@ -353,6 +353,10 @@ export async function enqueuePublish(candidateDraft, request) {
     schemaVersion: LOCAL_RECORD_SCHEMA_VERSION,
     operationId,
     idempotencyKey: operationId,
+    // A queued mutation is authorized only for the exact page run in which the
+    // owner clicked Publish. Another tab or a post-reload page must never claim
+    // it; startup recovery will instead convert it to explicit review.
+    authorizedRunId: String(authorizedRunId || ""),
     draftId: draft.id,
     entryId: mutation.type === "delete" ? mutation.id : mutation.entry?.id || draft.entryId,
     kind: mutation.type,
@@ -389,7 +393,7 @@ export async function listOutbox({ includeCompleted = false } = {}) {
     .sort((left, right) => String(left.createdAt).localeCompare(String(right.createdAt)));
 }
 
-export async function claimNextOperation({ tabId, now = new Date() }) {
+export async function claimNextOperation({ tabId, authorizedRunId = "", now = new Date() }) {
   const database = await openDatabase();
   const transaction = database.transaction([STORES.outbox, STORES.meta], "readwrite");
   const store = transaction.objectStore(STORES.outbox);
@@ -397,6 +401,7 @@ export async function claimNextOperation({ tabId, now = new Date() }) {
   const nowMs = now.getTime();
   const candidate = operations
     .filter((operation) => {
+      if (String(operation.authorizedRunId || "") !== String(authorizedRunId || "")) return false;
       if (["pending", "retry_wait"].includes(operation.status)) return new Date(operation.nextAttemptAt).getTime() <= nowMs;
       return operation.status === "syncing" && new Date(operation.leaseExpiresAt || 0).getTime() <= nowMs;
     })
@@ -539,15 +544,25 @@ export async function reconcileCommittedOperations(snapshot, sha) {
   return [{ operationId: operation.operationId, superseded }];
 }
 
-export async function requireReviewForStoredOperations() {
+export async function requireReviewForStoredOperations({ activeRunIds = [] } = {}) {
   const database = await openDatabase();
   const transaction = database.transaction([STORES.outbox, STORES.meta], "readwrite");
   const store = transaction.objectStore(STORES.outbox);
   const operations = await requestValue(store.getAll());
-  const now = new Date().toISOString();
+  const nowDate = new Date();
+  const now = nowDate.toISOString();
+  const nowMs = nowDate.getTime();
+  const liveRuns = new Set(Array.from(activeRunIds || [], (runId) => String(runId || "")).filter(Boolean));
   const operationIds = [];
   for (const operation of operations) {
     if (!REVIEW_REQUIRED_STATES.has(operation.status)) continue;
+    // A second page may initialize while the page that received the explicit
+    // owner click is still completing its request. Do not cancel that live,
+    // leased request. Expired/crashed requests are isolated for review below.
+    if (operation.status === "syncing"
+      && operation.leaseOwner
+      && liveRuns.has(String(operation.leaseOwner))
+      && new Date(operation.leaseExpiresAt || 0).getTime() > nowMs) continue;
     operationIds.push(operation.operationId);
     store.put({
       ...operation,
@@ -563,7 +578,7 @@ export async function requireReviewForStoredOperations() {
   return operationIds;
 }
 
-export async function requeueOperationForReview(operationId) {
+export async function requeueOperationForReview(operationId, { authorizedRunId = "" } = {}) {
   const database = await openDatabase();
   const transaction = database.transaction([STORES.outbox, STORES.drafts, STORES.meta], "readwrite");
   const outbox = transaction.objectStore(STORES.outbox);
@@ -577,6 +592,7 @@ export async function requeueOperationForReview(operationId) {
     ...operation,
     status: "pending",
     attemptCount: 0,
+    authorizedRunId: String(authorizedRunId || ""),
     nextAttemptAt: now,
     leaseOwner: null,
     leaseExpiresAt: null,
@@ -596,11 +612,12 @@ export async function requeueOperationForReview(operationId) {
   return updated;
 }
 
-export async function requeueAwaitingAuth() {
+export async function requeueAwaitingAuth({ authorizedRunId = "" } = {}) {
   const database = await openDatabase();
   const transaction = database.transaction([STORES.outbox, STORES.meta], "readwrite");
   const store = transaction.objectStore(STORES.outbox);
-  const operations = await requestValue(store.index("status").getAll("awaiting_auth"));
+  const operations = (await requestValue(store.index("status").getAll("awaiting_auth")))
+    .filter((operation) => String(operation.authorizedRunId || "") === String(authorizedRunId || ""));
   const now = new Date().toISOString();
   for (const operation of operations) store.put({ ...operation, status: "pending", nextAttemptAt: now, updatedAt: now, lastError: null });
   if (operations.length) await bumpRevision(transaction, [STORES.outbox], operations.map((item) => item.operationId));

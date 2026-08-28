@@ -145,7 +145,7 @@ test("operation rebasing never overwrites a remotely changed delete", () => {
   const remote = { ...base, meaning: "远端刚修改", updatedAt: "2026-08-28T01:00:00.000Z", revision: 2 };
   const result = rebaseOperation({
     entryId: "receive", baseEntry: base,
-    request: { baseSha: "a".repeat(40), mutationId: "mutation-delete-1", mutation: { type: "delete", id: "receive", expectedUpdatedAt: base.updatedAt } }
+    request: { clientProtocol: "v38", queueProtocol: "v38", baseSha: "a".repeat(40), mutationId: "mutation-delete-1", mutation: { type: "delete", id: "receive", expectedUpdatedAt: base.updatedAt } }
   }, { entries: [remote] }, "b".repeat(40));
   assert.equal(result.status, "conflict");
   assert.equal(result.conflicts[0].path, "$delete");
@@ -160,6 +160,8 @@ test("a semantic rebase rotates the remote mutation id instead of reusing a boun
     entryId: "receive",
     baseEntry: base,
     request: {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
       baseSha: "a".repeat(40),
       mutationId: originalMutationId,
       mutation: { type: "update", entry: local, expectedUpdatedAt: base.updatedAt }
@@ -168,6 +170,8 @@ test("a semantic rebase rotates the remote mutation id instead of reusing a boun
 
   assert.equal(result.status, "rebased");
   assert.equal(result.request.baseSha, "b".repeat(40));
+  assert.equal(result.request.clientProtocol, "v38");
+  assert.equal(result.request.queueProtocol, "v38");
   assert.equal(result.request.mutation.entry.meaning, "收到；接收");
   assert.equal(result.request.mutation.entry.usage, "remote usage");
   assert.notEqual(result.request.mutationId, originalMutationId);

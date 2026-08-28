@@ -16,6 +16,7 @@ const GITHUB_CONFIG: AppConfig = {
   GITHUB_REPOSITORY: "zhuodashuai.github.io", GITHUB_REPOSITORY_ID: 1309360291, GITHUB_BRANCH: "main",
   GITHUB_WORDBOOK_PATH: "vocab/data/owner-wordbook.json", AI_PROVIDER: "openai"
 };
+const V38_PROTOCOL = { clientProtocol: "v38", queueProtocol: "v38" } as const;
 
 function api(path: string, init: RequestInit = {}) {
   return worker.fetch(new Request(`https://admin.example${path}`, init), testEnv);
@@ -325,13 +326,46 @@ describe("worker API integration", () => {
     expect(await second.json()).toMatchObject({ authenticated: true, user: { login: "zhuodashuai", id: 156042078 } });
   });
 
+  it("rejects an authenticated legacy owner page before it can reach GitHub", async () => {
+    const csrf = await seedSession();
+    const github = vi.fn(async () => { throw new Error("legacy publish must not reach GitHub"); });
+    vi.stubGlobal("fetch", github);
+    const mutationId = "mutation-legacy-client";
+    const response = await api("/api/v1/owner/publish", {
+      method: "POST",
+      headers: {
+        Cookie: SESSION_COOKIE,
+        Origin: "https://admin.example",
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrf,
+        "Idempotency-Key": mutationId
+      },
+      body: JSON.stringify({
+        baseSha: "a".repeat(40),
+        mutationId,
+        mutation: { type: "add", entry: entry({ id: "legacy-client", term: "legacyword", entryType: "word" }) }
+      })
+    });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({
+      error: {
+        code: "invalid_publish_request",
+        details: expect.arrayContaining([
+          expect.objectContaining({ path: ["clientProtocol"] }),
+          expect.objectContaining({ path: ["queueProtocol"] })
+        ])
+      }
+    });
+    expect(github).not.toHaveBeenCalled();
+  });
+
   it("publishes add mutations with GitHub SHA control and idempotent recovery", async () => {
     const csrf = await seedSession();
     const github = ownerGitHubMock();
     vi.stubGlobal("fetch", github.mock);
     const receive = entry({ id: "public-receive", term: "receive", normalized: "receive", standardForm: "receive", entryType: "word" });
     const mutationId = "mutation-api-add-0001";
-    const body = { baseSha: "a".repeat(40), mutationId, mutation: { type: "add", entry: receive } };
+    const body = { ...V38_PROTOCOL, baseSha: "a".repeat(40), mutationId, mutation: { type: "add", entry: receive } };
     const headers = {
       Cookie: SESSION_COOKIE, Origin: "https://admin.example", "Sec-Fetch-Site": "same-origin",
       "Content-Type": "application/json", "X-CSRF-Token": csrf, "Idempotency-Key": mutationId
@@ -375,6 +409,7 @@ describe("worker API integration", () => {
         "Idempotency-Key": mutationId
       },
       body: JSON.stringify({
+        ...V38_PROTOCOL,
         baseSha: "a".repeat(40),
         mutationId,
         mutation: { type: "add", entry: unreviewed }
@@ -397,7 +432,7 @@ describe("worker API integration", () => {
     const github = ownerGitHubMock({ ...snapshot([]), lastMutationId: mutationId });
     vi.stubGlobal("fetch", github.mock);
     const receive = entry({ id: "public-receive", term: "receive", entryType: "word" });
-    const body = { baseSha: "a".repeat(40), mutationId, mutation: { type: "add", entry: receive } };
+    const body = { ...V38_PROTOCOL, baseSha: "a".repeat(40), mutationId, mutation: { type: "add", entry: receive } };
     const headers = {
       Cookie: SESSION_COOKIE, Origin: "https://admin.example", "Content-Type": "application/json",
       "X-CSRF-Token": csrf, "Idempotency-Key": mutationId
@@ -417,7 +452,7 @@ describe("worker API integration", () => {
     const response = await api("/api/v1/owner/publish", {
       method: "POST",
       headers: { Cookie: SESSION_COOKIE, Origin: "https://admin.example", "Content-Type": "application/json", "X-CSRF-Token": csrf, "Idempotency-Key": mutationId },
-      body: JSON.stringify({ baseSha: "a".repeat(40), mutationId, mutation: { type: "delete", id: "public-jab-at", expectedUpdatedAt: "2026-08-28T00:00:00.000Z" } })
+      body: JSON.stringify({ ...V38_PROTOCOL, baseSha: "a".repeat(40), mutationId, mutation: { type: "delete", id: "public-jab-at", expectedUpdatedAt: "2026-08-28T00:00:00.000Z" } })
     });
     expect(response.status).toBe(409);
     const payload = await response.json() as { error: { code: string; details: { sha: string } } };

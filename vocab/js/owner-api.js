@@ -11,13 +11,14 @@ export class OwnerApiError extends Error {
   }
 }
 
-async function request(path, { method = "GET", csrfToken = "", body, mutationId = "" } = {}) {
+async function request(path, { method = "GET", csrfToken = "", body, mutationId = "", signal } = {}) {
   let response;
   try {
     response = await fetch(`${API_PREFIX}${path}`, {
       method,
       credentials: "same-origin",
       cache: "no-store",
+      ...(signal ? { signal } : {}),
       headers: {
         Accept: "application/json",
         ...(body !== undefined ? { "Content-Type": "application/json" } : {}),
@@ -70,11 +71,12 @@ export function organizeWithAi(input, csrfToken) {
   return request("/owner/ai/organize", { method: "POST", csrfToken, body: { input } });
 }
 
-export function publishMutation(publishRequest, csrfToken) {
+export function publishMutation(publishRequest, csrfToken, { signal } = {}) {
   return request("/owner/publish", {
     method: "POST",
     csrfToken,
     body: publishRequest,
-    mutationId: publishRequest.mutationId
+    mutationId: publishRequest.mutationId,
+    signal
   });
 }

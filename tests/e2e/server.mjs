@@ -137,6 +137,7 @@ async function api(request, response, url) {
   }
   if (url.pathname === "/api/v1/owner/wordbook" && request.method === "GET") {
     if (!authenticated(request)) return error(response, 401, "authentication_required", "请先登录。");
+    if (cookies(request).e2e_owner_delay === "1") await new Promise((resolveDelay) => setTimeout(resolveDelay, 900));
     const state = runState(request);
     return json(response, 200, { sha: state.sha, htmlUrl: "https://github.com/zhuodashuai/zhuodashuai.github.io", snapshot: state.snapshot });
   }
@@ -168,6 +169,9 @@ async function api(request, response, url) {
   if (url.pathname === "/api/v1/owner/publish" && request.method === "POST") {
     const payload = await body(request);
     if (!assertWrite(request, response, payload)) return;
+    if (payload.clientProtocol !== "v38" || payload.queueProtocol !== "v38") {
+      return error(response, 400, "owner_client_upgrade_required", "管理页面版本过旧；没有执行发布，请刷新到最新版后重新复核。 ");
+    }
     if (cookies(request).e2e_github_timeout === "1") {
       return error(response, 503, "github_unreachable", "暂时无法连接 GitHub；草稿和发布任务仍保存在本机。");
     }
