@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一个会自动纠正拼写、补充中文释义并安排复习的个人英语词库。">
+  <meta name="theme-color" content="#20372f">
+  <link rel="canonical" href="https://zhuodashuai.github.io/vocab/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wordbook · 我的英语词库">
+  <meta property="og:description" content="只输入英文，自动纠正拼写、整理中文释义与例句，并安排复习。">
+  <meta property="og:url" content="https://zhuodashuai.github.io/vocab/">
+  <meta property="og:image" content="https://zhuodashuai.github.io/vocab/assets/wordbook-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1733">
+  <meta property="og:image:height" content="907">
+  <meta property="og:image:alt" content="Wordbook — Write English. Keep the meaning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wordbook · 我的英语词库">
+  <meta name="twitter:description" content="只输入英文，自动整理成可复习的双语词条。">
+  <meta name="twitter:image" content="https://zhuodashuai.github.io/vocab/assets/wordbook-og.jpg">
+  <title>Wordbook · 我的英语词库</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Wordbook 首页">
+      <span class="brand-mark" aria-hidden="true">W</span>
+      <span><strong>Wordbook</strong><small>我的英语词库</small></span>
+    </a>
+    <a class="profile-link" href="../">返回个人主页 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Write English. Keep the meaning.</p>
+        <h1 id="page-title">只输入英文，<br><em>剩下的交给词库。</em></h1>
+        <p class="hero-text">自动检查拼写、整理中文释义与例句，再把每个词放进清晰的复习节奏里。</p>
+
+        <form class="word-form" id="word-form" novalidate>
+          <label for="word-input">输入单词或短语</label>
+          <div class="input-row">
+            <input id="word-input" name="word" type="text" lang="en" spellcheck="true" autocomplete="off" placeholder="例如：jab at / accomodate" required>
+            <button type="submit">自动整理 <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="form-hint" id="form-hint" role="status" aria-live="polite">支持单词与短语；发现疑似拼写错误时会显示更正并允许撤销。</p>
+          <p class="privacy-line">在线补充时只发送当前英文词条；请勿在输入框中填写私人信息。</p>
+        </form>
+
+        <ul class="feature-line" aria-label="核心功能">
+          <li>拼写纠正</li>
+          <li>中文释义</li>
+          <li>双语例句</li>
+          <li>复习计划</li>
+        </ul>
+      </div>
+
+      <aside class="today-card" aria-labelledby="today-title" id="selected-card">
+        <div class="card-topline"><span id="selected-kicker">FIRST ENTRY</span><span id="selected-index">01</span></div>
+        <div class="word-heading-line">
+          <div>
+            <p class="word-type" id="selected-type">verb phrase · noun collocation</p>
+            <h2 id="today-title" lang="en">jab at</h2>
+          </div>
+          <button class="sound-button" id="sound-button" type="button" aria-label="朗读 jab at">◖</button>
+        </div>
+        <p class="phonetic" id="selected-phonetic" lang="en">jab /d͡ʒæb/ + at /ət, æt/</p>
+        <p class="meaning" id="selected-meaning">① 朝某人或某物猛戳、猛刺或快速击打；<br>② （言语上）抨击、挖苦或嘲讽</p>
+        <div class="example">
+          <span>EXAMPLE</span>
+          <p lang="en" id="selected-example-en">He jabbed at the elevator button with his finger.</p>
+          <p id="selected-example-zh">他用手指快速地反复戳按电梯按钮。</p>
+        </div>
+        <p class="usage-note" id="selected-usage">动词结构：jab at + sb/sth。表示“讥讽”时，也常见 a jab at 或 take a jab at。</p>
+        <div class="tag-row" id="selected-tags" aria-label="标签"><span>短语</span><span>动作</span><span>批评与讽刺</span></div>
+        <div class="card-actions">
+          <button type="button" id="review-selected">复习这个词</button>
+          <button type="button" id="delete-selected" class="danger-button">删除</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="lookup-panel" id="lookup-panel" aria-labelledby="lookup-title" hidden>
+      <div class="lookup-heading">
+        <div>
+          <p class="eyebrow">Review before saving</p>
+          <h2 id="lookup-title">确认新词条</h2>
+        </div>
+        <button type="button" class="close-button" id="close-lookup" aria-label="关闭新词条">×</button>
+      </div>
+
+      <div class="correction-banner" id="correction-banner" hidden>
+        <div><span>发现可能的拼写错误</span><strong><del id="original-spelling"></del> → <ins id="corrected-spelling"></ins></strong></div>
+        <button type="button" id="keep-original">保留原拼写</button>
+      </div>
+
+      <form id="draft-form" class="draft-form">
+        <div class="draft-grid compact-grid">
+          <label>英文词条<input id="draft-term" name="term" lang="en" required></label>
+          <label>词性<input id="draft-pos" name="partOfSpeech" placeholder="noun / verb / phrase"></label>
+          <label>音标<input id="draft-phonetic" name="phonetic" lang="en" placeholder="/…/"></label>
+          <label>标签<input id="draft-tags" name="tags" placeholder="用逗号分隔"></label>
+        </div>
+        <div class="draft-grid">
+          <label>中文释义<textarea id="draft-meaning" name="meaning" rows="4" required></textarea></label>
+          <label>英文释义<textarea id="draft-definition" name="definition" rows="4" lang="en"></textarea></label>
+          <label>英文例句<textarea id="draft-example-en" name="exampleEn" rows="4" lang="en"></textarea></label>
+          <label>例句翻译<textarea id="draft-example-zh" name="exampleZh" rows="4"></textarea></label>
+        </div>
+        <label class="wide-field">用法提醒<textarea id="draft-usage" name="usage" rows="2"></textarea></label>
+        <p class="lookup-warning" id="lookup-warning" role="status"></p>
+        <div class="draft-actions">
+          <button type="submit" class="primary-action">保存到词库</button>
+          <span>自动内容只是候选，你可以先修改再保存。</span>
+        </div>
+      </form>
+    </section>
+
+    <section class="workspace" aria-labelledby="library-title">
+      <div class="workspace-heading">
+        <div>
+          <p class="eyebrow">Your collection</p>
+          <h2 id="library-title">我的词库</h2>
+        </div>
+        <div class="summary" aria-label="词库概览">
+          <span><strong id="entry-count">1</strong> 个词条</span>
+          <button type="button" id="start-review"><strong id="due-count">1</strong> 今日待复习</button>
+        </div>
+      </div>
+
+      <div class="library-toolbar" aria-label="筛选词库">
+        <div class="filter-group" id="filter-group">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="new" aria-pressed="false">新词</button>
+          <button type="button" data-filter="due" aria-pressed="false">待复习</button>
+          <button type="button" data-filter="mastered" aria-pressed="false">已掌握</button>
+        </div>
+        <input id="library-search" type="search" lang="en" placeholder="搜索词库" aria-label="搜索词库">
+      </div>
+
+      <div id="library-list" class="library-list">
+        <article class="word-row">
+          <button class="word-main" type="button" aria-label="打开 jab at 词条">
+            <span class="word-index">001</span>
+            <span><strong lang="en">jab at</strong><small>朝……猛戳；抨击、挖苦</small></span>
+          </button>
+          <span class="status new">新词</span>
+          <time datetime="2026-08-27">今天</time>
+        </article>
+      </div>
+
+      <div class="empty-guidance">
+        <span aria-hidden="true">+</span>
+        <p>下一次只需要输入英文。词条会自动排版、归类，并保存在这台设备上。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Local-first vocabulary notebook · 数据保存在当前浏览器，请定期导出备份。</p>
+    <p><button type="button" class="text-button" id="export-button">导出备份</button> · <button type="button" class="text-button" id="import-button">导入词库</button><input id="import-file" type="file" accept="application/json" hidden></p>
+    <p class="attribution">在线补充来自 <a href="https://languagetool.org/" target="_blank" rel="noopener noreferrer">LanguageTool</a>、<a href="https://freedictionaryapi.com/" target="_blank" rel="noopener noreferrer">FreeDictionaryAPI</a>、<a href="https://en.wiktionary.org/" target="_blank" rel="noopener noreferrer">Wiktionary（CC BY-SA）</a> 与 <a href="https://mymemory.translated.net/" target="_blank" rel="noopener noreferrer">MyMemory</a>。</p>
+  </footer>
+
+  <dialog id="review-dialog" class="review-dialog" aria-labelledby="review-term">
+    <form method="dialog" class="dialog-close-row"><button value="close" aria-label="关闭复习">×</button></form>
+    <p class="eyebrow">Recall first</p>
+    <h2 id="review-term" lang="en">jab at</h2>
+    <button type="button" id="reveal-answer" class="reveal-button">显示答案</button>
+    <div id="review-answer" hidden>
+      <p class="review-meaning" id="review-meaning"></p>
+      <p class="review-example" id="review-example"></p>
+      <div class="rating-grid" id="rating-grid">
+        <button type="button" data-rating="again"><strong>忘了</strong><span>10 分钟后</span></button>
+        <button type="button" data-rating="hard"><strong>模糊</strong><span>稍后再看</span></button>
+        <button type="button" data-rating="good"><strong>记住</strong><span>升一级</span></button>
+        <button type="button" data-rating="easy"><strong>很熟</strong><span>升两级</span></button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

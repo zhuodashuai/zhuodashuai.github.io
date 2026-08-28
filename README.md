@@ -2,6 +2,14 @@
 
 A lightweight, accessible academic profile for GitHub Pages.
 
+## Repository map
+
+- `/` — academic profile and GitHub Pages homepage
+- `/vocab/` — standalone **Wordbook** vocabulary organiser
+- `/U1L1_coding.ipynb` — existing coursework notebook, retained in its original location
+
+The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.
+
 ## Content structure
 
 - Research profile and current affiliations
@@ -23,6 +31,8 @@ The public suggestion box and guestbook are defined in `.github/ISSUE_TEMPLATE/`
 ## Local preview
 
 Open `index.html` directly, or serve the repository with any static file server.
+
+Wordbook uses JavaScript modules and IndexedDB, so preview it through a local server at `/vocab/` rather than opening its HTML file directly.
 
 ## Publishing
 
