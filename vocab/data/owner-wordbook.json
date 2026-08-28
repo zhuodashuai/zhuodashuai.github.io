@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-08-28T15:35:53.287Z",
-  "revisionId": "83722f12-b787-406e-89df-26ccc74054b0",
-  "lastMutationId": "8f15f4ac-376e-43d1-97fb-5691049c88d9",
+  "exportedAt": "2026-08-28T22:50:47.286Z",
+  "revisionId": "c0234c12-0cc4-44ce-96c1-855e9909358c",
+  "lastMutationId": "6faf7219-b3a5-4384-841d-5f5166e84af7",
   "entries": [
     {
       "id": "public-jab-at",
@@ -195,6 +195,112 @@
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-28T15:35:25.513Z",
       "updatedAt": "2026-08-28T15:35:53.287Z"
+    },
+    {
+      "id": "public-fdc29303-770d-4d56-8ca5-ca4a320c5fb2",
+      "revision": 1,
+      "originalInput": "surveilance",
+      "term": "surveillance",
+      "normalized": "surveillance",
+      "standardForm": "surveillance",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "surveilance",
+        "suggestion": "surveillance",
+        "chosen": "surveillance",
+        "confidence": 0.88,
+        "source": "ai-cloudflare+edit-distance-heuristic"
+      },
+      "phonetic": "/sərˈveɪləns/",
+      "partOfSpeech": "noun",
+      "meaning": "noun：监视, 监督\nnoun：[电] 侦测",
+      "definition": "noun: Close observation of a person or group, especially one that is considered suspicious or potentially dangerous.\nnoun: The act of detecting or monitoring something, often using electronic equipment.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "监视, 监督",
+          "definitionEn": "Close observation of a person or group, especially one that is considered suspicious or potentially dangerous.",
+          "usageNotes": "This is the primary, common sense. The second sense is technical.",
+          "register": "formal",
+          "collocations": [
+            "close surveillance",
+            "intensive surveillance",
+            "surveillance camera",
+            "surveillance data"
+          ],
+          "examples": [
+            {
+              "en": "The police placed the suspect under close surveillance.",
+              "zh": "警方对嫌疑人进行了严密监视。"
+            },
+            {
+              "en": "The city has installed surveillance cameras in all public areas.",
+              "zh": "该市在所有公共区域都安装了监控摄像头。"
+            }
+          ],
+          "confusables": [
+            "supervision"
+          ]
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "[电] 侦测",
+          "definitionEn": "The act of detecting or monitoring something, often using electronic equipment.",
+          "usageNotes": "This is a technical sense, often used in engineering or military contexts.",
+          "register": "technical",
+          "collocations": [
+            "surveillance system",
+            "surveillance radar"
+          ],
+          "examples": [
+            {
+              "en": "The new surveillance system can detect intruders within a 500-meter radius.",
+              "zh": "新的侦测系统能在500米范围内发现入侵者。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "close surveillance",
+        "intensive surveillance",
+        "surveillance camera",
+        "surveillance data",
+        "surveillance system",
+        "surveillance radar"
+      ],
+      "exampleEn": "The police placed the suspect under close surveillance.",
+      "exampleZh": "警方对嫌疑人进行了严密监视。",
+      "usage": "formal",
+      "register": "formal",
+      "confusedWith": [
+        "supervision"
+      ],
+      "forms": [
+        "surveillances"
+      ],
+      "tags": [
+        "gre"
+      ],
+      "author": "",
+      "sourceTitle": "",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "https://github.com/skywind3000/ECDICT",
+      "attributionStatus": "unverified",
+      "attributionNote": "unverified",
+      "sources": [
+        {
+          "title": "ECDICT local dictionary snapshot",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-28T22:49:58.499Z"
+        }
+      ],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-28T22:49:58.344Z",
+      "updatedAt": "2026-08-28T22:50:47.286Z"
     }
   ]
 }
