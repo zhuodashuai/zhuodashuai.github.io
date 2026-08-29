@@ -86,6 +86,8 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
+  assert.match(publicAppSource, /headers\["If-None-Match"\] = state\.liveEtag/);
+  assert.match(publicAppSource, /response\.status === 304/);
   assert.match(runtimeConfigSource, /https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\//);
   assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
 });

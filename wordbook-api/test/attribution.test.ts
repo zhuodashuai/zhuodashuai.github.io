@@ -1,8 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { lookupFreeAttribution } from "../src/attribution";
+import { applyFreeAttribution, lookupFreeAttribution, mayNeedFreeAttributionLookup, type FreeAttributionEvidence } from "../src/attribution";
 import { organizeEntry } from "../src/ai";
 import type { AppConfig } from "../src/config";
 import type { AiOrganized } from "../src/schema";
+import { entry } from "./fixtures";
 
 const QUOTE = "This above all: to thine own self be true.";
 const MATCHED_SNIPPET = 'friend. <span class="searchmatch">This</span> <span class="searchmatch">above</span> <span class="searchmatch">all</span>: <span class="searchmatch">to</span> <span class="searchmatch">thine</span> <span class="searchmatch">own</span> <span class="searchmatch">self</span> <span class="searchmatch">be</span> <span class="searchmatch">true</span>;';
@@ -106,10 +107,10 @@ afterEach(() => {
 });
 
 describe("free Wikimedia attribution evidence", () => {
-  it("verifies the Shakespeare line only after Wikiquote, Wikidata and Wikisource agree", async () => {
+  it("returns a cross-checked Shakespeare candidate after Wikiquote, Wikidata and Wikisource agree", async () => {
     const result = await lookupFreeAttribution(QUOTE, wikimediaFetch() as unknown as typeof fetch);
     expect(result).toMatchObject({
-      status: "verified",
+      status: "candidate",
       author: "William Shakespeare",
       sourceWork: "Hamlet",
       sourceDate: "",
@@ -131,6 +132,39 @@ describe("free Wikimedia attribution evidence", () => {
 
   it("returns no attribution when the quoted words do not have an exact Wikiquote hit", async () => {
     await expect(lookupFreeAttribution(QUOTE, wikimediaFetch({ quoteHits: false }) as unknown as typeof fetch)).resolves.toBeNull();
+  });
+
+  it("checks every word of a long quotation so a genuine prefix cannot hide a fabricated tail", async () => {
+    const genuinePrefix = "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen";
+    const alteredInput = `${genuinePrefix} fabricated ending.`;
+    const fetcher = vi.fn(async (input: RequestInfo | URL) => {
+      const url = new URL(String(input));
+      if (url.searchParams.get("list") === "search") {
+        return Response.json({ query: { search: [{ ns: 0, title: "Example", snippet: genuinePrefix }] } });
+      }
+      throw new Error(`A prefix-only result must not progress past search: ${url.href}`);
+    });
+    await expect(lookupFreeAttribution(alteredInput, fetcher as unknown as typeof fetch)).resolves.toBeNull();
+    expect(fetcher).toHaveBeenCalledTimes(2);
+  });
+
+  it("never turns an ordinary phrase into a quotation because it appears on Wikiquote", () => {
+    expect(mayNeedFreeAttributionLookup("keep up with the times")).toBe(false);
+    const phrase = entry({ term: "keep up with the times", standardForm: "keep up with the times", entryType: "phrase" });
+    const evidence: FreeAttributionEvidence = {
+      status: "candidate",
+      author: "Unrelated Person",
+      sourceTitle: "Wikiquote: Unrelated Person",
+      sourceWork: "",
+      sourceDate: "",
+      sourceUrl: "https://en.wikiquote.org/wiki/Unrelated_Person",
+      attributionNote: "candidate",
+      sources: []
+    };
+    const result = applyFreeAttribution(phrase, evidence);
+    expect(result.entryType).toBe("phrase");
+    expect(result.author).toBe("");
+    expect(result.sourceUrl).toBe("");
   });
 
   it("derives quote summaries from a complete aligned sense instead of rejecting a stronger model's blank aggregates", async () => {
@@ -171,14 +205,14 @@ describe("free Wikimedia attribution evidence", () => {
       entryType: "quote",
       standardForm: QUOTE,
       correction: { status: "exact", suggestion: "" },
-      attributionStatus: "verified",
+      attributionStatus: "candidate",
       author: "William Shakespeare",
       sourceWork: "Hamlet",
       sourceUrl: "https://en.wikisource.org/wiki/Page%3AHamlet_-_The_Arden_Shakespeare_-_1899.djvu/66"
     });
     expect(result.entry.sourceTitle).toContain("Wikisource: Page:Hamlet");
     expect(result.entry.attributionNote).not.toContain("model memory");
-    expect(result.warnings.join(" ")).toContain("免费出处检索已用 Wikisource");
+    expect(result.warnings.join(" ")).toContain("自动结果仍为候选");
   });
 
   it("fails closed on Wikimedia downtime and leaves remembered attribution blank", async () => {

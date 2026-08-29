@@ -217,27 +217,44 @@ function publicReadHeaders(env: Env): Record<string, string> {
 
 async function publicSnapshot(request: Request, env: Env): Promise<Response> {
   const headers = publicReadHeaders(env);
+  let ownerConfirmed: ReturnType<typeof validateSnapshot> | null = null;
+  let deployed: ReturnType<typeof validateSnapshot> | null = null;
   try {
     const current = await controlCall(env, "/public/snapshot", {});
-    const snapshot = validateSnapshot(current.snapshot);
-    return jsonResponse(snapshot, 200, {
-      ...headers,
-      ETag: `"${snapshot.revisionId}"`,
-      "X-Wordbook-Source": "owner-confirmed"
-    });
+    ownerConfirmed = validateSnapshot(current.snapshot);
   } catch {
-    // The live cache is an acceleration layer. The deployed, schema-validated
-    // snapshot keeps public reading available if Durable Object access fails.
+    // The Durable Object is an acceleration layer; the deployed snapshot below
+    // remains available when it has not been seeded or is temporarily down.
+  }
+  try {
     const assetUrl = new URL("/data/owner-wordbook.json", request.url);
     const asset = await env.ASSETS.fetch(new Request(assetUrl, { headers: { Accept: "application/json" } }));
-    if (!asset.ok) throw new ApiError(503, "public_snapshot_unavailable", "公开词库暂时不可读取。");
-    const snapshot = validateSnapshot(await asset.json());
-    return jsonResponse(snapshot, 200, {
-      ...headers,
-      ETag: `"${snapshot.revisionId}"`,
-      "X-Wordbook-Source": "deployed-fallback"
-    });
+    if (asset.ok) deployed = validateSnapshot(await asset.json());
+  } catch {
+    // A newer owner-confirmed snapshot can still serve public reads if the
+    // static asset binding is unavailable.
   }
+  if (!ownerConfirmed && !deployed) throw new ApiError(503, "public_snapshot_unavailable", "公开词库暂时不可读取。");
+
+  // A repository deployment can contain editorial corrections that are newer
+  // than the last Owner session which seeded the Durable Object. Conversely,
+  // an Owner publish after deployment is newer than the bundled asset. Compare
+  // their validated export times instead of blindly preferring either cache.
+  const useDeployed = Boolean(deployed && (!ownerConfirmed
+    || Date.parse(deployed.exportedAt) > Date.parse(ownerConfirmed.exportedAt)));
+  const snapshot = useDeployed ? deployed! : ownerConfirmed!;
+  const source = useDeployed ? "deployed-newer" : "owner-confirmed";
+  const etag = `"${snapshot.revisionId}"`;
+  const responseHeaders = {
+    ...headers,
+    ETag: etag,
+    "Cache-Control": "no-cache",
+    "X-Wordbook-Source": source
+  };
+  if (request.headers.get("If-None-Match")?.split(",").map((value) => value.trim()).includes(etag)) {
+    return new Response(null, { status: 304, headers: responseHeaders });
+  }
+  return jsonResponse(snapshot, 200, responseHeaders);
 }
 
 async function organize(request: Request, env: Env): Promise<Response> {

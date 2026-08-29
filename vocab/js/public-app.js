@@ -12,7 +12,7 @@ const refs = Object.fromEntries([
   "dialog-source-link", "dialog-source-list", "dialog-tags", "install-button", "update-banner", "apply-update"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
-const state = { snapshot: null, filter: "all", query: "" };
+const state = { snapshot: null, filter: "all", query: "", liveEtag: "" };
 const FOREGROUND_REFRESH_MS = 30_000;
 const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
@@ -118,8 +118,14 @@ async function fetchLatestSnapshot() {
     try {
       const url = new URL(candidate.url);
       if (candidate.source === "live") url.searchParams.set("sync", String(Date.now()));
-      const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" } });
+      const headers = { Accept: "application/json" };
+      if (candidate.source === "live" && state.liveEtag) headers["If-None-Match"] = state.liveEtag;
+      const response = await fetch(url, { cache: "no-cache", headers });
+      if (response.status === 304 && candidate.source === "live" && state.snapshot) {
+        return { snapshot: state.snapshot, response, source: candidate.source };
+      }
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      if (candidate.source === "live") state.liveEtag = response.headers.get("etag") || "";
       return { snapshot: parsePublicSnapshot(await response.json()), response, source: candidate.source };
     } catch (error) {
       lastError = error instanceof Error ? error : new Error(String(error));
@@ -162,6 +168,7 @@ async function performLoad({ background = false } = {}) {
       const cache = await getPublicCache();
       if (!cache?.snapshot) throw new Error("No validated cache");
       state.snapshot = parsePublicSnapshot(cache.snapshot);
+      state.liveEtag = cache.etag || "";
       refs.dataStatus.textContent = `当前离线，显示 ${new Date(cache.fetchedAt).toLocaleString("zh-CN")} 保存的已验证缓存。`;
       refs.exportPublic.disabled = false;
       render();

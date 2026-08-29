@@ -999,11 +999,12 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
   // Start the free evidence lookup in parallel with local evidence and the AI
   // call. A handled outcome keeps Wikimedia downtime from breaking organizer
   // runs or causing an unhandled rejection while a provider retries.
-  const attributionLookup = config.ENABLE_FREE_ATTRIBUTION_LOOKUP === "true" && mayNeedFreeAttributionLookup(input)
-    ? lookupFreeAttribution(input)
+  const beginAttributionLookup = () => lookupFreeAttribution(input)
       .then((value) => ({ value, error: null as unknown }))
-      .catch((error: unknown) => ({ value: null, error }))
-    : Promise.resolve({ value: null, error: null as unknown });
+      .catch((error: unknown) => ({ value: null, error }));
+  let attributionLookup = config.ENABLE_FREE_ATTRIBUTION_LOOKUP === "true" && mayNeedFreeAttributionLookup(input)
+    ? beginAttributionLookup()
+    : null;
   const evidence = await collectLexicalEvidence(input, config);
   const configuredProviders = aiProviderOrder(config).filter((provider) => aiProviderConfigured(provider, config));
   if (!configuredProviders.length) {
@@ -1024,14 +1025,17 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
         const confidence = estimateCorrectionConfidence(input, result.organized.suggestedTerm);
         let baseEntry = makeEntryFromAi(input, result.organized, provider, result.sources, confidence);
         const warnings: string[] = [...result.warnings];
-        const attribution = await attributionLookup;
-        if (attribution.value) {
-          baseEntry = applyFreeAttribution(baseEntry, attribution.value);
-          warnings.push(attribution.value.status === "verified"
-            ? "免费出处检索已用 Wikisource 原文、Wikiquote 命中和 Wikidata 作者元数据交叉核验；链接可直接打开复查。"
-            : "免费出处检索只找到 Wikiquote/Wikidata 候选，未达到 verified 的原文交叉核验门槛。");
-        } else if (attribution.error) {
-          warnings.push("免费 Wikimedia 出处检索暂时不可用；AI 不会凭记忆填入作者或作品。请稍后重试或手动核对。");
+        if (config.ENABLE_FREE_ATTRIBUTION_LOOKUP === "true" && ["quote", "proverb"].includes(baseEntry.entryType)) {
+          attributionLookup ||= beginAttributionLookup();
+          const attribution = await attributionLookup;
+          if (attribution.value) {
+            baseEntry = applyFreeAttribution(baseEntry, attribution.value);
+            warnings.push(attribution.value.sources.some((source) => source.kind === "primary")
+              ? "免费出处检索已用完整输入交叉匹配 Wikisource 原文、Wikiquote 与 Wikidata；自动结果仍为候选，请打开链接复查。"
+              : "免费出处检索只找到 Wikiquote/Wikidata 候选，尚无同作品原文交叉匹配。");
+          } else if (attribution.error) {
+            warnings.push("免费 Wikimedia 出处检索暂时不可用；AI 不会凭记忆填入作者或作品。请稍后重试或手动核对。");
+          }
         }
         const curatedPhonetic = provider === "cloudflare" ? curatedPhoneticValue(evidence, baseEntry.phonetic) : "";
         // Re-parse the complete object instead of mutating a previously parsed

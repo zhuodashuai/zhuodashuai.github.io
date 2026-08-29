@@ -1,4 +1,4 @@
-import { PublicEntrySchema, countEnglishTokens, normalizeEnglish, type PublicEntry, type SourceRecord } from "./schema";
+import { PublicEntrySchema, classifyInput, normalizeEnglish, type PublicEntry, type SourceRecord } from "./schema";
 
 const WIKIQUOTE_API = "https://en.wikiquote.org/w/api.php";
 const WIKISOURCE_API = "https://en.wikisource.org/w/api.php";
@@ -37,7 +37,7 @@ interface QuoteCandidate {
 }
 
 export interface FreeAttributionEvidence {
-  status: "candidate" | "verified";
+  status: "candidate";
   author: string;
   sourceTitle: string;
   sourceWork: string;
@@ -80,7 +80,9 @@ function containsTokenSequence(haystack: string[], needle: string[]): boolean {
 }
 
 function searchTokens(input: string): string[] {
-  return wordTokens(input).slice(0, 18);
+  // The complete submitted text is the evidence boundary. Truncating long
+  // quotations would let a genuine prefix hide a fabricated or altered tail.
+  return wordTokens(input);
 }
 
 function exactSnippetMatch(input: string, snippet: string): boolean {
@@ -220,10 +222,11 @@ function dedupeSources(sources: SourceRecord[]): SourceRecord[] {
 /**
  * A deliberately conservative, API-key-free attribution lookup.
  *
- * Wikiquote alone produces a candidate. Automatic `verified` status requires
- * three agreeing pieces of evidence: an exact Wikiquote text hit, the linked
+ * Wikiquote alone produces a candidate. An exact Wikiquote text hit, the linked
  * Wikidata work/author relationship, and an exact hit in a Wikisource page
- * whose title identifies the same work. Punctuation is ignored, words are not.
+ * whose title identifies the same work strengthen that candidate and select a
+ * primary link. Punctuation is ignored, words are not. Automatic lookup never
+ * returns verified: only the owner can do so after reading the source.
  */
 export async function lookupFreeAttribution(input: string, fetcher: typeof fetch = fetch): Promise<FreeAttributionEvidence | null> {
   const tokens = searchTokens(input);
@@ -297,13 +300,13 @@ export async function lookupFreeAttribution(input: string, fetcher: typeof fetch
       retrievedAt
     };
     return {
-      status: "verified",
+      status: "candidate",
       author,
       sourceTitle: primarySource.title,
       sourceWork,
       sourceDate: chosen.date,
       sourceUrl: primaryUrl,
-      attributionNote: `Wikisource 原文页检索到与输入逐词匹配的文本；Wikiquote 命中同一作品，Wikidata 将作品作者列为 ${author}。自动分级为 verified，发布前仍建议打开来源复查。`,
+      attributionNote: `Wikisource 原文页检索到与完整输入逐词匹配的文本；Wikiquote 命中同一作品，Wikidata 将作品作者列为 ${author}。自动检索仍只标为 candidate；请由卓打开来源复查后再决定是否核验。`,
       sources: dedupeSources([primarySource, wikiquoteSource, ...(wikidataSource ? [wikidataSource] : [])])
     };
   }
@@ -323,9 +326,11 @@ export async function lookupFreeAttribution(input: string, fetcher: typeof fetch
 }
 
 export function applyFreeAttribution(entry: PublicEntry, evidence: FreeAttributionEvidence): PublicEntry {
+  // Evidence lookup must never reclassify an ordinary phrase or sentence as a
+  // quotation merely because the same words appear on a quotations website.
+  if (!["quote", "proverb"].includes(entry.entryType)) return PublicEntrySchema.parse(entry);
   return PublicEntrySchema.parse({
     ...entry,
-    entryType: ["quote", "proverb"].includes(entry.entryType) ? entry.entryType : "quote",
     synonyms: [],
     author: evidence.author,
     sourceTitle: evidence.sourceTitle,
@@ -339,6 +344,5 @@ export function applyFreeAttribution(entry: PublicEntry, evidence: FreeAttributi
 }
 
 export function mayNeedFreeAttributionLookup(input: string): boolean {
-  const words = countEnglishTokens(input);
-  return words >= 3 && (/[.!?][\"']?$/.test(input.trim()) || /^[A-Z]/.test(input.trim()) || words >= 5);
+  return classifyInput(input) === "quote";
 }

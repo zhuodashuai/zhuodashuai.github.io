@@ -476,7 +476,7 @@ describe("worker API integration", () => {
     expect(publicResponse.status).toBe(200);
     expect(publicResponse.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
     expect(publicResponse.headers.get("vary")).toContain("Origin");
-    expect(publicResponse.headers.get("cache-control")).toMatch(/no-store/i);
+    expect(publicResponse.headers.get("cache-control")).toBe("no-cache");
     expect(await publicResponse.json()).toMatchObject({
       lastMutationId: mutationId,
       entries: [expect.objectContaining({ id: "public-fresh-receive", term: "receive" })]
@@ -488,6 +488,31 @@ describe("worker API integration", () => {
     const afterRetry = await api("/api/v1/public/wordbook");
     expect(afterRetry.status).toBe(200);
     expect(await afterRetry.json()).toMatchObject({ lastMutationId: mutationId, entries: [{ term: "receive" }] });
+  });
+
+  it("serves a newer deployed snapshot over a stale Durable Object cache and honors its ETag", async () => {
+    const staleSnapshot = snapshot([]);
+    const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+    await runInDurableObject(stub, async (_instance, state) => {
+      await state.storage.put("public-snapshot:latest", {
+        snapshot: staleSnapshot,
+        sha: "a".repeat(40),
+        htmlUrl: "https://github.com/file",
+        confirmedAt: Date.now()
+      });
+    });
+    const deployedResponse = await testEnv.ASSETS.fetch(new Request("https://admin.example/data/owner-wordbook.json"));
+    const deployed = await deployedResponse.json() as { revisionId: string };
+
+    const response = await api("/api/v1/public/wordbook");
+    expect(response.status).toBe(200);
+    expect(response.headers.get("x-wordbook-source")).toBe("deployed-newer");
+    expect(await response.json()).toMatchObject({ revisionId: deployed.revisionId });
+
+    const etag = `"${deployed.revisionId}"`;
+    const notModified = await api("/api/v1/public/wordbook", { headers: { "If-None-Match": etag } });
+    expect(notModified.status).toBe(304);
+    expect(notModified.headers.get("etag")).toBe(etag);
   });
 
   it("never grants an untrusted origin cross-origin access to the public snapshot", async () => {
