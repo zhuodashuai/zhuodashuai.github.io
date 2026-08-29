@@ -64,6 +64,87 @@ test("多义释义在 Owner 现有列表、公开卡片和详情统一显示 ①
   await expect(page.locator("#dialog-meaning")).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
 });
 
+test("公开词条详情按义项分块，各字段、双语例句与词形独立换行", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/");
+  await page.locator("#library-search").fill("hip");
+  await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
+
+  const dialog = page.getByRole("dialog");
+  const extra = dialog.locator("#dialog-extra");
+  const senses = extra.locator("article.detail-sense");
+  await expect(senses).toHaveCount(2);
+  await expect(senses.locator(".sense-heading")).toHaveCount(2);
+  expect(await senses.evaluateAll((elements) => elements.map((element) => element.tagName))).toEqual(["ARTICLE", "ARTICLE"]);
+  expect(await senses.locator(".sense-heading").evaluateAll((elements) => elements.map((element) => element.tagName))).toEqual(["H4", "H4"]);
+
+  const noun = senses.nth(0);
+  await expect(noun.locator(".sense-heading")).toContainText("1");
+  await expect(noun.locator(".sense-part-of-speech")).toHaveText("noun");
+  await expect(noun.locator(".sense-meaning-zh > p")).toHaveText("髋部；臀部；髋关节");
+  await expect(noun.locator(".sense-definition-en > p")).toContainText("the thigh bone meets the pelvis");
+  await expect(noun.locator(".sense-example-pair")).toHaveCount(2);
+  await expect(noun.locator(".sense-example-en > p")).toHaveText([
+    "She has very wide hips.",
+    "The doctor examined his hip joint."
+  ]);
+  await expect(noun.locator(".sense-example-zh > p")).toHaveText([
+    "她的胯部很宽。",
+    "医生检查了他的髋关节。"
+  ]);
+  await expect(noun.locator(".sense-usage > p")).toContainText("hip joint connects the femur");
+  await expect(noun.locator(".sense-register > p")).toHaveText("general");
+
+  const adjective = senses.nth(1);
+  await expect(adjective.locator(".sense-part-of-speech")).toHaveText("adjective");
+  await expect(adjective.locator(".sense-meaning-zh > p")).toHaveText("时髦的；了解最新潮流的");
+  await expect(adjective.locator(".sense-definition-en > p")).toContainText("Fashionable or up-to-date");
+  await expect(adjective.locator(".sense-example-pair")).toHaveCount(2);
+  await expect(adjective.locator(".sense-example-en > p")).toHaveText([
+    "The club is very hip and attracts young people.",
+    "He is hip to the latest technology trends."
+  ]);
+  await expect(adjective.locator(".sense-example-zh > p")).toHaveText([
+    "这家俱乐部非常时髦,吸引了很多年轻人。",
+    "他了解最新的技术潮流。"
+  ]);
+  await expect(adjective.locator(".sense-usage > p")).toContainText("This sense is informal");
+  await expect(adjective.locator(".sense-register > p")).toHaveText("informal");
+
+  const forms = extra.locator(".detail-forms");
+  await expect(forms).toHaveCount(1);
+  await expect(forms.locator("p")).toHaveText("hips；hippest；hipper");
+
+  const nounExamples = noun.locator(".sense-example-pair");
+  const orderedLines = [
+    noun.locator(".sense-heading"),
+    noun.locator(".sense-meaning-zh"),
+    noun.locator(".sense-definition-en"),
+    nounExamples.nth(0).locator(".sense-example-en"),
+    nounExamples.nth(0).locator(".sense-example-zh"),
+    nounExamples.nth(1).locator(".sense-example-en"),
+    nounExamples.nth(1).locator(".sense-example-zh"),
+    noun.locator(".sense-usage"),
+    noun.locator(".sense-register")
+  ];
+  const lineTops = [];
+  for (const line of orderedLines) {
+    const box = await line.boundingBox();
+    expect(box).not.toBeNull();
+    lineTops.push(box.y);
+  }
+  expect(lineTops).toHaveLength(9);
+  for (let index = 1; index < lineTops.length; index += 1) {
+    expect(lineTops[index]).toBeGreaterThan(lineTops[index - 1]);
+  }
+
+  const dimensions = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    innerWidth: window.innerWidth
+  }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
+});
+
 test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与旧 senses 不被改写", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
@@ -512,7 +593,9 @@ test("AI 只保留卓实际输入过的单向同义词，不创建候选词条�
   await expect(page.locator(".word-card h3").first()).toHaveText("ease");
   await expect(page.locator(".word-card").first()).toContainText("同义词：alleviate");
   await page.getByRole("button", { name: "查看 ease 的完整词条" }).click();
-  await expect(page.getByRole("dialog")).toContainText("同义词：alleviate");
+  const detailSynonyms = page.getByRole("dialog").locator(".detail-synonyms");
+  await expect(detailSynonyms.locator(".sense-field-label")).toHaveText("同义词");
+  await expect(detailSynonyms.locator("p")).toHaveText("alleviate");
   await page.getByRole("button", { name: "关闭词条详情" }).click();
   await publicSearch.fill("alleviate");
   await expect(page.locator(".word-card")).toHaveCount(2);

@@ -65,6 +65,76 @@ function tag(label, className = "") {
   return span;
 }
 
+function detailField(label, value, { className = "", lang = "" } = {}) {
+  const row = document.createElement("div");
+  row.className = ["sense-field", className].filter(Boolean).join(" ");
+  const fieldLabel = document.createElement("span");
+  fieldLabel.className = "sense-field-label";
+  fieldLabel.textContent = label;
+  const content = document.createElement("p");
+  content.textContent = value;
+  if (lang) content.lang = lang;
+  row.append(fieldLabel, content);
+  return row;
+}
+
+function renderDetailExtra(entry) {
+  const fragment = document.createDocumentFragment();
+  const senses = Array.isArray(entry.senses) ? entry.senses : [];
+  if (senses.length) {
+    const senseList = document.createElement("div");
+    senseList.className = "detail-sense-list";
+    senses.forEach((sense, senseIndex) => {
+      const article = document.createElement("article");
+      article.className = "detail-sense";
+      const heading = document.createElement("h4");
+      heading.className = "sense-heading";
+      heading.append(tag(`义项 ${senseIndex + 1}`, "sense-number"));
+      if (sense.partOfSpeech) heading.append(tag(sense.partOfSpeech, "sense-part-of-speech"));
+      article.append(heading);
+      if (sense.meaningZh) article.append(detailField("中文释义", sense.meaningZh, { className: "sense-meaning-zh" }));
+      if (sense.definitionEn) article.append(detailField("English definition", sense.definitionEn, { className: "sense-definition-en", lang: "en" }));
+
+      const examples = Array.isArray(sense.examples) ? sense.examples : [];
+      if (examples.length) {
+        const exampleList = document.createElement("div");
+        exampleList.className = "sense-example-list";
+        examples.forEach((example, exampleIndex) => {
+          if (!example.en && !example.zh) return;
+          const pair = document.createElement("div");
+          pair.className = "sense-example-pair";
+          if (example.en) pair.append(detailField(`例句 ${exampleIndex + 1}`, example.en, { className: "sense-example-en", lang: "en" }));
+          if (example.zh) pair.append(detailField("例句翻译", example.zh, { className: "sense-example-zh" }));
+          exampleList.append(pair);
+        });
+        if (exampleList.childElementCount) article.append(exampleList);
+      }
+
+      if (sense.usageNotes) article.append(detailField("Usage", sense.usageNotes, { className: "sense-usage", lang: "en" }));
+      if (sense.register) article.append(detailField("Register", sense.register, { className: "sense-register", lang: "en" }));
+      senseList.append(article);
+    });
+    fragment.append(senseList);
+  }
+
+  const metadata = [
+    ["词形", entry.forms, "detail-forms"],
+    ["同义词", entry.synonyms, "detail-synonyms"],
+    ["易混淆词", entry.confusedWith, "detail-confused"]
+  ].filter(([, values]) => Array.isArray(values) && values.length);
+  if (metadata.length) {
+    const metadataList = document.createElement("div");
+    metadataList.className = "detail-meta-list";
+    metadata.forEach(([label, values, className]) => {
+      metadataList.append(detailField(label, values.join("；"), { className }));
+    });
+    fragment.append(metadataList);
+  }
+
+  refs.dialogExtraSection.hidden = !senses.length && !metadata.length;
+  refs.dialogExtra.replaceChildren(fragment);
+}
+
 function showDetails(entry) {
   state.selected = entry;
   setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
@@ -79,22 +149,7 @@ function showDetails(entry) {
   const usage = [entry.usage, entry.register ? `Register: ${entry.register}` : "", entry.collocations.length ? `常见搭配：${entry.collocations.join("；")}` : ""].filter(Boolean).join("\n");
   refs.dialogUsageSection.hidden = !usage;
   setText(refs.dialogUsage, usage);
-  const extra = [
-    ...(entry.senses || []).map((sense, index) => [
-      `${index + 1}. ${[sense.partOfSpeech, sense.meaningZh, sense.definitionEn].filter(Boolean).join(" · ")}`,
-      ...sense.examples.flatMap((example) => [
-        example.en ? `   Example: ${example.en}` : "",
-        example.zh ? `   例句翻译：${example.zh}` : ""
-      ]),
-      sense.usageNotes ? `   Usage: ${sense.usageNotes}` : "",
-      sense.register ? `   Register: ${sense.register}` : ""
-    ].filter(Boolean).join("\n")),
-    entry.forms.length ? `词形：${entry.forms.join("；")}` : "",
-    entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "",
-    entry.confusedWith.length ? `易混淆：${entry.confusedWith.join("；")}` : ""
-  ].filter(Boolean).join("\n");
-  refs.dialogExtraSection.hidden = !extra;
-  setText(refs.dialogExtra, extra);
+  renderDetailExtra(entry);
   const quoteLike = ["quote", "proverb"].includes(entry.entryType);
   refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length;
   const attributionDetails = [entry.author, entry.sourceTitle, entry.sourceWork, entry.sourceDate].filter(Boolean).join(" · ");

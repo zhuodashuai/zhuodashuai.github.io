@@ -58,14 +58,14 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v43/);
+  assert.match(serviceWorker, /zhuo-wordbook-v44/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=43/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=44/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=43"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=43"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=43"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=43"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=44"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=44"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=44"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=44"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
