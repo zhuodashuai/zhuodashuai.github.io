@@ -48,20 +48,65 @@ async function publishOpenDraft(page) {
   await expect(page.getByText("已发布", { exact: true }).first()).toBeVisible();
 }
 
-test("多义释义在 Owner 现有列表、公开卡片和详情统一显示 ①②", async ({ page }) => {
+test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情和复制文本中保持一致", async ({ context, page }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"], { origin: "http://127.0.0.1:4187" });
+  const cases = [
+    {
+      term: "jab at",
+      partOfSpeech: "verb phrase · noun collocation",
+      meaning: "① 朝某人或某物猛戳、猛刺或快速击打\n② （言语上）抨击、挖苦或嘲讽"
+    },
+    {
+      term: "hip",
+      partOfSpeech: "noun · adjective",
+      meaning: "① noun: 髋部;臀部;髋关节\n② adjective: 时髦的;了解最新潮流的"
+    },
+    {
+      term: "surveillance",
+      partOfSpeech: "noun",
+      meaning: "① noun: 监视, 监督\n② noun: [电] 侦测"
+    },
+    {
+      term: "perspicacious",
+      partOfSpeech: "adjective",
+      meaning: "adjective：敏锐的;有洞察力的;目光锐利的"
+    }
+  ];
+
   await loginOwner(page);
-  await page.locator("#owner-search").fill("hip");
-  const ownerHip = page.locator(".owner-entry-row", { hasText: "hip" });
-  await expect(ownerHip).toHaveCount(1);
-  await expect(ownerHip.locator("p").first()).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
+  for (const { term, partOfSpeech, meaning } of cases) {
+    await page.locator("#owner-search").fill(term);
+    const ownerEntry = page.locator(".owner-entry-row", { hasText: term });
+    await expect(ownerEntry).toHaveCount(1);
+    await expect(ownerEntry.locator(".owner-entry-part-of-speech")).toHaveText(`词性 · ${partOfSpeech}`);
+    expect(await ownerEntry.locator(".owner-entry-part-of-speech + p").innerText()).toBe(meaning);
+  }
 
   await page.goto("/");
-  await page.locator("#library-search").fill("hip");
-  const publicHip = page.locator(".word-card", { hasText: "hip" });
-  await expect(publicHip).toHaveCount(1);
-  await expect(publicHip.locator(".card-meaning")).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
-  await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
-  await expect(page.locator("#dialog-meaning")).toHaveText(/①[\s\S]*髋部[\s\S]*②[\s\S]*时髦/);
+  for (const { term, partOfSpeech, meaning } of cases) {
+    const canonicalEntry = canonicalSnapshot.entries.find((entry) => entry.term === term);
+    expect(canonicalEntry, `${term} must remain in the canonical regression snapshot`).toBeTruthy();
+    await page.locator("#library-search").fill(term);
+    const publicEntry = page.locator(".word-card", { hasText: term });
+    await expect(publicEntry).toHaveCount(1);
+    await expect(publicEntry.locator(".card-kicker span").last()).toHaveText(partOfSpeech);
+    expect(await publicEntry.locator(".card-meaning").innerText()).toBe(meaning);
+
+    await page.getByRole("button", { name: `查看 ${term} 的完整词条` }).click();
+    await expect(page.locator("#dialog-phonetic")).toHaveText(
+      [canonicalEntry.phonetic, partOfSpeech].filter(Boolean).join(" · ")
+    );
+    expect(await page.locator("#dialog-meaning").innerText()).toBe(meaning);
+    await page.getByRole("button", { name: "复制词条" }).click();
+    await expect(page.getByRole("button", { name: "已复制" })).toBeVisible();
+    const copiedLines = (await page.evaluate(() => navigator.clipboard.readText())).replace(/\r\n?/g, "\n").split("\n");
+    const expectedLines = meaning.split("\n");
+    expect(copiedLines[0]).toBe(term);
+    expect(copiedLines[1]).toBe(canonicalEntry.phonetic);
+    expect(copiedLines[2]).toBe(`词性：${partOfSpeech}`);
+    expect(copiedLines.slice(3, 3 + expectedLines.length)).toEqual(expectedLines);
+    await page.getByRole("button", { name: "关闭词条详情" }).click();
+  }
 });
 
 test("公开词条详情按义项分块，各字段、双语例句与词形独立换行", async ({ page }) => {
@@ -153,8 +198,9 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   const ownerSingle = page.locator(".owner-entry-row", { hasText: "singleword" });
-  await expect(ownerSingle.locator("p").first()).toHaveText("自动整理的测试释义");
-  await expect(ownerSingle.locator("p").first()).not.toContainText(/①|②|③/);
+  const ownerSingleMeaning = ownerSingle.locator(".owner-entry-part-of-speech + p");
+  await expect(ownerSingleMeaning).toHaveText("自动整理的测试释义");
+  await expect(ownerSingleMeaning).not.toContainText(/①|②|③/);
 
   await page.goto("/");
   await page.locator("#library-search").fill("singleword");
@@ -176,8 +222,9 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
 
   const ownerManual = page.locator(".owner-entry-row", { hasText: "polymanual" });
-  await expect(ownerManual.locator("p").first()).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
-  await expect(ownerManual.locator("p").first()).not.toContainText("自动整理的测试释义");
+  const ownerManualMeaning = ownerManual.locator(".owner-entry-part-of-speech + p");
+  await expect(ownerManualMeaning).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
+  await expect(ownerManualMeaning).not.toContainText("自动整理的测试释义");
   const ownerPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
   const storedManual = ownerPayload.snapshot.entries.find((entry) => entry.term === "polymanual");
   expect(storedManual.meaning).toBe(rawMeaning);

@@ -89,6 +89,12 @@ function cleanMeaningItem(value, { stripTrailingSeparator = false } = {}) {
   return stripTrailingSeparator ? text.replace(/[；;]\s*$/u, "").trim() : text;
 }
 
+function meaningItemWithPartOfSpeech(partOfSpeech, meaning) {
+  const label = String(partOfSpeech || "").normalize("NFKC").trim();
+  const text = cleanMeaningItem(meaning);
+  return label && text ? `${label}: ${text}` : text;
+}
+
 function parseCircledMeaning(value) {
   const text = String(value || "").trim();
   if (!text) return null;
@@ -132,7 +138,7 @@ function parsePartOfSpeechLines(value) {
   if (lines.length < 2 || lines.length > 20) return null;
   const items = lines.map((line) => {
     const match = line.match(/^([^:：]{1,80})[:：]\s*(.+)$/u);
-    return match && isPartOfSpeechLabel(match[1]) ? cleanMeaningItem(match[2]) : "";
+    return match && isPartOfSpeechLabel(match[1]) ? meaningItemWithPartOfSpeech(match[1], match[2]) : "";
   });
   return items.every(Boolean) ? items : null;
 }
@@ -147,15 +153,17 @@ export function meaningItemsForDisplay(entry) {
   const authoredItems = parseCircledMeaning(meaning)
     || parseArabicNumberedMeaning(meaning)
     || parsePartOfSpeechLines(meaning);
-  const senseItems = Array.isArray(entry?.senses)
-    ? entry.senses.map((sense) => cleanMeaningItem(sense?.meaningZh)).filter(Boolean).slice(0, 20)
-    : [];
+  const senses = Array.isArray(entry?.senses) ? entry.senses.slice(0, 20) : [];
+  const senseMeaningItems = senses.map((sense) => cleanMeaningItem(sense?.meaningZh)).filter(Boolean);
+  const senseDisplayItems = senses
+    .map((sense) => meaningItemWithPartOfSpeech(sense?.partOfSpeech, sense?.meaningZh))
+    .filter(Boolean);
   if (authoredItems) return authoredItems;
-  if (!meaning) return senseItems;
+  if (!meaning) return senseDisplayItems;
   // Use structured boundaries for a plain AI aggregate only when its complete
   // semantic character sequence is identical. Any different owner-authored
   // wording remains authoritative even if older AI senses are still attached.
-  if (senseItems.length > 1 && meaningFingerprint(meaning) === meaningFingerprint(senseItems.join(""))) return senseItems;
+  if (senseMeaningItems.length > 1 && meaningFingerprint(meaning) === meaningFingerprint(senseMeaningItems.join(""))) return senseDisplayItems;
   return [meaning];
 }
 

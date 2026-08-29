@@ -681,7 +681,7 @@ function renderOwnerEntries() {
   const entries = state.snapshot?.entries || [];
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
   const shown = rankExactEntryMatches(
-    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
+    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
     query
   );
   refs.ownerEntryCount.textContent = String(entries.length);
@@ -693,13 +693,17 @@ function renderOwnerEntries() {
     term.textContent = entry.term;
     const summary = document.createElement("div");
     summary.className = "owner-entry-summary";
+    const partOfSpeech = document.createElement("p");
+    partOfSpeech.className = "owner-entry-part-of-speech";
+    partOfSpeech.hidden = !entry.partOfSpeech;
+    partOfSpeech.textContent = entry.partOfSpeech ? `词性 · ${entry.partOfSpeech}` : "";
     const meaning = document.createElement("p");
     setMultilineText(meaning, formatMeaningForDisplay(entry));
     const synonyms = document.createElement("p");
     synonyms.className = "owner-entry-synonyms";
     synonyms.hidden = entry.synonyms.length === 0;
     synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
-    summary.append(meaning, synonyms);
+    summary.append(partOfSpeech, meaning, synonyms);
     const actions = document.createElement("div");
     actions.className = "button-row";
     const edit = document.createElement("button");

@@ -325,7 +325,7 @@ refs.dialogSpeak.addEventListener("click", () => speak(state.selected?.term));
 refs.dialogCopy.addEventListener("click", async () => {
   if (!state.selected) return;
   const entry = state.selected;
-  const text = [entry.term, entry.phonetic, formatMeaningForDisplay(entry), entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
+  const text = [entry.term, entry.phonetic, entry.partOfSpeech ? `词性：${entry.partOfSpeech}` : "", formatMeaningForDisplay(entry), entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
     .filter(Boolean).join("\n");
   try {
     await navigator.clipboard.writeText(text);

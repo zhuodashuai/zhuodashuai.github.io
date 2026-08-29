@@ -47,7 +47,7 @@
 - 公开页在首次载入、重新聚焦、恢复可见、恢复联网以及前台每 30 秒自动检查；相同 `revisionId` 不重复写 IndexedDB 或重建 DOM，较旧 `exportedAt` 不能覆盖当前较新数据。
 - v1/v2 JSON 和 v4 IndexedDB 通过纯 migration 升级；无法安全迁移的记录进入 quarantine，不伪造或静默删除。
 - 重复判断使用 canonical normalized term 和 correction alias；`jab at` 作为完整短语保存。
-- 多义词在管理列表、公开卡片与详情中统一显示为 `① ② ③`。卓可以在释义框输入普通的 `1.`、`1)` 或 `1、` 编号；展示层会自动规范为圆圈序号，单义词不编号，已有 `①②` 不重复编号。公开详情把每个义项分成独立区块，并将词性、中文释义、英文定义、每组双语例句、Usage、Register、词形与辨析信息分别成行；窄屏改为单列。该规则不改写 canonical JSON、草稿或导出文件中的原始 `meaning`。
+- 多义词在管理列表、公开卡片与详情中统一显示为 `① ② ③`。卓可以在释义框输入普通的 `1.`、`1)` 或 `1、` 编号；展示层会自动规范为圆圈序号，单义词不编号，已有 `①②` 不重复编号。原始义项中明确存在的词性必须逐项保留，例如 `① noun: …`、`② adjective: …`，两个义项同为 `noun` 时也不能合并或删除；没有结构化义项证据时只显示顶层词性，不猜测其与各编号义项的对应关系。公开详情把每个义项分成独立区块，并将词性、中文释义、英文定义、每组双语例句、Usage、Register、词形与辨析信息分别成行；窄屏改为单列。该规则不改写 canonical JSON、草稿或导出文件中的原始 `meaning`。
 - 顶层 `synonyms` 只属于当前词条，不加入 canonical/alias lookup key。AI 只能从卓已经亲自输入的草稿或公开词条中挑选同义词，未输入的候选确定性丢弃；发布时还要求每个同义词对应另一条真实公开词条。旧 schema v3 快照或本地草稿缺少该字段时安全补为 `[]`，未知字段仍按严格 schema 拒绝。
 
 ## 本地验证
@@ -70,7 +70,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 - 管理端已部署到 <https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/owner.html>；健康检查为 `ok: true`。
 - GitHub App `Zhuo Wordbook Owner` 已创建，并且只安装到 `zhuodashuai/zhuodashuai.github.io`；权限仅为 Metadata 只读与 Contents 读写。
 - GitHub App client secret 和随机 session secret 已通过 Wrangler 隐藏输入保存为 Worker secret，没有写入浏览器、仓库或文档。
-- 已在正式 Worker 完成真实 GitHub OAuth：页面显示 `@zhuodashuai`、固定 user ID `156042078`、已连接的目标仓库与 3 条公开词条；浏览器未收到 GitHub token。
+- 已在正式 Worker 完成真实 GitHub OAuth：页面显示 `@zhuodashuai`、固定 user ID `156042078`、已连接的目标仓库与当前 4 条公开词条；浏览器未收到 GitHub token。
 - `vocab/js/runtime-config.js` 已指向上述 Worker origin，公开站的“所有者登录”会进入同源安全管理端。
 - 默认 AI 已改为 Cloudflare Workers AI 的账户额度，无需 OpenAI 或 Claude API key。首轮固定使用 `@cf/zai-org/glm-4.7-flash`；未通过结构或语义闸门时，唯一一次重试改用 `@cf/google/gemma-4-26b-a4b-it`。两款都在 Cloudflare 当前列出的 Workers Free 可用范围内；生产配置没有付费 fallback，并由 Durable Object 对全部登录会话合计限制为每 UTC 日最多 20 次整理，额度或容量暂时不可用时只保留本地草稿。
 - Cloudflare 当前文档给 Free 与 Paid 账户每天各 10,000 Neurons 的免费 allocation，并在 00:00 UTC 重置；Free 超额后请求失败，Paid 超过 allocation 后可能按量计费。本站 20 次上限不能感知同账户其他 Worker 的用量，所以严格零超额费用还要求账户保持 Workers Free 或设置账户侧预算控制。该政策可能变化，页面不承诺永久免费或无限次数。

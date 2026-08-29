@@ -22,30 +22,47 @@ function entry(term = "jab at", overrides = {}) {
   return validatePublicEntry({ ...blank, meaning: "测试释义", ...overrides });
 }
 
-test("polysemous meanings render as stable circled items without changing stored text", () => {
+test("numbered meanings preserve each sense part of speech without changing stored text", () => {
   const hip = {
+    partOfSpeech: "noun · adjective",
     meaning: "noun：髋部;臀部;髋关节\nadjective：时髦的;了解最新潮流的",
     senses: [
-      { meaningZh: "旧的髋部释义" },
-      { meaningZh: "旧的时髦释义" }
+      { partOfSpeech: "noun", meaningZh: "旧的髋部释义" },
+      { partOfSpeech: "adjective", meaningZh: "旧的时髦释义" }
     ]
   };
   assert.equal(
     formatMeaningForDisplay(hip),
-    "① 髋部;臀部;髋关节\n② 时髦的;了解最新潮流的"
+    "① noun: 髋部;臀部;髋关节\n② adjective: 时髦的;了解最新潮流的"
   );
   assert.equal(hip.meaning, "noun：髋部;臀部;髋关节\nadjective：时髦的;了解最新潮流的");
 
   assert.equal(
     formatMeaningForDisplay({
+      partOfSpeech: "noun",
       meaning: "noun：监视, 监督\nnoun：[电] 侦测",
-      senses: [{ meaningZh: "监视, 监督" }, { meaningZh: "[电] 侦测" }]
+      senses: [
+        { partOfSpeech: "noun", meaningZh: "监视, 监督" },
+        { partOfSpeech: "noun", meaningZh: "[电] 侦测" }
+      ]
     }),
-    "① 监视, 监督\n② [电] 侦测"
+    "① noun: 监视, 监督\n② noun: [电] 侦测"
   );
   assert.equal(
-    formatMeaningForDisplay({ meaning: "① 朝某人猛戳；② （言语上）抨击；挖苦", senses: [] }),
+    formatMeaningForDisplay({
+      partOfSpeech: "verb phrase · noun collocation",
+      meaning: "① 朝某人猛戳；② （言语上）抨击；挖苦",
+      senses: []
+    }),
     "① 朝某人猛戳\n② （言语上）抨击；挖苦"
+  );
+  assert.equal(
+    formatMeaningForDisplay({
+      partOfSpeech: "adjective",
+      meaning: "adjective：敏锐的;有洞察力的;目光锐利的",
+      senses: [{ partOfSpeech: "adjective", meaningZh: "敏锐的；有洞察力的；目光锐利的" }]
+    }),
+    "adjective：敏锐的;有洞察力的;目光锐利的"
   );
 });
 

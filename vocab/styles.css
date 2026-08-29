@@ -225,6 +225,7 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
 .owner-entry-row { display: grid; grid-template-columns: minmax(150px, .65fr) minmax(220px, 1.35fr) auto; gap: 1rem; align-items: center; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 12px; }
 .owner-entry-row strong { font: 600 1.25rem Georgia, serif; }
 .owner-entry-row p { margin: 0; color: var(--muted); }
+.owner-entry-row .owner-entry-part-of-speech { margin-bottom: .25rem; color: var(--green-2); font-size: .76rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 .owner-entry-row .owner-entry-synonyms { margin-top: .3rem; font-size: .88rem; color: var(--green-2); }
 .conflict-dialog { width: min(850px, calc(100% - 32px)); }
 .conflict-dialog h2 { font-size: clamp(2rem, 5vw, 3.7rem); }
