@@ -819,10 +819,15 @@ test("不用 AI 的完整人工单义项可以发布并从公开词条卡打开"
   await page.getByRole("button", { name: "建立手动草稿" }).click();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("manualonlyword");
   await page.getByLabel("词性", { exact: true }).fill("transitive");
-  await page.getByLabel("中文释义", { exact: true }).fill("手工完成；亲手制作");
+  await page.getByLabel("中文释义", { exact: true }).fill("手工完成\n亲手制作");
   await page.getByLabel("English definition", { exact: true }).fill("To make or complete something carefully by hand.");
   await page.getByLabel("英文例句", { exact: true }).fill("She completed the frame carefully by hand.");
   await page.getByLabel("例句中文", { exact: true }).fill("她亲手仔细完成了这个相框。");
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.locator("#editor-error")).toContainText("单义项词条的中文释义必须保持为一条非空行");
+  expect(aiRequests).toBe(0);
+
+  await page.getByLabel("中文释义", { exact: true }).fill("手工完成；亲手制作");
   await publishOpenDraft(page);
   expect(aiRequests).toBe(0);
 

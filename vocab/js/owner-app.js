@@ -18,7 +18,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -567,11 +567,7 @@ function collectEntry({ strict = false } = {}) {
     throw new Error("这仍是中英文义项尚未可靠对齐或内容尚未补全的本地词典候选，不能当作 AI 整理成功直接发布。请继续用 AI 补全；若你已逐项人工核对，可从标签中移除“待复核”后再发布。");
   }
   const baseEntry = state.currentDraft.mode === "edit" ? state.currentDraft.base?.entry : null;
-  const allowLegacyWithoutSenses = Boolean(
-    baseEntry
-    && LEXICAL_ENTRY_TYPES.has(baseEntry.entryType)
-    && (!Array.isArray(baseEntry.senses) || baseEntry.senses.length === 0)
-  );
+  const allowLegacyWithoutSenses = canGrandfatherUnstructuredLegacy(baseEntry, entry);
   entry = reconcileLexicalEntryForPublish(entry, { allowLegacyWithoutSenses });
   if (entry.correction?.status === "suggested") throw new Error("请先选择“使用建议”“保留原文”或手动修改，不能静默采用拼写建议。");
   if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "candidate"

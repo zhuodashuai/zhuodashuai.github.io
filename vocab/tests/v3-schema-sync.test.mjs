@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   assertCompleteAiCandidate,
   buildOwnerEnteredTermAllowlist,
+  canGrandfatherUnstructuredLegacy,
   canonicalPartOfSpeech,
   entryLookupKeys,
   createBlankEntry,
@@ -237,6 +238,10 @@ test("single-sense publication syncs an owner Chinese edit and rebuilds the summ
     () => reconcileLexicalEntryForPublish({ ...original, meaning: "not-a-pos：中文释义" }),
     /词性.*不受支持/
   );
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...original, meaning: "第一行中文释义\n第二行中文释义" }),
+    /单义项.*一条非空行/
+  );
 });
 
 test("multi-sense publication requires matching POS lines and rebuilds one canonical representation", () => {
@@ -281,6 +286,16 @@ test("new lexical entries require senses while exact legacy updates remain grand
   });
   assert.throws(() => reconcileLexicalEntryForPublish(legacy), /必须包含结构化义项/);
   assert.deepEqual(reconcileLexicalEntryForPublish(legacy, { allowLegacyWithoutSenses: true }), legacy);
+  assert.equal(canGrandfatherUnstructuredLegacy(legacy, legacy), true);
+  for (const organizationMethod of ["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]) {
+    const structuredLegacy = { ...legacy, organizationMethod };
+    assert.equal(canGrandfatherUnstructuredLegacy(structuredLegacy, legacy), false);
+    assert.equal(canGrandfatherUnstructuredLegacy(legacy, structuredLegacy), false);
+    assert.throws(
+      () => reconcileLexicalEntryForPublish(structuredLegacy, { allowLegacyWithoutSenses: true }),
+      /必须包含结构化义项/
+    );
+  }
   assert.throws(
     () => reconcileLexicalEntryForPublish({ ...legacy, meaning: "kamus在线bm ke bi" }, { allowLegacyWithoutSenses: true }),
     /不是可信的中文内容/

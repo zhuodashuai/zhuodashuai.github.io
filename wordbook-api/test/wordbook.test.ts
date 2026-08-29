@@ -97,6 +97,12 @@ describe("publish mutation planning", () => {
       definition: "verb: To watch something carefully.",
       senses: [expect.objectContaining({ partOfSpeech: "verb", meaningZh: "准确的新中文释义" })]
     });
+    expect(() => applyPublishMutation(snapshot([]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-single-sense-multiline",
+      mutation: { type: "add", entry: { ...candidate, id: "structured-observe-multiline", meaning: "第一行中文释义\n第二行中文释义" } }
+    })).toThrow(/单义项词条的中文释义应保持为一行/);
   });
 
   it("requires multi-sense Chinese lines to retain their matching part-of-speech labels", () => {
@@ -157,6 +163,23 @@ describe("publish mutation planning", () => {
       mutation: { type: "update", entry: changed, expectedUpdatedAt: legacy.updatedAt }
     });
     expect(result.entry).toMatchObject({ meaning: "① 猛戳；② 挖苦", senses: [] });
+  });
+
+  it("never grandfathers an AI or mixed legacy record with empty senses", () => {
+    const cases = [
+      ["ai-cloudflare", "manual"], ["local-dictionary", "ai-openai"],
+      ["ai-anthropic", "ai-anthropic"], ["mixed", "manual"]
+    ] as const;
+    for (const [baseMethod, currentMethod] of cases) {
+      const legacy = entry({ id: `legacy-${baseMethod}`, senses: [], organizationMethod: baseMethod });
+      const changed = entry({ ...legacy, senses: [], organizationMethod: currentMethod });
+      expect(() => applyPublishMutation(snapshot([legacy]), {
+        ...V38_PROTOCOL,
+        baseSha: SHA,
+        mutationId: `mutation-no-grandfather-${baseMethod}-${currentMethod}`,
+        mutation: { type: "update", entry: changed, expectedUpdatedAt: legacy.updatedAt }
+      })).toThrow(/必须包含结构化义项/);
+    }
   });
 
   it("adds a valid entry and stamps a single idempotency key", () => {

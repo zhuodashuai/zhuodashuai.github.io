@@ -17,6 +17,9 @@ const SUPPORTED_PARTS_OF_SPEECH = new Set([
   "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "determiner",
   "article", "interjection", "auxiliary", "participle", "infinitive", "gerund", "idiom", "phrase", "collocation"
 ]);
+const STRUCTURED_ORGANIZATION_METHODS = new Set<PublicEntry["organizationMethod"]>([
+  "ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"
+]);
 
 function compact(value: string): string {
   return value.normalize("NFKC").replace(/\s+/gu, " ").trim();
@@ -85,7 +88,7 @@ function readMeaningLine(line: string, expectedPartOfSpeech: string, requireLabe
  * into senses before the public summary is rebuilt. Old unstructured entries
  * are grandfathered only when updating that exact legacy record.
  */
-function prepareLexicalEntry(candidate: PublicEntry, requireStructured: boolean): PublicEntry {
+function prepareLexicalEntry(candidate: PublicEntry, requireStructured: boolean, allowManualSynthesis: boolean): PublicEntry {
   if (!hasPlausibleChineseMeaning(candidate.meaning)) {
     throw new ApiError(400, "invalid_chinese_meaning", "中文释义为空、像英文回声或包含可疑机器翻译垃圾，不能发布。");
   }
@@ -93,7 +96,8 @@ function prepareLexicalEntry(candidate: PublicEntry, requireStructured: boolean)
   let prepared = candidate;
   if (!prepared.senses.length) {
     const position = canonicalPartOfSpeech(prepared.partOfSpeech);
-    const completeManualSingleSense = prepared.organizationMethod === "manual"
+    const completeManualSingleSense = allowManualSynthesis
+      && prepared.organizationMethod === "manual"
       && Boolean(position)
       && isPlausibleEnglishText(prepared.definition)
       && isPlausibleEnglishText(prepared.exampleEn)
@@ -174,8 +178,14 @@ export function findDuplicate(entries: PublicEntry[], candidate: PublicEntry, ex
   return entries.find((entry) => entry.id !== excludeId && lookupKeys(entry).some((key) => wanted.has(key))) || null;
 }
 
-function prepareEntry(candidate: PublicEntry, existing: PublicEntry | null, now: string, requireStructured: boolean): PublicEntry {
-  const lexical = prepareLexicalEntry(candidate, requireStructured);
+function prepareEntry(
+  candidate: PublicEntry,
+  existing: PublicEntry | null,
+  now: string,
+  requireStructured: boolean,
+  allowManualSynthesis: boolean
+): PublicEntry {
+  const lexical = prepareLexicalEntry(candidate, requireStructured, allowManualSynthesis);
   const entry = PublicEntrySchema.parse({
     ...lexical,
     id: existing?.id || lexical.id,
@@ -268,7 +278,7 @@ export function applyPublishMutation(
     if (entries.some((candidate) => candidate.id === candidateEntry.id)) {
       throw new ApiError(409, "duplicate_id", "远端已有相同词条编号，请刷新并合并。", { entryId: candidateEntry.id });
     }
-    entry = prepareEntry(candidateEntry, null, now, LEXICAL_ENTRY_TYPES.has(candidateEntry.entryType));
+    entry = prepareEntry(candidateEntry, null, now, LEXICAL_ENTRY_TYPES.has(candidateEntry.entryType), true);
     const duplicate = findDuplicate(entries, entry);
     if (duplicate) {
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 已经存在，请合并信息而不是重复添加。`, { duplicate });
@@ -286,8 +296,9 @@ export function applyPublishMutation(
     const requireStructured = LEXICAL_ENTRY_TYPES.has(candidateEntry.entryType)
       && (existing.senses.length > 0
         || candidateEntry.senses.length > 0
-        || ["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"].includes(candidateEntry.organizationMethod));
-    entry = prepareEntry(candidateEntry, existing, now, requireStructured);
+        || STRUCTURED_ORGANIZATION_METHODS.has(existing.organizationMethod)
+        || STRUCTURED_ORGANIZATION_METHODS.has(candidateEntry.organizationMethod));
+    entry = prepareEntry(candidateEntry, existing, now, requireStructured, !STRUCTURED_ORGANIZATION_METHODS.has(existing.organizationMethod));
     const duplicate = findDuplicate(entries, entry, existing.id);
     if (duplicate) {
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 与已有词条冲突，请合并信息。`, { duplicate });

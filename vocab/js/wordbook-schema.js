@@ -13,6 +13,7 @@ const SENSE_KEYS = ["partOfSpeech", "meaningZh", "definitionEn", "usageNotes", "
 const EXAMPLE_KEYS = ["en", "zh"];
 const SOURCE_KEYS = ["title", "url", "kind", "retrievedAt"];
 const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
+const STRUCTURED_ORGANIZATION_METHODS = new Set(["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]);
 
 function record(value, label) {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} 格式不正确。`);
@@ -261,6 +262,19 @@ function manualSingleSense(entry) {
   };
 }
 
+export function canGrandfatherUnstructuredLegacy(baseEntry, currentEntry) {
+  return Boolean(
+    baseEntry
+    && currentEntry
+    && LEXICAL_ENTRY_TYPES.has(baseEntry.entryType)
+    && LEXICAL_ENTRY_TYPES.has(currentEntry.entryType)
+    && (!Array.isArray(baseEntry.senses) || baseEntry.senses.length === 0)
+    && (!Array.isArray(currentEntry.senses) || currentEntry.senses.length === 0)
+    && !STRUCTURED_ORGANIZATION_METHODS.has(baseEntry.organizationMethod)
+    && !STRUCTURED_ORGANIZATION_METHODS.has(currentEntry.organizationMethod)
+  );
+}
+
 export function reconcileLexicalEntryForPublish(candidate, { allowLegacyWithoutSenses = false } = {}) {
   const entry = structuredClone(record(candidate, "词条"));
   if (!LEXICAL_ENTRY_TYPES.has(entry.entryType)) {
@@ -271,7 +285,7 @@ export function reconcileLexicalEntryForPublish(candidate, { allowLegacyWithoutS
   if (!senses.length) {
     const synthesized = manualSingleSense(entry);
     if (synthesized) senses.push(synthesized);
-    else if (!allowLegacyWithoutSenses) {
+    else if (!allowLegacyWithoutSenses || STRUCTURED_ORGANIZATION_METHODS.has(entry.organizationMethod)) {
       throw new Error("新建词汇必须包含结构化义项；若不用 AI，请完整填写单一词性、可信的中英文释义及一组双语例句后再发布。");
     }
   }
@@ -292,6 +306,8 @@ export function reconcileLexicalEntryForPublish(candidate, { allowLegacyWithoutS
   });
 
   if (senses.length === 1) {
+    const meaningLines = String(entry.meaning || "").split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+    if (meaningLines.length !== 1) throw new Error("单义项词条的中文释义必须保持为一条非空行。");
     const expectedPart = canonicalPartOfSpeech(senses[0].partOfSpeech);
     const structured = parseStructuredMeaningLines(entry.meaning);
     let editedMeaning = String(entry.meaning || "").trim();
