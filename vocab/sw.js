@@ -1,8 +1,8 @@
-const CACHE_NAME = "zhuo-wordbook-v49";
+const CACHE_NAME = "zhuo-wordbook-v50";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const SHELL = [
-  "./", "./index.html", "./owner.html", "./styles.css?v=49", "./manifest.webmanifest",
-  "./js/public-app.js?v=49", "./js/owner-app.js?v=49", "./js/entry-detail.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./", "./index.html", "./owner.html", "./styles.css?v=50", "./manifest.webmanifest",
+  "./js/public-app.js?v=50", "./js/owner-app.js?v=50", "./js/entry-detail.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/sync-logic.js", "./js/wordbook-schema.js", "./js/core-dictionary.js",
   "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",

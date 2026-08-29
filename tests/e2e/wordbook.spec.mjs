@@ -1161,8 +1161,10 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   });
 
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
+  await page.getByLabel("IPA", { exact: true }).fill("/before-busy/");
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
+  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/before-busy/");
   await page.getByLabel("IPA", { exact: true }).fill("/temporary/");
   await page.getByLabel("IPA", { exact: true }).fill("");
   releaseRequest();

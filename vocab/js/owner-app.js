@@ -788,7 +788,9 @@ async function loadRemote({ quiet = false } = {}) {
 
 async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } = {}) {
   const aiBaseline = structuredClone(draft.value);
-  if (state.currentDraft?.id === draft.id) fillEditor(draft);
+  // Foreground callers have already populated the editor, while background
+  // completion must not take it over. Repainting here would create a startup
+  // window where a fast edit after the AI click is replaced by an older snapshot.
   const phoneticRevisionAtRequest = state.phoneticEditRevisions.get(draft.id) || 0;
   let commitWindowLocked = false;
   const startedAt = Date.now();
