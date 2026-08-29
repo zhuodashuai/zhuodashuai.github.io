@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-08-28T22:50:47.286Z",
-  "revisionId": "c0234c12-0cc4-44ce-96c1-855e9909358c",
-  "lastMutationId": "6faf7219-b3a5-4384-841d-5f5166e84af7",
+  "exportedAt": "2026-08-29T02:16:32.901Z",
+  "revisionId": "a8df2cc4-adec-41cc-89df-de5ee5da4033",
+  "lastMutationId": "3302ecb9-d4c2-4cd7-b8a8-e662d28b513c",
   "entries": [
     {
       "id": "public-jab-at",
@@ -25,6 +25,7 @@
       "meaning": "① 朝某人或某物猛戳、猛刺或快速击打；② （言语上）抨击、挖苦或嘲讽",
       "definition": "To make a quick, sharp poking or striking movement toward someone or something; also, a pointed criticism or mocking remark.",
       "senses": [],
+      "synonyms": [],
       "collocations": [],
       "exampleEn": "He jabbed at the elevator button with his finger.\nThat comment sounded like a jab at his former teammate.",
       "exampleZh": "他用手指快速地反复戳按电梯按钮。\n那句话听起来像是在挖苦他的前队友。",
@@ -142,6 +143,7 @@
           "confusables": []
         }
       ],
+      "synonyms": [],
       "collocations": [
         "hip joint",
         "hip replacement",
@@ -262,6 +264,7 @@
           "confusables": []
         }
       ],
+      "synonyms": [],
       "collocations": [
         "close surveillance",
         "intensive surveillance",
@@ -301,6 +304,85 @@
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-28T22:49:58.344Z",
       "updatedAt": "2026-08-28T22:50:47.286Z"
+    },
+    {
+      "id": "public-09a73294-9d03-4e4f-b4cc-001e7f21ec61",
+      "revision": 1,
+      "originalInput": "perspicacious",
+      "term": "perspicacious",
+      "normalized": "perspicacious",
+      "standardForm": "perspicacious",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "perspicacious",
+        "suggestion": "",
+        "chosen": "perspicacious",
+        "confidence": 1,
+        "source": "ai-cloudflare"
+      },
+      "phonetic": "/ˌpɜːrspɪˈkeɪʃəs/",
+      "partOfSpeech": "adjective",
+      "meaning": "adjective：敏锐的;有洞察力的;目光锐利的",
+      "definition": "adjective: Having keen mental discernment and good judgment; able to understand complex matters quickly and accurately.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "敏锐的；有洞察力的；目光锐利的",
+          "definitionEn": "Having keen mental discernment and good judgment; able to understand complex matters quickly and accurately.",
+          "usageNotes": "Formal; often used to describe someone who is quick to notice details and understand the underlying truth.",
+          "register": "Formal",
+          "collocations": [
+            "a perspicacious observer",
+            "a perspicacious mind",
+            "a perspicacious glance"
+          ],
+          "examples": [
+            {
+              "en": "The detective was perspicacious enough to notice the small inconsistency in the witness's story.",
+              "zh": "这位侦探很敏锐,注意到了证人证词中微小的矛盾之处。"
+            },
+            {
+              "en": "She gave a perspicacious analysis of the company's financial situation.",
+              "zh": "她对公司的财务状况做出了敏锐的分析。"
+            }
+          ],
+          "confusables": [
+            "perceptive",
+            "astute"
+          ]
+        }
+      ],
+      "synonyms": [],
+      "collocations": [
+        "a perspicacious observer",
+        "a perspicacious mind",
+        "a perspicacious glance"
+      ],
+      "exampleEn": "The detective was perspicacious enough to notice the small inconsistency in the witness's story.",
+      "exampleZh": "这位侦探很敏锐,注意到了证人证词中微小的矛盾之处。",
+      "usage": "Formal",
+      "register": "Formal",
+      "confusedWith": [
+        "perceptive",
+        "astute"
+      ],
+      "forms": [],
+      "tags": [
+        "Formal",
+        "Positive"
+      ],
+      "author": "",
+      "sourceTitle": "",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "Unverified",
+      "sources": [],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-29T02:15:59.334Z",
+      "updatedAt": "2026-08-29T02:16:32.901Z"
     }
   ]
 }
