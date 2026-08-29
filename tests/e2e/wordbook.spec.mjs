@@ -16,7 +16,8 @@ test.beforeEach(async ({ context, page }, testInfo) => {
   expectedOfflineNetworkError = false;
   page.on("pageerror", (error) => browserErrors.push(`pageerror: ${error.message}`));
   page.on("console", (message) => {
-    const expectedOfflineFailure = expectedOfflineNetworkError && message.text() === "Failed to load resource: net::ERR_FAILED";
+    const expectedOfflineFailure = expectedOfflineNetworkError
+      && /^Failed to load resource: net::ERR_(?:FAILED|INTERNET_DISCONNECTED)$/.test(message.text());
     if (message.type() === "error" && !expectedOfflineFailure && !message.text().startsWith("Failed to load resource: the server responded with a status of")) {
       browserErrors.push(`console: ${message.text()}`);
     }
@@ -41,6 +42,11 @@ async function addWithAi(page, input) {
   await page.getByLabel("英文内容").fill(input);
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: new RegExp(input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) })).toBeVisible();
+  // The heading is rendered as soon as the recoverable blank draft exists.
+  // Wait for the asynchronous organizer to finish before a caller edits,
+  // publishes, or intentionally takes the browser offline.
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", /^(?:success|error|review)$/);
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toHaveAttribute("aria-busy", "false");
 }
 
 async function publishOpenDraft(page) {
@@ -883,12 +889,14 @@ test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保�
   await expect(page.locator("#entry-form")).toHaveAttribute("aria-busy", "true");
   await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "true");
   await expect(page.locator("#organize-button .button-busy-label")).toBeVisible();
+  await expect(page.getByRole("button", { name: "发布到 GitHub" })).toBeDisabled();
 
   await page.locator("#draft-list").getByRole("button", { name: /draft b/ }).click();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("draft b");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("B 的人工释义");
   await expect(page.locator("#editor-ai-status")).toBeHidden();
   await expect(page.locator("#entry-form")).not.toHaveAttribute("aria-busy", "true");
+  await expect(page.getByRole("button", { name: "发布到 GitHub" })).toBeEnabled();
   releaseRequest();
   await expect(page.locator("#capture-status")).toContainText("已在后台完成并保存");
   await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "false");
@@ -1145,12 +1153,19 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   await addWithAi(page, "hip");
   await page.getByLabel("IPA", { exact: true }).fill("");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
-  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let releaseRequest;
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    if (route.request().postDataJSON()?.input === "hip") await held;
+    await route.continue();
+  });
 
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
   await page.getByLabel("IPA", { exact: true }).fill("/temporary/");
   await page.getByLabel("IPA", { exact: true }).fill("");
+  releaseRequest();
 
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
   await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
@@ -1283,7 +1298,8 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
   const otherPage = await context.newPage();
   otherPage.on("pageerror", (error) => browserErrors.push(`second pageerror: ${error.message}`));
   otherPage.on("console", (message) => {
-    const expectedOfflineFailure = expectedOfflineNetworkError && message.text() === "Failed to load resource: net::ERR_FAILED";
+    const expectedOfflineFailure = expectedOfflineNetworkError
+      && /^Failed to load resource: net::ERR_(?:FAILED|INTERNET_DISCONNECTED)$/.test(message.text());
     if (message.type() === "error" && !expectedOfflineFailure && !message.text().startsWith("Failed to load resource: the server responded with a status of")) {
       browserErrors.push(`second console: ${message.text()}`);
     }

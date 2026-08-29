@@ -64,6 +64,7 @@ const state = {
   ownerPublishedTerms: [],
   queueRecoveryComplete: false,
   runClosing: false,
+  publishing: false,
   publishAbortController: null
 };
 let resolveQueueRecovery;
@@ -152,6 +153,15 @@ function setOrganizingControlsDisabled(disabled) {
   refs.retryAiDraft.disabled = disabled || aiUnavailable;
 }
 
+function currentDraftAiBusy() {
+  return state.currentDraft
+    && state.draftAiStatus.get(state.currentDraft.id)?.state === "busy";
+}
+
+function updatePublishButtonDisabled() {
+  refs.publishButton.disabled = state.publishing || Boolean(currentDraftAiBusy());
+}
+
 function setBusyIndicator(button, busy) {
   if (!button) return;
   button.setAttribute("aria-busy", String(busy));
@@ -213,6 +223,7 @@ function renderEditorAiStatus(draftId = state.currentDraft?.id) {
   refs.retryAiDraft.disabled = Boolean(state.organizingToken) || !navigator.onLine;
   if (record?.state === "busy") refs.entryForm.setAttribute("aria-busy", "true");
   else refs.entryForm.removeAttribute("aria-busy");
+  updatePublishButtonDisabled();
 }
 
 function setDraftAiStatus(draftId, record) {
@@ -1043,6 +1054,9 @@ async function openNewDraft(input, { ai = false } = {}) {
 
 async function queueCurrentPublish() {
   requireVerifiedOwnerUi();
+  if (currentDraftAiBusy()) {
+    throw new Error("AI 仍在整理当前词条；完成或失败后再发布，避免把未完成内容写入 GitHub。");
+  }
   await waitForQueueRecovery();
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
@@ -1389,8 +1403,17 @@ refs.completeDraft.addEventListener("click", () => organizeCurrentDraft({ fillMi
 refs.retryAiDraft.addEventListener("click", () => organizeCurrentDraft({ fillMissingOnly: true, triggerButton: refs.retryAiDraft }));
 refs.entryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  refs.publishButton.disabled = true;
-  try { await queueCurrentPublish(); } catch (error) { showEditorError(error.message || "发布失败"); } finally { refs.publishButton.disabled = false; }
+  if (state.publishing) return;
+  state.publishing = true;
+  updatePublishButtonDisabled();
+  try {
+    await queueCurrentPublish();
+  } catch (error) {
+    showEditorError(error.message || "发布失败");
+  } finally {
+    state.publishing = false;
+    updatePublishButtonDisabled();
+  }
 });
 refs.discardDraft.addEventListener("click", async () => {
   if (!state.currentDraft || !window.confirm("删除这份本地草稿吗？已发布的 GitHub 词条不会因此删除。")) return;
