@@ -900,6 +900,33 @@ test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保�
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
 });
 
+test("普通单词先显示本地中文候选，再等待 AI 完成严格分义项", async ({ page }) => {
+  await loginOwner(page);
+  let markStarted;
+  let releaseRequest;
+  const started = new Promise((resolve) => { markStarted = resolve; });
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    if (route.request().postDataJSON()?.input === "receive") {
+      markStarted();
+      await held;
+    }
+    await route.continue();
+  });
+
+  await page.getByLabel("英文内容").fill("receive");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await started;
+  await expect(page.locator("#editor-ai-title")).toContainText("本地中文候选");
+  await expect(page.locator("#editor-ai-message")).toContainText("本地 ECDICT 候选");
+  await expect(page.locator("#editor-ai-message")).toContainText("收到");
+  await expect(page.locator("#editor-ai-message")).toContainText("候选不会自动发布");
+
+  releaseRequest();
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
+});
+
 test("无法可靠对齐的本地词典多义词保留中文但保持待复核且不能直接发布", async ({ context, page }) => {
   await context.addCookies([
     { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },

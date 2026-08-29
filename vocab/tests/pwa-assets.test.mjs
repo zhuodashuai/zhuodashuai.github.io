@@ -60,18 +60,19 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v47/);
+  assert.match(serviceWorker, /zhuo-wordbook-v48/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=47/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=47/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=47/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=48/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=48/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=48/);
+  assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=47"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=47"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=47"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=47"/);
-  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[56]/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=48"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=48"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=48"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=48"/);
+  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[5-7]/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -103,6 +104,17 @@ test("synonyms remain one entry field throughout owner editing and public discov
   assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
   assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
+});
+
+test("owner lookup shows a safe local preview while the slower AI organizer runs", () => {
+  assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js"/);
+  assert.match(ownerAppSource, /lookupCoreEntry\(cleaned\)/);
+  assert.match(ownerAppSource, /本地 ECDICT 候选/);
+  assert.match(ownerAppSource, /候选不会自动发布/);
+  assert.match(ownerAppSource, /window\.setInterval\(renderBusyProgress, 5_000\)/);
+  assert.match(ownerAppSource, /window\.clearInterval\(elapsedTimer\)/);
+  assert.match(ownerAppSource, /refs\.organizeButton\.disabled = disabled \|\| aiUnavailable \|\| !state\.snapshot/);
+  assert.match(ownerAppSource, /await Promise\.all\(\[\s*refreshAiStatus\(\),\s*renderDrafts\(\),\s*loadRemote\(\)\.catch/s);
 });
 
 test("polysemous meaning formatting is wired into owner, public card, detail and copy views", () => {

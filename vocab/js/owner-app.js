@@ -21,6 +21,7 @@ import {
 import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
+import { lookupCoreEntry } from "./core-dictionary.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -142,7 +143,9 @@ async function waitForQueueRecovery() {
 
 function setOrganizingControlsDisabled(disabled) {
   const aiUnavailable = !navigator.onLine;
-  refs.organizeButton.disabled = disabled || aiUnavailable;
+  // A trustworthy public snapshot is required before a new AI lookup so an
+  // already-published term can be rejected without wasting a model request.
+  refs.organizeButton.disabled = disabled || aiUnavailable || !state.snapshot;
   refs.manualButton.disabled = disabled;
   refs.reorganizeCurrent.disabled = disabled || aiUnavailable;
   refs.completeDraft.disabled = disabled || aiUnavailable;
@@ -777,17 +780,46 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   if (state.currentDraft?.id === draft.id) fillEditor(draft);
   const phoneticRevisionAtRequest = state.phoneticEditRevisions.get(draft.id) || 0;
   let commitWindowLocked = false;
-  setDraftAiStatus(draft.id, {
-    state: "busy",
-    title: `正在获取“${cleaned}”的中文释义与英文义项`,
-    message: "当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。"
-  });
+  const startedAt = Date.now();
+  let localPreview = "";
+  let elapsedTimer = null;
+  const renderBusyProgress = () => {
+    const elapsedSeconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+    const waitingHint = elapsedSeconds >= 10
+      ? ` 已等待 ${elapsedSeconds} 秒；免费模型生成完整分义项通常比本地查词慢。`
+      : "";
+    setDraftAiStatus(draft.id, {
+      state: "busy",
+      title: localPreview
+        ? `已先找到“${cleaned}”的本地中文候选，AI 仍在深度整理`
+        : `正在获取“${cleaned}”的中文释义与英文义项`,
+      message: localPreview
+        ? `本地 ECDICT 候选：${localPreview}。AI 正在继续核对分义项、词性与双语例句；候选不会自动发布。${waitingHint}`
+        : `当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。${waitingHint}`
+    });
+  };
+  renderBusyProgress();
+  elapsedTimer = window.setInterval(renderBusyProgress, 5_000);
+  lookupCoreEntry(cleaned)
+    .then((core) => {
+      if (!core || state.draftAiStatus.get(draft.id)?.state !== "busy") return;
+      localPreview = String(core.meaning || "")
+        .replace(/\s*\r?\n\s*/g, "；")
+        .replace(/\s+/g, " ")
+        .slice(0, 260);
+      if (localPreview) renderBusyProgress();
+    })
+    .catch(() => {
+      // The preview is only an acceleration layer. AI remains authoritative
+      // for aligned senses, and a missing local asset must not fail the query.
+    });
   if (!state.session || !navigator.onLine) {
     const message = !navigator.onLine
       ? "当前设备离线，尚未向 AI 发送请求。"
       : "当前无法验证卓本人会话，尚未向 AI 发送请求。";
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `${message} 空白草稿已保存，联网并重新验证后可在编辑区重试。`);
+    window.clearInterval(elapsedTimer);
     return;
   }
   setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
@@ -959,6 +991,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `“${cleaned}”整理失败：${/草稿/.test(message) ? message : `${message} 当前草稿仍可手动填写。`}`);
   } finally {
+    window.clearInterval(elapsedTimer);
     if (commitWindowLocked) {
       if (state.commitLockedDraftId === draft.id) state.commitLockedDraftId = null;
       refs.entryForm.inert = false;
@@ -1228,14 +1261,21 @@ async function verifySession({ forceGate = false } = {}) {
     refs.ownerAvatar.src = session.user.avatarUrl || "assets/icon-192.png";
     refs.ownerAvatar.alt = `GitHub 用户 @${session.user.login} 的头像`;
     refs.ownerIdentityText.textContent = `已验证 GitHub @${session.user.login}（ID ${session.user.id}）。浏览器没有收到 GitHub token。`;
+    // Keep the workspace inert until duplicate detection has either a fresh
+    // GitHub snapshot or the last validated IndexedDB cache. Health, drafts and
+    // remote data are independent reads, so initialize them in parallel.
+    refs.ownerWorkspace.inert = true;
+    setOrganizingControlsDisabled(true);
+    await Promise.all([
+      refreshAiStatus(),
+      renderDrafts(),
+      loadRemote().catch(() => {})
+    ]);
     refs.authGate.hidden = true;
     refs.ownerWorkspace.hidden = false;
     refs.ownerWorkspace.inert = false;
     refs.logoutButton.hidden = false;
     setOrganizingControlsDisabled(Boolean(state.organizingToken));
-    await refreshAiStatus();
-    await renderDrafts();
-    await loadRemote().catch(() => {});
     const quarantineCount = await getQuarantineCount();
     if (quarantineCount) setStatus(refs.captureStatus, `有 ${quarantineCount} 条旧版本地数据因格式问题进入隔离区，没有被丢弃或发布。`);
   } catch (error) {
