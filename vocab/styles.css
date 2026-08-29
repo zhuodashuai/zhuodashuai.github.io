@@ -173,6 +173,7 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
 .capture-form { display: grid; align-content: center; gap: .7rem; }
 .capture-form label { font-weight: 800; }
 .capture-form textarea { min-height: 120px; font: 500 1.2rem/1.5 Georgia, serif; }
+.keyboard-hint { margin: -.25rem 0 0; color: var(--muted); font-size: .82rem; }
 .button-row { display: flex; align-items: center; gap: .55rem; flex-wrap: wrap; }
 .form-status { min-height: 1.5rem; margin: 0; font-weight: 650; }
 .owner-layout { display: grid; grid-template-columns: minmax(280px, .58fr) minmax(0, 1.42fr); gap: 1.2rem; align-items: start; margin: 1.25rem 0; }

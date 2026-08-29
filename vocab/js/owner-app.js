@@ -1333,6 +1333,12 @@ refs.captureForm.addEventListener("submit", async (event) => {
     setStatus(refs.captureStatus, error.message);
   }
 });
+refs.captureInput.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || event.shiftKey || event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
+  event.preventDefault();
+  if (event.repeat || refs.organizeButton.disabled) return;
+  refs.captureForm.requestSubmit(refs.organizeButton);
+});
 refs.manualButton.addEventListener("click", async () => {
   try {
     await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: false }), refs.manualButton);

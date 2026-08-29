@@ -358,6 +358,51 @@ test("公开页带来的英文只在卓身份验证后预填，不自动调用 A
   expect(aiRequestCount).toBe(0);
 });
 
+test("英文输入按 Enter 自动整理，Shift+Enter 与输入法确认不会误提交", async ({ context, page }) => {
+  await context.addCookies([
+    { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
+    { name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  let aiRequestCount = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+  });
+
+  await loginOwner(page);
+  const input = page.getByLabel("英文内容");
+  await expect(input).toHaveAttribute("enterkeyhint", "search");
+  await expect(input).toHaveAttribute("aria-keyshortcuts", "Enter");
+  await expect(page.locator("#capture-key-hint")).toHaveText("按 Enter 直接整理 · Shift + Enter 换行");
+
+  await input.fill("waiver");
+  await input.press("Shift+Enter");
+  await expect(input).toHaveValue("waiver\n");
+  expect(aiRequestCount).toBe(0);
+
+  await input.fill("waiver");
+  await input.evaluate((element) => element.dispatchEvent(new KeyboardEvent("keydown", {
+    key: "Enter",
+    bubbles: true,
+    cancelable: true,
+    isComposing: true
+  })));
+  await expect(input).toHaveValue("waiver");
+  expect(aiRequestCount).toBe(0);
+
+  await input.press("Enter");
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
+  await input.press("Enter");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", /^(?:success|error|review)$/);
+  await expect(page.getByRole("heading", { name: "waiver" })).toBeVisible();
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  expect(aiRequestCount).toBe(1);
+
+  await input.fill("");
+  await input.press("Enter");
+  expect(await input.evaluate((element) => element.checkValidity())).toBe(false);
+  expect(aiRequestCount).toBe(1);
+});
+
 test("管理链接拒绝超过 240 字符的输入且不消耗 AI", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_auth", value: "owner", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   let aiRequestCount = 0;
