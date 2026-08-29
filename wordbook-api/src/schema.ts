@@ -10,9 +10,25 @@ const CORRECTION_DECISIONS = ["exact", "suggested", "accepted", "kept"] as const
 const bounded = (maximum: number) => z.string().trim().max(maximum);
 const isoDate = z.string().datetime({ offset: true });
 
-function hasVisibleChineseMeaning(value: string): boolean {
+const SUSPICIOUS_TRANSLATION_GARBAGE = [
+  /\bkamus\b/iu,
+  /\bmymemory\b/iu,
+  /\bbm\s+ke\s+bi\b/iu,
+  /translation\s+(?:warning|memory)/iu,
+  /used all available free translations/iu
+];
+
+export function hasPlausibleChineseMeaning(value: string): boolean {
   const visible = value.normalize("NFKC").replace(/[\p{Cc}\p{Cf}]/gu, "").trim();
-  return /\p{Script=Han}/u.test(visible);
+  if (!visible || SUSPICIOUS_TRANSLATION_GARBAGE.some((pattern) => pattern.test(visible))) return false;
+  const content = visible.split(/\r?\n/u).map((line) => {
+    const withoutNumber = line.trim().replace(/^(?:[①-⑳]|\d{1,2}(?:\.(?!\d)|[、)）]))\s*/u, "");
+    const labelled = withoutNumber.match(/^[A-Za-z][A-Za-z ._-]{0,79}\s*[:：]\s*(.+)$/u);
+    return labelled?.[1] || withoutNumber;
+  }).join(" ");
+  const han = [...content.matchAll(/\p{Script=Han}/gu)].length;
+  const latin = [...content.matchAll(/\p{Script=Latin}/gu)].length;
+  return han > 0 && han / Math.max(1, han + latin) >= 0.2;
 }
 
 function normalizeTypography(value: string): string {
@@ -550,11 +566,11 @@ export const PublishRequestSchema = z.object({
   }
   if (request.mutation.type !== "delete") {
     const entry = request.mutation.entry;
-    if (!hasVisibleChineseMeaning(entry.meaning)) {
+    if (!hasPlausibleChineseMeaning(entry.meaning)) {
       context.addIssue({
         code: "custom",
         path: ["mutation", "entry", "meaning"],
-        message: "publishing requires a visible Chinese meaning"
+        message: "publishing requires a plausible Chinese meaning"
       });
     }
     if (entry.tags.includes("待复核")) {

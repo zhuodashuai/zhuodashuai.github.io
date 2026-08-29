@@ -45,6 +45,18 @@ export function entry(overrides: Partial<PublicEntry> = {}): PublicEntry {
   if (overrides.correction === undefined) {
     result.correction = { status: "exact", original: result.term, suggestion: "", chosen: result.term, confidence: 1, source: "test" };
   }
+  if (overrides.senses === undefined && ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(result.entryType)) {
+    result.senses = [{
+      partOfSpeech: result.partOfSpeech || "verb",
+      meaningZh: result.meaning,
+      definitionEn: result.definition,
+      usageNotes: result.usage,
+      register: result.register,
+      collocations: [...result.collocations],
+      examples: [{ en: result.exampleEn || "The learner used this expression correctly.", zh: result.exampleZh || "学习者正确使用了这个表达。" }],
+      confusables: [...result.confusedWith]
+    }];
+  }
   return result;
 }
 

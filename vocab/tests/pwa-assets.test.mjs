@@ -9,6 +9,7 @@ const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf
 const stylesSource = await readFile(new URL("../styles.css", import.meta.url), "utf8");
 const ownerAppSource = await readFile(new URL("../js/owner-app.js", import.meta.url), "utf8");
 const publicAppSource = await readFile(new URL("../js/public-app.js", import.meta.url), "utf8");
+const entryDetailSource = await readFile(new URL("../js/entry-detail.js", import.meta.url), "utf8");
 const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
 const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
 const workerConfigSource = await readFile(new URL("../../wordbook-api/wrangler.jsonc", import.meta.url), "utf8");
@@ -58,14 +59,18 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v45/);
+  assert.match(serviceWorker, /zhuo-wordbook-v46/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=45/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=46/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=46/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=46/);
+  assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=45"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=45"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=45"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=45"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=46"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=46"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=46"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=46"/);
+  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v45/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /Fail-closed owner authentication/);
@@ -91,18 +96,39 @@ test("synonyms remain one entry field throughout owner editing and public discov
   assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
   assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
-  assert.match(publicAppSource, /\.\.\.entry\.synonyms/);
-  assert.match(publicAppSource, /同义词：\$\{entry\.synonyms\.join/);
+  assert.match(entryDetailSource, /entry\.synonyms/);
+  assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
   assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });
 
 test("polysemous meaning formatting is wired into owner, public card, detail and copy views", () => {
   assert.match(ownerAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)\)/);
-  assert.match(publicAppSource, /setMultilineText\(refs\.dialogMeaning, formatMeaningForDisplay\(entry\)/);
+  assert.match(entryDetailSource, /setMultilineText\(refs\.dialogMeaning, formatMeaningForDisplay\(entry\)/);
   assert.match(publicAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)/);
-  assert.match(publicAppSource, /entry\.partOfSpeech\s*\?\s*`词性：\$\{entry\.partOfSpeech\}`\s*:\s*""/);
-  assert.match(publicAppSource, /formatMeaningForDisplay\(entry\)/);
+  assert.match(entryDetailSource, /entry\.partOfSpeech\s*\?\s*`词性：\$\{entry\.partOfSpeech\}`\s*:\s*""/);
+  assert.match(entryDetailSource, /formatMeaningForDisplay\(entry\)/);
+});
+
+test("owner publication applies the browser Chinese-quality and structured-sense gate", () => {
+  assert.match(ownerAppSource, /isPlausibleChineseMeaning\(entry\?\.meaning, entry\?\.term\)/);
+  assert.match(ownerAppSource, /reconcileLexicalEntryForPublish\(entry, \{ allowLegacyWithoutSenses \}\)/);
+  assert.match(ownerAppSource, /state\.currentDraft\.mode === "edit"/);
+  assert.match(ownerAppSource, /isPlausibleChineseMeaning\(aiEntry\.meaning, aiEntry\.term\)/);
+});
+
+test("public and owner readers share the same accessible entry detail controller", () => {
+  assert.match(entryDetailSource, /export function createEntryDetailController/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js"/);
+  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js"/);
+  assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\)/);
+  assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\)/);
+  assert.match(vocabHtml, /<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">/);
+  assert.match(ownerHtml, /<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">/);
+  assert.match(ownerHtml, /aria-label="关闭词条详情"/);
+  assert.match(ownerAppSource, /className = "owner-entry-term-button"/);
+  assert.match(ownerAppSource, /term\.setAttribute\("aria-label", `查看 \$\{entry\.term\} 的完整词条`\)/);
+  assert.match(stylesSource, /\.owner-entry-term-button\s*\{[^}]*min-width:\s*0[^}]*text-align:\s*left/s);
 });
 
 test("the public reader auto-applies app updates while the owner keeps the draft-safe manual gate", () => {

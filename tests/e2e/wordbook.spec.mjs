@@ -69,7 +69,7 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
     {
       term: "perspicacious",
       partOfSpeech: "adjective",
-      meaning: "adjective：敏锐的;有洞察力的;目光锐利的"
+      meaning: "adjective: 敏锐的;有洞察力的;目光锐利的"
     }
   ];
 
@@ -107,6 +107,33 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
     expect(copiedLines.slice(3, 3 + expectedLines.length)).toEqual(expectedLines);
     await page.getByRole("button", { name: "关闭词条详情" }).click();
   }
+});
+
+test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后焦点返回词名", async ({ page }) => {
+  await loginOwner(page);
+  await page.locator("#owner-search").fill("hip");
+  const row = page.locator(".owner-entry-row", { hasText: "hip" });
+  const termButton = row.locator(".owner-entry-term-button");
+  await expect(termButton).toHaveAccessibleName("查看 hip 的完整词条");
+
+  await termButton.focus();
+  await page.keyboard.press("Enter");
+  let dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("noun · adjective");
+  await expect(dialog.locator("article.detail-sense")).toHaveCount(2);
+  await expect(dialog.locator(".sense-part-of-speech")).toHaveText(["noun", "adjective"]);
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(termButton).toBeFocused();
+
+  await page.keyboard.press("Space");
+  dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole("button", { name: /关闭/ }).click();
+  await expect(dialog).toBeHidden();
+  await expect(termButton).toBeFocused();
 });
 
 test("公开词条详情按义项分块，各字段、双语例句与词形独立换行", async ({ page }) => {
@@ -190,7 +217,7 @@ test("公开词条详情按义项分块，各字段、双语例句与词形独�
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
 });
 
-test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与旧 senses 不被改写", async ({ context, page }) => {
+test("单义项统一显示词性且不能用人工 1/2 制造与 senses 冲突的假多义项", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
 
@@ -199,16 +226,16 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   const ownerSingle = page.locator(".owner-entry-row", { hasText: "singleword" });
   const ownerSingleMeaning = ownerSingle.locator(".owner-entry-part-of-speech + p");
-  await expect(ownerSingleMeaning).toHaveText("自动整理的测试释义");
+  await expect(ownerSingleMeaning).toHaveText("noun: 自动整理的测试释义");
   await expect(ownerSingleMeaning).not.toContainText(/①|②|③/);
 
   await page.goto("/");
   await page.locator("#library-search").fill("singleword");
   const publicSingle = page.locator(".word-card", { hasText: "singleword" });
-  await expect(publicSingle.locator(".card-meaning")).toHaveText("自动整理的测试释义");
+  await expect(publicSingle.locator(".card-meaning")).toHaveText("noun: 自动整理的测试释义");
   await expect(publicSingle.locator(".card-meaning")).not.toContainText(/①|②|③/);
   await page.getByRole("button", { name: "查看 singleword 的完整词条" }).click();
-  await expect(page.locator("#dialog-meaning")).toHaveText("自动整理的测试释义");
+  await expect(page.locator("#dialog-meaning")).toHaveText("noun: 自动整理的测试释义");
   await expect(page.locator("#dialog-meaning")).not.toContainText(/①|②|③/);
   await page.getByRole("button", { name: "关闭词条详情" }).click();
 
@@ -218,28 +245,31 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
   await expect(page.locator("#sense-list .sense-item")).toHaveCount(1);
   await expect(page.locator("#sense-list")).toContainText("自动整理的测试释义");
   await page.getByLabel("中文释义", { exact: true }).fill(rawMeaning);
+  await page.getByRole("button", { name: "发布到 GitHub" }).click();
+  await expect(page.locator("#editor-error")).toContainText("不能仅靠编号");
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+
+  await page.getByLabel("中文释义", { exact: true }).fill("人工核对后的中文释义");
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
 
   const ownerManual = page.locator(".owner-entry-row", { hasText: "polymanual" });
   const ownerManualMeaning = ownerManual.locator(".owner-entry-part-of-speech + p");
-  await expect(ownerManualMeaning).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
-  await expect(ownerManualMeaning).not.toContainText("自动整理的测试释义");
+  await expect(ownerManualMeaning).toHaveText("noun: 人工核对后的中文释义");
+  await expect(ownerManualMeaning).not.toContainText(/①|②|③/);
   const ownerPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
   const storedManual = ownerPayload.snapshot.entries.find((entry) => entry.term === "polymanual");
-  expect(storedManual.meaning).toBe(rawMeaning);
+  expect(storedManual.meaning).toBe("noun：人工核对后的中文释义");
   expect(storedManual.senses).toHaveLength(1);
-  expect(storedManual.senses[0].meaningZh).toBe("自动整理的测试释义");
+  expect(storedManual.senses[0].meaningZh).toBe("人工核对后的中文释义");
 
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
   await page.locator("#library-search").fill("polymanual");
   const publicManual = page.locator(".word-card", { hasText: "polymanual" });
-  await expect(publicManual.locator(".card-meaning")).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
-  await expect(publicManual.locator(".card-meaning")).not.toContainText("自动整理的测试释义");
+  await expect(publicManual.locator(".card-meaning")).toHaveText("noun: 人工核对后的中文释义");
   await page.getByRole("button", { name: "查看 polymanual 的完整词条" }).click();
-  await expect(page.locator("#dialog-meaning")).toHaveText(/①\s*人工释义[\s\S]*②\s*第二义/);
-  await expect(page.locator("#dialog-meaning")).not.toContainText("自动整理的测试释义");
+  await expect(page.locator("#dialog-meaning")).toHaveText("noun: 人工核对后的中文释义");
   await page.getByRole("button", { name: "关闭词条详情" }).click();
 
   const downloadPromise = page.waitForEvent("download");
@@ -247,8 +277,8 @@ test("单义释义不编号，人工 1/2 展示为 ①②但原始 meaning 与�
   const download = await downloadPromise;
   const exported = JSON.parse(await readFile(await download.path(), "utf8"));
   const exportedManual = exported.entries.find((entry) => entry.term === "polymanual");
-  expect(exportedManual.meaning).toBe(rawMeaning);
-  expect(exportedManual.senses[0].meaningZh).toBe("自动整理的测试释义");
+  expect(exportedManual.meaning).toBe("noun：人工核对后的中文释义");
+  expect(exportedManual.senses[0].meaningZh).toBe("人工核对后的中文释义");
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
 });
@@ -742,7 +772,7 @@ test("前端拒绝 200 响应中的空中文并在同一草稿就地重试", asy
   await loginOwner(page);
   await addWithAi(page, "hip");
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "error");
-  await expect(page.locator("#editor-ai-message")).toContainText("中文释义没有有效汉字");
+  await expect(page.locator("#editor-ai-message")).toContainText("中文释义不是可信中文");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("");
   await expect(page.getByRole("button", { name: "重试补全这份草稿" })).toBeVisible();
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
@@ -752,6 +782,71 @@ test("前端拒绝 200 响应中的空中文并在同一草稿就地重试", asy
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部/);
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
+});
+
+test("发布质量门拒绝空中文、英文回声、无汉字和伪中文垃圾且不会请求 GitHub", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let publishRequests = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/publish")) publishRequests += 1;
+  });
+  await loginOwner(page);
+  await addWithAi(page, "qualityword");
+
+  for (const invalidMeaning of ["", "qualityword", "English only", "kamus在线bm ke bi"]) {
+    await page.getByLabel("中文释义", { exact: true }).fill(invalidMeaning);
+    await page.getByRole("button", { name: "发布到 GitHub" }).click();
+    await expect(page.locator("#editor-error")).toBeVisible();
+    await expect(page.locator("#editor-error")).toContainText("中文释义");
+    expect(publishRequests, `must reject suspicious meaning: ${JSON.stringify(invalidMeaning)}`).toBe(0);
+    await expect(page.locator("#owner-entry-count")).toHaveText("0");
+  }
+
+  await page.getByLabel("中文释义", { exact: true }).fill("准确的中文释义");
+  await publishOpenDraft(page);
+  expect(publishRequests).toBe(1);
+  await expect(page.locator("#owner-entry-count")).toHaveText("1");
+});
+
+test("不用 AI 的完整人工单义项可以发布并从公开词条卡打开", async ({ context, page }) => {
+  await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let aiRequests = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequests += 1;
+  });
+  await loginOwner(page);
+  await page.getByLabel("英文内容").fill("manualonlyword");
+  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("manualonlyword");
+  await page.getByLabel("词性", { exact: true }).fill("transitive");
+  await page.getByLabel("中文释义", { exact: true }).fill("手工完成；亲手制作");
+  await page.getByLabel("English definition", { exact: true }).fill("To make or complete something carefully by hand.");
+  await page.getByLabel("英文例句", { exact: true }).fill("She completed the frame carefully by hand.");
+  await page.getByLabel("例句中文", { exact: true }).fill("她亲手仔细完成了这个相框。");
+  await publishOpenDraft(page);
+  expect(aiRequests).toBe(0);
+
+  const ownerPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
+  const stored = ownerPayload.snapshot.entries.find((entry) => entry.term === "manualonlyword");
+  expect(stored).toMatchObject({
+    partOfSpeech: "verb",
+    meaning: "verb：手工完成；亲手制作",
+    organizationMethod: "manual"
+  });
+  expect(stored.senses).toHaveLength(1);
+  expect(stored.senses[0]).toMatchObject({
+    partOfSpeech: "verb",
+    meaningZh: "手工完成；亲手制作",
+    examples: [{ en: "She completed the frame carefully by hand.", zh: "她亲手仔细完成了这个相框。" }]
+  });
+
+  await page.goto("/");
+  await page.locator("#library-search").fill("manualonlyword");
+  const card = page.locator(".word-card", { hasText: "manualonlyword" });
+  await expect(card).toHaveCount(1);
+  await card.getByRole("button", { name: "查看 manualonlyword 的完整词条" }).click();
+  await expect(page.locator("#dialog-term")).toHaveText("manualonlyword");
+  await expect(page.locator("#dialog-meaning")).toHaveText("verb: 手工完成；亲手制作");
 });
 
 test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保存原请求", async ({ context, page }) => {
@@ -888,8 +983,13 @@ test("重新整理已发布词条时保留远端身份并正常更新而不是�
 
 test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、发布和标点去重", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let aiRequests = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequests += 1;
+  });
   await loginOwner(page);
   await addWithAi(page, "hip");
+  expect(aiRequests).toBe(1);
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("hip");
   await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
   await expect(page.getByLabel("词性", { exact: true })).toHaveValue("noun · adjective");
@@ -900,6 +1000,9 @@ test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、�
   await expect(page.locator("#sense-list")).toContainText("了解最新潮流");
   await expect(page.locator("#sense-list")).toContainText("The neighbourhood is full of hip cafés.");
   await publishOpenDraft(page);
+  const ownerHip = page.locator(".owner-entry-row", { hasText: "hip" });
+  await expect(ownerHip.locator(".owner-entry-part-of-speech")).toHaveText("词性 · noun · adjective");
+  await expect(ownerHip.locator(".owner-entry-part-of-speech + p")).toHaveText(/①\s*noun:.*髋部[\s\S]*②\s*adjective:.*时髦/);
   await page.reload();
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
   await page.getByLabel("英文内容").fill("HIP!");
@@ -907,8 +1010,14 @@ test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、�
   await expect(page.locator("#capture-status")).toContainText("公开词条已存在");
   await expect(page.locator("#capture-status")).toContainText("不会新增第二条公开记录");
   await expect(page.locator("#owner-entry-count")).toHaveText("1");
+  expect(aiRequests).toBe(1);
+  const ownerPayload = await (await page.request.get("/api/v1/owner/wordbook")).json();
+  expect(ownerPayload.snapshot.entries.map((entry) => entry.term)).toEqual(["hip"]);
   await page.goto("/");
   await page.locator("#library-search").fill("hip");
+  const publicHip = page.locator(".word-card", { hasText: "hip" });
+  await expect(publicHip.locator(".card-kicker span").last()).toHaveText("noun · adjective");
+  await expect(publicHip.locator(".card-meaning")).toHaveText(/①\s*noun:.*髋部[\s\S]*②\s*adjective:.*时髦/);
   await page.getByRole("button", { name: "查看 hip 的完整词条" }).click();
   await expect(page.getByRole("dialog")).toContainText("/hɪp/");
   await expect(page.getByRole("dialog")).toContainText("noun");
@@ -1056,8 +1165,7 @@ test("400ms 自动保存期间切换草稿不会丢最后输入", async ({ page 
 
 test("离线保存进入等待队列，恢复网络后自动发布", async ({ context, page }) => {
   await loginOwner(page);
-  await page.getByLabel("英文内容").fill("offlineword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "offlineword");
   await page.getByLabel("中文释义", { exact: true }).fill("离线词条");
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
@@ -1068,14 +1176,13 @@ test("离线保存进入等待队列，恢复网络后自动发布", async ({ co
 
 test("GitHub 超时保留草稿和队列，显式重试后只发布一次", async ({ context, page }) => {
   await loginOwner(page);
-  await page.getByLabel("英文内容").fill("githubtimeoutword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "githubtimeoutword");
   await page.getByLabel("中文释义", { exact: true }).fill("GitHub 超时后仍应保留");
   await context.addCookies([{ name: "e2e_github_timeout", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByText("同步失败，将安全重试", { exact: true }).first()).toBeVisible();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("githubtimeoutword");
-  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("GitHub 超时后仍应保留");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("noun：GitHub 超时后仍应保留");
 
   await context.addCookies([{ name: "e2e_github_timeout", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await page.getByRole("button", { name: "重试", exact: true }).click();
@@ -1085,8 +1192,7 @@ test("GitHub 超时保留草稿和队列，显式重试后只发布一次", asyn
 
 test("删除离线草稿会同时取消待发布任务，恢复网络也不会偷偷发布", async ({ context, page }) => {
   await loginOwner(page);
-  await page.getByLabel("英文内容").fill("cancelledword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "cancelledword");
   await page.getByLabel("中文释义", { exact: true }).fill("不应发布");
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
@@ -1100,8 +1206,7 @@ test("删除离线草稿会同时取消待发布任务，恢复网络也不会�
 
 test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登录后自动发布", async ({ context, page }) => {
   await loginOwner(page);
-  await page.getByLabel("英文内容").fill("reviewword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "reviewword");
   await page.getByLabel("中文释义", { exact: true }).fill("需要重新复核");
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
@@ -1121,8 +1226,7 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
 
 test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自动发布", async ({ context, page }) => {
   await loginOwner(page);
-  await page.getByLabel("英文内容").fill("oauthraceword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "oauthraceword");
   await page.getByLabel("中文释义", { exact: true }).fill("OAuth 恢复窗口不应自动发布");
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
@@ -1161,8 +1265,7 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
   page.on("request", countPublishRequest);
   otherPage.on("request", countPublishRequest);
 
-  await page.getByLabel("英文内容").fill("crossrunword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await addWithAi(page, "crossrunword");
   await page.getByLabel("中文释义", { exact: true }).fill("只能由收到发布点击的页面提交");
   await context.setOffline(true);
   await expect(page.locator("#network-chip")).toContainText("离线");

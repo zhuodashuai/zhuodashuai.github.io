@@ -77,7 +77,7 @@ function organizedEntry(input) {
     ? "noun: Either side of the body below the waist, including the joint connecting the leg and pelvis.\nadjective: Fashionable or aware of current trends."
     : lower === "jab at" ? "To make a quick sharp movement or criticism toward someone or something." : "A test definition.";
   entry.phonetic = lower === "hip" ? "/hɪp/" : lower === "jab at" ? "/dʒæb æt/" : "/test/";
-  entry.partOfSpeech = lower === "hip" ? "noun · adjective" : lower === "jab at" ? "verb phrase" : "word";
+  entry.partOfSpeech = lower === "hip" ? "noun · adjective" : lower === "jab at" ? "verb phrase" : "noun";
   entry.exampleEn = lower === "hip" ? "She injured her hip while running." : lower === "jab at" ? "He jabbed at the button." : "This is a natural example.";
   entry.exampleZh = lower === "hip" ? "她跑步时伤了髋部。" : lower === "jab at" ? "他猛戳按钮。" : "这是一个自然的例句。";
   entry.usage = "Review this candidate before publishing.";

@@ -3,15 +3,18 @@ import test from "node:test";
 import {
   assertCompleteAiCandidate,
   buildOwnerEnteredTermAllowlist,
+  canonicalPartOfSpeech,
   entryLookupKeys,
   createBlankEntry,
   findDuplicate,
   filterSynonymsToOwnerTerms,
   formatMeaningForDisplay,
   hasChineseHanText,
+  isPlausibleChineseMeaning,
   needsAiCompletion,
   parsePublicSnapshot,
   rankExactEntryMatches,
+  reconcileLexicalEntryForPublish,
   safeHttpsUrl,
   validatePublicEntry
 } from "../js/wordbook-schema.js";
@@ -20,6 +23,19 @@ import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation, th
 function entry(term = "jab at", overrides = {}) {
   const blank = createBlankEntry(term);
   return validatePublicEntry({ ...blank, meaning: "测试释义", ...overrides });
+}
+
+function learningSense(partOfSpeech, meaningZh, definitionEn, exampleEn, exampleZh) {
+  return {
+    partOfSpeech,
+    meaningZh,
+    definitionEn,
+    usageNotes: "",
+    register: "neutral",
+    collocations: [],
+    examples: [{ en: exampleEn, zh: exampleZh }],
+    confusables: []
+  };
 }
 
 test("numbered meanings preserve each sense part of speech without changing stored text", () => {
@@ -62,7 +78,7 @@ test("numbered meanings preserve each sense part of speech without changing stor
       meaning: "adjective：敏锐的;有洞察力的;目光锐利的",
       senses: [{ partOfSpeech: "adjective", meaningZh: "敏锐的；有洞察力的；目光锐利的" }]
     }),
-    "adjective：敏锐的;有洞察力的;目光锐利的"
+    "adjective: 敏锐的;有洞察力的;目光锐利的"
   );
 });
 
@@ -174,6 +190,143 @@ test("v3 browser schema accepts a Cloudflare-organized draft", () => {
   assert.equal(value.organizationMethod, "ai-cloudflare");
 });
 
+test("Chinese meaning quality rejects empty, English and known translation garbage", () => {
+  for (const candidate of ["", "hip", "English definition only", "kamus在线bm ke bi", "MYMEMORY translation warning 中文"]) {
+    assert.equal(isPlausibleChineseMeaning(candidate, "hip"), false, candidate);
+  }
+  assert.equal(isPlausibleChineseMeaning("髋部；臀部；髋关节", "hip"), true);
+  assert.equal(isPlausibleChineseMeaning("noun：髋部；臀部", "hip"), true);
+});
+
+test("browser POS canonicalization matches the publish allowlist", () => {
+  const cases = [
+    ["noun", "noun"], ["n.", "noun"], ["countable", "noun"], ["uncountable", "noun"],
+    ["plural", "noun"], ["singular", "noun"], ["proper", "noun"], ["transitive", "verb"],
+    ["intransitive", "verb"], ["phrasal", "verb"], ["phrasal verb", "verb"], ["modal", "auxiliary"],
+    ["名词", "noun"], ["及物动词", "verb"], ["短语动词", "verb"], ["名词及形容词", ""],
+    ["noun · adjective", ""], ["unknown-role", ""]
+  ];
+  for (const [input, expected] of cases) assert.equal(canonicalPartOfSpeech(input), expected, input);
+});
+
+test("single-sense publication syncs an owner Chinese edit and rebuilds the summaries", () => {
+  const original = entry("perspicacious", {
+    partOfSpeech: "adj.",
+    meaning: "敏锐且有洞察力的",
+    definition: "owner-edited stale summary",
+    senses: [learningSense(
+      "adjective",
+      "敏锐的",
+      "Having keen insight and good judgment.",
+      "Her perspicacious analysis found the flaw.",
+      "她敏锐的分析发现了这个缺陷。"
+    )]
+  });
+  const reconciled = reconcileLexicalEntryForPublish(original);
+  assert.equal(reconciled.partOfSpeech, "adjective");
+  assert.equal(reconciled.meaning, "adjective：敏锐且有洞察力的");
+  assert.equal(reconciled.definition, "adjective: Having keen insight and good judgment.");
+  assert.equal(reconciled.senses[0].meaningZh, "敏锐且有洞察力的");
+  assert.equal(original.senses[0].meaningZh, "敏锐的", "reconciliation must not mutate the draft object");
+  assert.deepEqual(validatePublicEntry(reconciled), reconciled);
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...original, meaning: "1. 第一项中文 2. 第二项中文" }),
+    /不能仅靠编号/
+  );
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...original, meaning: "not-a-pos：中文释义" }),
+    /词性.*不受支持/
+  );
+});
+
+test("multi-sense publication requires matching POS lines and rebuilds one canonical representation", () => {
+  const hip = entry("hip", {
+    partOfSpeech: "stale",
+    meaning: "noun：髋部；臀部\nadjective：时髦的",
+    definition: "stale summary",
+    senses: [
+      learningSense("noun", "旧的髋部释义", "The side of the body below the waist.", "She hurt her hip.", "她伤到了髋部。"),
+      learningSense("adj.", "旧的时髦释义", "Aware of the latest styles and ideas.", "That cafe is very hip.", "那家咖啡馆很时髦。")
+    ]
+  });
+  const reconciled = reconcileLexicalEntryForPublish(hip);
+  assert.equal(reconciled.partOfSpeech, "noun · adjective");
+  assert.equal(reconciled.meaning, "noun：髋部；臀部\nadjective：时髦的");
+  assert.equal(reconciled.definition, "noun: The side of the body below the waist.\nadjective: Aware of the latest styles and ideas.");
+  assert.deepEqual(reconciled.senses.map((sense) => sense.meaningZh), ["髋部；臀部", "时髦的"]);
+
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...hip, meaning: "髋部；臀部\n时髦的" }),
+    /多义词必须按 2 行/
+  );
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...hip, meaning: "adjective：髋部；臀部\nnoun：时髦的" }),
+    /词性.*不一致/
+  );
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({
+      ...hip,
+      senses: [{ ...hip.senses[0], examples: [] }, hip.senses[1]]
+    }),
+    /完整、可信的双语例句/
+  );
+});
+
+test("new lexical entries require senses while exact legacy updates remain grandfathered", () => {
+  const legacy = entry("jab at", {
+    partOfSpeech: "verb phrase",
+    meaning: "猛戳；言语上抨击",
+    definition: "To make a quick thrust or verbal attack.",
+    senses: []
+  });
+  assert.throws(() => reconcileLexicalEntryForPublish(legacy), /必须包含结构化义项/);
+  assert.deepEqual(reconcileLexicalEntryForPublish(legacy, { allowLegacyWithoutSenses: true }), legacy);
+  assert.throws(
+    () => reconcileLexicalEntryForPublish({ ...legacy, meaning: "kamus在线bm ke bi" }, { allowLegacyWithoutSenses: true }),
+    /不是可信的中文内容/
+  );
+});
+
+test("a complete manual lexical draft safely synthesizes exactly one sense", () => {
+  const manual = entry("handcraft", {
+    partOfSpeech: "transitive",
+    meaning: "手工制作；亲手完成",
+    definition: "To make or complete something carefully by hand.",
+    exampleEn: "She handcrafted the wooden frame.",
+    exampleZh: "她亲手制作了木制相框。",
+    usage: "常用于强调人工制作。",
+    register: "neutral",
+    senses: [],
+    organizationMethod: "manual"
+  });
+  const reconciled = reconcileLexicalEntryForPublish(manual);
+  assert.equal(reconciled.partOfSpeech, "verb");
+  assert.equal(reconciled.meaning, "verb：手工制作；亲手完成");
+  assert.equal(reconciled.definition, "verb: To make or complete something carefully by hand.");
+  assert.equal(reconciled.senses.length, 1);
+  assert.deepEqual(reconciled.senses[0], {
+    partOfSpeech: "verb",
+    meaningZh: "手工制作；亲手完成",
+    definitionEn: "To make or complete something carefully by hand.",
+    usageNotes: "常用于强调人工制作。",
+    register: "neutral",
+    collocations: [],
+    examples: [{ en: "She handcrafted the wooden frame.", zh: "她亲手制作了木制相框。" }],
+    confusables: []
+  });
+
+  for (const overrides of [
+    { partOfSpeech: "" }, { partOfSpeech: "noun · verb" }, { definition: "" },
+    { exampleEn: "" }, { exampleZh: "" }, { exampleZh: "English only" },
+    { organizationMethod: "ai-cloudflare" }
+  ]) {
+    assert.throws(
+      () => reconcileLexicalEntryForPublish({ ...manual, ...overrides }),
+      /必须包含结构化义项/
+    );
+  }
+});
+
 test("browser rejects structurally valid AI candidates with blank bilingual semantics", () => {
   const complete = entry("hip", {
     meaning: "髋部",
@@ -187,9 +340,14 @@ test("browser rejects structurally valid AI candidates with blank bilingual sema
   });
   assert.equal(assertCompleteAiCandidate(complete), complete);
   assert.equal(hasChineseHanText("\u200b"), false);
-  assert.throws(() => assertCompleteAiCandidate({ ...complete, meaning: "\u200b" }), /中文释义没有有效汉字/);
+  assert.throws(() => assertCompleteAiCandidate({ ...complete, meaning: "\u200b" }), /中文释义不是可信中文/);
+  assert.throws(() => assertCompleteAiCandidate({ ...complete, meaning: "kamus在线bm ke bi" }), /中文释义不是可信中文/);
   assert.throws(() => assertCompleteAiCandidate({ ...complete, definition: "" }), /英文释义为空/);
   assert.throws(() => assertCompleteAiCandidate({ ...complete, senses: [] }), /没有分义项/);
+  assert.throws(() => assertCompleteAiCandidate({
+    ...complete,
+    senses: [{ ...complete.senses[0], meaningZh: "kamus在线bm ke bi" }]
+  }), /缺少可信中文/);
   assert.throws(() => assertCompleteAiCandidate({
     ...complete,
     senses: [{ ...complete.senses[0], examples: [{ en: "She hurt her hip.", zh: "" }] }]
@@ -228,9 +386,12 @@ test("AI completion detection retries incomplete words but preserves complete du
 });
 
 test("AI fills schema-equivalent blank legacy fields without overwriting edits made in flight", () => {
-  const baseline = { id: "stable-id", revision: 4, phonetic: undefined, meaning: "old", collocations: [] };
-  const current = { id: "stable-id", revision: 4, phonetic: "", meaning: "owner edit", collocations: [] };
-  const candidate = { id: "ai-generated-id", revision: 1, phonetic: "/hɪp/", meaning: "AI replacement", collocations: ["hip joint"] };
+  const baseline = { id: "stable-id", revision: 4, phonetic: undefined, meaning: "old", collocations: [], organizationMethod: "manual" };
+  const current = { id: "stable-id", revision: 4, phonetic: "", meaning: "owner edit", collocations: [], organizationMethod: "manual" };
+  const candidate = {
+    id: "ai-generated-id", revision: 1, phonetic: "/hɪp/", meaning: "AI replacement", collocations: ["hip joint"],
+    organizationMethod: "ai-cloudflare"
+  };
   const result = mergeAiCandidate(baseline, current, candidate);
   assert.equal(result.merged.id, "stable-id");
   assert.equal(result.merged.revision, 4);
@@ -238,6 +399,7 @@ test("AI fills schema-equivalent blank legacy fields without overwriting edits m
   assert.equal(result.merged.meaning, "owner edit");
   assert.deepEqual(result.merged.collocations, ["hip joint"]);
   assert.equal(result.preservedManualChanges, true);
+  assert.equal(result.merged.organizationMethod, "mixed");
 });
 
 test("automatic AI completion fills blanks without replacing earlier manual content", () => {

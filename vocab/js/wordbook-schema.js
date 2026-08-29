@@ -73,11 +73,9 @@ export function normalizeEnglish(value) {
 }
 
 const CIRCLED_NUMBER_START = 0x2460;
-const ENGLISH_PART_OF_SPEECH_WORDS = new Set([
+const SUPPORTED_PARTS_OF_SPEECH = new Set([
   "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "determiner",
-  "article", "interjection", "auxiliary", "modal", "participle", "infinitive", "gerund", "phrasal",
-  "phrase", "idiom", "collocation", "countable", "uncountable", "transitive", "intransitive", "plural",
-  "singular", "proper", "and"
+  "article", "interjection", "auxiliary", "participle", "infinitive", "gerund", "idiom", "phrase", "collocation"
 ]);
 
 function circledNumber(index) {
@@ -126,16 +124,59 @@ function parseArabicNumberedMeaning(value) {
 
 function isPartOfSpeechLabel(value) {
   const label = String(value || "").normalize("NFKC").trim().toLocaleLowerCase("en-US");
-  if (!label || label.length > 80) return false;
-  if (/^(?:(?:名词|动词|形容词|副词|代词|介词|连词|限定词|冠词|感叹词|助动词|短语|习语|搭配)(?:\s*[·/、，,和及]\s*)?)+$/u.test(label)) return true;
-  const words = label.match(/[a-z]+/g) || [];
-  const residue = label.replace(/[a-z]+/g, "").replace(/[\s·/,&()+-]/g, "");
-  return words.length > 0 && !residue && words.every((word) => ENGLISH_PART_OF_SPEECH_WORDS.has(word));
+  return label.length <= 80 && Boolean(canonicalPartOfSpeech(label));
+}
+
+export function canonicalPartOfSpeech(value) {
+  const raw = normalizeTypography(value).toLocaleLowerCase("en-US").replace(/[._]/g, " ");
+  const chinese = new Map([
+    ["名词", "noun"], ["动词", "verb"], ["形容词", "adjective"], ["副词", "adverb"],
+    ["代词", "pronoun"], ["介词", "preposition"], ["连词", "conjunction"], ["限定词", "determiner"],
+    ["冠词", "article"], ["感叹词", "interjection"], ["助动词", "auxiliary"], ["短语", "phrase"],
+    ["习语", "idiom"], ["搭配", "collocation"], ["短语动词", "verb"], ["动词短语", "verb"],
+    ["名词短语", "noun"], ["副词短语", "adverb"], ["介词短语", "preposition"],
+    ["及物动词", "verb"], ["不及物动词", "verb"]
+  ]);
+  if (chinese.has(raw)) return chinese.get(raw);
+  if (!raw || /[·/、，,&]|\b(?:and|or)\b|[和及]/iu.test(raw)) return "";
+  const standaloneModifiers = new Map([
+    ["countable", "noun"], ["uncountable", "noun"], ["plural", "noun"], ["singular", "noun"], ["proper", "noun"],
+    ["transitive", "verb"], ["intransitive", "verb"], ["phrasal", "verb"], ["modal", "auxiliary"],
+    ["prepositional", "preposition"], ["adverbial", "adverb"], ["idiomatic", "idiom"], ["expression", "phrase"]
+  ]);
+  if (standaloneModifiers.has(raw)) return standaloneModifiers.get(raw);
+  const aliases = [
+    [/\b(phrasal\s+verb|verb\s+phrase|verbs?)\b|^v\b/u, "verb"],
+    [/\b(nouns?|noun\s+phrase)\b|^n\b/u, "noun"],
+    [/\b(adjectives?|adj)\b/u, "adjective"],
+    [/\b(adverbs?|adverbial|adv)\b/u, "adverb"],
+    [/\b(pronouns?|pron)\b/u, "pronoun"],
+    [/\b(prepositions?|prepositional|prep)\b/u, "preposition"],
+    [/\b(conjunctions?|conj)\b/u, "conjunction"],
+    [/\b(interjections?|interj)\b/u, "interjection"],
+    [/\b(determiners?|det)\b/u, "determiner"],
+    [/\b(auxiliary|modal)\b/u, "auxiliary"],
+    [/\b(idiom|idiomatic)\b/u, "idiom"],
+    [/\b(phrase|expression)\b/u, "phrase"]
+  ];
+  const canonical = aliases.find(([pattern]) => pattern.test(raw))?.[1] || raw.replace(/\s+/g, " ").trim();
+  return SUPPORTED_PARTS_OF_SPEECH.has(canonical) ? canonical : "";
+}
+
+function parseStructuredMeaningLines(value) {
+  const lines = String(value || "").split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+  if (!lines.length || lines.length > 20) return null;
+  const parsed = lines.map((line) => {
+    const withoutNumber = line.replace(/^(?:[①-⑳]|\d{1,2}(?:\.(?!\d)|[、)）]))\s*/u, "");
+    const match = withoutNumber.match(/^([^:：]{1,80})[:：]\s*(.+)$/u);
+    return match ? { partOfSpeech: match[1].trim(), meaning: cleanMeaningItem(match[2]) } : null;
+  });
+  return parsed.every(Boolean) ? parsed : null;
 }
 
 function parsePartOfSpeechLines(value) {
   const lines = String(value || "").split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
-  if (lines.length < 2 || lines.length > 20) return null;
+  if (!lines.length || lines.length > 20) return null;
   const items = lines.map((line) => {
     const match = line.match(/^([^:：]{1,80})[:：]\s*(.+)$/u);
     return match && isPartOfSpeechLabel(match[1]) ? meaningItemWithPartOfSpeech(match[1], match[2]) : "";
@@ -171,6 +212,137 @@ export function formatMeaningForDisplay(entry) {
   const items = meaningItemsForDisplay(entry);
   if (items.length <= 1) return items[0] || "";
   return items.map((item, index) => `${circledNumber(index)} ${item}`).join("\n");
+}
+
+function chineseQualityContent(value) {
+  return String(value || "").split(/\r?\n/u).map((line) => {
+    const withoutNumber = line.trim().replace(/^(?:[①-⑳]|\d{1,2}(?:\.(?!\d)|[、)）]))\s*/u, "");
+    const match = withoutNumber.match(/^([^:：]{1,80})[:：]\s*(.+)$/u);
+    return match && isPartOfSpeechLabel(match[1]) ? match[2] : withoutNumber;
+  }).join(" ");
+}
+
+export function isPlausibleChineseMeaning(value, englishTerm = "") {
+  const visible = visibleText(value);
+  if (!visible) return false;
+  const lowered = visible.toLocaleLowerCase("en-US");
+  if (/\b(?:kamus|mymemory)\b|\bbm\s+ke\s+bi\b|translation\s+(?:warning|memory)|used\s+all\s+available\s+free\s+translations|machine\s+translation\s+output/iu.test(lowered)) return false;
+  if (englishTerm && normalizeEnglish(visible) === normalizeEnglish(englishTerm)) return false;
+  const content = chineseQualityContent(visible);
+  const han = [...content.matchAll(/\p{Script=Han}/gu)].length;
+  const latin = [...content.matchAll(/\p{Script=Latin}/gu)].length;
+  return han > 0 && han / Math.max(1, han + latin) >= 0.2;
+}
+
+function isPlausibleEnglishDefinition(value) {
+  const visible = visibleText(value);
+  return /\p{Script=Latin}/u.test(visible) && !/\p{Script=Han}/u.test(visible);
+}
+
+function hasSinglePartOfSpeech(value) {
+  return Boolean(canonicalPartOfSpeech(value));
+}
+
+function manualSingleSense(entry) {
+  if (entry.organizationMethod !== "manual" || !hasSinglePartOfSpeech(entry.partOfSpeech)) return null;
+  if (!isPlausibleChineseMeaning(entry.meaning, entry.term)
+    || !isPlausibleEnglishDefinition(entry.definition)
+    || !isPlausibleEnglishDefinition(entry.exampleEn)
+    || !isPlausibleChineseMeaning(entry.exampleZh, entry.term)) return null;
+  return {
+    partOfSpeech: canonicalPartOfSpeech(entry.partOfSpeech),
+    meaningZh: entry.meaning,
+    definitionEn: entry.definition,
+    usageNotes: entry.usage || "",
+    register: entry.register || "neutral",
+    collocations: Array.isArray(entry.collocations) ? entry.collocations : [],
+    examples: [{ en: entry.exampleEn, zh: entry.exampleZh }],
+    confusables: Array.isArray(entry.confusedWith) ? entry.confusedWith : []
+  };
+}
+
+export function reconcileLexicalEntryForPublish(candidate, { allowLegacyWithoutSenses = false } = {}) {
+  const entry = structuredClone(record(candidate, "词条"));
+  if (!LEXICAL_ENTRY_TYPES.has(entry.entryType)) {
+    if (!isPlausibleChineseMeaning(entry.meaning, entry.term)) throw new Error("中文释义不是可信的中文内容；请删除英文回声、机器翻译垃圾或占位文本后再发布。");
+    return entry;
+  }
+  const senses = Array.isArray(entry.senses) ? entry.senses.map((sense) => structuredClone(sense)) : [];
+  if (!senses.length) {
+    const synthesized = manualSingleSense(entry);
+    if (synthesized) senses.push(synthesized);
+    else if (!allowLegacyWithoutSenses) {
+      throw new Error("新建词汇必须包含结构化义项；若不用 AI，请完整填写单一词性、可信的中英文释义及一组双语例句后再发布。");
+    }
+  }
+  if (!senses.length) {
+    if (!isPlausibleChineseMeaning(entry.meaning, entry.term)) throw new Error("中文释义不是可信的中文内容；请删除英文回声、机器翻译垃圾或占位文本后再发布。");
+    return entry;
+  }
+
+  senses.forEach((sense, index) => {
+    const label = `第 ${index + 1} 个义项`;
+    if (!isPartOfSpeechLabel(sense.partOfSpeech)) throw new Error(`${label}缺少受支持的词性，不能发布。`);
+    if (!isPlausibleEnglishDefinition(sense.definitionEn)) throw new Error(`${label}缺少可信的英文释义，不能发布。`);
+    if (!Array.isArray(sense.examples) || !sense.examples.length || sense.examples.some((example) => (
+      !isPlausibleEnglishDefinition(example?.en) || !isPlausibleChineseMeaning(example?.zh, entry.term)
+    ))) {
+      throw new Error(`${label}必须至少有一组完整、可信的双语例句，不能发布。`);
+    }
+  });
+
+  if (senses.length === 1) {
+    const expectedPart = canonicalPartOfSpeech(senses[0].partOfSpeech);
+    const structured = parseStructuredMeaningLines(entry.meaning);
+    let editedMeaning = String(entry.meaning || "").trim();
+    if (structured?.length === 1) {
+      if (!isPartOfSpeechLabel(structured[0].partOfSpeech)) {
+        throw new Error(`中文释义中的词性“${structured[0].partOfSpeech}”不受支持。`);
+      }
+      if (canonicalPartOfSpeech(structured[0].partOfSpeech) !== expectedPart) {
+        throw new Error(`中文释义中的词性“${structured[0].partOfSpeech}”与义项词性“${senses[0].partOfSpeech}”不一致。`);
+      }
+      editedMeaning = structured[0].meaning;
+    } else {
+      const numbered = parseCircledMeaning(editedMeaning) || parseArabicNumberedMeaning(editedMeaning);
+      if (numbered?.length > 1) {
+        throw new Error("当前只有 1 个完整义项，不能仅靠编号添加没有英文释义和双语例句的新义项；请重新用 AI 整理。");
+      }
+      if (numbered?.length === 1) [editedMeaning] = numbered;
+    }
+    if (!isPlausibleChineseMeaning(editedMeaning, entry.term)) {
+      throw new Error("中文释义不是可信的中文内容；请删除英文回声、机器翻译垃圾或占位文本后再发布。");
+    }
+    senses[0].partOfSpeech = expectedPart;
+    senses[0].meaningZh = editedMeaning;
+  } else {
+    const structured = parseStructuredMeaningLines(entry.meaning);
+    if (!structured || structured.length !== senses.length) {
+      throw new Error(`多义词必须按 ${senses.length} 行填写“词性：中文释义”，并与下方义项逐行对应。`);
+    }
+    structured.forEach((line, index) => {
+      const expectedPart = canonicalPartOfSpeech(senses[index].partOfSpeech);
+      if (canonicalPartOfSpeech(line.partOfSpeech) !== expectedPart) {
+        throw new Error(`第 ${index + 1} 行词性“${line.partOfSpeech}”与第 ${index + 1} 个义项词性“${senses[index].partOfSpeech}”不一致。`);
+      }
+      if (!isPlausibleChineseMeaning(line.meaning, entry.term)) {
+        throw new Error(`第 ${index + 1} 行不是可信的中文释义；请删除英文回声或机器翻译垃圾后再发布。`);
+      }
+      senses[index].partOfSpeech = expectedPart;
+      senses[index].meaningZh = line.meaning;
+    });
+  }
+
+  const positions = [];
+  for (const sense of senses) {
+    const part = canonicalPartOfSpeech(sense.partOfSpeech);
+    if (!positions.includes(part)) positions.push(part);
+  }
+  entry.senses = senses;
+  entry.partOfSpeech = positions.join(" · ");
+  entry.meaning = senses.map((sense) => `${canonicalPartOfSpeech(sense.partOfSpeech)}：${cleanMeaningItem(sense.meaningZh)}`).join("\n");
+  entry.definition = senses.map((sense) => `${canonicalPartOfSpeech(sense.partOfSpeech)}: ${visibleText(sense.definitionEn)}`).join("\n");
+  return entry;
 }
 
 export function validateEnglishInput(value) {
@@ -564,7 +736,7 @@ export function hasChineseHanText(value) {
  */
 export function assertCompleteAiCandidate(entry) {
   const issues = [];
-  if (!hasChineseHanText(entry?.meaning)) issues.push("中文释义没有有效汉字");
+  if (!isPlausibleChineseMeaning(entry?.meaning, entry?.term)) issues.push("中文释义不是可信中文");
   if (!visibleText(entry?.definition)) issues.push("英文释义为空");
   if (new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]).has(entry?.entryType)) {
     if (!Array.isArray(entry?.senses) || entry.senses.length === 0) {
@@ -572,7 +744,7 @@ export function assertCompleteAiCandidate(entry) {
     } else {
       entry.senses.forEach((sense, index) => {
         const label = `第 ${index + 1} 个义项`;
-        if (!hasChineseHanText(sense?.meaningZh)) issues.push(`${label}缺少有效中文`);
+        if (!isPlausibleChineseMeaning(sense?.meaningZh, entry?.term)) issues.push(`${label}缺少可信中文`);
         if (!visibleText(sense?.definitionEn)) issues.push(`${label}缺少英文释义`);
         if (!Array.isArray(sense?.examples) || sense.examples.length === 0) {
           issues.push(`${label}缺少双语例句`);

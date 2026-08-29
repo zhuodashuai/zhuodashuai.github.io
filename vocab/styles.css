@@ -223,6 +223,9 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
 .owner-library { margin-top: 1.25rem; }
 .owner-entry-list { display: grid; gap: .65rem; margin-top: 1rem; }
 .owner-entry-row { display: grid; grid-template-columns: minmax(150px, .65fr) minmax(220px, 1.35fr) auto; gap: 1rem; align-items: center; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 12px; }
+.owner-entry-term-button { width: 100%; min-width: 0; justify-self: stretch; padding: .55rem .65rem; text-align: left; border-color: transparent; border-radius: 10px; background: transparent; }
+.owner-entry-term-button:hover { color: var(--green-2); background: var(--green-soft); filter: none; }
+.owner-entry-term-button strong { display: block; max-width: 100%; overflow-wrap: anywhere; }
 .owner-entry-row strong { font: 600 1.25rem Georgia, serif; }
 .owner-entry-row p { margin: 0; color: var(--muted); }
 .owner-entry-row .owner-entry-part-of-speech { margin-bottom: .25rem; color: var(--green-2); font-size: .76rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }

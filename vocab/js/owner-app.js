@@ -1,4 +1,5 @@
 import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation } from "./owner-api.js";
+import { createEntryDetailController } from "./entry-detail.js";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,7 +18,7 @@ import {
   saveDraft,
   subscribeStorageChanges
 } from "./owner-storage.js";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, hasChineseHanText, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 
@@ -37,6 +38,7 @@ const ids = [
   "conflict-use-remote", "conflict-close", "reorganize-current", "install-button", "update-banner", "apply-update"
 ];
 const refs = Object.fromEntries(ids.map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
+const entryDetail = createEntryDetailController();
 const state = {
   session: null,
   csrfToken: "",
@@ -227,10 +229,15 @@ function aiFailureStatus(draft, message) {
 
 function draftCompletionGaps(entry) {
   const gaps = [];
-  if (!String(entry?.meaning || "").trim()) gaps.push("中文释义");
+  if (!isPlausibleChineseMeaning(entry?.meaning, entry?.term)) gaps.push("可信的中文释义");
   if (!String(entry?.definition || "").trim()) gaps.push("英文释义");
   if (entry?.entryType === "word" && !hasUsablePronunciation(entry.phonetic)) gaps.push("IPA 音标");
   if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && !String(entry?.partOfSpeech || "").trim()) gaps.push("词性");
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && entry?.organizationMethod === "manual"
+    && (!Array.isArray(entry.senses) || entry.senses.length === 0)) {
+    if (!String(entry?.exampleEn || "").trim()) gaps.push("英文例句");
+    if (!isPlausibleChineseMeaning(entry?.exampleZh, entry?.term)) gaps.push("例句中文");
+  }
   if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && entry?.tags?.includes("待复核")) gaps.push("经人工复核、可靠对齐的分义项");
   return gaps;
 }
@@ -522,7 +529,7 @@ function collectEntry({ strict = false } = {}) {
       throw new Error("这些同义词目前只有本地草稿、尚未公开。请先发布对应词条，再回来发布当前词条；或暂时从同义词字段移除。 ");
     }
   }
-  const entry = {
+  let entry = {
     ...structuredClone(previous),
     originalInput: value("fieldOriginalInput"),
     term,
@@ -556,10 +563,16 @@ function collectEntry({ strict = false } = {}) {
   }
   if (!strict) return entry;
   validateEnglishInput(term);
-  if (!entry.meaning) throw new Error("公开词条发布前必须确认准确的中文释义。");
   if (LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.tags.includes("待复核")) {
     throw new Error("这仍是中英文义项尚未可靠对齐或内容尚未补全的本地词典候选，不能当作 AI 整理成功直接发布。请继续用 AI 补全；若你已逐项人工核对，可从标签中移除“待复核”后再发布。");
   }
+  const baseEntry = state.currentDraft.mode === "edit" ? state.currentDraft.base?.entry : null;
+  const allowLegacyWithoutSenses = Boolean(
+    baseEntry
+    && LEXICAL_ENTRY_TYPES.has(baseEntry.entryType)
+    && (!Array.isArray(baseEntry.senses) || baseEntry.senses.length === 0)
+  );
+  entry = reconcileLexicalEntryForPublish(entry, { allowLegacyWithoutSenses });
   if (entry.correction?.status === "suggested") throw new Error("请先选择“使用建议”“保留原文”或手动修改，不能静默采用拼写建议。");
   if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "candidate"
     && !entry.sourceUrl && !(entry.sources || []).some((source) => source.kind === "candidate" && source.url)) {
@@ -688,9 +701,15 @@ function renderOwnerEntries() {
   refs.ownerEntryList.replaceChildren(...shown.map((entry) => {
     const row = document.createElement("article");
     row.className = "owner-entry-row";
-    const term = document.createElement("strong");
-    term.lang = "en";
-    term.textContent = entry.term;
+    const term = document.createElement("button");
+    term.type = "button";
+    term.className = "owner-entry-term-button";
+    term.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
+    const termLabel = document.createElement("strong");
+    termLabel.lang = "en";
+    termLabel.textContent = entry.term;
+    term.append(termLabel);
+    term.addEventListener("click", () => entryDetail.show(entry, { invoker: term }));
     const summary = document.createElement("div");
     summary.className = "owner-entry-summary";
     const partOfSpeech = document.createElement("p");
@@ -812,7 +831,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
         // empty Chinese field without claiming that examples or sense
         // alignment are complete. Downgrade it to an explicit review draft;
         // every other provider response must satisfy the full success contract.
-        if (result.provider === "local-dictionary" && hasChineseHanText(aiEntry.meaning)) {
+        if (result.provider === "local-dictionary" && isPlausibleChineseMeaning(aiEntry.meaning, aiEntry.term)) {
           reviewRequired = true;
           warnings.push(`${error.message} 已按未完成的本地词典候选保留，不会标记为 AI 整理成功。`);
         } else {
@@ -824,7 +843,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
       }
     }
     if (reviewRequired) {
-      if (!hasChineseHanText(aiEntry.meaning)) {
+      if (!isPlausibleChineseMeaning(aiEntry.meaning, aiEntry.term)) {
         throw new OwnerApiError("本地词典候选没有返回有效中文释义；当前草稿没有被覆盖。", {
           status: 502,
           code: "ai_response_contract"

@@ -38,7 +38,8 @@ export function mergeAiCandidate(baseline, current, candidate, { fillMissingOnly
     } else if (unchanged || equivalentEmptyBaseline) merged[key] = structuredClone(candidateValue);
     else preservedManualChanges = true;
   }
-  if (fillMissingOnly) merged.organizationMethod = preservedManualChanges ? "mixed" : candidate.organizationMethod;
+  if (preservedManualChanges) merged.organizationMethod = "mixed";
+  else if (fillMissingOnly) merged.organizationMethod = candidate.organizationMethod;
   return { merged, preservedManualChanges };
 }
 

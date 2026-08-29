@@ -136,16 +136,16 @@ describe("wordbook schema", () => {
     expect(PublishRequestSchema.safeParse(missingQueueProtocol).success).toBe(false);
   });
 
-  it("rejects publishing entries without a visible Chinese meaning", () => {
+  it("rejects empty, English-echo, Han-free, and suspicious garbage Chinese meanings", () => {
     const request = (meaning: string) => ({
       clientProtocol: "v38",
       queueProtocol: "v38",
       baseSha: "a".repeat(40),
       mutationId: `meaning-guard-${crypto.randomUUID()}`,
-      mutation: { type: "add", entry: entry({ id: "meaning-guard", meaning }) }
+      mutation: { type: "add", entry: entry({ id: "meaning-guard", term: "meaningguard", entryType: "word", meaning }) }
     });
-    for (const meaning of ["", "   ", "\u200b\u2060", "English only"]) {
-      expect(PublishRequestSchema.safeParse(request(meaning)).success).toBe(false);
+    for (const meaning of ["", "   ", "\u200b\u2060", "meaningguard", "English only", "kamus在线bm ke bi"]) {
+      expect(PublishRequestSchema.safeParse(request(meaning)).success, JSON.stringify(meaning)).toBe(false);
     }
     expect(PublishRequestSchema.safeParse(request("准确的中文释义")).success).toBe(true);
   });

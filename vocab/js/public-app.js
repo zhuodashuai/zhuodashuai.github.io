@@ -1,4 +1,5 @@
 import { getPublicCache, putPublicCache } from "./owner-storage.js";
+import { createEntryDetailController } from "./entry-detail.js";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { formatMeaningForDisplay, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
@@ -11,7 +12,7 @@ const refs = Object.fromEntries([
   "dialog-source-link", "dialog-source-list", "dialog-tags", "install-button", "update-banner", "apply-update"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
-const state = { snapshot: null, filter: "all", query: "", selected: null };
+const state = { snapshot: null, filter: "all", query: "" };
 const FOREGROUND_REFRESH_MS = 30_000;
 const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
@@ -21,6 +22,7 @@ const TYPE_LABELS = {
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
 const adminUrl = ownerAdminUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
+const entryDetail = createEntryDetailController();
 let loadTask = null;
 let lastLoadStartedAt = 0;
 
@@ -50,134 +52,11 @@ function ownerUrlForInput(input) {
   return target.href;
 }
 
-function speak(text) {
-  if (!("speechSynthesis" in window) || !text) return;
-  speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  speechSynthesis.speak(utterance);
-}
-
 function tag(label, className = "") {
   const span = document.createElement("span");
   span.textContent = label;
   if (className) span.className = className;
   return span;
-}
-
-function detailField(label, value, { className = "", lang = "" } = {}) {
-  const row = document.createElement("div");
-  row.className = ["sense-field", className].filter(Boolean).join(" ");
-  const fieldLabel = document.createElement("span");
-  fieldLabel.className = "sense-field-label";
-  fieldLabel.textContent = label;
-  const content = document.createElement("p");
-  content.textContent = value;
-  if (lang) content.lang = lang;
-  row.append(fieldLabel, content);
-  return row;
-}
-
-function renderDetailExtra(entry) {
-  const fragment = document.createDocumentFragment();
-  const senses = Array.isArray(entry.senses) ? entry.senses : [];
-  if (senses.length) {
-    const senseList = document.createElement("div");
-    senseList.className = "detail-sense-list";
-    senses.forEach((sense, senseIndex) => {
-      const article = document.createElement("article");
-      article.className = "detail-sense";
-      const heading = document.createElement("h4");
-      heading.className = "sense-heading";
-      heading.append(tag(`义项 ${senseIndex + 1}`, "sense-number"));
-      if (sense.partOfSpeech) heading.append(tag(sense.partOfSpeech, "sense-part-of-speech"));
-      article.append(heading);
-      if (sense.meaningZh) article.append(detailField("中文释义", sense.meaningZh, { className: "sense-meaning-zh" }));
-      if (sense.definitionEn) article.append(detailField("English definition", sense.definitionEn, { className: "sense-definition-en", lang: "en" }));
-
-      const examples = Array.isArray(sense.examples) ? sense.examples : [];
-      if (examples.length) {
-        const exampleList = document.createElement("div");
-        exampleList.className = "sense-example-list";
-        examples.forEach((example, exampleIndex) => {
-          if (!example.en && !example.zh) return;
-          const pair = document.createElement("div");
-          pair.className = "sense-example-pair";
-          if (example.en) pair.append(detailField(`例句 ${exampleIndex + 1}`, example.en, { className: "sense-example-en", lang: "en" }));
-          if (example.zh) pair.append(detailField("例句翻译", example.zh, { className: "sense-example-zh" }));
-          exampleList.append(pair);
-        });
-        if (exampleList.childElementCount) article.append(exampleList);
-      }
-
-      if (sense.usageNotes) article.append(detailField("Usage", sense.usageNotes, { className: "sense-usage", lang: "en" }));
-      if (sense.register) article.append(detailField("Register", sense.register, { className: "sense-register", lang: "en" }));
-      senseList.append(article);
-    });
-    fragment.append(senseList);
-  }
-
-  const metadata = [
-    ["词形", entry.forms, "detail-forms"],
-    ["同义词", entry.synonyms, "detail-synonyms"],
-    ["易混淆词", entry.confusedWith, "detail-confused"]
-  ].filter(([, values]) => Array.isArray(values) && values.length);
-  if (metadata.length) {
-    const metadataList = document.createElement("div");
-    metadataList.className = "detail-meta-list";
-    metadata.forEach(([label, values, className]) => {
-      metadataList.append(detailField(label, values.join("；"), { className }));
-    });
-    fragment.append(metadataList);
-  }
-
-  refs.dialogExtraSection.hidden = !senses.length && !metadata.length;
-  refs.dialogExtra.replaceChildren(fragment);
-}
-
-function showDetails(entry) {
-  state.selected = entry;
-  setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
-  setText(refs.dialogTerm, entry.term);
-  setText(refs.dialogPhonetic, [entry.phonetic, entry.partOfSpeech].filter(Boolean).join(" · "));
-  setMultilineText(refs.dialogMeaning, formatMeaningForDisplay(entry) || "中文释义尚待完善");
-  refs.dialogDefinitionSection.hidden = !entry.definition;
-  setText(refs.dialogDefinition, entry.definition);
-  refs.dialogExampleSection.hidden = !entry.exampleEn && !entry.exampleZh;
-  setText(refs.dialogExampleEn, entry.exampleEn);
-  setText(refs.dialogExampleZh, entry.exampleZh);
-  const usage = [entry.usage, entry.register ? `Register: ${entry.register}` : "", entry.collocations.length ? `常见搭配：${entry.collocations.join("；")}` : ""].filter(Boolean).join("\n");
-  refs.dialogUsageSection.hidden = !usage;
-  setText(refs.dialogUsage, usage);
-  renderDetailExtra(entry);
-  const quoteLike = ["quote", "proverb"].includes(entry.entryType);
-  refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length;
-  const attributionDetails = [entry.author, entry.sourceTitle, entry.sourceWork, entry.sourceDate].filter(Boolean).join(" · ");
-  setText(refs.dialogSourceStatus, quoteLike
-    ? `${ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus}${attributionDetails ? ` · ${attributionDetails}` : ""}${entry.attributionNote ? `：${entry.attributionNote}` : ""}`
-    : (entry.attributionNote || "词典与整理来源"));
-  refs.dialogSourceLink.hidden = !entry.sourceUrl;
-  if (entry.sourceUrl) {
-    refs.dialogSourceLink.href = entry.sourceUrl;
-    refs.dialogSourceLink.textContent = entry.sourceTitle || new URL(entry.sourceUrl).hostname;
-  } else {
-    refs.dialogSourceLink.removeAttribute("href");
-    refs.dialogSourceLink.textContent = "";
-  }
-  refs.dialogSourceList.replaceChildren(...entry.sources.map((source) => {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = source.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = `${source.title || new URL(source.url).hostname} · ${source.kind}`;
-    item.append(link);
-    return item;
-  }));
-  const tags = [...entry.tags];
-  if (quoteLike) tags.unshift(ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus);
-  refs.dialogTags.replaceChildren(...tags.map((value) => tag(value, quoteLike && value === tags[0] ? `attribution-chip ${entry.attributionStatus}` : "")));
-  refs.entryDialog.showModal();
 }
 
 function render() {
@@ -216,7 +95,7 @@ function render() {
     button.type = "button";
     button.className = "card-open";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
-    button.addEventListener("click", () => showDetails(entry));
+    button.addEventListener("click", () => entryDetail.show(entry, { invoker: button }));
     article.append(kicker, title, phonetic, meaning, synonyms, tags, button);
     return article;
   });
@@ -321,20 +200,6 @@ refs.filterRow.addEventListener("click", (event) => {
 });
 refs.librarySearch.addEventListener("input", () => { state.query = refs.librarySearch.value; render(); });
 refs.retryLoad.addEventListener("click", () => { void loadWordbook({ force: true }); });
-refs.dialogSpeak.addEventListener("click", () => speak(state.selected?.term));
-refs.dialogCopy.addEventListener("click", async () => {
-  if (!state.selected) return;
-  const entry = state.selected;
-  const text = [entry.term, entry.phonetic, entry.partOfSpeech ? `词性：${entry.partOfSpeech}` : "", formatMeaningForDisplay(entry), entry.definition, entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "", entry.exampleEn, entry.exampleZh, entry.usage]
-    .filter(Boolean).join("\n");
-  try {
-    await navigator.clipboard.writeText(text);
-    refs.dialogCopy.textContent = "已复制";
-  } catch {
-    refs.dialogCopy.textContent = "复制失败";
-  }
-  window.setTimeout(() => { refs.dialogCopy.textContent = "复制词条"; }, 1600);
-});
 refs.exportPublic.addEventListener("click", () => {
   if (!state.snapshot) return;
   const blob = new Blob([`${JSON.stringify(state.snapshot, null, 2)}\n`], { type: "application/json" });

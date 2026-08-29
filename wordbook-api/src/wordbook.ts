@@ -1,5 +1,6 @@
 import { ApiError } from "./security";
 import {
+  hasPlausibleChineseMeaning,
   normalizeEnglish,
   PublicEntrySchema,
   PublicSnapshotSchema,
@@ -7,6 +8,154 @@ import {
   type PublicSnapshot,
   type PublishRequest
 } from "./schema";
+import { isPlausibleEnglishText } from "./semantic-quality";
+
+const LEXICAL_ENTRY_TYPES = new Set<PublicEntry["entryType"]>([
+  "word", "phrase", "phrasal-verb", "idiom", "collocation"
+]);
+const SUPPORTED_PARTS_OF_SPEECH = new Set([
+  "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "determiner",
+  "article", "interjection", "auxiliary", "participle", "infinitive", "gerund", "idiom", "phrase", "collocation"
+]);
+
+function compact(value: string): string {
+  return value.normalize("NFKC").replace(/\s+/gu, " ").trim();
+}
+
+export function canonicalPartOfSpeech(value: string): string {
+  const raw = compact(value).toLocaleLowerCase("en-US").replace(/[._]/g, " ");
+  const chinese = new Map<string, string>([
+    ["名词", "noun"], ["动词", "verb"], ["形容词", "adjective"], ["副词", "adverb"],
+    ["代词", "pronoun"], ["介词", "preposition"], ["连词", "conjunction"], ["限定词", "determiner"],
+    ["冠词", "article"], ["感叹词", "interjection"], ["助动词", "auxiliary"], ["短语", "phrase"],
+    ["习语", "idiom"], ["搭配", "collocation"], ["短语动词", "verb"], ["动词短语", "verb"],
+    ["名词短语", "noun"], ["副词短语", "adverb"], ["介词短语", "preposition"],
+    ["及物动词", "verb"], ["不及物动词", "verb"]
+  ]);
+  if (chinese.has(raw)) return chinese.get(raw)!;
+  if (!raw || /[·/、，,&]|\b(?:and|or)\b|[和及]/iu.test(raw)) return "";
+  const standaloneModifiers = new Map<string, string>([
+    ["countable", "noun"], ["uncountable", "noun"], ["plural", "noun"], ["singular", "noun"], ["proper", "noun"],
+    ["transitive", "verb"], ["intransitive", "verb"], ["phrasal", "verb"], ["modal", "auxiliary"],
+    ["prepositional", "preposition"], ["adverbial", "adverb"], ["idiomatic", "idiom"], ["expression", "phrase"]
+  ]);
+  if (standaloneModifiers.has(raw)) return standaloneModifiers.get(raw)!;
+  const aliases: Array<[RegExp, string]> = [
+    [/\b(phrasal\s+verb|verb\s+phrase|verbs?)\b|^v\b/, "verb"],
+    [/\b(nouns?|noun\s+phrase)\b|^n\b/, "noun"],
+    [/\b(adjectives?|adj)\b/, "adjective"],
+    [/\b(adverbs?|adverbial|adv)\b/, "adverb"],
+    [/\b(pronouns?|pron)\b/, "pronoun"],
+    [/\b(prepositions?|prepositional|prep)\b/, "preposition"],
+    [/\b(conjunctions?|conj)\b/, "conjunction"],
+    [/\b(interjections?|interj)\b/, "interjection"],
+    [/\b(determiners?|det)\b/, "determiner"],
+    [/\b(auxiliary|modal)\b/, "auxiliary"],
+    [/\b(idiom|idiomatic)\b/, "idiom"],
+    [/\b(phrase|expression)\b/, "phrase"]
+  ];
+  const canonical = aliases.find(([pattern]) => pattern.test(raw))?.[1] || raw.replace(/\s+/g, " ");
+  return SUPPORTED_PARTS_OF_SPEECH.has(canonical) ? canonical : "";
+}
+
+function unique(values: string[]): string[] {
+  return [...new Set(values.map(compact).filter(Boolean))];
+}
+
+function readMeaningLine(line: string, expectedPartOfSpeech: string, requireLabel: boolean): string {
+  const cleaned = line
+    .replace(/^\s*(?:[①②③④⑤⑥⑦⑧⑨⑩]|\d+[.)、])\s*/u, "")
+    .trim();
+  const labelled = cleaned.match(/^([^:：]{1,80})\s*[:：]\s*(.+)$/u);
+  if (!labelled) {
+    if (requireLabel) {
+      throw new ApiError(400, "lexical_meaning_mismatch", "多个义项必须逐行写明词性，例如 noun：中文释义。");
+    }
+    return cleaned;
+  }
+  if (canonicalPartOfSpeech(labelled[1]) !== expectedPartOfSpeech) {
+    throw new ApiError(400, "lexical_meaning_mismatch", "中文释义的词性与分义项不一致，请重新用 AI 整理后再发布。");
+  }
+  return labelled[2].trim();
+}
+
+/**
+ * New lexical entries must have one authoritative structured representation.
+ * The owner may still edit the top Chinese field, but the edit is reconciled
+ * into senses before the public summary is rebuilt. Old unstructured entries
+ * are grandfathered only when updating that exact legacy record.
+ */
+function prepareLexicalEntry(candidate: PublicEntry, requireStructured: boolean): PublicEntry {
+  if (!hasPlausibleChineseMeaning(candidate.meaning)) {
+    throw new ApiError(400, "invalid_chinese_meaning", "中文释义为空、像英文回声或包含可疑机器翻译垃圾，不能发布。");
+  }
+  if (!LEXICAL_ENTRY_TYPES.has(candidate.entryType) || !requireStructured) return candidate;
+  let prepared = candidate;
+  if (!prepared.senses.length) {
+    const position = canonicalPartOfSpeech(prepared.partOfSpeech);
+    const completeManualSingleSense = prepared.organizationMethod === "manual"
+      && Boolean(position)
+      && isPlausibleEnglishText(prepared.definition)
+      && isPlausibleEnglishText(prepared.exampleEn)
+      && hasPlausibleChineseMeaning(prepared.exampleZh);
+    if (!completeManualSingleSense) {
+      throw new ApiError(400, "incomplete_lexical_entry", "新词汇必须包含结构化义项；若不用 AI，请完整填写单一词性、可信的中英文释义及一组双语例句。");
+    }
+    prepared = {
+      ...prepared,
+      senses: [{
+        partOfSpeech: position,
+        meaningZh: prepared.meaning,
+        definitionEn: prepared.definition,
+        usageNotes: prepared.usage,
+        register: prepared.register || "neutral",
+        collocations: prepared.collocations,
+        examples: [{ en: prepared.exampleEn, zh: prepared.exampleZh }],
+        confusables: prepared.confusedWith
+      }]
+    };
+  }
+
+  const lines = prepared.meaning.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+  if (prepared.senses.length > 1 && lines.length !== prepared.senses.length) {
+    throw new ApiError(400, "lexical_meaning_mismatch", "中文释义与分义项数量不一致；请按一个义项一行后再发布。");
+  }
+  if (prepared.senses.length === 1 && lines.length !== 1) {
+    throw new ApiError(400, "lexical_meaning_mismatch", "单义项词条的中文释义应保持为一行。");
+  }
+  if (prepared.senses.length === 1
+    && /(?:^|[\s；;])(?:[②-⑳]|(?:[2-9]|1\d|20)(?:\.(?!\d)|[、)）]))\s*/u.test(prepared.meaning)) {
+    throw new ApiError(400, "lexical_meaning_mismatch", "当前只有一个完整义项，不能仅靠编号添加缺少英文释义和双语例句的新义项。");
+  }
+
+  const senses = prepared.senses.map((sense, index) => {
+    const position = canonicalPartOfSpeech(sense.partOfSpeech);
+    if (!SUPPORTED_PARTS_OF_SPEECH.has(position)) {
+      throw new ApiError(400, "incomplete_lexical_entry", `第 ${index + 1} 个义项缺少受支持的词性。`);
+    }
+    const meaningZh = readMeaningLine(lines[index], position, prepared.senses.length > 1);
+    if (!hasPlausibleChineseMeaning(meaningZh)) {
+      throw new ApiError(400, "invalid_chinese_meaning", `第 ${index + 1} 个义项的中文释义不可信，不能发布。`);
+    }
+    if (!isPlausibleEnglishText(sense.definitionEn)) {
+      throw new ApiError(400, "incomplete_lexical_entry", `第 ${index + 1} 个义项缺少可靠的英文释义。`);
+    }
+    if (!sense.examples.length || sense.examples.some((example) => (
+      !isPlausibleEnglishText(example.en) || !hasPlausibleChineseMeaning(example.zh)
+    ))) {
+      throw new ApiError(400, "incomplete_lexical_entry", `第 ${index + 1} 个义项必须至少有一组完整、可信的双语例句。`);
+    }
+    return { ...sense, partOfSpeech: position, meaningZh: compact(meaningZh), definitionEn: compact(sense.definitionEn) };
+  });
+  const positions = unique(senses.map((sense) => sense.partOfSpeech));
+  return {
+    ...prepared,
+    senses,
+    partOfSpeech: positions.join(" · "),
+    meaning: senses.map((sense) => `${sense.partOfSpeech}：${sense.meaningZh}`).join("\n"),
+    definition: senses.map((sense) => `${sense.partOfSpeech}: ${sense.definitionEn}`).join("\n")
+  };
+}
 
 function lookupKeys(entry: PublicEntry): string[] {
   const values = [entry.term, entry.normalized, entry.standardForm];
@@ -25,14 +174,15 @@ export function findDuplicate(entries: PublicEntry[], candidate: PublicEntry, ex
   return entries.find((entry) => entry.id !== excludeId && lookupKeys(entry).some((key) => wanted.has(key))) || null;
 }
 
-function prepareEntry(candidate: PublicEntry, existing: PublicEntry | null, now: string): PublicEntry {
+function prepareEntry(candidate: PublicEntry, existing: PublicEntry | null, now: string, requireStructured: boolean): PublicEntry {
+  const lexical = prepareLexicalEntry(candidate, requireStructured);
   const entry = PublicEntrySchema.parse({
-    ...candidate,
-    id: existing?.id || candidate.id,
+    ...lexical,
+    id: existing?.id || lexical.id,
     revision: existing ? existing.revision + 1 : 1,
-    createdAt: existing?.createdAt || candidate.createdAt || now,
+    createdAt: existing?.createdAt || lexical.createdAt || now,
     updatedAt: now,
-    normalized: normalizeEnglish(candidate.term)
+    normalized: normalizeEnglish(lexical.term)
   });
   if (entry.attributionStatus === "candidate"
     && !entry.sourceUrl
@@ -118,7 +268,7 @@ export function applyPublishMutation(
     if (entries.some((candidate) => candidate.id === candidateEntry.id)) {
       throw new ApiError(409, "duplicate_id", "远端已有相同词条编号，请刷新并合并。", { entryId: candidateEntry.id });
     }
-    entry = prepareEntry(candidateEntry, null, now);
+    entry = prepareEntry(candidateEntry, null, now, LEXICAL_ENTRY_TYPES.has(candidateEntry.entryType));
     const duplicate = findDuplicate(entries, entry);
     if (duplicate) {
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 已经存在，请合并信息而不是重复添加。`, { duplicate });
@@ -133,7 +283,11 @@ export function applyPublishMutation(
     if (existing.updatedAt !== mutation.expectedUpdatedAt) {
       throw new ApiError(409, "entry_changed", "这条词已在远端更新，草稿没有覆盖它。", { remote: existing });
     }
-    entry = prepareEntry(candidateEntry, existing, now);
+    const requireStructured = LEXICAL_ENTRY_TYPES.has(candidateEntry.entryType)
+      && (existing.senses.length > 0
+        || candidateEntry.senses.length > 0
+        || ["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"].includes(candidateEntry.organizationMethod));
+    entry = prepareEntry(candidateEntry, existing, now, requireStructured);
     const duplicate = findDuplicate(entries, entry, existing.id);
     if (duplicate) {
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 与已有词条冲突，请合并信息。`, { duplicate });
