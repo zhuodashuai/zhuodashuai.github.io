@@ -316,6 +316,23 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(run).toHaveBeenCalledTimes(2);
   });
 
+  it("uses GPT-OSS-120B as a schema-validated final rescue after both regular free models fail", async () => {
+    const run = vi.fn()
+      .mockResolvedValueOnce({ response: "not-json" })
+      .mockResolvedValueOnce({ response: "still-not-json" })
+      .mockResolvedValueOnce({ response: organized() });
+    const result = await organizeEntry("hip", cloudflareConfig(run));
+    expect(result.entry.meaning).toContain("髋部");
+    expect(run.mock.calls.map(([model]) => model)).toEqual([
+      "@cf/zai-org/glm-4.7-flash",
+      "@cf/google/gemma-4-26b-a4b-it",
+      "@cf/openai/gpt-oss-120b"
+    ]);
+    expect(run.mock.calls[2]?.[1]).toMatchObject({ max_tokens: 1800 });
+    expect(run.mock.calls[2]?.[1]).not.toHaveProperty("max_completion_tokens");
+    expect(result.warnings.join(" ")).toContain("GPT-OSS-120B");
+  });
+
   it("switches to the second free model when the primary model is out of capacity", async () => {
     const run = vi.fn()
       .mockRejectedValueOnce(new Error("HTTP 429 (3040) out of capacity"))
@@ -416,7 +433,7 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(result.entry.tags).toContain("待复核");
   });
 
-  it("uses the exact dictionary fallback after both free models are out of capacity", async () => {
+  it("uses the exact dictionary fallback after all free models are out of capacity", async () => {
     const run = vi.fn(async (_model: string) => { throw new Error("HTTP 429 (3040) out of capacity"); });
     const result = await organizeEntry("hip", cloudflareConfig(run));
     expect(result.provider).toBe("local-dictionary");
@@ -426,18 +443,19 @@ describe("Cloudflare free-first AI organizer", () => {
     expect(result.entry.synonyms).toEqual([]);
     expect(run.mock.calls.map(([model]) => model)).toEqual([
       "@cf/zai-org/glm-4.7-flash",
-      "@cf/google/gemma-4-26b-a4b-it"
+      "@cf/google/gemma-4-26b-a4b-it",
+      "@cf/openai/gpt-oss-120b"
     ]);
   });
 
-  it("uses the exact dictionary fallback after both model responses are invalid", async () => {
+  it("uses the exact dictionary fallback after all model responses are invalid", async () => {
     const run = vi.fn(async () => ({ response: "not-json" }));
     const result = await organizeEntry("hip", cloudflareConfig(run));
     expect(result.provider).toBe("local-dictionary");
     expect(result.entry.senses).toHaveLength(2);
     expect(result.entry.exampleEn).toBe("");
     expect(result.entry.exampleZh).toBe("");
-    expect(run).toHaveBeenCalledTimes(2);
+    expect(run).toHaveBeenCalledTimes(3);
   });
 
   it("uses an exact ECDICT row even when the AI binding itself is unavailable", async () => {
@@ -515,7 +533,7 @@ describe("Cloudflare free-first AI organizer", () => {
       status: 503,
       code: "ai_unreachable"
     });
-    expect(run).toHaveBeenCalledTimes(2);
+    expect(run).toHaveBeenCalledTimes(3);
   });
 
   it("only permits a paid fallback when the owner explicitly enables it", async () => {

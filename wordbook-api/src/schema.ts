@@ -594,14 +594,16 @@ export function makeEntryFromAi(
 ): PublicEntry {
   const now = new Date().toISOString();
   const inputWordCount = countEnglishTokens(input);
-  const preservesMultiwordExpression = (value: string): boolean => inputWordCount < 2 || countEnglishTokens(value) >= 2;
-  const rawSuggested = organized.suggestedTerm.trim();
-  const suggested = preservesMultiwordExpression(rawSuggested) ? rawSuggested : input;
-  const rawStandardForm = organized.standardForm.trim() || suggested || input;
-  const standardForm = preservesMultiwordExpression(rawStandardForm) ? rawStandardForm : input;
-  const hasSuggestion = normalizeEnglish(input) !== normalizeEnglish(suggested);
   const entryType = inputWordCount > 1 && organized.entryType === "word" ? classifyInput(input) : organized.entryType;
   const quoteLike = ["quote", "proverb"].includes(entryType);
+  const preservesMultiwordExpression = (value: string): boolean => inputWordCount < 2 || countEnglishTokens(value) >= 2;
+  const rawSuggested = organized.suggestedTerm.trim();
+  // A model must not silently rewrite the wording or punctuation of a quote.
+  // Exact evidence lookup, rather than model memory, is the correction gate.
+  const suggested = quoteLike ? input : preservesMultiwordExpression(rawSuggested) ? rawSuggested : input;
+  const rawStandardForm = organized.standardForm.trim() || suggested || input;
+  const standardForm = quoteLike ? input : preservesMultiwordExpression(rawStandardForm) ? rawStandardForm : input;
+  const hasSuggestion = normalizeEnglish(input) !== normalizeEnglish(suggested);
   const hasEvidence = quoteLike && sources.length > 0;
   return PublicEntrySchema.parse({
     id: `public-${crypto.randomUUID()}`,

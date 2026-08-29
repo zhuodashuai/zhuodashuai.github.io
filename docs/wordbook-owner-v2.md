@@ -72,9 +72,9 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 - GitHub App client secret 和随机 session secret 已通过 Wrangler 隐藏输入保存为 Worker secret，没有写入浏览器、仓库或文档。
 - 已在正式 Worker 完成真实 GitHub OAuth：页面显示 `@zhuodashuai`、固定 user ID `156042078`、已连接的目标仓库与当前 4 条公开词条；浏览器未收到 GitHub token。
 - `vocab/js/runtime-config.js` 已指向上述 Worker origin，公开站的“所有者登录”会进入同源安全管理端。
-- 默认 AI 已改为 Cloudflare Workers AI 的账户额度，无需 OpenAI 或 Claude API key。首轮固定使用 `@cf/zai-org/glm-4.7-flash`；未通过结构或语义闸门时，唯一一次重试改用 `@cf/google/gemma-4-26b-a4b-it`。两款都在 Cloudflare 当前列出的 Workers Free 可用范围内；生产配置没有付费 fallback，并由 Durable Object 对全部登录会话合计限制为每 UTC 日最多 20 次整理，额度或容量暂时不可用时只保留本地草稿。
+- 默认 AI 已改为 Cloudflare Workers AI 的账户额度，无需 OpenAI 或 Claude API key。首轮固定使用 `@cf/zai-org/glm-4.7-flash`，未通过结构或语义闸门时改用 `@cf/google/gemma-4-26b-a4b-it`；若两者都失败，才以使用 `max_tokens` 适配后的 `@cf/openai/gpt-oss-120b` 作最后一次强推理兜底。三款都可消耗 Cloudflare 当前的 Workers Free allocation；生产配置没有付费 provider fallback，并由 Durable Object 对全部登录会话合计限制为每 UTC 日最多 20 次整理，额度或容量暂时不可用时只保留本地草稿。
 - Cloudflare 当前文档给 Free 与 Paid 账户每天各 10,000 Neurons 的免费 allocation，并在 00:00 UTC 重置；Free 超额后请求失败，Paid 超过 allocation 后可能按量计费。本站 20 次上限不能感知同账户其他 Worker 的用量，所以严格零超额费用还要求账户保持 Workers Free 或设置账户侧预算控制。该政策可能变化，页面不承诺永久免费或无限次数。
-- Cloudflare 路径先从随站点部署的 ECDICT 快照提取完整词条证据，再由模型做结构化整理；没有本地词典证据的结果会明确降级为需要重点复核的候选。Cloudflare 默认路径不具有网页出处证据，名言作者与出处保持空白。
+- Cloudflare 路径先从随站点部署的 ECDICT 快照提取词汇证据，再由模型做结构化整理；没有本地词典证据的释义会明确降级为需要重点复核的候选。对于疑似名言或谚语，Worker 另行使用不需要 API key 的 Wikimedia 接口检索出处：Wikiquote 单独命中只能成为 `candidate`；只有逐词命中、Wikidata 作品—作者关系和同作品 Wikisource 原文/扫描页三者一致时才自动成为 `verified`。模型记忆本身永远不能填入作者或作品。
 - 生产发布已通过真实 GitHub 写入验证；所有后续 AI 结果仍先保存在本地草稿，只有卓明确点击发布才写入公开词库。
 
 ## 一次性生产配置（重建或迁移时使用）
@@ -112,7 +112,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 
 - GitHub JSON 是公开内容的权威源；管理端发现 SHA 冲突时应先刷新并逐字段处理，不能覆盖。
 - AI 不可用时继续使用手动草稿；引用找不到权威出处时保存为 `unverified`，作者/作品/年份保持空白。
-- 所有 AI 都只能生成候选；无论由哪个 provider 返回，都必须通过同一份 Zod schema、分义项完整性、IPA 形态、双语例句和重复义项检查。Cloudflare 默认结果使用本地词典证据但没有实时网页引用，因此不会自动把名言出处升级为已核验。
+- 所有 AI 生成的释义、例句与模型自报出处都只能视为候选；无论由哪个 provider 返回，都必须通过同一份 Zod schema、分义项完整性、IPA 形态、双语例句和重复义项检查。名言出处的状态由独立证据链决定：Wikiquote/Wikidata 只能给候选，Wikisource 原文与作品作者元数据同时吻合才可自动升级；免费检索失败时作者、作品和链接保持空白。
 - 同义词是卓本人词库内部的词条关系，不是模型扩写列表。AI 只在 owner 输入白名单中判断 lexical entry 的同义关系，并排除自身、词形和易混词；空白名单必须返回空数组。多义词的顶层同义词仍需卓按具体义项人工核对。
 - Workers Free 当前有每日账户免费额度；本站另有每 UTC 日 20 次整理硬上限。达到本站上限、Cloudflare 额度或容量限制后请求会失败。系统不显示伪造的“剩余额度”，也不把该政策宣传为永久无限免费；以 Cloudflare 实际账户和官方政策为准。
 - 公开只读页发现 PWA 新版本后自动切换；Owner 管理端仍只在卓点击“立即更新”并完成两次草稿落盘后切换，首次安装不会打断输入。

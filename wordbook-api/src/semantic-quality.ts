@@ -168,6 +168,21 @@ export function validateAndHarmonizeAiOutput(input: string, value: AiOrganized):
     }
   });
 
+  // Some structured-output models populate the aligned sense object but leave
+  // the redundant aggregate fields blank.  Derive those summaries only when
+  // every contributing sense already passes the same script checks; this keeps
+  // the quality gate strict while avoiding a needless provider retry.
+  if (!LEXICAL_TYPES.has(organized.entryType) && organized.senses.length) {
+    const senseMeanings = organized.senses.map((sense) => compact(sense.meaningZh));
+    const senseDefinitions = organized.senses.map((sense) => compact(sense.definitionEn));
+    if (!isPlausibleChineseText(organized.meaning) && senseMeanings.every(isPlausibleChineseText)) {
+      organized.meaning = senseMeanings.join("；");
+    }
+    if (!isPlausibleEnglishText(organized.definition) && senseDefinitions.every(isPlausibleEnglishText)) {
+      organized.definition = senseDefinitions.join(" ");
+    }
+  }
+
   if (LEXICAL_TYPES.has(organized.entryType)) {
     if (!organized.senses.length) issues.push("lexical entry has no structured senses");
     const senseKeys = new Set<string>();

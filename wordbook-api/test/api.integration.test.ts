@@ -96,6 +96,15 @@ beforeEach(async () => {
 });
 
 describe("worker API integration", () => {
+  it("redirects every HTTP request to the same HTTPS URL before routing", async () => {
+    const response = await worker.fetch(new Request("http://admin.example/owner?release=test", {
+      redirect: "manual"
+    }), testEnv);
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe("https://admin.example/owner?release=test");
+    expect(response.headers.get("cache-control")).toBe("no-store");
+  });
+
   it("serves health and hardened static owner assets", async () => {
     const health = await api("/api/v1/health");
     expect(health.status).toBe(200);

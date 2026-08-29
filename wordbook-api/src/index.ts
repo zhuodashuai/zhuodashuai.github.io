@@ -88,7 +88,26 @@ async function rateByIp(request: Request, env: Env, kind: "auth" | "callback"): 
 }
 
 function callbackUrl(request: Request): string {
-  return new URL(`${API_PREFIX}/auth/callback`, request.url).href;
+  const callback = new URL(`${API_PREFIX}/auth/callback`, request.url);
+  // OAuth cookies are deliberately Secure.  Keep the registered callback on
+  // HTTPS even if an upstream proxy ever supplies an HTTP request URL.
+  callback.protocol = "https:";
+  return callback.href;
+}
+
+function redirectToHttps(request: Request): Response | null {
+  const target = new URL(request.url);
+  if (target.protocol !== "http:") return null;
+  target.protocol = "https:";
+  return new Response(null, {
+    status: 308,
+    headers: {
+      Location: target.href,
+      "Cache-Control": "no-store",
+      "Referrer-Policy": "no-referrer",
+      "X-Content-Type-Options": "nosniff"
+    }
+  });
 }
 
 async function login(request: Request, env: Env): Promise<Response> {
@@ -370,6 +389,8 @@ function secureHeaders(response: Response, request: Request): Response {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const httpsRedirect = redirectToHttps(request);
+    if (httpsRedirect) return httpsRedirect;
     const path = new URL(request.url).pathname;
     try {
       if (path.startsWith("/api/")) return secureHeaders(await routeApi(request, env), request);

@@ -11,8 +11,10 @@ interface __BaseEnv_Env {
 	GITHUB_BRANCH: "main";
 	GITHUB_WORDBOOK_PATH: "vocab/data/owner-wordbook.json";
 	AI_PROVIDER: "cloudflare";
+	ENABLE_FREE_ATTRIBUTION_LOOKUP: "true";
 	CLOUDFLARE_AI_MODEL: "@cf/zai-org/glm-4.7-flash";
 	CLOUDFLARE_AI_RETRY_MODEL: "@cf/google/gemma-4-26b-a4b-it";
+	CLOUDFLARE_RESCUE_MODEL: "@cf/openai/gpt-oss-120b";
 	OWNER_CONTROL: DurableObjectNamespace<import("./src/index").OwnerControl>;
 }
 declare namespace Cloudflare {
@@ -27,5 +29,5 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "PUBLIC_SITE_URL" | "GITHUB_OWNER" | "GITHUB_OWNER_ID" | "GITHUB_REPOSITORY" | "GITHUB_REPOSITORY_ID" | "GITHUB_BRANCH" | "GITHUB_WORDBOOK_PATH" | "AI_PROVIDER" | "CLOUDFLARE_AI_MODEL" | "CLOUDFLARE_AI_RETRY_MODEL">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "PUBLIC_SITE_URL" | "GITHUB_OWNER" | "GITHUB_OWNER_ID" | "GITHUB_REPOSITORY" | "GITHUB_REPOSITORY_ID" | "GITHUB_BRANCH" | "GITHUB_WORDBOOK_PATH" | "AI_PROVIDER" | "ENABLE_FREE_ATTRIBUTION_LOOKUP" | "CLOUDFLARE_AI_MODEL" | "CLOUDFLARE_AI_RETRY_MODEL" | "CLOUDFLARE_RESCUE_MODEL">> {}
 }

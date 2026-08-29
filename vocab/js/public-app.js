@@ -1,7 +1,7 @@
 import { getPublicCache, putPublicCache } from "./owner-storage.js";
 import { createEntryDetailController } from "./entry-detail.js";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
-import { formatMeaningForDisplay, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js";
+import { formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 
 const refs = Object.fromEntries([
@@ -40,11 +40,6 @@ function setMultilineText(element, value) {
   });
 }
 
-function normalizedSearch(entry) {
-  return [entry.term, entry.standardForm, entry.meaning, entry.definition, entry.author, entry.sourceTitle, ...entry.tags, ...entry.collocations, ...entry.synonyms]
-    .join(" ").toLocaleLowerCase("zh-CN");
-}
-
 function ownerUrlForInput(input) {
   const target = new URL(adminUrl || "owner.html", window.location.href);
   const safeInput = String(input || "").replace(/\s+/g, " ").trim().slice(0, 240);
@@ -61,9 +56,9 @@ function tag(label, className = "") {
 
 function render() {
   const entries = state.snapshot?.entries || [];
-  const query = state.query.trim().toLocaleLowerCase("zh-CN");
+  const query = normalizePublicSearchQuery(state.query);
   const queryMatches = rankExactEntryMatches(
-    entries.filter((entry) => !query || normalizedSearch(entry).includes(query)),
+    entries.filter((entry) => publicEntryMatchesQuery(entry, query)),
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);

@@ -73,6 +73,31 @@ export function normalizeEnglish(value) {
   return canonicalizeLookupInput(value).toLocaleLowerCase("en-US");
 }
 
+export function normalizePublicSearchQuery(value) {
+  return normalizeTypography(value)
+    .toLocaleLowerCase("zh-CN")
+    .replace(/^[\p{P}\p{Z}]+/gu, "")
+    .replace(/[\p{P}\p{Z}]+$/gu, "")
+    .trim();
+}
+
+export function publicEntryMatchesQuery(entry, query) {
+  const wanted = normalizePublicSearchQuery(query);
+  if (!wanted) return true;
+  const searchable = [
+    entry?.term,
+    entry?.standardForm,
+    entry?.meaning,
+    entry?.definition,
+    entry?.author,
+    entry?.sourceTitle,
+    ...(Array.isArray(entry?.tags) ? entry.tags : []),
+    ...(Array.isArray(entry?.collocations) ? entry.collocations : []),
+    ...(Array.isArray(entry?.synonyms) ? entry.synonyms : [])
+  ].filter(Boolean).join(" ");
+  return normalizeTypography(searchable).toLocaleLowerCase("zh-CN").includes(wanted);
+}
+
 const CIRCLED_NUMBER_START = 0x2460;
 const SUPPORTED_PARTS_OF_SPEECH = new Set([
   "noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "determiner",

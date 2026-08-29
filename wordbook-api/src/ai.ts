@@ -1,4 +1,5 @@
 import { aiProviderConfigured, aiProviderOrder, type AiProvider, type AppConfig } from "./config";
+import { applyFreeAttribution, lookupFreeAttribution, mayNeedFreeAttributionLookup } from "./attribution";
 import {
   AI_JSON_SCHEMA,
   AiOrganizedSchema,
@@ -60,6 +61,7 @@ type EcdictRow = [
 const EMPTY_EVIDENCE: LexicalEvidence = { text: "", sources: [], exact: false, candidateKeys: [] };
 const DEFAULT_CLOUDFLARE_MODEL = "@cf/zai-org/glm-4.7-flash";
 const DEFAULT_CLOUDFLARE_RETRY_MODEL = "@cf/google/gemma-4-26b-a4b-it";
+const DEFAULT_CLOUDFLARE_RESCUE_MODEL = "@cf/openai/gpt-oss-120b";
 const ECDICT_SOURCE_URL = "https://github.com/skywind3000/ECDICT";
 const SEMANTIC_QA_SOURCE_URL = "https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/vocab/quality/datasets/semantic-qa.json";
 const VOCAB_GOLD_SOURCE_URL = "https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/vocab/quality/datasets/vocab-100.json";
@@ -787,24 +789,31 @@ async function cloudflareAttempt(
   let payload: unknown;
   const model = attempt === 0
     ? config.CLOUDFLARE_AI_MODEL || DEFAULT_CLOUDFLARE_MODEL
-    : config.CLOUDFLARE_AI_RETRY_MODEL || DEFAULT_CLOUDFLARE_RETRY_MODEL;
+    : attempt === 1
+      ? config.CLOUDFLARE_AI_RETRY_MODEL || DEFAULT_CLOUDFLARE_RETRY_MODEL
+      : config.CLOUDFLARE_RESCUE_MODEL || DEFAULT_CLOUDFLARE_RESCUE_MODEL;
   try {
     const binding = config.AI as unknown as {
       run(model: string, input: Record<string, unknown>): Promise<unknown>;
     };
+    const gptOss = model === DEFAULT_CLOUDFLARE_RESCUE_MODEL;
     payload = await binding.run(model, {
       messages: [
         { role: "system", content: cloudflareSystemPrompt(evidence) },
         { role: "user", content: userPrompt(input, attempt, retryFeedback, allowedSynonyms) }
       ],
       response_format: { type: "json_schema", json_schema: AI_JSON_SCHEMA },
-      max_completion_tokens: 1800,
+      // GPT-OSS uses max_tokens and otherwise defaults to only 256 tokens,
+      // which is too short for a complete structured wordbook entry.
+      ...(gptOss ? { max_tokens: 1800 } : { max_completion_tokens: 1800 }),
       temperature: 0,
       top_p: 0.9,
-      reasoning_effort: "low",
       seed: 20260828,
       stream: false,
-      chat_template_kwargs: { enable_thinking: false }
+      ...(!gptOss ? {
+        reasoning_effort: "low",
+        chat_template_kwargs: { enable_thinking: false }
+      } : {})
     });
   } catch (error) {
     if (error instanceof SyntaxError) throw error;
@@ -819,9 +828,11 @@ async function cloudflareAttempt(
     ? ["本次由 Cloudflare Workers AI（账户额度）按本地词典与校订证据整理；例句为 AI 候选，且未进行实时网页核验，请由卓复核后发布。"]
     : evidence.sources.length
       ? ["本次由 Cloudflare Workers AI（账户额度）参考本地拼写候选整理；拼写与释义都必须由卓确认后发布。"]
-      : ["本地词典没有找到完整证据；本次 Cloudflare Workers AI（账户额度）结果仅供候选，未联网核验，请重点复核或手动修改。"];
-  if (attempt > 0) {
+      : ["本地词典没有找到完整释义证据；本次 Cloudflare Workers AI（账户额度）生成的释义与例句仅供候选，请重点复核或手动修改。"];
+  if (attempt === 1) {
     warnings.push("第一款免费模型的结果未通过质量检查；本次已自动改用第二款 Cloudflare 免费方案可用模型重新整理。");
+  } else if (attempt === 2) {
+    warnings.push("前两款免费模型的结果均未通过质量检查；本次已使用 Cloudflare 免费额度内的 GPT-OSS-120B 强推理模型作最后兜底。");
   }
   return {
     organized,
@@ -985,6 +996,14 @@ function providerAttempt(
 export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAllowedSynonyms: unknown = undefined): Promise<OrganizationResult> {
   const input = validateEnglishInput(rawInput);
   const allowedSynonyms = validateAllowedSynonyms(rawAllowedSynonyms);
+  // Start the free evidence lookup in parallel with local evidence and the AI
+  // call. A handled outcome keeps Wikimedia downtime from breaking organizer
+  // runs or causing an unhandled rejection while a provider retries.
+  const attributionLookup = config.ENABLE_FREE_ATTRIBUTION_LOOKUP === "true" && mayNeedFreeAttributionLookup(input)
+    ? lookupFreeAttribution(input)
+      .then((value) => ({ value, error: null as unknown }))
+      .catch((error: unknown) => ({ value: null, error }))
+    : Promise.resolve({ value: null, error: null as unknown });
   const evidence = await collectLexicalEvidence(input, config);
   const configuredProviders = aiProviderOrder(config).filter((provider) => aiProviderConfigured(provider, config));
   if (!configuredProviders.length) {
@@ -997,13 +1016,23 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
   for (const provider of configuredProviders) {
     let providerError: unknown;
     let retryFeedback = "";
-    for (let attempt = 0; attempt < 2; attempt += 1) {
+    const attemptLimit = provider === "cloudflare" ? 3 : 2;
+    for (let attempt = 0; attempt < attemptLimit; attempt += 1) {
       try {
         const result = await providerAttempt(provider, input, config, attempt, evidence, retryFeedback, allowedSynonyms);
         result.organized = restrictSynonymsToOwnerTerms(result.organized, allowedSynonyms);
         const confidence = estimateCorrectionConfidence(input, result.organized.suggestedTerm);
-        const baseEntry = makeEntryFromAi(input, result.organized, provider, result.sources, confidence);
+        let baseEntry = makeEntryFromAi(input, result.organized, provider, result.sources, confidence);
         const warnings: string[] = [...result.warnings];
+        const attribution = await attributionLookup;
+        if (attribution.value) {
+          baseEntry = applyFreeAttribution(baseEntry, attribution.value);
+          warnings.push(attribution.value.status === "verified"
+            ? "免费出处检索已用 Wikisource 原文、Wikiquote 命中和 Wikidata 作者元数据交叉核验；链接可直接打开复查。"
+            : "免费出处检索只找到 Wikiquote/Wikidata 候选，未达到 verified 的原文交叉核验门槛。");
+        } else if (attribution.error) {
+          warnings.push("免费 Wikimedia 出处检索暂时不可用；AI 不会凭记忆填入作者或作品。请稍后重试或手动核对。");
+        }
         const curatedPhonetic = provider === "cloudflare" ? curatedPhoneticValue(evidence, baseEntry.phonetic) : "";
         // Re-parse the complete object instead of mutating a previously parsed
         // entry.  The serialized API response must contain the exact IPA whenever
@@ -1023,7 +1052,7 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
         if (provider === "openai" || provider === "anthropic") {
           warnings.push(`本次使用 ${providerLabel(provider)}，可能产生 API 费用。`);
         }
-        if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus !== "candidate") {
+        if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "unverified") {
           warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");
         }
         if (entry.correction.status === "suggested") warnings.push("拼写只作为建议，发布前请选择采用、保留原文或手动修改。");

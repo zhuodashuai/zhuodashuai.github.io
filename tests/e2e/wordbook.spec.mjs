@@ -64,12 +64,12 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
     {
       term: "surveillance",
       partOfSpeech: "noun",
-      meaning: "① noun: 监视, 监督\n② noun: [电] 侦测"
+      meaning: "noun(不可数): 监视；监控；密切观察"
     },
     {
       term: "perspicacious",
       partOfSpeech: "adjective",
-      meaning: "adjective: 敏锐的;有洞察力的;目光锐利的"
+      meaning: "adjective: 有敏锐判断力的；有洞察力的"
     }
   ];
 
@@ -174,11 +174,11 @@ test("公开词条详情按义项分块，各字段、双语例句与词形独�
   await expect(adjective.locator(".sense-example-pair")).toHaveCount(2);
   await expect(adjective.locator(".sense-example-en > p")).toHaveText([
     "The club is very hip and attracts young people.",
-    "He is hip to the latest technology trends."
+    "She is hip to the latest developments in the field."
   ]);
   await expect(adjective.locator(".sense-example-zh > p")).toHaveText([
     "这家俱乐部非常时髦,吸引了很多年轻人。",
-    "他了解最新的技术潮流。"
+    "她了解该领域的最新发展。"
   ]);
   await expect(adjective.locator(".sense-usage > p")).toContainText("This sense is informal");
   await expect(adjective.locator(".sense-register > p")).toHaveText("informal");

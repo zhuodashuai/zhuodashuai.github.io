@@ -13,7 +13,9 @@ import {
   hasChineseHanText,
   isPlausibleChineseMeaning,
   needsAiCompletion,
+  normalizePublicSearchQuery,
   parsePublicSnapshot,
+  publicEntryMatchesQuery,
   rankExactEntryMatches,
   reconcileLexicalEntryForPublish,
   safeHttpsUrl,
@@ -57,13 +59,13 @@ test("numbered meanings preserve each sense part of speech without changing stor
   assert.equal(
     formatMeaningForDisplay({
       partOfSpeech: "noun",
-      meaning: "noun：监视, 监督\nnoun：[电] 侦测",
+      meaning: "noun：银行\nnoun：河岸",
       senses: [
-        { partOfSpeech: "noun", meaningZh: "监视, 监督" },
-        { partOfSpeech: "noun", meaningZh: "[电] 侦测" }
+        { partOfSpeech: "noun", meaningZh: "银行" },
+        { partOfSpeech: "noun", meaningZh: "河岸" }
       ]
     }),
-    "① noun: 监视, 监督\n② noun: [电] 侦测"
+    "① noun: 银行\n② noun: 河岸"
   );
   assert.equal(
     formatMeaningForDisplay({
@@ -76,10 +78,10 @@ test("numbered meanings preserve each sense part of speech without changing stor
   assert.equal(
     formatMeaningForDisplay({
       partOfSpeech: "adjective",
-      meaning: "adjective：敏锐的;有洞察力的;目光锐利的",
-      senses: [{ partOfSpeech: "adjective", meaningZh: "敏锐的；有洞察力的；目光锐利的" }]
+      meaning: "adjective：有敏锐判断力的;有洞察力的",
+      senses: [{ partOfSpeech: "adjective", meaningZh: "有敏锐判断力的；有洞察力的" }]
     }),
-    "adjective: 敏锐的;有洞察力的;目光锐利的"
+    "adjective: 有敏锐判断力的;有洞察力的"
   );
 });
 
@@ -101,7 +103,7 @@ test("owner numbering styles are normalized while ordinary punctuation is never 
     "① 第一义\n② 第二义"
   );
   assert.equal(formatMeaningForDisplay({ meaning: "1. 仅有一个标记", senses: [] }), "1. 仅有一个标记");
-  assert.equal(formatMeaningForDisplay({ meaning: "监视；监督；侦测", senses: [] }), "监视；监督；侦测");
+  assert.equal(formatMeaningForDisplay({ meaning: "监视；监督；监控", senses: [] }), "监视；监督；监控");
   assert.equal(formatMeaningForDisplay({ meaning: "1.5 倍的增长", senses: [] }), "1.5 倍的增长");
   assert.equal(formatMeaningForDisplay({ meaning: "1. 第一义\n3. 第三义", senses: [] }), "1. 第一义\n3. 第三义");
 });
@@ -175,6 +177,31 @@ test("an independently published synonym ranks before entries that only mention 
     rankExactEntryMatches([alleviate, mitigate, ease], "unknown").map((candidate) => candidate.term),
     ["alleviate", "mitigate", "ease"]
   );
+});
+
+test("public search normalizes punctuation, quotes, full-width letters and repeated spaces", () => {
+  const hip = entry("hip", { id: "hip", meaning: "髋部；臀部；时髦的", tags: ["身体"] });
+  const jabAt = entry("jab at", { id: "jab-at", entryType: "phrase", meaning: "猛戳；抨击" });
+  const entries = [hip, jabAt];
+  const expected = new Map([
+    ["hip,", ["hip"]],
+    ['"hip"', ["hip"]],
+    ["ＨＩＰ", ["hip"]],
+    ["jab   at", ["jab at"]]
+  ]);
+
+  for (const [query, terms] of expected) {
+    const normalized = normalizePublicSearchQuery(query);
+    const matches = rankExactEntryMatches(
+      entries.filter((candidate) => publicEntryMatchesQuery(candidate, normalized)),
+      normalized
+    );
+    assert.deepEqual(matches.map((candidate) => candidate.term), terms, query);
+  }
+
+  assert.equal(publicEntryMatchesQuery(hip, "髋部"), true);
+  assert.equal(publicEntryMatchesQuery(hip, "身体"), true);
+  assert.equal(publicEntryMatchesQuery(jabAt, "髋部"), false);
 });
 
 test("browser synonym validation mirrors publish boundaries", () => {
