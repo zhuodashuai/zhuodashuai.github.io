@@ -244,7 +244,10 @@ async function publicSnapshot(request: Request, env: Env): Promise<Response> {
     || Date.parse(deployed.exportedAt) > Date.parse(ownerConfirmed.exportedAt)));
   const snapshot = useDeployed ? deployed! : ownerConfirmed!;
   const source = useDeployed ? "deployed-newer" : "owner-confirmed";
-  const etag = `"${snapshot.revisionId}"`;
+  // Cloudflare may weaken dynamic-response ETags while applying transfer
+  // encoding. Emit the same weak validator ourselves so browser revalidation
+  // round-trips byte-for-byte through the edge.
+  const etag = `W/"${snapshot.revisionId}"`;
   const responseHeaders = {
     ...headers,
     ETag: etag,

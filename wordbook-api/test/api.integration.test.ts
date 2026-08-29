@@ -509,7 +509,7 @@ describe("worker API integration", () => {
     expect(response.headers.get("x-wordbook-source")).toBe("deployed-newer");
     expect(await response.json()).toMatchObject({ revisionId: deployed.revisionId });
 
-    const etag = `"${deployed.revisionId}"`;
+    const etag = `W/"${deployed.revisionId}"`;
     const notModified = await api("/api/v1/public/wordbook", { headers: { "If-None-Match": etag } });
     expect(notModified.status).toBe(304);
     expect(notModified.headers.get("etag")).toBe(etag);
