@@ -122,7 +122,7 @@ export function createEntryDetailController({ root = document } = {}) {
     id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()),
     root.getElementById(id)
   ]));
-  if (!refs.entryDialog) throw new Error("词条详情卡片没有正确安装。");
+  if (!refs.entryDialog) throw new Error("暂时无法打开词条详情，请刷新页面重试。");
   let selected = null;
   let returnFocus = null;
   let copyResetTimer = null;

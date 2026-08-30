@@ -51,8 +51,15 @@ main { width: min(1480px, calc(100% - 40px)); margin: 0 auto; }
 .eyebrow { margin: 0 0 .75rem; color: var(--green-2); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 h1, h2, h3, p { overflow-wrap: anywhere; }
 h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 500; line-height: 1.13; }
-.public-hero h1 { max-width: 900px; font-size: clamp(3.2rem, 7.2vw, 7.8rem); letter-spacing: -.055em; }
-.public-hero h1 em { color: var(--green-2); font-weight: 400; }
+/* -.055em is a Latin display-type value; full-width Chinese glyphs collide at
+   it. -.04em keeps the headline on the same number of lines at every breakpoint
+   while leaving the characters clear of each other. Latin runs keep the tighter
+   original value. */
+.public-hero h1 { max-width: 900px; font-size: clamp(3.2rem, 7.2vw, 7.8rem); letter-spacing: -.04em; }
+.public-hero h1:lang(en), .public-hero h1 [lang="en"] { letter-spacing: -.055em; }
+/* Chinese type has no true italic; browsers synthesise a mechanical slant.
+   The colour shift already carries the emphasis. */
+.public-hero h1 em { color: var(--green-2); font-weight: 400; font-style: normal; }
 .lede { max-width: 720px; margin: 2rem 0 0; color: #44534c; font-size: clamp(1rem, 1.3vw, 1.18rem); }
 .principles-card { padding: 2rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,253,248,.78); box-shadow: var(--shadow); }
 .principles-card > p { margin: 0 0 1rem; font-weight: 800; }
@@ -66,11 +73,16 @@ h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 5
 .data-status { margin: .7rem 0 0; color: var(--muted); }
 .count-block { display: grid; min-width: 110px; text-align: right; }
 .count-block strong { font: 500 clamp(2.8rem, 5vw, 5.5rem)/.9 Georgia, serif; }
-.count-block span { color: var(--muted); font-size: .74rem; letter-spacing: .15em; }
+.count-block span { color: var(--muted); font-size: .74rem; letter-spacing: .04em; }
 .count-block.compact { min-width: 72px; }
 .count-block.compact strong { font-size: 2.2rem; }
 .toolbar { display: grid; grid-template-columns: minmax(260px, .8fr) 1.7fr; gap: 1.5rem; align-items: end; padding: 1.5rem 0; }
 .search-field { display: grid; gap: .45rem; font-weight: 700; }
+.field-hint { display: block; margin: .1rem 0 0; color: var(--muted); font-size: .78rem; font-weight: 400; }
+.panel-detail { margin: .6rem 0 0; }
+.panel-detail summary { color: var(--muted); font-size: .82rem; font-weight: 700; cursor: pointer; }
+.panel-detail summary:hover { color: var(--ink); }
+.panel-detail p { margin: .5rem 0 0; color: var(--muted); font-size: .82rem; }
 .search-field span { color: var(--muted); font-size: .82rem; }
 input, textarea, select { width: 100%; min-width: 0; border: 1px solid #b9b2a5; border-radius: 10px; padding: .75rem .85rem; background: #fffefb; }
 textarea { resize: vertical; }
@@ -264,6 +276,11 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .owner-identity { align-items: flex-start; flex-direction: column; }
   .sync-indicator { width: 100%; min-width: 0; }
   .form-grid.two, .form-grid.three { grid-template-columns: 1fr; }
+  /* iOS Safari zooms the viewport when a focused control is under 16px and
+     does not zoom back out. The editor has ~20 fields, so every one of them
+     has to clear the threshold, not just the main capture box. */
+  .form-grid input, .form-grid textarea, .form-grid select,
+  .full-field input, .full-field textarea { font-size: 1rem; }
   .owner-entry-row { grid-template-columns: 1fr; }
   .draft-completion-notice, .editor-ai-status { align-items: stretch; flex-direction: column; }
   .draft-completion-notice .primary-button, .editor-ai-status .primary-button { width: 100%; }
