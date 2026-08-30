@@ -31,11 +31,10 @@ async function loginOwner(page) {
   await page.goto("/owner.html");
   await expect(page.getByRole("heading", { name: "只有你可以进入。" })).toBeVisible();
   await page.getByRole("link", { name: "使用 GitHub 登录" }).click();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
-  await expect(page.getByText(/已验证 GitHub @zhuodashuai/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
+  await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
   await expect(page.locator("#ai-service-status")).toContainText("AI 已就绪");
   await expect(page.locator("#ai-service-status")).toContainText("每天 20 次");
-  await expect(page.locator(".panel-detail")).toContainText("不会切换到可能收费的引擎");
 }
 
 async function addWithAi(page, input) {
@@ -286,8 +285,8 @@ test("单义项统一显示词性且不能用人工 1/2 制造与 senses 冲突�
 
 test("访客浏览、搜索、详情、导出，并且没有写入入口", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
-  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
+  await expect(page.getByText(/更新于 \d{4}\/\d{1,2}\/\d{1,2}/)).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
   await page.locator("#library-search").fill("jab at");
@@ -308,7 +307,7 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   expect(download.suggestedFilename()).toMatch(/^zhuo-public-wordbook-.*\.json$/);
 });
 
-test("公开搜索无结果时说明不是在线词典，并只把卓本人引向管理模式", async ({ page }) => {
+test("公开搜索无结果时说明这是单词本而不是词典，且不给访客任何写入入口", async ({ page }) => {
   let aiRequestCount = 0;
   page.on("request", (request) => {
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
@@ -318,15 +317,16 @@ test("公开搜索无结果时说明不是在线词典，并只把卓本人引�
   await page.locator("#library-search").fill("unpublishedtestword");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
   await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；unpublishedtestword 尚未发布。");
-  await expect(page.locator("#search-empty")).toContainText("这里只收录卓已经整理并发布的词条，不是在线词典");
-  const ownerRoute = page.getByRole("link", { name: "卓本人可在管理模式中整理 unpublishedtestword" });
-  await expect(ownerRoute).toHaveAttribute("href", "http://127.0.0.1:4187/owner.html?input=unpublishedtestword");
+  await expect(page.locator("#search-empty")).toContainText("这个单词本里还没有这个词");
+  // Visitors get no route into the editor from a missed search: this is a
+  // wordbook, not a lookup service. owner.html validates any ?input= it is
+  // handed on its own (see the 240-character test below).
+  await expect(page.locator("#search-empty a")).toHaveCount(0);
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("unpublishedtestword & <script>");
-  const encodedOwnerUrl = new URL(await page.locator("#search-owner-link").getAttribute("href"));
-  expect(encodedOwnerUrl.pathname).toBe("/owner.html");
-  expect(encodedOwnerUrl.searchParams.get("input")).toBe("unpublishedtestword & <script>");
+  await expect(page.locator("#search-empty-title"))
+    .toHaveText("这里只搜索已发布词库；unpublishedtestword & <script> 尚未发布。");
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("jab at");
@@ -344,7 +344,7 @@ test("公开页带来的英文只在卓身份验证后预填，不自动调用 A
   await expect(page.locator("#owner-workspace")).toBeHidden();
   await expect(page.getByLabel("英文内容")).toHaveValue("");
   await page.getByRole("link", { name: "使用 GitHub 登录" }).click();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.getByLabel("英文内容")).toHaveValue("hip");
   await expect(page.getByLabel("英文内容")).toBeFocused();
   await expect(page.locator("#capture-status")).toContainText("尚未调用 AI，也没有建立或发布草稿");
@@ -360,7 +360,7 @@ test("管理链接拒绝超过 240 字符的输入且不消耗 AI", async ({ con
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
   });
   await page.goto(`/owner.html?input=${"a".repeat(241)}`);
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.getByLabel("英文内容")).toHaveValue("");
   await expect(page.locator("#capture-status")).toContainText("不能超过 240 个字符");
   await expect(page.locator("#capture-status")).toContainText("未建立草稿，也没有调用 AI");
@@ -647,7 +647,7 @@ test("AI 只保留卓实际输入过的单向同义词，不创建候选词条�
   expect(exported.entries[0]).toMatchObject({ term: "alleviate", synonyms: [] });
 
   await page.goto("/owner.html");
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await addWithAi(page, "ease");
   await expect(page.locator("#field-synonyms")).toHaveValue("alleviate");
   await expect(page.locator("#draft-list > button")).toHaveCount(2);
@@ -757,7 +757,7 @@ test("旧本地草稿中的未输入同义词会在发布前移除", async ({ co
   });
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await page.locator("#draft-list > button", { hasText: "temper" }).click();
   await expect(page.locator("#field-synonyms")).toHaveValue("");
   await publishOpenDraft(page);
@@ -1263,7 +1263,7 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
     }
   });
   await otherPage.goto("/owner.html");
-  await expect(otherPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(otherPage.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   let publishRequests = 0;
   const countPublishRequest = (request) => {
     if (request.method() === "POST" && request.url().includes("/api/v1/owner/publish")) publishRequests += 1;
@@ -1337,13 +1337,13 @@ test("恶意 HTML 仅作为文本显示，PWA 条件成立", async ({ page }) =>
   expect(await page.evaluate(() => window.__xss)).toBe(0);
   expect(await page.evaluate(async () => (await navigator.serviceWorker.ready).scope)).toBe("http://127.0.0.1:4187/");
   const manifest = await page.evaluate(async () => fetch(document.querySelector('link[rel="manifest"]').href).then((response) => response.json()));
-  expect(manifest).toMatchObject({ name: "卓的公开词库", start_url: "./", scope: "./", display: "standalone" });
+  expect(manifest).toMatchObject({ name: "卓的单词本", start_url: "./", scope: "./", display: "standalone" });
 });
 
 test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
-  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
+  await expect(page.getByText(/更新于 \d{4}\/\d{1,2}\/\d{1,2}/)).toBeVisible();
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
   const searchBox = page.locator("#library-search");
@@ -1364,14 +1364,14 @@ test("真实多标签页能看到已保存草稿，前进后退不会丢失管�
 
   const secondPage = await context.newPage();
   await secondPage.goto("/owner.html");
-  await expect(secondPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(secondPage.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(secondPage.locator("#draft-list")).toContainText("tabword");
   await secondPage.close();
 
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.locator("#draft-list")).toContainText("tabword");
 });
 
@@ -1387,7 +1387,7 @@ test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ 
   });
   try {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
     await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
     await page.locator("#library-search").fill("jab at");
     await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();
