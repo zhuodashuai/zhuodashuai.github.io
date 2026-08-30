@@ -102,7 +102,7 @@ function render() {
   if (searchMiss) {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
-    refs.searchOwnerLink.textContent = `仅卓本人：去管理模式用 AI 整理 ${displayQuery}`;
+    refs.searchOwnerLink.textContent = `卓本人可在管理模式中整理 ${displayQuery}`;
     refs.searchOwnerLink.href = ownerUrlForInput(state.query);
   }
   refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || entries.length === 0;
@@ -216,7 +216,6 @@ refs.exportPublic.addEventListener("click", () => {
 if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
-  refs.ownerLink.title = "管理后端完成一次性部署后，这里会连接到安全管理域名";
 }
 setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true });
 const refreshWhileVisible = () => {

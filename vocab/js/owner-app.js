@@ -80,7 +80,7 @@ const PENDING_OWNER_INPUT_KEY = "zhuo-wordbook:pending-owner-input";
 const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const STATE_LABELS = {
   local_saved: "本地已保存", queued: "等待同步", pending: "等待同步", syncing: "正在同步", retry_wait: "同步失败，将安全重试",
-  awaiting_auth: "等待重新登录", review_required: "等待卓本人复核", conflict: "同步冲突", failed: "同步失败", published: "已发布", cancelled: "已取消"
+  awaiting_auth: "等待重新登录", review_required: "等待你复核", conflict: "同步冲突", failed: "同步失败", published: "已发布", cancelled: "已取消"
 };
 
 function setStatus(element, message) { element.textContent = message || ""; }
@@ -264,7 +264,7 @@ function hasVerifiedOwnerUi() {
 
 function requireVerifiedOwnerUi() {
   if (hasVerifiedOwnerUi()) return;
-  throw new OwnerApiError("当前没有通过验证的卓本人会话；管理功能保持锁定。", {
+  throw new OwnerApiError("登录已失效，管理功能已锁定。请重新登录。", {
     status: 401,
     code: "authentication_required"
   });
@@ -351,9 +351,11 @@ async function refreshAiStatus() {
     const activeProvider = health.aiEffectiveProvider || null;
     const dailyLimit = Number(health.aiDailyRequestLimit) || 20;
     if (activeProvider === "cloudflare") {
+      // This is a live status line, not documentation. The billing and model
+      // details it used to repeat now live once, in the panel's detail block.
       setStatus(refs.aiServiceStatus, health.paidFallbackEnabled
-        ? `当前实际使用 Cloudflare Workers AI；本站每天最多 ${dailyLimit} 次整理，但还显式启用了可能收费的备用引擎，请留意配置。`
-        : `已接通两款 Cloudflare 免费方案可用模型；本站按 UTC 日最多 ${dailyLimit} 次整理。不需要 OpenAI / Claude key，也不会自动切换到付费引擎。最终是否产生 Cloudflare 超额费用仍取决于账户套餐及同账户其他用量。`);
+        ? `AI 已就绪 · 每天 ${dailyLimit} 次 —— 注意：已启用可能收费的备用引擎`
+        : `AI 已就绪 · 每天 ${dailyLimit} 次`);
       return;
     }
     if (activeProvider === "openai" || activeProvider === "anthropic") {
@@ -361,9 +363,9 @@ async function refreshAiStatus() {
       setStatus(refs.aiServiceStatus, `当前实际启用${fallbackNote}${activeProvider === "openai" ? " OpenAI" : " Claude"}，调用可能产生 API 费用。`);
       return;
     }
-    setStatus(refs.aiServiceStatus, "AI 当前未接通；手动草稿功能仍可正常使用。");
+    setStatus(refs.aiServiceStatus, "AI 未接通 · 仍可手动建草稿");
   } catch {
-    setStatus(refs.aiServiceStatus, "暂时无法读取 AI 接通状态；草稿仍会先保存在本机。");
+    setStatus(refs.aiServiceStatus, "读不到 AI 状态 · 草稿仍会存在本机");
   }
 }
 
@@ -507,7 +509,7 @@ function fillEditor(draft, { focus = true } = {}) {
   renderDraftCompletionNotice(entry);
   renderEditorAiStatus(draft.id);
   showEditorError(removedStaleSynonyms
-    ? "旧草稿中有同义词并不是你已输入并保留的独立词条，已从本地草稿移除，也不会发布。"
+    ? "旧草稿中有些同义词并不是你已收录的独立词条，已从本地草稿移除，也不会发布。"
     : "");
   renderDrafts();
   if (changedStoredSynonyms) scheduleDraftSave();
@@ -521,7 +523,7 @@ function collectEntry({ strict = false } = {}) {
   const rawSynonyms = LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : [];
   const synonyms = allowedSynonymsFor(term, rawSynonyms);
   if (strict && !sameNormalizedTermLists(synonyms, rawSynonyms)) {
-    throw new Error("同义词只能从你已经通过主输入框建立、且当前仍存在的词条中选择；请移除未输入的候选后再发布。");
+    throw new Error("同义词只能选你已经收录、且当前仍在词库里的词条；请移除其余候选后再发布。");
   }
   if (strict) {
     const publishedSynonyms = filterSynonymsToOwnerTerms(synonyms, state.ownerPublishedTerms, term);
@@ -564,7 +566,7 @@ function collectEntry({ strict = false } = {}) {
   if (!strict) return entry;
   validateEnglishInput(term);
   if (LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.tags.includes("待复核")) {
-    throw new Error("这仍是中英文义项尚未可靠对齐或内容尚未补全的本地词典候选，不能当作 AI 整理成功直接发布。请继续用 AI 补全；若你已逐项人工核对，可从标签中移除“待复核”后再发布。");
+    throw new Error("这份草稿还不能发布：本地词典给出的中英文义项还没有对齐。可以继续用 AI 补全；如果你已经逐项核对过，从标签中移除“待复核”即可发布。");
   }
   const baseEntry = state.currentDraft.mode === "edit" ? state.currentDraft.base?.entry : null;
   const allowLegacyWithoutSenses = canGrandfatherUnstructuredLegacy(baseEntry, entry);
@@ -605,7 +607,7 @@ async function persistCurrentDraft({ announce = false } = {}) {
   state.currentDraft = await saveDraft(snapshot);
   refs.draftState.textContent = STATE_LABELS[state.currentDraft.localState];
   if (announce) setStatus(refs.captureStatus, removedUnenteredSynonyms
-    ? "草稿已保存；未由你通过主输入框建立的同义词候选已移除。"
+    ? "草稿已保存；不是你亲自收录的同义词候选已移除。"
     : "草稿已可靠保存在当前设备。 ");
   await renderDrafts();
   return state.currentDraft;
@@ -671,7 +673,7 @@ async function renderDrafts() {
       if (operation?.status === "review_required") {
         await markOperation(operation.operationId, "cancelled", { lastError: null });
         selected = await saveDraft({ ...selected, localState: "local_saved", lastOperationId: null });
-        setStatus(refs.captureStatus, "这是一份从旧页面恢复的发布任务。旧任务已取消；请由卓本人逐项复核后重新点击发布。 ");
+        setStatus(refs.captureStatus, "这份发布任务来自已关闭的页面，已取消。请复核内容后重新发布。 ");
       }
       fillEditor(selected);
     });
@@ -785,7 +787,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   if (!state.session || !navigator.onLine) {
     const message = !navigator.onLine
       ? "当前设备离线，尚未向 AI 发送请求。"
-      : "当前无法验证卓本人会话，尚未向 AI 发送请求。";
+      : "登录已失效，还没有向 AI 发送请求。";
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `${message} 空白草稿已保存，联网并重新验证后可在编辑区重试。`);
     return;
@@ -1221,7 +1223,7 @@ async function verifySession({ forceGate = false } = {}) {
   try {
     const session = await getSession();
     if (!session.authenticated || session.user?.login !== "zhuodashuai" || Number(session.user?.id) !== 156042078) {
-      throw new OwnerApiError("当前没有通过验证的卓本人会话。", { status: 401, code: "authentication_required" });
+      throw new OwnerApiError("登录已失效，请重新登录。", { status: 401, code: "authentication_required" });
     }
     state.session = session.user;
     state.csrfToken = session.csrfToken;
@@ -1262,7 +1264,7 @@ async function verifySession({ forceGate = false } = {}) {
     refs.authMessage.textContent = onGitHubPages
       ? "这里是 GitHub Pages 的公开只读副本。为避免把写入令牌放进前端，管理功能只在同源 serverless 管理地址开放；完成一次性部署后，公开页的“所有者登录”会跳转过去。"
       : (networkUnavailable
-        ? "当前离线且本页面没有经过服务端身份验证，因此管理区保持锁定。联网并登录为卓本人后，本机草稿仍会保留。"
+        ? "当前离线，管理区已锁定。联网并重新登录后，本机草稿都还在。"
         : (forceGate ? "登录已失效。草稿与等待同步任务仍保存在本机，请重新登录。" : (error.message || "尚未登录。")));
   } finally {
     state.authChecking = false;
@@ -1495,7 +1497,7 @@ async function initializeOwnerApp() {
   state.queueRecoveryComplete = true;
   resolveQueueRecovery();
   if (remaining && state.session) {
-    setStatus(refs.captureStatus, `已从 GitHub 核对完成 ${reconciled.length} 个响应中断任务；另有 ${remaining} 个遗留发布任务不会自动发布，请打开对应草稿，由卓本人复核后重新发布。`);
+    setStatus(refs.captureStatus, `已与 GitHub 核对完 ${reconciled.length} 个中断的任务。另有 ${remaining} 个不会自动发布，请打开对应草稿复核后重新发布。`);
   } else if (reconciled.length) {
     setStatus(refs.captureStatus, `已从 GitHub 核对并恢复 ${reconciled.length} 个发布成功但响应中断的任务，没有重复提交。`);
   }

@@ -120,7 +120,7 @@ Cloudflare 当前文档说明，Workers Free 与 Paid 都有每日 10,000 Neuron
 
 ## 复现命令
 
-```powershell
+```bash
 pnpm test:unit
 pnpm --dir wordbook-api test
 pnpm --dir wordbook-api check

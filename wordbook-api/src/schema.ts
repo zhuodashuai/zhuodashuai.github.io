@@ -7,7 +7,17 @@ const LEXICAL_ENTRY_TYPES = new Set<(typeof ENTRY_TYPES)[number]>(["word", "phra
 const ATTRIBUTION_STATES = ["verified", "candidate", "unverified", "disputed"] as const;
 const CORRECTION_DECISIONS = ["exact", "suggested", "accepted", "kept"] as const;
 
-const bounded = (maximum: number) => z.string().trim().max(maximum);
+// English input is already screened by validateEnglishInput. Chinese-bearing
+// fields reach the snapshot through `bounded`, so the same control- and
+// format-character screen has to live here: a bidirectional override inside a
+// published meaning reorders the rendered entry while the JSON looks clean.
+// Newlines and tabs are legitimate in multi-sense meanings and stay allowed.
+const FORBIDDEN_TEXT_CONTROLS = /[^\P{Cc}\n\t]|\p{Cf}/u;
+
+const bounded = (maximum: number) => z.string().trim().max(maximum)
+  .refine((value) => !FORBIDDEN_TEXT_CONTROLS.test(value), {
+    message: "text may not contain control or bidirectional formatting characters"
+  });
 const isoDate = z.string().datetime({ offset: true });
 
 const SUSPICIOUS_TRANSLATION_GARBAGE = [
@@ -18,6 +28,19 @@ const SUSPICIOUS_TRANSLATION_GARBAGE = [
   /used all available free translations/iu
 ];
 
+// A script ratio proves the text looks Chinese, not that it is a definition.
+// Placeholders, cross-references and stringified programming errors all score
+// well on Han density, so they are rejected by name before the ratio applies.
+const MEANING_PLACEHOLDERS = [
+  /^(?:todo|tbd|fixme|n\/?a|null|undefined|nan|\[object [a-z]+\])\b/iu,
+  /^待(?:补充|填写|完善|定|确认)/u,
+  /^(?:请)?(?:补充|填写|完善)/u,
+  /^(?:暂无|未知|无|同上|略)$/u,
+  /^参?见\s*\S+\s*(?:词条|条目|词条。)?$/u,
+  /^同\s*\S+$/u
+];
+const MINIMUM_MEANING_HAN = 2;
+
 export function hasPlausibleChineseMeaning(value: string): boolean {
   const visible = value.normalize("NFKC").replace(/[\p{Cc}\p{Cf}]/gu, "").trim();
   if (!visible || SUSPICIOUS_TRANSLATION_GARBAGE.some((pattern) => pattern.test(visible))) return false;
@@ -26,9 +49,16 @@ export function hasPlausibleChineseMeaning(value: string): boolean {
     const labelled = withoutNumber.match(/^[A-Za-z][A-Za-z ._-]{0,79}\s*[:：]\s*(.+)$/u);
     return labelled?.[1] || withoutNumber;
   }).join(" ");
+  // NFKC folds circled numerals to bare digits, so "① 待补充" arrives as
+  // "1 待补充" and the sense-number stripper above no longer recognises it.
+  // Strip any residual list marker before testing for placeholder text.
+  const probe = content.trim().replace(/^[\s\d.、)）,，:：·-]+/u, "").trim();
+  if (MEANING_PLACEHOLDERS.some((pattern) => pattern.test(probe))) return false;
   const han = [...content.matchAll(/\p{Script=Han}/gu)].length;
   const latin = [...content.matchAll(/\p{Script=Latin}/gu)].length;
-  return han > 0 && han / Math.max(1, han + latin) >= 0.2;
+  // One stray Han character is never a usable definition, however high the ratio.
+  if (han < MINIMUM_MEANING_HAN) return false;
+  return han / Math.max(1, han + latin) >= 0.2;
 }
 
 function normalizeTypography(value: string): string {
@@ -131,12 +161,73 @@ export function safeHttpsUrl(value: unknown): string {
     throw new ApiError(400, "invalid_url", "来源链接格式不正确。");
   }
   const host = url.hostname.toLowerCase();
-  const privateIpv4 = /^(?:10\.|127\.|169\.254\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)/.test(host);
-  if (url.protocol !== "https:" || url.username || url.password || host === "localhost" || host === "[::1]" || privateIpv4) {
+  if (url.protocol !== "https:" || url.username || url.password || isNonPublicHost(host)) {
     throw new ApiError(400, "invalid_url", "来源链接必须是公开可访问的 HTTPS 地址。");
   }
   url.hash = "";
   return url.href;
+}
+
+/**
+ * Rejects hosts that are not publicly routable. Dotted-quad ranges are only
+ * part of the problem: a host may also be an IPv6 literal, or an IPv4 address
+ * written in decimal, octal or hex form, all of which browsers and fetch
+ * implementations resolve back to the same private targets.
+ */
+export function isNonPublicHost(host: string): boolean {
+  const name = host.replace(/^\[|\]$/g, "").toLowerCase();
+  if (!name || name === "localhost" || name.endsWith(".localhost") || name.endsWith(".local")
+    || name.endsWith(".internal") || name.endsWith(".home.arpa")) return true;
+
+  if (name.includes(":")) {
+    const compact = name.split("%")[0];
+    // Unspecified, loopback, IPv4-mapped loopback, unique-local (fc00::/7)
+    // and link-local (fe80::/10).
+    return compact === "::" || compact === "::1"
+      || /^::ffff:(?:0*:)?(?:127\.|10\.|192\.168\.|169\.254\.|0\.)/.test(compact)
+      || /^f[cd][0-9a-f]{0,2}:/.test(compact)
+      || /^fe[89ab][0-9a-f]?:/.test(compact);
+  }
+
+  const octets = ipv4Octets(name);
+  if (!octets) return false;
+  const [a, b] = octets;
+  return a === 0 || a === 10 || a === 127
+    || (a === 169 && b === 254)
+    || (a === 172 && b >= 16 && b <= 31)
+    || (a === 192 && b === 168)
+    || (a === 100 && b >= 64 && b <= 127)
+    || (a === 192 && b === 0)
+    || a >= 224;
+}
+
+/**
+ * Parses the IPv4 forms a resolver accepts: dotted quad, but also the shorthand
+ * and integer notations (127.1, 2130706433, 0x7f000001, 0177.0.0.1).
+ */
+function ipv4Octets(host: string): [number, number, number, number] | null {
+  const parts = host.split(".");
+  if (parts.length > 4) return null;
+  const numbers: number[] = [];
+  for (const part of parts) {
+    if (!part) return null;
+    let value: number;
+    if (/^0[xX][0-9a-fA-F]+$/.test(part)) value = Number.parseInt(part.slice(2), 16);
+    else if (/^0[0-7]+$/.test(part)) value = Number.parseInt(part.slice(1), 8);
+    else if (/^\d+$/.test(part)) value = Number.parseInt(part, 10);
+    else return null;
+    if (!Number.isSafeInteger(value) || value < 0) return null;
+    numbers.push(value);
+  }
+  // The final part absorbs the remaining octets: 127.1 is 127.0.0.1.
+  const last = numbers[numbers.length - 1];
+  const maximumTail = 256 ** (5 - numbers.length);
+  if (last >= maximumTail) return null;
+  if (numbers.slice(0, -1).some((value) => value > 255)) return null;
+  const packed = numbers.slice(0, -1).reduce((total, value, index) =>
+    total + value * 256 ** (3 - index), 0) + last;
+  if (packed > 0xffffffff) return null;
+  return [(packed >>> 24) & 0xff, (packed >>> 16) & 0xff, (packed >>> 8) & 0xff, packed & 0xff];
 }
 
 export const SourceSchema = z.object({

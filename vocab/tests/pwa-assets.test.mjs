@@ -74,13 +74,15 @@ test("the PWA shell separates the public reader from the authenticated owner app
   for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[56]/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
-  assert.match(ownerHtml, /Fail-closed owner authentication/);
+  assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
   assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
-  assert.match(ownerHtml, /第一阶段只为卓本人开放编辑/);
-  assert.match(ownerHtml, /Cloudflare Workers AI.*UTC 日最多 20 次 AI 整理/);
-  assert.match(ownerHtml, /第二款免费方案可用模型/);
-  assert.match(ownerHtml, /不是“永久免费”承诺/);
-  assert.match(ownerHtml, /默认生产配置.*不会切换到可能收费的引擎/);
+  assert.match(ownerHtml, /<details class="panel-detail">[\s\S]*?关于 AI 额度与费用/);
+  assert.match(ownerHtml, /Cloudflare Workers AI.*每个 UTC 日最多 20 次整理/s);
+  assert.match(ownerHtml, /自动换第二款免费模型复核/);
+  assert.match(ownerHtml, /这不是永久免费承诺/);
+  assert.match(ownerHtml, /额度用完时只保留本地草稿，不会切换到可能收费的引擎/);
+  // The capture panel body itself stays short: the billing text is collapsed.
+  assert.doesNotMatch(ownerHtml, /<p>第一阶段只为/);
   assert.match(stylesSource, /\.update-banner\s*\{[^}]*top:\s*1rem[^}]*right:\s*1rem/s);
   assert.doesNotMatch(stylesSource, /\.update-banner\s*\{[^}]*bottom:\s*1rem/s);
   assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
@@ -93,15 +95,15 @@ test("the PWA shell separates the public reader from the authenticated owner app
 });
 
 test("synonyms remain one entry field throughout owner editing and public discovery", () => {
-  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="系统只从你的现有词条中匹配/);
-  assert.match(ownerHtml, /同义词（只采用卓已经输入过的词）/);
+  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="只会从你现有的词条中匹配/);
+  assert.match(ownerHtml, /同义词（只能用你已经收录的词）/);
   assert.match(ownerAppSource, /const rawSynonyms = LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
   assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
   assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
   assert.match(entryDetailSource, /entry\.synonyms/);
   assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
-  assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
+  assert.match(vocabHtml, /在卓已发布的英文、中文、同义词、标签和作者中查找/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });
 
