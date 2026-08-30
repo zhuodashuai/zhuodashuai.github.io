@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-08-29T15:48:39.855Z",
-  "revisionId": "706d6e37-e7a9-409d-8d88-ce1ddb620511",
-  "lastMutationId": "a49cc81d-a64e-48ab-95cc-b2ddb0726e76",
+  "exportedAt": "2026-08-30T18:41:06.675Z",
+  "revisionId": "526593e7-80a5-411a-85c5-e5280852a98c",
+  "lastMutationId": "3f939a24-172a-4c1c-b931-eed5dfe424c1",
   "entries": [
     {
       "id": "public-jab-at",
@@ -544,6 +544,97 @@
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-29T15:47:45.964Z",
       "updatedAt": "2026-08-29T15:48:39.855Z"
+    },
+    {
+      "id": "public-5b4b2348-a1d5-49ac-8994-a745cb31c7e3",
+      "revision": 1,
+      "originalInput": "acoustic",
+      "term": "acoustic",
+      "normalized": "acoustic",
+      "standardForm": "acoustic",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "acoustic",
+        "suggestion": "",
+        "chosen": "acoustic",
+        "confidence": 1,
+        "source": "ai-cloudflare"
+      },
+      "phonetic": "/əˈkuːstɪk/",
+      "partOfSpeech": "adjective · noun",
+      "meaning": "adjective：听觉的; 声学的; 音响的\nnoun：听力辅助药物; 听觉疗法",
+      "definition": "adjective: of or relating to the science of acoustics\nnoun: a remedy for hearing loss or deafness",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "听觉的; 声学的; 音响的",
+          "definitionEn": "of or relating to the science of acoustics",
+          "usageNotes": "[医] 听的; 声学的",
+          "register": "",
+          "collocations": [
+            "acoustic guitar",
+            "acoustic properties"
+          ],
+          "examples": [
+            {
+              "en": "The room has excellent acoustic properties for live music.",
+              "zh": "这个房间具有极佳的现场音乐音响特性。"
+            }
+          ],
+          "confusables": []
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "听力辅助药物; 听觉疗法",
+          "definitionEn": "a remedy for hearing loss or deafness",
+          "usageNotes": "",
+          "register": "",
+          "collocations": [],
+          "examples": [
+            {
+              "en": "The patient was prescribed an acoustic to treat the deafness.",
+              "zh": "医生给病人开了听力辅助药物以治疗耳聋。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "synonyms": [],
+      "collocations": [
+        "acoustic guitar",
+        "acoustic properties",
+        "acoustic energy"
+      ],
+      "exampleEn": "The room has excellent acoustic properties for live music.",
+      "exampleZh": "这个房间具有极佳的现场音乐音响特性。",
+      "usage": "[医] 听的; 声学的",
+      "register": "",
+      "confusedWith": [],
+      "forms": [
+        "acoustics"
+      ],
+      "tags": [
+        "gre"
+      ],
+      "author": "",
+      "sourceTitle": "",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "https://github.com/skywind3000/ECDICT",
+      "attributionStatus": "unverified",
+      "attributionNote": "",
+      "sources": [
+        {
+          "title": "ECDICT local dictionary snapshot",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-30T18:40:16.219Z"
+        }
+      ],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-30T18:40:17.253Z",
+      "updatedAt": "2026-08-30T18:41:06.675Z"
     }
   ]
 }
