@@ -682,7 +682,7 @@ async function renderDrafts() {
   if (!items.length) {
     const empty = document.createElement("p");
     empty.className = "rail-note";
-    empty.textContent = "还没有草稿。输入一条英文后，它会先在这里落盘。";
+    empty.textContent = "还没有草稿。";
     items.push(empty);
   }
   refs.draftList.replaceChildren(...items);
@@ -1229,7 +1229,7 @@ async function verifySession({ forceGate = false } = {}) {
     state.csrfToken = session.csrfToken;
     refs.ownerAvatar.src = session.user.avatarUrl || "assets/icon-192.png";
     refs.ownerAvatar.alt = `GitHub 用户 @${session.user.login} 的头像`;
-    refs.ownerIdentityText.textContent = `已验证 GitHub @${session.user.login}（ID ${session.user.id}）。浏览器没有收到 GitHub token。`;
+    refs.ownerIdentityText.textContent = `@${session.user.login}`;
     refs.authGate.hidden = true;
     refs.ownerWorkspace.hidden = false;
     refs.ownerWorkspace.inert = false;
@@ -1246,7 +1246,7 @@ async function verifySession({ forceGate = false } = {}) {
     if (verifiedPageContinuity) {
       state.session = previouslyVerifiedSession;
       state.csrfToken = previousCsrfToken;
-      refs.ownerIdentityText.textContent = `本页面此前已验证 GitHub @${previouslyVerifiedSession.login}；当前离线，只保存本地草稿，恢复网络后会再次验证再同步。`;
+      refs.ownerIdentityText.textContent = `@${previouslyVerifiedSession.login} · 离线，只存本地草稿`;
       setOrganizingControlsDisabled(Boolean(state.organizingToken));
       setSyncState("error", "离线 · 本页身份已验证", "发布任务只排队，联网后必须再次通过服务端会话验证");
       return;

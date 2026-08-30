@@ -1,6 +1,6 @@
-# 卓的公开词库
+# 卓的单词本
 
-`/vocab/` 是一个可安装的只读公共词库 PWA。公开页面支持搜索、类型筛选、朗读、详情与 JSON 导出；公开 canonical data 位于 `data/owner-wordbook.json`（schema v3）。
+`/vocab/` 是卓的个人英语单词本，做成可安装的只读公共 PWA。使用说明见 `guide.html`（站内「使用手册」）。公开页面支持搜索、类型筛选、朗读、详情与 JSON 导出；公开 canonical data 位于 `data/owner-wordbook.json`（schema v3）。
 
 ## 权限边界
 
