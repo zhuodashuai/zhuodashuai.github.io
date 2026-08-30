@@ -21,6 +21,7 @@ import {
 import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
+import { lookupCoreEntry } from "./core-dictionary.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -63,6 +64,7 @@ const state = {
   ownerPublishedTerms: [],
   queueRecoveryComplete: false,
   runClosing: false,
+  publishing: false,
   publishAbortController: null
 };
 let resolveQueueRecovery;
@@ -142,11 +144,22 @@ async function waitForQueueRecovery() {
 
 function setOrganizingControlsDisabled(disabled) {
   const aiUnavailable = !navigator.onLine;
-  refs.organizeButton.disabled = disabled || aiUnavailable;
+  // A trustworthy public snapshot is required before a new AI lookup so an
+  // already-published term can be rejected without wasting a model request.
+  refs.organizeButton.disabled = disabled || aiUnavailable || !state.snapshot;
   refs.manualButton.disabled = disabled;
   refs.reorganizeCurrent.disabled = disabled || aiUnavailable;
   refs.completeDraft.disabled = disabled || aiUnavailable;
   refs.retryAiDraft.disabled = disabled || aiUnavailable;
+}
+
+function currentDraftAiBusy() {
+  return state.currentDraft
+    && state.draftAiStatus.get(state.currentDraft.id)?.state === "busy";
+}
+
+function updatePublishButtonDisabled() {
+  refs.publishButton.disabled = state.publishing || Boolean(currentDraftAiBusy());
 }
 
 function setBusyIndicator(button, busy) {
@@ -210,6 +223,7 @@ function renderEditorAiStatus(draftId = state.currentDraft?.id) {
   refs.retryAiDraft.disabled = Boolean(state.organizingToken) || !navigator.onLine;
   if (record?.state === "busy") refs.entryForm.setAttribute("aria-busy", "true");
   else refs.entryForm.removeAttribute("aria-busy");
+  updatePublishButtonDisabled();
 }
 
 function setDraftAiStatus(draftId, record) {
@@ -776,20 +790,51 @@ async function loadRemote({ quiet = false } = {}) {
 
 async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } = {}) {
   const aiBaseline = structuredClone(draft.value);
-  if (state.currentDraft?.id === draft.id) fillEditor(draft);
+  // Foreground callers have already populated the editor, while background
+  // completion must not take it over. Repainting here would create a startup
+  // window where a fast edit after the AI click is replaced by an older snapshot.
   const phoneticRevisionAtRequest = state.phoneticEditRevisions.get(draft.id) || 0;
   let commitWindowLocked = false;
-  setDraftAiStatus(draft.id, {
-    state: "busy",
-    title: `正在获取“${cleaned}”的中文释义与英文义项`,
-    message: "当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。"
-  });
+  const startedAt = Date.now();
+  let localPreview = "";
+  let elapsedTimer = null;
+  const renderBusyProgress = () => {
+    const elapsedSeconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+    const waitingHint = elapsedSeconds >= 10
+      ? ` 已等待 ${elapsedSeconds} 秒；免费模型生成完整分义项通常比本地查词慢。`
+      : "";
+    setDraftAiStatus(draft.id, {
+      state: "busy",
+      title: localPreview
+        ? `已先找到“${cleaned}”的本地中文候选，AI 仍在深度整理`
+        : `正在获取“${cleaned}”的中文释义与英文义项`,
+      message: localPreview
+        ? `本地 ECDICT 候选：${localPreview}。AI 正在继续核对分义项、词性与双语例句；候选不会自动发布。${waitingHint}`
+        : `当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。${waitingHint}`
+    });
+  };
+  renderBusyProgress();
+  elapsedTimer = window.setInterval(renderBusyProgress, 5_000);
+  lookupCoreEntry(cleaned)
+    .then((core) => {
+      if (!core || state.draftAiStatus.get(draft.id)?.state !== "busy") return;
+      localPreview = String(core.meaning || "")
+        .replace(/\s*\r?\n\s*/g, "；")
+        .replace(/\s+/g, " ")
+        .slice(0, 260);
+      if (localPreview) renderBusyProgress();
+    })
+    .catch(() => {
+      // The preview is only an acceleration layer. AI remains authoritative
+      // for aligned senses, and a missing local asset must not fail the query.
+    });
   if (!state.session || !navigator.onLine) {
     const message = !navigator.onLine
       ? "当前设备离线，尚未向 AI 发送请求。"
       : "登录已失效，还没有向 AI 发送请求。";
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `${message} 空白草稿已保存，联网并重新验证后可在编辑区重试。`);
+    window.clearInterval(elapsedTimer);
     return;
   }
   setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
@@ -961,6 +1006,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `“${cleaned}”整理失败：${/草稿/.test(message) ? message : `${message} 当前草稿仍可手动填写。`}`);
   } finally {
+    window.clearInterval(elapsedTimer);
     if (commitWindowLocked) {
       if (state.commitLockedDraftId === draft.id) state.commitLockedDraftId = null;
       refs.entryForm.inert = false;
@@ -1012,6 +1058,9 @@ async function openNewDraft(input, { ai = false } = {}) {
 
 async function queueCurrentPublish() {
   requireVerifiedOwnerUi();
+  if (currentDraftAiBusy()) {
+    throw new Error("AI 仍在整理当前词条；完成或失败后再发布，避免把未完成内容写入 GitHub。");
+  }
   await waitForQueueRecovery();
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
@@ -1230,14 +1279,21 @@ async function verifySession({ forceGate = false } = {}) {
     refs.ownerAvatar.src = session.user.avatarUrl || "assets/icon-192.png";
     refs.ownerAvatar.alt = `GitHub 用户 @${session.user.login} 的头像`;
     refs.ownerIdentityText.textContent = `@${session.user.login}`;
+    // Keep the workspace inert until duplicate detection has either a fresh
+    // GitHub snapshot or the last validated IndexedDB cache. Health, drafts and
+    // remote data are independent reads, so initialize them in parallel.
+    refs.ownerWorkspace.inert = true;
+    setOrganizingControlsDisabled(true);
+    await Promise.all([
+      refreshAiStatus(),
+      renderDrafts(),
+      loadRemote().catch(() => {})
+    ]);
     refs.authGate.hidden = true;
     refs.ownerWorkspace.hidden = false;
     refs.ownerWorkspace.inert = false;
     refs.logoutButton.hidden = false;
     setOrganizingControlsDisabled(Boolean(state.organizingToken));
-    await refreshAiStatus();
-    await renderDrafts();
-    await loadRemote().catch(() => {});
     const quarantineCount = await getQuarantineCount();
     if (quarantineCount) setStatus(refs.captureStatus, `有 ${quarantineCount} 条旧版本地数据因格式问题进入隔离区，没有被丢弃或发布。`);
   } catch (error) {
@@ -1278,6 +1334,12 @@ refs.captureForm.addEventListener("submit", async (event) => {
   } catch (error) {
     setStatus(refs.captureStatus, error.message);
   }
+});
+refs.captureInput.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || event.shiftKey || event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
+  event.preventDefault();
+  if (event.repeat || refs.organizeButton.disabled) return;
+  refs.captureForm.requestSubmit(refs.organizeButton);
 });
 refs.manualButton.addEventListener("click", async () => {
   try {
@@ -1351,8 +1413,17 @@ refs.completeDraft.addEventListener("click", () => organizeCurrentDraft({ fillMi
 refs.retryAiDraft.addEventListener("click", () => organizeCurrentDraft({ fillMissingOnly: true, triggerButton: refs.retryAiDraft }));
 refs.entryForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  refs.publishButton.disabled = true;
-  try { await queueCurrentPublish(); } catch (error) { showEditorError(error.message || "发布失败"); } finally { refs.publishButton.disabled = false; }
+  if (state.publishing) return;
+  state.publishing = true;
+  updatePublishButtonDisabled();
+  try {
+    await queueCurrentPublish();
+  } catch (error) {
+    showEditorError(error.message || "发布失败");
+  } finally {
+    state.publishing = false;
+    updatePublishButtonDisabled();
+  }
 });
 refs.discardDraft.addEventListener("click", async () => {
   if (!state.currentDraft || !window.confirm("删除这份本地草稿吗？已发布的 GitHub 词条不会因此删除。")) return;

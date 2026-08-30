@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-08-29T03:50:58.137Z",
-  "revisionId": "638147ae-5ec1-4552-90db-11f43e0b41eb",
-  "lastMutationId": "c8412bf6-d976-42ba-acfc-4e1f77e789a2",
+  "exportedAt": "2026-08-29T15:48:39.855Z",
+  "revisionId": "706d6e37-e7a9-409d-8d88-ce1ddb620511",
+  "lastMutationId": "a49cc81d-a64e-48ab-95cc-b2ddb0726e76",
   "entries": [
     {
       "id": "public-jab-at",
@@ -376,6 +376,174 @@
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-29T02:15:59.334Z",
       "updatedAt": "2026-08-29T03:50:58.137Z"
+    },
+    {
+      "id": "public-9aafec74-f593-4d78-938a-16b950c04186",
+      "revision": 1,
+      "originalInput": "This above all: to thine own self be true.",
+      "term": "This above all: to thine own self be true.",
+      "normalized": "this above all: to thine own self be true.",
+      "standardForm": "This above all: to thine own self be true.",
+      "entryType": "quote",
+      "correction": {
+        "status": "exact",
+        "original": "This above all: to thine own self be true.",
+        "suggestion": "",
+        "chosen": "This above all: to thine own self be true.",
+        "confidence": 1,
+        "source": "ai-cloudflare"
+      },
+      "phonetic": "",
+      "partOfSpeech": "quote",
+      "meaning": "quote：一句著名的劝诫,强调人必须忠于自我,坚守本心。",
+      "definition": "quote: A famous admonition to remain true to oneself and to one's principles.",
+      "senses": [
+        {
+          "partOfSpeech": "quote",
+          "meaningZh": "一句著名的劝诫，强调人必须忠于自我，坚守本心。",
+          "definitionEn": "A famous admonition to remain true to oneself and to one's principles.",
+          "usageNotes": "This is a well-known line from Shakespeare's play *Hamlet*.",
+          "register": "formal",
+          "collocations": [],
+          "examples": [
+            {
+              "en": "He always said, 'This above all: to thine own self be true,' and refused to compromise his integrity.",
+              "zh": "他总是说:“首要之事:忠于你自己”,并拒绝妥协自己的正直。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "synonyms": [],
+      "collocations": [],
+      "exampleEn": "He always said, 'This above all: to thine own self be true,' and refused to compromise his integrity.",
+      "exampleZh": "他总是说:“首要之事:忠于你自己”,并拒绝妥协自己的正直。",
+      "usage": "formal",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [],
+      "author": "William Shakespeare",
+      "sourceTitle": "Wikisource: Page:Hamlet (1917) Yale.djvu/33",
+      "sourceWork": "Hamlet",
+      "sourceDate": "",
+      "sourceUrl": "https://en.wikisource.org/wiki/Page%3AHamlet_(1917)_Yale.djvu/33",
+      "attributionStatus": "candidate",
+      "attributionNote": "Wikisource 原文页检索到与完整输入逐词匹配的文本；Wikiquote 命中同一作品，Wikidata 将作品作者列为 William Shakespeare。自动检索仍只标为 candidate；请由卓打开来源复查后再决定是否核验。",
+      "sources": [
+        {
+          "title": "Wikisource: Page:Hamlet (1917) Yale.djvu/33",
+          "url": "https://en.wikisource.org/wiki/Page%3AHamlet_(1917)_Yale.djvu/33",
+          "kind": "primary",
+          "retrievedAt": "2026-08-29T13:26:11.406Z"
+        },
+        {
+          "title": "Wikiquote: Hamlet",
+          "url": "https://en.wikiquote.org/wiki/Hamlet",
+          "kind": "candidate",
+          "retrievedAt": "2026-08-29T13:26:11.406Z"
+        },
+        {
+          "title": "Wikidata: Hamlet",
+          "url": "https://www.wikidata.org/wiki/Q41567",
+          "kind": "secondary",
+          "retrievedAt": "2026-08-29T13:26:11.406Z"
+        }
+      ],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-29T02:29:27.804Z",
+      "updatedAt": "2026-08-29T13:27:25.848Z"
+    },
+    {
+      "id": "public-b36dedc7-9945-41f3-88bd-7a2ffed50906",
+      "revision": 1,
+      "originalInput": "waiver",
+      "term": "waiver",
+      "normalized": "waiver",
+      "standardForm": "waiver",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "waiver",
+        "suggestion": "",
+        "chosen": "waiver",
+        "confidence": 1,
+        "source": "ai-cloudflare"
+      },
+      "phonetic": "/ˈweɪ.vər/",
+      "partOfSpeech": "noun",
+      "meaning": "noun：放弃;弃权;豁免",
+      "definition": "noun: a formal statement or document in which a person agrees to give up a known right",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "放弃;弃权;豁免",
+          "definitionEn": "a formal statement or document in which a person agrees to give up a known right",
+          "usageNotes": "formal",
+          "register": "formal",
+          "collocations": [
+            "sign a waiver",
+            "file a waiver",
+            "waiver of liability"
+          ],
+          "examples": [
+            {
+              "en": "You must sign a waiver before you can use the equipment.",
+              "zh": "在使用该设备之前,你必须签署一份弃权书。"
+            },
+            {
+              "en": "The company requested a waiver of the usual penalties.",
+              "zh": "公司请求豁免通常的处罚。"
+            }
+          ],
+          "confusables": [
+            "waiver",
+            "waver"
+          ]
+        }
+      ],
+      "synonyms": [],
+      "collocations": [
+        "sign a waiver",
+        "file a waiver",
+        "waiver of liability"
+      ],
+      "exampleEn": "You must sign a waiver before you can use the equipment.",
+      "exampleZh": "在使用该设备之前,你必须签署一份弃权书。",
+      "usage": "formal",
+      "register": "formal",
+      "confusedWith": [
+        "waver",
+        "waiver"
+      ],
+      "forms": [
+        "waivers"
+      ],
+      "tags": [
+        "gk",
+        "cet4",
+        "cet6",
+        "ky",
+        "ielts"
+      ],
+      "author": "",
+      "sourceTitle": "",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "https://github.com/skywind3000/ECDICT",
+      "attributionStatus": "unverified",
+      "attributionNote": "unverified",
+      "sources": [
+        {
+          "title": "ECDICT local dictionary snapshot",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "kind": "dictionary",
+          "retrievedAt": "2026-08-29T15:47:46.636Z"
+        }
+      ],
+      "organizationMethod": "ai-cloudflare",
+      "createdAt": "2026-08-29T15:47:45.964Z",
+      "updatedAt": "2026-08-29T15:48:39.855Z"
     }
   ]
 }

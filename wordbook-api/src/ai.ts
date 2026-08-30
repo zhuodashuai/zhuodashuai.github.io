@@ -1005,7 +1005,13 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
   let attributionLookup = config.ENABLE_FREE_ATTRIBUTION_LOOKUP === "true" && mayNeedFreeAttributionLookup(input)
     ? beginAttributionLookup()
     : null;
+  const evidenceStartedAt = Date.now();
   const evidence = await collectLexicalEvidence(input, config);
+  console.info("ai_evidence_collected", {
+    durationMs: Date.now() - evidenceStartedAt,
+    exact: evidence.exact,
+    sourceCount: evidence.sources.length
+  });
   const configuredProviders = aiProviderOrder(config).filter((provider) => aiProviderConfigured(provider, config));
   if (!configuredProviders.length) {
     const dictionaryFallback = localDictionaryFallbackResult(input, evidence);
@@ -1019,6 +1025,7 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
     let retryFeedback = "";
     const attemptLimit = provider === "cloudflare" ? 3 : 2;
     for (let attempt = 0; attempt < attemptLimit; attempt += 1) {
+      const attemptStartedAt = Date.now();
       try {
         const result = await providerAttempt(provider, input, config, attempt, evidence, retryFeedback, allowedSynonyms);
         result.organized = restrictSynonymsToOwnerTerms(result.organized, allowedSynonyms);
@@ -1060,11 +1067,23 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
           warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");
         }
         if (entry.correction.status === "suggested") warnings.push("拼写只作为建议，发布前请选择采用、保留原文或手动修改。");
+        console.info("ai_provider_attempt_succeeded", {
+          provider,
+          attempt: attempt + 1,
+          durationMs: Date.now() - attemptStartedAt,
+          entryType: entry.entryType,
+          senseCount: entry.senses.length
+        });
         return { entry, provider, warnings };
       } catch (error) {
         providerError = error;
         retryFeedback = safeRetryDiagnostic(error);
-        console.warn("ai_provider_attempt_failed", { provider, attempt: attempt + 1, diagnostic: retryFeedback });
+        console.warn("ai_provider_attempt_failed", {
+          provider,
+          attempt: attempt + 1,
+          durationMs: Date.now() - attemptStartedAt,
+          diagnostic: retryFeedback
+        });
         if (error instanceof ApiError
           && (provider !== "cloudflare" || ["ai_not_configured", "ai_rate_limited"].includes(error.code))) break;
       }

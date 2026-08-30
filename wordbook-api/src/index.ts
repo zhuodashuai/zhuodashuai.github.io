@@ -261,6 +261,7 @@ async function publicSnapshot(request: Request, env: Env): Promise<Response> {
 }
 
 async function organize(request: Request, env: Env): Promise<Response> {
+  const requestStartedAt = Date.now();
   assertSameOriginWrite(request);
   const config = readConfig(env);
   const session = await sessionContext(request);
@@ -297,7 +298,12 @@ async function organize(request: Request, env: Env): Promise<Response> {
     }
     throw error;
   }
-  return jsonResponse(await organizeEntry(input, config, allowedSynonyms));
+  const organizerStartedAt = Date.now();
+  const result = await organizeEntry(input, config, allowedSynonyms);
+  const organizerDuration = Date.now() - organizerStartedAt;
+  return jsonResponse(result, 200, {
+    "Server-Timing": `organizer;dur=${organizerDuration}, total;dur=${Date.now() - requestStartedAt}`
+  });
 }
 
 async function publish(request: Request, env: Env): Promise<Response> {
