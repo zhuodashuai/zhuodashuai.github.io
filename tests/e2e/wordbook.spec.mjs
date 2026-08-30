@@ -16,7 +16,8 @@ test.beforeEach(async ({ context, page }, testInfo) => {
   expectedOfflineNetworkError = false;
   page.on("pageerror", (error) => browserErrors.push(`pageerror: ${error.message}`));
   page.on("console", (message) => {
-    const expectedOfflineFailure = expectedOfflineNetworkError && message.text() === "Failed to load resource: net::ERR_FAILED";
+    const expectedOfflineFailure = expectedOfflineNetworkError
+      && /^Failed to load resource: net::ERR_(?:FAILED|INTERNET_DISCONNECTED)$/.test(message.text());
     if (message.type() === "error" && !expectedOfflineFailure && !message.text().startsWith("Failed to load resource: the server responded with a status of")) {
       browserErrors.push(`console: ${message.text()}`);
     }
@@ -41,6 +42,11 @@ async function addWithAi(page, input) {
   await page.getByLabel("英文内容").fill(input);
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: new RegExp(input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) })).toBeVisible();
+  // The heading is rendered as soon as the recoverable blank draft exists.
+  // Wait for the asynchronous organizer to finish before a caller edits,
+  // publishes, or intentionally takes the browser offline.
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", /^(?:success|error|review)$/);
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toHaveAttribute("aria-busy", "false");
 }
 
 async function publishOpenDraft(page) {
@@ -351,6 +357,51 @@ test("公开页带来的英文只在卓身份验证后预填，不自动调用 A
   await expect(page.locator("#draft-list > button")).toHaveCount(0);
   expect(new URL(page.url()).searchParams.has("input")).toBe(false);
   expect(aiRequestCount).toBe(0);
+});
+
+test("英文输入按 Enter 自动整理，Shift+Enter 与输入法确认不会误提交", async ({ context, page }) => {
+  await context.addCookies([
+    { name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" },
+    { name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }
+  ]);
+  let aiRequestCount = 0;
+  page.on("request", (request) => {
+    if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+  });
+
+  await loginOwner(page);
+  const input = page.getByLabel("英文内容");
+  await expect(input).toHaveAttribute("enterkeyhint", "search");
+  await expect(input).toHaveAttribute("aria-keyshortcuts", "Enter");
+  await expect(page.locator("#capture-key-hint")).toHaveText("按 Enter 直接整理 · Shift + Enter 换行");
+
+  await input.fill("waiver");
+  await input.press("Shift+Enter");
+  await expect(input).toHaveValue("waiver\n");
+  expect(aiRequestCount).toBe(0);
+
+  await input.fill("waiver");
+  await input.evaluate((element) => element.dispatchEvent(new KeyboardEvent("keydown", {
+    key: "Enter",
+    bubbles: true,
+    cancelable: true,
+    isComposing: true
+  })));
+  await expect(input).toHaveValue("waiver");
+  expect(aiRequestCount).toBe(0);
+
+  await input.press("Enter");
+  await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
+  await input.press("Enter");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", /^(?:success|error|review)$/);
+  await expect(page.getByRole("heading", { name: "waiver" })).toBeVisible();
+  await expect(page.locator("#draft-list > button")).toHaveCount(1);
+  expect(aiRequestCount).toBe(1);
+
+  await input.fill("");
+  await input.press("Enter");
+  expect(await input.evaluate((element) => element.checkValidity())).toBe(false);
+  expect(aiRequestCount).toBe(1);
 });
 
 test("管理链接拒绝超过 240 字符的输入且不消耗 AI", async ({ context, page }) => {
@@ -884,12 +935,14 @@ test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保�
   await expect(page.locator("#entry-form")).toHaveAttribute("aria-busy", "true");
   await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "true");
   await expect(page.locator("#organize-button .button-busy-label")).toBeVisible();
+  await expect(page.getByRole("button", { name: "发布到 GitHub" })).toBeDisabled();
 
   await page.locator("#draft-list").getByRole("button", { name: /draft b/ }).click();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("draft b");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("B 的人工释义");
   await expect(page.locator("#editor-ai-status")).toBeHidden();
   await expect(page.locator("#entry-form")).not.toHaveAttribute("aria-busy", "true");
+  await expect(page.getByRole("button", { name: "发布到 GitHub" })).toBeEnabled();
   releaseRequest();
   await expect(page.locator("#capture-status")).toContainText("已在后台完成并保存");
   await expect(page.locator("#organize-button")).toHaveAttribute("aria-busy", "false");
@@ -899,6 +952,33 @@ test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保�
   await page.locator("#draft-list").getByRole("button", { name: /backgroundword/ }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+});
+
+test("普通单词先显示本地中文候选，再等待 AI 完成严格分义项", async ({ page }) => {
+  await loginOwner(page);
+  let markStarted;
+  let releaseRequest;
+  const started = new Promise((resolve) => { markStarted = resolve; });
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    if (route.request().postDataJSON()?.input === "receive") {
+      markStarted();
+      await held;
+    }
+    await route.continue();
+  });
+
+  await page.getByLabel("英文内容").fill("receive");
+  await page.getByRole("button", { name: "AI 自动整理" }).click();
+  await started;
+  await expect(page.locator("#editor-ai-title")).toContainText("本地中文候选");
+  await expect(page.locator("#editor-ai-message")).toContainText("本地 ECDICT 候选");
+  await expect(page.locator("#editor-ai-message")).toContainText("收到");
+  await expect(page.locator("#editor-ai-message")).toContainText("候选不会自动发布");
+
+  releaseRequest();
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
+  await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
 });
 
 test("无法可靠对齐的本地词典多义词保留中文但保持待复核且不能直接发布", async ({ context, page }) => {
@@ -1119,12 +1199,21 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   await addWithAi(page, "hip");
   await page.getByLabel("音标", { exact: true }).fill("");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
-  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  let releaseRequest;
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    if (route.request().postDataJSON()?.input === "hip") await held;
+    await route.continue();
+  });
 
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
+  await page.getByLabel("音标", { exact: true }).fill("/before-busy/");
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/before-busy/");
   await page.getByLabel("音标", { exact: true }).fill("/temporary/");
   await page.getByLabel("音标", { exact: true }).fill("");
+  releaseRequest();
 
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
   await expect(page.getByLabel("音标", { exact: true })).toHaveValue("");
@@ -1257,7 +1346,8 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
   const otherPage = await context.newPage();
   otherPage.on("pageerror", (error) => browserErrors.push(`second pageerror: ${error.message}`));
   otherPage.on("console", (message) => {
-    const expectedOfflineFailure = expectedOfflineNetworkError && message.text() === "Failed to load resource: net::ERR_FAILED";
+    const expectedOfflineFailure = expectedOfflineNetworkError
+      && /^Failed to load resource: net::ERR_(?:FAILED|INTERNET_DISCONNECTED)$/.test(message.text());
     if (message.type() === "error" && !expectedOfflineFailure && !message.text().startsWith("Failed to load resource: the server responded with a status of")) {
       browserErrors.push(`second console: ${message.text()}`);
     }
