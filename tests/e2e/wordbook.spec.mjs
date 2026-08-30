@@ -30,12 +30,12 @@ test.afterEach(() => {
 
 async function loginOwner(page) {
   await page.goto("/owner.html");
-  await expect(page.getByRole("heading", { name: "只有卓本人可以进入。" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "只有你可以进入。" })).toBeVisible();
   await page.getByRole("link", { name: "使用 GitHub 登录" }).click();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
-  await expect(page.getByText(/已验证 GitHub @zhuodashuai/)).toBeVisible();
-  await expect(page.locator("#ai-service-status")).toContainText("UTC 日最多 20 次");
-  await expect(page.locator("#ai-service-status")).toContainText("不会自动切换到付费引擎");
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
+  await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
+  await expect(page.locator("#ai-service-status")).toContainText("AI 已就绪");
+  await expect(page.locator("#ai-service-status")).toContainText("每天 20 次");
 }
 
 async function addWithAi(page, input) {
@@ -291,8 +291,8 @@ test("单义项统一显示词性且不能用人工 1/2 制造与 senses 冲突�
 
 test("访客浏览、搜索、详情、导出，并且没有写入入口", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
-  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
+  await expect(page.getByText(/更新于 \d{4}\/\d{1,2}\/\d{1,2}/)).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
   await page.locator("#library-search").fill("jab at");
@@ -313,7 +313,7 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   expect(download.suggestedFilename()).toMatch(/^zhuo-public-wordbook-.*\.json$/);
 });
 
-test("公开搜索无结果时说明不是在线词典，并只把卓本人引向管理模式", async ({ page }) => {
+test("公开搜索无结果时说明这是单词本而不是词典，且不给访客任何写入入口", async ({ page }) => {
   let aiRequestCount = 0;
   page.on("request", (request) => {
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
@@ -323,15 +323,16 @@ test("公开搜索无结果时说明不是在线词典，并只把卓本人引�
   await page.locator("#library-search").fill("unpublishedtestword");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
   await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；unpublishedtestword 尚未发布。");
-  await expect(page.locator("#search-empty")).toContainText("公开页不会联网查词或调用 AI，也不会替访客创建草稿");
-  const ownerRoute = page.getByRole("link", { name: "仅卓本人：去管理模式用 AI 整理 unpublishedtestword" });
-  await expect(ownerRoute).toHaveAttribute("href", "http://127.0.0.1:4187/owner.html?input=unpublishedtestword");
+  await expect(page.locator("#search-empty")).toContainText("这个单词本里还没有这个词");
+  // Visitors get no route into the editor from a missed search: this is a
+  // wordbook, not a lookup service. owner.html validates any ?input= it is
+  // handed on its own (see the 240-character test below).
+  await expect(page.locator("#search-empty a")).toHaveCount(0);
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("unpublishedtestword & <script>");
-  const encodedOwnerUrl = new URL(await page.locator("#search-owner-link").getAttribute("href"));
-  expect(encodedOwnerUrl.pathname).toBe("/owner.html");
-  expect(encodedOwnerUrl.searchParams.get("input")).toBe("unpublishedtestword & <script>");
+  await expect(page.locator("#search-empty-title"))
+    .toHaveText("这里只搜索已发布词库；unpublishedtestword & <script> 尚未发布。");
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("jab at");
@@ -349,7 +350,7 @@ test("公开页带来的英文只在卓身份验证后预填，不自动调用 A
   await expect(page.locator("#owner-workspace")).toBeHidden();
   await expect(page.getByLabel("英文内容")).toHaveValue("");
   await page.getByRole("link", { name: "使用 GitHub 登录" }).click();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.getByLabel("英文内容")).toHaveValue("hip");
   await expect(page.getByLabel("英文内容")).toBeFocused();
   await expect(page.locator("#capture-status")).toContainText("尚未调用 AI，也没有建立或发布草稿");
@@ -410,7 +411,7 @@ test("管理链接拒绝超过 240 字符的输入且不消耗 AI", async ({ con
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
   });
   await page.goto(`/owner.html?input=${"a".repeat(241)}`);
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.getByLabel("英文内容")).toHaveValue("");
   await expect(page.locator("#capture-status")).toContainText("不能超过 240 个字符");
   await expect(page.locator("#capture-status")).toContainText("未建立草稿，也没有调用 AI");
@@ -426,8 +427,8 @@ test("未登录与错误账号状态保持 fail closed", async ({ context, page 
     element.inert = false;
   });
   await page.getByLabel("英文内容").fill("visitor must not create this");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
-  await expect(page.locator("#capture-status")).toContainText("没有通过验证的卓本人会话");
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
+  await expect(page.locator("#capture-status")).toContainText("登录已失效");
   const databases = await page.evaluate(async () => (await indexedDB.databases()).map((database) => database.name));
   expect(databases).not.toContain("wordbook-db");
   await context.addCookies([{ name: "e2e_auth", value: "other", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
@@ -442,8 +443,8 @@ test("未认证页面断网后仍 fail closed，不能用 IndexedDB 冒充卓", 
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator("#owner-workspace")).toBeHidden();
-  await expect(page.locator("#auth-message")).toContainText("管理区保持锁定");
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeHidden();
+  await expect(page.locator("#auth-message")).toContainText("管理区已锁定");
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeHidden();
   await context.setOffline(false);
 });
 
@@ -489,15 +490,15 @@ test("顶部 AI 会补全同一份未完成草稿，完整后重复输入不再�
   });
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("hip");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("");
   await expect(page.locator("#draft-completion-notice")).toBeVisible();
   await expect(page.locator("#draft-completion-message")).toContainText("中文释义、英文释义、IPA 音标、词性");
   await page.getByLabel("中文释义", { exact: true }).fill("卓手工释义");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
 
   await page.getByRole("button", { name: "补全这份草稿" }).click();
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/hɪp/");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓手工释义");
   await expect(page.getByLabel("词性", { exact: true })).toHaveValue("noun · adjective");
   await expect(page.locator("#draft-completion-notice")).toBeHidden();
@@ -518,16 +519,16 @@ test("已由 AI 整理但 IPA 被清空的旧草稿会重新补全音标", async
   });
   await loginOwner(page);
   await addWithAi(page, "hip");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/hɪp/");
 
-  await page.getByLabel("IPA", { exact: true }).fill("");
+  await page.getByLabel("音标", { exact: true }).fill("");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
   await expect(page.locator("#draft-completion-notice")).toBeVisible();
   await expect(page.locator("#draft-completion-message")).toContainText("IPA 音标");
 
   await page.getByLabel("英文内容").fill("hip");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/hɪp/");
   await expect(page.locator("#draft-completion-notice")).toBeHidden();
   await expect(page.locator("#capture-status")).toContainText("候选已写入草稿");
   expect(aiRequestCount).toBe(2);
@@ -550,24 +551,24 @@ test("顶部整理和草稿补全的快速双击共用全局锁，只请求一�
     form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
   });
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeDisabled();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
   expect(aiRequestCount).toBe(1);
 
   await page.getByLabel("英文内容").fill("hip");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await expect(page.locator("#draft-list > button")).toHaveCount(2);
   await page.locator("#complete-draft").evaluate((button) => {
     button.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
     button.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
   });
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "补全这份草稿" })).toBeDisabled();
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/hɪp/");
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
   await expect(page.locator("#draft-list > button")).toHaveCount(2);
   expect(aiRequestCount).toBe(2);
@@ -591,7 +592,7 @@ test("前端拒绝保存声称已锁定音标却缺少 IPA 的自相矛盾响应
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.locator("#capture-status")).toContainText("AI 响应自相矛盾");
   await expect(page.locator("#capture-status")).toContainText("当前草稿没有被 AI 覆盖");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("");
   await expect(page.locator("#draft-list > button")).toHaveCount(1);
 });
@@ -685,7 +686,7 @@ test("AI 只保留卓实际输入过的单向同义词，不创建候选词条�
   await expect(page.locator("#entry-count")).toHaveText("1");
   const alleviateCard = page.locator(".word-card", { hasText: "alleviate" });
   await expect(alleviateCard.locator(".card-synonyms")).toBeHidden();
-  const publicSearch = page.getByLabel("搜索卓已发布的英文、中文、同义词、标签或作者（不是在线词典）");
+  const publicSearch = page.getByLabel("搜索词库");
   await publicSearch.fill("mitigate");
   await expect(page.locator(".word-card")).toHaveCount(0);
 
@@ -697,7 +698,7 @@ test("AI 只保留卓实际输入过的单向同义词，不创建候选词条�
   expect(exported.entries[0]).toMatchObject({ term: "alleviate", synonyms: [] });
 
   await page.goto("/owner.html");
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await addWithAi(page, "ease");
   await expect(page.locator("#field-synonyms")).toHaveValue("alleviate");
   await expect(page.locator("#draft-list > button")).toHaveCount(2);
@@ -807,7 +808,7 @@ test("旧本地草稿中的未输入同义词会在发布前移除", async ({ co
   });
 
   await page.reload();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await page.locator("#draft-list > button", { hasText: "temper" }).click();
   await expect(page.locator("#field-synonyms")).toHaveValue("");
   await publishOpenDraft(page);
@@ -867,13 +868,13 @@ test("不用 AI 的完整人工单义项可以发布并从公开词条卡打开"
   });
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("manualonlyword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("manualonlyword");
   await page.getByLabel("词性", { exact: true }).fill("transitive");
   await page.getByLabel("中文释义", { exact: true }).fill("手工完成\n亲手制作");
-  await page.getByLabel("English definition", { exact: true }).fill("To make or complete something carefully by hand.");
+  await page.getByLabel("英文释义", { exact: true }).fill("To make or complete something carefully by hand.");
   await page.getByLabel("英文例句", { exact: true }).fill("She completed the frame carefully by hand.");
-  await page.getByLabel("例句中文", { exact: true }).fill("她亲手仔细完成了这个相框。");
+  await page.getByLabel("中文翻译", { exact: true }).fill("她亲手仔细完成了这个相框。");
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.locator("#editor-error")).toContainText("单义项词条的中文释义必须保持为一条非空行");
   expect(aiRequests).toBe(0);
@@ -909,7 +910,7 @@ test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保�
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("draft b");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await page.getByLabel("中文释义", { exact: true }).fill("B 的人工释义");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
 
@@ -1000,19 +1001,19 @@ test("无法可靠对齐的本地词典多义词保留中文但保持待复核�
   await expect(page.locator("#draft-completion-message")).toContainText("可靠对齐的分义项");
   await expect(page.getByLabel("标签", { exact: true })).toHaveValue(/待复核/);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
-  await expect(page.locator("#editor-error")).toContainText("中英文义项尚未可靠对齐");
+  await expect(page.locator("#editor-error")).toContainText("中英文义项还没有对齐");
   await expect(page.locator("#editor-error")).toContainText("移除“待复核”");
   expect(publishRequests).toBe(0);
 
   await page.getByLabel("中文释义", { exact: true }).fill("卓人工核对的银行释义");
-  await page.getByLabel("Usage notes", { exact: true }).fill(`${await page.getByLabel("Usage notes", { exact: true }).inputValue()}\n卓人工笔记`);
+  await page.getByLabel("用法说明", { exact: true }).fill(`${await page.getByLabel("用法说明", { exact: true }).inputValue()}\n卓人工笔记`);
   await context.addCookies([
     { name: "e2e_dictionary_review", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }
   ]);
   await page.getByRole("button", { name: "补全这份草稿" }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓人工核对的银行释义");
-  await expect(page.getByLabel("English definition", { exact: true })).toHaveValue("A test definition.");
-  await expect(page.getByLabel("Usage notes", { exact: true })).toHaveValue(/卓人工笔记/);
+  await expect(page.getByLabel("英文释义", { exact: true })).toHaveValue("A test definition.");
+  await expect(page.getByLabel("用法说明", { exact: true })).toHaveValue(/卓人工笔记/);
   await expect(page.getByLabel("标签", { exact: true })).not.toHaveValue(/待复核|ECDICT 原始释义/);
   await expect(page.locator("#sense-list .sense-item")).toHaveCount(1);
   await expect(page.locator("#draft-completion-notice")).toBeHidden();
@@ -1035,7 +1036,7 @@ test("缺少双语例句的本地词典 200 响应降级为待复核而不是成
   await expect(page.locator("#editor-ai-message")).toContainText("缺少双语例句");
   await expect(page.getByLabel("标签", { exact: true })).toHaveValue(/待复核/);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
-  await expect(page.locator("#editor-error")).toContainText("不能当作 AI 整理成功直接发布");
+  await expect(page.locator("#editor-error")).toContainText("这份草稿还不能发布");
   expect(publishRequests).toBe(0);
 
   await context.addCookies([
@@ -1076,7 +1077,7 @@ test("hip 永久语义回归：IPA、noun/adjective 分义项、双语例句、�
   await addWithAi(page, "hip");
   expect(aiRequests).toBe(1);
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("hip");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/hɪp/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/hɪp/");
   await expect(page.getByLabel("词性", { exact: true })).toHaveValue("noun · adjective");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部[\s\S]*时髦/);
   await expect(page.locator("#sense-list")).toContainText("1. noun");
@@ -1147,7 +1148,7 @@ test("AI 故障回退到手动草稿，不会丢失输入", async ({ context, pa
   await expect(page.locator("#editor-ai-message")).toContainText("AI 测试故障");
   await expect(page.getByRole("button", { name: "重试补全这份草稿" })).toBeVisible();
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeEnabled();
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("fallbackword");
   await context.addCookies([{ name: "e2e_ai_fail", value: "0", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await page.getByRole("button", { name: "重试补全这份草稿" }).click();
@@ -1160,7 +1161,7 @@ test("离线时只保留手动草稿能力并禁用全部 AI 补全入口", asyn
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("offlineword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await expect(page.locator("#draft-completion-notice")).toBeVisible();
 
   await context.setOffline(true);
@@ -1168,7 +1169,7 @@ test("离线时只保留手动草稿能力并禁用全部 AI 补全入口", asyn
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "补全这份草稿" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeEnabled();
 
   await context.setOffline(false);
   await expect(page.locator("#network-chip")).toHaveText("在线");
@@ -1184,10 +1185,10 @@ test("AI 返回较慢时保留卓已经输入的人工修改", async ({ context,
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: /slowword/ })).toBeVisible();
   await page.getByLabel("中文释义", { exact: true }).fill("卓在等待 AI 时手动写的释义");
-  await page.getByLabel("IPA", { exact: true }).fill("/ˈsləʊ.wɜːd/");
+  await page.getByLabel("音标", { exact: true }).fill("/ˈsləʊ.wɜːd/");
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓在等待 AI 时手动写的释义");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/ˈsləʊ.wɜːd/");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/ˈsləʊ.wɜːd/");
   await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
   await expect(page.locator("#entry-form")).not.toHaveAttribute("aria-busy", "true");
 });
@@ -1196,7 +1197,7 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
   await addWithAi(page, "hip");
-  await page.getByLabel("IPA", { exact: true }).fill("");
+  await page.getByLabel("音标", { exact: true }).fill("");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
   let releaseRequest;
   const held = new Promise((resolve) => { releaseRequest = resolve; });
@@ -1206,16 +1207,16 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   });
 
   await page.getByRole("button", { name: "重新用 AI 整理" }).click();
-  await page.getByLabel("IPA", { exact: true }).fill("/before-busy/");
+  await page.getByLabel("音标", { exact: true }).fill("/before-busy/");
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeDisabled();
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("/before-busy/");
-  await page.getByLabel("IPA", { exact: true }).fill("/temporary/");
-  await page.getByLabel("IPA", { exact: true }).fill("");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/before-busy/");
+  await page.getByLabel("音标", { exact: true }).fill("/temporary/");
+  await page.getByLabel("音标", { exact: true }).fill("");
   releaseRequest();
 
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
-  await expect(page.getByLabel("IPA", { exact: true })).toHaveValue("");
+  await expect(page.getByLabel("音标", { exact: true })).toHaveValue("");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(/髋部/);
   await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
 });
@@ -1240,7 +1241,7 @@ test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ co
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("firstslowword");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义", { timeout: 8_000 });
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
-  await expect(page.getByRole("button", { name: "建立手动草稿" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeEnabled();
   await expect(page.locator("#draft-list").getByRole("button", { name: /firstslowword/ })).toHaveCount(1);
   await expect(page.locator("#draft-list").getByRole("button", { name: /secondslowword/ })).toHaveCount(0);
   expect(aiRequestCount).toBe(1);
@@ -1249,10 +1250,10 @@ test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ co
 test("400ms 自动保存期间切换草稿不会丢最后输入", async ({ page }) => {
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("firstdraft");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await page.getByLabel("中文释义", { exact: true }).fill("切换前最后一刻输入的释义");
   await page.getByLabel("英文内容").fill("seconddraft");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await page.locator("#draft-list").getByRole("button", { name: /firstdraft/ }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("切换前最后一刻输入的释义");
 });
@@ -1310,10 +1311,10 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
   await expect(page.locator("#owner-workspace")).toBeHidden();
   await context.setOffline(false);
   await page.reload();
-  await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible();
+  await expect(page.getByText("等待你复核", { exact: true })).toBeVisible();
   await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await page.locator("#draft-list").getByRole("button", { name: /reviewword/ }).click();
-  await expect(page.locator("#capture-status")).toContainText("旧任务已取消");
+  await expect(page.locator("#capture-status")).toContainText("已取消。请复核内容后重新发布");
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
 });
@@ -1335,7 +1336,7 @@ test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自
   await expect(page.locator("#owner-workspace")).toBeVisible();
   await page.evaluate(() => window.dispatchEvent(new Event("online")));
 
-  await expect(page.getByText("等待卓本人复核", { exact: true })).toBeVisible({ timeout: 8_000 });
+  await expect(page.getByText("等待你复核", { exact: true })).toBeVisible({ timeout: 8_000 });
   await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.locator(".owner-entry-row", { hasText: "oauthraceword" })).toHaveCount(0);
 });
@@ -1352,7 +1353,7 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
     }
   });
   await otherPage.goto("/owner.html");
-  await expect(otherPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(otherPage.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   let publishRequests = 0;
   const countPublishRequest = (request) => {
     if (request.method() === "POST" && request.url().includes("/api/v1/owner/publish")) publishRequests += 1;
@@ -1375,7 +1376,7 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
   await expect(otherPage.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
 
   await otherPage.reload();
-  await expect(otherPage.getByText("等待卓本人复核", { exact: true })).toBeVisible();
+  await expect(otherPage.getByText("等待你复核", { exact: true })).toBeVisible();
   await expect(otherPage.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(otherPage.locator(".owner-entry-row", { hasText: "crossrunword" })).toHaveCount(0);
   expect(publishRequests).toBe(0);
@@ -1390,7 +1391,7 @@ test("远端同字段变化打开冲突面板且保留本地草稿", async ({ co
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByRole("dialog", { name: /同步冲突/ })).toBeVisible();
   await expect(page.locator("#conflict-fields")).toContainText("meaning");
-  await page.getByRole("button", { name: "采用非冲突合并并继续检查" }).click();
+  await page.getByRole("button", { name: "合并没有冲突的字段" }).click();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("本地并发修改的释义");
   await expect(page.locator("#editor-error")).toContainText("请逐项检查");
   await publishOpenDraft(page);
@@ -1426,13 +1427,13 @@ test("恶意 HTML 仅作为文本显示，PWA 条件成立", async ({ page }) =>
   expect(await page.evaluate(() => window.__xss)).toBe(0);
   expect(await page.evaluate(async () => (await navigator.serviceWorker.ready).scope)).toBe("http://127.0.0.1:4187/");
   const manifest = await page.evaluate(async () => fetch(document.querySelector('link[rel="manifest"]').href).then((response) => response.json()));
-  expect(manifest).toMatchObject({ name: "卓的公开词库", start_url: "./", scope: "./", display: "standalone" });
+  expect(manifest).toMatchObject({ name: "卓的单词本", start_url: "./", scope: "./", display: "standalone" });
 });
 
 test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/");
-  await expect(page.getByText(/已即时同步最新公开词库|已读取 GitHub Pages 备用快照/)).toBeVisible();
+  await expect(page.getByText(/更新于 \d{4}\/\d{1,2}\/\d{1,2}/)).toBeVisible();
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
   expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.innerWidth);
   const searchBox = page.locator("#library-search");
@@ -1445,7 +1446,7 @@ test("375px 手机宽度无横向溢出，主要按钮和键盘焦点可用", as
 test("真实多标签页能看到已保存草稿，前进后退不会丢失管理状态", async ({ context, page }) => {
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("tabword");
-  await page.getByRole("button", { name: "建立手动草稿" }).click();
+  await page.getByRole("button", { name: "新建空白草稿" }).click();
   await expect(page.getByRole("heading", { name: /tabword/ })).toBeVisible();
   await page.getByLabel("中文释义", { exact: true }).fill("多标签页测试词");
   await page.getByRole("button", { name: "保存本地草稿" }).click();
@@ -1453,14 +1454,14 @@ test("真实多标签页能看到已保存草稿，前进后退不会丢失管�
 
   const secondPage = await context.newPage();
   await secondPage.goto("/owner.html");
-  await expect(secondPage.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(secondPage.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(secondPage.locator("#draft-list")).toContainText("tabword");
   await secondPage.close();
 
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
   await page.goBack();
-  await expect(page.getByRole("heading", { name: "卓的管理模式" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.locator("#draft-list")).toContainText("tabword");
 });
 
@@ -1476,7 +1477,7 @@ test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ 
   });
   try {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "卓的公开词库", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
     await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
     await page.locator("#library-search").fill("jab at");
     await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();

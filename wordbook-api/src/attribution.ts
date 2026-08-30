@@ -51,14 +51,26 @@ function record(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 }
 
+/**
+ * Wikimedia snippets are public, editable text, so a page may legitimately
+ * contain a malformed numeric entity. String.fromCodePoint throws a RangeError
+ * on anything above U+10FFFF or inside the surrogate range, which would abort
+ * an otherwise successful attribution lookup; keep the raw entity instead.
+ */
+function codePointOrRaw(match: string, value: number): string {
+  if (!Number.isInteger(value) || value < 0 || value > 0x10ffff
+    || (value >= 0xd800 && value <= 0xdfff)) return match;
+  return String.fromCodePoint(value);
+}
+
 function decodeHtml(value: string): string {
   const named: Record<string, string> = { amp: "&", apos: "'", gt: ">", lt: "<", quot: "\"", nbsp: " " };
   return value
     .replace(/<[^>]*>/g, " ")
-    .replace(/&(#x[0-9a-f]+|#\d+|amp|apos|gt|lt|quot|nbsp);/gi, (_match, entity: string) => {
+    .replace(/&(#x[0-9a-f]+|#\d+|amp|apos|gt|lt|quot|nbsp);/gi, (match, entity: string) => {
       const key = entity.toLowerCase();
-      if (key.startsWith("#x")) return String.fromCodePoint(Number.parseInt(key.slice(2), 16));
-      if (key.startsWith("#")) return String.fromCodePoint(Number.parseInt(key.slice(1), 10));
+      if (key.startsWith("#x")) return codePointOrRaw(match, Number.parseInt(key.slice(2), 16));
+      if (key.startsWith("#")) return codePointOrRaw(match, Number.parseInt(key.slice(1), 10));
       return named[key] || " ";
     });
 }

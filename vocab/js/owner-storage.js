@@ -584,7 +584,7 @@ export async function requeueOperationForReview(operationId, { authorizedRunId =
   const outbox = transaction.objectStore(STORES.outbox);
   const operation = await requestValue(outbox.get(operationId));
   if (!operation) throw new Error("同步任务不存在。");
-  if (operation.status !== "review_required") throw new Error("只有经过卓本人复核的待确认任务可以重新排队。");
+  if (operation.status !== "review_required") throw new Error("只有你复核过的待确认任务可以重新排队。");
   const draft = await requestValue(transaction.objectStore(STORES.drafts).get(operation.draftId));
   if (!draft) throw new Error("同步任务对应的草稿不存在，不能重新排队。");
   const now = new Date().toISOString();

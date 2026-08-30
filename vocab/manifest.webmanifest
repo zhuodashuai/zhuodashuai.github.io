@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "卓的公开词库",
-  "short_name": "卓的词库",
-  "description": "卓公开分享并持续整理的英文单词、短语、句子、名言与谚语词库。",
+  "name": "卓的单词本",
+  "short_name": "单词本",
+  "description": "卓的个人英语单词本，公开给大家查看。",
   "lang": "zh-CN",
   "dir": "ltr",
   "start_url": "./",
@@ -19,6 +19,6 @@
     { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "浏览卓的公开词库", "short_name": "公开词库", "url": "./", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+    { "name": "浏览单词本", "short_name": "单词本", "url": "./", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ]
 }

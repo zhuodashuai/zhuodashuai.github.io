@@ -248,6 +248,20 @@ function chineseQualityContent(value) {
   }).join(" ");
 }
 
+// Kept deliberately in step with hasPlausibleChineseMeaning in
+// wordbook-api/src/schema.ts. A script ratio proves the text looks Chinese,
+// not that it is a definition, so placeholders and cross-references are
+// rejected by name and a lone Han character never counts as a meaning.
+const MEANING_PLACEHOLDERS = [
+  /^(?:todo|tbd|fixme|n\/?a|null|undefined|nan|\[object [a-z]+\])\b/iu,
+  /^待(?:补充|填写|完善|定|确认)/u,
+  /^(?:请)?(?:补充|填写|完善)/u,
+  /^(?:暂无|未知|无|同上|略)$/u,
+  /^参?见\s*\S+\s*(?:词条|条目|词条。)?$/u,
+  /^同\s*\S+$/u
+];
+const MINIMUM_MEANING_HAN = 2;
+
 export function isPlausibleChineseMeaning(value, englishTerm = "") {
   const visible = visibleText(value);
   if (!visible) return false;
@@ -255,9 +269,14 @@ export function isPlausibleChineseMeaning(value, englishTerm = "") {
   if (/\b(?:kamus|mymemory)\b|\bbm\s+ke\s+bi\b|translation\s+(?:warning|memory)|used\s+all\s+available\s+free\s+translations|machine\s+translation\s+output/iu.test(lowered)) return false;
   if (englishTerm && normalizeEnglish(visible) === normalizeEnglish(englishTerm)) return false;
   const content = chineseQualityContent(visible);
+  // NFKC folds circled numerals to bare digits, so "① 待补充" arrives as
+  // "1 待补充" and chineseQualityContent no longer recognises the marker.
+  const probe = content.trim().replace(/^[\s\d.、)）,，:：·-]+/u, "").trim();
+  if (MEANING_PLACEHOLDERS.some((pattern) => pattern.test(probe))) return false;
   const han = [...content.matchAll(/\p{Script=Han}/gu)].length;
   const latin = [...content.matchAll(/\p{Script=Latin}/gu)].length;
-  return han > 0 && han / Math.max(1, han + latin) >= 0.2;
+  if (han < MINIMUM_MEANING_HAN) return false;
+  return han / Math.max(1, han + latin) >= 0.2;
 }
 
 function isPlausibleEnglishDefinition(value) {
@@ -411,12 +430,65 @@ export function safeHttpsUrl(value) {
   let url;
   try { url = new URL(cleaned); } catch { throw new Error("来源链接格式不正确。"); }
   const host = url.hostname.toLowerCase();
-  const privateIpv4 = /^(?:10\.|127\.|169\.254\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)/.test(host);
-  if (url.protocol !== "https:" || url.username || url.password || host === "localhost" || host === "[::1]" || privateIpv4) {
+  if (url.protocol !== "https:" || url.username || url.password || isNonPublicHost(host)) {
     throw new Error("来源链接必须是公开 HTTPS 地址。");
   }
   url.hash = "";
   return url.href;
+}
+
+/**
+ * Kept deliberately in step with isNonPublicHost in
+ * wordbook-api/src/schema.ts. Dotted-quad ranges are only part of the problem:
+ * a host may also be an IPv6 literal, or an IPv4 address written in decimal,
+ * octal or hex form, all of which resolve back to the same private targets.
+ */
+export function isNonPublicHost(host) {
+  const name = String(host || "").replace(/^\[|\]$/g, "").toLowerCase();
+  if (!name || name === "localhost" || name.endsWith(".localhost") || name.endsWith(".local")
+    || name.endsWith(".internal") || name.endsWith(".home.arpa")) return true;
+
+  if (name.includes(":")) {
+    const compact = name.split("%")[0];
+    return compact === "::" || compact === "::1"
+      || /^::ffff:(?:0*:)?(?:127\.|10\.|192\.168\.|169\.254\.|0\.)/.test(compact)
+      || /^f[cd][0-9a-f]{0,2}:/.test(compact)
+      || /^fe[89ab][0-9a-f]?:/.test(compact);
+  }
+
+  const octets = ipv4Octets(name);
+  if (!octets) return false;
+  const [a, b] = octets;
+  return a === 0 || a === 10 || a === 127
+    || (a === 169 && b === 254)
+    || (a === 172 && b >= 16 && b <= 31)
+    || (a === 192 && b === 168)
+    || (a === 100 && b >= 64 && b <= 127)
+    || (a === 192 && b === 0)
+    || a >= 224;
+}
+
+function ipv4Octets(host) {
+  const parts = host.split(".");
+  if (parts.length > 4) return null;
+  const numbers = [];
+  for (const part of parts) {
+    if (!part) return null;
+    let value;
+    if (/^0[xX][0-9a-fA-F]+$/.test(part)) value = Number.parseInt(part.slice(2), 16);
+    else if (/^0[0-7]+$/.test(part)) value = Number.parseInt(part.slice(1), 8);
+    else if (/^\d+$/.test(part)) value = Number.parseInt(part, 10);
+    else return null;
+    if (!Number.isSafeInteger(value) || value < 0) return null;
+    numbers.push(value);
+  }
+  const last = numbers[numbers.length - 1];
+  if (last >= 256 ** (5 - numbers.length)) return null;
+  if (numbers.slice(0, -1).some((value) => value > 255)) return null;
+  const packed = numbers.slice(0, -1).reduce((total, value, index) =>
+    total + value * 256 ** (3 - index), 0) + last;
+  if (packed > 0xffffffff) return null;
+  return [(packed >>> 24) & 0xff, (packed >>> 16) & 0xff, (packed >>> 8) & 0xff, packed & 0xff];
 }
 
 function validateSource(candidate) {
