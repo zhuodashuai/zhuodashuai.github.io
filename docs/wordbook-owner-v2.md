@@ -108,6 +108,29 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 5. 把这个公开 origin 写入 `vocab/js/runtime-config.js` 的 `OWNER_ADMIN_URL`，提交并让 GitHub Pages 发布。不要在这里写 client secret 或 token。
 6. 在正式 Worker origin 打开 `/owner.html`，点击 GitHub 登录。必须实际显示 `@zhuodashuai` 与 user ID `156042078`，再用一个测试词条完成发布、刷新、编辑和删除。
 
+## 日常部署
+
+`vocab/` 是通过 Worker 的 ASSETS binding 提供的，**不是**只由 GitHub Pages 提供。
+`https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/owner.html` 和该 origin 下的
+整个应用，只有在 Worker 重新部署后才会变化；只合并到 `main` 只会更新
+`zhuodashuai.github.io/vocab/` 这个公开页。
+
+推送到 `main` 后，CI 的 `deploy` job 会在 `verify` 通过后自动执行
+`wrangler deploy`。它需要仓库 secret：
+
+- `CLOUDFLARE_API_TOKEN`（必需，权限：Workers Scripts\:Edit）
+- `CLOUDFLARE_ACCOUNT_ID`（token 关联多个账户时才需要）
+
+没有配置 token 时该 job 会跳过并留一条 notice，CI 仍是绿的；这时需要手动执行：
+
+```bash
+pnpm --dir wordbook-api exec wrangler deploy
+```
+
+`wrangler deploy` 不会动已经用 `wrangler secret put` 设过的 secret，只会重新发布
+代码、`wrangler.jsonc` 里的 vars 和 `vocab/` 资源。部署后 job 会轮询
+`/api/v1/health`，`ok` 不为 true 就判失败。
+
 ## 运维与回滚
 
 - GitHub JSON 是公开内容的权威源；管理端发现 SHA 冲突时应先刷新并逐字段处理，不能覆盖。
