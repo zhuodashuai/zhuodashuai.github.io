@@ -64,3 +64,62 @@ jobs:
             test-results/
           if-no-files-found: ignore
           retention-days: 7
+
+  # The Worker serves vocab/ through its ASSETS binding, so owner.html and the
+  # whole app at the workers.dev origin only change when the Worker is
+  # redeployed. Merging to main alone updates GitHub Pages and nothing else,
+  # which is how a merged change can stay invisible on the admin page.
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for a Cloudflare token
+        id: guard
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Worker not deployed::Set the CLOUDFLARE_API_TOKEN repository secret to deploy the Worker automatically. Until then, run 'pnpm --dir wordbook-api exec wrangler deploy' by hand after merging."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: pnpm/action-setup@v4
+        if: steps.guard.outputs.configured == 'true'
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        if: steps.guard.outputs.configured == 'true'
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        if: steps.guard.outputs.configured == 'true'
+        run: pnpm install --frozen-lockfile
+      # Deploy leaves previously configured Worker secrets in place; it only
+      # republishes the code, the vars in wrangler.jsonc and the vocab/ assets.
+      - name: Deploy Worker and vocab assets
+        if: steps.guard.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm --dir wordbook-api exec wrangler deploy
+      - name: Confirm the deployed Worker is healthy
+        if: steps.guard.outputs.configured == 'true'
+        run: |
+          set -euo pipefail
+          url="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/api/v1/health"
+          for attempt in 1 2 3 4 5; do
+            if body=$(curl -fsS --max-time 20 "$url"); then
+              echo "$body"
+              node -e 'const b=JSON.parse(process.argv[1]); if(!b.ok) throw new Error("health ok:false"); console.log("version", b.version);' "$body"
+              exit 0
+            fi
+            echo "health check attempt $attempt failed; retrying"
+            sleep 5
+          done
+          echo "::error title=Health check failed::The Worker deployed but /api/v1/health did not respond ok."
+          exit 1
