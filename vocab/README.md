@@ -1,6 +1,6 @@
-# 卓的公开词库
+# 卓的单词本
 
-`/vocab/` 是一个可安装的只读公共词库 PWA。公开页面支持搜索、类型筛选、朗读、详情与 JSON 导出；公开 canonical data 位于 `data/owner-wordbook.json`（schema v3）。
+`/vocab/` 是卓的个人英语单词本，做成可安装的只读公共 PWA。使用说明见 `guide.html`（站内「使用手册」）。公开页面支持搜索、类型筛选、朗读、详情与 JSON 导出；公开 canonical data 位于 `data/owner-wordbook.json`（schema v3）。
 
 ## 权限边界
 
@@ -8,7 +8,7 @@
 - `?mode=personal` 不再代表身份，也不能解锁编辑功能。
 - 所有者管理页由 `wordbook-api/` 的 Cloudflare Worker 同源托管。
 - 只有 GitHub App OAuth 实际验证为 `zhuodashuai` 且 user ID 为 `156042078` 时，服务端才授予添加、编辑、删除、AI 整理和发布权限。
-- GitHub token、OAuth client secret和任何可选的 OpenAI/Anthropic key只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
+- GitHub token、OAuth client secret 和任何可选的 OpenAI/Anthropic key 只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
 
 ## 数据与离线
 
@@ -37,7 +37,7 @@
 
 从仓库根目录运行：
 
-```powershell
+```bash
 pnpm test:security
 pnpm test
 pnpm --dir wordbook-api check

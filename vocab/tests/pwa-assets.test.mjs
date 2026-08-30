@@ -6,6 +6,7 @@ const manifest = JSON.parse(await readFile(new URL("../manifest.webmanifest", im
 const serviceWorker = await readFile(new URL("../sw.js", import.meta.url), "utf8");
 const vocabHtml = await readFile(new URL("../index.html", import.meta.url), "utf8");
 const ownerHtml = await readFile(new URL("../owner.html", import.meta.url), "utf8");
+const guideHtml = await readFile(new URL("../guide.html", import.meta.url), "utf8");
 const stylesSource = await readFile(new URL("../styles.css", import.meta.url), "utf8");
 const ownerAppSource = await readFile(new URL("../js/owner-app.js", import.meta.url), "utf8");
 const publicAppSource = await readFile(new URL("../js/public-app.js", import.meta.url), "utf8");
@@ -53,35 +54,42 @@ test("mutable script, style and manifest assets revalidate online before using t
 });
 
 test("the academic profile provides a discoverable route to the word cabinet", () => {
-  assert.match(profileHtml, /href="vocab\/"[^>]*>卓的公开词库/);
+  assert.match(profileHtml, /href="vocab\/"[^>]*>卓的单词本/);
   assert.match(vocabHtml, /href="https:\/\/zhuodashuai\.github\.io\/"[^>]*>学术主页/);
   assert.match(profileHtml, /Owner-only GitHub publishing/);
   assert.doesNotMatch(profileHtml, /optional private GitHub backup/);
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v51/);
+  assert.match(serviceWorker, /zhuo-wordbook-v52/);
   assert.match(serviceWorker, /\.\/owner\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=51/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=51/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=51/);
+  assert.match(serviceWorker, /\.\/guide\.html/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=52/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=52/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=52/);
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=51"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=51"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=51"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=51"/);
-  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[5-9]|v50/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=52"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=52"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=52"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=52"/);
+  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[5-9]|v5[01]/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
-  assert.match(ownerHtml, /Fail-closed owner authentication/);
+  assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
   assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
-  assert.match(ownerHtml, /第一阶段只为卓本人开放编辑/);
-  assert.match(ownerHtml, /Cloudflare Workers AI.*UTC 日最多 20 次 AI 整理/);
-  assert.match(ownerHtml, /第二款免费方案可用模型/);
-  assert.match(ownerHtml, /不是“永久免费”承诺/);
-  assert.match(ownerHtml, /默认生产配置.*不会切换到可能收费的引擎/);
+  // The cost disclosure now lives once, in the manual, and both pages link to it.
+  assert.match(guideHtml, /Cloudflare Workers AI.*不需要 OpenAI 或 Claude 的 API key/s);
+  assert.match(guideHtml, /每个 UTC 日最多 20 次整理/);
+  assert.match(guideHtml, /自动换第二款免费模型/);
+  assert.match(guideHtml, /这不是永久免费承诺/);
+  assert.match(guideHtml, /不会自动切换到可能收费的引擎/);
+  assert.match(ownerHtml, /href="guide\.html"/);
+  assert.match(vocabHtml, /href="guide\.html"/);
+  // Explanation belongs in the manual, not in the capture panel.
+  assert.doesNotMatch(ownerHtml, /panel-detail|永久免费/);
+  assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(stylesSource, /\.update-banner\s*\{[^}]*top:\s*1rem[^}]*right:\s*1rem/s);
   assert.doesNotMatch(stylesSource, /\.update-banner\s*\{[^}]*bottom:\s*1rem/s);
   assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
@@ -94,15 +102,15 @@ test("the PWA shell separates the public reader from the authenticated owner app
 });
 
 test("synonyms remain one entry field throughout owner editing and public discovery", () => {
-  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="系统只从你的现有词条中匹配/);
-  assert.match(ownerHtml, /同义词（只采用卓已经输入过的词）/);
+  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="只会从你现有的词条中匹配/);
+  assert.match(ownerHtml, /同义词（只能用你已经收录的词）/);
   assert.match(ownerAppSource, /const rawSynonyms = LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
   assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
   assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
   assert.match(entryDetailSource, /entry\.synonyms/);
   assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
-  assert.match(vocabHtml, /搜索卓已发布的英文、中文、同义词、标签或作者/);
+  assert.match(vocabHtml, /只搜这个单词本里已有的词/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });
 

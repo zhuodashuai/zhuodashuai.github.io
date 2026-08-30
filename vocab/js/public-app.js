@@ -6,7 +6,7 @@ import { setupPwa } from "./pwa.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-search", "filter-row", "entry-grid", "entry-count", "data-status", "load-error",
-  "load-error-message", "retry-load", "empty-message", "search-empty", "search-empty-title", "search-owner-link", "export-public", "entry-dialog", "dialog-type", "dialog-term",
+  "load-error-message", "retry-load", "empty-message", "search-empty", "search-empty-title", "export-public", "entry-dialog", "dialog-type", "dialog-term",
   "dialog-speak", "dialog-copy", "dialog-phonetic", "dialog-meaning", "dialog-definition-section", "dialog-definition", "dialog-example-section",
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "install-button", "update-banner", "apply-update"
@@ -38,13 +38,6 @@ function setMultilineText(element, value) {
     if (index) element.append(document.createElement("br"));
     element.append(line);
   });
-}
-
-function ownerUrlForInput(input) {
-  const target = new URL(adminUrl || "owner.html", window.location.href);
-  const safeInput = String(input || "").replace(/\s+/g, " ").trim().slice(0, 240);
-  if (safeInput) target.searchParams.set("input", safeInput);
-  return target.href;
 }
 
 function tag(label, className = "") {
@@ -102,8 +95,6 @@ function render() {
   if (searchMiss) {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
-    refs.searchOwnerLink.textContent = `仅卓本人：去管理模式用 AI 整理 ${displayQuery}`;
-    refs.searchOwnerLink.href = ownerUrlForInput(state.query);
   }
   refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || entries.length === 0;
 }
@@ -147,15 +138,15 @@ async function performLoad({ background = false } = {}) {
     if (state.snapshot?.revisionId === snapshot.revisionId) {
       refs.entryGrid.setAttribute("aria-busy", "false");
       refs.dataStatus.textContent = source === "live"
-        ? `已即时同步最新公开词库 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`
-        : `即时源暂不可用，当前已是 GitHub Pages 最新备用快照 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`;
+        ? `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")}`
+        : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
       return;
     }
     state.snapshot = snapshot;
     await putPublicCache(snapshot, "", response.url, { etag: response.headers.get("etag") || "" });
     refs.dataStatus.textContent = source === "live"
-      ? `已即时同步最新公开词库 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`
-      : `即时源暂不可用，已读取 GitHub Pages 备用快照 · 数据更新于 ${new Date(snapshot.exportedAt).toLocaleString("zh-CN")}`;
+      ? `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")}`
+      : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
     refs.exportPublic.disabled = false;
     render();
   } catch (networkError) {
@@ -216,7 +207,6 @@ refs.exportPublic.addEventListener("click", () => {
 if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
-  refs.ownerLink.title = "管理后端完成一次性部署后，这里会连接到安全管理域名";
 }
 setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true });
 const refreshWhileVisible = () => {
