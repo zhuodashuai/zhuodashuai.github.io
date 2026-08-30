@@ -666,6 +666,12 @@ function scheduleDraftSave() {
 async function renderDrafts() {
   const [drafts, operations] = await Promise.all([listDrafts(), listOutbox({ includeCompleted: true })]);
   updateOwnerTermIndexes(drafts);
+  refs.retryQueue.hidden = !operations.some((operation) => (
+    String(operation.authorizedRunId || "") === state.tabId
+    && (operation.status === "awaiting_auth"
+      || operation.status === "retry_wait"
+      || (operation.status === "failed" && operation.lastError?.retryable))
+  ));
   const operationById = new Map(operations.map((operation) => [operation.operationId, operation]));
   const items = drafts.map((draft) => {
     const operation = draft.lastOperationId ? operationById.get(draft.lastOperationId) : null;

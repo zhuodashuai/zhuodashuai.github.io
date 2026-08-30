@@ -216,9 +216,10 @@ function rewriteSynonymReferences(
   replacement: string,
   excludeId: string,
   now: string
-): void {
+): Set<string> {
+  const touchedEntryIds = new Set<string>();
   const oldKey = normalizeEnglish(oldTerm);
-  if (!oldKey) return;
+  if (!oldKey) return touchedEntryIds;
   for (let index = 0; index < entries.length; index += 1) {
     const candidate = entries[index];
     if (candidate.id === excludeId || !candidate.synonyms.some((synonym) => normalizeEnglish(synonym) === oldKey)) continue;
@@ -246,6 +247,107 @@ function rewriteSynonymReferences(
       revision: candidate.revision + 1,
       updatedAt: now
     });
+    touchedEntryIds.add(candidate.id);
+  }
+  return touchedEntryIds;
+}
+
+function sameTerms(left: string[], right: string[]): boolean {
+  return left.length === right.length
+    && left.every((value, index) => value === right[index]);
+}
+
+/**
+ * Synonyms are direct, reciprocal links. This deliberately does not compute a
+ * transitive closure: A≈B and B≈C do not prove that A≈C for every sense. The
+ * routine only mirrors links between terms that are already published, so it
+ * never invents a word or turns metadata into a new entry.
+ */
+function reconcileReciprocalSynonyms(
+  entries: PublicEntry[],
+  mutatedEntryId: string,
+  previousEntry: PublicEntry | null,
+  touchedEntryIds: Set<string>,
+  now: string
+): void {
+  const lexicalIndexes = entries
+    .map((candidate, index) => LEXICAL_ENTRY_TYPES.has(candidate.entryType) ? index : -1)
+    .filter((index) => index >= 0);
+  const indexByAnyTerm = new Map(entries.map((candidate, index) => [normalizeEnglish(candidate.term), index]));
+  const indexByTerm = new Map(lexicalIndexes.map((index) => [normalizeEnglish(entries[index].term), index]));
+  const desired = entries.map((candidate) => [...candidate.synonyms]);
+
+  if (previousEntry && mutatedEntryId) {
+    const current = entries.find((candidate) => candidate.id === mutatedEntryId);
+    const currentNeighbourKeys = new Set((current?.synonyms || []).map((synonym) => normalizeEnglish(synonym)));
+    const removedNeighbours = previousEntry.synonyms.filter((synonym) => !currentNeighbourKeys.has(normalizeEnglish(synonym)));
+    const ownerKeys = new Set([previousEntry.term, current?.term || ""].map((term) => normalizeEnglish(term)).filter(Boolean));
+    for (const removed of removedNeighbours) {
+      const targetIndex = indexByTerm.get(normalizeEnglish(removed));
+      if (targetIndex === undefined) continue;
+      desired[targetIndex] = desired[targetIndex].filter((synonym) => !ownerKeys.has(normalizeEnglish(synonym)));
+    }
+  }
+
+  for (const sourceIndex of lexicalIndexes) {
+    desired[sourceIndex] = desired[sourceIndex].map((synonym) => {
+      const targetIndex = indexByTerm.get(normalizeEnglish(synonym));
+      const publishedTargetIndex = indexByAnyTerm.get(normalizeEnglish(synonym));
+      if (targetIndex === undefined && publishedTargetIndex !== undefined) {
+        throw new ApiError(
+          400,
+          "invalid_synonym_target_type",
+          `“${synonym}”不是单词、短语、短语动词、习语或搭配，不能作为“${entries[sourceIndex].term}”的同义词。`
+        );
+      }
+      return targetIndex === undefined ? synonym : entries[targetIndex].term;
+    });
+    for (const synonym of desired[sourceIndex]) {
+      const targetIndex = indexByTerm.get(normalizeEnglish(synonym));
+      if (targetIndex === undefined || targetIndex === sourceIndex) continue;
+      const sourceTerm = entries[sourceIndex].term;
+      if (!desired[targetIndex].some((candidate) => normalizeEnglish(candidate) === normalizeEnglish(sourceTerm))) {
+        desired[targetIndex].push(sourceTerm);
+      }
+    }
+  }
+
+  for (const index of lexicalIndexes) {
+    const candidate = entries[index];
+    const seen = new Set<string>();
+    const synonyms = desired[index].filter((synonym) => {
+      const key = normalizeEnglish(synonym);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    if (synonyms.length > 20) {
+      throw new ApiError(400, "synonym_limit_exceeded", `“${candidate.term}”最多只能关联 20 个已发布同义词。`);
+    }
+    const protectedKeys = new Set([
+      candidate.term,
+      candidate.standardForm,
+      candidate.correction.original,
+      candidate.correction.suggestion,
+      candidate.correction.chosen,
+      ...candidate.forms,
+      ...candidate.confusedWith
+    ].map((value) => normalizeEnglish(value)).filter(Boolean));
+    const conflict = synonyms.find((synonym) => protectedKeys.has(normalizeEnglish(synonym)));
+    if (conflict) {
+      throw new ApiError(
+        400,
+        "synonym_link_conflict",
+        `“${conflict}” 同时被归为词形、易混词或标准形式，不能自动加入“${candidate.term}”的同义词。`
+      );
+    }
+    if (sameTerms(candidate.synonyms, synonyms)) continue;
+    entries[index] = PublicEntrySchema.parse({
+      ...candidate,
+      synonyms,
+      revision: candidate.id === mutatedEntryId || touchedEntryIds.has(candidate.id) ? candidate.revision : candidate.revision + 1,
+      updatedAt: candidate.id === mutatedEntryId || touchedEntryIds.has(candidate.id) ? candidate.updatedAt : now
+    });
   }
 }
 
@@ -272,6 +374,8 @@ export function applyPublishMutation(
   const entries = [...remote.entries];
   const mutation = request.mutation;
   let entry: PublicEntry | null = null;
+  let previousEntry: PublicEntry | null = null;
+  let touchedSynonymEntryIds = new Set<string>();
   let action: MutationResult["action"];
   if (mutation.type === "add") {
     const candidateEntry = mutation.entry;
@@ -290,6 +394,7 @@ export function applyPublishMutation(
     const index = entries.findIndex((candidate) => candidate.id === candidateEntry.id);
     if (index < 0) throw new ApiError(409, "entry_missing", "这条词已经被远端删除，请刷新后决定是否重新添加。");
     const existing = entries[index];
+    previousEntry = existing;
     if (existing.updatedAt !== mutation.expectedUpdatedAt) {
       throw new ApiError(409, "entry_changed", "这条词已在远端更新，草稿没有覆盖它。", { remote: existing });
     }
@@ -304,7 +409,9 @@ export function applyPublishMutation(
       throw new ApiError(409, "duplicate_term", `“${entry.term}” 与已有词条冲突，请合并信息。`, { duplicate });
     }
     entries[index] = entry;
-    if (existing.term !== entry.term) rewriteSynonymReferences(entries, existing.term, entry.term, entry.id, now);
+    if (existing.term !== entry.term) {
+      touchedSynonymEntryIds = rewriteSynonymReferences(entries, existing.term, entry.term, entry.id, now);
+    }
     action = "updated";
   } else {
     const index = entries.findIndex((candidate) => candidate.id === mutation.id);
@@ -323,9 +430,18 @@ export function applyPublishMutation(
     }
     entry = existing;
     entries.splice(index, 1);
-    rewriteSynonymReferences(entries, existing.term, "", existing.id, now);
+    touchedSynonymEntryIds = rewriteSynonymReferences(entries, existing.term, "", existing.id, now);
     action = "deleted";
   }
+
+  reconcileReciprocalSynonyms(
+    entries,
+    action === "deleted" ? "" : entry?.id || "",
+    action === "updated" ? previousEntry : null,
+    touchedSynonymEntryIds,
+    now
+  );
+  if (entry && action !== "deleted") entry = entries.find((candidate) => candidate.id === entry!.id) || entry;
 
   const parsedSnapshot = PublicSnapshotSchema.safeParse({
     schemaVersion: 3,

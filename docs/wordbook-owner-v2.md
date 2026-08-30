@@ -4,7 +4,7 @@
 
 这个版本先把一个所有者流程做好：任何人可以只读浏览 `vocab/`，只有 GitHub 账号 `zhuodashuai`（固定用户 ID `156042078`）可以进入管理端、调用 AI、添加、编辑、删除并发布。访客个人词库是以后独立开发的功能，不与所有者权限混用。
 
-学术主页、Education 学校标识、意见箱、留言簿、`U1L1_coding.ipynb` 和原有 GitHub Pages 结构不在此次改写范围。修改前的文件哈希保存在 `docs/wordbook-owner-v2-preservation.md`。
+学术主页、Education 学校标识、意见箱、留言簿、`U1L1_coding.ipynb` 和原有 GitHub Pages 结构不在此次改写范围。修改前的文件哈希保存在 `docs/archive/wordbook-owner-v2-preservation.md`。
 
 ## 为什么旧版本会出问题
 
