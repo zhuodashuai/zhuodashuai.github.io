@@ -61,11 +61,6 @@ h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 5
    The colour shift already carries the emphasis. */
 .public-hero h1 em { color: var(--green-2); font-weight: 400; font-style: normal; }
 .lede { max-width: 720px; margin: 2rem 0 0; color: #44534c; font-size: clamp(1rem, 1.3vw, 1.18rem); }
-.principles-card { padding: 2rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,253,248,.78); box-shadow: var(--shadow); }
-.principles-card > p { margin: 0 0 1rem; font-weight: 800; }
-.principles-card ol { margin: 0; padding: 0; list-style: none; }
-.principles-card li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .75rem; padding: 1rem 0; border-top: 1px solid var(--line); }
-.principles-card li span { color: var(--gold); font-weight: 800; }
 
 .library-shell { margin-bottom: 4rem; padding: clamp(1.25rem, 3vw, 3.2rem); border: 1px solid var(--line); border-radius: 28px; background: rgba(255,253,248,.88); box-shadow: var(--shadow); }
 .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }
@@ -137,16 +132,11 @@ input:focus, textarea:focus, select:focus { border-color: var(--green-2); box-sh
 .guide-block code { padding: .1rem .35rem; border-radius: 5px; background: var(--green-soft); font-family: ui-monospace, Consolas, monospace; font-size: .92em; }
 .guide-callout { padding: .9rem 1.1rem; border-left: 3px solid var(--green-2); border-radius: 0 10px 10px 0; background: var(--green-soft); }
 .guide-note { color: var(--muted); font-size: .92rem; }
-.guide-list + .guide-note, .guide-steps + .guide-note, .guide-list + p { margin-top: 1.1rem; }
+.guide-list + .guide-note, .guide-list + p { margin-top: 1.1rem; }
 .guide-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .7rem; }
 .guide-list li { position: relative; padding-left: 1.1rem; color: #3d4943; }
 .guide-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 .guide-list strong { color: var(--ink); }
-.guide-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.1rem; }
-.guide-steps li { display: grid; grid-template-columns: 2rem 1fr; gap: .9rem; align-items: start; }
-.step-n { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; color: #fff; background: var(--green); font: 700 .85rem/1 Georgia, serif; }
-.guide-steps strong { display: block; }
-.guide-steps p { margin: .2rem 0 0; color: var(--muted); font-size: .94rem; }
 .guide-states { display: grid; gap: .55rem; margin-top: 1rem; }
 .guide-states p { margin: 0; color: var(--muted); font-size: .94rem; }
 .state-chip { display: inline-block; min-width: 5.4rem; margin-right: .5rem; padding: .18rem .55rem; border-radius: 999px; text-align: center; font-size: .78rem; font-weight: 750; }
@@ -280,7 +270,7 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
 
 @media (max-width: 1020px) {
   .public-hero { min-height: auto; grid-template-columns: 1fr; padding: 4rem 0; gap: 2rem; }
-  .principles-card { max-width: 680px; }
+  .about-card { max-width: 680px; }
   .entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .owner-layout { grid-template-columns: 1fr; }
   .draft-rail { position: static; max-height: none; }

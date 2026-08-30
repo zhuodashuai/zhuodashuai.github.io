@@ -1314,7 +1314,7 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
   await expect(page.getByText("等待你复核", { exact: true })).toBeVisible();
   await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await page.locator("#draft-list").getByRole("button", { name: /reviewword/ }).click();
-  await expect(page.locator("#capture-status")).toContainText("旧任务已取消");
+  await expect(page.locator("#capture-status")).toContainText("已取消。请复核内容后重新发布");
   await publishOpenDraft(page);
   await expect(page.locator("#owner-entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
 });

@@ -25,35 +25,30 @@
   <main id="main" class="guide">
     <section class="guide-hero">
       <h1>使用手册</h1>
-      <p class="lede">这是卓的个人英语单词本。卓自己收词、整理、发布，页面公开给任何人查看。</p>
+      <p class="lede">卓的个人英语单词本，公开给任何人查看。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-what">
       <h2 id="g-what">这是什么</h2>
-      <p>一个人的单词本，放在网上。卓遇到值得记的英文词、短语或句子，就整理成一条词条发布出来。</p>
+      <p>卓遇到值得记的英文词、短语或句子，就整理成一条词条发布出来。</p>
       <p class="guide-callout"><strong>它不是在线词典。</strong>这里只有卓已经收进来的词，查不了别的。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-visitor">
       <h2 id="g-visitor">访客可以做什么</h2>
       <ul class="guide-list">
-        <li><strong>看</strong> —— 翻阅全部已发布的词条，点开看完整释义、例句和出处。</li>
-        <li><strong>搜</strong> —— 在已发布的内容里找词。搜的是这个单词本，不是互联网。</li>
+        <li><strong>看</strong> —— 翻阅全部词条，点开看完整释义、例句和出处。</li>
+        <li><strong>搜</strong> —— 在这个单词本里找词，不是在互联网上查。</li>
         <li><strong>筛</strong> —— 按单词、短语、习语、名言等类型过滤。</li>
         <li><strong>听</strong> —— 朗读词条发音。</li>
-        <li><strong>带走</strong> —— 导出 JSON，或把网页装成应用离线看。</li>
+        <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
-      <p class="guide-note">访客不能添加、修改或删除词条，也不能用它去查这里没有的词。这些都不需要登录，直接用就行。</p>
+      <p class="guide-note">不用登录，直接用。但不能添加、修改或删除词条。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-owner">
-      <h2 id="g-owner">卓本人怎么录词</h2>
-      <ol class="guide-steps">
-        <li><span class="step-n">1</span><div><strong>登录</strong><p>用 GitHub 登录，只有卓的账号能进。</p></div></li>
-        <li><span class="step-n">2</span><div><strong>输入英文</strong><p>敲一个词、短语或句子，AI 整理成候选词条。</p></div></li>
-        <li><span class="step-n">3</span><div><strong>核对</strong><p>释义、例句、音标、出处都可以改。AI 的结果只是草稿。</p></div></li>
-        <li><span class="step-n">4</span><div><strong>发布</strong><p>确认后写进 GitHub，公开页随即更新。</p></div></li>
-      </ol>
+      <h2 id="g-owner">词条怎么来的</h2>
+      <p>卓用 GitHub 登录后输入英文，AI 整理成草稿，他逐条核对改好，再发布到 GitHub。AI 的结果从来不会直接上线。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-rules">
@@ -69,7 +64,7 @@
 
     <section class="guide-block" aria-labelledby="g-entry">
       <h2 id="g-entry">一条词条里有什么</h2>
-      <p>中文释义、英文释义、分义项、双语例句、音标、词性、常见搭配、易混淆词、词形变化和标签。名言和谚语还带作者、出处和核验状态。</p>
+      <p>中文释义、英文释义、分义项、双语例句、音标、词性、搭配、易混淆词、词形和标签。名言谚语另带作者、出处和核验状态。</p>
       <div class="guide-states">
         <p><span class="state-chip verified">已核验</span> 卓打开原始来源核对过。</p>
         <p><span class="state-chip candidate">候选出处</span> 检索到了线索，但还没人工确认。</p>
@@ -82,22 +77,22 @@
       <h2 id="g-data">数据存在哪里</h2>
       <ul class="guide-list">
         <li>已发布的词条存在 GitHub 仓库里，那是唯一的正本。</li>
-        <li>没发布的草稿只存在卓自己浏览器的本机存储，刷新、关掉、断网都不会丢。</li>
-        <li>复习记录是私人的，不会跟着公开词库发出去。</li>
+        <li>没发布的草稿只在卓自己的浏览器里，刷新、关掉、断网都不会丢。</li>
+        <li>复习记录是私人的，不会公开。</li>
         <li>随时可以导出 JSON 备份。</li>
       </ul>
     </section>
 
     <section class="guide-block" aria-labelledby="g-ai">
       <h2 id="g-ai">关于 AI 和费用</h2>
-      <p>整理用的是 Cloudflare Workers AI 的账户额度，不需要 OpenAI 或 Claude 的 API key。第一款模型结果不合格时，会自动换第二款免费模型再试一次。</p>
+      <p>用 Cloudflare Workers AI 的账户额度，不需要 OpenAI 或 Claude 的 API key。第一款模型结果不合格时会自动换第二款免费模型重试。</p>
       <p>每个 UTC 日最多 20 次整理。额度用完时只保留本地草稿，不会自动切换到可能收费的引擎。</p>
       <p class="guide-note">这不是永久免费承诺：最终是否产生费用，仍取决于 Cloudflare 账户套餐和同账户其他用量。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-privacy">
       <h2 id="g-privacy">隐私</h2>
-      <p>访客只是读一个静态词库，不需要登录，也不会被要求提交任何内容。GitHub 登录只发生在卓自己的管理页面，登录凭据只存在服务端，浏览器拿不到。</p>
+      <p>访客只是读一个静态词库，不登录，也不用提交任何东西。GitHub 登录只发生在卓自己的管理页，凭据只存在服务端。</p>
     </section>
 
     <nav class="guide-footer-nav" aria-label="继续浏览">
