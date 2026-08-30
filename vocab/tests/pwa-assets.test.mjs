@@ -61,19 +61,19 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v52/);
+  assert.match(serviceWorker, /zhuo-wordbook-v53/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=52/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=52/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=52/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=53/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=53/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=53/);
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=52"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=52"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=52"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=52"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=53"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=53"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=53"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=53"/);
   for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[5-9]|v5[01]/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
@@ -89,9 +89,19 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(vocabHtml, /href="guide\.html"/);
   // Explanation belongs in the manual, not in the capture panel.
   assert.doesNotMatch(ownerHtml, /panel-detail|永久免费/);
+  assert.match(ownerHtml, /id="capture-title">添加词条/);
+  assert.match(ownerHtml, /id="capture-input"[^>]*aria-describedby="capture-key-hint"/);
+  assert.match(ownerHtml, /href="guide\.html" aria-label="使用手册">说明<\/a>/);
+  assert.match(ownerHtml, /href="\.\/" aria-label="查看公开词库">词库<\/a>/);
+  assert.match(ownerHtml, /id="retry-queue"[^>]*hidden/);
+  assert.match(ownerHtml, /<details class="backup-panel">/);
+  assert.doesNotMatch(ownerHtml, /只写英文，剩下的交给整理器|草稿与同步队列/);
+  assert.match(ownerAppSource, /refs\.retryQueue\.hidden = !operations\.some/);
+  assert.match(stylesSource, /\.editor-empty\s*\{[^}]*min-height:\s*150px/s);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(stylesSource, /\.update-banner\s*\{[^}]*top:\s*1rem[^}]*right:\s*1rem/s);
-  assert.doesNotMatch(stylesSource, /\.update-banner\s*\{[^}]*bottom:\s*1rem/s);
+  assert.match(stylesSource, /\.update-banner\s*\{[^}]*right:\s*1rem[^}]*bottom:\s*max\(1rem,\s*env\(safe-area-inset-bottom\)\)/s);
+  assert.doesNotMatch(stylesSource, /\.update-banner\s*\{[^}]*top:\s*1rem/s);
+  assert.match(stylesSource, /@media \(max-width:\s*900px\)\s*\{[^}]*\.editor-actions\s*\{[^}]*position:\s*static/s);
   assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
@@ -101,9 +111,9 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
 });
 
-test("synonyms remain one entry field throughout owner editing and public discovery", () => {
-  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="只会从你现有的词条中匹配/);
-  assert.match(ownerHtml, /同义词（只能用你已经收录的词）/);
+test("synonyms remain one entered-word-only field throughout owner editing and public discovery", () => {
+  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="发布后自动双向更新/);
+  assert.match(ownerHtml, /同义词（仅限已收录词）/);
   assert.match(ownerAppSource, /const rawSynonyms = LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
   assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
   assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);

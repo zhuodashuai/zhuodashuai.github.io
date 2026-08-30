@@ -70,7 +70,21 @@ describe("wordbook schema", () => {
 
   it("requires synonyms in strict AI output while defaulting old public entries safely", () => {
     expect(AI_JSON_SCHEMA.required).toContain("synonyms");
-    expect(AI_JSON_SCHEMA.properties.synonyms).toMatchObject({ type: "array", maxItems: 12 });
+    expect(AI_JSON_SCHEMA.properties.synonyms).toMatchObject({ type: "array", maxItems: 20 });
+    const organizedBase = {
+      suggestedTerm: "receive", standardForm: "receive", entryType: "word" as const, phonetic: "/rɪˈsiːv/", partOfSpeech: "verb",
+      meaning: "收到；接收", definition: "To get or be given something.", senses: [], collocations: [], exampleEn: "I received the letter.",
+      exampleZh: "我收到了信。", usage: "", register: "neutral", confusedWith: [], forms: [], tags: [], author: "", sourceTitle: "",
+      sourceWork: "", sourceDate: "", attributionNote: ""
+    };
+    expect(AiOrganizedSchema.parse({
+      ...organizedBase,
+      synonyms: Array.from({ length: 20 }, (_, index) => `synonym-${index + 1}`)
+    }).synonyms).toHaveLength(20);
+    expect(() => AiOrganizedSchema.parse({
+      ...organizedBase,
+      synonyms: Array.from({ length: 21 }, (_, index) => `synonym-${index + 1}`)
+    })).toThrow();
     const legacyShapedPublicEntry = { ...entry() } as Record<string, unknown>;
     delete legacyShapedPublicEntry.synonyms;
     expect(PublicEntrySchema.parse(legacyShapedPublicEntry).synonyms).toEqual([]);

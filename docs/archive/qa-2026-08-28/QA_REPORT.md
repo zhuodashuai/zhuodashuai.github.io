@@ -1,5 +1,7 @@
 # 卓的英语词库 — QA、语言质量与生产验证报告
 
+> 历史快照：本报告只描述 2026-08-28 当时的构建与数据，不代表当前版本状态。
+
 测试日期：2026-08-28（America/New_York）
 
 正式公开站：<https://zhuodashuai.github.io/vocab/>
@@ -130,4 +132,4 @@ pnpm --dir wordbook-api exec wrangler deploy --dry-run
 pnpm test:e2e
 ```
 
-部署、安全与运维说明见 [`docs/wordbook-owner-v2.md`](docs/wordbook-owner-v2.md)。
+部署、安全与运维说明见 [`docs/wordbook-owner-v2.md`](../../wordbook-owner-v2.md)。

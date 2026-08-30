@@ -423,7 +423,7 @@ export const AiOrganizedSchema = z.object({
   meaning: bounded(4000),
   definition: bounded(4000),
   senses: z.array(AiSenseSchema).max(12),
-  synonyms: z.array(bounded(180)).max(12),
+  synonyms: z.array(bounded(180)).max(20),
   collocations: z.array(bounded(180)).max(20),
   exampleEn: bounded(4000),
   exampleZh: bounded(4000),
@@ -473,7 +473,7 @@ export const AI_JSON_SCHEMA = {
         }
       }
     },
-    synonyms: { type: "array", maxItems: 12, items: { type: "string", maxLength: 180 } },
+    synonyms: { type: "array", maxItems: 20, items: { type: "string", maxLength: 180 } },
     collocations: { type: "array", maxItems: 20, items: { type: "string", maxLength: 180 } },
     exampleEn: { type: "string", maxLength: 4000 },
     exampleZh: { type: "string", maxLength: 4000 },

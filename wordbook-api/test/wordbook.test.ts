@@ -232,11 +232,13 @@ describe("publish mutation planning", () => {
       mutation: { type: "add", entry: hip }
     }, "2026-08-28T01:00:00.000Z");
     expect(withHip.snapshot.entries.map((candidate) => candidate.term)).toEqual(["fashionable", "stylish", "hip"]);
+    expect(withHip.snapshot.entries.find((candidate) => candidate.id === "fashionable")?.synonyms).toEqual(["hip"]);
+    expect(withHip.snapshot.entries.find((candidate) => candidate.id === "stylish")?.synonyms).toEqual(["hip"]);
   });
 
   it("allows references to existing terms but rejects unentered synonym targets", () => {
     const alleviate = entry({ id: "alleviate", term: "alleviate", entryType: "word" });
-    const ease = entry({ id: "ease", term: "ease", entryType: "word", synonyms: ["alleviate"] });
+    const ease = entry({ id: "ease", term: "ease", entryType: "word", synonyms: ["ALLEVIATE"] });
     const added = applyPublishMutation(snapshot([alleviate]), {
       ...V38_PROTOCOL,
       baseSha: SHA,
@@ -244,6 +246,12 @@ describe("publish mutation planning", () => {
       mutation: { type: "add", entry: ease }
     }, "2026-08-28T01:00:00.000Z");
     expect(added.snapshot.entries).toHaveLength(2);
+    expect(added.snapshot.entries.find((candidate) => candidate.id === "alleviate")).toMatchObject({
+      synonyms: ["ease"],
+      revision: 2,
+      updatedAt: "2026-08-28T01:00:00.000Z"
+    });
+    expect(added.entry?.synonyms).toEqual(["alleviate"]);
 
     const invented = entry({ id: "invented-ref", term: "help", entryType: "word", synonyms: ["unentered"] });
     expect(() => applyPublishMutation(snapshot([alleviate]), {
@@ -252,6 +260,155 @@ describe("publish mutation planning", () => {
       mutationId: "mutation-invalid-synonym-reference",
       mutation: { type: "add", entry: invented }
     }, "2026-08-28T01:01:00.000Z")).toThrow(/已经输入并发布/);
+  });
+
+  it("rejects a published non-lexical entry as a synonym target", () => {
+    const quote = entry({
+      id: "knowledge-is-power",
+      term: "Knowledge is power.",
+      entryType: "quote"
+    });
+    const wisdom = entry({
+      id: "wisdom",
+      term: "wisdom",
+      entryType: "word",
+      synonyms: ["Knowledge is power."]
+    });
+    expect(() => applyPublishMutation(snapshot([quote]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-nonlexical-synonym-target",
+      mutation: { type: "add", entry: wisdom }
+    }, "2026-08-28T01:02:00.000Z")).toThrow(/不能作为.*同义词/);
+  });
+
+  it("keeps synonym links direct instead of computing a transitive closure", () => {
+    const broad = entry({ id: "broad", term: "broad", entryType: "word" });
+    const wide = entry({ id: "wide", term: "wide", entryType: "word", synonyms: ["broad"] });
+    const extensive = entry({ id: "extensive", term: "extensive", entryType: "word", synonyms: ["wide"] });
+    const first = applyPublishMutation(snapshot([]), {
+      ...V38_PROTOCOL, baseSha: SHA, mutationId: "mutation-direct-broad", mutation: { type: "add", entry: broad }
+    }, "2026-08-28T01:10:00.000Z");
+    const second = applyPublishMutation(first.snapshot, {
+      ...V38_PROTOCOL, baseSha: SHA, mutationId: "mutation-direct-wide", mutation: { type: "add", entry: wide }
+    }, "2026-08-28T01:11:00.000Z");
+    const third = applyPublishMutation(second.snapshot, {
+      ...V38_PROTOCOL, baseSha: SHA, mutationId: "mutation-direct-extensive", mutation: { type: "add", entry: extensive }
+    }, "2026-08-28T01:12:00.000Z");
+
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "broad")?.synonyms).toEqual(["wide"]);
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "wide")?.synonyms).toEqual(["broad", "extensive"]);
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "extensive")?.synonyms).toEqual(["wide"]);
+  });
+
+  it("does not increment reciprocal revisions when the same mutation is replayed", () => {
+    const alleviate = entry({ id: "idempotent-alleviate", term: "alleviate", entryType: "word" });
+    const ease = entry({ id: "idempotent-ease", term: "ease", entryType: "word", synonyms: ["alleviate"] });
+    const first = applyPublishMutation(snapshot([alleviate]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-idempotent-synonym-link",
+      mutation: { type: "add", entry: ease }
+    }, "2026-08-28T01:20:00.000Z");
+    const revisions = first.snapshot.entries.map((candidate) => [candidate.id, candidate.revision]);
+    const replayed = applyPublishMutation(first.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-idempotent-synonym-link",
+      mutation: { type: "add", entry: ease }
+    }, "2026-08-28T01:21:00.000Z");
+
+    expect(replayed.action).toBe("idempotent");
+    expect(replayed.snapshot).toBe(first.snapshot);
+    expect(replayed.snapshot.entries.map((candidate) => [candidate.id, candidate.revision])).toEqual(revisions);
+  });
+
+  it("accepts exactly 20 reciprocal links and rejects the twenty-first", () => {
+    const leaves = Array.from({ length: 20 }, (_, index) => entry({
+      id: `synonym-leaf-${index + 1}`,
+      term: `word-${index + 1}`,
+      entryType: "word"
+    }));
+    const hub = entry({
+      id: "synonym-hub",
+      term: "central",
+      entryType: "word",
+      synonyms: leaves.map((candidate) => candidate.term)
+    });
+    const linked = applyPublishMutation(snapshot(leaves), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-twenty-synonym-links",
+      mutation: { type: "add", entry: hub }
+    }, "2026-08-28T01:30:00.000Z");
+    expect(linked.entry?.synonyms).toHaveLength(20);
+    expect(linked.snapshot.entries
+      .filter((candidate) => candidate.id.startsWith("synonym-leaf-"))
+      .every((candidate) => candidate.synonyms[0] === "central")).toBe(true);
+
+    const twentyFirst = entry({ id: "synonym-leaf-21", term: "word-21", entryType: "word", synonyms: ["central"] });
+    expect(() => applyPublishMutation(linked.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-twenty-first-synonym-link",
+      mutation: { type: "add", entry: twentyFirst }
+    }, "2026-08-28T01:31:00.000Z")).toThrow(/最多只能关联 20/);
+  });
+
+  it("updates every published card in a directly linked synonym set without inventing entries", () => {
+    const delicious = entry({ id: "delicious", term: "delicious", entryType: "word", partOfSpeech: "adjective", meaning: "美味可口的" });
+    const yummy = entry({ id: "yummy", term: "yummy", entryType: "word", partOfSpeech: "adjective", meaning: "很好吃的", synonyms: ["delicious"] });
+    const palatable = entry({ id: "palatable", term: "palatable", entryType: "word", partOfSpeech: "adjective", meaning: "味道可接受的", synonyms: ["delicious", "yummy"] });
+
+    const first = applyPublishMutation(snapshot([]), {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-delicious",
+      mutation: { type: "add", entry: delicious }
+    }, "2026-08-28T01:00:00.000Z");
+    const second = applyPublishMutation(first.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-yummy",
+      mutation: { type: "add", entry: yummy }
+    }, "2026-08-28T01:01:00.000Z");
+    const third = applyPublishMutation(second.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-palatable",
+      mutation: { type: "add", entry: palatable }
+    }, "2026-08-28T01:02:00.000Z");
+
+    expect(third.snapshot.entries).toHaveLength(3);
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "delicious")).toMatchObject({
+      synonyms: ["yummy", "palatable"], revision: 3
+    });
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "yummy")).toMatchObject({
+      synonyms: ["delicious", "palatable"], revision: 2
+    });
+    expect(third.snapshot.entries.find((candidate) => candidate.term === "palatable")).toMatchObject({
+      synonyms: ["delicious", "yummy"], revision: 1
+    });
+
+    const currentPalatable = third.snapshot.entries.find((candidate) => candidate.id === "palatable")!;
+    const currentYummy = third.snapshot.entries.find((candidate) => candidate.id === "yummy")!;
+    const currentDelicious = third.snapshot.entries.find((candidate) => candidate.id === "delicious")!;
+    const narrowed = applyPublishMutation(third.snapshot, {
+      ...V38_PROTOCOL,
+      baseSha: SHA,
+      mutationId: "mutation-synonym-remove-direct-link",
+      mutation: {
+        type: "update",
+        entry: { ...currentPalatable, synonyms: ["delicious"] },
+        expectedUpdatedAt: currentPalatable.updatedAt
+      }
+    }, "2026-08-28T01:03:00.000Z");
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "yummy")?.synonyms).toEqual(["delicious"]);
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "palatable")?.synonyms).toEqual(["delicious"]);
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "delicious")?.synonyms).toEqual(["yummy", "palatable"]);
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "yummy")?.revision).toBe(currentYummy.revision + 1);
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "palatable")?.revision).toBe(currentPalatable.revision + 1);
+    expect(narrowed.snapshot.entries.find((candidate) => candidate.term === "delicious")?.revision).toBe(currentDelicious.revision);
   });
 
   it("rewrites synonym references on rename and removes them on delete", () => {
@@ -276,6 +433,7 @@ describe("publish mutation planning", () => {
       revision: 2,
       updatedAt: "2026-08-28T02:00:00.000Z"
     });
+    expect(updated.entry?.synonyms).toEqual(["ease"]);
 
     const target = updated.snapshot.entries.find((candidate) => candidate.id === "alleviate")!;
     const deleted = applyPublishMutation(updated.snapshot, {

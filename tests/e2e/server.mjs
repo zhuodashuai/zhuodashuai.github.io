@@ -67,6 +67,12 @@ function organizedEntry(input) {
     ? ["ease", "mitigate", "soothe"]
     : lower === "ease"
       ? ["alleviate", "lessen", "relieve"]
+      : lower === "delicious"
+        ? ["yummy", "palatable", "tasty"]
+        : lower === "yummy"
+          ? ["delicious", "palatable", "tasty"]
+          : lower === "palatable"
+            ? ["delicious", "yummy", "tasty"]
       : [];
   entry.meaning = lower === "hip" ? "noun：髋部；髋关节；臀部两侧\nadjective：时髦的；了解最新潮流的"
     : lower === "jab at" ? "朝某人或某物猛戳；（言语上）挖苦或抨击"
@@ -123,6 +129,67 @@ function organizedEntry(input) {
   }
   entry.organizationMethod = "ai-cloudflare";
   return validatePublicEntry(entry);
+}
+
+function sameTerms(left, right) {
+  return left.length === right.length
+    && left.every((value, index) => value === right[index]);
+}
+
+function reconcileReciprocalSynonyms(entries, target, previous, now) {
+  const targetId = target?.id || "";
+  const lexical = (entry) => ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(entry.entryType);
+  const indexByTerm = new Map(entries.map((entry, index) => lexical(entry) ? [normalizeEnglish(entry.term), index] : null).filter(Boolean));
+  const desired = entries.map((entry) => [...entry.synonyms]);
+
+  if (previous && target && normalizeEnglish(previous.term) !== normalizeEnglish(target.term)) {
+    const oldKey = normalizeEnglish(previous.term);
+    for (let index = 0; index < entries.length; index += 1) {
+      if (entries[index].id === targetId) continue;
+      desired[index] = desired[index].map((synonym) => normalizeEnglish(synonym) === oldKey ? target.term : synonym);
+    }
+  }
+  if (previous && target) {
+    const currentKeys = new Set(target.synonyms.map((synonym) => normalizeEnglish(synonym)));
+    const removed = previous.synonyms.filter((synonym) => !currentKeys.has(normalizeEnglish(synonym)));
+    const ownerKeys = new Set([previous.term, target.term].map((term) => normalizeEnglish(term)));
+    for (const synonym of removed) {
+      const index = indexByTerm.get(normalizeEnglish(synonym));
+      if (index !== undefined) desired[index] = desired[index].filter((value) => !ownerKeys.has(normalizeEnglish(value)));
+    }
+  }
+  if (previous && !target) {
+    const removedKey = normalizeEnglish(previous.term);
+    for (let index = 0; index < entries.length; index += 1) {
+      desired[index] = desired[index].filter((synonym) => normalizeEnglish(synonym) !== removedKey);
+    }
+  }
+
+  for (let sourceIndex = 0; sourceIndex < entries.length; sourceIndex += 1) {
+    if (!lexical(entries[sourceIndex])) continue;
+    desired[sourceIndex] = desired[sourceIndex].map((synonym) => {
+      const index = indexByTerm.get(normalizeEnglish(synonym));
+      return index === undefined ? synonym : entries[index].term;
+    });
+    for (const synonym of desired[sourceIndex]) {
+      const targetIndex = indexByTerm.get(normalizeEnglish(synonym));
+      if (targetIndex === undefined || targetIndex === sourceIndex) continue;
+      if (!desired[targetIndex].some((value) => normalizeEnglish(value) === normalizeEnglish(entries[sourceIndex].term))) {
+        desired[targetIndex].push(entries[sourceIndex].term);
+      }
+    }
+  }
+
+  for (let index = 0; index < entries.length; index += 1) {
+    if (sameTerms(entries[index].synonyms, desired[index])) continue;
+    entries[index] = validatePublicEntry({
+      ...entries[index],
+      synonyms: desired[index],
+      revision: entries[index].id === targetId ? entries[index].revision : entries[index].revision + 1,
+      updatedAt: now
+    });
+  }
+  return targetId ? entries.find((entry) => entry.id === targetId) || target : target;
 }
 
 async function api(request, response, url) {
@@ -212,6 +279,8 @@ async function api(request, response, url) {
     const mutation = payload.mutation;
     let action;
     let target = null;
+    let previous = null;
+    const now = new Date().toISOString();
     if (mutation.type === "add") {
       const candidate = validatePublicEntry(mutation.entry);
       const duplicate = findDuplicate(state.snapshot.entries, candidate);
@@ -222,18 +291,21 @@ async function api(request, response, url) {
     } else if (mutation.type === "update") {
       const index = state.snapshot.entries.findIndex((entry) => entry.id === mutation.entry.id);
       if (index < 0 || state.snapshot.entries[index].updatedAt !== mutation.expectedUpdatedAt) return error(response, 409, "entry_changed", "远端词条已变化。", { sha: state.sha, snapshot: state.snapshot });
-      target = validatePublicEntry({ ...mutation.entry, revision: state.snapshot.entries[index].revision + 1, createdAt: state.snapshot.entries[index].createdAt, updatedAt: new Date().toISOString() });
+      previous = state.snapshot.entries[index];
+      target = validatePublicEntry({ ...mutation.entry, revision: previous.revision + 1, createdAt: previous.createdAt, updatedAt: now });
       state.snapshot.entries[index] = target;
       action = "updated";
     } else {
       const index = state.snapshot.entries.findIndex((entry) => entry.id === mutation.id);
       if (index >= 0 && state.snapshot.entries[index].updatedAt !== mutation.expectedUpdatedAt) return error(response, 409, "entry_changed", "远端词条已变化。", { sha: state.sha, snapshot: state.snapshot });
-      if (index >= 0) target = state.snapshot.entries.splice(index, 1)[0];
+      if (index >= 0) previous = target = state.snapshot.entries.splice(index, 1)[0];
       action = "deleted";
     }
-    state.snapshot = parsePublicSnapshot({ ...state.snapshot, exportedAt: new Date().toISOString(), revisionId: crypto.randomUUID(), lastMutationId: payload.mutationId }, { allowLegacy: false });
+    const responseEntry = target;
+    target = reconcileReciprocalSynonyms(state.snapshot.entries, action === "deleted" ? null : target, previous, now);
+    state.snapshot = parsePublicSnapshot({ ...state.snapshot, exportedAt: now, revisionId: crypto.randomUUID(), lastMutationId: payload.mutationId }, { allowLegacy: false });
     state.sha = String.fromCharCode(98 + (state.snapshot.entries.length % 4)).repeat(40);
-    return json(response, 200, { sha: state.sha, commitSha: "f".repeat(40), htmlUrl: "https://github.com/commit", snapshot: state.snapshot, entry: target, action, recovered: false });
+    return json(response, 200, { sha: state.sha, commitSha: "f".repeat(40), htmlUrl: "https://github.com/commit", snapshot: state.snapshot, entry: action === "deleted" ? responseEntry : target, action, recovered: false });
   }
   return error(response, 404, "api_not_found", "API not found");
 }

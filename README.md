@@ -6,6 +6,10 @@ A lightweight, accessible academic profile for GitHub Pages.
 
 - `/` — academic profile and GitHub Pages homepage
 - `/vocab/` — installable **Wordbook** PWA with a public read-only collection and a separate server-authenticated owner control room
+- `/vocab/guide.html` — Wordbook user guide; operational explanations live here instead of crowding the editor
+- `/wordbook-api/` — authenticated Worker API and publishing logic
+- `/tests/` and `/scripts/` — active verification and maintenance tooling
+- `/docs/` — deployment notes plus clearly marked historical QA archives
 - `/U1L1_coding.ipynb` — existing coursework notebook, retained in its original location
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.

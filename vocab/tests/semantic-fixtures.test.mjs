@@ -5,7 +5,7 @@ import test from "node:test";
 const datasetUrl = new URL("../quality/datasets/semantic-qa.json", import.meta.url);
 const rawDataset = await readFile(datasetUrl, "utf8");
 const dataset = JSON.parse(rawDataset);
-const executionMatrix = await readFile(new URL("../../TEST_CASES.md", import.meta.url), "utf8");
+const executionMatrix = await readFile(new URL("../../tests/fixtures/semantic-test-cases.md", import.meta.url), "utf8");
 
 const EXPECTED_CATEGORY_INPUTS = {
   polysemy: ["hip", "bank", "charge", "fair", "fine", "light", "mean", "issue", "scale", "pitch", "draft", "record"],
@@ -278,13 +278,13 @@ test("all cited sources are HTTPS, resolvable by id, and the fixture contains no
 
 test("the human execution matrix stays synchronized with the machine-readable fixture", () => {
   for (const entry of dataset.cases) {
-    assert.match(executionMatrix, new RegExp(`\\| ${entry.id} \\|`), `${entry.id} is absent from TEST_CASES.md`);
+    assert.match(executionMatrix, new RegExp(`\\| ${entry.id} \\|`), `${entry.id} is absent from the semantic test matrix`);
   }
 
   const rubricRows = [...executionMatrix.matchAll(/^\|\s*(\d+)\s*\|\s*[^|]+\|\s*(?:Yes|No)\s*\|/gm)];
   assert.deepEqual(rubricRows.map((match) => Number(match[1])), Array.from({ length: dataset.rubric.dimensions.length }, (_, index) => index + 1));
 
   for (const source of dataset.sources) {
-    assert.ok(executionMatrix.includes(`](${source.url})`), `${source.id} is absent from TEST_CASES.md`);
+    assert.ok(executionMatrix.includes(`](${source.url})`), `${source.id} is absent from the semantic test matrix`);
   }
 });
