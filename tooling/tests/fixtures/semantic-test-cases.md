@@ -1,6 +1,6 @@
 # English Wordbook QA Test Cases
 
-This document is the human-execution companion to [`vocab/quality/datasets/semantic-qa.json`](../../vocab/quality/datasets/semantic-qa.json). It defines expected language behaviour; it does not claim that local or live product execution has passed. Record actual output, Pass/Fail, screenshot, console log, network evidence, and storage/sync evidence during black-box runs.
+This document is the human-execution companion to [`vocab/quality/datasets/semantic-qa.json`](../../../vocab/quality/datasets/semantic-qa.json). It defines expected language behaviour; it does not claim that local or live product execution has passed. Record actual output, Pass/Fail, screenshot, console log, network evidence, and storage/sync evidence during black-box runs.
 
 ## Execution rule
 

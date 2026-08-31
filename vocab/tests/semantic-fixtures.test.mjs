@@ -5,7 +5,7 @@ import test from "node:test";
 const datasetUrl = new URL("../quality/datasets/semantic-qa.json", import.meta.url);
 const rawDataset = await readFile(datasetUrl, "utf8");
 const dataset = JSON.parse(rawDataset);
-const executionMatrix = await readFile(new URL("../../tests/fixtures/semantic-test-cases.md", import.meta.url), "utf8");
+const executionMatrix = await readFile(new URL("../../tooling/tests/fixtures/semantic-test-cases.md", import.meta.url), "utf8");
 
 const EXPECTED_CATEGORY_INPUTS = {
   polysemy: ["hip", "bank", "charge", "fair", "fine", "light", "mean", "issue", "scale", "pitch", "draft", "record"],

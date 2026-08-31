@@ -7,10 +7,9 @@ A lightweight, accessible academic profile for GitHub Pages.
 - `/` — academic profile and GitHub Pages homepage
 - `/vocab/` — installable **Wordbook** PWA with a public read-only collection and a separate server-authenticated owner control room
 - `/vocab/guide.html` — Wordbook user guide; operational explanations live here instead of crowding the editor
-- `/wordbook-api/` — authenticated Worker API and publishing logic
-- `/tests/` and `/scripts/` — active verification and maintenance tooling
-- `/docs/` — deployment notes plus clearly marked historical QA archives
-- `/U1L1_coding.ipynb` — existing coursework notebook, retained in its original location
+- `/wordbook-api/` — authenticated Worker API, publishing logic and deployment documentation
+- `/tooling/` — tests, maintenance scripts and the Playwright configuration
+- `/U1L1_coding.ipynb` — coursework notebook retained at its published Colab-compatible URL
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.
 
@@ -42,7 +41,7 @@ Wordbook formats multiple Chinese senses consistently in the Owner list, public 
 
 Published entries reach the public reader through a schema-validated, read-only Worker snapshot as soon as GitHub confirms the write, without waiting for a GitHub Pages rebuild. Visible public tabs refresh on focus, reconnect and every 30 seconds; the deployed Pages JSON and IndexedDB remain validated fallbacks. Public app-code updates activate automatically, while the Owner editor keeps its draft-safe confirmation gate.
 
-The first production phase intentionally does not expose a visitor personal-wordbook editor. Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `docs/wordbook-owner-v2.md` for the security model and one-time deployment setup.
+The first production phase intentionally does not expose a visitor personal-wordbook editor. Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `wordbook-api/README.md` for the security model and one-time deployment setup.
 
 ## Publishing
 

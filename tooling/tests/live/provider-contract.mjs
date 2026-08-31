@@ -2,14 +2,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { parseCoreDictionary } from "../../vocab/js/core-dictionary.js";
+import { parseCoreDictionary } from "../../../vocab/js/core-dictionary.js";
 import {
   fetchDictionaryEntry,
   resolveSpelling,
   validateMyMemoryPayload
-} from "../../vocab/js/services.js";
+} from "../../../vocab/js/services.js";
 
-const corePayload = JSON.parse(await readFile(new URL("../../vocab/data/ecdict-core.json", import.meta.url), "utf8"));
+const corePayload = JSON.parse(await readFile(new URL("../../../vocab/data/ecdict-core.json", import.meta.url), "utf8"));
 const coreDictionary = parseCoreDictionary(corePayload);
 
 test("live FreeDictionary keeps hip noun-first and anatomical", async () => {

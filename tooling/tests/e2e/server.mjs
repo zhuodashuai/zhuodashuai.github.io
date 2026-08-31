@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
-import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validatePublicEntry } from "../../vocab/js/wordbook-schema.js";
+import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
 
 const root = resolve("vocab");
 const baseline = parsePublicSnapshot(JSON.parse(await readFile(join(root, "data/owner-wordbook.json"), "utf8")));

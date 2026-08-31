@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
 const canonicalSnapshot = JSON.parse(
-  await readFile(new URL("../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")
+  await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")
 );
 const CANONICAL_ENTRY_COUNT = canonicalSnapshot.entries.length;
 
