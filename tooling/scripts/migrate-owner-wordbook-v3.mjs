@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { parsePublicSnapshot } from "../vocab/js/wordbook-schema.js";
+import { parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
 
 const target = resolve("vocab/data/owner-wordbook.json");
 const legacy = JSON.parse(await readFile(target, "utf8"));

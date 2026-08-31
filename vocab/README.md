@@ -7,7 +7,7 @@
 - 访客只能浏览公开快照，没有浏览器端写入入口。
 - `?mode=personal` 不再代表身份，也不能解锁编辑功能。
 - 所有者管理页由 `wordbook-api/` 的 Cloudflare Worker 同源托管；`vocab/` 整个目录随 Worker 一起部署，
-  因此管理页的改动需要 `wrangler deploy` 才会生效（推送到 `main` 后由 CI 自动执行，详见 `docs/wordbook-owner-v2.md`）。
+  因此管理页的改动需要 `wrangler deploy` 才会生效（推送到 `main` 后由 CI 自动执行，详见 [`wordbook-api/README.md`](../wordbook-api/README.md)）。
 - 只有 GitHub App OAuth 实际验证为 `zhuodashuai` 且 user ID 为 `156042078` 时，服务端才授予添加、编辑、删除、AI 整理和发布权限。
 - GitHub token、OAuth client secret 和任何可选的 OpenAI/Anthropic key 只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
 
@@ -46,4 +46,4 @@ pnpm --dir wordbook-api exec wrangler deploy --dry-run
 pnpm test:e2e
 ```
 
-完整架构、迁移、安全设计和一次性生产配置见 `docs/wordbook-owner-v2.md`。`quality/` 保留 100 词公开质量数据与历史词典管线证据，但不参与所有者身份验证或发布。
+完整架构、迁移、安全设计和一次性生产配置见 [`wordbook-api/README.md`](../wordbook-api/README.md)。`quality/` 保留 100 词公开质量数据与历史词典管线证据，但不参与所有者身份验证或发布。

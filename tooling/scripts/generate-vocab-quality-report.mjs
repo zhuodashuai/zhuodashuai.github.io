@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
-const datasetUrl = new URL("../vocab/quality/datasets/vocab-100.json", import.meta.url);
-const reportUrl = new URL("../vocab/quality/generated-report.json", import.meta.url);
+const datasetUrl = new URL("../../vocab/quality/datasets/vocab-100.json", import.meta.url);
+const reportUrl = new URL("../../vocab/quality/generated-report.json", import.meta.url);
 const dataset = JSON.parse(await readFile(datasetUrl, "utf8"));
 
 const labels = {
