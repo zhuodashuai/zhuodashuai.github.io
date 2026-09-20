@@ -85,14 +85,17 @@ export function publicEntryMatchesQuery(entry, query) {
   const wanted = normalizePublicSearchQuery(query);
   if (!wanted) return true;
   const searchable = [
+    entry?.originalInput,
     entry?.term,
     entry?.standardForm,
     entry?.meaning,
     entry?.definition,
     entry?.author,
     entry?.sourceTitle,
+    entry?.sourceWork,
     ...(Array.isArray(entry?.tags) ? entry.tags : []),
     ...(Array.isArray(entry?.collocations) ? entry.collocations : []),
+    ...(Array.isArray(entry?.forms) ? entry.forms : []),
     ...(Array.isArray(entry?.synonyms) ? entry.synonyms : [])
   ].filter(Boolean).join(" ");
   return normalizeTypography(searchable).toLocaleLowerCase("zh-CN").includes(wanted);

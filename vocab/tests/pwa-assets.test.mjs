@@ -61,20 +61,22 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v53/);
+  assert.match(serviceWorker, /zhuo-wordbook-v54/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=53/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=53/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=53/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=54/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=54/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=54/);
+  assert.match(serviceWorker, /\.\/js\/collections\.js/);
+  assert.match(serviceWorker, /\.\/js\/study\.js/);
+  assert.match(serviceWorker, /\.\/js\/review\.js/);
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=53"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=53"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=53"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=53"/);
-  for (const source of [serviceWorker, vocabHtml, ownerHtml]) assert.doesNotMatch(source, /v4[5-9]|v5[01]/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=54"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=54"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=54"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=54"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
@@ -137,8 +139,10 @@ test("owner lookup shows a safe local preview while the slower AI organizer runs
 
 test("polysemous meaning formatting is wired into owner, public card, detail and copy views", () => {
   assert.match(ownerAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)\)/);
-  assert.match(entryDetailSource, /setMultilineText\(refs\.dialogMeaning, formatMeaningForDisplay\(entry\)/);
-  assert.match(publicAppSource, /setMultilineText\(meaning, formatMeaningForDisplay\(entry\)/);
+  assert.match(entryDetailSource, /renderMeaning\(refs\.dialogMeaning, entry\)/);
+  assert.match(entryDetailSource, /const meaning = formatMeaningForDisplay\(entry\)/);
+  assert.match(publicAppSource, /renderLearningPoints\(meaning, entry\)/);
+  assert.match(publicAppSource, /const meaning = formatMeaningForDisplay\(entry\)/);
   assert.match(entryDetailSource, /entry\.partOfSpeech\s*\?\s*`词性：\$\{entry\.partOfSpeech\}`\s*:\s*""/);
   assert.match(entryDetailSource, /formatMeaningForDisplay\(entry\)/);
 });

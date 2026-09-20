@@ -1,18 +1,34 @@
-import { getPublicCache, putPublicCache } from "./owner-storage.js";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError } from "./owner-storage.js";
 import { createEntryDetailController } from "./entry-detail.js";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
+import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
+import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
 
 const refs = Object.fromEntries([
-  "owner-link", "library-search", "filter-row", "entry-grid", "entry-count", "data-status", "load-error",
+  "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
   "load-error-message", "retry-load", "empty-message", "search-empty", "search-empty-title", "export-public", "entry-dialog", "dialog-type", "dialog-term",
   "dialog-speak", "dialog-copy", "dialog-phonetic", "dialog-meaning", "dialog-definition-section", "dialog-definition", "dialog-example-section",
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
-  "dialog-source-link", "dialog-source-list", "dialog-tags", "install-button", "update-banner", "apply-update"
+  "dialog-source-link", "dialog-source-list", "dialog-tags", "dialog-review-section", "dialog-review-status", "dialog-review-actions", "study-button", "due-count",
+  "install-button", "update-banner", "apply-update"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
-const state = { snapshot: null, filter: "all", query: "", liveEtag: "" };
+const initialParameters = new URLSearchParams(window.location.search);
+const state = {
+  snapshot: null,
+  filter: "all",
+  query: "",
+  liveEtag: "",
+  collectionId: initialParameters.get("book") || "all",
+  chapterId: initialParameters.get("chapter") || "all",
+  studyScopeEntries: [],
+  studyQueue: [],
+  studyQueueTotal: 0,
+  selectedEntry: null,
+  studyRefreshToken: 0
+};
 const FOREGROUND_REFRESH_MS = 30_000;
 const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
@@ -47,11 +63,185 @@ function tag(label, className = "") {
   return span;
 }
 
+function button(label, { pressed = false, count = null, value = "" } = {}) {
+  const control = document.createElement("button");
+  control.type = "button";
+  control.dataset.value = value;
+  control.setAttribute("aria-pressed", String(pressed));
+  const text = document.createElement("span");
+  text.textContent = label;
+  control.append(text);
+  if (count !== null) {
+    const total = document.createElement("small");
+    total.textContent = String(count);
+    control.append(total);
+  }
+  return control;
+}
+
+function updateCollectionUrl() {
+  const url = new URL(window.location.href);
+  if (state.collectionId === "all") url.searchParams.delete("book");
+  else url.searchParams.set("book", state.collectionId);
+  if (state.collectionId === "all" || state.chapterId === "all") url.searchParams.delete("chapter");
+  else url.searchParams.set("chapter", state.chapterId);
+  window.history.replaceState(null, "", url);
+}
+
+function restoreNavigationFocus(container, value) {
+  [...container.querySelectorAll("button[data-value]")]
+    .find((control) => control.dataset.value === value)
+    ?.focus();
+}
+
+function renderCollectionNavigation(entries) {
+  const catalog = buildCollectionCatalog(entries);
+  const available = new Map(catalog.map((collection) => [collection.id, collection]));
+  if (state.collectionId !== "all" && !available.has(state.collectionId)) {
+    state.collectionId = "all";
+    state.chapterId = "all";
+    updateCollectionUrl();
+  }
+  const collectionButtons = [
+    button("全部词本", { pressed: state.collectionId === "all", count: entries.length, value: "all" }),
+    ...catalog.map((collection) => button(collection.title, {
+      pressed: state.collectionId === collection.id,
+      count: collection.count,
+      value: collection.id
+    }))
+  ];
+  refs.collectionTabs.replaceChildren(...collectionButtons);
+
+  const selectedCollection = available.get(state.collectionId) || null;
+  const chapters = selectedCollection?.chapters || [];
+  if (chapters.length) {
+    if (state.chapterId !== "all" && !chapters.some((chapter) => chapter.id === state.chapterId)) {
+      state.chapterId = "all";
+      updateCollectionUrl();
+    }
+    refs.chapterTabs.hidden = false;
+    refs.chapterTabs.replaceChildren(
+      button("全书", { pressed: state.chapterId === "all", count: selectedCollection.count, value: "all" }),
+      ...chapters.map((chapter) => button(chapter.title, {
+        pressed: state.chapterId === chapter.id,
+        count: chapter.count,
+        value: chapter.id
+      }))
+    );
+  } else {
+    state.chapterId = "all";
+    refs.chapterTabs.hidden = true;
+    refs.chapterTabs.replaceChildren();
+  }
+  refs.libraryHeading.textContent = state.collectionId === "all"
+    ? "全部词本"
+    : `${selectedCollection?.title || "词本"}${state.chapterId === "all" ? "" : ` · ${chapters.find((chapter) => chapter.id === state.chapterId)?.title || ""}`}`;
+}
+
+function renderLearningPoints(element, entry) {
+  const meaning = formatMeaningForDisplay(entry) || "释义待完善";
+  const context = collectionContextForEntry(entry);
+  if (!context) {
+    element.classList.remove("learning-points");
+    setMultilineText(element, meaning);
+    return;
+  }
+  element.classList.add("learning-points");
+  const list = document.createElement("ul");
+  for (const point of splitChineseMeaningPoints(meaning)) {
+    const meaningItem = document.createElement("li");
+    meaningItem.textContent = point;
+    list.append(meaningItem);
+  }
+  if (entry.usage) {
+    const usageItem = document.createElement("li");
+    usageItem.textContent = entry.usage;
+    list.append(usageItem);
+  }
+  element.replaceChildren(list);
+}
+
+function reviewDateLabel(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : date.toLocaleString("zh-CN", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function setReviewButtonsDisabled(disabled) {
+  refs.dialogReviewActions?.querySelectorAll("button[data-rating]").forEach((control) => { control.disabled = disabled; });
+}
+
+async function refreshStudySummary(entries = state.studyScopeEntries) {
+  const token = ++state.studyRefreshToken;
+  try {
+    const reviewStates = await listReviewStates();
+    if (token !== state.studyRefreshToken) return;
+    const summary = buildStudySummary(entries, reviewStates);
+    refs.dueCount.textContent = String(summary.dueCount);
+    refs.studyButton.disabled = summary.totalEntries === 0 || summary.dueCount === 0;
+    refs.studyButton.title = summary.dueCount
+      ? `当前词本有 ${summary.dueCount} 条待学习或复习`
+      : "当前词本今天已经复习完成";
+  } catch {
+    refs.dueCount.textContent = "—";
+    refs.studyButton.disabled = true;
+    refs.studyButton.title = "本机复习记录暂不可用";
+  }
+}
+
+async function renderSelectedReviewState(entry) {
+  if (!entry || state.selectedEntry?.id !== entry.id) return;
+  setReviewButtonsDisabled(true);
+  try {
+    const reviewState = await getReviewState(entry.id);
+    if (state.selectedEntry?.id !== entry.id) return;
+    const queuePosition = state.studyQueueTotal && state.studyQueue.length
+      ? `本轮 ${state.studyQueueTotal - state.studyQueue.length + 1}/${state.studyQueueTotal} · `
+      : "";
+    const announcedTerm = queuePosition ? `“${entry.term}” · ` : "";
+    refs.dialogReviewStatus.textContent = reviewState
+      ? `${queuePosition}${announcedTerm}已复习 ${reviewState.reviewCount} 次 · 下次 ${reviewDateLabel(reviewState.dueAt)}`
+      : `${queuePosition}${announcedTerm}新词 · 选择下面一项记录本次学习结果。`;
+    setReviewButtonsDisabled(false);
+  } catch {
+    refs.dialogReviewStatus.textContent = "本机复习记录暂不可用；词条内容仍可正常查看。";
+  }
+}
+
+function openEntry(entry, invoker, { fromStudy = false } = {}) {
+  state.selectedEntry = entry;
+  if (!fromStudy) {
+    state.studyQueue = [];
+    state.studyQueueTotal = 0;
+  }
+  entryDetail.show(entry, { invoker });
+  if (fromStudy) {
+    refs.dialogTerm.tabIndex = -1;
+    refs.dialogTerm.focus({ preventScroll: true });
+  }
+  void renderSelectedReviewState(entry);
+}
+
+async function saveReviewRating(entryId, rating) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const current = await getReviewState(entryId);
+    const updated = applyReviewRating(entryId, current, rating);
+    try {
+      return await putReviewState(updated, { expected: current ?? null });
+    } catch (error) {
+      if (!(error instanceof ReviewStateConflictError) || attempt === 2) throw error;
+    }
+  }
+  throw new ReviewStateConflictError();
+}
+
 function render() {
   const entries = state.snapshot?.entries || [];
+  renderCollectionNavigation(entries);
+  const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId);
+  state.studyScopeEntries = collectionEntries;
   const query = normalizePublicSearchQuery(state.query);
   const queryMatches = rankExactEntryMatches(
-    entries.filter((entry) => publicEntryMatchesQuery(entry, query)),
+    collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)),
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
@@ -60,43 +250,46 @@ function render() {
     article.className = "word-card";
     const kicker = document.createElement("div");
     kicker.className = "card-kicker";
+    const context = collectionContextForEntry(entry);
     kicker.append(tag(TYPE_LABELS[entry.entryType] || entry.entryType), tag(entry.partOfSpeech || ""));
+    if (context) kicker.append(tag(context.chapterTitle, "chapter-chip"));
     const title = document.createElement("h3");
     title.lang = "en";
     title.textContent = entry.term;
     const phonetic = document.createElement("p");
     phonetic.className = "phonetic";
     phonetic.textContent = entry.phonetic;
-    const meaning = document.createElement("p");
+    const meaning = document.createElement("div");
     meaning.className = "card-meaning";
-    setMultilineText(meaning, formatMeaningForDisplay(entry) || "释义待完善");
+    renderLearningPoints(meaning, entry);
     const synonyms = document.createElement("p");
     synonyms.className = "card-synonyms";
     synonyms.hidden = entry.synonyms.length === 0;
     synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
     const tags = document.createElement("div");
     tags.className = "tag-list";
-    const shownTags = entry.tags.slice(0, 3);
+    const shownTags = visibleEntryTags(entry).slice(0, 3);
     if (["quote", "proverb"].includes(entry.entryType)) shownTags.unshift(ATTRIBUTION_LABELS[entry.attributionStatus]);
     tags.append(...shownTags.filter(Boolean).map((value, index) => tag(value, index === 0 && ["quote", "proverb"].includes(entry.entryType) ? `attribution-chip ${entry.attributionStatus}` : "")));
     const button = document.createElement("button");
     button.type = "button";
     button.className = "card-open";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
-    button.addEventListener("click", () => entryDetail.show(entry, { invoker: button }));
+    button.addEventListener("click", () => openEntry(entry, button));
     article.append(kicker, title, phonetic, meaning, synonyms, tags, button);
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
   refs.entryGrid.setAttribute("aria-busy", "false");
-  refs.entryCount.textContent = String(entries.length);
+  refs.entryCount.textContent = String(collectionEntries.length);
   const searchMiss = Boolean(query) && queryMatches.length === 0;
   refs.searchEmpty.hidden = !searchMiss;
   if (searchMiss) {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
   }
-  refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || entries.length === 0;
+  refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || collectionEntries.length === 0;
+  void refreshStudySummary(collectionEntries);
 }
 
 async function fetchLatestSnapshot() {
@@ -191,8 +384,72 @@ refs.filterRow.addEventListener("click", (event) => {
   refs.filterRow.querySelectorAll("button").forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
   render();
 });
+refs.collectionTabs.addEventListener("click", (event) => {
+  const control = event.target.closest("button[data-value]");
+  if (!control) return;
+  state.collectionId = control.dataset.value || "all";
+  state.chapterId = "all";
+  updateCollectionUrl();
+  render();
+  restoreNavigationFocus(refs.collectionTabs, state.collectionId);
+});
+refs.chapterTabs.addEventListener("click", (event) => {
+  const control = event.target.closest("button[data-value]");
+  if (!control) return;
+  state.chapterId = control.dataset.value || "all";
+  updateCollectionUrl();
+  render();
+  restoreNavigationFocus(refs.chapterTabs, state.chapterId);
+});
 refs.librarySearch.addEventListener("input", () => { state.query = refs.librarySearch.value; render(); });
 refs.retryLoad.addEventListener("click", () => { void loadWordbook({ force: true }); });
+refs.studyButton.addEventListener("click", async () => {
+  try {
+    const reviewStates = await listReviewStates();
+    state.studyQueue = buildDueQueue(state.studyScopeEntries, reviewStates);
+    state.studyQueueTotal = state.studyQueue.length;
+    if (!state.studyQueue.length) {
+      await refreshStudySummary();
+      return;
+    }
+    openEntry(state.studyQueue[0].entry, refs.studyButton, { fromStudy: true });
+  } catch {
+    refs.studyButton.disabled = true;
+    refs.studyButton.title = "本机复习记录暂不可用";
+  }
+});
+refs.dialogReviewActions.addEventListener("click", async (event) => {
+  const control = event.target.closest("button[data-rating]");
+  const entry = state.selectedEntry;
+  if (!control || !entry) return;
+  setReviewButtonsDisabled(true);
+  refs.dialogReviewStatus.textContent = "正在保存本次复习…";
+  try {
+    const updated = await saveReviewRating(entry.id, control.dataset.rating);
+    const inStudyQueue = state.studyQueue[0]?.entry?.id === entry.id;
+    if (inStudyQueue) state.studyQueue.shift();
+    await refreshStudySummary();
+    if (inStudyQueue && state.studyQueue.length) {
+      openEntry(state.studyQueue[0].entry, refs.studyButton, { fromStudy: true });
+      return;
+    }
+    if (inStudyQueue) {
+      refs.dialogReviewStatus.textContent = `本轮完成 · 已记录“${control.textContent.trim()}”。`;
+      state.studyQueueTotal = 0;
+    } else {
+      refs.dialogReviewStatus.textContent = `已记录 · 下次 ${reviewDateLabel(updated.dueAt)}`;
+      setReviewButtonsDisabled(false);
+    }
+  } catch {
+    refs.dialogReviewStatus.textContent = "这次复习没有保存成功，请重试。";
+    setReviewButtonsDisabled(false);
+  }
+});
+refs.entryDialog.addEventListener("close", () => {
+  state.selectedEntry = null;
+  state.studyQueue = [];
+  state.studyQueueTotal = 0;
+});
 refs.exportPublic.addEventListener("click", () => {
   if (!state.snapshot) return;
   const blob = new Blob([`${JSON.stringify(state.snapshot, null, 2)}\n`], { type: "application/json" });

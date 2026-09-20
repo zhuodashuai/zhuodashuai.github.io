@@ -15,8 +15,28 @@ const STORES = Object.freeze({
 const OUTBOX_STATES = new Set(["pending", "syncing", "retry_wait", "awaiting_auth", "review_required", "conflict", "failed", "published", "cancelled"]);
 const REVIEW_REQUIRED_STATES = new Set(["pending", "syncing", "retry_wait", "awaiting_auth"]);
 const COMPLETED_OUTBOX_STATES = new Set(["published", "cancelled"]);
+const REVIEW_RATINGS = new Set(["again", "hard", "good", "easy"]);
+const REVIEW_STATE_KEYS = Object.freeze([
+  "dueAt",
+  "entryId",
+  "history",
+  "lapseCount",
+  "lastRating",
+  "level",
+  "reviewCount",
+  "schemaVersion",
+  "updatedAt"
+]);
+const REVIEW_HISTORY_KEYS = Object.freeze(["at", "fromLevel", "rating", "toLevel"]);
 let databasePromise;
 const channel = typeof BroadcastChannel === "function" ? new BroadcastChannel("wordbook-v6") : null;
+
+export class ReviewStateConflictError extends Error {
+  constructor() {
+    super("复习状态已在另一个页面更新，请按最新记录重试。");
+    this.name = "ReviewStateConflictError";
+  }
+}
 
 export function resolveDatabaseName(targetLocation = globalThis.location) {
   if (!targetLocation) return BASE_DB_NAME;
@@ -214,6 +234,112 @@ function rejectSecrets(value, path = "record") {
     if (/(?:token|secret|authorization|api.?key|cookie|oauth.?code)/i.test(key)) throw new Error(`${path}.${key} 不允许写入浏览器数据库。`);
     rejectSecrets(child, `${path}.${key}`);
   }
+}
+
+function assertExactKeys(value, expectedKeys, label) {
+  const actual = Object.keys(value).sort();
+  const expected = [...expectedKeys].sort();
+  if (actual.length !== expected.length || actual.some((key, index) => key !== expected[index])) {
+    throw new Error(`${label}字段不正确。`);
+  }
+}
+
+function assertCanonicalIsoDate(value, label) {
+  if (typeof value !== "string" || !value || Number.isNaN(Date.parse(value))) {
+    throw new Error(`${label}必须是有效的 ISO 时间。`);
+  }
+  if (new Date(value).toISOString() !== value) throw new Error(`${label}必须使用标准 ISO 时间格式。`);
+}
+
+function assertReviewLevel(value, label) {
+  if (!Number.isInteger(value) || value < 0 || value > 7) throw new Error(`${label}必须是 0 到 7 的整数。`);
+}
+
+function assertNonNegativeInteger(value, label) {
+  if (!Number.isSafeInteger(value) || value < 0) throw new Error(`${label}必须是非负整数。`);
+}
+
+function validateReviewState(candidate) {
+  if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) throw new Error("复习状态格式不正确。");
+  rejectSecrets(candidate, "reviewState");
+  assertExactKeys(candidate, REVIEW_STATE_KEYS, "复习状态");
+  if (candidate.schemaVersion !== LOCAL_RECORD_SCHEMA_VERSION) throw new Error("复习状态版本不受支持。");
+  if (typeof candidate.entryId !== "string"
+    || candidate.entryId.length < 1
+    || candidate.entryId.length > 180
+    || candidate.entryId.trim() !== candidate.entryId
+    || /[\u0000-\u001f\u007f]/.test(candidate.entryId)) {
+    throw new Error("复习状态的词条 ID 不正确。");
+  }
+  assertReviewLevel(candidate.level, "复习等级");
+  assertCanonicalIsoDate(candidate.dueAt, "下次复习时间");
+  assertNonNegativeInteger(candidate.reviewCount, "复习次数");
+  assertNonNegativeInteger(candidate.lapseCount, "遗忘次数");
+  if (candidate.lastRating !== null && !REVIEW_RATINGS.has(candidate.lastRating)) throw new Error("上次复习评分不受支持。");
+  if (!Array.isArray(candidate.history) || candidate.history.length > 100) throw new Error("复习历史格式不正确。");
+  for (const [index, event] of candidate.history.entries()) {
+    if (!event || typeof event !== "object" || Array.isArray(event)) throw new Error(`第 ${index + 1} 条复习历史格式不正确。`);
+    assertExactKeys(event, REVIEW_HISTORY_KEYS, `第 ${index + 1} 条复习历史`);
+    assertCanonicalIsoDate(event.at, `第 ${index + 1} 条复习历史时间`);
+    if (!REVIEW_RATINGS.has(event.rating)) throw new Error(`第 ${index + 1} 条复习历史评分不受支持。`);
+    assertReviewLevel(event.fromLevel, `第 ${index + 1} 条复习前等级`);
+    assertReviewLevel(event.toLevel, `第 ${index + 1} 条复习后等级`);
+  }
+  assertCanonicalIsoDate(candidate.updatedAt, "复习状态更新时间");
+  return structuredClone(candidate);
+}
+
+function validateReviewEntryId(entryId) {
+  if (typeof entryId !== "string"
+    || entryId.length < 1
+    || entryId.length > 180
+    || entryId.trim() !== entryId
+    || /[\u0000-\u001f\u007f]/.test(entryId)) {
+    throw new Error("复习状态的词条 ID 不正确。");
+  }
+  return entryId;
+}
+
+export async function getReviewState(entryId) {
+  const id = validateReviewEntryId(entryId);
+  const database = await openDatabase();
+  const value = await requestValue(database.transaction(STORES.reviewStates, "readonly")
+    .objectStore(STORES.reviewStates)
+    .get(id));
+  return value === undefined ? undefined : validateReviewState(value);
+}
+
+export async function listReviewStates() {
+  const database = await openDatabase();
+  const values = await requestValue(database.transaction(STORES.reviewStates, "readonly")
+    .objectStore(STORES.reviewStates)
+    .getAll());
+  return values
+    .map((value) => validateReviewState(value))
+    .sort((left, right) => left.dueAt.localeCompare(right.dueAt) || left.entryId.localeCompare(right.entryId));
+}
+
+export async function putReviewState(candidate, options = {}) {
+  const state = validateReviewState(candidate);
+  const checksExpected = Object.prototype.hasOwnProperty.call(options, "expected");
+  const expected = !checksExpected || options.expected === null
+    ? options.expected
+    : validateReviewState(options.expected);
+  const database = await openDatabase();
+  const transaction = database.transaction([STORES.reviewStates, STORES.meta], "readwrite");
+  const store = transaction.objectStore(STORES.reviewStates);
+  if (checksExpected) {
+    const stored = await requestValue(store.get(state.entryId));
+    const current = stored === undefined ? null : validateReviewState(stored);
+    if (JSON.stringify(canonicalize(current)) !== JSON.stringify(canonicalize(expected))) {
+      transaction.abort();
+      throw new ReviewStateConflictError();
+    }
+  }
+  store.put(state);
+  await bumpRevision(transaction, [STORES.reviewStates], [state.entryId]);
+  await transactionDone(transaction);
+  return state;
 }
 
 function canonicalize(value) {

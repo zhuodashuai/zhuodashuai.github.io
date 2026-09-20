@@ -291,7 +291,7 @@ test("单义项统一显示词性且不能用人工 1/2 制造与 senses 冲突�
 
 test("访客浏览、搜索、详情、导出，并且没有写入入口", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "全部词本", exact: true })).toBeVisible();
   await expect(page.getByText(/更新于 \d{4}\/\d{1,2}\/\d{1,2}/)).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT));
   await expect(page.getByRole("button", { name: /编辑|删除|发布/ })).toHaveCount(0);
@@ -311,6 +311,84 @@ test("访客浏览、搜索、详情、导出，并且没有写入入口", async
   await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toMatch(/^zhuo-public-wordbook-.*\.json$/);
+});
+
+test("Never Let Me Go 独立词本按 Chapter 1 展示全部 29 条并保留原文形式、分点释义与来源", async ({ page }) => {
+  await page.goto("/");
+
+  const collection = page.locator('#collection-tabs button[data-value="never-let-me-go"]');
+  await expect(collection).toContainText("Never Let Me Go");
+  await expect(collection.locator("small")).toHaveText("29");
+  await collection.focus();
+  await page.keyboard.press("Enter");
+  await expect(collection).toBeFocused();
+
+  await expect(page.locator("#chapter-tabs")).toBeVisible();
+  const chapter = page.locator('#chapter-tabs button[data-value="chapter-1"]');
+  await expect(chapter).toContainText("Chapter 1");
+  await expect(chapter.locator("small")).toHaveText("29");
+  await chapter.focus();
+  await page.keyboard.press("Enter");
+  await expect(chapter).toBeFocused();
+
+  await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 1", exact: true })).toBeVisible();
+  await expect(page.locator("#entry-count")).toHaveText("29");
+  await expect(page.locator("#entry-grid .word-card")).toHaveCount(29);
+  await expect(page.locator(".word-card .chapter-chip")).toHaveCount(29);
+  await expect(page.locator(".word-card .chapter-chip").first()).toHaveText("Chapter 1");
+
+  await page.locator("#library-search").fill("tucked");
+  const tuckCard = page.locator("#entry-grid .word-card");
+  await expect(tuckCard).toHaveCount(1);
+  await expect(tuckCard.getByRole("heading")).toHaveText("tuck");
+  await expect(tuckCard.locator(".card-meaning li")).toHaveCount(4);
+  await expect(tuckCard.locator(".card-meaning li").nth(0)).toHaveText("塞入");
+  await expect(tuckCard.locator(".card-meaning li").nth(1)).toHaveText("掖好");
+  await expect(tuckCard.locator(".card-meaning li").nth(2)).toHaveText("使处于隐蔽或不显眼的位置");
+  await expect(tuckCard.locator(".card-meaning li").nth(3)).toContainText("第一章语境");
+
+  await page.getByRole("button", { name: "查看 tuck 的完整词条" }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.locator("#dialog-meaning li")).toHaveCount(4);
+  await expect(dialog.locator("#dialog-meaning li").nth(0)).toHaveText("塞入");
+  await expect(dialog.locator("#dialog-meaning li").nth(1)).toHaveText("掖好");
+  await expect(dialog.locator("#dialog-meaning li").nth(2)).toHaveText("使处于隐蔽或不显眼的位置");
+  await expect(dialog.locator("#dialog-meaning li").nth(3)).toContainText("第一章语境");
+  await expect(dialog.locator(".detail-original-form p")).toHaveText("tucked");
+  await expect(dialog.locator(".sense-usage p")).toHaveAttribute("lang", "zh-CN");
+  await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 1");
+  await expect(dialog.locator("#dialog-source-status")).toContainText("例句为学习用自拟句，不是小说原文");
+  await expect(dialog.locator("#dialog-tags")).not.toContainText("collection:");
+});
+
+test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page }) => {
+  await page.goto("/");
+  await page.locator('#collection-tabs button[data-value="never-let-me-go"]').click();
+  await page.locator('#chapter-tabs button[data-value="chapter-1"]').click();
+
+  await expect(page.locator("#due-count")).toHaveText("29");
+  const studyButton = page.locator("#study-button");
+  await expect(studyButton).toBeEnabled();
+  await studyButton.click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator("#dialog-term")).toHaveText("agitated");
+  await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/29");
+  await expect(dialog.locator("#dialog-review-status")).toContainText("agitated");
+  await expect(dialog.locator("#dialog-term")).toBeFocused();
+
+  await dialog.getByRole("button", { name: "很熟" }).click();
+  await expect(dialog.locator("#dialog-term")).toHaveText("shrug");
+  await expect(dialog.locator("#dialog-review-status")).toContainText("shrug");
+  await expect(dialog.locator("#dialog-term")).toBeFocused();
+  await expect(page.locator("#due-count")).toHaveText("28");
+  await dialog.getByRole("button", { name: "关闭词条详情" }).click();
+
+  await page.reload();
+  await page.locator('#collection-tabs button[data-value="never-let-me-go"]').click();
+  await page.locator('#chapter-tabs button[data-value="chapter-1"]').click();
+  await expect(page.locator("#due-count")).toHaveText("28");
+  await expect(page.locator("#entry-count")).toHaveText("29");
 });
 
 test("公开搜索无结果时说明这是单词本而不是词典，且不给访客任何写入入口", async ({ page }) => {
@@ -1485,7 +1563,7 @@ test("真实多标签页能看到已保存草稿，前进后退不会丢失管�
   await secondPage.close();
 
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "全部词本", exact: true })).toBeVisible();
   await page.goBack();
   await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
   await expect(page.locator("#draft-list")).toContainText("tabword");
@@ -1503,7 +1581,7 @@ test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ 
   });
   try {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "词库", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "全部词本", exact: true })).toBeVisible();
     await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
     await page.locator("#library-search").fill("jab at");
     await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();

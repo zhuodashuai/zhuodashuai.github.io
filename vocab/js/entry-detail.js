@@ -1,4 +1,5 @@
 import { formatMeaningForDisplay } from "./wordbook-schema.js";
+import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -33,6 +34,29 @@ function tag(label, className = "") {
   return span;
 }
 
+function renderMeaning(element, entry) {
+  const meaning = formatMeaningForDisplay(entry) || "中文释义尚待完善";
+  const context = collectionContextForEntry(entry);
+  if (!context) {
+    element.classList.remove("learning-points");
+    setMultilineText(element, meaning);
+    return;
+  }
+  element.classList.add("learning-points");
+  const list = document.createElement("ul");
+  for (const point of splitChineseMeaningPoints(meaning)) {
+    const meaningItem = document.createElement("li");
+    meaningItem.textContent = point;
+    list.append(meaningItem);
+  }
+  if (entry.usage) {
+    const contextItem = document.createElement("li");
+    contextItem.textContent = entry.usage;
+    list.append(contextItem);
+  }
+  element.replaceChildren(list);
+}
+
 function detailField(label, value, { className = "", lang = "" } = {}) {
   const row = document.createElement("div");
   row.className = ["sense-field", className].filter(Boolean).join(" ");
@@ -44,6 +68,11 @@ function detailField(label, value, { className = "", lang = "" } = {}) {
   if (lang) content.lang = lang;
   row.append(fieldLabel, content);
   return row;
+}
+
+function languageForText(value) {
+  if (/\p{Script=Han}/u.test(String(value || ""))) return "zh-CN";
+  return /[A-Za-z]/u.test(String(value || "")) ? "en" : "";
 }
 
 function renderDetailExtra(refs, entry) {
@@ -78,7 +107,7 @@ function renderDetailExtra(refs, entry) {
         if (exampleList.childElementCount) article.append(exampleList);
       }
 
-      if (sense.usageNotes) article.append(detailField("Usage", sense.usageNotes, { className: "sense-usage", lang: "en" }));
+      if (sense.usageNotes) article.append(detailField("Usage", sense.usageNotes, { className: "sense-usage", lang: languageForText(sense.usageNotes) }));
       if (sense.register) article.append(detailField("Register", sense.register, { className: "sense-register", lang: "en" }));
       senseList.append(article);
     });
@@ -86,6 +115,7 @@ function renderDetailExtra(refs, entry) {
   }
 
   const metadata = [
+    ["原文形式", entry.originalInput && entry.originalInput !== entry.term ? [entry.originalInput] : [], "detail-original-form"],
     ["词形", entry.forms, "detail-forms"],
     ["同义词", entry.synonyms, "detail-synonyms"],
     ["易混淆词", entry.confusedWith, "detail-confused"]
@@ -113,7 +143,9 @@ export function entryTextForCopy(entry) {
     entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "",
     entry.exampleEn,
     entry.exampleZh,
-    entry.usage
+    entry.usage,
+    entry.originalInput && entry.originalInput !== entry.term ? `原文形式：${entry.originalInput}` : "",
+    entry.sourceTitle ? `来源：${entry.sourceTitle}` : ""
   ].filter(Boolean).join("\n");
 }
 
@@ -133,14 +165,15 @@ export function createEntryDetailController({ root = document } = {}) {
     setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
     setText(refs.dialogTerm, entry.term);
     setText(refs.dialogPhonetic, [entry.phonetic, entry.partOfSpeech].filter(Boolean).join(" · "));
-    setMultilineText(refs.dialogMeaning, formatMeaningForDisplay(entry) || "中文释义尚待完善");
+    renderMeaning(refs.dialogMeaning, entry);
     refs.dialogDefinitionSection.hidden = !entry.definition;
     setText(refs.dialogDefinition, entry.definition);
     refs.dialogExampleSection.hidden = !entry.exampleEn && !entry.exampleZh;
     setText(refs.dialogExampleEn, entry.exampleEn);
     setText(refs.dialogExampleZh, entry.exampleZh);
+    const collectionContext = collectionContextForEntry(entry);
     const usage = [
-      entry.usage,
+      collectionContext ? "" : entry.usage,
       entry.register ? `Register: ${entry.register}` : "",
       entry.collocations.length ? `常见搭配：${entry.collocations.join("；")}` : ""
     ].filter(Boolean).join("\n");
@@ -149,11 +182,11 @@ export function createEntryDetailController({ root = document } = {}) {
     renderDetailExtra(refs, entry);
 
     const quoteLike = ["quote", "proverb"].includes(entry.entryType);
-    refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length;
+    refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length && !entry.sourceTitle && !entry.sourceWork;
     const attributionDetails = [entry.author, entry.sourceTitle, entry.sourceWork, entry.sourceDate].filter(Boolean).join(" · ");
     setText(refs.dialogSourceStatus, quoteLike
       ? `${ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus}${attributionDetails ? ` · ${attributionDetails}` : ""}${entry.attributionNote ? `：${entry.attributionNote}` : ""}`
-      : (entry.attributionNote || "词典与整理来源"));
+      : [attributionDetails, entry.attributionNote].filter(Boolean).join("：") || "词典与整理来源");
     refs.dialogSourceLink.hidden = !entry.sourceUrl;
     if (entry.sourceUrl) {
       refs.dialogSourceLink.href = entry.sourceUrl;
@@ -172,10 +205,10 @@ export function createEntryDetailController({ root = document } = {}) {
       item.append(link);
       return item;
     }));
-    const tags = [...entry.tags];
+    const tags = visibleEntryTags(entry);
     if (quoteLike) tags.unshift(ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus);
     refs.dialogTags.replaceChildren(...tags.map((value) => tag(value, quoteLike && value === tags[0] ? `attribution-chip ${entry.attributionStatus}` : "")));
-    refs.entryDialog.showModal();
+    if (!refs.entryDialog.open) refs.entryDialog.showModal();
   };
 
   refs.dialogSpeak?.addEventListener("click", () => {

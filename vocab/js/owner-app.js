@@ -22,6 +22,7 @@ import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist,
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
 import { setupPwa } from "./pwa.js";
 import { lookupCoreEntry } from "./core-dictionary.js";
+import { preserveCollectionTags } from "./collections.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -942,6 +943,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
         }
       }
     }
+    mergedEntry.tags = preserveCollectionTags(currentEntry.tags, mergedEntry.tags);
     if (!reviewRequired && aiEntry.senses.length) {
       mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
     } else if (reviewRequired) {
