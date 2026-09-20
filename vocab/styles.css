@@ -67,11 +67,20 @@ h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 5
 .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }
 .section-heading h2 { font-size: clamp(2rem, 4vw, 4rem); }
 .data-status { margin: .7rem 0 0; color: var(--muted); }
+.library-heading-actions { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
+.study-launch { color: white; border-color: var(--green); background: var(--green); font-weight: 750; }
+.study-launch span { display: inline-grid; min-width: 1.7rem; min-height: 1.7rem; margin-left: .35rem; place-items: center; border-radius: 999px; color: var(--green); background: white; font-size: .8rem; }
 .count-block { display: grid; min-width: 110px; text-align: right; }
 .count-block strong { font: 500 clamp(2.8rem, 5vw, 5.5rem)/.9 Georgia, serif; }
 .count-block span { color: var(--muted); font-size: .74rem; letter-spacing: .04em; }
 .count-block.compact { min-width: 72px; }
 .count-block.compact strong { font-size: 2.2rem; }
+.collection-tabs, .chapter-tabs { display: flex; gap: .55rem; overflow-x: auto; padding: 1.25rem 0 .2rem; scrollbar-width: thin; }
+.chapter-tabs { padding-top: .7rem; }
+.collection-tabs button, .chapter-tabs button { flex: 0 0 auto; display: inline-flex; align-items: center; gap: .55rem; }
+.collection-tabs button[aria-pressed="true"], .chapter-tabs button[aria-pressed="true"] { color: white; border-color: var(--green); background: var(--green); }
+.collection-tabs small, .chapter-tabs small { display: inline-grid; min-width: 1.45rem; min-height: 1.45rem; place-items: center; border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.78); font-size: .72rem; }
+.collection-tabs button[aria-pressed="true"] small, .chapter-tabs button[aria-pressed="true"] small { color: var(--green); }
 .toolbar { display: grid; grid-template-columns: minmax(260px, .8fr) 1.7fr; gap: 1.5rem; align-items: end; padding: 1.5rem 0; }
 .search-field { display: grid; gap: .45rem; font-weight: 700; }
 .field-hint { display: block; margin: .1rem 0 0; color: var(--muted); font-size: .78rem; font-weight: 400; }
@@ -88,10 +97,14 @@ input:focus, textarea:focus, select:focus { border-color: var(--green-2); box-sh
 .word-card { position: relative; display: grid; min-width: 0; min-height: 270px; padding: 1.45rem; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); transition: transform .18s ease, box-shadow .18s ease; }
 .word-card:hover { transform: translateY(-3px); box-shadow: 0 15px 32px rgba(27,44,36,.11); }
 .word-card button.card-open { position: absolute; inset: 0; width: 100%; min-height: 100%; padding: 0; border: 0; border-radius: inherit; background: transparent; font-size: 0; }
-.card-kicker { display: flex; justify-content: space-between; gap: .7rem; color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.card-kicker { display: flex; justify-content: flex-start; gap: .45rem .7rem; flex-wrap: wrap; color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.chapter-chip { margin-left: auto; color: var(--green-2); }
 .word-card h3 { margin: 1.1rem 0 .2rem; font: 500 clamp(1.9rem, 3vw, 3.1rem)/1 Georgia, serif; }
 .word-card .phonetic { min-height: 1.5rem; margin: .4rem 0; color: var(--green-2); font-family: ui-monospace, Consolas, monospace; }
 .word-card .card-meaning { margin: .7rem 0 1rem; color: #303f38; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.learning-points ul { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.learning-points li { position: relative; padding-left: 1.25rem; white-space: pre-line; }
+.learning-points li::before { content: ""; position: absolute; left: .1rem; top: .72em; width: .42rem; height: .42rem; border-radius: 50%; background: var(--gold); }
 .word-card .card-synonyms { margin: -.35rem 0 .9rem; color: var(--muted); font-size: .84rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .tag-list { display: flex; align-items: flex-end; gap: .35rem; flex-wrap: wrap; margin-top: auto; }
 .tag-list span, .attribution-chip { display: inline-flex; padding: .25rem .55rem; border-radius: 999px; color: #304c41; background: var(--green-soft); font-size: .78rem; }
@@ -163,6 +176,12 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
 .detail-section h3 { margin: 0 0 .45rem; color: var(--green-2); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
 .detail-section > p { margin: .25rem 0; white-space: pre-line; }
 .detail-section ul { padding-left: 1.25rem; }
+.review-panel { padding: 1rem; border: 1px solid #c7d8ce; border-radius: 14px; background: #f1f7f3; }
+.review-panel h3 { font-size: .82rem; }
+.review-panel p { margin: .2rem 0 .8rem; color: var(--muted); }
+.review-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
+.review-actions button { min-width: 0; padding-inline: .6rem; }
+.review-actions button[data-rating="good"], .review-actions button[data-rating="easy"] { color: white; border-color: var(--green); background: var(--green); }
 .detail-extra { display: grid; gap: 1rem; }
 .detail-sense-list { display: grid; gap: 1rem; }
 .detail-sense { min-width: 0; padding: 1rem 1.1rem; border: 1px solid #d8d1c4; border-left: 4px solid var(--gold); border-radius: 12px; background: #fbf8f1; }
@@ -296,6 +315,8 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .public-hero { padding: 3rem 0; }
   .public-hero h1 { font-size: clamp(2.8rem, 15vw, 5.2rem); }
   .section-heading { align-items: center; }
+  .library-heading-actions { align-items: flex-end; flex-direction: column-reverse; gap: .65rem; }
+  .study-launch { min-height: 40px; padding: .5rem .75rem; }
   .toolbar { grid-template-columns: 1fr; }
   .filter-row { justify-content: flex-start; }
   .entry-grid { grid-template-columns: 1fr; }
@@ -304,6 +325,7 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .sense-field { grid-template-columns: 1fr; gap: .18rem; }
   .detail-sense { padding: .9rem; }
   .sense-example-pair { padding-inline: .6rem; }
+  .review-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .owner-identity { align-items: center; }
   .sync-indicator small { display: none; }
   .form-grid.two, .form-grid.three { grid-template-columns: 1fr; }

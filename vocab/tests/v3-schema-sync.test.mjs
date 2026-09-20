@@ -202,6 +202,14 @@ test("public search normalizes punctuation, quotes, full-width letters and repea
   assert.equal(publicEntryMatchesQuery(hip, "髋部"), true);
   assert.equal(publicEntryMatchesQuery(hip, "身体"), true);
   assert.equal(publicEntryMatchesQuery(jabAt, "髋部"), false);
+  const inflected = entry("tuck", {
+    originalInput: "tucked",
+    forms: ["tucked"],
+    sourceTitle: "Never Let Me Go — Chapter 1",
+    sourceWork: "Never Let Me Go"
+  });
+  assert.equal(publicEntryMatchesQuery(inflected, "tucked"), true);
+  assert.equal(publicEntryMatchesQuery(inflected, "Never Let Me Go"), true);
 });
 
 test("browser synonym validation mirrors publish boundaries", () => {
@@ -442,6 +450,14 @@ test("AI fills schema-equivalent blank legacy fields without overwriting edits m
   assert.deepEqual(result.merged.collocations, ["hip joint"]);
   assert.equal(result.preservedManualChanges, true);
   assert.equal(result.merged.organizationMethod, "mixed");
+});
+
+test("AI reorganization cannot erase collection membership tags", () => {
+  const baseline = { tags: ["collection:never-let-me-go:chapter-1", "文学阅读"], organizationMethod: "manual" };
+  const current = structuredClone(baseline);
+  const candidate = { tags: ["形容词"], organizationMethod: "ai-cloudflare" };
+  const result = mergeAiCandidate(baseline, current, candidate);
+  assert.deepEqual(result.merged.tags, ["collection:never-let-me-go:chapter-1", "形容词"]);
 });
 
 test("automatic AI completion fills blanks without replacing earlier manual content", () => {

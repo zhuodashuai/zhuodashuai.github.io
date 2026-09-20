@@ -1,4 +1,5 @@
 import { findDuplicate, normalizeEnglish } from "./wordbook-schema.js";
+import { preserveCollectionTags } from "./collections.js";
 
 const RETRY_DELAYS_MS = [5_000, 15_000, 45_000, 120_000, 300_000, 900_000, 1_800_000, 3_600_000];
 
@@ -38,6 +39,7 @@ export function mergeAiCandidate(baseline, current, candidate, { fillMissingOnly
     } else if (unchanged || equivalentEmptyBaseline) merged[key] = structuredClone(candidateValue);
     else preservedManualChanges = true;
   }
+  merged.tags = preserveCollectionTags(current.tags, merged.tags);
   if (preservedManualChanges) merged.organizationMethod = "mixed";
   else if (fillMissingOnly) merged.organizationMethod = candidate.organizationMethod;
   return { merged, preservedManualChanges };

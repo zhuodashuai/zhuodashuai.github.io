@@ -4,6 +4,7 @@ import test from "node:test";
 import { parsePublicSnapshot } from "../js/wordbook-schema.js";
 
 const snapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
+const neverLetMeGoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-1.json", import.meta.url);
 
 async function publishedEntries() {
   const raw = JSON.parse(await readFile(snapshotUrl, "utf8"));
@@ -39,4 +40,33 @@ test("published perspicacious keeps only the modern mental-discernment sense and
   assert.deepEqual(perspicacious.senses.flatMap((sense) => sense.confusables), []);
   assert.deepEqual(perspicacious.synonyms, []);
   assert.ok(perspicacious.sources.some((source) => source.kind === "authoritative" && /collinsdictionary\.com/i.test(source.url)));
+});
+
+test("Never Let Me Go Chapter 1 contains exactly the 29 requested, editable learning entries", async () => {
+  const [entries, source] = await Promise.all([
+    publishedEntries(),
+    readFile(neverLetMeGoUrl, "utf8").then(JSON.parse)
+  ]);
+  const membership = "collection:never-let-me-go:chapter-1";
+  const chapterEntries = entries.filter((entry) => entry.tags.includes(membership));
+  assert.equal(source.items.length, 29);
+  assert.equal(chapterEntries.length, 29);
+  assert.deepEqual(
+    chapterEntries.map((entry) => entry.term).sort(),
+    source.items.map((entry) => entry.term).sort()
+  );
+  const requestedOriginals = new Map(source.items.map((item) => [item.term, item.originalInput]));
+  for (const entry of chapterEntries) {
+    assert.equal(entry.originalInput, requestedOriginals.get(entry.term));
+    assert.equal(entry.sourceTitle, "Never Let Me Go — Chapter 1");
+    assert.equal(entry.sourceWork, "Never Let Me Go");
+    assert.equal(entry.senses.length, 1);
+    assert.equal(entry.senses[0].meaningZh, entry.meaning);
+    assert.equal(entry.senses[0].definitionEn, entry.definition);
+    assert.ok(entry.senses[0].examples.length >= 1);
+    assert.match(entry.usage, /第一章语境/u);
+    assert.doesNotMatch(entry.attributionNote, /小说原文摘录/u);
+  }
+  assert.equal(new Set(chapterEntries.map((entry) => entry.id)).size, 29);
+  assert.equal(new Set(chapterEntries.map((entry) => entry.normalized)).size, 29);
 });

@@ -105,6 +105,95 @@ test("IndexedDB v6 migration creates separated stores and preserves legacy revie
   assert.equal(entryStore.indexNames.contains("dueAt"), false);
 });
 
+test("review state CRUD persists validated records without a database upgrade", async () => {
+  const first = {
+    schemaVersion: 1,
+    entryId: "chapter-one-agitated",
+    level: 0,
+    dueAt: "2026-09-20T12:00:00.000Z",
+    reviewCount: 0,
+    lapseCount: 0,
+    lastRating: null,
+    history: [],
+    updatedAt: "2026-09-20T12:00:00.000Z"
+  };
+  assert.deepEqual(await storage.putReviewState(first), first);
+  assert.deepEqual(await storage.getReviewState(first.entryId), first);
+
+  const updated = {
+    ...first,
+    level: 1,
+    dueAt: "2026-09-23T12:00:00.000Z",
+    reviewCount: 1,
+    lastRating: "good",
+    history: [{ at: "2026-09-20T12:00:00.000Z", rating: "good", fromLevel: 0, toLevel: 1 }],
+    updatedAt: "2026-09-20T12:00:00.000Z"
+  };
+  await storage.putReviewState(updated);
+  await storage.closeDatabaseForTests();
+  assert.equal((await storage.openDatabase()).version, 6);
+  assert.deepEqual(await storage.getReviewState(first.entryId), updated);
+  const listed = await storage.listReviewStates();
+  assert.equal(listed.some((state) => state.entryId === first.entryId), true);
+  assert.deepEqual(listed.find((state) => state.entryId === first.entryId), updated);
+  assert.equal(await storage.getReviewState("not-reviewed"), undefined);
+});
+
+test("review state writes reject unknown fields, invalid ranges and malformed history", async () => {
+  const valid = {
+    schemaVersion: 1,
+    entryId: "chapter-one-shrug",
+    level: 0,
+    dueAt: "2026-09-20T12:00:00.000Z",
+    reviewCount: 0,
+    lapseCount: 0,
+    lastRating: null,
+    history: [],
+    updatedAt: "2026-09-20T12:00:00.000Z"
+  };
+  await assert.rejects(storage.putReviewState({ ...valid, level: 8 }), /0 到 7/);
+  await assert.rejects(storage.putReviewState({ ...valid, dueAt: "tomorrow" }), /ISO/);
+  await assert.rejects(storage.putReviewState({ ...valid, reviewCount: -1 }), /非负整数/);
+  await assert.rejects(storage.putReviewState({ ...valid, unexpected: true }), /字段不正确/);
+  await assert.rejects(storage.putReviewState({
+    ...valid,
+    history: [{ at: valid.updatedAt, rating: "good", fromLevel: 0, toLevel: 1, note: "extra" }]
+  }), /字段不正确/);
+  await assert.rejects(storage.getReviewState(" "), /词条 ID/);
+  assert.equal(await storage.getReviewState(valid.entryId), undefined);
+});
+
+test("review state compare-and-swap rejects a stale tab instead of losing history", async () => {
+  const baseline = {
+    schemaVersion: 1,
+    entryId: "chapter-one-concurrent",
+    level: 0,
+    dueAt: "2026-09-20T12:00:00.000Z",
+    reviewCount: 0,
+    lapseCount: 0,
+    lastRating: null,
+    history: [],
+    updatedAt: "2026-09-20T12:00:00.000Z"
+  };
+  await storage.putReviewState(baseline, { expected: null });
+  const staleCopy = await storage.getReviewState(baseline.entryId);
+  const firstUpdate = {
+    ...staleCopy,
+    level: 1,
+    dueAt: "2026-09-23T12:00:00.000Z",
+    reviewCount: 1,
+    lastRating: "good",
+    history: [{ at: "2026-09-20T12:01:00.000Z", rating: "good", fromLevel: 0, toLevel: 1 }],
+    updatedAt: "2026-09-20T12:01:00.000Z"
+  };
+  await storage.putReviewState(firstUpdate, { expected: staleCopy });
+  await assert.rejects(
+    storage.putReviewState({ ...firstUpdate, lastRating: "easy" }, { expected: staleCopy }),
+    { name: "ReviewStateConflictError" }
+  );
+  assert.deepEqual(await storage.getReviewState(baseline.entryId), firstUpdate);
+});
+
 test("a partial owner draft survives close and reopen without credentials", async () => {
   const entry = createBlankEntry("recieve");
   entry.meaning = "";
