@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-23T17:15:32.028Z",
-  "revisionId": "72c0bea9-840d-41c2-ab9c-5a466f3fbb73",
-  "lastMutationId": "batch-never-let-me-go-chapter-1-03cdb0b9-e6cb-4d4f-beda-9d4d6e21350b",
+  "exportedAt": "2026-09-23T17:23:07.855Z",
+  "revisionId": "f898aa42-f777-473f-9914-934fa1caaca0",
+  "lastMutationId": "batch-never-let-me-go-chapter-2-294ab154-af10-4794-81ba-75230ee8f7a9",
   "entries": [
     {
       "id": "public-jab-at",
@@ -2587,7 +2587,7 @@
     },
     {
       "id": "public-nlmg-c1-tantrum",
-      "revision": 6,
+      "revision": 7,
       "originalInput": "tantrums",
       "term": "tantrum",
       "normalized": "tantrum",
@@ -2695,8 +2695,7 @@
           ],
           "confusedWith": [],
           "forms": [
-            "tantrums",
-            "temper tantrums"
+            "tantrums"
           ],
           "exampleEn": "A temper tantrum can draw everyone's attention.",
           "exampleZh": "一阵大发脾气会引来所有人的注意。",
@@ -2708,7 +2707,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-23T17:15:32.028Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     },
     {
       "id": "public-nlmg-c1-rile",
@@ -3560,7 +3559,7 @@
     },
     {
       "id": "public-nlmg-c2-satellite",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "satellite dishes",
       "term": "satellite",
       "normalized": "satellite",
@@ -3611,8 +3610,7 @@
         "aerial"
       ],
       "forms": [
-        "satellites",
-        "satellite dishes"
+        "satellites"
       ],
       "tags": [
         "collection:never-let-me-go:chapter-2",
@@ -3645,8 +3643,7 @@
             "aerial"
           ],
           "forms": [
-            "satellites",
-            "satellite dishes"
+            "satellites"
           ],
           "exampleEn": "A satellite dish was fixed to the roof.",
           "exampleZh": "屋顶上安装了一面碟形卫星接收天线。",
@@ -3658,7 +3655,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T17:14:57.604Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     },
     {
       "id": "public-nlmg-c2-glistening",
@@ -5174,7 +5171,7 @@
     },
     {
       "id": "public-nlmg-c2-hold-somebody-up",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "You're holding everyone up.",
       "term": "hold somebody up",
       "normalized": "hold somebody up",
@@ -5222,7 +5219,7 @@
       "confusedWith": [],
       "forms": [
         "held somebody up",
-        "holding everyone up"
+        "holding somebody up"
       ],
       "tags": [
         "collection:never-let-me-go:chapter-2",
@@ -5254,7 +5251,7 @@
           "confusedWith": [],
           "forms": [
             "held somebody up",
-            "holding everyone up"
+            "holding somebody up"
           ],
           "exampleEn": "Please move aside; you're holding the whole group up.",
           "exampleZh": "请让到一边；你把整群人都耽误了。",
@@ -5266,7 +5263,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T17:14:57.604Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     },
     {
       "id": "public-nlmg-c2-grind-to-a-halt",
@@ -5373,7 +5370,7 @@
     },
     {
       "id": "public-nlmg-c2-no-hard-feelings",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "No hard feelings, right?",
       "term": "no hard feelings",
       "normalized": "no hard feelings",
@@ -5419,9 +5416,7 @@
       "usage": "第二章语境：No hard feelings, right? 用来确认对方没有生气或记恨。",
       "register": "informal",
       "confusedWith": [],
-      "forms": [
-        "No hard feelings, right?"
-      ],
+      "forms": [],
       "tags": [
         "collection:never-let-me-go:chapter-2",
         "文学阅读",
@@ -5450,9 +5445,7 @@
             "no hard feelings"
           ],
           "confusedWith": [],
-          "forms": [
-            "No hard feelings, right?"
-          ],
+          "forms": [],
           "exampleEn": "We disagreed, but there are no hard feelings.",
           "exampleZh": "我们虽然意见不同，但彼此没有怨气。",
           "sourceTitle": "Never Let Me Go — Chapter 2",
@@ -5463,7 +5456,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T16:51:55.526Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     },
     {
       "id": "public-nlmg-c2-hold-something-against-somebody",
@@ -6511,7 +6504,7 @@
     },
     {
       "id": "public-nlmg-c2-feel-like-doing-something",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "didn't feel like it",
       "term": "feel like doing something",
       "normalized": "feel like doing something",
@@ -6558,8 +6551,7 @@
       "register": "informal",
       "confusedWith": [],
       "forms": [
-        "felt like doing something",
-        "didn't feel like it"
+        "felt like doing something"
       ],
       "tags": [
         "collection:never-let-me-go:chapter-2",
@@ -6590,8 +6582,7 @@
           ],
           "confusedWith": [],
           "forms": [
-            "felt like doing something",
-            "didn't feel like it"
+            "felt like doing something"
           ],
           "exampleEn": "She didn't feel like drawing or writing that day.",
           "exampleZh": "那天她不想画画或写作。",
@@ -6603,7 +6594,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T16:51:55.526Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     },
     {
       "id": "public-nlmg-c2-perfectly-all-right",
@@ -6697,7 +6688,7 @@
     },
     {
       "id": "public-nlmg-c2-there-s-nothing-wrong-with-it",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "Nothing wrong with it.",
       "term": "There's nothing wrong with it.",
       "normalized": "there's nothing wrong with it.",
@@ -6743,9 +6734,7 @@
       "usage": "第二章语境：原文省略为 Nothing wrong with it.，完整结构是 There's nothing wrong with it.；it 回指不想进行创作这件事。",
       "register": "neutral",
       "confusedWith": [],
-      "forms": [
-        "Nothing wrong with it."
-      ],
+      "forms": [],
       "tags": [
         "collection:never-let-me-go:chapter-2",
         "文学阅读",
@@ -6774,9 +6763,7 @@
             "there's nothing wrong with something"
           ],
           "confusedWith": [],
-          "forms": [
-            "Nothing wrong with it."
-          ],
+          "forms": [],
           "exampleEn": "There's nothing wrong with changing your mind.",
           "exampleZh": "改变主意并没有什么不对。",
           "sourceTitle": "Never Let Me Go — Chapter 2",
@@ -6787,7 +6774,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T16:51:55.526Z"
+      "updatedAt": "2026-09-23T17:23:07.855Z"
     }
   ]
 }
