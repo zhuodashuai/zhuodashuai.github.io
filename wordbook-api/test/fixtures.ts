@@ -18,6 +18,7 @@ export function entry(overrides: Partial<PublicEntry> = {}): PublicEntry {
     definition: "To make a quick sharp movement or criticism toward someone or something.",
     senses: [],
     synonyms: [],
+    readingContexts: [],
     collocations: ["take a jab at"],
     exampleEn: "He jabbed at the button.",
     exampleZh: "他猛戳按钮。",

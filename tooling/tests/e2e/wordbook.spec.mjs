@@ -318,7 +318,7 @@ test("Never Let Me Go 独立词本按 Chapter 1 展示全部 29 条并保留原�
 
   const collection = page.locator('#collection-tabs button[data-value="never-let-me-go"]');
   await expect(collection).toContainText("Never Let Me Go");
-  await expect(collection.locator("small")).toHaveText("29");
+  await expect(collection.locator("small")).toHaveText("65");
   await collection.focus();
   await page.keyboard.press("Enter");
   await expect(collection).toBeFocused();
@@ -359,6 +359,40 @@ test("Never Let Me Go 独立词本按 Chapter 1 展示全部 29 条并保留原�
   await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 1");
   await expect(dialog.locator("#dialog-source-status")).toContainText("例句为学习用自拟句，不是小说原文");
   await expect(dialog.locator("#dialog-tags")).not.toContainText("collection:");
+});
+
+test("Never Let Me Go Chapter 2 展示 38 条并为共享词切换页码、原文形式和章节语境", async ({ page }) => {
+  await page.goto("/?book=never-let-me-go&chapter=chapter-2");
+
+  await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 2", exact: true })).toBeVisible();
+  await expect(page.locator("#entry-count")).toHaveText("38");
+  await expect(page.locator("#entry-grid .word-card")).toHaveCount(38);
+  await expect(page.locator('#chapter-tabs button[data-value="chapter-2"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('.word-card .chapter-chip')).toHaveCount(38);
+  await expect(page.locator('.word-card .chapter-chip').first()).toHaveText("Chapter 2");
+
+  await page.locator("#library-search").fill("temper tantrums");
+  const tantrumCard = page.locator("#entry-grid .word-card");
+  await expect(tantrumCard).toHaveCount(1);
+  await expect(tantrumCard.getByRole("heading")).toHaveText("tantrum");
+  await tantrumCard.getByRole("button", { name: "查看 tantrum 的完整词条" }).click();
+  const chapterTwoDialog = page.getByRole("dialog");
+  await expect(chapterTwoDialog.locator(".detail-original-form p")).toHaveText("temper tantrums");
+  await expect(chapterTwoDialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 2");
+  await expect(chapterTwoDialog.locator("#dialog-source-status")).toContainText("p. 20");
+  await expect(chapterTwoDialog.locator("#dialog-meaning")).toContainText("第二章语境");
+  await expect(chapterTwoDialog.locator("#dialog-usage")).toContainText("temper tantrum");
+  await chapterTwoDialog.getByRole("button", { name: "关闭词条详情" }).click();
+
+  await page.locator("#library-search").fill("");
+  await page.locator('#chapter-tabs button[data-value="chapter-1"]').click();
+  await page.locator("#library-search").fill("tantrum");
+  await page.getByRole("button", { name: "查看 tantrum 的完整词条" }).click();
+  const chapterOneDialog = page.getByRole("dialog");
+  await expect(chapterOneDialog.locator(".detail-original-form p")).toHaveText("tantrums");
+  await expect(chapterOneDialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 1");
+  await expect(chapterOneDialog.locator("#dialog-source-status")).not.toContainText("p. 20");
+  await expect(chapterOneDialog.locator("#dialog-meaning")).toContainText("第一章语境");
 });
 
 test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page }) => {

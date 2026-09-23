@@ -6,12 +6,16 @@ const ENTRY_KEYS = [
   "id", "revision", "originalInput", "term", "normalized", "standardForm", "entryType", "correction",
   "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations", "synonyms", "exampleEn", "exampleZh",
   "usage", "register", "confusedWith", "forms", "tags", "author", "sourceTitle", "sourceWork", "sourceDate",
-  "sourceUrl", "attributionStatus", "attributionNote", "sources", "organizationMethod", "createdAt", "updatedAt"
+  "sourceUrl", "attributionStatus", "attributionNote", "sources", "readingContexts", "organizationMethod", "createdAt", "updatedAt"
 ];
 const CORRECTION_KEYS = ["status", "original", "suggestion", "chosen", "confidence", "source"];
 const SENSE_KEYS = ["partOfSpeech", "meaningZh", "definitionEn", "usageNotes", "register", "collocations", "examples", "confusables"];
 const EXAMPLE_KEYS = ["en", "zh"];
 const SOURCE_KEYS = ["title", "url", "kind", "retrievedAt"];
+const READING_CONTEXT_KEYS = [
+  "membership", "page", "originalInput", "entryType", "partOfSpeech", "meaning", "definition", "usage", "register",
+  "collocations", "confusedWith", "forms", "exampleEn", "exampleZh", "sourceTitle", "sourceWork", "sourceDate", "attributionNote"
+];
 const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const STRUCTURED_ORGANIZATION_METHODS = new Set(["ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]);
 
@@ -96,7 +100,18 @@ export function publicEntryMatchesQuery(entry, query) {
     ...(Array.isArray(entry?.tags) ? entry.tags : []),
     ...(Array.isArray(entry?.collocations) ? entry.collocations : []),
     ...(Array.isArray(entry?.forms) ? entry.forms : []),
-    ...(Array.isArray(entry?.synonyms) ? entry.synonyms : [])
+    ...(Array.isArray(entry?.synonyms) ? entry.synonyms : []),
+    ...(Array.isArray(entry?.readingContexts) ? entry.readingContexts.flatMap((context) => [
+      context.originalInput,
+      context.meaning,
+      context.definition,
+      context.usage,
+      context.sourceTitle,
+      context.sourceWork,
+      context.sourceDate,
+      ...context.collocations,
+      ...context.forms
+    ]) : [])
   ].filter(Boolean).join(" ");
   return normalizeTypography(searchable).toLocaleLowerCase("zh-CN").includes(wanted);
 }
@@ -527,14 +542,45 @@ function validateSense(candidate) {
   };
 }
 
+function validateReadingContext(candidate) {
+  const context = record(candidate, "阅读章节语境");
+  exactKeys(context, READING_CONTEXT_KEYS, "阅读章节语境");
+  const membership = string(context.membership, "章节归属", 80, { required: true });
+  if (!/^collection:[a-z0-9]+(?:-[a-z0-9]+)*:chapter-\d+$/u.test(membership)) throw new Error("章节归属格式不正确。");
+  const entryType = string(context.entryType, "章节词条类型", 30, { required: true });
+  if (!ENTRY_TYPES.includes(entryType)) throw new Error("章节词条类型不受支持。");
+  return {
+    membership,
+    page: string(context.page, "章节页码", 40),
+    originalInput: string(context.originalInput, "章节原文形式", 2000, { required: true }),
+    entryType,
+    partOfSpeech: string(context.partOfSpeech, "章节词性", 160),
+    meaning: string(context.meaning, "章节中文释义", 4000),
+    definition: string(context.definition, "章节英文释义", 4000),
+    usage: string(context.usage, "章节用法", 4000),
+    register: string(context.register, "章节语域", 160),
+    collocations: stringList(context.collocations, "章节搭配", 30, 180),
+    confusedWith: stringList(context.confusedWith, "章节易混词", 30, 180),
+    forms: stringList(context.forms, "章节词形", 30, 180),
+    exampleEn: string(context.exampleEn, "章节英文例句", 4000),
+    exampleZh: string(context.exampleZh, "章节例句翻译", 4000),
+    sourceTitle: string(context.sourceTitle, "章节来源标题", 500, { required: true }),
+    sourceWork: string(context.sourceWork, "章节作品", 500, { required: true }),
+    sourceDate: string(context.sourceDate, "章节来源页码", 100),
+    attributionNote: string(context.attributionNote, "章节核验说明", 1500)
+  };
+}
+
 export function validatePublicEntry(candidate) {
   const rawSource = record(candidate, "公开词条");
-  // synonyms was added without changing the public v3 version. Old GitHub
-  // snapshots and recoverable IndexedDB drafts therefore omit it; normalize
-  // that one known omission while continuing to reject every unknown field.
-  const source = Object.prototype.hasOwnProperty.call(rawSource, "synonyms")
-    ? rawSource
-    : { ...rawSource, synonyms: [] };
+  // These additive fields were introduced without changing public v3. Older
+  // snapshots and recoverable drafts may omit them; normalize only these known
+  // omissions while continuing to reject every unknown field.
+  const source = {
+    ...rawSource,
+    synonyms: Object.prototype.hasOwnProperty.call(rawSource, "synonyms") ? rawSource.synonyms : [],
+    readingContexts: Object.prototype.hasOwnProperty.call(rawSource, "readingContexts") ? rawSource.readingContexts : []
+  };
   exactKeys(source, ENTRY_KEYS, "公开词条");
   const correctionSource = record(source.correction, "拼写建议");
   exactKeys(correctionSource, CORRECTION_KEYS, "拼写建议");
@@ -561,6 +607,7 @@ export function validatePublicEntry(candidate) {
   if (normalized !== normalizeEnglish(term)) throw new Error("词条标准键与英文词条不一致。");
   if (!Array.isArray(source.senses) || source.senses.length > 20) throw new Error("义项格式不正确。");
   if (!Array.isArray(source.sources) || source.sources.length > 20) throw new Error("来源记录格式不正确。");
+  if (!Array.isArray(source.readingContexts) || source.readingContexts.length > 50) throw new Error("阅读章节语境格式不正确。");
   const sourceUrl = safeHttpsUrl(source.sourceUrl);
   const sourceTitle = string(source.sourceTitle, "来源标题", 500);
   const attributionNote = string(source.attributionNote, "核验说明", 1500);
@@ -571,6 +618,13 @@ export function validatePublicEntry(candidate) {
   const synonyms = stringList(source.synonyms, "同义词", 20, 180);
   const confusedWith = stringList(source.confusedWith, "易混词", 30, 180);
   const forms = stringList(source.forms, "词形", 30, 180);
+  const readingContexts = source.readingContexts.map(validateReadingContext);
+  const contextMemberships = new Set();
+  for (const context of readingContexts) {
+    if (contextMemberships.has(context.membership)) throw new Error("同一词条不能重复保存同一章节语境。");
+    contextMemberships.add(context.membership);
+    if (!source.tags.includes(context.membership)) throw new Error("阅读章节语境必须对应词条的章节归属标签。");
+  }
   if (!LEXICAL_ENTRY_TYPES.has(entryType) && synonyms.length) {
     throw new Error("只有单词、短语、短语动词、习语和搭配可以保存同义词。");
   }
@@ -629,9 +683,59 @@ export function validatePublicEntry(candidate) {
     attributionStatus,
     attributionNote,
     sources: source.sources.map(validateSource),
+    readingContexts,
     organizationMethod,
     createdAt,
     updatedAt
+  };
+}
+
+export function readingContextForMembership(entry, membership) {
+  const wanted = String(membership || "").trim();
+  if (!wanted) return null;
+  return (Array.isArray(entry?.readingContexts) ? entry.readingContexts : [])
+    .find((context) => context.membership === wanted) || null;
+}
+
+export function contextualizeReadingEntry(entry, collectionId = "", chapterId = "") {
+  const collection = String(collectionId || "").trim();
+  const chapter = String(chapterId || "").trim();
+  if (!entry || !collection || !chapter || collection === "all" || chapter === "all") return entry;
+  const membership = `collection:${collection}:${chapter}`;
+  const tags = Array.isArray(entry.tags) && entry.tags.includes(membership)
+    ? [membership, ...entry.tags.filter((tag) => tag !== membership)]
+    : entry.tags;
+  const context = readingContextForMembership(entry, membership);
+  if (!context) return tags === entry.tags ? entry : { ...entry, tags };
+  return {
+    ...entry,
+    originalInput: context.originalInput,
+    entryType: context.entryType,
+    partOfSpeech: context.partOfSpeech,
+    meaning: context.meaning,
+    definition: context.definition,
+    senses: [{
+      partOfSpeech: context.partOfSpeech,
+      meaningZh: context.meaning,
+      definitionEn: context.definition,
+      usageNotes: context.usage,
+      register: context.register,
+      collocations: context.collocations,
+      examples: [{ en: context.exampleEn, zh: context.exampleZh }],
+      confusables: context.confusedWith
+    }],
+    collocations: context.collocations,
+    exampleEn: context.exampleEn,
+    exampleZh: context.exampleZh,
+    usage: context.usage,
+    register: context.register,
+    confusedWith: context.confusedWith,
+    forms: context.forms,
+    tags,
+    sourceTitle: context.sourceTitle,
+    sourceWork: context.sourceWork,
+    sourceDate: context.sourceDate,
+    attributionNote: context.attributionNote
   };
 }
 
@@ -828,6 +932,7 @@ export function createBlankEntry(input) {
     exampleEn: "", exampleZh: "", usage: "", register: "", confusedWith: [], forms: [], tags: [],
     author: "", sourceTitle: "", sourceWork: "", sourceDate: "", sourceUrl: "",
     attributionStatus: "unverified", attributionNote: "", sources: [], organizationMethod: "manual",
+    readingContexts: [],
     createdAt: now, updatedAt: now
   };
 }

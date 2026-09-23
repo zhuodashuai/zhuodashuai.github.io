@@ -255,6 +255,27 @@ const SenseSchema = z.object({
   confusables: z.array(bounded(180)).max(20)
 }).strict();
 
+const ReadingContextSchema = z.object({
+  membership: bounded(80).regex(/^collection:[a-z0-9]+(?:-[a-z0-9]+)*:chapter-\d+$/),
+  page: bounded(40),
+  originalInput: bounded(2000).min(1),
+  entryType: z.enum(ENTRY_TYPES),
+  partOfSpeech: bounded(160),
+  meaning: bounded(4000),
+  definition: bounded(4000),
+  usage: bounded(4000),
+  register: bounded(160),
+  collocations: z.array(bounded(180)).max(30),
+  confusedWith: z.array(bounded(180)).max(30),
+  forms: z.array(bounded(180)).max(30),
+  exampleEn: bounded(4000),
+  exampleZh: bounded(4000),
+  sourceTitle: bounded(500).min(1),
+  sourceWork: bounded(500).min(1),
+  sourceDate: bounded(100),
+  attributionNote: bounded(1500)
+}).strict();
+
 const CorrectionSchema = z.object({
   status: z.enum(CORRECTION_DECISIONS),
   original: bounded(2000),
@@ -315,6 +336,7 @@ export const PublicEntrySchema = z.object({
   attributionStatus: z.enum(ATTRIBUTION_STATES),
   attributionNote: bounded(1500),
   sources: z.array(SourceSchema).max(20),
+  readingContexts: z.array(ReadingContextSchema).max(50).default([]),
   organizationMethod: z.enum(["manual", "local-dictionary", "ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]),
   createdAt: isoDate,
   updatedAt: isoDate
@@ -334,6 +356,16 @@ export const PublicEntrySchema = z.object({
   ].map((value) => normalizeEnglish(value)).filter(Boolean));
   const relatedFieldKeys = new Set([...entry.forms, ...entry.confusedWith].map((value) => normalizeEnglish(value)).filter(Boolean));
   const synonymKeys = new Set<string>();
+  const readingMemberships = new Set<string>();
+  entry.readingContexts.forEach((readingContext, index) => {
+    if (readingMemberships.has(readingContext.membership)) {
+      context.addIssue({ code: "custom", path: ["readingContexts", index, "membership"], message: "reading context membership must be unique" });
+    }
+    readingMemberships.add(readingContext.membership);
+    if (!entry.tags.includes(readingContext.membership)) {
+      context.addIssue({ code: "custom", path: ["readingContexts", index, "membership"], message: "reading context must have a matching collection tag" });
+    }
+  });
   if (!LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.synonyms.length) {
     context.addIssue({ code: "custom", path: ["synonyms"], message: "non-lexical entries cannot have synonyms" });
   }

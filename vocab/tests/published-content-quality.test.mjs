@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { parsePublicSnapshot } from "../js/wordbook-schema.js";
+import { contextualizeReadingEntry, parsePublicSnapshot } from "../js/wordbook-schema.js";
 
 const snapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
 const neverLetMeGoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-1.json", import.meta.url);
+const neverLetMeGoChapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
 
 async function publishedEntries() {
   const raw = JSON.parse(await readFile(snapshotUrl, "utf8"));
@@ -69,4 +70,47 @@ test("Never Let Me Go Chapter 1 contains exactly the 29 requested, editable lear
   }
   assert.equal(new Set(chapterEntries.map((entry) => entry.id)).size, 29);
   assert.equal(new Set(chapterEntries.map((entry) => entry.normalized)).size, 29);
+});
+
+test("Never Let Me Go Chapter 2 contains all 38 requested contexts while shared words remain canonical", async () => {
+  const [entries, source] = await Promise.all([
+    publishedEntries(),
+    readFile(neverLetMeGoChapterTwoUrl, "utf8").then(JSON.parse)
+  ]);
+  const membership = "collection:never-let-me-go:chapter-2";
+  const chapterEntries = entries.filter((entry) => entry.tags.includes(membership));
+  assert.equal(source.items.length, 38);
+  assert.equal(chapterEntries.length, 38);
+  assert.equal(new Set(chapterEntries.map((entry) => entry.normalized)).size, 38);
+  assert.deepEqual(
+    chapterEntries.map((entry) => entry.term).sort(),
+    source.items.map((entry) => entry.term).sort()
+  );
+  const sourceItems = new Map(source.items.map((item) => [item.term, item]));
+  for (const entry of chapterEntries) {
+    const item = sourceItems.get(entry.term);
+    const contextual = contextualizeReadingEntry(entry, "never-let-me-go", "chapter-2");
+    assert.equal(contextual.originalInput, item.originalInput);
+    assert.equal(contextual.partOfSpeech, item.partOfSpeech);
+    assert.equal(contextual.meaning, item.meaning);
+    assert.equal(contextual.definition, item.definitionEn);
+    assert.equal(contextual.usage, item.usage);
+    assert.deepEqual(contextual.collocations, item.collocations);
+    assert.equal(contextual.sourceTitle, "Never Let Me Go — Chapter 2");
+    assert.equal(contextual.sourceWork, "Never Let Me Go");
+    assert.equal(contextual.sourceDate, `p. ${item.page}`);
+    assert.match(contextual.usage, /第二章语境/u);
+    assert.equal(contextual.senses[0].meaningZh, contextual.meaning);
+    assert.ok(contextual.senses[0].examples.length >= 1);
+  }
+  const bookEntries = entries.filter((entry) => entry.tags.some((tag) => tag.startsWith("collection:never-let-me-go:")));
+  assert.equal(bookEntries.length, 65);
+  assert.equal(entries.length, 72);
+  for (const term of ["shrug", "tantrum"]) {
+    const matches = entries.filter((entry) => entry.term === term);
+    assert.equal(matches.length, 1);
+    assert.ok(matches[0].tags.includes("collection:never-let-me-go:chapter-1"));
+    assert.ok(matches[0].tags.includes("collection:never-let-me-go:chapter-2"));
+    assert.equal(matches[0].readingContexts.length, 2);
+  }
 });
