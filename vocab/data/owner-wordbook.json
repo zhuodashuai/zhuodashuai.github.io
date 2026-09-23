@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-23T17:23:07.855Z",
-  "revisionId": "f898aa42-f777-473f-9914-934fa1caaca0",
-  "lastMutationId": "batch-never-let-me-go-chapter-2-294ab154-af10-4794-81ba-75230ee8f7a9",
+  "exportedAt": "2026-09-23T18:10:48.977Z",
+  "revisionId": "d62ffee3-870f-4c2e-8564-3f74eb08eb94",
+  "lastMutationId": "batch-never-let-me-go-chapter-2-098d4090-2b8c-41c5-a9b6-15e01929960e",
   "entries": [
     {
       "id": "public-jab-at",
@@ -4701,7 +4701,7 @@
     },
     {
       "id": "public-nlmg-c2-acoustics",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "acoustics",
       "term": "acoustics",
       "normalized": "acoustics",
@@ -4724,15 +4724,15 @@
           "partOfSpeech": "plural noun",
           "meaningZh": "场所的声学特性；声音传播和听觉效果。",
           "definitionEn": "The qualities of a room that affect how sound travels and is heard.",
-          "usageNotes": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+          "usageNotes": "这里不是泛指“声学”这门学科。第二章语境：大厅的声音传播特点，加上嘈杂的人声，使压低声音的近距离交谈较不容易被旁人听见，因此午餐队伍反而适合私下谈话。",
           "register": "neutral",
           "collocations": [
             "the acoustics of a room"
           ],
           "examples": [
             {
-              "en": "The hall's acoustics carried their voices across the room.",
-              "zh": "大厅的声学效果让他们的声音传到了房间另一边。"
+              "en": "The hall's acoustics and the surrounding chatter made their quiet conversation harder to overhear.",
+              "zh": "大厅的声学特性和周围嘈杂的人声，让他们低声交谈的内容较难被旁人听见。"
             }
           ],
           "confusables": []
@@ -4742,9 +4742,9 @@
         "the acoustics of a room"
       ],
       "synonyms": [],
-      "exampleEn": "The hall's acoustics carried their voices across the room.",
-      "exampleZh": "大厅的声学效果让他们的声音传到了房间另一边。",
-      "usage": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+      "exampleEn": "The hall's acoustics and the surrounding chatter made their quiet conversation harder to overhear.",
+      "exampleZh": "大厅的声学特性和周围嘈杂的人声，让他们低声交谈的内容较难被旁人听见。",
+      "usage": "这里不是泛指“声学”这门学科。第二章语境：大厅的声音传播特点，加上嘈杂的人声，使压低声音的近距离交谈较不容易被旁人听见，因此午餐队伍反而适合私下谈话。",
       "register": "neutral",
       "confusedWith": [],
       "forms": [],
@@ -4770,15 +4770,15 @@
           "partOfSpeech": "plural noun",
           "meaning": "场所的声学特性；声音传播和听觉效果。",
           "definition": "The qualities of a room that affect how sound travels and is heard.",
-          "usage": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+          "usage": "这里不是泛指“声学”这门学科。第二章语境：大厅的声音传播特点，加上嘈杂的人声，使压低声音的近距离交谈较不容易被旁人听见，因此午餐队伍反而适合私下谈话。",
           "register": "neutral",
           "collocations": [
             "the acoustics of a room"
           ],
           "confusedWith": [],
           "forms": [],
-          "exampleEn": "The hall's acoustics carried their voices across the room.",
-          "exampleZh": "大厅的声学效果让他们的声音传到了房间另一边。",
+          "exampleEn": "The hall's acoustics and the surrounding chatter made their quiet conversation harder to overhear.",
+          "exampleZh": "大厅的声学特性和周围嘈杂的人声，让他们低声交谈的内容较难被旁人听见。",
           "sourceTitle": "Never Let Me Go — Chapter 2",
           "sourceWork": "Never Let Me Go",
           "sourceDate": "p. 22",
@@ -4787,7 +4787,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T17:14:57.604Z"
+      "updatedAt": "2026-09-23T18:10:48.977Z"
     },
     {
       "id": "public-nlmg-c2-sarcasm",

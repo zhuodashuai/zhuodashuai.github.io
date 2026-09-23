@@ -114,3 +114,27 @@ test("Never Let Me Go Chapter 2 contains all 38 requested contexts while shared 
     assert.equal(matches[0].readingContexts.length, 2);
   }
 });
+
+test("Chapter 2 acoustics preserves the quiet-conversation context in every displayed field", async () => {
+  const [entries, source] = await Promise.all([
+    publishedEntries(),
+    readFile(neverLetMeGoChapterTwoUrl, "utf8").then(JSON.parse)
+  ]);
+  const item = source.items.find((entry) => entry.term === "acoustics");
+  const entry = entries.find((entry) => entry.term === "acoustics");
+  assert.ok(item);
+  assert.ok(entry);
+  const contextual = contextualizeReadingEntry(entry, "never-let-me-go", "chapter-2");
+  const context = entry.readingContexts.find((context) => context.membership === "collection:never-let-me-go:chapter-2");
+  const expectedUsage = "这里不是泛指“声学”这门学科。第二章语境：大厅的声音传播特点，加上嘈杂的人声，使压低声音的近距离交谈较不容易被旁人听见，因此午餐队伍反而适合私下谈话。";
+  for (const usage of [item.usage, entry.usage, entry.senses[0].usageNotes, context.usage, contextual.usage, contextual.senses[0].usageNotes]) {
+    assert.equal(usage, expectedUsage);
+  }
+  for (const example of [item.exampleEn, entry.exampleEn, entry.senses[0].examples[0].en, context.exampleEn, contextual.exampleEn]) {
+    assert.match(example, /quiet conversation harder to overhear/u);
+  }
+  assert.equal(contextual.sourceDate, "p. 22");
+  assert.equal(contextual.partOfSpeech, "plural noun");
+  assert.match(contextual.attributionNote, /例句为学习用自拟句，不是小说原文/u);
+  assert.doesNotMatch(JSON.stringify([item, entry]), /使附近的人可能听到谈话|carried their voices across the room|传到了房间另一边/u);
+});
