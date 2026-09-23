@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-23T18:10:48.977Z",
-  "revisionId": "d62ffee3-870f-4c2e-8564-3f74eb08eb94",
-  "lastMutationId": "batch-never-let-me-go-chapter-2-098d4090-2b8c-41c5-a9b6-15e01929960e",
+  "exportedAt": "2026-09-23T20:56:20.204Z",
+  "revisionId": "4367f17d-04c2-4689-9b58-f1a6b069f07d",
+  "lastMutationId": "batch-never-let-me-go-chapter-3-222b692d-ec24-43d3-a484-941131899367",
   "entries": [
     {
       "id": "public-jab-at",
@@ -6775,6 +6775,1570 @@
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
       "updatedAt": "2026-09-23T17:23:07.855Z"
+    },
+    {
+      "id": "public-nlmg-c3-eavesdrop",
+      "revision": 1,
+      "originalInput": "eavesdrop",
+      "term": "eavesdrop",
+      "normalized": "eavesdrop",
+      "standardForm": "eavesdrop",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "eavesdrop",
+        "suggestion": "",
+        "chosen": "eavesdrop",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "偷听；窃听别人的谈话。",
+      "definition": "To listen secretly to a conversation not intended for you.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "偷听；窃听别人的谈话。",
+          "definitionEn": "To listen secretly to a conversation not intended for you.",
+          "usageNotes": "第三章语境：池塘边虽然安静，却不适合私下谈话。声音在水面上传播的方式难以预料，别人也可能绕到对岸藏在灌木后偷听。这里描述的是偷听的可能性，并不是说当时已有人偷听。常用结构：eavesdrop on somebody / a conversation；on 后接被偷听的人或谈话。",
+          "register": "neutral",
+          "collocations": [
+            "eavesdrop on a conversation",
+            "eavesdrop on somebody"
+          ],
+          "examples": [
+            {
+              "en": "Someone behind the bushes could eavesdrop on their conversation.",
+              "zh": "藏在灌木后的人可能偷听他们的谈话。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "eavesdrop on a conversation",
+        "eavesdrop on somebody"
+      ],
+      "synonyms": [],
+      "exampleEn": "Someone behind the bushes could eavesdrop on their conversation.",
+      "exampleZh": "藏在灌木后的人可能偷听他们的谈话。",
+      "usage": "第三章语境：池塘边虽然安静，却不适合私下谈话。声音在水面上传播的方式难以预料，别人也可能绕到对岸藏在灌木后偷听。这里描述的是偷听的可能性，并不是说当时已有人偷听。常用结构：eavesdrop on somebody / a conversation；on 后接被偷听的人或谈话。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "eavesdrops",
+        "eavesdropped",
+        "eavesdropping"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "动词",
+        "交谈"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 25",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 25",
+          "originalInput": "eavesdrop",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "偷听；窃听别人的谈话。",
+          "definition": "To listen secretly to a conversation not intended for you.",
+          "usage": "第三章语境：池塘边虽然安静，却不适合私下谈话。声音在水面上传播的方式难以预料，别人也可能绕到对岸藏在灌木后偷听。这里描述的是偷听的可能性，并不是说当时已有人偷听。常用结构：eavesdrop on somebody / a conversation；on 后接被偷听的人或谈话。",
+          "register": "neutral",
+          "collocations": [
+            "eavesdrop on a conversation",
+            "eavesdrop on somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "eavesdrops",
+            "eavesdropped",
+            "eavesdropping"
+          ],
+          "exampleEn": "Someone behind the bushes could eavesdrop on their conversation.",
+          "exampleZh": "藏在灌木后的人可能偷听他们的谈话。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 25",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-raggy",
+      "revision": 1,
+      "originalInput": "raggy",
+      "term": "raggy",
+      "normalized": "raggy",
+      "standardForm": "raggy",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "raggy",
+        "suggestion": "",
+        "chosen": "raggy",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "破旧的；破破烂烂的。",
+      "definition": "Shabby, frayed, or worn into a ragged condition.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "破旧的；破破烂烂的。",
+          "definitionEn": "Shabby, frayed, or worn into a ragged condition.",
+          "usageNotes": "第三章语境：Kathy 回想 Tommy 当天大概穿着一件旧足球衫；她明确说自己记不清，因此这不是确定的服装描述。raggy 修饰 football shirts，强调衣服破旧的样子。raggy 是原文中的有效拼写，不应自动改成 ragged；两者在这里的意思相近。",
+          "register": "neutral",
+          "collocations": [
+            "a raggy football shirt"
+          ],
+          "examples": [
+            {
+              "en": "He wore a raggy football shirt even in cool weather.",
+              "zh": "即使天气凉，他也穿着一件破旧的足球衫。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a raggy football shirt"
+      ],
+      "synonyms": [],
+      "exampleEn": "He wore a raggy football shirt even in cool weather.",
+      "exampleZh": "即使天气凉，他也穿着一件破旧的足球衫。",
+      "usage": "第三章语境：Kathy 回想 Tommy 当天大概穿着一件旧足球衫；她明确说自己记不清，因此这不是确定的服装描述。raggy 修饰 football shirts，强调衣服破旧的样子。raggy 是原文中的有效拼写，不应自动改成 ragged；两者在这里的意思相近。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "形容词",
+        "衣着"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 25",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 25",
+          "originalInput": "raggy",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "破旧的；破破烂烂的。",
+          "definition": "Shabby, frayed, or worn into a ragged condition.",
+          "usage": "第三章语境：Kathy 回想 Tommy 当天大概穿着一件旧足球衫；她明确说自己记不清，因此这不是确定的服装描述。raggy 修饰 football shirts，强调衣服破旧的样子。raggy 是原文中的有效拼写，不应自动改成 ragged；两者在这里的意思相近。",
+          "register": "neutral",
+          "collocations": [
+            "a raggy football shirt"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "He wore a raggy football shirt even in cool weather.",
+          "exampleZh": "即使天气凉，他也穿着一件破旧的足球衫。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 25",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-maroon",
+      "revision": 1,
+      "originalInput": "maroon",
+      "term": "maroon",
+      "normalized": "maroon",
+      "standardForm": "maroon",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "maroon",
+        "suggestion": "",
+        "chosen": "maroon",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "栗红色的；深褐红色的。",
+      "definition": "Having a deep red colour with a brownish tone.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "栗红色的；深褐红色的。",
+          "definitionEn": "Having a deep red colour with a brownish tone.",
+          "usageNotes": "第三章语境：Kathy 清楚记得自己穿着一件前面带拉链的栗红色运动上衣，maroon 在此只表示颜色。它也可作动词表示把人困在偏僻处，但本句不是这个意思。",
+          "register": "neutral",
+          "collocations": [
+            "a maroon tracksuit top"
+          ],
+          "examples": [
+            {
+              "en": "She zipped up her maroon tracksuit top before going outside.",
+              "zh": "她出门前拉好了栗红色运动上衣的拉链。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a maroon tracksuit top"
+      ],
+      "synonyms": [],
+      "exampleEn": "She zipped up her maroon tracksuit top before going outside.",
+      "exampleZh": "她出门前拉好了栗红色运动上衣的拉链。",
+      "usage": "第三章语境：Kathy 清楚记得自己穿着一件前面带拉链的栗红色运动上衣，maroon 在此只表示颜色。它也可作动词表示把人困在偏僻处，但本句不是这个意思。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "形容词",
+        "颜色"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 25",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 25",
+          "originalInput": "maroon",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "栗红色的；深褐红色的。",
+          "definition": "Having a deep red colour with a brownish tone.",
+          "usage": "第三章语境：Kathy 清楚记得自己穿着一件前面带拉链的栗红色运动上衣，maroon 在此只表示颜色。它也可作动词表示把人困在偏僻处，但本句不是这个意思。",
+          "register": "neutral",
+          "collocations": [
+            "a maroon tracksuit top"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She zipped up her maroon tracksuit top before going outside.",
+          "exampleZh": "她出门前拉好了栗红色运动上衣的拉链。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 25",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-brisk",
+      "revision": 1,
+      "originalInput": "brisk",
+      "term": "brisk",
+      "normalized": "brisk",
+      "standardForm": "brisk",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "brisk",
+        "suggestion": "",
+        "chosen": "brisk",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "干脆利落的；爽快而有效率的。",
+      "definition": "Quick, energetic, and businesslike in manner.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "干脆利落的；爽快而有效率的。",
+          "definitionEn": "Quick, energetic, and businesslike in manner.",
+          "usageNotes": "第三章语境：学生们长大些之后，开始欣赏 Miss Lucy 干脆利落的处事风格。brisk 修饰 style，强调直接、有效率、不拖泥带水；不是在说天气清冷，也不能只译为动作很快。",
+          "register": "neutral",
+          "collocations": [
+            "a brisk style",
+            "a brisk manner"
+          ],
+          "examples": [
+            {
+              "en": "The older students came to appreciate her brisk manner.",
+              "zh": "年长些的学生逐渐欣赏起她干脆利落的作风。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a brisk style",
+        "a brisk manner"
+      ],
+      "synonyms": [],
+      "exampleEn": "The older students came to appreciate her brisk manner.",
+      "exampleZh": "年长些的学生逐渐欣赏起她干脆利落的作风。",
+      "usage": "第三章语境：学生们长大些之后，开始欣赏 Miss Lucy 干脆利落的处事风格。brisk 修饰 style，强调直接、有效率、不拖泥带水；不是在说天气清冷，也不能只译为动作很快。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "brisker",
+        "briskest"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "形容词",
+        "人物描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 26",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 26",
+          "originalInput": "brisk",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "干脆利落的；爽快而有效率的。",
+          "definition": "Quick, energetic, and businesslike in manner.",
+          "usage": "第三章语境：学生们长大些之后，开始欣赏 Miss Lucy 干脆利落的处事风格。brisk 修饰 style，强调直接、有效率、不拖泥带水；不是在说天气清冷，也不能只译为动作很快。",
+          "register": "neutral",
+          "collocations": [
+            "a brisk style",
+            "a brisk manner"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "brisker",
+            "briskest"
+          ],
+          "exampleEn": "The older students came to appreciate her brisk manner.",
+          "exampleZh": "年长些的学生逐渐欣赏起她干脆利落的作风。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 26",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-crouch-down",
+      "revision": 1,
+      "originalInput": "crouched down",
+      "term": "crouch down",
+      "normalized": "crouch down",
+      "standardForm": "crouch down",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "crouched down",
+        "suggestion": "crouch down",
+        "chosen": "crouch down",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "蹲下；屈膝压低身体。",
+      "definition": "To lower your body by bending your knees and bringing yourself close to the ground.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "蹲下；屈膝压低身体。",
+          "definitionEn": "To lower your body by bending your knees and bringing yourself close to the ground.",
+          "usageNotes": "第三章语境：Kathy 看见楼上的孩子在看他们，便不再装作只是偶然路过，而是蹲到坐着的 Tommy 面前，认真追问 Miss Lucy 的话。原文 crouched down 是过去式；down 强调向下蹲的动作。",
+          "register": "neutral",
+          "collocations": [
+            "crouch down in front of somebody"
+          ],
+          "examples": [
+            {
+              "en": "She crouched down in front of the boy to speak to him.",
+              "zh": "她在男孩面前蹲下来和他说话。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "crouch down in front of somebody"
+      ],
+      "synonyms": [],
+      "exampleEn": "She crouched down in front of the boy to speak to him.",
+      "exampleZh": "她在男孩面前蹲下来和他说话。",
+      "usage": "第三章语境：Kathy 看见楼上的孩子在看他们，便不再装作只是偶然路过，而是蹲到坐着的 Tommy 面前，认真追问 Miss Lucy 的话。原文 crouched down 是过去式；down 强调向下蹲的动作。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "crouches down",
+        "crouched down",
+        "crouching down"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "短语",
+        "动作"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 27",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 27",
+          "originalInput": "crouched down",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "蹲下；屈膝压低身体。",
+          "definition": "To lower your body by bending your knees and bringing yourself close to the ground.",
+          "usage": "第三章语境：Kathy 看见楼上的孩子在看他们，便不再装作只是偶然路过，而是蹲到坐着的 Tommy 面前，认真追问 Miss Lucy 的话。原文 crouched down 是过去式；down 强调向下蹲的动作。",
+          "register": "neutral",
+          "collocations": [
+            "crouch down in front of somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "crouches down",
+            "crouched down",
+            "crouching down"
+          ],
+          "exampleEn": "She crouched down in front of the boy to speak to him.",
+          "exampleZh": "她在男孩面前蹲下来和他说话。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 27",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-inkling",
+      "revision": 1,
+      "originalInput": "inkling",
+      "term": "inkling",
+      "normalized": "inkling",
+      "standardForm": "inkling",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "inkling",
+        "suggestion": "",
+        "chosen": "inkling",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "隐约的感觉；对某事的初步察觉。",
+      "definition": "A slight awareness or a first, incomplete idea about something.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "隐约的感觉；对某事的初步察觉。",
+          "definitionEn": "A slight awareness or a first, incomplete idea about something.",
+          "usageNotes": "第三章语境：Tommy 原本以为 Miss Lucy 又要叫他更加努力，但走向她住处时开始隐约感觉这次谈话不一样。an inkling 表示刚有一点察觉，还没有完全弄明白。常用 get / have an inkling of something，或 an inkling that ...；原文省略了 that。",
+          "register": "neutral",
+          "collocations": [
+            "get an inkling",
+            "have an inkling that"
+          ],
+          "examples": [
+            {
+              "en": "He had an inkling that this conversation would be different.",
+              "zh": "他隐约感觉这次谈话会有所不同。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "get an inkling",
+        "have an inkling that"
+      ],
+      "synonyms": [],
+      "exampleEn": "He had an inkling that this conversation would be different.",
+      "exampleZh": "他隐约感觉这次谈话会有所不同。",
+      "usage": "第三章语境：Tommy 原本以为 Miss Lucy 又要叫他更加努力，但走向她住处时开始隐约感觉这次谈话不一样。an inkling 表示刚有一点察觉，还没有完全弄明白。常用 get / have an inkling of something，或 an inkling that ...；原文省略了 that。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "inklings"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "名词",
+        "感觉"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 27",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 27",
+          "originalInput": "inkling",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "隐约的感觉；对某事的初步察觉。",
+          "definition": "A slight awareness or a first, incomplete idea about something.",
+          "usage": "第三章语境：Tommy 原本以为 Miss Lucy 又要叫他更加努力，但走向她住处时开始隐约感觉这次谈话不一样。an inkling 表示刚有一点察觉，还没有完全弄明白。常用 get / have an inkling of something，或 an inkling that ...；原文省略了 that。",
+          "register": "neutral",
+          "collocations": [
+            "get an inkling",
+            "have an inkling that"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "inklings"
+          ],
+          "exampleEn": "He had an inkling that this conversation would be different.",
+          "exampleZh": "他隐约感觉这次谈话会有所不同。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 27",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-indulgently",
+      "revision": 1,
+      "originalInput": "indulgently",
+      "term": "indulgently",
+      "normalized": "indulgently",
+      "standardForm": "indulgently",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "indulgently",
+        "suggestion": "",
+        "chosen": "indulgently",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adverb",
+      "meaning": "宽容地；对小过失不加责备地。",
+      "definition": "In a tolerant, forgiving way that does not strictly criticize a small fault.",
+      "senses": [
+        {
+          "partOfSpeech": "adverb",
+          "meaningZh": "宽容地；对小过失不加责备地。",
+          "definitionEn": "In a tolerant, forgiving way that does not strictly criticize a small fault.",
+          "usageNotes": "第三章语境：Carole H. 无意中在 Mr Roger 面前提到 Gallery，立刻意识到说漏嘴了。Mr Roger 宽容地微笑，像是在表示这次就算了、当作没听见。这里不是嘲笑，也不必译成贬义很重的“纵容”。对应形容词为 indulgent。",
+          "register": "neutral",
+          "collocations": [
+            "smile indulgently"
+          ],
+          "examples": [
+            {
+              "en": "The teacher smiled indulgently at the child's small mistake.",
+              "zh": "老师对孩子的小失误报以宽容的微笑。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "smile indulgently"
+      ],
+      "synonyms": [],
+      "exampleEn": "The teacher smiled indulgently at the child's small mistake.",
+      "exampleZh": "老师对孩子的小失误报以宽容的微笑。",
+      "usage": "第三章语境：Carole H. 无意中在 Mr Roger 面前提到 Gallery，立刻意识到说漏嘴了。Mr Roger 宽容地微笑，像是在表示这次就算了、当作没听见。这里不是嘲笑，也不必译成贬义很重的“纵容”。对应形容词为 indulgent。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "副词",
+        "态度"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 32",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 32",
+          "originalInput": "indulgently",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "宽容地；对小过失不加责备地。",
+          "definition": "In a tolerant, forgiving way that does not strictly criticize a small fault.",
+          "usage": "第三章语境：Carole H. 无意中在 Mr Roger 面前提到 Gallery，立刻意识到说漏嘴了。Mr Roger 宽容地微笑，像是在表示这次就算了、当作没听见。这里不是嘲笑，也不必译成贬义很重的“纵容”。对应形容词为 indulgent。",
+          "register": "neutral",
+          "collocations": [
+            "smile indulgently"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The teacher smiled indulgently at the child's small mistake.",
+          "exampleZh": "老师对孩子的小失误报以宽容的微笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 32",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-chilly-look",
+      "revision": 1,
+      "originalInput": "chilly look",
+      "term": "chilly look",
+      "normalized": "chilly look",
+      "standardForm": "chilly look",
+      "entryType": "collocation",
+      "correction": {
+        "status": "exact",
+        "original": "chilly look",
+        "suggestion": "",
+        "chosen": "chilly look",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun phrase",
+      "meaning": "冷淡的目光；冷冰冰、使人感到疏远的神情。",
+      "definition": "A look that suggests coldness, distance, or a lack of friendliness.",
+      "senses": [
+        {
+          "partOfSpeech": "noun phrase",
+          "meaningZh": "冷淡的目光；冷冰冰、使人感到疏远的神情。",
+          "definitionEn": "A look that suggests coldness, distance, or a lack of friendliness.",
+          "usageNotes": "第三章语境：Madame 不和孩子们说话，用冷淡的神情与他们保持距离。chilly 修饰 look，使用的是人际态度上的比喻义，不是说天气冷；look 在这里是名词，表示目光或神情。仅凭这个词不能断定她心里真正的想法。",
+          "register": "neutral",
+          "collocations": [
+            "give somebody a chilly look"
+          ],
+          "examples": [
+            {
+              "en": "Her chilly look discouraged the children from approaching her.",
+              "zh": "她冷淡的目光使孩子们不敢靠近。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "give somebody a chilly look"
+      ],
+      "synonyms": [],
+      "exampleEn": "Her chilly look discouraged the children from approaching her.",
+      "exampleZh": "她冷淡的目光使孩子们不敢靠近。",
+      "usage": "第三章语境：Madame 不和孩子们说话，用冷淡的神情与他们保持距离。chilly 修饰 look，使用的是人际态度上的比喻义，不是说天气冷；look 在这里是名词，表示目光或神情。仅凭这个词不能断定她心里真正的想法。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "chilly looks"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "搭配",
+        "神情"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 32",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 32",
+          "originalInput": "chilly look",
+          "entryType": "collocation",
+          "partOfSpeech": "noun phrase",
+          "meaning": "冷淡的目光；冷冰冰、使人感到疏远的神情。",
+          "definition": "A look that suggests coldness, distance, or a lack of friendliness.",
+          "usage": "第三章语境：Madame 不和孩子们说话，用冷淡的神情与他们保持距离。chilly 修饰 look，使用的是人际态度上的比喻义，不是说天气冷；look 在这里是名词，表示目光或神情。仅凭这个词不能断定她心里真正的想法。",
+          "register": "neutral",
+          "collocations": [
+            "give somebody a chilly look"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "chilly looks"
+          ],
+          "exampleEn": "Her chilly look discouraged the children from approaching her.",
+          "exampleZh": "她冷淡的目光使孩子们不敢靠近。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 32",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-snooty",
+      "revision": 1,
+      "originalInput": "snooty",
+      "term": "snooty",
+      "normalized": "snooty",
+      "standardForm": "snooty",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "snooty",
+        "suggestion": "",
+        "chosen": "snooty",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "傲慢的；自命高人一等、瞧不起人的。",
+      "definition": "Acting as if you are superior to other people and do not wish to be friendly with them.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "傲慢的；自命高人一等、瞧不起人的。",
+          "definitionEn": "Acting as if you are superior to other people and do not wish to be friendly with them.",
+          "usageNotes": "第三章语境：Ruth 说自己以前以为 Madame 只是高傲，如今怀疑她其实害怕孩子们。这是 Ruth 对 Madame 的看法发生变化，不代表 snooty 有“害怕”的意思。该词为非正式用语，通常带贬义。",
+          "register": "informal, disapproving",
+          "collocations": [
+            "a snooty attitude",
+            "be snooty towards somebody"
+          ],
+          "examples": [
+            {
+              "en": "They had mistaken her distant manner for a snooty attitude.",
+              "zh": "他们曾把她疏远的态度误认为是傲慢。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a snooty attitude",
+        "be snooty towards somebody"
+      ],
+      "synonyms": [],
+      "exampleEn": "They had mistaken her distant manner for a snooty attitude.",
+      "exampleZh": "他们曾把她疏远的态度误认为是傲慢。",
+      "usage": "第三章语境：Ruth 说自己以前以为 Madame 只是高傲，如今怀疑她其实害怕孩子们。这是 Ruth 对 Madame 的看法发生变化，不代表 snooty 有“害怕”的意思。该词为非正式用语，通常带贬义。",
+      "register": "informal, disapproving",
+      "confusedWith": [],
+      "forms": [
+        "snootier",
+        "snootiest"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "形容词",
+        "态度"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 33",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 33",
+          "originalInput": "snooty",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "傲慢的；自命高人一等、瞧不起人的。",
+          "definition": "Acting as if you are superior to other people and do not wish to be friendly with them.",
+          "usage": "第三章语境：Ruth 说自己以前以为 Madame 只是高傲，如今怀疑她其实害怕孩子们。这是 Ruth 对 Madame 的看法发生变化，不代表 snooty 有“害怕”的意思。该词为非正式用语，通常带贬义。",
+          "register": "informal, disapproving",
+          "collocations": [
+            "a snooty attitude",
+            "be snooty towards somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "snootier",
+            "snootiest"
+          ],
+          "exampleEn": "They had mistaken her distant manner for a snooty attitude.",
+          "exampleZh": "他们曾把她疏远的态度误认为是傲慢。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 33",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-billiards",
+      "revision": 1,
+      "originalInput": "billiards",
+      "term": "billiards",
+      "normalized": "billiards",
+      "standardForm": "billiards",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "billiards",
+        "suggestion": "",
+        "chosen": "billiards",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "台球运动；billiards room 指台球室。",
+      "definition": "A cue sport played on a cloth-covered table; a billiards room is a room used for this game.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "台球运动；billiards room 指台球室。",
+          "definitionEn": "A cue sport played on a cloth-covered table; a billiards room is a room used for this game.",
+          "usageNotes": "第三章语境：监护人把挑选出的学生作品集中放在台球室里，等 Madame 来挑选。划线的是 billiards，完整搭配为 billiards room，指房间而不是台球用品。作为运动名称，billiards 虽然以 -s 结尾，通常是不可数名词并配单数谓语。",
+          "register": "neutral",
+          "collocations": [
+            "billiards room",
+            "play billiards"
+          ],
+          "examples": [
+            {
+              "en": "The selected paintings were displayed in the billiards room.",
+              "zh": "挑选出的画作陈列在台球室里。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "billiards room",
+        "play billiards"
+      ],
+      "synonyms": [],
+      "exampleEn": "The selected paintings were displayed in the billiards room.",
+      "exampleZh": "挑选出的画作陈列在台球室里。",
+      "usage": "第三章语境：监护人把挑选出的学生作品集中放在台球室里，等 Madame 来挑选。划线的是 billiards，完整搭配为 billiards room，指房间而不是台球用品。作为运动名称，billiards 虽然以 -s 结尾，通常是不可数名词并配单数谓语。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "名词",
+        "场所"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 33",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 33",
+          "originalInput": "billiards",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "台球运动；billiards room 指台球室。",
+          "definition": "A cue sport played on a cloth-covered table; a billiards room is a room used for this game.",
+          "usage": "第三章语境：监护人把挑选出的学生作品集中放在台球室里，等 Madame 来挑选。划线的是 billiards，完整搭配为 billiards room，指房间而不是台球用品。作为运动名称，billiards 虽然以 -s 结尾，通常是不可数名词并配单数谓语。",
+          "register": "neutral",
+          "collocations": [
+            "billiards room",
+            "play billiards"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The selected paintings were displayed in the billiards room.",
+          "exampleZh": "挑选出的画作陈列在台球室里。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 33",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-loiter",
+      "revision": 1,
+      "originalInput": "loitered",
+      "term": "loiter",
+      "normalized": "loiter",
+      "standardForm": "loiter",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "loitered",
+        "suggestion": "loiter",
+        "chosen": "loiter",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "逗留；徘徊着不走。",
+      "definition": "To remain in a place or move slowly there without appearing to have a clear purpose.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "逗留；徘徊着不走。",
+          "definitionEn": "To remain in a place or move slowly there without appearing to have a clear purpose.",
+          "usageNotes": "第三章语境：孩子们下楼后逗留在正门内侧，等待 Madame 靠近，准备试探 Ruth 的猜想。一般词义常带“看起来无所事事”的意味，但本章他们其实有明确的等候目的，不能据此说他们没有目的。原文 loitered 为过去式。",
+          "register": "neutral",
+          "collocations": [
+            "loiter by the doorway",
+            "loiter around"
+          ],
+          "examples": [
+            {
+              "en": "The children loitered by the doorway, waiting for her to approach.",
+              "zh": "孩子们在门边逗留，等她走近。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "loiter by the doorway",
+        "loiter around"
+      ],
+      "synonyms": [],
+      "exampleEn": "The children loitered by the doorway, waiting for her to approach.",
+      "exampleZh": "孩子们在门边逗留，等她走近。",
+      "usage": "第三章语境：孩子们下楼后逗留在正门内侧，等待 Madame 靠近，准备试探 Ruth 的猜想。一般词义常带“看起来无所事事”的意味，但本章他们其实有明确的等候目的，不能据此说他们没有目的。原文 loitered 为过去式。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "loiters",
+        "loitered",
+        "loitering"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "动词",
+        "动作"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 34",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 34",
+          "originalInput": "loitered",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "逗留；徘徊着不走。",
+          "definition": "To remain in a place or move slowly there without appearing to have a clear purpose.",
+          "usage": "第三章语境：孩子们下楼后逗留在正门内侧，等待 Madame 靠近，准备试探 Ruth 的猜想。一般词义常带“看起来无所事事”的意味，但本章他们其实有明确的等候目的，不能据此说他们没有目的。原文 loitered 为过去式。",
+          "register": "neutral",
+          "collocations": [
+            "loiter by the doorway",
+            "loiter around"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "loiters",
+            "loitered",
+            "loitering"
+          ],
+          "exampleEn": "The children loitered by the doorway, waiting for her to approach.",
+          "exampleZh": "孩子们在门边逗留，等她走近。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 34",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-rummage",
+      "revision": 1,
+      "originalInput": "rummaging",
+      "term": "rummage",
+      "normalized": "rummage",
+      "standardForm": "rummage",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "rummaging",
+        "suggestion": "rummage",
+        "chosen": "rummage",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "翻找；为寻找某物而翻动包里或一堆东西中的物品。",
+      "definition": "To search for something by moving things around inside a container or a pile.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "翻找；为寻找某物而翻动包里或一堆东西中的物品。",
+          "definitionEn": "To search for something by moving things around inside a container or a pile.",
+          "usageNotes": "第三章语境：Madame 仍坐在驾驶座上，在自己的公文包里翻找。rummaging in her briefcase 说明她翻找的动作和位置，原文没有说明她具体在找什么，不应擅自补成钥匙或文件。rummaging 是现在分词；常用 rummage in / through something。",
+          "register": "neutral",
+          "collocations": [
+            "rummage in a briefcase",
+            "rummage through a bag"
+          ],
+          "examples": [
+            {
+              "en": "She sat in the car, rummaging in her briefcase.",
+              "zh": "她坐在车里，翻找着自己的公文包。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "rummage in a briefcase",
+        "rummage through a bag"
+      ],
+      "synonyms": [],
+      "exampleEn": "She sat in the car, rummaging in her briefcase.",
+      "exampleZh": "她坐在车里，翻找着自己的公文包。",
+      "usage": "第三章语境：Madame 仍坐在驾驶座上，在自己的公文包里翻找。rummaging in her briefcase 说明她翻找的动作和位置，原文没有说明她具体在找什么，不应擅自补成钥匙或文件。rummaging 是现在分词；常用 rummage in / through something。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "rummages",
+        "rummaged",
+        "rummaging"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "动词",
+        "动作"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 35",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 35",
+          "originalInput": "rummaging",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "翻找；为寻找某物而翻动包里或一堆东西中的物品。",
+          "definition": "To search for something by moving things around inside a container or a pile.",
+          "usage": "第三章语境：Madame 仍坐在驾驶座上，在自己的公文包里翻找。rummaging in her briefcase 说明她翻找的动作和位置，原文没有说明她具体在找什么，不应擅自补成钥匙或文件。rummaging 是现在分词；常用 rummage in / through something。",
+          "register": "neutral",
+          "collocations": [
+            "rummage in a briefcase",
+            "rummage through a bag"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "rummages",
+            "rummaged",
+            "rummaging"
+          ],
+          "exampleEn": "She sat in the car, rummaging in her briefcase.",
+          "exampleZh": "她坐在车里，翻找着自己的公文包。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 35",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-saunter-out",
+      "revision": 1,
+      "originalInput": "sauntered out",
+      "term": "saunter out",
+      "normalized": "saunter out",
+      "standardForm": "saunter out",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "sauntered out",
+        "suggestion": "saunter out",
+        "chosen": "saunter out",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "慢悠悠地走出去；以随意、不慌不忙的步态走出。",
+      "definition": "To walk out slowly and in an apparently relaxed, unhurried way.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "慢悠悠地走出去；以随意、不慌不忙的步态走出。",
+          "definitionEn": "To walk out slowly and in an apparently relaxed, unhurried way.",
+          "usageNotes": "第三章语境：Ruth 一示意，孩子们便从门口走出去，朝 Madame 走去，动作像在梦中一样。sauntered out 描写不疾不徐的步态，并不意味着他们毫无目的或心情愉快。sauntered 是过去式，out 表示走出去；不要只收录 saunter 而漏掉划线的 out。",
+          "register": "neutral",
+          "collocations": [
+            "saunter out into the courtyard"
+          ],
+          "examples": [
+            {
+              "en": "At the signal, the children sauntered out into the courtyard.",
+              "zh": "信号一来，孩子们便慢悠悠地走进院子。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "saunter out into the courtyard"
+      ],
+      "synonyms": [],
+      "exampleEn": "At the signal, the children sauntered out into the courtyard.",
+      "exampleZh": "信号一来，孩子们便慢悠悠地走进院子。",
+      "usage": "第三章语境：Ruth 一示意，孩子们便从门口走出去，朝 Madame 走去，动作像在梦中一样。sauntered out 描写不疾不徐的步态，并不意味着他们毫无目的或心情愉快。sauntered 是过去式，out 表示走出去；不要只收录 saunter 而漏掉划线的 out。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "saunters out",
+        "sauntered out",
+        "sauntering out"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "短语",
+        "动作"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 35",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 35",
+          "originalInput": "sauntered out",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "慢悠悠地走出去；以随意、不慌不忙的步态走出。",
+          "definition": "To walk out slowly and in an apparently relaxed, unhurried way.",
+          "usage": "第三章语境：Ruth 一示意，孩子们便从门口走出去，朝 Madame 走去，动作像在梦中一样。sauntered out 描写不疾不徐的步态，并不意味着他们毫无目的或心情愉快。sauntered 是过去式，out 表示走出去；不要只收录 saunter 而漏掉划线的 out。",
+          "register": "neutral",
+          "collocations": [
+            "saunter out into the courtyard"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "saunters out",
+            "sauntered out",
+            "sauntering out"
+          ],
+          "exampleEn": "At the signal, the children sauntered out into the courtyard.",
+          "exampleZh": "信号一来，孩子们便慢悠悠地走进院子。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 35",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-stiff",
+      "revision": 1,
+      "originalInput": "stiff",
+      "term": "stiff",
+      "normalized": "stiff",
+      "standardForm": "stiff",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "stiff",
+        "suggestion": "",
+        "chosen": "stiff",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "僵硬的；身体或姿态绷紧、不自然的。",
+      "definition": "Rigid or tense rather than relaxed and moving freely.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "僵硬的；身体或姿态绷紧、不自然的。",
+          "definitionEn": "Rigid or tense rather than relaxed and moving freely.",
+          "usageNotes": "第三章语境：Madame 面对走近的孩子们，came to a stiff halt，即身体僵直地停住。stiff 修饰 halt，突出停住时紧绷、僵硬的姿态；后文描写她僵住，害怕孩子们碰到自己。stiff halt 是此处的描写性组合，不应标成固定习语。",
+          "register": "neutral",
+          "collocations": [
+            "a stiff posture",
+            "come to a stiff halt"
+          ],
+          "examples": [
+            {
+              "en": "She stood stiff and motionless as the children passed.",
+              "zh": "孩子们经过时，她身体僵直地站着，一动不动。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a stiff posture",
+        "come to a stiff halt"
+      ],
+      "synonyms": [],
+      "exampleEn": "She stood stiff and motionless as the children passed.",
+      "exampleZh": "孩子们经过时，她身体僵直地站着，一动不动。",
+      "usage": "第三章语境：Madame 面对走近的孩子们，came to a stiff halt，即身体僵直地停住。stiff 修饰 halt，突出停住时紧绷、僵硬的姿态；后文描写她僵住，害怕孩子们碰到自己。stiff halt 是此处的描写性组合，不应标成固定习语。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "stiffer",
+        "stiffest"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "形容词",
+        "姿态"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 35",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 35",
+          "originalInput": "stiff",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "僵硬的；身体或姿态绷紧、不自然的。",
+          "definition": "Rigid or tense rather than relaxed and moving freely.",
+          "usage": "第三章语境：Madame 面对走近的孩子们，came to a stiff halt，即身体僵直地停住。stiff 修饰 halt，突出停住时紧绷、僵硬的姿态；后文描写她僵住，害怕孩子们碰到自己。stiff halt 是此处的描写性组合，不应标成固定习语。",
+          "register": "neutral",
+          "collocations": [
+            "a stiff posture",
+            "come to a stiff halt"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "stiffer",
+            "stiffest"
+          ],
+          "exampleEn": "She stood stiff and motionless as the children passed.",
+          "exampleZh": "孩子们经过时，她身体僵直地站着，一动不动。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 35",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-halt",
+      "revision": 1,
+      "originalInput": "halt",
+      "term": "halt",
+      "normalized": "halt",
+      "standardForm": "halt",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "halt",
+        "suggestion": "",
+        "chosen": "halt",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "停止；停住的状态。",
+      "definition": "A stop or a state in which movement has ceased.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "停止；停住的状态。",
+          "definitionEn": "A stop or a state in which movement has ceased.",
+          "usageNotes": "第三章语境：Madame 在孩子们面前停住。come to a halt 表示“停下来”，原文 came to a stiff halt 加入 stiff，描写她僵直地停住。此处 halt 前有 a，是名词；它也能作动词，但不是本句的词性。与第二章已收录的 grind to a halt 有相同的名词核心义，不过两处具体情境不同。",
+          "register": "neutral",
+          "collocations": [
+            "come to a halt",
+            "come to a stiff halt"
+          ],
+          "examples": [
+            {
+              "en": "She came to a halt and waited for the children to pass.",
+              "zh": "她停下来，等孩子们走过去。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "come to a halt",
+        "come to a stiff halt"
+      ],
+      "synonyms": [],
+      "exampleEn": "She came to a halt and waited for the children to pass.",
+      "exampleZh": "她停下来，等孩子们走过去。",
+      "usage": "第三章语境：Madame 在孩子们面前停住。come to a halt 表示“停下来”，原文 came to a stiff halt 加入 stiff，描写她僵直地停住。此处 halt 前有 a，是名词；它也能作动词，但不是本句的词性。与第二章已收录的 grind to a halt 有相同的名词核心义，不过两处具体情境不同。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "halts"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "名词",
+        "动作"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 35",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 35",
+          "originalInput": "halt",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "停止；停住的状态。",
+          "definition": "A stop or a state in which movement has ceased.",
+          "usage": "第三章语境：Madame 在孩子们面前停住。come to a halt 表示“停下来”，原文 came to a stiff halt 加入 stiff，描写她僵直地停住。此处 halt 前有 a，是名词；它也能作动词，但不是本句的词性。与第二章已收录的 grind to a halt 有相同的名词核心义，不过两处具体情境不同。",
+          "register": "neutral",
+          "collocations": [
+            "come to a halt",
+            "come to a stiff halt"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "halts"
+          ],
+          "exampleEn": "She came to a halt and waited for the children to pass.",
+          "exampleZh": "她停下来，等孩子们走过去。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 35",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
+    },
+    {
+      "id": "public-nlmg-c3-shriek",
+      "revision": 1,
+      "originalInput": "shriek",
+      "term": "shriek",
+      "normalized": "shriek",
+      "standardForm": "shriek",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "shriek",
+        "suggestion": "",
+        "chosen": "shriek",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "尖叫；发出尖锐而响亮的叫声。",
+      "definition": "To give a loud, high-pitched cry, often from fear, pain, or excitement.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "尖叫；发出尖锐而响亮的叫声。",
+          "definitionEn": "To give a loud, high-pitched cry, often from fear, pain, or excitement.",
+          "usageNotes": "第三章语境：这里是否定句。Madame 没有尖叫，也没有倒抽一口气，只是僵住等他们走过；孩子们从她的表情和紧绷反应中感受到恐惧。didn't 后面接动词原形 shriek，绝不能把这句话理解成“她吓得尖叫起来”。",
+          "register": "neutral",
+          "collocations": [
+            "shriek with fear",
+            "let out a shriek"
+          ],
+          "examples": [
+            {
+              "en": "She did not shriek; she simply froze and waited.",
+              "zh": "她没有尖叫，只是僵住不动，等待着。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "shriek with fear",
+        "let out a shriek"
+      ],
+      "synonyms": [],
+      "exampleEn": "She did not shriek; she simply froze and waited.",
+      "exampleZh": "她没有尖叫，只是僵住不动，等待着。",
+      "usage": "第三章语境：这里是否定句。Madame 没有尖叫，也没有倒抽一口气，只是僵住等他们走过；孩子们从她的表情和紧绷反应中感受到恐惧。didn't 后面接动词原形 shriek，绝不能把这句话理解成“她吓得尖叫起来”。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "shrieks",
+        "shrieked",
+        "shrieking"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-3",
+        "文学阅读",
+        "动词",
+        "声音"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 3",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 35",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-3",
+          "page": "p. 35",
+          "originalInput": "shriek",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "尖叫；发出尖锐而响亮的叫声。",
+          "definition": "To give a loud, high-pitched cry, often from fear, pain, or excitement.",
+          "usage": "第三章语境：这里是否定句。Madame 没有尖叫，也没有倒抽一口气，只是僵住等他们走过；孩子们从她的表情和紧绷反应中感受到恐惧。didn't 后面接动词原形 shriek，绝不能把这句话理解成“她吓得尖叫起来”。",
+          "register": "neutral",
+          "collocations": [
+            "shriek with fear",
+            "let out a shriek"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "shrieks",
+            "shrieked",
+            "shrieking"
+          ],
+          "exampleEn": "She did not shriek; she simply froze and waited.",
+          "exampleZh": "她没有尖叫，只是僵住不动，等待着。",
+          "sourceTitle": "Never Let Me Go — Chapter 3",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 35",
+          "attributionNote": "根据卓提供的 Chapter 3 原文照片（pp. 25–36）逐页人工校读划线词整理；释义与语境限定于第三章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T20:56:20.204Z",
+      "updatedAt": "2026-09-23T20:56:20.204Z"
     }
   ]
 }

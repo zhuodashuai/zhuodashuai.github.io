@@ -8,6 +8,11 @@ import { importReadingList } from "../../tooling/scripts/import-reading-list.mjs
 
 const canonicalSnapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
 const chapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
+const chapterThreeUrl = new URL("../data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url);
+
+function firstTwoChapterEntries(snapshot) {
+  return snapshot.entries.filter((entry) => entry.tags.some((tag) => /^collection:never-let-me-go:chapter-[12]$/u.test(tag)));
+}
 
 test("re-importing Never Let Me Go Chapter 1 is idempotent and remains 29/29", async () => {
   const result = await importReadingList({
@@ -17,7 +22,7 @@ test("re-importing Never Let Me Go Chapter 1 is idempotent and remains 29/29", a
   assert.equal(result.changed, false);
   assert.equal(result.chapterEntries.length, 29);
   assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 29);
-  assert.equal(result.snapshot.entries.length, 72);
+  assert.equal(firstTwoChapterEntries(result.snapshot).length, 65);
 });
 
 test("re-importing Never Let Me Go Chapter 2 is idempotent and remains 38/38", async () => {
@@ -29,10 +34,62 @@ test("re-importing Never Let Me Go Chapter 2 is idempotent and remains 38/38", a
   assert.equal(result.changed, false);
   assert.equal(result.chapterEntries.length, 38);
   assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 38);
-  assert.equal(result.snapshot.entries.length, 72);
+  assert.equal(firstTwoChapterEntries(result.snapshot).length, 65);
   const shared = result.chapterEntries.filter((entry) => entry.tags.includes("collection:never-let-me-go:chapter-1"));
   assert.deepEqual(shared.map((entry) => entry.term).sort(), ["shrug", "tantrum"]);
   assert.ok(shared.every((entry) => entry.readingContexts.some((context) => context.membership === "collection:never-let-me-go:chapter-2")));
+});
+
+test("re-importing Never Let Me Go Chapter 3 preserves all 16 photo-reviewed entries and the snapshot", async () => {
+  const before = JSON.parse(await readFile(canonicalSnapshotUrl, "utf8"));
+  const result = await importReadingList({
+    sourcePath: fileURLToPath(chapterThreeUrl),
+    timestamp: "2026-09-24T17:00:00.000Z",
+    checkOnly: true
+  });
+  assert.equal(result.changed, false);
+  assert.equal(result.chapterEntries.length, 16);
+  assert.equal(result.totalChapterEntries, 16);
+  assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 16);
+  assert.ok(result.chapterEntries.every((entry) => entry.id.startsWith("public-nlmg-c3-")));
+  assert.deepEqual(result.snapshot, before);
+});
+
+test("source attributionNote is optional, trims valid text, and rejects invalid values before writing", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-attribution-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-3.json");
+  try {
+    const [snapshotRaw, source] = await Promise.all([
+      readFile(canonicalSnapshotUrl, "utf8"),
+      readFile(chapterThreeUrl, "utf8").then(JSON.parse)
+    ]);
+    await writeFile(snapshotPath, snapshotRaw, "utf8");
+    const membership = "collection:never-let-me-go:chapter-3";
+    for (const note of ["  根据照片人工校读；例句为学习用自拟句，不是小说原文。  ", "校".repeat(1500)]) {
+      await writeFile(sourcePath, JSON.stringify({ ...source, attributionNote: note }), "utf8");
+      const result = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+      for (const entry of result.chapterEntries) {
+        assert.equal(entry.attributionNote, note.trim());
+        assert.equal(entry.readingContexts.find((context) => context.membership === membership).attributionNote, note.trim());
+      }
+    }
+
+    const withoutNote = { ...source };
+    delete withoutNote.attributionNote;
+    await writeFile(sourcePath, JSON.stringify(withoutNote), "utf8");
+    const fallback = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+    assert.equal(fallback.chapterEntries[0].attributionNote,
+      "由卓提供的 Chapter 3 学习清单整理；章节语境限定于第三章，例句为学习用自拟句，不是小说原文。");
+
+    for (const note of [null, 0, false, {}, [], "", " \t\n ", "校".repeat(1501)]) {
+      await writeFile(sourcePath, JSON.stringify({ ...source, attributionNote: note }), "utf8");
+      await assert.rejects(importReadingList({ sourcePath, snapshotPath }), /attributionNote/u);
+      assert.equal(await readFile(snapshotPath, "utf8"), snapshotRaw);
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("a corrected chapter source updates its existing context and is then idempotent", async () => {

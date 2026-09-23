@@ -48,6 +48,7 @@ function stableId(source, term) {
 }
 
 function attributionNote(source) {
+  if (source.attributionNote !== undefined) return source.attributionNote.trim();
   const chapter = chineseChapter(chapterNumber(source));
   return `由卓提供的 ${source.chapter.title} 学习清单整理；章节语境限定于第${chapter}章，例句为学习用自拟句，不是小说原文。`;
 }
@@ -161,6 +162,9 @@ function validateSource(source) {
   assert(Number.isInteger(number) && number > 0, "章节编号不正确。");
   assert(source.chapter?.id === `chapter-${number}` && source.chapter?.title === `Chapter ${number}`, "章节 ID、标题与编号不一致。");
   assert(source.sourceTitle === `${source.collection.title} — ${source.chapter.title}`, "统一来源标题不正确。");
+  if (source.attributionNote !== undefined) {
+    assert(typeof source.attributionNote === "string" && source.attributionNote.trim() && source.attributionNote.length <= 1500, "阅读清单 attributionNote 必须为不超过 1500 字符的非空文本。");
+  }
   assert(Number.isInteger(source.expectedItemCount) && source.expectedItemCount > 0, "阅读清单 expectedItemCount 不正确。");
   assert(Array.isArray(source.items) && source.items.length === source.expectedItemCount, `阅读清单必须恰好包含 ${source.expectedItemCount} 条。`);
   const normalized = source.items.map((item) => normalizeEnglish(item.term));
