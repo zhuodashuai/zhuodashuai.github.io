@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-20T22:22:00.408Z",
-  "revisionId": "e4047cf7-7397-446d-a9b0-2dd743c86778",
-  "lastMutationId": "batch-nlmg-c1-a159e2a8-b304-4e9a-a971-b9fe2d469606",
+  "exportedAt": "2026-09-23T17:15:32.028Z",
+  "revisionId": "72c0bea9-840d-41c2-ab9c-5a466f3fbb73",
+  "lastMutationId": "batch-never-let-me-go-chapter-1-03cdb0b9-e6cb-4d4f-beda-9d4d6e21350b",
   "entries": [
     {
       "id": "public-jab-at",
@@ -71,6 +71,7 @@
           "retrievedAt": "2026-08-27T00:00:00.000Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "local-dictionary",
       "createdAt": "2026-08-27T00:00:00.000Z",
       "updatedAt": "2026-08-27T00:00:00.000Z"
@@ -200,6 +201,7 @@
           "retrievedAt": "2026-08-29T03:50:58.137Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-28T15:35:25.513Z",
       "updatedAt": "2026-08-29T03:50:58.137Z"
@@ -293,6 +295,7 @@
           "retrievedAt": "2026-08-29T03:50:58.137Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-28T22:49:58.344Z",
       "updatedAt": "2026-08-29T03:50:58.137Z"
@@ -373,6 +376,7 @@
           "retrievedAt": "2026-08-29T03:50:58.137Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-29T02:15:59.334Z",
       "updatedAt": "2026-08-29T03:50:58.137Z"
@@ -450,6 +454,7 @@
           "retrievedAt": "2026-08-29T13:26:11.406Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-29T02:29:27.804Z",
       "updatedAt": "2026-08-29T13:27:25.848Z"
@@ -541,6 +546,7 @@
           "retrievedAt": "2026-08-29T15:47:46.636Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-29T15:47:45.964Z",
       "updatedAt": "2026-08-29T15:48:39.855Z"
@@ -632,13 +638,14 @@
           "retrievedAt": "2026-08-30T18:40:16.219Z"
         }
       ],
+      "readingContexts": [],
       "organizationMethod": "ai-cloudflare",
       "createdAt": "2026-08-30T18:40:17.253Z",
       "updatedAt": "2026-08-30T18:41:06.675Z"
     },
     {
       "id": "public-nlmg-c1-agitated",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "agitated",
       "term": "agitated",
       "normalized": "agitated",
@@ -694,13 +701,35 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "agitated",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "焦躁不安的；情绪不平静的。",
+          "definition": "Feeling or appearing troubled, nervous, or unable to remain calm.",
+          "usage": "第一章语境：形容 donor 紧张、烦躁的情绪状态。",
+          "register": "neutral",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The donor sounded agitated during the conversation.",
+          "exampleZh": "交谈时，这位 donor 听起来焦躁不安。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-shrug",
-      "revision": 1,
+      "revision": 6,
       "originalInput": "shrug",
       "term": "shrug",
       "normalized": "shrug",
@@ -750,7 +779,8 @@
       "tags": [
         "collection:never-let-me-go:chapter-1",
         "文学阅读",
-        "动词"
+        "动词",
+        "collection:never-let-me-go:chapter-2"
       ],
       "author": "",
       "sourceTitle": "Never Let Me Go — Chapter 1",
@@ -760,13 +790,65 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "shrug",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "耸肩。",
+          "definition": "To raise and lower the shoulders, often to show uncertainty, indifference, or helplessness.",
+          "usage": "可表示无奈、不在乎或没什么办法，具体含义取决于语境。第一章语境：按人物当时的动作和对话理解，不固定为某一种态度。",
+          "register": "neutral",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [
+            "shrugged",
+            "shrugging",
+            "shrugs"
+          ],
+          "exampleEn": "She shrugged when nobody answered.",
+          "exampleZh": "没人回答时，她耸了耸肩。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        },
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 21",
+          "originalInput": "shrug",
+          "entryType": "word",
+          "partOfSpeech": "verb · noun",
+          "meaning": "耸肩。",
+          "definition": "To raise the shoulders to show uncertainty, indifference, or helplessness.",
+          "usage": "第二章语境：用作动词，体现 Tommy 没有作出激烈回应；具体是无奈、无所谓还是不知道，需要结合语境判断。",
+          "register": "neutral",
+          "collocations": [
+            "shrug quietly"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "shrugged",
+            "shrugging",
+            "shrugs"
+          ],
+          "exampleEn": "He only shrugged quietly in reply.",
+          "exampleZh": "他只是安静地耸了耸肩作为回答。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 21",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T17:15:32.028Z"
     },
     {
       "id": "public-nlmg-c1-snap-out-of-it",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "snap out of it",
       "term": "snap out of it",
       "normalized": "snap out of it",
@@ -826,13 +908,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "snap out of it",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "振作起来；迅速摆脱某种消极情绪或状态。",
+          "definition": "To quickly stop being in an unhappy, confused, or unhelpful mental state.",
+          "usage": "第一章语境：这是直接对别人说的表达，语气比较强。",
+          "register": "informal",
+          "collocations": [
+            "snap out of it"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Take a breath and try to snap out of it.",
+          "exampleZh": "深呼吸一下，尽量振作起来。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-carer",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "carers",
       "term": "carer",
       "normalized": "carer",
@@ -890,13 +996,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "carers",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "照护者；护理人员。",
+          "definition": "A person who looks after someone who needs help in daily life or because of illness.",
+          "usage": "不一定指具有专业资格的护士。第一章语境：以复数 carers 出现。",
+          "register": "neutral",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [
+            "carers"
+          ],
+          "exampleEn": "A carer stayed nearby to offer support.",
+          "exampleZh": "一名照护者留在附近提供帮助。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-resentful",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "resentful",
       "term": "resentful",
       "normalized": "resentful",
@@ -958,13 +1088,38 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "resentful",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "心怀不满的；愤愤不平的。",
+          "definition": "Feeling angry or bitter because something seems unfair.",
+          "usage": "通常因为觉得自己受到不公平待遇而不满。第一章语境：涉及别人对 Kathy 所获待遇的不满。",
+          "register": "neutral",
+          "collocations": [
+            "feel resentful",
+            "resentful about something"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "He felt resentful about the special treatment.",
+          "exampleZh": "他对这种特殊待遇感到愤愤不平。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-grimace",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "grimace",
       "term": "grimace",
       "normalized": "grimace",
@@ -1026,13 +1181,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "grimace",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "因痛苦、难受或厌恶而扭曲的表情。",
+          "definition": "A twisted facial expression that shows pain, discomfort, or disgust.",
+          "usage": "第一章语境：用作名词，指人物面部显出的不适或厌恶表情。",
+          "register": "neutral",
+          "collocations": [
+            "a grimace of pain"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "grimaces"
+          ],
+          "exampleEn": "A grimace crossed his face.",
+          "exampleZh": "他的脸上掠过一丝痛苦的表情。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-nooks-and-crannies",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "nooks and crannies",
       "term": "nooks and crannies",
       "normalized": "nooks and crannies",
@@ -1092,13 +1273,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "nooks and crannies",
+          "entryType": "idiom",
+          "partOfSpeech": "idiom",
+          "meaning": "各个角落；犄角旮旯。",
+          "definition": "Small, hidden, or hard-to-reach places in every part of an area.",
+          "usage": "nook 指隐蔽的小角落，cranny 指狭窄的缝隙。第一章语境：用于概括各处隐蔽、细小的空间。",
+          "register": "informal",
+          "collocations": [
+            "in every nook and cranny"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "They searched all the nooks and crannies of the room.",
+          "exampleZh": "他们搜遍了房间的每个角落。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-pavilion",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "pavilion",
       "term": "pavilion",
       "normalized": "pavilion",
@@ -1160,13 +1365,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "pavilion",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "运动场旁供休息、更衣等使用的小屋或小楼。",
+          "definition": "A small building near a sports field that provides shelter and facilities for players or spectators.",
+          "usage": "第一章语境：sports pavilion 指运动场旁供休息、更衣等使用的建筑。",
+          "register": "neutral",
+          "collocations": [
+            "sports pavilion"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "pavilions"
+          ],
+          "exampleEn": "The group waited inside the sports pavilion.",
+          "exampleZh": "这群人在运动场边的小屋里等候。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T22:22:00.408Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-tuck",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "tucked",
       "term": "tuck",
       "normalized": "tuck",
@@ -1230,13 +1461,41 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "tucked",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "塞入；掖好；使处于隐蔽或不显眼的位置。",
+          "definition": "To put something into a secure or hidden position; in the passive, to be situated in a sheltered place.",
+          "usage": "第一章语境：以 tucked 出现，描写窗户很高，几乎藏在屋檐下面。",
+          "register": "neutral",
+          "collocations": [
+            "be tucked under the eaves"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "tucked",
+            "tucking",
+            "tucks"
+          ],
+          "exampleEn": "The window was tucked beneath the eaves.",
+          "exampleZh": "窗户隐在屋檐下面。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-eaves",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "eaves",
       "term": "eaves",
       "normalized": "eaves",
@@ -1296,13 +1555,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "eaves",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "屋檐；屋顶伸出外墙的边缘部分。",
+          "definition": "The lower edges of a roof that project beyond the walls of a building.",
+          "usage": "通常使用复数形式 eaves。第一章语境：用于说明窗户靠近屋檐的位置。",
+          "register": "neutral",
+          "collocations": [
+            "under the eaves"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The window sat just below the eaves.",
+          "exampleZh": "窗户正好位于屋檐下方。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-plead-with-somebody",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "pleading with",
       "term": "plead with somebody",
       "normalized": "plead with somebody",
@@ -1364,13 +1647,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "pleading with",
+          "entryType": "phrase",
+          "partOfSpeech": "verb",
+          "meaning": "恳求、央求某人。",
+          "definition": "To ask someone earnestly and emotionally to do something.",
+          "usage": "常用结构：plead with somebody to do something。第一章语境：指孩子们央求老师在小屋里上课。",
+          "register": "neutral",
+          "collocations": [
+            "plead with somebody to do something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "pleading with"
+          ],
+          "exampleEn": "The children were pleading with the teacher to let them stay inside.",
+          "exampleZh": "孩子们央求老师让他们留在室内。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-veranda",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "veranda",
       "term": "veranda",
       "normalized": "veranda",
@@ -1428,13 +1737,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "veranda",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "外廊；有顶的门廊。",
+          "definition": "A roofed platform or open gallery that runs along the outside of a building.",
+          "usage": "通常沿房屋外侧延伸，可供人坐着或休息。第一章语境：指建筑外侧有顶的廊道空间。",
+          "register": "neutral",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [
+            "verandas"
+          ],
+          "exampleEn": "They stood together on the veranda.",
+          "exampleZh": "他们一起站在外廊上。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-jockey",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "jockeying",
       "term": "jockey",
       "normalized": "jockey",
@@ -1498,13 +1831,41 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "jockeying",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "争抢；设法占据有利位置。",
+          "definition": "To compete or manoeuvre in order to gain an advantage or a better position.",
+          "usage": "这里不是“赛马骑师”的名词义。第一章语境：以 jockeying 出现，指不同小团体为了使用小屋而争抢、较劲。",
+          "register": "neutral",
+          "collocations": [
+            "jockey for position"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "jockeying",
+            "jockeyed",
+            "jockeys"
+          ],
+          "exampleEn": "The groups were jockeying for space in the pavilion.",
+          "exampleZh": "各个小团体都在争抢小屋里的位置。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-furious",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "furious",
       "term": "furious",
       "normalized": "furious",
@@ -1564,13 +1925,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "furious",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "暴怒的；激烈的。",
+          "definition": "Extremely angry, or very intense and forceful.",
+          "usage": "第一章语境：a furious row 表示一场激烈的争吵；row 在这里指争吵。",
+          "register": "neutral",
+          "collocations": [
+            "a furious row"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "A furious row broke out over the decision.",
+          "exampleZh": "围绕这个决定爆发了一场激烈的争吵。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-a-stab-of-pain",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "stab of pain",
       "term": "a stab of pain",
       "normalized": "a stab of pain",
@@ -1632,13 +2017,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "stab of pain",
+          "entryType": "collocation",
+          "partOfSpeech": "collocation",
+          "meaning": "突然的一阵刺痛；心里突然涌起的一阵难受或心疼。",
+          "definition": "A sudden, sharp feeling of physical or emotional pain.",
+          "usage": "第一章语境：指看到 Tommy 的处境时，心里突然一阵难受、心疼。",
+          "register": "neutral",
+          "collocations": [
+            "a stab of pain"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "stab of pain"
+          ],
+          "exampleEn": "She felt a stab of pain when she saw how upset he was.",
+          "exampleZh": "看到他如此难过，她心里突然一阵刺痛。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-languorous",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "languorous",
       "term": "languorous",
       "normalized": "languorous",
@@ -1694,13 +2105,35 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "languorous",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "慵懒的；慢悠悠的；动作舒缓的。",
+          "definition": "Relaxed, slow, and lacking energy or urgency.",
+          "usage": "第一章语境：形容其他男孩热身时故意表现出的懒洋洋动作。",
+          "register": "literary",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The boys made languorous movements as they warmed up.",
+          "exampleZh": "男孩们热身时做着懒洋洋的动作。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-daft",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "daft",
       "term": "daft",
       "normalized": "daft",
@@ -1756,13 +2189,35 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "daft",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "傻的；愚蠢的。",
+          "definition": "Silly or foolish.",
+          "usage": "英式口语，可能带有嘲讽意味。第一章语境：按带口语色彩、可能带嘲讽的评价理解。",
+          "register": "British informal",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Don't be daft.",
+          "exampleZh": "别犯傻了。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-egg-somebody-on",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "egging her on",
       "term": "egg somebody on",
       "normalized": "egg somebody on",
@@ -1824,13 +2279,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "egging her on",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "怂恿某人；起哄鼓动某人。",
+          "definition": "To encourage someone to continue doing something, especially something unwise or unkind.",
+          "usage": "第一章语境：以 egging her on 出现，指大家鼓动 Laura 继续模仿、嘲弄 Tommy。",
+          "register": "informal",
+          "collocations": [
+            "egg somebody on"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "egging her on"
+          ],
+          "exampleEn": "The others kept egging her on.",
+          "exampleZh": "其他人一直在起哄，鼓动她继续。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-snigger",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "sniggering",
       "term": "snigger",
       "normalized": "snigger",
@@ -1890,13 +2371,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "sniggering",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "窃笑；带着嘲弄意味地偷笑。",
+          "definition": "To laugh quietly in a disrespectful or unkind way.",
+          "usage": "通常带有不友善、看别人笑话的意味。第一章语境：以 sniggering 出现，描写带嘲弄意味的笑。",
+          "register": "mainly British",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [
+            "sniggering",
+            "sniggered",
+            "sniggers"
+          ],
+          "exampleEn": "A few people were sniggering at the back.",
+          "exampleZh": "后面有几个人在不怀好意地窃笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-scarlet",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "scarlet",
       "term": "scarlet",
       "normalized": "scarlet",
@@ -1956,13 +2463,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "scarlet",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "鲜红的；猩红的。",
+          "definition": "Bright red in colour.",
+          "usage": "第一章语境：his face scarlet 表示他满脸涨得通红。",
+          "register": "neutral",
+          "collocations": [
+            "his face scarlet"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "His face turned scarlet.",
+          "exampleZh": "他的脸涨得通红。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-a-jumble-of-swear-words",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "jumble of swear words",
       "term": "a jumble of swear words",
       "normalized": "a jumble of swear words",
@@ -2024,13 +2555,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "jumble of swear words",
+          "entryType": "collocation",
+          "partOfSpeech": "collocation",
+          "meaning": "一连串乱七八糟的脏话。",
+          "definition": "A confused, disorderly stream of rude or offensive words.",
+          "usage": "a jumble of… 表示杂乱无章的一堆……；swear words 表示脏话、粗话。第一章语境：指人物情绪激动时说出的一串杂乱脏话。",
+          "register": "informal",
+          "collocations": [
+            "a jumble of swear words"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "jumble of swear words"
+          ],
+          "exampleEn": "He shouted a jumble of swear words.",
+          "exampleZh": "他喊出一连串乱七八糟的脏话。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-tantrum",
-      "revision": 1,
+      "revision": 6,
       "originalInput": "tantrums",
       "term": "tantrum",
       "normalized": "tantrum",
@@ -2084,7 +2641,8 @@
       "tags": [
         "collection:never-let-me-go:chapter-1",
         "文学阅读",
-        "名词"
+        "名词",
+        "collection:never-let-me-go:chapter-2"
       ],
       "author": "",
       "sourceTitle": "Never Let Me Go — Chapter 1",
@@ -2094,13 +2652,67 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "tantrums",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "大发脾气；一阵失控的哭闹或叫嚷。",
+          "definition": "A sudden uncontrolled outburst of anger, often involving shouting or crying.",
+          "usage": "常见搭配：have a tantrum / throw a tantrum。第一章语境：以复数 tantrums 出现。",
+          "register": "neutral",
+          "collocations": [
+            "have a tantrum",
+            "throw a tantrum"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "tantrums"
+          ],
+          "exampleEn": "He was known for throwing tantrums.",
+          "exampleZh": "大家都知道他会大发脾气。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        },
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "temper tantrums",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "大发脾气；情绪失控的发作。",
+          "definition": "A sudden, uncontrolled outburst of anger.",
+          "usage": "第二章语境：原文形式 temper tantrums；temper tantrum 强调一阵失控的发怒、叫嚷或哭闹。",
+          "register": "neutral",
+          "collocations": [
+            "temper tantrum",
+            "have a tantrum",
+            "throw a tantrum"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "tantrums",
+            "temper tantrums"
+          ],
+          "exampleEn": "A temper tantrum can draw everyone's attention.",
+          "exampleZh": "一阵大发脾气会引来所有人的注意。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T17:15:32.028Z"
     },
     {
       "id": "public-nlmg-c1-rile",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "rile",
       "term": "rile",
       "normalized": "rile",
@@ -2164,13 +2776,41 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "rile",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "惹恼；激怒。",
+          "definition": "To make someone annoyed or angry.",
+          "usage": "rile somebody 表示把某人惹火。第一章语境：指其他人故意激怒 Tommy。",
+          "register": "informal",
+          "collocations": [
+            "rile somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "riled",
+            "riling",
+            "riles"
+          ],
+          "exampleEn": "They knew exactly how to rile him.",
+          "exampleZh": "他们很清楚怎样把他惹火。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-drift-over-towards",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "drift over towards",
       "term": "drift over towards",
       "normalized": "drift over towards",
@@ -2230,13 +2870,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "drift over towards",
+          "entryType": "phrase",
+          "partOfSpeech": "verb",
+          "meaning": "慢慢朝……走过去；不紧不慢地靠近。",
+          "definition": "To move slowly and casually in the direction of someone or something.",
+          "usage": "第一章语境：描述 Kathy 缓缓走向 Tommy。",
+          "register": "neutral",
+          "collocations": [
+            "drift over towards somebody"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She drifted over towards him.",
+          "exampleZh": "她慢慢朝他走了过去。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T22:22:00.408Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-flail",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "flailing",
       "term": "flail",
       "normalized": "flail",
@@ -2300,13 +2964,41 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "flailing",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "胡乱挥舞；乱甩。",
+          "definition": "To wave the arms or legs about in an uncontrolled way.",
+          "usage": "常见搭配：flail about。第一章语境：以 flailing 出现，指 Tommy 的手臂仍在乱挥。",
+          "register": "neutral",
+          "collocations": [
+            "flail about"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "flailing",
+            "flailed",
+            "flails"
+          ],
+          "exampleEn": "His arms were flailing about.",
+          "exampleZh": "他的手臂在胡乱挥舞。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-sternly",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "sternly",
       "term": "sternly",
       "normalized": "sternly",
@@ -2366,13 +3058,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "sternly",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "严肃地；严厉地。",
+          "definition": "In a serious and strict manner.",
+          "usage": "对应形容词 stern。第一章语境：描写 Kathy 说话的语气。",
+          "register": "neutral",
+          "collocations": [
+            "speak sternly"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She spoke sternly so that he would listen.",
+          "exampleZh": "她严厉地说话，好让他听进去。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-speck",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "specks",
       "term": "speck",
       "normalized": "speck",
@@ -2434,13 +3150,39 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "specks",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "小点；小斑点；小颗粒。",
+          "definition": "A very small spot, mark, or particle.",
+          "usage": "第一章语境：以复数 specks 出现；brown specks 指衣服上的棕色小泥点。",
+          "register": "neutral",
+          "collocations": [
+            "brown specks"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "specks"
+          ],
+          "exampleEn": "Brown specks dotted his shirt.",
+          "exampleZh": "他的衬衫上散布着棕色的小泥点。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-grumpily",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "grumpily",
       "term": "grumpily",
       "normalized": "grumpily",
@@ -2500,13 +3242,37 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "grumpily",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "没好气地；不高兴地。",
+          "definition": "In an irritable, unfriendly, or bad-tempered way.",
+          "usage": "对应形容词 grumpy。第一章语境：描写 Tommy 回话时不耐烦、不友好的语气。",
+          "register": "informal",
+          "collocations": [
+            "answer grumpily"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "He answered grumpily.",
+          "exampleZh": "他没好气地回答。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     },
     {
       "id": "public-nlmg-c1-pipe-down",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "pipe down",
       "term": "pipe down",
       "normalized": "pipe down",
@@ -2566,9 +3332,3462 @@
       "attributionStatus": "unverified",
       "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。",
       "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-1",
+          "page": "",
+          "originalInput": "pipe down",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "安静下来；别再嚷嚷。",
+          "definition": "To become quiet or stop talking or making noise.",
+          "usage": "口语表达，直接对别人说时可能显得不耐烦。第一章语境：章末表示 Kathy 至少让 Tommy 安静下来了。",
+          "register": "informal",
+          "collocations": [
+            "pipe down"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She told him to pipe down.",
+          "exampleZh": "她叫他安静下来。",
+          "sourceTitle": "Never Let Me Go — Chapter 1",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "",
+          "attributionNote": "由卓提供的 Chapter 1 学习清单整理；章节语境限定于第一章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-09-20T16:00:00.000Z"
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-concussion",
+      "revision": 1,
+      "originalInput": "concussion",
+      "term": "concussion",
+      "normalized": "concussion",
+      "standardForm": "concussion",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "concussion",
+        "suggestion": "",
+        "chosen": "concussion",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "脑震荡。",
+      "definition": "An injury affecting the brain, caused by a blow or sudden jolt.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "脑震荡。",
+          "definitionEn": "An injury affecting the brain, caused by a blow or sudden jolt.",
+          "usageNotes": "第二章语境：Kathy 夸张地开玩笑，并不是说真的发生了脑震荡。",
+          "register": "neutral",
+          "collocations": [
+            "suffer a concussion"
+          ],
+          "examples": [
+            {
+              "en": "The remark about a concussion was clearly exaggerated.",
+              "zh": "关于脑震荡的说法显然是一种夸张。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "suffer a concussion"
+      ],
+      "synonyms": [],
+      "exampleEn": "The remark about a concussion was clearly exaggerated.",
+      "exampleZh": "关于脑震荡的说法显然是一种夸张。",
+      "usage": "第二章语境：Kathy 夸张地开玩笑，并不是说真的发生了脑震荡。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "concussions"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 14",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 14",
+          "originalInput": "concussion",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "脑震荡。",
+          "definition": "An injury affecting the brain, caused by a blow or sudden jolt.",
+          "usage": "第二章语境：Kathy 夸张地开玩笑，并不是说真的发生了脑震荡。",
+          "register": "neutral",
+          "collocations": [
+            "suffer a concussion"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "concussions"
+          ],
+          "exampleEn": "The remark about a concussion was clearly exaggerated.",
+          "exampleZh": "关于脑震荡的说法显然是一种夸张。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 14",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-aerial",
+      "revision": 2,
+      "originalInput": "aerials",
+      "term": "aerial",
+      "normalized": "aerial",
+      "standardForm": "aerial",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "aerials",
+        "suggestion": "aerial",
+        "chosen": "aerial",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "天线。",
+      "definition": "An antenna used to receive or transmit radio or television signals.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "天线。",
+          "definitionEn": "An antenna used to receive or transmit radio or television signals.",
+          "usageNotes": "英式英语；美式英语通常说 antenna。第二章语境：原文以复数 aerials 出现，指屋顶上的接收天线。",
+          "register": "British",
+          "collocations": [
+            "television aerial",
+            "rooftop aerial"
+          ],
+          "examples": [
+            {
+              "en": "Several television aerials stood on the rooftops.",
+              "zh": "屋顶上立着几根电视天线。"
+            }
+          ],
+          "confusables": [
+            "satellite dish"
+          ]
+        }
+      ],
+      "collocations": [
+        "television aerial",
+        "rooftop aerial"
+      ],
+      "synonyms": [],
+      "exampleEn": "Several television aerials stood on the rooftops.",
+      "exampleZh": "屋顶上立着几根电视天线。",
+      "usage": "英式英语；美式英语通常说 antenna。第二章语境：原文以复数 aerials 出现，指屋顶上的接收天线。",
+      "register": "British",
+      "confusedWith": [
+        "satellite dish"
+      ],
+      "forms": [
+        "aerials"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词",
+        "英式英语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 17",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 17",
+          "originalInput": "aerials",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "天线。",
+          "definition": "An antenna used to receive or transmit radio or television signals.",
+          "usage": "英式英语；美式英语通常说 antenna。第二章语境：原文以复数 aerials 出现，指屋顶上的接收天线。",
+          "register": "British",
+          "collocations": [
+            "television aerial",
+            "rooftop aerial"
+          ],
+          "confusedWith": [
+            "satellite dish"
+          ],
+          "forms": [
+            "aerials"
+          ],
+          "exampleEn": "Several television aerials stood on the rooftops.",
+          "exampleZh": "屋顶上立着几根电视天线。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 17",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-satellite",
+      "revision": 2,
+      "originalInput": "satellite dishes",
+      "term": "satellite",
+      "normalized": "satellite",
+      "standardForm": "satellite",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "satellite dishes",
+        "suggestion": "satellite",
+        "chosen": "satellite",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "卫星；satellite dish：碟形卫星接收天线，俗称“卫星锅”。",
+      "definition": "A satellite is an object orbiting a planet; a satellite dish is a dish-shaped antenna receiving satellite signals.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "卫星；satellite dish：碟形卫星接收天线，俗称“卫星锅”。",
+          "definitionEn": "A satellite is an object orbiting a planet; a satellite dish is a dish-shaped antenna receiving satellite signals.",
+          "usageNotes": "第二章语境：原文形式 satellite dishes 指屋顶上的碟形卫星接收天线，不是普通天线。",
+          "register": "neutral",
+          "collocations": [
+            "satellite dish"
+          ],
+          "examples": [
+            {
+              "en": "A satellite dish was fixed to the roof.",
+              "zh": "屋顶上安装了一面碟形卫星接收天线。"
+            }
+          ],
+          "confusables": [
+            "aerial"
+          ]
+        }
+      ],
+      "collocations": [
+        "satellite dish"
+      ],
+      "synonyms": [],
+      "exampleEn": "A satellite dish was fixed to the roof.",
+      "exampleZh": "屋顶上安装了一面碟形卫星接收天线。",
+      "usage": "第二章语境：原文形式 satellite dishes 指屋顶上的碟形卫星接收天线，不是普通天线。",
+      "register": "neutral",
+      "confusedWith": [
+        "aerial"
+      ],
+      "forms": [
+        "satellites",
+        "satellite dishes"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 17",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 17",
+          "originalInput": "satellite dishes",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "卫星；satellite dish：碟形卫星接收天线，俗称“卫星锅”。",
+          "definition": "A satellite is an object orbiting a planet; a satellite dish is a dish-shaped antenna receiving satellite signals.",
+          "usage": "第二章语境：原文形式 satellite dishes 指屋顶上的碟形卫星接收天线，不是普通天线。",
+          "register": "neutral",
+          "collocations": [
+            "satellite dish"
+          ],
+          "confusedWith": [
+            "aerial"
+          ],
+          "forms": [
+            "satellites",
+            "satellite dishes"
+          ],
+          "exampleEn": "A satellite dish was fixed to the roof.",
+          "exampleZh": "屋顶上安装了一面碟形卫星接收天线。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 17",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-glistening",
+      "revision": 1,
+      "originalInput": "glistening",
+      "term": "glistening",
+      "normalized": "glistening",
+      "standardForm": "glistening",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "glistening",
+        "suggestion": "",
+        "chosen": "glistening",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "闪闪发光的；泛着亮光的。",
+      "definition": "Shining with reflected light, often from a wet or smooth surface.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "闪闪发光的；泛着亮光的。",
+          "definitionEn": "Shining with reflected light, often from a wet or smooth surface.",
+          "usageNotes": "第二章语境：用作分词形容词，描写远处海面反射出的亮光。",
+          "register": "neutral",
+          "collocations": [
+            "a glistening line"
+          ],
+          "examples": [
+            {
+              "en": "A glistening line appeared on the distant water.",
+              "zh": "远处的水面上出现了一道闪亮的光线。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a glistening line"
+      ],
+      "synonyms": [],
+      "exampleEn": "A glistening line appeared on the distant water.",
+      "exampleZh": "远处的水面上出现了一道闪亮的光线。",
+      "usage": "第二章语境：用作分词形容词，描写远处海面反射出的亮光。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "形容词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 17",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 17",
+          "originalInput": "glistening",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "闪闪发光的；泛着亮光的。",
+          "definition": "Shining with reflected light, often from a wet or smooth surface.",
+          "usage": "第二章语境：用作分词形容词，描写远处海面反射出的亮光。",
+          "register": "neutral",
+          "collocations": [
+            "a glistening line"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "A glistening line appeared on the distant water.",
+          "exampleZh": "远处的水面上出现了一道闪亮的光线。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 17",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-meandering",
+      "revision": 2,
+      "originalInput": "meandering talks",
+      "term": "meandering",
+      "normalized": "meandering",
+      "standardForm": "meandering",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "meandering talks",
+        "suggestion": "meandering",
+        "chosen": "meandering",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "漫无边际的；东拉西扯的；没有明确方向或主题的。",
+      "definition": "Moving from one subject to another without a fixed direction.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "漫无边际的；东拉西扯的；没有明确方向或主题的。",
+          "definitionEn": "Moving from one subject to another without a fixed direction.",
+          "usageNotes": "第二章语境：meandering talks 指想到哪里聊到哪里、话题不断游移的谈话。",
+          "register": "neutral",
+          "collocations": [
+            "meandering talks"
+          ],
+          "examples": [
+            {
+              "en": "Their meandering talk moved from one topic to another.",
+              "zh": "他们漫无边际地聊着，话题一个接一个地变化。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "meandering talks"
+      ],
+      "synonyms": [],
+      "exampleEn": "Their meandering talk moved from one topic to another.",
+      "exampleZh": "他们漫无边际地聊着，话题一个接一个地变化。",
+      "usage": "第二章语境：meandering talks 指想到哪里聊到哪里、话题不断游移的谈话。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "形容词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 18",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 18",
+          "originalInput": "meandering talks",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "漫无边际的；东拉西扯的；没有明确方向或主题的。",
+          "definition": "Moving from one subject to another without a fixed direction.",
+          "usage": "第二章语境：meandering talks 指想到哪里聊到哪里、话题不断游移的谈话。",
+          "register": "neutral",
+          "collocations": [
+            "meandering talks"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Their meandering talk moved from one topic to another.",
+          "exampleZh": "他们漫无边际地聊着，话题一个接一个地变化。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 18",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-hysterically",
+      "revision": 2,
+      "originalInput": "hysterically daft",
+      "term": "hysterically",
+      "normalized": "hysterically",
+      "standardForm": "hysterically",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "hysterically daft",
+        "suggestion": "hysterically",
+        "chosen": "hysterically",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adverb",
+      "meaning": "无法控制情绪地；在 hysterically daft 中表示荒唐可笑得不得了。",
+      "definition": "In an uncontrollably emotional way; in this phrase, to an extremely amusing degree.",
+      "senses": [
+        {
+          "partOfSpeech": "adverb",
+          "meaningZh": "无法控制情绪地；在 hysterically daft 中表示荒唐可笑得不得了。",
+          "definitionEn": "In an uncontrollably emotional way; in this phrase, to an extremely amusing degree.",
+          "usageNotes": "不要脱离搭配机械翻译为“歇斯底里地”。第二章语境：hysterically daft 表示荒唐得极其可笑；daft 是英式口语。",
+          "register": "informal",
+          "collocations": [
+            "hysterically daft"
+          ],
+          "examples": [
+            {
+              "en": "They described the idea as hysterically daft.",
+              "zh": "他们说这个想法荒唐可笑得不得了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "hysterically daft"
+      ],
+      "synonyms": [],
+      "exampleEn": "They described the idea as hysterically daft.",
+      "exampleZh": "他们说这个想法荒唐可笑得不得了。",
+      "usage": "不要脱离搭配机械翻译为“歇斯底里地”。第二章语境：hysterically daft 表示荒唐得极其可笑；daft 是英式口语。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "副词",
+        "英式语境"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 18",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 18",
+          "originalInput": "hysterically daft",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "无法控制情绪地；在 hysterically daft 中表示荒唐可笑得不得了。",
+          "definition": "In an uncontrollably emotional way; in this phrase, to an extremely amusing degree.",
+          "usage": "不要脱离搭配机械翻译为“歇斯底里地”。第二章语境：hysterically daft 表示荒唐得极其可笑；daft 是英式口语。",
+          "register": "informal",
+          "collocations": [
+            "hysterically daft"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "They described the idea as hysterically daft.",
+          "exampleZh": "他们说这个想法荒唐可笑得不得了。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 18",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-smirk",
+      "revision": 2,
+      "originalInput": "smirk",
+      "term": "smirk",
+      "normalized": "smirk",
+      "standardForm": "smirk",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "smirk",
+        "suggestion": "",
+        "chosen": "smirk",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun · verb",
+      "meaning": "得意的笑；自鸣得意的笑。",
+      "definition": "A small smile, or the act of smiling, that shows self-satisfaction or superiority.",
+      "senses": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaningZh": "得意的笑；自鸣得意的笑。",
+          "definitionEn": "A small smile, or the act of smiling, that shows self-satisfaction or superiority.",
+          "usageNotes": "通常带贬义。第二章语境：用作名词，强调带有得意、自鸣得意意味的笑。辨析：sneer 强调鄙夷或讥讽；giggle 强调轻声反复地笑。",
+          "register": "disapproving",
+          "collocations": [
+            "a faint smirk"
+          ],
+          "examples": [
+            {
+              "en": "A faint smirk appeared on his face.",
+              "zh": "他的脸上浮现出一丝得意的笑。"
+            }
+          ],
+          "confusables": [
+            "sneer",
+            "giggle"
+          ]
+        }
+      ],
+      "collocations": [
+        "a faint smirk"
+      ],
+      "synonyms": [],
+      "exampleEn": "A faint smirk appeared on his face.",
+      "exampleZh": "他的脸上浮现出一丝得意的笑。",
+      "usage": "通常带贬义。第二章语境：用作名词，强调带有得意、自鸣得意意味的笑。辨析：sneer 强调鄙夷或讥讽；giggle 强调轻声反复地笑。",
+      "register": "disapproving",
+      "confusedWith": [
+        "sneer",
+        "giggle"
+      ],
+      "forms": [
+        "smirks"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词",
+        "辨析"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "smirk",
+          "entryType": "word",
+          "partOfSpeech": "noun · verb",
+          "meaning": "得意的笑；自鸣得意的笑。",
+          "definition": "A small smile, or the act of smiling, that shows self-satisfaction or superiority.",
+          "usage": "通常带贬义。第二章语境：用作名词，强调带有得意、自鸣得意意味的笑。辨析：sneer 强调鄙夷或讥讽；giggle 强调轻声反复地笑。",
+          "register": "disapproving",
+          "collocations": [
+            "a faint smirk"
+          ],
+          "confusedWith": [
+            "sneer",
+            "giggle"
+          ],
+          "forms": [
+            "smirks"
+          ],
+          "exampleEn": "A faint smirk appeared on his face.",
+          "exampleZh": "他的脸上浮现出一丝得意的笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-feeble",
+      "revision": 2,
+      "originalInput": "a feeble joke",
+      "term": "feeble",
+      "normalized": "feeble",
+      "standardForm": "feeble",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "a feeble joke",
+        "suggestion": "feeble",
+        "chosen": "feeble",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "无力的；拙劣的；没什么效果的。",
+      "definition": "Weak, ineffective, or unconvincing.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "无力的；拙劣的；没什么效果的。",
+          "definitionEn": "Weak, ineffective, or unconvincing.",
+          "usageNotes": "第二章语境：a feeble joke 指一个没劲、效果很差的笑话。",
+          "register": "neutral",
+          "collocations": [
+            "a feeble joke"
+          ],
+          "examples": [
+            {
+              "en": "His feeble joke failed to make anyone laugh.",
+              "zh": "他那个没劲的笑话没有逗笑任何人。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a feeble joke"
+      ],
+      "synonyms": [],
+      "exampleEn": "His feeble joke failed to make anyone laugh.",
+      "exampleZh": "他那个没劲的笑话没有逗笑任何人。",
+      "usage": "第二章语境：a feeble joke 指一个没劲、效果很差的笑话。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "形容词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "a feeble joke",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "无力的；拙劣的；没什么效果的。",
+          "definition": "Weak, ineffective, or unconvincing.",
+          "usage": "第二章语境：a feeble joke 指一个没劲、效果很差的笑话。",
+          "register": "neutral",
+          "collocations": [
+            "a feeble joke"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "His feeble joke failed to make anyone laugh.",
+          "exampleZh": "他那个没劲的笑话没有逗笑任何人。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-sneer",
+      "revision": 2,
+      "originalInput": "sneers",
+      "term": "sneer",
+      "normalized": "sneer",
+      "standardForm": "sneer",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "sneers",
+        "suggestion": "sneer",
+        "chosen": "sneer",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun · verb",
+      "meaning": "讥笑；鄙夷的表情或话语。",
+      "definition": "An expression, remark, or action showing mocking contempt.",
+      "senses": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaningZh": "讥笑；鄙夷的表情或话语。",
+          "definitionEn": "An expression, remark, or action showing mocking contempt.",
+          "usageNotes": "第二章语境：原文 sneers 为复数名词，强调看不起、讥讽别人的态度。辨析：smirk 强调自得；giggle 强调笑的方式，本身不一定恶意。",
+          "register": "disapproving",
+          "collocations": [
+            "a mocking sneer"
+          ],
+          "examples": [
+            {
+              "en": "The sneers made the comment sound cruel.",
+              "zh": "那些讥讽让这句话显得很刻薄。"
+            }
+          ],
+          "confusables": [
+            "smirk",
+            "giggle"
+          ]
+        }
+      ],
+      "collocations": [
+        "a mocking sneer"
+      ],
+      "synonyms": [],
+      "exampleEn": "The sneers made the comment sound cruel.",
+      "exampleZh": "那些讥讽让这句话显得很刻薄。",
+      "usage": "第二章语境：原文 sneers 为复数名词，强调看不起、讥讽别人的态度。辨析：smirk 强调自得；giggle 强调笑的方式，本身不一定恶意。",
+      "register": "disapproving",
+      "confusedWith": [
+        "smirk",
+        "giggle"
+      ],
+      "forms": [
+        "sneers"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词",
+        "辨析"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "sneers",
+          "entryType": "word",
+          "partOfSpeech": "noun · verb",
+          "meaning": "讥笑；鄙夷的表情或话语。",
+          "definition": "An expression, remark, or action showing mocking contempt.",
+          "usage": "第二章语境：原文 sneers 为复数名词，强调看不起、讥讽别人的态度。辨析：smirk 强调自得；giggle 强调笑的方式，本身不一定恶意。",
+          "register": "disapproving",
+          "collocations": [
+            "a mocking sneer"
+          ],
+          "confusedWith": [
+            "smirk",
+            "giggle"
+          ],
+          "forms": [
+            "sneers"
+          ],
+          "exampleEn": "The sneers made the comment sound cruel.",
+          "exampleZh": "那些讥讽让这句话显得很刻薄。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-giggle",
+      "revision": 2,
+      "originalInput": "giggles",
+      "term": "giggle",
+      "normalized": "giggle",
+      "standardForm": "giggle",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "giggles",
+        "suggestion": "giggle",
+        "chosen": "giggle",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun · verb",
+      "meaning": "咯咯笑；轻声、反复的笑。",
+      "definition": "A light, repeated laugh, often partly suppressed.",
+      "senses": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaningZh": "咯咯笑；轻声、反复的笑。",
+          "definitionEn": "A light, repeated laugh, often partly suppressed.",
+          "usageNotes": "giggle 本身不一定含恶意。第二章语境：原文 giggles 为复数名词，指同学取笑 Tommy 时发出的笑声。辨析：smirk 强调自得；sneer 强调鄙夷。",
+          "register": "neutral",
+          "collocations": [
+            "a nervous giggle"
+          ],
+          "examples": [
+            {
+              "en": "A few giggles came from the back of the group.",
+              "zh": "人群后面传来几声咯咯笑。"
+            }
+          ],
+          "confusables": [
+            "smirk",
+            "sneer"
+          ]
+        }
+      ],
+      "collocations": [
+        "a nervous giggle"
+      ],
+      "synonyms": [],
+      "exampleEn": "A few giggles came from the back of the group.",
+      "exampleZh": "人群后面传来几声咯咯笑。",
+      "usage": "giggle 本身不一定含恶意。第二章语境：原文 giggles 为复数名词，指同学取笑 Tommy 时发出的笑声。辨析：smirk 强调自得；sneer 强调鄙夷。",
+      "register": "neutral",
+      "confusedWith": [
+        "smirk",
+        "sneer"
+      ],
+      "forms": [
+        "giggles"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词",
+        "辨析"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "giggles",
+          "entryType": "word",
+          "partOfSpeech": "noun · verb",
+          "meaning": "咯咯笑；轻声、反复的笑。",
+          "definition": "A light, repeated laugh, often partly suppressed.",
+          "usage": "giggle 本身不一定含恶意。第二章语境：原文 giggles 为复数名词，指同学取笑 Tommy 时发出的笑声。辨析：smirk 强调自得；sneer 强调鄙夷。",
+          "register": "neutral",
+          "collocations": [
+            "a nervous giggle"
+          ],
+          "confusedWith": [
+            "smirk",
+            "sneer"
+          ],
+          "forms": [
+            "giggles"
+          ],
+          "exampleEn": "A few giggles came from the back of the group.",
+          "exampleZh": "人群后面传来几声咯咯笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-persecution",
+      "revision": 1,
+      "originalInput": "persecution",
+      "term": "persecution",
+      "normalized": "persecution",
+      "standardForm": "persecution",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "persecution",
+        "suggestion": "",
+        "chosen": "persecution",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "持续的迫害；欺凌；折磨。",
+      "definition": "Repeated cruel or unfair treatment of someone.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "持续的迫害；欺凌；折磨。",
+          "definitionEn": "Repeated cruel or unfair treatment of someone.",
+          "usageNotes": "第二章语境：指 Tommy 长期受到同学不公平的欺负和折磨。",
+          "register": "neutral",
+          "collocations": [
+            "suffer persecution"
+          ],
+          "examples": [
+            {
+              "en": "Repeated teasing can feel like persecution.",
+              "zh": "反复的取笑会让人感到像在遭受持续欺凌。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "suffer persecution"
+      ],
+      "synonyms": [],
+      "exampleEn": "Repeated teasing can feel like persecution.",
+      "exampleZh": "反复的取笑会让人感到像在遭受持续欺凌。",
+      "usage": "第二章语境：指 Tommy 长期受到同学不公平的欺负和折磨。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 21",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 21",
+          "originalInput": "persecution",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "持续的迫害；欺凌；折磨。",
+          "definition": "Repeated cruel or unfair treatment of someone.",
+          "usage": "第二章语境：指 Tommy 长期受到同学不公平的欺负和折磨。",
+          "register": "neutral",
+          "collocations": [
+            "suffer persecution"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Repeated teasing can feel like persecution.",
+          "exampleZh": "反复的取笑会让人感到像在遭受持续欺凌。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 21",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-tormentor",
+      "revision": 1,
+      "originalInput": "tormentors",
+      "term": "tormentor",
+      "normalized": "tormentor",
+      "standardForm": "tormentor",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "tormentors",
+        "suggestion": "tormentor",
+        "chosen": "tormentor",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "折磨别人的人；反复欺负别人的人。",
+      "definition": "Someone who repeatedly causes another person pain or distress.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "折磨别人的人；反复欺负别人的人。",
+          "definitionEn": "Someone who repeatedly causes another person pain or distress.",
+          "usageNotes": "第二章语境：原文复数 tormentors 指经常欺负 Tommy 的人。",
+          "register": "neutral",
+          "collocations": [],
+          "examples": [
+            {
+              "en": "His tormentors kept trying to upset him.",
+              "zh": "那些经常欺负他的人一直想把他惹恼。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [],
+      "synonyms": [],
+      "exampleEn": "His tormentors kept trying to upset him.",
+      "exampleZh": "那些经常欺负他的人一直想把他惹恼。",
+      "usage": "第二章语境：原文复数 tormentors 指经常欺负 Tommy 的人。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "tormentors"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 21",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 21",
+          "originalInput": "tormentors",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "折磨别人的人；反复欺负别人的人。",
+          "definition": "Someone who repeatedly causes another person pain or distress.",
+          "usage": "第二章语境：原文复数 tormentors 指经常欺负 Tommy 的人。",
+          "register": "neutral",
+          "collocations": [],
+          "confusedWith": [],
+          "forms": [
+            "tormentors"
+          ],
+          "exampleEn": "His tormentors kept trying to upset him.",
+          "exampleZh": "那些经常欺负他的人一直想把他惹恼。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 21",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-mystified",
+      "revision": 1,
+      "originalInput": "mystified",
+      "term": "mystified",
+      "normalized": "mystified",
+      "standardForm": "mystified",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "mystified",
+        "suggestion": "",
+        "chosen": "mystified",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "迷惑不解的；摸不着头脑的。",
+      "definition": "Very puzzled and unable to understand something.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "迷惑不解的；摸不着头脑的。",
+          "definitionEn": "Very puzzled and unable to understand something.",
+          "usageNotes": "第二章语境：Kathy 发现情况发生了变化，却不明白原因。",
+          "register": "neutral",
+          "collocations": [
+            "be mystified by something"
+          ],
+          "examples": [
+            {
+              "en": "She was mystified by the sudden change.",
+              "zh": "她对这个突然的变化感到迷惑不解。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be mystified by something"
+      ],
+      "synonyms": [],
+      "exampleEn": "She was mystified by the sudden change.",
+      "exampleZh": "她对这个突然的变化感到迷惑不解。",
+      "usage": "第二章语境：Kathy 发现情况发生了变化，却不明白原因。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "形容词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 22",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 22",
+          "originalInput": "mystified",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "迷惑不解的；摸不着头脑的。",
+          "definition": "Very puzzled and unable to understand something.",
+          "usage": "第二章语境：Kathy 发现情况发生了变化，却不明白原因。",
+          "register": "neutral",
+          "collocations": [
+            "be mystified by something"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She was mystified by the sudden change.",
+          "exampleZh": "她对这个突然的变化感到迷惑不解。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 22",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-probe",
+      "revision": 2,
+      "originalInput": "probe him a bit",
+      "term": "probe",
+      "normalized": "probe",
+      "standardForm": "probe",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "probe him a bit",
+        "suggestion": "probe",
+        "chosen": "probe",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "探问；追问；深入了解。",
+      "definition": "To ask questions or investigate in order to discover more.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "探问；追问；深入了解。",
+          "definitionEn": "To ask questions or investigate in order to discover more.",
+          "usageNotes": "第二章语境：probe him a bit 表示进一步问问他，试着弄清原因。",
+          "register": "neutral",
+          "collocations": [
+            "probe somebody",
+            "probe for an explanation"
+          ],
+          "examples": [
+            {
+              "en": "She decided to probe him gently for an explanation.",
+              "zh": "她决定委婉地追问他，想得到一个解释。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "probe somebody",
+        "probe for an explanation"
+      ],
+      "synonyms": [],
+      "exampleEn": "She decided to probe him gently for an explanation.",
+      "exampleZh": "她决定委婉地追问他，想得到一个解释。",
+      "usage": "第二章语境：probe him a bit 表示进一步问问他，试着弄清原因。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "probed",
+        "probing",
+        "probes"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "动词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 22",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 22",
+          "originalInput": "probe him a bit",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "探问；追问；深入了解。",
+          "definition": "To ask questions or investigate in order to discover more.",
+          "usage": "第二章语境：probe him a bit 表示进一步问问他，试着弄清原因。",
+          "register": "neutral",
+          "collocations": [
+            "probe somebody",
+            "probe for an explanation"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "probed",
+            "probing",
+            "probes"
+          ],
+          "exampleEn": "She decided to probe him gently for an explanation.",
+          "exampleZh": "她决定委婉地追问他，想得到一个解释。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 22",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-acoustics",
+      "revision": 2,
+      "originalInput": "acoustics",
+      "term": "acoustics",
+      "normalized": "acoustics",
+      "standardForm": "acoustics",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "acoustics",
+        "suggestion": "",
+        "chosen": "acoustics",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "plural noun",
+      "meaning": "场所的声学特性；声音传播和听觉效果。",
+      "definition": "The qualities of a room that affect how sound travels and is heard.",
+      "senses": [
+        {
+          "partOfSpeech": "plural noun",
+          "meaningZh": "场所的声学特性；声音传播和听觉效果。",
+          "definitionEn": "The qualities of a room that affect how sound travels and is heard.",
+          "usageNotes": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+          "register": "neutral",
+          "collocations": [
+            "the acoustics of a room"
+          ],
+          "examples": [
+            {
+              "en": "The hall's acoustics carried their voices across the room.",
+              "zh": "大厅的声学效果让他们的声音传到了房间另一边。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "the acoustics of a room"
+      ],
+      "synonyms": [],
+      "exampleEn": "The hall's acoustics carried their voices across the room.",
+      "exampleZh": "大厅的声学效果让他们的声音传到了房间另一边。",
+      "usage": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 22",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 22",
+          "originalInput": "acoustics",
+          "entryType": "word",
+          "partOfSpeech": "plural noun",
+          "meaning": "场所的声学特性；声音传播和听觉效果。",
+          "definition": "The qualities of a room that affect how sound travels and is heard.",
+          "usage": "这里不是泛指“声学”这门学科。第二章语境：指大厅的声音传播特点，使附近的人可能听到谈话。",
+          "register": "neutral",
+          "collocations": [
+            "the acoustics of a room"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The hall's acoustics carried their voices across the room.",
+          "exampleZh": "大厅的声学效果让他们的声音传到了房间另一边。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 22",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-sarcasm",
+      "revision": 2,
+      "originalInput": "without sarcasm",
+      "term": "sarcasm",
+      "normalized": "sarcasm",
+      "standardForm": "sarcasm",
+      "entryType": "word",
+      "correction": {
+        "status": "accepted",
+        "original": "without sarcasm",
+        "suggestion": "sarcasm",
+        "chosen": "sarcasm",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "noun",
+      "meaning": "挖苦；讽刺性的话语。",
+      "definition": "Mocking or cutting language, often expressing the opposite of what is meant.",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "挖苦；讽刺性的话语。",
+          "definitionEn": "Mocking or cutting language, often expressing the opposite of what is meant.",
+          "usageNotes": "第二章语境：without sarcasm 表示没有挖苦或说反话的意思。",
+          "register": "neutral",
+          "collocations": [
+            "without sarcasm",
+            "a trace of sarcasm"
+          ],
+          "examples": [
+            {
+              "en": "For once, she answered without sarcasm.",
+              "zh": "这一次，她回答时没有挖苦的意味。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "without sarcasm",
+        "a trace of sarcasm"
+      ],
+      "synonyms": [],
+      "exampleEn": "For once, she answered without sarcasm.",
+      "exampleZh": "这一次，她回答时没有挖苦的意味。",
+      "usage": "第二章语境：without sarcasm 表示没有挖苦或说反话的意思。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "名词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "without sarcasm",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "挖苦；讽刺性的话语。",
+          "definition": "Mocking or cutting language, often expressing the opposite of what is meant.",
+          "usage": "第二章语境：without sarcasm 表示没有挖苦或说反话的意思。",
+          "register": "neutral",
+          "collocations": [
+            "without sarcasm",
+            "a trace of sarcasm"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "For once, she answered without sarcasm.",
+          "exampleZh": "这一次，她回答时没有挖苦的意味。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-crestfallen",
+      "revision": 2,
+      "originalInput": "crestfallen",
+      "term": "crestfallen",
+      "normalized": "crestfallen",
+      "standardForm": "crestfallen",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "crestfallen",
+        "suggestion": "",
+        "chosen": "crestfallen",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "垂头丧气的；失落的。",
+      "definition": "Visibly sad and disappointed, especially after a hope is disappointed.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "垂头丧气的；失落的。",
+          "definitionEn": "Visibly sad and disappointed, especially after a hope is disappointed.",
+          "usageNotes": "第二章语境：强调失望和难过明显表现在神情上。",
+          "register": "neutral",
+          "collocations": [
+            "look crestfallen"
+          ],
+          "examples": [
+            {
+              "en": "He looked crestfallen when the plan was rejected.",
+              "zh": "计划被否决后，他显得垂头丧气。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "look crestfallen"
+      ],
+      "synonyms": [],
+      "exampleEn": "He looked crestfallen when the plan was rejected.",
+      "exampleZh": "计划被否决后，他显得垂头丧气。",
+      "usage": "第二章语境：强调失望和难过明显表现在神情上。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "形容词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 24",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 24",
+          "originalInput": "crestfallen",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "垂头丧气的；失落的。",
+          "definition": "Visibly sad and disappointed, especially after a hope is disappointed.",
+          "usage": "第二章语境：强调失望和难过明显表现在神情上。",
+          "register": "neutral",
+          "collocations": [
+            "look crestfallen"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "He looked crestfallen when the plan was rejected.",
+          "exampleZh": "计划被否决后，他显得垂头丧气。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 24",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-sneak-off",
+      "revision": 1,
+      "originalInput": "sneak off",
+      "term": "sneak off",
+      "normalized": "sneak off",
+      "standardForm": "sneak off",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "sneak off",
+        "suggestion": "",
+        "chosen": "sneak off",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "偷偷溜走；悄悄离开。",
+      "definition": "To leave quietly and secretly without attracting attention.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "偷偷溜走；悄悄离开。",
+          "definitionEn": "To leave quietly and secretly without attracting attention.",
+          "usageNotes": "第二章语境：强调悄悄离开，不让别人注意到。",
+          "register": "informal",
+          "collocations": [
+            "sneak off quietly"
+          ],
+          "examples": [
+            {
+              "en": "They tried to sneak off before anyone noticed.",
+              "zh": "他们试图在别人注意之前悄悄离开。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "sneak off quietly"
+      ],
+      "synonyms": [],
+      "exampleEn": "They tried to sneak off before anyone noticed.",
+      "exampleZh": "他们试图在别人注意之前悄悄离开。",
+      "usage": "第二章语境：强调悄悄离开，不让别人注意到。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "sneaked off",
+        "sneaking off"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "短语动词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 24",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 24",
+          "originalInput": "sneak off",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "偷偷溜走；悄悄离开。",
+          "definition": "To leave quietly and secretly without attracting attention.",
+          "usage": "第二章语境：强调悄悄离开，不让别人注意到。",
+          "register": "informal",
+          "collocations": [
+            "sneak off quietly"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "sneaked off",
+            "sneaking off"
+          ],
+          "exampleEn": "They tried to sneak off before anyone noticed.",
+          "exampleZh": "他们试图在别人注意之前悄悄离开。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 24",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-stop-dead",
+      "revision": 2,
+      "originalInput": "stop dead",
+      "term": "stop dead",
+      "normalized": "stop dead",
+      "standardForm": "stop dead",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "stop dead",
+        "suggestion": "",
+        "chosen": "stop dead",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "突然完全停住。",
+      "definition": "To stop suddenly and completely.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "突然完全停住。",
+          "definitionEn": "To stop suddenly and completely.",
+          "usageNotes": "dead 在这里加强“完全”的程度。第二章语境：强调动作在一瞬间停住。辨析：grind to a halt 强调逐渐停滞后完全停止。",
+          "register": "neutral",
+          "collocations": [
+            "stop dead"
+          ],
+          "examples": [
+            {
+              "en": "The line stopped dead without warning.",
+              "zh": "队伍毫无预兆地突然停住了。"
+            }
+          ],
+          "confusables": [
+            "grind to a halt"
+          ]
+        }
+      ],
+      "collocations": [
+        "stop dead"
+      ],
+      "synonyms": [],
+      "exampleEn": "The line stopped dead without warning.",
+      "exampleZh": "队伍毫无预兆地突然停住了。",
+      "usage": "dead 在这里加强“完全”的程度。第二章语境：强调动作在一瞬间停住。辨析：grind to a halt 强调逐渐停滞后完全停止。",
+      "register": "neutral",
+      "confusedWith": [
+        "grind to a halt"
+      ],
+      "forms": [
+        "stopped dead"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "动词短语",
+        "辨析"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 13",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 13",
+          "originalInput": "stop dead",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "突然完全停住。",
+          "definition": "To stop suddenly and completely.",
+          "usage": "dead 在这里加强“完全”的程度。第二章语境：强调动作在一瞬间停住。辨析：grind to a halt 强调逐渐停滞后完全停止。",
+          "register": "neutral",
+          "collocations": [
+            "stop dead"
+          ],
+          "confusedWith": [
+            "grind to a halt"
+          ],
+          "forms": [
+            "stopped dead"
+          ],
+          "exampleEn": "The line stopped dead without warning.",
+          "exampleZh": "队伍毫无预兆地突然停住了。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 13",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-hold-somebody-up",
+      "revision": 2,
+      "originalInput": "You're holding everyone up.",
+      "term": "hold somebody up",
+      "normalized": "hold somebody up",
+      "standardForm": "hold somebody up",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "accepted",
+        "original": "You're holding everyone up.",
+        "suggestion": "hold somebody up",
+        "chosen": "hold somebody up",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "耽误某人；阻挡某人前进。",
+      "definition": "To delay someone or prevent them from moving forward.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "耽误某人；阻挡某人前进。",
+          "definitionEn": "To delay someone or prevent them from moving forward.",
+          "usageNotes": "第二章语境：You're holding everyone up. 表示“你把大家都耽误了／你挡住大家了”。",
+          "register": "neutral",
+          "collocations": [
+            "hold somebody up"
+          ],
+          "examples": [
+            {
+              "en": "Please move aside; you're holding the whole group up.",
+              "zh": "请让到一边；你把整群人都耽误了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "hold somebody up"
+      ],
+      "synonyms": [],
+      "exampleEn": "Please move aside; you're holding the whole group up.",
+      "exampleZh": "请让到一边；你把整群人都耽误了。",
+      "usage": "第二章语境：You're holding everyone up. 表示“你把大家都耽误了／你挡住大家了”。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "held somebody up",
+        "holding everyone up"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "短语动词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 13",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 13",
+          "originalInput": "You're holding everyone up.",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "耽误某人；阻挡某人前进。",
+          "definition": "To delay someone or prevent them from moving forward.",
+          "usage": "第二章语境：You're holding everyone up. 表示“你把大家都耽误了／你挡住大家了”。",
+          "register": "neutral",
+          "collocations": [
+            "hold somebody up"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "held somebody up",
+            "holding everyone up"
+          ],
+          "exampleEn": "Please move aside; you're holding the whole group up.",
+          "exampleZh": "请让到一边；你把整群人都耽误了。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 13",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-grind-to-a-halt",
+      "revision": 2,
+      "originalInput": "grinding to a halt",
+      "term": "grind to a halt",
+      "normalized": "grind to a halt",
+      "standardForm": "grind to a halt",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "grinding to a halt",
+        "suggestion": "grind to a halt",
+        "chosen": "grind to a halt",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "逐渐停下来；最终完全停住。",
+      "definition": "To slow down and eventually stop completely.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "逐渐停下来；最终完全停住。",
+          "definitionEn": "To slow down and eventually stop completely.",
+          "usageNotes": "第二章语境：描写楼梯上的人流先受阻、再完全停住。辨析：stop dead 强调突然停住。",
+          "register": "neutral",
+          "collocations": [
+            "grind to a halt"
+          ],
+          "examples": [
+            {
+              "en": "The movement on the stairs was grinding to a halt.",
+              "zh": "楼梯上的人流正逐渐停滞下来。"
+            }
+          ],
+          "confusables": [
+            "stop dead"
+          ]
+        }
+      ],
+      "collocations": [
+        "grind to a halt"
+      ],
+      "synonyms": [],
+      "exampleEn": "The movement on the stairs was grinding to a halt.",
+      "exampleZh": "楼梯上的人流正逐渐停滞下来。",
+      "usage": "第二章语境：描写楼梯上的人流先受阻、再完全停住。辨析：stop dead 强调突然停住。",
+      "register": "neutral",
+      "confusedWith": [
+        "stop dead"
+      ],
+      "forms": [
+        "ground to a halt",
+        "grinding to a halt"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语",
+        "辨析"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 13",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 13",
+          "originalInput": "grinding to a halt",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "逐渐停下来；最终完全停住。",
+          "definition": "To slow down and eventually stop completely.",
+          "usage": "第二章语境：描写楼梯上的人流先受阻、再完全停住。辨析：stop dead 强调突然停住。",
+          "register": "neutral",
+          "collocations": [
+            "grind to a halt"
+          ],
+          "confusedWith": [
+            "stop dead"
+          ],
+          "forms": [
+            "ground to a halt",
+            "grinding to a halt"
+          ],
+          "exampleEn": "The movement on the stairs was grinding to a halt.",
+          "exampleZh": "楼梯上的人流正逐渐停滞下来。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 13",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-no-hard-feelings",
+      "revision": 1,
+      "originalInput": "No hard feelings, right?",
+      "term": "no hard feelings",
+      "normalized": "no hard feelings",
+      "standardForm": "no hard feelings",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "No hard feelings, right?",
+        "suggestion": "no hard feelings",
+        "chosen": "no hard feelings",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "fixed expression",
+      "meaning": "没有怨气；别往心里去。",
+      "definition": "There is no anger or resentment about what happened.",
+      "senses": [
+        {
+          "partOfSpeech": "fixed expression",
+          "meaningZh": "没有怨气；别往心里去。",
+          "definitionEn": "There is no anger or resentment about what happened.",
+          "usageNotes": "第二章语境：No hard feelings, right? 用来确认对方没有生气或记恨。",
+          "register": "informal",
+          "collocations": [
+            "no hard feelings"
+          ],
+          "examples": [
+            {
+              "en": "We disagreed, but there are no hard feelings.",
+              "zh": "我们虽然意见不同，但彼此没有怨气。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "no hard feelings"
+      ],
+      "synonyms": [],
+      "exampleEn": "We disagreed, but there are no hard feelings.",
+      "exampleZh": "我们虽然意见不同，但彼此没有怨气。",
+      "usage": "第二章语境：No hard feelings, right? 用来确认对方没有生气或记恨。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "No hard feelings, right?"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "固定表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 14",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 14",
+          "originalInput": "No hard feelings, right?",
+          "entryType": "phrase",
+          "partOfSpeech": "fixed expression",
+          "meaning": "没有怨气；别往心里去。",
+          "definition": "There is no anger or resentment about what happened.",
+          "usage": "第二章语境：No hard feelings, right? 用来确认对方没有生气或记恨。",
+          "register": "informal",
+          "collocations": [
+            "no hard feelings"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "No hard feelings, right?"
+          ],
+          "exampleEn": "We disagreed, but there are no hard feelings.",
+          "exampleZh": "我们虽然意见不同，但彼此没有怨气。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 14",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-hold-something-against-somebody",
+      "revision": 2,
+      "originalInput": "I don't hold it against you one tiny bit.",
+      "term": "hold something against somebody",
+      "normalized": "hold something against somebody",
+      "standardForm": "hold something against somebody",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "I don't hold it against you one tiny bit.",
+        "suggestion": "hold something against somebody",
+        "chosen": "hold something against somebody",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "因为某事责怪某人；因为某事记恨某人。",
+      "definition": "To blame someone or resent them because of something they did.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "因为某事责怪某人；因为某事记恨某人。",
+          "definitionEn": "To blame someone or resent them because of something they did.",
+          "usageNotes": "第二章语境：I don't hold it against you one tiny bit. 表示“我一点也不为这件事怪你”。",
+          "register": "neutral",
+          "collocations": [
+            "hold it against somebody",
+            "not hold something against somebody"
+          ],
+          "examples": [
+            {
+              "en": "I won't hold the mistake against you.",
+              "zh": "我不会因为这个错误而责怪你。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "hold it against somebody",
+        "not hold something against somebody"
+      ],
+      "synonyms": [],
+      "exampleEn": "I won't hold the mistake against you.",
+      "exampleZh": "我不会因为这个错误而责怪你。",
+      "usage": "第二章语境：I don't hold it against you one tiny bit. 表示“我一点也不为这件事怪你”。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "held something against somebody"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "动词短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 14",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 14",
+          "originalInput": "I don't hold it against you one tiny bit.",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "因为某事责怪某人；因为某事记恨某人。",
+          "definition": "To blame someone or resent them because of something they did.",
+          "usage": "第二章语境：I don't hold it against you one tiny bit. 表示“我一点也不为这件事怪你”。",
+          "register": "neutral",
+          "collocations": [
+            "hold it against somebody",
+            "not hold something against somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "held something against somebody"
+          ],
+          "exampleEn": "I won't hold the mistake against you.",
+          "exampleZh": "我不会因为这个错误而责怪你。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 14",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-be-torn-between-a-and-b",
+      "revision": 2,
+      "originalInput": "torn between … and …",
+      "term": "be torn between A and B",
+      "normalized": "be torn between a and b",
+      "standardForm": "be torn between A and B",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "torn between … and …",
+        "suggestion": "be torn between A and B",
+        "chosen": "be torn between A and B",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "在 A 和 B 之间难以抉择。",
+      "definition": "To find it difficult to choose between two appealing or conflicting options.",
+      "senses": [
+        {
+          "partOfSpeech": "adjective phrase",
+          "meaningZh": "在 A 和 B 之间难以抉择。",
+          "definitionEn": "To find it difficult to choose between two appealing or conflicting options.",
+          "usageNotes": "第二章语境：表示两个选择都想要，因而难以决定。",
+          "register": "neutral",
+          "collocations": [
+            "be torn between A and B"
+          ],
+          "examples": [
+            {
+              "en": "She was torn between staying inside and going outdoors.",
+              "zh": "她在留在室内和去外面之间难以抉择。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be torn between A and B"
+      ],
+      "synonyms": [],
+      "exampleEn": "She was torn between staying inside and going outdoors.",
+      "exampleZh": "她在留在室内和去外面之间难以抉择。",
+      "usage": "第二章语境：表示两个选择都想要，因而难以决定。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 17",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 17",
+          "originalInput": "torn between … and …",
+          "entryType": "idiom",
+          "partOfSpeech": "adjective phrase",
+          "meaning": "在 A 和 B 之间难以抉择。",
+          "definition": "To find it difficult to choose between two appealing or conflicting options.",
+          "usage": "第二章语境：表示两个选择都想要，因而难以决定。",
+          "register": "neutral",
+          "collocations": [
+            "be torn between A and B"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She was torn between staying inside and going outdoors.",
+          "exampleZh": "她在留在室内和去外面之间难以抉择。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 17",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-go-off-something",
+      "revision": 2,
+      "originalInput": "went right off poems",
+      "term": "go off something",
+      "normalized": "go off something",
+      "standardForm": "go off something",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "accepted",
+        "original": "went right off poems",
+        "suggestion": "go off something",
+        "chosen": "go off something",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb",
+      "meaning": "不再喜欢某事物；对某事物失去兴趣。",
+      "definition": "To stop liking or enjoying something.",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "不再喜欢某事物；对某事物失去兴趣。",
+          "definitionEn": "To stop liking or enjoying something.",
+          "usageNotes": "英式英语。第二章语境：went right off poems 表示完全不再喜欢诗；right 在这里加强语气。",
+          "register": "British informal",
+          "collocations": [
+            "go off something",
+            "go right off something"
+          ],
+          "examples": [
+            {
+              "en": "He went right off the poems after that discussion.",
+              "zh": "那次讨论后，他彻底不再喜欢那些诗了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "go off something",
+        "go right off something"
+      ],
+      "synonyms": [],
+      "exampleEn": "He went right off the poems after that discussion.",
+      "exampleZh": "那次讨论后，他彻底不再喜欢那些诗了。",
+      "usage": "英式英语。第二章语境：went right off poems 表示完全不再喜欢诗；right 在这里加强语气。",
+      "register": "British informal",
+      "confusedWith": [],
+      "forms": [
+        "went off something",
+        "gone off something"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "短语动词",
+        "英式英语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 18",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 18",
+          "originalInput": "went right off poems",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "verb",
+          "meaning": "不再喜欢某事物；对某事物失去兴趣。",
+          "definition": "To stop liking or enjoying something.",
+          "usage": "英式英语。第二章语境：went right off poems 表示完全不再喜欢诗；right 在这里加强语气。",
+          "register": "British informal",
+          "collocations": [
+            "go off something",
+            "go right off something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "went off something",
+            "gone off something"
+          ],
+          "exampleEn": "He went right off the poems after that discussion.",
+          "exampleZh": "那次讨论后，他彻底不再喜欢那些诗了。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 18",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-come-home-to-somebody",
+      "revision": 2,
+      "originalInput": "came home to me",
+      "term": "come home to somebody",
+      "normalized": "come home to somebody",
+      "standardForm": "come home to somebody",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "came home to me",
+        "suggestion": "come home to somebody",
+        "chosen": "come home to somebody",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "使某人真正意识到；使某人深切感受到。",
+      "definition": "To become fully understood or strongly felt by someone.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "使某人真正意识到；使某人深切感受到。",
+          "definitionEn": "To become fully understood or strongly felt by someone.",
+          "usageNotes": "常见结构：something comes home to somebody。第二章语境：It came home to me that… 表示“我这才真切意识到……”。",
+          "register": "neutral",
+          "collocations": [
+            "it came home to me that"
+          ],
+          "examples": [
+            {
+              "en": "The importance of the moment finally came home to her.",
+              "zh": "她终于真切意识到这一刻的重要性。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "it came home to me that"
+      ],
+      "synonyms": [],
+      "exampleEn": "The importance of the moment finally came home to her.",
+      "exampleZh": "她终于真切意识到这一刻的重要性。",
+      "usage": "常见结构：something comes home to somebody。第二章语境：It came home to me that… 表示“我这才真切意识到……”。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "came home to somebody"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 19",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 19",
+          "originalInput": "came home to me",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "使某人真正意识到；使某人深切感受到。",
+          "definition": "To become fully understood or strongly felt by someone.",
+          "usage": "常见结构：something comes home to somebody。第二章语境：It came home to me that… 表示“我这才真切意识到……”。",
+          "register": "neutral",
+          "collocations": [
+            "it came home to me that"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "came home to somebody"
+          ],
+          "exampleEn": "The importance of the moment finally came home to her.",
+          "exampleZh": "她终于真切意识到这一刻的重要性。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 19",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-get-stick-from-somebody",
+      "revision": 2,
+      "originalInput": "get stick from the others",
+      "term": "get stick from somebody",
+      "normalized": "get stick from somebody",
+      "standardForm": "get stick from somebody",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "get stick from the others",
+        "suggestion": "get stick from somebody",
+        "chosen": "get stick from somebody",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "受到某人的批评；遭到某人的取笑或挖苦。",
+      "definition": "To receive criticism or teasing from someone.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "受到某人的批评；遭到某人的取笑或挖苦。",
+          "definitionEn": "To receive criticism or teasing from someone.",
+          "usageNotes": "英式非正式表达；stick 在这里是不可数名词。第二章语境：主要指遭到其他同学取笑、挖苦。",
+          "register": "British informal",
+          "collocations": [
+            "get stick",
+            "take stick",
+            "get stick from somebody"
+          ],
+          "examples": [
+            {
+              "en": "He expected to get stick from the others.",
+              "zh": "他料到自己会遭到其他人的取笑。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "get stick",
+        "take stick",
+        "get stick from somebody"
+      ],
+      "synonyms": [],
+      "exampleEn": "He expected to get stick from the others.",
+      "exampleZh": "他料到自己会遭到其他人的取笑。",
+      "usage": "英式非正式表达；stick 在这里是不可数名词。第二章语境：主要指遭到其他同学取笑、挖苦。",
+      "register": "British informal",
+      "confusedWith": [],
+      "forms": [
+        "got stick from somebody",
+        "getting stick from somebody"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语",
+        "英式英语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "get stick from the others",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "受到某人的批评；遭到某人的取笑或挖苦。",
+          "definition": "To receive criticism or teasing from someone.",
+          "usage": "英式非正式表达；stick 在这里是不可数名词。第二章语境：主要指遭到其他同学取笑、挖苦。",
+          "register": "British informal",
+          "collocations": [
+            "get stick",
+            "take stick",
+            "get stick from somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "got stick from somebody",
+            "getting stick from somebody"
+          ],
+          "exampleEn": "He expected to get stick from the others.",
+          "exampleZh": "他料到自己会遭到其他人的取笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-couldn-t-care-less",
+      "revision": 1,
+      "originalInput": "couldn't care less",
+      "term": "couldn't care less",
+      "normalized": "couldn't care less",
+      "standardForm": "couldn't care less",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "couldn't care less",
+        "suggestion": "",
+        "chosen": "couldn't care less",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "完全不在乎；毫不关心。",
+      "definition": "To not care at all.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "完全不在乎；毫不关心。",
+          "definitionEn": "To not care at all.",
+          "usageNotes": "字面表示“在乎的程度已经不能更低”。第二章语境：强调完全不把某事放在心上。",
+          "register": "informal",
+          "collocations": [
+            "couldn't care less about something"
+          ],
+          "examples": [
+            {
+              "en": "She couldn't care less about the teasing.",
+              "zh": "她完全不在乎那些取笑。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "couldn't care less about something"
+      ],
+      "synonyms": [],
+      "exampleEn": "She couldn't care less about the teasing.",
+      "exampleZh": "她完全不在乎那些取笑。",
+      "usage": "字面表示“在乎的程度已经不能更低”。第二章语境：强调完全不把某事放在心上。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 20",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 20",
+          "originalInput": "couldn't care less",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "完全不在乎；毫不关心。",
+          "definition": "To not care at all.",
+          "usage": "字面表示“在乎的程度已经不能更低”。第二章语境：强调完全不把某事放在心上。",
+          "register": "informal",
+          "collocations": [
+            "couldn't care less about something"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She couldn't care less about the teasing.",
+          "exampleZh": "她完全不在乎那些取笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 20",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-put-your-finger-on-something",
+      "revision": 2,
+      "originalInput": "harder to put your finger on",
+      "term": "put your finger on something",
+      "normalized": "put your finger on something",
+      "standardForm": "put your finger on something",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "harder to put your finger on",
+        "suggestion": "put your finger on something",
+        "chosen": "put your finger on something",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "准确指出某件事；把原因或问题说清楚。",
+      "definition": "To identify or explain exactly what something is.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "准确指出某件事；把原因或问题说清楚。",
+          "definitionEn": "To identify or explain exactly what something is.",
+          "usageNotes": "第二章语境：表示某种变化或原因很难准确指出、很难说清。",
+          "register": "informal",
+          "collocations": [
+            "put your finger on the problem",
+            "hard to put your finger on"
+          ],
+          "examples": [
+            {
+              "en": "The difference was hard to put your finger on.",
+              "zh": "这种差别很难准确说清楚。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "put your finger on the problem",
+        "hard to put your finger on"
+      ],
+      "synonyms": [],
+      "exampleEn": "The difference was hard to put your finger on.",
+      "exampleZh": "这种差别很难准确说清楚。",
+      "usage": "第二章语境：表示某种变化或原因很难准确指出、很难说清。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 22",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 22",
+          "originalInput": "harder to put your finger on",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "准确指出某件事；把原因或问题说清楚。",
+          "definition": "To identify or explain exactly what something is.",
+          "usage": "第二章语境：表示某种变化或原因很难准确指出、很难说清。",
+          "register": "informal",
+          "collocations": [
+            "put your finger on the problem",
+            "hard to put your finger on"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The difference was hard to put your finger on.",
+          "exampleZh": "这种差别很难准确说清楚。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 22",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-can-t-be-bothered",
+      "revision": 2,
+      "originalInput": "I can't be bothered",
+      "term": "can't be bothered",
+      "normalized": "can't be bothered",
+      "standardForm": "can't be bothered",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "I can't be bothered",
+        "suggestion": "can't be bothered",
+        "chosen": "can't be bothered",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "懒得费心；不想再花精力。",
+      "definition": "To be unwilling to make the effort to do something.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "懒得费心；不想再花精力。",
+          "definitionEn": "To be unwilling to make the effort to do something.",
+          "usageNotes": "常用结构：can't be bothered to do something。第二章语境：带有不耐烦、不愿再费力的语气。",
+          "register": "informal",
+          "collocations": [
+            "can't be bothered to do something"
+          ],
+          "examples": [
+            {
+              "en": "I can't be bothered to argue about it again.",
+              "zh": "我懒得再为这件事争论。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "can't be bothered to do something"
+      ],
+      "synonyms": [],
+      "exampleEn": "I can't be bothered to argue about it again.",
+      "exampleZh": "我懒得再为这件事争论。",
+      "usage": "常用结构：can't be bothered to do something。第二章语境：带有不耐烦、不愿再费力的语气。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "couldn't be bothered"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语",
+        "英式英语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "I can't be bothered",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "懒得费心；不想再花精力。",
+          "definition": "To be unwilling to make the effort to do something.",
+          "usage": "常用结构：can't be bothered to do something。第二章语境：带有不耐烦、不愿再费力的语气。",
+          "register": "informal",
+          "collocations": [
+            "can't be bothered to do something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "couldn't be bothered"
+          ],
+          "exampleEn": "I can't be bothered to argue about it again.",
+          "exampleZh": "我懒得再为这件事争论。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-take-somebody-into-your-confidence",
+      "revision": 2,
+      "originalInput": "be taken into his confidence",
+      "term": "take somebody into your confidence",
+      "normalized": "take somebody into your confidence",
+      "standardForm": "take somebody into your confidence",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "be taken into his confidence",
+        "suggestion": "take somebody into your confidence",
+        "chosen": "take somebody into your confidence",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "信任某人；向某人透露私事或秘密。",
+      "definition": "To trust someone enough to share private information with them.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "信任某人；向某人透露私事或秘密。",
+          "definitionEn": "To trust someone enough to share private information with them.",
+          "usageNotes": "confidence 在这里与信任和保密有关。第二章语境：原文使用被动形式 be taken into his confidence。",
+          "register": "formal",
+          "collocations": [
+            "take somebody into your confidence"
+          ],
+          "examples": [
+            {
+              "en": "She trusted him enough to take him into her confidence.",
+              "zh": "她非常信任他，愿意向他透露私事。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "take somebody into your confidence"
+      ],
+      "synonyms": [],
+      "exampleEn": "She trusted him enough to take him into her confidence.",
+      "exampleZh": "她非常信任他，愿意向他透露私事。",
+      "usage": "confidence 在这里与信任和保密有关。第二章语境：原文使用被动形式 be taken into his confidence。",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [
+        "took somebody into your confidence",
+        "be taken into somebody's confidence"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "be taken into his confidence",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "信任某人；向某人透露私事或秘密。",
+          "definition": "To trust someone enough to share private information with them.",
+          "usage": "confidence 在这里与信任和保密有关。第二章语境：原文使用被动形式 be taken into his confidence。",
+          "register": "formal",
+          "collocations": [
+            "take somebody into your confidence"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "took somebody into your confidence",
+            "be taken into somebody's confidence"
+          ],
+          "exampleEn": "She trusted him enough to take him into her confidence.",
+          "exampleZh": "她非常信任他，愿意向他透露私事。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-pull-somebody-s-leg",
+      "revision": 2,
+      "originalInput": "wasn't trying to pull your leg",
+      "term": "pull somebody's leg",
+      "normalized": "pull somebody's leg",
+      "standardForm": "pull somebody's leg",
+      "entryType": "idiom",
+      "correction": {
+        "status": "accepted",
+        "original": "wasn't trying to pull your leg",
+        "suggestion": "pull somebody's leg",
+        "chosen": "pull somebody's leg",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "逗某人；开某人的玩笑。",
+      "definition": "To tease someone by making them believe something untrue as a joke.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "逗某人；开某人的玩笑。",
+          "definitionEn": "To tease someone by making them believe something untrue as a joke.",
+          "usageNotes": "第二章语境：I wasn't trying to pull your leg. 表示“我不是在逗你，也不是故意骗你玩”。",
+          "register": "informal",
+          "collocations": [
+            "pull somebody's leg"
+          ],
+          "examples": [
+            {
+              "en": "I was only pulling your leg; the story wasn't true.",
+              "zh": "我只是在逗你；那个故事不是真的。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "pull somebody's leg"
+      ],
+      "synonyms": [],
+      "exampleEn": "I was only pulling your leg; the story wasn't true.",
+      "exampleZh": "我只是在逗你；那个故事不是真的。",
+      "usage": "第二章语境：I wasn't trying to pull your leg. 表示“我不是在逗你，也不是故意骗你玩”。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "pulled somebody's leg",
+        "pulling somebody's leg"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "习语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 24",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 24",
+          "originalInput": "wasn't trying to pull your leg",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "逗某人；开某人的玩笑。",
+          "definition": "To tease someone by making them believe something untrue as a joke.",
+          "usage": "第二章语境：I wasn't trying to pull your leg. 表示“我不是在逗你，也不是故意骗你玩”。",
+          "register": "informal",
+          "collocations": [
+            "pull somebody's leg"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "pulled somebody's leg",
+            "pulling somebody's leg"
+          ],
+          "exampleEn": "I was only pulling your leg; the story wasn't true.",
+          "exampleZh": "我只是在逗你；那个故事不是真的。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 24",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-entertain-the-possibility-that",
+      "revision": 2,
+      "originalInput": "entertain the possibility that…",
+      "term": "entertain the possibility that",
+      "normalized": "entertain the possibility that",
+      "standardForm": "entertain the possibility that",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "entertain the possibility that…",
+        "suggestion": "entertain the possibility that",
+        "chosen": "entertain the possibility that",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "认真考虑……这种可能性；把……作为一种可能性来考虑。",
+      "definition": "To consider that something might be true or might happen.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "认真考虑……这种可能性；把……作为一种可能性来考虑。",
+          "definitionEn": "To consider that something might be true or might happen.",
+          "usageNotes": "这里 entertain 表示“考虑”，不是“娱乐”。第二章语境：表示开始把某种解释当作可能情况来考虑。",
+          "register": "formal",
+          "collocations": [
+            "entertain the possibility that"
+          ],
+          "examples": [
+            {
+              "en": "She began to entertain the possibility that he was right.",
+              "zh": "她开始认真考虑他也许是对的这种可能性。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "entertain the possibility that"
+      ],
+      "synonyms": [],
+      "exampleEn": "She began to entertain the possibility that he was right.",
+      "exampleZh": "她开始认真考虑他也许是对的这种可能性。",
+      "usage": "这里 entertain 表示“考虑”，不是“娱乐”。第二章语境：表示开始把某种解释当作可能情况来考虑。",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "动词短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 24",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 24",
+          "originalInput": "entertain the possibility that…",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "认真考虑……这种可能性；把……作为一种可能性来考虑。",
+          "definition": "To consider that something might be true or might happen.",
+          "usage": "这里 entertain 表示“考虑”，不是“娱乐”。第二章语境：表示开始把某种解释当作可能情况来考虑。",
+          "register": "formal",
+          "collocations": [
+            "entertain the possibility that"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She began to entertain the possibility that he was right.",
+          "exampleZh": "她开始认真考虑他也许是对的这种可能性。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 24",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T17:14:57.604Z"
+    },
+    {
+      "id": "public-nlmg-c2-feel-like-doing-something",
+      "revision": 1,
+      "originalInput": "didn't feel like it",
+      "term": "feel like doing something",
+      "normalized": "feel like doing something",
+      "standardForm": "feel like doing something",
+      "entryType": "phrase",
+      "correction": {
+        "status": "accepted",
+        "original": "didn't feel like it",
+        "suggestion": "feel like doing something",
+        "chosen": "feel like doing something",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "verb phrase",
+      "meaning": "想做某事；有心情做某事。",
+      "definition": "To want to do something or be in the mood for it.",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "想做某事；有心情做某事。",
+          "definitionEn": "To want to do something or be in the mood for it.",
+          "usageNotes": "注意 feel like 后接 doing。第二章语境：didn't feel like it 中的 it 回指 be creative，即进行绘画、写诗等艺术创作，而不是泛指“有创意”。",
+          "register": "informal",
+          "collocations": [
+            "feel like doing something"
+          ],
+          "examples": [
+            {
+              "en": "She didn't feel like drawing or writing that day.",
+              "zh": "那天她不想画画或写作。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "feel like doing something"
+      ],
+      "synonyms": [],
+      "exampleEn": "She didn't feel like drawing or writing that day.",
+      "exampleZh": "那天她不想画画或写作。",
+      "usage": "注意 feel like 后接 doing。第二章语境：didn't feel like it 中的 it 回指 be creative，即进行绘画、写诗等艺术创作，而不是泛指“有创意”。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "felt like doing something",
+        "didn't feel like it"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "动词短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "didn't feel like it",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "想做某事；有心情做某事。",
+          "definition": "To want to do something or be in the mood for it.",
+          "usage": "注意 feel like 后接 doing。第二章语境：didn't feel like it 中的 it 回指 be creative，即进行绘画、写诗等艺术创作，而不是泛指“有创意”。",
+          "register": "informal",
+          "collocations": [
+            "feel like doing something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "felt like doing something",
+            "didn't feel like it"
+          ],
+          "exampleEn": "She didn't feel like drawing or writing that day.",
+          "exampleZh": "那天她不想画画或写作。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-perfectly-all-right",
+      "revision": 1,
+      "originalInput": "perfectly all right",
+      "term": "perfectly all right",
+      "normalized": "perfectly all right",
+      "standardForm": "perfectly all right",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "perfectly all right",
+        "suggestion": "",
+        "chosen": "perfectly all right",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "",
+      "partOfSpeech": "expression",
+      "meaning": "完全可以；完全没问题。",
+      "definition": "Completely acceptable or satisfactory.",
+      "senses": [
+        {
+          "partOfSpeech": "expression",
+          "meaningZh": "完全可以；完全没问题。",
+          "definitionEn": "Completely acceptable or satisfactory.",
+          "usageNotes": "perfectly 在这里加强语气，表示“完全”。第二章语境：表示不想进行创作也是完全可以接受的。注意写作 all right，不改成 alright。",
+          "register": "neutral",
+          "collocations": [
+            "perfectly all right"
+          ],
+          "examples": [
+            {
+              "en": "It is perfectly all right to take a break.",
+              "zh": "休息一下完全没问题。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "perfectly all right"
+      ],
+      "synonyms": [],
+      "exampleEn": "It is perfectly all right to take a break.",
+      "exampleZh": "休息一下完全没问题。",
+      "usage": "perfectly 在这里加强语气，表示“完全”。第二章语境：表示不想进行创作也是完全可以接受的。注意写作 all right，不改成 alright。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "固定表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "perfectly all right",
+          "entryType": "phrase",
+          "partOfSpeech": "expression",
+          "meaning": "完全可以；完全没问题。",
+          "definition": "Completely acceptable or satisfactory.",
+          "usage": "perfectly 在这里加强语气，表示“完全”。第二章语境：表示不想进行创作也是完全可以接受的。注意写作 all right，不改成 alright。",
+          "register": "neutral",
+          "collocations": [
+            "perfectly all right"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "It is perfectly all right to take a break.",
+          "exampleZh": "休息一下完全没问题。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
+    },
+    {
+      "id": "public-nlmg-c2-there-s-nothing-wrong-with-it",
+      "revision": 1,
+      "originalInput": "Nothing wrong with it.",
+      "term": "There's nothing wrong with it.",
+      "normalized": "there's nothing wrong with it.",
+      "standardForm": "There's nothing wrong with it.",
+      "entryType": "sentence",
+      "correction": {
+        "status": "accepted",
+        "original": "Nothing wrong with it.",
+        "suggestion": "There's nothing wrong with it.",
+        "chosen": "There's nothing wrong with it.",
+        "confidence": 1,
+        "source": "manual-lemma-normalization"
+      },
+      "phonetic": "",
+      "partOfSpeech": "sentence pattern",
+      "meaning": "这样并没有什么不对；这样是可以接受的。",
+      "definition": "It is acceptable; there is no fault or problem with it.",
+      "senses": [
+        {
+          "partOfSpeech": "sentence pattern",
+          "meaningZh": "这样并没有什么不对；这样是可以接受的。",
+          "definitionEn": "It is acceptable; there is no fault or problem with it.",
+          "usageNotes": "第二章语境：原文省略为 Nothing wrong with it.，完整结构是 There's nothing wrong with it.；it 回指不想进行创作这件事。",
+          "register": "neutral",
+          "collocations": [
+            "there's nothing wrong with something"
+          ],
+          "examples": [
+            {
+              "en": "There's nothing wrong with changing your mind.",
+              "zh": "改变主意并没有什么不对。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "there's nothing wrong with something"
+      ],
+      "synonyms": [],
+      "exampleEn": "There's nothing wrong with changing your mind.",
+      "exampleZh": "改变主意并没有什么不对。",
+      "usage": "第二章语境：原文省略为 Nothing wrong with it.，完整结构是 There's nothing wrong with it.；it 回指不想进行创作这件事。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "Nothing wrong with it."
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-2",
+        "文学阅读",
+        "句型"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 2",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 23",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-2",
+          "page": "p. 23",
+          "originalInput": "Nothing wrong with it.",
+          "entryType": "sentence",
+          "partOfSpeech": "sentence pattern",
+          "meaning": "这样并没有什么不对；这样是可以接受的。",
+          "definition": "It is acceptable; there is no fault or problem with it.",
+          "usage": "第二章语境：原文省略为 Nothing wrong with it.，完整结构是 There's nothing wrong with it.；it 回指不想进行创作这件事。",
+          "register": "neutral",
+          "collocations": [
+            "there's nothing wrong with something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "Nothing wrong with it."
+          ],
+          "exampleEn": "There's nothing wrong with changing your mind.",
+          "exampleZh": "改变主意并没有什么不对。",
+          "sourceTitle": "Never Let Me Go — Chapter 2",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 23",
+          "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-23T16:51:55.526Z",
+      "updatedAt": "2026-09-23T16:51:55.526Z"
     }
   ]
 }

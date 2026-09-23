@@ -1,3 +1,5 @@
+import { readingContextForMembership } from "./wordbook-schema.js";
+
 export const COLLECTION_TAG_PREFIX = "collection:";
 export const MAIN_COLLECTION_ID = "main";
 
@@ -51,6 +53,7 @@ export function buildCollectionCatalog(entries) {
       mainCount += 1;
       continue;
     }
+    const countedCollections = new Set();
     for (const membership of memberships) {
       if (!catalog.has(membership.collectionId)) {
         catalog.set(membership.collectionId, {
@@ -61,14 +64,18 @@ export function buildCollectionCatalog(entries) {
         });
       }
       const collection = catalog.get(membership.collectionId);
-      collection.count += 1;
+      if (!countedCollections.has(membership.collectionId)) {
+        collection.count += 1;
+        countedCollections.add(membership.collectionId);
+      }
       if (!collection.chapters.has(membership.chapterId)) {
+        const readingContext = readingContextForMembership(entry, membership.tag);
         collection.chapters.set(membership.chapterId, {
           id: membership.chapterId,
           title: `Chapter ${membership.chapterNumber}`,
           number: membership.chapterNumber,
           count: 0,
-          sourceTitle: String(entry.sourceTitle || "").trim()
+          sourceTitle: String(readingContext?.sourceTitle || entry.sourceTitle || "").trim()
         });
       }
       collection.chapters.get(membership.chapterId).count += 1;
@@ -96,13 +103,19 @@ export function filterEntriesByCollection(entries, collectionId = "all", chapter
   )));
 }
 
-export function collectionContextForEntry(entry) {
-  const membership = collectionMemberships(entry)[0];
+export function collectionContextForEntry(entry, collectionId = "", chapterId = "") {
+  const memberships = collectionMemberships(entry);
+  const membership = memberships.find((candidate) => (
+    (!collectionId || collectionId === "all" || candidate.collectionId === collectionId)
+    && (!chapterId || chapterId === "all" || candidate.chapterId === chapterId)
+  )) || memberships[0];
   if (!membership) return null;
+  const readingContext = readingContextForMembership(entry, membership.tag);
   return {
     ...membership,
     collectionTitle: String(entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
     chapterTitle: `Chapter ${membership.chapterNumber}`,
-    sourceTitle: String(entry.sourceTitle || "").trim()
+    sourceTitle: String(readingContext?.sourceTitle || entry.sourceTitle || "").trim(),
+    page: String(readingContext?.page || "").trim()
   };
 }

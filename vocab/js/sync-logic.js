@@ -19,7 +19,7 @@ export function mergeAiCandidate(baseline, current, candidate, { fillMissingOnly
   for (const [key, candidateValue] of Object.entries(candidate)) {
     // AI may suggest content, but it never owns the identity or concurrency
     // metadata of either a new local draft or an existing GitHub entry.
-    if (["id", "revision", "normalized", "originalInput", "createdAt", "updatedAt"].includes(key)) continue;
+    if (["id", "revision", "normalized", "originalInput", "readingContexts", "createdAt", "updatedAt"].includes(key)) continue;
     const unchanged = equal(current[key], baseline[key]);
     // Older local drafts can represent one empty field as undefined while a
     // fresh schema-normalized save represents it as "" or []. Treat those as

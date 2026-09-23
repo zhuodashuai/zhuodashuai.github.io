@@ -124,10 +124,10 @@ test("v3 browser schema keeps jab at whole and rejects unknown fields", () => {
   assert.throws(() => validatePublicEntry({ ...value, html: "<img onerror=alert(1)>" }), /未知字段/);
 });
 
-test("v3 browser schema defaults old entries to an empty synonym list without weakening exact keys", () => {
+test("v3 browser schema defaults additive synonym and reading-context fields without weakening exact keys", () => {
   const current = entry("alleviate", { synonyms: ["ease", "lessen", "ease"] });
   assert.deepEqual(current.synonyms, ["ease", "lessen"]);
-  const { synonyms: _omitted, ...oldV3Entry } = current;
+  const { synonyms: _omitted, readingContexts: _contextsOmitted, ...oldV3Entry } = current;
   const migrated = parsePublicSnapshot({
     schemaVersion: 3,
     exportedAt: current.updatedAt,
@@ -136,6 +136,7 @@ test("v3 browser schema defaults old entries to an empty synonym list without we
     entries: [oldV3Entry]
   });
   assert.deepEqual(migrated.entries[0].synonyms, []);
+  assert.deepEqual(migrated.entries[0].readingContexts, []);
   assert.throws(() => validatePublicEntry({ ...oldV3Entry, unexpected: [] }), /未知字段/);
 });
 
@@ -453,11 +454,13 @@ test("AI fills schema-equivalent blank legacy fields without overwriting edits m
 });
 
 test("AI reorganization cannot erase collection membership tags", () => {
-  const baseline = { tags: ["collection:never-let-me-go:chapter-1", "文学阅读"], organizationMethod: "manual" };
+  const readingContexts = [{ membership: "collection:never-let-me-go:chapter-1", page: "p. 14" }];
+  const baseline = { tags: ["collection:never-let-me-go:chapter-1", "文学阅读"], readingContexts, organizationMethod: "manual" };
   const current = structuredClone(baseline);
-  const candidate = { tags: ["形容词"], organizationMethod: "ai-cloudflare" };
+  const candidate = { tags: ["形容词"], readingContexts: [], organizationMethod: "ai-cloudflare" };
   const result = mergeAiCandidate(baseline, current, candidate);
   assert.deepEqual(result.merged.tags, ["collection:never-let-me-go:chapter-1", "形容词"]);
+  assert.deepEqual(result.merged.readingContexts, readingContexts);
 });
 
 test("automatic AI completion fills blanks without replacing earlier manual content", () => {

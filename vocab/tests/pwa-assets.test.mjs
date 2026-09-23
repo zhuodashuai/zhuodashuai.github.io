@@ -61,22 +61,22 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v54/);
+  assert.match(serviceWorker, /zhuo-wordbook-v55/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=54/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=54/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=54/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=55/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=55/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=55/);
   assert.match(serviceWorker, /\.\/js\/collections\.js/);
   assert.match(serviceWorker, /\.\/js\/study\.js/);
   assert.match(serviceWorker, /\.\/js\/review\.js/);
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=54"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=54"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=54"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=54"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=55"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=55"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=55"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=55"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);

@@ -1,7 +1,7 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError } from "./owner-storage.js";
 import { createEntryDetailController } from "./entry-detail.js";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
-import { formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
+import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
@@ -140,7 +140,7 @@ function renderCollectionNavigation(entries) {
 
 function renderLearningPoints(element, entry) {
   const meaning = formatMeaningForDisplay(entry) || "释义待完善";
-  const context = collectionContextForEntry(entry);
+  const context = collectionContextForEntry(entry, state.collectionId, state.chapterId);
   if (!context) {
     element.classList.remove("learning-points");
     setMultilineText(element, meaning);
@@ -237,7 +237,8 @@ async function saveReviewRating(entryId, rating) {
 function render() {
   const entries = state.snapshot?.entries || [];
   renderCollectionNavigation(entries);
-  const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId);
+  const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId)
+    .map((entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId));
   state.studyScopeEntries = collectionEntries;
   const query = normalizePublicSearchQuery(state.query);
   const queryMatches = rankExactEntryMatches(
@@ -250,7 +251,7 @@ function render() {
     article.className = "word-card";
     const kicker = document.createElement("div");
     kicker.className = "card-kicker";
-    const context = collectionContextForEntry(entry);
+    const context = collectionContextForEntry(entry, state.collectionId, state.chapterId);
     kicker.append(tag(TYPE_LABELS[entry.entryType] || entry.entryType), tag(entry.partOfSpeech || ""));
     if (context) kicker.append(tag(context.chapterTitle, "chapter-chip"));
     const title = document.createElement("h3");

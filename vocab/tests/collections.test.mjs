@@ -9,6 +9,7 @@ import {
   splitChineseMeaningPoints,
   visibleEntryTags
 } from "../js/collections.js";
+import { contextualizeReadingEntry } from "../js/wordbook-schema.js";
 
 const entries = [
   { id: "main", term: "hip", tags: [], sourceTitle: "", sourceWork: "" },
@@ -61,8 +62,67 @@ test("reserved collection tags stay internal and survive AI tag replacement", ()
     chapterNumber: 1,
     collectionTitle: "Never Let Me Go",
     chapterTitle: "Chapter 1",
-    sourceTitle: "Never Let Me Go — Chapter 1"
+    sourceTitle: "Never Let Me Go — Chapter 1",
+    page: ""
   });
+});
+
+test("one canonical entry can expose different chapter contexts without duplicating its review identity", () => {
+  const shared = {
+    id: "shared-shrug",
+    term: "shrug",
+    originalInput: "shrug",
+    entryType: "word",
+    partOfSpeech: "verb",
+    meaning: "耸肩。",
+    definition: "To raise the shoulders.",
+    senses: [],
+    collocations: [],
+    exampleEn: "She shrugged.",
+    exampleZh: "她耸了耸肩。",
+    usage: "第一章语境。",
+    register: "neutral",
+    confusedWith: [],
+    forms: [],
+    tags: ["collection:never-let-me-go:chapter-1", "collection:never-let-me-go:chapter-2"],
+    sourceTitle: "Never Let Me Go — Chapter 1",
+    sourceWork: "Never Let Me Go",
+    sourceDate: "",
+    attributionNote: "Chapter 1",
+    readingContexts: [{
+      membership: "collection:never-let-me-go:chapter-2",
+      page: "p. 21",
+      originalInput: "shrug",
+      entryType: "word",
+      partOfSpeech: "verb",
+      meaning: "耸肩。",
+      definition: "To raise the shoulders to show uncertainty or helplessness.",
+      usage: "第二章语境：没有作出激烈回应。",
+      register: "neutral",
+      collocations: ["shrug quietly"],
+      confusedWith: [],
+      forms: ["shrugged"],
+      exampleEn: "He shrugged quietly.",
+      exampleZh: "他安静地耸了耸肩。",
+      sourceTitle: "Never Let Me Go — Chapter 2",
+      sourceWork: "Never Let Me Go",
+      sourceDate: "p. 21",
+      attributionNote: "Chapter 2"
+    }]
+  };
+  const catalog = buildCollectionCatalog([shared]);
+  assert.equal(catalog[1].count, 1);
+  assert.deepEqual(catalog[1].chapters.map(({ id, count }) => ({ id, count })), [
+    { id: "chapter-1", count: 1 },
+    { id: "chapter-2", count: 1 }
+  ]);
+  const chapterTwo = contextualizeReadingEntry(shared, "never-let-me-go", "chapter-2");
+  assert.equal(chapterTwo.id, shared.id);
+  assert.equal(chapterTwo.sourceTitle, "Never Let Me Go — Chapter 2");
+  assert.equal(chapterTwo.sourceDate, "p. 21");
+  assert.match(chapterTwo.usage, /第二章语境/u);
+  assert.deepEqual(chapterTwo.collocations, ["shrug quietly"]);
+  assert.equal(collectionContextForEntry(chapterTwo, "never-let-me-go", "chapter-2").page, "p. 21");
 });
 
 test("chapter meanings split each semicolon sense into a separate learning point", () => {

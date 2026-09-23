@@ -188,6 +188,9 @@ function prepareEntry(
   const lexical = prepareLexicalEntry(candidate, requireStructured, allowManualSynthesis);
   const entry = PublicEntrySchema.parse({
     ...lexical,
+    readingContexts: existing?.readingContexts?.length && !lexical.readingContexts.length
+      ? existing.readingContexts
+      : lexical.readingContexts,
     id: existing?.id || lexical.id,
     revision: existing ? existing.revision + 1 : 1,
     createdAt: existing?.createdAt || lexical.createdAt || now,

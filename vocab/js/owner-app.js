@@ -944,6 +944,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
       }
     }
     mergedEntry.tags = preserveCollectionTags(currentEntry.tags, mergedEntry.tags);
+    mergedEntry.readingContexts = structuredClone(currentEntry.readingContexts || []);
     if (!reviewRequired && aiEntry.senses.length) {
       mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
     } else if (reviewRequired) {
