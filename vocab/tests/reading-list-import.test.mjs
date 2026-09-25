@@ -9,6 +9,7 @@ import { importReadingList } from "../../tooling/scripts/import-reading-list.mjs
 const canonicalSnapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
 const chapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
 const chapterThreeUrl = new URL("../data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url);
+const chapterFourUrl = new URL("../data/reading-lists/never-let-me-go/chapter-4.json", import.meta.url);
 
 function firstTwoChapterEntries(snapshot) {
   return snapshot.entries.filter((entry) => entry.tags.some((tag) => /^collection:never-let-me-go:chapter-[12]$/u.test(tag)));
@@ -53,6 +54,140 @@ test("re-importing Never Let Me Go Chapter 3 preserves all 16 photo-reviewed ent
   assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 16);
   assert.ok(result.chapterEntries.every((entry) => entry.id.startsWith("public-nlmg-c3-")));
   assert.deepEqual(result.snapshot, before);
+});
+
+test("Never Let Me Go Chapter 4 adds exactly 11 entries, preserves existing entries, and is idempotent", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-chapter-four-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const membership = "collection:never-let-me-go:chapter-4";
+  try {
+    const before = JSON.parse(await readFile(canonicalSnapshotUrl, "utf8"));
+    const priorEntries = before.entries.filter((entry) => !entry.tags.includes(membership));
+    await writeFile(snapshotPath, JSON.stringify({ ...before, entries: priorEntries }), "utf8");
+    const result = await importReadingList({
+      sourcePath: fileURLToPath(chapterFourUrl),
+      snapshotPath,
+      timestamp: "2026-09-25T17:00:00.000Z"
+    });
+    assert.equal(result.changed, true);
+    assert.equal(result.snapshot.entries.length, priorEntries.length + 11);
+    assert.equal(result.chapterEntries.length, 11);
+    assert.equal(result.totalChapterEntries, 11);
+    assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 11);
+    assert.ok(result.chapterEntries.every((entry) => entry.id.startsWith("public-nlmg-c4-")));
+    assert.deepEqual(result.snapshot.entries.filter((entry) => !entry.tags.includes(membership)), priorEntries);
+    for (const item of result.source.items) {
+      const entry = result.chapterEntries.find((candidate) => candidate.term === item.term);
+      assert.equal(entry.phonetic, item.phonetic);
+      assert.equal(entry.originalInput, item.originalInput);
+      assert.equal(entry.sourceDate, `p. ${item.page}`);
+    }
+
+    const written = await readFile(snapshotPath, "utf8");
+    const repeated = await importReadingList({
+      sourcePath: fileURLToPath(chapterFourUrl),
+      snapshotPath,
+      timestamp: "2026-09-25T18:00:00.000Z"
+    });
+    assert.equal(repeated.changed, false);
+    assert.equal(await readFile(snapshotPath, "utf8"), written);
+
+    const canonical = await importReadingList({ sourcePath: fileURLToPath(chapterFourUrl), checkOnly: true });
+    assert.equal(canonical.changed, false);
+    assert.deepEqual(canonical.snapshot, before);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("optional source phonetic trims strings up to 300 characters and rejects invalid values before writing", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-phonetic-validation-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-4.json");
+  try {
+    const [snapshotRaw, source] = await Promise.all([
+      readFile(canonicalSnapshotUrl, "utf8"),
+      readFile(chapterFourUrl, "utf8").then(JSON.parse)
+    ]);
+    await writeFile(snapshotPath, snapshotRaw, "utf8");
+    for (const phonetic of ["  /lɑːk əˈbaʊt/  ", "", "ə".repeat(300)]) {
+      source.items[0].phonetic = phonetic;
+      await writeFile(sourcePath, JSON.stringify(source), "utf8");
+      const result = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+      assert.equal(result.chapterEntries.find((entry) => entry.term === source.items[0].term).phonetic, phonetic.trim());
+    }
+    for (const phonetic of [null, 0, false, {}, [], "ə".repeat(301)]) {
+      source.items[0].phonetic = phonetic;
+      await writeFile(sourcePath, JSON.stringify(source), "utf8");
+      await assert.rejects(importReadingList({ sourcePath, snapshotPath }), /phonetic/u);
+      assert.equal(await readFile(snapshotPath, "utf8"), snapshotRaw);
+    }
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("omitted source phonetic preserves an existing owner's value, defaults new entries to empty, and explicit updates are idempotent", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-phonetic-update-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-4.json");
+  try {
+    const [snapshot, source] = await Promise.all([
+      readFile(canonicalSnapshotUrl, "utf8").then(JSON.parse),
+      readFile(chapterFourUrl, "utf8").then(JSON.parse)
+    ]);
+    const existingItem = source.items[0];
+    const newItem = source.items[1];
+    const existingEntry = snapshot.entries.find((entry) => entry.term === existingItem.term);
+    existingEntry.phonetic = "/owner-edited/";
+    snapshot.entries = snapshot.entries.filter((entry) => entry.term !== newItem.term);
+    delete existingItem.phonetic;
+    delete newItem.phonetic;
+    await Promise.all([
+      writeFile(snapshotPath, JSON.stringify(snapshot), "utf8"),
+      writeFile(sourcePath, JSON.stringify(source), "utf8")
+    ]);
+    const imported = await importReadingList({ sourcePath, snapshotPath });
+    assert.equal(imported.chapterEntries.find((entry) => entry.term === existingItem.term).phonetic, "/owner-edited/");
+    assert.equal(imported.chapterEntries.find((entry) => entry.term === newItem.term).phonetic, "");
+
+    existingItem.phonetic = "/lɑːk əˈbaʊt/";
+    await writeFile(sourcePath, JSON.stringify(source), "utf8");
+    const updated = await importReadingList({ sourcePath, snapshotPath, timestamp: "2026-09-25T19:00:00.000Z" });
+    assert.equal(updated.changed, true);
+    const updatedEntry = updated.chapterEntries.find((entry) => entry.term === existingItem.term);
+    assert.equal(updatedEntry.id, existingEntry.id);
+    assert.equal(updatedEntry.phonetic, existingItem.phonetic);
+    assert.equal(updatedEntry.revision, existingEntry.revision + 1);
+    const repeated = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+    assert.equal(repeated.changed, false);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("a reused chapter headword keeps the original chapter owner's phonetic", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-shared-phonetic-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-2.json");
+  try {
+    const [snapshot, source] = await Promise.all([
+      readFile(canonicalSnapshotUrl, "utf8").then(JSON.parse),
+      readFile(chapterTwoUrl, "utf8").then(JSON.parse)
+    ]);
+    const sharedEntry = snapshot.entries.find((entry) => entry.term === "shrug");
+    sharedEntry.phonetic = "/owner-edited/";
+    source.items.find((item) => item.term === "shrug").phonetic = "/ʃrʌɡ/";
+    await Promise.all([
+      writeFile(snapshotPath, JSON.stringify(snapshot), "utf8"),
+      writeFile(sourcePath, JSON.stringify(source), "utf8")
+    ]);
+    const result = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+    assert.equal(result.changed, false);
+    assert.equal(result.chapterEntries.find((entry) => entry.term === "shrug").phonetic, "/owner-edited/");
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("source attributionNote is optional, trims valid text, and rejects invalid values before writing", async () => {

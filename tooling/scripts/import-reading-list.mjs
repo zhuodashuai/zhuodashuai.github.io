@@ -103,7 +103,7 @@ function entryFromItem(item, source, timestamp) {
     correction: exact
       ? { status: "exact", original: originalInput, suggestion: "", chosen: term, confidence: 1, source: "user-provided" }
       : { status: "accepted", original: originalInput, suggestion: term, chosen: term, confidence: 1, source: "manual-lemma-normalization" },
-    phonetic: "",
+    phonetic: item.phonetic === undefined ? "" : item.phonetic.trim(),
     partOfSpeech,
     meaning,
     definition,
@@ -173,6 +173,9 @@ function validateSource(source) {
   for (const [index, item] of source.items.entries()) {
     for (const field of ["term", "originalInput", "entryType", "partOfSpeech", "meaning", "definitionEn", "usage", "exampleEn", "exampleZh"]) {
       assert(typeof item[field] === "string" && item[field].trim(), `第 ${index + 1} 条缺少 ${field}。`);
+    }
+    if (item.phonetic !== undefined) {
+      assert(typeof item.phonetic === "string" && item.phonetic.length <= 300, `第 ${index + 1} 条 phonetic 必须为不超过 300 字符的文本。`);
     }
     assert(Array.isArray(item.forms) && Array.isArray(item.collocations) && Array.isArray(item.tags), `第 ${index + 1} 条列表字段不完整。`);
     assert(new RegExp(`第${chineseChapter(number)}章语境`, "u").test(item.usage), `第 ${index + 1} 条没有明确标出第${chineseChapter(number)}章语境。`);
@@ -251,6 +254,8 @@ export async function importReadingList({
           standardForm: desired.standardForm,
           entryType: desired.entryType,
           correction: desired.correction,
+          // An omitted transcription must not erase an owner's enrichment.
+          ...(item.phonetic !== undefined ? { phonetic: desired.phonetic } : {}),
           partOfSpeech: desired.partOfSpeech,
           meaning: desired.meaning,
           definition: desired.definition,
