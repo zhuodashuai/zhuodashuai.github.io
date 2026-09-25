@@ -10,6 +10,10 @@ const canonicalSnapshotUrl = new URL("../data/owner-wordbook.json", import.meta.
 const chapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
 const chapterThreeUrl = new URL("../data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url);
 const chapterFourUrl = new URL("../data/reading-lists/never-let-me-go/chapter-4.json", import.meta.url);
+const originalChapterFourTerms = new Set([
+  "lark about", "taboo", "tug away at something", "collide with", "strand",
+  "shoot daggers at someone", "reminisce", "unfathomable", "uncannily", "rhubarb", "foible"
+]);
 
 function firstTwoChapterEntries(snapshot) {
   return snapshot.entries.filter((entry) => entry.tags.some((tag) => /^collection:never-let-me-go:chapter-[12]$/u.test(tag)));
@@ -56,13 +60,15 @@ test("re-importing Never Let Me Go Chapter 3 preserves all 16 photo-reviewed ent
   assert.deepEqual(result.snapshot, before);
 });
 
-test("Never Let Me Go Chapter 4 adds exactly 11 entries, preserves existing entries, and is idempotent", async () => {
+test("Never Let Me Go Chapter 4 adds the 40 approved entries to its original 11 and is idempotent", async () => {
   const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-chapter-four-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
   const membership = "collection:never-let-me-go:chapter-4";
   try {
     const before = JSON.parse(await readFile(canonicalSnapshotUrl, "utf8"));
-    const priorEntries = before.entries.filter((entry) => !entry.tags.includes(membership));
+    const priorEntries = before.entries.filter((entry) => !entry.tags.includes(membership) || originalChapterFourTerms.has(entry.term));
+    const priorIds = new Set(priorEntries.map((entry) => entry.id));
+    assert.equal(priorEntries.filter((entry) => entry.tags.includes(membership)).length, 11);
     await writeFile(snapshotPath, JSON.stringify({ ...before, entries: priorEntries }), "utf8");
     const result = await importReadingList({
       sourcePath: fileURLToPath(chapterFourUrl),
@@ -70,15 +76,15 @@ test("Never Let Me Go Chapter 4 adds exactly 11 entries, preserves existing entr
       timestamp: "2026-09-25T17:00:00.000Z"
     });
     assert.equal(result.changed, true);
-    assert.equal(result.snapshot.entries.length, priorEntries.length + 11);
-    assert.equal(result.chapterEntries.length, 11);
-    assert.equal(result.totalChapterEntries, 11);
-    assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 11);
+    assert.equal(result.snapshot.entries.length, priorEntries.length + 40);
+    assert.equal(result.chapterEntries.length, 51);
+    assert.equal(result.totalChapterEntries, 51);
+    assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 51);
     assert.ok(result.chapterEntries.every((entry) => entry.id.startsWith("public-nlmg-c4-")));
-    assert.deepEqual(result.snapshot.entries.filter((entry) => !entry.tags.includes(membership)), priorEntries);
+    assert.deepEqual(result.snapshot.entries.filter((entry) => priorIds.has(entry.id)), priorEntries);
     for (const item of result.source.items) {
       const entry = result.chapterEntries.find((candidate) => candidate.term === item.term);
-      assert.equal(entry.phonetic, item.phonetic);
+      assert.equal(entry.phonetic, item.phonetic ?? "");
       assert.equal(entry.originalInput, item.originalInput);
       assert.equal(entry.sourceDate, `p. ${item.page}`);
     }
@@ -95,6 +101,44 @@ test("Never Let Me Go Chapter 4 adds exactly 11 entries, preserves existing entr
     const canonical = await importReadingList({ sourcePath: fileURLToPath(chapterFourUrl), checkOnly: true });
     assert.equal(canonical.changed, false);
     assert.deepEqual(canonical.snapshot, before);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("chapter pages preserve nonconsecutive pages and ranges and reject malformed values before writing", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-pages-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-4.json");
+  const membership = "collection:never-let-me-go:chapter-4";
+  try {
+    const [snapshotRaw, source] = await Promise.all([
+      readFile(canonicalSnapshotUrl, "utf8"),
+      readFile(chapterFourUrl, "utf8").then(JSON.parse)
+    ]);
+    await writeFile(snapshotPath, snapshotRaw, "utf8");
+    for (const page of ["40", "40, 45", "40,45", "41–42", "41-42", "40, 45–46"]) {
+      source.items[0].page = page;
+      await writeFile(sourcePath, JSON.stringify(source), "utf8");
+      const result = await importReadingList({ sourcePath, snapshotPath, checkOnly: true });
+      const entry = result.chapterEntries.find((candidate) => candidate.term === source.items[0].term);
+      const context = entry.readingContexts.find((candidate) => candidate.membership === membership);
+      assert.equal(entry.sourceDate, `p. ${page}`);
+      assert.equal(context.sourceDate, `p. ${page}`);
+      assert.equal(context.page, `p. ${page}`);
+    }
+
+    for (const page of [
+      "", null, false, {}, [], "40,", ",40", "40,,45", "40, ,45", "40;45", "40，45",
+      "40–", "–42", "40, <script>alert(1)</script>", "40, 45\" onload=\"alert(1)",
+      "0", "0–1", "42–41", "45, 40", "40, 40", "40–42, 42", "40–45, 43–46",
+      "1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23"
+    ]) {
+      source.items[0].page = page;
+      await writeFile(sourcePath, JSON.stringify(source), "utf8");
+      await assert.rejects(importReadingList({ sourcePath, snapshotPath }), /页码/u);
+      assert.equal(await readFile(snapshotPath, "utf8"), snapshotRaw);
+    }
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

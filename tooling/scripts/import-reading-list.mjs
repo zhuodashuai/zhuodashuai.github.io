@@ -42,6 +42,19 @@ function chineseChapter(number) {
   return String(number);
 }
 
+function validPageReference(value) {
+  if (typeof value !== "string" && typeof value !== "number") return false;
+  const page = String(value);
+  if (page.length > 37 || !/^\d+(?:[-–]\d+)?(?:, *\d+(?:[-–]\d+)?)*$/u.test(page)) return false;
+  let previousEnd = 0;
+  for (const group of page.split(/, */u)) {
+    const [start, end = start] = group.split(/[-–]/u).map(Number);
+    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start <= previousEnd || end < start) return false;
+    previousEnd = end;
+  }
+  return true;
+}
+
 function stableId(source, term) {
   const collection = source.collection.id === "never-let-me-go" ? "nlmg" : slug(source.collection.id);
   return `public-${collection}-c${chapterNumber(source)}-${slug(term)}`;
@@ -179,7 +192,7 @@ function validateSource(source) {
     }
     assert(Array.isArray(item.forms) && Array.isArray(item.collocations) && Array.isArray(item.tags), `第 ${index + 1} 条列表字段不完整。`);
     assert(new RegExp(`第${chineseChapter(number)}章语境`, "u").test(item.usage), `第 ${index + 1} 条没有明确标出第${chineseChapter(number)}章语境。`);
-    if (item.page !== undefined) assert(/^\d+(?:[-–]\d+)?$/u.test(String(item.page)), `第 ${index + 1} 条页码格式不正确。`);
+    if (item.page !== undefined) assert(validPageReference(item.page), `第 ${index + 1} 条页码格式不正确。`);
   }
 }
 
