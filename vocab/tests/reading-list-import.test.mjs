@@ -10,6 +10,10 @@ const canonicalSnapshotUrl = new URL("../data/owner-wordbook.json", import.meta.
 const chapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
 const chapterThreeUrl = new URL("../data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url);
 const chapterFourUrl = new URL("../data/reading-lists/never-let-me-go/chapter-4.json", import.meta.url);
+const originalChapterThreeTerms = new Set([
+  "eavesdrop", "raggy", "maroon", "brisk", "crouch down", "inkling", "indulgently", "chilly look",
+  "snooty", "billiards", "loiter", "rummage", "saunter out", "stiff", "halt", "shriek"
+]);
 const originalChapterFourTerms = new Set([
   "lark about", "taboo", "tug away at something", "collide with", "strand",
   "shoot daggers at someone", "reminisce", "unfathomable", "uncannily", "rhubarb", "foible"
@@ -45,7 +49,7 @@ test("re-importing Never Let Me Go Chapter 2 is idempotent and remains 38/38", a
   assert.ok(shared.every((entry) => entry.readingContexts.some((context) => context.membership === "collection:never-let-me-go:chapter-2")));
 });
 
-test("re-importing Never Let Me Go Chapter 3 preserves all 16 photo-reviewed entries and the snapshot", async () => {
+test("re-importing Never Let Me Go Chapter 3 preserves all 28 photo-reviewed entries and the snapshot", async () => {
   const before = JSON.parse(await readFile(canonicalSnapshotUrl, "utf8"));
   const result = await importReadingList({
     sourcePath: fileURLToPath(chapterThreeUrl),
@@ -53,11 +57,51 @@ test("re-importing Never Let Me Go Chapter 3 preserves all 16 photo-reviewed ent
     checkOnly: true
   });
   assert.equal(result.changed, false);
-  assert.equal(result.chapterEntries.length, 16);
-  assert.equal(result.totalChapterEntries, 16);
-  assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 16);
+  assert.equal(result.chapterEntries.length, 28);
+  assert.equal(result.totalChapterEntries, 28);
+  assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 28);
   assert.ok(result.chapterEntries.every((entry) => entry.id.startsWith("public-nlmg-c3-")));
   assert.deepEqual(result.snapshot, before);
+});
+
+test("Never Let Me Go Chapter 3 adds 12 approved entries while preserving its original 16 and other chapters", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-chapter-three-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const membership = "collection:never-let-me-go:chapter-3";
+  try {
+    const before = JSON.parse(await readFile(canonicalSnapshotUrl, "utf8"));
+    const priorEntries = before.entries.filter((entry) => !entry.tags.includes(membership) || originalChapterThreeTerms.has(entry.term));
+    const priorIds = new Set(priorEntries.map((entry) => entry.id));
+    assert.equal(priorEntries.filter((entry) => entry.tags.includes(membership)).length, 16);
+    await writeFile(snapshotPath, JSON.stringify({ ...before, entries: priorEntries }), "utf8");
+    const result = await importReadingList({
+      sourcePath: fileURLToPath(chapterThreeUrl),
+      snapshotPath,
+      timestamp: "2026-09-25T20:00:00.000Z"
+    });
+    assert.equal(result.changed, true);
+    assert.equal(result.snapshot.entries.length, priorEntries.length + 12);
+    assert.equal(result.chapterEntries.length, 28);
+    assert.equal(result.totalChapterEntries, 28);
+    assert.equal(new Set(result.chapterEntries.map((entry) => entry.normalized)).size, 28);
+    assert.deepEqual(result.snapshot.entries.filter((entry) => priorIds.has(entry.id)), priorEntries);
+    for (const item of result.source.items) {
+      const entry = result.chapterEntries.find((candidate) => candidate.term === item.term);
+      assert.equal(entry.originalInput, item.originalInput);
+      assert.equal(entry.sourceDate, `p. ${item.page}`);
+    }
+
+    const written = await readFile(snapshotPath, "utf8");
+    const repeated = await importReadingList({
+      sourcePath: fileURLToPath(chapterThreeUrl),
+      snapshotPath,
+      timestamp: "2026-09-25T21:00:00.000Z"
+    });
+    assert.equal(repeated.changed, false);
+    assert.equal(await readFile(snapshotPath, "utf8"), written);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test("Never Let Me Go Chapter 4 adds the 40 approved entries to its original 11 and is idempotent", async () => {
