@@ -482,19 +482,20 @@ test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习�
   await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("raggy");
 });
 
-test("Never Let Me Go Chapter 4 展示 11 条、英式音标，并支持按照片原词形搜索和分点学习", async ({ page }) => {
+test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并支持按原词形搜索和分点学习", async ({ page }) => {
+  test.setTimeout(60_000);
   await page.goto("/?book=never-let-me-go&chapter=chapter-4");
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 4", exact: true })).toBeVisible();
-  await expect(page.locator("#entry-count")).toHaveText("11");
-  await expect(page.locator("#entry-grid .word-card")).toHaveCount(11);
+  await expect(page.locator("#entry-count")).toHaveText("51");
+  await expect(page.locator("#entry-grid .word-card")).toHaveCount(51);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-4"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "16", "11"]);
-  await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(11).fill("Chapter 4"));
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "16", "51"]);
+  await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(51).fill("Chapter 4"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterFourSource.items.map((item) => item.term));
 
   for (const item of chapterFourSource.items) {
     await page.locator("#library-search").fill(item.originalInput);
-    const card = page.locator("#entry-grid .word-card");
+    const card = page.locator("#entry-grid .word-card").filter({ has: page.getByRole("heading", { name: item.term, exact: true }) });
     await expect(card).toHaveCount(1);
     await expect(card.getByRole("heading")).toHaveText(item.term);
     const learningPoints = [
@@ -505,7 +506,7 @@ test("Never Let Me Go Chapter 4 展示 11 条、英式音标，并支持按照�
     await expect(card.locator(".card-meaning li")).toHaveText(learningPoints);
     await card.getByRole("button", { name: `查看 ${item.term} 的完整词条` }).click();
     const dialog = page.getByRole("dialog");
-    await expect(dialog.locator("#dialog-phonetic")).toHaveText(`${item.phonetic} · ${item.partOfSpeech}`);
+    await expect(dialog.locator("#dialog-phonetic")).toHaveText([item.phonetic, item.partOfSpeech].filter(Boolean).join(" · "));
     if (item.originalInput !== item.term) {
       await expect(dialog.locator(".detail-original-form p")).toHaveText(item.originalInput);
     }
@@ -521,16 +522,16 @@ test("Never Let Me Go Chapter 4 展示 11 条、英式音标，并支持按照�
 
 test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习队列", async ({ page }) => {
   await page.goto("/?book=never-let-me-go&chapter=chapter-4");
-  await expect(page.locator("#due-count")).toHaveText("11");
+  await expect(page.locator("#due-count")).toHaveText("51");
   await page.locator("#study-button").click();
   const dialog = page.getByRole("dialog");
   await expect(dialog.locator("#dialog-term")).toHaveText("lark about");
-  await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/11");
+  await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/51");
   await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 4");
   await expect(dialog.locator("#dialog-source-status")).toContainText("p. 37");
   await dialog.getByRole("button", { name: "很熟" }).click();
   await expect(dialog.locator("#dialog-term")).toHaveText("taboo");
-  await expect(page.locator("#due-count")).toHaveText("10");
+  await expect(page.locator("#due-count")).toHaveText("50");
   await dialog.getByRole("button", { name: "关闭词条详情" }).click();
 
   for (const [chapter, count] of [[1, 29], [2, 38], [3, 16]]) {
@@ -540,8 +541,8 @@ test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习�
   await page.locator('#chapter-tabs button[data-value="chapter-4"]').click();
   await page.reload();
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 4", exact: true })).toBeVisible();
-  await expect(page.locator("#due-count")).toHaveText("10");
-  await expect(page.locator("#entry-count")).toHaveText("11");
+  await expect(page.locator("#due-count")).toHaveText("50");
+  await expect(page.locator("#entry-count")).toHaveText("51");
   await page.locator("#study-button").click();
   await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("taboo");
 });

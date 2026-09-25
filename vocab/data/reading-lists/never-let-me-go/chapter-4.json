@@ -5,9 +5,15 @@
   "sourceTitle": "Never Let Me Go — Chapter 4",
   "sourceDocument": "Never_Let_Me_Go_Chapter_4_Photos.pdf",
   "reviewedPages": "37–48",
-  "selectionNote": "逐页目视核对 12 张书页照片，共 11 项明确的蓝色划线。按卓提供的清单保留完整短语和原文形式：p. 37 实际划线为 tugging away，补全语境为 tugging away at my memory；p. 40 实际划线为 daggers，补全为 shot daggers at Polly。p. 43 的 unfath- / omable 是跨行断词，合并为 unfathomable。p. 44 只划 rhubarb，patch 用于解释搭配。不计照片边缘露出的相邻页；不加入未获确认的推荐词。原始照片不随公开词库发布。",
-  "attributionNote": "根据卓提供的 Chapter 4 学习清单及原文照片（pp. 37–48）逐页人工校读划线词整理；保留所提供的英式音标，释义与语境限定于第四章，例句为学习用自拟句，不是小说原文。",
-  "expectedItemCount": 11,
+  "selectionNote": "逐页目视核对 12 张书页照片，保留原有 11 项划线词，另补入卓明确要求复核并添加的 40 项难词、熟词生义和固定表达，共 51 项；新增项标记为‘补充阅读’，不声称它们原先已划线。按卓提供的清单保留完整短语和原文形式：p. 37 实际划线为 tugging away，补全语境为 tugging away at my memory；p. 40 实际划线为 daggers，补全为 shot daggers at Polly。p. 43 的 unfath- / omable 是跨行断词，合并为 unfathomable。p. 44 只划 rhubarb，patch 用于解释搭配。be for it 的两个位置分别是 pp. 40, 45，bumper crop 跨 pp. 41–42。保留否定、假设和不确定语气；不计照片边缘露出的其他章节。原始照片不随公开词库发布。",
+  "attributionNote": "根据卓提供的 Chapter 4 学习清单及原文照片（pp. 37–48）逐页人工校读整理；保留所提供的英式音标，释义与语境限定于第四章，例句为学习用自拟句，不是小说原文。",
+  "lexicalReferences": [
+    { "term": "coerce", "title": "Oxford Learner's Dictionaries: coerce", "url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/coerce" },
+    { "term": "be for it", "title": "Cambridge Dictionary: for it", "url": "https://dictionary.cambridge.org/dictionary/english/for-it" },
+    { "term": "canter", "title": "Cambridge Dictionary: canter", "url": "https://dictionary.cambridge.org/us/dictionary/english/canter" },
+    { "term": "beneath someone's contempt", "title": "Collins Dictionary: beneath contempt", "url": "https://www.collinsdictionary.com/dictionary/english/beneath-contempt" }
+  ],
+  "expectedItemCount": 51,
   "items": [
     {
       "page": "37",
@@ -206,6 +212,1224 @@
       "confusedWith": [],
       "register": "neutral",
       "tags": ["可数名词", "性格", "游戏"]
+    },
+    {
+      "page": "37",
+      "term": "crop up",
+      "originalInput": "cropped up",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "不时出现；在交谈中被提起。",
+      "definitionEn": "To appear or be mentioned, often unexpectedly.",
+      "usage": "第四章语境：虽然学生们很少提 Madame，Gallery 这个话题还是偶尔会被提起。原文 cropped up every once in a while 中的 every once in a while 表示‘偶尔’，并非一直讨论。crop up 是不及物短语动词，话题或问题作主语；本处不表示农作物生长。",
+      "exampleEn": "The same question cropped up again during lunch.",
+      "exampleZh": "午饭时，同一个问题又被提了起来。",
+      "forms": [
+        "crops up",
+        "cropped up",
+        "cropping up"
+      ],
+      "collocations": [
+        "a question crops up",
+        "a problem crops up",
+        "crop up in conversation"
+      ],
+      "confusedWith": [
+        "bring up"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "短语动词",
+        "话题",
+        "频率"
+      ]
+    },
+    {
+      "page": "38",
+      "term": "acquisitive",
+      "originalInput": "getting more acquisitive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "热衷获取财物的；渴望拥有更多东西的。",
+      "definitionEn": "Eager to obtain and own more possessions.",
+      "usage": "第四章语境：Kathy 认为，代币争议与他们长大后越来越在意获得和拥有物品有关。getting more acquisitive 保留‘越来越’的变化，联系下文的代币、衣物和个人收藏理解；这里不是单纯‘好学、求知欲强’。词形与 acquire（获得）相关。",
+      "exampleEn": "As the children grew older, they became more acquisitive and compared their collections.",
+      "exampleZh": "孩子们长大后越来越想拥有更多东西，也开始比较各自的收藏。",
+      "forms": [],
+      "collocations": [
+        "become more acquisitive",
+        "an acquisitive nature",
+        "an acquisitive society"
+      ],
+      "confusedWith": [
+        "inquisitive"
+      ],
+      "register": "formal",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "财物",
+        "心理变化"
+      ]
+    },
+    {
+      "page": "38",
+      "term": "ambivalent",
+      "originalInput": "more ambivalent about it",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "心情矛盾的；对同一件事同时抱有相反感受的。",
+      "definitionEn": "Having conflicting feelings about the same thing.",
+      "usage": "第四章语境：小时候，作品被选中让学生们觉得十分光荣；到了十岁左右，他们对此变得更矛盾，既自豪，又觉得失去了最有价值的作品。more ambivalent about it 保留比较程度；it 指作品被选中、尤其被 Madame 带走这件事。ambivalent about something 强调内心有相反感受，不等于 indifferent（不在乎）。",
+      "exampleEn": "She felt ambivalent about giving away the picture: proud it was wanted, but sad to lose it.",
+      "exampleZh": "她对送出那幅画心情矛盾：有人喜欢它让她自豪，但失去它又让她难过。",
+      "forms": [],
+      "collocations": [
+        "feel ambivalent about something",
+        "be ambivalent about a decision",
+        "an ambivalent attitude"
+      ],
+      "confusedWith": [
+        "indifferent",
+        "ambiguous"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "矛盾心理",
+        "感受"
+      ]
+    },
+    {
+      "page": "38",
+      "term": "have a keen eye for something",
+      "originalInput": "a keen eye for pricing up",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "对……有敏锐的眼光；善于察觉或判断……。",
+      "definitionEn": "To be especially good at noticing or judging a particular kind of thing.",
+      "usage": "第四章语境：Exchanges 使用代币作货币，让学生们练出了判断自己作品价值、给作品估价的眼光。原文结构是 had given us a keen eye for pricing up，词条整理为常用结构 have a keen eye for something。for 后可接名词或动名词；这里强调估价能力，不是视力好。",
+      "exampleEn": "After years of collecting, he had a keen eye for valuable objects.",
+      "exampleZh": "收藏多年后，他对有价值的物品有了敏锐的眼光。",
+      "forms": [
+        "has a keen eye for",
+        "had a keen eye for",
+        "having a keen eye for"
+      ],
+      "collocations": [
+        "have a keen eye for detail",
+        "a keen eye for quality",
+        "develop a keen eye for something"
+      ],
+      "confusedWith": [
+        "keep an eye on something"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "动词短语",
+        "判断力",
+        "比喻"
+      ]
+    },
+    {
+      "page": "38",
+      "term": "be preoccupied with something",
+      "originalInput": "become preoccupied with",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "一心想着……；注意力被某事占据。",
+      "definitionEn": "To have one's attention occupied by something so that other things receive less attention.",
+      "usage": "第四章语境：学生们变得很在意 T 恤、床边装饰和课桌的个性化布置，心思常被这些事占据。原文 We'd become preoccupied with 表示此前已经进入这种状态；不应机械译成‘忙着工作’，也不必把本处解释成忧虑。with 后可接名词或动名词。",
+      "exampleEn": "She was so preoccupied with decorating her desk that she missed the announcement.",
+      "exampleZh": "她一心想着装饰自己的课桌，没听到那则通知。",
+      "forms": [
+        "is preoccupied with",
+        "was preoccupied with",
+        "become preoccupied with"
+      ],
+      "collocations": [
+        "be preoccupied with possessions",
+        "become preoccupied with something",
+        "be preoccupied with doing something"
+      ],
+      "confusedWith": [
+        "be occupied with something"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词短语",
+        "注意力",
+        "个人物品"
+      ]
+    },
+    {
+      "page": "38",
+      "term": "nostalgic",
+      "originalInput": "getting nostalgic about",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "怀旧的；带着眷恋回想过去的。",
+      "definitionEn": "Feeling affection for and a wish to return to a time in the past.",
+      "usage": "第四章语境：Kathy 说，遇见以前的 Hailsham 学生时，他们迟早都会怀念当年的个人收藏。getting nostalgic about their collections 指谈起或想起收藏时产生怀旧情绪，不仅仅是记得某件往事。about 后说明怀念的对象。",
+      "exampleEn": "The old photographs made them nostalgic about their schooldays.",
+      "exampleZh": "那些旧照片让他们怀念起学生时代。",
+      "forms": [],
+      "collocations": [
+        "feel nostalgic",
+        "get nostalgic about something",
+        "nostalgic memories"
+      ],
+      "confusedWith": [
+        "homesick"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "记忆",
+        "怀旧"
+      ]
+    },
+    {
+      "page": "39",
+      "term": "come to a head",
+      "originalInput": "came to a head",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "发展到关键关头；矛盾集中显现、到了必须处理的地步。",
+      "definitionEn": "For a developing problem or disagreement to reach a critical point requiring action.",
+      "usage": "第四章语境：一边觉得作品被选中是荣誉，一边又舍不得失去最有价值的作品，这种矛盾最终集中表现为代币争议。came to a head 不表示争议已经圆满结束；后文还交代了补偿要求和持续的争论。come 的过去式是 came。",
+      "exampleEn": "The disagreement came to a head when the students asked for compensation.",
+      "exampleZh": "学生们提出补偿要求时，这场分歧发展到了关键关头。",
+      "forms": [
+        "comes to a head",
+        "came to a head",
+        "coming to a head"
+      ],
+      "collocations": [
+        "a dispute comes to a head",
+        "matters come to a head",
+        "bring something to a head"
+      ],
+      "confusedWith": [
+        "come to an end"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "冲突",
+        "情节发展"
+      ]
+    },
+    {
+      "page": "39",
+      "term": "beneath someone's contempt",
+      "originalInput": "beneath her contempt",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "令人不屑一顾的；低劣或微不足道得连鄙视都不值得的。",
+      "definitionEn": "Regarded as so unworthy that it is not even worth expressing contempt for.",
+      "usage": "第四章语境：Miss Emily 任由散落的发丝飘动，完全不理会它们，仿佛它们连让她表示不屑都不值得。her 指 Miss Emily；they 指散落的发丝。这里是 Kathy 带夸张色彩的观察，不能误读成 Miss Emily 鄙视学生，也不是‘头发在她脸的下方’。",
+      "exampleEn": "She ignored the petty complaint as though it were beneath her contempt.",
+      "exampleZh": "她对那点琐碎的抱怨置之不理，仿佛连表示不屑都不值得。",
+      "forms": [],
+      "collocations": [
+        "be beneath contempt",
+        "be beneath someone's contempt",
+        "treat something with contempt"
+      ],
+      "confusedWith": [
+        "beneath someone"
+      ],
+      "register": "formal",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "态度",
+        "人物描写"
+      ]
+    },
+    {
+      "page": "39",
+      "term": "telling-off",
+      "originalInput": "didn't get the terrible telling-off",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "责骂；一顿训斥。",
+      "definitionEn": "An occasion when someone speaks angrily to another person for doing something wrong.",
+      "usage": "第四章语境：Roy 去找 Miss Emily 提补偿要求，大家原以为他会被狠狠训一顿，但他并没有受到他们预想的训斥。原文 didn't get 保留否定；terrible 表示预期中的严厉程度。telling-off 是可数名词，常用 get/give someone a telling-off；对应动词为 tell someone off。",
+      "exampleEn": "He expected a telling-off, but the teacher listened calmly.",
+      "exampleZh": "他本以为会挨一顿训，老师却平静地听完了。",
+      "forms": [
+        "tellings-off"
+      ],
+      "collocations": [
+        "get a telling-off",
+        "give someone a telling-off",
+        "a severe telling-off"
+      ],
+      "confusedWith": [
+        "tell someone off"
+      ],
+      "register": "British informal",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "英式口语",
+        "否定"
+      ]
+    },
+    {
+      "page": "39",
+      "term": "go down well with someone",
+      "originalInput": "didn't really go down well with either camp",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "受到某人欢迎或认可；得到良好的反应。",
+      "definitionEn": "To be received favourably by a person or group.",
+      "usage": "第四章语境：最终决定给被选走作品的学生少量代币，却强调这本是特殊荣誉。该决定 didn't really go down well with either camp，意思是双方其实都不太买账。必须保留否定：不是‘两派都很欢迎’。camp 在这里指争论的阵营；go down well with 指对方的反应，不是位置向下移动。",
+      "exampleEn": "The compromise didn't go down well with either group.",
+      "exampleZh": "这个折中方案没有得到任何一方的认可。",
+      "forms": [
+        "goes down well with",
+        "went down well with",
+        "gone down well with",
+        "going down well with"
+      ],
+      "collocations": [
+        "go down well with an audience",
+        "not go down well",
+        "go down badly with someone"
+      ],
+      "confusedWith": [
+        "get on well with someone"
+      ],
+      "register": "informal",
+      "tags": [
+        "补充阅读",
+        "动词短语",
+        "反应",
+        "否定与程度"
+      ]
+    },
+    {
+      "page": "39",
+      "term": "rumble on",
+      "originalInput": "rumbled on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "持续下去；争论等拖延未决、没有平息。",
+      "definitionEn": "For a disagreement or problem to continue for a long time without being settled.",
+      "usage": "第四章语境：即使已经宣布给予少量代币，双方仍不满意，关于代币的争论继续下去。the arguments rumbled on 强调争论没有因决定而平息；rumble 的低沉声响意象在这里用来描写持续的争议，不是实际的雷声或机器声。",
+      "exampleEn": "The argument rumbled on even after a decision had been announced.",
+      "exampleZh": "即使决定已经公布，争论仍没有平息。",
+      "forms": [
+        "rumbles on",
+        "rumbled on",
+        "rumbling on"
+      ],
+      "collocations": [
+        "an argument rumbles on",
+        "a dispute rumbles on",
+        "a debate rumbles on"
+      ],
+      "confusedWith": [
+        "rumble"
+      ],
+      "register": "figurative in this context",
+      "tags": [
+        "补充阅读",
+        "短语动词",
+        "争论",
+        "持续"
+      ]
+    },
+    {
+      "page": "40",
+      "term": "wisecrack",
+      "originalInput": "making some wisecrack",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "俏皮话；机灵、诙谐而有时带挖苦意味的评论。",
+      "definitionEn": "A clever, joking remark, sometimes with a sarcastic edge.",
+      "usage": "第四章语境：剧本里的一句台词让 Laura 就代币的事说了句俏皮话，引得大家和 Miss Lucy 都笑了。此处只确认是诙谐评论，不必推断 Laura 在恶意讽刺谁。wisecrack 是可数名词，常用 make a wisecrack about something。",
+      "exampleEn": "He made a wisecrack about the rules, and the whole table laughed.",
+      "exampleZh": "他就那些规矩说了句俏皮话，满桌的人都笑了。",
+      "forms": [
+        "wisecracks"
+      ],
+      "collocations": [
+        "make a wisecrack",
+        "a wisecrack about something",
+        "a sarcastic wisecrack"
+      ],
+      "confusedWith": [
+        "wise"
+      ],
+      "register": "informal",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "幽默",
+        "交谈"
+      ]
+    },
+    {
+      "page": "40",
+      "term": "out of the blue",
+      "originalInput": "completely out of the blue",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial idiom",
+      "meaning": "出乎意料地；突然地、没有预兆地。",
+      "definitionEn": "Unexpectedly and without warning.",
+      "usage": "第四章语境：大家正在讨论代币，Polly 突然问 Madame 为什么要拿走他们的东西。completely out of the blue 强调这个问题完全出乎大家意料，并不表示大家此前从未谈过任何相关话题。此处修饰提问发生的方式。",
+      "exampleEn": "Out of the blue, she asked why the best pictures were taken away.",
+      "exampleZh": "她突然出人意料地问，为什么最好的画会被拿走。",
+      "forms": [],
+      "collocations": [
+        "completely out of the blue",
+        "appear out of the blue",
+        "a question out of the blue"
+      ],
+      "confusedWith": [
+        "feel blue"
+      ],
+      "register": "informal",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "意外",
+        "程度"
+      ]
+    },
+    {
+      "page": "40, 45",
+      "term": "be for it",
+      "originalInput": "was for it",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "要倒霉了；要挨训或受罚了。",
+      "definitionEn": "To be likely to get into trouble or be punished.",
+      "usage": "第四章语境：p. 40 的 Polly was for it 是大家一瞬间以为 Polly 要因提问挨训，但 Miss Lucy 实际只是在沉思。p. 45 的 I was for it 是 Kathy 以为 Miss Emily 发现了自己、马上要责备她，后来才看出 Miss Emily 正在对想象中的听众讲话；此后她也没提起这件事。两处都表达人物当时担心要受罚，不表示惩罚真的发生。be for it 是英式口语习语，不是‘赞成它’。",
+      "exampleEn": "When the teacher looked at him, he thought he was for it.",
+      "exampleZh": "老师朝他看过来时，他以为自己这下要挨训了。",
+      "forms": [
+        "am for it",
+        "is for it",
+        "are for it",
+        "was for it",
+        "were for it"
+      ],
+      "collocations": [
+        "think someone is for it",
+        "be really for it",
+        "be for it now"
+      ],
+      "confusedWith": [
+        "be for something"
+      ],
+      "register": "British informal",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "英式口语",
+        "预期与事实"
+      ]
+    },
+    {
+      "page": "40",
+      "term": "dodgy",
+      "originalInput": "this dodgy territory",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "棘手或有风险的；本章指让人不安、难以继续谈下去的。",
+      "definitionEn": "Risky, uncertain, or awkward to deal with.",
+      "usage": "第四章语境：Polly 的问题和 Miss Lucy 不充分的解释让众人尴尬，他们想赶快把谈话从这片敏感领域转开。dodgy territory 是对话题的比喻，不是实际的危险地带；这里也没有证据说明谁在实施欺诈。dodgy 是英式口语，本处宜理解为棘手、敏感而令人不安。",
+      "exampleEn": "The conversation entered dodgy territory, and everyone grew quiet.",
+      "exampleZh": "谈话触及了棘手而敏感的话题，大家都安静了下来。",
+      "forms": [
+        "dodgier",
+        "dodgiest"
+      ],
+      "collocations": [
+        "dodgy territory",
+        "a dodgy situation",
+        "a dodgy subject"
+      ],
+      "confusedWith": [
+        "dishonest"
+      ],
+      "register": "British informal",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "英式口语",
+        "话题"
+      ]
+    },
+    {
+      "page": "41",
+      "term": "get worked up",
+      "originalInput": "got so worked up",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "变得激动起来；情绪因某事强烈波动。",
+      "definitionEn": "To become very excited, anxious, or upset about something.",
+      "usage": "第四章语境：学生们对每月运来货物的 Sales 充满期待，显得十分兴奋；Kathy 回想起来觉得有趣，因为 Sales 通常让人失望。这里 got so worked up 侧重激动、兴奋，不是生气。so 保留‘这么激动’的程度；不能因 worked 就理解为‘工作起来’。",
+      "exampleEn": "The children got worked up about the sale, hoping to find something special.",
+      "exampleZh": "孩子们为这次售卖活动兴奋起来，希望找到特别的东西。",
+      "forms": [
+        "gets worked up",
+        "got worked up",
+        "getting worked up"
+      ],
+      "collocations": [
+        "get worked up about something",
+        "get worked up over something",
+        "get so worked up"
+      ],
+      "confusedWith": [
+        "work something up"
+      ],
+      "register": "informal",
+      "tags": [
+        "补充阅读",
+        "动词短语",
+        "兴奋",
+        "程度"
+      ]
+    },
+    {
+      "page": "41–42",
+      "term": "bumper crop",
+      "originalInput": "bumper crop",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "大丰收；比喻格外丰富的一批收获。",
+      "definitionEn": "An unusually large harvest; figuratively, an especially plentiful supply of something.",
+      "usage": "第四章语境：p. 41 末尾孩子们问新运来的货物是不是一场 bumper crop；p. 42 页首卸货人员用 a real bumper crop 来回应，引来欢呼。这里把一批让孩子们期待的货物比作丰收，并非真的谈农作物。这是孩子的追问和工作人员鼓舞式的回答，不足以认定当次货物确实又多又好；前文还说 Sales 往往令人失望。",
+      "exampleEn": "The children hoped this month's delivery would bring a bumper crop of interesting toys.",
+      "exampleZh": "孩子们希望这个月送来的货物中会有格外丰富的一批有趣玩具。",
+      "forms": [
+        "bumper crops"
+      ],
+      "collocations": [
+        "a bumper crop",
+        "a bumper crop of something",
+        "a real bumper crop"
+      ],
+      "confusedWith": [
+        "crop up"
+      ],
+      "register": "figurative in this context",
+      "tags": [
+        "补充阅读",
+        "名词短语",
+        "比喻",
+        "期待"
+      ]
+    },
+    {
+      "page": "42",
+      "term": "set one's heart on something",
+      "originalInput": "had set their hearts on",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "一心想要某物；下定决心要得到某物或实现某事。",
+      "definitionEn": "To strongly want and be determined to obtain or achieve something.",
+      "usage": "第四章语境：售卖活动发生争执，几乎总是因为几个学生都一心想要同一件东西。原文 had set their hearts on 中，their hearts 配合复数主语 a few students；the same item 强调争夺同一物品。set 的过去式和过去分词仍是 set；on 后接名词或动名词。",
+      "exampleEn": "Two students had set their hearts on the same cassette.",
+      "exampleZh": "两个学生都一心想要同一盘磁带。",
+      "forms": [
+        "sets one's heart on",
+        "set one's heart on",
+        "setting one's heart on"
+      ],
+      "collocations": [
+        "set one's heart on a particular object",
+        "set one's heart on doing something",
+        "have one's heart set on something"
+      ],
+      "confusedWith": [
+        "take something to heart"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "愿望",
+        "争夺"
+      ]
+    },
+    {
+      "page": "42",
+      "term": "rowdy",
+      "originalInput": "a rowdy Sale",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "吵闹而难以管束的；喧闹失序的。",
+      "definitionEn": "Noisy and difficult to control, often with rough or disorderly behaviour.",
+      "usage": "第四章语境：Sales 人多嘈杂，通常还算友好，但有时会演变成抢夺、拉扯甚至打架；a rowdy Sale 指这种闹腾失序的售卖活动。发生之后，第二天的晨会便会变成 Miss Emily 的训话。rowdy 比单纯 noisy 更强调不受约束的举动，但并不表示每次 Sale 都打架。",
+      "exampleEn": "After the rowdy sale, the teacher spoke to the students about their behaviour.",
+      "exampleZh": "那场售卖活动闹得失了秩序，之后老师找学生们谈了他们的行为。",
+      "forms": [
+        "rowdier",
+        "rowdiest"
+      ],
+      "collocations": [
+        "a rowdy crowd",
+        "rowdy behaviour",
+        "get rowdy"
+      ],
+      "confusedWith": [
+        "noisy"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "行为描写",
+        "秩序"
+      ]
+    },
+    {
+      "page": "42",
+      "term": "steely",
+      "originalInput": "something steely about her",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "钢铁般冷峻坚定的；显得强硬而不容动摇的。",
+      "definitionEn": "Showing cold firmness and determination.",
+      "usage": "第四章语境：Miss Emily 在混乱的 Sale 之后训话时，很少提高嗓门，却透出一种冷峻坚定、令人不敢出声的气势，连高年级学生也一样。something steely about her 描写她当时的态度和气场；不是金属颜色，也不能译成大喊大叫。",
+      "exampleEn": "There was something steely in her quiet voice, and the room fell silent.",
+      "exampleZh": "她平静的声音里透着一种冷峻坚定，房间随即安静下来。",
+      "forms": [
+        "steelier",
+        "steeliest"
+      ],
+      "collocations": [
+        "a steely gaze",
+        "a steely voice",
+        "steely determination"
+      ],
+      "confusedWith": [
+        "steel",
+        "steal"
+      ],
+      "register": "figurative in this context",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "人物描写",
+        "威严"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "coerce",
+      "originalInput": "coerced",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "phonetic": "/kəʊˈɜːs/",
+      "meaning": "强迫；胁迫某人做不愿意做的事。",
+      "definitionEn": "To make someone do something against their wishes through pressure or threats.",
+      "usage": "第四章语境：Miss Emily 突然说 But I will not be coerced!，强烈表示自己不会屈服于胁迫；这是她的拒绝声明，不能据此断言有人已经强迫她做了什么。 will not + be + 过去分词是情态动词的被动结构；此处 will not 主要表达坚决不肯的意愿，不只是预测将来。 coerce somebody into doing something＝强迫某人做某事；被动式为 be coerced into doing something。所列英式音标沿用用户提供的形式。",
+      "exampleEn": "He was coerced into signing the agreement.",
+      "exampleZh": "他被迫签署了这份协议。",
+      "forms": [
+        "coerces",
+        "coerced",
+        "coercing"
+      ],
+      "collocations": [
+        "coerce somebody into doing something",
+        "be coerced into doing something"
+      ],
+      "confusedWith": [
+        "persuade"
+      ],
+      "register": "formal",
+      "tags": [
+        "补充阅读",
+        "动词",
+        "被动语态",
+        "强烈拒绝"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "drift",
+      "originalInput": "drift",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "话语的大意；主旨。",
+      "definitionEn": "The general meaning or main point of what someone says.",
+      "usage": "第四章语境：Her general drift 指 Miss Emily 讲话的大意：学生既然身为 Hailsham 的一员、受到特殊看待，表现不好就更令人失望。Kathy 能明白这个大方向，却不理解后面的许多话。 drift 在此作名词，指话语的总体意思，不是动词‘漂流’。 get someone's drift＝明白某人的意思；the general drift of a speech＝讲话的大意。",
+      "exampleEn": "I understood the general drift of her speech, but some details puzzled me.",
+      "exampleZh": "我明白她讲话的大意，但有些细节让我困惑。",
+      "forms": [],
+      "collocations": [
+        "the general drift",
+        "get someone's drift",
+        "the drift of a speech"
+      ],
+      "confusedWith": [
+        "drift (verb: move slowly)"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "名词",
+        "交谈",
+        "一词多义"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "thwart",
+      "originalInput": "thwarts",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "阻挠；使某人不能达到目的。",
+      "definitionEn": "To prevent someone from achieving what they want or intend.",
+      "usage": "第四章语境：Miss Emily 在讲话中追问是什么阻碍了‘我们’；孩子们并没有弄清她具体指什么，因此不替她补出未说明的原因。 原文 thwarts us 中，thwarts 是第三人称单数形式，us 是宾语；thwart 可以直接接人，也可以接计划或企图。 thwart someone's plans＝使某人的计划受挫；thwart an attempt＝阻止一次企图。",
+      "exampleEn": "The sudden storm thwarted our plans for an outdoor lesson.",
+      "exampleZh": "突如其来的暴风雨打乱了我们上户外课的计划。",
+      "forms": [
+        "thwarts",
+        "thwarted",
+        "thwarting"
+      ],
+      "collocations": [
+        "thwart someone",
+        "thwart someone's plans",
+        "thwart an attempt"
+      ],
+      "confusedWith": [],
+      "register": "formal",
+      "tags": [
+        "补充阅读",
+        "动词",
+        "阻碍",
+        "讲话"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "bewildered",
+      "originalInput": "bewildered",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "困惑不解的；不知所措的。",
+      "definitionEn": "Very confused and unsure what is happening or what to do.",
+      "usage": "第四章语境：Miss Emily 讲话中突然停顿、闭眼思索时，孩子们觉得 bewildered and awkward，既困惑又尴尬，却仍盼着她想出答案。 feel bewildered＝感到困惑；be bewildered by something＝被某事弄得不知所措。 bewildered 描写人的感受；bewildering 描写令人困惑的事物。",
+      "exampleEn": "The children looked bewildered when the explanation suddenly stopped.",
+      "exampleZh": "讲解突然停下时，孩子们一脸困惑。",
+      "forms": [],
+      "collocations": [
+        "feel bewildered",
+        "look bewildered",
+        "be bewildered by something"
+      ],
+      "confusedWith": [
+        "bewildering"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "感受",
+        "困惑"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "take offence",
+      "originalInput": "took offence",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "觉得受到冒犯；因某人的话或行为而不快。",
+      "definitionEn": "To feel upset or insulted by what someone says or does.",
+      "usage": "第四章语境：Kathy 提到 Miss Emily 有时神思恍惚、独自说话，Ruth 听后不高兴，立即为 Miss Emily 辩护。 take offence at something＝对某事感到被冒犯；took 是 take 的过去式。 offence 是英式拼写，美式通常写 offense；这里不是‘实施违法行为’。",
+      "exampleEn": "She took offence at the joke about her favourite teacher.",
+      "exampleZh": "她觉得那个拿她最喜欢的老师开玩笑的说法很冒犯。",
+      "forms": [
+        "takes offence",
+        "took offence",
+        "taken offence",
+        "taking offence"
+      ],
+      "collocations": [
+        "take offence at something",
+        "take offence at a remark"
+      ],
+      "confusedWith": [
+        "give offence"
+      ],
+      "register": "neutral; British spelling",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "情绪",
+        "英式拼写"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "potty",
+      "originalInput": "potty",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "疯疯癫癫的；不正常的，英式非正式说法。",
+      "definitionEn": "Silly or crazy, in informal British English.",
+      "usage": "第四章语境：Ruth 用反问否定 Miss Emily 疯疯癫癫的说法，并强调她的头脑非常敏锐；不是叙述者确认 Miss Emily 疯了。 had been potty 出现在反问中的 if 条件部分，是 Ruth 为反驳而提出的假设。 这里 potty 是形容词，不是名词‘儿童便盆’；描述别人时语气不正式，也可能显得不尊重。",
+      "exampleEn": "He isn't potty; he's just talking through an idea aloud.",
+      "exampleZh": "他并没有疯疯癫癫，只是在大声梳理一个想法。",
+      "forms": [],
+      "collocations": [
+        "be potty",
+        "go potty"
+      ],
+      "confusedWith": [
+        "potty (noun: a small toilet for a child)"
+      ],
+      "register": "British informal",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "英式口语",
+        "否定与假设"
+      ]
+    },
+    {
+      "page": "43",
+      "term": "nook",
+      "originalInput": "nooks",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "隐蔽的小角落；僻静的小地方。",
+      "definitionEn": "A small, sheltered or partly hidden corner or space.",
+      "usage": "第四章语境：Hailsham 室内外有许多能藏身的地方，nooks 是其中的小角落，与橱柜、灌木和树篱一起列出。 nook 是可数名词，原文 nooks 为复数。 a quiet nook＝安静的小角落；nooks and crannies＝各个隐蔽角落。",
+      "exampleEn": "The child found a quiet nook behind the shelves.",
+      "exampleZh": "那个孩子在架子后面找到了一个安静的小角落。",
+      "forms": [
+        "nooks"
+      ],
+      "collocations": [
+        "a quiet nook",
+        "a sheltered nook",
+        "nooks and crannies"
+      ],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "地点",
+        "场景描写"
+      ]
+    },
+    {
+      "page": "44",
+      "term": "detention",
+      "originalInput": "detention",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "学校中的留堂处罚。",
+      "definitionEn": "A school punishment that requires a student to stay behind for a period of time.",
+      "usage": "第四章语境：Kathy 说 Miss Emily 几乎从不让学生留堂，也很少安排其他实际处罚；她带来的压力主要在于让学生觉得自己令她失望。 原文 hardly ever put you in detention 中，hardly ever＝几乎从不，不能读成‘经常留堂’。 put someone in detention＝罚某人留堂；这里是校园处罚，不是拘留或羁押。",
+      "exampleEn": "The teacher hardly ever put students in detention.",
+      "exampleZh": "那位老师几乎从不罚学生留堂。",
+      "forms": [],
+      "collocations": [
+        "put someone in detention",
+        "be in detention",
+        "after-school detention"
+      ],
+      "confusedWith": [
+        "detention (custody)"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "名词",
+        "校园",
+        "否定与频率"
+      ]
+    },
+    {
+      "page": "44",
+      "term": "redeem yourself",
+      "originalInput": "redeem yourself",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "将功补过；做些好事挽回别人对自己的评价。",
+      "definitionEn": "To do something good that improves people's opinion of you after a mistake or failure.",
+      "usage": "第四章语境：学生觉得自己在 Miss Emily 心中的评价降低了，便想立刻做点什么挽回她的好感。 redeem oneself 中反身代词随主语改变，例如 I redeem myself、she redeems herself；原文用概括性的 you，因此是 redeem yourself。 这里是弥补过失、挽回评价，不是‘兑换优惠券’或‘赎回物品’。",
+      "exampleEn": "After letting the group down, he tried to redeem himself by finishing the extra work.",
+      "exampleZh": "让小组失望之后，他试着通过完成额外任务来将功补过。",
+      "forms": [
+        "redeems herself",
+        "redeemed himself",
+        "redeeming yourself"
+      ],
+      "collocations": [
+        "redeem yourself by doing something",
+        "a chance to redeem yourself"
+      ],
+      "confusedWith": [
+        "redeem a voucher"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "动词短语",
+        "反身代词",
+        "评价"
+      ]
+    },
+    {
+      "page": "44",
+      "term": "be in hot water",
+      "originalInput": "was in hot water",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "惹上麻烦；因做错事而可能受到责备。",
+      "definitionEn": "To be in trouble because of something you have done.",
+      "usage": "第四章语境：Kathy 回忆一次沿主楼后面的小径散步时，以为自己会惹 Miss Emily 生气。I thought 保留‘我以为’这一判断，不能直接写成她确实因此受罚。 be in hot water with someone＝惹得某人不高兴、在某人那里有麻烦。 这是比喻性习语，与实际的热水无关；get into hot water 强调‘惹上’麻烦的过程。",
+      "exampleEn": "I thought I was in hot water with the teacher for walking past the classroom.",
+      "exampleZh": "我以为自己从教室旁走过，会惹老师生气。",
+      "forms": [
+        "is in hot water",
+        "was in hot water",
+        "been in hot water"
+      ],
+      "collocations": [
+        "be in hot water with someone",
+        "get into hot water"
+      ],
+      "confusedWith": [],
+      "register": "informal idiom",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "麻烦",
+        "主观判断"
+      ]
+    },
+    {
+      "page": "44",
+      "term": "out of bounds",
+      "originalInput": "out of bounds",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "禁止进入的；不允许到达的。",
+      "definitionEn": "Not allowed to be entered or visited.",
+      "usage": "第四章语境：Kathy 一直不确定主楼后的小径是否禁止进入。上课时不该从那里经过是明确的，但周末或晚上能否去，她并不清楚。 原文 I was never sure if it was out of bounds 表示对规定不确定，不能概括为这条小径始终是禁区。 be out of bounds to someone＝禁止某人进入；这里是地点使用规定，不是球类运动中的‘出界’。",
+      "exampleEn": "We were not sure whether the garden was out of bounds at weekends.",
+      "exampleZh": "我们不确定周末是否也禁止进入花园。",
+      "forms": [],
+      "collocations": [
+        "be out of bounds",
+        "out of bounds to students"
+      ],
+      "confusedWith": [
+        "out of bounds (sport)"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "形容词短语",
+        "校园规定",
+        "不确定性"
+      ]
+    },
+    {
+      "page": "45",
+      "term": "under one's breath",
+      "originalInput": "under her breath",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "低声地；轻得不容易让别人听见地。",
+      "definitionEn": "Very quietly, so that other people can hardly hear.",
+      "usage": "第四章语境：Miss Emily 独自在教室里踱步，低声说话，像是在向看不见的听众讲话。Kathy 猜她在排练上课或集会讲话，这只是 Kathy 当时的推测。 under her breath 修饰 talking，说明说话音量很低；one's 随说话者变化。 mutter under your breath＝低声嘀咕；不要与 out of breath（气喘吁吁）混淆。",
+      "exampleEn": "She repeated the opening sentence under her breath before the talk.",
+      "exampleZh": "讲话之前，她低声重复了一遍开场白。",
+      "forms": [
+        "under my breath",
+        "under your breath",
+        "under his breath",
+        "under her breath"
+      ],
+      "collocations": [
+        "talk under your breath",
+        "mutter under your breath",
+        "say something under your breath"
+      ],
+      "confusedWith": [
+        "out of breath"
+      ],
+      "register": "neutral idiom",
+      "tags": [
+        "补充阅读",
+        "副词短语",
+        "说话方式",
+        "音量"
+      ]
+    },
+    {
+      "page": "46",
+      "term": "make a show of doing something",
+      "originalInput": "made a show of weighing her up",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "故意做出正在做某事的样子；摆出姿态给人看。",
+      "definitionEn": "To deliberately act as if you are doing something, so that other people notice.",
+      "usage": "第四章语境：Ruth 只邀请 Kathy 一起玩，让 Kathy 非常高兴；但她回复前仍故意摆出审视、估量 Ruth 的样子。 make a show of 后接名词或动名词，原文是 weighing her up；made 是 make 的过去式。 这里强调刻意表现出来的姿态，不是举办演出，也不宜直接解释成炫耀某项能力。",
+      "exampleEn": "Although she was eager to join, she made a show of considering the invitation.",
+      "exampleZh": "虽然她很想加入，却还是故意摆出考虑邀请的样子。",
+      "forms": [
+        "makes a show of",
+        "made a show of",
+        "making a show of"
+      ],
+      "collocations": [
+        "make a show of doing something",
+        "make a show of considering something"
+      ],
+      "confusedWith": [
+        "show off"
+      ],
+      "register": "neutral idiom",
+      "tags": [
+        "补充阅读",
+        "习语",
+        "行为描写",
+        "表面姿态"
+      ]
+    },
+    {
+      "page": "46",
+      "term": "weigh somebody up",
+      "originalInput": "weighing her up",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "打量并判断某人；估量某人的情况或意图。",
+      "definitionEn": "To consider what someone is like and form a judgement about them.",
+      "usage": "第四章语境：Kathy 在接受 Ruth 的骑马游戏邀请前，故意做出估量她的样子；这里与 made a show of 连用，带有刻意摆姿态的意思。 weigh somebody up 是可分短语动词；宾语是代词时放在中间，所以说 weigh her up。 这里是判断人，不是称体重；weigh up the options 则是权衡各种选择。",
+      "exampleEn": "She paused to weigh him up before answering his question.",
+      "exampleZh": "她停了一下，打量并判断他，然后才回答他的问题。",
+      "forms": [
+        "weighs somebody up",
+        "weighed somebody up",
+        "weighing somebody up"
+      ],
+      "collocations": [
+        "weigh someone up",
+        "weigh her up",
+        "weigh up the options"
+      ],
+      "confusedWith": [
+        "weigh (measure weight)"
+      ],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "短语动词",
+        "人物判断",
+        "可分结构"
+      ]
+    },
+    {
+      "page": "46",
+      "term": "reel off",
+      "originalInput": "reeled off",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "一口气说出；熟练而迅速地接连报出。",
+      "definitionEn": "To say a series of things quickly and easily, usually from memory.",
+      "usage": "第四章语境：Ruth 接连说出更多想象中的马的名字，而 Kathy 如今已记不起那些名字。 原文 reeled off 是过去式；常接 names、numbers、facts 等成串的信息。 这里描写流利报出一串内容，不是把线从卷轴上放下来。",
+      "exampleEn": "She reeled off the names of six imaginary horses without pausing.",
+      "exampleZh": "她一口气报出了六匹想象中的马的名字。",
+      "forms": [
+        "reels off",
+        "reeled off",
+        "reeling off"
+      ],
+      "collocations": [
+        "reel off names",
+        "reel off a list",
+        "reel off facts"
+      ],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": [
+        "补充阅读",
+        "短语动词",
+        "说话方式",
+        "列举"
+      ]
+    },
+    {
+      "page": "46",
+      "term": "crop",
+      "originalInput": "crop",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "骑马用的短鞭；马鞭。",
+      "definitionEn": "A short whip used in horse riding.",
+      "usage": "第四章语境：Ruth 允许 Kathy 骑她想象中的 Bramble，但强调不能对它用马鞭；这是孩子们的骑马游戏，不是实际骑马或鞭打动物的记录。 crop 在此作可数名词，相当于 riding crop；不是‘农作物’，也不是动词‘裁剪’。 use a crop on a horse＝对马使用马鞭；原文的 don't 和 not to 都保留禁止的意思。",
+      "exampleEn": "In their game, she insisted that no one use a crop on the imaginary pony.",
+      "exampleZh": "在她们的游戏中，她坚持不准任何人对那匹想象中的小马使用马鞭。",
+      "forms": [
+        "crops"
+      ],
+      "collocations": [
+        "a riding crop",
+        "use a crop on a horse"
+      ],
+      "confusedWith": [
+        "crop (agriculture)",
+        "crop (cut an image)"
+      ],
+      "register": "neutral; horse riding",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "骑马",
+        "一词多义"
+      ]
+    },
+    {
+      "page": "47",
+      "term": "rein",
+      "originalInput": "rein",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "缰绳；骑马时用来控制方向和速度的带子。",
+      "definitionEn": "A strap held by a rider to guide and control a horse.",
+      "usage": "第四章语境：Kathy 接过 Ruth 伸手递来的 invisible rein；‘看不见的缰绳’是游戏中想象出来的道具，并非真实缰绳。 rein 是可数名词，日常谈骑马时常用复数 reins，但照片原文确实用单数 rein，应保留。 hold the reins＝握着缰绳；rein 与 rain（雨）、reign（统治）拼写和意思不同。",
+      "exampleEn": "She held out an imaginary rein and invited her friend to ride.",
+      "exampleZh": "她伸手递出一根想象中的缰绳，邀请朋友一起骑马。",
+      "forms": [
+        "reins"
+      ],
+      "collocations": [
+        "hold the reins",
+        "an invisible rein",
+        "pull on the reins"
+      ],
+      "confusedWith": [
+        "rain",
+        "reign"
+      ],
+      "register": "neutral; horse riding",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "骑马",
+        "想象游戏"
+      ]
+    },
+    {
+      "page": "47",
+      "term": "canter",
+      "originalInput": "cantering",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "（马）慢跑；骑着马慢跑，速度比疾驰慢。",
+      "definitionEn": "To move, or ride a horse, at a running pace slower than a gallop.",
+      "usage": "第四章语境：Kathy 和 Ruth 沿栅栏来回‘骑马’，有时慢跑，有时疾驰；这些都是她们对骑马动作的想象和模仿。 原文 cantering 是 canter 的 -ing 形式；句中与 at a gallop 对照，帮助区分两种速度。 canter 可以作动词，也可作名词；此处按动词收录，不要把原文统一改写成名词短语。",
+      "exampleEn": "The children pretended to canter along the fence on their imaginary horses.",
+      "exampleZh": "孩子们假装骑着想象中的马，沿栅栏慢跑。",
+      "forms": [
+        "canters",
+        "cantered",
+        "cantering"
+      ],
+      "collocations": [
+        "canter along",
+        "canter across a field",
+        "at a canter"
+      ],
+      "confusedWith": [
+        "gallop",
+        "trot"
+      ],
+      "register": "neutral; horse riding",
+      "tags": [
+        "补充阅读",
+        "动词",
+        "骑马",
+        "动作速度"
+      ]
+    },
+    {
+      "page": "47",
+      "term": "gallop",
+      "originalInput": "at a gallop",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "（马的）疾驰；最快的奔跑步态。",
+      "definitionEn": "The fastest running pace of a horse.",
+      "usage": "第四章语境：孩子们的想象骑马游戏中，有时慢跑，有时疾驰；at a gallop 指以疾驰的速度。 原文是 sometimes at a gallop，gallop 在介词短语中作名词，有冠词 a；不是原文使用了动词 galloping。 gallop 也可以作动词，但此条按原文名词用法收录；比前面的 cantering 速度更快。",
+      "exampleEn": "In the game, they rode their imaginary horses at a gallop.",
+      "exampleZh": "在游戏里，她们骑着想象中的马疾驰。",
+      "forms": [
+        "gallops"
+      ],
+      "collocations": [
+        "at a gallop",
+        "at a full gallop",
+        "break into a gallop"
+      ],
+      "confusedWith": [
+        "canter",
+        "gallop (verb)"
+      ],
+      "register": "neutral; horse riding",
+      "tags": [
+        "补充阅读",
+        "可数名词",
+        "骑马",
+        "词性辨析"
+      ]
+    },
+    {
+      "page": "47",
+      "term": "cross",
+      "originalInput": "crosser and crosser",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "生气的；恼怒的。",
+      "definitionEn": "Annoyed or angry with someone.",
+      "usage": "第四章语境：Kathy 按游戏安排把想象中的马带回‘马厩’时，Ruth 似乎对她越来越生气，抱怨她什么都做错。seemed 保留 Kathy 对 Ruth 情绪的观察判断。 crosser and crosser＝越来越生气，是‘比较级＋and＋比较级’结构；with me 指生气的对象。 cross 在这里是形容词，不是动词‘穿过’或名词‘十字形’。",
+      "exampleEn": "She grew crosser and crosser with me as I struggled to follow the rules of the game.",
+      "exampleZh": "我努力照着游戏规则做，她却对我越来越生气。",
+      "forms": [
+        "crosser",
+        "crossest"
+      ],
+      "collocations": [
+        "be cross with someone",
+        "get cross",
+        "crosser and crosser"
+      ],
+      "confusedWith": [
+        "cross (verb: go across)"
+      ],
+      "register": "especially British English",
+      "tags": [
+        "补充阅读",
+        "形容词",
+        "情绪",
+        "比较级"
+      ]
     }
   ]
 }
