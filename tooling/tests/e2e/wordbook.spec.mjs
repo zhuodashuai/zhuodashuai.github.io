@@ -11,6 +11,9 @@ const NEVER_LET_ME_GO_ENTRY_COUNT = canonicalSnapshot.entries.filter((entry) => 
 const chapterThreeSource = JSON.parse(
   await readFile(new URL("../../../vocab/data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url), "utf8")
 );
+const chapterFourSource = JSON.parse(
+  await readFile(new URL("../../../vocab/data/reading-lists/never-let-me-go/chapter-4.json", import.meta.url), "utf8")
+);
 
 let browserErrors;
 let expectedOfflineNetworkError;
@@ -408,7 +411,7 @@ test("Never Let Me Go Chapter 3 展示全部 16 条，并保留照片原词形�
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(16);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-3"]')).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator('#chapter-tabs button[data-value^="chapter-"]')).toHaveText([
-    /Chapter 1/, /Chapter 2/, /Chapter 3/
+    /Chapter 1/, /Chapter 2/, /Chapter 3/, /Chapter 4/
   ]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(16).fill("Chapter 3"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterThreeSource.items.map((item) => item.term));
@@ -477,6 +480,70 @@ test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习�
   await expect(page.locator("#entry-count")).toHaveText("16");
   await page.locator("#study-button").click();
   await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("raggy");
+});
+
+test("Never Let Me Go Chapter 4 展示 11 条、英式音标，并支持按照片原词形搜索和分点学习", async ({ page }) => {
+  await page.goto("/?book=never-let-me-go&chapter=chapter-4");
+  await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 4", exact: true })).toBeVisible();
+  await expect(page.locator("#entry-count")).toHaveText("11");
+  await expect(page.locator("#entry-grid .word-card")).toHaveCount(11);
+  await expect(page.locator('#chapter-tabs button[data-value="chapter-4"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "16", "11"]);
+  await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(11).fill("Chapter 4"));
+  await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterFourSource.items.map((item) => item.term));
+
+  for (const item of chapterFourSource.items) {
+    await page.locator("#library-search").fill(item.originalInput);
+    const card = page.locator("#entry-grid .word-card");
+    await expect(card).toHaveCount(1);
+    await expect(card.getByRole("heading")).toHaveText(item.term);
+    const learningPoints = [
+      ...item.meaning.split(/[；\n]+/u).map((point) => point.trim().replace(/。$/u, "")).filter(Boolean),
+      item.usage
+    ];
+    expect(learningPoints.length).toBeGreaterThan(1);
+    await expect(card.locator(".card-meaning li")).toHaveText(learningPoints);
+    await card.getByRole("button", { name: `查看 ${item.term} 的完整词条` }).click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog.locator("#dialog-phonetic")).toHaveText(`${item.phonetic} · ${item.partOfSpeech}`);
+    if (item.originalInput !== item.term) {
+      await expect(dialog.locator(".detail-original-form p")).toHaveText(item.originalInput);
+    }
+    await expect(dialog.locator("#dialog-meaning li")).toHaveText(learningPoints);
+    await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 4");
+    await expect(dialog.locator("#dialog-source-status")).toContainText(`p. ${item.page}`);
+    await expect(dialog.locator("#dialog-source-status")).toContainText("照片");
+    await expect(dialog.locator("#dialog-source-status")).toContainText("人工校读");
+    await expect(dialog.locator("#dialog-source-status")).toContainText("例句为学习用自拟句，不是小说原文");
+    await dialog.getByRole("button", { name: "关闭词条详情" }).click();
+  }
+});
+
+test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习队列", async ({ page }) => {
+  await page.goto("/?book=never-let-me-go&chapter=chapter-4");
+  await expect(page.locator("#due-count")).toHaveText("11");
+  await page.locator("#study-button").click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.locator("#dialog-term")).toHaveText("lark about");
+  await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/11");
+  await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 4");
+  await expect(dialog.locator("#dialog-source-status")).toContainText("p. 37");
+  await dialog.getByRole("button", { name: "很熟" }).click();
+  await expect(dialog.locator("#dialog-term")).toHaveText("taboo");
+  await expect(page.locator("#due-count")).toHaveText("10");
+  await dialog.getByRole("button", { name: "关闭词条详情" }).click();
+
+  for (const [chapter, count] of [[1, 29], [2, 38], [3, 16]]) {
+    await page.locator(`#chapter-tabs button[data-value="chapter-${chapter}"]`).click();
+    await expect(page.locator("#due-count")).toHaveText(String(count));
+  }
+  await page.locator('#chapter-tabs button[data-value="chapter-4"]').click();
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 4", exact: true })).toBeVisible();
+  await expect(page.locator("#due-count")).toHaveText("10");
+  await expect(page.locator("#entry-count")).toHaveText("11");
+  await page.locator("#study-button").click();
+  await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("taboo");
 });
 
 test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page }) => {

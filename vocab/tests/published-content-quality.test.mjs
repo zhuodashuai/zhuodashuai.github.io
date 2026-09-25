@@ -7,6 +7,21 @@ const snapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
 const neverLetMeGoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-1.json", import.meta.url);
 const neverLetMeGoChapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
 const neverLetMeGoChapterThreeUrl = new URL("../data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url);
+const neverLetMeGoChapterFourUrl = new URL("../data/reading-lists/never-let-me-go/chapter-4.json", import.meta.url);
+
+const chapterFourRequested = [
+  ["lark about", "37", "larking about", "/lɑːk əˈbaʊt/"],
+  ["taboo", "37", "taboo", "/təˈbuː/"],
+  ["tug away at something", "37", "tugging away at my memory", "/tʌɡ/"],
+  ["collide with", "39", "collided with", "/kəˈlaɪd wɪð/"],
+  ["strand", "39", "strands", "/strænd/"],
+  ["shoot daggers at someone", "40", "shot daggers at Polly", "/ʃuːt ˈdæɡəz æt/"],
+  ["reminisce", "43", "reminiscing", "/ˌremɪˈnɪs/"],
+  ["unfathomable", "43", "unfathomable", "/ʌnˈfæðəməbl/"],
+  ["uncannily", "43", "uncannily", "/ʌnˈkænɪli/"],
+  ["rhubarb", "44", "rhubarb", "/ˈruːbɑːb/"],
+  ["foible", "47", "foibles", "/ˈfɔɪbl/"]
+];
 
 const chapterThreeRequested = [
   ["eavesdrop", "25", "eavesdrop"],
@@ -203,6 +218,60 @@ test("Chapter 3 shriek preserves Madame's absence of a scream or gasp in every d
     assert.equal(usage, item.usage);
   }
   assert.equal(contextual.sourceDate, "p. 35");
+});
+
+test("Never Let Me Go Chapter 4 preserves all 11 photo-reviewed forms, pages, British IPA and learning contexts", async () => {
+  const [entries, source] = await Promise.all([
+    publishedEntries(),
+    readFile(neverLetMeGoChapterFourUrl, "utf8").then(JSON.parse)
+  ]);
+  const membership = "collection:never-let-me-go:chapter-4";
+  const chapterEntries = entries.filter((entry) => entry.tags.includes(membership));
+  assert.equal(source.expectedItemCount, 11);
+  assert.deepEqual(source.items.map((item) => [item.term, String(item.page), item.originalInput, item.phonetic]), chapterFourRequested);
+  assert.equal(chapterEntries.length, 11);
+  assert.deepEqual(chapterEntries.map((entry) => entry.term).sort(), chapterFourRequested.map(([term]) => term).sort());
+  assert.equal(new Set(chapterEntries.map((entry) => entry.id)).size, 11);
+  assert.equal(new Set(chapterEntries.map((entry) => entry.normalized)).size, 11);
+  assert.match(source.attributionNote, /照片/u);
+  assert.match(source.attributionNote, /人工校读/u);
+  assert.match(source.attributionNote, /例句为学习用自拟句，不是小说原文/u);
+
+  for (const item of source.items) {
+    const entry = chapterEntries.find((candidate) => candidate.term === item.term);
+    const context = entry.readingContexts.find((candidate) => candidate.membership === membership);
+    const contextual = contextualizeReadingEntry(entry, "never-let-me-go", "chapter-4");
+    assert.ok(context, `${item.term} must retain its Chapter 4 context`);
+    assert.equal(entries.filter((candidate) => candidate.normalized === entry.normalized).length, 1);
+    assert.equal(entry.standardForm, item.term);
+    assert.equal(entry.correction.original, item.originalInput);
+    assert.equal(entry.correction.chosen, item.term);
+    assert.equal(entry.correction.status, item.term === item.originalInput ? "exact" : "accepted");
+    assert.equal(context.page, `p. ${item.page}`);
+    assert.equal(entry.phonetic, item.phonetic);
+    assert.equal(contextual.phonetic, item.phonetic);
+    for (const version of [entry, context, contextual]) {
+      for (const field of ["originalInput", "partOfSpeech", "meaning", "usage", "exampleEn", "exampleZh"]) {
+        assert.equal(version[field], item[field], `${item.term}: ${field}`);
+      }
+      assert.equal(version.definition, item.definitionEn);
+      assert.deepEqual(version.forms, item.forms);
+      assert.deepEqual(version.collocations, item.collocations);
+      assert.equal(version.sourceTitle, "Never Let Me Go — Chapter 4");
+      assert.equal(version.sourceWork, "Never Let Me Go");
+      assert.equal(version.sourceDate, `p. ${item.page}`);
+      assert.equal(version.attributionNote, source.attributionNote);
+      assert.match(version.usage, /第四章语境/u);
+    }
+    assert.equal(contextual.senses[0].meaningZh, item.meaning);
+    assert.equal(contextual.senses[0].definitionEn, item.definitionEn);
+    assert.equal(contextual.senses[0].usageNotes, item.usage);
+    assert.deepEqual(contextual.senses[0].examples, [{ en: item.exampleEn, zh: item.exampleZh }]);
+  }
+
+  assert.equal(new Set(entries.map((entry) => entry.id)).size, entries.length);
+  assert.equal(new Set(entries.map((entry) => entry.normalized)).size, entries.length);
+  assert.deepEqual([1, 2, 3, 4].map((chapter) => entries.filter((entry) => entry.tags.includes(`collection:never-let-me-go:chapter-${chapter}`)).length), [29, 38, 16, 11]);
 });
 
 test("Chapter 2 acoustics preserves the quiet-conversation context in every displayed field", async () => {
