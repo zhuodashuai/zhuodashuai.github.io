@@ -325,6 +325,17 @@ async function publish(request: Request, env: Env): Promise<Response> {
   return jsonResponse(payload);
 }
 
+async function recognizeOwnerSynonyms(request: Request, env: Env): Promise<Response> {
+  assertSameOriginWrite(request);
+  const session = await sessionContext(request);
+  const csrfToken = csrfValue(request);
+  const body = await readJsonBody(request, 2_000) as Record<string, unknown>;
+  if (!body || typeof body.entryId !== "string" || !/^[A-Za-z0-9._:-]{1,180}$/.test(body.entryId)) {
+    throw new ApiError(400, "invalid_entry_id", "请指定已有词条。");
+  }
+  return jsonResponse(await controlCall(env, "/owner/synonyms", { sessionHash: session.hash, csrfToken, entryId: body.entryId }));
+}
+
 function apiErrorResponse(error: unknown, request: Request): Response {
   const safe = error instanceof ApiError
     ? error
@@ -393,6 +404,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
   if (path === `${API_PREFIX}/owner/wordbook` && request.method === "GET") return ownerSnapshot(request, env);
   if (path === `${API_PREFIX}/owner/ai/organize` && request.method === "POST") return organize(request, env);
   if (path === `${API_PREFIX}/owner/publish` && request.method === "POST") return publish(request, env);
+  if (path === `${API_PREFIX}/owner/synonyms` && request.method === "POST") return recognizeOwnerSynonyms(request, env);
   throw new ApiError(404, "api_not_found", "管理接口不存在。");
 }
 

@@ -80,3 +80,7 @@ export function publishMutation(publishRequest, csrfToken, { signal } = {}) {
     signal
   });
 }
+
+export function recognizeEntrySynonyms(entryId, csrfToken, { signal } = {}) {
+  return request("/owner/synonyms", { method: "POST", csrfToken, body: { entryId }, signal });
+}

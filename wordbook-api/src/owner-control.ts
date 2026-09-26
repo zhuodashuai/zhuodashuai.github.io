@@ -6,7 +6,9 @@ import {
   writeRemoteWordbook,
   type GitHubIdentity
 } from "./github";
-import { PublishRequestSchema, type PublicSnapshot, type PublishRequest } from "./schema";
+import { PublishRequestSchema, PublicSnapshotSchema, SynonymScanSchema, type PublicEntry, type PublicSnapshot, type PublishRequest } from "./schema";
+import { recognizeSynonyms } from "./synonym-recognizer";
+import { candidateSynonymFingerprint, entrySynonymFingerprint, isSynonymLexicalEntry, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 import {
   ApiError,
   decryptSecret,
@@ -59,6 +61,11 @@ interface PublicSnapshotRecord {
   confirmedAt: number;
 }
 
+interface SynonymBatchRecord {
+  matches: NonNullable<PublicEntry["synonymScan"]>["matches"];
+  expiresAt: number;
+}
+
 const MUTATION_TTL_MS = 90 * 24 * 60 * 60 * 1000;
 const STORAGE_DELETE_BATCH_SIZE = 128;
 const PUBLIC_SNAPSHOT_KEY = "public-snapshot:latest";
@@ -96,17 +103,19 @@ export class OwnerControl implements DurableObject {
   }
 
   private async cleanupExpired(now = Date.now()): Promise<void> {
-    const [oauth, sessions, rates, mutations] = await Promise.all([
+    const [oauth, sessions, rates, mutations, synonymBatches] = await Promise.all([
       this.ctx.storage.list<OAuthTransaction>({ prefix: "oauth:", limit: 100 }),
       this.ctx.storage.list<OwnerSession>({ prefix: "session:", limit: 100 }),
       this.ctx.storage.list<RateRecord>({ prefix: "rate:", limit: 100 }),
-      this.ctx.storage.list<MutationRecord>({ prefix: "mutation:", limit: 100 })
+      this.ctx.storage.list<MutationRecord>({ prefix: "mutation:", limit: 100 }),
+      this.ctx.storage.list<SynonymBatchRecord>({ prefix: "synonym-batch:", limit: 100 })
     ]);
     const expired: string[] = [];
     for (const [key, value] of oauth) if (value.expiresAt <= now) expired.push(key);
     for (const [key, value] of sessions) if (value.absoluteExpiresAt <= now || value.githubTokenExpiresAt <= now) expired.push(key);
     for (const [key, value] of rates) if (value.resetAt <= now) expired.push(key);
     for (const [key, value] of mutations) if (value.expiresAt <= now) expired.push(key);
+    for (const [key, value] of synonymBatches) if (value.expiresAt <= now) expired.push(key);
     for (let index = 0; index < expired.length; index += STORAGE_DELETE_BATCH_SIZE) {
       await this.ctx.storage.delete(expired.slice(index, index + STORAGE_DELETE_BATCH_SIZE));
     }
@@ -256,7 +265,7 @@ export class OwnerControl implements DurableObject {
     if (record.count > rule.limit) {
       const retryAfter = Math.max(1, Math.ceil((record.resetAt - Date.now()) / 1000));
       throw kind === "ai-daily"
-        ? new ApiError(429, "free_ai_daily_limit", `为保护免费额度，今天的 ${AI_DAILY_REQUEST_LIMIT} 次 AI 整理已经用完；请在 UTC 00:00 后再试，手动草稿仍可使用。`, { retryAfter, resetAt: record.resetAt })
+        ? new ApiError(429, "free_ai_daily_limit", `为保护免费额度，今天的 ${AI_DAILY_REQUEST_LIMIT} 次 AI 整理／同义词比对共用额度已经用完；请在 UTC 00:00 后再试，手动保存与发布仍可使用。`, { retryAfter, resetAt: record.resetAt })
         : new ApiError(429, "rate_limited", "操作过于频繁，请稍后再试。", { retryAfter });
     }
     return jsonResponse({ ok: true, remaining: rule.limit - record.count, resetAt: record.resetAt });
@@ -294,6 +303,67 @@ export class OwnerControl implements DurableObject {
       throw new ApiError(503, "public_snapshot_unavailable", "最新公开词库尚未进入即时缓存。");
     }
     return jsonResponse(current);
+  }
+
+  private async scanSynonyms(entry: PublicEntry, entries: PublicEntry[], previous?: PublicEntry): Promise<PublicEntry> {
+    if (!isSynonymLexicalEntry(entry)) {
+      const { synonymScan: _ignored, ...withoutScan } = entry;
+      return withoutScan;
+    }
+    const sourceFingerprint = entrySynonymFingerprint(entry);
+    const candidatesFingerprint = candidateSynonymFingerprint(entries.filter((item) => item.id !== entry.id));
+    // Only trust the canonical server copy, never client-supplied AI evidence.
+    if (previous?.synonymScan?.status === "complete"
+      && previous.synonymScan.sourceFingerprint === sourceFingerprint
+      && previous.synonymScan.candidatesFingerprint === candidatesFingerprint) {
+      return { ...entry, synonymScan: previous.synonymScan };
+    }
+    try {
+      const synonymScan = await recognizeSynonyms(entry, entries, this.config, {
+        consumeBudget: async () => { await this.applyRate({ subject: "zhuo-owner-account", kind: "ai-daily" }); },
+        readBatchCache: async (key) => {
+          const cached = await this.ctx.storage.get<SynonymBatchRecord>(key);
+          return cached && cached.expiresAt > Date.now() ? cached.matches : null;
+        },
+        writeBatchCache: async (key, matches) => {
+          await this.ctx.storage.put<SynonymBatchRecord>(key, { matches, expiresAt: Date.now() + 7 * 24 * 60 * 60_000 });
+        }
+      });
+      return { ...entry, synonymScan: SynonymScanSchema.parse(synonymScan) };
+    } catch {
+      // Saving vocabulary is independent from optional semantic enrichment.
+      return { ...entry, synonymScan: pendingSynonymScan(entry, entries, new Date().toISOString(), "scan_failed") };
+    }
+  }
+
+  private async runSynonymScan(body: Record<string, unknown>): Promise<Response> {
+    const sessionHash = internalString(body, "sessionHash", 64, 64);
+    const csrfToken = internalString(body, "csrfToken", 16, 500);
+    const entryId = internalString(body, "entryId", 1, 180);
+    const session = await this.loadSession(sessionHash, csrfToken);
+    await this.applyRate({ subject: sessionHash, kind: "publish" });
+    const token = await this.tokenForSession(session);
+    await verifyOwnerAndRepository(token, this.config);
+    const remote = await readRemoteWordbook(token, this.config);
+    const previous = remote.snapshot.entries.find((entry) => entry.id === entryId);
+    if (!previous) throw new ApiError(404, "entry_missing", "词条已不存在，已停止识别。");
+    const entry = await this.scanSynonyms(previous, remote.snapshot.entries, previous);
+    if (canonicalJson(entry) === canonicalJson(previous)) {
+      await this.rememberPublicSnapshot(remote);
+      return jsonResponse({ ...remote, entry, action: "idempotent", synonymScan: entry.synonymScan });
+    }
+    const now = new Date().toISOString();
+    const updated = { ...entry, revision: previous.revision + 1, updatedAt: now };
+    const snapshot = PublicSnapshotSchema.parse({
+      ...remote.snapshot, exportedAt: now, revisionId: crypto.randomUUID(), lastMutationId: `synonyms-${crypto.randomUUID()}`,
+      entries: remote.snapshot.entries.map((item) => item.id === entryId ? updated : item)
+    });
+    // GitHub SHA compare-and-swap protects concurrent UI/import edits. The
+    // cached fingerprints make a retry after a lost response non-duplicating.
+    const written = await writeRemoteWordbook({ token, config: this.config, expectedSha: remote.sha, snapshot,
+      message: `Recognize collected synonyms for ${entry.term}` });
+    await this.rememberPublicSnapshot({ ...written, snapshot });
+    return jsonResponse({ ...written, snapshot, entry: updated, action: "synonyms", synonymScan: updated.synonymScan });
   }
 
   private async runPublish(body: Record<string, unknown>): Promise<Response> {
@@ -364,6 +434,13 @@ export class OwnerControl implements DurableObject {
       });
     }
     const result = applyPublishMutation(remote.snapshot, request);
+    if (result.entry && result.action !== "deleted" && result.action !== "idempotent") {
+      const previous = remote.snapshot.entries.find((entry) => entry.id === result.entry!.id);
+      result.entry = await this.scanSynonyms(result.entry, result.snapshot.entries, previous);
+      result.snapshot = PublicSnapshotSchema.parse({ ...result.snapshot,
+        entries: result.snapshot.entries.map((entry) => entry.id === result.entry!.id ? result.entry : entry)
+      });
+    }
     try {
       const written = await writeRemoteWordbook({
         token,
@@ -397,7 +474,7 @@ export class OwnerControl implements DurableObject {
     }
   }
 
-  private publish(body: Record<string, unknown>): Promise<Response> {
+  private publish(body: Record<string, unknown>, synonymsOnly = false): Promise<Response> {
     let resolveTask: (response: Response) => void;
     let rejectTask: (reason: unknown) => void;
     const task = new Promise<Response>((resolve, reject) => {
@@ -407,7 +484,7 @@ export class OwnerControl implements DurableObject {
     this.publishTail = this.publishTail
       .catch(() => {})
       .then(async () => {
-        try { resolveTask(await this.runPublish(body)); } catch (error) { rejectTask(error); }
+        try { resolveTask(await (synonymsOnly ? this.runSynonymScan(body) : this.runPublish(body))); } catch (error) { rejectTask(error); }
       });
     return task;
   }
@@ -427,6 +504,7 @@ export class OwnerControl implements DurableObject {
         case "/public/snapshot": return await this.publicSnapshot();
         case "/owner/snapshot": return await this.ownerSnapshot(body);
         case "/owner/publish": return await this.publish(body);
+        case "/owner/synonyms": return await this.publish(body, true);
         default: throw new ApiError(404, "internal_not_found", "Internal route not found");
       }
     } catch (error) {

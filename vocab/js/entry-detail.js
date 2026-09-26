@@ -2,6 +2,7 @@ import { formatMeaningForDisplay } from "./wordbook-schema.js";
 import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { synonymGroupsForEntry } from "./synonym-groups.js";
 import { renderSynonymGroups } from "./synonym-view.js";
+import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -168,13 +169,28 @@ export function createEntryDetailController({ root = document, getEntries = () =
   synonymHeading.textContent = "已收录的同义 / 近义词";
   const synonymList = root.createElement("div");
   synonymList.className = "detail-synonym-groups";
-  synonymSection.append(synonymHeading, synonymList);
+  const synonymStatus = root.createElement("p");
+  synonymStatus.id = "dialog-synonym-status";
+  synonymStatus.className = "rail-note";
+  synonymSection.append(synonymHeading, synonymStatus, synonymList);
   refs.dialogExtraSection.before(synonymSection);
 
   const refreshRelations = () => {
     if (!selected) return;
     const groups = synonymGroupsForEntry(selected, getEntries());
-    synonymSection.hidden = groups.length === 0;
+    const lexical = ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(selected.entryType);
+    const scan = selected.synonymScan;
+    const canonical = getEntries().find((entry) => entry.id === selected.id) || selected;
+    const sourceCurrent = sameSynonymSenseView(selected, canonical) && scan?.sourceFingerprint === entrySynonymFingerprint(canonical);
+    const candidatesCurrent = scan?.candidatesFingerprint === candidateSynonymFingerprint(getEntries().filter((entry) => entry.id !== selected.id));
+    const checked = scan?.status === "complete" && sourceCurrent && candidatesCurrent;
+    synonymStatus.textContent = !lexical ? "" : checked
+      ? (groups.length ? "已按当前义项识别；仅显示词库已收录的词。" : "已识别，暂未找到已收录的同义词。")
+      : scan?.status === "complete" && sourceCurrent && !candidatesCurrent
+        ? (groups.length ? "已有近义关系；词库已更新，完整比对待补查。" : "词库已更新，同义词待补查。")
+        : (groups.length ? "以下为已有关系；自动识别待完成。" : "同义词待识别。不会自动添加新词。");
+    synonymStatus.hidden = !synonymStatus.textContent;
+    synonymSection.hidden = groups.length === 0 && !lexical;
     renderSynonymGroups(synonymList, groups, {
       selectedId: selected.id,
       onOpen: (entry, invoker) => {

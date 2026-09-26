@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=56">
+  <link rel="stylesheet" href="styles.css?v=57">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -50,7 +50,7 @@
 
     <section class="guide-block" aria-labelledby="g-owner">
       <h2 id="g-owner">词条怎么来的</h2>
-      <p>卓用 GitHub 登录后输入英文，AI 整理成草稿，他逐条核对改好，再发布到 GitHub。AI 的结果从来不会直接上线。</p>
+      <p>卓用 GitHub 登录后输入英文，AI 整理成草稿，他逐条核对改好，再发布到 GitHub。释义与例句等正文仍由卓确认发布；同义词关系是发布时自动识别的附属信息，会注明 AI 识别及用法限制。</p>
       <p>书籍章节清单可以按固定模板一次导入：规范词条、书中原文形式、中文释义、章节语境和来源会一并核对；再次导入同一章会补齐新词并更新已核对的内容，不会重复造词条。</p>
       <p><em>Never Let Me Go</em> 第三章已整理 28 条：保留原有 16 条划线词，结合原文照片补充 12 条实用表达和写作、描写词汇。补充词不冒充原有划线词；每条均保留原文形式、页码和限定在第三章内的语境。</p>
       <p><em>Never Let Me Go</em> 第四章已整理 51 条：原有 11 条划线词，加上卓明确确认补充的 40 条，均结合第 37–48 页照片校读，保留页码、原文形式与已提供的英式音标。完整学习短语若由划线部分结合语境补全，会在章节说明中注明；双语例句是学习用自拟句，不是小说原文。</p>
@@ -69,9 +69,11 @@
 
     <section class="guide-block" aria-labelledby="g-synonyms">
       <h2 id="g-synonyms">同义词分组（试用）</h2>
-      <p>在词库选择“同义词分组（试用）”，可以把已收录的近义表达并排看。第一版人工核对了 5 组、10 个词条；每组注明差别，部分近义不能直接替换。点英文打开原来的完整卡片，继续沿用该词自己的复习记录。</p>
+      <p>在词库选择“同义词分组（试用）”，可以把已收录的近义表达并排看。每次发布新增或修改的单词、短语，服务端都会尝试按该词的义项，与已有词库识别同义或近义关系；匹配成功后，两边的卡片和分组一起更新。它不会新增任何未收录的词。每组注明差别，部分近义不能直接替换；点英文仍打开原卡片，沿用该词自己的复习记录。</p>
       <p>选择某章时，会展示涉及本章词条的组，配对词如果来自其他章节或词本会明确标记。搜索任一组内的词或中文组名，都能看到整组；这不会把对照词加入当前章节。顶部学习按钮仍复习所选章节，不是把整组另建成新词。</p>
-      <p>试用分组是独立的展示层，不改词条正文、ID 或复习记录，也不把试用关系写进 JSON 导出。删掉某个词后，这个试用配对会自动消失；人工组也会检查已收录的中文义项，避免只因同形词就误配。新增词只有命中已核对规则，或发布时已保存有效同义关系，才会进入分组，并非所有词都能自动准确分类。之后可以移除此展示层。</p>
+      <p>自动识别结果另存为关系记录，不改词条正文、ID 或复习记录。只连接已经收录、词性和语境义相符的词，不把相关词、反义词或仅在其他义项相近的词强行归类。删词或改义项后，过期关系会失效。原来人工核对的 5 组仍保留作为补充；以后也能单独移除分组展示。</p>
+      <p>AI 可能遗漏或判断不准，空结果表示“这次未找到”，不是断言没有同义词。额度不足、服务不可用或结果不合格时，词条照常保存并标为“待识别”；管理页可点击该词的“重新识别”。识别受账户额度保护，不会为凑结果自动切换收费服务。</p>
+      <p>通过章节导入脚本加入的词先标记待识别；卓登录并打开管理页后，系统逐条补做，一次页面会话最多尝试 20 条，首次失败或额度不足就停止自动重试。未处理完的下次打开再继续，也可手动重试。公开读者打开词库不会触发 AI 请求。</p>
       <p>辨析参考：<a href="https://dictionaryblog.cambridge.org/2017/06/14/i-was-completely-baffled-words-meaning-confused/" target="_blank" rel="noopener noreferrer">Cambridge：困惑的表达</a>、<a href="https://dictionary.cambridge.org/dictionary/english/pull-leg" target="_blank" rel="noopener noreferrer">pull someone's leg</a>、<a href="https://dictionary.cambridge.org/dictionary/english/in-hot-water" target="_blank" rel="noopener noreferrer">in hot water</a>、<a href="https://dictionaryblog.cambridge.org/2016/12/28/mixed-feelings-the-language-of-being-unsure/" target="_blank" rel="noopener noreferrer">矛盾感受与难以抉择</a>、<a href="https://www.collinsdictionary.com/dictionary/english-thesaurus/potty" target="_blank" rel="noopener noreferrer">Collins：potty</a>。用法说明为本站整理，章节语境仍以原词条为准。</p>
     </section>
 
@@ -99,7 +101,7 @@
     <section class="guide-block" aria-labelledby="g-ai">
       <h2 id="g-ai">关于 AI 和费用</h2>
       <p>用 Cloudflare Workers AI 的账户额度，不需要 OpenAI 或 Claude 的 API key。第一款模型结果不合格时会自动换第二款免费模型重试。</p>
-      <p>每个 UTC 日最多 20 次整理。额度用完时只保留本地草稿，不会自动切换到可能收费的引擎。</p>
+      <p>每个 UTC 日有 20 份站内服务额度，释义整理与每批同义词比对共用；词库较大时，一条词可能分多批比对。已完成批次缓存 7 天，重试可以接着做。额度用完不会切换收费引擎；人工保存和发布照常，同义词会标记待识别。</p>
       <p class="guide-note">这不是永久免费承诺：最终是否产生费用，仍取决于 Cloudflare 账户套餐和同账户其他用量。</p>
     </section>
 

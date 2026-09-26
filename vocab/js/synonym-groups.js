@@ -1,4 +1,5 @@
 import { normalizeEnglish } from "./wordbook-schema.js";
+import { entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js";
 
 const LEXICAL_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const REVIEWED_POS = new Map([
@@ -71,6 +72,23 @@ export function buildSynonymGroups(entries = []) {
   const groups = [];
   const pairs = new Set();
   const pairKey = (members) => members.map(({ entry }) => entry.id).sort().join("\u0000");
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+  // New words are recognized at publication, not by extending a hard-coded
+  // vocabulary list. One evidenced edge immediately appears on BOTH cards.
+  for (const entry of entries) {
+    const scan = entry.synonymScan;
+    if (!LEXICAL_TYPES.has(entry.entryType) || scan?.status !== "complete" || scan.sourceFingerprint !== entrySynonymFingerprint(entry)) continue;
+    for (const match of scan.matches) {
+      const target = byId.get(match.targetId);
+      if (!target || target.id === entry.id || !LEXICAL_TYPES.has(target.entryType)
+        || match.targetFingerprint !== entrySynonymFingerprint(target)) continue;
+      const members = [entry, target].map((item) => ({ entry: item, note: item.meaning || item.definition }));
+      const key = pairKey(members);
+      if (pairs.has(key)) continue;
+      pairs.add(key);
+      groups.push({ id: `auto:${key.replaceAll("\u0000", ":")}`, title: `${entry.term} / ${target.term}`, note: `自动识别的近义关系：${match.note}`, members });
+    }
+  }
   for (const group of REVIEWED_SYNONYM_GROUPS) {
     const members = group.members.flatMap((member) => {
       const entry = find(member.term);
@@ -79,6 +97,7 @@ export function buildSynonymGroups(entries = []) {
       return entry && matchesPos && member.sense.test(senseText(entry)) ? [{ entry, note: member.note }] : [];
     });
     if (members.length !== group.members.length || new Set(members.map(({ entry }) => entry.id)).size !== members.length) continue;
+    if (pairs.has(pairKey(members))) continue;
     pairs.add(pairKey(members));
     groups.push({ id: group.id, title: group.title, note: group.note, members });
   }
@@ -99,6 +118,11 @@ export function buildSynonymGroups(entries = []) {
 }
 
 export function synonymGroupsForEntry(entry, entries) {
+  const original = entries.find((candidate) => candidate.id === entry.id);
+  if (original && sameSynonymSenseView(entry, original)) {
+    return buildSynonymGroups(entries).filter((group) => group.members.some((member) => member.entry.id === entry.id))
+      .map((group) => ({ ...group, members: group.members.map((member) => member.entry.id === entry.id ? { ...member, entry } : member) }));
+  }
   // Respect a chapter-specific sense when opening a multi-chapter entry.
   return buildSynonymGroups(entries.map((candidate) => candidate.id === entry.id ? entry : candidate))
     .filter((group) => group.members.some((member) => member.entry.id === entry.id));
