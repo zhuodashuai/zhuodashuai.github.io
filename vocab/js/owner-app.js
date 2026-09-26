@@ -23,6 +23,7 @@ import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } f
 import { setupPwa } from "./pwa.js";
 import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
+import { buildSynonymGroups } from "./synonym-groups.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -40,7 +41,7 @@ const ids = [
   "conflict-use-remote", "conflict-close", "reorganize-current", "install-button", "update-banner", "apply-update"
 ];
 const refs = Object.fromEntries(ids.map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
-const entryDetail = createEntryDetailController();
+const entryDetail = createEntryDetailController({ getEntries: () => state.snapshot?.entries || [] });
 const state = {
   session: null,
   csrfToken: "",
@@ -711,6 +712,7 @@ async function renderDrafts() {
 
 function renderOwnerEntries() {
   const entries = state.snapshot?.entries || [];
+  const synonymGroups = buildSynonymGroups(entries);
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
   const shown = rankExactEntryMatches(
     entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
@@ -739,8 +741,10 @@ function renderOwnerEntries() {
     setMultilineText(meaning, formatMeaningForDisplay(entry));
     const synonyms = document.createElement("p");
     synonyms.className = "owner-entry-synonyms";
-    synonyms.hidden = entry.synonyms.length === 0;
-    synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
+    const relatedTerms = [...new Set(synonymGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
+      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
+    synonyms.hidden = relatedTerms.length === 0;
+    synonyms.textContent = relatedTerms.length ? `同义词 / 近义词：${relatedTerms.join("；")}` : "";
     summary.append(partOfSpeech, meaning, synonyms);
     const actions = document.createElement("div");
     actions.className = "button-row";
@@ -767,6 +771,7 @@ function renderOwnerEntries() {
     row.append(term, summary, actions);
     return row;
   }));
+  entryDetail.refresh();
 }
 
 async function loadRemote({ quiet = false } = {}) {
