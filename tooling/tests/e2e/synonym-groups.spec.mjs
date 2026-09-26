@@ -221,6 +221,13 @@ test("公开详情保持打开时远端改义项会更新正文并移除旧同�
 test("Owner 详情保持打开时读取新快照会更新义项与近义关系，删除当前词会关闭详情", async ({ context, page }) => {
   const current = structuredClone(snapshot);
   await context.addCookies([{ name: "e2e_auth", value: "owner", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+  // This test owns the remote snapshot. Do not let the server's independent
+  // scan fixture replace it while testing refresh/edit/delete transitions.
+  await page.route("**/api/v1/owner/synonyms", (route) => route.fulfill({
+    status: 429,
+    contentType: "application/json",
+    body: JSON.stringify({ error: { code: "synonym_limit", message: "测试中暂停后台识别" } })
+  }));
   await page.route("**/api/v1/owner/wordbook", (route) => route.fulfill({
     status: 200,
     contentType: "application/json",
@@ -236,6 +243,7 @@ test("Owner 详情保持打开时读取新快照会更新义项与近义关系�
   const changed = replaceMystifiedMeaning(current);
   // Invoke the existing refresh handler without dismissing the modal: this
   // exercises an arriving snapshot while its detail is already on screen.
+  await expect(page.locator("#refresh-remote")).toBeEnabled();
   await page.locator("#refresh-remote").evaluate((control) => control.click());
   await expect(page.locator("#dialog-meaning")).toContainText(changed.meaning.replace(/。$/u, ""));
   await expect(member(page.locator("#dialog-synonym-section"), "bewildered")).toHaveCount(0);
@@ -243,6 +251,7 @@ test("Owner 详情保持打开时读取新快照会更新义项与近义关系�
 
   advanceSnapshot(current, 2);
   current.entries = current.entries.filter(({ term }) => term !== "mystified");
+  await expect(page.locator("#refresh-remote")).toBeEnabled();
   await page.locator("#refresh-remote").evaluate((control) => control.click());
   await expect(page.locator("#entry-dialog")).toBeHidden();
   await expect(page.locator("#owner-entry-count")).toHaveText(String(snapshot.entries.length - 1));

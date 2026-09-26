@@ -190,7 +190,7 @@ describe("automatic synonym recognition at the canonical API boundary", () => {
     const response = await recognize(csrf, source.id);
     expect(response.status).toBe(200);
     const updated = github.state().snapshot;
-    expect(updated.entries).toHaveLength(151);
+    expect(updated.entries).toHaveLength(original.entries.length);
     expect(updated.entries.filter((item) => item.id !== source.id)).toEqual(original.entries.filter((item) => item.id !== source.id));
     const changed = updated.entries.find((item) => item.id === source.id)!;
     const { synonymScan: _scan, revision: _revision, updatedAt: _updatedAt, ...body } = changed;

@@ -160,6 +160,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
   if (!refs.entryDialog) throw new Error("暂时无法打开词条详情，请刷新页面重试。");
   let selected = null;
   let returnFocus = null;
+  let returnFocusKey = null;
   let copyResetTimer = null;
   const synonymSection = root.createElement("section");
   synonymSection.id = "dialog-synonym-section";
@@ -204,7 +205,12 @@ export function createEntryDetailController({ root = document, getEntries = () =
 
   const show = (entry, { invoker = root.activeElement } = {}) => {
     selected = entry;
-    if (!refs.entryDialog.open) returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
+    if (!refs.entryDialog.open) {
+      returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
+      returnFocusKey = invoker?.dataset?.entryId && invoker?.dataset?.entryAction
+        ? { entryId: invoker.dataset.entryId, action: invoker.dataset.entryAction }
+        : null;
+    }
     setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
     setText(refs.dialogTerm, entry.term);
     setText(refs.dialogPhonetic, [entry.phonetic, entry.partOfSpeech].filter(Boolean).join(" · "));
@@ -277,8 +283,12 @@ export function createEntryDetailController({ root = document, getEntries = () =
   });
   refs.entryDialog.addEventListener("close", () => {
     selected = null;
-    const target = returnFocus;
+    const target = returnFocus?.isConnected ? returnFocus : returnFocusKey
+      ? [...root.querySelectorAll("button[data-entry-id][data-entry-action]")].find((button) =>
+        button.dataset.entryId === returnFocusKey.entryId && button.dataset.entryAction === returnFocusKey.action)
+      : null;
     returnFocus = null;
+    returnFocusKey = null;
     target?.focus({ preventScroll: true });
   });
 

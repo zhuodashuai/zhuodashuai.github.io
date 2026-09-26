@@ -7,6 +7,48 @@ const API_ROOT = "https://api.github.com";
 const OAUTH_ROOT = "https://github.com/login/oauth";
 const MAX_GITHUB_PAGES = 10;
 const GITHUB_PAGE_SIZE = 100;
+export const MAX_SNAPSHOT_BYTES = 5_000_000;
+export const MAX_GITHUB_JSON_BYTES = 7_000_000;
+
+function oversizedSnapshot(): ApiError {
+  return new ApiError(413, "snapshot_too_large", "公开词库超过 5 MB，请先导出备份并拆分数据。");
+}
+
+async function boundedResponseBytes(response: Response, limit: number): Promise<Uint8Array> {
+  const tooLarge = () => limit === MAX_SNAPSHOT_BYTES
+    ? oversizedSnapshot()
+    : new ApiError(502, "github_response_too_large", "GitHub 返回的内容超过安全读取上限，操作已停止。");
+  const declared = Number(response.headers.get("content-length") || 0);
+  if (Number.isFinite(declared) && declared > limit) {
+    await response.body?.cancel().catch(() => {});
+    throw tooLarge();
+  }
+  if (!response.body) return new Uint8Array();
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > limit) {
+        await reader.cancel().catch(() => {});
+        throw tooLarge();
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return bytes;
+}
 
 export interface GitHubIdentity {
   login: string;
@@ -36,8 +78,9 @@ function headers(token?: string): HeadersInit {
 }
 
 async function parseJson(response: Response): Promise<Record<string, unknown>> {
+  const bytes = await boundedResponseBytes(response, MAX_GITHUB_JSON_BYTES);
   try {
-    return await response.json() as Record<string, unknown>;
+    return JSON.parse(new TextDecoder().decode(bytes)) as Record<string, unknown>;
   } catch {
     return {};
   }
@@ -56,7 +99,7 @@ function githubRetryAfter(response: Response): number {
   return 60;
 }
 
-async function githubJson(url: string, token: string, init: RequestInit = {}): Promise<Record<string, unknown>> {
+async function githubResponse(url: string, token: string, init: RequestInit = {}): Promise<Response> {
   let response: Response;
   try {
     response = await fetch(url, {
@@ -67,8 +110,8 @@ async function githubJson(url: string, token: string, init: RequestInit = {}): P
   } catch (error) {
     throw new ApiError(502, "github_unreachable", "暂时无法连接 GitHub。", String(error));
   }
-  const payload = await parseJson(response);
   if (!response.ok) {
+    const payload = await parseJson(response);
     const status = response.status;
     const message = typeof payload.message === "string" ? payload.message : `GitHub returned ${status}`;
     if (status === 401) throw new ApiError(401, "github_session_expired", "GitHub 登录已失效，请重新登录。", message);
@@ -89,7 +132,11 @@ async function githubJson(url: string, token: string, init: RequestInit = {}): P
     if (status >= 500) throw new ApiError(503, "github_retry_later", "GitHub 暂时无法完成请求，请稍后安全重试。", message);
     throw new ApiError(502, "github_error", "GitHub 请求失败。", message);
   }
-  return payload;
+  return response;
+}
+
+async function githubJson(url: string, token: string, init: RequestInit = {}): Promise<Record<string, unknown>> {
+  return parseJson(await githubResponse(url, token, init));
 }
 
 export function createAuthorizationUrl(clientId: string, callbackUrl: string, state: string, codeChallenge: string): string {
@@ -238,11 +285,21 @@ function contentsUrl(config: AppConfig): string {
   return `${API_ROOT}/repos/${encodeURIComponent(config.GITHUB_OWNER)}/${encodeURIComponent(config.GITHUB_REPOSITORY)}/contents/${path}`;
 }
 
-function decodeBase64(value: string): string {
+function decodeBase64(value: string): Uint8Array {
   const clean = value.replace(/\s+/g, "");
+  if (clean.length > Math.ceil(MAX_SNAPSHOT_BYTES / 3) * 4) throw oversizedSnapshot();
   const binary = atob(clean);
-  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
+  if (binary.length > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
+  return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+}
+
+async function gitBlobSha(bytes: Uint8Array): Promise<string> {
+  const header = new TextEncoder().encode(`blob ${bytes.byteLength}\0`);
+  const blob = new Uint8Array(header.byteLength + bytes.byteLength);
+  blob.set(header);
+  blob.set(bytes, header.byteLength);
+  return [...new Uint8Array(await crypto.subtle.digest("SHA-1", blob))]
+    .map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function encodeBase64(value: string): string {
@@ -256,14 +313,30 @@ function encodeBase64(value: string): string {
 
 export async function readRemoteWordbook(token: string, config: AppConfig): Promise<RemoteWordbook> {
   const url = `${contentsUrl(config)}?ref=${encodeURIComponent(config.GITHUB_BRANCH)}`;
-  const payload = await githubJson(url, token);
+  const payload = await githubJson(url, token, { headers: { Accept: "application/vnd.github.object+json" } });
   if (payload.type !== "file" || typeof payload.content !== "string" || typeof payload.sha !== "string") {
     throw new ApiError(502, "invalid_github_file", "GitHub 返回的公开词库不是可读取文件。");
   }
+  if (typeof payload.size === "number" && payload.size > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
   let document: unknown;
   try {
-    document = JSON.parse(decodeBase64(payload.content));
-  } catch {
+    let bytes: Uint8Array;
+    if (payload.encoding === "none" && payload.content === "") {
+      // GitHub omits base64 content above 1 MB. Read the same fixed repository
+      // path as raw bytes, then bind those bytes to the metadata SHA used by CAS.
+      const response = await githubResponse(url, token, { headers: { Accept: "application/vnd.github.raw+json" } });
+      bytes = await boundedResponseBytes(response, MAX_SNAPSHOT_BYTES);
+      if (await gitBlobSha(bytes) !== payload.sha) {
+        throw new ApiError(409, "github_conflict", "GitHub 远端在读取期间已变化，请刷新后安全重试。");
+      }
+    } else if (payload.encoding === undefined || payload.encoding === "base64") {
+      bytes = decodeBase64(payload.content);
+    } else {
+      throw new ApiError(502, "invalid_github_file", "GitHub 返回了不支持的文件编码，操作已停止。");
+    }
+    document = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
+  } catch (error) {
+    if (error instanceof ApiError) throw error;
     throw new ApiError(409, "invalid_remote_snapshot", "GitHub 上的公开词库 JSON 已损坏，发布已停止。");
   }
   return {
@@ -281,9 +354,7 @@ export async function writeRemoteWordbook(args: {
   message: string;
 }): Promise<{ sha: string; commitSha: string; htmlUrl: string }> {
   const serialized = `${JSON.stringify(args.snapshot, null, 2)}\n`;
-  if (new TextEncoder().encode(serialized).byteLength > 900_000) {
-    throw new ApiError(413, "snapshot_too_large", "公开词库超过 900 KB，请先导出备份并拆分数据。");
-  }
+  if (new TextEncoder().encode(serialized).byteLength > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
   const payload = await githubJson(contentsUrl(args.config), args.token, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

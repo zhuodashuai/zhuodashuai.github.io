@@ -546,19 +546,28 @@ function validateSense(candidate) {
 
 function validateReadingContext(candidate) {
   const context = record(candidate, "阅读章节语境");
-  exactKeys(context, READING_CONTEXT_KEYS, "阅读章节语境");
+  const optionalKeys = ["order", "senses"].filter((key) => Object.prototype.hasOwnProperty.call(context, key));
+  exactKeys(context, [...READING_CONTEXT_KEYS, ...optionalKeys], "阅读章节语境");
+  if (context.order !== undefined && (!Number.isSafeInteger(context.order) || context.order < 1 || context.order > 100_000)) {
+    throw new Error("章节顺序必须为 1 至 100000 的整数。");
+  }
+  if (context.senses !== undefined && (!Array.isArray(context.senses) || !context.senses.length || context.senses.length > 20)) {
+    throw new Error("章节义项必须包含 1 至 20 个义项。");
+  }
   const membership = string(context.membership, "章节归属", 80, { required: true });
   if (!/^collection:[a-z0-9]+(?:-[a-z0-9]+)*:chapter-\d+$/u.test(membership)) throw new Error("章节归属格式不正确。");
   const entryType = string(context.entryType, "章节词条类型", 30, { required: true });
   if (!ENTRY_TYPES.includes(entryType)) throw new Error("章节词条类型不受支持。");
   return {
     membership,
+    ...(context.order === undefined ? {} : { order: context.order }),
     page: string(context.page, "章节页码", 40),
     originalInput: string(context.originalInput, "章节原文形式", 2000, { required: true }),
     entryType,
     partOfSpeech: string(context.partOfSpeech, "章节词性", 160),
     meaning: string(context.meaning, "章节中文释义", 4000),
     definition: string(context.definition, "章节英文释义", 4000),
+    ...(context.senses === undefined ? {} : { senses: context.senses.map(validateSense) }),
     usage: string(context.usage, "章节用法", 4000),
     register: string(context.register, "章节语域", 160),
     collocations: stringList(context.collocations, "章节搭配", 30, 180),
@@ -762,7 +771,7 @@ export function contextualizeReadingEntry(entry, collectionId = "", chapterId = 
     partOfSpeech: context.partOfSpeech,
     meaning: context.meaning,
     definition: context.definition,
-    senses: [{
+    senses: context.senses ? structuredClone(context.senses) : [{
       partOfSpeech: context.partOfSpeech,
       meaningZh: context.meaning,
       definitionEn: context.definition,
