@@ -12,6 +12,8 @@ const CORRECTION_KEYS = ["status", "original", "suggestion", "chosen", "confiden
 const SENSE_KEYS = ["partOfSpeech", "meaningZh", "definitionEn", "usageNotes", "register", "collocations", "examples", "confusables"];
 const EXAMPLE_KEYS = ["en", "zh"];
 const SOURCE_KEYS = ["title", "url", "kind", "retrievedAt"];
+const SYNONYM_SCAN_KEYS = ["version", "status", "sourceFingerprint", "candidatesFingerprint", "checkedAt", "candidateCount", "matches", "reason"];
+const SYNONYM_MATCH_KEYS = ["targetId", "targetFingerprint", "note"];
 const READING_CONTEXT_KEYS = [
   "membership", "page", "originalInput", "entryType", "partOfSpeech", "meaning", "definition", "usage", "register",
   "collocations", "confusedWith", "forms", "exampleEn", "exampleZh", "sourceTitle", "sourceWork", "sourceDate", "attributionNote"
@@ -571,6 +573,50 @@ function validateReadingContext(candidate) {
   };
 }
 
+export function validateSynonymScan(candidate) {
+  const scan = record(candidate, "同义词识别记录");
+  exactKeys(scan, SYNONYM_SCAN_KEYS, "同义词识别记录");
+  if (scan.version !== 1) throw new Error("同义词识别记录版本不受支持。");
+  if (!["complete", "pending"].includes(scan.status)) throw new Error("同义词识别状态不受支持。");
+  const fingerprint = (value) => {
+    if (typeof value !== "string" || !/^s1:[a-f0-9]{8}$/.test(value)) throw new Error("同义词识别指纹格式不正确。");
+    return value;
+  };
+  const safeText = (value, label) => {
+    const cleaned = string(value, label, 500);
+    if (/[^\P{Cc}\n\t]|\p{Cf}/u.test(cleaned)) throw new Error(`${label} 包含不支持的控制字符。`);
+    return cleaned;
+  };
+  if (typeof scan.candidateCount !== "number" || !Number.isInteger(scan.candidateCount)
+    || scan.candidateCount < 0 || scan.candidateCount > 100_000) throw new Error("同义词候选数量格式不正确。");
+  if (!Array.isArray(scan.matches) || scan.matches.length > 20) throw new Error("同义词识别关系格式不正确。");
+  // Require an actual timestamp, rather than Date's permissive date-only or
+  // numeric-string parsing. The API applies the corresponding ISO validation.
+  if (typeof scan.checkedAt !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(scan.checkedAt)) {
+    throw new Error("同义词识别时间格式不正确。");
+  }
+  const seen = new Set();
+  const matches = scan.matches.map((candidateMatch) => {
+    const match = record(candidateMatch, "同义词识别关系");
+    exactKeys(match, SYNONYM_MATCH_KEYS, "同义词识别关系");
+    const targetId = string(match.targetId, "同义词目标编号", 180, { required: true });
+    if (!/^[A-Za-z0-9._:-]+$/.test(targetId)) throw new Error("同义词目标编号格式不正确。");
+    if (seen.has(targetId)) throw new Error("同义词识别目标不能重复。");
+    seen.add(targetId);
+    return { targetId, targetFingerprint: fingerprint(match.targetFingerprint), note: safeText(match.note, "同义词辨析") };
+  });
+  return {
+    version: 1,
+    status: scan.status,
+    sourceFingerprint: fingerprint(scan.sourceFingerprint),
+    candidatesFingerprint: fingerprint(scan.candidatesFingerprint),
+    checkedAt: isoDate(scan.checkedAt, "同义词识别时间"),
+    candidateCount: scan.candidateCount,
+    matches,
+    reason: safeText(scan.reason, "同义词识别说明")
+  };
+}
+
 export function validatePublicEntry(candidate) {
   const rawSource = record(candidate, "公开词条");
   // These additive fields were introduced without changing public v3. Older
@@ -581,7 +627,8 @@ export function validatePublicEntry(candidate) {
     synonyms: Object.prototype.hasOwnProperty.call(rawSource, "synonyms") ? rawSource.synonyms : [],
     readingContexts: Object.prototype.hasOwnProperty.call(rawSource, "readingContexts") ? rawSource.readingContexts : []
   };
-  exactKeys(source, ENTRY_KEYS, "公开词条");
+  const hasSynonymScan = Object.prototype.hasOwnProperty.call(source, "synonymScan");
+  exactKeys(source, hasSynonymScan ? [...ENTRY_KEYS, "synonymScan"] : ENTRY_KEYS, "公开词条");
   const correctionSource = record(source.correction, "拼写建议");
   exactKeys(correctionSource, CORRECTION_KEYS, "拼写建议");
   const correctionStatus = string(correctionSource.status, "拼写状态", 20, { required: true });
@@ -668,6 +715,7 @@ export function validatePublicEntry(candidate) {
     senses: source.senses.map(validateSense),
     collocations: stringList(source.collocations, "常见搭配", 30, 180),
     synonyms,
+    ...(hasSynonymScan ? { synonymScan: validateSynonymScan(source.synonymScan) } : {}),
     exampleEn: string(source.exampleEn, "英文例句", 4000),
     exampleZh: string(source.exampleZh, "例句翻译", 4000),
     usage: string(source.usage, "用法提醒", 4000),

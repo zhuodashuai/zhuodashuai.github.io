@@ -6,6 +6,7 @@ import { setupPwa } from "./pwa.js";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
 import { buildSynonymGroups } from "./synonym-groups.js";
+import { sameSynonymSenseView } from "./synonym-evidence.js";
 import { renderSynonymGroups } from "./synonym-view.js";
 
 const refs = Object.fromEntries([
@@ -259,7 +260,8 @@ function render() {
   const scopeIds = new Set(collectionEntries.map((entry) => entry.id));
   const matchesType = (entry) => state.filter === "all" || entry.entryType === state.filter;
   const visibleGroups = allGroups.filter((group) => {
-    const scopedMembers = group.members.filter(({ entry }) => scopeIds.has(entry.id) && matchesType(entry));
+    const scopedMembers = group.members.filter(({ entry }) => scopeIds.has(entry.id) && matchesType(entry)
+      && (!group.id.startsWith("auto:") || sameSynonymSenseView(entry, collectionEntries.find((candidate) => candidate.id === entry.id))));
     if (!scopedMembers.length) return false;
     return !query || normalizePublicSearchQuery(`${group.title} ${group.note}`).includes(query)
       || group.members.some(({ entry }) => publicEntryMatchesQuery(entry, query));
@@ -296,7 +298,8 @@ function render() {
     renderLearningPoints(meaning, entry);
     const synonyms = document.createElement("p");
     synonyms.className = "card-synonyms";
-    const linkedTerms = [...new Set(allGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
+    const linkedTerms = [...new Set(allGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id
+      && (!group.id.startsWith("auto:") || sameSynonymSenseView(member.entry, entry))))
       .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
     synonyms.hidden = linkedTerms.length === 0;
     synonyms.textContent = linkedTerms.length ? `已收录近义词：${linkedTerms.join("；")} · 点开查看辨析` : "";

@@ -276,6 +276,33 @@ const ReadingContextSchema = z.object({
   attributionNote: bounded(1500)
 }).strict();
 
+const SynonymFingerprintSchema = z.string().regex(/^s1:[a-f0-9]{8}$/);
+
+export const SynonymScanSchema = z.object({
+  version: z.literal(1),
+  status: z.enum(["complete", "pending"]),
+  sourceFingerprint: SynonymFingerprintSchema,
+  candidatesFingerprint: SynonymFingerprintSchema,
+  checkedAt: isoDate,
+  candidateCount: z.number().int().min(0).max(100_000),
+  matches: z.array(z.object({
+    targetId: z.string().trim().min(1).max(180).regex(/^[A-Za-z0-9._:-]+$/),
+    targetFingerprint: SynonymFingerprintSchema,
+    note: bounded(500)
+  }).strict()).max(20),
+  reason: bounded(500)
+}).strict().superRefine((scan, context) => {
+  const seen = new Set<string>();
+  scan.matches.forEach((match, index) => {
+    if (seen.has(match.targetId)) {
+      context.addIssue({ code: "custom", path: ["matches", index, "targetId"], message: "synonym scan targets must be unique" });
+    }
+    seen.add(match.targetId);
+  });
+});
+
+export type SynonymScan = z.infer<typeof SynonymScanSchema>;
+
 const CorrectionSchema = z.object({
   status: z.enum(CORRECTION_DECISIONS),
   original: bounded(2000),
@@ -320,6 +347,7 @@ export const PublicEntrySchema = z.object({
   definition: bounded(4000),
   senses: z.array(SenseSchema).max(20),
   synonyms: z.array(bounded(180)).max(20).default([]),
+  synonymScan: SynonymScanSchema.optional(),
   collocations: z.array(bounded(180)).max(30),
   exampleEn: bounded(4000),
   exampleZh: bounded(4000),

@@ -2,6 +2,7 @@ import { readFile, rename, unlink, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { normalizeEnglish, parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
+import { entrySynonymFingerprint, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const SNAPSHOT_PATH = resolve(ROOT, "vocab/data/owner-wordbook.json");
@@ -287,6 +288,9 @@ export async function importReadingList({
         };
       }
       if (sameJson(next, existing)) continue;
+      if (entrySynonymFingerprint(next) !== entrySynonymFingerprint(existing)) {
+        next.synonymScan = pendingSynonymScan(next, current.entries, timestamp);
+      }
       next = {
         ...next,
         revision: existing.revision + 1,
@@ -304,6 +308,7 @@ export async function importReadingList({
       continue;
     }
     const next = entryFromItem(item, source, timestamp);
+    next.synonymScan = pendingSynonymScan(next, current.entries, timestamp);
     const validated = parsePublicSnapshot({
       schemaVersion: 3,
       exportedAt: timestamp,

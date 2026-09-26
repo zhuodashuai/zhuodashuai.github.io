@@ -200,7 +200,8 @@ test("公开详情保持打开时远端改义项会更新正文并移除旧同�
   await expect(page.locator("#entry-dialog")).toBeVisible();
   await expect(page.locator("#dialog-term")).toHaveText("mystified");
   await expect(page.locator("#dialog-meaning")).toContainText(changed.meaning.replace(/。$/u, ""));
-  await expect(page.locator("#dialog-synonym-section")).toBeHidden();
+  await expect(member(page.locator("#dialog-synonym-section"), "bewildered")).toHaveCount(0);
+  await expect(page.locator("#dialog-synonym-status")).toContainText("待识别");
 
   advanceSnapshot(current, 2);
   current.entries = current.entries.filter(({ term }) => term !== "mystified");
@@ -237,7 +238,8 @@ test("Owner 详情保持打开时读取新快照会更新义项与近义关系�
   // exercises an arriving snapshot while its detail is already on screen.
   await page.locator("#refresh-remote").evaluate((control) => control.click());
   await expect(page.locator("#dialog-meaning")).toContainText(changed.meaning.replace(/。$/u, ""));
-  await expect(page.locator("#dialog-synonym-section")).toBeHidden();
+  await expect(member(page.locator("#dialog-synonym-section"), "bewildered")).toHaveCount(0);
+  await expect(page.locator("#dialog-synonym-status")).toContainText("待识别");
 
   advanceSnapshot(current, 2);
   current.entries = current.entries.filter(({ term }) => term !== "mystified");
