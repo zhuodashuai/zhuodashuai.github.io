@@ -744,7 +744,8 @@ function renderOwnerEntries() {
     const relatedTerms = [...new Set(synonymGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
       .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
     synonyms.hidden = relatedTerms.length === 0;
-    synonyms.textContent = relatedTerms.length ? `同义词 / 近义词：${relatedTerms.join("；")}` : "";
+    const relationshipLabel = relatedTerms.every((term) => entry.synonyms.includes(term)) ? "同义词：" : "同义词 / 近义词：";
+    synonyms.textContent = relatedTerms.length ? `${relationshipLabel}${relatedTerms.join("；")}` : "";
     summary.append(partOfSpeech, meaning, synonyms);
     const actions = document.createElement("div");
     actions.className = "button-row";
