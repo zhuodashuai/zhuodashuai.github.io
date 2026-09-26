@@ -86,7 +86,8 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
   // The cost disclosure now lives once, in the manual, and both pages link to it.
   assert.match(guideHtml, /Cloudflare Workers AI.*不需要 OpenAI 或 Claude 的 API key/s);
-  assert.match(guideHtml, /每个 UTC 日最多 20 次整理/);
+  assert.match(guideHtml, /每个 UTC 日有 20 份站内服务额度/);
+  assert.match(guideHtml, /释义整理与每批同义词比对共用/);
   assert.match(guideHtml, /自动换第二款免费模型/);
   assert.match(guideHtml, /这不是永久免费承诺/);
   assert.match(guideHtml, /不会自动切换到可能收费的引擎/);
