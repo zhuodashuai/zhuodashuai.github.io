@@ -171,7 +171,10 @@ async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
     return updated?.synonymScan?.status === "complete";
   } catch (error) {
     if (!state.runClosing && state.csrfToken === csrfToken) {
-      setStatus(refs.captureStatus, `同义词识别暂未完成：${error.message || "请稍后重试"}。词条已保存，现有词库和草稿不受影响。`);
+      const message = `同义词识别暂未完成：${error.message || "请稍后重试"}。词条已保存，现有词库和草稿不受影响。`;
+      // Background scans must not replace input validation or draft guidance.
+      if (automatic) setSyncState("synced", "已连接 GitHub", message);
+      else setStatus(refs.captureStatus, message);
     }
     return false;
   } finally {
@@ -819,6 +822,9 @@ async function renderDrafts() {
 }
 
 function renderOwnerEntries() {
+  const focused = refs.ownerEntryList.contains(document.activeElement) ? document.activeElement : null;
+  const focusedEntryId = focused?.dataset.entryId;
+  const focusedAction = focused?.dataset.entryAction;
   const entries = state.snapshot?.entries || [];
   const synonymGroups = buildSynonymGroups(entries);
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
@@ -833,6 +839,8 @@ function renderOwnerEntries() {
     const term = document.createElement("button");
     term.type = "button";
     term.className = "owner-entry-term-button";
+    term.dataset.entryId = entry.id;
+    term.dataset.entryAction = "detail";
     term.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
     const termLabel = document.createElement("strong");
     termLabel.lang = "en";
@@ -863,6 +871,8 @@ function renderOwnerEntries() {
     actions.className = "button-row";
     const edit = document.createElement("button");
     edit.type = "button";
+    edit.dataset.entryId = entry.id;
+    edit.dataset.entryAction = "edit";
     edit.textContent = "编辑";
     edit.addEventListener("click", async () => {
       await flushPendingDraftSave();
@@ -877,11 +887,15 @@ function renderOwnerEntries() {
     });
     const remove = document.createElement("button");
     remove.type = "button";
+    remove.dataset.entryId = entry.id;
+    remove.dataset.entryAction = "delete";
     remove.className = "danger-button";
     remove.textContent = "删除";
     remove.addEventListener("click", () => queueDelete(entry));
     const recognize = document.createElement("button");
     recognize.type = "button";
+    recognize.dataset.entryId = entry.id;
+    recognize.dataset.entryAction = "recognize";
     recognize.textContent = "重新识别";
     recognize.setAttribute("aria-label", `重新识别 ${entry.term} 的同义词`);
     recognize.hidden = !LEXICAL_ENTRY_TYPES.has(entry.entryType);
@@ -891,6 +905,16 @@ function renderOwnerEntries() {
     row.append(term, summary, actions);
     return row;
   }));
+  if (focusedEntryId && focusedAction) {
+    const buttons = [...refs.ownerEntryList.querySelectorAll("button[data-entry-id][data-entry-action]")];
+    const replacement = buttons.find((button) => button.dataset.entryId === focusedEntryId && button.dataset.entryAction === focusedAction);
+    // An in-flight scan can disable its action; keep keyboard focus on that
+    // entry's title instead of dropping it to the document body.
+    const target = replacement?.disabled
+      ? buttons.find((button) => button.dataset.entryId === focusedEntryId && button.dataset.entryAction === "detail")
+      : replacement;
+    target?.focus({ preventScroll: true });
+  }
   entryDetail.refresh();
 }
 

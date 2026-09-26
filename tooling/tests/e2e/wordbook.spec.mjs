@@ -412,7 +412,7 @@ test("Never Let Me Go Chapter 3 展示全部 28 条，并保留照片原词形�
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(28);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-3"]')).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator('#chapter-tabs button[data-value^="chapter-"]')).toHaveText([
-    /Chapter 1/, /Chapter 2/, /Chapter 3/, /Chapter 4/
+    /Chapter 1/, /Chapter 2/, /Chapter 3/, /Chapter 4/, /Chapter 5/
   ]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(28).fill("Chapter 3"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterThreeSource.items.map((item) => item.term));
@@ -487,7 +487,7 @@ test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并�
   await expect(page.locator("#entry-count")).toHaveText("51");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(51);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-4"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51"]);
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "159"]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(51).fill("Chapter 4"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterFourSource.items.map((item) => item.term));
 
@@ -1449,6 +1449,7 @@ test("离线时只保留手动草稿能力并禁用全部 AI 补全入口", asyn
   await page.getByRole("button", { name: "新建空白草稿" }).click();
   await expect(page.locator("#draft-completion-notice")).toBeVisible();
 
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await expect(page.locator("#network-chip")).toContainText("离线");
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeDisabled();
@@ -1506,8 +1507,16 @@ test("AI 请求期间曾编辑后重新清空 IPA 也按卓的最终选择保留
   await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
 });
 
-test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ context, page }) => {
-  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ page }) => {
+  let releaseRequest;
+  let requestStarted;
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  const started = new Promise((resolve) => { requestStarted = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    requestStarted();
+    await held;
+    await route.continue();
+  });
   let aiRequestCount = 0;
   page.on("request", (request) => {
     if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) aiRequestCount += 1;
@@ -1516,6 +1525,9 @@ test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ co
   await page.getByLabel("英文内容").fill("firstslowword");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: /firstslowword/ })).toBeVisible();
+  // The heading appears before IndexedDB setup finishes. Hold an actually
+  // started request instead of racing a fixed server delay or setup message.
+  await started;
 
   await page.getByLabel("英文内容").fill("secondslowword");
   await page.locator("#capture-form").evaluate((form) => {
@@ -1524,6 +1536,7 @@ test("AI 尚未返回时再次程序化提交也被全局锁拒绝", async ({ co
   await expect(page.locator("#capture-status")).toContainText("已有一项 AI 整理正在进行");
   await expect(page.getByRole("heading", { name: /secondslowword/ })).toHaveCount(0);
   await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue("firstslowword");
+  releaseRequest();
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义", { timeout: 8_000 });
   await expect(page.getByRole("button", { name: "AI 自动整理" })).toBeEnabled();
   await expect(page.getByRole("button", { name: "新建空白草稿" })).toBeEnabled();
@@ -1547,6 +1560,7 @@ test("离线保存进入等待队列，恢复网络后自动发布", async ({ co
   await loginOwner(page);
   await addWithAi(page, "offlineword");
   await page.getByLabel("中文释义", { exact: true }).fill("离线词条");
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
@@ -1576,6 +1590,7 @@ test("删除离线草稿会同时取消待发布任务，恢复网络也不会�
   await loginOwner(page);
   await addWithAi(page, "cancelledword");
   await page.getByLabel("中文释义", { exact: true }).fill("不应发布");
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
@@ -1590,6 +1605,7 @@ test("跨刷新恢复的离线队列必须由卓重新打开复核，不能登�
   await loginOwner(page);
   await addWithAi(page, "reviewword");
   await page.getByLabel("中文释义", { exact: true }).fill("需要重新复核");
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
@@ -1610,6 +1626,7 @@ test("OAuth 初始化期间的 online 事件不能抢在遗留队列复核前自
   await loginOwner(page);
   await addWithAi(page, "oauthraceword");
   await page.getByLabel("中文释义", { exact: true }).fill("OAuth 恢复窗口不应自动发布");
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await page.getByRole("button", { name: "发布到 GitHub" }).click();
   await expect(page.getByText("等待同步", { exact: true }).first()).toBeVisible();
@@ -1650,6 +1667,7 @@ test("另一个已登录页面不能领取并发布不属于本次页面点击�
 
   await addWithAi(page, "crossrunword");
   await page.getByLabel("中文释义", { exact: true }).fill("只能由收到发布点击的页面提交");
+  expectedOfflineNetworkError = true;
   await context.setOffline(true);
   await expect(page.locator("#network-chip")).toContainText("离线");
   await page.getByRole("button", { name: "发布到 GitHub" }).click();

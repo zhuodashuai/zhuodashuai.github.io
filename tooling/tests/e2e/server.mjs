@@ -1,7 +1,9 @@
 import { createServer } from "node:http";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
+import { isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
 
 const root = resolve("vocab");
 const baseline = parsePublicSnapshot(JSON.parse(await readFile(join(root, "data/owner-wordbook.json"), "utf8")));
@@ -255,6 +257,25 @@ async function api(request, response, url) {
     }
     if (entry.entryType === "quote") warnings.push("未找到可核验出处；作者和出处保持空白，状态为未核验。");
     return json(response, 200, { entry, provider: "cloudflare", warnings });
+  }
+  if (url.pathname === "/api/v1/owner/synonyms" && request.method === "POST") {
+    const payload = await body(request);
+    if (!assertWrite(request, response, payload)) return;
+    const state = runState(request);
+    const previous = state.snapshot.entries.find((entry) => entry.id === payload.entryId);
+    if (!previous) return error(response, 404, "entry_missing", "词条已不存在，已停止识别。");
+    if (!isSynonymLexicalEntry(previous)) return error(response, 400, "entry_not_lexical", "此词条类型不支持同义词识别。");
+    const now = new Date().toISOString();
+    const entry = validatePublicEntry({
+      ...previous, revision: previous.revision + 1, updatedAt: now,
+      synonymScan: { ...pendingSynonymScan(previous, state.snapshot.entries, now), status: "complete", reason: "", matches: [] }
+    });
+    state.snapshot = parsePublicSnapshot({
+      ...state.snapshot, exportedAt: now, revisionId: crypto.randomUUID(), lastMutationId: `synonyms-${crypto.randomUUID()}`,
+      entries: state.snapshot.entries.map((candidate) => candidate.id === entry.id ? entry : candidate)
+    }, { allowLegacy: false });
+    state.sha = createHash("sha1").update(JSON.stringify(state.snapshot)).digest("hex");
+    return json(response, 200, { sha: state.sha, snapshot: state.snapshot, entry, action: "synonyms", synonymScan: entry.synonymScan });
   }
   if (url.pathname === "/api/v1/owner/publish" && request.method === "POST") {
     const payload = await body(request);

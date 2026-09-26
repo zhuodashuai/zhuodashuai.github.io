@@ -97,10 +97,19 @@ export function filterEntriesByCollection(entries, collectionId = "all", chapter
   const source = Array.isArray(entries) ? entries : [];
   if (!collectionId || collectionId === "all") return [...source];
   if (collectionId === MAIN_COLLECTION_ID) return source.filter((entry) => collectionMemberships(entry).length === 0);
-  return source.filter((entry) => collectionMemberships(entry).some((membership) => (
+  const filtered = source.filter((entry) => collectionMemberships(entry).some((membership) => (
     membership.collectionId === collectionId
     && (!chapterId || chapterId === "all" || membership.chapterId === chapterId)
   )));
+  if (!chapterId || chapterId === "all") return filtered;
+  const membership = `collection:${collectionId}:${chapterId}`;
+  return filtered
+    .map((entry, index) => {
+      const order = readingContextForMembership(entry, membership)?.order;
+      return { entry, index, order: Number.isSafeInteger(order) && order > 0 && order <= 100_000 ? order : Infinity };
+    })
+    .sort((left, right) => left.order === right.order ? left.index - right.index : left.order - right.order)
+    .map(({ entry }) => entry);
 }
 
 export function collectionContextForEntry(entry, collectionId = "", chapterId = "") {

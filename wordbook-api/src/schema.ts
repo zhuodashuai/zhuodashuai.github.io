@@ -257,12 +257,14 @@ const SenseSchema = z.object({
 
 const ReadingContextSchema = z.object({
   membership: bounded(80).regex(/^collection:[a-z0-9]+(?:-[a-z0-9]+)*:chapter-\d+$/),
+  order: z.number().int().min(1).max(100_000).optional(),
   page: bounded(40),
   originalInput: bounded(2000).min(1),
   entryType: z.enum(ENTRY_TYPES),
   partOfSpeech: bounded(160),
   meaning: bounded(4000),
   definition: bounded(4000),
+  senses: z.array(SenseSchema).min(1).max(20).optional(),
   usage: bounded(4000),
   register: bounded(160),
   collocations: z.array(bounded(180)).max(30),

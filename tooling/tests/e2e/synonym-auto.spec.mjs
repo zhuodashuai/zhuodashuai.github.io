@@ -114,7 +114,7 @@ test("识别失败不撤回已加载词库或草稿，且公开访客不触发�
     return route.fulfill({ status: 503, json: { error: { code: "ai_unavailable", message: "服务暂不可用" } } });
   });
   await ownerReady(page);
-  await expect(page.locator("#capture-status")).toContainText("词条已保存");
+  await expect(page.locator("#sync-detail")).toContainText("词条已保存");
   await expect(page.locator("#owner-entry-count")).toHaveText("3");
   await expect(page.locator("#sync-label")).toHaveText("已连接 GitHub");
   expect(calls).toBe(1);

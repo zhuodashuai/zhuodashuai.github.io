@@ -70,12 +70,14 @@ function attributionNote(source) {
 function readingContextFromItem(item, source) {
   return {
     membership: `collection:${source.collection.id}:${source.chapter.id}`,
+    ...(item.order === undefined ? {} : { order: item.order }),
     page: item.page ? `p. ${String(item.page).replace(/^p\.\s*/iu, "")}` : "",
     originalInput: String(item.originalInput || "").trim(),
     entryType: String(item.entryType || "word"),
     partOfSpeech: String(item.partOfSpeech || "").trim(),
     meaning: String(item.meaning || "").trim(),
     definition: String(item.definitionEn || "").trim(),
+    ...(item.senses === undefined ? {} : { senses: item.senses }),
     usage: String(item.usage || "").trim(),
     register: String(item.register || "neutral"),
     collocations: uniqueText(item.collocations),
@@ -93,7 +95,10 @@ function readingContextFromItem(item, source) {
 function entryFromItem(item, source, timestamp) {
   const term = String(item.term || "").trim();
   const originalInput = String(item.originalInput || "").trim();
-  const exact = normalizeEnglish(term) === normalizeEnglish(originalInput);
+  // A source excerpt can contain several separately studied words. It is
+  // searchable context, not a misspelling alias owned by one of those words.
+  const correctionOriginal = source.originalInputKind === "excerpt" ? term : originalInput;
+  const exact = normalizeEnglish(term) === normalizeEnglish(correctionOriginal);
   const membership = `collection:${source.collection.id}:${source.chapter.id}`;
   const forms = uniqueText(item.forms);
   const tags = uniqueText([membership, "文学阅读", ...item.tags]);
@@ -115,13 +120,13 @@ function entryFromItem(item, source, timestamp) {
     standardForm: term,
     entryType: String(item.entryType || "word"),
     correction: exact
-      ? { status: "exact", original: originalInput, suggestion: "", chosen: term, confidence: 1, source: "user-provided" }
+      ? { status: "exact", original: correctionOriginal, suggestion: "", chosen: term, confidence: 1, source: "user-provided" }
       : { status: "accepted", original: originalInput, suggestion: term, chosen: term, confidence: 1, source: "manual-lemma-normalization" },
     phonetic: item.phonetic === undefined ? "" : item.phonetic.trim(),
     partOfSpeech,
     meaning,
     definition,
-    senses: [{
+    senses: item.senses ?? [{
       partOfSpeech,
       meaningZh: meaning,
       definitionEn: definition,
@@ -176,6 +181,9 @@ function validateSource(source) {
   assert(Number.isInteger(number) && number > 0, "章节编号不正确。");
   assert(source.chapter?.id === `chapter-${number}` && source.chapter?.title === `Chapter ${number}`, "章节 ID、标题与编号不一致。");
   assert(source.sourceTitle === `${source.collection.title} — ${source.chapter.title}`, "统一来源标题不正确。");
+  if (source.originalInputKind !== undefined) {
+    assert(source.originalInputKind === "excerpt", "originalInputKind 仅支持 excerpt；原文片段不是拼写别名。");
+  }
   if (source.attributionNote !== undefined) {
     assert(typeof source.attributionNote === "string" && source.attributionNote.trim() && source.attributionNote.length <= 1500, "阅读清单 attributionNote 必须为不超过 1500 字符的非空文本。");
   }
@@ -190,6 +198,12 @@ function validateSource(source) {
     }
     if (item.phonetic !== undefined) {
       assert(typeof item.phonetic === "string" && item.phonetic.length <= 300, `第 ${index + 1} 条 phonetic 必须为不超过 300 字符的文本。`);
+    }
+    if (item.order !== undefined) {
+      assert(Number.isSafeInteger(item.order) && item.order > 0 && item.order <= 100_000, `第 ${index + 1} 条 order 必须为 1 至 100000 的整数。`);
+    }
+    if (item.senses !== undefined) {
+      assert(Array.isArray(item.senses) && item.senses.length > 0 && item.senses.length <= 20, `第 ${index + 1} 条 senses 必须包含 1 至 20 个义项。`);
     }
     assert(Array.isArray(item.forms) && Array.isArray(item.collocations) && Array.isArray(item.tags), `第 ${index + 1} 条列表字段不完整。`);
     assert(new RegExp(`第${chineseChapter(number)}章语境`, "u").test(item.usage), `第 ${index + 1} 条没有明确标出第${chineseChapter(number)}章语境。`);
