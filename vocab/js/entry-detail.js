@@ -1,5 +1,7 @@
 import { formatMeaningForDisplay } from "./wordbook-schema.js";
 import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
+import { synonymGroupsForEntry } from "./synonym-groups.js";
+import { renderSynonymGroups } from "./synonym-view.js";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -149,7 +151,7 @@ export function entryTextForCopy(entry) {
   ].filter(Boolean).join("\n");
 }
 
-export function createEntryDetailController({ root = document } = {}) {
+export function createEntryDetailController({ root = document, getEntries = () => [], contextualizeEntry = (entry) => entry, onNavigate } = {}) {
   const refs = Object.fromEntries(DIALOG_IDS.map((id) => [
     id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()),
     root.getElementById(id)
@@ -158,10 +160,35 @@ export function createEntryDetailController({ root = document } = {}) {
   let selected = null;
   let returnFocus = null;
   let copyResetTimer = null;
+  const synonymSection = root.createElement("section");
+  synonymSection.id = "dialog-synonym-section";
+  synonymSection.className = "detail-section";
+  synonymSection.hidden = true;
+  const synonymHeading = root.createElement("h3");
+  synonymHeading.textContent = "已收录的同义 / 近义词";
+  const synonymList = root.createElement("div");
+  synonymList.className = "detail-synonym-groups";
+  synonymSection.append(synonymHeading, synonymList);
+  refs.dialogExtraSection.before(synonymSection);
+
+  const refreshRelations = () => {
+    if (!selected) return;
+    const groups = synonymGroupsForEntry(selected, getEntries());
+    synonymSection.hidden = groups.length === 0;
+    renderSynonymGroups(synonymList, groups, {
+      selectedId: selected.id,
+      onOpen: (entry, invoker) => {
+        if (onNavigate) onNavigate(entry, invoker);
+        else show(entry, { invoker });
+        refs.dialogTerm.tabIndex = -1;
+        refs.dialogTerm.focus({ preventScroll: true });
+      }
+    });
+  };
 
   const show = (entry, { invoker = root.activeElement } = {}) => {
     selected = entry;
-    returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
+    if (!refs.entryDialog.open) returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
     setText(refs.dialogType, TYPE_LABELS[entry.entryType] || entry.entryType);
     setText(refs.dialogTerm, entry.term);
     setText(refs.dialogPhonetic, [entry.phonetic, entry.partOfSpeech].filter(Boolean).join(" · "));
@@ -180,6 +207,7 @@ export function createEntryDetailController({ root = document } = {}) {
     refs.dialogUsageSection.hidden = !usage;
     setMultilineText(refs.dialogUsage, usage);
     renderDetailExtra(refs, entry);
+    refreshRelations();
 
     const quoteLike = ["quote", "proverb"].includes(entry.entryType);
     refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length && !entry.sourceTitle && !entry.sourceWork;
@@ -240,6 +268,17 @@ export function createEntryDetailController({ root = document } = {}) {
 
   return {
     show,
+    refresh() {
+      if (!selected) return null;
+      const fresh = getEntries().find((entry) => entry.id === selected.id);
+      if (!fresh) {
+        refs.entryDialog.close();
+        return null;
+      }
+      const contextual = contextualizeEntry(fresh);
+      show(contextual, { invoker: returnFocus });
+      return contextual;
+    },
     close() { if (refs.entryDialog.open) refs.entryDialog.close(); }
   };
 }

@@ -5,6 +5,8 @@ import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSear
 import { setupPwa } from "./pwa.js";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
+import { buildSynonymGroups } from "./synonym-groups.js";
+import { renderSynonymGroups } from "./synonym-view.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -12,7 +14,7 @@ const refs = Object.fromEntries([
   "dialog-speak", "dialog-copy", "dialog-phonetic", "dialog-meaning", "dialog-definition-section", "dialog-definition", "dialog-example-section",
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "dialog-review-section", "dialog-review-status", "dialog-review-actions", "study-button", "due-count",
-  "install-button", "update-banner", "apply-update"
+  "install-button", "update-banner", "apply-update", "view-controls", "synonym-panel", "synonym-intro", "synonym-empty", "synonym-count"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const initialParameters = new URLSearchParams(window.location.search);
@@ -23,6 +25,7 @@ const state = {
   liveEtag: "",
   collectionId: initialParameters.get("book") || "all",
   chapterId: initialParameters.get("chapter") || "all",
+  view: initialParameters.get("view") === "synonyms" ? "synonyms" : "cards",
   studyScopeEntries: [],
   studyQueue: [],
   studyQueueTotal: 0,
@@ -38,7 +41,11 @@ const TYPE_LABELS = {
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
 const adminUrl = ownerAdminUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
-const entryDetail = createEntryDetailController();
+const entryDetail = createEntryDetailController({
+  getEntries: () => state.snapshot?.entries || [],
+  contextualizeEntry: (entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId),
+  onNavigate: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
+});
 let loadTask = null;
 let lastLoadStartedAt = 0;
 
@@ -85,6 +92,8 @@ function updateCollectionUrl() {
   else url.searchParams.set("book", state.collectionId);
   if (state.collectionId === "all" || state.chapterId === "all") url.searchParams.delete("chapter");
   else url.searchParams.set("chapter", state.chapterId);
+  if (state.view === "synonyms") url.searchParams.set("view", "synonyms");
+  else url.searchParams.delete("view");
   window.history.replaceState(null, "", url);
 }
 
@@ -246,6 +255,28 @@ function render() {
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
+  const allGroups = buildSynonymGroups(entries);
+  const scopeIds = new Set(collectionEntries.map((entry) => entry.id));
+  const matchesType = (entry) => state.filter === "all" || entry.entryType === state.filter;
+  const visibleGroups = allGroups.filter((group) => {
+    const scopedMembers = group.members.filter(({ entry }) => scopeIds.has(entry.id) && matchesType(entry));
+    if (!scopedMembers.length) return false;
+    return !query || normalizePublicSearchQuery(`${group.title} ${group.note}`).includes(query)
+      || group.members.some(({ entry }) => publicEntryMatchesQuery(entry, query));
+  });
+  const groupedView = state.view === "synonyms";
+  refs.viewControls.querySelectorAll("button[data-view]").forEach((control) => {
+    control.setAttribute("aria-pressed", String(control.dataset.view === state.view));
+  });
+  refs.entryGrid.hidden = groupedView;
+  refs.synonymPanel.hidden = !groupedView;
+  refs.synonymIntro.hidden = !groupedView;
+  refs.synonymEmpty.hidden = !groupedView || visibleGroups.length > 0;
+  refs.synonymCount.textContent = String(visibleGroups.length);
+  renderSynonymGroups(refs.synonymPanel, visibleGroups, {
+    isOutsideScope: (entry) => !scopeIds.has(entry.id),
+    onOpen: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
+  });
   const cards = filtered.map((entry) => {
     const article = document.createElement("article");
     article.className = "word-card";
@@ -265,8 +296,10 @@ function render() {
     renderLearningPoints(meaning, entry);
     const synonyms = document.createElement("p");
     synonyms.className = "card-synonyms";
-    synonyms.hidden = entry.synonyms.length === 0;
-    synonyms.textContent = entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "";
+    const linkedTerms = [...new Set(allGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
+      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
+    synonyms.hidden = linkedTerms.length === 0;
+    synonyms.textContent = linkedTerms.length ? `已收录近义词：${linkedTerms.join("；")} · 点开查看辨析` : "";
     const tags = document.createElement("div");
     tags.className = "tag-list";
     const shownTags = visibleEntryTags(entry).slice(0, 3);
@@ -284,12 +317,12 @@ function render() {
   refs.entryGrid.setAttribute("aria-busy", "false");
   refs.entryCount.textContent = String(collectionEntries.length);
   const searchMiss = Boolean(query) && queryMatches.length === 0;
-  refs.searchEmpty.hidden = !searchMiss;
+  refs.searchEmpty.hidden = groupedView || !searchMiss;
   if (searchMiss) {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
   }
-  refs.emptyMessage.hidden = filtered.length > 0 || searchMiss || collectionEntries.length === 0;
+  refs.emptyMessage.hidden = groupedView || filtered.length > 0 || searchMiss || collectionEntries.length === 0;
   void refreshStudySummary(collectionEntries);
 }
 
@@ -343,6 +376,10 @@ async function performLoad({ background = false } = {}) {
       : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
     refs.exportPublic.disabled = false;
     render();
+    if (state.selectedEntry) {
+      state.selectedEntry = entryDetail.refresh();
+      if (state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
+    }
   } catch (networkError) {
     if (state.snapshot) {
       refs.entryGrid.setAttribute("aria-busy", "false");
@@ -403,6 +440,13 @@ refs.chapterTabs.addEventListener("click", (event) => {
   restoreNavigationFocus(refs.chapterTabs, state.chapterId);
 });
 refs.librarySearch.addEventListener("input", () => { state.query = refs.librarySearch.value; render(); });
+refs.viewControls.addEventListener("click", (event) => {
+  const control = event.target.closest("button[data-view]");
+  if (!control) return;
+  state.view = control.dataset.view === "synonyms" ? "synonyms" : "cards";
+  updateCollectionUrl();
+  render();
+});
 refs.retryLoad.addEventListener("click", () => { void loadWordbook({ force: true }); });
 refs.studyButton.addEventListener("click", async () => {
   try {
