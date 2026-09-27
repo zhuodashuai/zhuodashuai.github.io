@@ -14,9 +14,9 @@ test.beforeEach(async ({ context }, testInfo) => {
   ]);
 });
 
-function importedFixture() {
+function importedFixture(count = 2) {
   const snapshot = structuredClone(baseline);
-  snapshot.entries = snapshot.entries.filter((entry) => entry.entryType === "word").slice(0, 2);
+  snapshot.entries = snapshot.entries.filter((entry) => entry.entryType === "word").slice(0, count);
   for (const entry of snapshot.entries) entry.synonymScan = pendingSynonymScan(entry, snapshot.entries);
   return snapshot;
 }
@@ -25,34 +25,191 @@ async function serveSnapshot(page, snapshot) {
   await page.route("**/api/v1/owner/wordbook", (route) => route.fulfill({ json: { snapshot, sha: "a".repeat(40) } }));
 }
 
-test("后台连续识别保留列表键盘焦点，弹窗关闭返回重建后的同一词条按钮", async ({ page }) => {
+test("后台连续识别保留列表行与按钮节点，弹窗关闭返回同一词条按钮", async ({ page }) => {
   const snapshot = importedFixture();
   await serveSnapshot(page, snapshot);
   const scans = [];
+  let releaseRemainingScans;
+  const cleanupGate = new Promise((resolve) => { releaseRemainingScans = resolve; });
   await page.route("**/api/v1/owner/synonyms", async (route) => {
     const { entryId } = route.request().postDataJSON();
-    await new Promise((release) => scans.push({ entryId, release }));
+    await Promise.race([new Promise((release) => scans.push({ entryId, release })), cleanupGate]);
     const entry = snapshot.entries.find((candidate) => candidate.id === entryId);
     entry.synonymScan = { ...pendingSynonymScan(entry, snapshot.entries), status: "complete", reason: "" };
     await route.fulfill({ json: { snapshot, sha: "b".repeat(40), entry, action: "synonyms", synonymScan: entry.synonymScan } });
   });
-  await page.goto("/owner.html");
-  await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
-  await expect.poll(() => scans.length).toBe(1);
-  const button = page.getByRole("button", { name: `查看 ${snapshot.entries[0].term} 的完整词条`, exact: true });
-  await button.focus();
-  scans[0].release();
-  await expect.poll(() => scans.length).toBe(2);
-  await expect(button).toBeFocused();
+  try {
+    await page.goto("/owner.html");
+    await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
+    await expect.poll(() => scans.length).toBe(1);
+    const button = page.getByRole("button", { name: `查看 ${snapshot.entries[0].term} 的完整词条`, exact: true });
+    const row = page.locator(".owner-entry-row").filter({ has: button });
+    const originalRow = await row.elementHandle();
+    const originalButtons = await row.locator("button").elementHandles();
+    expect(originalRow).not.toBeNull();
+    expect(originalButtons).toHaveLength(4);
+    const expectOriginalNodes = async () => {
+      expect(await row.evaluate((current, original) => current === original, originalRow)).toBe(true);
+      expect(await row.locator("button").evaluateAll((current, original) => (
+        current.length === original.length && current.every((node, index) => node === original[index])
+      ), originalButtons)).toBe(true);
+    };
+    await button.focus();
+    scans[0].release();
+    await expect.poll(() => scans.length).toBe(2);
+    await expectOriginalNodes();
+    await expect(button).toBeFocused();
 
-  await page.keyboard.press("Enter");
-  await expect(page.locator("#entry-dialog")).toBeVisible();
-  scans[1].release();
-  await expect(page.locator(".owner-entry-synonym-status", { hasText: "已识别" })).toHaveCount(2);
-  await expect(page.locator("#entry-dialog")).toBeVisible();
-  await page.keyboard.press("Escape");
-  await expect(page.locator("#entry-dialog")).toBeHidden();
-  await expect(button).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#entry-dialog")).toBeVisible();
+    scans[1].release();
+    await expect(page.locator(".owner-entry-synonym-status", { hasText: "已识别" })).toHaveCount(2);
+    await expectOriginalNodes();
+    await expect(page.locator("#entry-dialog")).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#entry-dialog")).toBeHidden();
+    await expect(button).toBeFocused();
+  } finally {
+    releaseRemainingScans();
+    await page.unrouteAll({ behavior: "wait" });
+  }
+});
+
+test("保留的词条按钮在扫描响应更新内容后打开最新详情和编辑草稿", async ({ page }) => {
+  const snapshot = importedFixture();
+  const original = structuredClone(snapshot.entries[0]);
+  const updatedMeaning = "髋骨；构成骨盆的骨骼";
+  const updatedDefinition = "A large bone forming either side of the pelvis.";
+  const updatedExample = { en: "The scan showed a fracture in her hipbone.", zh: "扫描显示她的髋骨出现了骨折。" };
+  const updated = {
+    ...original,
+    revision: original.revision + 1,
+    updatedAt: new Date().toISOString(),
+    originalInput: "hipbone",
+    term: "hipbone",
+    normalized: "hipbone",
+    standardForm: "hipbone",
+    correction: { ...original.correction, original: "hipbone", chosen: "hipbone", suggestion: "" },
+    phonetic: "/ˈhɪpboʊn/",
+    partOfSpeech: "noun",
+    meaning: `noun：${updatedMeaning}`,
+    definition: `noun: ${updatedDefinition}`,
+    senses: [{
+      ...original.senses[0],
+      partOfSpeech: "noun",
+      meaningZh: updatedMeaning,
+      definitionEn: updatedDefinition,
+      usageNotes: "",
+      register: "general",
+      collocations: ["hipbone fracture"],
+      examples: [updatedExample],
+      confusables: []
+    }],
+    collocations: ["hipbone fracture"],
+    exampleEn: updatedExample.en,
+    exampleZh: updatedExample.zh,
+    usage: "",
+    register: "general",
+    confusedWith: [],
+    forms: ["hipbones"]
+  };
+  snapshot.entries[1].synonymScan = {
+    ...pendingSynonymScan(snapshot.entries[1], snapshot.entries), status: "complete", reason: ""
+  };
+  await serveSnapshot(page, snapshot);
+  let releaseScan;
+  const scanGate = new Promise((resolve) => { releaseScan = resolve; });
+  let calls = 0;
+  await page.route("**/api/v1/owner/synonyms", async (route) => {
+    calls += 1;
+    expect(route.request().postDataJSON().entryId).toBe(original.id);
+    await scanGate;
+    // A scan response carries the whole current remote snapshot, which can
+    // include a concurrent edit. Retained controls must read that new entry.
+    snapshot.entries[0] = updated;
+    updated.synonymScan = { ...pendingSynonymScan(updated, snapshot.entries), status: "complete", reason: "" };
+    await route.fulfill({ json: { snapshot, sha: "c".repeat(40), entry: updated, action: "synonyms", synonymScan: updated.synonymScan } });
+  });
+  try {
+    await page.goto("/owner.html");
+    await expect.poll(() => calls).toBe(1);
+    const button = page.locator(`button[data-entry-id="${original.id}"][data-entry-action="detail"]`);
+    const row = page.locator(".owner-entry-row").filter({ has: button });
+    const edit = row.getByRole("button", { name: "编辑", exact: true });
+    await expect(button).toHaveAccessibleName(`查看 ${original.term} 的完整词条`);
+    const originalButton = await button.elementHandle();
+    const originalEdit = await edit.elementHandle();
+    expect(originalButton).not.toBeNull();
+    expect(originalEdit).not.toBeNull();
+    releaseScan();
+    await expect(button).toHaveAccessibleName("查看 hipbone 的完整词条");
+    await expect(row.locator(".owner-entry-synonym-status")).toContainText("已识别");
+    await expect(row.getByRole("button", { name: "重新识别 hipbone 的同义词", exact: true })).toBeEnabled();
+    await expect(row.locator(".owner-entry-part-of-speech + p")).toContainText(updatedMeaning);
+    expect(await button.evaluate((current, previous) => current === previous, originalButton)).toBe(true);
+    expect(await edit.evaluate((current, previous) => current === previous, originalEdit)).toBe(true);
+
+    await button.click();
+    const dialog = page.locator("#entry-dialog");
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole("heading", { name: "hipbone", exact: true })).toBeVisible();
+    await expect(dialog.locator("#dialog-meaning")).toContainText(updatedMeaning);
+    await expect(dialog.locator("article.detail-sense")).toHaveCount(1);
+    await expect(dialog.locator(".sense-meaning-zh > p")).toHaveText(updatedMeaning);
+    await expect(dialog.locator(".sense-definition-en > p")).toHaveText(updatedDefinition);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await expect(button).toBeFocused();
+
+    await edit.click();
+    await expect(page.getByLabel("发布词条", { exact: true })).toHaveValue(updated.term);
+    await expect(page.getByLabel("标准形式", { exact: true })).toHaveValue(updated.standardForm);
+    await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue(updated.meaning);
+    await expect(page.getByLabel("英文释义", { exact: true })).toHaveValue(updated.definition);
+    await expect(page.getByLabel("英文例句", { exact: true })).toHaveValue(updated.exampleEn);
+    expect(calls).toBe(1);
+  } finally {
+    releaseScan();
+    await page.unrouteAll({ behavior: "wait" });
+  }
+});
+
+test("列表连续筛选移除所有不匹配行，零结果后清空搜索恢复完整顺序", async ({ page }) => {
+  const snapshot = importedFixture(3);
+  const terms = snapshot.entries.map((entry) => entry.term);
+  expect(new Set(terms).size).toBe(3);
+  for (const entry of snapshot.entries) {
+    entry.synonymScan = { ...pendingSynonymScan(entry, snapshot.entries), status: "complete", reason: "" };
+  }
+  await serveSnapshot(page, snapshot);
+  await page.goto("/owner.html");
+  const rows = page.locator(".owner-entry-row");
+  const labels = rows.locator(".owner-entry-term-button > strong");
+  const search = page.locator("#owner-search");
+  await expect(rows).toHaveCount(3);
+  await expect(labels).toHaveText(terms);
+  const originalRows = await rows.elementHandles();
+
+  // Removing two consecutive siblings catches iteration over a live
+  // HTMLCollection, where removing the first node can skip the next one.
+  await search.fill(terms[2]);
+  await expect(rows).toHaveCount(1);
+  await expect(labels).toHaveText([terms[2]]);
+  expect(await rows.evaluate((current, original) => current === original, originalRows[2])).toBe(true);
+  expect(await originalRows[0].evaluate((row) => row.isConnected)).toBe(false);
+  expect(await originalRows[1].evaluate((row) => row.isConnected)).toBe(false);
+
+  await search.fill("no-entry-matches-e2e-filter");
+  await expect(rows).toHaveCount(0);
+  expect(await originalRows[2].evaluate((row) => row.isConnected)).toBe(false);
+
+  await search.clear();
+  await expect(rows).toHaveCount(3);
+  await expect(labels).toHaveText(terms);
+  await expect(page.locator("#owner-entry-count")).toHaveText("3");
+  expect(await rows.locator(".owner-entry-term-button").evaluateAll((buttons) => (
+    buttons.map((button) => button.dataset.entryId)
+  ))).toEqual(snapshot.entries.map((entry) => entry.id));
 });
 
 test("自动识别失败保留输入来源说明和焦点，只在同步详情显示后台错误", async ({ page }) => {

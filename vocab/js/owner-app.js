@@ -833,21 +833,30 @@ function renderOwnerEntries() {
     query
   );
   refs.ownerEntryCount.textContent = String(entries.length);
-  refs.ownerEntryList.replaceChildren(...shown.map((entry) => {
-    const row = document.createElement("article");
+  const previousRows = new Map([...refs.ownerEntryList.children].map((row) => [row.dataset.entryId, row]));
+  const rows = shown.map((entry) => {
+    const row = previousRows.get(entry.id) || document.createElement("article");
+    const isNew = !previousRows.has(entry.id);
     row.className = "owner-entry-row";
-    const term = document.createElement("button");
+    row.dataset.entryId = entry.id;
+    const currentEntry = () => state.snapshot?.entries.find((candidate) => candidate.id === entry.id);
+    const term = isNew ? document.createElement("button") : row.querySelector(".owner-entry-term-button");
     term.type = "button";
     term.className = "owner-entry-term-button";
     term.dataset.entryId = entry.id;
     term.dataset.entryAction = "detail";
     term.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
-    const termLabel = document.createElement("strong");
+    const termLabel = isNew ? document.createElement("strong") : term.querySelector("strong");
     termLabel.lang = "en";
     termLabel.textContent = entry.term;
-    term.append(termLabel);
-    term.addEventListener("click", () => entryDetail.show(entry, { invoker: term }));
-    const summary = document.createElement("div");
+    if (isNew) {
+      term.append(termLabel);
+      term.addEventListener("click", () => {
+        const latest = currentEntry();
+        if (latest) entryDetail.show(latest, { invoker: term });
+      });
+    }
+    const summary = isNew ? document.createElement("div") : row.querySelector(".owner-entry-summary");
     summary.className = "owner-entry-summary";
     const partOfSpeech = document.createElement("p");
     partOfSpeech.className = "owner-entry-part-of-speech";
@@ -866,17 +875,19 @@ function renderOwnerEntries() {
     scanStatus.className = "owner-entry-synonym-status";
     scanStatus.textContent = synonymScanLabel(entry, synonymGroups);
     scanStatus.hidden = !scanStatus.textContent;
-    summary.append(partOfSpeech, meaning, synonyms, scanStatus);
-    const actions = document.createElement("div");
+    summary.replaceChildren(partOfSpeech, meaning, synonyms, scanStatus);
+    const actions = isNew ? document.createElement("div") : row.querySelector(".button-row");
     actions.className = "button-row";
-    const edit = document.createElement("button");
+    const edit = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="edit"]');
     edit.type = "button";
     edit.dataset.entryId = entry.id;
     edit.dataset.entryAction = "edit";
     edit.textContent = "编辑";
-    edit.addEventListener("click", async () => {
+    if (isNew) edit.addEventListener("click", async () => {
       await flushPendingDraftSave();
       const existingDrafts = await listDrafts();
+      const entry = currentEntry();
+      if (!entry) return;
       const existing = existingDrafts.find((draft) => draft.mode === "edit" && draft.entryId === entry.id && draft.localState !== "published");
       if (existing) fillEditor(existing);
       else {
@@ -885,14 +896,17 @@ function renderOwnerEntries() {
       }
       document.getElementById("editor-shell").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     });
-    const remove = document.createElement("button");
+    const remove = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="delete"]');
     remove.type = "button";
     remove.dataset.entryId = entry.id;
     remove.dataset.entryAction = "delete";
     remove.className = "danger-button";
     remove.textContent = "删除";
-    remove.addEventListener("click", () => queueDelete(entry));
-    const recognize = document.createElement("button");
+    if (isNew) remove.addEventListener("click", () => {
+      const latest = currentEntry();
+      if (latest) queueDelete(latest);
+    });
+    const recognize = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="recognize"]');
     recognize.type = "button";
     recognize.dataset.entryId = entry.id;
     recognize.dataset.entryAction = "recognize";
@@ -900,11 +914,24 @@ function renderOwnerEntries() {
     recognize.setAttribute("aria-label", `重新识别 ${entry.term} 的同义词`);
     recognize.hidden = !LEXICAL_ENTRY_TYPES.has(entry.entryType);
     recognize.disabled = state.synonymBusy || state.queueBusy || state.publishing || !navigator.onLine;
-    recognize.addEventListener("click", () => scanPublishedSynonyms(entry.id).catch((error) => setStatus(refs.captureStatus, error.message)));
-    actions.append(edit, recognize, remove);
-    row.append(term, summary, actions);
+    if (isNew) {
+      recognize.addEventListener("click", () => scanPublishedSynonyms(entry.id).catch((error) => setStatus(refs.captureStatus, error.message)));
+      actions.append(edit, recognize, remove);
+      row.append(term, summary, actions);
+    }
     return row;
-  }));
+  });
+  // Background relation updates keep native buttons attached, including between
+  // Space keydown/keyup. Restoring focus to a replacement cannot retain activation.
+  const visibleRows = new Set(rows);
+  for (const row of [...refs.ownerEntryList.children]) {
+    if (!visibleRows.has(row)) row.remove();
+  }
+  rows.forEach((row, index) => {
+    if (refs.ownerEntryList.children[index] !== row) {
+      refs.ownerEntryList.insertBefore(row, refs.ownerEntryList.children[index] || null);
+    }
+  });
   if (focusedEntryId && focusedAction) {
     const buttons = [...refs.ownerEntryList.querySelectorAll("button[data-entry-id][data-entry-action]")];
     const replacement = buttons.find((button) => button.dataset.entryId === focusedEntryId && button.dataset.entryAction === focusedAction);

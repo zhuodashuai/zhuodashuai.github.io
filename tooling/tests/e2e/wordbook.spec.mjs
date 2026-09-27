@@ -125,30 +125,78 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
 });
 
 test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后焦点返回词名", async ({ page }) => {
-  await loginOwner(page);
-  await page.locator("#owner-search").fill("hip");
-  const row = page.locator(".owner-entry-row", { hasText: "hip" });
-  const termButton = row.locator(".owner-entry-term-button");
-  await expect(termButton).toHaveAccessibleName("查看 hip 的完整词条");
+  let releaseScan;
+  let scanStarted;
+  let releaseRemainingScans;
+  let nextScanStarted;
+  let scanRequests = 0;
+  let firstScanEntryId;
+  const scanGate = new Promise((resolve) => { releaseScan = resolve; });
+  const scanning = new Promise((resolve) => { scanStarted = resolve; });
+  const remainingScanGate = new Promise((resolve) => { releaseRemainingScans = resolve; });
+  const nextScanning = new Promise((resolve) => { nextScanStarted = resolve; });
+  await page.route("**/api/v1/owner/synonyms", async (route) => {
+    scanRequests += 1;
+    if (scanRequests === 1) {
+      firstScanEntryId = route.request().postDataJSON().entryId;
+      scanStarted();
+      await scanGate;
+    } else {
+      nextScanStarted();
+      await remainingScanGate;
+    }
+    await route.continue();
+  });
+  try {
+    await loginOwner(page);
+    await scanning;
+    await page.locator("#owner-search").fill("hip");
+    const row = page.locator(".owner-entry-row", { hasText: "hip" });
+    const termButton = row.locator(".owner-entry-term-button");
+    await expect(termButton).toHaveAccessibleName("查看 hip 的完整词条");
 
-  await termButton.focus();
-  await page.keyboard.press("Enter");
-  let dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
-  await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText("noun · adjective");
-  await expect(dialog.locator("article.detail-sense")).toHaveCount(2);
-  await expect(dialog.locator(".sense-part-of-speech")).toHaveText(["noun", "adjective"]);
+    await termButton.focus();
+    await page.keyboard.press("Enter");
+    let dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toContainText("noun · adjective");
+    await expect(dialog.locator("article.detail-sense")).toHaveCount(2);
+    await expect(dialog.locator(".sense-part-of-speech")).toHaveText(["noun", "adjective"]);
 
-  await page.keyboard.press("Escape");
-  await expect(dialog).toBeHidden();
-  await expect(termButton).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toBeHidden();
+    await expect(termButton).toBeFocused();
 
-  await page.keyboard.press("Space");
-  dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
-  await expect(dialog).toBeVisible();
-  await dialog.getByRole("button", { name: /关闭/ }).click();
-  await expect(dialog).toBeHidden();
-  await expect(termButton).toBeFocused();
+    // Complete a background scan between Space's native keydown and keyup.
+    // The same focused button must survive the render to retain activation.
+    const pressedButton = await termButton.elementHandle();
+    await page.keyboard.down("Space");
+    const completedScan = page.waitForResponse((response) => response.url().endsWith("/api/v1/owner/synonyms")
+      && response.request().postDataJSON().entryId === firstScanEntryId);
+    releaseScan();
+    const response = await completedScan;
+    expect(response.status()).toBe(200);
+    const scanResult = await response.json();
+    expect(scanResult).toMatchObject({ action: "synonyms", entry: { id: firstScanEntryId },
+      synonymScan: { status: "complete", reason: "" } });
+    expect(scanResult.snapshot.entries.find((entry) => entry.id === firstScanEntryId).synonymScan).toEqual(scanResult.synonymScan);
+    // The next request starts only after the prior response has been cached,
+    // rendered and finalized. Hold it so no later repaint races the assertion.
+    await nextScanning;
+    expect(await pressedButton.evaluate((button) => button.isConnected && document.activeElement === button)).toBe(true);
+    await expect(termButton).toBeFocused();
+    await page.keyboard.up("Space");
+    dialog = page.getByRole("dialog").filter({ has: page.getByRole("heading", { name: "hip", exact: true }) });
+    await expect(dialog).toBeVisible();
+    await dialog.getByRole("button", { name: /关闭/ }).click();
+    await expect(dialog).toBeHidden();
+    await expect(termButton).toBeFocused();
+  } finally {
+    await page.keyboard.up("Space");
+    releaseScan();
+    releaseRemainingScans();
+    await page.unrouteAll({ behavior: "wait" });
+  }
 });
 
 test("公开词条详情按义项分块，各字段、双语例句与词形独立换行", async ({ page }) => {
@@ -1464,15 +1512,30 @@ test("离线时只保留手动草稿能力并禁用全部 AI 补全入口", asyn
   await expect(page.getByRole("button", { name: "重新用 AI 整理" })).toBeEnabled();
 });
 
-test("AI 返回较慢时保留卓已经输入的人工修改", async ({ context, page }) => {
-  await context.addCookies([{ name: "e2e_ai_delay", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
+test("AI 返回较慢时保留卓已经输入的人工修改", async ({ page }) => {
+  let releaseRequest;
+  let requestStarted;
+  const held = new Promise((resolve) => { releaseRequest = resolve; });
+  const started = new Promise((resolve) => { requestStarted = resolve; });
+  await page.route("**/api/v1/owner/ai/organize", async (route) => {
+    requestStarted();
+    await held;
+    await route.continue();
+  });
   await loginOwner(page);
   await page.getByLabel("英文内容").fill("slowword");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.getByRole("heading", { name: /slowword/ })).toBeVisible();
+  // The draft heading precedes the request's baseline capture. Wait until the
+  // request is held, then keep it pending for both edits regardless of CI speed.
+  await started;
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
   await page.getByLabel("中文释义", { exact: true }).fill("卓在等待 AI 时手动写的释义");
   await page.getByLabel("音标", { exact: true }).fill("/ˈsləʊ.wɜːd/");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "busy");
+  releaseRequest();
   await expect(page.locator("#capture-status")).toContainText("人工修改已保留");
+  await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("卓在等待 AI 时手动写的释义");
   await expect(page.getByLabel("音标", { exact: true })).toHaveValue("/ˈsləʊ.wɜːd/");
   await expect(page.locator("#entry-form")).not.toHaveAttribute("inert", "");
