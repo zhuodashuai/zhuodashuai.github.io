@@ -82,7 +82,7 @@ async function withFreshImport(run) {
   // These eighteen cards are chapter-specific; remove only their membership
   // scope when constructing a pre-import fixture, never any old chapter card.
   const prior = { ...current, entries: current.entries.filter((entry) => !entry.tags.includes(membership)) };
-  assert.equal(prior.entries.length, 151);
+  assert.equal(prior.entries.length, 194);
   const directory = await mkdtemp(join(tmpdir(), "wordbook-chapter-five-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
   try {
@@ -189,7 +189,7 @@ test("Chapter 5 contains exactly four marked and fourteen selected items in thei
 
 test("the published shortlist retains all eighteen original IDs and creation times without residual Chapter 5 memberships", async () => {
   const snapshot = await loadSnapshot();
-  assert.equal(snapshot.entries.length, 169);
+  assert.equal(snapshot.entries.length, 212);
   const cards = chapterEntries(snapshot.entries, 5);
   assert.deepEqual(cards.map((entry) => entry.term), expectedTerms);
   assert.deepEqual(cards.map((entry) => entry.id), expectedIds);
@@ -207,13 +207,13 @@ test("the published shortlist retains all eighteen original IDs and creation tim
     .map((entry) => entry.id).sort(), [...wanted].sort());
 });
 
-test("importing the eighteen-item shortlist preserves all 151 old cards and every previous chapter context", async () => {
+test("importing the eighteen-item shortlist preserves all other cards and every previous chapter context", async () => {
   await withFreshImport(async ({ prior, result }) => {
     assert.equal(result.changed, true);
     assert.equal(result.chapterEntries.length, 18);
     assert.equal(result.totalChapterEntries, 18);
-    assert.equal(result.snapshot.entries.length, 169);
-    assert.equal(new Set(result.snapshot.entries.map((entry) => entry.normalized)).size, 169);
+    assert.equal(result.snapshot.entries.length, 212);
+    assert.equal(new Set(result.snapshot.entries.map((entry) => entry.normalized)).size, 212);
     const priorIds = new Set(prior.entries.map((entry) => entry.id));
     assert.deepEqual(result.snapshot.entries.filter((entry) => priorIds.has(entry.id)), prior.entries);
     assert.equal(result.chapterEntries.some((entry) => priorIds.has(entry.id)), false);
@@ -265,7 +265,8 @@ test("each selected reading card projects its own page, meaning and example whil
     }
     const book = buildCollectionCatalog(result.snapshot.entries).find((item) => item.id === collectionId);
     assert.deepEqual(book.chapters.map(({ id, count }) => [id, count]), [
-      ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 18]
+      ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 18],
+      ["chapter-6", 16], ["chapter-7", 30]
     ]);
   });
 });
