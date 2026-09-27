@@ -48,25 +48,21 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .danger-button { color: var(--danger); border-color: #d9aaaa; background: #fff9f7; }
 
 main { width: min(1480px, calc(100% - 40px)); margin: 0 auto; }
-.public-hero { min-height: 560px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, .7fr); align-items: center; gap: clamp(2rem, 7vw, 8rem); padding: 5rem clamp(0rem, 4vw, 4rem); }
+.public-hero { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .3rem 1.5rem; padding: 1.25rem .25rem; }
 .eyebrow { margin: 0 0 .75rem; color: var(--green-2); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 h1, h2, h3, p { overflow-wrap: anywhere; }
 h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 500; line-height: 1.13; }
-/* -.055em is a Latin display-type value; full-width Chinese glyphs collide at
-   it. -.04em keeps the headline on the same number of lines at every breakpoint
-   while leaving the characters clear of each other. Latin runs keep the tighter
-   original value. */
-.public-hero h1 { max-width: 900px; font-size: clamp(3.2rem, 7.2vw, 7.8rem); letter-spacing: -.04em; }
-.public-hero h1:lang(en), .public-hero h1 [lang="en"] { letter-spacing: -.055em; }
-/* Chinese type has no true italic; browsers synthesise a mechanical slant.
-   The colour shift already carries the emphasis. */
-.public-hero h1 em { color: var(--green-2); font-weight: 400; font-style: normal; }
+.public-hero h1 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); font-weight: 600; line-height: 1.3; letter-spacing: .02em; }
 .lede { max-width: 720px; margin: 2rem 0 0; color: #44534c; font-size: clamp(1rem, 1.3vw, 1.18rem); }
+.public-hero .lede { margin: 0; font-size: .9rem; color: var(--muted); }
 
 .library-shell { margin-bottom: 4rem; padding: clamp(1.25rem, 3vw, 3.2rem); border: 1px solid var(--line); border-radius: 28px; background: rgba(255,253,248,.88); box-shadow: var(--shadow); }
 .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }
 .section-heading h2 { font-size: clamp(2rem, 4vw, 4rem); }
 .data-status { margin: .7rem 0 0; color: var(--muted); }
+body[data-page="public"] .section-heading { gap: 1rem; padding-bottom: 1rem; }
+body[data-page="public"] .section-heading h2 { font-size: clamp(1.35rem, 2.8vw, 2.2rem); line-height: 1.25; }
+body[data-page="public"] .data-status { margin-top: .4rem; font-size: .8rem; }
 .library-heading-actions { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
 .study-launch { color: white; border-color: var(--green); background: var(--green); font-weight: 750; }
 .study-launch span { display: inline-grid; min-width: 1.7rem; min-height: 1.7rem; margin-left: .35rem; place-items: center; border-radius: 999px; color: var(--green); background: white; font-size: .8rem; }
@@ -84,8 +80,6 @@ h1, h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-weight: 5
 .toolbar { display: grid; grid-template-columns: minmax(260px, .8fr) 1.7fr; gap: 1.5rem; align-items: end; padding: 1.5rem 0; }
 .search-field { display: grid; gap: .45rem; font-weight: 700; }
 .field-hint { display: block; margin: .1rem 0 0; color: var(--muted); font-size: .78rem; font-weight: 400; }
-.about-card { padding: 2rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,253,248,.78); box-shadow: var(--shadow); }
-.about-line { margin: 0 0 1.1rem; color: #3d4943; font-size: 1.02rem; line-height: 1.75; }
 .inline-link { font-weight: 700; }
 .search-field span { color: var(--muted); font-size: .82rem; }
 input, textarea, select { width: 100%; min-width: 0; border: 1px solid #b9b2a5; border-radius: 10px; padding: .75rem .85rem; background: #fffefb; }
@@ -309,8 +303,6 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
 .conflict-dialog li { margin-bottom: .55rem; }
 
 @media (max-width: 1020px) {
-  .public-hero { min-height: auto; grid-template-columns: 1fr; padding: 4rem 0; gap: 2rem; }
-  .about-card { max-width: 680px; }
   .entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .owner-layout { grid-template-columns: 1fr; }
   .draft-rail { position: static; max-height: none; }
@@ -328,8 +320,7 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .brand small { display: none; }
   .top-actions { gap: .2rem; }
   .quiet-button, .quiet-link, .primary-link { padding-inline: .72rem; }
-  .public-hero { padding: 3rem 0; }
-  .public-hero h1 { font-size: clamp(2.8rem, 15vw, 5.2rem); }
+  .public-hero { padding: 1rem .25rem; }
   .section-heading { align-items: center; }
   .library-heading-actions { align-items: flex-end; flex-direction: column-reverse; gap: .65rem; }
   .study-launch { min-height: 40px; padding: .5rem .75rem; }

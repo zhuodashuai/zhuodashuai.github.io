@@ -5,10 +5,9 @@ import chapterSource from "../../vocab/data/reading-lists/never-let-me-go/chapte
 import { contextualizeReadingEntry } from "../../vocab/js/wordbook-schema.js";
 import { PublicEntrySchema, PublishRequestSchema, validateSnapshot, type PublicEntry } from "../src/schema";
 import { applyPublishMutation } from "../src/wordbook";
-import { entry } from "./fixtures";
+import { entry, snapshot } from "./fixtures";
 
 const membership = "collection:never-let-me-go:chapter-5";
-const compositeTerms = ["kidnap / abduction", "explicitly / imply"];
 const readingContext = {
   membership, page: "p. 49", originalInput: "carried on", entryType: "phrasal-verb" as const,
   partOfSpeech: "verb", meaning: "继续下去", definition: "To continue an activity.",
@@ -19,43 +18,67 @@ const readingContext = {
 };
 const baseEntry = entry({ tags: [membership], readingContexts: [readingContext] });
 const sense = baseEntry.senses[0];
+// These pairs exercise structured contexts independently of the curated book.
+const compositeFixtures = [
+  {
+    term: "kidnap / abduction",
+    senses: [
+      { partOfSpeech: "verb", meaningZh: "绑架", definitionEn: "To take someone away by force.",
+        examples: [{ en: "They planned to kidnap the witness.", zh: "他们计划绑架证人。" }] },
+      { partOfSpeech: "noun", meaningZh: "绑架行为", definitionEn: "The act of taking someone away by force.",
+        examples: [{ en: "The police investigated the abduction.", zh: "警方调查了这起绑架案。" }] }
+    ]
+  },
+  {
+    term: "explicitly / imply",
+    senses: [
+      { partOfSpeech: "adverb", meaningZh: "明确地", definitionEn: "In a clear and direct way.",
+        examples: [{ en: "She stated the rule explicitly.", zh: "她明确说明了规则。" }] },
+      { partOfSpeech: "verb", meaningZh: "暗示", definitionEn: "To suggest something without stating it directly.",
+        examples: [{ en: "His words imply that he disagrees.", zh: "他的话暗示他不同意。" }] }
+    ]
+  }
+].map(({ term, senses }, index) => {
+  const completeSenses = senses.map((item) => ({
+    ...item, usageNotes: "", register: "neutral", collocations: [], confusables: []
+  }));
+  const fields = {
+    originalInput: term,
+    entryType: "phrase" as const,
+    partOfSpeech: senses.map((item) => item.partOfSpeech).join(" · "),
+    meaning: senses.map((item) => `${item.partOfSpeech}：${item.meaningZh}`).join("\n"),
+    definition: senses.map((item) => `${item.partOfSpeech}: ${item.definitionEn}`).join("\n"),
+    senses: completeSenses,
+    usage: "Compare the two expressions.",
+    collocations: [],
+    forms: [],
+    exampleEn: senses[0].examples[0].en,
+    exampleZh: senses[0].examples[0].zh
+  };
+  return entry({
+    ...fields, id: `public-composite-fixture-${index}`, term, phonetic: "", tags: [membership],
+    readingContexts: [{ ...readingContext, ...fields }]
+  });
+});
 
 function chapterEntries(entries: PublicEntry[]): PublicEntry[] {
   return entries.filter((candidate) => candidate.tags.includes(membership));
 }
 
 describe("Chapter 5 publication regression", () => {
-  it("round-trips the actual 306-entry snapshot through the API snapshot validator", () => {
+  it("round-trips the actual 169-entry snapshot through the API snapshot validator", () => {
     const parsed = validateSnapshot(publishedSnapshot);
-    expect(parsed.entries).toHaveLength(306);
-    expect(chapterEntries(parsed.entries)).toHaveLength(159);
+    expect(parsed.entries).toHaveLength(169);
+    expect(chapterEntries(parsed.entries)).toHaveLength(18);
     expect(parsed).toEqual(publishedSnapshot);
     expect(validateSnapshot(JSON.parse(JSON.stringify(parsed)))).toEqual(parsed);
   });
 
-  it("preserves both structured senses of each composite card in its reading context", () => {
-    const parsed = validateSnapshot(publishedSnapshot);
-    for (const term of compositeTerms) {
-      const candidate = parsed.entries.find((item) => item.term === term)!;
-      const context = candidate.readingContexts.find((item) => item.membership === membership)!;
-      const source = chapterSource.items.find((item) => item.term === term)!;
-      expect(candidate, term).toBeDefined();
-      expect(context.senses, term).toHaveLength(2);
-      expect(context.senses, term).toEqual(candidate.senses);
-      expect(context.senses, term).toEqual(source.senses);
-      expect(context.senses!.map((item) => item.partOfSpeech), term).toEqual(
-        term === "kidnap / abduction" ? ["verb", "noun"] : ["adverb", "verb"]
-      );
-      const projected = contextualizeReadingEntry(candidate, "never-let-me-go", "chapter-5") as PublicEntry;
-      expect(PublicEntrySchema.parse(projected).senses, term).toEqual(context.senses);
-    }
-  });
-
   for (const view of ["canonical", "Chapter 5 projected"] as const) {
-    it(`accepts all 159 actual ${view} entries through the API publish and lexical quality gates`, () => {
+    it(`accepts all 18 actual ${view} entries through the API publish and lexical quality gates`, () => {
       const remote = validateSnapshot(publishedSnapshot);
       const candidates = chapterEntries(remote.entries);
-      expect(candidates).toHaveLength(159);
+      expect(candidates).toHaveLength(18);
       expect(candidates.map((candidate) => candidate.term).sort()).toEqual(
         chapterSource.items.map((item) => item.term).sort()
       );
@@ -73,11 +96,8 @@ describe("Chapter 5 publication regression", () => {
           const result = applyPublishMutation(remote, request, "2026-09-27T18:00:00.000Z");
           expect(result.action).toBe("updated");
           expect(result.entry!.id).toBe(canonical.id);
-          expect(result.snapshot.entries).toHaveLength(306);
+          expect(result.snapshot.entries).toHaveLength(169);
           expect(result.entry!.readingContexts).toEqual(canonical.readingContexts);
-          if (compositeTerms.includes(candidate.term)) {
-            expect(result.entry!.senses).toHaveLength(2);
-          }
         } catch (error) {
           failures.push(`${candidate.term}: ${error instanceof Error ? error.message : String(error)}`);
         }
@@ -88,6 +108,35 @@ describe("Chapter 5 publication regression", () => {
 });
 
 describe("optional structured reading context senses", () => {
+  for (const view of ["canonical", "Chapter 5 projected"] as const) {
+    it(`preserves both senses of synthetic ${view} composite cards through validation and publishing`, () => {
+      const remote = validateSnapshot(snapshot(compositeFixtures));
+      expect(validateSnapshot(JSON.parse(JSON.stringify(remote)))).toEqual(remote);
+      for (const canonical of remote.entries) {
+        const context = canonical.readingContexts[0];
+        const candidate = view === "canonical"
+          ? canonical
+          : contextualizeReadingEntry(canonical, "never-let-me-go", "chapter-5") as PublicEntry;
+        expect(context.senses, canonical.term).toHaveLength(2);
+        expect(context.senses, canonical.term).toEqual(canonical.senses);
+        expect(context.senses!.map((item) => item.partOfSpeech), canonical.term).toEqual(
+          canonical.term === "kidnap / abduction" ? ["verb", "noun"] : ["adverb", "verb"]
+        );
+        expect(PublicEntrySchema.parse(candidate).senses, canonical.term).toEqual(context.senses);
+        const request = PublishRequestSchema.parse({
+          clientProtocol: "v38", queueProtocol: "v38", baseSha: "a".repeat(40),
+          mutationId: `composite-api-check-${canonical.id}`,
+          mutation: { type: "update", entry: candidate, expectedUpdatedAt: canonical.updatedAt }
+        });
+        const result = applyPublishMutation(remote, request, "2026-09-27T18:00:00.000Z");
+        expect(result.action).toBe("updated");
+        expect(result.entry!.senses, canonical.term).toEqual(context.senses);
+        expect(result.entry!.readingContexts, canonical.term).toEqual(canonical.readingContexts);
+        expect(result.snapshot.entries).toHaveLength(compositeFixtures.length);
+      }
+    });
+  }
+
   it("preserves absent senses on an existing reading context without adding a default", () => {
     const parsed = PublicEntrySchema.parse(baseEntry);
     expect(parsed.readingContexts).toEqual([readingContext]);

@@ -487,7 +487,7 @@ test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并�
   await expect(page.locator("#entry-count")).toHaveText("51");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(51);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-4"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "159"]);
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "18"]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(51).fill("Chapter 4"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterFourSource.items.map((item) => item.term));
 

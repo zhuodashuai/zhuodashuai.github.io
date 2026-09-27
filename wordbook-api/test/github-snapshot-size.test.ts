@@ -1,8 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AppConfig } from "../src/config";
 import { MAX_GITHUB_JSON_BYTES, MAX_SNAPSHOT_BYTES, readRemoteWordbook, writeRemoteWordbook } from "../src/github";
-import type { PublicSnapshot } from "../src/schema";
-import published from "../../vocab/data/owner-wordbook.json";
+import { validateSnapshot, type PublicSnapshot } from "../src/schema";
 import { entry, snapshot } from "./fixtures";
 
 const config: AppConfig = {
@@ -49,8 +48,13 @@ function oversizedStream(limit: number) {
 afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe("bounded GitHub wordbook transport", () => {
-  it("reads the expanded snapshot through raw content and writes it with the same CAS SHA", async () => {
-    const bytes = encoder.encode(`${JSON.stringify(published, null, 2)}\n`);
+  it("reads a large synthetic snapshot through raw content and writes it with the same CAS SHA", async () => {
+    // Transport coverage must stay above GitHub's inline-content limit even as the curated book changes.
+    const document = snapshot(Array.from({ length: 600 }, (_, index) => entry({
+      id: `public-transport-fixture-${index}`, term: `transport fixture ${index}`
+    })));
+    expect(validateSnapshot(document)).toEqual(document);
+    const bytes = encoder.encode(`${JSON.stringify(document, null, 2)}\n`);
     expect(bytes.length).toBeGreaterThan(1_000_000);
     expect(bytes.length).toBeLessThan(MAX_SNAPSHOT_BYTES);
     const sha = await blobSha(bytes);
@@ -60,7 +64,8 @@ describe("bounded GitHub wordbook transport", () => {
         expect(body.sha).toBe(sha);
         expect(body.branch).toBe("main");
         const decoded = Uint8Array.from(atob(body.content), (character) => character.charCodeAt(0));
-        expect(JSON.parse(new TextDecoder().decode(decoded))).toEqual(published);
+        expect(JSON.parse(new TextDecoder().decode(decoded))).toEqual(document);
+        expect(decoded.length).toBeGreaterThan(1_000_000);
         expect(decoded.length).toBeLessThan(MAX_SNAPSHOT_BYTES);
         return Response.json({ content: { sha: "b".repeat(40) }, commit: { sha: "c".repeat(40) } });
       }
@@ -72,7 +77,7 @@ describe("bounded GitHub wordbook transport", () => {
     });
     vi.stubGlobal("fetch", mock);
     const remote = await readRemoteWordbook("test-token", config);
-    expect(remote.snapshot).toEqual(published);
+    expect(remote.snapshot).toEqual(document);
     await expect(writeRemoteWordbook({ token: "test-token", config, expectedSha: remote.sha, snapshot: remote.snapshot, message: "Update wordbook" })).resolves.toMatchObject({ sha: "b".repeat(40) });
     expect(mock).toHaveBeenCalledTimes(3);
   });
