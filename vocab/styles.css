@@ -89,6 +89,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--green-2); box-sh
 .filter-row button[aria-pressed="true"] { color: white; border-color: var(--green); background: var(--green); }
 .entry-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .view-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+body[data-page="public"] .collection-tabs { padding-top: .8rem; }
+body[data-page="public"] .view-controls { margin: .65rem 0 .35rem; }
+body[data-page="public"] .toolbar { padding: .7rem 0 1rem; }
 .view-controls button[aria-pressed="true"] { color: white; background: var(--green); border-color: var(--green); }
 .synonym-intro { color: var(--muted); font-size: .9rem; }
 .synonym-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -320,7 +323,7 @@ legend { padding: 0 .45rem; font: 700 1.12rem Georgia, serif; }
   .brand small { display: none; }
   .top-actions { gap: .2rem; }
   .quiet-button, .quiet-link, .primary-link { padding-inline: .72rem; }
-  .public-hero { padding: 1rem .25rem; }
+  .public-hero { padding: .5rem .25rem; }
   .section-heading { align-items: center; }
   .library-heading-actions { align-items: flex-end; flex-direction: column-reverse; gap: .65rem; }
   .study-launch { min-height: 40px; padding: .5rem .75rem; }

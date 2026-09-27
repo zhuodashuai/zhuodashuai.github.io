@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-for (const viewport of [{ width: 360, height: 780 }, { width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }, { width: 500, height: 650 }, { width: 1440, height: 900 }]) {
   test(`compact public introduction keeps search in the first screen at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto("/?book=never-let-me-go&chapter=chapter-5");
