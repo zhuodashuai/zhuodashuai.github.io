@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=61">
+  <link rel="stylesheet" href="styles.css?v=62">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -40,12 +40,20 @@
         <li><strong>看</strong> —— 翻阅全部词条，点开看完整释义、例句和出处。</li>
         <li><strong>搜</strong> —— 在这个单词本里找词，不是在互联网上查。</li>
         <li><strong>筛</strong> —— 按单词、短语、习语、名言等类型过滤。</li>
-        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–5。</li>
+        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–7。</li>
         <li><strong>复习</strong> —— 按「再来一次／有点难／记得／很熟」安排自己的下一次复习。</li>
         <li><strong>听</strong> —— 朗读词条发音。</li>
         <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
       <p class="guide-note">不用登录，直接用。复习进度只留在当前浏览器；访客不能添加、修改或删除公开词条。</p>
+    </section>
+
+    <section class="guide-block" aria-labelledby="g-quiz">
+      <h2 id="g-quiz">章节开篇测试</h2>
+      <p>进入具体 Chapter，点右下角的「开篇测试」。每轮覆盖该章节能组成四个可区分选项的词条：看英文，选择本章中的中文意思。题目和选项都会重新随机排列，不受搜索框或类型筛选影响，也不会额外加入生词。</p>
+      <p>选择答案后自动保存，再显示正误；点「下一题」继续。退出或刷新后，可以从「继续上次测试」接着做。每轮保存开始时间、答题进度、正确率和错词；「测试记录」可以查看以往各轮，也可导出本章记录。未完成的一轮只按已答题计算正确率。</p>
+      <p>题目使用已收录的章节释义，不调用 AI。已知近义词和释义重叠的词会避开；不足四个可区分选项的词会明确列为未出题，不计入成绩。新增或改过的词条从下一轮生效，进行中的题目不会中途变化。</p>
+      <p class="guide-callout">测试记录只保存在当前设备的这个浏览器或安装的应用里，不上传 GitHub、不跨设备同步。清除网站数据、无痕窗口关闭或系统清理存储可能导致记录丢失，请按需导出备份。测试不会修改「学习 / 复习」的既有排程。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-owner">

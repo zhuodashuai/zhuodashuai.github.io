@@ -8,6 +8,7 @@ import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js"
 import { buildSynonymGroups } from "./synonym-groups.js";
 import { sameSynonymSenseView } from "./synonym-evidence.js";
 import { renderSynonymGroups } from "./synonym-view.js";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -49,6 +50,20 @@ const entryDetail = createEntryDetailController({
 });
 let loadTask = null;
 let lastLoadStartedAt = 0;
+const chapterQuiz = setupChapterQuiz({
+  launchButton: document.getElementById("chapter-quiz-button"),
+  dialog: document.getElementById("chapter-quiz-dialog"),
+  getScope: () => {
+    if (!state.snapshot || state.collectionId === "all" || state.chapterId === "all") return null;
+    const collection = buildCollectionCatalog(state.snapshot.entries).find((item) => item.id === state.collectionId);
+    const chapter = collection?.chapters.find((item) => item.id === state.chapterId);
+    return chapter ? {
+      bookId: collection.id, bookTitle: collection.title,
+      chapterId: chapter.id, chapterTitle: chapter.title,
+      entries: state.studyScopeEntries
+    } : null;
+  }
+});
 
 function setText(element, value) {
   if (element) element.textContent = value || "";
@@ -250,6 +265,7 @@ function render() {
   const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId)
     .map((entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId));
   state.studyScopeEntries = collectionEntries;
+  chapterQuiz.updateScope();
   const query = normalizePublicSearchQuery(state.query);
   const queryMatches = rankExactEntryMatches(
     collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)),
@@ -513,7 +529,7 @@ if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
 }
-setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true });
+setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true, beforeApplyUpdate: () => chapterQuiz.flushPendingSave() });
 const refreshWhileVisible = () => {
   if (document.visibilityState === "hidden" || navigator.onLine === false) return;
   void loadWordbook({ background: true });

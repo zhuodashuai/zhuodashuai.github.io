@@ -178,6 +178,48 @@ body[data-page="public"] .toolbar { padding: .7rem 0 1rem; }
 
 dialog { width: min(820px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: clamp(1.4rem, 4vw, 3rem); border: 1px solid var(--line); border-radius: 22px; color: var(--ink); background: var(--paper-2); box-shadow: 0 35px 100px rgba(10,25,20,.35); }
 dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
+
+/* Chapter tests live in a small launcher and a focused dialog, not another page section. */
+.has-chapter-quiz { padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+.chapter-quiz-launch { position: fixed; z-index: 20; right: max(1.2rem, env(safe-area-inset-right, 0px)); bottom: calc(1.2rem + env(safe-area-inset-bottom, 0px)); display: inline-flex; gap: .5rem; align-items: center; padding: .85rem 1.25rem; color: white; border-color: var(--green); background: var(--green); box-shadow: 0 6px 24px #12282035; font-weight: 750; }
+.chapter-quiz-launch span { font-size: 1.25rem; line-height: 1; }
+.chapter-quiz-dialog { width: min(650px, calc(100% - 24px)); padding: 0; overscroll-behavior: contain; }
+.quiz-header { position: sticky; top: 0; z-index: 2; display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--line); background: var(--paper-2); }
+.quiz-header h2 { font-size: 1.5rem; }
+.quiz-header p { margin: 0 0 .2rem; font-size: .8rem; }
+#quiz-close { flex: 0 0 44px; padding: 0; font-size: 1.6rem; }
+.quiz-content { padding: 1.5rem; }
+.quiz-content h3 { margin: 0; font-size: 1.2rem; line-height: 1.45; }
+.quiz-content h3:focus, .quiz-feedback:focus { outline: none; }
+.quiz-muted { color: var(--muted); }
+.quiz-small { font-size: .82rem; }
+.quiz-actions { display: flex; gap: .65rem; flex-wrap: wrap; margin: 1.4rem 0 .5rem; }
+#quiz-progress { margin: 0 0 .6rem; font-variant-numeric: tabular-nums; }
+.quiz-content #quiz-term { font: 600 clamp(1.65rem, 5vw, 2.5rem)/1.25 Georgia, serif; overflow-wrap: anywhere; }
+.quiz-options { display: grid; gap: .7rem; margin-top: 1.5rem; }
+.quiz-option { display: flex; gap: .9rem; align-items: baseline; padding: .85rem 1rem; border-radius: 12px; text-align: left; line-height: 1.6; }
+.quiz-option-letter { font-weight: 750; color: var(--green-2); }
+.quiz-option:disabled { opacity: 1; cursor: default; }
+.quiz-option.is-correct { border-color: #34735a; background: #e8f2eb; color: #183b32; }
+.quiz-option.is-wrong { border-color: #a54a41; background: #fff0ea; color: #782d28; }
+.quiz-feedback { padding: .8rem 1rem; border-radius: 10px; background: #e8f2eb; font-size: .94rem; }
+.quiz-feedback.is-wrong { background: #fff0ea; color: #782d28; }
+.quiz-message { position: sticky; bottom: 0; padding: .6rem 1.5rem; margin: 0; color: #782d28; background: var(--paper-2); font-size: .9rem; }
+.quiz-message:empty { display: none; }
+.quiz-score { margin: .7rem 0 0; font: 600 3.5rem/1.2 Georgia, serif; color: var(--green); }
+.quiz-wrong-list, .quiz-history-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+.quiz-wrong-list li { padding: 1rem; border: 1px solid var(--line); border-radius: 12px; }
+.quiz-wrong-list strong { font: 600 1.25rem/1.3 Georgia, serif; overflow-wrap: anywhere; }
+.quiz-wrong-list p { margin: .4rem 0 0; font-size: .9rem; white-space: pre-line; }
+.quiz-history-open { display: grid; gap: .25rem; width: 100%; border-radius: 12px; text-align: left; }
+.quiz-history-open span { color: var(--muted); font-size: .82rem; }
+.quiz-omissions { margin-top: 1rem; color: var(--muted); font-size: .86rem; }
+@media (max-width: 480px) {
+  .chapter-quiz-launch { right: max(.85rem, env(safe-area-inset-right, 0px)); bottom: calc(.85rem + env(safe-area-inset-bottom, 0px)); padding: .7rem 1rem; }
+  .quiz-header, .quiz-content { padding: 1rem; }
+  .quiz-option { padding: .7rem .8rem; }
+  .quiz-actions button { flex: 1 1 auto; }
+}
 .dialog-close { display: flex; justify-content: flex-end; }
 .dialog-close button { width: 44px; padding: 0; font-size: 1.4rem; }
 .dialog-title-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
