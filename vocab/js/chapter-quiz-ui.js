@@ -22,6 +22,12 @@ function dateLabel(value) {
 
 /** A private, device-local quiz. It never updates cards or the spaced-review schedule. */
 export function setupChapterQuiz({ launchButton, dialog, getScope }) {
+  // An installed older shell can briefly coexist with revalidated modules.
+  // Keep its reader working until the new HTML arrives instead of making the
+  // optional quiz a fatal dependency for the whole wordbook.
+  if (!launchButton || !dialog) {
+    return { updateScope() {}, async flushPendingSave() {} };
+  }
   const title = dialog.querySelector("#quiz-title");
   const scopeLabel = dialog.querySelector("#quiz-scope");
   const content = dialog.querySelector("#quiz-content");

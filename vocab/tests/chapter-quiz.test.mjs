@@ -5,6 +5,15 @@ import { applyQuizAnswer, createChapterQuiz, quizMeaningsOverlap, shuffleQuizIte
 import { filterEntriesByCollection } from "../js/collections.js";
 import { contextualizeReadingEntry } from "../js/wordbook-schema.js";
 import { buildSynonymGroups } from "../js/synonym-groups.js";
+import { setupChapterQuiz } from "../js/chapter-quiz-ui.js";
+
+test("a cached pre-quiz page remains readable while its modules update", async () => {
+  for (const refs of [{ launchButton: null, dialog: null }, { launchButton: {}, dialog: null }, { launchButton: null, dialog: {} }]) {
+    const controller = setupChapterQuiz({ ...refs, getScope: () => { throw new Error("Old shell must not start a quiz"); } });
+    assert.doesNotThrow(() => controller.updateScope());
+    await controller.flushPendingSave();
+  }
+});
 
 const snapshot = JSON.parse(await readFile(new URL("../data/owner-wordbook.json", import.meta.url), "utf8"));
 const fixture = [
