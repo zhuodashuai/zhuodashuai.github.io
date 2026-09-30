@@ -34,6 +34,11 @@ const state = {
   selectedEntry: null,
   studyRefreshToken: 0
 };
+// A cached or still-propagating snapshot may not contain a newly shared chapter.
+// Keep that initial intent until it appears, unless the reader navigates away.
+let requestedCollectionScope = state.collectionId === "all" ? null : {
+  collectionId: state.collectionId, chapterId: state.chapterId
+};
 const FOREGROUND_REFRESH_MS = 30_000;
 const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
@@ -122,6 +127,16 @@ function restoreNavigationFocus(container, value) {
 function renderCollectionNavigation(entries) {
   const catalog = buildCollectionCatalog(entries);
   const available = new Map(catalog.map((collection) => [collection.id, collection]));
+  if (requestedCollectionScope) {
+    const requestedCollection = available.get(requestedCollectionScope.collectionId);
+    if (requestedCollection && (requestedCollectionScope.chapterId === "all"
+      || requestedCollection.chapters.some((chapter) => chapter.id === requestedCollectionScope.chapterId))) {
+      state.collectionId = requestedCollectionScope.collectionId;
+      state.chapterId = requestedCollectionScope.chapterId;
+      requestedCollectionScope = null;
+      updateCollectionUrl();
+    }
+  }
   if (state.collectionId !== "all" && !available.has(state.collectionId)) {
     state.collectionId = "all";
     state.chapterId = "all";
@@ -444,6 +459,7 @@ refs.filterRow.addEventListener("click", (event) => {
 refs.collectionTabs.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-value]");
   if (!control) return;
+  requestedCollectionScope = null;
   state.collectionId = control.dataset.value || "all";
   state.chapterId = "all";
   updateCollectionUrl();
@@ -453,6 +469,7 @@ refs.collectionTabs.addEventListener("click", (event) => {
 refs.chapterTabs.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-value]");
   if (!control) return;
+  requestedCollectionScope = null;
   state.chapterId = control.dataset.value || "all";
   updateCollectionUrl();
   render();
