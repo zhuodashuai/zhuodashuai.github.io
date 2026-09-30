@@ -59,6 +59,14 @@ async function speechState(page) {
   return page.evaluate(() => ({ calls: window.__speechTest.state.calls, cancels: window.__speechTest.state.cancels, activeText: window.__speechTest.state.active?.text || "" }));
 }
 
+async function expectSpeechStopped(page) {
+  // Native <dialog> close dispatch can trail its visible open=false state.
+  // Bound the observable result without depending on OS event-loop timing.
+  await expect.poll(async () => (await speechState(page)).activeText, {
+    timeout: 2_000, intervals: [20, 50, 100], message: "closing or leaving a word must stop its pronunciation"
+  }).toBe("");
+}
+
 test("card speaker reads the full expression without opening the card, and clicking again stops it", async ({ page }) => {
   await installSpeechStub(page);
   await page.goto(chapterUrl);
@@ -131,15 +139,73 @@ test("closing details or advancing to a new review word stops current speech", a
   expect((await speechState(page)).activeText).toBe("tranquil");
   await page.keyboard.press("Escape");
   await expect(page.locator("#entry-dialog")).not.toBeVisible();
-  expect((await speechState(page)).activeText).toBe("");
+  await expectSpeechStopped(page);
   await page.locator("#study-button").click();
   await expect(page.locator("#dialog-term")).toHaveText("be crawling with");
   await page.locator("#dialog-speak").click();
   await page.getByRole("button", { name: "很熟", exact: true }).click();
   await expect(page.locator("#dialog-term")).toHaveText("tranquil");
-  expect((await speechState(page)).activeText).toBe("");
+  await expectSpeechStopped(page);
   await page.locator("#dialog-speak").click();
   expect((await speechState(page)).calls.at(-1).text).toBe("tranquil");
+});
+
+test("the explicit X closes speech and reopening the word still allows pronunciation and saved review", async ({ page }) => {
+  await installSpeechStub(page);
+  await page.goto(chapterUrl);
+  const opener = page.getByRole("button", { name: "查看 tranquil 的完整词条", exact: true });
+  await opener.click();
+  await page.locator("#dialog-speak").click();
+  expect((await speechState(page)).activeText).toBe("tranquil");
+  await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();
+  await expect(page.locator("#entry-dialog")).not.toBeVisible();
+  await expectSpeechStopped(page);
+  await expect(opener).toBeFocused();
+
+  await opener.click();
+  await expect(page.locator("#dialog-term")).toHaveText("tranquil");
+  await page.locator("#dialog-speak").click();
+  expect((await speechState(page)).activeText).toBe("tranquil");
+  await page.getByRole("button", { name: "很熟", exact: true }).click();
+  await expect(page.locator("#dialog-review-status")).toContainText("已记录");
+  const saved = await page.evaluate(async () => (await import("/js/owner-storage.js")).listReviewStates());
+  expect(saved).toHaveLength(1);
+  expect(saved[0]).toMatchObject({ reviewCount: 1, lastRating: "easy" });
+  await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();
+  await expectSpeechStopped(page);
+  await expect(page.locator("#due-count")).toHaveText("17");
+
+  await page.locator("#study-button").click();
+  await expect(page.locator("#dialog-term")).toHaveText("be crawling with");
+  await page.locator("#dialog-speak").click();
+  expect((await speechState(page)).activeText).toBe("be crawling with");
+  await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();
+  await expectSpeechStopped(page);
+});
+
+test("a delayed native close event cannot silence or clear a newly reopened word", async ({ page }) => {
+  await installSpeechStub(page);
+  await page.goto(chapterUrl);
+  await page.getByRole("button", { name: "查看 tranquil 的完整词条", exact: true }).click();
+  await page.locator("#dialog-speak").click();
+  await page.evaluate(async () => {
+    const dialog = document.querySelector("#entry-dialog");
+    const dispatchedClose = new Promise(resolve => dialog.addEventListener("close", resolve, { once: true }));
+    dialog.close();
+    document.querySelector('button[aria-label="查看 gouge 的完整词条"]').click();
+    document.querySelector("#dialog-speak").click();
+    await dispatchedClose;
+  });
+  await expect(page.locator("#entry-dialog")).toBeVisible();
+  await expect(page.locator("#dialog-term")).toHaveText("gouge");
+  expect((await speechState(page)).activeText).toBe("gouge");
+  await page.getByRole("button", { name: "很熟", exact: true }).click();
+  await expect(page.locator("#dialog-review-status")).toContainText("已记录");
+  const saved = await page.evaluate(async () => (await import("/js/owner-storage.js")).listReviewStates());
+  expect(saved).toHaveLength(1);
+  expect(saved[0]).toMatchObject({ reviewCount: 1, lastRating: "easy" });
+  await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();
+  await expectSpeechStopped(page);
 });
 
 test("audio failure is visible and retry works without losing the selected word", async ({ page }) => {
@@ -213,7 +279,7 @@ test("owner detail uses the same pronunciation controls without requiring an AI 
   await page.locator("#dialog-speak").click();
   expect((await speechState(page)).calls.at(-1)).toMatchObject({ text: "tranquil", lang: "en-GB", rate: 1 });
   await page.getByRole("button", { name: "关闭词条详情" }).click();
-  expect((await speechState(page)).activeText).toBe("");
+  await expectSpeechStopped(page);
 });
 
 test("PWA caches pronunciation modules and offline reload still wires local voice controls", async ({ context, page }) => {

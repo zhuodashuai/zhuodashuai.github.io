@@ -542,6 +542,7 @@ refs.dialogReviewActions.addEventListener("click", async (event) => {
   }
 });
 refs.entryDialog.addEventListener("close", () => {
+  if (refs.entryDialog.open) return;
   state.selectedEntry = null;
   state.studyQueue = [];
   state.studyQueueTotal = 0;

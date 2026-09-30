@@ -278,7 +278,19 @@ export function createEntryDetailController({ root = document, getEntries = () =
     root.defaultView.clearTimeout(copyResetTimer);
     copyResetTimer = root.defaultView.setTimeout(() => { refs.dialogCopy.textContent = "复制词条"; }, 1600);
   });
+  // The native close event is queued after the dialog is already hidden.
+  // Stop in the user's closing gesture too, so audio does not outlive the card.
+  refs.entryDialog.addEventListener("cancel", () => pronunciation.stop());
+  refs.entryDialog.addEventListener("submit", (event) => {
+    if (event.target.matches('form[method="dialog"]')) pronunciation.stop();
+  });
+  const close = () => {
+    if (!refs.entryDialog.open) return;
+    pronunciation.stop();
+    refs.entryDialog.close();
+  };
   refs.entryDialog.addEventListener("close", () => {
+    if (refs.entryDialog.open) return; // Ignore a queued close if already reopened.
     pronunciation.stop();
     selected = null;
     const target = returnFocus?.isConnected ? returnFocus : returnFocusKey
@@ -296,13 +308,13 @@ export function createEntryDetailController({ root = document, getEntries = () =
       if (!selected) return null;
       const fresh = getEntries().find((entry) => entry.id === selected.id);
       if (!fresh) {
-        refs.entryDialog.close();
+        close();
         return null;
       }
       const contextual = contextualizeEntry(fresh);
       show(contextual, { invoker: returnFocus });
       return contextual;
     },
-    close() { if (refs.entryDialog.open) refs.entryDialog.close(); }
+    close
   };
 }
