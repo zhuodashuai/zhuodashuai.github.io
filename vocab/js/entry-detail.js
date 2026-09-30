@@ -2,6 +2,7 @@ import { formatMeaningForDisplay } from "./wordbook-schema.js";
 import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { synonymGroupsForEntry } from "./synonym-groups.js";
 import { renderSynonymGroups } from "./synonym-view.js";
+import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js";
 
 const TYPE_LABELS = {
@@ -158,6 +159,8 @@ export function createEntryDetailController({ root = document, getEntries = () =
     root.getElementById(id)
   ]));
   if (!refs.entryDialog) throw new Error("暂时无法打开词条详情，请刷新页面重试。");
+  const pronunciation = setupPronunciationUI(root);
+  refs.dialogPhonetic.after(pronunciation.settings("detail-audio-settings"));
   let selected = null;
   let returnFocus = null;
   let returnFocusKey = null;
@@ -204,7 +207,9 @@ export function createEntryDetailController({ root = document, getEntries = () =
   };
 
   const show = (entry, { invoker = root.activeElement } = {}) => {
+    if (!selected || selected.id !== entry.id || selected.term !== entry.term) pronunciation.stop();
     selected = entry;
+    pronunciation.decorate(refs.dialogSpeak, entry.term, entry.id);
     if (!refs.entryDialog.open) {
       returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
       returnFocusKey = invoker?.dataset?.entryId && invoker?.dataset?.entryAction
@@ -259,17 +264,9 @@ export function createEntryDetailController({ root = document, getEntries = () =
     if (quoteLike) tags.unshift(ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus);
     refs.dialogTags.replaceChildren(...tags.map((value) => tag(value, quoteLike && value === tags[0] ? `attribution-chip ${entry.attributionStatus}` : "")));
     if (!refs.entryDialog.open) refs.entryDialog.showModal();
+    pronunciation.refresh();
   };
 
-  refs.dialogSpeak?.addEventListener("click", () => {
-    const speech = root.defaultView?.speechSynthesis;
-    const Speech = root.defaultView?.SpeechSynthesisUtterance;
-    if (!speech || !Speech || !selected?.term) return;
-    speech.cancel();
-    const utterance = new Speech(selected.term);
-    utterance.lang = "en-US";
-    speech.speak(utterance);
-  });
   refs.dialogCopy?.addEventListener("click", async () => {
     if (!selected) return;
     try {
@@ -282,6 +279,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
     copyResetTimer = root.defaultView.setTimeout(() => { refs.dialogCopy.textContent = "复制词条"; }, 1600);
   });
   refs.entryDialog.addEventListener("close", () => {
+    pronunciation.stop();
     selected = null;
     const target = returnFocus?.isConnected ? returnFocus : returnFocusKey
       ? [...root.querySelectorAll("button[data-entry-id][data-entry-action]")].find((button) =>

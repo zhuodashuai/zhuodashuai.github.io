@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=63">
+  <link rel="stylesheet" href="styles.css?v=64">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -42,10 +42,20 @@
         <li><strong>筛</strong> —— 按单词、短语、习语、名言等类型过滤。</li>
         <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–7。</li>
         <li><strong>复习</strong> —— 按「再来一次／有点难／记得／很熟」安排自己的下一次复习。</li>
-        <li><strong>听</strong> —— 朗读词条发音。</li>
+        <li><strong>听</strong> —— 点词卡的小喇叭朗读；可选英式、美式和慢速。<a href="#g-audio">发音说明</a></li>
         <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
       <p class="guide-note">不用登录，直接用。复习进度只留在当前浏览器；访客不能添加、修改或删除公开词条。</p>
+    </section>
+
+    <section class="guide-block" aria-labelledby="g-audio">
+      <h2 id="g-audio">单词发音</h2>
+      <p>词卡与详情页的小喇叭都能朗读英文单词或完整短语；再点一次停止，换词会停止上一条，不会叠着播放。关闭详情、切换章节或离开页面也会停止。学习 / 复习时可直接用详情页的小喇叭，不改变你的复习记录。</p>
+      <p>「发音设置」可选英式优先或美式优先，以及正常或 0.75× 慢速；设置只记在当前设备的这个浏览器。默认优先英式；如果没有对应声音，会说明实际使用的英语口音。声音清单由操作系统与浏览器提供，各设备的音色可能不同。</p>
+      <p>这是系统合成语音，不是真人录音，也不是词典逐义项校对过的音频。同形异音词的读法可能需要结合语境核对。朗读不用麦克风、不需要 AI key、不消耗本站 AI 额度。</p>
+      <p>离线朗读需要设备已安装本地英语语音；部分声音由系统的在线语音服务生成，可能会把当前朗读文字发送给该语音提供方。本功能不会发送你的复习记录或整个词库。没有可用英语语音或播放出错时，页面会提示原因。</p>
+      <p>iPhone 请在 Safari 或已安装的单词本中，保持页面在前台并亲自点击小喇叭。若无声音，检查音量、蓝牙 / 耳机输出及系统英语语音。暂不提供锁屏连续播放；手机上的实际音色和离线可用性请以真机为准。</p>
+      <p class="guide-note">技术说明：<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices" target="_blank" rel="noopener noreferrer">设备语音列表</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice/localService" target="_blank" rel="noopener noreferrer">本地与在线语音</a>。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-quiz">

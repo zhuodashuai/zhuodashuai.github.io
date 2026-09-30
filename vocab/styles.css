@@ -113,6 +113,20 @@ body[data-page="public"] .toolbar { padding: .7rem 0 1rem; }
 .card-kicker { display: flex; justify-content: flex-start; gap: .45rem .7rem; flex-wrap: wrap; color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .chapter-chip { margin-left: auto; color: var(--green-2); }
 .word-card h3 { margin: 1.1rem 0 .2rem; font: 500 clamp(1.9rem, 3vw, 3.1rem)/1 Georgia, serif; }
+.card-title-row { display: flex; align-items: flex-start; gap: .65rem; min-width: 0; }
+.card-title-row h3 { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+button.pronunciation-button { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 44px; width: 44px; height: 44px; min-height: 44px; padding: 0; border-radius: 50%; color: var(--green); background: var(--paper-2); }
+.card-title-row .pronunciation-button { position: relative; z-index: 2; margin-top: .75rem; }
+.pronunciation-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+button.pronunciation-button.is-speaking { color: white; background: var(--green); border-color: var(--green); }
+.pronunciation-settings { margin: .45rem 0; min-width: 0; }
+.pronunciation-settings summary { width: fit-content; padding: .35rem 0; color: var(--green); font-size: .86rem; cursor: pointer; }
+.pronunciation-options { display: flex; flex-wrap: wrap; gap: .65rem 1rem; align-items: end; padding: .65rem 0; }
+.pronunciation-options label { display: grid; gap: .25rem; color: var(--muted); font-size: .8rem; }
+.pronunciation-options select { width: auto; min-height: 44px; padding: .4rem .65rem; font-size: 1rem; }
+.pronunciation-options a { padding: .65rem 0; font-size: .8rem; color: var(--green); }
+.pronunciation-status { margin: .3rem 0; color: var(--muted); font-size: .82rem; line-height: 1.5; overflow-wrap: anywhere; }
+.pronunciation-status.is-error { color: #9c322c; }
 .word-card .phonetic { min-height: 1.5rem; margin: .4rem 0; color: var(--green-2); font-family: ui-monospace, Consolas, monospace; }
 .word-card .card-meaning { margin: .7rem 0 1rem; color: #303f38; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .learning-points ul { display: grid; gap: .45rem; margin: 0; padding: 0; list-style: none; }

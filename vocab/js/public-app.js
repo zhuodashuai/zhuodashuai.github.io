@@ -9,6 +9,7 @@ import { buildSynonymGroups } from "./synonym-groups.js";
 import { sameSynonymSenseView } from "./synonym-evidence.js";
 import { renderSynonymGroups } from "./synonym-view.js";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js";
+import { setupPronunciationUI } from "./pronunciation-ui.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -48,6 +49,8 @@ const TYPE_LABELS = {
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
 const adminUrl = ownerAdminUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
+const pronunciation = setupPronunciationUI();
+refs.filterRow.closest(".toolbar").after(pronunciation.settings("library-audio-settings"));
 const entryDetail = createEntryDetailController({
   getEntries: () => state.snapshot?.entries || [],
   contextualizeEntry: (entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId),
@@ -69,6 +72,7 @@ const chapterQuiz = setupChapterQuiz({
     } : null;
   }
 });
+document.getElementById("chapter-quiz-button")?.addEventListener("click", () => pronunciation.stop());
 
 function setText(element, value) {
   if (element) element.textContent = value || "";
@@ -321,6 +325,9 @@ function render() {
     const title = document.createElement("h3");
     title.lang = "en";
     title.textContent = entry.term;
+    const titleRow = document.createElement("div");
+    titleRow.className = "card-title-row";
+    titleRow.append(title, pronunciation.button(entry.term, entry.id));
     const phonetic = document.createElement("p");
     phonetic.className = "phonetic";
     phonetic.textContent = entry.phonetic;
@@ -344,10 +351,14 @@ function render() {
     button.className = "card-open";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
     button.addEventListener("click", () => openEntry(entry, button));
-    article.append(kicker, title, phonetic, meaning, synonyms, tags, button);
+    article.append(kicker, titleRow, phonetic, meaning, synonyms, tags, button);
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
+  const activeAudio = pronunciation.controller.getState();
+  const activeAudioEntry = entries.find((entry) => entry.id === activeAudio.activeKey);
+  if (activeAudio.activeKey && (!activeAudioEntry || activeAudioEntry.term.replace(/\s+/gu, " ").trim() !== activeAudio.text)) pronunciation.stop();
+  pronunciation.refresh();
   refs.entryGrid.setAttribute("aria-busy", "false");
   refs.entryCount.textContent = String(collectionEntries.length);
   const searchMiss = Boolean(query) && queryMatches.length === 0;
@@ -452,6 +463,7 @@ function loadWordbook({ background = false, force = false } = {}) {
 refs.filterRow.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-filter]");
   if (!button) return;
+  pronunciation.stop();
   state.filter = button.dataset.filter;
   refs.filterRow.querySelectorAll("button").forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
   render();
@@ -459,6 +471,7 @@ refs.filterRow.addEventListener("click", (event) => {
 refs.collectionTabs.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-value]");
   if (!control) return;
+  pronunciation.stop();
   requestedCollectionScope = null;
   state.collectionId = control.dataset.value || "all";
   state.chapterId = "all";
@@ -469,16 +482,18 @@ refs.collectionTabs.addEventListener("click", (event) => {
 refs.chapterTabs.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-value]");
   if (!control) return;
+  pronunciation.stop();
   requestedCollectionScope = null;
   state.chapterId = control.dataset.value || "all";
   updateCollectionUrl();
   render();
   restoreNavigationFocus(refs.chapterTabs, state.chapterId);
 });
-refs.librarySearch.addEventListener("input", () => { state.query = refs.librarySearch.value; render(); });
+refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; render(); });
 refs.viewControls.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-view]");
   if (!control) return;
+  pronunciation.stop();
   state.view = control.dataset.view === "synonyms" ? "synonyms" : "cards";
   updateCollectionUrl();
   render();
