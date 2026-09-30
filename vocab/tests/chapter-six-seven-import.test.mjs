@@ -80,9 +80,9 @@ test("shared terms reuse original IDs and previous chapter contexts", () => {
     assert.equal(buildDueQueue([card], [review], now).length, 0);
     assert.equal(review.entryId, card.id);
   }
-  assert.equal(snapshot.entries.length, 212);
-  assert.equal(new Set(snapshot.entries.map(e => e.normalized)).size, 212);
-  for (const [n, count] of [29,38,28,51,18,16,30].entries()) {
+  assert.equal(new Set(snapshot.entries.map(e => e.id)).size, snapshot.entries.length);
+  assert.equal(new Set(snapshot.entries.map(e => e.normalized)).size, snapshot.entries.length);
+  for (const [n, count] of [29,38,28,51,18,16,30,18,8].entries()) {
     assert.equal(filterEntriesByCollection(snapshot.entries, "never-let-me-go", `chapter-${n+1}`).length, count);
   }
 });

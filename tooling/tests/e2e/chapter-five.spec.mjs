@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
 const source = JSON.parse(await readFile(new URL("../../../vocab/data/reading-lists/never-let-me-go/chapter-5.json", import.meta.url), "utf8"));
+const snapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
 const selectedTerms = [
   "loom", "pine", "ghastly", "defiant", "keep at bay", "confer furtively",
   "precarious", "allude", "engross", "corner", "snub", "acute", "back down",
@@ -48,7 +49,7 @@ test("Chapter 5 shows exactly the 18 selected rows in original reading order and
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 5", exact: true })).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText("18");
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(selectedTerms);
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "18", "16", "30"]);
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "18", "16", "30", "18", "8"]);
   for (const term of selectedTerms) {
     const item = source.items.find(item => item.term === term);
     await page.locator("#library-search").fill(item.originalInput);
@@ -72,7 +73,7 @@ test("Chapter 5 shows exactly the 18 selected rows in original reading order and
     await dialog.getByRole("button", { name: "关闭词条详情" }).click();
   }
   await page.goto("/");
-  await expect(page.locator("#entry-count")).toHaveText("212");
+  await expect(page.locator("#entry-count")).toHaveText(String(snapshot.entries.length));
 });
 
 test("Chapter 5 review persists under the retained entry ID on mobile without changing the previous chapters", async ({ page }) => {

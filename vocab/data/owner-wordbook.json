@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-27T21:54:38.963Z",
-  "revisionId": "404aefa0-4c5d-4f4b-a9e0-7006e258bc86",
-  "lastMutationId": "batch-never-let-me-go-chapter-7-e6d036f2-0223-4aff-9f9c-a8092d1b9d97",
+  "exportedAt": "2026-09-30T03:27:01.309Z",
+  "revisionId": "1281dc7b-76ab-4559-b093-11a9ac90beb5",
+  "lastMutationId": "batch-never-let-me-go-chapter-8-98529edf-fcf4-41ed-a39b-4c2d58e5d505",
   "entries": [
     {
       "id": "public-jab-at",
@@ -21693,6 +21693,2823 @@
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.963Z",
       "updatedAt": "2026-09-27T21:54:38.963Z"
+    },
+    {
+      "id": "public-nlmg-c8-be-crawling-with",
+      "revision": 1,
+      "originalInput": "crawling with",
+      "term": "be crawling with",
+      "normalized": "be crawling with",
+      "standardForm": "be crawling with",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "be crawling with",
+        "suggestion": "",
+        "chosen": "be crawling with",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "crawl /krɔːl/",
+      "partOfSpeech": "idiom",
+      "meaning": "① 挤满；到处都是（某类人或东西）。",
+      "definition": "have so many people or things in a place that they seem to be everywhere",
+      "senses": [
+        {
+          "partOfSpeech": "idiom",
+          "meaningZh": "① 挤满；到处都是（某类人或东西）。",
+          "definitionEn": "have so many people or things in a place that they seem to be everywhere",
+          "usageNotes": "第八章语境：Kathy 想暂时把 Hailsham 想象成安静的住处，而不是到处都是学生的地方。\n用法：be crawling with somebody / something；常含人或东西太多的感觉，这里不是学生真的在爬。",
+          "register": "informal",
+          "collocations": [
+            "be crawling with tourists"
+          ],
+          "examples": [
+            {
+              "en": "The square was crawling with tourists.",
+              "zh": "广场上挤满了游客。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be crawling with tourists"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:a978a18e",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The square was crawling with tourists.",
+      "exampleZh": "广场上挤满了游客。",
+      "usage": "第八章语境：Kathy 想暂时把 Hailsham 想象成安静的住处，而不是到处都是学生的地方。\n用法：be crawling with somebody / something；常含人或东西太多的感觉，这里不是学生真的在爬。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "was crawling with",
+        "were crawling with"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 88",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 1,
+          "page": "p. 88",
+          "originalInput": "crawling with",
+          "entryType": "idiom",
+          "partOfSpeech": "idiom",
+          "meaning": "① 挤满；到处都是（某类人或东西）。",
+          "definition": "have so many people or things in a place that they seem to be everywhere",
+          "usage": "第八章语境：Kathy 想暂时把 Hailsham 想象成安静的住处，而不是到处都是学生的地方。\n用法：be crawling with somebody / something；常含人或东西太多的感觉，这里不是学生真的在爬。",
+          "register": "informal",
+          "collocations": [
+            "be crawling with tourists"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "was crawling with",
+            "were crawling with"
+          ],
+          "exampleEn": "The square was crawling with tourists.",
+          "exampleZh": "广场上挤满了游客。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 88",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-tranquil",
+      "revision": 1,
+      "originalInput": "tranquil",
+      "term": "tranquil",
+      "normalized": "tranquil",
+      "standardForm": "tranquil",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "tranquil",
+        "suggestion": "",
+        "chosen": "tranquil",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈtræŋkwɪl/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 宁静的；平和的。",
+      "definition": "calm and peaceful, without disturbance",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 宁静的；平和的。",
+          "definitionEn": "calm and peaceful, without disturbance",
+          "usageNotes": "第八章语境：p.88 形容 Kathy 在想象中营造的宁静房屋；p.92 同一个词又形容 Tommy 当时看起来平静的心情。\n用法：可形容环境或心境：a tranquil setting / feel tranquil。",
+          "register": "neutral",
+          "collocations": [
+            "a tranquil setting",
+            "a tranquil mood"
+          ],
+          "examples": [
+            {
+              "en": "We spent a tranquil afternoon beside the lake.",
+              "zh": "我们在湖边度过了一个宁静的下午。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a tranquil setting",
+        "a tranquil mood"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:a2890325",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We spent a tranquil afternoon beside the lake.",
+      "exampleZh": "我们在湖边度过了一个宁静的下午。",
+      "usage": "第八章语境：p.88 形容 Kathy 在想象中营造的宁静房屋；p.92 同一个词又形容 Tommy 当时看起来平静的心情。\n用法：可形容环境或心境：a tranquil setting / feel tranquil。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 88",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 2,
+          "page": "p. 88",
+          "originalInput": "tranquil",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 宁静的；平和的。",
+          "definition": "calm and peaceful, without disturbance",
+          "usage": "第八章语境：p.88 形容 Kathy 在想象中营造的宁静房屋；p.92 同一个词又形容 Tommy 当时看起来平静的心情。\n用法：可形容环境或心境：a tranquil setting / feel tranquil。",
+          "register": "neutral",
+          "collocations": [
+            "a tranquil setting",
+            "a tranquil mood"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "We spent a tranquil afternoon beside the lake.",
+          "exampleZh": "我们在湖边度过了一个宁静的下午。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 88",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-a-hissing-noise",
+      "revision": 1,
+      "originalInput": "hissing noise",
+      "term": "a hissing noise",
+      "normalized": "a hissing noise",
+      "standardForm": "a hissing noise",
+      "entryType": "collocation",
+      "correction": {
+        "status": "exact",
+        "original": "a hissing noise",
+        "suggestion": "",
+        "chosen": "a hissing noise",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "hiss /hɪs/",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 嘶嘶声；像气体逸出时那样的声音。",
+      "definition": "a sustained sound like escaping air or steam",
+      "senses": [
+        {
+          "partOfSpeech": "noun phrase",
+          "meaningZh": "① 嘶嘶声；像气体逸出时那样的声音。",
+          "definitionEn": "a sustained sound like escaping air or steam",
+          "usageNotes": "第八章语境：Kathy 起初觉得声音像气体或蒸汽喷出；随后才发现它来自铅笔在纸上用力涂划，并非真的漏气。\n用法：hissing 修饰 noise；动词 hiss 表示发出嘶嘶声。",
+          "register": "neutral",
+          "collocations": [
+            "make a hissing noise",
+            "hear a hissing noise"
+          ],
+          "examples": [
+            {
+              "en": "A hissing noise came from the valve.",
+              "zh": "阀门处传来一阵嘶嘶声。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "make a hissing noise",
+        "hear a hissing noise"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:bd271449",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "A hissing noise came from the valve.",
+      "exampleZh": "阀门处传来一阵嘶嘶声。",
+      "usage": "第八章语境：Kathy 起初觉得声音像气体或蒸汽喷出；随后才发现它来自铅笔在纸上用力涂划，并非真的漏气。\n用法：hissing 修饰 noise；动词 hiss 表示发出嘶嘶声。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "hiss",
+        "hissed",
+        "hissing"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 88",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 3,
+          "page": "p. 88",
+          "originalInput": "hissing noise",
+          "entryType": "collocation",
+          "partOfSpeech": "noun phrase",
+          "meaning": "① 嘶嘶声；像气体逸出时那样的声音。",
+          "definition": "a sustained sound like escaping air or steam",
+          "usage": "第八章语境：Kathy 起初觉得声音像气体或蒸汽喷出；随后才发现它来自铅笔在纸上用力涂划，并非真的漏气。\n用法：hissing 修饰 noise；动词 hiss 表示发出嘶嘶声。",
+          "register": "neutral",
+          "collocations": [
+            "make a hissing noise",
+            "hear a hissing noise"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "hiss",
+            "hissed",
+            "hissing"
+          ],
+          "exampleEn": "A hissing noise came from the valve.",
+          "exampleZh": "阀门处传来一阵嘶嘶声。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 88",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-gouge",
+      "revision": 1,
+      "originalInput": "gouging",
+      "term": "gouge",
+      "normalized": "gouge",
+      "standardForm": "gouge",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "gouge",
+        "suggestion": "",
+        "chosen": "gouge",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɡaʊdʒ/",
+      "partOfSpeech": "verb",
+      "meaning": "① 用尖物用力挖、划；在本章指几乎要把纸划穿。",
+      "definition": "dig or cut roughly into a surface with a pointed object",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 用尖物用力挖、划；在本章指几乎要把纸划穿。",
+          "definitionEn": "dig or cut roughly into a surface with a pointed object",
+          "usageNotes": "第八章语境：Miss Lucy 用铅笔猛烈地涂划，仿佛并不在意把纸划穿。原句是 as if 的描写，并未明确说纸真的被划破。\n用法：gouge a hole in something；gouge through 强调划穿。本章不是敲诈或漫天要价的引申义。",
+          "register": "neutral",
+          "collocations": [
+            "gouge a hole in something",
+            "gouge through paper"
+          ],
+          "examples": [
+            {
+              "en": "The sharp tool gouged a deep line in the wood.",
+              "zh": "尖锐的工具在木头上划出了一道深痕。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "gouge a hole in something",
+        "gouge through paper"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:3853cbbe",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The sharp tool gouged a deep line in the wood.",
+      "exampleZh": "尖锐的工具在木头上划出了一道深痕。",
+      "usage": "第八章语境：Miss Lucy 用铅笔猛烈地涂划，仿佛并不在意把纸划穿。原句是 as if 的描写，并未明确说纸真的被划破。\n用法：gouge a hole in something；gouge through 强调划穿。本章不是敲诈或漫天要价的引申义。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "gouges",
+        "gouged",
+        "gouging"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 89",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 4,
+          "page": "p. 89",
+          "originalInput": "gouging",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 用尖物用力挖、划；在本章指几乎要把纸划穿。",
+          "definition": "dig or cut roughly into a surface with a pointed object",
+          "usage": "第八章语境：Miss Lucy 用铅笔猛烈地涂划，仿佛并不在意把纸划穿。原句是 as if 的描写，并未明确说纸真的被划破。\n用法：gouge a hole in something；gouge through 强调划穿。本章不是敲诈或漫天要价的引申义。",
+          "register": "neutral",
+          "collocations": [
+            "gouge a hole in something",
+            "gouge through paper"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "gouges",
+            "gouged",
+            "gouging"
+          ],
+          "exampleEn": "The sharp tool gouged a deep line in the wood.",
+          "exampleZh": "尖锐的工具在木头上划出了一道深痕。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 89",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-wheel-round",
+      "revision": 1,
+      "originalInput": "wheeled round",
+      "term": "wheel round",
+      "normalized": "wheel round",
+      "standardForm": "wheel round",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "wheel round",
+        "suggestion": "",
+        "chosen": "wheel round",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "wheel /wiːl/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 猛地转身；迅速转过身来。",
+      "definition": "turn one's body suddenly to face another direction",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 猛地转身；迅速转过身来。",
+          "definitionEn": "turn one's body suddenly to face another direction",
+          "usageNotes": "第八章语境：Tommy 听到 Laura 的玩笑后突然停下，猛地转身瞪着她。\n用法：wheel round / wheel around；wheel 在这里是表示转身的动词，不是名词车轮。",
+          "register": "neutral",
+          "collocations": [
+            "wheel round to face somebody"
+          ],
+          "examples": [
+            {
+              "en": "She wheeled round when someone called her name.",
+              "zh": "有人叫她的名字时，她猛地转过身来。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "wheel round to face somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:d837173f",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She wheeled round when someone called her name.",
+      "exampleZh": "有人叫她的名字时，她猛地转过身来。",
+      "usage": "第八章语境：Tommy 听到 Laura 的玩笑后突然停下，猛地转身瞪着她。\n用法：wheel round / wheel around；wheel 在这里是表示转身的动词，不是名词车轮。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "wheeled round",
+        "wheeling round",
+        "wheel around"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 91",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 5,
+          "page": "p. 91",
+          "originalInput": "wheeled round",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 猛地转身；迅速转过身来。",
+          "definition": "turn one's body suddenly to face another direction",
+          "usage": "第八章语境：Tommy 听到 Laura 的玩笑后突然停下，猛地转身瞪着她。\n用法：wheel round / wheel around；wheel 在这里是表示转身的动词，不是名词车轮。",
+          "register": "neutral",
+          "collocations": [
+            "wheel round to face somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "wheeled round",
+            "wheeling round",
+            "wheel around"
+          ],
+          "exampleEn": "She wheeled round when someone called her name.",
+          "exampleZh": "有人叫她的名字时，她猛地转过身来。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 91",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-blow",
+      "revision": 1,
+      "originalInput": "blow",
+      "term": "blow",
+      "normalized": "blow",
+      "standardForm": "blow",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "blow",
+        "suggestion": "",
+        "chosen": "blow",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/bləʊ/",
+      "partOfSpeech": "verb",
+      "meaning": "① 突然发火；情绪爆发（口语）。",
+      "definition": "suddenly lose one's temper",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 突然发火；情绪爆发（口语）。",
+          "definitionEn": "suddenly lose one's temper",
+          "usageNotes": "第八章语境：Kathy 一度以为 Tommy 会再次大发脾气，但他随后转身走开；这里是她当时的预想，不是说他已爆发。\n用法：本章单独用 blow 表示发火；也常见 blow up / blow one's top。不是吹气的意思。",
+          "register": "informal",
+          "collocations": [
+            "be about to blow",
+            "blow one's top"
+          ],
+          "examples": [
+            {
+              "en": "He looked as if he was about to blow, but he stayed quiet.",
+              "zh": "他看起来快要发火了，却还是没有出声。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be about to blow",
+        "blow one's top"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:e3f76b0d",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "He looked as if he was about to blow, but he stayed quiet.",
+      "exampleZh": "他看起来快要发火了，却还是没有出声。",
+      "usage": "第八章语境：Kathy 一度以为 Tommy 会再次大发脾气，但他随后转身走开；这里是她当时的预想，不是说他已爆发。\n用法：本章单独用 blow 表示发火；也常见 blow up / blow one's top。不是吹气的意思。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "blows",
+        "blew",
+        "blown",
+        "blowing"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 91",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 6,
+          "page": "p. 91",
+          "originalInput": "blow",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 突然发火；情绪爆发（口语）。",
+          "definition": "suddenly lose one's temper",
+          "usage": "第八章语境：Kathy 一度以为 Tommy 会再次大发脾气，但他随后转身走开；这里是她当时的预想，不是说他已爆发。\n用法：本章单独用 blow 表示发火；也常见 blow up / blow one's top。不是吹气的意思。",
+          "register": "informal",
+          "collocations": [
+            "be about to blow",
+            "blow one's top"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "blows",
+            "blew",
+            "blown",
+            "blowing"
+          ],
+          "exampleEn": "He looked as if he was about to blow, but he stayed quiet.",
+          "exampleZh": "他看起来快要发火了，却还是没有出声。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 91",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-flappy",
+      "revision": 1,
+      "originalInput": "flappy",
+      "term": "flappy",
+      "normalized": "flappy",
+      "standardForm": "flappy",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "flappy",
+        "suggestion": "",
+        "chosen": "flappy",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈflæpi/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 松软、容易来回摆动或翻动的。",
+      "definition": "loose and flexible enough to flap or wave about",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 松软、容易来回摆动或翻动的。",
+          "definitionEn": "loose and flexible enough to flap or wave about",
+          "usageNotes": "第八章语境：形容 Miss Emily 的彩色日历容易翻动、晃动的样子，与 Patricia 那本小而厚实的日历形成对比；不能直接理解成质量差或丑。\n用法：由 flap 构成，可形容纸页、衣物或垂下的耳朵。",
+          "register": "informal",
+          "collocations": [
+            "flappy pages",
+            "flappy ears"
+          ],
+          "examples": [
+            {
+              "en": "The dog's flappy ears bounced as it ran.",
+              "zh": "狗跑起来时，松垂的耳朵一颠一颠的。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "flappy pages",
+        "flappy ears"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:9690f6f7",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The dog's flappy ears bounced as it ran.",
+      "exampleZh": "狗跑起来时，松垂的耳朵一颠一颠的。",
+      "usage": "第八章语境：形容 Miss Emily 的彩色日历容易翻动、晃动的样子，与 Patricia 那本小而厚实的日历形成对比；不能直接理解成质量差或丑。\n用法：由 flap 构成，可形容纸页、衣物或垂下的耳朵。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 91",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 7,
+          "page": "p. 91",
+          "originalInput": "flappy",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 松软、容易来回摆动或翻动的。",
+          "definition": "loose and flexible enough to flap or wave about",
+          "usage": "第八章语境：形容 Miss Emily 的彩色日历容易翻动、晃动的样子，与 Patricia 那本小而厚实的日历形成对比；不能直接理解成质量差或丑。\n用法：由 flap 构成，可形容纸页、衣物或垂下的耳朵。",
+          "register": "informal",
+          "collocations": [
+            "flappy pages",
+            "flappy ears"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The dog's flappy ears bounced as it ran.",
+          "exampleZh": "狗跑起来时，松垂的耳朵一颠一颠的。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 91",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-sycamore",
+      "revision": 1,
+      "originalInput": "sycamore",
+      "term": "sycamore",
+      "normalized": "sycamore",
+      "standardForm": "sycamore",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "sycamore",
+        "suggestion": "",
+        "chosen": "sycamore",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈsɪkəmɔː/",
+      "partOfSpeech": "noun",
+      "meaning": "① 槭树；在英国通常指欧洲槭（Acer pseudoplatanus）。",
+      "definition": "a large broad-leaved tree; in British usage, a kind of maple",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 槭树；在英国通常指欧洲槭（Acer pseudoplatanus）。",
+          "definitionEn": "a large broad-leaved tree; in British usage, a kind of maple",
+          "usageNotes": "第八章语境：Tommy 站在南边运动场附近的一棵大树旁。按英国语境，sycamore 通常指欧洲槭，不宜不加区分地照搬美式义梧桐或悬铃木。\n用法：可数名词：a sycamore / a sycamore tree。",
+          "register": "neutral",
+          "collocations": [
+            "a sycamore tree"
+          ],
+          "examples": [
+            {
+              "en": "They rested in the shade of a sycamore.",
+              "zh": "他们在一棵槭树的树荫下休息。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a sycamore tree"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:b0e7a8d3",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "They rested in the shade of a sycamore.",
+      "exampleZh": "他们在一棵槭树的树荫下休息。",
+      "usage": "第八章语境：Tommy 站在南边运动场附近的一棵大树旁。按英国语境，sycamore 通常指欧洲槭，不宜不加区分地照搬美式义梧桐或悬铃木。\n用法：可数名词：a sycamore / a sycamore tree。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "sycamores"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 92",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 8,
+          "page": "p. 92",
+          "originalInput": "sycamore",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 槭树；在英国通常指欧洲槭（Acer pseudoplatanus）。",
+          "definition": "a large broad-leaved tree; in British usage, a kind of maple",
+          "usage": "第八章语境：Tommy 站在南边运动场附近的一棵大树旁。按英国语境，sycamore 通常指欧洲槭，不宜不加区分地照搬美式义梧桐或悬铃木。\n用法：可数名词：a sycamore / a sycamore tree。",
+          "register": "neutral",
+          "collocations": [
+            "a sycamore tree"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "sycamores"
+          ],
+          "exampleEn": "They rested in the shade of a sycamore.",
+          "exampleZh": "他们在一棵槭树的树荫下休息。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 92",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-bust-up",
+      "revision": 1,
+      "originalInput": "bust-up",
+      "term": "bust-up",
+      "normalized": "bust-up",
+      "standardForm": "bust-up",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "bust-up",
+        "suggestion": "",
+        "chosen": "bust-up",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈbʌst ʌp/",
+      "partOfSpeech": "noun",
+      "meaning": "① 激烈争吵；本章指导致情侣关系破裂的争吵。",
+      "definition": "a serious quarrel, sometimes ending a relationship",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 激烈争吵；本章指导致情侣关系破裂的争吵。",
+          "definitionEn": "a serious quarrel, sometimes ending a relationship",
+          "usageNotes": "第八章语境：Ruth 与 Tommy 闹了严重矛盾，关系破裂。这个名词突出争吵或冲突，不只是平静地分手。\n用法：英式口语；have a bust-up / a bust-up with somebody。",
+          "register": "informal",
+          "collocations": [
+            "have a bust-up",
+            "a bust-up with somebody"
+          ],
+          "examples": [
+            {
+              "en": "They had a bust-up over the travel plans.",
+              "zh": "他们为了旅行安排大吵了一架。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "have a bust-up",
+        "a bust-up with somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:65d55dd5",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "They had a bust-up over the travel plans.",
+      "exampleZh": "他们为了旅行安排大吵了一架。",
+      "usage": "第八章语境：Ruth 与 Tommy 闹了严重矛盾，关系破裂。这个名词突出争吵或冲突，不只是平静地分手。\n用法：英式口语；have a bust-up / a bust-up with somebody。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "bust-ups"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 92",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 9,
+          "page": "p. 92",
+          "originalInput": "bust-up",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 激烈争吵；本章指导致情侣关系破裂的争吵。",
+          "definition": "a serious quarrel, sometimes ending a relationship",
+          "usage": "第八章语境：Ruth 与 Tommy 闹了严重矛盾，关系破裂。这个名词突出争吵或冲突，不只是平静地分手。\n用法：英式口语；have a bust-up / a bust-up with somebody。",
+          "register": "informal",
+          "collocations": [
+            "have a bust-up",
+            "a bust-up with somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "bust-ups"
+          ],
+          "exampleEn": "They had a bust-up over the travel plans.",
+          "exampleZh": "他们为了旅行安排大吵了一架。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 92",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-stomach-churning",
+      "revision": 1,
+      "originalInput": "stomach-churning",
+      "term": "stomach-churning",
+      "normalized": "stomach-churning",
+      "standardForm": "stomach-churning",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "stomach-churning",
+        "suggestion": "",
+        "chosen": "stomach-churning",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈstʌmək ˌtʃɜːnɪŋ/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 令人反胃的；令人觉得腻歪、受不了的。",
+      "definition": "causing a feeling of nausea or strong distaste",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 令人反胃的；令人觉得腻歪、受不了的。",
+          "definitionEn": "causing a feeling of nausea or strong distaste",
+          "usageNotes": "第八章语境：Kathy 形容有些情侣当众亲昵得让旁观同学受不了，带夸张和调侃意味，不是食物引起的胃病。\n用法：也可形容紧张或恐惧造成的反胃感；本章取令人嫌腻的语境义。",
+          "register": "neutral",
+          "collocations": [
+            "a stomach-churning scene"
+          ],
+          "examples": [
+            {
+              "en": "The film included a stomach-churning scene.",
+              "zh": "影片里有一幕令人反胃的场景。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a stomach-churning scene"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:1f1bfa37",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The film included a stomach-churning scene.",
+      "exampleZh": "影片里有一幕令人反胃的场景。",
+      "usage": "第八章语境：Kathy 形容有些情侣当众亲昵得让旁观同学受不了，带夸张和调侃意味，不是食物引起的胃病。\n用法：也可形容紧张或恐惧造成的反胃感；本章取令人嫌腻的语境义。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 10,
+          "page": "p. 93",
+          "originalInput": "stomach-churning",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 令人反胃的；令人觉得腻歪、受不了的。",
+          "definition": "causing a feeling of nausea or strong distaste",
+          "usage": "第八章语境：Kathy 形容有些情侣当众亲昵得让旁观同学受不了，带夸张和调侃意味，不是食物引起的胃病。\n用法：也可形容紧张或恐惧造成的反胃感；本章取令人嫌腻的语境义。",
+          "register": "neutral",
+          "collocations": [
+            "a stomach-churning scene"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The film included a stomach-churning scene.",
+          "exampleZh": "影片里有一幕令人反胃的场景。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-chorus",
+      "revision": 2,
+      "originalInput": "chorus",
+      "term": "chorus",
+      "normalized": "chorus",
+      "standardForm": "chorus",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "chorus",
+        "suggestion": "",
+        "chosen": "chorus",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈkɔːrəs/",
+      "partOfSpeech": "noun",
+      "meaning": "① 一群人同时发出的声音；齐声的反应。",
+      "definition": "a similar sound or response made by many people together",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 一群人同时发出的声音；齐声的反应。",
+          "definitionEn": "a similar sound or response made by many people together",
+          "usageNotes": "第八章语境：同学们一起发出假装呕吐的声音，调侃某些情侣过分腻歪的表现；并非真的集体呕吐。\n用法：a chorus of + 声音或反应，如 a chorus of complaints；本章不是合唱团。",
+          "register": "neutral",
+          "collocations": [
+            "a chorus of complaints",
+            "a chorus of groans"
+          ],
+          "examples": [
+            {
+              "en": "The announcement was met with a chorus of groans.",
+              "zh": "这项通知引来了一片不满的哼声。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a chorus of complaints",
+        "a chorus of groans"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:1d344d86",
+        "candidatesFingerprint": "s1:bfe96649",
+        "checkedAt": "2026-09-30T03:27:01.309Z",
+        "candidateCount": 235,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The announcement was met with a chorus of groans.",
+      "exampleZh": "这项通知引来了一片不满的哼声。",
+      "usage": "第八章语境：同学们一起发出假装呕吐的声音，调侃某些情侣过分腻歪的表现；并非真的集体呕吐。\n用法：a chorus of + 声音或反应，如 a chorus of complaints；本章不是合唱团。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "choruses"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 11,
+          "page": "p. 93",
+          "originalInput": "chorus",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 一群人同时发出的声音；齐声的反应。",
+          "definition": "a similar sound or response made by many people together",
+          "usage": "第八章语境：同学们一起发出假装呕吐的声音，调侃某些情侣过分腻歪的表现；并非真的集体呕吐。\n用法：a chorus of + 声音或反应，如 a chorus of complaints；本章不是合唱团。",
+          "register": "neutral",
+          "collocations": [
+            "a chorus of complaints",
+            "a chorus of groans"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "choruses"
+          ],
+          "exampleEn": "The announcement was met with a chorus of groans.",
+          "exampleZh": "这项通知引来了一片不满的哼声。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:27:01.309Z"
+    },
+    {
+      "id": "public-nlmg-c8-vomit",
+      "revision": 1,
+      "originalInput": "vomiting",
+      "term": "vomit",
+      "normalized": "vomit",
+      "standardForm": "vomit",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "vomit",
+        "suggestion": "",
+        "chosen": "vomit",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈvɒmɪt/",
+      "partOfSpeech": "verb",
+      "meaning": "① 呕吐；把胃里的东西吐出来。",
+      "definition": "bring the contents of the stomach back up through the mouth",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 呕吐；把胃里的东西吐出来。",
+          "definitionEn": "bring the contents of the stomach back up through the mouth",
+          "usageNotes": "第八章语境：vomiting noises 指同学模仿呕吐发出的声音，不表示他们真的吐了。\n用法：vomiting 在这里修饰 noises；口语近义表达 throw up。",
+          "register": "neutral",
+          "collocations": [
+            "feel like vomiting"
+          ],
+          "examples": [
+            {
+              "en": "The rough crossing made him vomit.",
+              "zh": "海上航程十分颠簸，使他呕吐了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "feel like vomiting"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:441524cb",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The rough crossing made him vomit.",
+      "exampleZh": "海上航程十分颠簸，使他呕吐了。",
+      "usage": "第八章语境：vomiting noises 指同学模仿呕吐发出的声音，不表示他们真的吐了。\n用法：vomiting 在这里修饰 noises；口语近义表达 throw up。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "vomits",
+        "vomited",
+        "vomiting"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 12,
+          "page": "p. 93",
+          "originalInput": "vomiting",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 呕吐；把胃里的东西吐出来。",
+          "definition": "bring the contents of the stomach back up through the mouth",
+          "usage": "第八章语境：vomiting noises 指同学模仿呕吐发出的声音，不表示他们真的吐了。\n用法：vomiting 在这里修饰 noises；口语近义表达 throw up。",
+          "register": "neutral",
+          "collocations": [
+            "feel like vomiting"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "vomits",
+            "vomited",
+            "vomiting"
+          ],
+          "exampleEn": "The rough crossing made him vomit.",
+          "exampleZh": "海上航程十分颠簸，使他呕吐了。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-gross",
+      "revision": 1,
+      "originalInput": "gross",
+      "term": "gross",
+      "normalized": "gross",
+      "standardForm": "gross",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "gross",
+        "suggestion": "",
+        "chosen": "gross",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɡrəʊs/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 恶心的；令人反感的（口语）。",
+      "definition": "very unpleasant or disgusting, in informal speech",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 恶心的；令人反感的（口语）。",
+          "definitionEn": "very unpleasant or disgusting, in informal speech",
+          "usageNotes": "第八章语境：叙述说 Ruth 和 Tommy 不会在别人面前做出让同学觉得过分腻歪的事；这是同学视角下的口语评价。\n用法：That's gross! 表示真恶心；本章不是总额、毛重中的 gross。",
+          "register": "informal",
+          "collocations": [
+            "something gross",
+            "That's gross!"
+          ],
+          "examples": [
+            {
+              "en": "That smell is gross. Let's open a window.",
+              "zh": "那气味真恶心。我们开扇窗吧。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "something gross",
+        "That's gross!"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:88ddf719",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "That smell is gross. Let's open a window.",
+      "exampleZh": "那气味真恶心。我们开扇窗吧。",
+      "usage": "第八章语境：叙述说 Ruth 和 Tommy 不会在别人面前做出让同学觉得过分腻歪的事；这是同学视角下的口语评价。\n用法：That's gross! 表示真恶心；本章不是总额、毛重中的 gross。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "grosser",
+        "grossest"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 13,
+          "page": "p. 93",
+          "originalInput": "gross",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 恶心的；令人反感的（口语）。",
+          "definition": "very unpleasant or disgusting, in informal speech",
+          "usage": "第八章语境：叙述说 Ruth 和 Tommy 不会在别人面前做出让同学觉得过分腻歪的事；这是同学视角下的口语评价。\n用法：That's gross! 表示真恶心；本章不是总额、毛重中的 gross。",
+          "register": "informal",
+          "collocations": [
+            "something gross",
+            "That's gross!"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "grosser",
+            "grossest"
+          ],
+          "exampleEn": "That smell is gross. Let's open a window.",
+          "exampleZh": "那气味真恶心。我们开扇窗吧。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-cuddle",
+      "revision": 1,
+      "originalInput": "cuddled",
+      "term": "cuddle",
+      "normalized": "cuddle",
+      "standardForm": "cuddle",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "cuddle",
+        "suggestion": "",
+        "chosen": "cuddle",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈkʌdl/",
+      "partOfSpeech": "verb",
+      "meaning": "① 亲昵地拥抱；依偎。",
+      "definition": "hold someone close in an affectionate and comforting way",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 亲昵地拥抱；依偎。",
+          "definitionEn": "hold someone close in an affectionate and comforting way",
+          "usageNotes": "第八章语境：Ruth 和 Tommy 偶尔拥抱，让旁人觉得是两人自然表达亲近，而不是故意做给观众看。\n用法：cuddle somebody / cuddle up to somebody；照片中的 cud- / dled 是跨行断字，应合为 cuddled。",
+          "register": "neutral",
+          "collocations": [
+            "cuddle somebody",
+            "cuddle up to somebody"
+          ],
+          "examples": [
+            {
+              "en": "She cuddled the puppy on the sofa.",
+              "zh": "她在沙发上亲昵地抱着小狗。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "cuddle somebody",
+        "cuddle up to somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:6adc9533",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She cuddled the puppy on the sofa.",
+      "exampleZh": "她在沙发上亲昵地抱着小狗。",
+      "usage": "第八章语境：Ruth 和 Tommy 偶尔拥抱，让旁人觉得是两人自然表达亲近，而不是故意做给观众看。\n用法：cuddle somebody / cuddle up to somebody；照片中的 cud- / dled 是跨行断字，应合为 cuddled。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "cuddles",
+        "cuddled",
+        "cuddling"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 14,
+          "page": "p. 93",
+          "originalInput": "cuddled",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 亲昵地拥抱；依偎。",
+          "definition": "hold someone close in an affectionate and comforting way",
+          "usage": "第八章语境：Ruth 和 Tommy 偶尔拥抱，让旁人觉得是两人自然表达亲近，而不是故意做给观众看。\n用法：cuddle somebody / cuddle up to somebody；照片中的 cud- / dled 是跨行断字，应合为 cuddled。",
+          "register": "neutral",
+          "collocations": [
+            "cuddle somebody",
+            "cuddle up to somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "cuddles",
+            "cuddled",
+            "cuddling"
+          ],
+          "exampleEn": "She cuddled the puppy on the sofa.",
+          "exampleZh": "她在沙发上亲昵地抱着小狗。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-binoculars",
+      "revision": 1,
+      "originalInput": "binoculars",
+      "term": "binoculars",
+      "normalized": "binoculars",
+      "standardForm": "binoculars",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "binoculars",
+        "suggestion": "",
+        "chosen": "binoculars",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/bɪˈnɒkjələz/",
+      "partOfSpeech": "plural noun",
+      "meaning": "① 双筒望远镜。",
+      "definition": "an optical instrument held to both eyes to view distant things",
+      "senses": [
+        {
+          "partOfSpeech": "plural noun",
+          "meaningZh": "① 双筒望远镜。",
+          "definitionEn": "an optical instrument held to both eyes to view distant things",
+          "usageNotes": "第八章语境：Kathy 说从屋里向外张望的同学可能会互相传递望远镜，观察远处的人。\n用法：通常用复数 binoculars；一副用 a pair of binoculars，不用 a binoculars。",
+          "register": "neutral",
+          "collocations": [
+            "a pair of binoculars",
+            "look through binoculars"
+          ],
+          "examples": [
+            {
+              "en": "We watched the birds through a pair of binoculars.",
+              "zh": "我们用一副双筒望远镜观察鸟儿。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a pair of binoculars",
+        "look through binoculars"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:0d933c36",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We watched the birds through a pair of binoculars.",
+      "exampleZh": "我们用一副双筒望远镜观察鸟儿。",
+      "usage": "第八章语境：Kathy 说从屋里向外张望的同学可能会互相传递望远镜，观察远处的人。\n用法：通常用复数 binoculars；一副用 a pair of binoculars，不用 a binoculars。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 93",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 15,
+          "page": "p. 93",
+          "originalInput": "binoculars",
+          "entryType": "word",
+          "partOfSpeech": "plural noun",
+          "meaning": "① 双筒望远镜。",
+          "definition": "an optical instrument held to both eyes to view distant things",
+          "usage": "第八章语境：Kathy 说从屋里向外张望的同学可能会互相传递望远镜，观察远处的人。\n用法：通常用复数 binoculars；一副用 a pair of binoculars，不用 a binoculars。",
+          "register": "neutral",
+          "collocations": [
+            "a pair of binoculars",
+            "look through binoculars"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "We watched the birds through a pair of binoculars.",
+          "exampleZh": "我们用一副双筒望远镜观察鸟儿。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 93",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-snog",
+      "revision": 1,
+      "originalInput": "snogging",
+      "term": "snog",
+      "normalized": "snog",
+      "standardForm": "snog",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "snog",
+        "suggestion": "",
+        "chosen": "snog",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/snɒɡ/",
+      "partOfSpeech": "verb",
+      "meaning": "① 亲吻；热吻（英式非正式用语）。",
+      "definition": "kiss someone romantically, in informal British usage",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 亲吻；热吻（英式非正式用语）。",
+          "definitionEn": "kiss someone romantically, in informal British usage",
+          "usageNotes": "第八章语境：Kathy 回顾学生之间的亲密举动时，用 snogging 指亲吻；这个词本身不等于发生性行为。\n用法：snog somebody；原文 snogging 是动名词形式。适合辨认英式口语，正式写作通常用 kiss。",
+          "register": "informal",
+          "collocations": [
+            "snog somebody"
+          ],
+          "examples": [
+            {
+              "en": "The couple were snogging at the station.",
+              "zh": "那对情侣在车站热吻。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "snog somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:fc2c8131",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The couple were snogging at the station.",
+      "exampleZh": "那对情侣在车站热吻。",
+      "usage": "第八章语境：Kathy 回顾学生之间的亲密举动时，用 snogging 指亲吻；这个词本身不等于发生性行为。\n用法：snog somebody；原文 snogging 是动名词形式。适合辨认英式口语，正式写作通常用 kiss。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "snogs",
+        "snogged",
+        "snogging"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 95",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 16,
+          "page": "p. 95",
+          "originalInput": "snogging",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 亲吻；热吻（英式非正式用语）。",
+          "definition": "kiss someone romantically, in informal British usage",
+          "usage": "第八章语境：Kathy 回顾学生之间的亲密举动时，用 snogging 指亲吻；这个词本身不等于发生性行为。\n用法：snog somebody；原文 snogging 是动名词形式。适合辨认英式口语，正式写作通常用 kiss。",
+          "register": "informal",
+          "collocations": [
+            "snog somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "snogs",
+            "snogged",
+            "snogging"
+          ],
+          "exampleEn": "The couple were snogging at the station.",
+          "exampleZh": "那对情侣在车站热吻。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 95",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-tease-out",
+      "revision": 1,
+      "originalInput": "tease out clues",
+      "term": "tease out",
+      "normalized": "tease out",
+      "standardForm": "tease out",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "tease out",
+        "suggestion": "",
+        "chosen": "tease out",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "tease /tiːz/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 通过仔细琢磨逐渐理出、挖掘出（线索或信息）。",
+      "definition": "find or extract information gradually through careful thought or investigation",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 通过仔细琢磨逐渐理出、挖掘出（线索或信息）。",
+          "definitionEn": "find or extract information gradually through careful thought or investigation",
+          "usageNotes": "第八章语境：Kathy 反复读书中的相关段落，试图从字里行间找出自己不明白的事情的线索。\n用法：tease out clues / details / the meaning；区别于 tease somebody（取笑、逗弄某人）。",
+          "register": "neutral",
+          "collocations": [
+            "tease out clues",
+            "tease out the meaning"
+          ],
+          "examples": [
+            {
+              "en": "We compared the accounts to tease out the key facts.",
+              "zh": "我们对照几份叙述，逐步理出关键事实。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "tease out clues",
+        "tease out the meaning"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:9ad1047a",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We compared the accounts to tease out the key facts.",
+      "exampleZh": "我们对照几份叙述，逐步理出关键事实。",
+      "usage": "第八章语境：Kathy 反复读书中的相关段落，试图从字里行间找出自己不明白的事情的线索。\n用法：tease out clues / details / the meaning；区别于 tease somebody（取笑、逗弄某人）。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "teases out",
+        "teased out",
+        "teasing out"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 97",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 17,
+          "page": "p. 97",
+          "originalInput": "tease out clues",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 通过仔细琢磨逐渐理出、挖掘出（线索或信息）。",
+          "definition": "find or extract information gradually through careful thought or investigation",
+          "usage": "第八章语境：Kathy 反复读书中的相关段落，试图从字里行间找出自己不明白的事情的线索。\n用法：tease out clues / details / the meaning；区别于 tease somebody（取笑、逗弄某人）。",
+          "register": "neutral",
+          "collocations": [
+            "tease out clues",
+            "tease out the meaning"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "teases out",
+            "teased out",
+            "teasing out"
+          ],
+          "exampleEn": "We compared the accounts to tease out the key facts.",
+          "exampleZh": "我们对照几份叙述，逐步理出关键事实。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 97",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c8-fleetingly",
+      "revision": 1,
+      "originalInput": "fleetingly",
+      "term": "fleetingly",
+      "normalized": "fleetingly",
+      "standardForm": "fleetingly",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "fleetingly",
+        "suggestion": "",
+        "chosen": "fleetingly",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈfliːtɪŋli/",
+      "partOfSpeech": "adverb",
+      "meaning": "① 短暂地；一闪而过地。",
+      "definition": "for only a very short time",
+      "senses": [
+        {
+          "partOfSpeech": "adverb",
+          "meaningZh": "① 短暂地；一闪而过地。",
+          "definitionEn": "for only a very short time",
+          "usageNotes": "第八章语境：Kathy 说影片里即使偶尔有她想了解的片段，也往往只能短暂地看到，难以反复细看。\n用法：形容词 fleeting；glimpse something fleetingly / think fleetingly of something。",
+          "register": "neutral",
+          "collocations": [
+            "think fleetingly of something",
+            "appear fleetingly"
+          ],
+          "examples": [
+            {
+              "en": "A smile passed fleetingly across his face.",
+              "zh": "他脸上闪过一丝短暂的微笑。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "think fleetingly of something",
+        "appear fleetingly"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:062fbac0",
+        "candidatesFingerprint": "s1:a0c4cba5",
+        "checkedAt": "2026-09-30T03:25:20.400Z",
+        "candidateCount": 210,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "A smile passed fleetingly across his face.",
+      "exampleZh": "他脸上闪过一丝短暂的微笑。",
+      "usage": "第八章语境：Kathy 说影片里即使偶尔有她想了解的片段，也往往只能短暂地看到，难以反复细看。\n用法：形容词 fleeting；glimpse something fleetingly / think fleetingly of something。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 97",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 18,
+          "page": "p. 97",
+          "originalInput": "fleetingly",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "① 短暂地；一闪而过地。",
+          "definition": "for only a very short time",
+          "usage": "第八章语境：Kathy 说影片里即使偶尔有她想了解的片段，也往往只能短暂地看到，难以反复细看。\n用法：形容词 fleeting；glimpse something fleetingly / think fleetingly of something。",
+          "register": "neutral",
+          "collocations": [
+            "think fleetingly of something",
+            "appear fleetingly"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "A smile passed fleetingly across his face.",
+          "exampleZh": "他脸上闪过一丝短暂的微笑。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 97",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.400Z",
+      "updatedAt": "2026-09-30T03:25:20.400Z"
+    },
+    {
+      "id": "public-nlmg-c9-stifling",
+      "revision": 1,
+      "originalInput": "stifling",
+      "term": "stifling",
+      "normalized": "stifling",
+      "standardForm": "stifling",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "stifling",
+        "suggestion": "",
+        "chosen": "stifling",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈstaɪflɪŋ/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 闷热得令人难受的；热得让人透不过气的。",
+      "definition": "so hot and airless that it feels difficult to breathe comfortably",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 闷热得令人难受的；热得让人透不过气的。",
+          "definitionEn": "so hot and airless that it feels difficult to breathe comfortably",
+          "usageNotes": "第九章语境：Kathy 回忆在美术教室画画的那天，即使身后的风扇一直转着，室内仍然闷热难耐。\n用法：stifling heat＝令人窒闷的热气；a stifling room＝闷热的房间。这里是描写气温与空气，不是压制思想或自由的引申义。",
+          "register": "neutral",
+          "collocations": [
+            "stifling heat",
+            "a stifling room"
+          ],
+          "examples": [
+            {
+              "en": "We opened the windows because the room was stifling.",
+              "zh": "房间闷热得让人难受，所以我们打开了窗户。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "stifling heat",
+        "a stifling room"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:2fbd4f64",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We opened the windows because the room was stifling.",
+      "exampleZh": "房间闷热得让人难受，所以我们打开了窗户。",
+      "usage": "第九章语境：Kathy 回忆在美术教室画画的那天，即使身后的风扇一直转着，室内仍然闷热难耐。\n用法：stifling heat＝令人窒闷的热气；a stifling room＝闷热的房间。这里是描写气温与空气，不是压制思想或自由的引申义。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 1,
+          "page": "p. 98",
+          "originalInput": "stifling",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 闷热得令人难受的；热得让人透不过气的。",
+          "definition": "so hot and airless that it feels difficult to breathe comfortably",
+          "usage": "第九章语境：Kathy 回忆在美术教室画画的那天，即使身后的风扇一直转着，室内仍然闷热难耐。\n用法：stifling heat＝令人窒闷的热气；a stifling room＝闷热的房间。这里是描写气温与空气，不是压制思想或自由的引申义。",
+          "register": "neutral",
+          "collocations": [
+            "stifling heat",
+            "a stifling room"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "We opened the windows because the room was stifling.",
+          "exampleZh": "房间闷热得让人难受，所以我们打开了窗户。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-charcoal",
+      "revision": 1,
+      "originalInput": "charcoal",
+      "term": "charcoal",
+      "normalized": "charcoal",
+      "standardForm": "charcoal",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "charcoal",
+        "suggestion": "",
+        "chosen": "charcoal",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈtʃɑːkəʊl/",
+      "partOfSpeech": "noun",
+      "meaning": "① 绘画用木炭；炭条。",
+      "definition": "a black carbon material used in sticks for drawing",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 绘画用木炭；炭条。",
+          "definitionEn": "a black carbon material used in sticks for drawing",
+          "usageNotes": "第九章语境：Kathy 和其他女孩在美术教室用炭条作画。\n用法：这里 charcoal 指绘画材料，通常作不可数名词；draw in charcoal＝用炭条作画，a stick of charcoal＝一根炭条。不要把本章的 using charcoal 理解成烧炭取暖。",
+          "register": "neutral",
+          "collocations": [
+            "draw in charcoal",
+            "a stick of charcoal",
+            "a charcoal drawing"
+          ],
+          "examples": [
+            {
+              "en": "She drew the old tree in charcoal.",
+              "zh": "她用炭条画了那棵老树。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "draw in charcoal",
+        "a stick of charcoal",
+        "a charcoal drawing"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:a361c56f",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She drew the old tree in charcoal.",
+      "exampleZh": "她用炭条画了那棵老树。",
+      "usage": "第九章语境：Kathy 和其他女孩在美术教室用炭条作画。\n用法：这里 charcoal 指绘画材料，通常作不可数名词；draw in charcoal＝用炭条作画，a stick of charcoal＝一根炭条。不要把本章的 using charcoal 理解成烧炭取暖。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 2,
+          "page": "p. 98",
+          "originalInput": "charcoal",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 绘画用木炭；炭条。",
+          "definition": "a black carbon material used in sticks for drawing",
+          "usage": "第九章语境：Kathy 和其他女孩在美术教室用炭条作画。\n用法：这里 charcoal 指绘画材料，通常作不可数名词；draw in charcoal＝用炭条作画，a stick of charcoal＝一根炭条。不要把本章的 using charcoal 理解成烧炭取暖。",
+          "register": "neutral",
+          "collocations": [
+            "draw in charcoal",
+            "a stick of charcoal",
+            "a charcoal drawing"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She drew the old tree in charcoal.",
+          "exampleZh": "她用炭条画了那棵老树。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-commandeer",
+      "revision": 1,
+      "originalInput": "commandeered",
+      "term": "commandeer",
+      "normalized": "commandeer",
+      "standardForm": "commandeer",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "commandeer",
+        "suggestion": "",
+        "chosen": "commandeer",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌkɒmənˈdɪə/",
+      "partOfSpeech": "verb",
+      "meaning": "① 擅自占用；把原本供别人使用的东西拿去自己用。",
+      "definition": "take control of something for one's own use, leaving it unavailable to others",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 擅自占用；把原本供别人使用的东西拿去自己用。",
+          "definitionEn": "take control of something for one's own use, leaving it unavailable to others",
+          "usageNotes": "第九章语境：有人把所有画架都占用了，Kathy 等人只好把画板支在膝上作画。\n用法：commandeer something for one's own use。本词也可指官方或军队征用物资，但此处是带夸张色彩的日常说法，不表示真的发生军事征用。原文 had commandeered 是过去完成时。",
+          "register": "neutral; figurative in this context",
+          "collocations": [
+            "commandeer something for one's own use",
+            "commandeer a room"
+          ],
+          "examples": [
+            {
+              "en": "Someone had commandeered all the spare chairs for a meeting.",
+              "zh": "有人把所有备用椅子都拿去开会用了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "commandeer something for one's own use",
+        "commandeer a room"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:4c6e7ff4",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Someone had commandeered all the spare chairs for a meeting.",
+      "exampleZh": "有人把所有备用椅子都拿去开会用了。",
+      "usage": "第九章语境：有人把所有画架都占用了，Kathy 等人只好把画板支在膝上作画。\n用法：commandeer something for one's own use。本词也可指官方或军队征用物资，但此处是带夸张色彩的日常说法，不表示真的发生军事征用。原文 had commandeered 是过去完成时。",
+      "register": "neutral; figurative in this context",
+      "confusedWith": [],
+      "forms": [
+        "commandeers",
+        "commandeered",
+        "commandeering"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 3,
+          "page": "p. 98",
+          "originalInput": "commandeered",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 擅自占用；把原本供别人使用的东西拿去自己用。",
+          "definition": "take control of something for one's own use, leaving it unavailable to others",
+          "usage": "第九章语境：有人把所有画架都占用了，Kathy 等人只好把画板支在膝上作画。\n用法：commandeer something for one's own use。本词也可指官方或军队征用物资，但此处是带夸张色彩的日常说法，不表示真的发生军事征用。原文 had commandeered 是过去完成时。",
+          "register": "neutral; figurative in this context",
+          "collocations": [
+            "commandeer something for one's own use",
+            "commandeer a room"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "commandeers",
+            "commandeered",
+            "commandeering"
+          ],
+          "exampleEn": "Someone had commandeered all the spare chairs for a meeting.",
+          "exampleZh": "有人把所有备用椅子都拿去开会用了。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-easel",
+      "revision": 1,
+      "originalInput": "easels",
+      "term": "easel",
+      "normalized": "easel",
+      "standardForm": "easel",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "easel",
+        "suggestion": "",
+        "chosen": "easel",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈiːzəl/",
+      "partOfSpeech": "noun",
+      "meaning": "① 画架；支撑画板或画布的架子。",
+      "definition": "a stand that supports a painting, drawing board or canvas while an artist works",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 画架；支撑画板或画布的架子。",
+          "definitionEn": "a stand that supports a painting, drawing board or canvas while an artist works",
+          "usageNotes": "第九章语境：美术教室的画架全被别人占去，女孩们不得不把画板支在膝上。\n用法：可数名词，复数 easels；put a canvas on an easel＝把画布放到画架上。easel 是架子，canvas 是画布，drawing board 是画板。",
+          "register": "neutral",
+          "collocations": [
+            "a wooden easel",
+            "put a canvas on an easel"
+          ],
+          "examples": [
+            {
+              "en": "He placed his canvas on the easel beside the window.",
+              "zh": "他把画布放在窗边的画架上。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a wooden easel",
+        "put a canvas on an easel"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:c0fab612",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "He placed his canvas on the easel beside the window.",
+      "exampleZh": "他把画布放在窗边的画架上。",
+      "usage": "第九章语境：美术教室的画架全被别人占去，女孩们不得不把画板支在膝上。\n用法：可数名词，复数 easels；put a canvas on an easel＝把画布放到画架上。easel 是架子，canvas 是画布，drawing board 是画板。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "easels"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 4,
+          "page": "p. 98",
+          "originalInput": "easels",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 画架；支撑画板或画布的架子。",
+          "definition": "a stand that supports a painting, drawing board or canvas while an artist works",
+          "usage": "第九章语境：美术教室的画架全被别人占去，女孩们不得不把画板支在膝上。\n用法：可数名词，复数 easels；put a canvas on an easel＝把画布放到画架上。easel 是架子，canvas 是画布，drawing board 是画板。",
+          "register": "neutral",
+          "collocations": [
+            "a wooden easel",
+            "put a canvas on an easel"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "easels"
+          ],
+          "exampleEn": "He placed his canvas on the easel beside the window.",
+          "exampleZh": "他把画布放在窗边的画架上。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-demented",
+      "revision": 1,
+      "originalInput": "demented",
+      "term": "demented",
+      "normalized": "demented",
+      "standardForm": "demented",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "demented",
+        "suggestion": "",
+        "chosen": "demented",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/dɪˈmentɪd/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 发狂般的；疯狂乱动的。",
+      "definition": "behaving in a wildly frantic or uncontrolled way",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 发狂般的；疯狂乱动的。",
+          "definitionEn": "behaving in a wildly frantic or uncontrolled way",
+          "usageNotes": "第九章语境：Kathy 和 Ruth 挥手把一只苍蝇从彼此面前赶来赶去，叙述用 demented 夸张描写它疯狂乱飞的样子。\n用法：本章是形象化、夸张的描写，不是在给苍蝇作医学诊断，也不是说它患有认知障碍。直接这样称呼别人可能带贬义，应注意语气。",
+          "register": "informal; figurative in this context",
+          "collocations": [
+            "a demented creature",
+            "look demented"
+          ],
+          "examples": [
+            {
+              "en": "The trapped fly buzzed around like a demented acrobat.",
+              "zh": "那只被困住的苍蝇像发狂的杂技演员一样嗡嗡乱飞。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a demented creature",
+        "look demented"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:5e7b9438",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The trapped fly buzzed around like a demented acrobat.",
+      "exampleZh": "那只被困住的苍蝇像发狂的杂技演员一样嗡嗡乱飞。",
+      "usage": "第九章语境：Kathy 和 Ruth 挥手把一只苍蝇从彼此面前赶来赶去，叙述用 demented 夸张描写它疯狂乱飞的样子。\n用法：本章是形象化、夸张的描写，不是在给苍蝇作医学诊断，也不是说它患有认知障碍。直接这样称呼别人可能带贬义，应注意语气。",
+      "register": "informal; figurative in this context",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 101",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 5,
+          "page": "p. 101",
+          "originalInput": "demented",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 发狂般的；疯狂乱动的。",
+          "definition": "behaving in a wildly frantic or uncontrolled way",
+          "usage": "第九章语境：Kathy 和 Ruth 挥手把一只苍蝇从彼此面前赶来赶去，叙述用 demented 夸张描写它疯狂乱飞的样子。\n用法：本章是形象化、夸张的描写，不是在给苍蝇作医学诊断，也不是说它患有认知障碍。直接这样称呼别人可能带贬义，应注意语气。",
+          "register": "informal; figurative in this context",
+          "collocations": [
+            "a demented creature",
+            "look demented"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The trapped fly buzzed around like a demented acrobat.",
+          "exampleZh": "那只被困住的苍蝇像发狂的杂技演员一样嗡嗡乱飞。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 101",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-afresh",
+      "revision": 1,
+      "originalInput": "afresh",
+      "term": "afresh",
+      "normalized": "afresh",
+      "standardForm": "afresh",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "afresh",
+        "suggestion": "",
+        "chosen": "afresh",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/əˈfreʃ/",
+      "partOfSpeech": "adverb",
+      "meaning": "① 重新；从头再来。",
+      "definition": "again from the beginning, as a new start rather than a continuation",
+      "senses": [
+        {
+          "partOfSpeech": "adverb",
+          "meaningZh": "① 重新；从头再来。",
+          "definitionEn": "again from the beginning, as a new start rather than a continuation",
+          "usageNotes": "第九章语境：Ruth 希望自己和 Tommy 把过去的争执放下，重新开始。\n用法：start afresh / begin afresh＝重新开始；afresh 是副词，a fresh start 是名词短语。这里的重新开始不只是机械地重复原来的做法。",
+          "register": "neutral",
+          "collocations": [
+            "start afresh",
+            "begin afresh"
+          ],
+          "examples": [
+            {
+              "en": "After discussing what went wrong, they agreed to start afresh.",
+              "zh": "讨论过出了什么问题后，他们同意重新开始。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "start afresh",
+        "begin afresh"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:53e1b0b5",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "After discussing what went wrong, they agreed to start afresh.",
+      "exampleZh": "讨论过出了什么问题后，他们同意重新开始。",
+      "usage": "第九章语境：Ruth 希望自己和 Tommy 把过去的争执放下，重新开始。\n用法：start afresh / begin afresh＝重新开始；afresh 是副词，a fresh start 是名词短语。这里的重新开始不只是机械地重复原来的做法。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 102",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 6,
+          "page": "p. 102",
+          "originalInput": "afresh",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "① 重新；从头再来。",
+          "definition": "again from the beginning, as a new start rather than a continuation",
+          "usage": "第九章语境：Ruth 希望自己和 Tommy 把过去的争执放下，重新开始。\n用法：start afresh / begin afresh＝重新开始；afresh 是副词，a fresh start 是名词短语。这里的重新开始不只是机械地重复原来的做法。",
+          "register": "neutral",
+          "collocations": [
+            "start afresh",
+            "begin afresh"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "After discussing what went wrong, they agreed to start afresh.",
+          "exampleZh": "讨论过出了什么问题后，他们同意重新开始。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 102",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-sulkiness",
+      "revision": 1,
+      "originalInput": "sulkiness",
+      "term": "sulkiness",
+      "normalized": "sulkiness",
+      "standardForm": "sulkiness",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "sulkiness",
+        "suggestion": "",
+        "chosen": "sulkiness",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈsʌlkinəs/",
+      "partOfSpeech": "noun",
+      "meaning": "① 闹别扭、生闷气的样子；不高兴而不愿理人的情绪。",
+      "definition": "a resentful mood shown by being silent, withdrawn or unwilling to be friendly",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 闹别扭、生闷气的样子；不高兴而不愿理人的情绪。",
+          "definitionEn": "a resentful mood shown by being silent, withdrawn or unwilling to be friendly",
+          "usageNotes": "第九章语境：Tommy 一发现 Kathy 愿意跟自己说话，原先那种闹别扭的神情便消失了，转而显得急切又感激。\n用法：通常作不可数名词；对应形容词 sulky、动词 sulk。sulkiness 强调生闷气、不愿理人的表现，不等于普通的安静或害羞。",
+          "register": "neutral",
+          "collocations": [
+            "a trace of sulkiness",
+            "a note of sulkiness in someone's voice"
+          ],
+          "examples": [
+            {
+              "en": "His sulkiness faded once they began talking openly.",
+              "zh": "他们开始坦诚交谈后，他那副闹别扭的样子逐渐消失了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a trace of sulkiness",
+        "a note of sulkiness in someone's voice"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:0198f10c",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "His sulkiness faded once they began talking openly.",
+      "exampleZh": "他们开始坦诚交谈后，他那副闹别扭的样子逐渐消失了。",
+      "usage": "第九章语境：Tommy 一发现 Kathy 愿意跟自己说话，原先那种闹别扭的神情便消失了，转而显得急切又感激。\n用法：通常作不可数名词；对应形容词 sulky、动词 sulk。sulkiness 强调生闷气、不愿理人的表现，不等于普通的安静或害羞。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "单词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 103",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 7,
+          "page": "p. 103",
+          "originalInput": "sulkiness",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 闹别扭、生闷气的样子；不高兴而不愿理人的情绪。",
+          "definition": "a resentful mood shown by being silent, withdrawn or unwilling to be friendly",
+          "usage": "第九章语境：Tommy 一发现 Kathy 愿意跟自己说话，原先那种闹别扭的神情便消失了，转而显得急切又感激。\n用法：通常作不可数名词；对应形容词 sulky、动词 sulk。sulkiness 强调生闷气、不愿理人的表现，不等于普通的安静或害羞。",
+          "register": "neutral",
+          "collocations": [
+            "a trace of sulkiness",
+            "a note of sulkiness in someone's voice"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "His sulkiness faded once they began talking openly.",
+          "exampleZh": "他们开始坦诚交谈后，他那副闹别扭的样子逐渐消失了。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 103",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
+    },
+    {
+      "id": "public-nlmg-c9-keyed-up",
+      "revision": 1,
+      "originalInput": "keyed up",
+      "term": "keyed up",
+      "normalized": "keyed up",
+      "standardForm": "keyed up",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "keyed up",
+        "suggestion": "",
+        "chosen": "keyed up",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌkiːd ˈʌp/",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "① 兴奋又紧张的；情绪高涨、难以平静的。",
+      "definition": "feeling both excited and nervous, especially in anticipation of something",
+      "senses": [
+        {
+          "partOfSpeech": "adjective phrase",
+          "meaningZh": "① 兴奋又紧张的；情绪高涨、难以平静的。",
+          "definitionEn": "feeling both excited and nervous, especially in anticipation of something",
+          "usageNotes": "第九章语境：Culture Briefing 课程让学生们一面兴奋，一面担忧，所以那堂课结束时，大家已经处于兴奋而紧张的状态。\n用法：be / feel / get keyed up；常用作表语，keyed up about something＝对某事兴奋紧张。这里不是用钥匙开锁，也不是在键盘上输入。",
+          "register": "informal",
+          "collocations": [
+            "feel keyed up",
+            "be keyed up about something"
+          ],
+          "examples": [
+            {
+              "en": "I was too keyed up before the interview to sit still.",
+              "zh": "面试前我兴奋又紧张，根本坐不住。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "feel keyed up",
+        "be keyed up about something"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:48d85353",
+        "candidatesFingerprint": "s1:d929ef3b",
+        "checkedAt": "2026-09-30T03:25:20.711Z",
+        "candidateCount": 228,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I was too keyed up before the interview to sit still.",
+      "exampleZh": "面试前我兴奋又紧张，根本坐不住。",
+      "usage": "第九章语境：Culture Briefing 课程让学生们一面兴奋，一面担忧，所以那堂课结束时，大家已经处于兴奋而紧张的状态。\n用法：be / feel / get keyed up；常用作表语，keyed up about something＝对某事兴奋紧张。这里不是用钥匙开锁，也不是在键盘上输入。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "划线词",
+        "短语"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 108",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 8,
+          "page": "p. 108",
+          "originalInput": "keyed up",
+          "entryType": "phrase",
+          "partOfSpeech": "adjective phrase",
+          "meaning": "① 兴奋又紧张的；情绪高涨、难以平静的。",
+          "definition": "feeling both excited and nervous, especially in anticipation of something",
+          "usage": "第九章语境：Culture Briefing 课程让学生们一面兴奋，一面担忧，所以那堂课结束时，大家已经处于兴奋而紧张的状态。\n用法：be / feel / get keyed up；常用作表语，keyed up about something＝对某事兴奋紧张。这里不是用钥匙开锁，也不是在键盘上输入。",
+          "register": "informal",
+          "collocations": [
+            "feel keyed up",
+            "be keyed up about something"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "I was too keyed up before the interview to sit still.",
+          "exampleZh": "面试前我兴奋又紧张，根本坐不住。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 108",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-09-30T03:25:20.711Z",
+      "updatedAt": "2026-09-30T03:25:20.711Z"
     }
   ]
 }

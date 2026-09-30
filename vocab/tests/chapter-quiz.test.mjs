@@ -27,7 +27,7 @@ const fixture = [
 const settings = { id: "quiz-fixture", bookId: "book", chapterId: "chapter-1", now: "2026-09-29T12:00:00Z" };
 function seeded(seed) { return () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 2 ** 32); }
 
-for (let chapter = 1; chapter <= 7; chapter += 1) {
+for (let chapter = 1; chapter <= 9; chapter += 1) {
   test(`Chapter ${chapter}: every current word has exactly four distinct, same-chapter Chinese options`, () => {
     const chapterId = `chapter-${chapter}`;
     const entries = filterEntriesByCollection(snapshot.entries, "never-let-me-go", chapterId)

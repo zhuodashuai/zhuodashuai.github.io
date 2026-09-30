@@ -66,9 +66,9 @@ function chapterEntries(entries: PublicEntry[]): PublicEntry[] {
 }
 
 describe("Chapter 5 publication regression", () => {
-  it("round-trips the actual 212-entry snapshot through the API snapshot validator", () => {
+  it("round-trips the complete current snapshot through the API snapshot validator", () => {
     const parsed = validateSnapshot(publishedSnapshot);
-    expect(parsed.entries).toHaveLength(212);
+    expect(parsed.entries).toHaveLength(publishedSnapshot.entries.length);
     expect(chapterEntries(parsed.entries)).toHaveLength(18);
     expect(parsed).toEqual(publishedSnapshot);
     expect(validateSnapshot(JSON.parse(JSON.stringify(parsed)))).toEqual(parsed);
@@ -96,7 +96,7 @@ describe("Chapter 5 publication regression", () => {
           const result = applyPublishMutation(remote, request, "2026-09-27T18:00:00.000Z");
           expect(result.action).toBe("updated");
           expect(result.entry!.id).toBe(canonical.id);
-          expect(result.snapshot.entries).toHaveLength(212);
+          expect(result.snapshot.entries).toHaveLength(remote.entries.length);
           expect(result.entry!.readingContexts).toEqual(canonical.readingContexts);
         } catch (error) {
           failures.push(`${candidate.term}: ${error instanceof Error ? error.message : String(error)}`);
