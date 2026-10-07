@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美西冬季旅行 · 官网复核与队友讨论版</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+<div class="eyebrow">WESTERN USA · DECEMBER 2026 · TWO TRAVELERS</div>
+<h1>冬季美西，按官网重新算。</h1>
+<p class="lede">12月8日抵达旧金山机场。保留黄石官方六日、MaxTour三日、优胜美地小团、划船，以及洛杉矶与拉斯维加斯。山路、雪地和长途交给专业司机。</p>
+<noscript><p>请启用JavaScript以显示地图与账单，或打开上方GitHub攻略正文/PDF。</p></noscript><p class="small">核价日：2026/10/7 · USD · 两成人／酒店一间 · 没有预订或付款 · 可直接转发本页链接；点下面的GitHub正文可查看或编辑行程。景点照片需联网。</p>
+<div class="nav"><a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/travel/west-2026/PLAN.md" target="_blank" rel="noopener">GitHub攻略正文</a><a href="west-2026.pdf">队友PDF</a><a href="#options">三种方案</a><a href="#daily">逐日账单</a><a href="#map">互动景点地图</a><a href="#hotels">酒店官网价</a><a href="#tours">跟团日期</a><a href="#air">机票与行李</a><a href="#before-booking">衔接与预订顺序</a></div>
+<div class="callout warning"><strong>上版比较不充分，价格已重做。</strong><p id="correction"></p><p class="small">酒店这里均写实际日期整段总价，包含列出的税与必付费用；不把押金再加一遍，不把酒店消费credit减成现金。</p></div>
+</header>
+<section class="section" id="options">
+<div class="controls"><h2>先选一版，再看每一天</h2><label>费用显示 <select id="money-mode"><option value="person">每人</option><option value="group">两人合计</option></select></label><button class="print-button" type="button" id="print">打印当前方案</button></div>
+<div id="option-cards" class="grid3"></div>
+<div class="callout"><strong id="option-title"></strong><p id="option-summary"></p><p id="option-recommend" class="small"></p></div>
+<div class="overview">
+<div class="budget"><h3>这版费用怎么组成</h3><div id="budget-breakdown"></div></div>
+<div><h3>为什么不能直接按 $6,000 算</h3><p id="budget-reason"></p><p id="optimization"></p><p class="small">24或25天超过最初14–23天范围：两个长团占9天、海岸2天、三城共9个城市日，加抵达和必要换城；压回23天须明确牺牲某个完整城市日或活动，不能在账单里悄悄删除。</p><p class="small">日程采用当地时间：加州与Vegas为PST，Bozeman/黄石为MST，费城为EST。跨州跟团时间听当天导游安排。</p></div>
+</div>
+</section>
+<section class="section" id="daily">
+<div class="controls"><h2>每天怎么玩、住哪儿、花多少</h2><button type="button" id="expand-days">展开全部明细</button></div>
+<div class="legend"><span class="badge quote">实选官网报价</span><span class="badge published">官方价表计算</span><span class="badge estimate">估算／待核预留</span></div>
+<p class="small">展开一天看每笔费用和来源。酒店和套装按天摊分；这是消费成本归属，不是信用卡付款日。每日显示含已知税费，但黄色项目不是精确报价。酒店一间由两人共住。</p>
+<div class="daily" id="daily-list"></div>
+<div class="callout"><strong>另外预留：</strong>两人保险／冬衣／洗衣 $200，应急 $500，已加进方案总额，未虚摊为酒店或机票。个人已有装备与保险可据实删减。日表不含另选演出、恶魔岛、水族馆、环球／迪士尼、购物和赌资。</div>
+</section>
+<section class="section" id="map">
+<h2>路线与景点，点开看</h2>
+<p class="small">地图线连接真实地理坐标，只表示旅行顺序，不是导航道路或距离。黄色点为当前查看景点；额外景点勾选只保存讨论意愿，不自动编造新日期和价格。</p>
+<div class="map-layout"><div><svg class="map-svg" id="route-map" role="img" aria-label="美国西部景点和跟团、飞行关系地图"></svg><div class="map-key"><span><i class="swatch"></i>司机／当地地面交通</span><span><i class="swatch fly"></i>航段示意，黄石经BZN接驳</span></div><div id="place-buttons" class="place-buttons" aria-label="景点选择"></div></div><div class="place-detail" id="place-detail" aria-live="polite"></div></div>
+</section>
+<section class="section" id="hotels"><h2>酒店候选与真实日期价</h2><p>下面有7家不同酒店、8段实际日期报价。金额固定为<strong>两人一间整段住宿</strong>，不随“每人”开关改变。A用Abrego、Hilton Financial、Casino Royale、Hampton；B升级两晚Fontainebleau；C洛杉矶日期后移一天。</p><div id="hotel-list" class="hotel-grid"></div><div class="callout warning">Vegas周五、周六（12/25、26）平价酒店仍比23、24贵：CR单晚含税 $168.94，23、24则 $112.25。豪华体验安排在23–25两晚，25日换回CR。FB两晚 $485.72，已含 $110度假费和相关税；多住周末还要另查，不能拿159.20基础房价当总价。</div></section>
+<section class="section" id="tours"><h2>具体哪天跟哪一家</h2><div id="tour-list" class="tour-grid"></div><div class="callout"><strong>优胜美地的选择：</strong>主线选Best Bay官网15人车，12/13两成人公开FALL实价 $456.80。同商品Viator为 $478，官网省 $21.20。Incredible 12/9两人 $438但Viator最多23人；Extranomical 12/9两人 $448但最多35人。这两个便宜比较价不是12/13已核价，也不能叫保证15人小团。<p class="small"><a id="viator-link" target="_blank" rel="noopener">打开同商品Viator对照</a> · December以Yosemite Valley为主，不承诺Tuolumne巨杉步道。</p></div></section>
+<section class="section" id="air"><h2>机票：同样含随身箱再比</h2><p class="small">当前方案各航段均含每成人一个完整随身箱＋一个个人物品，不含托运。官网日期报价没有锁价，点击来源后价格可能变化。Frontier链接是官网入口／研究购物车入口，不是已购订单。</p><div class="table-scroll"><table class="flights"><thead><tr><th>日期／行程</th><th>当地出发 → 抵达</th><th>所选机票</th><th id="air-money-label">每人</th></tr></thead><tbody id="flight-list"></tbody></table></div><div class="callout warning"><strong>别漏算托运行李。</strong>Southwest当前首件 $45/人/单程，A中BZN→LAS和LAX→PHL两段若两人各托运一件，另加 $180。Frontier与United具体托运费尚未完成路线报价；它们的随身箱已包含，但不能宣称托运也免费。<p class="small"><a id="bag-policy" target="_blank" rel="noopener">Southwest官网行李费政策</a></p></div><details><summary>查看12/8 Frontier官网核价截图与低价返程对照</summary><p>PHL→SFO两人非会员Economy合计 $407.96：票税 $327.96＋Economy $80。首段08:34，ATL转机，15:33到SFO。UA直飞两人 $578，差 $170.04。截图里的DD Basic $119是会员、Basic和页面标示的往返口径，不能直接当本方案含箱单程的最终价。</p><img id="fare-evidence" class="evidence" alt="Frontier官网12月8日费城到旧金山，两人Economy，Grand Total407.96美元"><p class="small">12/31 LAX→PHL Frontier Economy另核两人 $561.16，14:20出发，LAS转机5小时31分，1/1 05:03到PHL；仅比SW两人 $602省 $40.84，主线选SW日间返程。</p></details></section>
+<section class="section" id="driving"><h2>城市交通与自驾选配</h2><ul class="plain-list" id="driving-list"></ul><p class="small"><a id="alamo-link" target="_blank" rel="noopener">Alamo官网重新查车型</a> · 23岁是报价样例，不是已确认实际年龄。不能把930.33当一般小车的最低价。</p><div class="callout"><strong>斯坦福怎么加：</strong><p id="stanford-note"></p><p class="small"><a id="stanford-link" target="_blank" rel="noopener">Stanford官网访客信息</a></p></div></section>
+<section class="section" id="before-booking"><h2>时间衔接与预订顺序</h2><div class="callout">12/15 UA抵BZN 11:39 → 官方进园巴士13:30；12/20巴士到BZN约10:30 → 飞Vegas17:05；MaxTour23日约20:00返城，本晚继续住Vegas。优胜美地安排13日，14日城市休息后才15日早飞；不会把长团结束和同晚航班硬接在一起。</div><ol class="plain-list" id="booking-list"></ol><h3>仍需支付前确认的项目</h3><ul class="plain-list" id="unknown-list"></ul><p class="small">年卡按非居民 $250一张全程算；NPS规定商业团内覆盖持卡人与另外3成人非居民费。本两人不用重复各公园再收$200。美国护照、美国州身份证／驾照或绿卡等合格证明可适用居民年卡 $80；F-1身份本身不能直接判定。<a id="pass-link" target="_blank" rel="noopener">NPS官方规则</a></p></section>
+<section class="section"><h2>给队友的选择意见</h2><p>选好A/B/C，再记想调整的内容。文字保存在这台浏览器本地，转发文件不会携带你的填写内容；可复制后与文件一起发送。</p><textarea id="decision" class="decision" aria-label="路线选择与修改意见" placeholder="例如：选C，枫丹白露住一晚；想把SF半天换成斯坦福；需要一件共享托运行李。"></textarea><div class="controls"><button id="copy-decision" type="button">复制当前方案与意见</button><span id="copy-status" class="small" aria-live="polite"></span></div></section>
+<footer class="footer">全部日期2026年12月（C返程2027/1/1）。价格证据来自官网可见日期、人数和公开价，人工团只用明确2026价表；所有未来价格和库存都可能变动。主方案在已检查的报价中做优化，不称全市场最低或数学最优。无需自驾山路、雪地、长途；暂未预订、付款或联系任何旅行团。</footer>
+</main>
+<script src="assets/d3-7.9.0.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body></html>
