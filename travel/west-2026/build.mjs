@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 const plan=JSON.parse(fs.readFileSync(new URL('plan.json',import.meta.url),'utf8'));
 const map=JSON.parse(fs.readFileSync(new URL('map.json',import.meta.url),'utf8'));
-const round=n=>Math.round((n+Number.EPSILON)*100)/100;
+const round=n=>Math.round(n*100+1e-7)/100;
 for(const option of plan.options){
  const categoryUSD={},statusUSD={};
  for(const day of option.itinerary){

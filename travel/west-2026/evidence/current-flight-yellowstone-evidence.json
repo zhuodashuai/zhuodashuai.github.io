@@ -1,0 +1,207 @@
+{
+  "checkedAtUTC": "2026-10-07 22:22:26 UTC",
+  "currency": "USD",
+  "party": {"adults": 2, "airlineStatusAssumed": "none"},
+  "method": "Fresh official websites rendered and operated read-only through CUA Chrome. Selected flights and fare options to visible price summaries; all passenger/contact/payment fields blank. No purchase, reservation, contact, CAPTCHA handling, or terms acceptance submitted.",
+  "scope": "2026-12-15 Bay Area to BZN with a practical connection to the official 13:30 airport-shuttle check-in; 2026-12-20 BZN to LAS departing after noon; official winter airport shuttle and possible cheaper alternatives.",
+  "criteria": {
+    "outboundDate": "2026-12-15",
+    "shuttleCheckInLocal": "2026-12-15 13:30 MST at BZN",
+    "returnDate": "2026-12-20",
+    "earliestReturnDepartureLocal": "12:00 MST",
+    "returnAirportArrivalEstimateLocal": "10:30 MST",
+    "selfDrivenLongSnowRoads": false,
+    "clockNote": "All flight clocks are local airport times; SFO/LAS are PST and BZN is MST. Shuttle table labels its time as Check-in Time, not a guaranteed bus departure time."
+  },
+  "lowestVerifiedPracticalOutbound": {
+    "carrier": "United Airlines",
+    "flightNumber": "UA1973",
+    "date": "2026-12-15",
+    "origin": "SFO",
+    "destination": "BZN",
+    "departureLocal": "08:24 PST",
+    "arrivalLocal": "11:39 MST",
+    "duration": "2h15",
+    "stops": 0,
+    "aircraft": "Boeing 737-800",
+    "marginBeforeShuttleCheckInMinutes": 111,
+    "basic": {
+      "fareName": "United Economy Basic",
+      "twoAdultsFareUSD": 340.46,
+      "twoAdultsTaxesFeesUSD": 56.34,
+      "twoAdultsTotalUSD": 396.80,
+      "perPersonUSD": 198.40,
+      "personalItemIncluded": true,
+      "fullSizeCarryOnIncluded": false,
+      "checkedBagIncluded": false,
+      "seatSelectionIncluded": false,
+      "priceStatus": "Fresh two-adult Traveler Info sidebar: Total due 396.80 after selecting Basic and acknowledging the baggage information. No passenger details entered or continued. Search-list 199/person is rounded."
+    },
+    "standard": {
+      "fareName": "United Economy",
+      "twoAdultsTotalUSD": 496.80,
+      "perPersonUSD": 248.40,
+      "upgradeVsBasicTwoUSD": 100,
+      "fullSizeCarryOnIncluded": true,
+      "personalItemIncluded": true,
+      "checkedBagIncluded": false,
+      "priceStatus": "Fresh Change to Economy action and resulting visible Total due 496.80. No passenger details entered or continued."
+    },
+    "checkedBaggage": {
+      "firstBagUSDPerAdult": 50,
+      "secondBagUSDPerAdult": 60,
+      "weightLimit": "50 lb / 23 kg each",
+      "status": "Date-specific visible informational checked-bag table for General membership, San Francisco to Bozeman, December 15 2026. Not added to airfare total. A possible 45-dollar advance-payment reduction was not selected or verified and is not assumed."
+    },
+    "sourceURL": "https://www.united.com/en/us/fsr/choose-flights?f=SFO&t=BZN&d=2026-12-15&tt=1&sc=7&px=2%2C0%2C0%2C0%2C0%2C0%2C0%2C0&taxng=1&newHP=True&clm=7&st=bestmatches&tqp=R",
+    "risk": "111 minutes is a planned connection window, not protection from winter weather or airline delay. This is the best practical exact official quote among searches actually checked, not a guaranteed worldwide market minimum."
+  },
+  "lowestVerifiedPracticalReturn": {
+    "carrier": "Southwest Airlines",
+    "flightNumber": "WN2212",
+    "date": "2026-12-20",
+    "origin": "BZN",
+    "destination": "LAS",
+    "departureLocal": "17:05 MST",
+    "arrivalLocal": "18:10 PST",
+    "duration": "2h05",
+    "stops": 0,
+    "fareName": "Basic",
+    "twoAdultsBaseUSD": 284.66,
+    "twoAdultsTaxesFeesUSD": 52.14,
+    "twoAdultsTotalUSD": 336.80,
+    "perPersonUSD": 168.40,
+    "marginAfterEstimatedAirportArrivalMinutes": 395,
+    "carryOnPerAdult": 1,
+    "personalItemPerAdult": 1,
+    "checkedBagIncluded": false,
+    "seat": "Assigned at check-in",
+    "checkedBaggage": {
+      "firstBagUSDPerAdult": 45,
+      "secondBagUSDPerAdult": 55,
+      "policyAppliesTo": "U.S. mainland tickets booked/ticketed or changed on or after April 9 2026; ordinary Basic without qualifying status/card benefits",
+      "status": "Fresh official travel-fees table. Not included in flight quote."
+    },
+    "priceStatus": "Fresh official Trip & Price Details page, 2 Passengers, Sun12/20, 17:05 to18:10, Flight/Trip total336.80. Stopped before continuing from the Price page. Search-list169/person is rounded.",
+    "sourceURL": "https://www.southwest.com/air/booking/select-depart.html?adultPassengersCount=2&adultsCount=2&departureDate=2026-12-20&departureTimeOfDay=ALL_DAY&destinationAirportCode=LAS&fareType=USD&int=HOMEQBOMAIR&originationAirportCode=BZN&passengerType=ADULT&promoCode=&returnDate=&returnTimeOfDay=ALL_DAY&tripType=oneway",
+    "pricePageURL": "https://www.southwest.com/air/booking/price.html?adultPassengersCount=2&adultsCount=2&departureDate=2026-12-20&departureTimeOfDay=ALL_DAY&destinationAirportCode=LAS&fareType=USD&int=HOMEQBOMAIR&originationAirportCode=BZN&passengerType=ADULT&promoCode=&returnDate=&returnTimeOfDay=ALL_DAY&tripType=oneway",
+    "baggageSourceURL": "https://www.southwest.com/html/customer-service/travel-fees.html?clk=AIR-BOOKING-WIDGET-BAGGAGE-FEES",
+    "risk": "10:30 airport arrival is the shuttle's estimate. 6h35 planned margin is useful for delay; airfare and seat availability can change."
+  },
+  "excludedOrInferiorCandidates": [
+    {
+      "carrier": "United",
+      "route": "SFO to BZN, Dec15, one stop",
+      "departureLocal": "06:15 PST",
+      "arrivalLocal": "13:27 MST",
+      "searchListBasePerPersonUSD": 249,
+      "reason": "Only 3 minutes before official airport check-in. Not practically usable and more expensive than UA1973. Other United arrivals at15:23,16:50,21:45 are too late.",
+      "priceStatus": "Search-list display, not final selected quote"
+    },
+    {
+      "carrier": "Southwest",
+      "date": "2026-12-15",
+      "originsChecked": ["SFO", "OAK", "SJC"],
+      "earliestArrivalLocalAllThree": "14:50 MST",
+      "lowestDisplayedPerPersonUSD": {"SFO": 112, "OAK": 106, "SJC": 104},
+      "exampleOAK": "WN562/WN2658 06:25PST to14:50MST viaDEN; another07:55 departure reaches14:50",
+      "exampleSFO": "WN4578/WN2658 06:10PST to14:50MST viaDEN",
+      "exampleSJC": "WN3874/WN2658 06:35PST to14:50MST viaDEN",
+      "reason": "All arrive after13:30. The real lower displayed fares cannot be substituted into this itinerary's budget.",
+      "priceStatus": "Fresh official 2-adult Bay Area multi-airport search; list prices only, not selected final quotes",
+      "sourceURL": "https://www.southwest.com/air/booking/select-depart.html?adultPassengersCount=2&adultsCount=2&departureDate=2026-12-15&departureTimeOfDay=ALL_DAY&destinationAirportCode=BZN&fareType=USD&from=OAK,SFO,SJC&int=HOMEQBOMAIR&originationAirportCode=SFC&passengerType=ADULT&promoCode=&returnAirportCode=&returnDate=&returnTimeOfDay=ALL_DAY&to=BZN&tripType=oneway"
+    },
+    {
+      "carrier": "Alaska Airlines",
+      "date": "2026-12-15",
+      "originsChecked": "SFO with official Include nearby airports selected; resulting list includes OAK,SJC,STS",
+      "earliestArrivalLocal": "13:10 MST",
+      "earliestExamples": ["OAK08:05PST toBZN13:10MST, AS2275/AS2085 viaPDX,40-minute transfer", "SFO07:40PST toBZN13:10MST viaPDX", "SJC07:35PST toBZN13:10MST viaPDX"],
+      "earliestDisplayedSaverPerPersonUSD": 248,
+      "lowestCheapDisplayedSaverPerPersonUSD": 158,
+      "lowestCheapArrivalLocal": "23:33 MST",
+      "reason": "Arrival sorting shows first13:10, only20 minutes before airport bus check-in and more expensive than UA1973. Not a comfortable usable substitute; cheap158 option arrives at night.",
+      "priceStatus": "Fresh official 2-adult exact-date search, sorted Arrival. List prices including taxes, not final selected quotes",
+      "sourceURL": "https://www.alaskaair.com/search/results?O=SFO&D=BZN&OD=2026-12-15&ONBA=true&A=2&RT=false&locale=en-us"
+    },
+    {
+      "carrier": "Southwest",
+      "date": "2026-12-20",
+      "route": "BZN to LAS",
+      "flightNumber": "WN4280",
+      "departureLocal": "05:40 MST",
+      "arrivalLocal": "07:00 PST",
+      "displayedBasicPerPersonUSD": 139,
+      "reason": "Leaves before Mammoth08:00 shuttle and airport10:30 arrival. Cannot use the day's absolute cheapest early flight for this package.",
+      "priceStatus": "Fresh official search-list display, not selected final quote"
+    }
+  ],
+  "officialYellowstoneWinterAirportShuttle": {
+    "sourceURL": "https://www.yellowstonenationalparklodges.com/stay/plan/winter-transportation/",
+    "outbound": {
+      "date": "2026-12-15",
+      "route": "Bozeman Airport BZN to Mammoth Hot Springs",
+      "operatingDates": "Dec15 2026 toMar7 2027",
+      "checkInLocal": "13:30 MST",
+      "estimatedArrivalLocal": "16:00 MST",
+      "adultPublishedInclTaxFeesUSD": 110.81
+    },
+    "return": {
+      "date": "2026-12-20",
+      "route": "Mammoth Hot Springs to Bozeman Airport BZN",
+      "operatingDates": "Dec16 2026 toMar8 2027",
+      "checkInLocal": "08:00 MST",
+      "estimatedArrivalLocal": "10:30 MST",
+      "adultPublishedInclTaxFeesUSD": 115.25
+    },
+    "winterPackageDiscount": 0.10,
+    "discountConditions": "Official table explicitly offers10% for a booked Winter Package or Frosty Fun Special. The user-selected official six-day winter package is the basis for applying it in this estimate.",
+    "undiscountedRoundTripPerAdultUSD": 226.06,
+    "discountedPerAdultUnroundedUSD": 203.454,
+    "discountedPerAdultApproxUSD": 203.45,
+    "discountedTwoAdultOutboundCalculatedUSD": 199.46,
+    "discountedTwoAdultReturnCalculatedUSD": 207.45,
+    "discountedTwoAdultRoundTripCalculatedUSD": 406.91,
+    "priceStatus": "Fresh published 2026-27 fee table plus arithmetic. Exact two-seat inventory and final booking/discount rounding were not quoted or reserved. One-cent differences are possible depending on checkout rounding.",
+    "restrictions": ["Must have Xanterra lodging or a Xanterra tour booked", "Official page says arrivals after13:30 should not book the same-day airport shuttle; departures before12:00 should not book the same-day return shuttle", "Bozeman Grantree pickup12:45 costs the same110.81; shifting hotel pickup does not reduce this fee", "Entrance fees are separate; any national park pass belongs to the broader tour budget", "Winter weather can delay arrival; schedules are estimates"],
+    "cheaperUsableReplacementVerified": false
+  },
+  "alternativeGroundTransportChecked": [
+    {
+      "operator": "North of Yellowstone Shuttle & Charter",
+      "directorySourceURL": "https://bozemanairport.com/ground-transportation",
+      "sourceURL": "https://www.northofyellowstone.com/service-page/road-scholar-ride-share-gardiner-mt",
+      "observedPublishedUSD": 200,
+      "observedDescription": "Round Trip Ride Share for Road Scholar Participants; Round trip to Gardiner MT; Request to book",
+      "assessment": "Not a verified replacement for two ordinary travelers going to Mammoth for Xanterra15–20. Passenger qualification, per-person/group price interpretation, exact15/20 dates, Gardiner-to-Mammoth last leg, and final fees are unconfirmed. Did not request a quote or contact them."
+    },
+    {
+      "operator": "Karst Stage",
+      "sourceURL": "https://www.karststage.com/airport-shuttle",
+      "observedRoutes": ["BZN to Big Sky", "BZN to West Yellowstone", "West Yellowstone to Big Sky"],
+      "assessment": "Fresh official airport-shuttle page lists Big Sky and West Yellowstone. It does not offer a published scheduled airport-to-Mammoth route for this package. Do not treat West Yellowstone as Mammoth, or reuse the old West quote as a cheaper Mammoth transfer. Private charter price/date availability not quoted."
+    }
+  ],
+  "budgetTargetAudit": {
+    "targetPerPersonUSD": 500,
+    "targetScope": "All four flight legs plus all ground transportation",
+    "twoYellowstoneFlightsBasicTwoUSD": 733.60,
+    "twoYellowstoneFlightsPlusOfficialShuttleTwoUSD": 1140.51,
+    "twoYellowstoneFlightsPlusOfficialShuttlePerPersonRoundedUSD": 570.26,
+    "withUnitedStandardInsteadOfBasicTwoUSD": 1240.51,
+    "withUnitedStandardInsteadOfBasicPerPersonRoundedUSD": 620.26,
+    "otherTwoFlightsEvidenceFile": "work/current-flight-eastwest-evidence.json",
+    "otherTwoFlightsCheckedAtUTC": "2026-10-07 22:12:26 UTC",
+    "otherTwoFlightsOfficialTwoUSD": {"PHL_to_SFO_Dec8": 271.18, "LAX_to_PHL_Dec31Late": 424.40},
+    "fourFlightsBasicTwoUSD": 1429.18,
+    "fourFlightsBasicPerPersonUSD": 714.59,
+    "fourFlightsPlusOfficialYellowstoneShuttleTwoUSD": 1836.09,
+    "fourFlightsPlusOfficialYellowstoneShuttlePerPersonRoundedUSD": 918.05,
+    "oneCheckedBagEachAdultOnAllFourLegsCalculatedExtraTwoUSD": 370,
+    "oneCheckedBagEachAdultCalculation": "UA50 plus three Southwest legs45 each =185 per person;370 two. Informational baggage policies, not a selected cart quote.",
+    "stillExcluded": ["Monterey/SFO ground transfers", "Other city-to-airport transportation and local transportation", "Optional seat selection", "Baggage unless separately added above", "Any additional travel insurance or change protection"],
+    "conclusion": "The current actually verified compatible four-flight combination already costs714.59/person before ground transport. Adding the official discounted Yellowstone airport shuttle reaches about918.05/person. The500/person target is not met by these quotes; it must not be presented as an available price. This is not an exhaustive proof that no future sale or different itinerary could ever cost less."
+  },
+  "integrity": {"passengerFieldsFilled": false, "contactMade": false, "purchaseMade": false, "reservationSubmitted": false, "CAPTCHABypassed": false, "mainPublicationFilesModified": false},
+  "remainingUnknown": ["Price and seats may change before purchase", "Exact final shuttle discount rounding and two-seat availability", "All-market minimum beyond United, Southwest, and Alaska searches checked", "Public/private alternative shuttle date availability and full airport-to-Mammoth final quote"]
+}
