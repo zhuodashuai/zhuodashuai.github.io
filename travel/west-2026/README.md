@@ -2,6 +2,8 @@
 
 网页：<https://zhuodashuai.github.io/travel/west-2026/>
 
+最新：[budget-check.html](budget-check.html) 为低价预算和补项计算，[BUDGET.md](BUDGET.md) 为新日程及差额解释。按用户价格的基础预算为每人$6,213.61；用户已确认全部交通500包含黄石机票与机场接驳，不能重复加。具体订单税费、航班时刻、酒店实价和14日接送待核。旧A/B/C与PDF仍是此前较高配置的历史快照，不再当最低可行价。
+
 - [PLAN.md](PLAN.md)：方便队友阅读与在GitHub直接编辑的行程正文。
 - [index.html](index.html)：互动地图、三种方案和逐日费用页面。
 - [west-2026.pdf](west-2026.pdf)：2026/10/7价格快照，15页，方便转发。

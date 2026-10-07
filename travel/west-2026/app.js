@@ -18,7 +18,7 @@ function render(){
  el('option-recommend').textContent=o.recommendation;
  el('budget-breakdown').innerHTML=Object.entries(t.categoryUSD).map(([k,v])=>`<div class="budget-row"><span>${esc(k)}</span><strong>${amount(v)}</strong></div>`).join('')+`<div class="budget-row"><span>保险／装备／洗衣（估算）</span><strong>${amount(200)}</strong></div><div class="budget-row"><span>应急预留</span><strong>${amount(500)}</strong></div><div class="budget-row total"><span>计划总额 · ${mode==='person'?'每人':'两人'}</span><strong>${amount(t.plannedGroupUSD)}</strong></div>`;
  const official=t.statusUSD.quote+t.statusUSD.published;
- el('budget-reason').textContent=`这版已核官网报价和官方费率计算合计${amount(official)}（${mode==='person'?'每人':'两人'}），尚未加餐饮／城市打车等估算。黄石套装两人$5,210固定保留，不能靠低价航班把整个行程降到每人$6,000。计划总额含所有黄色估算与预留，当前比每人目标多${usd(t.overTargetPerPersonUSD)}。`;
+ el('budget-reason').textContent=`这套所选配置的已核官网报价和官方费率小计${amount(official)}（${mode==='person'?'每人':'两人'}），尚未加餐饮／城市打车等估算。它不是整个旅行的最低可行成本。用户提供更便宜机票与酒店预算后，应按新的具体配置复核；最新基础预算每人$6,213.61，全部交通500已确认覆盖黄石机票与机场往返，不重复加。14日晚和公园年卡等另核。历史总额含预留。`;
  el('daily-list').innerHTML=o.itinerary.map(d=>`<details class="day" ${expanded?'open':''}><summary><span class="date"><b>${d.date.slice(5).replace('-','/')}</b><br>${d.weekday} · D${d.day}</span><span><strong>${esc(d.title)}</strong><span class="stay">${esc(d.overnight)}</span></span><span class="amount">${amount(d.totalGroupUSD)}<small>${mode==='person'?'每人':'两人合计'} · 展开明细</small></span></summary><div class="day-body"><p class="schedule">${esc(d.schedule)}</p>${d.notes.map(n=>`<p>${esc(n)}</p>`).join('')}<table class="items"><thead><tr><th>项目／价格依据</th><th class="number">${mode==='person'?'每人':'两人'}</th></tr></thead><tbody>${d.items.map(x=>`<tr><td>${link(x.sourceURL,x.label)} ${badge(x.status)}${x.note?`<span class="item-note">${esc(x.note)}</span>`:''}</td><td class="number">${amount(x.amountGroupUSD)}</td></tr>`).join('')}<tr><td><strong>本日合计</strong></td><td class="number"><strong>${amount(d.totalGroupUSD)}</strong></td></tr></tbody></table></div></details>`).join('');
  el('expand-days').textContent=expanded?'收起全部明细':'展开全部明细';
  renderFlights(o);
@@ -60,7 +60,7 @@ function renderMap(){
  el('place-buttons').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{selectedPlace=b.dataset.place;renderMap();renderPlace();}));
 }
 el('correction').textContent=P.priceCorrection;
-el('optimization').textContent=P.optimization;
+el('optimization').textContent='历史配置使用可取消酒店、较完整行李和多段接驳及打车。其酒店与交通选择可更换；最新低价预算已在页面顶部另列，所选报价小计不再用作全市场最低成本。';
 el('fare-evidence').src=DATA.evidence;
 el('viator-link').href=P.links.viator;el('bag-policy').href=P.links.swbags;el('alamo-link').href=P.links.alamo;el('stanford-link').href=P.links.stanford;el('pass-link').href=P.links.passTours;
 el('stanford-note').textContent=P.stanford;

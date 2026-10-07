@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美西预算复核 · $6500怎样成立</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.audit-wrap{max-width:1050px}.audit-top{padding-bottom:24px}.audit-total{font-size:36px;font-weight:600;font-variant-numeric:tabular-nums}.audit-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.audit-field{display:flex;flex-direction:column;gap:6px}.audit-field input,.audit-field select{font:inherit;padding:10px;min-width:0;width:100%;box-sizing:border-box}.audit-check{display:flex;align-items:flex-start;gap:10px;padding:10px 0}.audit-check input{margin-top:6px;flex-shrink:0}.audit-table{width:100%;border-collapse:collapse}.audit-table th,.audit-table td{padding:12px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.audit-table td:last-child,.audit-table th:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.audit-table caption{text-align:left;padding-bottom:10px}.audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.audit-link{display:flex;gap:18px;flex-wrap:wrap}.audit-warning{font-weight:600}.audit-extra:empty{display:none}@media(max-width:650px){.audit-fields,.audit-grid{grid-template-columns:1fr}.audit-total{font-size:30px}.audit-table th,.audit-table td{padding:10px 4px}.audit-table{font-size:14px}}
+</style>
+</head>
+<body><main class="wrap audit-wrap">
+<header class="hero audit-top">
+<div class="eyebrow">BUDGET RECHECK · OCT 7, 2026 · TWO TRAVELERS</div>
+<h1>$6,500，先按你的价格算。</h1>
+<p class="lede">去程800人民币、全部交通每人$500、酒店两人总预算$1,400、Max三日$620全包。扣清团内住宿、餐饮和黄石已含小费，再补14日晚和公园门票。</p>
+<p>前版$8,782是所选较高配置加预留；把它叫最低省钱方案不充分，现撤回这个结论。旧团内酒店、黄石餐饮和小费未重复收费。</p>
+<nav class="audit-link"><a href="./">返回地图与历史报价</a><a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/travel/west-2026/BUDGET.md" target="_blank" rel="noopener">完整核算与新日程</a><a href="https://github.com/zhuodashuai/zhuodashuai.github.io/edit/main/travel/west-2026/BUDGET.md" target="_blank" rel="noopener">编辑正文</a></nav>
+</header>
+<section class="section" aria-labelledby="calc-title">
+<h2 id="calc-title">你的基础预算：$6,213.61／人</h2>
+<p>团费$3,893.61＋小费$160＋酒店$700＋餐饮$960＋全部交通$500。黄石6天导游小费已含，原14×20的预留减少$120。完整保留14天小费时合计$6,333.61。</p>
+<div class="audit-grid">
+<div>
+<table class="audit-table"><caption>六项团费，每人USD</caption><thead><tr><th>日期／项目</th><th>金额</th></tr></thead><tbody>
+<tr><td>12/9 优胜美地 · 用户Viator报价</td><td>$239.00</td></tr>
+<tr><td>12/13 划船 · 用户报价</td><td>$89.61</td></tr>
+<tr><td>12/15–20 黄石 · 官方2026日期价表</td><td>$2,605.00</td></tr>
+<tr><td>12/21–23 Max · 用户确认全包</td><td>$620.00</td></tr>
+<tr><td>12/26 死亡谷 · 用户报价</td><td>$200.00</td></tr>
+<tr><td>12/28 约书亚树转LA · 用户报价</td><td>$140.00</td></tr>
+<tr><th>合计</th><th>$3,893.61</th></tr>
+</tbody></table>
+<p class="small">除黄石价表外，上述低价的实际日期订单、税费、接送和行李明细尚待核实。按你确认的Max全包620计算，不重复加羚羊或纪念碑费用。800元去程包含在下面交通总预算中，不另加一遍。</p>
+</div>
+<div>
+<div class="audit-fields">
+<label class="audit-field">全部机票＋交通／每人 USD<input id="transport" type="number" min="0" max="100000" step="0.01" value="500"></label>
+<label class="audit-field">自订酒店／两人一间总计 USD<input id="hotel" type="number" min="0" max="100000" step="0.01" value="1400"></label>
+<label class="audit-field">餐饮／每人 USD<input id="food" type="number" min="0" max="100000" step="0.01" value="960"></label>
+<label class="audit-field">14日晚补订／一间 USD<input id="missing-night" type="number" min="0" max="100000" step="0.01" value="140"></label>
+<label class="audit-field">小费／每人 USD<input id="tips" type="number" min="0" max="100000" step="0.01" value="160"></label>
+<label class="audit-field">公园年卡／两人共用<select id="park"><option value="250">非居民：一张$250</option><option value="80">符合居民资格：一张$80</option><option value="0">已有适用的有效年卡</option></select></label>
+</div>
+<p class="small">14日晚140是一间房的预算占位，并非官网房价；若它已含在酒店总额里，将这个字段设0。使用居民卡需合格身份证明，不能仅凭留学身份判断。</p>
+<label class="audit-check"><input id="add-flights" type="checkbox"><span>如以后改用额外购买黄石两段机票的配置：另加旧报价$418／人</span></label>
+<label class="audit-check"><input id="add-shuttle" type="checkbox"><span>如以后改用额外购买黄石机场往返的配置：另加官方费率计算$203.45／人</span></label>
+<label class="audit-check"><input id="add-maxtour" type="checkbox"><span>仅当620报价实际不含纳瓦霍项目时：另加$162／人</span></label>
+<p class="small">你已确认500包含黄石两段航班及机场往返，本次默认不勾选、不重复加。具体低价航班和班车订单尚待核，但这不等于要把旧票价额外加到500。旧交通报价不是全市场最低价。</p>
+</div></div>
+<div class="callout" aria-live="polite" aria-atomic="true"><div>当前计算 · 每人USD（含所选补项）</div><div class="audit-total" id="total">$6,408.61</div><p id="total-note">已补14日晚每人70和非居民年卡每人125；未加未勾选的转场项目。</p><p id="extra-note" class="audit-extra small"></p><p id="input-error" role="alert"></p></div>
+<p class="audit-warning">这是按用户低价和预算的条件计算，尚非全部已核价、锁价或预订。大苏尔向导/接送、额外行李、城市打车若不在交通总额里还需计入；没有强制加前版每人350装备及应急预留。</p>
+</section>
+<section class="section"><h2>差价主要在哪儿</h2><table class="audit-table"><thead><tr><th>每人USD</th><th>前版C</th><th>新基础预算</th><th>差额</th></tr></thead><tbody>
+<tr><td>全部机票＋地面交通</td><td>$1,797.54</td><td>$500.00</td><td>$1,297.54</td></tr>
+<tr><td>自订酒店</td><td>$1,554.46</td><td>$700.00</td><td>$854.46</td></tr>
+<tr><td>团费</td><td>$4,119.92</td><td>$3,893.61</td><td>$226.31</td></tr>
+<tr><td>餐饮</td><td>$690.00</td><td>$960.00</td><td>−$270.00</td></tr>
+<tr><td>小费</td><td>$145.00</td><td>$160.00</td><td>−$15.00</td></tr>
+<tr><td>年卡</td><td>$125.00</td><td>未含</td><td>$125.00</td></tr>
+<tr><td>装备、保险、应急等预留</td><td>$350.00</td><td>未含</td><td>$350.00</td></tr>
+<tr><th>合计</th><th>$8,781.92</th><th>$6,213.61</th><th>$2,568.31</th></tr>
+</tbody></table><p class="small">前版C多一天且酒店日期和配置不同。这里解释口径差异；低预算仍要核具体产品，不能把两版叫同配置最终价。</p></section>
+<section class="section"><h2>按新顺序订房：16晚自订＋7晚团内</h2><table class="audit-table"><thead><tr><th>入住 → 退房</th><th>地点与安排</th><th>晚数</th></tr></thead><tbody>
+<tr><td>12/8 → 12/12</td><td>旧金山联合广场；9日优胜美地，10/11城市整天</td><td>4</td></tr>
+<tr><td>12/12 → 12/14</td><td>Monterey；13日划船</td><td>2</td></tr>
+<tr><td>12/14 → 12/15</td><td>需补SFO附近一晚；14短徒步后返回，接送待核</td><td>1</td></tr>
+<tr><td>12/15 → 12/20</td><td>黄石六日含酒店，16:00–16:45建议到Mammoth</td><td>5含</td></tr>
+<tr><td>12/20 → 12/21</td><td>Vegas；旧航班18:10抵达，20不算整天</td><td>1</td></tr>
+<tr><td>12/21 → 12/23</td><td>Max三日含Page酒店</td><td>2含</td></tr>
+<tr><td>12/23 → 12/28</td><td>Vegas；24/25/27城市整天、26死亡谷</td><td>5</td></tr>
+<tr><td>12/28 → 12/31</td><td>LA；28转场、29/30/31玩，31晚飞</td><td>3</td></tr>
+</tbody></table><p>共24天、23晚。SF的8日是到达日、12日半天；新顺序只有10/11两个完整SF城市日。31日返程需晚班，可能1/1到费城。</p><p>14日大苏尔徒步的Monterey接送和返回SFO尚待落实。冬季公交旧22线不能套用；当前火灾关闭区域不保证12月开放。</p></section>
+<section class="section"><h2>官网包含范围</h2><p><a href="https://www.yellowstonenationalparklodges.com/special-offer/couples-winter-adventure-package/" target="_blank" rel="noopener">黄石</a>含5晚、团内餐饮及导游小费，不含机场转场和NPS门票；<a href="https://www.yellowstonenationalparklodges.com/stay/plan/winter-transportation/" target="_blank" rel="noopener">机场巴士</a>另订。</p><p><a href="https://www.maxtour.co/tours/bryce-zion-antelope-canyon-grand-canyon-monument-valley-3-day-tour/" target="_blank" rel="noopener">Max官网标准三日</a>含2晚、2早2午1晚，单列羚羊87及纪念碑75不含。你已确认620全包，当前按620计；需要以你所选具体订单的包含说明核实。</p><p><a href="https://www.nps.gov/aboutus/commercial-tours-and-nonresident-fees.htm" target="_blank" rel="noopener">年卡规则</a> · <a href="https://mst.org/route-list/" target="_blank" rel="noopener">MST线路</a> · <a href="https://www.parks.ca.gov/?page_id=570" target="_blank" rel="noopener">Big Sur开放公告</a></p></section>
+<footer class="footer">旧A/B/C及PDF是10/7所选配置快照。该复核先接受用户低价，分开实际报价和预算；没有预订、付款或联系运营商。</footer>
+</main><script src="budget-check.js"></script></body></html>
