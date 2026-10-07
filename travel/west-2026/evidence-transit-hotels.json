@@ -1,0 +1,33 @@
+{
+  "checkedDate":"2026-10-07",
+  "party":2,
+  "currency":"USD",
+  "liveHotel":{
+    "hotel":"The Live Hotel",
+    "checkIn":"2026-12-28","checkOut":"2026-12-31","nights":3,
+    "room":"Deluxe 1 King Bed · private bathroom · nonsmoking",
+    "rate":"DIRECT BOOKING RATE · public · pay later",
+    "baseUSD":493.95,"tourismAssessmentUSD":9.88,"occupancyTaxUSD":69.15,"taxUSD":79.03,"totalUSD":572.98,
+    "cancel":"24 hours before 16:00 arrival, i.e. Dec27 16:00 local, or one night plus tax",
+    "address":"1901 W. Olympic Blvd, Los Angeles CA90006",
+    "note":"Official engine room title says Deluxe King but its bed-configuration line says one Single; confirm bed description before booking. Official public PROMO5 link reports inactive for these dates; no12% savings assumed. No included breakfast verified. Farther from rail than STILE/Freehand; not selected.",
+    "sourceURL":"https://direct-book.com/properties/LiveHotelLosAngelesDirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD&checkInDate=2026-12-28&checkOutDate=2026-12-31",
+    "status":"exact-date selected official booking-summary total; no Book button submission, PII, terms or payment"
+  },
+  "groome":{
+    "sourceURL":"https://groometransportation.com/monterey/reservations/",
+    "timetableURL":"https://groometransportation.com/monterey/",
+    "outbound":{"date":"2026-12-12","pickup":"SFO, requested11:00 pickup (not flight arrival)","destination":"Monterey Shuttle Station Calle Principal","nonrefundableTwoAdultsUSD":124,"refundableTwoAdultsDisplayedUSD":138},
+    "return":{"date":"2026-12-14","pickup":"Monterey Shuttle Station, requested18:30 pickup","destination":"SFO","nonrefundableTwoAdultsDisplayedUSD":124,"refundableTwoAdultsDisplayedUSD":138},
+    "note":"The fresh outbound passenger summary shows2adults+2bags total124. Return services page after selectingDec14 18:30 shows124/138 for2; final joint cart/seat confirmation remains unverified. Official website From57 cannot be substituted for this selected62/person product. Published return18:30→21:20 preserves coast daylight, but final timing and late hotel shuttle need confirmation.",
+    "purchaseMade":false
+  },
+  "cityFares":{
+    "bartSFOToPowellPerPersonUSD":11.80,"bartSourceURL":"https://www.bart.gov/tickets/calculator","bartEvidence":"Official fare calculator selected San Francisco International Airport to Powell St, date2026-12-08, OneWay: Clipper11.80. No discount assumed.",
+    "sfMuniDayPassPerPersonUSD":5.70,"sfSourceURL":"https://www.sfmta.com/fares/day-pass",
+    "laMetroDayCapPerPersonUSD":5,"laMetroSingleUSD":1.75,"laSourceURL":"https://www.metro.net/fares/fare-capping/",
+    "flyAwayOneWayPerPersonUSD":12.75,"flyAwaySourceURL":"https://www.flylax.com/flyaway-bus/fares-tickets","flyAwayTimetableURL":"https://www.flylax.com/flyaway-bus/union-station",
+    "septaAirportOneWayPerPersonUSD":8.75,"septaSourceURL":"https://www.septa.org/fares/",
+    "note":"Fare arithmetic, not tickets bought. LAcap requireseligibleTAP/contactless notcash, excludesFlyAway. FlyAwaytickets60dayvalidity: do not buy inOctober forDecember. MuniDayPass excludescablecars. SEPTAairport fare8.75atalltimesbyKey/contactless/QuickTrip; onboard11."
+  }
+}

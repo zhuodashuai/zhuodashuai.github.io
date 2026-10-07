@@ -1,0 +1,490 @@
+{
+  "checkedDate": "2026-10-07",
+  "currency": "USD",
+  "party": {
+    "adults": 2,
+    "rooms": 1
+  },
+  "requestedStays": [
+    {
+      "checkIn": "2026-12-20",
+      "checkOut": "2026-12-21",
+      "nights": 1
+    },
+    {
+      "checkIn": "2026-12-23",
+      "checkOut": "2026-12-28",
+      "nights": 5
+    }
+  ],
+  "verification": "Fresh official browser searches for the exact dates and two adults. Selected room/rate and anonymous checkout totals were read without guest information, account registration, acceptance of terms, payment, or reservation submission. Prices are room totals for both adults, not per-person rates. Deposits are included in the room total rather than added again.",
+  "recommendation": {
+    "default": "Four Queens One King Bed, North Tower nonsmoking",
+    "sixNightsRoomTotalUSD": 592.12,
+    "sixNightsAverageIncludingTaxUSD": 98.69,
+    "reason": "Among these three properties, this exact-date nonsmoking King option is less expensive than Casino Royale or El Cortez Cabana Petite, and Downtown is within MaxTour's published hotel pickup area.",
+    "optionalCheaperRoom": "Four Queens Run Of House",
+    "optionalSixNightsTotalUSD": 524.32,
+    "optionalSixNightsAverageUSD": 87.39,
+    "optionalSavingsGroupUSD": 67.8,
+    "optionalSavingsPerPersonUSD": 33.9,
+    "optionalTradeoff": "Room and bed type are assigned at check-in. Location and requests depend on availability; smoking/nonsmoking and a King bed are not guaranteed. This is a separate alternative, not the same room as the default King.",
+    "seventyDollarClarification": "A roughly $70 base room exists on Dec20 and Dec23, but the same King room costs $89/$109/$109/$79 before tax on Dec24/25/26/27. A cheapest-night or calendar starting price does not apply to every night of the Christmas stay."
+  },
+  "fourQueens": {
+    "address": "202 Fremont Street, Las Vegas, NV 89101",
+    "area": "Downtown / Fremont Street Experience",
+    "quotes": [
+      {
+        "checkIn": "2026-12-20",
+        "checkOut": "2026-12-21",
+        "nights": 1,
+        "room": "One King Bed / North Tower nonsmoking",
+        "adults": 2,
+        "rateCode": "FQWEB",
+        "roomTotalUSD": 69.0,
+        "taxUSD": 8.97,
+        "resortFeeUSD": 0,
+        "resortFeeTaxUSD": 0,
+        "otherFeeUSD": 0,
+        "totalUSD": 77.97,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-20",
+            "amount": 69.0
+          }
+        ],
+        "cancellation": "Selected policy: free cancellation up to Dec17,2026; late cancellation charge77.97. Official FAQ says direct bookings require72hours; precise selected-rate clock time was not displayed.",
+        "deposit": "77.97 first-night deposit at actual booking, already included in total. Refundable incidental hold is separate, not a planned expense.",
+        "url": "https://book.rguest.com/onecart/wbe/room/667/FourQueens/2026-12-20/2026-12-21/FQWEB/2",
+        "status": "fresh_exact_date_selected_quote"
+      },
+      {
+        "checkIn": "2026-12-23",
+        "checkOut": "2026-12-28",
+        "nights": 5,
+        "room": "One King Bed / North Tower nonsmoking",
+        "adults": 2,
+        "rateCode": "FQWEB",
+        "roomTotalUSD": 455.0,
+        "taxUSD": 59.15,
+        "resortFeeUSD": 0,
+        "resortFeeTaxUSD": 0,
+        "otherFeeUSD": 0,
+        "totalUSD": 514.15,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-23",
+            "amount": 69.0
+          },
+          {
+            "date": "2026-12-24",
+            "amount": 89.0
+          },
+          {
+            "date": "2026-12-25",
+            "amount": 109.0
+          },
+          {
+            "date": "2026-12-26",
+            "amount": 109.0
+          },
+          {
+            "date": "2026-12-27",
+            "amount": 79.0
+          }
+        ],
+        "cancellation": "Selected policy: free cancellation up to Dec20,2026; late cancellation charge77.97. Exact clock time not separately exposed.",
+        "deposit": "77.97 first-night deposit at actual booking, part of514.15 total.",
+        "url": "https://book.rguest.com/onecart/wbe/room/667/FourQueens/2026-12-23/2026-12-28/FQWEB/2",
+        "status": "fresh_exact_date_selected_quote"
+      },
+      {
+        "checkIn": "2026-12-20",
+        "checkOut": "2026-12-21",
+        "nights": 1,
+        "room": "Run Of House / assigned room and bed type",
+        "adults": 2,
+        "rateCode": "FQWEB",
+        "roomTotalUSD": 59.0,
+        "taxUSD": 7.67,
+        "resortFeeUSD": 0,
+        "resortFeeTaxUSD": 0,
+        "otherFeeUSD": 0,
+        "totalUSD": 66.67,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-20",
+            "amount": 59.0
+          }
+        ],
+        "cancellation": "Selected policy: free cancellation up to Dec17,2026; late cancellation charge66.67.",
+        "deposit": "66.67 first-night deposit at actual booking, part of total.",
+        "url": "https://book.rguest.com/onecart/wbe/room/667/FourQueens/2026-12-20/2026-12-21/FQWEB/2",
+        "status": "fresh_exact_date_selected_quote",
+        "tradeoff": "Room/bed/location assigned at arrival; smoking/nonsmoking and King bed not guaranteed."
+      },
+      {
+        "checkIn": "2026-12-23",
+        "checkOut": "2026-12-28",
+        "nights": 5,
+        "room": "Run Of House / assigned room and bed type",
+        "adults": 2,
+        "rateCode": "FQWEB",
+        "roomTotalUSD": 405.0,
+        "taxUSD": 52.65,
+        "resortFeeUSD": 0,
+        "resortFeeTaxUSD": 0,
+        "otherFeeUSD": 0,
+        "totalUSD": 457.65,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-23",
+            "amount": 59.0
+          },
+          {
+            "date": "2026-12-24",
+            "amount": 79.0
+          },
+          {
+            "date": "2026-12-25",
+            "amount": 99.0
+          },
+          {
+            "date": "2026-12-26",
+            "amount": 99.0
+          },
+          {
+            "date": "2026-12-27",
+            "amount": 69.0
+          }
+        ],
+        "cancellation": "Selected policy: free cancellation up to Dec20,2026; late cancellation charge66.67.",
+        "deposit": "66.67 first-night deposit at actual booking, part of457.65 total.",
+        "url": "https://book.rguest.com/onecart/wbe/room/667/FourQueens/2026-12-23/2026-12-28/FQWEB/2",
+        "status": "fresh_exact_date_selected_quote",
+        "tradeoff": "Room/bed/location assigned at arrival; smoking/nonsmoking and King bed not guaranteed."
+      }
+    ],
+    "defaultSixNightsTotalUSD": 592.12,
+    "runOfHouseSixNightsTotalUSD": 524.32,
+    "policyURL": "https://www.fourqueens.com/frequently_asked_questions.php",
+    "policy": "No resort fee. Hotel-guest self-parking5/day if used; waiver requires an All Access card and is not assumed. No airport shuttle. Check-in16:00, check-out12:00. Credit/debit incidental hold100, refundable subject to charges; do not count both deposit and room total as two expenses.",
+    "excludedCheapRoom": "Economy Studio has the same low starting price but explicitly no door between bathroom and bedroom and faces Fremont Street. It was not used as the default."
+  },
+  "casinoRoyale": {
+    "address": "3411 Las Vegas Boulevard S, Las Vegas, NV89109",
+    "area": "Central Strip",
+    "quotes": [
+      {
+        "checkIn": "2026-12-20",
+        "checkOut": "2026-12-21",
+        "nights": 1,
+        "room": "Standard King, Non-Smoking",
+        "rate": "Public Flexible Rate / nonmember",
+        "adults": 2,
+        "roomTotalUSD": 99.0,
+        "taxUSD": 13.25,
+        "resortFeeUSD": 0,
+        "totalUSD": 112.25,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-20",
+            "amount": 99.0
+          }
+        ],
+        "cancellation": "Before Dec18,2026 16:00 local hotel time free; afterwards first-night99 plus applicable taxes/fees.",
+        "deposit": "112.25 due at actual booking, already included in total.",
+        "url": "https://www.bestwestern.com/en-us/book/hotel-rooms/las-vegas/best-western-plus-casino-royale-center-strip/29087?checkIn=2026-12-20&checkOut=2026-12-21",
+        "status": "fresh_exact_date_selected_quote"
+      },
+      {
+        "checkIn": "2026-12-23",
+        "checkOut": "2026-12-28",
+        "nights": 5,
+        "room": "Standard King, Non-Smoking",
+        "rate": "Public Flexible Rate / nonmember",
+        "adults": 2,
+        "roomTotalUSD": 635.0,
+        "taxUSD": 84.98,
+        "resortFeeUSD": 0,
+        "totalUSD": 719.98,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-23",
+            "amount": 99.0
+          },
+          {
+            "date": "2026-12-24",
+            "amount": 99.0
+          },
+          {
+            "date": "2026-12-25",
+            "amount": 149.0
+          },
+          {
+            "date": "2026-12-26",
+            "amount": 149.0
+          },
+          {
+            "date": "2026-12-27",
+            "amount": 139.0
+          }
+        ],
+        "cancellation": "Before Dec21,2026 16:00 local hotel time free; afterwards first-night99 plus applicable taxes/fees.",
+        "deposit": "112.25 due at booking plus607.73 on arrival =719.98 total, not an extra112.25 expense.",
+        "url": "https://www.bestwestern.com/en-us/book/hotel-rooms/las-vegas/best-western-plus-casino-royale-center-strip/29087?checkIn=2026-12-23&checkOut=2026-12-28",
+        "status": "fresh_exact_date_selected_quote"
+      }
+    ],
+    "sixNightsTotalUSD": 832.23,
+    "sixNightsAverageUSD": 138.71,
+    "differenceFromFourQueensKingGroupUSD": 240.11,
+    "note": "Central Strip and free parking; no resort fee. Lower Rewards-member and multi-night member rates were visibly advertised but excluded from the default nonmember comparison; no account was created."
+  },
+  "elCortez": {
+    "address": "600 East Fremont Street, Las Vegas, NV89101; Cabana building across Ogden Avenue",
+    "area": "Downtown / Fremont East",
+    "quotes": [
+      {
+        "checkIn": "2026-12-20",
+        "checkOut": "2026-12-21",
+        "nights": 1,
+        "room": "Cabana Petite Room - Non-smoking / one Queen",
+        "adults": 2,
+        "rateCode": "WEBSITE",
+        "roomTotalUSD": 49.0,
+        "taxUSD": 6.37,
+        "mandatoryFeeLabel": "Amenity Fee",
+        "mandatoryFeeUSD": 30.0,
+        "mandatoryFeeTaxUSD": 3.9,
+        "totalUSD": 89.27,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-20",
+            "amount": 49.0,
+            "amenityFee": 30.0
+          }
+        ],
+        "cancellation": "Selected policy: cancel at least2days before arrival by18:00; free cancellation up to Dec18. UI displays late charge49, policy says first-night room and tax.",
+        "deposit": "Due now0. On arrival day at18:00 first-night room and tax collected. Refundable incidental hold50/night, max150, not a room expense.",
+        "url": "https://book.rguest.com/onecart/wbe/room/1614/ElCortezHotelCasino/2026-12-20/2026-12-21/WEBSITE/2",
+        "status": "fresh_exact_date_selected_quote"
+      },
+      {
+        "checkIn": "2026-12-23",
+        "checkOut": "2026-12-28",
+        "nights": 5,
+        "room": "Cabana Petite Room - Non-smoking / one Queen",
+        "adults": 2,
+        "rateCode": "WEBSITE",
+        "roomTotalUSD": 345.0,
+        "taxUSD": 44.85,
+        "mandatoryFeeLabel": "Amenity Fee",
+        "mandatoryFeeUSD": 150.0,
+        "mandatoryFeeTaxUSD": 19.5,
+        "totalUSD": 559.35,
+        "dailyBaseUSD": [
+          {
+            "date": "2026-12-23",
+            "amount": 49.0,
+            "amenityFee": 30.0
+          },
+          {
+            "date": "2026-12-24",
+            "amount": 49.0,
+            "amenityFee": 30.0
+          },
+          {
+            "date": "2026-12-25",
+            "amount": 99.0,
+            "amenityFee": 30.0
+          },
+          {
+            "date": "2026-12-26",
+            "amount": 99.0,
+            "amenityFee": 30.0
+          },
+          {
+            "date": "2026-12-27",
+            "amount": 49.0,
+            "amenityFee": 30.0
+          }
+        ],
+        "cancellation": "Selected policy: cancel at least2days before arrival by18:00; free cancellation up to Dec21. UI displays late charge49, policy says first-night room and tax.",
+        "deposit": "Due now0. On arrival day at18:00 first-night room and tax collected. Refundable incidental hold50/night, max150, not a room expense.",
+        "url": "https://book.rguest.com/onecart/wbe/room/1614/ElCortezHotelCasino/2026-12-23/2026-12-28/WEBSITE/2",
+        "status": "fresh_exact_date_selected_quote"
+      }
+    ],
+    "sixNightsTotalUSD": 648.62,
+    "sixNightsAverageUSD": 108.1,
+    "differenceFromFourQueensKingGroupUSD": 56.5,
+    "policyURL": "https://elcortezhotelcasino.com/hotel/policies/",
+    "policy": "All guests21+. Mandatory amenity fee30+tax/day, includes attached-garage parking. Airport shuttle is drop-off only07:00–14:00 and requires reservation, so it does not replace the Dec20 evening airport-to-hotel transfer. Cabana building is completely nonsmoking; smaller Queen room, not a King."
+  },
+  "transport": {
+    "tourHotelPickup": [
+      {
+        "product": "MaxTour3-day Grand Canyon/Bryce/Zion/Antelope/Monument",
+        "rule": "Published FAQ includes hotels within2miles of the Strip and Downtown; itinerary explicitly starts from Strip or Downtown hotel. Specific hotel name and pickup time still need the operator's booking confirmation.",
+        "url": "https://www.maxtour.co/tours/bryce-zion-antelope-canyon-grand-canyon-monument-valley-3-day-tour/"
+      },
+      {
+        "product": "MaxTour Death Valley Sunset/Stargazing",
+        "rule": "Published FAQ includes all hotels within2miles of Strip and Downtown; direct hotel pickup is included, with exact time/place sent before departure.",
+        "url": "https://www.maxtour.co/tours/death-valley-stargazing-tour/"
+      },
+      {
+        "product": "MaxTour Vegas-to-LA via Joshua Tree",
+        "rule": "Published FAQ says direct pickup at Strip and Downtown hotels or hotels within2miles. Thus moving to the Strip solely for this tour is not established as necessary.",
+        "url": "https://www.maxtour.co/tours/las-vegas-los-angeles-one-way-tour-via-joshua-tree-national-park/"
+      }
+    ],
+    "potentialBudgetAdjustment": "The existing two30-dollar Downtown-to-Strip collection transfers on Dec26 and28 can be treated as60group contingency rather than mandatory transfers, pending confirmation of the selected hotel's pickup. Do not add a new taxi estimate on top of the existing lines.",
+    "deuce": {
+      "url": "https://rtcws.rtcsnv.com/routepdf/deuce.pdf",
+      "publishedDate": "August2026",
+      "facts": "Official map connects Fremont Street Experience and Downtown with Strip stops including Treasure Island, Caesars/Bellagio, Park MGM, Luxor/Mandalay Bay. Runs24hours daily, approximately10–15minutes07:00–01:00 and20minutes01:00–07:00. Construction/traffic can delay service; this is frequency, not a verified journey duration.",
+      "hotelConnection": "Four Queens is on Fremont Street. Casino Royale is on the central Strip. El Cortez is east of the Fremont Street Experience; reaching the mapped downtown stops entails a longer walk. No exact walking time or Christmas-date door-to-door bus duration was verified.",
+      "fareStatus": "No new live fare quote included; current fare webpage returned403 to web fetch. Existing city-transport allowances should be kept separate from room prices."
+    },
+    "parking": "Default no-rental route has no hotel-parking cost. Four Queens parking5/day applies if a car is used; Casino Royale free parking and El Cortez parking included in its amenity fee. Do not add parking to the hotel comparison when no car is rented.",
+    "luggage": "The3-day MaxTour webpage says large luggage/suitcases are not carried. Hotel storage between checkout21 and return23 must be confirmed; neither retaining two empty Vegas room nights nor assuming free luggage storage has been added."
+  },
+  "unverified": [
+    "No reservation was made and inventory/price can change.",
+    "Specific pickup acceptance for the final selected hotel and multi-day luggage storage require confirmation.",
+    "Golden Gate, LINQ/Flamingo/Harrah's, and Treasure Island were not pursued after the three focused properties supplied exact-date comparisons; no claim of global minimum price is made."
+  ],
+  "filesChanged": [
+    "work/current-vegas-value-evidence.json"
+  ],
+  "publicationChanged": false,
+  "candidateTableLowToHigh": [
+    {
+      "id": "fourQueensRunOfHouse",
+      "hotel": "Four Queens",
+      "room": "Run Of House",
+      "seg": [
+        {
+          "checkIn": "2026-12-20",
+          "checkOut": "2026-12-21",
+          "nights": 1
+        },
+        {
+          "checkIn": "2026-12-23",
+          "checkOut": "2026-12-28",
+          "nights": 5
+        }
+      ],
+      "base": 464,
+      "taxes": 60.32,
+      "resort": 0,
+      "mandatoryFeeLabel": "None",
+      "total": 524.32,
+      "totalavg": 87.39,
+      "nights": 6,
+      "cancel": "Dec17 for arrival20; Dec20 for arrival23; first-night penalty",
+      "location": "Downtown / Fremont",
+      "privateRoom": true,
+      "privateBath": "Not explicitly verified for the assigned room before guest-details entry",
+      "smoking": "Not guaranteed",
+      "member": "Public FQWEB; no membership used",
+      "recommended": false
+    },
+    {
+      "id": "fourQueensKing",
+      "hotel": "Four Queens",
+      "room": "North Tower One King Bed nonsmoking",
+      "seg": [
+        {
+          "checkIn": "2026-12-20",
+          "checkOut": "2026-12-21",
+          "nights": 1
+        },
+        {
+          "checkIn": "2026-12-23",
+          "checkOut": "2026-12-28",
+          "nights": 5
+        }
+      ],
+      "base": 524,
+      "taxes": 68.12,
+      "resort": 0,
+      "mandatoryFeeLabel": "None",
+      "total": 592.12,
+      "totalavg": 98.69,
+      "nights": 6,
+      "cancel": "Dec17 for arrival20; Dec20 for arrival23; first-night penalty",
+      "location": "Downtown / Fremont",
+      "privateRoom": true,
+      "privateBath": "Bathroom privacy wording not explicitly verified before guest-details entry; do not substitute Economy Studio, whose bathroom lacks a door",
+      "smoking": "Hotel room nonsmoking; casino permits smoking",
+      "member": "Public FQWEB; no membership used",
+      "recommended": true
+    },
+    {
+      "id": "elCortezCabanaPetite",
+      "hotel": "El Cortez",
+      "room": "Cabana Petite nonsmoking Queen",
+      "seg": [
+        {
+          "checkIn": "2026-12-20",
+          "checkOut": "2026-12-21",
+          "nights": 1
+        },
+        {
+          "checkIn": "2026-12-23",
+          "checkOut": "2026-12-28",
+          "nights": 5
+        }
+      ],
+      "base": 394,
+      "taxes": 74.62,
+      "resort": 180,
+      "mandatoryFeeLabel": "Amenity Fee (30/night), rather than a fee labeled resort",
+      "total": 648.62,
+      "totalavg": 108.1,
+      "nights": 6,
+      "cancel": "Dec18 18:00 for arrival20; Dec21 18:00 for arrival23; first-night room/tax penalty",
+      "location": "Downtown / Fremont East; Cabana across Ogden",
+      "privateRoom": true,
+      "privateBath": "Not explicitly stated for this selected petite room in the quote inspected",
+      "smoking": "Cabana building100% nonsmoking",
+      "member": "Public WEBSITE direct rate; no membership used",
+      "recommended": false
+    },
+    {
+      "id": "casinoRoyaleKing",
+      "hotel": "Best Western Plus Casino Royale",
+      "room": "Standard King nonsmoking",
+      "seg": [
+        {
+          "checkIn": "2026-12-20",
+          "checkOut": "2026-12-21",
+          "nights": 1
+        },
+        {
+          "checkIn": "2026-12-23",
+          "checkOut": "2026-12-28",
+          "nights": 5
+        }
+      ],
+      "base": 734,
+      "taxes": 98.23,
+      "resort": 0,
+      "mandatoryFeeLabel": "None",
+      "total": 832.23,
+      "totalavg": 138.71,
+      "nights": 6,
+      "cancel": "Dec18 16:00 for arrival20; Dec21 16:00 for arrival23; first-night room/tax penalty",
+      "location": "Central Strip /3411 Las Vegas Blvd S",
+      "privateRoom": true,
+      "privateBath": "Selected Standard King photo gallery includes Guest Room bath/Bathroom; inferred en-suite, word private not directly displayed",
+      "smoking": "Nonsmoking",
+      "member": "Selected public Flexible; lower member promos not used",
+      "recommended": false
+    }
+  ]
+}

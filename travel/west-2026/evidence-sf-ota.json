@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUTC": "2026-10-07 23:20:27 UTC",
+  "currency": "USD",
+  "request": {
+    "city": "San Francisco",
+    "checkIn": "2026-12-08",
+    "checkOut": "2026-12-12",
+    "nights": 4,
+    "adults": 2,
+    "rooms": 1,
+    "privateBathRequired": true
+  },
+  "scope": "One focused Google Hotels query with exact dates and two travelers, followed by one additional private-bathroom hotel candidate. No registration, personal information, accepted terms, submitted reservation, payment or merchant contact.",
+  "qualifiedQuotes": [
+    {
+      "id": "union_square_plaza_priceline_via_kayak_dec8_12",
+      "hotel": "Union Square Plaza Hotel",
+      "channel": "Priceline，经 KAYAK 公开引流入口；未登录",
+      "dates": "2026-12-08 / 2026-12-12",
+      "checkIn": "2026-12-08",
+      "checkOut": "2026-12-12",
+      "nights": 4,
+      "adults": 2,
+      "rooms": 1,
+      "totalUSD": 528.28,
+      "baseUSD": 426.56,
+      "taxUSD": null,
+      "feeUSD": null,
+      "taxFeeCombinedUSD": 101.72,
+      "taxFeeAllocation": "付款前页面合并为 Taxes and fees；101.72 为税费合计，未给可分离的纯税和手续费金额，故 taxUSD / feeUSD 留 null；没有额外单列必付收费。",
+      "displayedBaseAverageUSD": 106.64,
+      "totalNightAverageUSD": 132.07,
+      "room": "Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "privateBath": true,
+      "privateBathEvidence": {
+        "sourceURL": "https://www.usphotel.com/guestrooms/double-room-with-2-double-beds",
+        "officialRoom": "DOUBLE ROOM WITH 2 DOUBLE BEDS",
+        "visibleBathroomItems": [
+          "Full Bath",
+          "Private Bathroom",
+          "Hair Dryer"
+        ],
+        "note": "官网同名两张双人床房型 Bathroom 面板已实际显示核对。官网房型页日期栏默认当天，仅用于设施证据，不作为日期报价。"
+      },
+      "location": "432 Geary Street, San Francisco, CA 94102；Union Square West / Theatre District",
+      "transit": "联合广场旁；平台约 2–4 分钟步行，酒店官网称距 Powell Street cable car 一街区。",
+      "cancel": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。",
+      "cancellationConflict": "房型列表及结账顶部 Powered by AI 文案称 24 小时可退，与付款前具体 Important Information 不可退矛盾；不承诺 24 小时宽限，需本人下单前核准最终条款。",
+      "membership": "无需登录/会员/邮箱订阅；未使用 Priceline 信用卡开户返现、优惠码或保险。",
+      "breakfast": "不包含；Priceline 酒店资料显示 onsite 无餐饮服务。",
+      "parking": "房价不含停车。官网仅列附近付费车库；Priceline 酒店资料列 offsite parking 约 40 USD/day，未作为官网保证价。",
+      "minimumCheckInAge": 18,
+      "refundableDepositUSD": 150,
+      "deposit": "Priceline 酒店资料：入住信用卡收 150 USD 可退损坏押金，退房检查后退还；不计不可退房费，需留信用额度。",
+      "status": "实际可选该房型并到未提交的 Guest & Payment Details 页面，确认 2026 日期/4 晚/1 房及 528.28 总额；没有预订、锁房或支付。",
+      "note": "公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。",
+      "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
+      "entrySourceURL": "https://www.kayak.com/hotels/Union-Square-Plaza-Hotel,San-Francisco,CA-p61403-h9763/2026-12-08/2026-12-12/2adults;map?lang=en&sort=rank_a",
+      "officialURL": "https://www.usphotel.com/",
+      "officialPolicyURL": "https://www.usphotel.com/overview",
+      "checkoutEvidence": "Live Priceline Guest & Payment Details 页面已读；不保存订单/结账 token 到公共 sourceURL。",
+      "recommended": true,
+      "recommendationScope": "本次一个追加候选中，位置/私卫/价格满足经济方案；不声称全市场最低或可退。"
+    }
+  ],
+  "googleLaMonarca": {
+    "hotel": "Kasa La Monarca San Francisco",
+    "exactDatesConfirmed": true,
+    "travelers": 2,
+    "priceDisplay": "Stay total / Price for 4 nights with taxes + fees",
+    "lowestVisibleChannel": "Traveloka",
+    "lowestVisibleTotalRoundedUSD": 1178,
+    "lowestVisibleStatus": "Google 汇总显示，未到该渠道付款前核房型/退改/库存/最终总额；不作为 qualifiedQuotes。",
+    "observedRates": [
+      {
+        "channel": "Traveloka",
+        "totalRoundedUSD": 1178,
+        "status": "metasearch_only"
+      },
+      {
+        "channel": "Official site",
+        "totalRoundedUSD": 1193,
+        "condition": "Member rate, save 11%; 默认邮箱优惠，未订阅",
+        "status": "metasearch_only"
+      },
+      {
+        "channel": "Super",
+        "totalRoundedUSD": 1193,
+        "status": "metasearch_only"
+      },
+      {
+        "channel": "Vio / goseek",
+        "totalRoundedUSD": 1233,
+        "status": "metasearch_only"
+      },
+      {
+        "channel": "Expedia / Booking public",
+        "totalRoundedUSD": 1341,
+        "status": "metasearch_only"
+      }
+    ],
+    "correspondingOfficialQuote": {
+      "publicNoEmailTotalUSD": 1340.6,
+      "publicBaseUSD": 1139,
+      "publicTaxUSD": 201.6,
+      "defaultEmailOptInTotalUSD": 1193.16,
+      "condition": "11% 邮箱优惠；不属于无条件公开价，未填写邮箱或订阅。",
+      "officialEvidenceFile": "work/current-central-hotels-evidence.json"
+    },
+    "interpretation": "本次正确 12/8–12 四晚查询没有复现用户长住截图 91 USD/night；可见最低渠道显示约 1178 USD 全段，约比无邮箱官网 1340.60 低 12%，但未验证 OTA 最终结账价。不能把 12/8–26 十八晚平均价直接套到四晚，也不能由官网高价推断所有 OTA 无低价。",
+    "sourceURL": "https://www.google.com/travel/hotels?q=Kasa%20La%20Monarca%20San%20Francisco&hl=en&gl=us",
+    "reproducibility": "Google 页面日期须手动设为 2026-12-08 / 2026-12-12，2 travelers，Price displayed 改 Stay total；搜索初始默认 November 日期已弃用。"
+  },
+  "rejectedOrUnverifiedPrices": [
+    {
+      "hotel": "Union Square Plaza Hotel",
+      "channel": "Google → KAYAK selected supplier",
+      "advertisedTotalUSD": 478.36,
+      "dates": "2026-12-08 / 2026-12-12",
+      "rejection": "实际供应商页面核同日期、2 人、1 房后显示 Error. The chosen room is no longer available. 不可作为可订价或预算。",
+      "status": "inventory_error"
+    },
+    {
+      "hotel": "Union Square Plaza Hotel",
+      "channel": "Google official-site listing",
+      "advertisedTotalRoundedUSD": 980,
+      "status": "metasearch_only",
+      "note": "未到官网付款前核最终价；不用于 qualifiedQuotes。"
+    }
+  ],
+  "financialCheck": {
+    "basePlusCombinedTaxFeesUSD": 528.28,
+    "totalDividedByFourUSD": 132.07,
+    "target520DifferenceUSD": 8.28
+  },
+  "limitations": [
+    "这是 2026-10-07 的实选渠道报价，并非已锁定价格或预订。",
+    "含税总额不含可退押金、自选停车或可选保险；没有发现付款前另列必付酒店费，不推断未来收费保证。",
+    "最终不可退条款与 AI 顶部文案冲突；使用更具体的 Important Information，不把 AI 文案当合同条件。",
+    "仅一个追加酒店候选；不声称旧金山酒店市场最低价。"
+  ]
+}

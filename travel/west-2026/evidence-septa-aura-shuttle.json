@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-07, checked in this session",
+  "scope": "只读核对12月8日PHL07:30航班的SEPTA早班连接及Hotel Aura公布的机场接驳，不含住所至车站安排、预订或联系。",
+  "septa": {
+    "date": "2026-12-08",
+    "weekday": "Tuesday",
+    "timezone": "America/New_York (EST)",
+    "flightDeparture": "07:30",
+    "scheduleStatus": "当期官网公布时刻表，不是12月8日运营保证；出发前须重看时刻表及当天警报。",
+    "effectiveDate": "2026-07-05",
+    "octoberUpdate": "SEPTA官方10月18日改表公告明确Airport Line继续采用2026年7月5日时刻表。",
+    "scheduleSources": [
+      "https://schedules.septa.org/current/AIR.pdf",
+      "https://wwww.septa.org/news/regional-rail-schedules/"
+    ],
+    "pdfPage": "2 of 4, Mondays through Fridays (Except Major Holidays), TO PHILADELPHIA AIRPORT",
+    "boardingStations": [
+      {"name": "Jefferson Station", "address": "Market St between 10th and 12th St"},
+      {"name": "Suburban Station", "address": "16th St and JFK Blvd"},
+      {"name": "William H. Gray III 30th Street Station", "address": "30th St and Market St"},
+      {"name": "Penn Medicine Station", "address": "3149 Convention Blvd"}
+    ],
+    "trains": [
+      {
+        "trainNumber": "401",
+        "role": "最早机场方向班次",
+        "departures": {"Temple University": "04:13", "Jefferson": "04:20", "Suburban": "04:25", "Gray 30th Street": "04:29", "Penn Medicine": "04:32"},
+        "airportArrivals": {"A": "04:47", "B": "04:48", "C&D": "04:50", "E&F": "04:52"},
+        "minutesBeforeFlightAtEF": 158
+      },
+      {
+        "trainNumber": "403",
+        "role": "符合约05:30到机场目标的推荐公布班次",
+        "departures": {"Temple University": "04:43", "Jefferson": "04:50", "Suburban": "04:55", "Gray 30th Street": "04:59", "Penn Medicine": "05:02"},
+        "airportArrivals": {"A": "05:17", "B": "05:18", "C&D": "05:20", "E&F": "05:22"},
+        "minutesBeforeFlightAtEF": 128
+      },
+      {
+        "trainNumber": "405",
+        "role": "较晚备选，余量更少",
+        "departures": {"Jefferson": "05:20", "Suburban": "05:25", "Gray 30th Street": "05:29", "Penn Medicine": "05:32"},
+        "airportArrivals": {"A": "05:47", "B": "05:48", "C&D": "05:50", "E&F": "05:52"},
+        "minutesBeforeFlightAtEF": 98
+      }
+    ],
+    "assessment": "在能及时到上述市中心站的前提下，403班05:22抵机场E/F站可满足目标。128分钟是铁路到站至起飞的算术余量，仍需步行、托运及安检；实际航站楼以航空公司当日信息为准。未假定住所位置，也未计住所至车站用时或费用。"
+  },
+  "hotelAura": {
+    "sourceUrl": "https://www.hotelaurasfo.com/airport-shuttle",
+    "verification": "官网在Chrome可见页面亲读；网页未提供未来特定日期库存确认。",
+    "operator": "Classic Shuttles",
+    "price": "酒店官网列免费机场往返；司机小费由旅客自行决定。",
+    "sharedService": "与另外五家酒店共用，司机不属于酒店。",
+    "publishedServiceWindows": ["04:00–11:00", "15:00–23:00"],
+    "eveningArrivalScenario": {
+      "date": "2026-12-14",
+      "expectedGroomeAirportArrival": "21:20",
+      "publishedAirportStops": [
+        {"T1": "21:25", "T2": "21:27", "T3": "21:30", "International": "21:35"},
+        {"T1": "22:25", "T2": "22:27", "T3": "22:30", "International": "22:35"}
+      ],
+      "assessment": "21:20抵达后不能承诺赶上21点班，需考虑Groome下车点至酒店车站移动；22点班为更稳妥的公布备选。官网没有列机场上车后的到酒店时刻，不能据此编出到店时间。"
+    },
+    "morningDepartureScenario": {
+      "date": "2026-12-15",
+      "flightDeparture": "08:24",
+      "publishedDepartures": [
+        {"Hotel": "05:08", "T1": "05:25", "T2": "05:27", "T3": "05:30", "International": "05:35"},
+        {"Hotel": "06:08", "T1": "06:25", "T2": "06:27", "T3": "06:30", "International": "06:35"}
+      ],
+      "assessment": "06:08酒店发车的公布机场时刻距08:24起飞约109–119分钟（T3为114分钟），05:08班可增加余量。须按实际航站楼选择下车点；这是计划时刻，不是准点或座位保证。"
+    },
+    "pickupInstructions": "国内航站楼按官网指示到出发层室外，过路至HOTEL SHUTTLE站，识别印有Hotel Aura名称的Classic车辆。国际航站楼施工期间官网说明上下客改到到达层。",
+    "pageConsistencyNote": "官网文字写服务至23:00，但表格仍列23:08酒店发车及23:25–35机场行；本方案使用更早班次，不据末班矛盾作保证。",
+    "timezone": "America/Los_Angeles (PST)"
+  },
+  "notPerformed": ["未输入联系人或支付信息", "未购买、预订或联系运营商", "未修改主发布文件"]
+}

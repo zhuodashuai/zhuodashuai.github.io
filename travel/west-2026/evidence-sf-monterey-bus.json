@@ -1,0 +1,83 @@
+{
+  "checkedDate": "2026-10-07",
+  "currency": "USD",
+  "party": {"adults": 2, "bags": "Each adult: one small bag and one stored suitcase, within the published limits"},
+  "scope": "One actualdate search for2026-12-12 Saturday SanFrancisco toSalinas, thenMST20 toMonterey. No contact orpurchase; personal andpaymentfields blank.",
+  "officialSources": {
+    "routeURL": "https://www.flixbus.com/bus-routes/bus-san-francisco-ca-salinas-ca",
+    "actualSearchURL": "https://shop.flixbus.com/search?departureCity=65e6af81-18ec-4b36-9e19-d0b9e732eee6&arrivalCity=46ea53c4-fa7d-4c64-9e91-829d91cb47e4&route=San+Francisco,+CA-Salinas,+CA&rideDate=12.12.2026&adult=2&_locale=en_US&departureCountryCode=US&arrivalCountryCode=US",
+    "pricePageURL": "https://shop.flixbus.com/checkout",
+    "MST20Page": "https://mst.org/routes/route-20/",
+    "MST20CurrentPDF": "https://mst.org/wp-content/media/20.pdf",
+    "MSTFares": "https://mst.org/fares/"
+  },
+  "verificationMethod": "OfficialFlixbus website operated withCUA. SelectedDec12 and2Adults, openedtransfer andstationaddress dialogs, continued to thevisibleCheckout price summary, then returned tosearch. No names,email,phone,payment orPaynow entered/submitted. MST20 Saturday directions andstop pair personally selected in its officialbrowser schedule tool.",
+  "searchResults": {
+    "date": "2026-12-12",
+    "weekday": "Saturday",
+    "resultCount": 1,
+    "departureLocal": "12:40 PST",
+    "arrivalSalinasLocal": "16:15 PST",
+    "duration": "3h35",
+    "transferCount": 1,
+    "departureStop": "SanFrancisco BusStation",
+    "departureAddress": "425 Mission St Ste206, SanFrancisco CA94105",
+    "arrivalStop": "Salinas TrainStation",
+    "arrivalAddress": "3 Station Place, Salinas CA93901",
+    "arrivalStopInformation": "Bus boards at thecurb infront ofthetrainstationentrance; lookfor thedoors withSalinas sign above them.",
+    "legs": [
+      {"from": "SanFrancisco BusStation", "departure": "12:40", "to": "SanJose DiridonStation", "arrival": "14:25", "brand": "Greyhound", "operatorShown": "Greyhound Sacramento Pool", "intermediateStopsShown": 2},
+      {"from": "SanJose DiridonStation", "departure": "14:55", "to": "Salinas TrainStation", "arrival": "16:15", "brandAndOperatorShown": "American Star Tours"}
+    ],
+    "transferTimeMinutes": 30,
+    "transferStatus": "Published single itinerary withone transfer, not adirectbus. Delay-free connections are not guaranteed.",
+    "price": {
+      "twoAdultFareUSD": 52.24,
+      "serviceFeeUSD": 3.99,
+      "twoAdultsTotalInclTaxUSD": 56.23,
+      "perPersonArithmeticRoundedUSD": 28.12,
+      "listPricePerPersonUSD": 28.12,
+      "roundingNote": "Do not multiply the roundedlist28.12 bytwo as thefinalquote; Checkouttotal is56.23, not56.24.",
+      "status": "Actual twoadult exactdate selected itinerary; Checkout displays Total incl.TAX56.23 with52.24+3.99 breakdown. Current quote only, no ticketpurchased orformalbookingconfirmed.",
+      "seatSelection": "Optional from3.14 shown, notselected oradded",
+      "extraBag": "Optional22.99 shown, quantity0; notadded"
+    },
+    "includedBaggagePerAdult": {
+      "smallBag": "One small duffel/backpack,25lb,16×12×7in",
+      "storedBag": "One storedbag,50lb,31×20×12in",
+      "sourceStatus": "Actual selected itinerary Checkout Extras Includedperperson"
+    }
+  },
+  "MST20Connection": {
+    "currentScheduleEffective": "2026-08-29",
+    "selectedDirection": "Monterey - Monterey",
+    "selectedDay": "Saturday",
+    "from": "Salinas Transit Center Gate7, stop9207",
+    "to": "Monterey Transit Plaza Gate4 Tyler, stop9104",
+    "publishedTrips": [
+      {"departure": "16:15", "arrival": "17:08", "assessment": "Same clock as theintercitybus arrival atadifferentstop; cannotpromisecatching it."},
+      {"departure": "17:15", "arrival": "18:08", "assessment": "Recommended planning connection withonehour afterthepublishedSalinasarrival; allowtime towalk betweenthetrainstation andMSTtransitcenter andcheckactualservice."},
+      {"departure": "18:15", "arrival": "19:07", "assessment": "Laterpublishedfallback iffirstleg isdelayed."}
+    ],
+    "status": "Personallyselected actual officialSaturday stoptimes. Not areserved seat orDecember real-time arrivalpromise.",
+    "farePerAdultUSD": 2,
+    "fareTwoAdultsUSD": 4,
+    "walkingBoundary": "Salinas TrainStation andMST SalinasTransitCenter aredistinct. Theactualwalkingroute/accessibilitywithtwo bags wasnotverified ortimed. Hoteltransport afterMontereyTransitPlaza isalsonotincluded."
+  },
+  "comparison": {
+    "existingGroomeCombinationPerPersonUSD": 75.8,
+    "existingGroomeComponentsPerPersonUSD": {"Groome": 62, "PowellToSFOBART": 11.8, "MST": 2},
+    "existingGroomeCombinationTwoUSD": 151.6,
+    "busSelectedQuoteTwoUSD": 56.23,
+    "MST20PublishedTwoUSD": 4,
+    "busPlusMST20TwoUSD": 60.23,
+    "busPlusMST20PerPersonRoundedUSD": 30.12,
+    "differenceBeforeSFStationAccessTwoUSD": 91.37,
+    "differenceBeforeSFStationAccessPerPersonRoundedUSD": 45.69,
+    "status": "56.23 is theactualbusquote;4 is publishedMSTfares.75.8 is theparentprovidedexistingcombination, notarecheckedGroomequote inthisnarrowtask. SavingsbeforeSFhotel-to425Missionstationaccess andMontereylastmile; neither ispricedhere.",
+    "verdict": "A genuine exactdate busquote exists andcouldsave about45.69/person beforeunpricedSFstationaccess. However, theonlyresult needs aSanJosetransfer and reachesMonterey around18:08 withaconservativeMSTconnection. Itcannotfulfil anearly/midafternoonMontereyarrival orpreserve thefullDec12afternoon. Offerasanexplicitcost-versus-time option; do notsilentlyreplace theearliercoastarrival.",
+    "earlierUsableBusVerified": false
+  },
+  "excludedClaims": ["No oldMST55/86 recommendation", "No weekendGilroyCaltrain connection assumed", "No genericroutepageFrom30.03/30.06 substituted fordatequote", "No same-minute16:15 MST connection promised", "NoSFhotelaccess orSalinaswalking safety/price guarantee", "No optionalseat/baggageextras selected"],
+  "integrity": {"personalFieldsFilled": false, "paymentSubmitted": false, "purchaseMade": false, "contactMade": false, "formalReservationSubmitted": false, "publicationFilesModified": false}
+}

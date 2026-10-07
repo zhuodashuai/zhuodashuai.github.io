@@ -1,0 +1,106 @@
+{
+  "checkedAtUTC": "2026-10-07 23:04:39 UTC",
+  "currency": "USD",
+  "party": {"adults": 2},
+  "method": "Official RTC, Amtrak, Greyhound/Flix and MaxTour sources; date-specific bus search operated read-only through CUA Chrome. No contact, passenger details, reservation or purchase submitted. Published fares and schedule arithmetic are distinguished from selected final quotes.",
+  "fixedAnchors": {
+    "yellowstoneEnds": "2026-12-20 Mammoth Hot Springs official shuttle check-in 08:00 MST, estimated BZN arrival10:30 MST",
+    "maxtourStarts": "2026-12-21 LasVegas hotel pickup05:00–06:00 PST; real hotel time communicated the previous day",
+    "vegasCityDays": ["2026-12-24", "2026-12-25", "2026-12-27"],
+    "deathValleyTour": "2026-12-26 sunset/stargazing; hotel pickup included and late return possible",
+    "joshuaTransfer": "2026-12-28 pickup06:30–07:00 inVegas; hotel pickup included"
+  },
+  "intercityBus": {
+    "dateSelected": "2026-12-20",
+    "passengersSelected": 2,
+    "officialRouteURL": "https://www.greyhound.com/bus-routes/bozeman-mt-las-vegas-nv",
+    "searchURLDec20": "https://shop.greyhound.com/search?departureCity=08940943-d500-46e1-83a8-7cccd8b74b16&arrivalCity=30e3dcd2-f9a7-4900-8f39-7a77c261904e&route=Bozeman%2C+MT-Las+Vegas%2C+NV&rideDate=20.12.2026&adult=2&_locale=en_US",
+    "dec20VisibleResult": "No trips on: Sun, Dec20; Next available date: Mon, Dec21",
+    "dec20Price": null,
+    "nextAvailableSelected": {
+      "date": "2026-12-21",
+      "departure": "03:45 MST, Bozeman (Walmart)",
+      "arrival": "23:30 PST, LasVegas Airport",
+      "duration": "20h45",
+      "transfers": 4,
+      "operators": ["Jefferson Lines", "Salt Lake Express"],
+      "displayedPerPersonUSD": 272,
+      "twoAdultsDisplayedArithmeticUSD": 544,
+      "priceStatus": "Exact-date two-adult results list; not final checkout total or reservation",
+      "alternativeArrival": "23:45 PST, LasVegas South Strip Transit, duration21h, same272/person list fare",
+      "legsFromExpandedVisibleTripDetails": [
+        {"from": "Bozeman Walmart", "departure": "Dec21 03:45 MST", "to": "Butte Bus Station", "arrival": "05:05 MST", "operator": "Jefferson Lines"},
+        {"from": "Butte", "departure": "05:30 MST", "to": "Idaho Falls Salt Lake Office", "arrival": "09:05 MST", "operator": "Salt Lake Express"},
+        {"from": "Idaho Falls", "departure": "09:10 MST", "to": "Salt Lake City Intl Airport", "arrival": "13:20 MST", "operator": "Salt Lake Express"},
+        {"from": "Salt Lake City Intl Airport", "departure": "16:00 MST", "to": "StGeorge Bluff St", "arrival": "22:00 MST", "operator": "Salt Lake Express"},
+        {"from": "StGeorge", "departure": "22:20 MST", "to": "LasVegas Airport", "arrival": "23:30 PST", "operator": "Salt Lake Express"}
+      ]
+    },
+    "stationBoundary": "Bozeman Walmart is a city bus stop, not BZN airport. Airport-to-Walmart transport would be additional. Do not replace the Mammoth-to-BZN official shuttle with an invented direct local bus.",
+    "verdict": "No current actually selectable Dec20 through-bus was found. Next available arrives after the Dec21 MaxTour pickup and its272/person list fare exceeds the freshly verified168.40/person compatible Southwest flight. Keep the flight with this tour anchor.",
+    "splitSaltLakeCityAssessment": {
+      "officialFirstLegURL": "https://www.flixbus.com/bus-routes/bus-bozeman-mt-salt-lake-city-ut",
+      "officialSecondLegURL": "https://www.flixbus.com/bus-routes/bus-salt-lake-city-ut-las-vegas-nv",
+      "routePageMinimumFirstLegDuration": "9h55, generic route page",
+      "assessment": "The next available through-ticket itself transfers at Salt Lake City. Splitting into separate tickets has not produced a verified Dec20 two-adult connection arriving before05:00 Dec21; no date-specific final price was obtained. Generic From fares must not be added together as an available saving. Further split-date searches stopped after the parent confirmed the Dec20 through-bus result was sufficient.",
+      "usableCheaperSplitVerified": false
+    },
+    "flightComparisonEvidenceFile": "work/current-flight-yellowstone-evidence.json",
+    "compatibleFlight": {"date": "2026-12-20", "flight": "WN2212", "from": "BZN17:05 MST", "to": "LAS18:10 PST", "twoAdultsBasicUSD": 336.8, "perPersonUSD": 168.4, "baggageSeparate": true}
+  },
+  "amtrak": {
+    "stationURL": "https://www.amtrak.com/stations/lvs",
+    "freshVisibleStationTitle": "LasVegas, Nevada; Train Station - Curbside Bus Stop only (no shelter)",
+    "address": "624 South1stStreet, LasVegas NV89101-6357",
+    "currentOfficialNetworkURL": "https://www.amtrak.com/content/dam/projects/dotcom/english/public/documents/corporate/statefactsheets/NEVADA25.pdf",
+    "networkEvidence": "Latest official FY25 Nevada sheet lists one rail route California Zephyr and only three Nevada rail stops: Reno, Winnemucca, Elko. Its fourth-page map is labeled Current Amtrak Routes in Nevada. LasVegas LVS is a bus stop in the current station UI.",
+    "verdict": "LasVegas Nevada has no direct Amtrak passenger train service. An Amtrak search mentioning Vegas can include a connecting bus. Rail via SaltLakeCity/Reno does not remove the required long bus segment or provide a verified connection to Dec21's early tour. Do not confuse LasVegas NewMexico, served by trains, with Nevada.",
+    "historicConnectingBusSourceURL": "https://media.amtrak.com/2021/05/pacific-surfliner-offers-new-connecting-bus-service-between-los-angeles-and-las-vegas/",
+    "historicSourceLimit": "Supports the bus nature of California connections; its2021 departure schedule was not reused as a2026 timetable. No train fare or available Dec20 rail-bus itinerary was quoted."
+  },
+  "rtcCurrentNetwork": {
+    "schedulesURL": "https://www.rtcsnv.com/ways-to-travel/schedules-maps/",
+    "serviceChangeURL": "https://www.rtcsnv.com/ways-to-travel/schedules-maps/service-changes/aug-2026-service-change/",
+    "airportURL": "https://www.rtcsnv.com/ways-to-travel/transit-services/airport-transit-routes/",
+    "effectiveDate": "2026-08-23",
+    "criticalUpdate": "Route109 has been replaced by REDLINE. CX was restructured and itsAug2026PDF serves SSTT, not the airport. Do not use older airport109/CX instructions.",
+    "airportTerminals": "Route108 and REDLINE serve Terminal1 GroundLevelZero. Terminal3 arrivals use the airport inter-terminal shuttle toTerminal1. Current RTC airport page has ticket machines atTerminal1 LevelZero and card/exact-cash instructions.",
+    "routes": [
+      {"name": "REDLINE", "sourceURL": "https://rtcws.rtcsnv.com/routepdf/REDLINE.pdf", "currentPDF": "August2026", "hours": "24hours", "use": "AirportT1↔SSTT and AirportT1↔MarylandPkwy/Flamingo↔BTC/Downtown", "publishedAirportSSTTDuration": "RTC airportpage says12–15minutes; door-to-hotel transfer needs additional wait/walk time", "limits": "MarylandPkwy construction may affect travel time"},
+      {"name": "Deuce", "sourceURL": "https://rtcws.rtcsnv.com/routepdf/deuce.pdf", "currentPDF": "August2026", "hours": "24hours, every day", "publishedFrequency": "07:00–01:00 approximately10–15min;01:00–07:00 approximately20min", "use": "Strip hotels/sights↔Downtown/Fremont/BTC↔SSTT", "limits": "Does not enter the airport. Traffic and LasVegasBlvd construction can lengthen journeys."},
+      {"name": "202", "sourceURL": "https://rtcws.rtcsnv.com/routepdf/202.pdf", "currentPDF": "August2026", "hours": "24hours", "use": "East–west FlamingoRd; interchange with REDLINE atMarylandPkwy, westbound toLasVegasBlvd/Strip", "limits": "Does not enter the airport. RoutePDF includesDec13–18,2026 construction detour dates; future alerts still need checking."},
+      {"name": "CX", "sourceURL": "https://rtcws.rtcsnv.com/routepdf/cx.pdf", "currentPDF": "August2026", "hours": "Not24hours; weekends/holidays SSTTnorthbound06:33–22:59; SkyeCanyon southbound05:00–21:39", "use": "SSTT↔Tropicana/DeanMartin↔Harmon/Aldebaran↔Flamingo/ValleyView↔BTC/Fremont↔Centennial/SkyeCanyon", "limits": "No airport stop and not the old Flamingo/Strip airport express. Not preferred for this itinerary's Strip hotels."},
+      {"name": "109", "sourceURL": "https://www.rtcsnv.com/ways-to-travel/schedules-maps/service-changes/aug-2026-service-change/", "status": "Replaced byREDLINE effectiveAug23,2026; not a current route recommendation"}
+    ]
+  },
+  "rtcFares": {
+    "sourceURL": "https://www.rtcsnv.com/ways-to-travel/fares-passes/",
+    "verification": "Fresh official browser UI selectedVisitors. Visitors required Strip&AllAccess fares, valid on Deuce and residential routes.",
+    "adultPublishedUSD": {"singleRide": 4, "twoHours": 6, "twentyFourHours": 8, "threeDays": 20},
+    "residentOnlyLowerFaresApplied": false,
+    "threeNonconsecutiveCityDays": {"dates": ["2026-12-24", "2026-12-25", "2026-12-27"], "recommendation": "Three24hourpasses ifeach day needs buses throughout theday", "perPersonArithmeticUSD": 24, "twoAdultsArithmeticUSD": 48, "caveat": "A3daypass starting24morning does not cover all27. Three-day20 plus a separate27day8 is28/person. A late24activation could reach part27 but cannot promise threefullcitydays."},
+    "airportToStripPlanning": {"ticket": "2hour AllAccess", "perPersonPublishedUSD": 6, "twoAdultsArithmeticUSD": 12, "connections": "REDLINE airport→Maryland&Flamingo, then202westbound→LasVegasBlvd; orREDLINEairport→SSTT thenDeucenorthbound", "doorToHotelPlanningRangeMinutes": [45,90], "rangeStatus": "Planning allowance for walk, wait, transfer and traffic; not a timetable guarantee or real-time travel quote"},
+    "airportToDowntownPlanning": {"ticket": "single AllAccess if one REDLINE ride then walk", "perPersonPublishedUSD": 4, "twoAdultsArithmeticUSD": 8, "connection": "REDLINE airport northbound toward Downtown/UMC → Bonneville Transit Center, then walk/local connection according to actual hotel. If transferring, use 2h6/person instead.", "fourQueensDec20Recommended": {"hotelAddressOfficialURL": "https://www.fourqueens.com/contact_us.php", "hotelAddress": "202 Fremont Street, LasVegas NV89101", "route": "Terminal1 LevelZero → REDLINE northbound toward Downtown/UMC → Bonneville Transit Center (BTC) → walk to Four Queens", "transferCountExcludingAirportInterterminalShuttle": 0, "conservativeTicket": "AllAccess 2hour pass6/person,12/two; permits a local connection if wanted", "onBusPlanningMinutes": [35,45], "walkPlanningMinutes": [15,20], "doorToHotelPlanningMinutes": [60,90], "timeStatus": "Planning ranges from the current route layout and timetable; not measured walking directions, a real-time arrival prediction or an accessibility assessment", "baggageAlternative": "If the walk with two bags is inconvenient, use the same valid2h pass for Deuce northbound atBTC toward Fremont, confirming the current stop before boarding.", "notPreferred": "Airport southbound toSSTT thenDeuce through the fullStrip toDowntown adds a transfer and detour; reserve it as an alternative rather than the FourQueens default", "terminal3": "Use the free inter-terminal shuttle toT1 first; currentRTCairportpage pointsT3 travelers toT1 buses."}},
+    "localPlusOneArrivalAirportIllustration": {"twoAdultsThreeCityDayPassesUSD": 48, "twoAdultsOneArrivalAirportTransferUSD": 12, "sumTwoAdultsUSD": 60, "sumPerPersonUSD": 30, "scope": "Published pass arithmetic only. Excludes every other airport/city, taxis/rideshare, exceptional late travel and activities. Not all-trip ground transport quote."},
+    "buying": "rideRTCapp, airportTVM orbus exactchange. Buy validpass forbothlegs beforeboarding; no purchase made.",
+    "savingAssessment": "Vegas Strip/Downtown citydays can usewalk+Deuce+occasional202 instead of a3dayrental. Remove the actualVegas rental, insurance, fuel and corresponding parking from the old budget, then addpasses and any realneededrideshare. A precise net saving requires the actual rentalquote; it is not declared here.",
+    "fiveHundredTarget": "The verified four compatible flightlegs already714.59/person; citybus savings cannot alone make allfourflights+allground500/person. This task does not establish a globalfutureminimum."
+  },
+  "holidaySchedules": {
+    "sourceURL": "https://www.rtcsnv.com/ways-to-travel/schedules-maps/",
+    "dates": [
+      {"date": "2026-12-24", "weekday": "Thursday", "holiday": "ChristmasEve", "officialService": "SaturdaySchedule"},
+      {"date": "2026-12-25", "weekday": "Friday", "holiday": "ChristmasDay", "officialService": "SundaySchedule"},
+      {"date": "2026-12-27", "weekday": "Sunday", "officialService": "RegularSundaySchedule"}
+    ],
+    "note": "Deuce24hour service ispublished foreveryday. Residential routeholidayheadways still followtheirSaturday/Sunday tables, rather than normalweekdaytable. Currentpublishedschedules may change beforeDecember."
+  },
+  "tourPickupLogistics": {
+    "principle": "Stay within theoperator'shotelpickuparea and useincludedpickup. Do not add a mandatory pre-dawn taxitorendezvous bydefault. Individualhotelentrance and exacttime needtheday-beforeemail.",
+    "threeDay": {"date": "2026-12-21", "sourceURL": "https://www.maxtour.co/faq/", "coverage": "Hotelswithin2milesoftheStriporDowntown", "pickupPublished": "05:00–06:00", "returnPublished": "D3usually19:00–20:00", "advice": "Airportarrival20evening andcheckin20night; sleepingovernightinVegas matters. Do not plan longdistancebus21arrival as a replacement."},
+    "deathSunsetStargazing": {"date": "2026-12-26", "sourceURL": "https://www.maxtour.co/tours/death-valley-stargazing-tour/", "coverage": "Hotelswithin2milesoftheStriporDowntown; directpickupanddropoffincluded", "pickupPublished": "Seasonal07:30–11:00; previousquoted09:00 is tourstartselected, exacthotelpickupcomesseparately", "return": "HeaderBackby11PM; FAQhasanambiguous8:00and12:00PMnotation. Planforlateevening/possiblymidnightconditionsratherthanpromiseanexacthour.", "advice": "Returntosameeligiblehotel; noRTClegneedediftourhotelpickup/dropoffconfirmed. Do notmixthiswithclassicmorningDeathValleyproduct's06:30pickup/17:00–18:00return."},
+    "joshuaOneWay": {"date": "2026-12-28", "sourceURL": "https://www.maxtour.co/tours/las-vegas-los-angeles-one-way-tour-via-joshua-tree-national-park/", "coverage": "Strip/Downtownhotelsorhotelswithin2miles; directpickupincluded", "pickupPublished": "06:30–07:00", "LAarrivalPublished": "Approximately18:00–19:00", "luggagePublished": "Onecheckinbagplusonecarryonperperson", "advice": "RemainineligibleVegas hotel27night;28morninguseincludedpickup. LAhotel lastmiledependsonthetwoapproveddropoffsandisnotcoveredbyRTC.", "ifAlternateMeetingPointRequired": "24hourDeuce/REDLINE/202existbutwinterwaitswalksneedbuffer; exactroutecannotbequotedwithoutconfirmedmeetingpoint. Reserveanactualpricedrideshareonlyifneeded."}
+  },
+  "limits": ["AllDecemberroutefaresandservicecanchange; verifyalertsclosertodeparture", "NofinalDec20intercitybusquoteexistsbecauseofficialsearchreportednotrips", "Nextavailable272/personislistprice,notfinalinclusivecheckout", "Noactualhotelnamepickupconfirmationhasbeensent", "Noexactrentalnet saving orridesharepriceobtained", "NoassertionthatgenericroutepageFrompricesareticketinventory"],
+  "integrity": {"contactMade": false, "passengerFieldsFilled": false, "purchaseMade": false, "reservationSubmitted": false, "CAPTCHABypassed": false, "publicationFilesModified": false}
+}

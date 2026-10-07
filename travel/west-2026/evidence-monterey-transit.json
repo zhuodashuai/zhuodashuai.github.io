@@ -1,0 +1,44 @@
+{
+  "checkedAtUTC": "2026-10-07 (checked in this session)",
+  "currency": "USD",
+  "scope": "2026-12-13 Sunday, Monterey to Kayak Connection2370 Highway1 MossLanding for09:10 check-in and a possible return after13:15. Read-only officialMST timetable and fare check.",
+  "currentSources": {
+    "route28Page": "https://mst.org/routes/route-28/",
+    "route28PDF": "https://mst.org/wp-content/media/28.pdf",
+    "route20Page": "https://mst.org/routes/route-20/",
+    "route20PDF": "https://mst.org/wp-content/media/20.pdf",
+    "currentRouteList": "https://mst.org/route-list/",
+    "fares": "https://mst.org/fares/",
+    "contactlessRules": "https://mst.org/fares/contactless-payment/",
+    "kayakAddress": "https://kayakconnection.com/elkhorn-slough/tours/"
+  },
+  "scheduleStatus": "Current official20 and28 PDFs reached through their route pages are effective2026-08-29, despite search snippets sometimes showing older headers. Route28 Sunday exact-stop times also personally selected in officialbrowserUI. These are published schedules, not future guaranteed arrivals.",
+  "outbound": {
+    "line20SundayFirst": {"from": "Monterey Transit Plaza Gate4 Tyler, stop9104", "departure": "07:15", "to": "Salinas Transit Center Gate7, stop9207", "arrival": "08:03", "status": "Personally selected official Sunday direction Salinas-Salinas and exact stop-pair UI; corrected the earlier08:06 from the opposite direction. This still connects only to08:45 Route28."},
+    "line28SundaySelected": {"direction": "Watsonville viaCastroville", "from": "Salinas Transit Center Gate1, stop9201", "departure": "08:45", "to": "Highway1 /2375CA-1, stop2833", "estimatedArrival": "09:09", "previousService": "06:45→07:07, missed by the first20 service", "nextService": "10:45→11:09", "status": "Actual officialSunday stop-selector result; non-timepoint arrival estimate"},
+    "kayakCheckIn": "09:10 at2370 Highway1",
+    "marginMinutesFromBusToShop": 1,
+    "verdict": "Do not recommend this all-bus outbound for09:30 kayak. It leaves one minute before requiredcheck-in, with no allowance for walking/crossing, busdelay or gear-up. Keep a directvehicle outbound unless the traveler stayscloser or theoperator actually offers a lateravailabletour.",
+    "walkingLimit": "No safe continuous footpath or safe Highway1 crossing from stop2833 toshop2370 was verified. Nearby street addresses do not prove a safe pedestrian connection; do not label the walk confirmed/safe."
+  },
+  "returnConditional": {
+    "line28SundaySelected": {"direction": "Salinas viaCastroville", "from": "Highway1 /NorthHarbor, stop2859", "to": "Salinas Transit Center Gate1, stop9201", "trips": [{"departure": "13:10", "arrival": "13:35"}, {"departure": "15:10", "arrival": "15:35"}, {"departure": "17:10", "arrival": "17:35"}], "status": "Personally selected officialSunday exact-stop result; intermediate stop times are estimated"},
+    "after1315": "The13:10 service is already gone; next15:10 entails waiting until mid-afternoon. Then change to20 forMonterey. That final20 connection was not separately quoted in thebrowser and should be checked nearertravel.",
+    "walkingLimit": "Getting fromshop2370 to southboundNorthHarbor stop2859, including any crossing/walking, has not been confirmed safe or timed. This is a conditional bus option, not a door-to-door confirmed itinerary.",
+    "recommendation": "Keep the current70/two return-vehicle planning allowance. If the safe stationaccess and desired15:10 wait are acceptable, a directcar outbound plus bus return can reduce the groundbudget; no immediatecarprice was obtained."
+  },
+  "fares": {
+    "regularTwoHourUSDPerAdult": 2,
+    "dailyCapUSDPerAdult": 6,
+    "twoAdultsOneWayWithTransferWithinTwoHoursArithmeticUSD": 4,
+    "twoAdultsRoundTripArithmeticUSD": 8,
+    "conditions": "Each traveler uses their own same contactless card/device for successive taps; tap on each bus and use the same paymentmethod to retain2h-transfer pricing anddailycap. Cashusers request a2hpass whenboarding thefirstbus. A two-person ride must not be treated as a singlecard's onepersoncap.",
+    "conditionalHybridExample": {"outboundCarTwoUSDPlanning": 35, "returnBusTwoUSDPublishedFareArithmetic": 4, "sumTwoUSD": 39, "status": "35 is half the existing70/two roundtrip planning allowance, not a livevehiclequote. 4 is bothadults' one-wayreturn fares ifthetransfer fits2hours. This39/two example isconditional and must not replace the original70 planning allowance as a verifiedquote."}
+  },
+  "bigSurDecember14": {
+    "route22InCurrentOfficialList": false,
+    "verdict": "Current officialroute list does not list old22BigSur. Do not reuse historical22PDF as a verifiedwinterMonterey→BigSurpublicbus. A specific availabledaytour/privatevehicle remainsneeded andunquoted inthisnarrowtask."
+  },
+  "otherLimits": ["Line28currentPDFdoesnotoperateChristmas,NewYearsDayorThanksgiving; Dec13 is not one ofthoseholidays", "Publishedroutecoverage doesnot prove lastmile pedestrianaccess", "No vehicleprice, actualseatreservation or tourtimes were changed"],
+  "integrity": {"contactMade": false, "purchaseMade": false, "personalFieldsFilled": false, "publicationFilesModified": false}
+}

@@ -1,0 +1,64 @@
+{
+  "status": "verified_public_OTA_checkout_quote_no_booking",
+  "checkedOn": "2026-10-07",
+  "scope": "One candidate only: Hollywood Hotel; Google Hotels exact-date search was attempted, but no reliable channel total was extracted there. Expedia property UI then verified the same actual dates.",
+  "currency": "USD",
+  "hotel": "Hollywood Hotel",
+  "address": "1160 North Vermont Avenue, Los Angeles, CA 90029",
+  "channel": "Expedia",
+  "checkIn": "2026-12-28",
+  "checkOut": "2026-12-31",
+  "adults": 2,
+  "rooms": 1,
+  "nights": 3,
+  "room": "Starlet Queen",
+  "bed": "1 Queen Bed",
+  "privateBath": true,
+  "privateBathEvidence": "Hotel official accommodations page explicitly says all rooms and suites are smoke-free and include private baths; Starlet Queen is listed on this page.",
+  "smoking": "Non-smoking per official hotel's all-room policy",
+  "memberRequirement": "None for the observed quote; page was anonymous with Sign in/Create an account links. No account or promo code was used.",
+  "price": {
+    "totalUSD": 484.44,
+    "averageTotalPerNightUSD": 161.48,
+    "taxesAndFeesIncluded": true,
+    "roomBaseBeforeTaxUSD": null,
+    "taxesUSD": null,
+    "resortFeeUSD": null,
+    "breakdownNote": "Anonymous Checkout displays 3 nights at $161.48/night = $484.44; Taxes & fees included. No numerical tax/fee split was provided in the observed summary. Do not call $161.48 a pretax nightly rate.",
+    "breakfastIncluded": false,
+    "optionalParkingPerNightUSD": 53.9,
+    "refundablePropertyDepositPerStayUSD": 200,
+    "depositTreatment": "Refundable incidental deposit; not added to trip expense total.",
+    "optionalProtectionSelected": false
+  },
+  "cancellation": {
+    "flexibleUntilArrival": false,
+    "displayedSummary": "Fully refundable before Oct 8",
+    "detail": "Fully refundable before Thu, Oct 8, 2026. Today: Full refund. 24 hours after booking*: No refund. Dec 28: Check-in.",
+    "note": "This low-priced channel rate has only a 24-hour cancellation window after booking, despite the December stay. Do not label it an arrival-flexible December refundable rate.",
+    "changes": "Changes not allowed, except cancellation within the stated policy."
+  },
+  "comparison": {
+    "parentOfficialHollywoodThreeNightUSD": 542.54,
+    "groupSavingUSD": 58.1,
+    "savingPerPersonUSD": 29.05,
+    "note": "The parent-supplied official quote and this OTA quote may differ in cancellation terms. This $484.44 option is lower but is not a $120/night final-total option for the requested dates.",
+    "screenshotDatesMismatch": "User screenshot was Dec20–26. This independently checked quote is Dec28–31 and must not be replaced with the screenshot's $100 nightly price."
+  },
+  "sourceURLs": {
+    "quote": "https://www.expedia.com/Los-Angeles-Hotels-Hollywood-Hotel-The-Hotel-Of-Hollywood.h12553.Hotel-Information?chkin=2026-12-28&chkout=2026-12-31&rm1=a2&top_cur=USD",
+    "roomPolicyOfficial": "https://www.thehollywoodhotel.com/accommodations"
+  },
+  "visibleEvidence": [
+    "Dates Mon, Dec28 - Thu, Dec31; 2 travelers, 1 room; 3-night trip.",
+    "Checkout Hollywood Hotel / Starlet Queen / 1 Queen Bed / Sleeps2 / Mon Dec28 - Thu Dec31 (3 nights).",
+    "Price details: 3 nights, $161.48 per night, $484.44; Taxes & fees included; Total (USD) $484.44.",
+    "Cancellation dialog explicitly says Thu Oct8,2026 and 24 hours after booking, then no refund.",
+    "Official accommodations text: each room and suite smoke-free; highlights include private baths."
+  ],
+  "limitations": [
+    "Inventory and price can change; no room was reserved and no PII/payment/Terms were entered.",
+    "No other property or OTA was explored for a quote after this single focused candidate.",
+    "Google Hotels could not yield a reliable selected-property channel quote for the actual dates; only the Expedia exact-date quote is treated as verified."
+  ]
+}
