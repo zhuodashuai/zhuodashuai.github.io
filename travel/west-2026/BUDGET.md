@@ -79,6 +79,21 @@
 
 新安排SF只有10、11两个整天，8是抵达日、12半天；这相当于放宽最初“三个完整SF城市日”。LA31取决于晚班航班和赴机场时间，也不能全天玩到深夜。20日Vegas为抵达晚间，第三整天应放在27日。用户列出的其他选中公园仍在地图里，但未列入本日程的圣迭戈、拱门、峡谷地等不计入预算。
 
+## 新日期的酒店官网核价样本
+
+下列金额都是**两成人、一间、整段住宿**，不是每人金额。少量候选不能证明市场最低价，也不替换你提出的1400总预算。含税订单未齐，700/人仍是预算目标。
+
+| 城市／入住退房 | 官网候选与房型 | 整段价格 | 条件 |
+|---|---|---:|---|
+| SF 12/8–12，4晚 | [The Mosser](https://www.themosser.com/)，Deluxe Queen私卫，公开Stay3 | $1,049.98含税 | 房893.60＋税156.38；标可取消但截止时刻待核。不是共享卫生间产品 |
+| SF 12/8–12，4晚 | [King George](https://www.kinggeorge.com/)，Superior Queen | $1,630.08含税预付；可退$1,918.43 | 不推荐用较贵样本作为预算下限；预付价不能取消；可退价政策窗有24/72小时不一致，需确认 |
+| Monterey 12/12–14，2晚 | [Monterey Surf Inn](https://www.montereysurfinn.com/)，King | **$143.45基础房价**，税后待核 | 结果头正确但日期输入控件不一致，不能当已核最终含税总价；不是143.45/晚 |
+| Vegas 12/20–21＋23–28，6晚 | [Casino Royale](https://www.bestwestern.com/en-us/book/hotel-rooms/las-vegas/best-western-plus-casino-royale-center-strip/29087?checkIn=2026-12-23&checkOut=2026-12-28)，King公开Flexible | $832.23含税 | 取本次同日此前核价112.25＋719.98，无度假费，停车含；不是此子任务再次刷新，也不是市场最低 |
+| LA 12/28–31，3晚 | [Hampton Hawthorne](https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=LAXHTHX&arrivalDate=2026-12-28&departureDate=2026-12-31&room1NumAdults=2&displayCurrency=USD)，King Semi-Flex | $578.87含税 | 含热早餐；可取消到12/23，具体时刻以政策确认；无机场班车。停车另15/晚 |
+| LA 12/28–31，3晚 | [Motel6 LAX](https://www.motel6.com/property/motel-inglewood-california-us-294400/?checkin=28%2F12%2F2026&checkout=31%2F12%2F2026&guests=2&rooms=1)，普通King Flexible | **约$397含税显示价** | 官网只显示整美元：房343＋税54，不编造美分。流程写预订将免费加入My rate，未完成无会员条件核验；未加入或预订。停车另20/晚，75可退押金不计成本，早餐不含 |
+
+Grant Plaza该日期无法在线查价，不解释成已证实满房。Motel6默认优惠显示357，但同样带会员加入条件，不将它冒充完全无条件的公开价。[酒店核价记录](hotels-recheck.json)含日期、房型、税费和证据边界。
+
 ## 官方依据与价格边界
 
 - [黄石六日套餐：2026日期价表、包含项目、小费及不含机场接驳](https://www.yellowstonenationalparklodges.com/special-offer/couples-winter-adventure-package/)

@@ -1,0 +1,153 @@
+{
+  "checkedAtUTC": "2026-10-07 21:47:52 UTC",
+  "currency": "USD",
+  "occupancy": {"adults": 2, "rooms": 1},
+  "mode": "Read-only official hotel rate research; no booking, login, account enrollment, contact, personal information or payment submitted.",
+  "scope": "Small candidate sample for the user's hotel-budget challenge, not an exhaustive search or a claim of market minimum.",
+  "userBudget": {
+    "totalRoomUSDClaim": 1400,
+    "perPersonUSDClaim": 700,
+    "segments": [
+      {"city": "San Francisco", "checkIn": "2026-12-08", "checkOut": "2026-12-12", "nights": 4, "amount": 520, "currency": "USD", "status": "user budget; no hotel order supplied"},
+      {"city": "Monterey", "checkIn": "2026-12-12", "checkOut": "2026-12-14", "nights": 2, "amount": 1090, "currency": "unconfirmed; possibly CNY", "status": "user budget; no hotel order supplied"},
+      {"city": "Las Vegas", "segments": [{"checkIn": "2026-12-20", "checkOut": "2026-12-21", "nights": 1}, {"checkIn": "2026-12-23", "checkOut": "2026-12-28", "nights": 5}], "nights": 6, "amount": 2400, "currency": "unconfirmed; possibly CNY", "status": "user budget; no hotel order supplied"},
+      {"city": "Los Angeles", "checkIn": "2026-12-28", "checkOut": "2026-12-31", "nights": 3, "amount": 350, "currency": "USD", "status": "user budget; no hotel order supplied"}
+    ],
+    "listedSelfBookedNights": 15,
+    "missingNight": {"city": "San Francisco", "checkIn": "2026-12-14", "checkOut": "2026-12-15", "nights": 1, "quoteUSD": null, "status": "Required before the Dec15 official Yellowstone tour connection; not included in the four listed hotel segments."},
+    "requiredSelfBookedNights": 16,
+    "includedTourNights": {"officialYellowstone": 5, "MaxTourPage": 2},
+    "totalOvernights": 23,
+    "mixedCurrencyConclusion": "Do not convert 1090 or 2400 or claim the sum is USD1400 until their currencies, dates, taxes and room occupancy are confirmed. Hotel budget alone does not establish all-trip budget feasibility."
+  },
+  "quotes": [
+    {
+      "id": "mosser_private_queen_dec8_12",
+      "hotel": "The Mosser",
+      "city": "San Francisco",
+      "checkIn": "2026-12-08", "checkOut": "2026-12-12", "nights": 4,
+      "room": "Deluxe Room, One Queen Bed", "privateBathroom": true, "areaSqM": 18,
+      "rate": "STAY 3 AND SAVE 20%", "membershipRequired": false,
+      "roomBaseUSD": 893.60, "taxUSD": 156.38, "totalUSD": 1049.98,
+      "status": "Official checkout total freshly displayed, exact dates, two adults and room verified.",
+      "cancellation": "Rate description displays FREE CANCELLATION; exact cutoff was not exposed in the checked pane and remains unverified.",
+      "amenityFee": "Official hotel site advertises no amenity fee; no additional amenity fee in selected total.",
+      "sourceURL": "https://www.themosser.com/",
+      "officialBookingURL": "https://themosser.ihotelier.com/book/dates-of-stay",
+      "quotePageURL": "https://themosser.ihotelier.com/book/checkout",
+      "verification": "Selected Dec8 to Dec12, 2 adults, private Deluxe Queen and public Stay3 rate. Unsubmitted checkout showed Subtotal893.60, Tax156.38, TotalReservation1049.98. No details or card entered.",
+      "limitations": ["The room card's additionaltax/night header did not match final checkout arithmetic; the final checkout and taxes pane both showed1049.98 and control this record.", "Budget Shared Bathroom rooms are separate products; do not present them as this private bathroom room.", "Queen, not King; fan listed. No full free breakfast verified."]
+    },
+    {
+      "id": "kinggeorge_flexible_queen_dec8_12",
+      "hotel": "King George Hotel", "city": "San Francisco",
+      "address": "334 Mason Street, San Francisco, CA",
+      "checkIn": "2026-12-08", "checkOut": "2026-12-12", "nights": 4,
+      "room": "Superior Queen", "rate": "Best Flexible Rate", "membershipRequired": false,
+      "roomBaseUSD": 1630.00, "taxUSD": 288.43, "totalUSD": 1918.43,
+      "status": "Fresh official selected-room TAXES & FEES pane explicitly displays Superior Queen, exact dates, 2 adults | 4 Nights and Total Rate1918.43.",
+      "cancellation": "Policy pane contains both '24 hours prior...4:00pm PST' and 'Limited Time Offer...72 hours prior...4:00PM PST'. The actual deadline is internally inconsistent; verify it before any booking rather than promise the less strict cutoff.",
+      "sourceURL": "https://www.kinggeorge.com/",
+      "officialBookingURL": "https://reservation.kinggeorge.com/book/dates-of-stay",
+      "quotePageURL": "https://reservation.kinggeorge.com/book/accommodations",
+      "limitations": ["Superior room lists ceiling fan; Deluxe is the separate air-conditioned category.", "No new amenity fee after July10,2026 per hotel amenities page; taxes already included in selected total.", "No member-only discount applied.", "Four/five-night StayLonger offer advertised on hotel's promotions page did not appear as a public selectable rate for this exact stay; no unverified discount manually applied."]
+    },
+    {
+      "id": "kinggeorge_prepay_queen_dec8_12",
+      "hotel": "King George Hotel", "city": "San Francisco",
+      "checkIn": "2026-12-08", "checkOut": "2026-12-12", "nights": 4,
+      "room": "Superior Queen", "rate": "Plan Ahead and Save", "membershipRequired": false,
+      "roomBaseUSD": 1385.00, "taxUSD": 245.08, "totalUSD": 1630.08,
+      "status": "Fresh official selected-room TAXES & FEES pane, exact dates and 2 adults.",
+      "cancellation": "Fully prepaid, non-refundable. Entire reservation including tax/fees charged at booking. Cannot cancel, modify or refund; no credit for early departure/no-show.",
+      "sourceURL": "https://www.kinggeorge.com/",
+      "officialBookingURL": "https://reservation.kinggeorge.com/book/dates-of-stay",
+      "quotePageURL": "https://reservation.kinggeorge.com/book/accommodations"
+    },
+    {
+      "id": "grantplaza_dec8_12_unquoted",
+      "hotel": "Grant Plaza Hotel", "city": "San Francisco", "address": "465 Grant Avenue, San Francisco, CA",
+      "checkIn": "2026-12-08", "checkOut": "2026-12-12", "nights": 4,
+      "privateBathroom": true, "totalUSD": null,
+      "status": "Exact-date official search returned: We are not able to accept online reservation on the dates selected. No price obtained; this is not proof all inventory is sold out.",
+      "sourceURL": "https://www.grantplaza.com/",
+      "quotePageURL": "https://www.grantplaza.com/reservations.php",
+      "amenities": "Official site describes private ensuite bathrooms and free WiFi; compact rooms, no AC. No full free breakfast verified."
+    },
+    {
+      "id": "montereysurfinn_dec12_14_partial",
+      "hotel": "Monterey Surf Inn", "city": "Monterey", "address": "1200 Munras Avenue, Monterey, CA",
+      "checkIn": "2026-12-12", "checkOut": "2026-12-14", "nights": 2,
+      "room": "NK1 - 1 King Bed Non Smoking", "rate": "Best Available",
+      "roomBaseUSD": 143.45, "taxUSD": null, "totalUSD": null,
+      "status": "Partial official rate result only: header confirmed exact Dec12–14, 2 nights, 1 room, 2 adults, and Total rate excluding tax143.45. Not a final inclusive checkout quote.",
+      "sourceURL": "https://www.montereysurfinn.com/",
+      "officialBookingURL": "https://reservation.asiwebres.com/v5/RoomAvailability.aspx?id=f80d431286f74160b9c3fc10cb73ed00",
+      "limitations": ["ASI form displayed different date-input values from the result header and blocked the next read-only quote step with a search-date mismatch warning. No tax total/cancellation deadline verified.", "Do not treat143.45 as a nightly amount or inclusive total.", "Free parking and WiFi listed; no included breakfast verified."]
+    },
+    {
+      "id": "hamptonhawthorne_dec28_31",
+      "hotel": "Hampton Inn Los Angeles International Airport/Hawthorne", "city": "Los Angeles",
+      "checkIn": "2026-12-28", "checkOut": "2026-12-31", "nights": 3,
+      "room": "1 King W/microwv/fridge Nonsmoke", "rate": "Semi-Flex", "membershipRequired": false,
+      "roomBaseUSD": 515.95, "taxUSD": 62.92, "totalUSD": 578.87,
+      "status": "Fresh official Step3 Customize summary: exact dates, 3 nights, 2 adults, public Semi-Flex; Total for stay578.87, no extras selected.",
+      "cancellation": "Selected rate allows change/cancel before Dec23,2026. Prior property rate-policy evidence gives23:59 local; date is freshly verified, exact clock-time not re-opened for this stay.",
+      "sourceURL": "https://www.hilton.com/en/hotels/laxhthx-hampton-los-angeles-international-airport-hawthorne/",
+      "officialBookingURL": "https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=LAXHTHX&arrivalDate=2026-12-28&departureDate=2026-12-31&room1NumAdults=2&displayCurrency=USD",
+      "quotePageURL": "https://www.hilton.com/en/book/reservation/customize/",
+      "included": "Free hot breakfast and WiFi.",
+      "excluded": "Self parking15/day per existing official property evidence; tax on parking not independently itemized. No airport shuttle. Sightseeing travel/parking excluded."
+    },
+    {
+      "id": "motel6_lax_flexible_dec28_31",
+      "hotel": "Motel 6 Los Angeles, CA - Los Angeles - LAX", "city": "Los Angeles",
+      "address": "5101 West Century Boulevard, Inglewood, CA",
+      "checkIn": "2026-12-28", "checkOut": "2026-12-31", "nights": 3,
+      "room": "1 King Bed |", "rate": "Flexible rate",
+      "roomBaseUSDDisplayed": 343, "taxUSDDisplayed": 54, "totalUSDDisplayed": 397,
+      "displayPrecision": "Official checkout UI displays whole dollars only; do not invent cent precision.",
+      "status": "Fresh official unsubmitted booking summary and Price Breakup: exact dates, 2 guests, normal King, Flexible rate114/night rounded on rate card; 3-night room343, tax54, total397 displayed.",
+      "membershipCondition": "Even after explicit Flexible rate selection, checkout says booking is eligible for My rate and booking agrees to join this program for free. No account created or terms accepted. Price is a selectable official quote, but unconditional booking without program enrollment is not verified.",
+      "cancellation": "Free cancellation till Dec27,2026 18:00 local. Late/no-show charge first night114 plus applicable taxes/fees.",
+      "parkingUSDPerNight": 20,
+      "parkingFor3NightsUSD": 60,
+      "refundableIncidentalDepositUSD": 75,
+      "airportShuttleUSD": "10 per reservation each way, per current chain official Additional Policies.",
+      "sourceURL": "https://www.motel6.com/property/motel-inglewood-california-us-294400/?checkin=28%2F12%2F2026&checkout=31%2F12%2F2026&guests=2&rooms=1",
+      "notes": ["Budget motel tier, private room/bath, no included full breakfast. Comfort is different from Hampton.", "Approx397+60parking=457 displayed dollars for a car stay, excluding any separately applicable parking tax and the refundable75 hold. Deposit is not an expense.", "The default Best/extended-stay rate showed357 incl tax but similarly has My rate joining condition; it is not an unconditional nonmember price.", "A separate property site advertised free shuttle while current chain policies specify10 each way; prefer chain policy, no free-shuttle promise."]
+    },
+    {
+      "id": "casinoroyale_dec20_21_prior_official_recheck",
+      "hotel": "Best Western Plus Casino Royale–Center Strip", "city": "Las Vegas",
+      "checkIn": "2026-12-20", "checkOut": "2026-12-21", "nights": 1,
+      "room": "Standard King, Non-Smoking", "rate": "Flexible rate", "membershipRequired": false,
+      "roomBaseUSD": 99.00, "taxUSD": 13.25, "resortFeeUSD": 0, "totalUSD": 112.25,
+      "status": "Earlier same-day fresh official second check, not reopened in this budget subtask.",
+      "evidenceFile": "work/optimized-vegas-secondcheck.json",
+      "checkedAtUTC": "2026-10-07 20:37:50 UTC",
+      "sourceURL": "https://www.bestwestern.com/en-us/book/hotel-rooms/las-vegas/best-western-plus-casino-royale-center-strip/29087?checkIn=2026-12-20&checkOut=2026-12-21",
+      "cancellation": "Before Dec18,2026 16:00 local; first-night penalty after.",
+      "parking": "Free guest parking in existing official evidence; no breakfast included."
+    },
+    {
+      "id": "casinoroyale_dec23_28_prior_official",
+      "hotel": "Best Western Plus Casino Royale–Center Strip", "city": "Las Vegas",
+      "checkIn": "2026-12-23", "checkOut": "2026-12-28", "nights": 5,
+      "room": "Standard King, Non-Smoking", "rate": "Flexible rate", "membershipRequired": false,
+      "roomBaseUSD": 635.00, "taxUSD": 84.98, "resortFeeUSD": 0, "totalUSD": 719.98,
+      "status": "Earlier official exact-stay quote in existing project evidence, not reopened in this budget subtask.",
+      "evidenceFile": "work/vegas-hotels-final.json quotes.CR23_28",
+      "sourceURL": "https://www.bestwestern.com/en-us/book/hotel-rooms/las-vegas/best-western-plus-casino-royale-center-strip/29087?checkIn=2026-12-23&checkOut=2026-12-28",
+      "cancellation": "Before Dec21,2026 16:00 local; first-night penalty after.",
+      "parking": "Free guest parking in existing official evidence; no breakfast included."
+    }
+  ],
+  "derived": {
+    "casinoRoyaleSixNightsUSD": 832.23,
+    "casinoRoyaleMethod": "112.25 exact one-night block +719.98 exact five-night block; no nights removed from a different quote.",
+    "verifiedSampleDoesNotEstablishCheapestMarketPrice": true,
+    "fullUSD1400HotelBasketVerified": false,
+    "whyNotVerified": ["No actual dated hotels/orders supplied for user1400 basket.", "Monterey1090 and Vegas2400 currencies unresolved.", "Dec14 SF night missing.", "No complete inclusive candidate quote for Monterey or Dec14 night.", "The budget LA Motel6 quote has explicit program-joining language and parking extra."]
+  }
+}
