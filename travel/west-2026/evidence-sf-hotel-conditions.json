@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUTC": "2026-10-08 01:49:11 UTC",
+  "request": {
+    "checkIn": "2026-12-08",
+    "checkOut": "2026-12-12",
+    "nights": 4,
+    "adults": 2,
+    "rooms": 1,
+    "privateBathroomRequired": true,
+    "knownGuestAgeAtLeast": 21
+  },
+  "mode": "Read-only official pages, official tourism/transit pages, and clearly marked property-supplied OTA information. Root independently selected dates in official booking UI. No registration, personal details, accepted Terms, payment or merchant contact.",
+  "locationAssessment": {
+    "conclusion": "这五家都位于 Lombard / Marina-Cow Hollow 走廊，接近 Chestnut/Union 的餐饮购物，适合拥有城市租车的旅客。SF官方旅游局将 Marina 列为有车游客适合住的区域，提及这几家及免费/低费停车。",
+    "safetyStatus": "没有取得足以比较这五家或与 Union Square 的同口径街区犯罪资料，不能宣称更安全或保证夜间安全。此建议基于位置、停车和房型，而非量化安全排名。",
+    "drivingNoise": "Lombard 是公交/道路走廊；沿街房可能有车声，这是从地址和路线作的推断，未测室内噪声。可优先 Cow Hollow Superior（官网明确较安静区域），其他酒店申请背街房，实际分配不保证。",
+    "sourceURL": "https://www.sftravel.com/article/best-area-to-stay-san-francisco",
+    "transitSources": [
+      "https://www.sfmta.com/routes/30-stockton",
+      "https://www.sfmta.com/routes/28-19th-avenue"
+    ],
+    "transit": "30 Stockton 长线沿 Chestnut 经 North Beach/Chinatown/Downtown，短线不覆盖 Marina；28 沿 Lombard 通金门桥/渔人码头/Daly City BART。需核实时班次，不从此推算门到门分钟。",
+    "itineraryImpact": "换到 Marina 后，旧 SFO→Powell 后步行到 Union Square 酒店的方案不再适用，需要公交换乘或网约接驳；预算与优胜美地接车范围也需同步核。"
+  },
+  "qualifiedQuotes": [
+    {
+      "id": "coventry_official_king_dec8_12",
+      "hotel": "Coventry Motor Inn",
+      "channel": "Official website → Holms official booking engine",
+      "dates": "2026-12-08 / 2026-12-12",
+      "checkIn": "2026-12-08",
+      "checkOut": "2026-12-12",
+      "nights": 4,
+      "adults": 2,
+      "rooms": 1,
+      "room": "King Room，非吸烟，独立卫生间（OTA同名房型辅助核实）",
+      "baseUSD": 476,
+      "taxUSD": null,
+      "feeUSD": null,
+      "taxFeeCombinedUSD": 77.68,
+      "totalUSD": 553.68,
+      "baseNightAverageUSD": 119,
+      "totalNightAverageUSD": 138.42,
+      "parking": "官网直订免费停车；官网 hotel 页标 covered parking。未证实 OTA 同条件，不套用。",
+      "breakfast": "未核包含，不按免费早餐计。",
+      "cancel": "官方引擎要求到店日前 15:00 取消，否则收一晚房费；文句未写明确提前几日，不自行补成24h/48h或确定日历截止。",
+      "payment": "官方引擎说明到店前7日对信用卡/借记卡预授权一晚房费及税；不是已付款。",
+      "membership": "公开官网率，未登录或假会员折扣。",
+      "status": "Root 实际选 2026-12-08/12、2 adults、King 4晚并读 Guest Information 前总价；库存/价格当时可选，未预订或锁房。",
+      "sourceURL": "https://holms.coventrymotorinn.com/",
+      "officialURL": "https://coventrymotorinn.com/",
+      "note": "Root live UI 报价，非本子代理独立重报；总额476+77.68=553.68。可退押金150为Booking商户资料，官网金额未明示，不计房价。",
+      "recommended": true
+    }
+  ],
+  "hotels": [
+    {
+      "id": "coventry",
+      "hotel": "Coventry Motor Inn",
+      "address": "1901 Lombard Street, San Francisco, CA 94123",
+      "officialURL": "https://coventrymotorinn.com/",
+      "roomSourceURL": "https://coventrymotorinn.com/hotel/",
+      "privateBathroom": {
+        "confirmed": true,
+        "level": "OTA property-supplied King room",
+        "sourceURL": "https://www.booking.com/hotel/us/coventry-inn.en-gb.html",
+        "note": "One King Bed Room 明列 Private bathroom；官网普通房页面只列 bath products，官网 accessible 页明确房内浴室，但不能仅据无障碍房外推普通房。"
+      },
+      "nonSmoking": {
+        "confirmed": true,
+        "sourceURL": "https://coventrymotorinn.com/hotel/"
+      },
+      "minimumCheckInAge": {
+        "official": null,
+        "secondary": 18,
+        "maximumSecondary": 90,
+        "sourceURL": "https://www.booking.com/hotel/us/coventry-inn.html",
+        "note": "Booking商户house rules18–90；Expedia-AARP亦18。官网静态未明示；已知21岁旅客满足这两处所列条件。"
+      },
+      "cancellation": {
+        "source": "Root current official Holms UI",
+        "rule": "到店日前15:00取消，否则一晚；明确提前天数未写，最终须核准。",
+        "advanceAuthorization": "到店前7日预授权一晚房税"
+      },
+      "mandatoryAmenityFeeUSD": null,
+      "feeStatus": "官网静态未声明独立amenity fee；实选总价另见 qualifiedQuotes。",
+      "refundableDeposit": {
+        "USD": 150,
+        "sourceType": "Booking property-supplied",
+        "sourceURL": "https://www.booking.com/hotel/us/coventry-inn.html",
+        "note": "信用卡，退房检查后约7日退还，官网金额未明示。"
+      },
+      "parking": {
+        "official": "Complimentary covered parking / FREE PARKING with direct bookings",
+        "directBookingCondition": true,
+        "sourceURL": "https://coventrymotorinn.com/"
+      },
+      "amenities": [
+        "免费Wi-Fi",
+        "茶/咖啡",
+        "迷你冰箱",
+        "King可住2人",
+        "非吸烟"
+      ],
+      "roomAreaConflict": "官网 King 标题300sqft而正文330sqft，不统一为保证面积。",
+      "quality": "标准旅店。Booking 当页8.5/10（约2714条）、清洁与舒适8.9/10，属于当页用户评分，不是独立检查。",
+      "qualitySourceURL": "https://www.booking.com/hotel/us/coventry-inn.html",
+      "currentQuoteUSD": 553.68,
+      "currentQuoteStatus": "actual official date selection by root",
+      "suitability": "当前唯一已取得完整官网日期总价且私卫/年龄有辅助证据的候选；优先给root比较。",
+      "unknowns": [
+        "取消明确提前几日",
+        "官网最低入住年龄",
+        "官网押金金额",
+        "早餐是否包含"
+      ]
+    },
+    {
+      "id": "chelsea",
+      "hotel": "Chelsea Inn",
+      "address": "2095 Lombard Street, San Francisco, CA 94123",
+      "officialURL": "https://chelseamotorinn.com/",
+      "roomSourceURL": "https://chelseamotorinn.com/hotel/",
+      "privateBathroom": {
+        "confirmed": null,
+        "note": "官网普通King页面未明确 private/ensuite，仅bath products。无障碍页有房内浴室，但普通King仍待booking room details核。"
+      },
+      "nonSmoking": {
+        "confirmed": true,
+        "sourceURL": "https://chelseamotorinn.com/hotel/"
+      },
+      "minimumCheckInAge": {
+        "official": null,
+        "secondary": null,
+        "status": "not found in checked pages"
+      },
+      "cancellation": {
+        "rule": null,
+        "status": "final selected rate policy pending"
+      },
+      "mandatoryAmenityFeeUSD": null,
+      "feeStatus": "公开基础页未明示，不等于已确认0。",
+      "parking": {
+        "official": "Complimentary covered parking",
+        "directBookingCondition": null,
+        "sourceURL": "https://chelseamotorinn.com/hotel/",
+        "note": "基础页未发现仅限直订文字，不能据此保证所有渠道。"
+      },
+      "amenities": [
+        "免费Wi-Fi",
+        "茶/咖啡",
+        "King可住2人",
+        "非吸烟"
+      ],
+      "roomAreaConflict": "King标题300sqft，正文330sqft。",
+      "quietRoom": "仅accessible页明确无障碍房quiet interior；普通房背街请求是否满足未保证。",
+      "quietRoomSourceURL": "https://chelseamotorinn.com/accessibility/",
+      "currentQuoteUSD": null,
+      "currentQuoteStatus": "root date quote pending",
+      "suitability": "位置与停车有吸引力；完成普通房私卫、年龄、最终总价与取消核对后才可作为确定候选。",
+      "unknowns": [
+        "普通King私卫明文",
+        "最低年龄",
+        "取消",
+        "独立必付费",
+        "准确日期总价"
+      ]
+    },
+    {
+      "id": "cowhollow",
+      "hotel": "Cow Hollow Inn & Suites",
+      "address": "2190 Lombard Street, San Francisco, CA 94123",
+      "officialURL": "https://cowhollowinnandsuites.com/",
+      "roomSourceURL": "https://cowhollowinnandsuites.com/hotel/",
+      "privateBathroom": {
+        "confirmed": true,
+        "level": "OTA Two Queen room only",
+        "sourceURL": "https://www.booking.com/hotel/us/cow-hollow-inn-and-suites.en-gb.html",
+        "note": "本轮OTA房型表抓到TwoQueen的Private bathroom；普通King私卫未单独抓取核实，不能把其写成已核King私卫。"
+      },
+      "nonSmoking": {
+        "confirmed": true,
+        "sourceURL": "https://cowhollowinnandsuites.com/hotel/"
+      },
+      "minimumCheckInAge": {
+        "official": null,
+        "secondary": 18,
+        "sourceURL": "https://www.booking.com/hotel/us/cow-hollow-inn-and-suites.en-gb.html",
+        "note": "Booking商户House rules；21岁满足该处所列条件，官网静态未明示。"
+      },
+      "cancellation": {
+        "rule": null,
+        "status": "final selected rate policy pending"
+      },
+      "mandatoryAmenityFeeUSD": null,
+      "feeStatus": "静态官网未明示独立amenity fee，不等于已核0。",
+      "parking": {
+        "official": "Complimentary covered parking / FREE PARKING with direct bookings",
+        "directBookingCondition": true,
+        "sourceURL": "https://cowhollowinnandsuites.com/"
+      },
+      "amenities": [
+        "免费Wi-Fi",
+        "茶/咖啡",
+        "迷你冰箱",
+        "非吸烟",
+        "King约300sqft、可住2人"
+      ],
+      "quietRoom": "官网明确King/Double都有Deluxe与Superior，所有Superior在较安静区域，部分可看金门桥；不保证特定景观。",
+      "currentQuoteUSD": null,
+      "currentQuoteStatus": "root date quote pending",
+      "suitability": "若价格接近Coventry，可优先Superior安静房；私人卫生间须按最终所选King或TwoQueen核。",
+      "unknowns": [
+        "普通King私卫明文",
+        "官网最低年龄",
+        "取消",
+        "准确日期总价",
+        "是否独立收费"
+      ]
+    },
+    {
+      "id": "lombardplaza",
+      "hotel": "Lombard Plaza Motel",
+      "address": "2026 Lombard Street, San Francisco, CA 94123",
+      "officialURL": "https://www.lombardplaza.com/",
+      "roomSourceURL": "https://www.lombardplaza.com/guestrooms/traditional-room-1-king-bed",
+      "privateBathroom": {
+        "confirmed": true,
+        "level": "Official Traditional King",
+        "sourceURL": "https://www.lombardplaza.com/guestrooms/traditional-room-1-king-bed",
+        "note": "Private bathroom / bathtub or shower；外走廊进房。"
+      },
+      "nonSmoking": {
+        "confirmed": true,
+        "sourceURL": "https://www.lombardplaza.com/guestrooms"
+      },
+      "minimumCheckInAge": {
+        "official": null,
+        "secondary": "No age restriction",
+        "sourceURL": "https://www.booking.com/hotel/us/lombard-plaza-motel.en-gb.html",
+        "note": "这是OTA House rules；官网privacy里的18+是网站使用条款，不能替作最低入住年龄。"
+      },
+      "cancellation": {
+        "rule": "官网一般标准率48小时：入住前2日15:00前取消；本日期对应12/6 15:00PST。迟取消/未到收一晚房费加税费。Advance Purchase不可取消/改。",
+        "sourceURL": "https://www.lombardplaza.com/overview",
+        "note": "仅一般标准政策，最终选中房价可能不同。"
+      },
+      "checkIn": "15:00",
+      "checkOut": "11:00",
+      "mandatoryAmenityFeeUSD": null,
+      "feeStatus": "公开页面未明示独立amenity费；最终选价税费待核。",
+      "refundableDeposit": {
+        "USD": 200,
+        "sourceType": "official",
+        "sourceURL": "https://www.lombardplaza.com/overview",
+        "note": "入住每次收；官网未在同段明确退款时程。Booking说明信用卡、退房检查后7日内返还。"
+      },
+      "parking": {
+        "official": "Free on-site parking",
+        "directBookingCondition": null,
+        "sourceURL": "https://www.lombardplaza.com/overview"
+      },
+      "amenities": [
+        "免费Wi-Fi",
+        "冰箱",
+        "微波炉",
+        "空调/暖气",
+        "24小时前台",
+        "King可住2人"
+      ],
+      "quality": "30间客房、翻新客房是官网描述；外走廊/汽车旅馆布局，不能保证噪声或安保。",
+      "currentQuoteUSD": null,
+      "currentQuoteStatus": "exact-date quote not researched here",
+      "suitability": "私卫与标准取消证据最完整，实价若低于Coventry可作为经济替代。",
+      "unknowns": [
+        "准确日期含税总价",
+        "官网年龄",
+        "最终所选价退改",
+        "停车位保障"
+      ]
+    },
+    {
+      "id": "seaside",
+      "hotel": "Seaside Inn",
+      "address": "1750 Lombard Street, San Francisco, CA 94123",
+      "officialURL": "https://www.sfseasideinn.com/",
+      "roomSourceURL": "https://www.sfseasideinn.com/guestrooms/double-room-with-one-bed",
+      "privateBathroom": {
+        "confirmed": true,
+        "level": "Official all-room description",
+        "sourceURL": "https://www.sfseasideinn.com/overview",
+        "note": "官网overview明确各房full private bathroom。"
+      },
+      "nonSmoking": {
+        "confirmed": true,
+        "sourceURL": "https://www.sfseasideinn.com/overview"
+      },
+      "minimumCheckInAge": {
+        "official": null,
+        "secondary": 18,
+        "sourceURL": "https://www.booking.com/hotel/us/sea-side-inn.html",
+        "note": "正确SF Marina1750Lombard商户，不能混用Monterey/Seaside同名酒店。Hotels.com正确SF物业也18起。"
+      },
+      "cancellation": {
+        "rule": "官网一般标准率72小时：抵达前3日15:00前取消/改；本日期12/5 15:00PST。迟取消/未到收一整晚。",
+        "sourceURL": "https://www.sfseasideinn.com/overview",
+        "note": "页面同时说明随房型变化，最终选中价可能不可退。"
+      },
+      "checkIn": "15:00",
+      "checkOut": "11:00",
+      "mandatoryAmenityFeeUSD": null,
+      "feeStatus": "公开页面未明示独立amenity fee，不等于最终quote已核0。",
+      "refundableDeposit": {
+        "USD": null,
+        "status": "official amount not published in checked page"
+      },
+      "parking": {
+        "official": "Limited free parking, first come first served",
+        "directBookingCondition": null,
+        "sourceURL": "https://www.sfseasideinn.com/overview",
+        "note": "Booking说明不能预留车位；不能把有限免费停车当 guaranteed space。"
+      },
+      "amenities": [
+        "免费Wi-Fi",
+        "微波炉",
+        "冰箱",
+        "空调",
+        "大堂24h咖啡/茶",
+        "24小时前台"
+      ],
+      "breakfast": "未核包含；官网住客评价提早餐不等于现行免费早餐承诺。",
+      "currentQuoteUSD": null,
+      "currentQuoteStatus": "exact-date quote not researched here",
+      "suitability": "偏东位置接近FortMason/Ghirardelli方向，私卫政策清楚；停车位更不确定，需与实际全段价比较。",
+      "unknowns": [
+        "准确日期含税总价",
+        "最终选价退改",
+        "官网年龄",
+        "押金金额",
+        "停车位"
+      ]
+    }
+  ],
+  "priceRankingStatus": "只有Coventry取到root官网实际全段总价，其他四家不可虚构数字或按起价排名。",
+  "priorityByCurrentEvidence": [
+    "Coventry（已核553.68）",
+    "Cow Hollow Superior（静态房型安静证据，价格待root）",
+    "Lombard Plaza（官网私卫/标准取消完整，价格待核）",
+    "Seaside（限量停车，价格待核）",
+    "Chelsea（普通房私卫/年龄及价格待核）"
+  ],
+  "evidenceCaveats": [
+    "官网宣传便利/免费停车不是安全评级。",
+    "静态页面没有fee文字不代表必付费0；日期总价与最终房价条款才用于预算。",
+    "标准取消政策不可替代AdvancePurchase/OTA特价的最终条款。",
+    "Age/private bathroom辅助来源为OTA商户资料时明确注明，未把website使用年龄当入住年龄。",
+    "Root取价与本子代理政策研究分工明确；未独立重新取Coventry报价。"
+  ]
+}

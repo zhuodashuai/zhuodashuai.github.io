@@ -1,0 +1,155 @@
+{
+  "checkedAt": "2026-10-07, checked in this session",
+  "scope": "2026-12-08入住至12-12退房，四晚、两成人：只读研究街区位置、酒店地址、交通及12-09 Best Bay Yosemite接送范围。未查动态房价、未联系或预订、未改主发布文件。",
+  "interpretation": "住宿优先级是针对本次行程的地理和交通判断，不是官方安全评级；不保证任何酒店或街区绝对安全。",
+  "safetyEvidence": {
+    "policeDashboardUrl": "https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard",
+    "dashboardRead": "亲读官方说明：可按时间及罪类过滤；数据主要统计事件而非受害人数，采用最高级罪类规则，且逐日修订。",
+    "quantitativeBoundary": "本次未导出同时间窗、同类事件、同空间尺度的各街区统计，故不制造街区犯罪率、风险百分比或安全排序。警区与旅游街区边界也不能混用。",
+    "tourismSafetyUrl": "https://www.sftravel.com/article/tips-visitors",
+    "practicalRules": [
+      "事先规划路线，途中留意环境；感觉不适时离开。",
+      "人群中注意手机及随身包，公共交通上保持警觉。",
+      "车内不留行李或贵重物，即使住在码头或Marina也适用；这对拟租车三天尤其重要。",
+      "不要将无家可归者身份本身等同于犯罪风险。"
+    ],
+    "tenderloin": {
+      "primarySource": "https://sfplanning.org/fil/node/2267",
+      "officialAnalysisBoundary": "SF Planning与公共卫生部门TCAP数据分析及资源分配范围：Market Street、Van Ness Avenue、Powell Street、Post Street之间。",
+      "boundaryCaution": "这不是逐街安全线；历史称谓、警区及酒店营销中的Union Square/Lower Nob Hill/Tendernob可能重叠。不能因为在Geary北侧、Mason东侧或自称Union Square就自动认定符合用户位置偏好。",
+      "tripRecommendation": "用户已明确不喜欢联合广场西边便宜酒店，本轮优先改到码头、Lombard走廊，或日本城/金融区的具体地址；不为了低房价安排拖箱或晚归穿过Tenderloin。"
+    }
+  },
+  "neighborhoods": [
+    {
+      "name": "Fisherman's Wharf / 码头",
+      "priority": "位置便利优先；与Marina实际含费价对比后再选",
+      "officialUrl": "https://www.sftravel.com/neighborhoods/fishermans-wharf",
+      "fit": "码头、Pier39、North Beach等活动集中，位于Tenderloin分析范围以北；Best Bay官方明确列Fisherman's Wharf接送区域。",
+      "nightReturn": "当前F线7:00–24:00，30线周中5:00–24:00、周末6:00–24:00；20–21点回城有公布服务。仍按实际站点/实时到车安排，夜深或带大箱可把最后一段网约车保留为备选。",
+      "airport": "这里没有BART车站，SFO来需在Embarcadero等市中心站换F线或最后一段汽车；不能把BART到市中心时间当作到店时间。",
+      "riskLimits": "旅游客流与近景点并不消除扒窃、车窗盗窃风险；冬夜海边风雨及末班也要计入选择。"
+    },
+    {
+      "name": "Marina / Cow Hollow / Lombard走廊",
+      "priority": "本次实惠候选优先核价",
+      "officialUrl": "https://www.sftravel.com/neighborhoods/marina-pacific-heights",
+      "fit": "Chestnut/Union有餐馆商店，靠近Palace of Fine Arts/北岸；Lombard住宿在Tenderloin分析范围以北。酒店官网有直接预订免费停车候选，能减少城市租车三天成本。",
+      "nightReturn": "市中心可用30 Stockton长线至Chestnut，再短步行；30短线只到Fort Mason不能替代Marina长线。28线沿Lombard连接码头、金门桥等，公布5:00–24:00。",
+      "airport": "无本地BART站。带箱从SFO可BART加Muni/最后一段汽车；Daly City换28虽存在，但绕行、耗时，不作为舒适默认。",
+      "riskLimits": "Lombard是交通走廊，核价时优先内侧/安静房；本次夜间交通建议以已核当前普通30/28线路为依据。"
+    },
+    {
+      "name": "Japantown / 日本城",
+      "priority": "住宿体验备选；须先核价格与优胜美地接送",
+      "officialUrl": "https://www.sftravel.com/neighborhoods/japantown",
+      "fit": "Japan Center餐饮和室内购物集中在Geary的Laguna–Fillmore段，位于Tenderloin官方分析范围以西；不能把整个Western Addition一并赋予相同评价。",
+      "nightReturn": "38 Geary当前全天24小时，Geary/Fillmore或Geary/Laguna下车后短步行；市中心去日本城直接坐车，不安排沿Geary长距离横穿Tenderloin。",
+      "airport": "无BART站，要换Muni或汽车。Best Bay官网未逐家确认日本城酒店接送。",
+      "riskLimits": "若酒店无法原址接送，05点集合会多一段汽车成本和起床时间；夜间最后几条街仍需核入口及步行路线。"
+    },
+    {
+      "name": "Financial District / Embarcadero",
+      "priority": "机场铁路便利备选",
+      "officialUrl": "https://www.sftravel.com/neighborhoods/downtown-financial-district",
+      "fit": "本轮选Clay/Battery一带具体酒店，位于Tenderloin范围以东，靠近Ferry Building/Embarcadero及BART；不把所有营销为downtown的酒店视为同一位置。",
+      "nightReturn": "白天用F线沿海滨或Muni，晚归可从Embarcadero站到店；商务街区的夜间人流逐街变化，不作安全保证。带箱或晚归不熟悉时保留汽车最后一段。",
+      "airport": "Embarcadero BART直接连接SFO；Club Quarters官方列距Embarcadero站0.4英里，仍需步行。",
+      "riskLimits": "早晨团接送须逐店确认；不能为住金融区而默认05:30前有F线到码头。"
+    }
+  ],
+  "hotelCandidates": [
+    {
+      "name": "Cow Hollow Inn & Suites",
+      "address": "2190 Lombard St, San Francisco, CA 94123",
+      "area": "Marina / Cow Hollow",
+      "officialUrl": "https://cowhollowinnandsuites.com/",
+      "publishedCostRelevantFact": "官网列直接预订免费停车；实际日期房价、税及房型尚未查。",
+      "eveningTransport": "30长线的Chestnut走廊，或28线Lombard/Pierce、Lombard/Fillmore附近站；须按最终酒店入口核最近站。",
+      "yosemitePickup": "属于官网明确列的Lombard走廊，但2190酒店门口及9日接时仍未逐店确认。",
+      "role": "第一批核价候选"
+    },
+    {
+      "name": "Coventry Inn",
+      "address": "1901 Lombard St, San Francisco, CA 94123",
+      "area": "Marina / Cow Hollow",
+      "officialUrl": "https://coventrymotorinn.com/",
+      "publishedCostRelevantFact": "官网列直接预订免费停车；未查本日期房价。",
+      "eveningTransport": "30长线Chestnut/Webster或Fillmore走廊；28线Lombard/Fillmore或Laguna附近站，按入口选最近站。",
+      "yosemitePickup": "Lombard区域有官网支持，具体酒店与9日接点未确认。",
+      "role": "第一批核价候选"
+    },
+    {
+      "name": "Buena Vista Inn",
+      "address": "1599 Lombard St, San Francisco, CA 94123",
+      "area": "Lombard / Marina东端",
+      "officialUrl": "https://www.buenavistainnsf.com/",
+      "publishedCostRelevantFact": "当前官网名称为Buena Vista Inn，地址一致；前台24小时。停车是否免费及未来房价未在本次确认。不要使用旧buenavistamotorinn.com作为已核官网。",
+      "eveningTransport": "28线Lombard/Gough及30长线Chestnut/Gough走廊；酒店比Cow Hollow西段更靠近Fort Mason/码头方向。",
+      "yosemitePickup": "Lombard区域有官网支持，门口接人及9日时刻未确认。",
+      "role": "补充实惠候选"
+    },
+    {
+      "name": "The Wharf Inn",
+      "address": "2601 Mason Street, San Francisco, CA 94133",
+      "area": "Fisherman's Wharf",
+      "officialUrl": "https://wharfinn.com/",
+      "publishedCostRelevantFact": "官网现列$15 nightly停车及24/7前台；旧评论写免费停车不能当现行条款。未查12月含费房价。",
+      "eveningTransport": "F线Beach/Mason及Jefferson/Taylor走廊；码头活动后可短距离回店，具体方向与入口仍需看地图。",
+      "yosemitePickup": "Fisherman's Wharf为官网明确接送区域；此酒店及9日具体集合未确认。",
+      "role": "优先核码头低价候选"
+    },
+    {
+      "name": "Holiday Inn Express & Suites San Francisco Fishermans Wharf",
+      "address": "550 North Point Street, San Francisco, CA 94133",
+      "area": "Fisherman's Wharf",
+      "officialUrl": "https://www.ihg.com/holidayinnexpress/hotels/us/en/san-francisco/sfonp/hoteldetail",
+      "publishedCostRelevantFact": "官网免费早餐06:30–09:30；优胜美地早团日来不及吃，不能四天都扣早餐预算。官网代客停车$65+14%停车税，若租三天计约$222.30；这是现行公开价不是12月车位报价。无免费本地/机场班车。",
+      "eveningTransport": "30/28线North Point走廊与F线码头站，最后一段按酒店地图选择。",
+      "yosemitePickup": "官网支持码头区域，逐店接送与9日时刻待确认。",
+      "role": "带早餐连锁对照；租车日需看停车总成本"
+    },
+    {
+      "name": "Club Quarters Hotel, Embarcadero",
+      "address": "424 Clay Street, San Francisco, CA 94111",
+      "area": "Financial District / Clay–Battery附近",
+      "officialUrl": "https://www.clubquartershotels.com/san-francisco/embarcadero/contact",
+      "publishedCostRelevantFact": "官网附近停车$45/day；1 Embarcadero Center开放05:00–21:00，4 Embarcadero Center可24小时进场。未核本日期房价及停车税。",
+      "eveningTransport": "官方距Embarcadero BART站0.4英里；F线Embarcadero/海滨走廊可连接码头，晚归可保留汽车短程。",
+      "yosemitePickup": "官网说most downtown hotels，但没有424 Clay逐店确认；若须另到码头，05点前不能用F线。",
+      "role": "机场交通方便且可比价的备选"
+    },
+    {
+      "name": "Hotel Kabuki, JdV by Hyatt",
+      "address": "1625 Post St, San Francisco, CA 94115",
+      "area": "Japantown",
+      "officialUrl": "https://www.hyatt.com/jdv-by-hyatt/en-US/sfojd-jdv-hotel-kabuki",
+      "publishedCostRelevantFact": "仅核地点；本次未核房价/早餐/停车。属于日本城体验对照，不能未查价就称为最实惠。",
+      "eveningTransport": "38 Geary至Laguna或Fillmore附近，再到Post街酒店；不建议从市中心长距离步行穿过Tenderloin。",
+      "yosemitePickup": "本次未获得该酒店接送清单证据，须确认，不能照搬Lombard/Wharf范围。",
+      "role": "日本城舒适位置对照"
+    }
+  ],
+  "bestBayYosemite": {
+    "date": "2026-12-09",
+    "officialUrl": "https://bestbayareatours.com/tour-yosemite-california-guide/",
+    "coverage": "官网示例明确most downtown and waterfront areas including Fisherman's Wharf, Union Square and Lombard, among others。",
+    "supportLevel": "码头与Lombard走廊接送范围有现行官方产品证据；Marina全部区域、日本城及每家酒店尚未逐店确认。",
+    "timeBoundary": "旧两人实际12/09票面05:30–20:30；官网sample pickup06:00、返城20:00–21:00，且强调近似。实际酒店集合时刻以运营商确认单为准，不能把sample6点替代票面/确认的5点半。",
+    "dateQuoteEvidenceFile": "work/optimized-yosemite-evidence.json",
+    "policy": "官网写未确认接送或no-show不可退；选可退酒店后，付款下团时确认酒店或最近集合点，前一晚重看确认信息。",
+    "fallback": "酒店不接时只安排已确认集合点与短途出租/网约车，不依赖未核早班Muni，不自行猜接送地址。"
+  },
+  "transitCurrentFacts": {
+    "status": "2026-10-07官网当前公布线路；12月临时施工、绕行或时刻变化须在出发前检查。未作12月9日实际班次出票/实时到车验证。",
+    "routes": [
+      {"route": "30 Stockton", "url": "https://www.sfmta.com/routes/30-stockton", "publishedHours": "周中05:00–24:00；周末06:00–24:00", "note": "要去Marina乘long route，普通短线在Fort Mason附近折返；20:00后长线终点Divisadero/Chestnut，不再进Crissy Field。"},
+      {"route": "28 19th Avenue", "url": "https://www.sfmta.com/routes/28-19th-avenue", "publishedHours": "每天05:00–24:00", "note": "沿Lombard连接Marina及码头；夜间班距官网约20分钟，非具体到站保证。"},
+      {"route": "F Market & Wharves", "url": "https://www.sfmta.com/routes/f-market-wharves", "publishedHours": "每天07:00–24:00", "note": "连接Embarcadero与码头；不能用2021年只到22点的旧文章，也不能当05点集合的交通。"},
+      {"route": "38 Geary", "url": "https://www.sfmta.com/routes/38-geary", "publishedHours": "每天24小时", "note": "日本城夜归可用，夜间班距约30分钟；行驶经过Tenderloin与在那里步行是不同情境。"}
+    ],
+    "changesEvidence": {"url": "https://www.sfmta.com/media/44942/download?inline=", "note": "2026-06-06官方夏季变化资料涉及28/30/91等线路/站点，不照搬历史路线图。上述建议以当前各route页面为依据。"},
+    "bart": {"mapUrl": "https://www.bart.gov/system-map", "stationUrl": "https://www.bart.gov/stations/embr", "note": "Embarcadero位于298 Market Street、金融区，当前线网21:00前五线、21:00–午夜三线服务；不能将BART视为24小时或直接到码头/Marina/日本城。具体末班、SFO接驳与行李步行另按日期查看。"}
+  },
+  "pricingHandOff": "主代理核2026-12-08至12-12两成人一间四晚最终含税费价、取消政策及停车。先比Cow Hollow/Coventry/Buena Vista/Wharf Inn，再用IHG早餐与CQ交通优势对照，不使用本研究推算未来房价。"
+}

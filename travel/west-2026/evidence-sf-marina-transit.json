@@ -1,0 +1,92 @@
+{
+  "checkedAt": "2026-10-07, checked in this session",
+  "scope": "只读核对Coventry四晚住宿的12/8机场入城、12/12去SFO衔接Groome与公交费用；未改主文件、未预订或联系。",
+  "hotel": {"name": "Coventry Inn", "address": "1901 Lombard St, San Francisco, CA 94123", "officialUrl": "https://coventrymotorinn.com/", "roomPrice": "553.68两人四晚由主代理亲核，本次未重新核房价。"},
+  "bartFare": {
+    "officialCalculator": "https://www.bart.gov/tickets/calculator",
+    "method": "Chrome官方计算器逐次选择出发站/到达站/真实日期，点Go后等待新结果自然加载，再读取结果中的路线名称与票价；未使用旧PDF或第三方票价。",
+    "verificationLevel": "official date-selected published fare, not purchased",
+    "queries": [
+      {"date": "2026-12-08", "from": "San Francisco International Airport", "to": "Montgomery St.", "adultClipperOneWayUSD": 11.80, "twoAdultsUSD": 23.60},
+      {"date": "2026-12-12", "from": "Montgomery St.", "to": "San Francisco International Airport", "adultClipperOneWayUSD": 11.80, "twoAdultsUSD": 23.60},
+      {"date": "2026-12-12", "from": "Powell St.", "to": "San Francisco International Airport", "adultClipperOneWayUSD": 11.80, "twoAdultsUSD": 23.60}
+    ],
+    "comparison": "Montgomery与Powell的成人单程票价无差，不需为了省BART票价改去Powell。",
+    "discountEligibility": "页面另列Clipper START5.90、Senior/Disabled4.40、Youth5.90；本次两成人没有按这些资格折扣预算。",
+    "station": {"url": "https://www.bart.gov/stations/mont", "address": "598 Market Street, San Francisco, CA 94104", "accessibility": "官方列街道电梯位于Sutter/Market，进站厅后还需使用站内站台电梯，出发前查看电梯状态。"}
+  },
+  "routeDecember8": {
+    "date": "2026-12-08",
+    "weekday": "Tuesday",
+    "recommendedStructure": [
+      "SFO取行李后到BART，乘往San Francisco方向的合适列车至Montgomery。",
+      "从Montgomery的Sutter/Market出口或电梯步行至Sutter/Kearny 30路站。",
+      "乘30 Stockton去Marina的长线，不乘仅到North Point/Van Ness（Fort Mason）的短线。",
+      "比原计划Chestnut/Laguna更建议坐至Chestnut/Webster，再到1901 Lombard酒店。"
+    ],
+    "boardingStop": {"name": "Sutter St & Kearny St", "id": "16596", "officialUrl": "https://www.sfmta.com/stops/sutter-st-kearny-st-16596"},
+    "preferredAlightingStop": {"name": "Chestnut St & Webster St, outbound", "id": "13958", "officialRouteEvidence": "https://www.sfmta.com/routes/30-stockton"},
+    "originalLagunaStop": {"name": "Chestnut St & Laguna St, outbound", "id": "13947", "assessment": "线路方向正确，也能走到酒店，但按酒店Lombard/Webster位置，Webster更少拖箱绕行；这属于地理规划判断，未核逐米步行导航或实测分钟。"},
+    "walkingAssessment": "市中心步行段在Sutter/Market至Kearny，Marina步行段到Lombard酒店；不用为了换乘穿过Tenderloin核心。步行入口、路面、施工和天气须当天复核，不作安全保证。",
+    "timingStatus": "路线连接有当前官方证据；未在BART/Muni未来日期Trip Planner亲选某一实际到车班。12/8下午正常运营窗内可用，不能把航班落地时刻直接当BART上车时刻。"
+  },
+  "routeDecember12": {
+    "date": "2026-12-12",
+    "weekday": "Saturday",
+    "recommendedStructure": [
+      "Coventry退房带箱至Chestnut/Webster，乘30 Stockton往Downtown/Caltrain方向。",
+      "在Stockton/Sutter下车，沿Sutter向东步行至Montgomery BART的Sutter/Market入口。",
+      "乘明确去SFO的列车，不乘只到Daly City或只到Millbrae的车。",
+      "从SFO BART前往已确认的Groome机场集合点，再去Monterey。"
+    ],
+    "boardingStop": {"name": "Chestnut St & Webster St, inbound", "id": "13959", "officialUrl": "https://www.sfmta.com/stops/chestnut-st-webster-st-13959"},
+    "alightingStop": {"name": "Stockton St & Sutter St", "id": "16524", "officialUrl": "https://www.sfmta.com/stops/stockton-st-sutter-st-16524"},
+    "assessment": "方向及站点合理；Stockton/Sutter至Montgomery并非站内换乘，须在街上带箱步行。沿Sutter向东去金融区入口可减少经过Powell/Market联合广场边缘的安排。未把未实测步行时间写成官方班次保证。",
+    "connectionBuffer": "30路等车、约束SFO方向BART、下车转Groome都要预留；建议在选定Groome发车前至少留出一段足够的机场集合余量，具体出酒店时刻由真实Groome班次倒排。不要把公交到站与Groome发车设成同分钟。",
+    "timingStatus": "周六当前30路公开06:00–24:00，白天可用；未核12/12具体公交到站或临时绕行库存。"
+  },
+  "muni": {
+    "routeUrl": "https://www.sfmta.com/routes/30-stockton",
+    "publishedHours": {"weekday": "05:00–24:00", "weekend": "06:00–24:00"},
+    "longRouteNote": "去Marina乘long route；20:00后终点Divisadero/Chestnut，仍能到酒店所在走廊。",
+    "dayPass": {"officialUrl": "https://www.sfmta.com/fares/day-pass", "adultUSD": 5.70, "twoAdultsPerCalendarDayUSD": 11.40, "scope": "Muni-only，至当日23:59；不是BART票，也不当跨日期24小时券。"},
+    "singleRide": {"officialUrl": "https://www.sfmta.com/fares/single-ride-adult-ages-19-64", "adultElectronicUSD": 2.85, "adultCashUSD": 3.00, "note": "若一天只坐这一趟30路，不必为单程单独买5.70日票；若当天另有多次市内游玩，日票可保留。"}
+  },
+  "interagencyTransferSaving": {
+    "officialSources": [
+      "https://www.bart.gov/tickets/contactless",
+      "https://www.bart.gov/tickets/discounts",
+      "https://www.sfmta.com/blog/new-ways-pay-munimobile-will-be-retiring"
+    ],
+    "rule": "现行官方说明跨运营商、两小时窗口内后续段自动给予最高2.85转乘折扣。Tap and Ride或已升级Next Generation的Clipper支持；每位旅客须有自己的卡/设备，并保持同一支付媒介，不在一趟中换实体卡和手机。无须购买任何日票/月票；旧Clipper须先升级才享新转乘规则。",
+    "dec8ConditionalMath": {"bartPerAdultUSD": 11.80, "muniSinglePerAdultUSD": 2.85, "muniTransferDiscountUSD": 2.85, "conditionalCombinedPerAdultUSD": 11.80, "conditionalCombinedTwoAdultsUSD": 23.60},
+    "dec12ConditionalMath": {"muniFirstPerAdultUSD": 2.85, "bartPublishedPerAdultUSD": 11.80, "bartTransferDiscountUSD": 2.85, "conditionalCombinedPerAdultUSD": 11.80, "conditionalCombinedTwoAdultsUSD": 23.60},
+    "priceStatus": "按官网当前转乘规则作的条件算术，不是已刷卡账单或新出票报价；必须满足两小时及同一媒介条件，不将已购Muni日票与单程转乘折扣重复扣。",
+    "notApplicable": "现金付Muni、不符合两小时或换支付媒介时不能承诺此折扣；Groome及MST后续不在这里假定属于这次BART/Muni转乘。",
+    "practicalRecommendation": "默认每人各用自己的非接触式银行卡Tap and Ride：8日BART入/出闸及30路上车、12日30路上车及BART入/出闸均使用同一实体卡或同一设备。将全部换乘安排在第一段刷卡后两小时内；不要先购买日票。每人一套支付媒介，两人不可共刷一张卡。",
+    "airportFareAssessment": "BART现行通用转乘规则及Clipper说明未列SFO机场旅程例外，故将亲选的SFO↔Montgomery11.80成人票价代入该通用规则。这是有明确规则依据的预算计算，未完成实际联程刷卡账单；不另加一次机场附加费，也不把Muni A月票的SF市界规则误用于此单程折扣。",
+    "defaultFareDisplay": {"dec8PerAdultUSD": 11.80, "dec8TwoAdultsUSD": 23.60, "dec12PerAdultUSD": 11.80, "dec12TwoAdultsUSD": 23.60, "twoAirportMovementsPerAdultUSD": 23.60, "twoAirportMovementsTwoAdultsUSD": 47.20, "newCardFeeBudgetUSD": 0, "status": "官网当前票价与转乘规则计算；支付及两小时条件满足时适用，非已付款成交。"}
+  },
+  "paymentMedia": {
+    "default": "使用现有Visa/Mastercard/AmEx/Discover非接触式银行卡，或手机钱包中的该银行卡；无需注册、充值Clipper或买新Clipper卡。",
+    "officialSources": ["https://www.bart.gov/tickets/contactless", "https://www.clippercard.com/contactless-payments.html", "https://www.clippercard.com/ways-to-pay", "https://www.clippercard.com/mobile-application-agreement.html", "https://www.sfmta.com/getting-around/muni/fares/munimobile"],
+    "adultMuniFare": {"electronicUSD": 2.85, "cashUSD": 3.00},
+    "clipperNewCardFeeAssessment": "官网当前Mobile Application Agreement仍列通过App购买新Clipper卡3美元；将已有合格卡添加到Apple/Google Wallet本身无收费。往年免费手机卡推广不足以证明2026年12月新开卡永久免费，未以该推广减预算。默认直接银行卡刷付无需买新Clipper卡，因此不加卡费。",
+    "muniMobileDecemberLimitation": "SFMTA当前官网明确2026-09-01起MuniMobile不再销售单程票；12月单程改用Clipper或直接银行卡。日票当年仍可购买，但本次机场各一趟Muni无需购买。",
+    "settlementNote": "Clipper官网说明银行卡可能先预授权，最终全程金额通常日终结算；刷卡中途看到暂扣不应直接按两张全价票认定最终联程费。未读取用户卡号或提交个人信息。"
+  },
+  "budgetHandoff": {
+    "currency": "USD, two adults",
+    "sourceBoundary": "下面Groome/Flix金额由主代理本轮提供，不是本子任务重新实时核价；BART11.80与Muni5.70为本次亲核官方票价。",
+    "conservativeGroomeStandard": {"parentBaseIncludingBARTAndMST": 151.60, "addedTwoMuniDayPassesForDec12": 11.40, "total": 163.00},
+    "conservativeGroomeFlex": {"parentBaseIncludingBARTAndMST": 165.60, "addedTwoMuniDayPassesForDec12": 11.40, "total": 177.00},
+    "conditionalSingleTransferGroomeStandard": {"total": 151.60, "savingVsConservative": 11.40, "condition": "12日只坐酒店至BART这一趟Muni，并满足单程跨运营商折扣，不额外购日票。"},
+    "conditionalSingleTransferGroomeFlex": {"total": 165.60, "savingVsConservative": 11.40, "condition": "同上，Groome票种与其他列示费用不变。"},
+    "recommendedDefaultGroomeStandard": {"groomeTwoAdultsUSD": 124.00, "muniAndBartTwoAdultsUSD": 23.60, "mstTwoAdultsUSD": 4.00, "totalTwoAdultsUSD": 151.60, "totalPerAdultUSD": 75.80, "extraMuniDayPassUSD": 0},
+    "recommendedDefaultGroomeFlex": {"groomeTwoAdultsUSD": 138.00, "muniAndBartTwoAdultsUSD": 23.60, "mstTwoAdultsUSD": 4.00, "totalTwoAdultsUSD": 165.60, "totalPerAdultUSD": 82.80, "extraMuniDayPassUSD": 0},
+    "electronicSingleFallbackIfNoTransferDiscount": {"extraMuniPerAdultUSD": 2.85, "extraMuniTwoAdultsUSD": 5.70, "dec8TwoAdultsUSD": 29.30, "groomeStandardTwoAdultsUSD": 157.30, "groomeFlexTwoAdultsUSD": 171.30, "note": "若超过两小时或未使用同一支付媒介，仍只需另付电子Muni单程；5.70每人日票仅在另有多次市内移动时值得作为备选。"},
+    "parentFlixOption": {"total": 75.63, "additionalMuniDayPass": 0, "note": "主代理表示该组合已经包含Muni，不再加11.40。本次未重新核Flix价，也不把BART/Muni折扣套到Flix。"},
+    "dec8BudgetNote": "默认23.60两人覆盖BART接一趟30路（符合银行卡/升级Clipper及两小时条件），晚餐步行不增加公交费。35.00两人含两张Muni日票仅是多次乘车备选，不作为默认。"
+  },
+  "limits": ["未购买交通票或酒店", "未联系运营商", "未假定行李有免费寄存", "未将当前线路或价格视为12月准点与永不变价保证"]
+}

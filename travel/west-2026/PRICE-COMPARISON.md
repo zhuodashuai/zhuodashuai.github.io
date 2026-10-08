@@ -2,26 +2,44 @@
 
 核价日：2026/10/7；2026/12/8–31，两成人，24天23晚。下列均未预订，库存及价格可变化。
 
-[互动选择与计算](https://zhuodashuai.github.io/travel/west-2026/prices.html?v=price-compare-5) · [完整行程与逐日账单](https://zhuodashuai.github.io/travel/west-2026/?v=price-compare-5)
+[互动选择与计算](https://zhuodashuai.github.io/travel/west-2026/prices.html?v=sf-location-6) · [完整行程与逐日账单](https://zhuodashuai.github.io/travel/west-2026/?v=sf-location-6)
 
 酒店按一间两人的整段含税费金额排；机票按同航段每人含税价排；车费分单程／每日，不把不同城市日票当替代。未知最后列。推荐只在本次已核样本范围内。
 
-## 旧金山 · 联合广场四晚
+## 旧金山住宿位置修订
+
+默认从联合广场西侧移到Marina／Cow Hollow的Coventry：12/8–12，King私人房，四晚两人一间含税费$553.68；比先前四晚$528.28多$25.40两人。
+
+默认改住1901 Lombard的Coventry，靠近Chestnut餐饮和30／28路，位于Marina／Cow Hollow北侧住宿走廊；原联合广场西侧候选移出当前推荐。按具体地址和回酒店路线筛选，安全无法由街区名称保证。
+
+- **Marina／Cow Hollow · 本次优先**：Lombard 1750–2190一带候选靠近Chestnut；用30长线／28路往返北岸。主路会有车流噪音，订房时可请求内侧房。 [依据](https://www.sftravel.com/neighborhoods/marina-pacific-heights)
+- **渔人码头 · 接送及景点便利备选**：码头和North Beach活动集中，运营商明确列此区域接送；Wharf Inn尚无本日期最终价，暂不进入预算。 [依据](https://www.fishermanswharf.org/about-us/faqs/)
+- **日本城／金融区 · 其它地址备选**：可比较日本城的Kabuki或金融区Clay街Club Quarters，但本轮未核同日期总额和逐店早团接点，不先称便宜或更安全。 [依据](https://www.sftravel.com/neighborhoods/downtown-financial-district)
+- **联合广场西侧／Tenderloin边缘 · 移出当前推荐**：SF Planning TCAP分析范围为Market、Van Ness、Powell、Post之间；它不是安全界线。原432 Geary低价推荐未充分考虑你的街区偏好，这次不再预选或参与默认计算。 [依据](https://sfplanning.org/fil/node/2267)
+
+### 夜归、团接送和机场换乘
+
+- 12/9 Best Bay官网接送范围明确包含Lombard和渔人码头；Coventry具体门口和清晨时刻仍须在下单前确认。优先酒店门口接送；若不接，改已确认集合点并单独报价短途车，不安排05点拖箱长走。
+- 晚上从市区乘30长线（去Marina，不坐只到Fort Mason的短线）或28到酒店附近，最后短步行；晚归下车点、实时班次和门口路线出发前再核。
+- 8日SFO→Montgomery后在Sutter/Kearny接30长线至Chestnut/Webster；12日反向至Stockton/Sutter、沿Sutter东走到Montgomery。两段BART各11.80／人；同一支付媒介两小时内跨运营商转乘可省Muni单程，不自动加日票。不符合条件每个移动日加5.70／两人；实体Clipper新卡或银行费用另按实际。 默认每人各用支持的银行卡Tap and Ride，无需新办Clipper；若买新Clipper，卡费另列。
+- 车内不留行李，餐饮和候车优先人流照明正常的主街；即使住北侧，也不作零风险承诺。
+
+未计算同尺度街区犯罪率，不制造安全百分比或保证；不以无家可归者身份推断个人危险。具体接点、未来时刻与入口路线仍须确认。
+
+## 旧金山 · Marina／Cow Hollow四晚
 
 12/8入住 →12/12退房，4晚。
 
 | 酒店／渠道 | 整段／两人一间 | 平均／晚 | 房型、地点、条件 | 退改／来源 |
 |---|---:|---:|---|---|
-| Union Square Plaza · Priceline／KAYAK **推荐** | $528.28 | $132.07 | 两张Double床 · 独立浴室 · 经济型2星；432Geary，联合广场西侧；平台约2–4min到广场；无需会员，需经KAYAK公开入口；无早餐。可退损坏押金150只留额度；停车自选另付。 | 付款前条款：不可退；不采用上方AI的24h可退文案 [查询](https://www.kayak.com/hotels/Union-Square-Plaza-Hotel,San-Francisco,CA-p61403-h9763/2026-12-08/2026-12-12/2adults;map?lang=en&sort=rank_a) |
-| Fitzgerald Hotel Union Square | $817.29 | $204.32 | 一张Double床，较窄；房内浴室照片已见；620 Post Street, San Francisco, CA 94109；联合广场620Post；含简单早餐。一张Double较窄。浴室照片已见，书面私卫及所选AdvancePurchase退改例外仍须确认。 | 一般48h条款已见，但AdvancePurchase费率例外未核，不保证可退 [查询](https://hotels.cloudbeds.com/en/reservation/ZIHAdw/?currency=usd&checkin=2026-12-08&checkout=2026-12-12&guests=2) |
-| The Mosser | $1,049.98 | $262.50 | Deluxe Queen · 独立浴室；UnionSquare南侧；近Powell；本日较早官网同日期报价，未作为最低。 | 具体截止待复核 [查询](https://www.themosser.com/) |
-| Kasa La Monarca · 邮件优惠 | $1,193.16 | $298.29 | Queen · 独立浴室；717Sutter，联合广场附近；需勾选接收Kasa营销邮件/优惠；未替用户加入。 | 不可退 [查询](https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0) |
-| Kasa La Monarca San Francisco | $1,340.60 | $335.15 | Queen · 独立浴室；717Sutter，联合广场附近；无前台自助入住；无前台，21+入住，需自助身份核验；不可退；四晚报价与截图18晚均价不同。 | 不可退，无未来取消抵用额 [查询](https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0) |
-| King George | $1,918.43 | $479.61 | Superior Queen；UnionSquare附近；房价+税已显示；一般FAQ另列amenity费，是否已含尚不清楚。不能当完整全包价。 | 公开Flexible，具体截止待核 [查询](https://www.kinggeorge.com/) |
-| The Grant Hotel | 最终总价待核 | 最终总价待核 | 私人房／私卫房类；UnionSquare附近；官网12/8–12两人显示NoVacancy，仅说明此引擎无房。 | 无可选费率 [查询](https://www.granthotel.com/) |
-| Grant Plaza Hotel | 最终总价待核 | 最终总价待核 | 待核；Chinatown／UnionSquare步行范围；官网同日期无法在线接受预订，未联系酒店。 | 无可选费率 [查询](https://www.grantplaza.com/) |
+| Coventry Motor Inn · 官网 **推荐** | $553.68 | $138.42 | King · 非吸烟 · 独立浴室；1901 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊；7日前预授权一晚房税；官网直订免费停车，无需会员。私卫和最低18岁由同房型OTA物业资料辅助核实。 | 原文要求到店日前15:00取消，未写提前几天；逾期收一晚。具体截止仍须确认。 [查询](https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632) |
+| Lombard Plaza Motel · 官网 | $655.90 | $163.98 | 1 King Bed · Non Smoking · 独立浴室；2026 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊；免费停车、微波炉与冰箱；可退损坏押金200只留额度。标准费率的取消截止已明确，是优先可退备选。 | Best Standard：12/6 15:00 PST前可取消；逾期/未到收一晚房税费。 [查询](https://www.innsight.com/ibe/san-francisco-ca/lombardplaza/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2) |
+| Cow Hollow Inn & Suites · 官网 | $808.37 | $202.09 | King Deluxe · 非吸烟；普通King私卫文字待逐型补核；2190 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊；免费停车限官网直订；所选Deluxe不等于更安静Superior。7日前预授权一晚房税，OTA18岁起。 | 普通房到店前24h且11:00前取消；本入住按12/7 11:00 PST前准备，逾期一晚；suite72h。 [查询](https://holms.cowhollowinnandsuites.com/Home/Checkout?room=9caca25a-35dc-11ea-bdda-b06ebfc61668&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163125) |
+| Chelsea Inn · 官网 | $844.49 | $211.12 | Two Double Beds · 非吸烟；私卫书面与最低年龄待核；2095 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊；免费室内停车；7日前预授权一晚房税，无早餐证据。 | 原文要求到店日前15:00取消，未写提前几天；逾期一晚。具体截止仍须确认。 [查询](https://holms.chelseamotorinn.com/Home/Checkout?room=27f4c754-43cc-11e9-bdc2-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163215) |
+| Seaside Inn · 官网Advance Purchase | $909.52 | $227.38 | King Room · Non Smoking · 独立浴室；1750 Lombard St, San Francisco, CA 94123；Lombard／Chestnut走廊；独立浴室、冰箱和微波炉；免费停车位限量先到先得。所选Advance Purchase不可退；此日期比Coventry贵。 | 所选AdvancePurchase不可取消/修改；不能套用标准72h取消政策。 [查询](https://www.sfseasideinn.com/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2) |
+| The Wharf Inn · 渔人码头候选 | 最终总价待核 | 最终总价待核 | Classic King · 最终房型及报价待核；2601 Mason Street, San Francisco, CA 94133；24/7前台；停车15/晚仅租车时另加。官网已到可查询界面，尚未取得本日期含税总价。 | 本日期费率退改待核 [查询](https://wharfinn.com/) |
 
-按四晚总价排；截图Kasa$91对应12/8–26长住，保留为找房线索。同日期OTA若更便宜可替换，不要求买官网高价。
+先筛位置，再在本次合格候选中按四晚含税价排序。Coventry比此前Union Square Plaza四晚多25.40／两人，平均每晚多6.35；本轮移出联合广场西侧旧候选。位于Lombard主路，建议请求内侧房，不能保证一定分到。位置推荐不是犯罪率排名或安全保证。官网取消不写提前天数的Coventry／Chelsea须订前问清；Lombard Plaza的标准费率明确12/6 15:00前取消，多102.22／两人四晚。
 
 ## 蒙特雷 · 两晚
 
@@ -133,7 +151,7 @@ SF、LA和Vegas不是相互替代的路线；此表按每日金额排，逐段�
 |---|---:|---:|---|---|
 | LAS→FourQueens · RTC2h AllAccess | $12.00 | $6.00 | T1ZeroLevel→REDLINE北行→BTC；步行15–20min预算 | 推荐；18:10抵达后留60–90min总体。T3先免费换航站楼。 [查询](https://www.rtcsnv.com/ways-to-travel/airports/) |
 | PHL↔CenterCity · SEPTA单程 | $17.50 | $8.75 | 8日403班30thStreet04:59→PHL E/F05:22；票价8.75/人 | 8日去机场、1日回市区各买一次；住所到车站未另报价。 [查询](https://www.septa.org/fares/) |
-| SFO↔Powell · BART单程 | $23.60 | $11.80 | 官网计算器已选12/8，11.80/人 | 8日进城，12日往机场接Groome各一次；不重复多加打车。 [查询](https://www.bart.gov/tickets/calculator) |
+| SFO↔Montgomery · BART单程 | $23.60 | $11.80 | 官网计算器实选8日入城及12日出城：BART11.80／人；Muni30配同媒介两小时转乘折扣。 | 8日进城、12日往机场接Groome各一次；不符合跨运营商转乘条件时每个移动日Muni两人多5.70，不预买日票。 [查询](https://www.bart.gov/tickets/calculator) |
 | UnionStation→LAX · FlyAway单程 | $25.50 | $12.75 | 每人12.75；31日建议19:30–20:00出发 | 舒适返机场候选；Metro去Union单独在日cap内；票有效60天勿过早买。 [查询](https://www.flylax.com/flyaway-bus/fares-tickets) |
 | BZN→Mammoth · 官方包客9折 | $199.46 | $99.73 | 15日13:30签到→约16:00抵达 | 推荐公布价计算；两席及折扣最终舍入待确认。 [查询](https://www.yellowstonenationalparklodges.com/stay/plan/winter-transportation/) |
 | Mammoth→BZN · 官方包客9折 | $207.45 | $103.73 | 20日08:00签到→约10:30抵达 | 推荐；不选12:00以前起飞的航班。 [查询](https://www.yellowstonenationalparklodges.com/stay/plan/winter-transportation/) |
@@ -174,28 +192,27 @@ Groome仅是机场站到Monterey站价格：SF市区→SFO BART23.60另算，Mon
 
 ## 比较后推荐
 
-B保留12日下午到Monterey，SF联合广场两张Double床私人房、LA地铁口私人房、Vegas无resort费King；UA含随身箱，城市公交。16自行订夜＋团内7夜＝23夜。SF和LA优惠房均不可退。
+B保留12日下午到Monterey，SF Marina Coventry King私人房、LA地铁口私人房、Vegas无resort费King；UA含随身箱，城市公交。16自行订夜＋团内7夜＝23夜。SF取消提前天数未明确，须核；LA所选优惠房不可退。
 
 | 所列费用 | 两人 | 每人约 |
 |---|---:|---:|
 | 餐饮 | $1,920.00 | $960.00 |
 | 机票 | $1,529.18 | $764.59 |
-| 酒店 | $1,956.80 | $978.40 |
+| 酒店 | $1,982.20 | $991.10 |
 | 地面交通 | $1,163.41 | $581.71 |
 | 跟团 | $8,239.84 | $4,119.92 |
 | 小费 | $320.00 | $160.00 |
 | 公园年卡 | $250.00 | $125.00 |
 | 海岸向导 | $370.00 | $185.00 |
-| **所列项目小计** | **$15,749.23** | **$7,874.62** |
+| **所列项目小计** | **$15,774.63** | **$7,887.32** |
 
-C改12日12:40巴士、约18:08到Monterey，省75.97两人（约37.99/人），13/14完整白天保留。C所列小计两人15,673.26，每人7,836.63。
+C改12日12:40巴士、约18:08到Monterey，省75.97两人（约37.99/人），13/14完整白天保留。C所列小计两人15,698.66，每人7,849.33。
 
 按用户Max620全包价替代当前838.49，B少218.49/人；净餐饮16×45代替16×60再少240/人。这两项可以在互动页自由选择，用户Max价对应日期订单仍待核。
 
 ## 尚未落实
 
 
-- SF和LA推荐低价私人房均不可退，须先确认全部团位和航班再订；可退酒店替代报价在比较表。
 - 黄石12/15两席与最少4人成团，Max12/21两席及接人酒店/时间，均待最终库存确认。
 - Max$620/人全包用户报价需对应日期与付款前订单；选择它时不再叠加羚羊/纪念碑费用。
 - 14日BigSur向导/接送的税、计价单位、库存和步道开放；Aura已核公布班车，仍须出发前确认运营。
@@ -203,5 +220,8 @@ C改12日12:40巴士、约18:08到Monterey，省75.97两人（约37.99/人），
 - 21–23日酒店是否可免费寄存大箱（Max限制大行李），28日Max在LA两个下车点的确切地址及去酒店末段。
 - SEPTA已核403班05:22到PHL；住处至车站末段；全套4航班含箱764.59/人，不假设全部交通500已核。
 - 13日MossLanding网约车70两人和14日BigSur接送200两人仍为估算；如改自驾，未满25驾驶者附加费/保险/停车需实际另报价。
+- Coventry取消提前几天未写明，不能保证12/7可取消；最低18岁和King私卫由OTA物业信息辅助核。Chelsea年龄、普通房私卫文字及Cow Hollow普通King私卫文字仍待核。
+- 12/9 Coventry酒店门口接送与清晨时间需运营商确认；夜归Muni长线及末段入口路线要出发前复核。
+- 8/12 BART＋Muni转乘折扣须每人同一卡或设备、两小时内；不符合则每个移动日两人多5.70。实体新Clipper卡费、银行外币费及夜间改叫车另按实际，未默认免费。
 
 保险、装备、洗衣、购物、演出、可选额外景点与突发开销尚未列入；不是全包保证价。不得把退款押金或信用卡开户返现抵作房费。

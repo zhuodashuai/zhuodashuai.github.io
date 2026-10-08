@@ -1,7 +1,7 @@
 {
   "title": "美西2026 · 12/8–31最新行程与价格核查",
   "checkedDate": "2026-10-07",
-  "version": "2026-10-07-price-comparison-v5",
+  "version": "2026-10-07-sf-location-v6",
   "currency": "USD",
   "party": 2,
   "budgetTargetPerPersonUSD": 6500,
@@ -14,13 +14,13 @@
       "end": "2026-12-31",
       "days": 24,
       "summary": "沿用你提供的低价，补14日晚和年卡；金额是条件计算。",
-      "recommendation": "保留作目标，采用$500全交通及$620全包Max等用户报价；只有对应日期订单齐全后才能当可买组合。不是本次比较表选择结果。",
+      "recommendation": "保留作目标，采用$500全交通及$620全包Max等用户报价；只有对应日期订单齐全后才能当可买组合。不是本次比较表选择结果。；酒店金额仍为用户目标，不能当已落实北侧候选。",
       "itinerary": [
         {
           "day": 1,
           "date": "2026-12-08",
           "weekday": "周二",
-          "title": "抵达旧金山 · 联合广场",
+          "title": "抵达旧金山 · 北侧住宿待选择",
           "overnight": "旧金山 · 待选择酒店",
           "schedule": "12/8 费城出发，下午抵SFO；进城入住，晚间只安排周边散步。",
           "notes": [
@@ -823,22 +823,23 @@
     },
     {
       "id": "checked",
-      "name": "B · 市中心酒店＋含箱机票",
+      "name": "B · Marina酒店＋含箱机票",
       "start": "2026-12-08",
       "end": "2026-12-31",
       "days": 24,
-      "summary": "SF联合广场＋LA地铁口私人房；保留12日下午到Monterey，UA带随身箱，其余城市公交。低价房不可退；BigSur及部分末段交通仍有待核。",
-      "recommendation": "目前推荐用于继续确认团位：在同日期已核样本中兼顾位置、两张床及冬季行李。先锁团位与交通，再订不可退低价房。",
+      "summary": "SF改Coventry Marina，LA地铁口私人房；黄石、Max、优胜美地及完整海岸两天保留。12日Groome下午到Monterey；机场接Muni费用已补。",
+      "recommendation": "推荐目前已核候选中的Coventry；地理与晚归路线更符合你的住宿偏好。取消提前天数、酒店门口接送仍须确认，LA低价房不可退。",
       "itinerary": [
         {
           "day": 1,
           "date": "2026-12-08",
           "weekday": "周二",
-          "title": "抵达旧金山 · 联合广场",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
-          "schedule": "12/8 费城出发，下午抵SFO；进城入住，晚间只安排周边散步。",
+          "title": "抵达旧金山 · Marina入住",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
+          "schedule": "12/8 PHL07:30→SFO12:50；BART到Montgomery，Sutter/Kearny乘30长线至Chestnut/Webster，到Coventry入住；晚餐在Chestnut周边。",
           "notes": [
-            "固定8日抵达。抵达日不算完整城市游玩日。"
+            "固定8日抵达。抵达日不算完整城市游玩日。",
+            "机场移动日只需一趟Muni：同一支付媒介两小时内转乘，23.60两人可覆盖BART＋30；不符合条件加Muni5.70两人。线路和票价已核，未来班次以出发前更新为准。"
           ],
           "items": [
             {
@@ -859,34 +860,35 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
-              "label": "PHL进机场＋SFO进城",
+              "label": "PHL铁路＋BART＋SF Muni至Marina",
               "amountGroupUSD": 41.1,
               "status": "published",
-              "sourceURL": "https://www.bart.gov/tickets/calculator",
-              "note": "SEPTA两人17.50＋BART两人23.60；403班30thSt04:59→PHL E/F05:22（当期公布表）。住所至车站末段未另报价。"
+              "sourceURL": "https://www.bart.gov/tickets/contactless",
+              "note": "SEPTA17.50两人＋SFO→Montgomery BART及转30长线合23.60两人。每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
             }
           ],
-          "totalGroupUSD": 564.35,
-          "perPersonUSD": 282.18
+          "totalGroupUSD": 570.7,
+          "perPersonUSD": 285.35
         },
         {
           "day": 2,
           "date": "2026-12-09",
           "weekday": "周三",
           "title": "优胜美地 · Best Bay / Viator 小团",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "计划05:30前后接人；全天Yosemite Valley；约20:30回SF。",
           "notes": [
             "本轮官网独立实选12/9两成人、公开FALL优惠后含订票费；15人车，普通价478。",
-            "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。"
+            "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。",
+            "Best Bay公布Lombard／Wharf接送范围；下团订单前确认Coventry门口接送及时间，若改集合点再报价车费，不默认05点公交能赶上。"
           ],
           "items": [
             {
@@ -923,22 +925,22 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             }
           ],
-          "totalGroupUSD": 998.87,
-          "perPersonUSD": 499.44
+          "totalGroupUSD": 1005.22,
+          "perPersonUSD": 502.61
         },
         {
           "day": 3,
           "date": "2026-12-10",
           "weekday": "周四",
           "title": "旧金山城市① · 金门大桥与海湾",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "09:30–18:00金门大桥观景、Crissy Field、艺术宫、Marina；晚间North Beach。",
           "notes": [
             "公交和短途打车，避免陡坡自驾。"
@@ -954,11 +956,11 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
@@ -969,15 +971,15 @@
               "note": "不含缆车，住宿早餐不是本版已含。"
             }
           ],
-          "totalGroupUSD": 263.47,
-          "perPersonUSD": 131.74
+          "totalGroupUSD": 269.82,
+          "perPersonUSD": 134.91
         },
         {
           "day": 4,
           "date": "2026-12-11",
           "weekday": "周五",
           "title": "旧金山城市② · 街区与码头",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "09:30–18:00渡轮大楼、唐人街、渔人码头；可选一次缆车。",
           "notes": [
             "斯坦福可替换这一天；不能同时承诺SF完整三日、斯坦福及12日海岸出发。"
@@ -993,11 +995,11 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
@@ -1008,8 +1010,8 @@
               "note": "Stanford若加入需替换当日路线与交通。"
             }
           ],
-          "totalGroupUSD": 263.47,
-          "perPersonUSD": 131.74
+          "totalGroupUSD": 269.82,
+          "perPersonUSD": 134.91
         },
         {
           "day": 5,
@@ -1017,7 +1019,7 @@
           "weekday": "周六",
           "title": "旧金山 → 蒙特雷 · 下午海岸散步",
           "overnight": "Pacific Inn Monterey · 1 Queen / One Queen Bed - Non Smoking",
-          "schedule": "早晨退房，BART去SFO接11:00Groome，约13:35到Monterey，下午游海岸／水族馆外围。",
+          "schedule": "08:15左右Marina退房，30到Stockton/Sutter，向东到Montgomery BART；SFO接11:00Groome→13:35Monterey。预留等车、步行和机场集合时间。",
           "notes": [
             "本组合保留你要求的12日下午到Monterey；不把更晚的低价巴士偷偷替换进来。",
             "MST去PacificInn末段按2/人预算，酒店前步行与当日时刻须核。"
@@ -1041,11 +1043,11 @@
             },
             {
               "category": "地面交通",
-              "label": "SF→Monterey · BART＋Groome＋MST",
+              "label": "Marina→SFO→Monterey · Muni＋BART＋Groome＋MST",
               "amountGroupUSD": 151.6,
               "status": "quote",
               "sourceURL": "https://groometransportation.com/monterey/reservations/",
-              "note": "BART23.60＋Groome124两人不可退＋Monterey末段公交4。SFO11:00→Monterey13:35；具体班次席位待核。"
+              "note": "Marina30→Stockton/Sutter，沿Sutter东走到Montgomery BART去SFO；两人Muni+BART23.60（跨运营商折扣）＋Groome124＋MST4=151.60。每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
             }
           ],
           "totalGroupUSD": 390.05,
@@ -1776,7 +1778,7 @@
         "categoryUSD": {
           "餐饮": 1920.0,
           "机票": 1529.18,
-          "酒店": 1956.8,
+          "酒店": 1982.2,
           "地面交通": 1163.41,
           "跟团": 8239.84,
           "小费": 320.0,
@@ -1785,33 +1787,34 @@
         },
         "statusUSD": {
           "estimate": 2520.0,
-          "quote": 6795.42,
+          "quote": 6820.82,
           "published": 6433.81
         },
-        "dailySubtotalGroupUSD": 15749.23,
-        "plannedGroupUSD": 15749.23,
-        "plannedPerPersonUSD": 7874.62,
-        "overTargetPerPersonUSD": 1374.62
+        "dailySubtotalGroupUSD": 15774.63,
+        "plannedGroupUSD": 15774.63,
+        "plannedPerPersonUSD": 7887.32,
+        "overTargetPerPersonUSD": 1387.32
       }
     },
     {
       "id": "comfort",
-      "name": "C · 晚到蒙特雷，巴士省钱",
+      "name": "C · Marina酒店，晚到蒙特雷",
       "start": "2026-12-08",
       "end": "2026-12-31",
       "days": 24,
-      "summary": "其它与B相同；12日12:40从SF坐巴士，经SanJose/Salinas换乘，约18:08到Monterey。省75.97/两人（约37.99/人），牺牲12日下午，13/14完整白天保留。",
-      "recommendation": "仅在愿意12日傍晚到Monterey时选；两次换乘与末段公交不能视为机场直达车的同等舒适度。",
+      "summary": "SF改Coventry Marina，LA地铁口私人房；黄石、Max、优胜美地及完整海岸两天保留。12日Flix约18:08到Monterey，省去机场往返；海岸13/14白天不动。",
+      "recommendation": "推荐目前已核候选中的Coventry；地理与晚归路线更符合你的住宿偏好。取消提前天数、酒店门口接送仍须确认，LA低价房不可退。",
       "itinerary": [
         {
           "day": 1,
           "date": "2026-12-08",
           "weekday": "周二",
-          "title": "抵达旧金山 · 联合广场",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
-          "schedule": "12/8 费城出发，下午抵SFO；进城入住，晚间只安排周边散步。",
+          "title": "抵达旧金山 · Marina入住",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
+          "schedule": "12/8 PHL07:30→SFO12:50；BART到Montgomery，Sutter/Kearny乘30长线至Chestnut/Webster，到Coventry入住；晚餐在Chestnut周边。",
           "notes": [
-            "固定8日抵达。抵达日不算完整城市游玩日。"
+            "固定8日抵达。抵达日不算完整城市游玩日。",
+            "机场移动日只需一趟Muni：同一支付媒介两小时内转乘，23.60两人可覆盖BART＋30；不符合条件加Muni5.70两人。线路和票价已核，未来班次以出发前更新为准。"
           ],
           "items": [
             {
@@ -1832,34 +1835,35 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
-              "label": "PHL进机场＋SFO进城",
+              "label": "PHL铁路＋BART＋SF Muni至Marina",
               "amountGroupUSD": 41.1,
               "status": "published",
-              "sourceURL": "https://www.bart.gov/tickets/calculator",
-              "note": "SEPTA两人17.50＋BART两人23.60；403班30thSt04:59→PHL E/F05:22（当期公布表）。住所至车站末段未另报价。"
+              "sourceURL": "https://www.bart.gov/tickets/contactless",
+              "note": "SEPTA17.50两人＋SFO→Montgomery BART及转30长线合23.60两人。每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
             }
           ],
-          "totalGroupUSD": 564.35,
-          "perPersonUSD": 282.18
+          "totalGroupUSD": 570.7,
+          "perPersonUSD": 285.35
         },
         {
           "day": 2,
           "date": "2026-12-09",
           "weekday": "周三",
           "title": "优胜美地 · Best Bay / Viator 小团",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "计划05:30前后接人；全天Yosemite Valley；约20:30回SF。",
           "notes": [
             "本轮官网独立实选12/9两成人、公开FALL优惠后含订票费；15人车，普通价478。",
-            "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。"
+            "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。",
+            "Best Bay公布Lombard／Wharf接送范围；下团订单前确认Coventry门口接送及时间，若改集合点再报价车费，不默认05点公交能赶上。"
           ],
           "items": [
             {
@@ -1896,22 +1900,22 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             }
           ],
-          "totalGroupUSD": 998.87,
-          "perPersonUSD": 499.44
+          "totalGroupUSD": 1005.22,
+          "perPersonUSD": 502.61
         },
         {
           "day": 3,
           "date": "2026-12-10",
           "weekday": "周四",
           "title": "旧金山城市① · 金门大桥与海湾",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "09:30–18:00金门大桥观景、Crissy Field、艺术宫、Marina；晚间North Beach。",
           "notes": [
             "公交和短途打车，避免陡坡自驾。"
@@ -1927,11 +1931,11 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
@@ -1942,15 +1946,15 @@
               "note": "不含缆车，住宿早餐不是本版已含。"
             }
           ],
-          "totalGroupUSD": 263.47,
-          "perPersonUSD": 131.74
+          "totalGroupUSD": 269.82,
+          "perPersonUSD": 134.91
         },
         {
           "day": 4,
           "date": "2026-12-11",
           "weekday": "周五",
           "title": "旧金山城市② · 街区与码头",
-          "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+          "overnight": "旧金山 · Coventry Motor Inn（Marina）",
           "schedule": "09:30–18:00渡轮大楼、唐人街、渔人码头；可选一次缆车。",
           "notes": [
             "斯坦福可替换这一天；不能同时承诺SF完整三日、斯坦福及12日海岸出发。"
@@ -1966,11 +1970,11 @@
             },
             {
               "category": "酒店",
-              "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-              "amountGroupUSD": 132.07,
+              "label": "Coventry官网四晚均摊",
+              "amountGroupUSD": 138.42,
               "status": "quote",
-              "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-              "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+              "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+              "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
             },
             {
               "category": "地面交通",
@@ -1981,19 +1985,21 @@
               "note": "Stanford若加入需替换当日路线与交通。"
             }
           ],
-          "totalGroupUSD": 263.47,
-          "perPersonUSD": 131.74
+          "totalGroupUSD": 269.82,
+          "perPersonUSD": 134.91
         },
         {
           "day": 5,
           "date": "2026-12-12",
           "weekday": "周六",
-          "title": "旧金山 → 蒙特雷 · 下午海岸散步",
+          "title": "旧金山→蒙特雷 · 巴士傍晚到",
           "overnight": "Pacific Inn Monterey · 1 Queen / One Queen Bed - Non Smoking",
           "schedule": "12:40SF 425Mission→14:25SanJose；14:55续车→16:15Salinas；步行至MST转17:15→18:08Monterey，之后去酒店。",
           "notes": [
             "不赶同一时刻16:15公交：长途车站与MST站不同。17:15是计划衔接，公交车站步行须核。",
-            "12日下午海岸游玩取消；13、14两个完整白天不动。"
+            "12日下午海岸游玩取消；13、14两个完整白天不动。",
+            "Marina到425 Mission的30长线用已计SF Muni日票；不再额外重复加11.40。",
+            "30去Downtown／Caltrain方向至Market附近，去425 Mission长途站；SF Muni11.40已含，不套机场铁路转乘折扣。"
           ],
           "items": [
             {
@@ -2749,7 +2755,7 @@
         "categoryUSD": {
           "餐饮": 1920.0,
           "机票": 1529.18,
-          "酒店": 1956.8,
+          "酒店": 1982.2,
           "地面交通": 1087.44,
           "跟团": 8239.84,
           "小费": 320.0,
@@ -2758,13 +2764,13 @@
         },
         "statusUSD": {
           "estimate": 2520.0,
-          "quote": 6719.45,
+          "quote": 6744.85,
           "published": 6433.81
         },
-        "dailySubtotalGroupUSD": 15673.26,
-        "plannedGroupUSD": 15673.26,
-        "plannedPerPersonUSD": 7836.63,
-        "overTargetPerPersonUSD": 1336.63
+        "dailySubtotalGroupUSD": 15698.66,
+        "plannedGroupUSD": 15698.66,
+        "plannedPerPersonUSD": 7849.33,
+        "overTargetPerPersonUSD": 1349.33
       }
     }
   ],
@@ -2773,11 +2779,12 @@
       "day": 1,
       "date": "2026-12-08",
       "weekday": "周二",
-      "title": "抵达旧金山 · 联合广场",
-      "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
-      "schedule": "12/8 费城出发，下午抵SFO；进城入住，晚间只安排周边散步。",
+      "title": "抵达旧金山 · Marina入住",
+      "overnight": "旧金山 · Coventry Motor Inn（Marina）",
+      "schedule": "12/8 PHL07:30→SFO12:50；BART到Montgomery，Sutter/Kearny乘30长线至Chestnut/Webster，到Coventry入住；晚餐在Chestnut周边。",
       "notes": [
-        "固定8日抵达。抵达日不算完整城市游玩日。"
+        "固定8日抵达。抵达日不算完整城市游玩日。",
+        "机场移动日只需一趟Muni：同一支付媒介两小时内转乘，23.60两人可覆盖BART＋30；不符合条件加Muni5.70两人。线路和票价已核，未来班次以出发前更新为准。"
       ],
       "items": [
         {
@@ -2798,34 +2805,35 @@
         },
         {
           "category": "酒店",
-          "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-          "amountGroupUSD": 132.07,
+          "label": "Coventry官网四晚均摊",
+          "amountGroupUSD": 138.42,
           "status": "quote",
-          "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-          "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+          "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+          "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
         },
         {
           "category": "地面交通",
-          "label": "PHL进机场＋SFO进城",
+          "label": "PHL铁路＋BART＋SF Muni至Marina",
           "amountGroupUSD": 41.1,
           "status": "published",
-          "sourceURL": "https://www.bart.gov/tickets/calculator",
-          "note": "SEPTA两人17.50＋BART两人23.60；403班30thSt04:59→PHL E/F05:22（当期公布表）。住所至车站末段未另报价。"
+          "sourceURL": "https://www.bart.gov/tickets/contactless",
+          "note": "SEPTA17.50两人＋SFO→Montgomery BART及转30长线合23.60两人。每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
         }
       ],
-      "totalGroupUSD": 564.35,
-      "perPersonUSD": 282.18
+      "totalGroupUSD": 570.7,
+      "perPersonUSD": 285.35
     },
     {
       "day": 2,
       "date": "2026-12-09",
       "weekday": "周三",
       "title": "优胜美地 · Best Bay / Viator 小团",
-      "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "overnight": "旧金山 · Coventry Motor Inn（Marina）",
       "schedule": "计划05:30前后接人；全天Yosemite Valley；约20:30回SF。",
       "notes": [
         "本轮官网独立实选12/9两成人、公开FALL优惠后含订票费；15人车，普通价478。",
-        "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。"
+        "Viator目标239/人；本轮Best Bay官网9日两成人公开FALL报价456.80已核，具体接人酒店/团位未预订。冬季不承诺巨杉步道。",
+        "Best Bay公布Lombard／Wharf接送范围；下团订单前确认Coventry门口接送及时间，若改集合点再报价车费，不默认05点公交能赶上。"
       ],
       "items": [
         {
@@ -2862,22 +2870,22 @@
         },
         {
           "category": "酒店",
-          "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-          "amountGroupUSD": 132.07,
+          "label": "Coventry官网四晚均摊",
+          "amountGroupUSD": 138.42,
           "status": "quote",
-          "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-          "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+          "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+          "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
         }
       ],
-      "totalGroupUSD": 998.87,
-      "perPersonUSD": 499.44
+      "totalGroupUSD": 1005.22,
+      "perPersonUSD": 502.61
     },
     {
       "day": 3,
       "date": "2026-12-10",
       "weekday": "周四",
       "title": "旧金山城市① · 金门大桥与海湾",
-      "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "overnight": "旧金山 · Coventry Motor Inn（Marina）",
       "schedule": "09:30–18:00金门大桥观景、Crissy Field、艺术宫、Marina；晚间North Beach。",
       "notes": [
         "公交和短途打车，避免陡坡自驾。"
@@ -2893,11 +2901,11 @@
         },
         {
           "category": "酒店",
-          "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-          "amountGroupUSD": 132.07,
+          "label": "Coventry官网四晚均摊",
+          "amountGroupUSD": 138.42,
           "status": "quote",
-          "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-          "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+          "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+          "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
         },
         {
           "category": "地面交通",
@@ -2908,15 +2916,15 @@
           "note": "不含缆车，住宿早餐不是本版已含。"
         }
       ],
-      "totalGroupUSD": 263.47,
-      "perPersonUSD": 131.74
+      "totalGroupUSD": 269.82,
+      "perPersonUSD": 134.91
     },
     {
       "day": 4,
       "date": "2026-12-11",
       "weekday": "周五",
       "title": "旧金山城市② · 街区与码头",
-      "overnight": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "overnight": "旧金山 · Coventry Motor Inn（Marina）",
       "schedule": "09:30–18:00渡轮大楼、唐人街、渔人码头；可选一次缆车。",
       "notes": [
         "斯坦福可替换这一天；不能同时承诺SF完整三日、斯坦福及12日海岸出发。"
@@ -2932,11 +2940,11 @@
         },
         {
           "category": "酒店",
-          "label": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录 · 整段均摊",
-          "amountGroupUSD": 132.07,
+          "label": "Coventry官网四晚均摊",
+          "amountGroupUSD": 138.42,
           "status": "quote",
-          "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-          "note": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。；公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。 每日均摊，不是独立逐晚报价。"
+          "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+          "note": "四晚两人King含税费553.68÷4；均摊不是可单订逐晚价，取消提前天数待确认。"
         },
         {
           "category": "地面交通",
@@ -2947,8 +2955,8 @@
           "note": "Stanford若加入需替换当日路线与交通。"
         }
       ],
-      "totalGroupUSD": 263.47,
-      "perPersonUSD": 131.74
+      "totalGroupUSD": 269.82,
+      "perPersonUSD": 134.91
     },
     {
       "day": 5,
@@ -2956,7 +2964,7 @@
       "weekday": "周六",
       "title": "旧金山 → 蒙特雷 · 下午海岸散步",
       "overnight": "Pacific Inn Monterey · 1 Queen / One Queen Bed - Non Smoking",
-      "schedule": "早晨退房，BART去SFO接11:00Groome，约13:35到Monterey，下午游海岸／水族馆外围。",
+      "schedule": "08:15左右Marina退房，30到Stockton/Sutter，向东到Montgomery BART；SFO接11:00Groome→13:35Monterey。预留等车、步行和机场集合时间。",
       "notes": [
         "本组合保留你要求的12日下午到Monterey；不把更晚的低价巴士偷偷替换进来。",
         "MST去PacificInn末段按2/人预算，酒店前步行与当日时刻须核。"
@@ -2980,11 +2988,11 @@
         },
         {
           "category": "地面交通",
-          "label": "SF→Monterey · BART＋Groome＋MST",
+          "label": "Marina→SFO→Monterey · Muni＋BART＋Groome＋MST",
           "amountGroupUSD": 151.6,
           "status": "quote",
           "sourceURL": "https://groometransportation.com/monterey/reservations/",
-          "note": "BART23.60＋Groome124两人不可退＋Monterey末段公交4。SFO11:00→Monterey13:35；具体班次席位待核。"
+          "note": "Marina30→Stockton/Sutter，沿Sutter东走到Montgomery BART去SFO；两人Muni+BART23.60（跨运营商折扣）＋Groome124＋MST4=151.60。每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
         }
       ],
       "totalGroupUSD": 390.05,
@@ -3715,7 +3723,7 @@
     "categoryUSD": {
       "餐饮": 1920.0,
       "机票": 1529.18,
-      "酒店": 1956.8,
+      "酒店": 1982.2,
       "地面交通": 1163.41,
       "跟团": 8239.84,
       "小费": 320.0,
@@ -3724,13 +3732,13 @@
     },
     "statusUSD": {
       "estimate": 2520.0,
-      "quote": 6795.42,
+      "quote": 6820.82,
       "published": 6433.81
     },
-    "dailySubtotalGroupUSD": 15749.23,
-    "plannedGroupUSD": 15749.23,
-    "plannedPerPersonUSD": 7874.62,
-    "overTargetPerPersonUSD": 1374.62
+    "dailySubtotalGroupUSD": 15774.63,
+    "plannedGroupUSD": 15774.63,
+    "plannedPerPersonUSD": 7887.32,
+    "overTargetPerPersonUSD": 1387.32
   },
   "links": {
     "yellowstone": "https://www.yellowstonenationalparklodges.com/special-offer/couples-winter-adventure-package/",
@@ -3810,7 +3818,7 @@
   "hotelSegments": [
     {
       "id": "sf",
-      "hotel": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录",
+      "hotel": "Coventry Motor Inn · 官网",
       "dates": [
         8,
         9,
@@ -3818,12 +3826,12 @@
         11
       ],
       "nights": 4,
-      "totalUSD": 528.28,
-      "room": "Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "totalUSD": 553.68,
+      "room": "King · 非吸烟 · 独立浴室",
       "status": "quote",
-      "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-      "note": "公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。",
-      "cancellation": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。"
+      "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+      "note": "Marina／Cow Hollow，1901 Lombard；7日前预授权一晚房税；官网直订免费停车，无需会员。私卫和最低18岁由同房型OTA物业资料辅助核实。；Lombard与Wharf是Best Bay公布接送范围，具体酒店接点待确认。",
+      "cancellation": "原文要求到店日前15:00取消，未写提前几天；逾期收一晚。具体截止仍须确认。"
     },
     {
       "id": "monterey",
@@ -3893,7 +3901,7 @@
   "hotels": [
     {
       "id": "sf",
-      "hotel": "Union Square Plaza Hotel · Priceline，经 KAYAK 公开引流入口；未登录",
+      "hotel": "Coventry Motor Inn · 官网",
       "dates": [
         8,
         9,
@@ -3901,12 +3909,12 @@
         11
       ],
       "nights": 4,
-      "totalUSD": 528.28,
-      "room": "Standard Room with Two Full Size Beds / 2 Double Beds，独立卫生间、免费 Wi-Fi、冰箱；经济型 2 星，不是 King",
+      "totalUSD": 553.68,
+      "room": "King · 非吸烟 · 独立浴室",
       "status": "quote",
-      "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
-      "note": "公开 KAYAK 引流率，直接 Priceline 或官网可能显示其他价格。页面称价格包括 Priceline 收取的所有税费；可退押金和自选停车另计。价格/库存会变化。上方信用卡返现 150 美元未使用，不将其扣成 378.28。可作为接近用户 SF 四晚 520 美元目标的候选，但舒适等级及不可退限制须接受。",
-      "cancellation": "付款前 Important Information 明确：This special discounted rate is non-refundable. 按不可退款处理。",
+      "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+      "note": "Marina／Cow Hollow，1901 Lombard；7日前预授权一晚房税；官网直订免费停车，无需会员。私卫和最低18岁由同房型OTA物业资料辅助核实。；Lombard与Wharf是Best Bay公布接送范围，具体酒店接点待确认。",
+      "cancellation": "原文要求到店日前15:00取消，未写提前几天；逾期收一晚。具体截止仍须确认。",
       "checkIn": "2026-12-08",
       "checkOut": "2026-12-12"
     },
@@ -4060,16 +4068,18 @@
     "优先锁可取消酒店；全套团位与交通确认后，再本人选择不可退优惠房。团内7晚不另订，Vegas21/22寄存大箱需确认。"
   ],
   "unknowns": [
-    "SF和LA推荐低价私人房均不可退，须先确认全部团位和航班再订；可退酒店替代报价在比较表。",
     "黄石12/15两席与最少4人成团，Max12/21两席及接人酒店/时间，均待最终库存确认。",
     "Max$620/人全包用户报价需对应日期与付款前订单；选择它时不再叠加羚羊/纪念碑费用。",
     "14日BigSur向导/接送的税、计价单位、库存和步道开放；Aura已核公布班车，仍须出发前确认运营。",
     "12日Groome11:00到达13:35、14日18:30返程的实际班次席位；便宜Flix12日可选，但到18:08。",
     "21–23日酒店是否可免费寄存大箱（Max限制大行李），28日Max在LA两个下车点的确切地址及去酒店末段。",
     "SEPTA已核403班05:22到PHL；住处至车站末段；全套4航班含箱764.59/人，不假设全部交通500已核。",
-    "13日MossLanding网约车70两人和14日BigSur接送200两人仍为估算；如改自驾，未满25驾驶者附加费/保险/停车需实际另报价。"
+    "13日MossLanding网约车70两人和14日BigSur接送200两人仍为估算；如改自驾，未满25驾驶者附加费/保险/停车需实际另报价。",
+    "Coventry取消提前几天未写明，不能保证12/7可取消；最低18岁和King私卫由OTA物业信息辅助核。Chelsea年龄、普通房私卫文字及Cow Hollow普通King私卫文字仍待核。",
+    "12/9 Coventry酒店门口接送与清晨时间需运营商确认；夜归Muni长线及末段入口路线要出发前复核。",
+    "8/12 BART＋Muni转乘折扣须每人同一卡或设备、两小时内；不符合则每个移动日两人多5.70。实体新Clipper卡费、银行外币费及夜间改叫车另按实际，未默认免费。"
   ],
-  "priceCorrection": "先按实际日期比较再选择。市中心SF/LA低价渠道与公交已替代此前较贵及偏远酒店/打车占位；旧预算不再当现选方案。未知费用仍保留明确占位。",
+  "priceCorrection": "住宿先筛街区，再比同日期全价。SF默认移到Marina的Coventry四晚553.68；市内末段交通补计，不继续默认联合广场西侧低价房。",
   "booked": false,
   "audit": {
     "flightBasicPerPersonUSD": 714.59,
@@ -4077,14 +4087,14 @@
     "yellowstoneAirportRoundtripPerPersonUSD": 203.45,
     "flightAndYellowstoneBusPerPersonUSD": 918.05,
     "groundGroupUSD": 1163.41,
-    "hotelSampleGroupUSD": 1956.8,
+    "hotelSampleGroupUSD": 1982.2,
     "bigSurUnverified": true,
     "allTransport500Verified": false,
     "hotel1400Verified": false,
     "max620Verified": false,
-    "currentOptimizedPerPersonUSD": 7874.62,
+    "currentOptimizedPerPersonUSD": 7887.32,
     "previousComparableCarryPerPersonUSD": 8102.65,
-    "savingsVsPreviousComparablePerPersonUSD": 228.03
+    "savingsVsPreviousComparablePerPersonUSD": 215.33
   },
   "comparisons": {
     "version": "price-compare-5",
@@ -4092,158 +4102,193 @@
     "hotelGroups": [
       {
         "id": "sf",
-        "title": "旧金山 · 联合广场四晚",
+        "title": "旧金山 · Marina／Cow Hollow四晚",
         "nights": 4,
         "dates": "12/8入住 →12/12退房",
         "rows": [
           {
-            "id": "union_square_plaza_priceline_via_kayak_dec8_12",
-            "name": "Union Square Plaza · Priceline／KAYAK",
+            "id": "sf-coventry",
+            "name": "Coventry Motor Inn · 官网",
             "nights": 4,
-            "totalUSD": 528.28,
-            "baseUSD": 426.56,
+            "totalUSD": 553.68,
+            "averageUSD": 138.42,
+            "baseUSD": 476,
             "taxUSD": null,
-            "feeUSD": null,
-            "averageUSD": 132.07,
-            "room": "两张Double床 · 独立浴室 · 经济型2星",
-            "location": "432Geary，联合广场西侧；平台约2–4min到广场",
-            "cancel": "付款前条款：不可退；不采用上方AI的24h可退文案",
-            "caveat": "无需会员，需经KAYAK公开入口；无早餐。可退损坏押金150只留额度；停车自选另付。",
-            "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
+            "feeUSD": 0,
+            "taxFeeCombinedUSD": 77.68,
+            "room": "King · 非吸烟 · 独立浴室",
+            "location": "1901 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊",
+            "caveat": "7日前预授权一晚房税；官网直订免费停车，无需会员。私卫和最低18岁由同房型OTA物业资料辅助核实。",
+            "cancel": "原文要求到店日前15:00取消，未写提前几天；逾期收一晚。具体截止仍须确认。",
+            "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+            "status": "quote",
             "recommended": true,
             "conditional": false,
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=1901+Lombard+Street,+San+Francisco,+CA+94123"
+          },
+          {
+            "id": "sf-lombard",
+            "name": "Lombard Plaza Motel · 官网",
+            "nights": 4,
+            "totalUSD": 655.9,
+            "averageUSD": 163.98,
+            "baseUSD": 570,
+            "taxUSD": 85.9,
+            "feeUSD": 0,
+            "taxFeeCombinedUSD": null,
+            "room": "1 King Bed · Non Smoking · 独立浴室",
+            "location": "2026 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊",
+            "caveat": "免费停车、微波炉与冰箱；可退损坏押金200只留额度。标准费率的取消截止已明确，是优先可退备选。",
+            "cancel": "Best Standard：12/6 15:00 PST前可取消；逾期/未到收一晚房税费。",
+            "sourceURL": "https://www.innsight.com/ibe/san-francisco-ca/lombardplaza/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2",
             "status": "quote",
-            "taxFeeCombinedUSD": 101.72,
-            "entrySourceURL": "https://www.kayak.com/hotels/Union-Square-Plaza-Hotel,San-Francisco,CA-p61403-h9763/2026-12-08/2026-12-12/2adults;map?lang=en&sort=rank_a"
-          },
-          {
-            "id": "fitzgerald_double_dec8_12",
-            "name": "Fitzgerald Hotel Union Square",
-            "nights": 4,
-            "totalUSD": 817.29,
-            "baseUSD": 694.45,
-            "taxUSD": 122.84,
-            "feeUSD": null,
-            "averageUSD": 204.32,
-            "room": "一张Double床，较窄；房内浴室照片已见",
-            "location": "620 Post Street, San Francisco, CA 94109",
-            "cancel": "一般48h条款已见，但AdvancePurchase费率例外未核，不保证可退",
-            "caveat": "联合广场620Post；含简单早餐。一张Double较窄。浴室照片已见，书面私卫及所选AdvancePurchase退改例外仍须确认。",
-            "sourceURL": "https://hotels.cloudbeds.com/en/reservation/ZIHAdw/?currency=usd&checkin=2026-12-08&checkout=2026-12-12&guests=2",
             "recommended": false,
             "conditional": false,
-            "status": "quote"
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=2026+Lombard+Street,+San+Francisco,+CA+94123"
           },
           {
-            "id": "mosser",
-            "name": "The Mosser",
+            "id": "sf-cow",
+            "name": "Cow Hollow Inn & Suites · 官网",
             "nights": 4,
-            "totalUSD": 1049.98,
-            "baseUSD": null,
+            "totalUSD": 808.37,
+            "averageUSD": 202.09,
+            "baseUSD": 695,
             "taxUSD": null,
-            "feeUSD": null,
-            "averageUSD": 262.5,
-            "room": "Deluxe Queen · 独立浴室",
-            "location": "UnionSquare南侧；近Powell",
-            "cancel": "具体截止待复核",
-            "caveat": "本日较早官网同日期报价，未作为最低。",
-            "sourceURL": "https://www.themosser.com/",
-            "recommended": false,
-            "conditional": false,
-            "status": "quote"
-          },
-          {
-            "id": "monarca_email",
-            "name": "Kasa La Monarca · 邮件优惠",
-            "nights": 4,
-            "totalUSD": 1193.16,
-            "baseUSD": 1013.72,
-            "taxUSD": 179.44,
             "feeUSD": 0,
-            "averageUSD": 298.29,
-            "room": "Queen · 独立浴室",
-            "location": "717Sutter，联合广场附近",
-            "cancel": "不可退",
-            "caveat": "需勾选接收Kasa营销邮件/优惠；未替用户加入。",
-            "sourceURL": "https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0",
+            "taxFeeCombinedUSD": 113.37,
+            "room": "King Deluxe · 非吸烟；普通King私卫文字待逐型补核",
+            "location": "2190 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊",
+            "caveat": "免费停车限官网直订；所选Deluxe不等于更安静Superior。7日前预授权一晚房税，OTA18岁起。",
+            "cancel": "普通房到店前24h且11:00前取消；本入住按12/7 11:00 PST前准备，逾期一晚；suite72h。",
+            "sourceURL": "https://holms.cowhollowinnandsuites.com/Home/Checkout?room=9caca25a-35dc-11ea-bdda-b06ebfc61668&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163125",
+            "status": "quote",
             "recommended": false,
-            "conditional": true,
-            "status": "quote"
+            "conditional": false,
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=2190+Lombard+Street,+San+Francisco,+CA+94123"
           },
           {
-            "id": "monarca_nr_public_dec8_12",
-            "name": "Kasa La Monarca San Francisco",
+            "id": "sf-chelsea",
+            "name": "Chelsea Inn · 官网",
             "nights": 4,
-            "totalUSD": 1340.6,
-            "baseUSD": 1139,
-            "taxUSD": 201.6,
+            "totalUSD": 844.49,
+            "averageUSD": 211.12,
+            "baseUSD": 726,
+            "taxUSD": null,
             "feeUSD": 0,
-            "averageUSD": 335.15,
-            "room": "Queen · 独立浴室",
-            "location": "717Sutter，联合广场附近；无前台自助入住",
-            "cancel": "不可退，无未来取消抵用额",
-            "caveat": "无前台，21+入住，需自助身份核验；不可退；四晚报价与截图18晚均价不同。",
-            "sourceURL": "https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0",
+            "taxFeeCombinedUSD": 118.49,
+            "room": "Two Double Beds · 非吸烟；私卫书面与最低年龄待核",
+            "location": "2095 Lombard Street, San Francisco, CA 94123；Lombard／Chestnut走廊",
+            "caveat": "免费室内停车；7日前预授权一晚房税，无早餐证据。",
+            "cancel": "原文要求到店日前15:00取消，未写提前几天；逾期一晚。具体截止仍须确认。",
+            "sourceURL": "https://holms.chelseamotorinn.com/Home/Checkout?room=27f4c754-43cc-11e9-bdc2-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163215",
+            "status": "quote",
             "recommended": false,
             "conditional": false,
-            "status": "quote"
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=2095+Lombard+Street,+San+Francisco,+CA+94123"
           },
           {
-            "id": "kinggeorge",
-            "name": "King George",
+            "id": "sf-seaside",
+            "name": "Seaside Inn · 官网Advance Purchase",
             "nights": 4,
-            "totalUSD": 1918.43,
-            "baseUSD": 1630,
-            "taxUSD": 288.43,
-            "feeUSD": null,
-            "averageUSD": 479.61,
-            "room": "Superior Queen",
-            "location": "UnionSquare附近",
-            "cancel": "公开Flexible，具体截止待核",
-            "caveat": "房价+税已显示；一般FAQ另列amenity费，是否已含尚不清楚。不能当完整全包价。",
-            "sourceURL": "https://www.kinggeorge.com/",
+            "totalUSD": 909.52,
+            "averageUSD": 227.38,
+            "baseUSD": 781.96,
+            "taxUSD": 127.56,
+            "feeUSD": 0,
+            "taxFeeCombinedUSD": null,
+            "room": "King Room · Non Smoking · 独立浴室",
+            "location": "1750 Lombard St, San Francisco, CA 94123；Lombard／Chestnut走廊",
+            "caveat": "独立浴室、冰箱和微波炉；免费停车位限量先到先得。所选Advance Purchase不可退；此日期比Coventry贵。",
+            "cancel": "所选AdvancePurchase不可取消/修改；不能套用标准72h取消政策。",
+            "sourceURL": "https://www.sfseasideinn.com/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2",
+            "status": "quote",
             "recommended": false,
             "conditional": false,
-            "status": "estimate"
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=1750+Lombard+St,+San+Francisco,+CA+94123"
           },
           {
-            "id": "grant",
-            "name": "The Grant Hotel",
+            "id": "sf-wharf",
+            "name": "The Wharf Inn · 渔人码头候选",
             "nights": 4,
             "totalUSD": null,
+            "averageUSD": null,
             "baseUSD": null,
             "taxUSD": null,
             "feeUSD": null,
-            "averageUSD": null,
-            "room": "私人房／私卫房类",
-            "location": "UnionSquare附近",
-            "cancel": "无可选费率",
-            "caveat": "官网12/8–12两人显示NoVacancy，仅说明此引擎无房。",
-            "sourceURL": "https://www.granthotel.com/",
+            "room": "Classic King · 最终房型及报价待核",
+            "location": "2601 Mason Street, San Francisco, CA 94133",
+            "caveat": "24/7前台；停车15/晚仅租车时另加。官网已到可查询界面，尚未取得本日期含税总价。",
+            "cancel": "本日期费率退改待核",
+            "sourceURL": "https://wharfinn.com/",
+            "status": "unavailable",
             "recommended": false,
             "conditional": false,
-            "status": "unavailable"
-          },
-          {
-            "id": "grantplaza",
-            "name": "Grant Plaza Hotel",
-            "nights": 4,
-            "totalUSD": null,
-            "baseUSD": null,
-            "taxUSD": null,
-            "feeUSD": null,
-            "averageUSD": null,
-            "room": "待核",
-            "location": "Chinatown／UnionSquare步行范围",
-            "cancel": "无可选费率",
-            "caveat": "官网同日期无法在线接受预订，未联系酒店。",
-            "sourceURL": "https://www.grantplaza.com/",
-            "recommended": false,
-            "conditional": false,
-            "status": "unavailable"
+            "mapURL": "https://www.google.com/maps/search/?api=1&query=The+Wharf+Inn+2601+Mason+Street+San+Francisco"
           }
         ],
-        "note": "按四晚总价排；截图Kasa$91对应12/8–26长住，保留为找房线索。同日期OTA若更便宜可替换，不要求买官网高价。"
+        "note": "先筛位置，再在本次合格候选中按四晚含税价排序。Coventry比此前Union Square Plaza四晚多25.40／两人，平均每晚多6.35；本轮移出联合广场西侧旧候选。位于Lombard主路，建议请求内侧房，不能保证一定分到。位置推荐不是犯罪率排名或安全保证。官网取消不写提前天数的Coventry／Chelsea须订前问清；Lombard Plaza的标准费率明确12/6 15:00前取消，多102.22／两人四晚。",
+        "locationReview": {
+          "title": "住宿改到北侧：街区、门口和晚归一起看",
+          "summary": "默认改住1901 Lombard的Coventry，靠近Chestnut餐饮和30／28路，位于Marina／Cow Hollow北侧住宿走廊；原联合广场西侧候选移出当前推荐。按具体地址和回酒店路线筛选，安全无法由街区名称保证。",
+          "areas": [
+            {
+              "name": "Marina／Cow Hollow · 本次优先",
+              "reason": "Lombard 1750–2190一带候选靠近Chestnut；用30长线／28路往返北岸。主路会有车流噪音，订房时可请求内侧房。",
+              "url": "https://www.sftravel.com/neighborhoods/marina-pacific-heights"
+            },
+            {
+              "name": "渔人码头 · 接送及景点便利备选",
+              "reason": "码头和North Beach活动集中，运营商明确列此区域接送；Wharf Inn尚无本日期最终价，暂不进入预算。",
+              "url": "https://www.fishermanswharf.org/about-us/faqs/"
+            },
+            {
+              "name": "日本城／金融区 · 其它地址备选",
+              "reason": "可比较日本城的Kabuki或金融区Clay街Club Quarters，但本轮未核同日期总额和逐店早团接点，不先称便宜或更安全。",
+              "url": "https://www.sftravel.com/neighborhoods/downtown-financial-district"
+            },
+            {
+              "name": "联合广场西侧／Tenderloin边缘 · 移出当前推荐",
+              "reason": "SF Planning TCAP分析范围为Market、Van Ness、Powell、Post之间；它不是安全界线。原432 Geary低价推荐未充分考虑你的街区偏好，这次不再预选或参与默认计算。",
+              "url": "https://sfplanning.org/fil/node/2267"
+            }
+          ],
+          "practical": [
+            "12/9 Best Bay官网接送范围明确包含Lombard和渔人码头；Coventry具体门口和清晨时刻仍须在下单前确认。优先酒店门口接送；若不接，改已确认集合点并单独报价短途车，不安排05点拖箱长走。",
+            "晚上从市区乘30长线（去Marina，不坐只到Fort Mason的短线）或28到酒店附近，最后短步行；晚归下车点、实时班次和门口路线出发前再核。",
+            "8日SFO→Montgomery后在Sutter/Kearny接30长线至Chestnut/Webster；12日反向至Stockton/Sutter、沿Sutter东走到Montgomery。两段BART各11.80／人；同一支付媒介两小时内跨运营商转乘可省Muni单程，不自动加日票。不符合条件每个移动日加5.70／两人；实体Clipper新卡或银行费用另按实际。 默认每人各用支持的银行卡Tap and Ride，无需新办Clipper；若买新Clipper，卡费另列。",
+            "车内不留行李，餐饮和候车优先人流照明正常的主街；即使住北侧，也不作零风险承诺。"
+          ],
+          "sources": [
+            {
+              "name": "SFPD事件数据及统计限制",
+              "url": "https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard"
+            },
+            {
+              "name": "SF Travel游客出行建议",
+              "url": "https://www.sftravel.com/article/tips-visitors"
+            },
+            {
+              "name": "Best Bay酒店接送范围",
+              "url": "https://bestbayareatours.com/tour-yosemite-california-guide/"
+            },
+            {
+              "name": "30 Stockton当前路线",
+              "url": "https://www.sfmta.com/routes/30-stockton"
+            },
+            {
+              "name": "28当前路线",
+              "url": "https://www.sfmta.com/routes/28-19th-avenue"
+            },
+            {
+              "name": "BART转乘／感应付款规则",
+              "url": "https://www.bart.gov/tickets/contactless"
+            },
+            {
+              "name": "Muni成人单程2.85",
+              "url": "https://www.sfmta.com/fares/single-ride-adult-ages-19-64"
+            }
+          ]
+        }
       },
       {
         "id": "monterey",
@@ -4816,11 +4861,11 @@
             "status": "published"
           },
           {
-            "name": "SFO↔Powell · BART单程",
+            "name": "SFO↔Montgomery · BART单程",
             "totalUSD": 23.6,
             "perPersonUSD": 11.8,
-            "time": "官网计算器已选12/8，11.80/人",
-            "decision": "8日进城，12日往机场接Groome各一次；不重复多加打车。",
+            "time": "官网计算器实选8日入城及12日出城：BART11.80／人；Muni30配同媒介两小时转乘折扣。",
+            "decision": "8日进城、12日往机场接Groome各一次；不符合跨运营商转乘条件时每个移动日Muni两人多5.70，不预买日票。",
             "sourceURL": "https://www.bart.gov/tickets/calculator",
             "status": "published"
           },
@@ -4981,7 +5026,7 @@
     "calculator": {
       "baseOption": "checked",
       "hotelSelected": {
-        "sf": "union_square_plaza_priceline_via_kayak_dec8_12",
+        "sf": "sf-coventry",
         "monterey": "pacificinn_queen_dec12_14",
         "sfo": "aura_king_dec14_15",
         "vegas": "fourQueensKing",
@@ -4997,11 +5042,11 @@
       "groundBaseDetails": [
         [
           8,
-          "PHL进机场＋SFO进城",
+          "PHL进机场＋SFO进城＋Muni到Marina",
           41.1,
           "published",
           "https://www.bart.gov/tickets/calculator",
-          "SEPTA8.75×2＋BART11.80×2；住所至车站未报价，须核早班SEPTA衔接。"
+          "每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。；BARTMontgomery成人11.80已按真实日期核。"
         ],
         [
           10,
@@ -5021,11 +5066,11 @@
         ],
         [
           12,
-          "SF→Monterey · BART＋Groome＋MST",
+          "Marina出发 · Muni＋SF→Monterey · BART＋Groome＋MST",
           151.6,
           "quote",
           "https://groometransportation.com/monterey/reservations/",
-          "BART23.60＋Groome124两人不可退＋Monterey末段公交4。SFO11:00→Monterey13:35；具体班次席位待核。"
+          "每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。；BARTMontgomery成人11.80已按真实日期核。"
         ],
         [
           13,
@@ -5135,12 +5180,12 @@
       "coastOutChoices": [
         {
           "id": "groome",
-          "name": "12日下午到：BART＋Groome不可退＋末段MST",
+          "name": "Marina30＋BART转乘折扣＋Groome不可退，下午到Monterey",
           "totalUSD": 151.6
         },
         {
           "id": "groome-flex",
-          "name": "同段可退Groome票种（班次/库存待核）",
+          "name": "Marina30＋BART转乘折扣＋Groome可退票种（席位待核）",
           "totalUSD": 165.6
         },
         {
@@ -5170,7 +5215,348 @@
       },
       "maxOfficialGroupUSD": 1676.98,
       "maxUserGroupUSD": 1240,
-      "foodDays": 16
+      "foodDays": 16,
+      "coastOutBaseGroupUSD": 151.6,
+      "coastBackBaseGroupUSD": 128,
+      "coastSavingsGroupUSD": 75.97,
+      "sfTransferCondition": "每人各用自己的同一Clipper或支持的Tap and Ride卡／设备，首刷后两小时内转乘；Muni2.85和BART跨运营商折扣自动算。不先买Muni日票；不符合条件则Muni单程两人另加5.70。"
+    },
+    "previousSFComparison": {
+      "id": "sf",
+      "title": "旧金山 · 联合广场四晚",
+      "nights": 4,
+      "dates": "12/8入住 →12/12退房",
+      "rows": [
+        {
+          "id": "union_square_plaza_priceline_via_kayak_dec8_12",
+          "name": "Union Square Plaza · Priceline／KAYAK",
+          "nights": 4,
+          "totalUSD": 528.28,
+          "baseUSD": 426.56,
+          "taxUSD": null,
+          "feeUSD": null,
+          "averageUSD": 132.07,
+          "room": "两张Double床 · 独立浴室 · 经济型2星",
+          "location": "432Geary，联合广场西侧；平台约2–4min到广场",
+          "cancel": "付款前条款：不可退；不采用上方AI的24h可退文案",
+          "caveat": "无需会员，需经KAYAK公开入口；无早餐。可退损坏押金150只留额度；停车自选另付。",
+          "sourceURL": "https://www.priceline.com/relax/at/3609705/from/20261208/to/20261212/rooms/1?adults=2&cur=USD",
+          "recommended": true,
+          "conditional": false,
+          "status": "quote",
+          "taxFeeCombinedUSD": 101.72,
+          "entrySourceURL": "https://www.kayak.com/hotels/Union-Square-Plaza-Hotel,San-Francisco,CA-p61403-h9763/2026-12-08/2026-12-12/2adults;map?lang=en&sort=rank_a"
+        },
+        {
+          "id": "fitzgerald_double_dec8_12",
+          "name": "Fitzgerald Hotel Union Square",
+          "nights": 4,
+          "totalUSD": 817.29,
+          "baseUSD": 694.45,
+          "taxUSD": 122.84,
+          "feeUSD": null,
+          "averageUSD": 204.32,
+          "room": "一张Double床，较窄；房内浴室照片已见",
+          "location": "620 Post Street, San Francisco, CA 94109",
+          "cancel": "一般48h条款已见，但AdvancePurchase费率例外未核，不保证可退",
+          "caveat": "联合广场620Post；含简单早餐。一张Double较窄。浴室照片已见，书面私卫及所选AdvancePurchase退改例外仍须确认。",
+          "sourceURL": "https://hotels.cloudbeds.com/en/reservation/ZIHAdw/?currency=usd&checkin=2026-12-08&checkout=2026-12-12&guests=2",
+          "recommended": false,
+          "conditional": false,
+          "status": "quote"
+        },
+        {
+          "id": "mosser",
+          "name": "The Mosser",
+          "nights": 4,
+          "totalUSD": 1049.98,
+          "baseUSD": null,
+          "taxUSD": null,
+          "feeUSD": null,
+          "averageUSD": 262.5,
+          "room": "Deluxe Queen · 独立浴室",
+          "location": "UnionSquare南侧；近Powell",
+          "cancel": "具体截止待复核",
+          "caveat": "本日较早官网同日期报价，未作为最低。",
+          "sourceURL": "https://www.themosser.com/",
+          "recommended": false,
+          "conditional": false,
+          "status": "quote"
+        },
+        {
+          "id": "monarca_email",
+          "name": "Kasa La Monarca · 邮件优惠",
+          "nights": 4,
+          "totalUSD": 1193.16,
+          "baseUSD": 1013.72,
+          "taxUSD": 179.44,
+          "feeUSD": 0,
+          "averageUSD": 298.29,
+          "room": "Queen · 独立浴室",
+          "location": "717Sutter，联合广场附近",
+          "cancel": "不可退",
+          "caveat": "需勾选接收Kasa营销邮件/优惠；未替用户加入。",
+          "sourceURL": "https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0",
+          "recommended": false,
+          "conditional": true,
+          "status": "quote"
+        },
+        {
+          "id": "monarca_nr_public_dec8_12",
+          "name": "Kasa La Monarca San Francisco",
+          "nights": 4,
+          "totalUSD": 1340.6,
+          "baseUSD": 1139,
+          "taxUSD": 201.6,
+          "feeUSD": 0,
+          "averageUSD": 335.15,
+          "room": "Queen · 独立浴室",
+          "location": "717Sutter，联合广场附近；无前台自助入住",
+          "cancel": "不可退，无未来取消抵用额",
+          "caveat": "无前台，21+入住，需自助身份核验；不可退；四晚报价与截图18晚均价不同。",
+          "sourceURL": "https://kasa.com/properties/kasa-la-monarca-san-francisco?checkInDate=2026-12-08&checkOutDate=2026-12-12&adultGuestCount=2&childGuestCount=0&infantGuestCount=0&travelingForBusiness=false&bathroomCount=1&bedCount=1&bedroomCount=0",
+          "recommended": false,
+          "conditional": false,
+          "status": "quote"
+        },
+        {
+          "id": "kinggeorge",
+          "name": "King George",
+          "nights": 4,
+          "totalUSD": 1918.43,
+          "baseUSD": 1630,
+          "taxUSD": 288.43,
+          "feeUSD": null,
+          "averageUSD": 479.61,
+          "room": "Superior Queen",
+          "location": "UnionSquare附近",
+          "cancel": "公开Flexible，具体截止待核",
+          "caveat": "房价+税已显示；一般FAQ另列amenity费，是否已含尚不清楚。不能当完整全包价。",
+          "sourceURL": "https://www.kinggeorge.com/",
+          "recommended": false,
+          "conditional": false,
+          "status": "estimate"
+        },
+        {
+          "id": "grant",
+          "name": "The Grant Hotel",
+          "nights": 4,
+          "totalUSD": null,
+          "baseUSD": null,
+          "taxUSD": null,
+          "feeUSD": null,
+          "averageUSD": null,
+          "room": "私人房／私卫房类",
+          "location": "UnionSquare附近",
+          "cancel": "无可选费率",
+          "caveat": "官网12/8–12两人显示NoVacancy，仅说明此引擎无房。",
+          "sourceURL": "https://www.granthotel.com/",
+          "recommended": false,
+          "conditional": false,
+          "status": "unavailable"
+        },
+        {
+          "id": "grantplaza",
+          "name": "Grant Plaza Hotel",
+          "nights": 4,
+          "totalUSD": null,
+          "baseUSD": null,
+          "taxUSD": null,
+          "feeUSD": null,
+          "averageUSD": null,
+          "room": "待核",
+          "location": "Chinatown／UnionSquare步行范围",
+          "cancel": "无可选费率",
+          "caveat": "官网同日期无法在线接受预订，未联系酒店。",
+          "sourceURL": "https://www.grantplaza.com/",
+          "recommended": false,
+          "conditional": false,
+          "status": "unavailable"
+        }
+      ],
+      "note": "按四晚总价排；截图Kasa$91对应12/8–26长住，保留为找房线索。同日期OTA若更便宜可替换，不要求买官网高价。"
+    },
+    "locationSafety": {
+      "checkedAt": "2026-10-07, checked in this session",
+      "scope": "2026-12-08入住至12-12退房，四晚、两成人：只读研究街区位置、酒店地址、交通及12-09 Best Bay Yosemite接送范围。未查动态房价、未联系或预订、未改主发布文件。",
+      "interpretation": "住宿优先级是针对本次行程的地理和交通判断，不是官方安全评级；不保证任何酒店或街区绝对安全。",
+      "safetyEvidence": {
+        "policeDashboardUrl": "https://www.sanfranciscopolice.org/stay-safe/crime-data/crime-dashboard",
+        "dashboardRead": "亲读官方说明：可按时间及罪类过滤；数据主要统计事件而非受害人数，采用最高级罪类规则，且逐日修订。",
+        "quantitativeBoundary": "本次未导出同时间窗、同类事件、同空间尺度的各街区统计，故不制造街区犯罪率、风险百分比或安全排序。警区与旅游街区边界也不能混用。",
+        "tourismSafetyUrl": "https://www.sftravel.com/article/tips-visitors",
+        "practicalRules": [
+          "事先规划路线，途中留意环境；感觉不适时离开。",
+          "人群中注意手机及随身包，公共交通上保持警觉。",
+          "车内不留行李或贵重物，即使住在码头或Marina也适用；这对拟租车三天尤其重要。",
+          "不要将无家可归者身份本身等同于犯罪风险。"
+        ],
+        "tenderloin": {
+          "primarySource": "https://sfplanning.org/fil/node/2267",
+          "officialAnalysisBoundary": "SF Planning与公共卫生部门TCAP数据分析及资源分配范围：Market Street、Van Ness Avenue、Powell Street、Post Street之间。",
+          "boundaryCaution": "这不是逐街安全线；历史称谓、警区及酒店营销中的Union Square/Lower Nob Hill/Tendernob可能重叠。不能因为在Geary北侧、Mason东侧或自称Union Square就自动认定符合用户位置偏好。",
+          "tripRecommendation": "用户已明确不喜欢联合广场西边便宜酒店，本轮优先改到码头、Lombard走廊，或日本城/金融区的具体地址；不为了低房价安排拖箱或晚归穿过Tenderloin。"
+        }
+      },
+      "neighborhoods": [
+        {
+          "name": "Fisherman's Wharf / 码头",
+          "priority": "位置便利优先；与Marina实际含费价对比后再选",
+          "officialUrl": "https://www.sftravel.com/neighborhoods/fishermans-wharf",
+          "fit": "码头、Pier39、North Beach等活动集中，位于Tenderloin分析范围以北；Best Bay官方明确列Fisherman's Wharf接送区域。",
+          "nightReturn": "当前F线7:00–24:00，30线周中5:00–24:00、周末6:00–24:00；20–21点回城有公布服务。仍按实际站点/实时到车安排，夜深或带大箱可把最后一段网约车保留为备选。",
+          "airport": "这里没有BART车站，SFO来需在Embarcadero等市中心站换F线或最后一段汽车；不能把BART到市中心时间当作到店时间。",
+          "riskLimits": "旅游客流与近景点并不消除扒窃、车窗盗窃风险；冬夜海边风雨及末班也要计入选择。"
+        },
+        {
+          "name": "Marina / Cow Hollow / Lombard走廊",
+          "priority": "本次实惠候选优先核价",
+          "officialUrl": "https://www.sftravel.com/neighborhoods/marina-pacific-heights",
+          "fit": "Chestnut/Union有餐馆商店，靠近Palace of Fine Arts/北岸；Lombard住宿在Tenderloin分析范围以北。酒店官网有直接预订免费停车候选，能减少城市租车三天成本。",
+          "nightReturn": "市中心可用30 Stockton长线至Chestnut，再短步行；30短线只到Fort Mason不能替代Marina长线。28线沿Lombard连接码头、金门桥等，公布5:00–24:00。",
+          "airport": "无本地BART站。带箱从SFO可BART加Muni/最后一段汽车；Daly City换28虽存在，但绕行、耗时，不作为舒适默认。",
+          "riskLimits": "Lombard是交通走廊，核价时优先内侧/安静房；本次夜间交通建议以已核当前普通30/28线路为依据。"
+        },
+        {
+          "name": "Japantown / 日本城",
+          "priority": "住宿体验备选；须先核价格与优胜美地接送",
+          "officialUrl": "https://www.sftravel.com/neighborhoods/japantown",
+          "fit": "Japan Center餐饮和室内购物集中在Geary的Laguna–Fillmore段，位于Tenderloin官方分析范围以西；不能把整个Western Addition一并赋予相同评价。",
+          "nightReturn": "38 Geary当前全天24小时，Geary/Fillmore或Geary/Laguna下车后短步行；市中心去日本城直接坐车，不安排沿Geary长距离横穿Tenderloin。",
+          "airport": "无BART站，要换Muni或汽车。Best Bay官网未逐家确认日本城酒店接送。",
+          "riskLimits": "若酒店无法原址接送，05点集合会多一段汽车成本和起床时间；夜间最后几条街仍需核入口及步行路线。"
+        },
+        {
+          "name": "Financial District / Embarcadero",
+          "priority": "机场铁路便利备选",
+          "officialUrl": "https://www.sftravel.com/neighborhoods/downtown-financial-district",
+          "fit": "本轮选Clay/Battery一带具体酒店，位于Tenderloin范围以东，靠近Ferry Building/Embarcadero及BART；不把所有营销为downtown的酒店视为同一位置。",
+          "nightReturn": "白天用F线沿海滨或Muni，晚归可从Embarcadero站到店；商务街区的夜间人流逐街变化，不作安全保证。带箱或晚归不熟悉时保留汽车最后一段。",
+          "airport": "Embarcadero BART直接连接SFO；Club Quarters官方列距Embarcadero站0.4英里，仍需步行。",
+          "riskLimits": "早晨团接送须逐店确认；不能为住金融区而默认05:30前有F线到码头。"
+        }
+      ],
+      "hotelCandidates": [
+        {
+          "name": "Cow Hollow Inn & Suites",
+          "address": "2190 Lombard St, San Francisco, CA 94123",
+          "area": "Marina / Cow Hollow",
+          "officialUrl": "https://cowhollowinnandsuites.com/",
+          "publishedCostRelevantFact": "官网列直接预订免费停车；实际日期房价、税及房型尚未查。",
+          "eveningTransport": "30长线的Chestnut走廊，或28线Lombard/Pierce、Lombard/Fillmore附近站；须按最终酒店入口核最近站。",
+          "yosemitePickup": "属于官网明确列的Lombard走廊，但2190酒店门口及9日接时仍未逐店确认。",
+          "role": "第一批核价候选"
+        },
+        {
+          "name": "Coventry Inn",
+          "address": "1901 Lombard St, San Francisco, CA 94123",
+          "area": "Marina / Cow Hollow",
+          "officialUrl": "https://coventrymotorinn.com/",
+          "publishedCostRelevantFact": "官网列直接预订免费停车；未查本日期房价。",
+          "eveningTransport": "30长线Chestnut/Webster或Fillmore走廊；28线Lombard/Fillmore或Laguna附近站，按入口选最近站。",
+          "yosemitePickup": "Lombard区域有官网支持，具体酒店与9日接点未确认。",
+          "role": "第一批核价候选"
+        },
+        {
+          "name": "Buena Vista Inn",
+          "address": "1599 Lombard St, San Francisco, CA 94123",
+          "area": "Lombard / Marina东端",
+          "officialUrl": "https://www.buenavistainnsf.com/",
+          "publishedCostRelevantFact": "当前官网名称为Buena Vista Inn，地址一致；前台24小时。停车是否免费及未来房价未在本次确认。不要使用旧buenavistamotorinn.com作为已核官网。",
+          "eveningTransport": "28线Lombard/Gough及30长线Chestnut/Gough走廊；酒店比Cow Hollow西段更靠近Fort Mason/码头方向。",
+          "yosemitePickup": "Lombard区域有官网支持，门口接人及9日时刻未确认。",
+          "role": "补充实惠候选"
+        },
+        {
+          "name": "The Wharf Inn",
+          "address": "2601 Mason Street, San Francisco, CA 94133",
+          "area": "Fisherman's Wharf",
+          "officialUrl": "https://wharfinn.com/",
+          "publishedCostRelevantFact": "官网现列$15 nightly停车及24/7前台；旧评论写免费停车不能当现行条款。未查12月含费房价。",
+          "eveningTransport": "F线Beach/Mason及Jefferson/Taylor走廊；码头活动后可短距离回店，具体方向与入口仍需看地图。",
+          "yosemitePickup": "Fisherman's Wharf为官网明确接送区域；此酒店及9日具体集合未确认。",
+          "role": "优先核码头低价候选"
+        },
+        {
+          "name": "Holiday Inn Express & Suites San Francisco Fishermans Wharf",
+          "address": "550 North Point Street, San Francisco, CA 94133",
+          "area": "Fisherman's Wharf",
+          "officialUrl": "https://www.ihg.com/holidayinnexpress/hotels/us/en/san-francisco/sfonp/hoteldetail",
+          "publishedCostRelevantFact": "官网免费早餐06:30–09:30；优胜美地早团日来不及吃，不能四天都扣早餐预算。官网代客停车$65+14%停车税，若租三天计约$222.30；这是现行公开价不是12月车位报价。无免费本地/机场班车。",
+          "eveningTransport": "30/28线North Point走廊与F线码头站，最后一段按酒店地图选择。",
+          "yosemitePickup": "官网支持码头区域，逐店接送与9日时刻待确认。",
+          "role": "带早餐连锁对照；租车日需看停车总成本"
+        },
+        {
+          "name": "Club Quarters Hotel, Embarcadero",
+          "address": "424 Clay Street, San Francisco, CA 94111",
+          "area": "Financial District / Clay–Battery附近",
+          "officialUrl": "https://www.clubquartershotels.com/san-francisco/embarcadero/contact",
+          "publishedCostRelevantFact": "官网附近停车$45/day；1 Embarcadero Center开放05:00–21:00，4 Embarcadero Center可24小时进场。未核本日期房价及停车税。",
+          "eveningTransport": "官方距Embarcadero BART站0.4英里；F线Embarcadero/海滨走廊可连接码头，晚归可保留汽车短程。",
+          "yosemitePickup": "官网说most downtown hotels，但没有424 Clay逐店确认；若须另到码头，05点前不能用F线。",
+          "role": "机场交通方便且可比价的备选"
+        },
+        {
+          "name": "Hotel Kabuki, JdV by Hyatt",
+          "address": "1625 Post St, San Francisco, CA 94115",
+          "area": "Japantown",
+          "officialUrl": "https://www.hyatt.com/jdv-by-hyatt/en-US/sfojd-jdv-hotel-kabuki",
+          "publishedCostRelevantFact": "仅核地点；本次未核房价/早餐/停车。属于日本城体验对照，不能未查价就称为最实惠。",
+          "eveningTransport": "38 Geary至Laguna或Fillmore附近，再到Post街酒店；不建议从市中心长距离步行穿过Tenderloin。",
+          "yosemitePickup": "本次未获得该酒店接送清单证据，须确认，不能照搬Lombard/Wharf范围。",
+          "role": "日本城舒适位置对照"
+        }
+      ],
+      "bestBayYosemite": {
+        "date": "2026-12-09",
+        "officialUrl": "https://bestbayareatours.com/tour-yosemite-california-guide/",
+        "coverage": "官网示例明确most downtown and waterfront areas including Fisherman's Wharf, Union Square and Lombard, among others。",
+        "supportLevel": "码头与Lombard走廊接送范围有现行官方产品证据；Marina全部区域、日本城及每家酒店尚未逐店确认。",
+        "timeBoundary": "旧两人实际12/09票面05:30–20:30；官网sample pickup06:00、返城20:00–21:00，且强调近似。实际酒店集合时刻以运营商确认单为准，不能把sample6点替代票面/确认的5点半。",
+        "dateQuoteEvidenceFile": "work/optimized-yosemite-evidence.json",
+        "policy": "官网写未确认接送或no-show不可退；选可退酒店后，付款下团时确认酒店或最近集合点，前一晚重看确认信息。",
+        "fallback": "酒店不接时只安排已确认集合点与短途出租/网约车，不依赖未核早班Muni，不自行猜接送地址。"
+      },
+      "transitCurrentFacts": {
+        "status": "2026-10-07官网当前公布线路；12月临时施工、绕行或时刻变化须在出发前检查。未作12月9日实际班次出票/实时到车验证。",
+        "routes": [
+          {
+            "route": "30 Stockton",
+            "url": "https://www.sfmta.com/routes/30-stockton",
+            "publishedHours": "周中05:00–24:00；周末06:00–24:00",
+            "note": "要去Marina乘long route，普通短线在Fort Mason附近折返；20:00后长线终点Divisadero/Chestnut，不再进Crissy Field。"
+          },
+          {
+            "route": "28 19th Avenue",
+            "url": "https://www.sfmta.com/routes/28-19th-avenue",
+            "publishedHours": "每天05:00–24:00",
+            "note": "沿Lombard连接Marina及码头；夜间班距官网约20分钟，非具体到站保证。"
+          },
+          {
+            "route": "F Market & Wharves",
+            "url": "https://www.sfmta.com/routes/f-market-wharves",
+            "publishedHours": "每天07:00–24:00",
+            "note": "连接Embarcadero与码头；不能用2021年只到22点的旧文章，也不能当05点集合的交通。"
+          },
+          {
+            "route": "38 Geary",
+            "url": "https://www.sfmta.com/routes/38-geary",
+            "publishedHours": "每天24小时",
+            "note": "日本城夜归可用，夜间班距约30分钟；行驶经过Tenderloin与在那里步行是不同情境。"
+          }
+        ],
+        "changesEvidence": {
+          "url": "https://www.sfmta.com/media/44942/download?inline=",
+          "note": "2026-06-06官方夏季变化资料涉及28/30/91等线路/站点，不照搬历史路线图。上述建议以当前各route页面为依据。"
+        },
+        "bart": {
+          "mapUrl": "https://www.bart.gov/system-map",
+          "stationUrl": "https://www.bart.gov/stations/embr",
+          "note": "Embarcadero位于298 Market Street、金融区，当前线网21:00前五线、21:00–午夜三线服务；不能将BART视为24小时或直接到码头/Marina/日本城。具体末班、SFO接驳与行李步行另按日期查看。"
+        }
+      },
+      "pricingHandOff": "主代理核2026-12-08至12-12两成人一间四晚最终含税费价、取消政策及停车。先比Cow Hollow/Coventry/Buena Vista/Wharf Inn，再用IHG早餐与CQ交通优势对照，不使用本研究推算未来房价。"
     }
   }
 }

@@ -1,0 +1,93 @@
+{
+  "checkedDate": "2026-10-07",
+  "checkIn": "2026-12-08",
+  "checkOut": "2026-12-12",
+  "adults": 2,
+  "rooms": 1,
+  "nights": 4,
+  "quotes": [
+    {
+      "id": "sf-coventry",
+      "name": "Coventry Motor Inn · 官网",
+      "address": "1901 Lombard Street, San Francisco, CA 94123",
+      "room": "King · 非吸烟 · 独立浴室",
+      "baseUSD": 476,
+      "taxFeeCombinedUSD": 77.68,
+      "totalUSD": 553.68,
+      "nightlyBase": [
+        119,
+        119,
+        119,
+        119
+      ],
+      "sourceURL": "https://holms.coventrymotorinn.com/Home/Checkout?room=7e73f9fb-90cf-11e9-a303-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.1632",
+      "roomSourceURL": "https://www.coventrymotorinn.com/hotel/",
+      "cancel": "原文要求到店日前15:00取消，未写提前几天；逾期收一晚。具体截止仍须确认。",
+      "cancelExactVerified": false,
+      "notes": "7日前预授权一晚房税；官网直订免费停车，无需会员。私卫和最低18岁由同房型OTA物业资料辅助核实。"
+    },
+    {
+      "id": "sf-lombard",
+      "name": "Lombard Plaza Motel · 官网",
+      "address": "2026 Lombard Street, San Francisco, CA 94123",
+      "room": "1 King Bed · Non Smoking · 独立浴室",
+      "baseUSD": 570,
+      "taxUSD": 85.9,
+      "feeUSD": 0,
+      "totalUSD": 655.9,
+      "sourceURL": "https://www.innsight.com/ibe/san-francisco-ca/lombardplaza/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2",
+      "cancel": "Best Standard：12/6 15:00 PST前可取消；逾期/未到收一晚房税费。",
+      "cancelExactVerified": true,
+      "notes": "初选页暂显税0，最终GuestInformation前总价655.90；不能拿570当含税。可退损坏押金200不算花费，免费停车。"
+    },
+    {
+      "id": "sf-cow",
+      "name": "Cow Hollow Inn & Suites · 官网",
+      "address": "2190 Lombard Street, San Francisco, CA 94123",
+      "room": "King Deluxe · 非吸烟；普通King私卫文字待逐型补核",
+      "baseUSD": 695,
+      "taxFeeCombinedUSD": 113.37,
+      "totalUSD": 808.37,
+      "sourceURL": "https://holms.cowhollowinnandsuites.com/Home/Checkout?room=9caca25a-35dc-11ea-bdda-b06ebfc61668&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163125",
+      "cancel": "普通房到店前24h且11:00前取消；本入住按12/7 11:00 PST前准备，逾期一晚；suite72h。",
+      "cancelExactVerified": true,
+      "notes": "免费停车限官网直订；所选Deluxe不等于更安静Superior。7日前预授权一晚房税，OTA18岁起。"
+    },
+    {
+      "id": "sf-chelsea",
+      "name": "Chelsea Inn · 官网",
+      "address": "2095 Lombard Street, San Francisco, CA 94123",
+      "room": "Two Double Beds · 非吸烟；私卫书面与最低年龄待核",
+      "baseUSD": 726,
+      "taxFeeCombinedUSD": 118.49,
+      "totalUSD": 844.49,
+      "sourceURL": "https://holms.chelseamotorinn.com/Home/Checkout?room=27f4c754-43cc-11e9-bdc2-10c37b9f97ca&arrival=2026-12-08&departure=2026-12-12&adults=2&children=0&tax=0.163215",
+      "cancel": "原文要求到店日前15:00取消，未写提前几天；逾期一晚。具体截止仍须确认。",
+      "cancelExactVerified": false,
+      "notes": "免费室内停车；7日前预授权一晚房税，无早餐证据。"
+    },
+    {
+      "id": "sf-seaside",
+      "name": "Seaside Inn · 官网Advance Purchase",
+      "address": "1750 Lombard St, San Francisco, CA 94123",
+      "room": "King Room · Non Smoking · 独立浴室",
+      "baseUSD": 781.96,
+      "taxUSD": 127.56,
+      "feeUSD": 0,
+      "totalUSD": 909.52,
+      "sourceURL": "https://www.sfseasideinn.com/reservations?room_check_in=2026-12-08&room_check_out=2026-12-12&rooms=1&room1=2",
+      "cancel": "所选AdvancePurchase不可取消/修改；不能套用标准72h取消政策。",
+      "cancelExactVerified": true,
+      "notes": "税前初选781.97和总909.53，最终下一页舍入781.96+127.56=909.52为准；限量免费停车先到先得。"
+    }
+  ],
+  "unpricedCandidates": [
+    {
+      "name": "The Wharf Inn",
+      "address": "2601 Mason Street, San Francisco, CA 94133",
+      "sourceURL": "https://secure.webrez.com/hotel/3059",
+      "reason": "人机自动检查结束后有日期查询界面，但日期控件尚未完成本次实选；没有本日期最终含税价。未人工解验证或预订。"
+    }
+  ],
+  "privacy": "No guest information entered; no reservation or payment; no private checkout session URL published."
+}
