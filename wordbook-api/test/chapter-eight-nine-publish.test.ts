@@ -8,9 +8,10 @@ import { PublishRequestSchema, validateSnapshot, type PublicEntry } from "../src
 import { applyPublishMutation } from "../src/wordbook";
 
 const remote = validateSnapshot(publishedSnapshot);
+const publicationAt = new Date(Math.max(...remote.entries.map(entry => Date.parse(entry.updatedAt))) + 1000).toISOString();
 const book = "never-let-me-go";
 
-for (const { source, count } of [{ source: chapterEight, count: 18 }, { source: chapterNine, count: 8 }]) {
+for (const { source, count } of [{ source: chapterEight, count: 25 }, { source: chapterNine, count: 24 }]) {
   const chapter = source.chapter.id;
   const membership = `collection:${book}:${chapter}`;
   const cards = remote.entries.filter(entry => entry.tags.includes(membership));
@@ -19,7 +20,7 @@ for (const { source, count } of [{ source: chapterEight, count: 18 }, { source: 
     it(`retains precisely ${count} selected cards through the API snapshot round-trip`, () => {
       expect(source.items).toHaveLength(count);
       expect(cards).toHaveLength(count);
-      expect(cards.map(entry => entry.term)).toEqual(source.items.map(item => item.term));
+      expect(new Set(cards.map(entry => entry.term))).toEqual(new Set(source.items.map(item => item.term)));
       expect(new Set(cards.map(entry => entry.id)).size).toBe(count);
       expect(new Set(cards.map(entry => entry.normalized)).size).toBe(count);
       const roundTrip = validateSnapshot(JSON.parse(JSON.stringify(remote)));
@@ -40,7 +41,7 @@ for (const { source, count } of [{ source: chapterEight, count: 18 }, { source: 
             mutationId: `${chapter}-${view}-${canonical.id}`,
             mutation: { type: "update", entry: candidate, expectedUpdatedAt: canonical.updatedAt }
           });
-          const result = applyPublishMutation(remote, request, "2026-09-30T12:00:00.000Z");
+          const result = applyPublishMutation(remote, request, publicationAt);
           expect(result.action).toBe("updated");
           expect(result.entry!.id).toBe(canonical.id);
           expect(result.entry!.createdAt).toBe(canonical.createdAt);

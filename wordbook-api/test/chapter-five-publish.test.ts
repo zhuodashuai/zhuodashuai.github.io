@@ -8,6 +8,7 @@ import { applyPublishMutation } from "../src/wordbook";
 import { entry, snapshot } from "./fixtures";
 
 const membership = "collection:never-let-me-go:chapter-5";
+const publicationAt = new Date(Math.max(...publishedSnapshot.entries.map(entry => Date.parse(entry.updatedAt))) + 1000).toISOString();
 const readingContext = {
   membership, page: "p. 49", originalInput: "carried on", entryType: "phrasal-verb" as const,
   partOfSpeech: "verb", meaning: "继续下去", definition: "To continue an activity.",
@@ -69,16 +70,16 @@ describe("Chapter 5 publication regression", () => {
   it("round-trips the complete current snapshot through the API snapshot validator", () => {
     const parsed = validateSnapshot(publishedSnapshot);
     expect(parsed.entries).toHaveLength(publishedSnapshot.entries.length);
-    expect(chapterEntries(parsed.entries)).toHaveLength(18);
+    expect(chapterEntries(parsed.entries)).toHaveLength(24);
     expect(parsed).toEqual(publishedSnapshot);
     expect(validateSnapshot(JSON.parse(JSON.stringify(parsed)))).toEqual(parsed);
   });
 
   for (const view of ["canonical", "Chapter 5 projected"] as const) {
-    it(`accepts all 18 actual ${view} entries through the API publish and lexical quality gates`, () => {
+    it(`accepts all 24 actual ${view} entries through the API publish and lexical quality gates`, () => {
       const remote = validateSnapshot(publishedSnapshot);
       const candidates = chapterEntries(remote.entries);
-      expect(candidates).toHaveLength(18);
+      expect(candidates).toHaveLength(24);
       expect(candidates.map((candidate) => candidate.term).sort()).toEqual(
         chapterSource.items.map((item) => item.term).sort()
       );
@@ -93,7 +94,7 @@ describe("Chapter 5 publication regression", () => {
             mutationId: `chapter-five-api-check-${canonical.id}`,
             mutation: { type: "update", entry: candidate, expectedUpdatedAt: canonical.updatedAt }
           });
-          const result = applyPublishMutation(remote, request, "2026-09-27T18:00:00.000Z");
+          const result = applyPublishMutation(remote, request, publicationAt);
           expect(result.action).toBe("updated");
           expect(result.entry!.id).toBe(canonical.id);
           expect(result.snapshot.entries).toHaveLength(remote.entries.length);

@@ -15,8 +15,8 @@ test.beforeEach(async ({ context, page }, testInfo) => {
   page.on("pageerror", error => { throw new Error(`Unhandled chapter reading error: ${error.message}`); });
 });
 
-for (const [chapter, count] of [[8, 18], [9, 8]]) {
-  test(`Chapter ${chapter}: every marked card opens with its own source, original form and bilingual example`, async ({ page }) => {
+for (const [chapter, count] of [[8, 25], [9, 24]]) {
+  test(`Chapter ${chapter}: every selected card opens with its own source, original form and bilingual example`, async ({ page }) => {
     test.setTimeout(90_000);
     const source = JSON.parse(await readFile(new URL(`../../../vocab/data/reading-lists/never-let-me-go/chapter-${chapter}.json`, import.meta.url), "utf8"));
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}`);

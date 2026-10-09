@@ -70,7 +70,7 @@ async function expectSpeechStopped(page) {
 test("card speaker reads the full expression without opening the card, and clicking again stops it", async ({ page }) => {
   await installSpeechStub(page);
   await page.goto(chapterUrl);
-  await expect(page.locator("#entry-count")).toHaveText("18");
+  await expect(page.locator("#entry-count")).toHaveText("25");
   expect((await speechState(page)).calls).toHaveLength(0);
   const speaker = page.locator('#entry-grid button[data-audio-text="be crawling with"]');
   await expect(speaker).toHaveAccessibleName("朗读 be crawling with");
@@ -173,7 +173,7 @@ test("the explicit X closes speech and reopening the word still allows pronuncia
   expect(saved[0]).toMatchObject({ reviewCount: 1, lastRating: "easy" });
   await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();
   await expectSpeechStopped(page);
-  await expect(page.locator("#due-count")).toHaveText("17");
+  await expect(page.locator("#due-count")).toHaveText("24");
 
   await page.locator("#study-button").click();
   await expect(page.locator("#dialog-term")).toHaveText("be crawling with");
@@ -285,7 +285,7 @@ test("owner detail uses the same pronunciation controls without requiring an AI 
 test("PWA caches pronunciation modules and offline reload still wires local voice controls", async ({ context, page }) => {
   await installSpeechStub(page);
   await page.goto(chapterUrl);
-  await expect(page.locator("#entry-count")).toHaveText("18");
+  await expect(page.locator("#entry-count")).toHaveText("25");
   await page.evaluate(async () => navigator.serviceWorker.ready);
   await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
   const cachedModules = await page.evaluate(async () => {
@@ -297,7 +297,7 @@ test("PWA caches pronunciation modules and offline reload still wires local voic
   expect(cachedModules).toContain("/js/pronunciation-ui.js");
   await context.setOffline(true);
   await page.reload();
-  await expect(page.locator("#entry-count")).toHaveText("18");
+  await expect(page.locator("#entry-count")).toHaveText("25");
   await page.locator('#entry-grid button[data-audio-text="tranquil"]').click();
   expect((await speechState(page)).calls.at(-1)).toMatchObject({ text: "tranquil", lang: "en-GB", voiceLang: "en-GB" });
   await context.setOffline(false);
@@ -313,7 +313,7 @@ test.describe("remote snapshots while pronunciation is active", () => {
       await installSpeechStub(page);
       await page.route("**/api/v1/public/wordbook**", route => route.fulfill({ json: snapshot }));
       await page.goto(chapterUrl);
-      await expect(page.locator("#entry-count")).toHaveText("18");
+      await expect(page.locator("#entry-count")).toHaveText("25");
       if (mode === "detail") {
         await page.getByRole("button", { name: "查看 tranquil 的完整词条", exact: true }).click();
         await page.locator("#dialog-speak").click();

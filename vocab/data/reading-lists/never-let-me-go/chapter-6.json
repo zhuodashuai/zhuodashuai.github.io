@@ -13,12 +13,51 @@
   "originalInputKind": "excerpt",
   "sourcePhotoDocument": "Never_Let_Me_Go_Chapter_6_Photos (1).pdf",
   "reviewedPages": "61–75",
-  "selectionNote": "逐页核对照片：8 项可明确辨认的划线词，加 8 项精选补充。兼顾熟词生义、写作和实用表达，不做穷尽式收录。",
+  "selectionNote": "逐页核对照片 pp. 61–75，保留原有 16 项（8 项明确划线词、8 项精选补充），再依用户授权加入 8 项值得学习的内容，共 24 项。兼顾口语关系表达、写作连接词与文学描写，不作穷尽式收录；已在其他章节收录的同词同义条目复用原词卡并新增本章语境。",
   "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
-  "expectedItemCount": 16,
+  "expectedItemCount": 24,
   "items": [
     {
       "order": 1,
+      "page": "61",
+      "term": "hold something against somebody",
+      "originalInput": "held it against me",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "phonetic": "/həʊld ˈsʌmθɪŋ əˈɡenst ˈsʌmbədi/",
+      "meaning": "① 因某事责怪或记恨某人。",
+      "definitionEn": "blame or resent someone because of something they have done",
+      "usage": "第六章语境：Kathy 觉得，如果 Ruth 能明显表现出责怪自己，她反而可能好受些；这是 Kathy 的设想，不是说 Ruth 已经如此表现。\n用法：hold something against somebody；不要逐字译成把东西顶住某人。本章与第二章义项相同，复用同一张词卡。",
+      "exampleEn": "Please don't hold one careless remark against him.",
+      "exampleZh": "请别因为他一句不经意的话就记恨他。",
+      "forms": ["held something against somebody"],
+      "collocations": ["hold it against somebody", "not hold something against somebody"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "实用表达"],
+      "reuseExistingSameSense": true
+    },
+    {
+      "order": 2,
+      "page": "61",
+      "term": "cave in",
+      "originalInput": "seemed just to cave in",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "phonetic": "/keɪv ɪn/",
+      "meaning": "① 在压力下垮下来；不再抵抗。",
+      "definitionEn": "give way emotionally or stop resisting under pressure",
+      "usage": "第六章语境：Ruth 没有生气反击，而像是被这件事击垮了，连发怒的力气也没有；这是情绪上的垮下去，不是山洞塌方。\n用法：cave in 表示顶不住压力；cave in to pressure 表示向压力屈服。这里不要机械译成同意某个具体要求。",
+      "exampleEn": "She refused to cave in to pressure from the group.",
+      "exampleZh": "她拒绝屈服于来自团体的压力。",
+      "forms": ["caved in", "caving in"],
+      "collocations": ["cave in under pressure", "cave in to demands"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "实用表达", "心理描写"]
+    },
+    {
+      "order": 3,
       "page": "61",
       "term": "huffiness",
       "originalInput": "huffiness",
@@ -42,7 +81,7 @@
       ]
     },
     {
-      "order": 2,
+      "order": 4,
       "page": "61",
       "term": "stand a chance",
       "originalInput": "stand a chance",
@@ -66,7 +105,7 @@
       ]
     },
     {
-      "order": 3,
+      "order": 5,
       "page": "62",
       "term": "remorse",
       "originalInput": "remorse",
@@ -90,7 +129,26 @@
       ]
     },
     {
-      "order": 4,
+      "order": 6,
+      "page": "62",
+      "term": "drift apart",
+      "originalInput": "would have drifted apart",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "phonetic": "/drɪft əˈpɑːt/",
+      "meaning": "① 逐渐疏远；关系慢慢变得不亲近。",
+      "definitionEn": "gradually become less close to one another",
+      "usage": "第六章语境：Kathy 设想，如果事情一直没有转机，她和 Ruth 也许会慢慢疏远；这里说的是一种可能，并非已经发生的事实。\n用法：通常以两个人或群体作主语，如 we drifted apart；强调逐渐变化，不一定有明确争吵或决裂。",
+      "exampleEn": "We gradually drifted apart after moving to different cities.",
+      "exampleZh": "搬到不同城市后，我们渐渐疏远了。",
+      "forms": ["drifted apart", "drifting apart"],
+      "collocations": ["gradually drift apart", "friends drift apart"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "实用表达", "人物关系"]
+    },
+    {
+      "order": 7,
       "page": "62",
       "term": "luscious",
       "originalInput": "luscious",
@@ -114,7 +172,7 @@
       ]
     },
     {
-      "order": 5,
+      "order": 8,
       "page": "63",
       "term": "quandary",
       "originalInput": "quandary",
@@ -140,7 +198,45 @@
       ]
     },
     {
-      "order": 6,
+      "order": 9,
+      "page": "63",
+      "term": "intervene",
+      "originalInput": "I'd intervened with Midge",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "phonetic": "/ˌɪntəˈviːn/",
+      "meaning": "① 出面干预；介入以改变局面。",
+      "definitionEn": "become involved in a situation to influence or improve what happens",
+      "usage": "第六章语境：Kathy 在 Midge 追问文具盒时插话替 Ruth 解围；这里的介入是人际交往中的帮助，不是强制阻止或身体冲突。\n用法：intervene in a dispute；intervene to help somebody。与 interrupt 的打断说话不同，intervene 更强调介入局势、影响结果。",
+      "exampleEn": "The teacher intervened to prevent the disagreement from escalating.",
+      "exampleZh": "老师出面干预，避免分歧进一步升级。",
+      "forms": ["intervenes", "intervened", "intervening"],
+      "collocations": ["intervene in a dispute", "intervene to help somebody"],
+      "confusedWith": ["interrupt"],
+      "register": "neutral",
+      "tags": ["补充阅读", "写作词汇"]
+    },
+    {
+      "order": 10,
+      "page": "66",
+      "term": "mystique",
+      "originalInput": "added to its mystique",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "phonetic": "/mɪˈstiːk/",
+      "meaning": "① 神秘魅力；因不甚了解而产生的吸引力。",
+      "definitionEn": "an attractive or intriguing quality created by mystery or limited knowledge",
+      "usage": "第六章语境：孩子们从未见过 Norfolk 的照片，这反而增强了那个地方对他们的神秘吸引力；不是在确认那里具有超自然力量。\n用法：不可数名词；the mystique of a place / add to its mystique。mystery 强调谜团，mystique 更强调神秘带来的魅力。",
+      "exampleEn": "The island's isolation adds to its mystique.",
+      "exampleZh": "这座岛的与世隔绝增添了它的神秘魅力。",
+      "forms": [],
+      "collocations": ["add to its mystique", "the mystique of a place"],
+      "confusedWith": ["mystery"],
+      "register": "neutral",
+      "tags": ["补充阅读", "文学描写"]
+    },
+    {
+      "order": 11,
       "page": "66",
       "term": "hazy",
       "originalInput": "haziest",
@@ -168,7 +264,26 @@
       ]
     },
     {
-      "order": 7,
+      "order": 12,
+      "page": "66",
+      "term": "albeit",
+      "originalInput": "albeit as a sort of joke",
+      "entryType": "word",
+      "partOfSpeech": "conjunction",
+      "phonetic": "/ˌɔːlˈbiːɪt/",
+      "meaning": "① 尽管；虽说；即使是以……的形式。",
+      "definitionEn": "although; used to qualify or limit a preceding statement",
+      "usage": "第六章语境：长大一些后，他们仍会谈起 Norfolk，虽说那时已带着玩笑意味；albeit 对仍在谈论这件事作补充限定。\n用法：较书面，常接形容词或短语，如 useful, albeit expensive。不要把 albeit 当成可以在任何完整从句前直接替换 although 的词。",
+      "exampleEn": "The method is effective, albeit somewhat slow.",
+      "exampleZh": "这个方法有效，尽管有些慢。",
+      "forms": [],
+      "collocations": ["albeit reluctantly", "albeit at a slower pace"],
+      "confusedWith": [],
+      "register": "formal",
+      "tags": ["补充阅读", "写作连接词"]
+    },
+    {
+      "order": 13,
       "page": "67",
       "term": "sleeve",
       "originalInput": "record sleeve",
@@ -194,7 +309,7 @@
       ]
     },
     {
-      "order": 8,
+      "order": 14,
       "page": "67",
       "term": "grind to a halt",
       "originalInput": "grind to a halt",
@@ -221,7 +336,26 @@
       "reuseExistingSameSense": true
     },
     {
-      "order": 9,
+      "order": 15,
+      "page": "69",
+      "term": "wary",
+      "originalInput": "wary of that whole territory",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "phonetic": "/ˈweəri/",
+      "meaning": "① 警惕的；因担心麻烦而谨慎的。",
+      "definitionEn": "cautious because one suspects possible danger or difficulty",
+      "usage": "第六章语境：Kathy 回想孩子们对那一类敏感话题有所戒备，因此不愿继续追问；territory 指话题领域，不是某片领土。\n用法：be wary of somebody/something/doing something。不要与 weary（疲倦的）混淆。",
+      "exampleEn": "I am wary of making promises I may not be able to keep.",
+      "exampleZh": "对于可能无法兑现的承诺，我很谨慎。",
+      "forms": ["warier", "wariest"],
+      "collocations": ["be wary of something", "a wary glance"],
+      "confusedWith": ["weary"],
+      "register": "neutral",
+      "tags": ["补充阅读", "写作词汇", "易混词"]
+    },
+    {
+      "order": 16,
       "page": "69",
       "term": "unnerve",
       "originalInput": "unnerved",
@@ -249,7 +383,7 @@
       ]
     },
     {
-      "order": 10,
+      "order": 17,
       "page": "71",
       "term": "complacent",
       "originalInput": "complacent",
@@ -273,7 +407,7 @@
       ]
     },
     {
-      "order": 11,
+      "order": 18,
       "page": "71",
       "term": "jerk somebody out of something",
       "originalInput": "jerk me out of my dream",
@@ -300,7 +434,26 @@
       ]
     },
     {
-      "order": 12,
+      "order": 19,
+      "page": "71",
+      "term": "fathom",
+      "originalInput": "I couldn't fathom",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "phonetic": "/ˈfæðəm/",
+      "meaning": "① 理解；弄明白难以解释的事。",
+      "definitionEn": "understand something that is difficult or puzzling",
+      "usage": "第六章语境：Kathy 发现 Madame 的眼神中还有某种她无法理解的东西；此处不替人物揭示原因，也不借用后续章节解释。\n用法：常与 cannot / could not 连用，如 can't fathom why…。第四章的 unfathomable（难以理解的）由同一词根构成，可联想记忆，但不是本词的词形变化。",
+      "exampleEn": "I couldn't fathom why the message had upset him.",
+      "exampleZh": "我弄不明白为什么那条消息让他不高兴。",
+      "forms": ["fathoms", "fathomed", "fathoming"],
+      "collocations": ["cannot fathom why", "fathom somebody's motives"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "文学描写", "构词联想"]
+    },
+    {
+      "order": 20,
       "page": "72",
       "term": "hunch up",
       "originalInput": "hunched up",
@@ -327,7 +480,7 @@
       ]
     },
     {
-      "order": 13,
+      "order": 21,
       "page": "73",
       "term": "rummage",
       "originalInput": "rummaging through",
@@ -356,7 +509,7 @@
       "reuseExistingSameSense": true
     },
     {
-      "order": 14,
+      "order": 22,
       "page": "73",
       "term": "dawn on somebody",
       "originalInput": "dawned on me",
@@ -383,7 +536,7 @@
       ]
     },
     {
-      "order": 15,
+      "order": 23,
       "page": "74",
       "term": "reconcile oneself to something",
       "originalInput": "reconciled myself to having truly lost my tape",
@@ -410,7 +563,7 @@
       ]
     },
     {
-      "order": 16,
+      "order": 24,
       "page": "75",
       "term": "ebb away",
       "originalInput": "ebbing away",

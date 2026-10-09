@@ -14,10 +14,29 @@
   "sourceDocument": "Never_Let_Me_Go_Chapter_5_Vocabulary.md",
   "sourcePhotoDocument": "Never_Let_Me_Go_Chapter_5_Photos.pdf",
   "reviewedPages": "49–60",
-  "selectionNote": "依据第五章照片 pp. 49–60 精选 18 项：4 项可明确确认的蓝线标记，加上用户授权判断的 14 项补充，兼顾文学阅读、写作、熟词生义与实用表达。不是全部未知词的判定；未选候选保存在本地备份和 Git 历史 82cd6b7，不进入本章复习队列。保留原文页序、词卡 ID 和现有学习功能；照片边缘的第六章不纳入。",
+  "selectionNote": "依据第五章照片 pp. 49–60 精选 24 项：保留原有 18 项（4 项可明确确认的蓝线标记及 14 项补充），再按用户授权加入 6 项值得学习的表达与难词，兼顾口语、写作及文学描写，不为数量收录简单词。保留既有条目的 order、词卡 ID 和学习记录；照片边缘的第六章不纳入。其余未选候选仍不进入本章复习队列。",
   "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
-  "expectedItemCount": 18,
+  "expectedItemCount": 24,
   "items": [
+    {
+      "order": 9,
+      "page": "49",
+      "term": "expel",
+      "originalInput": "expelled someone",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "phonetic": "/ɪkˈspel/",
+      "meaning": "① 把某人赶出；将某人从团体中除名。",
+      "definitionEn": "force someone to leave a group or organisation",
+      "usage": "第五章语境：秘密卫队的人数会随着 Ruth 接纳新成员或赶走某个成员而变化；这里不是学校正式开除学生。\n用法：expel somebody from a group；过去式 expelled 和现在分词 expelling 要双写 l。可用于阅读或写作中描述团体的排斥行为。",
+      "exampleEn": "The club expelled a member for repeatedly breaking its rules.",
+      "exampleZh": "俱乐部将一名屡次违反规定的成员除名。",
+      "forms": ["expels", "expelled", "expelling"],
+      "collocations": ["expel somebody from a group", "expel a member"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "写作词汇"]
+    },
     {
       "order": 14,
       "page": "50",
@@ -121,6 +140,25 @@
         "补充阅读",
         "单词"
       ]
+    },
+    {
+      "order": 33,
+      "page": "51",
+      "term": "revolve around",
+      "originalInput": "revolved around gathering more and more evidence",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "phonetic": "/rɪˈvɒlv əˈraʊnd/",
+      "meaning": "① 以……为中心；主要围绕……展开。",
+      "definitionEn": "have something as the main focus or concern",
+      "usage": "第五章语境：秘密卫队的活动主要围绕搜集所谓的证据展开，而不是采取实际保护行动；不能据此认定孩子们怀疑的阴谋是真实的。\n用法：revolve around + 名词或 doing；本章是活动的中心，不是物体绕圈旋转。适合描述讨论、故事或日常生活的重点。",
+      "exampleEn": "Our discussion revolved around finding a practical solution.",
+      "exampleZh": "我们的讨论围绕寻找可行的解决办法展开。",
+      "forms": ["revolved around", "revolving around"],
+      "collocations": ["a discussion revolves around something", "revolve around doing something"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "写作表达", "熟词生义"]
     },
     {
       "order": 34,
@@ -231,6 +269,7 @@
       "entryType": "word",
       "partOfSpeech": "verb",
       "sourceType": "verb",
+      "phonetic": "/ɪnˈɡrəʊs/",
       "meaning": "① 使全神贯注、完全投入。",
       "definitionEn": "absorb someone's attention completely",
       "usage": "第五章语境：Kathy 希望自己也能像那些下棋的学生一样，沉浸于那些精美棋子和棋局中。这里的 myself 强调她自己也想投入其中。\n用法：be/become engrossed in something，全神贯注于某事；engross 是动词原形，原文保留 engrossed myself 这一片段。",
@@ -250,6 +289,25 @@
         "补充阅读",
         "单词"
       ]
+    },
+    {
+      "order": 54,
+      "page": "52",
+      "term": "ornate",
+      "originalInput": "those ornate pieces",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "phonetic": "/ɔːˈneɪt/",
+      "meaning": "① 装饰华丽的；有繁复精美装饰的。",
+      "definitionEn": "decorated with many elaborate details",
+      "usage": "第五章语境：Kathy 被那些精美华丽的棋子吸引，希望自己也能投入棋局；pieces 在这里是棋子，不是随意的碎片。\n用法：ornate furniture / decoration；比 beautiful 更具体，强调装饰繁复，适合描写物品和建筑。",
+      "exampleEn": "An ornate mirror hung above the fireplace.",
+      "exampleZh": "壁炉上方挂着一面装饰华丽的镜子。",
+      "forms": [],
+      "collocations": ["ornate furniture", "an ornate frame"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "文学描写"]
     },
     {
       "order": 56,
@@ -278,6 +336,25 @@
         "补充阅读",
         "单词"
       ]
+    },
+    {
+      "order": 65,
+      "page": "53",
+      "term": "storm off",
+      "originalInput": "my storming off",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "phonetic": "/stɔːm ɒf/",
+      "meaning": "① 怒气冲冲地离开；气冲冲地走掉。",
+      "definitionEn": "leave a place angrily and abruptly",
+      "usage": "第五章语境：Kathy 收起棋具走开，虽然没有直接说 Ruth 不会下棋，但愤然离开的举动已表达了不满。\n用法：storm off 常不接宾语；storm out of a room 强调冲出某个房间。storm 在此作动词，与天气无关。",
+      "exampleEn": "He stormed off before I could explain the mistake.",
+      "exampleZh": "我还没来得及解释那个误会，他就气冲冲地走了。",
+      "forms": ["stormed off", "storming off"],
+      "collocations": ["storm off in anger", "storm out of the room"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "实用表达", "人物描写"]
     },
     {
       "order": 72,
@@ -378,6 +455,25 @@
       ]
     },
     {
+      "order": 113,
+      "page": "57",
+      "term": "brace oneself",
+      "originalInput": "I'd brace myself",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "phonetic": "/breɪs wʌnˈself/",
+      "meaning": "① 做好心理准备，迎接困难或令人不快的事。",
+      "definitionEn": "prepare oneself mentally for something difficult or unpleasant",
+      "usage": "第五章语境：Kathy 有时能从谈话走向预感到 Ruth 又要暗示自己受到特别关照，于是先做好心理准备，但仍会感到难受。\n用法：brace oneself for something / brace oneself to do something；这里不是给身体加支撑，而是准备承受情绪冲击。",
+      "exampleEn": "I braced myself for a difficult conversation.",
+      "exampleZh": "我做好了进行一场艰难谈话的心理准备。",
+      "forms": ["braced oneself", "bracing oneself"],
+      "collocations": ["brace oneself for bad news", "brace oneself to hear something"],
+      "confusedWith": [],
+      "register": "neutral",
+      "tags": ["补充阅读", "实用表达", "心理描写"]
+    },
+    {
       "order": 120,
       "page": "57",
       "term": "brood over",
@@ -476,6 +572,25 @@
         "补充阅读",
         "习语"
       ]
+    },
+    {
+      "order": 151,
+      "page": "60",
+      "term": "baffling",
+      "originalInput": "utterly baffling",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "phonetic": "/ˈbæflɪŋ/",
+      "meaning": "① 令人困惑的；难以理解的。",
+      "definitionEn": "extremely difficult to understand or explain",
+      "usage": "第五章语境：看到 Ruth 难过，Kathy 突然觉得自己费尽心思揭穿好友的行为难以理解；baffling 描写的是她对自己行为的感受。\n用法：baffling 形容事物令人困惑；baffled 形容人感到困惑。utterly baffling 表示完全令人摸不着头脑。",
+      "exampleEn": "The instructions were so baffling that we asked for a demonstration.",
+      "exampleZh": "说明令人十分困惑，于是我们请人示范了一遍。",
+      "forms": [],
+      "collocations": ["utterly baffling", "a baffling question"],
+      "confusedWith": ["baffled"],
+      "register": "neutral",
+      "tags": ["补充阅读", "写作词汇", "心理描写"]
     }
   ]
 }

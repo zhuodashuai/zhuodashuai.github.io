@@ -4,7 +4,7 @@ for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }
   test(`compact public introduction keeps search in the first screen at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto("/?book=never-let-me-go&chapter=chapter-5");
-    await expect(page.locator("#entry-count")).toHaveText("18");
+    await expect(page.locator("#entry-count")).toHaveText("24");
     await expect(page.locator("#page-title")).toHaveText("卓的单词本");
     await expect(page.locator(".public-hero .about-card")).toHaveCount(0);
     const layout = await page.evaluate(() => {

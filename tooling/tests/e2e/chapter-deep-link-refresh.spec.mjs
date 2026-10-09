@@ -63,7 +63,7 @@ test("Chapter 8 deep link survives an old offline IndexedDB cache until the new 
   // It is acceptable to show the cached book while Chapter 8 is unavailable;
   // the original intent must be restored once the validated new data arrives.
   await refreshWithCurrent(page, changePhase);
-  await expectChapter(page, 8, 18);
+  await expectChapter(page, 8, 25);
   await expect(page.locator("#chapter-quiz-button")).toBeVisible();
 });
 
@@ -74,7 +74,7 @@ test("Chapter 8 deep link survives an initially stale successful live snapshot a
   await expect(page.locator('#chapter-tabs button[data-value="chapter-8"]')).toHaveCount(0);
   await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
   await refreshWithCurrent(page, changePhase);
-  await expectChapter(page, 8, 18);
+  await expectChapter(page, 8, 25);
 });
 
 test("a genuinely unavailable chapter falls back to the whole book without an empty or misleading quiz scope", async ({ page }) => {

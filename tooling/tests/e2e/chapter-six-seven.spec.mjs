@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-for (const [chapter, count] of [[6,16], [7,30]]) {
+for (const [chapter, count] of [[6,24], [7,30]]) {
   test(`Chapter ${chapter}: all entries open with bilingual examples and chapter-specific sources`, async ({ page }) => {
     test.setTimeout(90_000);
     const source = JSON.parse(await readFile(new URL(`../../../vocab/data/reading-lists/never-let-me-go/chapter-${chapter}.json`, import.meta.url), "utf8"));

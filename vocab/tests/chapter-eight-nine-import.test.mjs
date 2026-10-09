@@ -18,6 +18,7 @@ const snapshot = parsePublicSnapshot(JSON.parse(await readFile(snapshotUrl, "utf
 const sourceUrl = chapter => new URL(`../data/reading-lists/${book}/chapter-${chapter}.json`, import.meta.url);
 const load = async chapter => JSON.parse(await readFile(sourceUrl(chapter), "utf8"));
 const chapterEntries = (entries, chapter) => filterEntriesByCollection(entries, book, `chapter-${chapter}`);
+const selectedCounts = new Map([[8, 25], [9, 24]]);
 // Exact marked selection, independent of the canonical cards: page, headword,
 // and original inflected form must survive normalization and repeated import.
 const marked = new Map([
@@ -41,21 +42,21 @@ const marked = new Map([
 ]);
 
 for (const [chapter, expected] of marked) {
-  test(`Chapter ${chapter} retains exactly the marked selection, original forms and bilingual page-specific explanations`, async () => {
+  test(`Chapter ${chapter} retains all marked entries alongside the approved supplements`, async () => {
     const source = await load(chapter);
-    assert.equal(source.expectedItemCount, expected.length);
-    assert.equal(source.items.length, expected.length);
+    assert.equal(source.expectedItemCount, selectedCounts.get(chapter));
+    assert.equal(source.items.length, selectedCounts.get(chapter));
     assert.deepEqual(source.collection, { id: book, title: "Never Let Me Go" });
     assert.deepEqual(source.chapter, { id: `chapter-${chapter}`, title: `Chapter ${chapter}`, number: chapter });
     assert.equal(source.sourceTitle, `Never Let Me Go — Chapter ${chapter}`);
     assert.equal(source.sourcePhotoDocument, `Never_Let_Me_Go_Chapter_${chapter}_Photos.pdf`);
     assert.equal(source.originalInputKind, "excerpt");
-    assert.deepEqual(source.items.map(item => [Number(item.page), item.term, item.originalInput]), expected);
-    assert.deepEqual(source.items.map(item => item.order), expected.map((_, index) => index + 1));
-    assert.equal(new Set(source.items.map(item => normalizeEnglish(item.term))).size, expected.length);
+    assert.deepEqual(source.items.filter(item => item.tags.includes("划线词")).map(item => [Number(item.page), item.term, item.originalInput]), expected);
+    assert.deepEqual(source.items.map(item => item.order), source.items.map((_, index) => index + 1));
+    assert.equal(new Set(source.items.map(item => normalizeEnglish(item.term))).size, source.items.length);
     for (const item of source.items) {
-      assert.ok(item.tags.includes("划线词"), item.term + ": not an unapproved suggestion");
-      assert.equal(item.tags.includes("精选补充"), false);
+      assert.ok(item.tags.includes("划线词") || item.tags.includes("补充阅读"), item.term + ": selection provenance");
+      assert.equal(item.tags.includes("划线词") && item.tags.includes("补充阅读"), false, "supplements are not mislabelled as marked");
       assert.match(item.meaning, /^①\s+\p{Script=Han}/u, item.term + ": numbered Chinese meaning");
       assert.match(item.usage, chapter === 8 ? /^第八章语境：/u : /^第九章语境：/u);
       assert.match(item.usage, /\n用法：/u, item.term + ": context and usage are separate lines");
@@ -70,12 +71,12 @@ for (const [chapter, expected] of marked) {
   test(`Chapter ${chapter} canonical cards preserve every source field and reimport without changes`, async () => {
     const source = await load(chapter);
     const cards = chapterEntries(snapshot.entries, chapter);
-    assert.equal(cards.length, expected.length);
-    assert.deepEqual(cards.map(entry => entry.term), expected.map(row => row[1]));
+    assert.equal(cards.length, selectedCounts.get(chapter));
+    assert.deepEqual(cards.map(entry => entry.term), source.items.map(item => item.term));
     for (const [index, entry] of cards.entries()) {
       const item = source.items[index];
       const view = contextualizeReadingEntry(entry, book, `chapter-${chapter}`);
-      assert.ok(view.id.startsWith(`public-nlmg-c${chapter}-`), item.term + ": stable chapter ID");
+      if (!item.reuseExistingSameSense) assert.ok(view.id.startsWith(`public-nlmg-c${chapter}-`), item.term + ": stable chapter ID");
       for (const key of ["term", "originalInput", "entryType", "partOfSpeech", "phonetic", "meaning", "usage", "exampleEn", "exampleZh"]) {
         assert.equal(view[key], item[key], item.term + ": " + key);
       }
@@ -89,11 +90,11 @@ for (const [chapter, expected] of marked) {
     const before = await readFile(snapshotUrl, "utf8");
     const repeated = await importReadingList({ sourcePath: fileURLToPath(sourceUrl(chapter)), checkOnly: true });
     assert.equal(repeated.changed, false);
-    assert.equal(repeated.totalChapterEntries, expected.length);
+    assert.equal(repeated.totalChapterEntries, selectedCounts.get(chapter));
     assert.equal(await readFile(snapshotUrl, "utf8"), before, "check-only import never mutates the live source");
   });
 
-  test(`Chapter ${chapter} quiz includes all ${expected.length} marked words with four same-chapter options`, () => {
+  test(`Chapter ${chapter} quiz includes all selected words with four same-chapter options`, () => {
     const cards = chapterEntries(snapshot.entries, chapter).map(entry => contextualizeReadingEntry(entry, book, `chapter-${chapter}`));
     const before = JSON.stringify(cards);
     for (let seed = 1; seed <= 12; seed++) {
@@ -103,7 +104,7 @@ for (const [chapter, expected] of marked) {
         now: "2026-09-30T12:00:00Z",
         random: () => ((state = (Math.imul(state, 1664525) + 1013904223) >>> 0) / 2 ** 32)
       });
-      assert.equal(quiz.questions.length, expected.length);
+      assert.equal(quiz.questions.length, selectedCounts.get(chapter));
       assert.deepEqual(quiz.omitted, []);
       assert.deepEqual(new Set(quiz.questions.map(question => question.entryId)), new Set(cards.map(entry => entry.id)));
       assert.doesNotThrow(() => validateQuizAttempt(quiz));
@@ -135,10 +136,14 @@ test("source notes retain chapter-specific qualifications rather than teaching i
   assert.match(item(chapter9, "sulkiness").usage, /不等于普通的安静或害羞/u);
 });
 
-test("both chapter imports add only the 26 selected cards and preserve all earlier entries, IDs and contexts", async () => {
+test("both supplemented chapter imports preserve shared cards and earlier contexts without duplicates", async () => {
   const memberships = new Set([8, 9].map(chapter => `collection:${book}:chapter-${chapter}`));
-  const prior = { ...snapshot, entries: snapshot.entries.filter(entry => !entry.tags.some(tag => memberships.has(tag))) };
-  assert.equal(snapshot.entries.length - prior.entries.length, 26);
+  const prior = { ...snapshot, entries: snapshot.entries.flatMap(entry => {
+    if (!entry.tags.some(tag => memberships.has(tag))) return [entry];
+    const contexts = entry.readingContexts.filter(context => !memberships.has(context.membership));
+    return contexts.length ? [{ ...entry, tags: entry.tags.filter(tag => !memberships.has(tag)), readingContexts: contexts }] : [];
+  }) };
+  assert.equal(snapshot.entries.length - prior.entries.length, 47);
   const priorIds = new Set(prior.entries.map(entry => entry.id));
   const directory = await mkdtemp(join(tmpdir(), "wordbook-chapter-eight-nine-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
@@ -148,17 +153,30 @@ test("both chapter imports add only the 26 selected cards and preserve all earli
     for (const chapter of [8, 9]) {
       const result = await importReadingList({ sourcePath: fileURLToPath(sourceUrl(chapter)), snapshotPath, timestamp: "2026-09-30T12:00:00Z" });
       assert.equal(result.changed, true);
-      assert.equal(result.snapshot.entries.length, last.entries.length + marked.get(chapter).length);
-      assert.deepEqual(result.snapshot.entries.filter(entry => priorIds.has(entry.id)), prior.entries);
+      const source = await load(chapter);
+      const already = new Set(last.entries.map(entry => entry.normalized));
+      assert.equal(result.snapshot.entries.length, last.entries.length + source.items.filter(item => !already.has(normalizeEnglish(item.term))).length);
+      for (const old of prior.entries) {
+        const next = result.snapshot.entries.find(entry => entry.id === old.id);
+        assert.equal(next.createdAt, old.createdAt);
+        assert.deepEqual(next.readingContexts.filter(context => !memberships.has(context.membership)), old.readingContexts);
+        if (!source.items.some(item => normalizeEnglish(item.term) === old.normalized)) assert.deepEqual(next, old);
+      }
       last = result.snapshot;
     }
     assert.equal(last.entries.length, snapshot.entries.length);
     assert.equal(new Set(last.entries.map(entry => entry.id)).size, last.entries.length);
     assert.equal(new Set(last.entries.map(entry => entry.normalized)).size, last.entries.length);
-    for (const [index, count] of [29, 38, 28, 51, 18, 16, 30].entries()) {
+    for (const [index, count] of [29, 38, 28, 51, 24, 24, 30].entries()) {
       const chapter = index + 1;
       assert.equal(chapterEntries(last.entries, chapter).length, count);
-      assert.deepEqual(chapterEntries(last.entries, chapter), chapterEntries(prior.entries, chapter));
+      const earlier = chapterEntries(prior.entries, chapter);
+      const after = chapterEntries(last.entries, chapter);
+      assert.deepEqual(after.map(entry => entry.id), earlier.map(entry => entry.id));
+      for (const old of earlier) {
+        const next = after.find(entry => entry.id === old.id);
+        assert.deepEqual(next.readingContexts.filter(context => !memberships.has(context.membership)), old.readingContexts);
+      }
     }
     const bytes = await readFile(snapshotPath, "utf8");
     for (const chapter of [8, 9]) {

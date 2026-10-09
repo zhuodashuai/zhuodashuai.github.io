@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-09-30T03:27:01.309Z",
-  "revisionId": "1281dc7b-76ab-4559-b093-11a9ac90beb5",
-  "lastMutationId": "batch-never-let-me-go-chapter-8-98529edf-fcf4-41ed-a39b-4c2d58e5d505",
+  "exportedAt": "2026-10-09T01:43:52.116Z",
+  "revisionId": "744dd4d4-32d8-46dd-a57b-dd2b117cec65",
+  "lastMutationId": "batch-never-let-me-go-chapter-9-97a7cda0-f2b2-44d5-b67c-c7056afe6b1f",
   "entries": [
     {
       "id": "public-jab-at",
@@ -5297,7 +5297,7 @@
     },
     {
       "id": "public-nlmg-c2-grind-to-a-halt",
-      "revision": 3,
+      "revision": 4,
       "originalInput": "grinding to a halt",
       "term": "grind to a halt",
       "normalized": "grind to a halt",
@@ -5343,10 +5343,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:435599fd",
-        "candidatesFingerprint": "s1:ae299b4d",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 166,
+        "sourceFingerprint": "s1:bfaaed98",
+        "candidatesFingerprint": "s1:f82f17c1",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -5408,7 +5408,7 @@
         },
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 8,
+          "order": 14,
           "page": "p. 67",
           "originalInput": "grind to a halt",
           "entryType": "idiom",
@@ -5434,7 +5434,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c2-no-hard-feelings",
@@ -5528,7 +5528,7 @@
     },
     {
       "id": "public-nlmg-c2-hold-something-against-somebody",
-      "revision": 2,
+      "revision": 4,
       "originalInput": "I don't hold it against you one tiny bit.",
       "term": "hold something against somebody",
       "normalized": "hold something against somebody",
@@ -5542,7 +5542,7 @@
         "confidence": 1,
         "source": "manual-lemma-normalization"
       },
-      "phonetic": "",
+      "phonetic": "/həʊld ˈsʌmθɪŋ əˈɡenst ˈsʌmbədi/",
       "partOfSpeech": "verb phrase",
       "meaning": "因为某事责怪某人；因为某事记恨某人。",
       "definition": "To blame someone or resent them because of something they did.",
@@ -5571,6 +5571,16 @@
         "not hold something against somebody"
       ],
       "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:5926a69a",
+        "candidatesFingerprint": "s1:b6734532",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
+        "matches": [],
+        "reason": "import_pending"
+      },
       "exampleEn": "I won't hold the mistake against you.",
       "exampleZh": "我不会因为这个错误而责怪你。",
       "usage": "第二章语境：I don't hold it against you one tiny bit. 表示“我一点也不为这件事怪你”。",
@@ -5582,7 +5592,10 @@
       "tags": [
         "collection:never-let-me-go:chapter-2",
         "文学阅读",
-        "动词短语"
+        "动词短语",
+        "collection:never-let-me-go:chapter-6",
+        "补充阅读",
+        "实用表达"
       ],
       "author": "",
       "sourceTitle": "Never Let Me Go — Chapter 2",
@@ -5617,11 +5630,37 @@
           "sourceWork": "Never Let Me Go",
           "sourceDate": "p. 14",
           "attributionNote": "由卓提供的 Chapter 2 学习清单整理；章节语境限定于第二章，例句为学习用自拟句，不是小说原文。"
+        },
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 1,
+          "page": "p. 61",
+          "originalInput": "held it against me",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 因某事责怪或记恨某人。",
+          "definition": "blame or resent someone because of something they have done",
+          "usage": "第六章语境：Kathy 觉得，如果 Ruth 能明显表现出责怪自己，她反而可能好受些；这是 Kathy 的设想，不是说 Ruth 已经如此表现。\n用法：hold something against somebody；不要逐字译成把东西顶住某人。本章与第二章义项相同，复用同一张词卡。",
+          "register": "neutral",
+          "collocations": [
+            "hold it against somebody",
+            "not hold something against somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "held something against somebody"
+          ],
+          "exampleEn": "Please don't hold one careless remark against him.",
+          "exampleZh": "请别因为他一句不经意的话就记恨他。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 61",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
         }
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T16:51:55.526Z",
-      "updatedAt": "2026-09-23T17:14:57.604Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c2-be-torn-between-a-and-b",
@@ -7909,7 +7948,7 @@
     },
     {
       "id": "public-nlmg-c3-rummage",
-      "revision": 3,
+      "revision": 4,
       "originalInput": "rummaging",
       "term": "rummage",
       "normalized": "rummage",
@@ -7955,10 +7994,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:57de5f55",
-        "candidatesFingerprint": "s1:83e493a6",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 166,
+        "sourceFingerprint": "s1:1f38354a",
+        "candidatesFingerprint": "s1:1887ca3d",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -8019,7 +8058,7 @@
         },
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 13,
+          "order": 21,
           "page": "p. 73",
           "originalInput": "rummaging through",
           "entryType": "word",
@@ -8047,7 +8086,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-23T20:56:20.204Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c3-saunter-out",
@@ -16063,7 +16102,7 @@
     },
     {
       "id": "public-nlmg-c5-engross",
-      "revision": 2,
+      "revision": 4,
       "originalInput": "engrossed myself",
       "term": "engross",
       "normalized": "engross",
@@ -16077,7 +16116,7 @@
         "confidence": 1,
         "source": "user-provided"
       },
-      "phonetic": "",
+      "phonetic": "/ɪnˈɡrəʊs/",
       "partOfSpeech": "verb",
       "meaning": "① 使全神贯注、完全投入。",
       "definition": "absorb someone's attention completely",
@@ -16107,10 +16146,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:12944811",
-        "candidatesFingerprint": "s1:599f091b",
-        "checkedAt": "2026-09-26T14:05:28.476Z",
-        "candidateCount": 166,
+        "sourceFingerprint": "s1:ea17c14a",
+        "candidatesFingerprint": "s1:3fa75fe4",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -16128,7 +16167,9 @@
         "collection:never-let-me-go:chapter-5",
         "文学阅读",
         "补充阅读",
-        "单词"
+        "单词",
+        "collection:never-let-me-go:chapter-9",
+        "描写表达"
       ],
       "author": "",
       "sourceTitle": "Never Let Me Go — Chapter 5",
@@ -16165,11 +16206,40 @@
           "sourceWork": "Never Let Me Go",
           "sourceDate": "p. 52",
           "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        },
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 21,
+          "page": "p. 107",
+          "originalInput": "been so engrossed in Tommy's story",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 使全神贯注；完全吸引住某人的注意力。",
+          "definition": "absorb someone's attention so completely that other things are temporarily forgotten",
+          "usage": "第九章语境：Kathy 听 Tommy 的讲述听得太投入，一度忘了自己找他谈话的原本目的。\n用法：原形 engross；本章为 be engrossed in something，engrossed 在这里描述全神贯注的状态，也可接 doing something。与第五章的同义词条复用，不另外创建一张变体卡。",
+          "register": "neutral",
+          "collocations": [
+            "be engrossed in something",
+            "be engrossed in doing something",
+            "engross someone's attention"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "engrosses",
+            "engrossed",
+            "engrossing"
+          ],
+          "exampleEn": "I was so engrossed in the article that I missed my bus stop.",
+          "exampleZh": "我读那篇文章读得太投入，结果坐过了站。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 107",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
         }
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-26T12:54:45.873Z",
-      "updatedAt": "2026-09-26T14:05:28.476Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     },
     {
       "id": "public-nlmg-c5-corner",
@@ -17111,7 +17181,7 @@
     },
     {
       "id": "public-nlmg-c6-huffiness",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "huffiness",
       "term": "huffiness",
       "normalized": "huffiness",
@@ -17155,10 +17225,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:c55deade",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:3fcb10ec",
+        "candidatesFingerprint": "s1:2fb70093",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17185,7 +17255,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 1,
+          "order": 3,
           "page": "p. 61",
           "originalInput": "huffiness",
           "entryType": "word",
@@ -17209,11 +17279,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-stand-a-chance",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "stand a chance",
       "term": "stand a chance",
       "normalized": "stand a chance",
@@ -17257,10 +17327,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:0d33d0bc",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:5f20a206",
+        "candidatesFingerprint": "s1:a4942efe",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17287,7 +17357,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 2,
+          "order": 4,
           "page": "p. 61",
           "originalInput": "stand a chance",
           "entryType": "idiom",
@@ -17311,11 +17381,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-remorse",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "remorse",
       "term": "remorse",
       "normalized": "remorse",
@@ -17359,10 +17429,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:11a6069e",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:c2b40e2c",
+        "candidatesFingerprint": "s1:7bd47140",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17389,7 +17459,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 3,
+          "order": 5,
           "page": "p. 62",
           "originalInput": "remorse",
           "entryType": "word",
@@ -17413,11 +17483,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-luscious",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "luscious",
       "term": "luscious",
       "normalized": "luscious",
@@ -17461,10 +17531,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:7f741b0f",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:49438364",
+        "candidatesFingerprint": "s1:4e9a5906",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17491,7 +17561,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 4,
+          "order": 7,
           "page": "p. 62",
           "originalInput": "luscious",
           "entryType": "word",
@@ -17515,11 +17585,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-quandary",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "quandary",
       "term": "quandary",
       "normalized": "quandary",
@@ -17563,10 +17633,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:3eaa1070",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:8fd31a77",
+        "candidatesFingerprint": "s1:0e9d028d",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17595,7 +17665,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 5,
+          "order": 8,
           "page": "p. 63",
           "originalInput": "quandary",
           "entryType": "word",
@@ -17621,11 +17691,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-hazy",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "haziest",
       "term": "hazy",
       "normalized": "hazy",
@@ -17671,10 +17741,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:2b1d7b1d",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:37fec0e9",
+        "candidatesFingerprint": "s1:7daf3079",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17704,7 +17774,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 6,
+          "order": 11,
           "page": "p. 66",
           "originalInput": "haziest",
           "entryType": "word",
@@ -17732,11 +17802,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-sleeve",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "record sleeve",
       "term": "sleeve",
       "normalized": "sleeve",
@@ -17780,10 +17850,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:bb8c3267",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:c054ac26",
+        "candidatesFingerprint": "s1:e62ef701",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17812,7 +17882,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 7,
+          "order": 13,
           "page": "p. 67",
           "originalInput": "record sleeve",
           "entryType": "word",
@@ -17838,11 +17908,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-unnerve",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "unnerved",
       "term": "unnerve",
       "normalized": "unnerve",
@@ -17886,10 +17956,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:745677c2",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:191d34b6",
+        "candidatesFingerprint": "s1:0a769640",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -17920,7 +17990,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 9,
+          "order": 16,
           "page": "p. 69",
           "originalInput": "unnerved",
           "entryType": "word",
@@ -17948,11 +18018,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-complacent",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "complacent",
       "term": "complacent",
       "normalized": "complacent",
@@ -17996,10 +18066,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:d7e139e7",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:a8208bd2",
+        "candidatesFingerprint": "s1:a47abf07",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18026,7 +18096,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 10,
+          "order": 17,
           "page": "p. 71",
           "originalInput": "complacent",
           "entryType": "word",
@@ -18050,11 +18120,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-jerk-somebody-out-of-something",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "jerk me out of my dream",
       "term": "jerk somebody out of something",
       "normalized": "jerk somebody out of something",
@@ -18098,10 +18168,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:b7ecd25a",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:096164a5",
+        "candidatesFingerprint": "s1:9739ade8",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18131,7 +18201,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 11,
+          "order": 18,
           "page": "p. 71",
           "originalInput": "jerk me out of my dream",
           "entryType": "phrase",
@@ -18158,11 +18228,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-hunch-up",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "hunched up",
       "term": "hunch up",
       "normalized": "hunch up",
@@ -18206,10 +18276,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:516281bd",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:0b4333a6",
+        "candidatesFingerprint": "s1:36ec14f3",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18239,7 +18309,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 12,
+          "order": 20,
           "page": "p. 72",
           "originalInput": "hunched up",
           "entryType": "phrasal-verb",
@@ -18266,11 +18336,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-dawn-on-somebody",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "dawned on me",
       "term": "dawn on somebody",
       "normalized": "dawn on somebody",
@@ -18314,10 +18384,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:94272cb0",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:60f086d3",
+        "candidatesFingerprint": "s1:cf93c2a2",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18347,7 +18417,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 14,
+          "order": 22,
           "page": "p. 73",
           "originalInput": "dawned on me",
           "entryType": "phrasal-verb",
@@ -18374,11 +18444,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-reconcile-oneself-to-something",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "reconciled myself to having truly lost my tape",
       "term": "reconcile oneself to something",
       "normalized": "reconcile oneself to something",
@@ -18422,10 +18492,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:2b3c2f00",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:344fd011",
+        "candidatesFingerprint": "s1:68e5e9d0",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18455,7 +18525,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 15,
+          "order": 23,
           "page": "p. 74",
           "originalInput": "reconciled myself to having truly lost my tape",
           "entryType": "phrase",
@@ -18482,11 +18552,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c6-ebb-away",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "ebbing away",
       "term": "ebb away",
       "normalized": "ebb away",
@@ -18530,10 +18600,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:556dfc9f",
-        "candidatesFingerprint": "s1:129d5461",
-        "checkedAt": "2026-09-27T21:54:38.693Z",
-        "candidateCount": 167,
+        "sourceFingerprint": "s1:021c58d6",
+        "candidatesFingerprint": "s1:9c05b046",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 241,
         "matches": [],
         "reason": "import_pending"
       },
@@ -18563,7 +18633,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-6",
-          "order": 16,
+          "order": 24,
           "page": "p. 75",
           "originalInput": "ebbing away",
           "entryType": "phrasal-verb",
@@ -18590,7 +18660,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-27T21:54:38.693Z",
-      "updatedAt": "2026-09-27T21:54:38.693Z"
+      "updatedAt": "2026-10-09T01:43:36.389Z"
     },
     {
       "id": "public-nlmg-c7-blur-into-each-other",
@@ -22022,7 +22092,7 @@
     },
     {
       "id": "public-nlmg-c8-gouge",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "gouging",
       "term": "gouge",
       "normalized": "gouge",
@@ -22068,10 +22138,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:3853cbbe",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:03f47a71",
+        "candidatesFingerprint": "s1:da8a10c3",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22102,7 +22172,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 4,
+          "order": 5,
           "page": "p. 89",
           "originalInput": "gouging",
           "entryType": "word",
@@ -22131,11 +22201,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-wheel-round",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "wheeled round",
       "term": "wheel round",
       "normalized": "wheel round",
@@ -22179,10 +22249,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:d837173f",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:1e294c15",
+        "candidatesFingerprint": "s1:c5f7604c",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22213,7 +22283,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 5,
+          "order": 7,
           "page": "p. 91",
           "originalInput": "wheeled round",
           "entryType": "phrasal-verb",
@@ -22241,11 +22311,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-blow",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "blow",
       "term": "blow",
       "normalized": "blow",
@@ -22291,10 +22361,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:e3f76b0d",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:6258f73b",
+        "candidatesFingerprint": "s1:2e41fed2",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22326,7 +22396,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 6,
+          "order": 8,
           "page": "p. 91",
           "originalInput": "blow",
           "entryType": "word",
@@ -22356,11 +22426,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-flappy",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "flappy",
       "term": "flappy",
       "normalized": "flappy",
@@ -22406,10 +22476,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:9690f6f7",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:9ff12194",
+        "candidatesFingerprint": "s1:14cbcf9c",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22436,7 +22506,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 7,
+          "order": 11,
           "page": "p. 91",
           "originalInput": "flappy",
           "entryType": "word",
@@ -22461,11 +22531,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-sycamore",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "sycamore",
       "term": "sycamore",
       "normalized": "sycamore",
@@ -22509,10 +22579,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:b0e7a8d3",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:fb47c010",
+        "candidatesFingerprint": "s1:91a6117a",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22541,7 +22611,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 8,
+          "order": 12,
           "page": "p. 92",
           "originalInput": "sycamore",
           "entryType": "word",
@@ -22567,11 +22637,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-bust-up",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "bust-up",
       "term": "bust-up",
       "normalized": "bust-up",
@@ -22617,10 +22687,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:65d55dd5",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:f5dccc6e",
+        "candidatesFingerprint": "s1:8d2fd66b",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22649,7 +22719,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 9,
+          "order": 13,
           "page": "p. 92",
           "originalInput": "bust-up",
           "entryType": "word",
@@ -22676,11 +22746,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-stomach-churning",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "stomach-churning",
       "term": "stomach-churning",
       "normalized": "stomach-churning",
@@ -22724,10 +22794,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:1f1bfa37",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:c3b236e3",
+        "candidatesFingerprint": "s1:9e2f56a4",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22754,7 +22824,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 10,
+          "order": 14,
           "page": "p. 93",
           "originalInput": "stomach-churning",
           "entryType": "word",
@@ -22778,11 +22848,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-chorus",
-      "revision": 2,
+      "revision": 3,
       "originalInput": "chorus",
       "term": "chorus",
       "normalized": "chorus",
@@ -22828,10 +22898,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:1d344d86",
-        "candidatesFingerprint": "s1:bfe96649",
-        "checkedAt": "2026-09-30T03:27:01.309Z",
-        "candidateCount": 235,
+        "sourceFingerprint": "s1:0b015492",
+        "candidatesFingerprint": "s1:9fcea23b",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22860,7 +22930,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 11,
+          "order": 15,
           "page": "p. 93",
           "originalInput": "chorus",
           "entryType": "word",
@@ -22887,11 +22957,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:27:01.309Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-vomit",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "vomiting",
       "term": "vomit",
       "normalized": "vomit",
@@ -22935,10 +23005,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:441524cb",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:bfead91f",
+        "candidatesFingerprint": "s1:9c563a25",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -22969,7 +23039,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 12,
+          "order": 16,
           "page": "p. 93",
           "originalInput": "vomiting",
           "entryType": "word",
@@ -22997,11 +23067,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-gross",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "gross",
       "term": "gross",
       "normalized": "gross",
@@ -23047,10 +23117,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:88ddf719",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:9f9df07d",
+        "candidatesFingerprint": "s1:663f4120",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23080,7 +23150,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 13,
+          "order": 17,
           "page": "p. 93",
           "originalInput": "gross",
           "entryType": "word",
@@ -23108,11 +23178,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-cuddle",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "cuddled",
       "term": "cuddle",
       "normalized": "cuddle",
@@ -23158,10 +23228,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:6adc9533",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:2afc5f47",
+        "candidatesFingerprint": "s1:54b94936",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23192,7 +23262,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 14,
+          "order": 18,
           "page": "p. 93",
           "originalInput": "cuddled",
           "entryType": "word",
@@ -23221,11 +23291,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-binoculars",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "binoculars",
       "term": "binoculars",
       "normalized": "binoculars",
@@ -23271,10 +23341,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:0d933c36",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:c67e0a0a",
+        "candidatesFingerprint": "s1:8168ed34",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23301,7 +23371,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 15,
+          "order": 19,
           "page": "p. 93",
           "originalInput": "binoculars",
           "entryType": "word",
@@ -23326,11 +23396,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-snog",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "snogging",
       "term": "snog",
       "normalized": "snog",
@@ -23374,10 +23444,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:fc2c8131",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:71098158",
+        "candidatesFingerprint": "s1:a95cf251",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23408,7 +23478,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 16,
+          "order": 20,
           "page": "p. 95",
           "originalInput": "snogging",
           "entryType": "word",
@@ -23436,11 +23506,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-tease-out",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "tease out clues",
       "term": "tease out",
       "normalized": "tease out",
@@ -23486,10 +23556,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:9ad1047a",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:cdeaa605",
+        "candidatesFingerprint": "s1:75edd0af",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 248,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23520,7 +23590,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 17,
+          "order": 23,
           "page": "p. 97",
           "originalInput": "tease out clues",
           "entryType": "phrasal-verb",
@@ -23549,11 +23619,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:36.803Z"
     },
     {
       "id": "public-nlmg-c8-fleetingly",
-      "revision": 1,
+      "revision": 3,
       "originalInput": "fleetingly",
       "term": "fleetingly",
       "normalized": "fleetingly",
@@ -23599,10 +23669,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:062fbac0",
-        "candidatesFingerprint": "s1:a0c4cba5",
-        "checkedAt": "2026-09-30T03:25:20.400Z",
-        "candidateCount": 210,
+        "sourceFingerprint": "s1:4e18048e",
+        "candidatesFingerprint": "s1:d9823e0c",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -23616,7 +23686,10 @@
         "collection:never-let-me-go:chapter-8",
         "文学阅读",
         "划线词",
-        "单词"
+        "单词",
+        "collection:never-let-me-go:chapter-9",
+        "补充阅读",
+        "描写表达"
       ],
       "author": "",
       "sourceTitle": "Never Let Me Go — Chapter 8",
@@ -23629,7 +23702,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-8",
-          "order": 18,
+          "order": 24,
           "page": "p. 97",
           "originalInput": "fleetingly",
           "entryType": "word",
@@ -23650,11 +23723,36 @@
           "sourceWork": "Never Let Me Go",
           "sourceDate": "p. 97",
           "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        },
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 7,
+          "page": "p. 99",
+          "originalInput": "fleetingly",
+          "entryType": "word",
+          "partOfSpeech": "adverb",
+          "meaning": "① 短暂地；一闪而过地。",
+          "definition": "for a very brief moment before passing or disappearing",
+          "usage": "第九章语境：Kathy 说自己后来在康复中心与 Harry 短暂地见过一面，fleetingly 强调相见的时间很短。\n用法：see someone fleetingly / appear fleetingly；形容词为 fleeting。本章与第八章的短暂义相同，复用词卡，不重复建立学习记录。",
+          "register": "neutral",
+          "collocations": [
+            "see someone fleetingly",
+            "appear fleetingly",
+            "think fleetingly of something"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "I saw her only fleetingly as the train passed the platform.",
+          "exampleZh": "火车经过站台时，我只短暂地看到了她。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 99",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
         }
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.400Z",
-      "updatedAt": "2026-09-30T03:25:20.400Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     },
     {
       "id": "public-nlmg-c9-stifling",
@@ -24093,7 +24191,7 @@
     },
     {
       "id": "public-nlmg-c9-demented",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "demented",
       "term": "demented",
       "normalized": "demented",
@@ -24139,10 +24237,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:5e7b9438",
-        "candidatesFingerprint": "s1:d929ef3b",
-        "checkedAt": "2026-09-30T03:25:20.711Z",
-        "candidateCount": 228,
+        "sourceFingerprint": "s1:8b1ec38f",
+        "candidatesFingerprint": "s1:044cebc2",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -24169,7 +24267,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-9",
-          "order": 5,
+          "order": 11,
           "page": "p. 101",
           "originalInput": "demented",
           "entryType": "word",
@@ -24194,11 +24292,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.711Z",
-      "updatedAt": "2026-09-30T03:25:20.711Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     },
     {
       "id": "public-nlmg-c9-afresh",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "afresh",
       "term": "afresh",
       "normalized": "afresh",
@@ -24244,10 +24342,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:53e1b0b5",
-        "candidatesFingerprint": "s1:d929ef3b",
-        "checkedAt": "2026-09-30T03:25:20.711Z",
-        "candidateCount": 228,
+        "sourceFingerprint": "s1:e5326cc8",
+        "candidatesFingerprint": "s1:674946b7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -24274,7 +24372,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-9",
-          "order": 6,
+          "order": 12,
           "page": "p. 102",
           "originalInput": "afresh",
           "entryType": "word",
@@ -24299,11 +24397,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.711Z",
-      "updatedAt": "2026-09-30T03:25:20.711Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     },
     {
       "id": "public-nlmg-c9-sulkiness",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "sulkiness",
       "term": "sulkiness",
       "normalized": "sulkiness",
@@ -24349,10 +24447,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:0198f10c",
-        "candidatesFingerprint": "s1:d929ef3b",
-        "checkedAt": "2026-09-30T03:25:20.711Z",
-        "candidateCount": 228,
+        "sourceFingerprint": "s1:7cea21bb",
+        "candidatesFingerprint": "s1:31178a20",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -24379,7 +24477,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-9",
-          "order": 7,
+          "order": 15,
           "page": "p. 103",
           "originalInput": "sulkiness",
           "entryType": "word",
@@ -24404,11 +24502,11 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.711Z",
-      "updatedAt": "2026-09-30T03:25:20.711Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     },
     {
       "id": "public-nlmg-c9-keyed-up",
-      "revision": 1,
+      "revision": 2,
       "originalInput": "keyed up",
       "term": "keyed up",
       "normalized": "keyed up",
@@ -24454,10 +24552,10 @@
       "synonymScan": {
         "version": 1,
         "status": "pending",
-        "sourceFingerprint": "s1:48d85353",
-        "candidatesFingerprint": "s1:d929ef3b",
-        "checkedAt": "2026-09-30T03:25:20.711Z",
-        "candidateCount": 228,
+        "sourceFingerprint": "s1:21513598",
+        "candidatesFingerprint": "s1:0677a6b3",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 255,
         "matches": [],
         "reason": "import_pending"
       },
@@ -24484,7 +24582,7 @@
       "readingContexts": [
         {
           "membership": "collection:never-let-me-go:chapter-9",
-          "order": 8,
+          "order": 23,
           "page": "p. 108",
           "originalInput": "keyed up",
           "entryType": "phrase",
@@ -24509,7 +24607,3807 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-30T03:25:20.711Z",
-      "updatedAt": "2026-09-30T03:25:20.711Z"
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c5-expel",
+      "revision": 1,
+      "originalInput": "expelled someone",
+      "term": "expel",
+      "normalized": "expel",
+      "standardForm": "expel",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "expel",
+        "suggestion": "",
+        "chosen": "expel",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɪkˈspel/",
+      "partOfSpeech": "verb",
+      "meaning": "① 把某人赶出；将某人从团体中除名。",
+      "definition": "force someone to leave a group or organisation",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 把某人赶出；将某人从团体中除名。",
+          "definitionEn": "force someone to leave a group or organisation",
+          "usageNotes": "第五章语境：秘密卫队的人数会随着 Ruth 接纳新成员或赶走某个成员而变化；这里不是学校正式开除学生。\n用法：expel somebody from a group；过去式 expelled 和现在分词 expelling 要双写 l。可用于阅读或写作中描述团体的排斥行为。",
+          "register": "neutral",
+          "collocations": [
+            "expel somebody from a group",
+            "expel a member"
+          ],
+          "examples": [
+            {
+              "en": "The club expelled a member for repeatedly breaking its rules.",
+              "zh": "俱乐部将一名屡次违反规定的成员除名。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "expel somebody from a group",
+        "expel a member"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:d0e94578",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The club expelled a member for repeatedly breaking its rules.",
+      "exampleZh": "俱乐部将一名屡次违反规定的成员除名。",
+      "usage": "第五章语境：秘密卫队的人数会随着 Ruth 接纳新成员或赶走某个成员而变化；这里不是学校正式开除学生。\n用法：expel somebody from a group；过去式 expelled 和现在分词 expelling 要双写 l。可用于阅读或写作中描述团体的排斥行为。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "expels",
+        "expelled",
+        "expelling"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "写作词汇"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 49",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 9,
+          "page": "p. 49",
+          "originalInput": "expelled someone",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 把某人赶出；将某人从团体中除名。",
+          "definition": "force someone to leave a group or organisation",
+          "usage": "第五章语境：秘密卫队的人数会随着 Ruth 接纳新成员或赶走某个成员而变化；这里不是学校正式开除学生。\n用法：expel somebody from a group；过去式 expelled 和现在分词 expelling 要双写 l。可用于阅读或写作中描述团体的排斥行为。",
+          "register": "neutral",
+          "collocations": [
+            "expel somebody from a group",
+            "expel a member"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "expels",
+            "expelled",
+            "expelling"
+          ],
+          "exampleEn": "The club expelled a member for repeatedly breaking its rules.",
+          "exampleZh": "俱乐部将一名屡次违反规定的成员除名。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 49",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c5-revolve-around",
+      "revision": 1,
+      "originalInput": "revolved around gathering more and more evidence",
+      "term": "revolve around",
+      "normalized": "revolve around",
+      "standardForm": "revolve around",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "revolve around",
+        "suggestion": "",
+        "chosen": "revolve around",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/rɪˈvɒlv əˈraʊnd/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 以……为中心；主要围绕……展开。",
+      "definition": "have something as the main focus or concern",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 以……为中心；主要围绕……展开。",
+          "definitionEn": "have something as the main focus or concern",
+          "usageNotes": "第五章语境：秘密卫队的活动主要围绕搜集所谓的证据展开，而不是采取实际保护行动；不能据此认定孩子们怀疑的阴谋是真实的。\n用法：revolve around + 名词或 doing；本章是活动的中心，不是物体绕圈旋转。适合描述讨论、故事或日常生活的重点。",
+          "register": "neutral",
+          "collocations": [
+            "a discussion revolves around something",
+            "revolve around doing something"
+          ],
+          "examples": [
+            {
+              "en": "Our discussion revolved around finding a practical solution.",
+              "zh": "我们的讨论围绕寻找可行的解决办法展开。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a discussion revolves around something",
+        "revolve around doing something"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:a23c3215",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Our discussion revolved around finding a practical solution.",
+      "exampleZh": "我们的讨论围绕寻找可行的解决办法展开。",
+      "usage": "第五章语境：秘密卫队的活动主要围绕搜集所谓的证据展开，而不是采取实际保护行动；不能据此认定孩子们怀疑的阴谋是真实的。\n用法：revolve around + 名词或 doing；本章是活动的中心，不是物体绕圈旋转。适合描述讨论、故事或日常生活的重点。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "revolved around",
+        "revolving around"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "写作表达",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 51",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 33,
+          "page": "p. 51",
+          "originalInput": "revolved around gathering more and more evidence",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 以……为中心；主要围绕……展开。",
+          "definition": "have something as the main focus or concern",
+          "usage": "第五章语境：秘密卫队的活动主要围绕搜集所谓的证据展开，而不是采取实际保护行动；不能据此认定孩子们怀疑的阴谋是真实的。\n用法：revolve around + 名词或 doing；本章是活动的中心，不是物体绕圈旋转。适合描述讨论、故事或日常生活的重点。",
+          "register": "neutral",
+          "collocations": [
+            "a discussion revolves around something",
+            "revolve around doing something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "revolved around",
+            "revolving around"
+          ],
+          "exampleEn": "Our discussion revolved around finding a practical solution.",
+          "exampleZh": "我们的讨论围绕寻找可行的解决办法展开。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 51",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c5-ornate",
+      "revision": 1,
+      "originalInput": "those ornate pieces",
+      "term": "ornate",
+      "normalized": "ornate",
+      "standardForm": "ornate",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "ornate",
+        "suggestion": "",
+        "chosen": "ornate",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɔːˈneɪt/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 装饰华丽的；有繁复精美装饰的。",
+      "definition": "decorated with many elaborate details",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 装饰华丽的；有繁复精美装饰的。",
+          "definitionEn": "decorated with many elaborate details",
+          "usageNotes": "第五章语境：Kathy 被那些精美华丽的棋子吸引，希望自己也能投入棋局；pieces 在这里是棋子，不是随意的碎片。\n用法：ornate furniture / decoration；比 beautiful 更具体，强调装饰繁复，适合描写物品和建筑。",
+          "register": "neutral",
+          "collocations": [
+            "ornate furniture",
+            "an ornate frame"
+          ],
+          "examples": [
+            {
+              "en": "An ornate mirror hung above the fireplace.",
+              "zh": "壁炉上方挂着一面装饰华丽的镜子。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "ornate furniture",
+        "an ornate frame"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:7cf727c7",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "An ornate mirror hung above the fireplace.",
+      "exampleZh": "壁炉上方挂着一面装饰华丽的镜子。",
+      "usage": "第五章语境：Kathy 被那些精美华丽的棋子吸引，希望自己也能投入棋局；pieces 在这里是棋子，不是随意的碎片。\n用法：ornate furniture / decoration；比 beautiful 更具体，强调装饰繁复，适合描写物品和建筑。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "文学描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 52",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 54,
+          "page": "p. 52",
+          "originalInput": "those ornate pieces",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 装饰华丽的；有繁复精美装饰的。",
+          "definition": "decorated with many elaborate details",
+          "usage": "第五章语境：Kathy 被那些精美华丽的棋子吸引，希望自己也能投入棋局；pieces 在这里是棋子，不是随意的碎片。\n用法：ornate furniture / decoration；比 beautiful 更具体，强调装饰繁复，适合描写物品和建筑。",
+          "register": "neutral",
+          "collocations": [
+            "ornate furniture",
+            "an ornate frame"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "An ornate mirror hung above the fireplace.",
+          "exampleZh": "壁炉上方挂着一面装饰华丽的镜子。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 52",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c5-storm-off",
+      "revision": 1,
+      "originalInput": "my storming off",
+      "term": "storm off",
+      "normalized": "storm off",
+      "standardForm": "storm off",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "storm off",
+        "suggestion": "",
+        "chosen": "storm off",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/stɔːm ɒf/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 怒气冲冲地离开；气冲冲地走掉。",
+      "definition": "leave a place angrily and abruptly",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 怒气冲冲地离开；气冲冲地走掉。",
+          "definitionEn": "leave a place angrily and abruptly",
+          "usageNotes": "第五章语境：Kathy 收起棋具走开，虽然没有直接说 Ruth 不会下棋，但愤然离开的举动已表达了不满。\n用法：storm off 常不接宾语；storm out of a room 强调冲出某个房间。storm 在此作动词，与天气无关。",
+          "register": "neutral",
+          "collocations": [
+            "storm off in anger",
+            "storm out of the room"
+          ],
+          "examples": [
+            {
+              "en": "He stormed off before I could explain the mistake.",
+              "zh": "我还没来得及解释那个误会，他就气冲冲地走了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "storm off in anger",
+        "storm out of the room"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:d446349b",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "He stormed off before I could explain the mistake.",
+      "exampleZh": "我还没来得及解释那个误会，他就气冲冲地走了。",
+      "usage": "第五章语境：Kathy 收起棋具走开，虽然没有直接说 Ruth 不会下棋，但愤然离开的举动已表达了不满。\n用法：storm off 常不接宾语；storm out of a room 强调冲出某个房间。storm 在此作动词，与天气无关。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "stormed off",
+        "storming off"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "实用表达",
+        "人物描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 53",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 65,
+          "page": "p. 53",
+          "originalInput": "my storming off",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 怒气冲冲地离开；气冲冲地走掉。",
+          "definition": "leave a place angrily and abruptly",
+          "usage": "第五章语境：Kathy 收起棋具走开，虽然没有直接说 Ruth 不会下棋，但愤然离开的举动已表达了不满。\n用法：storm off 常不接宾语；storm out of a room 强调冲出某个房间。storm 在此作动词，与天气无关。",
+          "register": "neutral",
+          "collocations": [
+            "storm off in anger",
+            "storm out of the room"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "stormed off",
+            "storming off"
+          ],
+          "exampleEn": "He stormed off before I could explain the mistake.",
+          "exampleZh": "我还没来得及解释那个误会，他就气冲冲地走了。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 53",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c5-brace-oneself",
+      "revision": 1,
+      "originalInput": "I'd brace myself",
+      "term": "brace oneself",
+      "normalized": "brace oneself",
+      "standardForm": "brace oneself",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "brace oneself",
+        "suggestion": "",
+        "chosen": "brace oneself",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/breɪs wʌnˈself/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 做好心理准备，迎接困难或令人不快的事。",
+      "definition": "prepare oneself mentally for something difficult or unpleasant",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 做好心理准备，迎接困难或令人不快的事。",
+          "definitionEn": "prepare oneself mentally for something difficult or unpleasant",
+          "usageNotes": "第五章语境：Kathy 有时能从谈话走向预感到 Ruth 又要暗示自己受到特别关照，于是先做好心理准备，但仍会感到难受。\n用法：brace oneself for something / brace oneself to do something；这里不是给身体加支撑，而是准备承受情绪冲击。",
+          "register": "neutral",
+          "collocations": [
+            "brace oneself for bad news",
+            "brace oneself to hear something"
+          ],
+          "examples": [
+            {
+              "en": "I braced myself for a difficult conversation.",
+              "zh": "我做好了进行一场艰难谈话的心理准备。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "brace oneself for bad news",
+        "brace oneself to hear something"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:71e40e2d",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I braced myself for a difficult conversation.",
+      "exampleZh": "我做好了进行一场艰难谈话的心理准备。",
+      "usage": "第五章语境：Kathy 有时能从谈话走向预感到 Ruth 又要暗示自己受到特别关照，于是先做好心理准备，但仍会感到难受。\n用法：brace oneself for something / brace oneself to do something；这里不是给身体加支撑，而是准备承受情绪冲击。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "braced oneself",
+        "bracing oneself"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "实用表达",
+        "心理描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 57",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 113,
+          "page": "p. 57",
+          "originalInput": "I'd brace myself",
+          "entryType": "phrase",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 做好心理准备，迎接困难或令人不快的事。",
+          "definition": "prepare oneself mentally for something difficult or unpleasant",
+          "usage": "第五章语境：Kathy 有时能从谈话走向预感到 Ruth 又要暗示自己受到特别关照，于是先做好心理准备，但仍会感到难受。\n用法：brace oneself for something / brace oneself to do something；这里不是给身体加支撑，而是准备承受情绪冲击。",
+          "register": "neutral",
+          "collocations": [
+            "brace oneself for bad news",
+            "brace oneself to hear something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "braced oneself",
+            "bracing oneself"
+          ],
+          "exampleEn": "I braced myself for a difficult conversation.",
+          "exampleZh": "我做好了进行一场艰难谈话的心理准备。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 57",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c5-baffling",
+      "revision": 1,
+      "originalInput": "utterly baffling",
+      "term": "baffling",
+      "normalized": "baffling",
+      "standardForm": "baffling",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "baffling",
+        "suggestion": "",
+        "chosen": "baffling",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈbæflɪŋ/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 令人困惑的；难以理解的。",
+      "definition": "extremely difficult to understand or explain",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 令人困惑的；难以理解的。",
+          "definitionEn": "extremely difficult to understand or explain",
+          "usageNotes": "第五章语境：看到 Ruth 难过，Kathy 突然觉得自己费尽心思揭穿好友的行为难以理解；baffling 描写的是她对自己行为的感受。\n用法：baffling 形容事物令人困惑；baffled 形容人感到困惑。utterly baffling 表示完全令人摸不着头脑。",
+          "register": "neutral",
+          "collocations": [
+            "utterly baffling",
+            "a baffling question"
+          ],
+          "examples": [
+            {
+              "en": "The instructions were so baffling that we asked for a demonstration.",
+              "zh": "说明令人十分困惑，于是我们请人示范了一遍。"
+            }
+          ],
+          "confusables": [
+            "baffled"
+          ]
+        }
+      ],
+      "collocations": [
+        "utterly baffling",
+        "a baffling question"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:b3d5be20",
+        "candidatesFingerprint": "s1:4530375a",
+        "checkedAt": "2026-10-09T01:43:36.085Z",
+        "candidateCount": 236,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The instructions were so baffling that we asked for a demonstration.",
+      "exampleZh": "说明令人十分困惑，于是我们请人示范了一遍。",
+      "usage": "第五章语境：看到 Ruth 难过，Kathy 突然觉得自己费尽心思揭穿好友的行为难以理解；baffling 描写的是她对自己行为的感受。\n用法：baffling 形容事物令人困惑；baffled 形容人感到困惑。utterly baffling 表示完全令人摸不着头脑。",
+      "register": "neutral",
+      "confusedWith": [
+        "baffled"
+      ],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-5",
+        "文学阅读",
+        "补充阅读",
+        "写作词汇",
+        "心理描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 5",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 60",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-5",
+          "order": 151,
+          "page": "p. 60",
+          "originalInput": "utterly baffling",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 令人困惑的；难以理解的。",
+          "definition": "extremely difficult to understand or explain",
+          "usage": "第五章语境：看到 Ruth 难过，Kathy 突然觉得自己费尽心思揭穿好友的行为难以理解；baffling 描写的是她对自己行为的感受。\n用法：baffling 形容事物令人困惑；baffled 形容人感到困惑。utterly baffling 表示完全令人摸不着头脑。",
+          "register": "neutral",
+          "collocations": [
+            "utterly baffling",
+            "a baffling question"
+          ],
+          "confusedWith": [
+            "baffled"
+          ],
+          "forms": [],
+          "exampleEn": "The instructions were so baffling that we asked for a demonstration.",
+          "exampleZh": "说明令人十分困惑，于是我们请人示范了一遍。",
+          "sourceTitle": "Never Let Me Go — Chapter 5",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 60",
+          "attributionNote": "依据用户提供的 Chapter 5 学习词表与 12 张原文照片（pp. 49–60）逐页核对整理；原文形式是短片段，释义与用法限定于第五章，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.085Z",
+      "updatedAt": "2026-10-09T01:43:36.085Z"
+    },
+    {
+      "id": "public-nlmg-c6-cave-in",
+      "revision": 1,
+      "originalInput": "seemed just to cave in",
+      "term": "cave in",
+      "normalized": "cave in",
+      "standardForm": "cave in",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "cave in",
+        "suggestion": "",
+        "chosen": "cave in",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/keɪv ɪn/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 在压力下垮下来；不再抵抗。",
+      "definition": "give way emotionally or stop resisting under pressure",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 在压力下垮下来；不再抵抗。",
+          "definitionEn": "give way emotionally or stop resisting under pressure",
+          "usageNotes": "第六章语境：Ruth 没有生气反击，而像是被这件事击垮了，连发怒的力气也没有；这是情绪上的垮下去，不是山洞塌方。\n用法：cave in 表示顶不住压力；cave in to pressure 表示向压力屈服。这里不要机械译成同意某个具体要求。",
+          "register": "neutral",
+          "collocations": [
+            "cave in under pressure",
+            "cave in to demands"
+          ],
+          "examples": [
+            {
+              "en": "She refused to cave in to pressure from the group.",
+              "zh": "她拒绝屈服于来自团体的压力。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "cave in under pressure",
+        "cave in to demands"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:8edabb1e",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She refused to cave in to pressure from the group.",
+      "exampleZh": "她拒绝屈服于来自团体的压力。",
+      "usage": "第六章语境：Ruth 没有生气反击，而像是被这件事击垮了，连发怒的力气也没有；这是情绪上的垮下去，不是山洞塌方。\n用法：cave in 表示顶不住压力；cave in to pressure 表示向压力屈服。这里不要机械译成同意某个具体要求。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "caved in",
+        "caving in"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "实用表达",
+        "心理描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 61",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 2,
+          "page": "p. 61",
+          "originalInput": "seemed just to cave in",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 在压力下垮下来；不再抵抗。",
+          "definition": "give way emotionally or stop resisting under pressure",
+          "usage": "第六章语境：Ruth 没有生气反击，而像是被这件事击垮了，连发怒的力气也没有；这是情绪上的垮下去，不是山洞塌方。\n用法：cave in 表示顶不住压力；cave in to pressure 表示向压力屈服。这里不要机械译成同意某个具体要求。",
+          "register": "neutral",
+          "collocations": [
+            "cave in under pressure",
+            "cave in to demands"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "caved in",
+            "caving in"
+          ],
+          "exampleEn": "She refused to cave in to pressure from the group.",
+          "exampleZh": "她拒绝屈服于来自团体的压力。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 61",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-drift-apart",
+      "revision": 1,
+      "originalInput": "would have drifted apart",
+      "term": "drift apart",
+      "normalized": "drift apart",
+      "standardForm": "drift apart",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "drift apart",
+        "suggestion": "",
+        "chosen": "drift apart",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/drɪft əˈpɑːt/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 逐渐疏远；关系慢慢变得不亲近。",
+      "definition": "gradually become less close to one another",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 逐渐疏远；关系慢慢变得不亲近。",
+          "definitionEn": "gradually become less close to one another",
+          "usageNotes": "第六章语境：Kathy 设想，如果事情一直没有转机，她和 Ruth 也许会慢慢疏远；这里说的是一种可能，并非已经发生的事实。\n用法：通常以两个人或群体作主语，如 we drifted apart；强调逐渐变化，不一定有明确争吵或决裂。",
+          "register": "neutral",
+          "collocations": [
+            "gradually drift apart",
+            "friends drift apart"
+          ],
+          "examples": [
+            {
+              "en": "We gradually drifted apart after moving to different cities.",
+              "zh": "搬到不同城市后，我们渐渐疏远了。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "gradually drift apart",
+        "friends drift apart"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:2bd5f363",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We gradually drifted apart after moving to different cities.",
+      "exampleZh": "搬到不同城市后，我们渐渐疏远了。",
+      "usage": "第六章语境：Kathy 设想，如果事情一直没有转机，她和 Ruth 也许会慢慢疏远；这里说的是一种可能，并非已经发生的事实。\n用法：通常以两个人或群体作主语，如 we drifted apart；强调逐渐变化，不一定有明确争吵或决裂。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "drifted apart",
+        "drifting apart"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "实用表达",
+        "人物关系"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 62",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 6,
+          "page": "p. 62",
+          "originalInput": "would have drifted apart",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 逐渐疏远；关系慢慢变得不亲近。",
+          "definition": "gradually become less close to one another",
+          "usage": "第六章语境：Kathy 设想，如果事情一直没有转机，她和 Ruth 也许会慢慢疏远；这里说的是一种可能，并非已经发生的事实。\n用法：通常以两个人或群体作主语，如 we drifted apart；强调逐渐变化，不一定有明确争吵或决裂。",
+          "register": "neutral",
+          "collocations": [
+            "gradually drift apart",
+            "friends drift apart"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "drifted apart",
+            "drifting apart"
+          ],
+          "exampleEn": "We gradually drifted apart after moving to different cities.",
+          "exampleZh": "搬到不同城市后，我们渐渐疏远了。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 62",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-intervene",
+      "revision": 1,
+      "originalInput": "I'd intervened with Midge",
+      "term": "intervene",
+      "normalized": "intervene",
+      "standardForm": "intervene",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "intervene",
+        "suggestion": "",
+        "chosen": "intervene",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌɪntəˈviːn/",
+      "partOfSpeech": "verb",
+      "meaning": "① 出面干预；介入以改变局面。",
+      "definition": "become involved in a situation to influence or improve what happens",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 出面干预；介入以改变局面。",
+          "definitionEn": "become involved in a situation to influence or improve what happens",
+          "usageNotes": "第六章语境：Kathy 在 Midge 追问文具盒时插话替 Ruth 解围；这里的介入是人际交往中的帮助，不是强制阻止或身体冲突。\n用法：intervene in a dispute；intervene to help somebody。与 interrupt 的打断说话不同，intervene 更强调介入局势、影响结果。",
+          "register": "neutral",
+          "collocations": [
+            "intervene in a dispute",
+            "intervene to help somebody"
+          ],
+          "examples": [
+            {
+              "en": "The teacher intervened to prevent the disagreement from escalating.",
+              "zh": "老师出面干预，避免分歧进一步升级。"
+            }
+          ],
+          "confusables": [
+            "interrupt"
+          ]
+        }
+      ],
+      "collocations": [
+        "intervene in a dispute",
+        "intervene to help somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:10b48de1",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The teacher intervened to prevent the disagreement from escalating.",
+      "exampleZh": "老师出面干预，避免分歧进一步升级。",
+      "usage": "第六章语境：Kathy 在 Midge 追问文具盒时插话替 Ruth 解围；这里的介入是人际交往中的帮助，不是强制阻止或身体冲突。\n用法：intervene in a dispute；intervene to help somebody。与 interrupt 的打断说话不同，intervene 更强调介入局势、影响结果。",
+      "register": "neutral",
+      "confusedWith": [
+        "interrupt"
+      ],
+      "forms": [
+        "intervenes",
+        "intervened",
+        "intervening"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "写作词汇"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 63",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 9,
+          "page": "p. 63",
+          "originalInput": "I'd intervened with Midge",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 出面干预；介入以改变局面。",
+          "definition": "become involved in a situation to influence or improve what happens",
+          "usage": "第六章语境：Kathy 在 Midge 追问文具盒时插话替 Ruth 解围；这里的介入是人际交往中的帮助，不是强制阻止或身体冲突。\n用法：intervene in a dispute；intervene to help somebody。与 interrupt 的打断说话不同，intervene 更强调介入局势、影响结果。",
+          "register": "neutral",
+          "collocations": [
+            "intervene in a dispute",
+            "intervene to help somebody"
+          ],
+          "confusedWith": [
+            "interrupt"
+          ],
+          "forms": [
+            "intervenes",
+            "intervened",
+            "intervening"
+          ],
+          "exampleEn": "The teacher intervened to prevent the disagreement from escalating.",
+          "exampleZh": "老师出面干预，避免分歧进一步升级。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 63",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-mystique",
+      "revision": 1,
+      "originalInput": "added to its mystique",
+      "term": "mystique",
+      "normalized": "mystique",
+      "standardForm": "mystique",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "mystique",
+        "suggestion": "",
+        "chosen": "mystique",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/mɪˈstiːk/",
+      "partOfSpeech": "noun",
+      "meaning": "① 神秘魅力；因不甚了解而产生的吸引力。",
+      "definition": "an attractive or intriguing quality created by mystery or limited knowledge",
+      "senses": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "① 神秘魅力；因不甚了解而产生的吸引力。",
+          "definitionEn": "an attractive or intriguing quality created by mystery or limited knowledge",
+          "usageNotes": "第六章语境：孩子们从未见过 Norfolk 的照片，这反而增强了那个地方对他们的神秘吸引力；不是在确认那里具有超自然力量。\n用法：不可数名词；the mystique of a place / add to its mystique。mystery 强调谜团，mystique 更强调神秘带来的魅力。",
+          "register": "neutral",
+          "collocations": [
+            "add to its mystique",
+            "the mystique of a place"
+          ],
+          "examples": [
+            {
+              "en": "The island's isolation adds to its mystique.",
+              "zh": "这座岛的与世隔绝增添了它的神秘魅力。"
+            }
+          ],
+          "confusables": [
+            "mystery"
+          ]
+        }
+      ],
+      "collocations": [
+        "add to its mystique",
+        "the mystique of a place"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:4447dcde",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The island's isolation adds to its mystique.",
+      "exampleZh": "这座岛的与世隔绝增添了它的神秘魅力。",
+      "usage": "第六章语境：孩子们从未见过 Norfolk 的照片，这反而增强了那个地方对他们的神秘吸引力；不是在确认那里具有超自然力量。\n用法：不可数名词；the mystique of a place / add to its mystique。mystery 强调谜团，mystique 更强调神秘带来的魅力。",
+      "register": "neutral",
+      "confusedWith": [
+        "mystery"
+      ],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "文学描写"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 66",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 10,
+          "page": "p. 66",
+          "originalInput": "added to its mystique",
+          "entryType": "word",
+          "partOfSpeech": "noun",
+          "meaning": "① 神秘魅力；因不甚了解而产生的吸引力。",
+          "definition": "an attractive or intriguing quality created by mystery or limited knowledge",
+          "usage": "第六章语境：孩子们从未见过 Norfolk 的照片，这反而增强了那个地方对他们的神秘吸引力；不是在确认那里具有超自然力量。\n用法：不可数名词；the mystique of a place / add to its mystique。mystery 强调谜团，mystique 更强调神秘带来的魅力。",
+          "register": "neutral",
+          "collocations": [
+            "add to its mystique",
+            "the mystique of a place"
+          ],
+          "confusedWith": [
+            "mystery"
+          ],
+          "forms": [],
+          "exampleEn": "The island's isolation adds to its mystique.",
+          "exampleZh": "这座岛的与世隔绝增添了它的神秘魅力。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 66",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-albeit",
+      "revision": 1,
+      "originalInput": "albeit as a sort of joke",
+      "term": "albeit",
+      "normalized": "albeit",
+      "standardForm": "albeit",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "albeit",
+        "suggestion": "",
+        "chosen": "albeit",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌɔːlˈbiːɪt/",
+      "partOfSpeech": "conjunction",
+      "meaning": "① 尽管；虽说；即使是以……的形式。",
+      "definition": "although; used to qualify or limit a preceding statement",
+      "senses": [
+        {
+          "partOfSpeech": "conjunction",
+          "meaningZh": "① 尽管；虽说；即使是以……的形式。",
+          "definitionEn": "although; used to qualify or limit a preceding statement",
+          "usageNotes": "第六章语境：长大一些后，他们仍会谈起 Norfolk，虽说那时已带着玩笑意味；albeit 对仍在谈论这件事作补充限定。\n用法：较书面，常接形容词或短语，如 useful, albeit expensive。不要把 albeit 当成可以在任何完整从句前直接替换 although 的词。",
+          "register": "formal",
+          "collocations": [
+            "albeit reluctantly",
+            "albeit at a slower pace"
+          ],
+          "examples": [
+            {
+              "en": "The method is effective, albeit somewhat slow.",
+              "zh": "这个方法有效，尽管有些慢。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "albeit reluctantly",
+        "albeit at a slower pace"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:dda6d56c",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The method is effective, albeit somewhat slow.",
+      "exampleZh": "这个方法有效，尽管有些慢。",
+      "usage": "第六章语境：长大一些后，他们仍会谈起 Norfolk，虽说那时已带着玩笑意味；albeit 对仍在谈论这件事作补充限定。\n用法：较书面，常接形容词或短语，如 useful, albeit expensive。不要把 albeit 当成可以在任何完整从句前直接替换 although 的词。",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "写作连接词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 66",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 12,
+          "page": "p. 66",
+          "originalInput": "albeit as a sort of joke",
+          "entryType": "word",
+          "partOfSpeech": "conjunction",
+          "meaning": "① 尽管；虽说；即使是以……的形式。",
+          "definition": "although; used to qualify or limit a preceding statement",
+          "usage": "第六章语境：长大一些后，他们仍会谈起 Norfolk，虽说那时已带着玩笑意味；albeit 对仍在谈论这件事作补充限定。\n用法：较书面，常接形容词或短语，如 useful, albeit expensive。不要把 albeit 当成可以在任何完整从句前直接替换 although 的词。",
+          "register": "formal",
+          "collocations": [
+            "albeit reluctantly",
+            "albeit at a slower pace"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The method is effective, albeit somewhat slow.",
+          "exampleZh": "这个方法有效，尽管有些慢。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 66",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-wary",
+      "revision": 1,
+      "originalInput": "wary of that whole territory",
+      "term": "wary",
+      "normalized": "wary",
+      "standardForm": "wary",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "wary",
+        "suggestion": "",
+        "chosen": "wary",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈweəri/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 警惕的；因担心麻烦而谨慎的。",
+      "definition": "cautious because one suspects possible danger or difficulty",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 警惕的；因担心麻烦而谨慎的。",
+          "definitionEn": "cautious because one suspects possible danger or difficulty",
+          "usageNotes": "第六章语境：Kathy 回想孩子们对那一类敏感话题有所戒备，因此不愿继续追问；territory 指话题领域，不是某片领土。\n用法：be wary of somebody/something/doing something。不要与 weary（疲倦的）混淆。",
+          "register": "neutral",
+          "collocations": [
+            "be wary of something",
+            "a wary glance"
+          ],
+          "examples": [
+            {
+              "en": "I am wary of making promises I may not be able to keep.",
+              "zh": "对于可能无法兑现的承诺，我很谨慎。"
+            }
+          ],
+          "confusables": [
+            "weary"
+          ]
+        }
+      ],
+      "collocations": [
+        "be wary of something",
+        "a wary glance"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:added9d0",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I am wary of making promises I may not be able to keep.",
+      "exampleZh": "对于可能无法兑现的承诺，我很谨慎。",
+      "usage": "第六章语境：Kathy 回想孩子们对那一类敏感话题有所戒备，因此不愿继续追问；territory 指话题领域，不是某片领土。\n用法：be wary of somebody/something/doing something。不要与 weary（疲倦的）混淆。",
+      "register": "neutral",
+      "confusedWith": [
+        "weary"
+      ],
+      "forms": [
+        "warier",
+        "wariest"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "写作词汇",
+        "易混词"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 69",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 15,
+          "page": "p. 69",
+          "originalInput": "wary of that whole territory",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 警惕的；因担心麻烦而谨慎的。",
+          "definition": "cautious because one suspects possible danger or difficulty",
+          "usage": "第六章语境：Kathy 回想孩子们对那一类敏感话题有所戒备，因此不愿继续追问；territory 指话题领域，不是某片领土。\n用法：be wary of somebody/something/doing something。不要与 weary（疲倦的）混淆。",
+          "register": "neutral",
+          "collocations": [
+            "be wary of something",
+            "a wary glance"
+          ],
+          "confusedWith": [
+            "weary"
+          ],
+          "forms": [
+            "warier",
+            "wariest"
+          ],
+          "exampleEn": "I am wary of making promises I may not be able to keep.",
+          "exampleZh": "对于可能无法兑现的承诺，我很谨慎。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 69",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c6-fathom",
+      "revision": 1,
+      "originalInput": "I couldn't fathom",
+      "term": "fathom",
+      "normalized": "fathom",
+      "standardForm": "fathom",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "fathom",
+        "suggestion": "",
+        "chosen": "fathom",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈfæðəm/",
+      "partOfSpeech": "verb",
+      "meaning": "① 理解；弄明白难以解释的事。",
+      "definition": "understand something that is difficult or puzzling",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 理解；弄明白难以解释的事。",
+          "definitionEn": "understand something that is difficult or puzzling",
+          "usageNotes": "第六章语境：Kathy 发现 Madame 的眼神中还有某种她无法理解的东西；此处不替人物揭示原因，也不借用后续章节解释。\n用法：常与 cannot / could not 连用，如 can't fathom why…。第四章的 unfathomable（难以理解的）由同一词根构成，可联想记忆，但不是本词的词形变化。",
+          "register": "neutral",
+          "collocations": [
+            "cannot fathom why",
+            "fathom somebody's motives"
+          ],
+          "examples": [
+            {
+              "en": "I couldn't fathom why the message had upset him.",
+              "zh": "我弄不明白为什么那条消息让他不高兴。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "cannot fathom why",
+        "fathom somebody's motives"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:24d9a80b",
+        "candidatesFingerprint": "s1:88938b71",
+        "checkedAt": "2026-10-09T01:43:36.389Z",
+        "candidateCount": 242,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I couldn't fathom why the message had upset him.",
+      "exampleZh": "我弄不明白为什么那条消息让他不高兴。",
+      "usage": "第六章语境：Kathy 发现 Madame 的眼神中还有某种她无法理解的东西；此处不替人物揭示原因，也不借用后续章节解释。\n用法：常与 cannot / could not 连用，如 can't fathom why…。第四章的 unfathomable（难以理解的）由同一词根构成，可联想记忆，但不是本词的词形变化。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "fathoms",
+        "fathomed",
+        "fathoming"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-6",
+        "文学阅读",
+        "补充阅读",
+        "文学描写",
+        "构词联想"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 6",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 71",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-6",
+          "order": 19,
+          "page": "p. 71",
+          "originalInput": "I couldn't fathom",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 理解；弄明白难以解释的事。",
+          "definition": "understand something that is difficult or puzzling",
+          "usage": "第六章语境：Kathy 发现 Madame 的眼神中还有某种她无法理解的东西；此处不替人物揭示原因，也不借用后续章节解释。\n用法：常与 cannot / could not 连用，如 can't fathom why…。第四章的 unfathomable（难以理解的）由同一词根构成，可联想记忆，但不是本词的词形变化。",
+          "register": "neutral",
+          "collocations": [
+            "cannot fathom why",
+            "fathom somebody's motives"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "fathoms",
+            "fathomed",
+            "fathoming"
+          ],
+          "exampleEn": "I couldn't fathom why the message had upset him.",
+          "exampleZh": "我弄不明白为什么那条消息让他不高兴。",
+          "sourceTitle": "Never Let Me Go — Chapter 6",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 71",
+          "attributionNote": "依据用户提供的 Chapter 6 原文照片逐页核对；仅保留简短原文形式，中文与英文解释为本次整理，语境不超出本章；例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.389Z",
+      "updatedAt": "2026-10-09T01:43:36.389Z"
+    },
+    {
+      "id": "public-nlmg-c8-scrawl",
+      "revision": 1,
+      "originalInput": "scrawling",
+      "term": "scrawl",
+      "normalized": "scrawl",
+      "standardForm": "scrawl",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "scrawl",
+        "suggestion": "",
+        "chosen": "scrawl",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/skrɔːl/",
+      "partOfSpeech": "verb",
+      "meaning": "① 潦草地写；乱涂乱画。",
+      "definition": "write or draw quickly and messily, without making neat marks",
+      "senses": [
+        {
+          "partOfSpeech": "verb",
+          "meaningZh": "① 潦草地写；乱涂乱画。",
+          "definitionEn": "write or draw quickly and messily, without making neat marks",
+          "usageNotes": "第八章语境：Miss Lucy 用铅笔在已有整齐字迹的纸上猛烈涂划；这里的 scrawling 描写杂乱的线条，并不是认真抄写。\n用法：scrawl something on / across something；可写潦草字迹，也可描写乱画的线条。\n补充理由：适合阅读和人物动作描写，比笼统的 write / draw 更具体。",
+          "register": "neutral",
+          "collocations": [
+            "scrawl a note",
+            "scrawl something on paper"
+          ],
+          "examples": [
+            {
+              "en": "He scrawled a reminder on the back of an envelope.",
+              "zh": "他在信封背面潦草地写下一条提醒。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "scrawl a note",
+        "scrawl something on paper"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:33c390c5",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "He scrawled a reminder on the back of an envelope.",
+      "exampleZh": "他在信封背面潦草地写下一条提醒。",
+      "usage": "第八章语境：Miss Lucy 用铅笔在已有整齐字迹的纸上猛烈涂划；这里的 scrawling 描写杂乱的线条，并不是认真抄写。\n用法：scrawl something on / across something；可写潦草字迹，也可描写乱画的线条。\n补充理由：适合阅读和人物动作描写，比笼统的 write / draw 更具体。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "scrawls",
+        "scrawled",
+        "scrawling"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "描写词汇"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 89",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 4,
+          "page": "p. 89",
+          "originalInput": "scrawling",
+          "entryType": "word",
+          "partOfSpeech": "verb",
+          "meaning": "① 潦草地写；乱涂乱画。",
+          "definition": "write or draw quickly and messily, without making neat marks",
+          "usage": "第八章语境：Miss Lucy 用铅笔在已有整齐字迹的纸上猛烈涂划；这里的 scrawling 描写杂乱的线条，并不是认真抄写。\n用法：scrawl something on / across something；可写潦草字迹，也可描写乱画的线条。\n补充理由：适合阅读和人物动作描写，比笼统的 write / draw 更具体。",
+          "register": "neutral",
+          "collocations": [
+            "scrawl a note",
+            "scrawl something on paper"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "scrawls",
+            "scrawled",
+            "scrawling"
+          ],
+          "exampleEn": "He scrawled a reminder on the back of an envelope.",
+          "exampleZh": "他在信封背面潦草地写下一条提醒。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 89",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-put-something-down-to-something",
+      "revision": 1,
+      "originalInput": "put all the changes I'd noticed in him down to that",
+      "term": "put something down to something",
+      "normalized": "put something down to something",
+      "standardForm": "put something down to something",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "put something down to something",
+        "suggestion": "",
+        "chosen": "put something down to something",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "put /pʊt/ · down /daʊn/ · to /tə/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 把某事归因于……；认为某事是由……造成的。",
+      "definition": "explain a situation by treating a particular thing as its cause",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 把某事归因于……；认为某事是由……造成的。",
+          "definitionEn": "explain a situation by treating a particular thing as its cause",
+          "usageNotes": "第八章语境：Kathy 当时把 Tommy 身上的变化归因于他与 Ruth 之间及周围发生的事，没有马上想到别的原因；这里描述的是她的判断，不是已证实的因果关系。\n用法：put + 现象 + down to + 原因，例如 put the delay down to bad weather；put it down to 中 it 要放在 down 前面。\n补充理由：日常解释原因和写作分析都很实用，不能把 put down 逐字理解成放下。",
+          "register": "neutral",
+          "collocations": [
+            "put it down to tiredness",
+            "put a delay down to bad weather"
+          ],
+          "examples": [
+            {
+              "en": "I put my poor concentration down to a lack of sleep.",
+              "zh": "我把自己注意力不集中归因于睡眠不足。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "put it down to tiredness",
+        "put a delay down to bad weather"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:7a79a632",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I put my poor concentration down to a lack of sleep.",
+      "exampleZh": "我把自己注意力不集中归因于睡眠不足。",
+      "usage": "第八章语境：Kathy 当时把 Tommy 身上的变化归因于他与 Ruth 之间及周围发生的事，没有马上想到别的原因；这里描述的是她的判断，不是已证实的因果关系。\n用法：put + 现象 + down to + 原因，例如 put the delay down to bad weather；put it down to 中 it 要放在 down 前面。\n补充理由：日常解释原因和写作分析都很实用，不能把 put down 逐字理解成放下。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "puts something down to something",
+        "putting something down to something"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "短语",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 90",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 6,
+          "page": "p. 90",
+          "originalInput": "put all the changes I'd noticed in him down to that",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 把某事归因于……；认为某事是由……造成的。",
+          "definition": "explain a situation by treating a particular thing as its cause",
+          "usage": "第八章语境：Kathy 当时把 Tommy 身上的变化归因于他与 Ruth 之间及周围发生的事，没有马上想到别的原因；这里描述的是她的判断，不是已证实的因果关系。\n用法：put + 现象 + down to + 原因，例如 put the delay down to bad weather；put it down to 中 it 要放在 down 前面。\n补充理由：日常解释原因和写作分析都很实用，不能把 put down 逐字理解成放下。",
+          "register": "neutral",
+          "collocations": [
+            "put it down to tiredness",
+            "put a delay down to bad weather"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "puts something down to something",
+            "putting something down to something"
+          ],
+          "exampleEn": "I put my poor concentration down to a lack of sleep.",
+          "exampleZh": "我把自己注意力不集中归因于睡眠不足。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 90",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-be-in-awe-of",
+      "revision": 1,
+      "originalInput": "was in awe of her drawing skills",
+      "term": "be in awe of",
+      "normalized": "be in awe of",
+      "standardForm": "be in awe of",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "be in awe of",
+        "suggestion": "",
+        "chosen": "be in awe of",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "awe /ɔː/",
+      "partOfSpeech": "idiom",
+      "meaning": "① 对……深感敬佩；为……而赞叹。",
+      "definition": "feel very strong admiration and respect for someone or something",
+      "senses": [
+        {
+          "partOfSpeech": "idiom",
+          "meaningZh": "① 对……深感敬佩；为……而赞叹。",
+          "definitionEn": "feel very strong admiration and respect for someone or something",
+          "usageNotes": "第八章语境：大家很佩服 Patricia 的绘画本领；这里强调赞叹她的能力，不是害怕她。\n用法：be in awe of somebody / somebody's ability；awe 与 of 搭配，整组表达强于普通的 like。\n补充理由：表达对他人能力、作品或景象的赞赏，口语和写作都可用。",
+          "register": "neutral",
+          "collocations": [
+            "be in awe of somebody's talent",
+            "stand in awe of somebody"
+          ],
+          "examples": [
+            {
+              "en": "I am in awe of her ability to explain difficult ideas clearly.",
+              "zh": "我很佩服她把复杂想法解释清楚的能力。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be in awe of somebody's talent",
+        "stand in awe of somebody"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:fde6f825",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I am in awe of her ability to explain difficult ideas clearly.",
+      "exampleZh": "我很佩服她把复杂想法解释清楚的能力。",
+      "usage": "第八章语境：大家很佩服 Patricia 的绘画本领；这里强调赞叹她的能力，不是害怕她。\n用法：be in awe of somebody / somebody's ability；awe 与 of 搭配，整组表达强于普通的 like。\n补充理由：表达对他人能力、作品或景象的赞赏，口语和写作都可用。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "was in awe of",
+        "were in awe of"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "短语",
+        "实用表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 91",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 9,
+          "page": "p. 91",
+          "originalInput": "was in awe of her drawing skills",
+          "entryType": "idiom",
+          "partOfSpeech": "idiom",
+          "meaning": "① 对……深感敬佩；为……而赞叹。",
+          "definition": "feel very strong admiration and respect for someone or something",
+          "usage": "第八章语境：大家很佩服 Patricia 的绘画本领；这里强调赞叹她的能力，不是害怕她。\n用法：be in awe of somebody / somebody's ability；awe 与 of 搭配，整组表达强于普通的 like。\n补充理由：表达对他人能力、作品或景象的赞赏，口语和写作都可用。",
+          "register": "neutral",
+          "collocations": [
+            "be in awe of somebody's talent",
+            "stand in awe of somebody"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "was in awe of",
+            "were in awe of"
+          ],
+          "exampleEn": "I am in awe of her ability to explain difficult ideas clearly.",
+          "exampleZh": "我很佩服她把复杂想法解释清楚的能力。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 91",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-sought-after",
+      "revision": 1,
+      "originalInput": "sought after",
+      "term": "sought-after",
+      "normalized": "sought-after",
+      "standardForm": "sought-after",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "sought-after",
+        "suggestion": "",
+        "chosen": "sought-after",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈsɔːt ˌɑːftə/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 很多人想要的；抢手的；备受追捧的。",
+      "definition": "desired by many people, often because something is valuable or hard to obtain",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 很多人想要的；抢手的；备受追捧的。",
+          "definitionEn": "desired by many people, often because something is valuable or hard to obtain",
+          "usageNotes": "第八章语境：Patricia 的作品在 Art Exchanges 上总是很抢手，大家都想得到；不是仅仅表示某个人找过它。\n用法：a sought-after item / highly sought after。放在名词前通常加连字符；原文作表语写作 sought after。sought 是 seek 的过去式和过去分词。\n补充理由：描述热门作品、技能、职位和物品时非常有用。",
+          "register": "neutral",
+          "collocations": [
+            "a sought-after skill",
+            "highly sought after"
+          ],
+          "examples": [
+            {
+              "en": "Her handmade notebooks are highly sought after.",
+              "zh": "她制作的手工笔记本很抢手。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a sought-after skill",
+        "highly sought after"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:c2ce0956",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Her handmade notebooks are highly sought after.",
+      "exampleZh": "她制作的手工笔记本很抢手。",
+      "usage": "第八章语境：Patricia 的作品在 Art Exchanges 上总是很抢手，大家都想得到；不是仅仅表示某个人找过它。\n用法：a sought-after item / highly sought after。放在名词前通常加连字符；原文作表语写作 sought after。sought 是 seek 的过去式和过去分词。\n补充理由：描述热门作品、技能、职位和物品时非常有用。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "写作词汇"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 91",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 10,
+          "page": "p. 91",
+          "originalInput": "sought after",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 很多人想要的；抢手的；备受追捧的。",
+          "definition": "desired by many people, often because something is valuable or hard to obtain",
+          "usage": "第八章语境：Patricia 的作品在 Art Exchanges 上总是很抢手，大家都想得到；不是仅仅表示某个人找过它。\n用法：a sought-after item / highly sought after。放在名词前通常加连字符；原文作表语写作 sought after。sought 是 seek 的过去式和过去分词。\n补充理由：描述热门作品、技能、职位和物品时非常有用。",
+          "register": "neutral",
+          "collocations": [
+            "a sought-after skill",
+            "highly sought after"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Her handmade notebooks are highly sought after.",
+          "exampleZh": "她制作的手工笔记本很抢手。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 91",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-discreet",
+      "revision": 1,
+      "originalInput": "discreet",
+      "term": "discreet",
+      "normalized": "discreet",
+      "standardForm": "discreet",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "discreet",
+        "suggestion": "",
+        "chosen": "discreet",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/dɪˈskriːt/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 谨慎、不张扬的；注意保密、避免让人难堪的。",
+      "definition": "careful not to reveal private matters or draw embarrassing attention to them",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 谨慎、不张扬的；注意保密、避免让人难堪的。",
+          "definitionEn": "careful not to reveal private matters or draw embarrassing attention to them",
+          "usageNotes": "第八章语境：学生们默契地不过分追问彼此有关亲密经历的说法；discreet 修饰这种避免让对方难堪的约定。\n用法：be discreet about something / a discreet inquiry；区别同音词 discrete（分开的、离散的）。\n补充理由：描述分寸、隐私和待人处事时很有用，也是容易拼混的写作词。",
+          "register": "neutral",
+          "collocations": [
+            "be discreet about something",
+            "a discreet inquiry"
+          ],
+          "examples": [
+            {
+              "en": "Please be discreet about her plans until she announces them.",
+              "zh": "在她公布计划前，请谨慎保密，不要张扬。"
+            }
+          ],
+          "confusables": [
+            "discrete"
+          ]
+        }
+      ],
+      "collocations": [
+        "be discreet about something",
+        "a discreet inquiry"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:c34aacb0",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Please be discreet about her plans until she announces them.",
+      "exampleZh": "在她公布计划前，请谨慎保密，不要张扬。",
+      "usage": "第八章语境：学生们默契地不过分追问彼此有关亲密经历的说法；discreet 修饰这种避免让对方难堪的约定。\n用法：be discreet about something / a discreet inquiry；区别同音词 discrete（分开的、离散的）。\n补充理由：描述分寸、隐私和待人处事时很有用，也是容易拼混的写作词。",
+      "register": "neutral",
+      "confusedWith": [
+        "discrete"
+      ],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "写作词汇"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 95",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 21,
+          "page": "p. 95",
+          "originalInput": "discreet",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 谨慎、不张扬的；注意保密、避免让人难堪的。",
+          "definition": "careful not to reveal private matters or draw embarrassing attention to them",
+          "usage": "第八章语境：学生们默契地不过分追问彼此有关亲密经历的说法；discreet 修饰这种避免让对方难堪的约定。\n用法：be discreet about something / a discreet inquiry；区别同音词 discrete（分开的、离散的）。\n补充理由：描述分寸、隐私和待人处事时很有用，也是容易拼混的写作词。",
+          "register": "neutral",
+          "collocations": [
+            "be discreet about something",
+            "a discreet inquiry"
+          ],
+          "confusedWith": [
+            "discrete"
+          ],
+          "forms": [],
+          "exampleEn": "Please be discreet about her plans until she announces them.",
+          "exampleZh": "在她公布计划前，请谨慎保密，不要张扬。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 95",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-add-up",
+      "revision": 1,
+      "originalInput": "didn't add up",
+      "term": "add up",
+      "normalized": "add up",
+      "standardForm": "add up",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "add up",
+        "suggestion": "",
+        "chosen": "add up",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/æd ˈʌp/",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 说得通；合乎情理；前后能够对得上。",
+      "definition": "make sense when the details are considered together",
+      "senses": [
+        {
+          "partOfSpeech": "phrasal verb",
+          "meaningZh": "① 说得通；合乎情理；前后能够对得上。",
+          "definitionEn": "make sense when the details are considered together",
+          "usageNotes": "第八章语境：Kathy 回想同学们的说法，觉得那些声称发生过的事情前后对不上；这里不是计算数字的总和。\n用法：常用否定形式 something doesn't add up，表示某种解释或说法有不合理之处。\n补充理由：非常实用的熟词生义，可用来评价故事、证据或解释是否合理。",
+          "register": "neutral",
+          "collocations": [
+            "something doesn't add up",
+            "a story that doesn't add up"
+          ],
+          "examples": [
+            {
+              "en": "The dates in his explanation don't add up.",
+              "zh": "他解释中提到的日期前后对不上。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "something doesn't add up",
+        "a story that doesn't add up"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:9a8bbda9",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The dates in his explanation don't add up.",
+      "exampleZh": "他解释中提到的日期前后对不上。",
+      "usage": "第八章语境：Kathy 回想同学们的说法，觉得那些声称发生过的事情前后对不上；这里不是计算数字的总和。\n用法：常用否定形式 something doesn't add up，表示某种解释或说法有不合理之处。\n补充理由：非常实用的熟词生义，可用来评价故事、证据或解释是否合理。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "adds up",
+        "added up",
+        "adding up"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "短语",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 95",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 22,
+          "page": "p. 95",
+          "originalInput": "didn't add up",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "phrasal verb",
+          "meaning": "① 说得通；合乎情理；前后能够对得上。",
+          "definition": "make sense when the details are considered together",
+          "usage": "第八章语境：Kathy 回想同学们的说法，觉得那些声称发生过的事情前后对不上；这里不是计算数字的总和。\n用法：常用否定形式 something doesn't add up，表示某种解释或说法有不合理之处。\n补充理由：非常实用的熟词生义，可用来评价故事、证据或解释是否合理。",
+          "register": "neutral",
+          "collocations": [
+            "something doesn't add up",
+            "a story that doesn't add up"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "adds up",
+            "added up",
+            "adding up"
+          ],
+          "exampleEn": "The dates in his explanation don't add up.",
+          "exampleZh": "他解释中提到的日期前后对不上。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 95",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c8-drop-a-hint",
+      "revision": 1,
+      "originalInput": "dropping hints to Harry",
+      "term": "drop a hint",
+      "normalized": "drop a hint",
+      "standardForm": "drop a hint",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "drop a hint",
+        "suggestion": "",
+        "chosen": "drop a hint",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/drɒp ə ˈhɪnt/",
+      "partOfSpeech": "idiom",
+      "meaning": "① 给出暗示；不直接说破地透露想法或意愿。",
+      "definition": "suggest what one means or wants indirectly rather than saying it openly",
+      "senses": [
+        {
+          "partOfSpeech": "idiom",
+          "meaningZh": "① 给出暗示；不直接说破地透露想法或意愿。",
+          "definitionEn": "suggest what one means or wants indirectly rather than saying it openly",
+          "usageNotes": "第八章语境：Kathy 觉得自己准备得差不多后，开始向 Harry 暗示自己的意愿；这里只说明她在暗示，不等于两人已经达成安排。\n用法：drop a hint / drop hints；drop somebody a hint；drop a hint about something / that ...。\n补充理由：常见的人际交流表达，不能按 drop 的掉落义逐字翻译。",
+          "register": "informal",
+          "collocations": [
+            "drop somebody a hint",
+            "drop hints about something"
+          ],
+          "examples": [
+            {
+              "en": "She dropped a hint that she would like a quieter place to work.",
+              "zh": "她暗示自己想在更安静的地方工作。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "drop somebody a hint",
+        "drop hints about something"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:6c3a051b",
+        "candidatesFingerprint": "s1:30523884",
+        "checkedAt": "2026-10-09T01:43:36.803Z",
+        "candidateCount": 249,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She dropped a hint that she would like a quieter place to work.",
+      "exampleZh": "她暗示自己想在更安静的地方工作。",
+      "usage": "第八章语境：Kathy 觉得自己准备得差不多后，开始向 Harry 暗示自己的意愿；这里只说明她在暗示，不等于两人已经达成安排。\n用法：drop a hint / drop hints；drop somebody a hint；drop a hint about something / that ...。\n补充理由：常见的人际交流表达，不能按 drop 的掉落义逐字翻译。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "drops a hint",
+        "dropped a hint",
+        "dropping hints"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-8",
+        "文学阅读",
+        "补充阅读",
+        "短语",
+        "实用表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 8",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 97",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-8",
+          "order": 25,
+          "page": "p. 97",
+          "originalInput": "dropping hints to Harry",
+          "entryType": "idiom",
+          "partOfSpeech": "idiom",
+          "meaning": "① 给出暗示；不直接说破地透露想法或意愿。",
+          "definition": "suggest what one means or wants indirectly rather than saying it openly",
+          "usage": "第八章语境：Kathy 觉得自己准备得差不多后，开始向 Harry 暗示自己的意愿；这里只说明她在暗示，不等于两人已经达成安排。\n用法：drop a hint / drop hints；drop somebody a hint；drop a hint about something / that ...。\n补充理由：常见的人际交流表达，不能按 drop 的掉落义逐字翻译。",
+          "register": "informal",
+          "collocations": [
+            "drop somebody a hint",
+            "drop hints about something"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "drops a hint",
+            "dropped a hint",
+            "dropping hints"
+          ],
+          "exampleEn": "She dropped a hint that she would like a quieter place to work.",
+          "exampleZh": "她暗示自己想在更安静的地方工作。",
+          "sourceTitle": "Never Let Me Go — Chapter 8",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 97",
+          "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:36.803Z",
+      "updatedAt": "2026-10-09T01:43:36.803Z"
+    },
+    {
+      "id": "public-nlmg-c9-perceptive",
+      "revision": 1,
+      "originalInput": "perceptive",
+      "term": "perceptive",
+      "normalized": "perceptive",
+      "standardForm": "perceptive",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "perceptive",
+        "suggestion": "",
+        "chosen": "perceptive",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/pəˈseptɪv/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 观察敏锐的；善于看出细节和理解别人心思的。",
+      "definition": "quick to notice significant details and understand what people or situations are really like",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 观察敏锐的；善于看出细节和理解别人心思的。",
+          "definitionEn": "quick to notice significant details and understand what people or situations are really like",
+          "usageNotes": "第九章语境：Kathy 觉得 Cynthia 很有洞察力，所以她随口说出的关于人际关系的判断也值得认真考虑。\n用法：a perceptive person / a perceptive comment；不仅表示看得见，更强调看得准、理解得深。适合描写人物，也适合评价分析或评论。",
+          "register": "neutral",
+          "collocations": [
+            "a perceptive person",
+            "a perceptive comment",
+            "a perceptive analysis"
+          ],
+          "examples": [
+            {
+              "en": "That was a perceptive comment about why the discussion had failed.",
+              "zh": "那句评论很有洞察力，点出了讨论失败的原因。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a perceptive person",
+        "a perceptive comment",
+        "a perceptive analysis"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:abd6ce8b",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "That was a perceptive comment about why the discussion had failed.",
+      "exampleZh": "那句评论很有洞察力，点出了讨论失败的原因。",
+      "usage": "第九章语境：Kathy 觉得 Cynthia 很有洞察力，所以她随口说出的关于人际关系的判断也值得认真考虑。\n用法：a perceptive person / a perceptive comment；不仅表示看得见，更强调看得准、理解得深。适合描写人物，也适合评价分析或评论。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 5,
+          "page": "p. 98",
+          "originalInput": "perceptive",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 观察敏锐的；善于看出细节和理解别人心思的。",
+          "definition": "quick to notice significant details and understand what people or situations are really like",
+          "usage": "第九章语境：Kathy 觉得 Cynthia 很有洞察力，所以她随口说出的关于人际关系的判断也值得认真考虑。\n用法：a perceptive person / a perceptive comment；不仅表示看得见，更强调看得准、理解得深。适合描写人物，也适合评价分析或评论。",
+          "register": "neutral",
+          "collocations": [
+            "a perceptive person",
+            "a perceptive comment",
+            "a perceptive analysis"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "That was a perceptive comment about why the discussion had failed.",
+          "exampleZh": "那句评论很有洞察力，点出了讨论失败的原因。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-give-weight-to-something",
+      "revision": 1,
+      "originalInput": "gave her remark more weight",
+      "term": "give weight to something",
+      "normalized": "give weight to something",
+      "standardForm": "give weight to something",
+      "entryType": "collocation",
+      "correction": {
+        "status": "exact",
+        "original": "give weight to something",
+        "suggestion": "",
+        "chosen": "give weight to something",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɡɪv ˈweɪt tə ˌsʌmθɪŋ/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 使某种说法更有分量；增加其重要性或说服力。",
+      "definition": "make a statement, opinion or argument seem more significant or convincing",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 使某种说法更有分量；增加其重要性或说服力。",
+          "definitionEn": "make a statement, opinion or argument seem more significant or convincing",
+          "usageNotes": "第九章语境：Cynthia 不是 Kathy 所在小团体的一员，反而让她以旁观者身份作出的评论更有分量。\n用法：give weight to an argument / give an argument more weight，两种语序都可以。这里 weight 指重要性或说服力，不是物理重量；适合写作中讨论证据与论点。",
+          "register": "neutral",
+          "collocations": [
+            "give weight to an argument",
+            "give a claim more weight"
+          ],
+          "examples": [
+            {
+              "en": "The independent report gave more weight to her argument.",
+              "zh": "那份独立报告让她的论点更有说服力。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "give weight to an argument",
+        "give a claim more weight"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:8e68558e",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The independent report gave more weight to her argument.",
+      "exampleZh": "那份独立报告让她的论点更有说服力。",
+      "usage": "第九章语境：Cynthia 不是 Kathy 所在小团体的一员，反而让她以旁观者身份作出的评论更有分量。\n用法：give weight to an argument / give an argument more weight，两种语序都可以。这里 weight 指重要性或说服力，不是物理重量；适合写作中讨论证据与论点。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "gave weight to something",
+        "given weight to something"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "熟词生义",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 98",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 6,
+          "page": "p. 98",
+          "originalInput": "gave her remark more weight",
+          "entryType": "collocation",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 使某种说法更有分量；增加其重要性或说服力。",
+          "definition": "make a statement, opinion or argument seem more significant or convincing",
+          "usage": "第九章语境：Cynthia 不是 Kathy 所在小团体的一员，反而让她以旁观者身份作出的评论更有分量。\n用法：give weight to an argument / give an argument more weight，两种语序都可以。这里 weight 指重要性或说服力，不是物理重量；适合写作中讨论证据与论点。",
+          "register": "neutral",
+          "collocations": [
+            "give weight to an argument",
+            "give a claim more weight"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "gave weight to something",
+            "given weight to something"
+          ],
+          "exampleEn": "The independent report gave more weight to her argument.",
+          "exampleZh": "那份独立报告让她的论点更有说服力。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 98",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-have-one-s-work-cut-out",
+      "revision": 1,
+      "originalInput": "had my work cut out",
+      "term": "have one's work cut out",
+      "normalized": "have one's work cut out",
+      "standardForm": "have one's work cut out",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "have one's work cut out",
+        "suggestion": "",
+        "chosen": "have one's work cut out",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/hæv wʌnz ˌwɜːk kʌt ˈaʊt/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 面临一项很难完成的任务；得费很大劲才行。",
+      "definition": "face a task that will require considerable effort to complete",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 面临一项很难完成的任务；得费很大劲才行。",
+          "definitionEn": "face a task that will require considerable effort to complete",
+          "usageNotes": "第九章语境：Kathy 当时以为自己得想方设法才能让 Harry 暂时打消念头，后来又怀疑也许只是自己想多了。\n用法：have one's work cut out to do something，也可说 have one's work cut out for one。这里不是把工作剪掉；整组表示任务艰巨。",
+          "register": "informal",
+          "collocations": [
+            "have one's work cut out to finish something",
+            "have one's work cut out for one"
+          ],
+          "examples": [
+            {
+              "en": "We have our work cut out to finish the project by Friday.",
+              "zh": "要在星期五之前完成项目，我们得费很大劲。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "have one's work cut out to finish something",
+        "have one's work cut out for one"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:dc6ac15d",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We have our work cut out to finish the project by Friday.",
+      "exampleZh": "要在星期五之前完成项目，我们得费很大劲。",
+      "usage": "第九章语境：Kathy 当时以为自己得想方设法才能让 Harry 暂时打消念头，后来又怀疑也许只是自己想多了。\n用法：have one's work cut out to do something，也可说 have one's work cut out for one。这里不是把工作剪掉；整组表示任务艰巨。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "had one's work cut out"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "习语",
+        "口语表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 100",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 8,
+          "page": "p. 100",
+          "originalInput": "had my work cut out",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 面临一项很难完成的任务；得费很大劲才行。",
+          "definition": "face a task that will require considerable effort to complete",
+          "usage": "第九章语境：Kathy 当时以为自己得想方设法才能让 Harry 暂时打消念头，后来又怀疑也许只是自己想多了。\n用法：have one's work cut out to do something，也可说 have one's work cut out for one。这里不是把工作剪掉；整组表示任务艰巨。",
+          "register": "informal",
+          "collocations": [
+            "have one's work cut out to finish something",
+            "have one's work cut out for one"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "had one's work cut out"
+          ],
+          "exampleEn": "We have our work cut out to finish the project by Friday.",
+          "exampleZh": "要在星期五之前完成项目，我们得费很大劲。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 100",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-laughing-stock",
+      "revision": 1,
+      "originalInput": "a laughing stock",
+      "term": "laughing stock",
+      "normalized": "laughing stock",
+      "standardForm": "laughing stock",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "laughing stock",
+        "suggestion": "",
+        "chosen": "laughing stock",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈlɑːfɪŋ stɒk/",
+      "partOfSpeech": "countable noun",
+      "meaning": "① 笑柄；被大家嘲笑的人或事。",
+      "definition": "a person or thing that people repeatedly make fun of",
+      "senses": [
+        {
+          "partOfSpeech": "countable noun",
+          "meaningZh": "① 笑柄；被大家嘲笑的人或事。",
+          "definitionEn": "a person or thing that people repeatedly make fun of",
+          "usageNotes": "第九章语境：Kathy 觉得自己反复找 Harry 解释的行为很傻，若不是他为人厚道，她可能很快就会成为别人的笑柄。\n用法：become a laughing stock / make a laughing stock of someone。这里不是喜欢笑的人；stock 不按库存来理解。也可写作 laughingstock。",
+          "register": "neutral",
+          "collocations": [
+            "become a laughing stock",
+            "make a laughing stock of someone"
+          ],
+          "examples": [
+            {
+              "en": "He feared that one public mistake would make him a laughing stock.",
+              "zh": "他担心一次当众出错就会让自己成为笑柄。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "become a laughing stock",
+        "make a laughing stock of someone"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:2314c678",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "He feared that one public mistake would make him a laughing stock.",
+      "exampleZh": "他担心一次当众出错就会让自己成为笑柄。",
+      "usage": "第九章语境：Kathy 觉得自己反复找 Harry 解释的行为很傻，若不是他为人厚道，她可能很快就会成为别人的笑柄。\n用法：become a laughing stock / make a laughing stock of someone。这里不是喜欢笑的人；stock 不按库存来理解。也可写作 laughingstock。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "laughing stocks"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "固定表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 100",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 9,
+          "page": "p. 100",
+          "originalInput": "a laughing stock",
+          "entryType": "phrase",
+          "partOfSpeech": "countable noun",
+          "meaning": "① 笑柄；被大家嘲笑的人或事。",
+          "definition": "a person or thing that people repeatedly make fun of",
+          "usage": "第九章语境：Kathy 觉得自己反复找 Harry 解释的行为很傻，若不是他为人厚道，她可能很快就会成为别人的笑柄。\n用法：become a laughing stock / make a laughing stock of someone。这里不是喜欢笑的人；stock 不按库存来理解。也可写作 laughingstock。",
+          "register": "neutral",
+          "collocations": [
+            "become a laughing stock",
+            "make a laughing stock of someone"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "laughing stocks"
+          ],
+          "exampleEn": "He feared that one public mistake would make him a laughing stock.",
+          "exampleZh": "他担心一次当众出错就会让自己成为笑柄。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 100",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-take-off",
+      "revision": 1,
+      "originalInput": "took off",
+      "term": "take off",
+      "normalized": "take off",
+      "standardForm": "take off",
+      "entryType": "phrasal-verb",
+      "correction": {
+        "status": "exact",
+        "original": "take off",
+        "suggestion": "",
+        "chosen": "take off",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌteɪk ˈɒf/",
+      "partOfSpeech": "intransitive phrasal verb",
+      "meaning": "① 迅速流行起来；开始大受欢迎。",
+      "definition": "start becoming popular or successful very quickly",
+      "senses": [
+        {
+          "partOfSpeech": "intransitive phrasal verb",
+          "meaningZh": "① 迅速流行起来；开始大受欢迎。",
+          "definitionEn": "start becoming popular or successful very quickly",
+          "usageNotes": "第九章语境：学生围坐在一起轮流听随身听的风潮在那个夏天迅速流行起来。\n用法：a craze / trend / business takes off。这里是不及物用法，不是飞机起飞，也不是脱下衣物；take → took → taken。",
+          "register": "informal",
+          "collocations": [
+            "a craze takes off",
+            "a business takes off",
+            "really take off"
+          ],
+          "examples": [
+            {
+              "en": "The idea took off after a few students shared it online.",
+              "zh": "几个学生在网上分享之后，这个点子很快流行起来。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a craze takes off",
+        "a business takes off",
+        "really take off"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:8bf91a49",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The idea took off after a few students shared it online.",
+      "exampleZh": "几个学生在网上分享之后，这个点子很快流行起来。",
+      "usage": "第九章语境：学生围坐在一起轮流听随身听的风潮在那个夏天迅速流行起来。\n用法：a craze / trend / business takes off。这里是不及物用法，不是飞机起飞，也不是脱下衣物；take → took → taken。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "takes off",
+        "took off",
+        "taken off",
+        "taking off"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "短语动词",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 101",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 10,
+          "page": "p. 101",
+          "originalInput": "took off",
+          "entryType": "phrasal-verb",
+          "partOfSpeech": "intransitive phrasal verb",
+          "meaning": "① 迅速流行起来；开始大受欢迎。",
+          "definition": "start becoming popular or successful very quickly",
+          "usage": "第九章语境：学生围坐在一起轮流听随身听的风潮在那个夏天迅速流行起来。\n用法：a craze / trend / business takes off。这里是不及物用法，不是飞机起飞，也不是脱下衣物；take → took → taken。",
+          "register": "informal",
+          "collocations": [
+            "a craze takes off",
+            "a business takes off",
+            "really take off"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "takes off",
+            "took off",
+            "taken off",
+            "taking off"
+          ],
+          "exampleEn": "The idea took off after a few students shared it online.",
+          "exampleZh": "几个学生在网上分享之后，这个点子很快流行起来。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 101",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-have-guts",
+      "revision": 1,
+      "originalInput": "you've got guts",
+      "term": "have guts",
+      "normalized": "have guts",
+      "standardForm": "have guts",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "have guts",
+        "suggestion": "",
+        "chosen": "have guts",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/hæv ˈɡʌts/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 有胆量；有勇气去面对困难或坚持做某事。",
+      "definition": "have the courage to act despite difficulty, danger or disapproval",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 有胆量；有勇气去面对困难或坚持做某事。",
+          "definitionEn": "have the courage to act despite difficulty, danger or disapproval",
+          "usageNotes": "第九章语境：Ruth 转述 Tommy 对 Kathy 的评价，说她有胆量，而且说到就会做到。\n用法：have the guts to do something＝有胆量做某事；It takes guts to do something＝做某事需要勇气。guts 在这里固定用复数形式，不是指肠子，语气较口语化。",
+          "register": "informal",
+          "collocations": [
+            "have the guts to do something",
+            "take guts",
+            "have guts"
+          ],
+          "examples": [
+            {
+              "en": "She had the guts to admit that her first idea was wrong.",
+              "zh": "她有勇气承认自己最初的想法是错的。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "have the guts to do something",
+        "take guts",
+        "have guts"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:5226dcd8",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She had the guts to admit that her first idea was wrong.",
+      "exampleZh": "她有勇气承认自己最初的想法是错的。",
+      "usage": "第九章语境：Ruth 转述 Tommy 对 Kathy 的评价，说她有胆量，而且说到就会做到。\n用法：have the guts to do something＝有胆量做某事；It takes guts to do something＝做某事需要勇气。guts 在这里固定用复数形式，不是指肠子，语气较口语化。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "had guts",
+        "has got guts"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "习语",
+        "熟词生义"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 102",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 13,
+          "page": "p. 102",
+          "originalInput": "you've got guts",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 有胆量；有勇气去面对困难或坚持做某事。",
+          "definition": "have the courage to act despite difficulty, danger or disapproval",
+          "usage": "第九章语境：Ruth 转述 Tommy 对 Kathy 的评价，说她有胆量，而且说到就会做到。\n用法：have the guts to do something＝有胆量做某事；It takes guts to do something＝做某事需要勇气。guts 在这里固定用复数形式，不是指肠子，语气较口语化。",
+          "register": "informal",
+          "collocations": [
+            "have the guts to do something",
+            "take guts",
+            "have guts"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "had guts",
+            "has got guts"
+          ],
+          "exampleEn": "She had the guts to admit that her first idea was wrong.",
+          "exampleZh": "她有勇气承认自己最初的想法是错的。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 102",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-break-the-deadlock",
+      "revision": 1,
+      "originalInput": "break the deadlock",
+      "term": "break the deadlock",
+      "normalized": "break the deadlock",
+      "standardForm": "break the deadlock",
+      "entryType": "collocation",
+      "correction": {
+        "status": "exact",
+        "original": "break the deadlock",
+        "suggestion": "",
+        "chosen": "break the deadlock",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌbreɪk ðə ˈdedlɒk/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 打破僵局；让停滞不前的局面重新有进展。",
+      "definition": "end a situation in which neither side is taking action and no progress is being made",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 打破僵局；让停滞不前的局面重新有进展。",
+          "definitionEn": "end a situation in which neither side is taking action and no progress is being made",
+          "usageNotes": "第九章语境：Kathy 和 Tommy 一时都没有主动交谈，她最终先开口，打破了两人之间的僵局。\n用法：deadlock 是僵持、无法推进的状态；break the deadlock 也常用于谈判或讨论。此处不涉及真正的锁，也不一定表示正式争执。",
+          "register": "neutral",
+          "collocations": [
+            "break the deadlock",
+            "reach a deadlock",
+            "a deadlock in negotiations"
+          ],
+          "examples": [
+            {
+              "en": "A practical suggestion finally broke the deadlock in our discussion.",
+              "zh": "一个切实可行的建议终于打破了我们讨论中的僵局。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "break the deadlock",
+        "reach a deadlock",
+        "a deadlock in negotiations"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:af58dc51",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "A practical suggestion finally broke the deadlock in our discussion.",
+      "exampleZh": "一个切实可行的建议终于打破了我们讨论中的僵局。",
+      "usage": "第九章语境：Kathy 和 Tommy 一时都没有主动交谈，她最终先开口，打破了两人之间的僵局。\n用法：deadlock 是僵持、无法推进的状态；break the deadlock 也常用于谈判或讨论。此处不涉及真正的锁，也不一定表示正式争执。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [
+        "broke the deadlock",
+        "broken the deadlock"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "固定搭配",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 103",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 14,
+          "page": "p. 103",
+          "originalInput": "break the deadlock",
+          "entryType": "collocation",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 打破僵局；让停滞不前的局面重新有进展。",
+          "definition": "end a situation in which neither side is taking action and no progress is being made",
+          "usage": "第九章语境：Kathy 和 Tommy 一时都没有主动交谈，她最终先开口，打破了两人之间的僵局。\n用法：deadlock 是僵持、无法推进的状态；break the deadlock 也常用于谈判或讨论。此处不涉及真正的锁，也不一定表示正式争执。",
+          "register": "neutral",
+          "collocations": [
+            "break the deadlock",
+            "reach a deadlock",
+            "a deadlock in negotiations"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "broke the deadlock",
+            "broken the deadlock"
+          ],
+          "exampleEn": "A practical suggestion finally broke the deadlock in our discussion.",
+          "exampleZh": "一个切实可行的建议终于打破了我们讨论中的僵局。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 103",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-get-someone-s-back-up",
+      "revision": 1,
+      "originalInput": "got my back up",
+      "term": "get someone's back up",
+      "normalized": "get someone's back up",
+      "standardForm": "get someone's back up",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "get someone's back up",
+        "suggestion": "",
+        "chosen": "get someone's back up",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ɡet ˌsʌmwʌnz ˈbæk ʌp/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 惹恼某人；让某人产生抵触情绪。",
+      "definition": "make someone feel irritated or defensive",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 惹恼某人；让某人产生抵触情绪。",
+          "definitionEn": "make someone feel irritated or defensive",
+          "usageNotes": "第九章语境：Tommy 那种急切又带感激的样子，反而在谈话真正开始前就让 Kathy 有些恼火。\n用法：something gets someone's back up；也可用 put someone's back up。不要与 back someone up（支持某人）混淆，也不是让人重新站起来。",
+          "register": "informal; chiefly British",
+          "collocations": [
+            "get someone's back up",
+            "put someone's back up"
+          ],
+          "examples": [
+            {
+              "en": "Being interrupted every few seconds really gets my back up.",
+              "zh": "每隔几秒就被打断，真的让我很恼火。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "get someone's back up",
+        "put someone's back up"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:7a2901dc",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Being interrupted every few seconds really gets my back up.",
+      "exampleZh": "每隔几秒就被打断，真的让我很恼火。",
+      "usage": "第九章语境：Tommy 那种急切又带感激的样子，反而在谈话真正开始前就让 Kathy 有些恼火。\n用法：something gets someone's back up；也可用 put someone's back up。不要与 back someone up（支持某人）混淆，也不是让人重新站起来。",
+      "register": "informal; chiefly British",
+      "confusedWith": [],
+      "forms": [
+        "got someone's back up",
+        "getting someone's back up"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "习语",
+        "口语表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 103",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 16,
+          "page": "p. 103",
+          "originalInput": "got my back up",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 惹恼某人；让某人产生抵触情绪。",
+          "definition": "make someone feel irritated or defensive",
+          "usage": "第九章语境：Tommy 那种急切又带感激的样子，反而在谈话真正开始前就让 Kathy 有些恼火。\n用法：something gets someone's back up；也可用 put someone's back up。不要与 back someone up（支持某人）混淆，也不是让人重新站起来。",
+          "register": "informal; chiefly British",
+          "collocations": [
+            "get someone's back up",
+            "put someone's back up"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "got someone's back up",
+            "getting someone's back up"
+          ],
+          "exampleEn": "Being interrupted every few seconds really gets my back up.",
+          "exampleZh": "每隔几秒就被打断，真的让我很恼火。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 103",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-downcast",
+      "revision": 1,
+      "originalInput": "downcast",
+      "term": "downcast",
+      "normalized": "downcast",
+      "standardForm": "downcast",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "downcast",
+        "suggestion": "",
+        "chosen": "downcast",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈdaʊnkɑːst/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 沮丧的；垂头丧气的。",
+      "definition": "looking or feeling unhappy and discouraged",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 沮丧的；垂头丧气的。",
+          "definitionEn": "looking or feeling unhappy and discouraged",
+          "usageNotes": "第九章语境：Kathy 认为 Tommy 若说自己难受，便会特意配上一副垂头丧气的表情，让别人更相信他的话；这里不是断言他此刻真的很沮丧。\n用法：look / feel downcast；a downcast face / expression。用于人物神情描写；本章重点是情绪表情，不只是视线朝下。",
+          "register": "neutral",
+          "collocations": [
+            "look downcast",
+            "feel downcast",
+            "a downcast expression"
+          ],
+          "examples": [
+            {
+              "en": "She looked downcast after her proposal was rejected.",
+              "zh": "提议被否决后，她显得很沮丧。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "look downcast",
+        "feel downcast",
+        "a downcast expression"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:ff61490d",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "She looked downcast after her proposal was rejected.",
+      "exampleZh": "提议被否决后，她显得很沮丧。",
+      "usage": "第九章语境：Kathy 认为 Tommy 若说自己难受，便会特意配上一副垂头丧气的表情，让别人更相信他的话；这里不是断言他此刻真的很沮丧。\n用法：look / feel downcast；a downcast face / expression。用于人物神情描写；本章重点是情绪表情，不只是视线朝下。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "描写表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 104",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 17,
+          "page": "p. 104",
+          "originalInput": "downcast",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 沮丧的；垂头丧气的。",
+          "definition": "looking or feeling unhappy and discouraged",
+          "usage": "第九章语境：Kathy 认为 Tommy 若说自己难受，便会特意配上一副垂头丧气的表情，让别人更相信他的话；这里不是断言他此刻真的很沮丧。\n用法：look / feel downcast；a downcast face / expression。用于人物神情描写；本章重点是情绪表情，不只是视线朝下。",
+          "register": "neutral",
+          "collocations": [
+            "look downcast",
+            "feel downcast",
+            "a downcast expression"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "She looked downcast after her proposal was rejected.",
+          "exampleZh": "提议被否决后，她显得很沮丧。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 104",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-have-one-s-wits-about-one",
+      "revision": 1,
+      "originalInput": "need all our wits about us",
+      "term": "have one's wits about one",
+      "normalized": "have one's wits about one",
+      "standardForm": "have one's wits about one",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "have one's wits about one",
+        "suggestion": "",
+        "chosen": "have one's wits about one",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/hæv wʌnz ˈwɪts əˌbaʊt wʌn/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 保持头脑清醒和机警；随时准备应对困难。",
+      "definition": "stay alert and ready to think clearly when facing a difficult or unexpected situation",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 保持头脑清醒和机警；随时准备应对困难。",
+          "definitionEn": "stay alert and ready to think clearly when facing a difficult or unexpected situation",
+          "usageNotes": "第九章语境：Kathy 虽不十分了解学校外的生活，却觉得他们将需要保持机警，不轻易被人利用。\n用法：have / keep one's wits about one；具体人称要对应，如 keep your wits about you。原文是 need all our wits about us，表示需要充分动用机智、保持警觉，而不是逐字翻译成周围有智慧。",
+          "register": "neutral",
+          "collocations": [
+            "have one's wits about one",
+            "keep one's wits about one",
+            "need all one's wits about one"
+          ],
+          "examples": [
+            {
+              "en": "Keep your wits about you when you arrive in an unfamiliar city.",
+              "zh": "到一个陌生城市时，要保持清醒和警觉。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "have one's wits about one",
+        "keep one's wits about one",
+        "need all one's wits about one"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:eeb9fdd2",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Keep your wits about you when you arrive in an unfamiliar city.",
+      "exampleZh": "到一个陌生城市时，要保持清醒和警觉。",
+      "usage": "第九章语境：Kathy 虽不十分了解学校外的生活，却觉得他们将需要保持机警，不轻易被人利用。\n用法：have / keep one's wits about one；具体人称要对应，如 keep your wits about you。原文是 need all our wits about us，表示需要充分动用机智、保持警觉，而不是逐字翻译成周围有智慧。",
+      "register": "neutral",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "习语",
+        "口语表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 104",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 18,
+          "page": "p. 104",
+          "originalInput": "need all our wits about us",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 保持头脑清醒和机警；随时准备应对困难。",
+          "definition": "stay alert and ready to think clearly when facing a difficult or unexpected situation",
+          "usage": "第九章语境：Kathy 虽不十分了解学校外的生活，却觉得他们将需要保持机警，不轻易被人利用。\n用法：have / keep one's wits about one；具体人称要对应，如 keep your wits about you。原文是 need all our wits about us，表示需要充分动用机智、保持警觉，而不是逐字翻译成周围有智慧。",
+          "register": "neutral",
+          "collocations": [
+            "have one's wits about one",
+            "keep one's wits about one",
+            "need all one's wits about one"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "Keep your wits about you when you arrive in an unfamiliar city.",
+          "exampleZh": "到一个陌生城市时，要保持清醒和警觉。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 104",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-do-somebody-a-disservice",
+      "revision": 1,
+      "originalInput": "done me a big disservice",
+      "term": "do somebody a disservice",
+      "normalized": "do somebody a disservice",
+      "standardForm": "do somebody a disservice",
+      "entryType": "collocation",
+      "correction": {
+        "status": "exact",
+        "original": "do somebody a disservice",
+        "suggestion": "",
+        "chosen": "do somebody a disservice",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/duː ˌsʌmbədi ə dɪsˈsɜːvɪs/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 对某人造成不利影响；尤其指本想帮助，却反而害了对方。",
+      "definition": "harm someone's interests, sometimes through advice or help that has the opposite effect to the one intended",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 对某人造成不利影响；尤其指本想帮助，却反而害了对方。",
+          "definitionEn": "harm someone's interests, sometimes through advice or help that has the opposite effect to the one intended",
+          "usageNotes": "第九章语境：Tommy 转述 Miss Lucy 的反省，说她先前让他不必担心创作的那番话，可能反而对他不利。\n用法：do somebody a disservice，也可说 do a disservice to somebody。disservice 不一定出于恶意；较适合认真评价一项做法造成的负面影响。",
+          "register": "formal",
+          "collocations": [
+            "do somebody a disservice",
+            "do a disservice to somebody",
+            "a serious disservice"
+          ],
+          "examples": [
+            {
+              "en": "Doing all his homework for him would do him a disservice.",
+              "zh": "替他做完所有作业，反而会害了他。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "do somebody a disservice",
+        "do a disservice to somebody",
+        "a serious disservice"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:eadb6caa",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "Doing all his homework for him would do him a disservice.",
+      "exampleZh": "替他做完所有作业，反而会害了他。",
+      "usage": "第九章语境：Tommy 转述 Miss Lucy 的反省，说她先前让他不必担心创作的那番话，可能反而对他不利。\n用法：do somebody a disservice，也可说 do a disservice to somebody。disservice 不一定出于恶意；较适合认真评价一项做法造成的负面影响。",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [
+        "did somebody a disservice",
+        "done somebody a disservice"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "固定搭配",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 105",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 19,
+          "page": "p. 105",
+          "originalInput": "done me a big disservice",
+          "entryType": "collocation",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 对某人造成不利影响；尤其指本想帮助，却反而害了对方。",
+          "definition": "harm someone's interests, sometimes through advice or help that has the opposite effect to the one intended",
+          "usage": "第九章语境：Tommy 转述 Miss Lucy 的反省，说她先前让他不必担心创作的那番话，可能反而对他不利。\n用法：do somebody a disservice，也可说 do a disservice to somebody。disservice 不一定出于恶意；较适合认真评价一项做法造成的负面影响。",
+          "register": "formal",
+          "collocations": [
+            "do somebody a disservice",
+            "do a disservice to somebody",
+            "a serious disservice"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "did somebody a disservice",
+            "done somebody a disservice"
+          ],
+          "exampleEn": "Doing all his homework for him would do him a disservice.",
+          "exampleZh": "替他做完所有作业，反而会害了他。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 105",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-negligible",
+      "revision": 1,
+      "originalInput": "Negligible",
+      "term": "negligible",
+      "normalized": "negligible",
+      "standardForm": "negligible",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "negligible",
+        "suggestion": "",
+        "chosen": "negligible",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˈneɡlɪdʒəbl/",
+      "partOfSpeech": "adjective",
+      "meaning": "① 微不足道的；小到或少到几乎可以忽略的。",
+      "definition": "so small in amount, effect or importance that it scarcely matters",
+      "senses": [
+        {
+          "partOfSpeech": "adjective",
+          "meaningZh": "① 微不足道的；小到或少到几乎可以忽略的。",
+          "definitionEn": "so small in amount, effect or importance that it scarcely matters",
+          "usageNotes": "第九章语境：Tommy 回想 Miss Lucy 对自己作品的评价时，提出 negligible 可能是她用过的词；紧接着他又想到别的说法，可见并不确定原话。这里若用于作品，侧重其价值或分量很小，不能直接把 negligible 当成 rubbish 的精确同义词。\n用法：a negligible effect / difference / amount；这是写作中描述影响、差异或数量极小时很实用的词。",
+          "register": "formal",
+          "collocations": [
+            "a negligible effect",
+            "a negligible difference",
+            "a negligible amount"
+          ],
+          "examples": [
+            {
+              "en": "The two methods produced only a negligible difference in the results.",
+              "zh": "两种方法得到的结果只有可以忽略不计的差异。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "a negligible effect",
+        "a negligible difference",
+        "a negligible amount"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:bf118c47",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "The two methods produced only a negligible difference in the results.",
+      "exampleZh": "两种方法得到的结果只有可以忽略不计的差异。",
+      "usage": "第九章语境：Tommy 回想 Miss Lucy 对自己作品的评价时，提出 negligible 可能是她用过的词；紧接着他又想到别的说法，可见并不确定原话。这里若用于作品，侧重其价值或分量很小，不能直接把 negligible 当成 rubbish 的精确同义词。\n用法：a negligible effect / difference / amount；这是写作中描述影响、差异或数量极小时很实用的词。",
+      "register": "formal",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "单词",
+        "写作表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 105",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 20,
+          "page": "p. 105",
+          "originalInput": "Negligible",
+          "entryType": "word",
+          "partOfSpeech": "adjective",
+          "meaning": "① 微不足道的；小到或少到几乎可以忽略的。",
+          "definition": "so small in amount, effect or importance that it scarcely matters",
+          "usage": "第九章语境：Tommy 回想 Miss Lucy 对自己作品的评价时，提出 negligible 可能是她用过的词；紧接着他又想到别的说法，可见并不确定原话。这里若用于作品，侧重其价值或分量很小，不能直接把 negligible 当成 rubbish 的精确同义词。\n用法：a negligible effect / difference / amount；这是写作中描述影响、差异或数量极小时很实用的词。",
+          "register": "formal",
+          "collocations": [
+            "a negligible effect",
+            "a negligible difference",
+            "a negligible amount"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "The two methods produced only a negligible difference in the results.",
+          "exampleZh": "两种方法得到的结果只有可以忽略不计的差异。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 105",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-heart-to-heart",
+      "revision": 1,
+      "originalInput": "our little heart-to-heart",
+      "term": "heart-to-heart",
+      "normalized": "heart-to-heart",
+      "standardForm": "heart-to-heart",
+      "entryType": "phrase",
+      "correction": {
+        "status": "exact",
+        "original": "heart-to-heart",
+        "suggestion": "",
+        "chosen": "heart-to-heart",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/ˌhɑːt tə ˈhɑːt/",
+      "partOfSpeech": "countable noun",
+      "meaning": "① 坦诚交心的谈话；关于个人感受或烦恼的真心交流。",
+      "definition": "a private, honest conversation about personal feelings or concerns",
+      "senses": [
+        {
+          "partOfSpeech": "countable noun",
+          "meaningZh": "① 坦诚交心的谈话；关于个人感受或烦恼的真心交流。",
+          "definitionEn": "a private, honest conversation about personal feelings or concerns",
+          "usageNotes": "第九章语境：Kathy 把自己与 Tommy 的那次认真谈话称为 heart-to-heart；别人走来后，谈话便告一段落。\n用法：have a heart-to-heart with someone；也可作定语，如 a heart-to-heart talk。不限于情侣，也可用于朋友或家人，不是普通闲聊。",
+          "register": "informal",
+          "collocations": [
+            "have a heart-to-heart with someone",
+            "a heart-to-heart talk"
+          ],
+          "examples": [
+            {
+              "en": "We had a heart-to-heart about why we had been avoiding each other.",
+              "zh": "我们坦诚地谈了谈，为什么最近一直在躲着对方。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "have a heart-to-heart with someone",
+        "a heart-to-heart talk"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:fb8480dd",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "We had a heart-to-heart about why we had been avoiding each other.",
+      "exampleZh": "我们坦诚地谈了谈，为什么最近一直在躲着对方。",
+      "usage": "第九章语境：Kathy 把自己与 Tommy 的那次认真谈话称为 heart-to-heart；别人走来后，谈话便告一段落。\n用法：have a heart-to-heart with someone；也可作定语，如 a heart-to-heart talk。不限于情侣，也可用于朋友或家人，不是普通闲聊。",
+      "register": "informal",
+      "confusedWith": [],
+      "forms": [
+        "heart-to-hearts"
+      ],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "固定表达",
+        "口语表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 108",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 22,
+          "page": "p. 108",
+          "originalInput": "our little heart-to-heart",
+          "entryType": "phrase",
+          "partOfSpeech": "countable noun",
+          "meaning": "① 坦诚交心的谈话；关于个人感受或烦恼的真心交流。",
+          "definition": "a private, honest conversation about personal feelings or concerns",
+          "usage": "第九章语境：Kathy 把自己与 Tommy 的那次认真谈话称为 heart-to-heart；别人走来后，谈话便告一段落。\n用法：have a heart-to-heart with someone；也可作定语，如 a heart-to-heart talk。不限于情侣，也可用于朋友或家人，不是普通闲聊。",
+          "register": "informal",
+          "collocations": [
+            "have a heart-to-heart with someone",
+            "a heart-to-heart talk"
+          ],
+          "confusedWith": [],
+          "forms": [
+            "heart-to-hearts"
+          ],
+          "exampleEn": "We had a heart-to-heart about why we had been avoiding each other.",
+          "exampleZh": "我们坦诚地谈了谈，为什么最近一直在躲着对方。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 108",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
+    },
+    {
+      "id": "public-nlmg-c9-be-in-someone-s-good-books",
+      "revision": 1,
+      "originalInput": "in her good books",
+      "term": "be in someone's good books",
+      "normalized": "be in someone's good books",
+      "standardForm": "be in someone's good books",
+      "entryType": "idiom",
+      "correction": {
+        "status": "exact",
+        "original": "be in someone's good books",
+        "suggestion": "",
+        "chosen": "be in someone's good books",
+        "confidence": 1,
+        "source": "user-provided"
+      },
+      "phonetic": "/biː ɪn ˌsʌmwʌnz ˈɡʊd bʊks/",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 得到某人的好感或认可；使某人对自己很满意。",
+      "definition": "be liked or approved of by someone because they are pleased with what one has done",
+      "senses": [
+        {
+          "partOfSpeech": "verb phrase",
+          "meaningZh": "① 得到某人的好感或认可；使某人对自己很满意。",
+          "definitionEn": "be liked or approved of by someone because they are pleased with what one has done",
+          "usageNotes": "第九章语境：Ruth 认为 Kathy 帮自己处理好了事情，因此那段时间对她十分满意。\n用法：be / get in someone's good books；反义表达为 be in someone's bad books。这里的 books 不是书本或阅读清单，整组描写人与人之间当下的好感与认可。",
+          "register": "informal; chiefly British",
+          "collocations": [
+            "be in someone's good books",
+            "get in someone's good books"
+          ],
+          "examples": [
+            {
+              "en": "I was in her good books after helping her move house.",
+              "zh": "帮她搬家以后，她对我很有好感。"
+            }
+          ],
+          "confusables": []
+        }
+      ],
+      "collocations": [
+        "be in someone's good books",
+        "get in someone's good books"
+      ],
+      "synonyms": [],
+      "synonymScan": {
+        "version": 1,
+        "status": "pending",
+        "sourceFingerprint": "s1:4ff831c2",
+        "candidatesFingerprint": "s1:44d6b6d7",
+        "checkedAt": "2026-10-09T01:43:52.116Z",
+        "candidateCount": 256,
+        "matches": [],
+        "reason": "import_pending"
+      },
+      "exampleEn": "I was in her good books after helping her move house.",
+      "exampleZh": "帮她搬家以后，她对我很有好感。",
+      "usage": "第九章语境：Ruth 认为 Kathy 帮自己处理好了事情，因此那段时间对她十分满意。\n用法：be / get in someone's good books；反义表达为 be in someone's bad books。这里的 books 不是书本或阅读清单，整组描写人与人之间当下的好感与认可。",
+      "register": "informal; chiefly British",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [
+        "collection:never-let-me-go:chapter-9",
+        "文学阅读",
+        "补充阅读",
+        "习语",
+        "口语表达"
+      ],
+      "author": "",
+      "sourceTitle": "Never Let Me Go — Chapter 9",
+      "sourceWork": "Never Let Me Go",
+      "sourceDate": "p. 109",
+      "sourceUrl": "",
+      "attributionStatus": "unverified",
+      "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。",
+      "sources": [],
+      "readingContexts": [
+        {
+          "membership": "collection:never-let-me-go:chapter-9",
+          "order": 24,
+          "page": "p. 109",
+          "originalInput": "in her good books",
+          "entryType": "idiom",
+          "partOfSpeech": "verb phrase",
+          "meaning": "① 得到某人的好感或认可；使某人对自己很满意。",
+          "definition": "be liked or approved of by someone because they are pleased with what one has done",
+          "usage": "第九章语境：Ruth 认为 Kathy 帮自己处理好了事情，因此那段时间对她十分满意。\n用法：be / get in someone's good books；反义表达为 be in someone's bad books。这里的 books 不是书本或阅读清单，整组描写人与人之间当下的好感与认可。",
+          "register": "informal; chiefly British",
+          "collocations": [
+            "be in someone's good books",
+            "get in someone's good books"
+          ],
+          "confusedWith": [],
+          "forms": [],
+          "exampleEn": "I was in her good books after helping her move house.",
+          "exampleZh": "帮她搬家以后，她对我很有好感。",
+          "sourceTitle": "Never Let Me Go — Chapter 9",
+          "sourceWork": "Never Let Me Go",
+          "sourceDate": "p. 109",
+          "attributionNote": "依据用户提供的 Chapter 9 原文照片逐页核对；仅保留简短原文形式，中英文解释为本次整理，语境不超出本章；音标采用英式，例句为学习用自拟句，不是小说原文。"
+        }
+      ],
+      "organizationMethod": "manual",
+      "createdAt": "2026-10-09T01:43:52.116Z",
+      "updatedAt": "2026-10-09T01:43:52.116Z"
     }
   ]
 }

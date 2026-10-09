@@ -76,13 +76,20 @@ const expectedIds = [
 const loadSource = async () => JSON.parse(await readFile(sourceUrl, "utf8"));
 const loadSnapshot = async () => JSON.parse(await readFile(snapshotUrl, "utf8"));
 const chapterEntries = (entries, number) => filterEntriesByCollection(entries, collectionId, "chapter-" + number);
+const selectedCount = 24;
+const selectedSource = await loadSource();
+const selectedTerms = selectedSource.items.map(item => item.term);
+const selectedIds = selectedTerms.map(term => "public-nlmg-c5-" + normalizeEnglish(term).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""));
 
 async function withFreshImport(run) {
   const current = await loadSnapshot();
-  // These eighteen cards are chapter-specific; remove only their membership
-  // scope when constructing a pre-import fixture, never any old chapter card.
-  const prior = { ...current, entries: current.entries.filter((entry) => !entry.tags.includes(membership)) };
-  assert.equal(prior.entries.length, current.entries.length - 18);
+  // Remove only this chapter's context; shared cards retain their other chapters
+  // and identities, as they would when importing a new chapter membership.
+  const prior = { ...current, entries: current.entries.flatMap(entry => {
+    if (!entry.tags.includes(membership)) return [entry];
+    const contexts = entry.readingContexts.filter(context => context.membership !== membership);
+    return contexts.length ? [{ ...entry, tags: entry.tags.filter(tag => tag !== membership), readingContexts: contexts }] : [];
+  }) };
   const directory = await mkdtemp(join(tmpdir(), "wordbook-chapter-five-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
   try {
@@ -153,23 +160,23 @@ function comparisonFixture(term, originalInput, senses) {
   });
 }
 
-test("Chapter 5 contains exactly four marked and fourteen selected items in their original reading order", async () => {
+test("Chapter 5 retains the original shortlist and supplements it to 24 in reading order", async () => {
   const source = await loadSource();
-  assert.equal(source.expectedItemCount, 18);
-  assert.equal(source.items.length, 18);
+  assert.equal(source.expectedItemCount, selectedCount);
+  assert.equal(source.items.length, selectedCount);
   assert.deepEqual(source.collection, { id: collectionId, title: "Never Let Me Go" });
   assert.deepEqual(source.chapter, { id: chapterId, title: "Chapter 5", number: 5 });
   assert.equal(source.sourceTitle, "Never Let Me Go — Chapter 5");
-  assert.equal(new Set(source.items.map((item) => normalizeEnglish(item.term))).size, 18);
+  assert.equal(new Set(source.items.map((item) => normalizeEnglish(item.term))).size, selectedCount);
   assert.deepEqual(
-    source.items.map((item) => [item.order, String(item.page), item.term, item.originalInput]),
+    source.items.filter(item => expectedTerms.includes(item.term)).map((item) => [item.order, String(item.page), item.term, item.originalInput]),
     expectedRows.map((row) => row.slice(0, 4))
   );
   assert.deepEqual(source.items.filter((item) => item.tags.includes("蓝线标记")).map((item) => item.term), markedTerms);
-  assert.equal(source.items.filter((item) => !item.tags.includes("蓝线标记")).length, 14);
+  assert.equal(source.items.filter((item) => !item.tags.includes("蓝线标记")).length, selectedCount - 4);
   assert.equal(source.items.some((item) => item.reuseExistingSameSense), false);
 
-  for (const [index, item] of source.items.entries()) {
+  for (const [index, item] of source.items.filter(item => expectedTerms.includes(item.term)).entries()) {
     const [, , term, , definition, meaning, notes] = expectedRows[index];
     assert.equal(item.definitionEn, definition, term + ": preserve supplied English meaning");
     assert.equal(item.meaning, "① " + meaning + "。", term + ": retain the reviewed numbered meaning");
@@ -191,10 +198,12 @@ test("the published shortlist retains all eighteen original IDs and creation tim
   const snapshot = await loadSnapshot();
   assert.equal(new Set(snapshot.entries.map((entry) => entry.normalized)).size, snapshot.entries.length);
   const cards = chapterEntries(snapshot.entries, 5);
-  assert.deepEqual(cards.map((entry) => entry.term), expectedTerms);
-  assert.deepEqual(cards.map((entry) => entry.id), expectedIds);
-  assert.ok(cards.every((entry) => entry.createdAt === retainedCreatedAt));
-  assert.equal(snapshot.entries.filter((entry) => entry.id.startsWith("public-nlmg-c5-")).length, 18);
+  assert.deepEqual(cards.map((entry) => entry.term), selectedTerms);
+  assert.deepEqual(cards.map((entry) => entry.id), selectedIds);
+  const retained = cards.filter(entry => expectedIds.includes(entry.id));
+  assert.deepEqual(retained.map(entry => entry.id), expectedIds);
+  assert.ok(retained.every((entry) => entry.createdAt === retainedCreatedAt));
+  assert.equal(snapshot.entries.filter((entry) => entry.id.startsWith("public-nlmg-c5-")).length, selectedCount);
   for (const term of formerSharedTerms) {
     const card = snapshot.entries.find((entry) => entry.term === term);
     assert.ok(card, term + ": old chapter card remains");
@@ -202,22 +211,27 @@ test("the published shortlist retains all eighteen original IDs and creation tim
     assert.equal(card.readingContexts.some((context) => context.membership === membership), false);
     assert.ok(card.tags.some((tag) => /^collection:never-let-me-go:chapter-[1-4]$/u.test(tag)));
   }
-  const wanted = new Set(expectedIds);
+  const wanted = new Set(selectedIds);
   assert.deepEqual(snapshot.entries.filter((entry) => entry.readingContexts.some((context) => context.membership === membership))
     .map((entry) => entry.id).sort(), [...wanted].sort());
 });
 
-test("importing the eighteen-item shortlist preserves all other cards and every previous chapter context", async () => {
+test("importing the supplemented shortlist preserves all unrelated cards and previous chapter contexts", async () => {
   await withFreshImport(async ({ prior, result }) => {
     assert.equal(result.changed, true);
-    assert.equal(result.chapterEntries.length, 18);
-    assert.equal(result.totalChapterEntries, 18);
-    assert.equal(result.snapshot.entries.length, prior.entries.length + 18);
+    assert.equal(result.chapterEntries.length, selectedCount);
+    assert.equal(result.totalChapterEntries, selectedCount);
+    const reusedIds = new Set(prior.entries.filter(entry => selectedIds.includes(entry.id)).map(entry => entry.id));
+    assert.equal(result.snapshot.entries.length, prior.entries.length + selectedCount - reusedIds.size);
     assert.equal(new Set(result.snapshot.entries.map((entry) => entry.normalized)).size, result.snapshot.entries.length);
     const priorIds = new Set(prior.entries.map((entry) => entry.id));
-    assert.deepEqual(result.snapshot.entries.filter((entry) => priorIds.has(entry.id)), prior.entries);
-    assert.equal(result.chapterEntries.some((entry) => priorIds.has(entry.id)), false);
-    assert.deepEqual(chapterEntries(result.snapshot.entries, 5).map((entry) => entry.id), expectedIds);
+    assert.deepEqual(result.snapshot.entries.filter((entry) => priorIds.has(entry.id) && !reusedIds.has(entry.id)), prior.entries.filter(entry => !reusedIds.has(entry.id)));
+    for (const old of prior.entries.filter(entry => reusedIds.has(entry.id))) {
+      const next = result.snapshot.entries.find(entry => entry.id === old.id);
+      assert.equal(next.createdAt, old.createdAt);
+      assert.deepEqual(next.readingContexts.filter(context => context.membership !== membership), old.readingContexts);
+    }
+    assert.deepEqual(chapterEntries(result.snapshot.entries, 5).map((entry) => entry.id), selectedIds);
 
     for (const [index, count] of [29, 38, 28, 51].entries()) {
       const number = index + 1;
@@ -245,10 +259,10 @@ test("each selected reading card projects its own page, meaning and example whil
   await withFreshImport(async ({ result }) => {
     const views = chapterEntries(result.snapshot.entries, 5)
       .map((entry) => contextualizeReadingEntry(entry, collectionId, chapterId));
-    assert.deepEqual(views.map((entry) => entry.term), expectedTerms);
+    assert.deepEqual(views.map((entry) => entry.term), selectedTerms);
     for (const [index, view] of views.entries()) {
       const item = result.source.items[index];
-      assert.equal(view.id, expectedIds[index]);
+      assert.equal(view.id, selectedIds[index]);
       assert.equal(view.readingContexts.find((context) => context.membership === membership).order, item.order);
       for (const field of ["originalInput", "entryType", "partOfSpeech", "meaning", "usage", "exampleEn", "exampleZh"]) {
         assert.equal(view[field], item[field], item.term + ": " + field);
@@ -265,8 +279,8 @@ test("each selected reading card projects its own page, meaning and example whil
     }
     const book = buildCollectionCatalog(result.snapshot.entries).find((item) => item.id === collectionId);
     assert.deepEqual(book.chapters.map(({ id, count }) => [id, count]), [
-      ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 18],
-      ["chapter-6", 16], ["chapter-7", 30], ["chapter-8", 18], ["chapter-9", 8]
+      ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 24],
+      ["chapter-6", 24], ["chapter-7", 30], ["chapter-8", 25], ["chapter-9", 24]
     ]);
   });
 });
@@ -275,17 +289,17 @@ test("the shortlist reuses existing review IDs and excludes other chapters and r
   const snapshot = await loadSnapshot();
   const now = new Date(timestamp);
   const views = chapterEntries(snapshot.entries, 5).map((entry) => contextualizeReadingEntry(entry, collectionId, chapterId));
-  assert.equal(buildDueQueue(views, [], now).length, 18);
+  assert.equal(buildDueQueue(views, [], now).length, selectedCount);
   const savedReview = applyReviewRating("public-nlmg-c5-loom", null, "good", now);
   const unrelatedReview = applyReviewRating("public-nlmg-c1-agitated", null, "again", new Date("2026-09-25T18:00:00.000Z"));
   const removedReview = applyReviewRating("public-nlmg-c5-carry-on", null, "again", new Date("2026-09-25T18:00:00.000Z"));
   const histories = [savedReview, unrelatedReview, removedReview];
   const before = structuredClone(histories);
   const queue = buildDueQueue(views, histories, now);
-  assert.equal(queue.length, 17);
+  assert.equal(queue.length, selectedCount - 1);
   assert.equal(queue.some(({ entry }) => histories.some((state) => state.entryId === entry.id)), false);
   assert.deepEqual(buildStudySummary(views, histories, now), {
-    totalEntries: 18, dueCount: 17, newCount: 17,
+    totalEntries: selectedCount, dueCount: selectedCount - 1, newCount: selectedCount - 1,
     dueReviewCount: 0, scheduledCount: 1, reviewedCount: 1
   });
   const later = buildDueQueue(views, histories, new Date(savedReview.dueAt));
@@ -307,22 +321,22 @@ test("re-importing the shortlist is byte-stable and preserves the existing snaps
       timestamp: "2026-09-27T18:00:00.000Z"
     });
     assert.equal(repeated.changed, false);
-    assert.equal(repeated.totalChapterEntries, 18);
+    assert.equal(repeated.totalChapterEntries, selectedCount);
     assert.deepEqual(repeated.snapshot, result.snapshot);
     assert.equal(await readFile(snapshotPath, "utf8"), written);
   });
   const before = await readFile(snapshotUrl, "utf8");
   const canonical = await importReadingList({ sourcePath: fileURLToPath(sourceUrl), timestamp, checkOnly: true });
   assert.equal(canonical.changed, false, "the checked-in shortlist must already be current");
-  assert.equal(canonical.totalChapterEntries, 18);
+  assert.equal(canonical.totalChapterEntries, selectedCount);
   assert.deepEqual(canonical.snapshot, JSON.parse(before));
   assert.equal(await readFile(snapshotUrl, "utf8"), before);
 });
 
-test("all eighteen canonical and projected Chapter 5 cards pass the unchanged lexical publish gate", async () => {
+test("all supplemented canonical and projected Chapter 5 cards pass the unchanged lexical publish gate", async () => {
   const snapshot = parsePublicSnapshot(await loadSnapshot(), { allowLegacy: false });
   const cards = chapterEntries(snapshot.entries, 5);
-  assert.equal(cards.length, 18);
+  assert.equal(cards.length, selectedCount);
   const failures = [];
   for (const card of cards) {
     for (const [label, view] of [

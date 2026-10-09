@@ -6,9 +6,9 @@
   "originalInputKind": "excerpt",
   "sourcePhotoDocument": "Never_Let_Me_Go_Chapter_8_Photos.pdf",
   "reviewedPages": "88–97",
-  "selectionNote": "逐页核对 10 张原文照片，只收录 18 项明确划线的词和短语；未划线候选不自动导入。跨行的 crawling with、cuddled 按完整表达合并。",
+  "selectionNote": "逐页核对 10 张原文照片，保留原有 18 项明确划线词和短语；按用户授权补充 7 项值得记忆的描写词、写作表达和熟词生义，共 25 项。新增项标记为补充阅读，不冒充用户划线；按原文页码和出现顺序排列。跨行的 crawling with、cuddled 按完整表达合并。",
   "attributionNote": "依据卓提供的 Chapter 8 原文照片逐页核对；保留短原文形式，解释限定在第八章内；中英文释义为学习用改写，例句为自拟句而非小说原文。",
-  "expectedItemCount": 18,
+  "expectedItemCount": 25,
   "items": [
     {
       "order": 1, "page": "88", "term": "be crawling with", "originalInput": "crawling with",
@@ -38,7 +38,16 @@
       "forms": ["hiss", "hissed", "hissing"], "collocations": ["make a hissing noise", "hear a hissing noise"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "短语"]
     },
     {
-      "order": 4, "page": "89", "term": "gouge", "originalInput": "gouging",
+      "order": 4, "page": "89", "term": "scrawl", "originalInput": "scrawling",
+      "entryType": "word", "partOfSpeech": "verb", "phonetic": "/skrɔːl/",
+      "meaning": "① 潦草地写；乱涂乱画。",
+      "definitionEn": "write or draw quickly and messily, without making neat marks",
+      "usage": "第八章语境：Miss Lucy 用铅笔在已有整齐字迹的纸上猛烈涂划；这里的 scrawling 描写杂乱的线条，并不是认真抄写。\n用法：scrawl something on / across something；可写潦草字迹，也可描写乱画的线条。\n补充理由：适合阅读和人物动作描写，比笼统的 write / draw 更具体。",
+      "exampleEn": "He scrawled a reminder on the back of an envelope.", "exampleZh": "他在信封背面潦草地写下一条提醒。",
+      "forms": ["scrawls", "scrawled", "scrawling"], "collocations": ["scrawl a note", "scrawl something on paper"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "单词", "描写词汇"]
+    },
+    {
+      "order": 5, "page": "89", "term": "gouge", "originalInput": "gouging",
       "entryType": "word", "partOfSpeech": "verb", "phonetic": "/ɡaʊdʒ/",
       "meaning": "① 用尖物用力挖、划；在本章指几乎要把纸划穿。",
       "definitionEn": "dig or cut roughly into a surface with a pointed object",
@@ -47,7 +56,16 @@
       "forms": ["gouges", "gouged", "gouging"], "collocations": ["gouge a hole in something", "gouge through paper"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 5, "page": "91", "term": "wheel round", "originalInput": "wheeled round",
+      "order": 6, "page": "90", "term": "put something down to something", "originalInput": "put all the changes I'd noticed in him down to that",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "put /pʊt/ · down /daʊn/ · to /tə/",
+      "meaning": "① 把某事归因于……；认为某事是由……造成的。",
+      "definitionEn": "explain a situation by treating a particular thing as its cause",
+      "usage": "第八章语境：Kathy 当时把 Tommy 身上的变化归因于他与 Ruth 之间及周围发生的事，没有马上想到别的原因；这里描述的是她的判断，不是已证实的因果关系。\n用法：put + 现象 + down to + 原因，例如 put the delay down to bad weather；put it down to 中 it 要放在 down 前面。\n补充理由：日常解释原因和写作分析都很实用，不能把 put down 逐字理解成放下。",
+      "exampleEn": "I put my poor concentration down to a lack of sleep.", "exampleZh": "我把自己注意力不集中归因于睡眠不足。",
+      "forms": ["puts something down to something", "putting something down to something"], "collocations": ["put it down to tiredness", "put a delay down to bad weather"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "短语", "写作表达"]
+    },
+    {
+      "order": 7, "page": "91", "term": "wheel round", "originalInput": "wheeled round",
       "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "wheel /wiːl/",
       "meaning": "① 猛地转身；迅速转过身来。",
       "definitionEn": "turn one's body suddenly to face another direction",
@@ -56,7 +74,7 @@
       "forms": ["wheeled round", "wheeling round", "wheel around"], "collocations": ["wheel round to face somebody"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "短语"]
     },
     {
-      "order": 6, "page": "91", "term": "blow", "originalInput": "blow",
+      "order": 8, "page": "91", "term": "blow", "originalInput": "blow",
       "entryType": "word", "partOfSpeech": "verb", "phonetic": "/bləʊ/",
       "meaning": "① 突然发火；情绪爆发（口语）。",
       "definitionEn": "suddenly lose one's temper",
@@ -65,7 +83,25 @@
       "forms": ["blows", "blew", "blown", "blowing"], "collocations": ["be about to blow", "blow one's top"], "confusedWith": [], "register": "informal", "tags": ["划线词", "熟词生义"]
     },
     {
-      "order": 7, "page": "91", "term": "flappy", "originalInput": "flappy",
+      "order": 9, "page": "91", "term": "be in awe of", "originalInput": "was in awe of her drawing skills",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "awe /ɔː/",
+      "meaning": "① 对……深感敬佩；为……而赞叹。",
+      "definitionEn": "feel very strong admiration and respect for someone or something",
+      "usage": "第八章语境：大家很佩服 Patricia 的绘画本领；这里强调赞叹她的能力，不是害怕她。\n用法：be in awe of somebody / somebody's ability；awe 与 of 搭配，整组表达强于普通的 like。\n补充理由：表达对他人能力、作品或景象的赞赏，口语和写作都可用。",
+      "exampleEn": "I am in awe of her ability to explain difficult ideas clearly.", "exampleZh": "我很佩服她把复杂想法解释清楚的能力。",
+      "forms": ["was in awe of", "were in awe of"], "collocations": ["be in awe of somebody's talent", "stand in awe of somebody"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "短语", "实用表达"]
+    },
+    {
+      "order": 10, "page": "91", "term": "sought-after", "originalInput": "sought after",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈsɔːt ˌɑːftə/",
+      "meaning": "① 很多人想要的；抢手的；备受追捧的。",
+      "definitionEn": "desired by many people, often because something is valuable or hard to obtain",
+      "usage": "第八章语境：Patricia 的作品在 Art Exchanges 上总是很抢手，大家都想得到；不是仅仅表示某个人找过它。\n用法：a sought-after item / highly sought after。放在名词前通常加连字符；原文作表语写作 sought after。sought 是 seek 的过去式和过去分词。\n补充理由：描述热门作品、技能、职位和物品时非常有用。",
+      "exampleEn": "Her handmade notebooks are highly sought after.", "exampleZh": "她制作的手工笔记本很抢手。",
+      "forms": [], "collocations": ["a sought-after skill", "highly sought after"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "单词", "写作词汇"]
+    },
+    {
+      "order": 11, "page": "91", "term": "flappy", "originalInput": "flappy",
       "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈflæpi/",
       "meaning": "① 松软、容易来回摆动或翻动的。",
       "definitionEn": "loose and flexible enough to flap or wave about",
@@ -74,7 +110,7 @@
       "forms": [], "collocations": ["flappy pages", "flappy ears"], "confusedWith": [], "register": "informal", "tags": ["划线词", "单词"]
     },
     {
-      "order": 8, "page": "92", "term": "sycamore", "originalInput": "sycamore",
+      "order": 12, "page": "92", "term": "sycamore", "originalInput": "sycamore",
       "entryType": "word", "partOfSpeech": "noun", "phonetic": "/ˈsɪkəmɔː/",
       "meaning": "① 槭树；在英国通常指欧洲槭（Acer pseudoplatanus）。",
       "definitionEn": "a large broad-leaved tree; in British usage, a kind of maple",
@@ -83,7 +119,7 @@
       "forms": ["sycamores"], "collocations": ["a sycamore tree"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 9, "page": "92", "term": "bust-up", "originalInput": "bust-up",
+      "order": 13, "page": "92", "term": "bust-up", "originalInput": "bust-up",
       "entryType": "word", "partOfSpeech": "noun", "phonetic": "/ˈbʌst ʌp/",
       "meaning": "① 激烈争吵；本章指导致情侣关系破裂的争吵。",
       "definitionEn": "a serious quarrel, sometimes ending a relationship",
@@ -92,7 +128,7 @@
       "forms": ["bust-ups"], "collocations": ["have a bust-up", "a bust-up with somebody"], "confusedWith": [], "register": "informal", "tags": ["划线词", "单词"]
     },
     {
-      "order": 10, "page": "93", "term": "stomach-churning", "originalInput": "stomach-churning",
+      "order": 14, "page": "93", "term": "stomach-churning", "originalInput": "stomach-churning",
       "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈstʌmək ˌtʃɜːnɪŋ/",
       "meaning": "① 令人反胃的；令人觉得腻歪、受不了的。",
       "definitionEn": "causing a feeling of nausea or strong distaste",
@@ -101,7 +137,7 @@
       "forms": [], "collocations": ["a stomach-churning scene"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 11, "page": "93", "term": "chorus", "originalInput": "chorus",
+      "order": 15, "page": "93", "term": "chorus", "originalInput": "chorus",
       "entryType": "word", "partOfSpeech": "noun", "phonetic": "/ˈkɔːrəs/",
       "meaning": "① 一群人同时发出的声音；齐声的反应。",
       "definitionEn": "a similar sound or response made by many people together",
@@ -110,7 +146,7 @@
       "forms": ["choruses"], "collocations": ["a chorus of complaints", "a chorus of groans"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "熟词生义"]
     },
     {
-      "order": 12, "page": "93", "term": "vomit", "originalInput": "vomiting",
+      "order": 16, "page": "93", "term": "vomit", "originalInput": "vomiting",
       "entryType": "word", "partOfSpeech": "verb", "phonetic": "/ˈvɒmɪt/",
       "meaning": "① 呕吐；把胃里的东西吐出来。",
       "definitionEn": "bring the contents of the stomach back up through the mouth",
@@ -119,7 +155,7 @@
       "forms": ["vomits", "vomited", "vomiting"], "collocations": ["feel like vomiting"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 13, "page": "93", "term": "gross", "originalInput": "gross",
+      "order": 17, "page": "93", "term": "gross", "originalInput": "gross",
       "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ɡrəʊs/",
       "meaning": "① 恶心的；令人反感的（口语）。",
       "definitionEn": "very unpleasant or disgusting, in informal speech",
@@ -128,7 +164,7 @@
       "forms": ["grosser", "grossest"], "collocations": ["something gross", "That's gross!"], "confusedWith": [], "register": "informal", "tags": ["划线词", "熟词生义"]
     },
     {
-      "order": 14, "page": "93", "term": "cuddle", "originalInput": "cuddled",
+      "order": 18, "page": "93", "term": "cuddle", "originalInput": "cuddled",
       "entryType": "word", "partOfSpeech": "verb", "phonetic": "/ˈkʌdl/",
       "meaning": "① 亲昵地拥抱；依偎。",
       "definitionEn": "hold someone close in an affectionate and comforting way",
@@ -137,7 +173,7 @@
       "forms": ["cuddles", "cuddled", "cuddling"], "collocations": ["cuddle somebody", "cuddle up to somebody"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 15, "page": "93", "term": "binoculars", "originalInput": "binoculars",
+      "order": 19, "page": "93", "term": "binoculars", "originalInput": "binoculars",
       "entryType": "word", "partOfSpeech": "plural noun", "phonetic": "/bɪˈnɒkjələz/",
       "meaning": "① 双筒望远镜。",
       "definitionEn": "an optical instrument held to both eyes to view distant things",
@@ -146,7 +182,7 @@
       "forms": [], "collocations": ["a pair of binoculars", "look through binoculars"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
     },
     {
-      "order": 16, "page": "95", "term": "snog", "originalInput": "snogging",
+      "order": 20, "page": "95", "term": "snog", "originalInput": "snogging",
       "entryType": "word", "partOfSpeech": "verb", "phonetic": "/snɒɡ/",
       "meaning": "① 亲吻；热吻（英式非正式用语）。",
       "definitionEn": "kiss someone romantically, in informal British usage",
@@ -155,7 +191,25 @@
       "forms": ["snogs", "snogged", "snogging"], "collocations": ["snog somebody"], "confusedWith": [], "register": "informal", "tags": ["划线词", "单词"]
     },
     {
-      "order": 17, "page": "97", "term": "tease out", "originalInput": "tease out clues",
+      "order": 21, "page": "95", "term": "discreet", "originalInput": "discreet",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/dɪˈskriːt/",
+      "meaning": "① 谨慎、不张扬的；注意保密、避免让人难堪的。",
+      "definitionEn": "careful not to reveal private matters or draw embarrassing attention to them",
+      "usage": "第八章语境：学生们默契地不过分追问彼此有关亲密经历的说法；discreet 修饰这种避免让对方难堪的约定。\n用法：be discreet about something / a discreet inquiry；区别同音词 discrete（分开的、离散的）。\n补充理由：描述分寸、隐私和待人处事时很有用，也是容易拼混的写作词。",
+      "exampleEn": "Please be discreet about her plans until she announces them.", "exampleZh": "在她公布计划前，请谨慎保密，不要张扬。",
+      "forms": [], "collocations": ["be discreet about something", "a discreet inquiry"], "confusedWith": ["discrete"], "register": "neutral", "tags": ["补充阅读", "单词", "写作词汇"]
+    },
+    {
+      "order": 22, "page": "95", "term": "add up", "originalInput": "didn't add up",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/æd ˈʌp/",
+      "meaning": "① 说得通；合乎情理；前后能够对得上。",
+      "definitionEn": "make sense when the details are considered together",
+      "usage": "第八章语境：Kathy 回想同学们的说法，觉得那些声称发生过的事情前后对不上；这里不是计算数字的总和。\n用法：常用否定形式 something doesn't add up，表示某种解释或说法有不合理之处。\n补充理由：非常实用的熟词生义，可用来评价故事、证据或解释是否合理。",
+      "exampleEn": "The dates in his explanation don't add up.", "exampleZh": "他解释中提到的日期前后对不上。",
+      "forms": ["adds up", "added up", "adding up"], "collocations": ["something doesn't add up", "a story that doesn't add up"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "短语", "熟词生义"]
+    },
+    {
+      "order": 23, "page": "97", "term": "tease out", "originalInput": "tease out clues",
       "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "tease /tiːz/",
       "meaning": "① 通过仔细琢磨逐渐理出、挖掘出（线索或信息）。",
       "definitionEn": "find or extract information gradually through careful thought or investigation",
@@ -164,13 +218,22 @@
       "forms": ["teases out", "teased out", "teasing out"], "collocations": ["tease out clues", "tease out the meaning"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "短语"]
     },
     {
-      "order": 18, "page": "97", "term": "fleetingly", "originalInput": "fleetingly",
+      "order": 24, "page": "97", "term": "fleetingly", "originalInput": "fleetingly",
       "entryType": "word", "partOfSpeech": "adverb", "phonetic": "/ˈfliːtɪŋli/",
       "meaning": "① 短暂地；一闪而过地。",
       "definitionEn": "for only a very short time",
       "usage": "第八章语境：Kathy 说影片里即使偶尔有她想了解的片段，也往往只能短暂地看到，难以反复细看。\n用法：形容词 fleeting；glimpse something fleetingly / think fleetingly of something。",
       "exampleEn": "A smile passed fleetingly across his face.", "exampleZh": "他脸上闪过一丝短暂的微笑。",
       "forms": [], "collocations": ["think fleetingly of something", "appear fleetingly"], "confusedWith": [], "register": "neutral", "tags": ["划线词", "单词"]
+    },
+    {
+      "order": 25, "page": "97", "term": "drop a hint", "originalInput": "dropping hints to Harry",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "/drɒp ə ˈhɪnt/",
+      "meaning": "① 给出暗示；不直接说破地透露想法或意愿。",
+      "definitionEn": "suggest what one means or wants indirectly rather than saying it openly",
+      "usage": "第八章语境：Kathy 觉得自己准备得差不多后，开始向 Harry 暗示自己的意愿；这里只说明她在暗示，不等于两人已经达成安排。\n用法：drop a hint / drop hints；drop somebody a hint；drop a hint about something / that ...。\n补充理由：常见的人际交流表达，不能按 drop 的掉落义逐字翻译。",
+      "exampleEn": "She dropped a hint that she would like a quieter place to work.", "exampleZh": "她暗示自己想在更安静的地方工作。",
+      "forms": ["drops a hint", "dropped a hint", "dropping hints"], "collocations": ["drop somebody a hint", "drop hints about something"], "confusedWith": [], "register": "informal", "tags": ["补充阅读", "短语", "实用表达"]
     }
   ]
 }
