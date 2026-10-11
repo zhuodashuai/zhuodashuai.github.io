@@ -36,7 +36,13 @@ const MEANING_PLACEHOLDERS = [
   /^待(?:补充|填写|完善|定|确认)/u,
   /^(?:请)?(?:补充|填写|完善)/u,
   /^(?:暂无|未知|无|同上|略)$/u,
-  /^参?见\s*\S+\s*(?:词条|条目|词条。)?$/u,
+  // A bare initial 见 is also part of real meanings such as 见惯不怪.
+  // Require an explicit reference marker, boundary, quoted target or suffix.
+  /^参见\s*\S+(?:\s+\S+)*$/u,
+  /^见(?:上文|下文|前文|后文|上述|下述|附件|附录|链接)/u,
+  /^见(?:\s+|[:：]\s*)\S+(?:\s+\S+)*$/u,
+  /^见\s*\S+\s*(?:词条|条目)[。.]?$/u,
+  /^见\s*["'“「『《][^"'”」』》]+["'”」』》][。.]?$/u,
   /^同\s*\S+$/u
 ];
 const MINIMUM_MEANING_HAN = 2;

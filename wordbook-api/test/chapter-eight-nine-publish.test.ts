@@ -2,6 +2,9 @@ import { describe, expect, it } from "vitest";
 import publishedSnapshot from "../../vocab/data/owner-wordbook.json";
 import chapterEight from "../../vocab/data/reading-lists/never-let-me-go/chapter-8.json";
 import chapterNine from "../../vocab/data/reading-lists/never-let-me-go/chapter-9.json";
+import chapterTen from "../../vocab/data/reading-lists/never-let-me-go/chapter-10.json";
+import chapterEleven from "../../vocab/data/reading-lists/never-let-me-go/chapter-11.json";
+import chapterTwelve from "../../vocab/data/reading-lists/never-let-me-go/chapter-12.json";
 // @ts-expect-error The browser projection module has no TypeScript declaration.
 import { contextualizeReadingEntry } from "../../vocab/js/wordbook-schema.js";
 import { PublishRequestSchema, validateSnapshot, type PublicEntry } from "../src/schema";
@@ -11,7 +14,10 @@ const remote = validateSnapshot(publishedSnapshot);
 const publicationAt = new Date(Math.max(...remote.entries.map(entry => Date.parse(entry.updatedAt))) + 1000).toISOString();
 const book = "never-let-me-go";
 
-for (const { source, count } of [{ source: chapterEight, count: 25 }, { source: chapterNine, count: 24 }]) {
+for (const { source, count } of [
+  { source: chapterEight, count: 25 }, { source: chapterNine, count: 24 },
+  { source: chapterTen, count: 26 }, { source: chapterEleven, count: 28 }, { source: chapterTwelve, count: 25 }
+]) {
   const chapter = source.chapter.id;
   const membership = `collection:${book}:${chapter}`;
   const cards = remote.entries.filter(entry => entry.tags.includes(membership));

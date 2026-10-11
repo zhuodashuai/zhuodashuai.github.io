@@ -10,9 +10,15 @@ const oldSnapshot = {
   exportedAt: "2026-09-28T12:00:00.000Z",
   revisionId: "chapter-deeplink-seven-chapters-only",
   lastMutationId: "chapter-deeplink-fixture",
-  entries: current.entries.filter(entry => !entry.tags.some(tag => [
-    `collection:${bookId}:chapter-8`, `collection:${bookId}:chapter-9`
-  ].includes(tag)))
+  // Reconstruct the older catalogue without dropping old cards later reused
+  // by a new chapter. Both membership tags and contextual projections matter.
+  entries: current.entries.map(entry => ({
+    ...entry,
+    tags: entry.tags.filter(tag => !new RegExp(`^collection:${bookId}:chapter-(?:[89]|1[0-2])$`).test(tag)),
+    readingContexts: (entry.readingContexts || []).filter(context =>
+      !new RegExp(`^collection:${bookId}:chapter-(?:[89]|1[0-2])$`).test(context.membership))
+  })).filter((entry, index) => !current.entries[index].tags.some(tag => tag.startsWith(`collection:${bookId}:`))
+    || entry.tags.some(tag => tag.startsWith(`collection:${bookId}:`)))
 };
 const bookCount = current.entries.filter(entry => entry.tags.some(tag => tag.startsWith(`collection:${bookId}:`))).length;
 
@@ -76,6 +82,19 @@ test("Chapter 8 deep link survives an initially stale successful live snapshot a
   await refreshWithCurrent(page, changePhase);
   await expectChapter(page, 8, 25);
 });
+
+for (const [chapter, count] of [[10, 26], [11, 28], [12, 25]]) {
+  test(`Chapter ${chapter} deep link recovers after an older offline cache is refreshed`, async ({ page }) => {
+    await seedOldCache(page);
+    const changePhase = await snapshots(page, "offline");
+    await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}&release=chapter-10-12-regression`);
+    await expect(page.locator("#data-status")).toContainText("当前离线");
+    await expect(page.locator(`#chapter-tabs button[data-value="chapter-${chapter}"]`)).toHaveCount(0);
+    await refreshWithCurrent(page, changePhase);
+    await expectChapter(page, chapter, count);
+    await expect(page.locator("#chapter-quiz-button")).toBeVisible();
+  });
+}
 
 test("a genuinely unavailable chapter falls back to the whole book without an empty or misleading quiz scope", async ({ page }) => {
   await snapshots(page, "current");

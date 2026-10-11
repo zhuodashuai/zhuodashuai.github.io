@@ -280,7 +280,8 @@ test("each selected reading card projects its own page, meaning and example whil
     const book = buildCollectionCatalog(result.snapshot.entries).find((item) => item.id === collectionId);
     assert.deepEqual(book.chapters.map(({ id, count }) => [id, count]), [
       ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 24],
-      ["chapter-6", 24], ["chapter-7", 30], ["chapter-8", 25], ["chapter-9", 24]
+      ["chapter-6", 24], ["chapter-7", 30], ["chapter-8", 25], ["chapter-9", 24],
+      ["chapter-10", 26], ["chapter-11", 28], ["chapter-12", 25]
     ]);
   });
 });

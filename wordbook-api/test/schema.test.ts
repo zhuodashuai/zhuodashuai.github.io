@@ -5,6 +5,7 @@ import {
   PublishRequestSchema,
   PublicEntrySchema,
   classifyInput,
+  hasPlausibleChineseMeaning,
   makeEntryFromAi,
   normalizeEnglish,
   safeHttpsUrl,
@@ -15,6 +16,23 @@ import {
 import { entry, snapshot } from "./fixtures";
 
 describe("wordbook schema", () => {
+  it("accepts Chinese definitions starting with 见 without accepting cross-reference placeholders", () => {
+    for (const meaning of [
+      "见惯不怪的；因为觉得司空见惯而显得毫不在意的。",
+      "① 见惯不怪的；因为觉得司空见惯而显得毫不在意的。",
+      "见多识广的；阅历丰富的。",
+      "adjective：见多识广的；阅历丰富的。",
+      "见证；亲眼看到某事发生。"
+    ]) expect(hasPlausibleChineseMeaning(meaning), meaning).toBe(true);
+
+    for (const meaning of [
+      "见 foo", "见 另一个词", "参见xx词条", "参见 另一个词条。",
+      "见髋部词条", "见 髋部 条目。", "见：另一个词", "见“另一个词”",
+      "① 参见xx词条", "见上文", "见下文", "见上文。", "见上述解释", "见附件", "见附录 A", "见链接中的说明",
+      "同上", "同另一个词", "待补充", "请填写中文释义"
+    ]) expect(hasPlausibleChineseMeaning(meaning), meaning).toBe(false);
+  });
+
   it("normalizes smart punctuation and whitespace without destroying the phrase", () => {
     expect(normalizeEnglish("  Jab   at  ")).toBe("jab at");
     expect(normalizeEnglish("Don’t—panic")).toBe("don't-panic");

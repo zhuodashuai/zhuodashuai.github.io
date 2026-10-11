@@ -51,7 +51,7 @@ test("Chapter 5 shows all 24 selected rows while retaining the original shortlis
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 5", exact: true })).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText(String(selectedCount));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(selectedTerms);
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "24", "24", "30", "25", "24"]);
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "24", "24", "30", "25", "24", "26", "28", "25"]);
   for (const term of selectedTerms) {
     const item = source.items.find(item => item.term === term);
     await page.locator("#library-search").fill(item.originalInput);

@@ -25,6 +25,7 @@ import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
 import { buildSynonymGroups } from "./synonym-groups.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint } from "./synonym-evidence.js";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -1663,16 +1664,22 @@ refs.conflictUseRemote.addEventListener("click", () => resolveConflict("remote")
 refs.conflictClose.addEventListener("click", () => refs.conflictDialog.close());
 
 refs.exportBackup.addEventListener("click", async () => {
-  try { requireVerifiedOwnerUi(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
-  const drafts = await listDrafts();
-  const backup = { backupVersion: 1, exportedAt: isoNow(), owner: "zhuodashuai", drafts, publicSnapshot: state.snapshot };
-  const blob = new Blob([`${JSON.stringify(backup, null, 2)}\n`], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `zhuo-wordbook-backup-${new Date().toISOString().slice(0, 10)}.json`;
-  link.click();
-  URL.revokeObjectURL(url);
+  try {
+    requireVerifiedOwnerUi();
+    const drafts = await listDrafts();
+    const blob = createOwnerBackupBlob({ drafts, publicSnapshot: state.snapshot, exportedAt: isoNow() });
+    const url = URL.createObjectURL(blob);
+    try {
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `zhuo-wordbook-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      link.click();
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  } catch (error) {
+    setStatus(refs.captureStatus, `导出失败：${error.message}`);
+  }
 });
 refs.importBackup.addEventListener("click", () => {
   try { requireVerifiedOwnerUi(); refs.importFile.click(); } catch (error) { setStatus(refs.captureStatus, error.message); }
@@ -1683,26 +1690,8 @@ refs.importFile.addEventListener("change", async () => {
   refs.importFile.value = "";
   if (!file) return;
   try {
-    if (file.size > 1_500_000) throw new Error("备份文件超过 1.5 MB，已拒绝读取。");
-    const documentValue = JSON.parse(await file.text());
-    if (!documentValue || documentValue.backupVersion !== 1 || documentValue.owner !== "zhuodashuai" || !Array.isArray(documentValue.drafts)) throw new Error("备份文件格式不正确。");
-    if (documentValue.publicSnapshot) parsePublicSnapshot(documentValue.publicSnapshot);
-    if (documentValue.drafts.length > 1000) throw new Error("备份中的草稿数量过多。");
-    const safeDrafts = documentValue.drafts.map((draft) => {
-      if (!draft || typeof draft !== "object" || Array.isArray(draft) || !draft.value || typeof draft.value !== "object" || Array.isArray(draft.value)) {
-        throw new Error("备份包含格式不正确的草稿。");
-      }
-      const draftSourceUrl = typeof draft.value.sourceUrl === "string" ? draft.value.sourceUrl.slice(0, 2000) : "";
-      const value = validatePublicEntry({ ...draft.value, sourceUrl: "" });
-      return {
-        ...draft,
-        id: crypto.randomUUID(),
-        value: { ...value, sourceUrl: draftSourceUrl },
-        localState: "local_saved",
-        lastOperationId: null
-      };
-    });
-    await importDrafts(safeDrafts);
+    const documentValue = await readOwnerBackupFile(file);
+    await importDrafts(documentValue.drafts);
     await renderDrafts();
     setStatus(refs.captureStatus, `已安全导入 ${documentValue.drafts.length} 份草稿；没有自动发布任何内容。`);
   } catch (error) {

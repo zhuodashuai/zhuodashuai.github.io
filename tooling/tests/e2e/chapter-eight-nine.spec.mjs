@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
 const bookId = "never-let-me-go";
+const canonicalSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
 async function reviewStates(page) {
   return page.evaluate(async () => (await import("/js/owner-storage.js")).listReviewStates());
 }
@@ -10,14 +11,14 @@ async function attempts(page, chapterId) {
 }
 
 test.beforeEach(async ({ context, page }, testInfo) => {
-  const value = `chapter89-${testInfo.workerIndex}-${testInfo.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 80);
+  const value = `reading-${testInfo.workerIndex}-${testInfo.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 80);
   await context.addCookies([{ name: "e2e_run", value, url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   page.on("pageerror", error => { throw new Error(`Unhandled chapter reading error: ${error.message}`); });
 });
 
-for (const [chapter, count] of [[8, 25], [9, 24]]) {
+for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]]) {
   test(`Chapter ${chapter}: every selected card opens with its own source, original form and bilingual example`, async ({ page }) => {
-    test.setTimeout(90_000);
+    test.setTimeout(120_000);
     const source = JSON.parse(await readFile(new URL(`../../../vocab/data/reading-lists/never-let-me-go/chapter-${chapter}.json`, import.meta.url), "utf8"));
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}`);
     await expect(page.getByRole("heading", { name: `Never Let Me Go · Chapter ${chapter}`, exact: true })).toBeVisible();
@@ -25,10 +26,22 @@ for (const [chapter, count] of [[8, 25], [9, 24]]) {
     await expect(page.locator("#entry-grid .word-card h3")).toHaveText(source.items.map(item => item.term));
     for (const item of source.items) {
       const card = page.locator(".word-card").filter({ has: page.getByRole("heading", { name: item.term, exact: true }) });
-      await expect(card.locator(".card-meaning li").first()).not.toBeEmpty();
+      // These chapter selections deliberately teach one contextual sense per
+      // card. Check its actual Chinese points, not just a non-empty container.
+      expect(item.meaning.match(/[①-⑳]/gu)).toEqual(["①"]);
+      const meaningPoints = item.meaning.replace(/^①\s*/u, "").split(/[；\n]+/u)
+        .map(point => point.trim().replace(/。$/u, "")).filter(Boolean);
+      const learningPoints = [...meaningPoints, item.usage];
+      await expect(card.locator(".card-meaning li")).toHaveText(learningPoints);
+      await expect(card.getByRole("button", { name: `朗读 ${item.term}`, exact: true })).toBeVisible();
+      await expect(card.locator("button[data-audio-text]")).toHaveAttribute("data-audio-text", item.term);
       await card.getByRole("button", { name: `查看 ${item.term} 的完整词条`, exact: true }).click();
       const dialog = page.getByRole("dialog");
       await expect(dialog.locator("#dialog-term")).toHaveText(item.term);
+      await expect(dialog.locator("#dialog-speak")).toHaveAccessibleName(`朗读 ${item.term}`);
+      await expect(dialog.locator("#dialog-speak")).toBeVisible();
+      await expect(dialog.locator("#dialog-phonetic")).toHaveText(`${item.phonetic} · ${item.partOfSpeech}`);
+      await expect(dialog.locator("#dialog-meaning li")).toHaveText(learningPoints);
       if (item.originalInput !== item.term) await expect(dialog.locator(".detail-original-form p")).toHaveText(item.originalInput);
       await expect(dialog.locator("#dialog-source-status")).toContainText(`Never Let Me Go — Chapter ${chapter}`);
       await expect(dialog.locator("#dialog-source-status")).toContainText("p. " + item.page);
@@ -50,7 +63,10 @@ for (const [chapter, count] of [[8, 25], [9, 24]]) {
     await expect(dialog.locator("#dialog-term")).toHaveText(source.items[1].term);
     const reviews = await reviewStates(page);
     expect(reviews).toHaveLength(1);
-    expect(reviews[0].entryId).toMatch(new RegExp(`^public-nlmg-c${chapter}-`));
+    const firstCard = canonicalSnapshot.entries.find(entry => entry.term === source.items[0].term
+      && entry.tags.includes(`collection:${bookId}:chapter-${chapter}`));
+    expect(firstCard).toBeDefined();
+    expect(reviews[0].entryId).toBe(firstCard.id);
     expect(reviews[0]).toMatchObject({ reviewCount: 1, lastRating: "easy" });
     await dialog.getByRole("button", { name: "关闭词条详情" }).click();
     await page.reload();

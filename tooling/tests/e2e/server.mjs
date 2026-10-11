@@ -1,5 +1,6 @@
 import { createServer } from "node:http";
 import { createHash } from "node:crypto";
+import { gzipSync } from "node:zlib";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
@@ -24,9 +25,30 @@ function runState(request) {
   return runs.get(id);
 }
 
+function send(response, status, bodyValue, headers) {
+  let bytes = Buffer.isBuffer(bodyValue) ? bodyValue : Buffer.from(bodyValue);
+  const compressible = /^(?:text\/|application\/(?:json|manifest\+json))/i.test(headers["Content-Type"] || "");
+  const acceptsGzip = String(response.req.headers["accept-encoding"] || "").split(",").some(part => {
+    const [encoding, ...parameters] = part.trim().toLowerCase().split(";");
+    const quality = parameters.map(value => value.trim()).find(value => value.startsWith("q="));
+    return encoding === "gzip" && (!quality || Number(quality.slice(2)) > 0);
+  });
+  // Pages and the Worker compress textual responses in production. Mirror
+  // that transport here: throttled tests must measure transferred bytes, not
+  // an ever-growing uncompressed catalogue that production never sends.
+  const compressed = compressible && acceptsGzip && bytes.length > 1024;
+  if (compressed) bytes = gzipSync(bytes);
+  response.writeHead(status, {
+    ...headers,
+    ...(compressible ? { Vary: [headers.Vary, "Accept-Encoding"].filter(Boolean).join(", ") } : {}),
+    ...(compressed ? { "Content-Encoding": "gzip" } : {}),
+    "Content-Length": bytes.length
+  });
+  response.end(bytes);
+}
+
 function json(response, status, payload, headers = {}) {
-  response.writeHead(status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers });
-  response.end(JSON.stringify(payload));
+  send(response, status, JSON.stringify(payload), { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...headers });
 }
 
 function error(response, status, code, message, details) {
@@ -363,13 +385,12 @@ const server = createServer(async (request, response) => {
     const file = resolve(root, safe);
     if (!file.startsWith(`${root}${sep}`) && file !== root) return error(response, 403, "forbidden", "Forbidden");
     const bytes = await readFile(file);
-    response.writeHead(200, {
+    send(response, 200, bytes, {
       "Content-Type": mime[extname(file).toLowerCase()] || "application/octet-stream",
       "Cache-Control": file.endsWith(".html") ? "no-cache" : "public, max-age=0",
       "X-Frame-Options": "DENY",
       "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
     });
-    response.end(bytes);
   } catch (errorValue) {
     response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     response.end(`Not found: ${errorValue.message}`);

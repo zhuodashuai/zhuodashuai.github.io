@@ -235,6 +235,23 @@ test("Chinese meaning quality rejects empty, English and known translation garba
   assert.equal(isPlausibleChineseMeaning("noun：髋部；臀部", "hip"), true);
 });
 
+test("Chinese meaning quality distinguishes definitions starting with 见 from cross-references", () => {
+  for (const meaning of [
+    "见惯不怪的；因为觉得司空见惯而显得毫不在意的。",
+    "① 见惯不怪的；因为觉得司空见惯而显得毫不在意的。",
+    "见多识广的；阅历丰富的。",
+    "adjective：见多识广的；阅历丰富的。",
+    "见证；亲眼看到某事发生。"
+  ]) assert.equal(isPlausibleChineseMeaning(meaning), true, meaning);
+
+  for (const meaning of [
+    "见 foo", "见 另一个词", "参见xx词条", "参见 另一个词条。",
+    "见髋部词条", "见 髋部 条目。", "见：另一个词", "见“另一个词”",
+    "① 参见xx词条", "见上文", "见下文", "见上文。", "见上述解释", "见附件", "见附录 A", "见链接中的说明",
+    "同上", "同另一个词", "待补充", "请填写中文释义"
+  ]) assert.equal(isPlausibleChineseMeaning(meaning), false, meaning);
+});
+
 test("browser POS canonicalization matches the publish allowlist", () => {
   const cases = [
     ["noun", "noun"], ["n.", "noun"], ["countable", "noun"], ["uncountable", "noun"],
