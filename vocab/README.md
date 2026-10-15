@@ -9,7 +9,7 @@
 - 所有者管理页由 `wordbook-api/` 的 Cloudflare Worker 同源托管；`vocab/` 整个目录随 Worker 一起部署，
   因此管理页的改动需要 `wrangler deploy` 才会生效（推送到 `main` 后由 CI 自动执行，详见 [`wordbook-api/README.md`](../wordbook-api/README.md)）。
 - 只有 GitHub App OAuth 实际验证为 `zhuodashuai` 且 user ID 为 `156042078` 时，服务端才授予添加、编辑、删除、AI 整理和发布权限。
-- GitHub token、OAuth client secret 和任何可选的 OpenAI/Anthropic key 只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
+- GitHub token、OAuth client secret 和可选的 OpenAI key 只存在于服务端；前端不提供 PAT/API key 输入，也不把凭据写入 Web Storage、IndexedDB、Cache Storage 或 Service Worker。
 
 ## 数据与离线
 
@@ -22,11 +22,11 @@
 
 ## AI 与出处
 
-- 默认使用 Worker 自带的 Cloudflare Workers AI binding，无需 OpenAI/Claude API key。首轮由 `@cf/zai-org/glm-4.7-flash` 整理；若结果未通过服务端质量闸门，唯一一次重试会换成 `@cf/google/gemma-4-26b-a4b-it`。两者都属于当前 Workers Free 可用模型并共享账户 allocation；生产配置不设付费 fallback，且整个 Owner 账户每 UTC 日最多 20 次 AI 整理，额度不可用时只保留本地草稿。
+- 默认使用 Worker 自带的 Cloudflare Workers AI binding，无需第三方模型 API key。首轮由 `@cf/zai-org/glm-4.7-flash` 整理；若结果未通过服务端质量闸门，先改用 `@cf/google/gemma-4-26b-a4b-it`，仍未通过才用 `@cf/openai/gpt-oss-120b` 作最后兜底。三款均共享账户 allocation；生产配置不设付费 fallback，且整个 Owner 账户每 UTC 日最多 20 次 AI 整理，额度不可用时只保留本地草稿。
 - 上述应用上限控制本站请求，但不能感知同一 Cloudflare 账户中其他 Worker 的用量；Workers Paid 账户仍可能在免费 allocation 之外产生 Cloudflare 用量费用。严格零超额费用还需要账户保持 Workers Free 或使用账户侧预算控制。
 - Cloudflare 路径先读取完整英文词条对应的本地 ECDICT 证据，再让模型做分义项、中文组织和例句补充。没有本地证据时会显示更强的人工复核警告。
 - ECDICT 精确命中但英文资料不完整时，已有中文不会被清空：它会作为“待复核”候选保留且禁止发布；每分钟限流时，精确词条也可使用这一安全本地兜底。
-- Cloudflare、OpenAI 和 Claude 共用同一份严格结构和语义质量校验；AI 输出只进入草稿，不能绕过卓的人工核对直接发布。OpenAI/Claude 只有在主动改配置时才会使用，并可能产生 API 费用。
+- Cloudflare 与可选的 OpenAI 共用同一份严格结构和语义质量校验；AI 输出只进入草稿，不能绕过卓的人工核对直接发布。OpenAI 只有在主动改配置时才会使用，并可能产生 API 费用。已退役服务不再有配置或调用入口；旧词条与备份的来源记录仍按原值保留，不会影响读取和恢复。
 - 管理页会明确区分“正在整理”“结果待复核”“整理失败”和“整理完成”。HTTP 200 但中文、英文释义、义项或双语例句为空的响应仍会被浏览器拒绝，并可在原草稿上一键重试；切换到另一份草稿不会把迟到结果写错位置。
 - 对单词、短语、短语动词、习语和搭配，AI 只会在卓已经亲自输入并保存为草稿或公开词条的英文中判断同义关系。未由卓输入的模型候选一律丢弃，不会写进 `synonyms`，更不会自动建立额外词条。句子、名言和谚语不保存同义词。
 - 发布时，同义词还必须对应另一条已经发布的真实词条；删除或改名时会同步清理或改写引用，避免悬空关系。同义词不参与重复词判断；搜索同时命中独立词条和他词的同义词时，独立精确词条排在最前。

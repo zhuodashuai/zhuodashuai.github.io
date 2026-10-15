@@ -362,16 +362,14 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
     const config = readConfig(env);
     const fallback = config.AI_FALLBACK_PROVIDER;
     const paidFallbackEnabled = config.ALLOW_PAID_AI_FALLBACK === "true"
-      && (fallback === "openai" || fallback === "anthropic");
+      && fallback === "openai";
     const effectiveProvider = effectiveAiProvider(config);
     const allowedProviders = aiProviderOrder(config);
     const providerModel = (provider: AiProvider | null) => provider === "cloudflare"
       ? config.CLOUDFLARE_AI_MODEL || "@cf/zai-org/glm-4.7-flash"
       : provider === "openai"
         ? config.OPENAI_MODEL || null
-        : provider === "anthropic"
-          ? config.ANTHROPIC_MODEL || null
-          : null;
+        : null;
     return jsonResponse({
       ok: true,
       version: "2.3.0",

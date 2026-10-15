@@ -755,7 +755,7 @@ function cloudflareFailure(error: unknown): ApiError {
     quotaConstrained ? 429 : 503,
     quotaConstrained ? "ai_rate_limited" : "ai_unreachable",
     quotaConstrained
-      ? "Cloudflare Workers AI 当前免费额度可能已用完或服务暂时受限。空白草稿已保存在本机；可以手动填写或稍后重试。系统不会自动切换到可能收费的 OpenAI 或 Claude。"
+      ? "Cloudflare Workers AI 当前免费额度可能已用完或服务暂时受限。空白草稿已保存在本机；可以手动填写或稍后重试。系统不会自动切换到可能收费的引擎。"
       : "Cloudflare Workers AI 暂时不可用；空白草稿已保存在本机，可以手动填写或稍后重试。",
     detail
   );
@@ -909,73 +909,8 @@ async function openAiAttempt(input: string, config: AppConfig, attempt: number, 
   };
 }
 
-const ANTHROPIC_UNSUPPORTED_SCHEMA_KEYS = new Set([
-  "format", "maxItems", "maxLength", "maximum", "minItems", "minLength", "minimum", "pattern"
-]);
-
-function anthropicCompatibleSchema(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(anthropicCompatibleSchema);
-  if (!value || typeof value !== "object") return value;
-  return Object.fromEntries(Object.entries(value as Record<string, unknown>)
-    .filter(([key]) => !ANTHROPIC_UNSUPPORTED_SCHEMA_KEYS.has(key))
-    .map(([key, nested]) => [key, anthropicCompatibleSchema(nested)]));
-}
-
-function extractAnthropicText(payload: Record<string, unknown>): string {
-  const content = Array.isArray(payload.content) ? payload.content : [];
-  const text = content.find((item) => item && typeof item === "object" && (item as Record<string, unknown>).type === "text") as Record<string, unknown> | undefined;
-  return typeof text?.text === "string" ? text.text : "";
-}
-
-async function anthropicAttempt(input: string, config: AppConfig, attempt: number, allowedSynonyms: string[] = []): Promise<ProviderResult> {
-  if (!config.ANTHROPIC_API_KEY || !config.ANTHROPIC_MODEL) {
-    throw new ApiError(503, "ai_not_configured", "Claude provider 尚未配置；草稿仍可手动填写并保存。");
-  }
-  let response: Response;
-  try {
-    response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": config.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: config.ANTHROPIC_MODEL,
-        max_tokens: 5000,
-        system: `${QUALITY_PROMPT}\n\nThis provider has no web-search evidence in this request. Never claim a source was checked, and leave quote or proverb attribution fields empty.`,
-        messages: [{ role: "user", content: userPrompt(input, attempt, "", allowedSynonyms) }],
-        output_config: {
-          format: {
-            type: "json_schema",
-            schema: anthropicCompatibleSchema(AI_JSON_SCHEMA)
-          }
-        }
-      }),
-      signal: AbortSignal.timeout(28_000)
-    });
-  } catch (error) {
-    throw new ApiError(503, "ai_unreachable", "Claude 暂时不可用；草稿已保留，可以手动填写。", String(error));
-  }
-  let payload: Record<string, unknown>;
-  try { payload = await response.json() as Record<string, unknown>; } catch { payload = {}; }
-  if (!response.ok) {
-    throw new ApiError(response.status === 429 ? 429 : 503, response.status === 429 ? "ai_rate_limited" : "ai_error", "Claude 暂时没有完成整理；草稿已保留，可以手动填写。");
-  }
-  if (["refusal", "max_tokens"].includes(String(payload.stop_reason || ""))) {
-    throw new Error(`Anthropic stopped before a complete structured result: ${String(payload.stop_reason)}`);
-  }
-  let candidate: unknown;
-  try { candidate = JSON.parse(extractAnthropicText(payload)); } catch { throw new Error("Anthropic returned invalid JSON"); }
-  return {
-    organized: validateAndHarmonizeAiOutput(input, AiOrganizedSchema.parse(candidate)),
-    sources: [],
-    warnings: ["Claude 备用结果未附可公开复查的网页证据，本条必须由卓重点复核。"]
-  };
-}
-
 function providerLabel(provider: AiProvider): string {
-  return provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : provider === "openai" ? "OpenAI" : "Claude";
+  return provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : "OpenAI";
 }
 
 function providerAttempt(
@@ -988,9 +923,7 @@ function providerAttempt(
   allowedSynonyms: string[] = []
 ): Promise<ProviderResult> {
   if (provider === "cloudflare") return cloudflareAttempt(input, config, attempt, evidence, retryFeedback, allowedSynonyms);
-  return provider === "anthropic"
-    ? anthropicAttempt(input, config, attempt, allowedSynonyms)
-    : openAiAttempt(input, config, attempt, allowedSynonyms);
+  return openAiAttempt(input, config, attempt, allowedSynonyms);
 }
 
 export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAllowedSynonyms: unknown = undefined): Promise<OrganizationResult> {
@@ -1060,7 +993,7 @@ export async function organizeEntry(rawInput: unknown, config: AppConfig, rawAll
         if (provider !== config.AI_PROVIDER) {
           warnings.push(`${providerLabel(config.AI_PROVIDER)} 主引擎未配置或未完成，本次已由 ${providerLabel(provider)} 备用引擎整理。`);
         }
-        if (provider === "openai" || provider === "anthropic") {
+        if (provider === "openai") {
           warnings.push(`本次使用 ${providerLabel(provider)}，可能产生 API 费用。`);
         }
         if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "unverified") {

@@ -13,17 +13,15 @@ const ConfigSchema = z.object({
   GITHUB_APP_CLIENT_SECRET: z.string().min(16).optional(),
   SESSION_SECRET: z.string().regex(/^[A-Za-z0-9_-]{43,200}$/).optional(),
   AI: z.custom<Ai>((value) => Boolean(value && typeof value === "object" && "run" in value)).optional(),
-  AI_PROVIDER: z.enum(["cloudflare", "openai", "anthropic"]),
-  AI_FALLBACK_PROVIDER: z.enum(["cloudflare", "openai", "anthropic"]).optional(),
+  AI_PROVIDER: z.enum(["cloudflare", "openai"]),
+  AI_FALLBACK_PROVIDER: z.enum(["cloudflare", "openai"]).optional(),
   ALLOW_PAID_AI_FALLBACK: z.literal("true").optional(),
   ENABLE_FREE_ATTRIBUTION_LOOKUP: z.literal("true").optional(),
   CLOUDFLARE_AI_MODEL: z.literal("@cf/zai-org/glm-4.7-flash").optional(),
   CLOUDFLARE_AI_RETRY_MODEL: z.literal("@cf/google/gemma-4-26b-a4b-it").optional(),
   CLOUDFLARE_RESCUE_MODEL: z.literal("@cf/openai/gpt-oss-120b").optional(),
   OPENAI_API_KEY: z.string().min(20).optional(),
-  OPENAI_MODEL: z.string().min(3).optional(),
-  ANTHROPIC_API_KEY: z.string().min(20).optional(),
-  ANTHROPIC_MODEL: z.string().min(3).optional()
+  OPENAI_MODEL: z.string().min(3).optional()
 });
 
 export type AppConfig = z.infer<typeof ConfigSchema>;
@@ -34,9 +32,7 @@ export function aiProviderConfigured(provider: AiProvider | undefined, config: A
     ? Boolean(config.AI)
     : provider === "openai"
       ? Boolean(config.OPENAI_API_KEY)
-      : provider === "anthropic"
-        ? Boolean(config.ANTHROPIC_API_KEY && config.ANTHROPIC_MODEL)
-        : false;
+      : false;
 }
 
 /**
@@ -47,7 +43,7 @@ export function aiProviderConfigured(provider: AiProvider | undefined, config: A
 export function aiProviderOrder(config: AppConfig): AiProvider[] {
   const order: AiProvider[] = [config.AI_PROVIDER];
   const fallback = config.AI_FALLBACK_PROVIDER;
-  const fallbackIsPaid = fallback === "openai" || fallback === "anthropic";
+  const fallbackIsPaid = fallback === "openai";
   if (fallback && fallback !== config.AI_PROVIDER && (!fallbackIsPaid || config.ALLOW_PAID_AI_FALLBACK === "true")) {
     order.push(fallback);
   }

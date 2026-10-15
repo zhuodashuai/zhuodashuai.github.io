@@ -31,6 +31,16 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
   }
 
   if (!("serviceWorker" in navigator)) return;
+  const showUpdateFailure = (message) => {
+    reloadBlocked = true;
+    // Public-reader updates normally run without showing the banner. If a
+    // save or activation fails, make the same explicit retry available there.
+    if (updateBanner) updateBanner.hidden = false;
+    if (applyUpdateButton) {
+      applyUpdateButton.disabled = false;
+      applyUpdateButton.textContent = message;
+    }
+  };
   const reloadAfterFinalSave = () => {
     if (!updateAccepted || refreshing || reloadBlocked) return reloadTask;
     if (reloadTask) return reloadTask;
@@ -41,11 +51,7 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
         // so those last edits are not lost.
         if (beforeApplyUpdate) await beforeApplyUpdate();
       } catch {
-        reloadBlocked = true;
-        if (applyUpdateButton) {
-          applyUpdateButton.disabled = false;
-          applyUpdateButton.textContent = "草稿再次保存失败，新版本暂不刷新";
-        }
+        showUpdateFailure("保存未完成，暂不刷新，点击重试");
         return;
       }
       if (!updateAccepted || refreshing || reloadBlocked) return;
@@ -68,8 +74,7 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
     try {
       if (beforeApplyUpdate) await beforeApplyUpdate();
     } catch {
-      reloadBlocked = true;
-      if (applyUpdateButton) applyUpdateButton.textContent = "草稿保存失败，暂不更新";
+      showUpdateFailure("保存未完成，暂不更新，点击重试");
       return;
     }
     updateAccepted = true;
@@ -77,8 +82,7 @@ export function setupPwa({ installButton, updateBanner, applyUpdateButton, befor
       waitingWorker.postMessage({ type: "SKIP_WAITING" });
     } catch {
       updateAccepted = false;
-      reloadBlocked = true;
-      if (applyUpdateButton) applyUpdateButton.textContent = "新版本启用失败，请稍后重试";
+      showUpdateFailure("新版本启用失败，点击重试");
       return;
     }
     // controllerchange is the normal path, but older/stale worker graphs have

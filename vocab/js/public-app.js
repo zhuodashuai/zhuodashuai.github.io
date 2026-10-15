@@ -1,17 +1,17 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=67";
-import { createEntryDetailController } from "./entry-detail.js?v=67";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=69";
+import { createEntryDetailController } from "./entry-detail.js?v=69";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
-import { setupPwa } from "./pwa.js";
+import { setupPwa } from "./pwa.js?v=69";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=67";
-import { sameSynonymSenseView } from "./synonym-evidence.js?v=67";
-import { renderSynonymGroups } from "./synonym-view.js";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=67";
+import { buildSynonymGroups } from "./synonym-groups.js?v=69";
+import { sameSynonymSenseView } from "./synonym-evidence.js?v=69";
+import { renderSynonymGroups } from "./synonym-view.js?v=69";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=69";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=67";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=67";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=69";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=69";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -57,7 +57,13 @@ const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出�
 const adminUrl = ownerAdminUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
 const pronunciation = setupPronunciationUI();
-refs.libraryOptions.append(pronunciation.settings("library-audio-settings"));
+const libraryAudioSettings = pronunciation.settings("library-audio-settings");
+refs.libraryOptions.append(libraryAudioSettings);
+// Keep the one existing live status outside the mobile-only disclosure. A
+// playback failure must remain visible without expanding unrelated filters.
+const libraryAudioStatus = libraryAudioSettings.querySelector("[data-audio-status]");
+libraryAudioStatus.id = "library-audio-status";
+refs.libraryOptions.closest(".toolbar").after(libraryAudioStatus);
 const compactMedia = window.matchMedia("(max-width: 720px)");
 const adjustOptions = () => { refs.libraryOptions.open = !compactMedia.matches; };
 adjustOptions();
@@ -416,6 +422,8 @@ function render() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "card-open";
+    button.dataset.entryId = entry.id;
+    button.dataset.entryAction = "detail";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
     button.addEventListener("click", () => openEntry(entry, button));
     article.append(kicker, titleRow, phonetic, meaning, synonyms, tags, button);

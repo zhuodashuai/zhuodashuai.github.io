@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=68">
+  <link rel="stylesheet" href="styles.css?v=69">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -127,7 +127,7 @@
 
     <section class="guide-block" aria-labelledby="g-ai">
       <h2 id="g-ai">关于 AI 和费用</h2>
-      <p>用 Cloudflare Workers AI 的账户额度，不需要 OpenAI 或 Claude 的 API key。第一款模型结果不合格时会自动换第二款免费模型重试。</p>
+      <p>用 Cloudflare Workers AI 的账户额度，不需要第三方模型 API key。第一款模型结果不合格时会换模型重试，最多尝试三款；仍不合格则保留草稿，不自动转用付费引擎。</p>
       <p>每个 UTC 日有 20 份站内服务额度，释义整理与每批同义词比对共用；词库较大时，一条词可能分多批比对。已完成批次缓存 7 天，重试可以接着做。额度用完不会切换收费引擎；人工保存和发布照常，同义词会标记待识别。</p>
       <p class="guide-note">这不是永久免费承诺：最终是否产生费用，仍取决于 Cloudflare 账户套餐和同账户其他用量。</p>
     </section>

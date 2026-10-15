@@ -115,6 +115,132 @@ test("the public reader activates a waiting Service Worker automatically and rel
   });
 });
 
+for (const failure of ["save", "activation"]) {
+  test(`a failed automatic ${failure} exposes a retry and succeeds without duplicate reloads`, async () => {
+    await withBrowserGlobals(async () => {
+      const serviceWorker = new FakeEventTarget();
+      serviceWorker.controller = {};
+      const registration = new FakeEventTarget();
+      let shouldFail = true;
+      const waitingWorker = {
+        messages: [],
+        postMessage(message) {
+          if (failure === "activation" && shouldFail) throw new Error("worker is unavailable");
+          this.messages.push(message);
+        }
+      };
+      registration.waiting = waitingWorker;
+      registration.installing = null;
+      registration.update = async () => {};
+      serviceWorker.register = async () => registration;
+
+      let reloads = 0;
+      const fallbacks = [];
+      globalThis.window = Object.assign(new FakeEventTarget(), {
+        location: { reload: () => { reloads += 1; } },
+        setInterval: () => 1,
+        setTimeout: (callback) => { fallbacks.push(callback); return fallbacks.length; }
+      });
+      Object.defineProperty(globalThis, "navigator", { configurable: true, value: { serviceWorker } });
+
+      const updateBanner = { hidden: true };
+      const applyUpdateButton = new FakeEventTarget();
+      applyUpdateButton.disabled = true;
+      let saves = 0;
+      setupPwa({
+        installButton: null,
+        updateBanner,
+        applyUpdateButton,
+        autoApplyUpdate: true,
+        beforeApplyUpdate: async () => {
+          saves += 1;
+          if (failure === "save" && shouldFail) throw new Error("learning record save failed");
+        }
+      });
+      await new Promise((resolve) => setImmediate(resolve));
+
+      assert.equal(updateBanner.hidden, false, "an automatic update failure cannot leave its retry hidden");
+      assert.equal(applyUpdateButton.disabled, false);
+      assert.match(applyUpdateButton.textContent, /点击重试/);
+      assert.doesNotMatch(applyUpdateButton.textContent, /草稿/, "reader save failures also include quiz and review records");
+      assert.deepEqual(waitingWorker.messages, []);
+      assert.equal(fallbacks.length, 0, "failed updates must not schedule a reload");
+      await serviceWorker.dispatch("controllerchange");
+      await Promise.resolve();
+      assert.equal(reloads, 0, "a controller event must not bypass the failed save or activation");
+      assert.equal(saves, 1);
+
+      shouldFail = false;
+      await applyUpdateButton.dispatch("click");
+      assert.equal(saves, 2, "the explicit retry flushes learning records again");
+      assert.deepEqual(waitingWorker.messages, [{ type: "SKIP_WAITING" }]);
+      assert.equal(fallbacks.length, 1);
+      await serviceWorker.dispatch("controllerchange");
+      await Promise.resolve();
+      assert.equal(saves, 3, "the final reload still requires a successful final flush");
+      assert.equal(reloads, 1);
+      fallbacks[0]();
+      await serviceWorker.dispatch("controllerchange");
+      await Promise.resolve();
+      assert.equal(saves, 3);
+      assert.equal(reloads, 1, "retry, controllerchange and fallback must share one reload");
+    });
+  });
+}
+
+test("a failed final learning-record save reveals the automatic update retry without reloading", async () => {
+  await withBrowserGlobals(async () => {
+    const serviceWorker = new FakeEventTarget();
+    serviceWorker.controller = {};
+    const registration = new FakeEventTarget();
+    const waitingWorker = { messages: [], postMessage(message) { this.messages.push(message); } };
+    registration.waiting = waitingWorker;
+    registration.update = async () => {};
+    serviceWorker.register = async () => registration;
+    let reloads = 0;
+    const fallbacks = [];
+    globalThis.window = Object.assign(new FakeEventTarget(), {
+      location: { reload: () => { reloads += 1; } },
+      setInterval: () => 1,
+      setTimeout: (callback) => { fallbacks.push(callback); return fallbacks.length; }
+    });
+    Object.defineProperty(globalThis, "navigator", { configurable: true, value: { serviceWorker } });
+
+    const updateBanner = { hidden: true };
+    const applyUpdateButton = new FakeEventTarget();
+    let saves = 0;
+    setupPwa({
+      installButton: null,
+      updateBanner,
+      applyUpdateButton,
+      autoApplyUpdate: true,
+      beforeApplyUpdate: async () => {
+        saves += 1;
+        if (saves === 2) throw new Error("a quiz answer could not be saved");
+      }
+    });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(updateBanner.hidden, true, "a healthy automatic update does not require a visible prompt");
+    await serviceWorker.dispatch("controllerchange");
+    await new Promise((resolve) => setImmediate(resolve));
+
+    assert.equal(reloads, 0);
+    assert.equal(updateBanner.hidden, false);
+    assert.equal(applyUpdateButton.disabled, false);
+    assert.equal(applyUpdateButton.textContent, "保存未完成，暂不刷新，点击重试");
+    fallbacks[0]();
+    await serviceWorker.dispatch("controllerchange");
+    assert.equal(saves, 2, "neither a late event nor the original fallback may bypass the failure");
+
+    await applyUpdateButton.dispatch("click");
+    assert.equal(saves, 3);
+    fallbacks[1]();
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.equal(saves, 4);
+    assert.equal(reloads, 1);
+  });
+});
+
 test("public auto-update never reloads for a first install that has no waiting update", async () => {
   await withBrowserGlobals(async () => {
     const serviceWorker = new FakeEventTarget();
@@ -175,7 +301,7 @@ test("a failed draft flush prevents Service Worker activation", async () => {
 
     await applyUpdateButton.dispatch("click");
     assert.deepEqual(waitingWorker.messages, []);
-    assert.equal(applyUpdateButton.textContent, "草稿保存失败，暂不更新");
+    assert.equal(applyUpdateButton.textContent, "保存未完成，暂不更新，点击重试");
   });
 });
 
@@ -267,7 +393,7 @@ test("an edit made after accepting an update is flushed again and a failed final
     await Promise.resolve();
     assert.equal(draftFlushes, 2);
     assert.equal(reloads, 0);
-    assert.equal(applyUpdateButton.textContent, "草稿再次保存失败，新版本暂不刷新");
+    assert.equal(applyUpdateButton.textContent, "保存未完成，暂不刷新，点击重试");
     assert.equal(applyUpdateButton.disabled, false);
 
     await serviceWorker.dispatch("controllerchange");

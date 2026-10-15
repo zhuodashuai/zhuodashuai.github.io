@@ -89,63 +89,6 @@ describe("AI organizer", () => {
     await expect(organizeEntry("receive", config)).rejects.toMatchObject({ status: 503, code: "ai_error" });
   });
 
-  it("falls back from OpenAI to Claude and gives Claude the same structured schema contract", async () => {
-    const fallbackConfig: AppConfig = {
-      ...config,
-      AI_FALLBACK_PROVIDER: "anthropic",
-      ALLOW_PAID_AI_FALLBACK: "true",
-      ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
-      ANTHROPIC_MODEL: "claude-test-model"
-    };
-    const mock = vi.fn(async (input, init) => {
-      const url = String(input);
-      if (url.includes("api.openai.com")) {
-        return Response.json({ error: { code: "server_error" } }, { status: 500 });
-      }
-      expect(url).toContain("api.anthropic.com/v1/messages");
-      const body = JSON.parse(String(init?.body));
-      expect(body.output_config.format.type).toBe("json_schema");
-      expect(body.output_config.format.schema.required).toContain("senses");
-      expect(JSON.stringify(body.output_config.format.schema)).not.toContain("maxLength");
-      expect(body.messages[0].content).toContain('OWNER_ENTERED_TERMS (the only permitted synonym candidates):\n["obtain"]');
-      return Response.json({
-        stop_reason: "end_turn",
-        content: [{ type: "text", text: JSON.stringify(organized()) }]
-      });
-    });
-    vi.stubGlobal("fetch", mock);
-
-    const result = await organizeEntry("receive", fallbackConfig, ["obtain"]);
-    expect(result.provider).toBe("anthropic");
-    expect(result.entry.organizationMethod).toBe("ai-anthropic");
-    expect(result.entry.synonyms).toEqual(["obtain"]);
-    expect(result.warnings.join(" ")).toMatch(/OpenAI.*Claude.*备用引擎/);
-    expect(mock).toHaveBeenCalledTimes(2);
-  });
-
-  it("uses the configured Claude fallback when the OpenAI secret is not present", async () => {
-    const fallbackOnly: AppConfig = {
-      ...config,
-      OPENAI_API_KEY: undefined,
-      AI_FALLBACK_PROVIDER: "anthropic",
-      ALLOW_PAID_AI_FALLBACK: "true",
-      ANTHROPIC_API_KEY: "test-anthropic-key-not-real-000000000000",
-      ANTHROPIC_MODEL: "claude-test-model"
-    };
-    const mock = vi.fn(async (input) => {
-      expect(String(input)).toContain("api.anthropic.com/v1/messages");
-      return Response.json({
-        stop_reason: "end_turn",
-        content: [{ type: "text", text: JSON.stringify(organized()) }]
-      });
-    });
-    vi.stubGlobal("fetch", mock);
-
-    const result = await organizeEntry("receive", fallbackOnly);
-    expect(result.provider).toBe("anthropic");
-    expect(mock).toHaveBeenCalledOnce();
-  });
-
   it("does not publish remembered quote attribution without a web citation", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => response(organized({
       suggestedTerm: "Knowledge is power.", standardForm: "Knowledge is power.", entryType: "quote", meaning: "知识就是力量。",

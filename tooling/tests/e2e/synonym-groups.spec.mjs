@@ -169,6 +169,41 @@ function advanceSnapshot(snapshotValue, revision) {
   snapshotValue.revisionId = `e2e-synonym-fresh-${revision}`;
 }
 
+for (const view of ["cards", "synonyms"]) {
+  test(`${view}: closing a refreshed detail returns keyboard focus to the replacement original opener`, async ({ page }) => {
+    const current = structuredClone(snapshot);
+    const serve = (route) => route.fulfill({ json: current });
+    await page.route("**/api/v1/public/wordbook*", serve);
+    await page.route("**/data/owner-wordbook.json*", serve);
+    await page.goto(`/?book=never-let-me-go&chapter=chapter-3${view === "synonyms" ? "&view=synonyms" : ""}`);
+    await expect(page.locator("#entry-count")).toHaveText("28");
+    const origin = view === "synonyms"
+      ? member(panel(page), "have somebody on")
+      : page.getByRole("button", { name: "查看 have somebody on 的完整词条", exact: true });
+    const originalNode = await origin.elementHandle();
+    await origin.focus();
+    await origin.press("Enter");
+    await expect(page.locator("#dialog-term")).toHaveText("have somebody on");
+    if (view === "synonyms") {
+      // Returning must target the original list, not a now-replaced related
+      // term button inside the modal that the reader visited afterwards.
+      await member(page.locator("#dialog-synonym-section"), "pull somebody's leg").click();
+      await expect(page.locator("#dialog-term")).toHaveText("pull somebody's leg");
+    }
+
+    advanceSnapshot(current, 1);
+    const refreshed = page.waitForResponse((response) => response.url().includes("/api/v1/public/wordbook") && response.status() === 200);
+    await page.evaluate(() => window.dispatchEvent(new Event("online")));
+    await refreshed;
+    await expect.poll(() => originalNode.evaluate((node) => node.isConnected)).toBe(false);
+    await expect(page.locator("#entry-dialog")).toBeVisible();
+    await expect(page.locator("#dialog-term")).toHaveText(view === "synonyms" ? "pull somebody's leg" : "have somebody on");
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#entry-dialog")).toBeHidden();
+    await expect(origin).toBeFocused();
+  });
+}
+
 function replaceMystifiedMeaning(snapshotValue) {
   const entry = snapshotValue.entries.find(({ term }) => term === "mystified");
   entry.meaning = "刷新后的不相关技术义项。";

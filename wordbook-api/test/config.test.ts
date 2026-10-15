@@ -1,7 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   aiProviderOrder,
   effectiveAiProvider,
+  readConfig,
   type AppConfig
 } from "../src/config";
 
@@ -18,7 +19,35 @@ const base: AppConfig = {
 
 const aiBinding = { run: async () => ({}) } as unknown as Ai;
 
+afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
+
 describe("AI provider policy resolution", () => {
+  it.each(["AI_PROVIDER", "AI_FALLBACK_PROVIDER"])("rejects the retired provider in %s before any network call", (field) => {
+    const fetch = vi.fn();
+    vi.stubGlobal("fetch", fetch);
+    expect(() => readConfig({
+      ...base,
+      [field]: "anthropic",
+      ALLOW_PAID_AI_FALLBACK: "true",
+      ANTHROPIC_API_KEY: "test-retired-key-not-real-000000000",
+      ANTHROPIC_MODEL: "retired-test-model"
+    } as unknown as Env)).toThrow();
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("does not retain retired credentials or enable an extra provider", () => {
+    const config = readConfig({
+      ...base,
+      AI: aiBinding,
+      ANTHROPIC_API_KEY: "test-retired-key-not-real-000000000",
+      ANTHROPIC_MODEL: "retired-test-model"
+    } as unknown as Env);
+    expect(config).not.toHaveProperty("ANTHROPIC_API_KEY");
+    expect(config).not.toHaveProperty("ANTHROPIC_MODEL");
+    expect(aiProviderOrder(config)).toEqual(["cloudflare"]);
+    expect(effectiveAiProvider(config)).toBe("cloudflare");
+  });
+
   it("fails closed when only a paid fallback is configured but not explicitly allowed", () => {
     const config: AppConfig = {
       ...base,

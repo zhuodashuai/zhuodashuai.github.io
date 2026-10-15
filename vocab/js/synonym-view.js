@@ -18,6 +18,8 @@ export function renderSynonymGroups(container, groups, { onOpen, isOutsideScope 
       const open = doc.createElement("button");
       open.type = "button";
       open.className = "synonym-term";
+      open.dataset.entryId = entry.id;
+      open.dataset.entryAction = `synonym:${group.id}`;
       open.textContent = entry.term;
       open.lang = "en";
       open.setAttribute("aria-label", `打开词条 ${entry.term}`);

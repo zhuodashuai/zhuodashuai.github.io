@@ -23,7 +23,7 @@
        ├─ Durable Object: one-time state、加密 token、1 小时会话、CSRF、限流、幂等串行发布
        ├─ ECDICT asset: 完整词条的本地证据包
        ├─ Cloudflare Workers AI: 默认免费额度整理器，严格 JSON Schema + 服务端语义校验
-       ├─ OpenAI / Claude: 仅在 Owner 主动启用时使用的可选付费引擎
+       ├─ OpenAI: 仅在 Owner 主动启用时使用的可选付费引擎
        └─ GitHub Contents API: 固定仓库/分支/路径 + blob SHA 乐观并发
 ```
 
@@ -33,7 +33,7 @@
 - Worker 的 OAuth callback 才能创建 `Secure; HttpOnly; SameSite=Lax; Path=/` 的 `__Host-zhuo_session`。
 - 后端同时严格核对 GitHub `login`、数字 user ID、GitHub App installation、repository ID 和 Contents write permission。
 - POST 写请求要求同源、JSON MIME、有效会话和 `X-CSRF-Token`；不开放 credentialed CORS。
-- GitHub user access token在 Durable Object 中以 AES-GCM 加密；浏览器只得到短期 CSRF token，不得到 GitHub secret 或任何可选的 OpenAI/Anthropic key。
+- GitHub user access token在 Durable Object 中以 AES-GCM 加密；浏览器只得到短期 CSRF token，不得到 GitHub secret 或可选的 OpenAI key。
 - 每个发布 mutation 必须带相同的 `mutationId` / `Idempotency-Key` 和远端 `baseSha`。远端变化返回 `409`，不会静默覆盖。
 - Service Worker 对 `/api/*` 始终 network-only，不缓存认证或发布响应。
 
@@ -72,7 +72,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
 - GitHub App client secret 和随机 session secret 已通过 Wrangler 隐藏输入保存为 Worker secret，没有写入浏览器、仓库或文档。
 - 已在正式 Worker 完成真实 GitHub OAuth：页面显示 `@zhuodashuai`、固定 user ID `156042078`、已连接的目标仓库与当前 4 条公开词条；浏览器未收到 GitHub token。
 - `vocab/js/runtime-config.js` 已指向上述 Worker origin，公开站的“所有者登录”会进入同源安全管理端。
-- 默认 AI 已改为 Cloudflare Workers AI 的账户额度，无需 OpenAI 或 Claude API key。首轮固定使用 `@cf/zai-org/glm-4.7-flash`，未通过结构或语义闸门时改用 `@cf/google/gemma-4-26b-a4b-it`；若两者都失败，才以使用 `max_tokens` 适配后的 `@cf/openai/gpt-oss-120b` 作最后一次强推理兜底。三款都可消耗 Cloudflare 当前的 Workers Free allocation；生产配置没有付费 provider fallback，并由 Durable Object 对全部登录会话合计限制为每 UTC 日最多 20 次整理，额度或容量暂时不可用时只保留本地草稿。
+- 默认 AI 已改为 Cloudflare Workers AI 的账户额度，无需第三方模型 API key。首轮固定使用 `@cf/zai-org/glm-4.7-flash`，未通过结构或语义闸门时改用 `@cf/google/gemma-4-26b-a4b-it`；若两者都失败，才以使用 `max_tokens` 适配后的 `@cf/openai/gpt-oss-120b` 作最后一次强推理兜底。三款都可消耗 Cloudflare 当前的 Workers Free allocation；生产配置没有付费 provider fallback，并由 Durable Object 对全部登录会话合计限制为每 UTC 日最多 20 次整理，额度或容量暂时不可用时只保留本地草稿。
 - Cloudflare 当前文档给 Free 与 Paid 账户每天各 10,000 Neurons 的免费 allocation，并在 00:00 UTC 重置；Free 超额后请求失败，Paid 超过 allocation 后可能按量计费。本站 20 次上限不能感知同账户其他 Worker 的用量，所以严格零超额费用还要求账户保持 Workers Free 或设置账户侧预算控制。该政策可能变化，页面不承诺永久免费或无限次数。
 - Cloudflare 路径先从随站点部署的 ECDICT 快照提取词汇证据，再由模型做结构化整理；没有本地词典证据的释义会明确降级为需要重点复核的候选。对于 AI 已判断为名言或谚语的输入，Worker 另行使用不需要 API key 的 Wikimedia 接口检索完整原文：Wikiquote、Wikidata 作品—作者关系和同作品 Wikisource 原文/扫描页即使三者一致，自动结果仍只标为 `candidate`；只有卓打开来源复查后才可人工升为 `verified`。模型记忆本身永远不能填入作者或作品，普通短语也不能因命中 Wikiquote 而被改成名言。
 - 生产发布已通过真实 GitHub 写入验证；所有后续 AI 结果仍先保存在本地草稿，只有卓明确点击发布才写入公开词库。
@@ -103,7 +103,7 @@ E2E 测试服务器只提供确定性 mock OAuth/GitHub/AI 响应，不包含真
    pnpm exec wrangler secret put SESSION_SECRET
    ```
 
-   `SESSION_SECRET` 必须是至少 32 个随机字节的 base64url 值；不要复用密码。默认 `AI_PROVIDER=cloudflare`，不需要第三方模型 key。只有 Owner 以后明确接受费用时，才可另行录入 `OPENAI_API_KEY` 或 `ANTHROPIC_API_KEY` 并改变 provider 配置。付费 provider 作为 fallback 还必须显式设置 `ALLOW_PAID_AI_FALLBACK=true`；默认省略该变量，以防额度耗尽时静默计费。
+   `SESSION_SECRET` 必须是至少 32 个随机字节的 base64url 值；不要复用密码。默认 `AI_PROVIDER=cloudflare`，不需要第三方模型 key。只有 Owner 以后明确接受费用时，才可另行录入 `OPENAI_API_KEY` 并改变 provider 配置。付费 provider 作为 fallback 还必须显式设置 `ALLOW_PAID_AI_FALLBACK=true`；默认省略该变量，以防额度耗尽时静默计费。运行时只接受 `cloudflare` 和 `openai`；旧草稿或备份的历史整理方式仍按原值读取，不因此开启任何已退役服务。
 4. 再运行一次 `pnpm exec wrangler deploy`；打开 `<Worker origin>/api/v1/health`，确认 owner auth 与所选 AI provider 均显示 configured。
 5. 把这个公开 origin 写入 `vocab/js/runtime-config.js` 的 `OWNER_ADMIN_URL`，提交并让 GitHub Pages 发布。不要在这里写 client secret 或 token。
 6. 在正式 Worker origin 打开 `/owner.html`，点击 GitHub 登录。必须实际显示 `@zhuodashuai` 与 user ID `156042078`，再用一个测试词条完成发布、刷新、编辑和删除。

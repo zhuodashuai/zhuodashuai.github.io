@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=67";
-import { createEntryDetailController } from "./entry-detail.js?v=67";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=69";
+import { createEntryDetailController } from "./entry-detail.js?v=69";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,14 +17,14 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=67";
+} from "./owner-storage.js?v=69";
 import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
-import { setupPwa } from "./pwa.js";
+import { setupPwa } from "./pwa.js?v=69";
 import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=67";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=67";
+import { buildSynonymGroups } from "./synonym-groups.js?v=69";
+import { indexSynonymFingerprints } from "./synonym-evidence.js?v=69";
 import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js";
 
 const ids = [
@@ -542,9 +542,9 @@ async function refreshAiStatus() {
         : `AI 已就绪 · 每天 ${dailyLimit} 次`);
       return;
     }
-    if (activeProvider === "openai" || activeProvider === "anthropic") {
+    if (activeProvider === "openai") {
       const fallbackNote = activeProvider !== health.aiProvider ? "备用" : "";
-      setStatus(refs.aiServiceStatus, `当前实际启用${fallbackNote}${activeProvider === "openai" ? " OpenAI" : " Claude"}，调用可能产生 API 费用。`);
+      setStatus(refs.aiServiceStatus, `当前实际启用${fallbackNote} OpenAI，调用可能产生 API 费用。`);
       return;
     }
     setStatus(refs.aiServiceStatus, "AI 未接通 · 仍可手动建草稿");
@@ -1216,7 +1216,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
       updatedAt: isoNow()
     };
     const savedDraft = await saveDraft(draft);
-    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "anthropic" ? "Claude" : result.provider === "openai" ? "OpenAI" : result.provider === "local-dictionary" ? "本地 ECDICT 词典" : "AI";
+    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "openai" ? "OpenAI" : result.provider === "local-dictionary" ? "本地 ECDICT 词典" : "AI";
     const completionMessage = [
       ...warnings,
       reviewRequired

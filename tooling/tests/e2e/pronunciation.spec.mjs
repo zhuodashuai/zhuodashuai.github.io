@@ -231,12 +231,42 @@ test("audio failure is visible and retry works without losing the selected word"
   expect((await speechState(page)).activeText).toBe("tranquil");
 });
 
+test("mobile card playback errors remain visible with filters collapsed and retry without extra live regions", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await installSpeechStub(page);
+  await page.goto(chapterUrl);
+  const options = page.locator("#library-options");
+  const status = page.locator("#library-audio-status");
+  const speaker = page.locator('#entry-grid button[data-audio-text="tranquil"]');
+  await expect(options).not.toHaveAttribute("open", "");
+  await expect(status).toBeHidden();
+  await expect(options.locator("[data-audio-status]")).toHaveCount(0);
+  await expect(page.locator('body > main [data-audio-status][role="status"]')).toHaveCount(1);
+  const firstCardTop = await page.locator("#entry-grid .word-card").first().evaluate((card) => card.getBoundingClientRect().top);
+  expect(firstCardTop).toBeLessThan(550);
+
+  await speaker.click();
+  await page.evaluate(() => window.__speechTest.fail("network"));
+  await expect(status).toBeVisible();
+  await expect(status).toContainText("语音服务连接失败");
+  await expect(options).not.toHaveAttribute("open", "");
+  await expect(page.locator("#entry-dialog")).toBeHidden();
+  await expect(speaker).toHaveAccessibleName("朗读 tranquil");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+
+  await speaker.click();
+  await expect(status).toContainText("正在朗读");
+  expect((await speechState(page)).calls).toHaveLength(2);
+  expect((await speechState(page)).activeText).toBe("tranquil");
+  await expect(options).not.toHaveAttribute("open", "");
+});
+
 test("unsupported browser shows an explanation and keeps reading and review usable", async ({ page }) => {
   await installSpeechStub(page, { unsupported: true });
   await page.goto(chapterUrl);
   await expect(page.locator('#entry-grid button[data-audio-text="tranquil"]')).toBeDisabled();
   await page.locator("#library-audio-settings summary").click();
-  await expect(page.locator("#library-audio-settings").locator("..").locator("[data-audio-status]")).toHaveText(/不支持|不可用/);
+  await expect(page.locator("#library-audio-status")).toHaveText(/不支持|不可用/);
   await page.getByRole("button", { name: "查看 tranquil 的完整词条", exact: true }).click();
   await expect(page.locator("#dialog-meaning")).toContainText("宁静");
   await expect(page.locator("#dialog-speak")).toBeDisabled();
@@ -248,7 +278,7 @@ test("a device with only Chinese voices shows an error instead of silently choos
   await page.goto(chapterUrl);
   await page.locator('#entry-grid button[data-audio-text="tranquil"]').click();
   expect((await speechState(page)).calls).toHaveLength(0);
-  const status = page.locator("#library-audio-settings").locator("..").locator("[data-audio-status]");
+  const status = page.locator("#library-audio-status");
   await expect(status).toBeVisible();
   await expect(status).toContainText("英文语音");
   await expect(page.locator("#entry-dialog")).not.toBeVisible();

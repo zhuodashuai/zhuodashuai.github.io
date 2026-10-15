@@ -373,6 +373,8 @@ export const PublicEntrySchema = z.object({
   attributionNote: bounded(1500),
   sources: z.array(SourceSchema).max(20),
   readingContexts: z.array(ReadingContextSchema).max(50).default([]),
+  // Keep historical provenance readable in old drafts/backups; this legacy
+  // value does not enable a provider or authorize any external request.
   organizationMethod: z.enum(["manual", "local-dictionary", "ai-cloudflare", "ai-openai", "ai-anthropic", "mixed"]),
   createdAt: isoDate,
   updatedAt: isoDate
@@ -747,7 +749,7 @@ export type PublishRequest = z.infer<typeof PublishRequestSchema>;
 export function makeEntryFromAi(
   input: string,
   organized: AiOrganized,
-  provider: "cloudflare" | "openai" | "anthropic",
+  provider: "cloudflare" | "openai",
   sources: SourceRecord[],
   correctionConfidence = 0.55
 ): PublicEntry {
