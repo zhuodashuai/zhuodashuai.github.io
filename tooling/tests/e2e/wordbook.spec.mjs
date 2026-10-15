@@ -412,7 +412,9 @@ test("Never Let Me Go 独立词本按 Chapter 1 展示全部 29 条并保留原�
   await expect(dialog.locator("#dialog-meaning li").nth(2)).toHaveText("使处于隐蔽或不显眼的位置");
   await expect(dialog.locator("#dialog-meaning li").nth(3)).toContainText("第一章语境");
   await expect(dialog.locator(".detail-original-form p")).toHaveText("tucked");
-  await expect(dialog.locator(".sense-usage p")).toHaveAttribute("lang", "zh-CN");
+  const contextualUsage = dialog.locator("#dialog-meaning li").nth(3);
+  await expect(contextualUsage).toBeVisible();
+  expect(await contextualUsage.evaluate((node) => node.closest("[lang]")?.getAttribute("lang"))).toBe("zh-CN");
   await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 1");
   await expect(dialog.locator("#dialog-source-status")).toContainText("例句为学习用自拟句，不是小说原文");
   await expect(dialog.locator("#dialog-tags")).not.toContainText("collection:");
@@ -499,7 +501,8 @@ test("Never Let Me Go Chapter 3 展示全部 28 条，并保留照片原词形�
   await shriekCard.getByRole("button", { name: "查看 shriek 的完整词条" }).click();
   const dialog = page.getByRole("dialog");
   await expect(dialog.locator("#dialog-meaning")).toContainText("只是僵住等他们走过");
-  await expect(dialog.locator(".sense-usage p")).toContainText("没有尖叫，也没有倒抽一口气");
+  await expect(dialog.locator("#dialog-meaning li").last()).toBeVisible();
+  await expect(dialog.locator("#dialog-meaning li").last()).toContainText("没有尖叫，也没有倒抽一口气");
 });
 
 test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习队列", async ({ page }) => {
@@ -509,10 +512,16 @@ test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习�
   const dialog = page.getByRole("dialog");
   await expect(dialog.locator("#dialog-term")).toHaveText("eavesdrop");
   await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/28");
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+  await dialog.locator("#recall-reveal").click();
+  await expect(dialog.locator("#dialog-meaning")).toBeVisible();
   await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 3");
   await expect(dialog.locator("#dialog-source-status")).toContainText("p. 25");
   await dialog.getByRole("button", { name: "很熟" }).click();
   await expect(dialog.locator("#dialog-term")).toHaveText("raggy");
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
   await expect(page.locator("#due-count")).toHaveText("27");
   await dialog.getByRole("button", { name: "关闭词条详情" }).click();
 
@@ -527,6 +536,8 @@ test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习�
   await expect(page.locator("#entry-count")).toHaveText("28");
   await page.locator("#study-button").click();
   await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("raggy");
+  await expect(page.getByRole("dialog").locator("#recall-reveal")).toBeVisible();
+  await expect(page.getByRole("dialog").locator("#dialog-meaning")).toBeHidden();
 });
 
 test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并支持按原词形搜索和分点学习", async ({ page }) => {
@@ -574,10 +585,16 @@ test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习�
   const dialog = page.getByRole("dialog");
   await expect(dialog.locator("#dialog-term")).toHaveText("lark about");
   await expect(dialog.locator("#dialog-review-status")).toContainText("本轮 1/51");
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+  await dialog.locator("#recall-reveal").click();
+  await expect(dialog.locator("#dialog-meaning")).toBeVisible();
   await expect(dialog.locator("#dialog-source-status")).toContainText("Never Let Me Go — Chapter 4");
   await expect(dialog.locator("#dialog-source-status")).toContainText("p. 37");
   await dialog.getByRole("button", { name: "很熟" }).click();
   await expect(dialog.locator("#dialog-term")).toHaveText("taboo");
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
   await expect(page.locator("#due-count")).toHaveText("50");
   await dialog.getByRole("button", { name: "关闭词条详情" }).click();
 
@@ -592,6 +609,8 @@ test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习�
   await expect(page.locator("#entry-count")).toHaveText("51");
   await page.locator("#study-button").click();
   await expect(page.getByRole("dialog").locator("#dialog-term")).toHaveText("taboo");
+  await expect(page.getByRole("dialog").locator("#recall-reveal")).toBeVisible();
+  await expect(page.getByRole("dialog").locator("#dialog-meaning")).toBeHidden();
 });
 
 test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page }) => {
@@ -610,10 +629,16 @@ test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page
   await expect(dialog.locator("#dialog-review-status")).toContainText("agitated");
   await expect(dialog.locator("#dialog-term")).toBeFocused();
 
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+  await dialog.locator("#recall-reveal").click();
+  await expect(dialog.locator("#dialog-meaning")).toBeVisible();
   await dialog.getByRole("button", { name: "很熟" }).click();
   await expect(dialog.locator("#dialog-term")).toHaveText("shrug");
   await expect(dialog.locator("#dialog-review-status")).toContainText("shrug");
   await expect(dialog.locator("#dialog-term")).toBeFocused();
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
   await expect(page.locator("#due-count")).toHaveText("28");
   await dialog.getByRole("button", { name: "关闭词条详情" }).click();
 
@@ -633,8 +658,9 @@ test("公开搜索无结果时说明这是单词本而不是词典，且不给�
   await page.goto("/");
   await page.locator("#library-search").fill("unpublishedtestword");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
-  await expect(page.locator("#search-empty-title")).toHaveText("这里只搜索已发布词库；unpublishedtestword 尚未发布。");
-  await expect(page.locator("#search-empty")).toContainText("这个单词本里还没有这个词");
+  await expect(page.locator("#search-empty-title")).toHaveText("已发布词库未找到“unpublishedtestword”。");
+  await expect(page.locator("#search-empty")).toContainText("可以检查拼写，或扩大搜索范围");
+  await expect(page.locator("#search-whole-book")).toBeHidden();
   // Visitors get no route into the editor from a missed search: this is a
   // wordbook, not a lookup service. owner.html validates any ?input= it is
   // handed on its own (see the 240-character test below).
@@ -643,7 +669,7 @@ test("公开搜索无结果时说明这是单词本而不是词典，且不给�
 
   await page.locator("#library-search").fill("unpublishedtestword & <script>");
   await expect(page.locator("#search-empty-title"))
-    .toHaveText("这里只搜索已发布词库；unpublishedtestword & <script> 尚未发布。");
+    .toHaveText("已发布词库未找到“unpublishedtestword & <script>”。");
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("jab at");

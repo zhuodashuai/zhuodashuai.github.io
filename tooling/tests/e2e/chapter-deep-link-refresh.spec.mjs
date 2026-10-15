@@ -64,7 +64,7 @@ test("Chapter 8 deep link survives an old offline IndexedDB cache until the new 
   await seedOldCache(page);
   const changePhase = await snapshots(page, "offline");
   await page.goto(`/?book=${bookId}&chapter=chapter-8&release=deep-link-regression`);
-  await expect(page.locator("#data-status")).toContainText("当前离线");
+  await expect(page.locator("#data-status")).toContainText(/本机词库|已验证词库|离线/);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-8"]')).toHaveCount(0);
   // It is acceptable to show the cached book while Chapter 8 is unavailable;
   // the original intent must be restored once the validated new data arrives.
@@ -88,7 +88,7 @@ for (const [chapter, count] of [[10, 26], [11, 28], [12, 25]]) {
     await seedOldCache(page);
     const changePhase = await snapshots(page, "offline");
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}&release=chapter-10-12-regression`);
-    await expect(page.locator("#data-status")).toContainText("当前离线");
+    await expect(page.locator("#data-status")).toContainText(/本机词库|已验证词库|离线/);
     await expect(page.locator(`#chapter-tabs button[data-value="chapter-${chapter}"]`)).toHaveCount(0);
     await refreshWithCurrent(page, changePhase);
     await expectChapter(page, chapter, count);

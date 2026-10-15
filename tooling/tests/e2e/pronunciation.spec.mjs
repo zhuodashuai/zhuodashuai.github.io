@@ -142,9 +142,15 @@ test("closing details or advancing to a new review word stops current speech", a
   await expectSpeechStopped(page);
   await page.locator("#study-button").click();
   await expect(page.locator("#dialog-term")).toHaveText("be crawling with");
+  await expect(page.locator("#dialog-meaning")).toBeHidden();
   await page.locator("#dialog-speak").click();
+  await expect(page.getByRole("button", { name: "很熟", exact: true })).toBeDisabled();
+  await page.locator("#recall-reveal").click();
   await page.getByRole("button", { name: "很熟", exact: true }).click();
   await expect(page.locator("#dialog-term")).toHaveText("tranquil");
+  await expect(page.locator("#recall-reveal")).toBeVisible();
+  await expect(page.locator("#dialog-meaning")).toBeHidden();
+  await expect(page.getByRole("button", { name: "很熟", exact: true })).toBeDisabled();
   await expectSpeechStopped(page);
   await page.locator("#dialog-speak").click();
   expect((await speechState(page)).calls.at(-1).text).toBe("tranquil");
@@ -177,6 +183,8 @@ test("the explicit X closes speech and reopening the word still allows pronuncia
 
   await page.locator("#study-button").click();
   await expect(page.locator("#dialog-term")).toHaveText("be crawling with");
+  await expect(page.locator("#recall-reveal")).toBeVisible();
+  await expect(page.locator("#dialog-meaning")).toBeHidden();
   await page.locator("#dialog-speak").click();
   expect((await speechState(page)).activeText).toBe("be crawling with");
   await page.getByRole("button", { name: "关闭词条详情", exact: true }).click();

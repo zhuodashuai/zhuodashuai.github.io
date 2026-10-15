@@ -23,8 +23,29 @@ export function entrySynonymFingerprint(entry) {
   ].map((field) => [field, entry?.[field] ?? null])));
 }
 
-export function candidateSynonymFingerprint(entries) {
-  return stamp(entries.filter(isSynonymLexicalEntry).map((entry) => [entry.id, entrySynonymFingerprint(entry)]).sort(([a], [b]) => a.localeCompare(b)));
+export function candidateSynonymFingerprint(entries, { fingerprints } = {}) {
+  return stamp(entries.filter(isSynonymLexicalEntry).map((entry) => [entry.id,
+    fingerprints?.get(entry.id) ?? entrySynonymFingerprint(entry)
+  ]).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+// Snapshots are immutable after validation. Hash their semantic content once;
+// relation-only refreshes can reuse candidate stamps without hashing every
+// entry again for each status label. Dates and scan metadata remain excluded.
+export function indexSynonymFingerprints(entries, previous = null) {
+  const lexical = entries.filter(isSynonymLexicalEntry);
+  const fingerprints = new Map(lexical.map((entry) => [entry.id, entrySynonymFingerprint(entry)]));
+  const contentKey = JSON.stringify([...fingerprints].sort(([a], [b]) => a.localeCompare(b)));
+  const candidates = previous?.contentKey === contentKey ? previous.candidates : new Map();
+  return {
+    contentKey, fingerprints, candidates,
+    candidateFingerprint(entryId) {
+      if (!candidates.has(entryId)) {
+        candidates.set(entryId, candidateSynonymFingerprint(lexical.filter((entry) => entry.id !== entryId), { fingerprints }));
+      }
+      return candidates.get(entryId);
+    }
+  };
 }
 
 // Chapter rendering reconstructs senses/examples, even for the same meaning.

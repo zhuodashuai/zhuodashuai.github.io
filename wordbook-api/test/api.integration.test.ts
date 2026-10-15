@@ -490,7 +490,25 @@ describe("worker API integration", () => {
     expect(await afterRetry.json()).toMatchObject({ lastMutationId: mutationId, entries: [{ term: "receive" }] });
   });
 
-  it("serves a newer deployed snapshot over a stale Durable Object cache and honors its ETag", async () => {
+  it("allows conditional public-read preflights from the exact configured Pages origin without credentials", async () => {
+    const response = await api("/api/v1/public/wordbook", {
+      method: "OPTIONS",
+      headers: {
+        Origin: "https://zhuodashuai.github.io",
+        "Access-Control-Request-Method": "GET",
+        "Access-Control-Request-Headers": "if-none-match"
+      }
+    });
+    expect(response.status).toBe(204);
+    expect(response.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
+    expect(response.headers.get("access-control-allow-methods")).toBe("GET, OPTIONS");
+    expect(response.headers.get("access-control-allow-headers")?.toLowerCase().split(/,\s*/)).toEqual(["accept", "if-none-match"]);
+    expect(response.headers.get("access-control-expose-headers")?.toLowerCase().split(/,\s*/)).toEqual(["etag", "x-wordbook-source"]);
+    expect(response.headers.get("access-control-allow-credentials")).toBeNull();
+    expect(response.headers.get("vary")).toContain("Origin");
+  });
+
+  it("serves a newer deployed snapshot over a stale Durable Object cache and exposes its ETag on cross-origin 200 and 304 reads", async () => {
     const staleSnapshot = snapshot([]);
     const stub = testEnv.OWNER_CONTROL.get(testEnv.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
     await runInDurableObject(stub, async (_instance, state) => {
@@ -504,22 +522,46 @@ describe("worker API integration", () => {
     const deployedResponse = await testEnv.ASSETS.fetch(new Request("https://admin.example/data/owner-wordbook.json"));
     const deployed = await deployedResponse.json() as { revisionId: string };
 
-    const response = await api("/api/v1/public/wordbook");
+    const response = await api("/api/v1/public/wordbook", { headers: { Origin: "https://zhuodashuai.github.io" } });
     expect(response.status).toBe(200);
     expect(response.headers.get("x-wordbook-source")).toBe("deployed-newer");
+    expect(response.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
+    expect(response.headers.get("access-control-expose-headers")?.toLowerCase().split(/,\s*/)).toEqual(["etag", "x-wordbook-source"]);
+    expect(response.headers.get("access-control-allow-credentials")).toBeNull();
     expect(await response.json()).toMatchObject({ revisionId: deployed.revisionId });
 
     const etag = `W/"${deployed.revisionId}"`;
-    const notModified = await api("/api/v1/public/wordbook", { headers: { "If-None-Match": etag } });
+    expect(response.headers.get("etag")).toBe(etag);
+    const notModified = await api("/api/v1/public/wordbook", { headers: { Origin: "https://zhuodashuai.github.io", "If-None-Match": etag } });
     expect(notModified.status).toBe(304);
     expect(notModified.headers.get("etag")).toBe(etag);
+    expect(notModified.headers.get("x-wordbook-source")).toBe("deployed-newer");
+    expect(notModified.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
+    expect(notModified.headers.get("access-control-expose-headers")?.toLowerCase().split(/,\s*/)).toEqual(["etag", "x-wordbook-source"]);
+    expect(notModified.headers.get("access-control-allow-credentials")).toBeNull();
+    expect(await notModified.text()).toBe("");
   });
 
-  it("never grants an untrusted origin cross-origin access to the public snapshot", async () => {
+  it("never grants an untrusted origin cross-origin access through public reads, conditional reads or preflights", async () => {
     const response = await api("/api/v1/public/wordbook", {
       headers: { Origin: "https://evil.example" }
     });
-    expect(response.headers.get("access-control-allow-origin")).not.toBe("https://evil.example");
+    expect(response.status).toBe(200);
+    const etag = response.headers.get("etag");
+    expect(etag).toBeTruthy();
+    const conditional = await api("/api/v1/public/wordbook", { headers: { Origin: "https://evil.example", "If-None-Match": etag! } });
+    expect(conditional.status).toBe(304);
+    const preflight = await api("/api/v1/public/wordbook", {
+      method: "OPTIONS",
+      headers: { Origin: "https://evil.example", "Access-Control-Request-Method": "GET", "Access-Control-Request-Headers": "if-none-match" }
+    });
+    expect(preflight.status).toBe(204);
+    for (const candidate of [response, conditional, preflight]) {
+      expect(candidate.headers.get("access-control-allow-origin")).toBe("https://zhuodashuai.github.io");
+      expect(candidate.headers.get("access-control-allow-origin")).not.toBe("https://evil.example");
+      expect(candidate.headers.get("access-control-allow-origin")).not.toBe("*");
+      expect(candidate.headers.get("access-control-allow-credentials")).toBeNull();
+    }
   });
 
   it("rejects a published synonym that does not reference another published term", async () => {

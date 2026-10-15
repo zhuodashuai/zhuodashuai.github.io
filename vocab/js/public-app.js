@@ -1,4 +1,4 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError } from "./owner-storage.js";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js";
 import { createEntryDetailController } from "./entry-detail.js";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
@@ -10,6 +10,8 @@ import { sameSynonymSenseView } from "./synonym-evidence.js";
 import { renderSynonymGroups } from "./synonym-view.js";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js";
+import { setupLearningBackup } from "./learning-backup-ui.js";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -17,7 +19,8 @@ const refs = Object.fromEntries([
   "dialog-speak", "dialog-copy", "dialog-phonetic", "dialog-meaning", "dialog-definition-section", "dialog-definition", "dialog-example-section",
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "dialog-review-section", "dialog-review-status", "dialog-review-actions", "study-button", "due-count",
-  "install-button", "update-banner", "apply-update", "view-controls", "synonym-panel", "synonym-intro", "synonym-empty", "synonym-count"
+  "install-button", "update-banner", "apply-update", "view-controls", "synonym-panel", "synonym-intro", "synonym-empty", "synonym-count",
+  "compact-navigation", "book-select", "chapter-select", "chapter-previous", "chapter-next", "chapter-stepper", "study-summary", "recall-controls", "recall-reveal", "search-whole-book", "search-empty-message", "library-options"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const initialParameters = new URLSearchParams(window.location.search);
@@ -33,7 +36,11 @@ const state = {
   studyQueue: [],
   studyQueueTotal: 0,
   selectedEntry: null,
-  studyRefreshToken: 0
+  studyRefreshToken: 0,
+  recallMode: false,
+  answerRevealed: true,
+  entryViewToken: 0,
+  reviewBusy: false
 };
 // A cached or still-propagating snapshot may not contain a newly shared chapter.
 // Keep that initial intent until it appears, unless the reader navigates away.
@@ -50,7 +57,11 @@ const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出�
 const adminUrl = ownerAdminUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
 const pronunciation = setupPronunciationUI();
-refs.filterRow.closest(".toolbar").after(pronunciation.settings("library-audio-settings"));
+refs.libraryOptions.append(pronunciation.settings("library-audio-settings"));
+const compactMedia = window.matchMedia("(max-width: 720px)");
+const adjustOptions = () => { refs.libraryOptions.open = !compactMedia.matches; };
+adjustOptions();
+compactMedia.addEventListener("change", adjustOptions);
 const entryDetail = createEntryDetailController({
   getEntries: () => state.snapshot?.entries || [],
   contextualizeEntry: (entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId),
@@ -58,9 +69,13 @@ const entryDetail = createEntryDetailController({
 });
 let loadTask = null;
 let lastLoadStartedAt = 0;
+let cacheChecked = false;
+let navigationKey = "";
+let pendingReviewSave = null;
 const chapterQuiz = setupChapterQuiz({
   launchButton: document.getElementById("chapter-quiz-button"),
   dialog: document.getElementById("chapter-quiz-dialog"),
+  onOpenEntry: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker),
   getScope: () => {
     if (!state.snapshot || state.collectionId === "all" || state.chapterId === "all") return null;
     const collection = buildCollectionCatalog(state.snapshot.entries).find((item) => item.id === state.collectionId);
@@ -72,6 +87,10 @@ const chapterQuiz = setupChapterQuiz({
     } : null;
   }
 });
+const learningBackup = setupLearningBackup({ container: document.getElementById("learning-backup"), onRestored: async () => {
+  await refreshStudySummary();
+  if (state.selectedEntry) await renderSelectedReviewState(state.selectedEntry);
+} });
 document.getElementById("chapter-quiz-button")?.addEventListener("click", () => pronunciation.stop());
 
 function setText(element, value) {
@@ -125,10 +144,27 @@ function updateCollectionUrl() {
 function restoreNavigationFocus(container, value) {
   [...container.querySelectorAll("button[data-value]")]
     .find((control) => control.dataset.value === value)
-    ?.focus();
+    ?.focus({ preventScroll: true });
+}
+
+function revealSelectedTab(container) {
+  const selected = container.querySelector('[aria-pressed="true"]');
+  if (!selected || !container.clientWidth) return;
+  const bounds = container.getBoundingClientRect();
+  const item = selected.getBoundingClientRect();
+  if (item.left < bounds.left) container.scrollLeft -= bounds.left - item.left;
+  else if (item.right > bounds.right) container.scrollLeft += item.right - bounds.right;
+}
+
+function navigationOption(value, label, selected) {
+  const option = document.createElement("option");
+  option.value = value; option.textContent = label; option.selected = selected;
+  return option;
 }
 
 function renderCollectionNavigation(entries) {
+  const key = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}`;
+  if (key === navigationKey) return;
   const catalog = buildCollectionCatalog(entries);
   const available = new Map(catalog.map((collection) => [collection.id, collection]));
   if (requestedCollectionScope) {
@@ -180,6 +216,23 @@ function renderCollectionNavigation(entries) {
   refs.libraryHeading.textContent = state.collectionId === "all"
     ? "全部词本"
     : `${selectedCollection?.title || "词本"}${state.chapterId === "all" ? "" : ` · ${chapters.find((chapter) => chapter.id === state.chapterId)?.title || ""}`}`;
+  refs.compactNavigation.hidden = !entries.length;
+  refs.bookSelect.replaceChildren(
+    navigationOption("all", `全部词本 · ${entries.length}`, state.collectionId === "all"),
+    ...catalog.map((collection) => navigationOption(collection.id, `${collection.title} · ${collection.count}`, state.collectionId === collection.id))
+  );
+  refs.chapterStepper.hidden = !chapters.length;
+  refs.chapterSelect.replaceChildren(
+    navigationOption("all", `全书 · ${selectedCollection?.count || 0}`, state.chapterId === "all"),
+    ...chapters.map((chapter) => navigationOption(chapter.id, `${chapter.title} · ${chapter.count}`, state.chapterId === chapter.id))
+  );
+  const chapterIndex = chapters.findIndex((chapter) => chapter.id === state.chapterId);
+  refs.chapterPrevious.disabled = chapterIndex <= 0;
+  refs.chapterNext.disabled = !chapters.length || chapterIndex === chapters.length - 1;
+  refs.chapterPrevious.dataset.target = chapters[chapterIndex - 1]?.id || "";
+  refs.chapterNext.dataset.target = chapters[chapterIndex + 1]?.id || "";
+  navigationKey = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}`;
+  requestAnimationFrame(() => { revealSelectedTab(refs.collectionTabs); revealSelectedTab(refs.chapterTabs); });
 }
 
 function renderLearningPoints(element, entry) {
@@ -199,6 +252,7 @@ function renderLearningPoints(element, entry) {
   }
   if (entry.usage) {
     const usageItem = document.createElement("li");
+    usageItem.className = "card-context";
     usageItem.textContent = entry.usage;
     list.append(usageItem);
   }
@@ -225,19 +279,23 @@ async function refreshStudySummary(entries = state.studyScopeEntries) {
     refs.studyButton.title = summary.dueCount
       ? `当前词本有 ${summary.dueCount} 条待学习或复习`
       : "当前词本今天已经复习完成";
+    refs.studySummary.textContent = `新词 ${summary.newCount} · 待复习 ${summary.dueReviewCount} · 已学习 ${summary.reviewedCount}/${summary.totalEntries}`;
   } catch {
+    if (token !== state.studyRefreshToken) return;
     refs.dueCount.textContent = "—";
     refs.studyButton.disabled = true;
     refs.studyButton.title = "本机复习记录暂不可用";
+    refs.studySummary.textContent = "本机学习记录暂不可用";
   }
 }
 
 async function renderSelectedReviewState(entry) {
   if (!entry || state.selectedEntry?.id !== entry.id) return;
+  const viewToken = state.entryViewToken;
   setReviewButtonsDisabled(true);
   try {
     const reviewState = await getReviewState(entry.id);
-    if (state.selectedEntry?.id !== entry.id) return;
+    if (state.selectedEntry?.id !== entry.id || viewToken !== state.entryViewToken) return;
     const queuePosition = state.studyQueueTotal && state.studyQueue.length
       ? `本轮 ${state.studyQueueTotal - state.studyQueue.length + 1}/${state.studyQueueTotal} · `
       : "";
@@ -245,14 +303,22 @@ async function renderSelectedReviewState(entry) {
     refs.dialogReviewStatus.textContent = reviewState
       ? `${queuePosition}${announcedTerm}已复习 ${reviewState.reviewCount} 次 · 下次 ${reviewDateLabel(reviewState.dueAt)}`
       : `${queuePosition}${announcedTerm}新词 · 选择下面一项记录本次学习结果。`;
-    setReviewButtonsDisabled(false);
+    setReviewButtonsDisabled(state.reviewBusy || (state.recallMode && !state.answerRevealed));
   } catch {
+    if (state.selectedEntry?.id !== entry.id || viewToken !== state.entryViewToken) return;
     refs.dialogReviewStatus.textContent = "本机复习记录暂不可用；词条内容仍可正常查看。";
   }
 }
 
 function openEntry(entry, invoker, { fromStudy = false } = {}) {
+  state.entryViewToken += 1;
   state.selectedEntry = entry;
+  state.recallMode = fromStudy;
+  state.answerRevealed = !fromStudy;
+  refs.entryDialog.classList.toggle("recall-concealed", fromStudy);
+  refs.recallControls.hidden = !fromStudy;
+  refs.recallReveal.hidden = !fromStudy;
+  refs.dialogCopy.disabled = fromStudy;
   if (!fromStudy) {
     state.studyQueue = [];
     state.studyQueueTotal = 0;
@@ -331,6 +397,7 @@ function render() {
     const phonetic = document.createElement("p");
     phonetic.className = "phonetic";
     phonetic.textContent = entry.phonetic;
+    phonetic.hidden = !entry.phonetic;
     const meaning = document.createElement("div");
     meaning.className = "card-meaning";
     renderLearningPoints(meaning, entry);
@@ -365,7 +432,12 @@ function render() {
   refs.searchEmpty.hidden = groupedView || !searchMiss;
   if (searchMiss) {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
-    refs.searchEmptyTitle.textContent = `这里只搜索已发布词库；${displayQuery} 尚未发布。`;
+    const limited = state.collectionId !== "all";
+    refs.searchEmptyTitle.textContent = `${state.chapterId !== "all" ? "本章" : limited ? "本词本" : "已发布词库"}未找到“${displayQuery}”。`;
+    const outside = entries.filter((entry) => !scopeIds.has(entry.id) && publicEntryMatchesQuery(entry, query)).length;
+    refs.searchEmptyMessage.textContent = outside ? `其他章节或词本中找到 ${outside} 个相关词条。` : "可以检查拼写，或扩大搜索范围。";
+    refs.searchWholeBook.hidden = !limited;
+    refs.searchWholeBook.textContent = state.chapterId !== "all" ? "搜索全书" : "搜索全部词本";
   }
   refs.emptyMessage.hidden = groupedView || filtered.length > 0 || searchMiss || collectionEntries.length === 0;
   void refreshStudySummary(collectionEntries);
@@ -376,32 +448,33 @@ async function fetchLatestSnapshot() {
     { url: liveSnapshotUrl, source: "live" },
     { url: new URL("data/owner-wordbook.json", window.location.href).href, source: "pages" }
   ];
-  let lastError = new Error("没有可用的公开词库来源");
-  for (const candidate of candidates) {
-    try {
-      const url = new URL(candidate.url);
-      if (candidate.source === "live") url.searchParams.set("sync", String(Date.now()));
-      const headers = { Accept: "application/json" };
-      if (candidate.source === "live" && state.liveEtag) headers["If-None-Match"] = state.liveEtag;
-      const response = await fetch(url, { cache: "no-cache", headers });
-      if (response.status === 304 && candidate.source === "live" && state.snapshot) {
-        return { snapshot: state.snapshot, response, source: candidate.source };
-      }
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      if (candidate.source === "live") state.liveEtag = response.headers.get("etag") || "";
-      return { snapshot: parsePublicSnapshot(await response.json()), response, source: candidate.source };
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error(String(error));
-    }
-  }
-  throw lastError;
+  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, etag: state.liveEtag });
 }
 
 async function performLoad({ background = false } = {}) {
   if (!background) refs.entryGrid.setAttribute("aria-busy", "true");
   refs.loadError.hidden = true;
+  if (!cacheChecked) {
+    cacheChecked = true;
+    await readPublicCacheWithDeadline(getPublicCache, (cached) => {
+      if (cached?.snapshot && !state.snapshot) {
+        state.snapshot = cached.snapshot;
+        state.liveEtag = cached.sourceUrl?.startsWith(liveSnapshotUrl) ? cached.etag || "" : "";
+        refs.exportPublic.disabled = false;
+        refs.loadError.hidden = true;
+        refs.dataStatus.textContent = navigator.onLine === false ? "离线 · 已显示本机保存的词库" : "本机词库 · 已显示保存的内容";
+        render();
+      }
+    });
+  }
+  if (navigator.onLine === false && state.snapshot) {
+    refs.entryGrid.setAttribute("aria-busy", "false");
+    refs.dataStatus.textContent = "离线 · 已显示本机保存的词库";
+    return;
+  }
   try {
     const { snapshot, response, source } = await fetchLatestSnapshot();
+    if (source === "live") state.liveEtag = response.headers.get("etag") || state.liveEtag;
     if (state.snapshot && Date.parse(snapshot.exportedAt) < Date.parse(state.snapshot.exportedAt)) {
       refs.entryGrid.setAttribute("aria-busy", "false");
       refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
@@ -415,7 +488,6 @@ async function performLoad({ background = false } = {}) {
       return;
     }
     state.snapshot = snapshot;
-    await putPublicCache(snapshot, "", response.url, { etag: response.headers.get("etag") || "" });
     refs.dataStatus.textContent = source === "live"
       ? `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")}`
       : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
@@ -425,21 +497,16 @@ async function performLoad({ background = false } = {}) {
       state.selectedEntry = entryDetail.refresh();
       if (state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
     }
+    void putPublicCache(snapshot, "", response.url, { etag: source === "live" ? state.liveEtag : "" }).catch(() => {
+      if (state.snapshot?.revisionId === snapshot.revisionId) refs.dataStatus.textContent += " · 本机缓存暂不可用";
+    });
   } catch (networkError) {
     if (state.snapshot) {
       refs.entryGrid.setAttribute("aria-busy", "false");
       refs.dataStatus.textContent = `自动刷新暂时失败，继续显示 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的已验证词库。`;
       return;
     }
-    try {
-      const cache = await getPublicCache();
-      if (!cache?.snapshot) throw new Error("No validated cache");
-      state.snapshot = parsePublicSnapshot(cache.snapshot);
-      state.liveEtag = cache.etag || "";
-      refs.dataStatus.textContent = `当前离线，显示 ${new Date(cache.fetchedAt).toLocaleString("zh-CN")} 保存的已验证缓存。`;
-      refs.exportPublic.disabled = false;
-      render();
-    } catch {
+    {
       state.snapshot = null;
       refs.entryGrid.replaceChildren();
       refs.entryGrid.setAttribute("aria-busy", "false");
@@ -489,6 +556,37 @@ refs.chapterTabs.addEventListener("click", (event) => {
   render();
   restoreNavigationFocus(refs.chapterTabs, state.chapterId);
 });
+refs.bookSelect.addEventListener("change", () => {
+  pronunciation.stop(); requestedCollectionScope = null;
+  state.collectionId = refs.bookSelect.value; state.chapterId = "all";
+  updateCollectionUrl(); render();
+});
+function selectChapter(chapterId) {
+  if (!chapterId) return;
+  pronunciation.stop(); requestedCollectionScope = null;
+  state.chapterId = chapterId;
+  updateCollectionUrl(); render();
+}
+refs.chapterSelect.addEventListener("change", () => selectChapter(refs.chapterSelect.value));
+refs.chapterPrevious.addEventListener("click", () => selectChapter(refs.chapterPrevious.dataset.target));
+refs.chapterNext.addEventListener("click", () => selectChapter(refs.chapterNext.dataset.target));
+refs.searchWholeBook.addEventListener("click", () => {
+  pronunciation.stop(); requestedCollectionScope = null;
+  if (state.chapterId !== "all") state.chapterId = "all";
+  else state.collectionId = "all";
+  state.filter = "all";
+  refs.filterRow.querySelectorAll("button").forEach((control) => control.setAttribute("aria-pressed", String(control.dataset.filter === "all")));
+  updateCollectionUrl(); render();
+  refs.librarySearch.focus({ preventScroll: true });
+});
+refs.recallReveal.addEventListener("click", () => {
+  if (!state.selectedEntry || !state.recallMode) return;
+  state.answerRevealed = true;
+  refs.entryDialog.classList.remove("recall-concealed");
+  refs.recallControls.hidden = true;
+  refs.dialogCopy.disabled = false;
+  void renderSelectedReviewState(state.selectedEntry);
+});
 refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; render(); });
 refs.viewControls.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-view]");
@@ -517,14 +615,19 @@ refs.studyButton.addEventListener("click", async () => {
 refs.dialogReviewActions.addEventListener("click", async (event) => {
   const control = event.target.closest("button[data-rating]");
   const entry = state.selectedEntry;
-  if (!control || !entry) return;
+  if (!control || !entry || state.reviewBusy || (state.recallMode && !state.answerRevealed)) return;
+  const viewToken = state.entryViewToken;
+  state.reviewBusy = true;
   setReviewButtonsDisabled(true);
   refs.dialogReviewStatus.textContent = "正在保存本次复习…";
   try {
-    const updated = await saveReviewRating(entry.id, control.dataset.rating);
+    pendingReviewSave = saveReviewRating(entry.id, control.dataset.rating);
+    const updated = await pendingReviewSave;
+    if (viewToken !== state.entryViewToken) { await refreshStudySummary(); return; }
     const inStudyQueue = state.studyQueue[0]?.entry?.id === entry.id;
     if (inStudyQueue) state.studyQueue.shift();
     await refreshStudySummary();
+    if (viewToken !== state.entryViewToken) return;
     if (inStudyQueue && state.studyQueue.length) {
       openEntry(state.studyQueue[0].entry, refs.studyButton, { fromStudy: true });
       return;
@@ -537,13 +640,22 @@ refs.dialogReviewActions.addEventListener("click", async (event) => {
       setReviewButtonsDisabled(false);
     }
   } catch {
+    if (viewToken !== state.entryViewToken) return;
     refs.dialogReviewStatus.textContent = "这次复习没有保存成功，请重试。";
     setReviewButtonsDisabled(false);
+  } finally {
+    pendingReviewSave = null;
+    state.reviewBusy = false;
+    if (viewToken !== state.entryViewToken && state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
   }
 });
 refs.entryDialog.addEventListener("close", () => {
   if (refs.entryDialog.open) return;
   state.selectedEntry = null;
+  state.entryViewToken += 1;
+  state.recallMode = false;
+  state.answerRevealed = true;
+  refs.entryDialog.classList.remove("recall-concealed");
   state.studyQueue = [];
   state.studyQueueTotal = 0;
 });
@@ -562,13 +674,25 @@ if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
 }
-setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true, beforeApplyUpdate: () => chapterQuiz.flushPendingSave() });
+setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true, beforeApplyUpdate: async () => {
+  await chapterQuiz.flushPendingSave();
+  await learningBackup.flushPendingSave();
+  if (pendingReviewSave) await pendingReviewSave;
+} });
 const refreshWhileVisible = () => {
-  if (document.visibilityState === "hidden" || navigator.onLine === false) return;
+  if (document.visibilityState === "hidden") return;
+  void refreshStudySummary();
+  if (navigator.onLine === false) return;
   void loadWordbook({ background: true });
 };
 window.addEventListener("focus", refreshWhileVisible);
 document.addEventListener("visibilitychange", refreshWhileVisible);
-window.addEventListener("online", () => { void loadWordbook({ background: Boolean(state.snapshot), force: true }); });
+window.addEventListener("online", () => { void refreshStudySummary(); void loadWordbook({ background: Boolean(state.snapshot), force: true }); });
+subscribeStorageChanges((change) => {
+  if (change?.stores?.includes("reviewStates")) {
+    void refreshStudySummary();
+    if (state.selectedEntry && !state.reviewBusy) void renderSelectedReviewState(state.selectedEntry);
+  }
+});
 window.setInterval(refreshWhileVisible, FOREGROUND_REFRESH_MS);
 void loadWordbook({ force: true });

@@ -59,9 +59,12 @@ function pairKey(first, second) { return [first, second].sort().join("\u0000"); 
 
 export function createChapterQuiz(entries, {
   bookId, chapterId, bookTitle = bookId, chapterTitle = chapterId,
-  now = new Date(), random = Math.random, id = globalThis.crypto?.randomUUID?.()
+  now = new Date(), random = Math.random, id = globalThis.crypto?.randomUUID?.(),
+  targetEntryIds = null, kind, practiceSourceAttemptId
 } = {}) {
   if (!Array.isArray(entries)) throw new Error("章节词条必须是数组。");
+  if (targetEntryIds !== null && !Array.isArray(targetEntryIds)) throw new Error("错词范围必须是词条 ID 数组。");
+  const targets = targetEntryIds === null ? null : new Set(targetEntryIds.map((entryId) => requiredText(entryId, "错词 ID")));
   const startedAt = isoTime(now);
   const attempt = {
     schemaVersion: QUIZ_SCHEMA_VERSION,
@@ -71,6 +74,9 @@ export function createChapterQuiz(entries, {
     startedAt, updatedAt: startedAt, completedAt: null,
     questions: [], omitted: [], answers: []
   };
+  if (kind !== undefined) attempt.kind = kind;
+  if (practiceSourceAttemptId !== undefined) attempt.practiceSourceAttemptId = practiceSourceAttemptId;
+  validatePracticeMetadata(attempt);
   const seenIds = new Set();
   const normalizedCounts = new Map();
   for (const entry of entries) {
@@ -86,9 +92,9 @@ export function createChapterQuiz(entries, {
     const term = requiredText(entry.term, "英文词条");
     const meaning = definitionText(entry);
     if (!isPlausibleChineseMeaning(meaning, term)) {
-      attempt.omitted.push({ entryId, term, reason: "missing-meaning" });
+      if (!targets || targets.has(entryId)) attempt.omitted.push({ entryId, term, reason: "missing-meaning" });
     } else if (normalizedCounts.get(normalizeEnglish(term)).size > 1) {
-      attempt.omitted.push({ entryId, term, reason: "ambiguous-headword" });
+      if (!targets || targets.has(entryId)) attempt.omitted.push({ entryId, term, reason: "ambiguous-headword" });
     } else {
       candidates.push({ entry, entryId, term, meaning, partOfSpeech: String(entry.partOfSpeech || ""), pos: canonicalPartOfSpeech(entry.partOfSpeech) });
     }
@@ -103,7 +109,9 @@ export function createChapterQuiz(entries, {
     || normalizeEnglish(left.term) === normalizeEnglish(right.term)
     || synonymPairs.has(pairKey(left.entryId, right.entryId))
     || quizMeaningsOverlap(left.meaning, right.meaning);
-  for (const target of shuffleQuizItems(candidates, random)) {
+  // Only targets become questions; the complete chapter remains the distractor
+  // pool, even when the learner has just one unresolved word.
+  for (const target of shuffleQuizItems(candidates.filter((candidate) => !targets || targets.has(candidate.entryId)), random)) {
     const pool = shuffleQuizItems(candidates.filter((candidate) => !conflicts(target, candidate)), random);
     pool.sort((left, right) => Number(right.pos === target.pos && Boolean(target.pos)) - Number(left.pos === target.pos && Boolean(target.pos)));
     const selected = [];
@@ -126,11 +134,24 @@ export function createChapterQuiz(entries, {
       options, correctOptionId: options.find((option) => option.sourceEntryId === target.entryId).id
     });
   }
+  if (targets) {
+    for (const entryId of targets) {
+      if (!seenIds.has(entryId)) attempt.omitted.push({ entryId, term: entryId, reason: "missing-entry" });
+    }
+  }
   return attempt;
+}
+
+function validatePracticeMetadata(attempt) {
+  if (attempt.kind !== undefined && attempt.kind !== "mistakes") throw new Error("不支持的测试类型。");
+  if (attempt.practiceSourceAttemptId !== undefined) {
+    if (attempt.kind !== "mistakes" || requiredText(attempt.practiceSourceAttemptId, "原测试 ID").length > 180) throw new Error("错词练习来源无效。");
+  }
 }
 
 export function validateQuizAttempt(attempt, { allowEmpty = false } = {}) {
   if (!attempt || attempt.schemaVersion !== QUIZ_SCHEMA_VERSION) throw new Error("不支持的测试记录格式。");
+  validatePracticeMetadata(attempt);
   for (const key of ["id", "bookId", "chapterId", "bookTitle", "chapterTitle"]) requiredText(attempt[key], key);
   if (!Array.isArray(attempt.questions) || (!allowEmpty && !attempt.questions.length) || attempt.questions.length > 10000) throw new Error("测试题目无效。");
   if (!Array.isArray(attempt.omitted) || !Array.isArray(attempt.answers) || attempt.answers.length > attempt.questions.length
@@ -190,4 +211,30 @@ export function summarizeQuizAttempt(attempt) {
   return { total: attempt.questions.length, answered: attempt.answers.length, correct, wrong: wrongWords.length,
     accuracy: attempt.answers.length ? Math.round(correct / attempt.answers.length * 1000) / 10 : null,
     wrongWords, completed: Boolean(attempt.completedAt) };
+}
+
+/** Latest answered result per stable entry ID; unanswered questions never clear
+ * an earlier mistake. Partial full tests and practice rounds both count as soon
+ * as their answer is durably saved. Exact timestamp ties retain a wrong result
+ * rather than claiming that an ambiguous ordering has resolved it. */
+export function unresolvedQuizMistakes(attempts) {
+  const latest = new Map();
+  for (const attempt of attempts) {
+    validateQuizAttempt(attempt, { allowEmpty: true });
+    for (const [index, answer] of attempt.answers.entries()) {
+      const question = attempt.questions[index];
+      const item = {
+        entryId: question.entryId, term: question.term, meaning: question.meaning,
+        selectedMeaning: question.options.find((option) => option.id === answer.optionId).meaning,
+        at: answer.at, startedAt: attempt.startedAt, attemptId: attempt.id, correct: answer.correct
+      };
+      const previous = latest.get(item.entryId);
+      const order = previous ? Date.parse(item.at) - Date.parse(previous.at)
+        || Date.parse(item.startedAt) - Date.parse(previous.startedAt) : 1;
+      if (!previous || order > 0 || (order === 0 && !item.correct && previous.correct)
+        || (order === 0 && item.correct === previous.correct && item.attemptId > previous.attemptId)) latest.set(item.entryId, item);
+    }
+  }
+  return [...latest.values()].filter((item) => !item.correct)
+    .sort((left, right) => Date.parse(right.at) - Date.parse(left.at) || left.entryId.localeCompare(right.entryId));
 }

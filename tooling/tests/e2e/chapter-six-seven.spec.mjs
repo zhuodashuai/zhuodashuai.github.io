@@ -28,7 +28,14 @@ for (const [chapter, count] of [[6,24], [7,30]]) {
     await page.locator("#study-button").click();
     const dialog = page.getByRole("dialog");
     await expect(dialog.locator("#dialog-term")).toHaveText(source.items[0].term);
+    await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+    await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+    await dialog.locator("#recall-reveal").click();
+    await expect(dialog.locator("#dialog-meaning")).toBeVisible();
     await dialog.getByRole("button", { name: "很熟" }).click();
+    await expect(dialog.locator("#dialog-term")).toHaveText(source.items[1].term);
+    await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+    await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
     await dialog.getByRole("button", { name: "关闭词条详情" }).click();
     await page.reload();
     await expect(page.locator("#due-count")).toHaveText(String(count - 1));

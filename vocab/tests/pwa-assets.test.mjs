@@ -10,6 +10,7 @@ const guideHtml = await readFile(new URL("../guide.html", import.meta.url), "utf
 const stylesSource = await readFile(new URL("../styles.css", import.meta.url), "utf8");
 const ownerAppSource = await readFile(new URL("../js/owner-app.js", import.meta.url), "utf8");
 const publicAppSource = await readFile(new URL("../js/public-app.js", import.meta.url), "utf8");
+const snapshotSource = await readFile(new URL("../js/public-snapshot.js", import.meta.url), "utf8");
 const entryDetailSource = await readFile(new URL("../js/entry-detail.js", import.meta.url), "utf8");
 const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.url), "utf8");
 const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
@@ -61,12 +62,15 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v66/);
+  assert.match(serviceWorker, /zhuo-wordbook-v67/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=66/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=66/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=66/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=67/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=67/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=67/);
+  assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
+  assert.match(serviceWorker, /\.\/js\/learning-backup\.js/);
+  assert.match(serviceWorker, /\.\/js\/learning-backup-ui\.js/);
   assert.match(serviceWorker, /\.\/js\/owner-backup\.js/);
   assert.match(serviceWorker, /\.\/js\/pronunciation\.js/);
   assert.match(serviceWorker, /\.\/js\/pronunciation-ui\.js/);
@@ -82,10 +86,10 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=66"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=66"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=66"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=66"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=67"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=67"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=67"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=67"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
@@ -117,8 +121,9 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.doesNotMatch(ownerHtml, /默认由服务端 OpenAI/);
   assert.doesNotMatch(ownerHtml, /type="password"|personal access token|PAT/i);
   assert.doesNotMatch(ownerApiSource, /localStorage|sessionStorage|Authorization:\s*`Bearer/);
-  assert.match(publicAppSource, /headers\["If-None-Match"\] = state\.liveEtag/);
-  assert.match(publicAppSource, /response\.status === 304/);
+  assert.match(publicAppSource, /fetchPublicSnapshot\(\{ candidates, snapshot: state\.snapshot, etag: state\.liveEtag \}\)/);
+  assert.match(snapshotSource, /headers\["If-None-Match"\] = etag/);
+  assert.match(snapshotSource, /response\.status === 304/);
   assert.match(runtimeConfigSource, /https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\//);
   assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
 });
@@ -132,7 +137,7 @@ test("synonyms remain one entered-word-only field throughout owner editing and p
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
   assert.match(entryDetailSource, /entry\.synonyms/);
   assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
-  assert.match(vocabHtml, /只搜这个单词本里已有的词/);
+  assert.match(vocabHtml, /搜索本章或词本已有的词/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });
 

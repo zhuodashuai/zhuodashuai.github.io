@@ -190,6 +190,7 @@ export function openDatabase() {
   if (databasePromise) return databasePromise;
   databasePromise = new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
+    let failed = false;
     request.onupgradeneeded = (event) => {
       const database = request.result;
       const transaction = request.transaction;
@@ -204,10 +205,15 @@ export function openDatabase() {
       createStores(database);
       migrateLegacyEntries(transaction, event.oldVersion);
     };
-    request.onblocked = () => globalThis.dispatchEvent?.(new CustomEvent("wordbook:storage-blocked"));
+    request.onblocked = () => {
+      failed = true;
+      reject(new Error("本机记录被旧页面占用，请关闭旧页面后重试。"));
+      globalThis.dispatchEvent?.(new CustomEvent("wordbook:storage-blocked"));
+    };
     request.onerror = () => reject(request.error);
     request.onsuccess = () => {
       const database = request.result;
+      if (failed) { database.close(); return; }
       database.onversionchange = () => {
         database.close();
         databasePromise = null;
@@ -215,7 +221,7 @@ export function openDatabase() {
       };
       resolve(database);
     };
-  });
+  }).catch((error) => { databasePromise = null; throw error; });
   return databasePromise;
 }
 
@@ -259,7 +265,7 @@ function assertNonNegativeInteger(value, label) {
   if (!Number.isSafeInteger(value) || value < 0) throw new Error(`${label}必须是非负整数。`);
 }
 
-function validateReviewState(candidate) {
+export function validateReviewState(candidate) {
   if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) throw new Error("复习状态格式不正确。");
   rejectSecrets(candidate, "reviewState");
   assertExactKeys(candidate, REVIEW_STATE_KEYS, "复习状态");
@@ -342,6 +348,81 @@ export async function putReviewState(candidate, options = {}) {
   return state;
 }
 
+/** Restore only a provable continuation; independent learning branches stay local. */
+export function planReviewStateMerge(current, candidate) {
+  const incoming = validateReviewState(candidate);
+  if (!current) return { action: "add", value: incoming };
+  const local = validateReviewState(current);
+  if (local.entryId !== incoming.entryId) throw new Error("复习记录的词条 ID 不一致。");
+  if (JSON.stringify(canonicalize(local)) === JSON.stringify(canonicalize(incoming))) return { action: "unchanged" };
+  if (Date.parse(local.updatedAt) > Date.parse(incoming.updatedAt) || local.reviewCount > incoming.reviewCount) return { action: "keep-local" };
+  if (local.updatedAt === incoming.updatedAt || incoming.reviewCount <= local.reviewCount || incoming.lapseCount < local.lapseCount) return { action: "conflict" };
+  const localStart = local.reviewCount - local.history.length;
+  const incomingStart = incoming.reviewCount - incoming.history.length;
+  const overlapStart = Math.max(localStart, incomingStart);
+  const overlapEnd = Math.min(local.reviewCount, incoming.reviewCount);
+  if (local.history.length && (!incoming.history.length || overlapStart >= overlapEnd)) return { action: "conflict" };
+  for (let position = overlapStart; position < overlapEnd; position += 1) {
+    if (JSON.stringify(canonicalize(local.history[position - localStart])) !== JSON.stringify(canonicalize(incoming.history[position - incomingStart]))) return { action: "conflict" };
+  }
+  return { action: "update", value: incoming };
+}
+
+export function planReviewStatesMerge(currentStates, candidates) {
+  if (!Array.isArray(currentStates) || !Array.isArray(candidates) || candidates.length > 10000) throw new Error("复习记录数量或格式不正确。");
+  const local = new Map();
+  for (const candidate of currentStates) {
+    const state = validateReviewState(candidate);
+    if (local.has(state.entryId)) throw new Error("本机复习记录包含重复的词条 ID。");
+    local.set(state.entryId, state);
+  }
+  const incoming = candidates.map(validateReviewState);
+  if (new Set(incoming.map(({ entryId }) => entryId)).size !== incoming.length) throw new Error("备份复习记录包含重复的词条 ID。");
+  const result = { added: 0, updated: 0, unchanged: 0, keptLocal: 0, conflicts: 0, changes: [] };
+  const counts = { add: "added", update: "updated", unchanged: "unchanged", "keep-local": "keptLocal", conflict: "conflicts" };
+  for (const candidate of incoming) {
+    const decision = planReviewStateMerge(local.get(candidate.entryId), candidate);
+    result[counts[decision.action]] += 1;
+    if (decision.value) result.changes.push(decision.value);
+  }
+  return result;
+}
+
+/** Recheck against live data inside one transaction, including concurrent tabs. */
+export async function mergeReviewStates(candidates) {
+  const incoming = planReviewStatesMerge([], candidates).changes;
+  const database = await openDatabase();
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction([STORES.reviewStates, STORES.meta], "readwrite");
+    const store = transaction.objectStore(STORES.reviewStates);
+    const request = store.getAll();
+    let result;
+    let failure;
+    let revision;
+    transaction.oncomplete = () => {
+      if (revision !== undefined) channel?.postMessage({ revision, stores: [STORES.reviewStates], ids: result.changes.map(({ entryId }) => entryId) });
+      const { changes, ...summary } = result;
+      resolve(summary);
+    };
+    transaction.onabort = transaction.onerror = () => reject(failure || transaction.error || new Error("复习记录合并失败，请重试。"));
+    request.onsuccess = () => {
+      try {
+        result = planReviewStatesMerge(request.result, incoming);
+        for (const state of result.changes) store.put(state);
+        if (!result.changes.length) return;
+        const meta = transaction.objectStore(STORES.meta);
+        const revisionRequest = meta.get("changeRevision");
+        revisionRequest.onsuccess = () => {
+          try {
+            revision = Number(revisionRequest.result?.value || 0) + 1;
+            meta.put({ key: "changeRevision", value: revision, updatedAt: new Date().toISOString() });
+          } catch (error) { failure = error; transaction.abort(); }
+        };
+      } catch (error) { failure = error; transaction.abort(); }
+    };
+  });
+}
+
 function canonicalize(value) {
   if (Array.isArray(value)) return value.map(canonicalize);
   if (!value || typeof value !== "object") return value;
@@ -354,6 +435,9 @@ function semanticEntryValue(entry) {
   delete value.createdAt;
   delete value.updatedAt;
   delete value.revision;
+  // Background scan bookkeeping belongs to the server, rather than the user's
+  // queued edit. Actual synonyms and every other content field still compare.
+  delete value.synonymScan;
   return canonicalize(value);
 }
 

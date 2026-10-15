@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=66">
+  <link rel="stylesheet" href="styles.css?v=67">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -40,12 +40,20 @@
         <li><strong>看</strong> —— 翻阅全部词条，点开看完整释义、例句和出处。</li>
         <li><strong>搜</strong> —— 在这个单词本里找词，不是在互联网上查。</li>
         <li><strong>筛</strong> —— 按单词、短语、习语、名言等类型过滤。</li>
-        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–7。</li>
-        <li><strong>复习</strong> —— 按「再来一次／有点难／记得／很熟」安排自己的下一次复习。</li>
+        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–12。手机用下拉框选章，也可点上一章、下一章。</li>
+        <li><strong>复习</strong> —— 先回想英文的意思，再点「显示释义」，最后按「再来一次／有点难／记得／很熟」安排下一次复习。普通查词仍直接显示内容。</li>
         <li><strong>听</strong> —— 点词卡的小喇叭朗读；可选英式、美式和慢速。<a href="#g-audio">发音说明</a></li>
         <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
-      <p class="guide-note">不用登录，直接用。复习进度只留在当前浏览器；访客不能添加、修改或删除公开词条。</p>
+      <p class="guide-note">不用登录，直接用。复习进度保存在当前浏览器，可用页面底部「学习记录备份」导出或恢复；访客不能添加、修改或删除公开词条。</p>
+    </section>
+
+    <section class="guide-block" aria-labelledby="g-learning">
+      <h2 id="g-learning">测试、错词与学习记录</h2>
+      <p>选择具体章节后，右下角「开篇测试」提供英文到中文的随机四选一。每题自动保存，退出后可继续；历史中保留每轮正确率与错词。完成后可只练本轮错词，也可在测试菜单查看累计待练错词。练习答对会移出待练列表，后来再次答错仍会重新出现。测试与记忆复习分别记录，互不更改排程。</p>
+      <p>页面底部「学习记录备份」会导出本机的复习排程、学习历史和所有章节测试。把文件传到另一台设备，在那里选择文件，先核对预览，再点击「合并这些记录」。本机较新或冲突的记录会保留；相同文件可重复合并。旧版导出的章节测试 JSON 也能通过这个入口恢复。</p>
+      <p>词库导出和管理页的草稿备份用途不同，不能代替学习记录备份。此功能通过文件迁移，不会自动云同步；GitHub Pages、管理页、Safari 和主屏幕应用的本机记录可能彼此独立。请在实际学习的页面导出，并妥善保存文件。合并不完整时会说明哪一类未成功，可以重试。</p>
+      <p>首页进度显示「已学习」表示至少评分过一次，不代表已经完全掌握。到期数量会在页面可见、重新打开及切回时更新，离线仍可复习。手机低频筛选与发音设置收在「筛选与发音」中。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-audio">

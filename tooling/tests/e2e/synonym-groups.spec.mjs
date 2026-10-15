@@ -153,6 +153,9 @@ test("远端删除成员后刷新不保留幽灵组，也不会向词库添加�
   await page.goto(chapterThreeUrl);
   await expectChapterThreeReady(page);
   current.entries = current.entries.filter((entry) => entry.term !== "pull somebody's leg");
+  // Real published mutations also replace the revision/ETag. Cache-first loading
+  // must receive that new revision before it can retire the saved group.
+  advanceSnapshot(current, 1);
   await page.reload();
   await expect(page.locator("#entry-count")).toHaveText("28");
   await expect(panel(page).locator(".synonym-group")).toHaveCount(0);

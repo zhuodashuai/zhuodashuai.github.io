@@ -212,7 +212,34 @@ test("列表连续筛选移除所有不匹配行，零结果后清空搜索恢�
   ))).toEqual(snapshot.entries.map((entry) => entry.id));
 });
 
-test("自动识别失败保留输入来源说明和焦点，只在同步详情显示后台错误", async ({ page }) => {
+test("预填的前台输入暂停自动识别，保留来源说明、输入和焦点", async ({ page }) => {
+  const snapshot = importedFixture();
+  await serveSnapshot(page, snapshot);
+  await page.clock.install();
+  const writes = [];
+  page.on("request", (request) => {
+    if (request.method() !== "GET" && new URL(request.url()).pathname.startsWith("/api/")) writes.push(request.url());
+  });
+  let calls = 0;
+  await page.route("**/api/v1/owner/synonyms", async (route) => {
+    calls += 1;
+    await route.fulfill({ status: 503, json: { error: { code: "ai_unavailable", message: "服务暂不可用" } } });
+  });
+  await page.goto("/owner.html?input=hip");
+  await expect(page.locator("#capture-status")).toContainText("尚未调用 AI，也没有建立或发布草稿");
+  const inputMessage = await page.locator("#capture-status").textContent();
+  // Run beyond the 50 ms background scheduler after startup has consumed the
+  // handoff. Nonempty foreground input must reserve the owner's attention.
+  await page.clock.runFor(200);
+  await expect(page.locator("#capture-status")).toHaveText(inputMessage);
+  await expect(page.getByLabel("英文内容")).toHaveValue("hip");
+  await expect(page.getByLabel("英文内容")).toBeFocused();
+  await expect(page.locator("#draft-list > button")).toHaveCount(0);
+  expect(calls).toBe(0);
+  expect(writes).toEqual([]);
+});
+
+test("空白输入页的自动识别失败保留输入提示和焦点，只更新同步详情", async ({ page }) => {
   const snapshot = importedFixture();
   await serveSnapshot(page, snapshot);
   let releaseScan;
@@ -223,17 +250,22 @@ test("自动识别失败保留输入来源说明和焦点，只在同步详情�
     await scanGate;
     await route.fulfill({ status: 503, json: { error: { code: "ai_unavailable", message: "服务暂不可用" } } });
   });
-  await page.goto("/owner.html?input=hip");
-  await expect(page.locator("#capture-status")).toContainText("尚未调用 AI，也没有建立或发布草稿");
-  const inputMessage = await page.locator("#capture-status").textContent();
-  await expect.poll(() => calls).toBe(1);
-  releaseScan();
-  await expect(page.locator("#sync-detail")).toContainText("同义词识别暂未完成");
-  await expect(page.locator("#capture-status")).toHaveText(inputMessage);
-  await expect(page.getByLabel("英文内容")).toHaveValue("hip");
-  await expect(page.getByLabel("英文内容")).toBeFocused();
-  await expect(page.locator("#draft-list > button")).toHaveCount(0);
-  expect(calls).toBe(1);
+  try {
+    await page.goto("/owner.html");
+    await expect.poll(() => calls).toBe(1);
+    const inputMessage = await page.locator("#capture-status").textContent();
+    await page.getByLabel("英文内容").focus();
+    releaseScan();
+    await expect(page.locator("#sync-detail")).toContainText("同义词识别暂未完成");
+    await expect(page.locator("#capture-status")).toHaveText(inputMessage);
+    await expect(page.getByLabel("英文内容")).toHaveValue("");
+    await expect(page.getByLabel("英文内容")).toBeFocused();
+    await expect(page.locator("#draft-list > button")).toHaveCount(0);
+    expect(calls).toBe(1);
+  } finally {
+    releaseScan();
+    await page.unrouteAll({ behavior: "wait" });
+  }
 });
 
 test("测试扫描接口验证身份与CSRF并返回完整扫描及新SHA，不调用真实AI", async ({ context }) => {

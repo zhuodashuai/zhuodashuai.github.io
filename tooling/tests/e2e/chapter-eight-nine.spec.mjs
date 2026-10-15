@@ -59,8 +59,14 @@ for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]])
     await page.locator("#study-button").click();
     const dialog = page.getByRole("dialog");
     await expect(dialog.locator("#dialog-term")).toHaveText(source.items[0].term);
+    await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+    await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+    await dialog.locator("#recall-reveal").click();
+    await expect(dialog.locator("#dialog-meaning")).toBeVisible();
     await dialog.getByRole("button", { name: "很熟" }).click();
     await expect(dialog.locator("#dialog-term")).toHaveText(source.items[1].term);
+    await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+    await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
     const reviews = await reviewStates(page);
     expect(reviews).toHaveLength(1);
     const firstCard = canonicalSnapshot.entries.find(entry => entry.term === source.items[0].term
@@ -73,7 +79,7 @@ for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]])
     await expect(page.locator("#due-count")).toHaveText(String(count - 1));
     await expect(page.locator("#entry-count")).toHaveText(String(count));
     expect(await reviewStates(page)).toEqual(reviews);
-    await page.locator('#chapter-tabs button[data-value="chapter-7"]').click();
+    await page.locator("#chapter-select").selectOption("chapter-7");
     await expect(page.locator("#due-count")).toHaveText("30");
     expect(await reviewStates(page)).toEqual(reviews);
   });

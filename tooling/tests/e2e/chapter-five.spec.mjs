@@ -89,8 +89,14 @@ test("Chapter 5 review persists under a stable entry ID on mobile without changi
   const dialog = page.getByRole("dialog");
   await expect(dialog.locator("#dialog-term")).toHaveText(selectedTerms[0]);
   await expect(dialog.locator("#dialog-review-status")).toContainText(`本轮 1/${selectedCount}`);
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
+  await dialog.locator("#recall-reveal").click();
+  await expect(dialog.locator("#dialog-meaning")).toBeVisible();
   await dialog.getByRole("button", { name: "很熟" }).click();
   await expect(dialog.locator("#dialog-term")).toHaveText(selectedTerms[1]);
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
+  await expect(dialog.getByRole("button", { name: "很熟" })).toBeDisabled();
   await expect(page.locator("#due-count")).toHaveText(String(selectedCount - 1));
   const storedReviews = await reviewStates(page);
   expect(storedReviews).toHaveLength(1);
@@ -101,13 +107,15 @@ test("Chapter 5 review persists under a stable entry ID on mobile without changi
   await expect(page.locator("#due-count")).toHaveText(String(selectedCount - 1));
   expect(await reviewStates(page)).toEqual(storedReviews);
   for (const [chapter, count] of [[1,29],[2,38],[3,28],[4,51]]) {
-    await page.locator(`#chapter-tabs button[data-value="chapter-${chapter}"]`).click();
+    await page.locator("#chapter-select").selectOption(`chapter-${chapter}`);
     await expect(page.locator("#entry-count")).toHaveText(String(count));
     await expect(page.locator("#due-count")).toHaveText(String(count));
   }
-  await page.locator('#chapter-tabs button[data-value="chapter-5"]').click();
+  await page.locator("#chapter-select").selectOption("chapter-5");
   await expect(page.locator("#due-count")).toHaveText(String(selectedCount - 1));
   await page.locator("#study-button").click();
   await expect(dialog.locator("#dialog-term")).toHaveText(selectedTerms[1]);
+  await expect(dialog.locator("#recall-reveal")).toBeVisible();
+  await expect(dialog.locator("#dialog-meaning")).toBeHidden();
   expect(await reviewStates(page)).toEqual(storedReviews);
 });

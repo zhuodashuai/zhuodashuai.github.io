@@ -1,8 +1,10 @@
-const CACHE_NAME = "zhuo-wordbook-v66";
+const CACHE_NAME = "zhuo-wordbook-v67";
 const CACHE_PREFIX = "zhuo-wordbook-";
+const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
-  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=66", "./manifest.webmanifest",
-  "./js/public-app.js?v=66", "./js/owner-app.js?v=66", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=67", "./manifest.webmanifest",
+  "./js/public-app.js?v=67", "./js/owner-app.js?v=67", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/owner-backup.js", "./js/sync-logic.js", "./js/wordbook-schema.js", "./js/core-dictionary.js", "./js/synonym-evidence.js",
@@ -30,18 +32,48 @@ self.addEventListener("message", (event) => {
 
 async function networkFirst(request, fallbackUrl = "") {
   const cache = await caches.open(CACHE_NAME);
+  const controller = new AbortController();
+  let timer;
+  let failedResponse;
   try {
-    const response = await fetch(request);
-    if (response.ok) await cache.put(request, response.clone());
-    return response;
+    const timeout = new Promise((_, reject) => {
+      timer = setTimeout(() => {
+        controller.abort();
+        reject(new Error("Network timeout"));
+      }, NETWORK_TIMEOUT_MS);
+    });
+    const network = (async () => {
+      const response = await fetch(request, { signal: controller.signal });
+      if (controller.signal.aborted) throw new Error("Network timeout");
+      if (response.status >= 500) {
+        failedResponse = response;
+        throw new Error("Server temporarily unavailable");
+      }
+      if (response.ok) {
+        try {
+          // Cache.put consumes the response body. Keep that work inside the
+          // deadline too: successful headers do not prove a usable document.
+          await cache.put(request, response.clone());
+        } catch {
+          // Quota/storage errors must not discard a healthy response. Verify
+          // its body before returning it; a broken stream uses the fallback.
+          await response.clone().arrayBuffer();
+        }
+      }
+      return response;
+    })();
+    return await Promise.race([network, timeout]);
   } catch {
     const cached = await cache.match(request, { ignoreSearch: false });
-    if (cached) return cached;
+    if (cached?.ok) return cached;
     if (fallbackUrl) {
       const fallback = await cache.match(fallbackUrl);
-      if (fallback) return fallback;
+      if (fallback?.ok) return fallback;
     }
+    if (failedResponse) return failedResponse;
     return new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  } finally {
+    clearTimeout(timer);
   }
 }
 

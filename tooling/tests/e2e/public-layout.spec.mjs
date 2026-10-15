@@ -18,6 +18,7 @@ for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }
     expect(layout.searchTop).toBeGreaterThan(0);
     expect(layout.searchBottom).toBeLessThan(viewport.height - 16);
     expect(layout.contentWidth).toBeLessThanOrEqual(layout.viewportWidth);
+    if (viewport.width === 1440) await page.screenshot({ path: "qa-artifacts/study-upgrade-desktop.png" });
     await expect(page.locator(".top-actions").getByRole("link", { name: "使用手册", exact: true })).toBeVisible();
     await page.locator("#library-search").fill("innocuous");
     await expect(page.locator("#entry-grid .word-card h3")).toHaveText(["innocuous"]);

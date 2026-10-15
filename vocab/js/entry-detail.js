@@ -79,9 +79,33 @@ function languageForText(value) {
   return /[A-Za-z]/u.test(String(value || "")) ? "en" : "";
 }
 
+const detailTextKey = (value) => String(value || "").trim().replace(/\s+/gu, " ");
+const meaningKey = (value) => detailTextKey(value).replace(/^(?:[①-⑳]|\d{1,2}[.)、])\s*/u, "");
+
+// Keep genuinely different single-sense information while displaying identical
+// summaries only once. Multiple senses retain their complete comparisons.
+export function additionalDetailSenses(entry) {
+  const senses = Array.isArray(entry.senses) ? entry.senses : [];
+  if (senses.length !== 1) return senses;
+  const original = senses[0];
+  const sense = {
+    ...original,
+    meaningZh: meaningKey(original.meaningZh) === meaningKey(entry.meaning) ? "" : original.meaningZh,
+    definitionEn: detailTextKey(original.definitionEn) === detailTextKey(entry.definition) ? "" : original.definitionEn,
+    usageNotes: detailTextKey(original.usageNotes) === detailTextKey(entry.usage) ? "" : original.usageNotes,
+    register: detailTextKey(original.register) === detailTextKey(entry.register) ? "" : original.register,
+    examples: (original.examples || []).filter((example) => detailTextKey(example.en) !== detailTextKey(entry.exampleEn) || detailTextKey(example.zh) !== detailTextKey(entry.exampleZh)),
+    collocations: (original.collocations || []).filter((value) => !(entry.collocations || []).includes(value)),
+    confusables: (original.confusables || []).filter((value) => !(entry.confusedWith || []).includes(value))
+  };
+  const extraPartOfSpeech = detailTextKey(original.partOfSpeech) !== detailTextKey(entry.partOfSpeech);
+  return extraPartOfSpeech || [sense.meaningZh, sense.definitionEn, sense.usageNotes, sense.register].some(Boolean)
+    || sense.examples.length || sense.collocations.length || sense.confusables.length ? [sense] : [];
+}
+
 function renderDetailExtra(refs, entry) {
   const fragment = document.createDocumentFragment();
-  const senses = Array.isArray(entry.senses) ? entry.senses : [];
+  const senses = additionalDetailSenses(entry);
   if (senses.length) {
     const senseList = document.createElement("div");
     senseList.className = "detail-sense-list";
@@ -90,7 +114,7 @@ function renderDetailExtra(refs, entry) {
       article.className = "detail-sense";
       const heading = document.createElement("h4");
       heading.className = "sense-heading";
-      heading.append(tag(`义项 ${senseIndex + 1}`, "sense-number"));
+      heading.append(tag(entry.senses.length === 1 ? "补充信息" : `义项 ${senseIndex + 1}`, "sense-number"));
       if (sense.partOfSpeech) heading.append(tag(sense.partOfSpeech, "sense-part-of-speech"));
       article.append(heading);
       if (sense.meaningZh) article.append(detailField("中文释义", sense.meaningZh, { className: "sense-meaning-zh" }));
@@ -113,6 +137,8 @@ function renderDetailExtra(refs, entry) {
 
       if (sense.usageNotes) article.append(detailField("Usage", sense.usageNotes, { className: "sense-usage", lang: languageForText(sense.usageNotes) }));
       if (sense.register) article.append(detailField("Register", sense.register, { className: "sense-register", lang: "en" }));
+      if (sense.collocations?.length) article.append(detailField("常见搭配", sense.collocations.join("；")));
+      if (sense.confusables?.length) article.append(detailField("易混淆词", sense.confusables.join("；")));
       senseList.append(article);
     });
     fragment.append(senseList);
@@ -207,7 +233,8 @@ export function createEntryDetailController({ root = document, getEntries = () =
   };
 
   const show = (entry, { invoker = root.activeElement } = {}) => {
-    if (!selected || selected.id !== entry.id || selected.term !== entry.term) pronunciation.stop();
+    const changed = !selected || selected.id !== entry.id || selected.term !== entry.term;
+    if (changed) pronunciation.stop();
     selected = entry;
     pronunciation.decorate(refs.dialogSpeak, entry.term, entry.id);
     if (!refs.entryDialog.open) {
@@ -264,6 +291,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
     if (quoteLike) tags.unshift(ATTRIBUTION_LABELS[entry.attributionStatus] || entry.attributionStatus);
     refs.dialogTags.replaceChildren(...tags.map((value) => tag(value, quoteLike && value === tags[0] ? `attribution-chip ${entry.attributionStatus}` : "")));
     if (!refs.entryDialog.open) refs.entryDialog.showModal();
+    if (changed) refs.entryDialog.scrollTop = 0;
     pronunciation.refresh();
   };
 

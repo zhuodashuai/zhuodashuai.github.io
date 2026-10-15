@@ -209,7 +209,8 @@ function publicReadHeaders(env: Env): Record<string, string> {
   return {
     "Access-Control-Allow-Origin": new URL(env.PUBLIC_SITE_URL).origin,
     "Access-Control-Allow-Methods": "GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Accept",
+    "Access-Control-Allow-Headers": "Accept, If-None-Match",
+    "Access-Control-Expose-Headers": "ETag, X-Wordbook-Source",
     "Cross-Origin-Resource-Policy": "cross-origin",
     Vary: "Origin"
   };

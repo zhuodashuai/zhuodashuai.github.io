@@ -24,7 +24,7 @@ import { setupPwa } from "./pwa.js";
 import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
 import { buildSynonymGroups } from "./synonym-groups.js";
-import { candidateSynonymFingerprint, entrySynonymFingerprint } from "./synonym-evidence.js";
+import { indexSynonymFingerprints } from "./synonym-evidence.js";
 import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js";
 
 const ids = [
@@ -73,6 +73,9 @@ const state = {
   synonymBusy: false,
   synonymEntryId: "",
   synonymAbortController: null,
+  synonymAutomatic: false,
+  synonymRunRevision: 0,
+  foregroundMutationPending: 0,
   synonymBatchBusy: false,
   synonymBatchStopped: false,
   synonymAttempts: new Set(),
@@ -112,19 +115,36 @@ function setMultilineText(element, value) {
 }
 function isoNow() { return new Date().toISOString(); }
 
-function synonymScanLabel(entry, groups = null) {
+let ownerSynonymIndex = null;
+function getOwnerSynonymIndex() {
+  if (ownerSynonymIndex?.snapshot === state.snapshot) return ownerSynonymIndex;
+  const entries = state.snapshot?.entries || [];
+  const fingerprints = indexSynonymFingerprints(entries, ownerSynonymIndex?.fingerprints);
+  const groups = buildSynonymGroups(entries);
+  const related = new Map(entries.map((entry) => [entry.id, new Map()]));
+  for (const group of groups) {
+    for (const member of group.members) {
+      const neighbours = related.get(member.entry.id);
+      for (const other of group.members) {
+        if (other.entry.id !== member.entry.id) neighbours?.set(other.entry.id, other.entry.term);
+      }
+    }
+  }
+  ownerSynonymIndex = { snapshot: state.snapshot, fingerprints, related };
+  return ownerSynonymIndex;
+}
+
+function synonymScanLabel(entry, index = getOwnerSynonymIndex()) {
   if (!LEXICAL_ENTRY_TYPES.has(entry?.entryType)) return "";
   if (state.synonymEntryId === entry.id) return "正在识别同义词…";
   const scan = entry.synonymScan;
-  if (!scan || scan.sourceFingerprint !== entrySynonymFingerprint(entry)) return "同义词待识别";
+  if (!scan || scan.sourceFingerprint !== index.fingerprints.fingerprints.get(entry.id)) return "同义词待识别";
   if (scan.status === "complete") {
-    const currentGroups = groups || buildSynonymGroups(state.snapshot?.entries || []);
-    const relatedIds = new Set(currentGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
-      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.id)));
-    if (scan.candidatesFingerprint !== candidateSynonymFingerprint((state.snapshot?.entries || []).filter((candidate) => candidate.id !== entry.id))) {
-      return relatedIds.size ? `同义词待补查 · ${relatedIds.size} 个已有关联` : "同义词待补查 · 词库已更新";
+    const relatedCount = index.related.get(entry.id)?.size || 0;
+    if (scan.candidatesFingerprint !== index.fingerprints.candidateFingerprint(entry.id)) {
+      return relatedCount ? `同义词待补查 · ${relatedCount} 个已有关联` : "同义词待补查 · 词库已更新";
     }
-    return relatedIds.size ? `同义词已识别 · ${relatedIds.size} 个匹配` : "同义词已识别 · 暂未找到匹配";
+    return relatedCount ? `同义词已识别 · ${relatedCount} 个匹配` : "同义词已识别 · 暂未找到匹配";
   }
   const reason = String(scan.reason || "");
   if (/quota|limit|budget/.test(reason)) return "同义词待识别 · 今日额度不足";
@@ -132,8 +152,28 @@ function synonymScanLabel(entry, groups = null) {
   return "同义词待识别 · 可稍后重试";
 }
 
+function hasForegroundOwnerWork() {
+  return state.publishing || state.queueBusy || state.organizingToken || state.foregroundMutationPending
+    || state.currentDraft || refs.captureInput.value.trim();
+}
+
+function pauseAutomaticSynonymScans() {
+  window.clearTimeout(state.synonymTimer);
+  if (!state.synonymBusy || !state.synonymAutomatic) return;
+  // Aborting the browser cannot retract a server-side GitHub transaction.
+  // Ignore that scan's late response and let publication retain its normal
+  // SHA/three-way-merge checks if the optional enrichment committed first.
+  state.synonymRunRevision += 1;
+  state.synonymAbortController?.abort();
+  state.synonymAbortController = null;
+  state.synonymBusy = false;
+  state.synonymAutomatic = false;
+  state.synonymEntryId = "";
+  renderOwnerEntries();
+}
+
 function scheduleImportedSynonymScans() {
-  if (state.runClosing || state.synonymBatchStopped || state.synonymBatchBusy || state.synonymAttempts.size >= 20) return;
+  if (state.runClosing || hasForegroundOwnerWork() || state.synonymBatchStopped || state.synonymBatchBusy || state.synonymAttempts.size >= 20) return;
   window.clearTimeout(state.synonymTimer);
   state.synonymTimer = window.setTimeout(() => { processImportedSynonymScans().catch(() => {}); }, 50);
 }
@@ -149,12 +189,16 @@ async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
   if (!entry || !LEXICAL_ENTRY_TYPES.has(entry.entryType) || !navigator.onLine) return false;
   const csrfToken = state.csrfToken;
   const controller = new AbortController();
+  const runRevision = ++state.synonymRunRevision;
+  const isCurrent = () => state.synonymRunRevision === runRevision;
   state.synonymBusy = true;
+  state.synonymAutomatic = automatic;
   state.synonymEntryId = entryId;
   state.synonymAbortController = controller;
   renderOwnerEntries();
   try {
     const result = await recognizeEntrySynonyms(entryId, csrfToken, { signal: controller.signal });
+    if (!isCurrent()) return null;
     if (state.runClosing || state.csrfToken !== csrfToken) return false;
     const snapshot = parsePublicSnapshot(result.snapshot, { allowLegacy: false });
     if (!/^[0-9a-f]{40}$/i.test(String(result.sha || ""))) throw new Error("同义词接口未返回有效版本，请刷新远端后重试。");
@@ -163,14 +207,17 @@ async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
     state.remoteSha = result.sha;
     // The scan changes only remote relation metadata. In-progress editor
     // contents and its conflict baseline must not be overwritten here.
-    updateOwnerTermIndexes(await listDrafts());
+    const localDrafts = await listDrafts();
+    if (!isCurrent()) return null;
+    updateOwnerTermIndexes(localDrafts);
     await putPublicCache(snapshot, result.sha, "authenticated-synonym-scan");
+    if (!isCurrent()) return null;
     state.synonymEntryId = "";
     const updated = snapshot.entries.find((candidate) => candidate.id === entryId);
     setSyncState("synced", "已连接 GitHub", `${synonymScanLabel(updated)} · SHA ${result.sha.slice(0, 7)}`);
-    renderOwnerEntries();
     return updated?.synonymScan?.status === "complete";
   } catch (error) {
+    if (!isCurrent()) return null;
     if (!state.runClosing && state.csrfToken === csrfToken) {
       const message = `同义词识别暂未完成：${error.message || "请稍后重试"}。词条已保存，现有词库和草稿不受影响。`;
       // Background scans must not replace input validation or draft guidance.
@@ -179,30 +226,36 @@ async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
     }
     return false;
   } finally {
-    if (state.synonymAbortController === controller) state.synonymAbortController = null;
-    state.synonymBusy = false;
-    state.synonymEntryId = "";
-    if (!state.runClosing) {
-      renderOwnerEntries();
-      if (hasVerifiedOwnerUi()) await drainQueue();
+    if (isCurrent()) {
+      if (state.synonymAbortController === controller) state.synonymAbortController = null;
+      state.synonymBusy = false;
+      state.synonymAutomatic = false;
+      state.synonymEntryId = "";
+      if (!state.runClosing) {
+        renderOwnerEntries();
+        if (hasVerifiedOwnerUi()) await drainQueue();
+      }
     }
   }
 }
 
 async function processImportedSynonymScans() {
   if (state.runClosing || state.authChecking || state.synonymBatchBusy || state.synonymBatchStopped
-    || state.synonymBusy || state.queueBusy || state.publishing || !state.queueRecoveryComplete
+    || state.synonymBusy || hasForegroundOwnerWork() || !state.queueRecoveryComplete
     || !hasVerifiedOwnerUi() || !navigator.onLine) return;
   state.synonymBatchBusy = true;
+  let paused = false;
   try {
     while (!state.runClosing && navigator.onLine && hasVerifiedOwnerUi() && state.synonymAttempts.size < 20) {
-      if (state.queueBusy || state.publishing || state.synonymBusy) break;
+      if (hasForegroundOwnerWork() || state.synonymBusy) break;
       const entry = state.snapshot?.entries.find((candidate) => LEXICAL_ENTRY_TYPES.has(candidate.entryType)
         && candidate.synonymScan?.status === "pending" && candidate.synonymScan.reason === "import_pending"
         && !state.synonymAttempts.has(candidate.id));
       if (!entry) break;
       state.synonymAttempts.add(entry.id);
-      if (!await scanPublishedSynonyms(entry.id, { automatic: true })) {
+      const completed = await scanPublishedSynonyms(entry.id, { automatic: true });
+      if (completed === null) { paused = true; break; }
+      if (!completed) {
         // A quota, service or network failure must not trigger an automatic
         // retry loop, including through refresh or storage-change events.
         state.synonymBatchStopped = true;
@@ -211,6 +264,7 @@ async function processImportedSynonymScans() {
     }
   } finally {
     state.synonymBatchBusy = false;
+    if (paused) scheduleImportedSynonymScans();
   }
 }
 
@@ -296,6 +350,7 @@ function beginOrganizing(triggerButton = null) {
   const token = crypto.randomUUID();
   state.organizingToken = token;
   state.organizingButton = triggerButton;
+  pauseAutomaticSynonymScans();
   setOrganizingControlsDisabled(true);
   setBusyIndicator(triggerButton, true);
   return token;
@@ -308,6 +363,7 @@ function finishOrganizing(token) {
   state.organizingButton = null;
   state.organizingToken = null;
   setOrganizingControlsDisabled(false);
+  scheduleImportedSynonymScans();
 }
 
 async function withOrganizingLock(task, triggerButton = null) {
@@ -591,6 +647,7 @@ function renderSources(entry) {
 
 function fillEditor(draft, { focus = true } = {}) {
   state.currentDraft = structuredClone(draft);
+  if (state.currentDraft.localState !== "published") pauseAutomaticSynonymScans();
   const entry = state.currentDraft.value;
   const storedSynonyms = Array.isArray(entry.synonyms) ? entry.synonyms : [];
   const cleanedSynonyms = allowedSynonymsFor(entry.term, storedSynonyms);
@@ -827,7 +884,7 @@ function renderOwnerEntries() {
   const focusedEntryId = focused?.dataset.entryId;
   const focusedAction = focused?.dataset.entryAction;
   const entries = state.snapshot?.entries || [];
-  const synonymGroups = buildSynonymGroups(entries);
+  const synonymIndex = getOwnerSynonymIndex();
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
   const shown = rankExactEntryMatches(
     entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
@@ -867,14 +924,13 @@ function renderOwnerEntries() {
     setMultilineText(meaning, formatMeaningForDisplay(entry));
     const synonyms = document.createElement("p");
     synonyms.className = "owner-entry-synonyms";
-    const relatedTerms = [...new Set(synonymGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id))
-      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
+    const relatedTerms = [...new Set(synonymIndex.related.get(entry.id)?.values() || [])];
     synonyms.hidden = relatedTerms.length === 0;
     const relationshipLabel = relatedTerms.every((term) => entry.synonyms.includes(term)) ? "同义词：" : "同义词 / 近义词：";
     synonyms.textContent = relatedTerms.length ? `${relationshipLabel}${relatedTerms.join("；")}` : "";
     const scanStatus = document.createElement("p");
     scanStatus.className = "owner-entry-synonym-status";
-    scanStatus.textContent = synonymScanLabel(entry, synonymGroups);
+    scanStatus.textContent = synonymScanLabel(entry, synonymIndex);
     scanStatus.hidden = !scanStatus.textContent;
     summary.replaceChildren(partOfSpeech, meaning, synonyms, scanStatus);
     const actions = isNew ? document.createElement("div") : row.querySelector(".button-row");
@@ -1248,6 +1304,7 @@ async function openNewDraft(input, { ai = false } = {}) {
 
 async function queueCurrentPublish() {
   requireVerifiedOwnerUi();
+  pauseAutomaticSynonymScans();
   if (currentDraftAiBusy()) {
     throw new Error("AI 仍在整理当前词条；完成或失败后再发布，避免把未完成内容写入 GitHub。");
   }
@@ -1281,20 +1338,28 @@ async function queueDelete(entry) {
   requireVerifiedOwnerUi();
   try { await waitForQueueRecovery(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
   if (!window.confirm(`确定要从公开词库撤下 “${entry.term}” 吗？远端变化时删除会停止，不会覆盖。`)) return;
-  const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
-  await enqueuePublish(draft, {
-    clientProtocol: "v38",
-    queueProtocol: "v38",
-    baseSha: state.remoteSha,
-    mutationId: crypto.randomUUID(),
-    mutation: { type: "delete", id: entry.id, expectedUpdatedAt: entry.updatedAt }
-  }, { authorizedRunId: state.tabId });
-  await renderDrafts();
-  await drainQueue();
+  state.foregroundMutationPending += 1;
+  pauseAutomaticSynonymScans();
+  try {
+    const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
+    await enqueuePublish(draft, {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: state.remoteSha,
+      mutationId: crypto.randomUUID(),
+      mutation: { type: "delete", id: entry.id, expectedUpdatedAt: entry.updatedAt }
+    }, { authorizedRunId: state.tabId });
+    await renderDrafts();
+    await drainQueue();
+  } finally {
+    state.foregroundMutationPending -= 1;
+    scheduleImportedSynonymScans();
+  }
 }
 
 function errorRecord(error) {
-  return { code: error.code || "request_failed", message: error.message || "同步失败", httpStatus: Number(error.status || 0), retryable: classifySyncFailure(error).retryable };
+  const interrupted = ["request_timeout", "request_aborted"].includes(error.code);
+  return { code: error.code || "request_failed", message: error.message || "同步失败", httpStatus: Number(error.status || 0), retryable: !interrupted && classifySyncFailure(error).retryable };
 }
 
 async function handleConflict(operation, error, tabId) {
@@ -1390,7 +1455,13 @@ async function drainQueue() {
           await handleConflict(operation, error, state.tabId);
           continue;
         }
-        const classification = classifySyncFailure(error);
+        // A timeout can follow a committed mutation whose response was lost.
+        // Keep its draft and operation for explicit review; never create a
+        // timer that replays an unconfirmed write automatically.
+        const interrupted = ["request_timeout", "request_aborted"].includes(error.code);
+        const classification = interrupted
+          ? { state: "review_required", retryable: false }
+          : classifySyncFailure(error);
         if (classification.state === "retry_wait" && operation.attemptCount <= 8) {
           const retryAt = nextRetryAt(operation.attemptCount, error.retryAfter);
           await markOperation(operation.operationId, "retry_wait", {
@@ -1399,7 +1470,10 @@ async function drainQueue() {
           }, { leaseOwner: state.tabId });
           scheduleQueueWake(retryAt);
         } else {
-          await markOperation(operation.operationId, classification.state, { lastError: errorRecord(error) }, { leaseOwner: state.tabId });
+          await markOperation(operation.operationId, classification.state, {
+            lastError: errorRecord(error),
+            ...(interrupted ? { reviewRequiredAt: isoNow() } : {})
+          }, { leaseOwner: state.tabId });
         }
         setSyncState("error", STATE_LABELS[classification.state], error.message);
         if (classification.state === "awaiting_auth") await verifySession({ forceGate: true });
@@ -1534,6 +1608,10 @@ refs.captureInput.addEventListener("keydown", (event) => {
   if (event.repeat || refs.organizeButton.disabled) return;
   refs.captureForm.requestSubmit(refs.organizeButton);
 });
+refs.captureInput.addEventListener("input", () => {
+  if (refs.captureInput.value.trim()) pauseAutomaticSynonymScans();
+  else scheduleImportedSynonymScans();
+});
 refs.manualButton.addEventListener("click", async () => {
   try {
     await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: false }), refs.manualButton);
@@ -1630,6 +1708,7 @@ refs.discardDraft.addEventListener("click", async () => {
   refs.editorAiStatus.hidden = true;
   refs.draftCompletionNotice.hidden = true;
   await renderDrafts();
+  scheduleImportedSynonymScans();
 });
 refs.refreshRemote.addEventListener("click", () => loadRemote().catch(() => {}));
 refs.retryQueue.addEventListener("click", async () => {

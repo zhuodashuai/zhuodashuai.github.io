@@ -1,4 +1,4 @@
-import { createChapterQuiz, applyQuizAnswer, summarizeQuizAttempt } from "./chapter-quiz.js";
+import { createChapterQuiz, applyQuizAnswer, summarizeQuizAttempt, unresolvedQuizMistakes } from "./chapter-quiz.js";
 import { quizStorage, QuizConflictError } from "./quiz-storage.js";
 
 function element(tag, text = "", className = "") {
@@ -21,7 +21,7 @@ function dateLabel(value) {
 }
 
 /** A private, device-local quiz. It never updates cards or the spaced-review schedule. */
-export function setupChapterQuiz({ launchButton, dialog, getScope }) {
+export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }) {
   // An installed older shell can briefly coexist with revalidated modules.
   // Keep its reader working until the new HTML arrives instead of making the
   // optional quiz a fatal dependency for the whole wordbook.
@@ -38,6 +38,7 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
   let generation = 0;
   let pendingSave = null;
   let saveFailed = false;
+  let pendingEntryOpen = null;
 
   function heading(text, id = "") {
     const node = element("h3", text);
@@ -63,12 +64,57 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
     return control("返回测试首页", "quiz-menu", () => { void showMenu(); }, "quiet-button");
   }
 
+  function currentEntries() {
+    const current = getScope();
+    return current?.bookId === scope.bookId && current.chapterId === scope.chapterId ? current.entries : scope.entries;
+  }
+
+  function wrongWordList(items, id) {
+    const list = element("ul", "", "quiz-wrong-list");
+    list.id = id;
+    for (const item of items) {
+      const row = element("li");
+      const entry = currentEntries().find((candidate) => candidate.id === item.entryId);
+      const word = typeof onOpenEntry === "function"
+        ? control(entry?.term || item.term, "", () => {
+          // Recheck against the current snapshot: a refresh can delete a word
+          // while this historical list remains open.
+          const fresh = currentEntries().find((candidate) => candidate.id === item.entryId);
+          if (!fresh) { message.textContent = "这个词条已不在当前章节，历史答题记录仍然保留。"; return; }
+          pendingEntryOpen = { entry: fresh, invoker: launchButton };
+          dialog.close();
+        }, "quiz-wrong-open")
+        : element("strong", entry?.term || item.term);
+      word.lang = "en";
+      if (typeof onOpenEntry === "function") {
+        word.dataset.entryId = item.entryId;
+        word.setAttribute("aria-label", `查看 ${entry?.term || item.term} 的完整词条`);
+        word.disabled = !entry;
+      }
+      row.append(word, element("p", `正确：${item.meaning}`), element("p", `你选了：${item.selectedMeaning}`, "quiz-muted"));
+      if (!entry) row.append(element("p", "词条已不在本章，保留历史记录，暂不加入新练习。", "quiz-muted quiz-small"));
+      list.append(row);
+    }
+    return list;
+  }
+
+  function practiceButton(items, { id, label, sourceAttemptId } = {}) {
+    const available = new Set(currentEntries().map((entry) => entry.id));
+    const targets = items.map((item) => item.entryId).filter((entryId) => available.has(entryId));
+    const button = control(`${label}（${targets.length}）`, id, () => {
+      void start({ kind: "mistakes", targetEntryIds: targets, ...(sourceAttemptId ? { practiceSourceAttemptId: sourceAttemptId } : {}) });
+    }, "primary-button");
+    button.disabled = targets.length === 0;
+    return button;
+  }
+
   // Freeze the attempt at start: background wordbook refreshes must not change
   // questions, answer keys, score denominators or the chapter being tested.
   async function saveWork(task) {
     if (pendingSave) return;
     const token = generation;
-    content.querySelectorAll("button").forEach((button) => { button.disabled = true; });
+    const enabledButtons = [...content.querySelectorAll("button")].filter((button) => !button.disabled);
+    enabledButtons.forEach((button) => { button.disabled = true; });
     message.textContent = "正在保存…";
     pendingSave = (async () => {
       try {
@@ -78,7 +124,7 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
         saveFailed = token === generation && dialog.open;
         if (token === generation && dialog.open) {
           showError(error);
-          content.querySelectorAll("button").forEach((button) => { button.disabled = false; });
+          enabledButtons.filter((button) => button.isConnected).forEach((button) => { button.disabled = false; });
         }
       }
     })();
@@ -86,10 +132,12 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
     pendingSave = null;
   }
 
-  async function start() {
+  async function start(options = {}) {
     await saveWork(async (token) => {
-      const next = createChapterQuiz(scope.entries, scope);
-      if (!next.questions.length) throw new Error("本章暂时凑不出四个可区分的中文选项，请先使用学习 / 复习。 ");
+      const next = createChapterQuiz(currentEntries(), { ...scope, ...options });
+      if (!next.questions.length) throw new Error(options.kind === "mistakes"
+        ? "这些错词已不在本章，或暂时凑不出四个可区分的选项。历史记录仍然保留。"
+        : "本章暂时凑不出四个可区分的中文选项，请先使用学习 / 复习。 ");
       await quizStorage.createAttempt(next);
       attempt = next;
       if (token === generation && dialog.open) showQuestion();
@@ -106,14 +154,18 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
       if (token !== generation || !dialog.open) return;
       saveFailed = false;
       const unfinished = records.find((record) => !record.completedAt);
+      const mistakes = unresolvedQuizMistakes(records);
       const actions = element("div", "", "quiz-actions");
       if (unfinished) {
-        actions.append(control(`继续上次测试（${unfinished.answers.length}/${unfinished.questions.length}）`, "quiz-resume", () => {
+        actions.append(control(`继续上次${unfinished.kind === "mistakes" ? "错词练习" : "测试"}（${unfinished.answers.length}/${unfinished.questions.length}）`, "quiz-resume", () => {
           attempt = unfinished;
           showQuestion();
         }, "primary-button"));
       }
       actions.append(control(unfinished ? "开始新一轮" : "开始测试", "quiz-start", () => { void start(); }, unfinished ? "" : "primary-button"));
+      const mistakesButton = control(`只练错词（累计 ${mistakes.length}）`, "quiz-mistakes", () => { void showMistakes(); });
+      mistakesButton.disabled = mistakes.length === 0;
+      actions.append(mistakesButton);
       actions.append(control(`测试记录（${records.length}）`, "quiz-history", () => { void showHistory(); }));
       const detail = element("p", `范围：本章 ${scope.entries.length} 个词条，不受搜索或类型筛选影响。`, "quiz-muted");
       const note = element("p", "每题自动保存，可中途退出。成绩仅存本机，不改原有复习进度。", "quiz-muted quiz-small");
@@ -135,6 +187,7 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
   }
 
   function showQuestion(answeredQuestion = null) {
+    title.textContent = attempt.kind === "mistakes" ? "错词练习" : "开篇测试";
     const question = answeredQuestion || attempt.questions[attempt.answers.length];
     if (!question) return showResults(attempt);
     const index = attempt.questions.findIndex((item) => item.id === question.id);
@@ -181,32 +234,51 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
     const details = element("details", "", "quiz-omissions");
     details.append(element("summary", `${record.omitted.length} 项暂未出题（选项不足或释义待完善）`));
     const list = element("ul");
-    const reasons = { "missing-meaning": "中文释义待完善", "ambiguous-headword": "相同词形对应多个义项", "insufficient-distinct-options": "可区分的选项不足四个" };
+    const reasons = { "missing-meaning": "中文释义待完善", "ambiguous-headword": "相同词形对应多个义项", "insufficient-distinct-options": "可区分的选项不足四个", "missing-entry": "词条已不在本章" };
     for (const item of record.omitted) list.append(element("li", `${item.term}：${reasons[item.reason] || "暂不适合出题"}`));
     details.append(list);
     return details;
   }
 
   function showResults(record) {
+    title.textContent = record.kind === "mistakes" ? "错词练习" : "开篇测试";
     const summary = summarizeQuizAttempt(record);
     const label = heading(record.completedAt ? "本轮成绩" : "本轮进度");
     const score = element("p", summary.accuracy === null ? "尚未作答" : `${summary.accuracy}%`, "quiz-score");
     score.id = "quiz-result-accuracy";
     const count = element("p", `已答 ${summary.answered}/${summary.total} · 答对 ${summary.correct} · 错词 ${summary.wrongWords.length}`, "quiz-muted");
     const date = element("p", `${dateLabel(record.startedAt)} 开始 · ${record.completedAt ? "已完成" : "未完成，正确率仅按已答题计算"}`, "quiz-muted quiz-small");
-    const wrongList = element("ul", "", "quiz-wrong-list");
-    wrongList.id = "quiz-wrong-list";
-    for (const item of summary.wrongWords) {
-      const row = element("li");
-      const word = element("strong", item.term);
-      word.lang = "en";
-      row.append(word, element("p", `正确：${item.meaning}`), element("p", `你选了：${item.selectedMeaning}`, "quiz-muted"));
-      wrongList.append(row);
-    }
+    const wrongList = wrongWordList(summary.wrongWords, "quiz-wrong-list");
     const actions = element("div", "", "quiz-actions");
     if (!record.completedAt) actions.append(control("继续这次测试", "quiz-resume", () => { attempt = record; showQuestion(); }, "primary-button"));
-    actions.append(control("再测一次", "quiz-restart", () => { void start(); }, record.completedAt ? "primary-button" : ""), control("测试记录", "quiz-history", () => { void showHistory(); }), menuButton());
+    if (summary.wrongWords.length) actions.append(practiceButton(summary.wrongWords, { id: "quiz-practice-attempt", label: "只练本轮错词", sourceAttemptId: record.id }));
+    actions.append(control(record.kind === "mistakes" ? "再练本轮词" : "再测一次", "quiz-restart", () => {
+      void start(record.kind === "mistakes" ? { kind: "mistakes", targetEntryIds: record.questions.map((question) => question.entryId),
+        ...(record.practiceSourceAttemptId ? { practiceSourceAttemptId: record.practiceSourceAttemptId } : {}) } : {});
+    }, record.completedAt ? "primary-button" : ""), control("测试记录", "quiz-history", () => { void showHistory(); }), menuButton());
     replace(label, score, count, date, actions, element("h4", summary.wrongWords.length ? "下次先复习这些词" : summary.answered ? "目前没有错词，继续保持。" : "完成答题后，这里会整理错词。"), wrongList, omissions(record));
+  }
+
+  async function showMistakes() {
+    if (pendingSave) await pendingSave;
+    const token = ++generation;
+    title.textContent = "错词练习";
+    replace(heading("累计待掌握错词"), element("p", "正在读取…", "quiz-muted"));
+    try {
+      const records = await quizStorage.listAttempts(scope);
+      if (token !== generation || !dialog.open) return;
+      saveFailed = false;
+      const mistakes = unresolvedQuizMistakes(records);
+      const actions = element("div", "", "quiz-actions");
+      actions.append(practiceButton(mistakes, { id: "quiz-practice-unresolved", label: "开始错词练习" }), menuButton());
+      replace(heading(`累计待掌握错词（${mistakes.length}）`), element("p", "按每个词最近一次已保存的答案整理；答对即可移出，之后答错会再次加入。未作答的题不影响旧记录。", "quiz-muted"),
+        element("p", "练习只出这些错词，干扰选项仍取自全章；与原有复习进度分开保存。", "quiz-muted quiz-small"), actions,
+        wrongWordList(mistakes, "quiz-unresolved-list"), ...(!mistakes.length ? [element("p", "目前没有待掌握错词。", "quiz-muted")] : []));
+    } catch (error) {
+      if (token !== generation || !dialog.open) return;
+      message.textContent = `读取错词失败。${error?.message || ""}`;
+      content.append(menuButton());
+    }
   }
 
   async function showHistory() {
@@ -224,7 +296,7 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
         const score = summary.accuracy === null ? "未作答" : `${summary.accuracy}%`;
         const open = control("", "", () => showResults(record), "quiz-history-open");
         open.dataset.attemptId = record.id;
-        open.append(element("strong", `${score} · ${record.completedAt ? "已完成" : "进行中"}`), element("span", `${dateLabel(record.startedAt)} · ${summary.answered}/${summary.total} 题 · ${summary.wrongWords.length} 个错词`));
+        open.append(element("strong", `${score} · ${record.completedAt ? "已完成" : "进行中"}`), element("span", `${record.kind === "mistakes" ? "错词练习" : "全章测试"} · ${dateLabel(record.startedAt)} · ${summary.answered}/${summary.total} 题 · ${summary.wrongWords.length} 个错词`));
         const row = element("li");
         row.append(open);
         list.append(row);
@@ -269,6 +341,16 @@ export function setupChapterQuiz({ launchButton, dialog, getScope }) {
     // Closing acknowledges any failed answer; resume always reads the durable
     // progress, rather than treating a rejected answer as an unsaved draft.
     saveFailed = false;
+    if (pendingEntryOpen) {
+      const next = pendingEntryOpen;
+      pendingEntryOpen = null;
+      try { onOpenEntry(next.entry, next.invoker); }
+      catch {
+        dialog.showModal();
+        message.textContent = "暂时无法打开这个词条，历史记录仍然保留。请关闭测试后从词库查看。";
+      }
+      return;
+    }
     launchButton.focus({ preventScroll: true });
   });
   updateScope();

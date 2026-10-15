@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { applyQuizAnswer, createChapterQuiz, quizMeaningsOverlap, shuffleQuizItems, summarizeQuizAttempt, validateQuizAttempt } from "../js/chapter-quiz.js";
+import { applyQuizAnswer, createChapterQuiz, quizMeaningsOverlap, shuffleQuizItems, summarizeQuizAttempt, unresolvedQuizMistakes, validateQuizAttempt } from "../js/chapter-quiz.js";
 import { filterEntriesByCollection } from "../js/collections.js";
 import { contextualizeReadingEntry } from "../js/wordbook-schema.js";
 import { buildSynonymGroups } from "../js/synonym-groups.js";
@@ -27,7 +27,7 @@ const fixture = [
 const settings = { id: "quiz-fixture", bookId: "book", chapterId: "chapter-1", now: "2026-09-29T12:00:00Z" };
 function seeded(seed) { return () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 2 ** 32); }
 
-for (let chapter = 1; chapter <= 9; chapter += 1) {
+for (let chapter = 1; chapter <= 12; chapter += 1) {
   test(`Chapter ${chapter}: every current word has exactly four distinct, same-chapter Chinese options`, () => {
     const chapterId = `chapter-${chapter}`;
     const entries = filterEntriesByCollection(snapshot.entries, "never-let-me-go", chapterId)
@@ -58,6 +58,22 @@ for (let chapter = 1; chapter <= 9; chapter += 1) {
       }
     }
     assert.equal(JSON.stringify(entries), sourceBefore, "creation never changes vocabulary or review records");
+    for (const count of [1, 2, 3]) {
+      const targets = entries.slice(0, count).map((entry) => entry.id);
+      const practice = createChapterQuiz(entries, { ...settings, kind: "mistakes", targetEntryIds: targets, chapterId, random: seeded(count) });
+      assert.equal(practice.questions.length, count, "a small wrong-word set still uses the whole chapter for options");
+      assert.deepEqual(new Set(practice.questions.map((question) => question.entryId)), new Set(targets));
+      assert.deepEqual(practice.omitted, []);
+      validateQuizAttempt(practice);
+      for (const question of practice.questions) {
+        assert.equal(question.options.length, 4);
+        assert.ok(question.options.some((option) => !targets.includes(option.sourceEntryId)));
+        for (const option of question.options.filter((option) => option.sourceEntryId !== question.entryId)) {
+          assert.equal(quizMeaningsOverlap(question.meaning, option.meaning), false);
+          assert.ok(entries.some((entry) => entry.id === option.sourceEntryId));
+        }
+      }
+    }
   });
 }
 
@@ -159,4 +175,76 @@ test("corrupt or forged result records fail validation instead of reporting a fa
     { ...answered, answers: [{ ...answered.answers[0], correct: false }] },
     { ...answered, questions: [{ ...answered.questions[0], options: [] }, ...answered.questions.slice(1)] }
   ]) assert.throws(() => validateQuizAttempt(corrupt));
+});
+
+test("mistake practice metadata is optional, survives answers, and rejects unsupported modes", () => {
+  const original = createChapterQuiz(fixture, settings);
+  assert.equal(Object.hasOwn(original, "kind"), false);
+  assert.equal(Object.hasOwn(original, "practiceSourceAttemptId"), false);
+  validateQuizAttempt(original);
+  const practice = createChapterQuiz(fixture, { ...settings, id: "practice", kind: "mistakes", practiceSourceAttemptId: original.id, targetEntryIds: ["apple"] });
+  assert.equal(practice.questions.length, 1);
+  const question = practice.questions[0];
+  const completed = applyQuizAnswer(practice, question.id, question.correctOptionId, "2026-09-29T12:01:00Z");
+  assert.equal(completed.kind, "mistakes");
+  assert.equal(completed.practiceSourceAttemptId, original.id);
+  assert.ok(completed.completedAt);
+  for (const invalid of [
+    { ...practice, kind: "unknown" }, { ...practice, kind: null },
+    { ...practice, practiceSourceAttemptId: "" }, { ...practice, practiceSourceAttemptId: "x".repeat(181) },
+    { ...original, practiceSourceAttemptId: "source" }
+  ]) assert.throws(() => validateQuizAttempt(invalid));
+});
+
+test("missing practice targets are omitted without manufacturing words or invalid distractors", () => {
+  const before = structuredClone(fixture);
+  const practice = createChapterQuiz(fixture, { ...settings, kind: "mistakes", targetEntryIds: ["apple", "apple", "deleted"] });
+  assert.deepEqual(practice.questions.map((question) => question.entryId), ["apple"]);
+  assert.deepEqual(practice.omitted, [{ entryId: "deleted", term: "deleted", reason: "missing-entry" }]);
+  assert.deepEqual(fixture, before);
+  const empty = createChapterQuiz(fixture, { ...settings, kind: "mistakes", targetEntryIds: [] });
+  assert.equal(empty.questions.length, 0);
+  assert.deepEqual(empty.omitted, []);
+});
+
+function answerNext(record, correct, now) {
+  const question = record.questions[record.answers.length];
+  const optionId = correct ? question.correctOptionId : question.options.find((option) => option.id !== question.correctOptionId).id;
+  return applyQuizAnswer(record, question.id, optionId, now);
+}
+
+test("latest saved answers resolve earlier mistakes by stable ID across full and partial practice rounds", () => {
+  let first = createChapterQuiz(fixture, { ...settings, id: "first", random: seeded(5) });
+  first = answerNext(first, false, "2026-09-29T12:01:00Z");
+  first = answerNext(first, false, "2026-09-29T12:02:00Z");
+  const ids = first.questions.slice(0, 2).map((question) => question.entryId);
+  const before = structuredClone(first);
+  const untouched = createChapterQuiz(fixture, { ...settings, id: "untouched", now: "2026-09-29T12:03:00Z" });
+  assert.deepEqual(new Set(unresolvedQuizMistakes([untouched, first]).map((word) => word.entryId)), new Set(ids), "new unanswered tests do not clear errors");
+  let practice = createChapterQuiz(fixture, { ...settings, id: "practice", now: "2026-09-29T12:04:00Z", kind: "mistakes", targetEntryIds: ids, random: seeded(8) });
+  practice = answerNext(practice, true, "2026-09-29T12:05:00Z");
+  const correctedId = practice.questions[0].entryId;
+  const outstandingId = ids.find((id) => id !== correctedId);
+  assert.equal(practice.completedAt, null);
+  assert.deepEqual(unresolvedQuizMistakes([first, practice, untouched]).map((word) => word.entryId), [outstandingId], "a saved correct answer resolves immediately even in an incomplete round");
+  const renamed = fixture.map((entry) => entry.id === outstandingId ? { ...entry, term: `${entry.term} renamed` } : entry);
+  let correction = createChapterQuiz(renamed, { ...settings, id: "correction", now: "2026-09-29T12:06:00Z", targetEntryIds: [outstandingId] });
+  correction = answerNext(correction, true, "2026-09-29T12:07:00Z");
+  assert.deepEqual(unresolvedQuizMistakes([first, practice, untouched, correction]), [], "a later full-test answer and renamed headword still resolve the same ID");
+  let reopened = createChapterQuiz(renamed, { ...settings, id: "reopened", now: "2026-09-29T12:08:00Z", targetEntryIds: [correctedId] });
+  reopened = answerNext(reopened, false, "2026-09-29T12:09:00Z");
+  const records = [first, practice, untouched, correction, reopened];
+  assert.deepEqual(unresolvedQuizMistakes(records).map((word) => word.entryId), [correctedId]);
+  assert.deepEqual(unresolvedQuizMistakes(records), unresolvedQuizMistakes([...records].reverse()), "input record order cannot change the result");
+  assert.deepEqual(first, before, "aggregating and correcting never rewrites original attempt history");
+});
+
+test("exact answer-time ties are deterministic and do not falsely clear unresolved mistakes", () => {
+  const create = (id, now = settings.now) => createChapterQuiz(fixture, { ...settings, id, now, targetEntryIds: ["apple"] });
+  const wrong = answerNext(create("wrong"), false, "2026-09-29T12:02:00Z");
+  const tiedCorrect = answerNext(create("correct"), true, "2026-09-29T12:02:00Z");
+  assert.equal(unresolvedQuizMistakes([wrong, tiedCorrect]).length, 1);
+  assert.deepEqual(unresolvedQuizMistakes([wrong, tiedCorrect]), unresolvedQuizMistakes([tiedCorrect, wrong]));
+  const laterRound = answerNext(create("later", "2026-09-29T12:01:00Z"), true, "2026-09-29T12:02:00Z");
+  assert.deepEqual(unresolvedQuizMistakes([wrong, laterRound]), []);
 });
