@@ -299,7 +299,8 @@ for (const delayedView of ["menu", "history"]) {
       await expect(page.locator("#quiz-history")).toBeVisible();
     }
     await page.evaluate(async () => {
-      const { quizStorage } = await import("/js/quiz-storage.js");
+      // Patch the same versioned singleton that the running UI imports.
+      const { quizStorage } = await import("/js/quiz-storage.js?v=67");
       const list = quizStorage.listAttempts.bind(quizStorage);
       let captured = false;
       quizStorage.listAttempts = (scope) => {
