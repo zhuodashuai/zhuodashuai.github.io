@@ -1,17 +1,17 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js";
-import { createEntryDetailController } from "./entry-detail.js";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=67";
+import { createEntryDetailController } from "./entry-detail.js?v=67";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
 import { setupPwa } from "./pwa.js";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js";
-import { sameSynonymSenseView } from "./synonym-evidence.js";
+import { buildSynonymGroups } from "./synonym-groups.js?v=67";
+import { sameSynonymSenseView } from "./synonym-evidence.js?v=67";
 import { renderSynonymGroups } from "./synonym-view.js";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=67";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js";
-import { setupLearningBackup } from "./learning-backup-ui.js";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=67";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=67";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",

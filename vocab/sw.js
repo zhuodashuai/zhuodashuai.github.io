@@ -8,6 +8,9 @@ const SHELL = [
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/owner-backup.js", "./js/sync-logic.js", "./js/wordbook-schema.js", "./js/core-dictionary.js", "./js/synonym-evidence.js",
+  "./js/owner-api.js?v=67", "./js/owner-storage.js?v=67", "./js/entry-detail.js?v=67", "./js/synonym-groups.js?v=67", "./js/synonym-evidence.js?v=67",
+  "./js/chapter-quiz.js?v=67", "./js/quiz-storage.js?v=67", "./js/chapter-quiz-ui.js?v=67",
+  "./js/public-snapshot.js?v=67", "./js/learning-backup.js?v=67", "./js/learning-backup-ui.js?v=67",
   "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
   "./quality/", "./quality/index.html", "./quality/styles.css", "./quality/report.js",
@@ -15,7 +18,11 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(SHELL)));
+  // Installing a new shell must bypass still-fresh HTTP copies of old bare
+  // dependencies. Keep the versioned graph and legacy offline URLs together.
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(
+    SHELL.map((url) => new Request(new URL(url, self.location.href), { cache: "reload" }))
+  )));
 });
 
 self.addEventListener("activate", (event) => {
@@ -43,7 +50,7 @@ async function networkFirst(request, fallbackUrl = "") {
       }, NETWORK_TIMEOUT_MS);
     });
     const network = (async () => {
-      const response = await fetch(request, { signal: controller.signal });
+      const response = await fetch(request, { cache: "no-cache", signal: controller.signal });
       if (controller.signal.aborted) throw new Error("Network timeout");
       if (response.status >= 500) {
         failedResponse = response;

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const manifest = JSON.parse(await readFile(new URL("../manifest.webmanifest", import.meta.url), "utf8"));
@@ -16,6 +16,25 @@ const ownerApiSource = await readFile(new URL("../js/owner-api.js", import.meta.
 const runtimeConfigSource = await readFile(new URL("../js/runtime-config.js", import.meta.url), "utf8");
 const workerConfigSource = await readFile(new URL("../../wordbook-api/wrangler.jsonc", import.meta.url), "utf8");
 const profileHtml = await readFile(new URL("../../index.html", import.meta.url), "utf8");
+
+test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
+  const changed = new Set([
+    "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-groups.js", "synonym-evidence.js",
+    "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js"
+  ]);
+  const files = await readdir(new URL("../js/", import.meta.url));
+  for (const file of files.filter((name) => name.endsWith(".js"))) {
+    const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
+    for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
+      const target = match[1].slice(2).split("?")[0];
+      if (changed.has(target)) assert.equal(match[1], `./${target}?v=67`, `${file} must not import a fresh old HTTP-cache dependency`);
+    }
+  }
+  for (const file of changed) {
+    assert.ok(serviceWorker.includes(`"./js/${file}?v=67"`), `${file}'s versioned browser URL must work offline`);
+    assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
+  }
+});
 
 async function pngDimensions(path) {
   const bytes = await readFile(new URL(path, import.meta.url));
@@ -171,8 +190,8 @@ test("owner publication applies the browser Chinese-quality and structured-sense
 
 test("public and owner readers share the same accessible entry detail controller", () => {
   assert.match(entryDetailSource, /export function createEntryDetailController/);
-  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js"/);
-  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js"/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=67"/);
+  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=67"/);
   assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(vocabHtml, /<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">/);

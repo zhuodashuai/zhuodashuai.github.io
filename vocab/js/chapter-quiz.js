@@ -1,5 +1,5 @@
 import { canonicalPartOfSpeech, isPlausibleChineseMeaning, meaningItemsForDisplay, normalizeEnglish } from "./wordbook-schema.js";
-import { buildSynonymGroups } from "./synonym-groups.js";
+import { buildSynonymGroups } from "./synonym-groups.js?v=67";
 
 export const QUIZ_SCHEMA_VERSION = 1;
 

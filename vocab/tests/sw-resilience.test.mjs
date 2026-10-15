@@ -8,19 +8,26 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
   const listeners = new Map();
   const timers = new Map();
   const writes = [];
+  const precached = [];
   let serial = 0;
   vm.runInNewContext(source, {
-    self: { location: { origin: "https://wordbook.test" }, addEventListener: (type, listener) => listeners.set(type, listener) },
+    self: { location: { origin: "https://wordbook.test", href: "https://wordbook.test/vocab/sw.js" }, addEventListener: (type, listener) => listeners.set(type, listener) },
     caches: { open: async () => ({
       match: async () => cached?.clone(),
+      addAll: async (requests) => { precached.push(...requests); },
       put: async (request, response) => { await put(request, response); writes.push({ request, response }); }
     }) },
-    fetch: fetchImpl, URL, Response, AbortController,
+    fetch: fetchImpl, URL, Request, Response, AbortController,
     setTimeout: (callback, delay) => { const id = ++serial; timers.set(id, { callback, delay }); return id; },
     clearTimeout: (id) => timers.delete(id)
   }, { filename: "vocab/sw.js" });
   return {
-    timers, writes,
+    timers, writes, precached,
+    async install() {
+      let task;
+      listeners.get("install")({ waitUntil: (promise) => { task = promise; } });
+      await task;
+    },
     fetch(path = "/vocab/index.html", mode = "navigate") {
       let response;
       listeners.get("fetch")({ request: { method: "GET", url: `https://wordbook.test${path}`, mode }, respondWith: (promise) => { response = promise; } });
@@ -71,10 +78,25 @@ test("authorization errors are returned unchanged and API reads stay network-onl
 });
 
 test("a successful online response updates the cache", async () => {
-  const sw = worker(async () => new Response("new shell"), new Response("old shell"));
+  const sw = worker(async (_request, options) => {
+    assert.equal(options.cache, "no-cache", "network-first must revalidate a still-fresh HTTP cache entry");
+    return new Response("new shell");
+  }, new Response("old shell"));
   assert.equal(await (await sw.fetch()).text(), "new shell");
   assert.equal(sw.writes.length, 1);
   assert.equal(await sw.writes[0].response.text(), "new shell");
+});
+
+test("a new shell installation bypasses old HTTP cache copies and includes coherent versioned and legacy URLs", async () => {
+  const sw = worker(async () => { throw new Error("installation uses cache.addAll requests"); });
+  await sw.install();
+  assert.ok(sw.precached.length > 0);
+  assert.ok(sw.precached.every((request) => request instanceof Request && request.cache === "reload"));
+  const urls = sw.precached.map((request) => request.url);
+  for (const file of ["owner-storage.js", "quiz-storage.js", "chapter-quiz.js", "synonym-evidence.js", "learning-backup.js"]) {
+    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=67`));
+    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}`));
+  }
 });
 
 test("successful headers followed by a stalled body use the cache when the whole pipeline times out", async () => {
