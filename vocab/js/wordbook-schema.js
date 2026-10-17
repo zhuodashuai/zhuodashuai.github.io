@@ -969,12 +969,25 @@ export function parsePublicSnapshot(payload, { allowLegacy = true } = {}) {
       entries: source.entries.map(validatePublicEntry)
     };
   }
+  // Normalize aliases once rather than rescanning every other entry for each
+  // word. Mark shared aliases, not entire IDs: repeated IDs may have different
+  // aliases, and the original-order checks below must keep their error priority.
+  const lookupKeys = snapshot.entries.map(entryLookupKeys);
+  const firstOwnerByKey = new Map();
+  const sharedKeys = new Set();
+  snapshot.entries.forEach((entry, index) => {
+    for (const key of lookupKeys[index]) {
+      if (!firstOwnerByKey.has(key)) firstOwnerByKey.set(key, entry.id);
+      else if (firstOwnerByKey.get(key) !== entry.id) sharedKeys.add(key);
+    }
+  });
   const ids = new Set();
-  for (const entry of snapshot.entries) {
+  for (const [index, entry] of snapshot.entries.entries()) {
     if (ids.has(entry.id)) throw new Error(`公开词库存在重复编号：${entry.id}`);
     ids.add(entry.id);
-    const duplicate = findDuplicate(snapshot.entries, entry, entry.id);
-    if (duplicate) throw new Error(`公开词库存在重复词条：${entry.term}`);
+    if (lookupKeys[index].some((key) => sharedKeys.has(key))) {
+      throw new Error(`公开词库存在重复词条：${entry.term}`);
+    }
   }
   return snapshot;
 }

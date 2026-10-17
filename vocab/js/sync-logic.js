@@ -1,5 +1,5 @@
-import { findDuplicate, normalizeEnglish } from "./wordbook-schema.js";
-import { preserveCollectionTags } from "./collections.js";
+import { findDuplicate, normalizeEnglish } from "./wordbook-schema.js?v=72";
+import { preserveCollectionTags } from "./collections.js?v=72";
 
 const RETRY_DELAYS_MS = [5_000, 15_000, 45_000, 120_000, 300_000, 900_000, 1_800_000, 3_600_000];
 

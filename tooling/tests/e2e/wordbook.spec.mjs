@@ -95,7 +95,7 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
   await loginOwner(page);
   for (const { term, partOfSpeech, meaning } of cases) {
     await page.locator("#owner-search").fill(term);
-    const ownerEntry = page.locator(".owner-entry-row", { hasText: term });
+    const ownerEntry = page.locator(".owner-entry-row").filter({ has: page.getByRole("button", { name: `查看 ${term} 的完整词条`, exact: true }) });
     await expect(ownerEntry).toHaveCount(1);
     await expect(ownerEntry.locator(".owner-entry-part-of-speech")).toHaveText(`词性 · ${partOfSpeech}`);
     expect(await ownerEntry.locator(".owner-entry-part-of-speech + p").innerText()).toBe(meaning);
@@ -106,7 +106,7 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
     const canonicalEntry = canonicalSnapshot.entries.find((entry) => entry.term === term);
     expect(canonicalEntry, `${term} must remain in the canonical regression snapshot`).toBeTruthy();
     await page.locator("#library-search").fill(term);
-    const publicEntry = page.locator(".word-card", { hasText: term });
+    const publicEntry = page.locator(".word-card").filter({ has: page.getByRole("heading", { name: term, exact: true }) });
     await expect(publicEntry).toHaveCount(1);
     await expect(publicEntry.locator(".card-kicker span").last()).toHaveText(partOfSpeech);
     expect(await publicEntry.locator(".card-meaning").innerText()).toBe(meaning);

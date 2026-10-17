@@ -1,4 +1,4 @@
-import { collectionMemberships } from "./collections.js";
+import { collectionMemberships } from "./collections.js?v=72";
 
 export function renderSynonymGroups(container, groups, { onOpen, isOutsideScope = () => false, selectedId = "" } = {}) {
   const doc = container.ownerDocument;

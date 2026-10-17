@@ -1,5 +1,5 @@
-import { quickNotesStorage, QUICK_NOTES_LIMITS } from "./quick-notes-storage.js?v=71";
-import { setupPwa } from "./pwa.js?v=71";
+import { quickNotesStorage, QUICK_NOTES_LIMITS } from "./quick-notes-storage.js?v=72";
+import { setupPwa } from "./pwa.js?v=72";
 
 const refs = {
   text: document.querySelector("#quick-notes-text"),
