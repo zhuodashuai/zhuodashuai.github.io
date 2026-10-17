@@ -40,7 +40,7 @@ test("member storage migration is additive and keeps the owner's existing Durabl
 
 test("personal shell is precached but private API bypasses all service-worker caching", async () => {
   const sw = await source("../sw.js");
-  for (const item of ["personal.html", "personal.css?v=73", "js/personal-app.js?v=73", "js/personal-api.js?v=73", "js/personal-storage.js?v=73", "js/runtime-config.js?v=73"]) {
+  for (const item of ["personal.html", "personal.css?v=74", "js/personal-app.js?v=74", "js/personal-api.js?v=74", "js/personal-storage.js?v=74", "js/personal-selection.js?v=74", "js/personal-study.js?v=74", "js/runtime-config.js?v=74"]) {
     assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
   }
   assert.ok(sw.includes('/\\/personal(?:\\.html)?\\/?$/.test(url.pathname) ? "./personal.html"'));
@@ -50,4 +50,13 @@ test("personal shell is precached but private API bypasses all service-worker ca
   assert.match(boundary, /event.respondWith\(fetch\(request\)\);\s*return;/);
   assert.doesNotMatch(boundary, /cache|networkFirst/i);
   assert.doesNotMatch(sw.slice(0, sw.indexOf('self.addEventListener("install"')), /\/api\/v1\/member/);
+});
+
+test("existing owner authentication has a private learning entrance without another registration", async () => {
+  const owner = await source("../owner.html");
+  const guide = await source("../guide.html");
+  assert.match(owner, /id="owner-personal-link" href="personal\.html\?auth=owner">我的学习词本<\/a>/);
+  assert.match(guide, /不需要另注册/);
+  assert.match(guide, /学习全部/);
+  assert.match(guide, /复习到期/);
 });

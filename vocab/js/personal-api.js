@@ -14,7 +14,8 @@ export class PersonalApiError extends Error {
 
 /** Same-origin, no-store transport. Credentials and recovery codes are never persisted. */
 export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20_000 } = {}) {
-  async function request(path, { method = "GET", body, csrfToken = "", expectedUserId, signal } = {}) {
+  async function request(path, { method = "GET", body, csrfToken = "", expectedUserId, authType = "auto", signal } = {}) {
+    if (!["auto", "member", "github-owner"].includes(authType)) throw new PersonalApiError("登录方式不正确。", { code: "invalid_auth_type" });
     if (expectedUserId !== undefined && (typeof expectedUserId !== "string" || !USER_ID.test(expectedUserId))) {
       throw new PersonalApiError("当前账号编号不正确，请重新登录。", { code: "invalid_expected_user" });
     }
@@ -45,6 +46,7 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
           signal: controller.signal,
           headers: {
             Accept: "application/json",
+            "X-Wordbook-Auth": authType,
             ...(body === undefined ? {} : { "Content-Type": "application/json" }),
             ...(expectedUserId === undefined ? {} : { "X-Member-User": expectedUserId }),
             ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
@@ -88,11 +90,14 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
   };
   return {
     session: (options) => request("/session", options),
-    register: (body, options) => request("/register", { ...options, method: "POST", body }),
-    login: (body, options) => request("/login", { ...options, method: "POST", body }),
-    resetPassword: (body, options) => request("/password/reset", { ...options, method: "POST", body }),
+    register: (body, options) => request("/register", { ...options, authType: "member", method: "POST", body }),
+    login: (body, options) => request("/login", { ...options, authType: "member", method: "POST", body }),
+    resetPassword: (body, options) => request("/password/reset", { ...options, authType: "member", method: "POST", body }),
     logout: (csrfToken, options) => request("/logout", { ...options, method: "POST", body: {}, csrfToken }),
     entries: (options) => request("/entries", options),
+    learning: (options) => request("/learning", options),
+    select: (body, csrfToken, options) => request("/selections", { ...options, method: "POST", body, csrfToken }),
+    review: (id, body, csrfToken, options) => request(entryPath(id).replace("/entries/", "/reviews/"), { ...options, method: "POST", body, csrfToken }),
     add: (body, csrfToken, options) => request("/entries", { ...options, method: "POST", body, csrfToken }),
     update: (id, body, csrfToken, options) => request(entryPath(id), { ...options, method: "PUT", body, csrfToken }),
     remove: (id, body, csrfToken, options) => request(entryPath(id), { ...options, method: "DELETE", body, csrfToken }),

@@ -40,7 +40,7 @@
 ## 普通账号与私人词本（2026-10-17）
 
 - 入口：固定 Worker origin 的 `/personal.html`。GitHub Pages 的同名静态页会先跳到该 origin，之后才启用密码表单；不使用第三方 Cookie 或 credentialed CORS。
-- 接口：`/api/v1/member/session`、`register`、`login`、`logout`、`password/reset`、`entries`、`entries/:id`、`account`。所有写请求要求同源 JSON，已登录写入另要求会话 CSRF。请求体流式限制 16 KiB；未验证的身份或权限字段一律拒绝。
+- 接口：`/api/v1/member/session`、`register`、`login`、`logout`、`password/reset`、`entries`、`entries/:id`、`account`，以及下述 selections / learning / reviews。所有写请求要求同源 JSON，已登录写入另要求会话 CSRF。请求体通常流式限制 16 KiB；仅词条 PUT 扩为 128 KiB，以完整保存已选入的长释义，仍按手工/来源词的逻辑长度分别校验。未验证的身份或权限字段一律拒绝。
 - `MEMBER_AUTH` 是单独的账号 DO；`PERSONAL_WORDBOOK` 按服务端确认的随机用户 ID 隔离。普通账号不能操作公开 JSON、GitHub 发布、OwnerControl 或 AI。
 - 密码用随机 salt 的原生 scrypt（N=16384、r=8、p=5）及域分离 HMAC 后置 pepper；不存明文密码。昂贵运算串行且队列有上限，IP、用户名与全站限流在 KDF 前执行。恢复码与会话只存哈希；Cookie `__Host-zhuo_member` 为 Secure、HttpOnly、SameSite=Strict、Path=/，有效期 7 天。
 - **不要随意轮换 `SESSION_SECRET`**：普通账号 v1 密码 pepper 与原有 Owner secret 共用该部署 secret，但有不同用途域。轮换前必须设计版本化迁移或通知用户用恢复码重设密码；直接替换会令旧密码不可验证。不能通过削弱 KDF 或忽略校验“修复”登录。
@@ -50,7 +50,17 @@
 - 私人响应 `Cache-Control: no-store`；前端不将词条或凭据放入 IndexedDB/WebStorage。未上传草稿只在当前页面内存中保留，刷新前应先保存。唯一 sessionStorage 标记仅表示“必须明确重新登录”，不含身份或私密数据。原本公开章节的本机复习、测试和随手记数据库保持独立。
 - 自助删除需要当前密码和 `DELETE`：先撤销登录、将账号标记停用，再清理私人词条。清理失败返回 202 并保留 durable job，由 alarm 重试，旧账号不会复活；重新注册同一用户名得到全新 ID。应用层删除不承诺改变平台自有备份的保留政策。
 - `v2-member-wordbooks` 迁移只新增两个 SQLite DO 类，保留 v1 OwnerControl。代码回滚到旧版时也不要删除这些类/命名空间或账号存储；先停注册并保留数据，再处理修复。代码基线为 `2766e13`，本机完整 Git bundle 与公开 JSON 备份已验证。
-- 私人词本第一期提供手动录词、编辑、删除、搜索、详情、导出及跨设备登录读取；尚未把私人词条接入章节测试/复习，也没有自动迁入旧设备记录或批量初高中词表。
+- 私人词本支持手动录词、编辑、删除、搜索、详情、导出，以及从公开书目/章节选择词条；主动回忆与间隔复习的历史、排程按已验证身份保存在私人 DO 内，支持跨设备读取。没有迁入旧设备的本机复习/测试记录，也未新增私人四选一测验或批量初高中词表。
+
+### 选词、GitHub Owner 桥接与云学习（v74）
+
+- `POST /api/v1/member/selections` 接收 `{entryIds, collectionId, chapterId, mutationId}`，单批最多 100 个公开 ID。公开内容由 Worker 内部可信 snapshot resolver 读取并严格校验，客户端不能提交释义、来源 URL、身份或 tenant。选词不修改 canonical JSON，不调用 AI，不借用普通账号写 GitHub。
+- 同一规范英文复用私人卡片 ID，`sourceContexts` 保留不同书目/章节的原文、页码与双语语境；已有笔记、人工中文编辑和复习排程不被重选覆盖。来源英文禁止更名；旧八字段私人卡片仍兼容。选择、评分都使用 UUID mutationId 幂等重试；跨设备卡片/评分 revision 冲突返回 409。
+- `GET /api/v1/member/learning` 与 `POST /api/v1/member/reviews/:id` 只操作当前私人词本。服务端决定评分时间与排程，沿用公开端的 `review.js` 算法，单词保留最近 100 次历史。删除卡片同时删除它的私人复习状态；条目和学习记录分别限制存储量。读取学习失败时前端禁用练习，不假装从零开始。
+- 默认 `X-Wordbook-Auth: auto` 优先普通账号 Cookie；显式 `member` 或 `github-owner` 不允许回退到另一个主体。`personal.html?auth=owner` 仅使用原 GitHub owner 会话，映射到稳定私人词本，不要求另注册普通账号。OwnerControl 内部只读断言验证现有会话；写入仍通过原有 CSRF 断言，不返回 GitHub token，不变更发布权限。
+- GET entries/learning 的 `X-Member-User` 只与会话身份比较，用于防止账号切换后的陈旧请求；它不能指定要读取哪个 tenant。Vault 独立复验会话。退出、失效、切换身份后清空私人 DOM 与内存、关闭练习；私人 API 始终 no-store，Service Worker 不缓存。
+- 普通密码恢复/账号删除仅作用于普通账号；GitHub Owner 模式不显示或执行这些操作。旧匿名 IndexedDB 复习、章节测验、随手记均原样保留，绝不自动归属某个账号。
+- 回滚点 `wordbook-before-selection-study-2026-10-17` 保留旧版代码；完整 Git bundle 和当时公开 JSON 另存本机 output。回滚代码时仍须保留 `MemberAuth` / `PersonalWordbook` 绑定和数据；已新增的 sourceContexts/learning 数据不能因 UI 回滚被清空。旧客户端不理解扩展字段时应提示更新，不应重写旧字段来“修复”。
 
 ## 数据模型
 

@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=73";
-import { createEntryDetailController } from "./entry-detail.js?v=73";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=74";
+import { createEntryDetailController } from "./entry-detail.js?v=74";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,15 +17,15 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=73";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=73";
-import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=73";
-import { setupPwa } from "./pwa.js?v=73";
+} from "./owner-storage.js?v=74";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=74";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=74";
+import { setupPwa } from "./pwa.js?v=74";
 import { lookupCoreEntry } from "./core-dictionary.js";
-import { preserveCollectionTags } from "./collections.js?v=73";
-import { buildSynonymGroups } from "./synonym-groups.js?v=73";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=73";
-import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=73";
+import { preserveCollectionTags } from "./collections.js?v=74";
+import { buildSynonymGroups } from "./synonym-groups.js?v=74";
+import { indexSynonymFingerprints } from "./synonym-evidence.js?v=74";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=74";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",

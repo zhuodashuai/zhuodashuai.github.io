@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
-  "runtime-config.js", "personal-api.js", "personal-storage.js",
+  "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
   "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
@@ -25,7 +25,7 @@ async function poisonOldModuleUrls(page) {
   // This is a module-graph regression, not a claim to emulate HTTP caching.
   await page.route("**/js/*.js*", async (route) => {
     const url = new URL(route.request().url());
-    if (changedApiModules.has(url.pathname.split("/").at(-1)) && url.searchParams.get("v") !== "73") {
+    if (changedApiModules.has(url.pathname.split("/").at(-1)) && url.searchParams.get("v") !== "74") {
       consumedOldUrls.push(url.pathname);
       await route.fulfill({ contentType: "text/javascript", body: 'export const oldModuleVersion = "v66";' });
     } else await route.continue();
@@ -53,6 +53,19 @@ test("new owner boot does not import pre-upgrade storage, transport or fingerpri
   await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
   await expect(page.locator("#capture-input")).toHaveValue("hip");
   await expect(page.locator("#organize-button")).toBeEnabled();
+  expect(diagnostic.consumedOldUrls).toEqual([]);
+  expect(diagnostic.errors).toEqual([]);
+});
+
+test("private selection and learning boot with the versioned graph and the existing GitHub owner login", async ({ page }) => {
+  const diagnostic = await poisonOldModuleUrls(page);
+  await page.goto("/personal.html?auth=owner");
+  await expect(page.locator("#member-username")).toHaveText("@zhuodashuai");
+  await page.locator("#member-source-toggle").click();
+  await expect(page.locator("#member-source-book option[value='never-let-me-go']")).toHaveCount(1);
+  await page.locator("#member-source-book").selectOption("never-let-me-go");
+  await page.locator("#member-source-chapter").selectOption("chapter-1");
+  await expect(page.locator("#member-source-list .source-select")).toHaveCount(29);
   expect(diagnostic.consumedOldUrls).toEqual([]);
   expect(diagnostic.errors).toEqual([]);
 });

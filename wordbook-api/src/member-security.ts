@@ -6,7 +6,11 @@ export interface MemberEnv {
   PERSONAL_WORDBOOK: DurableObjectNamespace;
   MEMBER_SIGNUP_ENABLED?: string;
   SESSION_SECRET?: string;
+  OWNER_CONTROL?: DurableObjectNamespace;
 }
+
+export type MemberAuthType = "member" | "github-owner";
+export const PRIVATE_OWNER_ID = "15604207-8000-4000-8000-000000000001";
 
 export interface MemberIdentity { id: string; username: string }
 export interface MemberSessionView {
@@ -14,6 +18,7 @@ export interface MemberSessionView {
   user: MemberIdentity;
   csrfToken: string;
   expiresAt: number;
+  authType?: MemberAuthType;
 }
 
 export const MEMBER_COOKIE = "__Host-zhuo_member";
@@ -166,6 +171,33 @@ export async function memberInternalCall(stub: DurableObjectStub, path: string, 
     throw new ApiError(response.status, String(error?.code || "member_unavailable"), String(error?.message || "个人词库暂不可用。"), error?.details);
   }
   return result;
+}
+
+export function privateOwnerStub(env: MemberEnv): DurableObjectStub {
+  if (!env.OWNER_CONTROL) throw new ApiError(503, "owner_auth_unavailable", "GitHub 所有者登录暂不可用。");
+  return env.OWNER_CONTROL.get(env.OWNER_CONTROL.idFromName("owner:zhuodashuai"));
+}
+
+export function verifyPrivateOwner(view: Record<string, unknown>): MemberIdentity {
+  const user = view.user as { id?: unknown; login?: unknown } | undefined;
+  if (view.authenticated !== true || user?.id !== 156042078 || user.login !== "zhuodashuai") {
+    throw new ApiError(401, "member_authentication_required", "请先使用卓本人的 GitHub 账号登录。");
+  }
+  return { id: PRIVATE_OWNER_ID, username: "zhuodashuai" };
+}
+
+export async function assertPrivateSession(env: MemberEnv, authType: unknown, sessionHash: string, csrfToken?: string): Promise<{ user: MemberIdentity; expiresAt: number }> {
+  if (authType !== undefined && authType !== "member" && authType !== "github-owner") throw new ApiError(401, "member_authentication_required", "登录类型不正确。");
+  if (authType === "github-owner") {
+    const view = await memberInternalCall(privateOwnerStub(env), csrfToken === undefined ? "/session/read-assert" : "/session/assert", {
+      sessionHash, ...(csrfToken !== undefined ? { csrfToken } : {})
+    });
+    return { user: verifyPrivateOwner(view), expiresAt: Number(view.expiresAt || 0) };
+  }
+  const view = await memberInternalCall(memberAuthStub(env), "/session/assert", { sessionHash, ...(csrfToken !== undefined ? { csrfToken } : {}) });
+  const user = view.user as MemberIdentity | undefined;
+  if (!user || !MEMBER_UUID.test(user.id) || user.id === PRIVATE_OWNER_ID || typeof user.username !== "string") throw new ApiError(401, "member_authentication_required", "请重新登录自己的账号。");
+  return { user, expiresAt: Number(view.expiresAt) };
 }
 
 export function memberError(error: unknown): Response {

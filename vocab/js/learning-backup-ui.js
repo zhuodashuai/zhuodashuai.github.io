@@ -1,4 +1,4 @@
-import { exportLearningBackup, learningRestoreMessage, previewLearningRestore, readLearningBackupFile, restoreLearningBackup } from "./learning-backup.js?v=73";
+import { exportLearningBackup, learningRestoreMessage, previewLearningRestore, readLearningBackupFile, restoreLearningBackup } from "./learning-backup.js?v=74";
 
 export function setupLearningBackup({ container, onRestored = () => {}, services } = {}) {
   if (!container) return { async flushPendingSave() {} };

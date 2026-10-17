@@ -1,8 +1,11 @@
-import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=73";
+import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=74";
+import { validatePersonalLearning } from "./personal-study.js?v=74";
 
 const ENTRY_FIELDS = ["id", "revision", "term", "normalized", "meaning", "note", "createdAt", "updatedAt"];
 const EDIT_FIELDS = ["term", "meaning", "note"];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+const OWNER_UID = "15604207-8000-4000-8000-000000000001";
+const CONTEXT_LIMITS = { key: 320, entryId: 180, term: 2000, collectionId: 100, chapterId: 100, bookTitle: 500, chapterTitle: 500, sourceTitle: 500, page: 200, originalInput: 2000, meaning: 20000, definition: 12000, exampleEn: 5000, exampleZh: 5000, partOfSpeech: 200, phonetic: 300, usage: 12000 };
 const copy = (value) => structuredClone(value);
 const userKey = (value) => {
   if (typeof value !== "string" || !value || value.length > 180) throw new Error("尚未确认当前账号。");
@@ -28,29 +31,49 @@ export function validatePersonalPassword(value) {
 }
 
 export function validatePersonalSession(value, now = Date.now()) {
+  const authType = value?.authType ?? "member";
   if (value?.authenticated !== true || typeof value.user?.id !== "string" || !UUID.test(value.user.id)
     || typeof value.user.username !== "string" || !/^[a-z][a-z0-9_]{2,23}$/.test(value.user.username)
-    || typeof value.csrfToken !== "string" || !/^[A-Za-z0-9_-]{43}$/.test(value.csrfToken)
+    || !["member", "github-owner"].includes(authType)
+    || (authType === "github-owner" && (value.user.id !== OWNER_UID || value.user.username !== "zhuodashuai"))
+    || typeof value.csrfToken !== "string" || !(authType === "member" ? /^[A-Za-z0-9_-]{43}$/ : /^[A-Za-z0-9_-]{32,200}$/).test(value.csrfToken)
     || !Number.isSafeInteger(value.expiresAt) || value.expiresAt <= now) throw new Error("登录结果不完整或已过期，请重新登录。");
-  return { authenticated: true, user: { id: value.user.id, username: value.user.username }, csrfToken: value.csrfToken, expiresAt: value.expiresAt };
+  return { authenticated: true, user: { id: value.user.id, username: value.user.username }, csrfToken: value.csrfToken, expiresAt: value.expiresAt, ...(value.authType === undefined ? {} : { authType }) };
 }
 
-export function validatePersonalInput(value) {
-  const term = validateEnglishInput(text(value?.term, 200, "英文"));
-  return { term, meaning: text(value?.meaning, 2000, "中文释义"), note: text(value?.note, 1000, "备注") };
+export function validatePersonalInput(value, { imported = false } = {}) {
+  const term = validateEnglishInput(text(value?.term, imported ? 2000 : 200, "英文"));
+  return { term, meaning: text(value?.meaning, imported ? 20000 : 2000, "中文释义"), note: text(value?.note, 1000, "备注") };
+}
+
+export function validatePersonalSourceContext(value) {
+  const fields = Object.keys(CONTEXT_LIMITS);
+  if (!value || Object.keys(value).length !== fields.length || fields.some((field) => !Object.prototype.hasOwnProperty.call(value, field))) throw new Error("词条来源语境格式不正确。");
+  const result = Object.fromEntries(fields.map((field) => [field, text(value[field], CONTEXT_LIMITS[field], "来源语境")]));
+  if (!/^[A-Za-z0-9._:-]{1,180}$/.test(result.entryId) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(result.collectionId)
+    || !/^(?:all|chapter-\d+)$/.test(result.chapterId) || result.key !== `${result.entryId}:${result.collectionId}:${result.chapterId}`) throw new Error("词条来源章节索引不正确。");
+  return result;
 }
 
 export function validatePersonalEntry(value) {
+  const optional = ["sourceContexts", "meaningEdited"].filter((field) => Object.prototype.hasOwnProperty.call(value || {}, field));
+  const fields = [...ENTRY_FIELDS, ...optional];
   if (!value || typeof value !== "object" || Array.isArray(value)
-    || Object.keys(value).length !== ENTRY_FIELDS.length || ENTRY_FIELDS.some((field) => !Object.prototype.hasOwnProperty.call(value, field))
+    || Object.keys(value).length !== fields.length || fields.some((field) => !Object.prototype.hasOwnProperty.call(value, field))
     || typeof value.id !== "string" || !value.id.startsWith("member-") || !UUID.test(value.id.slice(7))
     || !Number.isSafeInteger(value.revision) || value.revision < 1) throw new Error("个人词条格式不正确。");
-  const input = validatePersonalInput(value);
+  if (value.sourceContexts !== undefined && (!Array.isArray(value.sourceContexts) || value.sourceContexts.length > 50)) throw new Error("词条来源语境过多或格式不正确。");
+  const contexts = value.sourceContexts?.map(validatePersonalSourceContext);
+  if (contexts && new Set(contexts.map((context) => context.key)).size !== contexts.length) throw new Error("词条来源语境重复。");
+  if (value.meaningEdited !== undefined && typeof value.meaningEdited !== "boolean") throw new Error("自定义释义标记不正确。");
+  const input = validatePersonalInput(value, { imported: Boolean(contexts?.length) });
+  if (new TextEncoder().encode(JSON.stringify(value)).byteLength > 128 * 1024) throw new Error("完整个人词条超过安全大小限制。");
   if (value.normalized !== normalizeEnglish(input.term)) throw new Error("个人词条的英文索引不一致。");
   const createdAt = time(value.createdAt);
   const updatedAt = time(value.updatedAt);
   if (updatedAt < createdAt) throw new Error("个人词条时间顺序不正确。");
-  return { id: value.id, revision: value.revision, ...input, normalized: value.normalized, createdAt, updatedAt };
+  return { id: value.id, revision: value.revision, ...input, normalized: value.normalized, createdAt, updatedAt,
+    ...(contexts === undefined ? {} : { sourceContexts: contexts }), ...(value.meaningEdited === undefined ? {} : { meaningEdited: value.meaningEdited }) };
 }
 
 export function validatePersonalList(value) {
@@ -63,7 +86,8 @@ export function validatePersonalList(value) {
 
 export function personalDraft(entry = null) {
   const fields = Object.fromEntries(EDIT_FIELDS.map((key) => [key, entry?.[key] || ""]));
-  return { id: entry?.id || null, revision: entry?.revision || null, ...fields, baseline: copy(fields) };
+  return { id: entry?.id || null, revision: entry?.revision || null, ...fields, baseline: copy(fields),
+    ...(entry?.sourceContexts ? { sourceContexts: copy(entry.sourceContexts) } : {}), ...(typeof entry?.meaningEdited === "boolean" ? { meaningEdited: entry.meaningEdited } : {}) };
 }
 
 export function isPersonalDraftDirty(draft) {
@@ -76,13 +100,13 @@ export function createPersonalDraftStore() {
   return {
     read(uid) { const value = drafts.get(userKey(uid)); return value ? copy(value) : null; },
     write(uid, value) {
-      const allowed = ["id", "revision", ...EDIT_FIELDS, "baseline"];
+      const allowed = ["id", "revision", ...EDIT_FIELDS, "baseline", ...["sourceContexts", "meaningEdited"].filter((field) => Object.prototype.hasOwnProperty.call(value || {}, field))];
       if (!value || Object.keys(value).length !== allowed.length || allowed.some((key) => !Object.prototype.hasOwnProperty.call(value, key))
         || !value.baseline || Object.keys(value.baseline).length !== 3 || EDIT_FIELDS.some((key) => typeof value.baseline[key] !== "string")) throw new Error("当前页面草稿格式不正确。");
       // An unfinished textarea may temporarily exceed its Unicode-point limit
       // or contain an invalid paste. Preserve it in memory, but validate the
       // complete entry before any network write instead of throwing on input.
-      for (const [field, maximum] of [["term", 400], ["meaning", 4000], ["note", 2000]]) {
+      for (const [field, maximum] of [["term", value.sourceContexts?.length ? 4000 : 400], ["meaning", value.sourceContexts?.length ? 40000 : 4000], ["note", 2000]]) {
         if (typeof value[field] !== "string" || value[field].length > maximum) throw new Error("当前页面草稿过长。");
       }
       drafts.set(userKey(uid), copy(value));
@@ -169,8 +193,12 @@ export function createPersonalExpiryTimer({ now = () => Date.now(), setTimer = s
   };
 }
 
-export function serializePersonalExport(entries, username, exportedAt = new Date().toISOString()) {
+export function serializePersonalExport(entries, username, exportedAt = new Date().toISOString(), reviews) {
   if (typeof username !== "string" || !/^[a-z][a-z0-9_]{2,23}$/.test(username)) throw new Error("账号名称不正确。");
   const validated = validatePersonalList({ entries, revision: 0 });
-  return JSON.stringify({ format: "zhuo-private-wordbook", version: 1, exportedAt: time(exportedAt), username, entries: validated.entries }, null, 2);
+  const learning = reviews === undefined ? null : validatePersonalLearning({ revision: 0, reviews });
+  const ids = new Set(validated.entries.map((entry) => entry.id));
+  if (learning?.reviews.some((review) => !ids.has(review.entryId))) throw new Error("学习备份含不属于当前词本的记录。");
+  return JSON.stringify({ format: "zhuo-private-wordbook", version: learning ? 2 : 1, exportedAt: time(exportedAt), username, entries: validated.entries,
+    ...(learning ? { reviews: learning.reviews } : {}) }, null, 2);
 }

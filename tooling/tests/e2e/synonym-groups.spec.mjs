@@ -33,7 +33,9 @@ test("同义词试用保留章节范围、完整词条数和跨章节已收录�
   await expect(page.locator("#view-controls").getByRole("button", { name: /同义词分组/ })).toHaveAttribute("aria-pressed", "true");
   await expect(member(panel(page), "pull somebody's leg")).toBeVisible();
   await expect(panel(page)).toContainText("其他章节");
-  await expect(panel(page).locator(".synonym-group")).toHaveCount(1);
+  // Assert this relationship, not the total number of unrelated groups: the
+  // owner's current vocabulary can gain other valid collected synonyms.
+  await expect(panel(page).locator(".synonym-group").filter({ has: member(page, "have somebody on") })).toHaveCount(1);
   await expect(page.locator("#due-count")).toHaveText("28");
 
   await page.locator("#view-controls").getByRole("button", { name: "单词卡片", exact: true }).click();
@@ -158,7 +160,7 @@ test("远端删除成员后刷新不保留幽灵组，也不会向词库添加�
   advanceSnapshot(current, 1);
   await page.reload();
   await expect(page.locator("#entry-count")).toHaveText("28");
-  await expect(panel(page).locator(".synonym-group")).toHaveCount(0);
+  await expect(panel(page).locator(".synonym-group").filter({ has: member(page, "have somebody on") })).toHaveCount(0);
   await expect(member(panel(page), "pull somebody's leg")).toHaveCount(0);
   await page.locator("#view-controls").getByRole("button", { name: "单词卡片", exact: true }).click();
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(28);

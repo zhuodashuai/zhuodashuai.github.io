@@ -362,7 +362,11 @@ function apiErrorResponse(error: unknown, request: Request): Response {
 async function routeApi(request: Request, env: Env): Promise<Response> {
   const path = new URL(request.url).pathname;
   if (path.startsWith(`${API_PREFIX}/member/`)) {
-    const response = await handleMemberRequest(request, env);
+    const response = await handleMemberRequest(request, env, {
+      readPublicSnapshot: async () => (await publicSnapshot(
+        new Request(new URL(`${API_PREFIX}/public/wordbook`, request.url)), env
+      )).json()
+    });
     if (response) return response;
     throw new ApiError(404, "member_api_not_found", "个人词本接口不存在。");
   }
@@ -380,7 +384,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
         : null;
     return jsonResponse({
       ok: true,
-      version: "2.3.0",
+      version: "2.4.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,

@@ -1,4 +1,4 @@
-import { parsePublicSnapshot, validatePublicEntry } from "./wordbook-schema.js?v=73";
+import { parsePublicSnapshot, validatePublicEntry } from "./wordbook-schema.js?v=74";
 
 // Decimal MB, measured as UTF-8 bytes rather than JavaScript string length.
 // Import and export share this bound so the app does not create an oversized

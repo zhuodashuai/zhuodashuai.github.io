@@ -45,7 +45,8 @@ const activeBrowserFiles = [
   "vocab/js/public-app.js", "vocab/js/owner-app.js", "vocab/js/pwa.js", "vocab/js/runtime-config.js",
   "vocab/js/owner-api.js", "vocab/js/owner-storage.js", "vocab/js/sync-logic.js", "vocab/js/wordbook-schema.js",
   "vocab/js/review.js",
-  "vocab/personal.html", "vocab/js/personal-app.js", "vocab/js/personal-api.js", "vocab/js/personal-storage.js"
+  "vocab/personal.html", "vocab/js/personal-app.js", "vocab/js/personal-api.js", "vocab/js/personal-storage.js",
+  "vocab/js/personal-selection.js", "vocab/js/personal-study.js"
 ];
 const activeBrowserSource = activeBrowserFiles.map((file) => `${file}\n${safeText(file)}`).join("\n");
 

@@ -1,13 +1,16 @@
-import { personalWordbookUrl } from "./runtime-config.js?v=73";
-import { setupPwa } from "./pwa.js?v=73";
-import { normalizePublicSearchQuery } from "./wordbook-schema.js?v=73";
-import { createPersonalApi } from "./personal-api.js?v=73";
+import { personalWordbookUrl } from "./runtime-config.js?v=74";
+import { setupPwa } from "./pwa.js?v=74";
+import { normalizePublicSearchQuery } from "./wordbook-schema.js?v=74";
+import { createPersonalApi } from "./personal-api.js?v=74";
 import {
   createPersonalDraftStore, createPersonalExpiryTimer, createPersonalMutationTracker, createPersonalSessionScope,
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
   validatePersonalEntry, validatePersonalInput, validatePersonalList,
   validatePersonalPassword, validatePersonalSession, validatePersonalUsername
-} from "./personal-storage.js?v=73";
+} from "./personal-storage.js?v=74";
+import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
+  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=74";
+import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=74";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -17,6 +20,8 @@ const scope = createPersonalSessionScope();
 const expiryTimer = createPersonalExpiryTimer();
 const LOCK_KEY = "zhuo-member-explicit-login-required"; // Nonsecret logout intent only.
 const tabId = crypto.randomUUID();
+const authParameter = new URLSearchParams(window.location.search).get("auth");
+const requestedAuth = authParameter === "owner" ? "github-owner" : authParameter === "member" ? "member" : "auto";
 let channel;
 try { channel = new BroadcastChannel("zhuo-member-auth-v1"); } catch { /* Revalidation remains authoritative. */ }
 let originReady = false;
@@ -26,8 +31,12 @@ let conflictEntry = null;
 const state = {
   phase: "checking", authView: "login", authBusy: false, user: null, csrfToken: "", expiresAt: "",
   entries: [], revision: 0, entriesLoaded: false, listBusy: false, entryBusy: false,
-  editor: null, recovery: null
+  editor: null, recovery: null, authType: requestedAuth,
+  collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
+  publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null
 };
+const RATING_LABELS = { again: "再来一次", hard: "有点难", good: "记得", easy: "很熟" };
+const privateOptions = (signal, extra = {}) => ({ signal, authType: state.authType, ...extra });
 
 function status(message, kind = "saved") {
   $("member-status").textContent = message;
@@ -69,7 +78,14 @@ function clearPrivateDom() {
   $("member-recovery-ack").checked = false;
   $("member-conflict-message").textContent = "";
   $("member-conflict").hidden = true;
-  for (const id of ["member-detail-dialog", "delete-account-dialog"]) if ($(id).open) $(id).close();
+  $("member-source-panel").hidden = true;
+  $("member-source-toggle").setAttribute("aria-expanded", "false");
+  $("member-source-list").replaceChildren();
+  $("member-source-search").value = "";
+  $("member-learning-history-list").replaceChildren();
+  for (const id of ["member-detail-source", "member-detail-original", "member-detail-definition", "member-detail-usage", "member-detail-example",
+    "member-study-term", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
+  for (const id of ["member-detail-dialog", "delete-account-dialog", "member-study-dialog"]) if ($(id).open) $(id).close();
   detailEntry = null;
   conflictEntry = null;
   clearPasswords();
@@ -89,6 +105,15 @@ function clearSession({ discardDrafts = false } = {}) {
   state.authBusy = false;
   state.editor = null;
   state.recovery = null;
+  state.reviews = [];
+  state.learningRevision = 0;
+  state.learningLoaded = false;
+  state.learningBusy = false;
+  state.study = null;
+  state.sourceBusy = false;
+  state.selectedSources.clear();
+  state.collectionId = "all";
+  state.chapterId = "all";
   if (discardDrafts) { drafts.clear(); mutations.clear(); }
   clearPrivateDom();
 }
@@ -96,7 +121,7 @@ function clearSession({ discardDrafts = false } = {}) {
 function lockSession(message, { discardDrafts = false, notify = false } = {}) {
   clearSession({ discardDrafts });
   lockMarker(true);
-  state.phase = "locked";
+  state.phase = state.authType === "github-owner" ? "owner-gate" : "locked";
   state.authView = "login";
   renderChrome();
   status(message, "locked");
@@ -111,10 +136,16 @@ function renderChrome() {
   $("member-auth").hidden = !auth;
   $("member-workspace").hidden = !ready;
   $("member-recovery").hidden = !recovery;
+  $("member-owner-gate").hidden = state.phase !== "owner-gate";
+  $("member-owner-refresh").disabled = !originReady || state.phase !== "owner-gate" || state.authBusy;
   $("member-username").hidden = !ready;
   $("member-logout").hidden = !ready;
   $("member-logout").disabled = !ready;
   $("member-username").textContent = ready ? `@${state.user.username}` : "";
+  $("member-auth-type").hidden = !ready;
+  $("member-auth-type").textContent = state.authType === "github-owner" ? "GitHub 身份" : "普通账号";
+  $("member-owner-account-note").hidden = state.authType !== "github-owner";
+  $("member-delete-account").hidden = state.authType === "github-owner";
   for (const tab of document.querySelectorAll("[data-auth-view]")) {
     tab.disabled = !originReady || !auth || state.authBusy;
     tab.setAttribute("aria-pressed", String(tab.dataset.authView === state.authView));
@@ -125,11 +156,16 @@ function renderChrome() {
     form.querySelector("fieldset").disabled = !originReady || !auth || state.authBusy;
   }
   $("member-entry-form").querySelector("fieldset").disabled = !ready || state.entryBusy;
+  const imported = Boolean(state.editor?.sourceContexts?.length);
+  $("member-term").readOnly = imported;
+  $("member-imported-hint").hidden = !imported;
+  $("member-meaning").maxLength = imported ? 40000 : 4000;
   $("delete-account-form").querySelector("fieldset").disabled = !ready || state.entryBusy;
   for (const id of ["member-new", "member-cancel", "member-delete-account"]) $(id).disabled = !ready || state.entryBusy;
   $("member-refresh").disabled = !ready || state.entryBusy || state.listBusy;
-  $("member-export").disabled = !ready || state.entryBusy || !state.entriesLoaded;
+  $("member-export").disabled = !ready || state.entryBusy || !state.entriesLoaded || !state.learningLoaded;
   $("member-save").disabled = !ready || state.entryBusy || !state.entriesLoaded
+    || state.listBusy
     || !state.editor?.term.trim() || Boolean(state.editor?.id && !isPersonalDraftDirty(state.editor));
   $("member-save").textContent = state.entryBusy ? "正在保存…" : "保存到我的词本";
   $("member-editor-heading").textContent = state.editor?.id ? "编辑这个词" : "记下一个词";
@@ -141,6 +177,14 @@ function renderChrome() {
   $("member-recovery-code").textContent = recovery ? state.recovery.code : "";
   for (const id of ["member-recovery-copy", "member-recovery-download", "member-recovery-ack"]) $(id).disabled = !recovery;
   $("member-recovery-continue").disabled = !recovery || !$("member-recovery-ack").checked;
+  $("member-source-toggle").disabled = !ready || state.entryBusy;
+  for (const id of ["member-source-book", "member-source-chapter", "member-source-search", "member-source-all", "member-source-clear"]) $(id).disabled = !ready || state.entryBusy || state.sourceBusy;
+  $("member-source-add").disabled = !ready || !state.entriesLoaded || state.entryBusy || state.listBusy || state.sourceBusy || state.selectedSources.size === 0;
+  $("member-source-selected-count").textContent = `已选 ${state.selectedSources.size} / 100`;
+  $("member-source-list").setAttribute("aria-busy", String(state.sourceBusy));
+  $("member-learning-refresh").disabled = !ready || state.learningBusy || state.entryBusy || Boolean(state.study?.busy || state.study?.pending);
+  renderLearning();
+  if (state.study) renderStudy();
 }
 
 class StaleResponse extends Error { constructor() { super("账号已改变，旧请求已忽略。"); this.stale = true; } }
@@ -179,10 +223,13 @@ function captureDraft() {
 
 function adoptSession(result, { recoveryCode = "" } = {}) {
   const session = sessionValue(result);
+  const authType = session.authType || "member";
+  if (state.authType !== "auto" && state.authType !== authType) throw new Error("登录方式已改变，请明确选择账号后重试。");
   expiryTimer.clear();
   scope.advance(session.user.id);
   clearPrivateDom();
   state.user = { id: session.user.id, username: session.user.username };
+  state.authType = authType;
   state.csrfToken = session.csrfToken;
   state.expiresAt = session.expiresAt;
   state.entries = [];
@@ -228,15 +275,280 @@ async function loadEntries({ announce = true } = {}) {
   renderChrome();
   if (announce) status("正在读取你的词本…", "loading");
   try {
-    const result = validatePersonalList(await request((signal) => api.entries({ signal, expectedUserId })));
+    const result = validatePersonalList(await request((signal) => api.entries(privateOptions(signal, { expectedUserId }))));
     if (!scope.current(token)) return;
-    state.entries = result.entries;
-    state.revision = result.revision;
+    // An older read can never roll back a mutation whose newer revision was
+    // already confirmed in this account, even when a transport completes late.
+    if (result.revision >= state.revision) {
+      state.entries = result.entries;
+      state.revision = result.revision;
+    }
     state.entriesLoaded = true;
     renderEntries();
+    await loadLearning({ announce: false });
+    if (!scope.current(token) || state.phase !== "ready") return false;
     if (announce) status("已读取云端词本；当前编辑内容未被替换。", "saved");
-  } catch (error) { if (scope.current(token)) handleFailure(error, "读取失败，可点击刷新重试"); }
-  finally { if (scope.current(token)) { state.listBusy = false; renderChrome(); } }
+    return true;
+  } catch (error) { if (scope.current(token)) handleFailure(error, "读取失败，可点击刷新重试"); return false; }
+  finally { if (scope.current(token)) { state.listBusy = false; renderChrome(); renderEntries(); } }
+}
+
+function selectOptions(element, options, selected) {
+  element.replaceChildren(...options.map(({ id, title, count }) => {
+    const option = document.createElement("option"); option.value = id;
+    option.textContent = `${title}${count === undefined ? "" : ` · ${count}`}`;
+    option.selected = id === selected;
+    return option;
+  }));
+}
+
+function renderPrivateScope() {
+  const catalog = personalCollectionCatalog(state.entries);
+  if (!catalog.some((book) => book.id === state.collectionId)) { state.collectionId = "all"; state.chapterId = "all"; }
+  const book = catalog.find((item) => item.id === state.collectionId);
+  if (!book.chapters.some((chapter) => chapter.id === state.chapterId)) state.chapterId = "all";
+  selectOptions($("member-book"), catalog, state.collectionId);
+  selectOptions($("member-chapter"), [{ id: "all", title: "全部章节" }, ...book.chapters], state.chapterId);
+  $("member-chapter").disabled = book.chapters.length === 0;
+}
+
+async function loadLearning({ announce = true } = {}) {
+  if (state.phase !== "ready" || !state.user || state.learningBusy || state.study?.busy) return false;
+  const token = scope.capture();
+  const expectedUserId = state.user.id;
+  state.learningBusy = true;
+  renderChrome();
+  try {
+    const result = validatePersonalLearning(await request((signal) => api.learning(privateOptions(signal, { expectedUserId }))));
+    if (!scope.current(token)) return false;
+    if (result.revision >= state.learningRevision) {
+      state.reviews = result.reviews;
+      state.learningRevision = result.revision;
+    }
+    state.learningLoaded = true;
+    if (announce) status("已核对自己的云端学习记录。", "saved");
+    return true;
+  } catch (error) {
+    if (!scope.current(token) || error?.stale) return false;
+    state.learningLoaded = false; // Preserve the last verified records, but do not practise against stale revisions.
+    if (error.status === 401) handleFailure(error);
+    else if (announce) handleFailure(error, "学习记录读取失败，未重置已有记录");
+    return false;
+  } finally { if (scope.current(token)) { state.learningBusy = false; renderChrome(); } }
+}
+
+function currentStudyEntries() { return filterPersonalEntries(state.entries, state.collectionId, state.chapterId); }
+
+function renderLearning() {
+  const ready = state.phase === "ready" && state.user && state.entriesLoaded && state.learningLoaded && !state.learningBusy;
+  const summary = ready ? personalStudySummary(currentStudyEntries(), state.reviews) : null;
+  $("member-learning-summary").textContent = summary
+    ? `新词 ${summary.newCount} · 待复习 ${summary.dueReviewCount} · 已学习 ${summary.reviewedCount}/${summary.totalEntries}${summary.omitted ? ` · ${summary.omitted} 项缺中文，暂不练习` : ""}`
+    : state.learningBusy ? "正在读取云端学习记录…" : "学习记录尚未确认，暂不能开始；可点击刷新重试。";
+  $("member-study-all").disabled = !ready || state.entryBusy || !summary?.totalEntries;
+  $("member-review-due").disabled = !ready || state.entryBusy || !summary?.dueCount;
+  $("member-review-due").title = "包含尚未学习的新词和已经到期的词";
+  const history = state.phase === "ready" ? personalRecentHistory(state.entries, state.reviews) : [];
+  $("member-learning-history-list").replaceChildren(...history.map((row) => {
+    const item = document.createElement("li");
+    item.textContent = `${row.term} · ${RATING_LABELS[row.rating]} · ${new Date(row.at).toLocaleString("zh-CN")}`;
+    return item;
+  }));
+}
+
+function sourceEntries({ search = true } = {}) {
+  return publicSelectionEntries(state.publicSnapshot?.entries || [], state.sourceBook, state.sourceChapter, search ? $("member-source-search").value : "");
+}
+
+function renderSource() {
+  if (!state.publicSnapshot || state.phase !== "ready") return;
+  const catalog = publicSelectionCatalog(state.publicSnapshot.entries);
+  selectOptions($("member-source-book"), [{ id: "all", title: "全部公开词本" }, ...catalog], state.sourceBook);
+  const chapters = catalog.find((book) => book.id === state.sourceBook)?.chapters || [];
+  if (!chapters.some((chapter) => chapter.id === state.sourceChapter)) state.sourceChapter = "all";
+  selectOptions($("member-source-chapter"), [{ id: "all", title: "全书" }, ...chapters], state.sourceChapter);
+  $("member-source-chapter").disabled = chapters.length === 0 || state.entryBusy || state.sourceBusy;
+  const saved = new Set(state.entries.flatMap((entry) => (entry.sourceContexts || []).map((context) => context.key)));
+  const rows = sourceEntries().map((entry) => {
+    const row = document.createElement("label"); row.className = "source-option";
+    const input = document.createElement("input"); input.type = "checkbox"; input.className = "source-select"; input.dataset.entryId = entry.id;
+    const already = alreadySelectedSource(state.entries, entry, state.sourceBook, state.sourceChapter, saved);
+    input.checked = state.selectedSources.has(entry.id);
+    input.disabled = already || state.entryBusy || state.sourceBusy;
+    input.setAttribute("aria-label", `${already ? "已收录" : "选择"} ${entry.term}`);
+    input.addEventListener("change", () => {
+      if (input.checked && state.selectedSources.size >= 100) { input.checked = false; $("member-source-status").textContent = "每批最多选择 100 条。"; return; }
+      if (input.checked) state.selectedSources.add(entry.id); else state.selectedSources.delete(entry.id);
+      renderChrome();
+    });
+    const content = document.createElement("span");
+    const title = document.createElement("strong"); title.lang = "en"; title.textContent = entry.term;
+    const meaning = document.createElement("span"); meaning.className = "source-meaning"; meaning.textContent = entry.meaning;
+    content.append(title, meaning);
+    if (already) { const note = document.createElement("small"); note.textContent = "已收录此范围，不会重复添加"; content.append(note); }
+    row.append(input, content);
+    return row;
+  });
+  $("member-source-list").replaceChildren(...rows);
+  renderChrome();
+}
+
+async function openSource() {
+  if (state.phase !== "ready" || state.entryBusy) return;
+  $("member-source-panel").hidden = false;
+  $("member-source-toggle").setAttribute("aria-expanded", "true");
+  if (state.publicSnapshot) { renderSource(); return; }
+  const token = scope.capture();
+  state.sourceBusy = true; renderChrome();
+  $("member-source-status").textContent = "正在读取公开词库…";
+  try {
+    const snapshot = await request((signal) => fetchPersonalPublicCatalog({ signal }));
+    if (!scope.current(token)) return;
+    state.publicSnapshot = snapshot;
+    $("member-source-status").textContent = "选择词本、章节，再勾选需要学习的词。";
+    renderSource();
+  } catch (error) { if (scope.current(token) && !error?.stale) $("member-source-status").textContent = `${error.message} 点击“从公开词库选词”可重试。`; }
+  finally { if (scope.current(token)) { state.sourceBusy = false; renderSource(); renderChrome(); } }
+}
+
+async function addSelections() {
+  if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || !state.entriesLoaded) return;
+  let payload;
+  try { payload = selectionPayload([...state.selectedSources], state.sourceBook, state.sourceChapter); }
+  catch (error) { $("member-source-status").textContent = error.message; return; }
+  const uid = state.user.id;
+  const token = scope.capture();
+  const body = { ...payload, mutationId: mutations.idFor(uid, "selections", payload) };
+  const csrf = state.csrfToken;
+  state.entryBusy = true; renderChrome(); renderSource();
+  status("正在把选中的词加入私人词本…", "loading");
+  try {
+    const result = await request((signal) => api.select(body, csrf, privateOptions(signal)));
+    if (!scope.current(token)) return;
+    if (!Array.isArray(result.entries) || !Number.isSafeInteger(result.revision) || result.revision < 0
+      || ![result.added, result.reused, result.contextAdded].every((number) => Number.isSafeInteger(number) && number >= 0)) throw new Error("选词保存结果不完整，请保留勾选后重试。");
+    const affected = result.entries.map(validatePersonalEntry);
+    const byId = new Map(state.entries.map((entry) => [entry.id, entry]));
+    for (const entry of affected) byId.set(entry.id, entry);
+    state.entries = [...byId.values()];
+    state.revision = Math.max(state.revision, result.revision);
+    mutations.clear(uid, "selections");
+    state.selectedSources.clear();
+    await loadEntries({ announce: false });
+    if (!scope.current(token)) return;
+    renderEntries(); renderSource();
+    const message = `已确认：新增 ${result.added} 条，复用 ${result.reused} 条，补充 ${result.contextAdded} 处来源。当前编辑未被替换。`;
+    $("member-source-status").textContent = message;
+    status(message, "saved");
+  } catch (error) {
+    if (!scope.current(token) || error?.stale) return;
+    $("member-source-status").textContent = "加入尚未确认；勾选仍保留，可用同一批词重试。";
+    handleFailure(error, "选词保存未完成");
+  } finally { if (scope.current(token)) { state.entryBusy = false; renderChrome(); renderSource(); renderEntries(); } }
+}
+
+function renderStudy() {
+  const study = state.study;
+  if (!study) return;
+  const entry = study.queue[study.index];
+  const completed = !entry;
+  $("member-study-progress").textContent = completed ? "本次学习完成" : `${study.index + 1} / ${study.queue.length} · 已同步 ${study.completed}`;
+  $("member-study-term").textContent = completed ? "收好了，慢慢记。" : entry.term;
+  const context = entry?.selectedSourceContext;
+  $("member-study-source").textContent = context ? [context.bookTitle, context.chapterTitle, context.page].filter(Boolean).join(" · ") : "";
+  $("member-study-prompt").hidden = completed || study.revealed;
+  $("member-study-reveal").hidden = completed || study.revealed;
+  $("member-study-answer").hidden = !completed && !study.revealed;
+  $("member-study-meaning").textContent = completed ? `本次已确认同步 ${study.completed} 条自评记录。下次到期时间由服务器安排。` : entry.meaning;
+  $("member-study-usage").textContent = context?.usage || "";
+  $("member-study-example").textContent = context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
+  $("member-study-note").textContent = entry?.note || "";
+  $("member-study-ratings").hidden = completed || !study.revealed;
+  $("member-study-ratings").disabled = study.busy || state.learningBusy || !state.learningLoaded || Boolean(study.pending);
+  $("member-study-close").disabled = study.busy;
+  $("member-study-retry").hidden = !study.pending || study.busy || study.conflict;
+  $("member-study-retry").disabled = state.learningBusy || !state.learningLoaded;
+  $("member-study-retry").textContent = study.pending ? `重试这次自评：${RATING_LABELS[study.pending.rating]}` : "重试这次自评";
+  $("member-study-sync").hidden = !study.conflict || study.busy;
+  $("member-study-sync").disabled = state.learningBusy;
+}
+
+function closeStudy() {
+  const study = state.study;
+  if (study?.busy) {
+    $("member-study-status").textContent = "正在同步这次自评，请等结果返回后再关闭。";
+    return;
+  }
+  if (study?.pending && !window.confirm("这次自评尚未确认，服务器可能已经保存。关闭会离开当前题；下次请先刷新云端记录再继续。仍要关闭吗？")) return;
+  $("member-study-dialog").close();
+}
+
+function startStudy(mode) {
+  if (state.phase !== "ready" || !state.user || !state.learningLoaded || state.entryBusy) return;
+  const queue = personalStudyQueue(currentStudyEntries(), state.reviews, { mode });
+  if (!queue.length) { status("当前范围没有可学习的中文词条或到期词。", "saved"); return; }
+  state.study = { queue, index: 0, completed: 0, revealed: false, busy: false, pending: null, conflict: false };
+  $("member-study-status").textContent = "";
+  renderStudy();
+  if (!$("member-study-dialog").open) $("member-study-dialog").showModal();
+}
+
+async function rateStudy(rating) {
+  const study = state.study;
+  if (!study || !study.revealed || study.busy || state.learningBusy || !state.learningLoaded || state.phase !== "ready" || !state.user || !RATING_LABELS[rating]) return;
+  const entry = study.queue[study.index];
+  if (!entry) return;
+  const token = scope.capture();
+  const uid = state.user.id;
+  if (!study.pending) {
+    const previous = state.reviews.find((review) => review.entryId === entry.id);
+    const payload = { rating, revision: previous?.revision || 0 };
+    study.pending = { ...payload, mutationId: mutations.idFor(uid, `review:${entry.id}`, payload) };
+  }
+  study.busy = true;
+  $("member-study-status").textContent = "正在同步这次自评…";
+  $("member-study-status").dataset.state = "loading";
+  renderChrome(); renderStudy();
+  const csrf = state.csrfToken;
+  try {
+    const result = await request((signal) => api.review(entry.id, study.pending, csrf, privateOptions(signal)));
+    if (!scope.current(token) || state.study !== study) return;
+    const review = validatePersonalReview(result.review);
+    if (!Number.isSafeInteger(result.revision) || result.revision < 0 || review.entryId !== entry.id || review.revision <= study.pending.revision) throw new Error("自评结果尚未确认，请重试同一次评分。");
+    state.reviews = [...state.reviews.filter((value) => value.entryId !== entry.id), review];
+    state.learningRevision = Math.max(state.learningRevision, result.revision);
+    mutations.clear(uid, `review:${entry.id}`);
+    study.pending = null;
+    study.index += 1;
+    study.completed += 1;
+    study.revealed = false;
+    study.conflict = false;
+    $("member-study-status").textContent = "已同步到自己的账号。";
+    $("member-study-status").dataset.state = "saved";
+    renderLearning();
+  } catch (error) {
+    if (!scope.current(token) || state.study !== study || error?.stale) return;
+    if (error.status === 401) { handleFailure(error); return; }
+    study.conflict = error.status === 409;
+    $("member-study-status").textContent = study.conflict
+      ? "其他设备的学习记录已更新。本题没有前进，请先核对云端记录。"
+      : `${error.message} 本题和这次选择仍保留，重试不会重复计数。`;
+    $("member-study-status").dataset.state = "error";
+  } finally { if (scope.current(token) && state.study === study) { study.busy = false; renderChrome(); renderStudy(); } }
+}
+
+async function reconcileStudy() {
+  const study = state.study;
+  if (!study || !study.conflict || study.busy) return;
+  const token = scope.capture();
+  const confirmed = await loadLearning();
+  if (!scope.current(token) || state.study !== study || !confirmed) return;
+  const entry = study.queue[study.index];
+  if (entry) mutations.clear(state.user.id, `review:${entry.id}`);
+  study.pending = null;
+  study.conflict = false;
+  $("member-study-status").textContent = "已核对云端。本题仍保留，请再次明确选择自评。";
+  renderChrome(); renderStudy();
 }
 
 async function verifySession() {
@@ -246,6 +558,7 @@ async function verifySession() {
     return;
   }
   if (verificationTask) return verificationTask;
+  const previousUserId = state.user?.id || null;
   if (state.user) captureDraft();
   clearSession();
   state.phase = "checking";
@@ -253,12 +566,16 @@ async function verifySession() {
   status("正在验证账号…", "loading");
   const task = (async () => {
     try {
-      const result = await request((signal) => api.session({ signal }));
+      const result = await request((signal) => api.session(privateOptions(signal)));
       if (result.authenticated === false) {
         clearSession();
-        state.phase = "signed-out";
+        state.phase = state.authType === "github-owner" ? "owner-gate" : "signed-out";
         renderChrome();
         status("登录后，你的词条会保存在自己的账号里。", "saved");
+        return;
+      }
+      if (previousUserId && sessionValue(result).user.id !== previousUserId) {
+        lockSession("当前浏览器的账号已改变。请明确重新登录后查看自己的词本；旧页面输入没有转给其他人。");
         return;
       }
       adoptSession(result);
@@ -288,6 +605,7 @@ async function authenticate(kind, event) {
     };
   } catch (error) { status(error.message, "error"); return; }
   $(`${kind}-password`).value = "";
+  state.authType = "member";
   scope.advance();
   const token = scope.capture();
   state.authBusy = true;
@@ -325,6 +643,7 @@ async function resetPassword(event) {
   } catch (error) { status(error.message, "error"); return; }
   $("reset-password").value = "";
   $("reset-recovery-code").value = "";
+  state.authType = "member";
   scope.advance();
   const token = scope.capture();
   state.authBusy = true;
@@ -383,7 +702,8 @@ async function acknowledgeRecovery() {
 }
 
 function discardAllowed() {
-  return !isPersonalDraftDirty(state.editor) || window.confirm("当前有尚未保存的输入，确定放弃这些修改吗？");
+  return !(isPersonalDraftDirty(state.editor) || state.selectedSources.size || state.study?.pending)
+    || window.confirm("当前有未保存的输入、勾选或尚未确认的自评，确定放弃当前页面的这些内容吗？");
 }
 
 function editEntry(entry) {
@@ -399,6 +719,13 @@ function showEntry(entry) {
   $("member-detail-meaning").textContent = entry.meaning || "中文释义尚待补充。";
   $("member-detail-note").textContent = entry.note;
   $("member-detail-note-section").hidden = !entry.note;
+  const context = entry.selectedSourceContext || personalSourceContext(entry, state.collectionId, state.chapterId);
+  $("member-detail-source-section").hidden = !context;
+  $("member-detail-source").textContent = context ? [context.bookTitle, context.chapterTitle, context.page].filter(Boolean).join(" · ") : "";
+  $("member-detail-original").textContent = context ? [context.originalInput ? `原文形式：${context.originalInput}` : "", context.partOfSpeech, context.phonetic].filter(Boolean).join(" · ") : "";
+  $("member-detail-definition").textContent = context?.definition || "";
+  $("member-detail-usage").textContent = context?.usage || "";
+  $("member-detail-example").textContent = context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
   $("member-detail-edit").disabled = state.entryBusy;
   if (!$("member-detail-dialog").open) $("member-detail-dialog").showModal();
 }
@@ -406,7 +733,8 @@ function showEntry(entry) {
 function renderEntries() {
   if (state.phase !== "ready") { $("member-entry-list").replaceChildren(); return; }
   const query = normalizePublicSearchQuery($("member-search").value);
-  const entries = state.entries.filter((entry) => !query || normalizePublicSearchQuery([entry.term, entry.meaning, entry.note].join(" ")).includes(query))
+  renderPrivateScope();
+  const entries = filterPersonalEntries(state.entries, state.collectionId, state.chapterId).filter((entry) => !query || normalizePublicSearchQuery([entry.term, entry.meaning, entry.note].join(" ")).includes(query))
     .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt) || left.id.localeCompare(right.id));
   const rows = entries.map((entry) => {
     const row = document.createElement("article");
@@ -420,7 +748,7 @@ function renderEntries() {
     const actions = document.createElement("div"); actions.className = "entry-actions";
     for (const [action, label] of [["edit", "编辑"], ["delete", "删除"]]) {
       const button = document.createElement("button"); button.type = "button"; button.textContent = label;
-      button.dataset.action = action; button.disabled = state.entryBusy;
+      button.dataset.action = action; button.disabled = state.entryBusy || (action === "delete" && (state.listBusy || state.learningBusy));
       if (action === "delete") button.className = "danger";
       button.addEventListener("click", () => action === "edit" ? editEntry(entry) : void deleteEntry(entry));
       actions.append(button);
@@ -429,12 +757,14 @@ function renderEntries() {
     const meaning = document.createElement("p"); meaning.className = "entry-meaning";
     meaning.textContent = entry.meaning || "中文释义待补充";
     row.append(top, meaning);
+    if (entry.selectedSourceContext) { const source = document.createElement("p"); source.className = "entry-source"; source.textContent = [entry.selectedSourceContext.bookTitle, entry.selectedSourceContext.chapterTitle, entry.selectedSourceContext.page].filter(Boolean).join(" · "); row.append(source); }
     if (entry.note) { const note = document.createElement("p"); note.className = "entry-note"; note.textContent = entry.note; row.append(note); }
     return row;
   });
   $("member-entry-list").replaceChildren(...rows);
   $("member-empty").hidden = entries.length > 0 || !state.entriesLoaded;
   $("member-empty").textContent = query ? "没有匹配的词条。" : "这里还很安静。记下你的第一个词吧。";
+  renderLearning();
 }
 
 function showConflict(error) {
@@ -448,14 +778,17 @@ function showConflict(error) {
 
 async function saveEntry(event) {
   event.preventDefault();
-  if (state.phase !== "ready" || !state.user || state.entryBusy || !state.entriesLoaded) return;
+  if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || !state.entriesLoaded) return;
   const draft = captureDraft();
   let input;
-  try { input = validatePersonalInput(draft); }
+  try { input = validatePersonalInput(draft, { imported: Boolean(draft.sourceContexts?.length) }); }
   catch (error) { status(error.message, "error"); return; }
   const uid = state.user.id;
   const token = scope.capture();
   const slot = draft.id ? `update:${draft.id}` : "create";
+  if (draft.sourceContexts?.length && !draft.meaningEdited && draft.meaning === draft.baseline.meaning) {
+    input.meaning = state.entries.find((entry) => entry.id === draft.id)?.meaning ?? input.meaning;
+  }
   const payload = { ...(draft.id ? { revision: draft.revision } : {}), ...input };
   const body = { ...payload, mutationId: mutations.idFor(uid, slot, payload) };
   const csrf = state.csrfToken;
@@ -463,11 +796,12 @@ async function saveEntry(event) {
   renderChrome(); renderEntries();
   status("正在保存到你的账号…", "loading");
   try {
-    const result = await request((signal) => draft.id ? api.update(draft.id, body, csrf, { signal }) : api.add(body, csrf, { signal }));
+    const result = await request((signal) => draft.id ? api.update(draft.id, body, csrf, privateOptions(signal)) : api.add(body, csrf, privateOptions(signal)));
     if (!scope.current(token)) return;
     const entry = validatePersonalEntry(result.entry);
+    if (!Number.isSafeInteger(result.revision) || result.revision < 0) throw new Error("保存结果尚未完整确认，请保留当前输入后重试。");
     state.entries = [...state.entries.filter((value) => value.id !== entry.id), entry];
-    if (Number.isSafeInteger(result.revision)) state.revision = result.revision;
+    state.revision = Math.max(state.revision, result.revision);
     mutations.clear(uid, slot);
     drafts.clear(uid);
     fillEditor(personalDraft());
@@ -481,7 +815,7 @@ async function saveEntry(event) {
 }
 
 async function deleteEntry(entry) {
-  if (state.phase !== "ready" || !state.user || state.entryBusy) return;
+  if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || state.learningBusy) return;
   if (!window.confirm(`从你的私人词本删除“${entry.term}”吗？此操作不会影响公开词库。`)) return;
   const uid = state.user.id;
   const token = scope.capture();
@@ -492,10 +826,13 @@ async function deleteEntry(entry) {
   state.entryBusy = true; renderChrome(); renderEntries();
   status("正在删除这个词…", "loading");
   try {
-    await request((signal) => api.remove(entry.id, body, csrf, { signal }));
+    const result = await request((signal) => api.remove(entry.id, body, csrf, privateOptions(signal)));
     if (!scope.current(token)) return;
+    if (!Number.isSafeInteger(result.revision) || result.revision < 0 || result.entry !== null) throw new Error("删除结果尚未完整确认，请刷新核对或重试。");
     mutations.clear(uid, slot);
+    state.revision = Math.max(state.revision, result.revision);
     state.entries = state.entries.filter((value) => value.id !== entry.id);
+    state.reviews = state.reviews.filter((review) => review.entryId !== entry.id);
     if (state.editor?.id === entry.id) fillEditor(personalDraft());
     if (detailEntry?.id === entry.id && $("member-detail-dialog").open) $("member-detail-dialog").close();
     status("词条已从你的私人词本删除。", "saved");
@@ -515,9 +852,9 @@ async function logout() {
   state.authBusy = true;
   renderChrome();
   try {
-    await request((signal) => api.logout(csrf, { signal }));
+    await request((signal) => api.logout(csrf, privateOptions(signal)));
     if (!scope.current(token)) return;
-    state.phase = "signed-out";
+    state.phase = state.authType === "github-owner" ? "owner-gate" : "signed-out";
     renderChrome();
     status("已退出。下次需要重新登录。", "saved");
   } catch (error) {
@@ -528,7 +865,7 @@ async function logout() {
 
 async function deleteAccount(event) {
   event.preventDefault();
-  if (state.phase !== "ready" || !state.user || state.entryBusy) return;
+  if (state.phase !== "ready" || !state.user || state.entryBusy || state.authType !== "member") return;
   let body;
   try {
     body = { password: validatePersonalPassword($("delete-account-password").value), confirmation: $("delete-account-confirmation").value };
@@ -540,7 +877,7 @@ async function deleteAccount(event) {
   state.entryBusy = true;
   renderChrome();
   try {
-    const result = await request((signal) => api.deleteAccount(body, csrf, { signal }));
+    const result = await request((signal) => api.deleteAccount(body, csrf, privateOptions(signal)));
     if (!scope.current(token)) return;
     if (result.ok !== true) throw new Error("账号删除结果尚未确认。");
     lockSession(result.deletionPending
@@ -567,6 +904,42 @@ $("member-reset-form").addEventListener("submit", (event) => void resetPassword(
 $("member-entry-form").addEventListener("submit", (event) => void saveEntry(event));
 $("member-entry-form").addEventListener("input", () => { captureDraft(); renderChrome(); });
 $("member-search").addEventListener("input", renderEntries);
+$("member-book").addEventListener("change", () => { state.collectionId = $("member-book").value; state.chapterId = "all"; renderEntries(); });
+$("member-chapter").addEventListener("change", () => { state.chapterId = $("member-chapter").value; renderEntries(); });
+$("member-source-toggle").addEventListener("click", () => void openSource());
+$("member-source-close").addEventListener("click", () => {
+  $("member-source-panel").hidden = true;
+  $("member-source-toggle").setAttribute("aria-expanded", "false");
+  $("member-source-toggle").focus();
+});
+$("member-source-book").addEventListener("change", () => { state.sourceBook = $("member-source-book").value; state.sourceChapter = "all"; state.selectedSources.clear(); renderSource(); });
+$("member-source-chapter").addEventListener("change", () => { state.sourceChapter = $("member-source-chapter").value; state.selectedSources.clear(); renderSource(); });
+$("member-source-search").addEventListener("input", renderSource);
+$("member-source-all").addEventListener("click", () => {
+  const saved = new Set(state.entries.flatMap((entry) => (entry.sourceContexts || []).map((context) => context.key)));
+  const choices = sourceEntries().filter((entry) => !alreadySelectedSource(state.entries, entry, state.sourceBook, state.sourceChapter, saved));
+  if (choices.length > 100) { $("member-source-status").textContent = "当前结果超过 100 条，请切换章节或搜索缩小范围后分批选择。"; return; }
+  state.selectedSources = new Set(choices.map((entry) => entry.id));
+  renderSource();
+});
+$("member-source-clear").addEventListener("click", () => { state.selectedSources.clear(); renderSource(); });
+$("member-source-add").addEventListener("click", () => void addSelections());
+$("member-learning-refresh").addEventListener("click", () => void loadLearning());
+$("member-study-all").addEventListener("click", () => startStudy("all"));
+$("member-review-due").addEventListener("click", () => startStudy("due"));
+$("member-study-reveal").addEventListener("click", () => { if (state.study) { state.study.revealed = true; renderStudy(); } });
+for (const button of document.querySelectorAll("[data-member-rating]")) button.addEventListener("click", () => void rateStudy(button.dataset.memberRating));
+$("member-study-retry").addEventListener("click", () => { if (state.study?.pending) void rateStudy(state.study.pending.rating); });
+$("member-study-sync").addEventListener("click", () => void reconcileStudy());
+$("member-study-close").addEventListener("click", closeStudy);
+$("member-study-dialog").addEventListener("cancel", (event) => { event.preventDefault(); closeStudy(); });
+$("member-study-dialog").addEventListener("close", () => {
+  if ($("member-study-dialog").open) return;
+  state.study = null;
+  for (const id of ["member-study-term", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
+  renderChrome();
+});
+$("member-owner-refresh").addEventListener("click", () => { lockMarker(false); state.authType = "github-owner"; state.phase = "checking"; void verifySession(); });
 $("member-refresh").addEventListener("click", () => void loadEntries());
 for (const id of ["member-new", "member-cancel"]) $(id).addEventListener("click", () => {
   if (state.phase === "ready" && !state.entryBusy && discardAllowed()) fillEditor(personalDraft(), { focus: true });
@@ -581,8 +954,8 @@ $("member-detail-edit").addEventListener("click", () => {
 $("member-export").addEventListener("click", () => {
   if (state.phase !== "ready" || !state.user || !state.entriesLoaded) return;
   try {
-    download(`${serializePersonalExport(state.entries, state.user.username)}\n`, `my-wordbook-${state.user.username}-${new Date().toISOString().slice(0, 10)}.json`);
-    status("已导出已保存词条。文件包含个人内容，请妥善保管。", "saved");
+    download(`${serializePersonalExport(state.entries, state.user.username, new Date().toISOString(), state.reviews)}\n`, `my-wordbook-${state.user.username}-${new Date().toISOString().slice(0, 10)}.json`);
+    status("已导出个人词条和云端学习记录。文件包含个人内容，请妥善保管。", "saved");
   } catch (error) { handleFailure(error, "导出失败"); }
 });
 $("member-logout").addEventListener("click", () => void logout());
@@ -610,9 +983,9 @@ $("member-delete-account").addEventListener("click", () => {
 });
 $("delete-account-form").addEventListener("submit", (event) => void deleteAccount(event));
 $("delete-account-cancel").addEventListener("click", () => $("delete-account-dialog").close());
-$("delete-account-dialog").addEventListener("close", () => { $("delete-account-password").value = ""; $("delete-account-confirmation").value = ""; });
+$("delete-account-dialog").addEventListener("close", () => { if ($("delete-account-dialog").open) return; $("delete-account-password").value = ""; $("delete-account-confirmation").value = ""; });
 window.addEventListener("beforeunload", (event) => {
-  if (drafts.hasUnsaved() || state.recovery || state.entryBusy) { event.preventDefault(); event.returnValue = ""; }
+  if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.study?.pending || state.selectedSources.size) { event.preventDefault(); event.returnValue = ""; }
 });
 window.addEventListener("pagehide", () => {
   if (state.user) captureDraft();
@@ -636,12 +1009,14 @@ if (channel) channel.onmessage = (event) => {
 // query parameters, referrers, or user-supplied hosts as a redirect destination.
 try {
   const target = new URL(personalWordbookUrl());
+  if (requestedAuth === "github-owner") target.searchParams.set("auth", "owner");
+  else if (requestedAuth === "member") target.searchParams.set("auth", "member");
   if (target.origin !== window.location.origin) window.location.replace(target.href);
   else {
     originReady = true;
     renderChrome();
     setupPwa({ updateBanner: $("update-banner"), applyUpdateButton: $("apply-update"), autoApplyUpdate: false, beforeApplyUpdate: async () => {
-      if (state.recovery || state.entryBusy || drafts.hasUnsaved()) throw new Error("请先保存词条或恢复码，再更新应用。");
+      if (state.recovery || state.entryBusy || drafts.hasUnsaved() || state.study?.pending || state.selectedSources.size) throw new Error("请先保存词条、勾选或恢复码，再更新应用。");
     } });
     void verifySession();
   }

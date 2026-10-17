@@ -1,17 +1,17 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=73";
-import { createEntryDetailController } from "./entry-detail.js?v=73";
-import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=73";
-import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=73";
-import { setupPwa } from "./pwa.js?v=73";
-import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=73";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=74";
+import { createEntryDetailController } from "./entry-detail.js?v=74";
+import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=74";
+import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=74";
+import { setupPwa } from "./pwa.js?v=74";
+import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=74";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=73";
-import { sameSynonymSenseView } from "./synonym-evidence.js?v=73";
-import { renderSynonymGroups } from "./synonym-view.js?v=73";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=73";
+import { buildSynonymGroups } from "./synonym-groups.js?v=74";
+import { sameSynonymSenseView } from "./synonym-evidence.js?v=74";
+import { renderSynonymGroups } from "./synonym-view.js?v=74";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=74";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=73";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=73";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=74";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=74";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",

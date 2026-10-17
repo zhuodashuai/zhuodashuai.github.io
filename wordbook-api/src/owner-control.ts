@@ -229,6 +229,19 @@ export class OwnerControl implements DurableObject {
     return jsonResponse({ authenticated: true, user: { login: session.login, id: session.userId, avatarUrl: session.avatarUrl } });
   }
 
+  /** Narrow bridge for the owner's private book: no token or CSRF rotation. */
+  private async readAssertSession(body: Record<string, unknown>): Promise<Response> {
+    const sessionHash = internalString(body, "sessionHash", 64, 64);
+    const session = await this.ctx.storage.get<OwnerSession>(`session:${sessionHash}`);
+    if (!session || session.absoluteExpiresAt <= Date.now() || session.githubTokenExpiresAt <= Date.now()
+      || session.userId !== OWNER_USER_ID || session.login !== "zhuodashuai"
+      || session.repositoryId !== Number(this.config.GITHUB_REPOSITORY_ID)) {
+      throw new ApiError(401, "authentication_required", "请先以卓本人身份登录。");
+    }
+    return jsonResponse({ authenticated: true, user: { login: session.login, id: session.userId },
+      expiresAt: Math.min(session.absoluteExpiresAt, session.githubTokenExpiresAt) });
+  }
+
   private async deleteSession(body: Record<string, unknown>): Promise<Response> {
     const sessionHash = internalString(body, "sessionHash", 64, 64);
     const csrfToken = internalString(body, "csrfToken", 16, 500);
@@ -499,6 +512,7 @@ export class OwnerControl implements DurableObject {
         case "/session/create": return await this.createSession(body);
         case "/session/view": return await this.sessionView(body);
         case "/session/assert": return await this.assertSession(body);
+        case "/session/read-assert": return await this.readAssertSession(body);
         case "/session/delete": return await this.deleteSession(body);
         case "/rate": return await this.applyRate(body);
         case "/public/snapshot": return await this.publicSnapshot();

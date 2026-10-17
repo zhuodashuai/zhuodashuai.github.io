@@ -5,6 +5,8 @@ import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validateEnglishInput, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
 import { isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
+import { collectionMemberships } from "../../../vocab/js/collections.js";
+import { scheduleReview } from "../../../vocab/js/review.js";
 
 const root = resolve("vocab");
 const baseline = parsePublicSnapshot(JSON.parse(await readFile(join(root, "data/owner-wordbook.json"), "utf8")));
@@ -94,6 +96,7 @@ const memberFixtureOrigin = "http://127.0.0.1:4187";
 const fixturePasswordHash = password => createHash("sha256").update(password).digest("hex");
 const fixtureMemberCookie = token => `e2e_member_session=${token}; Path=/; HttpOnly; SameSite=Strict`;
 const memberHeaders = { "Cache-Control": "private, no-store", Pragma: "no-cache", Vary: "Cookie", "X-Content-Type-Options": "nosniff" };
+const fixtureOwnerId = "15604207-8000-4000-8000-000000000001";
 
 function memberJson(response, status, value, headers = {}) {
   return json(response, status, value, { ...memberHeaders, ...headers });
@@ -105,16 +108,25 @@ function memberError(response, status, code, message, details) {
 
 function memberFixtureSession(request) {
   const state = runState(request);
-  const token = cookies(request).e2e_member_session;
+  const requestCookies = cookies(request);
+  const mode = request.headers["x-wordbook-auth"] || "auto";
+  if (!["auto", "member", "github-owner"].includes(mode)) return null;
+  if (mode === "github-owner" || (mode === "auto" && !requestCookies.e2e_member_session)) {
+    if (!authenticated(request)) return null;
+    state.ownerMemberAccount ||= { id: fixtureOwnerId, username: "zhuodashuai", revision: 0, entries: [], reviews: new Map(), mutations: new Map() };
+    return { state, token: "github-owner", authType: "github-owner", account: state.ownerMemberAccount,
+      session: { userId: fixtureOwnerId, username: "zhuodashuai", csrfToken: "e2e-csrf-token-000000000000000000000000", expiresAt: Date.now() + 3_600_000 } };
+  }
+  const token = requestCookies.e2e_member_session;
   const session = state.memberSessions.get(token);
   if (!session || session.expiresAt <= Date.now()) return null;
   const account = state.memberAccounts.get(session.username);
   if (!account || account.deleted || account.id !== session.userId) return null;
-  return { state, token, session, account };
+  return { state, token, session, account, authType: "member" };
 }
 
-function memberSessionPayload(session, account) {
-  return { authenticated: true, user: { id: account.id, username: account.username }, csrfToken: session.csrfToken, expiresAt: session.expiresAt };
+function memberSessionPayload(session, account, authType = "member") {
+  return { authenticated: true, authType, user: { id: account.id, username: account.username }, csrfToken: session.csrfToken, expiresAt: session.expiresAt };
 }
 
 function createMemberFixtureSession(state, account) {
@@ -149,7 +161,8 @@ function memberFixtureMutation(request, response, account, operation, payload) {
     if (prior.operation !== operation || prior.fingerprint !== fingerprint) {
       memberError(response, 409, "idempotency_key_reused", "这个操作编号已经用于另一项修改。");
     } else {
-      memberJson(response, prior.status, prior.value);
+      memberJson(response, prior.status, operation === "selection" ? { ...prior.value, added: 0, reused: 0, contextAdded: 0 }
+        : operation.startsWith("review:") ? { ...prior.value, action: "idempotent" } : prior.value);
     }
     return { stopped: true };
   }
@@ -159,12 +172,79 @@ function memberFixtureMutation(request, response, account, operation, payload) {
   } };
 }
 
+function selectionContexts(entry, collectionId, chapterId) {
+  const memberships = collectionMemberships(entry);
+  const selected = memberships.length ? memberships.filter(item => (collectionId === "all" || item.collectionId === collectionId)
+    && (chapterId === "all" || item.chapterId === chapterId)) : collectionId === "all" || collectionId === "main"
+      ? [{ collectionId: "main", chapterId: "all", tag: "" }] : [];
+  return selected.map(item => {
+    const context = entry.readingContexts?.find(value => value.membership === item.tag) || entry;
+    return {
+      key: `${entry.id}:${item.collectionId}:${item.chapterId}`, entryId: entry.id, term: entry.term,
+      collectionId: item.collectionId, chapterId: item.chapterId,
+      bookTitle: item.collectionId === "main" ? "卓的主词本" : context.sourceWork || entry.sourceWork || item.collectionId,
+      chapterTitle: item.chapterId === "all" ? "" : `Chapter ${item.chapterId.slice(8)}`,
+      sourceTitle: context.sourceTitle || entry.sourceTitle || "", page: context.page || "",
+      originalInput: context.originalInput || entry.originalInput || entry.term,
+      meaning: context.meaning || "", definition: context.definition || "",
+      exampleEn: context.exampleEn || "", exampleZh: context.exampleZh || "",
+      partOfSpeech: context.partOfSpeech || "", phonetic: entry.phonetic || "", usage: context.usage || ""
+    };
+  });
+}
+
+function memberFixtureSelection(request, response, state, account, payload) {
+  if (!Array.isArray(payload.entryIds) || !payload.entryIds.length || payload.entryIds.length > 100
+    || payload.entryIds.some(id => typeof id !== "string") || new Set(payload.entryIds).size !== payload.entryIds.length
+    || typeof payload.collectionId !== "string" || !/^(?:all|main|[a-z0-9]+(?:-[a-z0-9]+)*)$/u.test(payload.collectionId)
+    || typeof payload.chapterId !== "string" || !/^(?:all|chapter-[1-9]\d*)$/u.test(payload.chapterId)
+    || (payload.collectionId === "main" && payload.chapterId !== "all")) return memberError(response, 400, "invalid_selection", "请选择有效的公开词条及章节，每次最多 100 条。");
+  const mutation = memberFixtureMutation(request, response, account, "selection", payload);
+  if (mutation.stopped) return;
+  const source = payload.entryIds.map(id => {
+    const entry = state.snapshot.entries.find(item => item.id === id);
+    return entry ? { entry, contexts: selectionContexts(entry, payload.collectionId, payload.chapterId) } : null;
+  });
+  if (source.some(item => !item || !item.contexts.length)) return memberError(response, 400, "invalid_selection", "选入的词条不属于指定公开章节。");
+  if (account.entries.length + source.filter(item => !account.entries.some(entry => entry.normalized === item.entry.normalized)).length > 1000) return memberError(response, 413, "personal_entry_limit", "个人词库最多 1000 条。");
+  let added = 0, reused = 0, contextAdded = 0;
+  const affected = [];
+  for (const { entry: publicEntry, contexts } of source) {
+    let entry = account.entries.find(item => item.normalized === publicEntry.normalized);
+    const isNew = !entry;
+    const now = new Date().toISOString();
+    if (!entry) {
+      entry = { id: `member-${crypto.randomUUID()}`, revision: 1, term: publicEntry.term, normalized: publicEntry.normalized,
+        meaning: contexts[0].meaning, note: "", createdAt: now, updatedAt: now, sourceContexts: [], meaningEdited: false };
+      account.entries.push(entry); added++;
+    } else {
+      reused++;
+      if (!entry.sourceContexts?.length) {
+        entry.meaningEdited = Boolean(entry.meaning);
+        if (!entry.meaning) entry.meaning = contexts[0].meaning;
+      }
+    }
+    const existing = entry.sourceContexts || [];
+    const extra = contexts.filter(context => !existing.some(value => value.key === context.key));
+    if (existing.length + extra.length > 50) return memberError(response, 413, "source_context_limit", "每个词条最多保留 50 个阅读语境。");
+    if (extra.length) {
+      entry.sourceContexts = [...existing, ...extra];
+      contextAdded += extra.length;
+      if (!isNew) entry.revision++;
+      entry.updatedAt = now;
+    }
+    affected.push(structuredClone(entry));
+  }
+  if (added || contextAdded) account.revision++;
+  return mutation.save(200, { revision: account.revision, added, reused, contextAdded, entries: affected });
+}
+
 async function memberApi(request, response, url) {
   const path = url.pathname.slice("/api/v1/member/".length);
   const state = runState(request);
   const current = memberFixtureSession(request);
   if (path === "session" && request.method === "GET") {
-    return memberJson(response, 200, current ? memberSessionPayload(current.session, current.account) : { authenticated: false });
+    return memberJson(response, 200, current ? memberSessionPayload(current.session, current.account, current.authType) : { authenticated: false });
   }
   if (request.method !== "GET") {
     if (request.headers.origin !== memberFixtureOrigin || !/^application\/json(?:\s*;|$)/iu.test(request.headers["content-type"] || "")) {
@@ -178,6 +258,8 @@ async function memberApi(request, response, url) {
     const required = ["register", "login"].includes(path) ? ["username", "password"]
       : path === "password/reset" ? ["username", "recoveryCode", "newPassword"]
       : path === "account" ? ["password", "confirmation"]
+      : path === "selections" ? ["entryIds", "collectionId", "chapterId", "mutationId"]
+      : /^reviews\//u.test(path) ? ["rating", "revision", "mutationId"]
       : path === "entries" ? ["term", "mutationId"]
       : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : [];
     const optional = (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note"] : [];
@@ -188,6 +270,7 @@ async function memberApi(request, response, url) {
     }
   }
   if (["register", "login"].includes(path) && request.method === "POST") {
+    if (request.headers["x-wordbook-auth"] === "github-owner") return memberError(response, 403, "owner_account_managed_by_github", "所有者请使用既有 GitHub 身份。");
     if (!validMemberFixtureCredentials(payload?.username, payload?.password)) return memberError(response, 400, "invalid_credentials", "用户名需以字母开头，为 3–24 位字母、数字或下划线；密码需为 15–128 个字符。");
     const username = payload.username.toLowerCase();
     if (["owner", "admin", "administrator", "zhuodashuai", "zhuo", "root", "support", "system"].includes(username)) return memberError(response, 400, "reserved_username", "这个用户名为系统保留。");
@@ -196,7 +279,7 @@ async function memberApi(request, response, url) {
     if (path === "register") {
       if (account) return memberError(response, 409, "username_unavailable", "这个用户名已经注册。");
       recoveryCode = randomBytes(32).toString("base64url");
-      account = { id: crypto.randomUUID(), username, passwordHash: fixturePasswordHash(payload.password), recoveryHash: fixturePasswordHash(recoveryCode), deleted: false, revision: 0, entries: [], mutations: new Map() };
+      account = { id: crypto.randomUUID(), username, passwordHash: fixturePasswordHash(payload.password), recoveryHash: fixturePasswordHash(recoveryCode), deleted: false, revision: 0, entries: [], reviews: new Map(), mutations: new Map() };
       state.memberAccounts.set(username, account);
     } else if (!account || account.deleted || account.passwordHash !== fixturePasswordHash(payload.password)) {
       return memberError(response, 401, "invalid_credentials", "用户名或密码不正确。");
@@ -207,6 +290,7 @@ async function memberApi(request, response, url) {
       { "Set-Cookie": fixtureMemberCookie(token) });
   }
   if (path === "password/reset" && request.method === "POST") {
+    if (request.headers["x-wordbook-auth"] === "github-owner") return memberError(response, 403, "owner_account_managed_by_github", "所有者账号由 GitHub 管理。");
     if (!validMemberFixtureCredentials(payload?.username, payload?.newPassword) || typeof payload.recoveryCode !== "string") {
       return memberError(response, 400, "invalid_reset", "请输入用户名、恢复码和不少于 15 字符的新密码。");
     }
@@ -223,26 +307,44 @@ async function memberApi(request, response, url) {
   if (request.method !== "GET" && request.headers["x-csrf-token"] !== session.csrfToken) return memberError(response, 403, "csrf_failed", "页面验证已失效，请重新登录。");
   if (path === "logout" && request.method === "POST") {
     if (cookies(request).e2e_member_logout_fail === "1") return memberError(response, 503, "member_unavailable", "测试用退出网络故障。");
+    if (current.authType === "github-owner") return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_auth=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax" });
     state.memberSessions.delete(token);
     return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
   }
   if (path === "account" && request.method === "DELETE") {
+    if (current.authType === "github-owner") return memberError(response, 403, "owner_account_managed_by_github", "所有者账号由 GitHub 管理。");
     if (payload?.confirmation !== "DELETE" || typeof payload.password !== "string") return memberError(response, 400, "delete_confirmation_required", "删除账户需输入密码与 DELETE。");
     if (account.passwordHash !== fixturePasswordHash(payload.password)) return memberError(response, 401, "invalid_credentials", "密码不正确，账户没有删除。");
     account.deleted = true;
     account.entries = [];
+    account.reviews.clear();
     account.mutations.clear();
     revokeMemberFixtureSessions(state, account);
     state.memberAccounts.delete(account.username);
     return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
   }
-  if (path === "entries" && request.method === "GET") {
+  if (["entries", "learning"].includes(path) && request.method === "GET") {
     // A cookie may change in another tab between session verification and a
     // list read. This optional header only checks identity: it never selects
     // an account or grants access to another tenant's records.
     const expectedUser = request.headers["x-member-user"];
     if (expectedUser !== undefined && expectedUser !== account.id) return memberError(response, 401, "member_session_changed", "账号已改变，请重新登录确认。");
-    return memberJson(response, 200, { revision: account.revision, entries: structuredClone(account.entries), limit: 1000 });
+    return memberJson(response, 200, path === "learning" ? { revision: account.revision, reviews: structuredClone([...account.reviews.values()]) }
+      : { revision: account.revision, entries: structuredClone(account.entries), limit: 1000 });
+  }
+  if (path === "selections" && request.method === "POST") return memberFixtureSelection(request, response, state, account, payload);
+  const reviewMatch = path.match(/^reviews\/([^/]+)$/u);
+  if (reviewMatch && request.method === "POST") {
+    const id = decodeURIComponent(reviewMatch[1]);
+    if (!account.entries.some(entry => entry.id === id)) return memberError(response, 404, "entry_missing", "词条不存在或不属于当前账号。");
+    if (!["again", "hard", "good", "easy"].includes(payload.rating) || !Number.isSafeInteger(payload.revision) || payload.revision < 0) return memberError(response, 400, "invalid_review", "复习评分不正确。");
+    const mutation = memberFixtureMutation(request, response, account, `review:${id}`, payload);
+    if (mutation.stopped) return;
+    const previous = account.reviews.get(id);
+    if ((previous?.revision || 0) !== payload.revision) return memberError(response, 409, "revision_conflict", "复习记录已在其他设备改变。", { existing: previous || null, revision: account.revision });
+    const review = { ...scheduleReview(previous || { entryId: id }, payload.rating, new Date()), revision: (previous?.revision || 0) + 1 };
+    account.reviews.set(id, review); account.revision++;
+    return mutation.save(200, { revision: account.revision, review: structuredClone(review), action: "reviewed" });
   }
   const match = path.match(/^entries\/([^/]+)$/u);
   if ((path === "entries" && request.method === "POST") || (match && ["PUT", "DELETE"].includes(request.method))) {
@@ -255,6 +357,7 @@ async function memberApi(request, response, url) {
     if (id && payload.revision !== account.entries[index].revision) return memberError(response, 409, "revision_conflict", "词条已被另一个窗口修改，请刷新后再试。", { existing: account.entries[index], revision: account.revision });
     if (request.method === "DELETE") {
       account.entries.splice(index, 1);
+      account.reviews.delete(id);
       account.revision++;
       return mutation.save(200, { revision: account.revision, entry: null, action: "deleted" });
     }
@@ -267,6 +370,7 @@ async function memberApi(request, response, url) {
     try { term = validateEnglishInput(payload.term); }
     catch { return memberError(response, 400, "invalid_entry", "请输入有效的英文单词或短语。"); }
     const normalized = normalizeEnglish(term);
+    if (id && account.entries[index].sourceContexts?.length && normalized !== account.entries[index].normalized) return memberError(response, 400, "source_term_locked", "选入的公开词条不能改成另一个词。");
     const duplicate = account.entries.find(entry => entry.normalized === normalized && entry.id !== id);
     if (duplicate) return memberError(response, 409, "duplicate_entry", "这个词已经在你的单词本里。", { existing: duplicate, revision: account.revision });
     if (!id && account.entries.length >= 1000) return memberError(response, 413, "personal_entry_limit", "个人词条达到上限。");
@@ -276,6 +380,10 @@ async function memberApi(request, response, url) {
       term, normalized, meaning: payload.meaning || "", note: payload.note || "",
       createdAt: id ? account.entries[index].createdAt : now, updatedAt: now
     };
+    if (id && account.entries[index].sourceContexts?.length) {
+      entry.sourceContexts = structuredClone(account.entries[index].sourceContexts);
+      entry.meaningEdited = account.entries[index].meaningEdited || entry.meaning !== account.entries[index].meaning;
+    }
     if (id) account.entries[index] = entry; else account.entries.push(entry);
     account.revision++;
     return mutation.save(200, { revision: account.revision, entry: structuredClone(entry), action: id ? "updated" : "created" });
