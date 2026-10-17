@@ -1,17 +1,20 @@
-const CACHE_NAME = "zhuo-wordbook-v70";
+const CACHE_NAME = "zhuo-wordbook-v71";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
-  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=70", "./manifest.webmanifest",
-  "./js/public-app.js?v=70", "./js/owner-app.js?v=70", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./quick-notes.html", "./quick-notes.css?v=71",
+  "./js/quick-notes-app.js?v=71", "./js/quick-notes-storage.js?v=71",
+  "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
+  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=71", "./manifest.webmanifest",
+  "./js/public-app.js?v=71", "./js/owner-app.js?v=71", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/owner-backup.js", "./js/sync-logic.js", "./js/wordbook-schema.js", "./js/core-dictionary.js", "./js/synonym-evidence.js",
-  "./js/owner-api.js?v=70", "./js/owner-storage.js?v=70", "./js/entry-detail.js?v=70", "./js/synonym-groups.js?v=70", "./js/synonym-evidence.js?v=70",
-  "./js/chapter-quiz.js?v=70", "./js/quiz-storage.js?v=70", "./js/chapter-quiz-ui.js?v=70",
-  "./js/public-snapshot.js?v=70", "./js/learning-backup.js?v=70", "./js/learning-backup-ui.js?v=70",
-  "./js/pwa.js?v=70", "./js/synonym-view.js?v=70",
+  "./js/owner-api.js?v=71", "./js/owner-storage.js?v=71", "./js/entry-detail.js?v=71", "./js/synonym-groups.js?v=71", "./js/synonym-evidence.js?v=71",
+  "./js/chapter-quiz.js?v=71", "./js/quiz-storage.js?v=71", "./js/chapter-quiz-ui.js?v=71",
+  "./js/public-snapshot.js?v=71", "./js/learning-backup.js?v=71", "./js/learning-backup-ui.js?v=71",
+  "./js/pwa.js?v=71", "./js/synonym-view.js?v=71",
   "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
   "./quality/", "./quality/index.html", "./quality/styles.css", "./quality/report.js",
@@ -104,7 +107,8 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (request.mode === "navigate") {
-    const fallback = url.pathname.endsWith("/owner.html") ? "./owner.html" : "./index.html";
+    const fallback = url.pathname.endsWith("/owner.html") ? "./owner.html"
+      : url.pathname.endsWith("/quick-notes.html") ? "./quick-notes.html" : "./index.html";
     event.respondWith(networkFirst(request, fallback));
     return;
   }

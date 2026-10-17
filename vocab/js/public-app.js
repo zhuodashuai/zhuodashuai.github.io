@@ -1,17 +1,17 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=70";
-import { createEntryDetailController } from "./entry-detail.js?v=70";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=71";
+import { createEntryDetailController } from "./entry-detail.js?v=71";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
-import { setupPwa } from "./pwa.js?v=70";
+import { setupPwa } from "./pwa.js?v=71";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=70";
-import { sameSynonymSenseView } from "./synonym-evidence.js?v=70";
-import { renderSynonymGroups } from "./synonym-view.js?v=70";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=70";
+import { buildSynonymGroups } from "./synonym-groups.js?v=71";
+import { sameSynonymSenseView } from "./synonym-evidence.js?v=71";
+import { renderSynonymGroups } from "./synonym-view.js?v=71";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=71";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=70";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=70";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=71";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=71";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",

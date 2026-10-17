@@ -19,6 +19,7 @@
     { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
+    { "name": "随手记", "short_name": "记词", "description": "先记下词语，稍后整理", "url": "./quick-notes.html", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
     { "name": "浏览单词本", "short_name": "单词本", "url": "./", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
   ]
 }

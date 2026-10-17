@@ -78,7 +78,7 @@ test("deleting a dirty draft flushes then removes it and a late debounce cannot 
     window.__ownerDraftTimerCallback?.();
     await new Promise((resolve) => setTimeout(resolve, 0));
   });
-  const remaining = await page.evaluate(async () => (await import("/js/owner-storage.js?v=70")).listDrafts());
+  const remaining = await page.evaluate(async () => (await import("/js/owner-storage.js?v=71")).listDrafts());
   expect(remaining).toEqual([]);
   expect(await page.evaluate(() => window.__ownerBackupWrites)).toBe(1);
   await expect(page.locator("#owner-workspace")).not.toHaveAttribute("inert", "");

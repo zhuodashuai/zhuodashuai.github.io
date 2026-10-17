@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=70";
-import { createEntryDetailController } from "./entry-detail.js?v=70";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=71";
+import { createEntryDetailController } from "./entry-detail.js?v=71";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,14 +17,14 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=70";
+} from "./owner-storage.js?v=71";
 import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
-import { setupPwa } from "./pwa.js?v=70";
+import { setupPwa } from "./pwa.js?v=71";
 import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=70";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=70";
+import { buildSynonymGroups } from "./synonym-groups.js?v=71";
+import { indexSynonymFingerprints } from "./synonym-evidence.js?v=71";
 import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js";
 
 const ids = [

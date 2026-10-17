@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="先把听到的英文记下来，稍后再整理。随手记仅保存在当前设备，不会自动查词或发送内容。">
+  <meta name="theme-color" content="#183b32">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css?v=71">
+  <link rel="stylesheet" href="quick-notes.css?v=71">
+  <title>随手记 · 卓的单词本</title>
+</head>
+<body data-page="quick-notes">
+  <a class="skip-link" href="#quick-notes-text">跳到记词区</a>
+  <header class="topbar notes-topbar">
+    <a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong></span></a>
+    <a class="quiet-link" href="./">返回词库</a>
+  </header>
+  <main class="notes-main">
+    <section class="notes-editor" aria-labelledby="quick-notes-title">
+      <div class="notes-heading"><h1 id="quick-notes-title">随手记</h1><button type="button" id="quick-notes-new">新建一页</button></div>
+      <p class="notes-subtitle" id="quick-notes-hint">先记下来，稍后整理 · 仅存当前设备</p>
+      <label class="visually-hidden" for="quick-notes-text">随手记内容</label>
+      <textarea id="quick-notes-text" rows="14" maxlength="50000" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off" aria-describedby="quick-notes-hint quick-notes-save-status" placeholder="例如：by some fluke&#10;&#10;听到一个词，就先记在这里。Enter 换行，不会触发查词。"></textarea>
+      <div class="notes-save-line"><p id="quick-notes-save-status" class="notes-save-status" role="status" aria-live="polite" aria-atomic="true">正在读取本机页面…</p><button type="button" id="quick-notes-retry" hidden>重试保存</button></div>
+      <p id="quick-notes-error" class="notes-error" role="alert" hidden></p>
+      <div class="notes-actions"><button type="button" class="primary-button" id="quick-notes-copy">复制本页</button><button type="button" id="quick-notes-export-text">导出 .txt</button></div>
+      <p class="notes-action-message" id="quick-notes-message" role="status" aria-live="polite" aria-atomic="true"></p>
+    </section>
+    <details class="notes-pages" id="quick-notes-pages">
+      <summary id="quick-notes-pages-summary">旧页</summary>
+      <ul id="quick-notes-list" class="notes-page-list"></ul>
+      <p class="notes-empty-list" id="quick-notes-empty-list">还没有其他页面。</p>
+    </details>
+    <details class="notes-backup">
+      <summary>备份与恢复</summary>
+      <p>内容仅保存在当前浏览器。清理网站数据或更换设备前，请导出备份；导入只会补充页面，不会覆盖已有内容。</p>
+      <div class="notes-backup-actions"><button type="button" id="quick-notes-export-backup">导出备份</button><button type="button" id="quick-notes-import-backup">导入备份</button><input type="file" id="quick-notes-import-file" accept="application/json,.json" hidden></div>
+      <p>这里不会自动翻译、加入词库或发送内容。准备好后复制本页，再自行发给 ChatGPT 整理。</p>
+    </details>
+    <noscript><p class="notes-error">需要启用 JavaScript 才能自动保存。当前页面中的文字不会自动保存，请先手动复制保留。</p></noscript>
+  </main>
+  <aside class="update-banner" id="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">保存后更新</button></aside>
+  <script type="module" src="js/quick-notes-app.js?v=71"></script>
+</body>
+</html>

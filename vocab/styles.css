@@ -45,6 +45,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .quiet-button, .quiet-link { color: var(--ink); background: transparent; border: 1px solid transparent; }
 .quiet-button { min-height: 44px; }
 .primary-link, .primary-button { color: white; background: var(--green); border-color: var(--green); }
+.quick-notes-link { color: var(--green); border-color: var(--green-2); background: var(--green-soft); font-weight: 700; }
 .primary-link.large { padding: .8rem 1.35rem; }
 .secondary-button { background: transparent; border-color: var(--green); color: var(--green); }
 .danger-button { color: var(--danger); border-color: #d9aaaa; background: #fff9f7; }
@@ -306,8 +307,8 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
   body[data-page="public"] .topbar .brand strong { white-space: nowrap; font-size: .9rem; }
   body[data-page="public"] .topbar .brand small { display: none; }
   body[data-page="public"] .top-actions { gap: .1rem; flex-wrap: nowrap; }
-  body[data-page="public"] .top-actions .quiet-link { padding-inline: .4rem; font-size: .8rem; }
-  body[data-page="public"] .top-actions .primary-link { padding-inline: .65rem; font-size: .8rem; }
+  body[data-page="public"] .top-actions .quiet-link { padding-inline: .25rem; font-size: .8rem; }
+  body[data-page="public"] .top-actions .primary-link { padding-inline: .5rem; font-size: .8rem; }
   body[data-page="public"] .top-actions a[href="https://zhuodashuai.github.io/"],
   body[data-page="public"] .top-actions #install-button { display: none; }
   body[data-page="public"] .public-hero { padding: 0; height: .5rem; }

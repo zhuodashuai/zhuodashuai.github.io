@@ -1,0 +1,39 @@
+body[data-page="quick-notes"] { background: var(--paper); }
+.notes-topbar { width: min(960px, calc(100% - 40px)); min-height: 76px; }
+.notes-main { width: min(900px, calc(100% - 40px)); padding: 1.3rem 0 3rem; }
+.notes-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.notes-heading h1 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
+.notes-heading button { padding: .45rem .9rem; }
+.notes-subtitle { margin: .4rem 0 .85rem; color: var(--muted); font-size: .85rem; }
+#quick-notes-text { display: block; min-height: 48svh; padding: 1.2rem; font-size: 1.05rem; line-height: 1.85; border-color: #b8bdb1; border-radius: 14px; background: var(--paper-2); box-shadow: var(--shadow); }
+#quick-notes-text::placeholder { color: #747b71; }
+.notes-save-line { display: flex; min-height: 2.8rem; align-items: center; justify-content: space-between; gap: .65rem; }
+.notes-save-status { margin: .4rem 0; color: var(--muted); font-size: .8rem; }
+.notes-save-status[data-state="saved"] { color: var(--green-2); }
+.notes-save-status[data-state="error"] { color: var(--danger); font-weight: 650; }
+#quick-notes-retry { padding: .35rem .75rem; font-size: .85rem; }
+.notes-error { margin: .3rem 0 .7rem; padding: .7rem .9rem; color: #702a22; background: #fff0e9; border: 1px solid #d5a999; border-radius: 10px; font-size: .88rem; }
+.notes-actions, .notes-backup-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.notes-action-message { min-height: 1.6em; margin: .55rem 0 0; color: var(--green-2); font-size: .85rem; }
+.notes-pages, .notes-backup { border-top: 1px solid var(--line); margin-top: 1rem; padding-top: .85rem; }
+.notes-pages summary, .notes-backup summary { width: fit-content; min-height: 44px; padding: .5rem 0; color: var(--green); font-size: .9rem; cursor: pointer; }
+.notes-page-list { display: grid; gap: .55rem; padding: 0; margin: .35rem 0 .7rem; list-style: none; }
+.notes-page-list button { display: grid; gap: .2rem; width: 100%; padding: .65rem .85rem; border: 1px solid var(--line); border-radius: 10px; text-align: left; }
+.notes-page-list button span { overflow-wrap: anywhere; white-space: pre-wrap; }
+.notes-page-list button small { color: var(--muted); font-size: .75rem; }
+.notes-empty-list, .notes-backup p { margin: .3rem 0 .8rem; color: var(--muted); font-size: .82rem; }
+.notes-backup p:last-child { margin-top: .85rem; }
+body[data-page="quick-notes"] .update-banner { max-width: calc(100% - 24px); flex-wrap: wrap; border-radius: 14px; }
+@media (max-width: 600px) {
+  .notes-topbar { width: calc(100% - 28px); min-height: 64px; gap: .5rem; }
+  .notes-topbar .brand { gap: .5rem; }
+  .notes-topbar .brand-seal { width: 36px; height: 36px; border-radius: 9px; font-size: 1.15rem; }
+  .notes-topbar .brand strong { font-size: .92rem; }
+  .notes-topbar .quiet-link { padding: .5rem .2rem; font-size: .85rem; }
+  .notes-main { width: calc(100% - 28px); padding-top: .85rem; padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px)); }
+  .notes-heading h1 { font-size: 1.45rem; }
+  .notes-heading button { font-size: .85rem; }
+  .notes-subtitle { font-size: .78rem; margin-bottom: .7rem; }
+  #quick-notes-text { padding: .9rem; min-height: 45svh; font-size: 16px; border-radius: 12px; }
+  .notes-actions button { flex: 1; }
+}
