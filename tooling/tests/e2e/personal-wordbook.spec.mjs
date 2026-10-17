@@ -480,6 +480,20 @@ test("offline save is never reported saved, preserves the open draft, and offlin
   expect((await list(context)).entries.map(entry => entry.term)).toEqual(["cloud only private entry"]);
 });
 
+test("an uncached Cloudflare-style personal URL opens the blank private shell offline rather than the public reader", async ({ context, page }) => {
+  await openPersonal(page);
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; });
+  await page.reload();
+  await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
+  await context.setOffline(true);
+  await page.goto("/personal?offline-fallback-check=73");
+  await expect(page.getByRole("heading", { name: "我的词本", exact: true })).toBeVisible();
+  await expect(page.locator("#member-auth")).toBeVisible();
+  await expect(page.locator("#member-workspace")).toBeHidden();
+  await expect(page.locator("#member-entry-list")).toBeEmpty();
+  await expect(page.locator("#library-search")).toHaveCount(0);
+});
+
 test("account deletion revokes old sessions and deletes only that account's private data", async ({ browser, context, page }, info) => {
   const before = await publicSnapshot(context);
   await openPersonal(page);

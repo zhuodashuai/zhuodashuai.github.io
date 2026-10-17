@@ -43,7 +43,7 @@ test("personal shell is precached but private API bypasses all service-worker ca
   for (const item of ["personal.html", "personal.css?v=73", "js/personal-app.js?v=73", "js/personal-api.js?v=73", "js/personal-storage.js?v=73", "js/runtime-config.js?v=73"]) {
     assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
   }
-  assert.match(sw, /endsWith\("\/personal\.html"\) \? "\.\/personal\.html"/);
+  assert.ok(sw.includes('/\\/personal(?:\\.html)?\\/?$/.test(url.pathname) ? "./personal.html"'));
   const start = sw.indexOf('if (url.pathname.startsWith("/api/"))');
   assert.ok(start > 0);
   const boundary = sw.slice(start, sw.indexOf('if (request.mode === "navigate")', start));

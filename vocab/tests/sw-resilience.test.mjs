@@ -13,7 +13,7 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
   vm.runInNewContext(source, {
     self: { location: { origin: "https://wordbook.test", href: "https://wordbook.test/vocab/sw.js" }, addEventListener: (type, listener) => listeners.set(type, listener) },
     caches: { open: async () => ({
-      match: async () => cached?.clone(),
+      match: async (request) => typeof cached === "function" ? cached(request) : cached?.clone(),
       addAll: async (requests) => { precached.push(...requests); },
       put: async (request, response) => { await put(request, response); writes.push({ request, response }); }
     }) },
@@ -86,6 +86,18 @@ test("private member reads never enter caches even when successful, and offline 
   const offline = worker(async () => { throw new Error("offline"); }, new Response(secret));
   await assert.rejects(offline.fetch("/api/v1/member/entries", "cors"), /offline/);
   assert.equal(offline.writes.length, 0);
+});
+
+test("Cloudflare's canonical personal route and explicit HTML both fall back to the blank personal shell", async () => {
+  for (const path of ["/personal", "/personal/", "/personal.html", "/personal?release=73"]) {
+    const sw = worker(async () => { throw new Error("offline"); }, async (request) => (
+      request === "./personal.html" ? new Response("blank personal shell with disabled login forms") : null
+    ));
+    const response = await sw.fetch(path);
+    assert.equal(response.status, 200, path);
+    assert.equal(await response.text(), "blank personal shell with disabled login forms", path);
+    assert.equal(sw.writes.length, 0);
+  }
 });
 
 test("a successful online response updates the cache", async () => {

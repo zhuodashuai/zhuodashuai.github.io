@@ -580,7 +580,8 @@ const server = createServer(async (request, response) => {
       const snapshot = cookies(request).e2e_pages_stale === "1" ? baseline : runState(request).snapshot;
       return json(response, 200, snapshot);
     }
-    const rawPath = url.pathname.endsWith("/") ? `${url.pathname}index.html` : url.pathname;
+    const rawPath = /^\/personal\/?$/.test(url.pathname) ? "/personal.html"
+      : url.pathname.endsWith("/") ? `${url.pathname}index.html` : url.pathname;
     const safe = normalize(rawPath).replace(/^(?:\.\.[/\\])+/, "").replace(/^[/\\]+/, "");
     const file = resolve(root, safe);
     if (!file.startsWith(`${root}${sep}`) && file !== root) return error(response, 403, "forbidden", "Forbidden");

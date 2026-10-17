@@ -112,7 +112,7 @@ self.addEventListener("fetch", (event) => {
   }
   if (request.mode === "navigate") {
     const fallback = url.pathname.endsWith("/owner.html") ? "./owner.html"
-      : url.pathname.endsWith("/personal.html") ? "./personal.html"
+      : /\/personal(?:\.html)?\/?$/.test(url.pathname) ? "./personal.html"
       : url.pathname.endsWith("/quick-notes.html") ? "./quick-notes.html" : "./index.html";
     event.respondWith(networkFirst(request, fallback));
     return;
