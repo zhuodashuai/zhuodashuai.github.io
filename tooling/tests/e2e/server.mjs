@@ -1,9 +1,9 @@
 import { createServer } from "node:http";
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { gzipSync } from "node:zlib";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
-import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
+import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validateEnglishInput, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
 import { isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
 
 const root = resolve("vocab");
@@ -20,7 +20,10 @@ function runState(request) {
   if (!runs.has(id)) {
     const initial = structuredClone(baseline);
     if (requestCookies.e2e_empty === "1") initial.entries = [];
-    runs.set(id, { snapshot: initial, sha: "a".repeat(40), conflictInjected: false });
+    runs.set(id, {
+      snapshot: initial, sha: "a".repeat(40), conflictInjected: false,
+      memberAccounts: new Map(), memberSessions: new Map()
+    });
   }
   return runs.get(id);
 }
@@ -82,6 +85,202 @@ function assertWrite(request, response, payload) {
     error(response, 400, "idempotency_mismatch", "幂等键不匹配。"); return false;
   }
   return true;
+}
+
+// Isolated in-memory browser fixtures only. The production password KDF and
+// persistent account implementation are tested against the real Worker module;
+// this deliberately cheap hash never handles a real account or external API.
+const memberFixtureOrigin = "http://127.0.0.1:4187";
+const fixturePasswordHash = password => createHash("sha256").update(password).digest("hex");
+const fixtureMemberCookie = token => `e2e_member_session=${token}; Path=/; HttpOnly; SameSite=Strict`;
+const memberHeaders = { "Cache-Control": "private, no-store", Pragma: "no-cache", Vary: "Cookie", "X-Content-Type-Options": "nosniff" };
+
+function memberJson(response, status, value, headers = {}) {
+  return json(response, status, value, { ...memberHeaders, ...headers });
+}
+
+function memberError(response, status, code, message, details) {
+  return memberJson(response, status, { error: { code, message, requestId: "e2e-member-request", ...(details ? { details } : {}) } });
+}
+
+function memberFixtureSession(request) {
+  const state = runState(request);
+  const token = cookies(request).e2e_member_session;
+  const session = state.memberSessions.get(token);
+  if (!session || session.expiresAt <= Date.now()) return null;
+  const account = state.memberAccounts.get(session.username);
+  if (!account || account.deleted || account.id !== session.userId) return null;
+  return { state, token, session, account };
+}
+
+function memberSessionPayload(session, account) {
+  return { authenticated: true, user: { id: account.id, username: account.username }, csrfToken: session.csrfToken, expiresAt: session.expiresAt };
+}
+
+function createMemberFixtureSession(state, account) {
+  const token = randomBytes(48).toString("base64url");
+  const session = { username: account.username, userId: account.id, csrfToken: randomBytes(32).toString("base64url"), expiresAt: Date.now() + 3_600_000 };
+  state.memberSessions.set(token, session);
+  return { token, session };
+}
+
+function revokeMemberFixtureSessions(state, account) {
+  for (const [token, session] of state.memberSessions) if (session.userId === account.id) state.memberSessions.delete(token);
+}
+
+function validMemberFixtureCredentials(username, password) {
+  return typeof username === "string" && /^[A-Za-z][A-Za-z0-9_]{2,23}$/.test(username)
+    && typeof password === "string" && [...password].length >= 15 && [...password].length <= 128
+    && !/[\u0000-\u001f\u007f]/u.test(password);
+}
+
+function memberFixtureMutation(request, response, account, operation, payload) {
+  if (typeof payload.mutationId !== "string" || !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(payload.mutationId)) {
+    memberError(response, 400, "invalid_mutation_id", "请为本次保存提供有效的操作编号。");
+    return { stopped: true };
+  }
+  if (request.headers["idempotency-key"] && request.headers["idempotency-key"] !== payload.mutationId) {
+    memberError(response, 400, "idempotency_mismatch", "幂等键不匹配。");
+    return { stopped: true };
+  }
+  const fingerprint = JSON.stringify(payload);
+  const prior = account.mutations.get(payload.mutationId);
+  if (prior) {
+    if (prior.operation !== operation || prior.fingerprint !== fingerprint) {
+      memberError(response, 409, "idempotency_key_reused", "这个操作编号已经用于另一项修改。");
+    } else {
+      memberJson(response, prior.status, prior.value);
+    }
+    return { stopped: true };
+  }
+  return { stopped: false, save(status, value) {
+    account.mutations.set(payload.mutationId, { operation, fingerprint, status, value: structuredClone(value) });
+    return memberJson(response, status, value);
+  } };
+}
+
+async function memberApi(request, response, url) {
+  const path = url.pathname.slice("/api/v1/member/".length);
+  const state = runState(request);
+  const current = memberFixtureSession(request);
+  if (path === "session" && request.method === "GET") {
+    return memberJson(response, 200, current ? memberSessionPayload(current.session, current.account) : { authenticated: false });
+  }
+  if (request.method !== "GET") {
+    if (request.headers.origin !== memberFixtureOrigin || !/^application\/json(?:\s*;|$)/iu.test(request.headers["content-type"] || "")) {
+      return memberError(response, 403, "origin_forbidden", "请从本站同源页面提交 JSON 请求。");
+    }
+  }
+  let payload = null;
+  if (request.method !== "GET") {
+    try { payload = await body(request, 64_000); }
+    catch { return memberError(response, 400, "invalid_json", "提交内容不是有效的 JSON。"); }
+    const required = ["register", "login"].includes(path) ? ["username", "password"]
+      : path === "password/reset" ? ["username", "recoveryCode", "newPassword"]
+      : path === "account" ? ["password", "confirmation"]
+      : path === "entries" ? ["term", "mutationId"]
+      : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : [];
+    const optional = (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note"] : [];
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)
+      || required.some(key => !Object.hasOwn(payload, key))
+      || Object.keys(payload).some(key => !required.includes(key) && !optional.includes(key))) {
+      return memberError(response, 400, "invalid_fields", "不接受身份、权限或额外字段。");
+    }
+  }
+  if (["register", "login"].includes(path) && request.method === "POST") {
+    if (!validMemberFixtureCredentials(payload?.username, payload?.password)) return memberError(response, 400, "invalid_credentials", "用户名需以字母开头，为 3–24 位字母、数字或下划线；密码需为 15–128 个字符。");
+    const username = payload.username.toLowerCase();
+    if (["owner", "admin", "administrator", "zhuodashuai", "zhuo", "root", "support", "system"].includes(username)) return memberError(response, 400, "reserved_username", "这个用户名为系统保留。");
+    let account = state.memberAccounts.get(username);
+    let recoveryCode;
+    if (path === "register") {
+      if (account) return memberError(response, 409, "username_unavailable", "这个用户名已经注册。");
+      recoveryCode = randomBytes(32).toString("base64url");
+      account = { id: crypto.randomUUID(), username, passwordHash: fixturePasswordHash(payload.password), recoveryHash: fixturePasswordHash(recoveryCode), deleted: false, revision: 0, entries: [], mutations: new Map() };
+      state.memberAccounts.set(username, account);
+    } else if (!account || account.deleted || account.passwordHash !== fixturePasswordHash(payload.password)) {
+      return memberError(response, 401, "invalid_credentials", "用户名或密码不正确。");
+    }
+    const { token, session } = createMemberFixtureSession(state, account);
+    return memberJson(response, 200,
+      { ...memberSessionPayload(session, account), ...(recoveryCode ? { recoveryCode } : {}) },
+      { "Set-Cookie": fixtureMemberCookie(token) });
+  }
+  if (path === "password/reset" && request.method === "POST") {
+    if (!validMemberFixtureCredentials(payload?.username, payload?.newPassword) || typeof payload.recoveryCode !== "string") {
+      return memberError(response, 400, "invalid_reset", "请输入用户名、恢复码和不少于 15 字符的新密码。");
+    }
+    const account = state.memberAccounts.get(payload.username.toLowerCase());
+    if (!account || account.deleted || account.recoveryHash !== fixturePasswordHash(payload.recoveryCode)) return memberError(response, 401, "invalid_credentials", "用户名或恢复码不正确。");
+    const recoveryCode = randomBytes(32).toString("base64url");
+    account.passwordHash = fixturePasswordHash(payload.newPassword);
+    account.recoveryHash = fixturePasswordHash(recoveryCode);
+    revokeMemberFixtureSessions(state, account);
+    return memberJson(response, 200, { ok: true, recoveryCode }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
+  }
+  if (!current) return memberError(response, 401, "member_authentication_required", "请先登录自己的私人单词本。");
+  const { account, session, token } = current;
+  if (request.method !== "GET" && request.headers["x-csrf-token"] !== session.csrfToken) return memberError(response, 403, "csrf_failed", "页面验证已失效，请重新登录。");
+  if (path === "logout" && request.method === "POST") {
+    if (cookies(request).e2e_member_logout_fail === "1") return memberError(response, 503, "member_unavailable", "测试用退出网络故障。");
+    state.memberSessions.delete(token);
+    return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
+  }
+  if (path === "account" && request.method === "DELETE") {
+    if (payload?.confirmation !== "DELETE" || typeof payload.password !== "string") return memberError(response, 400, "delete_confirmation_required", "删除账户需输入密码与 DELETE。");
+    if (account.passwordHash !== fixturePasswordHash(payload.password)) return memberError(response, 401, "invalid_credentials", "密码不正确，账户没有删除。");
+    account.deleted = true;
+    account.entries = [];
+    account.mutations.clear();
+    revokeMemberFixtureSessions(state, account);
+    state.memberAccounts.delete(account.username);
+    return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
+  }
+  if (path === "entries" && request.method === "GET") {
+    // A cookie may change in another tab between session verification and a
+    // list read. This optional header only checks identity: it never selects
+    // an account or grants access to another tenant's records.
+    const expectedUser = request.headers["x-member-user"];
+    if (expectedUser !== undefined && expectedUser !== account.id) return memberError(response, 401, "member_session_changed", "账号已改变，请重新登录确认。");
+    return memberJson(response, 200, { revision: account.revision, entries: structuredClone(account.entries), limit: 1000 });
+  }
+  const match = path.match(/^entries\/([^/]+)$/u);
+  if ((path === "entries" && request.method === "POST") || (match && ["PUT", "DELETE"].includes(request.method))) {
+    const operation = `${request.method}:${path}`;
+    const mutation = memberFixtureMutation(request, response, account, operation, payload);
+    if (mutation.stopped) return;
+    const id = match ? decodeURIComponent(match[1]) : null;
+    const index = id ? account.entries.findIndex(entry => entry.id === id) : -1;
+    if (id && index < 0) return memberError(response, 404, "entry_missing", "词条不存在或不属于当前账户。");
+    if (id && payload.revision !== account.entries[index].revision) return memberError(response, 409, "revision_conflict", "词条已被另一个窗口修改，请刷新后再试。", { existing: account.entries[index], revision: account.revision });
+    if (request.method === "DELETE") {
+      account.entries.splice(index, 1);
+      account.revision++;
+      return mutation.save(200, { revision: account.revision, entry: null, action: "deleted" });
+    }
+    if (typeof payload.term !== "string" || !payload.term.trim() || [...payload.term].length > 200
+      || (payload.meaning !== undefined && (typeof payload.meaning !== "string" || [...payload.meaning].length > 2000))
+      || (payload.note !== undefined && (typeof payload.note !== "string" || [...payload.note].length > 1000))) {
+      return memberError(response, 400, "invalid_entry", "词条为空或长度超出限制。");
+    }
+    let term;
+    try { term = validateEnglishInput(payload.term); }
+    catch { return memberError(response, 400, "invalid_entry", "请输入有效的英文单词或短语。"); }
+    const normalized = normalizeEnglish(term);
+    const duplicate = account.entries.find(entry => entry.normalized === normalized && entry.id !== id);
+    if (duplicate) return memberError(response, 409, "duplicate_entry", "这个词已经在你的单词本里。", { existing: duplicate, revision: account.revision });
+    if (!id && account.entries.length >= 1000) return memberError(response, 413, "personal_entry_limit", "个人词条达到上限。");
+    const now = new Date().toISOString();
+    const entry = {
+      id: id || `member-${crypto.randomUUID()}`, revision: id ? account.entries[index].revision + 1 : 1,
+      term, normalized, meaning: payload.meaning || "", note: payload.note || "",
+      createdAt: id ? account.entries[index].createdAt : now, updatedAt: now
+    };
+    if (id) account.entries[index] = entry; else account.entries.push(entry);
+    account.revision++;
+    return mutation.save(200, { revision: account.revision, entry: structuredClone(entry), action: id ? "updated" : "created" });
+  }
+  return memberError(response, 404, "api_not_found", "Member API not found");
 }
 
 function organizedEntry(input) {
@@ -217,6 +416,7 @@ function reconcileReciprocalSynonyms(entries, target, previous, now) {
 }
 
 async function api(request, response, url) {
+  if (url.pathname.startsWith("/api/v1/member/")) return memberApi(request, response, url);
   if (url.pathname === "/api/v1/health" && request.method === "GET") return json(response, 200, { ok: true, ownerAuthConfigured: true, aiProvider: "cloudflare", aiEffectiveProvider: "cloudflare", aiModel: "@cf/zai-org/glm-4.7-flash", aiRetryModel: "@cf/google/gemma-4-26b-a4b-it", aiAccessMode: "cloudflare-account-quota", aiConfigured: true, aiPrimaryConfigured: true, aiFreeRetryConfigured: true, paidFallbackEnabled: false, aiDailyRequestLimit: 20 });
   if (url.pathname === "/api/v1/public/wordbook" && request.method === "GET") {
     if (cookies(request).e2e_public_fail === "1") return error(response, 503, "public_snapshot_unavailable", "即时公开源测试故障。");

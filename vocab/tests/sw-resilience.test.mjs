@@ -77,6 +77,17 @@ test("authorization errors are returned unchanged and API reads stay network-onl
   assert.equal(sw.timers.size, 0);
 });
 
+test("private member reads never enter caches even when successful, and offline never returns cached personal data", async () => {
+  const secret = JSON.stringify({ entries: [{ term: "private sentinel" }] });
+  const online = worker(async () => new Response(secret), new Response("old secret"));
+  assert.equal(await (await online.fetch("/api/v1/member/entries", "cors")).text(), secret);
+  assert.equal(online.writes.length, 0);
+  assert.equal(online.timers.size, 0);
+  const offline = worker(async () => { throw new Error("offline"); }, new Response(secret));
+  await assert.rejects(offline.fetch("/api/v1/member/entries", "cors"), /offline/);
+  assert.equal(offline.writes.length, 0);
+});
+
 test("a successful online response updates the cache", async () => {
   const sw = worker(async (_request, options) => {
     assert.equal(options.cache, "no-cache", "network-first must revalidate a still-fresh HTTP cache entry");
@@ -94,7 +105,7 @@ test("a new shell installation bypasses old HTTP cache copies and includes coher
   assert.ok(sw.precached.every((request) => request instanceof Request && request.cache === "reload"));
   const urls = sw.precached.map((request) => request.url);
   for (const file of ["owner-storage.js", "quiz-storage.js", "chapter-quiz.js", "synonym-evidence.js", "learning-backup.js"]) {
-    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=72`));
+    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=73`));
     assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}`));
   }
 });

@@ -2,7 +2,7 @@
 
 ## 目标与边界
 
-这个版本先把一个所有者流程做好：任何人可以只读浏览 `vocab/`，只有 GitHub 账号 `zhuodashuai`（固定用户 ID `156042078`）可以进入管理端、调用 AI、添加、编辑、删除并发布。访客个人词库是以后独立开发的功能，不与所有者权限混用。
+任何人可以只读浏览 `vocab/`；只有 GitHub 账号 `zhuodashuai`（固定用户 ID `156042078`）可以进入所有者管理端、调用 AI 并发布公开内容。普通用户另用用户名和密码注册自己的私人词本，不与所有者权限混用。
 
 学术主页、Education 学校标识、意见箱、留言簿、`U1L1_coding.ipynb` 和原有 GitHub Pages 结构与 Worker 相互独立；本文件只说明单词本后端、权限与部署。
 
@@ -36,6 +36,21 @@
 - GitHub user access token在 Durable Object 中以 AES-GCM 加密；浏览器只得到短期 CSRF token，不得到 GitHub secret 或可选的 OpenAI key。
 - 每个发布 mutation 必须带相同的 `mutationId` / `Idempotency-Key` 和远端 `baseSha`。远端变化返回 `409`，不会静默覆盖。
 - Service Worker 对 `/api/*` 始终 network-only，不缓存认证或发布响应。
+
+## 普通账号与私人词本（2026-10-17）
+
+- 入口：固定 Worker origin 的 `/personal.html`。GitHub Pages 的同名静态页会先跳到该 origin，之后才启用密码表单；不使用第三方 Cookie 或 credentialed CORS。
+- 接口：`/api/v1/member/session`、`register`、`login`、`logout`、`password/reset`、`entries`、`entries/:id`、`account`。所有写请求要求同源 JSON，已登录写入另要求会话 CSRF。请求体流式限制 16 KiB；未验证的身份或权限字段一律拒绝。
+- `MEMBER_AUTH` 是单独的账号 DO；`PERSONAL_WORDBOOK` 按服务端确认的随机用户 ID 隔离。普通账号不能操作公开 JSON、GitHub 发布、OwnerControl 或 AI。
+- 密码用随机 salt 的原生 scrypt（N=16384、r=8、p=5）及域分离 HMAC 后置 pepper；不存明文密码。昂贵运算串行且队列有上限，IP、用户名与全站限流在 KDF 前执行。恢复码与会话只存哈希；Cookie `__Host-zhuo_member` 为 Secure、HttpOnly、SameSite=Strict、Path=/，有效期 7 天。
+- **不要随意轮换 `SESSION_SECRET`**：普通账号 v1 密码 pepper 与原有 Owner secret 共用该部署 secret，但有不同用途域。轮换前必须设计版本化迁移或通知用户用恢复码重设密码；直接替换会令旧密码不可验证。不能通过削弱 KDF 或忽略校验“修复”登录。
+- 本版不采集邮箱。恢复码在注册/重设后仅返回一次；重设会旋转恢复码、撤销原有所有会话，不删除个人词条。不要把恢复码、密码、会话或私人词条放进 Git、日志、问题单或测试产物。
+- 私人词条字段为 `id/revision/term/normalized/meaning/note/createdAt/updatedAt`。每条分别持久化，不把整本词库塞进单个 KV 值。每账号最多 1000 条，总量安全上限 2 MiB；写入每分钟最多 60 次。重复 normalized term 返回 409，卡片 revision 防止旧设备覆盖，新旧重试通过 UUID mutationId 区分。
+- 当前站点最多 1000 个尚未完成删除的账号。注册全站每小时 20 次、每 IP 每小时 3 次；超限返回明确提示，不切换收费服务。`MEMBER_SIGNUP_ENABLED="false"` 可暂停新注册，已有账号仍可登录。这些保护不等于 Cloudflare 永久免费承诺，也不改变账户套餐。
+- 私人响应 `Cache-Control: no-store`；前端不将词条或凭据放入 IndexedDB/WebStorage。未上传草稿只在当前页面内存中保留，刷新前应先保存。唯一 sessionStorage 标记仅表示“必须明确重新登录”，不含身份或私密数据。原本公开章节的本机复习、测试和随手记数据库保持独立。
+- 自助删除需要当前密码和 `DELETE`：先撤销登录、将账号标记停用，再清理私人词条。清理失败返回 202 并保留 durable job，由 alarm 重试，旧账号不会复活；重新注册同一用户名得到全新 ID。应用层删除不承诺改变平台自有备份的保留政策。
+- `v2-member-wordbooks` 迁移只新增两个 SQLite DO 类，保留 v1 OwnerControl。代码回滚到旧版时也不要删除这些类/命名空间或账号存储；先停注册并保留数据，再处理修复。代码基线为 `2766e13`，本机完整 Git bundle 与公开 JSON 备份已验证。
+- 私人词本第一期提供手动录词、编辑、删除、搜索、详情、导出及跨设备登录读取；尚未把私人词条接入章节测试/复习，也没有自动迁入旧设备记录或批量初高中词表。
 
 ## 数据模型
 

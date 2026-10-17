@@ -1,0 +1,53 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { readFile } from "node:fs/promises";
+import { personalWordbookUrl, OWNER_ADMIN_URL } from "../js/runtime-config.js";
+
+const source = (path) => readFile(new URL(path, import.meta.url), "utf8");
+
+test("private login always uses the fixed auth origin, never an arbitrary copied Pages host", () => {
+  const canonical = new URL("personal.html", OWNER_ADMIN_URL).href;
+  for (const href of ["https://zhuodashuai.github.io/vocab/?book=x", "https://untrusted.example/personal.html", "https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/owner.html"]) {
+    assert.equal(personalWordbookUrl({ href }), canonical);
+  }
+  assert.equal(personalWordbookUrl({ href: "http://127.0.0.1:4187/vocab/" }), "http://127.0.0.1:4187/personal.html");
+  assert.equal(personalWordbookUrl({ href: "http://localhost:4187/" }), "http://localhost:4187/personal.html");
+});
+
+test("ordinary accounts are discoverable without replacing the public reader or owner entrance", async () => {
+  const html = await source("../index.html");
+  const app = await source("../js/public-app.js");
+  const guide = await source("../guide.html");
+  assert.match(html, /id="personal-link"[^>]*>我的词本<\/a>/);
+  assert.match(html, /id="owner-link"[^>]*>所有者登录<\/a>/);
+  assert.match(app, /if \(personalLink\) personalLink.href = personalWordbookUrl\(\)/);
+  assert.match(guide, /id="personal-accounts"/);
+  assert.match(guide, /恢复码/);
+  assert.match(guide, /旧记录不会自动归给新注册账号/);
+});
+
+test("member storage migration is additive and keeps the owner's existing Durable Object", async () => {
+  for (const path of ["../../wordbook-api/wrangler.jsonc", "../../wordbook-api/wrangler.test.jsonc"]) {
+    const config = await source(path);
+    assert.match(config, /"compatibility_flags"\s*:\s*\["nodejs_compat"\]/);
+    assert.match(config, /"MEMBER_SIGNUP_ENABLED"\s*:\s*"true"/);
+    assert.match(config, /"name"\s*:\s*"OWNER_CONTROL"/);
+    assert.match(config, /"tag"\s*:\s*"v1"/);
+    assert.match(config, /"tag"\s*:\s*"v2-member-wordbooks"/);
+    assert.match(config, /"new_sqlite_classes"\s*:\s*\["MemberAuth",\s*"PersonalWordbook"\]/);
+  }
+});
+
+test("personal shell is precached but private API bypasses all service-worker caching", async () => {
+  const sw = await source("../sw.js");
+  for (const item of ["personal.html", "personal.css?v=73", "js/personal-app.js?v=73", "js/personal-api.js?v=73", "js/personal-storage.js?v=73", "js/runtime-config.js?v=73"]) {
+    assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
+  }
+  assert.match(sw, /endsWith\("\/personal\.html"\) \? "\.\/personal\.html"/);
+  const start = sw.indexOf('if (url.pathname.startsWith("/api/"))');
+  assert.ok(start > 0);
+  const boundary = sw.slice(start, sw.indexOf('if (request.mode === "navigate")', start));
+  assert.match(boundary, /event.respondWith\(fetch\(request\)\);\s*return;/);
+  assert.doesNotMatch(boundary, /cache|networkFirst/i);
+  assert.doesNotMatch(sw.slice(0, sw.indexOf('self.addEventListener("install"')), /\/api\/v1\/member/);
+});

@@ -44,7 +44,8 @@ const activeBrowserFiles = [
   "vocab/index.html", "vocab/owner.html", "vocab/sw.js", "vocab/manifest.webmanifest",
   "vocab/js/public-app.js", "vocab/js/owner-app.js", "vocab/js/pwa.js", "vocab/js/runtime-config.js",
   "vocab/js/owner-api.js", "vocab/js/owner-storage.js", "vocab/js/sync-logic.js", "vocab/js/wordbook-schema.js",
-  "vocab/js/review.js"
+  "vocab/js/review.js",
+  "vocab/personal.html", "vocab/js/personal-app.js", "vocab/js/personal-api.js", "vocab/js/personal-storage.js"
 ];
 const activeBrowserSource = activeBrowserFiles.map((file) => `${file}\n${safeText(file)}`).join("\n");
 
@@ -65,5 +66,5 @@ if (findings.length) {
   for (const finding of findings) console.error(`- ${finding}`);
   process.exitCode = 1;
 } else {
-  console.log(`Secret boundary scan passed: ${textFiles.length} repository files inspected; active browser assets contain no credential values or credential input/persistence path; /api/* is network-only in the Service Worker.`);
+  console.log(`Secret boundary scan passed: ${textFiles.length} repository files inspected; server/provider credentials are absent from browser assets; owner UI has no credential input; /api/* is network-only. Ordinary member passwords use their separate authentication form.`);
 }

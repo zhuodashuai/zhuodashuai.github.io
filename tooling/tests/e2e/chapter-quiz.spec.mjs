@@ -300,7 +300,7 @@ for (const delayedView of ["menu", "history"]) {
     }
     await page.evaluate(async () => {
       // Patch the same versioned singleton that the running UI imports.
-      const { quizStorage } = await import("/js/quiz-storage.js?v=72");
+      const { quizStorage } = await import("/js/quiz-storage.js?v=73");
       const list = quizStorage.listAttempts.bind(quizStorage);
       let captured = false;
       quizStorage.listAttempts = (scope) => {

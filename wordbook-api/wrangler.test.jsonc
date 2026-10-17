@@ -3,6 +3,7 @@
   "name": "zhuo-wordbook-api-test",
   "main": "src/index.ts",
   "compatibility_date": "2026-08-27",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "../vocab",
     "binding": "ASSETS",
@@ -10,6 +11,7 @@
     "run_worker_first": true
   },
   "vars": {
+    "MEMBER_SIGNUP_ENABLED": "true",
     "PUBLIC_SITE_URL": "https://zhuodashuai.github.io/vocab/",
     "GITHUB_OWNER": "zhuodashuai",
     "GITHUB_OWNER_ID": "156042078",
@@ -22,13 +24,19 @@
   },
   "durable_objects": {
     "bindings": [
-      { "name": "OWNER_CONTROL", "class_name": "OwnerControl" }
+      { "name": "OWNER_CONTROL", "class_name": "OwnerControl" },
+      { "name": "MEMBER_AUTH", "class_name": "MemberAuth" },
+      { "name": "PERSONAL_WORDBOOK", "class_name": "PersonalWordbook" }
     ]
   },
   "migrations": [
     {
       "tag": "v1",
       "new_sqlite_classes": ["OwnerControl"]
+    },
+    {
+      "tag": "v2-member-wordbooks",
+      "new_sqlite_classes": ["MemberAuth", "PersonalWordbook"]
     }
   ]
 }

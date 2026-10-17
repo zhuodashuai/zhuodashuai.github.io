@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
+  "runtime-config.js", "personal-api.js", "personal-storage.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
   "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
@@ -24,7 +25,7 @@ async function poisonOldModuleUrls(page) {
   // This is a module-graph regression, not a claim to emulate HTTP caching.
   await page.route("**/js/*.js*", async (route) => {
     const url = new URL(route.request().url());
-    if (changedApiModules.has(url.pathname.split("/").at(-1)) && url.searchParams.get("v") !== "72") {
+    if (changedApiModules.has(url.pathname.split("/").at(-1)) && url.searchParams.get("v") !== "73") {
       consumedOldUrls.push(url.pathname);
       await route.fulfill({ contentType: "text/javascript", body: 'export const oldModuleVersion = "v66";' });
     } else await route.continue();

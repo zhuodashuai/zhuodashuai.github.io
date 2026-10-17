@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=72">
+  <link rel="stylesheet" href="styles.css?v=73">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -41,12 +41,23 @@
         <li><strong>看</strong> —— 翻阅全部词条，点开看完整释义、例句和出处。</li>
         <li><strong>搜</strong> —— 在这个单词本里找词，不是在互联网上查。</li>
         <li><strong>筛</strong> —— 按单词、短语、习语、名言等类型过滤。</li>
-        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–12。手机用下拉框选章，也可点上一章、下一章。</li>
+        <li><strong>选词本</strong> —— 进入独立书目，再按章节学习；例如 <em>Never Let Me Go</em> → Chapter 1–23。手机用下拉框选章，也可点上一章、下一章。</li>
         <li><strong>复习</strong> —— 先回想英文的意思，再点「显示释义」，最后按「再来一次／有点难／记得／很熟」安排下一次复习。普通查词仍直接显示内容。</li>
         <li><strong>听</strong> —— 点词卡的小喇叭朗读；可选英式、美式和慢速。<a href="#g-audio">发音说明</a></li>
         <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
       <p class="guide-note">不用登录，直接用。复习进度保存在当前浏览器，可用页面底部「学习记录备份」导出或恢复；访客不能添加、修改或删除公开词条。</p>
+    </section>
+
+    <section class="guide-block" aria-labelledby="g-personal" id="personal-accounts">
+      <h2 id="g-personal">注册自己的账号与词本</h2>
+      <p>点 <a href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">我的词本</a>，使用普通用户名和密码注册，不需要 GitHub。用户名为 3–24 位英文字母、数字或下划线，以字母开头，不区分大小写；密码至少 15 个字符，可使用空格和长口令，请勿复用其他网站的密码。</p>
+      <p>本版不收集邮箱。注册后会显示一次<strong>账号恢复码</strong>，请复制或下载，保存在只有自己可以访问的地方。忘记密码时可用用户名和恢复码重设密码；重设后恢复码会更新，旧登录会话失效。密码和恢复码都丢失时，不能仅凭用户名找回账号。</p>
+      <p>登录后可以手动添加英文词或完整短语，填写分点中文释义和备注，也可以先记英文、稍后补充中文。词条只有在服务端确认后才显示保存成功。重复词不会另建一张卡片；另一台设备已修改同一词条时会提示冲突，不自动用旧内容覆盖。第一版每账号最多 1,000 项，并有存储和请求频率限制。</p>
+      <p><strong>个人词条默认私有。</strong>保存在本站 Cloudflare 后端，受账号权限保护，其他普通账号不能读取；不会写进公开 GitHub 仓库，也不会修改卓的公开词条。它不是端到端加密保险箱，请勿在备注中存放密码、证件或其他敏感信息。此功能不向普通账号开放卓的发布权限或付费 AI。</p>
+      <p>在其他设备打开同一个「我的词本」地址并登录同一账号，可以读取已保存的词条。导出备份只包含当前账号的词条，不含密码、恢复码或登录凭据；导出文件为明文，请自行妥善保管。删除个人账号前建议先导出，删除不会影响公开词库或其他账号。</p>
+      <p>保存到云端需要联网。网络失败时页面不会假装已同步，尚未提交的输入只在当前页面中保留；刷新或关闭前请先复制备份。退出失败时本机页面保持锁定，但服务端会话可能仍未撤销，恢复联网后请重新登录并完成退出。个人页只缓存空白静态外壳，不提供无需登录查看私人词条的离线模式。</p>
+      <p class="guide-note">「我的词本」与公开章节的本机复习、测试、随手记目前分别保存；旧记录不会自动归给新注册账号。本次先开放账号和个人录词，不包含初高中词表、个人章节测验或个人词条 AI 整理。GitHub Pages 与个人页属于不同来源，已安装的公开页应用可能会在浏览器中打开个人页。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-notes">

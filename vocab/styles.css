@@ -341,6 +341,12 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
   .word-card { min-height: 230px; padding: 1.1rem; }
 }
 
+@media (max-width: 520px) {
+  body[data-page="public"] .topbar { flex-wrap: wrap; row-gap: .2rem; }
+  body[data-page="public"] .top-actions { flex-basis: 100%; justify-content: space-between; }
+  body[data-page="public"] .top-actions a { white-space: nowrap; }
+}
+
 .update-banner { position: fixed; z-index: 50; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); display: flex; align-items: center; gap: .7rem; max-width: calc(100% - 24px); padding: .65rem .75rem .65rem .9rem; color: white; background: var(--green); border-radius: 999px; box-shadow: var(--shadow); }
 .update-banner button { color: var(--ink); background: white; }
 body[data-page="public"] .update-banner { bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); flex-wrap: wrap; border-radius: 14px; }

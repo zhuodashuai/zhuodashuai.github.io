@@ -1,4 +1,5 @@
 import { organizeEntry, organizeExactDictionaryFallback } from "./ai";
+import { handleMemberRequest } from "./member-api";
 import {
   aiProviderConfigured,
   aiProviderOrder,
@@ -37,6 +38,8 @@ import {
 } from "./security";
 
 export { OwnerControl } from "./owner-control";
+export { MemberAuth } from "./member-auth";
+export { PersonalWordbook } from "./personal-wordbook";
 
 const API_PREFIX = "/api/v1";
 const OAUTH_COOKIE = "__Host-zhuo_oauth";
@@ -358,6 +361,11 @@ function apiErrorResponse(error: unknown, request: Request): Response {
 
 async function routeApi(request: Request, env: Env): Promise<Response> {
   const path = new URL(request.url).pathname;
+  if (path.startsWith(`${API_PREFIX}/member/`)) {
+    const response = await handleMemberRequest(request, env);
+    if (response) return response;
+    throw new ApiError(404, "member_api_not_found", "个人词本接口不存在。");
+  }
   if (path === `${API_PREFIX}/health` && request.method === "GET") {
     const config = readConfig(env);
     const fallback = config.AI_FALLBACK_PROVIDER;
