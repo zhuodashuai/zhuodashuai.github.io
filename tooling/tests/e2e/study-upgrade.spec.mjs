@@ -1,4 +1,11 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
+import { buildCollectionCatalog } from "../../../vocab/js/collections.js";
+
+const snapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
+const availableChapters = buildCollectionCatalog(snapshot.entries).find(book => book.id === "never-let-me-go").chapters;
+const lastChapter = availableChapters.at(-1);
+const precedingChapter = availableChapters.at(-2);
 
 test.beforeEach(async ({ context, page }, info) => {
   const run = `study-${info.workerIndex}-${info.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 70);
@@ -119,9 +126,9 @@ test("single-sense details show the example only once without removing source an
 for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }, { width: 500, height: 650 }]) {
   test(`mobile chapter navigation reveals cards in the first screen at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport);
-    await chapter(page, 12);
+    await chapter(page, lastChapter.number);
     await expect(page.locator("#book-select")).toHaveValue("never-let-me-go");
-    await expect(page.locator("#chapter-select")).toHaveValue("chapter-12");
+    await expect(page.locator("#chapter-select")).toHaveValue(lastChapter.id);
     await expect(page.locator("#chapter-next")).toBeDisabled();
     const layout = await page.evaluate(() => ({ firstCardTop: document.querySelector(".word-card").getBoundingClientRect().top,
       width: innerWidth, contentWidth: document.documentElement.scrollWidth, scrollY }));
@@ -130,8 +137,8 @@ for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }
     expect(layout.firstCardTop).toBeLessThan(viewport.height - 70);
     if (viewport.width === 390) await page.screenshot({ path: "qa-artifacts/study-upgrade-mobile.png" });
     await page.getByRole("button", { name: "上一章", exact: true }).click();
-    await expect(page.locator("#chapter-select")).toHaveValue("chapter-11");
-    await expect(page.locator("#entry-count")).toHaveText("28");
+    await expect(page.locator("#chapter-select")).toHaveValue(precedingChapter.id);
+    await expect(page.locator("#entry-count")).toHaveText(String(precedingChapter.count));
     await page.locator("#chapter-select").selectOption("chapter-1");
     await expect(page.locator("#entry-count")).toHaveText("29");
     await expect(page.locator("#chapter-previous")).toBeDisabled();

@@ -467,7 +467,8 @@ test("Never Let Me Go Chapter 3 展示全部 28 条，并保留照片原词形�
   await expect(page.locator('#chapter-tabs button[data-value="chapter-3"]')).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator('#chapter-tabs button[data-value^="chapter-"]')).toHaveText([
     /Chapter 1/, /Chapter 2/, /Chapter 3/, /Chapter 4/, /Chapter 5/, /Chapter 6/,
-    /Chapter 7/, /Chapter 8/, /Chapter 9/, /Chapter 10/, /Chapter 11/, /Chapter 12/
+    /Chapter 7/, /Chapter 8/, /Chapter 9/, /Chapter 10/, /Chapter 11/, /Chapter 12/,
+    ...remainingChapterCounts.map((_, index) => new RegExp(`Chapter ${index + 13}`))
   ]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(28).fill("Chapter 3"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterThreeSource.items.map((item) => item.term));

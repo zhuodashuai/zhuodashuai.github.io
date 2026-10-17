@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { createHash } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -22,7 +22,6 @@ const sourceUrl = chapter => new URL(`../data/reading-lists/${book}/chapter-${ch
 const membership = chapter => `collection:${book}:chapter-${chapter}`;
 const newMembership = /^collection:never-let-me-go:chapter-(?:1[3-9]|2[0-3])$/u;
 const newIdentity = /^public-nlmg-c(?:1[3-9]|2[0-3])-/u;
-const oldChapterCounts = [29, 38, 28, 51, 24, 24, 30, 25, 24, 26, 28, 25];
 // Independently checked against the merged photo document, not inferred from
 // a vocabulary item's own claim about its page.
 const reviewedPageBounds = new Map([
@@ -34,90 +33,78 @@ const chapterChinese = new Map([
   [13, "十三"], [14, "十四"], [15, "十五"], [16, "十六"], [17, "十七"],
   [18, "十八"], [19, "十九"], [20, "二十"], [21, "二十一"], [22, "二十二"], [23, "二十三"]
 ]);
-// Frozen before this import at f343952e8ab945330c081fb3d019de80b2d21199.
-// This small digest verifies the 344 original identities, creation times,
-// canonical lexical fields, saved synonyms, and every old chapter context,
-// without committing a second full copy of the private owner's snapshot.
-// Only import metadata, added chapter contexts, and strictly additive tags
-// approved by the new source items on these 19 reused cards are excluded.
-const baselineCount = 344;
-const baselineDigest = "5ab7a9c14ad9a52d892479319cf8b6c1b879a8d90a0ed6d1aec5e00b0f4f2c0d";
-// Exact original tag order from the pre-import snapshot. All other cards keep
-// their complete tag arrays in the digest, with no tag normalization at all.
-const originalReusedCardTags = new Map([
-  ["public-nlmg-c10-go-out-of-one-s-way-to-do-something", ["collection:never-let-me-go:chapter-10", "文学阅读", "补充阅读", "习语", "口语表达"]],
-  ["public-nlmg-c2-come-home-to-somebody", ["collection:never-let-me-go:chapter-2", "文学阅读", "习语"]],
-  ["public-nlmg-c3-rummage", ["collection:never-let-me-go:chapter-3", "文学阅读", "动词", "动作", "collection:never-let-me-go:chapter-6", "精选补充", "单词", "collection:never-let-me-go:chapter-11", "补充阅读", "动作描写"]],
-  ["public-nlmg-c5-on-the-verge-of", ["collection:never-let-me-go:chapter-5", "文学阅读", "补充阅读", "习语"]],
-  ["public-nlmg-c3-loiter", ["collection:never-let-me-go:chapter-3", "文学阅读", "动词", "动作"]],
-  ["public-nlmg-c3-let-slip", ["collection:never-let-me-go:chapter-3", "文学阅读", "补充阅读", "实用表达", "说漏嘴"]],
-  ["public-nlmg-c6-dawn-on-somebody", ["collection:never-let-me-go:chapter-6", "文学阅读", "精选补充", "短语"]],
-  ["public-nlmg-c9-laughing-stock", ["collection:never-let-me-go:chapter-9", "文学阅读", "补充阅读", "固定表达"]],
-  ["public-nlmg-c6-fathom", ["collection:never-let-me-go:chapter-6", "文学阅读", "补充阅读", "文学描写", "构词联想"]],
-  ["public-nlmg-c2-smirk", ["collection:never-let-me-go:chapter-2", "文学阅读", "名词", "辨析"]],
-  ["public-nlmg-c4-rhubarb", ["collection:never-let-me-go:chapter-4", "文学阅读", "不可数名词", "植物", "场景描写"]],
-  ["public-nlmg-c11-rafter", ["collection:never-let-me-go:chapter-11", "文学阅读", "划线词", "单词"]],
-  ["public-nlmg-c5-back-down", ["collection:never-let-me-go:chapter-5", "文学阅读", "补充阅读", "短语动词"]],
-  ["public-nlmg-c6-drift-apart", ["collection:never-let-me-go:chapter-6", "文学阅读", "补充阅读", "实用表达", "人物关系"]],
-  ["public-nlmg-c8-tranquil", ["collection:never-let-me-go:chapter-8", "文学阅读", "划线词", "单词"]],
-  ["public-nlmg-c5-innocuous", ["collection:never-let-me-go:chapter-5", "文学阅读", "补充阅读", "单词"]],
-  ["public-nlmg-c5-allude", ["collection:never-let-me-go:chapter-5", "文学阅读", "补充阅读", "单词"]],
-  ["public-nlmg-c6-complacent", ["collection:never-let-me-go:chapter-6", "文学阅读", "精选补充", "单词"]],
-  ["public-nlmg-c10-hear-somebody-out", ["collection:never-let-me-go:chapter-10", "文学阅读", "补充阅读", "短语动词", "口语表达"]]
-].map(([id, tags]) => [id, Object.freeze(tags)]));
+// The original-release preservation audit is a one-time release artifact.
+// Permanent CI takes the owner's CURRENT non-batch cards as its replay baseline
+// so normal additions, lexical edits and custom tags remain legitimate.
 const loadSnapshot = async () => parsePublicSnapshot(JSON.parse(await readFile(snapshotUrl, "utf8")), { allowLegacy: false });
 const loadSources = async () => Promise.all(chapters.map(async chapter => {
   // A missing chapter must fail the suite, never silently become a skipped test.
   return JSON.parse(await readFile(sourceUrl(chapter), "utf8"));
 }));
-const approvedReuseTags = new Map();
-for (const source of await loadSources()) {
-  for (const item of source.items.filter(candidate => candidate.reuseExistingSameSense === true)) {
-    const normalized = normalizeEnglish(item.term);
-    const approved = approvedReuseTags.get(normalized) || new Set();
-    for (const tag of [membership(source.chapter.number), "文学阅读", ...item.tags]) approved.add(tag);
-    approvedReuseTags.set(normalized, approved);
-  }
-}
-
-function canonical(value) {
-  if (Array.isArray(value)) return value.map(canonical);
-  if (value && typeof value === "object") {
-    return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonical(value[key])]));
-  }
-  return value;
-}
-
 function withoutNewContexts(entry) {
-  const originalTags = originalReusedCardTags.get(entry.id);
-  if (originalTags) {
-    const originalSet = new Set(originalTags);
-    const approved = approvedReuseTags.get(entry.normalized);
-    assert.ok(approved, `${entry.term}: the frozen shared identity must be explicitly reused by a new source`);
-    assert.deepEqual(entry.tags.filter(tag => originalSet.has(tag)), originalTags,
-      `${entry.term}: all original tags and their order must survive`);
-    for (const tag of entry.tags) {
-      assert.ok(originalSet.has(tag) || approved.has(tag),
-        `${entry.term}: additional tag ${tag} must be approved by its actual new source item`);
-    }
-  }
   return {
     ...entry,
-    tags: originalTags ? [...originalTags] : entry.tags,
+    // Classification and owner-defined tags cannot reliably be attributed to
+    // one chapter. Retain all of them; remove only these explicit memberships.
+    tags: entry.tags.filter(tag => !newMembership.test(tag)),
     readingContexts: entry.readingContexts.filter(context => !newMembership.test(context.membership))
   };
 }
 
-function immutableOriginal(entry) {
-  const { revision: _revision, updatedAt: _updatedAt, synonymScan: _scan, ...rest } = withoutNewContexts(entry);
+function immutableLexicalFields(entry) {
+  const {
+    revision: _revision, updatedAt: _updatedAt, synonymScan: _scan,
+    tags: _tags, readingContexts: _contexts, ...rest
+  } = entry;
   return rest;
 }
 
 function oldEntries(snapshot) { return snapshot.entries.filter(entry => !newIdentity.test(entry.id)); }
 
-function digest(entries) {
-  const selected = entries.map(immutableOriginal).sort((left, right) => left.id.localeCompare(right.id));
-  return createHash("sha256").update(JSON.stringify(canonical(selected))).digest("hex");
+function existingChapterCounts(entries) {
+  return Array.from({ length: 12 }, (_, index) =>
+    filterEntriesByCollection(entries, book, `chapter-${index + 1}`).length);
+}
+
+function assertExistingEntriesPreserved(before, after, source) {
+  const afterById = new Map(after.entries.map(entry => [entry.id, entry]));
+  for (const prior of before.entries) {
+    const next = afterById.get(prior.id);
+    assert.ok(next, `${prior.term}: no current card is removed`);
+    assert.deepEqual(immutableLexicalFields(next), immutableLexicalFields(prior),
+      `${prior.term}: current lexical content, identity, creation time and saved synonyms survive`);
+    const item = source.items.find(candidate => normalizeEnglish(candidate.term) === prior.normalized);
+    const explicitlyReused = item?.reuseExistingSameSense === true;
+    const approvedTags = new Set(explicitlyReused
+      ? [membership(source.chapter.number), "文学阅读", ...item.tags] : []);
+    const priorTags = new Set(prior.tags);
+    assert.deepEqual(next.tags.filter(tag => priorTags.has(tag)), prior.tags,
+      `${prior.term}: all current tags, including owner tags, survive in order`);
+    for (const tag of next.tags) {
+      assert.ok(priorTags.has(tag) || approvedTags.has(tag),
+        `${prior.term}: an additional tag must be approved by the actual new source item`);
+    }
+    const priorMemberships = new Set(prior.readingContexts.map(context => context.membership));
+    assert.deepEqual(next.readingContexts.filter(context => priorMemberships.has(context.membership)), prior.readingContexts,
+      `${prior.term}: every existing chapter context survives without edits`);
+    const addedContexts = next.readingContexts.filter(context => !priorMemberships.has(context.membership));
+    assert.ok(addedContexts.length <= 1, `${prior.term}: one source can add at most its own context`);
+    for (const context of addedContexts) {
+      assert.ok(explicitlyReused, `${prior.term}: context additions require explicit same-sense reuse`);
+      assert.equal(context.membership, membership(source.chapter.number), `${prior.term}: only the actual source chapter may be added`);
+      for (const key of ["order", "originalInput", "entryType", "partOfSpeech", "meaning", "usage", "register", "forms", "collocations", "confusedWith", "exampleEn", "exampleZh"]) {
+        assert.deepEqual(context[key], item[key], `${prior.term}: added context ${key} follows the source`);
+      }
+      assert.equal(context.definition, item.definitionEn);
+      assert.equal(context.page, `p. ${item.page}`);
+      assert.equal(context.sourceTitle, source.sourceTitle);
+      assert.equal(context.sourceWork, source.collection.title);
+      assert.equal(context.sourceDate, `p. ${item.page}`);
+      assert.equal(context.attributionNote, source.attributionNote.trim());
+    }
+  }
+  assert.deepEqual(existingChapterCounts(after.entries), existingChapterCounts(before.entries),
+    "replaying remaining chapters cannot change current Chapter 1–12 membership counts");
 }
 
 function pages(value) {
@@ -183,14 +170,8 @@ test("all eleven remaining chapters have complete, numbered and page-local revie
   }
 });
 
-test("the published snapshot preserves all 344 original cards and original Chapter 1–12 contexts", async () => {
+test("the published snapshot has unique identities and remains within the production reader limit", async () => {
   const snapshot = await loadSnapshot();
-  const original = oldEntries(snapshot);
-  assert.equal(original.length, baselineCount);
-  assert.equal(digest(original), baselineDigest, "adding remaining chapters must not rewrite the owner's original vocabulary or old chapter contexts");
-  for (const [index, count] of oldChapterCounts.entries()) {
-    assert.equal(filterEntriesByCollection(snapshot.entries, book, `chapter-${index + 1}`).length, count);
-  }
   assert.equal(new Set(snapshot.entries.map(entry => entry.id)).size, snapshot.entries.length);
   assert.equal(new Set(snapshot.entries.map(entry => entry.normalized)).size, snapshot.entries.length);
   const raw = await readFile(snapshotUrl);
@@ -282,7 +263,6 @@ test("each remaining chapter produces randomized four-option Chinese tests for e
 test("the eleven-chapter batch imports atomically per chapter, preserves learning identities and reimports byte-stably", async () => {
   const [snapshot, sources] = await Promise.all([loadSnapshot(), loadSources()]);
   const retained = oldEntries(snapshot).map(withoutNewContexts);
-  assert.equal(retained.length, baselineCount);
   const prior = parsePublicSnapshot({ ...snapshot, entries: retained }, { allowLegacy: false });
   const directory = await mkdtemp(join(tmpdir(), "wordbook-remaining-chapters-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
@@ -300,14 +280,7 @@ test("the eleven-chapter batch imports atomically per chapter, preserves learnin
       const beforeTerms = new Set(last.entries.map(entry => entry.normalized));
       const newCount = source.items.filter(item => !beforeTerms.has(normalizeEnglish(item.term))).length;
       assert.equal(result.snapshot.entries.length, last.entries.length + newCount);
-      for (const old of last.entries) {
-        const next = result.snapshot.entries.find(entry => entry.id === old.id);
-        assert.ok(next, `${old.term}: no existing card is removed`);
-        assert.equal(next.createdAt, old.createdAt);
-        const oldContexts = new Set(old.readingContexts.map(context => context.membership));
-        assert.deepEqual(next.readingContexts.filter(context => oldContexts.has(context.membership)), old.readingContexts);
-        assert.deepEqual(next.synonyms, old.synonyms);
-      }
+      assertExistingEntriesPreserved(last, result.snapshot, source);
       for (const entry of result.chapterEntries) {
         assert.equal(entry.synonymScan.status, "pending", "a batch import must not pretend AI synonym recognition has completed");
         assert.equal(entry.synonymScan.sourceFingerprint, entrySynonymFingerprint(entry));
@@ -316,7 +289,8 @@ test("the eleven-chapter batch imports atomically per chapter, preserves learnin
       last = result.snapshot;
     }
     assert.equal(last.entries.length, snapshot.entries.length);
-    assert.equal(digest(oldEntries(last)), baselineDigest);
+    assert.equal(oldEntries(last).length, retained.length);
+    assert.deepEqual(existingChapterCounts(last.entries), existingChapterCounts(prior.entries));
     const written = await readFile(snapshotPath, "utf8");
     for (const chapter of chapters) {
       const repeated = await importReadingList({ sourcePath: fileURLToPath(sourceUrl(chapter)), snapshotPath, timestamp });
@@ -334,6 +308,102 @@ test("the eleven-chapter batch imports atomically per chapter, preserves learnin
     assert.deepEqual(histories, historiesBefore, "batch import and chapter projection never reset saved learning histories");
   } finally {
     await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("ordinary UUID additions, main-card edits and owner custom tags survive all eleven chapter imports", async () => {
+  const [snapshot, sources] = await Promise.all([loadSnapshot(), loadSources()]);
+  const retained = structuredClone(oldEntries(snapshot).map(withoutNewContexts));
+  const timestamp = new Date(Math.max(...snapshot.entries.map(entry => Date.parse(entry.updatedAt))) + 1000).toISOString();
+  const edited = retained.find(entry => entry.readingContexts.length === 0 && entry.senses.length === 1)
+    || retained.find(entry => entry.senses.length === 1);
+  assert.ok(edited, "the replay fixture needs a current editable card, not a frozen historical ID");
+  edited.meaning = "① 所有者更新后的核心释义，允许普通编辑继续使用。";
+  edited.senses[0].meaningZh = edited.meaning;
+  edited.tags.push("owner-main-custom-tag");
+  edited.revision++;
+  edited.updatedAt = timestamp;
+  const reusedTerms = new Set(sources.flatMap(source => source.items
+    .filter(item => item.reuseExistingSameSense === true).map(item => normalizeEnglish(item.term))));
+  const shared = retained.find(entry => reusedTerms.has(entry.normalized));
+  assert.ok(shared, "the fixture also covers an owner tag on a cross-chapter shared card");
+  shared.tags.push("owner-shared-custom-tag");
+
+  const occupied = new Set(snapshot.entries.map(entry => entry.normalized));
+  let term = "owner workflow fixture";
+  while (occupied.has(normalizeEnglish(term))) term += " word";
+  const added = {
+    ...structuredClone(edited), id: randomUUID(), revision: 1,
+    originalInput: term, term, normalized: normalizeEnglish(term), standardForm: term,
+    correction: { status: "exact", original: term, suggestion: "", chosen: term, confidence: 1, source: "user-provided" },
+    phonetic: "", partOfSpeech: "noun phrase", meaning: "① 所有者直接新增的普通词条。",
+    definition: "an owner-created entry outside any reading chapter",
+    senses: [{ partOfSpeech: "noun phrase", meaningZh: "① 所有者直接新增的普通词条。",
+      definitionEn: "an owner-created entry outside any reading chapter", usageNotes: "A local regression fixture.",
+      register: "neutral", collocations: [], examples: [{ en: "This entry belongs to the owner.", zh: "这条词条属于所有者。" }], confusables: [] }],
+    collocations: [], synonyms: [], exampleEn: "This entry belongs to the owner.", exampleZh: "这条词条属于所有者。",
+    usage: "A local regression fixture outside the reading collections.", register: "neutral", confusedWith: [], forms: [],
+    tags: ["owner-addition-fixture"], author: "", sourceTitle: "Owner workflow fixture", sourceWork: "", sourceDate: "",
+    sourceUrl: "", attributionStatus: "unverified", attributionNote: "Synthetic regression data; never written to the live wordbook.",
+    sources: [], readingContexts: [], organizationMethod: "manual", createdAt: timestamp, updatedAt: timestamp
+  };
+  delete added.synonymScan;
+  const prior = parsePublicSnapshot({ ...snapshot, exportedAt: timestamp, entries: [...retained, added] }, { allowLegacy: false });
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-owner-workflow-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  try {
+    await writeFile(snapshotPath, JSON.stringify(prior), "utf8");
+    let last = prior;
+    for (const [index, source] of sources.entries()) {
+      const result = await importReadingList({ sourcePath: fileURLToPath(sourceUrl(chapters[index])), snapshotPath, timestamp });
+      assertExistingEntriesPreserved(last, result.snapshot, source);
+      last = result.snapshot;
+    }
+    assert.equal(last.entries.length, snapshot.entries.length + 1, "a normal UUID card must not violate an obsolete release count");
+    const finalAdded = last.entries.find(entry => entry.id === added.id);
+    assert.ok(finalAdded, "the ordinary owner UUID identity survives");
+    assert.deepEqual(immutableLexicalFields(finalAdded), immutableLexicalFields(prior.entries.find(entry => entry.id === added.id)));
+    const finalEdited = last.entries.find(entry => entry.id === edited.id);
+    assert.equal(finalEdited.meaning, edited.meaning, "a normal owner meaning edit must not be locked to a release hash");
+    assert.ok(finalEdited.tags.includes("owner-main-custom-tag"));
+    assert.ok(last.entries.find(entry => entry.id === shared.id).tags.includes("owner-shared-custom-tag"));
+    assert.deepEqual(existingChapterCounts(last.entries), existingChapterCounts(prior.entries));
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("the dynamic preservation guard rejects dropped cards, lexical changes, lost tags and unapproved contexts", async () => {
+  const [snapshot, sources] = await Promise.all([loadSnapshot(), loadSources()]);
+  const source = structuredClone(sources.find(candidate => candidate.items.some(item => item.reuseExistingSameSense === true)));
+  const item = source.items.find(candidate => candidate.reuseExistingSameSense === true);
+  const card = snapshot.entries.find(entry => entry.normalized === normalizeEnglish(item.term));
+  assert.ok(card);
+  item.tags.push("approved-source-fixture");
+  const prior = structuredClone(withoutNewContexts(card));
+  prior.tags.push("owner-persistent-fixture");
+  const next = {
+    ...structuredClone(prior), revision: prior.revision + 1,
+    tags: [...prior.tags, membership(source.chapter.number), "approved-source-fixture"],
+    readingContexts: [...structuredClone(prior.readingContexts), structuredClone(card.readingContexts
+      .find(context => context.membership === membership(source.chapter.number)))]
+  };
+  const before = { entries: [prior] };
+  const valid = { entries: [next] };
+  assert.doesNotThrow(() => assertExistingEntriesPreserved(before, valid, source));
+  assert.throws(() => assertExistingEntriesPreserved(before, { entries: [] }, source), /no current card is removed/u);
+  for (const [name, mutate, message] of [
+    ["meaning", entry => { entry.meaning += " Unapproved change."; }, /current lexical content/u],
+    ["synonyms", entry => { entry.synonyms = ["unapproved synonym"]; }, /current lexical content/u],
+    ["lost owner tag", entry => { entry.tags = entry.tags.filter(tag => tag !== "owner-persistent-fixture"); }, /all current tags/u],
+    ["reordered tags", entry => { [entry.tags[0], entry.tags[1]] = [entry.tags[1], entry.tags[0]]; }, /all current tags/u],
+    ["rogue tag", entry => { entry.tags.push("unapproved-tag"); }, /additional tag must be approved/u],
+    ["wrong new chapter", entry => { entry.readingContexts.at(-1).membership = membership(23); }, /only the actual source chapter/u],
+    ["old context rewrite", entry => { entry.readingContexts[0].usage += " Unapproved change."; }, /every existing chapter context/u]
+  ]) {
+    const mutated = structuredClone(valid);
+    mutate(mutated.entries[0]);
+    assert.throws(() => assertExistingEntriesPreserved(before, mutated, source), message, name);
   }
 });
 
