@@ -1,17 +1,17 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=69";
-import { createEntryDetailController } from "./entry-detail.js?v=69";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=70";
+import { createEntryDetailController } from "./entry-detail.js?v=70";
 import { ownerAdminUrl, publicSnapshotUrl } from "./runtime-config.js";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js";
-import { setupPwa } from "./pwa.js?v=69";
+import { setupPwa } from "./pwa.js?v=70";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=69";
-import { sameSynonymSenseView } from "./synonym-evidence.js?v=69";
-import { renderSynonymGroups } from "./synonym-view.js?v=69";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=69";
+import { buildSynonymGroups } from "./synonym-groups.js?v=70";
+import { sameSynonymSenseView } from "./synonym-evidence.js?v=70";
+import { renderSynonymGroups } from "./synonym-view.js?v=70";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=70";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=69";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=69";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=70";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=70";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -357,6 +357,14 @@ function render() {
     .map((entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId));
   state.studyScopeEntries = collectionEntries;
   chapterQuiz.updateScope();
+  // Filter the current chapter, not the current search result. Empty categories
+  // add clutter; a filter left over from another chapter must not hide its words.
+  const availableTypes = new Set(collectionEntries.map((entry) => entry.entryType));
+  if (state.filter !== "all" && !availableTypes.has(state.filter)) state.filter = "all";
+  refs.filterRow.querySelectorAll("button[data-filter]").forEach((control) => {
+    control.hidden = control.dataset.filter !== "all" && !availableTypes.has(control.dataset.filter);
+    control.setAttribute("aria-pressed", String(control.dataset.filter === state.filter));
+  });
   const query = normalizePublicSearchQuery(state.query);
   const queryMatches = rankExactEntryMatches(
     collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)),
@@ -594,6 +602,10 @@ refs.recallReveal.addEventListener("click", () => {
   refs.recallControls.hidden = true;
   refs.dialogCopy.disabled = false;
   void renderSelectedReviewState(state.selectedEntry);
+  // The reveal button is now hidden. Hand keyboard and screen-reader focus
+  // to the answer rather than leaving it on an invisible control.
+  refs.dialogMeaning.tabIndex = -1;
+  refs.dialogMeaning.focus({ preventScroll: true });
 });
 refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; render(); });
 refs.viewControls.addEventListener("click", (event) => {

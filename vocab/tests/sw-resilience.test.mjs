@@ -94,7 +94,7 @@ test("a new shell installation bypasses old HTTP cache copies and includes coher
   assert.ok(sw.precached.every((request) => request instanceof Request && request.cache === "reload"));
   const urls = sw.precached.map((request) => request.url);
   for (const file of ["owner-storage.js", "quiz-storage.js", "chapter-quiz.js", "synonym-evidence.js", "learning-backup.js"]) {
-    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=69`));
+    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=70`));
     assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}`));
   }
 });

@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=69";
-import { createEntryDetailController } from "./entry-detail.js?v=69";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=70";
+import { createEntryDetailController } from "./entry-detail.js?v=70";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,14 +17,14 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=69";
+} from "./owner-storage.js?v=70";
 import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js";
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js";
-import { setupPwa } from "./pwa.js?v=69";
+import { setupPwa } from "./pwa.js?v=70";
 import { lookupCoreEntry } from "./core-dictionary.js";
 import { preserveCollectionTags } from "./collections.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=69";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=69";
+import { buildSynonymGroups } from "./synonym-groups.js?v=70";
+import { indexSynonymFingerprints } from "./synonym-evidence.js?v=70";
 import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js";
 
 const ids = [
@@ -52,6 +52,8 @@ const state = {
   currentDraft: null,
   saveTimer: null,
   pendingSave: null,
+  draftSaveTask: null,
+  discardingDraftId: null,
   queueBusy: false,
   queueWakeTimer: null,
   authChecking: false,
@@ -153,7 +155,7 @@ function synonymScanLabel(entry, index = getOwnerSynonymIndex()) {
 }
 
 function hasForegroundOwnerWork() {
-  return state.publishing || state.queueBusy || state.organizingToken || state.foregroundMutationPending
+  return state.publishing || state.queueBusy || state.discardingDraftId || state.organizingToken || state.foregroundMutationPending
     || state.currentDraft || refs.captureInput.value.trim();
 }
 
@@ -776,9 +778,6 @@ function collectEntry({ strict = false } = {}) {
 async function persistCurrentDraft({ announce = false } = {}) {
   requireVerifiedOwnerUi();
   if (!state.currentDraft) return null;
-  window.clearTimeout(state.saveTimer);
-  state.saveTimer = null;
-  state.pendingSave = null;
   const collected = collectEntry();
   const rawSynonyms = commaList(value("fieldSynonyms"), 20);
   const changedSynonymDisplay = JSON.stringify(rawSynonyms) !== JSON.stringify(collected.synonyms);
@@ -789,32 +788,46 @@ async function persistCurrentDraft({ announce = false } = {}) {
     value: collected,
     localState: state.currentDraft.localState === "conflict" ? "conflict" : "local_saved"
   };
-  state.currentDraft = await saveDraft(snapshot);
-  refs.draftState.textContent = STATE_LABELS[state.currentDraft.localState];
+  state.pendingSave = { token: crypto.randomUUID(), draft: snapshot };
+  const saved = await flushPendingDraftSave();
   if (announce) setStatus(refs.captureStatus, removedUnenteredSynonyms
     ? "草稿已保存；不是你亲自收录的同义词候选已移除。"
     : "草稿已可靠保存在当前设备。 ");
-  await renderDrafts();
-  return state.currentDraft;
+  return saved;
 }
 
 async function flushPendingDraftSave() {
-  const pending = state.pendingSave;
-  if (!pending) return null;
-  state.pendingSave = null;
   window.clearTimeout(state.saveTimer);
   state.saveTimer = null;
-  const saved = await saveDraft(pending.draft);
-  if (state.currentDraft?.id === saved.id) {
-    if (!state.pendingSave) state.currentDraft = saved;
-    else {
-      state.currentDraft.contentRevision = saved.contentRevision;
-      if (state.pendingSave.draft.id === saved.id) state.pendingSave.draft.contentRevision = saved.contentRevision;
+  // Every exit/export/update gate must await the same write, including one
+  // already started by the debounce timer. Keep unsaved work until IndexedDB
+  // confirms it so a failed write can be retried rather than silently skipped.
+  if (state.draftSaveTask) return state.draftSaveTask;
+  if (!state.pendingSave) return null;
+  const task = (async () => {
+    let saved = null;
+    while (state.pendingSave) {
+      const pending = state.pendingSave;
+      saved = await saveDraft(pending.draft);
+      if (state.pendingSave?.token === pending.token) state.pendingSave = null;
+      if (state.currentDraft?.id === saved.id) {
+        if (!state.pendingSave) state.currentDraft = saved;
+        else {
+          state.currentDraft.contentRevision = saved.contentRevision;
+          if (state.pendingSave.draft.id === saved.id) state.pendingSave.draft.contentRevision = saved.contentRevision;
+        }
+        refs.draftState.textContent = state.pendingSave ? "正在保存…" : STATE_LABELS[state.currentDraft.localState] || state.currentDraft.localState;
+      }
+      await renderDrafts();
     }
-    refs.draftState.textContent = STATE_LABELS[state.currentDraft.localState] || state.currentDraft.localState;
+    return saved;
+  })();
+  state.draftSaveTask = task;
+  try {
+    return await task;
+  } finally {
+    if (state.draftSaveTask === task) state.draftSaveTask = null;
   }
-  await renderDrafts();
-  return saved;
 }
 
 function scheduleDraftSave() {
@@ -1309,9 +1322,7 @@ async function queueCurrentPublish() {
     throw new Error("AI 仍在整理当前词条；完成或失败后再发布，避免把未完成内容写入 GitHub。");
   }
   await waitForQueueRecovery();
-  window.clearTimeout(state.saveTimer);
-  state.saveTimer = null;
-  state.pendingSave = null;
+  await flushPendingDraftSave();
   showEditorError();
   const entry = collectEntry({ strict: true });
   if (!/^[0-9a-f]{40}$/i.test(state.remoteSha)) throw new Error("还没有可信的 GitHub 文件 SHA；请先联网刷新一次远端，再建立离线发布队列。");
@@ -1399,11 +1410,11 @@ async function handleConflict(operation, error, tabId) {
 }
 
 async function drainQueue() {
-  if (state.runClosing || state.queueBusy || state.synonymBusy || !state.queueRecoveryComplete || !state.session || !navigator.onLine) return;
+  if (state.runClosing || state.discardingDraftId || state.queueBusy || state.synonymBusy || !state.queueRecoveryComplete || !state.session || !navigator.onLine) return;
   state.queueBusy = true;
   refs.retryQueue.disabled = true;
   try {
-    while (!state.runClosing && navigator.onLine) {
+    while (!state.runClosing && !state.discardingDraftId && navigator.onLine) {
       const operation = await claimNextOperation({ tabId: state.tabId, authorizedRunId: state.tabId });
       if (!operation) break;
       if (state.runClosing) {
@@ -1431,14 +1442,27 @@ async function drainQueue() {
         state.remoteMutationRevision += 1;
         state.snapshot = snapshot;
         state.remoteSha = result.sha;
+        let hasUnpublishedEdits = completion.superseded;
         if (state.currentDraft?.id === operation.draftId) {
-          state.currentDraft = await getDraft(operation.draftId);
-          fillEditor(state.currentDraft, { focus: false });
+          const completedDraft = await getDraft(operation.draftId);
+          // The owner can keep typing while a publication is in flight. An
+          // input's 400 ms save may not have reached IndexedDB yet, and another
+          // draft can be selected while this read is waiting. Never replace
+          // that live form with the older, just-published snapshot.
+          if (state.currentDraft?.id === operation.draftId && completedDraft) {
+            const preserveLiveEditor = state.pendingSave?.draft.id === operation.draftId
+              || Boolean(state.draftSaveTask)
+              || Number(state.currentDraft.contentRevision || 0) > Number(completedDraft.contentRevision || 0);
+            hasUnpublishedEdits ||= preserveLiveEditor || completedDraft.localState !== "published";
+            if (!preserveLiveEditor) fillEditor(completedDraft, { focus: false });
+            else refs.draftState.textContent = state.pendingSave || state.draftSaveTask
+              ? "正在保存…" : STATE_LABELS[state.currentDraft.localState] || state.currentDraft.localState;
+          }
         }
         setSyncState(
           "synced",
-          completion.superseded ? "较早版本已发布；当前修改仍在本地" : "已发布",
-          completion.superseded ? "请检查当前草稿并再次显式发布"
+          hasUnpublishedEdits ? "较早版本已发布；当前修改仍在本地" : "已发布",
+          hasUnpublishedEdits ? "请检查当前草稿并再次显式发布"
             : [result.action || "更新", synonymScanLabel(snapshot.entries.find((entry) => entry.id === result.entry?.id)), `SHA ${String(result.sha).slice(0, 7)}`].filter(Boolean).join(" · ")
         );
         renderOwnerEntries();
@@ -1697,19 +1721,41 @@ refs.entryForm.addEventListener("submit", async (event) => {
     scheduleImportedSynonymScans();
   }
 });
-refs.discardDraft.addEventListener("click", async () => {
-  if (!state.currentDraft || !window.confirm("删除这份本地草稿吗？已发布的 GitHub 词条不会因此删除。")) return;
+async function discardCurrentDraft() {
+  if (!state.currentDraft || state.discardingDraftId) return;
+  if (state.publishing || state.queueBusy || state.organizingToken || state.commitLockedDraftId) {
+    showEditorError("正在整理或发布内容，请完成后再删除草稿。");
+    return;
+  }
+  if (!window.confirm("删除这份本地草稿吗？已发布的 GitHub 词条不会因此删除。")) return;
   const discardedId = state.currentDraft.id;
-  await deleteDraft(state.currentDraft.id);
-  state.draftAiStatus.delete(discardedId);
-  state.currentDraft = null;
-  refs.entryForm.hidden = true;
-  refs.editorEmpty.hidden = false;
-  refs.editorAiStatus.hidden = true;
-  refs.draftCompletionNotice.hidden = true;
-  await renderDrafts();
-  scheduleImportedSynonymScans();
-});
+  state.discardingDraftId = discardedId;
+  const wasInert = refs.ownerWorkspace.inert;
+  // Keep the confirmed target stable while its last write finishes. Otherwise
+  // a debounce task can recreate the record after deletion, or a late switch
+  // can make this handler close a different draft's editor.
+  refs.ownerWorkspace.inert = true;
+  try {
+    await flushPendingDraftSave();
+    if (state.currentDraft?.id !== discardedId) throw new Error("当前草稿已改变，没有删除任何草稿，请重新确认。");
+    await deleteDraft(discardedId);
+    state.draftAiStatus.delete(discardedId);
+    state.currentDraft = null;
+    refs.entryForm.hidden = true;
+    refs.editorEmpty.hidden = false;
+    refs.editorAiStatus.hidden = true;
+    refs.draftCompletionNotice.hidden = true;
+    await renderDrafts();
+    setStatus(refs.captureStatus, "本地草稿已删除；已发布的词条没有改变。");
+  } catch (error) {
+    showEditorError(`删除未完成：${error?.message || "请重试。"}`);
+  } finally {
+    state.discardingDraftId = null;
+    refs.ownerWorkspace.inert = wasInert;
+    scheduleImportedSynonymScans();
+  }
+}
+refs.discardDraft.addEventListener("click", discardCurrentDraft);
 refs.refreshRemote.addEventListener("click", () => loadRemote().catch(() => {}));
 refs.retryQueue.addEventListener("click", async () => {
   const operations = await listOutbox();
@@ -1745,6 +1791,7 @@ refs.conflictClose.addEventListener("click", () => refs.conflictDialog.close());
 refs.exportBackup.addEventListener("click", async () => {
   try {
     requireVerifiedOwnerUi();
+    await flushPendingDraftSave();
     const drafts = await listDrafts();
     const blob = createOwnerBackupBlob({ drafts, publicSnapshot: state.snapshot, exportedAt: isoNow() });
     const url = URL.createObjectURL(blob);
@@ -1753,6 +1800,7 @@ refs.exportBackup.addEventListener("click", async () => {
       link.href = url;
       link.download = `zhuo-wordbook-backup-${new Date().toISOString().slice(0, 10)}.json`;
       link.click();
+      setStatus(refs.captureStatus, "草稿备份已导出，包含刚刚保存的最新修改。");
     } finally {
       URL.revokeObjectURL(url);
     }

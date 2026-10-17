@@ -1,17 +1,17 @@
-const CACHE_NAME = "zhuo-wordbook-v69";
+const CACHE_NAME = "zhuo-wordbook-v70";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
-  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=69", "./manifest.webmanifest",
-  "./js/public-app.js?v=69", "./js/owner-app.js?v=69", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=70", "./manifest.webmanifest",
+  "./js/public-app.js?v=70", "./js/owner-app.js?v=70", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
   "./js/owner-api.js", "./js/owner-storage.js", "./js/owner-backup.js", "./js/sync-logic.js", "./js/wordbook-schema.js", "./js/core-dictionary.js", "./js/synonym-evidence.js",
-  "./js/owner-api.js?v=69", "./js/owner-storage.js?v=69", "./js/entry-detail.js?v=69", "./js/synonym-groups.js?v=69", "./js/synonym-evidence.js?v=69",
-  "./js/chapter-quiz.js?v=69", "./js/quiz-storage.js?v=69", "./js/chapter-quiz-ui.js?v=69",
-  "./js/public-snapshot.js?v=69", "./js/learning-backup.js?v=69", "./js/learning-backup-ui.js?v=69",
-  "./js/pwa.js?v=69", "./js/synonym-view.js?v=69",
+  "./js/owner-api.js?v=70", "./js/owner-storage.js?v=70", "./js/entry-detail.js?v=70", "./js/synonym-groups.js?v=70", "./js/synonym-evidence.js?v=70",
+  "./js/chapter-quiz.js?v=70", "./js/quiz-storage.js?v=70", "./js/chapter-quiz-ui.js?v=70",
+  "./js/public-snapshot.js?v=70", "./js/learning-backup.js?v=70", "./js/learning-backup-ui.js?v=70",
+  "./js/pwa.js?v=70", "./js/synonym-view.js?v=70",
   "./data/owner-wordbook.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
   "./quality/", "./quality/index.html", "./quality/styles.css", "./quality/report.js",

@@ -1,9 +1,9 @@
 import { formatMeaningForDisplay } from "./wordbook-schema.js";
 import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js";
-import { synonymGroupsForEntry } from "./synonym-groups.js?v=69";
-import { renderSynonymGroups } from "./synonym-view.js?v=69";
+import { synonymGroupsForEntry } from "./synonym-groups.js?v=70";
+import { renderSynonymGroups } from "./synonym-view.js?v=70";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=69";
+import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=70";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",

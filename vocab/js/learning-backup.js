@@ -1,5 +1,5 @@
-import { listReviewStates, mergeReviewStates, planReviewStatesMerge } from "./owner-storage.js?v=69";
-import { quizStorage, planQuizAttemptsMerge } from "./quiz-storage.js?v=69";
+import { listReviewStates, mergeReviewStates, planReviewStatesMerge } from "./owner-storage.js?v=70";
+import { quizStorage, planQuizAttemptsMerge } from "./quiz-storage.js?v=70";
 
 export const LEARNING_BACKUP_MAX_BYTES = 10_000_000;
 export const LEARNING_BACKUP_MAX_REVIEWS = 10000;

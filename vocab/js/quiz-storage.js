@@ -1,4 +1,4 @@
-import { validateQuizAttempt } from "./chapter-quiz.js?v=69";
+import { validateQuizAttempt } from "./chapter-quiz.js?v=70";
 
 const BASE_NAME = "wordbook-chapter-quizzes";
 const FIXED_ATTEMPT_FIELDS = ["schemaVersion", "id", "bookId", "chapterId", "bookTitle", "chapterTitle", "startedAt", "questions", "omitted", "kind", "practiceSourceAttemptId"];
