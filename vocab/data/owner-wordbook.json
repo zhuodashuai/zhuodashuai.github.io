@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-10-17T22:59:12.490Z",
-  "revisionId": "5035b48f-cc08-4bb6-83a6-c715701c9b92",
-  "lastMutationId": "synonyms-3c5be66f-0922-4967-859d-abf4db3947fc",
+  "exportedAt": "2026-10-17T22:59:21.959Z",
+  "revisionId": "510876ad-ba2c-476e-b5b2-d81d13fcab1c",
+  "lastMutationId": "synonyms-4f2e0a38-2c0d-4cf5-85ca-61262d3c541b",
   "entries": [
     {
       "id": "public-jab-at",
@@ -1303,7 +1303,7 @@
     },
     {
       "id": "public-nlmg-c1-pavilion",
-      "revision": 6,
+      "revision": 7,
       "originalInput": "pavilion",
       "term": "pavilion",
       "normalized": "pavilion",
@@ -1343,13 +1343,44 @@
       "synonyms": [],
       "synonymScan": {
         "version": 1,
-        "status": "pending",
+        "status": "complete",
         "sourceFingerprint": "s1:a40b09e1",
         "candidatesFingerprint": "s1:a4021726",
-        "checkedAt": "2026-10-17T22:58:47.490Z",
+        "checkedAt": "2026-10-17T22:59:15.233Z",
         "candidateCount": 613,
-        "matches": [],
-        "reason": "同义词识别超时，尚未完成全部已有词条的核对；稍后可重试。"
+        "matches": [
+          {
+            "targetId": "public-nlmg-c14-pavement",
+            "targetFingerprint": "s1:2580d442",
+            "note": "指道路旁供行人行走的铺砌区域（英式英语），与源词的“运动场旁的小屋”无共同词义，不匹配。"
+          },
+          {
+            "targetId": "public-nlmg-c2-acoustics",
+            "targetFingerprint": "s1:eb8d2cb9",
+            "note": "指场所的声音传播特性，与“小屋”的物理结构无关。"
+          },
+          {
+            "targetId": "public-nlmg-c2-aerial",
+            "targetFingerprint": "s1:3c0550f0",
+            "note": "指接收无线电或电视信号的天线，与“小屋”的用途无关。"
+          },
+          {
+            "targetId": "public-nlmg-c2-concussion",
+            "targetFingerprint": "s1:4006a106",
+            "note": "指脑部损伤，与“小屋”的用途无关。"
+          },
+          {
+            "targetId": "public-nlmg-c3-halt",
+            "targetFingerprint": "s1:149b4695",
+            "note": "指停止或停住的状态，与 pavilion 的建筑功能（提供休息）在“停止/停留”的语义上相关，但词性为名词，且指动作的停止而非建筑本身。"
+          },
+          {
+            "targetId": "public-nlmg-c4-nook",
+            "targetFingerprint": "s1:0a6d2d8f",
+            "note": "指隐蔽的小角落或小地方，与 pavilion（运动场旁的小屋）在建筑功能上无直接对应关系，仅因都是“小空间”而可能产生联想，但语义和语境完全不同。"
+          }
+        ],
+        "reason": "已核对所有已收录词条，按实际义项建立近义关联。"
       },
       "collocations": [
         "sports pavilion"
@@ -1403,7 +1434,7 @@
       ],
       "organizationMethod": "manual",
       "createdAt": "2026-09-20T16:00:00.000Z",
-      "updatedAt": "2026-10-17T22:59:12.490Z"
+      "updatedAt": "2026-10-17T22:59:21.959Z"
     },
     {
       "id": "public-nlmg-c1-tuck",
