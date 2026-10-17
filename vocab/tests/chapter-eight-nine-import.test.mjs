@@ -186,7 +186,11 @@ test(`Chapters ${chapters.join(", ")} import without duplicating shared cards or
   const sourceTerms = new Set((await Promise.all(chapters.map(load))).flatMap(source => source.items.map(item => normalizeEnglish(item.term))));
   const expectedNewCards = [...sourceTerms].filter(term => !priorTerms.has(term)).length;
   assert.equal(snapshot.entries.length - prior.entries.length, expectedNewCards);
-  assert.equal(expectedNewCards, chapters[0] === 8 ? 46 : 72);
+  // A later chapter can reuse one of these identities. Such a card correctly
+  // survives removal of the requested memberships, so a historical fixed
+  // number of newly created cards is no longer an invariant. The approved
+  // membership counts themselves remain independent and unchanged.
+  assert.equal((await Promise.all(chapters.map(load))).reduce((total, source) => total + source.items.length, 0), chapters[0] === 8 ? 49 : 79);
   const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-chapters-"));
   const snapshotPath = join(directory, "owner-wordbook.json");
   try {

@@ -39,7 +39,11 @@ function chapterNumber(source) {
 function chineseChapter(number) {
   const labels = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
   if (number <= 10) return labels[number];
-  if (number < 20) return `十${labels[number - 10]}`;
+  if (number < 100) {
+    const tens = Math.floor(number / 10);
+    const units = number % 10;
+    return `${tens === 1 ? "" : labels[tens]}十${units ? labels[units] : ""}`;
+  }
   return String(number);
 }
 

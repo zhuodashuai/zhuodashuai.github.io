@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "collection": { "id": "never-let-me-go", "title": "Never Let Me Go" },
+  "chapter": { "id": "chapter-21", "title": "Chapter 21", "number": 21 },
+  "sourceTitle": "Never Let Me Go — Chapter 21",
+  "originalInputKind": "excerpt",
+  "sourcePhotoDocument": "Never_Let_Me_Go_Merged_Deduplicated.pdf",
+  "reviewedPages": "241–250",
+  "selectionNote": "逐页核对所供合并照片 PDF 第 95–104 页，对应书页 pp.241–250。本章未见明确的蓝线生词；p.248 红线为整句主题性标记，不将其中每个普通词都当成划线生词。精选 28 项有助于理解、写作与实际表达的补充内容，均标为补充阅读；不为凑数抄录整句。ordeal、walk something off、blurt out、hear somebody out、frail 复用此前相同词义的词卡并补本章语境。",
+  "attributionNote": "依据用户提供的合并原文照片逐页校读；仅保留短小原文形式，中英文解释为本次整理，语境限定在第二十一章；音标采用英式，例句为本次整理的自拟句，不是小说原文。",
+  "expectedItemCount": 28,
+  "items": [
+    {
+      "order": 1, "page": "241", "term": "work up the nerve", "originalInput": "working up the nerve",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "/wɜːk ˌʌp ðə ˈnɜːv/",
+      "meaning": "① 鼓起勇气；克服紧张，准备去做令人害怕的事。",
+      "definitionEn": "gradually gather enough courage to attempt something intimidating",
+      "usage": "第二十一章语境：Kathy 原先想象自己和 Tommy 必须在门外鼓足勇气才敢按门铃；实际经过与她的想象不同。\n用法：work up the nerve to do something；nerve 在此是勇气，不是神经或厚脸皮。",
+      "exampleEn": "I finally worked up the nerve to ask for feedback.", "exampleZh": "我终于鼓起勇气，请对方给我反馈。",
+      "forms": ["worked up the nerve", "working up the nerve"], "collocations": ["work up the nerve to do something"], "confusedWith": [], "register": "informal", "tags": ["补充阅读", "日常表达"]
+    },
+    {
+      "order": 2, "page": "241", "term": "ordeal", "originalInput": "that particular ordeal",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ɔːˈdiːl/",
+      "meaning": "① 令人痛苦或紧张的经历；难熬的考验。",
+      "definitionEn": "an experience that is distressing, difficult or exhausting to go through",
+      "usage": "第二十一章语境：这里指 Kathy 先前想象的敲门、紧张等待的难熬过程；她说两人实际免去了这一特定考验，不是说整天的行程都很顺利。\n用法：go through an ordeal / be spared an ordeal；与此前表示难熬经历的词义共用词卡。",
+      "exampleEn": "Speaking to a crowded room was an ordeal for him at first.", "exampleZh": "最初，当着满屋子的人讲话对他是一场难熬的考验。",
+      "forms": ["ordeals"], "collocations": ["go through an ordeal", "be spared an ordeal"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "写作词汇"], "reuseExistingSameSense": true
+    },
+    {
+      "order": 3, "page": "241", "term": "play up", "originalInput": "The car had played up",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/pleɪ ˈʌp/",
+      "meaning": "① 出毛病；机器或身体部位不正常地运作。",
+      "definitionEn": "fail to work properly or cause intermittent trouble",
+      "usage": "第二十一章语境：他们的汽车在去检查的途中出了毛病，导致迟到；不是说汽车在玩耍。\n用法：The car / printer is playing up. 是常见英式口语；play something up 也可表示夸大，本句没有那个宾语结构。",
+      "exampleEn": "My laptop is playing up again this morning.", "exampleZh": "我的笔记本电脑今天早上又出毛病了。",
+      "forms": ["played up", "playing up"], "collocations": ["The car is playing up.", "My back is playing up."], "confusedWith": ["play something up"], "register": "British informal", "tags": ["补充阅读", "日常表达"]
+    },
+    {
+      "order": 4, "page": "241", "term": "mix-up", "originalInput": "a mix-up at the clinic",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ˈmɪksʌp/",
+      "meaning": "① 混淆造成的差错；安排或沟通上的弄错。",
+      "definitionEn": "a mistake caused by confusing people, information or arrangements",
+      "usage": "第二十一章语境：诊所又发生了一次差错，Tommy 因此不得不重做三项检查；本章没有说明差错具体由谁造成。\n用法：a mix-up over / with something；名词通常加连字符，动词是 mix something up。",
+      "exampleEn": "A booking mix-up left us without a room for the night.", "exampleZh": "预订上的差错让我们当晚没有房间可住。",
+      "forms": ["mix-ups"], "collocations": ["a booking mix-up", "a mix-up over the dates"], "confusedWith": ["mix something up"], "register": "neutral", "tags": ["补充阅读", "日常表达"]
+    },
+    {
+      "order": 5, "page": "241", "term": "woozy", "originalInput": "feeling pretty woozy",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈwuːzi/",
+      "meaning": "① 头昏的；晕乎乎、身体不稳的。",
+      "definitionEn": "feeling dizzy, weak or unsteady rather than fully alert",
+      "usage": "第二十一章语境：重做检查以后，Tommy 已经感到晕乎乎的，后来坐车又开始晕车；这是对当时感觉的描写，不是新的医学诊断。\n用法：feel woozy / a bit woozy；口语中常形容身体虚弱或眩晕感。",
+      "exampleEn": "I felt a little woozy after standing up too quickly.", "exampleZh": "起身太快后，我觉得有点头晕。",
+      "forms": ["woozier", "wooziest"], "collocations": ["feel woozy", "a little woozy"], "confusedWith": [], "register": "informal", "tags": ["补充阅读", "身体感受"]
+    },
+    {
+      "order": 6, "page": "241", "term": "walk something off", "originalInput": "walk it off",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/wɔːk ˌsʌmθɪŋ ˈɒf/",
+      "meaning": "① 走一走来缓解身体不适或某种情绪。",
+      "definitionEn": "reduce discomfort or an unwanted feeling by walking for a while",
+      "usage": "第二十一章语境：途中他们多次停下来，让 Tommy 下车走走，缓解坐车的不适。句中 it 回指这种不舒服，不是把某件物品走掉。\n用法：walk it off / walk off a feeling；这里记录人物采取的缓解方式，不把它当作对所有身体症状都适用的医学建议。",
+      "exampleEn": "I went outside to walk off my frustration.", "exampleZh": "我到外面走了走，想缓解烦闷。",
+      "forms": ["walked something off", "walking something off"], "collocations": ["walk it off", "walk off a feeling"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "日常表达"], "reuseExistingSameSense": true
+    },
+    {
+      "order": 7, "page": "242", "term": "pedestrian precinct", "originalInput": "the pedestrian precinct",
+      "entryType": "collocation", "partOfSpeech": "countable noun phrase", "phonetic": "/pəˌdestriən ˈpriːsɪŋkt/",
+      "meaning": "① 步行街区；限制车辆进入、供行人活动的商业区域。",
+      "definitionEn": "an urban area, often containing shops, reserved mainly for people on foot",
+      "usage": "第二十一章语境：两人跟在 Madame 后面，先穿过步行街区，再沿着几乎无人的 High Street 前行。\n用法：常见于英式城镇描述；pedestrian 在此是行人的，不是形容文章平庸的另一种用法。",
+      "exampleEn": "The café is in the pedestrian precinct near the library.", "exampleZh": "那家咖啡馆在图书馆附近的步行街区。",
+      "forms": ["pedestrian precincts"], "collocations": ["a town-centre pedestrian precinct"], "confusedWith": [], "register": "British English", "tags": ["补充阅读", "实用搭配"]
+    },
+    {
+      "order": 8, "page": "243", "term": "waylay", "originalInput": "we'd waylaid her",
+      "entryType": "word", "partOfSpeech": "verb", "phonetic": "/weɪˈleɪ/",
+      "meaning": "① 半路拦住某人；意外地挡住去路，与其说话或提出要求。",
+      "definitionEn": "stop someone unexpectedly while they are going somewhere, often to speak to them",
+      "usage": "第二十一章语境：Kathy 想到小时候在主楼外拦住 Madame 的那一次经历，并将当时的寒意与眼下相比；本处不表示实施抢劫。\n用法：waylay somebody outside a building / on the way out；过去式和过去分词都是 waylaid。",
+      "exampleEn": "A colleague waylaid me outside the lecture hall with a question.", "exampleZh": "一位同事在报告厅外拦住我，问了个问题。",
+      "forms": ["waylaid", "waylaying"], "collocations": ["waylay somebody on the way out"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "动作描写"]
+    },
+    {
+      "order": 9, "page": "243", "term": "squint", "originalInput": "squinting in the setting sun",
+      "entryType": "word", "partOfSpeech": "verb", "phonetic": "/skwɪnt/",
+      "meaning": "① 眯起眼睛看；因光线刺眼或想看清楚而收窄眼缝。",
+      "definitionEn": "partly close the eyes in order to see more clearly or avoid bright light",
+      "usage": "第二十一章语境：Madame 站在落日的光线中，眯起眼仔细打量他们。\n用法：squint at something / squint in the sunlight；这里不是在诊断斜视。",
+      "exampleEn": "She squinted at the small print on the ticket.", "exampleZh": "她眯起眼睛看票上的小字。",
+      "forms": ["squinted", "squinting"], "collocations": ["squint at something", "squint in the sunlight"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "动作描写"]
+    },
+    {
+      "order": 10, "page": "244", "term": "signify", "originalInput": "signify something to her",
+      "entryType": "word", "partOfSpeech": "verb", "phonetic": "/ˈsɪɡnɪfaɪ/",
+      "meaning": "① 表示、意味着；作为某种信息或情况的信号。",
+      "definitionEn": "indicate or carry a particular meaning for someone",
+      "usage": "第二十一章语境：楼上传来的一点响动似乎对 Madame 有所含义，她随即改变了行动；Kathy 此时并不知道声音具体表示什么。\n用法：signify a change / something signifies that...；常用于分析细节或现象所传达的含义。",
+      "exampleEn": "A flashing light signifies that the device needs attention.", "exampleZh": "灯光闪烁表示设备需要检查。",
+      "forms": ["signified", "signifying"], "collocations": ["signify a change", "signify something to somebody"], "confusedWith": [], "register": "neutral; formal", "tags": ["补充阅读", "写作词汇"]
+    },
+    {
+      "order": 11, "page": "244", "term": "banister", "originalInput": "leaned over the banister",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ˈbænɪstə/",
+      "meaning": "① 楼梯扶手；楼梯边的栏杆。",
+      "definitionEn": "the handrail or supporting railing beside a staircase",
+      "usage": "第二十一章语境：Madame 上楼后，探身越过楼梯扶手，再次指向楼下较暗的方向。\n用法：hold the banister / lean over the banister；常见变体拼写为 bannister。",
+      "exampleEn": "Hold the banister while you walk down the steep stairs.", "exampleZh": "走下陡峭的楼梯时，请扶住扶手。",
+      "forms": ["banisters", "bannister"], "collocations": ["hold the banister", "lean over the banister"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "场景词汇"]
+    },
+    {
+      "order": 12, "page": "244", "term": "tapestry", "originalInput": "woven like a tapestry",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ˈtæpəstri/",
+      "meaning": "① 挂毯；织有图案、可用于墙面装饰的织物。",
+      "definitionEn": "a decorative woven textile containing a design or picture",
+      "usage": "第二十一章语境：封住的壁炉处有一幅鸟的图像，看起来像挂毯那样织成；like 表示叙述者根据外观作比较，并非给织物工艺下确定结论。\n用法：a woven tapestry / a wall tapestry；这里是具体织物，不是常见比喻 a rich tapestry of experiences。",
+      "exampleEn": "A faded tapestry hung above the wooden chest.", "exampleZh": "木箱上方挂着一幅褪色的挂毯。",
+      "forms": ["tapestries"], "collocations": ["a woven tapestry", "a wall tapestry"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "场景词汇"]
+    },
+    {
+      "order": 13, "page": "244", "term": "murky", "originalInput": "the murky glass",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈmɜːki/",
+      "meaning": "① 昏暗不清的；污蒙蒙而难以看透的。",
+      "definitionEn": "dark or clouded in a way that makes things difficult to see clearly",
+      "usage": "第二十一章语境：相框玻璃昏暗不清，台灯反光又妨碍视线，所以 Kathy 很难看清画面。\n用法：murky glass / water / light；本处是可见度差，不是事情来历可疑的比喻义。",
+      "exampleEn": "We could barely see through the murky window.", "exampleZh": "隔着污蒙蒙的窗户，我们几乎看不清外面。",
+      "forms": ["murkier", "murkiest"], "collocations": ["murky glass", "murky water"], "confusedWith": [], "register": "neutral; descriptive", "tags": ["补充阅读", "景物描写"]
+    },
+    {
+      "order": 14, "page": "245", "term": "gruff", "originalInput": "a gruff male voice",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ɡrʌf/",
+      "meaning": "① 低沉粗哑的；听起来生硬、不够和善的。",
+      "definitionEn": "low and rough in sound, often giving an impression of abruptness",
+      "usage": "第二十一章语境：Kathy 听见楼上有粗哑的声音，并在这一刻以为是男声；这只是她根据声音作的初步判断。\n用法：a gruff voice / reply；gruff 形容声音或说话方式，不能单凭它断言一个人的真实性别或性格。",
+      "exampleEn": "A gruff voice answered from behind the door.", "exampleZh": "门后传来一个低沉粗哑的回答声。",
+      "forms": ["gruffer", "gruffest"], "collocations": ["a gruff voice", "a gruff reply"], "confusedWith": [], "register": "neutral; descriptive", "tags": ["补充阅读", "声音描写"]
+    },
+    {
+      "order": 15, "page": "245", "term": "muffled", "originalInput": "so muffled",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈmʌfld/",
+      "meaning": "① 声音被阻隔而闷闷的；含混低沉、听不真切的。",
+      "definitionEn": "reduced or obscured by something so that a sound is not heard clearly",
+      "usage": "第二十一章语境：楼上传来的声音隔得远，听起来闷而不清楚，甚至像来自更高的一层。\n用法：a muffled voice / sound；区别于 quiet，muffled 特别强调声音像被东西挡住、包住。",
+      "exampleEn": "We heard muffled laughter through the closed door.", "exampleZh": "隔着关上的门，我们听到闷闷的笑声。",
+      "forms": [], "collocations": ["a muffled voice", "a muffled sound"], "confusedWith": ["quiet"], "register": "neutral", "tags": ["补充阅读", "声音描写"]
+    },
+    {
+      "order": 16, "page": "245", "term": "threshold", "originalInput": "standing there at the threshold",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ˈθreʃhəʊld/",
+      "meaning": "① 门槛；门口内外相接的位置。",
+      "definitionEn": "the entrance or strip at the bottom of a doorway",
+      "usage": "第二十一章语境：Madame 站在分隔房间的门口，仿佛还在犹豫是否要进来；这里首先是实际位置。\n用法：stand at / cross the threshold；区别于研究或统计里表示临界值的 threshold。",
+      "exampleEn": "He paused at the threshold before entering the room.", "exampleZh": "他在门口停了一下，才走进房间。",
+      "forms": ["thresholds"], "collocations": ["stand at the threshold", "cross the threshold"], "confusedWith": ["threshold meaning a critical level"], "register": "neutral", "tags": ["补充阅读", "熟词生义"]
+    },
+    {
+      "order": 17, "page": "246", "term": "expanse", "originalInput": "the flat grassy expanse",
+      "entryType": "word", "partOfSpeech": "countable noun", "phonetic": "/ɪkˈspæns/",
+      "meaning": "① 广阔的一片；大片平坦或开阔的区域。",
+      "definitionEn": "a wide area of land or another surface extending across a space",
+      "usage": "第二十一章语境：这里指街道外通向海滨的大片平坦草地；Tommy 后来用它与想象中的舞台背景作对比。不能把那番后来的说法当成他当时已经在想的事实。\n用法：an expanse of grass / water / sky；适用于景物描写。",
+      "exampleEn": "Beyond the path lay a broad expanse of grass.", "exampleZh": "小路那边是一大片开阔的草地。",
+      "forms": ["expanses"], "collocations": ["an expanse of grass", "a wide expanse of water"], "confusedWith": [], "register": "neutral; descriptive", "tags": ["补充阅读", "写作词汇"]
+    },
+    {
+      "order": 18, "page": "246", "term": "blurt out", "originalInput": "blurt out something completely daft",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/blɜːt ˈaʊt/",
+      "meaning": "① 脱口而出；未及考虑就突然说出。",
+      "definitionEn": "say something suddenly before thinking carefully about it",
+      "usage": "第二十一章语境：Kathy 担心紧张的 Tommy 会冒失地说出不合适的话，所以先开口说明来意；这是一种担心，并不是确认他已经说了蠢话。\n用法：blurt something out / blurt out a secret；代词放中间，如 blurt it out。与此前同义用法复用旧词卡。",
+      "exampleEn": "I blurted out the answer before she finished the question.", "exampleZh": "她还没问完，我就脱口说出了答案。",
+      "forms": ["blurted out", "blurting out"], "collocations": ["blurt out a secret", "blurt it out"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "日常表达"], "reuseExistingSameSense": true
+    },
+    {
+      "order": 19, "page": "246", "term": "hear somebody out", "originalInput": "she'd hear me out",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/hɪə ˌsʌmbədi ˈaʊt/",
+      "meaning": "① 耐心听某人把话说完；先不打断地听完解释。",
+      "definitionEn": "listen until someone has finished explaining what they want to say",
+      "usage": "第二十一章语境：Kathy 越来越相信 Madame 会听她把来意讲完，因此逐渐镇定下来，说得更清楚。\n用法：Please hear me out. 不只是听见声音，还包含给对方把话讲完的机会。",
+      "exampleEn": "Please hear me out before you reject the idea.", "exampleZh": "先听我把话说完，再否定这个想法吧。",
+      "forms": ["heard somebody out", "hearing somebody out"], "collocations": ["Please hear me out."], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "日常表达"], "reuseExistingSameSense": true
+    },
+    {
+      "order": 20, "page": "246", "term": "turn something over in one's mind", "originalInput": "turning over in my mind",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "/tɜːn ˌsʌmθɪŋ ˈəʊvə ɪn wʌnz ˈmaɪnd/",
+      "meaning": "① 在脑海里反复考虑；从不同方面琢磨一件事。",
+      "definitionEn": "consider something repeatedly and carefully in one's thoughts",
+      "usage": "第二十一章语境：Kathy 之前反复设想该如何向 Madame 开口，在开车或休息时都一直琢磨说辞。\n用法：turn a problem / idea over in your mind；这里不是把实物翻转，也不是营业额的名词 turnover。",
+      "exampleEn": "I turned the proposal over in my mind during the journey.", "exampleZh": "旅途中，我在脑海里反复琢磨那个提议。",
+      "forms": ["turned something over in one's mind", "turning something over in one's mind"], "collocations": ["turn an idea over in your mind"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "写作表达"]
+    },
+    {
+      "order": 21, "page": "246", "term": "resort to", "originalInput": "resorted to a plan",
+      "entryType": "phrase", "partOfSpeech": "verb phrase", "phonetic": "/rɪˈzɔːt tə/",
+      "meaning": "① 在其他办法不奏效时求助于、采取某种手段。",
+      "definitionEn": "use a method after finding other approaches difficult or unsuccessful",
+      "usage": "第二十一章语境：由于难以准备好整段说辞，Kathy 最后采取一个办法：记住几句关键话，再规划各点之间的顺序。\n用法：resort to something / doing something；to 是介词，后接动词时用 -ing，不是 resort to do。",
+      "exampleEn": "We should try talking before resorting to formal complaints.", "exampleZh": "在采取正式投诉之前，我们应该先试着沟通。",
+      "forms": ["resorted to", "resorting to"], "collocations": ["resort to doing something", "resort to drastic measures"], "confusedWith": [], "register": "neutral; formal", "tags": ["补充阅读", "写作表达"]
+    },
+    {
+      "order": 22, "page": "247", "term": "bank on", "originalInput": "weren't banking on anything",
+      "entryType": "phrasal-verb", "partOfSpeech": "phrasal verb", "phonetic": "/bæŋk ˈɒn/",
+      "meaning": "① 指望；把某事当成可靠的希望或依靠。",
+      "definitionEn": "rely on someone or expect something to happen with confidence",
+      "usage": "第二十一章语境：Kathy 说明他们知道传闻可能不准确，也没有把任何结果当成必然；weren't banking on anything 是否定表达。\n用法：bank on somebody / something / doing something；此处与存钱进银行无关。",
+      "exampleEn": "Don't bank on getting an immediate reply.", "exampleZh": "别指望马上就能收到回复。",
+      "forms": ["banked on", "banking on"], "collocations": ["bank on getting something", "Don't bank on it."], "confusedWith": [], "register": "informal", "tags": ["补充阅读", "熟词生义"]
+    },
+    {
+      "order": 23, "page": "247", "term": "devastated", "originalInput": "I'd have felt pretty devastated",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/ˈdevəsteɪtɪd/",
+      "meaning": "① 深受打击的；伤心或失望到几乎承受不住的。",
+      "definitionEn": "extremely upset or overwhelmed by disappointment or loss",
+      "usage": "第二十一章语境：Kathy 说，如果 Madame 用另一种态度提问，自己一定会非常受打击；这是一句假设，不是说那一刻已经彻底绝望。\n用法：feel devastated / be devastated by something；比 disappointed 强烈得多。",
+      "exampleEn": "She was devastated when the opportunity fell through.", "exampleZh": "机会落空时，她深受打击。",
+      "forms": [], "collocations": ["feel devastated", "be devastated by the news"], "confusedWith": ["disappointed"], "register": "neutral; emphatic", "tags": ["补充阅读", "心理描写"]
+    },
+    {
+      "order": 24, "page": "249", "term": "scrutiny", "originalInput": "sense my scrutiny",
+      "entryType": "word", "partOfSpeech": "uncountable noun", "phonetic": "/ˈskruːtəni/",
+      "meaning": "① 仔细审视；带着判断或探究意味的认真观察。",
+      "definitionEn": "close and careful observation or examination",
+      "usage": "第二十一章语境：Kathy 开始仔细观察 Madame，想弄清她反复问话时的不寻常之处；Madame 似乎也察觉了这种审视。\n用法：under scrutiny / close scrutiny / subject something to scrutiny；适合观察、研究和论证写作。",
+      "exampleEn": "The new policy came under close scrutiny.", "exampleZh": "这项新政策受到了仔细审查。",
+      "forms": [], "collocations": ["under close scrutiny", "subject something to scrutiny"], "confusedWith": [], "register": "formal", "tags": ["补充阅读", "写作词汇"]
+    },
+    {
+      "order": 25, "page": "249", "term": "bare one's soul", "originalInput": "art bares the soul of the artist",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "/beə wʌnz ˈsəʊl/",
+      "meaning": "① 袒露内心；显露一个人深藏的感受或真实自我。",
+      "definitionEn": "reveal deeply personal feelings or the inner self",
+      "usage": "第二十一章语境：Madame 用“艺术显露创作者内心”的说法概括 Tommy 所提出的想法。这里只记录两人的谈话观点，不把它当作已证实的判断方法。\n用法：bare 是动词“使显露”，不是 bear；可说 bare your soul to somebody。原文以 art 为主语，表示作品显露艺术家的内心。",
+      "exampleEn": "I wasn't ready to bare my soul to someone I had just met.", "exampleZh": "我还不愿意对一个刚认识的人袒露内心。",
+      "forms": ["bared one's soul", "baring one's soul"], "collocations": ["bare your soul to somebody"], "confusedWith": ["bear"], "register": "neutral; figurative", "tags": ["补充阅读", "固定表达"]
+    },
+    {
+      "order": 26, "page": "250", "term": "frail", "originalInput": "frail and contorted",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/freɪl/",
+      "meaning": "① 身体虚弱、脆弱的；缺少体力和健壮感的。",
+      "definitionEn": "physically weak and lacking strength or robustness",
+      "usage": "第二十一章语境：坐在轮椅上的 Miss Emily 身形虚弱，这与 Kathy 根据声音才认出她的描写相呼应；本章没有要求读者据此作具体疾病诊断。\n用法：look frail / a frail person；与此前身体虚弱义共用词卡，另保留本章人物与页码。",
+      "exampleEn": "He looked frail after spending several weeks in bed.", "exampleZh": "卧床几周之后，他看起来很虚弱。",
+      "forms": ["frailer", "frailest"], "collocations": ["look frail", "physically frail"], "confusedWith": [], "register": "neutral", "tags": ["补充阅读", "人物描写"], "reuseExistingSameSense": true
+    },
+    {
+      "order": 27, "page": "250", "term": "contorted", "originalInput": "frail and contorted",
+      "entryType": "word", "partOfSpeech": "adjective", "phonetic": "/kənˈtɔːtɪd/",
+      "meaning": "① 弯曲变形的；身体或面容呈不自然扭曲状态的。",
+      "definitionEn": "bent or twisted into an unnatural shape or position",
+      "usage": "第二十一章语境：Kathy 看到轮椅中的 Miss Emily 身形扭曲；这里描述外观，不额外推断原因。\n用法：a contorted body / face；相关动词 contort，名词 contortion。不要把不同词性的这几个形式当成重复卡直接替换。",
+      "exampleEn": "The performer held an unusually contorted pose.", "exampleZh": "那位表演者保持着一个异常扭曲的姿势。",
+      "forms": [], "collocations": ["a contorted body", "a contorted face"], "confusedWith": [], "register": "neutral; descriptive", "tags": ["补充阅读", "外形描写"]
+    },
+    {
+      "order": 28, "page": "250", "term": "wash one's hands of", "originalInput": "washing her hands of everything",
+      "entryType": "idiom", "partOfSpeech": "idiom", "phonetic": "/wɒʃ wʌnz ˈhændz əv/",
+      "meaning": "① 不再插手或承担责任；表示与某事划清界限。",
+      "definitionEn": "refuse to take further responsibility for or involvement in something",
+      "usage": "第二十一章语境：Madame 把谈话交给 Miss Emily 时，样子仿佛要把一切责任撇开；as though 明确表明这是一种神态上的比喻，并非真的去洗手。\n用法：wash your hands of somebody / something；常带无奈、厌烦或不再负责的意味。",
+      "exampleEn": "After repeated warnings, she washed her hands of the dispute.", "exampleZh": "反复警告无效后，她决定不再插手这场争端。",
+      "forms": ["washed one's hands of", "washing one's hands of"], "collocations": ["wash your hands of the matter"], "confusedWith": [], "register": "neutral; figurative", "tags": ["补充阅读", "固定表达"]
+    }
+  ]
+}

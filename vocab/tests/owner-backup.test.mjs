@@ -29,7 +29,7 @@ test("the current full wordbook exports and imports above the old 1.5 MB limit w
   assert.ok(blob.size < OWNER_BACKUP_MAX_BYTES);
   const restored = await readOwnerBackupFile(blob);
   assert.deepEqual(restored.publicSnapshot, snapshot);
-  assert.equal(restored.publicSnapshot.entries.length, 344);
+  assert.equal(restored.publicSnapshot.entries.length, snapshot.entries.length);
   assert.deepEqual(restored.drafts[0].value, original.value);
   assert.notEqual(restored.drafts[0].id, original.id);
   assert.equal(restored.drafts[0].localState, "local_saved");

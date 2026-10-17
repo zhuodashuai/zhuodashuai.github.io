@@ -8,6 +8,10 @@ const CANONICAL_ENTRY_COUNT = canonicalSnapshot.entries.length;
 const NEVER_LET_ME_GO_ENTRY_COUNT = canonicalSnapshot.entries.filter((entry) => (
   entry.tags.some((tag) => tag.startsWith("collection:never-let-me-go:"))
 )).length;
+const remainingChapterCounts = await Promise.all(Array.from({ length: 11 }, async (_, index) => {
+  const list = JSON.parse(await readFile(new URL(`../../../vocab/data/reading-lists/never-let-me-go/chapter-${index + 13}.json`, import.meta.url), "utf8"));
+  return String(list.expectedItemCount);
+}));
 const chapterThreeSource = JSON.parse(
   await readFile(new URL("../../../vocab/data/reading-lists/never-let-me-go/chapter-3.json", import.meta.url), "utf8")
 );
@@ -547,7 +551,7 @@ test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并�
   await expect(page.locator("#entry-count")).toHaveText("51");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(51);
   await expect(page.locator('#chapter-tabs button[data-value="chapter-4"]')).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "24", "24", "30", "25", "24", "26", "28", "25"]);
+  await expect(page.locator('#chapter-tabs button[data-value^="chapter-"] small')).toHaveText(["29", "38", "28", "51", "24", "24", "30", "25", "24", "26", "28", "25", ...remainingChapterCounts]);
   await expect(page.locator(".word-card .chapter-chip")).toHaveText(Array(51).fill("Chapter 4"));
   await expect(page.locator("#entry-grid .word-card h3")).toHaveText(chapterFourSource.items.map((item) => item.term));
 

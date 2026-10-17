@@ -5,6 +5,7 @@ import { dirname, resolve } from "node:path";
 
 const ORIGIN = "http://127.0.0.1:4187";
 const STORAGE_MODULE = "/js/quick-notes-storage.js?v=71";
+const CANONICAL_COUNT = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")).entries.length;
 
 test.beforeEach(async ({ context, page }, info) => {
   const run = `notes-${createHash("sha256").update(info.testId).digest("hex").slice(0, 22)}`;
@@ -96,7 +97,7 @@ test("an unauthenticated blank page immediately records exact multiline text loc
   const apiRequests = [];
   page.on("request", request => { if (new URL(request.url()).pathname.startsWith("/api/")) apiRequests.push(request.url()); });
   const canonicalBefore = await (await context.request.get("/api/v1/public/wordbook")).json();
-  expect(canonicalBefore.entries).toHaveLength(344);
+  expect(canonicalBefore.entries).toHaveLength(CANONICAL_COUNT);
   await openNotes(page, info);
   const protectedBefore = await protectedStores(page, true);
   const text = "  by some fluke  \n\n听到的词先记下来：不要查询\n<script>window.__notesXss = true</script>\n";
@@ -291,7 +292,7 @@ test("JSON backup includes latest text, repeated imports are idempotent, and old
 
 test("after PWA readiness the first offline notes visit with query parameters opens the notes shell and retains edits across reload", async ({ page, context }, info) => {
   await page.goto("/");
-  await expect(page.locator("#entry-count")).toHaveText("344");
+  await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_COUNT));
   await page.evaluate(async () => navigator.serviceWorker.ready);
   await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
   await context.setOffline(true);
@@ -312,7 +313,7 @@ for (const width of [360, 390]) {
   test(`the ${width}px mobile notes editor and public entry point fit without horizontal overflow`, async ({ page }, info) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
-    await expect(page.locator("#entry-count")).toHaveText("344");
+    await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_COUNT));
     const entry = page.locator(".topbar .quick-notes-link");
     await expect(entry).toBeVisible();
     await entry.click();

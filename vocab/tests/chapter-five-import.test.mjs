@@ -278,11 +278,16 @@ test("each selected reading card projects its own page, meaning and example whil
       assert.deepEqual(view.senses[0].examples, [{ en: item.exampleEn, zh: item.exampleZh }]);
     }
     const book = buildCollectionCatalog(result.snapshot.entries).find((item) => item.id === collectionId);
-    assert.deepEqual(book.chapters.map(({ id, count }) => [id, count]), [
+    // Later reading chapters may be added without changing this approved
+    // shortlist. Keep the independently reviewed Chapters 1–12 counts exact,
+    // and verify that importing Chapter 5 leaves every later count untouched.
+    assert.deepEqual(book.chapters.filter(({ number }) => number <= 12).map(({ id, count }) => [id, count]), [
       ["chapter-1", 29], ["chapter-2", 38], ["chapter-3", 28], ["chapter-4", 51], ["chapter-5", 24],
       ["chapter-6", 24], ["chapter-7", 30], ["chapter-8", 25], ["chapter-9", 24],
       ["chapter-10", 26], ["chapter-11", 28], ["chapter-12", 25]
     ]);
+    const currentBook = buildCollectionCatalog((await loadSnapshot()).entries).find((item) => item.id === collectionId);
+    assert.deepEqual(book.chapters.filter(({ number }) => number > 12), currentBook.chapters.filter(({ number }) => number > 12));
   });
 });
 
