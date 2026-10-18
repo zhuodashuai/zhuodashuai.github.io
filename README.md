@@ -15,6 +15,13 @@ Synonym grouping and automatic recognition are temporarily paused after incorrec
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.
 
+The separate [original-dictionary editorial foundation](tooling/dictionary/README.md)
+targets 70,000 distinct lexical headwords with independently written content. It
+is local tooling, not a deployed replacement: the first pack contains 30 original
+AI-assisted drafts, while the separate headword inventory has no completed
+meanings. Drafts cannot pass the checked-content export gate; the supplied
+commercial PDFs are not published or claimed as fully indexed.
+
 ## Content structure
 
 - Research profile and current affiliations

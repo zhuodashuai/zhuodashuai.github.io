@@ -10,3 +10,5 @@ playwright-report/
 coverage/
 .artifacts/
 qa-artifacts/
+__pycache__/
+*.py[cod]

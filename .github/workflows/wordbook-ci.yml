@@ -7,6 +7,8 @@ on:
       - "wordbook-api/**"
       - "tooling/tests/**"
       - "tooling/scripts/**"
+      - "tooling/lib/**"
+      - "tooling/dictionary/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
@@ -19,6 +21,8 @@ on:
       - "wordbook-api/**"
       - "tooling/tests/**"
       - "tooling/scripts/**"
+      - "tooling/lib/**"
+      - "tooling/dictionary/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
@@ -46,6 +50,8 @@ jobs:
         run: pnpm test:security
       - name: Unit and Worker integration tests
         run: pnpm test
+      - name: Original headword seed tests
+        run: python3 -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
       - name: TypeScript check
         run: pnpm --dir wordbook-api check
       - name: Cloudflare Worker dry run
