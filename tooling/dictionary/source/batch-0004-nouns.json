@@ -1,0 +1,918 @@
+{
+  "schemaVersion": 1,
+  "name": "卓式词典",
+  "entries": [
+    {
+      "id": "zhuo:figure", "headword": "figure", "kind": "word", "forms": ["figures", "figured", "figuring"],
+      "senses": [
+        {"id": "figure-noun-number", "partOfSpeech": "noun (countable)", "definitionZh": "数字；数值；用来表示数量的一项数据，复数 figures 常指统计数字。", "definitionEn": "A number representing an amount, especially in records or statistics.", "examples": [{"en": "The latest attendance figures include visitors to the evening sessions.", "zh": "最新的出席人数统计包括晚间活动的访客。"}]},
+        {"id": "figure-noun-person", "partOfSpeech": "noun (countable)", "definitionZh": "人物；一个人或人的轮廓，也可指在某个领域有重要地位的人。", "definitionEn": "A person, a person's visible outline, or someone important in a particular field.", "examples": [{"en": "A lone figure stood beside the closed station entrance.", "zh": "车站关闭的入口旁站着一个孤零零的人。"}]},
+        {"id": "figure-noun-shape", "partOfSpeech": "noun (countable)", "definitionZh": "体形；形状；人的身体外形，也可指几何图形。", "definitionEn": "The shape of a person's body or a defined geometric shape.", "examples": [{"en": "The exercise asks you to divide the figure into four equal parts.", "zh": "这道练习要求把图形分成四个相等部分。"}]},
+        {"id": "figure-noun-illustration", "partOfSpeech": "noun (countable)", "definitionZh": "图；插图；报告或书中用于说明问题的图表，常带编号。", "definitionEn": "A diagram or illustration used to explain something in a document.", "examples": [{"en": "Figure three shows the position of each sensor.", "zh": "图三显示了每个传感器的位置。"}]},
+        {"id": "figure-verb-think", "partOfSpeech": "verb", "definitionZh": "认为；估计，较口语，尤其常见于美式英语。figure out 表示经过思考弄明白。", "definitionEn": "To think or estimate something, especially in conversational American English.", "examples": [{"en": "I figured that an earlier train would give us more time to explore.", "zh": "我想，坐早一点的火车能给我们更多时间游览。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:file", "headword": "file", "kind": "word", "forms": ["files", "filed", "filing"],
+      "senses": [
+        {"id": "file-noun-record", "partOfSpeech": "noun (countable)", "definitionZh": "文件；档案；一组有组织的记录或存放它们的文件夹，也指计算机中保存的数据单元。", "definitionEn": "An organized set of records, its folder, or a named unit of stored computer data.", "examples": [{"en": "Save the revised file under a new name so the original remains unchanged.", "zh": "把修改后的文件另存为新名称，保留原件不变。"}]},
+        {"id": "file-noun-abrasive-tool", "partOfSpeech": "noun (countable)", "definitionZh": "锉刀；表面粗糙、通过摩擦修整金属或其他材料的工具。", "definitionEn": "A rough-surfaced tool used to shape or smooth material by rubbing it.", "examples": [{"en": "He used a small file to smooth the sharp metal corner.", "zh": "他用一把小锉刀磨平了尖锐的金属角。"}]},
+        {"id": "file-verb-store-records", "partOfSpeech": "verb", "definitionZh": "归档；把文件按一定顺序存放，以便以后查找。", "definitionEn": "To put documents into an organized system for later reference.", "examples": [{"en": "Please file the receipts by month before you leave.", "zh": "离开前，请把收据按月份归档。"}]},
+        {"id": "file-verb-submit", "partOfSpeech": "verb", "definitionZh": "正式提交；把申请、报告、投诉等交给有关机构。", "definitionEn": "To submit an application, report, complaint, or other document officially.", "examples": [{"en": "The group filed an application to use the empty hall.", "zh": "小组正式提交了使用空礼堂的申请。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:film", "headword": "film", "kind": "word", "forms": ["films", "filmed", "filming"],
+      "senses": [
+        {"id": "film-noun-moving-picture", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "电影；以连续影像讲故事或呈现内容的作品，也可统称电影艺术。", "definitionEn": "A work presented through moving images, or the art of making such works.", "examples": [{"en": "The club will screen a short film about the city's lost rivers.", "zh": "俱乐部将放映一部介绍城市消失河流的短片。"}]},
+        {"id": "film-noun-photographic-material", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "胶片；相机等设备中通过感光记录影像的材料。", "definitionEn": "Light-sensitive material used to record photographic images.", "examples": [{"en": "The old camera still had a roll of film inside.", "zh": "那台旧相机里还装着一卷胶片。"}]},
+        {"id": "film-noun-thin-layer", "partOfSpeech": "noun (countable)", "definitionZh": "薄层；覆盖在表面的一层很薄的物质。", "definitionEn": "A very thin layer of material covering a surface.", "examples": [{"en": "A film of dust covered the unused desk.", "zh": "闲置的书桌上蒙着一层薄灰。"}]},
+        {"id": "film-verb-record-images", "partOfSpeech": "verb", "definitionZh": "拍摄；用摄像设备记录活动影像。", "definitionEn": "To record moving images with a camera.", "examples": [{"en": "We filmed the demonstration so new volunteers could watch it later.", "zh": "我们拍下了演示，方便新志愿者以后观看。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fire", "headword": "fire", "kind": "word", "forms": ["fires", "fired", "firing"],
+      "senses": [
+        {"id": "fire-noun-burning", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "火；燃烧现象；也指为取暖等点起的火或造成破坏的火灾。", "definitionEn": "Burning that produces heat and often flames, including a controlled fire or a destructive blaze.", "examples": [{"en": "The fire damaged the shed, but nobody was injured.", "zh": "火灾损坏了棚屋，但无人受伤。"}]},
+        {"id": "fire-noun-shooting", "partOfSpeech": "noun (uncountable)", "definitionZh": "射击；火力；武器发射子弹等的行为。", "definitionEn": "The discharge of bullets or other ammunition from weapons.", "examples": [{"en": "The documentary described how the team took shelter from enemy fire.", "zh": "纪录片讲述了队伍如何躲避敌方火力。"}]},
+        {"id": "fire-verb-dismiss", "partOfSpeech": "verb", "definitionZh": "解雇；让某人失去工作，较口语。", "definitionEn": "To dismiss someone from their job, in everyday usage.", "examples": [{"en": "The company fired the supervisor after repeated safety violations.", "zh": "在多次违反安全规定后，公司解雇了那位主管。"}]},
+        {"id": "fire-verb-shoot", "partOfSpeech": "verb", "definitionZh": "开火；射击；使武器发射，也可指子弹被发射。", "definitionEn": "To discharge a weapon or send ammunition from it.", "examples": [{"en": "The report states that no shots were fired during the incident.", "zh": "报告指出，事件中没有人开枪。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fish", "headword": "fish", "kind": "word", "forms": ["fishes", "fished", "fishing"],
+      "senses": [
+        {"id": "fish-noun-animal", "partOfSpeech": "noun (countable)", "definitionZh": "鱼；生活在水中、通常用鳃呼吸并以鳍游动的脊椎动物。一般复数仍为 fish；强调不同种类时可用 fishes。", "definitionEn": "An aquatic vertebrate typically breathing through gills and moving with fins.", "examples": [{"en": "Several small fish sheltered among the rocks near the bank.", "zh": "几条小鱼躲在岸边的岩石间。"}]},
+        {"id": "fish-noun-food", "partOfSpeech": "noun (uncountable)", "definitionZh": "鱼肉；作为食物的鱼。", "definitionEn": "The flesh of fish used as food.", "examples": [{"en": "The café serves fresh fish with rice and vegetables.", "zh": "这家咖啡馆供应配米饭和蔬菜的鲜鱼。"}]},
+        {"id": "fish-verb-catch", "partOfSpeech": "verb", "definitionZh": "捕鱼；钓鱼；试图从水中捕获鱼。", "definitionEn": "To try to catch fish from a body of water.", "examples": [{"en": "They fished from the pier until the evening wind grew stronger.", "zh": "他们在码头上钓鱼，直到晚风越来越大。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:flight", "headword": "flight", "kind": "word", "forms": ["flights"],
+      "senses": [
+        {"id": "flight-noun-air-journey", "partOfSpeech": "noun (countable)", "definitionZh": "航班；飞行旅程；乘飞行器从一处到另一处的行程。", "definitionEn": "A journey through the air, especially a scheduled service by plane.", "examples": [{"en": "Our flight was delayed while the crew checked a warning light.", "zh": "机组人员检查一盏警示灯时，我们的航班延误了。"}]},
+        {"id": "flight-noun-flying", "partOfSpeech": "noun (uncountable)", "definitionZh": "飞行；鸟、飞机等在空中移动的活动或能力。", "definitionEn": "The activity or ability of moving through the air.", "examples": [{"en": "The students watched a slow-motion recording of a bird in flight.", "zh": "学生们观看了一段鸟在飞行中的慢动作录像。"}]},
+        {"id": "flight-noun-escape", "partOfSpeech": "noun (uncountable)", "definitionZh": "逃跑；逃离危险或令人害怕的处境，较正式。", "definitionEn": "Escape from danger or a feared situation, in formal usage.", "examples": [{"en": "The memoir recounts the family's flight from the approaching conflict.", "zh": "回忆录讲述了一家人为躲避逼近的冲突而逃亡的经过。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:floor", "headword": "floor", "kind": "word", "forms": ["floors", "floored", "flooring"],
+      "senses": [
+        {"id": "floor-noun-lower-surface", "partOfSpeech": "noun (countable)", "definitionZh": "地板；地面；房间中供人站立的下方表面，也可指海底等底部表面。", "definitionEn": "The lower surface of a room or another space, including the bottom of the sea.", "examples": [{"en": "We covered the wooden floor before repainting the walls.", "zh": "重新刷墙前，我们把木地板遮盖好了。"}]},
+        {"id": "floor-noun-building-level", "partOfSpeech": "noun (countable)", "definitionZh": "楼层；建筑物中处于同一高度的一层空间。不同地区对一楼、首层的编号习惯可能不同。", "definitionEn": "A level of rooms or space within a building.", "examples": [{"en": "The reading room is on the floor above reception.", "zh": "阅览室在接待处上面一层。"}]},
+        {"id": "floor-verb-knock-down-or-surprise", "partOfSpeech": "verb", "definitionZh": "击倒；使震惊或难以回答，较口语。", "definitionEn": "To knock someone down or leave them greatly surprised or unable to respond.", "examples": [{"en": "The unexpected question completely floored the speaker.", "zh": "那个意外的问题让演讲者一下答不上来。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:flower", "headword": "flower", "kind": "word", "forms": ["flowers", "flowered", "flowering"],
+      "senses": [
+        {"id": "flower-noun-bloom", "partOfSpeech": "noun (countable)", "definitionZh": "花；开花植物中与繁殖有关、常有花瓣的部分，也可泛指开花的植物。", "definitionEn": "The reproductive bloom of a flowering plant, or a plant grown for its blooms.", "examples": [{"en": "A single yellow flower had opened beside the gate.", "zh": "大门旁开出了一朵黄色小花。"}]},
+        {"id": "flower-verb-bloom-or-develop", "partOfSpeech": "verb", "definitionZh": "开花；也可比喻能力、活动等充分发展。", "definitionEn": "To produce flowers or develop into a fuller and more successful state.", "examples": [{"en": "The climbing plant flowered for the first time that spring.", "zh": "那株攀缘植物在那个春天第一次开了花。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:food", "headword": "food", "kind": "word", "forms": ["foods"],
+      "senses": [{"id": "food-noun-nourishment", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "食物；供人或动物摄取营养的东西。泛指时通常不可数，谈不同种类的食物时可用 foods。", "definitionEn": "Substances eaten to provide nourishment; particular kinds can be referred to as foods.", "examples": [{"en": "We packed enough food for everyone taking part in the walk.", "zh": "我们为每位参加徒步的人都准备了足够的食物。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:foot", "headword": "foot", "kind": "word", "forms": ["feet", "foots", "footed", "footing"],
+      "senses": [
+        {"id": "foot-noun-body-part", "partOfSpeech": "noun (countable)", "definitionZh": "脚；腿部末端、站立和行走时接触地面的部分。复数为 feet。", "definitionEn": "The part at the end of a leg that supports standing and walking.", "examples": [{"en": "The new boots kept my feet dry on the muddy path.", "zh": "新靴子让我在泥泞小路上也能保持双脚干爽。"}]},
+        {"id": "foot-noun-unit", "partOfSpeech": "noun (countable)", "definitionZh": "英尺；等于十二英寸的长度单位，复数为 feet。", "definitionEn": "A unit of length equal to twelve inches.", "examples": [{"en": "The narrow shelf is only two feet long.", "zh": "那块窄搁板只有两英尺长。"}]},
+        {"id": "foot-noun-base", "partOfSpeech": "noun (singular)", "definitionZh": "底部；山、楼梯等较长或较高事物的下端。", "definitionEn": "The bottom or base of something high or long.", "examples": [{"en": "We met at the foot of the stairs before going into the hall.", "zh": "进入礼堂前，我们在楼梯底下会合了。"}]},
+        {"id": "foot-verb-pay-bill", "partOfSpeech": "verb", "definitionZh": "支付；承担费用，常用于 foot the bill。foots 在这里是动词形式，不是脚的复数。", "definitionEn": "To pay a cost, especially in the expression foot the bill.", "examples": [{"en": "The club agreed to foot the bill for replacing the damaged window.", "zh": "俱乐部同意承担更换受损窗户的费用。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:forest", "headword": "forest", "kind": "word", "forms": ["forests"],
+      "senses": [{"id": "forest-noun-woodland", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "森林；大片以树木为主要植被的土地。", "definitionEn": "A large area of land dominated by trees.", "examples": [{"en": "The trail enters the forest just beyond the last farmhouse.", "zh": "过了最后一栋农舍，小径便进入森林。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fortune", "headword": "fortune", "kind": "word", "forms": ["fortunes"],
+      "senses": [
+        {"id": "fortune-noun-luck", "partOfSpeech": "noun (uncountable)", "definitionZh": "运气；偶然发生、对人有利或不利的情况。", "definitionEn": "Luck or chance affecting how events turn out.", "examples": [{"en": "Good fortune brought us a dry afternoon for the outdoor performance.", "zh": "我们运气不错，户外演出的那个下午没有下雨。"}]},
+        {"id": "fortune-noun-wealth", "partOfSpeech": "noun (countable)", "definitionZh": "大笔财富；巨款。a small fortune 常夸张地表示花费很多钱。", "definitionEn": "A very large amount of money or wealth.", "examples": [{"en": "Restoring the old roof would cost a fortune.", "zh": "修复那个旧屋顶要花一大笔钱。"}]},
+        {"id": "fortune-noun-fate", "partOfSpeech": "noun (countable, often plural)", "definitionZh": "命运；际遇；一个人或机构随时间经历的兴衰变化。", "definitionEn": "The changing successes and difficulties experienced by a person or organization.", "examples": [{"en": "The book traces the changing fortunes of the family business.", "zh": "这本书追溯了家族企业的兴衰变化。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:foundation", "headword": "foundation", "kind": "word", "forms": ["foundations"],
+      "senses": [
+        {"id": "foundation-noun-basis", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "基础；支持后续知识、关系或活动的根本部分。", "definitionEn": "A basic support on which knowledge, a relationship, or another activity can develop.", "examples": [{"en": "The introductory course provides a foundation for later practical work.", "zh": "这门入门课程为以后的实践工作打下基础。"}]},
+        {"id": "foundation-noun-building-base", "partOfSpeech": "noun (countable, often plural)", "definitionZh": "地基；位于建筑物下方、支撑其重量的结构，常用复数 foundations。", "definitionEn": "The structure beneath a building that supports its weight.", "examples": [{"en": "The builders inspected the foundations before adding another room.", "zh": "加建房间之前，施工人员检查了地基。"}]},
+        {"id": "foundation-noun-charitable-body", "partOfSpeech": "noun (countable)", "definitionZh": "基金会；为教育、研究、慈善等目的提供资金或开展活动的组织。", "definitionEn": "An organization established to fund or support charitable, educational, or similar purposes.", "examples": [{"en": "A local foundation paid for the children's science workshops.", "zh": "一家当地基金会承担了儿童科学工作坊的费用。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:frame", "headword": "frame", "kind": "word", "forms": ["frames", "framed", "framing"],
+      "senses": [
+        {"id": "frame-noun-supporting-structure", "partOfSpeech": "noun (countable)", "definitionZh": "框；框架；支撑、包围或固定某物的结构，如窗框、相框和自行车车架。", "definitionEn": "A structure that surrounds, supports, or holds something in place.", "examples": [{"en": "The photograph looked brighter in its new wooden frame.", "zh": "照片装进新的木相框后显得更明亮了。"}]},
+        {"id": "frame-verb-put-into-words", "partOfSpeech": "verb", "definitionZh": "组织措辞；以特定方式表达问题、观点或叙述。", "definitionEn": "To express or present an idea in a particular way.", "examples": [{"en": "She framed the question so that beginners could answer it too.", "zh": "她把问题组织得连初学者也能回答。"}]},
+        {"id": "frame-verb-falsely-accuse", "partOfSpeech": "verb", "definitionZh": "诬陷；制造假象或证据，使无辜者看起来像做了错事。", "definitionEn": "To make an innocent person appear guilty through false evidence or deception.", "examples": [{"en": "In the story, the missing letter reveals who framed the clerk.", "zh": "故事中，那封失踪的信揭示了是谁诬陷了办事员。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:freedom", "headword": "freedom", "kind": "word", "forms": ["freedoms"],
+      "senses": [{"id": "freedom-noun-liberty", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "自由；不受不必要限制、能够自主行动的状态；具体受到保护的权利可用复数 freedoms。freedom from 表示免受某事困扰。", "definitionEn": "The ability to act without unnecessary restriction, or a particular protected liberty.", "examples": [{"en": "The new timetable gives students more freedom to choose when they study.", "zh": "新课表让学生可以更自由地选择学习时间。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:friend", "headword": "friend", "kind": "word", "forms": ["friends", "friended", "friending"],
+      "senses": [
+        {"id": "friend-noun-person", "partOfSpeech": "noun (countable)", "definitionZh": "朋友；彼此喜欢、信任并愿意交往的人。", "definitionEn": "A person you like, trust, and choose to spend time with.", "examples": [{"en": "An old friend helped me settle into the new neighbourhood.", "zh": "一位老朋友帮助我适应了新社区的生活。"}]},
+        {"id": "friend-verb-online-link", "partOfSpeech": "verb", "definitionZh": "加为好友；在社交平台上与某人建立好友联系。", "definitionEn": "To add someone to a list of friends on a social networking service.", "examples": [{"en": "We friended each other online after the training course.", "zh": "培训课程结束后，我们在网上互加了好友。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:front", "headword": "front", "kind": "word", "forms": ["fronts", "fronted", "fronting"],
+      "senses": [
+        {"id": "front-noun-forward-part", "partOfSpeech": "noun (countable)", "definitionZh": "前面；正面；物体面向外界的一侧，或一个队列的最前部分。", "definitionEn": "The forward-facing side or leading part of something.", "examples": [{"en": "A wide path leads to the front of the building.", "zh": "一条宽路通向建筑物的正面。"}]},
+        {"id": "front-noun-outward-appearance", "partOfSpeech": "noun (countable)", "definitionZh": "表面姿态；用来掩饰真实情况或感受的外在表现。", "definitionEn": "An outward appearance used to conceal a different reality or feeling.", "examples": [{"en": "He kept up a cheerful front despite his worries about the move.", "zh": "尽管担心搬家的事，他仍装出一副愉快的样子。"}]},
+        {"id": "front-adjective-forward", "partOfSpeech": "adjective", "definitionZh": "前面的；位于正面或最前方的。", "definitionEn": "Situated at the forward-facing or leading part.", "examples": [{"en": "Please leave the front entrance clear for arriving visitors.", "zh": "请保持前门入口畅通，方便访客进入。"}]},
+        {"id": "front-verb-lead-publicly", "partOfSpeech": "verb", "definitionZh": "领衔；担任公开代表；作为乐队、活动或机构最显眼的带头人物。", "definitionEn": "To lead or publicly represent a band, campaign, or organization.", "examples": [{"en": "A local singer fronted the campaign to save the theatre.", "zh": "一位当地歌手出面领衔拯救剧院的活动。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fruit", "headword": "fruit", "kind": "word", "forms": ["fruits"],
+      "senses": [
+        {"id": "fruit-noun-plant-produce", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "果实；水果；植物产生、通常含有种子的部分，日常多指可食用的水果。泛指水果常不可数，具体果实或种类可数。", "definitionEn": "A plant's seed-bearing produce, especially the kinds eaten as fruit.", "examples": [{"en": "The stall sells fresh fruit from nearby orchards.", "zh": "这个摊位出售附近果园出产的新鲜水果。"}]},
+        {"id": "fruit-noun-result", "partOfSpeech": "noun (usually plural)", "definitionZh": "成果；努力、活动等产生的有益结果，常用 fruits。", "definitionEn": "The useful results of work or effort, usually expressed in the plural.", "examples": [{"en": "The open day allowed the team to share the fruits of a year's work.", "zh": "开放日让团队得以分享一年的工作成果。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fun", "headword": "fun", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "fun-noun-enjoyment", "partOfSpeech": "noun (uncountable)", "definitionZh": "乐趣；有趣的活动或愉快的体验。have fun 表示玩得开心。", "definitionEn": "Enjoyment or an activity that gives pleasure.", "examples": [{"en": "Making the model together was more fun than we expected.", "zh": "一起制作模型比我们预想的更有趣。"}]},
+        {"id": "fun-adjective-enjoyable", "partOfSpeech": "adjective", "definitionZh": "有趣的；令人愉快的，常见于非正式表达。", "definitionEn": "Enjoyable or entertaining, especially in informal language.", "examples": [{"en": "The workshop was a fun way to learn basic repair skills.", "zh": "这个工作坊以有趣的方式教大家学习基础维修技能。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:function", "headword": "function", "kind": "word", "forms": ["functions", "functioned", "functioning"],
+      "senses": [
+        {"id": "function-noun-purpose", "partOfSpeech": "noun (countable)", "definitionZh": "功能；作用；某物或某人在整体中承担的任务。", "definitionEn": "The purpose or role served by a person or thing.", "examples": [{"en": "The main function of the cover is to keep dust out.", "zh": "盖子的主要作用是防尘。"}]},
+        {"id": "function-noun-event", "partOfSpeech": "noun (countable)", "definitionZh": "正式活动；庆典、接待会等有组织的社交场合。", "definitionEn": "An organized social occasion, often a formal one.", "examples": [{"en": "The hotel has a separate room for private functions.", "zh": "酒店有一间专门举办私人活动的房间。"}]},
+        {"id": "function-noun-mathematical-rule", "partOfSpeech": "noun (countable)", "definitionZh": "函数；给定义域中的每个输入都指定唯一输出的数学关系。", "definitionEn": "A mathematical rule assigning exactly one output to each input in its domain.", "examples": [{"en": "This function doubles the input and then adds three.", "zh": "这个函数先把输入乘以二，再加上三。"}]},
+        {"id": "function-verb-operate", "partOfSpeech": "verb", "definitionZh": "运转；发挥作用；按照预期的方式工作。", "definitionEn": "To operate or carry out an intended role.", "examples": [{"en": "The pump functioned normally after the filter was cleaned.", "zh": "滤网清洗后，泵恢复了正常运转。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:future", "headword": "future", "kind": "word", "forms": ["futures"],
+      "senses": [
+        {"id": "future-noun-time-ahead", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "未来；将来；现在之后的时间或某人、某物今后的发展状况。", "definitionEn": "Time that has not yet arrived, or what will happen to someone or something.", "examples": [{"en": "The meeting will consider the future of the unused railway station.", "zh": "会议将讨论那座闲置火车站今后的安排。"}]},
+        {"id": "future-adjective-later", "partOfSpeech": "adjective", "definitionZh": "未来的；将要发生、存在或使用的。", "definitionEn": "Existing, happening, or intended for a time after the present.", "examples": [{"en": "Keep a copy of the notes for future reference.", "zh": "留一份笔记，以供将来参考。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:game", "headword": "game", "kind": "word", "forms": ["games"],
+      "senses": [
+        {"id": "game-noun-play-or-contest", "partOfSpeech": "noun (countable)", "definitionZh": "游戏；比赛；有规则、目标和参与者的娱乐或竞技活动，也指电子游戏。", "definitionEn": "An activity or contest played according to rules, including a computer-based game.", "examples": [{"en": "We played a short guessing game while waiting for the rain to stop.", "zh": "等雨停时，我们玩了一个简短的猜谜游戏。"}]},
+        {"id": "game-noun-hunted-animals", "partOfSpeech": "noun (uncountable)", "definitionZh": "猎物；为食用或运动而捕猎的野生动物，也可指其肉。", "definitionEn": "Wild animals hunted for food or sport, or their meat.", "examples": [{"en": "The guide explained which kinds of game lived in the forest.", "zh": "向导介绍了森林里生活着哪些可猎取的野生动物。"}]},
+        {"id": "game-adjective-willing", "partOfSpeech": "adjective", "definitionZh": "愿意尝试的；有兴致参与的，较口语，常用 game for。", "definitionEn": "Willing to try or take part in something, especially in informal speech.", "examples": [{"en": "I am game for a longer walk if everyone else has time.", "zh": "如果大家都有时间，我愿意走一条更长的路线。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:garden", "headword": "garden", "kind": "word", "forms": ["gardens", "gardened", "gardening"],
+      "senses": [
+        {"id": "garden-noun-cultivated-land", "partOfSpeech": "noun (countable)", "definitionZh": "花园；园圃；种植花草、蔬菜等或供人休息的土地。", "definitionEn": "A piece of land cultivated with plants or arranged for outdoor enjoyment.", "examples": [{"en": "The community garden has a small section for herbs.", "zh": "社区花园里有一小块地方专门种香草。"}]},
+        {"id": "garden-verb-grow-and-tend", "partOfSpeech": "verb", "definitionZh": "从事园艺；种植和照料花园里的植物。", "definitionEn": "To grow and care for plants in a garden.", "examples": [{"en": "She gardens in the early morning before the sun becomes too strong.", "zh": "她趁清晨阳光还不太强时打理花园。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gas", "headword": "gas", "kind": "word", "forms": ["gases"],
+      "senses": [
+        {"id": "gas-noun-state-of-matter", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "气体；没有固定形状、会扩散并占据可用空间的物质状态。不同种类的气体可用 gases。", "definitionEn": "Matter that expands to occupy available space rather than retaining a fixed shape or volume.", "examples": [{"en": "The experiment compared how two gases behaved inside the container.", "zh": "这项实验比较了两种气体在容器中的表现。"}]},
+        {"id": "gas-noun-fuel", "partOfSpeech": "noun (uncountable)", "definitionZh": "燃气；用于供暖、烹饪等的气体燃料。", "definitionEn": "A gaseous fuel used for heating, cooking, or producing power.", "examples": [{"en": "The kitchen uses gas for cooking but electricity for lighting.", "zh": "厨房做饭用燃气，照明用电。"}]},
+        {"id": "gas-noun-petrol", "partOfSpeech": "noun (uncountable)", "definitionZh": "汽油；美式口语中 gasoline 的简称，英式通常说 petrol。", "definitionEn": "Petrol or gasoline, especially in conversational American English.", "examples": [{"en": "We stopped for gas before driving into the mountains.", "zh": "开车进山之前，我们停下来加了汽油。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gate", "headword": "gate", "kind": "word", "forms": ["gates"],
+      "senses": [
+        {"id": "gate-noun-barrier", "partOfSpeech": "noun (countable)", "definitionZh": "大门；栅栏门；设在围墙、篱笆等开口处、控制出入的门，也可指该入口。", "definitionEn": "A movable barrier at an opening in a fence or wall, or the opening itself.", "examples": [{"en": "Please close the garden gate so the dog stays inside.", "zh": "请关上花园门，免得狗跑出去。"}]},
+        {"id": "gate-noun-airport-boarding-area", "partOfSpeech": "noun (countable)", "definitionZh": "登机口；机场中乘客候机并进入某一航班的区域。", "definitionEn": "An airport area from which passengers board a particular flight.", "examples": [{"en": "The departure board showed a new gate for our flight.", "zh": "出发信息牌显示，我们的航班换了登机口。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:generation", "headword": "generation", "kind": "word", "forms": ["generations"],
+      "senses": [
+        {"id": "generation-noun-age-group", "partOfSpeech": "noun (countable)", "definitionZh": "一代人；出生年代相近、经历相似时期的人，也可指家族中的一代。", "definitionEn": "People born around a similar time, or one stage in a family's line of descent.", "examples": [{"en": "Three generations of the family still live in the same town.", "zh": "这个家庭的三代人仍住在同一座小镇。"}]},
+        {"id": "generation-noun-product-stage", "partOfSpeech": "noun (countable)", "definitionZh": "代；产品或技术发展中具有某些共同特征的一个阶段。", "definitionEn": "A stage of development in a series of products or technologies.", "examples": [{"en": "The latest generation of sensors uses less power.", "zh": "最新一代传感器的耗电量更低。"}]},
+        {"id": "generation-noun-production", "partOfSpeech": "noun (uncountable)", "definitionZh": "产生；生成；通过某个过程制造能量、数据或其他结果。", "definitionEn": "The production of power, information, or another result through a process.", "examples": [{"en": "The workshop compared different methods of electricity generation.", "zh": "工作坊比较了不同的发电方式。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gift", "headword": "gift", "kind": "word", "forms": ["gifts", "gifted", "gifting"],
+      "senses": [
+        {"id": "gift-noun-present", "partOfSpeech": "noun (countable)", "definitionZh": "礼物；赠品；不要求对方付款而送出的东西。", "definitionEn": "Something given to another person without requiring payment.", "examples": [{"en": "The handmade notebook was a thoughtful gift from my classmate.", "zh": "那本手工笔记本是同学送给我的一份用心的礼物。"}]},
+        {"id": "gift-noun-talent", "partOfSpeech": "noun (countable)", "definitionZh": "天赋；做某事的突出自然能力，常用 a gift for。", "definitionEn": "A natural ability to do something particularly well.", "examples": [{"en": "She has a gift for explaining difficult ideas without oversimplifying them.", "zh": "她有把难懂的想法讲清楚、又不过分简化的天赋。"}]},
+        {"id": "gift-verb-give", "partOfSpeech": "verb", "definitionZh": "赠送；把某物作为礼物送出，通常比 give 更强调赠与本身。", "definitionEn": "To give something as a present or donation.", "examples": [{"en": "The family gifted its collection of photographs to the local archive.", "zh": "这个家庭把收藏的照片赠给了当地档案馆。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:girl", "headword": "girl", "kind": "word", "forms": ["girls"],
+      "senses": [{"id": "girl-noun-young-person", "partOfSpeech": "noun (countable)", "definitionZh": "女孩；女童；女性儿童或较年轻的女性。称呼成年女性时需注意关系和语气，避免显得轻视。", "definitionEn": "A female child or young person; its use for an adult depends on context and tone.", "examples": [{"en": "The girl beside the noticeboard asked where the workshop was being held.", "zh": "布告栏旁的女孩问工作坊在哪里举行。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:goal", "headword": "goal", "kind": "word", "forms": ["goals"],
+      "senses": [
+        {"id": "goal-noun-aim", "partOfSpeech": "noun (countable)", "definitionZh": "目标；希望通过努力达到的结果。", "definitionEn": "A result someone aims to achieve through effort.", "examples": [{"en": "Our goal is to make the booking process simple enough for first-time users.", "zh": "我们的目标是让首次使用者也能轻松完成预约。"}]},
+        {"id": "goal-noun-sports-target", "partOfSpeech": "noun (countable)", "definitionZh": "球门；在足球等运动中，把球送入其中即可得分的目标区域或框架。", "definitionEn": "The target area or frame into which a ball must be sent to score in certain sports.", "examples": [{"en": "The ball struck the side of the goal and bounced away.", "zh": "球碰到球门侧边后弹开了。"}]},
+        {"id": "goal-noun-score", "partOfSpeech": "noun (countable)", "definitionZh": "进球；成功把球送入球门而获得的一次得分。", "definitionEn": "A score made by successfully sending a ball into the goal.", "examples": [{"en": "A late goal changed the mood of the whole crowd.", "zh": "最后阶段的一个进球改变了全场观众的情绪。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gold", "headword": "gold", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "gold-noun-metal", "partOfSpeech": "noun (uncountable)", "definitionZh": "金；黄金；一种黄色贵金属，常用于首饰、储值和电子部件。", "definitionEn": "A yellow precious metal used in jewellery, as a store of value, and in some electronic components.", "examples": [{"en": "The ring was made of gold but had no stones.", "zh": "这枚戒指是金制的，但没有镶宝石。"}]},
+        {"id": "gold-adjective-material-or-colour", "partOfSpeech": "adjective", "definitionZh": "金制的；金色的；由黄金制成，或具有类似黄金的颜色。", "definitionEn": "Made of gold or having a similar yellow metallic colour.", "examples": [{"en": "A gold ribbon marked the winning entry.", "zh": "一条金色丝带标出了获奖作品。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:government", "headword": "government", "kind": "word", "forms": ["governments"],
+      "senses": [
+        {"id": "government-noun-ruling-body", "partOfSpeech": "noun (countable)", "definitionZh": "政府；负责管理国家或地区公共事务的机构和人员。", "definitionEn": "The body of people and institutions responsible for administering a country or region.", "examples": [{"en": "The local government opened a public consultation on the transport plan.", "zh": "当地政府就交通规划开展了公众咨询。"}]},
+        {"id": "government-noun-governing", "partOfSpeech": "noun (uncountable)", "definitionZh": "治理；管理公共事务的过程或制度。", "definitionEn": "The process or system by which public affairs are governed.", "examples": [{"en": "The course compares forms of government rather than individual political parties.", "zh": "这门课程比较的是治理制度，而不是个别政党。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:grade", "headword": "grade", "kind": "word", "forms": ["grades", "graded", "grading"],
+      "senses": [
+        {"id": "grade-noun-assessment-mark", "partOfSpeech": "noun (countable)", "definitionZh": "成绩；等级；用字母、数字等表示的学习表现或质量评价。", "definitionEn": "A mark or category indicating performance or quality.", "examples": [{"en": "The final grade includes both the project and the written examination.", "zh": "最终成绩包括项目和笔试两部分。"}]},
+        {"id": "grade-noun-school-year", "partOfSpeech": "noun (countable)", "definitionZh": "年级；学校按学习阶段划分的一组学生，主要见于美式英语。", "definitionEn": "A school year level, especially in American usage.", "examples": [{"en": "Children in the same grade may still need different kinds of support.", "zh": "同一年级的孩子也可能需要不同的支持。"}]},
+        {"id": "grade-verb-assess", "partOfSpeech": "verb", "definitionZh": "评分；根据标准评定作业、表现或质量。", "definitionEn": "To assess work or performance and assign a mark or level.", "examples": [{"en": "The tutors graded the reports using the same set of criteria.", "zh": "导师们用同一套标准给报告评分。"}]},
+        {"id": "grade-verb-sort", "partOfSpeech": "verb", "definitionZh": "分级；按大小、质量等特征把物品分成不同等级。", "definitionEn": "To sort things into levels according to size, quality, or another feature.", "examples": [{"en": "The fruit was graded by size before being packed.", "zh": "水果在包装前先按大小分级。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:grass", "headword": "grass", "kind": "word", "forms": ["grasses"],
+      "senses": [{"id": "grass-noun-plant", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "草；禾本科植物；常见的狭长叶片植物。泛指草地上的草时通常不可数，谈不同种类时可用 grasses。", "definitionEn": "A narrow-leaved plant of the grass family, or such plants growing together as ground cover.", "examples": [{"en": "The wet grass left dark marks on the hems of our trousers.", "zh": "湿草在我们的裤脚上留下了深色痕迹。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:group", "headword": "group", "kind": "word", "forms": ["groups", "grouped", "grouping"],
+      "senses": [
+        {"id": "group-noun-set", "partOfSpeech": "noun (countable)", "definitionZh": "组；群；因位置、共同特点或共同活动而联系在一起的人或物。", "definitionEn": "People or things considered together because of location, shared features, or a common activity.", "examples": [{"en": "A small group stayed behind to tidy the room.", "zh": "一个小组留了下来整理房间。"}]},
+        {"id": "group-verb-arrange-together", "partOfSpeech": "verb", "definitionZh": "分组；把相似或相关的对象放在一起。", "definitionEn": "To arrange related people or things together.", "examples": [{"en": "We grouped the comments by topic before writing the summary.", "zh": "写总结前，我们把意见按主题分了组。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:growth", "headword": "growth", "kind": "word", "forms": ["growths"],
+      "senses": [
+        {"id": "growth-noun-increase", "partOfSpeech": "noun (uncountable)", "definitionZh": "增长；扩大；数量、规模或程度的增加。", "definitionEn": "An increase in size, amount, or extent.", "examples": [{"en": "The growth in membership made a larger meeting room necessary.", "zh": "会员人数的增长使更大的会议室成为必要。"}]},
+        {"id": "growth-noun-living-development", "partOfSpeech": "noun (uncountable)", "definitionZh": "生长；发育；生物逐渐变大、变成熟的过程。", "definitionEn": "The process by which a living thing develops and becomes larger or more mature.", "examples": [{"en": "We recorded the plants' growth at the same time each week.", "zh": "我们每周都在同一时间记录植物的生长情况。"}]},
+        {"id": "growth-noun-lump", "partOfSpeech": "noun (countable)", "definitionZh": "增生物；赘生物；身体某处长出的组织团块，这个词本身不说明其性质。", "definitionEn": "A lump of tissue growing on or within the body, without specifying its nature.", "examples": [{"en": "The doctor examined the small growth on his hand.", "zh": "医生检查了他手上的小肿块。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guest", "headword": "guest", "kind": "word", "forms": ["guests", "guested", "guesting"],
+      "senses": [
+        {"id": "guest-noun-visitor", "partOfSpeech": "noun (countable)", "definitionZh": "客人；来宾；受邀请来访的人，也指酒店等接待的住客。", "definitionEn": "An invited visitor or a person staying at a hotel or similar place.", "examples": [{"en": "Each guest received a map showing the path to the dining hall.", "zh": "每位客人都收到了一张标明前往餐厅路线的地图。"}]},
+        {"id": "guest-verb-appear-as-visitor", "partOfSpeech": "verb", "definitionZh": "客串；作为特邀嘉宾参加演出或节目。", "definitionEn": "To appear in a performance or programme as a special visitor rather than a regular member.", "examples": [{"en": "A local pianist guested on the band's final song.", "zh": "一位当地钢琴家在乐队的最后一首歌中客串演奏。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guidance", "headword": "guidance", "kind": "word", "forms": [],
+      "senses": [{"id": "guidance-noun-advice", "partOfSpeech": "noun (uncountable)", "definitionZh": "指导；引导；帮助别人决定怎么做的建议和支持。通常不可数，不说 a guidance，可说 some guidance。", "definitionEn": "Advice and support that help someone decide what to do or how to proceed.", "examples": [{"en": "The new volunteers asked for guidance on handling damaged materials.", "zh": "新志愿者请教了处理受损材料的方法。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:habit", "headword": "habit", "kind": "word", "forms": ["habits"],
+      "senses": [{"id": "habit-noun-repeated-behaviour", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "习惯；经常重复、逐渐变得自然或下意识的行为。get into the habit of 表示养成某种习惯。", "definitionEn": "A regularly repeated behaviour that becomes familiar or automatic.", "examples": [{"en": "Checking the date before saving a file has become a useful habit.", "zh": "保存文件前核对日期，已经成了一种实用习惯。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hair", "headword": "hair", "kind": "word", "forms": ["hairs"],
+      "senses": [{"id": "hair-noun-strands", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "头发；毛发；皮肤上长出的细丝。泛指一头头发或毛发时不可数，指一根根毛发时可数。", "definitionEn": "Fine strands growing from skin, considered collectively or as individual strands.", "examples": [{"en": "A few white hairs had caught on the dark scarf.", "zh": "深色围巾上粘着几根白头发。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:half", "headword": "half", "kind": "word", "forms": ["halves"],
+      "senses": [
+        {"id": "half-noun-equal-part", "partOfSpeech": "noun (countable)", "definitionZh": "一半；两个相等部分中的一个。名词复数为 halves。", "definitionEn": "One of two equal parts of a whole.", "examples": [{"en": "Cut the sandwich into two halves so we can share it.", "zh": "把三明治切成两半，我们就能分着吃。"}]},
+        {"id": "half-determiner-fifty-percent", "partOfSpeech": "determiner", "definitionZh": "一半的；数量、时间或整体的二分之一。可说 half the group、half an hour。", "definitionEn": "An amount equal to fifty percent of the person, thing, or quantity mentioned.", "examples": [{"en": "Half the visitors arrived before the doors officially opened.", "zh": "一半访客在正式开门前就到了。"}]},
+        {"id": "half-adverb-partly", "partOfSpeech": "adverb", "definitionZh": "部分地；到一半程度；常用于 half open、half asleep 等表达。", "definitionEn": "Partly or to about half the full extent.", "examples": [{"en": "The window was half open when we entered the room.", "zh": "我们进屋时，窗户半开着。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hall", "headword": "hall", "kind": "word", "forms": ["halls"],
+      "senses": [
+        {"id": "hall-noun-large-room", "partOfSpeech": "noun (countable)", "definitionZh": "大厅；礼堂；供集会、演出等使用的较大房间或建筑。", "definitionEn": "A large room or building used for gatherings, performances, or other shared activities.", "examples": [{"en": "The school hall filled quickly before the evening concert.", "zh": "晚间音乐会开始前，学校礼堂很快就坐满了人。"}]},
+        {"id": "hall-noun-entrance-space", "partOfSpeech": "noun (countable)", "definitionZh": "门厅；过道；建筑入口内连接其他房间的空间。", "definitionEn": "An entrance space or passage connecting rooms inside a building.", "examples": [{"en": "Leave your wet boots in the hall beside the mat.", "zh": "把湿靴子放在门厅的垫子旁。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hand", "headword": "hand", "kind": "word", "forms": ["hands", "handed", "handing"],
+      "senses": [
+        {"id": "hand-noun-body-part", "partOfSpeech": "noun (countable)", "definitionZh": "手；手腕以下、包括手掌和手指、用来抓握等的身体部位。", "definitionEn": "The part beyond the wrist containing the palm and fingers, used for grasping and other actions.", "examples": [{"en": "She raised her hand to ask a question about the diagram.", "zh": "她举手询问了一个关于示意图的问题。"}]},
+        {"id": "hand-noun-assistance", "partOfSpeech": "noun (singular)", "definitionZh": "帮助；协助；常用 give someone a hand 或 lend a hand。", "definitionEn": "Help with a task, especially in give someone a hand.", "examples": [{"en": "Could you give me a hand with these long display panels?", "zh": "你能帮我搬一下这些长展板吗？"}]},
+        {"id": "hand-noun-clock-pointer", "partOfSpeech": "noun (countable)", "definitionZh": "指针；钟表上用来指示时间的细长部件。", "definitionEn": "A pointer on a clock or watch that indicates the time.", "examples": [{"en": "The minute hand moved, but the hour hand seemed stuck.", "zh": "分针在走，时针却好像卡住了。"}]},
+        {"id": "hand-verb-pass", "partOfSpeech": "verb", "definitionZh": "递给；用手把物品交给别人。", "definitionEn": "To pass something to someone by hand.", "examples": [{"en": "The receptionist handed us two passes and a map.", "zh": "接待员递给我们两张通行证和一张地图。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:head", "headword": "head", "kind": "word", "forms": ["heads", "headed", "heading"],
+      "senses": [
+        {"id": "head-noun-body-part", "partOfSpeech": "noun (countable)", "definitionZh": "头；位于颈部上方、包含脑和主要感觉器官的身体部分。", "definitionEn": "The part of the body above the neck containing the brain and main sense organs.", "examples": [{"en": "He turned his head when he heard the gate close.", "zh": "听见大门关上，他转过了头。"}]},
+        {"id": "head-noun-person-in-charge", "partOfSpeech": "noun (countable)", "definitionZh": "负责人；领导；管理一个机构、部门或群体的人。", "definitionEn": "The person in charge of an organization, department, or group.", "examples": [{"en": "The head of the department welcomed the new students.", "zh": "系主任欢迎了新同学。"}]},
+        {"id": "head-noun-leading-part", "partOfSpeech": "noun (countable)", "definitionZh": "最前端；顶部；某个物体或队列的主要、前方或上端部分。", "definitionEn": "The leading, upper, or principal end of something.", "examples": [{"en": "A volunteer stood at the head of the queue to check tickets.", "zh": "一位志愿者站在队伍最前面检票。"}]},
+        {"id": "head-verb-lead", "partOfSpeech": "verb", "definitionZh": "领导；负责管理某个团队或机构。", "definitionEn": "To lead or be in charge of a group or organization.", "examples": [{"en": "She headed the team that restored the old reading room.", "zh": "她带领团队修复了那间旧阅览室。"}]},
+        {"id": "head-verb-move-towards", "partOfSpeech": "verb", "definitionZh": "朝……前进；往某个方向走，常用 head for 或 head towards。", "definitionEn": "To move in a particular direction or towards a destination.", "examples": [{"en": "We headed for the covered walkway when the rain began.", "zh": "开始下雨时，我们往有顶走廊走去。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:health", "headword": "health", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "health-noun-body-and-mind", "partOfSpeech": "noun (uncountable)", "definitionZh": "健康；身体和心理的状况，也可指没有明显疾病、能够良好运作的状态。", "definitionEn": "The condition of the body and mind, including their ability to function well.", "examples": [{"en": "The survey asks about sleep, exercise, and general health.", "zh": "这份调查询问睡眠、运动和整体健康情况。"}]},
+        {"id": "health-noun-system-condition", "partOfSpeech": "noun (uncountable)", "definitionZh": "良好状况；机构、系统或经济等是否稳定、有活力的状态，属于比喻用法。", "definitionEn": "The soundness or strength of an organization or system.", "examples": [{"en": "The report examines the financial health of the community centre.", "zh": "报告考察了社区中心的财务健康状况。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:heart", "headword": "heart", "kind": "word", "forms": ["hearts"],
+      "senses": [
+        {"id": "heart-noun-organ", "partOfSpeech": "noun (countable)", "definitionZh": "心脏；通过收缩推动血液循环的身体器官。", "definitionEn": "The organ that pumps blood around the body.", "examples": [{"en": "The model shows how blood moves through the heart.", "zh": "这个模型展示了血液如何流经心脏。"}]},
+        {"id": "heart-noun-feelings", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "内心；感情；常用来谈喜爱、悲伤、善意或勇气等情感。", "definitionEn": "A person's emotional life, kindness, or courage, considered figuratively.", "examples": [{"en": "Her thoughtful message warmed my heart after a difficult day.", "zh": "度过艰难的一天后，她贴心的消息让我心里一暖。"}]},
+        {"id": "heart-noun-central-part", "partOfSpeech": "noun (singular)", "definitionZh": "中心；核心；某个地方最中间或某件事最重要的部分。", "definitionEn": "The central or most important part of a place or matter.", "examples": [{"en": "The disagreement goes to the heart of how the space should be used.", "zh": "这场分歧触及了空间应如何使用这一核心问题。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:heat", "headword": "heat", "kind": "word", "forms": ["heats", "heated", "heating"],
+      "senses": [
+        {"id": "heat-noun-hotness", "partOfSpeech": "noun (uncountable)", "definitionZh": "热；高温；与温热感觉、加热或热能有关的现象。", "definitionEn": "High temperature, warmth, or thermal energy involved in heating.", "examples": [{"en": "The thick walls kept much of the afternoon heat outside.", "zh": "厚墙把午后的大部分热气挡在了外面。"}]},
+        {"id": "heat-noun-qualifying-race", "partOfSpeech": "noun (countable)", "definitionZh": "预赛；为选出后续比赛选手而进行的一场分组竞赛。", "definitionEn": "One of several preliminary races used to select competitors for a later stage.", "examples": [{"en": "She qualified for the final after winning her heat.", "zh": "她赢得所在组的预赛后，晋级了决赛。"}]},
+        {"id": "heat-verb-make-hot", "partOfSpeech": "verb", "definitionZh": "加热；使温度升高，也可指自身变热。", "definitionEn": "To make something warmer or hotter, or become warmer or hotter.", "examples": [{"en": "We heated the soup gently while setting the table.", "zh": "摆餐具时，我们用小火把汤热了热。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:height", "headword": "height", "kind": "word", "forms": ["heights"],
+      "senses": [
+        {"id": "height-noun-vertical-measure", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "高度；身高；从底部或某个基准面向上的垂直距离。", "definitionEn": "The vertical distance from a base or reference level to a point or top.", "examples": [{"en": "Adjust the height of the stand before placing the camera on it.", "zh": "把相机放上去之前，先调好支架高度。"}]},
+        {"id": "height-noun-peak", "partOfSpeech": "noun (singular)", "definitionZh": "顶峰；最强烈或最活跃的时期，常用 at the height of。", "definitionEn": "The point when something is most intense, successful, or active.", "examples": [{"en": "At the height of the festival, every café in the square was full.", "zh": "节庆最热闹时，广场上的每家咖啡馆都坐满了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:history", "headword": "history", "kind": "word", "forms": ["histories"],
+      "senses": [
+        {"id": "history-noun-past-and-study", "partOfSpeech": "noun (uncountable)", "definitionZh": "历史；过去发生的事情，也指研究和解释过去的学科。", "definitionEn": "Events of the past, or the study and interpretation of those events.", "examples": [{"en": "The exhibition connects local history with the objects people used every day.", "zh": "这个展览把当地历史与人们日常使用的物品联系起来。"}]},
+        {"id": "history-noun-past-record", "partOfSpeech": "noun (countable)", "definitionZh": "经历；背景记录；某人、某物以往的发展或情况。", "definitionEn": "The past record or development of a person, object, or organization.", "examples": [{"en": "Ask about the vehicle's repair history before making an offer.", "zh": "出价前，先了解这辆车过去的维修记录。"}]},
+        {"id": "history-noun-written-account", "partOfSpeech": "noun (countable)", "definitionZh": "历史著作；对某个地方、时期或主题过去情况的系统叙述。", "definitionEn": "A written account of the past of a place, period, or subject.", "examples": [{"en": "She is writing a history of the town's public gardens.", "zh": "她正在撰写一部关于镇上公共花园的历史。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:home", "headword": "home", "kind": "word", "forms": ["homes"],
+      "senses": [
+        {"id": "home-noun-living-place", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "家；住所；自己居住、归属或感到亲近的地方。", "definitionEn": "The place where someone lives or feels a sense of belonging.", "examples": [{"en": "Their new home is close enough to the station to walk.", "zh": "他们的新家离车站很近，可以步行过去。"}]},
+        {"id": "home-adjective-related-to-home", "partOfSpeech": "adjective", "definitionZh": "家庭的；本地的；主场的；与住所、自己的地区或球队主场有关。", "definitionEn": "Connected with a person's residence, local area, or a team's own venue.", "examples": [{"en": "The home team thanked the volunteers before the match began.", "zh": "比赛开始前，主队向志愿者表示了感谢。"}]},
+        {"id": "home-adverb-towards-residence", "partOfSpeech": "adverb", "definitionZh": "在家；回家；到家。go home、come home 等结构中，home 前不加 to。", "definitionEn": "At, to, or towards the place where someone lives.", "examples": [{"en": "We walked home along the river after the lecture.", "zh": "讲座结束后，我们沿着河走回了家。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:horse", "headword": "horse", "kind": "word", "forms": ["horses"],
+      "senses": [{"id": "horse-noun-animal", "partOfSpeech": "noun (countable)", "definitionZh": "马；常供骑乘、拉车等使用的一种大型有蹄动物。", "definitionEn": "A large hoofed animal commonly kept for riding or pulling loads.", "examples": [{"en": "The horse waited calmly while the rider adjusted the saddle.", "zh": "骑手调整马鞍时，那匹马安静地等着。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hospital", "headword": "hospital", "kind": "word", "forms": ["hospitals"],
+      "senses": [{"id": "hospital-noun-care-facility", "partOfSpeech": "noun (countable)", "definitionZh": "医院；为病人或伤者提供检查、治疗和护理的机构。表示住院时，英式英语常说 in hospital，美式英语常说 in the hospital。", "definitionEn": "An institution where people receive medical treatment and nursing care.", "examples": [{"en": "The hospital opened a quiet waiting room for families.", "zh": "这家医院为家属开设了一间安静的等候室。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:host", "headword": "host", "kind": "word", "forms": ["hosts", "hosted", "hosting"],
+      "senses": [
+        {"id": "host-noun-welcomer", "partOfSpeech": "noun (countable)", "definitionZh": "主人；东道主；接待客人或承办活动的人、团体或地方。", "definitionEn": "A person, organization, or place that welcomes guests or provides for an event.", "examples": [{"en": "Our hosts left a map and a basket of fruit in the guest room.", "zh": "主人在客房里给我们留了一张地图和一篮水果。"}]},
+        {"id": "host-noun-presenter", "partOfSpeech": "noun (countable)", "definitionZh": "主持人；引导节目或活动进行并介绍嘉宾的人。", "definitionEn": "Someone who presents a programme or leads an event and introduces its participants.", "examples": [{"en": "The host invited questions after introducing the three speakers.", "zh": "主持人介绍完三位讲者后，请大家提问。"}]},
+        {"id": "host-noun-living-organism", "partOfSpeech": "noun (countable)", "definitionZh": "宿主；为寄生生物或病原体提供生存条件的生物。", "definitionEn": "An organism in or on which a parasite or infectious agent lives.", "examples": [{"en": "The diagram shows how the parasite moves between its hosts.", "zh": "图示说明了寄生生物如何在宿主之间转移。"}]},
+        {"id": "host-verb-provide-event", "partOfSpeech": "verb", "definitionZh": "主办；招待；主持；也可指计算机服务器托管网站等内容。", "definitionEn": "To provide or present an event, receive guests, or store an online service on a server.", "examples": [{"en": "The library hosted a workshop on repairing old photographs.", "zh": "图书馆举办了一场修复旧照片的工作坊。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hotel", "headword": "hotel", "kind": "word", "forms": ["hotels"],
+      "senses": [{"id": "hotel-noun-paid-accommodation", "partOfSpeech": "noun (countable)", "definitionZh": "旅馆；酒店；向旅客提供收费住宿，有时也供应餐饮等服务的场所。", "definitionEn": "A place that provides paid accommodation for travellers and sometimes meals or other services.", "examples": [{"en": "The small hotel keeps spare umbrellas beside the front door.", "zh": "这家小旅馆在前门旁备有雨伞。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hour", "headword": "hour", "kind": "word", "forms": ["hours"],
+      "senses": [
+        {"id": "hour-noun-sixty-minutes", "partOfSpeech": "noun (countable)", "definitionZh": "小时；等于六十分钟的时间单位。hour 的 h 不发音，前面用 an。", "definitionEn": "A period of sixty minutes.", "examples": [{"en": "We spent an hour checking the equipment before the doors opened.", "zh": "开门前，我们花了一小时检查设备。"}]},
+        {"id": "hour-noun-working-times", "partOfSpeech": "noun (plural)", "definitionZh": "工作时间；营业时间；某项工作或服务通常进行的时段。", "definitionEn": "The times during which a business operates or a person works.", "examples": [{"en": "The café has extended its opening hours during the festival.", "zh": "节日期间，这家咖啡馆延长了营业时间。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:house", "headword": "house", "kind": "word", "forms": ["houses", "housed", "housing"],
+      "senses": [
+        {"id": "house-noun-residential-building", "partOfSpeech": "noun (countable)", "definitionZh": "房屋；住宅；尤其指供一个家庭居住的建筑。名词单数 house 末尾为 /s/，复数 houses 为 /ˈhaʊzɪz/。", "definitionEn": "A building used as a home, especially by one household.", "examples": [{"en": "Their house has a narrow garden behind the kitchen.", "zh": "他们的房子在厨房后面有一片狭长的花园。"}]},
+        {"id": "house-noun-institution", "partOfSpeech": "noun (countable)", "definitionZh": "院；公司；机构；可指议会中的一院，也可用于出版社等机构名称。", "definitionEn": "A legislative chamber or an institution such as a publishing firm.", "examples": [{"en": "The publishing house accepted her proposal for an illustrated history.", "zh": "那家出版社接受了她编写图解历史的提案。"}]},
+        {"id": "house-verb-accommodate", "partOfSpeech": "verb", "definitionZh": "安置；为……提供住处；容纳或存放。动词 house 末尾为 /z/，houses 读 /ˈhaʊzɪz/。", "definitionEn": "To provide accommodation for people or space for storing or containing something.", "examples": [{"en": "The converted warehouse houses the town's transport collection.", "zh": "改建后的仓库收藏着镇上的交通工具藏品。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:household", "headword": "household", "kind": "word", "forms": ["households"],
+      "senses": [
+        {"id": "household-noun-shared-home", "partOfSpeech": "noun (countable)", "definitionZh": "一户人家；同住一处并共同生活的人，不一定有亲属关系。", "definitionEn": "The people living together in one home, whether or not they are related.", "examples": [{"en": "Each household received a leaflet about the new collection schedule.", "zh": "每户人家都收到了一张介绍新垃圾收集时间表的传单。"}]},
+        {"id": "household-adjective-domestic", "partOfSpeech": "adjective", "definitionZh": "家庭的；家用的；与家中日常生活或用品有关。", "definitionEn": "Connected with everyday life, tasks, or equipment in a home.", "examples": [{"en": "We divided the household chores before the new term began.", "zh": "新学期开始前，我们分配好了家务。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:humour", "headword": "humour", "kind": "word", "forms": ["humours", "humoured", "humouring", "humor", "humors", "humored", "humoring"],
+      "senses": [
+        {"id": "humour-noun-amusing-quality", "partOfSpeech": "noun (uncountable)", "definitionZh": "幽默；使人觉得有趣的特质，也指理解和欣赏这种趣味的能力。美式拼写为 humor。", "definitionEn": "The quality of being amusing or the ability to notice and enjoy what is funny.", "examples": [{"en": "Her gentle humour helped everyone relax during the long wait.", "zh": "她温和的幽默让大家在漫长的等待中放松下来。"}]},
+        {"id": "humour-noun-mood", "partOfSpeech": "noun (singular)", "definitionZh": "心情；情绪；常见于 in a good humour、in a bad humour 等表达。", "definitionEn": "A person's temporary mood, especially in expressions describing a good or bad mood.", "examples": [{"en": "He was in a better humour after a walk along the harbour.", "zh": "沿着港口散步之后，他的心情好多了。"}]},
+        {"id": "humour-verb-indulge", "partOfSpeech": "verb", "definitionZh": "迁就；顺着某人说或做，以免使其不快，并不一定真心同意。", "definitionEn": "To go along with someone's wishes or ideas to keep them pleased, without necessarily agreeing.", "examples": [{"en": "We humoured our youngest cousin by letting him check every ticket.", "zh": "我们迁就最小的表弟，让他检查每一张票。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:husband", "headword": "husband", "kind": "word", "forms": ["husbands", "husbanded", "husbanding"],
+      "senses": [
+        {"id": "husband-noun-spouse", "partOfSpeech": "noun (countable)", "definitionZh": "丈夫；婚姻关系中的男性配偶。", "definitionEn": "A male spouse in a marriage.", "examples": [{"en": "Her husband joined us when his evening class finished.", "zh": "她丈夫的晚间课程结束后，也来与我们会合。"}]},
+        {"id": "husband-verb-use-carefully", "partOfSpeech": "verb", "definitionZh": "节约使用；谨慎管理资源，较正式。", "definitionEn": "To use or manage a limited resource carefully so that it is not wasted.", "examples": [{"en": "The expedition husbanded its fuel until the supply boat arrived.", "zh": "补给船抵达前，考察队一直节约使用燃料。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:idea", "headword": "idea", "kind": "word", "forms": ["ideas"],
+      "senses": [
+        {"id": "idea-noun-thought-or-proposal", "partOfSpeech": "noun (countable)", "definitionZh": "想法；主意；在头脑中形成的念头，也指对做某事的建议。", "definitionEn": "A thought formed in the mind or a suggestion about what could be done.", "examples": [{"en": "Her idea of using movable shelves made the room more flexible.", "zh": "她提出使用可移动搁架的主意，让房间的用途更灵活了。"}]},
+        {"id": "idea-noun-understanding", "partOfSpeech": "noun (singular or uncountable)", "definitionZh": "了解；概念；对某事大概的认识，常见于 have an idea、have no idea、give an idea of。", "definitionEn": "An understanding or mental impression of something, often only a general one.", "examples": [{"en": "The sample gives you an idea of how the finished fabric will feel.", "zh": "这块样品能让你大致了解成品布料的触感。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:identity", "headword": "identity", "kind": "word", "forms": ["identities"],
+      "senses": [
+        {"id": "identity-noun-who-someone-is", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "身份；某人是谁或某物是什么；可用于核实姓名、证件等身份信息。", "definitionEn": "Who a person is or what a thing is, including the details by which they are recognized.", "examples": [{"en": "The archive checks each visitor's identity before issuing a reader's card.", "zh": "档案馆在发放阅览证前会核实每位访客的身份。"}]},
+        {"id": "identity-noun-distinctive-character", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "认同；特性；使一个人、群体或地方有别于其他对象的特征和归属感。", "definitionEn": "The qualities and sense of belonging that distinguish a person, group, or place.", "examples": [{"en": "The festival celebrates the coastal town's identity without ignoring its changing population.", "zh": "这个节日展现了海滨小镇的特色，也没有忽略其人口构成的变化。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:image", "headword": "image", "kind": "word", "forms": ["images", "imaged", "imaging"],
+      "senses": [
+        {"id": "image-noun-picture", "partOfSpeech": "noun (countable)", "definitionZh": "图像；影像；通过绘画、摄影、镜面或设备形成的视觉呈现。", "definitionEn": "A visual representation produced by drawing, photography, reflection, or an imaging device.", "examples": [{"en": "The satellite image shows a thin line of cloud above the coast.", "zh": "卫星图像显示，海岸上空有一条细长的云带。"}]},
+        {"id": "image-noun-mental-picture", "partOfSpeech": "noun (countable)", "definitionZh": "意象；脑海中的画面；记忆或想象产生的形象。", "definitionEn": "A picture or impression formed in the mind through memory or imagination.", "examples": [{"en": "The smell brought back an image of my grandmother's kitchen.", "zh": "那股气味让我脑海中又浮现出祖母厨房的画面。"}]},
+        {"id": "image-noun-reputation", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "公众形象；人们对某人、组织或产品形成的总体印象。", "definitionEn": "The general impression that the public has of a person, organization, or product.", "examples": [{"en": "The campaign aimed to give the museum a more welcoming image.", "zh": "这次宣传活动旨在让博物馆呈现出更亲切的形象。"}]},
+        {"id": "image-verb-produce-picture", "partOfSpeech": "verb", "definitionZh": "成像；利用仪器生成某物的图像，常用于科学或医学语境。", "definitionEn": "To produce a picture of something using a technical imaging method.", "examples": [{"en": "The researchers imaged the same sample at several magnifications.", "zh": "研究人员用不同放大倍数为同一个样品成像。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:imagination", "headword": "imagination", "kind": "word", "forms": ["imaginations"],
+      "senses": [
+        {"id": "imagination-noun-mental-creation", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "想象力；在头脑中构想未曾看见或并未发生之事的能力；也指想象出来的内容。", "definitionEn": "The ability to form mental pictures or possibilities beyond what is immediately present, or the ideas formed this way.", "examples": [{"en": "The blank stage leaves plenty of room for the audience's imagination.", "zh": "空白的舞台给观众的想象留下了充足空间。"}]},
+        {"id": "imagination-noun-inventiveness", "partOfSpeech": "noun (uncountable)", "definitionZh": "创造力；提出新颖而有用的想法或做法的能力。", "definitionEn": "The ability to develop original and useful ideas or approaches.", "examples": [{"en": "Turning the unused shelter into a reading room took imagination.", "zh": "把闲置的棚屋改成阅览室需要创造力。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:impact", "headword": "impact", "kind": "word", "forms": ["impacts", "impacted", "impacting"],
+      "senses": [
+        {"id": "impact-noun-collision", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "撞击；碰撞时产生的冲击。", "definitionEn": "A collision or the force produced when objects strike each other.", "examples": [{"en": "The padded case protected the camera from the impact.", "zh": "带衬垫的保护盒使相机免受撞击损坏。"}]},
+        {"id": "impact-noun-influence", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "影响；某事对人、情况或环境产生的明显作用，常用 have an impact on。", "definitionEn": "A noticeable effect that something has on people, a situation, or the environment.", "examples": [{"en": "The new footbridge has had a clear impact on walking routes to school.", "zh": "新建人行桥明显改变了步行上学的路线。"}]},
+        {"id": "impact-verb-affect", "partOfSpeech": "verb", "definitionZh": "影响；对某事产生作用，可直接接宾语，也可用 impact on。", "definitionEn": "To affect someone or something, with or without the preposition on.", "examples": [{"en": "Changes to the bus timetable will impact evening visitors.", "zh": "公交时刻表的调整会影响晚间访客。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:importance", "headword": "importance", "kind": "word", "forms": [],
+      "senses": [{"id": "importance-noun-significance", "partOfSpeech": "noun (uncountable)", "definitionZh": "重要性；值得重视或能够产生显著作用的程度，常用 the importance of。", "definitionEn": "The degree to which something matters or deserves attention.", "examples": [{"en": "The exercise demonstrated the importance of checking units before comparing results.", "zh": "这项练习说明了比较结果前检查单位的重要性。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:improvement", "headword": "improvement", "kind": "word", "forms": ["improvements"],
+      "senses": [
+        {"id": "improvement-noun-getting-better", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "改善；提高；情况、能力或质量变得更好的过程或结果。", "definitionEn": "The process or result of becoming better in condition, ability, or quality.", "examples": [{"en": "The second recording shows a clear improvement in her pronunciation.", "zh": "第二次录音表明，她的发音有了明显进步。"}]},
+        {"id": "improvement-noun-beneficial-change", "partOfSpeech": "noun (countable)", "definitionZh": "改进措施；使事物更好的具体变动，常用复数 improvements。", "definitionEn": "A particular change made to increase the quality or usefulness of something.", "examples": [{"en": "The latest improvements include wider paths and clearer signs.", "zh": "最新的改进包括拓宽小径和设置更清晰的标志。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:income", "headword": "income", "kind": "word", "forms": ["incomes"],
+      "senses": [{"id": "income-noun-money-received", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "收入；个人、家庭或机构从工作、经营、投资等获得的钱。income 不等于扣除全部成本后的 profit。", "definitionEn": "Money received from work, business, investments, or other sources.", "examples": [{"en": "Their household income varies because both parents work different hours each month.", "zh": "由于父母每个月的工作时数不同，他们家的收入也会变化。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:independence", "headword": "independence", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "independence-noun-self-reliance", "partOfSpeech": "noun (uncountable)", "definitionZh": "独立；自主；不依靠他人的帮助或不受他人控制的状态。", "definitionEn": "The state of being able to act or live without relying on others or being controlled by them.", "examples": [{"en": "Learning to use the bus gave her more independence.", "zh": "学会乘公交让她能够更独立地出行。"}]},
+        {"id": "independence-noun-national-self-government", "partOfSpeech": "noun (uncountable)", "definitionZh": "国家独立；一个国家或地区摆脱另一国家统治、自行管理事务的状态。", "definitionEn": "The state of a country or territory governing itself rather than being ruled by another country.", "examples": [{"en": "The exhibition examines daily life before and after independence.", "zh": "这场展览探讨了独立前后的日常生活。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:industry", "headword": "industry", "kind": "word", "forms": ["industries"],
+      "senses": [
+        {"id": "industry-noun-economic-sector", "partOfSpeech": "noun (countable)", "definitionZh": "行业；产业；从事同一类产品生产或服务的一组企业及其活动。", "definitionEn": "A branch of economic activity involving businesses that produce similar goods or services.", "examples": [{"en": "The local tourism industry relies on visitors outside the summer season too.", "zh": "当地旅游业也依赖夏季以外的游客。"}]},
+        {"id": "industry-noun-production", "partOfSpeech": "noun (uncountable)", "definitionZh": "工业；规模化生产和制造商品的经济活动。", "definitionEn": "Economic activity involving the large-scale production and manufacture of goods.", "examples": [{"en": "The river once supplied power for industry along its banks.", "zh": "这条河曾为两岸的工业提供动力。"}]},
+        {"id": "industry-noun-diligence", "partOfSpeech": "noun (uncountable)", "definitionZh": "勤奋；勤劳；持续努力工作的品质，较正式。", "definitionEn": "Steady effort and diligence in work, in formal usage.", "examples": [{"en": "The finished catalogue reflects the volunteers' industry and patience.", "zh": "完成的目录体现了志愿者们的勤奋和耐心。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:information", "headword": "information", "kind": "word", "forms": [],
+      "senses": [{"id": "information-noun-facts-or-details", "partOfSpeech": "noun (uncountable)", "definitionZh": "信息；资料；关于人、事物或情况的事实和细节。一般英语中不可数，说 a piece of information，不说 an information 或 informations。", "definitionEn": "Facts or details that communicate something about a person, subject, or situation.", "examples": [{"en": "The leaflet provides information about accessible entrances and quieter visiting times.", "zh": "这张传单提供了无障碍入口和较安静参观时段的信息。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:injury", "headword": "injury", "kind": "word", "forms": ["injuries"],
+      "senses": [{"id": "injury-noun-physical-harm", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "伤；损伤；身体受到的伤害，也可指一处具体伤情。", "definitionEn": "Physical harm to the body or a particular instance of such harm.", "examples": [{"en": "A minor ankle injury kept him out of the next match.", "zh": "一次轻微的脚踝受伤使他未能参加下一场比赛。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:insect", "headword": "insect", "kind": "word", "forms": ["insects"],
+      "senses": [{"id": "insect-noun-six-legged-animal", "partOfSpeech": "noun (countable)", "definitionZh": "昆虫；通常在成体阶段有六条腿、身体分成头胸腹三部分的小动物，有些有翅膀。蜘蛛不属于昆虫。", "definitionEn": "A small animal whose adult form normally has six legs and a body divided into head, thorax, and abdomen.", "examples": [{"en": "The children watched an insect clean its antennae on a leaf.", "zh": "孩子们看着一只昆虫在叶子上清理触角。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:instance", "headword": "instance", "kind": "word", "forms": ["instances", "instanced", "instancing"],
+      "senses": [
+        {"id": "instance-noun-example-or-occasion", "partOfSpeech": "noun (countable)", "definitionZh": "实例；事例；某类情况发生的一次，常用 an instance of；for instance 表示例如。", "definitionEn": "A particular example or occurrence of a type of event or situation.", "examples": [{"en": "This is the first recorded instance of the alarm sounding without a fault.", "zh": "这是首次记录到警报在没有故障的情况下响起。"}]},
+        {"id": "instance-verb-cite", "partOfSpeech": "verb", "definitionZh": "举……为例；列举实例来说明，较正式。", "definitionEn": "To mention something as an example, in formal usage.", "examples": [{"en": "The report instances the new footpath as a successful community project.", "zh": "报告把新建步道列为成功的社区项目实例。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:instruction", "headword": "instruction", "kind": "word", "forms": ["instructions"],
+      "senses": [
+        {"id": "instruction-noun-directions", "partOfSpeech": "noun (countable, often plural)", "definitionZh": "指示；说明；告诉某人应做什么或如何操作的信息，操作说明常用复数 instructions。", "definitionEn": "A direction explaining what someone should do or how a task should be performed.", "examples": [{"en": "The instructions explain how to fold the frame without trapping your fingers.", "zh": "说明介绍了如何折叠支架而不夹到手指。"}]},
+        {"id": "instruction-noun-teaching", "partOfSpeech": "noun (uncountable)", "definitionZh": "教学；指导；有组织地教授知识或技能的过程。", "definitionEn": "The organized teaching of knowledge or a skill.", "examples": [{"en": "Beginners receive practical instruction before using the workshop tools.", "zh": "初学者在使用工作坊工具前会接受实践指导。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:instrument", "headword": "instrument", "kind": "word", "forms": ["instruments"],
+      "senses": [
+        {"id": "instrument-noun-musical-device", "partOfSpeech": "noun (countable)", "definitionZh": "乐器；通过演奏发出音乐声音的器具。", "definitionEn": "An object designed to produce musical sounds when played.", "examples": [{"en": "Each musician explained how their instrument produced its sound.", "zh": "每位乐手都介绍了自己的乐器如何发声。"}]},
+        {"id": "instrument-noun-tool-or-meter", "partOfSpeech": "noun (countable)", "definitionZh": "仪器；器械；用于测量、操作或精细工作的专门工具。", "definitionEn": "A specialized device used for measuring, operating, or performing precise work.", "examples": [{"en": "The instrument records small changes in air pressure throughout the day.", "zh": "这台仪器全天记录气压的细微变化。"}]},
+        {"id": "instrument-noun-means", "partOfSpeech": "noun (countable)", "definitionZh": "手段；工具；用于实现某个目标的事物，较正式。", "definitionEn": "A means used to achieve a purpose, in formal usage.", "examples": [{"en": "The survey was designed as an instrument for identifying unmet needs.", "zh": "这份调查被设计为识别尚未满足需求的工具。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:insurance", "headword": "insurance", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "insurance-noun-financial-protection", "partOfSpeech": "noun (uncountable)", "definitionZh": "保险；通过支付保费，在约定的损失发生时按合同获得经济补偿的安排。", "definitionEn": "An arrangement under which premiums are paid in return for financial protection against specified losses.", "examples": [{"en": "The rental agreement requires insurance for accidental damage to the equipment.", "zh": "租赁协议要求为设备的意外损坏投保。"}]},
+        {"id": "insurance-noun-precaution", "partOfSpeech": "noun (uncountable)", "definitionZh": "预防措施；为降低某种不利情况带来的风险而做的准备，常用 insurance against。", "definitionEn": "A precaution taken to reduce the risk or consequences of an unwanted event.", "examples": [{"en": "We kept a printed map as insurance against a flat phone battery.", "zh": "我们保留了一张纸质地图，以防手机没电。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:intention", "headword": "intention", "kind": "word", "forms": ["intentions"],
+      "senses": [{"id": "intention-noun-purpose", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "意图；打算；计划做某事或希望达到某种结果的心意，常用 intention to do、intention of doing。", "definitionEn": "A plan or purpose that someone means to carry out.", "examples": [{"en": "I borrowed the book with the intention of reading it on the train.", "zh": "我借这本书是打算在火车上读。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:interest", "headword": "interest", "kind": "word", "forms": ["interests", "interested", "interesting"],
+      "senses": [
+        {"id": "interest-noun-curiosity", "partOfSpeech": "noun (uncountable)", "definitionZh": "兴趣；关注；想更多地了解或参与某事的感觉，常用 interest in。", "definitionEn": "A feeling of curiosity or a wish to learn about or take part in something.", "examples": [{"en": "The night walk sparked her interest in the animals that live near the river.", "zh": "那次夜间散步激发了她对河边动物的兴趣。"}]},
+        {"id": "interest-noun-pursuit", "partOfSpeech": "noun (countable)", "definitionZh": "爱好；感兴趣的活动或主题，常用复数 interests。", "definitionEn": "An activity or subject that someone enjoys or gives attention to.", "examples": [{"en": "His interests include pottery, local history, and repairing old radios.", "zh": "他的爱好包括陶艺、地方史和修理旧收音机。"}]},
+        {"id": "interest-noun-financial-charge", "partOfSpeech": "noun (uncountable)", "definitionZh": "利息；因借用资金而支付的钱，或存款、贷款等带来的利息收入。", "definitionEn": "Money paid for the use of borrowed funds or earned from lending or depositing money.", "examples": [{"en": "The statement lists the interest earned on the savings account this month.", "zh": "对账单列出了这个储蓄账户本月获得的利息。"}]},
+        {"id": "interest-noun-benefit-or-stake", "partOfSpeech": "noun (countable, often plural)", "definitionZh": "利益；利害关系；某人会从中获益或受到影响的事项，也可指股份或权益。", "definitionEn": "Something affecting a person's welfare or advantage, or a financial stake in an activity.", "examples": [{"en": "The committee must balance the interests of residents and visitors.", "zh": "委员会必须兼顾居民和访客的利益。"}]},
+        {"id": "interest-verb-attract-attention", "partOfSpeech": "verb", "definitionZh": "使感兴趣；引起某人想了解或参与的欲望。", "definitionEn": "To make someone curious or willing to learn about or take part in something.", "examples": [{"en": "The handwritten notes interested the researchers more than the printed text.", "zh": "比起印刷正文，那些手写笔记更让研究人员感兴趣。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:interview", "headword": "interview", "kind": "word", "forms": ["interviews", "interviewed", "interviewing"],
+      "senses": [
+        {"id": "interview-noun-assessment-meeting", "partOfSpeech": "noun (countable)", "definitionZh": "面试；通过提问和交谈评估某人是否适合职位、课程等的会面。", "definitionEn": "A meeting in which questions are asked to assess someone's suitability for a job, course, or similar opportunity.", "examples": [{"en": "The interview included a short discussion of her design portfolio.", "zh": "面试中包括对她设计作品集的简短讨论。"}]},
+        {"id": "interview-noun-information-conversation", "partOfSpeech": "noun (countable)", "definitionZh": "访谈；采访；为新闻、研究或调查等目的，通过提问获取信息的交谈。", "definitionEn": "A conversation organized to obtain information for journalism, research, or an investigation.", "examples": [{"en": "The recorded interview describes how the neighbourhood changed over fifty years.", "zh": "这段访谈录音讲述了这个街区五十年来的变化。"}]},
+        {"id": "interview-verb-question", "partOfSpeech": "verb", "definitionZh": "面试；采访；为了评估、研究或报道而向某人提问。", "definitionEn": "To question someone for assessment, research, reporting, or investigation.", "examples": [{"en": "The students interviewed shopkeepers about the history of the market.", "zh": "学生们就市场的历史采访了店主。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:introduction", "headword": "introduction", "kind": "word", "forms": ["introductions"],
+      "senses": [
+        {"id": "introduction-noun-first-meeting", "partOfSpeech": "noun (countable)", "definitionZh": "介绍；使互不认识的人相互认识的行为或话语。", "definitionEn": "The act or words used to make people known to each other.", "examples": [{"en": "After a brief introduction, the new volunteers began sorting the supplies.", "zh": "简短地相互介绍后，新志愿者们开始整理物资。"}]},
+        {"id": "introduction-noun-opening-overview", "partOfSpeech": "noun (countable)", "definitionZh": "引言；入门介绍；书、讲话等的开头部分，也指帮助初学者了解主题的内容。", "definitionEn": "An opening section of a text or talk, or material that gives beginners an overview of a subject.", "examples": [{"en": "The introduction explains the notation used in the later chapters.", "zh": "引言解释了后面各章使用的符号。"}]},
+        {"id": "introduction-noun-bringing-into-use", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "引进；采用；首次把某物带入某地或投入使用的过程。", "definitionEn": "The process of bringing something into a place or into use for the first time.", "examples": [{"en": "The introduction of online booking reduced the queue at reception.", "zh": "采用网上预约后，接待处的排队人数减少了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:investment", "headword": "investment", "kind": "word", "forms": ["investments"],
+      "senses": [
+        {"id": "investment-noun-financial-allocation", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "投资；为获得未来收益而投入资金的行为，也指投入的钱或购入的资产。", "definitionEn": "The use of money with the aim of a future return, or the money or asset committed this way.", "examples": [{"en": "The report separates investment in new equipment from routine maintenance costs.", "zh": "报告把新设备投资与日常维护费用分开列出。"}]},
+        {"id": "investment-noun-effort-for-future", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "投入；为未来的益处而付出的时间、精力或其他资源。", "definitionEn": "Time, effort, or other resources devoted to gaining a future benefit.", "examples": [{"en": "Learning the shortcuts required a small investment of time that soon paid off.", "zh": "学习快捷键需要投入少量时间，但很快就带来了好处。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:invitation", "headword": "invitation", "kind": "word", "forms": ["invitations"],
+      "senses": [
+        {"id": "invitation-noun-request-to-attend", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "邀请；邀请函；请某人出席、参加或来访的口头或书面表示。", "definitionEn": "A spoken or written request asking someone to attend, take part, or visit.", "examples": [{"en": "The invitation asks guests to reply before the end of the week.", "zh": "邀请函请来宾在本周结束前回复。"}]},
+        {"id": "invitation-noun-encouraging-opportunity", "partOfSpeech": "noun (countable)", "definitionZh": "诱因；容易招致某种行为或结果的情况，常用 an invitation to，可能带负面意味。", "definitionEn": "A situation that encourages or makes a particular action or result likely.", "examples": [{"en": "An unlocked storeroom can be an invitation to theft.", "zh": "没有上锁的储藏室可能招来盗窃。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:issue", "headword": "issue", "kind": "word", "forms": ["issues", "issued", "issuing"],
+      "senses": [
+        {"id": "issue-noun-topic", "partOfSpeech": "noun (countable)", "definitionZh": "议题；问题；人们讨论、争论或需要决定的事项。", "definitionEn": "A subject that people discuss, disagree about, or need to decide.", "examples": [{"en": "Access to the upper floor was the main issue at the meeting.", "zh": "如何进入楼上是会议讨论的主要问题。"}]},
+        {"id": "issue-noun-difficulty", "partOfSpeech": "noun (countable)", "definitionZh": "困难；故障；需要处理的不利情况，常用 issue with。", "definitionEn": "A difficulty or fault that needs attention.", "examples": [{"en": "We found an issue with the booking form on smaller screens.", "zh": "我们发现预约表格在较小屏幕上存在一个问题。"}]},
+        {"id": "issue-noun-publication-edition", "partOfSpeech": "noun (countable)", "definitionZh": "一期；一次发行；报刊等定期出版物中的某一期。", "definitionEn": "One edition of a newspaper, magazine, or other periodically published work.", "examples": [{"en": "The next issue will include readers' photographs of the old station.", "zh": "下一期将刊登读者拍摄的旧车站照片。"}]},
+        {"id": "issue-verb-distribute-officially", "partOfSpeech": "verb", "definitionZh": "颁发；发布；正式发放证件、物品、声明等。", "definitionEn": "To provide or distribute something officially, such as a document, item, or announcement.", "examples": [{"en": "The office issued temporary passes to the visiting researchers.", "zh": "办公室向来访研究人员发放了临时通行证。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:item", "headword": "item", "kind": "word", "forms": ["items"],
+      "senses": [
+        {"id": "item-noun-object-or-entry", "partOfSpeech": "noun (countable)", "definitionZh": "一件物品；一项；一组物品、清单或计划中的单独一个部分。", "definitionEn": "A single object or entry within a set, list, or programme.", "examples": [{"en": "Please label each item before putting it in the donation box.", "zh": "请给每件物品贴好标签，再放进捐赠箱。"}]},
+        {"id": "item-noun-news-piece", "partOfSpeech": "noun (countable)", "definitionZh": "一条新闻；一个节目片段；报道或广播中的单独一则内容。", "definitionEn": "A separate piece of news or a segment of a broadcast.", "examples": [{"en": "The final news item featured a school that had restored its pond.", "zh": "最后一条新闻介绍了一所修复了池塘的学校。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:job", "headword": "job", "kind": "word", "forms": ["jobs"],
+      "senses": [
+        {"id": "job-noun-employment", "partOfSpeech": "noun (countable)", "definitionZh": "工作；职位；为获得报酬而承担的固定职责。", "definitionEn": "A paid position involving regular duties.", "examples": [{"en": "Her first job involved preparing materials for a community art studio.", "zh": "她的第一份工作是为社区艺术工作室准备材料。"}]},
+        {"id": "job-noun-task", "partOfSpeech": "noun (countable)", "definitionZh": "任务；一项需要完成的工作，不一定有报酬。", "definitionEn": "A particular task that needs to be done, whether paid or unpaid.", "examples": [{"en": "My job is to check that every box has the correct address.", "zh": "我的任务是检查每个箱子的地址是否正确。"}]},
+        {"id": "job-noun-piece-of-work", "partOfSpeech": "noun (countable)", "definitionZh": "做出的工作；完成工作的方式或质量，常用 do a good job。", "definitionEn": "The way in which work is carried out or the result it produces.", "examples": [{"en": "The volunteers did a careful job of cleaning the fragile tiles.", "zh": "志愿者们细致地清洗了那些易碎的瓷砖。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:journey", "headword": "journey", "kind": "word", "forms": ["journeys", "journeyed", "journeying"],
+      "senses": [
+        {"id": "journey-noun-trip", "partOfSpeech": "noun (countable)", "definitionZh": "旅程；从一处到另一处的行程，通常强调在途中的过程。", "definitionEn": "An act of travelling from one place to another, especially considered as a process.", "examples": [{"en": "The train journey follows the river before turning towards the hills.", "zh": "这段火车旅程先沿河而行，然后转向山地。"}]},
+        {"id": "journey-noun-development", "partOfSpeech": "noun (countable)", "definitionZh": "历程；逐渐发展、改变或获得认识的过程。", "definitionEn": "A process of development, change, or discovery over time.", "examples": [{"en": "The exhibition follows her journey from amateur photographer to professional artist.", "zh": "展览呈现了她从业余摄影爱好者成长为职业艺术家的历程。"}]},
+        {"id": "journey-verb-travel", "partOfSpeech": "verb", "definitionZh": "旅行；行进，较书面。", "definitionEn": "To travel from one place to another, in a somewhat literary style.", "examples": [{"en": "They journeyed inland to record the stories of former railway workers.", "zh": "他们前往内陆，记录昔日铁路工人的故事。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:key", "headword": "key", "kind": "word", "forms": ["keys", "keyed", "keying"],
+      "senses": [
+        {"id": "key-noun-lock-opener", "partOfSpeech": "noun (countable)", "definitionZh": "钥匙；用于开锁或上锁的小器具。", "definitionEn": "A small shaped object used to open or secure a lock.", "examples": [{"en": "The caretaker keeps the spare key in a labelled envelope.", "zh": "管理员把备用钥匙放在一个贴有标签的信封里。"}]},
+        {"id": "key-noun-button", "partOfSpeech": "noun (countable)", "definitionZh": "键；键盘、乐器等上用手按下以进行操作的部件。", "definitionEn": "A part of a keyboard or instrument that is pressed to produce a response.", "examples": [{"en": "One key on the old piano made a softer sound than the others.", "zh": "那架旧钢琴有一个琴键的声音比其他键轻。"}]},
+        {"id": "key-noun-solution-or-explanation", "partOfSpeech": "noun (countable)", "definitionZh": "关键；答案；图例；有助于解决、理解或解释某事的信息。", "definitionEn": "Something that enables a solution or understanding, including an answer list or a guide to symbols.", "examples": [{"en": "The key below the map explains the different trail symbols.", "zh": "地图下方的图例解释了不同步道符号的含义。"}]},
+        {"id": "key-noun-musical-tonality", "partOfSpeech": "noun (countable)", "definitionZh": "调；以某个中心音和相关音阶为基础的音乐调性。", "definitionEn": "The tonal framework of music based on a central note and its related scale.", "examples": [{"en": "The singer asked to perform the song in a lower key.", "zh": "歌手要求用低一些的调演唱这首歌。"}]},
+        {"id": "key-adjective-essential", "partOfSpeech": "adjective", "definitionZh": "关键的；极为重要的，通常放在名词前。", "definitionEn": "Essential or especially important, usually before a noun.", "examples": [{"en": "A clear handover is a key part of keeping the project on schedule.", "zh": "清晰的交接是确保项目按期推进的关键环节。"}]},
+        {"id": "key-verb-enter-data", "partOfSpeech": "verb", "definitionZh": "键入；通过键盘输入数据，常用 key in。", "definitionEn": "To enter information using a keyboard, often with in.", "examples": [{"en": "She keyed in the reference number and checked it against the receipt.", "zh": "她键入编号，并与收据核对。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:knowledge", "headword": "knowledge", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "knowledge-noun-understanding", "partOfSpeech": "noun (uncountable)", "definitionZh": "知识；通过学习或经验获得的事实、技能和理解。通常为不可数名词，一般不说 knowledges；可说 a good knowledge of，表示对某方面充分了解。", "definitionEn": "Facts, skills, and understanding acquired through learning or experience.", "examples": [{"en": "Her knowledge of local plants helped us identify the unusual seed pods.", "zh": "她对当地植物的了解帮助我们认出了那些不常见的荚果。"}]},
+        {"id": "knowledge-noun-awareness", "partOfSpeech": "noun (uncountable)", "definitionZh": "知情；对某一事实或情况的了解，常见于 without someone's knowledge、to someone's knowledge。", "definitionEn": "Awareness of a particular fact or situation.", "examples": [{"en": "The shelves were moved without the librarian's knowledge.", "zh": "那些书架在图书管理员不知情的情况下被挪走了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:lake", "headword": "lake", "kind": "word", "forms": ["lakes"],
+      "senses": [{"id": "lake-noun-inland-water", "partOfSpeech": "noun (countable)", "definitionZh": "湖；由陆地包围、面积较大的内陆水体，可以是淡水或咸水。", "definitionEn": "A large inland body of water surrounded by land, containing fresh or salt water.", "examples": [{"en": "A narrow path runs between the lake and the edge of the forest.", "zh": "湖泊与森林边缘之间有一条狭窄的小径。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:language", "headword": "language", "kind": "word", "forms": ["languages"],
+      "senses": [
+        {"id": "language-noun-communication-system", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "语言；以词语、声音、文字或手势等表达意义的系统，也指某一种具体语言。", "definitionEn": "A structured system for expressing meaning through words, sounds, writing, or signs, or one particular such system.", "examples": [{"en": "The community centre offers activities in several languages.", "zh": "社区中心提供多种语言的活动。"}]},
+        {"id": "language-noun-style-of-expression", "partOfSpeech": "noun (uncountable)", "definitionZh": "用语；措辞；某种场合、领域或风格所使用的表达方式。", "definitionEn": "The vocabulary and style of expression used in a context, field, or type of communication.", "examples": [{"en": "The guide explains technical terms in language that beginners can follow.", "zh": "这份指南用初学者能理解的语言解释技术术语。"}]},
+        {"id": "language-noun-programming-system", "partOfSpeech": "noun (countable)", "definitionZh": "编程语言；用于编写计算机指令的一套符号和规则。", "definitionEn": "A formal system of symbols and rules used to write computer instructions.", "examples": [{"en": "The course uses one language for both the simulations and the visualisations.", "zh": "这门课程使用同一种编程语言进行模拟和可视化。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:law", "headword": "law", "kind": "word", "forms": ["laws"],
+      "senses": [
+        {"id": "law-noun-rules", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "法律；由国家或地区正式制定并实施的规则，也可指其中一条具体法规。", "definitionEn": "A system of officially enforced rules, or a particular rule within that system.", "examples": [{"en": "The display explains how local laws changed the use of the riverbank.", "zh": "展板解释了当地法律如何改变河岸的使用方式。"}]},
+        {"id": "law-noun-subject-or-profession", "partOfSpeech": "noun (uncountable)", "definitionZh": "法学；法律职业；研究法律或从事法律事务的领域。", "definitionEn": "The study or professional practice of legal rules and institutions.", "examples": [{"en": "She studied law before joining a charity that supports tenants.", "zh": "她学习过法学，之后加入了一家为租户提供支持的慈善机构。"}]},
+        {"id": "law-noun-general-principle", "partOfSpeech": "noun (countable)", "definitionZh": "定律；规律；描述自然现象或某类关系的一般性原理。", "definitionEn": "A general principle describing a regular relationship or pattern in nature or another field.", "examples": [{"en": "The experiment illustrates a law that relates pressure to volume.", "zh": "这项实验演示了一条描述压力与体积关系的定律。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:lawyer", "headword": "lawyer", "kind": "word", "forms": ["lawyers"],
+      "senses": [{"id": "lawyer-noun-legal-professional", "partOfSpeech": "noun (countable)", "definitionZh": "律师；接受法律专业训练并获准提供法律服务的人，其具体执业角色随地区制度而异。", "definitionEn": "A professionally trained person authorized to provide legal services, with roles varying between legal systems.", "examples": [{"en": "The lawyer explained the contract in clear language before the meeting ended.", "zh": "会议结束前，律师用清楚易懂的语言解释了合同。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:leader", "headword": "leader", "kind": "word", "forms": ["leaders"],
+      "senses": [
+        {"id": "leader-noun-person-in-charge", "partOfSpeech": "noun (countable)", "definitionZh": "领导者；负责人；引导、组织或管理一个群体的人。", "definitionEn": "A person who guides, organizes, or directs a group.", "examples": [{"en": "The group leader checked that everyone had returned before closing the gate.", "zh": "小组负责人确认大家都回来后才关上大门。"}]},
+        {"id": "leader-noun-front-runner", "partOfSpeech": "noun (countable)", "definitionZh": "领先者；在比赛、行业或某个领域中处于前列的人或组织。", "definitionEn": "A person or organization ahead of others in a competition, market, or field.", "examples": [{"en": "The race leader slowed briefly to avoid a fallen branch.", "zh": "领先的选手为避开一根掉落的树枝而短暂减速。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:leadership", "headword": "leadership", "kind": "word", "forms": [],
+      "senses": [
+        {"id": "leadership-noun-guidance-or-ability", "partOfSpeech": "noun (uncountable)", "definitionZh": "领导；领导能力；组织和引导他人的行为或能力。", "definitionEn": "The activity or ability of guiding and organizing others.", "examples": [{"en": "Her calm leadership helped the team respond to the unexpected delay.", "zh": "她沉着的领导帮助团队应对了意外延误。"}]},
+        {"id": "leadership-noun-leading-people", "partOfSpeech": "noun (collective)", "definitionZh": "领导层；一个组织中负责决策和管理的一群人。", "definitionEn": "The people responsible for directing an organization.", "examples": [{"en": "The club's leadership met with members to discuss the new venue.", "zh": "俱乐部领导层与成员会面，讨论新场地。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:leather", "headword": "leather", "kind": "word", "forms": ["leathers"],
+      "senses": [{"id": "leather-noun-treated-animal-skin", "partOfSpeech": "noun (uncountable)", "definitionZh": "皮革；经过处理、用于制作鞋、包等物品的动物皮。谈皮革种类时偶见复数 leathers。", "definitionEn": "Animal skin treated to make a durable material for shoes, bags, and other goods.", "examples": [{"en": "The repairer matched the new patch to the colour of the original leather.", "zh": "修补师让新补片与原有皮革的颜色相配。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:lecture", "headword": "lecture", "kind": "word", "forms": ["lectures", "lectured", "lecturing"],
+      "senses": [
+        {"id": "lecture-noun-educational-talk", "partOfSpeech": "noun (countable)", "definitionZh": "讲座；讲课；面向听众就某个主题进行的有组织讲解，常见于大学。", "definitionEn": "An organized talk explaining a subject to an audience, often at a university.", "examples": [{"en": "The lecture connected the equations with examples from everyday motion.", "zh": "这堂课把方程与日常运动的例子联系起来。"}]},
+        {"id": "lecture-noun-reprimand", "partOfSpeech": "noun (countable)", "definitionZh": "训诫；长篇说教；通常指令人不快的一番批评或劝告。", "definitionEn": "A lengthy criticism or piece of advice that the listener may find unwelcome.", "examples": [{"en": "I needed help repairing the shelf, not a lecture about planning ahead.", "zh": "我需要的是修理搁板的帮助，而不是一番关于提前规划的说教。"}]},
+        {"id": "lecture-verb-teach", "partOfSpeech": "verb", "definitionZh": "讲课；作讲座；面向听众系统地讲解主题，常用 lecture on。", "definitionEn": "To give an organized educational talk on a subject.", "examples": [{"en": "She lectures on urban history and leads weekend walking tours.", "zh": "她讲授城市史，也带领周末步行参观。"}]},
+        {"id": "lecture-verb-reprimand", "partOfSpeech": "verb", "definitionZh": "训斥；说教；以较长、严肃的方式告诉某人应该怎样做。", "definitionEn": "To speak to someone at length in a critical or moralizing way.", "examples": [{"en": "He lectured us about punctuality while we waited for his missing notes.", "zh": "我们等着他找不到的笔记时，他却对我们大讲守时的重要性。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:leg", "headword": "leg", "kind": "word", "forms": ["legs", "legged", "legging"],
+      "senses": [
+        {"id": "leg-noun-limb", "partOfSpeech": "noun (countable)", "definitionZh": "腿；人或动物用于站立、移动的肢体，也可指裤子的裤腿。", "definitionEn": "A limb used for standing or movement, or the part of trousers that covers it.", "examples": [{"en": "The muddy water reached the legs of my trousers.", "zh": "泥水沾到了我的裤腿。"}]},
+        {"id": "leg-noun-support", "partOfSpeech": "noun (countable)", "definitionZh": "支腿；桌椅等物体下方用于支撑的细长部分。", "definitionEn": "A supporting part beneath furniture or another object.", "examples": [{"en": "One leg of the folding table had not clicked into place.", "zh": "折叠桌有一条桌腿还没有卡到位。"}]},
+        {"id": "leg-noun-stage", "partOfSpeech": "noun (countable)", "definitionZh": "一段行程；一轮或一场；长途旅行、比赛等分阶段过程中的一个部分。", "definitionEn": "One stage of a journey, competition, or other activity divided into parts.", "examples": [{"en": "The final leg of our journey took us across the bay by ferry.", "zh": "我们旅程的最后一段是乘渡轮穿过海湾。"}]},
+        {"id": "leg-verb-run", "partOfSpeech": "verb", "definitionZh": "快跑；赶快走；常用 leg it，属英式口语。", "definitionEn": "To run or hurry away, usually in the informal British expression leg it.", "examples": [{"en": "We had to leg it to the platform when the train arrived early.", "zh": "火车提前到站时，我们不得不赶紧跑到站台。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:length", "headword": "length", "kind": "word", "forms": ["lengths"],
+      "senses": [
+        {"id": "length-noun-measurement", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "长度；某物从一端到另一端的距离。", "definitionEn": "The distance from one end of something to the other.", "examples": [{"en": "Measure the length of the opening before cutting the board.", "zh": "切割木板前，先量好开口的长度。"}]},
+        {"id": "length-noun-duration", "partOfSpeech": "noun (countable or uncountable)", "definitionZh": "时长；一件事持续的时间，也可指文本、讲话等的篇幅。", "definitionEn": "The duration of an event or the extent of a text or talk.", "examples": [{"en": "We reduced the length of the presentation to leave more time for questions.", "zh": "我们缩短了演示的时长，以留出更多提问时间。"}]},
+        {"id": "length-noun-cut-piece", "partOfSpeech": "noun (countable)", "definitionZh": "一段；一截；绳、布、管等按一定长度截取的一块。", "definitionEn": "A measured piece cut from something long, such as rope, fabric, or pipe.", "examples": [{"en": "Two lengths of rope held the rolled canvas in place.", "zh": "两段绳子把卷起的帆布固定住了。"}]},
+        {"id": "length-noun-pool-distance", "partOfSpeech": "noun (countable)", "definitionZh": "泳池的一趟；从泳池一端游到另一端的距离。", "definitionEn": "The distance from one end of a swimming pool to the other.", "examples": [{"en": "She swam four lengths before joining the beginners' lesson.", "zh": "参加初学者课程前，她先在泳池里游了四趟。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:lesson", "headword": "lesson", "kind": "word", "forms": ["lessons"],
+      "senses": [
+        {"id": "lesson-noun-period-of-teaching", "partOfSpeech": "noun (countable)", "definitionZh": "一节课；一次教学活动；学习某个主题或技能的有组织时段。", "definitionEn": "An organized period of teaching or learning a subject or skill.", "examples": [{"en": "Our first lesson focused on keeping a steady rhythm rather than playing quickly.", "zh": "我们的第一节课重点是保持稳定节奏，而不是弹得快。"}]},
+        {"id": "lesson-noun-learning-from-experience", "partOfSpeech": "noun (countable)", "definitionZh": "经验；教训；从经历中得到、可以指导今后做法的认识。", "definitionEn": "Something learned from experience that can guide future behaviour.", "examples": [{"en": "The failed rehearsal taught us a useful lesson about checking batteries.", "zh": "那次失败的彩排让我们学到了一个有用的教训：要检查电池。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:letter", "headword": "letter", "kind": "word", "forms": ["letters", "lettered", "lettering"],
+      "senses": [
+        {"id": "letter-noun-written-message", "partOfSpeech": "noun (countable)", "definitionZh": "信；写给特定个人或机构的书面消息，可为纸质或电子形式。", "definitionEn": "A written message addressed to a particular person or organization, on paper or electronically.", "examples": [{"en": "Her letter thanked the volunteers for restoring the community garden.", "zh": "她在信中感谢志愿者们修复了社区花园。"}]},
+        {"id": "letter-noun-alphabet-symbol", "partOfSpeech": "noun (countable)", "definitionZh": "字母；字母表中表示语言声音的书写符号。", "definitionEn": "A written symbol belonging to an alphabet and used to represent language sounds.", "examples": [{"en": "Write each letter clearly so the names can be read from the back row.", "zh": "请把每个字母写清楚，让后排也能看清名字。"}]},
+        {"id": "letter-verb-mark-with-words", "partOfSpeech": "verb", "definitionZh": "在……上写字；用字母、文字给物品加标记或标题。", "definitionEn": "To put written letters or words on a surface.", "examples": [{"en": "She lettered the wooden sign by hand before sealing it against the rain.", "zh": "她先用手在木牌上写字，再给它涂上防雨保护层。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:level", "headword": "level", "kind": "word", "forms": ["levels", "levelled", "levelling", "leveled", "leveling"],
+      "senses": [
+        {"id": "level-noun-amount-or-standard", "partOfSpeech": "noun (countable)", "definitionZh": "水平；程度；数量、质量、能力或强度所达到的阶段。", "definitionEn": "A degree or stage of quantity, quality, ability, or intensity.", "examples": [{"en": "The class includes readers at several different levels.", "zh": "这个班有几个不同水平的读者。"}]},
+        {"id": "level-noun-height-or-storey", "partOfSpeech": "noun (countable)", "definitionZh": "高度；平面；楼层；相对于基准位置的高低或建筑中的一层。", "definitionEn": "A height relative to a reference point, a horizontal plane, or a storey of a building.", "examples": [{"en": "The water level rose above the lowest mark on the wall.", "zh": "水位上升，超过了墙上最低的标记。"}]},
+        {"id": "level-adjective-horizontal-even", "partOfSpeech": "adjective", "definitionZh": "水平的；平坦的；同高的；也可指分数或数量相等。", "definitionEn": "Horizontal, even, at the same height, or equal in score or amount.", "examples": [{"en": "Check that the shelf is level before tightening the last screw.", "zh": "拧紧最后一颗螺丝前，检查搁板是否水平。"}]},
+        {"id": "level-verb-make-even", "partOfSpeech": "verb", "definitionZh": "使平整；推平；使相等；可指整理地面，也可指追平比分。", "definitionEn": "To make a surface flat, bring structures down, or make a score equal.", "examples": [{"en": "The volunteers levelled the soil before laying the path.", "zh": "铺设小径前，志愿者们先把土整平了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0004批原创试写；选取常用义项，待独立复核。"}
+    }
+  ]
+}

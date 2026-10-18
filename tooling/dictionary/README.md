@@ -13,9 +13,9 @@ chapter quizzes or review records. No external AI/translation requests are made.
    nonempty named reviewer. Merely changing a status is not a real language or
    rights review. No completeness, accuracy or legal clearance is inferred.
 
-The source catalogue currently has **630 independently written entries**: the
-original 30-entry pilot and the 300-entry batches `0002` and `0003`. Together they contain
-**1,346 selected senses and 1,348 original bilingual examples**. The authors
+The source catalogue currently has **930 independently written entries**: the
+original 30-entry pilot and the 300-entry batches `0002`, `0003` and `0004`. Together they contain
+**2,219 selected senses and 2,221 original bilingual examples**. The authors
 composed them without consulting
 the supplied PDFs, existing definitions or publisher examples. A separate AI
 review found no known substantive language errors; this is **not** human
@@ -97,6 +97,19 @@ not a limit to one part of speech.
 The go card also distinguishes the be going to future construction from physical
 movement, with separate examples of an intention and an evidence-based prediction.
 
+Batch `0004` adds 300 more non-overlapping headwords, 873 selected senses and
+873 original bilingual examples. It distinguishes lie/lay/lain from lie/lied,
+lead/led from the metal lead, live's verb and adjective pronunciations, and the
+let/make/need constructions. Noun cards preserve countability and forms such as
+feet and halves; plenty and several retain their quantity-related parts of speech
+rather than being forced into adjective labels. Review refinements clarify
+elder/eldest restrictions, hospital articles when referring to a patient, and
+precise translations of fronting a campaign and a station's future. The existing
+630 canonical cards are preserved, not regenerated. Of the fixed 70,000 candidate
+heads, 923 now have writing and AI cross-review; 69,077 remain unwritten. The
+930-card total includes five phrases and two other word entries outside that
+candidate queue; those seven cards do not inflate target-headword progress.
+
 Every authored sense includes its part of speech, original Chinese and English
 definitions, and a bilingual original example. This batch already has examples;
 future examples can be enriched gradually, without using blank placeholders as
@@ -140,6 +153,7 @@ PDFs and extracted publisher wording must remain outside public assets/history.
 node --test tooling/tests/original-dictionary.test.mjs tooling/tests/original-dictionary-exports.test.mjs
 node --test tooling/tests/original-dictionary-catalogue.test.mjs tooling/tests/original-dictionary-batch-data.test.mjs
 node --test tooling/tests/original-dictionary-batch-0003-data.test.mjs
+node --test tooling/tests/original-dictionary-batch-0004-data.test.mjs
 python -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
 ```
 
