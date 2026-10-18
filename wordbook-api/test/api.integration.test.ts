@@ -110,7 +110,7 @@ describe("worker API integration", () => {
     expect(health.status).toBe(200);
     expect(await health.json()).toMatchObject({
       ok: true,
-      version: "2.4.4",
+      version: "2.5.0",
       ownerAuthConfigured: true,
       aiConfigured: true,
       aiEffectiveProvider: "openai",

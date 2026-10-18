@@ -312,7 +312,7 @@ test("saved local part of speech survives reload, detail, learning and duplicate
 test("missing local phrases are honest, clear any old result and never fall back to translation or AI", async ({ context, page }) => {
   await seed(context); await open(page); await lookup(page, "hip");
   const calls = []; page.on("request", request => calls.push(request.url()));
-  for (const term of ["by some fluke", "zzzznonexistentlocalword", "a completely unlisted phrase zzz"]) {
+  for (const term of ["by an entirely unlisted fluke zzz", "zzzznonexistentlocalword", "a completely unlisted phrase zzz"]) {
     await page.locator("#member-dictionary-term").fill(term); await page.locator("#member-dictionary-term").press("Enter");
     await expect(page.locator("#member-dictionary-status")).toContainText(/未收录|未找到|没有收录/u);
     await expect(page.locator("#member-dictionary-result")).toBeHidden();
@@ -337,6 +337,9 @@ test("once loaded the dictionary can answer another local lookup offline without
 test("a failed static dictionary load is retryable and never silently replaced by an online provider", async ({ context, page }) => {
   let attempts = 0, fail = true;
   await page.route(DICTIONARY_ROUTE, async route => { attempts++; if (fail) await route.abort("failed"); else await route.continue(); });
+  // Both packaged sources are unavailable in this outage case; a healthy
+  // expanded static source is now an allowed first-party recovery, not AI.
+  await page.route("**/data/expanded-dictionary/manifest.json*", route => route.abort("failed"));
   await seed(context); await open(page);
   await expect.poll(() => attempts).toBeGreaterThanOrEqual(1);
   const calls = [];

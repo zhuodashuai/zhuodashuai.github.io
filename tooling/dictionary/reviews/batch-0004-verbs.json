@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0004-verbs.json",
+  "sourceContentSha256": "bb4282bf010d4f7f28ff912a124aa9593ae73ef12fb966ee0ca5ff612e419bc9",
+  "reviewer": "AI/batch-0004-verb-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:hunt", "zhuo:hurry", "zhuo:hurt", "zhuo:identify", "zhuo:ignore",
+    "zhuo:imagine", "zhuo:imply", "zhuo:import", "zhuo:improve", "zhuo:include",
+    "zhuo:increase", "zhuo:indicate", "zhuo:influence", "zhuo:inform", "zhuo:insist",
+    "zhuo:intend", "zhuo:introduce", "zhuo:invent", "zhuo:invite", "zhuo:involve",
+    "zhuo:join", "zhuo:judge", "zhuo:jump", "zhuo:justify", "zhuo:keep",
+    "zhuo:kick", "zhuo:kill", "zhuo:kiss", "zhuo:knock", "zhuo:know",
+    "zhuo:lack", "zhuo:land", "zhuo:last", "zhuo:laugh", "zhuo:launch",
+    "zhuo:lead", "zhuo:lean", "zhuo:learn", "zhuo:leave", "zhuo:lend",
+    "zhuo:let", "zhuo:lie", "zhuo:lift", "zhuo:limit", "zhuo:link",
+    "zhuo:listen", "zhuo:live", "zhuo:load", "zhuo:lock", "zhuo:look",
+    "zhuo:lose", "zhuo:love", "zhuo:maintain", "zhuo:make", "zhuo:manage",
+    "zhuo:mark", "zhuo:marry", "zhuo:match", "zhuo:matter", "zhuo:measure",
+    "zhuo:meet", "zhuo:mention", "zhuo:mind", "zhuo:miss", "zhuo:mix",
+    "zhuo:move", "zhuo:name", "zhuo:need", "zhuo:notice", "zhuo:object",
+    "zhuo:obtain", "zhuo:occur", "zhuo:offer", "zhuo:open", "zhuo:operate",
+    "zhuo:order", "zhuo:organize", "zhuo:overcome", "zhuo:owe", "zhuo:own",
+    "zhuo:pack", "zhuo:paint", "zhuo:park", "zhuo:pass", "zhuo:pause",
+    "zhuo:pay", "zhuo:perform", "zhuo:permit", "zhuo:persuade", "zhuo:pick",
+    "zhuo:place", "zhuo:plan", "zhuo:play", "zhuo:point", "zhuo:possess",
+    "zhuo:pour", "zhuo:practise", "zhuo:prefer", "zhuo:prepare", "zhuo:present"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:practise",
+      "severity": "advisory",
+      "problem": "实行、奉行义原例句中的 practises careful reuse 搭配略显生硬，不利于学习者模仿自然表达。",
+      "resolution": "原作者独立改写为一家人每晚聚在一起祷告以践行信仰的例句；复核者已重新读取保存后的完整义项和双语例句，确认 practises its faith 搭配自然且与现有释义一致。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；逐条读取100词头的304个选定常用义项和304组双语例句，核对词性、词形、语法和翻译对应。不表示穷尽全部义项或绝对无误；原作者保留draft状态。"
+}

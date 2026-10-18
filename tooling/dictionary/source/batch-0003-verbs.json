@@ -1,0 +1,948 @@
+{
+  "schemaVersion": 1,
+  "name": "卓式词典",
+  "entries": [
+    {
+      "id": "zhuo:define", "headword": "define", "kind": "word", "forms": ["defines", "defined", "defining"],
+      "senses": [
+        {"id": "zhuo:define:verb:1", "partOfSpeech": "verb", "definitionZh": "给……下定义；说明一个词、概念或问题究竟指什么。", "definitionEn": "To state precisely what a word, concept, or problem means.", "examples": [{"en": "Before comparing the results, we need to define what counts as a successful trial.", "zh": "比较结果之前，我们需要界定什么才算一次成功的试验。"}]},
+        {"id": "zhuo:define:verb:2", "partOfSpeech": "verb", "definitionZh": "界定；确定边界、范围或主要特征。", "definitionEn": "To establish a boundary, scope, or distinguishing feature.", "examples": [{"en": "A low stone wall defines the edge of the garden.", "zh": "一道低矮的石墙划出了花园的边界。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:deliver", "headword": "deliver", "kind": "word", "forms": ["delivers", "delivered", "delivering"],
+      "senses": [
+        {"id": "zhuo:deliver:verb:1", "partOfSpeech": "verb", "definitionZh": "递送；把货物、信件等送到指定的人或地点。", "definitionEn": "To take goods, letters, or other items to their intended destination.", "examples": [{"en": "The bakery delivers fresh bread to the cafe before seven.", "zh": "面包店在七点前把新鲜面包送到咖啡馆。"}]},
+        {"id": "zhuo:deliver:verb:2", "partOfSpeech": "verb", "definitionZh": "发表；进行，指面向听众作演讲、报告或其他口头表达。", "definitionEn": "To give a speech, presentation, or other spoken performance to an audience.", "examples": [{"en": "Sam delivered a clear presentation without reading from his slides.", "zh": "萨姆没有照着幻灯片念，而是清楚地作了报告。"}]},
+        {"id": "zhuo:deliver:verb:3", "partOfSpeech": "verb", "definitionZh": "兑现；取得所承诺或期望的结果，常用 deliver on a promise。", "definitionEn": "To produce a promised or expected result.", "examples": [{"en": "The new booking system has not yet delivered the promised savings.", "zh": "新的预约系统尚未实现承诺的费用节省。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:demand", "headword": "demand", "kind": "word", "forms": ["demands", "demanded", "demanding"],
+      "senses": [
+        {"id": "zhuo:demand:verb:1", "partOfSpeech": "verb", "definitionZh": "强烈要求；坚决提出必须得到某物或必须采取某项行动。", "definitionEn": "To insist firmly that something be provided or done.", "examples": [{"en": "The residents demanded an explanation for the sudden closure.", "zh": "居民们强烈要求说明突然关闭的原因。"}]},
+        {"id": "zhuo:demand:verb:2", "partOfSpeech": "verb", "definitionZh": "需要；要求具备某种精力、能力或资源。", "definitionEn": "To require a particular amount of effort, ability, or resources.", "examples": [{"en": "Repairing the tiny mechanism demands a steady hand.", "zh": "修理这个微小的机械装置需要手稳。"}]},
+        {"id": "zhuo:demand:noun:1", "partOfSpeech": "noun", "definitionZh": "要求；坚决提出的请求，或某项任务对人提出的需要。", "definitionEn": "A firm request, or a requirement placed on someone's time or resources.", "examples": [{"en": "We could not meet every demand made by the organisers.", "zh": "我们无法满足主办方提出的每一项要求。"}]},
+        {"id": "zhuo:demand:noun:2", "partOfSpeech": "noun", "definitionZh": "需求；人们购买或使用某种商品、服务的需要。此义通常不可数。", "definitionEn": "The level of desire or need for a product or service.", "examples": [{"en": "Demand for evening classes rose after the new timetable was announced.", "zh": "新课表公布后，对晚间课程的需求增加了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:demonstrate", "headword": "demonstrate", "kind": "word", "forms": ["demonstrates", "demonstrated", "demonstrating"],
+      "senses": [
+        {"id": "zhuo:demonstrate:verb:1", "partOfSpeech": "verb", "definitionZh": "演示；通过实际操作说明某物如何使用或某事如何进行。", "definitionEn": "To show how something works or is done by performing it.", "examples": [{"en": "The instructor demonstrated how to adjust the seat safely.", "zh": "教练演示了怎样安全地调节座椅。"}]},
+        {"id": "zhuo:demonstrate:verb:2", "partOfSpeech": "verb", "definitionZh": "表明；用事实、行为或证据使某种情况清楚可见。", "definitionEn": "To make a fact or quality evident through evidence or behaviour.", "examples": [{"en": "The repeated tests demonstrated that the seal was leaking.", "zh": "反复测试表明，密封处正在漏水。"}]},
+        {"id": "zhuo:demonstrate:verb:3", "partOfSpeech": "verb", "definitionZh": "示威；参加公开集会，以表达政治或社会方面的诉求。", "definitionEn": "To take part in a public gathering expressing a political or social demand.", "examples": [{"en": "Students demonstrated peacefully outside the council building.", "zh": "学生们在议会大楼外和平示威。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:deny", "headword": "deny", "kind": "word", "forms": ["denies", "denied", "denying"],
+      "senses": [
+        {"id": "zhuo:deny:verb:1", "partOfSpeech": "verb", "definitionZh": "否认；表示某事不真实或自己没有做过某事。后接动作时可用 deny doing。", "definitionEn": "To state that something is not true or that you did not do something.", "examples": [{"en": "He denied moving the files, although they were on his desk.", "zh": "他否认移动过文件，尽管文件就在他桌上。"}]},
+        {"id": "zhuo:deny:verb:2", "partOfSpeech": "verb", "definitionZh": "不给予；拒绝让某人获得或享有某物。", "definitionEn": "To refuse to let someone have or use something.", "examples": [{"en": "Visitors without identification were denied access to the archive.", "zh": "没有身份证明的访客未获准进入档案室。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:depend", "headword": "depend", "kind": "word", "forms": ["depends", "depended", "depending"],
+      "senses": [
+        {"id": "zhuo:depend:verb:1", "partOfSpeech": "verb", "definitionZh": "取决于；随另一条件或因素而定，通常用 depend on。", "definitionEn": "To be determined by another condition or factor, usually with on.", "examples": [{"en": "The length of the walk depends on which path we choose.", "zh": "步行路程的长短取决于我们选哪条路。"}]},
+        {"id": "zhuo:depend:verb:2", "partOfSpeech": "verb", "definitionZh": "依赖；信赖，靠某人或某物提供支持，或相信其会履行责任。", "definitionEn": "To rely on someone or something for support or trust them to do what is needed.", "examples": [{"en": "The village depends on the weekly ferry for supplies.", "zh": "村庄依靠每周一班的渡轮运送物资。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:describe", "headword": "describe", "kind": "word", "forms": ["describes", "described", "describing"],
+      "senses": [{"id": "zhuo:describe:verb:1", "partOfSpeech": "verb", "definitionZh": "描述；用语言说明人、事物或经历是什么样的。", "definitionEn": "To explain in words what someone, something, or an experience is like.", "examples": [{"en": "Could you describe the bag you left on the bus?", "zh": "你能描述一下落在公交车上的包是什么样的吗？"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:deserve", "headword": "deserve", "kind": "word", "forms": ["deserves", "deserved", "deserving"],
+      "senses": [{"id": "zhuo:deserve:verb:1", "partOfSpeech": "verb", "definitionZh": "应得；值得，因行为、品质或处境而理应获得某种待遇或回应。可以用于好的或坏的结果。", "definitionEn": "To merit a particular treatment or response because of actions, qualities, or circumstances.", "examples": [{"en": "Your careful work deserves more recognition than it has received.", "zh": "你细致的工作理应得到比现在更多的认可。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:design", "headword": "design", "kind": "word", "forms": ["designs", "designed", "designing"],
+      "senses": [
+        {"id": "zhuo:design:verb:1", "partOfSpeech": "verb", "definitionZh": "设计；规划外观、结构或运作方式，使其适合某种用途。", "definitionEn": "To plan how something will look, be constructed, or work for a purpose.", "examples": [{"en": "The students designed a shelter that folds into a flat package.", "zh": "学生们设计了一个能折成扁平包裹的遮蔽物。"}]},
+        {"id": "zhuo:design:noun:1", "partOfSpeech": "noun", "definitionZh": "设计；体现事物外观、布局或结构的方案，也可指其设计方式。", "definitionEn": "A plan for the appearance or structure of something, or the way it is planned.", "examples": [{"en": "The revised design leaves more space for wheelchair users.", "zh": "修改后的设计为轮椅使用者留出了更多空间。"}]},
+        {"id": "zhuo:design:noun:2", "partOfSpeech": "noun", "definitionZh": "图案；为装饰而安排的线条、形状或颜色。", "definitionEn": "An arrangement of lines, shapes, or colours used as decoration.", "examples": [{"en": "She painted a simple leaf design around the rim of the bowl.", "zh": "她沿碗边画了一圈简单的叶片图案。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:destroy", "headword": "destroy", "kind": "word", "forms": ["destroys", "destroyed", "destroying"],
+      "senses": [{"id": "zhuo:destroy:verb:1", "partOfSpeech": "verb", "definitionZh": "摧毁；毁掉，使事物不再存在、无法使用或失去原有价值。", "definitionEn": "To damage something so completely that it no longer exists or can no longer serve its purpose.", "examples": [{"en": "The fire destroyed the wooden shed but spared the main house.", "zh": "大火烧毁了木棚，但主屋没有受损。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:determine", "headword": "determine", "kind": "word", "forms": ["determines", "determined", "determining"],
+      "senses": [
+        {"id": "zhuo:determine:verb:1", "partOfSpeech": "verb", "definitionZh": "查明；通过调查、测量或思考弄清事实或数值。", "definitionEn": "To establish a fact or value through investigation, measurement, or reasoning.", "examples": [{"en": "We measured the doorway to determine whether the cabinet would fit.", "zh": "我们测量了门口，以确定柜子能否搬进去。"}]},
+        {"id": "zhuo:determine:verb:2", "partOfSpeech": "verb", "definitionZh": "决定；使某种结果、方向或性质随之确定。", "definitionEn": "To be the factor that settles an outcome, direction, or quality.", "examples": [{"en": "The amount of sunlight will determine which plants grow well here.", "zh": "日照量将决定哪些植物能在这里长好。"}]},
+        {"id": "zhuo:determine:verb:3", "partOfSpeech": "verb", "definitionZh": "下定决心；正式或坚决地决定做某事，常用 determine to do。", "definitionEn": "To make a firm decision to take a particular action.", "examples": [{"en": "After the first setback, she determined to try a different method.", "zh": "第一次受挫后，她决心尝试另一种方法。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:develop", "headword": "develop", "kind": "word", "forms": ["develops", "developed", "developing"],
+      "senses": [
+        {"id": "zhuo:develop:verb:1", "partOfSpeech": "verb", "definitionZh": "发展；逐渐成长、变化或完善，也可指培养某种能力。", "definitionEn": "To grow or change over time, or help an ability or idea become more advanced.", "examples": [{"en": "Regular practice helped him develop a more reliable technique.", "zh": "经常练习帮助他掌握了更稳定的技巧。"}]},
+        {"id": "zhuo:develop:verb:2", "partOfSpeech": "verb", "definitionZh": "开发；研制，通过规划和工作创造产品、系统或可利用的空间。", "definitionEn": "To create a product, system, or usable space through planned work.", "examples": [{"en": "The team developed a simple app for recording field observations.", "zh": "团队开发了一款记录实地观察的简单应用。"}]},
+        {"id": "zhuo:develop:verb:3", "partOfSpeech": "verb", "definitionZh": "开始出现；逐渐患上某种病症或形成某个问题。", "definitionEn": "To begin to have a condition or problem that was not present before.", "examples": [{"en": "The old pipe developed a leak during the cold weather.", "zh": "那根旧管子在寒冷天气里开始漏水。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:differ", "headword": "differ", "kind": "word", "forms": ["differs", "differed", "differing"],
+      "senses": [{"id": "zhuo:differ:verb:1", "partOfSpeech": "verb", "definitionZh": "不同；在特征、做法或意见上不一样。常用 differ from 或 differ in。", "definitionEn": "To be unlike another thing in a feature, practice, or opinion.", "examples": [{"en": "The two versions differ mainly in the way they handle errors.", "zh": "这两个版本主要在处理错误的方式上不同。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:disagree", "headword": "disagree", "kind": "word", "forms": ["disagrees", "disagreed", "disagreeing"],
+      "senses": [{"id": "zhuo:disagree:verb:1", "partOfSpeech": "verb", "definitionZh": "不同意；意见不一致。常用 disagree with somebody 或 disagree about something。", "definitionEn": "To hold a different opinion or not accept someone else's view.", "examples": [{"en": "We disagreed about the schedule but agreed to discuss it again.", "zh": "我们对日程安排意见不一，但同意再讨论一次。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:disappear", "headword": "disappear", "kind": "word", "forms": ["disappears", "disappeared", "disappearing"],
+      "senses": [{"id": "zhuo:disappear:verb:1", "partOfSpeech": "verb", "definitionZh": "消失；不再看得见、找得到或存在。", "definitionEn": "To pass out of sight, no longer be found where expected, or cease to exist.", "examples": [{"en": "The hills disappeared behind a thick bank of cloud.", "zh": "群山消失在厚厚的云层后面。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:discover", "headword": "discover", "kind": "word", "forms": ["discovers", "discovered", "discovering"],
+      "senses": [{"id": "zhuo:discover:verb:1", "partOfSpeech": "verb", "definitionZh": "发现；找到或了解到原先不知道的地点、事物或事实，不等于创造新事物。", "definitionEn": "To find something or learn a fact that was previously unknown to you or others.", "examples": [{"en": "While sorting the papers, I discovered a letter from my first teacher.", "zh": "整理文件时，我发现了一封第一位老师写来的信。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:discuss", "headword": "discuss", "kind": "word", "forms": ["discusses", "discussed", "discussing"],
+      "senses": [{"id": "zhuo:discuss:verb:1", "partOfSpeech": "verb", "definitionZh": "讨论；交流某个主题的想法，也可指在文章中论述。通常直接接讨论对象，不说 discuss about something。", "definitionEn": "To exchange ideas about a subject or examine it in speech or writing.", "examples": [{"en": "The final chapter discusses the limits of the proposed method.", "zh": "最后一章讨论了所提方法的局限。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:dismiss", "headword": "dismiss", "kind": "word", "forms": ["dismisses", "dismissed", "dismissing"],
+      "senses": [
+        {"id": "zhuo:dismiss:verb:1", "partOfSpeech": "verb", "definitionZh": "不予考虑；认为某个想法、担忧等不值得认真对待。", "definitionEn": "To reject an idea or concern as unworthy of serious attention.", "examples": [{"en": "Do not dismiss the warning simply because it came from a beginner.", "zh": "不要仅因警告来自初学者就不予理会。"}]},
+        {"id": "zhuo:dismiss:verb:2", "partOfSpeech": "verb", "definitionZh": "准许离开；把一群人遣散或让其结束当前任务。", "definitionEn": "To tell someone they may leave or release a group from an activity.", "examples": [{"en": "The instructor dismissed the class after checking the equipment.", "zh": "检查完设备后，教员让全班下课离开了。"}]},
+        {"id": "zhuo:dismiss:verb:3", "partOfSpeech": "verb", "definitionZh": "解雇；正式终止某人的工作或职务。", "definitionEn": "To formally remove someone from a job or position.", "examples": [{"en": "The company dismissed the manager after investigating the missing funds.", "zh": "调查失踪款项后，公司解雇了那位经理。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:display", "headword": "display", "kind": "word", "forms": ["displays", "displayed", "displaying"],
+      "senses": [
+        {"id": "zhuo:display:verb:1", "partOfSpeech": "verb", "definitionZh": "展示；显示，使物品、信息或某种特征能够被看到。", "definitionEn": "To make objects, information, or a quality visible to others.", "examples": [{"en": "The screen displays the next three departures.", "zh": "屏幕显示接下来三班的出发信息。"}]},
+        {"id": "zhuo:display:noun:1", "partOfSpeech": "noun", "definitionZh": "展示；展陈，指供人观看的一组物品或一次呈现。", "definitionEn": "An arrangement or presentation of things intended to be seen.", "examples": [{"en": "A display of old maps filled the entrance hall.", "zh": "入口大厅里陈列着一组老地图。"}]},
+        {"id": "zhuo:display:noun:2", "partOfSpeech": "noun", "definitionZh": "显示屏；呈现文字、图像等信息的电子屏幕。", "definitionEn": "An electronic screen that presents text, images, or other information.", "examples": [{"en": "The small display is difficult to read in direct sunlight.", "zh": "阳光直射时，这块小显示屏很难看清。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:divide", "headword": "divide", "kind": "word", "forms": ["divides", "divided", "dividing"],
+      "senses": [
+        {"id": "zhuo:divide:verb:1", "partOfSpeech": "verb", "definitionZh": "分开；分配，把整体拆成若干部分，或把东西分给多人。", "definitionEn": "To separate a whole into parts or distribute something among people.", "examples": [{"en": "We divided the tasks so that nobody had to work alone.", "zh": "我们分配了任务，让大家都不用单独工作。"}]},
+        {"id": "zhuo:divide:verb:2", "partOfSpeech": "verb", "definitionZh": "除；进行除法，计算一个数包含多少个另一个数，或平均分成若干份。", "definitionEn": "To calculate how many times one number fits into another or the size of equal shares.", "examples": [{"en": "Divide the total by four to find each person's share.", "zh": "把总额除以四，就能算出每个人应分到的金额。"}]},
+        {"id": "zhuo:divide:noun:1", "partOfSpeech": "noun", "definitionZh": "分歧；鸿沟，把不同群体、观点或条件分开的明显差异。", "definitionEn": "A marked difference or separation between groups, views, or conditions.", "examples": [{"en": "The project aims to reduce the digital divide between communities.", "zh": "这个项目旨在缩小不同社区之间的数字鸿沟。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:do", "headword": "do", "kind": "word", "forms": ["does", "did", "done", "doing"],
+      "senses": [
+        {"id": "zhuo:do:verb:1", "partOfSpeech": "verb", "definitionZh": "做；进行；完成某项工作或活动。", "definitionEn": "To carry out an action, activity, or piece of work.", "examples": [{"en": "I will do the washing-up while you put the food away.", "zh": "你收好食物时，我来洗碗。"}]},
+        {"id": "zhuo:do:verb:2", "partOfSpeech": "verb", "definitionZh": "足够；合用，符合当前需要，常用 something will do。", "definitionEn": "To be suitable or sufficient for the present purpose.", "examples": [{"en": "We do not need a large table; this small one will do.", "zh": "我们不需要大桌子，这张小的就够用了。"}]},
+        {"id": "zhuo:do:auxiliary-verb:1", "partOfSpeech": "auxiliary verb", "definitionZh": "用于一般现在时、一般过去时的疑问句和否定句等结构，帮助主要动词表达提问或否定，本身不译作“做”。", "definitionEn": "Used to form questions and negatives with ordinary verbs in the simple present or simple past.", "examples": [{"en": "Did you save the receipt? I did not see it in the bag.", "zh": "你保留收据了吗？我在袋子里没有看到。"}]},
+        {"id": "zhuo:do:auxiliary-verb:2", "partOfSpeech": "auxiliary verb", "definitionZh": "用于肯定句中加强语气，表示确实、真的；后接动词原形。", "definitionEn": "Used before a base-form verb to emphasize that something is true.", "examples": [{"en": "I do appreciate your help, even if I forgot to say so.", "zh": "即使我忘了说，我也确实很感激你的帮助。"}]},
+        {"id": "zhuo:do:auxiliary-verb:3", "partOfSpeech": "auxiliary verb", "definitionZh": "代替前文已经出现的动词或动作，避免重复，常见于简短答语和比较结构。", "definitionEn": "Used in place of a previously mentioned verb phrase to avoid repeating it.", "examples": [{"en": "Mina cycles to work more often than I do.", "zh": "米娜骑车上班的频率比我高。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:doubt", "headword": "doubt", "kind": "word", "forms": ["doubts", "doubted", "doubting"],
+      "senses": [
+        {"id": "zhuo:doubt:verb:1", "partOfSpeech": "verb", "definitionZh": "怀疑；不确信某事真实、可靠或可能发生。", "definitionEn": "To be uncertain about the truth, reliability, or likelihood of something.", "examples": [{"en": "I doubt that the paint will dry before the visitors arrive.", "zh": "我怀疑访客到达前油漆能不能干。"}]},
+        {"id": "zhuo:doubt:noun:1", "partOfSpeech": "noun", "definitionZh": "疑虑；不确定，认为某事可能不真实、不妥当或不会成功。", "definitionEn": "A feeling of uncertainty about whether something is true, right, or likely to succeed.", "examples": [{"en": "She had doubts about the plan but agreed to test it.", "zh": "她对计划有疑虑，但同意试一试。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:drag", "headword": "drag", "kind": "word", "forms": ["drags", "dragged", "dragging"],
+      "senses": [
+        {"id": "zhuo:drag:verb:1", "partOfSpeech": "verb", "definitionZh": "拖；拉，使重物沿表面移动，也可指在屏幕上按住并移动对象。", "definitionEn": "To pull something along a surface, or move an on-screen item while holding a control.", "examples": [{"en": "Drag the photo into the empty box on the screen.", "zh": "把照片拖进屏幕上的空白框。"}]},
+        {"id": "zhuo:drag:verb:2", "partOfSpeech": "verb", "definitionZh": "拖延；过得缓慢，指时间或活动令人觉得迟迟不结束。", "definitionEn": "To pass or continue so slowly that it feels tedious.", "examples": [{"en": "The final hour dragged because we had nothing left to do.", "zh": "最后一个小时过得很慢，因为我们已经无事可做。"}]},
+        {"id": "zhuo:drag:noun:1", "partOfSpeech": "noun", "definitionZh": "（非正式）令人厌烦的事；耗时、麻烦而没有乐趣的事情，常用 a drag。", "definitionEn": "Something tedious or inconvenient, in informal use.", "examples": [{"en": "Carrying two bags across town was a real drag.", "zh": "拎着两个包穿过市区真是件烦人的事。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:draw", "headword": "draw", "kind": "word", "forms": ["draws", "drew", "drawn", "drawing"],
+      "senses": [
+        {"id": "zhuo:draw:verb:1", "partOfSpeech": "verb", "definitionZh": "画；用笔等工具描出线条，形成图像或图表。", "definitionEn": "To make a picture or diagram by producing lines with a pen or similar tool.", "examples": [{"en": "Draw a rough map showing the path from the gate to the pond.", "zh": "画一张草图，标出从大门到池塘的小路。"}]},
+        {"id": "zhuo:draw:verb:2", "partOfSpeech": "verb", "definitionZh": "拉；移向某处，常用于拉动窗帘、抽出物品或把人拉近等动作。draw the curtains 可依语境表示拉开或拉上窗帘。", "definitionEn": "To pull or move something in a particular direction.", "examples": [{"en": "She drew the chair closer to the window before opening her book.", "zh": "她先把椅子拉近窗边，再打开书。"}]},
+        {"id": "zhuo:draw:verb:3", "partOfSpeech": "verb", "definitionZh": "吸引；引起注意、兴趣或某种反应。", "definitionEn": "To attract attention, interest, people, or a particular response.", "examples": [{"en": "The unusual roof drew plenty of attention from passers-by.", "zh": "这个不同寻常的屋顶吸引了许多路人的注意。"}]},
+        {"id": "zhuo:draw:verb:4", "partOfSpeech": "verb", "definitionZh": "得出；从资料或经历中形成判断，常用 draw a conclusion。", "definitionEn": "To reach a conclusion or judgment from information or experience.", "examples": [{"en": "We cannot draw a firm conclusion from only two measurements.", "zh": "仅凭两次测量，我们无法得出可靠结论。"}]},
+        {"id": "zhuo:draw:noun:1", "partOfSpeech": "noun", "definitionZh": "平局；比赛双方得分相同或没有分出胜负的结果。", "definitionEn": "A result in which neither side wins a contest.", "examples": [{"en": "The match ended in a draw after a late equaliser.", "zh": "比赛在最后阶段扳平比分后以平局结束。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:dream", "headword": "dream", "kind": "word", "forms": ["dreams", "dreamed", "dreamt", "dreaming"],
+      "senses": [
+        {"id": "zhuo:dream:verb:1", "partOfSpeech": "verb", "definitionZh": "做梦；睡眠中经历想象出来的景象或事件。", "definitionEn": "To experience imagined scenes or events while asleep.", "examples": [{"en": "I dreamed that our kitchen had turned into a train carriage.", "zh": "我梦见家里的厨房变成了一节火车车厢。"}]},
+        {"id": "zhuo:dream:verb:2", "partOfSpeech": "verb", "definitionZh": "梦想；想象自己渴望的事情，常用 dream of / about doing。", "definitionEn": "To imagine and strongly wish for something you would like to happen.", "examples": [{"en": "She dreams of opening a little bookshop near the coast.", "zh": "她梦想在海边开一家小书店。"}]},
+        {"id": "zhuo:dream:noun:1", "partOfSpeech": "noun", "definitionZh": "梦；睡眠中出现的一连串想象或感受。", "definitionEn": "An imagined experience that occurs during sleep.", "examples": [{"en": "A strange dream woke me just before sunrise.", "zh": "日出前不久，一个奇怪的梦把我惊醒了。"}]},
+        {"id": "zhuo:dream:noun:2", "partOfSpeech": "noun", "definitionZh": "梦想；非常希望实现的目标或理想。", "definitionEn": "An ambition or situation that someone strongly hopes to achieve.", "examples": [{"en": "Completing the long coastal walk had been his dream for years.", "zh": "完成那条漫长的海岸步道一直是他多年来的梦想。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:dress", "headword": "dress", "kind": "word", "forms": ["dresses", "dressed", "dressing"],
+      "senses": [
+        {"id": "zhuo:dress:verb:1", "partOfSpeech": "verb", "definitionZh": "穿衣；给某人穿衣，也可指以某种风格着装。", "definitionEn": "To put clothes on yourself or someone else, or wear clothes in a particular style.", "examples": [{"en": "We dressed warmly because the concert was outdoors.", "zh": "由于音乐会在户外举行，我们穿得很暖和。"}]},
+        {"id": "zhuo:dress:noun:1", "partOfSpeech": "noun", "definitionZh": "连衣裙；上身和裙摆连为一体的服装。", "definitionEn": "A garment combining an upper part and a skirt in one piece.", "examples": [{"en": "The blue dress has deep pockets hidden in the side seams.", "zh": "这条蓝色连衣裙的侧缝里藏着很深的口袋。"}]},
+        {"id": "zhuo:dress:noun:2", "partOfSpeech": "noun", "definitionZh": "衣着；某种场合或群体的着装方式，此义通常不可数。", "definitionEn": "A style of clothing associated with an occasion or group.", "examples": [{"en": "The invitation specifies informal dress for the garden reception.", "zh": "邀请函说明，花园招待会穿便装即可。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:drink", "headword": "drink", "kind": "word", "forms": ["drinks", "drank", "drunk", "drinking"],
+      "senses": [
+        {"id": "zhuo:drink:verb:1", "partOfSpeech": "verb", "definitionZh": "喝；把液体吞入口中。不说明喝什么时，也常指喝酒。", "definitionEn": "To take liquid into your mouth and swallow it; without an object, often to consume alcohol.", "examples": [{"en": "I drank a glass of water before starting the climb.", "zh": "开始爬山前，我喝了一杯水。"}]},
+        {"id": "zhuo:drink:noun:1", "partOfSpeech": "noun", "definitionZh": "饮料；一份供饮用的液体，也可指一次喝水或喝酒。", "definitionEn": "A liquid prepared for drinking, a serving of it, or an occasion of drinking.", "examples": [{"en": "There are cold drinks in the blue cooler beside the door.", "zh": "门边的蓝色冷藏箱里有冷饮。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:drive", "headword": "drive", "kind": "word", "forms": ["drives", "drove", "driven", "driving"],
+      "senses": [
+        {"id": "zhuo:drive:verb:1", "partOfSpeech": "verb", "definitionZh": "驾驶；开车，也可指开车把人或物送往某处。", "definitionEn": "To operate a motor vehicle or take someone somewhere in one.", "examples": [{"en": "Could you drive the equipment to the hall after lunch?", "zh": "午饭后你能开车把设备送到会堂吗？"}]},
+        {"id": "zhuo:drive:verb:2", "partOfSpeech": "verb", "definitionZh": "驱动；推动，使机器运转、事物发展或某人采取行动。", "definitionEn": "To supply the force or motivation that makes something work or develop.", "examples": [{"en": "Curiosity drove her to examine the faded writing more closely.", "zh": "好奇心促使她更仔细地查看那些褪色的字迹。"}]},
+        {"id": "zhuo:drive:verb:3", "partOfSpeech": "verb", "definitionZh": "驱赶；迫使朝某处移动，或使人进入某种状态。", "definitionEn": "To force someone or something to move somewhere or enter a particular state.", "examples": [{"en": "The rain drove the audience inside before the final song.", "zh": "最后一首歌还没唱，雨就把观众逼到了室内。"}]},
+        {"id": "zhuo:drive:noun:1", "partOfSpeech": "noun", "definitionZh": "驾车路程；乘车出行，指一段开车行驶的旅程。", "definitionEn": "A journey made in a motor vehicle.", "examples": [{"en": "The village is a short drive from the nearest railway station.", "zh": "从最近的火车站开车到村庄只需一小段路。"}]},
+        {"id": "zhuo:drive:noun:2", "partOfSpeech": "noun", "definitionZh": "干劲；使人持续努力并追求目标的动力。", "definitionEn": "The energy and determination that keep someone working towards a goal.", "examples": [{"en": "Her quiet drive kept the project moving through several setbacks.", "zh": "她沉稳的干劲让项目在多次受挫后仍不断推进。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:drop", "headword": "drop", "kind": "word", "forms": ["drops", "dropped", "dropping"],
+      "senses": [
+        {"id": "zhuo:drop:verb:1", "partOfSpeech": "verb", "definitionZh": "掉下；使落下，有意或无意地让物体从高处落下。", "definitionEn": "To fall, or let something fall, from a higher position.", "examples": [{"en": "I dropped a coin between the floorboards and could not reach it.", "zh": "一枚硬币从我手中掉进了地板缝里，我怎么也够不到。"}]},
+        {"id": "zhuo:drop:verb:2", "partOfSpeech": "verb", "definitionZh": "下降；减少，数量、温度或水平等变低。", "definitionEn": "To become or make something lower in amount, temperature, or level.", "examples": [{"en": "The temperature dropped sharply after sunset.", "zh": "日落后气温骤降。"}]},
+        {"id": "zhuo:drop:verb:3", "partOfSpeech": "verb", "definitionZh": "放弃；停止某项活动、主张或讨论，不再继续。", "definitionEn": "To stop pursuing an activity, proposal, or subject.", "examples": [{"en": "We dropped the idea of an outdoor meal when the forecast changed.", "zh": "天气预报改变后，我们放弃了户外用餐的想法。"}]},
+        {"id": "zhuo:drop:noun:1", "partOfSpeech": "noun", "definitionZh": "滴；少量液体形成的小圆团，也可指数量或水平的一次下降。", "definitionEn": "A small rounded amount of liquid, or a fall in an amount or level.", "examples": [{"en": "A drop of ink spread across the damp paper.", "zh": "一滴墨水在潮湿的纸上洇开。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:earn", "headword": "earn", "kind": "word", "forms": ["earns", "earned", "earning"],
+      "senses": [
+        {"id": "zhuo:earn:verb:1", "partOfSpeech": "verb", "definitionZh": "挣得；通过工作或提供服务获得报酬；投资等也可产生收益。", "definitionEn": "To receive money for work or services, or obtain a return from an investment.", "examples": [{"en": "She earns enough from weekend shifts to cover her travel costs.", "zh": "她周末轮班挣的钱足以支付交通费用。"}]},
+        {"id": "zhuo:earn:verb:2", "partOfSpeech": "verb", "definitionZh": "赢得；因表现或努力而获得尊重、信任、机会等。", "definitionEn": "To gain respect, trust, or another result through effort or behaviour.", "examples": [{"en": "Keeping every promise helped him earn the team's trust.", "zh": "每次都遵守承诺，帮助他赢得了团队的信任。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:eat", "headword": "eat", "kind": "word", "forms": ["eats", "ate", "eaten", "eating"],
+      "senses": [{"id": "zhuo:eat:verb:1", "partOfSpeech": "verb", "definitionZh": "吃；把食物放入口中咀嚼并吞咽，也可指用餐。", "definitionEn": "To take food into the mouth and swallow it, or have a meal.", "examples": [{"en": "We ate by the window while the rain continued outside.", "zh": "外面一直下着雨，我们坐在窗边吃饭。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:educate", "headword": "educate", "kind": "word", "forms": ["educates", "educated", "educating"],
+      "senses": [{"id": "zhuo:educate:verb:1", "partOfSpeech": "verb", "definitionZh": "教育；通过教学、训练或提供信息帮助人掌握知识、技能或形成认识。", "definitionEn": "To help people develop knowledge, skills, or understanding through teaching and information.", "examples": [{"en": "The exhibition educates visitors about the river's changing wildlife.", "zh": "这个展览让访客了解河流中不断变化的野生生物。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:employ", "headword": "employ", "kind": "word", "forms": ["employs", "employed", "employing"],
+      "senses": [
+        {"id": "zhuo:employ:verb:1", "partOfSpeech": "verb", "definitionZh": "雇用；付钱让某人从事工作。", "definitionEn": "To give someone paid work.", "examples": [{"en": "The workshop employs three technicians and an apprentice.", "zh": "这家工坊雇用了三名技术员和一名学徒。"}]},
+        {"id": "zhuo:employ:verb:2", "partOfSpeech": "verb", "definitionZh": "采用；使用某种方法、工具或资源，语气较正式。", "definitionEn": "To use a method, tool, or resource for a purpose, in formal usage.", "examples": [{"en": "The study employs two different methods to check the estimates.", "zh": "这项研究采用两种不同方法核对估计结果。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:enable", "headword": "enable", "kind": "word", "forms": ["enables", "enabled", "enabling"],
+      "senses": [
+        {"id": "zhuo:enable:verb:1", "partOfSpeech": "verb", "definitionZh": "使能够；提供必要条件，让某人或某物可以完成某事，常用 enable somebody to do。", "definitionEn": "To provide the conditions or means that make an action possible.", "examples": [{"en": "The ramp enables visitors to enter without using the steps.", "zh": "这条坡道让访客不用走台阶就能进入。"}]},
+        {"id": "zhuo:enable:verb:2", "partOfSpeech": "verb", "definitionZh": "启用；打开设备或软件中的某项功能。", "definitionEn": "To switch on a feature so that it becomes available for use.", "examples": [{"en": "Enable automatic saving before you start editing the document.", "zh": "开始编辑文档前，先启用自动保存。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:encourage", "headword": "encourage", "kind": "word", "forms": ["encourages", "encouraged", "encouraging"],
+      "senses": [
+        {"id": "zhuo:encourage:verb:1", "partOfSpeech": "verb", "definitionZh": "鼓励；给予支持或信心，促使某人愿意尝试或继续。", "definitionEn": "To give someone support or confidence to try or continue doing something.", "examples": [{"en": "The tutor encouraged me to explain my reasoning even when I was unsure.", "zh": "导师鼓励我即使没有把握，也要说出自己的推理过程。"}]},
+        {"id": "zhuo:encourage:verb:2", "partOfSpeech": "verb", "definitionZh": "促进；营造使某种活动、行为或发展更可能发生的条件。", "definitionEn": "To make a behaviour, activity, or development more likely.", "examples": [{"en": "Better bicycle parking may encourage more people to cycle.", "zh": "更好的自行车停车设施可能促使更多人骑车。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:end", "headword": "end", "kind": "word", "forms": ["ends", "ended", "ending"],
+      "senses": [
+        {"id": "zhuo:end:verb:1", "partOfSpeech": "verb", "definitionZh": "结束；停止，使某项活动或状态不再继续。", "definitionEn": "To stop happening or bring an activity or state to a stop.", "examples": [{"en": "The rehearsal ended early because the heating failed.", "zh": "排练因暖气故障而提前结束。"}]},
+        {"id": "zhuo:end:noun:1", "partOfSpeech": "noun", "definitionZh": "末尾；结束，指时间或活动的最后部分。", "definitionEn": "The final part or stopping point of a period or activity.", "examples": [{"en": "We saved our questions until the end of the talk.", "zh": "我们把问题留到讲座结束时再问。"}]},
+        {"id": "zhuo:end:noun:2", "partOfSpeech": "noun", "definitionZh": "端部；长形物体较远或最外的一头。", "definitionEn": "One of the outermost points or parts of a long object or space.", "examples": [{"en": "Hold this end of the rope while I tie the other one.", "zh": "我系另一头时，你先拿住绳子的这一头。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:enjoy", "headword": "enjoy", "kind": "word", "forms": ["enjoys", "enjoyed", "enjoying"],
+      "senses": [
+        {"id": "zhuo:enjoy:verb:1", "partOfSpeech": "verb", "definitionZh": "享受；从某件事或活动中感到愉快。后接动作时通常用 -ing。", "definitionEn": "To take pleasure in something or in doing an activity.", "examples": [{"en": "I enjoy sketching the boats while waiting for the ferry.", "zh": "等渡轮时，我喜欢画那些船的速写。"}]},
+        {"id": "zhuo:enjoy:verb:2", "partOfSpeech": "verb", "definitionZh": "享有；拥有某种有利条件、权利或地位。", "definitionEn": "To have the benefit of a favourable condition, right, or position.", "examples": [{"en": "The rooms on the upper floor enjoy a wide view of the bay.", "zh": "楼上的房间享有开阔的海湾景观。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:ensure", "headword": "ensure", "kind": "word", "forms": ["ensures", "ensured", "ensuring"],
+      "senses": [{"id": "zhuo:ensure:verb:1", "partOfSpeech": "verb", "definitionZh": "确保；采取措施使某种情况一定成立或某事顺利发生。", "definitionEn": "To take steps that make a desired condition or result certain.", "examples": [{"en": "Check the lid twice to ensure that the container is properly sealed.", "zh": "检查两遍盖子，确保容器已经密封好。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:enter", "headword": "enter", "kind": "word", "forms": ["enters", "entered", "entering"],
+      "senses": [
+        {"id": "zhuo:enter:verb:1", "partOfSpeech": "verb", "definitionZh": "进入；来到某个空间内部，或开始处于某种阶段。", "definitionEn": "To go inside a place or move into a new phase or state.", "examples": [{"en": "Please remove your muddy boots before entering the cabin.", "zh": "进小屋前，请脱下沾泥的靴子。"}]},
+        {"id": "zhuo:enter:verb:2", "partOfSpeech": "verb", "definitionZh": "报名参加；加入比赛、课程等正式活动。", "definitionEn": "To register for or take part in an organized competition or activity.", "examples": [{"en": "Our club entered two teams in the weekend tournament.", "zh": "我们俱乐部派了两队报名参加周末的锦标赛。"}]},
+        {"id": "zhuo:enter:verb:3", "partOfSpeech": "verb", "definitionZh": "输入；记录，把文字、数字等填入表格、系统或记录中。", "definitionEn": "To put information into a form, system, or record.", "examples": [{"en": "Enter the parcel number without the spaces printed on the label.", "zh": "输入包裹编号时，不要输入标签上印出的空格。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:establish", "headword": "establish", "kind": "word", "forms": ["establishes", "established", "establishing"],
+      "senses": [
+        {"id": "zhuo:establish:verb:1", "partOfSpeech": "verb", "definitionZh": "建立；设立，开始组织、制度或关系，并使其能稳定运作。", "definitionEn": "To set up an organization, system, or relationship on a lasting basis.", "examples": [{"en": "The neighbours established a shared fund for maintaining the lane.", "zh": "邻居们设立了一个共同基金，用于维护小巷。"}]},
+        {"id": "zhuo:establish:verb:2", "partOfSpeech": "verb", "definitionZh": "查实；通过证据或调查确定某件事属实。", "definitionEn": "To show through evidence or investigation that something is true.", "examples": [{"en": "The photographs helped establish when the damage occurred.", "zh": "这些照片帮助查明了损坏发生的时间。"}]},
+        {"id": "zhuo:establish:verb:3", "partOfSpeech": "verb", "definitionZh": "确立地位；使某人或事物得到稳定认可，常用 establish oneself as。", "definitionEn": "To gain or secure a recognized position or reputation.", "examples": [{"en": "Her first collection established her as a promising young poet.", "zh": "她的第一本诗集确立了她作为有潜力的年轻诗人的地位。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:estimate", "headword": "estimate", "kind": "word", "forms": ["estimates", "estimated", "estimating"],
+      "senses": [
+        {"id": "zhuo:estimate:verb:1", "partOfSpeech": "verb", "definitionZh": "估计；利用现有信息判断大致数量、费用、时间或价值，而不是精确测定。", "definitionEn": "To judge an approximate amount, cost, time, or value using available information.", "examples": [{"en": "We estimate that the repairs will take about three days.", "zh": "我们估计维修大约需要三天。"}]},
+        {"id": "zhuo:estimate:noun:1", "partOfSpeech": "noun", "definitionZh": "估计；对数量或成本等作出的近似判断，也可指预估报价。", "definitionEn": "An approximate judgment of a quantity or a statement of a likely cost.", "examples": [{"en": "The builder's estimate included materials but not the removal of waste.", "zh": "建筑工人的预估报价包括材料，却不包括清运废料。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:examine", "headword": "examine", "kind": "word", "forms": ["examines", "examined", "examining"],
+      "senses": [
+        {"id": "zhuo:examine:verb:1", "partOfSpeech": "verb", "definitionZh": "检查；仔细观察、分析某物或问题，以弄清其状况、性质或原因。", "definitionEn": "To inspect or consider something carefully in order to understand its condition or nature.", "examples": [{"en": "The technician examined the cable for signs of wear.", "zh": "技术员检查电缆是否有磨损迹象。"}]},
+        {"id": "zhuo:examine:verb:2", "partOfSpeech": "verb", "definitionZh": "考核；通过考试或提问检验某人的知识、技能。", "definitionEn": "To test someone's knowledge or skill through questions or an assessment.", "examples": [{"en": "The students were examined on the methods they had practised in class.", "zh": "学生们接受了有关课堂练习方法的考核。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:exchange", "headword": "exchange", "kind": "word", "forms": ["exchanges", "exchanged", "exchanging"],
+      "senses": [
+        {"id": "zhuo:exchange:verb:1", "partOfSpeech": "verb", "definitionZh": "交换；用某物换取另一物，也可指双方互相传递信息、意见等。", "definitionEn": "To give something and receive something else in return, including ideas or information.", "examples": [{"en": "We exchanged phone numbers in case the group became separated.", "zh": "我们交换了电话号码，以防队伍走散。"}]},
+        {"id": "zhuo:exchange:noun:1", "partOfSpeech": "noun", "definitionZh": "交换；交流，指双方互相给予或传递东西的过程，也可指短期互访学习。", "definitionEn": "An act of giving and receiving, or an arrangement for people to visit and learn from one another.", "examples": [{"en": "The exchange of ideas continued long after the workshop ended.", "zh": "工作坊结束很久后，大家还在交流想法。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:excite", "headword": "excite", "kind": "word", "forms": ["excites", "excited", "exciting"],
+      "senses": [{"id": "zhuo:excite:verb:1", "partOfSpeech": "verb", "definitionZh": "使兴奋；激起兴趣或强烈感受。", "definitionEn": "To make someone enthusiastic or arouse a strong feeling or interest.", "examples": [{"en": "The possibility of finding an earlier manuscript excited the researchers.", "zh": "发现更早手稿的可能性让研究人员感到兴奋。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:excuse", "headword": "excuse", "kind": "word", "forms": ["excuses", "excused", "excusing"],
+      "senses": [
+        {"id": "zhuo:excuse:verb:1", "partOfSpeech": "verb", "definitionZh": "原谅；对失礼、错误等表示不责怪。excuse me 也用来礼貌地引起注意或请求让路。", "definitionEn": "To forgive a mistake or discourtesy; excuse me also politely asks for attention or room to pass.", "examples": [{"en": "Please excuse the noise while we move the last few chairs.", "zh": "我们搬最后几把椅子时会有些噪声，请见谅。"}]},
+        {"id": "zhuo:excuse:verb:2", "partOfSpeech": "verb", "definitionZh": "准许不参加；免除某人本应承担的任务或义务。", "definitionEn": "To allow someone not to attend or perform an expected duty.", "examples": [{"en": "The coach excused her from practice so she could attend the interview.", "zh": "教练准许她不参加训练，好让她去面试。"}]},
+        {"id": "zhuo:excuse:noun:1", "partOfSpeech": "noun", "definitionZh": "理由；借口，为不做某事或为错误行为作辩解的说法，不一定真实或充分。", "definitionEn": "A reason offered to explain inaction or justify a fault, whether or not it is convincing.", "examples": [{"en": "He offered no excuse for arriving an hour late.", "zh": "他迟到了一小时，却没有给出任何解释。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:exercise", "headword": "exercise", "kind": "word", "forms": ["exercises", "exercised", "exercising"],
+      "senses": [
+        {"id": "zhuo:exercise:verb:1", "partOfSpeech": "verb", "definitionZh": "锻炼；通过身体活动保持或改善体能，也可指锻炼某一部位。", "definitionEn": "To move the body or a part of it to maintain or improve fitness.", "examples": [{"en": "I exercise in the park before the morning bus becomes crowded.", "zh": "早班公交变拥挤之前，我会先在公园锻炼。"}]},
+        {"id": "zhuo:exercise:verb:2", "partOfSpeech": "verb", "definitionZh": "行使；运用权力、权利、判断力或克制力等。", "definitionEn": "To use a right, power, judgment, or restraint.", "examples": [{"en": "Please exercise caution when walking near the damaged wall.", "zh": "在受损的墙边行走时，请务必小心。"}]},
+        {"id": "zhuo:exercise:noun:1", "partOfSpeech": "noun", "definitionZh": "身体锻炼；体育活动，此概括义通常不可数；可数时可指具体的一套动作。", "definitionEn": "Physical activity for fitness, or a particular movement performed for that purpose.", "examples": [{"en": "A little regular exercise makes the long climb feel easier.", "zh": "经常做些运动，会让那段漫长的攀登更轻松。"}]},
+        {"id": "zhuo:exercise:noun:2", "partOfSpeech": "noun", "definitionZh": "练习；为学习、训练或演练某项技能而安排的任务。", "definitionEn": "A task designed to practise, test, or rehearse a skill.", "examples": [{"en": "The final exercise asks you to compare two explanations of the same event.", "zh": "最后一道练习要求你比较对同一事件的两种解释。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:exist", "headword": "exist", "kind": "word", "forms": ["exists", "existed", "existing"],
+      "senses": [{"id": "zhuo:exist:verb:1", "partOfSpeech": "verb", "definitionZh": "存在；现实中有某种人、物、情况或关系。", "definitionEn": "To be real or present as a person, thing, condition, or relationship.", "examples": [{"en": "A shorter route exists, but it is closed during the winter.", "zh": "确实有一条更短的路线，但冬天不开放。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:expand", "headword": "expand", "kind": "word", "forms": ["expands", "expanded", "expanding"],
+      "senses": [{"id": "zhuo:expand:verb:1", "partOfSpeech": "verb", "definitionZh": "扩大；扩展；膨胀，使大小、数量或范围增加，或自身变大。", "definitionEn": "To become or make something larger in size, number, or scope.", "examples": [{"en": "The club plans to expand its lending collection next term.", "zh": "俱乐部计划下学期扩大可借用物品的种类和数量。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:expect", "headword": "expect", "kind": "word", "forms": ["expects", "expected", "expecting"],
+      "senses": [
+        {"id": "zhuo:expect:verb:1", "partOfSpeech": "verb", "definitionZh": "预料；认为某事很可能发生，或等待某人某物按预期到来。", "definitionEn": "To believe something will probably happen or someone or something will arrive.", "examples": [{"en": "We expect the replacement parts to arrive on Thursday.", "zh": "我们预计替换零件周四到。"}]},
+        {"id": "zhuo:expect:verb:2", "partOfSpeech": "verb", "definitionZh": "期望；要求，认为某人应该做到某事或符合某种标准。", "definitionEn": "To regard a behaviour or standard as something someone should provide.", "examples": [{"en": "The workshop expects everyone to leave their bench tidy.", "zh": "工坊要求每个人都把自己的工作台收拾整齐。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:explain", "headword": "explain", "kind": "word", "forms": ["explains", "explained", "explaining"],
+      "senses": [{"id": "zhuo:explain:verb:1", "partOfSpeech": "verb", "definitionZh": "解释；说明，用信息、理由或步骤使某事更易理解。常用 explain something to somebody。", "definitionEn": "To make something understandable by giving information, reasons, or steps.", "examples": [{"en": "Could you explain the difference to me using a simple diagram?", "zh": "你能用一张简单的示意图向我说明其中的差别吗？"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:explore", "headword": "explore", "kind": "word", "forms": ["explores", "explored", "exploring"],
+      "senses": [
+        {"id": "zhuo:explore:verb:1", "partOfSpeech": "verb", "definitionZh": "探索；在不熟悉的地方走访或调查，以了解其情况。", "definitionEn": "To travel through or investigate an unfamiliar place in order to learn about it.", "examples": [{"en": "We spent the afternoon exploring the narrow streets behind the harbour.", "zh": "我们花了一下午探索港口后面狭窄的街道。"}]},
+        {"id": "zhuo:explore:verb:2", "partOfSpeech": "verb", "definitionZh": "探讨；仔细考虑某种想法、可能性或问题。", "definitionEn": "To consider an idea, possibility, or question in detail.", "examples": [{"en": "The meeting explored ways to make the service easier to use.", "zh": "会议探讨了使服务更易使用的办法。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:express", "headword": "express", "kind": "word", "forms": ["expresses", "expressed", "expressing"],
+      "senses": [
+        {"id": "zhuo:express:verb:1", "partOfSpeech": "verb", "definitionZh": "表达；通过语言、动作、艺术等把感受、想法或含义传达出来。", "definitionEn": "To communicate a thought, feeling, or meaning through words, actions, or art.", "examples": [{"en": "She expressed her concern in a short note to the organiser.", "zh": "她给组织者写了一张短笺，表达了自己的担忧。"}]},
+        {"id": "zhuo:express:adjective:1", "partOfSpeech": "adjective", "definitionZh": "快速的；特快的，用于描述比普通方式更快或停站更少的服务。", "definitionEn": "Providing a faster service or making fewer stops than the ordinary service.", "examples": [{"en": "We chose express delivery because the forms were needed the next day.", "zh": "因为第二天就需要这些表格，我们选择了快递加急服务。"}]},
+        {"id": "zhuo:express:noun:1", "partOfSpeech": "noun", "definitionZh": "快车；停靠站较少、运行较快的列车或公共汽车。", "definitionEn": "A train or bus that travels quickly by making relatively few stops.", "examples": [{"en": "The morning express passes through this station without stopping.", "zh": "早班快车经过这一站但不停靠。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:extend", "headword": "extend", "kind": "word", "forms": ["extends", "extended", "extending"],
+      "senses": [
+        {"id": "zhuo:extend:verb:1", "partOfSpeech": "verb", "definitionZh": "延长；扩展，增加长度、持续时间或适用范围。", "definitionEn": "To increase the length, duration, or range of something.", "examples": [{"en": "The library extended its opening hours during the exam period.", "zh": "考试期间，图书馆延长了开放时间。"}]},
+        {"id": "zhuo:extend:verb:2", "partOfSpeech": "verb", "definitionZh": "延伸；伸出，指空间向某处展开，或使身体部位展开。", "definitionEn": "To stretch out or reach across an area or in a direction.", "examples": [{"en": "The path extends beyond the last house and into the woods.", "zh": "这条小路越过最后一栋房子，一直伸进树林。"}]},
+        {"id": "zhuo:extend:verb:3", "partOfSpeech": "verb", "definitionZh": "给予；提出邀请、帮助或祝愿等，语气较正式。", "definitionEn": "To offer an invitation, help, or good wishes in formal usage.", "examples": [{"en": "We would like to extend a warm welcome to the new members.", "zh": "我们想向新成员表示热烈欢迎。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:face", "headword": "face", "kind": "word", "forms": ["faces", "faced", "facing"],
+      "senses": [
+        {"id": "zhuo:face:verb:1", "partOfSpeech": "verb", "definitionZh": "面对；遇到或正视某种困难、事实、选择等。", "definitionEn": "To encounter or deal directly with a difficulty, fact, or choice.", "examples": [{"en": "We faced a difficult choice when the only bridge was closed.", "zh": "唯一的桥关闭后，我们面临一个艰难的选择。"}]},
+        {"id": "zhuo:face:verb:2", "partOfSpeech": "verb", "definitionZh": "朝向；把正面转向某人、某物或某个方向。", "definitionEn": "To have or turn the front towards a person, object, or direction.", "examples": [{"en": "The kitchen window faces the small courtyard.", "zh": "厨房窗户朝着小院。"}]},
+        {"id": "zhuo:face:noun:1", "partOfSpeech": "noun", "definitionZh": "脸；头部正面，包括眼、鼻、口等部位，也可通过表情体现情绪。", "definitionEn": "The front part of the head, including the eyes, nose, and mouth.", "examples": [{"en": "Her face lit up when she recognised the handwriting.", "zh": "认出那笔迹时，她脸上顿时露出喜色。"}]},
+        {"id": "zhuo:face:noun:2", "partOfSpeech": "noun", "definitionZh": "表面；正面，物体朝外的一个平面或一侧，如钟面、岩壁。", "definitionEn": "An outward surface or side of an object, such as a clock or rock.", "examples": [{"en": "The clock's face was cracked, but its hands still moved.", "zh": "钟面虽然裂了，指针却仍在走。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fail", "headword": "fail", "kind": "word", "forms": ["fails", "failed", "failing"],
+      "senses": [
+        {"id": "zhuo:fail:verb:1", "partOfSpeech": "verb", "definitionZh": "失败；未达到目标或未通过考核。", "definitionEn": "To be unsuccessful in reaching a goal or passing an assessment.", "examples": [{"en": "The first attempt failed, but it showed us where the problem lay.", "zh": "第一次尝试失败了，但让我们看出了问题所在。"}]},
+        {"id": "zhuo:fail:verb:2", "partOfSpeech": "verb", "definitionZh": "未能；没有做到预期或要求的事，常用 fail to do。", "definitionEn": "To not do something expected, required, or intended.", "examples": [{"en": "I failed to notice the second page of the instructions.", "zh": "我没有注意到说明还有第二页。"}]},
+        {"id": "zhuo:fail:verb:3", "partOfSpeech": "verb", "definitionZh": "失灵；不再正常运转或发挥作用。", "definitionEn": "To stop working properly or become unable to perform a function.", "examples": [{"en": "The backup light came on when the main power supply failed.", "zh": "主电源故障时，备用灯亮了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fall", "headword": "fall", "kind": "word", "forms": ["falls", "fell", "fallen", "falling"],
+      "senses": [
+        {"id": "zhuo:fall:verb:1", "partOfSpeech": "verb", "definitionZh": "落下；跌倒，向低处移动或失去平衡而倒下。", "definitionEn": "To move downwards or lose balance and come to the ground.", "examples": [{"en": "A loose apple fell from the basket as we crossed the lane.", "zh": "我们穿过小巷时，一只没放稳的苹果从篮子里掉了出来。"}]},
+        {"id": "zhuo:fall:verb:2", "partOfSpeech": "verb", "definitionZh": "下降；数值、数量或程度变低。", "definitionEn": "To decrease in value, amount, or level.", "examples": [{"en": "Water use fell after the school repaired the leaking taps.", "zh": "学校修好漏水的水龙头后，用水量下降了。"}]},
+        {"id": "zhuo:fall:verb:3", "partOfSpeech": "verb", "definitionZh": "进入某种状态；与形容词或其他补语搭配，如 fall asleep、fall silent。", "definitionEn": "To enter a state, often in combinations such as fall asleep or fall silent.", "examples": [{"en": "The room fell silent when the old recording began.", "zh": "老录音开始播放时，房间里安静了下来。"}]},
+        {"id": "zhuo:fall:verb:4", "partOfSpeech": "verb", "definitionZh": "适逢；某个日期或事件落在特定日子，常用 fall on。", "definitionEn": "For a date or event to occur on a particular day.", "examples": [{"en": "Her birthday falls on a Sunday this year.", "zh": "她今年的生日正逢星期日。"}]},
+        {"id": "zhuo:fall:noun:1", "partOfSpeech": "noun", "definitionZh": "跌落；下降，指一次向下运动或数量减少。", "definitionEn": "An occasion of falling or a decrease in amount or level.", "examples": [{"en": "The report recorded a small fall in the number of missed appointments.", "zh": "报告记录到，未按约到场的次数略有下降。"}]},
+        {"id": "zhuo:fall:noun:2", "partOfSpeech": "noun", "definitionZh": "秋季；主要用于美式英语，相当于 autumn。", "definitionEn": "The season between summer and winter, chiefly in American English.", "examples": [{"en": "They plan to visit the mountain towns in the fall.", "zh": "他们计划秋天去那些山间小镇。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fasten", "headword": "fasten", "kind": "word", "forms": ["fastens", "fastened", "fastening"],
+      "senses": [{"id": "zhuo:fasten:verb:1", "partOfSpeech": "verb", "definitionZh": "系牢；扣紧；把东西固定在一起或使开口稳妥闭合。", "definitionEn": "To secure things together or close an opening so that it stays shut.", "examples": [{"en": "Fasten the straps before lifting the packed case.", "zh": "提起装好的箱子前，先系紧带子。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:feed", "headword": "feed", "kind": "word", "forms": ["feeds", "fed", "feeding"],
+      "senses": [
+        {"id": "zhuo:feed:verb:1", "partOfSpeech": "verb", "definitionZh": "喂；给人或动物提供食物；动物也可 feed on，表示以某物为食。", "definitionEn": "To provide food for a person or animal, or for an animal to eat something.", "examples": [{"en": "Please do not feed the birds beside the cafe.", "zh": "请不要在咖啡馆旁喂鸟。"}]},
+        {"id": "zhuo:feed:verb:2", "partOfSpeech": "verb", "definitionZh": "输入；供给，把材料、数据等持续送入机器或系统。", "definitionEn": "To supply material or information to a machine or system.", "examples": [{"en": "Feed the paper into the slot with the printed side facing down.", "zh": "把纸张印字的一面朝下送进槽口。"}]},
+        {"id": "zhuo:feed:noun:1", "partOfSpeech": "noun", "definitionZh": "饲料；给动物吃的食物，此义通常不可数。", "definitionEn": "Food prepared or supplied for animals.", "examples": [{"en": "Keep the animal feed in a dry container with a tight lid.", "zh": "把动物饲料存放在干燥、盖子严实的容器里。"}]},
+        {"id": "zhuo:feed:noun:2", "partOfSpeech": "noun", "definitionZh": "信息流；持续更新的一串消息、视频或其他在线内容。", "definitionEn": "A regularly updated stream of online messages, videos, or other content.", "examples": [{"en": "I saved the article before it disappeared from my feed.", "zh": "那篇文章从我的信息流里消失前，我先把它保存了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:feel", "headword": "feel", "kind": "word", "forms": ["feels", "felt", "feeling"],
+      "senses": [
+        {"id": "zhuo:feel:verb:1", "partOfSpeech": "verb", "definitionZh": "感到；经历身体感受或情绪，也可接形容词说明自身状态。", "definitionEn": "To experience a bodily sensation or emotion, or be in a particular state.", "examples": [{"en": "I felt much calmer after talking through the plan with her.", "zh": "和她一起把计划讨论清楚后，我感到平静多了。"}]},
+        {"id": "zhuo:feel:verb:2", "partOfSpeech": "verb", "definitionZh": "触摸；用手等感知表面；物体作主语时可表示摸起来如何。", "definitionEn": "To perceive something by touch, or have a particular texture or sensation when touched.", "examples": [{"en": "Feel the edge carefully; there may be a sharp piece of metal.", "zh": "小心摸摸边缘，那里可能有一片锋利的金属。"}]},
+        {"id": "zhuo:feel:verb:3", "partOfSpeech": "verb", "definitionZh": "认为；凭感受或判断持某种看法，常用 feel that。", "definitionEn": "To hold an opinion or impression based on your judgment or experience.", "examples": [{"en": "We feel that a smaller group would make the discussion easier.", "zh": "我们认为人数少一些会更方便讨论。"}]},
+        {"id": "zhuo:feel:noun:1", "partOfSpeech": "noun", "definitionZh": "触感；某物给人的质地、气氛或整体印象。", "definitionEn": "The texture, atmosphere, or overall impression something gives.", "examples": [{"en": "The wooden benches give the new room a warmer feel.", "zh": "木制长凳让这间新房间有了更温暖的感觉。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fight", "headword": "fight", "kind": "word", "forms": ["fights", "fought", "fighting"],
+      "senses": [
+        {"id": "zhuo:fight:verb:1", "partOfSpeech": "verb", "definitionZh": "打斗；战斗，也可指激烈争吵或对抗。", "definitionEn": "To take part in physical conflict, armed conflict, or a strong argument.", "examples": [{"en": "The brothers fought over whose turn it was to use the bike.", "zh": "兄弟俩为该轮到谁骑车争吵起来。"}]},
+        {"id": "zhuo:fight:verb:2", "partOfSpeech": "verb", "definitionZh": "努力争取；抵抗，为获得某物或克服某种问题持续斗争。", "definitionEn": "To work determinedly for something or struggle against a problem.", "examples": [{"en": "The community fought to keep its only public library open.", "zh": "社区居民努力争取让唯一的公共图书馆继续开放。"}]},
+        {"id": "zhuo:fight:noun:1", "partOfSpeech": "noun", "definitionZh": "打斗；争吵；斗争，指一次冲突或为某个目标持续作出的抗争。", "definitionEn": "A conflict, argument, or sustained struggle towards a goal.", "examples": [{"en": "A noisy fight broke out over the missing equipment.", "zh": "大家为了遗失的设备大吵了起来。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fill", "headword": "fill", "kind": "word", "forms": ["fills", "filled", "filling"],
+      "senses": [
+        {"id": "zhuo:fill:verb:1", "partOfSpeech": "verb", "definitionZh": "装满；填充，使空间里有足够或大量的东西，也可指自身变满。", "definitionEn": "To put enough into a space to occupy it, or become occupied in this way.", "examples": [{"en": "Fill the bottle only to the line marked near the top.", "zh": "给瓶子装水时，只装到靠近顶部的标线处。"}]},
+        {"id": "zhuo:fill:verb:2", "partOfSpeech": "verb", "definitionZh": "填补；担任，找到人补上空缺职位或使某种缺少得到满足。", "definitionEn": "To occupy a vacant role or supply something that is missing.", "examples": [{"en": "The school still needs someone to fill the evening receptionist role.", "zh": "学校仍需要有人担任晚班接待员。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:find", "headword": "find", "kind": "word", "forms": ["finds", "found", "finding"],
+      "senses": [
+        {"id": "zhuo:find:verb:1", "partOfSpeech": "verb", "definitionZh": "找到；通过寻找或偶然看见而发现人、物或地点。", "definitionEn": "To locate someone or something by searching or by chance.", "examples": [{"en": "I found the missing key inside the lining of my bag.", "zh": "我在包的衬里里面找到了丢失的钥匙。"}]},
+        {"id": "zhuo:find:verb:2", "partOfSpeech": "verb", "definitionZh": "发现；通过观察、经历或研究了解到某种事实。", "definitionEn": "To learn a fact through observation, experience, or investigation.", "examples": [{"en": "We found that the shorter route was closed after dark.", "zh": "我们发现那条较短的路线天黑后不开放。"}]},
+        {"id": "zhuo:find:verb:3", "partOfSpeech": "verb", "definitionZh": "觉得；亲身体验后认为某事具有某种性质。", "definitionEn": "To experience something as having a particular quality.", "examples": [{"en": "She found the first few lessons difficult but rewarding.", "zh": "她觉得最初几节课很难，但很有收获。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:finish", "headword": "finish", "kind": "word", "forms": ["finishes", "finished", "finishing"],
+      "senses": [
+        {"id": "zhuo:finish:verb:1", "partOfSpeech": "verb", "definitionZh": "完成；结束，把事情做完，或使某项活动到达终点。", "definitionEn": "To complete a task or reach the end of an activity.", "examples": [{"en": "Please finish checking the figures before sending the report.", "zh": "请先核对完数字，再发送报告。"}]},
+        {"id": "zhuo:finish:noun:1", "partOfSpeech": "noun", "definitionZh": "终点；最后阶段，也可指比赛最后冲线的过程。", "definitionEn": "The end point or final stage of an event or activity.", "examples": [{"en": "The runners stayed close together until the exciting finish.", "zh": "跑者们一直咬得很紧，直到激动人心的最后冲线。"}]},
+        {"id": "zhuo:finish:noun:2", "partOfSpeech": "noun", "definitionZh": "表面处理效果；涂层或加工后呈现的质地、光泽等。", "definitionEn": "The texture or appearance of a surface after treatment or coating.", "examples": [{"en": "The table has a smooth finish that is easy to wipe clean.", "zh": "这张桌子的表面处理得很光滑，容易擦净。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fit", "headword": "fit", "kind": "word", "forms": ["fits", "fitted", "fitting", "fitter", "fittest"],
+      "senses": [
+        {"id": "zhuo:fit:verb:1", "partOfSpeech": "verb", "definitionZh": "合适；尺寸或形状正好能容纳、穿戴或对接。过去式和过去分词可用 fitted，美式英语也常用 fit。", "definitionEn": "To have the right size or shape for a space, person, or matching part.", "examples": [{"en": "The new shelf fits neatly into the gap beside the door.", "zh": "新架子正好能放进门边的空隙。"}]},
+        {"id": "zhuo:fit:verb:2", "partOfSpeech": "verb", "definitionZh": "安装；使某个部件牢固装上，常用 fit something with something。", "definitionEn": "To install or attach a component so that it works in place.", "examples": [{"en": "The mechanic fitted the bicycle with brighter lights.", "zh": "修车师傅给自行车装上了更亮的车灯。"}]},
+        {"id": "zhuo:fit:adjective:1", "partOfSpeech": "adjective", "definitionZh": "健康强健的；体能良好，能够进行身体活动的。", "definitionEn": "Physically healthy and able to do demanding activity.", "examples": [{"en": "Regular hill walks help her stay fit through the winter.", "zh": "经常爬山帮助她整个冬天都保持良好体能。"}]},
+        {"id": "zhuo:fit:adjective:2", "partOfSpeech": "adjective", "definitionZh": "适宜的；达到某项用途所需标准的，常用 fit for。", "definitionEn": "Suitable or good enough for a particular purpose.", "examples": [{"en": "The damaged chairs are no longer fit for use in the hall.", "zh": "这些受损椅子已经不适合在会堂里使用了。"}]},
+        {"id": "zhuo:fit:noun:1", "partOfSpeech": "noun", "definitionZh": "一阵发作；突然的一段咳嗽、大笑或强烈情绪，常用 a fit of。", "definitionEn": "A sudden episode of coughing, laughter, or strong emotion.", "examples": [{"en": "His unexpected remark sent us into a fit of laughter.", "zh": "他那句出乎意料的话让我们一阵大笑。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fix", "headword": "fix", "kind": "word", "forms": ["fixes", "fixed", "fixing"],
+      "senses": [
+        {"id": "zhuo:fix:verb:1", "partOfSpeech": "verb", "definitionZh": "修理；解决，使损坏的东西或出错的情况恢复正常。", "definitionEn": "To repair something or put a problem right.", "examples": [{"en": "I fixed the loose handle with a longer screw.", "zh": "我用一颗更长的螺丝修好了松动的把手。"}]},
+        {"id": "zhuo:fix:verb:2", "partOfSpeech": "verb", "definitionZh": "固定；使物体牢靠地保持在某个位置。", "definitionEn": "To attach something firmly in a particular position.", "examples": [{"en": "Fix the bracket to the wall before adding the shelf.", "zh": "放上搁板之前，先把支架固定到墙上。"}]},
+        {"id": "zhuo:fix:verb:3", "partOfSpeech": "verb", "definitionZh": "确定；安排好日期、价格、范围等，使其不再悬而未决。", "definitionEn": "To settle a date, price, or other detail that needs deciding.", "examples": [{"en": "We have not fixed a date for the next rehearsal yet.", "zh": "我们还没有定下次排练的日期。"}]},
+        {"id": "zhuo:fix:noun:1", "partOfSpeech": "noun", "definitionZh": "解决办法；补救措施，常用于非正式语境。", "definitionEn": "A solution or repair, often described informally.", "examples": [{"en": "The temporary fix kept the gate working until a new hinge arrived.", "zh": "这个临时补救办法让门在新铰链送到前还能使用。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:float", "headword": "float", "kind": "word", "forms": ["floats", "floated", "floating"],
+      "senses": [
+        {"id": "zhuo:float:verb:1", "partOfSpeech": "verb", "definitionZh": "漂浮；浮起，停留或缓慢移动在液体表面、空气中。", "definitionEn": "To remain on a liquid's surface or move gently through liquid or air.", "examples": [{"en": "A single leaf floated across the still pond.", "zh": "一片叶子漂过平静的池塘。"}]},
+        {"id": "zhuo:float:verb:2", "partOfSpeech": "verb", "definitionZh": "提出供考虑；试探性地提出想法或建议。", "definitionEn": "To put forward an idea tentatively for others to consider.", "examples": [{"en": "She floated the idea of sharing the room with another club.", "zh": "她试探性地提出与另一个俱乐部共用房间的想法。"}]},
+        {"id": "zhuo:float:noun:1", "partOfSpeech": "noun", "definitionZh": "浮具；能漂在水上、用作支撑或标记的物件。", "definitionEn": "A buoyant object used for support or as a marker in water.", "examples": [{"en": "The beginner held a foam float while practising her kicks.", "zh": "那位初学者抱着泡沫浮板练习打水。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:flow", "headword": "flow", "kind": "word", "forms": ["flows", "flowed", "flowing"],
+      "senses": [
+        {"id": "zhuo:flow:verb:1", "partOfSpeech": "verb", "definitionZh": "流动；液体、气体、电或其他事物连续地朝某个方向移动。", "definitionEn": "To move continuously in a direction, as liquid, gas, electricity, or a stream of other things.", "examples": [{"en": "Rainwater flows from the roof into a covered tank.", "zh": "雨水从屋顶流入一个带盖的水箱。"}]},
+        {"id": "zhuo:flow:noun:1", "partOfSpeech": "noun", "definitionZh": "流动；连续移动的过程或数量，也可指讲话、文字等流畅的推进。", "definitionEn": "A continuous movement or supply, or the smooth progress of speech or writing.", "examples": [{"en": "The extra doorway improved the flow of people through the building.", "zh": "增开的门改善了楼内人员的通行。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:fly", "headword": "fly", "kind": "word", "forms": ["flies", "flew", "flown", "flying"],
+      "senses": [
+        {"id": "zhuo:fly:verb:1", "partOfSpeech": "verb", "definitionZh": "飞；鸟、昆虫或飞行器在空中移动。", "definitionEn": "To move through the air using wings or an aircraft's lifting force.", "examples": [{"en": "A small bird flew out from beneath the bridge.", "zh": "一只小鸟从桥下飞了出来。"}]},
+        {"id": "zhuo:fly:verb:2", "partOfSpeech": "verb", "definitionZh": "乘飞机；驾驶或操纵飞机，也可指用飞机运送。", "definitionEn": "To travel by plane, pilot an aircraft, or transport someone or something by air.", "examples": [{"en": "We flew to the island because the winter ferry was not running.", "zh": "因为冬季渡轮停航，我们乘飞机去了岛上。"}]},
+        {"id": "zhuo:fly:verb:3", "partOfSpeech": "verb", "definitionZh": "飞快移动；迅速流逝，常用来形容时间过得很快。", "definitionEn": "To move very quickly or, of time, seem to pass quickly.", "examples": [{"en": "The afternoon flew by while we worked on the model.", "zh": "我们忙着做模型时，下午一转眼就过去了。"}]},
+        {"id": "zhuo:fly:noun:1", "partOfSpeech": "noun", "definitionZh": "苍蝇；一种常见的小型有翅昆虫。复数为 flies。", "definitionEn": "A small winged insect, commonly seen around food or waste.", "examples": [{"en": "A fly landed on the windowsill beside my cup.", "zh": "一只苍蝇落在我杯子旁的窗台上。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:focus", "headword": "focus", "kind": "word", "forms": ["focuses", "foci", "focused", "focusing", "focussed", "focussing"],
+      "senses": [
+        {"id": "zhuo:focus:verb:1", "partOfSpeech": "verb", "definitionZh": "集中；把注意力或努力放在特定对象上，常用 focus on。", "definitionEn": "To direct attention or effort towards a particular subject or activity.", "examples": [{"en": "For now, focus on the main argument rather than the spelling.", "zh": "现在先关注主要论点，不要纠结拼写。"}]},
+        {"id": "zhuo:focus:verb:2", "partOfSpeech": "verb", "definitionZh": "调焦；调整眼睛或镜头，使图像清晰；也可指把光聚到一点。", "definitionEn": "To adjust an eye or lens for a clear image, or bring light together at a point.", "examples": [{"en": "Focus the camera on the carved lettering, not the wall behind it.", "zh": "把相机对焦在刻字上，而不是后面的墙上。"}]},
+        {"id": "zhuo:focus:noun:1", "partOfSpeech": "noun", "definitionZh": "重点；注意力集中的对象；也可指图像清晰的状态或光学焦点。可数义的复数可用 focuses 或 foci，具体选择随语境和领域变化。", "definitionEn": "The main centre of attention, or a state of optical sharpness or convergence.", "examples": [{"en": "The river became the focus of our discussion about local history.", "zh": "这条河成了我们讨论当地历史的焦点。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:follow", "headword": "follow", "kind": "word", "forms": ["follows", "followed", "following"],
+      "senses": [
+        {"id": "zhuo:follow:verb:1", "partOfSpeech": "verb", "definitionZh": "跟随；在后面走，或沿着道路、线路等前进；也可表示时间或次序上接在后面。", "definitionEn": "To go behind someone, move along a route, or come later in a sequence.", "examples": [{"en": "Follow the blue arrows until you reach the glass doors.", "zh": "沿着蓝色箭头走，直到玻璃门处。"}]},
+        {"id": "zhuo:follow:verb:2", "partOfSpeech": "verb", "definitionZh": "遵循；按照指示、规则、建议或榜样行事。", "definitionEn": "To act according to instructions, rules, advice, or an example.", "examples": [{"en": "Please follow the safety instructions even when the room is quiet.", "zh": "即使房间里没什么人，也请遵守安全说明。"}]},
+        {"id": "zhuo:follow:verb:3", "partOfSpeech": "verb", "definitionZh": "理解；跟上谈话、解释、情节等的发展。", "definitionEn": "To understand the progress of a discussion, explanation, or story.", "examples": [{"en": "I could follow the argument until the speaker skipped a step.", "zh": "在演讲者跳过一个步骤之前，我还跟得上论证。"}]},
+        {"id": "zhuo:follow:verb:4", "partOfSpeech": "verb", "definitionZh": "关注；持续留意某人或某个事件的消息，也可指在社交平台订阅更新。", "definitionEn": "To keep informed about a person or event, including by subscribing to online updates.", "examples": [{"en": "I follow the museum online to hear about its new exhibitions.", "zh": "我在网上关注这家博物馆，了解它的新展览。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:force", "headword": "force", "kind": "word", "forms": ["forces", "forced", "forcing"],
+      "senses": [
+        {"id": "zhuo:force:verb:1", "partOfSpeech": "verb", "definitionZh": "强迫；使某人在不情愿或别无选择的情况下做事。常用 force somebody to do。", "definitionEn": "To make someone act against their wishes or because no reasonable alternative remains.", "examples": [{"en": "The road closure forced us to take a much longer route.", "zh": "道路关闭迫使我们绕了很远的路。"}]},
+        {"id": "zhuo:force:verb:2", "partOfSpeech": "verb", "definitionZh": "用力推入或打开；靠力量克服物理阻碍。", "definitionEn": "To move or open something by applying strength against resistance.", "examples": [{"en": "Do not force the drawer if something is trapped behind it.", "zh": "如果有东西卡在后面，不要硬拉抽屉。"}]},
+        {"id": "zhuo:force:noun:1", "partOfSpeech": "noun", "definitionZh": "力；力量；能使物体运动或变形的作用，也可泛指身体力量、强制力。", "definitionEn": "An influence that changes motion or shape, or physical strength used to overcome resistance.", "examples": [{"en": "The latch opened with very little force once the rust was removed.", "zh": "除锈后，几乎不用使劲就能打开门闩。"}]},
+        {"id": "zhuo:force:noun:2", "partOfSpeech": "noun", "definitionZh": "队伍；为执行某项任务而组织起来的人，常用于警察或武装部队。", "definitionEn": "An organized group carrying out a duty, especially police or military work.", "examples": [{"en": "The rescue force included volunteers from several nearby towns.", "zh": "这支救援队伍包括来自附近几个城镇的志愿者。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:forget", "headword": "forget", "kind": "word", "forms": ["forgets", "forgot", "forgotten", "forgetting"],
+      "senses": [
+        {"id": "zhuo:forget:verb:1", "partOfSpeech": "verb", "definitionZh": "忘记；不再记得信息、人或经历。", "definitionEn": "To be unable to remember information, a person, or an experience.", "examples": [{"en": "I have forgotten the name of the street where the workshop was held.", "zh": "我忘了举办工作坊的那条街叫什么。"}]},
+        {"id": "zhuo:forget:verb:2", "partOfSpeech": "verb", "definitionZh": "忘了做；因没想起来而漏做某事或没带某物。forget to do 指没有做，forget doing 指不记得做过。", "definitionEn": "To fail to do or bring something because it did not come to mind.", "examples": [{"en": "Do not forget to take the spare key when you leave.", "zh": "出门时别忘了带备用钥匙。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:forgive", "headword": "forgive", "kind": "word", "forms": ["forgives", "forgave", "forgiven", "forgiving"],
+      "senses": [{"id": "zhuo:forgive:verb:1", "partOfSpeech": "verb", "definitionZh": "原谅；不再因某人的错误或伤害而责怪、怨恨对方。常用 forgive somebody for something。", "definitionEn": "To stop blaming or resenting someone for a wrong or hurt.", "examples": [{"en": "She forgave me for losing the note, but I still offered to replace it.", "zh": "她原谅了我弄丢便条的事，但我还是提出重新写一份。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:form", "headword": "form", "kind": "word", "forms": ["forms", "formed", "forming"],
+      "senses": [
+        {"id": "zhuo:form:verb:1", "partOfSpeech": "verb", "definitionZh": "形成；组成；使若干部分成为一个整体，或使某种形状、关系逐渐出现。", "definitionEn": "To come into being or bring parts together into a whole, shape, or relationship.", "examples": [{"en": "A thin layer of ice formed on the water overnight.", "zh": "夜里水面结了一层薄冰。"}]},
+        {"id": "zhuo:form:noun:1", "partOfSpeech": "noun", "definitionZh": "形式；形态，事物呈现的方式、结构或具体类型。", "definitionEn": "The shape, structure, or particular way in which something exists or is presented.", "examples": [{"en": "The proposal arrived in the form of a short handwritten letter.", "zh": "这项提议是以一封简短手写信的形式送来的。"}]},
+        {"id": "zhuo:form:noun:2", "partOfSpeech": "noun", "definitionZh": "表格；留有固定栏目供填写信息的纸质或电子文件。", "definitionEn": "A paper or electronic document with spaces for required information.", "examples": [{"en": "The application form asks for two emergency contacts.", "zh": "申请表要求填写两位紧急联系人。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:freeze", "headword": "freeze", "kind": "word", "forms": ["freezes", "froze", "frozen", "freezing"],
+      "senses": [
+        {"id": "zhuo:freeze:verb:1", "partOfSpeech": "verb", "definitionZh": "结冰；冻住；因温度降低而由液态变为固态，也可指冷冻保存食物等。", "definitionEn": "To become solid through cold, or preserve something by keeping it very cold.", "examples": [{"en": "We froze the extra soup in small containers for later meals.", "zh": "我们把多余的汤分装在小容器里冷冻，留着以后吃。"}]},
+        {"id": "zhuo:freeze:verb:2", "partOfSpeech": "verb", "definitionZh": "突然不动；因害怕、吃惊或不知道怎么办而僵住。", "definitionEn": "To suddenly stop moving because of fear, surprise, or uncertainty.", "examples": [{"en": "I froze when I heard footsteps in the empty corridor.", "zh": "听见空走廊里传来脚步声时，我一下僵住了。"}]},
+        {"id": "zhuo:freeze:verb:3", "partOfSpeech": "verb", "definitionZh": "冻结；暂时不准改变、使用或继续；设备也可因故障而停止响应。", "definitionEn": "To prevent something from changing or being used, or stop responding in the case of a device.", "examples": [{"en": "The screen froze before I could save the revised map.", "zh": "我还没来得及保存修改后的地图，屏幕就卡住了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gain", "headword": "gain", "kind": "word", "forms": ["gains", "gained", "gaining"],
+      "senses": [
+        {"id": "zhuo:gain:verb:1", "partOfSpeech": "verb", "definitionZh": "获得；逐渐取得经验、机会、支持或其他有利事物。", "definitionEn": "To obtain something useful or desirable, often through time or effort.", "examples": [{"en": "The placement helped me gain experience with real customer questions.", "zh": "这次实习让我获得了处理真实客户问题的经验。"}]},
+        {"id": "zhuo:gain:verb:2", "partOfSpeech": "verb", "definitionZh": "增加；在数量、重量、速度等方面变多或变高。", "definitionEn": "To increase in amount, weight, speed, or another measure.", "examples": [{"en": "The bicycle gained speed as the path sloped downhill.", "zh": "小路向下倾斜时，自行车逐渐加速。"}]},
+        {"id": "zhuo:gain:noun:1", "partOfSpeech": "noun", "definitionZh": "收益；进步；获得的有利结果或数量上的增加。", "definitionEn": "A benefit, improvement, or increase that has been obtained.", "examples": [{"en": "The new layout produced a small gain in usable floor space.", "zh": "新的布局使可用地面空间略有增加。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:gather", "headword": "gather", "kind": "word", "forms": ["gathers", "gathered", "gathering"],
+      "senses": [
+        {"id": "zhuo:gather:verb:1", "partOfSpeech": "verb", "definitionZh": "聚集；收拢；人或物来到一起，或把分散的东西汇到一处。", "definitionEn": "To come together or bring scattered people or things into one place.", "examples": [{"en": "We gathered the loose pages before the wind could scatter them.", "zh": "风把散页吹开之前，我们把它们收拢了。"}]},
+        {"id": "zhuo:gather:verb:2", "partOfSpeech": "verb", "definitionZh": "得知；根据别人的话或现有迹象理解、推断。", "definitionEn": "To understand or infer something from information or signs.", "examples": [{"en": "I gather from your message that the afternoon session has been cancelled.", "zh": "从你的消息看，我理解下午那场活动已经取消了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:generate", "headword": "generate", "kind": "word", "forms": ["generates", "generated", "generating"],
+      "senses": [{"id": "zhuo:generate:verb:1", "partOfSpeech": "verb", "definitionZh": "产生；生成，通过某个过程制造能量、数据、想法或其他结果。", "definitionEn": "To produce energy, data, ideas, or another result through a process.", "examples": [{"en": "The small rooftop solar panels generate enough electricity to light the shed.", "zh": "这些屋顶上的小型太阳能板发的电足够给棚屋照明。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:get", "headword": "get", "kind": "word", "forms": ["gets", "got", "gotten", "getting"],
+      "senses": [
+        {"id": "zhuo:get:verb:1", "partOfSpeech": "verb", "definitionZh": "得到；收到、买到或设法取得某物。过去式 got；过去分词英式常用 got，美式也常用 gotten，具体搭配有差异。", "definitionEn": "To receive, buy, or otherwise obtain something.", "examples": [{"en": "I got a useful reply from the archive this morning.", "zh": "今天早上我收到了档案馆一份有用的回复。"}]},
+        {"id": "zhuo:get:verb:2", "partOfSpeech": "verb", "definitionZh": "变得；进入新的状态，常接形容词或部分过去分词。", "definitionEn": "To become different or enter a new state.", "examples": [{"en": "The path gets narrower after the wooden gate.", "zh": "过了木门，小路就变窄了。"}]},
+        {"id": "zhuo:get:verb:3", "partOfSpeech": "verb", "definitionZh": "到达；来到某个地点。通常说 get to a place，但 get home 不加 to。", "definitionEn": "To reach a destination.", "examples": [{"en": "We got to the harbour just before the ticket office closed.", "zh": "我们赶在售票处关门前到了港口。"}]},
+        {"id": "zhuo:get:verb:4", "partOfSpeech": "verb", "definitionZh": "理解；听懂或领会意思，常见于口语。", "definitionEn": "To understand a meaning or explanation, especially in conversation.", "examples": [{"en": "I get the first step, but the second diagram still puzzles me.", "zh": "第一步我懂了，但第二张图仍让我困惑。"}]},
+        {"id": "zhuo:get:verb:5", "partOfSpeech": "verb", "definitionZh": "去拿来；把某人或某物找来、取来。", "definitionEn": "To go and fetch someone or something.", "examples": [{"en": "Could you get the spare chairs from the storeroom?", "zh": "你能去储藏室把备用椅子拿来吗？"}]},
+        {"id": "zhuo:get:verb:6", "partOfSpeech": "verb", "definitionZh": "使某人做某事；通过劝说、安排等促使动作发生，常用 get somebody to do。", "definitionEn": "To persuade or arrange for someone to do something.", "examples": [{"en": "We got a local mechanic to inspect the old pump.", "zh": "我们请了一位当地修理师傅检查旧水泵。"}]},
+        {"id": "zhuo:get:verb:7", "partOfSpeech": "verb", "definitionZh": "让某事被完成；安排他人处理，常用 get something done，不表示一定亲自动手。", "definitionEn": "To arrange for a job to be done, using an object followed by a past participle.", "examples": [{"en": "I need to get these keys copied before Friday.", "zh": "我需要在周五前找人配好这些钥匙。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:give", "headword": "give", "kind": "word", "forms": ["gives", "gave", "given", "giving"],
+      "senses": [
+        {"id": "zhuo:give:verb:1", "partOfSpeech": "verb", "definitionZh": "给；把某物交到别人手中，或把所有权转给对方。", "definitionEn": "To hand something to someone or transfer it to their possession.", "examples": [{"en": "She gave the visitor a clean towel and a spare key.", "zh": "她给访客拿了一条干净毛巾和一把备用钥匙。"}]},
+        {"id": "zhuo:give:verb:2", "partOfSpeech": "verb", "definitionZh": "提供；给予建议、帮助、许可、机会等非实物。", "definitionEn": "To provide something such as advice, help, permission, or an opportunity.", "examples": [{"en": "The tutor gave us permission to use the room after class.", "zh": "导师允许我们课后使用这个房间。"}]},
+        {"id": "zhuo:give:verb:3", "partOfSpeech": "verb", "definitionZh": "作出；进行，用于 give a smile、give a talk 等表示动作或活动的搭配。", "definitionEn": "To perform an action or activity in combinations such as give a smile or give a talk.", "examples": [{"en": "He gave a short wave before disappearing through the gate.", "zh": "他简短地挥了挥手，便消失在大门后。"}]},
+        {"id": "zhuo:give:verb:4", "partOfSpeech": "verb", "definitionZh": "使产生；引起某种感觉、反应或结果。", "definitionEn": "To cause a feeling, reaction, or result, or make someone experience it.", "examples": [{"en": "The bright screen gave me a headache after an hour.", "zh": "看了一个小时的亮屏后，我头疼了。"}]},
+        {"id": "zhuo:give:verb:5", "partOfSpeech": "verb", "definitionZh": "受力而弯动、松开或让步；不再保持原来的坚固或阻力。", "definitionEn": "To bend, loosen, or yield under pressure.", "examples": [{"en": "The old floorboard gave slightly beneath my foot.", "zh": "旧地板在我脚下微微往下弯了一点。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:go", "headword": "go", "kind": "word", "forms": ["goes", "went", "gone", "going"],
+      "senses": [
+        {"id": "zhuo:go:verb:1", "partOfSpeech": "verb", "definitionZh": "去；移动，从一个地方前往另一个地方。", "definitionEn": "To move or travel from one place to another.", "examples": [{"en": "We went to the river to look for a quieter place to sit.", "zh": "我们去河边找一个更安静的地方坐。"}]},
+        {"id": "zhuo:go:verb:2", "partOfSpeech": "verb", "definitionZh": "离开；不再留在当前地点。", "definitionEn": "To leave the place where you are.", "examples": [{"en": "I must go now if I want to catch the last tram.", "zh": "如果要赶上末班电车，我现在就得走了。"}]},
+        {"id": "zhuo:go:verb:3", "partOfSpeech": "verb", "definitionZh": "从事某项活动；常用 go shopping、go swimming 等 go 加 -ing 的结构。", "definitionEn": "To take part in an activity, often followed by an -ing form.", "examples": [{"en": "We go swimming before breakfast whenever the pool opens early.", "zh": "泳池早开门时，我们总会在早饭前去游泳。"}]},
+        {"id": "zhuo:go:verb:4", "partOfSpeech": "verb", "definitionZh": "进行；进展，用来说明事情发展得如何。", "definitionEn": "To develop or proceed in a particular way.", "examples": [{"en": "How did the interview go after the equipment problem was fixed?", "zh": "设备故障解决后，面试进行得怎么样？"}]},
+        {"id": "zhuo:go:verb:5", "partOfSpeech": "verb", "definitionZh": "运转；工作，尤指机器或装置能否正常运行。", "definitionEn": "To work or operate, especially of a machine or device.", "examples": [{"en": "The old clock still goes, though it loses a few minutes each week.", "zh": "那只老钟还在走，不过每周会慢几分钟。"}]},
+        {"id": "zhuo:go:verb:6", "partOfSpeech": "verb", "definitionZh": "变得；进入某种状态，常见于 go wrong、go bad、go quiet 等搭配。", "definitionEn": "To enter a new state in expressions such as go wrong, go bad, or go quiet.", "examples": [{"en": "The room went quiet when the results appeared on the screen.", "zh": "结果显示在屏幕上时，房间里安静了下来。"}]},
+        {"id": "zhuo:go:verb:7", "partOfSpeech": "verb", "definitionZh": "应放在；能装进，指某物适合或按安排应处于某个位置。", "definitionEn": "To belong or fit in a particular position.", "examples": [{"en": "The long trays go on the lower shelf, not above the sink.", "zh": "长托盘放在下面那层架子上，不是水槽上方。"}]},
+        {"id": "zhuo:go:noun:1", "partOfSpeech": "noun", "definitionZh": "尝试；轮到的一次机会，常用于 have a go，偏非正式，尤其常见于英式英语。", "definitionEn": "An attempt or turn at an activity, especially in informal British English.", "examples": [{"en": "Let me have a go at opening the stuck window.", "zh": "让我试着打开这扇卡住的窗户。"}]},
+        {"id": "zhuo:go:construction:1", "partOfSpeech": "verb construction", "definitionZh": "be going to 后接动词原形，表示打算、计划做某事，或根据当前迹象作出预测。这里不一定表示移动到某个地方。", "definitionEn": "Used in be going to followed by a base-form verb to express a plan or a prediction, often based on present evidence.", "examples": [{"en": "We are going to repaint the kitchen during the break.", "zh": "我们打算在假期里重新粉刷厨房。"}, {"en": "Those dark clouds suggest it is going to rain before the match starts.", "zh": "从那些乌云来看，比赛开始前就要下雨了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:grant", "headword": "grant", "kind": "word", "forms": ["grants", "granted", "granting"],
+      "senses": [
+        {"id": "zhuo:grant:verb:1", "partOfSpeech": "verb", "definitionZh": "准予；正式给予请求的许可、资金或权利等。", "definitionEn": "To officially give requested permission, money, or a right.", "examples": [{"en": "The museum granted us permission to photograph the old instruments.", "zh": "博物馆准许我们拍摄那些老仪器。"}]},
+        {"id": "zhuo:grant:verb:2", "partOfSpeech": "verb", "definitionZh": "承认；在讨论中接受某一点属实，常带有限定或让步意味。", "definitionEn": "To accept a point as true in an argument, often as a limited concession.", "examples": [{"en": "I grant that the route is shorter, but it is not safe after dark.", "zh": "我承认这条路线更短，但天黑后并不安全。"}]},
+        {"id": "zhuo:grant:noun:1", "partOfSpeech": "noun", "definitionZh": "补助金；为特定用途由机构等拨给的资金，通常不是需要偿还的贷款。", "definitionEn": "Money awarded for a particular purpose, usually without a requirement to repay it.", "examples": [{"en": "A small grant paid for the first set of recording equipment.", "zh": "一笔小额补助金支付了第一套录音设备的费用。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:greet", "headword": "greet", "kind": "word", "forms": ["greets", "greeted", "greeting"],
+      "senses": [{"id": "zhuo:greet:verb:1", "partOfSpeech": "verb", "definitionZh": "问候；迎接，在见面或某人到来时用语言、动作等表示注意和欢迎。", "definitionEn": "To acknowledge or welcome someone when you meet them or they arrive.", "examples": [{"en": "A volunteer greeted us at the gate and showed us where to park.", "zh": "一位志愿者在门口迎接我们，并指引我们停车。"}]}],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:grow", "headword": "grow", "kind": "word", "forms": ["grows", "grew", "grown", "growing"],
+      "senses": [
+        {"id": "zhuo:grow:verb:1", "partOfSpeech": "verb", "definitionZh": "生长；长大，生物随时间发育、变大。", "definitionEn": "To develop and become larger as a living thing.", "examples": [{"en": "The young tree grew quickly once its roots reached deeper soil.", "zh": "幼树的根扎进较深的土层后，长得很快。"}]},
+        {"id": "zhuo:grow:verb:2", "partOfSpeech": "verb", "definitionZh": "种植；培育植物，或让头发、胡须等长出来。", "definitionEn": "To cultivate plants or allow hair or similar growth to develop.", "examples": [{"en": "We grow herbs in old wooden boxes beside the kitchen door.", "zh": "我们在厨房门边的旧木箱里种香草。"}]},
+        {"id": "zhuo:grow:verb:3", "partOfSpeech": "verb", "definitionZh": "增加；扩大，数量、规模或强度逐渐提高。", "definitionEn": "To increase in number, size, or strength over time.", "examples": [{"en": "Interest in the evening class has grown since the open day.", "zh": "自开放日以来，对晚间课程感兴趣的人越来越多。"}]},
+        {"id": "zhuo:grow:verb:4", "partOfSpeech": "verb", "definitionZh": "逐渐变得；接形容词表示状态慢慢变化。", "definitionEn": "To gradually become a particular way, followed by an adjective.", "examples": [{"en": "We grew impatient as the queue stopped moving.", "zh": "队伍不再前进时，我们渐渐不耐烦起来。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guarantee", "headword": "guarantee", "kind": "word", "forms": ["guarantees", "guaranteed", "guaranteeing"],
+      "senses": [
+        {"id": "zhuo:guarantee:verb:1", "partOfSpeech": "verb", "definitionZh": "保证；明确承诺某事一定发生、符合标准，或出现问题时负责处理。", "definitionEn": "To firmly promise a result or standard, sometimes accepting responsibility if it is not met.", "examples": [{"en": "The repairer guarantees the new part for twelve months.", "zh": "修理人员为这个新零件提供十二个月的保修。"}]},
+        {"id": "zhuo:guarantee:noun:1", "partOfSpeech": "noun", "definitionZh": "保证；保修承诺，也可指使某种结果可信的保障。", "definitionEn": "A firm assurance, including a promise to repair or replace a faulty product.", "examples": [{"en": "Keep the receipt because the guarantee is valid for one year.", "zh": "请保留收据，因为保修期为一年。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guard", "headword": "guard", "kind": "word", "forms": ["guards", "guarded", "guarding"],
+      "senses": [
+        {"id": "zhuo:guard:verb:1", "partOfSpeech": "verb", "definitionZh": "守卫；保护，通过看守或保持警惕防止损害、丢失或未经允许的进入。", "definitionEn": "To watch over and protect someone or something from harm, loss, or unauthorized access.", "examples": [{"en": "A staff member guarded the entrance while the glass was being cleared.", "zh": "清理碎玻璃时，一名工作人员守着入口。"}]},
+        {"id": "zhuo:guard:noun:1", "partOfSpeech": "noun", "definitionZh": "警卫；负责看守人、地点或财物的人。", "definitionEn": "A person whose job is to watch over and protect people, a place, or property.", "examples": [{"en": "The guard asked to see our passes before opening the side gate.", "zh": "警卫先要求查看我们的通行证，然后才打开侧门。"}]},
+        {"id": "zhuo:guard:noun:2", "partOfSpeech": "noun", "definitionZh": "防护罩；用于挡住危险部件或保护身体、物品的装置。", "definitionEn": "A cover or device that shields a person or thing from danger or damage.", "examples": [{"en": "The blade guard must stay in place while the machine is running.", "zh": "机器运转时，刀片防护罩必须保持在位。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guess", "headword": "guess", "kind": "word", "forms": ["guesses", "guessed", "guessing"],
+      "senses": [
+        {"id": "zhuo:guess:verb:1", "partOfSpeech": "verb", "definitionZh": "猜；在信息不足、没有把握的情况下给出答案或判断。", "definitionEn": "To give an answer or judgment without enough information to be certain.", "examples": [{"en": "I guessed the box's weight, then checked it on the scales.", "zh": "我先猜了箱子的重量，再用秤核对。"}]},
+        {"id": "zhuo:guess:verb:2", "partOfSpeech": "verb", "definitionZh": "（口语）想；认为，常用 I guess 表示不十分肯定或略带保留的看法。", "definitionEn": "To suppose or think something, often tentatively in conversational I guess.", "examples": [{"en": "I guess we will have to continue the meeting tomorrow.", "zh": "我想我们只好明天继续开会了。"}]},
+        {"id": "zhuo:guess:noun:1", "partOfSpeech": "noun", "definitionZh": "猜测；未经充分证实的答案或判断。", "definitionEn": "An answer or judgment made without enough evidence for certainty.", "examples": [{"en": "My first guess was close, but the actual distance was longer.", "zh": "我的第一次猜测已经很接近了，但实际距离更长。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:guide", "headword": "guide", "kind": "word", "forms": ["guides", "guided", "guiding"],
+      "senses": [
+        {"id": "zhuo:guide:verb:1", "partOfSpeech": "verb", "definitionZh": "引导；为人指路或提供建议，帮助其前进、学习或作决定。", "definitionEn": "To show a route or provide direction and advice for an activity or decision.", "examples": [{"en": "The tutor guided us through the first stage without giving away the answer.", "zh": "导师引导我们完成了第一阶段，却没有直接给出答案。"}]},
+        {"id": "zhuo:guide:noun:1", "partOfSpeech": "noun", "definitionZh": "向导；导游，带领他人参观或走过某条路线的人。", "definitionEn": "A person who leads others through a place or along a route.", "examples": [{"en": "Our guide pointed out the marks left by the old railway.", "zh": "向导为我们指出了旧铁路留下的痕迹。"}]},
+        {"id": "zhuo:guide:noun:2", "partOfSpeech": "noun", "definitionZh": "指南；提供说明、建议或实用资料的书、文件等。", "definitionEn": "A book or other resource offering instructions, advice, or practical information.", "examples": [{"en": "The short guide explains how to borrow and return the equipment.", "zh": "这份简明指南说明了怎样借用和归还设备。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:handle", "headword": "handle", "kind": "word", "forms": ["handles", "handled", "handling"],
+      "senses": [
+        {"id": "zhuo:handle:verb:1", "partOfSpeech": "verb", "definitionZh": "处理；应对某个任务、问题或需要照顾的人。", "definitionEn": "To deal with a task, problem, or person requiring attention.", "examples": [{"en": "A separate team handles questions about damaged parcels.", "zh": "另有一个团队处理有关包裹损坏的咨询。"}]},
+        {"id": "zhuo:handle:verb:2", "partOfSpeech": "verb", "definitionZh": "拿；搬动；用手接触、控制或使用物品。", "definitionEn": "To touch, move, control, or use something with the hands.", "examples": [{"en": "Handle the old photographs only by their edges.", "zh": "拿这些老照片时，只能捏住边缘。"}]},
+        {"id": "zhuo:handle:noun:1", "partOfSpeech": "noun", "definitionZh": "把手；供握住、提起或操纵某物的部位。", "definitionEn": "A part designed to be held when lifting, moving, or operating something.", "examples": [{"en": "The basket's handle was wrapped in soft cloth.", "zh": "篮子的提手上包着软布。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hang", "headword": "hang", "kind": "word", "forms": ["hangs", "hung", "hanged", "hanging"],
+      "senses": [
+        {"id": "zhuo:hang:verb:1", "partOfSpeech": "verb", "definitionZh": "悬挂；挂起，固定上端使其余部分垂下，也可指物体处于悬垂状态。此义过去式和过去分词通常为 hung。", "definitionEn": "To attach something by its upper part so that it is suspended, or remain suspended.", "examples": [{"en": "We hung the wet coats beside the open window.", "zh": "我们把湿外套挂在敞开的窗边。"}]},
+        {"id": "zhuo:hang:verb:2", "partOfSpeech": "verb", "definitionZh": "绞死；以绳索套住颈部使人死亡，尤其指处决。此义过去式和过去分词通常为 hanged。", "definitionEn": "To kill a person by suspending them by a rope around the neck, especially as an execution.", "examples": [{"en": "The history display states that the prisoner was hanged in the old courtyard.", "zh": "历史展板写明，那名囚犯在旧庭院里被绞死。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:happen", "headword": "happen", "kind": "word", "forms": ["happens", "happened", "happening"],
+      "senses": [
+        {"id": "zhuo:happen:verb:1", "partOfSpeech": "verb", "definitionZh": "发生；出现某个事件或情况。通常不用被动语态。", "definitionEn": "For an event or situation to take place.", "examples": [{"en": "What happened to the gate while we were away?", "zh": "我们不在时，那扇门出了什么事？"}]},
+        {"id": "zhuo:happen:verb:2", "partOfSpeech": "verb", "definitionZh": "碰巧；恰好做某事，常用 happen to do。", "definitionEn": "To do or experience something by chance, used with to and a verb.", "examples": [{"en": "I happened to meet the organiser on the train home.", "zh": "我在回家的火车上碰巧遇见了组织者。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hate", "headword": "hate", "kind": "word", "forms": ["hates", "hated", "hating"],
+      "senses": [
+        {"id": "zhuo:hate:verb:1", "partOfSpeech": "verb", "definitionZh": "讨厌；憎恨，对人、事物或活动有很强的反感。", "definitionEn": "To strongly dislike a person, thing, or activity.", "examples": [{"en": "I hate leaving a task unfinished when I am nearly there.", "zh": "我很讨厌在任务快完成时就停下来，把它搁着不做完。"}]},
+        {"id": "zhuo:hate:noun:1", "partOfSpeech": "noun", "definitionZh": "憎恨；强烈的敌意或厌恶，此概括义通常不可数。", "definitionEn": "A strong feeling of hostility or dislike.", "examples": [{"en": "The letter was full of hate rather than useful criticism.", "zh": "那封信充满憎恨，而不是有用的批评。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:have", "headword": "have", "kind": "word", "forms": ["has", "had", "having"],
+      "senses": [
+        {"id": "zhuo:have:verb:1", "partOfSpeech": "verb", "definitionZh": "有；拥有某物、某种特征或关系。", "definitionEn": "To possess something or be characterized by a quality or relationship.", "examples": [{"en": "The cottage has two bedrooms and a small covered porch.", "zh": "小屋有两间卧室和一个小小的带顶门廊。"}]},
+        {"id": "zhuo:have:verb:2", "partOfSpeech": "verb", "definitionZh": "经历；处于某种情况或具有某种感受，如 have a problem、have a good time。", "definitionEn": "To experience a situation, condition, or feeling.", "examples": [{"en": "We had some trouble finding the entrance in the dark.", "zh": "我们在黑暗中找入口时遇到了些困难。"}]},
+        {"id": "zhuo:have:verb:3", "partOfSpeech": "verb", "definitionZh": "进行；吃喝或从事某种日常活动，如 have lunch、have a shower、have a look。", "definitionEn": "To take food or drink, or perform an everyday activity in common combinations.", "examples": [{"en": "Let's have lunch before we start carrying the boxes upstairs.", "zh": "开始往楼上搬箱子前，我们先吃午饭吧。"}]},
+        {"id": "zhuo:have:verb:4", "partOfSpeech": "verb", "definitionZh": "安排他人做某事；使某事被处理，常用 have somebody do 或 have something done。", "definitionEn": "To arrange for someone to do a job or for something to be done.", "examples": [{"en": "We had the damaged window replaced before winter arrived.", "zh": "冬天到来前，我们找人换掉了受损的窗户。"}]},
+        {"id": "zhuo:have:verb:5", "partOfSpeech": "verb", "definitionZh": "必须；不得不，have to 后接动词原形，表示规则或情况带来的必要性。", "definitionEn": "Used with to and a verb to express necessity or obligation.", "examples": [{"en": "I have to return the equipment before the desk closes.", "zh": "我必须在服务台关闭前归还设备。"}]},
+        {"id": "zhuo:have:auxiliary-verb:1", "partOfSpeech": "auxiliary verb", "definitionZh": "与过去分词组成完成时，表示某个时间以前已经发生的动作或与该时间有关的经历、状态。本身不译作“拥有”。", "definitionEn": "Used with a past participle to form perfect tenses relating an earlier action or state to a reference time.", "examples": [{"en": "They have already sent the revised schedule to every member.", "zh": "他们已经把修改后的日程发给每位成员了。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hear", "headword": "hear", "kind": "word", "forms": ["hears", "heard", "hearing"],
+      "senses": [
+        {"id": "zhuo:hear:verb:1", "partOfSpeech": "verb", "definitionZh": "听见；感知声音，不一定表示主动注意聆听。", "definitionEn": "To perceive sound, whether or not you are deliberately listening.", "examples": [{"en": "From the kitchen, I could hear the rain tapping on the roof.", "zh": "在厨房里，我能听见雨点敲打屋顶。"}]},
+        {"id": "zhuo:hear:verb:2", "partOfSpeech": "verb", "definitionZh": "听说；得知消息；hear from somebody 表示收到某人的来信或其他联系。", "definitionEn": "To learn news or information, or receive communication from someone with from.", "examples": [{"en": "We heard that the exhibition would stay open for another week.", "zh": "我们听说展览将再开放一周。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:help", "headword": "help", "kind": "word", "forms": ["helps", "helped", "helping"],
+      "senses": [
+        {"id": "zhuo:help:verb:1", "partOfSpeech": "verb", "definitionZh": "帮助；通过行动、建议等减轻困难或使某事更容易。常用 help somebody (to) do。", "definitionEn": "To make a task or situation easier through action, advice, or support.", "examples": [{"en": "Could you help me carry the long board around the corner?", "zh": "你能帮我把这块长木板搬过拐角吗？"}]},
+        {"id": "zhuo:help:verb:2", "partOfSpeech": "verb", "definitionZh": "忍住；避免，在 cannot help doing 等结构中表示无法不做或无法控制反应。", "definitionEn": "To prevent or control a reaction, especially in cannot help followed by an -ing form.", "examples": [{"en": "I could not help laughing when the umbrella turned inside out.", "zh": "雨伞翻过来时，我忍不住笑了。"}]},
+        {"id": "zhuo:help:noun:1", "partOfSpeech": "noun", "definitionZh": "帮助；援助，指使事情更容易的支持；此概括义通常不可数。", "definitionEn": "Support or assistance that makes something easier.", "examples": [{"en": "Your help with the final check saved us a great deal of time.", "zh": "你帮忙做最后检查，给我们节省了很多时间。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hide", "headword": "hide", "kind": "word", "forms": ["hides", "hid", "hidden", "hiding"],
+      "senses": [
+        {"id": "zhuo:hide:verb:1", "partOfSpeech": "verb", "definitionZh": "藏；躲，把人或物放到不易看见的地方，或自己避开他人的视线。", "definitionEn": "To put someone or something out of sight, or stay where others cannot easily see you.", "examples": [{"en": "The children hid behind the curtain until the music started.", "zh": "孩子们躲在幕布后面，直到音乐响起。"}]},
+        {"id": "zhuo:hide:verb:2", "partOfSpeech": "verb", "definitionZh": "隐瞒；不让别人知道事实、感受或意图。", "definitionEn": "To prevent others from knowing a fact, feeling, or intention.", "examples": [{"en": "She tried to hide her disappointment when the trip was postponed.", "zh": "旅行推迟时，她试着掩饰自己的失望。"}]},
+        {"id": "zhuo:hide:noun:1", "partOfSpeech": "noun", "definitionZh": "兽皮；尤其指较大动物的皮，可加工成皮革。", "definitionEn": "The skin of an animal, especially a large one, often used to make leather.", "examples": [{"en": "The display explains how animal hides were prepared for leather making.", "zh": "展板说明了兽皮怎样经过处理用于制革。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hire", "headword": "hire", "kind": "word", "forms": ["hires", "hired", "hiring"],
+      "senses": [
+        {"id": "zhuo:hire:verb:1", "partOfSpeech": "verb", "definitionZh": "雇用；付钱请某人从事工作或提供服务。", "definitionEn": "To employ someone or pay them to provide a service.", "examples": [{"en": "The centre hired a part-time assistant to manage evening bookings.", "zh": "中心雇了一名兼职助理管理晚间预约。"}]},
+        {"id": "zhuo:hire:verb:2", "partOfSpeech": "verb", "definitionZh": "租用；付费暂时使用车辆、工具等，尤其常见于英式英语。", "definitionEn": "To pay for the temporary use of a vehicle, tool, or similar item, especially in British English.", "examples": [{"en": "We hired a van to move the exhibition panels.", "zh": "我们租了一辆货车搬运展板。"}]},
+        {"id": "zhuo:hire:noun:1", "partOfSpeech": "noun", "definitionZh": "租用；出租服务或租赁安排；此义常见于英式英语，通常不可数。", "definitionEn": "The temporary use of something in return for payment, especially in British English.", "examples": [{"en": "Bicycle hire is included in the weekend package.", "zh": "周末套餐包括自行车租赁。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hit", "headword": "hit", "kind": "word", "forms": ["hits", "hitting"],
+      "senses": [
+        {"id": "zhuo:hit:verb:1", "partOfSpeech": "verb", "definitionZh": "打；撞；用力接触某人或某物，或意外与其碰撞。过去式和过去分词均为 hit。", "definitionEn": "To strike someone or something, or collide with them.", "examples": [{"en": "The ball hit the fence and rolled back towards us.", "zh": "球撞到围栏，又向我们滚了回来。"}]},
+        {"id": "zhuo:hit:verb:2", "partOfSpeech": "verb", "definitionZh": "冲击；使受到突然或严重的不利影响。", "definitionEn": "To affect someone or something suddenly or severely, usually in a harmful way.", "examples": [{"en": "The small shops were hit hard by the long road closure.", "zh": "长时间封路给小商店造成了严重冲击。"}]},
+        {"id": "zhuo:hit:verb:3", "partOfSpeech": "verb", "definitionZh": "达到；到达某个数值、水平或特定目标。", "definitionEn": "To reach a particular number, level, or target.", "examples": [{"en": "Attendance hit a new high during the final weekend.", "zh": "最后一个周末，参观人数创下了新高。"}]},
+        {"id": "zhuo:hit:noun:1", "partOfSpeech": "noun", "definitionZh": "击中；一次成功的打击或碰撞。", "definitionEn": "An occasion when a blow or moving object makes contact with a target.", "examples": [{"en": "One clean hit sent the ball beyond the far boundary.", "zh": "一次干净利落的击球把球打到了远端界线外。"}]},
+        {"id": "zhuo:hit:noun:2", "partOfSpeech": "noun", "definitionZh": "大受欢迎的人或作品；获得明显成功的事物。", "definitionEn": "A person, performance, or product that becomes very popular or successful.", "examples": [{"en": "The homemade puppet show was a hit with the younger children.", "zh": "自制木偶戏很受小孩子欢迎。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hold", "headword": "hold", "kind": "word", "forms": ["holds", "held", "holding"],
+      "senses": [
+        {"id": "zhuo:hold:verb:1", "partOfSpeech": "verb", "definitionZh": "握住；拿着；用手或其他支撑使人、物保持在一定位置。", "definitionEn": "To keep someone or something supported or secured in a position.", "examples": [{"en": "Hold the ladder steady while I reach the top shelf.", "zh": "我够最上面的架子时，请扶稳梯子。"}]},
+        {"id": "zhuo:hold:verb:2", "partOfSpeech": "verb", "definitionZh": "容纳；内部有足够空间装下或接纳一定数量。", "definitionEn": "To have enough space to contain a particular amount or number.", "examples": [{"en": "This case holds the microphone and all of its cables.", "zh": "这个箱子装得下麦克风和它的所有电缆。"}]},
+        {"id": "zhuo:hold:verb:3", "partOfSpeech": "verb", "definitionZh": "举行；组织会议、活动或比赛等。", "definitionEn": "To organize and carry out a meeting, event, or contest.", "examples": [{"en": "The club held its first public demonstration in the old hall.", "zh": "俱乐部在老会堂举办了第一次公开演示。"}]},
+        {"id": "zhuo:hold:verb:4", "partOfSpeech": "verb", "definitionZh": "保持；保留，使某个状态、位置或物品不改变或不被他人取走。", "definitionEn": "To maintain a state or position, or keep something for later use.", "examples": [{"en": "Could you hold this seat while I collect our tickets?", "zh": "我去取票时，你能帮忙留住这个座位吗？"}]},
+        {"id": "zhuo:hold:verb:5", "partOfSpeech": "verb", "definitionZh": "持有；拥有某种观点、职位、权利或资格。", "definitionEn": "To have an opinion, position, right, or qualification.", "examples": [{"en": "They hold different views about how the archive should be used.", "zh": "他们对于档案应该怎样使用持有不同看法。"}]},
+        {"id": "zhuo:hold:noun:1", "partOfSpeech": "noun", "definitionZh": "握持；控制住人或物的抓握或掌控，常用 a hold on。", "definitionEn": "A grip or control that keeps someone or something secure.", "examples": [{"en": "Keep a firm hold on the rail while the boat is moving.", "zh": "船移动时，要牢牢抓住栏杆。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    },
+    {
+      "id": "zhuo:hope", "headword": "hope", "kind": "word", "forms": ["hopes", "hoped", "hoping"],
+      "senses": [
+        {"id": "zhuo:hope:verb:1", "partOfSpeech": "verb", "definitionZh": "希望；想让好的事情发生，并认为仍有可能。常用 hope to do 或 hope that，不用 hope somebody to do。", "definitionEn": "To want a favourable event to happen and regard it as possible.", "examples": [{"en": "We hope to finish the repairs before the winter market opens.", "zh": "我们希望在冬季集市开幕前完成维修。"}]},
+        {"id": "zhuo:hope:noun:1", "partOfSpeech": "noun", "definitionZh": "希望；对好结果的期待，也可指有望实现的目标或成功的可能性。", "definitionEn": "A wish for a good outcome, or a possibility that it can be achieved.", "examples": [{"en": "The clear forecast gave us hope that the walk could go ahead.", "zh": "晴朗的天气预报让我们有希望如期徒步。"}]}
+      ],
+      "authorship": {"method": "independent-composition", "agent": "AI-assisted draft", "referenceUse": "headwords-only"},
+      "review": {"status": "draft", "reviewer": "", "note": "第0003批原创试写；选取常用义项，待独立复核。"}
+    }
+  ]
+}

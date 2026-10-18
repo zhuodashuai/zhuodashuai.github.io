@@ -1,0 +1,823 @@
+{
+  "schemaVersion": 1,
+  "name": "卓式词典",
+  "entries": [
+    {
+      "id":"zhuo:modest","headword":"modest","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:modest:adjective:1","partOfSpeech":"adjective","definitionZh":"谦虚的；不夸耀自己的能力或成就的；比较程度通常用 more modest / most modest。","definitionEn":"Not drawing attention to one's own abilities or achievements.","examples":[{"en":"Despite winning the prize, Mina remained modest about her work.","zh":"尽管获了奖，米娜谈起自己的作品时仍很谦虚。"}]},
+        {"id":"zhuo:modest:adjective:2","partOfSpeech":"adjective","definitionZh":"不大的；适度的，指数量、规模或要求较小而不过分。","definitionEn":"Limited in size, amount, or demands rather than large or ambitious.","examples":[{"en":"We rented a modest flat close to the station.","zh":"我们在车站附近租了一间不大的公寓。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:narrow","headword":"narrow","kind":"word","forms":["narrower","narrowest","narrows","narrowed","narrowing"],
+      "senses":[
+        {"id":"zhuo:narrow:adjective:1","partOfSpeech":"adjective","definitionZh":"狭窄的；从一边到另一边距离小的。","definitionEn":"Measuring only a small distance from one side to the other.","examples":[{"en":"A narrow bridge connects the island to the shore.","zh":"一座狭窄的桥把小岛与岸边连接起来。"}]},
+        {"id":"zhuo:narrow:adjective:2","partOfSpeech":"adjective","definitionZh":"范围有限的；只涉及很少的事物或观点的。","definitionEn":"Restricted to a small range of subjects, interests, or possibilities.","examples":[{"en":"The survey gives only a narrow view of student life.","zh":"这项调查只反映了学生生活中很有限的一面。"}]},
+        {"id":"zhuo:narrow:adjective:3","partOfSpeech":"adjective","definitionZh":"勉强的；差距或余地很小的。","definitionEn":"Involving only a small difference or little room for failure.","examples":[{"en":"The team won by a narrow margin of two points.","zh":"球队仅以两分的微弱优势获胜。"}]},
+        {"id":"zhuo:narrow:verb:1","partOfSpeech":"verb","definitionZh":"缩小；使变窄或范围变小，常用 narrow something down 表示缩小选择范围。","definitionEn":"To become less wide or to reduce the range of something.","examples":[{"en":"We narrowed the list down to three possible venues.","zh":"我们把候选场地缩减到了三处。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:national","headword":"national","kind":"word","forms":["nationals"],
+      "senses":[
+        {"id":"zhuo:national:adjective:1","partOfSpeech":"adjective","definitionZh":"国家的；全国性的，涉及某个国家整体或其人民的。","definitionEn":"Relating to a country as a whole or to its people.","examples":[{"en":"The concert will be broadcast on national radio.","zh":"这场音乐会将在全国性广播电台播出。"}]},
+        {"id":"zhuo:national:noun:1","partOfSpeech":"noun","definitionZh":"某国国民；拥有某国国籍的人，通常可数，常用于正式语境。","definitionEn":"A person who has the nationality of a particular country.","examples":[{"en":"The form has a separate section for foreign nationals.","zh":"表格为外国国民设有单独的填写部分。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:natural","headword":"natural","kind":"word","forms":["naturals"],
+      "senses":[
+        {"id":"zhuo:natural:adjective:1","partOfSpeech":"adjective","definitionZh":"天然的；自然界中存在或产生的，而非人造的。","definitionEn":"Existing or produced in nature rather than made by people.","examples":[{"en":"The room gets natural light through a window in the roof.","zh":"房间通过屋顶上的窗户获得自然光。"}]},
+        {"id":"zhuo:natural:adjective:2","partOfSpeech":"adjective","definitionZh":"自然的；正常而可理解的，并不令人意外的。","definitionEn":"Normal or understandable in the circumstances.","examples":[{"en":"It is natural to feel nervous before your first performance.","zh":"第一次演出前感到紧张是很自然的。"}]},
+        {"id":"zhuo:natural:adjective:3","partOfSpeech":"adjective","definitionZh":"天生的；不需刻意训练或做作便表现出来的。","definitionEn":"Present as an inborn ability or expressed without artificial effort.","examples":[{"en":"Her natural curiosity led her to examine every shell.","zh":"她天生的好奇心使她逐一观察每个贝壳。"}]},
+        {"id":"zhuo:natural:noun:1","partOfSpeech":"noun","definitionZh":"（非正式）天生擅长某事的人，可数，常用 a natural at something。","definitionEn":"Someone who learns or performs an activity with unusual ease.","examples":[{"en":"Leo is a natural at explaining difficult ideas.","zh":"利奥天生擅长解释复杂的概念。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:nearby","headword":"nearby","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:nearby:adjective:1","partOfSpeech":"adjective","definitionZh":"附近的；距离不远的，常放在名词前。","definitionEn":"Located only a short distance away.","examples":[{"en":"A nearby shop sells fresh bread every morning.","zh":"附近的一家商店每天早上卖新鲜面包。"}]},
+        {"id":"zhuo:nearby:adverb:1","partOfSpeech":"adverb","definitionZh":"在附近；离某处不远。","definitionEn":"At or to a place a short distance away.","examples":[{"en":"We stayed nearby so that we could walk to the museum.","zh":"我们住在附近，方便步行去博物馆。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:necessary","headword":"necessary","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:necessary:adjective:1","partOfSpeech":"adjective","definitionZh":"必要的；为了某种目的或结果必须具备或完成的。","definitionEn":"Needed in order to achieve a purpose or make something possible.","examples":[{"en":"A second key is necessary if we want to use the room separately.","zh":"如果我们想各自使用房间，就需要再配一把钥匙。"}]},
+        {"id":"zhuo:necessary:adjective:2","partOfSpeech":"adjective","definitionZh":"必然的；由某种条件或事实不可避免地引出的。","definitionEn":"Following inevitably from a particular condition or fact.","examples":[{"en":"A higher price is not a necessary consequence of better packaging.","zh":"包装改进并不必然导致价格上涨。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:negative","headword":"negative","kind":"word","forms":["negatives"],
+      "senses":[
+        {"id":"zhuo:negative:adjective:1","partOfSpeech":"adjective","definitionZh":"消极的；负面的，侧重不利之处或表现出不赞同的。","definitionEn":"Focusing on disadvantages or expressing an unfavourable attitude.","examples":[{"en":"The review was negative about the film's ending.","zh":"那篇评论对电影的结尾评价不佳。"}]},
+        {"id":"zhuo:negative:adjective:2","partOfSpeech":"adjective","definitionZh":"否定的；表示没有、不是或拒绝的。","definitionEn":"Expressing denial, absence, or refusal.","examples":[{"en":"We received a negative answer to our request for extra space.","zh":"我们增加空间的请求遭到了拒绝。"}]},
+        {"id":"zhuo:negative:adjective:3","partOfSpeech":"adjective","definitionZh":"（数）负的；小于零的。","definitionEn":"Having a value below zero.","examples":[{"en":"On this scale, temperatures below freezing have negative values.","zh":"在这个温标上，冰点以下的温度为负值。"}]},
+        {"id":"zhuo:negative:adjective:4","partOfSpeech":"adjective","definitionZh":"（检验结果）阴性的；未检出所检测对象的，不等同于排除所有问题。","definitionEn":"Showing that the particular substance or condition being tested for was not detected.","examples":[{"en":"The sample gave a negative result in the contamination test.","zh":"该样本的污染检测结果呈阴性。"}]},
+        {"id":"zhuo:negative:noun:1","partOfSpeech":"noun","definitionZh":"缺点；不利因素，可数。","definitionEn":"A disadvantage or unfavourable aspect of something.","examples":[{"en":"The long commute is the main negative of this flat.","zh":"通勤时间长是这套公寓的主要缺点。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:nervous","headword":"nervous","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:nervous:adjective:1","partOfSpeech":"adjective","definitionZh":"紧张的；因担心即将发生的事而不安的。","definitionEn":"Worried or uneasy about something that may happen.","examples":[{"en":"I felt nervous about meeting the rest of the team.","zh":"想到要见团队其他成员，我有些紧张。"}]},
+        {"id":"zhuo:nervous:adjective:2","partOfSpeech":"adjective","definitionZh":"神经的；与身体神经或神经系统有关的。","definitionEn":"Relating to the nerves or the nervous system.","examples":[{"en":"The diagram shows how the nervous system carries signals.","zh":"这幅图展示了神经系统如何传递信号。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:nice","headword":"nice","kind":"word","forms":["nicer","nicest"],
+      "senses":[
+        {"id":"zhuo:nice:adjective:1","partOfSpeech":"adjective","definitionZh":"令人愉快的；好看的或让人满意的，常用于日常评价。","definitionEn":"Pleasant, attractive, or enjoyable.","examples":[{"en":"We found a nice spot for lunch beside the canal.","zh":"我们在运河边找到了一个适合吃午饭的好地方。"}]},
+        {"id":"zhuo:nice:adjective:2","partOfSpeech":"adjective","definitionZh":"友善的；体贴的，对人和善的。","definitionEn":"Kind, friendly, or considerate towards others.","examples":[{"en":"It was nice of you to wait while I found my glasses.","zh":"我找眼镜的时候你一直等着，真是太体贴了。"}]},
+        {"id":"zhuo:nice:adjective:3","partOfSpeech":"adjective","definitionZh":"（较正式）细微而需要仔细分辨的，常见于 a nice distinction。","definitionEn":"Subtle and requiring careful judgement or discrimination.","examples":[{"en":"There is a nice distinction between being confident and being dismissive.","zh":"自信与轻视别人之间有一处需要仔细分辨的细微差别。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:normal","headword":"normal","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:normal:adjective:1","partOfSpeech":"adjective","definitionZh":"通常的；正常的，与惯常情况或预期一致的。","definitionEn":"Usual or consistent with what is generally expected.","examples":[{"en":"The library will return to its normal opening hours on Monday.","zh":"图书馆星期一将恢复通常的开放时间。"}]},
+        {"id":"zhuo:normal:noun:1","partOfSpeech":"noun","definitionZh":"正常状态；平常的情况，常用 back to normal。","definitionEn":"The usual state of affairs or usual level of activity.","examples":[{"en":"Traffic was back to normal by late afternoon.","zh":"到了傍晚，交通已恢复正常。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:obvious","headword":"obvious","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:obvious:adjective:1","partOfSpeech":"adjective","definitionZh":"明显的；容易看出、理解或察觉的。","definitionEn":"Easy to see, understand, or notice without much explanation.","examples":[{"en":"The missing wheel was the most obvious problem with the cart.","zh":"小车最明显的问题是少了一个轮子。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:odd","headword":"odd","kind":"word","forms":["odder","oddest"],
+      "senses":[
+        {"id":"zhuo:odd:adjective:1","partOfSpeech":"adjective","definitionZh":"奇怪的；不寻常或出人意料的。","definitionEn":"Unusual or different from what one expects.","examples":[{"en":"There was an odd smell coming from the empty cupboard.","zh":"空橱柜里传来一股奇怪的气味。"}]},
+        {"id":"zhuo:odd:adjective:2","partOfSpeech":"adjective","definitionZh":"奇数的；不能被二整除的整数。","definitionEn":"Describing an integer that is not divisible by two.","examples":[{"en":"The odd numbers are written in blue on this chart.","zh":"这张表上的奇数用蓝色书写。"}]},
+        {"id":"zhuo:odd:adjective:3","partOfSpeech":"adjective","definitionZh":"零星的；偶尔出现的，常用 the odd 加单数名词。","definitionEn":"Occasional or scattered rather than regular or complete.","examples":[{"en":"I still buy the odd newspaper when I travel by train.","zh":"坐火车出行时，我偶尔还是会买一份报纸。"}]},
+        {"id":"zhuo:odd:adjective:4","partOfSpeech":"adjective","definitionZh":"不成对的；一套中单独剩下的。","definitionEn":"Not paired or not matching the rest of a set.","examples":[{"en":"An odd sock lay at the bottom of the laundry basket.","zh":"洗衣篮底部有一只不成对的袜子。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:official","headword":"official","kind":"word","forms":["officials"],
+      "senses":[
+        {"id":"zhuo:official:adjective:1","partOfSpeech":"adjective","definitionZh":"官方的；正式认可或由有权机构发布的。","definitionEn":"Approved, issued, or recognized by an authority or organization.","examples":[{"en":"The official timetable lists an extra train at six.","zh":"官方时刻表列出了六点的一班加开列车。"}]},
+        {"id":"zhuo:official:adjective:2","partOfSpeech":"adjective","definitionZh":"公务的；与职务职责有关的。","definitionEn":"Connected with the duties of a position rather than private affairs.","examples":[{"en":"She travelled to the island on official business.","zh":"她因公务前往那座岛。"}]},
+        {"id":"zhuo:official:noun:1","partOfSpeech":"noun","definitionZh":"官员；机构工作人员，或比赛中执行规则的裁判人员，可数。","definitionEn":"A person with duties or authority in an organization, government, or sporting event.","examples":[{"en":"An official checked our tickets at the entrance.","zh":"一名工作人员在入口处检查了我们的票。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:old","headword":"old","kind":"word","forms":["older","oldest","elder","eldest"],
+      "senses":[
+        {"id":"zhuo:old:adjective:1","partOfSpeech":"adjective","definitionZh":"年老的；旧的，已经存在或使用较长时间的。older/oldest 通用于比较年龄或新旧；elder/eldest 主要用于家人长幼，elder 不接 than 作一般比较。","definitionEn":"Having lived, existed, or been used for a long time.","examples":[{"en":"An old wooden bench stood beneath the apple tree.","zh":"苹果树下放着一张旧木长椅。"}]},
+        {"id":"zhuo:old:adjective:2","partOfSpeech":"adjective","definitionZh":"……岁的；……年之久的，用于说明具体年龄或存在时间。","definitionEn":"Used with a measure of time to state age or duration of existence.","examples":[{"en":"The puppy is twelve weeks old today.","zh":"这只小狗今天满十二周大。"}]},
+        {"id":"zhuo:old:adjective:3","partOfSpeech":"adjective","definitionZh":"以前的；原来的，不再是当前的。","definitionEn":"Former or belonging to a time before the present situation.","examples":[{"en":"I sent the parcel to my old address by mistake.","zh":"我不小心把包裹寄到了以前的地址。"}]},
+        {"id":"zhuo:old:adjective:4","partOfSpeech":"adjective","definitionZh":"相识已久的；长期熟悉的，不一定指年龄大。","definitionEn":"Known or familiar for a long time, regardless of age.","examples":[{"en":"An old friend joined us for dinner after the show.","zh":"演出后，一位老朋友和我们一起吃了晚饭。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；elder/eldest 多用于家人长幼等特定语境，并非所有 old 的替换形式。"}
+    },
+    {
+      "id":"zhuo:ordinary","headword":"ordinary","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:ordinary:adjective:1","partOfSpeech":"adjective","definitionZh":"普通的；平常的，没有特别或不寻常之处的。","definitionEn":"Usual or unremarkable rather than special or unusual.","examples":[{"en":"What looked like an ordinary stone turned out to be painted clay.","zh":"那东西看起来是块普通石头，结果却是上了色的黏土。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:original","headword":"original","kind":"word","forms":["originals"],
+      "senses":[
+        {"id":"zhuo:original:adjective:1","partOfSpeech":"adjective","definitionZh":"最初的；原来的，指改变之前或一开始存在的。","definitionEn":"Existing at the beginning or before later changes.","examples":[{"en":"The original plan was to meet outside the theatre.","zh":"最初的计划是在剧院外见面。"}]},
+        {"id":"zhuo:original:adjective:2","partOfSpeech":"adjective","definitionZh":"原创的；有独创性的，并非复制他人想法或作品的。","definitionEn":"Created independently or showing new ideas rather than merely copying others.","examples":[{"en":"The exhibition includes original designs by local students.","zh":"展览包括当地学生的原创设计。"}]},
+        {"id":"zhuo:original:noun:1","partOfSpeech":"noun","definitionZh":"原件；原作，复制品或译本所依据的那一份，可数。","definitionEn":"The first or authentic version from which copies or translations are made.","examples":[{"en":"Keep the original in a safe place and send us a copy.","zh":"请妥善保存原件，给我们寄一份副本。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:outer","headword":"outer","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:outer:adjective:1","partOfSpeech":"adjective","definitionZh":"外部的；外层的，位于较外侧而非中心或内部的。","definitionEn":"On the outside or farther from the centre of something.","examples":[{"en":"Remove the outer layer of paper before opening the box.","zh":"打开盒子前，请先去掉外层的纸。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:overall","headword":"overall","kind":"word","forms":["overalls"],
+      "senses":[
+        {"id":"zhuo:overall:adjective:1","partOfSpeech":"adjective","definitionZh":"总体的；全面的，考虑所有相关部分而非局部的。","definitionEn":"Considering all relevant parts together rather than separately.","examples":[{"en":"The overall cost includes delivery and installation.","zh":"总费用包含运送和安装费用。"}]},
+        {"id":"zhuo:overall:adverb:1","partOfSpeech":"adverb","definitionZh":"总的来说；从整体看。","definitionEn":"When everything is considered together.","examples":[{"en":"Overall, the trip went well despite the rain.","zh":"尽管下了雨，总的来说这次旅行很顺利。"}]},
+        {"id":"zhuo:overall:noun:1","partOfSpeech":"noun","definitionZh":"罩衫；工作罩衣，可数；复数 overalls 可指连体工作服，美式还常指背带裤。","definitionEn":"A protective garment worn over clothes; plural overalls can mean a work suit or, in American use, bib trousers.","examples":[{"en":"The painter wore blue overalls to keep her clothes clean.","zh":"那位画家穿着蓝色工作服，以免弄脏自己的衣服。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:painful","headword":"painful","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:painful:adjective:1","partOfSpeech":"adjective","definitionZh":"疼痛的；引起身体疼痛的。","definitionEn":"Causing or involving physical pain.","examples":[{"en":"The blister made every step painful.","zh":"那个水泡让每走一步都很疼。"}]},
+        {"id":"zhuo:painful:adjective:2","partOfSpeech":"adjective","definitionZh":"令人痛苦的；使人难过、尴尬或难以忍受的。","definitionEn":"Causing emotional distress, embarrassment, or great discomfort.","examples":[{"en":"Writing the letter brought back painful memories.","zh":"写这封信勾起了令人痛苦的回忆。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:pale","headword":"pale","kind":"word","forms":["paler","palest","pales","paled","paling"],
+      "senses":[
+        {"id":"zhuo:pale:adjective:1","partOfSpeech":"adjective","definitionZh":"苍白的；脸色比平时少血色的。","definitionEn":"Having less colour in the face than usual.","examples":[{"en":"He looked pale after the long boat journey.","zh":"长时间乘船后，他显得脸色苍白。"}]},
+        {"id":"zhuo:pale:adjective:2","partOfSpeech":"adjective","definitionZh":"浅色的；颜色不深或光线较弱的。","definitionEn":"Light in colour or weak in brightness.","examples":[{"en":"We painted the kitchen a pale shade of green.","zh":"我们把厨房刷成了浅绿色。"}]},
+        {"id":"zhuo:pale:verb:1","partOfSpeech":"verb","definitionZh":"变苍白；显得逊色，常用 pale in comparison 表示相比之下不值一提。","definitionEn":"To become pale or seem less impressive when compared with something else.","examples":[{"en":"Our small worries paled in comparison with her difficulties.","zh":"和她的困难相比，我们那些小烦恼显得不值一提。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:parallel","headword":"parallel","kind":"word","forms":["parallels","parallelled","parallelling","paralleled","paralleling"],
+      "senses":[
+        {"id":"zhuo:parallel:adjective:1","partOfSpeech":"adjective","definitionZh":"平行的；沿同一方向延伸、间距保持不变的。","definitionEn":"Running in the same direction at a constant distance apart.","examples":[{"en":"The two parallel paths lead to different entrances to the park.","zh":"两条平行小路分别通向公园的不同入口。"}]},
+        {"id":"zhuo:parallel:adjective:2","partOfSpeech":"adjective","definitionZh":"类似的；同时或相应发生而彼此独立的。","definitionEn":"Similar or corresponding, or happening alongside something else independently.","examples":[{"en":"Two research teams reached parallel conclusions using different methods.","zh":"两个研究团队采用不同方法得出了相近的结论。"}]},
+        {"id":"zhuo:parallel:noun:1","partOfSpeech":"noun","definitionZh":"相似之处；可比较的对应事物，可数。","definitionEn":"A similarity or comparable feature between things.","examples":[{"en":"The teacher drew a parallel between learning music and learning a language.","zh":"老师指出了学音乐和学语言之间的一处相似性。"}]},
+        {"id":"zhuo:parallel:verb:1","partOfSpeech":"verb","definitionZh":"与……相似或相对应；与……平行延伸，及物。","definitionEn":"To be similar to, correspond with, or run alongside something.","examples":[{"en":"The walking route parallels the river for several kilometres.","zh":"这条步行路线沿着河流平行延伸数公里。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:particular","headword":"particular","kind":"word","forms":["particulars"],
+      "senses":[
+        {"id":"zhuo:particular:adjective:1","partOfSpeech":"adjective","definitionZh":"特定的；专指某一个而不是其他的。","definitionEn":"Referring to one specific person, thing, or situation rather than others.","examples":[{"en":"Is there a particular seat you would like?","zh":"你有特别想坐的某个座位吗？"}]},
+        {"id":"zhuo:particular:adjective:2","partOfSpeech":"adjective","definitionZh":"讲究的；挑剔的，常用 particular about。","definitionEn":"Having strong preferences or demanding careful attention to details.","examples":[{"en":"My grandfather is particular about how his tools are stored.","zh":"我祖父很讲究工具的存放方式。"}]},
+        {"id":"zhuo:particular:noun:1","partOfSpeech":"noun","definitionZh":"细节；具体资料，通常用复数 particulars。","definitionEn":"A specific detail or item of information, usually used in the plural.","examples":[{"en":"Please send the particulars of the event by Friday.","zh":"请在星期五之前发来活动的具体信息。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:patient","headword":"patient","kind":"word","forms":["patients"],
+      "senses":[
+        {"id":"zhuo:patient:adjective:1","partOfSpeech":"adjective","definitionZh":"有耐心的；能平静等待或容忍困难、不轻易发火的。","definitionEn":"Able to wait or deal with difficulties calmly without becoming easily annoyed.","examples":[{"en":"Our patient instructor explained the knot once more.","zh":"那位有耐心的教练又解释了一遍打结方法。"}]},
+        {"id":"zhuo:patient:noun:1","partOfSpeech":"noun","definitionZh":"病人；接受医疗照护、检查或治疗的人，可数。","definitionEn":"A person receiving medical care, examination, or treatment.","examples":[{"en":"The nurse showed the patient to a quiet waiting room.","zh":"护士带那位病人去了一个安静的候诊室。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:peaceful","headword":"peaceful","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:peaceful:adjective:1","partOfSpeech":"adjective","definitionZh":"宁静的；没有噪声、干扰或烦恼的。","definitionEn":"Quiet and free from disturbance or worry.","examples":[{"en":"The garden is especially peaceful just after sunrise.","zh":"日出后不久，花园格外宁静。"}]},
+        {"id":"zhuo:peaceful:adjective:2","partOfSpeech":"adjective","definitionZh":"和平的；不使用暴力或不涉及战争的。","definitionEn":"Not involving violence, fighting, or war.","examples":[{"en":"The groups agreed to seek a peaceful solution.","zh":"各方同意寻求和平的解决办法。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:perfect","headword":"perfect","kind":"word","forms":["perfects","perfected","perfecting"],
+      "senses":[
+        {"id":"zhuo:perfect:adjective:1","partOfSpeech":"adjective","definitionZh":"完美的；没有缺陷或错误的。","definitionEn":"Having no faults, defects, or mistakes.","examples":[{"en":"No handmade bowl is a perfect circle.","zh":"手工制作的碗没有一个是完美的圆形。"}]},
+        {"id":"zhuo:perfect:adjective:2","partOfSpeech":"adjective","definitionZh":"最合适的；完全符合需要的。","definitionEn":"Exactly right for a particular person, purpose, or occasion.","examples":[{"en":"This quiet corner is perfect for reading.","zh":"这个安静的角落非常适合阅读。"}]},
+        {"id":"zhuo:perfect:adjective:3","partOfSpeech":"adjective","definitionZh":"（语法）完成体的，用于表示某一时间之前完成或与该时间有关联的情况，如 present perfect。","definitionEn":"Describing a grammatical form that relates an earlier situation to a reference time, as in the present perfect.","examples":[{"en":"The lesson compares the past simple with the present perfect tense.","zh":"这节课比较一般过去时与现在完成时。"}]},
+        {"id":"zhuo:perfect:verb:1","partOfSpeech":"verb","definitionZh":"使完善；通过练习或修改使尽可能完美，动词重音通常在第二音节。","definitionEn":"To improve something through practice or revision until it is as good as possible.","examples":[{"en":"The baker spent months perfecting her recipe.","zh":"那位面包师花了几个月完善自己的配方。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:permanent","headword":"permanent","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:permanent:adjective:1","partOfSpeech":"adjective","definitionZh":"永久的；长期持续而非临时的，并不总是字面上永不改变。","definitionEn":"Intended to last indefinitely or for a long time rather than temporarily.","examples":[{"en":"The temporary shelter was replaced by a permanent building.","zh":"临时避难所被一栋长期使用的建筑替代了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:personal","headword":"personal","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:personal:adjective:1","partOfSpeech":"adjective","definitionZh":"个人的；属于或专为某个人的，而非集体或公共的。","definitionEn":"Belonging to or intended for an individual rather than a group or the public.","examples":[{"en":"Please keep your personal belongings clear of the doorway.","zh":"请勿把个人物品放在门口挡路。"}]},
+        {"id":"zhuo:personal:adjective:2","partOfSpeech":"adjective","definitionZh":"私人的；涉及个人生活、感受或关系的。","definitionEn":"Concerning someone's private life, feelings, or relationships.","examples":[{"en":"You do not have to answer such a personal question.","zh":"这么私人的问题，你不必回答。"}]},
+        {"id":"zhuo:personal:adjective:3","partOfSpeech":"adjective","definitionZh":"针对个人的；涉及某人的品格或行为而非议题本身的。","definitionEn":"Directed at someone's character or conduct rather than the issue being discussed.","examples":[{"en":"The debate became unpleasant when the criticism turned personal.","zh":"批评转为人身攻击后，辩论变得令人不快。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:physical","headword":"physical","kind":"word","forms":["physicals"],
+      "senses":[
+        {"id":"zhuo:physical:adjective:1","partOfSpeech":"adjective","definitionZh":"身体的；与身体而非思想或情绪有关的。","definitionEn":"Relating to the body rather than the mind or emotions.","examples":[{"en":"The job requires physical effort as well as careful planning.","zh":"这项工作既需要体力，也需要周密规划。"}]},
+        {"id":"zhuo:physical:adjective:2","partOfSpeech":"adjective","definitionZh":"实物的；物质的，具有可触及的存在形式的。","definitionEn":"Existing in a material form that can be touched or measured.","examples":[{"en":"I keep a physical copy of the map in my bag.","zh":"我在包里放了一份纸质地图。"}]},
+        {"id":"zhuo:physical:adjective:3","partOfSpeech":"adjective","definitionZh":"物理的；与物质、能量及其性质有关的。","definitionEn":"Relating to matter, energy, and their properties.","examples":[{"en":"The class compared the physical properties of glass and plastic.","zh":"课堂上比较了玻璃和塑料的物理性质。"}]},
+        {"id":"zhuo:physical:noun:1","partOfSpeech":"noun","definitionZh":"（主要为美式）体检，可数。","definitionEn":"A medical examination of a person's general health, especially in American usage.","examples":[{"en":"The club asked each new player to arrange a physical.","zh":"俱乐部要求每位新队员安排一次体检。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:plain","headword":"plain","kind":"word","forms":["plainer","plainest","plains"],
+      "senses":[
+        {"id":"zhuo:plain:adjective:1","partOfSpeech":"adjective","definitionZh":"朴素的；无图案或装饰的；食物也可指未加额外调味的。","definitionEn":"Simple and without decoration, pattern, or added flavouring.","examples":[{"en":"She chose a plain notebook with no picture on the cover.","zh":"她选了一本封面没有图案的素面笔记本。"}]},
+        {"id":"zhuo:plain:adjective:2","partOfSpeech":"adjective","definitionZh":"清楚的；明白易懂或显而易见的。","definitionEn":"Clear, easy to understand, or readily noticeable.","examples":[{"en":"The guide explains the rules in plain language.","zh":"指南用通俗的语言解释了规则。"}]},
+        {"id":"zhuo:plain:noun:1","partOfSpeech":"noun","definitionZh":"平原；大片平坦或较平坦的土地，可数。","definitionEn":"A broad area of flat or gently rolling land.","examples":[{"en":"From the hilltop we could see farms across the plain.","zh":"从山顶可以看到平原上分布的农场。"}]},
+        {"id":"zhuo:plain:adverb:1","partOfSpeech":"adverb","definitionZh":"（非正式，用于强调）完全；简直，常放在形容词前。","definitionEn":"Completely or simply, used informally for emphasis.","examples":[{"en":"Leaving the gate open was just plain careless.","zh":"把大门敞着不关简直太粗心了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:pleasant","headword":"pleasant","kind":"word","forms":["pleasanter","pleasantest"],
+      "senses":[
+        {"id":"zhuo:pleasant:adjective:1","partOfSpeech":"adjective","definitionZh":"令人愉快的；舒适而让人喜欢的。","definitionEn":"Enjoyable or agreeable to experience.","examples":[{"en":"A pleasant breeze came through the open window.","zh":"一阵舒适的微风从开着的窗户吹来。"}]},
+        {"id":"zhuo:pleasant:adjective:2","partOfSpeech":"adjective","definitionZh":"友善有礼的；待人和气的。","definitionEn":"Friendly, polite, and agreeable in manner.","examples":[{"en":"The receptionist was pleasant even during the busiest hour.","zh":"即使在最忙的时候，那位接待员也很和气。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:plenty","headword":"plenty","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:plenty:pronoun:1","partOfSpeech":"pronoun / quantifier","definitionZh":"充足；大量，表示足够甚至有余；常用 plenty of 加复数可数名词或不可数名词，也可单独使用。","definitionEn":"An amount or number that is enough or more than enough, used alone or with of.","examples":[{"en":"There is plenty of room for another chair by the window.","zh":"窗边还有足够的地方再放一把椅子。"}]},
+        {"id":"zhuo:plenty:adverb:1","partOfSpeech":"adverb","definitionZh":"（非正式）足够地；很，相当，常用于 plenty big / good 等结构。","definitionEn":"More than sufficiently or to a considerable degree, used informally.","examples":[{"en":"This box is plenty big enough for all the cables.","zh":"这个箱子装下所有电线绰绰有余。"}]},
+        {"id":"zhuo:plenty:noun:1","partOfSpeech":"noun","definitionZh":"富足；丰裕的状态，不可数。","definitionEn":"A condition in which needed things are abundant.","examples":[{"en":"The family saved grain during years of plenty.","zh":"这家人在丰收富足的年头储存粮食。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；plenty 不因分组而误标形容词。"}
+    },
+    {
+      "id":"zhuo:political","headword":"political","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:political:adjective:1","partOfSpeech":"adjective","definitionZh":"政治的；与政府、政党或国家公共事务有关的。","definitionEn":"Relating to government, parties, or public affairs.","examples":[{"en":"The book explains the political debate surrounding the new railway.","zh":"这本书解释了围绕新铁路展开的政治争论。"}]},
+        {"id":"zhuo:political:adjective:2","partOfSpeech":"adjective","definitionZh":"权力关系的；与组织内争取支持、地位或影响力有关的。","definitionEn":"Concerned with gaining support, status, or influence within an organization.","examples":[{"en":"The manager needed political skill to win support from both departments.","zh":"那位经理需要协调权力关系的技巧，才能赢得两个部门的支持。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:poor","headword":"poor","kind":"word","forms":["poorer","poorest"],
+      "senses":[
+        {"id":"zhuo:poor:adjective:1","partOfSpeech":"adjective","definitionZh":"贫穷的；缺乏足够的钱或基本生活资源的。","definitionEn":"Having little money or too few resources to meet basic needs.","examples":[{"en":"The charity provides school supplies for poor families.","zh":"这家慈善机构为贫困家庭提供学习用品。"}]},
+        {"id":"zhuo:poor:adjective:2","partOfSpeech":"adjective","definitionZh":"差的；低劣的，质量、表现或状态不好的。","definitionEn":"Low in quality, effectiveness, or condition.","examples":[{"en":"Poor lighting made the small print hard to read.","zh":"光线不好，使小字很难看清。"}]},
+        {"id":"zhuo:poor:adjective:3","partOfSpeech":"adjective","definitionZh":"可怜的；值得同情的，常在名词前表达关切。","definitionEn":"Deserving sympathy because of an unfortunate situation.","examples":[{"en":"The poor dog had waited outside in the rain for hours.","zh":"那只可怜的狗已经在雨中等了几个小时。"}]},
+        {"id":"zhuo:poor:adjective:4","partOfSpeech":"adjective","definitionZh":"缺乏的；含量少的，常用 poor in。","definitionEn":"Containing or providing little of something valuable or needed.","examples":[{"en":"This sandy soil is poor in nutrients.","zh":"这种沙质土壤养分不足。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:popular","headword":"popular","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:popular:adjective:1","partOfSpeech":"adjective","definitionZh":"受欢迎的；为许多人喜爱或采用的。","definitionEn":"Liked, enjoyed, or chosen by many people.","examples":[{"en":"The afternoon pottery class is popular with beginners.","zh":"下午的陶艺课很受初学者欢迎。"}]},
+        {"id":"zhuo:popular:adjective:2","partOfSpeech":"adjective","definitionZh":"大众的；面向普通公众而非专门群体的，或普遍流行的。","definitionEn":"Intended for the general public or widely held among ordinary people.","examples":[{"en":"The author writes popular science books for curious readers.","zh":"这位作者为好奇的读者撰写大众科普书。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:positive","headword":"positive","kind":"word","forms":["positives"],
+      "senses":[
+        {"id":"zhuo:positive:adjective:1","partOfSpeech":"adjective","definitionZh":"积极的；乐观而着眼于有利可能性的。","definitionEn":"Hopeful and focused on favourable possibilities.","examples":[{"en":"Her positive attitude helped the team keep going.","zh":"她积极的态度帮助团队坚持了下去。"}]},
+        {"id":"zhuo:positive:adjective:2","partOfSpeech":"adjective","definitionZh":"好的；有益的，带来有利效果的。","definitionEn":"Beneficial or showing improvement and approval.","examples":[{"en":"The new footbridge had a positive effect on local trade.","zh":"新步行桥对当地商业产生了积极影响。"}]},
+        {"id":"zhuo:positive:adjective:3","partOfSpeech":"adjective","definitionZh":"确信的；肯定无疑的，常用 positive that / about。","definitionEn":"Completely certain about a fact or belief.","examples":[{"en":"Are you positive that you locked the workshop?","zh":"你确定锁好了工坊吗？"}]},
+        {"id":"zhuo:positive:adjective:4","partOfSpeech":"adjective","definitionZh":"（数）正的；大于零的。","definitionEn":"Having a value greater than zero.","examples":[{"en":"Every positive number on the chart is marked with a plus sign.","zh":"图表中的每个正数都标有加号。"}]},
+        {"id":"zhuo:positive:adjective:5","partOfSpeech":"adjective","definitionZh":"（检验结果）阳性的；检出了所检测对象或特征的。","definitionEn":"Showing that the particular substance or condition tested for was detected.","examples":[{"en":"The sample produced a positive result for the dye.","zh":"这个样本对该染料的检测结果呈阳性。"}]},
+        {"id":"zhuo:positive:noun:1","partOfSpeech":"noun","definitionZh":"优点；有利之处，可数。","definitionEn":"An advantage or favourable feature.","examples":[{"en":"One positive of the smaller office is the shorter walk to the station.","zh":"这间较小办公室的一个优点是离车站更近。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:possible","headword":"possible","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:possible:adjective:1","partOfSpeech":"adjective","definitionZh":"可行的；有可能做到或发生的。","definitionEn":"Able to happen, exist, or be done.","examples":[{"en":"Is it possible to reach the island without a car?","zh":"不开车有可能到那座岛上吗？"}]},
+        {"id":"zhuo:possible:adjective:2","partOfSpeech":"adjective","definitionZh":"可能的；尚未证实但也许属实或会被选中的。","definitionEn":"Not certain but potentially true, suitable, or likely to be chosen.","examples":[{"en":"We wrote down three possible explanations for the noise.","zh":"我们写下了对那阵噪声的三种可能解释。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:powerful","headword":"powerful","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:powerful:adjective:1","partOfSpeech":"adjective","definitionZh":"强有力的；力量、能量或能力很强的。","definitionEn":"Having great physical force, energy, or capability.","examples":[{"en":"A powerful pump lifted water into the storage tank.","zh":"一台大功率水泵把水抽进了储水箱。"}]},
+        {"id":"zhuo:powerful:adjective:2","partOfSpeech":"adjective","definitionZh":"有权势的；具有很大影响力的。","definitionEn":"Having considerable authority or influence over others.","examples":[{"en":"The report challenged several powerful figures in the industry.","zh":"这份报告质疑了该行业的几位有影响力的人物。"}]},
+        {"id":"zhuo:powerful:adjective:3","partOfSpeech":"adjective","definitionZh":"有感染力的；能强烈影响感情或思想的。","definitionEn":"Producing a strong effect on feelings or thought.","examples":[{"en":"The final scene carries a powerful message about friendship.","zh":"最后一幕有力地传达了有关友谊的主题。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:practical","headword":"practical","kind":"word","forms":["practicals"],
+      "senses":[
+        {"id":"zhuo:practical:adjective:1","partOfSpeech":"adjective","definitionZh":"实际操作的；与实践而非理论有关的。","definitionEn":"Relating to real activities and experience rather than theory alone.","examples":[{"en":"The course combines lectures with practical work in the garden.","zh":"这门课把讲授与花园里的实际操作结合起来。"}]},
+        {"id":"zhuo:practical:adjective:2","partOfSpeech":"adjective","definitionZh":"切实可行的；实用的，适合现实条件和需要的。","definitionEn":"Useful and workable under real conditions.","examples":[{"en":"A folding table is a practical choice for this tiny room.","zh":"对这个小房间来说，折叠桌是个实用的选择。"}]},
+        {"id":"zhuo:practical:adjective:3","partOfSpeech":"adjective","definitionZh":"动手能力强的；善于处理现实问题的。","definitionEn":"Good at making, repairing, or dealing sensibly with everyday things.","examples":[{"en":"My aunt is practical and can repair most things around the house.","zh":"我姑妈动手能力很强，家里的大多数东西她都能修。"}]},
+        {"id":"zhuo:practical:noun:1","partOfSpeech":"noun","definitionZh":"（主要为英式）实践课；操作考试，可数。","definitionEn":"A class or examination involving practical work rather than written answers alone.","examples":[{"en":"Our chemistry practical begins after lunch.","zh":"我们的化学实验课午饭后开始。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:precious","headword":"precious","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:precious:adjective:1","partOfSpeech":"adjective","definitionZh":"珍贵的；价格高或稀有而有价值的。","definitionEn":"Rare or highly valuable in monetary terms.","examples":[{"en":"The museum displays a small collection of precious stones.","zh":"博物馆展出了少量珍贵宝石。"}]},
+        {"id":"zhuo:precious:adjective:2","partOfSpeech":"adjective","definitionZh":"宝贵的；对某人具有很大情感或实际价值的。","definitionEn":"Deeply valued or important to someone, emotionally or practically.","examples":[{"en":"The letter is a precious reminder of their first year together.","zh":"那封信是他们在一起第一年的珍贵纪念。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:precise","headword":"precise","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:precise:adjective:1","partOfSpeech":"adjective","definitionZh":"准确的；精确而细节明确的。","definitionEn":"Exact and clearly specified in detail.","examples":[{"en":"The map gives the precise location of the old well.","zh":"地图标出了那口老井的准确位置。"}]},
+        {"id":"zhuo:precise:adjective:2","partOfSpeech":"adjective","definitionZh":"严谨细致的；做事注意准确性的。","definitionEn":"Careful to be accurate and exact in actions or expression.","examples":[{"en":"She is precise in both her measurements and her notes.","zh":"她无论测量还是记笔记都十分严谨细致。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:pretty","headword":"pretty","kind":"word","forms":["prettier","prettiest"],
+      "senses":[
+        {"id":"zhuo:pretty:adjective:1","partOfSpeech":"adjective","definitionZh":"漂亮的；精巧美观、赏心悦目的。","definitionEn":"Attractive in a pleasing, often delicate way.","examples":[{"en":"A pretty pattern of leaves runs around the edge of the plate.","zh":"盘子边缘环绕着漂亮的叶子图案。"}]},
+        {"id":"zhuo:pretty:adverb:1","partOfSpeech":"adverb","definitionZh":"（非正式）相当；颇，表示程度较高但不一定达到完全。","definitionEn":"To a fairly high degree, used informally.","examples":[{"en":"The hill looked easy, but the climb was pretty tiring.","zh":"那座山看起来不难爬，但爬上去相当累。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:previous","headword":"previous","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:previous:adjective:1","partOfSpeech":"adjective","definitionZh":"之前的；上一次的，在当前或所谈时间之前发生或存在的。","definitionEn":"Happening or existing before the present or the time being discussed.","examples":[{"en":"The previous owner left instructions for the heating system.","zh":"前房主留下了供暖系统的使用说明。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:primary","headword":"primary","kind":"word","forms":["primaries"],
+      "senses":[
+        {"id":"zhuo:primary:adjective:1","partOfSpeech":"adjective","definitionZh":"首要的；最重要或最基本的。","definitionEn":"Most important or fundamental in a particular situation.","examples":[{"en":"Our primary aim is to make the trail safe for walkers.","zh":"我们的首要目标是让这条步道对步行者安全。"}]},
+        {"id":"zhuo:primary:adjective:2","partOfSpeech":"adjective","definitionZh":"小学的；基础教育早期阶段的，主要用于英式教育语境。","definitionEn":"Relating to the first main stage of children's schooling, especially in British usage.","examples":[{"en":"The primary school has a small vegetable garden.","zh":"那所小学有一个小菜园。"}]},
+        {"id":"zhuo:primary:noun:1","partOfSpeech":"noun","definitionZh":"（尤指美国政治）初选；用于选出政党正式候选人的投票，可数。","definitionEn":"An election held to choose a party's candidate for a later election.","examples":[{"en":"The party will choose its candidate in a local primary.","zh":"该党将在一次地方初选中选出候选人。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:private","headword":"private","kind":"word","forms":["privates"],
+      "senses":[
+        {"id":"zhuo:private:adjective:1","partOfSpeech":"adjective","definitionZh":"私人的；非公开的，不打算让无关人员知道或参与的。","definitionEn":"Not open to the public or intended to be shared with others.","examples":[{"en":"They asked for a private conversation after the meeting.","zh":"他们希望会后私下谈一谈。"}]},
+        {"id":"zhuo:private:adjective:2","partOfSpeech":"adjective","definitionZh":"私有的；私营的，属于个人或非政府组织而非国家的。","definitionEn":"Owned or run by individuals or non-government organizations rather than the state.","examples":[{"en":"The museum borrowed the painting from a private collection.","zh":"博物馆从一批私人藏品中借来了这幅画。"}]},
+        {"id":"zhuo:private:noun:1","partOfSpeech":"noun","definitionZh":"列兵；某些军队中最低一级或较低等级的士兵，可数。","definitionEn":"A soldier holding one of the lowest ranks in some armies.","examples":[{"en":"The story follows a young private during his first month of training.","zh":"故事讲述一名年轻列兵第一个月的训练经历。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:probable","headword":"probable","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:probable:adjective:1","partOfSpeech":"adjective","definitionZh":"很可能的；根据现有迹象较有可能发生或属实的，但并非确定。","definitionEn":"Likely to happen or be true in view of the available evidence, but not certain.","examples":[{"en":"Heavy rain is the probable cause of the delay.","zh":"大雨很可能是延误的原因。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:proper","headword":"proper","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:proper:adjective:1","partOfSpeech":"adjective","definitionZh":"正确适当的；符合某种用途、规范或行为要求的。","definitionEn":"Correct or suitable for a purpose, situation, or accepted standard.","examples":[{"en":"Use the proper tool rather than forcing the lid with a knife.","zh":"请使用合适的工具，不要用刀硬撬盖子。"}]},
+        {"id":"zhuo:proper:adjective:2","partOfSpeech":"adjective","definitionZh":"像样的；真正完整的，而非简略、临时或凑合的。","definitionEn":"Real, substantial, or complete rather than makeshift or inadequate.","examples":[{"en":"After hours of snacks, we finally sat down to a proper meal.","zh":"吃了几个小时零食后，我们终于坐下来吃了一顿正餐。"}]},
+        {"id":"zhuo:proper:adjective:3","partOfSpeech":"adjective","definitionZh":"严格意义上的；本身的，放在名词后，用于排除周边或附属部分。","definitionEn":"Strictly so called, excluding surrounding or associated parts, used after a noun.","examples":[{"en":"We stayed outside the city proper, near the old airport.","zh":"我们住在严格意义上的城区之外，靠近旧机场。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:proud","headword":"proud","kind":"word","forms":["prouder","proudest"],
+      "senses":[
+        {"id":"zhuo:proud:adjective:1","partOfSpeech":"adjective","definitionZh":"自豪的；因自己或他人的成就、品质而感到满意的，常用 proud of。","definitionEn":"Feeling pleased about one's own or another person's achievements or qualities.","examples":[{"en":"He was proud of his sister for finishing the long race.","zh":"妹妹完成了长距离赛跑，他为她感到自豪。"}]},
+        {"id":"zhuo:proud:adjective:2","partOfSpeech":"adjective","definitionZh":"自尊心强的；有时指骄傲而不愿承认困难或接受帮助的。","definitionEn":"Strongly self-respecting, sometimes too unwilling to admit difficulty or accept help.","examples":[{"en":"She was too proud to admit that she had lost the way.","zh":"她太要面子，不愿承认自己迷了路。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:public","headword":"public","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:public:adjective:1","partOfSpeech":"adjective","definitionZh":"公众的；公共的，可供普通人使用或涉及社会大众的。","definitionEn":"Relating to ordinary people generally or available for everyone to use.","examples":[{"en":"There is a public drinking fountain beside the playground.","zh":"游乐场旁有一处公共饮水设施。"}]},
+        {"id":"zhuo:public:adjective:2","partOfSpeech":"adjective","definitionZh":"公开的；不是私下或保密的。","definitionEn":"Openly known or done rather than private or secret.","examples":[{"en":"The committee made its decision public on Tuesday.","zh":"委员会星期二公开了决定。"}]},
+        {"id":"zhuo:public:noun:1","partOfSpeech":"noun","definitionZh":"公众；大众，通常用 the public，集合性名词。","definitionEn":"Ordinary people considered as a group, usually with the.","examples":[{"en":"The exhibition opens to the public tomorrow morning.","zh":"展览明天上午向公众开放。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:pure","headword":"pure","kind":"word","forms":["purer","purest"],
+      "senses":[
+        {"id":"zhuo:pure:adjective:1","partOfSpeech":"adjective","definitionZh":"纯的；不混有其他物质的。","definitionEn":"Not mixed with other substances.","examples":[{"en":"The wire is made of pure copper.","zh":"这根电线由纯铜制成。"}]},
+        {"id":"zhuo:pure:adjective:2","partOfSpeech":"adjective","definitionZh":"完全的；纯粹的，强调没有其他原因或成分。","definitionEn":"Complete or entirely of one kind, used for emphasis.","examples":[{"en":"Finding the lost ring under that leaf was pure luck.","zh":"在那片叶子下找到丢失的戒指纯属幸运。"}]},
+        {"id":"zhuo:pure:adjective:3","partOfSpeech":"adjective","definitionZh":"纯理论的；为知识本身而研究、并非直接面向实际应用的。","definitionEn":"Studied for its own principles rather than for immediate practical use.","examples":[{"en":"Her interests range from pure mathematics to practical engineering.","zh":"她的兴趣从纯数学延伸到实际工程。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:quiet","headword":"quiet","kind":"word","forms":["quieter","quietest","quiets","quieted","quieting"],
+      "senses":[
+        {"id":"zhuo:quiet:adjective:1","partOfSpeech":"adjective","definitionZh":"安静的；声音很少或不大的。","definitionEn":"Making or containing little noise.","examples":[{"en":"The street became quiet after the last bus left.","zh":"末班公交车离开后，街道安静了下来。"}]},
+        {"id":"zhuo:quiet:adjective:2","partOfSpeech":"adjective","definitionZh":"文静的；话不多或不爱引人注意的。","definitionEn":"Not speaking much or seeking attention.","examples":[{"en":"Our quiet neighbour always greets us with a small smile.","zh":"我们那位文静的邻居总是微笑着和我们打招呼。"}]},
+        {"id":"zhuo:quiet:adjective:3","partOfSpeech":"adjective","definitionZh":"清闲的；活动或生意不多的。","definitionEn":"Having little activity, work, or business.","examples":[{"en":"The cafe is usually quiet between breakfast and lunch.","zh":"早餐和午餐之间，咖啡馆通常比较清闲。"}]},
+        {"id":"zhuo:quiet:noun:1","partOfSpeech":"noun","definitionZh":"安静；平静，不可数。","definitionEn":"A state with little noise or disturbance.","examples":[{"en":"I stayed in the garden to enjoy a moment of quiet.","zh":"我留在花园里，享受片刻宁静。"}]},
+        {"id":"zhuo:quiet:verb:1","partOfSpeech":"verb","definitionZh":"（使）安静；平息，quiet down 也常见。","definitionEn":"To become calmer or less noisy, or make someone or something so.","examples":[{"en":"A gentle song helped quiet the restless children.","zh":"一首轻柔的歌帮助那些坐立不安的孩子安静下来。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:rapid","headword":"rapid","kind":"word","forms":["rapids"],
+      "senses":[
+        {"id":"zhuo:rapid:adjective:1","partOfSpeech":"adjective","definitionZh":"迅速的；在短时间内发生、移动或变化很快的。","definitionEn":"Happening, moving, or changing at high speed.","examples":[{"en":"The seedlings showed rapid growth after the warm rain.","zh":"那场暖雨过后，幼苗迅速生长。"}]},
+        {"id":"zhuo:rapid:noun:1","partOfSpeech":"noun","definitionZh":"急流；河流中水流急而湍动的地段，通常用复数 rapids。","definitionEn":"A stretch of fast, turbulent river water, usually referred to in the plural.","examples":[{"en":"We carried the canoe around the rapids.","zh":"我们抬着独木舟绕过了急流。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:rare","headword":"rare","kind":"word","forms":["rarer","rarest"],
+      "senses":[
+        {"id":"zhuo:rare:adjective:1","partOfSpeech":"adjective","definitionZh":"稀少的；罕见的，不常存在或发生的。","definitionEn":"Uncommon or happening only infrequently.","examples":[{"en":"Spotting that butterfly here is a rare event.","zh":"在这里见到那种蝴蝶是件罕见的事。"}]},
+        {"id":"zhuo:rare:adjective:2","partOfSpeech":"adjective","definitionZh":"（肉，尤指牛肉）较生的；烹调时间短，内部仍呈红色的。","definitionEn":"Describing meat, especially beef, cooked briefly so that the centre remains red.","examples":[{"en":"She ordered her steak rare and the vegetables well cooked.","zh":"她点了偏生的牛排和充分煮熟的蔬菜。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:raw","headword":"raw","kind":"word","forms":["rawer","rawest"],
+      "senses":[
+        {"id":"zhuo:raw:adjective:1","partOfSpeech":"adjective","definitionZh":"生的；未煮熟的。","definitionEn":"Not cooked.","examples":[{"en":"The salad contains raw carrots and thin slices of apple.","zh":"沙拉里有生胡萝卜和薄苹果片。"}]},
+        {"id":"zhuo:raw:adjective:2","partOfSpeech":"adjective","definitionZh":"未经加工的；原始的，尚未处理、分析或整理的。","definitionEn":"Not yet processed, refined, or analysed.","examples":[{"en":"Keep the raw data separate from the summary tables.","zh":"请把原始数据与汇总表分开保存。"}]},
+        {"id":"zhuo:raw:adjective:3","partOfSpeech":"adjective","definitionZh":"（皮肤）擦痛的；红肿而敏感的。","definitionEn":"Sore and sensitive because a protective surface has been rubbed or damaged.","examples":[{"en":"The rough collar left a raw patch on his neck.","zh":"粗糙的衣领把他脖子上的一块皮肤磨痛了。"}]},
+        {"id":"zhuo:raw:adjective:4","partOfSpeech":"adjective","definitionZh":"（情感）强烈而未经掩饰的。","definitionEn":"Powerful and openly expressed without restraint or polish.","examples":[{"en":"The song conveys the raw grief of losing a close friend.","zh":"这首歌传达了失去挚友时强烈而直接的悲痛。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:ready","headword":"ready","kind":"word","forms":["readier","readiest","readies","readied","readying"],
+      "senses":[
+        {"id":"zhuo:ready:adjective:1","partOfSpeech":"adjective","definitionZh":"准备好的；可以立即使用或行动的。","definitionEn":"Prepared and available for immediate use or action.","examples":[{"en":"The table is ready, so we can begin the demonstration.","zh":"桌子已经准备好了，我们可以开始演示。"}]},
+        {"id":"zhuo:ready:adjective:2","partOfSpeech":"adjective","definitionZh":"愿意的；乐于做某事的，常用 ready to do something。","definitionEn":"Willing or eager to do something.","examples":[{"en":"She is always ready to help a new colleague.","zh":"她总是乐于帮助新同事。"}]},
+        {"id":"zhuo:ready:adjective:3","partOfSpeech":"adjective","definitionZh":"现成可得的；很快就能提供或想到的，常放在名词前。","definitionEn":"Immediately available or produced without delay.","examples":[{"en":"He had a ready answer for every question about the route.","zh":"对于关于路线的每个问题，他都能立即作答。"}]},
+        {"id":"zhuo:ready:verb:1","partOfSpeech":"verb","definitionZh":"（较正式）使准备好；准备，及物。","definitionEn":"To prepare something or someone for action.","examples":[{"en":"The crew readied the boat before sunrise.","zh":"船员在日出前准备好了船。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:real","headword":"real","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:real:adjective:1","partOfSpeech":"adjective","definitionZh":"真实的；确实存在而非想象出来的。","definitionEn":"Actually existing or happening rather than imagined.","examples":[{"en":"The story is invented, but the village in it is real.","zh":"故事是虚构的，但其中的村庄真实存在。"}]},
+        {"id":"zhuo:real:adjective:2","partOfSpeech":"adjective","definitionZh":"真正的；货真价实而非仿制的，也可强调名副其实。","definitionEn":"Genuine rather than imitation, or truly deserving a description.","examples":[{"en":"The costume uses real feathers, not plastic ones.","zh":"这套服装使用的是真羽毛，而不是塑料羽毛。"}]},
+        {"id":"zhuo:real:adjective:3","partOfSpeech":"adjective","definitionZh":"（经济数量）实际的；剔除价格水平变化影响后的。","definitionEn":"Adjusted to remove the effect of changes in prices.","examples":[{"en":"The report compares real wages rather than money wages alone.","zh":"这份报告比较的是实际工资，而不只是货币工资。"}]},
+        {"id":"zhuo:real:adverb:1","partOfSpeech":"adverb","definitionZh":"（尤美式非正式）很；非常，相当于 really，不宜用于正式写作中的同类结构。","definitionEn":"Very, used especially in informal American speech.","examples":[{"en":"That soup smells real good after our long walk.","zh":"走了这么久以后，那汤闻起来可真香。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:reasonable","headword":"reasonable","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:reasonable:adjective:1","partOfSpeech":"adjective","definitionZh":"合理的；公道的，依据充分、要求不过分的。","definitionEn":"Fair, sensible, and not excessive in the circumstances.","examples":[{"en":"Asking for one extra day seems reasonable to me.","zh":"我觉得多要一天时间是合理的。"}]},
+        {"id":"zhuo:reasonable:adjective:2","partOfSpeech":"adjective","definitionZh":"价格适中的；不太昂贵的。","definitionEn":"Not too expensive for what is offered.","examples":[{"en":"The hotel offers clean rooms at a reasonable price.","zh":"这家旅馆以适中的价格提供干净的客房。"}]},
+        {"id":"zhuo:reasonable:adjective:3","partOfSpeech":"adjective","definitionZh":"还不错的；达到可以接受但未必很高的水平的。","definitionEn":"Of a satisfactory or moderately good standard.","examples":[{"en":"She has a reasonable knowledge of local history.","zh":"她对当地历史有相当不错的了解。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:recent","headword":"recent","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:recent:adjective:1","partOfSpeech":"adjective","definitionZh":"最近的；不久前发生、出现或形成的。","definitionEn":"Having happened, appeared, or been made not long ago.","examples":[{"en":"Recent rain has left the path muddy.","zh":"最近的雨使小路变得泥泞。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:regular","headword":"regular","kind":"word","forms":["regulars"],
+      "senses":[
+        {"id":"zhuo:regular:adjective:1","partOfSpeech":"adjective","definitionZh":"定期的；有规律的，按固定或大致均匀间隔发生的。","definitionEn":"Happening at fixed or fairly even intervals.","examples":[{"en":"The workshop includes regular breaks for stretching.","zh":"工作坊安排了定时的伸展休息。"}]},
+        {"id":"zhuo:regular:adjective:2","partOfSpeech":"adjective","definitionZh":"惯常的；普通规格的，而非特别或临时的。","definitionEn":"Usual, standard, or ordinary rather than special or temporary.","examples":[{"en":"We took our regular route home through the park.","zh":"我们走平常那条穿过公园的路线回家。"}]},
+        {"id":"zhuo:regular:adjective:3","partOfSpeech":"adjective","definitionZh":"规则的；遵循固定模式的，如规则动词或正多边形。","definitionEn":"Following an established pattern or having a uniform form.","examples":[{"en":"The worksheet separates regular verbs from irregular ones.","zh":"练习单把规则动词和不规则动词分开列出。"}]},
+        {"id":"zhuo:regular:noun:1","partOfSpeech":"noun","definitionZh":"常客；经常到某个地方或参加某项活动的人，可数。","definitionEn":"Someone who often visits a place or takes part in an activity.","examples":[{"en":"The cafe's regulars noticed the new chairs immediately.","zh":"咖啡馆的常客立刻注意到了新椅子。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:relevant","headword":"relevant","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:relevant:adjective:1","partOfSpeech":"adjective","definitionZh":"相关的；与当前话题、目的或情况有关系并有用的，常用 relevant to。","definitionEn":"Connected with and useful for the matter or purpose being considered.","examples":[{"en":"Only include experience that is relevant to the job.","zh":"只列出与这份工作相关的经历。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:reliable","headword":"reliable","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:reliable:adjective:1","partOfSpeech":"adjective","definitionZh":"可靠的；能够信赖其表现、准确性或守信程度的。","definitionEn":"Able to be trusted to work well, be accurate, or do what is expected.","examples":[{"en":"We need a reliable way to back up these photographs.","zh":"我们需要一种可靠的方法来备份这些照片。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:remote","headword":"remote","kind":"word","forms":["remoter","remotest","remotes"],
+      "senses":[
+        {"id":"zhuo:remote:adjective:1","partOfSpeech":"adjective","definitionZh":"偏远的；距离人口中心或其他地点很远的。","definitionEn":"Far from population centres or other places.","examples":[{"en":"The remote village can be reached by boat in summer.","zh":"夏季可以乘船到达那个偏远村庄。"}]},
+        {"id":"zhuo:remote:adjective:2","partOfSpeech":"adjective","definitionZh":"远程的；通过通信技术在不同地点操作、工作或访问的。","definitionEn":"Carried out or accessed from a different location through communication technology.","examples":[{"en":"The team arranged a remote meeting for colleagues abroad.","zh":"团队为在国外的同事安排了一次远程会议。"}]},
+        {"id":"zhuo:remote:adjective:3","partOfSpeech":"adjective","definitionZh":"（可能性）极小的；不大可能发生的。","definitionEn":"Very unlikely to happen.","examples":[{"en":"There is only a remote chance of finding the missing key here.","zh":"在这里找到丢失钥匙的机会微乎其微。"}]},
+        {"id":"zhuo:remote:noun:1","partOfSpeech":"noun","definitionZh":"（非正式）遥控器，可数，相当于 remote control。","definitionEn":"A handheld device for controlling equipment from a distance.","examples":[{"en":"The television remote was hidden under a cushion.","zh":"电视遥控器藏在了靠垫下面。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:responsible","headword":"responsible","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:responsible:adjective:1","partOfSpeech":"adjective","definitionZh":"负责的；有义务照管或完成某事的，常用 responsible for。","definitionEn":"Having the duty to manage, look after, or carry out something.","examples":[{"en":"Nora is responsible for checking the equipment after each class.","zh":"诺拉负责在每次课后检查设备。"}]},
+        {"id":"zhuo:responsible:adjective:2","partOfSpeech":"adjective","definitionZh":"造成的；应承担责任的，表示某人或某事是某结果的原因。","definitionEn":"Being the cause of a result or answerable for it.","examples":[{"en":"A loose connection was responsible for the flickering light.","zh":"连接松动导致了灯光闪烁。"}]},
+        {"id":"zhuo:responsible:adjective:3","partOfSpeech":"adjective","definitionZh":"有责任心的；可靠且行事考虑后果的。","definitionEn":"Trustworthy and careful to consider the consequences of one's actions.","examples":[{"en":"A responsible visitor leaves no litter on the trail.","zh":"有责任心的游客不会在步道上留下垃圾。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:rich","headword":"rich","kind":"word","forms":["richer","richest"],
+      "senses":[
+        {"id":"zhuo:rich:adjective:1","partOfSpeech":"adjective","definitionZh":"富有的；拥有很多钱或有价值财产的。","definitionEn":"Having a large amount of money or valuable property.","examples":[{"en":"The rich merchant paid for a new public well.","zh":"那位富有的商人出资修建了一口新公共水井。"}]},
+        {"id":"zhuo:rich:adjective:2","partOfSpeech":"adjective","definitionZh":"丰富的；含有大量有用或有价值成分的，常用 rich in。","definitionEn":"Containing a large or varied supply of something valuable.","examples":[{"en":"The wetland is rich in bird life.","zh":"这片湿地鸟类资源丰富。"}]},
+        {"id":"zhuo:rich:adjective:3","partOfSpeech":"adjective","definitionZh":"（食物）浓郁油腻的；含较多脂肪、糖或味道很浓的。","definitionEn":"Containing plenty of fat, sugar, or strong flavour.","examples":[{"en":"A small slice of the rich chocolate cake was enough.","zh":"那块口味浓郁的巧克力蛋糕吃一小片就够了。"}]},
+        {"id":"zhuo:rich:adjective:4","partOfSpeech":"adjective","definitionZh":"（颜色、声音等）浓厚饱满的；深沉而悦人的。","definitionEn":"Deep, full, and pleasing in colour, sound, or a similar quality.","examples":[{"en":"The cello added a rich sound to the simple melody.","zh":"大提琴为那段简单的旋律增添了饱满的音色。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:right","headword":"right","kind":"word","forms":["rights","righted","righting"],
+      "senses":[
+        {"id":"zhuo:right:adjective:1","partOfSpeech":"adjective","definitionZh":"正确的；符合事实、规则或预期的。","definitionEn":"Correct according to facts, rules, or what is intended.","examples":[{"en":"Check that you have written the right date on the form.","zh":"请检查表格上的日期是否写对。"}]},
+        {"id":"zhuo:right:adjective:2","partOfSpeech":"adjective","definitionZh":"合适的；在当前情况下最适宜的。","definitionEn":"Suitable or appropriate for a particular person or situation.","examples":[{"en":"This may not be the right moment to discuss the budget.","zh":"现在可能不是讨论预算的合适时机。"}]},
+        {"id":"zhuo:right:adjective:3","partOfSpeech":"adjective","definitionZh":"正当的；道德上应当做的。","definitionEn":"Morally acceptable or what ought to be done.","examples":[{"en":"Returning the extra change was the right thing to do.","zh":"退还多找的钱是正确的做法。"}]},
+        {"id":"zhuo:right:adjective:4","partOfSpeech":"adjective","definitionZh":"右边的；与面向前方时身体右侧相对应的。","definitionEn":"On the side opposite the left.","examples":[{"en":"There is a small pocket on the right side of the jacket.","zh":"夹克右侧有一个小口袋。"}]},
+        {"id":"zhuo:right:adverb:1","partOfSpeech":"adverb","definitionZh":"向右；在右边。","definitionEn":"Towards or on the side opposite the left.","examples":[{"en":"Turn right after the wooden footbridge.","zh":"过了木制步行桥后向右转。"}]},
+        {"id":"zhuo:right:adverb:2","partOfSpeech":"adverb","definitionZh":"正好；恰恰；完全地，用于加强地点、时间或程度。","definitionEn":"Exactly, immediately, or completely, used to emphasize place, time, or degree.","examples":[{"en":"Your glasses are right beside the kettle.","zh":"你的眼镜就在水壶旁边。"}]},
+        {"id":"zhuo:right:noun:1","partOfSpeech":"noun","definitionZh":"权利；正当资格，可数，常用 the right to do something。","definitionEn":"A justified entitlement to have, do, or receive something.","examples":[{"en":"Every participant has the right to ask questions.","zh":"每位参与者都有提问的权利。"}]},
+        {"id":"zhuo:right:noun:2","partOfSpeech":"noun","definitionZh":"右侧；右边，常用 the right。","definitionEn":"The side or direction opposite the left.","examples":[{"en":"The ticket office is on the right as you enter.","zh":"进去后，售票处在右边。"}]},
+        {"id":"zhuo:right:verb:1","partOfSpeech":"verb","definitionZh":"纠正；使恢复直立或正常状态，及物。","definitionEn":"To correct something wrong or return it to an upright or proper position.","examples":[{"en":"The sailors righted the overturned boat.","zh":"水手们把倾覆的船扶正了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:rough","headword":"rough","kind":"word","forms":["rougher","roughest","roughs","roughed","roughing"],
+      "senses":[
+        {"id":"zhuo:rough:adjective:1","partOfSpeech":"adjective","definitionZh":"粗糙的；不平滑或不平坦的。","definitionEn":"Having an uneven or coarse surface.","examples":[{"en":"The rough stone scratched the bottom of the wooden box.","zh":"粗糙的石头划伤了木盒底部。"}]},
+        {"id":"zhuo:rough:adjective:2","partOfSpeech":"adjective","definitionZh":"粗略的；大致的，尚未精确计算或完善的。","definitionEn":"Approximate or not yet developed in precise detail.","examples":[{"en":"I made a rough sketch of the room before measuring it.","zh":"测量房间之前，我画了一张粗略的草图。"}]},
+        {"id":"zhuo:rough:adjective:3","partOfSpeech":"adjective","definitionZh":"艰难的；令人不适的，指经历、天气或海况不平顺。","definitionEn":"Difficult or unpleasant to experience, including unsettled weather or water.","examples":[{"en":"We had a rough crossing because of the strong wind.","zh":"大风使我们这次渡海很不平稳。"}]},
+        {"id":"zhuo:rough:adjective:4","partOfSpeech":"adjective","definitionZh":"粗暴的；用力而不够温和的。","definitionEn":"Forceful and lacking gentleness or care.","examples":[{"en":"The fragile parcel was damaged by rough handling.","zh":"那个易碎包裹因粗暴搬运而损坏。"}]},
+        {"id":"zhuo:rough:verb:1","partOfSpeech":"verb","definitionZh":"粗拟；勾画初步方案，常用 rough something out。","definitionEn":"To make an initial version without working out all the details, often with out.","examples":[{"en":"We roughed out a schedule over lunch.","zh":"我们吃午饭时草拟了一份日程。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:round","headword":"round","kind":"word","forms":["rounder","roundest","rounds","rounded","rounding"],
+      "senses":[
+        {"id":"zhuo:round:adjective:1","partOfSpeech":"adjective","definitionZh":"圆形的；球形或轮廓呈圆状的。","definitionEn":"Shaped like a circle or ball, or having a curved circular outline.","examples":[{"en":"A round table would fit better in this corner.","zh":"这个角落更适合放一张圆桌。"}]},
+        {"id":"zhuo:round:adjective:2","partOfSpeech":"adjective","definitionZh":"（数）取整的；用整十、整百等表示而非精确到末位的。","definitionEn":"Expressed in convenient whole tens, hundreds, or similar amounts rather than exact detail.","examples":[{"en":"Give me a round number rather than an exact total.","zh":"给我一个取整后的数字，不必精确总数。"}]},
+        {"id":"zhuo:round:preposition:1","partOfSpeech":"preposition","definitionZh":"围绕；绕过；在……周围，许多用法与 around 相同，英式较常见。","definitionEn":"Surrounding, encircling, or moving past the sides of something, often equivalent to around.","examples":[{"en":"We walked round the lake before breakfast.","zh":"早饭前，我们绕湖走了一圈。"}]},
+        {"id":"zhuo:round:adverb:1","partOfSpeech":"adverb","definitionZh":"转过来；转圈；到某人家里等，具体依上下文而定。","definitionEn":"In a circle, to face another direction, or to someone's home, depending on context.","examples":[{"en":"When I turned round, the dog was following me.","zh":"我转过身时，发现那只狗正跟着我。"}]},
+        {"id":"zhuo:round:noun:1","partOfSpeech":"noun","definitionZh":"一轮；一回合；比赛的一个阶段，可数。","definitionEn":"One stage in a competition or one complete cycle of an activity.","examples":[{"en":"Our team reached the second round of the quiz.","zh":"我们队进入了知识竞赛的第二轮。"}]},
+        {"id":"zhuo:round:noun:2","partOfSpeech":"noun","definitionZh":"一轮饮料；给同一组人每人提供一杯的一整份饮料，可数。","definitionEn":"A set of drinks bought or provided for everyone in a group.","examples":[{"en":"I bought a round of hot chocolate for the walkers.","zh":"我给同行的徒步者每人买了一杯热巧克力。"}]},
+        {"id":"zhuo:round:noun:3","partOfSpeech":"noun","definitionZh":"一圈巡视或拜访；按照惯常路线完成的一系列检查、投递或走访，可数，常用复数 rounds。","definitionEn":"A regular circuit of visits, deliveries, or checks.","examples":[{"en":"The caretaker checks the windows on his evening rounds.","zh":"管理员在晚间巡视时检查窗户。"}]},
+        {"id":"zhuo:round:verb:1","partOfSpeech":"verb","definitionZh":"（数值）取整；按要求四舍五入或取到指定位数。","definitionEn":"To express a number to a chosen degree of precision.","examples":[{"en":"Round the answer to the nearest whole number.","zh":"把答案四舍五入到最接近的整数。"}]},
+        {"id":"zhuo:round:verb:2","partOfSpeech":"verb","definitionZh":"绕过；沿某物的弧线或外侧转过去，及物。","definitionEn":"To move around the side or curve of something.","examples":[{"en":"The boat rounded the headland just before sunset.","zh":"船在日落前刚好绕过了岬角。"}]},
+        {"id":"zhuo:round:verb:3","partOfSpeech":"verb","definitionZh":"使呈圆形；使边缘变圆滑。","definitionEn":"To give something a circular shape or curved edges.","examples":[{"en":"The carpenter rounded the corners of the low table.","zh":"木匠把矮桌的角做成了圆弧形。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:royal","headword":"royal","kind":"word","forms":["royals"],
+      "senses":[
+        {"id":"zhuo:royal:adjective:1","partOfSpeech":"adjective","definitionZh":"王室的；与国王、女王或其家族有关的。","definitionEn":"Relating to a king, queen, or their family.","examples":[{"en":"The old royal residence is now open to visitors.","zh":"旧王室住所如今向游客开放。"}]},
+        {"id":"zhuo:royal:noun:1","partOfSpeech":"noun","definitionZh":"王室成员，可数，新闻中常用复数 royals。","definitionEn":"A member of a royal family, often used in the plural.","examples":[{"en":"Several royals attended the opening of the exhibition.","zh":"几位王室成员出席了展览开幕式。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:rural","headword":"rural","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:rural:adjective:1","partOfSpeech":"adjective","definitionZh":"乡村的；与乡下地区及其生活有关的，而非城市的。","definitionEn":"Relating to the countryside and its communities rather than towns or cities.","examples":[{"en":"The bus route connects several rural communities.","zh":"这条公交线路连接了几个乡村社区。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:safe","headword":"safe","kind":"word","forms":["safer","safest","safes"],
+      "senses":[
+        {"id":"zhuo:safe:adjective:1","partOfSpeech":"adjective","definitionZh":"安全的；受到保护、没有危险，或不太可能造成伤害的。","definitionEn":"Protected from danger or unlikely to cause harm.","examples":[{"en":"Keep the spare key in a safe place.","zh":"把备用钥匙放在安全的地方。"}]},
+        {"id":"zhuo:safe:adjective:2","partOfSpeech":"adjective","definitionZh":"稳妥的；风险很低或较有把握的。","definitionEn":"Involving little risk or giving reasonable confidence of success.","examples":[{"en":"It is a safe guess that the shop will be busy before the holiday.","zh":"可以稳妥地推测，节日前商店会很忙。"}]},
+        {"id":"zhuo:safe:noun:1","partOfSpeech":"noun","definitionZh":"保险箱；带锁、用于存放贵重物品的坚固箱柜，可数。","definitionEn":"A strong lockable container used to protect money or valuable objects.","examples":[{"en":"The documents were locked in a small safe behind the desk.","zh":"文件锁在书桌后面的一个小保险箱里。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:salty","headword":"salty","kind":"word","forms":["saltier","saltiest"],
+      "senses":[
+        {"id":"zhuo:salty:adjective:1","partOfSpeech":"adjective","definitionZh":"咸的；含盐或有盐味的。","definitionEn":"Containing salt or tasting of salt.","examples":[{"en":"The soup became too salty after I added the stock.","zh":"加入高汤后，汤变得太咸了。"}]},
+        {"id":"zhuo:salty:adjective:2","partOfSpeech":"adjective","definitionZh":"（俚语）恼火的；因受挫或被冒犯而不满的。","definitionEn":"Annoyed or resentful after disappointment or offence, used as slang.","examples":[{"en":"He was still salty about losing the board game.","zh":"他还在为输掉那局桌游而不爽。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:scientific","headword":"scientific","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:scientific:adjective:1","partOfSpeech":"adjective","definitionZh":"科学的；与科学有关，或采用系统观察、检验与证据推理的。","definitionEn":"Relating to science or using systematic observation, testing, and reasoning from evidence.","examples":[{"en":"The class practised recording scientific observations without guessing the cause.","zh":"课堂上练习了如何记录科学观察，而不猜测原因。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:secure","headword":"secure","kind":"word","forms":["secures","secured","securing"],
+      "senses":[
+        {"id":"zhuo:secure:adjective:1","partOfSpeech":"adjective","definitionZh":"安全的；受到保护、不易受攻击、损失或侵入的。","definitionEn":"Protected against danger, loss, attack, or unauthorized access.","examples":[{"en":"Store the backup in a secure location away from the main computer.","zh":"把备份存放在远离主电脑的安全地点。"}]},
+        {"id":"zhuo:secure:adjective:2","partOfSpeech":"adjective","definitionZh":"牢固的；不易松开或移动的。","definitionEn":"Firmly fixed so that it is unlikely to move or come loose.","examples":[{"en":"Check that the ladder is secure before climbing it.","zh":"爬梯子前，请检查它是否放置牢固。"}]},
+        {"id":"zhuo:secure:adjective:3","partOfSpeech":"adjective","definitionZh":"安心的；稳定有保障的，不因未来而担忧的。","definitionEn":"Feeling confident and protected, or stable enough to reduce worry about the future.","examples":[{"en":"The long lease helped the family feel more secure.","zh":"长期租约让这家人感到更安心。"}]},
+        {"id":"zhuo:secure:verb:1","partOfSpeech":"verb","definitionZh":"获得；争取到所需或想要的东西，及物。","definitionEn":"To succeed in obtaining something wanted or needed.","examples":[{"en":"The group secured funding for a new community kitchen.","zh":"这个团体争取到了建设新社区厨房的资金。"}]},
+        {"id":"zhuo:secure:verb:2","partOfSpeech":"verb","definitionZh":"固定；锁好或加以保护，防止松动、损坏或被侵入。","definitionEn":"To fasten something firmly or protect it against damage, entry, or loss.","examples":[{"en":"We secured the cover with two strong straps.","zh":"我们用两条结实的带子固定好了罩子。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sensitive","headword":"sensitive","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:sensitive:adjective:1","partOfSpeech":"adjective","definitionZh":"敏感的；容易受到刺激、变化或他人言语影响的。","definitionEn":"Easily affected by stimuli, changes, or other people's words.","examples":[{"en":"My eyes are sensitive to bright light.","zh":"我的眼睛对强光很敏感。"}]},
+        {"id":"zhuo:sensitive:adjective:2","partOfSpeech":"adjective","definitionZh":"体察入微的；善于理解他人感受与需要的，常用 sensitive to。","definitionEn":"Aware of and considerate towards other people's feelings or needs.","examples":[{"en":"A good teacher is sensitive to students who are afraid to ask for help.","zh":"好老师能体察那些不敢求助的学生的感受。"}]},
+        {"id":"zhuo:sensitive:adjective:3","partOfSpeech":"adjective","definitionZh":"敏感的；需要谨慎处理或保密的，涉及可能造成尴尬、伤害或争议的信息或话题。","definitionEn":"Requiring careful handling or confidentiality because disclosure or discussion could cause difficulty.","examples":[{"en":"Do not include sensitive personal details in a public message.","zh":"不要在公开消息中包含敏感个人信息。"}]},
+        {"id":"zhuo:sensitive:adjective:4","partOfSpeech":"adjective","definitionZh":"（仪器等）灵敏的；能检测微小变化的。","definitionEn":"Able to detect very small changes or signals.","examples":[{"en":"The sensitive microphone picked up the rustle of a page.","zh":"那只灵敏的麦克风录到了翻页的沙沙声。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:separate","headword":"separate","kind":"word","forms":["separates","separated","separating"],
+      "senses":[
+        {"id":"zhuo:separate:adjective:1","partOfSpeech":"adjective","definitionZh":"分开的；独立的，没有连接或不与其他事物共用的。","definitionEn":"Not joined to or shared with something else; existing independently.","examples":[{"en":"Put the receipts in a separate envelope.","zh":"把收据放进另一个单独的信封里。"}]},
+        {"id":"zhuo:separate:verb:1","partOfSpeech":"verb","definitionZh":"（使）分开；拆分成不同部分。形容词和动词主要区别在词尾读音，不是简单的重音前后移位。","definitionEn":"To move apart or divide into distinct parts, or make things do so.","examples":[{"en":"Separate the clean brushes from the ones that still need washing.","zh":"把干净的刷子与仍需清洗的刷子分开。"}]},
+        {"id":"zhuo:separate:verb:2","partOfSpeech":"verb","definitionZh":"分居；停止作为伴侣共同生活，不及物。","definitionEn":"To stop living together as a couple without necessarily ending the marriage legally.","examples":[{"en":"The couple separated but continued to share care of their dog.","zh":"那对伴侣分居了，但仍共同照顾他们的狗。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:serious","headword":"serious","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:serious:adjective:1","partOfSpeech":"adjective","definitionZh":"严重的；后果重大、需要认真关注的。","definitionEn":"Important or severe enough to require careful attention.","examples":[{"en":"The missing support could cause serious damage to the roof.","zh":"缺失的支撑可能使屋顶严重损坏。"}]},
+        {"id":"zhuo:serious:adjective:2","partOfSpeech":"adjective","definitionZh":"认真的；严肃的，并非开玩笑或随便说说的。","definitionEn":"Sincere and not joking or treating a matter lightly.","examples":[{"en":"Are you serious about cycling across the country?","zh":"你说要骑车穿越全国，是认真的吗？"}]},
+        {"id":"zhuo:serious:adjective:3","partOfSpeech":"adjective","definitionZh":"投入的；对某项活动或关系有持久而认真的承诺的。","definitionEn":"Deeply committed to an activity, purpose, or relationship.","examples":[{"en":"She became a serious runner after joining the local club.","zh":"加入当地俱乐部后，她开始认真投入跑步。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:several","headword":"several","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:several:determiner:1","partOfSpeech":"determiner","definitionZh":"几个；若干，通常表示多于两个但数量不大的数目，放在复数可数名词前。","definitionEn":"More than two but not a large number, used before a plural countable noun.","examples":[{"en":"Several visitors asked about the old photographs.","zh":"有几位游客问起那些老照片。"}]},
+        {"id":"zhuo:several:pronoun:1","partOfSpeech":"pronoun","definitionZh":"几个；数个，代替已知的人或物，可用 several of。","definitionEn":"A small number of people or things already understood from context.","examples":[{"en":"I tried the pens, and several of them had run dry.","zh":"我试了那些笔，其中几支已经没墨了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；several 不因分组而误标普通形容词。"}
+    },
+    {
+      "id":"zhuo:severe","headword":"severe","kind":"word","forms":["severer","severest"],
+      "senses":[
+        {"id":"zhuo:severe:adjective:1","partOfSpeech":"adjective","definitionZh":"严重的；剧烈的，程度强而产生很大不利影响的。","definitionEn":"Very intense or serious in its harmful effects.","examples":[{"en":"Severe weather forced us to postpone the outdoor concert.","zh":"恶劣天气迫使我们推迟户外音乐会。"}]},
+        {"id":"zhuo:severe:adjective:2","partOfSpeech":"adjective","definitionZh":"严厉的；苛刻的，对行为或要求不宽容的。","definitionEn":"Strict or harsh in judgement, treatment, or demands.","examples":[{"en":"The coach gave the team a severe warning about arriving late.","zh":"教练严厉警告队员不要迟到。"}]},
+        {"id":"zhuo:severe:adjective:3","partOfSpeech":"adjective","definitionZh":"简朴冷峻的；装饰很少、外观严肃的。","definitionEn":"Plain and austere in appearance, with little decoration.","examples":[{"en":"The building's severe stone front contrasts with its colourful interior.","zh":"这栋建筑冷峻简朴的石质正面与多彩的内部形成对比。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sharp","headword":"sharp","kind":"word","forms":["sharper","sharpest","sharps"],
+      "senses":[
+        {"id":"zhuo:sharp:adjective:1","partOfSpeech":"adjective","definitionZh":"锋利的；尖的，边缘或尖端容易切开或刺穿物体的。","definitionEn":"Having an edge or point that cuts or pierces easily.","examples":[{"en":"Keep the sharp scissors away from the edge of the table.","zh":"把那把锋利的剪刀放得离桌沿远一些。"}]},
+        {"id":"zhuo:sharp:adjective:2","partOfSpeech":"adjective","definitionZh":"敏锐的；能迅速察觉、理解或判断的。","definitionEn":"Quick to notice, understand, or judge things accurately.","examples":[{"en":"Her sharp eye noticed the changed date on the label.","zh":"她目光敏锐，注意到了标签上被改动的日期。"}]},
+        {"id":"zhuo:sharp:adjective:3","partOfSpeech":"adjective","definitionZh":"急剧的；突然而明显的。","definitionEn":"Sudden and clearly noticeable in direction, degree, or amount.","examples":[{"en":"There was a sharp drop in temperature after sunset.","zh":"日落后，气温急剧下降。"}]},
+        {"id":"zhuo:sharp:adjective:4","partOfSpeech":"adjective","definitionZh":"剧烈或刺耳的；强烈而突然给人刺激的，如疼痛、声音、味道或语气。","definitionEn":"Intense, sudden, or piercing in sensation, sound, taste, or manner.","examples":[{"en":"A sharp pain in my ankle made me stop walking.","zh":"脚踝的一阵剧痛让我停下了脚步。"}]},
+        {"id":"zhuo:sharp:adjective:5","partOfSpeech":"adjective","definitionZh":"（音乐）比指定音高高的；升半音的，依语境区分走音与升号。","definitionEn":"Above the intended pitch, or raised by a semitone in musical notation.","examples":[{"en":"The singer's final note was slightly sharp.","zh":"歌手的最后一个音略微偏高。"}]},
+        {"id":"zhuo:sharp:adverb:1","partOfSpeech":"adverb","definitionZh":"（时间）整；准时，放在具体时刻后。","definitionEn":"Exactly at the stated time, used after a time expression.","examples":[{"en":"Please meet us at the gate at nine sharp.","zh":"请九点整到门口与我们见面。"}]},
+        {"id":"zhuo:sharp:noun:1","partOfSpeech":"noun","definitionZh":"（音乐）升号；升半音的音，可数。","definitionEn":"The symbol that raises a note by a semitone, or a note so raised.","examples":[{"en":"A sharp before the note changes its pitch.","zh":"音符前面的升号会改变它的音高。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:short","headword":"short","kind":"word","forms":["shorter","shortest","shorts","shorted","shorting"],
+      "senses":[
+        {"id":"zhuo:short:adjective:1","partOfSpeech":"adjective","definitionZh":"短的；矮的，长度、距离、身高或持续时间较小的。","definitionEn":"Small in length, distance, height, or duration.","examples":[{"en":"We took a short walk before the rain began.","zh":"下雨前，我们短暂散步了一会儿。"}]},
+        {"id":"zhuo:short:adjective:2","partOfSpeech":"adjective","definitionZh":"不足的；缺乏的，常用 short of。","definitionEn":"Not having as much as is needed, often with of.","examples":[{"en":"We are short of chairs for the workshop.","zh":"这次工作坊的椅子不够。"}]},
+        {"id":"zhuo:short:adjective:3","partOfSpeech":"adjective","definitionZh":"简慢的；不耐烦而话少的，常用 short with somebody。","definitionEn":"Speaking abruptly or impatiently to someone.","examples":[{"en":"I am sorry I was short with you when the phone rang.","zh":"电话响时我对你说话很不耐烦，真抱歉。"}]},
+        {"id":"zhuo:short:adverb:1","partOfSpeech":"adverb","definitionZh":"未达到；在目标或终点之前就停止，常见于 fall short / stop short。","definitionEn":"Before reaching a target, destination, or expected extent.","examples":[{"en":"The ball fell short of the far bank.","zh":"球没到对岸就落下了。"}]},
+        {"id":"zhuo:short:noun:1","partOfSpeech":"noun","definitionZh":"（复数 shorts）短裤。","definitionEn":"A garment with short legs, used in the plural form shorts.","examples":[{"en":"I packed two pairs of shorts for the walking holiday.","zh":"我为徒步假期带了两条短裤。"}]},
+        {"id":"zhuo:short:noun:2","partOfSpeech":"noun","definitionZh":"短片；篇幅短的电影，可数。","definitionEn":"A film that is much shorter than a feature film.","examples":[{"en":"The festival opened with a short about a lost umbrella.","zh":"电影节以一部讲述丢失雨伞的短片开场。"}]},
+        {"id":"zhuo:short:verb:1","partOfSpeech":"verb","definitionZh":"（电路）短路；使短路，常相当于 short-circuit。","definitionEn":"To develop or cause an unintended low-resistance electrical connection.","examples":[{"en":"Water inside the lamp shorted the circuit.","zh":"灯里的水使电路短路了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:shy","headword":"shy","kind":"word","forms":["shyer","shyest","shies","shied","shying"],
+      "senses":[
+        {"id":"zhuo:shy:adjective:1","partOfSpeech":"adjective","definitionZh":"害羞的；在他人面前紧张或不愿引人注意的。","definitionEn":"Uneasy with other people or reluctant to draw attention to oneself.","examples":[{"en":"The shy child spoke more freely while drawing.","zh":"那个害羞的孩子一边画画一边说话时自在了许多。"}]},
+        {"id":"zhuo:shy:adjective:2","partOfSpeech":"adjective","definitionZh":"略少于的；未达到某一数量或标准的，常用 shy of。","definitionEn":"Slightly below a stated amount or target, often with of.","examples":[{"en":"The collection was just shy of a hundred postcards.","zh":"这批收藏差一点就有一百张明信片了。"}]},
+        {"id":"zhuo:shy:verb:1","partOfSpeech":"verb","definitionZh":"（尤指马）受惊而突然退缩；shy away from 表示因顾虑而回避某事。","definitionEn":"To recoil suddenly in fear; with away from, to avoid something through reluctance or concern.","examples":[{"en":"The horse shied at a flapping piece of cloth.","zh":"那匹马被一块飘动的布吓得突然退缩。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sick","headword":"sick","kind":"word","forms":["sicker","sickest"],
+      "senses":[
+        {"id":"zhuo:sick:adjective:1","partOfSpeech":"adjective","definitionZh":"生病的；身体不适的，英式作定语常见，美式也常用作表语表示 ill。","definitionEn":"Ill or in poor health.","examples":[{"en":"The sick child stayed home from school.","zh":"那个生病的孩子没去上学，留在家里。"}]},
+        {"id":"zhuo:sick:adjective:2","partOfSpeech":"adjective","definitionZh":"恶心的；想吐的；英式 be sick 还可表示呕吐。","definitionEn":"Feeling nauseous; in British usage, be sick can also mean vomit.","examples":[{"en":"Reading on the bus makes me feel sick.","zh":"在公交车上看书会让我感到恶心。"}]},
+        {"id":"zhuo:sick:adjective:3","partOfSpeech":"adjective","definitionZh":"厌烦的；受够了的，常用 sick of。","definitionEn":"Very tired of or annoyed by something, usually with of.","examples":[{"en":"I am sick of hearing the same excuse every week.","zh":"每周听同一个借口，我已经受够了。"}]},
+        {"id":"zhuo:sick:noun:1","partOfSpeech":"noun","definitionZh":"（英式非正式）呕吐物，不可数。","definitionEn":"Vomit, especially in informal British usage.","examples":[{"en":"The cleaner removed the sick from the floor.","zh":"清洁工清理了地板上的呕吐物。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:significant","headword":"significant","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:significant:adjective:1","partOfSpeech":"adjective","definitionZh":"重要的；显著的，大到值得注意或产生实质影响的。","definitionEn":"Important or large enough to deserve notice or have an effect.","examples":[{"en":"The new path makes a significant difference to the walk to school.","zh":"新步道使步行上学的路程有了明显改善。"}]},
+        {"id":"zhuo:significant:adjective:2","partOfSpeech":"adjective","definitionZh":"意味深长的；暗示某种意义而并非随意的。","definitionEn":"Suggesting a meaning or intention beyond what is directly said.","examples":[{"en":"She gave him a significant look when the missing cake was mentioned.","zh":"提到不见的蛋糕时，她意味深长地看了他一眼。"}]},
+        {"id":"zhuo:significant:adjective:3","partOfSpeech":"adjective","definitionZh":"（统计）显著的；在指定检验和显著性水平下达到统计显著性标准的，不等于效应很大或结论已被证明。","definitionEn":"Meeting a stated criterion for statistical significance under a specified test, not necessarily implying a large or important effect.","examples":[{"en":"The difference was statistically significant, but its size was small.","zh":"差异在统计上显著，但幅度很小。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:silent","headword":"silent","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:silent:adjective:1","partOfSpeech":"adjective","definitionZh":"无声的；不说话或没有声音的。","definitionEn":"Making no sound or not speaking.","examples":[{"en":"The audience remained silent until the final note faded.","zh":"观众一直保持安静，直到最后一个音消失。"}]},
+        {"id":"zhuo:silent:adjective:2","partOfSpeech":"adjective","definitionZh":"（字母）不发音的；写出但在该词中不读出的。","definitionEn":"Describing a written letter that is not pronounced in a particular word.","examples":[{"en":"The b is silent in the word 'lamb'.","zh":"lamb 这个词中的 b 不发音。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:silly","headword":"silly","kind":"word","forms":["sillier","silliest"],
+      "senses":[
+        {"id":"zhuo:silly:adjective:1","partOfSpeech":"adjective","definitionZh":"愚蠢的；不明智或缺乏认真考虑的，语气强弱视上下文而定。","definitionEn":"Showing poor judgement or a lack of sensible thought.","examples":[{"en":"It was silly to leave the only map in the car.","zh":"把唯一的地图留在车里实在不明智。"}]},
+        {"id":"zhuo:silly:adjective:2","partOfSpeech":"adjective","definitionZh":"滑稽的；为了好玩而胡闹的，不一定带严厉批评。","definitionEn":"Playfully foolish or amusing rather than serious.","examples":[{"en":"We made silly faces to cheer up the children.","zh":"我们做鬼脸逗孩子们开心。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:similar","headword":"similar","kind":"word","forms":[],
+      "senses":[
+        {"id":"zhuo:similar:adjective:1","partOfSpeech":"adjective","definitionZh":"相似的；在某些特征上像但未必完全相同的，常用 similar to。","definitionEn":"Alike in some features without necessarily being identical.","examples":[{"en":"The new cover is similar to the old one, but the title is larger.","zh":"新封面和旧封面很相似，只是书名更大。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:simple","headword":"simple","kind":"word","forms":["simpler","simplest"],
+      "senses":[
+        {"id":"zhuo:simple:adjective:1","partOfSpeech":"adjective","definitionZh":"容易的；不难理解或完成的。","definitionEn":"Easy to understand or do.","examples":[{"en":"The teacher showed us a simple way to remember the order.","zh":"老师教了我们一个记住顺序的简单方法。"}]},
+        {"id":"zhuo:simple:adjective:2","partOfSpeech":"adjective","definitionZh":"结构简单的；朴素的，部件、装饰或额外要求不多的。","definitionEn":"Having few parts, little decoration, or no unnecessary additions.","examples":[{"en":"The cabin has simple furniture and a small cooking area.","zh":"小屋里只有简单的家具和一小块做饭区域。"}]},
+        {"id":"zhuo:simple:adjective:3","partOfSpeech":"adjective","definitionZh":"（语法）一般式的；不含进行体或完成体形式的，如 simple past。","definitionEn":"Describing a verb form without progressive or perfect aspect, as in the simple past.","examples":[{"en":"Write the next sentence in the simple past.","zh":"请用一般过去时写下一个句子。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sincere","headword":"sincere","kind":"word","forms":["sincerer","sincerest"],
+      "senses":[
+        {"id":"zhuo:sincere:adjective:1","partOfSpeech":"adjective","definitionZh":"真诚的；诚恳的，真实表达自己的感受或信念而非假装的。","definitionEn":"Honestly expressing one's real feelings or beliefs rather than pretending.","examples":[{"en":"Her sincere apology helped us begin the conversation again.","zh":"她真诚的道歉让我们得以重新开始谈话。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:single","headword":"single","kind":"word","forms":["singles","singled","singling"],
+      "senses":[
+        {"id":"zhuo:single:adjective:1","partOfSpeech":"adjective","definitionZh":"单个的；只有一个的。","definitionEn":"One only rather than more than one.","examples":[{"en":"A single lamp lit the whole room.","zh":"一盏灯照亮了整个房间。"}]},
+        {"id":"zhuo:single:adjective:2","partOfSpeech":"adjective","definitionZh":"单身的；未婚的，具体可指没有配偶或当前没有伴侣。","definitionEn":"Not married or not currently in a romantic relationship, depending on context.","examples":[{"en":"The form asks whether you are single or married.","zh":"表格询问你是未婚还是已婚。"}]},
+        {"id":"zhuo:single:adjective:3","partOfSpeech":"adjective","definitionZh":"单人使用的；（主要英式）单程的，区别于双人或往返。","definitionEn":"Intended for one person, or, especially in British usage, for one journey without a return.","examples":[{"en":"I booked a single room for the night.","zh":"我订了一晚单人间。"}]},
+        {"id":"zhuo:single:noun:1","partOfSpeech":"noun","definitionZh":"单曲；作为独立发行单位的一首主打歌曲及其发行版本，可数。","definitionEn":"A song released as a separate main recording rather than only as part of an album.","examples":[{"en":"The band's new single will be played at the festival.","zh":"这支乐队的新单曲将在音乐节上演出。"}]},
+        {"id":"zhuo:single:noun:2","partOfSpeech":"noun","definitionZh":"（主要英式）单程票，可数。","definitionEn":"A ticket for travel in one direction only, especially in British usage.","examples":[{"en":"A single to the harbour costs less than a return.","zh":"去港口的单程票比往返票便宜。"}]},
+        {"id":"zhuo:single:verb:1","partOfSpeech":"verb","definitionZh":"挑出；单独选定，常用 single somebody/something out。","definitionEn":"To choose or identify someone or something separately, usually with out.","examples":[{"en":"The tutor singled out one paragraph for detailed discussion.","zh":"导师挑出一段进行详细讨论。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:slight","headword":"slight","kind":"word","forms":["slighter","slightest","slights","slighted","slighting"],
+      "senses":[
+        {"id":"zhuo:slight:adjective:1","partOfSpeech":"adjective","definitionZh":"轻微的；少量的，程度或数量很小的。","definitionEn":"Small in degree, amount, or importance.","examples":[{"en":"There is a slight difference in colour between the two tiles.","zh":"两块瓷砖的颜色略有差异。"}]},
+        {"id":"zhuo:slight:adjective:2","partOfSpeech":"adjective","definitionZh":"纤细的；身材瘦小或骨架较小的。","definitionEn":"Thin and small in build.","examples":[{"en":"The slight runner moved easily through the crowd.","zh":"那位身材瘦小的跑步者轻快地穿过人群。"}]},
+        {"id":"zhuo:slight:noun:1","partOfSpeech":"noun","definitionZh":"怠慢；轻慢的言行，可数。","definitionEn":"An act or remark that shows disrespect or lack of consideration.","examples":[{"en":"She did not intend the brief reply as a slight.","zh":"她简短回复并不是有意怠慢。"}]},
+        {"id":"zhuo:slight:verb:1","partOfSpeech":"verb","definitionZh":"怠慢；轻视，以忽视等方式表示不尊重，及物。","definitionEn":"To treat someone as unimportant or fail to show expected respect.","examples":[{"en":"He felt slighted when nobody introduced him to the visitors.","zh":"没人把他介绍给来访者，他觉得自己被怠慢了。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:slow","headword":"slow","kind":"word","forms":["slower","slowest","slows","slowed","slowing"],
+      "senses":[
+        {"id":"zhuo:slow:adjective:1","partOfSpeech":"adjective","definitionZh":"慢的；移动、发展或完成某事所花时间较长的。","definitionEn":"Moving, developing, or taking place at a low speed.","examples":[{"en":"The slow train stopped at every village along the coast.","zh":"那班慢车在沿海的每个村庄都停靠。"}]},
+        {"id":"zhuo:slow:adjective:2","partOfSpeech":"adjective","definitionZh":"（钟表）慢的；显示的时间落后于实际时间的。","definitionEn":"Showing a time earlier than the correct time.","examples":[{"en":"My watch is five minutes slow.","zh":"我的表慢了五分钟。"}]},
+        {"id":"zhuo:slow:adjective:3","partOfSpeech":"adjective","definitionZh":"清淡的；活动或生意不活跃的。","definitionEn":"Having little activity or business.","examples":[{"en":"It was a slow morning at the market until the sun came out.","zh":"太阳出来前，市场整个早上的生意都比较清淡。"}]},
+        {"id":"zhuo:slow:verb:1","partOfSpeech":"verb","definitionZh":"（使）减速；（使）进展放缓，常用 slow down。","definitionEn":"To reduce speed or progress, or make something do so.","examples":[{"en":"The driver slowed down as we approached the sheep.","zh":"靠近羊群时，司机放慢了车速。"}]},
+        {"id":"zhuo:slow:adverb:1","partOfSpeech":"adverb","definitionZh":"慢慢地；缓慢地，常见于 go slow 等表达；正式一般用 slowly。","definitionEn":"At a low speed, especially in expressions such as go slow.","examples":[{"en":"Go slow over the loose stones.","zh":"经过松散石头路面时要慢一点。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:small","headword":"small","kind":"word","forms":["smaller","smallest"],
+      "senses":[
+        {"id":"zhuo:small:adjective:1","partOfSpeech":"adjective","definitionZh":"小的；体积、数量、程度或规模不大的。","definitionEn":"Limited in size, amount, degree, or scale.","examples":[{"en":"A small stream runs behind the school garden.","zh":"学校花园后面流着一条小溪。"}]},
+        {"id":"zhuo:small:adjective:2","partOfSpeech":"adjective","definitionZh":"年幼的；年龄还很小的。","definitionEn":"Very young in age.","examples":[{"en":"When I was small, the station seemed enormous.","zh":"我小时候觉得那座车站大得不得了。"}]},
+        {"id":"zhuo:small:adjective:3","partOfSpeech":"adjective","definitionZh":"无足轻重的；（人）感到卑微或难堪的。","definitionEn":"Unimportant, or feeling insignificant or humiliated.","examples":[{"en":"His dismissive laugh made me feel small.","zh":"他那轻蔑的笑让我觉得很难堪。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:smooth","headword":"smooth","kind":"word","forms":["smoother","smoothest","smooths","smoothed","smoothing"],
+      "senses":[
+        {"id":"zhuo:smooth:adjective:1","partOfSpeech":"adjective","definitionZh":"光滑的；平整的，表面没有明显凸起或粗糙部分的。","definitionEn":"Having an even surface without rough patches or lumps.","examples":[{"en":"The water had worn the stone smooth.","zh":"水流把石头磨得光滑了。"}]},
+        {"id":"zhuo:smooth:adjective:2","partOfSpeech":"adjective","definitionZh":"顺利的；平稳的，没有突发阻碍或震动的。","definitionEn":"Proceeding easily and evenly without sudden problems or jolts.","examples":[{"en":"Careful preparation ensured a smooth start to the event.","zh":"周密准备使活动顺利开始。"}]},
+        {"id":"zhuo:smooth:verb:1","partOfSpeech":"verb","definitionZh":"使平整或光滑；抚平；smooth something over 还可表示缓和矛盾。","definitionEn":"To make a surface even or flat; with over, to reduce a disagreement or difficulty.","examples":[{"en":"She smoothed the paper with the palm of her hand.","zh":"她用手掌把纸抚平。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:social","headword":"social","kind":"word","forms":["socials"],
+      "senses":[
+        {"id":"zhuo:social:adjective:1","partOfSpeech":"adjective","definitionZh":"社会的；与人们共同生活的组织、条件或问题有关的。","definitionEn":"Relating to society and the conditions or organization of communal life.","examples":[{"en":"The report examines the social effects of closing the factory.","zh":"这份报告研究了工厂关闭带来的社会影响。"}]},
+        {"id":"zhuo:social:adjective:2","partOfSpeech":"adjective","definitionZh":"社交的；与朋友相聚或与人交往有关的。","definitionEn":"Connected with meeting people and spending time with others for enjoyment.","examples":[{"en":"The club organizes a social evening at the end of each term.","zh":"俱乐部每学期末都会组织一次社交晚会。"}]},
+        {"id":"zhuo:social:noun:1","partOfSpeech":"noun","definitionZh":"联谊会；社交聚会，可数。","definitionEn":"An organized informal gathering for people to meet and enjoy one another's company.","examples":[{"en":"We met the new members at the welcome social.","zh":"我们在迎新联谊会上认识了新成员。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:soft","headword":"soft","kind":"word","forms":["softer","softest"],
+      "senses":[
+        {"id":"zhuo:soft:adjective:1","partOfSpeech":"adjective","definitionZh":"柔软的；容易压陷、弯曲或触感不硬的。","definitionEn":"Easy to press, bend, or shape, or pleasant and not hard to touch.","examples":[{"en":"The puppy fell asleep on a soft woollen blanket.","zh":"小狗在一条柔软的羊毛毯上睡着了。"}]},
+        {"id":"zhuo:soft:adjective:2","partOfSpeech":"adjective","definitionZh":"轻柔的；（声音、光线等）不强烈、不刺人的。","definitionEn":"Gentle and not harsh or strong in sound, light, or similar qualities.","examples":[{"en":"A soft light glowed beside the bed.","zh":"床边亮着柔和的灯光。"}]},
+        {"id":"zhuo:soft:adjective:3","partOfSpeech":"adjective","definitionZh":"心软的；对人宽松而不严厉的，常用 soft on somebody。","definitionEn":"Gentle or lenient rather than strict towards someone.","examples":[{"en":"The children thought their uncle was soft on them.","zh":"孩子们觉得叔叔对他们很宽容。"}]},
+        {"id":"zhuo:soft:adjective:4","partOfSpeech":"adjective","definitionZh":"（水）软的；钙镁等矿物质含量较低的。","definitionEn":"Describing water containing relatively little dissolved calcium and magnesium.","examples":[{"en":"Soap forms a lather more easily in soft water.","zh":"肥皂在软水中更容易起泡。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:solid","headword":"solid","kind":"word","forms":["solids"],
+      "senses":[
+        {"id":"zhuo:solid:adjective:1","partOfSpeech":"adjective","definitionZh":"固态的；形状相对固定而非液体或气体的。","definitionEn":"In a state with a relatively fixed shape rather than being liquid or gas.","examples":[{"en":"The wax became solid again as it cooled.","zh":"蜡冷却后又变成了固态。"}]},
+        {"id":"zhuo:solid:adjective:2","partOfSpeech":"adjective","definitionZh":"实心的；由同一种材料贯穿而非空心或表面镀层的。","definitionEn":"Filled throughout rather than hollow, or made of the same material all the way through.","examples":[{"en":"The handle is solid brass rather than coated plastic.","zh":"把手是实心黄铜的，不是镀层塑料。"}]},
+        {"id":"zhuo:solid:adjective:3","partOfSpeech":"adjective","definitionZh":"结实的；可靠扎实的，物理上稳固或依据充分的。","definitionEn":"Strong and dependable, or well supported by evidence or work.","examples":[{"en":"The proposal rests on solid evidence from several trials.","zh":"这项提议以多次试验所得的可靠证据为基础。"}]},
+        {"id":"zhuo:solid:adjective:4","partOfSpeech":"adjective","definitionZh":"连续不断的；在所述时间内没有中断的。","definitionEn":"Continuing throughout a stated period without a break.","examples":[{"en":"We spent three solid hours sorting the photographs.","zh":"我们连续花了整整三个小时整理照片。"}]},
+        {"id":"zhuo:solid:noun:1","partOfSpeech":"noun","definitionZh":"固体；处于固态的物质，可数，也常用复数。","definitionEn":"A substance or object in the solid state.","examples":[{"en":"The filter separates the solids from the liquid.","zh":"过滤器把固体与液体分开。"}]},
+        {"id":"zhuo:solid:noun:2","partOfSpeech":"noun","definitionZh":"（几何）立体；三维图形，可数。","definitionEn":"A three-dimensional geometric figure.","examples":[{"en":"A cube is a solid with six square faces.","zh":"正方体是具有六个正方形面的立体。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sorry","headword":"sorry","kind":"word","forms":["sorrier","sorriest"],
+      "senses":[
+        {"id":"zhuo:sorry:adjective:1","partOfSpeech":"adjective","definitionZh":"抱歉的；因做错事或造成不便而感到歉意的。","definitionEn":"Feeling regret or wishing to apologize for a mistake or inconvenience.","examples":[{"en":"I am sorry for interrupting your reading.","zh":"很抱歉打断了你读书。"}]},
+        {"id":"zhuo:sorry:adjective:2","partOfSpeech":"adjective","definitionZh":"难过的；遗憾或同情的，常用 sorry about / for。","definitionEn":"Feeling sadness, regret, or sympathy about an unfortunate situation.","examples":[{"en":"We were sorry to hear that your trip had been cancelled.","zh":"听说你的旅行取消了，我们感到遗憾。"}]},
+        {"id":"zhuo:sorry:adjective:3","partOfSpeech":"adjective","definitionZh":"糟糕的；可怜的，表示某人或某物状态不佳，常放在名词前。","definitionEn":"In a poor or pitiful condition, often used before a noun.","examples":[{"en":"The neglected garden was a sorry sight after the winter.","zh":"那个无人照管的花园过冬后显得破败不堪。"}]},
+        {"id":"zhuo:sorry:interjection:1","partOfSpeech":"interjection","definitionZh":"对不起；不好意思；也可礼貌请求对方重复刚才的话。","definitionEn":"Used to apologize, attract polite attention, or ask someone to repeat what they said.","examples":[{"en":"Sorry, could you repeat the name of the street?","zh":"不好意思，能再说一遍那条街的名字吗？"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:sound","headword":"sound","kind":"word","forms":["sounder","soundest","sounds","sounded","sounding"],
+      "senses":[
+        {"id":"zhuo:sound:noun:1","partOfSpeech":"noun","definitionZh":"声音；可听见的振动或声响，泛指时不可数，具体声响可数。","definitionEn":"Vibrations that can be heard, or a particular noise.","examples":[{"en":"The sound of the rain made the room feel peaceful.","zh":"雨声让房间显得很宁静。"}]},
+        {"id":"zhuo:sound:verb:1","partOfSpeech":"verb","definitionZh":"听起来；给人某种印象，常接形容词或 like。","definitionEn":"To give a particular impression through what is heard or described.","examples":[{"en":"Your plan sounds sensible, but we need to check the dates.","zh":"你的计划听起来很合理，但我们需要核对日期。"}]},
+        {"id":"zhuo:sound:verb:2","partOfSpeech":"verb","definitionZh":"发声；使响起，或用声响发出信号。","definitionEn":"To make a noise or cause a signal or warning to be heard.","examples":[{"en":"The guard sounded the bell when the ferry arrived.","zh":"渡船到达时，守卫敲响了钟。"}]},
+        {"id":"zhuo:sound:adjective:1","partOfSpeech":"adjective","definitionZh":"可靠合理的；基于充分判断或证据、值得信赖的。","definitionEn":"Sensible, dependable, and based on good judgement or evidence.","examples":[{"en":"The engineer gave us sound advice about supporting the shelf.","zh":"工程师就如何支撑搁板给了我们可靠的建议。"}]},
+        {"id":"zhuo:sound:adjective:2","partOfSpeech":"adjective","definitionZh":"完好的；稳固或健康，没有明显损坏或缺陷的。","definitionEn":"In good condition, strong, or free from significant damage or defect.","examples":[{"en":"The old bridge is still structurally sound.","zh":"这座旧桥的结构仍然牢固。"}]},
+        {"id":"zhuo:sound:adjective:3","partOfSpeech":"adjective","definitionZh":"（睡眠）酣畅的；深沉且不易被打扰的。","definitionEn":"Deep and uninterrupted when describing sleep.","examples":[{"en":"After the long hike, she enjoyed a sound night's sleep.","zh":"长途徒步后，她整夜睡得很香。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:spare","headword":"spare","kind":"word","forms":["sparer","sparest","spares","spared","sparing"],
+      "senses":[
+        {"id":"zhuo:spare:adjective:1","partOfSpeech":"adjective","definitionZh":"备用的；额外留作需要时替换使用的。","definitionEn":"Kept as an extra to replace something if needed.","examples":[{"en":"We keep a spare umbrella beside the front door.","zh":"我们在前门旁放着一把备用雨伞。"}]},
+        {"id":"zhuo:spare:adjective:2","partOfSpeech":"adjective","definitionZh":"空闲的；目前不需要用于其他用途的，常指时间或空间。","definitionEn":"Available because it is not currently needed for another purpose.","examples":[{"en":"She repairs old radios in her spare time.","zh":"她在空闲时间修理旧收音机。"}]},
+        {"id":"zhuo:spare:adjective:3","partOfSpeech":"adjective","definitionZh":"简洁的；没有多余装饰或细节的。","definitionEn":"Plain and using very little unnecessary detail or decoration.","examples":[{"en":"The poem's spare language makes each image stand out.","zh":"这首诗语言简练，使每个意象都格外鲜明。"}]},
+        {"id":"zhuo:spare:verb:1","partOfSpeech":"verb","definitionZh":"抽出；匀出，把自己可以不用的时间、钱或物品提供出来。","definitionEn":"To make time, money, or something else available without needing it oneself.","examples":[{"en":"Can you spare ten minutes to check this letter?","zh":"你能抽十分钟检查这封信吗？"}]},
+        {"id":"zhuo:spare:verb:2","partOfSpeech":"verb","definitionZh":"使免遭；饶恕，使某人不必经历伤害、麻烦或不快。","definitionEn":"To save someone from harm, punishment, trouble, or an unpleasant experience.","examples":[{"en":"A clear notice would spare visitors a wasted journey.","zh":"一则清楚的通知就能让游客免于白跑一趟。"}]},
+        {"id":"zhuo:spare:noun:1","partOfSpeech":"noun","definitionZh":"备用件；备用品，可数，复数 spares 常指备件。","definitionEn":"An extra item or replacement part kept for use when needed.","examples":[{"en":"The tyre was flat, but we had a spare in the boot.","zh":"轮胎瘪了，不过我们在后备箱里有一个备用轮胎。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:special","headword":"special","kind":"word","forms":["specials"],
+      "senses":[
+        {"id":"zhuo:special:adjective:1","partOfSpeech":"adjective","definitionZh":"特别的；不同于平常而值得注意的。","definitionEn":"Different from ordinary things in a way that deserves attention.","examples":[{"en":"We saved the blue candles for a special occasion.","zh":"我们把蓝色蜡烛留到特别的场合再用。"}]},
+        {"id":"zhuo:special:adjective:2","partOfSpeech":"adjective","definitionZh":"专用的；专门为某种目的、需要或某个人安排的。","definitionEn":"Designed or arranged for a particular purpose, need, or person.","examples":[{"en":"The museum provides special tours for visitors with young children.","zh":"博物馆为带小孩的游客提供专门的导览。"}]},
+        {"id":"zhuo:special:noun:1","partOfSpeech":"noun","definitionZh":"特色菜；特价品；特别节目等，可数，依场景指非日常提供的项目。","definitionEn":"An item offered outside the usual range, such as a featured dish, reduced-price product, or special programme.","examples":[{"en":"Today's special is a vegetable pie with fresh herbs.","zh":"今天的特色菜是加了新鲜香草的蔬菜派。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    },
+    {
+      "id":"zhuo:specific","headword":"specific","kind":"word","forms":["specifics"],
+      "senses":[
+        {"id":"zhuo:specific:adjective:1","partOfSpeech":"adjective","definitionZh":"具体的；明确而详细的，不是笼统的。","definitionEn":"Clearly identified or stated in detail rather than expressed generally.","examples":[{"en":"Please give a specific example of the problem.","zh":"请举出这个问题的一个具体例子。"}]},
+        {"id":"zhuo:specific:adjective:2","partOfSpeech":"adjective","definitionZh":"特定的；某类事物所特有或专门适用的，常用 specific to。","definitionEn":"Limited or particularly related to a certain person, thing, or group.","examples":[{"en":"These instructions are specific to the older model.","zh":"这些说明专门适用于旧型号。"}]},
+        {"id":"zhuo:specific:noun:1","partOfSpeech":"noun","definitionZh":"具体细节；明确事项，通常用复数 specifics。","definitionEn":"Precise details of a subject or plan, usually used in the plural.","examples":[{"en":"We agreed on the idea but have not discussed the specifics.","zh":"我们就总体想法达成了一致，但还没有讨论具体细节。"}]}
+      ],"authorship":{"method":"independent-composition","agent":"AI-assisted draft","referenceUse":"headwords-only"},"review":{"status":"draft","reviewer":"","note":"第0004批原创试写；常用义项，待独立复核。"}
+    }
+  ]
+}

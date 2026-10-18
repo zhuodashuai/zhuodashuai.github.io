@@ -1,0 +1,5042 @@
+{
+  "schemaVersion": 1,
+  "name": "卓式词典",
+  "entries": [
+    {
+      "id": "zhuo:famous",
+      "headword": "famous",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:famous:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "著名的；被很多人知道的，常用 famous for 表示因某事出名。",
+          "definitionEn": "Known by many people, often for a particular quality or achievement.",
+          "examples": [
+            {
+              "en": "The village is famous for its painted wooden houses.",
+              "zh": "这个村庄因彩绘木屋而出名。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fancy",
+      "headword": "fancy",
+      "kind": "word",
+      "forms": [
+        "fancier",
+        "fanciest",
+        "fancies",
+        "fancied",
+        "fancying"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fancy:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "花哨的；精致或高档的，通常有额外装饰或复杂设计。",
+          "definitionEn": "Decorative, elaborate, or more luxurious than is strictly necessary.",
+          "examples": [
+            {
+              "en": "We chose simple plates instead of fancy ones with gold edges.",
+              "zh": "我们选了普通盘子，没有选带金边的花哨款式。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fancy:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "（英式非正式）想要；喜欢做某事，常用 fancy something / doing something。",
+          "definitionEn": "To want something or feel like doing something, especially in informal British usage.",
+          "examples": [
+            {
+              "en": "Do you fancy walking home by the river?",
+              "zh": "你想沿着河边走回家吗？"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fancy:verb:2",
+          "partOfSpeech": "verb",
+          "definitionZh": "想象；以为，常用于描述脑中的设想或判断。",
+          "definitionEn": "To imagine something or suppose that it is true.",
+          "examples": [
+            {
+              "en": "I fancied I could hear a dog behind the wall.",
+              "zh": "我觉得自己好像听到墙后有狗叫。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fancy:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "一时的喜爱或偏好，常用 take a fancy to 表示忽然喜欢上。",
+          "definitionEn": "A liking or wish that may arise suddenly rather than from careful thought.",
+          "examples": [
+            {
+              "en": "She took a fancy to the little blue teapot.",
+              "zh": "她忽然喜欢上了那只小蓝茶壶。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fantastic",
+      "headword": "fantastic",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:fantastic:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "极好的；令人非常满意的，常用于非正式赞扬。",
+          "definitionEn": "Extremely good or enjoyable, especially in enthusiastic informal speech.",
+          "examples": [
+            {
+              "en": "The volunteers did a fantastic job repairing the garden.",
+              "zh": "志愿者们把花园修整得非常好。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fantastic:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "奇异而难以置信的；像想象出来而非现实中的。",
+          "definitionEn": "Strange or extraordinary in a way that seems outside ordinary reality.",
+          "examples": [
+            {
+              "en": "The tale describes fantastic creatures living beneath the sea.",
+              "zh": "这个故事描写了生活在海底的奇异生物。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:far",
+      "headword": "far",
+      "kind": "word",
+      "forms": [
+        "farther",
+        "further",
+        "farthest",
+        "furthest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:far:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "远；距离较大。farther / further 可表示更远，farthest / furthest 表示最远。",
+          "definitionEn": "At or over a large distance.",
+          "examples": [
+            {
+              "en": "We could not walk far with such heavy bags.",
+              "zh": "背着这么重的包，我们走不了很远。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:far:adverb:2",
+          "partOfSpeech": "adverb",
+          "definitionZh": "远远；程度大得多，用来加强比较级等表达。",
+          "definitionEn": "To a much greater degree, especially with a comparative expression.",
+          "examples": [
+            {
+              "en": "The second route is far safer in wet weather.",
+              "zh": "在潮湿天气里，第二条路线安全得多。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:far:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "远端的；较远一边的。",
+          "definitionEn": "Situated at the more distant end or side of something.",
+          "examples": [
+            {
+              "en": "A narrow gate stood at the far end of the field.",
+              "zh": "田地远端立着一道窄门。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fast",
+      "headword": "fast",
+      "kind": "word",
+      "forms": [
+        "faster",
+        "fastest",
+        "fasts",
+        "fasted",
+        "fasting"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fast:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "快的；移动、发生或运行速度高的。",
+          "definitionEn": "Moving, happening, or operating at high speed.",
+          "examples": [
+            {
+              "en": "A fast train carried us past the crowded roads.",
+              "zh": "一列快速列车载着我们驶过拥堵的道路。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fast:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "快地；以较高速度。不能用 fastly 代替这个常用副词。",
+          "definitionEn": "At a high speed.",
+          "examples": [
+            {
+              "en": "The river rose fast after the rain.",
+              "zh": "雨后河水迅速上涨。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fast:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "禁食；在一段时间内不吃全部或某些食物，常出于宗教或个人安排。",
+          "definitionEn": "To go without all food or certain foods for a period of time.",
+          "examples": [
+            {
+              "en": "Some members of the group fast during the religious festival.",
+              "zh": "这个团体的一些成员会在该宗教节日期间禁食。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fast:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "一段禁食期；有意不进食或限制某些食物的时期。",
+          "definitionEn": "A period in which someone deliberately goes without food or certain foods.",
+          "examples": [
+            {
+              "en": "The family shared a meal at the end of the fast.",
+              "zh": "禁食期结束时，全家一起吃了一顿饭。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fast:adverb:2",
+          "partOfSpeech": "adverb",
+          "definitionZh": "牢牢地；稳固地，不是表示速度，常见于 hold fast 等表达。",
+          "definitionEn": "Firmly and securely rather than at high speed.",
+          "examples": [
+            {
+              "en": "The knot held fast despite the strong pull.",
+              "zh": "尽管受到强力拉扯，那个结仍牢牢系着。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fat",
+      "headword": "fat",
+      "kind": "word",
+      "forms": [
+        "fatter",
+        "fattest",
+        "fats"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fat:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "脂肪多的；肥胖的。用于形容人时可能使人不舒服或具有冒犯意味。",
+          "definitionEn": "Having a large amount of body fat; when applied to people, the word can be hurtful.",
+          "examples": [
+            {
+              "en": "The farmer checked whether the pig was becoming too fat.",
+              "zh": "农场主检查了那头猪是不是长得太肥。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fat:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "脂肪；存在于人体、动物体内或食物中的油脂类物质。泛指时通常不可数，不同种类可用 fats。",
+          "definitionEn": "An oily substance found in bodies and foods; different types may be called fats.",
+          "examples": [
+            {
+              "en": "A thin layer of fat covered the cooled soup.",
+              "zh": "冷却的汤表面浮着一层薄薄的油脂。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:favourable",
+      "headword": "favourable",
+      "kind": "word",
+      "forms": [
+        "favorable"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:favourable:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有利的；有助于获得好结果的。美式常拼作 favorable。",
+          "definitionEn": "Making a good outcome more likely.",
+          "examples": [
+            {
+              "en": "The boat will leave when the wind becomes favourable.",
+              "zh": "风向有利时，船就会出发。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:favourable:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "赞许的；表示支持或认可的。",
+          "definitionEn": "Showing approval or support.",
+          "examples": [
+            {
+              "en": "The new exhibition received favourable reviews.",
+              "zh": "新展览获得了好评。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:favourite",
+      "headword": "favourite",
+      "kind": "word",
+      "forms": [
+        "favourites",
+        "favorite",
+        "favorites"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:favourite:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "最喜欢的；在同类中受到某人最多喜爱的。美式常拼作 favorite。",
+          "definitionEn": "Liked more than the other people or things in the same group.",
+          "examples": [
+            {
+              "en": "This is my favourite place to read on a rainy day.",
+              "zh": "这是我在雨天最喜欢待着读书的地方。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:favourite:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "最喜爱的人或物；通常可数。",
+          "definitionEn": "A person or thing someone likes best.",
+          "examples": [
+            {
+              "en": "Of all the soups we tried, the tomato one was my favourite.",
+              "zh": "我们尝过的汤中，我最喜欢的是番茄汤。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:favourite:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "最有希望获胜的人或队；通常可数。",
+          "definitionEn": "The competitor considered most likely to win.",
+          "examples": [
+            {
+              "en": "The tournament favourite lost in the opening round.",
+              "zh": "那位赛事夺冠热门在首轮就输了。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:federal",
+      "headword": "federal",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:federal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "联邦的；与中央和地方单位分享权力的联邦体制有关的，也常指联邦层面的中央政府。",
+          "definitionEn": "Connected with a political system that shares powers between a national government and regional units.",
+          "examples": [
+            {
+              "en": "Federal and state agencies worked together after the storm.",
+              "zh": "风暴过后，联邦机构与州机构共同开展了工作。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:female",
+      "headword": "female",
+      "kind": "word",
+      "forms": [
+        "females"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:female:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "雌性的；女性的，指通常产生卵细胞的一类性别。具体生殖能力因个体而异。",
+          "definitionEn": "Belonging to the sex that typically produces eggs; this does not imply that every individual can reproduce.",
+          "examples": [
+            {
+              "en": "The female bird returned to the nest before sunset.",
+              "zh": "那只雌鸟在日落前回到了巢里。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:female:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "雌性动物；也可指女性。谈人时单独用作名词可能显得生硬，常依语境选用 woman 或 girl。通常可数。",
+          "definitionEn": "An animal or person of the female sex; as a noun for people, the term can sound impersonal.",
+          "examples": [
+            {
+              "en": "The researchers recorded the movements of three adult females.",
+              "zh": "研究人员记录了三只成年雌性动物的活动。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:few",
+      "headword": "few",
+      "kind": "word",
+      "forms": [
+        "fewer",
+        "fewest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:few:determiner:1",
+          "partOfSpeech": "determiner",
+          "definitionZh": "很少的；用于可数名词复数，强调数量不多，常暗示不够。a few 则通常表示有一些。",
+          "definitionEn": "Not many, used before a plural countable noun and often emphasizing a shortage.",
+          "examples": [
+            {
+              "en": "Few visitors stayed after the rain began.",
+              "zh": "下雨后，几乎没有游客继续逗留。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:few:pronoun:1",
+          "partOfSpeech": "pronoun",
+          "definitionZh": "少数人或事物；代替可数名词复数。a few 可表示其中一些。",
+          "definitionEn": "A small number of people or things already understood from context.",
+          "examples": [
+            {
+              "en": "Many applied for the places, but few were selected.",
+              "zh": "很多人申请了这些名额，但只有少数人被选中。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fierce",
+      "headword": "fierce",
+      "kind": "word",
+      "forms": [
+        "fiercer",
+        "fiercest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fierce:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "凶猛的；表现出强烈攻击性或难以抵挡的力量的。",
+          "definitionEn": "Showing strong aggression or force.",
+          "examples": [
+            {
+              "en": "A fierce dog guarded the entrance to the yard.",
+              "zh": "一只凶猛的狗守着院门。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fierce:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "激烈的；竞争、争论等强度很大的。",
+          "definitionEn": "Very intense in competition, disagreement, or effort.",
+          "examples": [
+            {
+              "en": "There was fierce competition for the last two places.",
+              "zh": "最后两个名额的竞争十分激烈。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:final",
+      "headword": "final",
+      "kind": "word",
+      "forms": [
+        "finals"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:final:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "最后的；位于一系列事情的末尾，或作出后不打算再改变的。",
+          "definitionEn": "Coming last in a sequence, or intended to settle a matter without further change.",
+          "examples": [
+            {
+              "en": "Please send your final design by Friday.",
+              "zh": "请在周五之前发来最终设计稿。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:final:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "决赛；决定比赛冠军的最后一场或一轮比赛，通常可数。",
+          "definitionEn": "The last contest or round that decides the winner of a competition.",
+          "examples": [
+            {
+              "en": "The two unbeaten teams reached the final.",
+              "zh": "两支保持不败的队伍进入了决赛。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:final:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "期末考试；课程结束时的重要考试，常见于美式英语，也常用复数 finals。",
+          "definitionEn": "An examination at the end of a course or study period, especially in American usage.",
+          "examples": [
+            {
+              "en": "My history final is scheduled for Monday morning.",
+              "zh": "我的历史期末考试安排在周一上午。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:financial",
+      "headword": "financial",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:financial:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "财务的；金融的；与钱的筹集、管理、收支等有关的。",
+          "definitionEn": "Connected with money and how it is obtained, managed, or spent.",
+          "examples": [
+            {
+              "en": "The club published a clear financial report for its members.",
+              "zh": "俱乐部向会员公布了一份清晰的财务报告。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fine",
+      "headword": "fine",
+      "kind": "word",
+      "forms": [
+        "finer",
+        "finest",
+        "fines",
+        "fined",
+        "fining"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fine:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "好的；可以接受的；身体或情况没有明显问题的。",
+          "definitionEn": "Good enough or in a satisfactory state.",
+          "examples": [
+            {
+              "en": "The repaired radio is fine now; it no longer loses the signal.",
+              "zh": "修好的收音机现在没问题了，不会再丢失信号。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "精细的；细小、细薄或颗粒很小的。",
+          "definitionEn": "Very thin, small, or made of tiny particles.",
+          "examples": [
+            {
+              "en": "Use a fine brush to paint the narrow lines.",
+              "zh": "请用细画笔画那些窄线条。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "出色的；品质或技艺很高的。",
+          "definitionEn": "Of notably high quality or skill.",
+          "examples": [
+            {
+              "en": "The museum owns a fine collection of ceramic bowls.",
+              "zh": "博物馆拥有一批精美的陶碗藏品。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "（天气）晴朗的；适合户外活动的。",
+          "definitionEn": "Clear and pleasant when describing weather.",
+          "examples": [
+            {
+              "en": "We saved the cliff walk for a fine day.",
+              "zh": "我们把沿悬崖步道散步的安排留到了晴天。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "罚款；因违反规定而必须支付的钱，通常可数。",
+          "definitionEn": "A sum of money imposed as a penalty for breaking a rule.",
+          "examples": [
+            {
+              "en": "The notice warned of a fine for leaving rubbish.",
+              "zh": "告示警告，乱扔垃圾会被罚款。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "对……处以罚款。",
+          "definitionEn": "To require someone to pay money as a penalty.",
+          "examples": [
+            {
+              "en": "The operator was fined for repeatedly blocking the exit.",
+              "zh": "那名经营者因多次堵塞出口而被处以罚款。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fine:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "可以；令人满意地，多用于非正式表达，如 work fine。",
+          "definitionEn": "In a satisfactory way, especially in informal expressions.",
+          "examples": [
+            {
+              "en": "The old printer still prints fine.",
+              "zh": "那台旧打印机打印起来仍然没问题。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:firm",
+      "headword": "firm",
+      "kind": "word",
+      "forms": [
+        "firmer",
+        "firmest",
+        "firms",
+        "firmed",
+        "firming"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:firm:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "结实的；受压后不容易变形，也不太软的。",
+          "definitionEn": "Resisting pressure rather than feeling soft or giving way easily.",
+          "examples": [
+            {
+              "en": "Choose a firm cushion to support your back.",
+              "zh": "选一个较硬实的靠垫来支撑背部。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:firm:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "坚定的；不会轻易改变决定或态度的。",
+          "definitionEn": "Not easily changed by pressure, doubt, or persuasion.",
+          "examples": [
+            {
+              "en": "She gave a firm refusal and returned the documents.",
+              "zh": "她坚定地拒绝了，并把文件退了回去。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:firm:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "公司；商行，常用于提供专业服务的企业，通常可数。",
+          "definitionEn": "A business organization, often one providing professional services.",
+          "examples": [
+            {
+              "en": "A local engineering firm inspected the bridge.",
+              "zh": "当地一家工程公司检查了那座桥。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:firm:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "使变得坚实；变硬，常见于 firm up。",
+          "definitionEn": "To become more solid, or make something more solid.",
+          "examples": [
+            {
+              "en": "The filling will firm as it cools.",
+              "zh": "馅料冷却后会变得结实。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:first",
+      "headword": "first",
+      "kind": "word",
+      "forms": ["firsts"],
+      "senses": [
+        {
+          "id": "zhuo:first:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "第一的；在顺序、时间或等级上排在其他对象前面的。",
+          "definitionEn": "Before all others in an order, sequence, or ranking.",
+          "examples": [
+            {
+              "en": "Write your name on the first page.",
+              "zh": "请把名字写在第一页。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:first:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "首先；在其他事情之前。",
+          "definitionEn": "Before doing or considering anything else.",
+          "examples": [
+            {
+              "en": "Check the power cable first.",
+              "zh": "先检查电源线。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:first:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "首次出现的成就或事件；此前从未有过的事情，通常可数。",
+          "definitionEn": "An achievement or event that happens for the first time.",
+          "examples": [
+            {
+              "en": "A solar-powered crossing was a first for the town.",
+              "zh": "太阳能供电的路口设施在这个镇还是头一回出现。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:first:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "第一名；首位，表示比赛等中的领先名次。",
+          "definitionEn": "The leading place in a competition or ordered result.",
+          "examples": [
+            {
+              "en": "The relay team took first in the regional race.",
+              "zh": "那支接力队在地区比赛中获得了第一名。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:flat",
+      "headword": "flat",
+      "kind": "word",
+      "forms": [
+        "flatter",
+        "flattest",
+        "flats"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:flat:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "平的；表面基本没有起伏或弯曲的。",
+          "definitionEn": "Having an even surface without marked curves or raised areas.",
+          "examples": [
+            {
+              "en": "Place the board on a flat surface before measuring it.",
+              "zh": "测量前，把木板放在平面上。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "（轮胎等）瘪了的；失去应有空气的。",
+          "definitionEn": "Having too little air to keep the intended shape, especially of a tyre.",
+          "examples": [
+            {
+              "en": "A flat tyre delayed our departure.",
+              "zh": "一个瘪轮胎耽误了我们出发。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "平淡的；缺少生气、变化或表情的。",
+          "definitionEn": "Lacking energy, expression, or interesting variation.",
+          "examples": [
+            {
+              "en": "His flat voice made the exciting news sound routine.",
+              "zh": "他平淡的语调把令人兴奋的消息说得像例行通知。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "（主要用于英式英语）公寓住宅；一栋楼内供一户居住的一套房间，通常可数。",
+          "definitionEn": "A self-contained home within a larger building, especially in British usage.",
+          "examples": [
+            {
+              "en": "They rent a small flat above the bakery.",
+              "zh": "他们租住在面包店楼上的一套小公寓里。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "完全地；彻底地，常用于 flat broke 等非正式表达。",
+          "definitionEn": "Completely, especially in a small set of informal expressions.",
+          "examples": [
+            {
+              "en": "After paying for the repairs, I was flat broke.",
+              "zh": "付完维修费后，我彻底没钱了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "（含气饮料）走气的；失去气泡的。",
+          "definitionEn": "No longer containing the expected bubbles of gas in a drink.",
+          "examples": [
+            {
+              "en": "The lemonade had gone flat by the time we returned.",
+              "zh": "我们回来时，那瓶柠檬汽水已经走气了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:flat:adjective:5",
+          "partOfSpeech": "adjective",
+          "definitionZh": "固定统一的；费用等不随用量或其他情况而改变的。",
+          "definitionEn": "Set at one fixed amount rather than varying with use or quantity.",
+          "examples": [
+            {
+              "en": "The hostel charges a flat fee for laundry.",
+              "zh": "这家旅舍对洗衣服务收取固定费用。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:foreign",
+      "headword": "foreign",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:foreign:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "外国的；来自或涉及本国以外国家的。",
+          "definitionEn": "Connected with a country other than the one being discussed.",
+          "examples": [
+            {
+              "en": "The shop stocks magazines in several foreign languages.",
+              "zh": "这家店出售几种外语的杂志。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:foreign:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "不熟悉的；与某人的经验、习惯等格格不入的，常用 foreign to。",
+          "definitionEn": "Unfamiliar or quite different from someone's experience or nature.",
+          "examples": [
+            {
+              "en": "Working without a timetable was foreign to her.",
+              "zh": "不按时间表工作让她很不习惯。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fortunate",
+      "headword": "fortunate",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:fortunate:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "幸运的；因有利条件或偶然机会而得到好结果的。",
+          "definitionEn": "Benefiting from good luck or favourable circumstances.",
+          "examples": [
+            {
+              "en": "We were fortunate to find shelter before the hail began.",
+              "zh": "我们很幸运，在冰雹开始前找到了避雨处。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:forward",
+      "headword": "forward",
+      "kind": "word",
+      "forms": [
+        "forwards",
+        "forwarded",
+        "forwarding"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:forward:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "向前；朝正面或前进方向。",
+          "definitionEn": "Towards the front or in the direction of progress.",
+          "examples": [
+            {
+              "en": "Move forward until you reach the yellow line.",
+              "zh": "向前移动，直到到达黄线。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:forward:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "前部的；靠近物体前端的。",
+          "definitionEn": "Located towards the front of something.",
+          "examples": [
+            {
+              "en": "Passengers entered through the forward door.",
+              "zh": "乘客从前门进入。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:forward:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "转发；把收到的信息、邮件等再发送给别人。",
+          "definitionEn": "To send a received message, letter, or item on to another person or place.",
+          "examples": [
+            {
+              "en": "Please forward the updated plan to the whole team.",
+              "zh": "请把更新后的计划转发给整个团队。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:forward:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "前锋；主要负责靠前进攻位置的运动员，通常可数。",
+          "definitionEn": "A player whose role is mainly to attack from an advanced position.",
+          "examples": [
+            {
+              "en": "The forward scored twice before half-time.",
+              "zh": "那名前锋在上半场结束前进了两个球。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fragile",
+      "headword": "fragile",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:fragile:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "易碎的；容易受损或被破坏的。也可形容不稳定、承受不了冲击的情况。",
+          "definitionEn": "Easily broken, damaged, or disrupted.",
+          "examples": [
+            {
+              "en": "The fragile shell cracked when the box fell.",
+              "zh": "盒子掉落时，那个易碎的贝壳裂了。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:free",
+      "headword": "free",
+      "kind": "word",
+      "forms": [
+        "freer",
+        "freest",
+        "frees",
+        "freed",
+        "freeing"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:free:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "免费的；不需要支付费用的。",
+          "definitionEn": "Available without payment.",
+          "examples": [
+            {
+              "en": "The museum offers free admission on Wednesdays.",
+              "zh": "博物馆周三免费开放。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:free:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "自由的；不被拘禁、强制或过多限制的。",
+          "definitionEn": "Not imprisoned, forced, or prevented from acting by restrictions.",
+          "examples": [
+            {
+              "en": "You are free to leave whenever you wish.",
+              "zh": "你想什么时候离开都可以。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:free:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有空的；没有被占用或尚未承担其他安排的。",
+          "definitionEn": "Not occupied or committed to another use or activity.",
+          "examples": [
+            {
+              "en": "Is the meeting room free after lunch?",
+              "zh": "午饭后会议室空着吗？"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:free:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "释放；使摆脱束缚、阻碍或限制。",
+          "definitionEn": "To release someone or something from a restriction or obstacle.",
+          "examples": [
+            {
+              "en": "The crew freed the rope from the fallen branch.",
+              "zh": "船员把绳子从倒下的树枝上解脱出来。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:free:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "免费地；不收费地。",
+          "definitionEn": "Without paying a charge.",
+          "examples": [
+            {
+              "en": "Children under five travel free on this service.",
+              "zh": "五岁以下儿童乘坐这项交通服务免费。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:free:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "没有某种不需要的事物的；免于其影响的，常用 free of / from。",
+          "definitionEn": "Without an unwanted thing or its effects.",
+          "examples": [
+            {
+              "en": "The path was free of obstacles after the clearing work.",
+              "zh": "清理工作完成后，小路上没有障碍物了。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:frequent",
+      "headword": "frequent",
+      "kind": "word",
+      "forms": [
+        "frequents",
+        "frequented",
+        "frequenting"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:frequent:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "频繁的；经常发生或多次出现的。",
+          "definitionEn": "Happening often or appearing many times.",
+          "examples": [
+            {
+              "en": "Frequent interruptions made the repair take longer.",
+              "zh": "频繁的打断让维修花了更长时间。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:frequent:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "（较正式）常去；经常到某个地方。",
+          "definitionEn": "To visit a particular place regularly.",
+          "examples": [
+            {
+              "en": "The café is frequented by students from the nearby college.",
+              "zh": "附近学院的学生经常光顾这家咖啡馆。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:fresh",
+      "headword": "fresh",
+      "kind": "word",
+      "forms": [
+        "fresher",
+        "freshest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:fresh:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "新鲜的；刚获得、制作或采摘，尚未变质的。",
+          "definitionEn": "Recently obtained, made, or picked and not spoiled.",
+          "examples": [
+            {
+              "en": "The stall sells fresh herbs from a local farm.",
+              "zh": "这个摊位出售来自当地农场的新鲜香草。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fresh:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "新的；与原来不同、重新开始使用的。",
+          "definitionEn": "New or different from what was used or considered before.",
+          "examples": [
+            {
+              "en": "A fresh approach helped us solve the old problem.",
+              "zh": "一种新方法帮助我们解决了老问题。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fresh:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "清新的；空气等洁净、凉爽而令人舒适的。",
+          "definitionEn": "Clean, cool, and pleasant, especially when describing air.",
+          "examples": [
+            {
+              "en": "We opened the windows to let in fresh air.",
+              "zh": "我们打开窗户，让新鲜空气进来。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:friendly",
+      "headword": "friendly",
+      "kind": "word",
+      "forms": [
+        "friendlier",
+        "friendliest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:friendly:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "友好的；表现出善意、乐于亲近或帮助的。",
+          "definitionEn": "Showing kindness and a willingness to be pleasant or helpful.",
+          "examples": [
+            {
+              "en": "A friendly neighbour showed us how to use the gate.",
+              "zh": "一位友善的邻居教我们怎样开关那道门。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:friendly:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "友谊性质的；比赛不计入正式联赛成绩等主要排名的。",
+          "definitionEn": "Played for practice or goodwill rather than as part of the main competition.",
+          "examples": [
+            {
+              "en": "The clubs arranged a friendly match before the season began.",
+              "zh": "赛季开始前，两家俱乐部安排了一场友谊赛。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:frightened",
+      "headword": "frightened",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:frightened:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "害怕的；因危险、突然情况等感到恐惧的。形容感受，不是事物“令人害怕”。",
+          "definitionEn": "Feeling fear because of danger or something alarming.",
+          "examples": [
+            {
+              "en": "The frightened kitten hid beneath the cupboard.",
+              "zh": "受惊的小猫躲到了柜子下面。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:full",
+      "headword": "full",
+      "kind": "word",
+      "forms": [
+        "fuller",
+        "fullest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:full:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "满的；已装到或接近容量上限的。",
+          "definitionEn": "Containing as much as it can hold.",
+          "examples": [
+            {
+              "en": "The bus was full, so we waited for the next one.",
+              "zh": "那辆公交车满员了，我们便等下一班。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:full:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "充满某物的；数量很多，常用 full of。",
+          "definitionEn": "Containing a large amount of the thing mentioned.",
+          "examples": [
+            {
+              "en": "Her notebook was full of sketches and questions.",
+              "zh": "她的笔记本里满是草图和问题。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:full:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "完整的；包含应有的全部部分或细节的。",
+          "definitionEn": "Including all the necessary parts or details.",
+          "examples": [
+            {
+              "en": "We need the full address before we can send the parcel.",
+              "zh": "寄出包裹前，我们需要完整地址。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:full:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "饱的；已经吃够、不再想进食的。",
+          "definitionEn": "Having eaten enough and not wanting more food.",
+          "examples": [
+            {
+              "en": "I was full after the soup and could not finish the bread.",
+              "zh": "喝完汤我就饱了，没能吃完面包。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:funny",
+      "headword": "funny",
+      "kind": "word",
+      "forms": [
+        "funnier",
+        "funniest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:funny:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "好笑的；能使人发笑的。",
+          "definitionEn": "Causing amusement or laughter.",
+          "examples": [
+            {
+              "en": "He told a funny story about his first day at work.",
+              "zh": "他讲了一个关于自己上班第一天的趣事。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:funny:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "奇怪的；不正常或令人疑惑的。",
+          "definitionEn": "Strange, unexpected, or not quite right.",
+          "examples": [
+            {
+              "en": "There is a funny smell coming from that cupboard.",
+              "zh": "那个柜子里传出一股怪味。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:general",
+      "headword": "general",
+      "kind": "word",
+      "forms": [
+        "generals"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:general:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "总体的；涉及整个群体或多数情况而非某一个别对象的。",
+          "definitionEn": "Relating to the whole group or to most cases rather than one individual.",
+          "examples": [
+            {
+              "en": "The general mood improved after the announcement.",
+              "zh": "公告发布后，大家的整体情绪好转了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:general:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "概括的；只涉及主要方面、不讲具体细节的。",
+          "definitionEn": "Covering the main points without much specific detail.",
+          "examples": [
+            {
+              "en": "The guide gave us a general outline of the route.",
+              "zh": "向导向我们概括介绍了路线。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:general:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "将军；军队中的高级军官，通常可数。具体等级随军衔制度不同。",
+          "definitionEn": "A senior military officer with a rank called general.",
+          "examples": [
+            {
+              "en": "The general met the engineering team at the damaged bridge.",
+              "zh": "那位将军在受损桥梁处会见了工程队。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:generous",
+      "headword": "generous",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:generous:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "慷慨的；愿意给予别人较多时间、帮助或财物的。",
+          "definitionEn": "Willing to give more time, help, or resources than might be expected.",
+          "examples": [
+            {
+              "en": "The volunteers were generous with their time.",
+              "zh": "志愿者们慷慨地投入了自己的时间。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:generous:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "充足的；数量大于通常需要或预期的。",
+          "definitionEn": "Larger in amount than the usual or minimum provision.",
+          "examples": [
+            {
+              "en": "Each bowl came with a generous portion of noodles.",
+              "zh": "每碗都盛了足量的面条。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:gentle",
+      "headword": "gentle",
+      "kind": "word",
+      "forms": [
+        "gentler",
+        "gentlest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:gentle:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "轻柔的；温和的，不使用很强的力气或粗暴方式的。",
+          "definitionEn": "Using little force and avoiding roughness.",
+          "examples": [
+            {
+              "en": "A gentle push was enough to close the drawer.",
+              "zh": "轻轻一推就把抽屉关上了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:gentle:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "平缓的；变化或坡度不陡、不剧烈的。",
+          "definitionEn": "Changing gradually rather than steeply or suddenly.",
+          "examples": [
+            {
+              "en": "A gentle slope leads down to the stream.",
+              "zh": "一道缓坡通向下面的小溪。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:genuine",
+      "headword": "genuine",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:genuine:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "真的；名副其实的，不是仿造或假冒的。",
+          "definitionEn": "Real rather than copied, artificial, or falsely presented.",
+          "examples": [
+            {
+              "en": "The dealer confirmed that the signature was genuine.",
+              "zh": "经销商确认那个签名是真的。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:genuine:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "真诚的；感受、兴趣等并非假装的。",
+          "definitionEn": "Sincerely felt rather than pretended.",
+          "examples": [
+            {
+              "en": "She showed genuine interest in the children's designs.",
+              "zh": "她对孩子们的设计表现出了真诚的兴趣。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:glad",
+      "headword": "glad",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:glad:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "高兴的；因某个情况而感到愉快或欣慰的，常用 glad to / that / about。",
+          "definitionEn": "Pleased or relieved about a particular situation.",
+          "examples": [
+            {
+              "en": "I am glad that you kept a copy of the letter.",
+              "zh": "我很高兴你保留了那封信的副本。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:global",
+      "headword": "global",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:global:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "全球的；涉及世界各地或整个世界的。",
+          "definitionEn": "Relating to the whole world rather than one country or region.",
+          "examples": [
+            {
+              "en": "The study compares local habits with global trends.",
+              "zh": "这项研究把当地习惯与全球趋势进行比较。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:good",
+      "headword": "good",
+      "kind": "word",
+      "forms": [
+        "better",
+        "best",
+        "goods"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:good:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "好的；质量、表现或结果达到较高或令人满意水平的。比较级为 better，最高级为 best。",
+          "definitionEn": "Of a satisfying or high standard in quality, performance, or result.",
+          "examples": [
+            {
+              "en": "The team produced a good design with very little equipment.",
+              "zh": "团队用很少的设备做出了不错的设计。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:good:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有益的；能带来帮助或改善的，常用 good for。",
+          "definitionEn": "Beneficial to someone or something.",
+          "examples": [
+            {
+              "en": "Regular breaks are good for my concentration.",
+              "zh": "定时休息有助于我集中注意力。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:good:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "擅长的；具备做好某事的能力，常用 good at。",
+          "definitionEn": "Skilled or successful at a particular activity.",
+          "examples": [
+            {
+              "en": "She is good at explaining complicated rules.",
+              "zh": "她擅长解释复杂的规则。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:good:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "善良正直的；按照道德或应有责任行事的。",
+          "definitionEn": "Behaving in a kind, honest, or morally responsible way.",
+          "examples": [
+            {
+              "en": "A good neighbour notices when someone needs help.",
+              "zh": "一位好邻居会留意别人何时需要帮助。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:good:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "好处；利益，通常不可数，常用 do good 或 for someone's good。",
+          "definitionEn": "A benefit or positive effect.",
+          "examples": [
+            {
+              "en": "The extra training did the volunteers a lot of good.",
+              "zh": "额外培训让志愿者们受益很大。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:good:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "货物；商品，这个意思用复数 goods，通常配复数动词。",
+          "definitionEn": "Items made, transported, or offered for sale, expressed in the plural as goods.",
+          "examples": [
+            {
+              "en": "The damaged goods were returned to the supplier.",
+              "zh": "受损货物被退还给了供应商。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:grateful",
+      "headword": "grateful",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:grateful:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "感激的；因为得到帮助、善意等而心怀感谢的，常用 grateful to someone for something。",
+          "definitionEn": "Feeling appreciation for help, kindness, or a welcome outcome.",
+          "examples": [
+            {
+              "en": "I am grateful to you for checking the figures.",
+              "zh": "感谢你核查这些数字。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:great",
+      "headword": "great",
+      "kind": "word",
+      "forms": [
+        "greater",
+        "greatest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:great:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "很大的；数量、程度或规模明显较大的。",
+          "definitionEn": "Large in amount, degree, or extent.",
+          "examples": [
+            {
+              "en": "Restoring the mural required great patience.",
+              "zh": "修复这幅壁画需要极大的耐心。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:great:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "非常好的；令人愉快或出色的，口语中常用于赞扬。",
+          "definitionEn": "Very good or enjoyable, often as informal praise.",
+          "examples": [
+            {
+              "en": "We had a great afternoon exploring the harbour.",
+              "zh": "我们探索了港口，度过了非常愉快的下午。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:great:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "杰出的；因成就或影响而受到高度尊重的。",
+          "definitionEn": "Highly respected for achievement, ability, or influence.",
+          "examples": [
+            {
+              "en": "The exhibition celebrates a great photographer's early work.",
+              "zh": "这场展览展示了一位杰出摄影师的早期作品。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:guilty",
+      "headword": "guilty",
+      "kind": "word",
+      "forms": [
+        "guiltier",
+        "guiltiest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:guilty:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有罪的；应对过错负责的，常用 guilty of。",
+          "definitionEn": "Responsible for an offence or wrongdoing.",
+          "examples": [
+            {
+              "en": "The investigation found him guilty of falsifying the records.",
+              "zh": "调查认定，他应对伪造记录的行为负责。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:guilty:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "内疚的；因为觉得自己做错了事而难受的，常用 guilty about。",
+          "definitionEn": "Feeling bad because you believe you have done something wrong.",
+          "examples": [
+            {
+              "en": "I felt guilty about leaving her to tidy the whole room.",
+              "zh": "让她一个人整理整个房间，我感到内疚。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:happy",
+      "headword": "happy",
+      "kind": "word",
+      "forms": [
+        "happier",
+        "happiest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:happy:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "高兴的；满足而愉快的。",
+          "definitionEn": "Feeling pleasure, satisfaction, or contentment.",
+          "examples": [
+            {
+              "en": "The children were happy to see the rescued puppy.",
+              "zh": "孩子们看到获救的小狗都很高兴。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:happy:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "乐意的；愿意接受或做某事的，常用 happy to / with。",
+          "definitionEn": "Willing or satisfied to do or accept something.",
+          "examples": [
+            {
+              "en": "I am happy to cover your shift on Saturday.",
+              "zh": "我愿意在周六替你值班。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:hard",
+      "headword": "hard",
+      "kind": "word",
+      "forms": [
+        "harder",
+        "hardest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:hard:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "硬的；不容易被压弯、压碎或改变形状的。",
+          "definitionEn": "Firm and resistant to being pressed, bent, or broken.",
+          "examples": [
+            {
+              "en": "The clay becomes hard after firing.",
+              "zh": "黏土烧制后会变硬。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:hard:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "困难的；需要较多努力、技巧或忍耐才能完成的。",
+          "definitionEn": "Difficult to do, understand, or endure.",
+          "examples": [
+            {
+              "en": "Choosing which photographs to keep was hard.",
+              "zh": "决定保留哪些照片很难。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:hard:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "努力地；用很大力气地。hardly 通常表示“几乎不”，不是这个意思。",
+          "definitionEn": "With a lot of effort or force.",
+          "examples": [
+            {
+              "en": "They worked hard to finish the shelter before winter.",
+              "zh": "他们努力工作，赶在冬天前建好了庇护所。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:harmful",
+      "headword": "harmful",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:harmful:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有害的；可能造成伤害、损坏或不良影响的，常用 harmful to。",
+          "definitionEn": "Causing or capable of causing damage or an unwanted effect.",
+          "examples": [
+            {
+              "en": "The coating keeps harmful moisture away from the wood.",
+              "zh": "这层涂料让有害的潮气无法侵入木材。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:healthy",
+      "headword": "healthy",
+      "kind": "word",
+      "forms": [
+        "healthier",
+        "healthiest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:healthy:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "健康的；身体状况良好、没有明显疾病的。",
+          "definitionEn": "In a good physical condition rather than ill.",
+          "examples": [
+            {
+              "en": "The vet said the young rabbit was healthy.",
+              "zh": "兽医说，那只小兔子很健康。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:healthy:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有益健康的；有助于维持良好身体状态的。",
+          "definitionEn": "Helping to maintain or improve health.",
+          "examples": [
+            {
+              "en": "The workshop discussed healthy habits for a busy week.",
+              "zh": "工作坊讨论了忙碌一周中有益健康的习惯。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:healthy:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "健全而良好的；具有活力、发展正常的。",
+          "definitionEn": "Strong and functioning well in a non-medical sense.",
+          "examples": [
+            {
+              "en": "A healthy debate allows people to question the plan.",
+              "zh": "健全的讨论允许人们质疑计划。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:heavy",
+      "headword": "heavy",
+      "kind": "word",
+      "forms": [
+        "heavier",
+        "heaviest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:heavy:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "重的；重量大、拿起或移动费力的。",
+          "definitionEn": "Having substantial weight or being difficult to lift.",
+          "examples": [
+            {
+              "en": "The heavy door needed two people to move it.",
+              "zh": "那扇沉重的门需要两个人来搬。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:heavy:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "大量的；强烈的，常形容降雨、交通等。",
+          "definitionEn": "Present in a large amount or with great intensity.",
+          "examples": [
+            {
+              "en": "Heavy rain flooded the entrance to the tunnel.",
+              "zh": "大雨淹没了隧道入口。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:heavy:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "繁重的；需要很多劳动或使人负担很大的。",
+          "definitionEn": "Demanding considerable work, responsibility, or effort.",
+          "examples": [
+            {
+              "en": "She had a heavy workload during the final week.",
+              "zh": "最后一周，她的工作负担很重。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:helpful",
+      "headword": "helpful",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:helpful:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有帮助的；能使事情更容易理解或完成的。",
+          "definitionEn": "Making a task easier or improving understanding.",
+          "examples": [
+            {
+              "en": "The diagram was helpful when we assembled the frame.",
+              "zh": "组装框架时，那张示意图帮了大忙。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:helpful:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "乐于助人的；愿意提供帮助的。",
+          "definitionEn": "Willing to offer assistance.",
+          "examples": [
+            {
+              "en": "A helpful passenger lifted the bag onto the rack.",
+              "zh": "一位乐于助人的乘客把包举到了行李架上。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:high",
+      "headword": "high",
+      "kind": "word",
+      "forms": [
+        "higher",
+        "highest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:high:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "高的；从地面或底部向上距离较大的。",
+          "definitionEn": "Extending or positioned a long way above the ground or a base.",
+          "examples": [
+            {
+              "en": "A high wall separates the garden from the road.",
+              "zh": "一道高墙把花园与道路隔开。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:high:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "高水平的；数值、程度或等级较大的。",
+          "definitionEn": "Large in level, amount, degree, or rank.",
+          "examples": [
+            {
+              "en": "The shop has high standards for the materials it buys.",
+              "zh": "这家店对采购的材料有很高的标准。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:high:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "高高地；在离地面较远的位置。",
+          "definitionEn": "At or to a position far above the ground.",
+          "examples": [
+            {
+              "en": "The kite flew high above the roofs.",
+              "zh": "风筝高高地飞在屋顶上方。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:historical",
+      "headword": "historical",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:historical:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "历史的；与过去的事件或对过去的研究有关的。historic 更侧重“具有重大历史意义的”。",
+          "definitionEn": "Connected with past events or the study of the past.",
+          "examples": [
+            {
+              "en": "The archive contains historical records of the harbour.",
+              "zh": "档案馆保存着港口的历史记录。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:historical:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "以过去时代为背景的；常形容小说或戏剧。",
+          "definitionEn": "Set in a period of the past, especially of fiction or drama.",
+          "examples": [
+            {
+              "en": "She writes historical novels about ordinary working families.",
+              "zh": "她创作以普通劳动家庭为题材的历史小说。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:honest",
+      "headword": "honest",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:honest:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "诚实的；不故意说谎、欺骗或隐瞒真实想法的。",
+          "definitionEn": "Truthful and not intentionally misleading others.",
+          "examples": [
+            {
+              "en": "Please give me an honest opinion of the draft.",
+              "zh": "请告诉我你对草稿的真实看法。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:hot",
+      "headword": "hot",
+      "kind": "word",
+      "forms": [
+        "hotter",
+        "hottest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:hot:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "热的；温度高的。",
+          "definitionEn": "Having a high temperature.",
+          "examples": [
+            {
+              "en": "The bowls were still hot when the food arrived.",
+              "zh": "食物送来时，那些碗还是热的。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:hot:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "辣的；有辛辣、灼热味觉的。",
+          "definitionEn": "Having a spicy taste that produces a burning sensation.",
+          "examples": [
+            {
+              "en": "This sauce is too hot for me.",
+              "zh": "这个酱对我来说太辣了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:hot:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "热门的；受到很多关注或需求的，多用于非正式表达。",
+          "definitionEn": "Currently attracting strong interest or demand.",
+          "examples": [
+            {
+              "en": "The new puzzle game became a hot topic at school.",
+              "zh": "那款新益智游戏成了学校里的热门话题。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:huge",
+      "headword": "huge",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:huge:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "巨大的；大小、数量或程度非常大的。",
+          "definitionEn": "Extremely large in size, amount, or degree.",
+          "examples": [
+            {
+              "en": "A huge fallen tree blocked the entrance to the track.",
+              "zh": "一棵倒下的大树挡住了小径入口。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:human",
+      "headword": "human",
+      "kind": "word",
+      "forms": [
+        "humans"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:human:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "人类的；属于人或与人有关的。",
+          "definitionEn": "Belonging to or connected with people.",
+          "examples": [
+            {
+              "en": "The exhibition explores the human need for stories.",
+              "zh": "这场展览探讨了人类对故事的需要。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:human:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有人性弱点的；并非完美、难免犯错或有感情的。",
+          "definitionEn": "Having the feelings or limitations of people rather than being perfect.",
+          "examples": [
+            {
+              "en": "She is only human; she cannot solve every problem at once.",
+              "zh": "她也只是普通人，不可能一下子解决所有问题。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:human:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "人；人类中的一个成员，通常可数，复数 humans。",
+          "definitionEn": "A member of the species to which people belong.",
+          "examples": [
+            {
+              "en": "The barrier keeps humans separate from the wild animals.",
+              "zh": "那道屏障把人与野生动物隔开。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:hungry",
+      "headword": "hungry",
+      "kind": "word",
+      "forms": [
+        "hungrier",
+        "hungriest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:hungry:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "饥饿的；感到需要进食的。",
+          "definitionEn": "Feeling a need for food.",
+          "examples": [
+            {
+              "en": "We were hungry after the long walk.",
+              "zh": "走了很长一段路之后，我们都饿了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:hungry:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "渴望的；强烈想获得某物的，常用 hungry for。",
+          "definitionEn": "Strongly wanting to obtain or experience something.",
+          "examples": [
+            {
+              "en": "The young reporters were hungry for new stories.",
+              "zh": "那些年轻记者渴望找到新鲜报道题材。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:ideal",
+      "headword": "ideal",
+      "kind": "word",
+      "forms": [
+        "ideals"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:ideal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "理想的；与某种用途或希望完全或非常契合的。",
+          "definitionEn": "As suitable or desirable as someone could reasonably want.",
+          "examples": [
+            {
+              "en": "The quiet room is ideal for recording interviews.",
+              "zh": "这间安静的房间很适合录制访谈。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:ideal:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "理想；作为追求目标的完美标准或重要原则，通常可数。",
+          "definitionEn": "A standard of perfection or a principle someone hopes to achieve.",
+          "examples": [
+            {
+              "en": "The school's ideals include fairness and curiosity.",
+              "zh": "这所学校追求的理念包括公平与求知。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:ill",
+      "headword": "ill",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:ill:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "生病的；身体或精神健康状况不好的，主要作表语。",
+          "definitionEn": "Not in good health.",
+          "examples": [
+            {
+              "en": "He was ill for several days and missed the trip.",
+              "zh": "他病了好几天，没能参加那次旅行。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:ill:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "不好地；不充分地，常见于 ill prepared 等结构。",
+          "definitionEn": "Badly or inadequately, often before a participle.",
+          "examples": [
+            {
+              "en": "We were ill prepared for the sudden change of weather.",
+              "zh": "我们对天气的突然变化准备不足。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:illegal",
+      "headword": "illegal",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:illegal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "违法的；法律不允许的。具体是否合法取决于适用的法律和情境。",
+          "definitionEn": "Not permitted by the law that applies in a situation.",
+          "examples": [
+            {
+              "en": "The notice warned visitors that dumping waste there was illegal.",
+              "zh": "告示提醒游客，在那里倾倒垃圾是违法的。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:immediate",
+      "headword": "immediate",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:immediate:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "立即的；没有明显等待或延迟的。",
+          "definitionEn": "Happening or required without delay.",
+          "examples": [
+            {
+              "en": "The leak needed immediate attention.",
+              "zh": "漏水问题需要立即处理。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:immediate:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "紧邻的；最接近的周边范围或关系中的。",
+          "definitionEn": "Closest in place or relationship rather than more distant.",
+          "examples": [
+            {
+              "en": "Only the immediate area around the well was fenced off.",
+              "zh": "只有水井紧邻的周边区域被围了起来。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:important",
+      "headword": "important",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:important:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "重要的；值得关注，因为会产生较大影响或具有较高价值的。",
+          "definitionEn": "Worth attention because of its influence, value, or possible effect.",
+          "examples": [
+            {
+              "en": "The label contains important information about storage.",
+              "zh": "标签上有重要的储存说明。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:impossible",
+      "headword": "impossible",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:impossible:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "不可能的；在有关条件下无法发生或做到的。",
+          "definitionEn": "Unable to happen or be achieved under the relevant conditions.",
+          "examples": [
+            {
+              "en": "Moving the cabinet alone would be impossible.",
+              "zh": "一个人搬动那个柜子是不可能的。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:impossible:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "难以应付的；非常不讲理或不肯合作的，多用于非正式表达。",
+          "definitionEn": "Extremely difficult to deal with because of unreasonable or uncooperative behaviour.",
+          "examples": [
+            {
+              "en": "The customer became impossible when the shop could not replace the item.",
+              "zh": "商店无法更换那件商品时，那位顾客变得很难应付。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:impressive",
+      "headword": "impressive",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:impressive:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "令人赞叹的；因能力、规模或质量等给人留下深刻好印象的。",
+          "definitionEn": "Causing admiration because of quality, ability, size, or achievement.",
+          "examples": [
+            {
+              "en": "Her first attempt produced an impressive wooden model.",
+              "zh": "她第一次尝试就做出了一个令人赞叹的木制模型。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:independent",
+      "headword": "independent",
+      "kind": "word",
+      "forms": [
+        "independents"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:independent:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "独立自主的；不需要他人持续支持或帮助的。",
+          "definitionEn": "Able to act or function without continual help from others.",
+          "examples": [
+            {
+              "en": "The course helps beginners become independent learners.",
+              "zh": "这门课程帮助初学者成为能够自主学习的人。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:independent:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "独立的；不受外部组织或权力控制的。",
+          "definitionEn": "Not controlled by another organization or authority.",
+          "examples": [
+            {
+              "en": "An independent team checked the water samples.",
+              "zh": "一个独立团队检查了水样。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:independent:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "无党派人士；不隶属于政党的参选者或议员，通常可数。",
+          "definitionEn": "A political candidate or representative who does not belong to a party.",
+          "examples": [
+            {
+              "en": "Two independents stood in the local election.",
+              "zh": "两名无党派人士参加了当地选举。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:individual",
+      "headword": "individual",
+      "kind": "word",
+      "forms": [
+        "individuals"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:individual:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "单个的；分别属于每一个人或对象的，而不是全体共用的。",
+          "definitionEn": "Relating to one person or thing separately rather than the group as a whole.",
+          "examples": [
+            {
+              "en": "Each visitor received an individual access code.",
+              "zh": "每位来访者都获得了独立的访问代码。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:individual:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "独特的；具有个人特色、不同于别人的。",
+          "definitionEn": "Distinctive in a way that reflects a person's own character.",
+          "examples": [
+            {
+              "en": "Her individual style made the small café memorable.",
+              "zh": "她独特的风格让这家小咖啡馆令人难忘。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:individual:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "个人；个体，通常可数。",
+          "definitionEn": "One person or thing considered separately from a group.",
+          "examples": [
+            {
+              "en": "The report focuses on how each individual uses the service.",
+              "zh": "这份报告关注每个人如何使用这项服务。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:industrial",
+      "headword": "industrial",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:industrial:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "工业的；与工厂生产、工业活动或相关设备有关的。",
+          "definitionEn": "Connected with manufacturing or large-scale industrial activity.",
+          "examples": [
+            {
+              "en": "The empty industrial building became a community workshop.",
+              "zh": "那栋闲置的工业建筑被改成了社区工作坊。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:informal",
+      "headword": "informal",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:informal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "非正式的；不拘礼节、较随意，或不按照完整正式程序进行的。",
+          "definitionEn": "Relaxed or not organized according to formal conventions or procedures.",
+          "examples": [
+            {
+              "en": "We had an informal chat before the interview began.",
+              "zh": "面试开始前，我们随意聊了一会儿。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:initial",
+      "headword": "initial",
+      "kind": "word",
+      "forms": [
+        "initials",
+        "initialled",
+        "initialling",
+        "initialed",
+        "initialing"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:initial:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "开始的；最初阶段的。",
+          "definitionEn": "Occurring at the beginning of a process or period.",
+          "examples": [
+            {
+              "en": "The initial test revealed a loose cable.",
+              "zh": "最初的测试发现了一根松动的电缆。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:initial:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "姓名首字母；姓名中一个词的第一个字母，常用复数 initials。",
+          "definitionEn": "The first letter of one of the words in a person's name.",
+          "examples": [
+            {
+              "en": "Please write your initials beside the correction.",
+              "zh": "请在修改处旁边写上你的姓名首字母。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:initial:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "签姓名首字母；用姓名首字母表示确认等。",
+          "definitionEn": "To mark a document with the first letters of your name.",
+          "examples": [
+            {
+              "en": "Initial each page before returning the form.",
+              "zh": "交回表格之前，请在每页签上姓名首字母。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:inner",
+      "headword": "inner",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:inner:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "里面的；靠内部的。",
+          "definitionEn": "On the inside or closer to the centre.",
+          "examples": [
+            {
+              "en": "The inner door keeps cold air out of the studio.",
+              "zh": "里面那道门能防止冷空气进入工作室。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:inner:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "内心的；不一定表露在外的思想或感受的。",
+          "definitionEn": "Connected with thoughts or feelings that are not necessarily shown to others.",
+          "examples": [
+            {
+              "en": "The diary records her inner doubts about the decision.",
+              "zh": "日记记录了她内心对这个决定的疑虑。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:innocent",
+      "headword": "innocent",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:innocent:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "无辜的；没有犯下所指控的罪行或过错的。",
+          "definitionEn": "Not responsible for the offence or wrongdoing in question.",
+          "examples": [
+            {
+              "en": "The recovered receipt helped show that she was innocent.",
+              "zh": "找回的收据有助于证明她是无辜的。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:innocent:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "天真的；缺乏对复杂、不友善或不诚实事情的经验的。",
+          "definitionEn": "Lacking experience of deceit, wrongdoing, or difficult realities.",
+          "examples": [
+            {
+              "en": "He was too innocent to recognize the trick.",
+              "zh": "他太天真，没有识破那个骗局。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:innocent:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "无害的；没有恶意或不包含危险的。",
+          "definitionEn": "Not intended to cause harm, or not dangerous in itself.",
+          "examples": [
+            {
+              "en": "What seemed an innocent joke caused an unexpected argument.",
+              "zh": "一个看似没有恶意的玩笑引发了意料之外的争执。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:intelligent",
+      "headword": "intelligent",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:intelligent:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "聪明的；善于学习、理解和作出合理判断的。",
+          "definitionEn": "Able to learn, understand, and make sound judgments.",
+          "examples": [
+            {
+              "en": "The intelligent questions showed that the class had understood the problem.",
+              "zh": "那些有见地的问题表明，学生们已经理解了这个问题。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:intense",
+      "headword": "intense",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:intense:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "强烈的；感受、活动或某种状态达到很高程度的。",
+          "definitionEn": "Very strong in degree, feeling, or activity.",
+          "examples": [
+            {
+              "en": "Intense sunlight faded the cloth near the window.",
+              "zh": "强烈的阳光让窗边的布料褪了色。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:interesting",
+      "headword": "interesting",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:interesting:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "有趣的；能吸引注意、使人想了解更多的。不一定意味着好笑。",
+          "definitionEn": "Holding attention and making someone want to know more.",
+          "examples": [
+            {
+              "en": "The guide pointed out an interesting feature of the old roof.",
+              "zh": "向导指出了旧屋顶一个有趣的特点。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:internal",
+      "headword": "internal",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:internal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "内部的；位于物体或身体里面的。",
+          "definitionEn": "Situated inside an object or body.",
+          "examples": [
+            {
+              "en": "The technician examined the camera's internal components.",
+              "zh": "技术人员检查了相机的内部部件。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:internal:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "内部事务的；限于某组织、国家等自身范围之内的。",
+          "definitionEn": "Taking place within an organization, country, or other unit rather than involving outsiders.",
+          "examples": [
+            {
+              "en": "The report was prepared for internal discussion only.",
+              "zh": "这份报告只用于内部讨论。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:international",
+      "headword": "international",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:international:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "国际的；涉及两个或更多国家之间的联系或活动的。",
+          "definitionEn": "Involving or connecting two or more countries.",
+          "examples": [
+            {
+              "en": "The library joined an international book-sharing project.",
+              "zh": "图书馆参加了一个国际图书共享项目。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:junior",
+      "headword": "junior",
+      "kind": "word",
+      "forms": [
+        "juniors"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:junior:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "级别较低的；资历或年龄较小的，常用 junior to 表示级别低于某人。",
+          "definitionEn": "Lower in rank or experience, or younger than another person.",
+          "examples": [
+            {
+              "en": "A junior designer prepared the first sketches.",
+              "zh": "一名初级设计师绘制了最初的草图。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:junior:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "资历较浅或年龄较小的人；在团体中处于较低等级的成员，通常可数。",
+          "definitionEn": "A younger or less senior member of a group.",
+          "examples": [
+            {
+              "en": "Senior staff helped the juniors learn the filing system.",
+              "zh": "资深员工帮助新同事学习归档系统。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:junior:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "（美式教育）四年制高中或大学三年级的学生，通常可数。",
+          "definitionEn": "A student in the third year of a four-year high-school or college course in the United States.",
+          "examples": [
+            {
+              "en": "As a college junior, she began planning her final-year project.",
+              "zh": "上大学三年级时，她开始规划毕业年项目。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:just",
+      "headword": "just",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:just:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "仅仅；只是，用来限制范围或数量。",
+          "definitionEn": "Only, with no more than the person, thing, or amount stated.",
+          "examples": [
+            {
+              "en": "I need just one more screw to finish the shelf.",
+              "zh": "我只再需要一颗螺丝就能装好架子。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:just:adverb:2",
+          "partOfSpeech": "adverb",
+          "definitionZh": "刚刚；不久前，常与完成时等搭配。",
+          "definitionEn": "A very short time before the present or another point in time.",
+          "examples": [
+            {
+              "en": "The ferry has just arrived.",
+              "zh": "渡轮刚刚到达。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:just:adverb:3",
+          "partOfSpeech": "adverb",
+          "definitionZh": "恰好；正是，强调准确相符。",
+          "definitionEn": "Exactly, with no relevant difference.",
+          "examples": [
+            {
+              "en": "That is just the colour I wanted.",
+              "zh": "那正是我想要的颜色。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:just:adverb:4",
+          "partOfSpeech": "adverb",
+          "definitionZh": "勉强；差一点就没有做到。",
+          "definitionEn": "By a small margin rather than comfortably.",
+          "examples": [
+            {
+              "en": "We just caught the last train.",
+              "zh": "我们勉强赶上了末班火车。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:just:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "公正的；符合公平和合理原则的。",
+          "definitionEn": "Fair and based on reasonable treatment of everyone involved.",
+          "examples": [
+            {
+              "en": "The committee tried to reach a just decision.",
+              "zh": "委员会努力作出公正的决定。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:kind",
+      "headword": "kind",
+      "kind": "word",
+      "forms": [
+        "kinder",
+        "kindest",
+        "kinds"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:kind:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "友善体贴的；关心别人感受、愿意帮助的。",
+          "definitionEn": "Considerate of other people's feelings and willing to help.",
+          "examples": [
+            {
+              "en": "It was kind of him to wait until I finished packing.",
+              "zh": "他等我收拾完才走，真体贴。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:kind:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "种类；具有共同特征的一类人或物，通常可数。",
+          "definitionEn": "A category of people or things with shared features.",
+          "examples": [
+            {
+              "en": "What kind of paper works best with this printer?",
+              "zh": "这台打印机最适合哪种纸？"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:large",
+      "headword": "large",
+      "kind": "word",
+      "forms": [
+        "larger",
+        "largest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:large:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "大的；尺寸、数量或范围超过通常水平的。",
+          "definitionEn": "Greater than usual in size, quantity, or extent.",
+          "examples": [
+            {
+              "en": "A large crowd gathered outside the restored theatre.",
+              "zh": "修复后的剧院外聚集了一大群人。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:late",
+      "headword": "late",
+      "kind": "word",
+      "forms": [
+        "later",
+        "latest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:late:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "迟的；晚到的；超过约定或预期时间的。",
+          "definitionEn": "Arriving or happening after the expected or arranged time.",
+          "examples": [
+            {
+              "en": "A late delivery held up the whole repair.",
+              "zh": "一次迟到的送货耽误了整个维修工作。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:late:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "接近某段时间末尾的。",
+          "definitionEn": "Near the end of a period.",
+          "examples": [
+            {
+              "en": "The trees turn gold in late autumn.",
+              "zh": "深秋时，树木变成金黄色。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:late:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "已故的；用于提及去世的人，常置于姓名或身份前。",
+          "definitionEn": "No longer living, when referring respectfully to someone.",
+          "examples": [
+            {
+              "en": "The garden was named after her late father.",
+              "zh": "花园以她已故父亲的名字命名。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:late:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "晚；在约定、通常或预期时间之后。",
+          "definitionEn": "After the usual, expected, or agreed time.",
+          "examples": [
+            {
+              "en": "We arrived late because a tree had blocked the road.",
+              "zh": "由于一棵树挡住了道路，我们到晚了。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:latter",
+      "headword": "latter",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:latter:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "后面的；某个时期或整体中较靠后的部分的。",
+          "definitionEn": "Belonging to the later part of a period or sequence.",
+          "examples": [
+            {
+              "en": "The latter chapters explain how the design was tested.",
+              "zh": "后面几章解释了这个设计是如何测试的。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:latter:pronoun:1",
+          "partOfSpeech": "pronoun",
+          "definitionZh": "后者；the latter 指刚提到的两个人或事物中的第二个，与 the former 相对。",
+          "definitionEn": "The second of two people or things just mentioned, used as the latter.",
+          "examples": [
+            {
+              "en": "We considered a tent and a cabin; the latter offered better shelter.",
+              "zh": "我们考虑过帐篷和小屋，后者能提供更好的遮蔽。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:lazy",
+      "headword": "lazy",
+      "kind": "word",
+      "forms": [
+        "lazier",
+        "laziest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:lazy:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "懒惰的；不愿付出必要努力或行动的。",
+          "definitionEn": "Unwilling to make the effort or take the action expected.",
+          "examples": [
+            {
+              "en": "He admitted that he had been too lazy to label the boxes.",
+              "zh": "他承认自己懒得给那些箱子贴标签。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:legal",
+      "headword": "legal",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:legal:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "合法的；适用法律所允许的。具体合法性取决于有关法律与事实。",
+          "definitionEn": "Allowed by the law that applies.",
+          "examples": [
+            {
+              "en": "The organiser checked whether the proposed use of the hall was legal.",
+              "zh": "组织者核查了礼堂的拟议用途是否合法。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:legal:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "法律的；与法律制度、程序或法律职业有关的。",
+          "definitionEn": "Connected with laws, legal procedures, or the profession of law.",
+          "examples": [
+            {
+              "en": "The charity offered help with legal paperwork.",
+              "zh": "这家慈善机构提供法律文书方面的帮助。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:light",
+      "headword": "light",
+      "kind": "word",
+      "forms": [
+        "lighter",
+        "lightest",
+        "lights",
+        "lit",
+        "lighted",
+        "lighting"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:light:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "光；使人能够看见事物的光亮，通常不可数。",
+          "definitionEn": "The visible illumination that allows people to see.",
+          "examples": [
+            {
+              "en": "Morning light reached the back of the room.",
+              "zh": "晨光照到了房间后部。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "灯；发光的照明装置，通常可数。",
+          "definitionEn": "A lamp or other device that gives illumination.",
+          "examples": [
+            {
+              "en": "One light above the workbench had stopped working.",
+              "zh": "工作台上方的一盏灯坏了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "轻的；重量较小、容易拿动的。",
+          "definitionEn": "Having relatively little weight.",
+          "examples": [
+            {
+              "en": "The light suitcase was easy to lift onto the rack.",
+              "zh": "那个轻便的行李箱很容易举到行李架上。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "浅色的；颜色不深的。",
+          "definitionEn": "Pale in colour rather than dark.",
+          "examples": [
+            {
+              "en": "She chose light blue fabric for the curtains.",
+              "zh": "她选了浅蓝色的布做窗帘。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "少量而不繁重的；食物等不多、不浓重的。",
+          "definitionEn": "Small or mild in amount rather than heavy or demanding.",
+          "examples": [
+            {
+              "en": "We had a light meal before setting off.",
+              "zh": "出发前，我们吃了一顿简单清淡的饭。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:adjective:4",
+          "partOfSpeech": "adjective",
+          "definitionZh": "明亮的；光线充足的，常形容房间或其他空间。",
+          "definitionEn": "Bright because it receives plenty of light, rather than dark.",
+          "examples": [
+            {
+              "en": "Large windows keep the studio light throughout the afternoon.",
+              "zh": "大窗户让工作室整个下午都很明亮。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "点燃；使开始燃烧。过去式、过去分词常用 lit，也可用 lighted。",
+          "definitionEn": "To make something begin to burn.",
+          "examples": [
+            {
+              "en": "She lit a candle beside the window.",
+              "zh": "她在窗边点了一支蜡烛。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:verb:2",
+          "partOfSpeech": "verb",
+          "definitionZh": "照亮；为某处提供光线。",
+          "definitionEn": "To provide illumination for a place.",
+          "examples": [
+            {
+              "en": "Small lanterns lit the path through the garden.",
+              "zh": "小灯笼照亮了穿过花园的小路。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:light:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "轻装地；不带很多行李，常见于 travel light。",
+          "definitionEn": "With little luggage, especially in the expression travel light.",
+          "examples": [
+            {
+              "en": "We travelled light for the weekend trip.",
+              "zh": "那次周末旅行，我们轻装出行。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:likely",
+      "headword": "likely",
+      "kind": "word",
+      "forms": [
+        "likelier",
+        "likeliest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:likely:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "很可能的；预计会发生的，常用 likely to 或 it is likely that。",
+          "definitionEn": "Expected to happen or probably true.",
+          "examples": [
+            {
+              "en": "The repairs are likely to take another day.",
+              "zh": "维修很可能还需要一天。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:likely:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "很可能；大概，常置于主要动词前，美式英语尤其常见。",
+          "definitionEn": "Probably, especially in American usage.",
+          "examples": [
+            {
+              "en": "The library will likely extend its opening hours.",
+              "zh": "图书馆很可能会延长开放时间。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:little",
+      "headword": "little",
+      "kind": "word",
+      "forms": [
+        "less",
+        "least",
+        "littler",
+        "littlest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:little:determiner:1",
+          "partOfSpeech": "determiner",
+          "definitionZh": "很少的；用于不可数名词前，常暗示不够。a little 通常表示有一点。",
+          "definitionEn": "Not much, used with an uncountable noun and often suggesting a shortage.",
+          "examples": [
+            {
+              "en": "There is little water left in the tank.",
+              "zh": "水箱里几乎没有剩余的水了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:little:pronoun:1",
+          "partOfSpeech": "pronoun",
+          "definitionZh": "少量；少许，代替前文或语境中可理解的事物。a little 常表示有一些。",
+          "definitionEn": "A small amount of something understood from context.",
+          "examples": [
+            {
+              "en": "I saved a little for tomorrow.",
+              "zh": "我留了一点给明天用。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:little:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "小的；体积、年龄等较小的，常带亲切语气。",
+          "definitionEn": "Small in size or young in age, often with an affectionate tone.",
+          "examples": [
+            {
+              "en": "A little bird sheltered beneath the bench.",
+              "zh": "一只小鸟在长椅下面躲避风雨。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:little:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "不多；程度很小。",
+          "definitionEn": "Not much or to only a small degree.",
+          "examples": [
+            {
+              "en": "The village has changed little since our last visit.",
+              "zh": "自从我们上次来访后，这个村庄几乎没变。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:lively",
+      "headword": "lively",
+      "kind": "word",
+      "forms": [
+        "livelier",
+        "liveliest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:lively:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "活泼的；精力充沛、活动很多的。",
+          "definitionEn": "Full of energy and movement.",
+          "examples": [
+            {
+              "en": "The lively puppy would not sit still for the photograph.",
+              "zh": "那只活泼的小狗怎么也不肯坐好拍照。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:lively:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "热烈有趣的；气氛活跃、吸引人参与的。",
+          "definitionEn": "Animated and interesting enough to encourage involvement.",
+          "examples": [
+            {
+              "en": "The talk led to a lively discussion about local history.",
+              "zh": "讲座引发了关于当地历史的热烈讨论。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:local",
+      "headword": "local",
+      "kind": "word",
+      "forms": [
+        "locals"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:local:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "当地的；与某一附近地区或小范围有关的。",
+          "definitionEn": "Connected with a particular nearby area rather than a wider region.",
+          "examples": [
+            {
+              "en": "The local bakery opens before sunrise.",
+              "zh": "当地面包店在日出前就开门了。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:local:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "当地人；居住在有关地区的人，通常可数。",
+          "definitionEn": "A person who lives in the area being discussed.",
+          "examples": [
+            {
+              "en": "The locals recommended a quieter path to the beach.",
+              "zh": "当地人推荐了一条通往海滩的更安静的小路。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:lonely",
+      "headword": "lonely",
+      "kind": "word",
+      "forms": [
+        "lonelier",
+        "loneliest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:lonely:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "孤独的；因缺少想要的陪伴而难过的。不同于单纯独处的 alone。",
+          "definitionEn": "Unhappy because you lack the company or connection you want.",
+          "examples": [
+            {
+              "en": "She felt lonely after moving away from her friends.",
+              "zh": "搬到远离朋友的地方后，她感到孤独。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:lonely:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "偏僻的；很少有人来往或居住的。",
+          "definitionEn": "Remote and seldom visited or inhabited.",
+          "examples": [
+            {
+              "en": "A lonely cottage stood at the end of the track.",
+              "zh": "一栋偏僻的小屋坐落在小径尽头。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:long",
+      "headword": "long",
+      "kind": "word",
+      "forms": [
+        "longer",
+        "longest",
+        "longs",
+        "longed",
+        "longing"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:long:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "长的；从一端到另一端距离较大的。",
+          "definitionEn": "Measuring a considerable distance from one end to the other.",
+          "examples": [
+            {
+              "en": "A long wooden table filled the narrow room.",
+              "zh": "一张长木桌占满了那个狭窄的房间。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:long:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "长时间的；持续时间较久的。",
+          "definitionEn": "Lasting for a considerable amount of time.",
+          "examples": [
+            {
+              "en": "We took a long break after finishing the roof.",
+              "zh": "屋顶完工后，我们休息了很久。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:long:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "长久地；很长时间，常用于疑问句和否定句等。",
+          "definitionEn": "For a considerable amount of time.",
+          "examples": [
+            {
+              "en": "Have you been waiting long?",
+              "zh": "你等很久了吗？"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:long:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "渴望；强烈希望得到某物或做某事，常用 long for / to do。",
+          "definitionEn": "To want something deeply, often over a period of time.",
+          "examples": [
+            {
+              "en": "After weeks in the city, she longed for the sea.",
+              "zh": "在城里待了几周后，她渴望见到大海。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:loose",
+      "headword": "loose",
+      "kind": "word",
+      "forms": [
+        "looser",
+        "loosest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:loose:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "松脱的；没有牢固固定在原处的。",
+          "definitionEn": "Not firmly attached or secured.",
+          "examples": [
+            {
+              "en": "A loose screw made the handle wobble.",
+              "zh": "一颗松动的螺丝让把手摇晃起来。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:loose:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "宽松的；不紧贴身体或其他物体的。",
+          "definitionEn": "Not fitting tightly around a person or object.",
+          "examples": [
+            {
+              "en": "Wear loose clothes for the stretching session.",
+              "zh": "做伸展练习时，请穿宽松的衣服。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:loose:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "不严格或不精确的；大致的。不要与动词 lose“失去”混淆。",
+          "definitionEn": "Not exact or strictly controlled.",
+          "examples": [
+            {
+              "en": "He gave us a loose translation of the old letter.",
+              "zh": "他给我们大致翻译了那封旧信。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:loud",
+      "headword": "loud",
+      "kind": "word",
+      "forms": [
+        "louder",
+        "loudest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:loud:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "响亮的；声音强、容易听见的。",
+          "definitionEn": "Producing or involving a strong amount of sound.",
+          "examples": [
+            {
+              "en": "A loud crash came from the empty kitchen.",
+              "zh": "空厨房里传来一声巨响。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:loud:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "大声地；也常见于 out loud。aloud 是另一个相关副词。",
+          "definitionEn": "With a strong or clearly audible voice or sound.",
+          "examples": [
+            {
+              "en": "Please read the last sentence out loud.",
+              "zh": "请把最后一句大声读出来。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:lovely",
+      "headword": "lovely",
+      "kind": "word",
+      "forms": [
+        "lovelier",
+        "loveliest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:lovely:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "可爱的；美好的；美丽或令人愉快的。",
+          "definitionEn": "Beautiful or very pleasant in a way that gives enjoyment.",
+          "examples": [
+            {
+              "en": "We found a lovely spot beneath the trees.",
+              "zh": "我们在树下找到了一处美好的地方。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:low",
+      "headword": "low",
+      "kind": "word",
+      "forms": [
+        "lower",
+        "lowest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:low:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "低的；位置或高度接近地面、底部的。",
+          "definitionEn": "Positioned close to the ground or not extending far upwards.",
+          "examples": [
+            {
+              "en": "A low wall runs around the courtyard.",
+              "zh": "庭院四周围着一道矮墙。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:low:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "低水平的；数量、程度、价格等较少或较小的。",
+          "definitionEn": "Small in level, amount, degree, or price.",
+          "examples": [
+            {
+              "en": "The shop kept prices low during the renovation.",
+              "zh": "装修期间，这家店保持低价。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:low:adverb:1",
+          "partOfSpeech": "adverb",
+          "definitionZh": "低低地；在不高的位置或朝较低位置。",
+          "definitionEn": "At or towards a position close to the ground or base.",
+          "examples": [
+            {
+              "en": "The swallows flew low over the water.",
+              "zh": "燕子低低地掠过水面。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:lucky",
+      "headword": "lucky",
+      "kind": "word",
+      "forms": [
+        "luckier",
+        "luckiest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:lucky:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "幸运的；因为偶然机会得到好结果的。",
+          "definitionEn": "Experiencing a favourable result through chance.",
+          "examples": [
+            {
+              "en": "We were lucky to find the missing key in the grass.",
+              "zh": "我们很幸运，在草丛里找到了丢失的钥匙。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:main",
+      "headword": "main",
+      "kind": "word",
+      "forms": [
+        "mains"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:main:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "主要的；最重要、最大或最受关注的。",
+          "definitionEn": "Most important or central among the things involved.",
+          "examples": [
+            {
+              "en": "The main entrance is closed while the steps are repaired.",
+              "zh": "维修台阶期间，主入口关闭。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:main:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "主管道；向某个地区输送水、煤气等的主要管道，通常可数。",
+          "definitionEn": "A principal pipe supplying water, gas, or another service to an area.",
+          "examples": [
+            {
+              "en": "A broken water main flooded the side street.",
+              "zh": "一条破裂的自来水主管道淹没了旁边的小街。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:major",
+      "headword": "major",
+      "kind": "word",
+      "forms": [
+        "majors",
+        "majored",
+        "majoring"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:major:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "主要的；重大的；比其他部分更重要或影响更大的。",
+          "definitionEn": "More important or substantial than the other things involved.",
+          "examples": [
+            {
+              "en": "The storm caused major damage to the pier.",
+              "zh": "风暴对码头造成了严重破坏。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:major:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "（音乐）大调的；属于大调音阶、和弦或调性的。",
+          "definitionEn": "Belonging to a major musical scale, chord, or key.",
+          "examples": [
+            {
+              "en": "The tune ends with a major chord.",
+              "zh": "这首曲子以一个大三和弦结束。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:major:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "（主要用于美式教育）主修专业；学生最主要学习的科目，通常可数。",
+          "definitionEn": "The main subject a student studies at college, especially in the United States.",
+          "examples": [
+            {
+              "en": "She chose biology as her major.",
+              "zh": "她选择了生物学作为主修专业。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:major:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "某专业的主修学生；常与专业名称连用，通常可数。",
+          "definitionEn": "A student whose principal college subject is the one named.",
+          "examples": [
+            {
+              "en": "Two history majors helped catalogue the letters.",
+              "zh": "两名历史专业学生协助给那些信件编目。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:major:noun:3",
+          "partOfSpeech": "noun",
+          "definitionZh": "少校；许多陆军、空军体系中介于上尉与中校之间的军衔或拥有该军衔的军官，通常可数；具体制度有差异。",
+          "definitionEn": "An officer with a rank between captain and lieutenant colonel in many military systems.",
+          "examples": [
+            {
+              "en": "The major asked the team to check the bridge again.",
+              "zh": "那位少校要求团队再检查一次桥梁。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:major:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "（美式教育）主修，常用 major in。",
+          "definitionEn": "To study a subject as your principal college field, especially in the United States.",
+          "examples": [
+            {
+              "en": "He plans to major in environmental science.",
+              "zh": "他打算主修环境科学。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:male",
+      "headword": "male",
+      "kind": "word",
+      "forms": [
+        "males"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:male:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "雄性的；男性的，指通常产生精子的一类性别。具体生殖能力因个体而异。",
+          "definitionEn": "Belonging to the sex that typically produces sperm; this does not imply that every individual can reproduce.",
+          "examples": [
+            {
+              "en": "The male bird has a brighter patch on its chest.",
+              "zh": "那只雄鸟胸前有一块颜色更鲜艳的斑。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:male:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "雄性动物；也可指男性，谈人时常依语境选用 man 或 boy，通常可数。",
+          "definitionEn": "An animal or person of the male sex.",
+          "examples": [
+            {
+              "en": "The two adult males stayed near the edge of the herd.",
+              "zh": "那两只成年雄性动物待在兽群边缘。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:massive",
+      "headword": "massive",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:massive:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "巨大的；规模、体积或程度远大于通常情况的。",
+          "definitionEn": "Extremely large or substantial in size, scale, or degree.",
+          "examples": [
+            {
+              "en": "The old station has massive wooden doors.",
+              "zh": "那座老车站装着巨大的木门。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:mature",
+      "headword": "mature",
+      "kind": "word",
+      "forms": [
+        "maturer",
+        "maturest",
+        "matures",
+        "matured",
+        "maturing"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:mature:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "成熟的；已发育或发展到充分阶段的。",
+          "definitionEn": "Fully developed in growth or development.",
+          "examples": [
+            {
+              "en": "Mature trees shaded the whole courtyard.",
+              "zh": "长成的大树为整个庭院遮阴。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mature:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "稳重成熟的；能负责任、理性地作出判断的。",
+          "definitionEn": "Showing responsible judgment rather than childish behaviour.",
+          "examples": [
+            {
+              "en": "Her mature response helped settle the disagreement.",
+              "zh": "她成熟稳重的回应帮助平息了分歧。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mature:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "成熟；逐渐发育完善或形成更稳健的判断能力。",
+          "definitionEn": "To develop fully or become more responsible and experienced.",
+          "examples": [
+            {
+              "en": "The team matured as its members learned to share responsibility.",
+              "zh": "随着成员们学会分担责任，这个团队逐渐成熟。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:mean",
+      "headword": "mean",
+      "kind": "word",
+      "forms": [
+        "means",
+        "meant",
+        "meaning",
+        "meaner",
+        "meanest"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:mean:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "意思是；表示，指词语、符号或行为所传达的意义。",
+          "definitionEn": "To have or communicate a particular sense or significance.",
+          "examples": [
+            {
+              "en": "What does this symbol mean on the map?",
+              "zh": "地图上的这个符号是什么意思？"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:verb:2",
+          "partOfSpeech": "verb",
+          "definitionZh": "打算；本来想做，常用 mean to do。",
+          "definitionEn": "To intend to do something or bring about a result.",
+          "examples": [
+            {
+              "en": "I meant to return the book yesterday.",
+              "zh": "我本来打算昨天还书。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:verb:3",
+          "partOfSpeech": "verb",
+          "definitionZh": "意味着；会导致或必须涉及某种结果，常用 mean doing。",
+          "definitionEn": "To involve or make a particular consequence necessary.",
+          "examples": [
+            {
+              "en": "Taking the earlier train means leaving before dawn.",
+              "zh": "乘更早的火车意味着天亮前就得出发。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "刻薄的；不友善、故意伤人感受的。",
+          "definitionEn": "Unkind or deliberately hurtful in behaviour.",
+          "examples": [
+            {
+              "en": "It was mean to laugh at her mistake.",
+              "zh": "嘲笑她的错误很刻薄。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "吝啬的；不愿花钱或分享财物的，英式英语中尤其常见。",
+          "definitionEn": "Unwilling to spend or share money, especially in British usage.",
+          "examples": [
+            {
+              "en": "He is mean with money even when friends need help.",
+              "zh": "即使朋友需要帮助，他也很舍不得花钱。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:adjective:3",
+          "partOfSpeech": "adjective",
+          "definitionZh": "平均的；用一组数的平均数表示的，常放在温度、年龄或分数等名词前。",
+          "definitionEn": "Expressed as an average calculated from a group of values.",
+          "examples": [
+            {
+              "en": "The mean temperature for the week was eighteen degrees.",
+              "zh": "那一周的平均气温是十八度。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:mean:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "平均数；通常指算术平均值，即各数之和除以个数，通常可数。",
+          "definitionEn": "A value calculated by adding numbers and dividing by how many numbers there are.",
+          "examples": [
+            {
+              "en": "The mean of six and ten is eight.",
+              "zh": "六和十的算术平均数是八。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:mental",
+      "headword": "mental",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:mental:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "精神的；心理的；与思维、感受或头脑活动有关的。",
+          "definitionEn": "Connected with the mind, its activity, or emotional well-being.",
+          "examples": [
+            {
+              "en": "Solving the puzzle required sustained mental effort.",
+              "zh": "解开这个谜题需要持续动脑。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:modern",
+      "headword": "modern",
+      "kind": "word",
+      "forms": [],
+      "senses": [
+        {
+          "id": "zhuo:modern:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "现代的；属于现在或较近时代，而非遥远过去的。",
+          "definitionEn": "Belonging to the present or a relatively recent period rather than the distant past.",
+          "examples": [
+            {
+              "en": "Modern buildings stand beside the old stone bridge.",
+              "zh": "现代建筑矗立在那座古老石桥旁。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:modern:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "采用新技术或新方法的；与过时做法相比更加更新的。",
+          "definitionEn": "Using recent methods, ideas, or technology rather than outdated ones.",
+          "examples": [
+            {
+              "en": "The workshop now uses modern tools to reduce waste.",
+              "zh": "这个工作坊如今用新式工具减少浪费。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    },
+    {
+      "id": "zhuo:minor",
+      "headword": "minor",
+      "kind": "word",
+      "forms": [
+        "minors",
+        "minored",
+        "minoring"
+      ],
+      "senses": [
+        {
+          "id": "zhuo:minor:adjective:1",
+          "partOfSpeech": "adjective",
+          "definitionZh": "次要的；轻微的；规模或严重程度较小的。",
+          "definitionEn": "Less important, smaller, or less serious than the main matters involved.",
+          "examples": [
+            {
+              "en": "Only minor repairs were needed after the inspection.",
+              "zh": "检查后只需要进行小修。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:minor:adjective:2",
+          "partOfSpeech": "adjective",
+          "definitionZh": "（音乐）小调的；属于小调音阶、和弦或调性的。",
+          "definitionEn": "Belonging to a minor musical scale, chord, or key.",
+          "examples": [
+            {
+              "en": "She played the melody in a minor key.",
+              "zh": "她用小调演奏了那段旋律。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:minor:noun:1",
+          "partOfSpeech": "noun",
+          "definitionZh": "未成年人；未达到有关法律规定的成年年龄的人，通常可数，具体年龄依地区而异。",
+          "definitionEn": "A person below the legal age of adulthood in the relevant jurisdiction.",
+          "examples": [
+            {
+              "en": "The form asks whether the participant is a minor.",
+              "zh": "表格询问参与者是否为未成年人。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:minor:noun:2",
+          "partOfSpeech": "noun",
+          "definitionZh": "（主要用于美式教育）辅修专业；主修之外的次要学习领域，通常可数。",
+          "definitionEn": "A secondary field of college study in addition to the main one.",
+          "examples": [
+            {
+              "en": "His minor is music, while his major is physics.",
+              "zh": "他主修物理，辅修音乐。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:minor:verb:1",
+          "partOfSpeech": "verb",
+          "definitionZh": "（美式教育）辅修，常用 minor in。",
+          "definitionEn": "To study a subject as a secondary college field.",
+          "examples": [
+            {
+              "en": "She decided to minor in economics.",
+              "zh": "她决定辅修经济学。"
+            }
+          ]
+        }
+      ],
+      "authorship": {
+        "method": "independent-composition",
+        "agent": "AI-assisted draft",
+        "referenceUse": "headwords-only"
+      },
+      "review": {
+        "status": "draft",
+        "reviewer": "",
+        "note": "第0003批原创试写；选取常用义项，待独立复核。"
+      }
+    }
+  ]
+}

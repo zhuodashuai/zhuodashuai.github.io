@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0003-adjectives.json",
+  "sourceContentSha256": "ffe0748c1219f0343934c1abef82db6c251f9660c37d3af40c05740bd5c48c02",
+  "reviewer": "AI/batch-0003-adjective-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:famous", "zhuo:fancy", "zhuo:fantastic", "zhuo:far", "zhuo:fast",
+    "zhuo:fat", "zhuo:favourable", "zhuo:favourite", "zhuo:federal", "zhuo:female",
+    "zhuo:few", "zhuo:fierce", "zhuo:final", "zhuo:financial", "zhuo:fine",
+    "zhuo:firm", "zhuo:first", "zhuo:flat", "zhuo:foreign", "zhuo:fortunate",
+    "zhuo:forward", "zhuo:fragile", "zhuo:free", "zhuo:frequent", "zhuo:fresh",
+    "zhuo:friendly", "zhuo:frightened", "zhuo:full", "zhuo:funny", "zhuo:general",
+    "zhuo:generous", "zhuo:gentle", "zhuo:genuine", "zhuo:glad", "zhuo:global",
+    "zhuo:good", "zhuo:grateful", "zhuo:great", "zhuo:guilty", "zhuo:happy",
+    "zhuo:hard", "zhuo:harmful", "zhuo:healthy", "zhuo:heavy", "zhuo:helpful",
+    "zhuo:high", "zhuo:historical", "zhuo:honest", "zhuo:hot", "zhuo:huge",
+    "zhuo:human", "zhuo:hungry", "zhuo:ideal", "zhuo:ill", "zhuo:illegal",
+    "zhuo:immediate", "zhuo:important", "zhuo:impossible", "zhuo:impressive", "zhuo:independent",
+    "zhuo:individual", "zhuo:industrial", "zhuo:informal", "zhuo:initial", "zhuo:inner",
+    "zhuo:innocent", "zhuo:intelligent", "zhuo:intense", "zhuo:interesting", "zhuo:internal",
+    "zhuo:international", "zhuo:junior", "zhuo:just", "zhuo:kind", "zhuo:large",
+    "zhuo:late", "zhuo:latter", "zhuo:lazy", "zhuo:legal", "zhuo:light",
+    "zhuo:likely", "zhuo:little", "zhuo:lively", "zhuo:local", "zhuo:lonely",
+    "zhuo:long", "zhuo:loose", "zhuo:loud", "zhuo:lovely", "zhuo:low",
+    "zhuo:lucky", "zhuo:main", "zhuo:major", "zhuo:male", "zhuo:massive",
+    "zhuo:mature", "zhuo:mean", "zhuo:mental", "zhuo:modern", "zhuo:minor"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:light", "severity": "advisory",
+      "problem": "已有光和灯的名词义，但遗漏形容房间光线充足的常见形容词义，不能用浅色或重量轻的义项代替。",
+      "resolution": "主代理补写明亮、采光好的形容词义及大窗户使工作室明亮的原创例句；已独立复核保存内容，词性、语境和中文对应正确。"
+    },
+    {
+      "entryId": "zhuo:mean", "severity": "advisory",
+      "problem": "已有平均数名词义，但遗漏 mean temperature 等表达中表示平均的形容词用法。",
+      "resolution": "主代理补写平均的形容词义和一周平均气温例句；已独立复核，未与刻薄或吝啬的形容词义混合。"
+    },
+    {
+      "entryId": "zhuo:first", "severity": "advisory",
+      "problem": "可数名词首次成就或事件的义项已存在，但 forms 未列其常规复数 firsts。",
+      "resolution": "已复核新增 firsts；它是该名词义的正确复数，不是序数词的比较级，也没有新增重复词头。"
+    },
+    {
+      "entryId": "zhuo:loud", "severity": "advisory",
+      "problem": "原中文说明将 aloud 与 out loud 混在一起，容易让学习者误认为 aloud 是 loud 的词形。",
+      "resolution": "已复核修改为大声地、常见于 out loud，并明确 aloud 是另一个相关副词；原 out loud 例句保留且用法正确。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；仅检查列出的常用义项与例句。"
+}

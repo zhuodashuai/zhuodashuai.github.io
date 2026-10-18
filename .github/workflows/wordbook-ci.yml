@@ -7,6 +7,8 @@ on:
       - "wordbook-api/**"
       - "tooling/tests/**"
       - "tooling/scripts/**"
+      - "tooling/lib/**"
+      - "tooling/dictionary/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
@@ -19,6 +21,8 @@ on:
       - "wordbook-api/**"
       - "tooling/tests/**"
       - "tooling/scripts/**"
+      - "tooling/lib/**"
+      - "tooling/dictionary/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
@@ -43,11 +47,18 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Build compact member lookup from existing public data
-        run: node tooling/scripts/build-member-dictionary.mjs
+        run: |
+          node tooling/scripts/build-member-dictionary.mjs
+          node tooling/scripts/build-expanded-dictionary.mjs
+          node tooling/scripts/build-expanded-dictionary.mjs --check
       - name: Secret boundary scan
         run: pnpm test:security
       - name: Unit and Worker integration tests
         run: pnpm test
+      - name: Original headword seed tests
+        run: |
+          python3 -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
+          python3 -m unittest discover -s tooling/tests -p test_prepare_expanded_dictionary.py -v
       - name: TypeScript check
         run: pnpm --dir wordbook-api check
       - name: Cloudflare Worker dry run
@@ -112,6 +123,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           node tooling/scripts/build-member-dictionary.mjs
+          node tooling/scripts/build-expanded-dictionary.mjs
           pnpm --dir wordbook-api exec wrangler deploy
       - name: Confirm the deployed Worker is healthy
         if: steps.guard.outputs.configured == 'true'
