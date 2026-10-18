@@ -1,4 +1,4 @@
-import { entryLookupKeys, parsePublicSnapshot } from "./wordbook-schema.js?v=76";
+import { entryLookupKeys, parsePublicSnapshot } from "./wordbook-schema.js?v=77";
 
 const BASE_DB_NAME = "wordbook-db";
 export const DB_VERSION = 6;

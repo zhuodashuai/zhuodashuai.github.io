@@ -4,7 +4,7 @@ import { gzipSync } from "node:zlib";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validateEnglishInput, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
-import { isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
+import { SYNONYM_FEATURE_ENABLED, isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
 import { collectionMemberships } from "../../../vocab/js/collections.js";
 import { scheduleReview } from "../../../vocab/js/review.js";
 
@@ -609,6 +609,7 @@ async function api(request, response, url) {
   if (url.pathname === "/api/v1/owner/synonyms" && request.method === "POST") {
     const payload = await body(request);
     if (!assertWrite(request, response, payload)) return;
+    if (!SYNONYM_FEATURE_ENABLED) return error(response, 409, "synonym_feature_paused", "同义词功能暂未开放。");
     const state = runState(request);
     const previous = state.snapshot.entries.find((entry) => entry.id === payload.entryId);
     if (!previous) return error(response, 404, "entry_missing", "词条已不存在，已停止识别。");

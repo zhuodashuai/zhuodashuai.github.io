@@ -7,7 +7,7 @@ import type { PublicEntry, PublicSnapshot } from "../src/schema";
 import { encryptSecret, sha256Hex } from "../src/security";
 import { entry, snapshot } from "./fixtures";
 import published from "../../vocab/data/owner-wordbook.json";
-import { candidateSynonymFingerprint, entrySynonymFingerprint } from "../../vocab/js/synonym-evidence.js";
+import { SYNONYM_FEATURE_ENABLED, candidateSynonymFingerprint, entrySynonymFingerprint } from "../../vocab/js/synonym-evidence.js";
 
 const testEnv = env as unknown as Env;
 const SESSION_SECRET = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
@@ -22,7 +22,6 @@ const headers = (csrf: string) => ({ Cookie: COOKIE, Origin: "https://admin.exam
 async function session() {
   const hash = await sha256Hex(SESSION_ID);
   await runInDurableObject(stub(), async (instance, state) => {
-    // Inject the Workers binding at the same object boundary production uses.
     (instance as unknown as { config: AppConfig }).config.AI = undefined;
     await state.storage.put(`session:${hash}`, {
       githubTokenCipher: await encryptSecret("github-test-token", SESSION_SECRET), githubTokenExpiresAt: Date.now() + 7_200_000,
@@ -48,7 +47,7 @@ function encode(value: unknown) {
   return btoa(binary);
 }
 
-function githubMock(initial: PublicSnapshot = snapshot([]), rejectWrites = false) {
+function githubMock(initial: PublicSnapshot = snapshot([])) {
   let current = structuredClone(initial);
   let sha = initialSha;
   let writes = 0;
@@ -61,7 +60,7 @@ function githubMock(initial: PublicSnapshot = snapshot([]), rejectWrites = false
     if (url.pathname.endsWith("/contents/vocab/data/owner-wordbook.json")) {
       if (init.method === "PUT") {
         const body = JSON.parse(String(init.body));
-        if (rejectWrites || body.sha !== sha) return Response.json({ message: "sha does not match" }, { status: 409 });
+        if (body.sha !== sha) return Response.json({ message: "sha does not match" }, { status: 409 });
         current = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(body.content), (character) => character.charCodeAt(0))));
         writes += 1;
         sha = writes.toString(16).padStart(40, "0");
@@ -80,6 +79,15 @@ function food(term: string) {
     forms: [], collocations: [], confusedWith: [], usage: "Used for food.", exampleEn: `This soup is ${term}.`, exampleZh: "这碗汤很好喝。" });
 }
 
+function historicalScan(source: PublicEntry, target: PublicEntry, status: "pending" | "complete" = "complete") {
+  return {
+    version: 1 as const, status, sourceFingerprint: entrySynonymFingerprint(source), candidatesFingerprint: candidateSynonymFingerprint([target]),
+    checkedAt: "2026-09-26T12:00:00.000Z", candidateCount: 1,
+    matches: status === "complete" ? [{ targetId: target.id, targetFingerprint: entrySynonymFingerprint(target), note: "原有历史记录，暂不展示。" }] : [],
+    reason: "历史记录保留"
+  };
+}
+
 function publish(csrf: string, mutation: unknown, mutationId: string, baseSha = initialSha) {
   return api("/owner/publish", { method: "POST", headers: { ...headers(csrf), "Idempotency-Key": mutationId }, body: JSON.stringify({ ...protocol, baseSha, mutationId, mutation }) });
 }
@@ -88,139 +96,123 @@ function recognize(csrf: string, entryId: string) {
   return api("/owner/synonyms", { method: "POST", headers: headers(csrf), body: JSON.stringify({ entryId }) });
 }
 
+async function nonSessionStorage() {
+  return runInDurableObject(stub(), async (_instance, state) => [...await state.storage.list()].filter(([key]) => !key.startsWith("session:")));
+}
+
 beforeEach(async () => { vi.unstubAllGlobals(); vi.restoreAllMocks(); await reset(); });
 
-describe("automatic synonym recognition at the canonical API boundary", () => {
-  it("recognizes a manually added word against existing real senses and keeps original vocabulary intact", async () => {
+describe("paused synonym feature at the canonical API boundary", () => {
+  it("shares an explicit disabled policy with the frontend", () => {
+    expect(SYNONYM_FEATURE_ENABLED).toBe(false);
+  });
+
+  it("publishes a new manual word without model calls or invented scan metadata", async () => {
     const csrf = await session();
     const delicious = food("delicious");
-    const yummy = food("yummy");
     const github = githubMock(snapshot([delicious]));
-    const run = vi.fn(async () => ({ response: { matches: [{ targetId: delicious.id, note: "都表示食物好吃；yummy 更口语。" }] } }));
+    const run = vi.fn(async () => ({ matches: [{ targetId: delicious.id, note: "不构成同义关系。" }] }));
     await injectAi(run);
-    const response = await publish(csrf, { type: "add", entry: yummy }, "synonym-manual-add-0001");
+    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-paused-add-0001");
     expect(response.status).toBe(200);
     const result = await response.json() as { entry: PublicEntry };
-    expect(run).toHaveBeenCalledOnce();
-    const request = run.mock.calls[0] as unknown as [string, { messages: Array<{ content: string }> }];
-    const evidence = JSON.parse(request[1].messages[1].content);
-    const senseMeaning = (sense: PublicEntry["senses"][number]) => ({ partOfSpeech: sense.partOfSpeech, meaningZh: sense.meaningZh, definitionEn: sense.definitionEn });
-    expect(evidence.source).toMatchObject({ id: yummy.id, meaning: result.entry.meaning, senses: result.entry.senses.map(senseMeaning) });
-    expect(evidence.candidates).toEqual([expect.objectContaining({ id: delicious.id, meaning: delicious.meaning })]);
-    expect(evidence.candidates[0].senses).toMatchObject(delicious.senses.map(senseMeaning));
-    expect(result.entry.synonymScan).toMatchObject({ status: "complete", candidateCount: 1, matches: [{ targetId: delicious.id }] });
-    expect(result.entry.synonyms).toEqual([]);
+    expect(result.entry.term).toBe("yummy");
+    expect(result.entry.meaning).toContain("美味");
+    expect(Object.hasOwn(result.entry, "synonymScan")).toBe(false);
     expect(github.state().snapshot.entries.find((item) => item.id === delicious.id)).toEqual(delicious);
     expect(github.state().snapshot.entries).toHaveLength(2);
-    expect(result.entry.meaning).toContain("美味的");
-    expect(result.entry.id).toBe(yummy.id);
-    const retry = await publish(csrf, { type: "add", entry: yummy }, "synonym-manual-add-0001");
+    expect(github.state().writes).toBe(1);
+    expect(run).not.toHaveBeenCalled();
+    const retry = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-paused-add-0001");
     expect(await retry.json()).toMatchObject({ action: "idempotent" });
-    expect(run).toHaveBeenCalledOnce();
     expect(github.state().writes).toBe(1);
   });
 
-  it("saves manual vocabulary with an explicit pending state when the AI binding is unavailable", async () => {
+  it("manual publication remains available without any AI binding", async () => {
     const csrf = await session();
     const github = githubMock(snapshot([food("delicious")]));
-    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-no-binding-0001");
+    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-paused-no-binding");
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ entry: { synonymScan: { status: "pending", matches: [] } } });
-    expect(github.state().snapshot.entries).toHaveLength(2);
+    expect(Object.hasOwn((await response.json() as { entry: PublicEntry }).entry, "synonymScan")).toBe(false);
+    expect(github.state().writes).toBe(1);
   });
 
-  it("rechecks manually edited meanings instead of retaining the previous automatic relation", async () => {
+  it.each(["complete", "pending"] as const)("preserves canonical %s metadata exactly when its word is edited", async (status) => {
     const csrf = await session();
     const delicious = food("delicious");
     const source = food("yummy");
-    const github = githubMock(snapshot([delicious]));
-    const run = vi.fn()
-      .mockResolvedValueOnce({ response: { matches: [{ targetId: delicious.id, note: "都表示食物美味；yummy 更口语。" }] } })
-      .mockResolvedValueOnce({ response: { matches: [] } });
-    await injectAi(run);
-    expect((await publish(csrf, { type: "add", entry: source }, "synonym-edit-add-0001")).status).toBe(200);
-    const saved = github.state().snapshot.entries.find((item) => item.id === source.id)!;
-    const changed = { ...saved, meaning: "令人愉快的", definition: "Pleasant in a non-food setting.",
-      senses: saved.senses.map((sense) => ({ ...sense, meaningZh: "令人愉快的", definitionEn: "Pleasant in a non-food setting." })) };
-    const response = await publish(csrf, { type: "update", entry: changed, expectedUpdatedAt: saved.updatedAt }, "synonym-edit-update-0001", github.state().sha);
+    source.synonymScan = historicalScan(source, delicious, status);
+    const github = githubMock(snapshot([delicious, source]));
+    const run = vi.fn(); await injectAi(run);
+    const changed = { ...source, meaning: "令人愉快的", definition: "Pleasant in a non-food setting.", senses: source.senses.map((sense) => ({ ...sense, meaningZh: "令人愉快的", definitionEn: "Pleasant in a non-food setting." })) };
+    // An older client may omit metadata. The server preserves canonical history.
+    delete changed.synonymScan;
+    const response = await publish(csrf, { type: "update", entry: changed, expectedUpdatedAt: source.updatedAt }, `synonym-paused-edit-${status}`);
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ entry: { id: source.id, synonymScan: { status: "complete", matches: [] } } });
-    expect(run).toHaveBeenCalledTimes(2);
+    const result = await response.json() as { entry: PublicEntry };
+    expect(result.entry.meaning).toContain("令人愉快");
+    expect(result.entry.synonymScan).toEqual(source.synonymScan);
     expect(github.state().snapshot.entries.find((item) => item.id === delicious.id)).toEqual(delicious);
-    expect(github.state().snapshot.entries).toHaveLength(2);
+    expect(github.state().writes).toBe(1);
+    expect(run).not.toHaveBeenCalled();
   });
 
-  it("keeps publication fail-open when model metadata exceeds the persisted schema limits", async () => {
+  it("strips forged scan evidence from a new word rather than presenting it as reviewed", async () => {
     const csrf = await session();
-    const delicious = food("delicious");
+    const delicious = food("delicious"); const source = food("yummy");
+    source.synonymScan = historicalScan(source, delicious);
     const github = githubMock(snapshot([delicious]));
-    const run = vi.fn(async () => ({ response: { matches: [{ targetId: delicious.id, note: "义".repeat(501) }] } }));
-    await injectAi(run);
-    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-invalid-meta-0001");
+    const run = vi.fn(); await injectAi(run);
+    const response = await publish(csrf, { type: "add", entry: source }, "synonym-paused-client-spoof");
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ entry: { synonymScan: { status: "pending", matches: [] } } });
+    const saved = (await response.json() as { entry: PublicEntry }).entry;
+    expect(Object.hasOwn(saved, "synonymScan")).toBe(false);
+    expect(github.state().writes).toBe(1);
+    expect(run).not.toHaveBeenCalled();
+  });
+
+  it("a forged edited scan cannot replace the canonical historical record", async () => {
+    const csrf = await session();
+    const delicious = food("delicious"); const source = food("yummy");
+    source.synonymScan = historicalScan(source, delicious);
+    const github = githubMock(snapshot([delicious, source]));
+    const changed = { ...source, usage: "An owner-edited note.", synonymScan: { ...source.synonymScan, reason: "forged", matches: [] } };
+    const response = await publish(csrf, { type: "update", entry: changed, expectedUpdatedAt: source.updatedAt }, "synonym-paused-edit-spoof");
+    expect(response.status).toBe(200);
+    expect((await response.json() as { entry: PublicEntry }).entry.synonymScan).toEqual(source.synonymScan);
     expect(github.state().writes).toBe(1);
   });
 
-  it("never trusts forged client scan evidence and reuses only the canonical complete scan", async () => {
-    const csrf = await session();
-    const delicious = food("delicious");
-    const source = food("yummy");
-    const forged = { version: 1 as const, status: "complete" as const, sourceFingerprint: entrySynonymFingerprint(source), candidatesFingerprint: candidateSynonymFingerprint([delicious]), checkedAt: "2026-09-26T12:00:00.000Z", candidateCount: 1, matches: [{ targetId: delicious.id, targetFingerprint: entrySynonymFingerprint(delicious), note: "伪造关系" }], reason: "" };
-    const github = githubMock(snapshot([delicious]));
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
-    const response = await publish(csrf, { type: "add", entry: { ...source, synonymScan: forged } }, "synonym-client-spoof-0001");
-    expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ entry: { synonymScan: { status: "complete", matches: [] } } });
-    expect(run).toHaveBeenCalledOnce();
-    const retry = await recognize(csrf, source.id);
-    expect(await retry.json()).toMatchObject({ action: "idempotent", synonymScan: { status: "complete", matches: [] } });
-    expect(run).toHaveBeenCalledOnce();
-    expect(github.state().writes).toBe(1);
-  });
-
-  it("retries a pending existing entry without changing its lexical body or any other published entry", async () => {
+  it("explicit scan returns a paused error without model, quota, cache or GitHub mutation", async () => {
     const csrf = await session();
     const original = structuredClone(published) as PublicSnapshot;
-    const source = original.entries[0];
     const github = githubMock(original);
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
-    const response = await recognize(csrf, source.id);
-    expect(response.status).toBe(200);
-    const updated = github.state().snapshot;
-    expect(updated.entries).toHaveLength(original.entries.length);
-    expect(updated.entries.filter((item) => item.id !== source.id)).toEqual(original.entries.filter((item) => item.id !== source.id));
-    const changed = updated.entries.find((item) => item.id === source.id)!;
-    const { synonymScan: _scan, revision: _revision, updatedAt: _updatedAt, ...body } = changed;
-    const { synonymScan: _oldScan, revision: _oldRevision, updatedAt: _oldUpdatedAt, ...oldBody } = source;
-    expect(body).toEqual(oldBody);
-    expect(changed.synonymScan).toMatchObject({ status: "complete", matches: [] });
-    expect(run.mock.calls.length).toBeGreaterThan(1);
-    expect(github.state().writes).toBe(1);
-  });
-
-  it("deletes an entry without starting recognition and rejects later scans of the deleted id", async () => {
-    const csrf = await session();
-    const source = food("yummy");
-    const github = githubMock(snapshot([food("delicious"), source]));
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
-    const response = await publish(csrf, { type: "delete", id: source.id, expectedUpdatedAt: source.updatedAt }, "synonym-delete-0001");
-    expect(response.status).toBe(200);
-    expect(run).not.toHaveBeenCalled();
-    expect(github.state().snapshot.entries).toHaveLength(1);
-    const retry = await recognize(csrf, source.id);
-    expect(retry.status).toBe(404);
+    const run = vi.fn(); await injectAi(run);
+    await runInDurableObject(stub(), async (_instance, state) => {
+      await state.storage.put("synonym-batch:preserved-history", { matches: [], expiresAt: Date.now() + 60_000 });
+    });
+    const before = await nonSessionStorage();
+    const response = await recognize(csrf, "public-nlmg-c1-pavilion");
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ error: { code: "synonym_feature_paused", message: "同义词功能暂时停用，已有单词和学习记录不受影响。" } });
+    expect(await nonSessionStorage()).toEqual(before);
+    expect(github.state()).toEqual({ snapshot: original, sha: initialSha, writes: 0 });
+    expect(github.mock).not.toHaveBeenCalled();
     expect(run).not.toHaveBeenCalled();
   });
 
-  it("requires the owner session, same origin and valid CSRF before scanning", async () => {
-    const csrf = await session();
-    const github = githubMock(snapshot([food("yummy")]));
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
+  it("paused scans also do not fetch or mutate when the entry ID is unknown", async () => {
+    const csrf = await session(); const github = githubMock(snapshot([]));
+    const response = await recognize(csrf, "unknown-entry");
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ error: { code: "synonym_feature_paused" } });
+    expect(github.mock).not.toHaveBeenCalled();
+    expect(github.state().writes).toBe(0);
+  });
+
+  it("requires the owner session, same origin and valid CSRF before disclosing pause state", async () => {
+    const csrf = await session(); const github = githubMock(snapshot([food("yummy")]));
+    const run = vi.fn(); await injectAi(run);
     for (const requestHeaders of [
       { Origin: "https://admin.example", "Content-Type": "application/json", "X-CSRF-Token": csrf },
       { ...headers(csrf), Origin: "https://evil.example" },
@@ -228,36 +220,41 @@ describe("automatic synonym recognition at the canonical API boundary", () => {
     ]) {
       const response = await api("/owner/synonyms", { method: "POST", headers: requestHeaders, body: JSON.stringify({ entryId: "word-yummy" }) });
       expect([401, 403]).toContain(response.status);
+      expect(await response.json()).not.toMatchObject({ error: { code: "synonym_feature_paused" } });
     }
-    expect(run).not.toHaveBeenCalled();
+    expect(run).not.toHaveBeenCalled(); expect(github.mock).not.toHaveBeenCalled();
+  });
+
+  it("paused explicit requests do not consume the publish rate-limit bucket", async () => {
+    const csrf = await session(); const github = githubMock(snapshot([]));
+    for (let index = 0; index < 11; index++) {
+      const response = await recognize(csrf, "word-yummy");
+      expect(response.status).toBe(409);
+      expect(await response.json()).toMatchObject({ error: { code: "synonym_feature_paused" } });
+    }
+    const stored = await nonSessionStorage();
+    expect(stored.filter(([key]) => key.startsWith("rate:publish:") || key.startsWith("rate:ai-daily:"))).toEqual([]);
     expect(github.mock).not.toHaveBeenCalled();
   });
 
-  it("does not overwrite a concurrent canonical edit when the scan result is ready", async () => {
-    const csrf = await session();
-    const original = snapshot([food("delicious"), food("yummy")]);
-    const github = githubMock(original, true);
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
-    const response = await recognize(csrf, "word-yummy");
-    expect(response.status).toBe(409);
-    expect(github.state().snapshot).toEqual(original);
-    expect(github.state().writes).toBe(0);
+  it("deleting a word remains available without triggering optional recognition", async () => {
+    const csrf = await session(); const source = food("yummy");
+    const github = githubMock(snapshot([food("delicious"), source]));
+    const run = vi.fn(); await injectAi(run);
+    const response = await publish(csrf, { type: "delete", id: source.id, expectedUpdatedAt: source.updatedAt }, "synonym-paused-delete");
+    expect(response.status).toBe(200);
+    expect(github.state().snapshot.entries).toHaveLength(1);
+    expect(github.state().writes).toBe(1); expect(run).not.toHaveBeenCalled();
   });
 
-  it("charges scans to the existing daily budget and still publishes after the budget is exhausted", async () => {
-    const csrf = await session();
-    const github = githubMock(snapshot([food("delicious")]));
-    const run = vi.fn(async () => ({ response: { matches: [] } }));
-    await injectAi(run);
-    for (let index = 0; index < 20; index += 1) {
-      const response = await stub().fetch("https://owner.internal/rate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ subject: "zhuo-owner-account", kind: "ai-daily" }) });
-      expect(response.status).toBe(200);
-    }
-    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-budget-0001");
+  it("publishing a word does not debit the AI daily quota while paused", async () => {
+    const csrf = await session(); const github = githubMock(snapshot([food("delicious")]));
+    const run = vi.fn(); await injectAi(run);
+    const before = (await nonSessionStorage()).filter(([key]) => key.startsWith("rate:ai-daily:") || key.startsWith("synonym-batch:"));
+    const response = await publish(csrf, { type: "add", entry: food("yummy") }, "synonym-paused-budget");
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ entry: { synonymScan: { status: "pending", matches: [] } } });
-    expect(run).not.toHaveBeenCalled();
-    expect(github.state().writes).toBe(1);
+    const after = (await nonSessionStorage()).filter(([key]) => key.startsWith("rate:ai-daily:") || key.startsWith("synonym-batch:"));
+    expect(after).toEqual(before);
+    expect(github.state().writes).toBe(1); expect(run).not.toHaveBeenCalled();
   });
 });

@@ -4,6 +4,8 @@ A lightweight, accessible academic profile for GitHub Pages.
 
 ## Repository map
 
+Synonym grouping and automatic recognition are temporarily paused after incorrect associations were found. Public readers use one canonical vocabulary card per entry; historical relation data is retained but not displayed or regenerated. The authenticated scan endpoint returns `409 synonym_feature_paused` without using AI or writing to GitHub. Vocabulary, original examples, chapter quizzes, favorites and review records are unaffected.
+
 - `/` — academic profile and GitHub Pages homepage
 - `/vocab/` — installable **Wordbook** PWA with a public read-only collection and a separate server-authenticated owner control room
 - `/vocab/guide.html` — Wordbook user guide; operational explanations live here instead of crowding the editor

@@ -8,7 +8,7 @@ import {
 } from "./github";
 import { PublishRequestSchema, PublicSnapshotSchema, SynonymScanSchema, type PublicEntry, type PublicSnapshot, type PublishRequest } from "./schema";
 import { recognizeSynonyms } from "./synonym-recognizer";
-import { candidateSynonymFingerprint, entrySynonymFingerprint, isSynonymLexicalEntry, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
+import { SYNONYM_FEATURE_ENABLED, candidateSynonymFingerprint, entrySynonymFingerprint, isSynonymLexicalEntry, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 import {
   ApiError,
   decryptSecret,
@@ -319,6 +319,13 @@ export class OwnerControl implements DurableObject {
   }
 
   private async scanSynonyms(entry: PublicEntry, entries: PublicEntry[], previous?: PublicEntry): Promise<PublicEntry> {
+    if (!SYNONYM_FEATURE_ENABLED) {
+      // The quality pause is not a destructive migration. Retain only the
+      // canonical historical record, including when its lexical body changes;
+      // never accept forged client scan metadata or spend an optional AI call.
+      const { synonymScan: _ignored, ...withoutScan } = entry;
+      return previous?.synonymScan ? { ...withoutScan, synonymScan: previous.synonymScan } : withoutScan;
+    }
     if (!isSynonymLexicalEntry(entry)) {
       const { synonymScan: _ignored, ...withoutScan } = entry;
       return withoutScan;
@@ -354,6 +361,9 @@ export class OwnerControl implements DurableObject {
     const csrfToken = internalString(body, "csrfToken", 16, 500);
     const entryId = internalString(body, "entryId", 1, 180);
     const session = await this.loadSession(sessionHash, csrfToken);
+    if (!SYNONYM_FEATURE_ENABLED) {
+      throw new ApiError(409, "synonym_feature_paused", "同义词功能暂时停用，已有单词和学习记录不受影响。");
+    }
     await this.applyRate({ subject: sessionHash, kind: "publish" });
     const token = await this.tokenForSession(session);
     await verifyOwnerAndRepository(token, this.config);

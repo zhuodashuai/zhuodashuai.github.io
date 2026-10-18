@@ -39,56 +39,51 @@ async function editAlpha(page, usage) {
   await page.locator("#field-usage").fill(usage);
 }
 
-test("foreground publication interrupts an automatic scan and ignores its late stale response", async ({ page }) => {
+test("pending historical scan metadata cannot start background work or duplicate a foreground publication", async ({ page }) => {
   const snapshot = fixture();
-  const stale = structuredClone(snapshot);
-  let releaseScan;
-  const gate = new Promise((resolve) => { releaseScan = resolve; });
+  await page.clock.install();
+  let releasePublish;
+  const gate = new Promise((resolve) => { releasePublish = resolve; });
   let scans = 0;
-  let scanReleased = false;
-  let scanFinished = false;
   await page.route("**/api/v1/owner/synonyms", async (route) => {
     scans += 1;
-    await gate;
-    try {
-      await route.fulfill({ json: { snapshot: stale, sha: "b".repeat(40), entry: stale.entries[0], action: "synonyms" } });
-    } finally { scanFinished = true; }
+    await route.fulfill({ status: 410, json: { error: { code: "feature_paused", message: "同义词功能已暂停" } } });
   });
   let writes = 0;
   await page.route("**/api/v1/owner/publish", async (route) => {
-    expect(scanReleased).toBe(false);
     writes += 1;
     const request = route.request().postDataJSON();
     expect(request.baseSha).toBe("a".repeat(40));
-    expect(request.mutation.entry.usage).toBe("正在识别时手动写下的内容必须保留。");
+    expect(request.mutation.entry.usage).toBe("暂停关系识别后手动写下的内容必须保留。");
+    await gate;
     snapshot.entries[0] = request.mutation.entry;
     await route.fulfill({ json: { snapshot, sha: "c".repeat(40), entry: snapshot.entries[0], action: "updated" } });
   });
-  await ownerReady(page, snapshot);
-  await expect.poll(() => scans).toBe(1);
-  await editAlpha(page, "正在识别时手动写下的内容必须保留。");
-  // Two submit events model a rapid repeated user action while the first
-  // publication is still awaiting its durable local queue transaction.
-  await page.locator("#entry-form").evaluate((form) => { form.requestSubmit(); form.requestSubmit(); });
-  await expect(page.locator("#sync-label")).toHaveText("已发布");
-  expect(writes).toBe(1);
-  scanReleased = true;
-  releaseScan();
-  await expect.poll(() => scanFinished).toBe(true);
-  await expect(page.locator("#sync-detail")).toContainText("ccccccc");
-  await expect(page.locator("#field-usage")).toHaveValue("正在识别时手动写下的内容必须保留。");
-  expect(scans).toBe(1);
+  try {
+    await ownerReady(page, snapshot);
+    await page.clock.runFor(200);
+    expect(scans).toBe(0);
+    await editAlpha(page, "暂停关系识别后手动写下的内容必须保留。");
+    // Repeated submit events still produce one durable outbox operation while
+    // a normal foreground publication is waiting for its network response.
+    await page.locator("#entry-form").evaluate((form) => { form.requestSubmit(); form.requestSubmit(); });
+    await expect.poll(() => writes).toBe(1);
+    await page.clock.runFor(200);
+    expect(writes).toBe(1);
+    releasePublish();
+    await expect(page.locator("#sync-label")).toHaveText("已发布");
+    await expect(page.locator("#sync-detail")).toContainText("ccccccc");
+    await expect(page.locator("#field-usage")).toHaveValue("暂停关系识别后手动写下的内容必须保留。");
+    expect(scans).toBe(0);
+  } finally { releasePublish(); }
 });
 
-test("a scan committed before foreground publication rebases through normal SHA checks", async ({ page }) => {
+test("a remote historical-metadata update rebases through normal SHA checks without starting a scan", async ({ page }) => {
   const snapshot = fixture();
-  let releaseScan;
-  const gate = new Promise((resolve) => { releaseScan = resolve; });
-  let scanStarted = false;
+  let scans = 0;
   await page.route("**/api/v1/owner/synonyms", async (route) => {
-    scanStarted = true;
-    await gate;
-    await route.abort().catch(() => {});
+    scans += 1;
+    await route.fulfill({ status: 410, json: { error: { code: "feature_paused", message: "同义词功能已暂停" } } });
   });
   const requests = [];
   await page.route("**/api/v1/owner/publish", async (route) => {
@@ -109,14 +104,13 @@ test("a scan committed before foreground publication rebases through normal SHA 
     return route.fulfill({ json: { snapshot, sha: "c".repeat(40), entry: snapshot.entries[0], action: "updated" } });
   });
   await ownerReady(page, snapshot);
-  await expect.poll(() => scanStarted).toBe(true);
   await editAlpha(page, "并发识别之后仍要发布这份手动内容。");
   await page.locator("#publish-button").click();
   await expect(page.locator("#sync-label")).toHaveText("已发布");
   expect(requests).toHaveLength(2);
   expect(requests[1].mutationId).not.toBe(requests[0].mutationId);
   await expect(page.locator("#field-usage")).toHaveValue("并发识别之后仍要发布这份手动内容。");
-  releaseScan();
+  expect(scans).toBe(0);
 });
 
 test("a timed-out mutation preserves its exact draft and waits for explicit review without replay", async ({ page }) => {

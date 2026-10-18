@@ -1,10 +1,10 @@
-import { formatMeaningForDisplay } from "./wordbook-schema.js?v=76";
-import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=76";
-import { synonymGroupsForEntry } from "./synonym-groups.js?v=76";
-import { renderSynonymGroups } from "./synonym-view.js?v=76";
+import { formatMeaningForDisplay } from "./wordbook-schema.js?v=77";
+import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=77";
+import { synonymGroupsForEntry } from "./synonym-groups.js?v=77";
+import { renderSynonymGroups } from "./synonym-view.js?v=77";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=76";
-import { createSourcePassageSection } from "./book-passages-ui.js?v=76";
+import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
+import { createSourcePassageSection } from "./book-passages-ui.js?v=77";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -148,7 +148,7 @@ function renderDetailExtra(refs, entry) {
   const metadata = [
     ["原文形式", entry.originalInput && entry.originalInput !== entry.term ? [entry.originalInput] : [], "detail-original-form"],
     ["词形", entry.forms, "detail-forms"],
-    ["同义词", entry.synonyms, "detail-synonyms"],
+    ["同义词", SYNONYM_FEATURE_ENABLED ? entry.synonyms : [], "detail-synonyms"],
     ["易混淆词", entry.confusedWith, "detail-confused"]
   ].filter(([, values]) => Array.isArray(values) && values.length);
   if (metadata.length) {
@@ -171,7 +171,7 @@ export function entryTextForCopy(entry) {
     entry.partOfSpeech ? `词性：${entry.partOfSpeech}` : "",
     formatMeaningForDisplay(entry),
     entry.definition,
-    entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "",
+    SYNONYM_FEATURE_ENABLED && entry.synonyms.length ? `同义词：${entry.synonyms.join("；")}` : "",
     entry.exampleEn,
     entry.exampleZh,
     entry.usage,
@@ -209,6 +209,13 @@ export function createEntryDetailController({ root = document, getEntries = () =
 
   const refreshRelations = () => {
     if (!selected) return;
+    if (!SYNONYM_FEATURE_ENABLED) {
+      synonymSection.hidden = true;
+      synonymStatus.textContent = "";
+      synonymStatus.hidden = true;
+      synonymList.replaceChildren();
+      return;
+    }
     const groups = synonymGroupsForEntry(selected, getEntries());
     const lexical = ["word", "phrase", "phrasal-verb", "idiom", "collocation"].includes(selected.entryType);
     const scan = selected.synonymScan;

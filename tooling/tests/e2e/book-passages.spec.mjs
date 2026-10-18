@@ -180,6 +180,9 @@ test("a failed sidecar does not break cards, existing examples, or recall keyboa
   await expect(page.locator("#dialog-meaning")).toBeHidden();
   await expect(page.locator("#dialog-source-examples-section")).toBeHidden();
   await page.locator("#recall-reveal").click();
+  // Review state loads separately. This regression checks optional-source
+  // controls in the scoring Tab path, not whether review I/O is already done.
+  await expect(page.locator('#dialog-review-actions button[data-rating="again"]')).toBeEnabled();
   await page.keyboard.press("Tab");
   await expect(page.locator('#dialog-review-actions button[data-rating="again"]')).toBeFocused();
   expect(await noLearningChanges(page)).toEqual({ reviews: [], attempts: [] });

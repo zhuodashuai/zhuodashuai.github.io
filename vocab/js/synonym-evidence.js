@@ -1,5 +1,9 @@
 // Semantic version stamps, not security/authentication hashes. Deliberately
 // exclude dates, review progress and synonym metadata to prevent scan loops.
+// Automatic relationships are paused until their semantic accuracy is audited.
+// Keep existing metadata intact; this switch is shared by UI and API boundaries.
+export const SYNONYM_FEATURE_ENABLED = false;
+
 const LEXICAL = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 export function isSynonymLexicalEntry(entry) { return LEXICAL.has(entry?.entryType); }
 

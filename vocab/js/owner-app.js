@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=76";
-import { createEntryDetailController } from "./entry-detail.js?v=76";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=77";
+import { createEntryDetailController } from "./entry-detail.js?v=77";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,15 +17,15 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=76";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=76";
-import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=76";
-import { setupPwa } from "./pwa.js?v=76";
-import { lookupCoreEntry } from "./core-dictionary.js?v=76";
-import { preserveCollectionTags } from "./collections.js?v=76";
-import { buildSynonymGroups } from "./synonym-groups.js?v=76";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=76";
-import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=76";
+} from "./owner-storage.js?v=77";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=77";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=77";
+import { setupPwa } from "./pwa.js?v=77";
+import { lookupCoreEntry } from "./core-dictionary.js?v=77";
+import { preserveCollectionTags } from "./collections.js?v=77";
+import { buildSynonymGroups } from "./synonym-groups.js?v=77";
+import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=77";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -121,8 +121,8 @@ let ownerSynonymIndex = null;
 function getOwnerSynonymIndex() {
   if (ownerSynonymIndex?.snapshot === state.snapshot) return ownerSynonymIndex;
   const entries = state.snapshot?.entries || [];
-  const fingerprints = indexSynonymFingerprints(entries, ownerSynonymIndex?.fingerprints);
-  const groups = buildSynonymGroups(entries);
+  const fingerprints = SYNONYM_FEATURE_ENABLED ? indexSynonymFingerprints(entries, ownerSynonymIndex?.fingerprints) : null;
+  const groups = SYNONYM_FEATURE_ENABLED ? buildSynonymGroups(entries) : [];
   const related = new Map(entries.map((entry) => [entry.id, new Map()]));
   for (const group of groups) {
     for (const member of group.members) {
@@ -137,6 +137,7 @@ function getOwnerSynonymIndex() {
 }
 
 function synonymScanLabel(entry, index = getOwnerSynonymIndex()) {
+  if (!SYNONYM_FEATURE_ENABLED) return "";
   if (!LEXICAL_ENTRY_TYPES.has(entry?.entryType)) return "";
   if (state.synonymEntryId === entry.id) return "正在识别同义词…";
   const scan = entry.synonymScan;
@@ -175,12 +176,14 @@ function pauseAutomaticSynonymScans() {
 }
 
 function scheduleImportedSynonymScans() {
+  if (!SYNONYM_FEATURE_ENABLED) { window.clearTimeout(state.synonymTimer); return; }
   if (state.runClosing || hasForegroundOwnerWork() || state.synonymBatchStopped || state.synonymBatchBusy || state.synonymAttempts.size >= 20) return;
   window.clearTimeout(state.synonymTimer);
   state.synonymTimer = window.setTimeout(() => { processImportedSynonymScans().catch(() => {}); }, 50);
 }
 
 async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
+  if (!SYNONYM_FEATURE_ENABLED) return false;
   if (!automatic && !state.queueRecoveryComplete) await waitForQueueRecovery();
   if (state.runClosing || state.synonymBusy || state.queueBusy || state.publishing || !state.queueRecoveryComplete) {
     if (!automatic) setStatus(refs.captureStatus, "正在同步其他内容，请稍后重新识别同义词。");
@@ -242,6 +245,7 @@ async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
 }
 
 async function processImportedSynonymScans() {
+  if (!SYNONYM_FEATURE_ENABLED) return;
   if (state.runClosing || state.authChecking || state.synonymBatchBusy || state.synonymBatchStopped
     || state.synonymBusy || hasForegroundOwnerWork() || !state.queueRecoveryComplete
     || !hasVerifiedOwnerUi() || !navigator.onLine) return;
@@ -678,7 +682,7 @@ function fillEditor(draft, { focus = true } = {}) {
   setValue("fieldRegister", entry.register);
   setValue("fieldCollocations", entry.collocations?.join("，"));
   setValue("fieldSynonyms", entry.synonyms?.join("，"));
-  refs.synonymsField.hidden = !LEXICAL_ENTRY_TYPES.has(entry.entryType);
+  refs.synonymsField.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(entry.entryType);
   setValue("fieldConfused", entry.confusedWith?.join("，"));
   setValue("fieldForms", entry.forms?.join("，"));
   setValue("fieldTags", entry.tags?.join("，"));
@@ -707,7 +711,9 @@ function collectEntry({ strict = false } = {}) {
   if (!state.currentDraft) throw new Error("没有打开的草稿。");
   const previous = state.currentDraft.value;
   const term = value("fieldTerm");
-  const rawSynonyms = LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : [];
+  const rawSynonyms = SYNONYM_FEATURE_ENABLED
+    ? LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : []
+    : structuredClone(previous.synonyms || []);
   const synonyms = allowedSynonymsFor(term, rawSynonyms);
   if (strict && !sameNormalizedTermLists(synonyms, rawSynonyms)) {
     throw new Error("同义词只能选你已经收录、且当前仍在词库里的词条；请移除其余候选后再发布。");
@@ -779,7 +785,7 @@ async function persistCurrentDraft({ announce = false } = {}) {
   requireVerifiedOwnerUi();
   if (!state.currentDraft) return null;
   const collected = collectEntry();
-  const rawSynonyms = commaList(value("fieldSynonyms"), 20);
+  const rawSynonyms = SYNONYM_FEATURE_ENABLED ? commaList(value("fieldSynonyms"), 20) : collected.synonyms;
   const changedSynonymDisplay = JSON.stringify(rawSynonyms) !== JSON.stringify(collected.synonyms);
   const removedUnenteredSynonyms = !sameNormalizedTermLists(rawSynonyms, collected.synonyms);
   if (announce && changedSynonymDisplay) setValue("fieldSynonyms", collected.synonyms.join("，"));
@@ -900,7 +906,7 @@ function renderOwnerEntries() {
   const synonymIndex = getOwnerSynonymIndex();
   const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
   const shown = rankExactEntryMatches(
-    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, entry.synonyms.join(" "), entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
+    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, SYNONYM_FEATURE_ENABLED ? entry.synonyms.join(" ") : "", entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
     query
   );
   refs.ownerEntryCount.textContent = String(entries.length);
@@ -937,7 +943,7 @@ function renderOwnerEntries() {
     setMultilineText(meaning, formatMeaningForDisplay(entry));
     const synonyms = document.createElement("p");
     synonyms.className = "owner-entry-synonyms";
-    const relatedTerms = [...new Set(synonymIndex.related.get(entry.id)?.values() || [])];
+    const relatedTerms = SYNONYM_FEATURE_ENABLED ? [...new Set(synonymIndex.related.get(entry.id)?.values() || [])] : [];
     synonyms.hidden = relatedTerms.length === 0;
     const relationshipLabel = relatedTerms.every((term) => entry.synonyms.includes(term)) ? "同义词：" : "同义词 / 近义词：";
     synonyms.textContent = relatedTerms.length ? `${relationshipLabel}${relatedTerms.join("；")}` : "";
@@ -982,7 +988,7 @@ function renderOwnerEntries() {
     recognize.dataset.entryAction = "recognize";
     recognize.textContent = "重新识别";
     recognize.setAttribute("aria-label", `重新识别 ${entry.term} 的同义词`);
-    recognize.hidden = !LEXICAL_ENTRY_TYPES.has(entry.entryType);
+    recognize.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(entry.entryType);
     recognize.disabled = state.synonymBusy || state.queueBusy || state.publishing || !navigator.onLine;
     if (isNew) {
       recognize.addEventListener("click", () => scanPublishedSynonyms(entry.id).catch((error) => setStatus(refs.captureStatus, error.message)));
@@ -1097,9 +1103,9 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
   try {
     updateOwnerTermIndexes(await listDrafts());
-    const allowedSynonyms = state.ownerEnteredTerms
+    const allowedSynonyms = SYNONYM_FEATURE_ENABLED ? state.ownerEnteredTerms
       .filter((term) => normalizeEnglish(term) !== normalizeEnglish(draft.value.term))
-      .slice(0, 200);
+      .slice(0, 200) : [];
     const result = await organizeWithAi(cleaned, state.csrfToken, { allowedSynonyms });
     const warnings = Array.isArray(result.warnings) ? result.warnings.map(String) : [];
     updateOwnerTermIndexes(await listDrafts());
@@ -1107,10 +1113,10 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     const responseEntry = result.entry && typeof result.entry === "object" && !Array.isArray(result.entry) ? result.entry : {};
     const rawResponseSynonyms = Array.isArray(responseEntry.synonyms) ? responseEntry.synonyms : [];
     const filteredResponseSynonyms = filterSynonymsToOwnerTerms(rawResponseSynonyms, stillAllowedSynonyms, responseEntry.term || draft.value.term);
-    if (filteredResponseSynonyms.length !== rawResponseSynonyms.length) {
+    if (SYNONYM_FEATURE_ENABLED && filteredResponseSynonyms.length !== rawResponseSynonyms.length) {
       warnings.push("AI 提出的未输入同义词已丢弃；这里只保留你已通过主输入框建立且仍存在的词条。");
     }
-    const filteredResponseEntry = { ...responseEntry, synonyms: filteredResponseSynonyms };
+    const filteredResponseEntry = { ...responseEntry, synonyms: SYNONYM_FEATURE_ENABLED ? filteredResponseSynonyms : [] };
     const claimsCuratedPhonetic = warnings.some((warning) => /音标.*(?:校订|词典).*锁定/u.test(warning));
     const responsePhonetic = typeof filteredResponseEntry.phonetic === "string" ? filteredResponseEntry.phonetic.normalize("NFKC") : "";
     const pronunciations = responsePhonetic.match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
@@ -1195,6 +1201,14 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     }
     mergedEntry.tags = preserveCollectionTags(currentEntry.tags, mergedEntry.tags);
     mergedEntry.readingContexts = structuredClone(currentEntry.readingContexts || []);
+    if (!SYNONYM_FEATURE_ENABLED) {
+      // Pausing presentation and recognition is not a migration or deletion.
+      // An AI refresh retains valid existing references and hidden scan metadata;
+      // pausing does not bypass the original collected-term safety validation.
+      mergedEntry.synonyms = allowedSynonymsFor(currentEntry.term, currentEntry.synonyms || []);
+      if (Object.prototype.hasOwnProperty.call(currentEntry, "synonymScan")) mergedEntry.synonymScan = structuredClone(currentEntry.synonymScan);
+      else delete mergedEntry.synonymScan;
+    }
     if (!reviewRequired && aiEntry.senses.length) {
       mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
     } else if (reviewRequired) {
@@ -1653,8 +1667,8 @@ refs.entryForm.addEventListener("input", (event) => {
 });
 refs.fieldEntryType.addEventListener("change", () => {
   refs.attributionFieldset.hidden = !["quote", "proverb"].includes(refs.fieldEntryType.value);
-  refs.synonymsField.hidden = !LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value);
-  if (refs.synonymsField.hidden && refs.fieldSynonyms.value.trim()) {
+  refs.synonymsField.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value);
+  if (SYNONYM_FEATURE_ENABLED && refs.synonymsField.hidden && refs.fieldSynonyms.value.trim()) {
     refs.fieldSynonyms.value = "";
     showEditorError("句子、名言和谚语不保存同义词；原同义词内容已从这份草稿中移除。");
   } else {

@@ -29,11 +29,11 @@ test("changed module APIs use one versioned browser graph before any service wor
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
     for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
       const target = match[1].slice(2).split("?")[0];
-      if (changed.has(target)) assert.equal(match[1], `./${target}?v=76`, `${file} must not import a fresh old HTTP-cache dependency`);
+      if (changed.has(target)) assert.equal(match[1], `./${target}?v=77`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
   for (const file of changed) {
-    assert.ok(serviceWorker.includes(`"./js/${file}?v=76"`), `${file}'s versioned browser URL must work offline`);
+    assert.ok(serviceWorker.includes(`"./js/${file}?v=77"`), `${file}'s versioned browser URL must work offline`);
     assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
 });
@@ -90,12 +90,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v76/);
+  assert.match(serviceWorker, /zhuo-wordbook-v77/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=76/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=76/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=76/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=77/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=77/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=77/);
   assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup-ui\.js/);
@@ -114,11 +114,11 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=76"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=76"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=76"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=76"/);
-  assert.match(guideHtml, /href="styles\.css\?v=76"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=77"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=77"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=77"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=77"/);
+  assert.match(guideHtml, /href="styles\.css\?v=77"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
@@ -126,7 +126,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   // The cost disclosure now lives once, in the manual, and both pages link to it.
   assert.match(guideHtml, /Cloudflare Workers AI.*不需要第三方模型 API key/s);
   assert.match(guideHtml, /每个 UTC 日有 20 份站内服务额度/);
-  assert.match(guideHtml, /释义整理与每批同义词比对共用/);
+  assert.match(guideHtml, /暂停的同义词识别不会因打开管理页或发布词条而发起请求/);
   assert.match(guideHtml, /最多尝试三款/);
   assert.doesNotMatch(guideHtml + profileHtml + ownerAppSource, /Claude|Anthropic|anthropic/);
   assert.match(guideHtml, /这不是永久免费承诺/);
@@ -158,21 +158,25 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(workerConfigSource, /"run_worker_first"\s*:\s*true/);
 });
 
-test("synonyms remain one entered-word-only field throughout owner editing and public discovery", () => {
-  assert.match(ownerHtml, /id="field-synonyms"[^>]*placeholder="发布后自动双向更新/);
-  assert.match(ownerHtml, /同义词（仅限已收录词）/);
-  assert.match(ownerAppSource, /const rawSynonyms = LEXICAL_ENTRY_TYPES\.has\([^?]+\)\s*\?\s*commaList\(value\("fieldSynonyms"\),\s*20\)\s*:\s*\[\]/);
+test("paused synonyms stay hidden without removing stored fields or reference validation", () => {
+  assert.match(ownerHtml, /id="synonyms-field" hidden/);
+  assert.match(ownerHtml, /id="field-synonyms"/);
+  assert.match(ownerAppSource, /const rawSynonyms = SYNONYM_FEATURE_ENABLED/);
   assert.match(ownerAppSource, /const synonyms = allowedSynonymsFor\(term, rawSynonyms\)/);
   assert.match(ownerAppSource, /organizeWithAi\(cleaned, state\.csrfToken, \{ allowedSynonyms \}\)/);
   assert.match(ownerAppSource, /setValue\("fieldSynonyms", entry\.synonyms\?\.join/);
   assert.match(entryDetailSource, /entry\.synonyms/);
-  assert.match(entryDetailSource, /同义词：\$\{entry\.synonyms\.join/);
+  assert.match(entryDetailSource, /SYNONYM_FEATURE_ENABLED && entry\.synonyms\.length/);
+  assert.match(ownerAppSource, /if \(!SYNONYM_FEATURE_ENABLED\) return false/);
+  assert.match(publicAppSource, /SYNONYM_FEATURE_ENABLED/);
+  assert.match(vocabHtml, /data-view="synonyms"[^>]*hidden/);
+  assert.match(guideHtml, /同义词功能暂缓开放/);
   assert.match(vocabHtml, /搜索本章或词本已有的词/);
   assert.match(stylesSource, /\.word-card \.card-synonyms/);
 });
 
 test("owner lookup shows a safe local preview while the slower AI organizer runs", () => {
-  assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js\?v=76"/);
+  assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js\?v=77"/);
   assert.match(ownerAppSource, /lookupCoreEntry\(cleaned\)/);
   assert.match(ownerAppSource, /本地 ECDICT 候选/);
   assert.match(ownerAppSource, /候选不会自动发布/);
@@ -201,8 +205,8 @@ test("owner publication applies the browser Chinese-quality and structured-sense
 
 test("public and owner readers share the same accessible entry detail controller", () => {
   assert.match(entryDetailSource, /export function createEntryDetailController/);
-  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=76"/);
-  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=76"/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=77"/);
+  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=77"/);
   assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(vocabHtml, /<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">/);

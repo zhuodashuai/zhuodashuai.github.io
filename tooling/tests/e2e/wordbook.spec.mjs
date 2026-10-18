@@ -129,31 +129,16 @@ test("可证明的义项词性与顶层词性在 Owner、公开卡片、详情�
 });
 
 test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后焦点返回词名", async ({ page }) => {
-  let releaseScan;
-  let scanStarted;
-  let releaseRemainingScans;
-  let nextScanStarted;
+  await page.clock.install();
   let scanRequests = 0;
-  let firstScanEntryId;
-  const scanGate = new Promise((resolve) => { releaseScan = resolve; });
-  const scanning = new Promise((resolve) => { scanStarted = resolve; });
-  const remainingScanGate = new Promise((resolve) => { releaseRemainingScans = resolve; });
-  const nextScanning = new Promise((resolve) => { nextScanStarted = resolve; });
   await page.route("**/api/v1/owner/synonyms", async (route) => {
     scanRequests += 1;
-    if (scanRequests === 1) {
-      firstScanEntryId = route.request().postDataJSON().entryId;
-      scanStarted();
-      await scanGate;
-    } else {
-      nextScanStarted();
-      await remainingScanGate;
-    }
-    await route.continue();
+    await route.fulfill({ status: 410, json: { error: { code: "feature_paused", message: "同义词功能已暂停" } } });
   });
   try {
     await loginOwner(page);
-    await scanning;
+    await page.clock.runFor(200);
+    expect(scanRequests).toBe(0);
     await page.locator("#owner-search").fill("hip");
     const row = page.locator(".owner-entry-row", { hasText: "hip" });
     const termButton = row.locator(".owner-entry-term-button");
@@ -171,22 +156,12 @@ test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后�
     await expect(dialog).toBeHidden();
     await expect(termButton).toBeFocused();
 
-    // Complete a background scan between Space's native keydown and keyup.
-    // The same focused button must survive the render to retain activation.
+    // Paused relationship discovery must not replace the focused control or
+    // create a request while the owner's native Space activation is pending.
     const pressedButton = await termButton.elementHandle();
     await page.keyboard.down("Space");
-    const completedScan = page.waitForResponse((response) => response.url().endsWith("/api/v1/owner/synonyms")
-      && response.request().postDataJSON().entryId === firstScanEntryId);
-    releaseScan();
-    const response = await completedScan;
-    expect(response.status()).toBe(200);
-    const scanResult = await response.json();
-    expect(scanResult).toMatchObject({ action: "synonyms", entry: { id: firstScanEntryId },
-      synonymScan: { status: "complete", reason: "" } });
-    expect(scanResult.snapshot.entries.find((entry) => entry.id === firstScanEntryId).synonymScan).toEqual(scanResult.synonymScan);
-    // The next request starts only after the prior response has been cached,
-    // rendered and finalized. Hold it so no later repaint races the assertion.
-    await nextScanning;
+    await page.clock.runFor(200);
+    expect(scanRequests).toBe(0);
     expect(await pressedButton.evaluate((button) => button.isConnected && document.activeElement === button)).toBe(true);
     await expect(termButton).toBeFocused();
     await page.keyboard.up("Space");
@@ -197,8 +172,6 @@ test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后�
     await expect(termButton).toBeFocused();
   } finally {
     await page.keyboard.up("Space");
-    releaseScan();
-    releaseRemainingScans();
     await page.unrouteAll({ behavior: "wait" });
   }
 });
@@ -1002,33 +975,54 @@ test("即时源短暂失败时旧的 Pages 备用快照不能把公开页回滚"
   await expect(page.locator("#entry-count")).toHaveText(String(CANONICAL_ENTRY_COUNT + 1));
 });
 
-test("AI 只用卓已输入的词建立双向同义词，三张卡自动更新且不创建候选词条", async ({ context, page }) => {
+test("暂停同义词后 AI 仍可添加三条独立词卡，搜索不扩写关系且重复输入不新增", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
-  let aiRequestCount = 0;
   const aiRequests = [];
+  let scanRequests = 0;
   page.on("request", (request) => {
     if (request.method() === "POST" && request.url().endsWith("/api/v1/owner/ai/organize")) {
-      aiRequestCount += 1;
       aiRequests.push(request.postDataJSON());
     }
+    if (request.url().endsWith("/api/v1/owner/synonyms")) scanRequests += 1;
   });
 
   await loginOwner(page);
-  await addWithAi(page, "delicious");
-  await expect(page.locator("#field-synonyms")).toHaveValue("");
-  await expect(page.locator("#draft-list > button")).toHaveCount(1);
-  await expect(page.locator("#owner-entry-count")).toHaveText("0");
-  expect(aiRequests[0]).toEqual({ input: "delicious", allowedSynonyms: [] });
-  await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("1");
-  await expect(page.locator(".owner-entry-row", { hasText: "delicious" }).locator(".owner-entry-synonyms")).toBeHidden();
-  expect(aiRequestCount).toBe(1);
+  const terms = ["delicious", "yummy", "palatable"];
+  for (const [index, term] of terms.entries()) {
+    await addWithAi(page, term);
+    await expect(page.locator("#synonyms-field")).toBeHidden();
+    await expect(page.locator("#field-synonyms")).toHaveValue("");
+    await expect(page.locator("#draft-list > button")).toHaveCount(index + 1);
+    await expect(page.locator("#owner-entry-count")).toHaveText(String(index));
+    expect(aiRequests[index]).toEqual({ input: term, allowedSynonyms: [] });
+    await publishOpenDraft(page);
+    await expect(page.locator("#owner-entry-count")).toHaveText(String(index + 1));
+    await expect(page.locator(".owner-entry-row")).toHaveCount(index + 1);
+    await expect(page.locator(".owner-entry-synonyms:visible")).toHaveCount(0);
+    await expect(page.locator(".owner-entry-synonym-status:visible")).toHaveCount(0);
+  }
+  expect(aiRequests).toHaveLength(3);
+  expect(scanRequests).toBe(0);
 
   await page.goto("/");
-  await expect(page.locator("#entry-count")).toHaveText("1");
-  const deliciousCard = page.locator(".word-card").filter({ has: page.locator("h3", { hasText: /^delicious$/ }) });
-  await expect(deliciousCard.locator(".card-synonyms")).toBeHidden();
+  await expect(page.locator("#entry-count")).toHaveText("3");
+  await expect(page.locator(".word-card")).toHaveCount(3);
+  await expect(page.locator("#view-controls [data-view='synonyms']")).toBeHidden();
+  await expect(page.locator(".card-synonyms:visible")).toHaveCount(0);
+  const cardTerms = await page.locator(".word-card h3").allTextContents();
+  expect([...cardTerms].sort()).toEqual([...terms].sort());
+  expect(new Set(cardTerms).size).toBe(3);
   const publicSearch = page.getByLabel("搜索词库");
+  for (const term of terms) {
+    await publicSearch.fill(term);
+    await expect(page.locator(".word-card")).toHaveCount(1);
+    await expect(page.locator(".word-card h3")).toHaveText(term);
+    await page.getByRole("button", { name: `查看 ${term} 的完整词条`, exact: true }).click();
+    await expect(page.locator("#dialog-term")).toHaveText(term);
+    await expect(page.locator("#dialog-synonym-section")).toBeHidden();
+    await expect(page.locator(".detail-synonyms")).toHaveCount(0);
+    await page.getByRole("button", { name: "关闭词条详情" }).click();
+  }
   await publicSearch.fill("tasty");
   await expect(page.locator(".word-card")).toHaveCount(0);
 
@@ -1036,79 +1030,27 @@ test("AI 只用卓已输入的词建立双向同义词，三张卡自动更新�
   await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
   const download = await downloadPromise;
   const exported = JSON.parse(await readFile(await download.path(), "utf8"));
-  expect(exported.entries).toHaveLength(1);
-  expect(exported.entries[0]).toMatchObject({ term: "delicious", synonyms: [] });
-
-  await page.goto("/owner.html");
-  await expect(page.getByRole("heading", { name: "管理", exact: true })).toBeVisible();
-  await addWithAi(page, "yummy");
-  await expect(page.locator("#field-synonyms")).toHaveValue("delicious");
-  await expect(page.locator("#draft-list > button")).toHaveCount(2);
-  await expect(page.locator("#owner-entry-count")).toHaveText("1");
-  expect(aiRequests[1]).toEqual({ input: "yummy", allowedSynonyms: ["delicious"] });
-  await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("2");
-  expect(aiRequestCount).toBe(2);
-
-  await page.locator("#owner-search").fill("");
-  await expect(page.locator(".owner-entry-row")).toHaveCount(2);
-  const deliciousOwner = page.locator(".owner-entry-row").filter({ has: page.locator("strong", { hasText: /^delicious$/ }) });
-  const yummyOwner = page.locator(".owner-entry-row").filter({ has: page.locator("strong", { hasText: /^yummy$/ }) });
-  await expect(deliciousOwner).toContainText("同义词：yummy");
-  await expect(yummyOwner).toContainText("同义词：delicious");
-
-  await page.goto("/");
-  await publicSearch.fill("yummy");
-  await expect(page.locator(".word-card")).toHaveCount(2);
-  await expect(page.locator(".word-card h3").first()).toHaveText("yummy");
-  await page.getByRole("button", { name: "查看 yummy 的完整词条" }).click();
-  const detailSynonyms = page.getByRole("dialog").locator(".detail-synonyms");
-  await expect(detailSynonyms.locator(".sense-field-label")).toHaveText("同义词");
-  await expect(detailSynonyms.locator("p")).toHaveText("delicious");
-  await page.getByRole("button", { name: "关闭词条详情" }).click();
-
-  await page.goto("/owner.html");
-  await addWithAi(page, "palatable");
-  await expect(page.locator("#field-synonyms")).toHaveValue("delicious，yummy");
-  expect({ ...aiRequests[2], allowedSynonyms: [...aiRequests[2].allowedSynonyms].sort() })
-    .toEqual({ input: "palatable", allowedSynonyms: ["delicious", "yummy"] });
-  await publishOpenDraft(page);
-  await expect(page.locator("#owner-entry-count")).toHaveText("3");
-  expect(aiRequestCount).toBe(3);
-  await page.locator("#owner-search").fill("");
-  const publishedExpectations = [
-    ["delicious", "同义词：yummy；palatable"],
-    ["yummy", "同义词：delicious；palatable"],
-    ["palatable", "同义词：delicious；yummy"]
-  ];
-  for (const [term, synonyms] of publishedExpectations) {
-    const row = page.locator(".owner-entry-row").filter({ has: page.locator("strong", { hasText: new RegExp(`^${term}$`) }) });
-    await expect(row).toContainText(synonyms);
-  }
-
-  await page.goto("/");
-  await publicSearch.fill("palatable");
-  await expect(page.locator(".word-card")).toHaveCount(3);
-  await expect(page.locator(".word-card h3").first()).toHaveText("palatable");
-  await page.getByRole("button", { name: "查看 palatable 的完整词条" }).click();
-  await expect(page.getByRole("dialog").locator(".detail-synonyms p")).toHaveText("delicious；yummy");
-  await page.getByRole("button", { name: "关闭词条详情" }).click();
-  const linkedDownloadPromise = page.waitForEvent("download");
-  await page.getByRole("button", { name: "导出公开词库 JSON" }).click();
-  const linkedDownload = await linkedDownloadPromise;
-  const linkedExport = JSON.parse(await readFile(await linkedDownload.path(), "utf8"));
-  expect(linkedExport.entries.find((entry) => entry.term === "delicious")?.synonyms).toEqual(["yummy", "palatable"]);
-  expect(linkedExport.entries.find((entry) => entry.term === "yummy")?.synonyms).toEqual(["delicious", "palatable"]);
-  expect(linkedExport.entries.find((entry) => entry.term === "palatable")?.synonyms).toEqual(["delicious", "yummy"]);
-  await publicSearch.fill("tasty");
-  await expect(page.locator(".word-card")).toHaveCount(0);
+  expect(exported.entries).toHaveLength(3);
+  expect(exported.entries.map((entry) => entry.term).sort()).toEqual([...terms].sort());
+  for (const entry of exported.entries) expect(entry.synonyms).toEqual([]);
 
   await page.goto("/owner.html");
   await page.getByLabel("英文内容").fill("palatable");
   await page.getByRole("button", { name: "AI 自动整理" }).click();
   await expect(page.locator("#capture-status")).toContainText(/已有|已建立|已打开/);
   await expect(page.locator("#owner-entry-count")).toHaveText("3");
-  expect(aiRequestCount).toBe(3);
+  // Re-entering a published term may open one editable copy of that same
+  // entry; it must not create a fourth lexical identity or invoke AI again.
+  const storedDrafts = await page.evaluate(async () => {
+    const { listDrafts } = await import("/js/owner-storage.js");
+    return listDrafts();
+  });
+  const editCopies = storedDrafts.filter((draft) => draft.mode === "edit");
+  expect(editCopies).toHaveLength(1);
+  expect(editCopies[0].entryId).toBe(exported.entries.find((entry) => entry.term === "palatable").id);
+  expect(new Set(storedDrafts.map((draft) => draft.entryId)).size).toBe(3);
+  expect(aiRequests).toHaveLength(3);
+  expect(scanRequests).toBe(0);
 });
 
 test("旧本地草稿中的未输入同义词会在发布前移除", async ({ context, page }) => {

@@ -1,3 +1,4 @@
+export const SYNONYM_FEATURE_ENABLED: boolean;
 export function isSynonymLexicalEntry(entry: any): boolean;
 export function entrySynonymFingerprint(entry: any): string;
 export function candidateSynonymFingerprint(entries: any[], options?: { fingerprints?: ReadonlyMap<string, string> }): string;

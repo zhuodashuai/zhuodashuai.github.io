@@ -1,18 +1,18 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=76";
-import { createEntryDetailController } from "./entry-detail.js?v=76";
-import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=76";
-import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=76";
-import { setupPwa } from "./pwa.js?v=76";
-import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=76";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=77";
+import { createEntryDetailController } from "./entry-detail.js?v=77";
+import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
+import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=77";
+import { setupPwa } from "./pwa.js?v=77";
+import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=77";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=76";
-import { sameSynonymSenseView } from "./synonym-evidence.js?v=76";
-import { renderSynonymGroups } from "./synonym-view.js?v=76";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=76";
+import { buildSynonymGroups } from "./synonym-groups.js?v=77";
+import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
+import { renderSynonymGroups } from "./synonym-view.js?v=77";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=77";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=76";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=76";
-import { createBookPassagesView } from "./book-passages-ui.js?v=76";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=77";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=77";
+import { createBookPassagesView } from "./book-passages-ui.js?v=77";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -32,7 +32,8 @@ const state = {
   liveEtag: "",
   collectionId: initialParameters.get("book") || "all",
   chapterId: initialParameters.get("chapter") || "all",
-  view: ["synonyms", "passages"].includes(initialParameters.get("view")) ? initialParameters.get("view") : "cards",
+  view: initialParameters.get("view") === "passages" ? "passages"
+    : SYNONYM_FEATURE_ENABLED && initialParameters.get("view") === "synonyms" ? "synonyms" : "cards",
   studyScopeEntries: [],
   studyQueue: [],
   studyQueueTotal: 0,
@@ -49,6 +50,11 @@ let requestedCollectionScope = state.collectionId === "all" ? null : {
   collectionId: state.collectionId, chapterId: state.chapterId
 };
 const FOREGROUND_REFRESH_MS = 30_000;
+if (!SYNONYM_FEATURE_ENABLED && initialParameters.get("view") === "synonyms") {
+  const url = new URL(window.location.href);
+  url.searchParams.delete("view");
+  window.history.replaceState(null, "", url);
+}
 const MIN_REFRESH_GAP_MS = 3_000;
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -375,7 +381,7 @@ function render() {
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
-  const allGroups = buildSynonymGroups(entries);
+  const allGroups = SYNONYM_FEATURE_ENABLED ? buildSynonymGroups(entries) : [];
   const scopeIds = new Set(collectionEntries.map((entry) => entry.id));
   const matchesType = (entry) => state.filter === "all" || entry.entryType === state.filter;
   const visibleGroups = allGroups.filter((group) => {
@@ -385,7 +391,7 @@ function render() {
     return !query || normalizePublicSearchQuery(`${group.title} ${group.note}`).includes(query)
       || group.members.some(({ entry }) => publicEntryMatchesQuery(entry, query));
   });
-  const groupedView = state.view === "synonyms";
+  const groupedView = SYNONYM_FEATURE_ENABLED && state.view === "synonyms";
   const passagesView = state.view === "passages";
   // Reading quotations should not be covered by the chapter's floating quiz
   // launcher. updateScope above restores it when returning to vocabulary.
@@ -395,6 +401,7 @@ function render() {
   searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式";
   refs.librarySearch.placeholder = passagesView ? "搜索当前章节或词本的摘句" : "搜索本章或词本已有的词";
   refs.viewControls.querySelectorAll("button[data-view]").forEach((control) => {
+    if (control.dataset.view === "synonyms") control.hidden = !SYNONYM_FEATURE_ENABLED;
     control.setAttribute("aria-pressed", String(control.dataset.view === state.view));
   });
   refs.entryGrid.hidden = groupedView || passagesView;
@@ -434,9 +441,9 @@ function render() {
     renderLearningPoints(meaning, entry);
     const synonyms = document.createElement("p");
     synonyms.className = "card-synonyms";
-    const linkedTerms = [...new Set(allGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id
+    const linkedTerms = SYNONYM_FEATURE_ENABLED ? [...new Set(allGroups.filter((group) => group.members.some((member) => member.entry.id === entry.id
       && (!group.id.startsWith("auto:") || sameSynonymSenseView(member.entry, entry))))
-      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))];
+      .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))] : [];
     synonyms.hidden = linkedTerms.length === 0;
     synonyms.textContent = linkedTerms.length ? `已收录近义词：${linkedTerms.join("；")} · 点开查看辨析` : "";
     const tags = document.createElement("div");
@@ -629,7 +636,8 @@ refs.viewControls.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-view]");
   if (!control) return;
   pronunciation.stop();
-  state.view = ["synonyms", "passages"].includes(control.dataset.view) ? control.dataset.view : "cards";
+  state.view = control.dataset.view === "passages" ? "passages"
+    : SYNONYM_FEATURE_ENABLED && control.dataset.view === "synonyms" ? "synonyms" : "cards";
   updateCollectionUrl();
   render();
 });
