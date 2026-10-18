@@ -13,11 +13,13 @@ chapter quizzes or review records. No external AI/translation requests are made.
    nonempty named reviewer. Merely changing a status is not a real language or
    rights review. No completeness, accuracy or legal clearance is inferred.
 
-The source catalogue currently has **930 independently written entries**: the
-original 30-entry pilot and the 300-entry batches `0002`, `0003` and `0004`. Together they contain
-**2,219 selected senses and 2,221 original bilingual examples**. The authors
-composed them without consulting
-the supplied PDFs, existing definitions or publisher examples. A separate AI
+The source catalogue currently has **1,030 independently written entries**: the
+original 30-entry pilot, the 300-entry batches `0002`, `0003` and `0004`, and the
+100-entry PDF-headword batch `0005`. Together they contain **2,417 selected senses
+and 2,419 original bilingual examples**. Authors composed definitions and examples
+without consulting supplied PDF entries, existing definitions or publisher
+examples. For batch `0005`, a separate selector supplied only visually checked
+headword names from ten rendered PDF pages. A separate AI
 review found no known substantive language errors; this is **not** human
 approval or proof of originality. Author files remain drafts. Hash-bound sidecar
 reviews can promote a separately compiled copy to `checked`, explicitly naming
@@ -105,10 +107,23 @@ feet and halves; plenty and several retain their quantity-related parts of speec
 rather than being forced into adjective labels. Review refinements clarify
 elder/eldest restrictions, hospital articles when referring to a patient, and
 precise translations of fronting a campaign and a station's future. The existing
-630 canonical cards are preserved, not regenerated. Of the fixed 70,000 candidate
-heads, 923 now have writing and AI cross-review; 69,077 remain unwritten. The
-930-card total includes five phrases and two other word entries outside that
-candidate queue; those seven cards do not inflate target-headword progress.
+630 canonical cards were preserved, not regenerated.
+
+Batch `0005` adds 100 non-overlapping headwords, 198 selected senses and 198
+original bilingual examples. A separate selector visually checked the main
+headwords on physical PDF pages 1500–1509, recording private page-level evidence
+and the source hash. This is a bounded sample, not a complete index of that PDF
+or all six supplied dictionaries. Authors received headword names only, then
+independent reviewers checked all 100 entries. Outwards stays a variant of outward
+rather than becoming another canonical card. Review refinements include natural
+Chinese for outpatient and overnight and aligned examples for outpace,
+overcompensate and overkill. The previous 930 canonical cards are unchanged.
+
+Of the fixed 70,000 candidate heads, 1,023 now have writing and AI cross-review;
+68,977 remain unwritten. The 1,030-card total includes five phrases and two other
+word entries outside that candidate queue; those seven cards do not inflate
+target-headword progress. All source packs remain drafts; only separately
+compiled copies carry the hash-bound AI review label. No partial batch is deployed.
 
 Every authored sense includes its part of speech, original Chinese and English
 definitions, and a bilingual original example. This batch already has examples;
@@ -154,6 +169,7 @@ node --test tooling/tests/original-dictionary.test.mjs tooling/tests/original-di
 node --test tooling/tests/original-dictionary-catalogue.test.mjs tooling/tests/original-dictionary-batch-data.test.mjs
 node --test tooling/tests/original-dictionary-batch-0003-data.test.mjs
 node --test tooling/tests/original-dictionary-batch-0004-data.test.mjs
+node --test tooling/tests/original-dictionary-batch-0005-data.test.mjs
 python -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
 ```
 

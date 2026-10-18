@@ -18,8 +18,10 @@ The public tools are intentionally separated by directory so changes to Wordbook
 The separate [original-dictionary editorial foundation](tooling/dictionary/README.md)
 targets 70,000 distinct lexical headwords with independently written content. It
 is local tooling, not a deployed replacement: the cumulative catalogue currently
-contains 930 original AI-assisted entries, with 2,219 selected senses and 2,221
-bilingual examples. Semantic content is independently cross-checked and hash-bound review
+contains 1,030 original AI-assisted entries, with 2,417 selected senses and 2,419
+bilingual examples. The latest 100 headwords were visually checked on ten pages
+of a supplied PDF; authors received only those headwords, not publisher wording.
+Semantic content is independently cross-checked and hash-bound review
 records distinguish it from the separate unreviewed headword queue. The owner
 chose to wait for all 70,000 target headwords before any production upload. The
 supplied commercial PDFs are not published or claimed as fully indexed.
