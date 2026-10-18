@@ -698,6 +698,11 @@ export function validateSnapshot(payload: unknown): PublicSnapshot {
       keys.set(key, entry.id);
     }
   }
+  // Current snapshots have already passed this exact strict schema above.
+  // The checks in between only read entries and build local indexes; they do
+  // not mutate the parsed snapshot. Legacy migrations still need the final
+  // full validation, including cross-entry synonym integrity.
+  if (version === PUBLIC_SCHEMA_VERSION) return snapshot;
   const integrity = PublicSnapshotSchema.safeParse(snapshot);
   if (!integrity.success) {
     throw new ApiError(400, "invalid_snapshot", "公开词库包含未实际输入或尚未发布的同义词引用。", integrity.error.issues);

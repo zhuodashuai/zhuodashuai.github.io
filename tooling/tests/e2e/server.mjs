@@ -383,7 +383,12 @@ async function memberApi(request, response, url) {
       return memberError(response, 400, "invalid_entry", "词条为空或长度超出限制。");
     }
     let term;
-    try { term = validateEnglishInput(payload.term); }
+    // Mirror only the private-member packaged literal exception. Owner input
+    // validation elsewhere still uses the unchanged global English validator.
+    try {
+      if (/[^\P{Cc}\n\t]|\p{Cf}/u.test(payload.term)) throw new Error("Unsupported controls");
+      term = payload.term.trim() === "24/7" ? "24/7" : validateEnglishInput(payload.term);
+    }
     catch { return memberError(response, 400, "invalid_entry", "请输入有效的英文单词或短语。"); }
     const normalized = normalizeEnglish(term);
     if (id && account.entries[index].sourceContexts?.length && normalized !== account.entries[index].normalized) return memberError(response, 400, "source_term_locked", "选入的公开词条不能改成另一个词。");

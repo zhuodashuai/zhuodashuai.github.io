@@ -4,25 +4,26 @@ import test from "node:test";
 import vm from "node:vm";
 
 const source = await readFile(new URL("../sw.js", import.meta.url), "utf8");
-function worker(fetchImpl, cached = null, { put = async (_request, response) => response.clone().arrayBuffer() } = {}) {
+function worker(fetchImpl, cached = null, { put = async (_request, response) => response.clone().arrayBuffer(), cacheError = null } = {}) {
   const listeners = new Map();
   const timers = new Map();
   const writes = [];
   const precached = [];
+  const background = [];
   let serial = 0;
   vm.runInNewContext(source, {
     self: { location: { origin: "https://wordbook.test", href: "https://wordbook.test/vocab/sw.js" }, addEventListener: (type, listener) => listeners.set(type, listener) },
-    caches: { open: async () => ({
+    caches: { open: async () => { if (cacheError) throw cacheError; return ({
       match: async (request) => typeof cached === "function" ? cached(request) : cached?.clone(),
       addAll: async (requests) => { precached.push(...requests); },
       put: async (request, response) => { await put(request, response); writes.push({ request, response }); }
-    }) },
+    }); } },
     fetch: fetchImpl, URL, Request, Response, AbortController,
     setTimeout: (callback, delay) => { const id = ++serial; timers.set(id, { callback, delay }); return id; },
     clearTimeout: (id) => timers.delete(id)
   }, { filename: "vocab/sw.js" });
   return {
-    timers, writes, precached,
+    timers, writes, precached, background,
     async install() {
       let task;
       listeners.get("install")({ waitUntil: (promise) => { task = promise; } });
@@ -30,7 +31,7 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
     },
     fetch(path = "/vocab/index.html", mode = "navigate") {
       let response;
-      listeners.get("fetch")({ request: { method: "GET", url: `https://wordbook.test${path}`, mode }, respondWith: (promise) => { response = promise; } });
+      listeners.get("fetch")({ request: { method: "GET", url: `https://wordbook.test${path}`, mode }, respondWith: (promise) => { response = promise; }, waitUntil: promise => background.push(promise) });
       return response;
     }
   };
@@ -43,6 +44,27 @@ test("a temporary HTTP failure serves a verified cached page and never stores th
   assert.equal(await response.text(), "cached page");
   assert.equal(sw.writes.length, 0);
   assert.equal(sw.timers.size, 0);
+});
+
+test("a quota error while caching static dictionary data never rejects a healthy lookup response", async () => {
+  const sw = worker(async () => new Response('{"dictionary":"healthy"}'), null, {
+    put: async () => { throw new DOMException("Storage full", "QuotaExceededError"); }
+  });
+  const response = await sw.fetch("/vocab/data/member-dictionary.json?v=content-hash", "cors");
+  assert.deepEqual(await response.json(), { dictionary: "healthy" });
+  await Promise.all(sw.background);
+  assert.equal(sw.writes.length, 0);
+});
+
+test("a stalled dictionary cache write cannot delay returning the network body", async () => {
+  const sw = worker(async () => new Response("fast dictionary"), null, { put: () => new Promise(() => {}) });
+  assert.equal(await (await sw.fetch("/vocab/data/member-dictionary.json?v=new", "cors")).text(), "fast dictionary");
+  assert.equal(sw.background.length, 1);
+});
+
+test("denied CacheStorage still allows an online static dictionary lookup", async () => {
+  const sw = worker(async () => new Response("uncached dictionary"), null, { cacheError: new Error("Storage denied") });
+  assert.equal(await (await sw.fetch("/vocab/data/member-dictionary.json?v=new", "cors")).text(), "uncached dictionary");
 });
 
 test("an unresponsive fetch is aborted at the bounded deadline and uses the valid cache", async () => {

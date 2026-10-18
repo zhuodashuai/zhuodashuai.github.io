@@ -42,6 +42,8 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Build compact member lookup from existing public data
+        run: node tooling/scripts/build-member-dictionary.mjs
       - name: Secret boundary scan
         run: pnpm test:security
       - name: Unit and Worker integration tests
@@ -106,7 +108,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm --dir wordbook-api exec wrangler deploy
+        run: |
+          node tooling/scripts/build-member-dictionary.mjs
+          pnpm --dir wordbook-api exec wrangler deploy
       - name: Confirm the deployed Worker is healthy
         if: steps.guard.outputs.configured == 'true'
         run: |

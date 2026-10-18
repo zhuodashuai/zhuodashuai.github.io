@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 SCHEMA_VERSION = 1
-DEFAULT_LIMIT = 7500
+DEFAULT_LIMIT = 7502
 EXAM_TAGS = {"zk", "gk", "cet4", "cet6", "ky", "toefl", "ielts", "gre"}
 
 # ECDICT intentionally records some common misspellings.  They are useful in a
@@ -62,7 +62,7 @@ REQUIRED_TERMS = {
     "take", "take off", "take part in", "term", "test", "thing", "think", "time",
     "translate", "turn down", "u.s.", "understand", "university", "use", "watch",
     "way", "weird", "word", "work",
-    "world", "write",
+    "world", "write", "yummy", "palatable",
 }
 
 POS_NAMES = {
@@ -82,6 +82,14 @@ POS_NAMES = {
 }
 
 EDITORIAL_OVERRIDES = {
+    "yummy": {
+        "part_of_speech": "adjective",
+        "meaning": "adj. 美味的；好吃的（口语）",
+    },
+    "palatable": {
+        "part_of_speech": "adjective",
+        "meaning": "adj. 可口的；（提议、想法等）可以接受的",
+    },
     "efficient": {
         "part_of_speech": "adjective",
         "meaning": "高效的；效率高的；有效率的",

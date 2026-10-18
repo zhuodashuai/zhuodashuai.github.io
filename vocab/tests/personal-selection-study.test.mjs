@@ -61,6 +61,40 @@ test("public catalog timeouts and account-scope cancellation also bound a stalle
   await assert.rejects(fetchPersonalPublicCatalog({ signal: controller.signal, fetchImpl: () => { throw new Error("must not start"); } }), /读取已停止/);
 });
 
+test("public picker falls back to a validated public asset when the live service returns1102/5xx", async () => {
+  const calls = [];
+  const result = await fetchPersonalPublicCatalog({ fetchImpl: async (url, options) => {
+    calls.push([String(url), options]);
+    return String(url).startsWith("/api/") ? new Response("Worker exceeded resource limits", { status: 500 })
+      : new Response(JSON.stringify({ schemaVersion: 3, exportedAt: WHEN, revisionId: "deployed-test", lastMutationId: "", entries: [publicWord()] }));
+  } });
+  assert.equal(result.readSource, "deployed-fallback");
+  assert.equal(result.entries[0].term, "tuck");
+  assert.equal(calls.length, 2);
+  assert.match(calls[1][0], /\/data\/owner-wordbook\.json$/u);
+  assert.ok(calls.every(([, options]) => options.credentials === "omit"));
+});
+
+test("a hanging live body has a short deadline before the picker tries the deployed public snapshot", async () => {
+  let firstSignal;
+  const result = await fetchPersonalPublicCatalog({ apiTimeoutMs: 5, timeoutMs: 1000, fetchImpl: async (url, options) => {
+    if (String(url).startsWith("/api/")) { firstSignal = options.signal; return { ok: true, json: () => new Promise(() => {}) }; }
+    return new Response(JSON.stringify({ schemaVersion: 3, exportedAt: WHEN, revisionId: "fallback-test", lastMutationId: "", entries: [] }));
+  } });
+  assert.equal(firstSignal.aborted, true);
+  assert.equal(result.readSource, "deployed-fallback");
+});
+
+test("public fallback is validated and account cancellation cannot start a fallback request", async () => {
+  await assert.rejects(fetchPersonalPublicCatalog({ fetchImpl: async () => new Response('{"not":"a snapshot"}') }));
+  let calls = 0;
+  const controller = new AbortController();
+  const pending = fetchPersonalPublicCatalog({ signal: controller.signal, apiTimeoutMs: 100, fetchImpl: async () => { calls++; return new Promise(() => {}); } });
+  controller.abort();
+  await assert.rejects(pending, /读取已停止/);
+  assert.equal(calls, 1);
+});
+
 test("selection payloads contain only IDs and explicit scope, never copied meanings or user identities", () => {
   assert.deepEqual(selectionPayload(["public-b", "public-a"], BOOK, "chapter-2"), { entryIds: ["public-a", "public-b"], collectionId: BOOK, chapterId: "chapter-2" });
   for (const args of [[[], BOOK, "all"], [Array(101).fill("public-a"), BOOK, "all"], [["public-a", "public-a"], BOOK, "all"], [["<script>"], BOOK, "all"], [["public-a"], "all", "chapter-1"]]) assert.throws(() => selectionPayload(...args));

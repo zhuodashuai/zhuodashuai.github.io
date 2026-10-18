@@ -1,13 +1,14 @@
-const CACHE_NAME = "zhuo-wordbook-v77";
-// Source labels show book/author/chapter; edition-specific pages stay internal.
+const CACHE_NAME = "zhuo-wordbook-v78";
+// Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
   "./personal.html", "./personal.css?v=77",
-  "./js/personal-app.js?v=77", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=77",
+  "./js/personal-app.js?v=78", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=78",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
-  "./js/personal-selection.js?v=77", "./js/personal-study.js?v=77",
-  "./js/personal-dictionary.js?v=77", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
+  "./js/personal-selection.js?v=78", "./js/personal-study.js?v=77",
+  "./js/personal-dictionary.js?v=78", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
+  "./js/member-dictionary-manifest.js?v=78", "./js/member-dictionary-manifest.js",
   "./js/book-passages.js?v=77", "./js/book-passages-ui.js?v=77", "./js/book-passages.js", "./js/book-passages-ui.js",
   "./js/personal-selection.js", "./js/personal-study.js", "./js/study.js?v=77", "./js/review.js?v=77",
   "./quick-notes.html", "./quick-notes.css?v=77",
@@ -97,12 +98,20 @@ async function networkFirst(request, fallbackUrl = "") {
   }
 }
 
-async function cacheFirst(request) {
-  const cache = await caches.open(CACHE_NAME);
-  const cached = await cache.match(request);
-  if (cached) return cached;
+async function cacheFirst(request, event) {
+  let cache;
+  try {
+    cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
+    if (cached?.ok) return cached;
+  } catch { /* Storage denied/full must not prevent a first online lookup. */ }
   const response = await fetch(request);
-  if (response.ok) await cache.put(request, response.clone());
+  if (response.ok && cache) {
+    // Persist in the background: a slow/quota-failed cache write is not part
+    // of the result's critical path and must not discard healthy dictionary data.
+    const saving = cache.put(request, response.clone()).catch(() => {});
+    event?.waitUntil(saving);
+  }
   return response;
 }
 
@@ -134,5 +143,5 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request));
     return;
   }
-  event.respondWith(cacheFirst(request));
+  event.respondWith(cacheFirst(request, event));
 });
