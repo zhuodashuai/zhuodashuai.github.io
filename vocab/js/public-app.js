@@ -13,6 +13,7 @@ import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=77";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=77";
 import { createBookPassagesView } from "./book-passages-ui.js?v=77";
+import { dictionarySearchUrl } from "./dictionary-navigation.js?v=80";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -21,7 +22,7 @@ const refs = Object.fromEntries([
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "dialog-review-section", "dialog-review-status", "dialog-review-actions", "study-button", "due-count",
   "install-button", "update-banner", "apply-update", "view-controls", "synonym-panel", "synonym-intro", "synonym-empty", "synonym-count",
-  "compact-navigation", "book-select", "chapter-select", "chapter-previous", "chapter-next", "chapter-stepper", "study-summary", "recall-controls", "recall-reveal", "search-whole-book", "search-empty-message", "library-options"
+  "compact-navigation", "book-select", "chapter-select", "chapter-previous", "chapter-next", "chapter-stepper", "study-summary", "recall-controls", "recall-reveal", "search-whole-book", "search-empty-message", "search-dictionary-link", "library-options"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const initialParameters = new URLSearchParams(window.location.search);
@@ -397,8 +398,8 @@ function render() {
   // launcher. updateScope above restores it when returning to vocabulary.
   if (passagesView) document.getElementById("chapter-quiz-button").hidden = true;
   const searchLabel = refs.librarySearch.closest("label");
-  searchLabel.querySelector("span").textContent = passagesView ? "搜索摘句" : "搜索词库";
-  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式";
+  searchLabel.querySelector("span").textContent = passagesView ? "搜索摘句" : "搜索已收录词卡";
+  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式 · 查新词请用上方“中英查词”";
   refs.librarySearch.placeholder = passagesView ? "搜索当前章节或词本的摘句" : "搜索本章或词本已有的词";
   refs.viewControls.querySelectorAll("button[data-view]").forEach((control) => {
     if (control.dataset.view === "synonyms") control.hidden = !SYNONYM_FEATURE_ENABLED;
@@ -471,6 +472,7 @@ function render() {
   const searchMiss = Boolean(query) && queryMatches.length === 0;
   refs.searchEmpty.hidden = groupedView || passagesView || !searchMiss;
   if (searchMiss) {
+    refs.searchDictionaryLink.href = dictionarySearchUrl(state.query);
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     const limited = state.collectionId !== "all";
     refs.searchEmptyTitle.textContent = `${state.chapterId !== "all" ? "本章" : limited ? "本词本" : "已发布词库"}未找到“${displayQuery}”。`;

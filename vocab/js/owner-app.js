@@ -22,6 +22,7 @@ import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist,
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=77";
 import { setupPwa } from "./pwa.js?v=77";
 import { lookupCoreEntry } from "./core-dictionary.js?v=77";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=79";
 import { preserveCollectionTags } from "./collections.js?v=77";
 import { buildSynonymGroups } from "./synonym-groups.js?v=77";
 import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
@@ -65,6 +66,7 @@ const state = {
   organizingButton: null,
   commitLockedDraftId: null,
   draftAiStatus: new Map(),
+  previewGeneration: 0,
   phoneticEditRevisions: new Map(),
   ownerEnteredTerms: [],
   ownerPublishedTerms: [],
@@ -1060,8 +1062,22 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
   let commitWindowLocked = false;
   const startedAt = Date.now();
   let localPreview = "";
+  let localPreviewSource = "";
+  let localPreviewWarning = "";
+  let previewActive = true;
+  const previewController = new AbortController();
+  const previewGeneration = state.previewGeneration;
+  const previewOwnerId = state.session?.id;
+  const previewCsrfToken = state.csrfToken;
+  const previewOrganizingToken = state.organizingToken;
+  const previewRunCurrent = () => previewActive && !state.runClosing
+    && state.previewGeneration === previewGeneration && hasVerifiedOwnerUi()
+    && state.session?.id === previewOwnerId && state.csrfToken === previewCsrfToken
+    && state.organizingToken === previewOrganizingToken;
+  const previewStillBusy = () => previewRunCurrent() && state.draftAiStatus.get(draft.id)?.state === "busy";
   let elapsedTimer = null;
-  const renderBusyProgress = () => {
+  const renderBusyProgress = ({ initial = false } = {}) => {
+    if (!previewRunCurrent() || (!initial && !previewStillBusy())) return;
     const elapsedSeconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
     const waitingHint = elapsedSeconds >= 10
       ? ` 已等待 ${elapsedSeconds} 秒；免费模型生成完整分义项通常比本地查词慢。`
@@ -1072,26 +1088,52 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
         ? `已先找到“${cleaned}”的本地中文候选，AI 仍在深度整理`
         : `正在获取“${cleaned}”的中文释义与英文义项`,
       message: localPreview
-        ? `本地 ECDICT 候选：${localPreview}。AI 正在继续核对分义项、词性与双语例句；候选不会自动发布。${waitingHint}`
-        : `当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。${waitingHint}`
+        ? `${localPreviewSource} 候选：${localPreview}。${localPreviewWarning}AI 正在继续核对分义项、词性与双语例句；候选不会自动发布。${waitingHint}`
+        : `${localPreviewWarning}当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。${waitingHint}`
     });
   };
-  renderBusyProgress();
+  renderBusyProgress({ initial: true });
   elapsedTimer = window.setInterval(renderBusyProgress, 5_000);
-  lookupCoreEntry(cleaned)
-    .then((core) => {
-      if (!core || state.draftAiStatus.get(draft.id)?.state !== "busy") return;
-      localPreview = String(core.meaning || "")
+  // This is public, read-only acceleration, independent of the AI request. It
+  // never writes fields, manufactures aligned senses or bypasses publish checks.
+  void (async () => {
+    let core = null;
+    try { core = await lookupCoreEntry(cleaned, { timeoutMs: 3_000 }); }
+    catch { /* A failed old asset may still use a validated expanded shard. */ }
+    if (!previewStillBusy()) return;
+    let candidate = core ? { term: core.word, meaning: core.meaning, source: "本地 ECDICT" } : null;
+    if (!candidate) {
+      try {
+        const expanded = await searchExpandedDictionary(cleaned, { signal: previewController.signal });
+        if (!previewStillBusy()) return;
+        if (expanded.results.length > 1) {
+          localPreviewWarning = "该形式存在多个候选，未自动选择或改词。";
+          renderBusyProgress();
+          return;
+        }
+        candidate = expanded.results[0] || null;
+      } catch (error) {
+        if (previewStillBusy() && error?.code === "ambiguous_dictionary_match") {
+          localPreviewWarning = "该词形对应多个词或语境，未自动选择或改词；可在中英词典中核对原形。";
+          renderBusyProgress();
+        }
+        return;
+      }
+    }
+    if (!candidate || !previewStillBusy()) return;
+    localPreview = String(candidate.meaning || "")
         .replace(/\s*\r?\n\s*/g, "；")
         .replace(/\s+/g, " ")
         .slice(0, 260);
-      if (localPreview) renderBusyProgress();
-    })
-    .catch(() => {
-      // The preview is only an acceleration layer. AI remains authoritative
-      // for aligned senses, and a missing local asset must not fail the query.
-    });
+    localPreviewSource = String(candidate.source || "本站词典");
+    if (candidate.matchedForm && normalizeEnglish(candidate.term) !== normalizeEnglish(cleaned)) {
+      localPreviewWarning = `词形“${cleaned}”可能对应“${candidate.term}”，这里只显示候选，不会自动改词。`;
+    }
+    if (localPreview) renderBusyProgress();
+  })().catch(() => { /* Dictionary availability cannot fail AI or mutate a draft. */ });
   if (!state.session || !navigator.onLine) {
+    previewActive = false;
+    previewController.abort();
     const message = !navigator.onLine
       ? "当前设备离线，尚未向 AI 发送请求。"
       : "登录已失效，还没有向 AI 发送请求。";
@@ -1279,6 +1321,8 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
     setStatus(refs.captureStatus, `“${cleaned}”整理失败：${/草稿/.test(message) ? message : `${message} 当前草稿仍可手动填写。`}`);
   } finally {
+    previewActive = false;
+    previewController.abort();
     window.clearInterval(elapsedTimer);
     if (commitWindowLocked) {
       if (state.commitLockedDraftId === draft.id) state.commitLockedDraftId = null;
@@ -1612,6 +1656,7 @@ async function verifySession({ forceGate = false } = {}) {
       setSyncState("error", "离线 · 本页身份已验证", "发布任务只排队，联网后必须再次通过服务端会话验证");
       return;
     }
+    state.previewGeneration += 1;
     state.session = null;
     state.csrfToken = "";
     state.queueRecoveryComplete = false;
@@ -1787,6 +1832,7 @@ refs.ownerSearch.addEventListener("input", () => { state.ownerSearch = refs.owne
 refs.loginLink.addEventListener("click", rememberOwnerInputForLogin);
 refs.logoutButton.addEventListener("click", async () => {
   const csrfToken = state.csrfToken;
+  state.previewGeneration += 1;
   state.session = null;
   state.csrfToken = "";
   state.synonymBatchStopped = true;
@@ -1857,6 +1903,7 @@ window.addEventListener("online", () => {
 });
 window.addEventListener("offline", setNetworkState);
 window.addEventListener("pagehide", () => {
+  state.previewGeneration += 1;
   state.runClosing = true;
   state.publishAbortController?.abort();
   state.synonymAbortController?.abort();

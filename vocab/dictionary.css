@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light;
+  --ink: #173a32;
+  --muted: #59675f;
+  --paper: #f5f2e9;
+  --card: #fffdf8;
+  --line: #c9cec3;
+  --accent: #245c4d;
+  --danger: #a63735;
+  --focus: #a96517;
+  font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; font-size: 16px; line-height: 1.6; }
+a { color: var(--accent); text-underline-offset: 3px; }
+button, input { font: inherit; }
+button, .primary-link { min-height: 44px; border: 1px solid var(--accent); border-radius: 12px; padding: 9px 19px; color: #fff; background: var(--accent); cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+button:hover:not(:disabled), .primary-link:hover { background: var(--ink); }
+input, button, a, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip-link { position: absolute; top: 8px; left: 12px; z-index: 3; padding: 8px 14px; background: var(--card); transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+.topbar { max-width: 1060px; margin: auto; padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; gap: 18px; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; gap: 10px; align-items: center; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.brand-seal { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--ink); color: #fff; font: 700 24px Georgia, "Songti SC", serif; }
+.topbar nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.topbar nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 6px 10px; text-decoration: none; border-radius: 8px; }
+.topbar nav a:hover { background: #e7ece3; }
+main { max-width: 1012px; padding: 28px 24px 0; margin: auto; }
+.search-panel { margin-bottom: 18px; }
+.title-row { display: flex; align-items: baseline; gap: 12px; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; }
+h1 { font: 600 clamp(1.7rem, 4vw, 2.2rem)/1.3 Georgia, "Songti SC", serif; margin: 0; }
+#dictionary-count { font-size: .875rem; color: var(--muted); margin: 0; }
+label { display: block; font-weight: 650; margin-bottom: 7px; }
+.search-row { display: flex; gap: 10px; align-items: stretch; }
+input { width: 100%; min-width: 0; min-height: 48px; padding: 11px 14px; border: 1px solid #84988b; border-radius: 12px; color: var(--ink); background: var(--card); }
+input::placeholder { color: #67766b; }
+.search-row button { flex-shrink: 0; }
+.quiet-button { color: var(--ink); background: transparent; border-color: #84988b; }
+.quiet-button:hover:not(:disabled) { background: #e7ece3; }
+.hint { font-size: .875rem; color: var(--muted); margin: 8px 0 0; }
+.status { margin: 12px 0 0; min-height: 1.6em; overflow-wrap: anywhere; }
+.status[data-phase="error"] { color: var(--danger); }
+.results-layout { display: grid; gap: 18px; }
+.results-layout:has(.choice-panel:not([hidden])) { grid-template-columns: minmax(190px, 28%) minmax(0, 1fr); }
+.choice-panel { min-width: 0; }
+.choice-panel h2 { font-size: 1rem; margin: 0 0 10px; }
+.choice-panel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.choice-panel button { display: flex; flex-direction: column; width: 100%; text-align: left; padding: 10px 13px; color: var(--ink); background: var(--card); border-color: var(--line); overflow-wrap: anywhere; }
+.choice-panel button[aria-pressed="true"] { border: 2px solid var(--accent); padding: 9px 12px; background: #e9f0e8; }
+.choice-panel button:hover:not(:disabled) { background: #e9f0e8; }
+.choice-panel button span { font-size: .8rem; color: var(--muted); }
+.result-card { min-width: 0; padding: 24px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); }
+.result-title-row { display: flex; gap: 10px 22px; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+#dictionary-term { font: 650 clamp(1.75rem, 5vw, 2.4rem)/1.3 Georgia, "Times New Roman", serif; margin: 0; overflow-wrap: anywhere; }
+.part-of-speech { font-size: .875rem; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+.meaning { font-size: 1.1rem; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.85; margin-top: 20px; }
+.source { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; margin: 14px 0 0; }
+.variant-panel { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 10px; }
+summary { cursor: pointer; padding: 10px 0; font-weight: 650; }
+.variant { padding: 14px 0; }
+.variant + .variant { border-top: 1px solid var(--line); }
+.variant h3 { font-size: .95rem; margin: 0 0 4px; }
+.variant .meaning { font-size: 1rem; margin-top: 10px; }
+.result-actions { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 22px; }
+.primary-link { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.result-actions span { font-size: .8rem; color: var(--muted); }
+footer { max-width: 1012px; padding: 26px 24px; margin: auto; color: var(--muted); font-size: .8rem; }
+footer p { margin: 4px 0; }
+@media (max-width: 640px) {
+  .topbar { padding: 12px 16px; gap: 8px; align-items: center; }
+  .brand { font-size: .875rem; gap: 7px; }
+  .brand-seal { width: 34px; height: 34px; font-size: 22px; }
+  .topbar nav { gap: 0; }
+  .topbar nav a { padding: 6px 8px; font-size: .875rem; }
+  main { padding: 22px 16px 0; }
+  .title-row { gap: 5px 12px; margin-bottom: 14px; }
+  .search-row { gap: 7px; flex-wrap: wrap; }
+  .search-row input { flex: 1 1 185px; }
+  .search-row button { padding-left: 14px; padding-right: 14px; }
+  .results-layout:has(.choice-panel:not([hidden])) { grid-template-columns: minmax(0, 1fr); }
+  .choice-panel ul { display: flex; gap: 8px; overflow-x: auto; padding: 4px 3px 7px; scroll-snap-type: x proximity; }
+  .choice-panel li { flex: 0 0 auto; max-width: 230px; scroll-snap-align: start; }
+  .choice-panel button { min-height: 66px; }
+  .result-card { padding: 20px 18px; border-radius: 16px; }
+  .meaning { font-size: 1.05rem; }
+  footer { padding: 22px 16px; }
+}
+@media (max-width: 350px) { .topbar { flex-wrap: wrap; } .topbar nav { margin-left: auto; } }
