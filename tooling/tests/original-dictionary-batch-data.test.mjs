@@ -32,11 +32,19 @@ test("each 0002 assignment contains exactly 100 real, fully written planned head
   }
 });
 
-test("cumulative catalogue preserves the old 30 cards and adds 300 canonical cards without duplicates", async () => {
+test("later batches preserve the original 30 cards and all 300 batch-0002 cards", async () => {
   const result = await loadOriginalCatalogue();
-  assert.equal(result.pack.entries.length, 330);
-  assert.equal(new Set(result.pack.entries.map(entry => entry.id)).size, 330);
-  assert.equal(new Set(result.pack.entries.map(entry => entry.headword)).size, 330);
+  const pilot = parseOriginalDictionary(JSON.parse(await readFile(new URL("source/original-pilot.json", directory), "utf8")));
+  const baseline = [...pilot.entries, ...Object.values(packs).flatMap(pack => pack.entries)];
+  assert.equal(baseline.length, 330);
+  const byId = new Map(result.pack.entries.map(entry => [entry.id, entry]));
+  for (const entry of baseline) {
+    const actual = byId.get(entry.id);
+    assert.ok(actual, `${entry.id} must survive later imports`);
+    assert.deepEqual(actual, { ...entry, review: actual.review });
+  }
+  assert.equal(new Set(result.pack.entries.map(entry => entry.id)).size, result.pack.entries.length);
+  assert.equal(new Set(result.pack.entries.map(entry => entry.headword)).size, result.pack.entries.length);
   for (const entry of result.pack.entries) {
     const match = lookupOriginalDictionary(result.pack, entry.headword);
     assert.equal(match.status, "found", entry.headword);

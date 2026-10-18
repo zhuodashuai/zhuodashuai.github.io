@@ -13,9 +13,9 @@ chapter quizzes or review records. No external AI/translation requests are made.
    nonempty named reviewer. Merely changing a status is not a real language or
    rights review. No completeness, accuracy or legal clearance is inferred.
 
-The source catalogue currently has **330 independently written entries**: the
-original 30-entry pilot and the 300-entry batch `0002`. Together they contain
-**606 selected senses and 606 original bilingual examples**. The authors
+The source catalogue currently has **630 independently written entries**: the
+original 30-entry pilot and the 300-entry batches `0002` and `0003`. Together they contain
+**1,346 selected senses and 1,348 original bilingual examples**. The authors
 composed them without consulting
 the supplied PDFs, existing definitions or publisher examples. A separate AI
 review found no known substantive language errors; this is **not** human
@@ -88,6 +88,14 @@ old cards or silently merge a repeated canonical spelling. A group such as
 `verbs` is an assignment aid, not a restriction on the word's other common parts
 of speech. Review-driven additions in `batches/0002-review-additions.json`
 include academic/fair nouns, brief/calm verbs and the electrical sense of current.
+Batch `0003` adds another 300 non-overlapping headwords with 740 selected senses
+and 742 original bilingual examples. Independent review repairs include the
+bright-room sense of light, the average adjective sense of mean, the plural
+forms firsts/foci, and a water-quality-sensor example whose English and Chinese
+must describe the same device. The 100-headword groups are editorial assignments,
+not a limit to one part of speech.
+The go card also distinguishes the be going to future construction from physical
+movement, with separate examples of an intention and an evidence-based prediction.
 
 Every authored sense includes its part of speech, original Chinese and English
 definitions, and a bilingual original example. This batch already has examples;
@@ -131,6 +139,7 @@ PDFs and extracted publisher wording must remain outside public assets/history.
 ```powershell
 node --test tooling/tests/original-dictionary.test.mjs tooling/tests/original-dictionary-exports.test.mjs
 node --test tooling/tests/original-dictionary-catalogue.test.mjs tooling/tests/original-dictionary-batch-data.test.mjs
+node --test tooling/tests/original-dictionary-batch-0003-data.test.mjs
 python -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
 ```
 
