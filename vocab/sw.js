@@ -1,13 +1,14 @@
-const CACHE_NAME = "zhuo-wordbook-v78";
+const CACHE_NAME = "zhuo-wordbook-v79";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
-  "./personal.html", "./personal.css?v=77",
-  "./js/personal-app.js?v=78", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=78",
+  "./personal.html", "./personal.css?v=79",
+  "./js/personal-app.js?v=79", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=78",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=78", "./js/personal-study.js?v=77",
   "./js/personal-dictionary.js?v=78", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
+  "./js/expanded-dictionary.js?v=79", "./js/expanded-dictionary.js",
   "./js/member-dictionary-manifest.js?v=78", "./js/member-dictionary-manifest.js",
   "./js/book-passages.js?v=77", "./js/book-passages-ui.js?v=77", "./js/book-passages.js", "./js/book-passages-ui.js",
   "./js/personal-selection.js", "./js/personal-study.js", "./js/study.js?v=77", "./js/review.js?v=77",
@@ -115,6 +116,18 @@ async function cacheFirst(request, event) {
   return response;
 }
 
+async function reloadPublicShard(request, event) {
+  // A failed checksum must be recoverable: bypass both HTTP and SW cache on
+  // explicit reload. Never answer this repair request with the same bad copy.
+  const response = await fetch(request, { cache: "reload" });
+  if (response.ok) {
+    const copy = response.clone();
+    const saving = caches.open(CACHE_NAME).then(cache => cache.put(request, copy)).catch(() => {});
+    event.waitUntil(saving);
+  }
+  return response;
+}
+
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
@@ -131,7 +144,11 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request, fallback));
     return;
   }
-  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/quality/generated-report.json")) {
+  if (url.pathname.includes("/data/expanded-dictionary/") && request.cache === "reload") {
+    event.respondWith(reloadPublicShard(request, event));
+    return;
+  }
+  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/data/expanded-dictionary/manifest.json") || url.pathname.endsWith("/quality/generated-report.json")) {
     event.respondWith(networkFirst(request));
     return;
   }

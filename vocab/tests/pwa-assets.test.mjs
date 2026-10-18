@@ -19,12 +19,13 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
-    "runtime-config.js", "personal-app.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
+    "runtime-config.js", "personal-app.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
     "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-groups.js", "synonym-evidence.js",
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
-  const version = file => ["personal-app.js", "personal-storage.js", "personal-selection.js", "personal-dictionary.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
+  const version = file => ["personal-app.js", "expanded-dictionary.js"].includes(file) ? 79
+    : ["personal-storage.js", "personal-selection.js", "personal-dictionary.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
@@ -91,7 +92,7 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v78/);
+  assert.match(serviceWorker, /zhuo-wordbook-v79/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=77/);

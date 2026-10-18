@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0003-verbs.json",
+  "sourceContentSha256": "6df35730dda9d28497a9aa035ca71e891e72b5b02acf865d27f0f91154bec8b0",
+  "reviewer": "AI/batch-0003-verb-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:define", "zhuo:deliver", "zhuo:demand", "zhuo:demonstrate", "zhuo:deny",
+    "zhuo:depend", "zhuo:describe", "zhuo:deserve", "zhuo:design", "zhuo:destroy",
+    "zhuo:determine", "zhuo:develop", "zhuo:differ", "zhuo:disagree", "zhuo:disappear",
+    "zhuo:discover", "zhuo:discuss", "zhuo:dismiss", "zhuo:display", "zhuo:divide",
+    "zhuo:do", "zhuo:doubt", "zhuo:drag", "zhuo:draw", "zhuo:dream",
+    "zhuo:dress", "zhuo:drink", "zhuo:drive", "zhuo:drop", "zhuo:earn",
+    "zhuo:eat", "zhuo:educate", "zhuo:employ", "zhuo:enable", "zhuo:encourage",
+    "zhuo:end", "zhuo:enjoy", "zhuo:ensure", "zhuo:enter", "zhuo:establish",
+    "zhuo:estimate", "zhuo:examine", "zhuo:exchange", "zhuo:excite", "zhuo:excuse",
+    "zhuo:exercise", "zhuo:exist", "zhuo:expand", "zhuo:expect", "zhuo:explain",
+    "zhuo:explore", "zhuo:express", "zhuo:extend", "zhuo:face", "zhuo:fail",
+    "zhuo:fall", "zhuo:fasten", "zhuo:feed", "zhuo:feel", "zhuo:fight",
+    "zhuo:fill", "zhuo:find", "zhuo:finish", "zhuo:fit", "zhuo:fix",
+    "zhuo:float", "zhuo:flow", "zhuo:fly", "zhuo:focus", "zhuo:follow",
+    "zhuo:force", "zhuo:forget", "zhuo:forgive", "zhuo:form", "zhuo:freeze",
+    "zhuo:gain", "zhuo:gather", "zhuo:generate", "zhuo:get", "zhuo:give",
+    "zhuo:go", "zhuo:grant", "zhuo:greet", "zhuo:grow", "zhuo:guarantee",
+    "zhuo:guard", "zhuo:guess", "zhuo:guide", "zhuo:handle", "zhuo:hang",
+    "zhuo:happen", "zhuo:hate", "zhuo:have", "zhuo:hear", "zhuo:help",
+    "zhuo:hide", "zhuo:hire", "zhuo:hit", "zhuo:hold", "zhuo:hope"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:disappear",
+      "severity": "advisory",
+      "problem": "原英文释义中的 available to find 不够自然。",
+      "resolution": "已改为自然的消失、无法在预期位置找到或不再存在的表述，并复核其与原中文和例句一致。"
+    },
+    {
+      "entryId": "zhuo:draw",
+      "severity": "advisory",
+      "problem": "原中文把窗帘搭配只写成拉开，可能让学习者误以为 draw the curtains 不能表示拉上。",
+      "resolution": "已改为拉动窗帘，并明确拉开或拉上需根据语境判断；未增加词条或改变现有例句。"
+    },
+    {
+      "entryId": "zhuo:drop",
+      "severity": "advisory",
+      "problem": "原中文例句的我把一枚硬币掉进结构不够自然。",
+      "resolution": "已改为硬币从我手中掉进地板缝里的自然表达，保留无法够到的原意。"
+    },
+    {
+      "entryId": "zhuo:enjoy",
+      "severity": "advisory",
+      "problem": "原中文例句画画那些船不够自然，且未清楚体现 sketching。",
+      "resolution": "已改为画那些船的速写，并核对与等待渡轮的英文情境一致。"
+    },
+    {
+      "entryId": "zhuo:focus",
+      "severity": "advisory",
+      "problem": "名词可数义的常用复数变体 foci 未登记，影响对所列焦点义的形式查询。",
+      "resolution": "已补入 foci，并说明 focuses 与 foci 随语境和领域选择；不把词形另计为新词头。"
+    },
+    {
+      "entryId": "zhuo:give",
+      "severity": "advisory",
+      "problem": "原因果义英文释义把 have a result 与人的感受机械并列，表达略显生硬。",
+      "resolution": "已改为引起感觉、反应或结果，以及使人经历它的清楚表述；保留原有头痛例句。"
+    },
+    {
+      "entryId": "zhuo:hate",
+      "severity": "advisory",
+      "problem": "原中文例句加入了不得不停下来，英文并未说明停下是被迫的。",
+      "resolution": "已去掉被迫含义，忠实表达任务快完成时却搁着不做完的厌恶。"
+    },
+    {
+      "entryId": "zhuo:go",
+      "severity": "advisory",
+      "problem": "原选定义项没有覆盖高频 be going to 加动词原形的计划和预测结构。",
+      "resolution": "主代理独立重写并替换为 go:construction:1；已逐字复核其计划和基于迹象预测的释义，以及粉刷厨房和乌云预示下雨两个原创双语例句。复核者先前试写的句子已完全移除。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；仅检查列出的常用义项与例句。"
+}

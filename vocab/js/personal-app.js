@@ -12,6 +12,7 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=78";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary } from "./personal-dictionary.js?v=78";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=79";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -329,7 +330,53 @@ function resetDictionary() {
   dictionaryController?.abort(); dictionaryController = null;
   state.dictionaryBusy = false; state.dictionaryResult = null;
   $("member-dictionary-result").hidden = true;
+  $("member-dictionary-choices").replaceChildren();
+  $("member-dictionary-choices").hidden = true;
+  $("member-dictionary-alternatives").replaceChildren();
   for (const id of ["member-dictionary-word", "member-dictionary-pos", "member-dictionary-meaning", "member-dictionary-status"]) $(id).textContent = "";
+}
+
+function showDictionaryResult(result) {
+  state.dictionaryResult = result;
+  $("member-dictionary-word").textContent = result.term;
+  $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
+  $("member-dictionary-meaning").textContent = result.meaning;
+  $("member-dictionary-result").hidden = false;
+  const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
+  $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。${result.warning || "具体含义请结合语境。"}`;
+  const alternatives = $("member-dictionary-alternatives");
+  alternatives.replaceChildren();
+  for (const variant of result.alternatives || []) {
+    const details = document.createElement("details");
+    const title = document.createElement("summary"); title.textContent = variant.source || "其他来源释义";
+    const text = document.createElement("p"); text.className = "multiline"; text.textContent = `${variant.partOfSpeech || ""}\n${variant.meaning}`;
+    const use = document.createElement("button"); use.type = "button"; use.textContent = "选择此释义";
+    use.addEventListener("click", () => {
+      if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
+      showDictionaryResult({ ...variant, term: result.term }); renderChrome();
+    });
+    details.append(title, text, use); alternatives.append(details);
+  }
+}
+
+function showDictionaryChoices(results, hasMore) {
+  const choices = $("member-dictionary-choices");
+  choices.replaceChildren(); choices.hidden = results.length < 2 && !hasMore;
+  if (choices.hidden) return;
+  const caption = document.createElement("p"); caption.className = "field-note";
+  caption.textContent = hasMore ? `先显示 ${results.length} 项；可输入更具体的中文缩小范围。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
+  choices.append(caption);
+  for (const result of results) {
+    const button = document.createElement("button"); button.type = "button"; button.className = "dictionary-choice";
+    const term = document.createElement("strong"); term.lang = "en"; term.textContent = result.term;
+    const preview = document.createElement("span"); preview.textContent = `${result.partOfSpeech || ""} · ${result.meaning.replace(/\s+/gu, " ").slice(0, 110)}`;
+    button.append(term, preview);
+    button.addEventListener("click", () => {
+      if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
+      showDictionaryResult(result); renderChrome();
+    });
+    choices.append(button);
+  }
 }
 
 async function queryDictionary(event) {
@@ -346,21 +393,47 @@ async function queryDictionary(event) {
   try {
     const result = await request(async signal => {
       const stop = () => controller.abort(); signal.addEventListener("abort", stop, { once: true });
-      try { return await lookupPersonalDictionary(query, { signal: controller.signal }); }
+      try {
+        // Preserve the small, prewarmed offline hot dictionary. Rare words and
+        // Chinese queries fetch only the relevant public index shards.
+        if (!/\p{Script=Han}/u.test(query)) {
+          let hot, hotError;
+          try { hot = await lookupPersonalDictionary(query, { signal: controller.signal }); }
+          catch (error) { if (controller.signal.aborted) throw error; hotError = error; }
+          if (hot && !hot.matchedForm) return { results: [hot], hasMore: false };
+          {
+            // A form can also be an independently lexicalized noun/adjective
+            // (lettering vs letter). Keep the known lemma and offer the exact
+            // entry too, rather than silently hiding either meaning.
+            try {
+              const expanded = await searchExpandedDictionary(query, { signal: controller.signal, ...(hot ? { timeoutMs: 1500 } : {}) });
+              if (hot) {
+                const extra = expanded.results.filter(item => normalizeEnglish(item.term) !== normalizeEnglish(hot.term));
+                return { results: [hot, ...extra], hasMore: false };
+              }
+              if (!expanded.results.length && hotError) throw hotError;
+              return expanded;
+            } catch (error) {
+              if (controller.signal.aborted || error?.code === "ambiguous_dictionary_match" || error?.code === "invalid_dictionary_data") throw error;
+              if (hot) return { results: [{ ...hot, warning: "扩展词条暂未加载；先显示已收录的词形释义。" }], hasMore: false };
+              throw hotError || error;
+            }
+          }
+        }
+        return await searchExpandedDictionary(query, { signal: controller.signal });
+      }
       finally { signal.removeEventListener("abort", stop); }
     });
     if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
-    state.dictionaryResult = result;
-    if (!result) {
-      $("member-dictionary-status").textContent = "本站词典与已发布词条中未找到可用释义。请核对拼写，也可先记下这个词，稍后补充；不会编造释义。";
+    const results = result.results;
+    if (!results.length) {
+      $("member-dictionary-status").textContent = result.hasMore
+        ? "相关候选较多，暂未定位到匹配项；请输入更具体的中文释义再查。"
+        : "本站词典与已发布词条中未找到可用释义。请核对拼写，也可先记下这个词，稍后补充；不会编造释义。";
       return;
     }
-    $("member-dictionary-word").textContent = result.term;
-    $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
-    $("member-dictionary-meaning").textContent = result.meaning;
-    $("member-dictionary-result").hidden = false;
-    const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
-    $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。具体含义请结合语境。`;
+    showDictionaryChoices(results, result.hasMore);
+    showDictionaryResult(results[0]);
   } catch (error) {
     if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
   } finally {

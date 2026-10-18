@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0005-a.json",
+  "sourceContentSha256": "967f08a0e90f7cf7f69114ad3cefac0ba259f2d6b7d5883e3aa859995b6e7db1",
+  "reviewer": "AI/batch-0005-pdf-a-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:outgrowth", "zhuo:outgun", "zhuo:outhouse", "zhuo:outlandish", "zhuo:outlast",
+    "zhuo:outlaw", "zhuo:outlay", "zhuo:outlet", "zhuo:outline", "zhuo:outlive",
+    "zhuo:outlook", "zhuo:outlying", "zhuo:outmanoeuvre", "zhuo:outmoded", "zhuo:outnumber",
+    "zhuo:out-of-date", "zhuo:out-of-the-way", "zhuo:out-of-town", "zhuo:outpace", "zhuo:outpatient",
+    "zhuo:outperform", "zhuo:outplacement", "zhuo:outplay", "zhuo:outpost", "zhuo:outpouring",
+    "zhuo:output", "zhuo:outrage", "zhuo:outrageous", "zhuo:outrank", "zhuo:outreach",
+    "zhuo:outright", "zhuo:outrun", "zhuo:outsell", "zhuo:outset", "zhuo:outshine",
+    "zhuo:outside", "zhuo:outsider", "zhuo:outsize", "zhuo:outskirts", "zhuo:outsmart",
+    "zhuo:outsource", "zhuo:outspoken", "zhuo:outstanding", "zhuo:outstrip", "zhuo:outtake",
+    "zhuo:outvote", "zhuo:outward", "zhuo:outwardly", "zhuo:override", "zhuo:outweigh"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:outhouse",
+      "severity": "advisory",
+      "problem": "附属建筑义的原中文例句连续使用两次小屋，表达生硬，影响建筑之间的位置关系理解。",
+      "resolution": "原作者独立改成空花盆存于住宅后方的一间附属小屋；复核者重新读取保存后的双语例句，确认主建筑和附属建筑关系清楚，英文原句含义保留。"
+    },
+    {
+      "entryId": "zhuo:outpatient",
+      "severity": "advisory",
+      "problem": "形容词例句将 outpatient clinic 译为门诊诊所，中文搭配重复、不自然。",
+      "resolution": "原作者独立改译为门诊部，并保留搬到正门旁建筑的场景；复核者已读取最终保存的例句，确认与英文对应。"
+    },
+    {
+      "entryId": "zhuo:outpace",
+      "severity": "advisory",
+      "problem": "原英文以需求和名额数量直接比较，中文却明确加入双方增速；对比对象和速度义的呈现不够一致。",
+      "resolution": "原作者独立改写为需求迅速增长且增速超过名额增加速度；复核者已重新读取最终英文和中文，确认增长比较一致并体现所列速度义。"
+    },
+    {
+      "entryId": "zhuo:outward",
+      "severity": "advisory",
+      "problem": "初始选词中同时出现 outward 和副词变体 outwards，可能把同一副词的地域变体重复计作独立词头。",
+      "resolution": "在编写前将单独的 outwards 候选替换为另一个已核对的新词头 override；outwards 只保留在 outward 的形式列表与副词用法说明中，且明确形容词不用 outwards。复核者已核对最终50词顺序和私人词头清单一致。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "独立AI复核，非人工审定。实际读取本文件50词头的91个已列义项和91组原创双语例句，检查词性、词形、常见语法、释义和翻译对应，并复读作者修订内容。作者只收到词头，未接收出版商释义或例句。来源位置核对另留私人清单，不在此复制出版商正文；不表示已覆盖整本书、全部义项、绝对准确或获得法律许可。作者源文件保留draft状态。"
+}

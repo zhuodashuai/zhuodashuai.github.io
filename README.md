@@ -15,6 +15,28 @@ Synonym grouping and automatic recognition are temporarily paused after incorrec
 
 The public tools are intentionally separated by directory so changes to Wordbook do not alter the academic profile.
 
+The separate [original-dictionary editorial foundation](tooling/dictionary/README.md)
+targets 70,000 distinct lexical headwords with independently written content. The cumulative catalogue currently
+contains 1,030 original AI-assisted entries, with 2,417 selected senses and 2,419
+bilingual examples. The latest 100 headwords were visually checked on ten pages
+of a supplied PDF; authors received only those headwords, not publisher wording.
+Semantic content is independently cross-checked and hash-bound review
+records distinguish it from the separate unreviewed headword queue. On 2026-10-18,
+the owner superseded the earlier all-70k release wait: publish usable bilingual
+lookup now, including explicitly credited MIT ECDICT definitions. This does not
+make the unfinished 70k original-writing project complete. Supplied workbook
+headwords are matched to the licensed dataset; publisher definitions, examples,
+PDFs and the source workbook are not public search assets.
+
+The expanded lookup uses a small manifest, hash-checked English shards and a
+Chinese inverted index. English lookup keeps the existing compact hot dictionary
+first; missing words and Chinese reverse lookup load only relevant shards. Each
+canonical word has one result, with separately labelled source variants where
+available. Queries never invoke translation or AI. Search is not an automatic
+bulk import into anyone's private learning queue. Read the
+[release and data-boundary notes](tooling/dictionary/expanded-lookup.md) for counts,
+reproduction and verification.
+
 ## Content structure
 
 - Research profile and current affiliations

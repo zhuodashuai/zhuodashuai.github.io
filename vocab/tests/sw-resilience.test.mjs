@@ -4,7 +4,7 @@ import test from "node:test";
 import vm from "node:vm";
 
 const source = await readFile(new URL("../sw.js", import.meta.url), "utf8");
-function worker(fetchImpl, cached = null, { put = async (_request, response) => response.clone().arrayBuffer(), cacheError = null } = {}) {
+function worker(fetchImpl, cached = null, { put = async (_request, response) => response.clone().arrayBuffer(), cacheError = null, openGate = async () => {} } = {}) {
   const listeners = new Map();
   const timers = new Map();
   const writes = [];
@@ -13,7 +13,7 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
   let serial = 0;
   vm.runInNewContext(source, {
     self: { location: { origin: "https://wordbook.test", href: "https://wordbook.test/vocab/sw.js" }, addEventListener: (type, listener) => listeners.set(type, listener) },
-    caches: { open: async () => { if (cacheError) throw cacheError; return ({
+    caches: { open: async () => { await openGate(); if (cacheError) throw cacheError; return ({
       match: async (request) => typeof cached === "function" ? cached(request) : cached?.clone(),
       addAll: async (requests) => { precached.push(...requests); },
       put: async (request, response) => { await put(request, response); writes.push({ request, response }); }
@@ -29,13 +29,34 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
       listeners.get("install")({ waitUntil: (promise) => { task = promise; } });
       await task;
     },
-    fetch(path = "/vocab/index.html", mode = "navigate") {
+    fetch(path = "/vocab/index.html", mode = "navigate", options = {}) {
       let response;
-      listeners.get("fetch")({ request: { method: "GET", url: `https://wordbook.test${path}`, mode }, respondWith: (promise) => { response = promise; }, waitUntil: promise => background.push(promise) });
+      listeners.get("fetch")({ request: { method: "GET", url: `https://wordbook.test${path}`, mode, ...options }, respondWith: (promise) => { response = promise; }, waitUntil: promise => background.push(promise) });
       return response;
     }
   };
 }
+
+test("explicit shard repair bypasses bad cache and clones before a delayed CacheStorage open", async () => {
+  let release, reads = 0;
+  const gate = new Promise(resolve => { release = resolve; });
+  const sw = worker(async (_request, options) => {
+    assert.equal(options.cache, "reload"); return new Response("healthy repaired shard");
+  }, () => { reads++; return new Response("old corrupt shard"); }, {
+    openGate: () => gate,
+    put: async (_request, response) => assert.equal(await response.text(), "healthy repaired shard")
+  });
+  const response = await sw.fetch("/vocab/data/expanded-dictionary/version/en-000.json", "cors", { cache: "reload" });
+  assert.equal(await response.text(), "healthy repaired shard");
+  release(); await Promise.all(sw.background);
+  assert.equal(reads, 0); assert.equal(sw.writes.length, 1);
+});
+
+test("an offline shard repair never falls back to the corrupt cached shard", async () => {
+  const sw = worker(async () => { throw new Error("offline repair"); }, new Response("corrupt"));
+  await assert.rejects(sw.fetch("/vocab/data/expanded-dictionary/version/en-000.json", "cors", { cache: "reload" }), /offline repair/u);
+  assert.equal(sw.writes.length, 0);
+});
 
 test("a temporary HTTP failure serves a verified cached page and never stores the failure", async () => {
   const sw = worker(async () => new Response("unavailable", { status: 503 }), new Response("cached page"));

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0005-b.json",
+  "sourceContentSha256": "4f16576ecbe8dfc8830f3aa654fa800e3dcc19552eb5c49e1043d939a8d7d886",
+  "reviewer": "AI/batch-0005-b-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:outwit", "zhuo:outworn", "zhuo:oval", "zhuo:ovarian", "zhuo:ovary",
+    "zhuo:ovation", "zhuo:oven", "zhuo:ovenproof", "zhuo:over", "zhuo:overactive",
+    "zhuo:overarching", "zhuo:overbalance", "zhuo:overblown", "zhuo:overboard", "zhuo:overbook",
+    "zhuo:overburden", "zhuo:overcapacity", "zhuo:overcast", "zhuo:overcharge", "zhuo:overcoat",
+    "zhuo:overcompensate", "zhuo:overcook", "zhuo:overcrowd", "zhuo:overdo", "zhuo:overdose",
+    "zhuo:overdraft", "zhuo:overdrive", "zhuo:overdue", "zhuo:overeat", "zhuo:overemphasis",
+    "zhuo:overemphasize", "zhuo:overestimate", "zhuo:overexpose", "zhuo:overexposure", "zhuo:overextend",
+    "zhuo:overflow", "zhuo:overhang", "zhuo:overhaul", "zhuo:overhead", "zhuo:overhear",
+    "zhuo:overheat", "zhuo:overindulge", "zhuo:overreact", "zhuo:overkill", "zhuo:overland",
+    "zhuo:overlap", "zhuo:overlay", "zhuo:overload", "zhuo:overlook", "zhuo:overnight"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:overbalance",
+      "severity": "advisory",
+      "problem": "初稿描述抓住椅子支撑身体时使用 caught the chair，动作搭配不如明确写抓住并稳住身体自然。",
+      "resolution": "作者已改写为 grabbed the chair to steady himself；复核者读取了保存后的完整义项及例句，确认与失去平衡、抓椅稳身的中文情境一致。"
+    },
+    {
+      "entryId": "zhuo:overcompensate",
+      "severity": "advisory",
+      "problem": "初稿 tried to overcompensate 容易把过度补偿写成有意尝试的目标，而中文描述已经实际做得过头。",
+      "resolution": "作者已改写为 overcompensated for arriving late by taking on every remaining task；复核者重新读取，确认实际过度补偿的含义和双语对应一致。"
+    },
+    {
+      "entryId": "zhuo:overkill",
+      "severity": "advisory",
+      "problem": "初稿 ten-minute picnic plan 搭配与时间归属不清，中文另加了十分钟就能定下计划的解释。",
+      "resolution": "作者独立重写为一场五分钟会议却发六封提醒邮件的例句；复核者重新读取保存后的双语内容，确认自然展示远超所需的做法，时间与数量均对应。"
+    },
+    {
+      "entryId": "zhuo:overnight",
+      "severity": "advisory",
+      "problem": "首例中文放着晾干过夜不够自然，并可能暗示已经干透，而英文仅说明放着晾一夜。",
+      "resolution": "作者窄幅改为把画好的标牌放在那里晾一夜；复核者重新读取该例句及全部 overnight 义项，确认没有增加已经干透的结果。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；逐条读取50词头的107个选定义项和107组双语例句及词形，核对词性、语法、语义与翻译对应。复核者未读取出版词典的释义或例句；本记录不表示穷尽全部义项、证明法律权利或保证绝对无误。作者源数据仍为draft。"
+}

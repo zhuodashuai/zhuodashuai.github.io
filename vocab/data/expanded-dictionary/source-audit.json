@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "version": "36d4341b4f126a1711045b6df375cd12eb20641c81a0bca722a90d2f46848d7b",
+  "counts": {
+    "records": 82920,
+    "englishKeys": 121031,
+    "chineseTokens": 139009
+  },
+  "mitRows": 82689,
+  "workbookMitRows": 37459,
+  "coreRowsInput": 7502,
+  "coreRows": 7499,
+  "coreOmittedWithoutChinese": [
+    "hasn't",
+    "haven't",
+    "wouldn't"
+  ],
+  "publicRowsInput": 616,
+  "publicRows": 616,
+  "omittedPublic": [],
+  "publicAliasesInput": 520,
+  "publicAliases": 520,
+  "omittedPublicAliases": [],
+  "originalCheckedRows": 1030,
+  "canonicalCasefoldCollisions": 1,
+  "ambiguousAliasKeys": 176,
+  "totalShardBytes": 47652668,
+  "commercialDefinitionsUsed": false,
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; no publisher dictionary text.",
+  "integrity": {
+    "schemaVersion": 1,
+    "source": {
+      "name": "ECDICT",
+      "license": "MIT",
+      "url": "https://github.com/skywind3000/ECDICT",
+      "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+      "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+    },
+    "rows": 82689,
+    "semanticSha256": "45816dedb557a506f770eb50bc0ae641d768f35db877bbe6fe2ca8f868b9b99e",
+    "headlistSha256": "6183795f1e3cb743db065f945376bd6296c589e7ab5b300b5456d2acb57f6fc9",
+    "workbookHeadsSha256": "3e1c0edb37dab0c7953ded5669a228764340b437f2fb3f9d513d4df254a1348f"
+  },
+  "verification": {
+    "canonicalRecords": 82920,
+    "englishKeys": 121031,
+    "chineseTokens": 139009,
+    "allReferencesVerified": true,
+    "allHanPostingsVerified": true
+  }
+}
