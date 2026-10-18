@@ -219,25 +219,51 @@ function publicReadHeaders(env: Env): Record<string, string> {
   };
 }
 
-async function publicSnapshot(request: Request, env: Env): Promise<Response> {
-  const headers = publicReadHeaders(env);
-  let ownerConfirmed: ReturnType<typeof validateSnapshot> | null = null;
-  let deployed: ReturnType<typeof validateSnapshot> | null = null;
-  try {
-    const current = await controlCall(env, "/public/snapshot", {});
-    ownerConfirmed = validateSnapshot(current.snapshot);
-  } catch {
-    // The Durable Object is an acceleration layer; the deployed snapshot below
-    // remains available when it has not been seeded or is temporarily down.
-  }
-  try {
-    const assetUrl = new URL("/data/owner-wordbook.json", request.url);
-    const asset = await env.ASSETS.fetch(new Request(assetUrl, { headers: { Accept: "application/json" } }));
-    if (asset.ok) deployed = validateSnapshot(await asset.json());
-  } catch {
-    // A newer owner-confirmed snapshot can still serve public reads if the
-    // static asset binding is unavailable.
-  }
+type PublicSnapshot = ReturnType<typeof validateSnapshot>;
+type SnapshotSource = "owner" | "deployed";
+type ValidatedSnapshotSource = { text: string; snapshot: PublicSnapshot };
+// At most one public response per source and environment, never private books,
+// credentials or session data. This is validation reuse, not a freshness cache:
+// both sources are still read on every request. Exact response text, not an
+// untrusted revision ID or ETag, must match previously validated text.
+const publicSourceMemo = new WeakMap<Env, Partial<Record<SnapshotSource, ValidatedSnapshotSource>>>();
+const MAX_MEMO_SNAPSHOT_CHARACTERS = 4 * 1024 * 1024;
+
+function validatedPublicSource(text: string, source: SnapshotSource, memo: Partial<Record<SnapshotSource, ValidatedSnapshotSource>>): PublicSnapshot {
+  const previous = memo[source];
+  if (previous?.text === text) return previous.snapshot;
+  const payload: unknown = JSON.parse(text);
+  const snapshot = validateSnapshot(source === "owner"
+    ? payload && typeof payload === "object" ? (payload as Record<string, unknown>).snapshot : undefined
+    : payload);
+  if (text.length <= MAX_MEMO_SNAPSHOT_CHARACTERS) memo[source] = { text, snapshot };
+  else delete memo[source];
+  return snapshot;
+}
+
+async function resolvePublicSnapshot(request: Request, env: Env): Promise<{ snapshot: PublicSnapshot; source: string }> {
+  let memo = publicSourceMemo.get(env);
+  if (!memo) { memo = {}; publicSourceMemo.set(env, memo); }
+  // Do not coalesce owner reads across requests: a request starting after an
+  // Owner publish must not join an older in-flight read. A source failure also
+  // must not fall back to its previous memoized response.
+  const [ownerConfirmed, deployed] = await Promise.all([
+    (async () => {
+      try {
+        const current = await controlStub(env).fetch("https://owner.internal/public/snapshot", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: "{}"
+        });
+        return current.ok ? validatedPublicSource(await current.text(), "owner", memo) : null;
+      } catch { return null; }
+    })(),
+    (async () => {
+      try {
+        const assetUrl = new URL("/data/owner-wordbook.json", request.url);
+        const asset = await env.ASSETS.fetch(new Request(assetUrl, { headers: { Accept: "application/json" } }));
+        return asset.ok ? validatedPublicSource(await asset.text(), "deployed", memo) : null;
+      } catch { return null; }
+    })()
+  ]);
   if (!ownerConfirmed && !deployed) throw new ApiError(503, "public_snapshot_unavailable", "公开词库暂时不可读取。");
 
   // A repository deployment can contain editorial corrections that are newer
@@ -248,6 +274,12 @@ async function publicSnapshot(request: Request, env: Env): Promise<Response> {
     || Date.parse(deployed.exportedAt) > Date.parse(ownerConfirmed.exportedAt)));
   const snapshot = useDeployed ? deployed! : ownerConfirmed!;
   const source = useDeployed ? "deployed-newer" : "owner-confirmed";
+  return { snapshot, source };
+}
+
+async function publicSnapshot(request: Request, env: Env): Promise<Response> {
+  const headers = publicReadHeaders(env);
+  const { snapshot, source } = await resolvePublicSnapshot(request, env);
   // Cloudflare may weaken dynamic-response ETags while applying transfer
   // encoding. Emit the same weak validator ourselves so browser revalidation
   // round-trips byte-for-byte through the edge.
@@ -363,9 +395,9 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
   const path = new URL(request.url).pathname;
   if (path.startsWith(`${API_PREFIX}/member/`)) {
     const response = await handleMemberRequest(request, env, {
-      readPublicSnapshot: async () => (await publicSnapshot(
-        new Request(new URL(`${API_PREFIX}/public/wordbook`, request.url)), env
-      )).json()
+      // Selection still performs its own per-entry validation, but no longer
+      // serializes and reparses the entire public catalogue just to read it.
+      readPublicSnapshot: async () => (await resolvePublicSnapshot(request, env)).snapshot
     });
     if (response) return response;
     throw new ApiError(404, "member_api_not_found", "个人词本接口不存在。");
@@ -384,7 +416,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
         : null;
     return jsonResponse({
       ok: true,
-      version: "2.4.3",
+      version: "2.4.4",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,

@@ -1,9 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   AI_JSON_SCHEMA,
   AiOrganizedSchema,
   PublishRequestSchema,
   PublicEntrySchema,
+  PublicSnapshotSchema,
   classifyInput,
   hasPlausibleChineseMeaning,
   makeEntryFromAi,
@@ -16,6 +17,18 @@ import {
 import { entry, snapshot } from "./fixtures";
 
 describe("wordbook schema", () => {
+  it("performs one complete strict parse for v3 without losing duplicate or synonym guards", () => {
+    const parse = vi.spyOn(PublicSnapshotSchema, "safeParse");
+    try {
+      expect(validateSnapshot(snapshot()).entries).toHaveLength(1);
+      expect(parse).toHaveBeenCalledTimes(1);
+      const repeated = entry();
+      expect(() => validateSnapshot(snapshot([repeated, repeated]))).toThrow(/重复 ID/);
+      expect(() => validateSnapshot(snapshot([entry({ synonyms: ["unpublished"] })]))).toThrow(/尚未发布的同义词引用/);
+      expect(() => validateSnapshot({ ...snapshot(), unexpectedField: true })).toThrow(/严格 schema/);
+    } finally { parse.mockRestore(); }
+  });
+
   it("accepts Chinese definitions starting with 见 without accepting cross-reference placeholders", () => {
     for (const meaning of [
       "见惯不怪的；因为觉得司空见惯而显得毫不在意的。",

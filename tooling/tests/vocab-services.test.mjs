@@ -32,7 +32,7 @@ const emptyDictionary = (term) => ({
 });
 
 test("generated ECDICT core is internally consistent and locks at least 100 terms", () => {
-  assert.equal(coreDictionary.entries.size, 7500);
+  assert.equal(coreDictionary.entries.size, 7502);
   assert.deepEqual(payload.requiredMissing, []);
   const coverage = [
     "accept", "accommodate", "achieve", "advice", "affect", "allow", "answer", "appear", "apply", "argument",

@@ -81,6 +81,27 @@ describe("private public-source selection and cloud review", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store"); expect(response.headers.get("Access-Control-Allow-Origin")).toBeNull();
   });
 
+  it("can select exact 24/7 and reuse an existing private card without admitting arbitrary numeric selections", async () => {
+    const auth = await register();
+    const makePublic = (term: string) => snapshot([entry({ id: "public-numeric-expression", term, entryType: "word", tags: [],
+      partOfSpeech: "adverb; adjective", meaning: "全天候；持续不断地", collocations: [], forms: [], exampleEn: "The helpline is available 24/7.", exampleZh: "这条求助热线全天候开放。" })]);
+    const choose = (term: string) => request("/selections", { method: "POST", auth,
+      body: { entryIds: ["public-numeric-expression"], collectionId: "main", chapterId: "all", mutationId: crypto.randomUUID() },
+      resolver: async () => makePublic(term) });
+    const selected = await choose("24/7");
+    expect(selected.status).toBe(200);
+    expect(await selected.json()).toMatchObject({ added: 1, entries: [{ term: "24/7", normalized: "24/7" }] });
+    const repeated = await choose("24/7");
+    expect(repeated.status).toBe(200);
+    expect(await repeated.json()).toMatchObject({ added: 0, reused: 1 });
+    for (const term of ["123", "24 / 7", "２４/７", "24/7<script>bad()</script>"]) {
+      expect((await choose(term)).status, term).toBe(400);
+    }
+    const list = await request("/entries", { auth });
+    expect(await list.json()).toMatchObject({ entries: [{ term: "24/7", normalized: "24/7" }] });
+    expect((await (await request("/entries", { auth })).json() as { entries: unknown[] }).entries).toHaveLength(1);
+  });
+
   it("resolves each source snapshot once and fails closed on resolver failure", async () => {
     const auth = await register();
     const resolver = vi.fn(async () => publicBook());

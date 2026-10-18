@@ -42,7 +42,10 @@ export function validatePersonalSession(value, now = Date.now()) {
 }
 
 export function validatePersonalInput(value, { imported = false } = {}) {
-  const term = validateEnglishInput(text(value?.term, imported ? 2000 : 200, "英文"));
+  const raw = text(value?.term, imported ? 2000 : 200, "英文");
+  // The already-packaged English expression is the only alphabet-free
+  // exception; arbitrary numbers and non-English strings remain invalid.
+  const term = raw.trim() === "24/7" ? "24/7" : validateEnglishInput(raw);
   return { term,
     ...(Object.prototype.hasOwnProperty.call(value || {}, "partOfSpeech") ? { partOfSpeech: text(value.partOfSpeech, 200, "词性") } : {}),
     meaning: text(value?.meaning, imported ? 20000 : 2000, "中文释义"), note: text(value?.note, 1000, "备注") };

@@ -24,6 +24,13 @@ export const PERSONAL_LIMITS = Object.freeze({ entries: 1000, bytes: 2 * 1024 * 
 const byteLength = (value: unknown) => new TextEncoder().encode(JSON.stringify(value)).byteLength;
 const validEntryId = (value: unknown): value is string => typeof value === "string" && value.startsWith("member-") && MEMBER_UUID.test(value.slice(7));
 
+function personalEnglishTerm(value: unknown): string {
+  // A packaged dictionary expression, not permission for arbitrary numeric
+  // input. Screen original size and controls before trimming the exact literal.
+  const raw = memberText(value, 200, "英文词条");
+  return raw.trim() === "24/7" ? "24/7" : validateEnglishInput(raw);
+}
+
 /** Private tenant vault. It deliberately has no GitHub/AI/public-cache imports. */
 export class PersonalWordbook implements DurableObject {
   constructor(private readonly ctx: DurableObjectState, private readonly env: MemberEnv) {}
@@ -59,8 +66,7 @@ export class PersonalWordbook implements DurableObject {
   }
 
   private content(body: Record<string, unknown>, updating = false): Pick<PersonalEntry, "term" | "normalized" | "partOfSpeech" | "meaning" | "note"> {
-    const raw = memberText(body.term, 200, "英文词条");
-    const term = validateEnglishInput(raw);
+    const term = personalEnglishTerm(body.term);
     if ([...term].length > 200) throw new ApiError(400, "invalid_entry", "英文词条不能超过 200 个字符。");
     return { term, normalized: normalizeEnglish(term),
       ...(Object.prototype.hasOwnProperty.call(body, "partOfSpeech") ? { partOfSpeech: memberText(body.partOfSpeech, 200, "词性") } : {}),
@@ -198,7 +204,7 @@ export class PersonalWordbook implements DurableObject {
     if (!Array.isArray(prepared.cards) || prepared.cards.length !== request.entryIds.length) throw new ApiError(400, "invalid_selection", "选择资料数量不匹配。");
     const cards = prepared.cards.map(card => {
       if (!card || typeof card !== "object" || !Array.isArray(card.contexts) || !card.contexts.length || card.contexts.length > SOURCE_LIMITS.contexts) throw new ApiError(413, "selection_context_limit", "词条来源数量超过安全上限。");
-      const term = validateEnglishInput(memberText(card.term, 200, "英文词条"));
+      const term = personalEnglishTerm(card.term);
       const contexts = card.contexts.map(validateSourceContext);
       if (contexts.some(context => context.term !== term || !request.entryIds.includes(context.entryId))) throw new ApiError(400, "invalid_selection", "选择来源与词条不一致。");
       return { term, normalized: normalizeEnglish(term), contexts };

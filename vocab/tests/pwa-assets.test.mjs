@@ -19,21 +19,22 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
-    "runtime-config.js", "personal-app.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "book-passages.js", "book-passages-ui.js",
+    "runtime-config.js", "personal-app.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
     "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-groups.js", "synonym-evidence.js",
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
+  const version = file => ["personal-app.js", "personal-storage.js", "personal-selection.js", "personal-dictionary.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
     for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
       const target = match[1].slice(2).split("?")[0];
-      if (changed.has(target)) assert.equal(match[1], `./${target}?v=77`, `${file} must not import a fresh old HTTP-cache dependency`);
+      if (changed.has(target)) assert.equal(match[1], `./${target}?v=${version(target)}`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
   for (const file of changed) {
-    assert.ok(serviceWorker.includes(`"./js/${file}?v=77"`), `${file}'s versioned browser URL must work offline`);
+    assert.ok(serviceWorker.includes(`"./js/${file}?v=${version(file)}"`), `${file}'s versioned browser URL must work offline`);
     assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
 });
@@ -58,7 +59,7 @@ test("PWA publishes separate any and safe maskable icons at declared sizes", asy
 test("quality evidence is network-first with an offline fallback", () => {
   const reportRoute = serviceWorker.indexOf('url.pathname.endsWith("/quality/generated-report.json")');
   const reportNetworkFirst = serviceWorker.indexOf("event.respondWith(networkFirst(request));", reportRoute);
-  const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request))");
+  const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request, event))");
   assert.ok(reportRoute >= 0);
   assert.ok(reportNetworkFirst > reportRoute);
   assert.ok(genericCacheFirst > reportNetworkFirst);
@@ -76,7 +77,7 @@ test("book original examples are precached and refreshed online without touching
 test("mutable script, style and manifest assets revalidate online before using the offline cache", () => {
   const mutableRoute = serviceWorker.indexOf('/\\.(?:js|css|webmanifest)$/i.test(url.pathname)');
   const mutableNetworkFirst = serviceWorker.indexOf("event.respondWith(networkFirst(request));", mutableRoute);
-  const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request))");
+  const genericCacheFirst = serviceWorker.lastIndexOf("event.respondWith(cacheFirst(request, event))");
   assert.ok(mutableRoute >= 0, "mutable assets need an explicit route");
   assert.ok(mutableNetworkFirst > mutableRoute, "mutable assets must be network-first");
   assert.ok(genericCacheFirst > mutableNetworkFirst, "only immutable assets should reach cache-first");
@@ -90,7 +91,7 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v77/);
+  assert.match(serviceWorker, /zhuo-wordbook-v78/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=77/);

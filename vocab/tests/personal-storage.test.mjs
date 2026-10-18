@@ -63,6 +63,14 @@ test("optional private word classes preserve legacy shapes and validate bounded 
   assert.deepEqual(classifiedExport.entries, [classified]);
 });
 
+test("the already-packaged literal24/7 can be saved, without admitting arbitrary numbers", () => {
+  assert.equal(validatePersonalInput({ term: " 24/7 ", meaning: "全天候", note: "" }).term, "24/7");
+  assert.equal(validatePersonalEntry(word({ term: "24/7", normalized: "24/7", meaning: "全天候" })).term, "24/7");
+  for (const term of ["123", "12/7", "24／7", "24/7\u202e", "24/7\u0000", "中文"]) {
+    assert.throws(() => validatePersonalInput({ term, meaning: "", note: "" }), term);
+  }
+});
+
 test("private drafts include editable word classes, track them as dirty, and safely retain unfinished pastes", () => {
   const store = createPersonalDraftStore();
   const empty = personalDraft();

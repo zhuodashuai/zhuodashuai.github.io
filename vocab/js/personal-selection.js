@@ -1,20 +1,43 @@
 import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "./collections.js?v=77";
 import { contextualizeReadingEntry, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery } from "./wordbook-schema.js?v=77";
 
-export async function fetchPersonalPublicCatalog({ fetchImpl = globalThis.fetch, signal, timeoutMs = 20_000 } = {}) {
+export async function fetchPersonalPublicCatalog({ fetchImpl = globalThis.fetch, signal, timeoutMs = 20_000, apiTimeoutMs = 2_500 } = {}) {
   const controller = new AbortController();
   let rejectInterruption;
   const interruption = new Promise((_, reject) => { rejectInterruption = reject; });
   const stop = () => { controller.abort(); rejectInterruption(new Error("公开词库读取已停止，请重试。")); };
   if (signal?.aborted) stop(); else signal?.addEventListener("abort", stop, { once: true });
   const timer = setTimeout(stop, timeoutMs);
-  const operation = async () => {
+  const read = async (url, readSignal) => {
     if (controller.signal.aborted) throw new Error("公开词库读取已停止。");
-    const response = await fetchImpl("/api/v1/public/wordbook", {
-      credentials: "omit", cache: "no-cache", headers: { Accept: "application/json" }, signal: controller.signal
+    const response = await fetchImpl(url, {
+      credentials: "omit", cache: "no-cache", headers: { Accept: "application/json" }, signal: readSignal
     });
     if (!response.ok) throw new Error("公开词库暂时无法读取，请重试。");
     return parsePublicSnapshot(await response.json());
+  };
+  const operation = async () => {
+    const apiController = new AbortController();
+    let rejectApiStop;
+    const apiStopped = new Promise((_, reject) => { rejectApiStop = reject; });
+    const abortApi = () => { apiController.abort(); rejectApiStop(new Error("公开词库读取已停止。")); };
+    controller.signal.addEventListener("abort", abortApi, { once: true });
+    let apiTimer;
+    try {
+      const deadline = new Promise((_, reject) => {
+        apiTimer = setTimeout(() => { apiController.abort(); reject(new Error("公开实时接口读取超时。")); }, Math.max(1, Math.min(apiTimeoutMs, timeoutMs)));
+      });
+      return await Promise.race([read("/api/v1/public/wordbook", apiController.signal), deadline, apiStopped]);
+    } catch (error) {
+      if (controller.signal.aborted) throw error;
+      // This is the same public, deployed snapshot, never a private account
+      // response. Validate it normally and label its potentially older state.
+      const snapshot = await read(new URL("../data/owner-wordbook.json", import.meta.url), controller.signal);
+      return { ...snapshot, readSource: "deployed-fallback" };
+    } finally {
+      clearTimeout(apiTimer);
+      controller.signal.removeEventListener("abort", abortApi);
+    }
   };
   try { return await Promise.race([operation(), interruption]); }
   finally { clearTimeout(timer); signal?.removeEventListener("abort", stop); }

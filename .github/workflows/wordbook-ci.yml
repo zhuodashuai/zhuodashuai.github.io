@@ -42,6 +42,8 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Build compact member lookup from existing public data
+        run: node tooling/scripts/build-member-dictionary.mjs
       - name: Secret boundary scan
         run: pnpm test:security
       - name: Unit and Worker integration tests
@@ -50,8 +52,10 @@ jobs:
         run: pnpm --dir wordbook-api check
       - name: Cloudflare Worker dry run
         run: pnpm --dir wordbook-api exec wrangler deploy --dry-run
-      - name: Install Playwright Chromium
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Install stable Chrome for browser regression
+        run: |
+          pnpm exec playwright install --with-deps chrome
+          google-chrome --version
       - name: Desktop, mobile, offline and PWA E2E
         run: pnpm test:e2e
       - name: Upload Playwright report on failure
@@ -106,7 +110,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm --dir wordbook-api exec wrangler deploy
+        run: |
+          node tooling/scripts/build-member-dictionary.mjs
+          pnpm --dir wordbook-api exec wrangler deploy
       - name: Confirm the deployed Worker is healthy
         if: steps.guard.outputs.configured == 'true'
         run: |

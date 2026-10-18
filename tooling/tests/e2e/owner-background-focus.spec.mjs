@@ -260,8 +260,15 @@ test("空白输入页不再启动同义词识别，保留输入提示和焦点",
   });
   await page.goto("/owner.html");
   await expect(page.locator("#owner-entry-count")).toHaveText("2");
+  // The remote count can render before the parallel session/health/draft
+  // startup reads finish. A hidden/inert workspace cannot accept focus yet.
+  await expect(page.locator("#owner-workspace")).toBeVisible();
+  await expect(page.locator("#owner-workspace")).toHaveJSProperty("inert", false);
+  const input = page.getByLabel("英文内容");
+  await expect(input).toBeEnabled();
   const inputMessage = await page.locator("#capture-status").textContent();
-  await page.getByLabel("英文内容").focus();
+  await input.focus();
+  await expect(input).toBeFocused();
   await page.clock.runFor(200);
   await page.evaluate(() => window.dispatchEvent(new Event("online")));
   await page.clock.runFor(200);

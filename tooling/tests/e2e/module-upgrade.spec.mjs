@@ -1,16 +1,35 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-const currentGraphVersion = (await readFile(new URL("../../../vocab/sw.js", import.meta.url), "utf8")).match(/zhuo-wordbook-v(\d+)/)[1];
+const workerSource = await readFile(new URL("../../../vocab/sw.js", import.meta.url), "utf8");
+const shellDeclaration = workerSource.match(/const\s+SHELL\s*=\s*\[([\s\S]*?)\];/u)?.[1];
+if (!shellDeclaration) throw new Error("Module upgrade fixture could not find the service worker SHELL.");
+
+// A cache namespace is not a module graph version: independent modules can
+// legitimately keep their previous URL when their content has not changed.
+// Read only explicit versioned JS literals; never execute the service worker.
+const declaredModuleVersions = new Map();
+for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
+  const url = new URL(match[1], "http://127.0.0.1:4187/");
+  const name = url.pathname.split("/").at(-1);
+  const version = url.searchParams.get("v");
+  if (declaredModuleVersions.has(name) && declaredModuleVersions.get(name) !== version) {
+    throw new Error(`Module upgrade fixture found conflicting SHELL versions for ${name}.`);
+  }
+  declaredModuleVersions.set(name, version);
+}
 
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
-  "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
+  "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
   "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
 ]);
+for (const name of changedApiModules) {
+  if (!declaredModuleVersions.has(name)) throw new Error(`Module upgrade fixture needs an explicit SHELL version for ${name}.`);
+}
 
 test.beforeEach(async ({ context, page }, info) => {
   const run = `upgrade-${info.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 80);
@@ -28,7 +47,8 @@ async function poisonOldModuleUrls(page) {
   // This is a module-graph regression, not a claim to emulate HTTP caching.
   await page.route("**/js/*.js*", async (route) => {
     const url = new URL(route.request().url());
-    if (changedApiModules.has(url.pathname.split("/").at(-1)) && url.searchParams.get("v") !== currentGraphVersion) {
+    const name = url.pathname.split("/").at(-1);
+    if (changedApiModules.has(name) && url.searchParams.get("v") !== declaredModuleVersions.get(name)) {
       consumedOldUrls.push(url.pathname);
       await route.fulfill({ contentType: "text/javascript", body: 'export const oldModuleVersion = "v66";' });
     } else await route.continue();

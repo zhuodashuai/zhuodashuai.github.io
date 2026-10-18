@@ -168,6 +168,31 @@ describe("private member API and tenant isolation", () => {
     expect((await (await api("/entries", { auth })).json() as { entries: unknown[] }).entries).toHaveLength(1);
   });
 
+  it("lets a new member save and reread exact 24/7 without admitting other numeric or unsafe terms", async () => {
+    const auth = await register("numeric_reader");
+    expect((await (await api("/entries", { auth })).json() as { entries: unknown[] }).entries).toEqual([]);
+    const body = { term: "24/7", partOfSpeech: "adverb; adjective", meaning: "全天候；一天二十四小时、一周七天持续地", note: "词典中的数字表达", mutationId: crypto.randomUUID() };
+    const saved = await api("/entries", { method: "POST", auth, body });
+    expect(saved.status).toBe(200);
+    const first = await saved.json() as { entry: PersonalEntry };
+    expect(first.entry).toMatchObject({ term: "24/7", normalized: "24/7", meaning: body.meaning, partOfSpeech: body.partOfSpeech });
+    const reread = await api("/entries", { auth });
+    expect(await reread.json()).toMatchObject({ entries: [{ id: first.entry.id, term: "24/7", meaning: body.meaning }] });
+    for (const term of ["24/7", " 24/7 "]) {
+      const duplicate = await api("/entries", { method: "POST", auth, body: { ...body, term, mutationId: crypto.randomUUID() } });
+      expect(duplicate.status).toBe(409);
+      expect(await duplicate.json()).toMatchObject({ error: { code: "duplicate_entry", details: { existing: { id: first.entry.id } } } });
+    }
+    const updated = await api(`/entries/${first.entry.id}`, { method: "PUT", auth,
+      body: { ...body, revision: first.entry.revision, note: "仍然只有这一张卡", mutationId: crypto.randomUUID() } });
+    expect(updated.status).toBe(200);
+    for (const term of ["123", "24", "24 / 7", "24/7!", "２４/７", "24/7\u202e", "24/7\u0000", "24/7<script>bad()</script>", `${" ".repeat(201)}24/7`]) {
+      const rejected = await api("/entries", { method: "POST", auth, body: { ...body, term, mutationId: crypto.randomUUID() } });
+      expect(rejected.status, JSON.stringify(term)).toBe(400);
+    }
+    expect((await (await api("/entries", { auth })).json() as { entries: PersonalEntry[] }).entries).toHaveLength(1);
+  });
+
   it("uses optimistic card versions and idempotency without resurrecting deleted entries", async () => {
     const auth = await register(), mutationId = crypto.randomUUID();
     const one = await (await create(auth, "agitated", mutationId)).json() as { entry: { id: string; revision: number }; revision: number };

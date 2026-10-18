@@ -7,11 +7,11 @@ import {
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
   validatePersonalEntry, validatePersonalInput, validatePersonalList,
   validatePersonalPassword, validatePersonalSession, validatePersonalUsername
-} from "./personal-storage.js?v=77";
+} from "./personal-storage.js?v=78";
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
-  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=77";
+  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=78";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary } from "./personal-dictionary.js?v=77";
+import { lookupPersonalDictionary, preloadPersonalDictionary } from "./personal-dictionary.js?v=78";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -186,7 +186,7 @@ function renderChrome() {
   $("member-recovery-code").textContent = recovery ? state.recovery.code : "";
   for (const id of ["member-recovery-copy", "member-recovery-download", "member-recovery-ack"]) $(id).disabled = !recovery;
   $("member-recovery-continue").disabled = !recovery || !$("member-recovery-ack").checked;
-  $("member-source-toggle").disabled = !ready || state.entryBusy;
+  $("member-source-toggle").disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-dictionary-term").disabled = !ready;
   $("member-dictionary-search").disabled = !ready || state.dictionaryBusy;
   $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : "查词";
@@ -260,6 +260,9 @@ function adoptSession(result, { recoveryCode = "" } = {}) {
   mutations.retainOnly(session.user.id);
   lockMarker(false);
   state.phase = recoveryCode ? "recovery" : "ready";
+  // Public static data only; never await this on the login/recovery path.
+  // A failed warmup remains retryable on Enter and cannot hide the workspace.
+  void preloadPersonalDictionary().catch(() => {});
   state.recovery = recoveryCode ? { code: recoveryCode, username: session.user.username, kind: "register", token: scope.capture() } : null;
   fillEditor(drafts.read(session.user.id) || personalDraft(), { restoreDictionaryOrigin: true });
   renderEntries();
@@ -338,7 +341,7 @@ async function queryDictionary(event) {
   const token = scope.capture();
   const controller = new AbortController(); dictionaryController = controller;
   state.dictionaryBusy = true;
-  $("member-dictionary-status").textContent = "正在读取本站本地词典…首次加载后可重复查询。";
+  $("member-dictionary-status").textContent = "正在查词…首次载入后可直接重复查询。";
   renderChrome();
   try {
     const result = await request(async signal => {
@@ -349,14 +352,15 @@ async function queryDictionary(event) {
     if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
     state.dictionaryResult = result;
     if (!result) {
-      $("member-dictionary-status").textContent = "本地词典未收录或没有可用中文释义。请核对拼写，或从卓的公开词库选词；不会联网补查。";
+      $("member-dictionary-status").textContent = "本站词典与已发布词条中未找到可用释义。请核对拼写，也可先记下这个词，稍后补充；不会编造释义。";
       return;
     }
     $("member-dictionary-word").textContent = result.term;
     $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
     $("member-dictionary-meaning").textContent = result.meaning;
     $("member-dictionary-result").hidden = false;
-    $("member-dictionary-status").textContent = "本地词典释义，不代表特定章节语境；尚未加入词本。";
+    const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
+    $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。具体含义请结合语境。`;
   } catch (error) {
     if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
   } finally {
@@ -380,7 +384,7 @@ function useDictionaryResult() {
   fillEditor(draft, { focus: true });
   state.dictionaryApplied = { ...result };
   dictionaryDraftOrigins.set(state.user.id, { ...result });
-  status("本地词典的词性和释义已填入草稿；点击保存后加入自己的词本。", "saved");
+  status("词性和释义已填入草稿；点击保存后加入自己的词本。", "saved");
   $("member-entry-form").scrollIntoView({ block: "nearest", behavior: "auto" });
 }
 
@@ -477,7 +481,7 @@ function renderSource() {
 }
 
 async function openSource() {
-  if (state.phase !== "ready" || state.entryBusy) return;
+  if (state.phase !== "ready" || state.entryBusy || state.sourceBusy) return;
   $("member-source-panel").hidden = false;
   $("member-source-toggle").setAttribute("aria-expanded", "true");
   if (state.publicSnapshot) { renderSource(); return; }
@@ -488,7 +492,9 @@ async function openSource() {
     const snapshot = await request((signal) => fetchPersonalPublicCatalog({ signal }));
     if (!scope.current(token)) return;
     state.publicSnapshot = snapshot;
-    $("member-source-status").textContent = "选择词本、章节，再勾选需要学习的词。";
+    $("member-source-status").textContent = snapshot.readSource === "deployed-fallback"
+      ? "实时服务暂不可用，已读取本站已部署的公开快照，可能不是最新。可继续选词；加入时服务器会再次核对。"
+      : "选择词本、章节，再勾选需要学习的词。";
     renderSource();
   } catch (error) { if (scope.current(token) && !error?.stale) $("member-source-status").textContent = `${error.message} 点击“从公开词库选词”可重试。`; }
   finally { if (scope.current(token)) { state.sourceBusy = false; renderSource(); renderChrome(); } }
