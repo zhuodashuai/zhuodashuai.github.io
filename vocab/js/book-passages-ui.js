@@ -14,9 +14,9 @@ function chapterLabel(chapterId) {
 
 function sourceLabel(passage, book) {
   const source = passage.source || {};
-  const printedPage = source.printedPage ? `书页 ${source.printedPage}` : "";
-  const pdfPage = source.pdfPage ? `PDF 第 ${source.pdfPage} 页` : "";
-  return [source.title || book?.title, book?.author, chapterLabel(passage.chapterId), source.edition || book?.editionNote, printedPage, pdfPage]
+  // Editions paginate differently. Keep location metadata for internal source
+  // checks, but show readers only the stable book, author and chapter labels.
+  return [source.title || book?.title, book?.author, chapterLabel(passage.chapterId)]
     .filter(Boolean).join(" · ");
 }
 
@@ -109,7 +109,6 @@ export function createBookPassagesView({ root = document } = {}) {
   const status = root.getElementById("passages-status");
   const retry = root.getElementById("passages-retry");
   const favoritesOnly = root.getElementById("passages-favorites-only");
-  const editionNote = root.getElementById("passages-edition-note");
   const spoilerNote = root.getElementById("passages-spoiler-note");
   const backupStatus = root.getElementById("passages-backup-status");
   const exportButton = root.getElementById("passages-export-favorites");
@@ -133,8 +132,6 @@ export function createBookPassagesView({ root = document } = {}) {
   const render = () => {
     if (!dataset || !scope.visible) return;
     const books = dataset.books.filter((book) => scope.bookId === "all" || book.id === scope.bookId);
-    editionNote.textContent = [...new Set(books.map((book) => book.editionNote).filter(Boolean))].join("\n");
-    editionNote.hidden = !editionNote.textContent;
     spoilerNote.hidden = scope.chapterId !== "all" || books.length === 0;
     const passages = selectBookPassages(dataset, {
       bookId: scope.bookId, chapterId: scope.chapterId, query: scope.query,

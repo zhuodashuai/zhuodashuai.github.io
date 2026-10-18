@@ -62,8 +62,8 @@ test("book original appears separately while the existing learning example and s
   await expect(page.locator("#dialog-source-examples .book-passage-text")).toHaveText(fixture.passages[0].text);
   await expect(page.locator("#dialog-example-section h3")).toHaveText("原有学习例句");
   await expect(page.locator("#dialog-source-section h3")).toHaveText("原学习例句的出处说明");
-  await expect(page.locator("#dialog-source-examples .book-passage-source")).toContainText("Controlled test edition");
-  await expect(page.locator("#dialog-source-examples .book-passage-source")).toContainText("PDF 第 11 页");
+  await expect(page.locator("#dialog-source-examples .book-passage-source")).toHaveText("Never Let Me Go · Kazuo Ishiguro · Chapter 1");
+  await expect(page.locator("#dialog-source-examples")).not.toContainText(/Controlled test edition|PDF 第|书页/u);
   await expect(page.locator("#dialog-source-examples .passage-field-label")).toHaveText("参考译意（学习用）");
   await expect(page.locator("#dialog-source-status")).toContainText(agitated.attributionNote);
   expect(await noLearningChanges(page)).toEqual({ reviews: [], attempts: [] });
@@ -109,6 +109,10 @@ test("mobile excerpt tab is discoverable, keeps chapter scope and does not chang
   await expect(page.locator("#library-options")).toHaveJSProperty("open", false);
   await expect(page.locator("#passages-panel")).toBeVisible();
   await expect(page.locator("#passages-list article")).toHaveCount(1);
+  await expect(page.locator("#passages-list .book-passage-source")).toHaveText("Never Let Me Go · Kazuo Ishiguro · Chapter 1");
+  await page.locator(".passages-backup summary").click();
+  await expect(page.locator("#passages-panel")).not.toContainText(/Controlled test edition|PDF 第|书页/u);
+  await page.locator(".passages-backup summary").click();
   await expect(page.locator("#filter-row")).toBeHidden();
   await expect(page.locator("#entry-grid")).toBeHidden();
   await expect(page.locator("#chapter-quiz-button")).toBeHidden();

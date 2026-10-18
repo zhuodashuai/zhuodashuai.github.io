@@ -1,5 +1,5 @@
 const CACHE_NAME = "zhuo-wordbook-v76";
-// Source excerpts and preserved authored examples use separate attribution labels.
+// Source labels show book/author/chapter; edition-specific pages stay internal.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
