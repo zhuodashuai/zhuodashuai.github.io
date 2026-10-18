@@ -398,8 +398,8 @@ function render() {
   // launcher. updateScope above restores it when returning to vocabulary.
   if (passagesView) document.getElementById("chapter-quiz-button").hidden = true;
   const searchLabel = refs.librarySearch.closest("label");
-  searchLabel.querySelector("span").textContent = passagesView ? "搜索摘句" : "搜索词库";
-  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式";
+  searchLabel.querySelector("span").textContent = passagesView ? "搜索摘句" : "搜索已收录词卡";
+  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式 · 查新词请用上方“中英查词”";
   refs.librarySearch.placeholder = passagesView ? "搜索当前章节或词本的摘句" : "搜索本章或词本已有的词";
   refs.viewControls.querySelectorAll("button[data-view]").forEach((control) => {
     if (control.dataset.view === "synonyms") control.hidden = !SYNONYM_FEATURE_ENABLED;

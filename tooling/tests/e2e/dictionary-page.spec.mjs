@@ -195,7 +195,7 @@ test("adding a public result only opens the unsigned personal login flow, never 
 test("an empty 616-card home search links to the real public dictionary rather than pretending the new word is absent everywhere", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#entry-count")).toHaveText(String(publicSnapshot.entries.length));
-  await page.locator("#library-search").fill("abacus");
+  await page.getByLabel("搜索已收录词卡").fill("abacus");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
   await expect(page.locator("#search-empty")).toBeVisible();
   await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", /dictionary\.html#q=abacus$/u);
