@@ -115,6 +115,52 @@ describe("private public-source selection and cloud review", () => {
     expect(locked.status).toBe(400); expect(await locked.json()).toMatchObject({ error: { code: "source_term_locked" } });
   });
 
+  it("preserves edited Chinese, notes, provenance and cloud history on a no-op reselection and its replays", async () => {
+    const auth = await register();
+    const originalMutation = crypto.randomUUID();
+    const imported = await select(auth, "chapter-3", originalMutation); expect(imported.status).toBe(200);
+    const original = (await imported.json() as { entries: PersonalEntry[] }).entries[0];
+    const reviewed = await grade(auth, original.id); expect(reviewed.status).toBe(200);
+    const learningBefore = await (await request("/learning", { auth })).json();
+
+    // Match the live workflow: a shared card already contains two independently
+    // selected chapter contexts before its personal Chinese and note are edited.
+    const additional = await select(auth, "chapter-14"); expect(additional.status).toBe(200);
+    const merged = (await additional.json() as { entries: PersonalEntry[] }).entries[0];
+    const meaning = "① 我的私人释义；不覆盖其他章节原文。";
+    const note = "我的私人批注\n保留第二行与原文语境。";
+    const update = await request(`/entries/${original.id}`, { method: "PUT", auth, body: {
+      revision: merged.revision, term: merged.term, meaning, note, mutationId: crypto.randomUUID()
+    } });
+    expect(update.status).toBe(200);
+    const edited = await update.json() as { revision: number; entry: PersonalEntry };
+    expect(edited.entry).toMatchObject({ id: original.id, revision: merged.revision + 1, meaning, note, meaningEdited: true });
+    expect(edited.entry.sourceContexts).toEqual(merged.sourceContexts);
+    expect(edited.entry.sourceContexts).toHaveLength(2);
+    const saved = await (await request("/entries", { auth })).json();
+    expect(saved).toMatchObject({ revision: edited.revision, entries: [edited.entry] });
+
+    const noOpMutation = crypto.randomUUID();
+    const noOp = await select(auth, "chapter-3", noOpMutation); expect(noOp.status).toBe(200);
+    expect(await noOp.json()).toEqual({ revision: edited.revision, added: 0, reused: 1, contextAdded: 0, entries: [edited.entry] });
+    expect(await (await request("/entries", { auth })).json()).toEqual(saved);
+    expect(await (await request("/learning", { auth })).json()).toEqual(learningBefore);
+
+    // Both a retry of this no-op and a delayed retry of the original import
+    // acknowledge the current private card, never restore its old source text.
+    for (const mutation of [noOpMutation, originalMutation]) {
+      const replay = await select(auth, "chapter-3", mutation); expect(replay.status).toBe(200);
+      expect(await replay.json()).toEqual({ revision: edited.revision, added: 0, reused: 0, contextAdded: 0, entries: [edited.entry] });
+      expect(await (await request("/entries", { auth })).json()).toEqual(saved);
+      expect(await (await request("/learning", { auth })).json()).toEqual(learningBefore);
+    }
+    const changedReplay = await select(auth, "chapter-14", noOpMutation);
+    expect(changedReplay.status).toBe(409);
+    expect(await changedReplay.json()).toMatchObject({ error: { code: "idempotency_key_reused" } });
+    expect(await (await request("/entries", { auth })).json()).toEqual(saved);
+    expect(await (await request("/learning", { auth })).json()).toEqual(learningBefore);
+  });
+
   it("reuses a manual normalized card, preserves its meaning/note, and can fill a blank manual meaning", async () => {
     const auth = await register();
     const create = await request("/entries", { method: "POST", auth, body: { term: "RUMMAGE", meaning: "原先自己的解释", note: "保留笔记", mutationId: crypto.randomUUID() } });
