@@ -1,0 +1,3 @@
+# Preserve byte-exact upstream browser engines, fonts, licenses and checksums.
+# Their generated formatting is not authored application source.
+vocab/vendor/** -text -whitespace linguist-vendored

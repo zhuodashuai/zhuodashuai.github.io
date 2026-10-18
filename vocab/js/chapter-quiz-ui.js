@@ -1,5 +1,5 @@
-import { createChapterQuiz, applyQuizAnswer, summarizeQuizAttempt, unresolvedQuizMistakes } from "./chapter-quiz.js?v=77";
-import { quizStorage, QuizConflictError } from "./quiz-storage.js?v=77";
+import { createChapterQuiz, applyQuizAnswer, summarizeQuizAttempt, unresolvedQuizMistakes } from "./chapter-quiz.js?v=78";
+import { quizStorage, QuizConflictError } from "./quiz-storage.js?v=78";
 
 function element(tag, text = "", className = "") {
   const node = document.createElement(tag);

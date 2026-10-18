@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#183b32">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com">
+  <title>拍照收词 · 卓的单词本</title>
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css?v=78">
+  <link rel="stylesheet" href="capture.css?v=78">
+</head>
+<body data-page="capture">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="topbar capture-topbar">
+    <a class="brand" href="owner.html"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>拍照收词</strong><small>MARKED WORDS</small></span></a>
+    <nav class="top-actions" aria-label="页面操作"><a class="quiet-link" href="owner.html">返回管理页</a><a class="quiet-link" href="./">公开词库</a></nav>
+  </header>
+  <main id="main" class="capture-main">
+    <p class="capture-experiment-notice" role="note">实验功能：自动标记检测尚未通过独立准确性测试。请勿将结果视为已核对词条。</p>
+    <section class="auth-gate" id="capture-auth-gate" aria-labelledby="capture-auth-title">
+      <p class="eyebrow">仅卓本人开放</p><h1 id="capture-auth-title">使用原来的 GitHub 登录</h1>
+      <p id="capture-auth-message" role="status" aria-live="polite">正在检查登录状态…</p>
+      <a class="primary-link" id="capture-login-link" href="/api/v1/auth/login" hidden>使用 GitHub 登录</a>
+      <button type="button" id="capture-auth-retry" hidden>重试验证</button>
+    </section>
+    <div id="capture-workspace" hidden inert>
+      <div class="capture-heading"><div><h1>把划过的词，先收下来。</h1><p>在本机辨认蓝／红色下划线词，再由你核对、勾选。</p></div><span class="capture-owner-chip" id="capture-owner-identity">卓</span></div>
+      <section class="capture-upload-panel" aria-labelledby="capture-upload-title">
+        <h2 id="capture-upload-title">1. 选择照片或 PDF</h2>
+        <div class="capture-file-actions"><button type="button" class="primary-button" id="capture-choose-file">选择照片 / PDF</button><button type="button" id="capture-camera-button">拍照</button><input type="file" id="capture-file" accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" hidden><input type="file" id="capture-camera" accept="image/*" capture="environment" hidden></div>
+        <p class="capture-file-name" id="capture-file-name">尚未选择文件</p>
+        <div class="capture-scope-fields"><label>所属词本<select id="capture-book"><option value="">不分类，先保存草稿</option></select></label><label>所属章节<select id="capture-chapter" disabled><option value="">先选择词本</option></select></label><label class="capture-source-label">来源标题（可选）<input type="text" id="capture-source-title" maxlength="160" placeholder="例如：课堂讲义或阅读笔记"></label></div>
+        <p class="capture-privacy-note">照片、PDF 和页图<strong>都不上传</strong>，不调用云端 AI，也不消耗 AI 额度。当前仅支持蓝／红色下划线。</p>
+        <details class="capture-help"><summary>支持范围与保存说明</summary><p>首次识别需下载本站的英语识别引擎，之后可复用本机字库。登录验证和保存前的词库核对仍需联网。黑色划线、圈画和高亮暂不支持；模糊、倾斜或断行文字也可能有误，请逐项对照原图。</p><p>PDF 最多 100 MiB、1000 页，每批只处理所选的最多 5 页；JPG/PNG 照片最多 20 MiB，HEIC 请先转换。候选不会自动入库或发布；关闭前请确认保存草稿。原文件和未保存候选只留在当前页面，刷新后需重新选择。</p></details>
+      </section>
+      <div class="capture-work-status"><p class="capture-status" id="capture-status" role="status" aria-live="polite">先选择一张有蓝／红色下划线的照片，或选择 PDF。</p><button type="button" id="capture-cancel" hidden>停止处理</button></div>
+      <div class="capture-layout" id="capture-document-area" hidden>
+        <section class="capture-preview-panel" aria-labelledby="capture-preview-title">
+          <div class="capture-panel-heading"><h2 id="capture-preview-title">2. 查看选中页</h2><span id="capture-page-count"></span></div>
+          <div id="capture-pdf-controls" hidden>
+            <label class="capture-pages-label">本批识别页码（最多 5 页）<input type="text" id="capture-pages" value="1" inputmode="text" placeholder="例如：1,3-5" aria-describedby="capture-pages-hint"></label><small id="capture-pages-hint">只在本机处理这些页，不会遍历整份 PDF。</small>
+            <div class="capture-page-navigation"><button type="button" id="capture-previous-page" aria-label="预览上一页">‹</button><label>预览第 <input type="number" id="capture-preview-page" value="1" min="1" aria-label="要预览的 PDF 页码"> 页</label><button type="button" id="capture-next-page" aria-label="预览下一页">›</button><button type="button" id="capture-toggle-page">加入本批</button></div>
+          </div>
+          <div class="capture-preview-stage" id="capture-preview-stage"><canvas id="capture-preview-canvas" aria-label="所选页面预览"></canvas><canvas id="capture-overlay-canvas" aria-hidden="true"></canvas></div>
+          <p class="capture-preview-caption" id="capture-preview-caption" role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="capture-scan-actions"><button type="button" class="primary-button" id="capture-start" disabled>本地识别所选页</button></div>
+          <p class="capture-progress" id="capture-progress" role="status" aria-live="polite"></p>
+        </section>
+        <section class="capture-candidates-panel" aria-labelledby="capture-candidates-title">
+          <div class="capture-panel-heading"><h2 id="capture-candidates-title">3. 核对后收下</h2><span id="capture-candidate-count">0 条候选</span></div>
+          <p class="capture-candidates-help">所有候选默认不勾选。先看标记、改正拼写，再勾选要保存的词；“待核对”的内容尤其需要确认。</p>
+          <ul class="capture-warnings" id="capture-warnings" hidden></ul>
+          <div class="capture-empty" id="capture-empty">识别后，候选会出现在这里。不收录整页未标记的单词。</div>
+          <div id="capture-candidate-list" class="capture-candidate-list"></div>
+          <div class="capture-import-actions"><button type="button" class="primary-button" id="capture-import" disabled>保存所选为本地草稿</button><button type="button" id="capture-clear-selection" disabled>清空勾选</button><a href="owner.html" id="capture-open-drafts" hidden>打开管理页查看草稿</a></div>
+          <p class="capture-import-status" id="capture-import-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/marked-import-ui.js?v=78"></script>
+</body>
+</html>

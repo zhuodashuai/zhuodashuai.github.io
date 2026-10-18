@@ -1,4 +1,4 @@
-import { parsePublicSnapshot } from "./wordbook-schema.js?v=77";
+import { parsePublicSnapshot } from "./wordbook-schema.js?v=78";
 
 export const PUBLIC_REQUEST_TIMEOUT_MS = 7_000;
 

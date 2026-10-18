@@ -1,18 +1,18 @@
-import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=77";
-import { createEntryDetailController } from "./entry-detail.js?v=77";
-import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
-import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=77";
-import { setupPwa } from "./pwa.js?v=77";
-import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=77";
+import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=78";
+import { createEntryDetailController } from "./entry-detail.js?v=78";
+import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=78";
+import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=78";
+import { setupPwa } from "./pwa.js?v=78";
+import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=78";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
-import { buildSynonymGroups } from "./synonym-groups.js?v=77";
-import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
-import { renderSynonymGroups } from "./synonym-view.js?v=77";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=77";
+import { buildSynonymGroups } from "./synonym-groups.js?v=78";
+import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=78";
+import { renderSynonymGroups } from "./synonym-view.js?v=78";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=78";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=77";
-import { setupLearningBackup } from "./learning-backup-ui.js?v=77";
-import { createBookPassagesView } from "./book-passages-ui.js?v=77";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=78";
+import { setupLearningBackup } from "./learning-backup-ui.js?v=78";
+import { createBookPassagesView } from "./book-passages-ui.js?v=78";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -719,6 +719,7 @@ if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
 }
+document.getElementById("capture-link").href = new URL("capture.html", adminUrl || window.location.href).href;
 setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, applyUpdateButton: refs.applyUpdate, autoApplyUpdate: true, beforeApplyUpdate: async () => {
   await chapterQuiz.flushPendingSave();
   await learningBackup.flushPendingSave();

@@ -46,7 +46,9 @@ const activeBrowserFiles = [
   "vocab/js/owner-api.js", "vocab/js/owner-storage.js", "vocab/js/sync-logic.js", "vocab/js/wordbook-schema.js",
   "vocab/js/review.js",
   "vocab/personal.html", "vocab/js/personal-app.js", "vocab/js/personal-api.js", "vocab/js/personal-storage.js",
-  "vocab/js/personal-selection.js", "vocab/js/personal-study.js"
+  "vocab/js/personal-selection.js", "vocab/js/personal-study.js",
+  "vocab/capture.html", "vocab/js/marked-import-ui.js", "vocab/js/marked-import.js", "vocab/js/marked-files.js",
+  "vocab/js/marked-focus.js", "vocab/js/marked-ocr.js", "vocab/js/marked-local-recognition.js"
 ];
 const activeBrowserSource = activeBrowserFiles.map((file) => `${file}\n${safeText(file)}`).join("\n");
 

@@ -1,5 +1,5 @@
-import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=77";
-import { validatePersonalLearning } from "./personal-study.js?v=77";
+import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=78";
+import { validatePersonalLearning } from "./personal-study.js?v=78";
 
 const ENTRY_FIELDS = ["id", "revision", "term", "normalized", "meaning", "note", "createdAt", "updatedAt"];
 const EDIT_FIELDS = ["term", "partOfSpeech", "meaning", "note"];

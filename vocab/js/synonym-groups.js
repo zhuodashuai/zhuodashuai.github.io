@@ -1,5 +1,5 @@
-import { normalizeEnglish } from "./wordbook-schema.js?v=77";
-import { entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=77";
+import { normalizeEnglish } from "./wordbook-schema.js?v=78";
+import { entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=78";
 
 const LEXICAL_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
 const REVIEWED_POS = new Map([

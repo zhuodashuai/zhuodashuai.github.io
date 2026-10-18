@@ -1,4 +1,4 @@
-import { readingContextForMembership } from "./wordbook-schema.js?v=77";
+import { readingContextForMembership } from "./wordbook-schema.js?v=78";
 
 export const COLLECTION_TAG_PREFIX = "collection:";
 export const MAIN_COLLECTION_ID = "main";

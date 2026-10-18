@@ -4,7 +4,7 @@ import {
   parseBookPassages, loadBookPassages, resetBookPassagesCache, sourcePassagesForEntry,
   selectBookPassages, readPassageFavorites, setPassageFavorite, exportPassageFavorites, importPassageFavorites
 } from "../js/book-passages.js";
-import { contextualizeReadingEntry } from "../js/wordbook-schema.js?v=77";
+import { contextualizeReadingEntry } from "../js/wordbook-schema.js?v=78";
 
 function passage(id = "nlg-1", chapterId = "chapter-1", options = {}) {
   return {

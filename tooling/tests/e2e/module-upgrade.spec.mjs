@@ -9,7 +9,8 @@ const changedApiModules = new Set([
   "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
-  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
+  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
+  "marked-files.js", "marked-import.js", "marked-import-ui.js", "marked-focus.js", "marked-ocr.js", "marked-local-recognition.js"
 ]);
 
 test.beforeEach(async ({ context, page }, info) => {
@@ -56,6 +57,15 @@ test("new owner boot does not import pre-upgrade storage, transport or fingerpri
   await expect(page.locator("#owner-identity-text")).toHaveText("@zhuodashuai");
   await expect(page.locator("#capture-input")).toHaveValue("hip");
   await expect(page.locator("#organize-button")).toBeEnabled();
+  expect(diagnostic.consumedOldUrls).toEqual([]);
+  expect(diagnostic.errors).toEqual([]);
+});
+
+test("marked upload boots with the current owner transport and storage graph", async ({ page }) => {
+  const diagnostic = await poisonOldModuleUrls(page);
+  await page.goto("/capture.html");
+  await expect(page.locator("#capture-workspace")).toBeVisible();
+  await expect(page.locator("#capture-choose-file")).toBeEnabled();
   expect(diagnostic.consumedOldUrls).toEqual([]);
   expect(diagnostic.errors).toEqual([]);
 });

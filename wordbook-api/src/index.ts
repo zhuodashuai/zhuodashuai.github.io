@@ -384,7 +384,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
         : null;
     return jsonResponse({
       ok: true,
-      version: "2.4.3",
+      version: "2.5.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,
@@ -421,6 +421,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
 
 function secureHeaders(response: Response, request: Request): Response {
   const headers = new Headers(response.headers);
+  const path = new URL(request.url).pathname;
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("X-Frame-Options", "DENY");
   const currentReferrerPolicy = (headers.get("Referrer-Policy") || "").trim().toLowerCase();
@@ -429,9 +430,14 @@ function secureHeaders(response: Response, request: Request): Response {
   }
   headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
   headers.set("Cross-Origin-Opener-Policy", "same-origin");
-  const publicWordbook = new URL(request.url).pathname === `${API_PREFIX}/public/wordbook`;
+  const publicWordbook = path === `${API_PREFIX}/public/wordbook`;
   headers.set("Cross-Origin-Resource-Policy", publicWordbook ? "cross-origin" : "same-origin");
-  headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com; frame-ancestors 'none'; upgrade-insecure-requests");
+  // Only the local capture tool and its fixed first-party OCR worker may compile
+  // WebAssembly. An HTTP worker uses its script response's own CSP, not the
+  // capture document's policy. This never enables JavaScript eval or blob/CDN workers.
+  const localOcrWasm = path === "/capture.html" || path === "/vendor/tesseract/7.0.0/worker.min.js";
+  const scriptSources = localOcrWasm ? "'self' 'wasm-unsafe-eval'" : "'self'";
+  headers.set("Content-Security-Policy", `default-src 'self'; script-src ${scriptSources}; style-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com; frame-ancestors 'none'; upgrade-insecure-requests`);
   if (new URL(request.url).protocol === "https:") headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
   return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
@@ -446,7 +452,7 @@ export default {
       const asset = await env.ASSETS.fetch(request);
       const headers = new Headers(asset.headers);
       if (headers.get("content-type")?.includes("text/html")) headers.set("Cache-Control", "no-cache, must-revalidate");
-      else if (/\.(?:js|css|webmanifest)$/i.test(path)) headers.set("Cache-Control", "no-cache");
+      else if (/\.(?:m?js|css|webmanifest)$/i.test(path)) headers.set("Cache-Control", "no-cache");
       return secureHeaders(new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers }), request);
     } catch (error) {
       if (path.startsWith("/api/")) return secureHeaders(apiErrorResponse(error, request), request);

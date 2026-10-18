@@ -4,7 +4,7 @@ import { mkdir, readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const ORIGIN = "http://127.0.0.1:4187";
-const STORAGE_MODULE = "/js/quick-notes-storage.js?v=77";
+const STORAGE_MODULE = "/js/quick-notes-storage.js?v=78";
 const CANONICAL_COUNT = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")).entries.length;
 
 test.beforeEach(async ({ context, page }, info) => {
@@ -57,7 +57,7 @@ async function openOldPages(page) {
 
 async function protectedStores(page, seed = false) {
   return page.evaluate(async seed => {
-    const { openDatabase } = await import("/js/owner-storage.js?v=77");
+    const { openDatabase } = await import("/js/owner-storage.js?v=78");
     const database = await openDatabase();
     if (seed) {
       await new Promise((resolve, reject) => {

@@ -680,7 +680,7 @@ async function api(request, response, url) {
   return error(response, 404, "api_not_found", "API not found");
 }
 
-const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
+const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".pdf": "application/pdf" };
 const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url, "http://127.0.0.1:4187");
@@ -717,7 +717,7 @@ const server = createServer(async (request, response) => {
       "Content-Type": mime[extname(file).toLowerCase()] || "application/octet-stream",
       "Cache-Control": file.endsWith(".html") ? "no-cache" : "public, max-age=0",
       "X-Frame-Options": "DENY",
-      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+      "Content-Security-Policy": `default-src 'self'; script-src 'self'${["/capture.html", "/vendor/tesseract/7.0.0/worker.min.js"].includes(rawPath) ? " 'wasm-unsafe-eval'" : ""}; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'`
     });
   } catch (errorValue) {
     response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });

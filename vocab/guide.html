@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
   <title>使用手册 · 卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=77">
+  <link rel="stylesheet" href="styles.css?v=78">
 </head>
 <body data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -47,6 +47,15 @@
         <li><strong>带走</strong> —— 导出 JSON，或装成应用离线看。</li>
       </ul>
       <p class="guide-note">不用登录，直接用。复习进度保存在当前浏览器，可用页面底部「学习记录备份」导出或恢复；访客不能添加、修改或删除公开词条。</p>
+    </section>
+
+    <section class="guide-block" aria-labelledby="g-capture">
+      <h2 id="g-capture">拍照与 PDF 勾画收词</h2>
+      <p>点「拍照收词」，使用卓原来的 GitHub 登录。第一版仅对所有者开放，使用本地英文识字引擎，不调用视觉 AI。可拍照、选择 JPEG／PNG，或选择 PDF。文件在本机预览；PDF 每批最多选 5 页，逐页渲染，不一次把整本书展开到内存。</p>
+      <p>识别前首次下载本站固定的公开识字引擎和英语字库，之后在浏览器工作线程中处理。不会把照片、PDF 或识别文字发给 Cloudflare AI、OpenAI 等服务，也不消耗模型调用额度。原文件和图像数据不写入公开 GitHub；只有后续由你明确发布的词条文字进入公开词库。</p>
+      <p>第一版重点支持蓝笔、红笔下划线。高亮、圈画、黑色或混合笔迹尚不保证识别；没找到可辨认的标记时不把整页英文当作生词。所有结果只生成待核对候选，可以对照原图、修正文字再勾选。模糊、弯曲、跨行断词或整句划线可能漏识别或误识别，不承诺百分之百准确。</p>
+      <p>确认后仅保存到本机草稿，不自动发布。已收录词和已有草稿会跳过，不覆盖笔记、释义和学习记录。能从本地词典查到的词可带入参考词性和中文，生僻词可能仍空白；在管理页逐条核对或整理后再发布。原文形式、所选章节和摘录来源保留；本地文件名、文件校验值及标记位置只留在草稿来源信息中。</p>
+      <p>PDF 上限 100 MiB，照片上限 20 MiB；加密或损坏文件需先处理成可读取版本。iPhone 的拍照入口使用系统相机／文件选择器，不需要授予网页持续摄像头权限；HEIC 等不能解码的格式请先导出 JPEG。关闭或刷新前先确认已把选中的候选保存为草稿，未保存的原图与识别结果不作云端同步。</p>
     </section>
 
     <section class="guide-block" aria-labelledby="g-passages">

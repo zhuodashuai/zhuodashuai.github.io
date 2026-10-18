@@ -36,6 +36,22 @@ function worker(fetchImpl, cached = null, { put = async (_request, response) => 
   };
 }
 
+test("large version-pinned OCR and PDF assets load lazily without the short update timeout", async () => {
+  for (const path of ["/vocab/vendor/tesseract/7.0.0/core/tesseract-core-lstm.wasm.js", "/vocab/vendor/tesseract/7.0.0/lang/eng.traineddata.gz", "/vocab/vendor/pdfjs/pdf.worker.mjs?v=6.4.299"]) {
+    const sw = worker(async () => new Response("public engine"));
+    assert.equal(await (await sw.fetch(path, "cors")).text(), "public engine");
+    assert.equal(sw.timers.size, 0);
+    assert.equal(sw.writes.length, 1);
+    await sw.install();
+    assert.ok(sw.precached.every(request => !request.url.includes("/vendor/")), "engine binaries must not slow every reader's shell install");
+  }
+});
+
+test("a static cache quota failure does not discard a successfully downloaded OCR engine", async () => {
+  const sw = worker(async () => new Response("working engine"), null, { put: async () => { throw new DOMException("full", "QuotaExceededError"); } });
+  assert.equal(await (await sw.fetch("/vocab/vendor/tesseract/7.0.0/worker.min.js", "cors")).text(), "working engine");
+});
+
 test("a temporary HTTP failure serves a verified cached page and never stores the failure", async () => {
   const sw = worker(async () => new Response("unavailable", { status: 503 }), new Response("cached page"));
   const response = await sw.fetch();
@@ -117,7 +133,7 @@ test("a new shell installation bypasses old HTTP cache copies and includes coher
   assert.ok(sw.precached.every((request) => request instanceof Request && request.cache === "reload"));
   const urls = sw.precached.map((request) => request.url);
   for (const file of ["owner-storage.js", "quiz-storage.js", "chapter-quiz.js", "synonym-evidence.js", "learning-backup.js"]) {
-    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=77`));
+    assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}?v=78`));
     assert.ok(urls.includes(`https://wordbook.test/vocab/js/${file}`));
   }
 });

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { parseCoreDictionary, resetCoreDictionaryCacheForTests } from "../js/core-dictionary.js?v=77";
+import { parseCoreDictionary, resetCoreDictionaryCacheForTests } from "../js/core-dictionary.js?v=78";
 import { lookupPersonalDictionary, personalDictionaryResult } from "../js/personal-dictionary.js";
 
 const payload = JSON.parse(await readFile(new URL("../data/ecdict-core.json", import.meta.url), "utf8"));

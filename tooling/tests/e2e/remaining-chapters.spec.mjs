@@ -19,11 +19,11 @@ const runId = info => `remaining-${createHash("sha256").update(info.testId).dige
 const chapterUrl = (chapter, info) => `/?book=${bookId}&chapter=chapter-${chapter}&e2e=1&testRun=${runId(info)}`;
 
 async function reviewStates(page) {
-  return page.evaluate(async () => (await import("/js/owner-storage.js?v=77")).listReviewStates());
+  return page.evaluate(async () => (await import("/js/owner-storage.js?v=78")).listReviewStates());
 }
 
 async function attempts(page, chapter) {
-  return page.evaluate(async scope => (await import("/js/quiz-storage.js?v=77")).quizStorage.listAttempts(scope), {
+  return page.evaluate(async scope => (await import("/js/quiz-storage.js?v=78")).quizStorage.listAttempts(scope), {
     bookId, chapterId: `chapter-${chapter}`
   });
 }
@@ -208,7 +208,7 @@ test("an actively recalled shared card keeps the same saved history in its earli
   // All other cards are scheduled so the actual recall UI reaches this shared
   // identity without grading unrelated cards or changing the study algorithm.
   await page.evaluate(async ids => {
-    const { putReviewState } = await import("/js/owner-storage.js?v=77");
+    const { putReviewState } = await import("/js/owner-storage.js?v=78");
     const { applyReviewRating } = await import("/js/study.js");
     for (const id of ids) await putReviewState(applyReviewRating(id, null, "easy"), { expected: null });
   }, cards.filter(entry => entry.id !== shared.id).map(entry => entry.id));

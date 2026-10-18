@@ -1,4 +1,4 @@
-import { collectionContextForEntry } from "./collections.js?v=77";
+import { collectionContextForEntry } from "./collections.js?v=78";
 
 const DATA_URL = new URL("../data/book-passages.json", import.meta.url);
 const FAVORITES_KEY = "zhuo-vocab:book-passage-favorites:v1";

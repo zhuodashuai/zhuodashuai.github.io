@@ -17,7 +17,10 @@
   },
   "devDependencies": {
     "@playwright/test": "1.62.1",
+    "@tesseract.js-data/eng": "1.0.0",
     "fake-indexeddb": "6.2.5",
-    "lighthouse": "13.4.1"
+    "lighthouse": "13.4.1",
+    "pdfjs-dist": "6.4.299",
+    "tesseract.js": "7.0.0"
   }
 }

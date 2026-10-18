@@ -2,6 +2,7 @@ packages:
   - wordbook-api
 allowBuilds:
   esbuild: true
+  tesseract.js: false
   workerd: true
 minimumReleaseAgeExclude:
   - '@cloudflare/vitest-plugin@1.1.1'

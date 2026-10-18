@@ -2,6 +2,8 @@
 
 A lightweight, accessible academic profile for GitHub Pages.
 
+> Unreleased capture prototype on `codex/marked-photo-pdf-import`: **do not deploy or merge this branch yet**. Upload/preview/storage/security tests pass, but an independent two-photo holdout missed all six primary marked expressions and produced one unmarked candidate. A single general illumination-calibration attempt also failed. The current automatic mark detector is not release-ready; the live site has deliberately not been replaced. Synthetic UI tests and previously used development photographs are not evidence of general OCR/mark accuracy.
+
 ## Repository map
 
 Synonym grouping and automatic recognition are temporarily paused after incorrect associations were found. Public readers use one canonical vocabulary card per entry; historical relation data is retained but not displayed or regenerated. The authenticated scan endpoint returns `409 synonym_feature_paused` without using AI or writing to GitHub. Vocabulary, original examples, chapter quizzes, favorites and review records are unaffected.
@@ -9,6 +11,7 @@ Synonym grouping and automatic recognition are temporarily paused after incorrec
 - `/` — academic profile and GitHub Pages homepage
 - `/vocab/` — installable **Wordbook** PWA with a public read-only collection and a separate server-authenticated owner control room
 - `/vocab/guide.html` — Wordbook user guide; operational explanations live here instead of crowding the editor
+- `/vocab/capture.html` — GitHub-owner-only photo/PDF marked-word capture, with local page previews and explicit candidate-to-draft confirmation
 - `/wordbook-api/` — authenticated Worker API, publishing logic and deployment documentation
 - `/tooling/` — tests, maintenance scripts and the Playwright configuration
 - `/U1L1_coding.ipynb` — coursework notebook retained at its published Colab-compatible URL
@@ -38,6 +41,8 @@ The public suggestion box and guestbook are defined in `.github/ISSUE_TEMPLATE/`
 Open `index.html` directly, or serve the repository with any static file server.
 
 Wordbook uses JavaScript modules and IndexedDB, so preview it through a local server at `/vocab/` rather than opening its HTML file directly.
+
+Marked-word capture renders PDFs locally with pinned, self-hosted PDF.js (`pdfjs-dist@6.4.299`, Apache-2.0), detects blue/red underlines, and reads candidate text in a local Tesseract 7 English WebAssembly worker. Reproduce the licensed browser assets with `node tooling/scripts/vendor-pdfjs.mjs` and `node tooling/scripts/vendor-tesseract.mjs`; no runtime CDN, cloud vision provider or image-upload API is used. The first OCR run downloads fixed public engine/language files; uploaded pages and recognized text stay on the device. Only explicitly confirmed drafts can later be reviewed and published through the existing owner workflow. Every candidate starts unchecked; local dictionary glosses remain references, not verified chapter translations. Recognition remains fallible, especially for faint/black/mixed markings, curved pages and broken words. See the guide for supported marks, limits and privacy details.
 
 Wordbook formats multiple Chinese senses consistently in the Owner list, public cards and detail view. The Owner may type ordinary `1.` / `2.` (also `1)` / `2)` or `1、` / `2、`); the interface displays them as `①` / `②` without rewriting the stored or exported meaning. A single sense stays unnumbered.
 

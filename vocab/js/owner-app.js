@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=77";
-import { createEntryDetailController } from "./entry-detail.js?v=77";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=78";
+import { createEntryDetailController } from "./entry-detail.js?v=78";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,15 +17,16 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=77";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=77";
-import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=77";
-import { setupPwa } from "./pwa.js?v=77";
-import { lookupCoreEntry } from "./core-dictionary.js?v=77";
-import { preserveCollectionTags } from "./collections.js?v=77";
-import { buildSynonymGroups } from "./synonym-groups.js?v=77";
-import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
-import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=77";
+} from "./owner-storage.js?v=78";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=78";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=78";
+import { setupPwa } from "./pwa.js?v=78";
+import { lookupCoreEntry } from "./core-dictionary.js?v=78";
+import { preserveCollectionTags } from "./collections.js?v=78";
+import { buildSynonymGroups } from "./synonym-groups.js?v=78";
+import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=78";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=78";
+import { preserveMarkedDraftSource } from "./marked-import.js?v=78";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
@@ -1178,7 +1179,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     const dictionaryCandidateBaseline = storedDictionaryCandidate
       || (aiBaseline.tags?.includes("待复核") && !(aiBaseline.senses || []).length ? aiBaseline : null);
     const mergeResult = mergeAiCandidate(aiBaseline, currentEntry, aiEntry, { fillMissingOnly });
-    const mergedEntry = mergeResult.merged;
+    let mergedEntry = mergeResult.merged;
     let preservedManualChanges = mergeResult.preservedManualChanges;
     const completingUnreviewedDictionary = Boolean(dictionaryCandidateBaseline)
       && !reviewRequired
@@ -1201,6 +1202,7 @@ async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } =
     }
     mergedEntry.tags = preserveCollectionTags(currentEntry.tags, mergedEntry.tags);
     mergedEntry.readingContexts = structuredClone(currentEntry.readingContexts || []);
+    mergedEntry = preserveMarkedDraftSource(mergedEntry, currentEntry, latestDraft.base);
     if (!SYNONYM_FEATURE_ENABLED) {
       // Pausing presentation and recognition is not a migration or deletion.
       // An AI refresh retains valid existing references and hidden scan metadata;

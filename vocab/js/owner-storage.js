@@ -1,4 +1,4 @@
-import { entryLookupKeys, parsePublicSnapshot } from "./wordbook-schema.js?v=77";
+import { entryLookupKeys, findDuplicate, parsePublicSnapshot } from "./wordbook-schema.js?v=78";
 
 const BASE_DB_NAME = "wordbook-db";
 export const DB_VERSION = 6;
@@ -517,6 +517,50 @@ export async function importDrafts(candidates) {
   if (drafts.length) await bumpRevision(transaction, [STORES.drafts], drafts.map((draft) => draft.id));
   await transactionDone(transaction);
   return drafts;
+}
+
+// A camera/PDF import is not a backup restore. Serialize semantic duplicate
+// checks with insertion so two tabs cannot create two drafts for the same word.
+// Existing drafts and the outbox are never overwritten by this operation.
+export async function insertMarkedDrafts(candidates, publishedEntries = []) {
+  if (!Array.isArray(candidates) || candidates.length > 60 || !Array.isArray(publishedEntries)) throw new Error("本次最多确认 60 个摘录词。");
+  const prepared = candidates.map(candidate => draftRecord(candidate));
+  if (prepared.some(draft => draft.scope !== "owner-public" || !draft.entryId || !entryLookupKeys(draft.value).length)) throw new Error("摘录草稿格式不完整。");
+  if (new Set(prepared.map(draft => draft.id)).size !== prepared.length || new Set(prepared.map(draft => draft.entryId)).size !== prepared.length) throw new Error("摘录草稿 ID 重复，尚未写入任何内容。");
+  const database = await openDatabase();
+  const transaction = database.transaction([STORES.drafts, STORES.publicCache, STORES.meta], "readwrite");
+  const completion = transactionDone(transaction);
+  const store = transaction.objectStore(STORES.drafts);
+  try {
+    const [existing, cache] = await Promise.all([
+      requestValue(store.getAll()), requestValue(transaction.objectStore(STORES.publicCache).get("owner"))
+    ]);
+    const published = [...publishedEntries, ...(cache?.snapshot?.entries || [])];
+    const active = existing.filter(draft => draft.scope === "owner-public");
+    const added = [], duplicates = [];
+    for (const draft of prepared) {
+      const saved = findDuplicate(published, draft.value);
+      const local = active.find(candidate => findDuplicate([candidate.value], draft.value));
+      const collision = existing.some(candidate => candidate.id === draft.id || candidate.entryId === draft.entryId);
+      if (saved || local || collision) {
+        duplicates.push({ term: draft.value.term, kind: saved ? "published" : "draft", entryId: saved?.id || local?.entryId || draft.entryId });
+        continue;
+      }
+      draft.contentRevision = 1;
+      store.add(draft);
+      active.push(draft); added.push(draft);
+    }
+    if (added.length) await bumpRevision(transaction, [STORES.drafts], added.map(draft => draft.id));
+    await completion;
+    return { added, duplicates };
+  } catch (error) {
+    // A synchronous add/quota failure after an earlier add must roll back the
+    // entire batch. Consume the abort promise so it cannot become an unrelated
+    // unhandled rejection while the UI reports the original failure.
+    try { transaction.abort(); } catch { /* already aborted/completed */ }
+    await completion.catch(() => {});
+    throw error;
+  }
 }
 
 export async function deleteDraftAndCancelOutbox(id) {

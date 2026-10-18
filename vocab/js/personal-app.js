@@ -1,17 +1,17 @@
-import { personalWordbookUrl } from "./runtime-config.js?v=77";
-import { setupPwa } from "./pwa.js?v=77";
-import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=77";
-import { createPersonalApi } from "./personal-api.js?v=77";
+import { personalWordbookUrl } from "./runtime-config.js?v=78";
+import { setupPwa } from "./pwa.js?v=78";
+import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=78";
+import { createPersonalApi } from "./personal-api.js?v=78";
 import {
   createPersonalDraftStore, createPersonalExpiryTimer, createPersonalMutationTracker, createPersonalSessionScope,
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
   validatePersonalEntry, validatePersonalInput, validatePersonalList,
   validatePersonalPassword, validatePersonalSession, validatePersonalUsername
-} from "./personal-storage.js?v=77";
+} from "./personal-storage.js?v=78";
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
-  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=77";
-import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary } from "./personal-dictionary.js?v=77";
+  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=78";
+import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=78";
+import { lookupPersonalDictionary } from "./personal-dictionary.js?v=78";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
