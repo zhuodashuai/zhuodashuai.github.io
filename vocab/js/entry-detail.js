@@ -1,9 +1,10 @@
-import { formatMeaningForDisplay } from "./wordbook-schema.js?v=75";
-import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=75";
-import { synonymGroupsForEntry } from "./synonym-groups.js?v=75";
-import { renderSynonymGroups } from "./synonym-view.js?v=75";
+import { formatMeaningForDisplay } from "./wordbook-schema.js?v=76";
+import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=76";
+import { synonymGroupsForEntry } from "./synonym-groups.js?v=76";
+import { renderSynonymGroups } from "./synonym-view.js?v=76";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=75";
+import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=76";
+import { createSourcePassageSection } from "./book-passages-ui.js?v=76";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -187,6 +188,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
   if (!refs.entryDialog) throw new Error("暂时无法打开词条详情，请刷新页面重试。");
   const pronunciation = setupPronunciationUI(root);
   refs.dialogPhonetic.after(pronunciation.settings("detail-audio-settings"));
+  const sourcePassages = createSourcePassageSection({ root, after: refs.dialogExampleSection });
   let selected = null;
   let returnFocus = null;
   let returnFocusKey = null;
@@ -252,6 +254,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
     refs.dialogExampleSection.hidden = !entry.exampleEn && !entry.exampleZh;
     setText(refs.dialogExampleEn, entry.exampleEn);
     setText(refs.dialogExampleZh, entry.exampleZh);
+    void sourcePassages.show(entry);
     const collectionContext = collectionContextForEntry(entry);
     const usage = [
       collectionContext ? "" : entry.usage,
@@ -316,11 +319,13 @@ export function createEntryDetailController({ root = document, getEntries = () =
     if (!refs.entryDialog.open) return;
     pronunciation.stop();
     refs.entryDialog.close();
+    sourcePassages.clear();
   };
   refs.entryDialog.addEventListener("close", () => {
     if (refs.entryDialog.open) return; // Ignore a queued close if already reopened.
     pronunciation.stop();
     selected = null;
+    sourcePassages.clear();
     const target = returnFocus?.isConnected ? returnFocus : returnFocusKey
       ? [...root.querySelectorAll("button[data-entry-id][data-entry-action]")].find((button) =>
         button.dataset.entryId === returnFocusKey.entryId && button.dataset.entryAction === returnFocusKey.action)

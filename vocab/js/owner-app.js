@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=75";
-import { createEntryDetailController } from "./entry-detail.js?v=75";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=76";
+import { createEntryDetailController } from "./entry-detail.js?v=76";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,15 +17,15 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=75";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=75";
-import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=75";
-import { setupPwa } from "./pwa.js?v=75";
-import { lookupCoreEntry } from "./core-dictionary.js?v=75";
-import { preserveCollectionTags } from "./collections.js?v=75";
-import { buildSynonymGroups } from "./synonym-groups.js?v=75";
-import { indexSynonymFingerprints } from "./synonym-evidence.js?v=75";
-import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=75";
+} from "./owner-storage.js?v=76";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=76";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=76";
+import { setupPwa } from "./pwa.js?v=76";
+import { lookupCoreEntry } from "./core-dictionary.js?v=76";
+import { preserveCollectionTags } from "./collections.js?v=76";
+import { buildSynonymGroups } from "./synonym-groups.js?v=76";
+import { indexSynonymFingerprints } from "./synonym-evidence.js?v=76";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=76";
 
 const ids = [
   "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",

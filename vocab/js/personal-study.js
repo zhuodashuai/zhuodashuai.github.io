@@ -1,4 +1,4 @@
-import { buildDueQueue, buildStudySummary } from "./study.js?v=75";
+import { buildDueQueue, buildStudySummary } from "./study.js?v=76";
 
 const RATINGS = new Set(["again", "hard", "good", "easy"]);
 const FIELDS = ["schemaVersion", "entryId", "level", "dueAt", "reviewCount", "lapseCount", "lastRating", "history", "updatedAt", "revision"];

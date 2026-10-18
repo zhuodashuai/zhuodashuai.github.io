@@ -1,5 +1,5 @@
-import { lookupCoreEntry } from "./core-dictionary.js?v=75";
-import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=75";
+import { lookupCoreEntry } from "./core-dictionary.js?v=76";
+import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=76";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",

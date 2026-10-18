@@ -97,6 +97,30 @@ body[data-page="public"] .collection-tabs { padding-top: .8rem; }
 body[data-page="public"] .view-controls { margin: .65rem 0 .35rem; }
 body[data-page="public"] .toolbar { padding: .7rem 0 1rem; }
 .view-controls button[aria-pressed="true"] { color: var(--green); background: var(--green-soft); border-color: var(--green-2); font-weight: 700; }
+.library-view-tabs { padding-bottom: .7rem; }
+.passages-panel { min-width: 0; padding-top: .3rem; }
+.passages-heading-row { display: flex; align-items: center; justify-content: space-between; gap: .7rem; flex-wrap: wrap; }
+.passages-heading-row h3 { margin: 0; font: 600 1.25rem/1.4 Georgia, "Noto Serif SC", serif; }
+.passages-favorites-filter { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .86rem; cursor: pointer; }
+.passages-favorites-filter input { width: 19px; height: 19px; min-height: 19px; margin: 0; padding: 0; accent-color: var(--green); }
+.passages-local-note, .passages-status { margin: .35rem 0 .75rem; color: var(--muted); font-size: .82rem; }
+.passages-backup { margin: .35rem 0 .75rem; color: var(--muted); font-size: .82rem; }
+.passages-backup summary { width: fit-content; min-height: 44px; padding: .55rem 0; color: var(--green-2); cursor: pointer; }
+.passages-backup p { margin: .35rem 0 .65rem; white-space: pre-line; }
+.passages-backup .button-row button { font-size: .82rem; }
+#passages-backup-status[data-state="error"] { color: var(--danger); }
+.passages-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.book-passage { min-width: 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); }
+.book-passage-text { margin: 0; padding-left: .85rem; border-left: 3px solid var(--green-2); font: 500 1.16rem/1.65 Georgia, serif; overflow-wrap: anywhere; white-space: pre-wrap; }
+.book-passage-translation { margin: .85rem 0 .55rem; font-size: .95rem; }
+.passage-field-label { display: block; margin-bottom: .3rem; color: var(--green-2); font-size: .75rem; font-weight: 700; }
+.book-passage-note { margin: .7rem 0; color: #44534c; font-size: .88rem; }
+.book-passage-source { margin: .9rem 0 0; color: var(--muted); font-size: .75rem; overflow-wrap: anywhere; }
+.passage-favorite { margin-top: .8rem; padding: .4rem .85rem; font-size: .84rem; }
+.passage-favorite[aria-pressed="true"] { color: var(--green); border-color: var(--green-2); background: var(--green-soft); }
+.source-passage-list { display: grid; gap: .75rem; }
+.source-passage-list .book-passage { padding: 1rem; }
+.source-passage-list .book-passage-text { font-size: 1.07rem; }
 .synonym-intro { color: var(--muted); font-size: .9rem; }
 .synonym-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .synonym-group { min-width: 0; padding: 1.3rem; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); }
@@ -330,7 +354,7 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
   .compact-navigation select { min-height: 44px; padding: .5rem .65rem; font-size: 1rem; }
   .chapter-stepper { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; gap: .4rem; }
   .chapter-stepper button { padding: 0; border-radius: 10px; font-size: 1.5rem; }
-  body[data-page="public"] .toolbar { display: grid; gap: .5rem; padding: .7rem 0 .75rem; }
+  body[data-page="public"] .toolbar { display: grid; gap: .5rem; padding: .7rem 0 .35rem; }
   body[data-page="public"] .search-field { gap: .2rem; }
   body[data-page="public"] .search-field input { font-size: 1rem; min-height: 44px; padding: .6rem .7rem; }
   body[data-page="public"] .search-field .field-hint { display: none; }
@@ -338,6 +362,11 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
   .library-options .view-controls { justify-content: flex-start; }
   .library-options .filter-row { flex-wrap: wrap; overflow: visible; }
   .library-options .filter-row button { font-size: .85rem; }
+  body[data-page="public"] .library-view-tabs { gap: .35rem; margin: .15rem 0 .35rem; padding-bottom: 0; }
+  .library-view-tabs button { flex: 1 1 auto; padding: .45rem .55rem; font-size: .8rem; white-space: nowrap; }
+  .passages-list { grid-template-columns: 1fr; }
+  .book-passage { padding: 1rem; }
+  .book-passage-text { font-size: 1.08rem; }
   .word-card { min-height: 230px; padding: 1.1rem; }
 }
 

@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://zhuodashuai.github.io/vocab/">
   <meta property="og:image" content="https://zhuodashuai.github.io/vocab/assets/word-cabinet-og.png">
   <title>卓的单词本</title>
-  <link rel="stylesheet" href="styles.css?v=75">
+  <link rel="stylesheet" href="styles.css?v=76">
 </head>
 <body data-page="public">
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -48,12 +48,21 @@
       <div class="toolbar">
         <label class="search-field" for="library-search"><span>搜索词库</span><input id="library-search" type="search" autocomplete="off" placeholder="搜索本章或词本已有的词"><small class="field-hint">搜索英文、中文或原文形式</small></label>
         <details class="library-options" id="library-options" open><summary>筛选与发音</summary>
-          <div class="view-controls" id="view-controls" role="group" aria-label="词库展示方式"><button type="button" data-view="cards" aria-pressed="true">单词卡片</button><button type="button" data-view="synonyms" aria-pressed="false">同义词分组（试用）</button></div>
           <div class="filter-row" id="filter-row" aria-label="按类型筛选"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="word" aria-pressed="false">单词</button><button type="button" data-filter="phrase" aria-pressed="false">短语</button><button type="button" data-filter="phrasal-verb" aria-pressed="false">动词短语</button><button type="button" data-filter="idiom" aria-pressed="false">习语</button><button type="button" data-filter="collocation" aria-pressed="false">固定搭配</button><button type="button" data-filter="sentence" aria-pressed="false">句子</button><button type="button" data-filter="quote" aria-pressed="false">名言</button><button type="button" data-filter="proverb" aria-pressed="false">谚语</button></div>
         </details>
       </div>
+      <div class="view-controls library-view-tabs" id="view-controls" role="group" aria-label="词库展示方式"><button type="button" data-view="cards" aria-pressed="true">单词卡片</button><button type="button" data-view="synonyms" aria-pressed="false">同义词分组（试用）</button><button type="button" data-view="passages" aria-pressed="false">原文摘句</button></div>
       <div class="state-panel error-panel" id="load-error" hidden><strong>暂时读不到词库</strong><p id="load-error-message">网络不可用，本机也还没有缓存过这个词库。</p><button type="button" id="retry-load">重新读取</button></div>
       <div class="entry-grid" id="entry-grid" aria-live="polite" aria-busy="true"></div>
+      <section class="passages-panel" id="passages-panel" aria-labelledby="passages-heading" aria-busy="false" hidden>
+        <div class="passages-heading-row"><h3 id="passages-heading">书中摘句</h3><label class="passages-favorites-filter"><input type="checkbox" id="passages-favorites-only">只看收藏</label></div>
+        <p class="passages-local-note">收藏仅保存在本机 · 随当前词本与章节切换</p>
+        <p class="passages-local-note" id="passages-spoiler-note" hidden>全书摘句包含后续章节；避免剧透请先选择正在阅读的章节。</p>
+        <details class="passages-backup"><summary>收藏备份</summary><p>仅保存在当前设备、浏览器与网站地址，不同步账号。备份只包含句子编号，不含原文或学习记录；导入会合并保留已有收藏。</p><p id="passages-edition-note"></p><div class="button-row"><button type="button" id="passages-export-favorites">导出收藏 JSON</button><button type="button" id="passages-import-favorites">导入收藏 JSON</button></div><input type="file" id="passages-import-file" accept=".json,application/json" aria-label="选择收藏备份 JSON" hidden><p id="passages-backup-status" role="status" aria-live="polite"></p></details>
+        <p class="passages-status" id="passages-status" role="status" aria-live="polite"></p>
+        <button type="button" class="quiet-button" id="passages-retry" hidden>重新读取摘句</button>
+        <div class="passages-list" id="passages-list"></div>
+      </section>
       <p class="synonym-intro" id="synonym-intro" hidden><strong id="synonym-count">0</strong> 组 · 只对照已经收录的词，近义不等于可以互换。跨章节词会单独标明。</p>
       <div class="synonym-panel" id="synonym-panel" aria-live="polite" hidden></div>
       <p class="empty-message" id="synonym-empty" hidden>当前范围或搜索条件下，还没有已确认的近义词组。可以切换“全书”或清空筛选；不会为了凑组添加新词。</p>
@@ -87,6 +96,6 @@
     <p id="quiz-message" class="quiz-message" role="status" aria-live="polite"></p>
   </dialog>
   <aside class="update-banner" id="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">立即更新</button></aside>
-  <script type="module" src="js/public-app.js?v=75"></script>
+  <script type="module" src="js/public-app.js?v=76"></script>
 </body>
 </html>

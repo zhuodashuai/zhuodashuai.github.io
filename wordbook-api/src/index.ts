@@ -384,7 +384,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
         : null;
     return jsonResponse({
       ok: true,
-      version: "2.4.1",
+      version: "2.4.2",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,

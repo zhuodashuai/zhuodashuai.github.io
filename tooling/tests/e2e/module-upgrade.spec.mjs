@@ -6,7 +6,7 @@ const currentGraphVersion = (await readFile(new URL("../../../vocab/sw.js", impo
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
-  "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "core-dictionary.js",
+  "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
   "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"

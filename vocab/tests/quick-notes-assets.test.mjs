@@ -17,12 +17,12 @@ test("quick notes have visible reader/editor entries and an app shortcut without
 });
 
 test("the entire quick-notes page and versioned modules are precached", async () => {
-  for (const file of ["quick-notes.html", "quick-notes.css?v=75", "js/quick-notes-app.js?v=75", "js/quick-notes-storage.js?v=75"]) {
+  for (const file of ["quick-notes.html", "quick-notes.css?v=76", "js/quick-notes-app.js?v=76", "js/quick-notes-storage.js?v=76"]) {
     assert.ok(sw.includes(`"./${file}"`), `${file} must work offline after shell install`);
     await read(file.split("?")[0]);
   }
   const page = await read("quick-notes.html");
-  assert.match(page, /js\/quick-notes-app\.js\?v=75/);
+  assert.match(page, /js\/quick-notes-app\.js\?v=76/);
   assert.doesNotMatch(page, /js\/(?:owner-app|public-app)\.js/);
   assert.match(page, /<textarea\b/);
   const script = await read("js/quick-notes-app.js");
