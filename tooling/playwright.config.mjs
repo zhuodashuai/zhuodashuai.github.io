@@ -17,10 +17,10 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:4187",
     browserName: "chromium",
-    // Two Linux CI runs hit native SIGSEGVs in the separate headless shell
-    // while creating a context. Use bundled full Chromium's new headless mode;
-    // retain every test/assertion and the same zero-retry policy.
-    channel: process.env.CI ? "chromium" : "chrome",
+    // Align CI with the stable Chrome used by local regression tests.
+    // Both bundled Chromium r1234 binaries hit native SIGSEGVs in Linux CI;
+    // keep every test/assertion and the same zero-retry policy.
+    channel: "chrome",
     headless: true,
     serviceWorkers: "allow",
     screenshot: "only-on-failure",
