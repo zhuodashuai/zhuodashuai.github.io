@@ -13,11 +13,15 @@ chapter quizzes or review records. No external AI/translation requests are made.
    nonempty named reviewer. Merely changing a status is not a real language or
    rights review. No completeness, accuracy or legal clearance is inferred.
 
-`source/original-pilot.json` has 30 AI-assisted original drafts, 41 selected
-senses and 41 bilingual examples. The author composed them without consulting
+The source catalogue currently has **330 independently written entries**: the
+original 30-entry pilot and the 300-entry batch `0002`. Together they contain
+**606 selected senses and 606 original bilingual examples**. The authors
+composed them without consulting
 the supplied PDFs, existing definitions or publisher examples. A separate AI
 review found no known substantive language errors; this is **not** human
-approval or proof of originality. Every record remains a draft. Missing senses,
+approval or proof of originality. Author files remain drafts. Hash-bound sidecar
+reviews can promote a separately compiled copy to `checked`, explicitly naming
+the AI reviewer; this is not human approval. Missing senses,
 IPA and irregular forms must not be invented to make a record look complete.
 
 ## Local-only build
@@ -55,12 +59,17 @@ Outputs:
 - `original-entries.csv`: one row per bilingual example/sense, including review
   and authorship columns. Text is quoted and formula-leading cells escaped.
 - `forms.csv`: aliases kept separately; not counted as new headwords.
-- `dictionary-draft.json`: strictly validated original writing, with draft labels.
+- `dictionary-draft.json`: strictly validated local writing, retaining each
+  compiled entry's draft or AI-checked label; neither label releases the bundle.
 - `zhuo-dictionary-draft.sqlite`: indexed local candidates, entries, senses,
   examples and aliases. Default lookup excludes draft meanings. `--draft` is a
   deliberate editorial-only preview, not a production integration.
-- `public-ready.json`: only checked/named-reviewer records; the pilot exports
-  **zero** records here. No upload or deployment happens automatically.
+- `checked-content.json`: local records backed by content-hash-bound review
+  evidence, with the AI reviewers explicitly named. These are not yet released.
+- `public-ready.json`: **empty until every target headword is written and
+  checked, with a minimum target of 70,000**. The owner chose to finish the whole
+  library before any production upload. Checked small batches cannot bypass this
+  separate release gate. No upload or deployment happens here.
 - `build-report.json`: counts and incomplete-coverage flags, not a quality badge.
 
 CSV is currently an editing/export view. There is **no CSV re-importer**; edit
@@ -71,6 +80,31 @@ Exact case-sensitive headwords win; otherwise all matching folded headwords and
 forms are returned. Collisions stay ambiguous. There is no fuzzy correction,
 substring meaning selection or silent conflation. A registered but unauthored
 candidate returns `candidate-only`, never a fabricated definition.
+
+## Batch catalogue and review evidence
+
+`source/index.json` lists the real authored packs. New batches do not overwrite
+old cards or silently merge a repeated canonical spelling. A group such as
+`verbs` is an assignment aid, not a restriction on the word's other common parts
+of speech. Review-driven additions in `batches/0002-review-additions.json`
+include academic/fair nouns, brief/calm verbs and the electrical sense of current.
+
+Every authored sense includes its part of speech, original Chinese and English
+definitions, and a bilingual original example. This batch already has examples;
+future examples can be enriched gradually, without using blank placeholders as
+completed records. No claim of exhaustive senses is made.
+
+`reviews/` records independent AI cross-checks, approved IDs, findings and a
+canonical SHA-256 over the actual headwords, forms, definitions and examples.
+Changing semantic content invalidates old evidence. Missing evidence cannot
+promote an author's self-labelled status. The digest is a stale-content guard,
+not a digital signature or a guarantee of correctness or originality.
+
+The compiler loads the catalogue and reviews by default. `--source` still lets
+an author preview one draft pack but cannot accept self-promoted checked rows.
+Progress reports count word entries, phrase entries, actual written senses,
+examples and candidate coverage separately. The 70,000-headword queue is never
+mistaken for 70,000 completed definitions.
 
 ## Supplied PDFs are a separate, unfinished coverage audit
 
@@ -96,6 +130,7 @@ PDFs and extracted publisher wording must remain outside public assets/history.
 
 ```powershell
 node --test tooling/tests/original-dictionary.test.mjs tooling/tests/original-dictionary-exports.test.mjs
+node --test tooling/tests/original-dictionary-catalogue.test.mjs tooling/tests/original-dictionary-batch-data.test.mjs
 python -m unittest discover -s tooling/tests -p test_seed_original_headwords.py -v
 ```
 

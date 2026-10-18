@@ -78,14 +78,33 @@ export async function exportOriginalDictionary(pack, { directory, candidates = n
 
   const ready = selectPublishableOriginalEntries(parsed);
   const readyIds = new Set(ready.map(entry => entry.id));
+  const authoredKeys = new Set(parsed.entries.map(entry => foldOriginalHeadword(entry.headword)));
+  const reviewedKeys = new Set(ready.map(entry => foldOriginalHeadword(entry.headword)));
+  const candidatesWithWriting = candidates?.headwords.filter(row => authoredKeys.has(foldOriginalHeadword(row.headword))).length ?? 0;
+  const candidatesWithReview = candidates?.headwords.filter(row => reviewedKeys.has(foldOriginalHeadword(row.headword))).length ?? 0;
+  const fullTargetChecked = Boolean(candidates && candidates.targetHeadwordCount >= 70000
+    && candidates.selectedCandidateCount === candidates.targetHeadwordCount
+    && candidatesWithReview === candidates.targetHeadwordCount);
   const report = {
     schemaVersion: 1, name: parsed.name, status: "local-draft-only",
     targetHeadwords: candidates?.targetHeadwordCount ?? 70000,
     headwordCandidates: candidates?.selectedCandidateCount ?? 0,
     reviewedHeadwordCandidates: 0,
     independentlyWrittenEntries: parsed.entries.length,
+    independentlyWrittenWordEntries: parsed.entries.filter(entry => entry.kind === "word").length,
+    independentlyWrittenPhraseEntries: parsed.entries.filter(entry => entry.kind === "phrase").length,
+    candidateHeadwordsWithWriting: candidatesWithWriting,
+    candidateHeadwordsWithoutWriting: (candidates?.selectedCandidateCount ?? 0) - candidatesWithWriting,
+    candidateHeadwordsWithRecordedReview: candidatesWithReview,
     independentlyWrittenSenses: parsed.entries.reduce((sum, entry) => sum + entry.senses.length, 0),
+    originalBilingualExamples: parsed.entries.reduce((sum, entry) => sum + entry.senses.reduce((count, sense) => count + sense.examples.length, 0), 0),
     checkedEntriesEligibleForExport: ready.length,
+    checkedByAiEntries: ready.filter(entry => entry.review.reviewer.startsWith("AI/")).length,
+    otherNamedReviewEntries: ready.filter(entry => !entry.review.reviewer.startsWith("AI/")).length,
+    exhaustiveSenseCoverageVerified: false,
+    releasePolicy: "all-70000-target-headwords-complete-before-production-upload",
+    fullTargetChecked,
+    publicReadyEntries: fullTargetChecked ? ready.length : 0,
     allHeadwordsHaveDefinitions: false, sixPdfCoverageComplete: false,
     productionIntegrated: false,
     note: "Headword candidates are not completed dictionary entries. Draft content is excluded from public-ready.json. No six-PDF completeness or legal-clearance claim is made.",
@@ -144,7 +163,8 @@ export async function exportOriginalDictionary(pack, { directory, candidates = n
 
   const write = (name, text) => writeFile(resolve(canonicalTarget, name), text, { encoding: "utf8", flag: "wx" });
   await write("dictionary-draft.json", JSON.stringify(parsed, null, 2) + "\n");
-  await write("public-ready.json", JSON.stringify({ schemaVersion: 1, name: parsed.name, entries: ready }, null, 2) + "\n");
+  await write("checked-content.json", JSON.stringify({ schemaVersion: 1, name: parsed.name, entries: ready }, null, 2) + "\n");
+  await write("public-ready.json", JSON.stringify({ schemaVersion: 1, name: parsed.name, entries: fullTargetChecked ? ready : [] }, null, 2) + "\n");
   await write("original-entries.csv", encodeCsv(table));
   await write("forms.csv", encodeCsv(forms));
   if (candidates) {

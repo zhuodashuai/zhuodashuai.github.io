@@ -1,0 +1,22 @@
+{
+  "sourceFile": "batch-0002-adjectives.json",
+  "scope": "original-common-sense-additions-following-independent-review",
+  "additions": [
+    {"headword": "academic", "forms": ["academics"], "senses": [{"id": "zhuo:academic:noun:review-1", "partOfSpeech": "noun", "definitionZh": "高校学者；在大学等高等院校从事教学或研究的人。", "definitionEn": "A person who teaches or carries out research at a university or similar institution.", "examples": [{"en": "Several academics joined the discussion about public transport.", "zh": "几位高校学者参加了有关公共交通的讨论。"}]}]},
+    {"headword": "brief", "forms": ["briefs", "briefed", "briefing"], "senses": [
+      {"id": "zhuo:brief:noun:review-1", "partOfSpeech": "noun", "definitionZh": "任务说明；简要说明某项工作应达到什么要求的指示或资料。", "definitionEn": "A concise set of instructions describing what a task should achieve.", "examples": [{"en": "The designer asked for a clearer brief before starting the poster.", "zh": "设计师在开始制作海报之前，要求得到更明确的任务说明。"}]},
+      {"id": "zhuo:brief:verb:review-1", "partOfSpeech": "verb", "definitionZh": "向某人简要介绍情况；说明执行某项任务所需的主要信息。", "definitionEn": "To give someone the main information needed for a task or situation.", "examples": [{"en": "The coordinator briefed the volunteers before the visitors arrived.", "zh": "协调员在访客到达之前向志愿者们简要介绍了情况。"}]}
+    ]},
+    {"headword": "calm", "forms": ["calms", "calmed", "calming"], "senses": [
+      {"id": "zhuo:calm:verb:review-1", "partOfSpeech": "verb", "definitionZh": "使平静；使某人从担忧、害怕或激动中安定下来。", "definitionEn": "To make someone less upset, frightened, or excited.", "examples": [{"en": "The nurse spoke gently to calm the frightened child.", "zh": "护士轻声说话，让那个受惊的孩子平静下来。"}]},
+      {"id": "zhuo:calm:noun:review-1", "partOfSpeech": "noun", "definitionZh": "平静；镇定；没有强烈焦虑或骚动的状态。这个常用义通常不可数。", "definitionEn": "A peaceful state without strong worry or disturbance.", "examples": [{"en": "He answered the questions with surprising calm.", "zh": "他回答这些问题时镇定得令人意外。"}]}
+    ]},
+    {"headword": "cold", "forms": ["colds"], "senses": [{"id": "zhuo:cold:noun:review-1", "partOfSpeech": "noun", "definitionZh": "感冒；常伴随打喷嚏、鼻塞或流鼻涕、咽痛等症状的常见小病。可说 have / catch a cold。", "definitionEn": "A common minor illness that often causes sneezing, a blocked or runny nose, and a sore throat.", "examples": [{"en": "I've caught a cold, so I won't join the choir tonight.", "zh": "我感冒了，今晚就不参加合唱活动了。"}]}]},
+    {"headword": "complex", "forms": ["complexes"], "senses": [{"id": "zhuo:complex:noun:review-1", "partOfSpeech": "noun", "definitionZh": "综合建筑群；集中在一起、相互关联并共同使用的一组建筑或设施。", "definitionEn": "A set of connected buildings or facilities used together.", "examples": [{"en": "The sports complex has a pool and two indoor courts.", "zh": "这处体育综合设施有一座游泳池和两片室内球场。"}]}]},
+    {"headword": "dry", "forms": ["dries", "dried", "drying"], "senses": [{"id": "zhuo:dry:verb:review-1", "partOfSpeech": "verb", "definitionZh": "使变干；弄干；失去水分而变干。可作及物或不及物动词。", "definitionEn": "To remove moisture from something or become free of moisture.", "examples": [{"en": "Please dry the plates before putting them in the cupboard.", "zh": "请把盘子擦干后再放进橱柜。"}]}]},
+    {"headword": "empty", "forms": ["empties", "emptied", "emptying"], "senses": [{"id": "zhuo:empty:verb:review-1", "partOfSpeech": "verb", "definitionZh": "倒空；清空；移走容器或空间里面的东西。", "definitionEn": "To remove the contents of a container or place.", "examples": [{"en": "We emptied the cupboard before repainting it.", "zh": "我们重新给橱柜刷漆之前，先把里面的东西清空了。"}]}]},
+    {"headword": "equal", "forms": ["equals", "equalled", "equalling", "equaled", "equaling"], "senses": [{"id": "zhuo:equal:verb:review-1", "partOfSpeech": "verb", "definitionZh": "等于；相当于；在数量、价值、大小等方面与某物相同。", "definitionEn": "To have the same amount, value, or size as something.", "examples": [{"en": "This month's rent equals half of my salary.", "zh": "这个月的房租相当于我工资的一半。"}]}]},
+    {"headword": "fair", "forms": ["fairs"], "senses": [{"id": "zhuo:fair:noun:review-1", "partOfSpeech": "noun", "definitionZh": "集市；展销会；主题展会；人们集中展示商品、服务或机会的活动。", "definitionEn": "An event where people display or sell goods, or promote services and opportunities.", "examples": [{"en": "Students met local employers at the careers fair.", "zh": "学生们在招聘会上与当地雇主交流。"}]}]},
+    {"headword": "current", "forms": ["currents"], "senses": [{"id": "zhuo:current:noun:review-1", "partOfSpeech": "noun", "definitionZh": "电流；电荷在导体或电路中的定向流动。", "definitionEn": "A flow of electric charge through a material or circuit.", "examples": [{"en": "A small current flows through this wire.", "zh": "这根导线中流过很小的电流。"}]}]}
+  ]
+}

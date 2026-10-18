@@ -57,6 +57,10 @@ test("only checked AND named-reviewer records reach the publishable file or defa
   const directory = resolve(parent, "bundle");
   const report = await exportOriginalDictionary(pack([checked, unnamed]), { directory });
   assert.equal(report.checkedEntriesEligibleForExport, 1);
+  assert.equal(report.fullTargetChecked, false);
+  assert.equal(report.publicReadyEntries, 0);
+  assert.equal(JSON.parse(await readFile(resolve(directory, "checked-content.json"), "utf8")).entries.length, 1);
+  assert.equal(JSON.parse(await readFile(resolve(directory, "public-ready.json"), "utf8")).entries.length, 0);
   const db = new DatabaseSync(resolve(directory, "zhuo-dictionary-draft.sqlite"), { readOnly: true });
   try { assert.equal(searchOriginalDatabase(db, "hips").status, "found"); assert.equal(searchOriginalDatabase(db, "body").status, "missing"); }
   finally { db.close(); }

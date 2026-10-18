@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "original-pilot.json",
+  "sourceContentSha256": "d722e16df2680a0321694ca23b5734a2a3507f74855e6a4d9bf627ecc49e41a0",
+  "reviewer": "AI/verb-and-pilot-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:agitated", "zhuo:shrug", "zhuo:carer", "zhuo:resentful", "zhuo:grimace",
+    "zhuo:pavilion", "zhuo:eaves", "zhuo:veranda", "zhuo:furious", "zhuo:daft",
+    "zhuo:scarlet", "zhuo:tantrum", "zhuo:rile", "zhuo:sternly", "zhuo:grumpily",
+    "zhuo:surveillance", "zhuo:perspicacious", "zhuo:delicious", "zhuo:yummy", "zhuo:palatable",
+    "zhuo:fluke", "zhuo:receive", "zhuo:accommodate", "zhuo:bank", "zhuo:hip",
+    "zhuo:look-after", "zhuo:give-up", "zhuo:jab-at", "zhuo:by-some-fluke", "zhuo:pull-oneself-together"
+  ],
+  "issues": [],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；仅检查列出的常用义项与例句。"
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0002-verbs.json",
+  "sourceContentSha256": "04293e857458970aacef9318a14e87d2012eb223d94b7be89e798e9406a3bb40",
+  "reviewer": "AI/verb-and-pilot-cross-review",
+  "reviewerKind": "AI",
+  "independentOfAuthor": true,
+  "approvedEntryIds": [
+    "zhuo:accept", "zhuo:achieve", "zhuo:act", "zhuo:add", "zhuo:admire",
+    "zhuo:admit", "zhuo:adopt", "zhuo:advance", "zhuo:advise", "zhuo:afford",
+    "zhuo:agree", "zhuo:aim", "zhuo:allow", "zhuo:announce", "zhuo:answer",
+    "zhuo:appear", "zhuo:apply", "zhuo:appoint", "zhuo:argue", "zhuo:arrange",
+    "zhuo:arrive", "zhuo:ask", "zhuo:assess", "zhuo:assist", "zhuo:assume",
+    "zhuo:attach", "zhuo:attempt", "zhuo:attend", "zhuo:attract", "zhuo:avoid",
+    "zhuo:bake", "zhuo:balance", "zhuo:beat", "zhuo:become", "zhuo:begin",
+    "zhuo:behave", "zhuo:believe", "zhuo:belong", "zhuo:bend", "zhuo:benefit",
+    "zhuo:blame", "zhuo:blow", "zhuo:borrow", "zhuo:break", "zhuo:breathe",
+    "zhuo:bring", "zhuo:build", "zhuo:burn", "zhuo:buy", "zhuo:call",
+    "zhuo:cancel", "zhuo:care", "zhuo:carry", "zhuo:catch", "zhuo:cause",
+    "zhuo:celebrate", "zhuo:challenge", "zhuo:change", "zhuo:charge", "zhuo:check",
+    "zhuo:choose", "zhuo:claim", "zhuo:clean", "zhuo:clear", "zhuo:climb",
+    "zhuo:close", "zhuo:collect", "zhuo:combine", "zhuo:come", "zhuo:compare",
+    "zhuo:complain", "zhuo:complete", "zhuo:concentrate", "zhuo:concern", "zhuo:conclude",
+    "zhuo:conduct", "zhuo:confirm", "zhuo:connect", "zhuo:consider", "zhuo:consist",
+    "zhuo:contain", "zhuo:continue", "zhuo:contribute", "zhuo:control", "zhuo:convince",
+    "zhuo:cook", "zhuo:cope", "zhuo:cost", "zhuo:count", "zhuo:create",
+    "zhuo:cross", "zhuo:cry", "zhuo:cut", "zhuo:damage", "zhuo:dance",
+    "zhuo:deal", "zhuo:decide", "zhuo:declare", "zhuo:decline", "zhuo:defend"
+  ],
+  "issues": [
+    {
+      "entryId": "zhuo:accept",
+      "severity": "advisory",
+      "problem": "最初的中文例句容易被误读为我们加入读书小组，而不是我们发出邀请。",
+      "resolution": "已核对修改后的中文：罗莎接受了我们发出的加入读书小组的邀请。邀请的发出者与受邀者现在明确。"
+    },
+    {
+      "entryId": "zhuo:add",
+      "severity": "advisory",
+      "problem": "最初的补充说例句缺少直接引语的引号，作为学习例句不够清楚。",
+      "resolution": "已核对最终英文例句的两段引语及插入语标点；原意和中文翻译保持一致。"
+    }
+  ],
+  "scope": "selected-common-senses-only",
+  "note": "AI交叉复核，非人工审定；仅检查列出的常用义项与例句。"
+}
