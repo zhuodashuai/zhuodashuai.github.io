@@ -31,8 +31,36 @@ async function authenticatedResponse(payload: Record<string, unknown>): Promise<
   return jsonResponse({ ...view, authType: "member" }, 200, { "Set-Cookie": memberCookie(raw, MEMBER_SESSION_SECONDS) });
 }
 
-/** All authenticated routes are same-origin. No member response grants CORS. */
+/** Project only private-entry DTOs; source contexts and review records keep their existing schema. */
+function legacyEntry(value: unknown): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+  const entry = value as Record<string, unknown>;
+  if (typeof entry.id !== "string" || !entry.id.startsWith("member-")) return value;
+  const { partOfSpeech: _newField, ...legacy } = entry;
+  return legacy;
+}
+
+async function adaptMemberFields(request: Request, response: Response): Promise<Response> {
+  if (request.headers.get("X-Wordbook-Fields")?.split(",").some(field => field.trim() === "partOfSpeech")) return response;
+  const payload = await response.json() as Record<string, unknown>;
+  if (Object.prototype.hasOwnProperty.call(payload, "entry")) payload.entry = legacyEntry(payload.entry);
+  if (Array.isArray(payload.entries)) payload.entries = payload.entries.map(legacyEntry);
+  const error = payload.error as { details?: Record<string, unknown> } | undefined;
+  if (error?.details && Object.prototype.hasOwnProperty.call(error.details, "existing")) error.details.existing = legacyEntry(error.details.existing);
+  const headers = new Headers(response.headers);
+  headers.delete("Content-Length");
+  return new Response(JSON.stringify(payload), { status: response.status, statusText: response.statusText, headers });
+}
+
+/** All authenticated routes are same-origin. No member response grants CORS.
+ * Field capabilities change only the response, never stored data, authorization or mutation identity.
+ */
 export async function handleMemberRequest(request: Request, env: MemberEnv, options: { readPublicSnapshot?: () => Promise<unknown> } = {}): Promise<Response | null> {
+  const response = await routeMemberRequest(request, env, options);
+  return response ? adaptMemberFields(request, response) : null;
+}
+
+async function routeMemberRequest(request: Request, env: MemberEnv, options: { readPublicSnapshot?: () => Promise<unknown> }): Promise<Response | null> {
   const path = new URL(request.url).pathname;
   if (path !== PREFIX && !path.startsWith(`${PREFIX}/`)) return null;
   try {
@@ -119,7 +147,7 @@ export async function handleMemberRequest(request: Request, env: MemberEnv, opti
         sessionHash: auth.sessionHash, csrfToken: auth.csrfToken, authType: auth.authType }));
     }
     if ((path === `${PREFIX}/entries` && request.method === "POST") || (entryId && ["PUT", "DELETE"].includes(request.method))) {
-      memberFields(body, request.method === "POST" ? ["term", "mutationId"] : request.method === "PUT" ? ["revision", "term", "mutationId"] : ["revision", "mutationId"], request.method === "DELETE" ? [] : ["meaning", "note"]);
+      memberFields(body, request.method === "POST" ? ["term", "mutationId"] : request.method === "PUT" ? ["revision", "term", "mutationId"] : ["revision", "mutationId"], request.method === "DELETE" ? [] : ["partOfSpeech", "meaning", "note"]);
       if (entryId && (!entryId.startsWith("member-") || !MEMBER_UUID.test(entryId.slice(7)))) throw new ApiError(400, "invalid_entry_id", "个人词条 ID 不正确。");
       const stub = env.PERSONAL_WORDBOOK.get(env.PERSONAL_WORDBOOK.idFromName(`user:${auth.user.id}`));
       return jsonResponse(await memberInternalCall(stub, request.method === "POST" ? "/create" : request.method === "PUT" ? "/update" : "/delete", {

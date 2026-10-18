@@ -1,8 +1,8 @@
-import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=74";
-import { validatePersonalLearning } from "./personal-study.js?v=74";
+import { normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=75";
+import { validatePersonalLearning } from "./personal-study.js?v=75";
 
 const ENTRY_FIELDS = ["id", "revision", "term", "normalized", "meaning", "note", "createdAt", "updatedAt"];
-const EDIT_FIELDS = ["term", "meaning", "note"];
+const EDIT_FIELDS = ["term", "partOfSpeech", "meaning", "note"];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const OWNER_UID = "15604207-8000-4000-8000-000000000001";
 const CONTEXT_LIMITS = { key: 320, entryId: 180, term: 2000, collectionId: 100, chapterId: 100, bookTitle: 500, chapterTitle: 500, sourceTitle: 500, page: 200, originalInput: 2000, meaning: 20000, definition: 12000, exampleEn: 5000, exampleZh: 5000, partOfSpeech: 200, phonetic: 300, usage: 12000 };
@@ -43,7 +43,9 @@ export function validatePersonalSession(value, now = Date.now()) {
 
 export function validatePersonalInput(value, { imported = false } = {}) {
   const term = validateEnglishInput(text(value?.term, imported ? 2000 : 200, "英文"));
-  return { term, meaning: text(value?.meaning, imported ? 20000 : 2000, "中文释义"), note: text(value?.note, 1000, "备注") };
+  return { term,
+    ...(Object.prototype.hasOwnProperty.call(value || {}, "partOfSpeech") ? { partOfSpeech: text(value.partOfSpeech, 200, "词性") } : {}),
+    meaning: text(value?.meaning, imported ? 20000 : 2000, "中文释义"), note: text(value?.note, 1000, "备注") };
 }
 
 export function validatePersonalSourceContext(value) {
@@ -56,7 +58,7 @@ export function validatePersonalSourceContext(value) {
 }
 
 export function validatePersonalEntry(value) {
-  const optional = ["sourceContexts", "meaningEdited"].filter((field) => Object.prototype.hasOwnProperty.call(value || {}, field));
+  const optional = ["partOfSpeech", "sourceContexts", "meaningEdited"].filter((field) => Object.prototype.hasOwnProperty.call(value || {}, field));
   const fields = [...ENTRY_FIELDS, ...optional];
   if (!value || typeof value !== "object" || Array.isArray(value)
     || Object.keys(value).length !== fields.length || fields.some((field) => !Object.prototype.hasOwnProperty.call(value, field))
@@ -86,6 +88,7 @@ export function validatePersonalList(value) {
 
 export function personalDraft(entry = null) {
   const fields = Object.fromEntries(EDIT_FIELDS.map((key) => [key, entry?.[key] || ""]));
+  fields.partOfSpeech = entry?.partOfSpeech ?? entry?.selectedSourceContext?.partOfSpeech ?? entry?.sourceContexts?.[0]?.partOfSpeech ?? "";
   return { id: entry?.id || null, revision: entry?.revision || null, ...fields, baseline: copy(fields),
     ...(entry?.sourceContexts ? { sourceContexts: copy(entry.sourceContexts) } : {}), ...(typeof entry?.meaningEdited === "boolean" ? { meaningEdited: entry.meaningEdited } : {}) };
 }
@@ -102,11 +105,11 @@ export function createPersonalDraftStore() {
     write(uid, value) {
       const allowed = ["id", "revision", ...EDIT_FIELDS, "baseline", ...["sourceContexts", "meaningEdited"].filter((field) => Object.prototype.hasOwnProperty.call(value || {}, field))];
       if (!value || Object.keys(value).length !== allowed.length || allowed.some((key) => !Object.prototype.hasOwnProperty.call(value, key))
-        || !value.baseline || Object.keys(value.baseline).length !== 3 || EDIT_FIELDS.some((key) => typeof value.baseline[key] !== "string")) throw new Error("当前页面草稿格式不正确。");
+        || !value.baseline || Object.keys(value.baseline).length !== EDIT_FIELDS.length || EDIT_FIELDS.some((key) => typeof value.baseline[key] !== "string")) throw new Error("当前页面草稿格式不正确。");
       // An unfinished textarea may temporarily exceed its Unicode-point limit
       // or contain an invalid paste. Preserve it in memory, but validate the
       // complete entry before any network write instead of throwing on input.
-      for (const [field, maximum] of [["term", value.sourceContexts?.length ? 4000 : 400], ["meaning", value.sourceContexts?.length ? 40000 : 4000], ["note", 2000]]) {
+      for (const [field, maximum] of [["term", value.sourceContexts?.length ? 4000 : 400], ["partOfSpeech", 400], ["meaning", value.sourceContexts?.length ? 40000 : 4000], ["note", 2000]]) {
         if (typeof value[field] !== "string" || value[field].length > maximum) throw new Error("当前页面草稿过长。");
       }
       drafts.set(userKey(uid), copy(value));

@@ -3,7 +3,7 @@ import { reset, runInDurableObject } from "cloudflare:test";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import worker from "../src/index";
 import { MemberAuth, MEMBER_ACCOUNT_LIMIT } from "../src/member-auth";
-import { PersonalWordbook, PERSONAL_LIMITS } from "../src/personal-wordbook";
+import { PersonalWordbook, PERSONAL_LIMITS, type PersonalEntry } from "../src/personal-wordbook";
 import { MEMBER_COOKIE, memberAuthStub, memberSessionHash, type MemberEnv } from "../src/member-security";
 
 const testEnv = env as unknown as Env;
@@ -12,11 +12,11 @@ const PREFIX = "/api/v1/member";
 const PASSWORD = "a private long password 😀";
 interface Login { user: { id: string; username: string }; csrfToken: string; expiresAt: number; recoveryCode: string; cookie: string }
 
-function api(path: string, { method = "GET", body, auth, headers = {}, environment = testEnv }: {
-  method?: string; body?: unknown; auth?: Login; headers?: Record<string, string>; environment?: Env
+function api(path: string, { method = "GET", body, auth, headers = {}, environment = testEnv, legacy = false }: {
+  method?: string; body?: unknown; auth?: Login; headers?: Record<string, string>; environment?: Env; legacy?: boolean
 } = {}) {
   return worker.fetch(new Request(`${ORIGIN}${path.startsWith("/api/") ? path : PREFIX + path}`, {
-    method, headers: { ...(method !== "GET" ? { Origin: ORIGIN, "Content-Type": "application/json", "Sec-Fetch-Site": "same-origin" } : {}),
+    method, headers: { ...(!legacy ? { "X-Wordbook-Fields": "partOfSpeech" } : {}), ...(method !== "GET" ? { Origin: ORIGIN, "Content-Type": "application/json", "Sec-Fetch-Site": "same-origin" } : {}),
       ...(auth ? { Cookie: auth.cookie, "X-CSRF-Token": auth.csrfToken } : {}), ...headers },
     ...(body !== undefined ? { body: JSON.stringify(body) } : {})
   }), environment);
@@ -185,6 +185,115 @@ describe("private member API and tenant isolation", () => {
     expect(await (await api(`/entries/${one.entry.id}`, { method: "DELETE", auth, body: deletion })).json()).toMatchObject({ entry: null, action: "idempotent", revision: 3 });
     expect(await (await create(auth, "agitated", mutationId)).json()).toMatchObject({ entry: null, action: "idempotent", revision: 3 });
     expect((await (await api("/entries", { auth })).json() as { entries: unknown[] }).entries).toHaveLength(0);
+  });
+
+  it("persists local-dictionary word classes, preserves them for old-client updates, and allows explicit clearing", async () => {
+    const auth = await register();
+    const saved = await api("/entries", { method: "POST", auth, body: { term: "delicious", partOfSpeech: "adjective", meaning: "美味的", note: "来自本地词典", mutationId: crypto.randomUUID() } });
+    expect(saved.status).toBe(200);
+    const first = (await saved.json() as { entry: PersonalEntry }).entry;
+    expect(first.partOfSpeech).toBe("adjective");
+    const legacyUpdate = await api(`/entries/${first.id}`, { method: "PUT", auth, body: { revision: 1, term: "delicious", meaning: "① 美味的", note: "旧设备只改备注", mutationId: crypto.randomUUID() } });
+    expect(legacyUpdate.status).toBe(200);
+    expect(await legacyUpdate.json()).toMatchObject({ entry: { partOfSpeech: "adjective", revision: 2, note: "旧设备只改备注" } });
+    const clear = await api(`/entries/${first.id}`, { method: "PUT", auth, body: { revision: 2, term: "delicious", partOfSpeech: "", meaning: "① 美味的", mutationId: crypto.randomUUID() } });
+    expect(clear.status).toBe(200); expect(await clear.json()).toMatchObject({ entry: { partOfSpeech: "", revision: 3 } });
+    const oldClientAgain = await api(`/entries/${first.id}`, { method: "PUT", auth, body: { revision: 3, term: "delicious", meaning: "美味的", mutationId: crypto.randomUUID() } });
+    expect(oldClientAgain.status).toBe(200);
+    expect(await (await api("/entries", { auth })).json()).toMatchObject({ entries: [{ partOfSpeech: "", revision: 4 }] });
+  });
+
+  it("keeps old eight-field entries compatible and distinguishes word-class changes in mutation fingerprints", async () => {
+    const auth = await register();
+    const old = await create(auth, "hip");
+    const legacy = (await old.json() as { entry: PersonalEntry }).entry;
+    expect(Object.keys(legacy)).toHaveLength(8); expect(legacy).not.toHaveProperty("partOfSpeech");
+    const oldUpdate = await api(`/entries/${legacy.id}`, { method: "PUT", auth, body: { revision: legacy.revision, term: "hip", meaning: "髋部", mutationId: crypto.randomUUID() } });
+    expect((await oldUpdate.json() as { entry: unknown }).entry).not.toHaveProperty("partOfSpeech");
+
+    const body = { term: "calm", partOfSpeech: "adjective", meaning: "平静的", mutationId: crypto.randomUUID() };
+    const initial = await api("/entries", { method: "POST", auth, body }); expect(initial.status).toBe(200);
+    const entry = (await initial.json() as { entry: PersonalEntry }).entry;
+    expect((await api("/entries", { method: "POST", auth, body })).status).toBe(200);
+    const changedCreate = await api("/entries", { method: "POST", auth, body: { ...body, partOfSpeech: "verb" } });
+    expect(changedCreate.status).toBe(409); expect(await errorCode(changedCreate)).toBe("idempotency_key_reused");
+    const edit = { term: "calm", partOfSpeech: "verb", meaning: "使平静", revision: 1, mutationId: crypto.randomUUID() };
+    expect((await api(`/entries/${entry.id}`, { method: "PUT", auth, body: edit })).status).toBe(200);
+    expect((await api(`/entries/${entry.id}`, { method: "PUT", auth, body: edit })).status).toBe(200);
+    const changedUpdate = await api(`/entries/${entry.id}`, { method: "PUT", auth, body: { ...edit, partOfSpeech: "noun" } });
+    expect(changedUpdate.status).toBe(409); expect(await errorCode(changedUpdate)).toBe("idempotency_key_reused");
+    const omittedUpdate = await api(`/entries/${entry.id}`, { method: "PUT", auth, body: { term: "calm", meaning: edit.meaning, revision: edit.revision, mutationId: edit.mutationId } });
+    expect(omittedUpdate.status).toBe(409);
+    expect(await (await api("/entries", { auth })).json()).toMatchObject({ entries: expect.arrayContaining([expect.objectContaining({ id: entry.id, partOfSpeech: "verb", revision: 2 })]) });
+  });
+
+  it("validates word classes by Unicode code points and rejects malformed content without changing saved cards", async () => {
+    const auth = await register();
+    const saved = await api("/entries", { method: "POST", auth, body: { term: "safe", partOfSpeech: "🙂".repeat(200), mutationId: crypto.randomUUID() } });
+    expect(saved.status).toBe(200);
+    const first = (await saved.json() as { entry: PersonalEntry }).entry;
+    for (const partOfSpeech of [null, 123, {}, ["noun"], "🙂".repeat(201), "noun\u202E", "noun\u0000"]) {
+      const rejectedCreate = await api("/entries", { method: "POST", auth, body: { term: "invalid", partOfSpeech, mutationId: crypto.randomUUID() } });
+      expect(rejectedCreate.status).toBe(400);
+      const rejectedUpdate = await api(`/entries/${first.id}`, { method: "PUT", auth, body: { revision: 1, term: "safe", partOfSpeech, mutationId: crypto.randomUUID() } });
+      expect(rejectedUpdate.status).toBe(400);
+    }
+    expect(await (await api("/entries", { auth })).json()).toMatchObject({ revision: 1, entries: [first] });
+  });
+
+  it("negotiates the new word-class DTO without breaking legacy read, create, update or mutation replay", async () => {
+    const auth = await register();
+    const body = { term: "calm", partOfSpeech: "adjective", meaning: "平静的", note: "自己的笔记", mutationId: crypto.randomUUID() };
+    const first = await api("/entries", { method: "POST", auth, body, legacy: true }); expect(first.status).toBe(200);
+    expect(first.headers.get("Cache-Control")).toBe("no-store"); expect(first.headers.get("X-Content-Type-Options")).toBe("nosniff");
+    const projected = await first.json() as { entry: PersonalEntry; revision: number };
+    expect(projected.entry).not.toHaveProperty("partOfSpeech"); expect(Object.keys(projected.entry)).toHaveLength(8);
+    const modernReplay = await api("/entries", { method: "POST", auth, body }); expect(modernReplay.status).toBe(200);
+    const full = await modernReplay.json() as { entry: PersonalEntry; revision: number };
+    expect(full).toMatchObject({ entry: { id: projected.entry.id, partOfSpeech: "adjective" }, action: "idempotent", revision: projected.revision });
+    const oldRead = await api("/entries", { auth, legacy: true }); expect(oldRead.status).toBe(200);
+    expect(await oldRead.json()).toMatchObject({ entries: [projected.entry] });
+    const edit = { term: "calm", meaning: "① 平静的", note: "老客户端只改笔记", revision: 1, mutationId: crypto.randomUUID() };
+    const oldUpdate = await api(`/entries/${full.entry.id}`, { method: "PUT", auth, body: edit, legacy: true }); expect(oldUpdate.status).toBe(200);
+    const oldEdited = await oldUpdate.json() as { entry: PersonalEntry };
+    expect(oldEdited.entry).not.toHaveProperty("partOfSpeech"); expect(oldEdited.entry.note).toBe(edit.note);
+    const newReplay = await api(`/entries/${full.entry.id}`, { method: "PUT", auth, body: edit }); expect(newReplay.status).toBe(200);
+    expect(await newReplay.json()).toMatchObject({ entry: { partOfSpeech: "adjective", revision: 2, note: edit.note }, action: "idempotent" });
+    expect(await (await api("/entries", { auth })).json()).toMatchObject({ entries: [{ partOfSpeech: "adjective", revision: 2 }] });
+    const stored = await runInDurableObject(vault(auth), async (_instance, state) => state.storage.get<PersonalEntry>(`entry:${full.entry.id}`));
+    expect(stored?.partOfSpeech).toBe("adjective");
+    const oldPost = await create(auth, "old client card"); expect(oldPost.status).toBe(200);
+    const oldPayload = { term: "old legacy card", meaning: "旧页新增", mutationId: crypto.randomUUID() };
+    const legacyPost = await api("/entries", { method: "POST", auth, body: oldPayload, legacy: true }); expect(legacyPost.status).toBe(200);
+    expect((await legacyPost.json() as { entry: PersonalEntry }).entry).not.toHaveProperty("partOfSpeech");
+    expect(await (await api("/entries", { method: "POST", auth, body: oldPayload })).json()).toMatchObject({ action: "idempotent" });
+  });
+
+  it("projects private conflict DTOs but preserves auth cookies, errors, no-store and rate-limit headers for legacy clients", async () => {
+    const registration = await api("/register", { method: "POST", body: { username: "legacy_reader", password: PASSWORD }, legacy: true });
+    expect(registration.status).toBe(200); expect(registration.headers.get("Set-Cookie")).toContain(`${MEMBER_COOKIE}=`);
+    expect(registration.headers.get("Cache-Control")).toBe("no-store"); expect(registration.headers.get("Content-Type")).toContain("application/json");
+    const auth = { ...await registration.json() as Login, cookie: registration.headers.get("Set-Cookie")!.split(";", 1)[0] };
+    const createBody = { term: "hip", partOfSpeech: "noun", meaning: "髋部", mutationId: crypto.randomUUID() };
+    const saved = (await (await api("/entries", { method: "POST", auth, body: createBody })).json() as { entry: PersonalEntry }).entry;
+    for (const legacy of [true, false]) {
+      const duplicate = await api("/entries", { method: "POST", auth, legacy, body: { ...createBody, mutationId: crypto.randomUUID() } });
+      expect(duplicate.status).toBe(409); expect(duplicate.headers.get("Cache-Control")).toBe("no-store");
+      const existing = (await duplicate.json() as { error: { code: string; details: { existing: PersonalEntry } } }).error;
+      expect(existing.code).toBe("duplicate_entry"); expect(existing.details.existing.id).toBe(saved.id);
+      expect(Object.prototype.hasOwnProperty.call(existing.details.existing, "partOfSpeech")).toBe(!legacy);
+      const conflict = await api(`/entries/${saved.id}`, { method: "PUT", auth, legacy, body: { term: "hip", revision: 99, mutationId: crypto.randomUUID() } });
+      expect(conflict.status).toBe(409);
+      const error = (await conflict.json() as { error: { code: string; details: { existing: PersonalEntry } } }).error;
+      expect(error.code).toBe("revision_conflict"); expect(error.details.existing.meaning).toBe(saved.meaning);
+      expect(Object.prototype.hasOwnProperty.call(error.details.existing, "partOfSpeech")).toBe(!legacy);
+    }
+    await runInDurableObject(vault(auth), async (_instance, state) => state.storage.put("write-rate", { count: 60, expiresAt: Date.now() + 60_000 }));
+    const limited = await api("/entries", { method: "POST", auth, legacy: true, body: { term: "limited", mutationId: crypto.randomUUID() } });
+    expect(limited.status).toBe(429); expect(Number(limited.headers.get("Retry-After"))).toBeGreaterThan(0);
+    const logout = await api("/logout", { method: "POST", auth, legacy: true, body: {} }); expect(logout.status).toBe(200);
+    expect(logout.headers.get("Set-Cookie")).toContain("Max-Age=0");
+    const denied = await api("/entries", { auth, legacy: true }); expect(denied.status).toBe(401); expect(await errorCode(denied)).toBe("member_authentication_required");
   });
 
   it("persists records through re-created DO class instances", async () => {

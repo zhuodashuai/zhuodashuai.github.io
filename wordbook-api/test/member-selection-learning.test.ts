@@ -32,11 +32,11 @@ function publicBook() {
     entry({ id: "public-main", term: "jab at", tags: [], sourceTitle: "主词本来源", sourceDate: "2026-10-17" })
   ]);
 }
-async function request(path: string, { method = "GET", body, auth, headers = {}, resolver = async () => publicBook() }: {
-  method?: string; body?: unknown; auth?: Auth; headers?: Record<string, string>; resolver?: () => Promise<unknown>
+async function request(path: string, { method = "GET", body, auth, headers = {}, resolver = async () => publicBook(), legacy = false }: {
+  method?: string; body?: unknown; auth?: Auth; headers?: Record<string, string>; resolver?: () => Promise<unknown>; legacy?: boolean
 } = {}) {
   return (await handleMemberRequest(new Request(`${ORIGIN}/api/v1/member${path}`, { method,
-    headers: { ...(method !== "GET" ? { Origin: ORIGIN, "Content-Type": "application/json", "Sec-Fetch-Site": "same-origin" } : {}),
+    headers: { ...(!legacy ? { "X-Wordbook-Fields": "partOfSpeech" } : {}), ...(method !== "GET" ? { Origin: ORIGIN, "Content-Type": "application/json", "Sec-Fetch-Site": "same-origin" } : {}),
       ...(auth ? { Cookie: auth.cookie, "X-CSRF-Token": auth.csrfToken, ...(auth.authType ? { "X-Wordbook-Auth": auth.authType } : {}) } : {}), ...headers },
     ...(body !== undefined ? { body: JSON.stringify(body) } : {}) }), testEnv, { readPublicSnapshot: resolver }))!;
 }
@@ -74,7 +74,7 @@ describe("private public-source selection and cloud review", () => {
     const response = await select(auth); expect(response.status).toBe(200);
     const result = await response.json() as { revision: number; added: number; entries: PersonalEntry[] };
     expect(result).toMatchObject({ revision: 1, added: 1, reused: 0, contextAdded: 1 });
-    expect(result.entries[0]).toMatchObject({ term: "rummage", meaning: "① 第三章：在包里翻找。", meaningEdited: false,
+    expect(result.entries[0]).toMatchObject({ term: "rummage", partOfSpeech: "verb", meaning: "① 第三章：在包里翻找。", meaningEdited: false,
       sourceContexts: [{ key: "public-rummage:never-let-me-go:chapter-3", page: "35", originalInput: "rummaging", definition: "Definition for chapter 3", phonetic: "/ˈrʌmɪdʒ/" }] });
     const forged = await request("/selections", { method: "POST", auth, body: { ...selectionBody(), meaning: "伪造的来源", sourceContexts: [] } });
     expect(forged.status).toBe(400);
@@ -177,6 +177,48 @@ describe("private public-source selection and cloud review", () => {
     const { entries } = await (await select(auth)).json() as { entries: PersonalEntry[] };
     await request(`/entries/${entries[0].id}`, { method: "PUT", auth, body: { revision: 1, term: "rummage", meaning: "", mutationId: crypto.randomUUID() } });
     expect(await (await select(auth, "chapter-14")).json()).toMatchObject({ entries: [{ meaning: "", meaningEdited: true }] });
+  });
+
+  it("preserves private dictionary word classes and deliberate clearing while adding public chapter contexts", async () => {
+    const auth = await register();
+    const response = await request("/entries", { method: "POST", auth, body: { term: "rummage", partOfSpeech: "noun / verb", meaning: "翻找", mutationId: crypto.randomUUID() } });
+    expect(response.status).toBe(200);
+    const original = (await response.json() as { entry: PersonalEntry }).entry;
+    const reviewed = await grade(auth, original.id); expect(reviewed.status).toBe(200);
+    const progress = await (await request("/learning", { auth })).json();
+    const selected = await select(auth); expect(selected.status).toBe(200);
+    const imported = (await selected.json() as { entries: PersonalEntry[] }).entries[0];
+    expect(imported).toMatchObject({ id: original.id, partOfSpeech: "noun / verb", sourceContexts: [{ partOfSpeech: "verb" }] });
+    const cleared = await request(`/entries/${original.id}`, { method: "PUT", auth, body: { revision: imported.revision, term: "rummage", partOfSpeech: "", meaning: "翻找", mutationId: crypto.randomUUID() } });
+    expect(cleared.status).toBe(200);
+    const second = await select(auth, "chapter-14"); expect(second.status).toBe(200);
+    expect(await second.json()).toMatchObject({ entries: [{ id: original.id, partOfSpeech: "", sourceContexts: [{ partOfSpeech: "verb" }, { partOfSpeech: "verb" }] }] });
+    expect(await (await request("/learning", { auth })).json()).toEqual(progress);
+  });
+
+  it("keeps legacy selection/reselection DTOs readable without stripping source POS, cloud learning or stored modern fields", async () => {
+    const auth = await register();
+    const originalBody = selectionBody();
+    const first = await request("/selections", { method: "POST", auth, body: originalBody, legacy: true }); expect(first.status).toBe(200);
+    const legacy = await first.json() as { entries: PersonalEntry[]; revision: number };
+    expect(legacy.entries[0]).not.toHaveProperty("partOfSpeech");
+    expect(legacy.entries[0].sourceContexts?.[0].partOfSpeech).toBe("verb");
+    const id = legacy.entries[0].id;
+    const modernReplay = await request("/selections", { method: "POST", auth, body: originalBody }); expect(modernReplay.status).toBe(200);
+    expect(await modernReplay.json()).toMatchObject({ revision: legacy.revision, added: 0, contextAdded: 0, entries: [{ id, partOfSpeech: "verb" }] });
+    const gradeResult = await grade(auth, id); expect(gradeResult.status).toBe(200);
+    const learning = await (await request("/learning", { auth })).json();
+    expect(await (await request("/learning", { auth, legacy: true })).json()).toEqual(learning);
+    const noOpBody = selectionBody();
+    const noOp = await request("/selections", { method: "POST", auth, body: noOpBody, legacy: true }); expect(noOp.status).toBe(200);
+    const noOpData = await noOp.json() as { entries: PersonalEntry[]; revision: number };
+    expect(noOpData.revision).toBe(legacy.revision); expect(noOpData.entries[0]).not.toHaveProperty("partOfSpeech");
+    expect(noOpData.entries[0].sourceContexts?.[0].partOfSpeech).toBe("verb");
+    const conflict = await request(`/reviews/${id}`, { method: "POST", auth, legacy: true, body: { rating: "hard", revision: 0, mutationId: crypto.randomUUID() } });
+    expect(conflict.status).toBe(409);
+    const oldLearningConflict = await conflict.json() as { error: { details: { existing: unknown } } };
+    expect(oldLearningConflict.error.details.existing).toEqual((learning as { reviews: unknown[] }).reviews[0]);
+    expect(await (await request("/entries", { auth })).json()).toMatchObject({ entries: [{ id, partOfSpeech: "verb", sourceContexts: [{ partOfSpeech: "verb" }] }] });
   });
 
   it("is idempotent without count/revision inflation and binds mutation IDs to selection semantics", async () => {

@@ -62,6 +62,14 @@
 - 普通密码恢复/账号删除仅作用于普通账号；GitHub Owner 模式不显示或执行这些操作。旧匿名 IndexedDB 复习、章节测验、随手记均原样保留，绝不自动归属某个账号。
 - 回滚点 `wordbook-before-selection-study-2026-10-17` 保留旧版代码；完整 Git bundle 和当时公开 JSON 另存本机 output。回滚代码时仍须保留 `MemberAuth` / `PersonalWordbook` 绑定和数据；已新增的 sourceContexts/learning 数据不能因 UI 回滚被清空。旧客户端不理解扩展字段时应提示更新，不应重写旧字段来“修复”。
 
+### 普通账号基础本地词典（v75）
+
+- 查词仅由浏览器精确检索本站静态 `vocab/data/ecdict-core.json`，约 7,500 条，沿用 ECDICT 的 MIT 许可。没有新增查词 API，也不借用所有者的 AI、在线拼写或机器翻译；缺词、缺中文明确返回未收录，不拆短语取首词、不猜释义。账号与学习同步仍使用本站已有私有接口。
+- 私词条可选增加 `partOfSpeech`（至多 200 Unicode 码点）。旧 POST 不带该字段仍可创建原八字段记录；旧 PUT 省略时保留原值，明确空串才清空。词性进入同一幂等指纹和存储预算，章节合并保留自己的词性、中文、笔记与学习记录。
+- 新客户端发送 `X-Wordbook-Fields: partOfSpeech`。未协商的旧客户端响应只剥除私卡顶层新增词性，包括列表、写入结果、选择和 409 的 existing；来源语境里的词性不变，底层数据不删，Cookie、状态与 no-store 保持。能力头不参与身份、权限或 mutationId 指纹。
+- 首次词典下载和 JSON 读取受共同超时限制，失败自动清掉共享 Promise。输入变化或身份变化使旧查询失效；手工草稿不因查词自动替换。自动填词来源只按当前用户保存在内存，focus 复验后仍能在改词时清除未手改的旧自动词义，不会误清手写内容。
+- 普通账号先展示词性、中文和自己的备注；章节来源留存，完整的来源解释与例句没有从数据里删除。GitHub Owner 的原管理、AI 与完整语境展示保持不变。
+
 ## 数据模型
 
 - `vocab/data/owner-wordbook.json`：公开 canonical snapshot，`schemaVersion: 3`。

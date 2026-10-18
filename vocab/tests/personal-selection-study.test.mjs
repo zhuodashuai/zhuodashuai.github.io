@@ -93,6 +93,10 @@ test("imported entries and drafts accept bounded complete source contexts while 
   const imported = privateWord({ sourceContexts: [context()], meaningEdited: false, meaning: "字".repeat(20000) });
   assert.deepEqual(validatePersonalEntry(imported), imported);
   assert.equal(personalDraft(imported).sourceContexts[0].partOfSpeech, "verb");
+  assert.equal(personalDraft(imported).partOfSpeech, "verb");
+  assert.equal(personalDraft({ ...imported, partOfSpeech: "" }).partOfSpeech, "");
+  assert.equal(personalDraft({ ...imported, selectedSourceContext: { partOfSpeech: "noun" } }).partOfSpeech, "noun");
+  assert.equal(personalDraft({ ...imported, partOfSpeech: "noun / verb" }).partOfSpeech, "noun / verb");
   assert.equal(validatePersonalInput(imported, { imported: true }).meaning.length, 20000);
   assert.throws(() => validatePersonalInput(imported));
   assert.throws(() => validatePersonalEntry({ ...imported, sourceContexts: [context(), context()] }));

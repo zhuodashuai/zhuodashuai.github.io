@@ -18,6 +18,7 @@ test("member authentication is same-origin POST with untrimmed Unicode passwords
     assert.equal(options.method, "POST");
     assert.equal(options.cache, "no-store");
     assert.equal(options.credentials, "same-origin");
+    assert.equal(options.headers["X-Wordbook-Fields"], "partOfSpeech");
     assert.ok(options.signal instanceof AbortSignal);
     const body = JSON.parse(options.body);
     assert.equal(body.password ?? body.newPassword, credentials.password);
@@ -40,6 +41,7 @@ test("private CRUD and account deletion carry CSRF only in the request header", 
   assert.equal(seen[0].options.headers["X-Member-User"], undefined);
   assert.equal(seen[1].options.headers["X-Member-User"], ENTRY_ID.slice(7));
   assert.equal(seen[1].url.includes(ENTRY_ID.slice(7)), false);
+  for (const { options } of seen) assert.equal(options.headers["X-Wordbook-Fields"], "partOfSpeech");
   for (const { url, options } of seen.slice(2)) {
     assert.equal(options.headers["X-CSRF-Token"], "csrf-only-header");
     assert.equal(options.body.includes("csrf-only-header"), false);

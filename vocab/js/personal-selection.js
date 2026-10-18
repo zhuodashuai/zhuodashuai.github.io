@@ -1,5 +1,5 @@
-import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "./collections.js?v=74";
-import { contextualizeReadingEntry, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery } from "./wordbook-schema.js?v=74";
+import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "./collections.js?v=75";
+import { contextualizeReadingEntry, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery } from "./wordbook-schema.js?v=75";
 
 export async function fetchPersonalPublicCatalog({ fetchImpl = globalThis.fetch, signal, timeoutMs = 20_000 } = {}) {
   const controller = new AbortController();
@@ -79,7 +79,7 @@ export function personalCollectionCatalog(entries) {
   }
   return [
     { id: "all", title: "全部词条", count: entries.length, chapters: [] },
-    { id: "manual", title: "手工新增", count: entries.filter((entry) => !(entry.sourceContexts || []).length).length, chapters: [] },
+    { id: "manual", title: "自行添加", count: entries.filter((entry) => !(entry.sourceContexts || []).length).length, chapters: [] },
     ...[...books.values()].map((book) => ({ id: book.id, title: book.title, count: book.entries.size, chapters: [...book.chapters.values()]
       .map((chapter) => ({ id: chapter.id, title: chapter.title, count: chapter.entries.size }))
       .sort((a, b) => Number(a.id.slice(8)) - Number(b.id.slice(8))) }))

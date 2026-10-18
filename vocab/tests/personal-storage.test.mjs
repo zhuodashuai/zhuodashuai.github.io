@@ -48,6 +48,49 @@ test("manual personal entries permit blank meanings and preserve numbered lines 
   ]) assert.throws(() => validatePersonalEntry(bad));
 });
 
+test("optional private word classes preserve legacy shapes and validate bounded Unicode text", () => {
+  assert.deepEqual(validatePersonalEntry(word()), word());
+  const classified = word({ partOfSpeech: "noun / adjective" });
+  assert.deepEqual(validatePersonalEntry(classified), classified);
+  assert.equal(validatePersonalEntry(word({ partOfSpeech: "" })).partOfSpeech, "");
+  assert.equal(validatePersonalInput({ term: "hip", partOfSpeech: "🙂".repeat(200), meaning: "", note: "" }).partOfSpeech, "🙂".repeat(200));
+  for (const partOfSpeech of [undefined, null, 123, {}, ["noun"], "🙂".repeat(201), "noun\u202E", "noun\u0000"]) {
+    assert.throws(() => validatePersonalEntry(word({ partOfSpeech })));
+  }
+  const legacyExport = JSON.parse(serializePersonalExport([word()], "student", WHEN));
+  assert.deepEqual(legacyExport.entries, [word()]);
+  const classifiedExport = JSON.parse(serializePersonalExport([classified], "student", WHEN));
+  assert.deepEqual(classifiedExport.entries, [classified]);
+});
+
+test("private drafts include editable word classes, track them as dirty, and safely retain unfinished pastes", () => {
+  const store = createPersonalDraftStore();
+  const empty = personalDraft();
+  assert.deepEqual(empty.baseline, { term: "", partOfSpeech: "", meaning: "", note: "" });
+  const draft = personalDraft(word({ partOfSpeech: "noun" }));
+  assert.equal(isPersonalDraftDirty(draft), false);
+  draft.partOfSpeech = "adjective";
+  assert.equal(isPersonalDraftDirty(draft), true);
+  store.write(UID_A, draft); assert.equal(store.read(UID_A).partOfSpeech, "adjective");
+  draft.partOfSpeech = "🙂".repeat(201);
+  assert.throws(() => store.write(UID_A, draft));
+  draft.partOfSpeech = "字".repeat(201);
+  store.write(UID_A, draft);
+  assert.throws(() => validatePersonalInput(store.read(UID_A)));
+  assert.throws(() => store.write(UID_A, { ...personalDraft(), baseline: { term: "", meaning: "", note: "" } }));
+});
+
+test("word-class changes use a fresh private mutation while exact retries keep the existing ID", () => {
+  let next = 0;
+  const tracker = createPersonalMutationTracker({ newId: () => `operation-${++next}` });
+  const payload = { term: "hip", partOfSpeech: "noun", meaning: "髋部", note: "" };
+  const first = tracker.idFor(UID_A, "create", payload);
+  assert.equal(tracker.idFor(UID_A, "create", { ...payload }), first);
+  const changed = tracker.idFor(UID_A, "create", { ...payload, partOfSpeech: "adjective" });
+  assert.notEqual(changed, first);
+  assert.notEqual(tracker.idFor(UID_A, "create", { ...payload, partOfSpeech: "" }), changed);
+});
+
 test("private lists reject repeated IDs, normalized aliases and oversized responses", () => {
   assert.equal(validatePersonalList({ revision: 2, entries: [word()] }).entries.length, 1);
   assert.throws(() => validatePersonalList({ revision: 2, entries: [word(), word()] }), /重复/);

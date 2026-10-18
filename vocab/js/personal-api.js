@@ -47,6 +47,7 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
           headers: {
             Accept: "application/json",
             "X-Wordbook-Auth": authType,
+            "X-Wordbook-Fields": "partOfSpeech",
             ...(body === undefined ? {} : { "Content-Type": "application/json" }),
             ...(expectedUserId === undefined ? {} : { "X-Member-User": expectedUserId }),
             ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})

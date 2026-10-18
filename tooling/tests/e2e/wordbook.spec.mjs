@@ -1271,6 +1271,9 @@ test("不用 AI 的完整人工单义项可以发布并从公开词条卡打开"
   await expect(page.locator("#dialog-meaning")).toHaveText("verb: 手工完成；亲手制作");
 });
 
+test.describe("controlled owner AI response timing", () => {
+test.use({ serviceWorkers: "block" });
+
 test("AI 等待时明确标示空白不是结果，切换草稿后仍后台保存原请求", async ({ context, page }) => {
   await context.addCookies([{ name: "e2e_empty", value: "1", url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   await loginOwner(page);
@@ -1344,6 +1347,8 @@ test("普通单词先显示本地中文候选，再等待 AI 完成严格分义�
   releaseRequest();
   await expect(page.locator("#editor-ai-status")).toHaveAttribute("data-state", "success");
   await expect(page.getByLabel("中文释义", { exact: true })).toHaveValue("自动整理的测试释义");
+});
+
 });
 
 test("无法可靠对齐的本地词典多义词保留中文但保持待复核且不能直接发布", async ({ context, page }) => {

@@ -1,20 +1,22 @@
-import { personalWordbookUrl } from "./runtime-config.js?v=74";
-import { setupPwa } from "./pwa.js?v=74";
-import { normalizePublicSearchQuery } from "./wordbook-schema.js?v=74";
-import { createPersonalApi } from "./personal-api.js?v=74";
+import { personalWordbookUrl } from "./runtime-config.js?v=75";
+import { setupPwa } from "./pwa.js?v=75";
+import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=75";
+import { createPersonalApi } from "./personal-api.js?v=75";
 import {
   createPersonalDraftStore, createPersonalExpiryTimer, createPersonalMutationTracker, createPersonalSessionScope,
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
   validatePersonalEntry, validatePersonalInput, validatePersonalList,
   validatePersonalPassword, validatePersonalSession, validatePersonalUsername
-} from "./personal-storage.js?v=74";
+} from "./personal-storage.js?v=75";
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
-  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=74";
-import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=74";
+  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=75";
+import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=75";
+import { lookupPersonalDictionary } from "./personal-dictionary.js?v=75";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
 const drafts = createPersonalDraftStore();
+const dictionaryDraftOrigins = new Map(); // Same-UID, memory-only automatic-fill provenance.
 const mutations = createPersonalMutationTracker();
 const scope = createPersonalSessionScope();
 const expiryTimer = createPersonalExpiryTimer();
@@ -28,12 +30,15 @@ let originReady = false;
 let verificationTask = null;
 let detailEntry = null;
 let conflictEntry = null;
+let dictionarySequence = 0;
+let dictionaryController = null;
 const state = {
   phase: "checking", authView: "login", authBusy: false, user: null, csrfToken: "", expiresAt: "",
   entries: [], revision: 0, entriesLoaded: false, listBusy: false, entryBusy: false,
   editor: null, recovery: null, authType: requestedAuth,
   collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
-  publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null
+  publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
+  dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null
 };
 const RATING_LABELS = { again: "再来一次", hard: "有点难", good: "记得", easy: "很熟" };
 const privateOptions = (signal, extra = {}) => ({ signal, authType: state.authType, ...extra });
@@ -67,10 +72,12 @@ function clearPasswords() {
 }
 
 function clearPrivateDom() {
+  resetDictionary();
+  $("member-dictionary-term").value = "";
   $("member-entry-list").replaceChildren();
   $("member-username").textContent = "";
   $("member-search").value = "";
-  for (const id of ["member-term", "member-meaning", "member-note"]) $(id).value = "";
+  for (const id of ["member-term", "member-partOfSpeech", "member-meaning", "member-note"]) $(id).value = "";
   $("member-detail-term").textContent = "";
   $("member-detail-meaning").textContent = "";
   $("member-detail-note").textContent = "";
@@ -83,8 +90,8 @@ function clearPrivateDom() {
   $("member-source-list").replaceChildren();
   $("member-source-search").value = "";
   $("member-learning-history-list").replaceChildren();
-  for (const id of ["member-detail-source", "member-detail-original", "member-detail-definition", "member-detail-usage", "member-detail-example",
-    "member-study-term", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
+  for (const id of ["member-detail-pos", "member-detail-source", "member-detail-original", "member-detail-definition", "member-detail-usage", "member-detail-example",
+    "member-study-term", "member-study-pos", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
   for (const id of ["member-detail-dialog", "delete-account-dialog", "member-study-dialog"]) if ($(id).open) $(id).close();
   detailEntry = null;
   conflictEntry = null;
@@ -110,11 +117,12 @@ function clearSession({ discardDrafts = false } = {}) {
   state.learningLoaded = false;
   state.learningBusy = false;
   state.study = null;
+  state.dictionaryApplied = null;
   state.sourceBusy = false;
   state.selectedSources.clear();
   state.collectionId = "all";
   state.chapterId = "all";
-  if (discardDrafts) { drafts.clear(); mutations.clear(); }
+  if (discardDrafts) { drafts.clear(); mutations.clear(); dictionaryDraftOrigins.clear(); }
   clearPrivateDom();
 }
 
@@ -158,6 +166,7 @@ function renderChrome() {
   $("member-entry-form").querySelector("fieldset").disabled = !ready || state.entryBusy;
   const imported = Boolean(state.editor?.sourceContexts?.length);
   $("member-term").readOnly = imported;
+  $("member-partOfSpeech").readOnly = imported;
   $("member-imported-hint").hidden = !imported;
   $("member-meaning").maxLength = imported ? 40000 : 4000;
   $("delete-account-form").querySelector("fieldset").disabled = !ready || state.entryBusy;
@@ -178,6 +187,10 @@ function renderChrome() {
   for (const id of ["member-recovery-copy", "member-recovery-download", "member-recovery-ack"]) $(id).disabled = !recovery;
   $("member-recovery-continue").disabled = !recovery || !$("member-recovery-ack").checked;
   $("member-source-toggle").disabled = !ready || state.entryBusy;
+  $("member-dictionary-term").disabled = !ready;
+  $("member-dictionary-search").disabled = !ready || state.dictionaryBusy;
+  $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : "查词";
+  $("member-dictionary-use").disabled = !ready || state.entryBusy || state.dictionaryBusy || !state.dictionaryResult || !state.entriesLoaded || state.listBusy;
   for (const id of ["member-source-book", "member-source-chapter", "member-source-search", "member-source-all", "member-source-clear"]) $(id).disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-source-add").disabled = !ready || !state.entriesLoaded || state.entryBusy || state.listBusy || state.sourceBusy || state.selectedSources.size === 0;
   $("member-source-selected-count").textContent = `已选 ${state.selectedSources.size} / 100`;
@@ -204,9 +217,13 @@ function sessionValue(value) {
   return validatePersonalSession(value);
 }
 
-function fillEditor(draft, { focus = false } = {}) {
+function fillEditor(draft, { focus = false, restoreDictionaryOrigin = false } = {}) {
+  const origin = restoreDictionaryOrigin && state.user ? dictionaryDraftOrigins.get(state.user.id) : null;
+  state.dictionaryApplied = origin && normalizeEnglish(origin.term) === normalizeEnglish(draft.term) ? { ...origin } : null;
+  if (state.user && !restoreDictionaryOrigin) dictionaryDraftOrigins.delete(state.user.id);
   state.editor = structuredClone(draft);
-  for (const field of ["term", "meaning", "note"]) $(`member-${field}`).value = draft[field];
+  for (const field of ["term", "partOfSpeech", "meaning", "note"]) $(`member-${field}`).value = draft[field];
+  if (draft.sourceContexts?.length) $("member-partOfSpeech").value = personalSourceContext(draft, state.collectionId, state.chapterId)?.partOfSpeech || draft.partOfSpeech;
   if (state.user) drafts.write(state.user.id, state.editor);
   conflictEntry = null;
   $("member-conflict").hidden = true;
@@ -217,6 +234,7 @@ function fillEditor(draft, { focus = false } = {}) {
 function captureDraft() {
   if (!state.user || !state.editor || state.phase !== "ready") return null;
   for (const field of ["term", "meaning", "note"]) state.editor[field] = $(`member-${field}`).value;
+  if (!state.editor.sourceContexts?.length) state.editor.partOfSpeech = $("member-partOfSpeech").value;
   drafts.write(state.user.id, state.editor);
   return state.editor;
 }
@@ -238,11 +256,12 @@ function adoptSession(result, { recoveryCode = "" } = {}) {
   state.entryBusy = false;
   state.authBusy = false;
   drafts.retainOnly(session.user.id);
+  for (const uid of dictionaryDraftOrigins.keys()) if (uid !== session.user.id) dictionaryDraftOrigins.delete(uid);
   mutations.retainOnly(session.user.id);
   lockMarker(false);
   state.phase = recoveryCode ? "recovery" : "ready";
   state.recovery = recoveryCode ? { code: recoveryCode, username: session.user.username, kind: "register", token: scope.capture() } : null;
-  fillEditor(drafts.read(session.user.id) || personalDraft());
+  fillEditor(drafts.read(session.user.id) || personalDraft(), { restoreDictionaryOrigin: true });
   renderEntries();
   renderChrome();
   const token = scope.capture();
@@ -300,6 +319,69 @@ function selectOptions(element, options, selected) {
     option.selected = id === selected;
     return option;
   }));
+}
+
+function resetDictionary() {
+  dictionarySequence++;
+  dictionaryController?.abort(); dictionaryController = null;
+  state.dictionaryBusy = false; state.dictionaryResult = null;
+  $("member-dictionary-result").hidden = true;
+  for (const id of ["member-dictionary-word", "member-dictionary-pos", "member-dictionary-meaning", "member-dictionary-status"]) $(id).textContent = "";
+}
+
+async function queryDictionary(event) {
+  event.preventDefault();
+  if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
+  resetDictionary();
+  const query = $("member-dictionary-term").value;
+  const sequence = dictionarySequence;
+  const token = scope.capture();
+  const controller = new AbortController(); dictionaryController = controller;
+  state.dictionaryBusy = true;
+  $("member-dictionary-status").textContent = "正在读取本站本地词典…首次加载后可重复查询。";
+  renderChrome();
+  try {
+    const result = await request(async signal => {
+      const stop = () => controller.abort(); signal.addEventListener("abort", stop, { once: true });
+      try { return await lookupPersonalDictionary(query, { signal: controller.signal }); }
+      finally { signal.removeEventListener("abort", stop); }
+    });
+    if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
+    state.dictionaryResult = result;
+    if (!result) {
+      $("member-dictionary-status").textContent = "本地词典未收录或没有可用中文释义。请核对拼写，或从卓的公开词库选词；不会联网补查。";
+      return;
+    }
+    $("member-dictionary-word").textContent = result.term;
+    $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
+    $("member-dictionary-meaning").textContent = result.meaning;
+    $("member-dictionary-result").hidden = false;
+    $("member-dictionary-status").textContent = "本地词典释义，不代表特定章节语境；尚未加入词本。";
+  } catch (error) {
+    if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
+  } finally {
+    if (scope.current(token) && sequence === dictionarySequence) { state.dictionaryBusy = false; dictionaryController = null; renderChrome(); }
+  }
+}
+
+function useDictionaryResult() {
+  const result = state.dictionaryResult;
+  if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || !state.entriesLoaded || !result) return;
+  const existing = state.entries.find(entry => entry.normalized === normalizeEnglish(result.term));
+  if (existing) {
+    $("member-dictionary-status").textContent = "这个词已经在你的词本中，不会重复添加或覆盖自己的释义和备注。";
+    showEntry(contextualizePersonalEntry(existing, state.collectionId, state.chapterId));
+    return;
+  }
+  captureDraft();
+  if (!discardAllowed()) return;
+  const draft = personalDraft();
+  Object.assign(draft, { term: result.term, partOfSpeech: result.partOfSpeech, meaning: result.meaning });
+  fillEditor(draft, { focus: true });
+  state.dictionaryApplied = { ...result };
+  dictionaryDraftOrigins.set(state.user.id, { ...result });
+  status("本地词典的词性和释义已填入草稿；点击保存后加入自己的词本。", "saved");
+  $("member-entry-form").scrollIntoView({ block: "nearest", behavior: "auto" });
 }
 
 function renderPrivateScope() {
@@ -384,7 +466,8 @@ function renderSource() {
     const content = document.createElement("span");
     const title = document.createElement("strong"); title.lang = "en"; title.textContent = entry.term;
     const meaning = document.createElement("span"); meaning.className = "source-meaning"; meaning.textContent = entry.meaning;
-    content.append(title, meaning);
+    const partOfSpeech = document.createElement("small"); partOfSpeech.className = "source-pos"; partOfSpeech.textContent = entry.partOfSpeech || "词性未标注";
+    content.append(title, partOfSpeech, meaning);
     if (already) { const note = document.createElement("small"); note.textContent = "已收录此范围，不会重复添加"; content.append(note); }
     row.append(input, content);
     return row;
@@ -460,8 +543,12 @@ function renderStudy() {
   $("member-study-reveal").hidden = completed || study.revealed;
   $("member-study-answer").hidden = !completed && !study.revealed;
   $("member-study-meaning").textContent = completed ? `本次已确认同步 ${study.completed} 条自评记录。下次到期时间由服务器安排。` : entry.meaning;
-  $("member-study-usage").textContent = context?.usage || "";
-  $("member-study-example").textContent = context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
+  $("member-study-pos").textContent = completed ? "" : context?.partOfSpeech || entry.partOfSpeech || "词性未标注";
+  const detailed = state.authType === "github-owner";
+  $("member-study-usage").hidden = !detailed;
+  $("member-study-example").hidden = !detailed;
+  $("member-study-usage").textContent = detailed ? context?.usage || "" : "";
+  $("member-study-example").textContent = detailed && context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
   $("member-study-note").textContent = entry?.note || "";
   $("member-study-ratings").hidden = completed || !study.revealed;
   $("member-study-ratings").disabled = study.busy || state.learningBusy || !state.learningLoaded || Boolean(study.pending);
@@ -720,12 +807,15 @@ function showEntry(entry) {
   $("member-detail-note").textContent = entry.note;
   $("member-detail-note-section").hidden = !entry.note;
   const context = entry.selectedSourceContext || personalSourceContext(entry, state.collectionId, state.chapterId);
+  $("member-detail-pos").textContent = context?.partOfSpeech || entry.partOfSpeech || "词性未标注";
+  const detailed = state.authType === "github-owner";
   $("member-detail-source-section").hidden = !context;
   $("member-detail-source").textContent = context ? [context.bookTitle, context.chapterTitle, context.page].filter(Boolean).join(" · ") : "";
-  $("member-detail-original").textContent = context ? [context.originalInput ? `原文形式：${context.originalInput}` : "", context.partOfSpeech, context.phonetic].filter(Boolean).join(" · ") : "";
-  $("member-detail-definition").textContent = context?.definition || "";
-  $("member-detail-usage").textContent = context?.usage || "";
-  $("member-detail-example").textContent = context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
+  for (const id of ["member-detail-original", "member-detail-definition", "member-detail-usage", "member-detail-example"]) $(id).hidden = !detailed;
+  $("member-detail-original").textContent = detailed && context ? [context.originalInput ? `原文形式：${context.originalInput}` : "", context.phonetic].filter(Boolean).join(" · ") : "";
+  $("member-detail-definition").textContent = detailed ? context?.definition || "" : "";
+  $("member-detail-usage").textContent = detailed ? context?.usage || "" : "";
+  $("member-detail-example").textContent = detailed && context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
   $("member-detail-edit").disabled = state.entryBusy;
   if (!$("member-detail-dialog").open) $("member-detail-dialog").showModal();
 }
@@ -756,7 +846,8 @@ function renderEntries() {
     top.append(term, actions);
     const meaning = document.createElement("p"); meaning.className = "entry-meaning";
     meaning.textContent = entry.meaning || "中文释义待补充";
-    row.append(top, meaning);
+    const partOfSpeech = document.createElement("p"); partOfSpeech.className = "entry-pos"; partOfSpeech.textContent = entry.selectedSourceContext?.partOfSpeech || entry.partOfSpeech || "词性未标注";
+    row.append(top, partOfSpeech, meaning);
     if (entry.selectedSourceContext) { const source = document.createElement("p"); source.className = "entry-source"; source.textContent = [entry.selectedSourceContext.bookTitle, entry.selectedSourceContext.chapterTitle, entry.selectedSourceContext.page].filter(Boolean).join(" · "); row.append(source); }
     if (entry.note) { const note = document.createElement("p"); note.className = "entry-note"; note.textContent = entry.note; row.append(note); }
     return row;
@@ -788,6 +879,11 @@ async function saveEntry(event) {
   const slot = draft.id ? `update:${draft.id}` : "create";
   if (draft.sourceContexts?.length && !draft.meaningEdited && draft.meaning === draft.baseline.meaning) {
     input.meaning = state.entries.find((entry) => entry.id === draft.id)?.meaning ?? input.meaning;
+  }
+  if (draft.sourceContexts?.length) {
+    const original = state.entries.find((entry) => entry.id === draft.id);
+    if (Object.prototype.hasOwnProperty.call(original || {}, "partOfSpeech")) input.partOfSpeech = original.partOfSpeech;
+    else delete input.partOfSpeech;
   }
   const payload = { ...(draft.id ? { revision: draft.revision } : {}), ...input };
   const body = { ...payload, mutationId: mutations.idFor(uid, slot, payload) };
@@ -902,7 +998,19 @@ $("member-login-form").addEventListener("submit", (event) => void authenticate("
 $("member-register-form").addEventListener("submit", (event) => void authenticate("register", event));
 $("member-reset-form").addEventListener("submit", (event) => void resetPassword(event));
 $("member-entry-form").addEventListener("submit", (event) => void saveEntry(event));
-$("member-entry-form").addEventListener("input", () => { captureDraft(); renderChrome(); });
+$("member-entry-form").addEventListener("input", event => {
+  if (event.target.id === "member-term" && state.dictionaryApplied && normalizeEnglish(event.target.value) !== normalizeEnglish(state.dictionaryApplied.term)) {
+    if ($("member-meaning").value === state.dictionaryApplied.meaning) $("member-meaning").value = "";
+    if ($("member-partOfSpeech").value === state.dictionaryApplied.partOfSpeech) $("member-partOfSpeech").value = "";
+    state.dictionaryApplied = null;
+    if (state.user) dictionaryDraftOrigins.delete(state.user.id);
+    status("英文已改变，已清除之前自动填入的词性和释义，请重新查词或自行填写。", "loading");
+  }
+  captureDraft(); renderChrome();
+});
+$("member-dictionary-form").addEventListener("submit", event => void queryDictionary(event));
+$("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
+$("member-dictionary-use").addEventListener("click", useDictionaryResult);
 $("member-search").addEventListener("input", renderEntries);
 $("member-book").addEventListener("change", () => { state.collectionId = $("member-book").value; state.chapterId = "all"; renderEntries(); });
 $("member-chapter").addEventListener("change", () => { state.chapterId = $("member-chapter").value; renderEntries(); });

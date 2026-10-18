@@ -13,6 +13,7 @@ if (typeof location !== "undefined"
 const EXPECTED_SCHEMA_VERSION = 1;
 
 let cachedDictionaryPromise = null;
+let cancelDictionaryLoad = null;
 
 export function normalizeCoreKey(value) {
   return String(value || "")
@@ -92,18 +93,30 @@ export function parseCoreDictionary(payload) {
   });
 }
 
-export async function loadCoreDictionary({ fetchImpl = globalThis.fetch, url = CORE_DICTIONARY_URL, force = false } = {}) {
-  if (force) cachedDictionaryPromise = null;
+export async function loadCoreDictionary({ fetchImpl = globalThis.fetch, url = CORE_DICTIONARY_URL, force = false, timeoutMs = 20_000 } = {}) {
+  if (force) resetCoreDictionaryCacheForTests();
   if (!cachedDictionaryPromise) {
-    cachedDictionaryPromise = (async () => {
+    const controller = new AbortController();
+    let rejectDeadline;
+    const deadline = new Promise((_, reject) => { rejectDeadline = reject; });
+    const cancel = () => { controller.abort(); rejectDeadline(new Error("本地词典读取已停止，请重试。")); };
+    const timer = setTimeout(() => { controller.abort(); rejectDeadline(new Error("本地词典读取超时，请重试。")); }, Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 20_000);
+    const download = (async () => {
       if (typeof fetchImpl !== "function") throw new Error("当前环境无法读取本地词典。");
-      const response = await fetchImpl(url, { cache: "force-cache" });
+      const response = await fetchImpl(url, { cache: "force-cache", credentials: "omit", signal: controller.signal });
       if (!response?.ok) throw new Error(`本地词典读取失败：${response?.status || "network"}`);
       return parseCoreDictionary(await response.json());
-    })().catch((error) => {
-      cachedDictionaryPromise = null;
+    })();
+    const loading = Promise.race([download, deadline]).catch((error) => {
+      // An older failed/forced load must never invalidate a newer shared load.
+      if (cachedDictionaryPromise === loading) cachedDictionaryPromise = null;
       throw error;
+    }).finally(() => {
+      clearTimeout(timer);
+      if (cancelDictionaryLoad === cancel) cancelDictionaryLoad = null;
     });
+    cachedDictionaryPromise = loading;
+    cancelDictionaryLoad = cancel;
   }
   return cachedDictionaryPromise;
 }
@@ -120,5 +133,7 @@ export function lookupParsedCoreEntry(dictionary, term) {
 }
 
 export function resetCoreDictionaryCacheForTests() {
+  cancelDictionaryLoad?.();
+  cancelDictionaryLoad = null;
   cachedDictionaryPromise = null;
 }

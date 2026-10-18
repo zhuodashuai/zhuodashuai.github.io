@@ -29,11 +29,11 @@ test("changed module APIs use one versioned browser graph before any service wor
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
     for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
       const target = match[1].slice(2).split("?")[0];
-      if (changed.has(target)) assert.equal(match[1], `./${target}?v=74`, `${file} must not import a fresh old HTTP-cache dependency`);
+      if (changed.has(target)) assert.equal(match[1], `./${target}?v=75`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
   for (const file of changed) {
-    assert.ok(serviceWorker.includes(`"./js/${file}?v=74"`), `${file}'s versioned browser URL must work offline`);
+    assert.ok(serviceWorker.includes(`"./js/${file}?v=75"`), `${file}'s versioned browser URL must work offline`);
     assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
 });
@@ -83,12 +83,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v74/);
+  assert.match(serviceWorker, /zhuo-wordbook-v75/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
-  assert.match(serviceWorker, /\.\/styles\.css\?v=74/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=74/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=74/);
+  assert.match(serviceWorker, /\.\/styles\.css\?v=75/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=75/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=75/);
   assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup-ui\.js/);
@@ -107,11 +107,11 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=74"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=74"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=74"/);
-  assert.match(ownerHtml, /href="styles\.css\?v=74"/);
-  assert.match(guideHtml, /href="styles\.css\?v=74"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=75"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=75"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=75"/);
+  assert.match(ownerHtml, /href="styles\.css\?v=75"/);
+  assert.match(guideHtml, /href="styles\.css\?v=75"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
@@ -165,7 +165,7 @@ test("synonyms remain one entered-word-only field throughout owner editing and p
 });
 
 test("owner lookup shows a safe local preview while the slower AI organizer runs", () => {
-  assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js"/);
+  assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js\?v=75"/);
   assert.match(ownerAppSource, /lookupCoreEntry\(cleaned\)/);
   assert.match(ownerAppSource, /本地 ECDICT 候选/);
   assert.match(ownerAppSource, /候选不会自动发布/);
@@ -194,8 +194,8 @@ test("owner publication applies the browser Chinese-quality and structured-sense
 
 test("public and owner readers share the same accessible entry detail controller", () => {
   assert.match(entryDetailSource, /export function createEntryDetailController/);
-  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=74"/);
-  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=74"/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=75"/);
+  assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=75"/);
   assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(vocabHtml, /<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dialog-term">/);

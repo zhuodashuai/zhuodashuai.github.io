@@ -9,6 +9,7 @@ export interface PersonalEntry {
   revision: number;
   term: string;
   normalized: string;
+  partOfSpeech?: string;
   meaning: string;
   note: string;
   createdAt: string;
@@ -57,11 +58,13 @@ export class PersonalWordbook implements DurableObject {
       entries: [...rows.values()].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.id.localeCompare(b.id)), limit: PERSONAL_LIMITS.entries });
   }
 
-  private content(body: Record<string, unknown>, updating = false): Pick<PersonalEntry, "term" | "normalized" | "meaning" | "note"> {
+  private content(body: Record<string, unknown>, updating = false): Pick<PersonalEntry, "term" | "normalized" | "partOfSpeech" | "meaning" | "note"> {
     const raw = memberText(body.term, 200, "英文词条");
     const term = validateEnglishInput(raw);
     if ([...term].length > 200) throw new ApiError(400, "invalid_entry", "英文词条不能超过 200 个字符。");
-    return { term, normalized: normalizeEnglish(term), meaning: memberText(body.meaning ?? "", updating ? 20000 : 2000, "释义"), note: memberText(body.note ?? "", 1000, "笔记") };
+    return { term, normalized: normalizeEnglish(term),
+      ...(Object.prototype.hasOwnProperty.call(body, "partOfSpeech") ? { partOfSpeech: memberText(body.partOfSpeech, 200, "词性") } : {}),
+      meaning: memberText(body.meaning ?? "", updating ? 20000 : 2000, "释义"), note: memberText(body.note ?? "", 1000, "笔记") };
   }
 
   private async applyWriteRate(): Promise<void> {
@@ -91,7 +94,7 @@ export class PersonalWordbook implements DurableObject {
 
   private async mutate(body: Record<string, unknown>, action: "create" | "update" | "delete"): Promise<Response> {
     const common = ["userId", "sessionHash", "csrfToken", "mutationId"];
-    memberFields(body, [...common, ...(action === "create" ? ["term"] : ["entryId", "revision"]), ...(action === "update" ? ["term"] : [])], ["authType", ...(action === "delete" ? [] : ["meaning", "note"])]);
+    memberFields(body, [...common, ...(action === "create" ? ["term"] : ["entryId", "revision"]), ...(action === "update" ? ["term"] : [])], ["authType", ...(action === "delete" ? [] : ["partOfSpeech", "meaning", "note"])]);
     await this.authenticate(body, true);
     if (typeof body.mutationId !== "string" || !MEMBER_UUID.test(body.mutationId)) throw new ApiError(400, "invalid_mutation_id", "保存操作需要有效的唯一标识。");
     if (action !== "create" && (!validEntryId(body.entryId) || !Number.isSafeInteger(body.revision) || Number(body.revision) < 1)) {
@@ -140,6 +143,7 @@ export class PersonalWordbook implements DurableObject {
       if (action === "create" && metadata.count >= PERSONAL_LIMITS.entries) throw new ApiError(413, "personal_entry_limit", "个人词库最多保存 1,000 条，请先导出并整理旧词。");
       const now = new Date().toISOString();
       const entry: PersonalEntry | null = content ? { id: previous?.id || `member-${crypto.randomUUID()}`, revision: (previous?.revision || 0) + 1,
+        ...(previous?.partOfSpeech === undefined ? {} : { partOfSpeech: previous.partOfSpeech }),
         ...content, createdAt: previous?.createdAt || now, updatedAt: now,
         ...(previous?.sourceContexts ? { sourceContexts: previous.sourceContexts, meaningEdited: Boolean(previous.meaningEdited || content.meaning !== previous.meaning) } : {}) } : null;
       if (entry && byteLength(entry) > SOURCE_LIMITS.entryBytes) throw new ApiError(413, "selection_entry_too_large", "词条和完整来源超过安全上限，没有截断或覆盖。");
@@ -238,6 +242,7 @@ export class PersonalWordbook implements DurableObject {
           const manuallyMeaningful = previous && !previous.sourceContexts?.length && Boolean(previous.meaning.trim());
           entry = { id: previous?.id || `member-${crypto.randomUUID()}`, revision: (previous?.revision || 0) + 1,
             term: previous?.term || card.term, normalized: card.normalized,
+            partOfSpeech: previous?.partOfSpeech ?? card.contexts[0].partOfSpeech,
             meaning: previous && (previous.sourceContexts?.length || previous.meaning.trim()) ? previous.meaning : card.contexts[0].meaning,
             note: previous?.note || "", createdAt: previous?.createdAt || now, updatedAt: now, sourceContexts: contexts,
             meaningEdited: previous?.sourceContexts?.length ? Boolean(previous.meaningEdited) : Boolean(manuallyMeaningful) };

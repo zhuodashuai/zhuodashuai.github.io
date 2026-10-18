@@ -99,7 +99,21 @@ const memberHeaders = { "Cache-Control": "private, no-store", Pragma: "no-cache"
 const fixtureOwnerId = "15604207-8000-4000-8000-000000000001";
 
 function memberJson(response, status, value, headers = {}) {
-  return json(response, status, value, { ...memberHeaders, ...headers });
+  const supportsPos = String(response.req.headers["x-wordbook-fields"] || "").split(",").some(field => field.trim() === "partOfSpeech");
+  const payload = supportsPos ? value : structuredClone(value);
+  // The old v74 validator accepts exactly the original private-card DTO. Only
+  // project response fields: never mutate stored cards or their source contexts.
+  const legacyEntry = entry => {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry) || typeof entry.id !== "string" || !entry.id.startsWith("member-")) return entry;
+    const { partOfSpeech: _newField, ...legacy } = entry;
+    return legacy;
+  };
+  if (!supportsPos && payload && typeof payload === "object" && !Array.isArray(payload)) {
+    if (Object.hasOwn(payload, "entry")) payload.entry = legacyEntry(payload.entry);
+    if (Array.isArray(payload.entries)) payload.entries = payload.entries.map(legacyEntry);
+    if (payload.error?.details && Object.hasOwn(payload.error.details, "existing")) payload.error.details.existing = legacyEntry(payload.error.details.existing);
+  }
+  return json(response, status, payload, { ...memberHeaders, ...headers });
 }
 
 function memberError(response, status, code, message, details) {
@@ -215,13 +229,14 @@ function memberFixtureSelection(request, response, state, account, payload) {
     const now = new Date().toISOString();
     if (!entry) {
       entry = { id: `member-${crypto.randomUUID()}`, revision: 1, term: publicEntry.term, normalized: publicEntry.normalized,
-        meaning: contexts[0].meaning, note: "", createdAt: now, updatedAt: now, sourceContexts: [], meaningEdited: false };
+        meaning: contexts[0].meaning, partOfSpeech: contexts[0].partOfSpeech, note: "", createdAt: now, updatedAt: now, sourceContexts: [], meaningEdited: false };
       account.entries.push(entry); added++;
     } else {
       reused++;
       if (!entry.sourceContexts?.length) {
         entry.meaningEdited = Boolean(entry.meaning);
         if (!entry.meaning) entry.meaning = contexts[0].meaning;
+        if (!Object.hasOwn(entry, "partOfSpeech")) entry.partOfSpeech = contexts[0].partOfSpeech;
       }
     }
     const existing = entry.sourceContexts || [];
@@ -262,7 +277,7 @@ async function memberApi(request, response, url) {
       : /^reviews\//u.test(path) ? ["rating", "revision", "mutationId"]
       : path === "entries" ? ["term", "mutationId"]
       : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : [];
-    const optional = (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note"] : [];
+    const optional = (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note", "partOfSpeech"] : [];
     if (!payload || typeof payload !== "object" || Array.isArray(payload)
       || required.some(key => !Object.hasOwn(payload, key))
       || Object.keys(payload).some(key => !required.includes(key) && !optional.includes(key))) {
@@ -363,6 +378,7 @@ async function memberApi(request, response, url) {
     }
     if (typeof payload.term !== "string" || !payload.term.trim() || [...payload.term].length > 200
       || (payload.meaning !== undefined && (typeof payload.meaning !== "string" || [...payload.meaning].length > 2000))
+      || (payload.partOfSpeech !== undefined && (typeof payload.partOfSpeech !== "string" || [...payload.partOfSpeech].length > 200 || /[^\P{Cc}\n\t]|\p{Cf}/u.test(payload.partOfSpeech)))
       || (payload.note !== undefined && (typeof payload.note !== "string" || [...payload.note].length > 1000))) {
       return memberError(response, 400, "invalid_entry", "词条为空或长度超出限制。");
     }
@@ -378,6 +394,8 @@ async function memberApi(request, response, url) {
     const entry = {
       id: id || `member-${crypto.randomUUID()}`, revision: id ? account.entries[index].revision + 1 : 1,
       term, normalized, meaning: payload.meaning || "", note: payload.note || "",
+      ...(payload.partOfSpeech !== undefined ? { partOfSpeech: payload.partOfSpeech }
+        : id && Object.hasOwn(account.entries[index], "partOfSpeech") ? { partOfSpeech: account.entries[index].partOfSpeech } : {}),
       createdAt: id ? account.entries[index].createdAt : now, updatedAt: now
     };
     if (id && account.entries[index].sourceContexts?.length) {

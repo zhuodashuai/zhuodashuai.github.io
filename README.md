@@ -45,7 +45,9 @@ The importer preserves the canonical term, page and form seen in the text, assig
 
 Published entries reach the public reader through a schema-validated, read-only Worker snapshot as soon as GitHub confirms the write, without waiting for a GitHub Pages rebuild. Visible public tabs refresh on focus, reconnect and every 30 seconds; the deployed Pages JSON and IndexedDB remain validated fallbacks. Public app-code updates activate automatically, while the Owner editor keeps its draft-safe confirmation gate.
 
-The first production phase intentionally does not expose a visitor personal-wordbook editor. Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `wordbook-api/README.md` for the security model and one-time deployment setup.
+Ordinary accounts have a private wordbook: choose published books/chapters or look up basic parts of speech and Chinese meanings in the packaged 7,500-entry ECDICT snapshot. Dictionary queries download only a first-party static data file; there is no online dictionary, translation, spelling or AI-provider fallback. Entries and spaced-review records are saved separately for each account through the site's own authenticated service. Unknown words are reported honestly, not generated. The owner keeps the existing GitHub login and full publishing workflow; members cannot publish or use owner AI services. See `vocab/guide.html` for usage and current limits.
+
+Owner publishing is served from a same-origin Cloudflare Worker and uses server-side GitHub App OAuth, a Secure HttpOnly session, strict account/repository IDs, CSRF protection and Git blob SHA concurrency. No PAT, GitHub write token or AI key is accepted by or stored in the browser. See `wordbook-api/README.md` for the security model and one-time deployment setup.
 
 ## Publishing
 
