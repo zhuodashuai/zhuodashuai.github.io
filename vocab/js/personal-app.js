@@ -359,7 +359,8 @@ async function queryDictionary(event) {
     $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
     $("member-dictionary-meaning").textContent = result.meaning;
     $("member-dictionary-result").hidden = false;
-    $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；尚未加入词本。具体含义请结合语境。`;
+    const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
+    $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。具体含义请结合语境。`;
   } catch (error) {
     if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
   } finally {

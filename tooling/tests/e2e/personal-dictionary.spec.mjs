@@ -169,7 +169,10 @@ test("24/7 can be looked up with Enter, saved, reloaded and looked up again with
   expect(saved.term).toBe("24/7"); expect(saved.partOfSpeech).toContain("adverb");
   await page.reload(); await ready(page);
   await expect(row(page, "24/7")).toBeVisible();
-  await lookup(page, "24/7"); await page.locator("#member-dictionary-use").click();
+  await lookup(page, "24/7");
+  await expect(page.locator("#member-dictionary-status")).toContainText("已在你的词本中");
+  await expect(page.locator("#member-dictionary-status")).not.toContainText("尚未加入");
+  await page.locator("#member-dictionary-use").click();
   await expect(page.locator("#member-dictionary-status")).toContainText(/已经|不会重复/u);
   if (await page.locator("#member-save").isEnabled()) await page.locator("#member-save").click();
   await expect(page.locator(".personal-entry")).toHaveCount(1);
