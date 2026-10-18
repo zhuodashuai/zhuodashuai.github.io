@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183b32">
+  <meta name="description" content="卓的中英词典：免登录查询英文词、词形和中文释义。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="dictionary.css?v=80">
+  <title>中英词典 · 卓的单词本</title>
+</head>
+<body data-page="dictionary">
+  <a class="skip-link" href="#main">跳到查词</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="卓的单词本首页"><span class="brand-seal" aria-hidden="true">卓</span><span>卓的单词本</span></a>
+    <nav aria-label="页面导航">
+      <a href="./">公开词卡</a>
+      <a id="dictionary-personal-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">我的词本</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="search-panel" aria-labelledby="dictionary-title">
+      <div class="title-row"><h1 id="dictionary-title">中英词典</h1><p id="dictionary-count" aria-live="polite">正在读取词条数量…</p></div>
+      <form id="dictionary-form" action="dictionary.html" role="search">
+        <label for="dictionary-query">输入英文或中文释义</label>
+        <div class="search-row">
+          <input id="dictionary-query" type="search" maxlength="200" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" placeholder="如：acquisitive / 监视" aria-describedby="dictionary-hint">
+          <button id="dictionary-submit" type="submit">查词</button>
+          <button id="dictionary-cancel" type="button" class="quiet-button" hidden>取消</button>
+        </div>
+        <p id="dictionary-hint" class="hint">按 Enter 查询 · 无需登录 · 不会自动加入词本</p>
+      </form>
+      <p id="dictionary-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <noscript><p class="status">查词需要 JavaScript。请在浏览器中启用后刷新。</p></noscript>
+    </section>
+    <section id="dictionary-results" class="results-layout" aria-label="查询结果" aria-busy="false">
+      <aside id="dictionary-choice-panel" class="choice-panel" aria-labelledby="dictionary-choice-title" hidden>
+        <h2 id="dictionary-choice-title">选择词条</h2>
+        <ul id="dictionary-choices"></ul>
+      </aside>
+      <article id="dictionary-result" class="result-card" aria-labelledby="dictionary-term" hidden>
+        <div class="result-title-row"><h2 id="dictionary-term" lang="en" tabindex="-1"></h2><p id="dictionary-pos" class="part-of-speech"></p></div>
+        <p id="dictionary-matched-form" class="hint" hidden></p>
+        <div id="dictionary-meaning" class="meaning"></div>
+        <p id="dictionary-source" class="source"></p>
+        <details id="dictionary-variant-panel" class="variant-panel" hidden>
+          <summary id="dictionary-variant-summary">其他来源释义</summary>
+          <div id="dictionary-variants"></div>
+        </details>
+        <div class="result-actions"><a id="dictionary-add" class="primary-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">加入我的词本</a><span>进入词本后确认保存</span></div>
+      </article>
+    </section>
+  </main>
+  <footer><p>基础释义来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT</a>（<a href="data/expanded-dictionary/ECDICT-LICENSE.txt">MIT 许可证</a>）；其他释义逐项标明来源。</p><p>仅查询本站公开索引，不调用在线翻译或 AI。</p></footer>
+  <script type="module" src="js/dictionary-app.js?v=80"></script>
+</body>
+</html>

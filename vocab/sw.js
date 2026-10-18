@@ -1,14 +1,16 @@
-const CACHE_NAME = "zhuo-wordbook-v79";
+const CACHE_NAME = "zhuo-wordbook-v80";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
   "./personal.html", "./personal.css?v=79",
-  "./js/personal-app.js?v=79", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=78",
+  "./js/personal-app.js?v=80", "./js/personal-api.js?v=77", "./js/personal-storage.js?v=78",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=78", "./js/personal-study.js?v=77",
   "./js/personal-dictionary.js?v=78", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
   "./js/expanded-dictionary.js?v=79", "./js/expanded-dictionary.js",
+  "./dictionary.html", "./dictionary.css?v=80", "./dictionary.css",
+  "./js/dictionary-app.js?v=80", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
   "./js/member-dictionary-manifest.js?v=78", "./js/member-dictionary-manifest.js",
   "./js/book-passages.js?v=77", "./js/book-passages-ui.js?v=77", "./js/book-passages.js", "./js/book-passages-ui.js",
   "./js/personal-selection.js", "./js/personal-study.js", "./js/study.js?v=77", "./js/review.js?v=77",
@@ -16,7 +18,7 @@ const SHELL = [
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
   "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=77", "./manifest.webmanifest",
-  "./js/public-app.js?v=77", "./js/owner-app.js?v=77", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/public-app.js?v=80", "./js/owner-app.js?v=80", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
@@ -140,6 +142,7 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     const fallback = url.pathname.endsWith("/owner.html") ? "./owner.html"
       : /\/personal(?:\.html)?\/?$/.test(url.pathname) ? "./personal.html"
+      : url.pathname.endsWith("/dictionary.html") ? "./dictionary.html"
       : url.pathname.endsWith("/quick-notes.html") ? "./quick-notes.html" : "./index.html";
     event.respondWith(networkFirst(request, fallback));
     return;

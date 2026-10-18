@@ -44,6 +44,34 @@ not a human semantic accuracy certificate.
 
 ## Fast static search
 
+### Connected entrances — application 2.5.1 / shell v80
+
+`vocab/dictionary.html` exposes the already-public index without requiring an
+account. English and Chinese searches use first-party static GETs only. The
+home page deliberately remains a search of published learning cards, now labelled
+“搜索已收录词卡”, with a permanent “中英查词” entrance and a missed-card link that
+passes the query as `#q=`, never an API query parameter. Public lookup is not a
+claim that every workbook row has a licensed definition.
+
+The dictionary's personal-book link passes only a bounded `#lookup=` fragment to
+the fixed authentication origin. After login it prefills the search field once;
+it does not search, fill an editor, save a card or call AI. Ordinary registration
+and the owner's original GitHub identity remain separate. GitHub login opens in
+a new tab so the original pending lookup survives; return and use “重新确认”.
+
+The owner AI editor now has an independent expanded-dictionary preview when the
+old core has no exact match or fails. It preserves source labels, refuses to
+choose an ambiguous form, never writes fields, and cannot revive a busy state
+after AI completion, logout or a later editing run. Strict AI sense validation
+and publishing gates are unchanged. Search-only visitors never enter this AI
+path. No dictionary data, published cards or private records changed in 2.5.1.
+
+Before this entrance-only release, the preserved baseline is Git main
+`370673f1b62302f35b1b236eebdb80598d3e65b6`, tree
+`a767e11e6659d31247269307b66663f4a7513576`, Worker application `2.5.0`, deployment
+`de4237fe-decb-41bf-a095-dbeaaca28fdc`. Revert this code release or restore that
+Worker version if necessary; never roll back account databases or learning data.
+
 The old compact hot-word index is retained. Rare English lookups read a small
 manifest and a relevant English shard. If an old inflection match is also an
 independent exact entry (for example `lettering` / `letter`), both are selectable;

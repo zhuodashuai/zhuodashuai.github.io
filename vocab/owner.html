@@ -7,7 +7,7 @@
 </head>
 <body data-page="owner">
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="topbar"><a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>管理</small></span></a><nav class="top-actions" aria-label="管理操作"><span class="network-chip" id="network-chip">检查网络中</span><a class="quiet-link" id="owner-personal-link" href="personal.html?auth=owner">我的学习词本</a><a class="quiet-link quick-notes-link" href="https://zhuodashuai.github.io/vocab/quick-notes.html">随手记</a><button class="quiet-button" id="install-button" type="button">安装应用</button><a class="quiet-link" href="guide.html" aria-label="使用手册">说明</a><a class="quiet-link" href="./" aria-label="查看公开词库">词库</a><button class="quiet-button" id="logout-button" type="button" hidden>退出</button></nav></header>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>管理</small></span></a><nav class="top-actions" aria-label="管理操作"><span class="network-chip" id="network-chip">检查网络中</span><a class="quiet-link" href="dictionary.html">中英查词</a><a class="quiet-link" id="owner-personal-link" href="personal.html?auth=owner">我的学习词本</a><a class="quiet-link quick-notes-link" href="https://zhuodashuai.github.io/vocab/quick-notes.html">随手记</a><button class="quiet-button" id="install-button" type="button">安装应用</button><a class="quiet-link" href="guide.html" aria-label="使用手册">说明</a><a class="quiet-link" href="./" aria-label="查看公开词库">词库</a><button class="quiet-button" id="logout-button" type="button" hidden>退出</button></nav></header>
   <main id="main">
     <section class="auth-gate" id="auth-gate" aria-labelledby="auth-title"><p class="eyebrow">安全登录</p><h1 id="auth-title">只有你可以进入。</h1><p id="auth-message">正在检查登录状态…</p><a class="primary-link large" id="login-link" href="/api/v1/auth/login" hidden>使用 GitHub 登录</a><p class="auth-note"><a href="guide.html">使用手册</a></p></section>
     <div id="owner-workspace" hidden inert>
@@ -42,6 +42,6 @@
   </dialog>
   <dialog class="conflict-dialog" id="conflict-dialog" aria-labelledby="conflict-title"><h2 id="conflict-title">同步冲突：没有覆盖远端内容</h2><p id="conflict-message"></p><ul id="conflict-fields"></ul><div class="button-row"><button type="button" id="conflict-use-merged">合并没有冲突的字段</button><button type="button" id="conflict-use-remote">改用远端版本</button><button type="button" id="conflict-close">先留着，稍后处理</button></div></dialog>
   <aside class="update-banner" id="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">立即更新</button></aside>
-<script type="module" src="js/owner-app.js?v=77"></script>
+  <script type="module" src="js/owner-app.js?v=80"></script>
 </body>
 </html>

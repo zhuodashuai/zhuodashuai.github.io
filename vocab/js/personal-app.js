@@ -13,6 +13,7 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary } from "./personal-dictionary.js?v=78";
 import { searchExpandedDictionary } from "./expanded-dictionary.js?v=79";
+import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -25,6 +26,16 @@ const LOCK_KEY = "zhuo-member-explicit-login-required"; // Nonsecret logout inte
 const tabId = crypto.randomUUID();
 const authParameter = new URLSearchParams(window.location.search).get("auth");
 const requestedAuth = authParameter === "owner" ? "github-owner" : authParameter === "member" ? "member" : "auto";
+const takeDictionaryPrefill = createDictionaryPrefill(window.location.hash);
+const initialLookup = dictionaryQueryFromHash(window.location.hash);
+if (initialLookup) {
+  for (const id of ["member-github-owner-link", "member-standard-login-link"]) {
+    const link = document.getElementById(id);
+    const url = new URL(link.href);
+    url.hash = new URLSearchParams({ lookup: initialLookup }).toString();
+    link.href = url.href;
+  }
+}
 let channel;
 try { channel = new BroadcastChannel("zhuo-member-auth-v1"); } catch { /* Revalidation remains authoritative. */ }
 let originReady = false;
@@ -189,6 +200,8 @@ function renderChrome() {
   $("member-recovery-continue").disabled = !recovery || !$("member-recovery-ack").checked;
   $("member-source-toggle").disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-dictionary-term").disabled = !ready;
+  const pendingLookup = takeDictionaryPrefill(ready, $("member-dictionary-term").value);
+  if (pendingLookup) $("member-dictionary-term").value = pendingLookup;
   $("member-dictionary-search").disabled = !ready || state.dictionaryBusy;
   $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : "查词";
   $("member-dictionary-use").disabled = !ready || state.entryBusy || state.dictionaryBusy || !state.dictionaryResult || !state.entriesLoaded || state.listBusy;
@@ -1196,6 +1209,8 @@ if (channel) channel.onmessage = (event) => {
 // query parameters, referrers, or user-supplied hosts as a redirect destination.
 try {
   const target = new URL(personalWordbookUrl());
+  const lookup = dictionaryQueryFromHash(window.location.hash);
+  if (lookup) target.hash = new URLSearchParams({ lookup }).toString();
   if (requestedAuth === "github-owner") target.searchParams.set("auth", "owner");
   else if (requestedAuth === "member") target.searchParams.set("auth", "member");
   if (target.origin !== window.location.origin) window.location.replace(target.href);

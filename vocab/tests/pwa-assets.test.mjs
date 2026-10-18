@@ -19,12 +19,12 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
-    "runtime-config.js", "personal-app.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
+    "runtime-config.js", "public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-navigation.js", "personal-app.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
     "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-groups.js", "synonym-evidence.js",
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
-  const version = file => ["personal-app.js", "expanded-dictionary.js"].includes(file) ? 79
+  const version = file => ["public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-navigation.js", "personal-app.js"].includes(file) ? 80 : file === "expanded-dictionary.js" ? 79
     : ["personal-storage.js", "personal-selection.js", "personal-dictionary.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
@@ -92,12 +92,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v79/);
+  assert.match(serviceWorker, /zhuo-wordbook-v80/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=77/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=77/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=77/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=80/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=80/);
   assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup-ui\.js/);
@@ -116,9 +116,9 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=77"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=80"/);
   assert.match(vocabHtml, /href="styles\.css\?v=77"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=77"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=80"/);
   assert.match(ownerHtml, /href="styles\.css\?v=77"/);
   assert.match(guideHtml, /href="styles\.css\?v=77"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
@@ -179,8 +179,10 @@ test("paused synonyms stay hidden without removing stored fields or reference va
 
 test("owner lookup shows a safe local preview while the slower AI organizer runs", () => {
   assert.match(ownerAppSource, /import \{ lookupCoreEntry \} from "\.\/core-dictionary\.js\?v=77"/);
-  assert.match(ownerAppSource, /lookupCoreEntry\(cleaned\)/);
-  assert.match(ownerAppSource, /本地 ECDICT 候选/);
+  assert.match(ownerAppSource, /lookupCoreEntry\(cleaned, \{ timeoutMs: 3_000 \}\)/);
+  assert.match(ownerAppSource, /source: "本地 ECDICT"/);
+  assert.match(ownerAppSource, /searchExpandedDictionary\(cleaned/);
+  assert.match(ownerAppSource, /localPreviewSource/);
   assert.match(ownerAppSource, /候选不会自动发布/);
   assert.match(ownerAppSource, /window\.setInterval\(renderBusyProgress, 5_000\)/);
   assert.match(ownerAppSource, /window\.clearInterval\(elapsedTimer\)/);

@@ -627,7 +627,7 @@ test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page
   await expect(page.locator("#entry-count")).toHaveText("29");
 });
 
-test("公开搜索无结果时说明这是单词本而不是词典，且不给访客任何写入入口", async ({ page }) => {
+test("词卡搜索无结果时提供只读词典，不直接写入或调用AI", async ({ page }) => {
   let aiRequestCount = 0;
   page.on("request", (request) => {
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
@@ -639,10 +639,9 @@ test("公开搜索无结果时说明这是单词本而不是词典，且不给�
   await expect(page.locator("#search-empty-title")).toHaveText("已发布词库未找到“unpublishedtestword”。");
   await expect(page.locator("#search-empty")).toContainText("可以检查拼写，或扩大搜索范围");
   await expect(page.locator("#search-whole-book")).toBeHidden();
-  // Visitors get no route into the editor from a missed search: this is a
-  // wordbook, not a lookup service. owner.html validates any ?input= it is
-  // handed on its own (see the 240-character test below).
-  await expect(page.locator("#search-empty a")).toHaveCount(0);
+  // A missed card search may enter the read-only dictionary, never the editor.
+  await expect(page.locator("#search-empty a")).toHaveCount(1);
+  await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", "http://127.0.0.1:4187/dictionary.html#q=unpublishedtestword");
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("unpublishedtestword & <script>");
@@ -1012,7 +1011,7 @@ test("暂停同义词后 AI 仍可添加三条独立词卡，搜索不扩写关�
   const cardTerms = await page.locator(".word-card h3").allTextContents();
   expect([...cardTerms].sort()).toEqual([...terms].sort());
   expect(new Set(cardTerms).size).toBe(3);
-  const publicSearch = page.getByLabel("搜索词库");
+  const publicSearch = page.getByLabel("搜索已收录词卡");
   for (const term of terms) {
     await publicSearch.fill(term);
     await expect(page.locator(".word-card")).toHaveCount(1);
