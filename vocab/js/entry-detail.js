@@ -256,6 +256,10 @@ export function createEntryDetailController({ root = document, getEntries = () =
     setText(refs.dialogExampleZh, entry.exampleZh);
     void sourcePassages.show(entry);
     const collectionContext = collectionContextForEntry(entry);
+    // The preserved attribution note describes the authored learning example,
+    // not the independently verified PDF excerpt in the section above it.
+    setText(refs.dialogExampleSection.querySelector("h3"), collectionContext ? "原有学习例句" : "例句");
+    setText(refs.dialogSourceSection.querySelector("h3"), collectionContext ? "原学习例句的出处说明" : "出处与核验");
     const usage = [
       collectionContext ? "" : entry.usage,
       entry.register ? `Register: ${entry.register}` : "",

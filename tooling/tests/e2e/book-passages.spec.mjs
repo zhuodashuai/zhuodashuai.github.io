@@ -60,6 +60,8 @@ test("book original appears separately while the existing learning example and s
   await expect(page.locator("#dialog-example-en")).toHaveText(agitated.exampleEn);
   await expect(page.locator("#dialog-example-zh")).toHaveText(agitated.exampleZh);
   await expect(page.locator("#dialog-source-examples .book-passage-text")).toHaveText(fixture.passages[0].text);
+  await expect(page.locator("#dialog-example-section h3")).toHaveText("原有学习例句");
+  await expect(page.locator("#dialog-source-section h3")).toHaveText("原学习例句的出处说明");
   await expect(page.locator("#dialog-source-examples .book-passage-source")).toContainText("Controlled test edition");
   await expect(page.locator("#dialog-source-examples .book-passage-source")).toContainText("PDF 第 11 页");
   await expect(page.locator("#dialog-source-examples .passage-field-label")).toHaveText("参考译意（学习用）");
