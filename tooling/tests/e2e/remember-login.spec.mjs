@@ -31,8 +31,11 @@ test("a transient session check hides private data and can recover without a pas
   expect(response.status()).toBe(200);
   await page.goto("/personal.html");
   await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
   await page.route("**/api/v1/member/session", route => route.fulfill({ status: 503, json: { error: { code: "oauth_refresh_unavailable", message: "Temporary failure" } } }));
+  const verifying = page.waitForRequest("**/api/v1/member/session");
   await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await verifying;
   await expect(page.locator("#member-session-retry")).toBeVisible();
   await expect(page.locator("#member-workspace")).toBeHidden();
   expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBeNull();
@@ -77,7 +80,9 @@ test("a retry after an outage retains the expected member identity when a cookie
   await expect(page.locator("#member-workspace")).toBeVisible();
   await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
   await page.route("**/api/v1/member/session", route => route.fulfill({ status: 503, json: { error: { code: "temporary_failure", message: "Temporary failure" } } }));
+  const verifying = page.waitForRequest("**/api/v1/member/session");
   await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await verifying;
   await expect(page.locator("#member-session-retry")).toBeVisible();
   expect((await register("remember_bob")).status()).toBe(200);
   await page.unroute("**/api/v1/member/session");
@@ -85,4 +90,181 @@ test("a retry after an outage retains the expected member identity when a cookie
   await expect(page.locator("#member-status")).toContainText("账号已改变");
   await expect(page.locator("#member-workspace")).toBeHidden();
   expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBe("1");
+});
+
+async function openRememberedMember(context, page, username) {
+  const response = await context.request.post(`${ORIGIN}/api/v1/member/register`, {
+    headers: { Origin: ORIGIN }, data: { username, password: PASSWORD, remember: true }
+  });
+  expect(response.status()).toBe(200);
+  await page.goto("/personal.html");
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
+}
+
+async function holdFirstSessionCheck(page, { persistentFailure = false } = {}) {
+  let checks = 0, release, arrived;
+  const gate = new Promise(resolve => { release = resolve; });
+  const seen = new Promise(resolve => { arrived = resolve; });
+  await page.route("**/api/v1/member/session", async route => {
+    checks++;
+    if (checks === 1) { arrived(); await gate; }
+    else if (!persistentFailure) return route.continue();
+    // Explicit locking can abort the held request before this response arrives.
+    await route.fulfill({ status: 503, json: { error: { code: "temporary_failure", message: "Temporary failure" } } }).catch(() => {});
+  });
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await seen;
+  return { release, checks: () => checks };
+}
+
+test("online arriving during a pending failed verification queues one fresh check without another login", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_online");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    for (let index = 0; index < 5; index++) window.dispatchEvent(new Event("online"));
+  });
+  expect(held.checks()).toBe(1);
+  await page.clock.runFor(300);
+  held.release();
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@queued_online");
+  expect(held.checks()).toBe(2);
+  await expect(page.locator("#member-auth")).toBeHidden();
+  expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBeNull();
+});
+
+test("a queued online recheck stops after one additional request when the provider remains unavailable", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_bounded");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page, { persistentFailure: true });
+  await page.evaluate(() => {
+    for (let index = 0; index < 5; index++) window.dispatchEvent(new Event("online"));
+  });
+  await page.clock.runFor(300);
+  held.release();
+  await expect.poll(held.checks).toBe(2);
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.clock.runFor(60_000);
+  expect(held.checks()).toBe(2);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+});
+
+test("a manual retry clicked before the failed verification finishes settling is queued", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_manual");
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    const retry = document.getElementById("member-session-retry");
+    const observer = new MutationObserver(() => {
+      if (!retry.hidden) { observer.disconnect(); retry.click(); }
+    });
+    observer.observe(retry, { attributes: true, attributeFilter: ["hidden"] });
+  });
+  held.release();
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@queued_manual");
+  expect(held.checks()).toBe(2);
+});
+
+test("an explicit account lock cancels a queued reconnect and rejects its late response", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_locked");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    window.dispatchEvent(new Event("online"));
+    const channel = new BroadcastChannel("zhuo-member-auth-v1");
+    channel.postMessage({ type: "locked", tabId: "another-tab" });
+    channel.close();
+  });
+  await expect(page.locator("#member-status")).toContainText("另一页面");
+  held.release();
+  await page.clock.runFor(60_000);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+  expect(held.checks()).toBe(1);
+  expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBe("1");
+});
+
+test("online verification waits for page and service-worker transports to settle", async ({ context, page }) => {
+  await openRememberedMember(context, page, "settled_online");
+  const clockStart = new Date();
+  await page.clock.install({ time: clockStart });
+  await page.clock.pauseAt(new Date(clockStart.getTime() + 1000));
+  let checks = 0, transportReady = false;
+  await page.route("**/api/v1/member/session", async route => {
+    checks++;
+    if (!transportReady) return route.abort("internetdisconnected");
+    return route.continue();
+  });
+  const unavailable = page.waitForRequest("**/api/v1/member/session");
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await unavailable;
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  expect(checks).toBe(1);
+  await page.evaluate(() => {
+    for (let index = 0; index < 5; index++) window.dispatchEvent(new Event("online"));
+  });
+  await page.clock.runFor(299);
+  expect(checks).toBe(1);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+  transportReady = true;
+  await page.clock.runFor(1);
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@settled_online");
+  expect(checks).toBe(2);
+  expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBeNull();
+});
+
+test("going offline cancels a pending online check without starting a retry loop", async ({ context, page }) => {
+  await openRememberedMember(context, page, "canceled_online");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page, { persistentFailure: true });
+  held.release();
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.evaluate(() => {
+    window.dispatchEvent(new Event("online"));
+    window.dispatchEvent(new Event("offline"));
+  });
+  await page.clock.runFor(60_000);
+  expect(held.checks()).toBe(1);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+});
+
+test("manual retry replaces a pending online timer without an extra delayed request", async ({ context, page }) => {
+  await openRememberedMember(context, page, "manual_replaces");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page, { persistentFailure: true });
+  held.release();
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+  await page.locator("#member-session-retry").click();
+  await expect.poll(held.checks).toBe(2);
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.clock.runFor(60_000);
+  expect(held.checks()).toBe(2);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+});
+
+test("a new offline-online transition discards the previous queued check and waits for transport again", async ({ context, page }) => {
+  await openRememberedMember(context, page, "flapping_online");
+  const clockStart = new Date();
+  await page.clock.install({ time: clockStart });
+  await page.clock.pauseAt(new Date(clockStart.getTime() + 1000));
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+  await page.clock.runFor(300);
+  expect(held.checks()).toBe(1);
+  await page.evaluate(() => {
+    window.dispatchEvent(new Event("offline"));
+    window.dispatchEvent(new Event("online"));
+  });
+  held.release();
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.clock.runFor(299);
+  expect(held.checks()).toBe(1);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+  await page.clock.runFor(1);
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@flapping_online");
+  expect(held.checks()).toBe(2);
 });
