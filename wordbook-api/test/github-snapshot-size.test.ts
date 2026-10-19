@@ -90,6 +90,53 @@ describe("bounded GitHub wordbook transport", () => {
     expect(mock).toHaveBeenCalledOnce();
   });
 
+  it("reuses a validated memo only after a fresh matching Contents SHA, without another raw download", async () => {
+    const document = snapshot(), bytes = encoder.encode(`${JSON.stringify(document, null, 2)}\n`);
+    const sha = await blobSha(bytes);
+    const mock = vi.fn(async (_input: RequestInfo | URL, _init: RequestInit = {}) => Response.json(metadata({ sha, size: bytes.length })));
+    vi.stubGlobal("fetch", mock);
+    const cached = { sha, htmlUrl: "https://github.com/old", snapshot: document };
+    const remote = await readRemoteWordbook("test-token", config, cached);
+    expect(remote).toEqual({ sha, htmlUrl: "https://github.com/file", snapshot: document });
+    expect(remote.snapshot).not.toBe(cached.snapshot);
+    expect(mock).toHaveBeenCalledOnce();
+    expect(String(mock.mock.calls[0][0])).toBe(url);
+    expect(new Headers(mock.mock.calls[0][1]?.headers).get("authorization")).toBe("Bearer test-token");
+    expect(new Headers(mock.mock.calls[0][1]?.headers).get("accept")).toBe("application/vnd.github.object+json");
+  });
+
+  it("a changed SHA fetches the current raw snapshot and cannot resurrect a cached deletion", async () => {
+    const previous = snapshot(), current = { ...snapshot([]), revisionId: previous.revisionId };
+    const bytes = encoder.encode(`${JSON.stringify(current, null, 2)}\n`), sha = await blobSha(bytes);
+    const mock = vi.fn().mockResolvedValueOnce(Response.json(metadata({ sha, size: bytes.length }))).mockResolvedValueOnce(new Response(bytes));
+    vi.stubGlobal("fetch", mock);
+    const remote = await readRemoteWordbook("test-token", config, { sha: "a".repeat(40), htmlUrl: "", snapshot: previous });
+    expect(remote.snapshot.entries).toEqual([]);
+    expect(remote.snapshot.revisionId).toBe(previous.revisionId);
+    expect(mock).toHaveBeenCalledTimes(2);
+  });
+
+  it("a malformed memo falls back to verified bytes, and fresh upstream failure never serves a memo", async () => {
+    const current = snapshot(), bytes = encoder.encode(JSON.stringify(current)), sha = await blobSha(bytes);
+    const invalid = { sha, htmlUrl: "", snapshot: { ...current, entries: "invalid" } as unknown as PublicSnapshot };
+    const mock = vi.fn().mockResolvedValueOnce(Response.json(metadata({ sha }))).mockResolvedValueOnce(new Response(bytes));
+    vi.stubGlobal("fetch", mock);
+    expect((await readRemoteWordbook("test-token", config, invalid)).snapshot).toEqual(current);
+    expect(mock).toHaveBeenCalledTimes(2);
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ message: "Rate limited" }, { status: 429, headers: { "Retry-After": "30" } })));
+    await expect(readRemoteWordbook("test-token", config, { sha, htmlUrl: "", snapshot: current })).rejects.toMatchObject({ status: 429, code: "github_rate_limited" });
+  });
+
+  it("fresh malformed/oversized metadata cannot be hidden by a matching cached SHA", async () => {
+    const cached = { sha: "a".repeat(40), htmlUrl: "", snapshot: snapshot() };
+    for (const bad of [{ encoding: "unsupported" }, { size: MAX_SNAPSHOT_BYTES + 1 }, { type: "directory" }, { sha: "invalid" }]) {
+      const mock = vi.fn(async () => Response.json(metadata(bad)));
+      vi.stubGlobal("fetch", mock);
+      await expect(readRemoteWordbook("test-token", config, cached)).rejects.toMatchObject({ status: bad.size ? 413 : 502 });
+      expect(mock).toHaveBeenCalledOnce();
+    }
+  });
+
   it("fails closed if the raw bytes no longer match the metadata SHA", async () => {
     const mock = vi.fn().mockResolvedValueOnce(Response.json(metadata())).mockResolvedValueOnce(Response.json(snapshot()));
     vi.stubGlobal("fetch", mock);
