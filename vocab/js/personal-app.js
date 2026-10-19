@@ -14,7 +14,7 @@ import { personalRecentHistory, personalStudyQueue, personalStudySummary, valida
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=88";
 import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=88";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=88";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=89";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);

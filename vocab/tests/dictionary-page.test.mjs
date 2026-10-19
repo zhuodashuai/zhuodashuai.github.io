@@ -5,6 +5,8 @@ import { createDictionaryController, createDictionaryCountLoader, initialDiction
 
 const row = (term = "watch") => ({ term, partOfSpeech: "noun · verb", meaning: "① n. 手表\n② v. 观看", source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" });
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
+const createController = options => createDictionaryController({ suggest: async () => [], ...options });
+const settleSuggestions = () => new Promise(resolve => setImmediate(resolve));
 
 test("fragment prefilling is bounded, decoded once, and never a search parameter", () => {
   assert.equal(initialDictionaryQuery("#q=by%20some%20fluke"), "by some fluke");
@@ -63,7 +65,7 @@ test("candidate previews stay short and readable without changing the full sourc
 test("English result preserves all POS, complete meaning and independent source variants", async () => {
   const entry = { ...row(), alternatives: [{ partOfSpeech: "verb", meaning: "留意；密切关注", source: "卓式原创释义（AI复核，精选义项）", license: "original", url: "https://zhuodashuai.github.io/vocab/" }] };
   let call;
-  const controller = createDictionaryController({ search: async (...args) => { call = args; return { results: [entry], hasMore: false }; } });
+  const controller = createController({ search: async (...args) => { call = args; return { results: [entry], hasMore: false }; } });
   await controller.submit("watch");
   assert.equal(call[0], "watch"); assert.equal(call[1].limit, 20); assert.ok(call[1].signal instanceof AbortSignal);
   assert.equal(controller.getState().phase, "ready"); assert.deepEqual(controller.getState().results[0], entry);
@@ -73,7 +75,7 @@ test("English result preserves all POS, complete meaning and independent source 
 test("Chinese choices are capped at twenty and retain selected variant POS", async () => {
   const entries = Array.from({ length: 21 }, (_, index) => row(`entry-${index}`));
   entries[1] = { ...entries[1], partOfSpeech: "adjective", meaning: "时髦的", source: "selected source" };
-  const controller = createDictionaryController({ search: async () => ({ results: entries, hasMore: false }) });
+  const controller = createController({ search: async () => ({ results: entries, hasMore: false }) });
   await controller.submit("时髦"); assert.equal(controller.getState().results.length, 20); assert.equal(controller.getState().hasMore, true);
   assert.equal(controller.select(1), true);
   const selected = controller.getState().results[controller.getState().selectedIndex];
@@ -81,7 +83,7 @@ test("Chinese choices are capped at twenty and retain selected variant POS", asy
 });
 
 test("an unfinished bounded reverse lookup is a refinement request, not a false missing-word claim", async () => {
-  const controller = createDictionaryController({ search: async () => ({ results: [], hasMore: true }) });
+  const controller = createController({ search: async () => ({ results: [], hasMore: true }) });
   await controller.submit("的");
   assert.equal(controller.getState().phase, "refine"); assert.equal(controller.getState().hasMore, true);
   assert.deepEqual(controller.getState().results, []); assert.match(controller.getState().message, /候选较多.*更具体/u);
@@ -90,7 +92,7 @@ test("an unfinished bounded reverse lookup is a refinement request, not a false 
 
 test("editing cancels the current query, removes old cards, and ignores late completion", async () => {
   const first = deferred(), second = deferred(), calls = [];
-  const controller = createDictionaryController({ search: (query, options) => { calls.push([query, options]); return query === "first" ? first.promise : second.promise; } });
+  const controller = createController({ search: (query, options) => { calls.push([query, options]); return query === "first" ? first.promise : second.promise; } });
   const firstRun = controller.submit("first"); controller.change("second");
   assert.equal(calls[0][1].signal.aborted, true); assert.equal(controller.getState().phase, "idle"); assert.deepEqual(controller.getState().results, []);
   const secondRun = controller.submit("second"); second.resolve({ results: [row("second")], hasMore: false }); await secondRun;
@@ -100,7 +102,7 @@ test("editing cancels the current query, removes old cards, and ignores late com
 
 test("cancel is immediate, clears all prior meaning, and permits retry", async () => {
   const pending = deferred(); let calls = 0;
-  const controller = createDictionaryController({ search: async () => { calls++; if (calls === 1) return pending.promise; return { results: [row()], hasMore: false }; } });
+  const controller = createController({ search: async () => { calls++; if (calls === 1) return pending.promise; return { results: [row()], hasMore: false }; } });
   const run = controller.submit("watch"); controller.cancel(); assert.equal(controller.getState().phase, "cancelled");
   pending.resolve({ results: [row("stale")], hasMore: false }); await run; assert.deepEqual(controller.getState().results, []);
   await controller.submit("watch"); assert.equal(controller.getState().results[0].term, "watch");
@@ -108,14 +110,14 @@ test("cancel is immediate, clears all prior meaning, and permits retry", async (
 
 test("repeat submit during loading does not start a second request", async () => {
   const pending = deferred(); let calls = 0;
-  const controller = createDictionaryController({ search: () => { calls++; return pending.promise; } });
+  const controller = createController({ search: () => { calls++; return pending.promise; } });
   const first = controller.submit("watch"); assert.equal(await controller.submit("watch"), false); assert.equal(calls, 1);
   pending.resolve({ results: [], hasMore: false }); await first; assert.equal(controller.getState().phase, "empty");
 });
 
 test("misses, ambiguity and network errors never keep a stale card or invent definitions", async () => {
   let outcome = "ready";
-  const controller = createDictionaryController({ search: async () => {
+  const controller = createController({ search: async () => {
     if (outcome === "error") throw new Error("provider secret must not appear");
     if (outcome === "ambiguous") throw Object.assign(new Error("ambiguous"), { code: "ambiguous_dictionary_match" });
     return { results: outcome === "ready" ? [row()] : [], hasMore: false };
@@ -127,15 +129,91 @@ test("misses, ambiguity and network errors never keep a stale card or invent def
   outcome = "ambiguous"; await controller.submit("ambiguous"); assert.match(controller.getState().message, /没有自动选取/u);
 });
 
+test("a successful exact miss completes before optional spelling suggestions and never silently selects a word", { timeout: 1000 }, async () => {
+  const pending = deferred(), calls = [], phases = [];
+  const controller = createController({ search: async () => ({ results: [], hasMore: false }),
+    suggest: (input, options) => { calls.push({ input, options }); return pending.promise; },
+    onChange: state => phases.push(state.phase) });
+  assert.equal(await controller.submit("heppy"), true);
+  assert.equal(controller.getState().phase, "empty"); assert.equal(controller.getState().suggestionPhase, "loading");
+  assert.equal(controller.getState().input, "heppy"); assert.deepEqual(controller.getState().results, []);
+  assert.equal(calls.length, 1); assert.equal(calls[0].input, "heppy");
+  assert.equal(calls[0].options.limit, 5); assert.equal(calls[0].options.timeoutMs, 3000);
+  assert.ok(calls[0].options.signal instanceof AbortSignal);
+  pending.resolve([{ term: "happy", distance: 1 }]); await settleSuggestions();
+  assert.equal(controller.getState().suggestionPhase, "ready");
+  assert.deepEqual(controller.getState().suggestions, [{ term: "happy", distance: 1 }]);
+  assert.equal(controller.getState().phase, "empty"); assert.equal(controller.getState().input, "heppy");
+  assert.deepEqual(controller.getState().results, []); assert.equal(controller.select(0), false);
+  assert.equal(phases.filter(phase => phase === "ready").length, 0);
+});
+
+test("exact hits, broad Chinese refinement, ambiguous forms and index failures do not request suggestions", async () => {
+  let calls = 0;
+  for (const response of [{ results: [row()], hasMore: false }, { results: [], hasMore: true },
+    new Error("network"), Object.assign(new Error("ambiguous"), { code: "ambiguous_dictionary_match" })]) {
+    const controller = createController({ search: async () => { if (response instanceof Error) throw response; return response; },
+      suggest: async () => { calls++; return [{ term: "happy", distance: 1 }]; } });
+    await controller.submit("query"); await settleSuggestions();
+    assert.equal(controller.getState().suggestionPhase, "idle"); assert.deepEqual(controller.getState().suggestions, []);
+  }
+  assert.equal(calls, 0);
+});
+
+test("suggestion errors stay isolated from successful missing-word results and never expose exception text", async () => {
+  const controller = createController({ search: async () => ({ results: [], hasMore: false }),
+    suggest: () => { throw new Error("secret internal service address"); } });
+  assert.equal(await controller.submit("heppy"), true); await settleSuggestions();
+  assert.equal(controller.getState().phase, "empty"); assert.equal(controller.getState().suggestionPhase, "error");
+  assert.deepEqual(controller.getState().results, []); assert.deepEqual(controller.getState().suggestions, []);
+  assert.doesNotMatch(controller.getState().message, /secret|internal/u);
+});
+
+test("late abort-ignoring suggestions cannot repopulate cards after input edits, cancellation or a newer query", async () => {
+  for (const action of ["edit", "cancel", "submit"]) {
+    const pending = deferred(); let signal;
+    const controller = createController({ search: async input => ({ results: input === "happy" ? [row("happy")] : [], hasMore: false }),
+      suggest: (_input, options) => { signal = options.signal; return pending.promise; } });
+    await controller.submit("heppy");
+    if (action === "edit") controller.change("next");
+    if (action === "cancel") controller.cancel();
+    if (action === "submit") await controller.submit("happy");
+    assert.equal(signal.aborted, true);
+    pending.resolve([{ term: "happy", distance: 1 }]); await settleSuggestions();
+    assert.equal(controller.getState().suggestionPhase, "idle"); assert.deepEqual(controller.getState().suggestions, []);
+    assert.equal(controller.getState().phase, action === "edit" ? "idle" : action === "cancel" ? "cancelled" : "ready");
+    assert.equal(controller.getState().input, action === "edit" ? "next" : action === "cancel" ? "heppy" : "happy");
+    assert.deepEqual(controller.getState().results, action === "submit" ? [row("happy")] : []);
+  }
+});
+
+test("a new missing-word request replaces old suggestions and safely bounds candidate rendering", async () => {
+  const controller = createController({ search: async () => ({ results: [], hasMore: false }),
+    suggest: async input => input === "heppy" ? [{ term: "happy", distance: 1 }]
+      : [{ term: "receive", distance: 1 }, { term: "receive", distance: 1 }, { term: "bad\u0000term", distance: 1 },
+        null, ...Array.from({ length: 9 }, (_, index) => ({ term: `candidate ${index}`, distance: 2 }))] });
+  await controller.submit("heppy"); await settleSuggestions();
+  assert.equal(controller.getState().suggestions[0].term, "happy");
+  const next = controller.submit("recieve");
+  assert.deepEqual(controller.getState().suggestions, []); assert.equal(controller.getState().suggestionPhase, "idle");
+  await next; await settleSuggestions();
+  assert.equal(controller.getState().suggestions.length, 5); assert.equal(controller.getState().suggestions[0].term, "receive");
+  assert.equal(controller.getState().suggestions.some(candidate => candidate.term === "happy" || candidate.term.includes("\u0000")), false);
+  assert.equal(controller.getState().input, "recieve"); assert.deepEqual(controller.getState().results, []);
+});
+
 test("public document has labelled Enter form, no account or provider calls, and safe text rendering", async () => {
   const html = await readFile(new URL("../dictionary.html", import.meta.url), "utf8");
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=86/u); assert.match(html, /dictionary-app\.js\?v=88/u);
+  assert.match(html, /dictionary\.css\?v=89/u); assert.match(html, /dictionary-app\.js\?v=89/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=88/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=89/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
+  assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
+  assert.match(html, /仅提供拼写建议，点选后查词/u);
   assert.match(script, /import\("\.\/dictionary-examples\.js\?v=84"\)/u);
   assert.ok(html.indexOf('id="dictionary-add"') < html.indexOf('id="dictionary-example-panel"'));
   assert.doesNotMatch(script, /innerHTML|localStorage|indexedDB|\/api\/|fetch\(|registerServiceWorker|82920/u);
