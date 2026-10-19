@@ -477,7 +477,7 @@ test("offline save is never reported saved, preserves the open draft, and offlin
   await expect(page.locator("#member-entry-list")).toBeEmpty();
   await expect(page.locator("body")).not.toContainText("cloud only private entry");
   await context.setOffline(false);
-  await page.locator("#member-session-retry").click();
+  // The online event rechecks the remembered cookie without a password.
   await ready(page, "alice_member");
   expect((await list(context)).entries.map(entry => entry.term)).toEqual(["cloud only private entry"]);
 });
