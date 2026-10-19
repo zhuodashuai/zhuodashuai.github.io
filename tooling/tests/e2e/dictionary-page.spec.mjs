@@ -75,7 +75,12 @@ test("October workbook imports return English phrases and Chinese meanings with 
     await expect(page.locator("#dictionary-term")).toHaveText(term);
     await expect(page.locator("#dictionary-meaning")).toContainText(chinese);
     await expect(page.locator("#dictionary-pos")).toContainText("noun");
-    await expect(page.locator("#dictionary-source")).toContainText("词表补充整理");
+    // An owner collection may later make the public-card variant primary.
+    // Both must retain honest source labels; this import must not freeze the library.
+    await expect.poll(async () => {
+      const sourceText = await page.locator("#dictionary-source").innerText();
+      return [dictionaryManifest.sources.supplement.name, dictionaryManifest.sources.public.name].some(name => sourceText.includes(name));
+    }).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   }
   await query(page, "粉丝来信");
