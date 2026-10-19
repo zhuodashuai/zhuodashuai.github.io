@@ -1,6 +1,7 @@
 import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=88";
 import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
 import { CORE_POS_CORRECTIONS } from "./core-pos-corrections.js?v=88";
+import { chineseSearchPlan, matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",
@@ -293,12 +294,13 @@ export async function searchPersonalDictionaryChinese(input, { signal, timeoutMs
     const parsed = await Promise.race([dictionary || preloadPersonalDictionary({ timeoutMs, fetchImpl }), stopped]);
     if (signal?.aborted) throw new Error("查词已停止。");
     const maps = parsedIndexes(parsed), results = [], seen = new Set();
+    const plan = chineseSearchPlan(query);
     const count = Math.max(1, Math.min(50, Number.isSafeInteger(limit) ? limit : 20));
     // Keep each actual matching source: a chapter gloss must not be replaced by
     // a general gloss which did not contain the requested Chinese meaning.
     for (const value of [...maps.core.values(), ...maps.published.values()]) {
       const key = literalKey(value.term);
-      if (seen.has(key) || !value.meaning.normalize("NFKC").includes(query)) continue;
+      if (seen.has(key) || !(plan ? matchesChineseSearchMeaning(value.meaning, plan.term) : value.meaning.normalize("NFKC").includes(query))) continue;
       seen.add(key); results.push({ ...value });
       if (results.length > count) break;
     }

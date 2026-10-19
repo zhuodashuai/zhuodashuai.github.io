@@ -1,4 +1,5 @@
-import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=89";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=90";
+import { chineseSearchPlan } from "./chinese-search.js?v=90";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -75,18 +76,44 @@ async function defaultDictionarySuggestions(input, { signal } = {}) {
 }
 
 /** Sequence + abort guards also protect against a late, abort-ignoring loader. */
-export function createDictionaryController({ search = searchExpandedDictionary, suggest = defaultDictionarySuggestions, onChange = () => {} } = {}) {
-  let sequence = 0, pending = null, suggestionPending = null;
-  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle" };
+export function createDictionaryController({ search = searchExpandedDictionary, suggest = defaultDictionarySuggestions,
+  relatedSearch = async () => ({ results: [], hasMore: false }), onChange = () => {} } = {}) {
+  let sequence = 0, pending = null, suggestionPending = null, relatedPending = null;
+  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" };
   function publish(next) { state = { ...state, ...next }; onChange(state); return state; }
-  function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null; }
+  function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null; relatedPending?.abort(); relatedPending = null; }
   function change(input) {
     stop();
-    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle" });
+    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
   }
   function cancel() {
     stop();
-    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, message: "已停止查询。", suggestions: [], suggestionPhase: "idle" });
+    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, message: "已停止查询。", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
+  }
+  function startRelated(input, current) {
+    if (!chineseSearchPlan(input.normalize("NFKC").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim())) return;
+    const controller = new AbortController(); relatedPending = controller;
+    publish({ relatedPhase: "loading" });
+    // Direct meanings and their save links are ready before optional associations.
+    // Late associations append only; they never change a user's selected card.
+    void Promise.resolve().then(() => {
+      if (current !== sequence || controller.signal.aborted) return { results: [] };
+      return relatedSearch(input, { signal: controller.signal, limit: 8, timeoutMs: 5000 });
+    }).then(response => {
+      if (current !== sequence || controller.signal.aborted) return;
+      const seen = new Set(state.results.map(row => row.term));
+      const extra = (Array.isArray(response?.results) ? response.results : []).filter(row => {
+        if (!row || row.matchType !== "related" || typeof row.term !== "string" || !row.term.trim()
+          || typeof row.matchedChinese !== "string" || seen.has(row.term)) return false;
+        seen.add(row.term); return true;
+      }).slice(0, 8);
+      const results = extra.length ? [...state.results, ...extra] : state.results;
+      publish({ relatedPhase: "ready", results, hasMore: state.hasMore || Boolean(response?.hasMore),
+        ...(extra.length ? { phase: "ready", message: `找到 ${results.length} 项，近义关联已单独标注。` }
+          : !results.length && response?.hasMore ? { phase: "refine", message: "相关候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。" } : {}) });
+    }).catch(() => {
+      if (current === sequence && !controller.signal.aborted) publish({ relatedPhase: "error" });
+    }).finally(() => { if (current === sequence) relatedPending = null; });
   }
   function startSuggestions(input, current) {
     const controller = new AbortController(); suggestionPending = controller;
@@ -113,7 +140,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
     if (state.phase === "loading" && input === state.input) return false;
     stop();
     const current = sequence, controller = new AbortController(); pending = controller;
-    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, message: "正在查询…", suggestions: [], suggestionPhase: "idle" });
+    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, message: "正在查询…", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
     try {
       const response = await search(input, { signal: controller.signal, limit: 20 });
       if (current !== sequence || controller.signal.aborted) return false;
@@ -123,6 +150,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
           : hasMore ? "候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。"
             : "没有找到对应词条。请检查拼写，或改用英文原形、较短的中文释义。" });
       if (!results.length && !hasMore) startSuggestions(input, current);
+      startRelated(input, current);
       return true;
     } catch (error) {
       if (current !== sequence || controller.signal.aborted) return false;
@@ -205,11 +233,16 @@ export function mountDictionaryPage(document, window) {
     count.textContent = total === null ? "词条数量暂不可用，仍可重试查词" : `${new Intl.NumberFormat("zh-CN").format(total)} 个词条`;
   } });
 
-  const controller = createDictionaryController({ onChange(state) {
+  const controller = createDictionaryController({ relatedSearch: searchRelatedChineseDictionary, onChange(state) {
     const busy = state.phase === "loading";
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
     cancel.hidden = !busy; resultsRegion.setAttribute("aria-busy", String(busy));
     status.textContent = state.message; status.dataset.phase = state.phase;
+    const relatedStatus = get("dictionary-related-status");
+    relatedStatus.textContent = state.relatedPhase === "loading" ? "正在补充近义关联，不影响查看已有释义…"
+      : state.relatedPhase === "error" ? "近义关联暂不可用；已有释义仍可使用。"
+        : state.results.some(row => row.matchType === "related") ? "近义关联仅供找词，具体含义和用法请看原释义。" : "";
+    relatedStatus.hidden = !relatedStatus.textContent;
     suggestionPanel.hidden = state.suggestionPhase === "idle" || (state.suggestionPhase === "ready" && !state.suggestions.length);
     suggestionPanel.setAttribute("aria-busy", String(state.suggestionPhase === "loading"));
     suggestionStatus.textContent = state.suggestionPhase === "loading" ? "正在查找相近拼写…"
@@ -237,6 +270,10 @@ export function mountDictionaryPage(document, window) {
         const pos = document.createElement("span"); pos.textContent = entry.partOfSpeech || "词性未标注"; button.append(pos);
         const meaning = document.createElement("span"); meaning.className = "choice-meaning";
         meaning.textContent = dictionaryChoicePreview(entry.meaning); button.append(meaning);
+        if (entry.matchType === "related") {
+          const badge = document.createElement("span"); badge.className = "related-badge";
+          badge.textContent = `近义关联：${entry.matchedChinese}`; button.append(badge);
+        }
         button.addEventListener("click", () => {
           controller.select(index); heading.focus({ preventScroll: true });
           heading.scrollIntoView({ block: "nearest" });
@@ -257,6 +294,9 @@ export function mountDictionaryPage(document, window) {
     lastSelected = selected;
     heading.textContent = selected.term; get("dictionary-pos").textContent = selected.partOfSpeech || "词性未标注";
     renderMeaning(document, get("dictionary-meaning"), selected.meaning);
+    const relatedMatch = get("dictionary-related-match");
+    relatedMatch.hidden = selected.matchType !== "related";
+    relatedMatch.textContent = selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
     const matched = get("dictionary-matched-form"); matched.hidden = !selected.matchedForm;
     matched.textContent = selected.matchedForm ? `查询形式：${selected.matchedForm}` : "";
     const provenance = sourceLine(document, selected); get("dictionary-source").replaceChildren(...provenance.childNodes);

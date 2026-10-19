@@ -1,5 +1,6 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=88";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=90";
+import { chineseSearchPlan, matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -325,14 +326,24 @@ async function parallel(items, concurrency, callback) {
     while (cursor < items.length) { const item = items[cursor++]; await callback(item); }
   }));
 }
-async function chineseSearch(query, limit, context) {
+async function chineseSearch(query, limit, context, relatedPlan = null) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
-  const tokens = chineseTokens(query), tokenShards = new Map();
+  const plan = relatedPlan || chineseSearchPlan(query);
+  const terms = relatedPlan ? plan.aliases : [plan?.term || query];
+  const tokenPlans = terms.map(chineseTokens);
+  const tokens = [...new Set(tokenPlans.flat())], tokenShards = new Map();
+  if (signal?.aborted) throw stopped();
   await parallel([...new Set(tokens.map(bucketFor))], 6, async bucket => tokenShards.set(bucket, await shardFor("zh", bucket, manifest, client, fetchImpl, timeoutMs)));
-  const lists = tokens.map(token => tokenShards.get(bucketFor(token)).get(token) || []).sort((a, b) => a.length - b.length);
-  if (!lists.length || !lists[0].length) return { query, results: [], hasMore: false };
-  const other = lists.slice(1).map(list => new Set(list));
-  const ids = lists[0].filter(id => other.every(set => set.has(id)));
+  if (signal?.aborted) throw stopped();
+  const candidates = new Map();
+  for (const [priority, wanted] of tokenPlans.entries()) {
+    const lists = wanted.map(token => tokenShards.get(bucketFor(token)).get(token) || []).sort((a, b) => a.length - b.length);
+    if (!lists.length || !lists[0].length) continue;
+    const other = lists.slice(1).map(list => new Set(list));
+    for (const id of lists[0]) if (!candidates.has(id) && other.every(set => set.has(id))) candidates.set(id, priority);
+  }
+  // All aliases share one bounded scan and download budget, not one per alias.
+  const ids = [...candidates.keys()].sort((a, b) => candidates.get(a) - candidates.get(b) || a - b);
   const results = [], loaded = new Map(); let examined = 0;
   while (examined < ids.length && examined < 512 && results.length <= limit) {
     if (signal?.aborted) throw stopped();
@@ -345,18 +356,51 @@ async function chineseSearch(query, limit, context) {
     if (!next.length) break;
     const buckets = [...new Set(next.map(id => id % BUCKETS))];
     await parallel(buckets, 6, async bucket => {
+      if (signal?.aborted) throw stopped();
       if (!loaded.has(bucket)) loaded.set(bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
     });
+    if (signal?.aborted) throw stopped();
     for (const id of next) {
       examined++;
       const record = loaded.get(id % BUCKETS).records.get(id);
       if (!record || id % BUCKETS !== bucketFor(fold(record.term))) throw invalid();
-      const selected = [record, ...record.variants].find(item => fold(item.meaning).includes(query));
-      if (selected) results.push(display(record, selected, manifest));
+      const variants = [record, ...record.variants];
+      // A related result must not repeat a direct sense, even when that direct
+      // head falls beyond the visible direct-results limit.
+      if (relatedPlan && variants.some(item => matchesChineseSearchMeaning(item.meaning, plan.term))) continue;
+      let selected, matched;
+      for (const term of terms) {
+        selected = variants.find(item => plan ? matchesChineseSearchMeaning(item.meaning, term) : fold(item.meaning).includes(term));
+        if (selected) { matched = term; break; }
+      }
+      if (selected) results.push({ ...display(record, selected, manifest),
+        ...(relatedPlan ? { matchType: "related", matchedChinese: matched } : {}) });
       if (results.length > limit) break;
     }
   }
+  if (relatedPlan) results.sort((a, b) => terms.indexOf(a.matchedChinese) - terms.indexOf(b.matchedChinese));
   return { query, results: results.slice(0, limit), hasMore: results.length > limit || examined < ids.length };
+}
+
+/** Optional, non-transitive Chinese meaning associations; never writes cards. */
+export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8 } = {}) {
+  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return { results: [], hasMore: false };
+  const query = fold(input).replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
+  const plan = chineseSearchPlan(query);
+  if (!plan) return { query, results: [], hasMore: false };
+  if (signal?.aborted) throw stopped();
+  const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? Math.min(timeoutMs, 15_000) : 5000;
+  const count = Math.max(1, Math.min(8, Number.isSafeInteger(limit) ? limit : 8));
+  const client = clientFor(fetchImpl);
+  const controller = new AbortController();
+  const stop = () => controller.abort(); signal?.addEventListener("abort", stop, { once: true });
+  const work = (async () => {
+    const manifest = await manifestFor(client, fetchImpl, duration);
+    if (controller.signal.aborted) throw stopped();
+    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal }, plan);
+  })();
+  try { return await waitFor(work, signal, duration); }
+  finally { controller.abort(); signal?.removeEventListener("abort", stop); }
 }
 
 /** Warm just the small public manifest; no full dictionary is loaded at login. */

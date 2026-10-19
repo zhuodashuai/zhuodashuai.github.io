@@ -11,10 +11,10 @@ import {
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=88";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=88";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=90";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=90";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=89";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=90";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -49,6 +49,7 @@ let detailEntry = null;
 let conflictEntry = null;
 let dictionarySequence = 0;
 let dictionaryController = null;
+let dictionaryRelatedController = null;
 const state = {
   phase: "checking", authView: "login", authBusy: false, user: null, csrfToken: "", expiresAt: "",
   entries: [], revision: 0, entriesLoaded: false, listBusy: false, entryBusy: false,
@@ -401,6 +402,7 @@ function resetDictionary() {
   $("member-dictionary-public-link").hidden = true;
   dictionarySequence++;
   dictionaryController?.abort(); dictionaryController = null;
+  dictionaryRelatedController?.abort(); dictionaryRelatedController = null;
   state.dictionaryBusy = false; state.dictionaryResult = null;
   state.dictionaryCoverage = "full";
   $("member-dictionary-result").hidden = true;
@@ -428,7 +430,7 @@ function showDictionaryResult(result) {
   }
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
   const destination = state.authType === "github-owner" ? "收录状态在下方显示；只核对本站标准词条来源" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
-  $("member-dictionary-status").textContent = `${state.dictionaryCoverage === "basic" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
+  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
@@ -441,7 +443,8 @@ function showDictionaryResult(result) {
     use.hidden = state.authType === "github-owner";
     use.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
-      showDictionaryResult({ ...variant, term: result.term }); renderChrome();
+      showDictionaryResult({ ...variant, term: result.term,
+        ...(result.matchType === "related" ? { matchType: "related", matchedChinese: result.matchedChinese } : {}) }); renderChrome();
     });
     details.append(title, text, use); alternatives.append(details);
   }
@@ -452,20 +455,54 @@ function showDictionaryChoices(results, hasMore) {
   choices.replaceChildren(); choices.hidden = results.length < 2 && !hasMore;
   if (choices.hidden) return;
   const caption = document.createElement("p"); caption.className = "field-note";
-  caption.textContent = state.dictionaryCoverage === "basic" ? `基础词库先显示 ${results.length} 项，完整词典还可能有其他匹配。点选英文查看释义。`
+  const relatedCount = results.filter(result => result.matchType === "related").length;
+  caption.textContent = state.dictionaryCoverage === "basic" ? `基础词库先显示 ${results.length - relatedCount} 项${relatedCount ? `，另有 ${relatedCount} 项近义关联` : ""}，完整词典还可能有其他匹配。点选英文查看释义。`
     : hasMore ? `先显示 ${results.length} 项；可输入更具体的中文缩小范围。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
+  if (relatedCount && state.dictionaryCoverage !== "basic") caption.textContent += ` 其中 ${relatedCount} 项为近义关联，按实际词义选择。`;
   choices.append(caption);
   for (const result of results) {
     const button = document.createElement("button"); button.type = "button"; button.className = "dictionary-choice";
+    button.dataset.dictionaryTerm = result.term;
     const term = document.createElement("strong"); term.lang = "en"; term.textContent = result.term;
     const preview = document.createElement("span"); preview.textContent = `${result.partOfSpeech || ""} · ${result.meaning.replace(/\s+/gu, " ").slice(0, 110)}`;
     button.append(term, preview);
+    if (result.matchType === "related") {
+      button.dataset.dictionaryMatch = "related";
+      const relation = document.createElement("span"); relation.className = "dictionary-related-note";
+      relation.textContent = `近义关联：${result.matchedChinese}`; button.append(relation);
+    }
     button.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
       showDictionaryResult(result); renderChrome();
     });
     choices.append(button);
   }
+}
+
+function startDictionaryRelations(query, direct, { token, sequence }) {
+  if (!/\p{Script=Han}/u.test(query)) return;
+  const controller = new AbortController(); dictionaryRelatedController = controller;
+  const current = () => !controller.signal.aborted && scope.current(token) && sequence === dictionarySequence
+    && state.phase === "ready" && state.user && query === $("member-dictionary-term").value;
+  // Related meanings are optional public reads. They never hold the main
+  // search/save controls busy, replace a selected card, or trigger collection.
+  void Promise.resolve().then(() => {
+    if (!current()) return null;
+    return searchRelatedChineseDictionary(query, { signal: controller.signal, limit: 8, timeoutMs: 5000 });
+  }).then(response => {
+    if (!response || !current()) return;
+    const results = [...direct.results], seen = new Set(results.map(result => result.term.normalize("NFKC")));
+    for (const result of response.results) {
+      const key = result.term.normalize("NFKC");
+      if (seen.has(key)) continue;
+      seen.add(key); results.push(result);
+    }
+    if (results.length === direct.results.length) return;
+    showDictionaryChoices(results, direct.hasMore || response.hasMore);
+    if (!state.dictionaryResult) showDictionaryResult(results[0]);
+    renderChrome();
+  }).catch(() => { /* Optional failure leaves every direct result usable. */ })
+    .finally(() => { if (dictionaryRelatedController === controller) dictionaryRelatedController = null; });
 }
 
 async function queryDictionary(event, { full = false } = {}) {
@@ -491,6 +528,7 @@ async function queryDictionary(event, { full = false } = {}) {
     if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
     state.dictionaryCoverage = result.coverage || "full";
     const results = result.results;
+    startDictionaryRelations(query, result, { token, sequence });
     if (!results.length) {
       $("member-dictionary-status").textContent = result.hasMore
         ? "相关候选较多，暂未定位到匹配项；请输入更具体的中文释义再查。"

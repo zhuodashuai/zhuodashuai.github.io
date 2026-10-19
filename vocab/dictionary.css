@@ -74,6 +74,7 @@ input::placeholder { color: #67766b; }
 .choice-panel button:hover:not(:disabled) { background: #e5ece2; }
 .choice-panel button strong { font-size: 1rem; }
 .choice-panel button span { font-size: .75rem; color: var(--muted); }
+.choice-panel button .related-badge { color: var(--accent); font-weight: 650; }
 .choice-panel .choice-meaning { font-size: .8rem; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .result-card { min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: 0 4px 20px #173a3205; }
 .result-title-row { display: flex; gap: 18px 24px; justify-content: space-between; align-items: flex-start; }

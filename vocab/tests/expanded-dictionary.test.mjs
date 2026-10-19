@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import { searchExpandedDictionary, preloadExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../js/expanded-dictionary.js";
+import { searchExpandedDictionary, searchRelatedChineseDictionary, preloadExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../js/expanded-dictionary.js";
 
 const fold = value => value.normalize("NFKC").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, " ").trim().toLowerCase();
 function bucket(value) { let hash = 2166136261; for (const char of value) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; } return hash % 128; }
@@ -90,6 +90,46 @@ test("preload shares only a manifest with immediate lookup without downloading a
 test("unknown English is an honest empty result, without fuzzy correction or remote AI", async () => {
   const data = fixture(); assert.deepEqual(await searchExpandedDictionary("hippo_unknown", data), { query: "hippo_unknown", results: [], hasMore: false });
   assert.equal(data.requests.length, 2);
+});
+
+test("whole Chinese meaning queries separate direct emotions from related senses and compound/negative noise", async () => {
+  const data = fixture([entry("happy", "1. adjective：高兴的；满足而愉快的。", { partOfSpeech: "adjective" }),
+    entry("glad", "a. 高兴的, 情愿的"), entry("chuffed", "adj. 开心的"), entry("unhappy", "adj. 不快乐的"),
+    entry("please", "vt. 使高兴"), entry("pistachio", "n. 开心果"), entry("aside", "把不愉快的事放到一边"),
+    entry("hedonist", "n. 快乐主义者")]);
+  const direct = await searchExpandedDictionary("开心", data);
+  assert.deepEqual(direct.results.map(row => row.term), ["chuffed"]);
+  const related = await searchRelatedChineseDictionary("开心", data);
+  assert.deepEqual(related.results.map(row => row.term), ["happy", "glad"]);
+  assert.ok(related.results.every(row => row.matchType === "related" && row.matchedChinese === "高兴"));
+  assert.equal(related.results[0].meaning, "1. adjective：高兴的；满足而愉快的。");
+  assert.equal(related.results[0].source, "ECDICT");
+  assert.deepEqual((await searchExpandedDictionary("快乐", data)).results, []);
+  assert.deepEqual((await searchRelatedChineseDictionary("不开心", data)).results.map(row => row.term), ["unhappy"]);
+  assert.ok(data.requests.every(({ options }) => options.credentials === "omit"));
+});
+
+test("related meanings retain the one real source variant, deduplicate canonical heads and do not expand arbitrary text", async () => {
+  const data = fixture([entry("happy", "adj. 高兴的", { variants: [{ source: "original", partOfSpeech: "adjective", meaning: "愉快的" }] }),
+    entry("chuffed", "高兴的；开心的"), entry("tasty", "a. 美味的"), entry("unpalatable", "a. 不好吃的")]);
+  assert.deepEqual((await searchRelatedChineseDictionary("开心", data)).results.map(row => row.term), ["happy"]);
+  assert.deepEqual((await searchRelatedChineseDictionary("好吃", data)).results.map(row => row.term), ["tasty"]);
+  const cold = fixture();
+  for (const query of ["happy", "heppy", "今天很开心", "安全", "不安全", null, "<开心>"]) {
+    assert.deepEqual((await searchRelatedChineseDictionary(query, cold)).results, []);
+  }
+  assert.equal(cold.requests.length, 0);
+});
+
+test("all Chinese association aliases share one download budget and honour cancellation", async () => {
+  const data = fixture(Array.from({ length: 800 }, (_, i) => entry(`noise${i}`, "高兴的事；不快乐的")));
+  const result = await searchRelatedChineseDictionary("开心", data);
+  assert.deepEqual(result.results, []); assert.equal(result.hasMore, true);
+  assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 32);
+  const controller = new AbortController(); controller.abort();
+  const unused = fixture();
+  await assert.rejects(searchRelatedChineseDictionary("开心", { ...unused, signal: controller.signal }), { name: "AbortError" });
+  assert.equal(unused.requests.length, 0);
 });
 
 test("literal punctuation headword is retained and normalized terminal punctuation is a second exact path", async () => {

@@ -82,6 +82,51 @@ test("Chinese choices are capped at twenty and retain selected variant POS", asy
   assert.equal(selected.partOfSpeech, "adjective"); assert.equal(selected.source, "selected source");
 });
 
+test("optional Chinese associations never delay direct results or replace the selected card", async () => {
+  const delayed = deferred(); const direct = [row("direct-a"), row("direct-b")];
+  const controller = createController({ search: async () => ({ results: direct, hasMore: false }), relatedSearch: () => delayed.promise });
+  assert.equal(await controller.submit("开心"), true);
+  assert.equal(controller.getState().phase, "ready"); assert.equal(controller.getState().relatedPhase, "loading");
+  assert.equal(controller.select(1), true);
+  delayed.resolve({ results: [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" },
+    { ...row("direct-a"), matchType: "related", matchedChinese: "快乐" }], hasMore: false });
+  await settleSuggestions();
+  assert.deepEqual(controller.getState().results.map(item => item.term), ["direct-a", "direct-b", "happy"]);
+  assert.equal(controller.getState().selectedIndex, 1); assert.equal(controller.getState().relatedPhase, "ready");
+});
+
+test("late or failed Chinese associations cannot overwrite edits, cancellation or usable direct meanings", async () => {
+  const delayed = deferred(); let signal;
+  const controller = createController({ search: async () => ({ results: [row("chuffed")], hasMore: false }), relatedSearch: (_, options) => {
+    signal = options.signal; return delayed.promise;
+  } });
+  await controller.submit("开心"); await settleSuggestions(); controller.change("watch"); assert.equal(signal.aborted, true);
+  delayed.resolve({ results: [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" }] });
+  await settleSuggestions(); assert.deepEqual(controller.getState().results, []); assert.equal(controller.getState().phase, "idle");
+  const failed = createController({ search: async () => ({ results: [row("chuffed")], hasMore: false }), relatedSearch: async () => { throw new Error("offline"); } });
+  await failed.submit("开心"); await settleSuggestions();
+  assert.equal(failed.getState().phase, "ready"); assert.equal(failed.getState().relatedPhase, "error"); assert.equal(failed.getState().results[0].term, "chuffed");
+});
+
+test("related-only results can be previewed without rewriting input or requesting English associations", async () => {
+  let calls = 0;
+  const controller = createController({ search: async () => ({ results: [], hasMore: false }), relatedSearch: async () => {
+    calls++; return { results: [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" }], hasMore: false };
+  } });
+  await controller.submit("不常见中文"); await settleSuggestions(); assert.equal(calls, 0);
+  await controller.submit("开心"); await settleSuggestions();
+  assert.equal(controller.getState().phase, "ready"); assert.equal(controller.getState().input, "开心");
+  await controller.submit("heppy"); await settleSuggestions(); assert.equal(calls, 1);
+});
+
+test("unfinished optional Chinese candidates request refinement instead of claiming no word exists", async () => {
+  const controller = createController({ search: async () => ({ results: [], hasMore: false }),
+    relatedSearch: async () => ({ results: [], hasMore: true }) });
+  await controller.submit("开心"); await settleSuggestions();
+  assert.equal(controller.getState().phase, "refine"); assert.equal(controller.getState().hasMore, true);
+  assert.doesNotMatch(controller.getState().message, /没有找到|未收录/u);
+});
+
 test("an unfinished bounded reverse lookup is a refinement request, not a false missing-word claim", async () => {
   const controller = createController({ search: async () => ({ results: [], hasMore: true }) });
   await controller.submit("的");
@@ -207,10 +252,10 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=89/u); assert.match(html, /dictionary-app\.js\?v=89/u);
+  assert.match(html, /dictionary\.css\?v=90/u); assert.match(html, /dictionary-app\.js\?v=90/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=89/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=90/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
   assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
   assert.match(html, /仅提供拼写建议，点选后查词/u);
