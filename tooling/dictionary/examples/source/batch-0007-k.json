@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0007-k",
+  "authorship": "independent-composition",
+  "entries": [
+    {
+      "term": "mettlesome",
+      "partOfSpeech": "adjective",
+      "meaningZh": "精神饱满的",
+      "en": "The mettlesome pony tugged at its reins.",
+      "zh": "精神饱满的小马拉着缰绳。"
+    },
+    {
+      "term": "midair",
+      "partOfSpeech": "noun",
+      "meaningZh": "半空",
+      "en": "The acrobat caught the ribbon in midair.",
+      "zh": "杂技演员在半空中接住丝带。"
+    },
+    {
+      "term": "midmorning",
+      "partOfSpeech": "noun",
+      "meaningZh": "上午中段",
+      "en": "We stopped for tea at midmorning.",
+      "zh": "我们在上午中段停下来喝茶。"
+    },
+    {
+      "term": "minatory",
+      "partOfSpeech": "adjective",
+      "meaningZh": "威胁的",
+      "en": "His minatory tone silenced the room.",
+      "zh": "他威胁的语气使满屋人安静下来。"
+    },
+    {
+      "term": "misogamy",
+      "partOfSpeech": "noun",
+      "meaningZh": "厌婚",
+      "en": "The comedy gently questions its narrator's misogamy.",
+      "zh": "喜剧温和地质疑叙述者的厌婚态度。"
+    },
+    {
+      "term": "monomania",
+      "partOfSpeech": "noun",
+      "meaningZh": "偏执式狂热",
+      "en": "The novel portrays his collecting habit as monomania.",
+      "zh": "小说把他的收藏癖描写成偏执狂热。"
+    },
+    {
+      "term": "mores",
+      "partOfSpeech": "noun",
+      "meaningZh": "社会习俗",
+      "en": "The historian examines changing social mores.",
+      "zh": "历史学家研究变化中的社会习俗。"
+    },
+    {
+      "term": "mulct",
+      "partOfSpeech": "verb",
+      "meaningZh": "罚款",
+      "en": "The fictional magistrate mulcts the merchant for cheating.",
+      "zh": "虚构的地方官因商人欺诈而对其罚款。"
+    },
+    {
+      "term": "multistory",
+      "partOfSpeech": "adjective",
+      "meaningZh": "多层的",
+      "en": "A multistory building replaced the old warehouse.",
+      "zh": "一座多层建筑取代了旧仓库。"
+    },
+    {
+      "term": "narcissist",
+      "partOfSpeech": "noun",
+      "meaningZh": "自恋者",
+      "en": "The novel's narcissist mistakes every compliment for devotion.",
+      "zh": "小说中的自恋者把每句恭维都当成仰慕。"
+    },
+    {
+      "term": "natation",
+      "partOfSpeech": "noun",
+      "meaningZh": "游泳",
+      "en": "The old manual includes a chapter on natation.",
+      "zh": "旧手册中有一章讲游泳。"
+    },
+    {
+      "term": "naysay",
+      "partOfSpeech": "verb",
+      "meaningZh": "否认反对",
+      "en": "He naysayed every proposal without suggesting alternatives.",
+      "zh": "他反对每项提案，却不提出替代办法。"
+    },
+    {
+      "term": "necessitous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "贫困的",
+      "en": "The charity's old records list aid for necessitous families.",
+      "zh": "慈善机构的旧记录列出了对贫困家庭的援助。"
+    },
+    {
+      "term": "nephritis",
+      "partOfSpeech": "noun",
+      "meaningZh": "肾炎",
+      "en": "The report discusses several patients with nephritis.",
+      "zh": "报告讨论了几位肾炎患者的情况。"
+    },
+    {
+      "term": "nethermost",
+      "partOfSpeech": "adjective",
+      "meaningZh": "最下面的",
+      "en": "The nethermost shelf held the heaviest books.",
+      "zh": "最底层架子放着最重的书。"
+    },
+    {
+      "term": "niggard",
+      "partOfSpeech": "noun",
+      "meaningZh": "吝啬鬼（旧式用语）",
+      "en": "The old comedy portrays a niggard hoarding candle ends.",
+      "zh": "旧喜剧描绘了一个囤积蜡烛头的吝啬鬼。"
+    },
+    {
+      "term": "non-drinker",
+      "partOfSpeech": "noun",
+      "meaningZh": "不饮酒者",
+      "en": "A non-drinker, she chose sparkling water.",
+      "zh": "她不喝酒，选了气泡水。"
+    },
+    {
+      "term": "nonesuch",
+      "partOfSpeech": "noun",
+      "meaningZh": "无与伦比者",
+      "en": "The enthusiastic critic called the violinist a nonesuch.",
+      "zh": "热情的评论家称小提琴家无人能及。"
+    },
+    {
+      "term": "nonflammable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不易燃烧的",
+      "en": "The label describes the material as nonflammable.",
+      "zh": "标签把这种材料描述为不易燃烧。"
+    },
+    {
+      "term": "nonhuman",
+      "partOfSpeech": "adjective",
+      "meaningZh": "非人类的",
+      "en": "The novel imagines communication with nonhuman intelligence.",
+      "zh": "小说想象与非人类智慧的交流。"
+    },
+    {
+      "term": "nonplus",
+      "partOfSpeech": "verb",
+      "meaningZh": "使困惑",
+      "en": "The unexpected answer nonplussed the interviewer.",
+      "zh": "意外的回答让采访者困惑。"
+    },
+    {
+      "term": "nonprofessional",
+      "partOfSpeech": "adjective",
+      "meaningZh": "非专业的",
+      "en": "The concert featured several nonprofessional musicians.",
+      "zh": "音乐会上有几位非专业乐手。"
+    },
+    {
+      "term": "nonradioactive",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无放射性的",
+      "en": "The display distinguishes radioactive samples from nonradioactive ones.",
+      "zh": "展板区分放射性样品与非放射性样品。"
+    },
+    {
+      "term": "notability",
+      "partOfSpeech": "noun",
+      "meaningZh": "名人",
+      "en": "A local notability opened the exhibition.",
+      "zh": "一位当地名人为展览揭幕。"
+    },
+    {
+      "term": "nucleate",
+      "partOfSpeech": "verb",
+      "meaningZh": "成核",
+      "en": "The animation shows crystals beginning to nucleate.",
+      "zh": "动画显示晶体开始成核。"
+    },
+    {
+      "term": "nutriment",
+      "partOfSpeech": "noun",
+      "meaningZh": "营养物质",
+      "en": "The textbook explains how roots absorb nutriment.",
+      "zh": "课本解释根如何吸收养分。"
+    },
+    {
+      "term": "oafishness",
+      "partOfSpeech": "noun",
+      "meaningZh": "笨拙粗鲁",
+      "en": "The character's oafishness ruins the formal dinner.",
+      "zh": "这个角色的粗笨行为毁了正式晚餐。"
+    },
+    {
+      "term": "off-key",
+      "partOfSpeech": "adjective",
+      "meaningZh": "走调的",
+      "en": "His off-key singing amused the waiting children.",
+      "zh": "他走调的歌声逗乐了等候的孩子。"
+    },
+    {
+      "term": "offish",
+      "partOfSpeech": "adjective",
+      "meaningZh": "冷淡疏远的",
+      "en": "The offish host answered without looking up.",
+      "zh": "冷淡的主人回答时没有抬头。"
+    },
+    {
+      "term": "ohp",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "投影仪",
+      "en": "The tutor used an OHP to display the diagram.",
+      "zh": "导师用投影仪展示图解。"
+    },
+    {
+      "term": "opalescence",
+      "partOfSpeech": "noun",
+      "meaningZh": "乳光",
+      "en": "The glass showed a delicate opalescence.",
+      "zh": "玻璃呈现细腻的乳光。"
+    },
+    {
+      "term": "open-book",
+      "partOfSpeech": "adjective",
+      "meaningZh": "开卷的",
+      "en": "The course ended with an open-book examination.",
+      "zh": "课程以开卷考试结束。"
+    },
+    {
+      "term": "opprobrious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "辱骂的",
+      "en": "The editor removed an opprobrious phrase.",
+      "zh": "编辑删去一句辱骂性的话。"
+    },
+    {
+      "term": "orotund",
+      "partOfSpeech": "adjective",
+      "meaningZh": "洪亮做作的",
+      "en": "His orotund delivery made the simple announcement theatrical.",
+      "zh": "他夸张洪亮的表达让简单公告像舞台表演。"
+    },
+    {
+      "term": "other-directed",
+      "partOfSpeech": "adjective",
+      "meaningZh": "受他人影响支配的",
+      "en": "The essay explores the character's other-directed choices.",
+      "zh": "文章探讨这个角色受他人支配的选择。"
+    },
+    {
+      "term": "outskirt",
+      "partOfSpeech": "noun",
+      "meaningZh": "市郊外围（通常用复数）",
+      "en": "The workshop stood on the outskirts of town.",
+      "zh": "工坊位于城镇外围。"
+    },
+    {
+      "term": "palter",
+      "partOfSpeech": "verb",
+      "meaningZh": "含糊敷衍",
+      "en": "The character palters with the truth to avoid blame.",
+      "zh": "这个角色含糊其词，逃避责任。"
+    },
+    {
+      "term": "passerby",
+      "partOfSpeech": "noun",
+      "meaningZh": "路人",
+      "en": "A passerby returned the fallen scarf.",
+      "zh": "一位路人送回了掉落的围巾。"
+    },
+    {
+      "term": "patricide",
+      "partOfSpeech": "noun",
+      "meaningZh": "弑父",
+      "en": "The tragedy centres on an accusation of patricide.",
+      "zh": "悲剧围绕一项弑父指控展开。"
+    },
+    {
+      "term": "peculate",
+      "partOfSpeech": "verb",
+      "meaningZh": "侵吞公款",
+      "en": "The detective discovers a clerk peculating from the treasury.",
+      "zh": "侦探发现一名职员侵吞公款。"
+    },
+    {
+      "term": "pelf",
+      "partOfSpeech": "noun",
+      "meaningZh": "不义之财",
+      "en": "The miser hoards his pelf in the fable.",
+      "zh": "寓言中的守财奴囤积不义之财。"
+    },
+    {
+      "term": "pell-mell",
+      "partOfSpeech": "adverb",
+      "meaningZh": "乱哄哄地",
+      "en": "The children rushed pell-mell into the garden.",
+      "zh": "孩子们乱哄哄地冲进花园。"
+    },
+    {
+      "term": "pendent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "下垂的",
+      "en": "Pendent branches brushed the pond's surface.",
+      "zh": "下垂的树枝轻拂池面。"
+    },
+    {
+      "term": "perfervid",
+      "partOfSpeech": "adjective",
+      "meaningZh": "极热烈的",
+      "en": "His perfervid praise embarrassed the quiet artist.",
+      "zh": "他热烈过度的赞扬让安静的艺术家窘迫。"
+    },
+    {
+      "term": "periphrastic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "迂回冗长的",
+      "en": "The periphrastic explanation obscured a simple point.",
+      "zh": "绕弯子的冗长解释掩盖了简单要点。"
+    },
+    {
+      "term": "persiflage",
+      "partOfSpeech": "noun",
+      "meaningZh": "善意戏谑",
+      "en": "Light persiflage enlivened the dinner.",
+      "zh": "轻松戏谑让晚餐活跃起来。"
+    },
+    {
+      "term": "perspicuity",
+      "partOfSpeech": "noun",
+      "meaningZh": "清晰易懂",
+      "en": "The teacher praised the essay's perspicuity.",
+      "zh": "老师称赞文章清晰易懂。"
+    },
+    {
+      "term": "perspicuous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "表达清楚的",
+      "en": "Her perspicuous explanation clarified the instructions.",
+      "zh": "她清楚的解释使说明易于理解。"
+    },
+    {
+      "term": "pertinacious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "顽强坚持的",
+      "en": "The pertinacious researcher kept searching the archive.",
+      "zh": "执着的研究者继续查找档案。"
+    },
+    {
+      "term": "pervious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可渗透的",
+      "en": "The soil was pervious to rainwater.",
+      "zh": "土壤能让雨水渗透。"
+    },
+    {
+      "term": "pestilent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人讨厌的",
+      "en": "The pestilent flies spoiled the picnic.",
+      "zh": "烦人的苍蝇毁了野餐。"
+    },
+    {
+      "term": "petrifaction",
+      "partOfSpeech": "noun",
+      "meaningZh": "石化",
+      "en": "The exhibit illustrates petrifaction of ancient wood.",
+      "zh": "展览展示古木的石化。"
+    },
+    {
+      "term": "pettish",
+      "partOfSpeech": "adjective",
+      "meaningZh": "使小性子的",
+      "en": "Her pettish reply surprised the patient organiser.",
+      "zh": "她闹脾气的回答让耐心的组织者惊讶。"
+    },
+    {
+      "term": "philatelist",
+      "partOfSpeech": "noun",
+      "meaningZh": "集邮家",
+      "en": "The philatelist identified the faded stamp.",
+      "zh": "集邮家认出了褪色邮票。"
+    },
+    {
+      "term": "philately",
+      "partOfSpeech": "noun",
+      "meaningZh": "集邮",
+      "en": "His interest in philately began with a birthday gift.",
+      "zh": "他对集邮的兴趣始于一份生日礼物。"
+    },
+    {
+      "term": "pilferage",
+      "partOfSpeech": "noun",
+      "meaningZh": "小偷小摸",
+      "en": "The inventory revealed repeated pilferage from the storeroom.",
+      "zh": "清单显示库房里反复发生小额失窃。"
+    },
+    {
+      "term": "piscatorial",
+      "partOfSpeech": "adjective",
+      "meaningZh": "捕鱼的",
+      "en": "The museum explores the village's piscatorial traditions.",
+      "zh": "博物馆探讨村庄的捕鱼传统。"
+    },
+    {
+      "term": "pithiness",
+      "partOfSpeech": "noun",
+      "meaningZh": "简洁有力",
+      "en": "The slogan's pithiness made it memorable.",
+      "zh": "口号简洁有力，令人难忘。"
+    },
+    {
+      "term": "plainspoken",
+      "partOfSpeech": "adjective",
+      "meaningZh": "直言不讳的",
+      "en": "Her plainspoken advice helped the inexperienced volunteers.",
+      "zh": "她直白的建议帮助了缺乏经验的志愿者。"
+    },
+    {
+      "term": "plash",
+      "partOfSpeech": "noun",
+      "meaningZh": "轻拍水声",
+      "en": "We heard the plash of small waves.",
+      "zh": "我们听到小浪轻拍的声音。"
+    },
+    {
+      "term": "plentitude",
+      "partOfSpeech": "noun",
+      "meaningZh": "丰富",
+      "en": "The poem celebrates a plentitude of summer flowers.",
+      "zh": "诗歌赞美夏花的繁盛。"
+    },
+    {
+      "term": "pleonastic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "用词赘余的",
+      "en": "The editor removed a pleonastic phrase.",
+      "zh": "编辑删去了一个赘余短语。"
+    },
+    {
+      "term": "poltroon",
+      "partOfSpeech": "noun",
+      "meaningZh": "懦夫",
+      "en": "The boastful knight proves a poltroon.",
+      "zh": "夸口的骑士原来是个懦夫。"
+    },
+    {
+      "term": "ponderable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "值得考虑的",
+      "en": "The proposal raises several ponderable questions.",
+      "zh": "提案引出几个值得考虑的问题。"
+    },
+    {
+      "term": "positiveness",
+      "partOfSpeech": "noun",
+      "meaningZh": "肯定确信",
+      "en": "The positiveness of her answer reassured us.",
+      "zh": "她回答得很肯定，让我们放心。"
+    },
+    {
+      "term": "potation",
+      "partOfSpeech": "noun",
+      "meaningZh": "饮酒",
+      "en": "The comic scene ends with noisy potations.",
+      "zh": "滑稽场面以喧闹的饮酒结束。"
+    },
+    {
+      "term": "preponderate",
+      "partOfSpeech": "verb",
+      "meaningZh": "占优势",
+      "en": "Blue tones preponderate in her coastal paintings.",
+      "zh": "蓝色调在她的海岸画中占主导。"
+    },
+    {
+      "term": "prevision",
+      "partOfSpeech": "noun",
+      "meaningZh": "先见",
+      "en": "The plan showed remarkable prevision.",
+      "zh": "方案展现了非凡的先见。"
+    },
+    {
+      "term": "prolix",
+      "partOfSpeech": "adjective",
+      "meaningZh": "冗长的",
+      "en": "The prolix introduction exhausted the audience.",
+      "zh": "冗长的引言让观众疲惫。"
+    },
+    {
+      "term": "prolixity",
+      "partOfSpeech": "noun",
+      "meaningZh": "冗长",
+      "en": "The editor criticised the report's prolixity.",
+      "zh": "编辑批评报告冗长。"
+    },
+    {
+      "term": "prorogue",
+      "partOfSpeech": "verb",
+      "meaningZh": "使议会休会",
+      "en": "The history chapter describes a decision to prorogue parliament.",
+      "zh": "历史章节记述了一项让议会休会的决定。"
+    },
+    {
+      "term": "protend",
+      "partOfSpeech": "verb",
+      "meaningZh": "伸出",
+      "en": "The figure protends one arm towards the sky.",
+      "zh": "雕像把一条手臂伸向天空。"
+    },
+    {
+      "term": "provisory",
+      "partOfSpeech": "adjective",
+      "meaningZh": "暂时的",
+      "en": "The committee reached a provisory agreement.",
+      "zh": "委员会达成了临时协议。"
+    },
+    {
+      "term": "pugilism",
+      "partOfSpeech": "noun",
+      "meaningZh": "拳击",
+      "en": "The exhibition traces the history of pugilism.",
+      "zh": "展览追溯拳击的历史。"
+    },
+    {
+      "term": "pullulate",
+      "partOfSpeech": "verb",
+      "meaningZh": "大量繁生",
+      "en": "Tiny creatures pullulated in the warm pond.",
+      "zh": "微小生物在温暖池塘里大量繁生。"
+    },
+    {
+      "term": "purblind",
+      "partOfSpeech": "adjective",
+      "meaningZh": "缺乏洞察力的",
+      "en": "The satire condemns the ruler's purblind optimism.",
+      "zh": "讽刺作品谴责统治者盲目的乐观。"
+    },
+    {
+      "term": "purlieu",
+      "partOfSpeech": "noun",
+      "meaningZh": "常去的地方",
+      "en": "The quiet cafe became his favourite purlieu.",
+      "zh": "安静的咖啡馆成了他最爱去的地方。"
+    },
+    {
+      "term": "pyromania",
+      "partOfSpeech": "noun",
+      "meaningZh": "纵火癖",
+      "en": "The novel portrays a character struggling with pyromania.",
+      "zh": "小说描绘了一个受纵火癖困扰的人物。"
+    },
+    {
+      "term": "raillery",
+      "partOfSpeech": "noun",
+      "meaningZh": "善意逗趣",
+      "en": "Their friendly raillery continued through lunch.",
+      "zh": "他们友好的打趣贯穿午餐。"
+    },
+    {
+      "term": "rapscallion",
+      "partOfSpeech": "noun",
+      "meaningZh": "调皮鬼",
+      "en": "The little rapscallion hid the wooden spoon.",
+      "zh": "小调皮鬼藏起了木勺。"
+    },
+    {
+      "term": "rebarbative",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人厌烦的",
+      "en": "The rebarbative instructions discouraged beginners.",
+      "zh": "令人厌烦的说明让初学者退却。"
+    },
+    {
+      "term": "recompose",
+      "partOfSpeech": "verb",
+      "meaningZh": "使重新镇定",
+      "en": "She paused to recompose herself before answering.",
+      "zh": "她停下来恢复镇定，然后回答。"
+    },
+    {
+      "term": "refulgent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "灿烂的",
+      "en": "The refulgent moon lit the harbour.",
+      "zh": "灿烂的月亮照着港口。"
+    },
+    {
+      "term": "remittent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "弛张的",
+      "en": "The medical text distinguishes remittent fever from continuous fever.",
+      "zh": "医学文本区分弛张热与持续热。"
+    },
+    {
+      "term": "renascent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "复兴的",
+      "en": "The renascent theatre attracted young performers.",
+      "zh": "复兴的剧院吸引了年轻演员。"
+    },
+    {
+      "term": "rentable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可出租的",
+      "en": "The notice lists two rentable rooms.",
+      "zh": "告示列出两间可出租房间。"
+    },
+    {
+      "term": "renunciate",
+      "partOfSpeech": "verb",
+      "meaningZh": "放弃",
+      "en": "The character renunciates his claim to the inheritance.",
+      "zh": "角色放弃了继承权主张。"
+    },
+    {
+      "term": "reorient",
+      "partOfSpeech": "verb",
+      "meaningZh": "重新调整方向",
+      "en": "The discovery reoriented her research towards village history.",
+      "zh": "发现让她把研究方向转向村庄历史。"
+    },
+    {
+      "term": "reparable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可修复的",
+      "en": "The damage proved reparable with careful work.",
+      "zh": "损坏经过细致工作可以修复。"
+    },
+    {
+      "term": "repine",
+      "partOfSpeech": "verb",
+      "meaningZh": "抱怨",
+      "en": "He repined at the long delay.",
+      "zh": "他抱怨漫长延误。"
+    },
+    {
+      "term": "reprehend",
+      "partOfSpeech": "verb",
+      "meaningZh": "责备",
+      "en": "The tutor reprehended his careless copying.",
+      "zh": "导师责备他抄写不认真。"
+    },
+    {
+      "term": "requital",
+      "partOfSpeech": "noun",
+      "meaningZh": "报答",
+      "en": "She offered help in requital for his kindness.",
+      "zh": "她提供帮助，回报他的善意。"
+    },
+    {
+      "term": "requite",
+      "partOfSpeech": "verb",
+      "meaningZh": "报答",
+      "en": "We requited their hospitality with a shared meal.",
+      "zh": "我们请他们吃饭，回报款待。"
+    },
+    {
+      "term": "rescript",
+      "partOfSpeech": "noun",
+      "meaningZh": "敕令",
+      "en": "The archive preserves an imperial rescript.",
+      "zh": "档案库保存着一道帝国敕令。"
+    },
+    {
+      "term": "reservior",
+      "partOfSpeech": "noun",
+      "meaningZh": "reservoir（水库）的误拼",
+      "en": "The editor corrected reservior to reservoir in the draft.",
+      "zh": "编辑把草稿中的 reservior 改为 reservoir。"
+    },
+    {
+      "term": "resurge",
+      "partOfSpeech": "verb",
+      "meaningZh": "再次兴起",
+      "en": "Interest in the forgotten composer began to resurge.",
+      "zh": "人们对被遗忘作曲家的兴趣再次兴起。"
+    },
+    {
+      "term": "reticulation",
+      "partOfSpeech": "noun",
+      "meaningZh": "网状结构",
+      "en": "The leaf's reticulation was clear under magnification.",
+      "zh": "放大后，叶片的网状结构很清晰。"
+    },
+    {
+      "term": "roister",
+      "partOfSpeech": "verb",
+      "meaningZh": "喧闹作乐",
+      "en": "The fictional sailors roister in a harbour tavern.",
+      "zh": "故事中的水手在港口酒馆喧闹作乐。"
+    },
+    {
+      "term": "rubicund",
+      "partOfSpeech": "adjective",
+      "meaningZh": "脸色红润的",
+      "en": "The portrait shows a rubicund innkeeper.",
+      "zh": "肖像描绘了一位红润的旅店老板。"
+    },
+    {
+      "term": "saliferous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "含盐的",
+      "en": "The geologist examined the saliferous rock.",
+      "zh": "地质学家检查了含盐岩石。"
+    },
+    {
+      "term": "sangfroid",
+      "partOfSpeech": "noun",
+      "meaningZh": "临危镇定",
+      "en": "Her sangfroid steadied the nervous crew.",
+      "zh": "她的镇定稳住了紧张的工作人员。"
+    },
+    {
+      "term": "sapience",
+      "partOfSpeech": "noun",
+      "meaningZh": "智慧",
+      "en": "The fable attributes great sapience to the owl.",
+      "zh": "寓言赋予猫头鹰极大智慧。"
+    },
+    {
+      "term": "scathe",
+      "partOfSpeech": "verb",
+      "meaningZh": "损害",
+      "en": "The storm scathed the exposed orchard.",
+      "zh": "风暴损伤了无遮蔽的果园。"
+    },
+    {
+      "term": "schoolbag",
+      "partOfSpeech": "noun",
+      "meaningZh": "书包",
+      "en": "Her schoolbag lay beneath the desk.",
+      "zh": "她的书包在课桌下面。"
+    },
+    {
+      "term": "scintillate",
+      "partOfSpeech": "verb",
+      "meaningZh": "闪烁",
+      "en": "Tiny crystals scintillated in the sunlight.",
+      "zh": "小晶体在阳光下闪烁。"
+    },
+    {
+      "term": "scission",
+      "partOfSpeech": "noun",
+      "meaningZh": "分裂",
+      "en": "The report describes a scission within the association.",
+      "zh": "报告描述了协会内部的一次分裂。"
+    },
+    {
+      "term": "scrutable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可以理解的",
+      "en": "The pattern became scrutable after we found the key.",
+      "zh": "找到要领后，这个图案可以理解了。"
+    },
+    {
+      "term": "scutter",
+      "partOfSpeech": "verb",
+      "meaningZh": "急跑",
+      "en": "A mouse scuttered beneath the cupboard.",
+      "zh": "一只老鼠疾跑到柜下。"
+    },
+    {
+      "term": "secretin",
+      "partOfSpeech": "noun",
+      "meaningZh": "促胰液素",
+      "en": "Researchers measured secretin concentrations in the samples.",
+      "zh": "研究人员测量了样品中的促胰液素浓度。"
+    },
+    {
+      "term": "sedulity",
+      "partOfSpeech": "noun",
+      "meaningZh": "勤勉",
+      "en": "Her sedulity impressed the experienced archivist.",
+      "zh": "她的勤勉让经验丰富的档案员赞叹。"
+    },
+    {
+      "term": "sedulous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "勤勉的",
+      "en": "The sedulous apprentice checked every measurement.",
+      "zh": "勤勉的学徒检查了每处尺寸。"
+    },
+    {
+      "term": "self-abasement",
+      "partOfSpeech": "noun",
+      "meaningZh": "自我贬抑",
+      "en": "The novel questions the character's habitual self-abasement.",
+      "zh": "小说质疑角色惯常的自我贬抑。"
+    },
+    {
+      "term": "self-absorbed",
+      "partOfSpeech": "adjective",
+      "meaningZh": "只顾自己的",
+      "en": "The self-absorbed guest ignored everyone else's stories.",
+      "zh": "只顾自己的客人不理别人的故事。"
+    },
+    {
+      "term": "self-assertion",
+      "partOfSpeech": "noun",
+      "meaningZh": "坚持表达自己",
+      "en": "Her quiet self-assertion changed the discussion.",
+      "zh": "她平静地坚持表达自己，改变了讨论。"
+    },
+    {
+      "term": "self-defense",
+      "partOfSpeech": "noun",
+      "meaningZh": "自卫",
+      "en": "The legal drama examines a claim of self-defense.",
+      "zh": "法律剧考察了一项自卫主张。"
+    },
+    {
+      "term": "self-discipline",
+      "partOfSpeech": "noun",
+      "meaningZh": "自律",
+      "en": "Learning the difficult piece required self-discipline.",
+      "zh": "学习困难曲目需要自律。"
+    },
+    {
+      "term": "semiarid",
+      "partOfSpeech": "adjective",
+      "meaningZh": "半干旱的",
+      "en": "The atlas marks the region as semiarid.",
+      "zh": "地图册把该地区标为半干旱。"
+    },
+    {
+      "term": "semiliterate",
+      "partOfSpeech": "adjective",
+      "meaningZh": "识字不多的",
+      "en": "The novel portrays a semiliterate narrator learning to read.",
+      "zh": "小说描写识字不多的叙述者学习阅读。"
+    },
+    {
+      "term": "seminate",
+      "partOfSpeech": "verb",
+      "meaningZh": "传播",
+      "en": "The pamphlet sought to seminate new ideas.",
+      "zh": "小册子试图传播新思想。"
+    },
+    {
+      "term": "sequacious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "盲从的",
+      "en": "The satire mocks the minister's sequacious followers.",
+      "zh": "讽刺作品嘲弄大臣盲从的追随者。"
+    },
+    {
+      "term": "sequela",
+      "partOfSpeech": "noun",
+      "meaningZh": "后遗症",
+      "en": "The report describes persistent fatigue as a sequela of the illness.",
+      "zh": "报告将持续疲劳描述为这种疾病的一种后遗症。"
+    },
+    {
+      "term": "serrate",
+      "partOfSpeech": "adjective",
+      "meaningZh": "锯齿状的",
+      "en": "The plant has sharply serrate leaves.",
+      "zh": "植物长着明显锯齿状的叶子。"
+    },
+    {
+      "term": "sibyl",
+      "partOfSpeech": "noun",
+      "meaningZh": "女预言家",
+      "en": "The sibyl foretells the hero's return.",
+      "zh": "女预言家预言英雄归来。"
+    },
+    {
+      "term": "sidesplitting",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人捧腹的",
+      "en": "The sidesplitting scene delighted the young audience.",
+      "zh": "令人捧腹的场景让年轻观众开心。"
+    },
+    {
+      "term": "sideway",
+      "partOfSpeech": "noun",
+      "meaningZh": "小路",
+      "en": "We took a narrow sideway behind the inn.",
+      "zh": "我们走了旅店后的一条小路。"
+    },
+    {
+      "term": "sizzler",
+      "partOfSpeech": "noun",
+      "meaningZh": "酷热的一天",
+      "en": "The weather report called tomorrow a sizzler.",
+      "zh": "天气预报说次日将酷热难当。"
+    },
+    {
+      "term": "slapdash",
+      "partOfSpeech": "adjective",
+      "meaningZh": "草率的",
+      "en": "The slapdash repairs left the gate crooked.",
+      "zh": "草率维修使大门歪斜。"
+    },
+    {
+      "term": "sloven",
+      "partOfSpeech": "noun",
+      "meaningZh": "邋遢的人",
+      "en": "The comedy's sloven leaves clothes everywhere.",
+      "zh": "喜剧中的邋遢鬼到处乱放衣服。"
+    },
+    {
+      "term": "slue",
+      "partOfSpeech": "verb",
+      "meaningZh": "转向",
+      "en": "The cart slued across the muddy track.",
+      "zh": "小车在泥路上转歪了方向。"
+    },
+    {
+      "term": "smirch",
+      "partOfSpeech": "verb",
+      "meaningZh": "玷污",
+      "en": "The false accusation smirched her reputation.",
+      "zh": "虚假指控玷污了她的名声。"
+    },
+    {
+      "term": "so-called",
+      "partOfSpeech": "adjective",
+      "meaningZh": "所谓的",
+      "en": "The so-called shortcut took us much longer.",
+      "zh": "所谓近路让我们多花了许多时间。"
+    },
+    {
+      "term": "speleology",
+      "partOfSpeech": "noun",
+      "meaningZh": "洞穴学",
+      "en": "Her interest in speleology began during a museum visit.",
+      "zh": "她对洞穴学的兴趣始于一次博物馆参观。"
+    },
+    {
+      "term": "spined",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有刺的",
+      "en": "The illustration shows a spined seed case.",
+      "zh": "插图显示一个带刺种壳。"
+    },
+    {
+      "term": "star-crossed",
+      "partOfSpeech": "adjective",
+      "meaningZh": "命运多舛的",
+      "en": "The star-crossed lovers reunite in the final scene.",
+      "zh": "命运多舛的恋人在最后一幕重聚。"
+    },
+    {
+      "term": "stouthearted",
+      "partOfSpeech": "adjective",
+      "meaningZh": "坚毅勇敢的",
+      "en": "The stouthearted crew refused to abandon the damaged boat.",
+      "zh": "坚毅的船员不肯放弃受损船只。"
+    },
+    {
+      "term": "subdiscipline",
+      "partOfSpeech": "noun",
+      "meaningZh": "分支学科",
+      "en": "The lecture introduced a subdiscipline of linguistics.",
+      "zh": "讲座介绍了语言学的一门分支学科。"
+    },
+    {
+      "term": "subduct",
+      "partOfSpeech": "verb",
+      "meaningZh": "俯冲到另一板块下",
+      "en": "The diagram shows one tectonic plate beginning to subduct.",
+      "zh": "图解显示一个构造板块开始俯冲。"
+    },
+    {
+      "term": "superheat",
+      "partOfSpeech": "verb",
+      "meaningZh": "使过热",
+      "en": "The exhibit demonstrates equipment designed to superheat steam.",
+      "zh": "展览展示了用于使蒸汽过热的设备。"
+    },
+    {
+      "term": "suspender",
+      "partOfSpeech": "noun",
+      "meaningZh": "吊裤带（通常用复数）",
+      "en": "The costume included bright red suspenders.",
+      "zh": "戏服包括鲜红色吊裤带。"
+    },
+    {
+      "term": "synergic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "协同的",
+      "en": "The study examines synergic effects between the components.",
+      "zh": "研究考察组分之间的协同效应。"
+    },
+    {
+      "term": "systematical",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有系统的",
+      "en": "Her systematical notes made the archive easier to search.",
+      "zh": "她系统的笔记让档案更易检索。"
+    },
+    {
+      "term": "tendinous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "肌腱的",
+      "en": "The anatomical drawing labels the tendinous tissue.",
+      "zh": "解剖画标出了肌腱组织。"
+    },
+    {
+      "term": "thousand-fold",
+      "partOfSpeech": "adjective",
+      "meaningZh": "千倍的",
+      "en": "The simulation showed a thousand-fold increase.",
+      "zh": "模拟显示增长到原来的千倍。"
+    },
+    {
+      "term": "threadlike",
+      "partOfSpeech": "adjective",
+      "meaningZh": "丝状的",
+      "en": "Threadlike roots spread through the clear container.",
+      "zh": "丝状根在透明容器中蔓延。"
+    },
+    {
+      "term": "thriftless",
+      "partOfSpeech": "adjective",
+      "meaningZh": "挥霍的",
+      "en": "The tale's thriftless heir soon loses his fortune.",
+      "zh": "故事中挥霍的继承人很快失去财产。"
+    },
+    {
+      "term": "tightfisted",
+      "partOfSpeech": "adjective",
+      "meaningZh": "吝啬的",
+      "en": "The tightfisted character refuses to buy fresh candles.",
+      "zh": "吝啬的角色不肯买新蜡烛。"
+    },
+    {
+      "term": "timeworn",
+      "partOfSpeech": "adjective",
+      "meaningZh": "陈旧老套的",
+      "en": "The speech repeated several timeworn excuses.",
+      "zh": "演讲重复了几个老套借口。"
+    },
+    {
+      "term": "tined",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有叉齿的",
+      "en": "The illustration shows a three-tined fork.",
+      "zh": "插图画着一把三齿叉。"
+    },
+    {
+      "term": "tonsorial",
+      "partOfSpeech": "adjective",
+      "meaningZh": "理发的",
+      "en": "The museum displays old tonsorial equipment.",
+      "zh": "博物馆展示旧理发设备。"
+    },
+    {
+      "term": "topsy-turvy",
+      "partOfSpeech": "adjective",
+      "meaningZh": "乱七八糟的",
+      "en": "The puppy left the room topsy-turvy.",
+      "zh": "小狗把房间弄得乱七八糟。"
+    },
+    {
+      "term": "tractability",
+      "partOfSpeech": "noun",
+      "meaningZh": "易于管教",
+      "en": "The trainer praised the pony's tractability.",
+      "zh": "训练者称赞小马温顺易教。"
+    },
+    {
+      "term": "trumpery",
+      "partOfSpeech": "noun",
+      "meaningZh": "华而不实之物",
+      "en": "The drawer held a collection of glittering trumpery.",
+      "zh": "抽屉里装着一堆闪亮的无用饰品。"
+    },
+    {
+      "term": "tumid",
+      "partOfSpeech": "adjective",
+      "meaningZh": "肿胀的",
+      "en": "The medical illustration shows a tumid joint.",
+      "zh": "医学插图展示了一个肿胀关节。"
+    },
+    {
+      "term": "ulcerate",
+      "partOfSpeech": "verb",
+      "meaningZh": "形成溃疡",
+      "en": "The historical case notes describe tissue beginning to ulcerate.",
+      "zh": "历史病例笔记描述组织开始溃烂。"
+    },
+    {
+      "term": "ultramundane",
+      "partOfSpeech": "adjective",
+      "meaningZh": "超尘世的",
+      "en": "The poem imagines an ultramundane paradise.",
+      "zh": "诗歌想象了一处超尘世的乐园。"
+    },
+    {
+      "term": "ultrasonics",
+      "partOfSpeech": "noun",
+      "meaningZh": "超声学",
+      "en": "The textbook introduces ultrasonics through simple diagrams.",
+      "zh": "课本通过简单图解介绍超声学。"
+    },
+    {
+      "term": "undergird",
+      "partOfSpeech": "verb",
+      "meaningZh": "支撑",
+      "en": "Careful observation undergirds the research.",
+      "zh": "细致观察支撑着这项研究。"
+    },
+    {
+      "term": "undisputable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无可争辩的",
+      "en": "The photograph supplied undisputable evidence.",
+      "zh": "照片提供了无可争辩的证据。"
+    },
+    {
+      "term": "unguent",
+      "partOfSpeech": "noun",
+      "meaningZh": "软膏",
+      "en": "The antique jar once held a fragrant unguent.",
+      "zh": "古罐曾装过芳香软膏。"
+    },
+    {
+      "term": "unimpassioned",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不带感情的",
+      "en": "Her unimpassioned account made the events seem distant.",
+      "zh": "她不带感情的叙述让事件显得遥远。"
+    },
+    {
+      "term": "unscrupulously",
+      "partOfSpeech": "adverb",
+      "meaningZh": "不择手段地",
+      "en": "The fictional dealer unscrupulously exploits inexperienced collectors.",
+      "zh": "故事中的商人不择手段地利用新手收藏家。"
+    },
+    {
+      "term": "unscrupulousness",
+      "partOfSpeech": "noun",
+      "meaningZh": "不择手段",
+      "en": "The novel exposes the merchant's unscrupulousness.",
+      "zh": "小说揭露了商人的不择手段。"
+    },
+    {
+      "term": "unspotted",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无污点的",
+      "en": "The white cloth remained unspotted.",
+      "zh": "白布依然没有污点。"
+    },
+    {
+      "term": "up-to-date",
+      "partOfSpeech": "adjective",
+      "meaningZh": "最新的",
+      "en": "The guide includes an up-to-date map.",
+      "zh": "指南包括一张最新地图。"
+    },
+    {
+      "term": "upside-down",
+      "partOfSpeech": "adjective",
+      "meaningZh": "颠倒的",
+      "en": "The upside-down label confused the visitors.",
+      "zh": "倒贴的标签让访客困惑。"
+    },
+    {
+      "term": "uptodate",
+      "partOfSpeech": "adjective",
+      "meaningZh": "up-to-date的非标准拼写",
+      "en": "The editor replaced uptodate with the standard form up-to-date.",
+      "zh": "编辑用标准形式 up-to-date 替换了 uptodate。"
+    },
+    {
+      "term": "ursine",
+      "partOfSpeech": "adjective",
+      "meaningZh": "熊似的",
+      "en": "An ursine figure looms in the mural.",
+      "zh": "壁画中隐约有一个熊形身影。"
+    },
+    {
+      "term": "uxorious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "过分溺爱妻子的",
+      "en": "The comedy gently teases its uxorious husband.",
+      "zh": "喜剧温和地打趣那位过分宠妻的丈夫。"
+    },
+    {
+      "term": "valetudinarian",
+      "partOfSpeech": "noun",
+      "meaningZh": "过分担忧健康的人",
+      "en": "The comedy's valetudinarian worries about every minor discomfort.",
+      "zh": "喜剧中忧病的人担心每一点不适。"
+    },
+    {
+      "term": "variegate",
+      "partOfSpeech": "verb",
+      "meaningZh": "使呈杂色",
+      "en": "Pale streaks variegate the dark leaves.",
+      "zh": "浅色条纹使深叶呈现杂色。"
+    },
+    {
+      "term": "veracious",
+      "partOfSpeech": "adjective",
+      "meaningZh": "诚实可信的",
+      "en": "The historian regarded her as a veracious witness.",
+      "zh": "历史学家认为她是个诚实证人。"
+    },
+    {
+      "term": "verisimilar",
+      "partOfSpeech": "adjective",
+      "meaningZh": "逼真的",
+      "en": "The novelist creates a verisimilar world of imaginary islands.",
+      "zh": "小说家塑造了逼真的虚构群岛世界。"
+    },
+    {
+      "term": "versemonger",
+      "partOfSpeech": "noun",
+      "meaningZh": "拙劣诗人",
+      "en": "The satire portrays a versemonger craving applause.",
+      "zh": "讽刺作品描写一位渴望掌声的蹩脚诗人。"
+    },
+    {
+      "term": "vesture",
+      "partOfSpeech": "noun",
+      "meaningZh": "衣装（文学用语）",
+      "en": "The painting shows a king in ceremonial vesture.",
+      "zh": "画作描绘国王穿着礼服。"
+    },
+    {
+      "term": "vicissitudinous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "盛衰多变的",
+      "en": "The memoir follows a vicissitudinous theatrical career.",
+      "zh": "回忆录追述一段起伏多变的戏剧生涯。"
+    },
+    {
+      "term": "viscid",
+      "partOfSpeech": "adjective",
+      "meaningZh": "黏稠的",
+      "en": "The viscid liquid clung to the spoon.",
+      "zh": "黏稠液体粘在勺上。"
+    },
+    {
+      "term": "vitalist",
+      "partOfSpeech": "noun",
+      "meaningZh": "生机论者",
+      "en": "The lecture examines arguments made by a vitalist.",
+      "zh": "讲座考察一位生机论者提出的论点。"
+    },
+    {
+      "term": "vitamine",
+      "partOfSpeech": "noun",
+      "meaningZh": "维生素（旧拼法）",
+      "en": "The historical label promises a new vitamine preparation.",
+      "zh": "历史标签声称推出一种新的维生素制剂。"
+    },
+    {
+      "term": "vitrify",
+      "partOfSpeech": "verb",
+      "meaningZh": "使玻璃化",
+      "en": "The display explains how heat can vitrify clay.",
+      "zh": "展板解释高温如何使黏土玻璃化。"
+    },
+    {
+      "term": "vituperate",
+      "partOfSpeech": "verb",
+      "meaningZh": "辱骂",
+      "en": "The angry character vituperates his rival.",
+      "zh": "愤怒的角色辱骂对手。"
+    },
+    {
+      "term": "warrantable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有正当理由的",
+      "en": "The committee considered the extra expense warrantable.",
+      "zh": "委员会认为额外支出有正当理由。"
+    },
+    {
+      "term": "water-clock",
+      "partOfSpeech": "noun",
+      "meaningZh": "水钟",
+      "en": "The museum demonstrates a working water-clock.",
+      "zh": "博物馆演示了一座能运作的水钟。"
+    },
+    {
+      "term": "water-skiing",
+      "partOfSpeech": "noun",
+      "meaningZh": "滑水运动",
+      "en": "The brochure includes photographs of water-skiing.",
+      "zh": "手册中有滑水运动的照片。"
+    },
+    {
+      "term": "weaverbird",
+      "partOfSpeech": "noun",
+      "meaningZh": "织布鸟",
+      "en": "A weaverbird worked on its hanging nest.",
+      "zh": "一只织布鸟忙着编悬巢。"
+    },
+    {
+      "term": "wedge-shaped",
+      "partOfSpeech": "adjective",
+      "meaningZh": "楔形的",
+      "en": "The carpenter inserted a wedge-shaped block.",
+      "zh": "木匠插入一个楔形块。"
+    },
+    {
+      "term": "well-groomed",
+      "partOfSpeech": "adjective",
+      "meaningZh": "整洁考究的",
+      "en": "The well-groomed host welcomed the performers.",
+      "zh": "穿着整洁的主人欢迎演员。"
+    },
+    {
+      "term": "well-known",
+      "partOfSpeech": "adjective",
+      "meaningZh": "著名的",
+      "en": "A well-known violinist visited the school.",
+      "zh": "一位著名小提琴家来访学校。"
+    },
+    {
+      "term": "whelm",
+      "partOfSpeech": "verb",
+      "meaningZh": "淹没",
+      "en": "The rising tide whelmed the abandoned causeway.",
+      "zh": "上涨潮水淹没了废弃堤道。"
+    },
+    {
+      "term": "world-wide",
+      "partOfSpeech": "adjective",
+      "meaningZh": "遍及全球的",
+      "en": "The exhibition attracted world-wide interest.",
+      "zh": "展览引起了全球关注。"
+    },
+    {
+      "term": "xenophobe",
+      "partOfSpeech": "noun",
+      "meaningZh": "仇外者",
+      "en": "The novel challenges the xenophobe's unfounded suspicions.",
+      "zh": "小说质疑仇外者毫无根据的猜疑。"
+    },
+    {
+      "term": "xerophyte",
+      "partOfSpeech": "noun",
+      "meaningZh": "旱生植物",
+      "en": "The display identifies the cactus as a xerophyte.",
+      "zh": "展板指出仙人掌是旱生植物。"
+    },
+    {
+      "term": "didn't",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "没有（did not的缩写）",
+      "en": "I didn't recognise the tune at first.",
+      "zh": "起初我没有认出曲调。"
+    },
+    {
+      "term": "doesn't",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "不（does not的缩写）",
+      "en": "The old latch doesn't close properly.",
+      "zh": "旧门闩无法正常关上。"
+    },
+    {
+      "term": "don't",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "不（do not的缩写）",
+      "en": "We don't leave the archive windows open overnight.",
+      "zh": "我们不会让档案室窗户整夜开着。"
+    },
+    {
+      "term": "they're",
+      "partOfSpeech": "contraction",
+      "meaningZh": "他们正在（they are的缩写）",
+      "en": "They're rehearsing the final scene upstairs.",
+      "zh": "他们正在楼上排练最后一幕。"
+    },
+    {
+      "term": "wasn't",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "没有（was not的缩写）",
+      "en": "I wasn't expecting such a generous gift.",
+      "zh": "我没想到会收到如此慷慨的礼物。"
+    },
+    {
+      "term": "you're",
+      "partOfSpeech": "contraction",
+      "meaningZh": "你是（you are的缩写）",
+      "en": "You're the first visitor to notice that detail.",
+      "zh": "你是首位注意到那个细节的访客。"
+    },
+    {
+      "term": "you've",
+      "partOfSpeech": "contraction",
+      "meaningZh": "你已经（you have的缩写）",
+      "en": "You've found the missing page at last.",
+      "zh": "你终于找到了缺失的那一页。"
+    },
+    {
+      "term": "fully",
+      "partOfSpeech": "adverb",
+      "meaningZh": "完全地",
+      "en": "The paint had not fully dried.",
+      "zh": "油漆还没有完全干。"
+    },
+    {
+      "term": "apparently",
+      "partOfSpeech": "adverb",
+      "meaningZh": "据说看来",
+      "en": "Apparently, the old cinema will reopen soon.",
+      "zh": "据说老电影院很快将重新开门。"
+    }
+  ]
+}

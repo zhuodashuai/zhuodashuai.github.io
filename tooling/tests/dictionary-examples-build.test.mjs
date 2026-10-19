@@ -111,7 +111,7 @@ test("the previous 800 source rows remain complete, unique and independently rev
   }
 });
 
-test("the new 2,400 rows are independently cross-reviewed and preserve all earlier examples", async () => {
+test("the prior 2,400 rows remain independently cross-reviewed and preserve all earlier examples", async () => {
   const all = new Set(), sentences = new Set();
   for (const part of "abcdefghijkl") {
     const source = JSON.parse(await readFile(new URL(`../dictionary/examples/source/batch-0003-${part}.json`, import.meta.url), "utf8"));
@@ -131,9 +131,17 @@ test("the new 2,400 rows are independently cross-reviewed and preserve all earli
   }
   assert.equal(all.size, 2400);
   const build = await loadExampleBuild();
-  assert.deepEqual(build.manifest.counts, { heads: 4430, examples: 5819 });
+  const index = JSON.parse(await readFile(new URL("../dictionary/examples/index.json", import.meta.url), "utf8"));
+  let authoredHeads = 0;
+  for (const file of validateExampleSourceIndex(index)) {
+    const pack = JSON.parse(await readFile(new URL(`../dictionary/examples/source/${file}`, import.meta.url), "utf8"));
+    const review = JSON.parse(await readFile(new URL(`../dictionary/examples/reviews/${file}`, import.meta.url), "utf8"));
+    authoredHeads += validateExampleReview(pack, review).length;
+  }
+  assert.ok(authoredHeads >= 3400);
+  assert.deepEqual(build.manifest.counts, { heads: 1030 + authoredHeads, examples: 2419 + authoredHeads });
   assert.equal(build.originalHeads, 1030); assert.equal(build.originalExamples, 2419);
-  assert.equal(build.addedHeads, 3400); assert.equal(build.addedExamples, 3400);
+  assert.equal(build.addedHeads, authoredHeads); assert.equal(build.addedExamples, authoredHeads);
   // The old, immutable manifest is retained for already-open client versions.
   const legacy = JSON.parse(await readFile(new URL("../../vocab/data/dictionary-examples/manifest.json", import.meta.url), "utf8"));
   const current = new Map(build.entries.map(row => [row.term, row]));
@@ -143,4 +151,59 @@ test("the new 2,400 rows are independently cross-reviewed and preserve all earli
     for (const row of shard.entries) { assert.deepEqual(current.get(row.term), row); retained++; }
   }
   assert.equal(retained, 2030);
+});
+
+test("the last released 4,430 heads remain unchanged when later reviewed batches are appended", async () => {
+  const build = await loadExampleBuild(), current = new Map(build.entries.map(row => [row.term, row]));
+  const version = "19bfe8e62367839cb125f676e26de766f65698bdd53505ebe28d92cc4f06c6e6";
+  let retained = 0;
+  for (let bucket = 0; bucket < 256; bucket++) {
+    const shard = JSON.parse(await readFile(new URL(`../../vocab/data/dictionary-examples/${version}/examples-${bucket}.json`, import.meta.url), "utf8"));
+    for (const row of shard.entries) { assert.deepEqual(current.get(row.term), row); retained++; }
+  }
+  assert.equal(retained, 4430);
+});
+
+test("four continuation batches are cross-reviewed, with explicit deferral instead of fabricated completion", async () => {
+  const written = new Set(), approved = new Set(), deferred = new Map(), sentences = new Set();
+  for (const batch of ["0004", "0005", "0006", "0007"]) {
+    for (const part of "abcdefghijkl") {
+      const file = `batch-${batch}-${part}.json`;
+      const pack = JSON.parse(await readFile(new URL(`../dictionary/examples/source/${file}`, import.meta.url), "utf8"));
+      const review = JSON.parse(await readFile(new URL(`../dictionary/examples/reviews/${file}`, import.meta.url), "utf8"));
+      assert.equal(pack.batchId, `examples-${batch}-${part}`);
+      assert.equal(pack.entries.length, 200);
+      const reviewer = "abcd".includes(part) ? "c" : "efgh".includes(part) ? "a" : "b";
+      assert.equal(review.reviewer, `AI/examples4_${reviewer}`);
+      const checked = validateExampleReview(pack, review), checkedTerms = new Set(checked.map(row => row.term));
+      for (const row of pack.entries) {
+        assert.ok(!written.has(row.term), `Repeated continuation head: ${row.term}`); written.add(row.term);
+        if (!checkedTerms.has(row.term)) {
+          assert.ok(review.issues.some(issue => issue.term === row.term && issue.blocking === true && issue.resolution?.trim()), `Unexplained deferral: ${row.term}`);
+          deferred.set(row.term, row);
+        }
+      }
+      for (const row of checked) {
+        approved.add(row.term);
+        const sentence = row.en.normalize("NFKC").toLowerCase().replace(/\s+/gu, " ").trim();
+        assert.ok(!sentences.has(sentence), `Repeated continuation example: ${row.term}`); sentences.add(sentence);
+        assert.ok(row.en.split(/\s+/u).length >= 5 && row.en.split(/\s+/u).length <= 30, row.term);
+        assert.doesNotMatch(row.en, /\b(?:this word means|the word means|an example of this word)\b/iu);
+      }
+    }
+  }
+  assert.equal(written.size, 9600);
+  assert.equal(approved.size + deferred.size, written.size);
+  const build = await loadExampleBuild(), published = new Set(build.entries.map(row => row.term));
+  // Later batches may extend the index; this fixture must continue protecting
+  // these reviewed entries without imposing an obsolete global ceiling.
+  assert.ok(build.addedHeads >= 3400 + approved.size);
+  for (const term of approved) assert.ok(published.has(term), `Approved example missing: ${term}`);
+  for (const [term, unapproved] of deferred) {
+    // A later, separately reviewed example may legitimately resolve this head.
+    // The unapproved source sentence itself must never enter the release.
+    const entry = build.entries.find(row => row.term === term);
+    assert.ok(!entry?.senses.some(sense => sense.examples.some(example => example.en === unapproved.en && example.zh === unapproved.zh)), `Deferred example published: ${term}`);
+  }
+  assert.ok(deferred.has("tion"));
 });
