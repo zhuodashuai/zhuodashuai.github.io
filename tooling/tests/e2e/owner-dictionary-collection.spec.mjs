@@ -65,6 +65,22 @@ test("Chinese and matched forms wait for explicit public selection", async ({ pa
   expect(writes).toBe(2);
 });
 
+test("the existing GitHub owner collects an imported non-MIT phrase with its own source and deduplicates", async ({ context, page }) => {
+  await open(page); await lookup(page, "safety oracle");
+  await expect(page.locator("#member-dictionary-collection-status")).toContainText("已收录到卓的公开词库");
+  const first = await (await context.request.get(`${ORIGIN}/api/v1/public/wordbook`)).json();
+  const entry = first.entries.find(value => value.normalized === "safety oracle");
+  expect(entry).toBeTruthy(); expect(entry.meaning).toContain("安全判定器");
+  expect(entry.partOfSpeech).toBe("noun"); expect(entry.sourceTitle).toBe("词表补充整理（逐条标注来源）");
+  expect(entry.sources[0].url).toBe("https://zhuodashuai.github.io/vocab/dictionary-references.html");
+  expect(entry.sources[0].title).not.toContain(" · MIT");
+  await lookup(page, "safety oracle");
+  await expect(page.locator("#member-dictionary-collection-status")).toContainText("原有内容已保留");
+  const after = await (await context.request.get(`${ORIGIN}/api/v1/public/wordbook`)).json();
+  expect(after.entries.filter(value => value.normalized === "safety oracle")).toHaveLength(1);
+  expect(after.entries.find(value => value.id === entry.id)).toEqual(entry);
+});
+
 test("failed collection retries the same mutation key and old-query completion cannot show success", async ({ page }) => {
   await open(page); const bodies = []; let fail = true;
   await page.route(`**${COLLECTION}`, async route => {

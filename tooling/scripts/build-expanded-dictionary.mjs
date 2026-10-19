@@ -7,6 +7,8 @@ import { loadOriginalCatalogue } from "../lib/original-dictionary-catalogue.mjs"
 import { parseOriginalDictionary } from "../lib/original-dictionary.mjs";
 import { parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
+import { dictionarySupplementIntegrity, renderDictionarySupplementReferences, validateDictionarySupplement,
+  verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const BUCKETS = 128;
@@ -110,9 +112,10 @@ function originalRows(pack) {
 }
 
 /** The caller supplies a hash-verified catalogue; authors cannot self-sign via CLI. */
-export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack }) {
+export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null }) {
   const seed = normalizeExpandedSeed(prepared);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
+  const supplement = supplementPack === null ? null : validateDictionarySupplement(supplementPack);
   const sources = {
     core: { name: "ECDICT · 已上线核心整理", license: "MIT and project editorial additions", url: SOURCE_URL,
       sha256: expandedSha256(JSON.stringify(corePayload)) },
@@ -122,6 +125,7 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     original: { name: "卓式原创释义（AI复核，精选义项）", license: "Project original content; AI-reviewed, not human-certified", url: PUBLIC_URL,
       sha256: expandedSha256(JSON.stringify(originalPack)) }
   };
+  if (supplement) sources.supplement = { ...supplement.source, sha256: dictionarySupplementIntegrity(supplement).semanticSha256 };
   const cards = new Map();
   function add(source, raw) {
     const parsed = row(raw, source);
@@ -163,6 +167,7 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
   }
   const reviewed = originalRows(originalPack);
   for (const item of reviewed) add("original", item);
+  for (const item of supplement?.entries || []) add("supplement", item);
   const priority = new Map(seed.rows.map((item, index) => [item.term, index]));
   const sorted = [...cards.values()].sort((a, b) => (priority.get(a.term) ?? Number.MAX_SAFE_INTEGER) - (priority.get(b.term) ?? Number.MAX_SAFE_INTEGER) || cmp(a.term, b.term));
   const records = [], references = new Map();
@@ -173,7 +178,7 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
   }
   for (const [index, card] of sorted.entries()) {
     if (card.forms.size > 64) throw new Error(`Too many combined forms: ${card.term}.`);
-    const ordered = ["core", "mit", "public", "original"].flatMap(source => card.variants.has(source) ? [card.variants.get(source)] : []);
+    const ordered = ["core", "mit", "public", "original", "supplement"].flatMap(source => card.variants.has(source) ? [card.variants.get(source)] : []);
     const primary = ordered[0];
     const id = index * BUCKETS + expandedBucket(expandedKey(card.term));
     const record = { id, term: card.term, partOfSpeech: primary.partOfSpeech, meaning: primary.meaning,
@@ -223,7 +228,8 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     canonicalCasefoldCollisions: [...references.values()].filter(refs => refs.filter(ref => ref.kind === "canonical").length > 1).length,
     ambiguousAliasKeys: [...references.values()].filter(refs => !refs.some(ref => ref.kind === "canonical") && new Set(refs.map(ref => ref.id)).size > 1).length,
     totalShardBytes: [...files.values()].reduce((total, bytes) => total + Buffer.byteLength(bytes), 0),
-    commercialDefinitionsUsed: false, sourcePolicy: "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; no publisher dictionary text." };
+    ...(supplement ? { supplementRows: supplement.entries.length, supplementIntegrity: dictionarySupplementIntegrity(supplement) } : {}),
+    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}; no publisher dictionary text.` };
   return { manifest, files, report, records, seed };
 }
 
@@ -311,23 +317,30 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     if (!integrity) throw new Error("First bootstrap requires --prepared=<private prepared-input.json>; subsequent builds use tracked shards and the independent integrity root.");
     prepared = await recoverExpandedSeed(directory, integrity);
   }
-  const [coreBytes, publicBytes, catalogue, license] = await Promise.all([
+  const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes] = await Promise.all([
     readFile(resolve(root, "vocab/data/ecdict-core.json")), readFile(resolve(root, "vocab/data/owner-wordbook.json")),
     loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"), reviewDirectory: resolve(root, "tooling/dictionary/reviews") }),
-    readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8")
+    readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/supplements/import-2026-10-19.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/supplements/integrity.json"), "utf8")
   ]);
-  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes), originalPack: catalogue.pack });
+  const supplementPack = verifyDictionarySupplement(JSON.parse(supplementBytes), JSON.parse(supplementIntegrityBytes));
+  const referencesHTML = renderDictionarySupplementReferences(supplementPack);
+  const referencesPath = resolve(root, "vocab/dictionary-references.html");
+  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes), originalPack: catalogue.pack, supplementPack });
   const verification = validateExpandedBuild(build);
   const manifestBytes = json(build.manifest);
   if (check) {
     if (await readFile(resolve(directory, "manifest.json"), "utf8") !== manifestBytes) throw new Error("Expanded manifest is stale.");
     if (await readFile(resolve(directory, "ECDICT-LICENSE.txt"), "utf8") !== license) throw new Error("Expanded MIT license notice is missing or changed.");
+    if (await readFile(referencesPath, "utf8") !== referencesHTML) throw new Error("Dictionary supplement reference page is stale.");
     for (const [file, bytes] of build.files) if (await readFile(resolve(directory, file), "utf8") !== bytes) throw new Error(`Expanded shard is stale: ${file}.`);
   } else {
     await mkdir(resolve(directory, build.manifest.version), { recursive: true });
     for (const [file, bytes] of build.files) await writeFile(resolve(directory, file), bytes);
     await writeFile(resolve(directory, "manifest.json"), manifestBytes);
     await writeFile(resolve(directory, "ECDICT-LICENSE.txt"), license);
+    await writeFile(referencesPath, referencesHTML);
     await writeFile(resolve(directory, "source-audit.json"), `${JSON.stringify({ ...build.report, integrity, verification }, null, 2)}\n`);
   }
   return { ...build.report, verification };

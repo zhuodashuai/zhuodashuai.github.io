@@ -180,6 +180,24 @@ test("24/7 can be looked up with Enter, saved, reloaded and looked up again with
   expect(after.id).toBe(saved.id); expect(after.meaning).toBe(saved.meaning); expect(after.note).toBe(saved.note);
 });
 
+test("a newly registered user saves an imported specialist phrase and keeps a single card after reload", async ({ context, page }) => {
+  await registerInBrowser(page, "import_dictionary");
+  const calls = []; page.on("request", request => calls.push(request.url()));
+  await lookup(page, "safety oracle");
+  await expect(page.locator("#member-dictionary-word")).toHaveText("safety oracle");
+  await expect(page.locator("#member-dictionary-meaning")).toContainText("安全判定器");
+  await expect(page.locator("#member-dictionary-pos")).toContainText("noun");
+  await page.locator("#member-dictionary-use").click(); await page.locator("#member-save").click();
+  await expect(page.locator(".personal-entry")).toHaveCount(1);
+  const saved = (await entries(context))[0];
+  expect(saved.term).toBe("safety oracle"); expect(saved.meaning).toContain("返回0并不必然证明不安全");
+  await page.reload(); await ready(page, "import_dictionary"); await lookup(page, "safety oracle");
+  await page.locator("#member-dictionary-use").click();
+  await expect(page.locator("#member-dictionary-status")).toContainText(/已经|不会重复/u);
+  const after = await entries(context); expect(after).toHaveLength(1); expect(after[0].id).toBe(saved.id);
+  expect(calls.some(url => new URL(url).origin !== ORIGIN || /organize|translate|\/ai(?:\/|$)/u.test(new URL(url).pathname))).toBe(false);
+});
+
 test("public picker explains deployed snapshot fallback and server-confirms a checked public word when live reads fail", async ({ context, page }) => {
   let failedReads = 0;
   await page.route("**/api/v1/public/wordbook*", async route => {

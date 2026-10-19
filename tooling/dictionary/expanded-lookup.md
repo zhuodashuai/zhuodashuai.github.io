@@ -1,4 +1,49 @@
-# Credited bilingual lookup release — 2026-10-18
+# Credited bilingual lookup release history
+
+## Workbook supplement — 2026-10-19 / application 2.6.4 / shell v87
+
+Current lookup coverage is **102,609 canonical spellings**, **140,862 English
+keys**, and **160,071 Han index tokens**. The 30,000-row supplied batch covers
+19,689 new heads and 10,311 reused heads; it does not add 30,000 duplicates.
+Existing 82,920 canonical records, source variants, 616 public cards, 520 reading
+aliases and 1,030 original entries are preserved. Headwords are not senses or
+necessarily distinct English lemmas; the previous iPhone/iphone case distinction
+is retained.
+
+Of the new heads, 19,636 use pinned, credited MIT ECDICT Chinese glosses and 53
+use separately labelled editorial explanations with per-entry public references.
+The latter include 51 selected specialist terms plus corrected fan mail and
+stuffed mushroom records: the licensed source contained corrupt Chinese or a
+hidden control character in those two rows. Existing preferred meanings are
+not overwritten. The MIT seed now contains 102,325 rows. New MIT rows without
+defensible POS labels remain unlabelled (17,115); WordNet English POS is never
+borrowed to pretend that unaligned Chinese senses have a verified category.
+
+Only workbook rows 43005–73004 are this new batch. Older commercial-dictionary
+definitions in rows 7–43004 are excluded. The original Excel and private
+preparation stay outside the public repository and remain unchanged. English
+WordNet reference definitions remain in the workbook/private preparation: they
+are not published as sense-aligned definitions or new original examples.
+This import adds headword/POS/Chinese lookup coverage, not 30,000 new examples
+or a human linguistic certification of all source meanings.
+
+The schema remains version 2 with five source IDs, compatible with the deployed
+v82 lookup parser. Supplemental sources have their own independent semantic
+root and an escaped static reference page. All English and Han references are
+checked, and builds recover the MIT seed from tracked shards against its
+separate root without access to private Excel files. Public queries use only
+first-party static data; no paid API, online translation, or account database
+migration is introduced. Example sidecars remain separate and unchanged:
+18,821 heads / 20,210 bilingual examples, with their existing review labels.
+
+Rollback baseline: Git `25f3e968d4c50bcdf72759b12b667cc3f267682e`, tree
+`e8efd98f1da49baaa86e2f22e6419d32086e15bf`, Worker application 2.6.3,
+deployment `2b683079-1afb-4edb-ab96-a908e593c63e`. The previous immutable
+dictionary shards are retained. Restore code/assets or the previous Worker
+deployment if needed; never roll back private account/learning databases or
+overwrite subsequent public-card edits.
+
+## Original bootstrap release — historical 2026-10-18
 
 ## What is included
 
