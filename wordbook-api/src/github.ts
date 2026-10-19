@@ -353,13 +353,27 @@ function encodeBase64(value: string): string {
   return btoa(binary);
 }
 
-export async function readRemoteWordbook(token: string, config: AppConfig): Promise<RemoteWordbook> {
+export async function readRemoteWordbook(token: string, config: AppConfig, cached?: RemoteWordbook | null): Promise<RemoteWordbook> {
   const url = `${contentsUrl(config)}?ref=${encodeURIComponent(config.GITHUB_BRANCH)}`;
   const payload = await githubJson(url, token, { headers: { Accept: "application/vnd.github.object+json" } });
-  if (payload.type !== "file" || typeof payload.content !== "string" || typeof payload.sha !== "string") {
+  if (payload.type !== "file" || typeof payload.content !== "string" || typeof payload.sha !== "string" || !/^[a-f0-9]{40}$/i.test(payload.sha)) {
     throw new ApiError(502, "invalid_github_file", "GitHub 返回的公开词库不是可读取文件。");
   }
   if (typeof payload.size === "number" && payload.size > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
+  if (!(payload.encoding === undefined || payload.encoding === "base64" || payload.encoding === "none" && payload.content === "")) {
+    throw new ApiError(502, "invalid_github_file", "GitHub 返回了不支持的文件编码，操作已停止。");
+  }
+  // The cache comes only from a previously verified server read/write. Every
+  // caller still asks the fixed GitHub path for its CURRENT metadata first;
+  // matching the blob SHA avoids downloading a multi-megabyte raw body again.
+  // In particular, an out-of-band edit/deletion can never be hidden by age or
+  // an unchanged revisionId. An invalid/missing memo takes the normal read path.
+  if (cached?.sha === payload.sha) {
+    try {
+      return { sha: payload.sha, htmlUrl: typeof payload.html_url === "string" ? payload.html_url : "",
+        snapshot: validateSnapshot(cached.snapshot) };
+    } catch { /* A memo is optional, never an alternative source of truth. */ }
+  }
   let document: unknown;
   try {
     let bytes: Uint8Array;

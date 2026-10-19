@@ -53,7 +53,9 @@ function github(initial: PublicSnapshot = snapshot([]), loseFirstResponse = fals
     throw Error(`Unexpected GitHub path: ${url.pathname}`);
   });
   vi.stubGlobal("fetch", mock);
-  return { mock, state: () => ({ current, writes, sha }) };
+  return { mock, state: () => ({ current, writes, sha }), replace: (value: PublicSnapshot) => {
+    current = structuredClone(value); sha = sha === "d".repeat(40) ? "e".repeat(40) : "d".repeat(40);
+  } };
 }
 
 function collect(term: string, csrf: string, mutationId = id(), extra = {}) {
@@ -70,6 +72,64 @@ it("requires owner cookie, same origin and CSRF before resolving or publishing a
   expect((await collect("abacus", "invalid")).status).toBe(403);
   expect((await api(route, { method: "POST", headers: { Cookie: cookie, Origin: "https://evil.example", "Content-Type": "application/json", "X-CSRF-Token": csrf }, body: "{}" })).status).toBe(403);
   expect(mock.state().writes).toBe(0);
+});
+
+it("warm duplicate collections retain current permission and metadata checks without downloading the large wordbook twice", async () => {
+  const csrf = await session();
+  const current = snapshot(Array.from({ length: 600 }, (_, index) => entry({
+    id: `public-collection-cache-${index}`, term: index === 0 ? "hip" : `collection fixture ${index}`, usage: "中".repeat(600)
+  })));
+  const bytes = new TextEncoder().encode(`${JSON.stringify(current, null, 2)}\n`);
+  expect(bytes.byteLength).toBeGreaterThan(2_000_000);
+  expect(bytes.byteLength).toBeLessThan(5_000_000);
+  const header = new TextEncoder().encode(`blob ${bytes.byteLength}\0`), blob = new Uint8Array(header.byteLength + bytes.byteLength);
+  blob.set(header); blob.set(bytes, header.byteLength);
+  const sha = [...new Uint8Array(await crypto.subtle.digest("SHA-1", blob))].map(value => value.toString(16).padStart(2, "0")).join("");
+  const base = github(current), fixture = base.mock.getMockImplementation()!;
+  let rawReads = 0, metadataReads = 0, writes = 0;
+  base.mock.mockImplementation(async (input: RequestInfo | URL, init: RequestInit = {}) => {
+    const url = new URL(typeof input === "string" ? input : input instanceof URL ? input.href : input.url);
+    if (url.pathname.endsWith("/contents/vocab/data/owner-wordbook.json")) {
+      if (init.method === "PUT") { writes++; throw Error("Duplicate must not write"); }
+      if (new Headers(init.headers).get("accept") === "application/vnd.github.raw+json") { rawReads++; return new Response(bytes); }
+      metadataReads++;
+      return Response.json({ type: "file", sha, encoding: "none", content: "", size: bytes.byteLength });
+    }
+    return fixture(input, init);
+  });
+  expect((await collect("hip", csrf)).status).toBe(200);
+  expect((await collect("hip", csrf)).status).toBe(200);
+  expect(metadataReads).toBe(2); expect(rawReads).toBe(1); expect(writes).toBe(0);
+  for (const path of ["/user", "/user/installations", "/user/installations/99/repositories", "/repos/zhuodashuai/zhuodashuai.github.io"]) {
+    expect(base.mock.mock.calls.filter(([input]) => new URL(String(input)).pathname === path)).toHaveLength(2);
+  }
+  // A denied current repository check cannot be satisfied by the memo.
+  base.mock.mockImplementation(async (input: RequestInfo | URL, init: RequestInit = {}) => {
+    if (new URL(String(input)).pathname === "/repos/zhuodashuai/zhuodashuai.github.io") return Response.json({ message: "Forbidden" }, { status: 403 });
+    return fixture(input, init);
+  });
+  expect((await collect("hip", csrf)).status).toBe(403);
+  expect(metadataReads).toBe(2);
+});
+
+it("cached duplicate detection cannot bypass the existing per-minute publish rate", async () => {
+  const csrf = await session(), remote = github(snapshot([entry({ term: "hip", id: "public-cached-hip" })]));
+  for (let count = 0; count < 10; count++) expect((await collect("hip", csrf)).status).toBe(200);
+  expect((await collect("hip", csrf)).status).toBe(429);
+  expect(remote.state().writes).toBe(0);
+});
+
+it("a fresh remote deletion invalidates the memo and a committed retry cannot restore the removed word", async () => {
+  const csrf = await session(), remote = github(snapshot([entry({ term: "hip", id: "public-removed-hip" })])), mutationId = id();
+  expect((await collect("hip", csrf, mutationId)).status).toBe(200);
+  remote.replace(snapshot([]));
+  const removed = await collect("hip", csrf, mutationId);
+  expect(removed.status).toBe(409);
+  expect(await removed.json()).toMatchObject({ error: { code: "collected_entry_removed" } });
+  expect(remote.state().current.entries).toEqual([]); expect(remote.state().writes).toBe(0);
+  // An explicit NEW collection is allowed and remains add-only/idempotent.
+  expect((await collect("hip", csrf)).status).toBe(200);
+  expect(remote.state().writes).toBe(1); expect(remote.state().current.entries).toHaveLength(1);
 });
 
 it("only trusts the shipped exact dictionary term, retains source, and never invents enrichment", async () => {

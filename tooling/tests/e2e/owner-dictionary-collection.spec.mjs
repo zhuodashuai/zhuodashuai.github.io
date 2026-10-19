@@ -97,3 +97,78 @@ test("public dictionary offers the authenticated owner search surface without wr
   await expect(page.locator("#member-dictionary-term")).toHaveValue("abacus");
   await expect(page.locator("#member-dictionary-result")).toBeHidden();
 });
+
+test("typing the next word keeps accepted collection work queued and guards leaving until confirmation", async ({ page, context }, testInfo) => {
+  await open(page);
+  let release, reached;
+  const gate = new Promise(resolve => { release = resolve; });
+  const firstSeen = new Promise(resolve => { reached = resolve; });
+  const bodies = [];
+  await page.route(`**${COLLECTION}`, async route => {
+    bodies.push(route.request().postDataJSON());
+    if (bodies.length === 1) { reached(); await gate; }
+    try { await route.continue(); } catch { /* Cleanup after a failing assertion may close the page. */ }
+  });
+  try {
+    await lookup(page, "abacus"); await firstSeen;
+    await lookup(page, "abandon");
+    await expect(page.locator("#member-dictionary-word")).toHaveText("abandon");
+    await expect(page.locator("#member-collection-queue-summary")).toContainText("2 项处理中");
+    await page.screenshot({ path: testInfo.outputPath("collection-queue.png") });
+    expect(bodies).toHaveLength(1); // Serialized writes; searching is independent.
+    expect(await page.evaluate(() => {
+      const event = new Event("beforeunload", { cancelable: true }); window.dispatchEvent(event); return event.defaultPrevented;
+    })).toBe(true);
+    release();
+    await expect(page.locator("#member-dictionary-public-link")).toBeVisible();
+    await expect(page.locator("#member-collection-queue")).toBeHidden();
+    expect(bodies.map(body => body.term)).toEqual(["abacus", "abandon"]);
+    const publicWords = await (await context.request.get(`${ORIGIN}/api/v1/public/wordbook`)).json();
+    for (const term of ["abacus", "abandon"]) expect(publicWords.entries.filter(entry => entry.normalized === term)).toHaveLength(1);
+    await expect(page.locator("#member-dictionary-word")).toHaveText("abandon");
+  } finally { release(); }
+});
+
+test("a previous failed word stays available for explicit retry while the next lookup succeeds", async ({ page, context }) => {
+  await open(page); let first = true; const bodies = [];
+  await page.route(`**${COLLECTION}`, async route => {
+    const body = route.request().postDataJSON(); bodies.push(body);
+    if (first) { first = false; await route.fulfill({ status: 503, json: { error: { code: "temporary", message: "稍后重试" } } }); }
+    else await route.continue();
+  });
+  await lookup(page, "abacus");
+  await expect(page.locator("#member-collection-queue-retry")).toBeVisible();
+  await lookup(page, "abandon");
+  await expect(page.locator("#member-dictionary-public-link")).toBeVisible();
+  await expect(page.locator("#member-collection-queue-summary")).toContainText("1 项待重试");
+  await page.locator("#member-collection-queue-retry").click();
+  await expect(page.locator("#member-collection-queue")).toBeHidden();
+  expect(bodies.map(body => body.term)).toEqual(["abacus", "abandon", "abacus"]);
+  expect(bodies[2].mutationId).toBe(bodies[0].mutationId);
+  const publicWords = await (await context.request.get(`${ORIGIN}/api/v1/public/wordbook`)).json();
+  for (const term of ["abacus", "abandon"]) expect(publicWords.entries.filter(entry => entry.normalized === term)).toHaveLength(1);
+  await expect(page.locator("#member-dictionary-word")).toHaveText("abandon");
+});
+
+test("session revalidation pauses collection and only the same verified owner can retry the unchanged operation", async ({ page }) => {
+  await open(page);
+  let release, reached;
+  const gate = new Promise(resolve => { release = resolve; }), firstSeen = new Promise(resolve => { reached = resolve; });
+  const bodies = [];
+  await page.route(`**${COLLECTION}`, async route => {
+    bodies.push(route.request().postDataJSON());
+    if (bodies.length === 1) { reached(); await gate; }
+    try { await route.continue(); } catch { /* Paused request may have been aborted before reaching the server. */ }
+  });
+  try {
+    await lookup(page, "abacus"); await firstSeen;
+    await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+    await expect(page.locator("#member-workspace")).toBeVisible();
+    await expect(page.locator("#member-collection-queue-retry")).toBeVisible();
+    release();
+    await page.locator("#member-collection-queue-retry").click();
+    await expect(page.locator("#member-collection-queue")).toBeHidden();
+    expect(bodies).toHaveLength(2);
+    expect(bodies[1].mutationId).toBe(bodies[0].mutationId);
+  } finally { release(); }
+});

@@ -13,7 +13,7 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=82";
 import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=82";
-import { automaticDictionaryCollection, createDictionaryCollector } from "./dictionary-collection.js?v=82";
+import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
 import { searchExpandedDictionary } from "./expanded-dictionary.js?v=82";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
@@ -57,14 +57,17 @@ const state = {
   publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
   dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full", dictionaryCollectionPhase: "idle"
 };
-const dictionaryCollector = createDictionaryCollector({
+const dictionaryCollector = createDictionaryCollectionQueue({
   collect: (body, { signal, csrfToken }) => api.collectDictionary(body, csrfToken, { signal }),
   onChange(value) {
-    if (value.error?.status === 401) { lockSession("公开收录需要重新确认卓的 GitHub 登录；查词输入未保存到其他账号。"); return; }
-    state.dictionaryCollectionPhase = value.phase;
-    $("member-dictionary-collection-status").hidden = false;
-    $("member-dictionary-collection-status").textContent = value.message;
-    $("member-dictionary-public-link").hidden = value.phase !== "saved";
+    if (value.authenticationRequired) { lockSession("公开收录需要重新确认卓的 GitHub 登录；未确认的词保留在此页，登录后可重试。"); return; }
+    if (state.phase === "ready" && state.authType === "github-owner" && state.dictionaryResult
+      && normalizeEnglish(value.term || "") === normalizeEnglish(state.dictionaryResult.term)) {
+      state.dictionaryCollectionPhase = value.phase;
+      $("member-dictionary-collection-status").hidden = false;
+      $("member-dictionary-collection-status").textContent = value.message;
+      $("member-dictionary-public-link").hidden = value.phase !== "saved";
+    }
     renderChrome();
   }
 });
@@ -127,6 +130,10 @@ function clearPrivateDom() {
 }
 
 function clearSession({ discardDrafts = false } = {}) {
+  // A query change must not abort a write. An account check must: retain its
+  // unconfirmed operation key for explicit retry by the same verified UID.
+  if (discardDrafts) dictionaryCollector.clear();
+  else dictionaryCollector.pause();
   expiryTimer.clear();
   scope.advance();
   state.user = null;
@@ -242,10 +249,11 @@ function renderChrome() {
     ? "英文原形唯一匹配后自动收录到卓的公开词库；中文或词形结果请先选词，再点击收录。只保存本站核对过的释义，不调用 AI。"
     : "按 Enter 查询；选择“填入新词草稿”后保存到自己的私人词本。不调用在线翻译或 AI。";
   $("member-dictionary-use").disabled = !ready || state.dictionaryBusy || !state.dictionaryResult
-    || (publicCollection ? ["saving", "saved"].includes(state.dictionaryCollectionPhase) : state.entryBusy || !state.entriesLoaded || state.listBusy);
+    || (publicCollection ? ["queued", "saving", "saved"].includes(state.dictionaryCollectionPhase) : state.entryBusy || !state.entriesLoaded || state.listBusy);
   $("member-dictionary-use").textContent = publicCollection
-    ? state.dictionaryCollectionPhase === "saving" ? "正在公开收录…" : state.dictionaryCollectionPhase === "saved" ? "已在公开词库" : state.dictionaryCollectionPhase === "error" ? "重试公开收录" : "收录到卓的公开词库"
+    ? state.dictionaryCollectionPhase === "queued" ? "已排队收录" : state.dictionaryCollectionPhase === "saving" ? "正在公开收录…" : state.dictionaryCollectionPhase === "saved" ? "已在公开词库" : state.dictionaryCollectionPhase === "error" ? "重试公开收录" : "收录到卓的公开词库"
     : "填入新词草稿";
+  renderDictionaryQueue();
   for (const id of ["member-source-book", "member-source-chapter", "member-source-search", "member-source-all", "member-source-clear"]) $(id).disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-source-add").disabled = !ready || !state.entriesLoaded || state.entryBusy || state.listBusy || state.sourceBusy || state.selectedSources.size === 0;
   $("member-source-selected-count").textContent = `已选 ${state.selectedSources.size} / 100`;
@@ -300,6 +308,7 @@ function adoptSession(result, { recoveryCode = "" } = {}) {
   pendingVerificationUserId = null;
   const authType = session.authType || "member";
   if (state.authType !== "auto" && state.authType !== authType) throw new Error("登录方式已改变，请明确选择账号后重试。");
+  if (authType !== "github-owner" || dictionaryCollector.snapshot().userId !== session.user.id) dictionaryCollector.clear();
   expiryTimer.clear();
   scope.advance(session.user.id);
   clearPrivateDom();
@@ -386,7 +395,6 @@ function selectOptions(element, options, selected) {
 }
 
 function resetDictionary() {
-  dictionaryCollector.cancel();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
   $("member-dictionary-collection-status").textContent = "";
@@ -403,7 +411,6 @@ function resetDictionary() {
 }
 
 function showDictionaryResult(result) {
-  dictionaryCollector.cancel();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
   $("member-dictionary-public-link").hidden = true;
@@ -412,6 +419,13 @@ function showDictionaryResult(result) {
   $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
   $("member-dictionary-meaning").textContent = result.meaning;
   $("member-dictionary-result").hidden = false;
+  const queued = dictionaryCollector.snapshot().items.find(item => item.phase !== "saved" && normalizeEnglish(item.term) === normalizeEnglish(result.term));
+  if (state.authType === "github-owner" && queued) {
+    state.dictionaryCollectionPhase = queued.phase;
+    $("member-dictionary-collection-status").hidden = false;
+    $("member-dictionary-collection-status").textContent = queued.message;
+    $("member-dictionary-public-link").hidden = queued.phase !== "saved";
+  }
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
   const destination = state.authType === "github-owner" ? "收录状态在下方显示；只核对本站标准词条来源" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
   $("member-dictionary-status").textContent = `${state.dictionaryCoverage === "basic" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
@@ -422,6 +436,9 @@ function showDictionaryResult(result) {
     const title = document.createElement("summary"); title.textContent = variant.source || "其他来源释义";
     const text = document.createElement("p"); text.className = "multiline"; text.textContent = `${variant.partOfSpeech || ""}\n${variant.meaning}`;
     const use = document.createElement("button"); use.type = "button"; use.textContent = "选择此释义";
+    // Public collection deliberately revalidates the canonical server record;
+    // it must not pretend a displayed alternative will be the published gloss.
+    use.hidden = state.authType === "github-owner";
     use.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
       showDictionaryResult({ ...variant, term: result.term }); renderChrome();
@@ -492,7 +509,13 @@ async function queryDictionary(event, { full = false } = {}) {
 
 function useDictionaryResult() {
   const result = state.dictionaryResult;
-  if (state.authType === "github-owner") { void collectDictionaryResult(); return; }
+  if (state.authType === "github-owner") {
+    const retainedFailure = result && dictionaryCollector.snapshot().items.some(item => item.phase === "error"
+      && normalizeEnglish(item.term) === normalizeEnglish(result.term));
+    if (state.dictionaryCollectionPhase === "error" && retainedFailure) retryDictionaryQueue();
+    else void collectDictionaryResult();
+    return;
+  }
   if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || !state.entriesLoaded || !result) return;
   const existing = state.entries.find(entry => entry.normalized === normalizeEnglish(result.term));
   if (existing) {
@@ -514,13 +537,32 @@ function useDictionaryResult() {
 async function collectDictionaryResult() {
   const result = state.dictionaryResult;
   if (state.phase !== "ready" || !state.user || state.authType !== "github-owner" || !result
-    || ["saving", "saved"].includes(state.dictionaryCollectionPhase)) return;
-  const token = scope.capture(), sequence = dictionarySequence, userId = state.user.id;
-  const query = $("member-dictionary-term").value;
-  await dictionaryCollector.save(result.term, { userId, csrfToken: state.csrfToken,
+    || ["queued", "saving", "saved"].includes(state.dictionaryCollectionPhase)) return;
+  const token = scope.capture(), userId = state.user.id;
+  await dictionaryCollector.enqueue(result.term, { userId, csrfToken: state.csrfToken,
     isCurrent: () => scope.current(token) && state.phase === "ready" && state.authType === "github-owner"
-      && state.user?.id === userId && sequence === dictionarySequence && state.dictionaryResult === result
-      && $("member-dictionary-term").value === query });
+      && state.user?.id === userId });
+}
+
+function renderDictionaryQueue() {
+  const queue = dictionaryCollector.snapshot();
+  const visible = state.phase === "ready" && state.authType === "github-owner" && queue.userId === state.user?.id
+    && (queue.pendingCount > 0 || queue.failedCount > 0);
+  $("member-collection-queue").hidden = !visible;
+  if (!visible) { $("member-collection-queue-summary").textContent = ""; $("member-collection-queue-list").replaceChildren(); return; }
+  $("member-collection-queue-summary").textContent = `公开收录：${queue.pendingCount} 项处理中${queue.failedCount ? `，${queue.failedCount} 项待重试` : ""}。可继续查词；请等确认完成再关闭此页。`;
+  $("member-collection-queue-list").replaceChildren(...queue.items.filter(item => item.phase !== "saved").map(item => {
+    const row = document.createElement("li"); row.textContent = `${item.term} — ${item.message}`; return row;
+  }));
+  $("member-collection-queue-retry").hidden = queue.failedCount === 0;
+  $("member-collection-queue-retry").disabled = queue.pendingCount > 0;
+}
+
+function retryDictionaryQueue() {
+  if (state.phase !== "ready" || !state.user || state.authType !== "github-owner") return;
+  const token = scope.capture(), userId = state.user.id;
+  void dictionaryCollector.retry({ userId, csrfToken: state.csrfToken,
+    isCurrent: () => scope.current(token) && state.phase === "ready" && state.authType === "github-owner" && state.user?.id === userId });
 }
 
 function renderPrivateScope() {
@@ -1116,6 +1158,7 @@ async function deleteEntry(entry) {
 
 async function logout() {
   if (state.phase !== "ready" || !state.user || !discardAllowed()) return;
+  if (dictionaryCollector.hasUnsettled() && !window.confirm("还有公开收录尚未确认。建议先等待完成或重试；现在退出会中止此页的收录队列。确定退出吗？")) return;
   const csrf = state.csrfToken;
   lockSession("正在退出。个人内容已从此页隐藏…", { discardDrafts: true, notify: true });
   const token = scope.capture();
@@ -1192,6 +1235,7 @@ $("member-dictionary-form").addEventListener("submit", event => void queryDictio
 $("member-dictionary-full").addEventListener("click", event => void queryDictionary(event, { full: true }));
 $("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
 $("member-dictionary-use").addEventListener("click", useDictionaryResult);
+$("member-collection-queue-retry").addEventListener("click", retryDictionaryQueue);
 $("member-search").addEventListener("input", renderEntries);
 $("member-book").addEventListener("change", () => { state.collectionId = $("member-book").value; state.chapterId = "all"; renderEntries(); });
 $("member-chapter").addEventListener("change", () => { state.chapterId = $("member-chapter").value; renderEntries(); });
@@ -1274,7 +1318,7 @@ $("delete-account-form").addEventListener("submit", (event) => void deleteAccoun
 $("delete-account-cancel").addEventListener("click", () => $("delete-account-dialog").close());
 $("delete-account-dialog").addEventListener("close", () => { if ($("delete-account-dialog").open) return; $("delete-account-password").value = ""; $("delete-account-confirmation").value = ""; });
 window.addEventListener("beforeunload", (event) => {
-  if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.study?.pending || state.selectedSources.size) { event.preventDefault(); event.returnValue = ""; }
+  if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) { event.preventDefault(); event.returnValue = ""; }
 });
 window.addEventListener("pagehide", () => {
   cancelOnlineVerification();
@@ -1325,7 +1369,7 @@ try {
     originReady = true;
     renderChrome();
     setupPwa({ updateBanner: $("update-banner"), applyUpdateButton: $("apply-update"), autoApplyUpdate: false, beforeApplyUpdate: async () => {
-      if (state.recovery || state.entryBusy || drafts.hasUnsaved() || state.study?.pending || state.selectedSources.size) throw new Error("请先保存词条、勾选或恢复码，再更新应用。");
+      if (state.recovery || state.entryBusy || drafts.hasUnsaved() || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) throw new Error("请先保存词条、勾选或恢复码，并确认收录队列完成，再更新应用。");
     } });
     void verifySession();
   }

@@ -5,10 +5,12 @@ import {
   revokeOAuthToken,
   verifyOwnerAndRepository,
   writeRemoteWordbook,
-  type GitHubIdentity
+  type GitHubIdentity,
+  type RemoteWordbook
 } from "./github";
 import { PublishRequestSchema, PublicSnapshotSchema, SynonymScanSchema, normalizeEnglish, validateSnapshot, type PublicEntry, type PublicSnapshot, type PublishRequest } from "./schema";
 import { DictionaryCollectionRequestSchema, findCollectedEntry, resolveDictionaryCollection } from "./dictionary-collection";
+import { readPublicSnapshotRecord, writePublicSnapshotRecord } from "./public-snapshot-cache";
 import { recognizeSynonyms } from "./synonym-recognizer";
 import { SYNONYM_FEATURE_ENABLED, candidateSynonymFingerprint, entrySynonymFingerprint, isSynonymLexicalEntry, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 import {
@@ -60,13 +62,6 @@ interface MutationRecord {
   expiresAt: number;
 }
 
-interface PublicSnapshotRecord {
-  snapshot: PublicSnapshot;
-  sha: string;
-  htmlUrl: string;
-  confirmedAt: number;
-}
-
 interface SynonymBatchRecord {
   matches: NonNullable<PublicEntry["synonymScan"]>["matches"];
   expiresAt: number;
@@ -74,7 +69,6 @@ interface SynonymBatchRecord {
 
 const MUTATION_TTL_MS = 90 * 24 * 60 * 60 * 1000;
 const STORAGE_DELETE_BATCH_SIZE = 128;
-const PUBLIC_SNAPSHOT_KEY = "public-snapshot:latest";
 
 function canonicalJson(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map((item) => canonicalJson(item)).join(",")}]`;
@@ -104,6 +98,9 @@ export class OwnerControl implements DurableObject {
   private readonly config: AppConfig;
   private publishTail: Promise<void> = Promise.resolve();
   private readonly sessionTails = new Map<string, Promise<void>>();
+  // Public data only. Eviction simply restores the full verified read path.
+  // It is never served without a fresh, matching GitHub Contents SHA.
+  private lastRemote: RemoteWordbook | null = null;
 
   /** Refresh rotation, CSRF issuance and logout share one per-session queue. */
   private async withSessionLock<T>(hash: string, work: () => Promise<T>): Promise<T> {
@@ -375,8 +372,9 @@ export class OwnerControl implements DurableObject {
   }
 
   private async rememberPublicSnapshot(remote: { snapshot: PublicSnapshot; sha: string; htmlUrl?: string }): Promise<boolean> {
+    this.lastRemote = { snapshot: structuredClone(remote.snapshot), sha: remote.sha, htmlUrl: remote.htmlUrl || "" };
     try {
-      await this.ctx.storage.put<PublicSnapshotRecord>(PUBLIC_SNAPSHOT_KEY, {
+      await writePublicSnapshotRecord(this.ctx.storage, {
         snapshot: remote.snapshot,
         sha: remote.sha,
         htmlUrl: remote.htmlUrl || "",
@@ -392,7 +390,7 @@ export class OwnerControl implements DurableObject {
   }
 
   private async publicSnapshot(): Promise<Response> {
-    const current = await this.ctx.storage.get<PublicSnapshotRecord>(PUBLIC_SNAPSHOT_KEY);
+    const current = await readPublicSnapshotRecord(this.ctx.storage);
     if (!current) {
       throw new ApiError(503, "public_snapshot_unavailable", "最新公开词库尚未进入即时缓存。");
     }
@@ -601,7 +599,7 @@ export class OwnerControl implements DurableObject {
     const commit = () => this.ctx.storage.put<MutationRecord>(key, { ...pending, status: "committed", updatedAt: Date.now(), expiresAt: Date.now() + MUTATION_TTL_MS });
     let token = await this.tokenForSession(session);
     await verifyOwnerAndRepository(token, this.config);
-    const remote = await readRemoteWordbook(token, this.config);
+    const remote = await readRemoteWordbook(token, this.config, this.lastRemote);
     const existing = findCollectedEntry(remote.snapshot, request.term);
     if (existing) {
       await commit();
