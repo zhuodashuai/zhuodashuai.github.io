@@ -2,7 +2,7 @@ import test, { afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import { DICTIONARY_EXAMPLE_SOURCE, parseDictionaryExamplesManifest, parseDictionaryExamplesShard,
+import { DICTIONARY_EXAMPLE_SOURCE, dictionaryExampleBucket, parseDictionaryExamplesManifest, parseDictionaryExamplesShard,
   loadDictionaryExamples, createDictionaryExamplesController, resetDictionaryExamplesCacheForTests } from "../js/dictionary-examples.js";
 
 const sha = value => createHash("sha256").update(value).digest("hex");
@@ -22,7 +22,27 @@ function fixture(entries = [entry()]) {
   const requests = [];
   const fetchImpl = async (url, options) => {
     requests.push({ url, options }); const path = new URL(url).pathname.split("/dictionary-examples/")[1];
-    return path === "manifest.json" ? new Response(JSON.stringify(manifest))
+    return path === "manifest-v2.json" ? new Response(JSON.stringify(manifest))
+      : files.has(path) ? new Response(files.get(path)) : new Response("missing", { status: 404 });
+  };
+  return { manifest, files, requests, fetchImpl };
+}
+function modernFixture(entries = [entry()]) {
+  const version = sha(`v2:${JSON.stringify(entries)}`), files = new Map(), requests = [];
+  const shards = Array.from({ length: 256 }, (_, bucket) => {
+    const subset = entries.filter(row => dictionaryExampleBucket(row.term) === bucket);
+    const file = `${version}/examples-${bucket}.json`;
+    const body = JSON.stringify({ schemaVersion: 2, bucket, entries: subset });
+    files.set(file, body);
+    return { bucket, file, bytes: Buffer.byteLength(body), sha256: sha(body), heads: subset.length,
+      examples: subset.reduce((n, row) => n + row.senses.reduce((sum, sense) => sum + sense.examples.length, 0), 0) };
+  });
+  const manifest = { schemaVersion: 2, version, counts: { heads: entries.length, examples: entries.length },
+    bucketCount: 256, hash: "fnv1a-codepoints-v1", shards };
+  const fetchImpl = async (url, options) => {
+    requests.push({ url, options });
+    const path = new URL(url).pathname.split("/dictionary-examples/")[1];
+    return path === "manifest-v2.json" ? new Response(JSON.stringify(manifest))
       : files.has(path) ? new Response(files.get(path)) : new Response("missing", { status: 404 });
   };
   return { manifest, files, requests, fetchImpl };
@@ -30,6 +50,88 @@ function fixture(entries = [entry()]) {
 const clone = value => structuredClone(value);
 const deferred = () => { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; };
 afterEach(() => resetDictionaryExamplesCacheForTests());
+
+test("v2 directory uses 256 strict counted shards without a full term index", () => {
+  const { manifest } = modernFixture();
+  assert.equal(parseDictionaryExamplesManifest(manifest).bucketCount, 256);
+  assert.equal(Object.hasOwn(manifest, "keys"), false);
+  for (const mutate of [value => value.bucketCount = 16, value => value.hash = "other",
+    value => value.shards.pop(), value => value.counts.heads++, value => value.shards[0].heads++,
+    value => value.shards[dictionaryExampleBucket("abacus")].examples++, value => value.keys = { abacus: 1 }]) {
+    const broken = clone(manifest); mutate(broken); assert.throws(() => parseDictionaryExamplesManifest(broken));
+  }
+});
+
+test("v2 lookup downloads only its deterministic bucket, caches it, and keeps unknown and prototype-like terms safe", async () => {
+  const data = modernFixture([entry(), entry("constructor")]);
+  assert.equal((await loadDictionaryExamples("abacus", { fetchImpl: data.fetchImpl })).term, "abacus");
+  assert.equal(data.requests.length, 2);
+  assert.equal((await loadDictionaryExamples("abacus", { fetchImpl: data.fetchImpl })).term, "abacus");
+  assert.equal(data.requests.length, 2);
+  assert.equal((await loadDictionaryExamples("constructor", { fetchImpl: data.fetchImpl })).term, "constructor");
+  assert.equal(await loadDictionaryExamples("toString", { fetchImpl: data.fetchImpl }), null);
+  assert.ok(data.requests.length <= 4);
+  for (const request of data.requests) {
+    assert.equal(request.options.credentials, "omit");
+    assert.equal(new URL(request.url).search, "");
+    assert.doesNotMatch(request.url, /abacus|constructor|toString|\/api\//u);
+  }
+});
+
+test("v2 mutable directory refreshes after 60 seconds and switches to the new immutable example version", async context => {
+  let now = 1000;
+  context.mock.method(Date, "now", () => now);
+  const old = modernFixture(), changed = entry();
+  changed.senses[0].examples[0] = { en: "The child checked each sum on the abacus.", zh: "孩子用算盘核对了每道加法题。" };
+  const updated = modernFixture([changed]);
+  let active = old;
+  const fetchImpl = (url, options) => active.fetchImpl(url, options);
+  assert.deepEqual(await loadDictionaryExamples("abacus", { fetchImpl }), entry());
+  active = updated; now = 61000;
+  assert.deepEqual(await loadDictionaryExamples("abacus", { fetchImpl }), entry());
+  assert.equal(updated.requests.length, 0);
+  now = 61001;
+  assert.deepEqual(await loadDictionaryExamples("abacus", { fetchImpl }), changed);
+  assert.equal(updated.requests.length, 2);
+});
+
+test("v2 example memory cache evicts the least recently used bucket after four buckets", async () => {
+  const entries = [], buckets = new Set();
+  for (let i = 0; entries.length < 5; i++) {
+    const row = entry(`fixture-${i}`), bucket = dictionaryExampleBucket(row.term);
+    if (!buckets.has(bucket)) { entries.push(row); buckets.add(bucket); }
+  }
+  const data = modernFixture(entries);
+  for (const row of entries) assert.deepEqual(await loadDictionaryExamples(row.term, { fetchImpl: data.fetchImpl }), row);
+  assert.equal(data.requests.length, 6);
+  await loadDictionaryExamples(entries[4].term, { fetchImpl: data.fetchImpl });
+  assert.equal(data.requests.length, 6);
+  await loadDictionaryExamples(entries[0].term, { fetchImpl: data.fetchImpl });
+  assert.equal(data.requests.length, 7);
+});
+
+test("v2 shard rejects incorrect routing and exact per-bucket counts", () => {
+  const data = modernFixture(), parsed = parseDictionaryExamplesManifest(data.manifest);
+  const descriptor = parsed.shards[dictionaryExampleBucket("abacus")];
+  const source = JSON.parse(data.files.get(descriptor.file));
+  for (const mutate of [value => value.entries = [], value => value.entries.push(clone(value.entries[0])),
+    value => value.entries[0].term = "misrouted-word", value => value.entries[0].senses[0].examples.push({ en: "A second fixture sentence tests exact counts.", zh: "第二句测试精确计数。" })]) {
+    const broken = clone(source); mutate(broken); assert.throws(() => parseDictionaryExamplesShard(broken, parsed, descriptor));
+  }
+});
+
+test("frozen legacy assets remain usable by the compatible strict parser", async () => {
+  const base = new URL("../data/dictionary-examples/", import.meta.url);
+  const manifest = parseDictionaryExamplesManifest(JSON.parse(await readFile(new URL("manifest.json", base), "utf8")));
+  assert.equal(manifest.schemaVersion, 1);
+  let heads = 0;
+  for (const descriptor of manifest.shards) {
+    const bytes = await readFile(new URL(descriptor.file, base));
+    assert.equal(bytes.byteLength, descriptor.bytes); assert.equal(sha(bytes), descriptor.sha256);
+    heads += parseDictionaryExamplesShard(JSON.parse(bytes), manifest, descriptor).size;
+  }
+  assert.equal(heads, manifest.counts.heads);
+});
 
 test("manifest validates exact counts, 16 bounded first-party descriptors and strict fields", () => {
   const { manifest } = fixture();
@@ -110,7 +212,7 @@ test("manifest failure is not cached as a permanent absence and retry can recove
 test("corrupt shard fails closed; a local retry bypasses its cached response without failing primary lookup", async () => {
   const data = fixture(); let corrupted = false; const attempts = [];
   const fetchImpl = async (url, options) => {
-    if (!url.endsWith("manifest.json")) {
+    if (!url.endsWith("manifest-v2.json")) {
       attempts.push(options.cache);
       if (!corrupted) { corrupted = true; return new Response("{} "); }
     }
@@ -129,7 +231,7 @@ test("body is bounded even without a Content-Length declaration", async () => {
 test("concurrent callers share a public download and one abort does not abort the other's result", async () => {
   const data = fixture(), gate = deferred(), seen = deferred();
   const fetchImpl = async (url, options) => {
-    if (!url.endsWith("manifest.json")) { seen.resolve(); await gate.promise; }
+    if (!url.endsWith("manifest-v2.json")) { seen.resolve(); await gate.promise; }
     return data.fetchImpl(url, options);
   };
   const controller = new AbortController();
@@ -142,7 +244,7 @@ test("concurrent callers share a public download and one abort does not abort th
 
 test("a per-caller deadline applies even while another caller's shared download is already pending", async () => {
   const data = fixture(), gate = deferred(), seen = deferred();
-  const fetchImpl = async (url, options) => { if (url.endsWith("manifest.json")) { seen.resolve(); await gate.promise; } return data.fetchImpl(url, options); };
+  const fetchImpl = async (url, options) => { if (url.endsWith("manifest-v2.json")) { seen.resolve(); await gate.promise; } return data.fetchImpl(url, options); };
   const first = loadDictionaryExamples("abacus", { fetchImpl });
   await seen.promise;
   await assert.rejects(loadDictionaryExamples("abacus", { fetchImpl, timeoutMs: 5 }), { code: "dictionary_examples_timeout" });
@@ -157,7 +259,7 @@ test("leaving or timing out before the manifest arrives does not start a new opt
     const rejected = assert.rejects(task, cancel === "abort" ? { name: "AbortError" } : { code: "dictionary_examples_timeout" });
     await seen.promise; if (cancel === "abort") controller.abort(); await rejected;
     gate.resolve(); await new Promise(resolve => setImmediate(resolve));
-    assert.equal(data.requests.length, 1); assert.ok(data.requests[0].url.endsWith("manifest.json"));
+    assert.equal(data.requests.length, 1); assert.ok(data.requests[0].url.endsWith("manifest-v2.json"));
   }
 });
 
@@ -189,7 +291,7 @@ test("clear prevents a pending result from repopulating a changed input or logge
 
 test("all shipped example shards verify byte/hash limits, strict sense provenance, and catalogue counts", async () => {
   const base = new URL("../data/dictionary-examples/", import.meta.url);
-  const raw = await readFile(new URL("manifest.json", base));
+  const raw = await readFile(new URL("manifest-v2.json", base));
   assert.ok(raw.byteLength <= 512 * 1024);
   const manifest = parseDictionaryExamplesManifest(JSON.parse(raw.toString("utf8")));
   let heads = 0, examples = 0;

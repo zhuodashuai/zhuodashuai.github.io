@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "5dfa5ecfe585f05dfda28d120e04a54655b22c0f49055791aeba0c55579f2d4d",
+  "reviewer": "AI/examples_0003_c",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "view","suggest","anything","ago","term","towards","understand","read","society","centre",
+    "parent","police","stop","probably","speak","price","spend","process","remain","position",
+    "remember","sure","actually","morning","research","walk","programme","moment","win","age",
+    "send","value","enough","across","less","street","boy","everything","music","themselves",
+    "paper","itself","wait","economic","die","reach","sense","stay","nation","hundred",
+    "behind","sort","staff","return","raise","town","either","else","former","sell",
+    "along","committee","product","role","whole","strong","rather","drug","wife","union",
+    "ten","military","son","support","stage","trade","arm","thank","whose","situation",
+    "season","record","tax","player","yesterday","base","central","cover","university","sir",
+    "star","rule","worker","oil","pound","officer","wall","news","seven","test",
+    "eight","herself","step","seek","red","wide","twenty","soon","billion","brother",
+    "operation","share","plant","thousand","security","colour","rise","page","west","top",
+    "past","pressure","near","list","race","labour","east","save","nine","stock",
+    "cup","fund","sign","attack","sister","total","blue","visit","conference","green",
+    "radio","peace","press","middle","thirty","fifty","vote","aid","release","sale",
+    "quick","photo","forty","twice","twelve","surprise","sixty","fifteen","brown","grey",
+    "nineteen","eighty","ninety","seventy","eleven","dollar","eighteen","percent","fourteen","sixteen",
+    "bite","thirteen","seventeen","accord","will","may","use","while","program","kid",
+    "require","period","type","subject","guy","maybe","church","serve","upon","therefore",
+    "section","table","someone","particularly","sometimes","management","practice","third","voice","finally"
+  ],
+  "issues": [
+    {"term":"east","blocking":true,"issue":"East indicates direction after face in this example and therefore uses the adverbial sense.","resolution":"Changed the part of speech to adverb and the Chinese selected sense to 向东."},
+    {"term":"twice","blocking":false,"issue":"The pronoun it in posting it had only the address as an explicit antecedent.","resolution":"Introduced the parcel explicitly and adjusted the Chinese translation, preserving the natural twice collocation."}
+  ]
+}

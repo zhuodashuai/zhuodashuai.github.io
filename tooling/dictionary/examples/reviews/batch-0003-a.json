@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "2f17506e1e431b92fdd548f2c08bdd823c9caa159d15637c9683991f53e583be",
+  "reviewer": "AI/examples_0003_c",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "be","and","of","a","to","it","he","for","that","not",
+    "you","with","on","they","say","by","this","she","at","but",
+    "we","his","from","which","or","as","what","would","their","there",
+    "who","all","if","her","my","about","one","see","time","some",
+    "when","year","could","think","into","its","them","then","two","me",
+    "out","people","your","now","him","no","other","only","than","like",
+    "more","how","these","also","any","our","very","new","want","way",
+    "should","because","man","after","here","between","thing","many","those","tell",
+    "three","back","such","through","must","woman","still","us","child","life",
+    "too","put","work","oh","world","school","try","where","seem","system",
+    "same","state","never","something","really","most","yes","another","however","much",
+    "show","problem","against","again","student","under","why","service","big","party",
+    "talk","each","turn","every","provide","start","off","week","member","four",
+    "always","without","within","during","word","although","question","before","next","run",
+    "quite","five","night","write","side","month","today","million","power","water",
+    "room","young","both","mother","often","money","story","book","away","lot",
+    "study","second","though","car","perhaps","policy","black","market","already","nothing",
+    "since","yet","around","result","whether","sit","until","stand","line","report",
+    "among","almost","ever","bad","road","himself","together","six","minister","produce",
+    "rate","once","white","least","office","president","war","team","person","reason"
+  ],
+  "issues": [
+    {"term":"before","blocking":true,"issue":"The selected example introduces a finite clause, so its preposition label did not match its grammatical use.","resolution":"Changed the selected part of speech to conjunction and reread the full bilingual entry."},
+    {"term":"nothing","blocking":true,"issue":"Nothing functions as an indefinite pronoun in the selected example rather than as a noun.","resolution":"Changed the selected part of speech to pronoun and verified the sentence and translation."},
+    {"term":"through","blocking":false,"issue":"Sunlight passing through open curtains was less concrete than the intended spatial example.","resolution":"Replaced the curtains with a narrow window and revised the Chinese translation to match."},
+    {"term":"every","blocking":false,"issue":"The Chinese gloss used the unnatural expression 每一的.","resolution":"Reworded the gloss as 每个；每一 without changing the selected sense."},
+    {"term":"start","blocking":false,"issue":"The Chinese translation did not naturally express starting a meeting with questions.","resolution":"Rewrote the Chinese sentence to state that this meeting begins with the listener's questions."}
+  ]
+}

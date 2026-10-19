@@ -44,7 +44,7 @@ export function validateExampleSourceIndex(index) {
 function bucket(term) {
   let hash = 2166136261;
   for (const ch of term) { hash ^= ch.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
-  return hash % 16;
+  return hash % 256;
 }
 export function buildDictionaryExamples({ originalPack, authored = [], knownTerms }) {
   const allowed = new Set(knownTerms), heads = new Map(), seenSentences = new Map();
@@ -75,23 +75,31 @@ export function buildDictionaryExamples({ originalPack, authored = [], knownTerm
   for (const row of authored) {
     if (heads.has(row.term)) throw Error(`New example must not overwrite existing reviewed head: ${row.term}`);
     addedHeads++;
-    add(row.term, { id: `example:${row.term}`, partOfSpeech: row.partOfSpeech, meaningZh: row.meaningZh,
+    const senseKey = /^[a-zA-Z0-9:_-]+$/u.test(row.term) && row.term.length <= 100 ? row.term : sha(row.term).slice(0, 24);
+    add(row.term, { id: `example:${senseKey}`, partOfSpeech: row.partOfSpeech, meaningZh: row.meaningZh,
       examples: [{ en: row.en, zh: row.zh }], reviewer: row.reviewer }, "added");
   }
   const entries = [...heads.values()].sort((a, b) => a.term < b.term ? -1 : a.term > b.term ? 1 : 0);
-  const version = sha(JSON.stringify(entries));
-  const keys = Object.fromEntries(entries.map(row => [row.term, bucket(row.term)]));
+  // Include the format in the namespace: never overwrite a legacy immutable
+  // 16-bucket asset with different bytes at the same versioned URL.
+  const version = sha(JSON.stringify({ schemaVersion: 2, bucketCount: 256, entries }));
   const files = new Map(), shards = [];
-  for (let number = 0; number < 16; number++) {
+  const buckets = Array.from({ length: 256 }, () => []);
+  for (const row of entries) buckets[bucket(row.term)].push(row);
+  for (let number = 0; number < 256; number++) {
     const file = `${version}/examples-${number}.json`;
-    const bytes = Buffer.from(JSON.stringify({ schemaVersion: 1, bucket: number, entries: entries.filter(row => bucket(row.term) === number) }) + "\n");
+    const subset = buckets[number];
+    const exampleCount = subset.reduce((sum, row) => sum + row.senses.reduce((n, sense) => n + sense.examples.length, 0), 0);
+    const bytes = Buffer.from(JSON.stringify({ schemaVersion: 2, bucket: number, entries: subset }) + "\n");
     if (bytes.length > 1024 * 1024) throw Error("Example shard exceeds client limit");
-    files.set(file, bytes); shards.push({ bucket: number, file, bytes: bytes.length, sha256: sha(bytes) });
+    files.set(file, bytes); shards.push({ bucket: number, file, bytes: bytes.length, sha256: sha(bytes), heads: subset.length, examples: exampleCount });
   }
   const counts = { heads: entries.length, examples: originalExamples + addedExamples };
-  const manifest = { schemaVersion: 1, version, counts, shards, keys };
-  files.set("manifest.json", Buffer.from(JSON.stringify(manifest) + "\n"));
-  files.set("source-audit.json", Buffer.from(JSON.stringify({ schemaVersion: 1, version, counts, originalHeads, originalExamples, addedHeads, addedExamples,
+  // The old manifest stays intact for already-open v81 clients. New clients
+  // use a constant-size directory and compute one bucket locally.
+  const manifest = { schemaVersion: 2, version, counts, bucketCount: 256, hash: "fnv1a-codepoints-v1", shards };
+  files.set("manifest-v2.json", Buffer.from(JSON.stringify(manifest) + "\n"));
+  files.set("source-audit-v2.json", Buffer.from(JSON.stringify({ schemaVersion: 2, version, counts, originalHeads, originalExamples, addedHeads, addedExamples,
     licensedMeaningsChanged: false, commercialExamplesUsed: false, bookQuotesReusedAsOriginal: false,
     reviewScope: "AI cross-reviewed selected-sense examples, not human certification or complete dictionary coverage" }, null, 2) + "\n"));
   return { entries, manifest, files, originalHeads, originalExamples, addedHeads, addedExamples };

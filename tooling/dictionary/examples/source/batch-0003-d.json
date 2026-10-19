@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0003-d",
+  "authorship": "independent-composition",
+  "entries": [
+    {
+      "term": "onto",
+      "partOfSpeech": "preposition",
+      "meaningZh": "到……上面",
+      "en": "The cat jumped onto the kitchen counter.",
+      "zh": "猫跳上了厨房台面。"
+    },
+    {
+      "term": "medium",
+      "partOfSpeech": "noun",
+      "meaningZh": "媒介",
+      "en": "She chose clay as her medium for the sculpture.",
+      "zh": "她选择黏土作为雕塑的创作媒介。"
+    },
+    {
+      "term": "reference",
+      "partOfSpeech": "noun",
+      "meaningZh": "参考；查阅",
+      "en": "Keep the instructions for future reference.",
+      "zh": "保留这些说明，以便日后查阅。"
+    },
+    {
+      "term": "sky",
+      "partOfSpeech": "noun",
+      "meaningZh": "天空",
+      "en": "The evening sky turned pink above the hills.",
+      "zh": "山丘上方的晚空变成了粉色。"
+    },
+    {
+      "term": "stick",
+      "partOfSpeech": "noun",
+      "meaningZh": "棍；枯枝",
+      "en": "He used a stick to draw in the sand.",
+      "zh": "他用一根棍子在沙上画画。"
+    },
+    {
+      "term": "proportion",
+      "partOfSpeech": "noun",
+      "meaningZh": "比例",
+      "en": "A large proportion of our guests arrived by train.",
+      "zh": "我们很大一部分客人是坐火车来的。"
+    },
+    {
+      "term": "ring",
+      "partOfSpeech": "noun",
+      "meaningZh": "戒指",
+      "en": "She left her ring beside the washbasin.",
+      "zh": "她把戒指放在了洗手池旁边。"
+    },
+    {
+      "term": "dad",
+      "partOfSpeech": "noun",
+      "meaningZh": "爸爸",
+      "en": "My dad taught me how to mend a puncture.",
+      "zh": "爸爸教我如何补车胎。"
+    },
+    {
+      "term": "ear",
+      "partOfSpeech": "noun",
+      "meaningZh": "耳朵",
+      "en": "The puppy has one white ear.",
+      "zh": "这只小狗有一只白耳朵。"
+    },
+    {
+      "term": "bus",
+      "partOfSpeech": "noun",
+      "meaningZh": "公交车",
+      "en": "The bus stops outside the swimming pool.",
+      "zh": "公交车停在游泳馆外。"
+    },
+    {
+      "term": "fairly",
+      "partOfSpeech": "adverb",
+      "meaningZh": "相当地",
+      "en": "The recipe is fairly easy to follow.",
+      "zh": "这个食谱相当容易照着做。"
+    },
+    {
+      "term": "bone",
+      "partOfSpeech": "noun",
+      "meaningZh": "骨头",
+      "en": "The dog buried a bone beside the fence.",
+      "zh": "狗在篱笆旁埋了一根骨头。"
+    },
+    {
+      "term": "lip",
+      "partOfSpeech": "noun",
+      "meaningZh": "嘴唇",
+      "en": "She pressed a finger to her lip for silence.",
+      "zh": "她把手指放在唇边，示意安静。"
+    },
+    {
+      "term": "hell",
+      "partOfSpeech": "noun",
+      "meaningZh": "地狱",
+      "en": "In the tale, the villain fears going to hell.",
+      "zh": "故事里，反派害怕下地狱。"
+    },
+    {
+      "term": "plate",
+      "partOfSpeech": "noun",
+      "meaningZh": "盘子",
+      "en": "Put the sandwiches on a clean plate.",
+      "zh": "把三明治放在干净的盘子上。"
+    },
+    {
+      "term": "neck",
+      "partOfSpeech": "noun",
+      "meaningZh": "脖子",
+      "en": "He wrapped a wool scarf around his neck.",
+      "zh": "他在脖子上围了一条羊毛围巾。"
+    },
+    {
+      "term": "shut",
+      "partOfSpeech": "verb",
+      "meaningZh": "关闭",
+      "en": "Please shut the gate after you.",
+      "zh": "过去后请关上大门。"
+    },
+    {
+      "term": "map",
+      "partOfSpeech": "noun",
+      "meaningZh": "地图",
+      "en": "The map shows several paths through the forest.",
+      "zh": "地图上标出了几条穿林小路。"
+    },
+    {
+      "term": "ought",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "应该",
+      "en": "We ought to leave before the traffic builds up.",
+      "zh": "我们应该在交通变拥堵之前出发。"
+    },
+    {
+      "term": "nod",
+      "partOfSpeech": "verb",
+      "meaningZh": "点头",
+      "en": "Just nod if you can hear me.",
+      "zh": "如果你能听见，就点点头。"
+    },
+    {
+      "term": "sweet",
+      "partOfSpeech": "adjective",
+      "meaningZh": "甜的",
+      "en": "These apples are crisp and sweet.",
+      "zh": "这些苹果又脆又甜。"
+    },
+    {
+      "term": "pocket",
+      "partOfSpeech": "noun",
+      "meaningZh": "口袋",
+      "en": "I found the ticket in my coat pocket.",
+      "zh": "我在外套口袋里找到了票。"
+    },
+    {
+      "term": "thin",
+      "partOfSpeech": "adjective",
+      "meaningZh": "薄的",
+      "en": "Cut the cheese into thin slices.",
+      "zh": "把奶酪切成薄片。"
+    },
+    {
+      "term": "trail",
+      "partOfSpeech": "noun",
+      "meaningZh": "小径",
+      "en": "The trail winds past three small lakes.",
+      "zh": "这条小径蜿蜒经过三个小湖。"
+    },
+    {
+      "term": "storm",
+      "partOfSpeech": "noun",
+      "meaningZh": "暴风雨",
+      "en": "The storm damaged the garden fence.",
+      "zh": "暴风雨损坏了花园篱笆。"
+    },
+    {
+      "term": "shadow",
+      "partOfSpeech": "noun",
+      "meaningZh": "影子",
+      "en": "The tree cast a long shadow over the lawn.",
+      "zh": "树在草坪上投下一道长影。"
+    },
+    {
+      "term": "sum",
+      "partOfSpeech": "noun",
+      "meaningZh": "总和",
+      "en": "Write the sum of these numbers in the box.",
+      "zh": "在方框里写出这些数的总和。"
+    },
+    {
+      "term": "cat",
+      "partOfSpeech": "noun",
+      "meaningZh": "猫",
+      "en": "Our cat likes sleeping on folded towels.",
+      "zh": "我们的猫喜欢睡在叠好的毛巾上。"
+    },
+    {
+      "term": "thick",
+      "partOfSpeech": "adjective",
+      "meaningZh": "厚的",
+      "en": "A thick blanket covered the spare bed.",
+      "zh": "备用床上盖着一条厚毯子。"
+    },
+    {
+      "term": "root",
+      "partOfSpeech": "noun",
+      "meaningZh": "根",
+      "en": "A tree root had lifted one paving stone.",
+      "zh": "一条树根顶起了一块铺路石。"
+    },
+    {
+      "term": "nose",
+      "partOfSpeech": "noun",
+      "meaningZh": "鼻子",
+      "en": "The puppy pressed its nose against the glass.",
+      "zh": "小狗把鼻子贴在玻璃上。"
+    },
+    {
+      "term": "tooth",
+      "partOfSpeech": "noun",
+      "meaningZh": "牙齿",
+      "en": "The child proudly showed us his loose tooth.",
+      "zh": "孩子得意地给我们看他松动的牙齿。"
+    },
+    {
+      "term": "catholic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "天主教的",
+      "en": "She attended a Catholic school near her home.",
+      "zh": "她曾在家附近的一所天主教学校上学。"
+    },
+    {
+      "term": "crown",
+      "partOfSpeech": "noun",
+      "meaningZh": "王冠",
+      "en": "The actor wore a crown made of cardboard.",
+      "zh": "演员戴着纸板做的王冠。"
+    },
+    {
+      "term": "motion",
+      "partOfSpeech": "noun",
+      "meaningZh": "移动",
+      "en": "The camera captured the bird in motion.",
+      "zh": "相机拍下了飞鸟运动中的样子。"
+    },
+    {
+      "term": "passage",
+      "partOfSpeech": "noun",
+      "meaningZh": "通道",
+      "en": "A narrow passage connects the two courtyards.",
+      "zh": "一条狭窄通道连接着两个院子。"
+    },
+    {
+      "term": "tone",
+      "partOfSpeech": "noun",
+      "meaningZh": "语气",
+      "en": "Her gentle tone helped calm the discussion.",
+      "zh": "她温和的语气让讨论平静了下来。"
+    },
+    {
+      "term": "pub",
+      "partOfSpeech": "noun",
+      "meaningZh": "酒馆",
+      "en": "The village pub serves lunch on Sundays.",
+      "zh": "村里的酒馆周日供应午餐。"
+    },
+    {
+      "term": "bowl",
+      "partOfSpeech": "noun",
+      "meaningZh": "碗",
+      "en": "A blue bowl held the freshly picked berries.",
+      "zh": "一个蓝碗里装着刚摘的浆果。"
+    },
+    {
+      "term": "wash",
+      "partOfSpeech": "verb",
+      "meaningZh": "洗",
+      "en": "Wash the brushes before the paint dries.",
+      "zh": "在颜料干掉之前洗净刷子。"
+    },
+    {
+      "term": "tear",
+      "partOfSpeech": "verb",
+      "meaningZh": "撕",
+      "en": "Be careful not to tear the old photograph.",
+      "zh": "小心别撕坏这张老照片。"
+    },
+    {
+      "term": "aside",
+      "partOfSpeech": "adverb",
+      "meaningZh": "到一旁",
+      "en": "She stepped aside to let the trolley pass.",
+      "zh": "她走到一旁，让推车通过。"
+    },
+    {
+      "term": "roof",
+      "partOfSpeech": "noun",
+      "meaningZh": "屋顶",
+      "en": "Rainwater dripped through a hole in the roof.",
+      "zh": "雨水从屋顶的一个洞滴下来。"
+    },
+    {
+      "term": "era",
+      "partOfSpeech": "noun",
+      "meaningZh": "时代",
+      "en": "The exhibition explores the era of steam trains.",
+      "zh": "展览探讨了蒸汽火车时代。"
+    },
+    {
+      "term": "stir",
+      "partOfSpeech": "verb",
+      "meaningZh": "搅拌",
+      "en": "Stir the soup gently with a wooden spoon.",
+      "zh": "用木勺轻轻搅动汤。"
+    },
+    {
+      "term": "cloud",
+      "partOfSpeech": "noun",
+      "meaningZh": "云",
+      "en": "A single cloud drifted above the hill.",
+      "zh": "一朵云从山丘上方飘过。"
+    },
+    {
+      "term": "stretch",
+      "partOfSpeech": "verb",
+      "meaningZh": "伸展",
+      "en": "Stretch your arms above your head.",
+      "zh": "把双臂伸到头顶上方。"
+    },
+    {
+      "term": "tip",
+      "partOfSpeech": "noun",
+      "meaningZh": "提示；建议",
+      "en": "Her tip helped me fold the map neatly.",
+      "zh": "她的建议帮我把地图折整齐了。"
+    },
+    {
+      "term": "rush",
+      "partOfSpeech": "verb",
+      "meaningZh": "匆忙",
+      "en": "Don't rush; we still have plenty of time.",
+      "zh": "别急，我们还有很多时间。"
+    },
+    {
+      "term": "apart",
+      "partOfSpeech": "adverb",
+      "meaningZh": "相隔；分开",
+      "en": "Keep the two wet paintings apart.",
+      "zh": "把两幅未干的画分开放。"
+    },
+    {
+      "term": "gap",
+      "partOfSpeech": "noun",
+      "meaningZh": "缝隙",
+      "en": "Cold air came through a gap under the door.",
+      "zh": "冷空气从门下的缝隙钻进来。"
+    },
+    {
+      "term": "wheel",
+      "partOfSpeech": "noun",
+      "meaningZh": "轮子",
+      "en": "The trolley's front wheel caught on a stone.",
+      "zh": "推车的前轮被一块石头卡住了。"
+    },
+    {
+      "term": "via",
+      "partOfSpeech": "preposition",
+      "meaningZh": "经由",
+      "en": "We travelled to the island via the harbour town.",
+      "zh": "我们经由那个港口小镇前往岛上。"
+    },
+    {
+      "term": "hat",
+      "partOfSpeech": "noun",
+      "meaningZh": "帽子",
+      "en": "The wind blew his hat into the pond.",
+      "zh": "风把他的帽子吹进了池塘。"
+    },
+    {
+      "term": "hi",
+      "partOfSpeech": "interjection",
+      "meaningZh": "嗨；你好",
+      "en": "Hi, are you here for the pottery class?",
+      "zh": "嗨，你是来上陶艺课的吗？"
+    },
+    {
+      "term": "agenda",
+      "partOfSpeech": "noun",
+      "meaningZh": "议程",
+      "en": "The budget is first on today's agenda.",
+      "zh": "预算是今天议程上的第一项。"
+    },
+    {
+      "term": "bother",
+      "partOfSpeech": "verb",
+      "meaningZh": "打扰",
+      "en": "Does the music bother you while you're reading?",
+      "zh": "你读书时，这音乐会打扰到你吗？"
+    },
+    {
+      "term": "chip",
+      "partOfSpeech": "noun",
+      "meaningZh": "碎片",
+      "en": "A small chip of wood fell from the chair.",
+      "zh": "一小块木屑从椅子上掉了下来。"
+    },
+    {
+      "term": "command",
+      "partOfSpeech": "noun",
+      "meaningZh": "命令",
+      "en": "The dog sat down at her command.",
+      "zh": "她一声令下，狗就坐下了。"
+    },
+    {
+      "term": "string",
+      "partOfSpeech": "noun",
+      "meaningZh": "细绳",
+      "en": "Tie the parcel with a length of string.",
+      "zh": "用一截细绳捆好包裹。"
+    },
+    {
+      "term": "net",
+      "partOfSpeech": "noun",
+      "meaningZh": "网",
+      "en": "The fishing net was drying on the pier.",
+      "zh": "渔网正在码头上晾晒。"
+    },
+    {
+      "term": "stream",
+      "partOfSpeech": "noun",
+      "meaningZh": "小溪",
+      "en": "A narrow stream flows behind the campsite.",
+      "zh": "一条小溪从营地后面流过。"
+    },
+    {
+      "term": "pot",
+      "partOfSpeech": "noun",
+      "meaningZh": "盆；罐",
+      "en": "The empty flower pot needs a good wash.",
+      "zh": "这个空花盆需要好好清洗。"
+    },
+    {
+      "term": "knife",
+      "partOfSpeech": "noun",
+      "meaningZh": "刀",
+      "en": "Use a sharp knife to cut the bread.",
+      "zh": "用锋利的刀切面包。"
+    },
+    {
+      "term": "convert",
+      "partOfSpeech": "verb",
+      "meaningZh": "改造；转换",
+      "en": "They plan to convert the garage into a studio.",
+      "zh": "他们计划把车库改成工作室。"
+    },
+    {
+      "term": "joke",
+      "partOfSpeech": "noun",
+      "meaningZh": "笑话",
+      "en": "His joke made the whole table laugh.",
+      "zh": "他的笑话让整桌人都笑了。"
+    },
+    {
+      "term": "keen",
+      "partOfSpeech": "adjective",
+      "meaningZh": "热衷的；渴望的",
+      "en": "She's keen to learn how to sail.",
+      "zh": "她很想学帆船驾驶。"
+    },
+    {
+      "term": "cap",
+      "partOfSpeech": "noun",
+      "meaningZh": "盖子",
+      "en": "Screw the cap back onto the bottle.",
+      "zh": "把瓶盖重新拧回瓶子上。"
+    },
+    {
+      "term": "cake",
+      "partOfSpeech": "noun",
+      "meaningZh": "蛋糕",
+      "en": "We decorated the cake with fresh strawberries.",
+      "zh": "我们用新鲜草莓装饰了蛋糕。"
+    },
+    {
+      "term": "congressional",
+      "partOfSpeech": "adjective",
+      "meaningZh": "国会的",
+      "en": "The article explains the congressional committee's role.",
+      "zh": "这篇文章解释了国会委员会的作用。"
+    },
+    {
+      "term": "bay",
+      "partOfSpeech": "noun",
+      "meaningZh": "海湾",
+      "en": "Small boats sheltered in the bay.",
+      "zh": "小船在海湾里避风。"
+    },
+    {
+      "term": "wet",
+      "partOfSpeech": "adjective",
+      "meaningZh": "湿的",
+      "en": "Leave your wet boots by the door.",
+      "zh": "把湿靴子留在门边。"
+    },
+    {
+      "term": "honour",
+      "partOfSpeech": "noun",
+      "meaningZh": "荣幸；荣誉",
+      "en": "It was an honour to introduce our guest speaker.",
+      "zh": "能介绍我们的嘉宾讲者是我的荣幸。"
+    },
+    {
+      "term": "deposit",
+      "partOfSpeech": "noun",
+      "meaningZh": "定金",
+      "en": "We paid a deposit to reserve the room.",
+      "zh": "我们交了定金预订房间。"
+    },
+    {
+      "term": "luck",
+      "partOfSpeech": "noun",
+      "meaningZh": "好运",
+      "en": "With a little luck, we'll catch the earlier ferry.",
+      "zh": "运气好一点，我们就能赶上早一班渡轮。"
+    },
+    {
+      "term": "bury",
+      "partOfSpeech": "verb",
+      "meaningZh": "埋藏",
+      "en": "The children wanted to bury a time capsule.",
+      "zh": "孩子们想埋下一个时间胶囊。"
+    },
+    {
+      "term": "toy",
+      "partOfSpeech": "noun",
+      "meaningZh": "玩具",
+      "en": "Her favourite toy is a wooden train.",
+      "zh": "她最喜欢的玩具是一列木制小火车。"
+    },
+    {
+      "term": "register",
+      "partOfSpeech": "verb",
+      "meaningZh": "登记；报名",
+      "en": "You need to register before joining the workshop.",
+      "zh": "参加工作坊前你需要先报名。"
+    },
+    {
+      "term": "swing",
+      "partOfSpeech": "noun",
+      "meaningZh": "秋千",
+      "en": "The old swing hangs from an oak tree.",
+      "zh": "旧秋千挂在一棵橡树上。"
+    },
+    {
+      "term": "lad",
+      "partOfSpeech": "noun",
+      "meaningZh": "少年；小伙子",
+      "en": "The young lad offered to carry our bags.",
+      "zh": "那个小伙子主动提出帮我们提包。"
+    },
+    {
+      "term": "dig",
+      "partOfSpeech": "verb",
+      "meaningZh": "挖",
+      "en": "Dig a small hole for each seedling.",
+      "zh": "为每棵幼苗挖一个小坑。"
+    },
+    {
+      "term": "rank",
+      "partOfSpeech": "noun",
+      "meaningZh": "等级",
+      "en": "The chart shows the rank of each officer.",
+      "zh": "图表列出了每位军官的军衔。"
+    },
+    {
+      "term": "pan",
+      "partOfSpeech": "noun",
+      "meaningZh": "平底锅",
+      "en": "Warm the butter in a small pan.",
+      "zh": "在小平底锅里加热黄油。"
+    },
+    {
+      "term": "stomach",
+      "partOfSpeech": "noun",
+      "meaningZh": "肚子；胃",
+      "en": "His stomach rumbled while we waited for lunch.",
+      "zh": "等午饭时他的肚子咕咕叫。"
+    },
+    {
+      "term": "clock",
+      "partOfSpeech": "noun",
+      "meaningZh": "时钟",
+      "en": "The clock above the door is five minutes slow.",
+      "zh": "门上方的钟慢了五分钟。"
+    },
+    {
+      "term": "pop",
+      "partOfSpeech": "noun",
+      "meaningZh": "流行音乐",
+      "en": "She listens to pop while cleaning the kitchen.",
+      "zh": "她打扫厨房时听流行音乐。"
+    },
+    {
+      "term": "brand",
+      "partOfSpeech": "noun",
+      "meaningZh": "品牌",
+      "en": "This brand sells notebooks with replaceable pages.",
+      "zh": "这个品牌出售可换内页的笔记本。"
+    },
+    {
+      "term": "mad",
+      "partOfSpeech": "adjective",
+      "meaningZh": "生气的",
+      "en": "He was mad about the broken promise.",
+      "zh": "他因为那个未兑现的承诺而生气。"
+    },
+    {
+      "term": "sink",
+      "partOfSpeech": "noun",
+      "meaningZh": "水槽",
+      "en": "Leave the dirty cups in the sink.",
+      "zh": "把脏杯子放进水槽里。"
+    },
+    {
+      "term": "snap",
+      "partOfSpeech": "verb",
+      "meaningZh": "折断",
+      "en": "Don't bend the thin stick; it may snap.",
+      "zh": "别弯那根细棍子，它可能会折断。"
+    },
+    {
+      "term": "tail",
+      "partOfSpeech": "noun",
+      "meaningZh": "尾巴",
+      "en": "The dog wagged its tail when we returned.",
+      "zh": "我们回来时狗摇起了尾巴。"
+    },
+    {
+      "term": "heaven",
+      "partOfSpeech": "noun",
+      "meaningZh": "天堂",
+      "en": "The painting shows angels in heaven.",
+      "zh": "这幅画描绘了天堂中的天使。"
+    },
+    {
+      "term": "sweep",
+      "partOfSpeech": "verb",
+      "meaningZh": "扫",
+      "en": "Please sweep the leaves off the steps.",
+      "zh": "请把台阶上的叶子扫掉。"
+    },
+    {
+      "term": "spin",
+      "partOfSpeech": "verb",
+      "meaningZh": "旋转",
+      "en": "The wheel continued to spin after we stopped pedalling.",
+      "zh": "我们停止踩踏后，车轮还在转。"
+    },
+    {
+      "term": "pitch",
+      "partOfSpeech": "noun",
+      "meaningZh": "音高",
+      "en": "She adjusted the pitch until the two notes matched.",
+      "zh": "她调节音高，直到两个音一致。"
+    },
+    {
+      "term": "yield",
+      "partOfSpeech": "noun",
+      "meaningZh": "产量",
+      "en": "The gardener recorded the yield from each tomato plant.",
+      "zh": "园丁记录了每株番茄的产量。"
+    },
+    {
+      "term": "bet",
+      "partOfSpeech": "noun",
+      "meaningZh": "打赌",
+      "en": "We made a bet about which team would win.",
+      "zh": "我们打赌哪支队伍会赢。"
+    },
+    {
+      "term": "strengthen",
+      "partOfSpeech": "verb",
+      "meaningZh": "加固；加强",
+      "en": "Extra brackets will strengthen the shelf.",
+      "zh": "加装托架能使架子更牢固。"
+    },
+    {
+      "term": "tight",
+      "partOfSpeech": "adjective",
+      "meaningZh": "紧的",
+      "en": "The jar's lid was too tight to open.",
+      "zh": "罐子的盖子拧得太紧，打不开。"
+    },
+    {
+      "term": "strain",
+      "partOfSpeech": "noun",
+      "meaningZh": "负担；过度劳累",
+      "en": "Carrying that heavy bag put a strain on my shoulder.",
+      "zh": "背那个重包让我的肩膀负担很大。"
+    },
+    {
+      "term": "strip",
+      "partOfSpeech": "noun",
+      "meaningZh": "细长条",
+      "en": "Cut a narrow strip of paper for the label.",
+      "zh": "剪一条细纸条做标签。"
+    },
+    {
+      "term": "deck",
+      "partOfSpeech": "noun",
+      "meaningZh": "甲板",
+      "en": "We watched the coastline from the ferry's deck.",
+      "zh": "我们在渡轮甲板上望着海岸线。"
+    },
+    {
+      "term": "joy",
+      "partOfSpeech": "noun",
+      "meaningZh": "喜悦",
+      "en": "Seeing the garden in bloom filled her with joy.",
+      "zh": "看到满园鲜花，她心中充满喜悦。"
+    },
+    {
+      "term": "counter",
+      "partOfSpeech": "noun",
+      "meaningZh": "柜台",
+      "en": "Please collect your tickets at the counter.",
+      "zh": "请到柜台取票。"
+    },
+    {
+      "term": "tap",
+      "partOfSpeech": "noun",
+      "meaningZh": "水龙头",
+      "en": "The kitchen tap has been dripping all morning.",
+      "zh": "厨房的水龙头一早上都在滴水。"
+    },
+    {
+      "term": "rid",
+      "partOfSpeech": "verb",
+      "meaningZh": "使摆脱",
+      "en": "We cleaned the shed to rid it of dust.",
+      "zh": "我们清扫棚子，把灰尘除掉。"
+    },
+    {
+      "term": "pit",
+      "partOfSpeech": "noun",
+      "meaningZh": "深坑",
+      "en": "A fence surrounded the deep pit.",
+      "zh": "深坑周围围着一道篱笆。"
+    },
+    {
+      "term": "nowhere",
+      "partOfSpeech": "adverb",
+      "meaningZh": "无处",
+      "en": "There was nowhere dry to leave our bags.",
+      "zh": "没有干燥的地方可以放我们的包。"
+    },
+    {
+      "term": "cow",
+      "partOfSpeech": "noun",
+      "meaningZh": "母牛",
+      "en": "A brown cow stood beside the farm gate.",
+      "zh": "一头棕色母牛站在农场大门旁。"
+    },
+    {
+      "term": "plot",
+      "partOfSpeech": "noun",
+      "meaningZh": "情节",
+      "en": "The novel's plot becomes clear in the final chapter.",
+      "zh": "小说的情节到最后一章才变得清楚。"
+    },
+    {
+      "term": "shade",
+      "partOfSpeech": "noun",
+      "meaningZh": "树荫；阴凉处",
+      "en": "We ate lunch in the shade of a tree.",
+      "zh": "我们在树荫下吃午饭。"
+    },
+    {
+      "term": "pile",
+      "partOfSpeech": "noun",
+      "meaningZh": "一堆",
+      "en": "A pile of clean towels lay on the bed.",
+      "zh": "床上放着一堆干净毛巾。"
+    },
+    {
+      "term": "nerve",
+      "partOfSpeech": "noun",
+      "meaningZh": "勇气",
+      "en": "It took nerve to sing alone on stage.",
+      "zh": "独自在台上唱歌需要勇气。"
+    },
+    {
+      "term": "burst",
+      "partOfSpeech": "verb",
+      "meaningZh": "破裂",
+      "en": "The balloon will burst if you squeeze it harder.",
+      "zh": "再使劲挤，气球就会破。"
+    },
+    {
+      "term": "pen",
+      "partOfSpeech": "noun",
+      "meaningZh": "笔",
+      "en": "I borrowed a pen to sign the form.",
+      "zh": "我借了一支笔签表格。"
+    },
+    {
+      "term": "van",
+      "partOfSpeech": "noun",
+      "meaningZh": "货车",
+      "en": "We hired a van to move the furniture.",
+      "zh": "我们租了一辆货车搬家具。"
+    },
+    {
+      "term": "ski",
+      "partOfSpeech": "verb",
+      "meaningZh": "滑雪",
+      "en": "She learnt to ski during a winter holiday.",
+      "zh": "她在一次寒假里学会了滑雪。"
+    },
+    {
+      "term": "trick",
+      "partOfSpeech": "noun",
+      "meaningZh": "窍门",
+      "en": "The trick is to fold the corners first.",
+      "zh": "窍门是先折四角。"
+    },
+    {
+      "term": "barrel",
+      "partOfSpeech": "noun",
+      "meaningZh": "桶",
+      "en": "An old barrel collects rainwater beside the shed.",
+      "zh": "棚子旁的旧桶用来收集雨水。"
+    },
+    {
+      "term": "stroke",
+      "partOfSpeech": "verb",
+      "meaningZh": "抚摸",
+      "en": "You can stroke the cat if she comes closer.",
+      "zh": "如果猫走近，你可以摸摸她。"
+    },
+    {
+      "term": "commissioner",
+      "partOfSpeech": "noun",
+      "meaningZh": "专员；负责人",
+      "en": "The commissioner answered questions about the transport review.",
+      "zh": "专员回答了有关交通审查的问题。"
+    },
+    {
+      "term": "jet",
+      "partOfSpeech": "noun",
+      "meaningZh": "喷射流",
+      "en": "A jet of water shot from the cracked pipe.",
+      "zh": "一股水从破裂的水管喷出。"
+    },
+    {
+      "term": "reverse",
+      "partOfSpeech": "verb",
+      "meaningZh": "倒车",
+      "en": "She had to reverse the car out of the narrow lane.",
+      "zh": "她只好把车倒出狭窄的小巷。"
+    },
+    {
+      "term": "harm",
+      "partOfSpeech": "noun",
+      "meaningZh": "伤害",
+      "en": "The falling branch caused no harm.",
+      "zh": "掉落的树枝没有造成伤害。"
+    },
+    {
+      "term": "bare",
+      "partOfSpeech": "adjective",
+      "meaningZh": "裸露的",
+      "en": "The bare walls made the room feel unfinished.",
+      "zh": "光秃秃的墙让房间看起来还没装修完。"
+    },
+    {
+      "term": "gross",
+      "partOfSpeech": "adjective",
+      "meaningZh": "总计的；未扣除费用的",
+      "en": "The report lists gross income before any expenses.",
+      "zh": "报告列出了扣除任何支出前的总收入。"
+    },
+    {
+      "term": "brush",
+      "partOfSpeech": "noun",
+      "meaningZh": "刷子",
+      "en": "Use a soft brush to remove the dust.",
+      "zh": "用软刷子掸去灰尘。"
+    },
+    {
+      "term": "shore",
+      "partOfSpeech": "noun",
+      "meaningZh": "岸边",
+      "en": "We pulled the canoe onto the shore.",
+      "zh": "我们把独木舟拖上岸。"
+    },
+    {
+      "term": "competitor",
+      "partOfSpeech": "noun",
+      "meaningZh": "参赛者；竞争者",
+      "en": "Each competitor received a numbered badge.",
+      "zh": "每位参赛者都领到了编号牌。"
+    },
+    {
+      "term": "federation",
+      "partOfSpeech": "noun",
+      "meaningZh": "联合会",
+      "en": "The sports federation organised training for local coaches.",
+      "zh": "体育联合会为当地教练组织了培训。"
+    },
+    {
+      "term": "moderate",
+      "partOfSpeech": "adjective",
+      "meaningZh": "适度的；中等的",
+      "en": "The walk requires a moderate level of fitness.",
+      "zh": "这次徒步需要中等水平的体能。"
+    },
+    {
+      "term": "molecule",
+      "partOfSpeech": "noun",
+      "meaningZh": "分子",
+      "en": "The diagram labels each atom in the molecule.",
+      "zh": "图中标注了分子里的每个原子。"
+    },
+    {
+      "term": "urgent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "紧急的",
+      "en": "An urgent message interrupted our meeting.",
+      "zh": "一条紧急消息打断了我们的会议。"
+    },
+    {
+      "term": "carrier",
+      "partOfSpeech": "noun",
+      "meaningZh": "运送者；邮递员",
+      "en": "The mail carrier left the parcel with our neighbour.",
+      "zh": "邮递员把包裹交给了我们的邻居。"
+    },
+    {
+      "term": "pet",
+      "partOfSpeech": "noun",
+      "meaningZh": "宠物",
+      "en": "Their pet is a quiet grey rabbit.",
+      "zh": "他们的宠物是一只安静的灰兔。"
+    },
+    {
+      "term": "rhythm",
+      "partOfSpeech": "noun",
+      "meaningZh": "节奏",
+      "en": "Clap your hands to follow the rhythm.",
+      "zh": "拍手跟上节奏。"
+    },
+    {
+      "term": "tide",
+      "partOfSpeech": "noun",
+      "meaningZh": "潮汐",
+      "en": "The path disappears under water at high tide.",
+      "zh": "涨潮时这条小路会淹在水下。"
+    },
+    {
+      "term": "acre",
+      "partOfSpeech": "noun",
+      "meaningZh": "英亩",
+      "en": "The family grows vegetables on half an acre.",
+      "zh": "这家人在半英亩土地上种菜。"
+    },
+    {
+      "term": "script",
+      "partOfSpeech": "noun",
+      "meaningZh": "执行特定任务的小型程序",
+      "en": "The script renames each image with its date.",
+      "zh": "这个脚本用日期为每张图片重新命名。"
+    },
+    {
+      "term": "tactic",
+      "partOfSpeech": "noun",
+      "meaningZh": "策略",
+      "en": "Her tactic was to ask one clear question at a time.",
+      "zh": "她的策略是一次只问一个明确的问题。"
+    },
+    {
+      "term": "headline",
+      "partOfSpeech": "noun",
+      "meaningZh": "新闻标题",
+      "en": "The headline caught my attention on the train.",
+      "zh": "在火车上，那个新闻标题引起了我的注意。"
+    },
+    {
+      "term": "invasion",
+      "partOfSpeech": "noun",
+      "meaningZh": "入侵",
+      "en": "The museum has an exhibition about the invasion.",
+      "zh": "博物馆有一个关于那次入侵的展览。"
+    },
+    {
+      "term": "interior",
+      "partOfSpeech": "noun",
+      "meaningZh": "内部",
+      "en": "The café's interior has changed since our last visit.",
+      "zh": "自从我们上次来过，咖啡馆内部变了样。"
+    },
+    {
+      "term": "concrete",
+      "partOfSpeech": "noun",
+      "meaningZh": "混凝土",
+      "en": "The builders poured concrete into the wooden frame.",
+      "zh": "工人们把混凝土倒进木模里。"
+    },
+    {
+      "term": "chase",
+      "partOfSpeech": "verb",
+      "meaningZh": "追逐",
+      "en": "The puppy likes to chase fallen leaves.",
+      "zh": "小狗喜欢追逐落叶。"
+    },
+    {
+      "term": "recruit",
+      "partOfSpeech": "verb",
+      "meaningZh": "招募",
+      "en": "We hope to recruit more volunteers for Saturday.",
+      "zh": "我们希望为周六招募更多志愿者。"
+    },
+    {
+      "term": "laughter",
+      "partOfSpeech": "noun",
+      "meaningZh": "笑声",
+      "en": "Laughter drifted out of the open window.",
+      "zh": "笑声从开着的窗户传了出来。"
+    },
+    {
+      "term": "cinema",
+      "partOfSpeech": "noun",
+      "meaningZh": "电影院",
+      "en": "The old cinema now hosts live music.",
+      "zh": "这座老电影院现在举办现场音乐演出。"
+    },
+    {
+      "term": "slice",
+      "partOfSpeech": "noun",
+      "meaningZh": "薄片",
+      "en": "She offered me a slice of warm bread.",
+      "zh": "她递给我一片热面包。"
+    },
+    {
+      "term": "miner",
+      "partOfSpeech": "noun",
+      "meaningZh": "矿工",
+      "en": "The retired miner showed us his old helmet.",
+      "zh": "这位退休矿工给我们看了他的旧头盔。"
+    },
+    {
+      "term": "integrate",
+      "partOfSpeech": "verb",
+      "meaningZh": "使结合；整合",
+      "en": "We need to integrate these notes into the report.",
+      "zh": "我们需要把这些笔记整合进报告。"
+    },
+    {
+      "term": "soccer",
+      "partOfSpeech": "noun",
+      "meaningZh": "足球",
+      "en": "We play soccer in the park after class.",
+      "zh": "下课后我们在公园踢足球。"
+    },
+    {
+      "term": "equity",
+      "partOfSpeech": "noun",
+      "meaningZh": "公平",
+      "en": "The committee discussed equity in access to training.",
+      "zh": "委员会讨论了培训机会的公平性。"
+    },
+    {
+      "term": "grave",
+      "partOfSpeech": "noun",
+      "meaningZh": "坟墓",
+      "en": "She placed fresh flowers on her grandfather's grave.",
+      "zh": "她在祖父墓前放上鲜花。"
+    },
+    {
+      "term": "lap",
+      "partOfSpeech": "noun",
+      "meaningZh": "膝部；大腿面",
+      "en": "The cat curled up in my lap.",
+      "zh": "猫蜷在我的腿上。"
+    },
+    {
+      "term": "trap",
+      "partOfSpeech": "noun",
+      "meaningZh": "陷阱",
+      "en": "The story's hero escaped from a clever trap.",
+      "zh": "故事的主人公逃出了一个巧妙的陷阱。"
+    },
+    {
+      "term": "anniversary",
+      "partOfSpeech": "noun",
+      "meaningZh": "周年纪念日",
+      "en": "They returned to the café on their wedding anniversary.",
+      "zh": "结婚纪念日那天，他们又去了那家咖啡馆。"
+    },
+    {
+      "term": "navy",
+      "partOfSpeech": "noun",
+      "meaningZh": "海军",
+      "en": "Her grandfather served in the navy.",
+      "zh": "她的祖父曾在海军服役。"
+    },
+    {
+      "term": "grip",
+      "partOfSpeech": "verb",
+      "meaningZh": "紧握",
+      "en": "Grip the handrail while climbing these steps.",
+      "zh": "爬这些台阶时握紧扶手。"
+    },
+    {
+      "term": "mess",
+      "partOfSpeech": "noun",
+      "meaningZh": "杂乱",
+      "en": "The kitchen was a mess after our baking session.",
+      "zh": "我们烤完点心后，厨房一片狼藉。"
+    },
+    {
+      "term": "spell",
+      "partOfSpeech": "verb",
+      "meaningZh": "拼写",
+      "en": "Could you spell your surname for me?",
+      "zh": "你能把姓氏拼给我听吗？"
+    },
+    {
+      "term": "superb",
+      "partOfSpeech": "adjective",
+      "meaningZh": "极好的",
+      "en": "The balcony offers a superb view of the valley.",
+      "zh": "从阳台能看到极美的山谷景色。"
+    },
+    {
+      "term": "await",
+      "partOfSpeech": "verb",
+      "meaningZh": "等待",
+      "en": "We await your reply before confirming the booking.",
+      "zh": "我们等待你回复后再确认预订。"
+    },
+    {
+      "term": "upset",
+      "partOfSpeech": "adjective",
+      "meaningZh": "难过的；心烦的",
+      "en": "She was upset about losing her notebook.",
+      "zh": "她因丢了笔记本而难过。"
+    },
+    {
+      "term": "delight",
+      "partOfSpeech": "noun",
+      "meaningZh": "喜悦",
+      "en": "To my delight, the missing parcel arrived.",
+      "zh": "让我高兴的是，失踪的包裹送到了。"
+    },
+    {
+      "term": "shortage",
+      "partOfSpeech": "noun",
+      "meaningZh": "短缺",
+      "en": "A shortage of chairs delayed the meeting.",
+      "zh": "椅子不够，会议推迟了。"
+    },
+    {
+      "term": "undermine",
+      "partOfSpeech": "verb",
+      "meaningZh": "逐渐损害",
+      "en": "Repeated delays can undermine trust in the service.",
+      "zh": "一再延误会削弱人们对这项服务的信任。"
+    },
+    {
+      "term": "superior",
+      "partOfSpeech": "adjective",
+      "meaningZh": "更好的；出众的",
+      "en": "This cloth is superior to the cheaper fabric.",
+      "zh": "这块布比那种便宜面料更好。"
+    },
+    {
+      "term": "magic",
+      "partOfSpeech": "noun",
+      "meaningZh": "魔法",
+      "en": "In the story, magic turns stones into birds.",
+      "zh": "故事里，魔法把石头变成了鸟。"
+    },
+    {
+      "term": "combat",
+      "partOfSpeech": "verb",
+      "meaningZh": "防止；与……作斗争",
+      "en": "The club introduced clear labels to combat confusion.",
+      "zh": "俱乐部采用清楚的标签来减少混乱。"
+    },
+    {
+      "term": "stem",
+      "partOfSpeech": "noun",
+      "meaningZh": "茎",
+      "en": "Cut the flower's stem at an angle.",
+      "zh": "把花茎斜着剪断。"
+    },
+    {
+      "term": "rape",
+      "partOfSpeech": "noun",
+      "meaningZh": "强奸",
+      "en": "The report examines support services for survivors of rape.",
+      "zh": "报告研究了面向强奸幸存者的支援服务。"
+    },
+    {
+      "term": "fleet",
+      "partOfSpeech": "noun",
+      "meaningZh": "船队",
+      "en": "The fishing fleet returned to the harbour at dawn.",
+      "zh": "渔船队在黎明时返回港口。"
+    },
+    {
+      "term": "counsel",
+      "partOfSpeech": "noun",
+      "meaningZh": "忠告",
+      "en": "I sought my tutor's counsel before changing courses.",
+      "zh": "转课之前我征求了导师的意见。"
+    },
+    {
+      "term": "crystal",
+      "partOfSpeech": "noun",
+      "meaningZh": "水晶",
+      "en": "A small crystal hung in the window.",
+      "zh": "窗户上挂着一块小水晶。"
+    },
+    {
+      "term": "echo",
+      "partOfSpeech": "noun",
+      "meaningZh": "回声",
+      "en": "We heard an echo of our voices in the tunnel.",
+      "zh": "我们在隧道里听见自己的回声。"
+    },
+    {
+      "term": "leap",
+      "partOfSpeech": "verb",
+      "meaningZh": "跳跃",
+      "en": "The dog tried to leap over the puddle.",
+      "zh": "狗试着跳过水坑。"
+    },
+    {
+      "term": "pill",
+      "partOfSpeech": "noun",
+      "meaningZh": "药丸",
+      "en": "She asked the pharmacist about the unfamiliar pill.",
+      "zh": "她向药剂师询问那颗不认识的药丸。"
+    },
+    {
+      "term": "raid",
+      "partOfSpeech": "noun",
+      "meaningZh": "突袭；搜查",
+      "en": "The novel opens with a raid on a warehouse.",
+      "zh": "小说以一次对仓库的突袭开篇。"
+    },
+    {
+      "term": "presidency",
+      "partOfSpeech": "noun",
+      "meaningZh": "总统职位及任期",
+      "en": "The book examines the first year of her presidency.",
+      "zh": "这本书探讨了她担任总统的第一年。"
+    },
+    {
+      "term": "pump",
+      "partOfSpeech": "noun",
+      "meaningZh": "打气筒",
+      "en": "I keep a small bicycle pump in my bag.",
+      "zh": "我包里放着一个小自行车打气筒。"
+    },
+    {
+      "term": "evil",
+      "partOfSpeech": "adjective",
+      "meaningZh": "邪恶的",
+      "en": "The tale ends when the evil ruler loses power.",
+      "zh": "故事以邪恶统治者失去权力结束。"
+    },
+    {
+      "term": "temple",
+      "partOfSpeech": "noun",
+      "meaningZh": "寺庙",
+      "en": "Visitors removed their shoes before entering the temple.",
+      "zh": "游客进寺庙前脱下了鞋子。"
+    },
+    {
+      "term": "medal",
+      "partOfSpeech": "noun",
+      "meaningZh": "奖牌",
+      "en": "She kept her swimming medal in a small box.",
+      "zh": "她把游泳奖牌保存在一个小盒子里。"
+    },
+    {
+      "term": "sponsor",
+      "partOfSpeech": "noun",
+      "meaningZh": "赞助者",
+      "en": "A local bakery became the team's sponsor.",
+      "zh": "一家本地面包店成了球队的赞助商。"
+    },
+    {
+      "term": "allegation",
+      "partOfSpeech": "noun",
+      "meaningZh": "未经证实的指控",
+      "en": "The manager denied the allegation of unfair treatment.",
+      "zh": "经理否认了关于不公平待遇的指控。"
+    },
+    {
+      "term": "midnight",
+      "partOfSpeech": "noun",
+      "meaningZh": "午夜",
+      "en": "We arrived home just before midnight.",
+      "zh": "我们在午夜前刚刚到家。"
+    },
+    {
+      "term": "merger",
+      "partOfSpeech": "noun",
+      "meaningZh": "合并",
+      "en": "The merger brought the two small clubs together.",
+      "zh": "这次合并把两家小俱乐部合在了一起。"
+    },
+    {
+      "term": "retail",
+      "partOfSpeech": "noun",
+      "meaningZh": "零售",
+      "en": "She works in retail while studying design.",
+      "zh": "她学习设计期间从事零售工作。"
+    },
+    {
+      "term": "hint",
+      "partOfSpeech": "noun",
+      "meaningZh": "提示",
+      "en": "The tutor gave us a hint about the next step.",
+      "zh": "导师给了我们下一步的提示。"
+    },
+    {
+      "term": "fold",
+      "partOfSpeech": "verb",
+      "meaningZh": "折叠",
+      "en": "Fold the napkin in half before placing it down.",
+      "zh": "把餐巾对折后再摆好。"
+    },
+    {
+      "term": "rumour",
+      "partOfSpeech": "noun",
+      "meaningZh": "传闻；谣言",
+      "en": "We heard a rumour that the shop might close.",
+      "zh": "我们听到传闻，说这家店可能要关门。"
+    },
+    {
+      "term": "flash",
+      "partOfSpeech": "noun",
+      "meaningZh": "闪光",
+      "en": "A flash of lightning lit the dark field.",
+      "zh": "一道闪电照亮了黑暗的田野。"
+    },
+    {
+      "term": "reluctant",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不情愿的",
+      "en": "I was reluctant to leave the warm kitchen.",
+      "zh": "我舍不得离开温暖的厨房。"
+    },
+    {
+      "term": "monthly",
+      "partOfSpeech": "adjective",
+      "meaningZh": "每月一次的",
+      "en": "Our monthly meeting takes place in the library.",
+      "zh": "我们每月的例会在图书馆举行。"
+    },
+    {
+      "term": "drift",
+      "partOfSpeech": "verb",
+      "meaningZh": "漂移",
+      "en": "We watched the empty boat drift towards the shore.",
+      "zh": "我们看着空船漂向岸边。"
+    },
+    {
+      "term": "harbour",
+      "partOfSpeech": "noun",
+      "meaningZh": "港口",
+      "en": "The ferry entered the harbour at dusk.",
+      "zh": "渡轮在黄昏时驶入港口。"
+    },
+    {
+      "term": "motivate",
+      "partOfSpeech": "verb",
+      "meaningZh": "激励",
+      "en": "Small goals help motivate me to keep practising.",
+      "zh": "小目标能激励我继续练习。"
+    },
+    {
+      "term": "lens",
+      "partOfSpeech": "noun",
+      "meaningZh": "镜头；镜片",
+      "en": "Clean the camera lens with a soft cloth.",
+      "zh": "用软布擦拭相机镜头。"
+    },
+    {
+      "term": "triumph",
+      "partOfSpeech": "noun",
+      "meaningZh": "胜利；成功",
+      "en": "Finishing the difficult hike felt like a personal triumph.",
+      "zh": "完成那次艰难的徒步让我觉得是一次个人胜利。"
+    }
+  ]
+}
