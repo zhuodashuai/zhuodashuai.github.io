@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0011",
+  "queuedHeads": 1200,
+  "authoredHeads": 1151,
+  "approvedHeads": 1150,
+  "deferred": [
+    {
+      "term": "affordable",
+      "stage": "authoring",
+      "reason": "Canonical gloss only says computing 普及型. Modern affordable is about price being within one's means; using 负担得起的 would add an absent sense.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/learner-english/affordable"
+      ]
+    },
+    {
+      "term": "aqua",
+      "stage": "authoring",
+      "reason": "The medical water/aqueous-solution sense is legitimate, confirmed by Merriam-Webster, but a natural common modern standalone example in that restricted register was not established. The colour sense is absent and was not substituted.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/aqua"
+      ]
+    },
+    {
+      "term": "athleticism",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies 体育活动/对运动的热爱. Both Collins and Merriam-Webster establish athletic ability, fitness, or physical prowess; no precise current activity/love-of-sport sense was established.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/athleticism",
+        "https://www.collinsdictionary.com/us/dictionary/english/athleticism"
+      ]
+    },
+    {
+      "term": "autistic",
+      "stage": "authoring",
+      "reason": "The canonical gloss 孤独的/自我中心的 misrepresents modern autistic usage and risks teaching a stigmatizing equivalence. The contemporary autism-related sense is absent.",
+      "sources": []
+    },
+    {
+      "term": "co-ordination",
+      "stage": "authoring",
+      "reason": "Only specialist 配位 is supplied. Did not substitute ordinary organizational 协调; the exact chemistry collocation remains outside this authored set's verified coverage.",
+      "sources": []
+    },
+    {
+      "term": "colonization",
+      "stage": "authoring",
+      "reason": "Only specialized medical 移生/移地发育 and historical concentrated-care senses occur. Did not replace them with political 殖民; exact modern clinical usage remained uncertain.",
+      "sources": []
+    },
+    {
+      "term": "competitiveness",
+      "stage": "authoring",
+      "reason": "The only gloss 竞争 names competition; the noun normally denotes competitive ability or disposition. Adding 竞争力 would silently supply an absent sense.",
+      "sources": []
+    },
+    {
+      "term": "delightfully",
+      "stage": "authoring",
+      "reason": "The gloss 大喜/欣然 does not clearly distinguish the usual delightfully meaning pleasantly/charmingly from delightedly meaning with delight. Did not silently replace one adverb with the other.",
+      "sources": []
+    },
+    {
+      "term": "discretionary",
+      "stage": "authoring",
+      "reason": "Canonical computing gloss 选择的 is too vague to establish the discretionary choice/authority sense. Cambridge defines decisions left to a person's judgement; cannot confidently treat this as the same selected sense.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/learner-english/discretionary"
+      ]
+    },
+    {
+      "term": "donut",
+      "stage": "authoring",
+      "reason": "Only a specialist accelerator vacuum-chamber sense is supplied. The common food sense is absent; no independently verified technical example was established.",
+      "sources": []
+    },
+    {
+      "term": "download",
+      "stage": "authoring",
+      "reason": "Supplied 卸载 reverses or confuses the operation, and 下栽 is a typo rather than a usable Chinese sense. A reliable example with 下载 would require an explicit source-gloss correction.",
+      "sources": []
+    },
+    {
+      "term": "drop-out",
+      "stage": "authoring",
+      "reason": "Only technical data/signal loss is supplied. Did not substitute the familiar school-leaver sense; precise dropped-bit usage remains unverified and deferred, not declared erroneous.",
+      "sources": []
+    },
+    {
+      "term": "fucker",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies 笨蛋/傻瓜, implying foolishness. Collins identifies an offensive insult for an unpleasant or contemptible person, without establishing the supplied fool sense. Deferred for semantic mismatch, not for being taboo.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/fucker"
+      ]
+    },
+    {
+      "term": "geographically",
+      "stage": "authoring",
+      "reason": "The only gloss 自通地 is not intelligible Chinese for geographically, so no precise selected sense can be grounded in it.",
+      "sources": []
+    },
+    {
+      "term": "geopolitical",
+      "stage": "authoring",
+      "reason": "Canonical gloss says only 地理的 and omits the political relationship essential to geopolitical. A normal geopolitical example would add that absent component.",
+      "sources": []
+    },
+    {
+      "term": "hallucinate",
+      "stage": "authoring",
+      "reason": "The supplied gloss is causative transitive: make someone hallucinate. Primary Cambridge describes experiencing unreal perceptions, not causing another person to experience them. Using the ordinary intransitive or perceived-object construction would change the released sense.",
+      "sources": [
+        "https://www.cam.ac.uk/research/news/cambridge-dictionary-names-hallucinate-word-of-the-year-2023"
+      ]
+    },
+    {
+      "term": "hath",
+      "stage": "authoring",
+      "reason": "The supplied record explicitly labels this have form obsolete. Ordinary modern-use requirement excludes an archaic-only example.",
+      "sources": []
+    },
+    {
+      "term": "hauler",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies only 绞盘. Current Merriam-Webster defines a hauling worker/company or goods vehicle; the specific winch sense could not be established, so no alternative unlisted sense was substituted.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/hauler"
+      ]
+    },
+    {
+      "term": "headliner",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies only a journalist writing headlines. Merriam-Webster supplies principal performer and automobile roof lining; the journalist sense was not established.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/headliner"
+      ]
+    },
+    {
+      "term": "hold-up",
+      "stage": "authoring",
+      "reason": "Only specialist 塔藏量/滞留量 is supplied. Did not substitute robbery or delay; precise column liquid hold-up usage remains deferred pending specialist verification.",
+      "sources": []
+    },
+    {
+      "term": "impulsively",
+      "stage": "authoring",
+      "reason": "The supplied gloss only gives a forceful or impelling manner. Primary entries support the usual unplanned-action sense and rare derived force meanings, but I could not compose a confident natural modern example for the supplied rare physical sense without substituting the unlisted impulsive-behaviour sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/impulsive",
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/impulsively"
+      ]
+    },
+    {
+      "term": "kick-off",
+      "stage": "authoring",
+      "reason": "Canonical computing 分离/剔除 does not support the familiar start-of-event noun. No confidently verified modern noun in the supplied technical sense was established.",
+      "sources": []
+    },
+    {
+      "term": "limo",
+      "stage": "authoring",
+      "reason": "The only gloss is medical 柠檬. Ordinary limousine meaning is absent; no common modern English lemon noun use was established.",
+      "sources": []
+    },
+    {
+      "term": "long-haul",
+      "stage": "authoring",
+      "reason": "Gloss is the technical noun 长途线, while common long-haul flight adjective use would select a different sense. The exact hyphenated standalone telecom noun was not established.",
+      "sources": []
+    },
+    {
+      "term": "macho",
+      "stage": "authoring",
+      "reason": "Only a specialist disease label is supplied, conflicting with ordinary macho as masculine/aggressively masculine. No ordinary masculine sense was added.",
+      "sources": []
+    },
+    {
+      "term": "magnum",
+      "stage": "authoring",
+      "reason": "The only medical gloss 大/头状骨 does not support the common large bottle or firearm noun, and its listed noun POS does not fit 大. Exact obsolete anatomical terminology was not established.",
+      "sources": []
+    },
+    {
+      "term": "marzipan",
+      "stage": "authoring",
+      "reason": "Canonical 果仁糖浆 incorrectly specifies syrup rather than the usual almond/sugar paste. A food example translated as 杏仁糖膏 would introduce a corrected sense rather than select the supplied one.",
+      "sources": []
+    },
+    {
+      "term": "mega",
+      "stage": "authoring",
+      "reason": "The computing gloss 兆/百万 functions as a metric prefix, while listed POS is noun/adjective/adverb. Ordinary informal huge/great senses are absent; standalone compatible usage was not established.",
+      "sources": []
+    },
+    {
+      "term": "meltdown",
+      "stage": "authoring",
+      "reason": "Only financial 销毁货币/变卖财产 is supplied; common reactor failure, market collapse, and emotional collapse senses are absent. Exact supported use remained uncertain.",
+      "sources": []
+    },
+    {
+      "term": "morph",
+      "stage": "authoring",
+      "reason": "Source POS is verb but the supplied 形态/词态 is nominal. The common verb 变形 is absent, leaving no compatible selected verb sense.",
+      "sources": []
+    },
+    {
+      "term": "pager",
+      "stage": "authoring",
+      "reason": "Only computing 页调度程序 is supplied. Did not substitute the familiar small messaging device; precise software-scheduler use remains unverified.",
+      "sources": []
+    },
+    {
+      "term": "para",
+      "stage": "authoring",
+      "reason": "The sole currency transliteration 帕拉 lacks enough contextual specification to compose a reliable modern learning example without guessing the currency's country or denomination.",
+      "sources": []
+    },
+    {
+      "term": "payback",
+      "stage": "authoring",
+      "reason": "The gloss 报酬率 denotes a rate of return, which is not interchangeable with the ordinary repayment, return, revenge, or payback-period senses. Did not fabricate a rate-of-return example.",
+      "sources": []
+    },
+    {
+      "term": "pinky",
+      "stage": "authoring",
+      "reason": "Canonical POS/gloss is adjective, pale pink or relatively radical. The checked current Collins and Oxford entries supplied noun senses only. The queued adjective use remained insufficiently established after primary checks.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/pinky",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/pinky"
+      ]
+    },
+    {
+      "term": "preteen",
+      "stage": "review",
+      "reason": "The canonical source supplies only puberty-before senses, while current Cambridge and Collins define the age group approaching thirteen, usually about nine to twelve. The Chinese sentence equates chronological age with the biological onset of puberty, which is not equivalent. No listed sense can be safely substituted in this example-only batch."
+    },
+    {
+      "term": "receivership",
+      "stage": "authoring",
+      "reason": "Source names an office or function of a receiver, while familiar receivership denotes the condition/administration of being placed under a receiver. No clear modern office/function use was established.",
+      "sources": []
+    },
+    {
+      "term": "reverb",
+      "stage": "authoring",
+      "reason": "Only verb POS is supplied. Merriam-Webster lists modern reverb as a noun (echo effect or device), not the required intransitive verb. Did not relabel a noun example as a verb.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/reverb"
+      ]
+    },
+    {
+      "term": "rollover",
+      "stage": "authoring",
+      "reason": "Only mechanical 翻转/翻模 is supplied. Did not substitute an unrelated finance or road-crash noun; the exact engineering sense remains outside verified coverage.",
+      "sources": []
+    },
+    {
+      "term": "semi",
+      "stage": "authoring",
+      "reason": "Noun POS and the computing gloss 半 do not establish a usable standalone noun. Did not substitute a semi-detached house, semifinal, or truck sense.",
+      "sources": []
+    },
+    {
+      "term": "shalt",
+      "stage": "authoring",
+      "reason": "The released gloss is only the archaic second-person singular form of shall. Cambridge marks thou shalt as old use; ordinary modern examples would require an expressly archaic or humorous construction.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/shalt"
+      ]
+    },
+    {
+      "term": "shrift",
+      "stage": "authoring",
+      "reason": "The supplied confession/absolution senses are explicitly marked archaic by Collins. Modern short shrift has a different unlisted idiomatic sense, so it was not substituted.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/shrift"
+      ]
+    },
+    {
+      "term": "sorbet",
+      "stage": "authoring",
+      "reason": "Canonical 加果汁的冰水 describes a liquid, while Merriam-Webster defines a fruit-flavoured frozen dessert. An example translated as 雪葩/果汁冰 would require correction or clarification of that source gloss.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/sorbet"
+      ]
+    },
+    {
+      "term": "syndication",
+      "stage": "authoring",
+      "reason": "The source lists an enterprise association or syndicate as an entity. Modern primary entries support distribution rights and, through syndicate, formation of a syndicate. I could not confidently equate the supplied entity gloss with that process without expanding the released sense.",
+      "sources": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/syndication",
+        "https://www.collinsdictionary.com/dictionary/english/syndication"
+      ]
+    },
+    {
+      "term": "thingy",
+      "stage": "authoring",
+      "reason": "Canonical adjective 物体的/物质的/实际的 conflicts with common noun thingy for an unnamed object. No supported modern adjective example was established.",
+      "sources": []
+    },
+    {
+      "term": "uncaring",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies absent-minded/inattentive senses. Collins defines lack of concern for other people, especially their difficulties, rather than distracted attention. The available sense could not be matched precisely.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/uncaring"
+      ]
+    },
+    {
+      "term": "unilaterally",
+      "stage": "authoring",
+      "reason": "The supplied computing 单侧地 does not securely support the ordinary decision-without-consultation sense. A precise literal single-side technical context was not verified.",
+      "sources": []
+    },
+    {
+      "term": "unseeded",
+      "stage": "authoring",
+      "reason": "Only the chemical sense 未加晶种的 is supplied. Merriam-Webster supports general not seeded but explicitly illustrates fruit and sporting senses; it did not resolve a natural precise crystallization example. Not declared a bad chemical gloss.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/unseeded"
+      ]
+    },
+    {
+      "term": "unspoken",
+      "stage": "authoring",
+      "reason": "Canonical gloss is unspeak的过去分词 rather than a Chinese adjective sense. Could not select a precise supported modern adjective sense from that metadata alone.",
+      "sources": []
+    },
+    {
+      "term": "untypical",
+      "stage": "authoring",
+      "reason": "Canonical gloss 一般 reverses the standard meaning: Cambridge defines not showing the characteristics normally expected. An example for 非典型的 would replace the supplied sense.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/untypical?topic=different-and-difference"
+      ]
+    },
+    {
+      "term": "wiki",
+      "stage": "authoring",
+      "reason": "Canonical gloss equates wiki with the proper website name Wikipedia. Collins defines a collaboratively editable website/application, which would require a different sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/wiki"
+      ]
+    }
+  ],
+  "scope": "Original English sentences and Chinese translations for one selected sense per head, independently AI cross-reviewed; no primary definition changes or human certification."
+}
