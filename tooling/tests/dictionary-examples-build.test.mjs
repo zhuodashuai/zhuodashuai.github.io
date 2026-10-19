@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { exampleSourceHash, validateExampleReview, buildDictionaryExamples } from "../scripts/build-dictionary-examples.mjs";
+import { readFile } from "node:fs/promises";
+import { exampleSourceHash, validateExampleReview, validateExampleSourceIndex, buildDictionaryExamples, loadExampleBuild } from "../scripts/build-dictionary-examples.mjs";
 
 const row = () => ({ term: "sample", partOfSpeech: "noun", meaningZh: "用于检测的样本", en: "The sample arrived safely at the laboratory this morning.", zh: "样本今天早上安全送达实验室。" });
 const source = () => ({ schemaVersion: 1, batchId: "test", authorship: "independent-composition", entries: [row()] });
@@ -62,4 +63,23 @@ test("unreleased heads, overwrites and cross-head repeated sentences are rejecte
 test("author flags alone do not publish prior draft examples", () => {
   const pack = original(); pack.entries[0].review.status = "draft";
   assert.deepEqual(build({ originalPack: pack }).manifest.counts, { heads: 0, examples: 0 });
+});
+
+test("the explicit cumulative index preserves order and cannot traverse source directories", () => {
+  assert.deepEqual(validateExampleSourceIndex({schemaVersion:1,sourceFiles:["batch-0002-a.json","batch-0001-b.json"]}),["batch-0002-a.json","batch-0001-b.json"]);
+  for (const sourceFiles of [[],["../source.json"],["https://example.com/batch.json"],["batch-0002-a.json","batch-0002-a.json"],["source.json"]]) assert.throws(()=>validateExampleSourceIndex({schemaVersion:1,sourceFiles}));
+});
+test("the next 800 source rows are complete, unique, independently reviewed and cumulative", async () => {
+  const all = new Set();
+  for (const part of ["a","b","c","d"]) {
+    const url = new URL(`../dictionary/examples/source/batch-0002-${part}.json`,import.meta.url);
+    const source = JSON.parse(await readFile(url,"utf8"));
+    const review = JSON.parse(await readFile(new URL(`../dictionary/examples/reviews/batch-0002-${part}.json`,import.meta.url),"utf8"));
+    const rows=validateExampleReview(source,review);assert.equal(rows.length,200);
+    for(const row of rows){assert.ok(!all.has(row.term));all.add(row.term);assert.ok(row.en.toLowerCase().includes(row.term.toLowerCase()));assert.ok(row.en.split(/\s+/u).length>=8&&row.en.split(/\s+/u).length<=18);}
+  }
+  const build=await loadExampleBuild();
+  assert.deepEqual(build.manifest.counts,{heads:2030,examples:3419});
+  assert.equal(build.originalHeads,1030);assert.equal(build.originalExamples,2419);
+  assert.equal(build.addedHeads,1000);assert.equal(build.addedExamples,1000);
 });

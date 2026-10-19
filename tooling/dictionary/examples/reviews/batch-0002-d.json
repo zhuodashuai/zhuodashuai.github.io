@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "7464c573f23118e55ec48528671cc26d465378d1801a5e8c6323d06c96cdab0f",
+  "reviewer": "AI/independent-language-review-a",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "literary", "aggressive", "concert", "guitar", "tube", "presumably", "jail", "sake", "relax", "circuit",
+    "giant", "exciting", "demonstration", "resign", "criticize", "bath", "stupid", "shell", "classical", "province",
+    "acquisition", "socialist", "altogether", "remark", "ingredient", "occupation", "mount", "formula", "ultimate", "gear",
+    "barrier", "compensation", "killer", "poet", "gang", "earnings", "label", "widespread", "advocate", "draft",
+    "extraordinary", "pregnant", "satellite", "personally", "tackle", "chocolate", "button", "bell", "clothing", "super",
+    "fence", "portrait", "bunch", "react", "communicate", "ownership", "profile", "enthusiasm", "cease", "resort",
+    "qualify", "tissue", "operator", "virus", "strategic", "assistant", "wipe", "encounter", "minimum", "dominant",
+    "complicated", "alongside", "rice", "chart", "proof", "merchant", "steam", "tournament", "lover", "tremendous",
+    "senator", "tunnel", "poetry", "fabric", "sustain", "vessel", "newly", "dialogue", "rugby", "unity",
+    "squad", "mutual", "pride", "sensible", "headquarters", "reward", "singer", "announcement", "consult", "till",
+    "inevitable", "craft", "conviction", "terrorist", "tennis", "swim", "highlight", "prior", "intellectual", "assault",
+    "monetary", "amendment", "trace", "shelter", "controversy", "sail", "fade", "gesture", "tragedy", "entitle",
+    "venture", "squeeze", "mask", "prominent", "detective", "violate", "steady", "fate", "segment", "occasional",
+    "diary", "desperate", "musician", "horror", "repair", "flee", "vulnerable", "margin", "fantasy", "fulfil",
+    "psychology", "seize", "divorce", "opera", "consciousness", "overseas", "publicity", "alarm", "carbon", "besides",
+    "explosion", "incredible", "fighter", "hunter", "exploit", "friendship", "uniform", "lease", "govern", "equivalent",
+    "scandal", "impress", "dividend", "mate", "contest", "charter", "myth", "sigh", "wise", "sympathy",
+    "controversial", "strict", "ease", "helicopter", "explode", "prompt", "suspend", "compose", "collective", "auto",
+    "romantic", "cotton", "discount", "resignation", "orange", "revolutionary", "offensive", "boom", "automatic", "weekly",
+    "dare", "withdrawal", "comedy", "suspicion", "civilian", "grain", "condemn", "declaration", "actress", "youngster"
+  ],
+  "issues": [
+    {"term":"guitar","blocking":true,"note":"The original Chinese expression 轻声练习 suggested vocal practice rather than quiet guitar playing.","resolution":"The author changed the translation to 轻轻地练习弹奏, preserving quiet instrumental practice; reread and accepted."},
+    {"term":"fabric","blocking":true,"note":"The original English phrase bright summer room and its Chinese translation were awkward.","resolution":"The author rewrote the sentence around rooms receiving strong summer sunlight and supplied a natural matching Chinese translation; reread and accepted."},
+    {"term":"segment","blocking":true,"note":"The original translation added discussion, while features only established that the questions appeared in the programme.","resolution":"The author changed the translation to 呈现的是听众提交的问题, matching the English claim; reread and accepted."},
+    {"term":"youngster","blocking":true,"note":"The original Chinese wording for showing the harbour path was unnatural.","resolution":"The author changed the wording to 给我们指一指通往港口的小路, which naturally conveys showing the route; reread and accepted."}
+  ]
+}

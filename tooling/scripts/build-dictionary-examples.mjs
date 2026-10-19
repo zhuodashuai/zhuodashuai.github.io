@@ -34,6 +34,13 @@ export function validateExampleReview(pack, review) {
     || issue.blocking === true && !issue.resolution?.trim() && approved.has(issue.term)) throw Error("Unresolved example issue");
   return pack.entries.filter(row => approved.has(row.term)).map(row => ({ ...row, reviewer: review.reviewer }));
 }
+export function validateExampleSourceIndex(index) {
+  if (!index || typeof index !== "object" || Object.keys(index).sort().join() !== "schemaVersion,sourceFiles"
+    || index.schemaVersion !== 1 || !Array.isArray(index.sourceFiles) || !index.sourceFiles.length || index.sourceFiles.length > 1000
+    || new Set(index.sourceFiles).size !== index.sourceFiles.length
+    || index.sourceFiles.some(file => typeof file !== "string" || !/^batch-\d{4}-[a-z0-9-]+\.json$/u.test(file))) throw Error("Invalid example source index");
+  return [...index.sourceFiles];
+}
 function bucket(term) {
   let hash = 2166136261;
   for (const ch of term) { hash ^= ch.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
@@ -98,9 +105,10 @@ export async function loadExampleBuild() {
     for (const row of shard.records) terms.add(row.term);
   }
   const authored = [];
-  for (const name of ["batch-0001-a", "batch-0001-b"]) {
-    const pack = JSON.parse(await readFile(join(ROOT, `tooling/dictionary/examples/source/${name}.json`), "utf8"));
-    const review = JSON.parse(await readFile(join(ROOT, `tooling/dictionary/examples/reviews/${name}.json`), "utf8"));
+  const sourceFiles = validateExampleSourceIndex(JSON.parse(await readFile(join(ROOT, "tooling/dictionary/examples/index.json"), "utf8")));
+  for (const file of sourceFiles) {
+    const pack = JSON.parse(await readFile(join(ROOT, `tooling/dictionary/examples/source/${file}`), "utf8"));
+    const review = JSON.parse(await readFile(join(ROOT, `tooling/dictionary/examples/reviews/${file}`), "utf8"));
     authored.push(...validateExampleReview(pack, review));
   }
   return buildDictionaryExamples({ originalPack: catalogue.pack, authored, knownTerms: terms });

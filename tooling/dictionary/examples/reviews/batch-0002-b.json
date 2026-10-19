@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "7495c83e05cd566dac075e0f87cd0f3c6fde34941d569465cdd69fdaa700f1b1",
+  "reviewer": "AI/independent-language-review-c",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "engage", "coffee", "technical", "regulation", "native", "wage", "acquire", "perspective", "meal", "intelligence",
+    "shoe", "traffic", "exhibition", "sheet", "location", "gentleman", "distribution", "remind", "moral", "retain",
+    "code", "medicine", "unable", "grab", "participate", "knee", "pension", "actor", "vary", "selection",
+    "surely", "plastic", "tall", "whereas", "definition", "substantial", "chicken", "suitable", "literature", "offence",
+    "reduction", "leaf", "concentration", "pool", "enterprise", "salt", "metal", "corporate", "sufficient", "urban",
+    "shout", "sugar", "planet", "assembly", "enemy", "acid", "athlete", "soul", "panel", "whilst",
+    "pleasure", "predict", "select", "emotional", "temperature", "beside", "solicitor", "implication", "recognition", "component",
+    "seriously", "partly", "elsewhere", "necessarily", "somehow", "jury", "nurse", "breast", "silence", "acknowledge",
+    "theme", "publication", "yellow", "noise", "illustrate", "shift", "revenue", "phase", "initiative", "basically",
+    "assumption", "trend", "crew", "muscle", "gallery", "notion", "capture", "chest", "emphasis", "truly",
+    "unique", "ethnic", "priority", "combination", "rely", "appreciate", "upper", "outcome", "lane", "bloody",
+    "zone", "wake", "castle", "ourselves", "membership", "shirt", "pilot", "ultimately", "suggestion", "attractive",
+    "snow", "steal", "pursue", "percentage", "meat", "soil", "index", "surgery", "valley", "golf",
+    "crazy", "vital", "recover", "chain", "specialist", "characteristic", "engineering", "golden", "solve", "landscape",
+    "forth", "typical", "eliminate", "ocean", "impression", "neighbour", "regime", "mirror", "atmosphere", "smart",
+    "revolution", "mechanism", "tank", "coverage", "iron", "servant", "anywhere", "milk", "welfare", "beneath",
+    "expectation", "somewhat", "origin", "beach", "accompany", "beer", "establishment", "unfortunately", "hero", "expense",
+    "pepper", "cite", "vegetable", "dish", "palace", "vast", "everywhere", "oppose", "contemporary", "convention",
+    "switch", "specifically", "tired", "signal", "rail", "comparison", "abortion", "witness", "barely", "emphasize",
+    "definitely", "originally", "invest", "passenger", "cable", "expose", "column", "charity", "cream", "manufacturer"
+  ],
+  "issues": [
+    {"term":"predict","blocking":true,"problem":"The Chinese translation restricted changes in the wind to changes in direction.","resolution":"The translation now says 风的每一次突然变化, preserving the broader English meaning; independently reread and approved."},
+    {"term":"solve","blocking":true,"problem":"The Chinese translation used the door classifier 扇 with 门口, which is not natural Chinese.","resolution":"The translation now uses 那处门口; independently reread and approved."},
+    {"term":"ocean","blocking":true,"problem":"The phrase stretched beyond anything we could see was an unnatural description of the sea extending to the horizon.","resolution":"The English now says stretched as far as we could see, with a matching Chinese translation 一望无际; independently reread and approved."},
+    {"term":"smart","blocking":true,"problem":"The initial definition described an intelligent person, while the example described a sensible action.","resolution":"The definition now says 体现明智判断的 and matches the selected use; independently reread and approved."},
+    {"term":"atmosphere","blocking":true,"problem":"The Chinese phrase 轻轻的音乐 was an unnatural rendering of quiet music.","resolution":"The translation now uses 轻声播放的音乐 and a natural description of the relaxed atmosphere; independently reread and approved."}
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "b1e7ce4f71e0c47e419315e8c58a4353a3d7ef73248c451dd097bbbc8107ca2d",
+  "reviewer": "AI/independent-language-review-b",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "football", "mistake", "promise", "session", "voter", "increasingly", "victory", "theatre", "prince", "loan",
+    "representative", "usual", "photograph", "reject", "joint", "tape", "rain", "asset", "search", "eastern",
+    "factory", "warn", "finance", "impose", "aircraft", "abuse", "fourth", "desire", "fuel", "ticket",
+    "recommend", "lunch", "criticism", "surround", "settlement", "weather", "channel", "poll", "institute", "republic",
+    "minority", "unlikely", "novel", "desk", "treaty", "struggle", "analyst", "captain", "escape", "investigate",
+    "ministry", "neither", "prospect", "emergency", "stress", "liberal", "succeed", "alternative", "approve", "airport",
+    "politician", "incident", "winner", "elect", "governor", "request", "deputy", "except", "meanwhile", "secret",
+    "championship", "bond", "accuse", "motor", "negotiation", "seed", "withdraw", "terrible", "prisoner", "champion",
+    "criminal", "diet", "resolution", "occupy", "bomb", "territory", "inflation", "talent", "quote", "dominate",
+    "dispute", "journalist", "suspect", "currency", "dramatic", "prize", "airline", "arrest", "schedule", "spokesman",
+    "communist", "purchase", "album", "boss", "protest", "export", "urge", "recession", "inspire", "radical",
+    "festival", "deficit", "ally", "smoke", "fifth", "fellow", "reserve", "mortgage", "journal", "edition",
+    "negotiate", "chemical", "defeat", "aunt", "split", "stake", "refugee", "classic", "princess", "cousin",
+    "economics", "crash", "summit", "correspondent", "sixth", "rival", "collapse", "sanction", "rebel", "allege",
+    "twentieth", "hostage", "seventh", "sterling", "eighth", "ninth", "tenth", "twelfth", "caption", "application",
+    "secretary", "concerned", "relate", "exactly", "provision", "user", "prime", "united", "procedure", "circumstance",
+    "client", "cultural", "pupil", "library", "speaker", "text", "easily", "arise", "species", "software",
+    "attorney", "requirement", "railway", "stare", "hill", "normally", "associate", "vision", "truck", "tradition",
+    "winter", "path", "merely", "observe", "tool", "sample", "tiny", "objective", "mostly", "faith",
+    "nevertheless", "folk", "visitor", "somewhere", "legislation", "manner", "baseball", "anybody", "previously", "religion"
+  ],
+  "issues": [
+    {
+      "term": "republic",
+      "blocking": true,
+      "issue": "The previous definition relied on an elected head of state, which did not distinguish republics from elective monarchies.",
+      "resolution": "The author changed the selected-sense definition to 不以君主为国家元首的国家。. The independent reviewer reread the corrected definition with its English example and Chinese translation."
+    },
+    {
+      "term": "legislation",
+      "blocking": true,
+      "issue": "The previous definition unnecessarily required implementation, although legislation need not yet be in force and the example concerns proposed legislation.",
+      "resolution": "The author changed the selected-sense definition to 由立法机关制定的法律或一组法律。. The independent reviewer reread the corrected definition with its English example and Chinese translation."
+    }
+  ]
+}
