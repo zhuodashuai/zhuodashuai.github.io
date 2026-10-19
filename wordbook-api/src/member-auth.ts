@@ -1,6 +1,6 @@
 import { ApiError, jsonResponse, randomToken, sha256Hex } from "./security";
 import {
-  equalMemberSecret, hashMemberPassword, MEMBER_SESSION_SECONDS, MEMBER_UUID,
+  equalMemberSecret, hashMemberPassword, MEMBER_SESSION_SECONDS, MEMBER_REMEMBER_SESSION_SECONDS, MEMBER_UUID, memberRemember,
   memberError, memberFields, memberInternalCall, memberPassword, memberUsername,
   readMemberJson, verifyMemberPassword, type MemberEnv, type MemberIdentity, type MemberPasswordHash
 } from "./member-security";
@@ -131,10 +131,10 @@ export class MemberAuth implements DurableObject {
     await this.removeKeys([...index.keys()].flatMap((key) => [key, `session:${key.slice(`user-session:${userId}:`.length)}`]));
   }
 
-  private async issueSession(account: ActiveAccount): Promise<Response> {
+  private async issueSession(account: ActiveAccount, remember = false): Promise<Response> {
     const rawSession = randomToken(48), csrfToken = randomToken(32);
     const hash = await sha256Hex(rawSession);
-    const now = Date.now(), expiresAt = now + MEMBER_SESSION_SECONDS * 1000;
+    const now = Date.now(), expiresAt = now + (remember ? MEMBER_REMEMBER_SESSION_SECONDS : MEMBER_SESSION_SECONDS) * 1000;
     // A hard account bound also bounds session revocation work.
     const index = await this.ctx.storage.list<number>({ prefix: `user-session:${account.id}:` });
     if (index.size >= MAX_SESSIONS) {
@@ -149,7 +149,8 @@ export class MemberAuth implements DurableObject {
   }
 
   private async register(body: Record<string, unknown>): Promise<Response> {
-    memberFields(body, ["username", "password", "ipHash"]);
+    memberFields(body, ["username", "password", "ipHash"], ["remember"]);
+    const remember = memberRemember(body.remember);
     if (this.env.MEMBER_SIGNUP_ENABLED !== "true") throw new ApiError(503, "member_signup_disabled", "新账号注册暂未开放，已有账号仍可登录。");
     const username = memberUsername(body.username), password = memberPassword(body.password);
     await this.authenticationRates("register", username, body.ipHash);
@@ -167,13 +168,14 @@ export class MemberAuth implements DurableObject {
         await transaction.put("account-count", count + 1);
         await transaction.put({ [`account:${username}`]: account, [`user:${account.id}`]: { username, status: "active" } satisfies UserReference });
       });
-      const response = await this.issueSession(account);
+      const response = await this.issueSession(account, remember);
       return jsonResponse({ ...await response.json() as Record<string, unknown>, recoveryCode });
     });
   }
 
   private async login(body: Record<string, unknown>): Promise<Response> {
-    memberFields(body, ["username", "password", "ipHash"]);
+    memberFields(body, ["username", "password", "ipHash"], ["remember"]);
+    const remember = memberRemember(body.remember);
     const username = memberUsername(body.username), password = memberPassword(body.password);
     await this.authenticationRates("login", username, body.ipHash);
     return this.withCrypto(async () => {
@@ -181,7 +183,7 @@ export class MemberAuth implements DurableObject {
       // Unknown accounts still pay one KDF; do not expose an existence timing oracle.
       if (!account || account.status !== "active") { await hashMemberPassword(password, this.env); throw AUTH_FAILURE(); }
       if (!await verifyMemberPassword(password, account.password, this.env)) throw AUTH_FAILURE();
-      return this.issueSession(account);
+      return this.issueSession(account, remember);
     });
   }
 

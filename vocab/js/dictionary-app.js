@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=81";
+import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=82";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -21,6 +21,12 @@ export function numberedDictionaryMeaning(value) {
 export function personalDictionaryLink(term, targetLocation = globalThis.location) {
   const target = new URL(personalWordbookUrl(targetLocation));
   target.hash = `lookup=${encodeURIComponent(term)}`;
+  return target.href;
+}
+
+export function ownerDictionaryLink(term = "", targetLocation = globalThis.location) {
+  const target = new URL(personalDictionaryLink(term, targetLocation));
+  target.searchParams.set("auth", "owner");
   return target.href;
 }
 
@@ -154,6 +160,7 @@ export function mountDictionaryPage(document, window) {
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
     cancel.hidden = !busy; resultsRegion.setAttribute("aria-busy", String(busy));
     status.textContent = state.message; status.dataset.phase = state.phase;
+    get("dictionary-owner-link").href = ownerDictionaryLink(state.input, window.location);
     result.hidden = state.phase !== "ready";
     get("dictionary-choice-panel").hidden = state.phase !== "ready" || state.results.length < 2;
     if (state.results !== lastResults) {

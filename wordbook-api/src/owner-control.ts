@@ -1,12 +1,14 @@
-import { AI_DAILY_REQUEST_LIMIT, OWNER_USER_ID, readConfig, requireOwnerSecrets, SESSION_TTL_SECONDS, type AppConfig } from "./config";
+import { AI_DAILY_REQUEST_LIMIT, OWNER_USER_ID, readConfig, requireOwnerSecrets, REMEMBER_SESSION_TTL_SECONDS, SESSION_TTL_SECONDS, type AppConfig } from "./config";
 import {
   readRemoteWordbook,
+  refreshOAuthToken,
   revokeOAuthToken,
   verifyOwnerAndRepository,
   writeRemoteWordbook,
   type GitHubIdentity
 } from "./github";
-import { PublishRequestSchema, PublicSnapshotSchema, SynonymScanSchema, type PublicEntry, type PublicSnapshot, type PublishRequest } from "./schema";
+import { PublishRequestSchema, PublicSnapshotSchema, SynonymScanSchema, normalizeEnglish, validateSnapshot, type PublicEntry, type PublicSnapshot, type PublishRequest } from "./schema";
+import { DictionaryCollectionRequestSchema, findCollectedEntry, resolveDictionaryCollection } from "./dictionary-collection";
 import { recognizeSynonyms } from "./synonym-recognizer";
 import { SYNONYM_FEATURE_ENABLED, candidateSynonymFingerprint, entrySynonymFingerprint, isSynonymLexicalEntry, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 import {
@@ -24,11 +26,15 @@ interface OAuthTransaction {
   verifier: string;
   expiresAt: number;
   createdAt: number;
+  remember?: boolean;
 }
 
 interface OwnerSession {
   githubTokenCipher: string;
   githubTokenExpiresAt: number;
+  githubRefreshTokenCipher?: string;
+  githubRefreshExpiresAt?: number;
+  githubVerifiedAt?: number;
   login: string;
   userId: number;
   avatarUrl: string;
@@ -97,6 +103,18 @@ function internalString(body: Record<string, unknown>, key: string, minimum = 1,
 export class OwnerControl implements DurableObject {
   private readonly config: AppConfig;
   private publishTail: Promise<void> = Promise.resolve();
+  private readonly sessionTails = new Map<string, Promise<void>>();
+
+  /** Refresh rotation, CSRF issuance and logout share one per-session queue. */
+  private async withSessionLock<T>(hash: string, work: () => Promise<T>): Promise<T> {
+    const previous = this.sessionTails.get(hash) || Promise.resolve();
+    let unlock!: () => void;
+    const tail = new Promise<void>((resolve) => { unlock = resolve; });
+    this.sessionTails.set(hash, tail);
+    await previous;
+    try { return await work(); }
+    finally { unlock(); if (this.sessionTails.get(hash) === tail) this.sessionTails.delete(hash); }
+  }
 
   constructor(private readonly ctx: DurableObjectState, private readonly env: Env) {
     this.config = readConfig(env);
@@ -112,7 +130,14 @@ export class OwnerControl implements DurableObject {
     ]);
     const expired: string[] = [];
     for (const [key, value] of oauth) if (value.expiresAt <= now) expired.push(key);
-    for (const [key, value] of sessions) if (value.absoluteExpiresAt <= now || value.githubTokenExpiresAt <= now) expired.push(key);
+    for (const [key] of sessions) await this.withSessionLock(key.slice("session:".length), async () => {
+      const value = await this.ctx.storage.get<OwnerSession>(key);
+      const currentTime = Date.now();
+      if (value && (value.absoluteExpiresAt <= currentTime
+        || (value.githubTokenExpiresAt <= currentTime && !(value.githubRefreshTokenCipher && (value.githubRefreshExpiresAt || 0) > currentTime)))) {
+        await this.ctx.storage.delete(key);
+      }
+    });
     for (const [key, value] of rates) if (value.resetAt <= now) expired.push(key);
     for (const [key, value] of mutations) if (value.expiresAt <= now) expired.push(key);
     for (const [key, value] of synonymBatches) if (value.expiresAt <= now) expired.push(key);
@@ -121,11 +146,16 @@ export class OwnerControl implements DurableObject {
     }
   }
 
-  private async loadSession(sessionHash: string, csrfToken = ""): Promise<OwnerSession> {
+  private async loadSession(sessionHash: string, csrfToken = "", issueCsrf?: string): Promise<OwnerSession> {
+    return this.withSessionLock(sessionHash, () => this.loadSessionLocked(sessionHash, csrfToken, issueCsrf));
+  }
+
+  private async loadSessionLocked(sessionHash: string, csrfToken = "", issueCsrf?: string): Promise<OwnerSession> {
     const key = `session:${sessionHash}`;
     const session = await this.ctx.storage.get<OwnerSession>(key);
     const now = Date.now();
-    if (!session || session.absoluteExpiresAt <= now || session.githubTokenExpiresAt <= now) {
+    if (!session || session.absoluteExpiresAt <= now || session.userId !== OWNER_USER_ID || session.login !== "zhuodashuai"
+      || session.repositoryId !== Number(this.config.GITHUB_REPOSITORY_ID)) {
       if (session) await this.ctx.storage.delete(key);
       throw new ApiError(401, "authentication_required", "请先以卓本人身份登录。");
     }
@@ -135,6 +165,45 @@ export class OwnerControl implements DurableObject {
         throw new ApiError(403, "csrf_failed", "页面验证已失效，请刷新后重试。");
       }
     }
+    const canRefresh = Boolean(session.githubRefreshTokenCipher && (session.githubRefreshExpiresAt || 0) > now);
+    if (session.githubTokenExpiresAt <= now && !canRefresh) {
+      await this.ctx.storage.delete(key);
+      throw new ApiError(401, "authentication_required", "GitHub 登录已失效，请重新登录。");
+    }
+    const secrets = requireOwnerSecrets(this.config);
+    let refreshed = false;
+    try {
+      if (canRefresh && session.githubTokenExpiresAt <= now + 60_000) {
+        const token = await refreshOAuthToken(secrets.GITHUB_APP_CLIENT_ID, secrets.GITHUB_APP_CLIENT_SECRET,
+          await decryptSecret(session.githubRefreshTokenCipher!, secrets.SESSION_SECRET));
+        session.githubTokenCipher = await encryptSecret(token.accessToken, secrets.SESSION_SECRET);
+        session.githubTokenExpiresAt = token.expiresAt;
+        session.githubRefreshTokenCipher = await encryptSecret(token.refreshToken!, secrets.SESSION_SECRET);
+        session.githubRefreshExpiresAt = token.refreshExpiresAt;
+        session.absoluteExpiresAt = Math.min(session.absoluteExpiresAt, token.refreshExpiresAt!);
+        session.githubVerifiedAt = 0;
+        if (session.absoluteExpiresAt <= Date.now()) throw new ApiError(401, "authentication_required", "GitHub 登录已到期，请重新登录。");
+        // Save the rotated pair before further network I/O: the old refresh
+        // token is now consumed even if identity verification is unavailable.
+        await this.ctx.storage.put(key, session);
+        refreshed = true;
+      }
+      if (session.githubRefreshTokenCipher && (refreshed || !session.githubVerifiedAt || session.githubVerifiedAt <= now - 15 * 60_000)) {
+        const identity = await verifyOwnerAndRepository(await this.tokenForSession(session), this.config);
+        session.installationId = identity.installationId;
+        session.avatarUrl = identity.avatarUrl;
+        session.githubVerifiedAt = Date.now();
+      }
+      if (session.absoluteExpiresAt <= Date.now()) throw new ApiError(401, "authentication_required", "GitHub 登录已到期，请重新登录。");
+    } catch (error) {
+      if (error instanceof ApiError && [401, 403, 404].includes(error.status)) {
+        await this.ctx.storage.delete(key);
+        await revokeOAuthToken(secrets.GITHUB_APP_CLIENT_ID, secrets.GITHUB_APP_CLIENT_SECRET, await this.tokenForSession(session));
+        throw new ApiError(401, "authentication_required", "GitHub 登录或仓库授权已失效，请重新登录。");
+      }
+      throw new ApiError(503, "oauth_refresh_unavailable", "暂时无法确认 GitHub 登录，请稍后重新确认。");
+    }
+    if (issueCsrf) session.csrfHashes = [...session.csrfHashes.slice(-4), await sha256Hex(issueCsrf)];
     session.lastSeenAt = now;
     await this.ctx.storage.put(key, session);
     return session;
@@ -149,6 +218,7 @@ export class OwnerControl implements DurableObject {
     const stateHash = internalString(body, "stateHash", 64, 64);
     const verifier = internalString(body, "verifier", 43, 128);
     const expiresAt = Number(body.expiresAt);
+    if (body.remember !== undefined && typeof body.remember !== "boolean") throw new ApiError(400, "invalid_internal_request", "Invalid remember choice");
     if (!Number.isFinite(expiresAt) || expiresAt <= Date.now() || expiresAt > Date.now() + 15 * 60 * 1000) {
       throw new ApiError(400, "invalid_internal_request", "Invalid OAuth expiry");
     }
@@ -156,7 +226,8 @@ export class OwnerControl implements DurableObject {
     await this.ctx.storage.put<OAuthTransaction>(`oauth:${stateHash}`, {
       verifier,
       expiresAt,
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      remember: body.remember === true
     });
     return jsonResponse({ ok: true });
   }
@@ -164,12 +235,15 @@ export class OwnerControl implements DurableObject {
   private async consumeOAuth(body: Record<string, unknown>): Promise<Response> {
     const stateHash = internalString(body, "stateHash", 64, 64);
     const key = `oauth:${stateHash}`;
-    const transaction = await this.ctx.storage.get<OAuthTransaction>(key);
-    await this.ctx.storage.delete(key);
+    const transaction = await this.ctx.storage.transaction(async (storage) => {
+      const value = await storage.get<OAuthTransaction>(key);
+      await storage.delete(key);
+      return value;
+    });
     if (!transaction || transaction.expiresAt <= Date.now()) {
       throw new ApiError(401, "oauth_state_invalid", "登录请求已过期或已使用，请重新开始。");
     }
-    return jsonResponse({ verifier: transaction.verifier });
+    return jsonResponse({ verifier: transaction.verifier, remember: transaction.remember === true });
   }
 
   private async createSession(body: Record<string, unknown>): Promise<Response> {
@@ -177,6 +251,11 @@ export class OwnerControl implements DurableObject {
     const sessionHash = internalString(body, "sessionHash", 64, 64);
     const githubToken = internalString(body, "githubToken", 20, 1000);
     const githubTokenExpiresAt = Number(body.githubTokenExpiresAt);
+    if (body.remember !== undefined && typeof body.remember !== "boolean") throw new ApiError(400, "invalid_internal_request", "Invalid remember choice");
+    const refreshExpiresAt = Number(body.githubRefreshExpiresAt);
+    const remembered = body.remember === true && typeof body.githubRefreshToken === "string"
+      && body.githubRefreshToken.length >= 20 && body.githubRefreshToken.length <= 1000
+      && Number.isFinite(refreshExpiresAt) && refreshExpiresAt > Date.now();
     const identityValue = body.identity;
     if (!identityValue || typeof identityValue !== "object" || Array.isArray(identityValue)) {
       throw new ApiError(400, "invalid_internal_request", "Invalid GitHub identity");
@@ -191,6 +270,8 @@ export class OwnerControl implements DurableObject {
     const session: OwnerSession = {
       githubTokenCipher: await encryptSecret(githubToken, secrets.SESSION_SECRET),
       githubTokenExpiresAt,
+      ...(remembered ? { githubRefreshTokenCipher: await encryptSecret(body.githubRefreshToken as string, secrets.SESSION_SECRET),
+        githubRefreshExpiresAt: refreshExpiresAt, githubVerifiedAt: now } : {}),
       login: identity.login,
       userId: identity.id,
       avatarUrl: identity.avatarUrl,
@@ -198,7 +279,8 @@ export class OwnerControl implements DurableObject {
       repositoryId: Number(this.config.GITHUB_REPOSITORY_ID),
       csrfHashes: [],
       createdAt: now,
-      absoluteExpiresAt: Math.min(now + SESSION_TTL_SECONDS * 1000, githubTokenExpiresAt),
+      absoluteExpiresAt: remembered ? Math.min(now + REMEMBER_SESSION_TTL_SECONDS * 1000, refreshExpiresAt)
+        : Math.min(now + SESSION_TTL_SECONDS * 1000, githubTokenExpiresAt),
       lastSeenAt: now,
       encryptionKeyVersion: 1
     };
@@ -209,11 +291,8 @@ export class OwnerControl implements DurableObject {
 
   private async sessionView(body: Record<string, unknown>): Promise<Response> {
     const sessionHash = internalString(body, "sessionHash", 64, 64);
-    const session = await this.loadSession(sessionHash);
     const csrfToken = randomToken(32);
-    const csrfHash = await sha256Hex(csrfToken);
-    session.csrfHashes = [...session.csrfHashes.slice(-4), csrfHash];
-    await this.ctx.storage.put(`session:${sessionHash}`, session);
+    const session = await this.loadSession(sessionHash, "", csrfToken);
     return jsonResponse({
       authenticated: true,
       user: { login: session.login, id: session.userId, avatarUrl: session.avatarUrl },
@@ -232,22 +311,24 @@ export class OwnerControl implements DurableObject {
   /** Narrow bridge for the owner's private book: no token or CSRF rotation. */
   private async readAssertSession(body: Record<string, unknown>): Promise<Response> {
     const sessionHash = internalString(body, "sessionHash", 64, 64);
-    const session = await this.ctx.storage.get<OwnerSession>(`session:${sessionHash}`);
-    if (!session || session.absoluteExpiresAt <= Date.now() || session.githubTokenExpiresAt <= Date.now()
-      || session.userId !== OWNER_USER_ID || session.login !== "zhuodashuai"
-      || session.repositoryId !== Number(this.config.GITHUB_REPOSITORY_ID)) {
-      throw new ApiError(401, "authentication_required", "请先以卓本人身份登录。");
-    }
+    const session = await this.loadSession(sessionHash);
     return jsonResponse({ authenticated: true, user: { login: session.login, id: session.userId },
-      expiresAt: Math.min(session.absoluteExpiresAt, session.githubTokenExpiresAt) });
+      expiresAt: session.absoluteExpiresAt });
   }
 
   private async deleteSession(body: Record<string, unknown>): Promise<Response> {
     const sessionHash = internalString(body, "sessionHash", 64, 64);
     const csrfToken = internalString(body, "csrfToken", 16, 500);
-    const session = await this.loadSession(sessionHash, csrfToken);
-    const token = await this.tokenForSession(session);
-    await this.ctx.storage.delete(`session:${sessionHash}`);
+    const token = await this.withSessionLock(sessionHash, async () => {
+      const key = `session:${sessionHash}`;
+      const session = await this.ctx.storage.get<OwnerSession>(key);
+      if (!session || !session.csrfHashes.includes(await sha256Hex(csrfToken))) {
+        throw new ApiError(401, "authentication_required", "请先以卓本人身份登录。");
+      }
+      // Local logout never depends on GitHub refresh or availability.
+      await this.ctx.storage.delete(key);
+      return this.tokenForSession(session);
+    });
     const secrets = requireOwnerSecrets(this.config);
     await revokeOAuthToken(secrets.GITHUB_APP_CLIENT_ID, secrets.GITHUB_APP_CLIENT_SECRET, token);
     return jsonResponse({ ok: true });
@@ -497,7 +578,68 @@ export class OwnerControl implements DurableObject {
     }
   }
 
-  private publish(body: Record<string, unknown>, synonymsOnly = false): Promise<Response> {
+  /** A deliberately narrow add-only path for source-verified dictionary data.
+   * It does not relax the structured-sense gate on manually/AI-authored cards.
+   * Browser-supplied definitions, examples and synonym evidence never enter it.
+   */
+  private async runDictionaryCollection(body: Record<string, unknown>): Promise<Response> {
+    const sessionHash = internalString(body, "sessionHash", 64, 64);
+    const csrfToken = internalString(body, "csrfToken", 16, 500);
+    const parsed = DictionaryCollectionRequestSchema.safeParse(body.collectionRequest);
+    if (!parsed.success) throw new ApiError(400, "invalid_dictionary_collection", "自动收录请求格式不正确。");
+    const request = parsed.data;
+    const session = await this.loadSession(sessionHash, csrfToken);
+    await this.applyRate({ subject: sessionHash, kind: "publish" });
+    const key = `mutation:${request.mutationId}`;
+    const semanticHash = await sha256Hex(canonicalJson({ type: "dictionary-collection", term: normalizeEnglish(request.term) }));
+    const now = Date.now();
+    const prior = await this.ctx.storage.get<MutationRecord>(key);
+    const record = prior && prior.expiresAt > now ? prior : undefined;
+    if (record && record.semanticHash !== semanticHash) throw new ApiError(409, "idempotency_key_reused", "这次操作标识已用于另一个词，请重新查词。");
+    const pending: MutationRecord = record || { semanticHash, status: "pending", createdAt: now, updatedAt: now, expiresAt: now + MUTATION_TTL_MS };
+    await this.ctx.storage.put(key, pending);
+    const commit = () => this.ctx.storage.put<MutationRecord>(key, { ...pending, status: "committed", updatedAt: Date.now(), expiresAt: Date.now() + MUTATION_TTL_MS });
+    let token = await this.tokenForSession(session);
+    await verifyOwnerAndRepository(token, this.config);
+    const remote = await readRemoteWordbook(token, this.config);
+    const existing = findCollectedEntry(remote.snapshot, request.term);
+    if (existing) {
+      await commit();
+      await this.rememberPublicSnapshot(remote);
+      return jsonResponse({ entry: existing, added: false, sha: remote.sha });
+    }
+    // A retry of an acknowledged operation must not resurrect a later deletion.
+    if (record?.status === "committed") throw new ApiError(409, "collected_entry_removed", "这次操作收录的词已被移除，没有重新添加；如需收录请重新查词。");
+    if (!this.env.ASSETS) throw new ApiError(503, "dictionary_collection_unavailable", "本站词典暂不可核对。");
+    const entry = await resolveDictionaryCollection(request.term, this.env.ASSETS);
+    const snapshot = validateSnapshot({ ...remote.snapshot, exportedAt: new Date().toISOString(), revisionId: crypto.randomUUID(),
+      lastMutationId: request.mutationId, entries: [...remote.snapshot.entries, entry] });
+    // A logout/revocation during the preceding reads must stop the write.
+    token = await this.tokenForSession(await this.loadSession(sessionHash, csrfToken));
+    try {
+      const written = await writeRemoteWordbook({ token, config: this.config, expectedSha: remote.sha, snapshot,
+        message: `Collect ${entry.term} from the local dictionary` });
+      await commit();
+      await this.rememberPublicSnapshot({ ...written, snapshot });
+      return jsonResponse({ entry, added: true, sha: written.sha });
+    } catch (error) {
+      if (error instanceof ApiError && [401, 403, 409, 413, 429].includes(error.status)) throw error;
+      // GitHub may commit before a response is lost. Confirm the exact mutation
+      // or already-present canonical card before allowing an explicit retry.
+      try {
+        const confirmed = await readRemoteWordbook(token, this.config);
+        const found = findCollectedEntry(confirmed.snapshot, entry.term);
+        if (found) {
+          await commit();
+          await this.rememberPublicSnapshot(confirmed);
+          return jsonResponse({ entry: found, added: confirmed.snapshot.lastMutationId === request.mutationId, sha: confirmed.sha });
+        }
+      } catch { /* original error retains its classification */ }
+      throw error;
+    }
+  }
+
+  private publish(body: Record<string, unknown>, synonymsOnly = false, dictionaryOnly = false): Promise<Response> {
     let resolveTask: (response: Response) => void;
     let rejectTask: (reason: unknown) => void;
     const task = new Promise<Response>((resolve, reject) => {
@@ -507,7 +649,7 @@ export class OwnerControl implements DurableObject {
     this.publishTail = this.publishTail
       .catch(() => {})
       .then(async () => {
-        try { resolveTask(await (synonymsOnly ? this.runSynonymScan(body) : this.runPublish(body))); } catch (error) { rejectTask(error); }
+        try { resolveTask(await (dictionaryOnly ? this.runDictionaryCollection(body) : synonymsOnly ? this.runSynonymScan(body) : this.runPublish(body))); } catch (error) { rejectTask(error); }
       });
     return task;
   }
@@ -528,6 +670,7 @@ export class OwnerControl implements DurableObject {
         case "/public/snapshot": return await this.publicSnapshot();
         case "/owner/snapshot": return await this.ownerSnapshot(body);
         case "/owner/publish": return await this.publish(body);
+        case "/owner/dictionary-collection": return await this.publish(body, false, true);
         case "/owner/synonyms": return await this.publish(body, true);
         default: throw new ApiError(404, "internal_not_found", "Internal route not found");
       }

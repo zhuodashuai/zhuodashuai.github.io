@@ -471,12 +471,14 @@ test("offline save is never reported saved, preserves the open draft, and offlin
   await expect(page.locator("#member-term")).toHaveValue("my unsent offline phrase");
   await expect(row(page, "my unsent offline phrase")).toHaveCount(0);
   await page.reload();
-  await expect(page.locator("#member-auth")).toBeVisible();
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await expect(page.locator("#member-auth")).toBeHidden();
   await expect(page.locator("#member-workspace")).toBeHidden();
   await expect(page.locator("#member-entry-list")).toBeEmpty();
   await expect(page.locator("body")).not.toContainText("cloud only private entry");
   await context.setOffline(false);
-  await login(page, "alice_member");
+  await page.locator("#member-session-retry").click();
+  await ready(page, "alice_member");
   expect((await list(context)).entries.map(entry => entry.term)).toEqual(["cloud only private entry"]);
 });
 
@@ -488,7 +490,8 @@ test("an uncached Cloudflare-style personal URL opens the blank private shell of
   await context.setOffline(true);
   await page.goto("/personal?offline-fallback-check=73");
   await expect(page.getByRole("heading", { name: "我的词本", exact: true })).toBeVisible();
-  await expect(page.locator("#member-auth")).toBeVisible();
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await expect(page.locator("#member-auth")).toBeHidden();
   await expect(page.locator("#member-workspace")).toBeHidden();
   await expect(page.locator("#member-entry-list")).toBeEmpty();
   await expect(page.locator("#library-search")).toHaveCount(0);

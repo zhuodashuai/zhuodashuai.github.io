@@ -60,6 +60,50 @@ export interface GitHubIdentity {
 export interface GitHubToken {
   accessToken: string;
   expiresAt: number;
+  refreshToken?: string;
+  refreshExpiresAt?: number;
+}
+
+function tokenPayload(payload: Record<string, unknown>, refreshing = false): GitHubToken {
+  const expiresIn = Number(payload.expires_in);
+  const refreshExpiresIn = Number(payload.refresh_token_expires_in);
+  if (typeof payload.access_token !== "string" || payload.access_token.length < 20 || payload.access_token.length > 1000
+    || ((refreshing || payload.expires_in !== undefined) && (!Number.isSafeInteger(expiresIn) || expiresIn <= 0))) {
+    throw new ApiError(503, "oauth_invalid_response", "GitHub 暂未返回完整登录信息，请稍后重试。");
+  }
+  const token: GitHubToken = { accessToken: payload.access_token,
+    expiresAt: Date.now() + (Number.isFinite(expiresIn) ? Math.min(expiresIn, 8 * 60 * 60) : 8 * 60 * 60) * 1000 };
+  if (typeof payload.refresh_token === "string" && payload.refresh_token.length >= 20 && payload.refresh_token.length <= 1000
+    && Number.isSafeInteger(refreshExpiresIn) && refreshExpiresIn > 0) {
+    token.refreshToken = payload.refresh_token;
+    token.refreshExpiresAt = Date.now() + Math.min(refreshExpiresIn, 184 * 24 * 60 * 60) * 1000;
+  }
+  if (refreshing && !token.refreshToken) throw new ApiError(503, "oauth_invalid_response", "GitHub 暂未返回完整续期信息，请稍后重试。");
+  return token;
+}
+
+/** The refresh token never leaves the Worker/Durable Object boundary. */
+export async function refreshOAuthToken(clientId: string, clientSecret: string, refreshToken: string): Promise<GitHubToken> {
+  let response: Response;
+  try {
+    response = await fetch(`${OAUTH_ROOT}/access_token`, {
+      method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json", "User-Agent": "zhuo-wordbook-worker/2.0" },
+      body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, grant_type: "refresh_token", refresh_token: refreshToken }),
+      signal: AbortSignal.timeout(15_000)
+    });
+  } catch {
+    throw new ApiError(503, "oauth_refresh_unavailable", "GitHub 暂时无法续期登录，请稍后重新确认。");
+  }
+  const payload = await parseJson(response);
+  if (response.status === 429 || response.headers.has("retry-after") || response.headers.get("x-ratelimit-remaining") === "0") {
+    throw new ApiError(503, "oauth_refresh_unavailable", "GitHub 暂时无法续期登录，请稍后重新确认。");
+  }
+  if (["bad_refresh_token", "invalid_grant", "expired_token", "access_denied"].includes(String(payload.error))
+    || response.status === 401) {
+    throw new ApiError(401, "authentication_required", "GitHub 登录已失效，请重新登录。");
+  }
+  if (!response.ok || payload.error) throw new ApiError(503, "oauth_refresh_unavailable", "GitHub 暂时无法续期登录，请稍后重新确认。");
+  return tokenPayload(payload, true);
 }
 
 export interface RemoteWordbook {
@@ -183,9 +227,7 @@ export async function exchangeOAuthCode(args: {
   if (!response.ok || typeof payload.access_token !== "string") {
     throw new ApiError(401, "oauth_exchange_failed", "GitHub 登录没有完成，请重新开始。", payload.error_description || payload.error);
   }
-  const expiresIn = Number(payload.expires_in);
-  const boundedTtl = Number.isFinite(expiresIn) ? Math.min(Math.max(expiresIn, 300), 8 * 60 * 60) : 8 * 60 * 60;
-  return { accessToken: payload.access_token, expiresAt: Date.now() + boundedTtl * 1000 };
+  return tokenPayload(payload);
 }
 
 export async function verifyOwnerAndRepository(token: string, config: AppConfig): Promise<GitHubIdentity> {

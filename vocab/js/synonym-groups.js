@@ -1,4 +1,4 @@
-import { normalizeEnglish } from "./wordbook-schema.js?v=77";
+import { normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { entrySynonymFingerprint, sameSynonymSenseView } from "./synonym-evidence.js?v=77";
 
 const LEXICAL_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);

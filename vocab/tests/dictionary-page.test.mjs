@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, personalDictionaryLink } from "../js/dictionary-app.js";
+import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
 
 const row = (term = "watch") => ({ term, partOfSpeech: "noun · verb", meaning: "① n. 手表\n② v. 观看", source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" });
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
@@ -20,6 +20,12 @@ test("link enters the personal book with a canonical fragment, not a write actio
   const deployed = new URL(personalDictionaryLink("24/7", { href: "https://zhuodashuai.github.io/vocab/dictionary.html" }));
   assert.equal(deployed.origin, "https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev");
   assert.equal(deployed.hash, "#lookup=24%2F7");
+});
+
+test("owner search enters the fixed authenticated Worker with the query only in the fragment", () => {
+  const url = new URL(ownerDictionaryLink("apple", { href: "https://zhuodashuai.github.io/vocab/dictionary.html" }));
+  assert.equal(url.origin, "https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev");
+  assert.equal(url.pathname, "/personal.html"); assert.equal(url.search, "?auth=owner"); assert.equal(url.hash, "#lookup=apple");
 });
 
 test("meaning numbering is additive only when the source has not numbered it", () => {
@@ -111,10 +117,10 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=81/u); assert.match(html, /dictionary-app\.js\?v=81/u);
+  assert.match(html, /dictionary\.css\?v=81/u); assert.match(html, /dictionary-app\.js\?v=82/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=81/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=82/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-examples\.js\?v=81"\)/u);
   assert.ok(html.indexOf('id="dictionary-add"') < html.indexOf('id="dictionary-example-panel"'));
   assert.doesNotMatch(script, /innerHTML|localStorage|indexedDB|\/api\/|fetch\(|registerServiceWorker|82920/u);

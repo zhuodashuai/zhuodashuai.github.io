@@ -1,4 +1,4 @@
-import { normalizeEnglish } from "./wordbook-schema.js?v=77";
+import { normalizeEnglish } from "./wordbook-schema.js?v=82";
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));

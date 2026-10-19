@@ -1,5 +1,6 @@
 import { scrypt } from "node:crypto";
 import { ApiError, base64UrlDecode, base64UrlEncode, jsonResponse, randomToken, sha256Hex } from "./security";
+import { REMEMBER_SESSION_TTL_SECONDS } from "./config";
 
 export interface MemberEnv {
   MEMBER_AUTH: DurableObjectNamespace;
@@ -23,6 +24,12 @@ export interface MemberSessionView {
 
 export const MEMBER_COOKIE = "__Host-zhuo_member";
 export const MEMBER_SESSION_SECONDS = 7 * 24 * 60 * 60;
+export const MEMBER_REMEMBER_SESSION_SECONDS = REMEMBER_SESSION_TTL_SECONDS;
+
+export function memberRemember(value: unknown): boolean {
+  if (value !== undefined && typeof value !== "boolean") throw new ApiError(400, "invalid_fields", "记住登录的选项不正确。");
+  return value === true;
+}
 export const MEMBER_BODY_BYTES = 16 * 1024;
 export const MEMBER_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 const FORBIDDEN_TEXT = /[^\P{Cc}\n\t]|\p{Cf}/u;

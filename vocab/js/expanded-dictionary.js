@@ -1,5 +1,5 @@
-import { canonicalizeLookupInput } from "./wordbook-schema.js?v=77";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=81";
+import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=82";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.

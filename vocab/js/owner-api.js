@@ -83,8 +83,8 @@ async function request(path, { method = "GET", csrfToken = "", body, mutationId 
   }
 }
 
-export function ownerLoginUrl() {
-  return `${API_PREFIX}/auth/login`;
+export function ownerLoginUrl({ remember = false } = {}) {
+  return `${API_PREFIX}/auth/login${remember ? "?remember=1" : ""}`;
 }
 
 export function getSession(options) {

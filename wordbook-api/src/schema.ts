@@ -101,7 +101,7 @@ export function normalizeEnglish(value: string): string {
 export function validateEnglishInput(value: unknown): string {
   if (typeof value !== "string") throw new ApiError(400, "invalid_input", "请输入英文内容。");
   const cleaned = normalizeTypography(value);
-  if (!cleaned || cleaned.length > 2000 || !/[A-Za-z]/.test(cleaned)) {
+  if (!cleaned || cleaned.length > 2000 || (!/[A-Za-z]/.test(cleaned) && cleaned !== "24/7")) {
     throw new ApiError(400, "invalid_input", "请输入 1 至 2,000 个字符的英文内容。");
   }
   if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(cleaned)) {

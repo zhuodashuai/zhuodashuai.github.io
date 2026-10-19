@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import worker from "../src/index";
 import { MemberAuth, MEMBER_ACCOUNT_LIMIT } from "../src/member-auth";
 import { PersonalWordbook, PERSONAL_LIMITS, type PersonalEntry } from "../src/personal-wordbook";
-import { MEMBER_COOKIE, memberAuthStub, memberSessionHash, type MemberEnv } from "../src/member-security";
+import { MEMBER_COOKIE, MEMBER_SESSION_SECONDS, MEMBER_REMEMBER_SESSION_SECONDS, memberAuthStub, memberSessionHash, type MemberEnv } from "../src/member-security";
 
 const testEnv = env as unknown as Env;
 const ORIGIN = "https://members.example";
@@ -35,6 +35,32 @@ const errorCode = async (response: Response) => (await response.json() as { erro
 
 describe("private member API and tenant isolation", () => {
   beforeEach(async () => { vi.restoreAllMocks(); await reset(); });
+
+  it("remembers a member for an absolute 30 days only when explicitly selected, without sliding on reads", async () => {
+    const response = await api("/register", { method: "POST", body: { username: "remember_member", password: PASSWORD, remember: true } });
+    expect(response.status).toBe(200);
+    const data = await response.json() as Login;
+    const cookie = response.headers.get("set-cookie")!;
+    const seconds = Number(cookie.match(/Max-Age=(\d+)/)![1]);
+    expect(seconds).toBeGreaterThan(MEMBER_REMEMBER_SESSION_SECONDS - 10);
+    expect(seconds).toBeLessThanOrEqual(MEMBER_REMEMBER_SESSION_SECONDS);
+    expect(cookie).toContain("HttpOnly; Secure; SameSite=Strict");
+    expect(data.expiresAt - Date.now()).toBeGreaterThan((MEMBER_REMEMBER_SESSION_SECONDS - 10) * 1000);
+    const auth = { ...data, cookie: cookie.split(";", 1)[0] };
+    expect(await (await api("/session", { auth })).json()).toMatchObject({ authenticated: true, expiresAt: data.expiresAt });
+    const shorter = await api("/login", { method: "POST", body: { username: data.user.username, password: PASSWORD, remember: false } });
+    expect((await shorter.json() as Login).expiresAt - Date.now()).toBeLessThanOrEqual(MEMBER_SESSION_SECONDS * 1000);
+    const logout = await api("/logout", { method: "POST", auth, body: {} });
+    expect(logout.status).toBe(200);
+    expect(await (await api("/session", { auth })).json()).toEqual({ authenticated: false });
+  });
+
+  it("rejects untyped remember choices before issuing member credentials", async () => {
+    for (const remember of ["true", 1, null, {}, []]) {
+      const response = await api("/register", { method: "POST", body: { username: "bad_remember", password: PASSWORD, remember } });
+      expect(response.status).toBe(400); expect(response.headers.get("set-cookie")).toBeNull();
+    }
+  });
 
   it("registers a unique lowercase account and keeps raw session/password/recovery out of storage", async () => {
     const auth = await register("Alice_Test");
@@ -178,7 +204,7 @@ describe("private member API and tenant isolation", () => {
     expect(first.entry).toMatchObject({ term: "24/7", normalized: "24/7", meaning: body.meaning, partOfSpeech: body.partOfSpeech });
     const reread = await api("/entries", { auth });
     expect(await reread.json()).toMatchObject({ entries: [{ id: first.entry.id, term: "24/7", meaning: body.meaning }] });
-    for (const term of ["24/7", " 24/7 "]) {
+    for (const term of ["24/7", " 24/7 ", "２４/７"]) {
       const duplicate = await api("/entries", { method: "POST", auth, body: { ...body, term, mutationId: crypto.randomUUID() } });
       expect(duplicate.status).toBe(409);
       expect(await duplicate.json()).toMatchObject({ error: { code: "duplicate_entry", details: { existing: { id: first.entry.id } } } });
@@ -186,7 +212,7 @@ describe("private member API and tenant isolation", () => {
     const updated = await api(`/entries/${first.entry.id}`, { method: "PUT", auth,
       body: { ...body, revision: first.entry.revision, note: "仍然只有这一张卡", mutationId: crypto.randomUUID() } });
     expect(updated.status).toBe(200);
-    for (const term of ["123", "24", "24 / 7", "24/7!", "２４/７", "24/7\u202e", "24/7\u0000", "24/7<script>bad()</script>", `${" ".repeat(201)}24/7`]) {
+    for (const term of ["123", "24", "24 / 7", "24/7!", "24/7\u202e", "24/7\u0000", "24/7<script>bad()</script>", `${" ".repeat(201)}24/7`]) {
       const rejected = await api("/entries", { method: "POST", auth, body: { ...body, term, mutationId: crypto.randomUUID() } });
       expect(rejected.status, JSON.stringify(term)).toBe(400);
     }

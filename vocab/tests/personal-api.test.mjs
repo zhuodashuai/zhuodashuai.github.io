@@ -5,6 +5,17 @@ import { createPersonalApi, PersonalApiError } from "../js/personal-api.js";
 const ENTRY_ID = "member-11111111-1111-4111-8111-111111111111";
 const response = (value, status = 200, headers = {}) => new Response(JSON.stringify(value), { status, headers: { "Content-Type": "application/json", ...headers } });
 
+test("owner dictionary collection uses its separate same-origin owner endpoint and CSRF header", async () => {
+  let seen;
+  const api = createPersonalApi({ fetchImpl: async (url, options) => { seen = { url, options }; return response({}); } });
+  await api.collectDictionary({ term: "apple", mutationId: "dictionary-operation-one" }, "owner-csrf");
+  assert.equal(seen.url, "/api/v1/owner/dictionary-collection");
+  assert.equal(seen.options.credentials, "same-origin"); assert.equal(seen.options.headers["X-Wordbook-Auth"], "github-owner");
+  assert.equal(seen.options.headers["X-CSRF-Token"], "owner-csrf");
+  assert.equal(seen.options.headers["Idempotency-Key"], "dictionary-operation-one");
+  assert.deepEqual(JSON.parse(seen.options.body), { term: "apple", mutationId: "dictionary-operation-one" });
+});
+
 test("member authentication is same-origin POST with untrimmed Unicode passwords and no URL secrets", async () => {
   const seen = [];
   const api = createPersonalApi({ fetchImpl: async (url, options) => { seen.push({ url, options }); return response({ authenticated: false }); } });
