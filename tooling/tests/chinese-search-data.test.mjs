@@ -35,6 +35,10 @@ test("all 24 Chinese concept families resolve only real, correctly matched dicti
   assert.deepEqual(positive.results.slice(0, 2).map(row => row.term), ["happy", "glad"]);
   const negative = await searchRelatedChineseDictionary("不开心", { fetchImpl });
   assert.equal(negative.results[0].term, "unhappy");
+  const sad = await searchRelatedChineseDictionary("难过", { fetchImpl });
+  assert.ok(!sad.results.some(row => row.term === "heart"));
+  const liking = await searchRelatedChineseDictionary("喜欢", { fetchImpl });
+  assert.ok(!liking.results.some(row => row.term === "fan mail"));
   for (const query of ["开心", "快乐", "高兴"]) {
     const direct = await searchExpandedDictionary(query, { fetchImpl }); const related = await searchRelatedChineseDictionary(query, { fetchImpl });
     assert.ok(![...direct.results, ...related.results].some(row => ["unhappy", "pistachio nut", "hedonist", "unpalatable"].includes(row.term)));

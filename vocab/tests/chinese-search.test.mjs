@@ -62,7 +62,6 @@ test("negative emotions have a separate exact family rather than losing their ne
 test("whole definition atoms support POS labels, numbering, domains and genuine separators", () => {
   for (const [meaning, term] of [
     ["a. 快乐的, 幸福的", "快乐"], ["a. 快乐的，幸福的", "快乐"],
-    ["a. 快乐的、愉快的", "愉快"], ["高兴、快乐", "高兴"],
     ["1. adjective：高兴的；满足而愉快的。", "高兴"],
     ["① 高兴的；② 愉快的", "高兴"], ["① 高兴的；② 愉快的", "愉快"],
     ["(1) adj. 高兴的", "高兴"], ["二、adjective: 高兴的", "高兴"],
@@ -94,6 +93,8 @@ test("compound nouns, mentions in explanations, and loose overlaps are not synon
   for (const [meaning, term] of [
     ["n. 开心果/阿月浑子果", "开心"], ["n. 快乐主义者, 享乐主义者", "快乐"],
     ["因为高兴或紧张而不假思索地脱口而出", "高兴"],
+    ["常用来谈喜爱、悲伤、善意或勇气等情感", "悲伤"],
+    ["粉丝来信；喜爱、支持某位公众人物的人写给对方的信件。", "喜爱"],
     ["① 把不愉快的事放到一边，继续向前", "愉快"],
     ["n. 不高兴的人", "高兴"], ["n. 帮助者", "帮助"], ["n. 高价商品", "高价"],
     ["a. 很高兴的", "高兴"], ["a. 感到非常高兴的", "高兴"], ["a. 有礼貌而愉快的", "愉快"],

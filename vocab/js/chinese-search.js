@@ -74,7 +74,7 @@ function definitionSegments(value) {
     const char = value[index];
     if (closing.has(char)) brackets.push(closing.get(char));
     else if (brackets.length && char === brackets.at(-1)) brackets.pop();
-    else if (!brackets.length && /[\r\n,，、;；。]/u.test(char)) {
+    else if (!brackets.length && /[\r\n,，;；。]/u.test(char)) {
       segments.push(value.slice(start, index)); start = index + 1;
     }
   }

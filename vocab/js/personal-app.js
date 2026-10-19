@@ -15,6 +15,7 @@ import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDict
 import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=90";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=90";
+import { matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -444,7 +445,8 @@ function showDictionaryResult(result) {
     use.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
       showDictionaryResult({ ...variant, term: result.term,
-        ...(result.matchType === "related" ? { matchType: "related", matchedChinese: result.matchedChinese } : {}) }); renderChrome();
+        ...(result.matchType === "related" && matchesChineseSearchMeaning(variant.meaning, result.matchedChinese)
+          ? { matchType: "related", matchedChinese: result.matchedChinese } : {}) }); renderChrome();
     });
     details.append(title, text, use); alternatives.append(details);
   }

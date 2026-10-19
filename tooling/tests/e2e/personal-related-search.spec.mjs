@@ -144,3 +144,16 @@ test("owner empty-direct lookup may preview a related meaning but never auto-pub
   expect(writes).toEqual([]);
   await expect(page.locator("#member-term")).toHaveValue("");
 });
+
+test("choosing a different source sense removes an association unsupported by that sense", async ({ context, page }) => {
+  await openMember(context, page); await query(page, "疲倦");
+  await expect(choice(page, "beat")).toBeVisible(); await choice(page, "beat").click();
+  await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：疲乏");
+  const alternate = page.locator("#member-dictionary-alternatives details").filter({ hasText: "卓式原创释义" });
+  await alternate.locator("summary").click();
+  await alternate.getByRole("button", { name: "选择此释义", exact: true }).click();
+  await expect(page.locator("#member-dictionary-word")).toHaveText("beat");
+  await expect(page.locator("#member-dictionary-meaning")).toContainText("击败");
+  await expect(page.locator("#member-dictionary-status")).not.toContainText("近义关联");
+  await expect(page.locator("#member-term")).toHaveValue("");
+});
