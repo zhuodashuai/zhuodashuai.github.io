@@ -289,7 +289,12 @@ function ambiguous() {
 }
 async function englishSearch(query, context) {
   const { manifest, client, fetchImpl, timeoutMs, exactQuery } = context;
-  const literal = fold(query), canonical = fold(canonicalizeLookupInput(query));
+  // Preserve literal dotted abbreviations before trying pasted sentence-edge
+  // punctuation. The schema's editor normalizer intentionally treats phrases
+  // more narrowly; dictionary search can ignore a final comma without changing
+  // the saved headword, internal apostrophes, hyphens, plus signs or slashes.
+  const literal = fold(query), unwrapped = query.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
+  const canonical = fold(canonicalizeLookupInput(unwrapped || query));
   const wanted = [...new Set([literal, canonical])];
   const shards = await Promise.all([...new Set(wanted.map(bucketFor))].map(async bucket => [bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs)]));
   const byBucket = new Map(shards);
@@ -297,7 +302,7 @@ async function englishSearch(query, context) {
   for (let index = 0; index < rows.length; index++) {
     const row = rows[index], canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
     if (canonicalRefs.length) {
-      const exactSpelling = index === 0 ? exactQuery : canonicalizeLookupInput(exactQuery);
+      const exactSpelling = index === 0 ? exactQuery : canonicalizeLookupInput(exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim());
       const precise = canonicalRefs.filter(ref => spelling(row.shard.records.get(ref.id).term) === exactSpelling);
       const options = precise.length ? precise : canonicalRefs;
       if (new Set(options.map(ref => ref.id)).size > 1) throw ambiguous();

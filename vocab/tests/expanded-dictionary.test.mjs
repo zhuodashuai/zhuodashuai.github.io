@@ -99,6 +99,15 @@ test("literal punctuation headword is retained and normalized terminal punctuati
   assert.equal((await searchExpandedDictionary("mar", data)).results[0].partOfSpeech, "verb");
 });
 
+test("phrase edge punctuation is ignored only after a literal head and never edits internal lexical punctuation", async () => {
+  const data = fixture([entry("jab at", "刺向"), entry("look after", "照顾"), entry("by some fluke", "侥幸"),
+    entry("e.g.", "例如"), entry("C++", "编程语言"), entry("24/7", "全天候"), entry("don't", "不要")]);
+  for (const [input, term] of [["jab at,", "jab at"], ['"jab at",', "jab at"], ["“look after”。", "look after"], ["look after。", "look after"], ["by some fluke;", "by some fluke"],
+    ["e.g.", "e.g."], ["C++", "C++"], ["24/7", "24/7"], ["don't", "don't"]]) {
+    assert.equal((await searchExpandedDictionary(input, data)).results[0].term, term, input);
+  }
+});
+
 test("exact canonical headword wins over an inflection; true multiple-head aliases never guess", async () => {
   const data = fixture([entry("find", "找到", { forms: ["found"] }), entry("found", "创立"), entry("axe", "斧头", { forms: ["axes"] }), entry("axis", "轴线", { forms: ["axes"] })]);
   assert.equal((await searchExpandedDictionary("found", data)).results[0].term, "found");

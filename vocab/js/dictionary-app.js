@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=88";
+import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=89";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -66,25 +66,54 @@ function queryError(error) {
   return "暂时无法读取词典，请检查网络后重新查询。";
 }
 
+// Optional suggestions are loaded only after an exact, successful miss. They
+// never turn an approximate match into a definition or write to a wordbook.
+async function defaultDictionarySuggestions(input, { signal } = {}) {
+  const module = await import("./dictionary-suggestions.js?v=89");
+  const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
+  return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
+}
+
 /** Sequence + abort guards also protect against a late, abort-ignoring loader. */
-export function createDictionaryController({ search = searchExpandedDictionary, onChange = () => {} } = {}) {
-  let sequence = 0, pending = null;
-  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, message: "" };
+export function createDictionaryController({ search = searchExpandedDictionary, suggest = defaultDictionarySuggestions, onChange = () => {} } = {}) {
+  let sequence = 0, pending = null, suggestionPending = null;
+  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle" };
   function publish(next) { state = { ...state, ...next }; onChange(state); return state; }
-  function stop() { sequence++; pending?.abort(); pending = null; }
+  function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null; }
   function change(input) {
     stop();
-    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, message: "" });
+    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle" });
   }
   function cancel() {
     stop();
-    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, message: "已停止查询。" });
+    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, message: "已停止查询。", suggestions: [], suggestionPhase: "idle" });
+  }
+  function startSuggestions(input, current) {
+    const controller = new AbortController(); suggestionPending = controller;
+    publish({ suggestions: [], suggestionPhase: "loading" });
+    // Do not await this sidecar: the input and submit button are already usable,
+    // and the successful missing-word query can complete independently.
+    void Promise.resolve().then(() => {
+      if (current !== sequence || controller.signal.aborted) return [];
+      return suggest(input, { signal: controller.signal, limit: 5, timeoutMs: 3000 });
+    }).then(candidates => {
+      if (current !== sequence || controller.signal.aborted) return;
+      const seen = new Set();
+      const suggestions = (Array.isArray(candidates) ? candidates : []).filter(candidate => {
+        if (typeof candidate?.term !== "string" || !candidate.term.trim() || candidate.term.length > 200
+          || /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(candidate.term) || seen.has(candidate.term)) return false;
+        seen.add(candidate.term); return true;
+      }).slice(0, 5);
+      publish({ suggestions, suggestionPhase: "ready" });
+    }).catch(() => {
+      if (current === sequence && !controller.signal.aborted) publish({ suggestions: [], suggestionPhase: "error" });
+    }).finally(() => { if (current === sequence) suggestionPending = null; });
   }
   async function submit(input = state.input) {
     if (state.phase === "loading" && input === state.input) return false;
     stop();
     const current = sequence, controller = new AbortController(); pending = controller;
-    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, message: "正在查询…" });
+    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, message: "正在查询…", suggestions: [], suggestionPhase: "idle" });
     try {
       const response = await search(input, { signal: controller.signal, limit: 20 });
       if (current !== sequence || controller.signal.aborted) return false;
@@ -93,6 +122,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
         message: results.length ? (results.length === 1 ? "已找到词条。" : `找到 ${results.length} 项${hasMore ? "，可换更具体的中文继续查" : "，选择词条查看"}。`)
           : hasMore ? "候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。"
             : "没有找到对应词条。请检查拼写，或改用英文原形、较短的中文释义。" });
+      if (!results.length && !hasMore) startSuggestions(input, current);
       return true;
     } catch (error) {
       if (current !== sequence || controller.signal.aborted) return false;
@@ -125,6 +155,8 @@ export function mountDictionaryPage(document, window) {
   const get = id => document.getElementById(id);
   const form = get("dictionary-form"), input = get("dictionary-query"), submit = get("dictionary-submit"), cancel = get("dictionary-cancel");
   const status = get("dictionary-status"), result = get("dictionary-result"), choices = get("dictionary-choices");
+  const suggestionPanel = get("dictionary-suggestion-panel"), suggestionStatus = get("dictionary-suggestion-status");
+  const suggestionList = get("dictionary-suggestions");
   const count = get("dictionary-count"), resultsRegion = get("dictionary-results"), heading = get("dictionary-term");
   let lastResults = null, lastSelected = null;
   const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");
@@ -178,6 +210,21 @@ export function mountDictionaryPage(document, window) {
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
     cancel.hidden = !busy; resultsRegion.setAttribute("aria-busy", String(busy));
     status.textContent = state.message; status.dataset.phase = state.phase;
+    suggestionPanel.hidden = state.suggestionPhase === "idle" || (state.suggestionPhase === "ready" && !state.suggestions.length);
+    suggestionPanel.setAttribute("aria-busy", String(state.suggestionPhase === "loading"));
+    suggestionStatus.textContent = state.suggestionPhase === "loading" ? "正在查找相近拼写…"
+      : state.suggestionPhase === "error" ? "拼写建议暂不可用；可修改输入后重试。"
+        : state.suggestions.length ? `找到 ${state.suggestions.length} 个拼写建议。` : "";
+    suggestionList.replaceChildren();
+    state.suggestions.forEach(candidate => {
+      const item = document.createElement("li"), button = document.createElement("button");
+      button.type = "button"; button.lang = "en"; button.textContent = candidate.term;
+      button.dataset.dictionarySuggestion = candidate.term;
+      button.addEventListener("click", () => {
+        input.value = candidate.term; controller.change(candidate.term); void run();
+      });
+      item.append(button); suggestionList.append(item);
+    });
     get("dictionary-owner-link").href = ownerDictionaryLink(state.input, window.location);
     result.hidden = state.phase !== "ready";
     get("dictionary-choice-panel").hidden = state.phase !== "ready" || state.results.length < 2;

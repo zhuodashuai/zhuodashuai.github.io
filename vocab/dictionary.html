@@ -7,7 +7,7 @@
   <meta name="description" content="卓的中英词典：免登录查询英文词、词形和中文释义。">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="icon" href="assets/icon-192.png" type="image/png">
-  <link rel="stylesheet" href="dictionary.css?v=86">
+  <link rel="stylesheet" href="dictionary.css?v=89">
   <title>中英词典 · 卓的单词本</title>
 </head>
 <body data-page="dictionary">
@@ -36,6 +36,12 @@
         </div>
       </form>
       <p id="dictionary-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <section id="dictionary-suggestion-panel" class="suggestion-panel" aria-labelledby="dictionary-suggestion-title" aria-busy="false" hidden>
+        <h2 id="dictionary-suggestion-title">你是不是想查</h2>
+        <p id="dictionary-suggestion-status" class="hint" role="status" aria-live="polite" aria-atomic="true"></p>
+        <ul id="dictionary-suggestions" aria-label="拼写建议"></ul>
+        <p class="hint">仅提供拼写建议，点选后查词。</p>
+      </section>
       <noscript><p class="status">查词需要 JavaScript。请在浏览器中启用后刷新。</p></noscript>
     </section>
     <section id="dictionary-results" class="results-layout" aria-label="查询结果" aria-busy="false">
@@ -71,6 +77,6 @@
     </section>
   </main>
   <footer><p>基础释义来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT</a>（<a href="data/expanded-dictionary/ECDICT-LICENSE.txt">MIT 许可证</a>）；其他释义逐项标明来源。</p><p>仅查询本站公开索引，不调用在线翻译或 AI。</p></footer>
-  <script type="module" src="js/dictionary-app.js?v=88"></script>
+  <script type="module" src="js/dictionary-app.js?v=89"></script>
 </body>
 </html>
