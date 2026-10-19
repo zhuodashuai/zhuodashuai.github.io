@@ -14,7 +14,7 @@ export class PersonalApiError extends Error {
 
 /** Same-origin, no-store transport. Credentials and recovery codes are never persisted. */
 export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20_000 } = {}) {
-  async function request(path, { method = "GET", body, csrfToken = "", expectedUserId, authType = "auto", signal } = {}) {
+  async function request(path, { method = "GET", body, csrfToken = "", expectedUserId, authType = "auto", signal, owner = false } = {}) {
     if (!["auto", "member", "github-owner"].includes(authType)) throw new PersonalApiError("登录方式不正确。", { code: "invalid_auth_type" });
     if (expectedUserId !== undefined && (typeof expectedUserId !== "string" || !USER_ID.test(expectedUserId))) {
       throw new PersonalApiError("当前账号编号不正确，请重新登录。", { code: "invalid_expected_user" });
@@ -39,7 +39,7 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
       if (interrupted) throw interrupted;
       let response;
       try {
-        response = await fetchImpl(`${BASE_PATH}${path}`, {
+        response = await fetchImpl(`${owner ? "/api/v1/owner" : BASE_PATH}${path}`, {
           method,
           credentials: "same-origin",
           cache: "no-store",
@@ -50,6 +50,7 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
             "X-Wordbook-Fields": "partOfSpeech",
             ...(body === undefined ? {} : { "Content-Type": "application/json" }),
             ...(expectedUserId === undefined ? {} : { "X-Member-User": expectedUserId }),
+            ...(owner && typeof body?.mutationId === "string" ? { "Idempotency-Key": body.mutationId } : {}),
             ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
           },
           ...(body === undefined ? {} : { body: JSON.stringify(body) })
@@ -91,6 +92,7 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
   };
   return {
     session: (options) => request("/session", options),
+    collectDictionary: (body, csrfToken, options) => request("/dictionary-collection", { ...options, authType: "github-owner", owner: true, method: "POST", body, csrfToken }),
     register: (body, options) => request("/register", { ...options, authType: "member", method: "POST", body }),
     login: (body, options) => request("/login", { ...options, authType: "member", method: "POST", body }),
     resetPassword: (body, options) => request("/password/reset", { ...options, authType: "member", method: "POST", body }),

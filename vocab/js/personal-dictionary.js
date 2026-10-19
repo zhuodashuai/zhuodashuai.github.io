@@ -1,5 +1,5 @@
 import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=78";
-import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=77";
+import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",

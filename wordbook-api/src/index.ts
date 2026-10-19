@@ -1,5 +1,6 @@
 import { organizeEntry, organizeExactDictionaryFallback } from "./ai";
 import { handleMemberRequest } from "./member-api";
+import { DictionaryCollectionRequestSchema } from "./dictionary-collection";
 import {
   aiProviderConfigured,
   aiProviderOrder,
@@ -8,6 +9,7 @@ import {
   OAUTH_STATE_TTL_SECONDS,
   readConfig,
   requireOwnerSecrets,
+  REMEMBER_SESSION_TTL_SECONDS,
   SESSION_TTL_SECONDS,
   type AiProvider
 } from "./config";
@@ -120,13 +122,19 @@ async function login(request: Request, env: Env): Promise<Response> {
   const state = randomToken(32);
   const verifier = randomToken(64);
   const challenge = await sha256Base64Url(verifier);
+  const remember = new URL(request.url).searchParams.get("remember") === "1";
   await controlCall(env, "/oauth/create", {
     stateHash: await sha256Hex(state),
     verifier,
+    remember,
     expiresAt: Date.now() + OAUTH_STATE_TTL_SECONDS * 1000
   });
-  const authorization = createAuthorizationUrl(secrets.GITHUB_APP_CLIENT_ID, callbackUrl(request), state, challenge);
-  return redirectResponse(authorization, {
+  const authorization = new URL(createAuthorizationUrl(secrets.GITHUB_APP_CLIENT_ID, callbackUrl(request), state, challenge));
+  // GitHub Apps support offline_access to request an expiring, refreshable
+  // pair even if token expiration is disabled in the app's account settings.
+  // It does not grant additional repository permissions.
+  if (remember) authorization.searchParams.set("scope", "offline_access");
+  return redirectResponse(authorization.href, {
     "Set-Cookie": oauthStateCookie(await signedCookieValue(state, secrets.SESSION_SECRET), OAUTH_STATE_TTL_SECONDS)
   });
 }
@@ -162,11 +170,13 @@ async function callback(request: Request, env: Env): Promise<Response> {
       sessionHash: await sha256Hex(rawSession),
       githubToken: token.accessToken,
       githubTokenExpiresAt: token.expiresAt,
+      remember: transaction.remember === true,
+      ...(token.refreshToken ? { githubRefreshToken: token.refreshToken, githubRefreshExpiresAt: token.refreshExpiresAt } : {}),
       identity
     });
     const expiresAt = Number(created.expiresAt);
     const ttl = Number.isFinite(expiresAt)
-      ? Math.max(1, Math.min(SESSION_TTL_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)))
+      ? Math.max(1, Math.min(REMEMBER_SESSION_TTL_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)))
       : SESSION_TTL_SECONDS;
     const response = redirectResponse("/owner.html?login=ok", {
       "Set-Cookie": sessionCookie(rawSession, ttl)
@@ -372,6 +382,20 @@ async function recognizeOwnerSynonyms(request: Request, env: Env): Promise<Respo
   return jsonResponse(await controlCall(env, "/owner/synonyms", { sessionHash: session.hash, csrfToken, entryId: body.entryId }));
 }
 
+async function collectOwnerDictionary(request: Request, env: Env): Promise<Response> {
+  assertSameOriginWrite(request);
+  const session = await sessionContext(request);
+  const csrfToken = csrfValue(request);
+  const parsed = DictionaryCollectionRequestSchema.safeParse(await readJsonBody(request, 2_000));
+  if (!parsed.success) throw new ApiError(400, "invalid_dictionary_collection", "请选择已查到的英文词条；不能提交自定义释义。");
+  if (request.headers.get("idempotency-key") !== parsed.data.mutationId) {
+    throw new ApiError(400, "idempotency_mismatch", "Idempotency-Key 必须与 mutationId 一致。");
+  }
+  return jsonResponse(await controlCall(env, "/owner/dictionary-collection", {
+    sessionHash: session.hash, csrfToken, collectionRequest: parsed.data
+  }));
+}
+
 function apiErrorResponse(error: unknown, request: Request): Response {
   const safe = error instanceof ApiError
     ? error
@@ -416,7 +440,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
         : null;
     return jsonResponse({
       ok: true,
-      version: "2.5.2",
+      version: "2.6.0",
       ownerAuthConfigured: Boolean(config.GITHUB_APP_CLIENT_ID && config.GITHUB_APP_CLIENT_SECRET && config.SESSION_SECRET),
       aiProvider: config.AI_PROVIDER,
       aiEffectiveProvider: effectiveProvider,
@@ -447,6 +471,7 @@ async function routeApi(request: Request, env: Env): Promise<Response> {
   if (path === `${API_PREFIX}/owner/wordbook` && request.method === "GET") return ownerSnapshot(request, env);
   if (path === `${API_PREFIX}/owner/ai/organize` && request.method === "POST") return organize(request, env);
   if (path === `${API_PREFIX}/owner/publish` && request.method === "POST") return publish(request, env);
+  if (path === `${API_PREFIX}/owner/dictionary-collection` && request.method === "POST") return collectOwnerDictionary(request, env);
   if (path === `${API_PREFIX}/owner/synonyms` && request.method === "POST") return recognizeOwnerSynonyms(request, env);
   throw new ApiError(404, "api_not_found", "管理接口不存在。");
 }

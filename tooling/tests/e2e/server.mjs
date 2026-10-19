@@ -277,7 +277,8 @@ async function memberApi(request, response, url) {
       : /^reviews\//u.test(path) ? ["rating", "revision", "mutationId"]
       : path === "entries" ? ["term", "mutationId"]
       : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : [];
-    const optional = (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note", "partOfSpeech"] : [];
+    const optional = ["register", "login"].includes(path) ? ["remember"]
+      : (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note", "partOfSpeech"] : [];
     if (!payload || typeof payload !== "object" || Array.isArray(payload)
       || required.some(key => !Object.hasOwn(payload, key))
       || Object.keys(payload).some(key => !required.includes(key) && !optional.includes(key))) {
@@ -575,6 +576,30 @@ async function api(request, response, url) {
     if (cookies(request).e2e_owner_delay === "1") await new Promise((resolveDelay) => setTimeout(resolveDelay, 900));
     const state = runState(request);
     return json(response, 200, { sha: state.sha, htmlUrl: "https://github.com/zhuodashuai/zhuodashuai.github.io", snapshot: state.snapshot });
+  }
+  if (url.pathname === "/api/v1/owner/dictionary-collection" && request.method === "POST") {
+    const payload = await body(request);
+    if (!assertWrite(request, response, payload)) return;
+    if (Object.keys(payload).some(key => !["term", "mutationId"].includes(key)) || typeof payload.term !== "string"
+      || typeof payload.mutationId !== "string" || payload.mutationId.length < 12) return error(response, 400, "invalid_dictionary_collection", "收录请求不完整。");
+    const state = runState(request), existing = findDuplicate(state.snapshot.entries, { term: payload.term });
+    if (existing) return json(response, 200, { entry: existing, added: false, sha: state.sha });
+    const key = payload.term.normalize("NFKC").toLocaleLowerCase("en-US"); let hash = 2166136261;
+    for (const char of key) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
+    const manifest = JSON.parse(await readFile(join(root, "data/expanded-dictionary/manifest.json"), "utf8"));
+    const descriptor = manifest.english.shards[hash % 128];
+    const shard = JSON.parse(await readFile(join(root, "data/expanded-dictionary", descriptor.file), "utf8"));
+    const ref = shard.keys.find(([head]) => head === key)?.[1].filter(value => value.kind === "canonical");
+    if (ref?.length !== 1) return error(response, 422, "dictionary_term_not_exact", "请选择明确英文词条。");
+    const row = shard.records.find(value => value.id === ref[0].id), source = manifest.sources[row.source];
+    const entry = validatePublicEntry({ ...createBlankEntry(row.term), meaning: row.meaning, partOfSpeech: row.partOfSpeech,
+      organizationMethod: "local-dictionary", sourceTitle: source.name, sourceUrl: source.url,
+      attributionNote: `${source.name} · ${source.license}`,
+      sources: [{ title: source.name, url: source.url, kind: "dictionary", retrievedAt: new Date().toISOString() }] });
+    state.snapshot.entries.push(entry); state.snapshot.exportedAt = entry.updatedAt;
+    state.snapshot.lastMutationId = payload.mutationId; state.snapshot.revisionId = `fixture-${payload.mutationId}`;
+    state.sha = createHash("sha1").update(JSON.stringify(state.snapshot)).digest("hex");
+    return json(response, 200, { entry, added: true, sha: state.sha });
   }
   if (url.pathname === "/api/v1/owner/ai/organize" && request.method === "POST") {
     const payload = await body(request);

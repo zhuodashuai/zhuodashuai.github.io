@@ -1,19 +1,20 @@
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { setupPwa } from "./pwa.js?v=77";
-import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=77";
-import { createPersonalApi } from "./personal-api.js?v=77";
+import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=82";
+import { createPersonalApi } from "./personal-api.js?v=82";
 import {
   createPersonalDraftStore, createPersonalExpiryTimer, createPersonalMutationTracker, createPersonalSessionScope,
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
   validatePersonalEntry, validatePersonalInput, validatePersonalList,
   validatePersonalPassword, validatePersonalSession, validatePersonalUsername
-} from "./personal-storage.js?v=78";
+} from "./personal-storage.js?v=82";
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
-  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=78";
+  personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=81";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=81";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=81";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=82";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=82";
+import { automaticDictionaryCollection, createDictionaryCollector } from "./dictionary-collection.js?v=82";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=82";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -41,6 +42,7 @@ let channel;
 try { channel = new BroadcastChannel("zhuo-member-auth-v1"); } catch { /* Revalidation remains authoritative. */ }
 let originReady = false;
 let verificationTask = null;
+let pendingVerificationUserId = null;
 let detailEntry = null;
 let conflictEntry = null;
 let dictionarySequence = 0;
@@ -51,8 +53,19 @@ const state = {
   editor: null, recovery: null, authType: requestedAuth,
   collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
   publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
-  dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full"
+  dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full", dictionaryCollectionPhase: "idle"
 };
+const dictionaryCollector = createDictionaryCollector({
+  collect: (body, { signal, csrfToken }) => api.collectDictionary(body, csrfToken, { signal }),
+  onChange(value) {
+    if (value.error?.status === 401) { lockSession("公开收录需要重新确认卓的 GitHub 登录；查词输入未保存到其他账号。"); return; }
+    state.dictionaryCollectionPhase = value.phase;
+    $("member-dictionary-collection-status").hidden = false;
+    $("member-dictionary-collection-status").textContent = value.message;
+    $("member-dictionary-public-link").hidden = value.phase !== "saved";
+    renderChrome();
+  }
+});
 const RATING_LABELS = { again: "再来一次", hard: "有点难", good: "记得", easy: "很熟" };
 const privateOptions = (signal, extra = {}) => ({ signal, authType: state.authType, ...extra });
 
@@ -135,7 +148,7 @@ function clearSession({ discardDrafts = false } = {}) {
   state.selectedSources.clear();
   state.collectionId = "all";
   state.chapterId = "all";
-  if (discardDrafts) { drafts.clear(); mutations.clear(); dictionaryDraftOrigins.clear(); }
+  if (discardDrafts) { drafts.clear(); mutations.clear(); dictionaryDraftOrigins.clear(); dictionaryCollector.clear(); }
   clearPrivateDom();
 }
 
@@ -154,6 +167,9 @@ function renderChrome() {
   const auth = ["signed-out", "locked"].includes(state.phase);
   const recovery = state.phase === "recovery" && state.recovery && scope.current(state.recovery.token);
   $("member-loading").hidden = state.phase !== "checking";
+  $("member-session-retry").hidden = state.phase !== "verification-unavailable";
+  $("member-session-retry").disabled = !originReady || state.authBusy;
+  $("member-remember-login").disabled = !originReady || !auth || state.authBusy;
   $("member-auth").hidden = !auth;
   $("member-workspace").hidden = !ready;
   $("member-recovery").hidden = !recovery;
@@ -213,7 +229,19 @@ function renderChrome() {
   $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : "查词";
   $("member-dictionary-full").disabled = !ready || state.dictionaryBusy;
   $("member-dictionary-full").hidden = state.dictionaryCoverage !== "basic";
-  $("member-dictionary-use").disabled = !ready || state.entryBusy || state.dictionaryBusy || !state.dictionaryResult || !state.entriesLoaded || state.listBusy;
+  const publicCollection = state.authType === "github-owner";
+  $("member-privacy-badge").textContent = publicCollection ? "查词公开收录 · 学习记录私有" : "仅自己可见";
+  $("member-privacy-note").textContent = publicCollection
+    ? "卓的查词结果会收录到公开词库。下方手动保存的私人词条、备注与个人学习记录不会自动公开。"
+    : "个人词条与学习记录默认私有，不进入公开 GitHub。普通账号请妥善保存恢复码。";
+  $("member-dictionary-note").textContent = publicCollection
+    ? "英文原形唯一匹配后自动收录到卓的公开词库；中文或词形结果请先选词，再点击收录。只保存本站核对过的释义，不调用 AI。"
+    : "按 Enter 查询；选择“填入新词草稿”后保存到自己的私人词本。不调用在线翻译或 AI。";
+  $("member-dictionary-use").disabled = !ready || state.dictionaryBusy || !state.dictionaryResult
+    || (publicCollection ? ["saving", "saved"].includes(state.dictionaryCollectionPhase) : state.entryBusy || !state.entriesLoaded || state.listBusy);
+  $("member-dictionary-use").textContent = publicCollection
+    ? state.dictionaryCollectionPhase === "saving" ? "正在公开收录…" : state.dictionaryCollectionPhase === "saved" ? "已在公开词库" : state.dictionaryCollectionPhase === "error" ? "重试公开收录" : "收录到卓的公开词库"
+    : "填入新词草稿";
   for (const id of ["member-source-book", "member-source-chapter", "member-source-search", "member-source-all", "member-source-clear"]) $(id).disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-source-add").disabled = !ready || !state.entriesLoaded || state.entryBusy || state.listBusy || state.sourceBusy || state.selectedSources.size === 0;
   $("member-source-selected-count").textContent = `已选 ${state.selectedSources.size} / 100`;
@@ -264,6 +292,7 @@ function captureDraft() {
 
 function adoptSession(result, { recoveryCode = "" } = {}) {
   const session = sessionValue(result);
+  pendingVerificationUserId = null;
   const authType = session.authType || "member";
   if (state.authType !== "auto" && state.authType !== authType) throw new Error("登录方式已改变，请明确选择账号后重试。");
   expiryTimer.clear();
@@ -352,6 +381,11 @@ function selectOptions(element, options, selected) {
 }
 
 function resetDictionary() {
+  dictionaryCollector.cancel();
+  state.dictionaryCollectionPhase = "idle";
+  $("member-dictionary-collection-status").hidden = true;
+  $("member-dictionary-collection-status").textContent = "";
+  $("member-dictionary-public-link").hidden = true;
   dictionarySequence++;
   dictionaryController?.abort(); dictionaryController = null;
   state.dictionaryBusy = false; state.dictionaryResult = null;
@@ -364,13 +398,18 @@ function resetDictionary() {
 }
 
 function showDictionaryResult(result) {
+  dictionaryCollector.cancel();
+  state.dictionaryCollectionPhase = "idle";
+  $("member-dictionary-collection-status").hidden = true;
+  $("member-dictionary-public-link").hidden = true;
   state.dictionaryResult = result;
   $("member-dictionary-word").textContent = result.term;
   $("member-dictionary-pos").textContent = result.partOfSpeech || "词性未标注";
   $("member-dictionary-meaning").textContent = result.meaning;
   $("member-dictionary-result").hidden = false;
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
-  $("member-dictionary-status").textContent = `${state.dictionaryCoverage === "basic" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。${result.warning || "具体含义请结合语境。"}`;
+  const destination = state.authType === "github-owner" ? "收录状态在下方显示；只核对本站标准词条来源" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
+  $("member-dictionary-status").textContent = `${state.dictionaryCoverage === "basic" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
@@ -438,6 +477,7 @@ async function queryDictionary(event, { full = false } = {}) {
     }
     showDictionaryChoices(results, result.hasMore);
     showDictionaryResult(results[0]);
+    if (state.authType === "github-owner" && automaticDictionaryCollection(query, result)) void collectDictionaryResult();
   } catch (error) {
     if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
   } finally {
@@ -447,6 +487,7 @@ async function queryDictionary(event, { full = false } = {}) {
 
 function useDictionaryResult() {
   const result = state.dictionaryResult;
+  if (state.authType === "github-owner") { void collectDictionaryResult(); return; }
   if (state.phase !== "ready" || !state.user || state.entryBusy || state.listBusy || !state.entriesLoaded || !result) return;
   const existing = state.entries.find(entry => entry.normalized === normalizeEnglish(result.term));
   if (existing) {
@@ -463,6 +504,18 @@ function useDictionaryResult() {
   dictionaryDraftOrigins.set(state.user.id, { ...result });
   status("词性和释义已填入草稿；点击保存后加入自己的词本。", "saved");
   $("member-entry-form").scrollIntoView({ block: "nearest", behavior: "auto" });
+}
+
+async function collectDictionaryResult() {
+  const result = state.dictionaryResult;
+  if (state.phase !== "ready" || !state.user || state.authType !== "github-owner" || !result
+    || ["saving", "saved"].includes(state.dictionaryCollectionPhase)) return;
+  const token = scope.capture(), sequence = dictionarySequence, userId = state.user.id;
+  const query = $("member-dictionary-term").value;
+  await dictionaryCollector.save(result.term, { userId, csrfToken: state.csrfToken,
+    isCurrent: () => scope.current(token) && state.phase === "ready" && state.authType === "github-owner"
+      && state.user?.id === userId && sequence === dictionarySequence && state.dictionaryResult === result
+      && $("member-dictionary-term").value === query });
 }
 
 function renderPrivateScope() {
@@ -728,7 +781,8 @@ async function verifySession() {
     return;
   }
   if (verificationTask) return verificationTask;
-  const previousUserId = state.user?.id || null;
+  const previousUserId = state.user?.id || pendingVerificationUserId;
+  pendingVerificationUserId = previousUserId;
   if (state.user) captureDraft();
   clearSession();
   state.phase = "checking";
@@ -738,6 +792,7 @@ async function verifySession() {
     try {
       const result = await request((signal) => api.session(privateOptions(signal)));
       if (result.authenticated === false) {
+        pendingVerificationUserId = null;
         clearSession();
         state.phase = state.authType === "github-owner" ? "owner-gate" : "signed-out";
         renderChrome();
@@ -752,7 +807,15 @@ async function verifySession() {
       await loadEntries();
     } catch (error) {
       if (error?.stale) return;
-      lockSession("暂时无法验证账号。为保护隐私，请重新登录；原有云端词条不会丢失。");
+      if (error.status === 401) lockSession("登录已失效，请重新登录；原有云端词条不会丢失。");
+      else {
+        // A network outage hides private data but does not turn a valid
+        // persistent cookie into an explicit logout or demand a password.
+        clearSession();
+        state.phase = "verification-unavailable";
+        renderChrome();
+        status("暂时无法验证账号，个人内容已隐藏。连接恢复后可重新确认登录；云端词条不会丢失。", "error");
+      }
     }
   })();
   verificationTask = task;
@@ -771,7 +834,8 @@ async function authenticate(kind, event) {
   try {
     body = {
       username: validatePersonalUsername($(`${kind}-username`).value),
-      password: validatePersonalPassword($(`${kind}-password`).value)
+      password: validatePersonalPassword($(`${kind}-password`).value),
+      remember: $("member-remember-login").checked
     };
   } catch (error) { status(error.message, "error"); return; }
   $(`${kind}-password`).value = "";
@@ -1078,6 +1142,7 @@ for (const control of document.querySelectorAll("[data-auth-view]")) control.add
   $(`${state.authView}-username`).focus();
 });
 $("member-login-form").addEventListener("submit", (event) => void authenticate("login", event));
+$("member-session-retry").addEventListener("click", () => void verifySession());
 $("member-register-form").addEventListener("submit", (event) => void authenticate("register", event));
 $("member-reset-form").addEventListener("submit", (event) => void resetPassword(event));
 $("member-entry-form").addEventListener("submit", (event) => void saveEntry(event));
@@ -1189,8 +1254,9 @@ window.addEventListener("pageshow", (event) => {
   if (originReady && event.persisted) void verifySession();
 });
 window.addEventListener("focus", () => {
-  if (originReady && state.phase === "ready" && !state.entryBusy && !state.listBusy) void verifySession();
+  if (originReady && ["ready", "verification-unavailable"].includes(state.phase) && !state.entryBusy && !state.listBusy) void verifySession();
 });
+window.addEventListener("online", () => { if (originReady && state.phase === "verification-unavailable") void verifySession(); });
 if (channel) channel.onmessage = (event) => {
   if (event.data?.tabId === tabId || !["changed", "locked"].includes(event.data?.type)) return;
   if (state.user) captureDraft();

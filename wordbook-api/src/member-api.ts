@@ -1,6 +1,6 @@
 import { ApiError, assertSameOriginWrite, clearSessionCookie, jsonResponse, parseCookies, sha256Hex } from "./security";
 import {
-  MEMBER_COOKIE, MEMBER_SESSION_SECONDS, MEMBER_UUID, clearMemberCookie, memberAuthStub, memberCookie,
+  MEMBER_COOKIE, MEMBER_REMEMBER_SESSION_SECONDS, MEMBER_UUID, clearMemberCookie, memberAuthStub, memberCookie, memberRemember,
   assertPrivateSession, memberError, memberFields, memberInternalCall, memberSessionHash, privateOwnerStub, readMemberJson, verifyPrivateOwner,
   type MemberAuthType, type MemberEnv, type MemberIdentity
 } from "./member-security";
@@ -28,7 +28,10 @@ async function authenticatedResponse(payload: Record<string, unknown>): Promise<
   const raw = payload.rawSession;
   if (typeof raw !== "string" || !/^[A-Za-z0-9_-]{64}$/.test(raw)) throw new ApiError(503, "member_auth_unavailable", "账号服务没有完成登录，请重试。");
   const { rawSession: _secret, ...view } = payload;
-  return jsonResponse({ ...view, authType: "member" }, 200, { "Set-Cookie": memberCookie(raw, MEMBER_SESSION_SECONDS) });
+  const expiresAt = Number(view.expiresAt);
+  if (!Number.isFinite(expiresAt) || expiresAt <= Date.now()) throw new ApiError(503, "member_auth_unavailable", "账号服务没有完成登录，请重试。");
+  const seconds = Math.max(1, Math.min(MEMBER_REMEMBER_SESSION_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)));
+  return jsonResponse({ ...view, authType: "member" }, 200, { "Set-Cookie": memberCookie(raw, seconds) });
 }
 
 /** Project only private-entry DTOs; source contexts and review records keep their existing schema. */
@@ -98,7 +101,8 @@ async function routeMemberRequest(request: Request, env: MemberEnv, options: { r
     const body = await readMemberJson(request, request.method === "PUT" && entryId ? 128 * 1024 : undefined);
     if ((path === `${PREFIX}/register` || path === `${PREFIX}/login`) && request.method === "POST") {
       if (chosenAuthType(request) === "github-owner") throw new ApiError(403, "owner_account_managed_by_github", "卓本人的账号由现有 GitHub 登录管理，不需要注册普通账号。");
-      memberFields(body, ["username", "password"]);
+      memberFields(body, ["username", "password"], ["remember"]);
+      memberRemember(body.remember);
       if (path.endsWith("/register") && env.MEMBER_SIGNUP_ENABLED !== "true") throw new ApiError(503, "member_signup_disabled", "新账号注册暂未开放，已有账号仍可登录。");
       const address = request.headers.get("cf-connecting-ip") || "local-development";
       const ipHash = await sha256Hex(`zhuo-member-ip-v1\0${env.SESSION_SECRET}\0${address}`);

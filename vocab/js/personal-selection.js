@@ -1,5 +1,5 @@
-import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "./collections.js?v=77";
-import { contextualizeReadingEntry, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery } from "./wordbook-schema.js?v=77";
+import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "./collections.js?v=82";
+import { contextualizeReadingEntry, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery } from "./wordbook-schema.js?v=82";
 
 export async function fetchPersonalPublicCatalog({ fetchImpl = globalThis.fetch, signal, timeoutMs = 20_000, apiTimeoutMs = 2_500 } = {}) {
   const controller = new AbortController();

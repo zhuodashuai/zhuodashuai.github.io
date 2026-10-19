@@ -76,5 +76,6 @@ export const OWNER_USER_ID = 156042078;
 export const OWNER_REPOSITORY_ID = 1309360291;
 export const AI_DAILY_REQUEST_LIMIT = 20;
 export const SESSION_TTL_SECONDS = 60 * 60;
+export const REMEMBER_SESSION_TTL_SECONDS = 30 * 24 * 60 * 60;
 export const OAUTH_STATE_TTL_SECONDS = 10 * 60;
 export const GITHUB_API_VERSION = "2026-03-10";

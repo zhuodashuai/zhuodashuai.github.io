@@ -1,4 +1,4 @@
-import { exportPassageFavorites, importPassageFavorites, loadBookPassages, readPassageFavorites, selectBookPassages, setPassageFavorite, sourcePassagesForEntry } from "./book-passages.js?v=77";
+import { exportPassageFavorites, importPassageFavorites, loadBookPassages, readPassageFavorites, selectBookPassages, setPassageFavorite, sourcePassagesForEntry } from "./book-passages.js?v=82";
 
 function element(root, name, className = "", text = "") {
   const node = root.createElement(name);

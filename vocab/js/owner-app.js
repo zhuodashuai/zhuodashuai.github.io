@@ -1,5 +1,5 @@
-import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=77";
-import { createEntryDetailController } from "./entry-detail.js?v=77";
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=82";
+import { createEntryDetailController } from "./entry-detail.js?v=82";
 import {
   claimNextOperation,
   completeOperation,
@@ -17,19 +17,19 @@ import {
   requireReviewForStoredOperations,
   saveDraft,
   subscribeStorageChanges
-} from "./owner-storage.js?v=77";
-import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=77";
-import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=77";
+} from "./owner-storage.js?v=82";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=82";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { lookupCoreEntry } from "./core-dictionary.js?v=77";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=81";
-import { preserveCollectionTags } from "./collections.js?v=77";
-import { buildSynonymGroups } from "./synonym-groups.js?v=77";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=82";
+import { preserveCollectionTags } from "./collections.js?v=82";
+import { buildSynonymGroups } from "./synonym-groups.js?v=82";
 import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
-import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=77";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=82";
 
 const ids = [
-  "auth-gate", "auth-message", "login-link", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
+  "auth-gate", "auth-message", "login-link", "remember-login", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
   "owner-identity-text", "sync-dot", "sync-label", "sync-detail", "capture-form", "capture-input", "organize-button",
   "manual-button", "ai-service-status", "capture-status", "draft-list", "retry-queue", "export-backup", "import-backup", "import-file",
   "editor-empty", "entry-form", "editor-kicker", "editor-title", "draft-state", "editor-ai-status", "editor-ai-title", "editor-ai-message",
@@ -58,6 +58,7 @@ const state = {
   queueBusy: false,
   queueWakeTimer: null,
   authChecking: false,
+  authGeneration: 0,
   tabId: crypto.randomUUID(),
   conflict: null,
   ownerSearch: "",
@@ -1613,13 +1614,41 @@ async function resolveConflict(choice) {
   refs.conflictDialog.close();
 }
 
+const OWNER_LOGOUT_LOCK_KEY = "zhuo-owner-explicit-login-required";
+let ownerLogoutLocked = false;
+try {
+  const loginUrl = new URL(location.href);
+  if (loginUrl.searchParams.get("login") === "ok") {
+    sessionStorage.removeItem(OWNER_LOGOUT_LOCK_KEY);
+    loginUrl.searchParams.delete("login");
+    history.replaceState(history.state, "", `${loginUrl.pathname}${loginUrl.search}${loginUrl.hash}`);
+  }
+  ownerLogoutLocked = sessionStorage.getItem(OWNER_LOGOUT_LOCK_KEY) === "1";
+} catch { /* The in-memory logout lock still protects this page. */ }
+
+function showOwnerLoginGate(message) {
+  state.session = null;
+  state.csrfToken = "";
+  state.queueRecoveryComplete = false;
+  refs.ownerWorkspace.hidden = true;
+  refs.ownerWorkspace.inert = true;
+  refs.logoutButton.hidden = true;
+  refs.authGate.hidden = false;
+  refs.loginLink.hidden = location.hostname === "zhuodashuai.github.io";
+  refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked });
+  refs.authMessage.textContent = message;
+}
+
 async function verifySession({ forceGate = false } = {}) {
+  if (ownerLogoutLocked) { showOwnerLoginGate("此页已退出，请使用 GitHub 明确重新登录。本机草稿仍保留。"); return; }
   if (state.authChecking) return;
   state.authChecking = true;
+  const generation = state.authGeneration;
   const previouslyVerifiedSession = state.session;
   const previousCsrfToken = state.csrfToken;
   try {
     const session = await getSession();
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
     if (!session.authenticated || session.user?.login !== "zhuodashuai" || Number(session.user?.id) !== 156042078) {
       throw new OwnerApiError("登录已失效，请重新登录。", { status: 401, code: "authentication_required" });
     }
@@ -1638,6 +1667,7 @@ async function verifySession({ forceGate = false } = {}) {
       renderDrafts(),
       loadRemote().catch(() => {})
     ]);
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
     refs.authGate.hidden = true;
     refs.ownerWorkspace.hidden = false;
     refs.ownerWorkspace.inert = false;
@@ -1646,6 +1676,7 @@ async function verifySession({ forceGate = false } = {}) {
     const quarantineCount = await getQuarantineCount();
     if (quarantineCount) setStatus(refs.captureStatus, `有 ${quarantineCount} 条旧版本地数据因格式问题进入隔离区，没有被丢弃或发布。`);
   } catch (error) {
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
     const networkUnavailable = !navigator.onLine || error?.code === "network_error";
     const verifiedPageContinuity = networkUnavailable && previouslyVerifiedSession && previousCsrfToken;
     if (verifiedPageContinuity) {
@@ -1666,7 +1697,7 @@ async function verifySession({ forceGate = false } = {}) {
     refs.authGate.hidden = false;
     const onGitHubPages = location.hostname === "zhuodashuai.github.io";
     refs.loginLink.hidden = onGitHubPages;
-    refs.loginLink.href = ownerLoginUrl();
+    refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked });
     refs.authMessage.textContent = onGitHubPages
       ? "这里是 GitHub Pages 的公开只读副本。为避免把写入令牌放进前端，管理功能只在同源 serverless 管理地址开放；完成一次性部署后，公开页的“所有者登录”会跳转过去。"
       : (networkUnavailable
@@ -1830,19 +1861,23 @@ refs.retryQueue.addEventListener("click", async () => {
 });
 refs.ownerSearch.addEventListener("input", () => { state.ownerSearch = refs.ownerSearch.value; renderOwnerEntries(); });
 refs.loginLink.addEventListener("click", rememberOwnerInputForLogin);
+refs.rememberLogin.addEventListener("change", () => { refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked }); });
 refs.logoutButton.addEventListener("click", async () => {
   const csrfToken = state.csrfToken;
+  ownerLogoutLocked = true;
+  try { sessionStorage.setItem(OWNER_LOGOUT_LOCK_KEY, "1"); } catch { /* In-memory lock remains active. */ }
+  state.authGeneration += 1;
   state.previewGeneration += 1;
-  state.session = null;
-  state.csrfToken = "";
+  showOwnerLoginGate("正在退出。管理区已关闭，本机草稿仍保留。");
   state.synonymBatchStopped = true;
   state.synonymAbortController?.abort();
   await flushPendingDraftSave().catch(() => {});
-  try { await logout(csrfToken); } catch { /* local gate still closes */ }
-  state.session = null;
-  state.csrfToken = "";
-  state.queueRecoveryComplete = false;
-  await verifySession({ forceGate: true });
+  try {
+    await logout(csrfToken);
+    showOwnerLoginGate("已退出。下次请使用 GitHub 重新登录。");
+  } catch {
+    showOwnerLoginGate("退出请求暂未完成，此页已锁定。请使用 GitHub 明确重新登录。");
+  }
 });
 refs.conflictUseMerged.addEventListener("click", () => resolveConflict("merged"));
 refs.conflictUseRemote.addEventListener("click", () => resolveConflict("remote"));

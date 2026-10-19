@@ -19,14 +19,16 @@
     <nav aria-label="页面操作"><a href="./">公开词库</a><span id="member-auth-type" hidden></span><span id="member-username" hidden></span><button type="button" id="member-logout" disabled hidden>退出</button></nav>
   </header>
   <main id="main">
-    <div class="page-heading"><div><p class="eyebrow">A SPACE OF YOUR OWN</p><h1>我的词本</h1><p class="lede">记下英文，也留下自己的理解。</p></div><span class="private-badge">仅自己可见</span></div>
+    <div class="page-heading"><div><p class="eyebrow">A SPACE OF YOUR OWN</p><h1>我的词本</h1><p class="lede">记下英文，也留下自己的理解。</p></div><span class="private-badge" id="member-privacy-badge">仅自己可见</span></div>
     <p class="privacy-note" id="member-privacy-note">个人词条与学习记录默认私有，不进入公开 GitHub。普通账号请妥善保存恢复码。</p>
     <p id="member-status" class="status" role="status" aria-live="polite">正在确认安全连接…</p>
     <p id="member-loading">正在验证账号…</p>
+    <button type="button" id="member-session-retry" hidden>重新确认登录</button>
     <noscript><p>需要启用 JavaScript 才能安全登录。当前所有登录表单均已禁用。</p></noscript>
     <section id="member-auth" class="auth-panel panel" aria-label="个人账号" hidden>
       <p class="owner-login-option"><a id="member-github-owner-link" href="personal.html?auth=owner">卓：使用 GitHub 登录 →</a></p>
       <nav class="auth-tabs" aria-label="账号操作"><button type="button" data-auth-view="login" aria-pressed="true" disabled>登录</button><button type="button" data-auth-view="register" aria-pressed="false" disabled>注册</button><button type="button" data-auth-view="reset" aria-pressed="false" disabled>找回密码</button></nav>
+      <label class="check-label"><input id="member-remember-login" type="checkbox" checked>在自己的设备上记住登录，最长 30 天</label><small>公用设备请取消勾选。</small>
       <form id="member-login-form" method="post">
         <fieldset disabled><legend>欢迎回来</legend><label for="login-username">用户名</label><input id="login-username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="24" pattern="[A-Za-z][A-Za-z0-9_]{2,23}" required><label for="login-password">密码</label><input id="login-password" name="password" type="password" autocomplete="current-password" maxlength="256" required><button type="submit" class="primary">登录我的词本</button></fieldset>
       </form>
@@ -45,8 +47,10 @@
       <section class="dictionary-panel panel" aria-labelledby="member-dictionary-title">
         <h2 id="member-dictionary-title">中英查词</h2>
         <form id="member-dictionary-form" role="search"><label class="visually-hidden" for="member-dictionary-term">输入英文或中文查词</label><div class="dictionary-search"><input type="search" id="member-dictionary-term" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="英文或中文，例如 hip / 苹果"><button type="submit" id="member-dictionary-search" disabled>查词</button></div></form>
-        <p class="field-note dictionary-note">按 Enter 查询 · 不调用在线翻译或 AI。<a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">基础释义：ECDICT · MIT</a></p>
+        <p id="member-dictionary-note" class="field-note dictionary-note">按 Enter 查询 · 不调用在线翻译或 AI。</p>
         <p id="member-dictionary-status" role="status" aria-live="polite"></p>
+        <p id="member-dictionary-collection-status" role="status" aria-live="polite" hidden></p>
+        <a id="member-dictionary-public-link" href="./" hidden>在公开词库查看 →</a>
         <button type="button" id="member-dictionary-full" hidden disabled aria-describedby="member-dictionary-status">搜索完整词典</button>
         <div id="member-dictionary-choices" class="dictionary-choices" hidden></div>
         <div id="member-dictionary-result" class="dictionary-result" hidden><div class="dictionary-heading"><h3 id="member-dictionary-word" lang="en"></h3><p id="member-dictionary-pos"></p></div><p id="member-dictionary-meaning" class="multiline"></p><div id="member-dictionary-alternatives"></div><button type="button" id="member-dictionary-use" disabled>填入新词草稿</button></div>
@@ -69,6 +73,6 @@
   <dialog id="member-study-dialog" class="personal-study-dialog" aria-labelledby="member-study-term"><div class="dialog-heading"><p id="member-study-progress"></p><button type="button" id="member-study-close" aria-label="关闭学习">×</button></div><p id="member-study-source" class="field-note"></p><h2 id="member-study-term" lang="en"></h2><p id="member-study-prompt">先回想中文，再查看答案。</p><button type="button" id="member-study-reveal" class="primary">显示释义</button><div id="member-study-answer" hidden><p id="member-study-pos" class="entry-pos"></p><p id="member-study-meaning" class="multiline"></p><p id="member-study-usage" class="multiline"></p><p id="member-study-example" class="multiline"></p><p id="member-study-note" class="multiline"></p></div><fieldset id="member-study-ratings" disabled hidden><legend>你记得怎么样？</legend><div class="button-row"><button type="button" data-member-rating="again">再来一次</button><button type="button" data-member-rating="hard">有点难</button><button type="button" data-member-rating="good">记得</button><button type="button" data-member-rating="easy">很熟</button></div></fieldset><p id="member-study-status" role="status" aria-live="polite"></p><div class="button-row"><button type="button" id="member-study-retry" hidden>重试这次自评</button><button type="button" id="member-study-sync" hidden>核对云端学习记录</button></div></dialog>
   <dialog id="delete-account-dialog" aria-labelledby="delete-account-title"><h2 id="delete-account-title">删除我的账号</h2><p>将删除你的个人词条和账号，不能撤销。不会影响卓的公开词库。建议先导出备份。</p><form id="delete-account-form" method="post"><fieldset disabled><label for="delete-account-password">当前密码</label><input type="password" id="delete-account-password" name="password" autocomplete="current-password" maxlength="256" required><label for="delete-account-confirmation">输入 DELETE 确认删除</label><input id="delete-account-confirmation" name="confirmation" autocomplete="off" spellcheck="false" pattern="DELETE" required><div class="button-row"><button type="submit" id="delete-account-submit" class="danger">永久删除账号</button><button type="button" id="delete-account-cancel">取消</button></div></fieldset></form></dialog>
   <aside id="update-banner" class="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">保存后更新</button></aside>
-  <script type="module" src="js/personal-app.js?v=81"></script>
+  <script type="module" src="js/personal-app.js?v=82"></script>
 </body>
 </html>

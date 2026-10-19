@@ -433,7 +433,7 @@ export function reconcileLexicalEntryForPublish(candidate, { allowLegacyWithoutS
 
 export function validateEnglishInput(value) {
   const cleaned = normalizeTypography(value);
-  if (!cleaned || cleaned.length > 2000 || !/[A-Za-z]/.test(cleaned)) throw new Error("请输入 1 至 2,000 个字符的英文内容。");
+  if (!cleaned || cleaned.length > 2000 || (!/[A-Za-z]/.test(cleaned) && cleaned !== "24/7")) throw new Error("请输入 1 至 2,000 个字符的英文内容。");
   if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(cleaned)) throw new Error("输入包含不支持的控制字符。");
   if (/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/u.test(cleaned)) throw new Error("这里只接收英文内容；请移除中文后再试。");
   if (/<\/?[A-Za-z][^>]*>|javascript\s*:/iu.test(cleaned)) throw new Error("输入看起来像 HTML 或 JavaScript，已安全拒绝。");
