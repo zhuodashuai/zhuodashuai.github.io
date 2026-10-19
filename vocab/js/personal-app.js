@@ -43,6 +43,7 @@ try { channel = new BroadcastChannel("zhuo-member-auth-v1"); } catch { /* Revali
 let originReady = false;
 let verificationTask = null;
 let verificationRecheckQueued = false;
+let onlineVerificationTimer = null;
 let pendingVerificationUserId = null;
 let detailEntry = null;
 let conflictEntry = null;
@@ -154,6 +155,7 @@ function clearSession({ discardDrafts = false } = {}) {
 }
 
 function lockSession(message, { discardDrafts = false, notify = false } = {}) {
+  cancelOnlineVerification();
   verificationRecheckQueued = false;
   clearSession({ discardDrafts });
   lockMarker(true);
@@ -294,6 +296,7 @@ function captureDraft() {
 
 function adoptSession(result, { recoveryCode = "" } = {}) {
   const session = sessionValue(result);
+  cancelOnlineVerification();
   pendingVerificationUserId = null;
   const authType = session.authType || "member";
   if (state.authType !== "auto" && state.authType !== authType) throw new Error("登录方式已改变，请明确选择账号后重试。");
@@ -776,6 +779,11 @@ async function reconcileStudy() {
   renderChrome(); renderStudy();
 }
 
+function cancelOnlineVerification() {
+  if (onlineVerificationTimer !== null) clearTimeout(onlineVerificationTimer);
+  onlineVerificationTimer = null;
+}
+
 async function verifySession({ recheckIfPending = false } = {}) {
   if (!originReady || state.authBusy || state.phase === "recovery") return;
   if (lockMarker()) {
@@ -848,6 +856,7 @@ function recoveryCode(value) {
 async function authenticate(kind, event) {
   event.preventDefault();
   if (!originReady || state.authBusy || !["signed-out", "locked"].includes(state.phase)) return;
+  cancelOnlineVerification();
   let body;
   try {
     body = {
@@ -888,6 +897,7 @@ async function authenticate(kind, event) {
 async function resetPassword(event) {
   event.preventDefault();
   if (!originReady || state.authBusy || !["signed-out", "locked"].includes(state.phase)) return;
+  cancelOnlineVerification();
   let body;
   try {
     body = { username: validatePersonalUsername($("reset-username").value), recoveryCode: $("reset-recovery-code").value.trim(), newPassword: validatePersonalPassword($("reset-password").value) };
@@ -1127,6 +1137,7 @@ async function logout() {
 async function deleteAccount(event) {
   event.preventDefault();
   if (state.phase !== "ready" || !state.user || state.entryBusy || state.authType !== "member") return;
+  cancelOnlineVerification();
   let body;
   try {
     body = { password: validatePersonalPassword($("delete-account-password").value), confirmation: $("delete-account-confirmation").value };
@@ -1160,7 +1171,10 @@ for (const control of document.querySelectorAll("[data-auth-view]")) control.add
   $(`${state.authView}-username`).focus();
 });
 $("member-login-form").addEventListener("submit", (event) => void authenticate("login", event));
-$("member-session-retry").addEventListener("click", () => void verifySession({ recheckIfPending: true }));
+$("member-session-retry").addEventListener("click", () => {
+  cancelOnlineVerification();
+  void verifySession({ recheckIfPending: true });
+});
 $("member-register-form").addEventListener("submit", (event) => void authenticate("register", event));
 $("member-reset-form").addEventListener("submit", (event) => void resetPassword(event));
 $("member-entry-form").addEventListener("submit", (event) => void saveEntry(event));
@@ -1214,7 +1228,7 @@ $("member-study-dialog").addEventListener("close", () => {
   for (const id of ["member-study-term", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
   renderChrome();
 });
-$("member-owner-refresh").addEventListener("click", () => { lockMarker(false); state.authType = "github-owner"; state.phase = "checking"; void verifySession({ recheckIfPending: true }); });
+$("member-owner-refresh").addEventListener("click", () => { cancelOnlineVerification(); lockMarker(false); state.authType = "github-owner"; state.phase = "checking"; void verifySession({ recheckIfPending: true }); });
 $("member-refresh").addEventListener("click", () => void loadEntries());
 for (const id of ["member-new", "member-cancel"]) $(id).addEventListener("click", () => {
   if (state.phase === "ready" && !state.entryBusy && discardAllowed()) fillEditor(personalDraft(), { focus: true });
@@ -1263,6 +1277,7 @@ window.addEventListener("beforeunload", (event) => {
   if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.study?.pending || state.selectedSources.size) { event.preventDefault(); event.returnValue = ""; }
 });
 window.addEventListener("pagehide", () => {
+  cancelOnlineVerification();
   if (state.user) captureDraft();
   clearSession();
   state.phase = "checking";
@@ -1275,9 +1290,21 @@ window.addEventListener("focus", () => {
   if (originReady && ["ready", "verification-unavailable"].includes(state.phase) && !state.entryBusy && !state.listBusy) void verifySession();
 });
 window.addEventListener("online", () => {
-  if (originReady && (verificationTask || ["checking", "verification-unavailable"].includes(state.phase))) {
-    void verifySession({ recheckIfPending: true });
-  }
+  if (!originReady || onlineVerificationTimer !== null || state.authBusy || state.recovery || lockMarker()
+    || !(verificationTask || ["checking", "verification-unavailable"].includes(state.phase))) return;
+  // The page can emit online before its controlling service worker's
+  // transport is restored. Coalesce that event batch into one settled check.
+  onlineVerificationTimer = setTimeout(() => {
+    onlineVerificationTimer = null;
+    if (originReady && navigator.onLine && !state.authBusy && !state.recovery && !lockMarker()
+      && (verificationTask || ["checking", "verification-unavailable"].includes(state.phase))) {
+      void verifySession({ recheckIfPending: true });
+    }
+  }, 300);
+});
+window.addEventListener("offline", () => {
+  cancelOnlineVerification();
+  verificationRecheckQueued = false;
 });
 if (channel) channel.onmessage = (event) => {
   if (event.data?.tabId === tabId || !["changed", "locked"].includes(event.data?.type)) return;
