@@ -31,8 +31,11 @@ test("a transient session check hides private data and can recover without a pas
   expect(response.status()).toBe(200);
   await page.goto("/personal.html");
   await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
   await page.route("**/api/v1/member/session", route => route.fulfill({ status: 503, json: { error: { code: "oauth_refresh_unavailable", message: "Temporary failure" } } }));
+  const verifying = page.waitForRequest("**/api/v1/member/session");
   await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await verifying;
   await expect(page.locator("#member-session-retry")).toBeVisible();
   await expect(page.locator("#member-workspace")).toBeHidden();
   expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBeNull();
@@ -77,7 +80,9 @@ test("a retry after an outage retains the expected member identity when a cookie
   await expect(page.locator("#member-workspace")).toBeVisible();
   await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
   await page.route("**/api/v1/member/session", route => route.fulfill({ status: 503, json: { error: { code: "temporary_failure", message: "Temporary failure" } } }));
+  const verifying = page.waitForRequest("**/api/v1/member/session");
   await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await verifying;
   await expect(page.locator("#member-session-retry")).toBeVisible();
   expect((await register("remember_bob")).status()).toBe(200);
   await page.unroute("**/api/v1/member/session");
