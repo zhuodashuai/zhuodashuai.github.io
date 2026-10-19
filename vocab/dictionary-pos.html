@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183b32">
+  <meta name="description" content="卓的单词本词性补全的资料来源、校订方法与范围。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="dictionary.css?v=86">
+  <title>词性校订来源 · 卓的单词本</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到校订说明</a>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span>卓的单词本</span></a>
+    <nav aria-label="页面导航"><a href="./">公开词卡</a><a href="dictionary.html">中英词典</a><a href="guide.html">使用说明</a></nav>
+    <a class="owner-link" href="dictionary.html">返回查词</a>
+  </header>
+  <main id="main">
+    <section class="search-panel" aria-labelledby="pos-title">
+      <h1 id="pos-title">词性校订来源</h1>
+      <p>“原有释义＋词性校订”表示：中文释义仍来自词条原有资料，缺失的词性由下列公开资料或另行注明的语法编辑补充。新增词性不冒充 ECDICT 自带数据。</p>
+      <p>这是词头层面的语法标签，不意味着每个中文分义都与所有标签一一对应。原始来源行完整保留，校订不修改原有中文、词头、词形或个人学习记录。</p>
+      <p class="hint">采用精确词头匹配与冲突筛查；大小写不同的专名、缩写和普通词不能直接互相套用。资料相互矛盾、疑似错词或不能可靠判断的项目保留待核对，不统一默认成名词。这次校订不是整部中文释义都已逐条审校的证明。</p>
+    </section>
+    <article class="result-card" aria-labelledby="sources-title">
+      <h2 id="sources-title">资料与许可</h2>
+      <ul>
+        <li><a href="https://github.com/skywind3000/ECDICT/tree/bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b">ECDICT 固定版本</a>：优先恢复原始中文释义中已经明示的语法标签。中文释义继续适用原 <a href="data/ECDICT-LICENSE.txt">MIT 许可</a>。</li>
+        <li><a href="https://wordnet.princeton.edu/">Princeton WordNet 3.1</a>：从原生词头索引读取 noun、verb、adjective、adverb，不凭词尾猜测词根。<a href="data/WORDNET-3.1-LICENSE.txt">完整 WordNet 3.1 许可</a>；WordNet 3.1 Copyright 2011 by Princeton University. All rights reserved.</li>
+        <li><a href="https://www.gutenberg.org/ebooks/3203">Moby Part-of-Speech</a>：只提取语法元数据，保留原始词头大小写用于核对。作者已将 Moby 数据置于公有领域；Moby 不是现代学习词典的逐义校对证明。</li>
+        <li><a href="https://ftp.gnu.org/gnu/gcide/">GNU Collaborative International Dictionary of English 0.54</a>：仅使用当前词头明确的语法标签，不把词源或交叉引用里的词性当成本词词性。原数据适用 <a href="data/GCIDE-GPL-3.0.txt">GPL-3.0-or-later</a>，不是 MIT；本次不引入其释义或例句。</li>
+        <li><a href="https://kaikki.org/dictionary/English/">English Wiktionary，经 Kaikki / Wiktextract 提取</a>：提取词头与词性，不复制来源例句。英语数据快照提取于 2026-10-03、基于 2026-09-02 dump。Wiktionary 贡献者的相关数据适用 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>；本项目筛选、归一化和语法校订属于修改，不代表 Wiktionary 或资料作者认可本项目。</li>
+        <li>项目语法编辑：对于原义项明确表示人名、地名、物质、器具、疾病等的条目，以及可以明确分析结构的短语，另外记录分类依据。此类依据与“外部词典精确收录”分开标记。</li>
+      </ul>
+      <h2>逐项证据与可复核数据</h2>
+      <p><a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/pos/pos-completion-2026-10-19.json">逐词词性、原释义指纹和证据位置</a> · <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/pos/integrity.json">独立校验指纹</a> · <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/pos/editorial-review.json">项目语法编辑记录</a></p>
+      <p class="hint">这些资料用于离线构建本站索引。查词时不会把输入发送给 WordNet、Wiktionary、翻译网站或 AI，也不会为了补词性等待在线服务。</p>
+    </article>
+  </main>
+  <footer><a href="dictionary.html">返回中英词典</a></footer>
+</body>
+</html>

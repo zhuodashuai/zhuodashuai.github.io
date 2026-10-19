@@ -9,6 +9,8 @@ import { parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { dictionarySupplementIntegrity, renderDictionarySupplementReferences, validateDictionarySupplement,
   verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
+import { applyDictionaryPosOverlay, dictionaryPosIntegrity, DICTIONARY_POS_SOURCE,
+  validateDictionaryPos, verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const BUCKETS = 128;
@@ -99,7 +101,7 @@ function coreRows(payload) {
     // The metadata column can contain only the first POS. Reuse the shipped
     // member result's labelled-gloss coverage, but keep the original gloss text.
     const projected = personalDictionaryResult({ word: raw[index.word], partOfSpeech: raw[index.partOfSpeech], meaning: raw[index.meaning] });
-    return row({ term: raw[index.word], partOfSpeech: projected.partOfSpeech, meaning: raw[index.meaning], forms: raw[index.forms] }, "core");
+    return row({ term: raw[index.word], partOfSpeech: projected.partOfSpeech || raw[index.partOfSpeech], meaning: raw[index.meaning], forms: raw[index.forms] }, "core");
   });
   return { rows, omittedWithoutChinese };
 }
@@ -112,10 +114,11 @@ function originalRows(pack) {
 }
 
 /** The caller supplies a hash-verified catalogue; authors cannot self-sign via CLI. */
-export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null }) {
+export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null, posPack = null }) {
   const seed = normalizeExpandedSeed(prepared);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
   const supplement = supplementPack === null ? null : validateDictionarySupplement(supplementPack);
+  const posReview = posPack === null ? null : validateDictionaryPos(posPack);
   const sources = {
     core: { name: "ECDICT · 已上线核心整理", license: "MIT and project editorial additions", url: SOURCE_URL,
       sha256: expandedSha256(JSON.stringify(corePayload)) },
@@ -170,7 +173,8 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
   for (const item of supplement?.entries || []) add("supplement", item);
   const priority = new Map(seed.rows.map((item, index) => [item.term, index]));
   const sorted = [...cards.values()].sort((a, b) => (priority.get(a.term) ?? Number.MAX_SAFE_INTEGER) - (priority.get(b.term) ?? Number.MAX_SAFE_INTEGER) || cmp(a.term, b.term));
-  const records = [], references = new Map();
+  let records = [];
+  const references = new Map();
   function reference(key, ref) {
     const existing = references.get(key) || [];
     if (!existing.some(value => JSON.stringify(value) === JSON.stringify(ref))) existing.push(ref);
@@ -188,6 +192,17 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     reference(expandedKey(card.term), { id, kind: "canonical" });
     for (const form of record.forms) reference(expandedKey(form), { id, kind: "form", term: form });
     for (const context of card.contexts) reference(context.key, { id, kind: "context", term: context.term, partOfSpeech: context.partOfSpeech, meaning: context.meaning });
+  }
+  const posMissingBefore = records.filter(record => !record.partOfSpeech.trim()).length;
+  let posReport = null;
+  if (posReview) {
+    const enriched = applyDictionaryPosOverlay(records, posReview);
+    records = enriched.records;
+    posReport = enriched.report;
+    // One composite source fits old schema-2 clients. Original source rows stay
+    // available for independent MIT seed recovery and provenance inspection.
+    if (posReport.applied) sources["pos-reviewed"] = { ...DICTIONARY_POS_SOURCE,
+      sha256: dictionaryPosIntegrity(posReview).semanticSha256 };
   }
   const chinese = new Map();
   for (const record of records) {
@@ -228,8 +243,10 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     canonicalCasefoldCollisions: [...references.values()].filter(refs => refs.filter(ref => ref.kind === "canonical").length > 1).length,
     ambiguousAliasKeys: [...references.values()].filter(refs => !refs.some(ref => ref.kind === "canonical") && new Set(refs.map(ref => ref.id)).size > 1).length,
     totalShardBytes: [...files.values()].reduce((total, bytes) => total + Buffer.byteLength(bytes), 0),
+    ...(posReview ? { posReview: { ...posReport, integrity: dictionaryPosIntegrity(posReview),
+      missingBefore: posMissingBefore, missingAfter: records.filter(record => !record.partOfSpeech.trim()).length } } : {}),
     ...(supplement ? { supplementRows: supplement.entries.length, supplementIntegrity: dictionarySupplementIntegrity(supplement) } : {}),
-    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}; no publisher dictionary text.` };
+    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}; no publisher dictionary text.` };
   return { manifest, files, report, records, seed };
 }
 
@@ -317,17 +334,20 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     if (!integrity) throw new Error("First bootstrap requires --prepared=<private prepared-input.json>; subsequent builds use tracked shards and the independent integrity root.");
     prepared = await recoverExpandedSeed(directory, integrity);
   }
-  const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes] = await Promise.all([
+  const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes, posBytes, posIntegrityBytes] = await Promise.all([
     readFile(resolve(root, "vocab/data/ecdict-core.json")), readFile(resolve(root, "vocab/data/owner-wordbook.json")),
     loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"), reviewDirectory: resolve(root, "tooling/dictionary/reviews") }),
     readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/supplements/import-2026-10-19.json"), "utf8"),
-    readFile(resolve(root, "tooling/dictionary/supplements/integrity.json"), "utf8")
+    readFile(resolve(root, "tooling/dictionary/supplements/integrity.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/pos/pos-completion-2026-10-19.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/pos/integrity.json"), "utf8")
   ]);
   const supplementPack = verifyDictionarySupplement(JSON.parse(supplementBytes), JSON.parse(supplementIntegrityBytes));
+  const posPack = verifyDictionaryPos(JSON.parse(posBytes), JSON.parse(posIntegrityBytes));
   const referencesHTML = renderDictionarySupplementReferences(supplementPack);
   const referencesPath = resolve(root, "vocab/dictionary-references.html");
-  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes), originalPack: catalogue.pack, supplementPack });
+  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes), originalPack: catalogue.pack, supplementPack, posPack });
   const verification = validateExpandedBuild(build);
   const manifestBytes = json(build.manifest);
   if (check) {

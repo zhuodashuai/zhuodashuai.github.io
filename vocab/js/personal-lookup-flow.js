@@ -1,4 +1,5 @@
-import { normalizeEnglish } from "./wordbook-schema.js?v=82";
+import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
+import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=88";
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));
@@ -13,7 +14,11 @@ function knownExact(input, result) {
     && value.license === "MIT and project editorial additions" && value.url === "https://github.com/skywind3000/ECDICT"
     || value.source === "卓的公开词库" && value.license === "Public project content; not relabelled as ECDICT"
       && value.url === "https://zhuodashuai.github.io/vocab/";
-  return sameSource && !value.matchedForm && normalizeEnglish(value.term) === normalizeEnglish(input);
+  // Reviewed MIT-only words still need the old lemma grace. Only the static
+  // core projection's complete matching tuple can bypass it, without folding
+  // away distinctions between proper names and ordinary words.
+  const reviewedCore = canonicalizeLookupInput(input) === value.term && isReviewedCoreDictionaryResult(value);
+  return (sameSource || reviewedCore) && !value.matchedForm && normalizeEnglish(value.term) === normalizeEnglish(input);
 }
 
 /** Race public sources only; a slow shared warmup cannot hold up another caller. */

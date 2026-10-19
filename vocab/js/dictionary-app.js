@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=82";
+import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=88";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the

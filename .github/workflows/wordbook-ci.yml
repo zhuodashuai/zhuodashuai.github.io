@@ -48,6 +48,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build compact member lookup from existing public data
         run: |
+          node tooling/scripts/build-dictionary-pos.mjs --check
           node tooling/scripts/build-member-dictionary.mjs
           node tooling/scripts/build-expanded-dictionary.mjs
           node tooling/scripts/build-expanded-dictionary.mjs --check
@@ -123,6 +124,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          node tooling/scripts/build-dictionary-pos.mjs --check
           node tooling/scripts/build-member-dictionary.mjs
           node tooling/scripts/build-expanded-dictionary.mjs
           node tooling/scripts/build-dictionary-examples.mjs --check

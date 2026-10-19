@@ -5,7 +5,7 @@ import test from "node:test";
 import { buildMemberDictionary, generateMemberDictionary } from "../scripts/build-member-dictionary.mjs";
 import { parseCoreDictionary } from "../../vocab/js/core-dictionary.js";
 import { parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
-import { lookupPersonalDictionary, parsePersonalDictionary, personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
+import { applyCorePosCorrection, lookupPersonalDictionary, parsePersonalDictionary, personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { MEMBER_DICTIONARY_MANIFEST } from "../../vocab/js/member-dictionary-manifest.js";
 
 const coreBytes = await readFile(new URL("../../vocab/data/ecdict-core.json", import.meta.url));
@@ -30,10 +30,19 @@ test("projection retains existing Chinese core rows and all canonical published 
   const usable = [...original.entries.values()].filter(row => /\p{Script=Han}/u.test(row.meaning));
   assert.equal(payload.counts.core, usable.length);
   assert.equal(payload.counts.omittedWithoutChinese, original.entries.size - usable.length);
+  let recoveredOwnLabels = 0;
   for (const [term, pos, meaning] of payload.core) {
     const old = [...original.entries.values()].find(row => row.word === term);
-    assert.ok(old, term); assert.equal(pos, old.partOfSpeech); assert.equal(meaning, old.meaning);
+    assert.ok(old, term);
+    const ownLabel = old.partOfSpeech.trim() ? old.partOfSpeech : personalDictionaryResult(old)?.partOfSpeech || "";
+    assert.equal(pos, ownLabel, term); assert.equal(meaning, old.meaning);
+    if (!old.partOfSpeech.trim() && pos) {
+      assert.match(old.meaning, /(?:^|\n)\s*(?:noun|verb|adjective|adverb|pronoun|preposition|conjunction|interjection|numeral|article|abbreviation|interj|pron|prep|conj|modal|abbr|adj|adv|aux|det|num|art|int|vt|vi|ad|n|v|a)\.\s*/iu,
+        `${term}: a recovered compact POS must come from a label in the original Chinese, not an external review`);
+      recoveredOwnLabels++;
+    }
   }
+  assert.ok(recoveredOwnLabels > 0, "recover the original source's explicit labels without copying external POS into the MIT-only payload");
   assert.equal(payload.counts.published, snapshot.entries.length);
   for (const row of snapshot.entries) {
     const projected = payload.published.find(item => item[0] === row.term);
@@ -41,7 +50,8 @@ test("projection retains existing Chinese core rows and all canonical published 
     assert.deepEqual(projected.slice(0, 3), [row.term, row.partOfSpeech, row.meaning]);
     const result = await lookupPersonalDictionary(row.term, { dictionary: parsed });
     const coreRow = [...original.entries.values()].find(item => item.word.toLocaleLowerCase("en-US") === row.term.toLocaleLowerCase("en-US"));
-    if (coreRow && /\p{Script=Han}/u.test(coreRow.meaning)) assert.deepEqual(result, personalDictionaryResult(coreRow), row.term);
+    if (coreRow && /\p{Script=Han}/u.test(coreRow.meaning)) assert.deepEqual(result,
+      applyCorePosCorrection(coreRow, personalDictionaryResult(coreRow)), row.term);
     else {
       assert.equal(result.source, "卓的公开词库", row.term);
       assert.equal(result.term, row.term); assert.equal(result.partOfSpeech, row.partOfSpeech);
