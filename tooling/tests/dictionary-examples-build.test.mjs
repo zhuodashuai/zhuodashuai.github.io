@@ -10,6 +10,11 @@ const review = pack => ({ schemaVersion: 1, sourceSha256: exampleSourceHash(pack
 const original = () => ({ entries: [{ headword: "test", review: { status: "checked", reviewer: "AI/prior-review" }, senses: [{ id: "test:sense-1", partOfSpeech: "verb", definitionZh: "检查是否正常", examples: [{ en: "Please test the device before the next lesson begins.", zh: "请在下节课开始前测试这台设备。" }] }] }] });
 const build = overrides => buildDictionaryExamples({ originalPack: original(), authored: [], knownTerms: ["test", "sample"], ...overrides });
 
+test("byte-hashed example assets retain LF bytes on Windows checkouts", async () => {
+  const attributes = await readFile(new URL("../../.gitattributes", import.meta.url), "utf8");
+  assert.match(attributes, /^vocab\/data\/dictionary-examples\/\*\* text eol=lf$/mu);
+});
+
 test("newly authored examples require an unchanged, independent AI review", () => {
   const pack = source(), approved = review(pack);
   assert.equal(validateExampleReview(pack, approved)[0].reviewer, "AI/independent-review");

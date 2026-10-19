@@ -1,2 +1,3 @@
 # Public lookup shards are byte-hashed. Preserve identical bytes on Windows/CI.
 vocab/data/expanded-dictionary/** text eol=lf
+vocab/data/dictionary-examples/** text eol=lf
