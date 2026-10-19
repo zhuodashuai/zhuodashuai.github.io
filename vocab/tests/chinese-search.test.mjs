@@ -1,0 +1,116 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { chineseSearchPlan, matchesChineseSearchMeaning } from "../js/chinese-search.js";
+
+const groups = [
+  ["开心", "高兴", "快乐", "愉快"], ["不开心", "不快乐", "不高兴"],
+  ["难过", "伤心", "悲伤", "悲哀"], ["愤怒", "恼怒", "恼火"],
+  ["害怕", "恐惧", "惧怕", "畏惧"], ["担心", "担忧", "忧虑", "发愁"],
+  ["疲倦", "疲劳", "疲乏", "疲累"], ["困倦", "欲睡", "想睡"],
+  ["聪明", "聪慧", "聪颖", "伶俐"], ["愚蠢", "愚笨"], ["勇敢", "英勇", "无畏"],
+  ["有礼貌", "礼貌", "有礼", "客气"], ["美味", "好吃", "可口"],
+  ["快速", "迅速", "飞快", "急速"], ["缓慢", "迟缓", "慢速"],
+  ["干净", "清洁", "洁净"], ["肮脏", "污秽"], ["帮助", "帮忙", "协助", "援助"],
+  ["开始", "起始", "开端"], ["结束", "终结", "终止"], ["喜欢", "喜爱"],
+  ["讨厌", "厌恶", "嫌恶"], ["正确", "无误"], ["昂贵", "高价", "价高"],
+];
+
+test("all curated Chinese groups are unique, bounded, reciprocal and immutable", () => {
+  assert.ok(groups.length >= 20 && groups.length <= 25);
+  const seen = new Set();
+  for (const group of groups) {
+    assert.ok(group.length >= 2 && group.length <= 4);
+    for (const term of group) {
+      assert.ok(!seen.has(term), term); seen.add(term);
+      const plan = chineseSearchPlan(term);
+      assert.deepEqual(plan, { term, aliases: group.filter(alias => alias !== term) });
+      assert.ok(Object.isFrozen(plan)); assert.ok(Object.isFrozen(plan.aliases));
+      assert.ok(plan.aliases.length <= 3); assert.ok(!plan.aliases.includes(term));
+      assert.throws(() => plan.aliases.push("错误关联"), TypeError);
+      assert.throws(() => { plan.term = "修改"; }, TypeError);
+      assert.equal(chineseSearchPlan(` ${term} `), plan);
+      assert.equal(chineseSearchPlan(`${term}的`), plan);
+      assert.equal(chineseSearchPlan(`${term}地`), plan);
+    }
+  }
+});
+
+test("only complete approved queries expand; related concepts do not form an uncontrolled graph", () => {
+  for (const query of ["", null, {}, 1, "happy", "happy开心", "开 心", "开心果", "很开心", "开心一点",
+    "使高兴", "令人愉快", "不太高兴", "未必快乐", "快乐主义", "不喜欢", "不安全", "安全", "可靠",
+    "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "开心的的", "\u202e开心", "开心\u0000",
+    "开".repeat(51), "开心，", "“开心”"]) assert.equal(chineseSearchPlan(query), null, String(query));
+  assert.deepEqual(chineseSearchPlan("喜欢").aliases, ["喜爱"]);
+  assert.ok(!chineseSearchPlan("喜欢").aliases.includes("爱情"));
+  assert.ok(!chineseSearchPlan("开心").aliases.includes("幸福"));
+  assert.ok(!chineseSearchPlan("美味").aliases.includes("香味"));
+});
+
+test("negative emotions have a separate exact family rather than losing their negation", () => {
+  for (const negative of ["不开心", "不高兴", "不快乐"]) {
+    const plan = chineseSearchPlan(negative);
+    assert.ok(plan.aliases.every(alias => alias.startsWith("不")));
+    assert.ok(!plan.aliases.includes("开心"));
+    assert.ok(!plan.aliases.includes("悲伤"));
+    assert.ok(matchesChineseSearchMeaning("a. 不快乐的, 不幸的, 不适当的", "不快乐"));
+    assert.ok(!matchesChineseSearchMeaning("a. 快乐的, 愉快的", negative));
+  }
+  assert.ok(!matchesChineseSearchMeaning("a. 不快乐的, 不高兴的", "快乐"));
+  assert.ok(!matchesChineseSearchMeaning("a. 不快乐的, 不高兴的", "高兴"));
+});
+
+test("whole definition atoms support POS labels, numbering, domains and genuine separators", () => {
+  for (const [meaning, term] of [
+    ["a. 快乐的, 幸福的", "快乐"], ["a. 快乐的，幸福的", "快乐"],
+    ["1. adjective：高兴的；满足而愉快的。", "高兴"],
+    ["① 高兴的；② 愉快的", "高兴"], ["① 高兴的；② 愉快的", "愉快"],
+    ["(1) adj. 高兴的", "高兴"], ["二、adjective: 高兴的", "高兴"],
+    ["[心理] adj. 高兴的", "高兴"], ["adj. [口语] 高兴的", "高兴"],
+    ["n. & v. 帮忙", "帮忙"], ["adjective · noun: 愉快的", "愉快"],
+    ["形容词：愉快的", "愉快"], ["愉快", "愉快"], ["愉快地", "愉快"],
+    ["n. 别的意思\r\na. 愉快的", "愉快"], ["a. 别的意思。愉快的", "愉快"],
+    ["v. 开始；起始", "起始"], ["a. 无误的", "无误"], ["a. 无畏的", "无畏"],
+    ["a. 高兴的（口语）", "高兴"], ["快乐的（用于人的情绪，非技术术语）", "快乐"],
+    ["快乐的 [口语]", "快乐"], ["愉快的【文学用语】", "愉快"],
+    ["快乐的.", "快乐"], ["[医] 欲睡的", "欲睡"],
+  ]) assert.ok(matchesChineseSearchMeaning(meaning, term), `${term}: ${meaning}`);
+});
+
+test("Chinese emotion atoms cannot silently change polarity or grammatical roles", () => {
+  const meanings = ["a. 不高兴的", "a. 不快乐的", "a. 不愉快的", "vt. 使高兴", "使人高兴的",
+    "令人愉快的", "令人高兴的", "让人高兴的", "(使)高兴", "[使]高兴", "高兴（使某人）",
+    "高兴（不开心）", "高兴起来", "感到高兴", "满足而愉快的", "愉快而幸福的", "不是快乐的"];
+  for (const meaning of meanings) for (const term of ["高兴", "快乐", "愉快"]) {
+    assert.ok(!matchesChineseSearchMeaning(meaning, term), `${term}: ${meaning}`);
+  }
+  // A word with an independent state sense remains eligible even if a later
+  // sense is causative; excluding its entire record would lose delight/jolly.
+  assert.ok(matchesChineseSearchMeaning("n. 高兴, 愉快\nvt. 使高兴\nvi. 感到高兴", "高兴"));
+  assert.ok(matchesChineseSearchMeaning("a. 高兴的\nvt. 使高兴", "高兴"));
+});
+
+test("compound nouns, mentions in explanations, and loose overlaps are not synonym definitions", () => {
+  for (const [meaning, term] of [
+    ["n. 开心果/阿月浑子果", "开心"], ["n. 快乐主义者, 享乐主义者", "快乐"],
+    ["因为高兴或紧张而不假思索地脱口而出", "高兴"],
+    ["常用来谈喜爱、悲伤、善意或勇气等情感", "悲伤"],
+    ["粉丝来信；喜爱、支持某位公众人物的人写给对方的信件。", "喜爱"],
+    ["① 把不愉快的事放到一边，继续向前", "愉快"],
+    ["n. 不高兴的人", "高兴"], ["n. 帮助者", "帮助"], ["n. 高价商品", "高价"],
+    ["a. 很高兴的", "高兴"], ["a. 感到非常高兴的", "高兴"], ["a. 有礼貌而愉快的", "愉快"],
+    ["n. 讨厌的人", "讨厌"], ["adj. 善于帮助他人的", "帮助"],
+    ["安全的", "可靠"], ["可靠的", "安全"], ["吝啬的", "便宜"], ["便宜的", "吝啬"],
+    ["爱情", "喜欢"], ["爱好的", "喜欢"], ["简单的", "容易"], ["困倦的", "疲倦"],
+  ]) assert.ok(!matchesChineseSearchMeaning(meaning, term), `${term}: ${meaning}`);
+});
+
+test("malformed inputs and operator-like annotations fail closed without throwing", () => {
+  for (const meaning of [null, {}, 1, "", "高兴\u202e", "高兴\u0000", "开".repeat(20_001),
+    "高兴（口语", "高兴[口语", "高兴【口语", "高兴（令人）", "高兴[使人]", "高兴的的",
+    "高兴（不）", "高兴（不愉快）", "高兴（未）", "高兴（无）", "高兴（非）"]) {
+    assert.equal(matchesChineseSearchMeaning(meaning, "高兴"), false, String(meaning));
+  }
+  for (const term of [null, {}, "", "happy", "高兴.*", "高 兴", "开".repeat(51)]) {
+    assert.equal(matchesChineseSearchMeaning("a. 高兴的", term), false, String(term));
+  }
+});

@@ -7,7 +7,7 @@
   <meta name="description" content="卓的中英词典：免登录查询英文词、词形和中文释义。">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="icon" href="assets/icon-192.png" type="image/png">
-  <link rel="stylesheet" href="dictionary.css?v=89">
+  <link rel="stylesheet" href="dictionary.css?v=90">
   <title>中英词典 · 卓的单词本</title>
 </head>
 <body data-page="dictionary">
@@ -36,6 +36,7 @@
         </div>
       </form>
       <p id="dictionary-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p id="dictionary-related-status" class="hint" role="status" aria-live="polite" hidden></p>
       <section id="dictionary-suggestion-panel" class="suggestion-panel" aria-labelledby="dictionary-suggestion-title" aria-busy="false" hidden>
         <h2 id="dictionary-suggestion-title">你是不是想查</h2>
         <p id="dictionary-suggestion-status" class="hint" role="status" aria-live="polite" aria-atomic="true"></p>
@@ -55,6 +56,7 @@
           <div class="result-actions"><a id="dictionary-add" class="primary-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">加入我的词本</a><span>进入词本后确认保存</span></div>
         </div>
         <p id="dictionary-matched-form" class="hint" hidden></p>
+        <p id="dictionary-related-match" class="hint" hidden></p>
         <section class="meaning-panel" aria-labelledby="dictionary-meaning-title">
           <h3 id="dictionary-meaning-title">中文释义</h3>
           <div id="dictionary-meaning" class="meaning"></div>
@@ -77,6 +79,6 @@
     </section>
   </main>
   <footer><p>基础释义来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT</a>（<a href="data/expanded-dictionary/ECDICT-LICENSE.txt">MIT 许可证</a>）；其他释义逐项标明来源。</p><p>仅查询本站公开索引，不调用在线翻译或 AI。</p></footer>
-  <script type="module" src="js/dictionary-app.js?v=89"></script>
+  <script type="module" src="js/dictionary-app.js?v=90"></script>
 </body>
 </html>
