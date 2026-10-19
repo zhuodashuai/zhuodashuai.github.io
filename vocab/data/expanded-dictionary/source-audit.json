@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "version": "36d4341b4f126a1711045b6df375cd12eb20641c81a0bca722a90d2f46848d7b",
+  "version": "fc91e400805127a153c35e6a163423b628a8fc73286e4bfb097d88eb81faa0e5",
   "counts": {
-    "records": 82920,
-    "englishKeys": 121031,
-    "chineseTokens": 139009
+    "records": 102609,
+    "englishKeys": 140862,
+    "chineseTokens": 160071
   },
-  "mitRows": 82689,
-  "workbookMitRows": 37459,
+  "mitRows": 102325,
+  "workbookMitRows": 57095,
   "coreRowsInput": 7502,
   "coreRows": 7499,
   "coreOmittedWithoutChinese": [
@@ -24,9 +24,16 @@
   "originalCheckedRows": 1030,
   "canonicalCasefoldCollisions": 1,
   "ambiguousAliasKeys": 176,
-  "totalShardBytes": 47652668,
+  "totalShardBytes": 54223378,
+  "supplementRows": 53,
+  "supplementIntegrity": {
+    "schemaVersion": 1,
+    "id": "import-2026-10-19",
+    "rows": 53,
+    "semanticSha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
+  },
   "commercialDefinitionsUsed": false,
-  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; no publisher dictionary text.",
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; no publisher dictionary text.",
   "integrity": {
     "schemaVersion": 1,
     "source": {
@@ -36,15 +43,15 @@
       "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
       "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
     },
-    "rows": 82689,
-    "semanticSha256": "45816dedb557a506f770eb50bc0ae641d768f35db877bbe6fe2ca8f868b9b99e",
+    "rows": 102325,
+    "semanticSha256": "228cea0075dc455d4e9fb4633cdc7a9671a39f88b4b031b5643e8207d6f4a98b",
     "headlistSha256": "6183795f1e3cb743db065f945376bd6296c589e7ab5b300b5456d2acb57f6fc9",
-    "workbookHeadsSha256": "3e1c0edb37dab0c7953ded5669a228764340b437f2fb3f9d513d4df254a1348f"
+    "workbookHeadsSha256": "ac0da3a83ddd75df102c87fc99c45b1a34ec11f8a184d12408bdc31f033feab5"
   },
   "verification": {
-    "canonicalRecords": 82920,
-    "englishKeys": 121031,
-    "chineseTokens": 139009,
+    "canonicalRecords": 102609,
+    "englishKeys": 140862,
+    "chineseTokens": 160071,
     "allReferencesVerified": true,
     "allHanPostingsVerified": true
   }

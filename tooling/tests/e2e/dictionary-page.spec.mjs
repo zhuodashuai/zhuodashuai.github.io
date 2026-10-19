@@ -5,6 +5,8 @@ import { dictionaryExampleBucket } from "../../../vocab/js/dictionary-examples.j
 
 const ORIGIN = process.env.WORDBOOK_E2E_ORIGIN || "http://127.0.0.1:4187";
 const publicSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
+const dictionaryManifest = JSON.parse(await readFile(new URL("../../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
+const dictionaryCountText = new Intl.NumberFormat("zh-CN").format(dictionaryManifest.counts.records);
 const publicHeads = new Set(publicSnapshot.entries.map(entry => entry.term.toLowerCase()));
 const englishShard = "**/data/expanded-dictionary/**/en-*.json*";
 const exampleShard = "**/data/dictionary-examples/**/examples-*.json*";
@@ -62,6 +64,42 @@ test("examples: actual reviewed sidecar shows its own senses and bilingual text 
   await expect(page.locator("#dictionary-add")).toHaveAttribute("href", /#lookup=override$/u);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
   expectPublicOnly(calls);
+});
+
+test("October workbook imports return English phrases and Chinese meanings with honest sources on mobile", async ({ page }) => {
+  const calls = observeRequests(page);
+  await page.setViewportSize({ width: 390, height: 844 }); await open(page);
+  for (const [term, chinese] of [["safety oracle", "安全判定器"], ["test oracle", "测试判定器"],
+    ["importance sampling", "重要性抽样"], ["fan mail", "粉丝来信"], ["stuffed mushroom", "酿蘑菇"]]) {
+    await query(page, term);
+    await expect(page.locator("#dictionary-term")).toHaveText(term);
+    await expect(page.locator("#dictionary-meaning")).toContainText(chinese);
+    await expect(page.locator("#dictionary-pos")).toContainText("noun");
+    // An owner collection may later make the public-card variant primary.
+    // Both must retain honest source labels; this import must not freeze the library.
+    await expect.poll(async () => {
+      const sourceText = await page.locator("#dictionary-source").innerText();
+      return [dictionaryManifest.sources.supplement.name, dictionaryManifest.sources.public.name].some(name => sourceText.includes(name));
+    }).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  }
+  await query(page, "粉丝来信");
+  await expect(page.locator("#dictionary-term")).toHaveText("fan mail");
+  await expect(page.locator("#dictionary-meaning")).not.toContainText("±");
+  await query(page, "安全判定器");
+  await expect(page.locator("#dictionary-term")).toHaveText("safety oracle");
+  expectPublicOnly(calls);
+});
+
+test("the supplement reference page lists actual sources without scripts or horizontal overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 }); await page.goto("/dictionary-references.html");
+  await expect(page.locator("h1")).toHaveText("词表补充参考资料");
+  await expect(page.locator("article.result-card")).toHaveCount(53);
+  await expect(page.locator('script')).toHaveCount(0);
+  const crossEntropy = page.locator("article").filter({ has: page.getByRole("heading", { name: "cross-entropy method", exact: true }) });
+  await expect(crossEntropy.getByRole("link", { name: "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems", exact: true }))
+    .toHaveAttribute("href", "https://arxiv.org/html/2005.02979v3#S7.SS1");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });
 
 test("examples: new batch words expose their reviewed selected sense without changing licensed meanings or requesting AI", async ({ page }) => {
@@ -207,7 +245,7 @@ test("an unsigned visitor can press Enter for real expanded words absent from th
     await expect(page.locator("#dictionary-meaning")).toContainText(meaning);
     await expect(page.locator("#dictionary-source")).toContainText(/ECDICT/u);
   }
-  await expect(page.locator("#dictionary-count")).toContainText(/82[,.，]?920/u);
+  await expect(page.locator("#dictionary-count")).toContainText(dictionaryCountText);
   expectPublicOnly(calls);
 });
 
@@ -253,7 +291,7 @@ test("a failed public index request is retryable and never shown as a successful
   fail = false; await page.locator("#dictionary-query").press("Enter");
   await expect(page.locator("#dictionary-term")).toHaveText("abacus");
   await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
-  await expect(page.locator("#dictionary-count")).toContainText(/82[,.，]?920/u);
+  await expect(page.locator("#dictionary-count")).toContainText(dictionaryCountText);
   expectPublicOnly(calls);
 });
 

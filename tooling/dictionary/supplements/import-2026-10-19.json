@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "id": "import-2026-10-19",
+  "workbookSha256": "8a21856c85ef4c3a527db6d05cb9189c5c3c8a982edb8f39eb82bcaa2cba903f",
+  "inputRecordsSha256": "9a16ce07dc2724d755bdfb45a95054de0a7b3b78ef7e1084a9dbc562296c7873",
+  "source": {
+    "name": "词表补充整理（逐条标注来源）",
+    "license": "Project editorial content; not MIT or source quotations",
+    "url": "https://zhuodashuai.github.io/vocab/dictionary-references.html"
+  },
+  "entries": [
+    {
+      "term": "safety oracle",
+      "partOfSpeech": "noun",
+      "meaning": "安全判定器；根据明确的安全条件作出判断的机制，其输入和结论范围取决于具体的测试或控制模型。\n语境提醒：本文中的控制用法检查有限时域内保持安全并进入已知安全吸引区域；返回0并不必然证明不安全。该术语本身不提供脱离模型假设的安全保证。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 4; Theorem 1; conservatism discussion"
+        },
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Introduction and Section 2; safety-focused specialization of the general test-oracle concept"
+        }
+      ]
+    },
+    {
+      "term": "region of attraction",
+      "partOfSpeech": "noun",
+      "meaning": "吸引域；闭环轨迹能够收敛到指定稳定平衡点或参考行为的初始状态集合。\n语境提醒：属于吸引域不自动意味着收敛过程始终满足安全约束。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 1"
+        }
+      ]
+    },
+    {
+      "term": "safe region of attraction",
+      "partOfSpeech": "noun",
+      "meaning": "安全吸引域；轨迹能够收敛到参考行为且在整个过程中保持于规定安全集合内的初始状态集合。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 1: implicit and explicit safe regions of attraction"
+        }
+      ]
+    },
+    {
+      "term": "motion primitive",
+      "partOfSpeech": "noun",
+      "meaning": "运动基元；由参考状态或参考轨迹、控制器、吸引区域和安全集合等要素描述的一种闭环动态行为。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 1"
+        }
+      ]
+    },
+    {
+      "term": "motion primitive graph",
+      "partOfSpeech": "noun",
+      "meaning": "运动基元图；以运动基元为节点、以可实现的安全切换为有向边的图。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 3"
+        }
+      ]
+    },
+    {
+      "term": "safe transition",
+      "partOfSpeech": "noun",
+      "meaning": "安全切换；切换控制器后，所得轨迹保持安全并收敛到下一运动基元的过程。",
+      "forms": [],
+      "domain": "robotics; nonlinear control; safe motion planning",
+      "references": [
+        {
+          "title": "Verifying Safe Transitions between Dynamic Motion Primitives on Legged Robots",
+          "url": "https://tamasmolnar.com/publication/2021_Ubellacker-et-al_verifying%20safe%20transitions_IROS_conf.pdf",
+          "locator": "Definition 2 and Theorem 1"
+        }
+      ]
+    },
+    {
+      "term": "safety specification",
+      "partOfSpeech": "noun",
+      "meaning": "安全规约；明确描述行为约束、用以排除指定不安全事件的要求。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Sections 2.2 and 3.1"
+        }
+      ]
+    },
+    {
+      "term": "signal temporal logic",
+      "partOfSpeech": "noun",
+      "meaning": "信号时序逻辑；用布尔算子和时间算子描述实值信号随时间应满足要求的逻辑。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "temporal logic robustness",
+      "partOfSpeech": "noun",
+      "meaning": "时序逻辑鲁棒度；在指定定量语义下，用带符号的数值刻画时序要求的满足或违反程度。\n语境提醒：通常正值表示满足、负值表示违反；零值须按具体边界语义解释。它不是故障概率。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 3.2"
+        }
+      ]
+    },
+    {
+      "term": "counterexample",
+      "partOfSpeech": "noun",
+      "meaning": "反例；能够展示系统违反所声明性质的输入或执行过程。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 2.3: Falsification"
+        }
+      ]
+    },
+    {
+      "term": "disturbance trajectory",
+      "partOfSpeech": "noun",
+      "meaning": "扰动轨迹；按照时间顺序施加于仿真系统的一系列外部影响。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 2.1"
+        }
+      ]
+    },
+    {
+      "term": "most-likely failure analysis",
+      "partOfSpeech": "noun",
+      "meaning": "最可能失效分析；在给定扰动概率模型下，寻找具有最大似然（密度）的违规扰动轨迹。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 2.3: Most-Likely Failure Analysis"
+        }
+      ]
+    },
+    {
+      "term": "adaptive stress testing",
+      "partOfSpeech": "noun",
+      "meaning": "自适应压力测试；利用环境扰动模型，引导逐步的对抗仿真搜索以发现高似然失效。",
+      "forms": [],
+      "domain": "autonomous systems; safety validation; simulation",
+      "references": [
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3",
+          "locator": "Section 3.2, adaptive stress testing formulation"
+        }
+      ]
+    },
+    {
+      "term": "nominal distribution",
+      "partOfSpeech": "noun",
+      "meaning": "标称分布；定义目标事件概率时采用的基准运行输入概率模型。\n语境提醒：标称模型需要说明依据，并不必然等同于真实世界的精确分布。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Nomenclature and Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "proposal distribution",
+      "partOfSpeech": "noun",
+      "meaning": "提议分布；用于生成计算样本的分布，可以重点采样目标分布下较少出现的输入。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "importance sampling",
+      "partOfSpeech": "noun",
+      "meaning": "重要性抽样；从另一分布生成样本，并使用相应的密度比权重估计目标分布下期望的方法。\n语境提醒：需要适当的支撑覆盖和权重条件；增加失效样本比例本身不等于提高标称故障概率，也不保证降低方差。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "likelihood ratio",
+      "partOfSpeech": "noun",
+      "meaning": "似然比；在重要性抽样中，指目标密度与提议密度之比，用于修正样本对估计的贡献。\n语境提醒：此处特指重要性权重p(x)/q(x)；假设检验等语境也使用似然比一词。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "failure probability estimation",
+      "partOfSpeech": "noun",
+      "meaning": "失效概率估计；在明确的运行概率模型下，估计指定失效事件发生概率。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 2.1 and Section 3.1"
+        }
+      ]
+    },
+    {
+      "term": "Bayesian safety validation",
+      "partOfSpeech": "noun",
+      "meaning": "贝叶斯安全验证；利用概率代理模型与采样选择准则调查失效，并估计失效概率的一类采样方法。\n语境提醒：指所引论文中的方法框架，并非对所有行为给出形式化安全证明。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Sections 3 and 3.2"
+        }
+      ]
+    },
+    {
+      "term": "probabilistic surrogate model",
+      "partOfSpeech": "noun",
+      "meaning": "概率代理模型；对高成本系统输出进行统计近似，并表达预测不确定性的较低成本模型。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 2.2"
+        }
+      ]
+    },
+    {
+      "term": "acquisition function",
+      "partOfSpeech": "noun",
+      "meaning": "采集函数；根据代理模型的预测或不确定性选择下一次评估输入的准则。",
+      "forms": [],
+      "domain": "simulation; rare-event estimation; Bayesian optimization",
+      "references": [
+        {
+          "title": "Bayesian Safety Validation for Failure Probability Estimation of Black-Box Systems",
+          "url": "https://arxiv.org/html/2305.02449v2",
+          "locator": "Section 2.2 and Section 3"
+        }
+      ]
+    },
+    {
+      "term": "reachable set",
+      "partOfSpeech": "noun",
+      "meaning": "可达集；在指定动力学、时间条件、初始或目标集合及输入假设下可达到的状态集合。\n语境提醒：必须说明前向或后向、精确时刻或时间范围，以及控制和扰动的量词。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Sections II and V"
+        }
+      ]
+    },
+    {
+      "term": "forward reachable set",
+      "partOfSpeech": "noun",
+      "meaning": "前向可达集；在规定输入假设下，从给定初始集合出发、在指定未来时刻能够到达的状态集合。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Section V.A"
+        }
+      ]
+    },
+    {
+      "term": "backward reachable set",
+      "partOfSpeech": "noun",
+      "meaning": "后向可达集；在明确控制与扰动量词后，能够在指定时刻到达目标集合的初始状态集合。\n语境提醒：例如某些安全博弈定义中，是扰动能够迫使系统到达不安全目标、即使控制方尽力避免的初始状态集合。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Section II"
+        }
+      ]
+    },
+    {
+      "term": "reachable tube",
+      "partOfSpeech": "noun",
+      "meaning": "可达管；描述在一个时间区间内可达情况的集合构造，而不只检查区间终点。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Section V.B"
+        }
+      ]
+    },
+    {
+      "term": "backward reachable tube",
+      "partOfSpeech": "noun",
+      "meaning": "后向可达管；在明确输入量词后，能够在给定时域内某一时刻到达目标集合的初始状态集合。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Section V.B"
+        }
+      ]
+    },
+    {
+      "term": "Hamilton-Jacobi reachability",
+      "partOfSpeech": "noun",
+      "meaning": "哈密顿—雅可比可达性分析；利用哈密顿—雅可比方程刻画动力系统的安全性或到达目标的可能性。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Introduction and Sections II-IV"
+        }
+      ]
+    },
+    {
+      "term": "reach-avoid problem",
+      "partOfSpeech": "noun",
+      "meaning": "到达—避障问题；在整个运动过程中满足状态约束，同时到达目标集合的问题。\n语境提醒：avoid可以指一般禁入状态或约束违反，不限于几何障碍物。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Introduction"
+        }
+      ]
+    },
+    {
+      "term": "forward invariant set",
+      "partOfSpeech": "noun",
+      "meaning": "正向不变集；所有从该集合内出发的轨迹，在后续模型时间内始终留在其中的集合。",
+      "forms": [],
+      "domain": "control theory; safety-critical control",
+      "references": [
+        {
+          "title": "Control Barrier Functions: Theory and Applications",
+          "url": "https://coogan.ece.gatech.edu/papers/pdf/amesecc19.pdf",
+          "locator": "Definition 1"
+        }
+      ]
+    },
+    {
+      "term": "control barrier function",
+      "partOfSpeech": "noun",
+      "meaning": "控制障碍函数；通过可行控制不等式，使其安全超水平集能够保持正向不变的可微函数。\n语境提醒：安全结论依赖模型、正则性、输入可行性和控制实现条件；函数取正值本身并不足以保证实际系统安全。",
+      "forms": [],
+      "domain": "control theory; safety-critical control",
+      "references": [
+        {
+          "title": "Control Barrier Functions: Theory and Applications",
+          "url": "https://coogan.ece.gatech.edu/papers/pdf/amesecc19.pdf",
+          "locator": "Definition 2 and Theorem 2"
+        }
+      ]
+    },
+    {
+      "term": "safety filter",
+      "partOfSpeech": "noun",
+      "meaning": "安全过滤器；在必要时修改所提议控制输入，使其满足指定安全约束的机制。\n语境提醒：它可改变实际控制输入；只给出判定结果的oracle不一定执行这种干预。",
+      "forms": [],
+      "domain": "control theory; safety-critical control",
+      "references": [
+        {
+          "title": "Control Barrier Functions: Theory and Applications",
+          "url": "https://coogan.ece.gatech.edu/papers/pdf/amesecc19.pdf",
+          "locator": "Section II.C and Section V.C"
+        }
+      ]
+    },
+    {
+      "term": "control Lyapunov function",
+      "partOfSpeech": "noun",
+      "meaning": "控制李雅普诺夫函数；可通过允许的控制使其下降、从而建立稳定化结论的正定函数。\n语境提醒：稳定化主要关心收敛；安全不变性主要关心不离开安全集合，两者并不相同。",
+      "forms": [],
+      "domain": "control theory; safety-critical control",
+      "references": [
+        {
+          "title": "Control Barrier Functions: Theory and Applications",
+          "url": "https://coogan.ece.gatech.edu/papers/pdf/amesecc19.pdf",
+          "locator": "Section II.A"
+        }
+      ]
+    },
+    {
+      "term": "control barrier function quadratic program",
+      "partOfSpeech": "noun",
+      "meaning": "控制障碍函数二次规划；以控制障碍函数安全不等式为约束，调整期望控制输入的二次优化问题。",
+      "forms": [],
+      "domain": "control theory; safety-critical control",
+      "references": [
+        {
+          "title": "Control Barrier Functions: Theory and Applications",
+          "url": "https://coogan.ece.gatech.edu/papers/pdf/amesecc19.pdf",
+          "locator": "Section II.C, displayed CBF-QP"
+        }
+      ]
+    },
+    {
+      "term": "runtime monitor",
+      "partOfSpeech": "noun",
+      "meaning": "运行时监视器；处理实际观察到的执行事件，并输出与指定性质有关判定结果的可执行机制。\n语境提醒：判定可能受可观测信息和有限执行前缀限制；监视并不自动包含控制干预。",
+      "forms": [],
+      "domain": "runtime verification; execution monitoring",
+      "references": [
+        {
+          "title": "A Tutorial on Runtime Verification",
+          "url": "https://www.havelund.com/Publications/rv-tutorial-ios-2012.pdf",
+          "locator": "Section 3.5, Definition 3"
+        }
+      ]
+    },
+    {
+      "term": "runtime verification",
+      "partOfSpeech": "noun",
+      "meaning": "运行时验证；分析被观察到的系统执行，检查其是否符合指定要求。",
+      "forms": [],
+      "domain": "runtime verification; execution monitoring",
+      "references": [
+        {
+          "title": "A Tutorial on Runtime Verification",
+          "url": "https://www.havelund.com/Publications/rv-tutorial-ios-2012.pdf",
+          "locator": "Abstract and Section 3"
+        }
+      ]
+    },
+    {
+      "term": "execution trace",
+      "partOfSpeech": "noun",
+      "meaning": "执行迹；以有序的事件或状态序列表示系统的一次执行过程。",
+      "forms": [],
+      "domain": "runtime verification; execution monitoring",
+      "references": [
+        {
+          "title": "A Tutorial on Runtime Verification",
+          "url": "https://www.havelund.com/Publications/rv-tutorial-ios-2012.pdf",
+          "locator": "Section 3.2"
+        }
+      ]
+    },
+    {
+      "term": "monitorability",
+      "partOfSpeech": "noun",
+      "meaning": "可监视性；能否利用执行过程中可获得的观测，得出所需性质判定的能力。\n语境提醒：具体定义依赖允许的观测、可接受判定及是否要求有限前缀内作出结论。",
+      "forms": [],
+      "domain": "runtime verification; execution monitoring",
+      "references": [
+        {
+          "title": "A Tutorial on Runtime Verification",
+          "url": "https://www.havelund.com/Publications/rv-tutorial-ios-2012.pdf",
+          "locator": "Introduction, discussion of monitorability"
+        }
+      ]
+    },
+    {
+      "term": "test oracle",
+      "partOfSpeech": "noun",
+      "meaning": "测试判定器；用于判断被观察测试行为是否符合要求的判定过程、机制或信息来源。\n语境提醒：可以只覆盖部分输入或性质，并非天然完备、正确或自动化。",
+      "forms": [],
+      "domain": "software testing; test assessment",
+      "references": [
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Introduction and Section 2"
+        }
+      ]
+    },
+    {
+      "term": "test oracle problem",
+      "partOfSpeech": "noun",
+      "meaning": "测试判定问题；难以确定系统对测试所产生的观测响应是否正确的问题。",
+      "forms": [],
+      "domain": "software testing; test assessment",
+      "references": [
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Abstract and Introduction"
+        }
+      ]
+    },
+    {
+      "term": "partial test oracle",
+      "partOfSpeech": "noun",
+      "meaning": "部分测试判定器；只能对部分输入或行为的部分方面提供正确性判断的判定机制。",
+      "forms": [],
+      "domain": "software testing; test assessment",
+      "references": [
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Introduction and Section 2"
+        }
+      ]
+    },
+    {
+      "term": "metamorphic testing",
+      "partOfSpeech": "noun",
+      "meaning": "蜕变测试；当精确预期输出未知或获取成本较高时，检查相关执行之间应满足关系的测试方法。",
+      "forms": [],
+      "domain": "software testing; test assessment",
+      "references": [
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Section 5, metamorphic relations"
+        }
+      ]
+    },
+    {
+      "term": "system under test",
+      "partOfSpeech": "noun",
+      "meaning": "被测系统；在测试中接受输入、运行并被评估其行为的实现或系统。",
+      "forms": [],
+      "domain": "software testing; test assessment",
+      "references": [
+        {
+          "title": "The Oracle Problem in Software Testing: A Survey",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+          "locator": "Introduction and Section 2"
+        }
+      ]
+    },
+    {
+      "term": "Markov chain",
+      "partOfSpeech": "noun",
+      "meaning": "马尔可夫链；给定当前状态后，下一状态的分布不再依赖更早状态历史的随机过程。\n语境提醒：本条采用离散时间表述；所引讲义讨论固定转移概率的情形。",
+      "forms": [],
+      "domain": "probability; stochastic processes",
+      "references": [
+        {
+          "title": "18.600 Lecture 32: Markov Chains",
+          "url": "https://ocw.mit.edu/courses/18-600-probability-and-random-variables-fall-2019/b6088d732c3acc3265c1373c3499cbe2_MIT18_600F19_lec32.pdf",
+          "locator": "Markov-chain definition, PDF slides 4-8"
+        }
+      ]
+    },
+    {
+      "term": "state space",
+      "partOfSpeech": "noun",
+      "meaning": "状态空间；数学系统模型中，状态变量所有可能取值构成的集合。\n语境提醒：状态空间不必等于实际可达状态集合。",
+      "forms": [],
+      "domain": "probability; stochastic processes",
+      "references": [
+        {
+          "title": "18.600 Lecture 32: Markov Chains",
+          "url": "https://ocw.mit.edu/courses/18-600-probability-and-random-variables-fall-2019/b6088d732c3acc3265c1373c3499cbe2_MIT18_600F19_lec32.pdf",
+          "locator": "Markov-chain definition, PDF slides 4-8"
+        }
+      ]
+    },
+    {
+      "term": "Monte Carlo method",
+      "partOfSpeech": "noun",
+      "meaning": "蒙特卡罗方法；通过重复随机抽样及统计汇总，对所求量进行数值估计的方法。\n语境提醒：误差和收敛依赖抽样方式及所需矩条件；有限样本结果不是精确值。",
+      "forms": [],
+      "domain": "numerical methods; probability; simulation",
+      "references": [
+        {
+          "title": "2.086 Unit 2: Monte Carlo Methods",
+          "url": "https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-fall-2012/620181b7e657843652addefc39074e37_MIT2_086F12_notes_unit2.pdf",
+          "locator": "Unit 2: sampling, sample averages, and Monte Carlo estimation"
+        }
+      ]
+    },
+    {
+      "term": "finite state machine",
+      "partOfSpeech": "noun",
+      "meaning": "有限状态机；具有有限个状态，并按输入及转换规则改变状态的顺序计算模型。\n语境提醒：具体模型可以附带状态或转换输出；硬件时钟是某些实现方式，并非所有有限状态机的必要定义条件。",
+      "forms": [],
+      "domain": "computer science; sequential systems; digital logic",
+      "references": [
+        {
+          "title": "6.004 Computation Structures: Finite State Machines, Annotated Slides",
+          "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c6/c6s1/",
+          "locator": "L06: FSM abstraction and state-transition diagrams"
+        }
+      ]
+    },
+    {
+      "term": "barrier certificate",
+      "partOfSpeech": "noun",
+      "meaning": "障碍证书；满足模型相关不等式、可据此证明给定初始集合出发的轨迹不会进入指定不安全集合的函数。\n语境提醒：原论文针对给定系统进行安全验证；控制障碍函数则通常用于刻画和选择维持安全的可行控制，二者不能直接当作同义词。证书结论依赖其模型和假设。",
+      "forms": [],
+      "domain": "hybrid systems; formal safety verification",
+      "references": [
+        {
+          "title": "Safety Verification of Hybrid Systems Using Barrier Certificates",
+          "url": "https://web.mit.edu/~jadbabai/www/papers/hscc04_2.pdf",
+          "locator": "Introduction and Section 3, Theorems 1-2"
+        }
+      ]
+    },
+    {
+      "term": "reachability analysis",
+      "partOfSpeech": "noun",
+      "meaning": "可达性分析；计算或界定指定时间条件下可达的状态，以分析能否到达目标或是否可能违反规约。\n语境提醒：可使用精确集合、可达管或保守近似；安全结论须结合近似方向以及控制和扰动的量词解释。",
+      "forms": [],
+      "domain": "dynamical systems; reachability analysis; formal methods",
+      "references": [
+        {
+          "title": "Hamilton-Jacobi Reachability: A Brief Overview and Recent Advances",
+          "url": "https://arxiv.org/pdf/1709.07523",
+          "locator": "Introduction; Sections II and V"
+        }
+      ]
+    },
+    {
+      "term": "safety case",
+      "partOfSpeech": "noun",
+      "meaning": "安全论证；以结构化论证将证据与安全主张关联起来，说明系统在明确应用及运行环境下的安全性为何可接受。\n语境提醒：强调主张、论证与证据及其适用条件，不是仅凭一份文档或测试通过就保证绝对安全。",
+      "forms": [],
+      "domain": "safety assurance; aviation; systems engineering",
+      "references": [
+        {
+          "title": "Automating the Generation of Heterogeneous Aviation Safety Cases",
+          "url": "https://ntrs.nasa.gov/citations/20120016812",
+          "locator": "Abstract and report description"
+        }
+      ]
+    },
+    {
+      "term": "cross-entropy method",
+      "partOfSpeech": "noun",
+      "meaning": "交叉熵方法；通过迭代抽样，并利用优良样本或与稀有事件有关的样本更新参数化采样分布，以进行优化或概率估计的方法。\n语境提醒：此处指采样算法，而非单独计算分类训练中的交叉熵损失；提议分布下更频繁的失效并不直接代表更高的标称风险。",
+      "forms": [],
+      "domain": "randomized optimization; rare-event simulation",
+      "references": [
+        {
+          "title": "A Tutorial on the Cross-Entropy Method",
+          "url": "https://research.utwente.nl/en/publications/a-tutorial-on-the-cross-entropy-method/",
+          "locator": "Tutorial abstract; algorithmic details cross-checked against Corso et al., Section 7.1"
+        },
+        {
+          "title": "A Survey of Algorithms for Black-Box Safety Validation of Cyber-Physical Systems",
+          "url": "https://arxiv.org/html/2005.02979v3#S7.SS1",
+          "locator": "Section 7.1: Cross-Entropy Method"
+        }
+      ]
+    },
+    {
+      "term": "chance constraint",
+      "partOfSpeech": "noun",
+      "meaning": "机会约束；在给定概率分布下，要求含随机量的不等式以至少指定的概率成立的约束。\n语境提醒：例如P(g(x,ω)≤0)≥1−α；阈值描述允许的违约概率，不是有限样本中的通过比例，也不是统计置信度。",
+      "forms": [],
+      "domain": "stochastic optimization; risk constraints",
+      "references": [
+        {
+          "title": "Disciplined Convex Stochastic Programming: A New Framework for Stochastic Optimization",
+          "url": "https://web.stanford.edu/~boyd/papers/pdf/dcsp_uai.pdf",
+          "locator": "Section 2.1, Chance-constrained problems; Section 3.3"
+        }
+      ]
+    },
+    {
+      "term": "fan mail",
+      "partOfSpeech": "noun",
+      "meaning": "粉丝来信；喜爱、支持某位公众人物的人写给对方的信件。通常作不可数名词。",
+      "forms": [],
+      "domain": "everyday English; correspondence",
+      "references": [
+        {
+          "title": "Cambridge Dictionary — fan mail",
+          "url": "https://dictionary.cambridge.org/dictionary/english/fan-mail",
+          "locator": "English entry; noun [U]. Chinese explanation independently rewritten to replace corrupted source text."
+        }
+      ]
+    },
+    {
+      "term": "stuffed mushroom",
+      "partOfSpeech": "noun",
+      "meaning": "酿蘑菇；在蘑菇菌盖中填入配料后烹制的菜肴。配料和做法可以不同。",
+      "forms": [],
+      "domain": "food; cooking",
+      "references": [
+        {
+          "title": "Good Food — Stuffed mushrooms",
+          "url": "https://www.bbcgoodfood.com/recipes/stuffed-mushrooms",
+          "locator": "Recipe title and method: filling placed in mushroom caps. Chinese explanation independently written; not a recipe quotation."
+        }
+      ]
+    }
+  ]
+}
