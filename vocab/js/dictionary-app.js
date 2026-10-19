@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=79";
+import { searchExpandedDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=81";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -103,6 +103,47 @@ export function mountDictionaryPage(document, window) {
   const status = get("dictionary-status"), result = get("dictionary-result"), choices = get("dictionary-choices");
   const count = get("dictionary-count"), resultsRegion = get("dictionary-results"), heading = get("dictionary-term");
   let lastResults = null, lastSelected = null;
+  const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");
+  const exampleContent = get("dictionary-example-content"), exampleRetry = get("dictionary-example-retry");
+  let exampleSequence = 0, exampleController = null, exampleModule = null;
+  function renderExamples(state) {
+    examplePanel.hidden = state.phase === "idle" || state.phase === "missing";
+    examplePanel.setAttribute("aria-busy", String(state.phase === "loading"));
+    exampleStatus.textContent = state.message; exampleRetry.hidden = state.phase !== "error";
+    exampleContent.replaceChildren();
+    if (state.phase !== "ready") return;
+    state.entry.senses.forEach((sense, index) => {
+      const details = document.createElement("details"); details.className = "example-sense"; details.open = index === 0;
+      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${sense.partOfSpeech} · ${sense.meaningZh}`;
+      const list = document.createElement("ol");
+      sense.examples.forEach(example => {
+        const item = document.createElement("li"), en = document.createElement("p"), zh = document.createElement("p");
+        en.lang = "en"; en.textContent = example.en; zh.lang = "zh-CN"; zh.textContent = example.zh;
+        item.append(en, zh); list.append(item);
+      });
+      details.append(summary, list); exampleContent.append(details);
+    });
+  }
+  function clearExamples() {
+    exampleSequence++; exampleController?.clear();
+    renderExamples({ phase: "idle", message: "" });
+  }
+  function showExamples(term) {
+    clearExamples(); const current = exampleSequence;
+    renderExamples({ phase: "loading", message: "正在读取学习例句…" });
+    // Do not add a JS/data dependency to the critical meaning/CTA path. A late
+    // import/download is guarded separately from the primary query controller.
+    exampleModule ||= import("./dictionary-examples.js?v=81");
+    void exampleModule.then(module => {
+      if (current !== exampleSequence || lastSelected?.term !== term) return;
+      exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });
+      void exampleController.show(term);
+    }).catch(() => {
+      exampleModule = null;
+      if (current === exampleSequence && lastSelected?.term === term) renderExamples({ phase: "error", message: "例句暂不可用，词义查询不受影响。" });
+    });
+  }
+  exampleRetry.addEventListener("click", () => { if (lastSelected) showExamples(lastSelected.term); });
   get("dictionary-personal-link").href = personalWordbookUrl(window.location);
   const refreshCount = createDictionaryCountLoader({ onChange(total) {
     count.textContent = total === null ? "词条数量暂不可用，仍可重试查词" : `${new Intl.NumberFormat("zh-CN").format(total)} 个词条`;
@@ -129,6 +170,7 @@ export function mountDictionaryPage(document, window) {
     [...choices.querySelectorAll("button")].forEach((button, index) => button.setAttribute("aria-pressed", String(index === state.selectedIndex)));
     const selected = state.phase === "ready" ? state.results[state.selectedIndex] : null;
     if (!selected) {
+      clearExamples();
       heading.textContent = ""; get("dictionary-pos").textContent = ""; get("dictionary-meaning").textContent = "";
       get("dictionary-source").replaceChildren(); get("dictionary-variants").replaceChildren();
       get("dictionary-add").removeAttribute("href"); lastSelected = null; return;
@@ -152,6 +194,7 @@ export function mountDictionaryPage(document, window) {
       const meaning = document.createElement("div"); meaning.className = "meaning"; meaning.textContent = numberedDictionaryMeaning(alternative.meaning);
       section.append(title, pos, meaning, sourceLine(document, alternative)); variants.append(section);
     });
+    showExamples(selected.term);
   } });
 
   async function run() {

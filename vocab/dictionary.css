@@ -69,6 +69,16 @@ summary { cursor: pointer; padding: 10px 0; font-weight: 650; }
 .result-actions { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 22px; }
 .primary-link { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 .result-actions span { font-size: .8rem; color: var(--muted); }
+.example-panel { min-width: 0; border-top: 1px solid var(--line); margin-top: 24px; padding-top: 18px; }
+.example-panel h3 { font-size: 1rem; margin: 0; }
+.example-panel > .source { margin-top: 5px; }
+.example-sense { min-width: 0; margin-top: 12px; border-top: 1px solid var(--line); }
+.example-sense summary { overflow-wrap: anywhere; white-space: pre-wrap; font-size: .95rem; }
+.example-sense ol { margin: 0; padding-left: 1.5rem; }
+.example-sense li { padding: 3px 0 9px; }
+.example-sense p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; margin: 4px 0; }
+.example-sense p[lang="zh-CN"] { color: var(--muted); }
+#dictionary-example-retry { margin-top: 10px; }
 footer { max-width: 1012px; padding: 26px 24px; margin: auto; color: var(--muted); font-size: .8rem; }
 footer p { margin: 4px 0; }
 @media (max-width: 640px) {

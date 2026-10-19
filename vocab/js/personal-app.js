@@ -11,8 +11,9 @@ import {
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=78";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary } from "./personal-dictionary.js?v=78";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=79";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=81";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=81";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=81";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -50,7 +51,7 @@ const state = {
   editor: null, recovery: null, authType: requestedAuth,
   collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
   publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
-  dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null
+  dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full"
 };
 const RATING_LABELS = { again: "再来一次", hard: "有点难", good: "记得", easy: "很熟" };
 const privateOptions = (signal, extra = {}) => ({ signal, authType: state.authType, ...extra });
@@ -184,11 +185,17 @@ function renderChrome() {
   $("delete-account-form").querySelector("fieldset").disabled = !ready || state.entryBusy;
   for (const id of ["member-new", "member-cancel", "member-delete-account"]) $(id).disabled = !ready || state.entryBusy;
   $("member-refresh").disabled = !ready || state.entryBusy || state.listBusy;
-  $("member-export").disabled = !ready || state.entryBusy || !state.entriesLoaded || !state.learningLoaded;
+  $("member-export").disabled = !ready || state.entryBusy || !state.entriesLoaded || !state.learningLoaded || state.learningBusy;
   $("member-save").disabled = !ready || state.entryBusy || !state.entriesLoaded
     || state.listBusy
     || !state.editor?.term.trim() || Boolean(state.editor?.id && !isPersonalDraftDirty(state.editor));
   $("member-save").textContent = state.entryBusy ? "正在保存…" : "保存到我的词本";
+  // Learning now settles independently of the entry list. Refresh existing
+  // action controls on both edges of that load without rebuilding focused rows.
+  for (const button of $("member-entry-list").querySelectorAll("button[data-action]")) {
+    if (["edit", "delete"].includes(button.dataset.action)) button.disabled = !ready || state.entryBusy
+      || button.dataset.action === "delete" && (state.listBusy || state.learningBusy);
+  }
   $("member-editor-heading").textContent = state.editor?.id ? "编辑这个词" : "记下一个词";
   $("member-draft-status").textContent = isPersonalDraftDirty(state.editor)
     ? "当前页面有未上传的修改；关闭或刷新会丢失。"
@@ -204,6 +211,8 @@ function renderChrome() {
   if (pendingLookup) $("member-dictionary-term").value = pendingLookup;
   $("member-dictionary-search").disabled = !ready || state.dictionaryBusy;
   $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : "查词";
+  $("member-dictionary-full").disabled = !ready || state.dictionaryBusy;
+  $("member-dictionary-full").hidden = state.dictionaryCoverage !== "basic";
   $("member-dictionary-use").disabled = !ready || state.entryBusy || state.dictionaryBusy || !state.dictionaryResult || !state.entriesLoaded || state.listBusy;
   for (const id of ["member-source-book", "member-source-chapter", "member-source-search", "member-source-all", "member-source-clear"]) $(id).disabled = !ready || state.entryBusy || state.sourceBusy;
   $("member-source-add").disabled = !ready || !state.entriesLoaded || state.entryBusy || state.listBusy || state.sourceBusy || state.selectedSources.size === 0;
@@ -321,7 +330,11 @@ async function loadEntries({ announce = true } = {}) {
     }
     state.entriesLoaded = true;
     renderEntries();
-    await loadLearning({ announce: false });
+    // An independently authenticated learning read must not block adding words.
+    // Study/ratings/export retain their own learningLoaded/learningBusy guards.
+    state.listBusy = false;
+    void loadLearning({ announce: false });
+    renderChrome();
     if (!scope.current(token) || state.phase !== "ready") return false;
     if (announce) status("已读取云端词本；当前编辑内容未被替换。", "saved");
     return true;
@@ -342,6 +355,7 @@ function resetDictionary() {
   dictionarySequence++;
   dictionaryController?.abort(); dictionaryController = null;
   state.dictionaryBusy = false; state.dictionaryResult = null;
+  state.dictionaryCoverage = "full";
   $("member-dictionary-result").hidden = true;
   $("member-dictionary-choices").replaceChildren();
   $("member-dictionary-choices").hidden = true;
@@ -356,7 +370,7 @@ function showDictionaryResult(result) {
   $("member-dictionary-meaning").textContent = result.meaning;
   $("member-dictionary-result").hidden = false;
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
-  $("member-dictionary-status").textContent = `来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。${result.warning || "具体含义请结合语境。"}`;
+  $("member-dictionary-status").textContent = `${state.dictionaryCoverage === "basic" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本"}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
@@ -377,7 +391,8 @@ function showDictionaryChoices(results, hasMore) {
   choices.replaceChildren(); choices.hidden = results.length < 2 && !hasMore;
   if (choices.hidden) return;
   const caption = document.createElement("p"); caption.className = "field-note";
-  caption.textContent = hasMore ? `先显示 ${results.length} 项；可输入更具体的中文缩小范围。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
+  caption.textContent = state.dictionaryCoverage === "basic" ? `基础词库先显示 ${results.length} 项，完整词典还可能有其他匹配。点选英文查看释义。`
+    : hasMore ? `先显示 ${results.length} 项；可输入更具体的中文缩小范围。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
   choices.append(caption);
   for (const result of results) {
     const button = document.createElement("button"); button.type = "button"; button.className = "dictionary-choice";
@@ -392,7 +407,7 @@ function showDictionaryChoices(results, hasMore) {
   }
 }
 
-async function queryDictionary(event) {
+async function queryDictionary(event, { full = false } = {}) {
   event.preventDefault();
   if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
   resetDictionary();
@@ -407,37 +422,13 @@ async function queryDictionary(event) {
     const result = await request(async signal => {
       const stop = () => controller.abort(); signal.addEventListener("abort", stop, { once: true });
       try {
-        // Preserve the small, prewarmed offline hot dictionary. Rare words and
-        // Chinese queries fetch only the relevant public index shards.
-        if (!/\p{Script=Han}/u.test(query)) {
-          let hot, hotError;
-          try { hot = await lookupPersonalDictionary(query, { signal: controller.signal }); }
-          catch (error) { if (controller.signal.aborted) throw error; hotError = error; }
-          if (hot && !hot.matchedForm) return { results: [hot], hasMore: false };
-          {
-            // A form can also be an independently lexicalized noun/adjective
-            // (lettering vs letter). Keep the known lemma and offer the exact
-            // entry too, rather than silently hiding either meaning.
-            try {
-              const expanded = await searchExpandedDictionary(query, { signal: controller.signal, ...(hot ? { timeoutMs: 1500 } : {}) });
-              if (hot) {
-                const extra = expanded.results.filter(item => normalizeEnglish(item.term) !== normalizeEnglish(hot.term));
-                return { results: [hot, ...extra], hasMore: false };
-              }
-              if (!expanded.results.length && hotError) throw hotError;
-              return expanded;
-            } catch (error) {
-              if (controller.signal.aborted || error?.code === "ambiguous_dictionary_match" || error?.code === "invalid_dictionary_data") throw error;
-              if (hot) return { results: [{ ...hot, warning: "扩展词条暂未加载；先显示已收录的词形释义。" }], hasMore: false };
-              throw hotError || error;
-            }
-          }
-        }
-        return await searchExpandedDictionary(query, { signal: controller.signal });
+        return await lookupPersonalDictionaryFast(query, { signal: controller.signal, full,
+          hotLookup: lookupPersonalDictionary, hotReverse: searchPersonalDictionaryChinese, fullSearch: searchExpandedDictionary });
       }
       finally { signal.removeEventListener("abort", stop); }
     });
     if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
+    state.dictionaryCoverage = result.coverage || "full";
     const results = result.results;
     if (!results.length) {
       $("member-dictionary-status").textContent = result.hasMore
@@ -663,7 +654,7 @@ function closeStudy() {
 }
 
 function startStudy(mode) {
-  if (state.phase !== "ready" || !state.user || !state.learningLoaded || state.entryBusy) return;
+  if (state.phase !== "ready" || !state.user || !state.learningLoaded || state.learningBusy || !state.entriesLoaded || state.listBusy || state.entryBusy) return;
   const queue = personalStudyQueue(currentStudyEntries(), state.reviews, { mode });
   if (!queue.length) { status("当前范围没有可学习的中文词条或到期词。", "saved"); return; }
   state.study = { queue, index: 0, completed: 0, revealed: false, busy: false, pending: null, conflict: false };
@@ -1101,6 +1092,7 @@ $("member-entry-form").addEventListener("input", event => {
   captureDraft(); renderChrome();
 });
 $("member-dictionary-form").addEventListener("submit", event => void queryDictionary(event));
+$("member-dictionary-full").addEventListener("click", event => void queryDictionary(event, { full: true }));
 $("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
 $("member-dictionary-use").addEventListener("click", useDictionaryResult);
 $("member-search").addEventListener("input", renderEntries);
@@ -1152,7 +1144,7 @@ $("member-detail-edit").addEventListener("click", () => {
   if (entry) editEntry(entry);
 });
 $("member-export").addEventListener("click", () => {
-  if (state.phase !== "ready" || !state.user || !state.entriesLoaded) return;
+  if (state.phase !== "ready" || !state.user || !state.entriesLoaded || !state.learningLoaded || state.learningBusy) return;
   try {
     download(`${serializePersonalExport(state.entries, state.user.username, new Date().toISOString(), state.reviews)}\n`, `my-wordbook-${state.user.username}-${new Date().toISOString().slice(0, 10)}.json`);
     status("已导出个人词条和云端学习记录。文件包含个人内容，请妥善保管。", "saved");

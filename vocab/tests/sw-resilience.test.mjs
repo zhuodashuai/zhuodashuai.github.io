@@ -58,6 +58,23 @@ test("an offline shard repair never falls back to the corrupt cached shard", asy
   assert.equal(sw.writes.length, 0);
 });
 
+test("example manifests refresh online and checksum repair bypasses corrupted example caches", async () => {
+  const calls = [];
+  const sw = worker(async (_request, options) => { calls.push(options); return new Response('{"healthy":true}'); }, new Response("old"));
+  await sw.fetch("/vocab/data/dictionary-examples/manifest.json", "cors");
+  assert.equal(calls[0].cache, "no-cache");
+  await sw.fetch("/vocab/data/dictionary-examples/version/examples-0.json", "cors", { cache: "reload" });
+  assert.equal(calls[1].cache, "reload");
+  await Promise.all(sw.background);
+});
+
+test("extensionless dictionary navigation falls back to its own offline shell", async () => {
+  const sw = worker(async () => { throw Error("offline"); }, request => request === "./dictionary.html" ? new Response("dictionary shell") : undefined);
+  for (const route of ["/dictionary", "/dictionary/", "/vocab/dictionary.html"]) {
+    assert.equal(await (await sw.fetch(route)).text(), "dictionary shell");
+  }
+});
+
 test("a temporary HTTP failure serves a verified cached page and never stores the failure", async () => {
   const sw = worker(async () => new Response("unavailable", { status: 503 }), new Response("cached page"));
   const response = await sw.fetch();

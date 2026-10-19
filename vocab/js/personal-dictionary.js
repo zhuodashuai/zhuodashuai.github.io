@@ -221,6 +221,32 @@ export async function lookupPersonalDictionary(input, { signal, timeoutMs = 20_0
   } finally { signal?.removeEventListener("abort", stop); }
 }
 
+/** Fast reverse search of the already validated public hot index, not the full dictionary. */
+export async function searchPersonalDictionaryChinese(input, { signal, timeoutMs = 20_000, dictionary, fetchImpl = globalThis.fetch, limit = 20 } = {}) {
+  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) throw new Error("请输入不超过 50 个字的中文释义。");
+  const query = input.normalize("NFKC").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
+  if (!HAN.test(query) || !/^[\p{Script=Han}\s]+$/u.test(query) || [...query].length > 50) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
+  if (signal?.aborted) throw new Error("查词已停止。");
+  let stop;
+  const stopped = new Promise((_, reject) => { stop = () => reject(new Error("查词已停止。")); });
+  signal?.addEventListener("abort", stop, { once: true });
+  try {
+    const parsed = await Promise.race([dictionary || preloadPersonalDictionary({ timeoutMs, fetchImpl }), stopped]);
+    if (signal?.aborted) throw new Error("查词已停止。");
+    const maps = parsedIndexes(parsed), results = [], seen = new Set();
+    const count = Math.max(1, Math.min(50, Number.isSafeInteger(limit) ? limit : 20));
+    // Keep each actual matching source: a chapter gloss must not be replaced by
+    // a general gloss which did not contain the requested Chinese meaning.
+    for (const value of [...maps.core.values(), ...maps.published.values()]) {
+      const key = literalKey(value.term);
+      if (seen.has(key) || !value.meaning.normalize("NFKC").includes(query)) continue;
+      seen.add(key); results.push({ ...value });
+      if (results.length > count) break;
+    }
+    return { query, results: results.slice(0, count), hasMore: results.length > count, coverage: "basic" };
+  } finally { signal?.removeEventListener("abort", stop); }
+}
+
 export function resetPersonalDictionaryCacheForTests() {
   cancelLoad?.();
   cancelLoad = null;

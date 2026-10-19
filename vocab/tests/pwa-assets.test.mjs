@@ -19,13 +19,14 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
-    "runtime-config.js", "public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-navigation.js", "personal-app.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
+    "runtime-config.js", "public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-examples.js", "dictionary-navigation.js", "personal-app.js", "personal-lookup-flow.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
     "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-groups.js", "synonym-evidence.js",
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
-  const version = file => ["public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-navigation.js", "personal-app.js"].includes(file) ? 80 : file === "expanded-dictionary.js" ? 79
-    : ["personal-storage.js", "personal-selection.js", "personal-dictionary.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
+  const version = file => ["owner-app.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-examples.js", "personal-app.js", "personal-lookup-flow.js", "personal-dictionary.js"].includes(file) ? 81
+    : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
+    : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
@@ -92,12 +93,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v80/);
+  assert.match(serviceWorker, /zhuo-wordbook-v81/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=77/);
   assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=80/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=80/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=81/);
   assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup\.js/);
   assert.match(serviceWorker, /\.\/js\/learning-backup-ui\.js/);
@@ -118,7 +119,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
   assert.match(vocabHtml, /src="js\/public-app\.js\?v=80"/);
   assert.match(vocabHtml, /href="styles\.css\?v=77"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=80"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=81"/);
   assert.match(ownerHtml, /href="styles\.css\?v=77"/);
   assert.match(guideHtml, /href="styles\.css\?v=77"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);

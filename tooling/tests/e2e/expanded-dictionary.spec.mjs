@@ -102,12 +102,17 @@ test("an unavailable Chinese manifest is an honest retryable error, not an empty
   let fail = true;
   await page.route("**/data/expanded-dictionary/manifest.json*", route => fail
     ? route.fulfill({ status: 503, contentType: "application/json", body: '{}' }) : route.continue());
-  await page.locator("#member-dictionary-term").fill("苹果"); await page.locator("#member-dictionary-term").press("Enter");
+  await query(page, "苹果");
+  await expect(page.locator("#member-dictionary-status")).toContainText("非完整搜索");
+  await page.locator("#member-dictionary-full").click();
   await expect(page.locator("#member-dictionary-status")).toContainText(/失败|暂时|503/u);
   await expect(page.locator("#member-dictionary-result")).toBeHidden();
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
-  fail = false; await page.locator("#member-dictionary-term").press("Enter");
+  fail = false; await query(page, "苹果");
+  await page.locator("#member-dictionary-full").click();
   await expect(page.locator("#member-dictionary-result")).toBeVisible();
+  await expect(page.locator("#member-dictionary-search")).toBeEnabled();
+  await expect(page.locator(".dictionary-choice")).toHaveCount(20);
 });
 
 test("logout discards a delayed expanded lookup without resurrecting old results", async ({ page }) => {
@@ -119,7 +124,9 @@ test("logout discards a delayed expanded lookup without resurrecting old results
     try { await route.fulfill({ response }); } catch { /* Logout intentionally aborts lookup. */ }
   });
   try {
-    await page.locator("#member-dictionary-term").fill("苹果"); await page.locator("#member-dictionary-term").press("Enter"); await reached;
+    await query(page, "苹果");
+    await page.locator("#member-dictionary-full").click();
+    await reached;
     await page.locator("#member-logout").click(); await expect(page.locator("#member-workspace")).toBeHidden();
     release(); await expect(page.locator("#member-dictionary-result")).toBeHidden();
     await expect(page.locator("#member-dictionary-choices")).toBeHidden();
