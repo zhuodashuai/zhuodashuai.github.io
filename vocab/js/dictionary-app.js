@@ -18,6 +18,24 @@ export function numberedDictionaryMeaning(value) {
   return /^\s*(?:[①-⑳]|\d+[.、])/u.test(value) ? value : `① ${value}`;
 }
 
+// Source newlines are sense boundaries; semicolons may only separate synonyms.
+export function dictionaryMeaningLines(value) {
+  return numberedDictionaryMeaning(value).split(/\r?\n/u).filter(line => line.trim());
+}
+
+export function dictionaryChoicePreview(value) {
+  const characters = Array.from(value.replace(/\s+/gu, " ").trim());
+  return characters.length > 80 ? `${characters.slice(0, 80).join("")}…` : characters.join("");
+}
+
+function renderMeaning(document, target, value) {
+  target.replaceChildren();
+  dictionaryMeaningLines(value).forEach(line => {
+    const paragraph = document.createElement("p"); paragraph.className = "meaning-line";
+    paragraph.textContent = line; target.append(paragraph);
+  });
+}
+
 export function personalDictionaryLink(term, targetLocation = globalThis.location) {
   const target = new URL(personalWordbookUrl(targetLocation));
   target.hash = `lookup=${encodeURIComponent(term)}`;
@@ -170,11 +188,17 @@ export function mountDictionaryPage(document, window) {
         button.dataset.dictionaryTerm = entry.term; button.setAttribute("aria-controls", "dictionary-result");
         const term = document.createElement("strong"); term.textContent = entry.term; term.lang = "en"; button.append(term);
         const pos = document.createElement("span"); pos.textContent = entry.partOfSpeech || "词性未标注"; button.append(pos);
-        button.addEventListener("click", () => { controller.select(index); heading.focus({ preventScroll: true }); });
+        const meaning = document.createElement("span"); meaning.className = "choice-meaning";
+        meaning.textContent = dictionaryChoicePreview(entry.meaning); button.append(meaning);
+        button.addEventListener("click", () => {
+          controller.select(index); heading.focus({ preventScroll: true });
+          heading.scrollIntoView({ block: "nearest" });
+        });
         item.append(button); choices.append(item);
       });
     }
     [...choices.querySelectorAll("button")].forEach((button, index) => button.setAttribute("aria-pressed", String(index === state.selectedIndex)));
+    get("dictionary-choice-count").textContent = state.results.length ? `${state.results.length}${state.hasMore ? "+" : ""} 项` : "";
     const selected = state.phase === "ready" ? state.results[state.selectedIndex] : null;
     if (!selected) {
       clearExamples();
@@ -185,7 +209,7 @@ export function mountDictionaryPage(document, window) {
     if (selected === lastSelected) return;
     lastSelected = selected;
     heading.textContent = selected.term; get("dictionary-pos").textContent = selected.partOfSpeech || "词性未标注";
-    get("dictionary-meaning").textContent = numberedDictionaryMeaning(selected.meaning);
+    renderMeaning(document, get("dictionary-meaning"), selected.meaning);
     const matched = get("dictionary-matched-form"); matched.hidden = !selected.matchedForm;
     matched.textContent = selected.matchedForm ? `查询形式：${selected.matchedForm}` : "";
     const provenance = sourceLine(document, selected); get("dictionary-source").replaceChildren(...provenance.childNodes);
@@ -198,7 +222,7 @@ export function mountDictionaryPage(document, window) {
       const section = document.createElement("section"); section.className = "variant";
       const title = document.createElement("h3"); title.textContent = alternative.source || `来源 ${index + 1}`;
       const pos = document.createElement("p"); pos.className = "part-of-speech"; pos.textContent = alternative.partOfSpeech || "词性未标注";
-      const meaning = document.createElement("div"); meaning.className = "meaning"; meaning.textContent = numberedDictionaryMeaning(alternative.meaning);
+      const meaning = document.createElement("div"); meaning.className = "meaning"; renderMeaning(document, meaning, alternative.meaning);
       section.append(title, pos, meaning, sourceLine(document, alternative)); variants.append(section);
     });
     showExamples(selected.term);
@@ -212,7 +236,12 @@ export function mountDictionaryPage(document, window) {
     // Reusing its cache restores the count without blocking the result or input.
     void refreshCount();
     try { window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#q=${encodeURIComponent(query)}`); } catch { /* Lookup still works without history access. */ }
-    if (controller.getState().phase === "ready") heading.focus({ preventScroll: true });
+    if (controller.getState().phase === "ready") {
+      // Present multiple matches before their auto-preview; a single match can
+      // take the reader directly to the definition, even above a phone keyboard.
+      const target = controller.getState().results.length > 1 ? choices.querySelector("button") : heading;
+      target.focus({ preventScroll: true }); target.scrollIntoView({ block: "nearest" });
+    }
   }
   form.addEventListener("submit", event => { event.preventDefault(); if (!submit.disabled) void run(); });
   input.addEventListener("input", () => controller.change(input.value));

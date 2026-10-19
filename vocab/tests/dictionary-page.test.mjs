@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
+import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, dictionaryMeaningLines, dictionaryChoicePreview, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
 
 const row = (term = "watch") => ({ term, partOfSpeech: "noun · verb", meaning: "① n. 手表\n② v. 观看", source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" });
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
@@ -43,6 +43,21 @@ test("manifest count failure stays isolated and can recover after a successful l
   const first = refresh(); assert.equal(first, refresh()); assert.equal(await first, false);
   assert.equal(calls, 1); assert.deepEqual(values, [null]);
   failed = false; assert.equal(await refresh(), true); assert.equal(calls, 2); assert.deepEqual(values, [null, 17]);
+});
+
+test("meaning rows preserve source numbering and synonym groups without inventing senses", () => {
+  assert.deepEqual(dictionaryMeaningLines("① n. 髋部；臀部\n② adj. 时髦的；消息灵通的"), ["① n. 髋部；臀部", "② adj. 时髦的；消息灵通的"]);
+  assert.deepEqual(dictionaryMeaningLines("n. 监视；监督"), ["① n. 监视；监督"]);
+  assert.deepEqual(dictionaryMeaningLines("1. 原义\r\n\r\n2. 引申义"), ["1. 原义", "2. 引申义"]);
+  assert.deepEqual(dictionaryMeaningLines(""), []);
+  assert.deepEqual(dictionaryMeaningLines("<img src=x onerror=alert(1)>"), ["① <img src=x onerror=alert(1)>"]);
+});
+
+test("candidate previews stay short and readable without changing the full source meaning", () => {
+  assert.equal(dictionaryChoicePreview(" ① n. 苹果\n② adj. 苹果的 "), "① n. 苹果 ② adj. 苹果的");
+  assert.equal(dictionaryChoicePreview("词".repeat(81)), "词".repeat(80) + "…");
+  assert.equal(dictionaryChoicePreview("😀".repeat(81)), "😀".repeat(80) + "…");
+  assert.equal(dictionaryChoicePreview(""), "");
 });
 
 test("English result preserves all POS, complete meaning and independent source variants", async () => {
@@ -117,7 +132,7 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=81/u); assert.match(html, /dictionary-app\.js\?v=84/u);
+  assert.match(html, /dictionary\.css\?v=86/u); assert.match(html, /dictionary-app\.js\?v=86/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
   assert.match(script, /expanded-dictionary\.js\?v=82/u); assert.match(script, /counts\.records/u);
