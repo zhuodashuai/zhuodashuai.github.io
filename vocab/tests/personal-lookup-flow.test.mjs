@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { lookupPersonalDictionaryFast } from "../js/personal-lookup-flow.js";
-import { personalDictionaryResult } from "../js/personal-dictionary.js?v=81";
+import { applyCorePosCorrection, isReviewedCoreDictionaryResult, personalDictionaryResult } from "../js/personal-dictionary.js?v=88";
+import { CORE_POS_CORRECTIONS } from "../js/core-pos-corrections.js?v=88";
 
 const row = (term, extra = {}) => ({ term, partOfSpeech: "noun", meaning: "测试释义", source: "ECDICT", ...extra });
 const response = (...results) => ({ results, hasMore: false });
@@ -40,11 +41,52 @@ test("full tracked-core/public exact can return without the grace, preserving it
   }
 });
 
+test("reviewed core proof requires the exact approved tuple and provenance, without side effects", () => {
+  const source = CORE_POS_CORRECTIONS.source;
+  // Explicit fixture projection: these are not production whitelist entries.
+  const projection = { source, entries: [["fixture-head", "核心测试释义", "noun phrase / adjective phrase"],
+    ["Polish", "波兰的", "proper adjective"]] };
+  const value = { term: "fixture-head", partOfSpeech: projection.entries[0][2], meaning: projection.entries[0][1],
+    source: source.name, license: source.license, url: source.url };
+  const before = structuredClone({ value, projection });
+  assert.equal(isReviewedCoreDictionaryResult(value, projection), true);
+  const formatted = personalDictionaryResult({ word: value.term, partOfSpeech: value.partOfSpeech, meaning: value.meaning });
+  assert.equal(isReviewedCoreDictionaryResult({ ...value, partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning }, projection), true);
+  for (const altered of [null, {}, { ...value, term: "Fixture-head" }, { ...value, term: "not-in-core" },
+    { ...value, partOfSpeech: "verb" }, { ...value, meaning: "新的释义" }, { ...value, source: "ECDICT" },
+    { ...value, license: "MIT" }, { ...value, url: "https://example.com/" }, { ...value, matchedForm: "fixture-heads" }])
+    assert.equal(isReviewedCoreDictionaryResult(altered, projection), false);
+  assert.equal(isReviewedCoreDictionaryResult({ ...value, term: "polish", partOfSpeech: "proper adjective", meaning: "波兰的" }, projection), false);
+  assert.equal(isReviewedCoreDictionaryResult(value, null), false);
+  assert.deepEqual({ value, projection }, before, "proof must not mutate the result or approval");
+});
+
+test("a shipped exact reviewed core result bypasses a hung hot load without the 750ms grace", {
+  skip: CORE_POS_CORRECTIONS.entries.length ? false : "reviewed core projection is not generated yet"
+}, async () => {
+  const [term, meaning, partOfSpeech] = CORE_POS_CORRECTIONS.entries[0], source = CORE_POS_CORRECTIONS.source;
+  const formatted = personalDictionaryResult({ word: term, meaning, partOfSpeech });
+  const value = { term, partOfSpeech: formatted.partOfSpeech || partOfSpeech, meaning: formatted.meaning,
+    source: source.name, license: source.license, url: source.url };
+  assert.equal(isReviewedCoreDictionaryResult(value), true);
+  const full = response(value), started = Date.now();
+  const result = await lookupPersonalDictionaryFast(term, options({ hotLookup: never, fullSearch: async () => full, hotGraceMs: 750 }));
+  assert.deepEqual(result, full);
+  assert.ok(Date.now() - started < 500, "independently proved exact core result must not wait for the 750ms grace");
+  const changedCase = [...term].map(letter => letter === letter.toUpperCase() ? letter.toLowerCase() : letter.toUpperCase()).join("");
+  if (changedCase !== term) {
+    const hot = row("legacy-core-choice");
+    const changed = await lookupPersonalDictionaryFast(changedCase, options({ hotLookup: () => later(hot), fullSearch: async () => full }));
+    assert.deepEqual(changed, response(hot), "case-only ambiguity must still give the old core a chance");
+  }
+});
+
 test("plain MIT/original exact, nonexact tracked heads and matched forms still wait for the known lemma", async () => {
   for (const value of [row("received", { source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" }),
     row("received", { source: "卓式原创释义（AI复核，精选义项）" }),
     row("receiving", { source: "ECDICT · 已上线核心整理", license: "MIT and project editorial additions", url: "https://github.com/skywind3000/ECDICT" }),
-    row("received", { source: "ECDICT · 已上线核心整理", license: "MIT and project editorial additions", url: "https://github.com/skywind3000/ECDICT", matchedForm: "received" })]) {
+    row("received", { source: "ECDICT · 已上线核心整理", license: "MIT and project editorial additions", url: "https://github.com/skywind3000/ECDICT", matchedForm: "received" }),
+    row("received", { source: CORE_POS_CORRECTIONS.source.name, license: CORE_POS_CORRECTIONS.source.license, url: CORE_POS_CORRECTIONS.source.url })]) {
     const result = await lookupPersonalDictionaryFast("received", options({ hotLookup: () => later(row("receive", { matchedForm: "received" })), fullSearch: async () => response(value) }));
     assert.equal(result.results[0].term, "receive");
   }
@@ -53,19 +95,27 @@ test("plain MIT/original exact, nonexact tracked heads and matched forms still w
 test("every shipped tracked-core/public primary used by the fast path preserves compact POS and Chinese text", async () => {
   const data = path => readFile(new URL(`../data/${path}`, import.meta.url), "utf8").then(JSON.parse);
   const compact = await data("member-dictionary.json"), manifest = await data("expanded-dictionary/manifest.json");
-  const core = new Map(compact.core.map(([term, partOfSpeech, meaning]) => [term, personalDictionaryResult({ word: term, partOfSpeech, meaning })]));
+  const core = new Map(compact.core.map(([term, partOfSpeech, meaning]) => {
+    const raw = { word: term, partOfSpeech, meaning }, value = applyCorePosCorrection(raw, personalDictionaryResult(raw));
+    const normalized = personalDictionaryResult({ ...raw, partOfSpeech: value.partOfSpeech });
+    return [term, { ...value, partOfSpeech: normalized.partOfSpeech || value.partOfSpeech }];
+  }));
   const published = new Map(compact.published.map(([term, partOfSpeech, meaning]) => [term, { partOfSpeech, meaning }]));
   let checkedCore = 0, checkedPublic = 0;
   for (const descriptor of manifest.english.shards) {
     const shard = await data(`expanded-dictionary/${descriptor.file}`);
     for (const value of shard.records) {
-      if (value.id % 128 !== descriptor.bucket || !["core", "public"].includes(value.source)) continue;
-      const expected = (value.source === "core" ? core : published).get(value.term);
+      if (value.id % 128 !== descriptor.bucket) continue;
+      const provenance = manifest.sources[value.source];
+      const reviewed = value.source === "pos-reviewed" && isReviewedCoreDictionaryResult({ ...value,
+        source: provenance.name, license: provenance.license, url: provenance.url });
+      if (!["core", "public"].includes(value.source) && !reviewed) continue;
+      const expected = (value.source === "core" || reviewed ? core : published).get(value.term);
       assert.ok(expected, value.term);
-      const actual = value.source === "core" ? personalDictionaryResult({ word: value.term, partOfSpeech: value.partOfSpeech, meaning: value.meaning }) : value;
+      const actual = value.source === "core" || reviewed ? personalDictionaryResult({ word: value.term, partOfSpeech: value.partOfSpeech, meaning: value.meaning }) : value;
       assert.equal(actual.partOfSpeech, expected.partOfSpeech, `${value.term} POS`);
       assert.equal(actual.meaning, expected.meaning, `${value.term} Chinese`);
-      if (value.source === "core") checkedCore++; else checkedPublic++;
+      if (value.source === "core" || reviewed) checkedCore++; else checkedPublic++;
     }
   }
   assert.equal(checkedCore, compact.counts.core); assert.ok(checkedPublic > 0);

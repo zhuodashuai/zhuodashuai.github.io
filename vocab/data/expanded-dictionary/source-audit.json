@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "fc91e400805127a153c35e6a163423b628a8fc73286e4bfb097d88eb81faa0e5",
+  "version": "b0197460b31c1edd2c98edcd70273e4d70a8357b600d0c5c29a21e601a407e34",
   "counts": {
     "records": 102609,
     "englishKeys": 140862,
@@ -24,7 +24,29 @@
   "originalCheckedRows": 1030,
   "canonicalCasefoldCollisions": 1,
   "ambiguousAliasKeys": 176,
-  "totalShardBytes": 54223378,
+  "totalShardBytes": 58323836,
+  "posReview": {
+    "id": "pos-completion-2026-10-19",
+    "reviewedRows": 38825,
+    "applied": 38824,
+    "alreadyPresent": 1,
+    "baseMismatch": 0,
+    "missingTerms": 0,
+    "skipped": [
+      {
+        "term": "can't",
+        "reason": "primary-pos-already-present"
+      }
+    ],
+    "integrity": {
+      "schemaVersion": 1,
+      "id": "pos-completion-2026-10-19",
+      "rows": 38825,
+      "semanticSha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+    },
+    "missingBefore": 41546,
+    "missingAfter": 2722
+  },
   "supplementRows": 53,
   "supplementIntegrity": {
     "schemaVersion": 1,
@@ -33,7 +55,7 @@
     "semanticSha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
   },
   "commercialDefinitionsUsed": false,
-  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; no publisher dictionary text.",
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; no publisher dictionary text.",
   "integrity": {
     "schemaVersion": 1,
     "source": {

@@ -4,7 +4,9 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseCoreDictionary } from "../../vocab/js/core-dictionary.js";
+import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { normalizeEnglish, parsePublicSnapshot, validateEnglishInput } from "../../vocab/js/wordbook-schema.js";
+import { dictionaryPosIntegrity, validateDictionaryPos, verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const HAN = /\p{Script=Han}/u;
@@ -30,7 +32,8 @@ function fitsMemberLexicalTerm(value) {
 }
 
 /** Retain existing Chinese glosses; no English definitions, examples, IPA, IDs or private data. */
-export function buildMemberDictionary(corePayload, publicPayload, { coreFileSha256, publicFileSha256 }) {
+export function buildMemberDictionary(corePayload, publicPayload, { coreFileSha256, publicFileSha256, posPack = null }) {
+  if (posPack !== null) validateDictionaryPos(posPack);
   const dictionary = parseCoreDictionary(corePayload);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
   if (dictionary.source.name !== "ECDICT" || dictionary.source.license !== "MIT"
@@ -39,7 +42,11 @@ export function buildMemberDictionary(corePayload, publicPayload, { coreFileSha2
   let omittedWithoutChinese = 0;
   const core = [...dictionary.entries.values()].flatMap(row => {
     if (!HAN.test(row.meaning)) { omittedWithoutChinese++; return []; }
-    return [[text(row.word, 200, "core term"), text(row.partOfSpeech, 200, "core POS", { empty: true }),
+    // This old schema attributes the whole compact row to ECDICT. Only recover
+    // labels actually present in its own Chinese gloss here; reviewed external
+    // labels use the separately credited runtime correction projection instead.
+    const partOfSpeech = row.partOfSpeech.trim() ? row.partOfSpeech : personalDictionaryResult(row)?.partOfSpeech || "";
+    return [[text(row.word, 200, "core term"), text(partOfSpeech, 200, "core POS", { empty: true }),
       text(row.meaning, 2000, "core meaning", { chinese: true }), row.forms.map(form => text(form, 200, "core form"))]];
   }).sort((a, b) => compare(normalizeEnglish(a[0]), normalizeEnglish(b[0])));
   let publicAliases = 0, publicAliasesInput = 0, omittedPublicAliases = 0, omittedPublishedEntries = 0;
@@ -90,12 +97,15 @@ export function buildMemberDictionary(corePayload, publicPayload, { coreFileSha2
 }
 
 export async function generateMemberDictionary({ root = ROOT, check = false } = {}) {
-  const [coreBytes, publicBytes] = await Promise.all([
+  const [coreBytes, publicBytes, posBytes, posIntegrityBytes] = await Promise.all([
     readFile(resolve(root, "vocab/data/ecdict-core.json")),
-    readFile(resolve(root, "vocab/data/owner-wordbook.json"))
+    readFile(resolve(root, "vocab/data/owner-wordbook.json")),
+    readFile(resolve(root, "tooling/dictionary/pos/pos-completion-2026-10-19.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/pos/integrity.json"), "utf8")
   ]);
+  const posPack = verifyDictionaryPos(JSON.parse(posBytes), JSON.parse(posIntegrityBytes));
   const payload = buildMemberDictionary(JSON.parse(coreBytes), JSON.parse(publicBytes), {
-    coreFileSha256: digest(coreBytes), publicFileSha256: digest(publicBytes)
+    coreFileSha256: digest(coreBytes), publicFileSha256: digest(publicBytes), posPack
   });
   const output = `${JSON.stringify(payload)}\n`;
   const sha256 = digest(output);
@@ -108,7 +118,8 @@ export async function generateMemberDictionary({ root = ROOT, check = false } = 
   } else {
     await Promise.all([writeFile(dataPath, output), writeFile(manifestPath, manifest)]);
   }
-  return { bytes: Buffer.byteLength(output), originalCoreBytes: coreBytes.byteLength, sha256, ...payload.counts };
+  return { bytes: Buffer.byteLength(output), originalCoreBytes: coreBytes.byteLength, sha256, ...payload.counts,
+    posReview: { ...dictionaryPosIntegrity(posPack), compactLabelsOnly: true } };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

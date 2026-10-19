@@ -1,5 +1,5 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=82";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=88";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -262,7 +262,7 @@ function waitFor(promise, signal, timeoutMs) {
 function readable(record, selected) {
   // MIT definitions use compact POS-labelled lines. Reuse the existing display
   // formatter, but never relabel provenance or number an already numbered card.
-  if (!["mit", "core"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
+  if (!["mit", "core", "pos-reviewed"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
   const formatted = personalDictionaryResult({ word: record.term, partOfSpeech: selected.partOfSpeech, meaning: selected.meaning });
   return formatted ? { ...selected, partOfSpeech: formatted.partOfSpeech || selected.partOfSpeech,
     meaning: formatted.meaning.length <= 2000 ? formatted.meaning : selected.meaning } : selected;
@@ -273,7 +273,11 @@ function display(record, selected, manifest, matchedForm) {
   const result = { term: record.term, partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning,
     source: source.name, license: source.license, url: source.url };
   if (matchedForm) result.matchedForm = matchedForm;
-  const alternatives = [record, ...record.variants].filter(item => item.source !== selected.source || item.meaning !== selected.meaning || item.partOfSpeech !== selected.partOfSpeech)
+  const alternatives = [record, ...record.variants].filter(item =>
+    (item.source !== selected.source || item.meaning !== selected.meaning || item.partOfSpeech !== selected.partOfSpeech)
+    // The immutable source row remains in the data for attribution/rebuilds.
+    // Repeating its identical gloss with an empty label is not another sense.
+    && !(selected.source === "pos-reviewed" && item.meaning === selected.meaning && !item.partOfSpeech.trim()))
     .map(item => { const provenance = manifest.sources.get(item.source), formatted = readable(record, item); return { partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning,
       source: provenance.name, license: provenance.license, url: provenance.url }; });
   if (alternatives.length) result.alternatives = alternatives;

@@ -40,7 +40,7 @@ test("member storage migration is additive and keeps the owner's existing Durabl
 
 test("personal shell is precached but private API bypasses all service-worker caching", async () => {
   const sw = await source("../sw.js");
-  for (const item of ["personal.html", "personal.css?v=79", "js/personal-app.js?v=85", "js/personal-lookup-flow.js?v=82", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=82", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=82", "js/expanded-dictionary.js?v=82", "js/member-dictionary-manifest.js?v=78", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
+  for (const item of ["personal.html", "personal.css?v=79", "js/personal-app.js?v=88", "js/personal-lookup-flow.js?v=88", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=82", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=88", "js/expanded-dictionary.js?v=88", "js/core-pos-corrections.js?v=88", "js/member-dictionary-manifest.js?v=88", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
     assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
   }
   assert.ok(sw.includes('/\\/personal(?:\\.html)?\\/?$/.test(url.pathname) ? "./personal.html"'));
@@ -58,8 +58,8 @@ test("basic member dictionary never imports a provider pipeline or an owner AI c
   const flow = await source("../js/personal-lookup-flow.js");
   const core = await source("../js/core-dictionary.js");
   const html = await source("../personal.html");
-  assert.match(app, /import \{ lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese \} from "\.\/personal-dictionary\.js\?v=82"/);
-  assert.match(app, /import \{ lookupPersonalDictionaryFast \} from "\.\/personal-lookup-flow\.js\?v=82"/);
+  assert.match(app, /import \{ lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese \} from "\.\/personal-dictionary\.js\?v=88"/);
+  assert.match(app, /import \{ lookupPersonalDictionaryFast \} from "\.\/personal-lookup-flow\.js\?v=88"/);
   assert.match(dictionary, /member-dictionary-manifest/);
   assert.doesNotMatch(app + dictionary + flow, /from ["'][^"']*(?:services|owner-api|workflow)\.js|organizeWithAi|freedictionaryapi|mymemory|languagetool|api\.openai|api\.anthropic/iu);
   assert.match(core, /new URL\("\.\.\/data\/ecdict-core\.json", import\.meta\.url\)/);

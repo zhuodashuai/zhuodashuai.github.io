@@ -1,5 +1,6 @@
-import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=78";
+import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=88";
 import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
+import { CORE_POS_CORRECTIONS } from "./core-pos-corrections.js?v=88";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",
@@ -7,7 +8,20 @@ const POS = Object.freeze({
   pron: "pronoun", pronoun: "pronoun", prep: "preposition", preposition: "preposition",
   conj: "conjunction", conjunction: "conjunction", interj: "interjection", int: "interjection",
   num: "numeral", numeral: "numeral", art: "article", article: "article", det: "determiner",
-  aux: "auxiliary verb", modal: "modal verb", abbr: "abbreviation", abbreviation: "abbreviation"
+  aux: "auxiliary verb", modal: "modal verb", abbr: "abbreviation", abbreviation: "abbreviation",
+  "proper noun": "proper noun", "noun phrase": "noun phrase", "verb phrase": "verb phrase",
+  "phrasal verb": "phrasal verb", "adjective phrase": "adjective phrase", "adverb phrase": "adverb phrase",
+  "adverbial phrase": "adverbial phrase", "plural noun": "plural noun",
+  "transitive verb": "transitive verb", "intransitive verb": "intransitive verb",
+  "prepositional phrase": "prepositional phrase", "preposition phrase": "preposition phrase",
+  "pronoun phrase": "pronoun phrase", "determiner phrase": "determiner phrase", "conjunction phrase": "conjunction phrase",
+  "auxiliary verb": "auxiliary verb", "modal verb": "modal verb", "definite article": "definite article",
+  "indefinite article": "indefinite article", "infinitive marker": "infinitive marker", "combining form": "combining form",
+  determiner: "determiner", particle: "particle", prefix: "prefix", suffix: "suffix", idiom: "idiom",
+  expression: "expression", phrase: "phrase", sentence: "sentence", contraction: "contraction",
+  symbol: "symbol", nominative: "nominative", clause: "clause",
+  "infinitival phrase": "infinitival phrase", "participial phrase": "participial phrase",
+  "quantifier phrase": "quantifier phrase", postposition: "postposition", proverb: "proverb", affix: "affix"
 });
 const PREFIX = /^(noun|verb|adjective|adverb|pronoun|preposition|conjunction|interjection|numeral|article|abbreviation|interj|pron|prep|conj|modal|abbr|adj|adv|aux|det|num|art|int|vt|vi|ad|n|v|a)\.\s*/i;
 const numeral = index => index < 20 ? String.fromCodePoint(0x2460 + index) : `${index + 1}.`;
@@ -29,7 +43,19 @@ export function personalDictionaryResult(row) {
   }
   // The compact metadata often stores only the first POS (e.g. hip, record).
   // The labelled Chinese lines are therefore the primary source of POS coverage.
-  const fallback = String(row.partOfSpeech || "").toLowerCase().split(/[\s,;·/]+/).map(value => POS[value]).filter(Boolean);
+  const rawLabel = String(row.partOfSpeech || "").toLowerCase().trim();
+  const fallback = /^(?:n\/a|none|unknown|unverified|unclassified|pending)\.?$/u.test(rawLabel) ? [] : rawLabel.split(/[,;·/]+/).flatMap(value => {
+    const label = value.trim().replace(/\.$/u, "");
+    // Preserve multiword labels before supporting old compact spellings such as "n v".
+    if (POS[label]) return [POS[label]];
+    const legacy = label.split(/\s+/u);
+    if (legacy.every(item => POS[item])) return legacy.map(item => POS[item]);
+    // Unfamiliar source labels are still source data, not missing metadata.
+    // Preserve legitimate grammar labels rather than turn count noun into noun
+    // or make a future approved label look eligible for an old empty-POS patch.
+    return label.length <= 200 && /^[a-z][a-z () .-]*$/u.test(label)
+      && !/^(?:unknown|unverified|unclassified|pending|none|n\/a)(?:\b|$)/u.test(label) ? [label] : [];
+  });
   return {
     term: row.word, partOfSpeech: [...new Set(labels.length ? labels : fallback)].join(" · "),
     meaning: groups.map((group, index) => `${numeral(index)} ${group}`).join("\n"), source: "ECDICT"
@@ -44,6 +70,7 @@ if (typeof location !== "undefined" && ["localhost", "127.0.0.1"].includes(locat
 }
 const indexes = new WeakMap();
 const legacyIndexes = new WeakMap();
+const correctionIndexes = new WeakMap();
 const HAN = /\p{Script=Han}/u;
 const CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u;
 let sharedLoad = null;
@@ -79,8 +106,40 @@ function canonical(map, value) {
   if (map.has(key)) throw new Error("本站查词索引存在重复原形。");
   map.set(key, value);
 }
+
+/** Apply independently credited labels only to an unchanged, still-unlabelled core row. */
+export function applyCorePosCorrection(row, value, projection = CORE_POS_CORRECTIONS) {
+  if (!value || String(row?.partOfSpeech || "").trim() || value.source !== "ECDICT"
+    || typeof value.partOfSpeech !== "string" || value.partOfSpeech.trim()) return value;
+  let corrections = correctionIndexes.get(projection);
+  if (!corrections) {
+    corrections = new Map(projection.entries.map(entry => [entry[0], entry]));
+    correctionIndexes.set(projection, corrections);
+  }
+  const entry = corrections.get(row.word);
+  if (!entry || value.term !== row.word || entry[0] !== row.word || entry[1] !== row.meaning) return value;
+  return { ...value, partOfSpeech: entry[2], source: projection.source.name,
+    license: projection.source.license, url: projection.source.url };
+}
+
+/** Prove an expanded result is the same reviewed core tuple, not just the same source label. */
+export function isReviewedCoreDictionaryResult(value, projection = CORE_POS_CORRECTIONS) {
+  if (!value || value.matchedForm || typeof value.term !== "string"
+    || typeof value.partOfSpeech !== "string" || typeof value.meaning !== "string"
+    || !projection?.source || !Array.isArray(projection.entries)
+    || value.source !== projection.source.name || value.license !== projection.source.license
+    || value.url !== projection.source.url) return false;
+  // Identities stay case-sensitive: Polish must never approve polish. The
+  // projection contains only raw-core approvals, never plain MIT headwords.
+  const entry = projection.entries.find(item => item[0] === value.term);
+  if (!entry) return false;
+  const formatted = personalDictionaryResult({ word: entry[0], meaning: entry[1], partOfSpeech: entry[2] });
+  return (value.meaning === entry[1] || value.meaning === formatted?.meaning)
+    && (value.partOfSpeech === entry[2] || value.partOfSpeech === formatted?.partOfSpeech);
+}
 function coreValue(word, partOfSpeech, meaning) {
-  const value = personalDictionaryResult({ word, partOfSpeech, meaning });
+  const row = { word, partOfSpeech, meaning };
+  const value = applyCorePosCorrection(row, personalDictionaryResult(row));
   if (!value || [...value.meaning].length > 2000) throw new Error("本站查词索引没有可用中文释义。");
   return Object.freeze(value);
 }
@@ -148,7 +207,7 @@ function parsedIndexes(dictionary) {
   if (legacyIndexes.has(dictionary)) return legacyIndexes.get(dictionary);
   const maps = makeIndexes();
   for (const row of dictionary.entries.values()) {
-    const value = personalDictionaryResult(row);
+    const value = applyCorePosCorrection(row, personalDictionaryResult(row));
     if (!value) continue;
     canonical(maps.core, value);
     for (const form of row.forms || []) add(maps.forms, literalKey(form), value);

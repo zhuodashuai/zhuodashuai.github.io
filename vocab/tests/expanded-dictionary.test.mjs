@@ -8,6 +8,7 @@ const fold = value => value.normalize("NFKC").replace(/[‘’]/gu, "'").replace
 function bucket(value) { let hash = 2166136261; for (const char of value) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; } return hash % 128; }
 const sha = value => createHash("sha256").update(value).digest("hex");
 const sources = {
+  "pos-reviewed": { name: "原有释义＋词性校订", license: "Original meaning licences; see POS notice", url: "https://zhuodashuai.github.io/vocab/dictionary-pos.html" },
   mit: { name: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT", commit: "a".repeat(40) },
   core: { name: "ECDICT 核心校订", license: "MIT", url: "https://github.com/skywind3000/ECDICT" },
   public: { name: "卓的公开词库", license: "Public wordbook", url: "https://zhuodashuai.github.io/vocab/" },
@@ -142,6 +143,21 @@ test("MIT/core raw labelled lines get consistent numbering and full POS without 
   assert.equal(result.partOfSpeech, "noun · adjective"); assert.equal(result.source, "ECDICT 核心校订");
   const long = fixture([entry("long", `n. ${"中".repeat(1997)}`)]);
   assert.equal((await searchExpandedDictionary("long", long)).results[0].meaning.length, 2000);
+});
+
+test("POS-reviewed labels retain grammar phrases and do not repeat an identical unlabelled source gloss", async () => {
+  const data = fixture([entry("as a rule", "通常；一般来说", { source: "pos-reviewed", partOfSpeech: "adverbial phrase", variants: [
+    { source: "mit", partOfSpeech: "", meaning: "通常；一般来说" },
+    { source: "original", partOfSpeech: "adverbial phrase", meaning: "通常情况下" }
+  ] })]);
+  const value = (await searchExpandedDictionary("as a rule", data)).results[0];
+  assert.equal(value.partOfSpeech, "adverbial phrase");
+  assert.equal(value.meaning, "① 通常；一般来说");
+  assert.equal(value.source, "原有释义＋词性校订");
+  assert.equal(value.alternatives.length, 1);
+  assert.equal(value.alternatives[0].source, "卓式原创词典");
+  // Reverse lookup must choose the enriched primary, not its blank duplicate.
+  assert.equal((await searchExpandedDictionary("一般来说", data)).results[0].partOfSpeech, "adverbial phrase");
 });
 
 test("Chinese bigrams intersect then actual substrings reject cross-variant false positives", async () => {

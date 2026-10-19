@@ -11,10 +11,10 @@ import {
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=82";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=82";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=88";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=88";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=82";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=88";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
