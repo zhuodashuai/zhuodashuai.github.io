@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0010",
+  "queuedHeads": 1200,
+  "authoredHeads": 1187,
+  "approvedHeads": 1187,
+  "deferred": [
+    {
+      "term": "carousel",
+      "stage": "authoring",
+      "reason": "Queue gives only a historical tournament sense. Collins marks that sense historical, whereas current learner senses are the fairground ride or baggage conveyor. Deferred to preserve the requested modern sense compatibility.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/carousel"
+      ]
+    },
+    {
+      "term": "evaluative",
+      "stage": "authoring",
+      "reason": "Base gloss says capable of being valued, while the current primary entry describes something that serves to evaluate. This active/passive sense mismatch should be corrected in base data before example authoring.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/evaluative"
+      ]
+    },
+    {
+      "term": "gipsy",
+      "stage": "authoring",
+      "reason": "Queue supplies a verb meaning wander. Current primary entry redirects to the chiefly British spelling of Gypsy; a natural modern verb use could not be confidently verified. Deferred obsolete/dialectal sense and register uncertainty.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/gipsy"
+      ]
+    },
+    {
+      "term": "hardline",
+      "stage": "authoring",
+      "reason": "Queue requires a one-word noun. Primary Collins entry gives the noun as hard line, with one-word hardline specifically as modifier. Deferred exact-form/POS conflict.",
+      "sources": [
+        "https://api.collinsdictionary.com/dictionary/english/hard-line_1",
+        "https://www.collinsdictionary.com/english-language-learning/hard-line"
+      ]
+    },
+    {
+      "term": "headdress",
+      "stage": "authoring",
+      "reason": "The queued/base part of speech is adjective, but the standard head-covering sense is a noun. Authoring a noun sentence would conflict with the supplied POS; deferred without changing primary data.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/headdress"
+      ]
+    },
+    {
+      "term": "hyena",
+      "stage": "authoring",
+      "reason": "Base animal gloss is thylacine (袋狼), not hyena (鬣狗). The primary entry identifies Hyaenidae. Deferred rather than silently introduce a missing animal sense or force an insulting figurative use.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/hyena"
+      ]
+    },
+    {
+      "term": "judgmental",
+      "stage": "authoring",
+      "reason": "The queued primary gloss is only 审判的. Merriam-Webster confirms the broader involving judgment sense and the modern harshly critical sense, but a natural modern teaching example of the latter would exceed this narrow supplied gloss. Deferred for a separate base-sense audit rather than authoring a mismatched example.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/judgmental"
+      ]
+    },
+    {
+      "term": "louvre",
+      "stage": "authoring",
+      "reason": "Base gives only skylight. Current primary senses are a slatted window/door or slat, and an architectural smoke outlet. Deferred rather than equate a general skylight with the modern louvre sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/louvre"
+      ]
+    },
+    {
+      "term": "nervosa",
+      "stage": "authoring",
+      "reason": "Not verified as a standalone modern English noun meaning neurasthenia. Primary lookup returns it only within anorexia nervosa. Deferred malformed or incomplete headword/base gloss.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/nervosa"
+      ]
+    },
+    {
+      "term": "nowt",
+      "stage": "authoring",
+      "reason": "Base gloss evil/evil person does not match the current primary entries for dialectal nothing (or Scottish cattle). Requires base lexical review before an example can align with a modern sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/nowt"
+      ]
+    },
+    {
+      "term": "rosary",
+      "stage": "authoring",
+      "reason": "The base lists rose garden/rose bed and a medical beadlike formation. Its common modern sense is a string of prayer beads, absent from the base. A garden example would teach an obsolete sense and a prayer-bead example would silently add a new sense. Deferred pending primary-data review.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/rosary"
+      ]
+    },
+    {
+      "term": "snapper",
+      "stage": "authoring",
+      "reason": "The base gloss offers a biting dog, a sharp-spoken person, or a snap fastener. The current official dictionary primarily supports fish, snapping turtle, and a broad one-that-snaps definition. A useful common fish example would introduce a sense absent from the supplied base, while forcing the narrow supplied senses risks unnatural learning material. Deferred pending primary-data review.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/snapper"
+      ]
+    },
+    {
+      "term": "wally",
+      "stage": "authoring",
+      "reason": "Queued adjective gloss describes an uncommon Scottish sense. The modern learner entry found is a noun meaning a foolish person, incompatible with the queued adjective/POS. Deferred rather than teach an uncertain regional adjective.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/wally"
+      ]
+    }
+  ],
+  "scope": "Original English sentences and Chinese translations for one selected sense per head, independently AI cross-reviewed; no primary definition changes or human certification."
+}
