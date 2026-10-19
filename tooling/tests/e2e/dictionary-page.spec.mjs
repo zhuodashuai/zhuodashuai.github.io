@@ -2,10 +2,12 @@ import { test, expect } from "@playwright/test";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 
-const ORIGIN = "http://127.0.0.1:4187";
+const ORIGIN = process.env.WORDBOOK_E2E_ORIGIN || "http://127.0.0.1:4187";
 const publicSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
 const publicHeads = new Set(publicSnapshot.entries.map(entry => entry.term.toLowerCase()));
 const englishShard = "**/data/expanded-dictionary/**/en-*.json*";
+const exampleShard = "**/data/dictionary-examples/**/examples-*.json*";
+const deferred = () => { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; };
 
 test.use({ serviceWorkers: "block" });
 test.beforeEach(async ({ context, page }, info) => {
@@ -43,6 +45,83 @@ async function query(page, value) {
   await expect(page.locator("#dictionary-result")).toBeVisible();
   await expect(page.locator("#dictionary-submit")).toBeEnabled();
 }
+
+test("examples: actual reviewed sidecar shows its own senses and bilingual text after the primary meaning at 390px", async ({ page }) => {
+  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest.json", import.meta.url), "utf8"));
+  expect(Object.hasOwn(manifest.keys, "override")).toBe(true);
+  const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${manifest.shards[manifest.keys.override].file}`, import.meta.url), "utf8"));
+  const actual = payload.entries.find(item => item.term === "override");
+  const calls = observeRequests(page);
+  await page.setViewportSize({ width: 390, height: 844 }); await open(page); await query(page, "override");
+  await expect(page.locator("#dictionary-example-content .example-sense")).toHaveCount(actual.senses.length);
+  await expect(page.locator("#dictionary-example-panel")).toContainText("原创例句·AI复核（精选义项）");
+  await expect(page.locator("#dictionary-example-content summary").first()).toContainText(actual.senses[0].meaningZh);
+  await expect(page.locator('#dictionary-example-content p[lang="en"]').first()).toHaveText(actual.senses[0].examples[0].en);
+  await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]').first()).toHaveText(actual.senses[0].examples[0].zh);
+  await expect(page.locator("#dictionary-add")).toHaveAttribute("href", /#lookup=override$/u);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  expectPublicOnly(calls);
+});
+
+test("examples: a slow optional shard cannot hold the meaning, CTA or next input disabled", async ({ page }) => {
+  const gate = deferred(), seen = deferred();
+  await page.route(exampleShard, async route => { seen.resolve(); await gate.promise; await route.continue(); });
+  try {
+    await open(page); await query(page, "override"); await seen.promise;
+    await expect(page.locator("#dictionary-meaning")).not.toBeEmpty();
+    await expect(page.locator("#dictionary-submit")).toBeEnabled(); await expect(page.locator("#dictionary-query")).toBeEditable();
+    await expect(page.locator("#dictionary-add")).toHaveAttribute("href", /#lookup=override$/u);
+    await expect(page.locator("#dictionary-example-status")).toContainText("正在读取");
+    gate.resolve(); await expect(page.locator("#dictionary-example-content .example-sense")).not.toHaveCount(0);
+  } finally { gate.resolve(); }
+});
+
+test("examples: missing optional material stays hidden without claiming a failed or missing dictionary word", async ({ page }) => {
+  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest.json", import.meta.url), "utf8"));
+  expect(Object.hasOwn(manifest.keys, "abacus")).toBe(false);
+  const calls = observeRequests(page); await open(page); await query(page, "abacus");
+  await expect(page.locator("#dictionary-term")).toHaveText("abacus");
+  await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
+  await expect(page.locator("#dictionary-example-panel")).toBeHidden();
+  await expect(page.locator("#dictionary-status")).toContainText("已找到");
+  expect(calls.some(call => /\/dictionary-examples\/[^/]+\/examples-/u.test(new URL(call.url).pathname))).toBe(false);
+  expectPublicOnly(calls);
+});
+
+test("examples: failure and local retry never clear the meaning or rerun the main dictionary request", async ({ page }) => {
+  let failed = false;
+  await page.route(exampleShard, async route => {
+    if (!failed) { failed = true; await route.fulfill({ status: 503, body: "temporarily unavailable" }); }
+    else await route.continue();
+  });
+  const calls = observeRequests(page); await open(page); await query(page, "override");
+  await expect(page.locator("#dictionary-example-retry")).toBeVisible();
+  await expect(page.locator("#dictionary-example-status")).toContainText("词义查询不受影响");
+  await expect(page.locator("#dictionary-term")).toHaveText("override");
+  const initialMeaning = await page.locator("#dictionary-meaning").textContent();
+  const mainRequests = calls.filter(call => call.url.includes("/expanded-dictionary/")).length;
+  await page.locator("#dictionary-example-retry").click();
+  await expect(page.locator("#dictionary-example-content .example-sense")).not.toHaveCount(0);
+  await expect(page.locator("#dictionary-meaning")).toHaveText(initialMeaning);
+  expect(calls.filter(call => call.url.includes("/expanded-dictionary/")).length).toBe(mainRequests);
+  expectPublicOnly(calls);
+});
+
+test("examples: a late previous result cannot repopulate material after the input changes to another headword", async ({ page }) => {
+  const gate = deferred(), seen = deferred();
+  await page.route(exampleShard, async route => { seen.resolve(); await gate.promise; await route.continue(); });
+  try {
+    await open(page); await query(page, "override"); await seen.promise;
+    await page.locator("#dictionary-query").fill("abacus");
+    await expect(page.locator("#dictionary-example-panel")).toBeHidden();
+    await page.locator("#dictionary-query").press("Enter");
+    await expect(page.locator("#dictionary-term")).toHaveText("abacus");
+    gate.resolve(); await page.waitForLoadState("networkidle");
+    await expect(page.locator("#dictionary-example-panel")).toBeHidden();
+    await expect(page.locator("#dictionary-example-content")).toBeEmpty();
+    await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
+  } finally { gate.resolve(); }
+});
 
 function bucket(value) {
   let hash = 2166136261;

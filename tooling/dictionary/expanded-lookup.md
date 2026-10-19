@@ -44,6 +44,43 @@ not a human semantic accuracy certificate.
 
 ## Fast static search
 
+### Entry-speed and optional examples — application 2.5.2 / shell v81
+
+Member English lookup now starts the compact and expanded public sources in
+parallel. A stalled compact prewarm cannot block a successful expanded match
+for its former 20-second deadline. Existing inflection/ambiguity rules stay in
+place; a complete exact core/public projection can return immediately only
+where its POS and Chinese text match the compact projection. Chinese queries
+first use the shared compact reverse index when available. These are explicitly
+labelled **basic**, not complete; “搜索完整词典” remains available for all indexed
+matches, without changing the selected word or blocking use/save in the meantime.
+Successful entry-list loading no longer waits for the independent learning read.
+Scores, study and backups still require verified, loaded learning records.
+
+The optional `data/dictionary-examples/` sidecar contains **1,230 headwords**,
+**2,617 selected senses** and **2,619 bilingual examples**: 2,419 earlier original
+examples plus 200 newly composed examples. The 200 new rows have separately
+authored, content-hash-bound AI reviews. This is not human certification or
+82,920-headword example completion: **81,690 heads remain without this sidecar**.
+Existing chapter examples and book quotations are not overwritten. Each example
+keeps its own POS and selected Chinese meaning rather than being attached to an
+unrelated primary licensed sense. The public dictionary loads the optional JS
+and one checksummed shard only after its main meaning and add-to-book link are
+ready. Missing examples stay hidden; failure has its own retry and never reruns
+or invalidates the primary lookup. No provider request is involved.
+
+Rebuild/check with `node tooling/scripts/build-dictionary-examples.mjs` and
+`node tooling/scripts/build-dictionary-examples.mjs --check`. Independent review
+records and source compositions live under `tooling/dictionary/examples/`.
+The keyed manifest is intentionally bounded for this batch, not an assertion
+that the same key layout will scale unchanged to the final full catalogue.
+
+Before this release, the preserved baseline is Git main
+`7f3a79839539855e09135b6a69bde051de9cc1f6`, tree
+`af374873fd54aaf219b7ed738cc3f449e76c90b9`, Worker application `2.5.1`, deployment
+`7aee3580-2327-4ce1-9927-eece0105fd3f`. Restore that Worker version and revert the
+code merge if necessary; never restore old account databases or learning data.
+
 ### Connected entrances — application 2.5.1 / shell v80
 
 `vocab/dictionary.html` exposes the already-public index without requiring an

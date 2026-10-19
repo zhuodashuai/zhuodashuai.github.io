@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { parseCoreDictionary } from "../js/core-dictionary.js?v=77";
-import { lookupPersonalDictionary, personalDictionaryResult, parsePersonalDictionary, preloadPersonalDictionary,
+import { lookupPersonalDictionary, searchPersonalDictionaryChinese, personalDictionaryResult, parsePersonalDictionary, preloadPersonalDictionary,
   resetPersonalDictionaryCacheForTests as resetCoreDictionaryCacheForTests } from "../js/personal-dictionary.js";
 
 const payload = JSON.parse(await readFile(new URL("../data/ecdict-core.json", import.meta.url), "utf8"));
@@ -205,5 +205,32 @@ test("index rejects unknown/private fields, oversized glosses, duplicates and wr
     value => { value.counts.core++; }, value => { value.core.push(value.core[0]); value.counts.core++; value.counts.coreInput++; },
     value => { value.source.core.license = "unknown"; }]) {
     const modified = structuredClone(source); mutate(modified); assert.throws(() => parsePersonalDictionary(modified));
+  }
+});
+
+test("Chinese reverse reuses validated public maps and retains the actual matching source, without duplicates", async () => {
+  const parsed = parsePersonalDictionary(smallIndex({ core: [["apple", "noun", "n. 苹果", []], ["cross", "noun", "n. 十字架", []]],
+    published: [["apple", "noun", "苹果的章节释义。", []], ["cross", "adjective", "生气的。", []]] }));
+  const apple = await searchPersonalDictionaryChinese("“苹果”", { dictionary: parsed });
+  assert.equal(apple.coverage, "basic"); assert.equal(apple.results.length, 1); assert.equal(apple.results[0].source, "ECDICT");
+  const contextual = await searchPersonalDictionaryChinese("生气", { dictionary: parsed });
+  assert.equal(contextual.results[0].term, "cross"); assert.equal(contextual.results[0].source, "卓的公开词库"); assert.equal(contextual.results[0].meaning, "生气的。");
+  const first = await searchPersonalDictionaryChinese("苹果", { dictionary: memberDictionary, limit: 1 });
+  assert.equal(first.results.length, 1); assert.match(first.results[0].meaning, /苹果/u); assert.equal(first.hasMore, true);
+});
+
+test("Chinese reverse shares the sole warmup download and one aborted search never stops another caller", async () => {
+  resetCoreDictionaryCacheForTests(); let release, calls = 0;
+  const fetchImpl = async () => { calls++; await new Promise(resolve => { release = resolve; }); return { ok: true, json: async () => memberPayload }; };
+  const warm = preloadPersonalDictionary({ fetchImpl }), controller = new AbortController();
+  const aborted = searchPersonalDictionaryChinese("苹果", { fetchImpl, signal: controller.signal });
+  const healthy = searchPersonalDictionaryChinese("苹果", { fetchImpl });
+  controller.abort(); await assert.rejects(aborted, /停止/u); release(); await warm;
+  assert.ok((await healthy).results.length); assert.equal(calls, 1); resetCoreDictionaryCacheForTests();
+});
+
+test("Chinese reverse rejects invalid queries before any download", async () => {
+  for (const input of ["", "apple", "苹<script>", "中".repeat(51), "中\u0000文"]) {
+    await assert.rejects(searchPersonalDictionaryChinese(input, { fetchImpl: () => { throw new Error("must not fetch"); } }));
   }
 });

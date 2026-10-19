@@ -22,7 +22,7 @@ import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist,
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=77";
 import { setupPwa } from "./pwa.js?v=77";
 import { lookupCoreEntry } from "./core-dictionary.js?v=77";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=79";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=81";
 import { preserveCollectionTags } from "./collections.js?v=77";
 import { buildSynonymGroups } from "./synonym-groups.js?v=77";
 import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "92bca795b4c1b82e4ea47fddaa132bcc58538c7a5aae016a5e2d9e511068abd8",
+  "reviewer": "AI/independent-language-review",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "reality", "yard", "violence", "partner", "supply", "kitchen", "consumer", "painting", "scientist", "solution",
+    "victim", "newspaper", "threat", "opinion", "tomorrow", "option", "opposition", "eventually", "occasion", "highly",
+    "mission", "target", "speech", "southern", "video", "slightly", "reform", "restaurant", "afternoon", "review",
+    "recall", "safety", "otherwise", "hardly", "below", "status", "troop", "reader", "absolutely", "plane",
+    "nobody", "sentence", "copy", "nuclear", "league", "camp", "studio", "weekend", "dozen", "transport",
+    "museum", "pair", "annual", "presence", "ship", "protection", "queen", "boat", "wood", "mountain",
+    "emerge", "regional", "resident", "potential", "danger", "progress", "reaction", "crowd", "willing", "comment",
+    "prison", "reply", "reporter", "vehicle", "wine", "propose", "possibly", "largely", "survive", "telephone",
+    "promote", "package", "colleague", "mainly", "warm", "critic", "plus", "volume", "entry", "cabinet",
+    "murder", "editor", "extremely", "threaten", "relief", "commit", "strange", "youth", "wonderful", "tour"
+  ],
+  "issues": [
+    {"term":"victim","blocking":true,"problem":"The first Chinese translation restricted an unspecified victim to a disaster victim.","resolution":"The author changed the translation to the broader 受害者; independently reread and approved."},
+    {"term":"otherwise","blocking":true,"problem":"The first Chinese translation narrowed unspecified work to schoolwork.","resolution":"The author changed the translation to 工作成果的副本; independently reread and approved."},
+    {"term":"progress","blocking":true,"problem":"A written diary was an unclear way to observe changes in pronunciation.","resolution":"The author independently rewrote the example and translation around comparing weekly recordings; both were reread and approved."},
+    {"term":"promote","blocking":true,"problem":"The first Chinese translation changed different courses into different degree majors.","resolution":"The author changed the translation to 修读不同课程的学生; independently reread and approved."}
+  ]
+}
