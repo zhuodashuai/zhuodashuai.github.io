@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0012",
+  "queuedHeads": 1200,
+  "authoredHeads": 1181,
+  "approvedHeads": 1181,
+  "deferred": [
+    {
+      "term": "banquette",
+      "stage": "authoring",
+      "reason": "The supplied 射击壕沟 denotes a trench, while the primary military definition denotes a raised firing platform inside a trench or parapet. The supplied 驾驶后座 is not a sufficiently clear match for the current upholstered bench sense. Defer rather than replace either supplied sense with an unrelated dining bench meaning.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/banquette"
+      ]
+    },
+    {
+      "term": "bicentennial",
+      "stage": "authoring",
+      "reason": "Canonical POS is noun but its gloss only gives a two-hundred-year duration/frequency. The confirmed noun denotes a two-hundredth anniversary or its celebration; that concrete sense is absent, so it was not silently substituted.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/bicentennial",
+        "https://dictionary.cambridge.org/us/dictionary/english/bicentennial"
+      ]
+    },
+    {
+      "term": "bummer",
+      "stage": "authoring",
+      "reason": "The supplied meanings refer only to an idler/vagrant. Collins lists that sense but Webster's New World on the same primary page explicitly labels it old slang. Defer because currentness of this narrow supplied person sense is uncertain; the usual disappointment sense is absent from the supplied gloss.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/bummer"
+      ]
+    },
+    {
+      "term": "confusingly",
+      "stage": "authoring",
+      "reason": "Canonical gloss only says confuse的变形 and supplies no concrete adverbial sense. Deferred rather than silently adding the absent 令人困惑地 sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/confusingly",
+        "https://dictionary.cambridge.org/us/dictionary/english/confusingly"
+      ]
+    },
+    {
+      "term": "crummy",
+      "stage": "authoring",
+      "reason": "Canonical Chinese supplies only 丰满的, which does not match the established current senses of unpleasant, poor quality, shabby, or unwell. Do not silently substitute one of those absent senses.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/crummy"
+      ]
+    },
+    {
+      "term": "dystrophy",
+      "stage": "authoring",
+      "reason": "The supplied gloss contains only nutritional disorder/malnutrition. Merriam-Webster explicitly explains that this was the original meaning and that current use concerns other degenerative conditions. Using muscular dystrophy would substitute a current sense not clearly present in the canonical gloss; a nutritional-disorder example would teach an outdated meaning.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/dystrophy"
+      ]
+    },
+    {
+      "term": "eyesore",
+      "stage": "authoring",
+      "reason": "The sole gloss 眼中钉 suggests a disliked person or object without requiring visual ugliness. The confirmed noun is an unattractive object/place, so a normal derelict-building example would depend on correcting or expanding the supplied gloss.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/eyesore"
+      ]
+    },
+    {
+      "term": "fantastically",
+      "stage": "authoring",
+      "reason": "Canonical gloss supplies only 空想地 and 捕风捉影地. Current primary learner entries establish extremely, extremely well, or strangely; a natural example for those would illustrate an absent sense. The supplied imaginary/speculative manner was not sufficiently established for a current learning example.",
+      "sources": [
+        "https://dictionary.cambridge.org/dictionary/english/fantastically?topic=extremely-good",
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/fantastically",
+        "https://www.collinsdictionary.com/dictionary/english/fantastically"
+      ]
+    },
+    {
+      "term": "forgetfulness",
+      "stage": "authoring",
+      "reason": "Only supplied gloss is the computing-labelled 忽视. No clear computing-specific concrete sense was established from the primary dictionary, and the ordinary state of forgetting or being forgetful is not supplied explicitly.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/forgetfulness"
+      ]
+    },
+    {
+      "term": "haywire",
+      "stage": "authoring",
+      "reason": "The sole supplied meaning 临时的 is not a securely usable current sense. Merriam-Webster defines out of order/out of control; its etymological note relates temporary makeshift repairs to the word's history, not a general modern equivalent of temporary. No ordinary malfunction sentence would illustrate the supplied meaning.",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/haywire"
+      ]
+    },
+    {
+      "term": "legalistic",
+      "stage": "authoring",
+      "reason": "Canonical gloss 尊重法律的 misses the strict or excessively literal adherence central to the confirmed adjective. A simple law-respecting example would misteach it; defer pending canonical gloss clarification.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/legalistic"
+      ]
+    },
+    {
+      "term": "limply",
+      "stage": "authoring",
+      "reason": "The supplied 跛行地、勉强地 does not match primary current definitions: without strength/energy or without stiffness/firmness. A limping sentence would confuse the verb limp with this adverb, and a reluctantly/barely sentence would introduce another mismatch.",
+      "sources": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/limply"
+      ]
+    },
+    {
+      "term": "longingly",
+      "stage": "authoring",
+      "reason": "Canonical POS is adjective, but this head is an adverb. Its Chinese gloss is adverbial as well. An example would require correcting the canonical POS first.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/longingly",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/longingly"
+      ]
+    },
+    {
+      "term": "provocatively",
+      "stage": "authoring",
+      "reason": "Canonical Chinese contains only the morphological pointer provocative的变形 and supplies no concrete Chinese sense. Primary dictionaries distinguish thought-provoking, anger-provoking, and sexually provocative uses; selecting any one requires a definition repair outside this example batch.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/provocatively"
+      ]
+    },
+    {
+      "term": "quince",
+      "stage": "authoring",
+      "reason": "Canonical Chinese is corrupted as [医] ╂Т, so no intelligible canonical sense can be selected. Primary dictionaries identify the fruit/tree, but adding that would repair the definition rather than illustrate the supplied gloss.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/quince",
+        "https://www.collinsdictionary.com/dictionary/english/quince"
+      ]
+    },
+    {
+      "term": "segue",
+      "stage": "authoring",
+      "reason": "The supplied noun is glossed as the musical direction 继续, but Collins classifies the direction as an imperative verb; its noun is an uninterrupted transition. Avoided choosing an absent noun sense or overriding the canonical POS.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/segue"
+      ]
+    },
+    {
+      "term": "snowboarder",
+      "stage": "authoring",
+      "reason": "Canonical gloss 雪山飞魂 appears to be a title or corrupt import and does not define the person who rides a snowboard. The ordinary noun meaning was not substituted for that unsupported gloss.",
+      "sources": [
+        "https://www.collinsdictionary.com/dictionary/english/snowboarder"
+      ]
+    },
+    {
+      "term": "techno",
+      "stage": "authoring",
+      "reason": "Canonical noun gloss 技术 is incompatible with the established independent noun meaning a genre of electronic music; technology-related techno- is a combining form. A music example would replace the supplied sense.",
+      "sources": [
+        "https://www.collinsdictionary.com/us/dictionary/english/techno"
+      ]
+    },
+    {
+      "term": "worryingly",
+      "stage": "authoring",
+      "reason": "The supplied 焦虑地、烦恼地 describes experiencing anxiety. Current primary definitions describe causing anxiety or being of a worrying degree. These are different meanings; a natural example would silently repair the supplied sense.",
+      "sources": [
+        "https://dictionary.cambridge.org/us/dictionary/english/worryingly",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/worryingly"
+      ]
+    }
+  ],
+  "scope": "Original English sentences and Chinese translations for one selected sense per head, independently AI cross-reviewed; no primary definition changes or human certification."
+}
