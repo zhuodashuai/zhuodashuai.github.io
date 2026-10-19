@@ -117,11 +117,11 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=81/u); assert.match(html, /dictionary-app\.js\?v=82/u);
+  assert.match(html, /dictionary\.css\?v=81/u); assert.match(html, /dictionary-app\.js\?v=84/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
   assert.match(script, /expanded-dictionary\.js\?v=82/u); assert.match(script, /counts\.records/u);
-  assert.match(script, /import\("\.\/dictionary-examples\.js\?v=81"\)/u);
+  assert.match(script, /import\("\.\/dictionary-examples\.js\?v=84"\)/u);
   assert.ok(html.indexOf('id="dictionary-add"') < html.indexOf('id="dictionary-example-panel"'));
   assert.doesNotMatch(script, /innerHTML|localStorage|indexedDB|\/api\/|fetch\(|registerServiceWorker|82920/u);
   assert.match(css, /@media \(max-width: 640px\)/u); assert.match(css, /min-width: 0/u);

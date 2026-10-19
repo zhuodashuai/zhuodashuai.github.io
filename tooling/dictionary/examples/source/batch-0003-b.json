@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0003-b",
+  "authorship": "independent-composition",
+  "entries": [
+    {
+      "term": "view",
+      "partOfSpeech": "noun",
+      "meaningZh": "景色",
+      "en": "The balcony offers a view of the harbour.",
+      "zh": "阳台上能看到港口的景色。"
+    },
+    {
+      "term": "suggest",
+      "partOfSpeech": "verb",
+      "meaningZh": "建议",
+      "en": "I suggest taking the earlier train.",
+      "zh": "我建议坐早一班火车。"
+    },
+    {
+      "term": "anything",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "任何事物",
+      "en": "Did you leave anything in the locker?",
+      "zh": "你在储物柜里落下什么了吗？"
+    },
+    {
+      "term": "ago",
+      "partOfSpeech": "adverb",
+      "meaningZh": "以前",
+      "en": "We moved here six months ago.",
+      "zh": "我们六个月前搬到了这里。"
+    },
+    {
+      "term": "term",
+      "partOfSpeech": "noun",
+      "meaningZh": "学期",
+      "en": "The autumn term begins with a welcome concert.",
+      "zh": "秋季学期以一场迎新音乐会开始。"
+    },
+    {
+      "term": "towards",
+      "partOfSpeech": "preposition",
+      "meaningZh": "朝；向",
+      "en": "A dog was running towards the pond.",
+      "zh": "一只狗正朝池塘跑去。"
+    },
+    {
+      "term": "understand",
+      "partOfSpeech": "verb",
+      "meaningZh": "理解",
+      "en": "I understand the instructions better with diagrams.",
+      "zh": "有图示我就更能看懂说明。"
+    },
+    {
+      "term": "read",
+      "partOfSpeech": "verb",
+      "meaningZh": "阅读",
+      "en": "She likes to read on the train.",
+      "zh": "她喜欢在火车上读书。"
+    },
+    {
+      "term": "society",
+      "partOfSpeech": "noun",
+      "meaningZh": "社会",
+      "en": "The course examines how technology changes society.",
+      "zh": "这门课探讨技术如何改变社会。"
+    },
+    {
+      "term": "centre",
+      "partOfSpeech": "noun",
+      "meaningZh": "中心",
+      "en": "A fountain stands in the centre of the square.",
+      "zh": "广场中央有一座喷泉。"
+    },
+    {
+      "term": "parent",
+      "partOfSpeech": "noun",
+      "meaningZh": "父亲或母亲",
+      "en": "Each child must come with a parent.",
+      "zh": "每个孩子必须由一位家长陪同。"
+    },
+    {
+      "term": "police",
+      "partOfSpeech": "noun",
+      "meaningZh": "警察",
+      "en": "The police helped us find our missing bicycles.",
+      "zh": "警察帮助我们找回了丢失的自行车。"
+    },
+    {
+      "term": "stop",
+      "partOfSpeech": "verb",
+      "meaningZh": "停止",
+      "en": "Please stop shaking the table.",
+      "zh": "请不要再晃桌子了。"
+    },
+    {
+      "term": "probably",
+      "partOfSpeech": "adverb",
+      "meaningZh": "很可能",
+      "en": "We'll probably finish painting by Friday.",
+      "zh": "我们很可能周五之前就能刷完漆。"
+    },
+    {
+      "term": "speak",
+      "partOfSpeech": "verb",
+      "meaningZh": "说话；发言",
+      "en": "Please speak slowly during the recording.",
+      "zh": "录音时请慢慢说。"
+    },
+    {
+      "term": "price",
+      "partOfSpeech": "noun",
+      "meaningZh": "价格",
+      "en": "The price includes breakfast and parking.",
+      "zh": "这个价格包括早餐和停车费。"
+    },
+    {
+      "term": "spend",
+      "partOfSpeech": "verb",
+      "meaningZh": "花费",
+      "en": "We spend very little on transport.",
+      "zh": "我们在交通上花的钱很少。"
+    },
+    {
+      "term": "process",
+      "partOfSpeech": "noun",
+      "meaningZh": "过程",
+      "en": "The application process has three stages.",
+      "zh": "申请过程分为三个阶段。"
+    },
+    {
+      "term": "remain",
+      "partOfSpeech": "verb",
+      "meaningZh": "保持某种状态",
+      "en": "The upstairs windows must remain closed.",
+      "zh": "楼上的窗户必须保持关闭。"
+    },
+    {
+      "term": "position",
+      "partOfSpeech": "noun",
+      "meaningZh": "位置",
+      "en": "Mark the position of each chair on the plan.",
+      "zh": "在平面图上标出每把椅子的位置。"
+    },
+    {
+      "term": "remember",
+      "partOfSpeech": "verb",
+      "meaningZh": "记得",
+      "en": "I remember the smell of that old bookshop.",
+      "zh": "我记得那家老书店的气味。"
+    },
+    {
+      "term": "sure",
+      "partOfSpeech": "adjective",
+      "meaningZh": "确信的",
+      "en": "Are you sure this is the right platform?",
+      "zh": "你确定这是正确的站台吗？"
+    },
+    {
+      "term": "actually",
+      "partOfSpeech": "adverb",
+      "meaningZh": "实际上",
+      "en": "The entrance is actually around the corner.",
+      "zh": "入口实际上在拐角那边。"
+    },
+    {
+      "term": "morning",
+      "partOfSpeech": "noun",
+      "meaningZh": "早晨",
+      "en": "The garden gets sunlight in the morning.",
+      "zh": "花园早晨能晒到太阳。"
+    },
+    {
+      "term": "research",
+      "partOfSpeech": "noun",
+      "meaningZh": "研究",
+      "en": "Her research focuses on how children learn vocabulary.",
+      "zh": "她的研究聚焦于儿童如何学习词汇。"
+    },
+    {
+      "term": "walk",
+      "partOfSpeech": "noun",
+      "meaningZh": "散步",
+      "en": "A short walk helped me clear my head.",
+      "zh": "散一小会儿步让我理清了思绪。"
+    },
+    {
+      "term": "programme",
+      "partOfSpeech": "noun",
+      "meaningZh": "节目单",
+      "en": "The programme lists every musician performing tonight.",
+      "zh": "节目单列出了今晚演出的每位乐手。"
+    },
+    {
+      "term": "moment",
+      "partOfSpeech": "noun",
+      "meaningZh": "片刻",
+      "en": "Please hold this ladder for a moment.",
+      "zh": "请扶一下这架梯子。"
+    },
+    {
+      "term": "win",
+      "partOfSpeech": "verb",
+      "meaningZh": "赢得",
+      "en": "Our class hopes to win the recycling competition.",
+      "zh": "我们班希望赢得回收比赛。"
+    },
+    {
+      "term": "age",
+      "partOfSpeech": "noun",
+      "meaningZh": "年龄",
+      "en": "She learnt to swim at the age of six.",
+      "zh": "她六岁时学会了游泳。"
+    },
+    {
+      "term": "send",
+      "partOfSpeech": "verb",
+      "meaningZh": "发送；寄",
+      "en": "I'll send you a copy of the receipt.",
+      "zh": "我会给你发一份收据副本。"
+    },
+    {
+      "term": "value",
+      "partOfSpeech": "noun",
+      "meaningZh": "价值",
+      "en": "The painting's value surprised its owner.",
+      "zh": "这幅画的价值让主人很意外。"
+    },
+    {
+      "term": "enough",
+      "partOfSpeech": "adverb",
+      "meaningZh": "足够地",
+      "en": "The shelf is wide enough for two baskets.",
+      "zh": "架子足够宽，能放下两个篮子。"
+    },
+    {
+      "term": "across",
+      "partOfSpeech": "preposition",
+      "meaningZh": "穿过；横过",
+      "en": "We carried the picnic basket across the field.",
+      "zh": "我们提着野餐篮穿过了田野。"
+    },
+    {
+      "term": "less",
+      "partOfSpeech": "adjective",
+      "meaningZh": "较少的",
+      "en": "This recipe uses less sugar than mine.",
+      "zh": "这个食谱用的糖比我的少。"
+    },
+    {
+      "term": "street",
+      "partOfSpeech": "noun",
+      "meaningZh": "街道",
+      "en": "A small bakery opened on our street.",
+      "zh": "我们街上开了一家小面包店。"
+    },
+    {
+      "term": "boy",
+      "partOfSpeech": "noun",
+      "meaningZh": "男孩",
+      "en": "The boy returned the ball to our garden.",
+      "zh": "那个男孩把球送回了我们的花园。"
+    },
+    {
+      "term": "everything",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "所有东西",
+      "en": "Everything in this cupboard belongs to the club.",
+      "zh": "这个柜子里的所有东西都属于俱乐部。"
+    },
+    {
+      "term": "music",
+      "partOfSpeech": "noun",
+      "meaningZh": "音乐",
+      "en": "Soft music played while we ate.",
+      "zh": "我们吃饭时放着轻柔的音乐。"
+    },
+    {
+      "term": "themselves",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "他们自己",
+      "en": "The students organised the whole event themselves.",
+      "zh": "学生们自己组织了整场活动。"
+    },
+    {
+      "term": "paper",
+      "partOfSpeech": "noun",
+      "meaningZh": "纸",
+      "en": "Please print the draft on recycled paper.",
+      "zh": "请用再生纸打印草稿。"
+    },
+    {
+      "term": "itself",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "它自己",
+      "en": "The door closed by itself.",
+      "zh": "门自己关上了。"
+    },
+    {
+      "term": "wait",
+      "partOfSpeech": "verb",
+      "meaningZh": "等候",
+      "en": "We can wait inside until the bus arrives.",
+      "zh": "我们可以在里面等公交车来。"
+    },
+    {
+      "term": "economic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "经济方面的",
+      "en": "The essay discusses the economic effects of tourism.",
+      "zh": "这篇文章讨论旅游业的经济影响。"
+    },
+    {
+      "term": "die",
+      "partOfSpeech": "verb",
+      "meaningZh": "死亡",
+      "en": "The seedlings may die without enough water.",
+      "zh": "幼苗缺水可能会死。"
+    },
+    {
+      "term": "reach",
+      "partOfSpeech": "verb",
+      "meaningZh": "到达",
+      "en": "We should reach the campsite before dark.",
+      "zh": "我们应该能在天黑前到达营地。"
+    },
+    {
+      "term": "sense",
+      "partOfSpeech": "noun",
+      "meaningZh": "感觉能力",
+      "en": "The game tests your sense of touch.",
+      "zh": "这个游戏测试你的触觉。"
+    },
+    {
+      "term": "stay",
+      "partOfSpeech": "verb",
+      "meaningZh": "停留",
+      "en": "We decided to stay another night.",
+      "zh": "我们决定再住一晚。"
+    },
+    {
+      "term": "nation",
+      "partOfSpeech": "noun",
+      "meaningZh": "国家",
+      "en": "Athletes from each nation carried their flags.",
+      "zh": "各国运动员举着本国国旗。"
+    },
+    {
+      "term": "hundred",
+      "partOfSpeech": "numeral",
+      "meaningZh": "一百",
+      "en": "A hundred guests attended the opening.",
+      "zh": "一百位来宾参加了开幕式。"
+    },
+    {
+      "term": "behind",
+      "partOfSpeech": "preposition",
+      "meaningZh": "在……后面",
+      "en": "My umbrella is behind the kitchen door.",
+      "zh": "我的伞在厨房门后。"
+    },
+    {
+      "term": "sort",
+      "partOfSpeech": "noun",
+      "meaningZh": "种类",
+      "en": "What sort of bread would you like?",
+      "zh": "你想要哪种面包？"
+    },
+    {
+      "term": "staff",
+      "partOfSpeech": "noun",
+      "meaningZh": "全体工作人员",
+      "en": "The café staff know our usual order.",
+      "zh": "咖啡馆的员工知道我们平时点什么。"
+    },
+    {
+      "term": "return",
+      "partOfSpeech": "verb",
+      "meaningZh": "归还",
+      "en": "Please return the keys before noon.",
+      "zh": "请在中午之前归还钥匙。"
+    },
+    {
+      "term": "raise",
+      "partOfSpeech": "verb",
+      "meaningZh": "举起；抬高",
+      "en": "Raise your hand if you need help.",
+      "zh": "需要帮助的话请举手。"
+    },
+    {
+      "term": "town",
+      "partOfSpeech": "noun",
+      "meaningZh": "城镇",
+      "en": "The town has a busy Saturday market.",
+      "zh": "这个镇周六有一个热闹的集市。"
+    },
+    {
+      "term": "either",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "两者中的任一个",
+      "en": "These routes are short; either would work.",
+      "zh": "这两条路线都很短，选哪条都行。"
+    },
+    {
+      "term": "else",
+      "partOfSpeech": "adverb",
+      "meaningZh": "别的；其他",
+      "en": "Where else should we look for the keys?",
+      "zh": "我们还应该到哪里找钥匙？"
+    },
+    {
+      "term": "former",
+      "partOfSpeech": "adjective",
+      "meaningZh": "以前的",
+      "en": "My former teacher now runs a bookshop.",
+      "zh": "我以前的老师现在经营一家书店。"
+    },
+    {
+      "term": "sell",
+      "partOfSpeech": "verb",
+      "meaningZh": "出售",
+      "en": "They sell handmade baskets at the fair.",
+      "zh": "他们在集市上卖手工篮子。"
+    },
+    {
+      "term": "along",
+      "partOfSpeech": "preposition",
+      "meaningZh": "沿着",
+      "en": "We followed a narrow path along the canal.",
+      "zh": "我们沿着运河边的一条小路走。"
+    },
+    {
+      "term": "committee",
+      "partOfSpeech": "noun",
+      "meaningZh": "委员会",
+      "en": "The committee chose a date for the fair.",
+      "zh": "委员会选定了举办集市的日期。"
+    },
+    {
+      "term": "product",
+      "partOfSpeech": "noun",
+      "meaningZh": "产品",
+      "en": "Each product comes with clear washing instructions.",
+      "zh": "每件产品都附有清楚的洗涤说明。"
+    },
+    {
+      "term": "role",
+      "partOfSpeech": "noun",
+      "meaningZh": "职责；作用",
+      "en": "My role is to welcome arriving guests.",
+      "zh": "我的职责是迎接到来的客人。"
+    },
+    {
+      "term": "whole",
+      "partOfSpeech": "adjective",
+      "meaningZh": "整个的",
+      "en": "We spent the whole afternoon making dumplings.",
+      "zh": "我们整个下午都在包饺子。"
+    },
+    {
+      "term": "strong",
+      "partOfSpeech": "adjective",
+      "meaningZh": "坚固的",
+      "en": "We need a strong box for these tools.",
+      "zh": "我们需要一个结实的箱子装这些工具。"
+    },
+    {
+      "term": "rather",
+      "partOfSpeech": "adverb",
+      "meaningZh": "相当",
+      "en": "The upstairs corridor is rather narrow.",
+      "zh": "楼上的走廊相当窄。"
+    },
+    {
+      "term": "drug",
+      "partOfSpeech": "noun",
+      "meaningZh": "药物",
+      "en": "The pharmacist checked the name of the drug.",
+      "zh": "药剂师核对了药名。"
+    },
+    {
+      "term": "wife",
+      "partOfSpeech": "noun",
+      "meaningZh": "妻子",
+      "en": "His wife runs the bakery next door.",
+      "zh": "他的妻子经营着隔壁的面包店。"
+    },
+    {
+      "term": "union",
+      "partOfSpeech": "noun",
+      "meaningZh": "工会",
+      "en": "The union asked workers about their schedules.",
+      "zh": "工会询问了工人们的排班情况。"
+    },
+    {
+      "term": "ten",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十",
+      "en": "The workshop has space for ten people.",
+      "zh": "这间工坊能容纳十个人。"
+    },
+    {
+      "term": "military",
+      "partOfSpeech": "adjective",
+      "meaningZh": "军事的",
+      "en": "The museum displays old military uniforms.",
+      "zh": "博物馆展出了旧式军装。"
+    },
+    {
+      "term": "son",
+      "partOfSpeech": "noun",
+      "meaningZh": "儿子",
+      "en": "Their son helped carry the shopping upstairs.",
+      "zh": "他们的儿子帮忙把买来的东西提上楼。"
+    },
+    {
+      "term": "support",
+      "partOfSpeech": "noun",
+      "meaningZh": "支持",
+      "en": "Her encouragement gave me the support I needed.",
+      "zh": "她的鼓励给了我所需的支持。"
+    },
+    {
+      "term": "stage",
+      "partOfSpeech": "noun",
+      "meaningZh": "舞台",
+      "en": "The children bowed at the front of the stage.",
+      "zh": "孩子们在舞台前方鞠躬。"
+    },
+    {
+      "term": "trade",
+      "partOfSpeech": "noun",
+      "meaningZh": "贸易",
+      "en": "The port grew through trade in wool.",
+      "zh": "这个港口因羊毛贸易而发展起来。"
+    },
+    {
+      "term": "arm",
+      "partOfSpeech": "noun",
+      "meaningZh": "手臂",
+      "en": "She carried the blankets under one arm.",
+      "zh": "她用一只胳膊夹着毛毯。"
+    },
+    {
+      "term": "thank",
+      "partOfSpeech": "verb",
+      "meaningZh": "感谢",
+      "en": "I wanted to thank you for your patience.",
+      "zh": "我想感谢你的耐心。"
+    },
+    {
+      "term": "whose",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "谁的",
+      "en": "Whose are these gloves by the door?",
+      "zh": "门边的这副手套是谁的？"
+    },
+    {
+      "term": "situation",
+      "partOfSpeech": "noun",
+      "meaningZh": "情况",
+      "en": "We explained the situation to the landlord.",
+      "zh": "我们向房东说明了情况。"
+    },
+    {
+      "term": "season",
+      "partOfSpeech": "noun",
+      "meaningZh": "季节",
+      "en": "Autumn is my favourite season for hiking.",
+      "zh": "秋天是我最喜欢的徒步季节。"
+    },
+    {
+      "term": "record",
+      "partOfSpeech": "noun",
+      "meaningZh": "记录",
+      "en": "Keep a record of the books you borrow.",
+      "zh": "把借过的书记录下来。"
+    },
+    {
+      "term": "tax",
+      "partOfSpeech": "noun",
+      "meaningZh": "税",
+      "en": "The invoice shows the tax separately.",
+      "zh": "发票单独列出了税款。"
+    },
+    {
+      "term": "player",
+      "partOfSpeech": "noun",
+      "meaningZh": "运动员；参赛者",
+      "en": "Every player shook hands after the match.",
+      "zh": "比赛结束后每位球员都握了手。"
+    },
+    {
+      "term": "yesterday",
+      "partOfSpeech": "adverb",
+      "meaningZh": "昨天",
+      "en": "The parcel arrived yesterday while I was out.",
+      "zh": "包裹昨天我外出时送到了。"
+    },
+    {
+      "term": "base",
+      "partOfSpeech": "noun",
+      "meaningZh": "底部",
+      "en": "The lamp has a heavy metal base.",
+      "zh": "这盏灯有一个沉重的金属底座。"
+    },
+    {
+      "term": "central",
+      "partOfSpeech": "adjective",
+      "meaningZh": "中央的",
+      "en": "The hotel faces the town's central square.",
+      "zh": "酒店面朝镇中心广场。"
+    },
+    {
+      "term": "cover",
+      "partOfSpeech": "noun",
+      "meaningZh": "封面",
+      "en": "The book's cover shows a snowy mountain.",
+      "zh": "这本书的封面是一座雪山。"
+    },
+    {
+      "term": "university",
+      "partOfSpeech": "noun",
+      "meaningZh": "大学",
+      "en": "The university opened its gardens to visitors.",
+      "zh": "这所大学向游客开放了花园。"
+    },
+    {
+      "term": "sir",
+      "partOfSpeech": "noun",
+      "meaningZh": "先生",
+      "en": "Would you like a window seat, sir?",
+      "zh": "先生，您想要靠窗的座位吗？"
+    },
+    {
+      "term": "star",
+      "partOfSpeech": "noun",
+      "meaningZh": "星星",
+      "en": "One bright star appeared above the rooftops.",
+      "zh": "屋顶上方出现了一颗明亮的星星。"
+    },
+    {
+      "term": "rule",
+      "partOfSpeech": "noun",
+      "meaningZh": "规则",
+      "en": "The first rule is to label every box.",
+      "zh": "第一条规则是给每个箱子贴标签。"
+    },
+    {
+      "term": "worker",
+      "partOfSpeech": "noun",
+      "meaningZh": "工人",
+      "en": "A worker repaired the broken gate.",
+      "zh": "一名工人修好了坏掉的大门。"
+    },
+    {
+      "term": "oil",
+      "partOfSpeech": "noun",
+      "meaningZh": "油",
+      "en": "Add a little oil to the frying pan.",
+      "zh": "往煎锅里加一点油。"
+    },
+    {
+      "term": "pound",
+      "partOfSpeech": "noun",
+      "meaningZh": "英镑",
+      "en": "The second-hand notebook cost one pound.",
+      "zh": "这本二手笔记本花了一英镑。"
+    },
+    {
+      "term": "officer",
+      "partOfSpeech": "noun",
+      "meaningZh": "警官",
+      "en": "An officer asked us where we found the bag.",
+      "zh": "一名警官问我们在哪里发现了这个包。"
+    },
+    {
+      "term": "wall",
+      "partOfSpeech": "noun",
+      "meaningZh": "墙",
+      "en": "We hung the map on the kitchen wall.",
+      "zh": "我们把地图挂在了厨房墙上。"
+    },
+    {
+      "term": "news",
+      "partOfSpeech": "noun",
+      "meaningZh": "消息",
+      "en": "The news of your visit delighted Grandma.",
+      "zh": "你要来探望的消息让奶奶很高兴。"
+    },
+    {
+      "term": "seven",
+      "partOfSpeech": "numeral",
+      "meaningZh": "七",
+      "en": "There are seven keys on this ring.",
+      "zh": "这个钥匙圈上有七把钥匙。"
+    },
+    {
+      "term": "test",
+      "partOfSpeech": "noun",
+      "meaningZh": "测试",
+      "en": "The listening test lasts twenty minutes.",
+      "zh": "听力测试持续二十分钟。"
+    },
+    {
+      "term": "eight",
+      "partOfSpeech": "numeral",
+      "meaningZh": "八",
+      "en": "We divided the cake into eight pieces.",
+      "zh": "我们把蛋糕分成了八块。"
+    },
+    {
+      "term": "herself",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "她自己",
+      "en": "Leah designed the wedding invitations herself.",
+      "zh": "莉娅自己设计了婚礼请柬。"
+    },
+    {
+      "term": "step",
+      "partOfSpeech": "noun",
+      "meaningZh": "步骤",
+      "en": "The first step is to measure the window.",
+      "zh": "第一步是测量窗户。"
+    },
+    {
+      "term": "seek",
+      "partOfSpeech": "verb",
+      "meaningZh": "寻求",
+      "en": "Please seek advice before changing the wiring.",
+      "zh": "改动线路前请寻求建议。"
+    },
+    {
+      "term": "red",
+      "partOfSpeech": "adjective",
+      "meaningZh": "红色的",
+      "en": "A red ribbon marked the winning entry.",
+      "zh": "一条红丝带标记着获奖作品。"
+    },
+    {
+      "term": "wide",
+      "partOfSpeech": "adjective",
+      "meaningZh": "宽的",
+      "en": "The doorway is wide enough for the trolley.",
+      "zh": "门口足够宽，推车能通过。"
+    },
+    {
+      "term": "twenty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "二十",
+      "en": "Twenty students signed up for the workshop.",
+      "zh": "二十名学生报名参加了工作坊。"
+    },
+    {
+      "term": "soon",
+      "partOfSpeech": "adverb",
+      "meaningZh": "不久",
+      "en": "The new café will open soon.",
+      "zh": "新咖啡馆很快就要开业了。"
+    },
+    {
+      "term": "billion",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十亿",
+      "en": "The exercise asks us to write a billion in digits.",
+      "zh": "这道练习要求用阿拉伯数字写出十亿。"
+    },
+    {
+      "term": "brother",
+      "partOfSpeech": "noun",
+      "meaningZh": "兄弟",
+      "en": "My brother lent me his camping stove.",
+      "zh": "哥哥把他的野营炉借给了我。"
+    },
+    {
+      "term": "operation",
+      "partOfSpeech": "noun",
+      "meaningZh": "操作；运转",
+      "en": "We learnt the safe operation of the sewing machine.",
+      "zh": "我们学习了缝纫机的安全操作。"
+    },
+    {
+      "term": "share",
+      "partOfSpeech": "verb",
+      "meaningZh": "分享；共用",
+      "en": "We share a desk in the studio.",
+      "zh": "我们在工作室共用一张桌子。"
+    },
+    {
+      "term": "plant",
+      "partOfSpeech": "noun",
+      "meaningZh": "植物",
+      "en": "This plant needs a larger pot.",
+      "zh": "这株植物需要一个更大的花盆。"
+    },
+    {
+      "term": "thousand",
+      "partOfSpeech": "numeral",
+      "meaningZh": "一千",
+      "en": "The puzzle contains a thousand pieces.",
+      "zh": "这幅拼图有一千块。"
+    },
+    {
+      "term": "security",
+      "partOfSpeech": "noun",
+      "meaningZh": "安全；安保",
+      "en": "Better locks improved security at the workshop.",
+      "zh": "更好的门锁提高了工坊的安全性。"
+    },
+    {
+      "term": "colour",
+      "partOfSpeech": "noun",
+      "meaningZh": "颜色",
+      "en": "What colour would you like for the curtains?",
+      "zh": "窗帘你想要什么颜色？"
+    },
+    {
+      "term": "rise",
+      "partOfSpeech": "verb",
+      "meaningZh": "上升",
+      "en": "The balloons began to rise above the trees.",
+      "zh": "气球开始升到树木上方。"
+    },
+    {
+      "term": "page",
+      "partOfSpeech": "noun",
+      "meaningZh": "页",
+      "en": "The last page contains a useful checklist.",
+      "zh": "最后一页有一份实用的核对清单。"
+    },
+    {
+      "term": "west",
+      "partOfSpeech": "noun",
+      "meaningZh": "西方",
+      "en": "Dark clouds were gathering in the west.",
+      "zh": "西边正聚起乌云。"
+    },
+    {
+      "term": "top",
+      "partOfSpeech": "noun",
+      "meaningZh": "顶部",
+      "en": "Write the date at the top of the page.",
+      "zh": "在页面顶端写上日期。"
+    },
+    {
+      "term": "past",
+      "partOfSpeech": "noun",
+      "meaningZh": "过去",
+      "en": "These photographs remind us of the past.",
+      "zh": "这些照片让我们想起过去。"
+    },
+    {
+      "term": "pressure",
+      "partOfSpeech": "noun",
+      "meaningZh": "压力",
+      "en": "The deadline put pressure on the whole team.",
+      "zh": "截止日期给整个团队带来了压力。"
+    },
+    {
+      "term": "near",
+      "partOfSpeech": "preposition",
+      "meaningZh": "在……附近",
+      "en": "There's a public garden near the station.",
+      "zh": "车站附近有一座公共花园。"
+    },
+    {
+      "term": "list",
+      "partOfSpeech": "noun",
+      "meaningZh": "清单",
+      "en": "I made a list of the missing tools.",
+      "zh": "我列了一份遗失工具的清单。"
+    },
+    {
+      "term": "race",
+      "partOfSpeech": "noun",
+      "meaningZh": "赛跑",
+      "en": "She tied her shoes before the race.",
+      "zh": "赛跑前她系紧了鞋带。"
+    },
+    {
+      "term": "labour",
+      "partOfSpeech": "noun",
+      "meaningZh": "劳动",
+      "en": "Repairing the roof required several days of labour.",
+      "zh": "修理屋顶需要好几天的劳动。"
+    },
+    {
+      "term": "east",
+      "partOfSpeech": "adverb",
+      "meaningZh": "向东",
+      "en": "The bedroom windows face east.",
+      "zh": "卧室的窗户朝东。"
+    },
+    {
+      "term": "save",
+      "partOfSpeech": "verb",
+      "meaningZh": "保存",
+      "en": "Save your work before closing the laptop.",
+      "zh": "合上笔记本电脑前保存好文件。"
+    },
+    {
+      "term": "nine",
+      "partOfSpeech": "numeral",
+      "meaningZh": "九",
+      "en": "Nine guests stayed for the evening meal.",
+      "zh": "九位客人留下来吃了晚饭。"
+    },
+    {
+      "term": "stock",
+      "partOfSpeech": "noun",
+      "meaningZh": "库存",
+      "en": "The shop has no blue yarn in stock.",
+      "zh": "这家店没有蓝色毛线的库存。"
+    },
+    {
+      "term": "cup",
+      "partOfSpeech": "noun",
+      "meaningZh": "杯子",
+      "en": "A cup of tea stood beside her notebook.",
+      "zh": "她的笔记本旁放着一杯茶。"
+    },
+    {
+      "term": "fund",
+      "partOfSpeech": "noun",
+      "meaningZh": "基金；专款",
+      "en": "We set up a fund to repair the playground.",
+      "zh": "我们设立了一笔专款修理游乐场。"
+    },
+    {
+      "term": "sign",
+      "partOfSpeech": "noun",
+      "meaningZh": "标志；指示牌",
+      "en": "A wooden sign pointed towards the beach.",
+      "zh": "一块木制路牌指向海滩。"
+    },
+    {
+      "term": "attack",
+      "partOfSpeech": "noun",
+      "meaningZh": "攻击",
+      "en": "The castle walls showed damage from an earlier attack.",
+      "zh": "城墙上留有早年遭受攻击的痕迹。"
+    },
+    {
+      "term": "sister",
+      "partOfSpeech": "noun",
+      "meaningZh": "姐妹",
+      "en": "My sister makes beautiful ceramic bowls.",
+      "zh": "姐姐会做漂亮的陶碗。"
+    },
+    {
+      "term": "total",
+      "partOfSpeech": "noun",
+      "meaningZh": "总数",
+      "en": "The total includes three extra chairs.",
+      "zh": "总数包括另外三把椅子。"
+    },
+    {
+      "term": "blue",
+      "partOfSpeech": "adjective",
+      "meaningZh": "蓝色的",
+      "en": "Blue tiles line the bottom of the pool.",
+      "zh": "泳池底铺着蓝色瓷砖。"
+    },
+    {
+      "term": "visit",
+      "partOfSpeech": "verb",
+      "meaningZh": "拜访",
+      "en": "We plan to visit our cousins on Sunday.",
+      "zh": "我们计划周日去看望表亲。"
+    },
+    {
+      "term": "conference",
+      "partOfSpeech": "noun",
+      "meaningZh": "会议",
+      "en": "She presented her poster at a student conference.",
+      "zh": "她在一场学生会议上展示了海报。"
+    },
+    {
+      "term": "green",
+      "partOfSpeech": "adjective",
+      "meaningZh": "绿色的",
+      "en": "The green door leads to the courtyard.",
+      "zh": "绿色的门通向院子。"
+    },
+    {
+      "term": "radio",
+      "partOfSpeech": "noun",
+      "meaningZh": "收音机",
+      "en": "I keep a small radio in the kitchen.",
+      "zh": "我在厨房放了一台小收音机。"
+    },
+    {
+      "term": "peace",
+      "partOfSpeech": "noun",
+      "meaningZh": "安宁",
+      "en": "I enjoy the peace of the garden at dawn.",
+      "zh": "我喜欢黎明时花园里的宁静。"
+    },
+    {
+      "term": "press",
+      "partOfSpeech": "verb",
+      "meaningZh": "按；压",
+      "en": "Press the green button to open the gate.",
+      "zh": "按绿色按钮打开大门。"
+    },
+    {
+      "term": "middle",
+      "partOfSpeech": "noun",
+      "meaningZh": "中间",
+      "en": "Put the vase in the middle of the table.",
+      "zh": "把花瓶放在桌子中间。"
+    },
+    {
+      "term": "thirty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "三十",
+      "en": "The bus journey takes thirty minutes.",
+      "zh": "这趟公交车车程要三十分钟。"
+    },
+    {
+      "term": "fifty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "五十",
+      "en": "The box holds fifty envelopes.",
+      "zh": "这个盒子能装五十个信封。"
+    },
+    {
+      "term": "vote",
+      "partOfSpeech": "verb",
+      "meaningZh": "投票",
+      "en": "Club members will vote on the new name.",
+      "zh": "俱乐部成员将投票决定新名称。"
+    },
+    {
+      "term": "aid",
+      "partOfSpeech": "noun",
+      "meaningZh": "援助",
+      "en": "The village received aid after the storm.",
+      "zh": "暴风雨过后，村庄得到了援助。"
+    },
+    {
+      "term": "release",
+      "partOfSpeech": "verb",
+      "meaningZh": "释放；放开",
+      "en": "Release the handle slowly after pulling it.",
+      "zh": "拉动把手后慢慢松开。"
+    },
+    {
+      "term": "sale",
+      "partOfSpeech": "noun",
+      "meaningZh": "出售",
+      "en": "Their old boat is now for sale.",
+      "zh": "他们的旧船现在正在出售。"
+    },
+    {
+      "term": "quick",
+      "partOfSpeech": "adjective",
+      "meaningZh": "迅速的",
+      "en": "We made a quick stop for coffee.",
+      "zh": "我们短暂停下喝了杯咖啡。"
+    },
+    {
+      "term": "photo",
+      "partOfSpeech": "noun",
+      "meaningZh": "照片",
+      "en": "This photo shows the garden before we planted it.",
+      "zh": "这张照片拍下了种植前的花园。"
+    },
+    {
+      "term": "forty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "四十",
+      "en": "The choir has forty members this year.",
+      "zh": "合唱团今年有四十名成员。"
+    },
+    {
+      "term": "twice",
+      "partOfSpeech": "adverb",
+      "meaningZh": "两次",
+      "en": "I checked the parcel's address twice before posting it.",
+      "zh": "寄出包裹前，我把上面的地址核对了两次。"
+    },
+    {
+      "term": "twelve",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十二",
+      "en": "She baked twelve rolls for breakfast.",
+      "zh": "她烤了十二个面包卷当早餐。"
+    },
+    {
+      "term": "surprise",
+      "partOfSpeech": "noun",
+      "meaningZh": "意外的事",
+      "en": "The handwritten invitation was a lovely surprise.",
+      "zh": "手写的请柬是个美好的惊喜。"
+    },
+    {
+      "term": "sixty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "六十",
+      "en": "The theatre has sixty seats downstairs.",
+      "zh": "剧院楼下有六十个座位。"
+    },
+    {
+      "term": "fifteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十五",
+      "en": "Allow fifteen minutes to walk to the station.",
+      "zh": "步行到车站请预留十五分钟。"
+    },
+    {
+      "term": "brown",
+      "partOfSpeech": "adjective",
+      "meaningZh": "棕色的",
+      "en": "A brown leather bag hung by the door.",
+      "zh": "门边挂着一个棕色皮包。"
+    },
+    {
+      "term": "grey",
+      "partOfSpeech": "adjective",
+      "meaningZh": "灰色的",
+      "en": "Grey clouds hid the mountain peak.",
+      "zh": "灰云遮住了山顶。"
+    },
+    {
+      "term": "nineteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十九",
+      "en": "Nineteen people replied to our invitation.",
+      "zh": "十九人回复了我们的邀请。"
+    },
+    {
+      "term": "eighty",
+      "partOfSpeech": "numeral",
+      "meaningZh": "八十",
+      "en": "The shelf is eighty centimetres long.",
+      "zh": "这个架子长八十厘米。"
+    },
+    {
+      "term": "ninety",
+      "partOfSpeech": "numeral",
+      "meaningZh": "九十",
+      "en": "The documentary lasts ninety minutes.",
+      "zh": "这部纪录片长九十分钟。"
+    },
+    {
+      "term": "seventy",
+      "partOfSpeech": "numeral",
+      "meaningZh": "七十",
+      "en": "We printed seventy copies of the programme.",
+      "zh": "我们印了七十份节目单。"
+    },
+    {
+      "term": "eleven",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十一",
+      "en": "Eleven candles lit the long table.",
+      "zh": "十一支蜡烛照亮了长桌。"
+    },
+    {
+      "term": "dollar",
+      "partOfSpeech": "noun",
+      "meaningZh": "元；美元等货币单位",
+      "en": "I found a dollar under the sofa.",
+      "zh": "我在沙发下面找到了一元钱。"
+    },
+    {
+      "term": "eighteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十八",
+      "en": "The class collected eighteen bags of litter.",
+      "zh": "全班捡了十八袋垃圾。"
+    },
+    {
+      "term": "percent",
+      "partOfSpeech": "noun",
+      "meaningZh": "百分之",
+      "en": "Ten percent of the seats were empty.",
+      "zh": "百分之十的座位是空的。"
+    },
+    {
+      "term": "fourteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十四",
+      "en": "Fourteen teams entered the tournament.",
+      "zh": "十四支队伍参加了比赛。"
+    },
+    {
+      "term": "sixteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十六",
+      "en": "The recipe makes sixteen small biscuits.",
+      "zh": "按这个食谱能做十六块小饼干。"
+    },
+    {
+      "term": "bite",
+      "partOfSpeech": "noun",
+      "meaningZh": "一口",
+      "en": "She took a bite of the warm bread.",
+      "zh": "她咬了一口热面包。"
+    },
+    {
+      "term": "thirteen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十三",
+      "en": "Thirteen boats were tied along the pier.",
+      "zh": "十三艘船系泊在码头边。"
+    },
+    {
+      "term": "seventeen",
+      "partOfSpeech": "numeral",
+      "meaningZh": "十七",
+      "en": "We counted seventeen birds on the roof.",
+      "zh": "我们数到屋顶上有十七只鸟。"
+    },
+    {
+      "term": "accord",
+      "partOfSpeech": "noun",
+      "meaningZh": "协定",
+      "en": "The two clubs signed an accord to share facilities.",
+      "zh": "两家俱乐部签订了共用设施的协定。"
+    },
+    {
+      "term": "will",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "将要",
+      "en": "I will bring the spare keys tomorrow.",
+      "zh": "我明天会带来备用钥匙。"
+    },
+    {
+      "term": "may",
+      "partOfSpeech": "auxiliary verb",
+      "meaningZh": "可能",
+      "en": "The train may arrive a little late.",
+      "zh": "火车可能会晚点。"
+    },
+    {
+      "term": "use",
+      "partOfSpeech": "verb",
+      "meaningZh": "使用",
+      "en": "Use a ruler to draw the border.",
+      "zh": "用尺子画出边框。"
+    },
+    {
+      "term": "while",
+      "partOfSpeech": "conjunction",
+      "meaningZh": "当……的时候",
+      "en": "I washed the cups while the kettle boiled.",
+      "zh": "水壶烧水时我洗了杯子。"
+    },
+    {
+      "term": "program",
+      "partOfSpeech": "noun",
+      "meaningZh": "计算机程序",
+      "en": "The program sorts the files by date.",
+      "zh": "这个程序按日期给文件排序。"
+    },
+    {
+      "term": "kid",
+      "partOfSpeech": "noun",
+      "meaningZh": "孩子",
+      "en": "A kid on a scooter waved to us.",
+      "zh": "一个骑滑板车的孩子向我们挥手。"
+    },
+    {
+      "term": "require",
+      "partOfSpeech": "verb",
+      "meaningZh": "需要",
+      "en": "These shelves require stronger brackets.",
+      "zh": "这些架子需要更牢固的托架。"
+    },
+    {
+      "term": "period",
+      "partOfSpeech": "noun",
+      "meaningZh": "一段时间",
+      "en": "The pass is valid for a short period.",
+      "zh": "这张通行证在一小段时间内有效。"
+    },
+    {
+      "term": "type",
+      "partOfSpeech": "noun",
+      "meaningZh": "类型",
+      "en": "This type of fabric dries quickly.",
+      "zh": "这种面料干得很快。"
+    },
+    {
+      "term": "subject",
+      "partOfSpeech": "noun",
+      "meaningZh": "科目",
+      "en": "History was her favourite subject at school.",
+      "zh": "历史是她在学校最喜欢的科目。"
+    },
+    {
+      "term": "guy",
+      "partOfSpeech": "noun",
+      "meaningZh": "家伙；男子",
+      "en": "The guy at reception found my booking.",
+      "zh": "前台那位男子找到了我的预订记录。"
+    },
+    {
+      "term": "maybe",
+      "partOfSpeech": "adverb",
+      "meaningZh": "也许",
+      "en": "Maybe we should take the folding chairs.",
+      "zh": "也许我们应该带上折叠椅。"
+    },
+    {
+      "term": "church",
+      "partOfSpeech": "noun",
+      "meaningZh": "教堂",
+      "en": "The old church has a beautiful wooden ceiling.",
+      "zh": "这座老教堂有漂亮的木制天花板。"
+    },
+    {
+      "term": "serve",
+      "partOfSpeech": "verb",
+      "meaningZh": "供应；端上",
+      "en": "They serve breakfast until eleven.",
+      "zh": "他们供应早餐到十一点。"
+    },
+    {
+      "term": "upon",
+      "partOfSpeech": "preposition",
+      "meaningZh": "在……之上",
+      "en": "A small bird landed upon the fence.",
+      "zh": "一只小鸟落在了篱笆上。"
+    },
+    {
+      "term": "therefore",
+      "partOfSpeech": "adverb",
+      "meaningZh": "因此",
+      "en": "The lift is broken; therefore, use the stairs.",
+      "zh": "电梯坏了，因此请走楼梯。"
+    },
+    {
+      "term": "section",
+      "partOfSpeech": "noun",
+      "meaningZh": "部分；区域",
+      "en": "The children's section is beside the entrance.",
+      "zh": "儿童区就在入口旁边。"
+    },
+    {
+      "term": "table",
+      "partOfSpeech": "noun",
+      "meaningZh": "桌子",
+      "en": "We moved the table closer to the window.",
+      "zh": "我们把桌子挪近了窗户。"
+    },
+    {
+      "term": "someone",
+      "partOfSpeech": "pronoun",
+      "meaningZh": "某人；有人",
+      "en": "Someone has left a notebook on the bench.",
+      "zh": "有人把笔记本落在长凳上了。"
+    },
+    {
+      "term": "particularly",
+      "partOfSpeech": "adverb",
+      "meaningZh": "尤其；特别",
+      "en": "I particularly enjoyed the last song.",
+      "zh": "我特别喜欢最后那首歌。"
+    },
+    {
+      "term": "sometimes",
+      "partOfSpeech": "adverb",
+      "meaningZh": "有时",
+      "en": "We sometimes have breakfast on the balcony.",
+      "zh": "我们有时在阳台上吃早餐。"
+    },
+    {
+      "term": "management",
+      "partOfSpeech": "noun",
+      "meaningZh": "管理",
+      "en": "Good time management makes group projects easier.",
+      "zh": "良好的时间管理让小组项目更容易开展。"
+    },
+    {
+      "term": "practice",
+      "partOfSpeech": "noun",
+      "meaningZh": "练习",
+      "en": "Daily practice helped her read music faster.",
+      "zh": "每天练习帮助她更快地识谱。"
+    },
+    {
+      "term": "third",
+      "partOfSpeech": "numeral",
+      "meaningZh": "第三",
+      "en": "Her office is on the third floor.",
+      "zh": "她的办公室在三楼。"
+    },
+    {
+      "term": "voice",
+      "partOfSpeech": "noun",
+      "meaningZh": "嗓音",
+      "en": "His quiet voice was difficult to hear.",
+      "zh": "他说话声音很轻，很难听清。"
+    },
+    {
+      "term": "finally",
+      "partOfSpeech": "adverb",
+      "meaningZh": "终于",
+      "en": "We finally found the missing tent pole.",
+      "zh": "我们终于找到了丢失的帐篷杆。"
+    }
+  ]
+}

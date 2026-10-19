@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { dictionaryExampleBucket } from "../../../vocab/js/dictionary-examples.js";
 
 const ORIGIN = process.env.WORDBOOK_E2E_ORIGIN || "http://127.0.0.1:4187";
 const publicSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
@@ -47,10 +48,10 @@ async function query(page, value) {
 }
 
 test("examples: actual reviewed sidecar shows its own senses and bilingual text after the primary meaning at 390px", async ({ page }) => {
-  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest.json", import.meta.url), "utf8"));
-  expect(Object.hasOwn(manifest.keys, "override")).toBe(true);
-  const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${manifest.shards[manifest.keys.override].file}`, import.meta.url), "utf8"));
+  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${manifest.shards[dictionaryExampleBucket("override")].file}`, import.meta.url), "utf8"));
   const actual = payload.entries.find(item => item.term === "override");
+  expect(actual).toBeTruthy();
   const calls = observeRequests(page);
   await page.setViewportSize({ width: 390, height: 844 }); await open(page); await query(page, "override");
   await expect(page.locator("#dictionary-example-content .example-sense")).toHaveCount(actual.senses.length);
@@ -60,6 +61,26 @@ test("examples: actual reviewed sidecar shows its own senses and bilingual text 
   await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]').first()).toHaveText(actual.senses[0].examples[0].zh);
   await expect(page.locator("#dictionary-add")).toHaveAttribute("href", /#lookup=override$/u);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  expectPublicOnly(calls);
+});
+
+test("examples: new batch words expose their reviewed selected sense without changing licensed meanings or requesting AI", async ({ page }) => {
+  const calls = observeRequests(page);
+  const expected = [];
+  for (const [part, term] of [["a", "be"], ["f", "regardless"], ["l", "fountain"]]) {
+    const source = JSON.parse(await readFile(new URL(`../../dictionary/examples/source/batch-0003-${part}.json`, import.meta.url), "utf8"));
+    expected.push(source.entries.find(row => row.term === term));
+  }
+  await open(page);
+  for (const row of expected) {
+    expect(row).toBeTruthy();
+    await query(page, row.term);
+    await expect(page.locator("#dictionary-meaning")).not.toBeEmpty();
+    await expect(page.locator("#dictionary-source")).toContainText("ECDICT");
+    await expect(page.locator("#dictionary-example-content summary")).toContainText(`${row.partOfSpeech} · ${row.meaningZh}`);
+    await expect(page.locator('#dictionary-example-content p[lang="en"]')).toHaveText(row.en);
+    await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]')).toHaveText(row.zh);
+  }
   expectPublicOnly(calls);
 });
 
@@ -77,14 +98,16 @@ test("examples: a slow optional shard cannot hold the meaning, CTA or next input
 });
 
 test("examples: missing optional material stays hidden without claiming a failed or missing dictionary word", async ({ page }) => {
-  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest.json", import.meta.url), "utf8"));
-  expect(Object.hasOwn(manifest.keys, "abacus")).toBe(false);
+  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  const descriptor = manifest.shards[dictionaryExampleBucket("abacus")];
+  const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8"));
+  expect(payload.entries.some(item => item.term === "abacus")).toBe(false);
   const calls = observeRequests(page); await open(page); await query(page, "abacus");
   await expect(page.locator("#dictionary-term")).toHaveText("abacus");
   await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
   await expect(page.locator("#dictionary-example-panel")).toBeHidden();
   await expect(page.locator("#dictionary-status")).toContainText("已找到");
-  expect(calls.some(call => /\/dictionary-examples\/[^/]+\/examples-/u.test(new URL(call.url).pathname))).toBe(false);
+  expect(calls.filter(call => /\/dictionary-examples\/[^/]+\/examples-/u.test(new URL(call.url).pathname)).length).toBeLessThanOrEqual(1);
   expectPublicOnly(calls);
 });
 

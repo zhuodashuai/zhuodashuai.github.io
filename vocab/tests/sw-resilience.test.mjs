@@ -68,6 +68,18 @@ test("example manifests refresh online and checksum repair bypasses corrupted ex
   await Promise.all(sw.background);
 });
 
+test("the real reload-mode manifest request revalidates online and retains a healthy offline fallback", async () => {
+  for (const path of ["/vocab/data/expanded-dictionary/manifest.json", "/vocab/data/dictionary-examples/manifest.json", "/vocab/data/dictionary-examples/manifest-v2.json"]) {
+    const online = worker(async (_request, options) => {
+      assert.equal(options.cache, "no-cache"); return new Response("fresh manifest");
+    }, new Response("cached manifest"));
+    assert.equal(await (await online.fetch(path, "cors", { cache: "reload" })).text(), "fresh manifest");
+    const offline = worker(async () => { throw Error("offline"); }, new Response("healthy cached manifest"));
+    assert.equal(await (await offline.fetch(path, "cors", { cache: "reload" })).text(), "healthy cached manifest");
+    assert.equal(offline.writes.length, 0);
+  }
+});
+
 test("extensionless dictionary navigation falls back to its own offline shell", async () => {
   const sw = worker(async () => { throw Error("offline"); }, request => request === "./dictionary.html" ? new Response("dictionary shell") : undefined);
   for (const route of ["/dictionary", "/dictionary/", "/vocab/dictionary.html"]) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "zhuo-wordbook-v83";
+const CACHE_NAME = "zhuo-wordbook-v84";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
@@ -12,8 +12,8 @@ const SHELL = [
   "./js/personal-lookup-flow.js?v=82", "./js/personal-lookup-flow.js",
   "./js/expanded-dictionary.js?v=82", "./js/expanded-dictionary.js",
   "./dictionary.html", "./dictionary.css?v=81", "./dictionary.css",
-  "./js/dictionary-app.js?v=82", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
-  "./js/dictionary-examples.js?v=81", "./js/dictionary-examples.js",
+  "./js/dictionary-app.js?v=84", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
+  "./js/dictionary-examples.js?v=84", "./js/dictionary-examples.js",
   "./js/member-dictionary-manifest.js?v=78", "./js/member-dictionary-manifest.js",
   "./js/book-passages.js?v=82", "./js/book-passages-ui.js?v=82", "./js/book-passages.js", "./js/book-passages-ui.js",
   "./js/personal-selection.js", "./js/personal-study.js", "./js/study.js?v=77", "./js/review.js?v=77",
@@ -150,12 +150,14 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request, fallback));
     return;
   }
-  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
-    event.respondWith(reloadPublicShard(request, event));
+  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/data/expanded-dictionary/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest-v2.json") || url.pathname.endsWith("/quality/generated-report.json")) {
+    // Manifest revalidation is not a corrupt-shard repair. Readers use reload
+    // for mutable directories too; a healthy cached directory must work offline.
+    event.respondWith(networkFirst(request));
     return;
   }
-  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/data/expanded-dictionary/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest.json") || url.pathname.endsWith("/quality/generated-report.json")) {
-    event.respondWith(networkFirst(request));
+  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
+    event.respondWith(reloadPublicShard(request, event));
     return;
   }
   // JavaScript, CSS and the manifest can change independently of the cache

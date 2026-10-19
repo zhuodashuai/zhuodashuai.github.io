@@ -1,6 +1,6 @@
 // Optional, independently versioned learning material. This module is loaded
 // after the primary meaning; it never contacts a member API or an AI provider.
-const MANIFEST_URL = new URL("../data/dictionary-examples/manifest.json", import.meta.url);
+const MANIFEST_URL = new URL("../data/dictionary-examples/manifest-v2.json", import.meta.url);
 const MAX_MANIFEST_BYTES = 512 * 1024;
 const MAX_SHARD_BYTES = 1024 * 1024;
 const HASH = /^[a-f0-9]{64}$/u;
@@ -36,21 +36,36 @@ function integer(value, max) { if (!Number.isSafeInteger(value) || value < 0 || 
 function array(value, max, min = 0) { if (!Array.isArray(value) || value.length < min || value.length > max) throw invalid(); return value; }
 
 export function parseDictionaryExamplesManifest(payload) {
-  object(payload, ["schemaVersion", "version", "counts", "shards", "keys"]);
-  if (payload.schemaVersion !== 1 || !HASH.test(payload.version)) throw invalid();
+  const modern = payload?.schemaVersion === 2;
+  object(payload, modern ? ["schemaVersion", "version", "counts", "shards", "bucketCount", "hash"]
+    : ["schemaVersion", "version", "counts", "shards", "keys"]);
+  if (![1, 2].includes(payload.schemaVersion) || !HASH.test(payload.version)
+    || modern && (payload.bucketCount !== 256 || payload.hash !== "fnv1a-codepoints-v1")) throw invalid();
   object(payload.counts, ["heads", "examples"]);
   integer(payload.counts.heads, 100_000); integer(payload.counts.examples, 400_000);
   if ((payload.counts.heads === 0) !== (payload.counts.examples === 0)
     || payload.counts.examples < payload.counts.heads) throw invalid();
-  const shards = array(payload.shards, 16, 16).map((item, index) => {
-    object(item, ["bucket", "file", "bytes", "sha256"]);
+  const bucketCount = modern ? 256 : 16;
+  let totalHeads = 0, totalExamples = 0;
+  const shards = array(payload.shards, bucketCount, bucketCount).map((item, index) => {
+    object(item, modern ? ["bucket", "file", "bytes", "sha256", "heads", "examples"] : ["bucket", "file", "bytes", "sha256"]);
     if (item.bucket !== index || typeof item.file !== "string"
       || !new RegExp(`^${payload.version}/[a-z0-9-]+\\.json$`, "u").test(item.file)
       || !HASH.test(item.sha256)) throw invalid();
     integer(item.bytes, MAX_SHARD_BYTES);
     if (item.bytes === 0) throw invalid();
+    if (modern) {
+      integer(item.heads, 100_000); integer(item.examples, 400_000);
+      if ((item.heads === 0) !== (item.examples === 0) || item.examples < item.heads) throw invalid();
+      totalHeads += item.heads; totalExamples += item.examples;
+    }
     return Object.freeze({ ...item });
   });
+  if (modern) {
+    if (totalHeads !== payload.counts.heads || totalExamples !== payload.counts.examples) throw invalid();
+    return Object.freeze({ schemaVersion: 2, version: payload.version, counts: Object.freeze({ ...payload.counts }),
+      bucketCount, hash: payload.hash, shards: Object.freeze(shards) });
+  }
   if (!payload.keys || typeof payload.keys !== "object" || Array.isArray(payload.keys)
     || Object.keys(payload.keys).length !== payload.counts.heads) throw invalid();
   const keys = Object.create(null);
@@ -59,14 +74,24 @@ export function parseDictionaryExamplesManifest(payload) {
     shards: Object.freeze(shards), keys: Object.freeze(keys) });
 }
 
+export function dictionaryExampleBucket(term) {
+  lexical(term);
+  let hash = 2166136261;
+  for (const ch of term) { hash ^= ch.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
+  return hash % 256;
+}
+
 export function parseDictionaryExamplesShard(payload, manifest, descriptor) {
   object(payload, ["schemaVersion", "bucket", "entries"]);
-  if (payload.schemaVersion !== 1 || payload.bucket !== descriptor.bucket) throw invalid();
+  if (payload.schemaVersion !== manifest.schemaVersion || payload.bucket !== descriptor.bucket) throw invalid();
   const entries = new Map();
   let total = 0;
-  for (const row of array(payload.entries, manifest.counts.heads)) {
+  for (const row of array(payload.entries, manifest.schemaVersion === 2 ? descriptor.heads : manifest.counts.heads,
+    manifest.schemaVersion === 2 ? descriptor.heads : 0)) {
     object(row, ["term", "senses"]); lexical(row.term);
-    if (entries.has(row.term) || !Object.hasOwn(manifest.keys, row.term) || manifest.keys[row.term] !== descriptor.bucket) throw invalid();
+    if (entries.has(row.term) || (manifest.schemaVersion === 2
+      ? dictionaryExampleBucket(row.term) !== descriptor.bucket
+      : !Object.hasOwn(manifest.keys, row.term) || manifest.keys[row.term] !== descriptor.bucket)) throw invalid();
     const senseIds = new Set();
     const senses = array(row.senses, 24, 1).map(sense => {
       object(sense, ["id", "partOfSpeech", "meaningZh", "examples", "source", "reviewer"]);
@@ -84,8 +109,10 @@ export function parseDictionaryExamplesShard(payload, manifest, descriptor) {
     });
     entries.set(row.term, Object.freeze({ term: row.term, senses: Object.freeze(senses) }));
   }
-  const expected = Object.entries(manifest.keys).filter(([, bucket]) => bucket === descriptor.bucket).length;
-  if (entries.size !== expected || total > manifest.counts.examples) throw invalid();
+  const expected = manifest.schemaVersion === 2 ? descriptor.heads
+    : Object.entries(manifest.keys).filter(([, bucket]) => bucket === descriptor.bucket).length;
+  if (entries.size !== expected || total > manifest.counts.examples
+    || manifest.schemaVersion === 2 && total !== descriptor.examples) throw invalid();
   return entries;
 }
 
@@ -182,8 +209,10 @@ export async function loadDictionaryExamples(term, { signal, fetchImpl = globalT
       // A cancelled/expired caller may share the manifest, but must not start a
       // new optional shard once that caller has already left the view.
       if (!waiting || signal?.aborted) throw aborted();
-      if (!Object.hasOwn(manifest.keys, term)) return null;
-      const entries = await shardFor(client, manifest, manifest.shards[manifest.keys[term]]);
+      if (manifest.schemaVersion === 1 && !Object.hasOwn(manifest.keys, term)) return null;
+      const descriptor = manifest.shards[manifest.schemaVersion === 2 ? dictionaryExampleBucket(term) : manifest.keys[term]];
+      if (manifest.schemaVersion === 2 && descriptor.heads === 0) return null;
+      const entries = await shardFor(client, manifest, descriptor);
       return entries.get(term) || null;
     })(), signal, timeoutMs);
   } finally { waiting = false; }
