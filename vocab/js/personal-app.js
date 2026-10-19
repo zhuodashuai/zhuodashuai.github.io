@@ -42,6 +42,7 @@ let channel;
 try { channel = new BroadcastChannel("zhuo-member-auth-v1"); } catch { /* Revalidation remains authoritative. */ }
 let originReady = false;
 let verificationTask = null;
+let verificationRecheckQueued = false;
 let pendingVerificationUserId = null;
 let detailEntry = null;
 let conflictEntry = null;
@@ -153,6 +154,7 @@ function clearSession({ discardDrafts = false } = {}) {
 }
 
 function lockSession(message, { discardDrafts = false, notify = false } = {}) {
+  verificationRecheckQueued = false;
   clearSession({ discardDrafts });
   lockMarker(true);
   state.phase = state.authType === "github-owner" ? "owner-gate" : "locked";
@@ -774,13 +776,19 @@ async function reconcileStudy() {
   renderChrome(); renderStudy();
 }
 
-async function verifySession() {
+async function verifySession({ recheckIfPending = false } = {}) {
   if (!originReady || state.authBusy || state.phase === "recovery") return;
   if (lockMarker()) {
     lockSession("此页已锁定，请重新登录后查看个人词本。");
     return;
   }
-  if (verificationTask) return verificationTask;
+  if (verificationTask) {
+    // An online event or explicit retry may arrive before the failed check's
+    // finally block. Coalesce those requests into one check after it settles.
+    if (recheckIfPending) verificationRecheckQueued = true;
+    return verificationTask;
+  }
+  verificationRecheckQueued = false;
   const previousUserId = state.user?.id || pendingVerificationUserId;
   pendingVerificationUserId = previousUserId;
   if (state.user) captureDraft();
@@ -819,7 +827,17 @@ async function verifySession() {
     }
   })();
   verificationTask = task;
-  try { await task; } finally { if (verificationTask === task) verificationTask = null; }
+  try { await task; } finally {
+    if (verificationTask === task) {
+      verificationTask = null;
+      const recheck = verificationRecheckQueued;
+      verificationRecheckQueued = false;
+      // Consume the intent before starting a new request. A persistent outage
+      // cannot retry itself, and logout/account changes remain authoritative.
+      if (recheck && originReady && navigator.onLine && state.phase === "verification-unavailable"
+        && !state.authBusy && !state.recovery && !lockMarker()) void verifySession();
+    }
+  }
 }
 
 function recoveryCode(value) {
@@ -1142,7 +1160,7 @@ for (const control of document.querySelectorAll("[data-auth-view]")) control.add
   $(`${state.authView}-username`).focus();
 });
 $("member-login-form").addEventListener("submit", (event) => void authenticate("login", event));
-$("member-session-retry").addEventListener("click", () => void verifySession());
+$("member-session-retry").addEventListener("click", () => void verifySession({ recheckIfPending: true }));
 $("member-register-form").addEventListener("submit", (event) => void authenticate("register", event));
 $("member-reset-form").addEventListener("submit", (event) => void resetPassword(event));
 $("member-entry-form").addEventListener("submit", (event) => void saveEntry(event));
@@ -1196,7 +1214,7 @@ $("member-study-dialog").addEventListener("close", () => {
   for (const id of ["member-study-term", "member-study-meaning", "member-study-usage", "member-study-example", "member-study-note", "member-study-source", "member-study-status"]) $(id).textContent = "";
   renderChrome();
 });
-$("member-owner-refresh").addEventListener("click", () => { lockMarker(false); state.authType = "github-owner"; state.phase = "checking"; void verifySession(); });
+$("member-owner-refresh").addEventListener("click", () => { lockMarker(false); state.authType = "github-owner"; state.phase = "checking"; void verifySession({ recheckIfPending: true }); });
 $("member-refresh").addEventListener("click", () => void loadEntries());
 for (const id of ["member-new", "member-cancel"]) $(id).addEventListener("click", () => {
   if (state.phase === "ready" && !state.entryBusy && discardAllowed()) fillEditor(personalDraft(), { focus: true });
@@ -1256,7 +1274,11 @@ window.addEventListener("pageshow", (event) => {
 window.addEventListener("focus", () => {
   if (originReady && ["ready", "verification-unavailable"].includes(state.phase) && !state.entryBusy && !state.listBusy) void verifySession();
 });
-window.addEventListener("online", () => { if (originReady && state.phase === "verification-unavailable") void verifySession(); });
+window.addEventListener("online", () => {
+  if (originReady && (verificationTask || ["checking", "verification-unavailable"].includes(state.phase))) {
+    void verifySession({ recheckIfPending: true });
+  }
+});
 if (channel) channel.onmessage = (event) => {
   if (event.data?.tabId === tabId || !["changed", "locked"].includes(event.data?.type)) return;
   if (state.user) captureDraft();

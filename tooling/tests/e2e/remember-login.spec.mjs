@@ -86,3 +86,91 @@ test("a retry after an outage retains the expected member identity when a cookie
   await expect(page.locator("#member-workspace")).toBeHidden();
   expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBe("1");
 });
+
+async function openRememberedMember(context, page, username) {
+  const response = await context.request.post(`${ORIGIN}/api/v1/member/register`, {
+    headers: { Origin: ORIGIN }, data: { username, password: PASSWORD, remember: true }
+  });
+  expect(response.status()).toBe(200);
+  await page.goto("/personal.html");
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
+}
+
+async function holdFirstSessionCheck(page, { persistentFailure = false } = {}) {
+  let checks = 0, release, arrived;
+  const gate = new Promise(resolve => { release = resolve; });
+  const seen = new Promise(resolve => { arrived = resolve; });
+  await page.route("**/api/v1/member/session", async route => {
+    checks++;
+    if (checks === 1) { arrived(); await gate; }
+    else if (!persistentFailure) return route.continue();
+    // Explicit locking can abort the held request before this response arrives.
+    await route.fulfill({ status: 503, json: { error: { code: "temporary_failure", message: "Temporary failure" } } }).catch(() => {});
+  });
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await seen;
+  return { release, checks: () => checks };
+}
+
+test("online arriving during a pending failed verification queues one fresh check without another login", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_online");
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    for (let index = 0; index < 5; index++) window.dispatchEvent(new Event("online"));
+  });
+  expect(held.checks()).toBe(1);
+  held.release();
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@queued_online");
+  expect(held.checks()).toBe(2);
+  await expect(page.locator("#member-auth")).toBeHidden();
+  expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBeNull();
+});
+
+test("a queued online recheck stops after one additional request when the provider remains unavailable", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_bounded");
+  await page.clock.install();
+  const held = await holdFirstSessionCheck(page, { persistentFailure: true });
+  await page.evaluate(() => {
+    for (let index = 0; index < 5; index++) window.dispatchEvent(new Event("online"));
+  });
+  held.release();
+  await expect.poll(held.checks).toBe(2);
+  await expect(page.locator("#member-session-retry")).toBeVisible();
+  await page.clock.runFor(60_000);
+  expect(held.checks()).toBe(2);
+  await expect(page.locator("#member-workspace")).toBeHidden();
+});
+
+test("a manual retry clicked before the failed verification finishes settling is queued", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_manual");
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    const retry = document.getElementById("member-session-retry");
+    const observer = new MutationObserver(() => {
+      if (!retry.hidden) { observer.disconnect(); retry.click(); }
+    });
+    observer.observe(retry, { attributes: true, attributeFilter: ["hidden"] });
+  });
+  held.release();
+  await expect(page.locator("#member-workspace")).toBeVisible();
+  await expect(page.locator("#member-username")).toHaveText("@queued_manual");
+  expect(held.checks()).toBe(2);
+});
+
+test("an explicit account lock cancels a queued reconnect and rejects its late response", async ({ context, page }) => {
+  await openRememberedMember(context, page, "queued_locked");
+  const held = await holdFirstSessionCheck(page);
+  await page.evaluate(() => {
+    window.dispatchEvent(new Event("online"));
+    const channel = new BroadcastChannel("zhuo-member-auth-v1");
+    channel.postMessage({ type: "locked", tabId: "another-tab" });
+    channel.close();
+  });
+  await expect(page.locator("#member-status")).toContainText("另一页面");
+  held.release();
+  await expect(page.locator("#member-workspace")).toBeHidden();
+  expect(held.checks()).toBe(1);
+  expect(await page.evaluate(() => sessionStorage.getItem("zhuo-member-explicit-login-required"))).toBe("1");
+});

@@ -1,11 +1,11 @@
-const CACHE_NAME = "zhuo-wordbook-v82";
+const CACHE_NAME = "zhuo-wordbook-v83";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
   "./js/dictionary-collection.js", "./js/dictionary-collection.js?v=82",
   "./personal.html", "./personal.css?v=79",
-  "./js/personal-app.js?v=82", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
+  "./js/personal-app.js?v=83", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=82", "./js/personal-study.js?v=77",
   "./js/personal-dictionary.js?v=82", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
