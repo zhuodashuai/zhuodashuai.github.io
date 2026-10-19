@@ -106,6 +106,30 @@ test("examples: every continuation batch and apostrophe heads render approved te
   expectPublicOnly(calls);
 });
 
+test("examples: batches 0008 and 0009 render all three author groups and a hyphenated head on a phone", async ({ page }) => {
+  const calls = observeRequests(page), expected = [];
+  for (const batch of ["0008", "0009"]) for (const part of ["a", "e", "i"]) {
+    const pack = JSON.parse(await readFile(new URL(`../../dictionary/examples/source/batch-${batch}-${part}.json`, import.meta.url), "utf8"));
+    const review = JSON.parse(await readFile(new URL(`../../dictionary/examples/reviews/batch-${batch}-${part}.json`, import.meta.url), "utf8"));
+    expect(review.approvedTerms).toContain(pack.entries[0].term); expected.push(pack.entries[0]);
+  }
+  expect(expected.some(row => row.term.includes("-"))).toBe(true);
+  await page.setViewportSize({ width: 390, height: 844 }); await open(page);
+  for (const row of expected) {
+    await query(page, row.term);
+    await expect(page.locator("#dictionary-term")).toHaveText(row.term);
+    await expect(page.locator("#dictionary-meaning")).not.toBeEmpty();
+    await expect(page.locator("#dictionary-example-panel")).toBeVisible();
+    await expect(page.locator("#dictionary-example-content summary")).toContainText(`${row.partOfSpeech} · ${row.meaningZh}`);
+    await expect(page.locator('#dictionary-example-content p[lang="en"]')).toBeVisible();
+    await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]')).toBeVisible();
+    await expect(page.locator('#dictionary-example-content p[lang="en"]')).toHaveText(row.en);
+    await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]')).toHaveText(row.zh);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+  }
+  expectPublicOnly(calls);
+});
+
 test("examples: a slow optional shard cannot hold the meaning, CTA or next input disabled", async ({ page }) => {
   const gate = deferred(), seen = deferred();
   await page.route(exampleShard, async route => { seen.resolve(); await gate.promise; await route.continue(); });
