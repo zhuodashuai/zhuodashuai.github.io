@@ -207,3 +207,64 @@ test("four continuation batches are cross-reviewed, with explicit deferral inste
   }
   assert.ok(deferred.has("tion"));
 });
+
+test("the released 14,026-head catalogue is preserved exactly when batches 0008 and 0009 are added", async () => {
+  const build = await loadExampleBuild(), current = new Map(build.entries.map(row => [row.term, row]));
+  const version = "fe04743b8aa2a984094c9ba72a5f6836d7bb7f25d1e47c796cd0b720e0d20a50";
+  let heads = 0, pairs = 0;
+  for (let bucket = 0; bucket < 256; bucket++) {
+    const shard = JSON.parse(await readFile(new URL(`../../vocab/data/dictionary-examples/${version}/examples-${bucket}.json`, import.meta.url), "utf8"));
+    for (const row of shard.entries) {
+      assert.deepEqual(current.get(row.term), row, row.term); heads++;
+      pairs += row.senses.reduce((sum, sense) => sum + sense.examples.length, 0);
+    }
+  }
+  assert.equal(heads, 14026); assert.equal(pairs, 15415);
+});
+
+test("batches 0008 and 0009 publish only independently approved examples and account for every queued head", async () => {
+  const build = await loadExampleBuild(), current = new Map(build.entries.map(row => [row.term, row]));
+  const queue = JSON.parse(await readFile(new URL("../dictionary/examples/queues/batches-0008-0009.json", import.meta.url), "utf8"));
+  assert.equal(queue.schemaVersion, 1);
+  assert.equal(queue.sourceDictionaryVersion, "36d4341b4f126a1711045b6df375cd12eb20641c81a0bca722a90d2f46848d7b");
+  assert.equal(queue.baselineExampleVersion, "fe04743b8aa2a984094c9ba72a5f6836d7bb7f25d1e47c796cd0b720e0d20a50");
+  const queuedPacks = new Map(queue.batches.map(pack => [pack.batchId, pack.terms]));
+  assert.equal(queue.batches.length, 24); assert.equal(queuedPacks.size, 24);
+  const written = new Set(), approved = new Set(), sentences = new Set(), deferred = [];
+  for (const batch of ["0008", "0009"]) for (const part of "abcdefghijkl") {
+    const file = `batch-${batch}-${part}.json`;
+    const pack = JSON.parse(await readFile(new URL(`../dictionary/examples/source/${file}`, import.meta.url), "utf8"));
+    const review = JSON.parse(await readFile(new URL(`../dictionary/examples/reviews/${file}`, import.meta.url), "utf8"));
+    assert.equal(pack.batchId, `examples-${batch}-${part}`); assert.equal(pack.entries.length, 200);
+    const queuedTerms = queuedPacks.get(pack.batchId);
+    assert.equal(queuedTerms?.length, 200);
+    assert.deepEqual(pack.entries.map(row => row.term), queuedTerms, `Authored heads differ from the frozen queue: ${file}`);
+    const reviewer = "abcd".includes(part) ? "c" : "efgh".includes(part) ? "a" : "b";
+    assert.equal(review.reviewer, `AI/examples8_${reviewer}`);
+    const checked = validateExampleReview(pack, review), accepted = new Set(checked.map(row => row.term));
+    for (const row of pack.entries) {
+      assert.ok(!written.has(row.term), `Repeated batch 0008/0009 head: ${row.term}`); written.add(row.term);
+      if (!accepted.has(row.term)) {
+        assert.ok(review.issues.some(issue => issue.term === row.term && issue.blocking === true && issue.resolution?.trim()), `Unexplained deferral: ${row.term}`);
+        deferred.push(row);
+      }
+    }
+    for (const row of checked) {
+      approved.add(row.term);
+      const sentence = row.en.normalize("NFKC").toLowerCase().replace(/\s+/gu, " ").trim();
+      assert.ok(!sentences.has(sentence), `Repeated batch 0008/0009 sentence: ${row.term}`); sentences.add(sentence);
+      assert.ok(row.en.split(/\s+/u).length >= 5 && row.en.split(/\s+/u).length <= 30, row.term);
+      assert.doesNotMatch(row.en, /\b(?:this word means|the word means|an example of this word)\b/iu);
+      const entry = current.get(row.term);
+      assert.ok(entry, `Reviewed example missing: ${row.term}`); assert.equal(entry.senses.length, 1);
+      const sense = entry.senses[0];
+      assert.equal(sense.partOfSpeech, row.partOfSpeech); assert.equal(sense.meaningZh, row.meaningZh); assert.equal(sense.reviewer, review.reviewer);
+      assert.deepEqual(sense.examples, [{ en: row.en, zh: row.zh }]);
+    }
+  }
+  assert.equal(written.size, 4800); assert.equal(approved.size + deferred.length, written.size);
+  assert.ok(build.manifest.counts.heads >= 14026 + approved.size);
+  for (const row of deferred) {
+    assert.ok(!current.get(row.term)?.senses.some(sense => sense.examples.some(example => example.en === row.en && example.zh === row.zh)), `Unapproved sentence published: ${row.term}`);
+  }
+});

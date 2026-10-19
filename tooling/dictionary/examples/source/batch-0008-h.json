@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0008-h",
+  "authorship": "independent-composition",
+  "entries": [
+    {
+      "term": "spook",
+      "partOfSpeech": "verb",
+      "meaningZh": "惊吓",
+      "en": "The sudden applause spooked the pony.",
+      "zh": "突如其来的掌声惊吓了小马。"
+    },
+    {
+      "term": "childlike",
+      "partOfSpeech": "adjective",
+      "meaningZh": "孩子般天真的",
+      "en": "Her childlike delight made the formal ceremony feel warmer.",
+      "zh": "她孩子般天真的喜悦让正式仪式显得更温暖。"
+    },
+    {
+      "term": "turbo",
+      "partOfSpeech": "noun",
+      "meaningZh": "涡轮增压器",
+      "en": "The mechanic examined the damaged turbo.",
+      "zh": "机械师检查了受损的涡轮增压器。"
+    },
+    {
+      "term": "inescapable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不可避免的",
+      "en": "The delay made an overnight stay inescapable.",
+      "zh": "延误使留宿一晚变得不可避免。"
+    },
+    {
+      "term": "blazer",
+      "partOfSpeech": "noun",
+      "meaningZh": "便西装上衣",
+      "en": "He draped his navy blazer over the chair.",
+      "zh": "他把海军蓝便西装上衣搭在椅子上。"
+    },
+    {
+      "term": "camcorder",
+      "partOfSpeech": "noun",
+      "meaningZh": "便携摄像机",
+      "en": "Her old camcorder still contained footage of the wedding.",
+      "zh": "她的旧便携摄像机里仍有婚礼影像。"
+    },
+    {
+      "term": "mussel",
+      "partOfSpeech": "noun",
+      "meaningZh": "贻贝",
+      "en": "A mussel clung to the exposed rock.",
+      "zh": "一只贻贝附着在露出的岩石上。"
+    },
+    {
+      "term": "deluxe",
+      "partOfSpeech": "adjective",
+      "meaningZh": "豪华的",
+      "en": "The deluxe room had a balcony overlooking the square.",
+      "zh": "豪华客房有一个俯瞰广场的阳台。"
+    },
+    {
+      "term": "refill",
+      "partOfSpeech": "verb",
+      "meaningZh": "重新装满",
+      "en": "She refilled the bird feeder before leaving.",
+      "zh": "她离开前重新装满了喂鸟器。"
+    },
+    {
+      "term": "borderline",
+      "partOfSpeech": "adjective",
+      "meaningZh": "处于合格边缘的",
+      "en": "The examiner requested a second opinion on the borderline case.",
+      "zh": "考官要求对这个处于合格边缘的案例再给出一份意见。"
+    },
+    {
+      "term": "retina",
+      "partOfSpeech": "noun",
+      "meaningZh": "视网膜",
+      "en": "The scan revealed a detailed image of the retina.",
+      "zh": "扫描呈现了视网膜的详细图像。"
+    },
+    {
+      "term": "chime",
+      "partOfSpeech": "verb",
+      "meaningZh": "鸣响",
+      "en": "The clock chimed as the guests arrived.",
+      "zh": "客人到来时，时钟鸣响了。"
+    },
+    {
+      "term": "cartoonist",
+      "partOfSpeech": "noun",
+      "meaningZh": "漫画家",
+      "en": "The cartoonist sketched the mayor with an enormous hat.",
+      "zh": "漫画家画了戴着巨大帽子的市长。"
+    },
+    {
+      "term": "mystique",
+      "partOfSpeech": "noun",
+      "meaningZh": "神秘魅力",
+      "en": "The locked studio added to the artist's mystique.",
+      "zh": "上锁的工作室增添了艺术家的神秘魅力。"
+    },
+    {
+      "term": "outflow",
+      "partOfSpeech": "noun",
+      "meaningZh": "流出量",
+      "en": "The graph compares water inflow and outflow.",
+      "zh": "图表比较了水的流入量和流出量。"
+    },
+    {
+      "term": "notoriety",
+      "partOfSpeech": "noun",
+      "meaningZh": "恶名",
+      "en": "The scandal brought the quiet town unwanted notoriety.",
+      "zh": "丑闻让安静的小镇背上了不想要的恶名。"
+    },
+    {
+      "term": "sultan",
+      "partOfSpeech": "noun",
+      "meaningZh": "苏丹",
+      "en": "The portrait shows a sultan seated beneath a canopy.",
+      "zh": "肖像画中，一位苏丹坐在华盖下。"
+    },
+    {
+      "term": "underworld",
+      "partOfSpeech": "noun",
+      "meaningZh": "黑社会",
+      "en": "The novel links the stolen painting to the city's underworld.",
+      "zh": "小说把失窃画作与该城黑社会联系起来。"
+    },
+    {
+      "term": "karate",
+      "partOfSpeech": "noun",
+      "meaningZh": "空手道",
+      "en": "The community hall hosted a karate demonstration.",
+      "zh": "社区大厅举办了一场空手道演示。"
+    },
+    {
+      "term": "tableau",
+      "partOfSpeech": "noun",
+      "meaningZh": "生动场面",
+      "en": "The children formed a cheerful tableau around the sleeping dog.",
+      "zh": "孩子们围着熟睡的狗，构成了一幅欢乐的场景。"
+    },
+    {
+      "term": "polyester",
+      "partOfSpeech": "noun",
+      "meaningZh": "聚酯纤维",
+      "en": "The label listed polyester as the main fabric.",
+      "zh": "标签将聚酯纤维列为主要面料。"
+    },
+    {
+      "term": "contraceptive",
+      "partOfSpeech": "adjective",
+      "meaningZh": "避孕的",
+      "en": "The survey examined access to contraceptive services.",
+      "zh": "调查考察了获得避孕服务的情况。"
+    },
+    {
+      "term": "mane",
+      "partOfSpeech": "noun",
+      "meaningZh": "鬃毛",
+      "en": "The pony's mane tangled in the wind.",
+      "zh": "小马的鬃毛被风吹乱了。"
+    },
+    {
+      "term": "gearbox",
+      "partOfSpeech": "noun",
+      "meaningZh": "变速箱",
+      "en": "The mechanic heard a rattle from the gearbox.",
+      "zh": "机械师听到变速箱里传出咔嗒声。"
+    },
+    {
+      "term": "kiwi",
+      "partOfSpeech": "noun",
+      "meaningZh": "几维鸟",
+      "en": "The conservation exhibit featured a model kiwi.",
+      "zh": "保护展览中有一只几维鸟模型。"
+    },
+    {
+      "term": "midweek",
+      "partOfSpeech": "adjective",
+      "meaningZh": "周中的",
+      "en": "We booked a midweek visit to avoid the crowds.",
+      "zh": "我们预订了周中的参观，以避开人群。"
+    },
+    {
+      "term": "catalytic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "催化的",
+      "en": "The chart compares the materials' catalytic activity.",
+      "zh": "图表比较了这些材料的催化活性。"
+    },
+    {
+      "term": "airman",
+      "partOfSpeech": "noun",
+      "meaningZh": "空军人员",
+      "en": "The memoir follows a young airman stationed abroad.",
+      "zh": "回忆录讲述了一名驻扎国外的年轻空军人员。"
+    },
+    {
+      "term": "cobalt",
+      "partOfSpeech": "noun",
+      "meaningZh": "钴",
+      "en": "The laboratory measured cobalt in the rock sample.",
+      "zh": "实验室测量了岩石样品中的钴。"
+    },
+    {
+      "term": "bloodstream",
+      "partOfSpeech": "noun",
+      "meaningZh": "血流",
+      "en": "The animation follows a cell through the bloodstream.",
+      "zh": "动画追踪了一个细胞在血流中的运动。"
+    },
+    {
+      "term": "dept",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "大学的系（department缩写）",
+      "en": "The letter was addressed to the university's history dept.",
+      "zh": "这封信寄给了大学的历史系。"
+    },
+    {
+      "term": "burly",
+      "partOfSpeech": "adjective",
+      "meaningZh": "魁梧的",
+      "en": "A burly porter lifted the trunk with ease.",
+      "zh": "一位魁梧的搬运工轻松提起了箱子。"
+    },
+    {
+      "term": "bombard",
+      "partOfSpeech": "verb",
+      "meaningZh": "接连提出问题",
+      "en": "Visitors bombarded the inventor with questions.",
+      "zh": "访客们接二连三地向发明家提问。"
+    },
+    {
+      "term": "pep",
+      "partOfSpeech": "noun",
+      "meaningZh": "活力",
+      "en": "The lively music gave the rehearsal some much-needed pep.",
+      "zh": "活泼的音乐给排练增添了急需的活力。"
+    },
+    {
+      "term": "stallion",
+      "partOfSpeech": "noun",
+      "meaningZh": "雄马",
+      "en": "The black stallion watched from beyond the fence.",
+      "zh": "黑色雄马在围栏另一边看着。"
+    },
+    {
+      "term": "mindless",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无需动脑的",
+      "en": "The mindless copying bored even the patient apprentice.",
+      "zh": "机械的抄写连耐心的学徒也觉得无聊。"
+    },
+    {
+      "term": "rye",
+      "partOfSpeech": "noun",
+      "meaningZh": "黑麦",
+      "en": "The field of rye shimmered in the afternoon sun.",
+      "zh": "黑麦田在午后阳光中闪着光。"
+    },
+    {
+      "term": "intelligentsia",
+      "partOfSpeech": "noun",
+      "meaningZh": "知识界",
+      "en": "The magazine attracted readers from the city's intelligentsia.",
+      "zh": "杂志吸引了该城知识界的读者。"
+    },
+    {
+      "term": "empress",
+      "partOfSpeech": "noun",
+      "meaningZh": "女皇",
+      "en": "The empress appears in a ceremonial robe.",
+      "zh": "女皇身着礼袍出现。"
+    },
+    {
+      "term": "poly",
+      "partOfSpeech": "noun",
+      "meaningZh": "理工学院（英式非正式用语）",
+      "en": "She studied design at the local poly.",
+      "zh": "她在当地理工学院学习设计。"
+    },
+    {
+      "term": "armpit",
+      "partOfSpeech": "noun",
+      "meaningZh": "腋窝",
+      "en": "The costume needed extra fabric beneath the armpit.",
+      "zh": "这套戏服在腋窝下方需要多加些布料。"
+    },
+    {
+      "term": "rhino",
+      "partOfSpeech": "noun",
+      "meaningZh": "犀牛",
+      "en": "A rhino stood quietly beside the muddy pool.",
+      "zh": "一头犀牛静静地站在泥水池旁。"
+    },
+    {
+      "term": "khaki",
+      "partOfSpeech": "adjective",
+      "meaningZh": "卡其色的",
+      "en": "His khaki jacket blended with the dry grass.",
+      "zh": "他的卡其色夹克与干草融为一体。"
+    },
+    {
+      "term": "fuselage",
+      "partOfSpeech": "noun",
+      "meaningZh": "飞机机身",
+      "en": "The exhibit displayed a section of the aircraft's fuselage.",
+      "zh": "展览展示了一段飞机机身。"
+    },
+    {
+      "term": "revamp",
+      "partOfSpeech": "verb",
+      "meaningZh": "翻新改造",
+      "en": "The owners revamped the cafe without changing its name.",
+      "zh": "店主改造了咖啡馆，却没有改名。"
+    },
+    {
+      "term": "manic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "忙乱亢奋的",
+      "en": "The kitchen had a manic energy before the banquet.",
+      "zh": "宴会前，厨房里充满忙乱亢奋的劲头。"
+    },
+    {
+      "term": "migraine",
+      "partOfSpeech": "noun",
+      "meaningZh": "偏头痛",
+      "en": "Her diary mentions a migraine during the journey.",
+      "zh": "她的日记提到了旅途中的一次偏头痛。"
+    },
+    {
+      "term": "brownie",
+      "partOfSpeech": "noun",
+      "meaningZh": "巧克力布朗尼蛋糕",
+      "en": "He divided the brownie into four uneven pieces.",
+      "zh": "他把布朗尼蛋糕分成了大小不一的四块。"
+    },
+    {
+      "term": "ombudsman",
+      "partOfSpeech": "noun",
+      "meaningZh": "申诉专员",
+      "en": "The ombudsman received complaints about the delayed responses.",
+      "zh": "申诉专员收到了关于回复延迟的投诉。"
+    },
+    {
+      "term": "uncontrollable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无法控制的",
+      "en": "An uncontrollable fit of laughter interrupted the recording.",
+      "zh": "一阵无法控制的大笑打断了录音。"
+    },
+    {
+      "term": "winged",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有翼的",
+      "en": "A winged figure decorated the old fountain.",
+      "zh": "一尊有翼的人像装饰着旧喷泉。"
+    },
+    {
+      "term": "writhe",
+      "partOfSpeech": "verb",
+      "meaningZh": "扭动",
+      "en": "The eel writhed inside the shallow bucket.",
+      "zh": "鳗鱼在浅水桶里扭动。"
+    },
+    {
+      "term": "glint",
+      "partOfSpeech": "verb",
+      "meaningZh": "闪光",
+      "en": "Silver threads glinted in the dark fabric.",
+      "zh": "银线在深色布料中闪着光。"
+    },
+    {
+      "term": "eyelash",
+      "partOfSpeech": "noun",
+      "meaningZh": "睫毛",
+      "en": "An eyelash rested on her cheek.",
+      "zh": "一根睫毛落在她脸颊上。"
+    },
+    {
+      "term": "wisp",
+      "partOfSpeech": "noun",
+      "meaningZh": "一缕",
+      "en": "A wisp of smoke rose above the chimney.",
+      "zh": "一缕烟升到烟囱上方。"
+    },
+    {
+      "term": "urn",
+      "partOfSpeech": "noun",
+      "meaningZh": "瓮",
+      "en": "A stone urn stood at each end of the terrace.",
+      "zh": "露台两端各立着一只石瓮。"
+    },
+    {
+      "term": "mink",
+      "partOfSpeech": "noun",
+      "meaningZh": "水貂",
+      "en": "The camera recorded a mink beside the stream.",
+      "zh": "摄像机拍到了一只溪边的水貂。"
+    },
+    {
+      "term": "cull",
+      "partOfSpeech": "verb",
+      "meaningZh": "筛选收集",
+      "en": "She culled the clearest examples from the archive.",
+      "zh": "她从档案中选出了最清楚的例子。"
+    },
+    {
+      "term": "nutritionist",
+      "partOfSpeech": "noun",
+      "meaningZh": "营养学家",
+      "en": "The nutritionist spoke about her research at the conference.",
+      "zh": "营养学家在会议上谈到了自己的研究。"
+    },
+    {
+      "term": "corrective",
+      "partOfSpeech": "adjective",
+      "meaningZh": "纠正性的",
+      "en": "The report recommended corrective action after the failed inspection.",
+      "zh": "检查未通过后，报告建议采取纠正措施。"
+    },
+    {
+      "term": "elitist",
+      "partOfSpeech": "adjective",
+      "meaningZh": "精英主义的",
+      "en": "The critic dismissed the club's admissions policy as elitist.",
+      "zh": "评论家认为俱乐部的准入政策带有精英主义色彩。"
+    },
+    {
+      "term": "wacky",
+      "partOfSpeech": "adjective",
+      "meaningZh": "古怪有趣的",
+      "en": "Her wacky invention delighted the curious children.",
+      "zh": "她古怪有趣的发明让好奇的孩子们很开心。"
+    },
+    {
+      "term": "stripper",
+      "partOfSpeech": "noun",
+      "meaningZh": "脱漆剂",
+      "en": "The workshop kept paint stripper in a locked cabinet.",
+      "zh": "作坊把脱漆剂存放在上锁的柜子里。"
+    },
+    {
+      "term": "skinhead",
+      "partOfSpeech": "noun",
+      "meaningZh": "光头青年亚文化成员",
+      "en": "A skinhead in heavy boots waited outside the music venue.",
+      "zh": "一位穿厚重靴子的光头青年在音乐场地外等候。"
+    },
+    {
+      "term": "marinate",
+      "partOfSpeech": "verb",
+      "meaningZh": "用腌泡汁浸泡",
+      "en": "The vegetables marinated while we set the table.",
+      "zh": "我们摆桌时，蔬菜正浸泡在腌汁里。"
+    },
+    {
+      "term": "angst",
+      "partOfSpeech": "noun",
+      "meaningZh": "焦虑",
+      "en": "The novel captures the angst of leaving home.",
+      "zh": "小说描绘了离家的焦虑。"
+    },
+    {
+      "term": "mull",
+      "partOfSpeech": "verb",
+      "meaningZh": "仔细考虑",
+      "en": "We mulled over the designs during lunch.",
+      "zh": "午饭时，我们仔细考虑了这些设计。"
+    },
+    {
+      "term": "constipation",
+      "partOfSpeech": "noun",
+      "meaningZh": "便秘",
+      "en": "The questionnaire asked whether participants had experienced constipation.",
+      "zh": "问卷询问参与者是否曾出现便秘。"
+    },
+    {
+      "term": "mainstay",
+      "partOfSpeech": "noun",
+      "meaningZh": "支柱",
+      "en": "The weekly market remained the village's economic mainstay.",
+      "zh": "每周的集市仍是村庄的经济支柱。"
+    },
+    {
+      "term": "psychotic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "精神病性的",
+      "en": "The case report describes a psychotic episode.",
+      "zh": "病例报告描述了一次精神病性发作。"
+    },
+    {
+      "term": "juniper",
+      "partOfSpeech": "noun",
+      "meaningZh": "杜松",
+      "en": "A juniper grew beside the rocky path.",
+      "zh": "岩石小路旁长着一棵杜松。"
+    },
+    {
+      "term": "deafening",
+      "partOfSpeech": "adjective",
+      "meaningZh": "震耳欲聋的",
+      "en": "Deafening applause followed the final song.",
+      "zh": "最后一首歌后响起了震耳欲聋的掌声。"
+    },
+    {
+      "term": "bribery",
+      "partOfSpeech": "noun",
+      "meaningZh": "贿赂",
+      "en": "The investigation uncovered evidence of bribery.",
+      "zh": "调查发现了贿赂的证据。"
+    },
+    {
+      "term": "underclass",
+      "partOfSpeech": "noun",
+      "meaningZh": "社会底层群体",
+      "en": "The essay examines how policy debates portray the underclass.",
+      "zh": "文章考察了政策辩论如何描绘社会底层群体。"
+    },
+    {
+      "term": "politicize",
+      "partOfSpeech": "verb",
+      "meaningZh": "使政治化",
+      "en": "The editorial warned against politicizing the museum's work.",
+      "zh": "社论警告不要将博物馆的工作政治化。"
+    },
+    {
+      "term": "battleship",
+      "partOfSpeech": "noun",
+      "meaningZh": "战列舰",
+      "en": "A battleship dominated the old harbor photograph.",
+      "zh": "一艘战列舰在旧港口照片中格外醒目。"
+    },
+    {
+      "term": "sonic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "声音的",
+      "en": "The installation created an unusual sonic landscape.",
+      "zh": "这件装置创造了不寻常的声音景观。"
+    },
+    {
+      "term": "underwriter",
+      "partOfSpeech": "noun",
+      "meaningZh": "承保人",
+      "en": "The letter requested further information from the underwriter.",
+      "zh": "信中要求承保人提供更多信息。"
+    },
+    {
+      "term": "tote",
+      "partOfSpeech": "verb",
+      "meaningZh": "提着携带",
+      "en": "She toted a heavy bag of library books.",
+      "zh": "她提着一大袋沉重的图书馆书籍。"
+    },
+    {
+      "term": "funk",
+      "partOfSpeech": "noun",
+      "meaningZh": "放克音乐",
+      "en": "The band mixed funk with traditional folk melodies.",
+      "zh": "乐队将放克音乐与传统民谣旋律混合。"
+    },
+    {
+      "term": "cashmere",
+      "partOfSpeech": "noun",
+      "meaningZh": "羊绒",
+      "en": "Her scarf was made of soft cashmere.",
+      "zh": "她的围巾用柔软的羊绒制成。"
+    },
+    {
+      "term": "clarinet",
+      "partOfSpeech": "noun",
+      "meaningZh": "单簧管",
+      "en": "A clarinet introduced the melody after the strings.",
+      "zh": "弦乐之后，单簧管奏出了旋律。"
+    },
+    {
+      "term": "payout",
+      "partOfSpeech": "noun",
+      "meaningZh": "支付款",
+      "en": "The accounts recorded a single payout to the contractor.",
+      "zh": "账目记录了付给承包商的一笔款项。"
+    },
+    {
+      "term": "nozzle",
+      "partOfSpeech": "noun",
+      "meaningZh": "喷嘴",
+      "en": "The fountain's nozzle was clogged with grit.",
+      "zh": "喷泉的喷嘴被沙砾堵住了。"
+    },
+    {
+      "term": "perm",
+      "partOfSpeech": "noun",
+      "meaningZh": "烫出的卷发",
+      "en": "The old photograph shows her with a perm.",
+      "zh": "旧照片中，她烫着卷发。"
+    },
+    {
+      "term": "popularize",
+      "partOfSpeech": "verb",
+      "meaningZh": "使普及",
+      "en": "The radio program helped popularize traditional dance music.",
+      "zh": "广播节目帮助推广了传统舞曲。"
+    },
+    {
+      "term": "cfc",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "氯氟烃",
+      "en": "The report lists CFC emissions from old refrigeration equipment.",
+      "zh": "报告列出了旧制冷设备的氯氟烃排放。"
+    },
+    {
+      "term": "hotline",
+      "partOfSpeech": "noun",
+      "meaningZh": "热线电话",
+      "en": "The poster displayed the museum's information hotline.",
+      "zh": "海报上列着博物馆的信息热线。"
+    },
+    {
+      "term": "personalize",
+      "partOfSpeech": "verb",
+      "meaningZh": "使个性化",
+      "en": "She personalized the notebook with a painted cover.",
+      "zh": "她用彩绘封面让笔记本更有个性。"
+    },
+    {
+      "term": "viola",
+      "partOfSpeech": "noun",
+      "meaningZh": "中提琴",
+      "en": "The viola gave the passage a darker tone.",
+      "zh": "中提琴让这段乐曲的音色更加深沉。"
+    },
+    {
+      "term": "centrist",
+      "partOfSpeech": "noun",
+      "meaningZh": "中间派人士",
+      "en": "A centrist proposed a compromise during the debate.",
+      "zh": "一位中间派人士在辩论中提出了折中方案。"
+    },
+    {
+      "term": "believable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可信的",
+      "en": "The actor made the unlikely story surprisingly believable.",
+      "zh": "演员让这个离奇的故事显得出奇可信。"
+    },
+    {
+      "term": "exhibitor",
+      "partOfSpeech": "noun",
+      "meaningZh": "参展者",
+      "en": "Each exhibitor received a small table beside the entrance.",
+      "zh": "每位参展者都分到入口旁的一张小桌子。"
+    },
+    {
+      "term": "confrontational",
+      "partOfSpeech": "adjective",
+      "meaningZh": "对抗性的",
+      "en": "His confrontational tone made agreement harder.",
+      "zh": "他的对抗性语气让达成一致更加困难。"
+    },
+    {
+      "term": "rework",
+      "partOfSpeech": "verb",
+      "meaningZh": "修改重做",
+      "en": "The sculptor reworked the face several times.",
+      "zh": "雕塑家反复修改了面部几次。"
+    },
+    {
+      "term": "coincidentally",
+      "partOfSpeech": "adverb",
+      "meaningZh": "碰巧",
+      "en": "Coincidentally, we had booked the same train.",
+      "zh": "碰巧，我们订了同一班火车。"
+    },
+    {
+      "term": "innovator",
+      "partOfSpeech": "noun",
+      "meaningZh": "创新者",
+      "en": "The exhibition celebrates innovators in textile design.",
+      "zh": "展览向纺织设计领域的创新者致敬。"
+    },
+    {
+      "term": "crusty",
+      "partOfSpeech": "adjective",
+      "meaningZh": "有脆硬外皮的",
+      "en": "The bakery sold crusty rolls still warm from the oven.",
+      "zh": "面包店出售刚出炉仍热着的脆皮面包卷。"
+    },
+    {
+      "term": "hilltop",
+      "partOfSpeech": "noun",
+      "meaningZh": "山顶",
+      "en": "The hilltop offered a view of three villages.",
+      "zh": "山顶可以望见三个村庄。"
+    },
+    {
+      "term": "criminology",
+      "partOfSpeech": "noun",
+      "meaningZh": "犯罪学",
+      "en": "Her criminology research focused on eyewitness accounts.",
+      "zh": "她的犯罪学研究关注目击者陈述。"
+    },
+    {
+      "term": "hotly",
+      "partOfSpeech": "adverb",
+      "meaningZh": "激烈地",
+      "en": "The committee hotly debated the proposed merger.",
+      "zh": "委员会激烈辩论了拟议的合并。"
+    },
+    {
+      "term": "limitless",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无限的",
+      "en": "The child's imagination seemed limitless.",
+      "zh": "孩子的想象力似乎没有边界。"
+    },
+    {
+      "term": "mellow",
+      "partOfSpeech": "adjective",
+      "meaningZh": "柔和的",
+      "en": "The old instrument produced a mellow sound.",
+      "zh": "这件旧乐器发出了柔和的声音。"
+    },
+    {
+      "term": "swimsuit",
+      "partOfSpeech": "noun",
+      "meaningZh": "游泳衣",
+      "en": "A wet swimsuit hung over the balcony rail.",
+      "zh": "一件湿游泳衣挂在阳台栏杆上。"
+    },
+    {
+      "term": "normalize",
+      "partOfSpeech": "verb",
+      "meaningZh": "使恢复正常",
+      "en": "The agreement helped normalize relations between the clubs.",
+      "zh": "协议帮助两个俱乐部恢复了正常关系。"
+    },
+    {
+      "term": "tiptoe",
+      "partOfSpeech": "verb",
+      "meaningZh": "踮脚走",
+      "en": "We tiptoed past the sleeping dog.",
+      "zh": "我们踮脚走过熟睡的狗。"
+    },
+    {
+      "term": "stockpile",
+      "partOfSpeech": "noun",
+      "meaningZh": "储备物资",
+      "en": "The warehouse held a stockpile of spare parts.",
+      "zh": "仓库里存着一批备用零件。"
+    },
+    {
+      "term": "saxophone",
+      "partOfSpeech": "noun",
+      "meaningZh": "萨克斯管",
+      "en": "A saxophone solo rose above the crowd's chatter.",
+      "zh": "萨克斯独奏声盖过了人群的闲谈声。"
+    },
+    {
+      "term": "screenwriter",
+      "partOfSpeech": "noun",
+      "meaningZh": "电影编剧",
+      "en": "The screenwriter changed the ending after the rehearsal.",
+      "zh": "编剧在排练后改了结尾。"
+    },
+    {
+      "term": "crony",
+      "partOfSpeech": "noun",
+      "meaningZh": "亲信",
+      "en": "The mayor's cronies occupied the front row.",
+      "zh": "市长的亲信坐在前排。"
+    },
+    {
+      "term": "arbitrage",
+      "partOfSpeech": "noun",
+      "meaningZh": "套利",
+      "en": "The report examined the firm's arbitrage activities.",
+      "zh": "报告考察了公司的套利活动。"
+    },
+    {
+      "term": "wafer",
+      "partOfSpeech": "noun",
+      "meaningZh": "薄脆饼",
+      "en": "A chocolate wafer accompanied each scoop of ice cream.",
+      "zh": "每球冰淇淋都配了一片巧克力薄脆饼。"
+    },
+    {
+      "term": "rune",
+      "partOfSpeech": "noun",
+      "meaningZh": "如尼文字",
+      "en": "A single rune was carved into the stone.",
+      "zh": "石头上刻着一个如尼字母。"
+    },
+    {
+      "term": "chunky",
+      "partOfSpeech": "adjective",
+      "meaningZh": "厚重结实的",
+      "en": "She wore chunky boots for the muddy walk.",
+      "zh": "她穿着厚重结实的靴子走泥路。"
+    },
+    {
+      "term": "blackberry",
+      "partOfSpeech": "noun",
+      "meaningZh": "黑莓",
+      "en": "A ripe blackberry stained his fingertips.",
+      "zh": "一颗熟黑莓染污了他的指尖。"
+    },
+    {
+      "term": "pelvis",
+      "partOfSpeech": "noun",
+      "meaningZh": "骨盆",
+      "en": "The model shows the pelvis from several angles.",
+      "zh": "模型从几个角度展示了骨盆。"
+    },
+    {
+      "term": "madly",
+      "partOfSpeech": "adverb",
+      "meaningZh": "疯狂地",
+      "en": "The terrier barked madly at its own reflection.",
+      "zh": "㹴犬冲着自己的倒影疯狂吠叫。"
+    },
+    {
+      "term": "morphine",
+      "partOfSpeech": "noun",
+      "meaningZh": "吗啡",
+      "en": "The historical record documents the use of morphine.",
+      "zh": "历史记录记载了吗啡的使用。"
+    },
+    {
+      "term": "stave",
+      "partOfSpeech": "noun",
+      "meaningZh": "桶板",
+      "en": "One wooden stave had split near the rim.",
+      "zh": "一块木桶板在靠近桶沿处裂开了。"
+    },
+    {
+      "term": "unsolved",
+      "partOfSpeech": "adjective",
+      "meaningZh": "未解决的",
+      "en": "The missing painting remained an unsolved mystery.",
+      "zh": "失踪的画作仍是个未解之谜。"
+    },
+    {
+      "term": "pragmatism",
+      "partOfSpeech": "noun",
+      "meaningZh": "务实态度",
+      "en": "Her pragmatism kept the ambitious project within budget.",
+      "zh": "她的务实让雄心勃勃的项目没有超出预算。"
+    },
+    {
+      "term": "proverbial",
+      "partOfSpeech": "adjective",
+      "meaningZh": "众所周知的",
+      "en": "His proverbial patience finally ran out.",
+      "zh": "他那众所周知的耐心终于耗尽了。"
+    },
+    {
+      "term": "knockout",
+      "partOfSpeech": "noun",
+      "meaningZh": "击倒获胜",
+      "en": "The boxer won by a knockout in the final round.",
+      "zh": "拳击手在最后一回合以击倒获胜。"
+    },
+    {
+      "term": "spooky",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人毛骨悚然的",
+      "en": "The empty playground looked spooky after sunset.",
+      "zh": "日落后，空荡的游乐场看起来令人毛骨悚然。"
+    },
+    {
+      "term": "regrettable",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人遗憾的",
+      "en": "The cancellation was a regrettable end to the festival.",
+      "zh": "活动取消，为节日画上了令人遗憾的句号。"
+    },
+    {
+      "term": "impotent",
+      "partOfSpeech": "adjective",
+      "meaningZh": "无能为力的",
+      "en": "The distant officials seemed impotent in the face of the crisis.",
+      "zh": "远方的官员面对危机显得无能为力。"
+    },
+    {
+      "term": "giver",
+      "partOfSpeech": "noun",
+      "meaningZh": "赠予者",
+      "en": "The giver had left no name on the parcel.",
+      "zh": "赠予者没有在包裹上留下姓名。"
+    },
+    {
+      "term": "stead",
+      "partOfSpeech": "noun",
+      "meaningZh": "代替",
+      "en": "Her deputy attended the ceremony in her stead.",
+      "zh": "她的副手代她出席了仪式。"
+    },
+    {
+      "term": "unforeseen",
+      "partOfSpeech": "adjective",
+      "meaningZh": "未预见的",
+      "en": "An unforeseen delay kept the orchestra at the station.",
+      "zh": "一次未预见的延误让乐团滞留车站。"
+    },
+    {
+      "term": "confessional",
+      "partOfSpeech": "adjective",
+      "meaningZh": "自白式的",
+      "en": "The novel adopted an intimate, confessional tone.",
+      "zh": "小说采用了一种亲密的自白式语调。"
+    },
+    {
+      "term": "limelight",
+      "partOfSpeech": "noun",
+      "meaningZh": "公众注意的中心",
+      "en": "The quiet inventor disliked being in the limelight.",
+      "zh": "安静的发明家不喜欢成为公众瞩目的焦点。"
+    },
+    {
+      "term": "recoup",
+      "partOfSpeech": "verb",
+      "meaningZh": "收回损失或成本",
+      "en": "The exhibition failed to recoup its printing costs.",
+      "zh": "展览未能收回印刷成本。"
+    },
+    {
+      "term": "unwell",
+      "partOfSpeech": "adjective",
+      "meaningZh": "身体不适的",
+      "en": "She felt unwell and left the rehearsal early.",
+      "zh": "她觉得身体不适，提早离开了排练。"
+    },
+    {
+      "term": "bran",
+      "partOfSpeech": "noun",
+      "meaningZh": "麸皮",
+      "en": "The recipe included oats and wheat bran.",
+      "zh": "配方包含燕麦和麦麸。"
+    },
+    {
+      "term": "resounding",
+      "partOfSpeech": "adjective",
+      "meaningZh": "巨大的",
+      "en": "The concert was a resounding success.",
+      "zh": "这场音乐会取得了巨大成功。"
+    },
+    {
+      "term": "traditionalist",
+      "partOfSpeech": "noun",
+      "meaningZh": "传统主义者",
+      "en": "The traditionalist objected to the modern costumes.",
+      "zh": "这位传统主义者反对现代服装。"
+    },
+    {
+      "term": "reservist",
+      "partOfSpeech": "noun",
+      "meaningZh": "预备役军人",
+      "en": "The memoir describes a reservist returning to civilian life.",
+      "zh": "回忆录描述了一位预备役军人重返平民生活。"
+    },
+    {
+      "term": "armoury",
+      "partOfSpeech": "noun",
+      "meaningZh": "军械库",
+      "en": "The former armoury now houses a local museum.",
+      "zh": "昔日的军械库现在是一座地方博物馆。"
+    },
+    {
+      "term": "dab",
+      "partOfSpeech": "noun",
+      "meaningZh": "少量",
+      "en": "A dab of paint marked the corner of the frame.",
+      "zh": "画框一角沾着一点颜料。"
+    },
+    {
+      "term": "unfriendly",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不友好的",
+      "en": "His unfriendly greeting surprised the new volunteers.",
+      "zh": "他不友好的招呼让新志愿者很意外。"
+    },
+    {
+      "term": "unchallenged",
+      "partOfSpeech": "adjective",
+      "meaningZh": "未被质疑的",
+      "en": "The claim went unchallenged throughout the meeting.",
+      "zh": "整个会议上，这一说法都未受到质疑。"
+    },
+    {
+      "term": "mascara",
+      "partOfSpeech": "noun",
+      "meaningZh": "睫毛膏",
+      "en": "Her mascara had smudged during the rainstorm.",
+      "zh": "暴雨中，她的睫毛膏晕开了。"
+    },
+    {
+      "term": "illogical",
+      "partOfSpeech": "adjective",
+      "meaningZh": "不合逻辑的",
+      "en": "The explanation seemed illogical even to the beginners.",
+      "zh": "这个解释连初学者都觉得不合逻辑。"
+    },
+    {
+      "term": "eventuality",
+      "partOfSpeech": "noun",
+      "meaningZh": "可能发生的情况",
+      "en": "The organizers had prepared for almost every eventuality.",
+      "zh": "组织者为几乎所有可能情况都作了准备。"
+    },
+    {
+      "term": "sickly",
+      "partOfSpeech": "adjective",
+      "meaningZh": "甜得发腻的",
+      "en": "A sickly scent filled the tiny perfume shop.",
+      "zh": "小香水店里充满甜得发腻的气味。"
+    },
+    {
+      "term": "awash",
+      "partOfSpeech": "adjective",
+      "meaningZh": "被水淹没的",
+      "en": "By morning, the lower deck was awash.",
+      "zh": "到了早晨，下层甲板已被水淹没。"
+    },
+    {
+      "term": "christen",
+      "partOfSpeech": "verb",
+      "meaningZh": "命名",
+      "en": "They christened the little boat Bluebird.",
+      "zh": "他们给小船取名为蓝鸟号。"
+    },
+    {
+      "term": "weighty",
+      "partOfSpeech": "adjective",
+      "meaningZh": "重大的",
+      "en": "The board faced a weighty decision about the building's future.",
+      "zh": "董事会面临着关于建筑未来的重大决定。"
+    },
+    {
+      "term": "enthuse",
+      "partOfSpeech": "verb",
+      "meaningZh": "热情地谈论",
+      "en": "She enthused about the orchestra's remarkable new conductor.",
+      "zh": "她热情地谈论乐团出色的新指挥。"
+    },
+    {
+      "term": "sclerosis",
+      "partOfSpeech": "noun",
+      "meaningZh": "硬化",
+      "en": "The pathology report described sclerosis of the tissue.",
+      "zh": "病理报告描述了组织硬化。"
+    },
+    {
+      "term": "soundly",
+      "partOfSpeech": "adverb",
+      "meaningZh": "睡得很熟",
+      "en": "The exhausted hikers slept soundly until dawn.",
+      "zh": "疲惫的徒步者酣睡到天亮。"
+    },
+    {
+      "term": "cockroach",
+      "partOfSpeech": "noun",
+      "meaningZh": "蟑螂",
+      "en": "A cockroach disappeared beneath the old refrigerator.",
+      "zh": "一只蟑螂钻到了旧冰箱下面。"
+    },
+    {
+      "term": "keynote",
+      "partOfSpeech": "noun",
+      "meaningZh": "基调",
+      "en": "Her opening remarks established the conference's keynote.",
+      "zh": "她的开场发言确立了会议基调。"
+    },
+    {
+      "term": "scandalous",
+      "partOfSpeech": "adjective",
+      "meaningZh": "可耻的",
+      "en": "The report exposed scandalous neglect of the historic building.",
+      "zh": "报告揭露了对历史建筑可耻的疏于维护。"
+    },
+    {
+      "term": "recharge",
+      "partOfSpeech": "verb",
+      "meaningZh": "充电",
+      "en": "He recharged the camera battery before the journey.",
+      "zh": "他在出发前给相机电池充电。"
+    },
+    {
+      "term": "goody",
+      "partOfSpeech": "noun",
+      "meaningZh": "好吃的小点心",
+      "en": "The basket contained homemade goodies for the visitors.",
+      "zh": "篮子里装着为访客准备的自制美味点心。"
+    },
+    {
+      "term": "flog",
+      "partOfSpeech": "verb",
+      "meaningZh": "卖掉",
+      "en": "He flogged his old bicycle at the weekend market.",
+      "zh": "他在周末市场卖掉了旧自行车。"
+    },
+    {
+      "term": "bastion",
+      "partOfSpeech": "noun",
+      "meaningZh": "堡垒",
+      "en": "The ruined bastion overlooked the harbor entrance.",
+      "zh": "破败的堡垒俯瞰港口入口。"
+    },
+    {
+      "term": "lieu",
+      "partOfSpeech": "noun",
+      "meaningZh": "代替",
+      "en": "The volunteers received meal vouchers in lieu of payment.",
+      "zh": "志愿者得到餐券来代替报酬。"
+    },
+    {
+      "term": "lifeline",
+      "partOfSpeech": "noun",
+      "meaningZh": "生命线",
+      "en": "The weekly ferry became the island's lifeline.",
+      "zh": "每周一班的渡轮成了岛上的生命线。"
+    },
+    {
+      "term": "acne",
+      "partOfSpeech": "noun",
+      "meaningZh": "痤疮",
+      "en": "The survey recorded participants' experiences of acne.",
+      "zh": "调查记录了参与者的痤疮经历。"
+    },
+    {
+      "term": "footwear",
+      "partOfSpeech": "noun",
+      "meaningZh": "鞋类",
+      "en": "The muddy entrance was crowded with discarded footwear.",
+      "zh": "泥泞的入口摆满了脱下的鞋。"
+    },
+    {
+      "term": "shrapnel",
+      "partOfSpeech": "noun",
+      "meaningZh": "弹片",
+      "en": "The museum displayed a damaged helmet pierced by shrapnel.",
+      "zh": "博物馆展出了一顶被弹片击穿的破损头盔。"
+    },
+    {
+      "term": "adrift",
+      "partOfSpeech": "adjective",
+      "meaningZh": "漂流着的",
+      "en": "The empty dinghy was adrift beyond the pier.",
+      "zh": "空小艇在码头外漂流着。"
+    },
+    {
+      "term": "inexperience",
+      "partOfSpeech": "noun",
+      "meaningZh": "缺乏经验",
+      "en": "His inexperience showed during the complicated rehearsal.",
+      "zh": "复杂的排练中，他显露出经验不足。"
+    },
+    {
+      "term": "uppermost",
+      "partOfSpeech": "adjective",
+      "meaningZh": "最上面的",
+      "en": "The uppermost drawer held old concert programs.",
+      "zh": "最上面的抽屉装着旧音乐会节目单。"
+    },
+    {
+      "term": "unsuspecting",
+      "partOfSpeech": "adjective",
+      "meaningZh": "毫无戒心的",
+      "en": "The magician handed the card to an unsuspecting guest.",
+      "zh": "魔术师把牌递给了一位毫无戒心的客人。"
+    },
+    {
+      "term": "misinterpret",
+      "partOfSpeech": "verb",
+      "meaningZh": "误解",
+      "en": "He misinterpreted her smile as agreement.",
+      "zh": "他把她的微笑误解为赞同。"
+    },
+    {
+      "term": "befit",
+      "partOfSpeech": "verb",
+      "meaningZh": "适合",
+      "en": "The quiet ceremony befitted her modest character.",
+      "zh": "安静的仪式符合她谦逊的性格。"
+    },
+    {
+      "term": "menstrual",
+      "partOfSpeech": "adjective",
+      "meaningZh": "月经的",
+      "en": "The anonymous questionnaire included questions about menstrual cycles.",
+      "zh": "匿名问卷包含有关月经周期的问题。"
+    },
+    {
+      "term": "mouthpiece",
+      "partOfSpeech": "noun",
+      "meaningZh": "吹口",
+      "en": "The clarinet's mouthpiece rested inside a small case.",
+      "zh": "单簧管吹口放在一个小盒子里。"
+    },
+    {
+      "term": "unrelenting",
+      "partOfSpeech": "adjective",
+      "meaningZh": "持续不减的",
+      "en": "Unrelenting rain kept the picnic indoors.",
+      "zh": "持续不停的雨让野餐只能在室内进行。"
+    },
+    {
+      "term": "frosty",
+      "partOfSpeech": "adjective",
+      "meaningZh": "结霜的",
+      "en": "Frosty grass crunched beneath our boots.",
+      "zh": "结霜的草在我们靴子下咯吱作响。"
+    },
+    {
+      "term": "madman",
+      "partOfSpeech": "noun",
+      "meaningZh": "狂人",
+      "en": "The novel's madman believes he can command the sea.",
+      "zh": "小说中的狂人相信自己能号令大海。"
+    },
+    {
+      "term": "befall",
+      "partOfSpeech": "verb",
+      "meaningZh": "降临",
+      "en": "A strange misfortune befell the travelers.",
+      "zh": "一种奇怪的不幸降临在旅客们身上。"
+    },
+    {
+      "term": "navel",
+      "partOfSpeech": "noun",
+      "meaningZh": "肚脐",
+      "en": "The statue had a tiny hollow marking its navel.",
+      "zh": "雕像用一个小凹处表示肚脐。"
+    },
+    {
+      "term": "triad",
+      "partOfSpeech": "noun",
+      "meaningZh": "由三个事物组成的一组",
+      "en": "The design repeats a triad of circles.",
+      "zh": "设计重复着三个圆为一组的图案。"
+    },
+    {
+      "term": "cocky",
+      "partOfSpeech": "adjective",
+      "meaningZh": "过于自信的",
+      "en": "The cocky newcomer underestimated the difficult routine.",
+      "zh": "过于自信的新人低估了这套动作的难度。"
+    },
+    {
+      "term": "eminently",
+      "partOfSpeech": "adverb",
+      "meaningZh": "极其",
+      "en": "The old station seemed eminently suitable for a gallery.",
+      "zh": "旧车站似乎极其适合改作画廊。"
+    },
+    {
+      "term": "unwind",
+      "partOfSpeech": "verb",
+      "meaningZh": "放松",
+      "en": "She unwound by sketching the view from her window.",
+      "zh": "她画窗外的景色来放松。"
+    },
+    {
+      "term": "centrepiece",
+      "partOfSpeech": "noun",
+      "meaningZh": "中心装饰品",
+      "en": "A bowl of lemons formed the table's centrepiece.",
+      "zh": "一碗柠檬成了餐桌的中心装饰品。"
+    },
+    {
+      "term": "unchecked",
+      "partOfSpeech": "adjective",
+      "meaningZh": "未受遏制的",
+      "en": "Unchecked ivy had covered the abandoned greenhouse.",
+      "zh": "未受控制的常春藤爬满了废弃温室。"
+    },
+    {
+      "term": "wayward",
+      "partOfSpeech": "adjective",
+      "meaningZh": "任性的",
+      "en": "The wayward apprentice ignored the carefully written instructions.",
+      "zh": "任性的学徒无视了认真写下的说明。"
+    },
+    {
+      "term": "painless",
+      "partOfSpeech": "adjective",
+      "meaningZh": "轻松无麻烦的",
+      "en": "The new system made booking remarkably painless.",
+      "zh": "新系统让预订变得格外轻松。"
+    },
+    {
+      "term": "horseshoe",
+      "partOfSpeech": "noun",
+      "meaningZh": "马蹄铁",
+      "en": "A rusty horseshoe hung above the stable door.",
+      "zh": "一块生锈的马蹄铁挂在马厩门上方。"
+    },
+    {
+      "term": "minefield",
+      "partOfSpeech": "noun",
+      "meaningZh": "充满潜在问题的局面",
+      "en": "The discussion became a minefield of misunderstood intentions.",
+      "zh": "这场讨论因彼此误解意图而变得危机四伏。"
+    },
+    {
+      "term": "diseased",
+      "partOfSpeech": "adjective",
+      "meaningZh": "患病的",
+      "en": "The botanist photographed the diseased leaves.",
+      "zh": "植物学家拍下了患病的叶子。"
+    },
+    {
+      "term": "oddity",
+      "partOfSpeech": "noun",
+      "meaningZh": "奇异之物",
+      "en": "The museum's greatest oddity was a clock without hands.",
+      "zh": "博物馆最奇特的藏品是一座没有指针的钟。"
+    },
+    {
+      "term": "domino",
+      "partOfSpeech": "noun",
+      "meaningZh": "多米诺骨牌",
+      "en": "One domino lay beneath the kitchen chair.",
+      "zh": "一块多米诺骨牌落在厨房椅子下。"
+    },
+    {
+      "term": "incursion",
+      "partOfSpeech": "noun",
+      "meaningZh": "侵入",
+      "en": "The historian examined a brief incursion across the border.",
+      "zh": "历史学家研究了一次短暂的越境侵入。"
+    },
+    {
+      "term": "reassess",
+      "partOfSpeech": "verb",
+      "meaningZh": "重新评估",
+      "en": "The discovery forced us to reassess the manuscript's age.",
+      "zh": "这项发现迫使我们重新评估手稿年代。"
+    },
+    {
+      "term": "hiccup",
+      "partOfSpeech": "noun",
+      "meaningZh": "小故障",
+      "en": "A minor hiccup delayed the broadcast.",
+      "zh": "一个小故障推迟了播出。"
+    },
+    {
+      "term": "disconcerting",
+      "partOfSpeech": "adjective",
+      "meaningZh": "令人不安的",
+      "en": "Her disconcerting silence lasted through the entire meal.",
+      "zh": "她令人不安的沉默持续了整顿饭。"
+    },
+    {
+      "term": "upholstery",
+      "partOfSpeech": "noun",
+      "meaningZh": "家具包覆材料",
+      "en": "The chair's upholstery had faded near the window.",
+      "zh": "椅子的包覆材料在靠窗处褪色了。"
+    },
+    {
+      "term": "whimper",
+      "partOfSpeech": "verb",
+      "meaningZh": "呜咽",
+      "en": "The puppy whimpered outside the closed door.",
+      "zh": "小狗在关着的门外呜咽。"
+    },
+    {
+      "term": "genital",
+      "partOfSpeech": "adjective",
+      "meaningZh": "生殖器的",
+      "en": "The anatomical chart labels the genital structures.",
+      "zh": "解剖图标出了生殖器结构。"
+    },
+    {
+      "term": "technicality",
+      "partOfSpeech": "noun",
+      "meaningZh": "程序性细节",
+      "en": "The appeal turned on a procedural technicality.",
+      "zh": "上诉的关键在一个程序性细节上。"
+    },
+    {
+      "term": "giveaway",
+      "partOfSpeech": "noun",
+      "meaningZh": "暴露真相的线索",
+      "en": "His muddy boots were a giveaway.",
+      "zh": "他沾满泥的靴子暴露了真相。"
+    },
+    {
+      "term": "futuristic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "未来风格的",
+      "en": "The futuristic building contrasted with the stone cottages.",
+      "zh": "未来风格的建筑与石头小屋形成对比。"
+    },
+    {
+      "term": "hark",
+      "partOfSpeech": "verb",
+      "meaningZh": "使人想起过去",
+      "en": "The design harks back to the early railway age.",
+      "zh": "这项设计令人想起早期铁路时代。"
+    }
+  ]
+}
