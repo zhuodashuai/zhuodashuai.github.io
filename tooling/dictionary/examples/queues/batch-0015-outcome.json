@@ -1,0 +1,4647 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0015",
+  "queuedHeads": 10927,
+  "authoredHeads": 10000,
+  "approvedHeads": 10000,
+  "baselineHeads": 42339,
+  "afterHeads": 52339,
+  "deferred": [
+    {
+      "term": "able seaman",
+      "reason": "Published Chinese is a naval rank, while frozen gloss specifies a skilled merchant-marine seaman.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acacia",
+      "reason": "Chinese tree names refer to locust trees or the noun gum product; the supplied gloss specifically denotes Acacia trees or shrubs.",
+      "stage": "authoring"
+    },
+    {
+      "term": "academic session",
+      "reason": "Published Chinese is an academic conference, while frozen gloss is a period of school instruction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acanthus",
+      "reason": "Published Chinese denotes a leaf ornament; lexical gloss denotes living plants.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ace of hearts",
+      "reason": "Published Chinese is an unrelated title or name rather than the frozen playing card.",
+      "stage": "authoring"
+    },
+    {
+      "term": "achromatic color",
+      "reason": "Independent review: published 无色 denotes absence of color and does not securely establish the selected 无彩色 category including black, white, and grey in the frozen gloss.",
+      "stage": "review"
+    },
+    {
+      "term": "acoustics",
+      "reason": "Published plural-noun meaning denotes room sound characteristics, whereas the gloss denotes the scientific field.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acrobatic feat",
+      "reason": "Published Chinese refers to aerobatic flight, while frozen gloss is a stunt performed by an acrobat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acting out",
+      "reason": "Published Chinese is only a single incomplete character and does not establish either frozen psychiatric noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "actual damages",
+      "reason": "Published Chinese describes actual losses; frozen legal noun specifically denotes compensatory money for provable losses, a different referent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ad lib",
+      "reason": "Published Chinese means without limits; frozen adverb gloss means without advance preparation. Unrestricted and improvised are distinct senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ad valorem tax",
+      "reason": "Frozen gloss describes a tax on value added between cost and sale price, whereas published term is a tax proportional to total assessed value. Evidence conflates VAT and ad valorem tax.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aerosol bomb",
+      "reason": "Published Chinese denotes a smoke-screen bomb; supplied glosses denote a spray dispenser or fuel-air explosive.",
+      "stage": "authoring"
+    },
+    {
+      "term": "affine transformation",
+      "reason": "Published Chinese says distant/outcross transformation rather than affine transformation. Cannot silently repair the technical term.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aggravated assault",
+      "reason": "Published Chinese means aggravated intimidation; gloss specifies a reckless serious-injury attack. Offence sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "air marshal",
+      "reason": "Published Chinese is a military rank, while frozen gloss is an onboard aviation security officer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "all arounder",
+      "reason": "Published Chinese is an adverbial phrase for all around; evidence requires a versatile person noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "alpha test",
+      "reason": "Published Chinese is an intelligence test; evidence describes a developer's first software/product test.",
+      "stage": "authoring"
+    },
+    {
+      "term": "amlodipine besylate",
+      "reason": "Independent review: published 阿罗地平磺酸盐 is an unverified older/corrupt drug transliteration, while the retained Chinese selected a different standard name. Do not silently certify a drug identity without a reliable Chinese identity check.",
+      "stage": "review"
+    },
+    {
+      "term": "amyl nitrate",
+      "reason": "Gloss supplies the angina vasodilator sense associated with amyl nitrite, but published term and Chinese specify nitrate. Chemical identity conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anchor ring",
+      "reason": "Published Chinese is an anchor hardware ring; sole evidence defines a mathematical toroidal shape.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anchovy paste",
+      "reason": "Independent review: published Chinese fish-species name contains a private-use corrupt glyph. Frozen English establishes anchovy paste, but reliable exact Chinese identity is absent.",
+      "stage": "review"
+    },
+    {
+      "term": "anchovy sauce",
+      "reason": "Published Chinese specifies anchovy soy sauce; gloss specifies white sauce with mashed anchovies.",
+      "stage": "authoring"
+    },
+    {
+      "term": "angelfish",
+      "reason": "Published Chinese denotes a wedge shape; lexical glosses denote fish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "angular position",
+      "reason": "Frozen gloss describes relative position generally and never establishes an angular relation for the published Chinese angle-position sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anterior horn",
+      "reason": "Published Chinese denotes the anterior column/horn; gloss describes a ventral spinal nerve root. Anatomical structures differ.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anti-submarine rocket",
+      "reason": "Published term denotes a rocket; gloss defines an entire shipboard launch system. Object identity mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anti-sway bar",
+      "reason": "Published Chinese denotes a lateral thrust/Panhard rod, rather than the suspension stabilizer bar described in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aortic plexus",
+      "reason": "Published variants specify the aortic nerve plexus; gloss defines a plexus of lymph nodes. Tissue identity conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arena theater",
+      "reason": "Independent review: published entry supplies only an arena theatre spelling cross-reference with no Chinese sense, and exact target record is absent from this frozen published dictionary. Reference resolution remains incomplete.",
+      "stage": "review"
+    },
+    {
+      "term": "arity",
+      "reason": "The only Chinese source is generic 数量 rather than a usable function-argument-count definition; a source clarification is needed before sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "armed combat",
+      "reason": "Published Chinese denotes weapon-based sport fighting; gloss defines engagement between military forces. Domain/sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arteria poplitea",
+      "reason": "Published Chinese only supplies generic artery, not the popliteal identity supported by English. Do not invent the missing specific Chinese identity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arteria subclavia",
+      "reason": "Published Chinese 锁下动脉 appears to omit 骨; exact Chinese anatomical identity should be corrected in the source separately before certification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arterial road",
+      "reason": "Independent review: published Chinese is a state-owned or first-class road, whereas frozen evidence and authored sense identify a main route; those classifications are not equivalent.",
+      "stage": "review"
+    },
+    {
+      "term": "articulated lorry",
+      "reason": "Published Chinese 拖车 may denote only a trailer, while the sole gloss requires the combined tractor and trailer vehicle; unresolved whole/component alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "articulatory system",
+      "reason": "Published Chinese is speech-production system; evidence is the body's system of joints. Sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ash bin",
+      "reason": "Published Chinese denotes an industrial ash bunker; lexical gloss denotes a rubbish bin.",
+      "stage": "authoring"
+    },
+    {
+      "term": "asp",
+      "reason": "Published Chinese gives aspen or horned viper, while lexical glosses describe a cobra or southern European asp viper; no unambiguous matching species sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aspheric",
+      "reason": "Published Chinese 不圆的 is imprecise and does not reliably distinguish non-spherical optical shape from non-circular shape; defer specialist sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "assisted suicide",
+      "reason": "Published Chinese 爱助自杀 appears corrupted, and no verified Chinese identity is supplied in this frozen source.",
+      "stage": "authoring"
+    },
+    {
+      "term": "asyndetic",
+      "reason": "Published Chinese is an electrical/noise expression, whereas the evidence is grammatical omission of conjunctions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "atomic physics",
+      "reason": "The supplied gloss defines nuclear physics, creating an unreliable field mapping to Chinese atomic physics.",
+      "stage": "authoring"
+    },
+    {
+      "term": "atrioventricular block",
+      "reason": "Sole English gloss describes recurrent unconscious attacks rather than the conduction block itself; do not equate a manifestation/syndrome with the condition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "au naturel",
+      "reason": "Published Chinese is culinary raw/lightly cooked, while sole English evidence means completely unclothed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "audited account",
+      "reason": "Published Chinese denotes an already audited account, while sole evidence denotes the process of inspecting accounting records.",
+      "stage": "authoring"
+    },
+    {
+      "term": "authenticator",
+      "reason": "Published Chinese is an authentication code/symbol, while available evidence is a person determining authenticity; referents and senses conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "authoring language",
+      "reason": "Frozen Chinese denotes a language whereas sole English gloss describes authoring software. Exact program/tool/language identity remains unresolved.",
+      "stage": "authoring"
+    },
+    {
+      "term": "autocoid",
+      "reason": "Only a broad internal-secretion gloss and 内分泌物 translation are supplied; this does not reliably establish the specialist local-signalling autacoid sense. Defer for specialist source review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "automatic rifle",
+      "reason": "Published Chinese says automatic rifle; sole gloss says light machine gun. Weapon classes are insufficiently aligned to teach safely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "autumnal equinox",
+      "reason": "Independent review: the event sense is reduced to the fixed date September 22 in frozen evidence, though the date varies. The other gloss identifies a celestial point rather than the published 秋分 event. Resolve point/event/date scope before certification.",
+      "stage": "review"
+    },
+    {
+      "term": "auxiliary cell",
+      "reason": "Published Chinese identifies a biological auxiliary cell; evidence defines a terrorist logistics group.",
+      "stage": "authoring"
+    },
+    {
+      "term": "awning deck",
+      "reason": "Reviewer C: published Chinese is 遮阻甲板, while the authored sense and sentence silently correct it to 遮蔽甲板. Defer the unresolved corrupted Chinese terminology rather than invent a source repair.",
+      "stage": "review"
+    },
+    {
+      "term": "backhand shot",
+      "reason": "Published Chinese specifically describes a backward shot at goal, while English evidence describes a backhand return stroke. Sporting action alignment is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "backplate",
+      "reason": "Published Chinese is an electronic back electrode, while the available evidence is protective armour for the back.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bacteria bed",
+      "reason": "Published Chinese denotes the complete biological filter, while the supplied gloss denotes only its sand or gravel filter layer. Adding 滤床 would silently substitute a component for the published whole.",
+      "stage": "authoring"
+    },
+    {
+      "term": "baggage claim",
+      "reason": "Published Chinese is the action of collecting luggage, while frozen noun evidence is the airport collection area.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bail bond",
+      "reason": "Published Chinese denotes a bail document; evidence denotes the financial security forfeited for nonappearance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "baking chocolate",
+      "reason": "Published Chinese specifies cocoa liquor or paste, while the supplied gloss only establishes pure unsweetened baking chocolate without that form. The frozen evidence does not establish an unambiguous common form.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ball hawk",
+      "reason": "Published stealing-the-ball action differs from frozen athlete.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ball hawking",
+      "reason": "Published Chinese denotes a skilled player, while the supplied noun gloss denotes the maneuver itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ballistic trajectory",
+      "reason": "Published Chinese has the unclear spelling 射击弹导; defer rather than silently repair this to a different written technical term.",
+      "stage": "authoring"
+    },
+    {
+      "term": "balloon seat",
+      "reason": "Reviewer C: published Chinese denotes an entire historical chair, whereas frozen gloss and authored sentence denote its bell-shaped seat. Existing Chinese silently replaces chair with seat. Defer the part-versus-whole conflict.",
+      "stage": "review"
+    },
+    {
+      "term": "banana boat",
+      "reason": "Published cosmetics brand conflicts with frozen banana-transport ship.",
+      "stage": "authoring"
+    },
+    {
+      "term": "banker's bill",
+      "reason": "Published Chinese means bank draft, while frozen evidence is a banknote.",
+      "stage": "authoring"
+    },
+    {
+      "term": "banker's check",
+      "reason": "Published Chinese is bank cheque, while frozen gloss describes a presented letter of credit; the financial instruments differ.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bar sinister",
+      "reason": "Published diagonal direction contradicts the frozen directional gloss; deferred rather than choosing one.",
+      "stage": "authoring"
+    },
+    {
+      "term": "barber chair",
+      "reason": "Published Chinese is a timber felling split; evidence is a barber's adjustable customer chair.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bare bone",
+      "reason": "Published barebones computer conflicts with frozen fleshless bone.",
+      "stage": "authoring"
+    },
+    {
+      "term": "barky",
+      "reason": "Published Chinese means containing bark, while available adjective evidence means resembling rough tree bark; composition and resemblance are not equivalent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "barrier strip",
+      "reason": "Published Chinese denotes a barrier band; evidence defines a cable junction unit. No electrical connecting sense is published.",
+      "stage": "authoring"
+    },
+    {
+      "term": "barter away",
+      "reason": "Published Chinese requires a disadvantageous cheap sale, while frozen gloss only supports a bartering transaction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "basket weave",
+      "reason": "Published Chinese and the draft example denote a weave organization or technique; the supplied noun gloss denotes the resulting cloth itself.",
+      "stage": "review"
+    },
+    {
+      "term": "beef stock",
+      "reason": "Published Chinese means beef cattle, while frozen noun gloss means stock made with beef.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bell seat",
+      "reason": "Independent review: published Chinese names a bell-shaped chair, while the sole frozen gloss and actual English usage name its seat component. Whole-chair versus seat alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "bell shape",
+      "reason": "Published Chinese names a loudspeaker component, while frozen noun evidence only gives the general shape of a bell.",
+      "stage": "authoring"
+    },
+    {
+      "term": "belt down",
+      "reason": "Published Chinese means rush toward or run fast; evidence means drink entirely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bend sinister",
+      "reason": "Chinese and supplied English disagree on the stripe direction; defer rather than encode conflicting heraldic geometry.",
+      "stage": "authoring"
+    },
+    {
+      "term": "beta test",
+      "reason": "Published Chinese is a medical intelligence test, while the available noun evidence is software/product beta testing; the selected senses conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "betel",
+      "reason": "The published Chinese plant name is corrupted; the chewing explanation does not provide a reliable matching plant sense for a faithful selected Chinese label.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bilateral descent",
+      "reason": "Published Chinese denotes inheritance from both parents biologically; lexical gloss denotes kinship descent traced through both family lines.",
+      "stage": "authoring"
+    },
+    {
+      "term": "biquadrate",
+      "reason": "Chinese mixes 双二次 with a fourth power, whereas the available noun evidence is a fourth-degree equation; reliable equation-versus-power sense alignment is missing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bird nest",
+      "reason": "Published slag-formation sense conflicts with the frozen bird structure sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bird sanctuary",
+      "reason": "Published protected area differs from frozen building in which birds are kept.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bisexual person",
+      "reason": "Published Chinese is an ambiguous and potentially anatomical colloquial label, not a clear faithful orientation sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bissextile year",
+      "reason": "Independent review: the frozen Gregorian rule incorrectly excludes centenary years divisible by 400. The example itself is not false, but the substantive source rule needs correction before using it as matched evidence.",
+      "stage": "review"
+    },
+    {
+      "term": "blade roast",
+      "reason": "Chinese specifies neck meat, whereas the supplied gloss specifies a shoulder-blade roast cut.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blae",
+      "reason": "The published Chinese identifies a shale/clay material, while the available adjective gloss is a grey-blue/bluish-black colour.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blind bend",
+      "reason": "Reviewer C: published Chinese specifies a sharp bend 急弯, while the sole gloss specifies an obscured bend that cannot be seen around, independent of sharpness. The example's Chinese silently replaces the published geometric sense with visibility. Defer source mismatch.",
+      "stage": "review"
+    },
+    {
+      "term": "blood profile",
+      "reason": "Published Chinese refers to blood radioactivity or hematology generally, while frozen gloss specifically denotes blood-cell counts.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blue angel",
+      "reason": "Published Chinese is only an unresolved slang cross-reference; frozen evidence names a specific barbiturate, which cannot be established from that Chinese.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blue devil",
+      "reason": "Published Chinese means devil, while frozen evidence supports only a barbiturate or blue-flowered weed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "boost up",
+      "reason": "Published Chinese means promote by advertising/praise; evidence means physically push upward.",
+      "stage": "authoring"
+    },
+    {
+      "term": "booster station",
+      "reason": "Chinese denotes a relay station, whereas the supplied gloss specifically denotes an amplifier component.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bottom feeder",
+      "reason": "Published Chinese denotes a bottom-feeding animal/fish; sole evidence denotes a human opportunist.",
+      "stage": "authoring"
+    },
+    {
+      "term": "box coat",
+      "reason": "Published Chinese requires a thick cape-bearing box coat, while frozen gloss only establishes a short loose coat without those features.",
+      "stage": "authoring"
+    },
+    {
+      "term": "box wrench",
+      "reason": "Independent review: published 套筒扳手 denotes a socket wrench; the authored 闭口扳手/box wrench is a different hardware type, and the frozen loose socket wording does not resolve the mismatch.",
+      "stage": "review"
+    },
+    {
+      "term": "brace up",
+      "reason": "Chinese means gain courage or resolve, whereas the supplied gloss means secure from underneath.",
+      "stage": "authoring"
+    },
+    {
+      "term": "brass monkey",
+      "reason": "Chinese denotes extremely cold conditions, whereas the supplied gloss denotes a historical metal cannonball stand.",
+      "stage": "authoring"
+    },
+    {
+      "term": "break seal",
+      "reason": "Published Chinese denotes breaking a seal, while frozen noun gloss denotes a tamper-evident seal itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "breaker point",
+      "reason": "Independent review: published 断闭点 is unclear and does not securely identify the electrical distributor contact. Retaining 断电器触点 would silently replace the frozen label.",
+      "stage": "review"
+    },
+    {
+      "term": "breast implant",
+      "reason": "Published Chinese denotes breast augmentation as a procedure, whereas the gloss denotes a replacement implant after removal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "breathing time",
+      "reason": "Published Chinese gives a drying-process duration, incompatible with frozen respite sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "briefcase computer",
+      "reason": "Published Chinese contains an unclear malformed briefcase description; deferred rather than silently repairing it.",
+      "stage": "authoring"
+    },
+    {
+      "term": "brush fire",
+      "reason": "Published Chinese denotes a small military conflict; evidence is literal burning brush and shrubs.",
+      "stage": "authoring"
+    },
+    {
+      "term": "buggy whip",
+      "reason": "Published Chinese denotes a car radio antenna; lexical gloss denotes a horsewhip.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bull nose",
+      "reason": "Published Chinese supplies chronic rhinitis and rounded corners; evidence defines a pig disease causing snout swelling. No secure aligned specific sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bull tongue",
+      "reason": "Chinese specifies a narrow soil-loosening blade, whereas the gloss specifies a heavy wide-bladed plow.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bullet vote",
+      "reason": "Published Chinese describes a ballot for selected candidates; frozen verb evidence describes cumulative voting and does not securely support that sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bus depot",
+      "reason": "Chinese names a bus parking facility, while available evidence is a passenger terminal; these locations need not be the same.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bus traffic",
+      "reason": "Published Chinese is computing bus data traffic, while frozen evidence is road buses coming and going.",
+      "stage": "authoring"
+    },
+    {
+      "term": "by inches",
+      "reason": "Published slowly differs from frozen short-distance manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cabin liner",
+      "reason": "Chinese denotes a scheduled cargo ship, whereas the supplied gloss denotes a passenger liner with cabins.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cacique",
+      "reason": "Published Chinese denotes a chief; only lexical gloss denotes birds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cadmium cell",
+      "reason": "Published Chinese contains an unclear pot-cell spelling and does not safely establish cadmium-cell identity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "calcium light",
+      "reason": "Independent review: published meaning is only an English cross-reference to limelight, with no Chinese sense supporting selected 石灰光灯.",
+      "stage": "review"
+    },
+    {
+      "term": "calefaction",
+      "reason": "The broad Chinese warming-action translation and a gloss describing a warming property do not establish a sufficiently reliable natural specialist use for this uncommon noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "call-out",
+      "reason": "Published Chinese is a computing call-out, while available noun evidence is a challenge to a fight or duel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "calypso",
+      "reason": "Chinese denotes the mythological goddess, whereas the supplied gloss denotes an orchid.",
+      "stage": "authoring"
+    },
+    {
+      "term": "camel's hair",
+      "reason": "Published animal hair does not explicitly establish the frozen cloth made from that hair.",
+      "stage": "authoring"
+    },
+    {
+      "term": "can buoy",
+      "reason": "Published Chinese denotes a can-shaped buoy, while the gloss specifies a conical top, conflicting with the headword's cylindrical shape.",
+      "stage": "authoring"
+    },
+    {
+      "term": "canary seed",
+      "reason": "Chinese specifies canary-grass seed, whereas the supplied gloss denotes a mixed birdseed feed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "candlepower",
+      "reason": "Independent review: published Chinese explicitly identifies a unit of luminous intensity; the frozen gloss and authored selected sense identify the measured physical quantity instead. Unit-versus-quantity alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "cannon ball",
+      "reason": "Published diving movement conflicts with frozen artillery projectile.",
+      "stage": "authoring"
+    },
+    {
+      "term": "capital offense",
+      "reason": "Published Chinese names the punishment 死刑, while the evidence names a crime for which that punishment may apply; offense and punishment must not be conflated.",
+      "stage": "authoring"
+    },
+    {
+      "term": "card trick",
+      "reason": "Published Chinese is a card-playing tactic, while frozen evidence is a card magic trick.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cardiac monitor",
+      "reason": "Published Chinese is an unclear electrical term and does not establish the supplied heart-monitoring equipment sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cardiac valve",
+      "reason": "Published Chinese denotes a gastric cardia valve; lexical gloss denotes a heart valve controlling blood flow.",
+      "stage": "authoring"
+    },
+    {
+      "term": "carriage wrench",
+      "reason": "Independent review: frozen English establishes a wrench for carriage bolts, but does not establish the specific socket-wrench form given by published Chinese; exact tool identity remains uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "carry-over",
+      "reason": "Published Chinese is a remainder/residue, while available evidence describes skill transfer or corporate retained profits; neither supplied selected sense is reliably aligned.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cash in one's chips",
+      "reason": "Published Chinese means redeem gaming chips, while sole evidence means die. No shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cattle trail",
+      "reason": "Published Chinese denotes a livestock trailer; evidence denotes a route used to drive cattle.",
+      "stage": "authoring"
+    },
+    {
+      "term": "celestial globe",
+      "reason": "Published Chinese denotes an armillary instrument; lexical gloss denotes a spherical globe model of the heavens.",
+      "stage": "authoring"
+    },
+    {
+      "term": "celestial guidance",
+      "reason": "Published Chinese denotes heavenly guidance; the gloss denotes navigation using celestial bodies.",
+      "stage": "authoring"
+    },
+    {
+      "term": "center punch",
+      "reason": "Reviewer C: published electrical Chinese 冲心机 identifies a machine, whereas the noun gloss and authored example identify a handheld conical-point marking tool 中心冲. Defer the unresolved machine/tool identity rather than silently correct Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "cereal bowl",
+      "reason": "Published Chinese 谷类食盐盘 appears corrupted and conflicts with the breakfast-cereal bowl evidence; repair source separately before attaching a sense-labelled example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "champagne cup",
+      "reason": "Published Chinese describes champagne soda or a drinking vessel; frozen evidence describes a wine punch, an uncertain match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "champion lode",
+      "reason": "Independent review: published Chinese 巨矿脉 means a large vein; sole frozen gloss identifies the principal vein, which need not be largest. Do not silently change size into primacy.",
+      "stage": "review"
+    },
+    {
+      "term": "cherry red",
+      "reason": "Published Chinese is peach pink or cherry-blossom colour, while frozen evidence is ripe-cherry red.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chess club",
+      "reason": "Independent review: published Chinese names 象棋俱乐部 without an explicit international-chess qualifier, while the authored translation selects 国际象棋. The game identity is uncertain in the frozen Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "chess set",
+      "reason": "Published Chinese denotes one game of chess; evidence defines the board and complete pieces.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chicken stew",
+      "reason": "Chinese specifies French cream chicken, unsupported by the generic chicken-stew gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chicken wing",
+      "reason": "Published Chinese is a sports arm lock, while frozen evidence is the anatomical wing of a chicken.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chief operating officer",
+      "reason": "Published Chinese means principal business staff; evidence defines the corporation's senior operating executive. Role/seniority mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chisel in",
+      "reason": "Reviewer C: published Chinese 插手 denotes intervening in an affair, whereas the sole frozen gloss and authored sentence mean interrupting a conversation 插话. The authored selected Chinese silently replaces the published action sense.",
+      "stage": "review"
+    },
+    {
+      "term": "chocolate liquor",
+      "reason": "Chinese denotes an alcoholic chocolate liqueur, whereas the gloss denotes ground cocoa mass.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chub",
+      "reason": "Chinese denotes whitefish, whereas the supplied gloss denotes a thick-bodied European cyprinid game fish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "circular file",
+      "reason": "Published circular computer file conflicts with frozen wastepaper basket.",
+      "stage": "authoring"
+    },
+    {
+      "term": "citation form",
+      "reason": "Published Chinese gives phonetic notation form, whereas the gloss denotes a dictionary headword form.",
+      "stage": "authoring"
+    },
+    {
+      "term": "clandestine operation",
+      "reason": "Published secret possession conflicts with frozen concealed intelligence activity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "clay pipe",
+      "reason": "Independent review: published 陶士管 is unclear, apparently corrupted Chinese; accepting 陶管 would silently correct the frozen entry.",
+      "stage": "review"
+    },
+    {
+      "term": "clean bomb",
+      "stage": "review",
+      "reason": "Root independent review deferred the retained meta-example: merely discussing the term does not demonstrate its use, and this batch does not validate claims of clean nuclear weapons or reproduce the outdated zero-contamination implication."
+    },
+    {
+      "term": "clean slate",
+      "reason": "Independent review: published clean personal history differs from the frozen opportunity to start over; selected opportunity sense is not explicit in Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "click-clack",
+      "reason": "Published Chinese is calculation with an abacus, while noun evidence is a succession of clicking sounds; activity and sound do not align.",
+      "stage": "authoring"
+    },
+    {
+      "term": "close set",
+      "reason": "Published Chinese is a volleyball action, while frozen adjective means closely spaced.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cloud up",
+      "reason": "Published Chinese means become blurred; evidence means become covered in clouds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cocoa butter",
+      "reason": "Chinese denotes coconut oil, whereas both supplied glosses denote cocoa-bean fat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cofactor",
+      "reason": "Published Chinese gives the mathematical cofactor; lexical gloss denotes a biochemical cofactor substance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "column inch",
+      "reason": "Reviewer C: published Chinese is computing column length, whereas the sole gloss denotes an advertising-area measurement unit. The authored Chinese silently substitutes the unpublished unit name 栏英寸.",
+      "stage": "review"
+    },
+    {
+      "term": "command module",
+      "reason": "Published Chinese is an unclear electrical command term, unsupported by the spacecraft living-and-control-module gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "common chord",
+      "reason": "Published Chinese denotes a common chord in geometry; lexical gloss denotes a musical triad.",
+      "stage": "authoring"
+    },
+    {
+      "term": "common fault",
+      "reason": "Chinese denotes a common defect, whereas the gloss is a geological normal fault.",
+      "stage": "authoring"
+    },
+    {
+      "term": "communicativeness",
+      "reason": "Chinese specifies a computing communication property, while the available evidence is a person's communicative disposition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "computer-aided design",
+      "reason": "Published Chinese and draft denote the design process or technique; the supplied noun gloss instead names the software itself. A common noun referent is not established without silently changing the sense.",
+      "stage": "review"
+    },
+    {
+      "term": "conga line",
+      "reason": "Published Chinese denotes the conga dance; evidence denotes a single-file line of dancers. Missing line/formation sense needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "contour sheet",
+      "reason": "Chinese denotes a contour map, whereas the supplied gloss denotes a fitted bedsheet.",
+      "stage": "authoring"
+    },
+    {
+      "term": "corbel step",
+      "reason": "Published Chinese denotes an entire stepped gable; the gloss denotes an individual step on a gable.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cordwood",
+      "reason": "Published Chinese specifies wood sold in bundles; lexical gloss specifies firewood measured and sold by the cord volume unit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "corporate trust",
+      "reason": "Published Chinese is corporate fiduciary trust, while frozen evidence is an anticompetitive consortium.",
+      "stage": "authoring"
+    },
+    {
+      "term": "court of appeals",
+      "reason": "Published Chinese says district court, while frozen gloss requires a court reviewing lower decisions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crawl in",
+      "reason": "Published Chinese is literal crawling inside, whereas the supplied gloss means prepare for sleep.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crawl space",
+      "reason": "Published Chinese is a television subtitle area, while frozen evidence denotes underfloor maintenance space.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crazy bone",
+      "reason": "Reviewer C: published Chinese locates the end of the ulna, but gloss identifies the superficially exposed ulnar nerve region of the elbow. The authored translation silently replaces that published anatomical sense. Defer for source review.",
+      "stage": "review"
+    },
+    {
+      "term": "credit application",
+      "reason": "Published Chinese means letter-of-credit application, while frozen gloss means application for a credit line.",
+      "stage": "authoring"
+    },
+    {
+      "term": "credit crunch",
+      "reason": "Chinese denotes a credit panic, whereas the supplied gloss specifically describes a shortage of lending funds and high rates.",
+      "stage": "authoring"
+    },
+    {
+      "term": "creep feed",
+      "reason": "Published intermittent machine feed conflicts with frozen feed for young animals.",
+      "stage": "authoring"
+    },
+    {
+      "term": "creep in",
+      "reason": "Chinese means begin to occur, whereas the supplied gloss specifies surreptitious entry.",
+      "stage": "authoring"
+    },
+    {
+      "term": "critical analysis",
+      "reason": "Published Chinese means critical-threshold analysis, while frozen gloss means evaluative analytical appraisal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cross wire",
+      "reason": "Published Chinese marks a computing crossover wire; evidence defines an optical crosshair. Domain mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cubic measure",
+      "reason": "Independent review: published Chinese denotes capacity or volume itself, while the sole frozen gloss denotes a measurement unit; selected 体积单位 silently changes sense.",
+      "stage": "review"
+    },
+    {
+      "term": "cutting out",
+      "reason": "Published electrical disconnection differs from frozen surgical removal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cycle per second",
+      "reason": "Published Chinese denotes frequency itself, while frozen noun evidence denotes its unit, hertz.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dace",
+      "reason": "Published Chinese denotes ling fish, while the gloss specifies a small European freshwater dace.",
+      "stage": "authoring"
+    },
+    {
+      "term": "daily double",
+      "reason": "Published Chinese is double achievement or good fortune, while frozen gloss describes a two-race bet.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dash down",
+      "reason": "Chinese means throw down forcefully, whereas the supplied gloss means write hastily.",
+      "stage": "authoring"
+    },
+    {
+      "term": "date stamp",
+      "reason": "Published Chinese is a noun for a date stamp; frozen evidence is the verb to stamp with a date.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dead center",
+      "reason": "Published Chinese is a fixed machine-tool center; evidence defines the crank's torque-free aligned position.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dead metaphor",
+      "reason": "Independent review: published 亡隐喻 is an unclear potentially truncated label; retaining the standard 死喻 interpretation would require silently resolving the frozen Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "dealt out",
+      "reason": "Published cross-reference supplies no clear Chinese adjective meaning for the frozen distributed-in-portions sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "debenture bond",
+      "reason": "Published Chinese denotes an unsecured bond; supplied lexical gloss instead defines credit before payment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "decipherer",
+      "reason": "Published Chinese denotes a decoding device, whereas both supplied glosses denote people.",
+      "stage": "authoring"
+    },
+    {
+      "term": "declare oneself",
+      "reason": "Published Chinese means express an opinion or reveal identity; sole evidence means propose marriage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deer trail",
+      "reason": "Published Chinese and POS identify a named US place; evidence defines a trail made by deer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "default option",
+      "reason": "Reviewer C: published computing Chinese is 缺席选择 (absentee choice), not the default/automatically selected option defined by the sole gloss. The authored translation silently supplies the corrected unpublished 默认选项. Defer the erroneous Chinese identity.",
+      "stage": "review"
+    },
+    {
+      "term": "delta ray",
+      "reason": "Chinese identifies sigma radiation, whereas the term and gloss denote a delta electron.",
+      "stage": "authoring"
+    },
+    {
+      "term": "delta wing",
+      "reason": "Published Chinese denotes the triangular wing itself; evidence denotes an entire aircraft with such wings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dental assistant",
+      "reason": "Published Chinese specifically says assistant physician in dentistry; the generic dentist's assistant gloss does not establish medical qualification.",
+      "stage": "review"
+    },
+    {
+      "term": "dental surgery",
+      "reason": "Published Chinese 牙科 is broader than the surgical branch of dentistry in the supplied evidence; a precise source sense should be clarified first.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deposit box",
+      "reason": "Published Chinese denotes a deposit-money box; frozen gloss denotes a safe-deposit strongbox for valuables, which is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "depreciation charge",
+      "reason": "Published combined depreciation-and-maintenance method differs from frozen periodic depreciation expense amount.",
+      "stage": "authoring"
+    },
+    {
+      "term": "desert boot",
+      "reason": "Frozen half-knee boot description does not confidently match the published desert boot type.",
+      "stage": "authoring"
+    },
+    {
+      "term": "detention camp",
+      "reason": "Chinese denotes an isolation camp, whereas the supplied gloss specifically denotes temporary juvenile detention.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dialect geography",
+      "reason": "Published Chinese splits dialect and geography into separate senses and supplies no clear matching name for the linguistic discipline.",
+      "stage": "authoring"
+    },
+    {
+      "term": "diamantine",
+      "reason": "Published Chinese denotes an electrical material, whereas the adjective gloss means diamond-like or made of diamonds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "direct mailer",
+      "reason": "Chinese denotes a piece of advertising mail, whereas the supplied gloss denotes a distributor using direct mail.",
+      "stage": "authoring"
+    },
+    {
+      "term": "direct quotation",
+      "reason": "Published Chinese is a direct price quotation, while frozen gloss denotes verbatim reported words.",
+      "stage": "authoring"
+    },
+    {
+      "term": "direct transmission",
+      "reason": "Published Chinese is computing direct transmission, while frozen evidence is direct infectious disease transmission.",
+      "stage": "authoring"
+    },
+    {
+      "term": "disc pack",
+      "reason": "Published disk packaging differs from frozen magnetic disk storage pack.",
+      "stage": "authoring"
+    },
+    {
+      "term": "disco biscuit",
+      "reason": "Chinese denotes an analgesic or hypnotic slang term, whereas the supplied gloss specifically denotes MDMA.",
+      "stage": "authoring"
+    },
+    {
+      "term": "discretionary trust",
+      "reason": "Published Chinese identifies a trust company; evidence defines a trust arrangement with trustee discretion.",
+      "stage": "authoring"
+    },
+    {
+      "term": "do-gooder",
+      "reason": "Published Chinese specifies an impractical reformer; frozen gloss only supports a person devoted to welfare and reform, leaving the pejorative restriction uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dog tag",
+      "reason": "Published Chinese is a clamp marker, incompatible with either dog identification plate or military identification tag in frozen evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "donor card",
+      "reason": "Published Chinese describes honorary donor cards, while frozen evidence specifies posthumous organ donation authorization.",
+      "stage": "authoring"
+    },
+    {
+      "term": "double cream",
+      "reason": "Published Chinese is high-fat cream, while frozen evidence describes a fresh French cheese.",
+      "stage": "authoring"
+    },
+    {
+      "term": "double indemnity",
+      "reason": "Independent review: published Chinese is the unclear 加位补偿; teaching 双倍赔偿 would require silently correcting the frozen Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "double reed",
+      "reason": "Published Chinese uses the weaving reed character 筘; evidence denotes musical double reeds. Instrument sense is not secure in the published form.",
+      "stage": "authoring"
+    },
+    {
+      "term": "downsizing",
+      "reason": "Published Chinese means computer miniaturization, while frozen noun gloss means financial expenditure reduction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "draining",
+      "reason": "Published adjective means removing or filtering water, while frozen adjective means debilitating.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dramatis personae",
+      "reason": "Frozen gloss identifies actors while published Chinese identifies fictional characters; avoid silently changing persons to performers without resolving lexical ambiguity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "drawn",
+      "reason": "Published adjective means pulled out, while frozen adjectives mean closed curtains or a careworn appearance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dredge up",
+      "reason": "Published Chinese gives literal excavation/dredging, but sole frozen gloss gives recalling unpleasant past events.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dried fruit",
+      "reason": "Published Chinese 果脯 can imply sugared preserved fruit, while frozen gloss requires drying only; processing distinction not resolved in this examples batch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "drink down",
+      "reason": "Chinese gives drowning sorrows or outdrinking someone, absent from frozen complete-consumption gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "drink up",
+      "reason": "Chinese emphasizes hearty drinking, while evidence requires consuming the last drop; overlap is insufficient for a precise selected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "drop by the wayside",
+      "reason": "Independent review: published going astray or suffering failure differs from frozen giving up or admitting defeat; the authored selected abandonment sense is not published.",
+      "stage": "review"
+    },
+    {
+      "term": "drop the ball",
+      "reason": "Published Chinese denotes a sports lob; lexical gloss denotes making a serious mistake.",
+      "stage": "authoring"
+    },
+    {
+      "term": "drumming",
+      "reason": "Published Chinese is industrial drum processing, while frozen noun evidence is playing drums.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dry cleaner",
+      "reason": "Published chemical meaning is cleaning agent; sole frozen noun gloss is establishment operator.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dry rot",
+      "reason": "Published Chinese only says drying/wilting; evidence specifically denotes fungal decay or its fungus. Insufficient matching published sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "durable press",
+      "reason": "Published Chinese is a pressing treatment, while frozen noun evidence denotes a chemically treated fabric.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dust bag",
+      "reason": "Published Chinese is a powder-dispensing bag, while frozen evidence is a vacuum-cleaner collection bag.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dust coat",
+      "reason": "Published wind coat does not confidently match the frozen ankle-length protective coverall.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ear specialist",
+      "reason": "Published Chinese says ear symptoms, while the frozen gloss denotes a physician.",
+      "stage": "authoring"
+    },
+    {
+      "term": "earth up",
+      "reason": "Published senses concern covering, burying or earthing plants, while frozen gloss specifically means blocking with earth.",
+      "stage": "authoring"
+    },
+    {
+      "term": "economiser",
+      "reason": "Published Chinese denotes heat-saving equipment, whereas the gloss denotes a frugal person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "edge up",
+      "reason": "Published Chinese requires slow upward approach, while frozen evidence only supports pushing into a space.",
+      "stage": "authoring"
+    },
+    {
+      "term": "edulcorate",
+      "reason": "Published Chinese gives purification, whereas the supplied gloss specifically means sweetening taste.",
+      "stage": "authoring"
+    },
+    {
+      "term": "egg cream",
+      "reason": "Published Chinese means whole egg liquid, while frozen evidence is a milk, syrup and soda drink.",
+      "stage": "authoring"
+    },
+    {
+      "term": "electric bill",
+      "reason": "Published Chinese is electronic bill, while frozen evidence is a bill for electricity use.",
+      "stage": "authoring"
+    },
+    {
+      "term": "electric light",
+      "reason": "Published Chinese denotes electric light radiation, while frozen noun specifically denotes the lamp apparatus.",
+      "stage": "authoring"
+    },
+    {
+      "term": "electric socket",
+      "reason": "Chinese denotes a power outlet, whereas the supplied gloss specifically denotes a lightbulb socket.",
+      "stage": "authoring"
+    },
+    {
+      "term": "electronic instrument",
+      "reason": "Published Chinese denotes electronic apparatus; evidence specifically denotes a musical instrument without corresponding published sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "elevator shaft",
+      "reason": "Published Chinese denotes the elevator itself; lexical gloss denotes its vertical shaft.",
+      "stage": "authoring"
+    },
+    {
+      "term": "elves",
+      "reason": "Published Chinese describes plural elves or mischievous children, while frozen evidence is the atmospheric-light acronym ELVES.",
+      "stage": "authoring"
+    },
+    {
+      "term": "enabling",
+      "reason": "Frozen evidence only supports legally empowering adjective use; published adjective does not establish that legal sense and published verb cannot supply adjective POS.",
+      "stage": "authoring"
+    },
+    {
+      "term": "endowment insurance",
+      "reason": "Published Chinese only says pension insurance; evidence describes endowment life insurance payable at maturity or death. Product sense is insufficiently aligned.",
+      "stage": "authoring"
+    },
+    {
+      "term": "engineer's chain",
+      "reason": "Published Chinese denotes a physical chain, while frozen evidence only denotes its length unit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "entertainment center",
+      "reason": "Published Chinese denotes an entertainment venue; the gloss denotes a wall unit holding television and sound equipment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "estate of the realm",
+      "reason": "Published Chinese is state-owned land, while frozen evidence is a social estate or political class.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eukaryote",
+      "reason": "Published Chinese denotes a eukaryotic cell; lexical gloss denotes an organism made of eukaryotic cells.",
+      "stage": "authoring"
+    },
+    {
+      "term": "even chance",
+      "reason": "Published Chinese requires equal odds of success and failure, while frozen evidence only says an unpredictable phenomenon.",
+      "stage": "authoring"
+    },
+    {
+      "term": "exchange premium",
+      "reason": "Published Chinese means exchange-rate premium, while frozen evidence means a currency-exchange fee.",
+      "stage": "authoring"
+    },
+    {
+      "term": "explosive device",
+      "reason": "Published Chinese means detonating/triggering device; evidence means an explosive device itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "extension cord",
+      "reason": "Chinese gives a telephone extension cord, whereas the gloss specifically gives a power-cord extension.",
+      "stage": "authoring"
+    },
+    {
+      "term": "external storage",
+      "reason": "The published Chinese 外路储藏 is unclear and does not reliably identify the computer storage-device sense supplied by WordNet.",
+      "stage": "authoring"
+    },
+    {
+      "term": "face saver",
+      "reason": "Published face-protection mask conflicts with frozen dignity-preserving action.",
+      "stage": "authoring"
+    },
+    {
+      "term": "face saving",
+      "reason": "Published Chinese denotes caring about face as a disposition, while the supplied noun gloss denotes a specific act avoiding loss of dignity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fair deal",
+      "reason": "Published Chinese specifies fair governance, while frozen gloss only gives fair treatment; the governmental restriction is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fairy godmother",
+      "reason": "Published Chinese incorrectly restricts the figure to a dying child, absent from both frozen fairy-story and benefactor senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fall by the wayside",
+      "reason": "Published being eliminated is not identical to frozen voluntarily giving up or admitting defeat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fall equinox",
+      "reason": "Sole evidence fixes the equinox to September 22, though its date varies. Frozen evidence is incomplete/inaccurate for the event.",
+      "stage": "authoring"
+    },
+    {
+      "term": "falling out",
+      "reason": "Chinese denotes collapse or exhaustion, whereas the supplied gloss denotes personal or social separation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "far left",
+      "reason": "Published Chinese denotes a spatial location; lexical gloss denotes a political position.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fast dye",
+      "reason": "Published Chinese denotes a colorfast dye noun, but frozen POS and evidence require the verb dye with fast colors.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fatal accident",
+      "reason": "Published Chinese only means serious accident, whereas evidence necessarily means a death-causing accident. Cannot silently correct the published sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fescue",
+      "reason": "Published plant name is unclear and appears misspelled; other Chinese sense is a teaching pointer, unsupported by the grass gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fiddlehead",
+      "reason": "Published Chinese denotes a ship's ornamental prow; lexical glosses denote ferns.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fig up",
+      "reason": "Chinese refers to refurbishment or tidying, whereas the supplied gloss specifically requires dressing in special attractive clothes.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fine spray",
+      "reason": "Published fog differs from frozen precipitation in tiny drops.",
+      "stage": "authoring"
+    },
+    {
+      "term": "finger plate",
+      "reason": "Published electrical 指盘 does not securely identify the frozen door-protection plate sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fire escape",
+      "reason": "Published emergency door differs from the frozen escape stairway.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fire trench",
+      "reason": "Chinese denotes a firebreak ditch, whereas the supplied gloss denotes a military firing trench.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fire up",
+      "reason": "Published Chinese gives lighting a fire or becoming angry; evidence gives begin smoking or excite feelings. No clear matching sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fisherman's knot",
+      "reason": "Published Chinese specifies a fishing-net knot, whereas the draft substitutes the distinct Chinese name for a fisherman's knot. The general supplied two-line knot gloss does not resolve the exact mapping.",
+      "stage": "review"
+    },
+    {
+      "term": "fitted",
+      "reason": "Published Chinese denotes equipped or formulated, while frozen adjective specifically means having the desired size and shape.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fixed-point part",
+      "reason": "Published Chinese says fixed-point portion; sole evidence defines a logarithm's fractional mantissa. Technical identity needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flame up",
+      "reason": "Published Chinese 爆发 does not establish the physical bright-burning fire sense supplied by the available verb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flame-retardant",
+      "reason": "Published Chinese is an electrical flame barrier noun, while frozen evidence is an adjective meaning resistant to ignition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flap down",
+      "reason": "Chinese means hang down, whereas the supplied gloss means throw violently.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flash card",
+      "reason": "Published Chinese is an electronic recording card, while frozen evidence is a teaching card.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flashgun",
+      "reason": "Published Chinese specifies a flash controller, while frozen gloss specifies a photographic lamp.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flat bone",
+      "reason": "Published Chinese is an anatomical flat bone, while frozen evidence is a sirloin cut.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flatbed",
+      "reason": "Published Chinese is a platform truck, while frozen noun glosses denote the open truck bed or a railway freight car; vehicle versus component is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flathead",
+      "reason": "Published Chinese denotes an Indigenous people; lexical glosses denote fish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flick-knife",
+      "reason": "Published Chinese specifies opening by a wrist flick, while frozen gloss specifies a button-operated spring blade.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flooding",
+      "reason": "Published senses concern overflow, hemorrhage, screen filling, or routing; frozen noun evidence only supports a behavior-therapy technique.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flushed",
+      "reason": "Published Chinese means excited or happy, while frozen adjective evidence specifically denotes reddened appearance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flux unit",
+      "reason": "Chinese flow unit differs from frozen magnetic-field-per-area measure.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flycatcher",
+      "reason": "Published Chinese denotes an insect-catching device or plant; lexical glosses denote birds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fob off",
+      "reason": "Published Chinese emphasizes fobbing someone off with excuses; frozen gloss specifically requires fraudulent sale of goods.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foie gras",
+      "reason": "Published Chinese specifies pan-fried goose liver; frozen gloss specifies a prepared pate with marinade and truffles, not the same preparation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fold up",
+      "reason": "Published Chinese gives collapse, give up, or go bankrupt; evidence only supplies physically fold.",
+      "stage": "authoring"
+    },
+    {
+      "term": "folk etymology",
+      "reason": "Published Chinese describes popular word changes or changed words rather than the erroneous etymological explanation in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fool's cap",
+      "reason": "Published Chinese identifies a jester's cap; evidence specifies a punitive school dunce cap.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foreign agent",
+      "reason": "Published Chinese is an overseas commercial agent, while frozen gloss means a foreign-country spy.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foreign draft",
+      "reason": "Independent review: published Chinese specifies foreign currency, whereas frozen evidence specifies drawing and payment in different countries; the two conditions do not entail each other.",
+      "stage": "review"
+    },
+    {
+      "term": "forgotten",
+      "reason": "Published Chinese only gives a past-participle cross-reference, not a Chinese adjective sense supported by the frozen gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "forward passer",
+      "reason": "Chinese denotes a forward pass or passing action, whereas the supplied gloss denotes the player making it.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foster brother",
+      "reason": "Published Chinese specifies a milk brother, while frozen gloss specifies a male raised by one's parents without biological sonship; these kinship relations differ.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foul ball",
+      "reason": "Published parenthetical sport is football, incompatible with frozen baseball definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "founding",
+      "reason": "Published Chinese means metal casting, while frozen noun evidence means establishment or introduction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "frame up",
+      "reason": "Published Chinese gives enclosing in a frame or falsely incriminating; evidence gives construction by assembling parts. No secure matching sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "frat house",
+      "reason": "Published Chinese denotes a fraternity association, whereas frozen noun denotes its residential house.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fresh bean",
+      "reason": "Published Chinese specifies tender sword bean, while frozen gloss supports fresh beans generally without the species restriction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "froth at the mouth",
+      "reason": "Published Chinese is literal medical foaming; the available verb gloss describes figurative uncontrolled anger. Do not present these as one matched sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fudge factor",
+      "reason": "Published Chinese denotes a tolerance coefficient, while the supplied gloss and draft denote an added or subtracted measurement correction; intended technical mapping is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "fulfilled",
+      "reason": "Published adjective means emotionally satisfied or personally accomplished, while frozen adjective says completed to perfection.",
+      "stage": "authoring"
+    },
+    {
+      "term": "full-strength",
+      "reason": "Published adjective means fully staffed, while frozen gloss means undiluted.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fulmar",
+      "reason": "Independent review: published Chinese species label 管鼻藿 appears corrupted; retained generic bird label silently replaced it without a verified Chinese identity.",
+      "stage": "review"
+    },
+    {
+      "term": "funding",
+      "reason": "Published Chinese denotes debt refinancing, while frozen evidence means financing or project resources generally.",
+      "stage": "authoring"
+    },
+    {
+      "term": "garbage collection",
+      "reason": "Published Chinese explicitly denotes computing garbage collection; evidence denotes removal of physical rubbish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "garbage disposal",
+      "reason": "Published Chinese denotes the activity of disposing of waste; lexical gloss denotes a kitchen appliance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "garbage dump",
+      "reason": "Published Chinese denotes a heap of garbage, while the supplied gloss and draft denote the piece of land used as a dumping site.",
+      "stage": "review"
+    },
+    {
+      "term": "garlic sauce",
+      "reason": "Published Chinese says garlic soy sauce; sole evidence says garlic mayonnaise.",
+      "stage": "authoring"
+    },
+    {
+      "term": "garment bag",
+      "reason": "Published plastic clothing cover differs from frozen unfoldable hanging suitcase.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gas gage",
+      "reason": "Chinese denotes a gas-pressure gauge, whereas the gloss denotes a vehicle gasoline-level gauge.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gas gauge",
+      "reason": "Published gas-pressure instrument conflicts with frozen gasoline-remaining indicator.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gas pump",
+      "reason": "Published Chinese is a pump for gas, while frozen noun evidence is a gasoline dispenser.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gas tank",
+      "reason": "Published Chinese is a gas holder, while frozen evidence specifies a vehicle gasoline tank.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gatecrasher",
+      "reason": "Published Chinese entry is incomplete and supplies no usable selected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gather in",
+      "reason": "Frozen fold-up sense cannot be confidently matched to the published collection or pleating senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gear up",
+      "reason": "Published Chinese gives faster gear, promotion, increase; evidence means prepare or equip. No clear shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geographical mile",
+      "reason": "Frozen numerical definition is internally inconsistent about the difference from a statute mile and conflicts with the equatorial-arc Chinese description.",
+      "stage": "authoring"
+    },
+    {
+      "term": "get started",
+      "reason": "Published Chinese specifically means start an engine; evidence means begin being active. The intended verb sense is not established.",
+      "stage": "authoring"
+    },
+    {
+      "term": "get the goods",
+      "reason": "Published literal obtaining goods conflicts with frozen discovering incriminating information.",
+      "stage": "authoring"
+    },
+    {
+      "term": "get the jump",
+      "reason": "Published rushing at an opposing player conflicts with frozen arriving first.",
+      "stage": "authoring"
+    },
+    {
+      "term": "give the glad eye",
+      "reason": "Published Chinese means greeting with a smile, while frozen evidence specifically means looking seductively at someone.",
+      "stage": "authoring"
+    },
+    {
+      "term": "give-up the ghost",
+      "reason": "Queued verbal spelling contains a nonstandard internal hyphen; ordinary idiomatic prose requires a different surface.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glide slope",
+      "reason": "Published Chinese denotes a glide-path slope; lexical gloss denotes the aircraft's final landing path itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glimmering",
+      "reason": "Published noun meanings are faint light or a glimpse, while the only frozen noun evidence is a vague suggestion or understanding.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glorified",
+      "reason": "Published adjective is honoured or grandly renamed, while frozen gloss requires sacrosanct or authoritative standing; the overlap is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glowing",
+      "reason": "Published adjective describes heat or colour, while frozen evidence only means highly enthusiastic.",
+      "stage": "authoring"
+    },
+    {
+      "term": "goggle-eyed",
+      "reason": "Published Chinese means protruding eyes, while frozen gloss means eyes or mouth open in surprise.",
+      "stage": "authoring"
+    },
+    {
+      "term": "governing",
+      "reason": "Published Chinese is computing regulation or control, while frozen noun and adjective concern exercising political authority or making laws.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gramma",
+      "reason": "Published Chinese denotes the unit gram; lexical gloss denotes pasture grass.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gray market",
+      "reason": "Published Chinese means manipulated market, while frozen gloss specifies unofficial trade below regulated prices.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grebe",
+      "reason": "Reviewer C: the frozen published Chinese is only 一种鸟, with no Chinese taxon name in any variant. The author supplies the specific identification 䴙䴘 unsupported by the frozen Chinese record. Defer the incomplete source identity rather than silently expand it.",
+      "stage": "review"
+    },
+    {
+      "term": "green fingers",
+      "reason": "Independent review: published Chinese defines a gardening expert (园艺能手), while the sole frozen gloss and authored selected sense denote gardening ability. Person-versus-ability alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "grievous bodily harm",
+      "reason": "Published Chinese denotes serious physical injury; lexical gloss gives a street name for gamma hydroxybutyrate.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grilling",
+      "reason": "Published Chinese denotes a grating, while frozen evidence is the act of cooking by radiant heat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grocery bag",
+      "reason": "Independent review: published 食品杂贷袋 appears corrupted; retaining 食品杂货袋 would silently correct the frozen Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "grooved",
+      "reason": "Published adjective means physically grooved, while frozen evidence means established in a rut.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gross profit margin",
+      "reason": "Reviewer C: frozen gloss conflates gross profit margin with the monetary gross-profit difference. Existing sentence explicitly teaches margin as a currency amount. Defer the inconsistent financial measure.",
+      "stage": "review"
+    },
+    {
+      "term": "ground rule",
+      "reason": "Published Chinese 程序 is procedure, whereas sole frozen gloss is a special playing-ground rule in baseball.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grumbling",
+      "reason": "Published adjective describes complaining, while frozen adjective describes a continuous low throbbing sound.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gum up",
+      "reason": "Chinese gives a figurative malfunction sense, whereas the supplied gloss specifies sticking together as with gum.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hackles",
+      "reason": "Published Chinese is literal neck hair, while frozen noun evidence denotes anger or animosity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hand blower",
+      "reason": "Chinese specifies a hand-cranked blower, whereas the gloss specifies an electric hair dryer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hand calculator",
+      "reason": "Published manual calculator conflicts with evidence for a small handheld calculator.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hard cider",
+      "reason": "Independent review: published Chinese specifically says 烈性苹果酒, while the frozen gloss only establishes fermented alcoholic cider, not a high-strength drink. The strength distinction remains uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "hard core",
+      "reason": "Published senses are hardware and physical hard core, while frozen gloss identifies a loyal nucleus of people.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hard-nosed",
+      "reason": "Published senses are poor smell, stubborn or ugly; frozen evidence means practical and empirical.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hardboard",
+      "reason": "Chinese denotes cardboard, whereas the supplied gloss denotes resin-bound pressed wood material.",
+      "stage": "authoring"
+    },
+    {
+      "term": "harpoon gun",
+      "reason": "Chinese denotes a javelin, whereas the gloss denotes a gun firing harpoons.",
+      "stage": "authoring"
+    },
+    {
+      "term": "haul up",
+      "reason": "Chinese pulling, questioning, or sailing senses do not match the supplied driving-to-a-halt gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "head lice",
+      "reason": "Published Chinese names the lice themselves; the supplied noun gloss instead denotes scalp infestation. The draft does not establish an unambiguous common referent.",
+      "stage": "review"
+    },
+    {
+      "term": "head over heels",
+      "reason": "Published Chinese gives head-first, inverted or completely; frozen gloss only gives disorderly haste.",
+      "stage": "authoring"
+    },
+    {
+      "term": "health spa",
+      "reason": "Published weight-loss hot-spring resort differs from frozen fitness-equipment business.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heavy cream",
+      "reason": "Published Chinese 重力稀奶油 is an uncertain dairy translation and does not securely identify the frozen high-butterfat cream sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heavy hitter",
+      "reason": "Chinese denotes a powerful sports hitter, whereas the supplied gloss denotes an influential advocate.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heels over head",
+      "reason": "Published Chinese gives inversion or degree intensification, while frozen gloss only gives disorderly haste.",
+      "stage": "authoring"
+    },
+    {
+      "term": "held",
+      "reason": "Published Chinese only gives inflection cross-references, not an independently supported Chinese adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "herb tea",
+      "reason": "Published medicinal decoction is narrower and functionally different from frozen herbal beverage without medicinal qualification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heuristic program",
+      "reason": "Chinese denotes a computer program, whereas the supplied gloss denotes a rule or rule set, without establishing a program sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "high-handedness",
+      "reason": "Published Chinese denotes coercive methods, while frozen evidence denotes arrogant attitude toward inferiors, an uncertain action-versus-attitude match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "higher",
+      "reason": "Published Chinese denotes an economic upward movement, while frozen adjectives concern postsecondary education or greater complexity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hike up",
+      "reason": "Chinese means float upward, whereas the supplied glosses require pulling upward or increasing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hip socket",
+      "reason": "Chinese denotes shin/wrist or kneecap structures, unlike the supplied hip-joint socket gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hit home",
+      "reason": "Published Chinese suggests striking deeply or hitting a vital point, while frozen evidence only gives relevance or familiarity; the intended figurative overlap is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hoarding",
+      "reason": "Published senses mean storage or temporary fencing, while frozen noun evidence only means a large advertising signboard.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hoister",
+      "reason": "Chinese denotes hoisting equipment, whereas the gloss denotes its human operator.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hold-down",
+      "reason": "Chinese only gives holding down or reduction; supplied generic constraint gloss does not establish a clear shared noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "holiday resort",
+      "reason": "Published Chinese means a resort area, while frozen evidence specifically means a hotel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "home ground",
+      "reason": "Published sports meaning is a team's own playing field; sole frozen gloss identifies an organism's normal habitat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "home in",
+      "reason": "Chinese denotes safely returning to a baseball base, whereas the supplied gloss denotes guidance toward a target.",
+      "stage": "authoring"
+    },
+    {
+      "term": "home key",
+      "reason": "Published Chinese denotes a keyboard key; sole evidence denotes the primary musical key.",
+      "stage": "authoring"
+    },
+    {
+      "term": "home loan",
+      "reason": "Published Chinese means domestic debt; evidence means a home-secured loan.",
+      "stage": "authoring"
+    },
+    {
+      "term": "home territory",
+      "reason": "Published Chinese refers to homeland; evidence defines an animal's normal ranging area.",
+      "stage": "authoring"
+    },
+    {
+      "term": "honeypot",
+      "reason": "Published Chinese denotes a honey container or attractive thing; lexical gloss denotes a South African shrub.",
+      "stage": "authoring"
+    },
+    {
+      "term": "honorary society",
+      "reason": "Published high-achiever club differs from frozen institution advancing arts, science, or literature.",
+      "stage": "authoring"
+    },
+    {
+      "term": "honours list",
+      "reason": "Published meaning is a royal honours list, whereas frozen gloss is an academic degree-results list.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hooky",
+      "reason": "Published noun means truant person, while frozen noun means the act of absence from school.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hop up",
+      "reason": "Chinese means bounce or hop, whereas the supplied gloss means increase power.",
+      "stage": "authoring"
+    },
+    {
+      "term": "horn in",
+      "reason": "Published Chinese only gives entering or intruding, while the supplied gloss specifically means meddlesome inquiry; no unambiguous shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "horsetail",
+      "reason": "Published Chinese denotes horse hair, a flag, or hairstyle; lexical gloss denotes horsetail plants.",
+      "stage": "authoring"
+    },
+    {
+      "term": "housing development",
+      "reason": "Published senses describe development/construction activity; lexical gloss denotes the resulting residential area.",
+      "stage": "authoring"
+    },
+    {
+      "term": "housing project",
+      "reason": "Published meanings describe construction plans rather than the publicly funded residential development specified by the frozen gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "housing start",
+      "reason": "Published Chinese denotes a housing construction project; the supplied gloss denotes the distinct act of beginning construction.",
+      "stage": "review"
+    },
+    {
+      "term": "hunker down",
+      "reason": "Published Chinese 沉潜待发 suggests waiting readiness; frozen senses cover stubbornness, squatting and sheltering without establishing that sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ice floe",
+      "reason": "Published Chinese 冰川 means glacier, whereas frozen gloss is floating sea ice.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ice pack",
+      "reason": "Published Chinese denotes an ice-wrapping method, while frozen noun evidence denotes an ice-filled bag or floating ice.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ice yacht",
+      "reason": "Chinese describes ice sailing activity, while noun evidence specifically denotes the sailing vessel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "iconoscope",
+      "reason": "Published Chinese denotes a camera pickup tube, but the supplied gloss denotes the entire television camera; device/part mapping differs.",
+      "stage": "review"
+    },
+    {
+      "term": "ideal solid",
+      "reason": "Published Chinese is the physical ideal-solid term, while frozen gloss defines the five regular polyhedra; that geometric sense is not securely published.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ignition key",
+      "reason": "Chinese denotes the ignition switch, whereas the supplied gloss denotes the separate key operating that switch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "imaginary part",
+      "reason": "The frozen gloss identifies the term containing i, while the Chinese mathematical term 虚部 normally means its real coefficient. This evidence ambiguity needs source review before a matched example is attached.",
+      "stage": "authoring"
+    },
+    {
+      "term": "impulse turbine",
+      "reason": "Published Chinese denotes a pulse turbine, while the lexical gloss denotes an impulse turbine driven by direct jets; the technical mechanisms differ.",
+      "stage": "authoring"
+    },
+    {
+      "term": "in good spirits",
+      "reason": "Chinese means cheerful, whereas the supplied gloss describes maintaining equilibrium; shared adverbial sense is unclear.",
+      "stage": "authoring"
+    },
+    {
+      "term": "in height",
+      "reason": "Frozen POS adjective conflicts with the published measurement phrase; grammar requires review before selecting one allowed POS.",
+      "stage": "authoring"
+    },
+    {
+      "term": "in kind",
+      "reason": "Independent review: published Chinese and authored row concern payment in goods; the sole frozen gloss specifies something of the same kind and does not securely establish this non-cash-payment sense.",
+      "stage": "review"
+    },
+    {
+      "term": "indirect correlation",
+      "reason": "Published Chinese denotes indirect correlation; the supplied gloss specifically denotes negative correlation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "infernal machine",
+      "reason": "Chinese identifies a booby trap, but available evidence is a timed bomb; the triggering mechanisms and senses should not be treated as equivalent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "intercalary year",
+      "reason": "Independent review: the frozen Gregorian rule incorrectly excludes centenary years divisible by 400. The example itself is not false, but the substantive source rule needs correction before using it as matched evidence.",
+      "stage": "review"
+    },
+    {
+      "term": "intergalactic space",
+      "reason": "Published Chinese denotes interstellar space; lexical gloss specifically denotes space between galaxies.",
+      "stage": "authoring"
+    },
+    {
+      "term": "interlanguage",
+      "reason": "Chinese denotes an intermediate language, whereas the gloss is a common language among different-language speakers.",
+      "stage": "authoring"
+    },
+    {
+      "term": "internal representation",
+      "reason": "Published internal representation method does not clearly establish the frozen mental idea or image sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "investment banker",
+      "reason": "Published Chinese denotes an investment bank, while frozen gloss denotes a banker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "invigorating",
+      "reason": "Published adjective means energetic itself, while frozen adjective means imparting energy to another.",
+      "stage": "authoring"
+    },
+    {
+      "term": "iron heel",
+      "reason": "Published Chinese gives iron hoof/heel without the specific torture-device sense supplied by evidence. Cannot establish intended lexical sense safely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "isometric line",
+      "reason": "Evidence only says a line connecting isometric points, without identifying the equal quantity; published alternatives span volume/angle/amount. Too underspecified for a faithful contextual example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "isometrical",
+      "reason": "Chinese gives equal-angle or equal-area senses, whereas the supplied gloss requires equal dimensions or measurements.",
+      "stage": "authoring"
+    },
+    {
+      "term": "isometrics",
+      "reason": "Published Chinese is piping installation drawings, while frozen evidence is stationary resistance exercise.",
+      "stage": "authoring"
+    },
+    {
+      "term": "javelina",
+      "reason": "Independent review: published Chinese identifies a kind of wild pig, while evidence establishes a peccary; retained specific Chinese 西猯 was not present in frozen source and requires an identity check.",
+      "stage": "review"
+    },
+    {
+      "term": "jointer",
+      "reason": "Chinese denotes a worker, joint, or powered planing machine; the gloss specifically denotes a long hand plane.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jonquil",
+      "reason": "Published Chinese denotes kalanchoe, while lexical glosses denote jonquil or yellow daffodils.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jumble sale",
+      "reason": "Reviewer C: published Chinese denotes a secondhand-shop auction, whereas the gloss defines a sale of donated articles and the example translates a charity sale. Auction and donated-goods sale are not equivalent event types.",
+      "stage": "review"
+    },
+    {
+      "term": "junction barrier",
+      "reason": "Published Chinese denotes a junction barrier; evidence describes a cable junction/terminal connector. Device identity is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "junk heap",
+      "reason": "Published Chinese denotes an old car; lexical gloss denotes a pile of discarded material.",
+      "stage": "authoring"
+    },
+    {
+      "term": "junk shop",
+      "reason": "Published Chinese gives computer junk or a shop for used ship equipment; frozen gloss only establishes a generic secondhand shop.",
+      "stage": "authoring"
+    },
+    {
+      "term": "just so",
+      "reason": "Published Chinese means exactly so; evidence only means carefully. No aligned manner sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kali",
+      "reason": "Published Chinese denotes potassium; lexical gloss denotes a salt-marsh plant.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kept",
+      "reason": "Published Chinese contains only verb-inflection cross-references, not a usable Chinese adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kept woman",
+      "reason": "Published Chinese specifies a financially supported mistress; evidence only specifies an adulterous relationship without maintenance. Cannot infer the defining financial support.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kill oneself",
+      "reason": "Published Chinese is literal suicide, while frozen evidence only describes unhealthy overexertion.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knee bend",
+      "reason": "Published Chinese denotes an elbow pipe, while evidence describes a crouching exercise.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knee brace",
+      "reason": "Published Chinese denotes a structural knee-shaped brace bar; evidence denotes a wearable knee support.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knitted",
+      "reason": "Published Chinese only identifies knit's inflected form; there is no actual Chinese adjective definition matching the knitted-fabric evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knitting needle",
+      "reason": "Published Chinese identifies knitting or knitted goods, not the rod-like needle in the frozen gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knock up",
+      "reason": "Published Chinese means knock upward; sole evidence means make pregnant.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knock-kneed",
+      "reason": "Published Chinese describes inward-curving feet or splayed feet, while frozen gloss specifically requires knees together and ankles apart.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knocking",
+      "reason": "Published Chinese names a knocking internal-combustion engine, while frozen noun evidence denotes the knocking sound itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "koala",
+      "reason": "Chinese denotes a wombat, whereas the gloss denotes an arboreal eucalyptus-feeding koala.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lacrosse ball",
+      "reason": "Independent review: published Chinese denotes the sport, whereas selected sentence and gloss denote its ball; do not silently certify a distinct object referent.",
+      "stage": "review"
+    },
+    {
+      "term": "lady killer",
+      "reason": "Published Chinese describes a man attractive to women; frozen gloss describes a man exploiting women, leaving the target sense uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "laid",
+      "reason": "Published Chinese contains only an inflection cross-reference, not a supported Chinese adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lapping",
+      "reason": "Published Chinese means grinding or polishing, while frozen evidence describes overlapping covering elements.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lay on the line",
+      "reason": "Published Chinese 筹足 does not match the available risk/exposure verb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "laying on",
+      "reason": "Published Chinese senses do not establish the hand-contact act in the frozen noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lead sheet",
+      "reason": "Published metal sheet conflicts with frozen simplified song score.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lead up",
+      "reason": "Published Chinese means get ahead first; evidence means set an event in motion or prepare for it.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leading off",
+      "reason": "Chinese means derivation, whereas the gloss denotes enticing people into sin.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ledger line",
+      "reason": "Published Chinese is a baited fishing line, while frozen evidence is a musical staff extension.",
+      "stage": "authoring"
+    },
+    {
+      "term": "legal guardian",
+      "reason": "Published Chinese is legal guardian, while frozen gloss describes a property trustee, a distinct role.",
+      "stage": "authoring"
+    },
+    {
+      "term": "legislative council",
+      "reason": "Published Chinese incorrectly denotes the British upper house; frozen evidence describes a unicameral legislature.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lever lock",
+      "reason": "Published Chinese is an unclear electrical brake term, whereas the supplied gloss describes a lever-tumbler lock.",
+      "stage": "authoring"
+    },
+    {
+      "term": "license number",
+      "reason": "Published legal meaning is approval-document number, whereas frozen gloss identifies a vehicle licence-plate number.",
+      "stage": "authoring"
+    },
+    {
+      "term": "light heavyweight",
+      "reason": "Published Chinese denotes a heavyweight professional boxer rather than the distinct light-heavyweight classes in the glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "light touch",
+      "reason": "Published senses are a piano technique and tact, while frozen gloss only gives momentary physical contact.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lime juice",
+      "reason": "Published Chinese 梨莓汁/澄清汁 does not identify lime juice and appears corrupt; fix source meaning before attaching an example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "linear measure",
+      "reason": "Published length measurement process differs from frozen length unit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "linear perspective",
+      "reason": "Independent review: published Chinese names a perspective drawing (直线透视图), while the authored selected sense names the drawing technique and the sole frozen gloss describes relative visual appearance. The referent/sense alignment remains uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "linear unit",
+      "reason": "Published Chinese denotes a linear device, while evidence denotes a unit of length.",
+      "stage": "authoring"
+    },
+    {
+      "term": "liner train",
+      "reason": "Published Chinese denotes a regularly scheduled freight ship; evidence denotes a fast freight train.",
+      "stage": "authoring"
+    },
+    {
+      "term": "liquid measure",
+      "reason": "Published Chinese gives liquid measurement as a process, while gloss denotes a unit of capacity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lit",
+      "reason": "Published meaning only gives the inflection of light; queued POS and evidence are noun/adjective senses without an explicit corresponding Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "live in",
+      "reason": "Published moving into a place differs from frozen residing in the home where one works.",
+      "stage": "authoring"
+    },
+    {
+      "term": "load down",
+      "reason": "Published Chinese says decrease load; evidence says load with a pack, effectively the opposite direction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "load up",
+      "reason": "Published Chinese specifically denotes increasing chemical-process load; evidence only denotes filling or placing a physical load. No secure shared technical sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lodgepole",
+      "reason": "Published entry is a place name; lexical gloss denotes a pine species.",
+      "stage": "authoring"
+    },
+    {
+      "term": "log in",
+      "reason": "Published Chinese 注册 risks teaching account registration rather than entering an existing computer session; do not attach a login example to that uncorrected meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "logograph",
+      "reason": "Chinese gives combined printing type, whereas the gloss gives a word-representing written symbol.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lollipop lady",
+      "reason": "Published Chinese specifies a female traffic police officer; the lexical role is a school crossing helper and does not establish police status.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lollop",
+      "reason": "Chinese describes lazy wandering; frozen gloss specifically describes a clumsy bouncing gait, so the selected sense cannot be confidently aligned.",
+      "stage": "authoring"
+    },
+    {
+      "term": "looking at",
+      "reason": "Published Chinese denotes a resentful gaze, while evidence only establishes generic visual perception.",
+      "stage": "authoring"
+    },
+    {
+      "term": "looper",
+      "reason": "Published Chinese denotes a looping worker or machine; lexical gloss denotes a caterpillar.",
+      "stage": "authoring"
+    },
+    {
+      "term": "loss ratio",
+      "reason": "Published Chinese orders premium income over loss payments, while frozen gloss gives claim payments over premiums; the ratio direction conflicts.",
+      "stage": "authoring"
+    },
+    {
+      "term": "machine gunner",
+      "reason": "Chinese denotes a machine-gun operator, whereas the supplied gloss denotes an artillery serviceman.",
+      "stage": "authoring"
+    },
+    {
+      "term": "machine rifle",
+      "reason": "Published Chinese names a submachine gun or automatic rifle, while frozen evidence identifies a light machine gun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "machine stitch",
+      "reason": "Published Chinese limits the noun to edging stitches; frozen gloss only gives generic machine sewing and does not establish that narrower sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mackerel sky",
+      "reason": "Reviewer C: published Chinese denotes altocumulus clouds 高积云, whereas the frozen gloss denotes a sky filled with cloud rows. The authored Chinese silently supplies the unpublished sky/appearance identity. Defer the cloud-versus-sky source discrepancy.",
+      "stage": "review"
+    },
+    {
+      "term": "made-up",
+      "reason": "Frozen gloss only means paved, absent from the published Chinese senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "magnetic field strength",
+      "reason": "Published Chinese is field strength, while frozen gloss defines flux density; the distinct physical quantities cannot safely be merged.",
+      "stage": "authoring"
+    },
+    {
+      "term": "major leaguer",
+      "reason": "Published Chinese describes the Major League organizations; evidence denotes an individual player.",
+      "stage": "authoring"
+    },
+    {
+      "term": "make-up",
+      "reason": "Published Chinese fabrication does not match frozen cosmetics, composition, or replacement-event senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "map collection",
+      "reason": "Published Chinese describes collecting maps, while frozen gloss specifies a bound collection of maps; object versus activity is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mara",
+      "reason": "Published Chinese denotes a woman's name; lexical gloss denotes an Argentine rodent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marabout",
+      "reason": "Published Chinese denotes a hermit; lexical gloss denotes the marabou stork.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marbled",
+      "reason": "Published Chinese denotes actual marble material or construction; evidence only supports a marble-like pattern.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mare's nest",
+      "reason": "Published Chinese denotes an imagined thing; supplied gloss denotes a confused multitude.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mare's tail",
+      "reason": "Chinese lists plants, whereas the supplied gloss denotes a cirrus cloud.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marguerite",
+      "reason": "Chinese uses the generic daisy name that may identify Bellis, whereas the supplied glosses identify other daisy taxa; plant mapping is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mariposa",
+      "reason": "Reviewer C: the plant sense is only an English cross-reference = mariposa lily; the explicit Chinese explains a bullfighting move, not this plant. The authored Chinese 蝴蝶百合 lacks a resolved frozen-version Chinese reference. Defer the unresolved plant identity.",
+      "stage": "review"
+    },
+    {
+      "term": "married person",
+      "reason": "Published Chinese denotes marital status, while the lexical gloss denotes one's spouse as a relational role.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mass medium",
+      "reason": "Independent review: published Chinese names the communication tool/channel, while the sole frozen gloss describes widely disseminated transmissions themselves. Channel-versus-content alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "matcher",
+      "reason": "Chinese denotes matching software, whereas the gloss denotes a marriage arranger.",
+      "stage": "authoring"
+    },
+    {
+      "term": "matric",
+      "reason": "Chinese denotes an entrance examination, whereas the supplied noun gloss denotes admission itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mattress pad",
+      "reason": "Published Chinese denotes a soft mattress, while the gloss denotes a separate protective pad placed over a mattress.",
+      "stage": "authoring"
+    },
+    {
+      "term": "meandering",
+      "reason": "Chinese describes unfocused discourse, whereas the supplied gloss is only an incomplete path reference and establishes no shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "men",
+      "reason": "Published meaning only identifies the plural of man; frozen noun sense specifically denotes an available workforce, without explicit corresponding Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mental object",
+      "reason": "Published Chinese is a mental object, while frozen gloss specifies the sum of perceived or learned knowledge, leaving the intended sense uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "metal wood",
+      "reason": "Published Chinese means metal-laminated wood, while frozen gloss means a metal-headed golf club.",
+      "stage": "authoring"
+    },
+    {
+      "term": "microphone boom",
+      "reason": "Published Chinese is an unclear microphone wooden-board term, whereas the gloss is an overhead microphone pole.",
+      "stage": "authoring"
+    },
+    {
+      "term": "migration route",
+      "reason": "Chinese gives a return-swimming route, whereas the supplied gloss specifically describes bird migration.",
+      "stage": "authoring"
+    },
+    {
+      "term": "milk float",
+      "reason": "Published horse-drawn milk cart differs from frozen delivery van, typically electric.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mina",
+      "reason": "Published Chinese denotes an ancient Greek unit; lexical gloss denotes Asian starlings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mince pie",
+      "reason": "Published Chinese specifies a meat-filled pie; frozen mincemeat filling is ambiguous against common fruit-mincemeat usage, so do not assume meat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mind-bending",
+      "reason": "Chinese denotes baffling strangeness, while frozen evidence specifically concerns an intensely mind-affecting or hallucinatory quality.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mine detector",
+      "reason": "Chinese denotes an ore detector, whereas the supplied gloss denotes a detector for explosive mines.",
+      "stage": "authoring"
+    },
+    {
+      "term": "minor diatonic scale",
+      "reason": "Published Chinese is an unclear mistranslation of the musical scale and cannot support a reliable selected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "minor surgery",
+      "reason": "Frozen definition incorrectly excludes anesthesia categorically; unsafe to select a faithful clinical example without resolving the source.",
+      "stage": "authoring"
+    },
+    {
+      "term": "misreading",
+      "reason": "Reviewer C: published Chinese is mistranslation, while frozen gloss and retained example mean an inaccurate reading/misinterpretation that then changes a translation. The authored Chinese silently uses the unpublished misreading sense.",
+      "stage": "review"
+    },
+    {
+      "term": "missing link",
+      "reason": "Published meaning is a general absent connecting element; frozen gloss only gives the historical hypothetical evolutionary organism, requiring separate sense verification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "misunderstood",
+      "reason": "Published meaning only gives the inflection of misunderstand; no explicit adjective Chinese sense is supplied.",
+      "stage": "authoring"
+    },
+    {
+      "term": "miter box",
+      "reason": "Reviewer C: published Chinese is 轴锯箱, while the authored selected sense and translation silently change it to 辅锯箱. The frozen record supplies no clean Chinese identification for this handsaw guide; defer the unresolved corrupted terminology.",
+      "stage": "review"
+    },
+    {
+      "term": "modelling",
+      "reason": "Published modelling career or three-dimensional quality does not match frozen model-making or preliminary-sculpture senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "molly",
+      "reason": "Chinese describes a person pejoratively, whereas the supplied gloss denotes an aquarium fish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "monkey ladder",
+      "reason": "Chinese specifies a mine ladder made from a tree trunk, whereas the gloss specifies a light shipboard ladder.",
+      "stage": "authoring"
+    },
+    {
+      "term": "moral certainty",
+      "reason": "Independent review: published Chinese denotes a surely known matter, while frozen evidence and authored sense describe inner conviction rather than objective certainty.",
+      "stage": "review"
+    },
+    {
+      "term": "moral hazard",
+      "reason": "Published Chinese means moral crisis; evidence is the specific economic risk-incentive concept. No aligned published economic sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mosaic culture",
+      "reason": "Published ornamental planting conflicts with frozen culturally diverse society sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "motor nerve fiber",
+      "reason": "Chinese specifies a nerve fiber but the supplied gloss specifies an entire neuron; the anatomical mapping needs correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "motor pool",
+      "reason": "Published Chinese denotes a vehicle dispatch location, while frozen evidence denotes the vehicle fleet itself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "moulding",
+      "reason": "Published process senses do not clearly match the frozen noun senses for resulting sculptures or decorative trim.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mount up",
+      "reason": "Published Chinese means increase or rise; sole evidence means get onto an animal's back.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mow down",
+      "reason": "Published Chinese only gives destruction, while the frozen gloss specifically denotes indiscriminate killing of many people.",
+      "stage": "authoring"
+    },
+    {
+      "term": "multidimensional language",
+      "reason": "Published Chinese denotes a multidimensional statement; the lexical gloss and draft denote the entire programming language.",
+      "stage": "review"
+    },
+    {
+      "term": "mushroom sauce",
+      "reason": "Published Chinese means mushroom soy sauce; evidence describes brown sauce with sauteed mushrooms.",
+      "stage": "authoring"
+    },
+    {
+      "term": "music teacher",
+      "reason": "Published Chinese is an unrelated phrase, incompatible with the teacher gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "narrow-mindedness",
+      "reason": "Chinese short-sightedness is not a sufficiently precise match for the frozen critical intolerance sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "narrowing",
+      "reason": "Published computing meaning gives an abstract narrowing property rather than one of the noun or adjective senses clearly enough to select.",
+      "stage": "authoring"
+    },
+    {
+      "term": "naturism",
+      "reason": "Published Chinese is nature worship; frozen sense is social nudity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nautical chain",
+      "reason": "Chinese denotes a nautical measuring chain, whereas the supplied gloss denotes a fifteen-foot unit; object-versus-unit mapping is unclear.",
+      "stage": "authoring"
+    },
+    {
+      "term": "naval engineer",
+      "reason": "Published Chinese specifies shipbuilding engineer, but sole evidence specifies an officer maintaining and operating ship engines. Occupational sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "net estate",
+      "reason": "Published Chinese restricts to net real property, while evidence denotes the entire estate after liabilities and expenses. Scope needs correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "netmail",
+      "reason": "Published Chinese is a noun for network mail, whereas the queue requires a verb meaning electronic communication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nickel note",
+      "reason": "Published five-dollar note conflicts with frozen five dollars worth of a drug.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonuniformity",
+      "reason": "Chinese denotes lack of uniformity, whereas the supplied gloss specifies interesting diversity; the intended shared sense is unclear.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nose dive",
+      "reason": "Published Chinese supplies airborne landing/descent or price collapse; evidence specifically means an aircraft nose-down dive.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nuisance value",
+      "reason": "Published Chinese is obstruction value, while frozen gloss only says quality of an embarrassing situation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "null space",
+      "reason": "Evidence incorrectly equates null space with an empty space containing no points. The published linear-algebra term cannot be taught from this gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "numbers game",
+      "reason": "Published meaning is misleading manipulation of numbers, whereas frozen evidence is an illegal daily lottery.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nybble",
+      "reason": "Chinese states four bytes, whereas the term and supplied small-byte gloss do not support that quantity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "object lesson",
+      "reason": "Published Chinese describes object-based teaching, while frozen gloss only describes punishment serving as a warning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "obtrusively",
+      "reason": "Published rashly or impetuously does not clearly match the frozen obtrusive or intrusive manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ocelot",
+      "reason": "Published Chinese names the Asian leopard cat, while the lexical gloss describes the distinct Central and South American ocelot.",
+      "stage": "authoring"
+    },
+    {
+      "term": "octonary",
+      "reason": "The sole supplied noun gloss is the cardinal eight, whereas published noun senses are a group of eight or eight-line poem; adjective evidence is absent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "odd fellow",
+      "reason": "Published Chinese denotes a member of a particular secret society, while frozen gloss means an eccentric person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "off-licence",
+      "reason": "Chinese denotes a liquor-selling license, while evidence only denotes the store.",
+      "stage": "authoring"
+    },
+    {
+      "term": "off-roader",
+      "reason": "Published Chinese racing vehicle does not establish the frozen mountain-bicycle sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "offending",
+      "reason": "Published unpleasant or disliked senses do not match frozen law- or rule-breaking adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "oil heater",
+      "reason": "Published Chinese denotes an oil-heating device, while frozen evidence denotes a heater burning oil as fuel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "olde worlde",
+      "reason": "Published Chinese is deliberately conservative, while frozen gloss describes attractively old-fashioned style, not ideological conservatism.",
+      "stage": "authoring"
+    },
+    {
+      "term": "omnidirectional radio range",
+      "reason": "Published Chinese says multidirectional radio range as an extent; evidence defines a specific radio-beacon navigation system. Published technical sense is too unclear.",
+      "stage": "authoring"
+    },
+    {
+      "term": "one of the boys",
+      "reason": "Published senses describe a boy among boys, while frozen gloss describes adult male social acceptance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "one shot",
+      "reason": "Chinese single-use or single-focus senses differ from frozen single-shot ammunition charge.",
+      "stage": "authoring"
+    },
+    {
+      "term": "one-horse",
+      "reason": "Chinese gives the literal one-horse-drawn sense, absent from frozen small-and-insignificant gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "opening line",
+      "reason": "Published Chinese denotes a seam-opening line; lexical gloss denotes the initial line of writing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "optical disc",
+      "reason": "Published Chinese denotes optical/stroboscopic apparatus rather than the digital storage disc in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "orange grove",
+      "reason": "Published POS and Chinese identify a US place name, whereas the supplied noun gloss denotes an orchard.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ordnance store",
+      "reason": "Published Chinese denotes an arsenal building; evidence denotes military supplies. No aligned noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "outside loop",
+      "reason": "Published Chinese is computing outer loop, while frozen gloss specifies an aerobatic flight maneuver.",
+      "stage": "authoring"
+    },
+    {
+      "term": "overdone",
+      "reason": "Published meaning only gives the inflection of overdo, without an explicit Chinese sense matching frozen adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "overriding",
+      "reason": "Published Chinese denotes overlapping fracture ends, whereas adjective evidence denotes superior influence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "packing case",
+      "reason": "Published meaning is mechanical packing gland, while sole frozen gloss is a shipment/storage crate.",
+      "stage": "authoring"
+    },
+    {
+      "term": "padder",
+      "reason": "Chinese denotes an electrical capacitor, whereas the supplied gloss denotes a highway robber on foot.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pampas",
+      "reason": "Published Chinese denotes pampas grass; evidence denotes Argentine grasslands.",
+      "stage": "authoring"
+    },
+    {
+      "term": "parfait glass",
+      "reason": "Published Chinese denotes a liqueur glass; lexical gloss denotes a tall stemmed vessel for serving parfait dessert.",
+      "stage": "authoring"
+    },
+    {
+      "term": "parliamentary agent",
+      "reason": "Published Chinese is a party-serving legislator or party legal adviser, while frozen gloss is an agent representing business interests affected by legislation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pass-through",
+      "reason": "Chinese denotes passing through in computing, whereas the noun gloss denotes a serving opening between rooms.",
+      "stage": "authoring"
+    },
+    {
+      "term": "paying back",
+      "reason": "Independent review: retained debt repayment is narrower/different from sole frozen reciprocal-group-action gloss; source noun alignment is insufficient to certify this selected financial sense.",
+      "stage": "review"
+    },
+    {
+      "term": "peacekeeping",
+      "reason": "Queued noun evidence describes an activity, whereas published Chinese only supplies adjective senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "peanut gallery",
+      "reason": "Published Chinese refers to an art gallery or criminal-photo archive, unlike either supplied seating or figurative audience sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pecuniary resource",
+      "reason": "Published Chinese says source of money, while available evidence describes monetary assets; the selected senses cannot be aligned reliably.",
+      "stage": "authoring"
+    },
+    {
+      "term": "peep sight",
+      "reason": "Published Chinese is generic framing/viewfinding, whereas available noun evidence is a rear firearm aperture sight.",
+      "stage": "authoring"
+    },
+    {
+      "term": "peg top",
+      "reason": "Published Chinese is peg-top trousers; evidence is a wooden spinning top.",
+      "stage": "authoring"
+    },
+    {
+      "term": "penny bank",
+      "reason": "Chinese denotes a financial savings bank, whereas the supplied gloss denotes a child's coin container.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pepper sauce",
+      "reason": "Chinese chili sauce does not match the frozen peppercorn-seasoned brown venison sauce.",
+      "stage": "authoring"
+    },
+    {
+      "term": "personal organizer",
+      "reason": "Published Chinese specifies a personal paper notebook; sole evidence describes a handheld electronic organizer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "photographic print",
+      "reason": "Independent review: published 影印 denotes photocopying or reproduction, while frozen evidence and authored sense specifically denote a negative-based photograph.",
+      "stage": "review"
+    },
+    {
+      "term": "pickings",
+      "reason": "Published easily obtained gains or leftovers do not match the frozen act-of-picking noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pictorial representation",
+      "reason": "Independent review: published Chinese denotes a painting/artwork object, while retained usage selects depiction/representation as content. Defer rather than certify an ambiguous object/content mapping.",
+      "stage": "review"
+    },
+    {
+      "term": "pier table",
+      "reason": "Published Chinese denotes a bridge-pier top, while evidence describes a table beneath a mirror.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pillow fight",
+      "reason": "Published Chinese describes mock fighting or minor disagreement, while frozen evidence specifically requires a game using pillows.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pillow lace",
+      "reason": "Chinese denotes shuttle-knotted lace, whereas the supplied gloss denotes bobbin lace worked on a pillow.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pin bone",
+      "reason": "Published anatomy differs from frozen butchered sirloin cut.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pin-up",
+      "reason": "Published noun denotes a photograph or pinned object, while frozen noun denotes the model herself.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pinball game",
+      "reason": "Independent review: published Chinese and authored translation denote a machine, while frozen evidence denotes the game played on a board.",
+      "stage": "review"
+    },
+    {
+      "term": "pipe in",
+      "reason": "Published Chinese gives electronic sound transmission or piping someone ceremonially in; evidence means transporting material through pipes.",
+      "stage": "authoring"
+    },
+    {
+      "term": "piston chamber",
+      "reason": "Published Chinese denotes a combustion chamber in a piston crown, narrower and different from the chamber where a piston moves.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pitch in",
+      "reason": "Published Chinese means contribute or begin work; sole evidence means eat heartily.",
+      "stage": "authoring"
+    },
+    {
+      "term": "plastic explosive",
+      "reason": "Published Chinese denotes a plastic bomb; evidence denotes moldable explosive material, not a completed bomb.",
+      "stage": "authoring"
+    },
+    {
+      "term": "plastic surgeon",
+      "reason": "Published Chinese says veterinarian; evidence says cosmetic surgeon.",
+      "stage": "authoring"
+    },
+    {
+      "term": "plate tectonics",
+      "reason": "Independent review: published Chinese names the plate-tectonics theory, but the sole frozen gloss defines the broader geology branch studying crustal folding and faulting. The theory-versus-branch alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "plea bargaining",
+      "reason": "Independent review: published Chinese names an agreement (认罪求情协议), while the frozen gloss and authored selected sense denote the negotiation process. The process-versus-result alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "plug hat",
+      "reason": "Published Chinese is a tall top hat, while the available noun gloss describes a round hard bowler-style hat; the hat types conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poaching",
+      "reason": "Published hunting or stealing senses conflict with frozen simmering-food preparation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pocket flap",
+      "reason": "Published Chinese is a medical skin flap, but the available noun evidence is the flap on a clothing pocket.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poke check",
+      "reason": "Published checking a person differs from frozen knocking the puck away.",
+      "stage": "authoring"
+    },
+    {
+      "term": "polar zone",
+      "reason": "Chinese denotes an electrode region, whereas the gloss denotes an Earth's polar region.",
+      "stage": "authoring"
+    },
+    {
+      "term": "police matron",
+      "reason": "Published female prison attendant differs from frozen female police officer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pommy",
+      "reason": "Published British immigrant adds an immigration condition absent from frozen British-person sense; usage also disparaging.",
+      "stage": "authoring"
+    },
+    {
+      "term": "populated",
+      "reason": "Published increased particle count conflicts with frozen inhabited sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pork butcher",
+      "reason": "Published Chinese specifies a pig slaughterer; lexical gloss specifies a vendor of pork products.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pork roast",
+      "reason": "Published Chinese denotes cooked roast pork; lexical gloss denotes a cut suitable for roasting.",
+      "stage": "authoring"
+    },
+    {
+      "term": "post-hole digger",
+      "reason": "Chinese specifies an excavation machine, whereas the supplied gloss specifies a shovel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pot liquor",
+      "reason": "Chinese denotes distillable liquid, whereas the gloss denotes vegetable or meat cooking liquid.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pot roast",
+      "reason": "Published Chinese denotes already cooked stewed meat, while the supplied gloss denotes a raw beef cut suitable for simmering.",
+      "stage": "review"
+    },
+    {
+      "term": "potato bean",
+      "reason": "Published lima/common bean differs from frozen tuber-bearing vines and their tubers.",
+      "stage": "authoring"
+    },
+    {
+      "term": "potential divider",
+      "reason": "Published Chinese gives an unclear divider/multiplier term, not a reliable matching name for the voltage-divider circuit in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pour down",
+      "reason": "Published Chinese refers to liquid flowing down or rain; sole evidence means drink completely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pour forth",
+      "reason": "Chinese continuous outpouring conflicts with frozen definition specifically describing drops or small quantities.",
+      "stage": "authoring"
+    },
+    {
+      "term": "powder blue",
+      "reason": "Published Chinese is cobalt oxide, while frozen evidence describes a pale blue colour.",
+      "stage": "authoring"
+    },
+    {
+      "term": "powder compact",
+      "reason": "Chinese denotes a compressed-powder block, whereas the gloss denotes a cosmetics case.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pre-eminently",
+      "reason": "Published to a great extent does not capture frozen superiority over others precisely enough.",
+      "stage": "authoring"
+    },
+    {
+      "term": "preliminary examination",
+      "reason": "Published Chinese supplies preliminary inspection and industrial flaw detection; evidence defines a graduate qualifying exam.",
+      "stage": "authoring"
+    },
+    {
+      "term": "press home",
+      "reason": "Published Chinese means persevere to the end, while frozen gloss means emphasize to convince someone.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pressed",
+      "reason": "Chinese urgent or busy senses conflict with frozen ironed-and-compacted sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pressure dome",
+      "reason": "Published and variant Chinese name bulkheads, lava domes, air chambers or pressure cabins; frozen gloss requires a pressurized dome building.",
+      "stage": "authoring"
+    },
+    {
+      "term": "price gouging",
+      "reason": "Published Chinese denotes price deception, while the lexical gloss denotes excessive pricing without requiring deception.",
+      "stage": "authoring"
+    },
+    {
+      "term": "prime mover",
+      "reason": "Published Chinese denotes a mechanical prime mover; lexical gloss denotes the uncaused first cause in philosophy.",
+      "stage": "authoring"
+    },
+    {
+      "term": "probing",
+      "reason": "Published noun-like electrical exploration term does not establish the queued thorough-inquiry adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "problem solver",
+      "reason": "Published Chinese denotes a computer program, while frozen noun explicitly denotes a human thinker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "profiling",
+      "reason": "Published template cutting or machinery sense conflicts with frozen behavioral analysis.",
+      "stage": "authoring"
+    },
+    {
+      "term": "proportional sample",
+      "reason": "Chinese denotes a sampling device, while available evidence describes a stratified-sampling design; device and design must not be conflated.",
+      "stage": "authoring"
+    },
+    {
+      "term": "proto",
+      "reason": "Published Chinese gives prototype-related nouns, whereas the queue requires an adjective meaning earliest or original.",
+      "stage": "authoring"
+    },
+    {
+      "term": "proven",
+      "reason": "Published meaning only identifies the inflection of prove, with no explicit Chinese adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "prowl car",
+      "reason": "Published Chinese denotes a patroller, while frozen gloss denotes a police patrol car.",
+      "stage": "authoring"
+    },
+    {
+      "term": "puff up",
+      "reason": "Independent review: retained sentence uses intransitive swelling but published Chinese supplies only causative 使肿胀. Defer until a source-aligned transitive actual-use example is independently checked.",
+      "stage": "review"
+    },
+    {
+      "term": "puffed",
+      "reason": "Chinese loose-textured sense conflicts with frozen gathered protruding fullness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pulling out",
+      "reason": "Chinese denotes pulling a drilling string, whereas the gloss denotes a contraceptive practice.",
+      "stage": "authoring"
+    },
+    {
+      "term": "purse string",
+      "reason": "Published Chinese means purse-seine net; evidence is the drawstring of a purse.",
+      "stage": "authoring"
+    },
+    {
+      "term": "queen post",
+      "reason": "Chinese denotes a roof-truss structure, while gloss specifies one vertical post; cannot confidently select an equivalent published sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "quick temper",
+      "reason": "Published Chinese describes a lasting irritable disposition, while frozen gloss describes a feeling of resentful anger; state and trait are uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rack up",
+      "reason": "Chinese victory or knocking down does not cleanly match a natural use of the supplied scoring, feeding, racking, or thorough-defeat glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "racon",
+      "reason": "Published Chinese gives an unclear radar indicator/target term, not a reliable name for the coded-response navigation beacon in the gloss.",
+      "stage": "review"
+    },
+    {
+      "term": "radar beacon",
+      "reason": "Published Chinese denotes a radar indicator, not the responsive coded-signal beacon described in the lexical gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "radio reflector",
+      "reason": "Chinese denotes a radio reflector, whereas the gloss denotes a radio astronomical telescope.",
+      "stage": "authoring"
+    },
+    {
+      "term": "radiolocation",
+      "reason": "Published Chinese denotes the location process, whereas the supplied noun gloss denotes a radar measuring instrument.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rake up",
+      "reason": "Published Chinese denotes physically raking together; lexical gloss denotes bringing something to light.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rap sheet",
+      "reason": "Published Chinese denotes a criminal's record; evidence defines a station's daily event log. Individual criminal history and station log are distinct.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rasher",
+      "reason": "Chinese denotes a bacon slice, whereas the supplied gloss denotes a Pacific fish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rating system",
+      "reason": "Chinese denotes an electrical rated-value system, whereas the gloss describes classification by merit or amount.",
+      "stage": "authoring"
+    },
+    {
+      "term": "razzle-dazzle",
+      "reason": "Published confusion or fraud lacks the frozen deliberately confusing complex sports play.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rear-end",
+      "reason": "Published rear-end position senses conflict with queued collision verb.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reassured",
+      "reason": "Published Chinese is causative reassuring, while frozen adjective describes the person whose confidence has been restored.",
+      "stage": "authoring"
+    },
+    {
+      "term": "recasting",
+      "reason": "Published metal recasting conflicts with frozen rewording sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "record changer",
+      "reason": "Chinese means a generic record-changing device, without the phonograph record-player sense established by the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "recurrent event",
+      "reason": "Published Chinese specifies recursive event, while frozen evidence only requires recurrence at intervals.",
+      "stage": "authoring"
+    },
+    {
+      "term": "red snapper",
+      "reason": "Published Chinese fish name is unclear and does not safely establish the species in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reformed",
+      "reason": "Published reformed or reformist senses do not clearly establish the frozen moral rehabilitation sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "refuse collector",
+      "reason": "Chinese denotes a collection vehicle or station, whereas the supplied gloss denotes a worker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "relay link",
+      "reason": "Published Chinese denotes a relay communication link; sole evidence defines an amplifier device rather than a link.",
+      "stage": "authoring"
+    },
+    {
+      "term": "relay station",
+      "reason": "Published interruption radio station is unclear and does not confidently denote the amplifier in the frozen gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "remora",
+      "reason": "Published Chinese denotes an obstacle; lexical gloss denotes suckerfish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "remote-controlled",
+      "reason": "Published remotely controlled differs from frozen merely uncrewed condition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rental collection",
+      "reason": "Published book-lending location differs from frozen collection of rentable books.",
+      "stage": "authoring"
+    },
+    {
+      "term": "repulsively",
+      "reason": "Published coldly differs from frozen offensively or hatefully.",
+      "stage": "authoring"
+    },
+    {
+      "term": "restriction site",
+      "reason": "Published Chinese is a mechanical restriction location; evidence defines a DNA cleavage site. Domain and sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "restrictive clause",
+      "reason": "Chinese denotes a restrictive economic contract provision, whereas the supplied gloss denotes a grammatical relative clause.",
+      "stage": "authoring"
+    },
+    {
+      "term": "retiring",
+      "reason": "Published impending retirement differs from evidence describing an already relinquished office or a shy disposition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rib cage",
+      "reason": "Chinese denotes the chest cavity, whereas the supplied gloss denotes its bony enclosing wall.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rice beer",
+      "reason": "Published calls the drink a beer, while frozen definition describes sake; deferred rather than importing a corrected beverage sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rifle range",
+      "reason": "Published Chinese is airgun target shooting, while frozen noun evidence is a rifle range location or bullet travel distance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "road builder",
+      "reason": "Published Chinese denotes a machine, while evidence denotes a person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "roast beef",
+      "reason": "Published Chinese and draft denote cooked roast beef, while the supplied noun gloss denotes a cut of beef suitable for roasting.",
+      "stage": "review"
+    },
+    {
+      "term": "roast lamb",
+      "reason": "Published Chinese denotes cooked roast lamb; lexical gloss denotes an uncooked cut suitable for roasting.",
+      "stage": "authoring"
+    },
+    {
+      "term": "roast pork",
+      "reason": "Published Chinese specifically denotes char siu; lexical gloss denotes a pork cut suitable for roasting.",
+      "stage": "authoring"
+    },
+    {
+      "term": "robot pilot",
+      "reason": "Published Chinese is an unclear mechanical indication, unsupported by the automatic-navigation-device gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rock lobster",
+      "reason": "Published clawed crustacean or lobster meat does not match frozen live clawless spiny lobster senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rocket scientist",
+      "reason": "Published Chinese restricts the term to a financial-market expert, while frozen evidence is an actual rocket engineer or clever thinker without that financial sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rod cell",
+      "reason": "Published Chinese contains a malformed cell name; a precise selected sense would require repairing the dictionary rather than simply selecting it.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rooted",
+      "reason": "Published rooted or entrenched senses lack the frozen absolutely-still sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rotor head",
+      "reason": "Published Chinese is a rotor hub, while frozen gloss specifies the rotor's axis; component identity is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "round bone",
+      "reason": "Published femur differs from frozen generic round-shaped bones.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rout up",
+      "reason": "Published Chinese denotes arousing; lexical gloss denotes finding by searching.",
+      "stage": "authoring"
+    },
+    {
+      "term": "royal court",
+      "reason": "Published Chinese means dynasty, while frozen evidence describes a sovereign's advisers or retinue.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rub up",
+      "reason": "Published Chinese describes rubbing/polishing, but the supplied noun gloss is a memory-refreshing review; POS/sense alignment fails.",
+      "stage": "authoring"
+    },
+    {
+      "term": "run-down",
+      "reason": "Published derelict land or personal exhaustion does not clearly match frozen unwound spring or mechanically worn condition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "run-through",
+      "reason": "Published reading through differs from frozen uninterrupted rehearsal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "running away",
+      "reason": "Published Chinese denotes running fire, not leaving a place without permission as in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "running game",
+      "reason": "Published Chinese denotes fast-break play; lexical gloss denotes carrying the ball in American football.",
+      "stage": "authoring"
+    },
+    {
+      "term": "running time",
+      "reason": "Published computing runtime conflicts with frozen film or television duration sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sacred cow",
+      "reason": "Published Chinese is the literal Hindu sacred cow; evidence only defines a criticism-exempt person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "saddle stitch",
+      "reason": "Published Chinese denotes magazine saddle binding; lexical gloss denotes a decorative sewing stitch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sadomasochism",
+      "reason": "Published Chinese gives only masochism, whereas frozen evidence requires combined sadism and masochism.",
+      "stage": "authoring"
+    },
+    {
+      "term": "safe harbor",
+      "reason": "Published Chinese is a safe port or refuge, whereas the only supplied gloss is a corporate takeover defense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "safety bolt",
+      "reason": "Reviewer C: published Chinese names a safety screw/bolt 螺栓, whereas the sole frozen gloss and authored translation describe a door or gate sliding bolt 门闩. Defer the different hardware identities rather than silently correct the published Chinese.",
+      "stage": "review"
+    },
+    {
+      "term": "safety razor",
+      "reason": "Published Chinese denotes a safety razor blade; evidence defines the entire guarded razor.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sagebrush",
+      "reason": "Published Chinese has an unclear narrower plant spelling, while the draft silently broadened it to all sagebrush shrubs; exact taxon mapping is unresolved.",
+      "stage": "review"
+    },
+    {
+      "term": "salaciousness",
+      "reason": "Published meaning is only a morphological cross-reference with no explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "salmon pink",
+      "reason": "Published Chinese gives orange-red or pale orange; evidence specifies pink tinged with yellow. Color category mismatch needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sample distribution",
+      "reason": "Published Chinese denotes sample or sampling distribution, while frozen gloss describes the selected sample items themselves.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sandwich plate",
+      "reason": "Published Chinese denotes a layered structural plate; evidence defines a sandwich meal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sausage roll",
+      "reason": "Published Chinese says sausage meat only, whereas evidence specifies sausage meat wrapped and baked in pastry. Chinese head sense requires review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "school crossing",
+      "reason": "Published Chinese is the act of escorting children across a road; evidence denotes the designated pedestrian crossing place.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scoring system",
+      "reason": "Published Chinese denotes a line-marking system; lexical gloss denotes classification by quality or amount.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scrag end",
+      "reason": "Published Chinese denotes sheep neck meat; evidence specifies veal neck meat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scratch up",
+      "reason": "Chinese means collect or scrape together, whereas the supplied gloss means damage a surface.",
+      "stage": "authoring"
+    },
+    {
+      "term": "screw up",
+      "reason": "Chinese tightening or encouragement does not cleanly match the supplied twisting, intensifying, raising, or ruining glosses in natural prose.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sea purse",
+      "reason": "Published Chinese is a shark or ray egg case, while frozen evidence is a seaward undercurrent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sea puss",
+      "reason": "Published Chinese denotes an ebb-tide current; lexical gloss denotes wave-generated seaward undercurrent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "second best",
+      "reason": "Published Chinese describes comparative quality; frozen noun gloss requires the competitor finishing second, not the same nominal referent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "see the light",
+      "reason": "Published Chinese gives revelation or understanding; evidence only gives changing for the better. No clear shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "seed corn",
+      "reason": "Published seed funding conflicts with frozen planting kernels.",
+      "stage": "authoring"
+    },
+    {
+      "term": "seed grain",
+      "reason": "Published crystallization-seed sense conflicts with frozen seeds reserved for planting.",
+      "stage": "authoring"
+    },
+    {
+      "term": "seedpod",
+      "reason": "Published Chinese denotes a carpel; lexical gloss denotes a mature dehiscent fruit or pod.",
+      "stage": "authoring"
+    },
+    {
+      "term": "selective information",
+      "reason": "Published Chinese only gives selection information, while frozen gloss specifically describes an uncertainty measure; the technical sense is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "self-enclosed",
+      "reason": "Chinese gives a technical self-closing sense, whereas the gloss gives self-imposed confinement.",
+      "stage": "authoring"
+    },
+    {
+      "term": "self-raising flour",
+      "reason": "Published Chinese incorrectly specifies yeast; a current example would risk preserving that ingredient error. Resolve base definition separately before adding.",
+      "stage": "authoring"
+    },
+    {
+      "term": "self-reliant",
+      "reason": "Published Chinese means headstrong or acting arbitrarily, whereas evidence denotes independence from outside control. Cannot safely substitute the usual Chinese self-reliant sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "self-rising flour",
+      "reason": "Published Chinese incorrectly specifies yeast; a current example would risk preserving that ingredient error. Resolve base definition separately before adding.",
+      "stage": "authoring"
+    },
+    {
+      "term": "semantic memory",
+      "reason": "Chinese denotes a computer storage device, whereas the supplied gloss denotes human memory for meanings and facts.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensible horizon",
+      "reason": "Published Chinese denotes the sensible horizon circle, while evidence defines the apparent sky-Earth boundary. Technical horizon types need review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sent",
+      "reason": "Published Chinese describes the past forms of send, but frozen allowed POS are noun/adjective and the noun evidence is an Estonian currency unit. No safely aligned grammatical example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "serve well",
+      "reason": "Published Chinese means serving a ball well or providing good service; frozen gloss means benefiting or being useful to someone.",
+      "stage": "authoring"
+    },
+    {
+      "term": "set chisel",
+      "reason": "Chinese specifies a rivet-head removal chisel, whereas the gloss specifies a stone or brick cutting chisel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "set square",
+      "reason": "Published Chinese is a triangular set square, while frozen gloss describes an adjustable sliding-head try square.",
+      "stage": "authoring"
+    },
+    {
+      "term": "set-aside",
+      "reason": "Published Chinese means cancellation; adjective evidence means reserved beforehand. Sense and POS conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sewage farm",
+      "reason": "Published Chinese means sewage treatment facility; evidence is farmland irrigated and fertilized with raw sewage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sewn",
+      "reason": "Independent review: published Chinese only identifies sew's past participle; it supplies no explicit Chinese adjective sense for selected 缝上的.",
+      "stage": "review"
+    },
+    {
+      "term": "sexual assault",
+      "reason": "Published Chinese is the broader and different offence against public decency, while frozen evidence requires forced unwanted sexual acts.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shaken",
+      "reason": "Independent review: published Chinese only identifies shake's past participle; it supplies no explicit Chinese adjective sense for psychological disturbance.",
+      "stage": "review"
+    },
+    {
+      "term": "shattering",
+      "reason": "Published Chinese gives shocking, exhausting, or broken; evidence only defines violently loud rattling or clattering. No clear shared adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shifting",
+      "reason": "Published Chinese restricts sense to computing shift operation; evidence only supplies physical relocation and changing-position adjectives.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shine up",
+      "reason": "Published Chinese covers shining/lighting or devotion, whereas the available verb evidence is insincere ingratiation; no reliable shared selected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ship's bell",
+      "reason": "Published Chinese denotes the bell instrument, while frozen noun evidence denotes half-hour nautical time units.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shod",
+      "reason": "Independent review: published Chinese only identifies shoe's past forms and supplies no explicit Chinese adjective sense for wearing footwear.",
+      "stage": "review"
+    },
+    {
+      "term": "shoo-in",
+      "reason": "Published Chinese denotes a certain winner; sole evidence denotes an easy victory. Winner-versus-event mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shook",
+      "reason": "Published Chinese describes past tense of shake; sole noun evidence denotes disassembled barrel parts.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shorn",
+      "reason": "Independent review: published Chinese only identifies shear's past participle and supplies no explicit Chinese adjective sense for clipped hair or wool.",
+      "stage": "review"
+    },
+    {
+      "term": "short iron",
+      "reason": "Published Chinese means brittle iron; evidence defines a golf club. Source conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "short shrift",
+      "reason": "Published Chinese concerns last confession or a brief dying interval; frozen gloss is a brief unsympathetic rejection.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shoulder flash",
+      "reason": "Independent review: published Chinese names an arm badge (臂章), while the frozen gloss specifies a shoulder-worn military emblem and the authored translation uses 肩章. The anatomical/uniform-insignia alignment is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "shoulder in",
+      "reason": "Published Chinese is a sports inward-shoulder turn, while frozen evidence is pushing into a space with one's shoulders.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shoulder pad",
+      "reason": "Published Chinese denotes a shoulder attenuator, incompatible with the protective sports garment gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shovel in",
+      "reason": "Published Chinese denotes using a shovel; both lexical glosses concern eating quickly or earning money.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shrimp sauce",
+      "reason": "Chinese denotes shrimp oil or fermented shrimp paste, whereas the gloss specifies a cream-and-shrimp-butter white sauce.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shut in",
+      "reason": "Published confinement senses do not confidently establish the frozen surround-completely sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sick joke",
+      "reason": "Published failed-to-amuse result does not establish the frozen bad-taste quality.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sick parade",
+      "reason": "Published Chinese denotes sick personnel; evidence denotes a daily military formation/reporting event.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sight-read",
+      "reason": "Independent review: published Chinese denotes improvised playing or reading, whereas frozen evidence requires performing from an unseen written score; improvisation and sight-reading are different skills.",
+      "stage": "review"
+    },
+    {
+      "term": "sighting",
+      "reason": "Published Chinese gives aiming or line of sight; sole evidence gives an act of observation. No secure shared sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "signature tune",
+      "reason": "Only generic 音调 is supplied in Chinese, missing the identifying theme melody central to the evidence; source clarification is needed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "signing",
+      "reason": "Published Chinese denotes signing a document; sole evidence denotes sign language.",
+      "stage": "authoring"
+    },
+    {
+      "term": "single prop",
+      "reason": "Published Chinese means a single supporting prop, while frozen evidence means a single-propeller aircraft.",
+      "stage": "authoring"
+    },
+    {
+      "term": "siphon off",
+      "reason": "Published Chinese denotes sucking, while frozen evidence specifically denotes draining by a siphon; the manner is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ski jump",
+      "reason": "Published Chinese describes the skiing event, while noun evidence denotes its ramp; verb usage is uncertain under this head form.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ski rack",
+      "reason": "Chinese 雪橇架 names a sled rack rather than clearly identifying the vehicle-top ski carrier in the evidence; repair the equipment translation first.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sky pilot",
+      "reason": "Published Chinese is aircraft pilot, while frozen noun evidence is military chaplain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slain",
+      "reason": "Independent review: published Chinese only identifies slay's participle and gives no actual Chinese adjective sense for killed.",
+      "stage": "review"
+    },
+    {
+      "term": "slate club",
+      "reason": "Published Chinese names a mutual-credit fund, while frozen gloss names a savings group rather than the fund.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sleeping sickness",
+      "reason": "Published Chinese commonly identifies trypanosomiasis while frozen gloss specifically describes historical encephalitis lethargica; disease identity needs separate verification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slide down",
+      "reason": "Published Chinese denotes a specific sports sliding-seat action; evidence denotes falling or sinking heavily.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slip in",
+      "reason": "Published secretly entering intransitive sense differs from frozen casually inserting something.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slow-witted",
+      "reason": "Evidence uses an outdated intellectual-development classification while published Chinese only means mentally slow. Avoid conflating speed of understanding with a diagnosis.",
+      "stage": "authoring"
+    },
+    {
+      "term": "smitten",
+      "reason": "Independent review: published Chinese only identifies smite's past participle, with no corresponding infatuated adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "snooker table",
+      "reason": "Independent review: published Chinese names the snooker-specific table, while the sole frozen gloss names a table for pool. The distinct cue-game scope is uncertain in this frozen evidence.",
+      "stage": "review"
+    },
+    {
+      "term": "soaked",
+      "reason": "Published Chinese means wet through; sole adjective evidence means very drunk.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sobering",
+      "reason": "Independent review: published adjective senses describe being sober or calm, whereas frozen adjective and example describe causing sobriety or seriousness; causative meanings occur only under the published verb portion.",
+      "stage": "review"
+    },
+    {
+      "term": "sold",
+      "reason": "Independent review: published Chinese only identifies sell's past forms and supplies no explicit sold adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "sought",
+      "reason": "Independent review: published Chinese only identifies seek's past forms and supplies no explicit sought adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "sound camera",
+      "reason": "Independent review: published 同音摄影机 is unclear and does not securely establish the synchronized sound-recording camera sense. Retaining 有声摄影机 would silently replace that uncertain label.",
+      "stage": "review"
+    },
+    {
+      "term": "sound unit",
+      "reason": "Published Chinese is audio equipment, while frozen gloss denotes an acoustic measurement unit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sown",
+      "reason": "Independent review: published Chinese only identifies sow's participle and supplies no explicit seeded adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "spacy",
+      "reason": "Published Chinese means spacious; evidence means stupefied as if by drugs.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spare tire",
+      "reason": "Chinese denotes a replacement wheel tire, whereas the supplied gloss denotes excess waist fat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "speeding",
+      "reason": "Published Chinese specifically means exceeding a speed limit; sole evidence only means moving rapidly, which need not be unlawful.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sperm cell",
+      "reason": "Published Chinese can identify an immature spermatid stage, whereas the supplied gloss specifies a male gamete; the exact developmental cell mapping is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "spewer",
+      "reason": "Chinese denotes a litterbug, whereas the supplied gloss denotes a person vomiting.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spice cake",
+      "reason": "Published Chinese specifies vanilla cake, while the gloss specifies spices generally; the flavor mapping is not reliable.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spiked",
+      "reason": "Published Chinese says having ears/spikes as a plant structure; sole evidence says having a long sharp point. No secure aligned adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spit curl",
+      "reason": "Independent review: published Chinese supplies only an unresolved kiss-curl cross-reference, not a Chinese sense. Resolve the source reference separately before claiming bilingual alignment.",
+      "stage": "review"
+    },
+    {
+      "term": "spoilt",
+      "reason": "Independent review: published Chinese only identifies spoil's past forms and supplies no explicit pampered adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "spot welder",
+      "reason": "Published Chinese denotes a welding machine; supplied lexical gloss denotes a welding worker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spring training",
+      "reason": "Published Chinese says Spring Festival training, but evidence specifies preseason training in spring. Calendar/season mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "squawk box",
+      "reason": "Published Chinese denotes an intercom device; lexical gloss specifically denotes its loudspeaker or a PA loudspeaker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "squirrel cage",
+      "reason": "Published Chinese denotes monotonous work; lexical gloss denotes a rotating animal cage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stablemate",
+      "reason": "Published Chinese denotes a boxer sharing an employer; lexical gloss denotes a horse sharing a stable or owner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stack up",
+      "reason": "Chinese means add together, whereas the supplied gloss means physically arrange into stacks.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stamp down",
+      "reason": "Published Chinese means physically stamp flat; evidence only means suppress by force or authority.",
+      "stage": "authoring"
+    },
+    {
+      "term": "standard gauge",
+      "reason": "Published Chinese denotes a measuring gauge, while evidence denotes railway track width.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stargazing",
+      "reason": "Published Chinese supplies staring, absent-mindedness, and daydreaming; evidence only defines observing stars.",
+      "stage": "authoring"
+    },
+    {
+      "term": "starting block",
+      "reason": "Published computing sense is initial block; sole frozen gloss is a runner's foot-bracing block.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stateless person",
+      "reason": "Chinese denotes lack of nationality; available WordNet evidence instead describes a refugee forced to flee. These categories are not interchangeable.",
+      "stage": "authoring"
+    },
+    {
+      "term": "station keeper",
+      "reason": "Published Chinese is a formation-position holding device, while frozen gloss is a police duty sergeant.",
+      "stage": "authoring"
+    },
+    {
+      "term": "steel band",
+      "reason": "Published Chinese is a metal strip, while frozen evidence is a percussion music group.",
+      "stage": "authoring"
+    },
+    {
+      "term": "steelman",
+      "reason": "Chinese is a literal steel-man term, whereas the supplied gloss denotes a steelworker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stick shift",
+      "reason": "Published Chinese is the gear lever, while frozen noun gloss denotes the complete manual transmission.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stick up",
+      "reason": "Published erecting sense is absent from frozen defending or armed robbery senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stitching",
+      "reason": "Published Chinese is contaminated with unrelated stock/handle/inventory senses and a mechanical welding label; evidence is sewing by stitches. Requires source repair.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stock-in-trade",
+      "reason": "Independent review: published stock inventory or figurative habitual methods does not establish the sole frozen occupational-equipment sense used for brushes.",
+      "stage": "review"
+    },
+    {
+      "term": "stoned",
+      "reason": "Published Chinese supplies having/removing fruit stones and alcohol drunkenness; evidence specifically denotes narcotic intoxication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "storm cone",
+      "reason": "Published Chinese specifies a warning ball, but the lexical gloss and draft specify a conical warning signal; shape mapping conflicts.",
+      "stage": "review"
+    },
+    {
+      "term": "straight flute",
+      "reason": "Published Chinese denotes a straight groove; the gloss denotes a rock drill having such grooves.",
+      "stage": "authoring"
+    },
+    {
+      "term": "straight pin",
+      "reason": "Published Chinese denotes a direct plug-in action, not the physical dressmaking pin in evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "streaming",
+      "reason": "Independent review: published electrical 流 does not establish the frozen continuous tape transport adjective; selected technical adjective imports an unpublished sense.",
+      "stage": "review"
+    },
+    {
+      "term": "stressed",
+      "reason": "Published Chinese is emotional pressure/nervousness; adjective evidence only supplies accented syllables or severe physical strain. No secure matching sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "string up",
+      "reason": "Published Chinese gives exciting or sensitizing someone; evidence gives stringing objects or execution by hanging.",
+      "stage": "authoring"
+    },
+    {
+      "term": "struck",
+      "reason": "Published adjective means strike-affected, while sole adjective evidence means overwhelmed in compounds. Past-form note alone does not select the intended adjective sense safely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "strung",
+      "reason": "Independent review: published Chinese only identifies string's past forms and gives no explicit Chinese adjective sense for on a string.",
+      "stage": "review"
+    },
+    {
+      "term": "stuck",
+      "reason": "Independent review: published Chinese only identifies stick's past forms and gives no explicit Chinese adjective sense for caught or fixed.",
+      "stage": "review"
+    },
+    {
+      "term": "stung",
+      "reason": "Independent review: published Chinese only identifies sting's past forms and gives no explicit Chinese adjective sense for anger.",
+      "stage": "review"
+    },
+    {
+      "term": "subcompact car",
+      "reason": "Published Chinese says ordinary-class sedan; evidence defines a car smaller than a compact. Size-class mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "subsequence",
+      "reason": "Chinese includes a mathematical subsequence sense but supplied glosses only establish temporal following; a natural unambiguous shared example is not secure.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sugar candy",
+      "reason": "Chinese offers rock sugar or a figurative sweet thing, while available evidence is generic boiled hard sugar candy; avoid silently teaching a different confection.",
+      "stage": "authoring"
+    },
+    {
+      "term": "summary judgement",
+      "reason": "Reviewer C: published Chinese 即决审判 denotes summary adjudication/trial procedure, whereas the frozen gloss and authored selected Chinese identify the resulting judgment 即决判决. Defer this legal procedure-versus-decision uncertainty rather than silently substitute terminology.",
+      "stage": "review"
+    },
+    {
+      "term": "sun deck",
+      "reason": "Independent review: published balcony, sports deck, or shaded deck does not clearly establish the sole frozen unroofed-deck sense selected as 露天甲板.",
+      "stage": "review"
+    },
+    {
+      "term": "sunk",
+      "reason": "Published adjective means indented; sole evidence means doomed. Morphological note does not resolve intended sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "superoxide",
+      "reason": "Published Chinese denotes peroxide, a different chemical species from the superoxide anion and compounds in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "supreme headquarters",
+      "reason": "Chinese denotes headquarters as a place, whereas the supplied gloss denotes the highest leaders themselves.",
+      "stage": "authoring"
+    },
+    {
+      "term": "surface mine",
+      "reason": "Published Chinese denotes a mine noun, while frozen evidence is the verb of extracting ore by strip mining.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sweep up",
+      "reason": "Published Chinese means clean by sweeping; evidence only means adopt a cause or force someone into a situation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sweet basil",
+      "reason": "Published Chinese specifies purple-flowered basil; supplied plant gloss specifies white flowers, so the narrower botanical mapping is unresolved.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swept",
+      "reason": "Only a past-form note is published and sole gloss says possessing sweep without a clear contextual sense. Insufficient adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swing shift",
+      "reason": "Published replacement or reserve shift differs from the frozen evening work period.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sword stick",
+      "reason": "Published Chinese says fencing thrust; evidence defines a cane concealing a blade.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sworn",
+      "reason": "Independent review: published Chinese only identifies swear's participle and gives no explicit oath-bound adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "synthetic heroin",
+      "reason": "Published Chinese literally denotes synthesized heroin; supplied gloss describes methadone, a different drug.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tabular matter",
+      "reason": "Published Chinese denotes table typesetting as an activity, while the lexical gloss and draft denote information arranged in tables.",
+      "stage": "review"
+    },
+    {
+      "term": "tachograph",
+      "reason": "Published Chinese is a rotational-speed chart; evidence defines a recording instrument.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tail gate",
+      "reason": "Reviewer C: published Chinese denotes the whole navigation lock, but the gloss and example denote the downstream gate component. The authored translation silently supplies the unpublished component sense.",
+      "stage": "review"
+    },
+    {
+      "term": "take home",
+      "reason": "Published Chinese denotes escorting home or emergency return flight; lexical gloss denotes earning wages.",
+      "stage": "authoring"
+    },
+    {
+      "term": "take in charge",
+      "reason": "Published arrest sense is not established by frozen accepting responsibility gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "taken",
+      "reason": "Published Chinese supplies only take's past participle, while adjective glosses cover indisposition or interpreted meaning. No clear adjective construction supported independently of passive verbs.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tampering",
+      "reason": "Published Chinese means bribery or buying someone off; evidence means secretly or improperly altering something.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tank circuit",
+      "reason": "Reviewer C: published electrical Chinese is the literal military-tank phrase 坦克电路, while the frozen gloss defines an oscillatory circuit. The authored Chinese silently substitutes the unpublished corrected term 谐振回路. Defer the erroneous frozen Chinese identity.",
+      "stage": "review"
+    },
+    {
+      "term": "tanker plane",
+      "reason": "Published Chinese denotes an aerial refueling aircraft; evidence denotes a firefighting chemical tanker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tanned",
+      "reason": "Independent review: published medical tannic-acid treatment does not securely establish the leather-conversion sense in the frozen evidence; generic tanned leather also does not establish tannic acid use.",
+      "stage": "review"
+    },
+    {
+      "term": "tape deck",
+      "reason": "Published Chinese denotes a tape-card group, incompatible with frozen audio equipment sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tart up",
+      "reason": "Published Chinese denotes adding flavor or interest; lexical glosses denote cheap flashy dress or decoration.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tax assessment",
+      "reason": "Published determination of tax amount differs from frozen assessed property value.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tea cloth",
+      "reason": "Published wiping cloth differs from the frozen small tablecloth sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tear apart",
+      "reason": "Published literal tearing or emotional separation lacks the frozen severely criticize sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "teasing",
+      "reason": "Published Chinese is a medical needle-dissection procedure; evidence only gives combing, harassment, and associated adjectives.",
+      "stage": "authoring"
+    },
+    {
+      "term": "telefax",
+      "reason": "Chinese denotes a fax machine, whereas the published POS and gloss require a sending verb.",
+      "stage": "authoring"
+    },
+    {
+      "term": "temazepam",
+      "reason": "Independent review: frozen Chinese supplies 羟基安定 but does not explicitly establish the selected transliteration 替马西泮; exact drug-name identity cannot be verified confidently from this evidence alone.",
+      "stage": "review"
+    },
+    {
+      "term": "tenor drum",
+      "reason": "Published Chinese specifies a high-pitched drum, conflicting with the tenor headword; the broad supplied gloss does not resolve the register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "terahertz",
+      "reason": "Chinese denotes megahertz, whereas the gloss gives a trillion cycles per second.",
+      "stage": "authoring"
+    },
+    {
+      "term": "territorial division",
+      "reason": "Published operational forestry subdivision is too specific to establish equivalence with frozen administrative district.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tetrad",
+      "reason": "Published noun senses denote a group or chromosomal structure, whereas the sole supplied gloss is the cardinal four.",
+      "stage": "authoring"
+    },
+    {
+      "term": "three-card monte",
+      "reason": "Published Chinese describes the three-card confidence trick; evidence describes a different Spanish betting/dealing game. Cannot compose one precise aligned example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "throw in",
+      "reason": "Published senses describe throwing, engagement, or joining a partnership; frozen senses are interpolation, surrender, or adding a free extra.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thrown",
+      "reason": "Independent review: published Chinese only identifies throw's participle and supplies no actual adjective sense for caused to fall.",
+      "stage": "review"
+    },
+    {
+      "term": "tip in",
+      "reason": "Published Chinese is inserting a book plate/page; evidence is a basketball tip-in noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "token economy",
+      "reason": "Independent review: published Chinese describes a token-currency economy, while the sole frozen gloss and authored psychology context describe a behavioral-therapy reinforcement system. The economic-versus-therapeutic sense is not securely aligned.",
+      "stage": "review"
+    },
+    {
+      "term": "tone-deaf",
+      "reason": "Published Chinese specifies inability to distinguish pitch; evidence only says unable to appreciate music. These capacities should not be equated.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tool kit",
+      "reason": "Independent review: published Chinese denotes a tool container, while the sole frozen WordNet noun denotes a set of carpenter tools; selected 工具套装 silently changed the published container sense.",
+      "stage": "review"
+    },
+    {
+      "term": "tooth socket",
+      "reason": "Chinese denotes a dental covering or brace, whereas the gloss is the bony alveolus holding a tooth.",
+      "stage": "authoring"
+    },
+    {
+      "term": "toothed wheel",
+      "reason": "Published Chinese denotes a gear; lexical gloss denotes a wheel that perforates material.",
+      "stage": "authoring"
+    },
+    {
+      "term": "top quark",
+      "reason": "Frozen evidence calls the top quark hypothetical, an outdated substantive status. Defer pending evidence correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tore",
+      "reason": "Published Chinese is past tense of tear; noun evidence is a column-base molding.",
+      "stage": "authoring"
+    },
+    {
+      "term": "torn",
+      "reason": "Independent review: published Chinese only identifies tear's participle and supplies no actual jagged-edge adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "toss in",
+      "reason": "Published Chinese means abandon or end; sole evidence means casually add to conversation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "touchy-feely",
+      "reason": "Published Chinese specifically denotes touch therapy; evidence means openly affectionate, especially through touch. No shared adjective sense established.",
+      "stage": "authoring"
+    },
+    {
+      "term": "toy soldier",
+      "reason": "Published Chinese appears to be an entertainment title, while frozen noun evidence is a soldier doll.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tracking",
+      "reason": "Published Chinese explicitly denotes computing tracking; evidence is following a person or animal's physical traces.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trade unionist",
+      "reason": "Published Chinese specifies a syndicalist ideology adherent; evidence merely means a labor-union member. Cannot equate ideology with membership.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trailer truck",
+      "reason": "Independent review: published 拖车 may denote only the trailer, while the sole English gloss specifies the combined tractor-and-trailer vehicle, as already deferred for articulated lorry.",
+      "stage": "review"
+    },
+    {
+      "term": "transit zone",
+      "reason": "Published Chinese is a generic transit area; sole evidence identifies a specific large Caribbean/Pacific drug-smuggling region. Geographic proper-sense scope needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "transmission density",
+      "reason": "Independent review: published computing transmission density is not the physics optical transmission/透射密度 sense selected in the sentence and sole gloss.",
+      "stage": "review"
+    },
+    {
+      "term": "transmission mechanism",
+      "reason": "Published Chinese denotes a mechanical drive; evidence denotes infectious-disease transmission.",
+      "stage": "authoring"
+    },
+    {
+      "term": "treble staff",
+      "reason": "Reviewer C: frozen gloss and example describe the G clef symbol rather than a treble staff. Published Chinese lists both staff and clef, but teaching the staff itself as a curled symbol is a false identification.",
+      "stage": "review"
+    },
+    {
+      "term": "tripoli",
+      "reason": "Chinese denotes diatomaceous earth, whereas the supplied gloss denotes decomposed siliceous limestone used for polishing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trust corporation",
+      "reason": "Published Chinese specifies charitable trust organization, while frozen gloss describes a commercial trust-service institution without that charitable restriction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "turn-on",
+      "reason": "Published Chinese denotes electrical activation; sole evidence means a source of excitement.",
+      "stage": "authoring"
+    },
+    {
+      "term": "turned on",
+      "reason": "Chinese gives turning or powering on, whereas frozen adjective gloss denotes sexual arousal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "twilight zone",
+      "reason": "Chinese gives an impoverished city district, unlike either supplied ambiguous-region or ocean-depth gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "umlaut",
+      "reason": "Published Chinese is vowel mutation, but sole noun evidence defines the two-dot diacritic. Sound change and written mark should not be silently conflated.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unassignable",
+      "reason": "Chinese denotes not yet assigned a value, whereas the gloss denotes incapable of transfer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncorrectable",
+      "reason": "Chinese means unable to be corrected, whereas the supplied gloss means unable to be controlled or managed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "under wraps",
+      "reason": "Published Chinese describes confinement or restriction, while sole frozen adjective means kept secret.",
+      "stage": "authoring"
+    },
+    {
+      "term": "underdone",
+      "reason": "Independent review: published Chinese only identifies underdo's participle and supplies no actual insufficiently-cooked adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "understood",
+      "reason": "Independent review: published Chinese only identifies understand's past forms and supplies no actual implied-or-inferred adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "undivided interest",
+      "reason": "Published Chinese means undivided interest payments, while frozen gloss is an ownership right in shared property.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unearned run",
+      "reason": "Published Chinese attributes the error to the pitcher and calls the run non-active; evidence defines a run due to an opposing-team error. Definition conflict needs correction before example selection.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uniform resource locator",
+      "reason": "Chinese denotes a locating system, whereas the gloss denotes a web-page address.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uniformed",
+      "reason": "Published Chinese gives making things uniform; adjective evidence means wearing a uniform.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unoriented",
+      "reason": "Chinese denotes a technical undirected state, whereas the supplied gloss is an unset or unascertained position or goal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unreduced",
+      "reason": "Chinese denotes irreducibility, whereas the supplied gloss denotes not having undergone reduction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unsaid",
+      "reason": "Independent review: published Chinese only identifies unsay's past forms and supplies no actual not-explicit adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "unsecured bond",
+      "reason": "Published Chinese denotes an unsecured bond; lexical gloss instead defines credit before payment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uplifted",
+      "reason": "Published Chinese means physically raised; adjective evidence means emotionally exalted.",
+      "stage": "authoring"
+    },
+    {
+      "term": "upsetting",
+      "reason": "Published Chinese is metal upsetting/forging; adjective evidence means emotionally disturbing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "urban center",
+      "reason": "Chinese specifies a city center district, whereas the supplied gloss denotes an entire densely populated urban area.",
+      "stage": "authoring"
+    },
+    {
+      "term": "urban guerrilla",
+      "reason": "Published Chinese denotes a guerrilla group or organization; lexical gloss denotes an individual fighter.",
+      "stage": "authoring"
+    },
+    {
+      "term": "urban renewal",
+      "reason": "Published Chinese specifies urban beautification; the supplied gloss describes clearing and rebuilding slums. The draft silently replaces this with the distinct redevelopment sense.",
+      "stage": "review"
+    },
+    {
+      "term": "vacuum bag",
+      "reason": "Published vacuum bag does not clearly identify the vacuum-cleaner dust bag in frozen evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "varicose vein",
+      "reason": "Independent review: published Chinese names the condition 静脉曲张, while the sole frozen gloss and selected sense denote an individual vein. The condition-versus-structure referent is uncertain.",
+      "stage": "review"
+    },
+    {
+      "term": "variometer",
+      "reason": "Chinese gives a variable inductor or barometer, whereas the supplied gloss denotes a magnetic-field variation meter.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vertical angle",
+      "reason": "Published Chinese says right angle; evidence defines opposite angles formed by intersecting lines.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vertical bank",
+      "reason": "Published Chinese denotes electrical contacts; lexical gloss denotes an aircraft banking maneuver.",
+      "stage": "authoring"
+    },
+    {
+      "term": "veterinary surgeon",
+      "reason": "Published Chinese denotes surgery as a discipline, while the gloss denotes a veterinary doctor.",
+      "stage": "authoring"
+    },
+    {
+      "term": "view finder",
+      "reason": "Independent review: published 取录器 or 探视器 does not confidently establish photographic 取景器; authored selected sense silently repairs an unclear source.",
+      "stage": "review"
+    },
+    {
+      "term": "virgin birth",
+      "reason": "Published Chinese specifies biological parthenogenesis, especially plants; sole evidence specifies human conception without fertilization. Scope and sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "visual range",
+      "reason": "Published Chinese denotes a visible area, while frozen gloss specifically measures visibility distance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vowel sound",
+      "reason": "Published Chinese denotes vowel intelligibility rather than the vowel speech sound in the gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "waffle iron",
+      "reason": "Chinese denotes a split electrical core, whereas the supplied gloss denotes a waffle-baking appliance.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wagon tire",
+      "reason": "Published Chinese denotes a trailer tire; the gloss specifies a metal wheel hoop, without support for a clear matching selected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "waiting list",
+      "reason": "Published POS is proper noun for a common noun phrase; resolve that base classification rather than bypass it during example composition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wash one's hands",
+      "reason": "Published Chinese means physically wash hands or use the toilet; sole evidence means disclaim responsibility.",
+      "stage": "authoring"
+    },
+    {
+      "term": "watch cap",
+      "reason": "Published Chinese denotes a smoke cap, incompatible with frozen knitted seaman cap.",
+      "stage": "authoring"
+    },
+    {
+      "term": "water cooler",
+      "reason": "Published technical Chinese names a water-cooling apparatus; the supplied gloss specifically names a drinking-water cooling and dispensing device. The draft silently replaced the published equipment sense.",
+      "stage": "review"
+    },
+    {
+      "term": "watering hole",
+      "reason": "Published Chinese gives waterhole or drinking establishment; frozen gloss identifies a health resort near water.",
+      "stage": "authoring"
+    },
+    {
+      "term": "way-out",
+      "reason": "Published Chinese gives abstract or unclear; evidence means strikingly unconventional.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ways and means",
+      "reason": "Chinese gives generic methods, whereas the supplied gloss specifically denotes financial resources or revenue-raising legislation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "weaving",
+      "reason": "Published Chinese specifies a mechanical oscillating motion; sole evidence means making woven fabric.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wedge bone",
+      "reason": "Published Chinese identifies the anatomical cuneiform bone; evidence defines a beef sirloin cut.",
+      "stage": "authoring"
+    },
+    {
+      "term": "weighed down",
+      "reason": "Published Chinese supplies causative verb senses, not the burdened adjective in frozen evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "well-adjusted",
+      "reason": "Published Chinese describes good social adjustment; sole evidence equates this with absence of psychological disorder. Avoid teaching that unsupported equivalence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wet blanket",
+      "reason": "Published Chinese lists wet blanket literally and a spoiling event; evidence only denotes a person who spoils others' enjoyment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wheat berry",
+      "reason": "Published Chinese denotes the floury endosperm, while the lexical glosses denote a whole wheat grain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "white turnip",
+      "reason": "Published Chinese denotes white radish, while frozen evidence denotes turnip; these are different vegetables.",
+      "stage": "authoring"
+    },
+    {
+      "term": "whiting",
+      "reason": "Published Chinese is chalk/calcium carbonate; every supplied evidence gloss denotes fish or fish flesh.",
+      "stage": "authoring"
+    },
+    {
+      "term": "whole number",
+      "reason": "Independent review: selected nonnegative-integer sense conflicts with the frozen explicit inclusion of negative integers. Resolve the scope of the base definition before attaching this mathematical example.",
+      "stage": "review"
+    },
+    {
+      "term": "widening",
+      "reason": "Published Chinese is explicitly a computing widening operation; evidence only supplies physical width increases and road widenings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wild rice",
+      "reason": "Independent review: published 野生稻/稆 can identify wild rice plants or volunteer rice, while the frozen gloss specifically identifies the North American aquatic grass and its grain. Botanical identity is uncertain; do not silently replace the source with 野米.",
+      "stage": "review"
+    },
+    {
+      "term": "wildcat strike",
+      "reason": "Published Chinese denotes intentional breach of contract; lexical gloss denotes an unauthorized labor strike.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wilt disease",
+      "reason": "Published Chinese says leaf-shedding disease; evidence defines drooping and shriveling plant disease. Symptom/sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "windfall profit",
+      "reason": "Published Chinese denotes an accommodation/fictitious bill; evidence means an unexpected profit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "window pane",
+      "reason": "Published window glass conflicts with frozen LSD slang.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wine sauce",
+      "reason": "Published Chinese is cooking wine, while frozen evidence is a seasoned sauce made with wine.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wing screw",
+      "reason": "Published Chinese identifies a screw; sole evidence defines a wing nut. Hardware identity mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wing tip",
+      "reason": "Published Chinese is an aircraft wing tip, while frozen evidence describes shoe toe decoration or a shoe.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wiped out",
+      "reason": "Chinese denotes exhaustion, whereas supplied adjective glosses denote complete or financial destruction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wiper arm",
+      "reason": "Published electrical Chinese 接带臂 is unclear and may be corrupt; do not silently replace it with the distinct rotary electrical-contact sense supplied by the evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wishy-washy",
+      "reason": "Published Chinese gives insipid or vague; evidence describes weak willpower/courage/vitality. No clearly aligned adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wisteria",
+      "reason": "Published Chinese uses an unclear plant spelling; defer rather than silently replace it with the standard name for Wisteria.",
+      "stage": "authoring"
+    },
+    {
+      "term": "witch-hunt",
+      "reason": "Published Chinese means literal pursuit of witches; sole evidence describes harassment of dissenters.",
+      "stage": "authoring"
+    },
+    {
+      "term": "withdrawn",
+      "reason": "Independent review: published Chinese only identifies withdraw's participle and supplies no actual socially reserved adjective sense.",
+      "stage": "review"
+    },
+    {
+      "term": "won",
+      "reason": "Published Chinese only gives win's past forms; noun evidence is Korean currency and adjective evidence means undefeatable. No securely aligned allowed POS sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "working out",
+      "reason": "Published Chinese means an advancing mining method; evidence means painstaking detailed development. No supported common sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "woven",
+      "reason": "Published Chinese only identifies weave's participle, without a Chinese adjective definition; do not invent a sense-aligned Chinese definition in this examples-only batch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "writing system",
+      "reason": "Chinese denotes a write-in computer system, whereas the gloss denotes orthography.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yellowtail",
+      "reason": "Published Chinese specifies a croaker species; supplied glosses denote California yellowtail or a tropical Atlantic fish with a yellow stripe.",
+      "stage": "authoring"
+    },
+    {
+      "term": "zero-coupon bond",
+      "reason": "Published Chinese improperly narrows the general bond category to government bonds. Do not teach the narrowed translation as a general equivalent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "zip up",
+      "reason": "Published Chinese denotes adding flavor or interest; lexical gloss denotes closing a zipper.",
+      "stage": "authoring"
+    },
+    {
+      "term": "zoom in",
+      "reason": "Chinese means reduce or zoom out, whereas the supplied gloss means focus closely.",
+      "stage": "authoring"
+    }
+  ],
+  "reviewScope": "AI cross-reviewed selected-sense original bilingual examples; not human certification or exhaustive sense coverage."
+}
