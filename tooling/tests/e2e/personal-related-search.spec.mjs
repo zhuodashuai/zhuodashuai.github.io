@@ -78,6 +78,49 @@ test("mobile Chinese synonym choices keep source definitions, direct-first order
   await expect(page.locator(".personal-entry")).toHaveCount(0);
 });
 
+test("member colloquial doctor lookup can fill a draft only after selection without automatic private or public saving", async ({ context, page }) => {
+  await page.setViewportSize({ width: 390, height: 844 }); await openMember(context, page);
+  const writes = [], foreign = [];
+  page.on("request", request => {
+    if (!["GET", "HEAD"].includes(request.method())) writes.push(request.url());
+    if (new URL(request.url()).origin !== ORIGIN) foreign.push(request.url());
+  });
+  await query(page, "大夫", { empty: true });
+  await expect(choice(page, "doctor")).toBeVisible();
+  await expect(choice(page, "physician")).toBeVisible();
+  await expect(choice(page, "doctor")).toContainText("近义关联：医生");
+  await choice(page, "doctor").click();
+  await expect(page.locator("#member-dictionary-word")).toHaveText("doctor");
+  await expect(page.locator("#member-dictionary-pos")).toHaveText("noun · verb");
+  await expect(page.locator("#member-dictionary-meaning")).toContainText("医生");
+  await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：医生");
+  await expect(page.locator("#member-dictionary-status")).toContainText("ECDICT");
+  await expect(page.locator("#member-term")).toHaveValue("");
+  await expect(page.locator("#member-dictionary-collection-status")).toBeHidden();
+  await expect(page.locator(".personal-entry")).toHaveCount(0);
+  expect(writes).toEqual([]); expect(foreign).toEqual([]);
+  await page.locator("#member-dictionary-use").click();
+  await expect(page.locator("#member-term")).toHaveValue("doctor");
+  await expect(page.locator(".personal-entry")).toHaveCount(0);
+  const entries = await context.request.get(`${API}/entries`, { headers: { "X-Wordbook-Auth": "member", "X-Wordbook-Fields": "partOfSpeech" } });
+  expect((await entries.json()).entries).toEqual([]);
+  expect(writes).toEqual([]);
+});
+
+test("owner colloquial doctor association remains read-only until explicit public collection", async ({ context, page }) => {
+  await openOwner(context, page);
+  const writes = [];
+  page.on("request", request => { if (!["GET", "HEAD"].includes(request.method()) && new URL(request.url()).pathname.startsWith("/api/")) writes.push(request.url()); });
+  await query(page, "大夫", { empty: true });
+  await expect(choice(page, "doctor")).toBeVisible(); await choice(page, "doctor").click();
+  await expect(page.locator("#member-dictionary-word")).toHaveText("doctor");
+  await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：医生");
+  await expect(page.locator("#member-dictionary-use")).toHaveText("收录到卓的公开词库");
+  await expect(page.locator("#member-dictionary-collection-status")).toBeHidden();
+  await expect(page.locator("#member-term")).toHaveValue("");
+  expect(writes).toEqual([]);
+});
+
 test("optional related downloads never delay the direct card or replace a selected direct meaning", async ({ context, page }) => {
   const held = await holdRelatedPosting(page);
   try {

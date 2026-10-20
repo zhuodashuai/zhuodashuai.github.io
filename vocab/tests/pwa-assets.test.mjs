@@ -25,7 +25,7 @@ test("changed module APIs use one versioned browser graph before any service wor
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
-  const version = file => ["chinese-search.js", "expanded-dictionary.js", "dictionary-app.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js"].includes(file) ? 90 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js", "member-dictionary-manifest.js"].includes(file) ? 88 : ["dictionary-collection.js"].includes(file) ? 85 : ["dictionary-examples.js"].includes(file) ? 84 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","dictionary-app.js","dictionary-collection.js","entry-detail.js","expanded-dictionary.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-app.js","owner-backup.js","owner-storage.js","personal-api.js","personal-app.js","personal-dictionary.js","personal-lookup-flow.js","personal-selection.js","personal-storage.js","public-app.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82 : ["owner-app.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-examples.js", "personal-app.js", "personal-lookup-flow.js", "personal-dictionary.js"].includes(file) ? 81
+  const version = file => ["chinese-search.js", "expanded-dictionary.js", "dictionary-app.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js"].includes(file) ? 91 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js", "member-dictionary-manifest.js"].includes(file) ? 88 : ["dictionary-collection.js"].includes(file) ? 85 : ["dictionary-examples.js"].includes(file) ? 84 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","dictionary-app.js","dictionary-collection.js","entry-detail.js","expanded-dictionary.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-app.js","owner-backup.js","owner-storage.js","personal-api.js","personal-app.js","personal-dictionary.js","personal-lookup-flow.js","personal-selection.js","personal-storage.js","public-app.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82 : ["owner-app.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-examples.js", "personal-app.js", "personal-lookup-flow.js", "personal-dictionary.js"].includes(file) ? 81
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
@@ -94,12 +94,12 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v90/);
+  assert.match(serviceWorker, /zhuo-wordbook-v91/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=77/);
   assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=82/);
-  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=90/);
+  assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=91/);
   assert.match(serviceWorker, /\.\/js\/dictionary-suggestions\.js\?v=89/);
   assert.match(serviceWorker, /\/data\/dictionary-suggestions\/manifest\.json/);
   assert.match(serviceWorker, /\.\/js\/public-snapshot\.js/);
@@ -122,7 +122,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
   assert.match(vocabHtml, /src="js\/public-app\.js\?v=82"/);
   assert.match(vocabHtml, /href="styles\.css\?v=77"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=90"/);
+  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=91"/);
   assert.match(ownerHtml, /href="styles\.css\?v=77"/);
   assert.match(guideHtml, /href="styles\.css\?v=77"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);

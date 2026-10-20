@@ -1,7 +1,7 @@
 import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=88";
 import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
 import { CORE_POS_CORRECTIONS } from "./core-pos-corrections.js?v=88";
-import { chineseSearchPlan, matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
+import { chineseSearchPlan, matchesChineseSearchEntry } from "./chinese-search.js?v=91";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",
@@ -300,7 +300,7 @@ export async function searchPersonalDictionaryChinese(input, { signal, timeoutMs
     // a general gloss which did not contain the requested Chinese meaning.
     for (const value of [...maps.core.values(), ...maps.published.values()]) {
       const key = literalKey(value.term);
-      if (seen.has(key) || !(plan ? matchesChineseSearchMeaning(value.meaning, plan.term) : value.meaning.normalize("NFKC").includes(query))) continue;
+      if (seen.has(key) || !(plan ? matchesChineseSearchEntry(value.term, value.meaning, plan.term) : value.meaning.normalize("NFKC").includes(query))) continue;
       seen.add(key); results.push({ ...value });
       if (results.length > count) break;
     }

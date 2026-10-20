@@ -26,7 +26,56 @@ const GROUPS = Object.freeze([
   ["讨厌", "厌恶", "嫌恶"],
   ["正确", "无误"],
   ["昂贵", "高价", "价高"],
+  ["医生", "医师", "大夫"],
+  ["教师", "教员", "老师"],
+  ["儿童", "孩童", "小孩", "孩子"],
+  ["婴儿", "婴孩", "宝宝"],
+  ["朋友", "友人"],
+  ["购买者", "买家", "买主"],
+  ["寻找", "搜寻", "寻觅"],
+  ["询问", "问询"],
+  ["回答", "答复"],
+  ["购买", "购置"],
+  ["出售", "卖出"],
+  ["修理", "修缮", "维修"],
+  ["巨大", "庞大"],
+  ["微小", "细小"],
+  ["困难", "艰难"],
+  ["漂亮", "美丽", "秀丽"],
+  ["惊讶", "惊奇", "诧异"],
+  ["嫉妒", "妒忌"],
+  ["谨慎", "慎重", "审慎"],
+  ["准确", "精确", "确切"],
+  ["相似", "类似", "相像"],
+  ["不同", "相异", "有别"],
+  ["理解", "领会", "领悟"],
+  ["抱怨", "埋怨"],
+  ["允许", "准许", "许可"],
+  ["拒绝", "谢绝"],
+  ["害羞", "羞怯", "腼腆"],
+  ["著名", "有名", "知名"],
+  ["错误", "差错"],
+  ["安慰", "慰藉", "抚慰"],
 ].map(group => Object.freeze(group)));
+
+// These concepts denote people, not their adjectival derivatives. A source
+// gloss "教师的" supports pedagogical, but does not make it a word for a teacher.
+const PERSON_TERMS = Object.freeze([
+  "医生", "医师", "大夫", "教师", "教员", "老师", "儿童", "孩童", "小孩", "孩子",
+  "婴儿", "婴孩", "宝宝", "朋友", "友人", "购买者", "买家", "买主",
+]);
+const MEDICAL_TERMS = Object.freeze(["医生", "医师", "大夫"]);
+// A deliberately small, modern learning set. Some legacy source glosses call
+// medical a doctor, or include unmarked mythological/rare usage (Aesculapius).
+// Others name traditional healers rather than ordinary medical practitioners.
+// Leave the source and English lookup unchanged; do not promote those glosses
+// to generic Chinese doctor suggestions. Nor does this make Dr mean only doctor.
+const MEDICAL_HEADS = Object.freeze(["doctor", "physician", "medical man", "practitioner", "medic", "medico"]);
+
+/** A lexical shortlist, never a generated translation or an unchecked result. */
+export function chineseSearchHeads(term) {
+  return MEDICAL_TERMS.includes(term) ? MEDICAL_HEADS : null;
+}
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
@@ -43,7 +92,8 @@ export function chineseSearchPlan(query) {
 }
 
 const POS = "(?:uncountable noun|countable noun|phrasal verb|verb phrase|adjective|adverb|interjection|preposition|conjunction|determiner|pronoun|numeral|noun|verb|adj|adv|interj|prep|conj|pron|det|aux|vt|vi|int|n|v|a|形容词|副词|名词|动词)\\.?";
-const POS_PREFIX = new RegExp(`^${POS}(?:\\s*(?:[·/&]|and)\\s*${POS})*(?:\\s*[.:：]\\s*|\\s+)`, "iu");
+const COUNTABILITY = "(?:\\s*\\((?:countable or uncountable|uncountable or countable|uncountable|countable)\\))?";
+const POS_PREFIX = new RegExp(`^${POS}${COUNTABILITY}(?:\\s*(?:[·/&]|and)\\s*${POS}${COUNTABILITY})*(?:\\s*[.:：]\\s*|\\s+)`, "iu");
 const NUMBER_PREFIX = /^(?:\d{1,3}[.、):：]|[一二三四五六七八九十]+[、.:：]|\(\d{1,3}\))\s*/u;
 const DOMAIN_PREFIX = /^\[([^\[\]]{1,20})\]\s*/u;
 const DOMAIN_LABELS = new Set([
@@ -90,11 +140,20 @@ export function matchesChineseSearchMeaning(meaning, term) {
   for (const segment of definitionSegments(value)) {
     const atom = stripEditorialPrefix(segment);
     const match = atom.match(/^([\p{Script=Han}]+)(?:\s*(?:\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】))?[.．]?$/u);
-    if (!match || ![term, `${term}的`, `${term}地`].includes(match[1])) continue;
+    const accepted = PERSON_TERMS.includes(term) ? [term] : [term, `${term}的`, `${term}地`];
+    if (!match || !accepted.includes(match[1])) continue;
     const note = (match[2] || match[3] || match[4] || "").trim();
     // A bracketed grammatical operator is not a harmless usage annotation.
     if (/^(?:使(?:人|某人)?|令(?:人|某人)?|让(?:人|某人)?|并非|不|无|未|非)/u.test(note)) continue;
     return true;
   }
   return false;
+}
+
+/** Entry-level evidence adds the few reviewed lexical safety restrictions. */
+export function matchesChineseSearchEntry(headword, meaning, term) {
+  if (typeof headword !== "string" || !headword.trim() || headword.length > 200 || CONTROL.test(headword)
+    || !matchesChineseSearchMeaning(meaning, term)) return false;
+  if (!MEDICAL_TERMS.includes(term)) return true;
+  return MEDICAL_HEADS.includes(headword.normalize("NFKC").trim().toLocaleLowerCase("en-US"));
 }
