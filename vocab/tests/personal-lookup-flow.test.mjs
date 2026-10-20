@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { lookupPersonalDictionaryFast } from "../js/personal-lookup-flow.js";
-import { applyCorePosCorrection, isReviewedCoreDictionaryResult, personalDictionaryResult } from "../js/personal-dictionary.js?v=93";
+import { applyCorePosCorrection, isReviewedCoreDictionaryResult, personalDictionaryResult } from "../js/personal-dictionary.js?v=94";
 import { CORE_POS_CORRECTIONS } from "../js/core-pos-corrections.js?v=88";
 
 const row = (term, extra = {}) => ({ term, partOfSpeech: "noun", meaning: "测试释义", source: "ECDICT", ...extra });

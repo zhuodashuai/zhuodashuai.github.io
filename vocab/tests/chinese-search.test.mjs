@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchMeaning, matchesChineseSearchEntry } from "../js/chinese-search.js";
+import { COMMON_CHINESE_GROUPS } from "../js/chinese-related-common.js";
+const approvedCommonTerms = new Set(COMMON_CHINESE_GROUPS.flatMap(group => group.terms));
 
 const batch003 = JSON.parse(readFileSync(new URL("../../tooling/dictionary/chinese-related-003.json", import.meta.url), "utf8"));
 const batch004 = JSON.parse(readFileSync(new URL("../../tooling/dictionary/chinese-related-004.json", import.meta.url), "utf8"));
@@ -138,18 +140,20 @@ test("batch 004 shortlists preserve source evidence, grammatical roles and separ
   assert.equal(matchesChineseSearchEntry("content", "noun：内容", "满足"), false);
   assert.equal(matchesChineseSearchEntry("promise", "verb：预示", "诺言"), false);
   assert.equal(matchesChineseSearchEntry("incite", "vt. 激励", "激励"), false);
-  assert.equal(chineseSearchPlan("好问"), null);
-  assert.equal(chineseSearchPlan("焦虑"), null);
-  assert.equal(chineseSearchPlan("赞同"), null);
-  assert.equal(chineseSearchPlan("认可"), null);
-  assert.equal(chineseSearchPlan("提示"), null);
+  for (const term of ["好问", "焦虑", "赞同", "认可", "提示"]) {
+    if (approvedCommonTerms.has(term)) assert.equal(chineseSearchPlan(term)?.term, term);
+    else assert.equal(chineseSearchPlan(term), null);
+  }
 });
 
 test("only complete approved queries expand; related concepts do not form an uncontrolled graph", () => {
   for (const query of ["", null, {}, 1, "happy", "happy开心", "开 心", "开心果", "很开心", "开心一点",
     "使高兴", "令人愉快", "不太高兴", "未必快乐", "快乐主义", "不喜欢", "不安全", "安全", "可靠",
     "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "回复", "大方", "关键", "记住", "开心的的", "\u202e开心", "开心\u0000",
-    "开".repeat(51), "开心，", "“开心”"]) assert.equal(chineseSearchPlan(query), null, String(query));
+    "开".repeat(51), "开心，", "“开心”"]) {
+    if (approvedCommonTerms.has(query)) assert.equal(chineseSearchPlan(query)?.term, query);
+    else assert.equal(chineseSearchPlan(query), null, String(query));
+  }
   assert.deepEqual(chineseSearchPlan("喜欢").aliases, ["喜爱"]);
   assert.ok(!chineseSearchPlan("喜欢").aliases.includes("爱情"));
   assert.ok(!chineseSearchPlan("开心").aliases.includes("幸福"));

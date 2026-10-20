@@ -1,5 +1,22 @@
 # Third-party notices
 
+## Common meaning associations
+
+The bounded common-meaning associations use sense membership from Princeton
+WordNet 3.0 (Copyright 2006 Princeton University) and Chinese Open Wordnet
+(Copyright 2013, 2014 Francis Bond and Shan Wang). Their complete licences are
+preserved in `WORDNET-3.0-LICENSE.txt` and
+`CHINESE-OPEN-WORDNET-LICENSE.txt`. Chinese alias selection and usage notes
+contain project editorial revisions. See https://wordnet.princeton.edu/ and
+https://omwn.org/omw1.html for the original projects and version alignment.
+
+This is not a republication of an unreviewed wordnet: only the finite reviewed
+subset in `tooling/dictionary/chinese-related-common.json` is used. Every
+suggestion must also match an intact existing dictionary source variant and
+the part of speech of its particular Chinese definition atom. Original
+dictionary definitions retain their own attribution; associations are not
+translations generated at query time or a claim of universal interchangeability.
+
 ## ECDICT
 
 `ecdict-core.json` is a deterministic, compact subset generated from the

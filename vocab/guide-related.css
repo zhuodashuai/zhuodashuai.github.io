@@ -1,5 +1,5 @@
 /* This catalogue lives in the manual, not the dictionary's primary workflow. */
-body[data-page="guide"] #chinese-related-catalogue {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) {
   margin: 1.1rem 0;
   padding: .85rem;
   border: 1px solid var(--line);
@@ -7,14 +7,14 @@ body[data-page="guide"] #chinese-related-catalogue {
   background: var(--paper-2);
 }
 
-body[data-page="guide"] #chinese-related-catalogue > summary {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) > summary {
   padding: .25rem 0;
   color: var(--green);
   font-weight: 700;
   cursor: pointer;
 }
 
-body[data-page="guide"] #chinese-related-catalogue table {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -22,15 +22,15 @@ body[data-page="guide"] #chinese-related-catalogue table {
   font-size: .92rem;
 }
 
-body[data-page="guide"] #chinese-related-catalogue caption {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) caption {
   margin-bottom: .7rem;
   color: var(--muted);
   text-align: left;
   line-height: 1.6;
 }
 
-body[data-page="guide"] #chinese-related-catalogue th,
-body[data-page="guide"] #chinese-related-catalogue td {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) th,
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) td {
   padding: .7rem .5rem;
   border-bottom: 1px solid var(--line);
   text-align: left;
@@ -39,16 +39,16 @@ body[data-page="guide"] #chinese-related-catalogue td {
   word-break: normal;
 }
 
-body[data-page="guide"] #chinese-related-catalogue th:first-child {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) th:first-child {
   width: 3.1rem;
   font-variant-numeric: tabular-nums;
 }
 
-body[data-page="guide"] #chinese-related-catalogue thead th:nth-child(2) {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) thead th:nth-child(2) {
   width: 32%;
 }
 
-body[data-page="guide"] #chinese-related-catalogue small {
+body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) small {
   display: block;
   margin-top: .35rem;
   color: var(--muted);
@@ -57,20 +57,20 @@ body[data-page="guide"] #chinese-related-catalogue small {
 }
 
 @media (max-width: 480px) {
-  body[data-page="guide"] #chinese-related-catalogue {
+  body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) {
     padding: .65rem;
   }
 
-  body[data-page="guide"] #chinese-related-catalogue table {
+  body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) table {
     font-size: .85rem;
   }
 
-  body[data-page="guide"] #chinese-related-catalogue th,
-  body[data-page="guide"] #chinese-related-catalogue td {
+  body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) th,
+  body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) td {
     padding: .65rem .3rem;
   }
 
-  body[data-page="guide"] #chinese-related-catalogue th:first-child {
+  body[data-page="guide"] :is(#chinese-related-catalogue, #common-related-catalogue) th:first-child {
     width: 2.25rem;
   }
 }

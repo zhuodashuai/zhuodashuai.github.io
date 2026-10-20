@@ -1,5 +1,5 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=93";
-import { chineseSearchPlan } from "./chinese-search.js?v=93";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=94";
+import { chineseSearchPlan } from "./chinese-search.js?v=94";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -27,6 +27,47 @@ export function dictionaryMeaningLines(value) {
 export function dictionaryChoicePreview(value) {
   const characters = Array.from(value.replace(/\s+/gu, " ").trim());
   return characters.length > 80 ? `${characters.slice(0, 80).join("")}…` : characters.join("");
+}
+
+/** Rank examples for the selected sense without altering their source data. */
+export function dictionaryExampleSensePlan(entry, result) {
+  const senses = Array.isArray(entry?.senses) ? entry.senses : [];
+  const scoped = typeof result?.matchedPartOfSpeech === "string" && Boolean(result.matchedPartOfSpeech.trim())
+    && typeof result?.matchedSense === "string" && Boolean(result.matchedSense.trim());
+  if (!scoped) return { scoped: false, hasMatch: false,
+    items: senses.map((sense, index) => ({ sense, matched: false, open: index === 0, label: "" })) };
+  // Shared Chinese wording is not proof of an identical example sense: a
+  // building's foundation and an abstract basis can both be called 基础.
+  // Only IDs reviewed for this particular head and query sense may open.
+  // Bind the complete reviewed content too: a newer example manifest may
+  // reuse an ID while an older application graph is still cached offline.
+  const reviewedIds = new Set(Array.isArray(result.matchedExampleSenseIds)
+    ? result.matchedExampleSenseIds.filter(id => typeof id === "string" && id.trim()) : []);
+  const proofs = Array.isArray(result.matchedExampleSenseEvidence) ? result.matchedExampleSenseEvidence : [];
+  const validHead = value => typeof value === "string" && value.length <= 200 && Boolean(value.trim())
+    && /[\p{Script=Latin}\d]/u.test(value) && !/[<>\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(value)
+    && !/javascript\s*:/iu.test(value);
+  const sameHead = validHead(entry?.term) && validHead(result.term) && entry.term === result.term;
+  const targetRole = ["noun", "verb", "adjective", "adverb"].includes(result.matchedPartOfSpeech)
+    ? result.matchedPartOfSpeech : null;
+  const roleOf = value => {
+    if (typeof value !== "string" || value.length > 200 || /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(value)) return null;
+    const roles = new Set(value.normalize("NFKC").toLowerCase().match(/\b(?:noun|verb|adjective|adverb)\b/gu) || []);
+    return roles.size === 1 ? [...roles][0] : null;
+  };
+  const matchesProof = sense => sameHead && targetRole && roleOf(sense.partOfSpeech) === targetRole
+    && reviewedIds.has(sense.id) && proofs.some(proof => proof?.id === sense.id
+    && proof.partOfSpeech === sense.partOfSpeech && proof.meaningZh === sense.meaningZh
+    && Array.isArray(proof.examples) && Array.isArray(sense.examples) && proof.examples.length === sense.examples.length
+    && sense.examples.every((example, index) => typeof example?.en === "string" && typeof example?.zh === "string"
+      && example.en === proof.examples[index]?.en && example.zh === proof.examples[index]?.zh));
+  const items = senses.map(sense => ({ sense, matched: Boolean(matchesProof(sense)), open: false }));
+  // Sorting this new wrapper array preserves every original sense, example,
+  // provenance field and relative order within the matching/other partitions.
+  items.sort((a, b) => Number(b.matched) - Number(a.matched));
+  items.forEach((item, index) => { item.open = index === 0 && item.matched;
+    item.label = item.matched ? "本次义项" : "其他义项"; });
+  return { scoped: true, hasMatch: items.some(item => item.matched), items };
 }
 
 function renderMeaning(document, target, value) {
@@ -196,9 +237,11 @@ export function mountDictionaryPage(document, window) {
     exampleStatus.textContent = state.message; exampleRetry.hidden = state.phase !== "error";
     exampleContent.replaceChildren();
     if (state.phase !== "ready") return;
-    state.entry.senses.forEach((sense, index) => {
-      const details = document.createElement("details"); details.className = "example-sense"; details.open = index === 0;
-      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${sense.partOfSpeech} · ${sense.meaningZh}`;
+    const plan = dictionaryExampleSensePlan(state.entry, lastSelected);
+    if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
+    plan.items.forEach(({ sense, open, label }, index) => {
+      const details = document.createElement("details"); details.className = "example-sense"; details.open = open;
+      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${sense.meaningZh}`;
       const list = document.createElement("ol");
       sense.examples.forEach(example => {
         const item = document.createElement("li"), en = document.createElement("p"), zh = document.createElement("p");
@@ -295,8 +338,10 @@ export function mountDictionaryPage(document, window) {
     heading.textContent = selected.term; get("dictionary-pos").textContent = selected.partOfSpeech || "词性未标注";
     renderMeaning(document, get("dictionary-meaning"), selected.meaning);
     const relatedMatch = get("dictionary-related-match");
-    relatedMatch.hidden = selected.matchType !== "related";
-    relatedMatch.textContent = selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
+    relatedMatch.hidden = selected.matchType !== "related" && !selected.matchedSense;
+    relatedMatch.textContent = selected.matchedSense
+      ? `${selected.matchType === "related" ? `近义关联：${selected.matchedChinese} · ` : "本次匹配："}${selected.matchedPartOfSpeech} · ${selected.matchedSense}（限此义项）`
+      : selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
     const matched = get("dictionary-matched-form"); matched.hidden = !selected.matchedForm;
     matched.textContent = selected.matchedForm ? `查询形式：${selected.matchedForm}` : "";
     const provenance = sourceLine(document, selected); get("dictionary-source").replaceChildren(...provenance.childNodes);

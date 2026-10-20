@@ -11,11 +11,11 @@ import {
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=93";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=93";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=94";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=94";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=93";
-import { matchesChineseSearchEntry } from "./chinese-search.js?v=93";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=94";
+import { matchesChineseSearchEntry } from "./chinese-search.js?v=94";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -431,7 +431,7 @@ function showDictionaryResult(result) {
   }
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
   const destination = state.authType === "github-owner" ? "收录状态在下方显示；只核对本站标准词条来源" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
-  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
+  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${result.matchedSense ? `本次匹配：${result.matchedPartOfSpeech} · ${result.matchedSense}（限此义项） · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
