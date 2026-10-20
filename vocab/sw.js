@@ -1,22 +1,22 @@
-const CACHE_NAME = "zhuo-wordbook-v92";
+const CACHE_NAME = "zhuo-wordbook-v93";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
-  "./guide-related.css?v=92", "./guide-related.css",
-  "./js/chinese-search.js?v=92", "./js/chinese-search.js",
+  "./guide-related.css?v=93", "./guide-related.css",
+  "./js/chinese-search.js?v=93", "./js/chinese-search.js",
   "./js/dictionary-collection.js", "./js/dictionary-collection.js?v=85",
   "./personal.html", "./personal.css?v=79",
-  "./js/personal-app.js?v=92", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
+  "./js/personal-app.js?v=93", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=82", "./js/personal-study.js?v=77",
-  "./js/personal-dictionary.js?v=92", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
+  "./js/personal-dictionary.js?v=93", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
   "./js/core-pos-corrections.js?v=88", "./js/core-pos-corrections.js",
-  "./js/personal-lookup-flow.js?v=92", "./js/personal-lookup-flow.js",
-  "./js/expanded-dictionary.js?v=92", "./js/expanded-dictionary.js",
+  "./js/personal-lookup-flow.js?v=93", "./js/personal-lookup-flow.js",
+  "./js/expanded-dictionary.js?v=93", "./js/expanded-dictionary.js",
   "./js/dictionary-suggestions.js?v=89", "./js/dictionary-suggestions.js",
-  "./dictionary.html", "./dictionary-references.html", "./dictionary-pos.html", "./data/WORDNET-3.1-LICENSE.txt", "./dictionary.css?v=92", "./dictionary.css",
-  "./js/dictionary-app.js?v=92", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
+  "./dictionary.html", "./dictionary-references.html", "./dictionary-pos.html", "./data/WORDNET-3.1-LICENSE.txt", "./dictionary.css?v=93", "./dictionary.css",
+  "./js/dictionary-app.js?v=93", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
   "./js/dictionary-examples.js?v=84", "./js/dictionary-examples.js",
   "./js/member-dictionary-manifest.js?v=88", "./js/member-dictionary-manifest.js",
   "./js/book-passages.js?v=82", "./js/book-passages-ui.js?v=82", "./js/book-passages.js", "./js/book-passages-ui.js",
@@ -25,7 +25,7 @@ const SHELL = [
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
   "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=77", "./manifest.webmanifest",
-  "./js/public-app.js?v=82", "./js/owner-app.js?v=92", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/public-app.js?v=82", "./js/owner-app.js?v=93", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",
