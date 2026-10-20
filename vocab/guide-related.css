@@ -1,0 +1,76 @@
+/* This catalogue lives in the manual, not the dictionary's primary workflow. */
+body[data-page="guide"] #chinese-related-catalogue {
+  margin: 1.1rem 0;
+  padding: .85rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-2);
+}
+
+body[data-page="guide"] #chinese-related-catalogue > summary {
+  padding: .25rem 0;
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body[data-page="guide"] #chinese-related-catalogue table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: .85rem;
+  font-size: .92rem;
+}
+
+body[data-page="guide"] #chinese-related-catalogue caption {
+  margin-bottom: .7rem;
+  color: var(--muted);
+  text-align: left;
+  line-height: 1.6;
+}
+
+body[data-page="guide"] #chinese-related-catalogue th,
+body[data-page="guide"] #chinese-related-catalogue td {
+  padding: .7rem .5rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+body[data-page="guide"] #chinese-related-catalogue th:first-child {
+  width: 3.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-page="guide"] #chinese-related-catalogue thead th:nth-child(2) {
+  width: 32%;
+}
+
+body[data-page="guide"] #chinese-related-catalogue small {
+  display: block;
+  margin-top: .35rem;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+  body[data-page="guide"] #chinese-related-catalogue {
+    padding: .65rem;
+  }
+
+  body[data-page="guide"] #chinese-related-catalogue table {
+    font-size: .85rem;
+  }
+
+  body[data-page="guide"] #chinese-related-catalogue th,
+  body[data-page="guide"] #chinese-related-catalogue td {
+    padding: .65rem .3rem;
+  }
+
+  body[data-page="guide"] #chinese-related-catalogue th:first-child {
+    width: 2.25rem;
+  }
+}
