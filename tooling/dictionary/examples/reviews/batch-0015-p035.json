@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceSha256": "a0058e9e416444a8b728a51228523192003fbe3cc34e8612255750abe8ac060d",
+  "sourceSha256": "01e7c8dafb3da21020cfc36463109875fcb9e92817c77f19a6ab574b5b719c59",
   "reviewer": "AI/examples15_reviewer_e",
   "independentOfAuthor": true,
   "approvedTerms": [
@@ -216,6 +216,12 @@
       "blocking": false,
       "reason": "Chinese used an unsuitable classifier for the building.",
       "resolution": "Changed the classifier to one appropriate for a building; English unchanged."
+    },
+    {
+      "term": "monophonic",
+      "blocking": false,
+      "reason": "The previous music example used the melodic-line gloss despite the published Chinese being electrical 单音 only.",
+      "resolution": "Personally read the repaired single-channel recorder example, selected electrical/audio sense and faithful Chinese against both full frozen glosses and the distinct variant; all other rows verified identical to the prior immutable review snapshot."
     }
   ]
 }

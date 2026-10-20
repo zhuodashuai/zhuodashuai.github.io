@@ -85,3 +85,12 @@ test('all10000 added headwords map through actual client buckets to their exact 
  }
  assert.equal(checked,10000);
 });
+
+test('batch0015 keeps monophonic electrical recording distinct from musical texture and gives half-heartedly a clear label',async()=>{
+ const {entries}=await loadExampleBuild(),byTerm=new Map(entries.map(row=>[row.term,row]));
+ const electrical=byTerm.get('monophonic').senses[0];
+ assert.equal(electrical.meaningZh,'单音的〔单声道〕');
+ assert.equal(electrical.examples[0].en,'The old monophonic recorder captured the interview on a single channel.');
+ assert.equal(electrical.examples[0].zh,'那台旧的单音录音机用一个声道录下了访谈。');
+ assert.equal(byTerm.get('half-heartedly').senses[0].meaningZh,'不太热情地');
+});
