@@ -1,5 +1,5 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=93";
-import { chineseSearchPlan } from "./chinese-search.js?v=93";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=94";
+import { chineseSearchPlan } from "./chinese-search.js?v=94";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -295,8 +295,10 @@ export function mountDictionaryPage(document, window) {
     heading.textContent = selected.term; get("dictionary-pos").textContent = selected.partOfSpeech || "词性未标注";
     renderMeaning(document, get("dictionary-meaning"), selected.meaning);
     const relatedMatch = get("dictionary-related-match");
-    relatedMatch.hidden = selected.matchType !== "related";
-    relatedMatch.textContent = selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
+    relatedMatch.hidden = selected.matchType !== "related" && !selected.matchedSense;
+    relatedMatch.textContent = selected.matchedSense
+      ? `${selected.matchType === "related" ? `近义关联：${selected.matchedChinese} · ` : "本次匹配："}${selected.matchedPartOfSpeech} · ${selected.matchedSense}（限此义项）`
+      : selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
     const matched = get("dictionary-matched-form"); matched.hidden = !selected.matchedForm;
     matched.textContent = selected.matchedForm ? `查询形式：${selected.matchedForm}` : "";
     const provenance = sourceLine(document, selected); get("dictionary-source").replaceChildren(...provenance.childNodes);

@@ -1,6 +1,6 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=93";
-import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchEntry } from "./chinese-search.js?v=93";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=94";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry } from "./chinese-search.js?v=94";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -329,6 +329,7 @@ async function parallel(items, concurrency, callback) {
 async function chineseSearch(query, limit, context, relatedPlan = null) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
   const plan = relatedPlan || chineseSearchPlan(query);
+  const sense = plan ? chineseSearchSense(plan.term) : null;
   const terms = relatedPlan ? plan.aliases : [plan?.term || query];
   const candidates = new Map(), loaded = new Map(), heads = chineseSearchHeads(plan?.term || query);
   if (signal?.aborted) throw stopped();
@@ -396,14 +397,15 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       const variants = [record, ...record.variants];
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
-      if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term))) continue;
+      if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source))) continue;
       let selected, matched;
       for (const term of terms) {
-        selected = variants.find(item => plan ? matchesChineseSearchEntry(record.term, item.meaning, term) : fold(item.meaning).includes(term));
+        selected = variants.find(item => plan ? matchesChineseSearchEntry(record.term, item.meaning, term, item.partOfSpeech, item.source) : fold(item.meaning).includes(term));
         if (selected) { matched = term; break; }
       }
       if (selected) {
         const result = { ...display(record, selected, manifest),
+          ...(sense ? { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense } : {}),
           ...(relatedPlan ? { matchType: "related", matchedChinese: matched } : {}) };
         results.push(result);
         if (relatedPlan) {

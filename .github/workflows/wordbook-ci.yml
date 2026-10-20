@@ -55,6 +55,7 @@ jobs:
           node tooling/scripts/build-dictionary-suggestions.mjs
           node tooling/scripts/build-dictionary-suggestions.mjs --check
           node tooling/scripts/build-dictionary-examples.mjs --check
+          node tooling/scripts/build-common-synonyms.mjs --check
       - name: Secret boundary scan
         run: pnpm test:security
       - name: Unit and Worker integration tests

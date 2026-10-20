@@ -1,3 +1,5 @@
+import { COMMON_CHINESE_GROUPS } from "./chinese-related-common.js?v=94";
+
 // These are small, editorially selected reverse-lookup concepts, not claims
 // that every English result is interchangeable. Never expand part of a query,
 // derive an antonym by deleting a negation, or follow a second synonym hop.
@@ -158,7 +160,7 @@ export function chineseSearchHeads(term) {
   // mentions. These common heads still require an actual matching source atom.
   if (BUYING_TERMS.includes(term)) return BUYING_HEADS;
   if (SELLING_TERMS.includes(term)) return SELLING_HEADS;
-  return CURATED_HEADS_003.get(term) || CURATED_HEADS_004.get(term) || null;
+  return CURATED_HEADS_003.get(term) || CURATED_HEADS_004.get(term) || COMMON_GROUPS_BY_TERM.get(term)?.heads || null;
 }
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
@@ -167,12 +169,43 @@ const plans = new Map();
 for (const group of GROUPS) for (const term of group) {
   plans.set(term, Object.freeze({ term, aliases: Object.freeze(group.filter(alias => alias !== term)) }));
 }
+const commonPlans = new Map(), COMMON_GROUPS_BY_TERM = new Map();
+const commonSenseCache = new WeakMap();
+for (const group of COMMON_CHINESE_GROUPS) {
+  // Offline catalogue validation is stricter. A malformed/colliding future
+  // row nevertheless cannot replace an established query family at runtime.
+  if (!Array.isArray(group.terms) || !Array.isArray(group.heads) || !Array.isArray(group.evidence)
+    || !group.terms.length || new Set(group.terms).size !== group.terms.length
+    || group.terms.some(term => typeof term !== "string" || !/^\p{Script=Han}{1,50}$/u.test(term)
+      || plans.has(term) || commonPlans.has(term))) continue;
+  for (const term of group.terms) {
+    commonPlans.set(term, Object.freeze({ term, aliases: Object.freeze(group.terms.filter(alias => alias !== term)) }));
+    COMMON_GROUPS_BY_TERM.set(term, group);
+  }
+}
 
 /** A one-hop, exact whole-query plan. No network, storage, or generated words. */
 export function chineseSearchPlan(query) {
   if (typeof query !== "string" || query.length > 50 || CONTROL.test(query)) return null;
   const term = query.normalize("NFKC").trim();
-  return plans.get(term) || (/[的地]$/u.test(term) ? plans.get(term.slice(0, -1)) : null) || null;
+  const exact = plans.get(term) || commonPlans.get(term);
+  if (exact) return exact;
+  if (!/[的地]$/u.test(term)) return null;
+  const base = term.slice(0, -1), established = plans.get(base);
+  if (established) return established;
+  const common = commonPlans.get(base), kind = unambiguousPartOfSpeech(COMMON_GROUPS_BY_TERM.get(base)?.pos);
+  // A noun such as 目的 must never consume 目的地 as an adverbial particle.
+  return common && ((term.endsWith("的") && kind === "adjective") || (term.endsWith("地") && kind === "adverb")) ? common : null;
+}
+
+/** The reviewed query sense, separate from the original source definition. */
+export function chineseSearchSense(term) {
+  const group = COMMON_GROUPS_BY_TERM.get(term);
+  if (!group) return null;
+  if (!commonSenseCache.has(group)) commonSenseCache.set(group, Object.freeze({
+    pos: unambiguousPartOfSpeech(group.pos), sense: group.sense, note: group.note,
+  }));
+  return commonSenseCache.get(group);
 }
 
 const POS = "(?:uncountable noun|countable noun|phrasal verb|verb phrase|adjective|adverb|interjection|preposition|conjunction|determiner|pronoun|numeral|noun|verb|adj|adv|interj|prep|conj|pron|det|aux|vt|vi|int|n|v|a|形容词|副词|名词|动词)\\.?";
@@ -234,10 +267,79 @@ export function matchesChineseSearchMeaning(meaning, term) {
   return false;
 }
 
+const POS_KINDS = new Map([
+  ["n", "noun"], ["noun", "noun"], ["countable noun", "noun"], ["uncountable noun", "noun"], ["名词", "noun"],
+  ["v", "verb"], ["vt", "verb"], ["vi", "verb"], ["verb", "verb"], ["verb phrase", "verb"], ["phrasal verb", "verb"], ["动词", "verb"],
+  ["a", "adjective"], ["s", "adjective"], ["adj", "adjective"], ["adjective", "adjective"], ["形容词", "adjective"],
+  ["r", "adverb"], ["adv", "adverb"], ["adverb", "adverb"], ["副词", "adverb"],
+]);
+const POS_TOKENS = /uncountable noun|countable noun|phrasal verb|verb phrase|adjective|adverb|noun|verb|adj|adv|vt|vi|名词|动词|形容词|副词|\b[nvasr]\b/giu;
+
+function unambiguousPartOfSpeech(value) {
+  if (typeof value !== "string" || value.length > 200 || CONTROL.test(value)) return null;
+  const text = value.normalize("NFKC").toLowerCase().replace(/\((?:countable or uncountable|uncountable or countable|countable|uncountable)\)/gu, "");
+  const kinds = new Set([...text.matchAll(POS_TOKENS)].map(match => POS_KINDS.get(match[0])));
+  // A summary such as "noun · verb" cannot lend its verb label to a noun
+  // definition. Unknown labels and prose are not grammatical evidence either.
+  const remainder = text.replace(POS_TOKENS, "").replace(/(?:\band\b|[\s./&·:：,，;；-])/gu, "");
+  return kinds.size === 1 && !remainder ? [...kinds][0] : null;
+}
+
+/** Match one source sense and its grammatical role, never a mixed-POS summary. */
+export function matchesChineseSenseMeaning(meaning, term, partOfSpeech, targetPos) {
+  const target = unambiguousPartOfSpeech(targetPos);
+  if (!target || typeof meaning !== "string" || meaning.length > 20_000 || BODY_CONTROL.test(meaning)
+    || typeof term !== "string" || !/^\p{Script=Han}{1,50}$/u.test(term)) return false;
+  const value = meaning.replace(/[①-⑳]/gu, char => `${char.codePointAt(0) - 0x245f}. `).normalize("NFKC");
+  let currentPos = unambiguousPartOfSpeech(partOfSpeech);
+  for (const segment of definitionSegments(value)) {
+    let atom = segment.trim();
+    // Explicit labels bind this and following comma-separated atoms. They
+    // replace, rather than supplement, the coarse record-level POS summary.
+    for (let count = 0; count < 6; count++) {
+      const previous = atom;
+      atom = atom.replace(NUMBER_PREFIX, "").trim();
+      const label = atom.match(POS_PREFIX);
+      if (label) {
+        currentPos = unambiguousPartOfSpeech(label[0].replace(/[.:：\s]+$/gu, ""));
+        atom = atom.slice(label[0].length).trim();
+      }
+      const domain = atom.match(DOMAIN_PREFIX);
+      if (domain && DOMAIN_LABELS.has(domain[1])) atom = atom.slice(domain[0].length).trim();
+      if (atom === previous) break;
+    }
+    // Do not carry an earlier noun/verb label past a different unrecognised
+    // editorial label into later comma-separated Chinese text.
+    if (/^[a-z][a-z ]{0,30}[.:：]\s*/iu.test(atom)) currentPos = null;
+    if (currentPos !== target) continue;
+    const match = atom.match(/^([\p{Script=Han}]+)(?:\s*(?:\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】))?[.．]?$/u);
+    // Nouns and verbs never become adjectives/adverbs by removing 的/地.
+    // The query aliases themselves may contain a particle when explicitly
+    // reviewed; this rule does not manufacture a further alias from them.
+    const accepted = target === "adjective" ? [term, `${term}的`]
+      : target === "adverb" ? [term, `${term}地`] : [term];
+    if (!match || !accepted.includes(match[1])) continue;
+    const note = (match[2] || match[3] || match[4] || "").trim();
+    if (/^(?:使(?:人|某人)?|令(?:人|某人)?|让(?:人|某人)?|并非|不|无|未|非)/u.test(note)) continue;
+    return true;
+  }
+  return false;
+}
+
 /** Entry-level evidence adds the few reviewed lexical safety restrictions. */
-export function matchesChineseSearchEntry(headword, meaning, term) {
-  if (typeof headword !== "string" || !headword.trim() || headword.length > 200 || CONTROL.test(headword)
-    || !matchesChineseSearchMeaning(meaning, term)) return false;
+export function matchesChineseSearchEntry(headword, meaning, term, partOfSpeech, source) {
+  if (typeof headword !== "string" || !headword.trim() || headword.length > 200 || CONTROL.test(headword)) return false;
+  const head = headword.normalize("NFKC").trim().toLocaleLowerCase("en-US"), group = COMMON_GROUPS_BY_TERM.get(term);
+  if (group) {
+    // Bind all evidence to one immutable source variant. A POS from one sense,
+    // a gloss from another, or a same-text different source cannot authorize a
+    // suggestion. Source drift fails closed until the catalogue is re-audited.
+    return group.heads.includes(head) && group.evidence.some(item => item.head === head
+      && item.meaning === meaning && item.partOfSpeech === partOfSpeech && item.source === source
+      && Array.isArray(item.terms) && item.terms.includes(term))
+      && matchesChineseSenseMeaning(meaning, term, partOfSpeech, group.pos);
+  }
+  if (!matchesChineseSearchMeaning(meaning, term)) return false;
   const heads = chineseSearchHeads(term);
-  return !heads || heads.includes(headword.normalize("NFKC").trim().toLocaleLowerCase("en-US"));
+  return !heads || heads.includes(head);
 }
