@@ -1,5 +1,5 @@
 import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=94";
-import { chineseSearchPlan } from "./chinese-search.js?v=94";
+import { chineseSearchPlan, matchesChineseSenseMeaning } from "./chinese-search.js?v=94";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -27,6 +27,24 @@ export function dictionaryMeaningLines(value) {
 export function dictionaryChoicePreview(value) {
   const characters = Array.from(value.replace(/\s+/gu, " ").trim());
   return characters.length > 80 ? `${characters.slice(0, 80).join("")}…` : characters.join("");
+}
+
+/** Rank examples for the selected sense without altering their source data. */
+export function dictionaryExampleSensePlan(entry, result) {
+  const senses = Array.isArray(entry?.senses) ? entry.senses : [];
+  const scoped = typeof result?.matchedPartOfSpeech === "string" && Boolean(result.matchedPartOfSpeech.trim())
+    && typeof result?.matchedSense === "string" && Boolean(result.matchedSense.trim());
+  if (!scoped) return { scoped: false, hasMatch: false,
+    items: senses.map((sense, index) => ({ sense, matched: false, open: index === 0, label: "" })) };
+  const aliases = [...new Set(result.matchedSense.split("／").map(term => term.trim()).filter(Boolean))];
+  const items = senses.map(sense => ({ sense, matched: aliases.some(term => matchesChineseSenseMeaning(
+    sense.meaningZh, term, sense.partOfSpeech, result.matchedPartOfSpeech)), open: false }));
+  // Sorting this new wrapper array preserves every original sense, example,
+  // provenance field and relative order within the matching/other partitions.
+  items.sort((a, b) => Number(b.matched) - Number(a.matched));
+  items.forEach((item, index) => { item.open = index === 0 && item.matched;
+    item.label = item.matched ? "本次义项" : "其他义项"; });
+  return { scoped: true, hasMatch: items.some(item => item.matched), items };
 }
 
 function renderMeaning(document, target, value) {
@@ -196,9 +214,11 @@ export function mountDictionaryPage(document, window) {
     exampleStatus.textContent = state.message; exampleRetry.hidden = state.phase !== "error";
     exampleContent.replaceChildren();
     if (state.phase !== "ready") return;
-    state.entry.senses.forEach((sense, index) => {
-      const details = document.createElement("details"); details.className = "example-sense"; details.open = index === 0;
-      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${sense.partOfSpeech} · ${sense.meaningZh}`;
+    const plan = dictionaryExampleSensePlan(state.entry, lastSelected);
+    if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
+    plan.items.forEach(({ sense, open, label }, index) => {
+      const details = document.createElement("details"); details.className = "example-sense"; details.open = open;
+      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${sense.meaningZh}`;
       const list = document.createElement("ol");
       sense.examples.forEach(example => {
         const item = document.createElement("li"), en = document.createElement("p"), zh = document.createElement("p");

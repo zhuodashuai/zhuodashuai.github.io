@@ -124,3 +124,39 @@ test("a fresh member can inspect a large-catalogue result without automatic coll
   expect(writes).toEqual([]); expect(foreign).toEqual([]);
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(2);
 });
+
+test("an autumn lookup opens fall's noun example rather than its unrelated falling verb while retaining every original sense", async ({ page }) => {
+  const group = COMMON_CHINESE_GROUPS.find(row => row.terms.includes("秋季"));
+  expect(group).toBeTruthy(); expect(group.pos).toBe("noun"); expect(group.heads).toContain("fall");
+  const examplesManifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  let hash = 2166136261;
+  for (const char of "fall") { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
+  const descriptor = examplesManifest.shards[hash % 256];
+  const shard = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8"));
+  const original = shard.entries.find(row => row.term === "fall");
+  expect(original.senses).toHaveLength(6);
+  await page.goto("/dictionary.html");
+  await publicQuery(page, group, "秋季");
+  await page.locator('#dictionary-choices button[data-dictionary-term="fall"]').click();
+  // The primary POS is the original source summary, not a rewritten noun-only
+  // label. The scoped match and the expanded example identify the target use.
+  await expectActualEvidence(page, group, "fall");
+  const content = page.locator("#dictionary-example-content"), senses = content.locator("details.example-sense");
+  await expect(senses).toHaveCount(6);
+  await expect(page.locator("#dictionary-example-panel")).toHaveAttribute("aria-busy", "false");
+  const autumn = senses.filter({ has: page.locator("summary", { hasText: /noun · 秋季/u }) });
+  const falling = senses.filter({ has: page.locator("summary", { hasText: /verb · 落下/u }) });
+  await expect(autumn).toHaveCount(1); await expect(autumn).toHaveAttribute("open", "");
+  await expect(falling).toHaveCount(1); await expect(falling).not.toHaveAttribute("open", "");
+  await expect(autumn.locator("summary")).toContainText("本次义项");
+  await expect(falling.locator("summary")).toContainText("其他义项");
+  await expect(content.locator("details.example-sense[open]")).toHaveCount(1);
+  for (const sense of original.senses) {
+    const panel = senses.filter({ has: page.locator("summary", { hasText: `${sense.partOfSpeech} · ${sense.meaningZh}` }) });
+    await expect(panel).toHaveCount(1);
+    for (const example of sense.examples) {
+      await expect(panel.getByText(example.en, { exact: true })).toHaveCount(1);
+      await expect(panel.getByText(example.zh, { exact: true })).toHaveCount(1);
+    }
+  }
+});
