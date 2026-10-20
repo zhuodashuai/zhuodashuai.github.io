@@ -196,7 +196,14 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
       assert.ok(newRequests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length <= 6, `${input}: bounded English-shard budget`);
     }
     for (const rejectedSuffix of group.pos === "adjective" ? ["地"] : group.pos === "adverb" ? ["的"] : ["的", "地"]) {
-      assert.equal(chineseSearchPlan(term + rejectedSuffix), null, `${term + rejectedSuffix}: do not infer an incompatible POS`);
+      const input = term + rejectedSuffix;
+      const literal = COMMON_CHINESE_GROUPS.find(row => row.terms.includes(input));
+      if (literal) {
+        // 地 can be part of a real noun (沼泽地), not a manner suffix.
+        // Preserve an explicitly reviewed literal without inferring a new POS.
+        assert.deepEqual(chineseSearchPlan(input), { term: input, aliases: literal.terms.filter(alias => alias !== input) });
+        assert.equal(chineseSearchSense(input).pos, literal.pos);
+      } else assert.equal(chineseSearchPlan(input), null, `${input}: do not infer an incompatible POS`);
     }
     for (const input of [`不${term}`, `${term}方面`, `非常${term}`, `${term}\u202e`]) {
       assert.notDeepEqual(chineseSearchPlan(input), chineseSearchPlan(term), `${input}: no negation stripping, tail matching, prefix matching or control bypass`);

@@ -1,4 +1,4 @@
-import { COMMON_CHINESE_GROUPS } from "./chinese-related-common.js?v=94";
+import { COMMON_CHINESE_GROUPS } from "./chinese-related-common.js?v=95";
 
 // These are small, editorially selected reverse-lookup concepts, not claims
 // that every English result is interchangeable. Never expand part of a query,
