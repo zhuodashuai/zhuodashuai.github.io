@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "4ad40dbb25484f814a76a774d93880ac011333f5ee9d84e58e61babcd98d2f48",
+  "reviewer": "AI/examples15_reviewer_b",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "auf wiedersehen",
+    "auricula atrii",
+    "auricular appendage",
+    "aurora australis",
+    "aurora borealis",
+    "authorized shares",
+    "authorized stock",
+    "auto maker",
+    "autogenic training",
+    "automated teller",
+    "automatic teller",
+    "autonomic ganglion",
+    "autonomic plexus",
+    "aversive conditioning",
+    "avocado pear",
+    "axial rotation",
+    "axillary artery",
+    "axillary cavity",
+    "axillary fossa",
+    "axillary vein",
+    "azygos vein",
+    "azygous vein",
+    "baba au rhum",
+    "baby buster",
+    "baby sitting",
+    "bacillary white diarrhea",
+    "background processing",
+    "backhand stroke",
+    "backspace key"
+  ],
+  "issues": [
+    {
+      "term": "auf wiedersehen",
+      "blocking": false,
+      "reason": "Preserved movement along the platform, not down off it."
+    },
+    {
+      "term": "authorized stock",
+      "blocking": false,
+      "reason": "Naturalized the maximum authorized share count in Chinese."
+    },
+    {
+      "term": "automated teller",
+      "blocking": false,
+      "reason": "Removed invented temporary duration from unavailable."
+    },
+    {
+      "term": "axillary vein",
+      "blocking": false,
+      "reason": "Preserved the distinguish-from relation in Chinese."
+    },
+    {
+      "term": "bacillary white diarrhea",
+      "blocking": false,
+      "reason": "Naturalized the disease-in-chicks wording without changing the referent."
+    }
+  ]
+}
