@@ -12,7 +12,7 @@ test("a scoped autumn result opens the noun fall example instead of the first fa
   const decline = sense("fall-decline", "noun", "下降；跌落");
   const entry = Object.freeze({ term: "fall", senses: Object.freeze([falling, autumn, decline]) });
   const before = JSON.stringify(entry);
-  const plan = dictionaryExampleSensePlan(entry, { matchedPartOfSpeech: "noun", matchedSense: "秋天／秋季",
+  const plan = dictionaryExampleSensePlan(entry, { term: "fall", matchedPartOfSpeech: "noun", matchedSense: "秋天／秋季",
     matchedExampleSenseIds: ["fall-autumn"], matchedExampleSenseEvidence: proof(autumn) });
   assert.equal(plan.scoped, true); assert.equal(plan.hasMatch, true);
   assert.deepEqual(plan.items.map(row => row.sense.id), ["fall-autumn", "fall-verb", "fall-decline"]);
@@ -26,8 +26,8 @@ test("reviewed example IDs never borrow a match from another atom and open only 
   const wrong = sense("mixed-wrong", "noun · verb", "n. 学习\nvt. 研究");
   const first = sense("verb-first", "verb", "学习；研习"), second = sense("verb-second", "verb", "研习");
   const noun = sense("noun-only", "noun", "研习");
-  const plan = dictionaryExampleSensePlan({ senses: [wrong, first, second, noun] },
-    { matchedPartOfSpeech: "verb", matchedSense: "学习／研习", matchedExampleSenseIds: ["verb-first", "verb-second"],
+  const plan = dictionaryExampleSensePlan({ term: "study", senses: [wrong, first, second, noun] },
+    { term: "study", matchedPartOfSpeech: "verb", matchedSense: "学习／研习", matchedExampleSenseIds: ["verb-first", "verb-second"],
       matchedExampleSenseEvidence: proof(first, second) });
   assert.deepEqual(plan.items.map(row => row.sense.id), ["verb-first", "verb-second", "mixed-wrong", "noun-only"]);
   assert.deepEqual(plan.items.map(row => row.matched), [true, true, false, false]);
@@ -37,7 +37,7 @@ test("reviewed example IDs never borrow a match from another atom and open only 
 test("missing exact scoped meaning keeps all examples closed rather than highlighting compound or mentioned aliases", () => {
   const examples = [sense("mention", "noun", "谈论秋天与秋季的故事"), sense("compound", "noun", "秋季服装"),
     sense("wrong-pos", "adjective", "秋季的"), sense("other", "verb", "落下；下降")];
-  const plan = dictionaryExampleSensePlan({ senses: examples }, { matchedPartOfSpeech: "noun", matchedSense: "秋天／秋季",
+  const plan = dictionaryExampleSensePlan({ term: "fall", senses: examples }, { term: "fall", matchedPartOfSpeech: "noun", matchedSense: "秋天／秋季",
     matchedExampleSenseIds: ["an-unavailable-reviewed-sense"] });
   assert.equal(plan.scoped, true); assert.equal(plan.hasMatch, false);
   assert.deepEqual(plan.items.map(row => row.sense), examples);
@@ -49,7 +49,7 @@ test("physical foundation opens only its reviewed building-base sense, not an ab
     physical = sense("foundation-building", "noun", "建筑物的地基；地下承重部分"),
     institution = sense("foundation-institution", "noun", "基金会");
   const entry = Object.freeze({ term: "foundation", senses: Object.freeze([abstract, physical, institution]) });
-  const plan = dictionaryExampleSensePlan(entry, { matchedPartOfSpeech: "noun", matchedSense: "地基／基础",
+  const plan = dictionaryExampleSensePlan(entry, { term: "foundation", matchedPartOfSpeech: "noun", matchedSense: "地基／基础",
     matchedExampleSenseIds: ["foundation-building"], matchedExampleSenseEvidence: proof(physical) });
   assert.deepEqual(plan.items.map(row => row.sense.id), ["foundation-building", "foundation-abstract", "foundation-institution"]);
   assert.deepEqual(plan.items.map(row => row.open), [true, false, false]);
@@ -61,7 +61,7 @@ test("physical foundation opens only its reviewed building-base sense, not an ab
 test("a missing or empty reviewed whitelist never falls back to Chinese wording or a generic POS match", () => {
   const examples = [sense("exact-chinese", "noun", "地基；基础"), sense("qualified", "noun", "建筑物的地基")];
   for (const matchedExampleSenseIds of [undefined, null, [], ["unknown-id"], [null, {}, 1, ""]]) {
-    const plan = dictionaryExampleSensePlan({ senses: examples }, { matchedPartOfSpeech: "noun", matchedSense: "地基／基础",
+    const plan = dictionaryExampleSensePlan({ term: "foundation", senses: examples }, { term: "foundation", matchedPartOfSpeech: "noun", matchedSense: "地基／基础",
       matchedExampleSenseIds });
     assert.equal(plan.scoped, true); assert.equal(plan.hasMatch, false);
     assert.deepEqual(plan.items.map(row => row.sense), examples);
@@ -100,7 +100,25 @@ test("reviewed IDs without complete evidence and a different selected head canno
   const result = { ...base, matchedExampleSenseEvidence: proof(physical) };
   assert.equal(dictionaryExampleSensePlan({ term: "other-head", senses: [physical] }, result).hasMatch, false);
   assert.equal(dictionaryExampleSensePlan({ term: "foundation", senses: [physical] }, result).hasMatch, true);
-  assert.equal(dictionaryExampleSensePlan({ senses: [physical] }, result).hasMatch, true, "head guard applies when both terms are available");
+  for (const entryTerm of [undefined, null, "", " ", "\u202efoundation", "foundation\u0000", "f".repeat(201)]) {
+    assert.equal(dictionaryExampleSensePlan({ term: entryTerm, senses: [physical] }, result).hasMatch, false);
+  }
+  for (const resultTerm of [undefined, null, "", " ", "\u202efoundation", "foundation\u0000", "f".repeat(201)]) {
+    assert.equal(dictionaryExampleSensePlan({ term: "foundation", senses: [physical] }, { ...result, term: resultTerm }).hasMatch, false);
+  }
+});
+
+test("an intact proof cannot open a different grammatical role and qualified single roles remain supported", () => {
+  const falling = sense("fall-verb", "verb", "落下"), mixed = sense("fall-mixed", "noun · verb", "秋季；落下"),
+    noun = sense("fall-autumn", "noun (countable, often plural)", "秋季");
+  const base = { term: "fall", matchedPartOfSpeech: "noun", matchedSense: "秋天／秋季",
+    matchedExampleSenseIds: [falling.id, mixed.id, noun.id], matchedExampleSenseEvidence: proof(falling, mixed, noun) };
+  const plan = dictionaryExampleSensePlan({ term: "fall", senses: [falling, mixed, noun] }, base);
+  assert.deepEqual(plan.items.map(row => [row.sense.id, row.open]), [[noun.id, true], [falling.id, false], [mixed.id, false]]);
+  for (const target of ["noun · verb", "n", "noun (countable)", "nounish"]) {
+    const rejected = dictionaryExampleSensePlan({ term: "fall", senses: [noun] }, { ...base, matchedPartOfSpeech: target });
+    assert.equal(rejected.hasMatch, false); assert.equal(rejected.items[0].open, false);
+  }
 });
 
 test("unscoped English lookup retains the original ordering and first-open behavior", () => {

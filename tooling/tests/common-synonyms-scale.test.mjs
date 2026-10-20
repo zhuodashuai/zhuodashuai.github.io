@@ -5,6 +5,7 @@ import { COMMON_CHINESE_GROUPS } from "../../vocab/js/chinese-related-common.js"
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSenseMeaning } from "../../vocab/js/chinese-search.js";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
+import { dictionaryExampleSensePlan } from "../../vocab/js/dictionary-app.js";
 
 const manifest = JSON.parse(await readFile(new URL("../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
 const reviewed = JSON.parse(await readFile(new URL("../dictionary/chinese-related-common.json", import.meta.url), "utf8"));
@@ -27,12 +28,18 @@ test("scoped examples require reviewed immutable sense identities, not overlappi
     assert.deepEqual(chineseSearchSense(group.terms[0]).exampleSenses, group.exampleSenses);
     for (const [head, proofs] of Object.entries(group.exampleSenses)) {
       assert.ok(Object.isFrozen(proofs));
-      if (!proofs.length) continue;
       let hash = 2166136261;
       for (const char of head) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
       const descriptor = examples.shards[hash % 256];
       if (!records.has(descriptor.file)) records.set(descriptor.file, JSON.parse(await readFile(new URL(`../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8")));
       const original = records.get(descriptor.file).entries.find(row => row.term === head);
+      const plan = dictionaryExampleSensePlan(original || { term: head, senses: [] }, {
+        term: head, matchedPartOfSpeech: group.pos, matchedSense: group.sense,
+        matchedExampleSenseIds: proofs.map(row => row.id), matchedExampleSenseEvidence: proofs,
+      });
+      assert.deepEqual(new Set(plan.items.filter(row => row.matched).map(row => row.sense.id)), new Set(proofs.map(row => row.id)), `${group.id}/${head}: UI must match precisely the reviewed example identities`);
+      assert.equal(plan.items.filter(row => row.open).length, proofs.length ? 1 : 0);
+      assert.equal(plan.items.length, original?.senses.length || 0, "retain every original example sense");
       for (const proof of proofs) {
         assert.ok(Object.isFrozen(proof));
         assert.deepEqual([...new Set(proof.partOfSpeech.match(/\b(?:noun|verb|adjective|adverb)\b/gu))], [group.pos]);

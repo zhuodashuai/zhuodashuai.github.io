@@ -44,13 +44,24 @@ export function dictionaryExampleSensePlan(entry, result) {
   const reviewedIds = new Set(Array.isArray(result.matchedExampleSenseIds)
     ? result.matchedExampleSenseIds.filter(id => typeof id === "string" && id.trim()) : []);
   const proofs = Array.isArray(result.matchedExampleSenseEvidence) ? result.matchedExampleSenseEvidence : [];
-  const sameHead = !(typeof entry?.term === "string" && typeof result.term === "string") || entry.term === result.term;
-  const matchesProof = sense => sameHead && reviewedIds.has(sense.id) && proofs.some(proof => proof?.id === sense.id
+  const validHead = value => typeof value === "string" && value.length <= 200 && Boolean(value.trim())
+    && /[\p{Script=Latin}\d]/u.test(value) && !/[<>\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(value)
+    && !/javascript\s*:/iu.test(value);
+  const sameHead = validHead(entry?.term) && validHead(result.term) && entry.term === result.term;
+  const targetRole = ["noun", "verb", "adjective", "adverb"].includes(result.matchedPartOfSpeech)
+    ? result.matchedPartOfSpeech : null;
+  const roleOf = value => {
+    if (typeof value !== "string" || value.length > 200 || /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(value)) return null;
+    const roles = new Set(value.normalize("NFKC").toLowerCase().match(/\b(?:noun|verb|adjective|adverb)\b/gu) || []);
+    return roles.size === 1 ? [...roles][0] : null;
+  };
+  const matchesProof = sense => sameHead && targetRole && roleOf(sense.partOfSpeech) === targetRole
+    && reviewedIds.has(sense.id) && proofs.some(proof => proof?.id === sense.id
     && proof.partOfSpeech === sense.partOfSpeech && proof.meaningZh === sense.meaningZh
     && Array.isArray(proof.examples) && Array.isArray(sense.examples) && proof.examples.length === sense.examples.length
     && sense.examples.every((example, index) => typeof example?.en === "string" && typeof example?.zh === "string"
       && example.en === proof.examples[index]?.en && example.zh === proof.examples[index]?.zh));
-  const items = senses.map(sense => ({ sense, matched: matchesProof(sense), open: false }));
+  const items = senses.map(sense => ({ sense, matched: Boolean(matchesProof(sense)), open: false }));
   // Sorting this new wrapper array preserves every original sense, example,
   // provenance field and relative order within the matching/other partitions.
   items.sort((a, b) => Number(b.matched) - Number(a.matched));
