@@ -38,6 +38,42 @@ const CURATED_BATCH_003 = Object.freeze([
 ].map(group => Object.freeze({ terms: Object.freeze(group.terms), heads: Object.freeze(group.heads) })));
 const CURATED_HEADS_003 = new Map(CURATED_BATCH_003.flatMap(group => group.terms.map(term => [term, group.heads])));
 
+// Batch 004 follows the same finite, source-evidenced policy. Related noun,
+// adjective and adverb forms retain their original POS and usage differences.
+const CURATED_BATCH_004 = Object.freeze([
+  { terms: ["诚实", "正直"], heads: ["honest", "truthful", "upright", "honesty"] },
+  { terms: ["忠诚", "忠实", "忠贞"], heads: ["loyal", "faithful", "loyalty"] },
+  { terms: ["耐心", "耐性", "有耐心"], heads: ["patient", "patience", "patiently"] },
+  { terms: ["好奇", "好奇心"], heads: ["curious", "curiosity"] },
+  { terms: ["乐观", "乐天"], heads: ["optimistic", "optimism"] },
+  { terms: ["悲观", "悲观情绪"], heads: ["pessimistic", "gloomy", "pessimism"] },
+  { terms: ["热情", "热忱", "热心"], heads: ["enthusiastic", "enthusiasm", "ardent", "zeal"] },
+  { terms: ["冷漠", "冷淡"], heads: ["cold", "aloof", "chilly", "unemotional"] },
+  { terms: ["自信", "信心"], heads: ["confident", "assured", "confidence", "self-confident"] },
+  { terms: ["紧张", "不安"], heads: ["nervous", "tense", "tension"] },
+  { terms: ["尴尬", "窘迫", "困窘"], heads: ["embarrassed", "abashed", "awkwardness"] },
+  { terms: ["沮丧", "灰心"], heads: ["dejected", "downhearted"] },
+  { terms: ["满意", "满足"], heads: ["content", "contented", "satisfaction"] },
+  { terms: ["感激", "感谢"], heads: ["grateful", "thankful", "thank", "appreciation"] },
+  { terms: ["尊重", "尊敬", "敬重"], heads: ["respect", "esteem", "revere"] },
+  { terms: ["信任", "信赖"], heads: ["trust", "rely", "reliance", "confidence"] },
+  { terms: ["鼓励", "激励", "勉励"], heads: ["encourage", "encouragement", "hearten"] },
+  { terms: ["支持", "拥护"], heads: ["support", "endorse", "uphold", "espouse"] },
+  { terms: ["合作", "协作"], heads: ["cooperate", "collaborate", "cooperation", "collaborative"] },
+  { terms: ["竞争", "角逐"], heads: ["compete", "contend", "competition", "vie"] },
+  { terms: ["接受", "接纳"], heads: ["accept", "acceptance"] },
+  { terms: ["否认", "否定"], heads: ["deny", "disavow", "denial", "negate"] },
+  { terms: ["建议", "提议"], heads: ["suggest", "advise", "propose", "suggestion", "advice"] },
+  { terms: ["邀请", "邀约"], heads: ["invite", "invitation"] },
+  { terms: ["通知", "告知"], heads: ["notify", "inform", "notice"] },
+  { terms: ["警告", "告诫", "警示"], heads: ["warn", "warning", "caution", "admonish"] },
+  { terms: ["原谅", "宽恕"], heads: ["forgive", "pardon", "forgiveness"] },
+  { terms: ["承诺", "许诺", "允诺", "诺言"], heads: ["promise", "pledge"] },
+  { terms: ["计划", "打算"], heads: ["plan", "intend", "scheme", "propose"] },
+  { terms: ["怀疑", "疑惑"], heads: ["doubt", "suspect", "doubtful", "skeptical", "sceptical"] },
+].map(group => Object.freeze({ terms: Object.freeze(group.terms), heads: Object.freeze(group.heads) })));
+const CURATED_HEADS_004 = new Map(CURATED_BATCH_004.flatMap(group => group.terms.map(term => [term, group.heads])));
+
 const GROUPS = Object.freeze([
   ["开心", "高兴", "快乐", "愉快"],
   ["不开心", "不快乐", "不高兴"],
@@ -94,6 +130,7 @@ const GROUPS = Object.freeze([
   ["错误", "差错"],
   ["安慰", "慰藉", "抚慰"],
   ...CURATED_BATCH_003.map(group => group.terms),
+  ...CURATED_BATCH_004.map(group => group.terms),
 ].map(group => Object.freeze(group)));
 
 // These concepts denote people, not their adjectival derivatives. A source
@@ -121,7 +158,7 @@ export function chineseSearchHeads(term) {
   // mentions. These common heads still require an actual matching source atom.
   if (BUYING_TERMS.includes(term)) return BUYING_HEADS;
   if (SELLING_TERMS.includes(term)) return SELLING_HEADS;
-  return CURATED_HEADS_003.get(term) || null;
+  return CURATED_HEADS_003.get(term) || CURATED_HEADS_004.get(term) || null;
 }
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
