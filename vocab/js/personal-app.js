@@ -17,6 +17,7 @@ import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=95";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -51,6 +52,7 @@ let conflictEntry = null;
 let dictionarySequence = 0;
 let dictionaryController = null;
 let dictionaryRelatedController = null;
+const detailLearningExamples = createDictionaryExamplesSection({ before: $("member-detail-edit") });
 const state = {
   phase: "checking", authView: "login", authBusy: false, user: null, csrfToken: "", expiresAt: "",
   entries: [], revision: 0, entriesLoaded: false, listBusy: false, entryBusy: false,
@@ -105,6 +107,7 @@ function clearPasswords() {
 }
 
 function clearPrivateDom() {
+  detailLearningExamples.clear();
   resetDictionary();
   $("member-dictionary-term").value = "";
   $("member-entry-list").replaceChildren();
@@ -1073,6 +1076,7 @@ function showEntry(entry) {
   $("member-detail-definition").textContent = detailed ? context?.definition || "" : "";
   $("member-detail-usage").textContent = detailed ? context?.usage || "" : "";
   $("member-detail-example").textContent = detailed && context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
+  void detailLearningExamples.show(entry);
   $("member-detail-edit").disabled = state.entryBusy;
   if (!$("member-detail-dialog").open) $("member-detail-dialog").showModal();
 }
@@ -1318,9 +1322,15 @@ for (const id of ["member-new", "member-cancel"]) $(id).addEventListener("click"
   if (state.phase === "ready" && !state.entryBusy && discardAllowed()) fillEditor(personalDraft(), { focus: true });
 });
 $("member-conflict-open").addEventListener("click", () => { if (conflictEntry) showEntry(conflictEntry); });
-$("member-detail-close").addEventListener("click", () => $("member-detail-dialog").close());
+$("member-detail-close").addEventListener("click", () => { detailLearningExamples.clear(); $("member-detail-dialog").close(); });
+$("member-detail-dialog").addEventListener("cancel", () => detailLearningExamples.clear());
+$("member-detail-dialog").addEventListener("close", () => {
+  if ($("member-detail-dialog").open) return;
+  detailLearningExamples.clear(); detailEntry = null;
+});
 $("member-detail-edit").addEventListener("click", () => {
   const entry = detailEntry;
+  detailLearningExamples.clear();
   $("member-detail-dialog").close();
   if (entry) editEntry(entry);
 });

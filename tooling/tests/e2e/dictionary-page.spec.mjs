@@ -181,10 +181,21 @@ test("examples: a slow optional shard cannot hold the meaning, CTA or next input
   } finally { gate.resolve(); }
 });
 
-test("examples: missing optional material stays hidden without claiming a failed or missing dictionary word", async ({ page }) => {
+test("examples: a valid missing-material fixture stays hidden without claiming a failed or missing dictionary word", async ({ page }) => {
   const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
   const descriptor = manifest.shards[dictionaryExampleBucket("abacus")];
   const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8"));
+  // Abacus now has a released example. Model an optional-data miss explicitly
+  // rather than reserving a real dictionary word as permanently incomplete.
+  const removed = payload.entries.find(item => item.term === "abacus");
+  const removedPairs = removed?.senses.reduce((sum, sense) => sum + sense.examples.length, 0) || 0;
+  payload.entries = payload.entries.filter(item => item.term !== "abacus");
+  const bytes = Buffer.from(JSON.stringify(payload));
+  descriptor.bytes = bytes.length; descriptor.sha256 = createHash("sha256").update(bytes).digest("hex");
+  descriptor.heads -= Number(Boolean(removed)); descriptor.examples -= removedPairs;
+  manifest.counts.heads -= Number(Boolean(removed)); manifest.counts.examples -= removedPairs;
+  await page.route("**/data/dictionary-examples/manifest-v2.json", route => route.fulfill({ json: manifest }));
+  await page.route(`**/data/dictionary-examples/${descriptor.file}`, route => route.fulfill({ contentType: "application/json", body: bytes }));
   expect(payload.entries.some(item => item.term === "abacus")).toBe(false);
   const calls = observeRequests(page); await open(page); await query(page, "abacus");
   await expect(page.locator("#dictionary-term")).toHaveText("abacus");
@@ -215,18 +226,24 @@ test("examples: failure and local retry never clear the meaning or rerun the mai
 });
 
 test("examples: a late previous result cannot repopulate material after the input changes to another headword", async ({ page }) => {
+  const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${manifest.shards[dictionaryExampleBucket("quagmire")].file}`, import.meta.url), "utf8"));
+  const current = payload.entries.find(item => item.term === "quagmire");
+  expect(current).toBeTruthy();
   const gate = deferred(), seen = deferred();
   await page.route(exampleShard, async route => { seen.resolve(); await gate.promise; await route.continue(); });
   try {
     await open(page); await query(page, "override"); await seen.promise;
-    await page.locator("#dictionary-query").fill("abacus");
+    await page.locator("#dictionary-query").fill("quagmire");
     await expect(page.locator("#dictionary-example-panel")).toBeHidden();
     await page.locator("#dictionary-query").press("Enter");
-    await expect(page.locator("#dictionary-term")).toHaveText("abacus");
+    await expect(page.locator("#dictionary-term")).toHaveText("quagmire");
     gate.resolve(); await page.waitForLoadState("networkidle");
-    await expect(page.locator("#dictionary-example-panel")).toBeHidden();
-    await expect(page.locator("#dictionary-example-content")).toBeEmpty();
-    await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
+    await expect(page.locator("#dictionary-example-panel")).toBeVisible();
+    await expect(page.locator("#dictionary-example-content .example-sense")).toHaveCount(current.senses.length);
+    await expect(page.locator('#dictionary-example-content p[lang="en"]').first()).toHaveText(current.senses[0].examples[0].en);
+    await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]').first()).toHaveText(current.senses[0].examples[0].zh);
+    await expect(page.locator("#dictionary-meaning")).toContainText(/泥潭|沼泽|困境/u);
   } finally { gate.resolve(); }
 });
 

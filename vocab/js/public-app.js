@@ -1,5 +1,5 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail.js?v=82";
+import { createEntryDetailController } from "./entry-detail.js?v=96";
 import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
@@ -340,7 +340,7 @@ function openEntry(entry, invoker, { fromStudy = false } = {}) {
     state.studyQueue = [];
     state.studyQueueTotal = 0;
   }
-  entryDetail.show(entry, { invoker });
+  entryDetail.show(entry, { invoker, learningExamples: !fromStudy });
   if (fromStudy) {
     refs.dialogTerm.tabIndex = -1;
     refs.dialogTerm.focus({ preventScroll: true });

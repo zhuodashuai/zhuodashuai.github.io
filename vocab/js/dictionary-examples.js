@@ -3,6 +3,8 @@
 const MANIFEST_URL = new URL("../data/dictionary-examples/manifest-v2.json", import.meta.url);
 const MAX_MANIFEST_BYTES = 512 * 1024;
 const MAX_SHARD_BYTES = 1024 * 1024;
+// Match the bounded expanded-dictionary catalogue, which already exceeds 100k.
+const MAX_HEADS = 200_000;
 const HASH = /^[a-f0-9]{64}$/u;
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
@@ -42,7 +44,7 @@ export function parseDictionaryExamplesManifest(payload) {
   if (![1, 2].includes(payload.schemaVersion) || !HASH.test(payload.version)
     || modern && (payload.bucketCount !== 256 || payload.hash !== "fnv1a-codepoints-v1")) throw invalid();
   object(payload.counts, ["heads", "examples"]);
-  integer(payload.counts.heads, 100_000); integer(payload.counts.examples, 400_000);
+  integer(payload.counts.heads, MAX_HEADS); integer(payload.counts.examples, 400_000);
   if ((payload.counts.heads === 0) !== (payload.counts.examples === 0)
     || payload.counts.examples < payload.counts.heads) throw invalid();
   const bucketCount = modern ? 256 : 16;
@@ -55,7 +57,7 @@ export function parseDictionaryExamplesManifest(payload) {
     integer(item.bytes, MAX_SHARD_BYTES);
     if (item.bytes === 0) throw invalid();
     if (modern) {
-      integer(item.heads, 100_000); integer(item.examples, 400_000);
+      integer(item.heads, MAX_HEADS); integer(item.examples, 400_000);
       if ((item.heads === 0) !== (item.examples === 0) || item.examples < item.heads) throw invalid();
       totalHeads += item.heads; totalExamples += item.examples;
     }

@@ -279,6 +279,14 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
 .detail-section h3 { margin: 0 0 .45rem; color: var(--green-2); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
 .detail-section > p { margin: .25rem 0; white-space: pre-line; }
 .detail-section ul { padding-left: 1.25rem; }
+.dictionary-learning-examples { min-width: 0; overflow-wrap: anywhere; }
+.dictionary-learning-examples .dictionary-learning-source,
+.dictionary-learning-examples .dictionary-learning-note,
+.dictionary-learning-examples .dictionary-learning-status { color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.dictionary-learning-status:empty { display: none; }
+.dictionary-learning-sense h4 { margin: 1rem 0 .5rem; font-size: .95rem; line-height: 1.6; }
+.dictionary-learning-pair { padding: .5rem .8rem; margin: .6rem 0; border-left: 3px solid var(--line); }
+.dictionary-learning-pair p { margin: .25rem 0; white-space: pre-line; line-height: 1.75; }
 .review-panel { padding: 1rem; border: 1px solid #c7d8ce; border-radius: 14px; background: #f1f7f3; }
 .review-panel h3 { font-size: .82rem; }
 .review-panel p { margin: .2rem 0 .8rem; color: var(--muted); }

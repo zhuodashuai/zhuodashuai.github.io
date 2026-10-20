@@ -5,6 +5,7 @@ import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { createSourcePassageSection } from "./book-passages-ui.js?v=82";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -189,7 +190,9 @@ export function createEntryDetailController({ root = document, getEntries = () =
   const pronunciation = setupPronunciationUI(root);
   refs.dialogPhonetic.after(pronunciation.settings("detail-audio-settings"));
   const sourcePassages = createSourcePassageSection({ root, after: refs.dialogExampleSection });
+  const learningExamples = createDictionaryExamplesSection({ root, after: root.getElementById("dialog-source-examples-section") });
   let selected = null;
+  let allowLearningExamples = true;
   let returnFocus = null;
   let returnFocusKey = null;
   let copyResetTimer = null;
@@ -241,10 +244,11 @@ export function createEntryDetailController({ root = document, getEntries = () =
     });
   };
 
-  const show = (entry, { invoker = root.activeElement } = {}) => {
+  const show = (entry, { invoker = root.activeElement, learningExamples: enabled = true } = {}) => {
     const changed = !selected || selected.id !== entry.id || selected.term !== entry.term;
     if (changed) pronunciation.stop();
     selected = entry;
+    allowLearningExamples = enabled;
     pronunciation.decorate(refs.dialogSpeak, entry.term, entry.id);
     if (!refs.entryDialog.open) {
       returnFocus = invoker && typeof invoker.focus === "function" ? invoker : null;
@@ -262,6 +266,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
     setText(refs.dialogExampleEn, entry.exampleEn);
     setText(refs.dialogExampleZh, entry.exampleZh);
     void sourcePassages.show(entry);
+    void learningExamples.show(entry, { enabled });
     const collectionContext = collectionContextForEntry(entry);
     // The preserved attribution note describes the authored learning example,
     // not the independently verified PDF excerpt in the section above it.
@@ -322,21 +327,23 @@ export function createEntryDetailController({ root = document, getEntries = () =
   });
   // The native close event is queued after the dialog is already hidden.
   // Stop in the user's closing gesture too, so audio does not outlive the card.
-  refs.entryDialog.addEventListener("cancel", () => pronunciation.stop());
+  refs.entryDialog.addEventListener("cancel", () => { pronunciation.stop(); learningExamples.clear(); });
   refs.entryDialog.addEventListener("submit", (event) => {
-    if (event.target.matches('form[method="dialog"]')) pronunciation.stop();
+    if (event.target.matches('form[method="dialog"]')) { pronunciation.stop(); learningExamples.clear(); }
   });
   const close = () => {
     if (!refs.entryDialog.open) return;
     pronunciation.stop();
     refs.entryDialog.close();
     sourcePassages.clear();
+    learningExamples.clear();
   };
   refs.entryDialog.addEventListener("close", () => {
     if (refs.entryDialog.open) return; // Ignore a queued close if already reopened.
     pronunciation.stop();
     selected = null;
     sourcePassages.clear();
+    learningExamples.clear();
     const target = returnFocus?.isConnected ? returnFocus : returnFocusKey
       ? [...root.querySelectorAll("button[data-entry-id][data-entry-action]")].find((button) =>
         button.dataset.entryId === returnFocusKey.entryId && button.dataset.entryAction === returnFocusKey.action)
@@ -356,7 +363,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
         return null;
       }
       const contextual = contextualizeEntry(fresh);
-      show(contextual, { invoker: returnFocus });
+      show(contextual, { invoker: returnFocus, learningExamples: allowLearningExamples });
       return contextual;
     },
     close

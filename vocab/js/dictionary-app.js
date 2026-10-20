@@ -260,7 +260,7 @@ export function mountDictionaryPage(document, window) {
     renderExamples({ phase: "loading", message: "正在读取学习例句…" });
     // Do not add a JS/data dependency to the critical meaning/CTA path. A late
     // import/download is guarded separately from the primary query controller.
-    exampleModule ||= import("./dictionary-examples.js?v=84");
+    exampleModule ||= import("./dictionary-examples.js?v=96");
     void exampleModule.then(module => {
       if (current !== exampleSequence || lastSelected?.term !== term) return;
       exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });

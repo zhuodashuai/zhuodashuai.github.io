@@ -62,6 +62,21 @@ test("v2 directory uses 256 strict counted shards without a full term index", ()
   }
 });
 
+test("example head limits accommodate the full released dictionary while retaining the 200k catalogue bound", () => {
+  const manifest = modernFixture().manifest;
+  for (const descriptor of manifest.shards) { descriptor.heads = 0; descriptor.examples = 0; }
+  for (const total of [102_609, 200_000]) {
+    manifest.counts.heads = manifest.counts.examples = total;
+    manifest.shards[0].heads = manifest.shards[0].examples = total;
+    assert.equal(parseDictionaryExamplesManifest(manifest).counts.heads, total);
+  }
+  for (const total of [200_001, Number.MAX_SAFE_INTEGER, 102_609.5]) {
+    manifest.counts.heads = manifest.counts.examples = total;
+    manifest.shards[0].heads = manifest.shards[0].examples = total;
+    assert.throws(() => parseDictionaryExamplesManifest(manifest));
+  }
+});
+
 test("v2 lookup downloads only its deterministic bucket, caches it, and keeps unknown and prototype-like terms safe", async () => {
   const data = modernFixture([entry(), entry("constructor")]);
   assert.equal((await loadDictionaryExamples("abacus", { fetchImpl: data.fetchImpl })).term, "abacus");
