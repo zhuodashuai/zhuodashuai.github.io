@@ -1,0 +1,5084 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0013",
+  "queuedHeads": 11013,
+  "authoredHeads": 10000,
+  "approvedHeads": 10000,
+  "baselineHeads": 22339,
+  "afterHeads": 32339,
+  "deferred": [
+    {
+      "term": "aborigine",
+      "reason": "Reviewer verified that this person label is offensive and old-fashioned; exclude unmarked ordinary illustrative use.",
+      "sourceURL": "https://dictionary.cambridge.org/dictionary/english/aborigine",
+      "stage": "authoring"
+    },
+    {
+      "term": "abortionist",
+      "reason": "Potentially loaded practitioner label; uncertain neutral current register alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acclimatise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "acupressure",
+      "reason": "Published gloss says needle pressure, while supplied evidence specifies finger pressure; specialized source alignment needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "adaption",
+      "reason": "Nonpreferred orthographic variant of adaptation; deferred rather than counting a spelling variant as an additional lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "adulteress",
+      "reason": "Published gloss is a derogatory gendered label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "advancer",
+      "reason": "Independent review rejected the bare-person noun example as unnatural. Supplied general definition is insufficient for a confident natural ordinary sense, so deferred rather than inventing technical usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "adventuresome",
+      "reason": "Chinese gloss describes an adventurous quality rather than clearly supporting the supplied willing-to-take-risks personal disposition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "affordable",
+      "reason": "Existing gloss only says computing 普及型; it does not support the evidenced financial affordability sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "agreeableness",
+      "reason": "Published meanings are suitability or agreement; supplied PWN senses are pleasantness or an agreeable temperament.",
+      "stage": "authoring"
+    },
+    {
+      "term": "airforce",
+      "reason": "WordNet records this closed form, but current primary learner entries consulted present the open noun air force; the attached ordinary-noun sentence would teach the uncertain closed learner spelling without a usage label. Defer this optional example rather than change the published head or pretend a lexical normalization was verified.",
+      "sources": [
+        "https://dictionary.cambridge.org/dictionary/english/air-force",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/air-force",
+        "https://www.collinsdictionary.com/us/dictionary/english/airforce-base"
+      ],
+      "stage": "authoring"
+    },
+    {
+      "term": "airhead",
+      "reason": "Published meaning says airborne object, while PWN supports an airborne bridgehead or an insulting person label; no precise aligned ordinary sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "airily",
+      "reason": "Existing lightly/cheerfully gloss differs from supplied flippant manner definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "airwave",
+      "reason": "Natural broadcasting-medium usage is normally plural; no confident natural standalone singular example composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "alewife",
+      "reason": "Published meaning is a female alehouse keeper, while available frozen evidence exclusively describes the unrelated fish senses; defer rather than invent an aligned source.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aliveness",
+      "reason": "Chinese gloss means vitality; supplied evidence concerns the state of being alive or animate rather than energetic liveliness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "allocator",
+      "reason": "Released computing allocation-symbol sense does not match the person-who-allots reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "amphora",
+      "reason": "Published meaning is a botanical flask-shaped structure, while supplied PWN evidence is an ancient two-handled jar.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anachronistically",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "androgyny",
+      "reason": "Released Chinese gloss uses dated clinical/pathologizing terminology; avoid presenting this as a neutral modern identity example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "angulation",
+      "reason": "Chinese gloss means an angle; supplied evidence concerns making angular or measuring angles, so precise technical alignment is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "animalistic",
+      "reason": "Published senses concern animalism doctrine or sexuality; supplied short PWN gloss does not securely establish an aligned specific sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anon",
+      "reason": "Archaic adverb needs more secure evidence for natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthropogenic",
+      "reason": "Supplied origin-of-humans sense is specialised and differs from familiar human-caused use; no confident natural historical example composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "anticoagulation",
+      "reason": "Published gloss means the anticoagulant effect; supplied evidence specifically means administering a drug, so specialized sense alignment needs confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "antipodean",
+      "reason": "Published gloss is merely opposite, while PWN requires geographically opposite sides of the earth; precise source sense needs clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aqua",
+      "reason": "Existing gloss is water or a medicinal water preparation, not the supplied colour sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aquavit",
+      "reason": "Released brandy gloss does not precisely identify the Scandinavian spirit supported by the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "archdiocesan",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "are",
+      "reason": "Canonical noun evidence is an area unit, but existing gloss only describes an inflected form of be.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arnica",
+      "reason": "Released tincture sense differs from the plant/ointment reference senses; defer exact preparation terminology.",
+      "stage": "authoring"
+    },
+    {
+      "term": "arsehole",
+      "reason": "Vulgar anatomical label with uncertain appropriate neutral example usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "artifactual",
+      "reason": "Frozen gloss says artificial or manufactured; supplied evidence is relational to artifacts, leaving sense alignment uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "assaultive",
+      "reason": "Published adjective entry supplies bare action nouns without a precise propensity-to-attack adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "assertively",
+      "reason": "Frozen dogmatically/asserting-as-fact glosses do not reliably express the supported confident assertive manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "asteroidal",
+      "reason": "Frozen star-shaped gloss conflicts with supplied asteroid-related adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "astronomically",
+      "reason": "Frozen astronomical-discipline adverb glosses do not match supplied enormously sense; natural technical adverb use remains unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "athleticism",
+      "reason": "Existing sporting activity/love of sport gloss differs from supplied intense energy definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "atypically",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "australopithecine",
+      "reason": "Frozen Pleistocene-primate gloss is too broad and temporally questionable for the supplied Australopithecus sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "autistic",
+      "reason": "Existing isolated/self-centred gloss is inaccurate for the supplied autism sense and must not be silently repaired.",
+      "stage": "authoring"
+    },
+    {
+      "term": "autoloader",
+      "reason": "Published meaning is a computing device; supplied PWN evidence is a self-loading firearm.",
+      "stage": "authoring"
+    },
+    {
+      "term": "aversive",
+      "reason": "Existing feeling-averse gloss differs from supplied causing-repulsion or dissuasion definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "backstair",
+      "reason": "Released indirect gloss lacks the secret or underhand character of the available reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "backtalk",
+      "reason": "Published work-contact telephone gloss conflicts with supplied insolent-reply sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "baldy",
+      "reason": "Potentially insulting person label based on baldness; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "balefully",
+      "reason": "Published gloss emphasizes harmful or disastrous effects, while ordinary adverb use is often menacing manner; supplied short evidence does not resolve a natural aligned sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bam",
+      "reason": "Published Chinese means deceit while evidence means sudden loud noise; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "banding",
+      "reason": "Existing mechanical 模式带 gloss is unclear and does not securely match decorative contrasting stripes.",
+      "stage": "authoring"
+    },
+    {
+      "term": "banquette",
+      "reason": "Existing trench/rear-driver-seat glosses do not clearly support the supplied upholstered-bench meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bantamweight",
+      "reason": "Published gloss calls this the lightest boxing division, which is not sufficiently supported by the supplied weight-range evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "baptistery",
+      "reason": "Independent primary-source review found selected bowl/font sense doubtful for this head versus usual baptism building sense; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bawd",
+      "reason": "Archaic derogatory label for a sex worker or procurer; defer rather than add a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "beatable",
+      "reason": "Published gloss means capable of being struck or withstanding blows; supplied evidence means defeatable.",
+      "stage": "authoring"
+    },
+    {
+      "term": "begotten",
+      "reason": "Published Chinese is only a participle pointer to beget.",
+      "stage": "authoring"
+    },
+    {
+      "term": "behaviourism",
+      "reason": "Frozen 行动主义 gloss does not clearly identify the supported psychological behaviorism sense, normally 行为主义.",
+      "stage": "authoring"
+    },
+    {
+      "term": "beignet",
+      "reason": "Frozen filled-pancake gloss does not match supplied fried-doughnut evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "believably",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "benzodiazepine",
+      "reason": "Specialized Chinese chemical name is visibly corrupted; deferred without reconstructing the released gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "berk",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bestiality",
+      "reason": "Mixed brutality/explicit sexual senses require a separately contextualized selected-sense review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bezel",
+      "reason": "Published computing gloss means a window; supplied evidence means a sloping cutting-tool edge.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bicentennial",
+      "reason": "Existing noun gloss gives duration/frequency rather than the supplied two-hundredth-anniversary event.",
+      "stage": "authoring"
+    },
+    {
+      "term": "biochemically",
+      "reason": "Chinese gloss means produced by biochemical reactions; supplied evidence means with respect to biochemistry.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bionic",
+      "reason": "Frozen superhuman adjective gloss and noun-like cybernetics label do not clearly match the supported bionics-related adjective senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bipedalism",
+      "reason": "Chinese gloss is locomotion on two feet; supplied evidence specifically describes the anatomical attribute of having two feet.",
+      "stage": "authoring"
+    },
+    {
+      "term": "birder",
+      "reason": "Existing bird hunter gloss differs from supplied bird observer/studier definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bisexuality",
+      "reason": "Chinese hermaphroditism gloss conflicts with the supplied sexual-orientation definition; biological alternative is insufficiently specific.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bisque",
+      "reason": "Existing unglazed porcelain gloss differs from supplied shellfish cream soup definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bitchiness",
+      "reason": "Gendered derogatory expression; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bitchy",
+      "reason": "Potentially derogatory term; Chinese lewd or fault-finding senses do not securely match the malice evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bitty",
+      "reason": "Existing fragmentary gloss differs from supplied very-small definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "biz",
+      "reason": "Existing gloss refers to a computing organization or domain label, not the supplied occupation sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blackened",
+      "reason": "Existing culinary adjective differs from evidenced smoke-darkened adjective; remaining source only describes inflection of blacken.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blackface",
+      "reason": "Published meaning is bold type, while supplied PWN evidence is racially offensive performance makeup; no aligned ordinary sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blanc",
+      "reason": "Existing gloss merely says white; supplied evidence is a specific white cooking sauce.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blandness",
+      "reason": "Released Chinese cheerfulness/gentleness gloss does not safely select the better-supported insipidity or unconcern senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blaster",
+      "reason": "Chinese computing-device gloss conflicts with English explosives-worker definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blaxploitation",
+      "reason": "Chinese gloss means exploiting Black interests; supplied evidence means exploitation of Black people, especially stereotyped movie roles.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bleeder",
+      "reason": "Supplied person sense is an old medical label; specialized register and precise gloss require confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blench",
+      "reason": "Published recoil/retreat gloss does not clearly match the supplied turn-pale sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blessedly",
+      "reason": "Listed Chinese happiness or sacredness senses do not clearly support the usual adverbial fortunate-relief usage; uncertain natural matched sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blighter",
+      "reason": "Derogatory person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blockhead",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blondness",
+      "reason": "Published Chinese is only a derivative pointer with no usable specific noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bloomer",
+      "reason": "Queued as a surname proper noun; English common-noun meanings conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blooper",
+      "reason": "Released Chinese radio-device or major-setback gloss does not safely match the ordinary embarrassing-mistake reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blowback",
+      "reason": "Published computing/chemical senses are image enlargement or backblowing; supplied PWN evidence concerns disinformation or firearm gas escape.",
+      "stage": "authoring"
+    },
+    {
+      "term": "blowsy",
+      "reason": "Dated derogatory gendered sense; defer rather than model insulting usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bodega",
+      "reason": "Chinese wine-cellar or hotel gloss does not securely match English Hispanic grocery-and-wine shop.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bodge",
+      "reason": "Released neutral repair gloss lacks the botched/makeshift quality needed for a precise selected-sense example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "boeuf",
+      "reason": "French-language head and proper-name alternative require confirmation as an English lexical item before example publication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bonehead",
+      "reason": "Insult meaning stupid person; deferred under assignment rule for insulting terms.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bonk",
+      "reason": "Frozen sound gloss does not clearly match the supported striking verb, and the remaining sexual sense is editorially uncertain in this entry.",
+      "stage": "authoring"
+    },
+    {
+      "term": "booby",
+      "reason": "Existing source only supports an insulting person label; ordinary authoring excludes insults.",
+      "stage": "authoring"
+    },
+    {
+      "term": "boogeyman",
+      "reason": "Published Chinese means supernatural evil witch while evidence means imaginary child-frightening monster; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "booker",
+      "reason": "Existing reservation registrar/model selector senses do not clearly match supplied performance booking agent definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bootstrap",
+      "reason": "Independent review found Chinese boot-removal strap gloss conflicts with English boot-pulling loop evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "boozer",
+      "reason": "Derogatory label for a habitual excessive drinker; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bop",
+      "reason": "Existing noun denotes a blow, but the matching supplied hit definition is a verb; supplied noun only denotes a jazz style.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bosomy",
+      "reason": "Body-focused and evaluative label with sexualizing evidence; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bounder",
+      "reason": "Independent review flagged published rude-person Chinese against morally reprehensible swindler sense; defer source mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "boutonniere",
+      "reason": "Released urinary-surgery gloss conflicts with the flower-in-buttonhole reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "braless",
+      "reason": "Published no-bra sense does not necessarily imply the uncovered-breasts sense in the supplied evidence; defer conflicting scope.",
+      "stage": "authoring"
+    },
+    {
+      "term": "brashly",
+      "reason": "Published gloss concerns heartburn or showers; supplied evidence means in a cheeky or impudent manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bratty",
+      "reason": "Derogatory label for an ill-mannered child; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "breaststroke",
+      "reason": "Frozen gloss 俯泳 does not reliably identify the standard 蛙泳 stroke; defer the gloss conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "breathlessness",
+      "reason": "Published gloss means cessation of breath or death, whereas PWN sense is dyspnea; deferred rather than changing the released meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "brutalization",
+      "reason": "Chinese gloss names cruelty or bestiality as a quality, while supplied senses concern making or treating people brutally.",
+      "stage": "authoring"
+    },
+    {
+      "term": "buffoonish",
+      "reason": "Released definition is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "buggery",
+      "reason": "Dated legal and sexual label with uncertain neutral register alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bulimic",
+      "reason": "Frozen hungry/excessive-appetite adjective glosses do not reliably denote the supported bulimia disorder sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bummer",
+      "reason": "Existing vagrant/rogue person senses differ from supplied bad drug reaction or disappointing experience meanings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bunion",
+      "reason": "Independent reviewer confirmed that frozen 拇趾囊肿 misleadingly denotes a cyst rather than the bony bump/deformity of a bunion; defer rather than change the published condition gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "burin",
+      "reason": "Released ice-chisel gloss differs from the pointed engraving tool reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "burrito",
+      "reason": "Existing gloss specifies corn pancake, whereas supplied definition describes a flour tortilla; do not silently correct the source ingredient.",
+      "stage": "authoring"
+    },
+    {
+      "term": "burster",
+      "reason": "Published Chinese names computing splitters while evidence means explosive charge; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bushman",
+      "reason": "Person label has uncertain present-day register and potential ethnic ambiguity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "bushwhacker",
+      "reason": "Frozen clearing or woods-dweller glosses do not match supplied guerrilla or disparaging rustic-person evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "busk",
+      "reason": "Published Scottish sense means prepare; supplied evidence means perform music publicly for money.",
+      "stage": "authoring"
+    },
+    {
+      "term": "buss",
+      "reason": "Archaic kiss term with uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cabana",
+      "reason": "Chinese small-house gloss does not securely match English temporary dressing-tent definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cabinetry",
+      "reason": "Existing source denotes furniture collectively; supplied evidence denotes the craft of making furniture.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cabriolet",
+      "reason": "Published meaning concerns a convertible motorcar; supplied PWN evidence concerns a horse-drawn carriage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cahoot",
+      "reason": "Predominantly fixed plural idiom in cahoots; defer uncertain exact-head standalone usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "callback",
+      "reason": "Frozen generic withdrawal gloss and supplied defective-product recall sense are insufficient to confirm natural use of this uncommon recall sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "candidature",
+      "reason": "Chinese candidacy-status gloss conflicts with English election-campaign definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cannibalise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cannister",
+      "reason": "Nonpreferred spelling variant of canister; deferred for canonical spelling review rather than counting another spelling as a new lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "canola",
+      "reason": "Existing gloss denotes the rapeseed plant, whereas supplied evidence only gives its vegetable oil.",
+      "stage": "authoring"
+    },
+    {
+      "term": "canonise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "capitalisation",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "capriciousness",
+      "reason": "Chinese medical gloss means abnormal mental state; supplied evidence means unpredictability or impulsiveness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "capuchin",
+      "reason": "Released capitalized monk sense differs from lower-case monkey/cloak reference senses; requires a separate case/sense review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "carabiner",
+      "reason": "Published meaning is a loom hook; supplied PWN evidence is a mountaineering spring-clip ring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "carbonara",
+      "reason": "Published Chinese identifies baked pasta with cheese sauce while evidence is a specific egg-based pasta sauce; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "carousel",
+      "reason": "Existing tournament sense differs from supplied amusement ride and airport conveyor definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "casbah",
+      "reason": "Published gloss denotes an Arabian court; supplied evidence denotes a North African urban quarter.",
+      "stage": "authoring"
+    },
+    {
+      "term": "casualness",
+      "reason": "Existing chance/accident gloss differs from supplied casual manner definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cathexis",
+      "reason": "Released concentrating-attention gloss does not precisely capture the psychoanalytic investment-of-energy sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "causa",
+      "reason": "Published Chinese means cause or reason while evidence means legal proceeding; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "causally",
+      "reason": "Chinese having-a-reason gloss does not securely establish English causal-relationship adverbial sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "centerfield",
+      "reason": "Frozen entry is a proper place name while evidence supports baseball common nouns.",
+      "stage": "authoring"
+    },
+    {
+      "term": "centralisation",
+      "reason": "Source supplies only a spelling cross-reference, with no explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cesarean",
+      "reason": "Released adjectival Caesar/emperor sense conflicts with the available obstetric reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chancellery",
+      "reason": "Published Chinese names a minister while evidence names an office building; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "changer",
+      "reason": "Existing computing converter and exchange shop glosses do not match supplied record changer or person definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "channelization",
+      "reason": "Published Chinese is computing channelization while evidence is management through communication channels; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chatterbox",
+      "reason": "Derogatory talkativeness label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cheapen",
+      "reason": "Existing price-reduction gloss differs from supplied lowering quality or worth definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chelation",
+      "reason": "Supplied chemical definition describes hydrogen-bond ring formation rather than confidently supporting ordinary metal-ion chelation; specialized evidence needs correction or confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chevalier",
+      "reason": "Chinese rank or knight senses conflict with English courtly-gentleman evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chewable",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chicha",
+      "reason": "Published Chinese is a drink while evidence means water pipe; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chickenshit",
+      "reason": "Published Chinese describes trivialities while evidence means a timid false statement; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "childlessness",
+      "reason": "Frozen gloss is only a derivational cross-reference, not a usable Chinese noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chiller",
+      "reason": "Reference emotional-excitation sense differs from the released thriller/refrigeration senses; defer source alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chintzy",
+      "reason": "Published nonfabric gloss means inexpensive; supplied senses mean stingy or poorly made.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chirk",
+      "reason": "Published adjective/verb means cheerful or cheer up while evidence means shrill noise; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chit",
+      "reason": "Matching girl sense is explicitly dismissive; restaurant bill and bud source senses lack a safe exact match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chitlins",
+      "reason": "Published Chinese is only an equivalence pointer to chitterlings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chitter",
+      "reason": "Published senses are chat and shiver; supplied PWN evidence means make high-pitched bird sounds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "choc",
+      "reason": "Chinese shock senses conflict with the English colloquial abbreviation evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "choker",
+      "reason": "Chinese senses omit the familiar necklace sense; collar and strangling senses do not align precisely enough with the listed Chinese glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chordal",
+      "reason": "Published Chinese describes anatomical cords while evidence concerns musical chords; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chou",
+      "reason": "Standalone English loanword usage among mixed cabbage/pastry/name senses requires separate verification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "chump",
+      "reason": "Existing matching person sense is an insult; wood and meat senses are absent from supplied evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cicero",
+      "reason": "Chinese proper names conflict with English typographic-unit evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cinque",
+      "reason": "Rare numeral noun with uncertain natural current English usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "circumvention",
+      "reason": "Published Chinese means entrapment while evidence means evasion; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cirque",
+      "reason": "Frozen circular-space/ring glosses do not clearly match the supported mountain-basin sense; alternate obscure senses unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cissy",
+      "reason": "Derogatory gendered stereotype; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "clarinetist",
+      "reason": "Frozen Chinese gloss denotes a wooden-flute player rather than the supplied clarinet player.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cloisonne",
+      "reason": "Independent review confirmed published Chinese incorrectly specifies porcelain while selected evidence is enamelware; defer material conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cloven",
+      "reason": "Frozen gloss is only a past-participle cross-reference while queue POS and evidence are adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cloyingly",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cocksucker",
+      "reason": "Explicit derogatory expression excluded from this general learner-example batch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "codger",
+      "reason": "Person label for an eccentric old man can be derogatory; deferred under assignment rule for insulting words.",
+      "stage": "authoring"
+    },
+    {
+      "term": "codpiece",
+      "reason": "Independent review flagged published pleat Chinese against crotch flap evidence; defer garment-part mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cognisance",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "collectivisation",
+      "reason": "Published Chinese is only a cross-reference to collectivization, not an actual sense gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "collectivist",
+      "reason": "Existing noun denotes collective-ownership ideology, while supplied noun evidence only broadly denotes a political-left person; the more precise supplied evidence is adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "colonization",
+      "reason": "Existing medical transplantation/development gloss does not clearly support the supplied establishment-of-colonies definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "comal",
+      "reason": "Published noun-like griddle gloss conflicts with the adjective seed-hair evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "combust",
+      "reason": "Published verb row is glossed as the noun fuel; requires source correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "commie",
+      "reason": "Derogatory political label; Chinese generic party-member gloss obscures register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "commissar",
+      "reason": "Chinese representative or People's Commissar gloss does not clearly match English military political-education official.",
+      "stage": "authoring"
+    },
+    {
+      "term": "communalism",
+      "reason": "Chinese gloss means local self-government; supplied senses are ethnic-group loyalty or communal ownership and living.",
+      "stage": "authoring"
+    },
+    {
+      "term": "comp",
+      "reason": "Computing gloss is incompatible with the supplied comprehensive-examination noun definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "compartmentalise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "compartmentalization",
+      "reason": "Published gloss is a chemical compartment-formation term; supplied PWN evidence concerns categorization or psychological dissociation, so the specific source sense is unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "competitiveness",
+      "reason": "Existing gloss 竞争 names competition rather than the evidenced disposition or quality of being competitive.",
+      "stage": "authoring"
+    },
+    {
+      "term": "compromiser",
+      "reason": "Frozen gloss is only a compromise derivational cross-reference, without an actual Chinese person sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "compulsiveness",
+      "reason": "Published Chinese is only a derivative pointer with no usable noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "computationally",
+      "reason": "Published meaning is only a derivative-form pointer and supplies no specific Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "conceptualise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "confusingly",
+      "reason": "Existing source supplies only inflection information and no usable adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "consolingly",
+      "reason": "Published gloss describes feeling comforted rather than giving comfort; the supported adverb sense does not clearly match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "contentiousness",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "convector",
+      "reason": "Published Chinese means converter while evidence means convection heater; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "convolute",
+      "reason": "No confident natural standalone use matching the supplied winding verb sense composed; do not substitute the more usual adjective convoluted.",
+      "stage": "authoring"
+    },
+    {
+      "term": "coolie",
+      "reason": "Supplied evidence marks this as an ethnic slur; defer without authoring a potentially misleading unmarked example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "coonskin",
+      "reason": "Published Chinese means raccoon pelt while evidence is a raccoon cap; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cordoba",
+      "reason": "Published Chinese names an Argentine city while evidence is Nicaraguan currency; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "corky",
+      "reason": "Released cork-material/lively glosses do not safely select the wine-taint sense in the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "corp",
+      "reason": "Abbreviated company label normally belongs in a company name or formal abbreviation; no natural lowercase ordinary use was confirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cosmetologist",
+      "reason": "Published gloss can suggest a cosmetic-surgery specialist; supplied evidence only supports cosmetics expertise, so specialist alignment needs confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "counterargument",
+      "reason": "Chinese gloss appears corrupted and does not securely establish the English opposing-argument sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "countertenor",
+      "reason": "Published gloss means tenor; supplied evidence specifies a voice above tenor.",
+      "stage": "authoring"
+    },
+    {
+      "term": "coursework",
+      "reason": "Existing explanation concerns a graduate admission/program mode, not the supplied assigned course work sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "coyness",
+      "reason": "Published gloss says shyness; supplied evidence specifically describes affected provocative demureness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cozily",
+      "reason": "Orthographic variant of cosily already authored in p030; deferred rather than counting spelling variants as separate lexical heads.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cps",
+      "reason": "Chinese characters-per-second or organization senses conflict with English cycles-per-second frequency evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "creditworthiness",
+      "reason": "Published gloss means goodwill or business reputation, not ability or reliability in repaying credit as supported by PWN.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cress",
+      "reason": "Reviewer verified that existing 水芹 denotes an Oenanthe plant in Apiaceae, while supplied cress definition concerns Brassicaceae; do not replace the plant identity silently.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cretaceous",
+      "reason": "Existing geological period senses differ from supplied chalk-abundant adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cretin",
+      "reason": "Frozen specific medical-diagnosis gloss conflicts with generic intellectual-disability evidence; defer obsolete and potentially derogatory sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "criminalise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "criminalization",
+      "reason": "Released conviction-of-a-person gloss differs from legislation making conduct criminal.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crispness",
+      "reason": "Independent reviewer identified that the frozen 易碎 gloss is misleading for biscuit crispness; defer rather than replace the frozen gloss with unsupported 松脆性.",
+      "stage": "authoring"
+    },
+    {
+      "term": "croaky",
+      "reason": "Independent review identified the published 哇哇叫 gloss as unreliable for the supported frog/crow-like or hoarse voice adjective; defer rather than force a sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crone",
+      "reason": "Derogatory age-and-gender label with no neutral established sense in the pack.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cruddy",
+      "reason": "Published Chinese describes uneven light transmission while evidence means obscene; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crummy",
+      "reason": "Existing gloss 丰满的 contradicts supplied poor-quality definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "crystallographer",
+      "reason": "Published Chinese names an instrument while evidence names a specialist; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cuckold",
+      "reason": "Gendered disparaging person label and verb; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cunnilingus",
+      "reason": "Explicit sexual act; defer for this general learning collection.",
+      "stage": "authoring"
+    },
+    {
+      "term": "customise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "cutely",
+      "reason": "Published Chinese means shrewdly while evidence means attractively; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dago",
+      "reason": "Ethnic slur; deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "daisylike",
+      "reason": "Frozen gloss is only a daisy derivational cross-reference, without the adjective's actual sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dal",
+      "reason": "Existing pulse/food gloss differs from supplied decalitre unit definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dampener",
+      "reason": "Published mechanical buffer gloss does not clearly match the supported moistening-device evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "darkie",
+      "reason": "Explicit ethnic slur; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "darky",
+      "reason": "Ethnic slur in supplied evidence; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deadhead",
+      "reason": "Published meaning is a free passenger or guest; supplied PWN evidence is an empty vehicle or a derogatory person label, without secure alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "decentralisation",
+      "reason": "Source supplies only a spelling cross-reference, with no explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deflower",
+      "reason": "Frozen gloss is literal flower picking, while supplied evidence supports defilement or loss of virginity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deictic",
+      "reason": "Existing direct-proof gloss differs from supplied contextual linguistic reference definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "delightfully",
+      "reason": "Existing 大喜, 欣然 does not clearly match the supplied manner of being delightful.",
+      "stage": "authoring"
+    },
+    {
+      "term": "demimonde",
+      "reason": "Gendered derogatory social and sexual labels; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "democratise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "demonstratively",
+      "reason": "Published Chinese means by proof while adverb evidence is ambiguous and may mean emotionally demonstrative; uncertain sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "demoralisation",
+      "reason": "Published meaning is only a derivative-form pointer; also variant of demoralization already authored in p026.",
+      "stage": "authoring"
+    },
+    {
+      "term": "demurely",
+      "reason": "Chinese gloss specifies pretended decorum or seriousness; English demure manner does not establish either qualification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dendrite",
+      "reason": "Released mineral-crystal gloss conflicts with the neural reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "denotation",
+      "reason": "Frozen indication or symbol gloss does not clearly provide the main supplied lexical-reference sense; defer uncertain sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "deployment",
+      "reason": "Existing computing 展开 does not clearly support the supplied distribution of forces or workers sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "descender",
+      "reason": "Released computing-successor gloss does not match the typographical or descending-person reference senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "destabilisation",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dickhead",
+      "reason": "Vulgar personal insult; no neutral matched sense available.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dimwit",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dingbat",
+      "reason": "Published Chinese describes objects or money while evidence means foolish person; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "discretionary",
+      "reason": "Existing gloss 选择的 does not clearly support acting at one's discretion or unearmarked funds.",
+      "stage": "authoring"
+    },
+    {
+      "term": "disenfranchisement",
+      "reason": "English certification or franchise termination evidence does not securely establish Chinese voting-rights deprivation sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "disinflation",
+      "reason": "Frozen gloss and supplied price-reduction definition do not reliably distinguish disinflation from deflation; defer technical sense uncertainty.",
+      "stage": "authoring"
+    },
+    {
+      "term": "disingenuousness",
+      "reason": "Published Chinese is only a derivative pointer; no independent Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "distastefully",
+      "reason": "Published Chinese describes poor flavor or unhappiness while evidence describes offensiveness; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dixie",
+      "reason": "Frozen gloss denotes the American South but supplied evidence describes a camp cooking pot; unconfirmed proper-name sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "doctrinally",
+      "reason": "Chinese gloss means dogmatically; supplied evidence means with respect to doctrine.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dolor",
+      "reason": "Chinese medical gloss concerns pain; supplied evidence specifically describes poetic grief.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dominatrix",
+      "reason": "Published gloss includes a derogatory female label and the remaining sense needs specialist register review; deferred rather than presenting it as neutral.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dominus",
+      "reason": "Published Chinese names God while evidence names a minister; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "donut",
+      "reason": "Existing accelerator vacuum-chamber sense does not support the supplied fried-cake sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "doofus",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dork",
+      "reason": "Insulting person label excluded from ordinary illustrative authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dosser",
+      "reason": "Frozen basket gloss conflicts with the supplied person-who-sleeps-anywhere sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "doubleheader",
+      "reason": "Existing two-locomotive train sense differs from supplied two-game sporting event.",
+      "stage": "authoring"
+    },
+    {
+      "term": "doublet",
+      "reason": "Chinese paired-object or technical senses conflict with English Renaissance jacket evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "downdraft",
+      "reason": "Released Chinese contains only a variant pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "download",
+      "reason": "Existing gloss 卸载, 下栽 contains an incompatible unloading sense and an apparent typo; do not silently repair to 下载.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dowser",
+      "reason": "Independent review flagged published mineral-prospector Chinese against divining-rod water-finder evidence; defer sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dreadnought",
+      "reason": "Frozen heavy-coat gloss conflicts with supplied battleship evidence; obscure garment sense unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dreaminess",
+      "reason": "Supplied evidence describes relaxed comfort; published absent-mindedness and vagueness glosses do not clearly match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ducat",
+      "reason": "Published meaning is an admission ticket; supplied PWN evidence is a former gold coin.",
+      "stage": "authoring"
+    },
+    {
+      "term": "duffle",
+      "reason": "Frozen entry is a person's name, whereas supplied evidence describes cloth or a bag; proper-name sense unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dumbness",
+      "reason": "Published Chinese denotes inability to speak while evidence denotes low intelligence; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dunderhead",
+      "reason": "Derogatory intelligence label; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dwarfism",
+      "reason": "Chinese gloss only says small stature and does not precisely identify the specialized condition in supplied evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dweeb",
+      "reason": "Insulting person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "dystopia",
+      "reason": "Chinese gloss names a nonideal place, while supplied senses concern an extremely oppressive state or a fictional work; exact source alignment needs confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "effacement",
+      "reason": "Frozen erasure gloss does not clearly match supplied self-withdrawal or cervical-change senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "effeminacy",
+      "reason": "Evidence explicitly labels a derogatory gender stereotype; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "effortlessness",
+      "reason": "Published Chinese contains only a derivative pointer, without a usable specific noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "egoist",
+      "reason": "Derogatory person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "egomaniac",
+      "reason": "Derogatory and pathologizing person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eightfold",
+      "reason": "Published adjective glosses are eight times or eight layers, while supplied evidence defines an eight-component structure; exact intended sense is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "elusiveness",
+      "reason": "Released cunning gloss does not match the difficult-to-grasp reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "empathise",
+      "reason": "Published meaning is only a spelling cross-reference to empathize, not an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "energizer",
+      "reason": "Chinese stimulant-agent gloss conflicts with English electrical device or energizing-person senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "enquiringly",
+      "reason": "Frozen 怀疑地 gloss expresses suspicion, while supplied evidence expresses inquiry; no clearly matching adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "entailment",
+      "reason": "Released inheritance sense conflicts with available logical-inference reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ephemera",
+      "reason": "Supplied generic transitory-thing definition does not securely establish ordinary print memorabilia usage; no confident natural exact-sense example composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "episcopacy",
+      "reason": "Published senses are episcopal system or office; supplied PWN evidence denotes bishops collectively, requiring source clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "episiotomy",
+      "reason": "Independent review flagged published vulval-incision Chinese against the specific perineal-incision procedure; defer anatomical mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "episodically",
+      "reason": "Frozen gloss is only an episodic derivational cross-reference, without a clear Chinese adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "espalier",
+      "reason": "Published gloss denotes a trained tree or hedge; supplied PWN evidence denotes its supporting trellis, so the noun referents do not securely align.",
+      "stage": "authoring"
+    },
+    {
+      "term": "esthetically",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ethology",
+      "reason": "Frozen character/ecology glosses do not reliably denote the supported natural-habitat animal-behavior discipline.",
+      "stage": "authoring"
+    },
+    {
+      "term": "etna",
+      "reason": "Frozen alcohol-stove gloss conflicts with supplied gas-burner evidence; obscure burner sense remains unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "evaluative",
+      "reason": "Existing 可估价的 means capable of valuation, not involving evaluation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "evaluator",
+      "reason": "Existing computing program/device gloss does not support the supplied human appraiser definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "evangelise",
+      "reason": "Published Chinese is only a spelling-variant pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "evenhandedly",
+      "reason": "Published Chinese is only a derivative pointer to evenhanded, with no usable adverb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "exchanger",
+      "reason": "Existing machine/program gloss differs from supplied human money changer definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "expansively",
+      "reason": "Chinese spatial expansion gloss does not securely match supplied exuberant manner evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "expansiveness",
+      "reason": "Published medical gloss means exaggeratedness; supplied PWN senses are outgoing friendliness and breadth/expansion, without a securely aligned clinical sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "expat",
+      "reason": "Frozen noun gloss implies an exile fleeing abroad, while supplied evidence denotes voluntary residence abroad; verb senses are unsupported.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eyedrop",
+      "reason": "Published meaning is a tear; supplied PWN senses concern ophthalmic irrigation or a drop from a dropper.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eyehole",
+      "reason": "Frozen eye-socket gloss conflicts with supplied eyelet and peephole senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eyeshade",
+      "reason": "Chinese gloss means an eye covering; supplied evidence means a projecting brim or visor.",
+      "stage": "authoring"
+    },
+    {
+      "term": "eyesore",
+      "reason": "Existing 眼中钉 concerns a hated nuisance, while supplied evidence specifically denotes something ugly to look at.",
+      "stage": "authoring"
+    },
+    {
+      "term": "falafel",
+      "reason": "Published gloss denotes a salad sandwich; PWN supports a seasoned chickpea or bean croquette, requiring source clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "familiarisation",
+      "reason": "Published meaning is only a derivative-form pointer and supplies no actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "familiarise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fantasist",
+      "reason": "Published Chinese specifically names a fantasia composer while evidence is a general fantasy creator; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fantastically",
+      "reason": "Existing fancifully/unfoundedly gloss differs from supplied extremely intensifier sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "farthest",
+      "reason": "Superlative inflection of far; deferred under the instruction not to count mere inflections as new heads.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fatso",
+      "reason": "Derogatory body-size insult; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fearfulness",
+      "reason": "Chinese gloss means being frightening or formidable; supplied English evidence means being afraid.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fearsomely",
+      "reason": "Published Chinese is only a derivative pointer, without a usable adverb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "featherbed",
+      "reason": "Published verb means holding or assigning a sinecure; evidence means overstaff or indulge, with no clean exact sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "femoris",
+      "reason": "Latin medical head and Chinese thigh gloss do not confidently align with the supplied femur-bone noun definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fertilisation",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fetishist",
+      "reason": "Religious and sexual senses need specialist and register confirmation before selecting a precise person label.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fewest",
+      "reason": "Superlative inflection of few; deferred under the instruction not to count mere inflected forms as new heads.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fey",
+      "reason": "Chinese gloss means doomed to die; supplied evidence concerns otherworldliness or slight insanity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fictive",
+      "reason": "Existing fictional/imaginary gloss does not precisely match supplied creatively capable or deliberately deceptive adjective definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "figuration",
+      "reason": "Existing forming/shaping gloss differs from supplied decorative design or figurative representation definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fineness",
+      "reason": "Published gloss gives scan or monetary purity, while supplied PWN evidence concerns quality, delicacy, texture, or thinness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fishtail",
+      "reason": "Chinese aircraft-tail-maneuver verb and adjective senses do not securely match the supplied slowing-with-sideways-tail-motion definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fivepence",
+      "reason": "Published five-pence gloss conflicts with supplied five-cent evidence; defer currency ambiguity.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flab",
+      "reason": "Chinese looseness abstract gloss does not securely match English loose-body-fat noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flanker",
+      "reason": "Existing fortress/flanking-detachment/side-attack glosses do not precisely support the individual soldier or football player definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flapper",
+      "reason": "Chinese pre-debut girl or flapping-object senses do not securely match the specific 1920s unconventional-woman evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "flirtatiously",
+      "reason": "Published meaning is only a derivative-form pointer, without a precise actual Chinese adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "floozy",
+      "reason": "Gendered sexual insult; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "foldable",
+      "reason": "Published computing Chinese means mergeable rather than foldable; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "folie",
+      "reason": "Uncommon French-derived psychiatric head requires current English usage and register confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "footrace",
+      "reason": "Published gloss specifically means racewalking, while PWN supports a running race.",
+      "stage": "authoring"
+    },
+    {
+      "term": "forgetfulness",
+      "reason": "Existing computing 忽视 does not clearly support the supplied tendency or failure to remember.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fornicate",
+      "reason": "Published meaning stresses adultery or illegality, while PWN covers sex outside marriage more broadly; source and register mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "freakishly",
+      "reason": "Published senses mean abnormally or fickly; supplied evidence specifically means unpredictably.",
+      "stage": "authoring"
+    },
+    {
+      "term": "freeloader",
+      "reason": "Derogatory person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "freshener",
+      "reason": "Chinese cooling-agent gloss is not a secure match for the broad English freshening-agent definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fruitfully",
+      "reason": "Released crop-yield/fertility gloss needs checking before using a common figurative productive-discussion sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "frumpy",
+      "reason": "Frozen ill-natured/unsophisticated glosses do not match supplied primly-out-of-date appearance sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "fucker",
+      "reason": "Vulgar insult excluded from ordinary example authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "futilely",
+      "reason": "Frozen Chinese text is a derivation note with an unrelated fragment, not a usable adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "galumph",
+      "reason": "Released triumphantly-advance gloss differs from the heavy/clumsy movement sense supported by the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gastronomical",
+      "reason": "Published Chinese includes an equivalence pointer; defer pending a clean independently published sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "generalised",
+      "reason": "Supplied evidence is a specialist biological unspecialized sense, not clearly covered by broad existing glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geographically",
+      "reason": "Existing gloss 自通地 is erroneous or uninterpretable and cannot support the geographic sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geopolitical",
+      "reason": "Existing gloss says geographical, omitting the political component required by the evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geordie",
+      "reason": "Existing guinea/coalship senses do not match supplied Newcastle dialect definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geostationary",
+      "reason": "Chinese gloss only says synchronous and does not distinguish the specialized fixed-position orbit in the evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "geostrategic",
+      "reason": "Frozen gloss identifies geopolitics rather than clearly supplying the adjective sense relating to geostrategy; defer disciplinary gloss mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "germinal",
+      "reason": "Published botanical or embryological senses do not clearly align with supplied evidence for seeds of later development in a general or figurative sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gigolo",
+      "reason": "Released dancer/dependent-man gloss requires explicit adult-context sense verification for a precise learner example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gimp",
+      "reason": "Head includes derogatory disability label; deferred for register confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gimpy",
+      "reason": "Derogatory disability-related person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "git",
+      "reason": "Insulting person label excluded from ordinary example authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glebe",
+      "reason": "Published Chinese only says soil or land and omits the church-owned land sense in evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "glibly",
+      "reason": "Released neutral fluently gloss does not capture the superficial or insincere manner supported by the reference; needs a separate definition correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gnostic",
+      "reason": "Frozen medical adjective glosses do not clearly express the supported esoteric-spiritual knowledge sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "goalmouth",
+      "reason": "Frozen gloss denotes the goal itself, while supplied evidence denotes the area immediately in front of it; defer narrow spatial-sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "godlessness",
+      "reason": "Released definition contains only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "goer",
+      "reason": "Narrow departure-person Chinese and English sense is unfamiliar and uncertain in natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gofer",
+      "reason": "Published gloss describes pleating or a pleating iron; supplied PWN sense is an errand-running employee.",
+      "stage": "authoring"
+    },
+    {
+      "term": "golem",
+      "reason": "Existing robot gloss does not securely support the supplied automatic mechanism or folklore supernatural human definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "goliath",
+      "reason": "Existing proper biblical name differs from supplied common noun for a huge powerful person or thing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gook",
+      "reason": "Ethnic slur present; deferred under assignment rule for insulting terms.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gormless",
+      "reason": "Insulting intelligence descriptor; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "governmentally",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "goy",
+      "reason": "Religious identity label and its Chinese foreigner or heathen glosses need register and scope confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "granitic",
+      "reason": "Published gloss is geological composition; supplied evidence covers hardness and emotional resistance instead.",
+      "stage": "authoring"
+    },
+    {
+      "term": "granularity",
+      "reason": "Published gloss denotes interval size in computing; supplied evidence denotes coarse particle composition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grasslike",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "grater",
+      "reason": "Chinese person or machine or medical-file glosses do not establish English kitchen-grating utensil sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gravitationally",
+      "reason": "Chinese source is solely a derivative-form pointer, without an independent translated adverbial sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "greaser",
+      "reason": "Supplied evidence is an ethnic slur and conflicts with the mechanical worker or lubricator glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "greening",
+      "reason": "Independent reviewer found the neighborhood example naturally suggested environmental greening rather than the frozen restoring-vitality sense; defer rather than force an uncommon interpretation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "greyness",
+      "reason": "Existing steel-pickling surface-defect gloss differs from supplied neutral grey colour definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "groundling",
+      "reason": "Chinese spectator gloss adds an insulting lack-of-taste judgment absent from the historical standing-audience definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "guesstimate",
+      "reason": "Published verb means guess blindly; supplied verb evidence specifically means estimate based on calculation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "gunnery",
+      "reason": "Chinese shooting or manufacture senses conflict with English collective-guns definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "haemorrhoid",
+      "reason": "Published noun names a haemorrhoid; supplied evidence instead defines pain associated with venous swelling, requiring medical source confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hag",
+      "reason": "Existing matching person sense is an insulting age/appearance label; other source senses are not supported by evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "halfback",
+      "reason": "Chinese soccer-midfielder gloss does not securely match the supplied American-football position evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hallucinate",
+      "reason": "Existing source supplies a transitive cause-to-hallucinate sense, while supplied evidence is intransitive perception of nonexistent things.",
+      "stage": "authoring"
+    },
+    {
+      "term": "handicapper",
+      "reason": "Chinese handicap-contest official gloss does not establish English betting-odds setter evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "handshaking",
+      "reason": "Published meaning is a computing protocol operation; supplied PWN evidence is physical greeting by shaking hands.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hansom",
+      "reason": "Current entry is a surname proper noun, while supplied evidence describes a carriage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hap",
+      "reason": "Archaic chance or happen usage requires more secure usage evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "haplotype",
+      "reason": "Published single-model-specimen gloss conflicts with the supported genetic haplotype sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hard-line",
+      "reason": "Existing gloss is a person noun while canonical POS and evidence are adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "harelip",
+      "reason": "Outdated and potentially offensive disability label; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "harmonisation",
+      "reason": "Existing broad harmony/coordination gloss is not a precise match to supplied singing-in-harmony or harmonized-musical-piece definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "harmonization",
+      "reason": "Existing general harmony/agreement gloss does not precisely support supplied harmony-singing or harmonized-piece definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hauler",
+      "reason": "Existing winch gloss differs from supplied haulage contractor definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hayseed",
+      "reason": "Derogatory class-based and intelligence person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "haywire",
+      "reason": "Existing computing temporary gloss differs from supplied baling-wire or malfunctioning/mental-irregularity senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "headliner",
+      "reason": "Existing newspaper headline writer gloss differs from supplied top-billed performer definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "headshot",
+      "reason": "Published gloss is a photographing action, while current noun evidence means the resulting portrait or unrelated sports and weapon senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heartthrob",
+      "reason": "Existing lover/heartbeat glosses do not precisely establish supplied object-of-infatuation celebrity or crush sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hellcat",
+      "reason": "Gendered insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hellion",
+      "reason": "Derogatory person label, including a disparaging youth term; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hemispheric",
+      "reason": "Existing half-spherical shape gloss differs from supplied cerebral-hemisphere adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hessian",
+      "reason": "Existing coarse-cloth gloss differs from supplied nineteenth-century boot definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "heterogenous",
+      "reason": "Supplied spelling and specialized biological senses need separation from heterogeneous; no confidently aligned ordinary sense selected.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hijinks",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hipped",
+      "reason": "Published mood and horse-injury glosses conflict with supplied roof and hip-shape evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hippocampus",
+      "reason": "Existing mythological creature/fish senses differ from supplied brain structure definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "historicism",
+      "reason": "Existing historical-relativism gloss differs from supplied historical-determination theory; do not replace the philosophical doctrine silently.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hitless",
+      "reason": "Published meaning is only a derivative-form pointer and supplies no actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hoagie",
+      "reason": "Published Chinese is only an equivalence pointer to hero sandwich.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hobbit",
+      "reason": "Incomplete Chinese source definition and a named author's fictional species; no supported precise ordinary sense selected.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hogback",
+      "reason": "Published terrain gloss is unclear and does not confidently establish the narrow ridge sense in supplied evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "homebound",
+      "reason": "Chinese homeward-bound senses conflict with English confined-at-home evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "homegirl",
+      "reason": "Chinese gloss means a close female friend; supplied evidence specifically means a fellow female gang member.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hominy",
+      "reason": "Released Chinese porridge gloss conflicts with the reference processed-maize ingredient sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "homunculus",
+      "reason": "Published Chinese and evidence mix dated human-size labels with obsolete embryological theory; defer uncertain teachable sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "honky",
+      "reason": "Racial slur excluded from this general learner-example batch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "horseshit",
+      "reason": "Vulgar expression; deferred for register review rather than presenting it as neutral vocabulary.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hospitalisation",
+      "reason": "Published gloss is only a British spelling cross-reference to hospitalization, without an independent Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "houri",
+      "reason": "Dated exoticizing gendered beauty sense and specific religious figure; defer uncertain general learning use.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hugger",
+      "reason": "Frozen extremist and unexplained fragment glosses do not match the supplied person-who-hugs sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "humiliatingly",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hussy",
+      "reason": "Derogatory gendered person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hybridisation",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hybridise",
+      "reason": "Released Chinese is a derivative pointer only, not a substantive sense to exemplify.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hydraulically",
+      "reason": "Published gloss incorrectly concerns hyaline or transparent material rather than hydraulic operation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "hysteric",
+      "reason": "Dated psychiatric person/condition label requires historical register verification before ordinary use.",
+      "stage": "authoring"
+    },
+    {
+      "term": "iambic",
+      "reason": "Only noun POS published; safest common adjective context would not match that record.",
+      "stage": "authoring"
+    },
+    {
+      "term": "idiographic",
+      "reason": "Published Chinese gives signatures, trademarks or unique properties while evidence means individual-case study; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "idiotically",
+      "reason": "Published adverb uses an insulting disability-related label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "idyllically",
+      "reason": "Published Chinese is only a derivative pointer, without a usable adverb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "imbecilic",
+      "reason": "Supplied sense is an obsolete derogatory intellectual-disability classification; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "imminently",
+      "reason": "Published Chinese says urgently, while PWN imminent sense concerns something about to happen; deferred rather than replacing the released meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "immodesty",
+      "reason": "Existing 无礼 does not specifically support the evidenced lack of modesty, conceit, or indecent exposure senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "immunologically",
+      "reason": "Published Chinese is an adjective rather than a usable adverb gloss matching the immunological perspective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "implausibility",
+      "reason": "Frozen gloss is adjectival while queue and evidence require a noun state; defer POS/gloss mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "impulsively",
+      "reason": "Existing gloss 有推动力地 does not accurately support acting rashly or without caution.",
+      "stage": "authoring"
+    },
+    {
+      "term": "inattentiveness",
+      "reason": "Chinese gloss means distraction; supplied evidence emphasizes lack of care or consideration for others.",
+      "stage": "authoring"
+    },
+    {
+      "term": "inflect",
+      "reason": "Chinese bending or generic changing senses do not securely establish English voice-pitch or grammatical-inflection senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "institutionalise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "institutionally",
+      "reason": "Existing source supplies only inflection information, without an explicit Chinese adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "intensifier",
+      "reason": "Published device and strengthening-agent glosses do not match the supported grammatical modifier sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "intentionality",
+      "reason": "Supplied PWN expressive-of-intentions gloss does not securely support philosophical mental directedness/aboutness; defer rather than conflate it with deliberateness.",
+      "sourceURL": "https://plato.stanford.edu/entries/intentionality/",
+      "stage": "authoring"
+    },
+    {
+      "term": "interracially",
+      "reason": "Published Chinese is only a derivative pointer; supplied by-race evidence also fails to clarify the cross-racial sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "interrelatedness",
+      "reason": "Published meaning supplies only a derivative-form pointer, with no actual Chinese sense to attach a precise example to.",
+      "stage": "authoring"
+    },
+    {
+      "term": "intersex",
+      "reason": "Published noun sense includes dated demeaning wording and an oversimplified medical definition; defer uncertain sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "invalidation",
+      "reason": "Published general invalidity gloss does not clearly establish the formal termination sense in supplied legal evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ionise",
+      "reason": "Published Chinese is only a variant pointer to ionize.",
+      "stage": "authoring"
+    },
+    {
+      "term": "irregardless",
+      "reason": "Published Chinese is only a nonstandard equivalence pointer to regardless.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ischaemia",
+      "reason": "Released Chinese mixes bleeding and localized anemia terminology; avoid exemplifying without a separate correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "italicise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jailbird",
+      "reason": "Derogatory person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jarringly",
+      "reason": "Only a derivative-form pointer is supplied, without an actual Chinese adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jello",
+      "reason": "PWN explicitly identifies a trademark sense; deferred under the assignment's proper-name restriction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jezebel",
+      "reason": "Derogatory gendered insult with religious proper-name origin; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jodhpur",
+      "reason": "Published meaning is the Indian city; supplied PWN sense is a riding boot.",
+      "stage": "authoring"
+    },
+    {
+      "term": "judgmental",
+      "reason": "Existing 审判的 concerns judicial trial, not the supplied depending-on-judgment sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "jumpstart",
+      "reason": "Released install/introduce gloss conflicts with the supported battery-assisted or vigorous-restart senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kabbalah",
+      "reason": "Frozen proper religious-system sense differs from the supplied generic esoteric-matter sense; defer uncertain specialist use.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kaffir",
+      "reason": "Published meaning is an ethnic slur; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kafir",
+      "reason": "Released sorghum gloss conflicts with the racial-slur reference; do not conflate these senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kava",
+      "reason": "Frozen botanical and drink senses are not adequately resolved by supplied alcoholic-drink evidence; defer rather than perpetuate uncertain drink characterization.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kike",
+      "reason": "Ethnic slur in supplied evidence; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kip",
+      "reason": "Existing hide/inn/hammock/weight/stay-at-inn senses differ from supplied gymnastic move, Lao currency, or sleep definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kitschy",
+      "reason": "Chinese aesthetically shallow but skillful gloss does not establish English insincerely emotional evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "klutz",
+      "reason": "Derogatory person label for a clumsy fool; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "knowingness",
+      "reason": "Frozen gloss only says knowing; the supported shrewd-awareness noun sense is not clearly represented.",
+      "stage": "authoring"
+    },
+    {
+      "term": "koan",
+      "reason": "Published meanings concern spiritual transmission rather than the Zen paradoxical anecdote or riddle supported by PWN.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kohlrabi",
+      "reason": "Chinese head gloss appears to contain a character typo; deferred rather than silently correcting the published source.",
+      "stage": "authoring"
+    },
+    {
+      "term": "kook",
+      "reason": "Insulting eccentric/crazy person label excluded from ordinary authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "laguna",
+      "reason": "Frozen small-pond or small-lake gloss does not clearly support supplied coastal lagoon sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lambert",
+      "reason": "Specialist brightness unit requires precise unit-use confirmation before authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lamely",
+      "reason": "Existing limping/incompletely glosses differ from supplied weak and unconvincing manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "landrover",
+      "reason": "Head may be a proprietary vehicle name; canonical and proper-name handling needs confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "langley",
+      "reason": "Specialist solar-radiation unit requires precise usage confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lassie",
+      "reason": "Regional or literary young-woman label with uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lat",
+      "reason": "Existing Latvian currency/computing abbreviation senses differ from supplied back-muscle definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lauder",
+      "reason": "Existing tax evasion/ore-washing trough glosses differ from supplied person expressing praise.",
+      "stage": "authoring"
+    },
+    {
+      "term": "launchpad",
+      "reason": "Published gloss is an OS/2 quick-launch panel; supplied evidence is a spacecraft launch platform.",
+      "stage": "authoring"
+    },
+    {
+      "term": "laureate",
+      "reason": "Existing noun specifically means poet laureate, while supplied noun evidence covers an honoured person generally; adjective is also not a precise match.",
+      "stage": "authoring"
+    },
+    {
+      "term": "layabout",
+      "reason": "Derogatory person label for a lazy nonworker; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "layup",
+      "reason": "Existing joint/connection gloss differs from supplied basketball shot definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leaker",
+      "reason": "Published meaning is leaking mechanical casting or tank; supplied PWN sense is an informer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leanness",
+      "reason": "Independent review flagged published zero-fat Chinese against low-fat evidence; remaining Chinese senses have uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lech",
+      "reason": "Derogatory sexual person label with no neutral matched sense selected.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lecher",
+      "reason": "Derogatory sexual person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leftfield",
+      "reason": "Released outside-the-center gloss does not safely identify the baseball position in the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "legation",
+      "reason": "Frozen dispatch-of-an-envoy gloss does not match supplied legate-office or diplomatic-mission senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leger",
+      "reason": "Rare or archaic accounting variant with uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "legitimise",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "levant",
+      "reason": "Archaic debt-flight verb has uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "leveler",
+      "reason": "Published meaning is a levelling tool; supplied PWN evidence is a social-equality radical.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lewdness",
+      "reason": "Published noun entry has an adjective gloss and an unrelated cohabitation gloss, without a reliable matching noun meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "libber",
+      "reason": "Published generic liberation-supporter gloss does not clearly identify the supported feminist sense; term can also be disparaging.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lighted",
+      "reason": "Existing gloss only gives inflection information; no standalone adjective sense is supplied.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limbic",
+      "reason": "Specialized medical margin adjective has insufficient context for secure natural usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limey",
+      "reason": "Derogatory nationality label; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limitlessness",
+      "reason": "Published Chinese is only a derivative pointer with no usable noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limo",
+      "reason": "Existing medical gloss means lemon, incompatible with the supplied limousine evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limpet",
+      "reason": "Existing clinging-person gloss differs from supplied mollusc definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "limply",
+      "reason": "Existing limping/reluctantly gloss differs from supplied lack-of-rigidity manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "linearity",
+      "reason": "English one-dimensionality evidence does not securely establish the Chinese linearity or straightness senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lingua",
+      "reason": "Specialized Latin anatomical synonym with uncertain natural English sentence usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "liquorice",
+      "reason": "Orthographic variant of licorice, already present among prior reviewed examples; deferred rather than counting another spelling as a new lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "littleness",
+      "reason": "Published little-amount gloss does not clearly match supplied physical size, strength, or ungenerous disposition evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lm",
+      "reason": "Existing source lists unrelated abbreviations and does not support the supplied lumen unit.",
+      "stage": "authoring"
+    },
+    {
+      "term": "loblolly",
+      "reason": "Published meaning is mud or a puddle; supplied evidence means thick gruel.",
+      "stage": "authoring"
+    },
+    {
+      "term": "locator",
+      "reason": "Existing device/input-tool glosses differ from supplied person who surveys claim boundaries.",
+      "stage": "authoring"
+    },
+    {
+      "term": "loggerhead",
+      "reason": "Existing source only supports an insulting person label; turtle sense is not present.",
+      "stage": "authoring"
+    },
+    {
+      "term": "longbeard",
+      "reason": "Chinese gloss means an elderly man; supplied evidence means a decorated stoneware jug.",
+      "stage": "authoring"
+    },
+    {
+      "term": "looker",
+      "reason": "Independent reviewer found the observer example unnatural; defer the uncommon observer sense rather than force it into an ordinary learner sentence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "looney",
+      "reason": "Derogatory mental-health label with unconfirmed clinical framing; deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lopsidedly",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "loudmouth",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "louver",
+      "reason": "Published meanings identify a skylight or electrical screen; supplied PWN identifies one of the slats in a ventilation door/window, so the referents are not securely aligned.",
+      "stage": "authoring"
+    },
+    {
+      "term": "louvre",
+      "reason": "Existing skylight gloss differs from supplied ventilating slat definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "loveable",
+      "reason": "Orthographic variant of lovable; deferred for canonical variant handling rather than counting another spelling as a new lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lovemaking",
+      "reason": "Existing flirtation/courtship senses differ from supplied sexual-activity definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lowbrow",
+      "reason": "Derogatory cultural/intelligence label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lowlife",
+      "reason": "Supplied person definition is insulting; exclude ordinary normalisation of this label.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lucidly",
+      "reason": "Published gloss emphasizes physical transparency, while supplied PWN supports clear or lucid expression; source sense needs clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lucifer",
+      "reason": "Chinese star or Satan proper-name senses conflict with English friction-match evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "luger",
+      "reason": "Published meaning is the Luger pistol trademark; supplied PWN evidence means luge racer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lulu",
+      "reason": "Published meanings concern an outstanding person or handsome appearance; supplied PWN sense is specifically a seductive-looking woman, without secure sense/register alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lumpen",
+      "reason": "Frozen unemployed or socially displaced gloss conflicts with the supplied mentally sluggish sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lumpish",
+      "reason": "Published Chinese gives physical heaviness or uselessness while evidence means mentally sluggish; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lurcher",
+      "reason": "Published Chinese means thief, swindler or spy while evidence means hidden waiter; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lushness",
+      "reason": "Published meaning supplies only a derivative-form pointer rather than a precise Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "lyricism",
+      "reason": "Existing lyrical style gloss does not precisely match supplied excessive enthusiasm or singability definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "macho",
+      "reason": "Existing gloss denotes a medical disease, incompatible with the supplied masculine noun/adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "macrobiotic",
+      "reason": "Published gloss claims life-prolonging properties; supplied PWN evidence concerns macrobiotic theory or practice without establishing that claim.",
+      "stage": "authoring"
+    },
+    {
+      "term": "madhouse",
+      "reason": "Supplied asylum meaning is explicitly pejorative and excluded from ordinary illustrative authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "magnum",
+      "reason": "Existing medical gloss does not support the supplied large wine bottle definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "maidenhead",
+      "reason": "Dated anatomical euphemism; no confidently natural non-metalinguistic example composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "maintainer",
+      "reason": "Published Chinese names a medical retainer while evidence names a person; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mammy",
+      "reason": "Contains an ethnic slur and uncertain register alignment; deferred rather than normalizing label.",
+      "stage": "authoring"
+    },
+    {
+      "term": "manta",
+      "reason": "Released shawl gloss differs from common ray sense; specialist garment usage requires further verification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "margarita",
+      "reason": "Existing source is a woman's proper name, while evidence concerns a cocktail.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marge",
+      "reason": "Frozen edge/margin gloss conflicts with supplied margarine evidence; obscure edge sense remains unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marque",
+      "reason": "Chinese product-model gloss conflicts with English product-name or brand evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "marzipan",
+      "reason": "Existing nut syrup gloss is inaccurate for the supplied almond paste and egg-white preparation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "masonic",
+      "reason": "Existing Freemason-member sense differs from supplied stonemason/masonry definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "massif",
+      "reason": "Frozen hill gloss does not adequately express the supported fault-bounded mountain block or mountain-mass sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "maw",
+      "reason": "Existing stomach/crop gloss differs from supplied mouth definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "maxi",
+      "reason": "Published noun means long coat while WordNet noun means long skirt; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "measurer",
+      "reason": "Published Chinese names an instrument while evidence names a person; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "megalomaniac",
+      "reason": "Pathologizing label liable to function as an insult; deferred rather than inventing a clinical diagnosis or using insulting person language.",
+      "stage": "authoring"
+    },
+    {
+      "term": "megalomaniacal",
+      "reason": "Pathologizing person adjective needs diagnostic and register confirmation before use.",
+      "stage": "authoring"
+    },
+    {
+      "term": "meltdown",
+      "reason": "Existing currency destruction or asset liquidation senses differ from supplied nuclear and figurative disaster evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "memorialization",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "meritocracy",
+      "reason": "Independent review found Chinese elite ruling-class gloss conflicts with English social-system evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mesic",
+      "reason": "Published Chinese says wetland-dwelling while evidence means moderate moisture; ecological sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "metabolise",
+      "reason": "Published Chinese describes transformation while evidence concerns production by metabolism; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "metaphysically",
+      "reason": "Published meaning is only a derivative-form pointer without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "methodologically",
+      "reason": "Chinese source is only a derivative-form pointer, without an independent translated sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "millwork",
+      "reason": "Frozen machinery-installation gloss conflicts with the supplied machined-woodwork sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "minibar",
+      "reason": "Released Chinese gloss means a small bar-signal generator, not the minibar sense supported by the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "miniscule",
+      "reason": "Chinese small-script gloss conflicts with English very-small adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "minx",
+      "reason": "Gendered derogatory person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "misbegotten",
+      "reason": "Dated stigmatizing birth-status sense requires separate historical context; exclude from general examples.",
+      "stage": "authoring"
+    },
+    {
+      "term": "miscegenation",
+      "reason": "Dated racial-classification term reserved for a separately contextualized historical-usage review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "missy",
+      "reason": "Potentially patronizing young-woman address with uncertain register alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "monger",
+      "reason": "Standalone versus combining-form usage needs checking before an ordinary learner sentence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "moocher",
+      "reason": "Published Chinese gives beggar, extortionist or swindler while evidence means cadger; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "moronic",
+      "reason": "Supplied evidence gives an obsolete diagnostic sense; frozen dullness gloss does not clearly establish a suitable modern nonclinical sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "morph",
+      "reason": "Existing gloss gives nouns 形态, 词态 while canonical POS and evidence are verbs.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mouton",
+      "reason": "Published Chinese means dyed sheepskin while evidence means mutton; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "mulatto",
+      "reason": "Dated racial classification label excluded from ordinary illustrative authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "muscat",
+      "reason": "Chinese Oman-capital proper-name gloss conflicts with English grape or wine evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "naan",
+      "reason": "Chinese gloss means grandmother in child language; supplied evidence means Indian bread.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ne'er",
+      "reason": "Archaic contraction requires register confirmation before an original current example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "necrophilia",
+      "reason": "Explicit sexual pathology is unsuitable for a general learning example; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nectarine",
+      "reason": "Released Chinese gloss names a peach rather than clearly distinguishing the smooth-skinned nectarine.",
+      "stage": "authoring"
+    },
+    {
+      "term": "neo",
+      "reason": "Combining form presented as standalone adjective; defer uncertain standalone usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nett",
+      "reason": "Frozen gloss is nominal net amount; queue has only verb and adjective, so a clear frozen POS/sense match is absent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "neuronal",
+      "reason": "Frozen adjective entry contains noun-like neuron/axon glosses and an unrelated chemical gloss; no valid neuronal adjective gloss is supplied.",
+      "stage": "authoring"
+    },
+    {
+      "term": "neuroticism",
+      "reason": "Existing diagnostic label and supplied broad disturbance definition do not securely identify the modern personality-trait sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nibbler",
+      "reason": "Published noun describes metalworking machines, while supplied evidence describes a person who takes small bites.",
+      "stage": "authoring"
+    },
+    {
+      "term": "niceness",
+      "reason": "Frozen Chinese gloss denotes nice things rather than the supported quality or courteous-manner noun senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "niggardly",
+      "reason": "Register-sensitive uncommon adjective requires usage confirmation before publication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nigger",
+      "reason": "Extremely offensive racial slur; excluded from ordinary illustrative example authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nigra",
+      "reason": "Published medical meaning substantia nigra conflicts with supplied PWN ethnic slur; no aligned sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ninny",
+      "reason": "Insulting intelligence label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nipper",
+      "reason": "Frozen tweezers, handcuffs, and dental senses do not match supplied child or crustacean-claw evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nippy",
+      "reason": "Published cold-weather senses emphasize biting or piercing cold, while PWN gives pleasantly invigorating cold; no precise aligned sense selected.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nisi",
+      "reason": "Frozen gloss is a conjunction meaning unless, but queue and evidence require a specialist adjective meaning not final.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nob",
+      "reason": "Potentially disparaging class-based person label; deferred for register review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "noggin",
+      "reason": "Frozen cup/drink gloss conflicts with supplied informal-head evidence; obscure vessel sense unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nomenklatura",
+      "reason": "Released personnel sense differs from reference patronage-system sense; defer until those related uses are separately verified.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonpartisanship",
+      "reason": "Released definition contains only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonperformance",
+      "reason": "Published nonfulfilment gloss conflicts with evidence describing negligence rather than failure to perform.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonsignificant",
+      "reason": "Existing unimportant/meaningless senses do not clearly support the statistical attributable-to-chance meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonverbally",
+      "reason": "Published meaning is non-verbal in the grammatical verb-form sense; supplied PWN sense is communication without words.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nonvisual",
+      "reason": "Frozen software-component gloss does not clearly match supplied sensory adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nookie",
+      "reason": "Published gloss is explicitly coarse and includes a demeaning person-sense; defer this vulgar label.",
+      "stage": "authoring"
+    },
+    {
+      "term": "normalisation",
+      "reason": "Frozen Chinese gloss only identifies a derivation of normalise and supplies no usable specific noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "novelization",
+      "reason": "Published Chinese is a derivative pointer to novelize rather than a supplied noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "numerate",
+      "reason": "Current verb is uncommon and the available evidence does not establish a confident natural modern example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nutcase",
+      "reason": "Derogatory mental-health label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nuthouse",
+      "reason": "Derogatory term for a psychiatric institution; deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nutter",
+      "reason": "The matching person sense is an insulting mental-health label, excluded from ordinary authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nymphet",
+      "reason": "Sexualized and derogatory age-related label; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "nymphomaniac",
+      "reason": "Outdated gendered psychiatric label with a potentially derogatory gloss; defer unconfirmed clinical framing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "o'er",
+      "reason": "Explicitly archaic cross-reference rather than an independently stated current Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "oafish",
+      "reason": "Published Chinese describes cognitive impairment or deformity while evidence means coarse ill-mannered behavior; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "obtuseness",
+      "reason": "Published gloss concerns sensory dullness; supplied senses concern a blunt physical edge or slowness to understand.",
+      "stage": "authoring"
+    },
+    {
+      "term": "octet",
+      "reason": "Published gloss is restricted to computing and chemistry uses; supplied general eight-member and music evidence does not establish those specific senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "oligopoly",
+      "reason": "Published gloss incorrectly describes excess demand or buyer oligopoly; PWN supports a few-producer supply market.",
+      "stage": "authoring"
+    },
+    {
+      "term": "operant",
+      "reason": "Frozen action adjective and worker/agent noun glosses do not clearly match supplied effective/influential adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "opposable",
+      "reason": "Published meanings concern being contradicted or resisted; supplied PWN evidence concerns physical placement opposite something.",
+      "stage": "authoring"
+    },
+    {
+      "term": "orchestrator",
+      "reason": "Frozen gloss means orchestral performer while supplied evidence is the arranger of orchestral music.",
+      "stage": "authoring"
+    },
+    {
+      "term": "organizationally",
+      "reason": "Frozen Chinese entry provides only a derivation note rather than a usable adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "orphaned",
+      "reason": "Existing computing isolated gloss differs from supplied loss-of-parents definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "orthodontic",
+      "reason": "Published Chinese means normal teeth rather than relating to orthodontics; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "otherworldliness",
+      "reason": "Published Chinese denotes afterlife or fantasy while evidence denotes spiritual concerns; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "outrageousness",
+      "reason": "Frozen gloss is only an outrageous derivational cross-reference, not a usable Chinese noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "outsole",
+      "reason": "Published gloss incorrectly identifies the shoe heel, while PWN specifies the ground-contacting outer sole.",
+      "stage": "authoring"
+    },
+    {
+      "term": "outwork",
+      "reason": "Published meanings concern outdoor work or outdoing work; supplied PWN sense is an external fortification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "overemphasise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "overheating",
+      "reason": "Existing economic overactivity gloss differs from supplied excessive physical heating definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "overstress",
+      "reason": "Published senses concern overload or excessive tension; supplied PWN evidence means excessive emphasis.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pachuco",
+      "reason": "Published ethnic and youth stereotype is derogatory; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "paedophile",
+      "reason": "Specialized clinical person label needs careful register and diagnostic context confirmation before example publication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pager",
+      "reason": "Existing computing page-scheduler gloss does not support the supplied beeping communication device.",
+      "stage": "authoring"
+    },
+    {
+      "term": "paging",
+      "reason": "Existing computing page-scheduling gloss differs from supplied page numbering or public-address calling definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "panty",
+      "reason": "Ordinary garment usage is plural panties; no confident natural standalone singular example composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "papist",
+      "reason": "WordNet explicitly labels this an offensive religious term; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "papoose",
+      "reason": "Dated Indigenous infant label requires cultural and register confirmation before publication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "paramedical",
+      "reason": "Chinese adjective only says related to medicine; supplied adjective specifically concerns medical auxiliary personnel, and noun evidence lacks a noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "paranoiac",
+      "reason": "Person-label clinical usage requires separate historical/register review rather than a decontextualized diagnostic stereotype.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pardner",
+      "reason": "Regional spelling and register require confirmation before selecting a natural current example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "particularism",
+      "reason": "Frozen total-theory-loyalty and theological glosses are not clearly supported by the generic focus-on-the-particular evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "payback",
+      "reason": "Existing gloss 报酬率 denotes a rate, whereas supplied evidence denotes a return or revenge.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pecker",
+      "reason": "Available glosses mix uncommon literal senses and informal/offensive associations; deferred rather than force an ambiguous learner example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pederast",
+      "reason": "Evidence concerns sexual abuse of a minor while published Chinese is an imprecise sexual label; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "perceiver",
+      "reason": "Frozen Chinese entry supplies only a derivation note, not a specific noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "percentile",
+      "reason": "Existing gloss confuses percentage and hundredth and does not accurately state the evidenced statistical cut-point noun.",
+      "stage": "authoring"
+    },
+    {
+      "term": "perkily",
+      "reason": "Released definition contains only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "permissiveness",
+      "reason": "Chinese permission gloss does not match English disposition to allow freedom of behavior.",
+      "stage": "authoring"
+    },
+    {
+      "term": "peyote",
+      "reason": "Chinese drug-preparation gloss does not securely distinguish the English cactus and alkaloid senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "phaeton",
+      "reason": "Published horse-drawn carriage gloss conflicts with supplied motorcar evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pharisaic",
+      "reason": "Existing gloss concerns the Pharisees, whereas supplied evidence only supports hypocritical piety.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pharisee",
+      "reason": "Religiously derived derogatory label; defer to avoid normalizing an insulting group-linked usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pharmacologic",
+      "reason": "Published adjective gloss supplies only noun field names; deferred for precise Chinese adjective sense confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pickaxe",
+      "reason": "Orthographic variant of pickax, already authored in p028; deferred to avoid treating variant spelling as a new lexical head without an explicit editorial decision.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pinny",
+      "reason": "Published Chinese means bib or scarf while evidence means pinafore dress; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pipework",
+      "reason": "Existing engineering pipe-group gloss does not precisely support supplied organ flues/stops definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pix",
+      "reason": "Chinese gloss means tar or pitch; supplied evidence concerns Eucharistic or mint receptacles.",
+      "stage": "authoring"
+    },
+    {
+      "term": "plasterwork",
+      "reason": "Existing plastering work/activity gloss differs from supplied hardened plaster surface.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pleaser",
+      "reason": "Chinese source is only a derivative-form pointer, without an independent sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pleasingly",
+      "reason": "Published meanings mean happily or with liking, whereas PWN means in a manner giving pleasure; source gloss needs review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pleb",
+      "reason": "Potentially derogatory class-based person label; deferred for register review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "plier",
+      "reason": "Chinese pliers-tool gloss conflicts with English person who plies a trade evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poetically",
+      "reason": "Frozen gloss 理想化地 does not match the supported in-a-poetic-manner adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poky",
+      "reason": "Spelling variant of pokey already authored in p027; deferred to avoid counting spelling variants as distinct lexical heads without an editorial decision.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pom",
+      "reason": "Published Chinese names a dog or sound while evidence is a disparaging nationality term; conflict and slur.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poof",
+      "reason": "Existing puff-sound gloss differs from supplied offensive person label; exclude the slur sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "popery",
+      "reason": "Supplied evidence explicitly marks the religious term as offensive; frozen gloss lacks that qualification, so defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "popish",
+      "reason": "Dated derogatory religious adjective; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "popper",
+      "reason": "Existing person-agent gloss differs from supplied popcorn container or drug container definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "poppet",
+      "reason": "Published senses concern a darling, perforated bead, or lathe tailstock; supplied PWN sense is an engine valve.",
+      "stage": "authoring"
+    },
+    {
+      "term": "porkpie",
+      "reason": "Published Chinese means pork pie while WordNet evidence is a hat; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "porterhouse",
+      "reason": "Chinese gloss means a small restaurant; supplied evidence means a cut of steak.",
+      "stage": "authoring"
+    },
+    {
+      "term": "postdoc",
+      "reason": "Existing source is only an English cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "postoperatively",
+      "reason": "Existing source supplies only inflection information and no explicit adverb meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pothead",
+      "reason": "Derogatory person label for a habitual cannabis user; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "praetorian",
+      "reason": "Independent review identified an office mismatch: supplied Roman praetor evidence is distinct from the consul office in the Chinese gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "precedential",
+      "reason": "Published precedent-related gloss conflicts with supplied precedence-by-seniority sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "precognitive",
+      "reason": "Published pretrial and deposition glosses conflict with the supported foreseeing-the-future adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "preferment",
+      "reason": "Supplied evidence does not support the ordinary advancement meaning; its preference/accusation definitions are too uncertain for a natural source-faithful example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "presentational",
+      "reason": "Specialized psychological or philosophical presentation sense remains uncertain in the Chinese gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "presidentially",
+      "reason": "Frozen gloss specifies acting in an office-holder capacity while supplied evidence specifies manner; clear sense alignment is absent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "primly",
+      "reason": "Chinese rule-following or tidiness senses do not securely match prissy manner evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "primo",
+      "reason": "Frozen first/firstly adjective gloss does not match supplied best-of-kind adjective or duet-part noun senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "primus",
+      "reason": "Chinese stove or first senses conflict with English Scottish bishop evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "principalship",
+      "reason": "Independent review flagged published foremost-position Chinese against school-head position; defer lexical mistranslation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "prole",
+      "reason": "Potentially derogatory class label; defer rather than introduce a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pronto",
+      "reason": "Chinese gloss means immediately or quickly; supplied evidence means punctually.",
+      "stage": "authoring"
+    },
+    {
+      "term": "prosciutto",
+      "reason": "Existing gloss specifies smoked ham; supplied evidence specifies salt-cured ham.",
+      "stage": "authoring"
+    },
+    {
+      "term": "provocatively",
+      "reason": "Existing source supplies only inflection information and no Chinese adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "prudishness",
+      "reason": "Published Chinese is only a derivative pointer, without a usable noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "psychedelia",
+      "reason": "Chinese gloss means a hallucinogenic drug; supplied English evidence means the associated subculture.",
+      "stage": "authoring"
+    },
+    {
+      "term": "psychopathological",
+      "reason": "Chinese gloss means pertaining to psychopathology; supplied evidence means affected by an undiagnosed mental disorder.",
+      "stage": "authoring"
+    },
+    {
+      "term": "psychotherapeutic",
+      "reason": "Published adjective row is glossed as a psychotherapy drug, a noun; supplied PWN adjective senses cannot be attached accurately without source correction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "psychotropic",
+      "reason": "Chinese therapeutic-for-mental-illness gloss is narrower than English mind-affecting evidence; therapeutic sense unestablished.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pud",
+      "reason": "Published Chinese means hand or forefoot while evidence means dessert; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "puffer",
+      "reason": "Published meanings concern people or machinery; supplied PWN evidence concerns puffer fish or their flesh.",
+      "stage": "authoring"
+    },
+    {
+      "term": "pullback",
+      "reason": "Existing pulling-back/obstruction gloss does not precisely support either supplied military withdrawal or curtain-retaining device sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "punic",
+      "reason": "Supplied sense attributes treachery to an ethnic group through a historical stereotype; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "puppetry",
+      "reason": "Chinese puppets-object gloss conflicts with English performance or puppet-making art definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "purposefulness",
+      "reason": "Chinese gloss emphasizes decisiveness or determination; supplied evidence specifically means having a definite purpose.",
+      "stage": "authoring"
+    },
+    {
+      "term": "puss",
+      "reason": "Chinese cat-flavor apparent typo and girl senses do not securely establish the supplied domestic-cat or vulgar anatomical senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "quadrature",
+      "reason": "Independent review found published Chinese generic area-calculation gloss insufficiently specific for the equal-area-square construction sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "quasi",
+      "reason": "Standalone adjective versus productive quasi- usage needs lexical review before a representative example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "queasily",
+      "reason": "Released causing-nausea gloss does not safely capture the usual feeling-nauseated manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "quiff",
+      "reason": "Published meanings are a disparaging woman label or a breeze; supplied evidence means a forelock hairstyle.",
+      "stage": "authoring"
+    },
+    {
+      "term": "quince",
+      "reason": "Existing gloss is corrupted and cannot support a precise Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rabbinical",
+      "reason": "Chinese Hebrew-language gloss conflicts with English rabbis or their teachings definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "radioactively",
+      "reason": "Published Chinese is only a derivative pointer with no usable specific adverb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ragamuffin",
+      "reason": "Disparaging person and child label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ragtag",
+      "reason": "Supplied matching noun is a disparaging class-based label and excluded from ordinary authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "raiser",
+      "reason": "Existing raising/recruiting labels do not precisely support supplied soil cultivator or bridge bidder definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "randomise",
+      "reason": "Released Chinese is only a spelling-variant pointer, not a substantive definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rationalise",
+      "reason": "Existing gloss is only a spelling cross-reference and supplies no explicit Chinese sense to select.",
+      "stage": "authoring"
+    },
+    {
+      "term": "raver",
+      "reason": "Published person labels and supplied rave-dance or ranting senses do not yield a confident neutral aligned example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reasoner",
+      "reason": "Frozen entry is a proper surname while evidence is the common noun for a logical thinker.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reassignment",
+      "reason": "Chinese computing assignment gloss conflicts with English reassignment-to-duty evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reclassify",
+      "reason": "Existing gloss 三级分类 is erroneous or does not support classify again.",
+      "stage": "authoring"
+    },
+    {
+      "term": "recode",
+      "reason": "Frozen verb explicitly marks intransitive usage, whereas supported putting-into-another-code sense is transitive; defer grammatical conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reductionist",
+      "reason": "Chinese noun person gloss conflicts with queued English adjective POS and definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reformulate",
+      "reason": "Existing source narrowly says express again with a formula; supplied evidence only concerns redevelopment of a theory or hypothesis.",
+      "stage": "authoring"
+    },
+    {
+      "term": "regularise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "reinforcer",
+      "reason": "Existing chemical reinforcement material/additive gloss differs from supplied behavioural stimulus definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "relaxer",
+      "reason": "Published gloss specifies a relaxation machine or person, while supplied evidence broadly means an agent producing relaxation; natural aligned use is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "relentlessness",
+      "reason": "Only a derivative-form pointer is supplied, without an actual Chinese noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "religionist",
+      "reason": "Supplied PWN evidence is a potentially disparaging religious-zealot label; deferred for register review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "repellant",
+      "reason": "Published meaning is only a spelling cross-reference to repellent without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "requester",
+      "reason": "Published computing requester gloss does not match supplied prayer/supplicant evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "residentially",
+      "reason": "Published Chinese is a noun-like residence-place gloss, conflicting with the adverbial evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "revitalization",
+      "reason": "Medical-only source labels are insufficient to attach an ordinary urban or commercial revival example; the medical sense is not precisely confirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rictus",
+      "reason": "Published medical gloss concerns an opening or yawn; supplied evidence means a fixed gaping grimace.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rigatoni",
+      "reason": "Published gloss incorrectly describes shell-shaped pasta; PWN supports short ribbed tubes. Requires source correction rather than silently changing the card's specific meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ripper",
+      "reason": "Existing tearing-person gloss differs from supplied knife murderer definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "risible",
+      "reason": "Published meanings mean capable of laughing, while supplied PWN evidence means laugh-provoking; no aligned sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "ritz",
+      "reason": "Existing luxury-hotel noun differs from supplied ostentatious elegance definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "robustly",
+      "reason": "Released Chinese physical-effort/rudeness glosses need review before selecting a usual vigorous/strong sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "robustness",
+      "reason": "Existing computing/engineering robustness glosses do not clearly match supplied intellectual-challenge strength or physical-health definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rollerblader",
+      "reason": "Published Chinese is only a derivative pointer to Rollerblade.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rollover",
+      "reason": "Existing mechanical turning/moulding senses differ from supplied pension transfer definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "romanticization",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rosary",
+      "reason": "Existing rose-garden and medical beadlike-structure senses do not explicitly support prayer beads.",
+      "stage": "authoring"
+    },
+    {
+      "term": "roughhouse",
+      "reason": "Published verb means treat roughly while evidence is intransitive rough play; sense and valency conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "roulade",
+      "reason": "Released tremolo gloss does not distinguish the melismatic run of notes supported by the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "roundhead",
+      "reason": "Published meaning is a historical political group; supplied evidence is a head-shape description of a person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "runt",
+      "reason": "Chinese animal senses conflict with derogatory-person English evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "rutherford",
+      "reason": "Specialist obsolete radioactivity unit needs precise usage confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sahib",
+      "reason": "Colonial racial honorific with restricted historical usage; defer uncertain general learning sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sailmaker",
+      "reason": "Published gloss specifies sail repair, while supplied evidence establishes a sail maker; defer occupational mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "saleroom",
+      "reason": "Frozen Chinese gloss describes sales amounts or activities, whereas the supported noun denotes a sales display room.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sander",
+      "reason": "Existing electrical sand-scattering gloss differs from supplied powered wood-sanding tool definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scampi",
+      "reason": "Chinese gloss names Norway lobster; supplied evidence describes a cooked shrimp dish.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scape",
+      "reason": "Published meaning is an insect antennal segment; supplied PWN evidence concerns an architectural shaft or flower stalk.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scaremonger",
+      "reason": "Derogatory person label; deferred for insulting register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scatological",
+      "reason": "Published sense is medical study of feces, while supplied PWN sense is prurient toilet-related content; register and sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scatterbrained",
+      "reason": "Published gloss emphasizes inattention; supplied evidence concerns whim or lack of discretion.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scatty",
+      "reason": "Published light-minded or foolish senses do not confidently support the ordinary absent-minded usage; deferred rather than silently choosing that absent sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "schizoid",
+      "reason": "Frozen gloss conflates schizoid personality with schizophrenia; supplied evidence does not resolve the modern clinical distinction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "schmuck",
+      "reason": "Derogatory personal label; no neutral matched sense provided.",
+      "stage": "authoring"
+    },
+    {
+      "term": "schoolmarm",
+      "reason": "Potentially disparaging label for a strict woman teacher; deferred for register review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "screener",
+      "reason": "Existing sieve gloss does not support the supplied airport security worker definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scribbler",
+      "reason": "Published person senses include derogatory writer labels; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scrimshaw",
+      "reason": "Released shell-carving gloss does not match the bone/ivory carving material of the reference.",
+      "stage": "authoring"
+    },
+    {
+      "term": "scrounger",
+      "reason": "Derogatory person label for someone seeking free things; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "seductress",
+      "reason": "Gendered person label with potentially derogatory framing; deferred for register review.",
+      "stage": "authoring"
+    },
+    {
+      "term": "segue",
+      "reason": "Existing source is a musical instruction; supplied noun sense is a smooth transition event, so POS/sense attachment is uncertain.",
+      "stage": "authoring"
+    },
+    {
+      "term": "semi",
+      "reason": "Existing gloss only supplies 半; no supplied trailer or semifinal noun sense is present.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensationalistic",
+      "reason": "Published meaning supplies only a derivative-form pointer and no actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "senselessly",
+      "reason": "Published meanings concern unconsciousness; supplied PWN evidence concerns unreasonable or purposeless action.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensitise",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensorial",
+      "reason": "Published Chinese specifically means sensory-center related while evidence broadly means derived from senses; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensualist",
+      "reason": "Independent review flagged published pleasure-theorist label versus selected sensual enjoyment sense; defer uncertain Chinese alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sensuousness",
+      "reason": "Frozen gloss means perception and does not clearly support the supplied sensuous-feeling sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sepulchre",
+      "reason": "Orthographic variant of sepulcher already authored in p032; deferred rather than counting variant spelling as a new lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "serape",
+      "reason": "Frozen blanket gloss does not clearly match the supplied shawl sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "serialisation",
+      "reason": "Published Chinese is only a cross-reference to serialization, with no usable noun gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "serialism",
+      "reason": "Published Chinese denotes a twelve-note scale rather than the composition method described in evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "serjeant",
+      "reason": "Archaic specialized barrister rank needs more secure usage evidence than the broad Chinese lawyer gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sexpot",
+      "reason": "Objectifying person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sextuplet",
+      "reason": "Published senses concern one of sextuplets or a six-member group; supplied evidence only defines the cardinal number six.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shakeout",
+      "reason": "Independent review found Chinese mild-recession gloss conflicts with English firm-elimination industry adjustment sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shamanism",
+      "reason": "Chinese religious-excitement gloss conflicts with English animistic-religion evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shamanistic",
+      "reason": "Only a derivative-form pointer is supplied, without an actual Chinese adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shandy",
+      "reason": "Chinese ginger-beer mixture conflicts with English beer-and-lemonade definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sharkskin",
+      "reason": "Chinese gloss means shark skin or leather; supplied evidence means a woven fabric.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sherlock",
+      "reason": "Detective use derives from a proper name and no suitable ordinary lowercase use was confirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shew",
+      "reason": "Archaic spelling with uncertain ordinary current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shiksa",
+      "reason": "Derogatory ethnic and religious label; deferred as a slur.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shiner",
+      "reason": "Common fish and black-eye meanings are absent from source; no confident natural standalone example for its broad shining-object gloss composed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shipboard",
+      "reason": "Published adjective means for ship use; supplied evidence means temporary or casual like an onboard encounter.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shirtfront",
+      "reason": "Frozen Chinese gloss means an undergarment or bodice and does not clearly support the shirt-front senses in the evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shithead",
+      "reason": "Vulgar insulting person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shrewish",
+      "reason": "Published gloss relies on a derogatory gendered label; defer this uncertain and pejorative sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shrimper",
+      "reason": "Chinese catcher or catching-device gloss does not clearly establish English shrimping-vessel sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shunter",
+      "reason": "Released worker gloss differs from the available small-locomotive reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shylock",
+      "reason": "Antisemitic derogatory stereotype; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "shyster",
+      "reason": "Derogatory person label; deferred for insulting register rather than assigning it to an example person.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sidewinder",
+      "reason": "Published side-blow/bodyguard senses do not align with supplied PWN rattlesnake/missile senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "signifier",
+      "reason": "Existing broad 信号物 does not securely identify the supplied linguistic word-form sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sinfulness",
+      "reason": "Chinese guilt or wrongdoing gloss does not securely match the supplied estrangement-from-God definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "singleton",
+      "reason": "Broad Chinese single-item or only-child gloss does not securely distinguish the supplied specialized English senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sinkhole",
+      "reason": "Existing drainage inlet/sewage pit/casting shrinkage glosses differ from supplied natural geological depression.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sissy",
+      "reason": "Gendered insult; deferred under assignment rule for insulting terms.",
+      "stage": "authoring"
+    },
+    {
+      "term": "skank",
+      "reason": "Frozen insulting person gloss does not match supplied dance and unpleasant-substance senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "skittishness",
+      "reason": "Published glosses emphasize liveliness or being hard to control; supplied evidence specifically describes nervousness and readiness to frighten.",
+      "stage": "authoring"
+    },
+    {
+      "term": "skivvy",
+      "reason": "Dated and potentially derogatory label for a menial female servant; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "skydive",
+      "reason": "Transferred p016 independent-review correction: frozen gloss narrowly requires pre-opening aerial maneuvers, which are not a necessary part of ordinary skydiving; defer questionable narrow sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "skyhook",
+      "reason": "Released flat airdrop-device gloss does not match the imaginary-hook or helicopter-crane references.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slickly",
+      "reason": "Published meanings emphasize smooth or skilled action; supplied PWN sense emphasizes superficial plausibility. No precise aligned sense selected.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slider",
+      "reason": "Existing electrical sliding-device gloss is absent from supplied sporting/person/turtle definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "slippy",
+      "reason": "Published gloss means quick, while supplied PWN sense means slippery.",
+      "stage": "authoring"
+    },
+    {
+      "term": "smugness",
+      "reason": "Unusual Chinese conceited-display gloss has uncertain exact sense alignment with English excessive self-satisfaction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "snapper",
+      "reason": "Existing dog/person/button senses are absent from supplied turtle/fish/party-favour/football evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sniffer",
+      "reason": "Chinese detector-device gloss conflicts with English person-who-sniffs evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "snowboarder",
+      "reason": "Existing gloss 雪山飞魂 is not a clear lexical definition of a snowboard rider.",
+      "stage": "authoring"
+    },
+    {
+      "term": "socioeconomically",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sociopathic",
+      "reason": "Published gloss conflates antisocial or unsociable behaviour with the specific personality-disorder sense in PWN; clinical sense requires source clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sodality",
+      "reason": "Published friendship and charitable-association glosses do not clearly match supplied occupational-group evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sodomite",
+      "reason": "Derogatory sexual person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sodomize",
+      "reason": "Sexual term with broad mixed source senses and uncertain neutral sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "softie",
+      "reason": "Potentially insulting person label and orthographic variant of deferred softy; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "softy",
+      "reason": "Derogatory person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "solon",
+      "reason": "Published Chinese gives sage or legislator while evidence requires respected political leader; uncertain generic versus proper-name usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "solver",
+      "reason": "Existing computing machine/program gloss differs from supplied human thinker definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sonogram",
+      "reason": "Existing 语图 refers to a speech/sound representation rather than the supplied diagnostic ultrasound image definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sophist",
+      "reason": "The supported specious-reasoner sense is disparaging; the neutral scholar gloss lacks matching historical evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sot",
+      "reason": "Derogatory person label for a chronic drunkard; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "souffle",
+      "reason": "Existing medical murmur/breath sound gloss differs from supplied culinary dish definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "souk",
+      "reason": "Frozen Chinese gloss denotes an open-air theater, while supplied evidence denotes an open-air market.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spic",
+      "reason": "Ethnic slur; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spiciness",
+      "reason": "Chinese gloss concerns fragrance or abundant spice production; supplied evidence concerns seasoned flavor or indecent language.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spick",
+      "reason": "Ethnic slur; deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spiller",
+      "reason": "Published Chinese senses do not clearly align with either fishing tackle or blood-shedding attacker evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spinmeister",
+      "reason": "Frozen gloss is only unresolved English spin doctor and spinmaster cross-references, without a usable Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spiv",
+      "reason": "Derogatory person label; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spoilsport",
+      "reason": "Derogatory person label; deferred for insulting register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spookily",
+      "reason": "Published Chinese is only a derivative pointer, without a usable specific adverb gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sportingly",
+      "reason": "Released in-sports gloss differs from the usual sportsmanlike/fair-play manner sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "springer",
+      "reason": "Existing jumper-person gloss differs from supplied spaniel, cow, or arch-stone meanings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "spunky",
+      "reason": "Existing energetic/irritable glosses do not precisely support supplied brave or danger-facing definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "sputnik",
+      "reason": "Russian satellite sense is closely tied to a proper-name programme; deferred under proper-name restriction pending editorial separation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "squaw",
+      "reason": "Ethnic and gender slur; Chinese generic woman or wife gloss obscures register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "squeamishness",
+      "reason": "Published meaning is only a derivative-form pointer, without a specific Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "squinty",
+      "reason": "Independent review found the narrowed-eye example did not clearly support the published strabismus gloss; deferred for source-sense confirmation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stander",
+      "reason": "Published Chinese is retained forestry tree while evidence means standing organism; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stardust",
+      "reason": "Existing star-cluster/illusion gloss does not precisely support supplied dreamy romantic quality.",
+      "stage": "authoring"
+    },
+    {
+      "term": "statin",
+      "reason": "Existing medical gloss includes inhibitory hormones and does not accurately identify the supplied cholesterol-lowering drug class.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stent",
+      "reason": "Existing dental impression material/mould gloss differs from supplied supporting tube definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stepsister",
+      "reason": "Frozen Chinese gloss denotes a half-sister rather than clearly supplying the step-sibling relationship; defer family-relationship gloss conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stigmata",
+      "reason": "Frozen medical and botanical glosses do not match the supplied religious-wound-marks sense; plural technical senses unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stigmatization",
+      "reason": "Chinese medical scar or mark formation senses do not securely establish the generic English stigmatizing definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stinger",
+      "reason": "Existing person-agent glosses differ from supplied blow/organ/remark/drink definitions.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stinker",
+      "reason": "Published person senses are insulting or do not clearly align with nonperson PWN senses; deferred rather than switching meaning.",
+      "stage": "authoring"
+    },
+    {
+      "term": "straightjacket",
+      "reason": "Published gloss means a tight garment and does not identify the restraining jacket in the supplied evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "strake",
+      "reason": "Published meanings concern a wheel hoop, stripe, or strip of grassland; supplied PWN evidence concerns a ship-side plank.",
+      "stage": "authoring"
+    },
+    {
+      "term": "strumpet",
+      "reason": "Derogatory sexual label with conflicting prostitution and adultery glosses; defer rather than add a new example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stuffer",
+      "reason": "Frozen stuffing-worker or counterfeit-seller glosses do not clearly match advertising insert or taxidermist evidence; alternate worker sense unconfirmed.",
+      "stage": "authoring"
+    },
+    {
+      "term": "stylization",
+      "reason": "Published meanings emphasize imitation and conventionalism, while PWN supports causing conformity to a style; no precise aligned Chinese sense without source clarification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "subduction",
+      "reason": "Released ocular downward-turn gloss conflicts with the geological reference sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "subpart",
+      "reason": "Published Chinese names a computing component while evidence is a part of a part; insufficient exact sense alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "subtend",
+      "reason": "Published geometry gloss consists only of a bare character, insufficient to select a precise specialized sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "subunit",
+      "reason": "Existing computing/biochemical senses do not establish the supplied fractional currency unit sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "supercede",
+      "reason": "Questionable spelling variant of supersede; deferred for canonical spelling and source review rather than silently normalizing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "supercritical",
+      "reason": "Published Chinese critical-state gloss is corrupted by typos and marked as computing; evidence concerns a supercritical chain reaction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swain",
+      "reason": "Archaic or poetic lover label with uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swami",
+      "reason": "Frozen idol/philosopher gloss does not reliably express the supported Hindu religious-teacher sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swanky",
+      "reason": "Existing showing-off personality gloss differs from supplied fashionable/elegant appearance definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swashbuckler",
+      "reason": "Published labels are derogatory and do not precisely align with supplied reckless-person evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swashbuckling",
+      "reason": "Released bullying/blustering gloss differs from the reference flamboyantly adventurous sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "swinger",
+      "reason": "Chinese fashionable or swinging-person senses do not securely establish English promiscuous-person or sports-implement swinger senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "switcher",
+      "reason": "Published meanings concern switching equipment or a shunting locomotive; supplied PWN evidence is a person wielding a whip.",
+      "stage": "authoring"
+    },
+    {
+      "term": "symptomatically",
+      "reason": "Released having-symptoms wording does not precisely express according-to-symptoms or symptomatic-treatment manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "syndicalist",
+      "reason": "Published Chinese is syndicalism advocate while evidence is anarchism advocate; uncertain exact political sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tablature",
+      "reason": "Published skull-layering gloss conflicts with supplied musical fingering-notation evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tactility",
+      "reason": "Chinese gloss names a tactile quality or feel; supplied evidence specifically names the faculty of touch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "taffy",
+      "reason": "Independent reviewer identified a candy-sense mismatch between frozen 太妃糖 and the pulled chewy candy in supplied evidence; defer rather than alter the frozen definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tagger",
+      "reason": "Frozen dangling-object, follower, metal-sheet, and appendage glosses do not clearly match supplied tagging person or program senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tailgater",
+      "reason": "Published gloss names a tailboard or gate; supplied evidence means a driver following too closely.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tangentially",
+      "reason": "Frozen unrelatedly gloss does not reliably express the supplied in-passing sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tannoy",
+      "reason": "Existing source explicitly identifies a trade name; excluded from ordinary non-proper headword authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tantalise",
+      "reason": "Chinese senses concern teasing or unfulfilled hopes; supplied evidence concerns persistent criticism or carping.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tantalising",
+      "reason": "Existing source only points to another spelling and supplies no explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "taxer",
+      "reason": "Published gloss denotes a taxpayer, but supplied evidence denotes the official who levies taxes.",
+      "stage": "authoring"
+    },
+    {
+      "term": "teasingly",
+      "reason": "Chinese annoyed or being-teased senses conflict with English playfully-teasing active manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "technicolor",
+      "reason": "Supplied evidence is a trademarked process name, excluded from ordinary headword authoring under the proper-name instruction.",
+      "stage": "authoring"
+    },
+    {
+      "term": "techno",
+      "reason": "Existing computing technology gloss differs from supplied electronic dance music definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "teepee",
+      "reason": "Frozen Chinese gloss denotes over-the-horizon radar, while evidence denotes a conical tent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "teetotaller",
+      "reason": "Orthographic variant of teetotaler already authored in this queue; deferred to avoid counting spelling variants as distinct lexical heads without an editorial decision.",
+      "stage": "authoring"
+    },
+    {
+      "term": "telephoto",
+      "reason": "Existing noun senses are fax transmission/equipment/photo or telephoto lens; supplied evidence specifically denotes a photograph taken with such a lens.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tellingly",
+      "reason": "Existing effective/conspicuous manner gloss does not precisely support the ordinary revealing/significant manner sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tempera",
+      "reason": "Existing source denotes a painting or painting method; supplied evidence specifically denotes the mixed pigment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "temporally",
+      "reason": "Existing worldly/temporarily glosses differ from supplied temporal-order manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tenia",
+      "reason": "Published medical senses mean tapeworm or band; supplied evidence specifically means a headband.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tenuously",
+      "reason": "Released glosses do not safely establish the weakly-supported connection sense needed for a clear modern example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tercet",
+      "reason": "Frozen poetic and musical glosses conflict with supplied generic cardinal-number sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "terminator",
+      "reason": "Existing general terminator or technical terminator gloss does not specifically support supplied pest exterminator definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "territoriality",
+      "reason": "Frozen legal territorial-rights/state glosses do not clearly match supplied animal territorial-behavior evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thereto",
+      "reason": "Existing gloss is only spatial 往那边, 到那; the idiomatic formal attachment sense needs a more precise source than supplied.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thermostatic",
+      "reason": "Published Chinese concerns thermotropism or body-temperature regulation while evidence concerns thermostat devices.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thunderhead",
+      "reason": "Independent review found Chinese anvil-cloud gloss conflicts with the supplied whole rounded-cloud-mass evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thunk",
+      "reason": "Chinese computing-program sense conflicts with English dull-sound definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "thusly",
+      "reason": "Released Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tightwad",
+      "reason": "Derogatory person label; deferred for insulting register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "titty",
+      "reason": "Vulgar slang for a body part; deferred for register review rather than presenting as neutral anatomical vocabulary.",
+      "stage": "authoring"
+    },
+    {
+      "term": "toddy",
+      "reason": "Chinese palm juice or palm wine senses conflict with English hot mixed-liquor drink evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "toff",
+      "reason": "Class-based potentially derogatory label with uncertain Chinese register alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tole",
+      "reason": "Published gloss means tinplate or sheet metal; supplied evidence means decorated enameled metalware.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tombola",
+      "reason": "Unusual Chinese gambling gloss is not precise enough to establish the supplied revolving-drum lottery sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tongued",
+      "reason": "Evidence primarily requires a combining adjective and published Chinese is a placeholder combining gloss; uncertain standalone usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "toon",
+      "reason": "Published meaning is the toon tree; supplied PWN evidence is a cartoon film.",
+      "stage": "authoring"
+    },
+    {
+      "term": "topically",
+      "reason": "Published senses concern general discussion or current affairs; supplied PWN sense concerns local bodily application.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tosser",
+      "reason": "Published Chinese means volleyball setter while evidence is light thrower or vulgar insult; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "touchback",
+      "reason": "Published Chinese ambiguously describes ball-touching-ground and does not establish the specific football rule sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tourney",
+      "reason": "Existing noun label glosses the act of participating, whereas supplied noun denotes a tournament event.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trachoma",
+      "reason": "Specialized medical evidence requires source confirmation before reuse; no example is authored from the unverified disease classification.",
+      "stage": "authoring"
+    },
+    {
+      "term": "transgendered",
+      "reason": "Dated adjective and published sex-change gloss do not adequately express transgender identity; supplied PWN definition is also outdated, so source and register review are required.",
+      "stage": "authoring"
+    },
+    {
+      "term": "transsexual",
+      "reason": "Dated identity label with dated English evidence and uncertain neutral current register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "transubstantiation",
+      "reason": "Published meaning is medical tissue replacement; supplied PWN senses are general transformation or Catholic Eucharistic doctrine.",
+      "stage": "authoring"
+    },
+    {
+      "term": "transvestism",
+      "reason": "Frozen pathology-oriented gloss may incorrectly medicalize ordinary cross-dressing; defer uncertain specialist framing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "traversal",
+      "reason": "Published computing gloss denotes enumeration, while supplied evidence covers physical travel or skiing.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trig",
+      "reason": "Relevant adjective is uncommon or dated; supplied evidence does not independently confirm a natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trigram",
+      "reason": "Published gloss describes a three-letter sound unit, whereas supplied PWN evidence is a three-letter word; no secure aligned sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trillionth",
+      "reason": "Current noun gloss gives ordinal meanings, while supplied noun evidence is a fractional part; adjective ordinal evidence cannot repair the noun mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trivially",
+      "reason": "Independent review flagged unnatural demonstration of the published trivial-manner adverb; defer pending a clean aligned example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "troller",
+      "reason": "Published meanings are a round singer or small fishing boat; supplied evidence is a fisherman using hook and line.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trollop",
+      "reason": "Derogatory gendered sexual or hygiene insult; defer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "trotline",
+      "reason": "Independent review flagged published towed-line Chinese against multi-hook mainline gear; defer fishing-gear mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tum",
+      "reason": "Chinese string-instrument sound sense conflicts with English stomach evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "turbofan",
+      "reason": "Published Chinese means turbine blower while evidence means a specific jet engine or aircraft; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "turnround",
+      "reason": "Published sense concerns locomotive or freight-car turnaround; supplied evidence specifically concerns a vessel or aircraft.",
+      "stage": "authoring"
+    },
+    {
+      "term": "tush",
+      "reason": "Released noun canine-tooth gloss conflicts with reference buttocks sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "twat",
+      "reason": "Entry contains obscene and derogatory person/genital senses; defer the unmarked insult rather than author an uncertain example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "twerp",
+      "reason": "Insulting person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "twirler",
+      "reason": "Independent review flagged published military band leader Chinese against general baton twirler evidence; defer role mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unanticipated",
+      "reason": "Existing computing gloss 非先行的 does not support the evidenced unexpected sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unappreciative",
+      "reason": "Chinese gloss means lacking appreciation or admiration; supplied evidence specifically means ungrateful.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unbeknownst",
+      "reason": "Existing source is only a spelling cross-reference without an explicit Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unblinkingly",
+      "reason": "Chinese gloss is literal absence of blinking; supplied evidence specifically means showing no emotion.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncapped",
+      "reason": "Published meaning concerns an uncapped sports player; supplied PWN evidence concerns front teeth.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncaring",
+      "reason": "Existing inattentive/preoccupied gloss differs from the supplied lack of concern or affection for others.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unchartered",
+      "reason": "Published Chinese means irregular while evidence means lacking a charter; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncleared",
+      "reason": "Published unpaid financial gloss conflicts with supplied physically uncleared evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncommercial",
+      "reason": "Published noncommercial/nonprofit/unethical glosses do not clearly match evidence describing lack of commercial viability.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncompetitive",
+      "reason": "Existing lack-of-competitiveness gloss describes ability, while supplied evidence describes inclination not to compete.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unconstitutionally",
+      "reason": "Released Chinese mistakenly means unconsciously, not unconstitutionally.",
+      "stage": "authoring"
+    },
+    {
+      "term": "uncultured",
+      "reason": "Person adjective is disparaging; alternative nonperson cultivation sense lacks matching evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "underbody",
+      "reason": "Published Chinese names submerged hull while evidence names animal underside; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "underfed",
+      "reason": "Published meaning is only a past-form pointer and does not provide the current adjective's actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unemotionally",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unfeminine",
+      "reason": "Disparaging gender-norm adjective; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unfilled",
+      "reason": "Existing unfilled/empty physical gloss does not precisely support supplied purchase-order-not-fulfilled sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unfrozen",
+      "reason": "Frozen gloss is only a past-participle cross-reference while queue POS and evidence are adjective.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unintelligent",
+      "reason": "Derogatory intelligence descriptor; supplied evidence does not establish the published computing sense, so deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unionised",
+      "reason": "Frozen gloss is only an unresolved unionized cross-reference with incompatible labor and ionization senses in evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unladylike",
+      "reason": "Disparaging gender-norm adjective; deferred for register.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unmade",
+      "reason": "Chinese source is solely a past-tense and participle pointer; no bed-not-made adjective sense provided.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unmanly",
+      "reason": "Gendered insult based on masculinity and courage; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unmapped",
+      "reason": "Published computing gloss means non-transformed; supplied evidence means an unsurveyed region.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unmotivated",
+      "reason": "Frozen gloss describes unclear motivation, while supplied evidence describes absence of motivation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unnameable",
+      "reason": "Supplied sense is sacred-name taboo, which is not clearly represented by frozen inability-to-name or indescribability glosses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unplaced",
+      "reason": "Frozen unassigned or unfixed-position glosses do not match supplied racing-result adjective sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unpleasing",
+      "reason": "Chinese gloss is general unpleasantness, while supplied evidence specifically means lacking graciousness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unredeemed",
+      "reason": "Supplied evidence is narrowly theological, while published glosses do not clearly state the unsaved soul sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unreleased",
+      "reason": "Frozen Chinese gloss describes phonetic nonrelease, while supplied evidence describes unpublished or undistributed material; unconfirmed narrow phonetic sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unseeded",
+      "reason": "Existing chemistry gloss means without seed crystals; evidence only describes unsown land or tennis seeding.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unselfconsciously",
+      "reason": "Published meaning is only a derivative-form pointer, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unspoken",
+      "reason": "Existing gloss supplies only a purported inflection of unspeak, without a supported lexical sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unsubtle",
+      "reason": "Published glosses about workmanship, perception and dexterity do not clearly establish the obvious or unnuanced sense in the evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unsupportable",
+      "reason": "Published Chinese means intolerable while evidence means indefensible; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "untalented",
+      "reason": "Derogatory ability descriptor in the current source; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "unthinkably",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "untypical",
+      "reason": "Existing gloss 一般 contradicts supplied nonrepresentative definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vaccinia",
+      "reason": "Specialized evidence mixes cattle disease and vaccine-induced infection; the brief Chinese gloss is insufficient for confident precise alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vampirism",
+      "reason": "Published glosses are seduction, extortion and figurative exploitation; supplied evidence concerns literal vampire practices or belief.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vasculitis",
+      "reason": "Published Chinese specifies nodular vasculitis, while supplied evidence establishes only general vessel inflammation.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vasoconstrictor",
+      "reason": "Published noun denotes a vasoconstrictor nerve while supplied noun evidence describes any vasoconstricting agent; adjective evidence is absent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vasodilator",
+      "reason": "Published noun means a vasodilating nerve, whereas supplied noun evidence means a drug; adjective source has no matching adjective evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vender",
+      "reason": "Spelling variant of vendor requires canonical variant confirmation before counting an additional lexical head.",
+      "stage": "authoring"
+    },
+    {
+      "term": "verily",
+      "reason": "Archaic or strongly literary adverb requires current register confirmation before publication.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vertu",
+      "reason": "Released artwork/collector senses differ from the artistic-quality or taste reference; standalone usage needs checking.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vi",
+      "reason": "Existing gloss gives an editor and an obsolete element label, while evidence concerns the Roman numeral six.",
+      "stage": "authoring"
+    },
+    {
+      "term": "viscerally",
+      "reason": "Frozen Chinese entry is only a derivation note and does not independently specify an adverb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "visualisation",
+      "reason": "Chinese source is purely a variant pointer with no translated sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vocalisation",
+      "reason": "Published Chinese is only a spelling-variant pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vox",
+      "reason": "Latin-derived specialist voice label lacks a clearly natural standalone contemporary learning context in this source.",
+      "stage": "authoring"
+    },
+    {
+      "term": "vroom",
+      "reason": "Published meaning is only an onomatopoeic cross-reference, without an actual Chinese noun or verb sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wanker",
+      "reason": "Vulgar insulting person label excluded from ordinary authoring.",
+      "stage": "authoring"
+    },
+    {
+      "term": "waster",
+      "reason": "Derogatory person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "weald",
+      "reason": "Rare or archaic generic landscape noun with uncertain natural current usage.",
+      "stage": "authoring"
+    },
+    {
+      "term": "weft",
+      "reason": "Frozen gloss gives fabric and distress-flag senses; the supplied evidence supports weft yarn rather than a usable matching gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wench",
+      "reason": "Gendered derogatory or archaic person label with an unreliable register match in the Chinese gloss.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wetback",
+      "reason": "Ethnic slur; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wheatfield",
+      "reason": "Current entry is a place-name proper noun; supplied evidence means a field of wheat.",
+      "stage": "authoring"
+    },
+    {
+      "term": "whiplash",
+      "reason": "Existing whip-tip/lash-cord glosses differ from supplied whip blow or neck injury meanings.",
+      "stage": "authoring"
+    },
+    {
+      "term": "whitey",
+      "reason": "Supplied evidence explicitly marks an offensive racial term for a White man, while frozen gloss denotes White society; defer both slur and sense mismatch.",
+      "stage": "authoring"
+    },
+    {
+      "term": "whorehouse",
+      "reason": "Coarse venue label derived from a derogatory person term; defer unmarked ordinary illustration.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wiener",
+      "reason": "Frozen entry supplies only an English cross-reference to frankfurter and no selectable Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "windjammer",
+      "reason": "Published gloss names a sailor or a talkative person; supplied evidence means a large sailing ship.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wog",
+      "reason": "Ethnic slur; deferred.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wolfman",
+      "reason": "Published Chinese describes wolf-like will while evidence means werewolf; sense conflict.",
+      "stage": "authoring"
+    },
+    {
+      "term": "womaniser",
+      "reason": "Published meaning is only a spelling cross-reference, without an actual Chinese sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "womanish",
+      "reason": "Published and supported sense is explicitly derogatory toward gender expression; defer rather than add an example.",
+      "stage": "authoring"
+    },
+    {
+      "term": "womanizer",
+      "reason": "Disparaging person label excluded from this ordinary non-insult authoring pass.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wonderingly",
+      "reason": "Chinese surprised manner gloss does not securely match English curious or questioning manner evidence.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wonk",
+      "reason": "Existing supplied student meaning is explicitly ridiculing; modern policy-expert sense is absent.",
+      "stage": "authoring"
+    },
+    {
+      "term": "woodman",
+      "reason": "Published Chinese describes woodsman while WordNet senses describe woodworker or woodland resident; uncertain alignment.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wop",
+      "reason": "Ethnic slur; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wormlike",
+      "reason": "Published meaning concerns worm-like physical appearance; supplied PWN evidence concerns total submissiveness.",
+      "stage": "authoring"
+    },
+    {
+      "term": "worryingly",
+      "reason": "Existing anxious manner gloss differs from supplied causing-worry manner.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wraithlike",
+      "reason": "Published Chinese is only a derivative pointer.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wuss",
+      "reason": "Insulting person label; deferred under assignment rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "wye",
+      "reason": "Existing Y-shaped object/connector senses do not match supplied letter-name definition.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yakuza",
+      "reason": "Frozen derogatory loafer gloss does not clearly identify the supplied Japanese organized-crime senses.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yang",
+      "reason": "Existing source is a surname, whereas supplied evidence gives the cosmological principle.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yardage",
+      "reason": "Existing livestock-yard usage or fee senses differ from supplied aggregate distance in yards.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yeller",
+      "reason": "Only a derivative-form pointer is supplied, without an actual Chinese noun sense.",
+      "stage": "authoring"
+    },
+    {
+      "term": "yobbo",
+      "reason": "Insulting person label; deferred under insulting-term rule.",
+      "stage": "authoring"
+    },
+    {
+      "term": "zapper",
+      "reason": "Chinese microwave or radiation pest-device gloss conflicts with English electric-current device evidence.",
+      "stage": "authoring"
+    }
+  ],
+  "reviewScope": "AI cross-reviewed selected-sense original bilingual examples; not human certification or exhaustive sense coverage."
+}

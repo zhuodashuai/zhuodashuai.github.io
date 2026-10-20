@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/examples13_cards5",
+  "independentOfAuthor": true,
+  "packSourceSha256": "40d25d85bdc2bcd787bbc3bea038eef4df898cb868080fae5ab25796d537c1ab",
+  "scope": "Independent follow-up sense verification after personally reading all 90 rows and the exact nine-row corrective diff. Frozen queues and authored language were not changed by this reviewer.",
+  "entries": [
+    {
+      "term": "unshelled",
+      "selectedMeaning": "未去壳的",
+      "source": "https://dictionary.cambridge.org/dictionary/english/unshelled",
+      "access": "Direct page fetch returned 403; personally read the primary publisher definition and usage text returned by indexed web search for this exact entry.",
+      "finding": "Cambridge defines unshelled nuts and foods as retaining their hard outer covering. The walnut sentence and Chinese match this ordinary food sense, which is already present in the frozen Chinese meaning despite the contradictory local WordNet definition. No language correction is required."
+    },
+    {
+      "term": "depositary",
+      "selectedMeaning": "保管人",
+      "source": "https://www.collinsdictionary.com/us/dictionary/english/depositary",
+      "access": "Personally read the publisher entry, including American and British person-sense definitions.",
+      "finding": "Collins defines a person, firm, or group entrusted with something for safekeeping or preservation. The person signing a receipt for sealed documents correctly uses the published Chinese person sense; the frozen WordNet facility sense is not exhaustive. No language correction is required."
+    }
+  ],
+  "correctionReview": {
+    "changedTerms": ["pinole", "quire", "specifiable", "techy", "lek", "adamantine", "maidenly", "typographer", "hectolitre"],
+    "removedTerms": [],
+    "addedTerms": [],
+    "finding": "All nine changes individually reread against the initial snapshot and accepted. All unflagged rows are unchanged."
+  }
+}
