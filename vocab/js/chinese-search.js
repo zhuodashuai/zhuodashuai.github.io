@@ -204,6 +204,7 @@ export function chineseSearchSense(term) {
   if (!group) return null;
   if (!commonSenseCache.has(group)) commonSenseCache.set(group, Object.freeze({
     pos: unambiguousPartOfSpeech(group.pos), sense: group.sense, note: group.note,
+    exampleSenses: group.exampleSenses,
   }));
   return commonSenseCache.get(group);
 }

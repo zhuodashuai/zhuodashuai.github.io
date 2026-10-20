@@ -86,7 +86,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "仅仅"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "simply": [],
+      "just": [
+        {
+          "id": "zhuo:just:adverb:1",
+          "partOfSpeech": "adverb",
+          "meaningZh": "仅仅；只是，用来限制范围或数量。",
+          "examples": [
+            {
+              "en": "I need just one more screw to finish the shelf.",
+              "zh": "我只再需要一颗螺丝就能装好架子。"
+            }
+          ]
+        }
+      ],
+      "only": [
+        {
+          "id": "example:only",
+          "partOfSpeech": "adverb",
+          "meaningZh": "仅仅；只有",
+          "examples": [
+            {
+              "en": "The small lift holds only four people.",
+              "zh": "这部小电梯只能容纳四人。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-116",
@@ -155,7 +184,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "大约"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "approximately": [
+        {
+          "id": "example:approximately",
+          "partOfSpeech": "adverb",
+          "meaningZh": "大约",
+          "examples": [
+            {
+              "en": "The walk takes approximately forty minutes from the station.",
+              "zh": "从车站步行过去大约需要四十分钟。"
+            }
+          ]
+        }
+      ],
+      "about": [],
+      "or so": []
+    }
   },
   {
     "id": "common-117",
@@ -236,7 +282,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "持有"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "own": [
+        {
+          "id": "zhuo:own:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "拥有；作为财产所有者持有某物，而不只是暂时借用。",
+          "examples": [
+            {
+              "en": "The cooperative owns the van that delivers produce to the market.",
+              "zh": "把农产品送到市场的那辆面包车归合作社所有。"
+            }
+          ]
+        }
+      ],
+      "possess": []
+    }
   },
   {
     "id": "common-118",
@@ -303,7 +365,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "总计"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "total": [],
+      "add up": [],
+      "amount": []
+    }
   },
   {
     "id": "common-119",
@@ -400,7 +467,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "似乎"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "look": [
+        {
+          "id": "zhuo:look:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "看起来；显得，作连系动词时后接形容词等描述外观或给人的印象。",
+          "examples": [
+            {
+              "en": "The repaired frame looks almost new in this light.",
+              "zh": "在这种光线下，修好的框架看起来几乎像新的一样。"
+            }
+          ]
+        }
+      ],
+      "appear": [
+        {
+          "id": "zhuo:appear:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "似乎；显得，表示根据现有迹象作出的判断，不等于已经证实。",
+          "examples": [
+            {
+              "en": "The two reports appear to describe the same incident.",
+              "zh": "这两份报告似乎描述的是同一起事件。"
+            }
+          ]
+        }
+      ],
+      "seem": [
+        {
+          "id": "example:seem",
+          "partOfSpeech": "verb",
+          "meaningZh": "似乎",
+          "examples": [
+            {
+              "en": "The instructions seem clear to me.",
+              "zh": "我觉得这些说明似乎很清楚。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-120",
@@ -457,7 +565,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "递给"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "pass": [
+        {
+          "id": "zhuo:pass:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "传递；递给，把物品从自己这里交到另一个人那里。",
+          "examples": [
+            {
+              "en": "Could you pass the measuring tape to the person beside the door?",
+              "zh": "你能把卷尺递给门旁那个人吗？"
+            }
+          ]
+        }
+      ],
+      "hand": [
+        {
+          "id": "hand-verb-pass",
+          "partOfSpeech": "verb",
+          "meaningZh": "递给；用手把物品交给别人。",
+          "examples": [
+            {
+              "en": "The receptionist handed us two passes and a map.",
+              "zh": "接待员递给我们两张通行证和一张地图。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-121",
@@ -581,7 +717,50 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "放置"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "put": [
+        {
+          "id": "example:put",
+          "partOfSpeech": "verb",
+          "meaningZh": "放置",
+          "examples": [
+            {
+              "en": "Put the wet towels on the rack.",
+              "zh": "把湿毛巾放到架子上。"
+            }
+          ]
+        }
+      ],
+      "set": [
+        {
+          "id": "example:set",
+          "partOfSpeech": "verb",
+          "meaningZh": "放置",
+          "examples": [
+            {
+              "en": "Set the vase carefully on the shelf.",
+              "zh": "小心把花瓶放到架子上。"
+            }
+          ]
+        }
+      ],
+      "place": [
+        {
+          "id": "zhuo:place:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "放置；把人或物安放在某个位置，语体比 put 稍正式。",
+          "examples": [
+            {
+              "en": "Place the folded cloth beneath the bowl to protect the table.",
+              "zh": "把折好的布放在碗下，以保护桌面。"
+            }
+          ]
+        }
+      ],
+      "position": [],
+      "lay": []
+    }
   },
   {
     "id": "common-122",
@@ -650,7 +829,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "构成"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "form": [],
+      "constitute": [
+        {
+          "id": "example:constitute",
+          "partOfSpeech": "verb",
+          "meaningZh": "构成",
+          "examples": [
+            {
+              "en": "These three chapters constitute the book's first section.",
+              "zh": "这三章构成了这本书的第一部分。"
+            }
+          ]
+        }
+      ],
+      "make": []
+    }
   },
   {
     "id": "common-123",
@@ -717,7 +913,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "变成"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "become": [
+        {
+          "id": "zhuo:become:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "变成；成为，从原来的状态发展到新的身份或状态。过去式 became，过去分词 become。",
+          "examples": [
+            {
+              "en": "The path becomes slippery after heavy rain.",
+              "zh": "大雨过后，这条小路会变得很滑。"
+            }
+          ]
+        }
+      ],
+      "turn": []
+    }
   },
   {
     "id": "common-124",
@@ -785,7 +997,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "遇见"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "meet": [
+        {
+          "id": "zhuo:meet:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "遇见；与人相识，偶然或首次碰到某人。过去式、过去分词为 met。",
+          "examples": [
+            {
+              "en": "I met our new neighbour while we were both collecting parcels.",
+              "zh": "我们都去取包裹时，我认识了新邻居。"
+            }
+          ]
+        }
+      ],
+      "encounter": []
+    }
   },
   {
     "id": "common-125",
@@ -881,7 +1109,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "引导"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "lead": [
+        {
+          "id": "zhuo:lead:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "带领；领导，为人指路或负责组织他人的行动。读 /liːd/；过去式、过去分词为 led /led/。",
+          "examples": [
+            {
+              "en": "An experienced volunteer led the group through the restored mill.",
+              "zh": "一位经验丰富的志愿者带领大家参观修复后的磨坊。"
+            }
+          ]
+        }
+      ],
+      "take": [],
+      "guide": []
+    }
   },
   {
     "id": "common-126",
@@ -940,7 +1185,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "制造"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "produce": [
+        {
+          "id": "example:produce",
+          "partOfSpeech": "verb",
+          "meaningZh": "生产；制造",
+          "examples": [
+            {
+              "en": "The workshop can produce twenty chairs a week.",
+              "zh": "这家工坊每周能制作二十把椅子。"
+            }
+          ]
+        }
+      ],
+      "make": [
+        {
+          "id": "zhuo:make:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "制作；创造，把材料、零件或想法变成某物；过去式、过去分词为 made。",
+          "examples": [
+            {
+              "en": "We made a simple bird feeder from leftover wood.",
+              "zh": "我们用剩余木料做了一个简易喂鸟器。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-127",
@@ -1013,7 +1286,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "忆起"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "remember": [
+        {
+          "id": "example:remember",
+          "partOfSpeech": "verb",
+          "meaningZh": "记得",
+          "examples": [
+            {
+              "en": "I remember the smell of that old bookshop.",
+              "zh": "我记得那家老书店的气味。"
+            }
+          ]
+        }
+      ],
+      "recall": [
+        {
+          "id": "example:recall",
+          "partOfSpeech": "verb",
+          "meaningZh": "回忆起某件事",
+          "examples": [
+            {
+              "en": "I can recall the conversation, but I cannot remember the exact date.",
+              "zh": "我能回想起那次谈话，却记不清确切的日期。"
+            }
+          ]
+        }
+      ],
+      "recollect": [
+        {
+          "id": "example:recollect",
+          "partOfSpeech": "verb",
+          "meaningZh": "回忆起",
+          "examples": [
+            {
+              "en": "I could not recollect where I had left the spare key.",
+              "zh": "我想不起把备用钥匙放在哪里了。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-128",
@@ -1071,7 +1385,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "去世"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "die": [
+        {
+          "id": "example:die",
+          "partOfSpeech": "verb",
+          "meaningZh": "死亡",
+          "examples": [
+            {
+              "en": "The seedlings may die without enough water.",
+              "zh": "幼苗缺水可能会死。"
+            }
+          ]
+        }
+      ],
+      "perish": [
+        {
+          "id": "example:perish",
+          "partOfSpeech": "verb",
+          "meaningZh": "死亡；毁灭",
+          "examples": [
+            {
+              "en": "Many seedlings perished during the unexpected frost.",
+              "zh": "许多幼苗在突来的霜冻中死去了。"
+            }
+          ]
+        }
+      ],
+      "pass away": []
+    }
   },
   {
     "id": "common-129",
@@ -1140,7 +1483,46 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "保留"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "retain": [
+        {
+          "id": "example:retain",
+          "partOfSpeech": "verb",
+          "meaningZh": "继续拥有而不失去",
+          "examples": [
+            {
+              "en": "The renovated cinema will retain its original ceiling and wooden ticket booth.",
+              "zh": "翻修后的电影院将保留原来的天花板和木制售票亭。"
+            }
+          ]
+        }
+      ],
+      "keep": [
+        {
+          "id": "zhuo:keep:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "保留；不丢弃或交还某物，继续拥有它。",
+          "examples": [
+            {
+              "en": "Keep the original ticket until the refund has reached your account.",
+              "zh": "退款到账前，请保留原票。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:keep:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "保持；继续处于某种状态，或使人、物维持某种状态。",
+          "examples": [
+            {
+              "en": "The thick curtain keeps the small room warm after sunset.",
+              "zh": "日落后，厚窗帘让小房间保持暖和。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-130",
@@ -1218,7 +1600,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "职业"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "occupation": [
+        {
+          "id": "example:occupation",
+          "partOfSpeech": "noun",
+          "meaningZh": "一个人从事的工作或职业",
+          "examples": [
+            {
+              "en": "The form asks for your occupation but does not request your employer's name.",
+              "zh": "这张表要求填写职业，但不要求填写雇主名称。"
+            }
+          ]
+        }
+      ],
+      "job": [
+        {
+          "id": "job-noun-employment",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "工作；职位；为获得报酬而承担的固定职责。",
+          "examples": [
+            {
+              "en": "Her first job involved preparing materials for a community art studio.",
+              "zh": "她的第一份工作是为社区艺术工作室准备材料。"
+            }
+          ]
+        }
+      ],
+      "line of work": []
+    }
   },
   {
     "id": "common-131",
@@ -1284,7 +1695,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "含有"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "carry": [],
+      "contain": [
+        {
+          "id": "zhuo:contain:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "含有；装有，在内部包括某物、成分或信息。",
+          "examples": [
+            {
+              "en": "The envelope contains the signed form and a return address label.",
+              "zh": "信封里装着签好的表格和一张回邮地址标签。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-132",
@@ -1344,7 +1771,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "经历"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "experience": [
+        {
+          "id": "experience-verb-undergo",
+          "partOfSpeech": "verb",
+          "meaningZh": "经历；体验；亲身感受到某种情况、变化或情绪。",
+          "examples": [
+            {
+              "en": "The village experienced frequent power cuts that winter.",
+              "zh": "那个冬天，村庄经历了频繁停电。"
+            }
+          ]
+        }
+      ],
+      "go through": []
+    }
   },
   {
     "id": "common-133",
@@ -1423,7 +1866,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "排列"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "arrange": [
+        {
+          "id": "zhuo:arrange:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "排列；摆放，把东西按某种次序或布局放好。",
+          "examples": [
+            {
+              "en": "Arrange the cards from the earliest date to the latest.",
+              "zh": "把卡片按日期从早到晚排列。"
+            }
+          ]
+        }
+      ],
+      "order": [
+        {
+          "id": "zhuo:order:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "排列；按某种规则安排事物的先后。",
+          "examples": [
+            {
+              "en": "The assistant ordered the files by date before packing them.",
+              "zh": "助手先按日期排列文件，再把它们装箱。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-134",
@@ -1520,7 +1991,61 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "完全"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "wholly": [
+        {
+          "id": "example:wholly",
+          "partOfSpeech": "adverb",
+          "meaningZh": "完全地",
+          "examples": [
+            {
+              "en": "The outcome was not wholly unexpected.",
+              "zh": "这个结果并非完全出乎意料。"
+            }
+          ]
+        }
+      ],
+      "entirely": [
+        {
+          "id": "example:entirely",
+          "partOfSpeech": "adverb",
+          "meaningZh": "完全地；全然",
+          "examples": [
+            {
+              "en": "The finished sculpture was made entirely from recycled wood.",
+              "zh": "这件完成的雕塑完全由回收木材制成。"
+            }
+          ]
+        }
+      ],
+      "completely": [
+        {
+          "id": "example:completely",
+          "partOfSpeech": "adverb",
+          "meaningZh": "完全地",
+          "examples": [
+            {
+              "en": "The storm completely changed our weekend plans.",
+              "zh": "风暴彻底改变了我们的周末计划。"
+            }
+          ]
+        }
+      ],
+      "totally": [
+        {
+          "id": "example:totally",
+          "partOfSpeech": "adverb",
+          "meaningZh": "完全地",
+          "examples": [
+            {
+              "en": "The two sketches show totally different ideas.",
+              "zh": "两张草图表现了完全不同的想法。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-135",
@@ -1569,7 +2094,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "句点"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "period": [],
+      "full stop": []
+    }
   },
   {
     "id": "common-136",
@@ -1667,7 +2196,61 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "结果"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "consequence": [
+        {
+          "id": "consequence-noun-result",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "后果；结果；由某个行为或事件引起的情况，常用于不利结果，但不一定总是负面的。",
+          "examples": [
+            {
+              "en": "One consequence of the timetable change was a longer lunch break.",
+              "zh": "时间表调整带来的一个结果是午休变长了。"
+            }
+          ]
+        }
+      ],
+      "outcome": [
+        {
+          "id": "example:outcome",
+          "partOfSpeech": "noun",
+          "meaningZh": "事情进行后产生的最终结果",
+          "examples": [
+            {
+              "en": "Neither team could predict the outcome until the final seconds.",
+              "zh": "直到最后几秒，两队都无法预料比赛结果。"
+            }
+          ]
+        }
+      ],
+      "result": [
+        {
+          "id": "example:result",
+          "partOfSpeech": "noun",
+          "meaningZh": "结果",
+          "examples": [
+            {
+              "en": "The final result surprised the whole team.",
+              "zh": "最终结果让全队都很惊讶。"
+            }
+          ]
+        }
+      ],
+      "upshot": [
+        {
+          "id": "example:upshot",
+          "partOfSpeech": "noun",
+          "meaningZh": "最终结果",
+          "examples": [
+            {
+              "en": "The upshot of our discussion was that nobody wanted to move offices.",
+              "zh": "我们讨论的最终结果是，谁都不想搬办公室。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-137",
@@ -1746,7 +2329,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "抑制"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "control": [],
+      "hold in": [],
+      "contain": [
+        {
+          "id": "zhuo:contain:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "控制；遏制，阻止火势、问题、感情等扩散或失控。",
+          "examples": [
+            {
+              "en": "The barriers helped contain the spilled water in one corner.",
+              "zh": "挡板帮助把溢出的水限制在一个角落里。"
+            }
+          ]
+        }
+      ],
+      "curb": [
+        {
+          "id": "example:curb",
+          "partOfSpeech": "verb",
+          "meaningZh": "控制；抑制",
+          "examples": [
+            {
+              "en": "The club introduced a booking system to curb overcrowding.",
+              "zh": "俱乐部引入预约制度，以控制过度拥挤。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-138",
@@ -1813,7 +2426,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "作用"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "function": [
+        {
+          "id": "function-noun-purpose",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "功能；作用；某物或某人在整体中承担的任务。",
+          "examples": [
+            {
+              "en": "The main function of the cover is to keep dust out.",
+              "zh": "盖子的主要作用是防尘。"
+            }
+          ]
+        }
+      ],
+      "role": [
+        {
+          "id": "example:role",
+          "partOfSpeech": "noun",
+          "meaningZh": "职责；作用",
+          "examples": [
+            {
+              "en": "My role is to welcome arriving guests.",
+              "zh": "我的职责是迎接到来的客人。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-139",
@@ -1866,7 +2507,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "运用"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "apply": [],
+      "use": [
+        {
+          "id": "example:use",
+          "partOfSpeech": "verb",
+          "meaningZh": "使用",
+          "examples": [
+            {
+              "en": "Use a ruler to draw the border.",
+              "zh": "用尺子画出边框。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-140",
@@ -1955,7 +2612,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "中心"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "center": [
+        {
+          "id": "example:center",
+          "partOfSpeech": "noun",
+          "meaningZh": "中心",
+          "examples": [
+            {
+              "en": "A fountain stood at the center of the courtyard.",
+              "zh": "庭院中央有一座喷泉。"
+            }
+          ]
+        }
+      ],
+      "centre": [
+        {
+          "id": "example:centre",
+          "partOfSpeech": "noun",
+          "meaningZh": "中心",
+          "examples": [
+            {
+              "en": "A fountain stands in the centre of the square.",
+              "zh": "广场中央有一座喷泉。"
+            }
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "id": "example:middle",
+          "partOfSpeech": "noun",
+          "meaningZh": "中间",
+          "examples": [
+            {
+              "en": "Put the vase in the middle of the table.",
+              "zh": "把花瓶放在桌子中间。"
+            }
+          ]
+        }
+      ],
+      "heart": []
+    }
   },
   {
     "id": "common-141",
@@ -2033,7 +2732,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "瞬间"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "moment": [
+        {
+          "id": "example:moment",
+          "partOfSpeech": "noun",
+          "meaningZh": "片刻",
+          "examples": [
+            {
+              "en": "Please hold this ladder for a moment.",
+              "zh": "请扶一下这架梯子。"
+            }
+          ]
+        }
+      ],
+      "minute": [],
+      "second": []
+    }
   },
   {
     "id": "common-142",
@@ -2101,7 +2817,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "考虑"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "study": [],
+      "consider": [
+        {
+          "id": "zhuo:consider:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "考虑；认真思考某个选择或问题。后接行动时可用 consider doing something。",
+          "examples": [
+            {
+              "en": "We are considering moving the workshop to a larger room.",
+              "zh": "我们正在考虑把工作坊移到更大的房间。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-143",
@@ -2160,7 +2892,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "垮掉"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "collapse": [
+        {
+          "id": "example:collapse",
+          "partOfSpeech": "verb",
+          "meaningZh": "失去支撑而突然倒下",
+          "examples": [
+            {
+              "en": "The old shed could collapse if we remove that central wooden beam.",
+              "zh": "如果我们拆掉那根中央木梁，旧棚屋可能会倒塌。"
+            }
+          ]
+        }
+      ],
+      "fall in": [],
+      "give way": []
+    }
   },
   {
     "id": "common-144",
@@ -2237,7 +2986,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "扮演"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "act": [
+        {
+          "id": "zhuo:act:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "表演；在戏剧、电影等中扮演角色。",
+          "examples": [
+            {
+              "en": "My brother acts in a small theatre company on weekends.",
+              "zh": "我哥哥周末在一个小剧团演戏。"
+            }
+          ]
+        }
+      ],
+      "play": [
+        {
+          "id": "zhuo:play:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "扮演；在戏剧或电影中饰演角色；play a role 也可比喻起某种作用。",
+          "examples": [
+            {
+              "en": "He played the station master in the village theatre production.",
+              "zh": "他在村里的戏剧演出中扮演车站站长。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-145",
@@ -2285,7 +3062,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "延迟"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "delay": [
+        {
+          "id": "delay-noun-wait",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "延误；推迟；比预定或期望时间更晚的情况，或因此多等的一段时间。",
+          "examples": [
+            {
+              "en": "A short delay gave us time to check the equipment again.",
+              "zh": "短暂的延误让我们有时间再次检查设备。"
+            }
+          ]
+        }
+      ],
+      "postponement": [
+        {
+          "id": "example:postponement",
+          "partOfSpeech": "noun",
+          "meaningZh": "延期",
+          "examples": [
+            {
+              "en": "The postponement of the outdoor concert disappointed families already packing picnics.",
+              "zh": "户外音乐会延期，让已经在准备野餐的家庭感到失望。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-146",
@@ -2343,7 +3148,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "同意"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "agree": [
+        {
+          "id": "zhuo:agree:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "赞同；意见一致。agree with somebody 表示赞同某人，agree on something 表示就某事取得一致。",
+          "examples": [
+            {
+              "en": "We agree on the goal but not on the best route to it.",
+              "zh": "我们对目标意见一致，但对实现目标的最佳途径看法不同。"
+            }
+          ]
+        }
+      ],
+      "concur": [
+        {
+          "id": "example:concur",
+          "partOfSpeech": "verb",
+          "meaningZh": "同意；赞同",
+          "examples": [
+            {
+              "en": "The other judges concurred with her assessment.",
+              "zh": "其他评委赞同她的评价。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-147",
@@ -2403,7 +3236,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "头脑"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "mind": [
+        {
+          "id": "zhuo:mind:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "头脑；心智，思考、记忆、感受和作出决定的能力；也可指一个人的想法。",
+          "examples": [
+            {
+              "en": "A short walk helped clear my mind before I revised the report.",
+              "zh": "修改报告前，短暂散步让我理清了思绪。"
+            }
+          ]
+        }
+      ],
+      "head": [],
+      "brain": [
+        {
+          "id": "brain-noun-intelligence",
+          "partOfSpeech": "noun (usually plural)",
+          "meaningZh": "智力；头脑；思考和解决问题的能力，这个意思常用 brains。",
+          "examples": [
+            {
+              "en": "The puzzle requires brains rather than quick hands.",
+              "zh": "这个谜题靠的是动脑，而不是手快。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-148",
@@ -2498,7 +3360,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "学科"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "discipline": [
+        {
+          "id": "discipline-noun-academic-field",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "学科；某一门知识或研究领域。",
+          "examples": [
+            {
+              "en": "The project brings together researchers from several disciplines.",
+              "zh": "这个项目汇集了来自多个学科的研究人员。"
+            }
+          ]
+        }
+      ],
+      "subject": [
+        {
+          "id": "example:subject",
+          "partOfSpeech": "noun",
+          "meaningZh": "科目",
+          "examples": [
+            {
+              "en": "History was her favourite subject at school.",
+              "zh": "历史是她在学校最喜欢的科目。"
+            }
+          ]
+        }
+      ],
+      "field": [
+        {
+          "id": "field-noun-subject",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "领域；某类研究、知识或工作的范围。",
+          "examples": [
+            {
+              "en": "The conference brings together people working in the same field.",
+              "zh": "这次会议把在同一领域工作的人聚到了一起。"
+            }
+          ]
+        }
+      ],
+      "study": []
+    }
   },
   {
     "id": "common-149",
@@ -2568,7 +3472,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "案件"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "lawsuit": [
+        {
+          "id": "example:lawsuit",
+          "partOfSpeech": "noun",
+          "meaningZh": "诉讼",
+          "examples": [
+            {
+              "en": "The novel centres on a lawsuit between neighbours.",
+              "zh": "小说围绕邻居之间的一场诉讼展开。"
+            }
+          ]
+        }
+      ],
+      "suit": [],
+      "case": [
+        {
+          "id": "case-noun-matter-for-investigation",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "案件；需要警方、法院或其他专业人员调查、处理的具体事件。",
+          "examples": [
+            {
+              "en": "The court will hear the case next month.",
+              "zh": "法院将于下个月审理这起案件。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-150",
@@ -2648,7 +3581,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "分离"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "separate": [
+        {
+          "id": "zhuo:separate:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "分居；停止作为伴侣共同生活，不及物。",
+          "examples": [
+            {
+              "en": "The couple separated but continued to share care of their dog.",
+              "zh": "那对伴侣分居了，但仍共同照顾他们的狗。"
+            }
+          ]
+        }
+      ],
+      "part": [],
+      "split": []
+    }
   },
   {
     "id": "common-151",
@@ -2709,7 +3659,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "逗留"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "stay": [
+        {
+          "id": "example:stay",
+          "partOfSpeech": "verb",
+          "meaningZh": "停留",
+          "examples": [
+            {
+              "en": "We decided to stay another night.",
+              "zh": "我们决定再住一晚。"
+            }
+          ]
+        }
+      ],
+      "remain": []
+    }
   },
   {
     "id": "common-152",
@@ -2787,7 +3753,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "曲调"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "melody": [
+        {
+          "id": "example:melody",
+          "partOfSpeech": "noun",
+          "meaningZh": "旋律",
+          "examples": [
+            {
+              "en": "I recognized the melody but could not remember the song's name.",
+              "zh": "我认出了旋律，却想不起歌名。"
+            }
+          ]
+        }
+      ],
+      "air": [],
+      "strain": []
+    }
   },
   {
     "id": "common-153",
@@ -2876,7 +3859,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "例子"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "case": [
+        {
+          "id": "case-noun-instance",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "情况；实例；某种事情发生的一次具体情形。in that case 表示既然那样。",
+          "examples": [
+            {
+              "en": "In this case, a shorter explanation would be more helpful.",
+              "zh": "在这种情况下，更简短的解释会更有帮助。"
+            }
+          ]
+        }
+      ],
+      "instance": [
+        {
+          "id": "instance-noun-example-or-occasion",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "实例；事例；某类情况发生的一次，常用 an instance of；for instance 表示例如。",
+          "examples": [
+            {
+              "en": "This is the first recorded instance of the alarm sounding without a fault.",
+              "zh": "这是首次记录到警报在没有故障的情况下响起。"
+            }
+          ]
+        }
+      ],
+      "example": [
+        {
+          "id": "example-noun-illustration",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "例子；用来说明某个观点、规则或类别的具体事物。",
+          "examples": [
+            {
+              "en": "Could you give an example of a time when the method failed?",
+              "zh": "你能举一个这种方法失败的例子吗？"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-154",
@@ -2961,7 +3985,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "解雇"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "fire": [
+        {
+          "id": "fire-verb-dismiss",
+          "partOfSpeech": "verb",
+          "meaningZh": "解雇；让某人失去工作，较口语。",
+          "examples": [
+            {
+              "en": "The company fired the supervisor after repeated safety violations.",
+              "zh": "在多次违反安全规定后，公司解雇了那位主管。"
+            }
+          ]
+        }
+      ],
+      "dismiss": [
+        {
+          "id": "zhuo:dismiss:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "解雇；正式终止某人的工作或职务。",
+          "examples": [
+            {
+              "en": "The company dismissed the manager after investigating the missing funds.",
+              "zh": "调查失踪款项后，公司解雇了那位经理。"
+            }
+          ]
+        }
+      ],
+      "give the sack": []
+    }
   },
   {
     "id": "common-155",
@@ -3030,7 +4083,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "试验"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "test": [],
+      "try": [],
+      "try out": []
+    }
   },
   {
     "id": "common-156",
@@ -3101,7 +4159,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "尝试"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "try": [],
+      "attempt": [
+        {
+          "id": "zhuo:attempt:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "尝试；试图做某事，常暗示事情有一定难度或结果尚未确定。",
+          "examples": [
+            {
+              "en": "Do not attempt to move the cabinet without help.",
+              "zh": "没有人帮忙时，不要试着搬这个柜子。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-158",
@@ -3201,7 +4275,25 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "忍受"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "endure": [
+        {
+          "id": "example:endure",
+          "partOfSpeech": "verb",
+          "meaningZh": "忍受",
+          "examples": [
+            {
+              "en": "We endured a long wait in the rain.",
+              "zh": "我们忍受着雨中的漫长等待。"
+            }
+          ]
+        }
+      ],
+      "stomach": [],
+      "bear": [],
+      "stand": []
+    }
   },
   {
     "id": "common-159",
@@ -3260,7 +4352,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "消息"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "news": [
+        {
+          "id": "example:news",
+          "partOfSpeech": "noun",
+          "meaningZh": "消息",
+          "examples": [
+            {
+              "en": "The news of your visit delighted Grandma.",
+              "zh": "你要来探望的消息让奶奶很高兴。"
+            }
+          ]
+        }
+      ],
+      "word": []
+    }
   },
   {
     "id": "common-160",
@@ -3319,7 +4427,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "方法"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "means": [],
+      "way": [
+        {
+          "id": "example:way",
+          "partOfSpeech": "noun",
+          "meaningZh": "方法",
+          "examples": [
+            {
+              "en": "Drawing a diagram is one way to explain it.",
+              "zh": "画图是解释这件事的一种方法。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-161",
@@ -3378,7 +4502,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "度过"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "spend": [],
+      "pass": []
+    }
   },
   {
     "id": "common-162",
@@ -3444,7 +4572,34 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "倾听"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "listen": [
+        {
+          "id": "zhuo:listen:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "听；有意识地注意声音，不同于仅表示听见的 hear；接对象时通常用 listen to。",
+          "examples": [
+            {
+              "en": "We listened to the recording twice to catch the last announcement.",
+              "zh": "我们听了两遍录音，以听清最后那则通知。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:listen:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "听取；认真考虑别人的建议、要求或意见，常用 listen to somebody。",
+          "examples": [
+            {
+              "en": "The organisers listened to residents and moved the loudest events away from the houses.",
+              "zh": "组织者听取了居民的意见，把声音最大的活动移到了远离住宅的地方。"
+            }
+          ]
+        }
+      ],
+      "hear": []
+    }
   },
   {
     "id": "common-163",
@@ -3501,7 +4656,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "中断"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "break": [
+        {
+          "id": "zhuo:break:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "中断；打破某种连续的状态，如安静、习惯或活动。",
+          "examples": [
+            {
+              "en": "A sudden laugh broke the silence in the carriage.",
+              "zh": "一阵突如其来的笑声打破了车厢里的寂静。"
+            }
+          ]
+        }
+      ],
+      "discontinue": []
+    }
   },
   {
     "id": "common-164",
@@ -3549,7 +4720,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "展示"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "exhibit": [],
+      "present": [
+        {
+          "id": "zhuo:present:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "展示；陈述，以有条理的方式把信息、作品等交给观众或听众；动词重音通常在后。",
+          "examples": [
+            {
+              "en": "Each pair presented its design and explained how the moving parts worked.",
+              "zh": "每一组都展示了设计，并说明活动部件如何运作。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-165",
@@ -3619,7 +4806,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "认可"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "acknowledge": [],
+      "recognize": [],
+      "recognise": []
+    }
   },
   {
     "id": "common-166",
@@ -3706,7 +4898,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "描写"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "describe": [
+        {
+          "id": "zhuo:describe:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "描述；用语言说明人、事物或经历是什么样的。",
+          "examples": [
+            {
+              "en": "Could you describe the bag you left on the bus?",
+              "zh": "你能描述一下落在公交车上的包是什么样的吗？"
+            }
+          ]
+        }
+      ],
+      "depict": [
+        {
+          "id": "example:depict",
+          "partOfSpeech": "verb",
+          "meaningZh": "描绘",
+          "examples": [
+            {
+              "en": "The mural depicts a busy street market.",
+              "zh": "壁画描绘了一个热闹的街头市场。"
+            }
+          ]
+        }
+      ],
+      "draw": []
+    }
   },
   {
     "id": "common-167",
@@ -3786,7 +5007,61 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "分配"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "distribute": [
+        {
+          "id": "example:distribute",
+          "partOfSpeech": "verb",
+          "meaningZh": "分发",
+          "examples": [
+            {
+              "en": "Volunteers distributed maps at the entrance.",
+              "zh": "志愿者在入口处分发地图。"
+            }
+          ]
+        }
+      ],
+      "deal": [
+        {
+          "id": "zhuo:deal:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "发牌；把纸牌按规则分给各个玩家。",
+          "examples": [
+            {
+              "en": "Deal five cards to each player and place the rest in the middle.",
+              "zh": "给每位玩家发五张牌，把剩下的放在中间。"
+            }
+          ]
+        }
+      ],
+      "dispense": [
+        {
+          "id": "example:dispense",
+          "partOfSpeech": "verb",
+          "meaningZh": "分发",
+          "examples": [
+            {
+              "en": "The machine dispenses paper tickets at the entrance.",
+              "zh": "这台机器在入口处分发纸质票。"
+            }
+          ]
+        }
+      ],
+      "allot": [
+        {
+          "id": "example:allot",
+          "partOfSpeech": "verb",
+          "meaningZh": "分配",
+          "examples": [
+            {
+              "en": "Each speaker was allotted ten minutes for questions.",
+              "zh": "每位发言人都被分配了十分钟答问时间。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-168",
@@ -3845,7 +5120,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "教育"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "teach": [
+        {
+          "id": "example:teach",
+          "partOfSpeech": "verb",
+          "meaningZh": "教；教授",
+          "examples": [
+            {
+              "en": "Can you teach me to fold this box?",
+              "zh": "你能教我折这个盒子吗？"
+            }
+          ]
+        }
+      ],
+      "instruct": []
+    }
   },
   {
     "id": "common-169",
@@ -3934,7 +5225,47 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "特别"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "particular": [
+        {
+          "id": "zhuo:particular:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "特定的；专指某一个而不是其他的。",
+          "examples": [
+            {
+              "en": "Is there a particular seat you would like?",
+              "zh": "你有特别想坐的某个座位吗？"
+            }
+          ]
+        }
+      ],
+      "peculiar": [],
+      "special": [
+        {
+          "id": "zhuo:special:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "特别的；不同于平常而值得注意的。",
+          "examples": [
+            {
+              "en": "We saved the blue candles for a special occasion.",
+              "zh": "我们把蓝色蜡烛留到特别的场合再用。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:special:adjective:2",
+          "partOfSpeech": "adjective",
+          "meaningZh": "专用的；专门为某种目的、需要或某个人安排的。",
+          "examples": [
+            {
+              "en": "The museum provides special tours for visitors with young children.",
+              "zh": "博物馆为带小孩的游客提供专门的导览。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-170",
@@ -4012,7 +5343,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "基础"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "foundation": [
+        {
+          "id": "foundation-noun-building-base",
+          "partOfSpeech": "noun (countable, often plural)",
+          "meaningZh": "地基；位于建筑物下方、支撑其重量的结构，常用复数 foundations。",
+          "examples": [
+            {
+              "en": "The builders inspected the foundations before adding another room.",
+              "zh": "加建房间之前，施工人员检查了地基。"
+            }
+          ]
+        }
+      ],
+      "base": [],
+      "substructure": []
+    }
   },
   {
     "id": "common-171",
@@ -4053,7 +5401,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "拿出"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "pull out": [],
+      "take out": []
+    }
   },
   {
     "id": "common-172",
@@ -4112,7 +5464,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "游览"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "visit": [],
+      "see": []
+    }
   },
   {
     "id": "common-173",
@@ -4183,7 +5539,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "形状"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "form": [],
+      "shape": [
+        {
+          "id": "example:shape",
+          "partOfSpeech": "noun",
+          "meaningZh": "形状",
+          "examples": [
+            {
+              "en": "Cut the paper into the shape of a leaf.",
+              "zh": "把纸剪成叶子的形状。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-174",
@@ -4261,7 +5633,47 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "准备"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "fix": [],
+      "prepare": [
+        {
+          "id": "zhuo:prepare:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "准备；使物品、食物或文件等达到可使用的状态。",
+          "examples": [
+            {
+              "en": "The volunteers prepared a tray of labels for each worktable.",
+              "zh": "志愿者们为每张工作台准备了一托盘标签。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:prepare:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "为……作准备；让自己或别人做好应对的准备，常用 prepare for something、prepare to do 或 prepare somebody for。",
+          "examples": [
+            {
+              "en": "We prepared for the discussion by reading both versions of the proposal.",
+              "zh": "我们读了两个版本的提案，为讨论作准备。"
+            }
+          ]
+        }
+      ],
+      "ready": [
+        {
+          "id": "zhuo:ready:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "（较正式）使准备好；准备，及物。",
+          "examples": [
+            {
+              "en": "The crew readied the boat before sunrise.",
+              "zh": "船员在日出前准备好了船。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-175",
@@ -4340,7 +5752,74 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "熟练"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "adept": [
+        {
+          "id": "example:adept",
+          "partOfSpeech": "adjective",
+          "meaningZh": "熟练的；擅长的",
+          "examples": [
+            {
+              "en": "She is adept at repairing delicate clock mechanisms.",
+              "zh": "她擅长修理精巧的钟表机械。"
+            }
+          ]
+        }
+      ],
+      "expert": [
+        {
+          "id": "expert-adjective-skilled",
+          "partOfSpeech": "adjective",
+          "meaningZh": "熟练的；专业的；具有很高知识或技巧水平的。",
+          "examples": [
+            {
+              "en": "The team needed expert advice before moving the fragile sculpture.",
+              "zh": "搬动这件易碎雕塑之前，团队需要专业意见。"
+            }
+          ]
+        }
+      ],
+      "proficient": [
+        {
+          "id": "example:proficient",
+          "partOfSpeech": "adjective",
+          "meaningZh": "熟练的",
+          "examples": [
+            {
+              "en": "She became proficient at repairing the puppets' tiny joints.",
+              "zh": "她熟练掌握了修理木偶小关节的技巧。"
+            }
+          ]
+        }
+      ],
+      "skillful": [
+        {
+          "id": "example:skillful",
+          "partOfSpeech": "adjective",
+          "meaningZh": "熟练的",
+          "examples": [
+            {
+              "en": "The skillful carpenter restored the chair's delicate carved legs.",
+              "zh": "熟练木匠修复了椅子精细的雕花腿。"
+            }
+          ]
+        }
+      ],
+      "skilful": [
+        {
+          "id": "example:skilful",
+          "partOfSpeech": "adjective",
+          "meaningZh": "熟练的（英式拼写）",
+          "examples": [
+            {
+              "en": "A skilful repair made the cracked bowl usable again.",
+              "zh": "一次巧妙的修补让裂开的碗又能使用了。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-176",
@@ -4417,7 +5896,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "削减"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "abridge": [
+        {
+          "id": "example:abridge",
+          "partOfSpeech": "verb",
+          "meaningZh": "删节文字而保留主要内容",
+          "examples": [
+            {
+              "en": "The editor abridged the memoir for a shorter paperback edition.",
+              "zh": "编辑删节了这部回忆录，以推出篇幅较短的平装版。"
+            }
+          ]
+        }
+      ],
+      "abbreviate": [],
+      "shorten": [
+        {
+          "id": "example:shorten",
+          "partOfSpeech": "verb",
+          "meaningZh": "缩短",
+          "examples": [
+            {
+              "en": "We shortened the presentation to leave time for questions.",
+              "zh": "我们缩短了报告，留出提问时间。"
+            }
+          ]
+        }
+      ],
+      "cut": []
+    }
   },
   {
     "id": "common-177",
@@ -4468,7 +5977,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "留心"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "heed": [
+        {
+          "id": "example:heed",
+          "partOfSpeech": "verb",
+          "meaningZh": "听从；留意",
+          "examples": [
+            {
+              "en": "We heeded the guide's warning and turned back.",
+              "zh": "我们听从导游的警告，往回走了。"
+            }
+          ]
+        }
+      ],
+      "mind": [
+        {
+          "id": "zhuo:mind:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "小心；留意，提醒人注意危险、举止或某项要求。",
+          "examples": [
+            {
+              "en": "Mind the low beam as you enter the upstairs room.",
+              "zh": "进入楼上房间时，小心那根低矮的横梁。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-178",
@@ -4579,7 +6116,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "达到"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "achieve": [
+        {
+          "id": "zhuo:achieve:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "实现；取得，通过努力达到某个目标、标准或结果。",
+          "examples": [
+            {
+              "en": "The team achieved its target a week ahead of schedule.",
+              "zh": "团队比原定时间提前一周达成了目标。"
+            }
+          ]
+        }
+      ],
+      "accomplish": [
+        {
+          "id": "example:accomplish",
+          "partOfSpeech": "verb",
+          "meaningZh": "完成",
+          "examples": [
+            {
+              "en": "We accomplished more than expected this morning.",
+              "zh": "我们今天上午完成的工作比预期更多。"
+            }
+          ]
+        }
+      ],
+      "attain": [],
+      "reach": []
+    }
   },
   {
     "id": "common-179",
@@ -4638,7 +6205,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "细节"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "detail": [
+        {
+          "id": "detail-noun-small-part",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "细节；具体情况；整体中的较小部分或较具体的信息。in detail 表示详细地；personal details 指姓名、地址等个人资料。",
+          "examples": [
+            {
+              "en": "We discussed every detail of the route before setting off.",
+              "zh": "出发前，我们讨论了路线的每一个细节。"
+            }
+          ]
+        }
+      ],
+      "particular": [
+        {
+          "id": "zhuo:particular:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "细节；具体资料，通常用复数 particulars。",
+          "examples": [
+            {
+              "en": "Please send the particulars of the event by Friday.",
+              "zh": "请在星期五之前发来活动的具体信息。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-180",
@@ -4706,7 +6301,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "提到"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "mention": [
+        {
+          "id": "zhuo:mention:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "提到；简短谈及或写到某人某事。通常直接接宾语，不用 mention about something。",
+          "examples": [
+            {
+              "en": "She mentioned the faulty latch when she returned the key.",
+              "zh": "她还钥匙时，提到了门闩有毛病。"
+            }
+          ]
+        }
+      ],
+      "refer": []
+    }
   },
   {
     "id": "common-181",
@@ -4772,7 +6383,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "图案"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "design": [
+        {
+          "id": "zhuo:design:noun:2",
+          "partOfSpeech": "noun",
+          "meaningZh": "图案；为装饰而安排的线条、形状或颜色。",
+          "examples": [
+            {
+              "en": "She painted a simple leaf design around the rim of the bowl.",
+              "zh": "她沿碗边画了一圈简单的叶片图案。"
+            }
+          ]
+        }
+      ],
+      "pattern": [
+        {
+          "id": "example:pattern",
+          "partOfSpeech": "noun",
+          "meaningZh": "图案",
+          "examples": [
+            {
+              "en": "The curtains have a pattern of small leaves.",
+              "zh": "窗帘上有小叶子的图案。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-182",
@@ -4880,7 +6519,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "程度"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "degree": [
+        {
+          "id": "degree-noun-level",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "程度；水平；某种性质或情况达到的多少。to some degree 表示在某种程度上。",
+          "examples": [
+            {
+              "en": "The role involves a high degree of responsibility.",
+              "zh": "这个岗位需要承担很大的责任。"
+            }
+          ]
+        }
+      ],
+      "grade": [
+        {
+          "id": "grade-noun-assessment-mark",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "成绩；等级；用字母、数字等表示的学习表现或质量评价。",
+          "examples": [
+            {
+              "en": "The final grade includes both the project and the written examination.",
+              "zh": "最终成绩包括项目和笔试两部分。"
+            }
+          ]
+        }
+      ],
+      "level": [
+        {
+          "id": "level-noun-amount-or-standard",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "水平；程度；数量、质量、能力或强度所达到的阶段。",
+          "examples": [
+            {
+              "en": "The class includes readers at several different levels.",
+              "zh": "这个班有几个不同水平的读者。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-183",
@@ -4939,7 +6619,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "成长"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "growth": [
+        {
+          "id": "growth-noun-living-development",
+          "partOfSpeech": "noun (uncountable)",
+          "meaningZh": "生长；发育；生物逐渐变大、变成熟的过程。",
+          "examples": [
+            {
+              "en": "We recorded the plants' growth at the same time each week.",
+              "zh": "我们每周都在同一时间记录植物的生长情况。"
+            }
+          ]
+        }
+      ],
+      "development": []
+    }
   },
   {
     "id": "common-184",
@@ -5015,7 +6711,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "瞄准"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "aim": [
+        {
+          "id": "zhuo:aim:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "瞄准；把器具、光线等对向某个目标。",
+          "examples": [
+            {
+              "en": "Aim the torch at the steps so we can see them.",
+              "zh": "把手电筒照向台阶，好让我们看清。"
+            }
+          ]
+        }
+      ],
+      "train": [],
+      "take aim": []
+    }
   },
   {
     "id": "common-185",
@@ -5095,7 +6808,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "找到"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "discover": [
+        {
+          "id": "zhuo:discover:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "发现；找到或了解到原先不知道的地点、事物或事实，不等于创造新事物。",
+          "examples": [
+            {
+              "en": "While sorting the papers, I discovered a letter from my first teacher.",
+              "zh": "整理文件时，我发现了一封第一位老师写来的信。"
+            }
+          ]
+        }
+      ],
+      "find": [
+        {
+          "id": "zhuo:find:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "发现；通过观察、经历或研究了解到某种事实。",
+          "examples": [
+            {
+              "en": "We found that the shorter route was closed after dark.",
+              "zh": "我们发现那条较短的路线天黑后不开放。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-186",
@@ -5154,7 +6895,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "模范"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "exemplar": [
+        {
+          "id": "example:exemplar",
+          "partOfSpeech": "noun",
+          "meaningZh": "典范；榜样",
+          "examples": [
+            {
+              "en": "Teachers use her carefully organized portfolio as an exemplar for new students.",
+              "zh": "老师们把她精心整理的作品集作为新生学习的典范。"
+            }
+          ]
+        }
+      ],
+      "example": [
+        {
+          "id": "example-noun-model",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "榜样；值得学习或应当警惕的行为模式。set an example 表示树立榜样。",
+          "examples": [
+            {
+              "en": "By admitting the mistake, she set a good example for the younger members.",
+              "zh": "她承认了错误，为较年轻的成员树立了好榜样。"
+            }
+          ]
+        }
+      ],
+      "model": []
+    }
   },
   {
     "id": "common-187",
@@ -5259,7 +7029,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "处理"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "manage": [
+        {
+          "id": "zhuo:manage:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "管理；负责组织人员、资源或业务，使其正常运转。",
+          "examples": [
+            {
+              "en": "A small team manages bookings for all three village halls.",
+              "zh": "一个小团队负责管理三个村会堂的预订。"
+            }
+          ]
+        }
+      ],
+      "deal": [
+        {
+          "id": "zhuo:deal:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "处理；应对，通常用 deal with；也可表示讨论或涉及某个主题。",
+          "examples": [
+            {
+              "en": "The front desk will deal with any questions about lost property.",
+              "zh": "前台会处理有关失物的各种询问。"
+            }
+          ]
+        }
+      ],
+      "handle": [
+        {
+          "id": "zhuo:handle:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "处理；应对某个任务、问题或需要照顾的人。",
+          "examples": [
+            {
+              "en": "A separate team handles questions about damaged parcels.",
+              "zh": "另有一个团队处理有关包裹损坏的咨询。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-188",
@@ -5310,7 +7121,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "花费"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "spend": [
+        {
+          "id": "example:spend",
+          "partOfSpeech": "verb",
+          "meaningZh": "花费",
+          "examples": [
+            {
+              "en": "We spend very little on transport.",
+              "zh": "我们在交通上花的钱很少。"
+            }
+          ]
+        }
+      ],
+      "expend": [
+        {
+          "id": "example:expend",
+          "partOfSpeech": "verb",
+          "meaningZh": "花费；消耗",
+          "examples": [
+            {
+              "en": "We expended considerable effort restoring the old stage curtains.",
+              "zh": "修复旧舞台幕布，我们花了很大力气。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-189",
@@ -5399,7 +7238,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "强迫"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "coerce": [
+        {
+          "id": "example:coerce",
+          "partOfSpeech": "verb",
+          "meaningZh": "强迫",
+          "examples": [
+            {
+              "en": "The workers said they had been coerced into signing.",
+              "zh": "工人们说，他们是被迫签字的。"
+            }
+          ]
+        }
+      ],
+      "pressure": [],
+      "force": [
+        {
+          "id": "zhuo:force:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "强迫；使某人在不情愿或别无选择的情况下做事。常用 force somebody to do。",
+          "examples": [
+            {
+              "en": "The road closure forced us to take a much longer route.",
+              "zh": "道路关闭迫使我们绕了很远的路。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-190",
@@ -5450,7 +7318,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "夜间"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "night": [
+        {
+          "id": "example:night",
+          "partOfSpeech": "noun",
+          "meaningZh": "夜晚",
+          "examples": [
+            {
+              "en": "We heard owls calling during the night.",
+              "zh": "夜里我们听见猫头鹰在叫。"
+            }
+          ]
+        }
+      ],
+      "nighttime": [
+        {
+          "id": "example:nighttime",
+          "partOfSpeech": "noun",
+          "meaningZh": "夜间",
+          "examples": [
+            {
+              "en": "The camera recorded the animals' movements at nighttime.",
+              "zh": "摄像机在夜间记录了动物的活动。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-191",
@@ -5519,7 +7415,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "享受"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "love": [
+        {
+          "id": "zhuo:love:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "非常喜欢；喜爱某项活动、事物等，常用 love doing 或 love to do。",
+          "examples": [
+            {
+              "en": "I love walking by the river before the town wakes up.",
+              "zh": "我非常喜欢在小镇苏醒前沿河散步。"
+            }
+          ]
+        }
+      ],
+      "enjoy": [
+        {
+          "id": "zhuo:enjoy:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "享受；从某件事或活动中感到愉快。后接动作时通常用 -ing。",
+          "examples": [
+            {
+              "en": "I enjoy sketching the boats while waiting for the ferry.",
+              "zh": "等渡轮时，我喜欢画那些船的速写。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-192",
@@ -5622,7 +7546,25 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "发布"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "publish": [
+        {
+          "id": "example:publish",
+          "partOfSpeech": "verb",
+          "meaningZh": "把文章或研究成果正式发表，供他人阅读。",
+          "examples": [
+            {
+              "en": "The journal will publish our findings after the reviewers approve the revised manuscript.",
+              "zh": "审稿人认可修改后的稿件后，这家期刊就会发表我们的研究结果。"
+            }
+          ]
+        }
+      ],
+      "bring out": [],
+      "issue": [],
+      "release": []
+    }
   },
   {
     "id": "common-193",
@@ -5700,7 +7642,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "交易"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "deal": [],
+      "trade": [],
+      "business deal": []
+    }
   },
   {
     "id": "common-194",
@@ -5779,7 +7726,61 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "引起"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "arouse": [
+        {
+          "id": "example:arouse",
+          "partOfSpeech": "verb",
+          "meaningZh": "引起情感或反应",
+          "examples": [
+            {
+              "en": "The locked cupboard aroused the children's curiosity.",
+              "zh": "那个上锁的柜子引起了孩子们的好奇。"
+            }
+          ]
+        }
+      ],
+      "elicit": [
+        {
+          "id": "example:elicit",
+          "partOfSpeech": "verb",
+          "meaningZh": "引出",
+          "examples": [
+            {
+              "en": "The question elicited several unexpected responses from the audience.",
+              "zh": "这个问题引出了观众几个出乎意料的回答。"
+            }
+          ]
+        }
+      ],
+      "kindle": [
+        {
+          "id": "example:kindle",
+          "partOfSpeech": "verb",
+          "meaningZh": "激起",
+          "examples": [
+            {
+              "en": "The museum visit kindled her interest in ancient navigation.",
+              "zh": "博物馆之行激起了她对古代航海的兴趣。"
+            }
+          ]
+        }
+      ],
+      "evoke": [
+        {
+          "id": "example:evoke",
+          "partOfSpeech": "verb",
+          "meaningZh": "唤起情感或记忆",
+          "examples": [
+            {
+              "en": "The smell of warm bread evoked memories of my grandmother's kitchen.",
+              "zh": "温热面包的香气唤起了我对祖母厨房的回忆。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-195",
@@ -5847,7 +7848,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "成形"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "form": [
+        {
+          "id": "zhuo:form:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "形成；组成；使若干部分成为一个整体，或使某种形状、关系逐渐出现。",
+          "examples": [
+            {
+              "en": "A thin layer of ice formed on the water overnight.",
+              "zh": "夜里水面结了一层薄冰。"
+            }
+          ]
+        }
+      ],
+      "take form": [],
+      "take shape": []
+    }
   },
   {
     "id": "common-196",
@@ -5925,7 +7943,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "主席"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "chairman": [
+        {
+          "id": "example:chairman",
+          "partOfSpeech": "noun",
+          "meaningZh": "负责主持委员会等组织工作的主席。",
+          "examples": [
+            {
+              "en": "The chairman invited questions after the committee presented its annual financial report.",
+              "zh": "委员会提交年度财务报告后，主席邀请大家提问。"
+            }
+          ]
+        }
+      ],
+      "chair": [
+        {
+          "id": "chair-noun-person-leading",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "主席；主持人；负责主持会议或领导委员会的人。",
+          "examples": [
+            {
+              "en": "The chair invited questions after each presentation.",
+              "zh": "主持人在每次展示后邀请大家提问。"
+            }
+          ]
+        }
+      ],
+      "chairperson": [
+        {
+          "id": "example:chairperson",
+          "partOfSpeech": "noun",
+          "meaningZh": "会议主席",
+          "examples": [
+            {
+              "en": "The chairperson invited everyone to speak before calling for a vote.",
+              "zh": "会议主席在提请表决前，邀请每个人发言。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-197",
@@ -6015,7 +8074,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "缺乏"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "lack": [
+        {
+          "id": "zhuo:lack:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "缺乏；不足，常用 a lack of something。",
+          "examples": [
+            {
+              "en": "A lack of storage space made the small office hard to organise.",
+              "zh": "储物空间不足，使这间小办公室很难整理。"
+            }
+          ]
+        }
+      ],
+      "deficiency": [
+        {
+          "id": "example:deficiency",
+          "partOfSpeech": "noun",
+          "meaningZh": "不足；缺陷",
+          "examples": [
+            {
+              "en": "The reviewer noted a deficiency in the book's index.",
+              "zh": "评论者指出了这本书索引中的一处不足。"
+            }
+          ]
+        }
+      ],
+      "want": []
+    }
   },
   {
     "id": "common-198",
@@ -6100,7 +8188,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "提供"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "supply": [],
+      "provide": [
+        {
+          "id": "example:provide",
+          "partOfSpeech": "verb",
+          "meaningZh": "提供",
+          "examples": [
+            {
+              "en": "The organisers provide drinking water at the entrance.",
+              "zh": "主办方在入口处提供饮用水。"
+            }
+          ]
+        }
+      ],
+      "furnish": []
+    }
   },
   {
     "id": "common-199",
@@ -6159,7 +8264,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "程序"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "procedure": [
+        {
+          "id": "example:procedure",
+          "partOfSpeech": "noun",
+          "meaningZh": "完成某事所遵循的步骤",
+          "examples": [
+            {
+              "en": "The guide explains the procedure for borrowing equipment from the community workshop.",
+              "zh": "这份指南说明了从社区工坊借用设备的流程。"
+            }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "id": "example:process",
+          "partOfSpeech": "noun",
+          "meaningZh": "过程",
+          "examples": [
+            {
+              "en": "The application process has three stages.",
+              "zh": "申请过程分为三个阶段。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-200",
@@ -6226,7 +8359,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "符合"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "match": [
+        {
+          "id": "zhuo:match:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "相配；匹配，在颜色、样式、内容等方面一致或适合彼此。",
+          "examples": [
+            {
+              "en": "The spare tiles do not quite match the colour of the original floor.",
+              "zh": "这些备用瓷砖与原地板的颜色不完全相配。"
+            }
+          ]
+        }
+      ],
+      "fit": [
+        {
+          "id": "zhuo:fit:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "合适；尺寸或形状正好能容纳、穿戴或对接。过去式和过去分词可用 fitted，美式英语也常用 fit。",
+          "examples": [
+            {
+              "en": "The new shelf fits neatly into the gap beside the door.",
+              "zh": "新架子正好能放进门边的空隙。"
+            }
+          ]
+        }
+      ],
+      "correspond": [
+        {
+          "id": "example:correspond",
+          "partOfSpeech": "verb",
+          "meaningZh": "相符",
+          "examples": [
+            {
+              "en": "The dates do not correspond with my notes.",
+              "zh": "这些日期与我的笔记不符。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-201",
@@ -6325,7 +8499,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "评价"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "evaluate": [
+        {
+          "id": "example:evaluate",
+          "partOfSpeech": "verb",
+          "meaningZh": "评估",
+          "examples": [
+            {
+              "en": "The panel will evaluate each proposal separately.",
+              "zh": "评审小组将逐一评估每项提案。"
+            }
+          ]
+        }
+      ],
+      "assess": [
+        {
+          "id": "zhuo:assess:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "评估；评定，仔细考察后判断某事的性质、水平、价值或风险等。",
+          "examples": [
+            {
+              "en": "Engineers will assess the bridge before it reopens.",
+              "zh": "工程师将在桥梁重新开放前评估其状况。"
+            }
+          ]
+        }
+      ],
+      "appraise": [
+        {
+          "id": "example:appraise",
+          "partOfSpeech": "verb",
+          "meaningZh": "估价",
+          "examples": [
+            {
+              "en": "An expert appraised the collection before the exhibition opened.",
+              "zh": "展览开幕前，一位专家为这批藏品作了估价。"
+            }
+          ]
+        }
+      ],
+      "value": []
+    }
   },
   {
     "id": "common-202",
@@ -6396,7 +8612,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "靠近"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "approach": [],
+      "near": [],
+      "draw near": []
+    }
   },
   {
     "id": "common-203",
@@ -6462,7 +8683,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "操纵"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "operate": [
+        {
+          "id": "zhuo:operate:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "操作；使机器或设备运转，也可指机器自己运行。",
+          "examples": [
+            {
+              "en": "Only trained staff may operate the cutting machine.",
+              "zh": "只有受过培训的员工才可以操作切割机。"
+            }
+          ]
+        }
+      ],
+      "control": [
+        {
+          "id": "zhuo:control:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "控制；管理，对运行方式、发展方向或行为施加影响，使其保持在所需范围。",
+          "examples": [
+            {
+              "en": "This dial controls the speed of the small fan.",
+              "zh": "这个旋钮控制小风扇的转速。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-204",
@@ -6540,7 +8789,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "交换"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "exchange": [
+        {
+          "id": "zhuo:exchange:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "交换；用某物换取另一物，也可指双方互相传递信息、意见等。",
+          "examples": [
+            {
+              "en": "We exchanged phone numbers in case the group became separated.",
+              "zh": "我们交换了电话号码，以防队伍走散。"
+            }
+          ]
+        }
+      ],
+      "change": [],
+      "interchange": []
+    }
   },
   {
     "id": "common-205",
@@ -6637,7 +8903,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "目的"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "purpose": [],
+      "intent": [
+        {
+          "id": "example:intent",
+          "partOfSpeech": "noun",
+          "meaningZh": "意图；目的",
+          "examples": [
+            {
+              "en": "My intent was to clarify the schedule, not to add more work.",
+              "zh": "我的目的是把日程说清楚，而不是增加工作。"
+            }
+          ]
+        }
+      ],
+      "intention": [
+        {
+          "id": "intention-noun-purpose",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "意图；打算；计划做某事或希望达到某种结果的心意，常用 intention to do、intention of doing。",
+          "examples": [
+            {
+              "en": "I borrowed the book with the intention of reading it on the train.",
+              "zh": "我借这本书是打算在火车上读。"
+            }
+          ]
+        }
+      ],
+      "aim": [
+        {
+          "id": "zhuo:aim:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "目标；目的，指行动所希望达到的结果。",
+          "examples": [
+            {
+              "en": "The main aim of the visit is to meet the research team.",
+              "zh": "此次访问的主要目的是与研究团队见面。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-206",
@@ -6714,7 +9022,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "遵循"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "adopt": [
+        {
+          "id": "zhuo:adopt:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "采用；采纳，开始使用某种方法、态度或政策。",
+          "examples": [
+            {
+              "en": "The school adopted a simpler system for booking rooms.",
+              "zh": "学校采用了一个更简单的教室预约系统。"
+            }
+          ]
+        }
+      ],
+      "follow": [
+        {
+          "id": "zhuo:follow:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "遵循；按照指示、规则、建议或榜样行事。",
+          "examples": [
+            {
+              "en": "Please follow the safety instructions even when the room is quiet.",
+              "zh": "即使房间里没什么人，也请遵守安全说明。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-207",
@@ -6771,7 +9107,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "见解"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "opinion": [
+        {
+          "id": "example:opinion",
+          "partOfSpeech": "noun",
+          "meaningZh": "个人的看法或意见",
+          "examples": [
+            {
+              "en": "In my opinion, the smaller room is better for group discussions.",
+              "zh": "在我看来，较小的房间更适合小组讨论。"
+            }
+          ]
+        }
+      ],
+      "view": []
+    }
   },
   {
     "id": "common-208",
@@ -6831,7 +9183,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "费劲"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "arduous": [
+        {
+          "id": "example:arduous",
+          "partOfSpeech": "adjective",
+          "meaningZh": "艰苦的",
+          "examples": [
+            {
+              "en": "The arduous climb ended at a small mountain refuge.",
+              "zh": "艰苦的攀登在一处小型山间避难所结束。"
+            }
+          ]
+        }
+      ],
+      "hard": [],
+      "laborious": [
+        {
+          "id": "example:laborious",
+          "partOfSpeech": "adjective",
+          "meaningZh": "费力的",
+          "examples": [
+            {
+              "en": "Removing paint from every carved detail was laborious work.",
+              "zh": "清除每一处雕刻细节上的油漆十分费力。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-209",
@@ -6890,7 +9271,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "捐助"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "contribute": [
+        {
+          "id": "zhuo:contribute:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "贡献；捐助，为共同的目标提供金钱、时间、想法或工作等。",
+          "examples": [
+            {
+              "en": "Each member contributed one useful suggestion to the plan.",
+              "zh": "每位成员都为计划贡献了一条有用的建议。"
+            }
+          ]
+        }
+      ],
+      "chip in": []
+    }
   },
   {
     "id": "common-210",
@@ -6959,7 +9356,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "地点"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "place": [
+        {
+          "id": "zhuo:place:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "地方；地点，某处空间或特定位置。",
+          "examples": [
+            {
+              "en": "This quiet corner is a good place to read before the afternoon session.",
+              "zh": "下午活动开始前，这个安静角落很适合读书。"
+            }
+          ]
+        }
+      ],
+      "spot": [
+        {
+          "id": "example:spot",
+          "partOfSpeech": "noun",
+          "meaningZh": "地点",
+          "examples": [
+            {
+              "en": "We found a quiet spot beside the river.",
+              "zh": "我们在河边找到了一处安静的地方。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-211",
@@ -7034,7 +9459,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "透露"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "disclose": [
+        {
+          "id": "example:disclose",
+          "partOfSpeech": "verb",
+          "meaningZh": "透露",
+          "examples": [
+            {
+              "en": "She declined to disclose the buyer's name.",
+              "zh": "她拒绝透露买家的姓名。"
+            }
+          ]
+        }
+      ],
+      "reveal": [],
+      "divulge": [
+        {
+          "id": "example:divulge",
+          "partOfSpeech": "verb",
+          "meaningZh": "透露",
+          "examples": [
+            {
+              "en": "She refused to divulge the location of the hidden painting.",
+              "zh": "她拒绝透露那幅隐藏画作的位置。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-212",
@@ -7093,7 +9547,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "武器"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "weapon": [
+        {
+          "id": "example:weapon",
+          "partOfSpeech": "noun",
+          "meaningZh": "用于攻击或防卫的器具。",
+          "examples": [
+            {
+              "en": "The museum displays a ceremonial weapon beside an explanation of its symbolic role.",
+              "zh": "博物馆陈列了一件礼仪用武器，旁边的说明介绍了它的象征作用。"
+            }
+          ]
+        }
+      ],
+      "arm": []
+    }
   },
   {
     "id": "common-213",
@@ -7161,7 +9631,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "遵守"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "observe": [],
+      "keep": [
+        {
+          "id": "zhuo:keep:verb:6",
+          "partOfSpeech": "verb",
+          "meaningZh": "遵守；履行承诺、约定或规则，不违背自己应做的事。",
+          "examples": [
+            {
+              "en": "He kept his promise to return every borrowed tool by Monday.",
+              "zh": "他履行了承诺，在周一前归还了所有借用的工具。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-214",
@@ -7244,7 +9730,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "行为"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "behavior": [],
+      "behaviour": [
+        {
+          "id": "example:behaviour",
+          "partOfSpeech": "noun",
+          "meaningZh": "一个人在某种情境下表现出的举动或做法。",
+          "examples": [
+            {
+              "en": "Her calm behaviour helped the frightened children feel safer during the storm.",
+              "zh": "暴风雨期间，她镇定的举止让受惊的孩子们感到更安全些。"
+            }
+          ]
+        }
+      ],
+      "conduct": [
+        {
+          "id": "zhuo:conduct:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "行为；举止，尤指按照社会或职业标准评价的行为表现；此义通常不可数。",
+          "examples": [
+            {
+              "en": "The club expects respectful conduct from players and spectators.",
+              "zh": "俱乐部要求球员和观众举止尊重他人。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-215",
@@ -7301,7 +9816,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "传递"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "conduct": [
+        {
+          "id": "zhuo:conduct:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "传导；使热或电等能够通过。",
+          "examples": [
+            {
+              "en": "Copper conducts electricity well, which makes it useful for wires.",
+              "zh": "铜导电性能好，因此适合用来做电线。"
+            }
+          ]
+        }
+      ],
+      "carry": [
+        {
+          "id": "zhuo:carry:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "传递；承载，使声音、信号、信息等从一处传播到另一处。",
+          "examples": [
+            {
+              "en": "The cable carries the signal from the roof to the receiver.",
+              "zh": "这根电缆把信号从屋顶传到接收器。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-216",
@@ -7369,7 +9912,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "有关"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "pertain": [
+        {
+          "id": "example:pertain",
+          "partOfSpeech": "verb",
+          "meaningZh": "涉及",
+          "examples": [
+            {
+              "en": "These notes pertain to the restoration of the western gate.",
+              "zh": "这些笔记涉及西门的修复。"
+            }
+          ]
+        }
+      ],
+      "relate": [],
+      "concern": [
+        {
+          "id": "zhuo:concern:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "涉及；与某人或某事有关，或对其产生影响。",
+          "examples": [
+            {
+              "en": "The final section concerns access for visitors with limited mobility.",
+              "zh": "最后一节涉及行动不便访客的通行问题。"
+            }
+          ]
+        }
+      ],
+      "bear on": []
+    }
   },
   {
     "id": "common-217",
@@ -7437,7 +10010,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "获得"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "get": [
+        {
+          "id": "zhuo:get:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "得到；收到、买到或设法取得某物。过去式 got；过去分词英式常用 got，美式也常用 gotten，具体搭配有差异。",
+          "examples": [
+            {
+              "en": "I got a useful reply from the archive this morning.",
+              "zh": "今天早上我收到了档案馆一份有用的回复。"
+            }
+          ]
+        }
+      ],
+      "acquire": [
+        {
+          "id": "example:acquire",
+          "partOfSpeech": "verb",
+          "meaningZh": "通过学习或经历逐渐掌握",
+          "examples": [
+            {
+              "en": "Children acquire new vocabulary while explaining their games to each other.",
+              "zh": "孩子们在互相解释游戏玩法时学会新词汇。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-218",
@@ -7564,7 +10165,62 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "尖叫"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "shout": [
+        {
+          "id": "example:shout",
+          "partOfSpeech": "verb",
+          "meaningZh": "用很大的声音说或呼喊",
+          "examples": [
+            {
+              "en": "There is no need to shout; I can hear you clearly.",
+              "zh": "不用喊，我能清楚地听见你说话。"
+            }
+          ]
+        }
+      ],
+      "cry": [
+        {
+          "id": "zhuo:cry:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "大喊；呼叫，用响亮的声音突然说出或喊出话语。",
+          "examples": [
+            {
+              "en": "\"Watch the step!\" he cried as I reached the doorway.",
+              "zh": "我走到门口时，他大声喊道：“小心台阶！”"
+            }
+          ]
+        }
+      ],
+      "call": [
+        {
+          "id": "zhuo:call:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "呼喊；叫唤，用较大的声音引起注意或传达话语。",
+          "examples": [
+            {
+              "en": "She called my name from the far end of the platform.",
+              "zh": "她从站台另一端喊我的名字。"
+            }
+          ]
+        }
+      ],
+      "yell": [
+        {
+          "id": "example:yell",
+          "partOfSpeech": "verb",
+          "meaningZh": "大喊",
+          "examples": [
+            {
+              "en": "She yelled for help from the balcony.",
+              "zh": "她从阳台大声呼救。"
+            }
+          ]
+        }
+      ],
+      "scream": []
+    }
   },
   {
     "id": "common-219",
@@ -7642,7 +10298,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "喊声"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "cry": [
+        {
+          "id": "zhuo:cry:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "叫喊声；呼声，指人或动物发出的一声较响的声音。",
+          "examples": [
+            {
+              "en": "A sharp cry from the garden made us look outside.",
+              "zh": "花园里的一声尖叫让我们向外看去。"
+            }
+          ]
+        }
+      ],
+      "yell": [],
+      "shout": []
+    }
   },
   {
     "id": "common-220",
@@ -7720,7 +10393,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "计算"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "count": [
+        {
+          "id": "zhuo:count:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "数；计数，逐一计算数量，或把某项包括在总数内。",
+          "examples": [
+            {
+              "en": "Count the chairs before we bring any more into the room.",
+              "zh": "再往屋里搬椅子前，先数数现有的椅子。"
+            }
+          ]
+        }
+      ],
+      "number": [],
+      "enumerate": []
+    }
   },
   {
     "id": "common-221",
@@ -7786,7 +10476,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "步骤"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "measure": [
+        {
+          "id": "zhuo:measure:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "措施；为达到目的或处理问题而采取的行动，可数，常用 take measures。",
+          "examples": [
+            {
+              "en": "The school introduced several measures to reduce lunchtime waste.",
+              "zh": "学校采取了几项措施来减少午餐时的浪费。"
+            }
+          ]
+        }
+      ],
+      "step": [
+        {
+          "id": "example:step",
+          "partOfSpeech": "noun",
+          "meaningZh": "步骤",
+          "examples": [
+            {
+              "en": "The first step is to measure the window.",
+              "zh": "第一步是测量窗户。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-222",
@@ -7847,7 +10565,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "结婚生活"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "marriage": [
+        {
+          "id": "example:marriage",
+          "partOfSpeech": "noun",
+          "meaningZh": "两个人作为配偶共同生活的婚姻关系。",
+          "examples": [
+            {
+              "en": "Their marriage survived years of working in different cities and travelling between them.",
+              "zh": "他们的婚姻经受住了多年在不同城市工作、两地奔波的考验。"
+            }
+          ]
+        }
+      ],
+      "matrimony": [
+        {
+          "id": "example:matrimony",
+          "partOfSpeech": "noun",
+          "meaningZh": "婚姻",
+          "examples": [
+            {
+              "en": "The comedy explores the couple's differing expectations of matrimony.",
+              "zh": "喜剧探讨了这对伴侣对婚姻的不同期待。"
+            }
+          ]
+        }
+      ],
+      "wedlock": [
+        {
+          "id": "example:wedlock",
+          "partOfSpeech": "noun",
+          "meaningZh": "婚姻状态（正式用语）",
+          "examples": [
+            {
+              "en": "The old register recorded whether each child was born in wedlock.",
+              "zh": "旧登记簿记载了每个孩子是否为婚生。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-223",
@@ -7906,7 +10665,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "运送"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "transport": [],
+      "carry": [
+        {
+          "id": "zhuo:carry:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "携带；搬运，把人或物托住并从一处带到另一处。",
+          "examples": [
+            {
+              "en": "Could you carry the small box while I take the larger one?",
+              "zh": "我搬大箱子时，你能帮忙搬那个小箱子吗？"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-224",
@@ -7996,7 +10771,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "路线"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "path": [],
+      "track": [],
+      "course": [
+        {
+          "id": "course-noun-route-direction",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "路线；航向；某物移动时所走的路径或方向。",
+          "examples": [
+            {
+              "en": "The boat changed course to avoid the floating branches.",
+              "zh": "小船改变了航向，以避开漂浮的树枝。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-225",
@@ -8065,7 +10857,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "攻击"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "attack": [],
+      "assail": [],
+      "assault": []
+    }
   },
   {
     "id": "common-226",
@@ -8133,7 +10930,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "状态"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "condition": [
+        {
+          "id": "condition-noun-state",
+          "partOfSpeech": "noun (uncountable)",
+          "meaningZh": "状况；状态；某人或某物目前的健康、质量或保养情况。常用 in good / poor condition。",
+          "examples": [
+            {
+              "en": "Despite its age, the bicycle is still in excellent condition.",
+              "zh": "这辆自行车虽然年头不少，但状况仍然很好。"
+            }
+          ]
+        }
+      ],
+      "status": [
+        {
+          "id": "example:status",
+          "partOfSpeech": "noun",
+          "meaningZh": "某事在当前阶段的状态",
+          "examples": [
+            {
+              "en": "You can check the status of your order on the delivery page.",
+              "zh": "你可以在配送页面查看订单的当前状态。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-227",
@@ -8192,7 +11017,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "规范"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "standard": [
+        {
+          "id": "example:standard",
+          "partOfSpeech": "noun",
+          "meaningZh": "标准",
+          "examples": [
+            {
+              "en": "The finished shelves met the required standard.",
+              "zh": "做好的架子达到了要求的标准。"
+            }
+          ]
+        }
+      ],
+      "criterion": [
+        {
+          "id": "example:criterion",
+          "partOfSpeech": "noun",
+          "meaningZh": "标准",
+          "examples": [
+            {
+              "en": "Cost was our main criterion for choosing a venue.",
+              "zh": "费用是我们选择场地的主要标准。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-228",
@@ -8287,7 +11140,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "任命"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "appoint": [
+        {
+          "id": "zhuo:appoint:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "任命；委派，正式选定某人担任职务或承担职责。",
+          "examples": [
+            {
+              "en": "The committee appointed Nia as its new chair.",
+              "zh": "委员会任命妮娅为新主席。"
+            }
+          ]
+        }
+      ],
+      "name": [
+        {
+          "id": "zhuo:name:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "任命；指定某人担任某个角色或职位。",
+          "examples": [
+            {
+              "en": "The committee named Rosa as coordinator for the autumn programme.",
+              "zh": "委员会任命罗莎为秋季活动的协调人。"
+            }
+          ]
+        }
+      ],
+      "nominate": []
+    }
   },
   {
     "id": "common-229",
@@ -8364,7 +11246,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "使平静"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "calm": [
+        {
+          "id": "zhuo:calm:verb:review-1",
+          "partOfSpeech": "verb",
+          "meaningZh": "使平静；使某人从担忧、害怕或激动中安定下来。",
+          "examples": [
+            {
+              "en": "The nurse spoke gently to calm the frightened child.",
+              "zh": "护士轻声说话，让那个受惊的孩子平静下来。"
+            }
+          ]
+        }
+      ],
+      "quiet": [
+        {
+          "id": "zhuo:quiet:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "（使）安静；平息，quiet down 也常见。",
+          "examples": [
+            {
+              "en": "A gentle song helped quiet the restless children.",
+              "zh": "一首轻柔的歌帮助那些坐立不安的孩子安静下来。"
+            }
+          ]
+        }
+      ],
+      "lull": []
+    }
   },
   {
     "id": "common-230",
@@ -8490,7 +11401,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "首要"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "chief": [
+        {
+          "id": "zhuo:chief:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "主要的；最重要的或处于最高等级的。",
+          "examples": [
+            {
+              "en": "Our chief concern is keeping the animals safe.",
+              "zh": "我们最关心的是保障动物的安全。"
+            }
+          ]
+        }
+      ],
+      "main": [
+        {
+          "id": "zhuo:main:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "主要的；最重要、最大或最受关注的。",
+          "examples": [
+            {
+              "en": "The main entrance is closed while the steps are repaired.",
+              "zh": "维修台阶期间，主入口关闭。"
+            }
+          ]
+        }
+      ],
+      "primary": [
+        {
+          "id": "zhuo:primary:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "首要的；最重要或最基本的。",
+          "examples": [
+            {
+              "en": "Our primary aim is to make the trail safe for walkers.",
+              "zh": "我们的首要目标是让这条步道对步行者安全。"
+            }
+          ]
+        }
+      ],
+      "principal": []
+    }
   },
   {
     "id": "common-231",
@@ -8540,7 +11493,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "预言"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "predict": [
+        {
+          "id": "example:predict",
+          "partOfSpeech": "verb",
+          "meaningZh": "提前判断某事将会发生",
+          "examples": [
+            {
+              "en": "Even experienced sailors cannot predict every sudden change in the wind.",
+              "zh": "即使是经验丰富的水手，也无法预料风的每一次突然变化。"
+            }
+          ]
+        }
+      ],
+      "foretell": [
+        {
+          "id": "example:foretell",
+          "partOfSpeech": "verb",
+          "meaningZh": "预言",
+          "examples": [
+            {
+              "en": "The tale's oracle foretells a long journey.",
+              "zh": "故事中的神谕预示了一段漫长旅程。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-232",
@@ -8597,7 +11578,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "依赖"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "trust": [
+        {
+          "id": "example:trust",
+          "partOfSpeech": "verb",
+          "meaningZh": "信任",
+          "examples": [
+            {
+              "en": "I trust you to look after the keys.",
+              "zh": "我相信你会保管好钥匙。"
+            }
+          ]
+        }
+      ],
+      "rely": [
+        {
+          "id": "example:rely",
+          "partOfSpeech": "verb",
+          "meaningZh": "依靠某人或某物提供帮助",
+          "examples": [
+            {
+              "en": "Many island residents rely on the ferry to reach the mainland.",
+              "zh": "许多岛上居民依靠渡轮前往大陆。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-233",
@@ -8703,7 +11712,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "促进"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "promote": [
+        {
+          "id": "example:promote",
+          "partOfSpeech": "verb",
+          "meaningZh": "促进某事的发展",
+          "examples": [
+            {
+              "en": "The reading group aims to promote discussion between students from different courses.",
+              "zh": "这个读书小组旨在促进修读不同课程的学生之间的讨论。"
+            }
+          ]
+        }
+      ],
+      "advance": [
+        {
+          "id": "zhuo:advance:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "前进；推进，也可指知识、工作等取得进展。",
+          "examples": [
+            {
+              "en": "Better sensors have advanced our understanding of ocean currents.",
+              "zh": "更好的传感器推进了我们对洋流的认识。"
+            }
+          ]
+        }
+      ],
+      "boost": [],
+      "further": []
+    }
   },
   {
     "id": "common-234",
@@ -8792,7 +11831,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "释放"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "free": [],
+      "liberate": [],
+      "release": []
+    }
   },
   {
     "id": "common-235",
@@ -8860,7 +11904,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "集合"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "gather": [],
+      "assemble": []
+    }
   },
   {
     "id": "common-236",
@@ -8958,7 +12006,74 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "薪水"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "wage": [
+        {
+          "id": "example:wage",
+          "partOfSpeech": "noun",
+          "meaningZh": "按劳动获得的报酬",
+          "examples": [
+            {
+              "en": "The bakery offered a higher wage to experienced night workers.",
+              "zh": "这家面包店给有经验的夜班工人提供了更高的工资。"
+            }
+          ]
+        }
+      ],
+      "pay": [
+        {
+          "id": "zhuo:pay:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "工资；报酬，工作获得的钱，通常不可数。",
+          "examples": [
+            {
+              "en": "The new role offers better pay but a much longer journey to work.",
+              "zh": "新职位工资更高，但通勤路程也长得多。"
+            }
+          ]
+        }
+      ],
+      "earnings": [
+        {
+          "id": "example:earnings",
+          "partOfSpeech": "noun",
+          "meaningZh": "通过工作或经营获得的收入，通常用复数",
+          "examples": [
+            {
+              "en": "She puts part of her monthly earnings aside for future study.",
+              "zh": "她把每月收入的一部分存起来，留作今后学习之用。"
+            }
+          ]
+        }
+      ],
+      "remuneration": [
+        {
+          "id": "example:remuneration",
+          "partOfSpeech": "noun",
+          "meaningZh": "报酬",
+          "examples": [
+            {
+              "en": "The contract specified remuneration for the additional rehearsals.",
+              "zh": "合同规定了额外排练的报酬。"
+            }
+          ]
+        }
+      ],
+      "salary": [
+        {
+          "id": "example:salary",
+          "partOfSpeech": "noun",
+          "meaningZh": "雇员定期领取的固定工作报酬。",
+          "examples": [
+            {
+              "en": "The advertisement lists the salary but says little about the working hours.",
+              "zh": "招聘广告列出了薪资，却几乎没提工作时间。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-237",
@@ -9015,7 +12130,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "希望"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "desire": [],
+      "want": [
+        {
+          "id": "example:want",
+          "partOfSpeech": "verb",
+          "meaningZh": "想要",
+          "examples": [
+            {
+              "en": "I want a desk near the window.",
+              "zh": "我想要一张靠窗的书桌。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-238",
@@ -9104,7 +12235,37 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "确认"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "confirm": [],
+      "corroborate": [
+        {
+          "id": "example:corroborate",
+          "partOfSpeech": "verb",
+          "meaningZh": "证实",
+          "examples": [
+            {
+              "en": "The photographs corroborated her description of the damaged bridge.",
+              "zh": "照片证实了她对受损桥梁的描述。"
+            }
+          ]
+        }
+      ],
+      "substantiate": [
+        {
+          "id": "example:substantiate",
+          "partOfSpeech": "verb",
+          "meaningZh": "证实；提供证据支持",
+          "examples": [
+            {
+              "en": "The dated letters substantiated her account of the journey.",
+              "zh": "那些注明日期的信证实了她对旅程的叙述。"
+            }
+          ]
+        }
+      ],
+      "affirm": []
+    }
   },
   {
     "id": "common-239",
@@ -9175,7 +12336,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "作者"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "writer": [
+        {
+          "id": "example:writer",
+          "partOfSpeech": "noun",
+          "meaningZh": "作家",
+          "examples": [
+            {
+              "en": "The writer revised the opening paragraph several times.",
+              "zh": "作家把开头段落修改了好几遍。"
+            }
+          ]
+        }
+      ],
+      "author": [
+        {
+          "id": "author-noun-writer",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "作者；写作一本书、一篇文章或其他文字作品的人。",
+          "examples": [
+            {
+              "en": "The author answered readers' questions after the talk.",
+              "zh": "讲座结束后，作者回答了读者的问题。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-240",
@@ -9268,7 +12457,59 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "责任"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "duty": [
+        {
+          "id": "duty-noun-obligation",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "责任；义务；因为身份、规则或道德而应当做的事情。",
+          "examples": [
+            {
+              "en": "We have a duty to report the damaged safety barrier.",
+              "zh": "我们有责任报告安全护栏的损坏情况。"
+            }
+          ]
+        },
+        {
+          "id": "duty-noun-assigned-work",
+          "partOfSpeech": "noun (countable, often plural)",
+          "meaningZh": "职责；分派的工作任务；on duty 表示在值班，off duty 表示不在值班。",
+          "examples": [
+            {
+              "en": "Her duties include checking bookings and welcoming visitors.",
+              "zh": "她的职责包括核对预约和接待访客。"
+            }
+          ]
+        }
+      ],
+      "responsibility": [
+        {
+          "id": "example:responsibility",
+          "partOfSpeech": "noun",
+          "meaningZh": "由某人负责完成或确保落实的职责。",
+          "examples": [
+            {
+              "en": "It is my responsibility to check that the laboratory doors are locked.",
+              "zh": "确认实验室的门已上锁，是我的职责。"
+            }
+          ]
+        }
+      ],
+      "obligation": [
+        {
+          "id": "example:obligation",
+          "partOfSpeech": "noun",
+          "meaningZh": "义务",
+          "examples": [
+            {
+              "en": "I felt an obligation to keep my promise.",
+              "zh": "我觉得自己有义务信守承诺。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-241",
@@ -9325,7 +12566,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "起立"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "arise": [],
+      "rise": []
+    }
   },
   {
     "id": "common-242",
@@ -9386,7 +12631,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "漫游"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "wander": [
+        {
+          "id": "example:wander",
+          "partOfSpeech": "verb",
+          "meaningZh": "闲逛",
+          "examples": [
+            {
+              "en": "We wandered through the market without a plan.",
+              "zh": "我们漫无目的地逛着市场。"
+            }
+          ]
+        }
+      ],
+      "roam": [
+        {
+          "id": "example:roam",
+          "partOfSpeech": "verb",
+          "meaningZh": "漫游",
+          "examples": [
+            {
+              "en": "We roamed through the old town without a map.",
+              "zh": "我们没带地图，在老城区漫游。"
+            }
+          ]
+        }
+      ],
+      "ramble": [
+        {
+          "id": "example:ramble",
+          "partOfSpeech": "verb",
+          "meaningZh": "漫步",
+          "examples": [
+            {
+              "en": "We rambled through the woods until lunchtime.",
+              "zh": "我们在树林中漫步，直到午饭时分。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-243",
@@ -9474,7 +12760,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "改变"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "change": [
+        {
+          "id": "zhuo:change:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "改变；变化，使某事不同于原来，或自身变得不同。",
+          "examples": [
+            {
+              "en": "The weather changed suddenly while we were crossing the field.",
+              "zh": "我们穿过田野时，天气突然变了。"
+            }
+          ]
+        }
+      ],
+      "alter": [],
+      "vary": [
+        {
+          "id": "example:vary",
+          "partOfSpeech": "verb",
+          "meaningZh": "随条件不同而发生变化",
+          "examples": [
+            {
+              "en": "Delivery times vary depending on how far you live from the warehouse.",
+              "zh": "送货时间会根据你家离仓库的距离而有所不同。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-244",
@@ -9533,7 +12848,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "石头"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "rock": [
+        {
+          "id": "example:rock",
+          "partOfSpeech": "noun",
+          "meaningZh": "岩石",
+          "examples": [
+            {
+              "en": "We sat on a flat rock by the stream.",
+              "zh": "我们坐在小溪边一块平坦的岩石上。"
+            }
+          ]
+        }
+      ],
+      "stone": [
+        {
+          "id": "example:stone",
+          "partOfSpeech": "noun",
+          "meaningZh": "石头",
+          "examples": [
+            {
+              "en": "A smooth stone held the map in place.",
+              "zh": "一块光滑的石头压住了地图。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-245",
@@ -9590,7 +12933,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "提拔"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "upgrade": [],
+      "elevate": []
+    }
   },
   {
     "id": "common-246",
@@ -9638,7 +12985,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "赔偿"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "compensate": [
+        {
+          "id": "example:compensate",
+          "partOfSpeech": "verb",
+          "meaningZh": "补偿",
+          "examples": [
+            {
+              "en": "The hotel offered to compensate us for the missing luggage.",
+              "zh": "酒店提出就行李丢失一事补偿我们。"
+            }
+          ]
+        }
+      ],
+      "redress": []
+    }
   },
   {
     "id": "common-247",
@@ -9723,7 +13086,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "举起"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "raise": [
+        {
+          "id": "example:raise",
+          "partOfSpeech": "verb",
+          "meaningZh": "举起；抬高",
+          "examples": [
+            {
+              "en": "Raise your hand if you need help.",
+              "zh": "需要帮助的话请举手。"
+            }
+          ]
+        }
+      ],
+      "lift": [
+        {
+          "id": "zhuo:lift:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "提起；抬高，使人或物离开较低的位置。",
+          "examples": [
+            {
+              "en": "Two volunteers lifted the heavy planter onto the trolley.",
+              "zh": "两位志愿者把沉重的花盆抬到手推车上。"
+            }
+          ]
+        }
+      ],
+      "elevate": []
+    }
   },
   {
     "id": "common-248",
@@ -9852,7 +13244,61 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "联合"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "connect": [
+        {
+          "id": "zhuo:connect:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "连接；接通，使物体、设备、地点等相互连通。",
+          "examples": [
+            {
+              "en": "This footpath connects the station with the riverside market.",
+              "zh": "这条步道连接车站与河滨市场。"
+            }
+          ]
+        }
+      ],
+      "link": [
+        {
+          "id": "zhuo:link:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "连接；把人、事物或地点接在一起；也可指表明两者存在关联。",
+          "examples": [
+            {
+              "en": "A covered walkway links the classroom building with the workshop.",
+              "zh": "一条有顶步道把教学楼和工作间连接起来。"
+            }
+          ]
+        }
+      ],
+      "join": [
+        {
+          "id": "zhuo:join:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "连接；把分开的部分接在一起，或使其相接。",
+          "examples": [
+            {
+              "en": "A short wooden bridge joins the island to the riverbank.",
+              "zh": "一座短木桥把小岛与河岸连接起来。"
+            }
+          ]
+        }
+      ],
+      "unite": [
+        {
+          "id": "example:unite",
+          "partOfSpeech": "verb",
+          "meaningZh": "团结",
+          "examples": [
+            {
+              "en": "The shared project united the two classes.",
+              "zh": "共同的项目把两个班团结在了一起。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-249",
@@ -9921,7 +13367,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "顾客"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "customer": [
+        {
+          "id": "customer-noun-buyer",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "顾客；客户；购买商品或服务的人或机构。",
+          "examples": [
+            {
+              "en": "The shop asked regular customers which opening hours they preferred.",
+              "zh": "这家店询问老顾客更喜欢什么营业时间。"
+            }
+          ]
+        }
+      ],
+      "client": [
+        {
+          "id": "example:client",
+          "partOfSpeech": "noun",
+          "meaningZh": "接受专业服务并付费的客户",
+          "examples": [
+            {
+              "en": "The architect showed her client three possible designs for the narrow house.",
+              "zh": "建筑师向客户展示了这座狭窄房屋的三种可行设计。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-250",
@@ -10000,7 +13474,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "根源"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "origin": [
+        {
+          "id": "example:origin",
+          "partOfSpeech": "noun",
+          "meaningZh": "某事物最初出现的来源",
+          "examples": [
+            {
+              "en": "No one in the village remembers the origin of this unusual custom.",
+              "zh": "村里没人记得这种奇特习俗的起源。"
+            }
+          ]
+        }
+      ],
+      "root": [],
+      "source": []
+    }
   },
   {
     "id": "common-251",
@@ -10080,7 +13571,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "摇动"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "rock": [],
+      "sway": [
+        {
+          "id": "example:sway",
+          "partOfSpeech": "verb",
+          "meaningZh": "摇摆",
+          "examples": [
+            {
+              "en": "The tall grass swayed gently in the evening breeze.",
+              "zh": "高高的草在晚风中轻轻摇摆。"
+            }
+          ]
+        }
+      ],
+      "shake": [
+        {
+          "id": "example:shake",
+          "partOfSpeech": "verb",
+          "meaningZh": "摇动",
+          "examples": [
+            {
+              "en": "Shake the bottle before opening it.",
+              "zh": "开瓶前摇一摇。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-252",
@@ -10139,7 +13659,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "靶子"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "target": [],
+      "mark": []
+    }
   },
   {
     "id": "common-253",
@@ -10187,7 +13711,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "使弯曲"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "flex": [],
+      "bend": [
+        {
+          "id": "zhuo:bend:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "弯曲；使成弧形或有角度，也可指屈身、弯腰。",
+          "examples": [
+            {
+              "en": "Bend your knees slightly before lifting the box.",
+              "zh": "抬箱子前，先稍微屈膝。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-254",
@@ -10283,7 +13823,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "保证"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "guarantee": [],
+      "ensure": [
+        {
+          "id": "zhuo:ensure:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "确保；采取措施使某种情况一定成立或某事顺利发生。",
+          "examples": [
+            {
+              "en": "Check the lid twice to ensure that the container is properly sealed.",
+              "zh": "检查两遍盖子，确保容器已经密封好。"
+            }
+          ]
+        }
+      ],
+      "assure": []
+    }
   },
   {
     "id": "common-255",
@@ -10362,7 +13919,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "犯罪"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "crime": [
+        {
+          "id": "crime-noun-illegal-act",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "犯罪；罪行；违反刑事法律、可能受到处罚的行为。泛指犯罪现象时通常不可数，具体罪行可数。",
+          "examples": [
+            {
+              "en": "The report examines the causes of crime rather than one particular offence.",
+              "zh": "这份报告研究的是犯罪的成因，而不是某一起具体罪行。"
+            }
+          ]
+        }
+      ],
+      "offense": [],
+      "offence": [
+        {
+          "id": "example:offence",
+          "partOfSpeech": "noun",
+          "meaningZh": "违反法律的行为",
+          "examples": [
+            {
+              "en": "The judge described selling stolen bicycles as a serious offence.",
+              "zh": "法官称出售偷来的自行车是一种严重的违法行为。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-256",
@@ -10421,7 +14007,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "修补"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "repair": [
+        {
+          "id": "example:repair",
+          "partOfSpeech": "verb",
+          "meaningZh": "使受损或失灵的物品恢复可用状态",
+          "examples": [
+            {
+              "en": "They hope to repair the damaged roof before the next heavy rain.",
+              "zh": "他们希望在下一场大雨来临前修好受损的屋顶。"
+            }
+          ]
+        }
+      ],
+      "restore": []
+    }
   },
   {
     "id": "common-257",
@@ -10487,7 +14089,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "平衡"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "proportion": [],
+      "balance": []
+    }
   },
   {
     "id": "common-258",
@@ -10537,7 +14143,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "吹牛"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "boast": [
+        {
+          "id": "example:boast",
+          "partOfSpeech": "verb",
+          "meaningZh": "吹嘘；夸耀",
+          "examples": [
+            {
+              "en": "He likes to boast about how quickly he can solve the puzzle.",
+              "zh": "他喜欢夸耀自己解这道难题有多快。"
+            }
+          ]
+        }
+      ],
+      "brag": [
+        {
+          "id": "example:brag",
+          "partOfSpeech": "verb",
+          "meaningZh": "吹嘘",
+          "examples": [
+            {
+              "en": "Before the match began, he bragged that he would win.",
+              "zh": "比赛还没开始，他就吹嘘自己会赢。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-259",
@@ -10613,7 +14247,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "顶点"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "peak": [
+        {
+          "id": "example:peak",
+          "partOfSpeech": "noun",
+          "meaningZh": "山体最高的顶端。",
+          "examples": [
+            {
+              "en": "Clouds hid the peak until the wind changed in the afternoon.",
+              "zh": "云层遮住了山峰，直到下午风向改变后才露出来。"
+            }
+          ]
+        }
+      ],
+      "top": [
+        {
+          "id": "example:top",
+          "partOfSpeech": "noun",
+          "meaningZh": "顶部",
+          "examples": [
+            {
+              "en": "Write the date at the top of the page.",
+              "zh": "在页面顶端写上日期。"
+            }
+          ]
+        }
+      ],
+      "summit": [
+        {
+          "id": "example:summit",
+          "partOfSpeech": "noun",
+          "meaningZh": "山的最高点",
+          "examples": [
+            {
+              "en": "Clouds covered the summit before the climbers could take their final photograph.",
+              "zh": "登山者还没来得及拍最后一张照片，云就遮住了山顶。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-260",
@@ -10704,7 +14379,49 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "故事"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "narrative": [
+        {
+          "id": "example:narrative",
+          "partOfSpeech": "noun",
+          "meaningZh": "叙事",
+          "examples": [
+            {
+              "en": "The narrative moves between childhood and adulthood.",
+              "zh": "故事在童年和成年时期之间来回切换。"
+            }
+          ]
+        }
+      ],
+      "narration": [],
+      "story": [
+        {
+          "id": "example:story",
+          "partOfSpeech": "noun",
+          "meaningZh": "故事",
+          "examples": [
+            {
+              "en": "Grandpa told a story about his first job.",
+              "zh": "爷爷讲了他第一份工作的故事。"
+            }
+          ]
+        }
+      ],
+      "tale": [
+        {
+          "id": "example:tale",
+          "partOfSpeech": "noun",
+          "meaningZh": "讲述真实或虚构事件的故事。",
+          "examples": [
+            {
+              "en": "Grandfather told a strange tale about a boat that sailed without anyone aboard.",
+              "zh": "祖父讲了个奇怪的故事，说一艘船在无人乘坐时自行航行。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-261",
@@ -10763,7 +14480,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "元件"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "component": [
+        {
+          "id": "example:component",
+          "partOfSpeech": "noun",
+          "meaningZh": "组成整体的一个部分",
+          "examples": [
+            {
+              "en": "A damaged component inside the pump caused the entire system to stop.",
+              "zh": "水泵内部一个部件损坏，导致整个系统停止运行。"
+            }
+          ]
+        }
+      ],
+      "element": []
+    }
   },
   {
     "id": "common-262",
@@ -10853,7 +14586,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "损伤"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "injury": [
+        {
+          "id": "injury-noun-physical-harm",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "伤；损伤；身体受到的伤害，也可指一处具体伤情。",
+          "examples": [
+            {
+              "en": "A minor ankle injury kept him out of the next match.",
+              "zh": "一次轻微的脚踝受伤使他未能参加下一场比赛。"
+            }
+          ]
+        }
+      ],
+      "hurt": [],
+      "trauma": [
+        {
+          "id": "example:trauma",
+          "partOfSpeech": "noun",
+          "meaningZh": "身体受到的创伤",
+          "examples": [
+            {
+              "en": "The report describes the physical trauma caused by the accident.",
+              "zh": "报告描述了这次事故造成的身体创伤。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-263",
@@ -10912,7 +14674,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "命令"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "command": [],
+      "require": []
+    }
   },
   {
     "id": "common-264",
@@ -10979,7 +14745,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "控制"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "control": [],
+      "command": []
+    }
   },
   {
     "id": "common-265",
@@ -11055,7 +14825,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "戏剧"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "play": [
+        {
+          "id": "zhuo:play:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "戏剧；剧本，为舞台表演创作的作品，可数。",
+          "examples": [
+            {
+              "en": "The students wrote a short play about a lost suitcase.",
+              "zh": "学生们写了一出关于遗失手提箱的短剧。"
+            }
+          ]
+        }
+      ],
+      "drama": []
+    }
   },
   {
     "id": "common-266",
@@ -11114,7 +14900,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "视觉"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "sight": [
+        {
+          "id": "example:sight",
+          "partOfSpeech": "noun",
+          "meaningZh": "视力",
+          "examples": [
+            {
+              "en": "Her sight is too poor to read the small print.",
+              "zh": "她的视力太差，看不清那些小字。"
+            }
+          ]
+        }
+      ],
+      "vision": [
+        {
+          "id": "example:vision",
+          "partOfSpeech": "noun",
+          "meaningZh": "眼睛看清事物的能力",
+          "examples": [
+            {
+              "en": "His vision improved enough to read the smaller signs across the street.",
+              "zh": "他的视力有所改善，已经能看清街对面较小的标牌。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-267",
@@ -11194,7 +15008,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "租出"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "lease": [],
+      "let": [
+        {
+          "id": "zhuo:let:verb:3",
+          "partOfSpeech": "verb",
+          "meaningZh": "（英式英语）出租；让别人付租金使用房屋或土地。",
+          "examples": [
+            {
+              "en": "The family lets the cottage to visitors during the summer.",
+              "zh": "这家人夏天把小屋出租给游客。"
+            }
+          ]
+        }
+      ],
+      "rent": []
+    }
   },
   {
     "id": "common-268",
@@ -11265,7 +15096,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "特色"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "feature": [
+        {
+          "id": "feature-noun-characteristic",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "特征；特色；某人或某物值得注意的部分，也可指产品功能。面部的五官常用复数 features。",
+          "examples": [
+            {
+              "en": "One useful feature is the option to save an offline copy.",
+              "zh": "一个实用功能是可以保存离线副本。"
+            }
+          ]
+        }
+      ],
+      "characteristic": [
+        {
+          "id": "example:characteristic",
+          "partOfSpeech": "noun",
+          "meaningZh": "使人或物具有辨识度的特点",
+          "examples": [
+            {
+              "en": "One distinctive characteristic of this bird is its unusually curved beak.",
+              "zh": "这种鸟的一个显著特点是它异常弯曲的喙。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-269",
@@ -11322,7 +15181,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "爱人"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "dear": [],
+      "honey": []
+    }
   },
   {
     "id": "common-270",
@@ -11388,7 +15251,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "秋天"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "fall": [
+        {
+          "id": "zhuo:fall:noun:2",
+          "partOfSpeech": "noun",
+          "meaningZh": "秋季；主要用于美式英语，相当于 autumn。",
+          "examples": [
+            {
+              "en": "They plan to visit the mountain towns in the fall.",
+              "zh": "他们计划秋天去那些山间小镇。"
+            }
+          ]
+        }
+      ],
+      "autumn": [
+        {
+          "id": "example:autumn",
+          "partOfSpeech": "noun",
+          "meaningZh": "夏季之后、冬季之前的季节，即秋天。",
+          "examples": [
+            {
+              "en": "Every autumn, the lane disappears beneath a carpet of golden leaves.",
+              "zh": "每到秋天，那条小路都会被厚厚的金色落叶覆盖。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-271",
@@ -11436,7 +15327,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "考试不及格"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "fail": [],
+      "flunk": [
+        {
+          "id": "example:flunk",
+          "partOfSpeech": "verb",
+          "meaningZh": "考试不及格",
+          "examples": [
+            {
+              "en": "He flunked the first test but improved after practicing.",
+              "zh": "他第一次考试没及格，但练习后有了进步。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-272",
@@ -11512,7 +15419,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "雇用"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "hire": [
+        {
+          "id": "zhuo:hire:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "雇用；付钱请某人从事工作或提供服务。",
+          "examples": [
+            {
+              "en": "The centre hired a part-time assistant to manage evening bookings.",
+              "zh": "中心雇了一名兼职助理管理晚间预约。"
+            }
+          ]
+        }
+      ],
+      "engage": [],
+      "employ": [
+        {
+          "id": "zhuo:employ:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "雇用；付钱让某人从事工作。",
+          "examples": [
+            {
+              "en": "The workshop employs three technicians and an apprentice.",
+              "zh": "这家工坊雇用了三名技术员和一名学徒。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-273",
@@ -11574,7 +15510,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "包围"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "surround": [
+        {
+          "id": "example:surround",
+          "partOfSpeech": "verb",
+          "meaningZh": "分布在某物的四周",
+          "examples": [
+            {
+              "en": "Tall pine trees surround the cabin and shelter it from strong winds.",
+              "zh": "高大的松树环绕着小木屋，为它遮挡强风。"
+            }
+          ]
+        }
+      ],
+      "ring": []
+    }
   },
   {
     "id": "common-274",
@@ -11650,7 +15602,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "投标"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "offer": [],
+      "bid": [],
+      "tender": []
+    }
   },
   {
     "id": "common-275",
@@ -11707,7 +15664,34 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "飞行"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "fly": [
+        {
+          "id": "zhuo:fly:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "飞；鸟、昆虫或飞行器在空中移动。",
+          "examples": [
+            {
+              "en": "A small bird flew out from beneath the bridge.",
+              "zh": "一只小鸟从桥下飞了出来。"
+            }
+          ]
+        },
+        {
+          "id": "zhuo:fly:verb:2",
+          "partOfSpeech": "verb",
+          "meaningZh": "乘飞机；驾驶或操纵飞机，也可指用飞机运送。",
+          "examples": [
+            {
+              "en": "We flew to the island because the winter ferry was not running.",
+              "zh": "因为冬季渡轮停航，我们乘飞机去了岛上。"
+            }
+          ]
+        }
+      ],
+      "wing": []
+    }
   },
   {
     "id": "common-276",
@@ -11776,7 +15760,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "宗教信仰"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "religion": [],
+      "faith": [],
+      "religious belief": []
+    }
   },
   {
     "id": "common-277",
@@ -11826,7 +15815,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "突出"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "protrude": [
+        {
+          "id": "example:protrude",
+          "partOfSpeech": "verb",
+          "meaningZh": "伸出",
+          "examples": [
+            {
+              "en": "Several books protruded from the overfilled shopping bag.",
+              "zh": "几本书从装得太满的购物袋里伸了出来。"
+            }
+          ]
+        }
+      ],
+      "bulge": [
+        {
+          "id": "example:bulge",
+          "partOfSpeech": "verb",
+          "meaningZh": "鼓起；凸出",
+          "examples": [
+            {
+              "en": "His coat pockets bulged with collected pine cones.",
+              "zh": "他的大衣口袋装满了捡来的松果，鼓鼓囊囊的。"
+            }
+          ]
+        }
+      ],
+      "bulge out": []
+    }
   },
   {
     "id": "common-278",
@@ -11893,7 +15911,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "衣服"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "apparel": [
+        {
+          "id": "example:apparel",
+          "partOfSpeech": "noun",
+          "meaningZh": "服装",
+          "examples": [
+            {
+              "en": "The shop sells outdoor apparel and hiking equipment.",
+              "zh": "商店出售户外服装和徒步装备。"
+            }
+          ]
+        }
+      ],
+      "dress": [
+        {
+          "id": "zhuo:dress:noun:2",
+          "partOfSpeech": "noun",
+          "meaningZh": "衣着；某种场合或群体的着装方式，此义通常不可数。",
+          "examples": [
+            {
+              "en": "The invitation specifies informal dress for the garden reception.",
+              "zh": "邀请函说明，花园招待会穿便装即可。"
+            }
+          ]
+        }
+      ],
+      "clothes": [
+        {
+          "id": "clothes-noun-garments",
+          "partOfSpeech": "noun (plural)",
+          "meaningZh": "衣服；穿在身上的服装的统称。这个意思只用复数，通常配复数动词；单件可说 an item of clothing，不说 a clothes。cloth 则指布料。",
+          "examples": [
+            {
+              "en": "Your clean clothes are folded on the bed.",
+              "zh": "你的干净衣服已经叠好放在床上了。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-279",
@@ -11959,7 +16018,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "演讲"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "lecture": [
+        {
+          "id": "lecture-noun-educational-talk",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "讲座；讲课；面向听众就某个主题进行的有组织讲解，常见于大学。",
+          "examples": [
+            {
+              "en": "The lecture connected the equations with examples from everyday motion.",
+              "zh": "这堂课把方程与日常运动的例子联系起来。"
+            }
+          ]
+        }
+      ],
+      "talk": []
+    }
   },
   {
     "id": "common-280",
@@ -12027,7 +16102,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "足够"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "adequate": [
+        {
+          "id": "zhuo:adequate:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "足够的；达到某项用途或要求所需的水平，但不一定出色。",
+          "examples": [
+            {
+              "en": "The small room had adequate light for reading.",
+              "zh": "这个小房间的光线足以用来阅读。"
+            }
+          ]
+        }
+      ],
+      "enough": []
+    }
   },
   {
     "id": "common-281",
@@ -12096,7 +16187,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "运输"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "transportation": [],
+      "transport": [],
+      "conveyance": [
+        {
+          "id": "example:conveyance",
+          "partOfSpeech": "noun",
+          "meaningZh": "运输",
+          "examples": [
+            {
+              "en": "The canal allowed the conveyance of heavy stone to the city.",
+              "zh": "运河使沉重的石料可以运进城里。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-282",
@@ -12144,7 +16252,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "歇口气"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "rest": [],
+      "take a breather": []
+    }
   },
   {
     "id": "common-283",
@@ -12201,7 +16313,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "提交"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "present": [],
+      "submit": [
+        {
+          "id": "example:submit",
+          "partOfSpeech": "verb",
+          "meaningZh": "提交",
+          "examples": [
+            {
+              "en": "Submit the form before Friday afternoon.",
+              "zh": "请在周五下午之前提交表格。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-284",
@@ -12279,7 +16407,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "伸展"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "unfold": [
+        {
+          "id": "example:unfold",
+          "partOfSpeech": "verb",
+          "meaningZh": "展开折叠的物品",
+          "examples": [
+            {
+              "en": "She unfolded the map across the bonnet of the car.",
+              "zh": "她把地图展开铺在汽车引擎盖上。"
+            }
+          ]
+        }
+      ],
+      "stretch": [
+        {
+          "id": "example:stretch",
+          "partOfSpeech": "verb",
+          "meaningZh": "伸展",
+          "examples": [
+            {
+              "en": "Stretch your arms above your head.",
+              "zh": "把双臂伸到头顶上方。"
+            }
+          ]
+        }
+      ],
+      "extend": []
+    }
   },
   {
     "id": "common-285",
@@ -12336,7 +16493,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "真实"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "genuine": [
+        {
+          "id": "zhuo:genuine:adjective:2",
+          "partOfSpeech": "adjective",
+          "meaningZh": "真诚的；感受、兴趣等并非假装的。",
+          "examples": [
+            {
+              "en": "She showed genuine interest in the children's designs.",
+              "zh": "她对孩子们的设计表现出了真诚的兴趣。"
+            }
+          ]
+        }
+      ],
+      "unfeigned": [
+        {
+          "id": "example:unfeigned",
+          "partOfSpeech": "adjective",
+          "meaningZh": "真诚的",
+          "examples": [
+            {
+              "en": "She greeted the returning team with unfeigned delight.",
+              "zh": "她真心高兴地迎接归来的队伍。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-286",
@@ -12395,7 +16580,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "属性"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "property": [],
+      "attribute": []
+    }
   },
   {
     "id": "common-287",
@@ -12455,7 +16644,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "可靠"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "dependable": [
+        {
+          "id": "example:dependable",
+          "partOfSpeech": "adjective",
+          "meaningZh": "可靠的",
+          "examples": [
+            {
+              "en": "Her dependable bicycle carried her to work for years.",
+              "zh": "她那辆可靠的自行车多年载着她上班。"
+            }
+          ]
+        }
+      ],
+      "reliable": [
+        {
+          "id": "zhuo:reliable:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "可靠的；能够信赖其表现、准确性或守信程度的。",
+          "examples": [
+            {
+              "en": "We need a reliable way to back up these photographs.",
+              "zh": "我们需要一种可靠的方法来备份这些照片。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-288",
@@ -12514,7 +16731,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "边界"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "boundary": [
+        {
+          "id": "example:boundary",
+          "partOfSpeech": "noun",
+          "meaningZh": "边界",
+          "examples": [
+            {
+              "en": "A low fence marks the garden boundary.",
+              "zh": "一道矮栅栏标出了花园的边界。"
+            }
+          ]
+        }
+      ],
+      "bound": []
+    }
   },
   {
     "id": "common-289",
@@ -12571,7 +16804,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "撤回"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "recall": [],
+      "withdraw": []
+    }
   },
   {
     "id": "common-290",
@@ -12639,7 +16876,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "暂停"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "pause": [
+        {
+          "id": "zhuo:pause:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "暂停；暂时停止动作或说话，之后通常继续；也可指暂停音视频播放。",
+          "examples": [
+            {
+              "en": "The guide paused at the doorway to let the rest of us catch up.",
+              "zh": "导游在门口停了一会儿，让我们其余人跟上。"
+            }
+          ]
+        }
+      ],
+      "break": []
+    }
   },
   {
     "id": "common-291",
@@ -12705,7 +16958,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "安静"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "silence": [
+        {
+          "id": "example:silence",
+          "partOfSpeech": "noun",
+          "meaningZh": "没有声音的安静状态",
+          "examples": [
+            {
+              "en": "After the orchestra finished, a brief silence filled the concert hall.",
+              "zh": "管弦乐队演奏结束后，音乐厅里出现了短暂的寂静。"
+            }
+          ]
+        }
+      ],
+      "quiet": [
+        {
+          "id": "zhuo:quiet:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "安静；平静，不可数。",
+          "examples": [
+            {
+              "en": "I stayed in the garden to enjoy a moment of quiet.",
+              "zh": "我留在花园里，享受片刻宁静。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-292",
@@ -12762,7 +17043,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "慢慢前进"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "edge": [
+        {
+          "id": "edge-verb-move-gradually",
+          "partOfSpeech": "verb",
+          "meaningZh": "缓慢挪动；一点点移动，常带有谨慎、空间受限或不想引人注意的意味。",
+          "examples": [
+            {
+              "en": "We edged along the narrow path without disturbing the flowers.",
+              "zh": "我们沿着狭窄的小路慢慢挪动，没有碰坏花朵。"
+            }
+          ]
+        }
+      ],
+      "inch": []
+    }
   },
   {
     "id": "common-293",
@@ -12828,7 +17125,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "进步"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "advance": [
+        {
+          "id": "zhuo:advance:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "前进；推进，也可指知识、工作等取得进展。",
+          "examples": [
+            {
+              "en": "Better sensors have advanced our understanding of ocean currents.",
+              "zh": "更好的传感器推进了我们对洋流的认识。"
+            }
+          ]
+        }
+      ],
+      "progress": []
+    }
   },
   {
     "id": "common-294",
@@ -12906,7 +17219,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "含义"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "meaning": [],
+      "significance": [
+        {
+          "id": "example:significance",
+          "partOfSpeech": "noun",
+          "meaningZh": "意义",
+          "examples": [
+            {
+              "en": "I did not understand the significance of her smile.",
+              "zh": "我没明白她那一笑的含义。"
+            }
+          ]
+        }
+      ],
+      "import": []
+    }
   },
   {
     "id": "common-295",
@@ -12976,7 +17306,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "观念"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "concept": [
+        {
+          "id": "concept-noun-idea",
+          "partOfSpeech": "noun (countable)",
+          "meaningZh": "概念；用于理解、组织或解释事物的一般性想法，也可指设计方案的基本构想。",
+          "examples": [
+            {
+              "en": "The demonstration helped us understand the concept of feedback.",
+              "zh": "这次演示帮助我们理解了反馈这一概念。"
+            }
+          ]
+        }
+      ],
+      "conception": [
+        {
+          "id": "example:conception",
+          "partOfSpeech": "noun",
+          "meaningZh": "观念",
+          "examples": [
+            {
+              "en": "The project challenged my conception of a museum.",
+              "zh": "这个项目挑战了我对博物馆的认识。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-296",
@@ -13043,7 +17401,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "结婚仪式"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "marriage": [],
+      "wedding": [
+        {
+          "id": "example:wedding",
+          "partOfSpeech": "noun",
+          "meaningZh": "两个人正式结婚时举行的仪式或庆祝活动。",
+          "examples": [
+            {
+              "en": "They held their wedding in the garden where they first met.",
+              "zh": "他们在初次相遇的花园里举行了婚礼。"
+            }
+          ]
+        }
+      ],
+      "marriage ceremony": []
+    }
   },
   {
     "id": "common-297",
@@ -13101,7 +17476,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "结合"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "blend": [
+        {
+          "id": "example:blend",
+          "partOfSpeech": "verb",
+          "meaningZh": "混合",
+          "examples": [
+            {
+              "en": "Blend the two paint colours until no streaks remain.",
+              "zh": "将这两种颜料混合，直到不再有条纹。"
+            }
+          ]
+        }
+      ],
+      "mix": [
+        {
+          "id": "zhuo:mix:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "混合；把不同物质放在一起，使其成为整体，或自身混在一起。",
+          "examples": [
+            {
+              "en": "Mix the dry ingredients before adding the milk.",
+              "zh": "先混合干性材料，再加入牛奶。"
+            }
+          ]
+        }
+      ],
+      "combine": [
+        {
+          "id": "zhuo:combine:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "结合；合并，把不同事物放到一起形成整体，或使多种作用共同发挥。",
+          "examples": [
+            {
+              "en": "The course combines short lectures with practical exercises.",
+              "zh": "这门课把简短讲授与实践练习结合起来。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-298",
@@ -13160,7 +17576,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "车间"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "workshop": [],
+      "shop": []
+    }
   },
   {
     "id": "common-299",
@@ -13217,7 +17637,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "反对"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "resistance": [
+        {
+          "id": "example:resistance",
+          "partOfSpeech": "noun",
+          "meaningZh": "对某项改变或要求的反对。",
+          "examples": [
+            {
+              "en": "The proposal met strong resistance from residents worried about losing their park.",
+              "zh": "这项提议遭到了居民的强烈反对，他们担心会失去公园。"
+            }
+          ]
+        }
+      ],
+      "opposition": [
+        {
+          "id": "example:opposition",
+          "partOfSpeech": "noun",
+          "meaningZh": "对某项计划或意见的反对",
+          "examples": [
+            {
+              "en": "The proposal faced strong opposition from residents near the airport.",
+              "zh": "这项提议遭到了机场附近居民的强烈反对。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-300",
@@ -13284,7 +17732,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "驳回"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "rule out": [],
+      "eliminate": [],
+      "reject": [
+        {
+          "id": "example:reject",
+          "partOfSpeech": "verb",
+          "meaningZh": "拒绝接受或同意",
+          "examples": [
+            {
+              "en": "The committee may reject the proposal if its costs remain unclear.",
+              "zh": "如果费用仍不明确，委员会可能会否决这项提案。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-301",
@@ -13335,7 +17800,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "完全相同"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "identical": [],
+      "selfsame": []
+    }
   },
   {
     "id": "common-302",
@@ -13401,7 +17870,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "共有"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "common": [
+        {
+          "id": "zhuo:common:adjective:2",
+          "partOfSpeech": "adjective",
+          "meaningZh": "共同的；由两个或更多的人拥有、使用或认可的。",
+          "examples": [
+            {
+              "en": "The neighbours turned the empty plot into a common garden.",
+              "zh": "邻居们把那块空地改成了共用花园。"
+            }
+          ]
+        }
+      ],
+      "mutual": []
+    }
   },
   {
     "id": "common-303",
@@ -13470,7 +17955,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "邮政"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "mail": [],
+      "postal service": [],
+      "post": []
+    }
   },
   {
     "id": "common-304",
@@ -13537,7 +18027,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "授予"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "endow": [
+        {
+          "id": "example:endow",
+          "partOfSpeech": "verb",
+          "meaningZh": "赋予",
+          "examples": [
+            {
+              "en": "The writer endows even minor characters with distinctive voices.",
+              "zh": "作家甚至也赋予配角独特的语言风格。"
+            }
+          ]
+        }
+      ],
+      "gift": [],
+      "invest": []
+    }
   },
   {
     "id": "common-305",
@@ -13595,7 +18102,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "忽视"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "disregard": [
+        {
+          "id": "example:disregard",
+          "partOfSpeech": "verb",
+          "meaningZh": "不理会",
+          "examples": [
+            {
+              "en": "She disregarded the unhelpful comments and continued practising.",
+              "zh": "她不理会那些无益的评论，继续练习。"
+            }
+          ]
+        }
+      ],
+      "brush aside": [],
+      "ignore": [
+        {
+          "id": "zhuo:ignore:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "不理会；有意不注意、不回应或不考虑某人某事，不等于不知道。",
+          "examples": [
+            {
+              "en": "We could not ignore the repeated warning on the control panel.",
+              "zh": "我们不能对控制面板上反复出现的警告置之不理。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-306",
@@ -13661,7 +18197,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "预期"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "expect": [
+        {
+          "id": "zhuo:expect:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "预料；认为某事很可能发生，或等待某人某物按预期到来。",
+          "examples": [
+            {
+              "en": "We expect the replacement parts to arrive on Thursday.",
+              "zh": "我们预计替换零件周四到。"
+            }
+          ]
+        }
+      ],
+      "anticipate": [
+        {
+          "id": "example:anticipate",
+          "partOfSpeech": "verb",
+          "meaningZh": "预料",
+          "examples": [
+            {
+              "en": "We anticipate a busy weekend at the café.",
+              "zh": "我们预计咖啡馆周末会很忙。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-307",
@@ -13722,7 +18286,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "通俗"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "popular": [],
+      "pop": []
+    }
   },
   {
     "id": "common-308",
@@ -13798,7 +18366,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "坚定"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "firm": [
+        {
+          "id": "zhuo:firm:adjective:2",
+          "partOfSpeech": "adjective",
+          "meaningZh": "坚定的；不会轻易改变决定或态度的。",
+          "examples": [
+            {
+              "en": "She gave a firm refusal and returned the documents.",
+              "zh": "她坚定地拒绝了，并把文件退了回去。"
+            }
+          ]
+        }
+      ],
+      "steadfast": [
+        {
+          "id": "example:steadfast",
+          "partOfSpeech": "adjective",
+          "meaningZh": "坚定不移的",
+          "examples": [
+            {
+              "en": "Her steadfast support helped the team through repeated setbacks.",
+              "zh": "她坚定的支持帮助团队熬过一再挫折。"
+            }
+          ]
+        }
+      ],
+      "unwavering": [
+        {
+          "id": "example:unwavering",
+          "partOfSpeech": "adjective",
+          "meaningZh": "坚定不移的",
+          "examples": [
+            {
+              "en": "Her unwavering support kept the theatre project alive through several setbacks.",
+              "zh": "她坚定不移的支持使剧院项目历经挫折仍得以继续。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-309",
@@ -13857,7 +18466,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "假期"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "vacation": [
+        {
+          "id": "example:vacation",
+          "partOfSpeech": "noun",
+          "meaningZh": "假期",
+          "examples": [
+            {
+              "en": "We spent our vacation beside a quiet lake.",
+              "zh": "我们在一个宁静的湖边度过了假期。"
+            }
+          ]
+        }
+      ],
+      "holiday": [
+        {
+          "id": "example:holiday",
+          "partOfSpeech": "noun",
+          "meaningZh": "暂时离开日常工作或学习去休息、游玩的假期。",
+          "examples": [
+            {
+              "en": "We spent most of our holiday walking between small villages along the coast.",
+              "zh": "假期的大部分时间，我们都在海岸沿线的小村庄之间徒步游览。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-310",
@@ -13914,7 +18551,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "惯例"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "custom": [
+        {
+          "id": "example:custom",
+          "partOfSpeech": "noun",
+          "meaningZh": "习俗",
+          "examples": [
+            {
+              "en": "Sharing bread is a local custom.",
+              "zh": "分享面包是当地的一种习俗。"
+            }
+          ]
+        }
+      ],
+      "tradition": [
+        {
+          "id": "example:tradition",
+          "partOfSpeech": "noun",
+          "meaningZh": "长期延续并传下来的习惯",
+          "examples": [
+            {
+              "en": "Sharing homemade soup after the harvest is a tradition in our family.",
+              "zh": "收获后一起喝自家煮的汤，是我们家的传统。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-311",
@@ -13982,7 +18647,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "打败"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "beat": [
+        {
+          "id": "zhuo:beat:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "击败；在比赛或竞争中胜过对手。过去式 beat，过去分词 beaten。",
+          "examples": [
+            {
+              "en": "Our team beat the visitors by two points.",
+              "zh": "我们队以两分的优势击败了客队。"
+            }
+          ]
+        }
+      ],
+      "crush": [],
+      "vanquish": [
+        {
+          "id": "example:vanquish",
+          "partOfSpeech": "verb",
+          "meaningZh": "战胜",
+          "examples": [
+            {
+              "en": "The fable's timid mouse vanquishes the boastful giant.",
+              "zh": "寓言里，胆小的老鼠战胜了爱吹嘘的巨人。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-312",
@@ -14043,7 +18737,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "转换"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "switch": [],
+      "shift": []
+    }
   },
   {
     "id": "common-313",
@@ -14100,7 +18798,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "制造厂"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "factory": [
+        {
+          "id": "example:factory",
+          "partOfSpeech": "noun",
+          "meaningZh": "集中制造产品的生产场所",
+          "examples": [
+            {
+              "en": "The glass factory offers weekend tours led by retired workers.",
+              "zh": "那家玻璃工厂提供由退休工人带领的周末参观活动。"
+            }
+          ]
+        }
+      ],
+      "mill": []
+    }
   },
   {
     "id": "common-314",
@@ -14168,7 +18882,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "假装"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "feign": [
+        {
+          "id": "example:feign",
+          "partOfSpeech": "verb",
+          "meaningZh": "假装",
+          "examples": [
+            {
+              "en": "He feigned surprise when his friends revealed the birthday cake.",
+              "zh": "朋友们拿出生日蛋糕时，他假装惊讶。"
+            }
+          ]
+        }
+      ],
+      "pretend": [],
+      "affect": []
+    }
   },
   {
     "id": "common-315",
@@ -14234,7 +18965,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "显示"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "exhibit": [],
+      "display": [
+        {
+          "id": "zhuo:display:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "展示；显示，使物品、信息或某种特征能够被看到。",
+          "examples": [
+            {
+              "en": "The screen displays the next three departures.",
+              "zh": "屏幕显示接下来三班的出发信息。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-316",
@@ -14301,7 +19048,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "法庭"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "court": [
+        {
+          "id": "court-noun-legal-institution",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "法院；法庭；依法审理案件的机构、场所或审理人员。go to court 表示诉诸法院。",
+          "examples": [
+            {
+              "en": "The court asked both sides to provide more documents.",
+              "zh": "法院要求双方提供更多文件。"
+            }
+          ]
+        }
+      ],
+      "tribunal": [
+        {
+          "id": "example:tribunal",
+          "partOfSpeech": "noun",
+          "meaningZh": "裁判庭",
+          "examples": [
+            {
+              "en": "The tribunal heard statements from both sides.",
+              "zh": "裁判庭听取了双方的陈述。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-317",
@@ -14360,7 +19135,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "鲜艳"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "bright": [],
+      "vivid": []
+    }
   },
   {
     "id": "common-318",
@@ -14417,7 +19196,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "假定"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "premise": [
+        {
+          "id": "example:premise",
+          "partOfSpeech": "noun",
+          "meaningZh": "前提",
+          "examples": [
+            {
+              "en": "Your argument rests on a questionable premise.",
+              "zh": "你的论证建立在一个值得怀疑的前提上。"
+            }
+          ]
+        }
+      ],
+      "assumption": [
+        {
+          "id": "example:assumption",
+          "partOfSpeech": "noun",
+          "meaningZh": "尚未证实却暂且接受的想法",
+          "examples": [
+            {
+              "en": "Our plan rested on the assumption that the bridge would reopen Monday.",
+              "zh": "我们的计划以大桥将在周一重新开放这一假设为基础。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-319",
@@ -14467,7 +19274,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "下沉"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "sink": [],
+      "go down": []
+    }
   },
   {
     "id": "common-320",
@@ -14518,7 +19329,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "逃跑"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "flee": [
+        {
+          "id": "example:flee",
+          "partOfSpeech": "verb",
+          "meaningZh": "为躲避危险而迅速逃离",
+          "examples": [
+            {
+              "en": "The rising floodwater forced several families to flee their homes before dawn.",
+              "zh": "不断上涨的洪水，迫使几个家庭在黎明前逃离家园。"
+            }
+          ]
+        }
+      ],
+      "take flight": []
+    }
   },
   {
     "id": "common-321",
@@ -14576,7 +19403,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "离开"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "get out": [],
+      "leave": [
+        {
+          "id": "zhuo:leave:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "离开；从某处出发，或结束工作、关系等而不再留下。",
+          "examples": [
+            {
+              "en": "We left the hall through the side door to avoid the crowd.",
+              "zh": "我们从侧门离开会堂，以避开人群。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-322",
@@ -14635,7 +19478,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "引用"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "quote": [
+        {
+          "id": "example:quote",
+          "partOfSpeech": "verb",
+          "meaningZh": "原样引用别人的话",
+          "examples": [
+            {
+              "en": "Please quote the complete sentence so readers can understand the author's point.",
+              "zh": "请引用完整的句子，好让读者理解作者的意思。"
+            }
+          ]
+        }
+      ],
+      "cite": []
+    }
   },
   {
     "id": "common-323",
@@ -14692,7 +19551,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "猛冲"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "dart": [
+        {
+          "id": "example:dart",
+          "partOfSpeech": "verb",
+          "meaningZh": "飞奔；猛冲",
+          "examples": [
+            {
+              "en": "A squirrel darted across the path ahead of us.",
+              "zh": "一只松鼠飞快地窜过我们前面的小路。"
+            }
+          ]
+        }
+      ],
+      "dash": [
+        {
+          "id": "example:dash",
+          "partOfSpeech": "verb",
+          "meaningZh": "冲；急奔",
+          "examples": [
+            {
+              "en": "We dashed across the courtyard as the rain began.",
+              "zh": "刚下雨时，我们飞奔着穿过庭院。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-324",
@@ -14740,7 +19627,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "守护"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "guard": [
+        {
+          "id": "zhuo:guard:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "守卫；保护，通过看守或保持警惕防止损害、丢失或未经允许的进入。",
+          "examples": [
+            {
+              "en": "A staff member guarded the entrance while the glass was being cleared.",
+              "zh": "清理碎玻璃时，一名工作人员守着入口。"
+            }
+          ]
+        }
+      ],
+      "ward": []
+    }
   },
   {
     "id": "common-325",
@@ -14808,7 +19711,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "限度"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "limit": [
+        {
+          "id": "zhuo:limit:noun:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "限度；上限，允许或可能达到的最大数量、程度等。",
+          "examples": [
+            {
+              "en": "There is a weight limit for bags carried on this small aircraft.",
+              "zh": "带上这架小型飞机的行李有重量上限。"
+            }
+          ]
+        }
+      ],
+      "limitation": []
+    }
   },
   {
     "id": "common-326",
@@ -14887,7 +19806,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "抛弃"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "abandon": [],
+      "forsake": [
+        {
+          "id": "example:forsake",
+          "partOfSpeech": "verb",
+          "meaningZh": "抛弃",
+          "examples": [
+            {
+              "en": "The heroine refuses to forsake her oldest friend.",
+              "zh": "女主角拒绝抛弃她最早结识的朋友。"
+            }
+          ]
+        }
+      ],
+      "desert": [
+        {
+          "id": "desert-verb-abandon",
+          "partOfSpeech": "verb",
+          "meaningZh": "抛弃；擅离；在别人仍需要支持或自己仍有责任时离开。动词通常重读第二音节。",
+          "examples": [
+            {
+              "en": "She refused to desert the team when the project became difficult.",
+              "zh": "项目变得困难时，她不愿抛下团队。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-327",
@@ -14938,7 +19886,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "露营"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "camp": [],
+      "encamp": []
+    }
   },
   {
     "id": "common-328",
@@ -15015,7 +19967,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "下降"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "descend": [
+        {
+          "id": "example:descend",
+          "partOfSpeech": "verb",
+          "meaningZh": "下降；往下走",
+          "examples": [
+            {
+              "en": "We descended the stone steps to a sheltered beach.",
+              "zh": "我们沿石阶下行，来到一片避风的海滩。"
+            }
+          ]
+        }
+      ],
+      "fall": [
+        {
+          "id": "zhuo:fall:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "落下；跌倒，向低处移动或失去平衡而倒下。",
+          "examples": [
+            {
+              "en": "A loose apple fell from the basket as we crossed the lane.",
+              "zh": "我们穿过小巷时，一只没放稳的苹果从篮子里掉了出来。"
+            }
+          ]
+        }
+      ],
+      "go down": []
+    }
   },
   {
     "id": "common-329",
@@ -15073,7 +20054,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "逮捕"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "apprehend": [
+        {
+          "id": "example:apprehend",
+          "partOfSpeech": "verb",
+          "meaningZh": "逮捕",
+          "examples": [
+            {
+              "en": "Police apprehended the suspect near the railway bridge.",
+              "zh": "警方在铁路桥附近逮捕了嫌疑人。"
+            }
+          ]
+        }
+      ],
+      "arrest": [],
+      "nab": []
+    }
   },
   {
     "id": "common-330",
@@ -15139,7 +20137,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "明智"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "reasonable": [
+        {
+          "id": "zhuo:reasonable:adjective:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "合理的；公道的，依据充分、要求不过分的。",
+          "examples": [
+            {
+              "en": "Asking for one extra day seems reasonable to me.",
+              "zh": "我觉得多要一天时间是合理的。"
+            }
+          ]
+        }
+      ],
+      "sensible": [
+        {
+          "id": "example:sensible",
+          "partOfSpeech": "adjective",
+          "meaningZh": "考虑实际情况、体现合理判断的",
+          "examples": [
+            {
+              "en": "Taking a short break seems sensible after several hours of concentrated work.",
+              "zh": "专注工作几个小时后，稍作休息是明智的。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-331",
@@ -15199,7 +20225,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "破晓"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "dawn": [
+        {
+          "id": "example:dawn",
+          "partOfSpeech": "noun",
+          "meaningZh": "黎明",
+          "examples": [
+            {
+              "en": "At dawn, the fishing boats began to leave the harbour.",
+              "zh": "黎明时，渔船开始驶离港口。"
+            }
+          ]
+        }
+      ],
+      "daybreak": [
+        {
+          "id": "example:daybreak",
+          "partOfSpeech": "noun",
+          "meaningZh": "黎明",
+          "examples": [
+            {
+              "en": "We reached the hilltop just before daybreak and watched the valley brighten.",
+              "zh": "我们在黎明前不久到达山顶，看着山谷渐渐明亮。"
+            }
+          ]
+        }
+      ],
+      "break of day": []
+    }
   },
   {
     "id": "common-332",
@@ -15260,7 +20315,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "注视"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "gaze": [
+        {
+          "id": "example:gaze",
+          "partOfSpeech": "verb",
+          "meaningZh": "凝视",
+          "examples": [
+            {
+              "en": "He gazed at the distant hills.",
+              "zh": "他凝视着远处的山丘。"
+            }
+          ]
+        }
+      ],
+      "stare": [
+        {
+          "id": "example:stare",
+          "partOfSpeech": "verb",
+          "meaningZh": "长时间直直地看着",
+          "examples": [
+            {
+              "en": "I could only stare at the enormous whale beneath our small boat.",
+              "zh": "我只能目不转睛地看着我们小船下方那头巨大的鲸。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-333",
@@ -15309,7 +20392,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "财产"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "property": [
+        {
+          "id": "example:property",
+          "partOfSpeech": "noun",
+          "meaningZh": "财产",
+          "examples": [
+            {
+              "en": "Label your personal property before the trip.",
+              "zh": "旅行前给个人物品贴好标签。"
+            }
+          ]
+        }
+      ],
+      "belongings": [
+        {
+          "id": "example:belongings",
+          "partOfSpeech": "noun",
+          "meaningZh": "个人物品；财物",
+          "examples": [
+            {
+              "en": "She gathered her belongings before leaving the train.",
+              "zh": "下火车前，她收好了随身物品。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-334",
@@ -15367,7 +20478,24 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "脊椎"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "spinal column": [],
+      "spine": [
+        {
+          "id": "example:spine",
+          "partOfSpeech": "noun",
+          "meaningZh": "脊柱",
+          "examples": [
+            {
+              "en": "The skeleton model has a flexible spine that bends at several joints.",
+              "zh": "这个骨架模型的脊柱可以在几个关节处弯曲。"
+            }
+          ]
+        }
+      ],
+      "backbone": []
+    }
   },
   {
     "id": "common-335",
@@ -15420,7 +20548,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "撤消"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "annul": [
+        {
+          "id": "example:annul",
+          "partOfSpeech": "verb",
+          "meaningZh": "宣告无效；废除",
+          "examples": [
+            {
+              "en": "The council voted to annul the earlier decision about parking fees.",
+              "zh": "委员会投票决定撤销先前有关停车费的决定。"
+            }
+          ]
+        }
+      ],
+      "repeal": [
+        {
+          "id": "example:repeal",
+          "partOfSpeech": "verb",
+          "meaningZh": "废除；撤销",
+          "examples": [
+            {
+              "en": "The history lesson examined why the law was repealed.",
+              "zh": "历史课研究了那项法律被废除的原因。"
+            }
+          ]
+        }
+      ],
+      "rescind": [
+        {
+          "id": "example:rescind",
+          "partOfSpeech": "verb",
+          "meaningZh": "撤销",
+          "examples": [
+            {
+              "en": "The committee voted to rescind its earlier decision.",
+              "zh": "委员会投票撤销先前的决定。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-336",
@@ -15481,7 +20650,11 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "监禁"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "detention": [],
+      "custody": []
+    }
   },
   {
     "id": "common-337",
@@ -15540,7 +20713,23 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "联盟"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "alliance": [],
+      "coalition": [
+        {
+          "id": "example:coalition",
+          "partOfSpeech": "noun",
+          "meaningZh": "为共同目标暂时联合起来的团体。",
+          "examples": [
+            {
+              "en": "A coalition of local charities opened a shelter during the cold weather.",
+              "zh": "寒冷天气期间，一个由当地慈善机构组成的联盟开设了收容所。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-338",
@@ -15598,7 +20787,12 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "交付"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "hand over": [],
+      "turn in": [],
+      "deliver": []
+    }
   },
   {
     "id": "common-339",
@@ -15656,7 +20850,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "微风"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "breeze": [
+        {
+          "id": "example:breeze",
+          "partOfSpeech": "noun",
+          "meaningZh": "微风",
+          "examples": [
+            {
+              "en": "A light breeze carried the scent of roses through the open door.",
+              "zh": "一阵微风把玫瑰香气从敞开的门吹了进来。"
+            }
+          ]
+        }
+      ],
+      "zephyr": [
+        {
+          "id": "example:zephyr",
+          "partOfSpeech": "noun",
+          "meaningZh": "微风",
+          "examples": [
+            {
+              "en": "A zephyr stirred the ribbons tied to the railing.",
+              "zh": "一阵微风吹动了系在栏杆上的丝带。"
+            }
+          ]
+        }
+      ],
+      "gentle wind": []
+    }
   },
   {
     "id": "common-340",
@@ -15715,7 +20938,48 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "嗜好"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "preference": [
+        {
+          "id": "example:preference",
+          "partOfSpeech": "noun",
+          "meaningZh": "偏好",
+          "examples": [
+            {
+              "en": "Do you have a preference for an aisle seat?",
+              "zh": "你更喜欢靠过道的座位吗？"
+            }
+          ]
+        }
+      ],
+      "penchant": [
+        {
+          "id": "example:penchant",
+          "partOfSpeech": "noun",
+          "meaningZh": "偏爱",
+          "examples": [
+            {
+              "en": "She has a penchant for collecting unusual teapots.",
+              "zh": "她特别喜欢收集不寻常的茶壶。"
+            }
+          ]
+        }
+      ],
+      "predilection": [
+        {
+          "id": "example:predilection",
+          "partOfSpeech": "noun",
+          "meaningZh": "偏爱",
+          "examples": [
+            {
+              "en": "He has a predilection for stories about explorers.",
+              "zh": "他偏爱探险家的故事。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-341",
@@ -15774,7 +21038,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "回响"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "resound": [
+        {
+          "id": "example:resound",
+          "partOfSpeech": "verb",
+          "meaningZh": "回响",
+          "examples": [
+            {
+              "en": "Applause resounded through the vaulted hall.",
+              "zh": "掌声在拱顶大厅中回响。"
+            }
+          ]
+        }
+      ],
+      "ring": [],
+      "reverberate": [
+        {
+          "id": "example:reverberate",
+          "partOfSpeech": "verb",
+          "meaningZh": "回响",
+          "examples": [
+            {
+              "en": "The drummer's final beat reverberated through the empty hall.",
+              "zh": "鼓手最后的一击在空荡的礼堂中回响。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-342",
@@ -15850,7 +21143,36 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "想象"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "imagine": [
+        {
+          "id": "zhuo:imagine:verb:1",
+          "partOfSpeech": "verb",
+          "meaningZh": "想象；在脑中构成不在眼前或未曾发生的场景、感觉等。后接动作时可用 imagine doing。",
+          "examples": [
+            {
+              "en": "Imagine opening the door and finding the whole room full of flowers.",
+              "zh": "想象一下，打开门后发现整个房间都摆满了花。"
+            }
+          ]
+        }
+      ],
+      "conceive of": [],
+      "envisage": [
+        {
+          "id": "example:envisage",
+          "partOfSpeech": "verb",
+          "meaningZh": "设想未来的情形",
+          "examples": [
+            {
+              "en": "We envisage a garden where neighbours can grow vegetables together.",
+              "zh": "我们设想建一个能让邻居们一起种菜的花园。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-343",
@@ -15909,7 +21231,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "繁荣"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "thrive": [
+        {
+          "id": "example:thrive",
+          "partOfSpeech": "verb",
+          "meaningZh": "茁壮成长；兴旺",
+          "examples": [
+            {
+              "en": "These herbs thrive in the sunny corner beside the kitchen window.",
+              "zh": "这些香草在厨房窗边向阳的角落长得很茂盛。"
+            }
+          ]
+        }
+      ],
+      "flourish": [
+        {
+          "id": "example:flourish",
+          "partOfSpeech": "verb",
+          "meaningZh": "茁壮成长；蓬勃发展",
+          "examples": [
+            {
+              "en": "These flowers flourish in the sunny corner of our garden.",
+              "zh": "这些花在我们花园向阳的角落长得很茂盛。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-344",
@@ -15966,7 +21316,35 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "阳光"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "sunlight": [
+        {
+          "id": "example:sunlight",
+          "partOfSpeech": "noun",
+          "meaningZh": "阳光",
+          "examples": [
+            {
+              "en": "Afternoon sunlight fell across the kitchen floor.",
+              "zh": "午后的阳光洒在厨房地板上。"
+            }
+          ]
+        }
+      ],
+      "sunshine": [
+        {
+          "id": "example:sunshine",
+          "partOfSpeech": "noun",
+          "meaningZh": "阳光",
+          "examples": [
+            {
+              "en": "We carried the chairs outside to enjoy the late afternoon sunshine.",
+              "zh": "我们把椅子搬到外面，享受傍晚前的阳光。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "common-345",
@@ -16025,9 +21403,39 @@ export const COMMON_CHINESE_GROUPS = Object.freeze([
           "住所"
         ]
       }
-    ]
+    ],
+    "exampleSenses": {
+      "dwelling": [
+        {
+          "id": "example:dwelling",
+          "partOfSpeech": "noun",
+          "meaningZh": "住宅",
+          "examples": [
+            {
+              "en": "The stone dwelling has stood here for centuries.",
+              "zh": "这座石头住宅在这里已矗立了数百年。"
+            }
+          ]
+        }
+      ],
+      "home": [
+        {
+          "id": "home-noun-living-place",
+          "partOfSpeech": "noun (countable or uncountable)",
+          "meaningZh": "家；住所；自己居住、归属或感到亲近的地方。",
+          "examples": [
+            {
+              "en": "Their new home is close enough to the station to walk.",
+              "zh": "他们的新家离车站很近，可以步行过去。"
+            }
+          ]
+        }
+      ],
+      "abode": []
+    }
   }
 ].map(group => Object.freeze({ ...group,
   terms: Object.freeze(group.terms), heads: Object.freeze(group.heads), forbidden: Object.freeze(group.forbidden),
   evidence: Object.freeze(group.evidence.map(row => Object.freeze({ ...row, terms: Object.freeze(row.terms) }))),
+  exampleSenses: Object.freeze(Object.fromEntries(Object.entries(group.exampleSenses).map(([head, rows]) => [head, Object.freeze(rows.map(row => Object.freeze({ ...row, examples: Object.freeze(row.examples.map(example => Object.freeze(example))) })))]))),
 })));

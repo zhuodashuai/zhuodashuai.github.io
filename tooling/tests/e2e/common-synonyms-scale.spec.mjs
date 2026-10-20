@@ -45,6 +45,14 @@ async function expectActualEvidence(page, group, head) {
   await expect(page.locator("#dictionary-related-match")).toContainText(group.pos);
   await expect(page.locator("#dictionary-related-match")).toContainText(group.sense);
 }
+async function reviewedExampleIds(page, query, head) {
+  return page.evaluate(async ({ query, head }) => {
+    const module = await import(new URL("js/expanded-dictionary.js", location.href).href);
+    const direct = await module.searchExpandedDictionary(query);
+    const related = await module.searchRelatedChineseDictionary(query);
+    return [...direct.results, ...related.results].find(row => row.term === head)?.matchedExampleSenseIds;
+  }, { query, head });
+}
 
 test("common adjectives find the complete finite group with Enter on a narrow phone screen", async ({ page }) => {
   const group = representative("adjective");
@@ -141,6 +149,9 @@ test("an autumn lookup opens fall's noun example rather than its unrelated falli
   // The primary POS is the original source summary, not a rewritten noun-only
   // label. The scoped match and the expanded example identify the target use.
   await expectActualEvidence(page, group, "fall");
+  // Literal POS/Chinese overlap is not a semantic whitelist. Expansion must
+  // be authorized by the audited exact example ID propagated with the result.
+  expect(await reviewedExampleIds(page, "秋季", "fall")).toEqual(["zhuo:fall:noun:2"]);
   const content = page.locator("#dictionary-example-content"), senses = content.locator("details.example-sense");
   await expect(senses).toHaveCount(6);
   await expect(page.locator("#dictionary-example-panel")).toHaveAttribute("aria-busy", "false");
@@ -150,6 +161,44 @@ test("an autumn lookup opens fall's noun example rather than its unrelated falli
   await expect(falling).toHaveCount(1); await expect(falling).not.toHaveAttribute("open", "");
   await expect(autumn.locator("summary")).toContainText("本次义项");
   await expect(falling.locator("summary")).toContainText("其他义项");
+  await expect(content.locator("details.example-sense[open]")).toHaveCount(1);
+  for (const sense of original.senses) {
+    const panel = senses.filter({ has: page.locator("summary", { hasText: `${sense.partOfSpeech} · ${sense.meaningZh}` }) });
+    await expect(panel).toHaveCount(1);
+    for (const example of sense.examples) {
+      await expect(panel.getByText(example.en, { exact: true })).toHaveCount(1);
+      await expect(panel.getByText(example.zh, { exact: true })).toHaveCount(1);
+    }
+  }
+});
+
+test("a building-foundation lookup expands the reviewed physical noun example but not an abstract basis with the same broad Chinese label", async ({ page }) => {
+  const group = COMMON_CHINESE_GROUPS.find(row => row.terms.includes("地基"));
+  expect(group).toBeTruthy(); expect(group.pos).toBe("noun"); expect(group.heads).toContain("foundation");
+  const examplesManifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  let hash = 2166136261;
+  for (const char of "foundation") { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
+  const descriptor = examplesManifest.shards[hash % 256];
+  const shard = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8"));
+  const original = shard.entries.find(row => row.term === "foundation");
+  expect(original.senses).toHaveLength(3);
+  await page.goto("/dictionary.html");
+  await publicQuery(page, group, "地基");
+  await page.locator('#dictionary-choices button[data-dictionary-term="foundation"]').click();
+  await expectActualEvidence(page, group, "foundation");
+  expect(await reviewedExampleIds(page, "地基", "foundation")).toEqual(["foundation-noun-building-base"]);
+  const content = page.locator("#dictionary-example-content"), senses = content.locator("details.example-sense");
+  await expect(senses).toHaveCount(3);
+  await expect(page.locator("#dictionary-example-panel")).toHaveAttribute("aria-busy", "false");
+  const physical = senses.filter({ has: page.locator("summary", { hasText: /noun \(countable, often plural\) · 地基/u }) });
+  const abstract = senses.filter({ has: page.locator("summary", { hasText: /noun \(countable or uncountable\) · 基础/u }) });
+  const charity = senses.filter({ has: page.locator("summary", { hasText: /noun \(countable\) · 基金会/u }) });
+  await expect(physical).toHaveCount(1); await expect(physical).toHaveAttribute("open", "");
+  await expect(physical.locator("summary")).toContainText("本次义项");
+  for (const other of [abstract, charity]) {
+    await expect(other).toHaveCount(1); await expect(other).not.toHaveAttribute("open", "");
+    await expect(other.locator("summary")).toContainText("其他义项");
+  }
   await expect(content.locator("details.example-sense[open]")).toHaveCount(1);
   for (const sense of original.senses) {
     const panel = senses.filter({ has: page.locator("summary", { hasText: `${sense.partOfSpeech} · ${sense.meaningZh}` }) });

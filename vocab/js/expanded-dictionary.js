@@ -405,7 +405,9 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       }
       if (selected) {
         const result = { ...display(record, selected, manifest),
-          ...(sense ? { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense } : {}),
+          ...(sense ? { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense,
+            matchedExampleSenseIds: (sense.exampleSenses?.[fold(record.term)] || []).map(item => item.id),
+            matchedExampleSenseEvidence: sense.exampleSenses?.[fold(record.term)] || [] } : {}),
           ...(relatedPlan ? { matchType: "related", matchedChinese: matched } : {}) };
         results.push(result);
         if (relatedPlan) {

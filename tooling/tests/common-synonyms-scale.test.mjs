@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { COMMON_CHINESE_GROUPS } from "../../vocab/js/chinese-related-common.js";
-import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchEntry, matchesChineseSenseMeaning } from "../../vocab/js/chinese-search.js";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSenseMeaning } from "../../vocab/js/chinese-search.js";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 
@@ -12,6 +12,40 @@ const bytes = new Map(), parsed = new Map();
 const fold = value => value.normalize("NFKC").trim().toLowerCase();
 const bucket = value => { let hash = 2166136261; for (const char of fold(value)) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; } return hash % 128; };
 const posKinds = ["noun", "verb", "adjective", "adverb"];
+test("scoped examples require reviewed immutable sense identities, not overlapping Chinese labels", async () => {
+  const review = JSON.parse(await readFile(new URL("../dictionary/chinese-related-common-examples.json", import.meta.url), "utf8"));
+  const examples = JSON.parse(await readFile(new URL("../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
+  const records = new Map();
+  assert.equal(review.schemaVersion, 1);
+  assert.equal(review.groups.length, COMMON_CHINESE_GROUPS.length);
+  assert.equal(new Set(review.groups.map(row => row.id)).size, review.groups.length);
+  for (const group of COMMON_CHINESE_GROUPS) {
+    const source = review.groups.find(row => row.id === group.id);
+    assert.deepEqual(group.exampleSenses, source.heads);
+    assert.ok(Object.isFrozen(group.exampleSenses));
+    assert.deepEqual(Object.keys(source.heads).sort(), [...group.heads].sort());
+    assert.deepEqual(chineseSearchSense(group.terms[0]).exampleSenses, group.exampleSenses);
+    for (const [head, proofs] of Object.entries(group.exampleSenses)) {
+      assert.ok(Object.isFrozen(proofs));
+      if (!proofs.length) continue;
+      let hash = 2166136261;
+      for (const char of head) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
+      const descriptor = examples.shards[hash % 256];
+      if (!records.has(descriptor.file)) records.set(descriptor.file, JSON.parse(await readFile(new URL(`../../vocab/data/dictionary-examples/${descriptor.file}`, import.meta.url), "utf8")));
+      const original = records.get(descriptor.file).entries.find(row => row.term === head);
+      for (const proof of proofs) {
+        assert.ok(Object.isFrozen(proof));
+        assert.deepEqual([...new Set(proof.partOfSpeech.match(/\b(?:noun|verb|adjective|adverb)\b/gu))], [group.pos]);
+        const sense = original?.senses.find(row => row.id === proof.id);
+        assert.ok(sense, `${group.id}/${head}/${proof.id}: real reviewed example identity`);
+        assert.deepEqual(proof, { id: sense.id, partOfSpeech: sense.partOfSpeech, meaningZh: sense.meaningZh, examples: sense.examples });
+        assert.ok(Object.isFrozen(proof.examples) && proof.examples.every(Object.isFrozen));
+      }
+    }
+  }
+  const physical = COMMON_CHINESE_GROUPS.find(row => row.terms.includes("地基"));
+  assert.deepEqual(physical.exampleSenses.foundation.map(row => row.id), ["foundation-noun-building-base"]);
+});
 async function shardFor(head) {
   const descriptor = manifest.english.shards[bucket(head)];
   const target = new URL(`../../vocab/data/expanded-dictionary/${descriptor.file}`, import.meta.url);
@@ -140,6 +174,8 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
       for (const item of found) {
         assert.equal(item.matchedPartOfSpeech, group.pos, `${input}/${item.term}: retain the reviewed target POS independently from the original record summary`);
         assert.equal(item.matchedSense, group.sense, `${input}/${item.term}: retain the reviewed sense boundary`);
+        assert.deepEqual(item.matchedExampleSenseEvidence, group.exampleSenses[item.term]);
+        assert.deepEqual(item.matchedExampleSenseIds, group.exampleSenses[item.term].map(row => row.id));
       }
       for (const item of direct.results) assert.ok(resultEvidence(group, item, [term]), `${input}/${item.term}: direct result must retain its exact evidence variant and provenance`);
       for (const item of related.results) {

@@ -1,5 +1,5 @@
 import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=94";
-import { chineseSearchPlan, matchesChineseSenseMeaning } from "./chinese-search.js?v=94";
+import { chineseSearchPlan } from "./chinese-search.js?v=94";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -36,9 +36,21 @@ export function dictionaryExampleSensePlan(entry, result) {
     && typeof result?.matchedSense === "string" && Boolean(result.matchedSense.trim());
   if (!scoped) return { scoped: false, hasMatch: false,
     items: senses.map((sense, index) => ({ sense, matched: false, open: index === 0, label: "" })) };
-  const aliases = [...new Set(result.matchedSense.split("／").map(term => term.trim()).filter(Boolean))];
-  const items = senses.map(sense => ({ sense, matched: aliases.some(term => matchesChineseSenseMeaning(
-    sense.meaningZh, term, sense.partOfSpeech, result.matchedPartOfSpeech)), open: false }));
+  // Shared Chinese wording is not proof of an identical example sense: a
+  // building's foundation and an abstract basis can both be called 基础.
+  // Only IDs reviewed for this particular head and query sense may open.
+  // Bind the complete reviewed content too: a newer example manifest may
+  // reuse an ID while an older application graph is still cached offline.
+  const reviewedIds = new Set(Array.isArray(result.matchedExampleSenseIds)
+    ? result.matchedExampleSenseIds.filter(id => typeof id === "string" && id.trim()) : []);
+  const proofs = Array.isArray(result.matchedExampleSenseEvidence) ? result.matchedExampleSenseEvidence : [];
+  const sameHead = !(typeof entry?.term === "string" && typeof result.term === "string") || entry.term === result.term;
+  const matchesProof = sense => sameHead && reviewedIds.has(sense.id) && proofs.some(proof => proof?.id === sense.id
+    && proof.partOfSpeech === sense.partOfSpeech && proof.meaningZh === sense.meaningZh
+    && Array.isArray(proof.examples) && Array.isArray(sense.examples) && proof.examples.length === sense.examples.length
+    && sense.examples.every((example, index) => typeof example?.en === "string" && typeof example?.zh === "string"
+      && example.en === proof.examples[index]?.en && example.zh === proof.examples[index]?.zh));
+  const items = senses.map(sense => ({ sense, matched: matchesProof(sense), open: false }));
   // Sorting this new wrapper array preserves every original sense, example,
   // provenance field and relative order within the matching/other partitions.
   items.sort((a, b) => Number(b.matched) - Number(a.matched));
