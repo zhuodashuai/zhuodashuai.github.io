@@ -11,11 +11,11 @@ import {
 import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicCatalog, filterPersonalEntries,
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
-import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=90";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=90";
+import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=91";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=91";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=85";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=90";
-import { matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=91";
+import { matchesChineseSearchEntry } from "./chinese-search.js?v=91";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 
 const $ = (id) => document.getElementById(id);
@@ -445,7 +445,7 @@ function showDictionaryResult(result) {
     use.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
       showDictionaryResult({ ...variant, term: result.term,
-        ...(result.matchType === "related" && matchesChineseSearchMeaning(variant.meaning, result.matchedChinese)
+        ...(result.matchType === "related" && matchesChineseSearchEntry(result.term, variant.meaning, result.matchedChinese)
           ? { matchType: "related", matchedChinese: result.matchedChinese } : {}) }); renderChrome();
     });
     details.append(title, text, use); alternatives.append(details);

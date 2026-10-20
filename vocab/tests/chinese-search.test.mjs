@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { chineseSearchPlan, matchesChineseSearchMeaning } from "../js/chinese-search.js";
+import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchMeaning, matchesChineseSearchEntry } from "../js/chinese-search.js";
 
 const groups = [
   ["开心", "高兴", "快乐", "愉快"], ["不开心", "不快乐", "不高兴"],
@@ -13,10 +13,19 @@ const groups = [
   ["干净", "清洁", "洁净"], ["肮脏", "污秽"], ["帮助", "帮忙", "协助", "援助"],
   ["开始", "起始", "开端"], ["结束", "终结", "终止"], ["喜欢", "喜爱"],
   ["讨厌", "厌恶", "嫌恶"], ["正确", "无误"], ["昂贵", "高价", "价高"],
+  ["医生", "医师", "大夫"], ["教师", "教员", "老师"], ["儿童", "孩童", "小孩", "孩子"],
+  ["婴儿", "婴孩", "宝宝"], ["朋友", "友人"], ["购买者", "买家", "买主"],
+  ["寻找", "搜寻", "寻觅"], ["询问", "问询"], ["回答", "答复"], ["购买", "购置", "买"],
+  ["出售", "卖出", "卖"], ["修理", "修缮", "维修"], ["巨大", "庞大"], ["微小", "细小"],
+  ["困难", "艰难"], ["漂亮", "美丽", "秀丽"], ["惊讶", "惊奇", "诧异"], ["嫉妒", "妒忌"],
+  ["谨慎", "慎重", "审慎"], ["准确", "精确", "确切"], ["相似", "类似", "相像"],
+  ["不同", "相异", "有别"], ["理解", "领会", "领悟"], ["抱怨", "埋怨"], ["允许", "准许", "许可"],
+  ["拒绝", "谢绝"], ["害羞", "羞怯", "腼腆"], ["著名", "有名", "知名"], ["错误", "差错"],
+  ["安慰", "慰藉", "抚慰"],
 ];
 
 test("all curated Chinese groups are unique, bounded, reciprocal and immutable", () => {
-  assert.ok(groups.length >= 20 && groups.length <= 25);
+  assert.equal(groups.length, 54);
   const seen = new Set();
   for (const group of groups) {
     assert.ok(group.length >= 2 && group.length <= 4);
@@ -38,12 +47,31 @@ test("all curated Chinese groups are unique, bounded, reciprocal and immutable",
 test("only complete approved queries expand; related concepts do not form an uncontrolled graph", () => {
   for (const query of ["", null, {}, 1, "happy", "happy开心", "开 心", "开心果", "很开心", "开心一点",
     "使高兴", "令人愉快", "不太高兴", "未必快乐", "快乐主义", "不喜欢", "不安全", "安全", "可靠",
-    "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "开心的的", "\u202e开心", "开心\u0000",
+    "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "回复", "大方", "关键", "记住", "开心的的", "\u202e开心", "开心\u0000",
     "开".repeat(51), "开心，", "“开心”"]) assert.equal(chineseSearchPlan(query), null, String(query));
   assert.deepEqual(chineseSearchPlan("喜欢").aliases, ["喜爱"]);
   assert.ok(!chineseSearchPlan("喜欢").aliases.includes("爱情"));
   assert.ok(!chineseSearchPlan("开心").aliases.includes("幸福"));
   assert.ok(!chineseSearchPlan("美味").aliases.includes("香味"));
+});
+
+test("reviewed medical heads are a bounded immutable shortlist, not hints for arbitrary queries", () => {
+  const heads = chineseSearchHeads("医生");
+  assert.deepEqual(heads, ["doctor", "physician", "medical man", "practitioner", "medic", "medico"]);
+  assert.ok(Object.isFrozen(heads)); assert.equal(chineseSearchHeads("医师"), heads);
+  assert.equal(chineseSearchHeads("大夫"), heads);
+  for (const value of [null, {}, "", "医生的", "doctor", "外科医生", "教师", "护士"]) assert.equal(chineseSearchHeads(value), null);
+});
+
+test("single-character trade aliases use reviewed heads rather than an unbounded compound scan", () => {
+  for (const term of ["购买", "购置", "买"]) {
+    assert.deepEqual(chineseSearchHeads(term), ["buy", "purchase"]);
+    assert.ok(Object.isFrozen(chineseSearchHeads(term)));
+  }
+  for (const term of ["出售", "卖出", "卖"]) assert.deepEqual(chineseSearchHeads(term), ["sell", "vend", "sale", "for sale"]);
+  assert.ok(matchesChineseSearchEntry("sell", "v. 卖, 销售", "卖"));
+  assert.ok(!matchesChineseSearchEntry("buyer", "n. 买主", "买"));
+  assert.ok(!matchesChineseSearchEntry("seller", "n. 卖主", "卖"));
 });
 
 test("negative emotions have a separate exact family rather than losing their negation", () => {
@@ -73,6 +101,9 @@ test("whole definition atoms support POS labels, numbering, domains and genuine 
     ["a. 高兴的（口语）", "高兴"], ["快乐的（用于人的情绪，非技术术语）", "快乐"],
     ["快乐的 [口语]", "快乐"], ["愉快的【文学用语】", "愉快"],
     ["快乐的.", "快乐"], ["[医] 欲睡的", "欲睡"],
+    ["noun (countable): 医生", "医生"], ["noun (uncountable)：疾病", "疾病"],
+    ["noun (countable or uncountable)：疾病", "疾病"], ["noun (uncountable or countable): 教师", "教师"],
+    ["noun (countable) · verb: 帮助", "帮助"],
   ]) assert.ok(matchesChineseSearchMeaning(meaning, term), `${term}: ${meaning}`);
 });
 
@@ -112,5 +143,52 @@ test("malformed inputs and operator-like annotations fail closed without throwin
   }
   for (const term of [null, {}, "", "happy", "高兴.*", "高 兴", "开".repeat(51)]) {
     assert.equal(matchesChineseSearchMeaning("a. 高兴的", term), false, String(term));
+  }
+});
+
+test("people are not their adjectival derivatives even when the query accepts a final particle", () => {
+  for (const [term, meaning] of [
+    ["教师", "a. 教师的, 教学法的, 适宜于教师的"], ["儿童", "[医] 儿童的, 幼稚的"],
+    ["婴儿", "a. 婴儿的, 幼稚的"], ["朋友", "a. 朋友的"], ["医师", "a. 医师的"],
+    ["医生", "医生地"], ["购买者", "购买者的"],
+  ]) assert.equal(matchesChineseSearchMeaning(meaning, term), false, `${term}: ${meaning}`);
+  for (const term of ["医生", "教师", "儿童", "婴儿", "朋友", "购买者"]) {
+    assert.equal(chineseSearchPlan(term + "的").term, term);
+    assert.equal(chineseSearchPlan(term + "地").term, term);
+    assert.ok(matchesChineseSearchMeaning(`noun (countable): ${term}`, term));
+  }
+  assert.ok(matchesChineseSearchMeaning("a. 美丽的", "美丽"));
+});
+
+test("only explicit countability labels may be stripped, not arbitrary bracketed operators", () => {
+  for (const meaning of ["noun (使): 高兴", "noun (使人): 高兴", "noun (not): 高兴",
+    "noun (anything): 高兴", "noun (countable; 使): 高兴", "noun (countable) (使): 高兴",
+    "noun (countable or uncountable) (不): 高兴", "noun (countable or uncountable): 高兴（使人）"]) {
+    assert.equal(matchesChineseSearchMeaning(meaning, "高兴"), false, meaning);
+  }
+});
+
+test("modern doctor suggestions reject wrong-source, specialist, other-profession and mythological shortcuts", () => {
+  for (const [head, meaning] of [
+    ["doctor", "n. 医生, 博士"], ["physician", "n. 医师, 内科医师"],
+    ["medical man", "医生"], ["practitioner", "[医] 行医者, 医师"],
+    ["medic", "n. 苜蓿属植物, 医师, 医科学生"], ["medico", "n. 医师, 医科学生"],
+  ]) assert.ok(matchesChineseSearchEntry(head, meaning, meaning.includes("医师") ? "医师" : "医生"), head);
+  for (const [head, meaning] of [
+    ["medical", "n. 医生, 体格检查"], ["Aesculapian", "医神艾斯库累普的, 医生"],
+    ["Aesculapius", "n. 医神埃斯科拉庇俄斯, 医师"], ["healer", "[医] 治病者, 医生, 江湖医"],
+    ["medicine man", "医生, 开业医生, 巫医"], ["pill roller", "医生, 药剂师"],
+    ["Dr", "n. 博士, 医生"], ["nurse", "n. 护士, 保姆"], ["pharmacist", "n. 药剂师"],
+    ["Ph.D.", "哲学博士"], ["surgeon", "n. 外科医生"], ["appointment", "n. 预约医生的时间"],
+    ["examination", "n. 医生进行的检查"], ["treatment", "n. 治疗"], ["quack", "n. 冒牌医生"],
+  ]) for (const term of ["医生", "医师", "大夫"]) {
+    assert.equal(matchesChineseSearchEntry(head, meaning, term), false, `${head}: ${term}`);
+  }
+  assert.ok(matchesChineseSearchEntry("DOCTOR", "n. 医生", "医生"));
+  assert.equal(matchesChineseSearchEntry("doctor", "n. 博士", "医生"), false);
+  assert.ok(matchesChineseSearchEntry("teacher", "n. 教师", "教师"));
+  assert.ok(matchesChineseSearchEntry("happy", "a. 快乐的", "快乐"));
+  for (const head of [null, {}, 1, "", "doctor\u0000", "x".repeat(201)]) {
+    assert.equal(matchesChineseSearchEntry(head, "医生", "医生"), false);
   }
 });

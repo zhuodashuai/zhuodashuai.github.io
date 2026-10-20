@@ -229,6 +229,21 @@ test("Chinese reverse shares the sole warmup download and one aborted search nev
   assert.ok((await healthy).results.length); assert.equal(calls, 1); resetCoreDictionaryCacheForTests();
 });
 
+test("compact professional reverse lookup uses the same noun and medical evidence rules as full search", async () => {
+  const parsed = parsePersonalDictionary(smallIndex({ core: [
+    ["doctor", "noun", "n. 医生, 博士", []], ["physician", "noun", "n. 医师", []],
+    ["medical", "adjective", "n. 医生\na. 医学的", []], ["healer", "noun", "n. 医生, 治疗物", []],
+    ["appointment", "noun", "预约；常指看医生的会面。", []], ["nurse", "noun", "n. 护士", []],
+    ["teacher", "noun", "n. 教师, 老师", []], ["pedagogical", "adjective", "a. 教师的, 教学法的", []],
+  ] }));
+  assert.deepEqual((await searchPersonalDictionaryChinese("医生", { dictionary: parsed })).results.map(row => row.term), ["doctor"]);
+  assert.deepEqual((await searchPersonalDictionaryChinese("医师", { dictionary: parsed })).results.map(row => row.term), ["physician"]);
+  assert.deepEqual((await searchPersonalDictionaryChinese("教师", { dictionary: parsed })).results.map(row => row.term), ["teacher"]);
+  assert.deepEqual((await searchPersonalDictionaryChinese("大夫", { dictionary: parsed })).results, []);
+  // Direct English lookup still shows the source row, not a rewritten dictionary.
+  assert.ok((await lookupPersonalDictionary("medical", { dictionary: parsed })).meaning.includes("医生"));
+});
+
 test("Chinese reverse rejects invalid queries before any download", async () => {
   for (const input of ["", "apple", "苹<script>", "中".repeat(51), "中\u0000文"]) {
     await assert.rejects(searchPersonalDictionaryChinese(input, { fetchImpl: () => { throw new Error("must not fetch"); } }));

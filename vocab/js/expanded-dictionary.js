@@ -1,6 +1,6 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=90";
-import { chineseSearchPlan, matchesChineseSearchMeaning } from "./chinese-search.js?v=90";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=91";
+import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchEntry } from "./chinese-search.js?v=91";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -330,25 +330,53 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
   const plan = relatedPlan || chineseSearchPlan(query);
   const terms = relatedPlan ? plan.aliases : [plan?.term || query];
-  const tokenPlans = terms.map(chineseTokens);
-  const tokens = [...new Set(tokenPlans.flat())], tokenShards = new Map();
+  const candidates = new Map(), loaded = new Map(), heads = chineseSearchHeads(plan?.term || query);
   if (signal?.aborted) throw stopped();
-  await parallel([...new Set(tokens.map(bucketFor))], 6, async bucket => tokenShards.set(bucket, await shardFor("zh", bucket, manifest, client, fetchImpl, timeoutMs)));
-  if (signal?.aborted) throw stopped();
-  const candidates = new Map();
-  for (const [priority, wanted] of tokenPlans.entries()) {
-    const lists = wanted.map(token => tokenShards.get(bucketFor(token)).get(token) || []).sort((a, b) => a.length - b.length);
-    if (!lists.length || !lists[0].length) continue;
-    const other = lists.slice(1).map(list => new Set(list));
-    for (const id of lists[0]) if (!candidates.has(id) && other.every(set => set.has(id))) candidates.set(id, priority);
+  if (heads) {
+    // A reviewed lexical shortlist avoids spending the bounded reverse scan on
+    // hundreds of compounds such as "外科医生" before reaching "医师". Resolve
+    // canonical heads through the same hash-checked English index; neither the
+    // shortlist nor a source label substitutes for actual meaning evidence.
+    await parallel([...new Set(heads.map(head => bucketFor(fold(head))))], 6, async bucket => {
+      if (signal?.aborted) throw stopped();
+      loaded.set(bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
+    });
+    if (signal?.aborted) throw stopped();
+    for (const head of heads) {
+      const shard = loaded.get(bucketFor(fold(head)));
+      for (const ref of shard.lookup.get(fold(head)) || []) if (ref.kind === "canonical") candidates.set(ref.id, 0);
+    }
+  } else {
+    const tokenPlans = terms.map(chineseTokens);
+    const tokens = [...new Set(tokenPlans.flat())], tokenShards = new Map();
+    await parallel([...new Set(tokens.map(bucketFor))], 6, async bucket => {
+      if (signal?.aborted) throw stopped();
+      tokenShards.set(bucket, await shardFor("zh", bucket, manifest, client, fetchImpl, timeoutMs));
+    });
+    if (signal?.aborted) throw stopped();
+    for (const [priority, wanted] of tokenPlans.entries()) {
+      const lists = wanted.map(token => tokenShards.get(bucketFor(token)).get(token) || []).sort((a, b) => a.length - b.length);
+      if (!lists.length || !lists[0].length) continue;
+      const other = lists.slice(1).map(list => new Set(list));
+      for (const id of lists[0]) if (!candidates.has(id) && other.every(set => set.has(id))) candidates.set(id, priority);
+    }
   }
   // All aliases share one bounded scan and download budget, not one per alias.
   const ids = [...candidates.keys()].sort((a, b) => candidates.get(a) - candidates.get(b) || a - b);
-  const results = [], loaded = new Map(); let examined = 0;
-  while (examined < ids.length && examined < 512 && results.length <= limit) {
+  const results = [], resultIds = new Map(); let examined = 0;
+  const relatedOrder = (a, b) => terms.indexOf(a.matchedChinese) - terms.indexOf(b.matchedChinese)
+    || resultIds.get(a) - resultIds.get(b);
+  // A posting's priority is only a lower bound: its earlier alias can be a
+  // compound/mention while a later alias is the actual definition atom. Keep
+  // looking until later candidates cannot improve the retained top results.
+  const cannotImprove = id => relatedPlan && results.length > limit
+    && candidates.get(id) > terms.indexOf(results.at(-1).matchedChinese);
+  while (examined < ids.length && examined < 512 && (relatedPlan || results.length <= limit)) {
     if (signal?.aborted) throw stopped();
+    if (cannotImprove(ids[examined])) break;
     const next = [], prospective = new Set(loaded.keys());
     for (const id of ids.slice(examined, Math.min(examined + 24, 512))) {
+      if (cannotImprove(id)) break;
       prospective.add(id % BUCKETS);
       if (prospective.size > 32) break;
       next.push(id);
@@ -361,24 +389,31 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
     });
     if (signal?.aborted) throw stopped();
     for (const id of next) {
+      if (cannotImprove(id)) break;
       examined++;
       const record = loaded.get(id % BUCKETS).records.get(id);
       if (!record || id % BUCKETS !== bucketFor(fold(record.term))) throw invalid();
       const variants = [record, ...record.variants];
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
-      if (relatedPlan && variants.some(item => matchesChineseSearchMeaning(item.meaning, plan.term))) continue;
+      if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term))) continue;
       let selected, matched;
       for (const term of terms) {
-        selected = variants.find(item => plan ? matchesChineseSearchMeaning(item.meaning, term) : fold(item.meaning).includes(term));
+        selected = variants.find(item => plan ? matchesChineseSearchEntry(record.term, item.meaning, term) : fold(item.meaning).includes(term));
         if (selected) { matched = term; break; }
       }
-      if (selected) results.push({ ...display(record, selected, manifest),
-        ...(relatedPlan ? { matchType: "related", matchedChinese: matched } : {}) });
-      if (results.length > limit) break;
+      if (selected) {
+        const result = { ...display(record, selected, manifest),
+          ...(relatedPlan ? { matchType: "related", matchedChinese: matched } : {}) };
+        results.push(result);
+        if (relatedPlan) {
+          resultIds.set(result, id); results.sort(relatedOrder);
+          if (results.length > limit + 1) resultIds.delete(results.pop());
+        }
+      }
+      if (!relatedPlan && results.length > limit) break;
     }
   }
-  if (relatedPlan) results.sort((a, b) => terms.indexOf(a.matchedChinese) - terms.indexOf(b.matchedChinese));
   return { query, results: results.slice(0, limit), hasMore: results.length > limit || examined < ids.length };
 }
 

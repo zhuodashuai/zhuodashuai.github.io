@@ -121,6 +121,64 @@ test("related meanings retain the one real source variant, deduplicate canonical
   assert.equal(cold.requests.length, 0);
 });
 
+test("related ranking does not let early alias mentions hide a later exact definition atom", async () => {
+  const data = fixture([
+    ...Array.from({ length: 25 }, (_, index) => entry(`noise${index}`, "高兴的事；快乐的")),
+    entry("happy", "高兴的")
+  ]);
+  const result = await searchRelatedChineseDictionary("开心", data);
+  assert.equal(result.results[0].term, "happy");
+  assert.equal(result.results[0].matchedChinese, "高兴");
+  assert.deepEqual(result.results.slice(1).map(row => row.term), Array.from({ length: 7 }, (_, index) => `noise${index}`));
+  assert.equal(result.hasMore, true);
+  assert.ok(result.results.every(row => !Object.hasOwn(row, "id")));
+});
+
+test("related ranking keeps canonical rank stable across different posting-priority groups", async () => {
+  const data = fixture([
+    entry("earliest", "快乐的"),
+    ...Array.from({ length: 9 }, (_, index) => entry(`noise${index}`, "高兴的事；快乐的")),
+    entry("happy", "高兴的")
+  ]);
+  const result = await searchRelatedChineseDictionary("开心", data);
+  assert.deepEqual(result.results.map(row => row.term), ["happy", "earliest", ...Array.from({ length: 6 }, (_, index) => `noise${index}`)]);
+  assert.equal(result.hasMore, true);
+  assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 32);
+});
+
+test("reviewed doctor heads bypass compound noise without replacing meaning evidence or English source data", async () => {
+  const data = fixture([
+    ...Array.from({ length: 900 }, (_, index) => entry(`noise${index}`, "外科医生；医师助理")),
+    entry("doctor", "医生"), entry("physician", "医师"), entry("medical man", "医学研究者"),
+    entry("medical", "医生；体格检查", { partOfSpeech: "noun · adjective" }),
+    entry("nurse", "护士"), entry("quack", "冒牌医生"), entry("Aesculapius", "医师")
+  ]);
+  const result = await searchRelatedChineseDictionary("大夫", data);
+  assert.deepEqual(result.results.map(row => row.term), ["doctor", "physician"]);
+  assert.deepEqual(result.results.map(row => row.matchedChinese), ["医生", "医师"]);
+  assert.equal(result.hasMore, false);
+  assert.deepEqual((await searchRelatedChineseDictionary("大夫的", data)).results.map(row => row.term), ["doctor", "physician"]);
+  assert.ok(data.requests.every(item => !/\/zh-\d{3}\.json$/u.test(item.url)));
+  assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 6);
+  const direct = await searchExpandedDictionary("医生", data);
+  assert.deepEqual(direct.results.map(row => row.term), ["doctor"]);
+  assert.equal(direct.hasMore, false);
+  const english = await searchExpandedDictionary("medical", data);
+  assert.equal(english.results[0].term, "medical");
+  assert.match(english.results[0].meaning, /医生；体格检查/u);
+  assert.equal(english.results[0].source, "ECDICT");
+});
+
+test("a reviewed-head canonical reference still fails closed when its verified shard is internally invalid", async () => {
+  const broken = fixture([entry("doctor", "医生"), entry("physician", "医师")]);
+  broken.rewrite("en", bucket("doctor"), payload => {
+    payload.keys.find(([key]) => key === "doctor")[1][0].id = 999;
+  });
+  await assert.rejects(searchRelatedChineseDictionary("大夫", broken), error => error.code === "invalid_dictionary_data");
+  const healthy = fixture([entry("doctor", "医生"), entry("physician", "医师")]);
+  assert.deepEqual((await searchRelatedChineseDictionary("大夫", healthy)).results.map(row => row.term), ["doctor", "physician"]);
+});
+
 test("all Chinese association aliases share one download budget and honour cancellation", async () => {
   const data = fixture(Array.from({ length: 800 }, (_, i) => entry(`noise${i}`, "高兴的事；不快乐的")));
   const result = await searchRelatedChineseDictionary("开心", data);
