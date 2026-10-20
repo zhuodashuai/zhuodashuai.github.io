@@ -35,8 +35,8 @@ const GROUPS = Object.freeze([
   ["寻找", "搜寻", "寻觅"],
   ["询问", "问询"],
   ["回答", "答复"],
-  ["购买", "购置"],
-  ["出售", "卖出"],
+  ["购买", "购置", "买"],
+  ["出售", "卖出", "卖"],
   ["修理", "修缮", "维修"],
   ["巨大", "庞大"],
   ["微小", "细小"],
@@ -71,10 +71,19 @@ const MEDICAL_TERMS = Object.freeze(["医生", "医师", "大夫"]);
 // Leave the source and English lookup unchanged; do not promote those glosses
 // to generic Chinese doctor suggestions. Nor does this make Dr mean only doctor.
 const MEDICAL_HEADS = Object.freeze(["doctor", "physician", "medical man", "practitioner", "medic", "medico"]);
+const BUYING_TERMS = Object.freeze(["购买", "购置", "买"]);
+const BUYING_HEADS = Object.freeze(["buy", "purchase"]);
+const SELLING_TERMS = Object.freeze(["出售", "卖出", "卖"]);
+const SELLING_HEADS = Object.freeze(["sell", "vend", "sale", "for sale"]);
 
 /** A lexical shortlist, never a generated translation or an unchecked result. */
 export function chineseSearchHeads(term) {
-  return MEDICAL_TERMS.includes(term) ? MEDICAL_HEADS : null;
+  if (MEDICAL_TERMS.includes(term)) return MEDICAL_HEADS;
+  // Single-character trade aliases would otherwise scan thousands of compound
+  // mentions. These common heads still require an actual matching source atom.
+  if (BUYING_TERMS.includes(term)) return BUYING_HEADS;
+  if (SELLING_TERMS.includes(term)) return SELLING_HEADS;
+  return null;
 }
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
@@ -154,6 +163,6 @@ export function matchesChineseSearchMeaning(meaning, term) {
 export function matchesChineseSearchEntry(headword, meaning, term) {
   if (typeof headword !== "string" || !headword.trim() || headword.length > 200 || CONTROL.test(headword)
     || !matchesChineseSearchMeaning(meaning, term)) return false;
-  if (!MEDICAL_TERMS.includes(term)) return true;
-  return MEDICAL_HEADS.includes(headword.normalize("NFKC").trim().toLocaleLowerCase("en-US"));
+  const heads = chineseSearchHeads(term);
+  return !heads || heads.includes(headword.normalize("NFKC").trim().toLocaleLowerCase("en-US"));
 }

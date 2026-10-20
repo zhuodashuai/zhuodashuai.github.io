@@ -89,6 +89,20 @@ test("positive and negative meaning families never leak polarity or food compoun
   }
 });
 
+test("short trade queries find common verbs without downloading compound-posting lists", async ({ page }) => {
+  const postings = [];
+  page.on("request", request => { if (/\/expanded-dictionary\/.+\/zh-\d{3}\.json$/u.test(request.url())) postings.push(request.url()); });
+  await page.goto("/dictionary.html");
+  for (const [value, term] of [["购置", "buy"], ["出售", "sell"], ["卖", "sell"]]) {
+    await query(page, value);
+    const result = page.locator(`#dictionary-choices button[data-dictionary-term="${term}"]`);
+    await expect(result).toBeVisible(); await result.click();
+    await expect(page.locator("#dictionary-term")).toHaveText(term);
+    await expect(page.locator("#dictionary-source")).toContainText("ECDICT");
+  }
+  expect(postings).toEqual([]);
+});
+
 test("slow optional associations leave direct lookup usable and cannot overwrite a later English query", async ({ page }) => {
   const held = deferred(), seen = deferred();
   const aliases = new Set(["高兴", "快乐", "愉快"].map(bucket));

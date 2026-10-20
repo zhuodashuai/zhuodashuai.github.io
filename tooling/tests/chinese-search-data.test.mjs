@@ -58,4 +58,12 @@ test("all 54 Chinese concept families resolve only real, correctly matched dicti
     const terms = [...direct.results, ...related.results].map(row => row.term);
     assert.ok(terms.includes(expected), query); assert.ok(!terms.includes(excluded), query);
   }
+  for (const [query, expected] of [["购买", "buy"], ["购置", "purchase"], ["买", "buy"], ["出售", "sell"], ["卖出", "sell"], ["卖", "sell"]]) {
+    const requests = [];
+    const coldFetch = async (url, options) => { requests.push(String(url)); return fetchImpl(url, options); };
+    const direct = await searchExpandedDictionary(query, { fetchImpl: coldFetch }), related = await searchRelatedChineseDictionary(query, { fetchImpl: coldFetch });
+    assert.ok([...direct.results, ...related.results].some(row => row.term === expected), query);
+    assert.ok(!requests.some(url => /\/zh-\d{3}\.json$/u.test(url)), "single-character trade aliases never need broad postings");
+    assert.ok(requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length <= 4);
+  }
 });

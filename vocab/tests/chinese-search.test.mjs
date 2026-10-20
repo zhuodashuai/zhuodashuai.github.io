@@ -15,8 +15,8 @@ const groups = [
   ["讨厌", "厌恶", "嫌恶"], ["正确", "无误"], ["昂贵", "高价", "价高"],
   ["医生", "医师", "大夫"], ["教师", "教员", "老师"], ["儿童", "孩童", "小孩", "孩子"],
   ["婴儿", "婴孩", "宝宝"], ["朋友", "友人"], ["购买者", "买家", "买主"],
-  ["寻找", "搜寻", "寻觅"], ["询问", "问询"], ["回答", "答复"], ["购买", "购置"],
-  ["出售", "卖出"], ["修理", "修缮", "维修"], ["巨大", "庞大"], ["微小", "细小"],
+  ["寻找", "搜寻", "寻觅"], ["询问", "问询"], ["回答", "答复"], ["购买", "购置", "买"],
+  ["出售", "卖出", "卖"], ["修理", "修缮", "维修"], ["巨大", "庞大"], ["微小", "细小"],
   ["困难", "艰难"], ["漂亮", "美丽", "秀丽"], ["惊讶", "惊奇", "诧异"], ["嫉妒", "妒忌"],
   ["谨慎", "慎重", "审慎"], ["准确", "精确", "确切"], ["相似", "类似", "相像"],
   ["不同", "相异", "有别"], ["理解", "领会", "领悟"], ["抱怨", "埋怨"], ["允许", "准许", "许可"],
@@ -47,7 +47,7 @@ test("all curated Chinese groups are unique, bounded, reciprocal and immutable",
 test("only complete approved queries expand; related concepts do not form an uncontrolled graph", () => {
   for (const query of ["", null, {}, 1, "happy", "happy开心", "开 心", "开心果", "很开心", "开心一点",
     "使高兴", "令人愉快", "不太高兴", "未必快乐", "快乐主义", "不喜欢", "不安全", "安全", "可靠",
-    "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "回复", "大方", "关键", "记住", "买", "卖", "开心的的", "\u202e开心", "开心\u0000",
+    "便宜", "吝啬", "生气", "好看", "难看", "安静", "简单", "回复", "大方", "关键", "记住", "开心的的", "\u202e开心", "开心\u0000",
     "开".repeat(51), "开心，", "“开心”"]) assert.equal(chineseSearchPlan(query), null, String(query));
   assert.deepEqual(chineseSearchPlan("喜欢").aliases, ["喜爱"]);
   assert.ok(!chineseSearchPlan("喜欢").aliases.includes("爱情"));
@@ -61,6 +61,17 @@ test("reviewed medical heads are a bounded immutable shortlist, not hints for ar
   assert.ok(Object.isFrozen(heads)); assert.equal(chineseSearchHeads("医师"), heads);
   assert.equal(chineseSearchHeads("大夫"), heads);
   for (const value of [null, {}, "", "医生的", "doctor", "外科医生", "教师", "护士"]) assert.equal(chineseSearchHeads(value), null);
+});
+
+test("single-character trade aliases use reviewed heads rather than an unbounded compound scan", () => {
+  for (const term of ["购买", "购置", "买"]) {
+    assert.deepEqual(chineseSearchHeads(term), ["buy", "purchase"]);
+    assert.ok(Object.isFrozen(chineseSearchHeads(term)));
+  }
+  for (const term of ["出售", "卖出", "卖"]) assert.deepEqual(chineseSearchHeads(term), ["sell", "vend", "sale", "for sale"]);
+  assert.ok(matchesChineseSearchEntry("sell", "v. 卖, 销售", "卖"));
+  assert.ok(!matchesChineseSearchEntry("buyer", "n. 买主", "买"));
+  assert.ok(!matchesChineseSearchEntry("seller", "n. 卖主", "卖"));
 });
 
 test("negative emotions have a separate exact family rather than losing their negation", () => {
