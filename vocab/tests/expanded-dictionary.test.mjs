@@ -115,7 +115,7 @@ test("related meanings retain the one real source variant, deduplicate canonical
   assert.deepEqual((await searchRelatedChineseDictionary("开心", data)).results.map(row => row.term), ["happy"]);
   assert.deepEqual((await searchRelatedChineseDictionary("好吃", data)).results.map(row => row.term), ["tasty"]);
   const cold = fixture();
-  for (const query of ["happy", "heppy", "今天很开心", "安全", "不安全", null, "<开心>"]) {
+  for (const query of ["happy", "heppy", "今天很开心", "安全", "毫不安全", null, "<开心>"]) {
     assert.deepEqual((await searchRelatedChineseDictionary(query, cold)).results, []);
   }
   assert.equal(cold.requests.length, 0);

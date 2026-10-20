@@ -252,10 +252,10 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=94/u); assert.match(html, /dictionary-app\.js\?v=94/u);
+  assert.match(html, /dictionary\.css\?v=95/u); assert.match(html, /dictionary-app\.js\?v=95/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=94/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=95/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
   assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
   assert.match(html, /仅提供拼写建议，点选后查词/u);

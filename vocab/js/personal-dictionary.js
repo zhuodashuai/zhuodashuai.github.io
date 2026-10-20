@@ -1,7 +1,7 @@
 import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=88";
 import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
 import { CORE_POS_CORRECTIONS } from "./core-pos-corrections.js?v=88";
-import { chineseSearchPlan, matchesChineseSearchEntry } from "./chinese-search.js?v=94";
+import { chineseSearchPlan, matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 
 const POS = Object.freeze({
   n: "noun", noun: "noun", v: "verb", vt: "verb", vi: "verb", verb: "verb",
