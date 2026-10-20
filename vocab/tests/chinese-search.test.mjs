@@ -1,7 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchMeaning, matchesChineseSearchEntry } from "../js/chinese-search.js";
 
+const batch003 = JSON.parse(readFileSync(new URL("../../tooling/dictionary/chinese-related-003.json", import.meta.url), "utf8"));
 const groups = [
   ["开心", "高兴", "快乐", "愉快"], ["不开心", "不快乐", "不高兴"],
   ["难过", "伤心", "悲伤", "悲哀"], ["愤怒", "恼怒", "恼火"],
@@ -22,10 +24,11 @@ const groups = [
   ["不同", "相异", "有别"], ["理解", "领会", "领悟"], ["抱怨", "埋怨"], ["允许", "准许", "许可"],
   ["拒绝", "谢绝"], ["害羞", "羞怯", "腼腆"], ["著名", "有名", "知名"], ["错误", "差错"],
   ["安慰", "慰藉", "抚慰"],
+  ...batch003.groups.map(group => group.terms),
 ];
 
 test("all curated Chinese groups are unique, bounded, reciprocal and immutable", () => {
-  assert.equal(groups.length, 54);
+  assert.equal(groups.length, 84);
   const seen = new Set();
   for (const group of groups) {
     assert.ok(group.length >= 2 && group.length <= 4);
@@ -42,6 +45,52 @@ test("all curated Chinese groups are unique, bounded, reciprocal and immutable",
       assert.equal(chineseSearchPlan(`${term}地`), plan);
     }
   }
+});
+
+test("batch 003 table, reciprocal plans and immutable lexical shortlists stay in sync", () => {
+  assert.equal(batch003.schemaVersion, 1);
+  assert.equal(batch003.id, "chinese-related-003");
+  assert.equal(batch003.start, 55);
+  assert.equal(batch003.groups.length, 30);
+  for (const [index, group] of batch003.groups.entries()) {
+    assert.equal(group.number, 55 + index);
+    assert.ok(group.terms.length >= 2 && group.terms.length <= 4);
+    assert.ok(group.heads.length >= 2 && group.heads.length <= 5);
+    assert.equal(new Set(group.heads).size, group.heads.length);
+    assert.ok(group.forbidden.length >= 1);
+    assert.ok(group.note.trim());
+    const sharedHeads = chineseSearchHeads(group.terms[0]);
+    assert.deepEqual(sharedHeads, group.heads);
+    assert.ok(Object.isFrozen(sharedHeads));
+    assert.throws(() => sharedHeads.push("unchecked"), TypeError);
+    for (const term of group.terms) {
+      assert.equal(chineseSearchHeads(term), sharedHeads);
+      assert.deepEqual(chineseSearchPlan(term).aliases, group.terms.filter(alias => alias !== term));
+      assert.equal(chineseSearchHeads(`${term}的`), null, "shortlist keys are exact canonical terms");
+      for (const head of group.forbidden) {
+        assert.ok(!group.heads.includes(head));
+        assert.equal(matchesChineseSearchEntry(head, `a. ${term}的`, term), false, `${term}: ${head}`);
+        assert.equal(matchesChineseSearchEntry(head, `n. ${term}`, term), false, `${term}: ${head}`);
+      }
+    }
+  }
+});
+
+test("batch 003 shortlists never substitute for independent source evidence", () => {
+  for (const group of batch003.groups) for (const term of group.terms) {
+    for (const head of group.heads) {
+      assert.equal(matchesChineseSearchEntry(head, "无关的原有释义", term), false, `${term}: ${head}`);
+      assert.equal(matchesChineseSearchEntry(head, `a. 不${term}的`, term), false, `${term}: ${head}`);
+      assert.equal(matchesChineseSearchEntry(head, `vt. 使${term}`, term), false, `${term}: ${head}`);
+      assert.equal(matchesChineseSearchEntry(head, `用于讨论${term}这一概念`, term), false, `${term}: ${head}`);
+      assert.ok(matchesChineseSearchEntry(head, term, term), `${term}: ${head}`);
+    }
+  }
+  assert.equal(matchesChineseSearchEntry("condescend", "vi. 谦逊", "谦逊"), false);
+  assert.equal(matchesChineseSearchEntry("autistic", "a. 孤独的", "孤独"), false);
+  assert.equal(matchesChineseSearchEntry("promotion", "n. 创建", "创建"), false);
+  assert.equal(matchesChineseSearchEntry("W", "n. 等待", "等待"), false);
+  assert.equal(chineseSearchHeads("unconfigured"), null);
 });
 
 test("only complete approved queries expand; related concepts do not form an uncontrolled graph", () => {

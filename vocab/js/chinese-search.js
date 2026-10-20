@@ -1,6 +1,43 @@
 // These are small, editorially selected reverse-lookup concepts, not claims
 // that every English result is interchangeable. Never expand part of a query,
 // derive an antonym by deleting a negation, or follow a second synonym hop.
+// Batch 003 uses a short reviewed lexical set for each concept. Every result
+// must still have an independent matching source atom; the shortlist is neither
+// a generated translation nor permission to treat these words as interchangeable.
+const CURATED_BATCH_003 = Object.freeze([
+  { terms: ["勤奋", "勤劳", "勤勉"], heads: ["diligent", "industrious", "assiduous", "diligence"] },
+  { terms: ["懒惰", "懒散", "怠惰"], heads: ["lazy", "idle", "indolent", "slothful"] },
+  { terms: ["富裕", "富有", "富足"], heads: ["rich", "wealthy", "affluent", "well-to-do"] },
+  { terms: ["贫穷", "贫困", "穷困"], heads: ["poor", "poverty", "needy", "destitute"] },
+  { terms: ["谦虚", "谦逊"], heads: ["modest", "humble", "unassuming", "humility"] },
+  { terms: ["傲慢", "高傲", "倨傲"], heads: ["arrogant", "haughty", "imperious", "hubris"] },
+  { terms: ["友好", "友善", "亲善"], heads: ["friendly", "amicable", "affable", "goodwill"] },
+  { terms: ["残忍", "残酷", "凶残"], heads: ["cruel", "brutal", "ruthless", "merciless"] },
+  { terms: ["冷静", "镇定", "沉着"], heads: ["calm", "cool", "composed", "composure"] },
+  { terms: ["孤独", "孤单", "寂寞"], heads: ["lonely", "lonesome", "solitary", "loneliness"] },
+  { terms: ["宽阔", "宽广", "广阔"], heads: ["wide", "broad", "spacious", "expansive"] },
+  { terms: ["吵闹", "喧闹", "喧嚣"], heads: ["noisy", "rowdy", "boisterous", "clamorous", "racket"] },
+  { terms: ["必要", "必需"], heads: ["necessary", "essential", "requisite", "necessity"] },
+  { terms: ["等待", "等候"], heads: ["wait", "await", "waiting"] },
+  { terms: ["到达", "抵达"], heads: ["arrive", "reach", "arrival"] },
+  { terms: ["选择", "挑选", "选取"], heads: ["choose", "select", "pick", "choice", "selection"] },
+  { terms: ["创建", "建立", "创立"], heads: ["establish", "found", "institute", "set up"] },
+  { terms: ["保护", "防护", "保卫"], heads: ["protect", "defend", "guard", "protection"] },
+  { terms: ["阻止", "阻拦", "制止"], heads: ["prevent", "stop", "restrain", "deter"] },
+  { terms: ["改善", "改进", "改良"], heads: ["improve", "amend", "ameliorate", "improvement"] },
+  { terms: ["解释", "说明", "阐释"], heads: ["explain", "interpret", "explanation"] },
+  { terms: ["隐藏", "隐蔽", "藏匿"], heads: ["hide", "conceal", "harbour", "covert"] },
+  { terms: ["称赞", "赞扬", "赞美"], heads: ["praise", "compliment", "applaud", "laud"] },
+  { terms: ["责备", "责怪", "指责"], heads: ["blame", "reproach", "rebuke", "censure"] },
+  { terms: ["道歉", "致歉"], heads: ["apologize", "apologise", "apology", "apologetic"] },
+  { terms: ["欺骗", "蒙骗", "哄骗"], heads: ["deceive", "cheat", "trick", "hoodwink"] },
+  { terms: ["继续", "持续", "延续"], heads: ["continue", "last", "endure", "sustain"] },
+  { terms: ["停止", "停下", "停住"], heads: ["stop", "cease", "halt", "quit"] },
+  { terms: ["增加", "增多", "增长"], heads: ["increase", "grow", "rise", "growth"] },
+  { terms: ["减少", "减小", "缩减"], heads: ["reduce", "decrease", "lessen", "reduction"] },
+].map(group => Object.freeze({ terms: Object.freeze(group.terms), heads: Object.freeze(group.heads) })));
+const CURATED_HEADS_003 = new Map(CURATED_BATCH_003.flatMap(group => group.terms.map(term => [term, group.heads])));
+
 const GROUPS = Object.freeze([
   ["开心", "高兴", "快乐", "愉快"],
   ["不开心", "不快乐", "不高兴"],
@@ -56,6 +93,7 @@ const GROUPS = Object.freeze([
   ["著名", "有名", "知名"],
   ["错误", "差错"],
   ["安慰", "慰藉", "抚慰"],
+  ...CURATED_BATCH_003.map(group => group.terms),
 ].map(group => Object.freeze(group)));
 
 // These concepts denote people, not their adjectival derivatives. A source
@@ -83,7 +121,7 @@ export function chineseSearchHeads(term) {
   // mentions. These common heads still require an actual matching source atom.
   if (BUYING_TERMS.includes(term)) return BUYING_HEADS;
   if (SELLING_TERMS.includes(term)) return SELLING_HEADS;
-  return null;
+  return CURATED_HEADS_003.get(term) || null;
 }
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;

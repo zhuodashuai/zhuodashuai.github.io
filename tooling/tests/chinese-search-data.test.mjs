@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { chineseSearchPlan, matchesChineseSearchEntry } from "../../vocab/js/chinese-search.js";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
 
-test("all 54 Chinese concept families resolve only real, correctly matched dictionary records", async () => {
+test("the original 54 Chinese concept families still resolve real, correctly matched dictionary records", async () => {
   const seeds = ["开心", "不开心", "难过", "愤怒", "害怕", "担心", "疲倦", "困倦", "聪明", "愚蠢", "勇敢", "有礼貌",
     "美味", "快速", "缓慢", "干净", "肮脏", "帮助", "开始", "结束", "喜欢", "讨厌", "正确", "昂贵",
     "医生", "教师", "儿童", "婴儿", "朋友", "购买者", "寻找", "询问", "回答", "购买", "出售", "修理",
