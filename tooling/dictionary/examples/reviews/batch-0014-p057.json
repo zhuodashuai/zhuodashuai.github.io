@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "f802ed2c2103d639a19bf4ed1532638fa08e0bcd773565249fa07b4c992297e3",
+  "reviewer": "AI/examples14_reviewreserve",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "decayed",
+    "deceased",
+    "decree nisi",
+    "dedicated",
+    "deep down",
+    "deep-fry",
+    "deep-rooted",
+    "deep-sea",
+    "deep-six",
+    "deerstalker",
+    "defined",
+    "definite article",
+    "deflated",
+    "deforest",
+    "degrading",
+    "dehydrated",
+    "dejected",
+    "delighted",
+    "delist",
+    "deliver the goods",
+    "delusions of grandeur",
+    "demerara sugar",
+    "demoralizing",
+    "dental floss",
+    "deodorize",
+    "departed",
+    "departure lounge",
+    "departure tax",
+    "depilatory",
+    "depleted"
+  ],
+  "issues": [
+    {
+      "term": "depleted",
+      "blocking": true,
+      "reason": "Selected Chinese exhausted sense conflicted with initial fuel reserves that still lasted a week.",
+      "resolution": "Reread final exact diff: completely depleted fuel forces generator closure, matching both exhausted Chinese and insufficient WordNet sense."
+    }
+  ]
+}
