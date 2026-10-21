@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8e060570314e522c0ae4786c157cac12e5dc48ca18d20f0d9870939aa0680a3a",
+  "reviewer": "AI/examples17_reviewer_c",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "heterotopic",
+    "leukemic",
+    "electroactive"
+  ],
+  "issues": [],
+  "reviewMethod": "Independent C actually read every field of all three complete frozen objects: canonical terms, adjective POS, entire meanings including the chemical versus medical alternatives, every variant and its source, ranks, full lexical-evidence records, all pack-level metadata, the entire root-decision-p080.json author record, all five fields of all three saved bilingual pairs, LOCK and the complete fresh canonical source. Independently read Collins's actual heterotopic adjective definition; independently found and read NCI's leukemia paragraph with leukemic blast-cell use, not merely the cancer-page header; independently read the actual author-university repository indexed pressure-sensor section containing electroactive coating. The download endpoint returned 403, and only the relevant repository-indexed passage was read, not the full paper or its experimental results. Heterotopic unambiguously selects the frozen medical abnormal-location tissue sense, not chemical stereotopicity or a sociological use. Leukemic selects the frozen explicit 白血病的 sense, not a claim that any raised white-cell count is leukemia. Electroactive is the frozen electrical-activity adjective in an invented coating-selection scene with no claimed mechanism, efficacy, quantitative performance, clinical outcome or current real study. All three Chinese translations accurately preserve the English action, participants and timing without introducing a treatment or diagnosis. Genuine sentence-by-sentence language judgment found no known substantive blocking issue. After reading, independently verified the raw SHA and LOCK, canonical source hash, exact source/TSV row equality and all three canonical queue heads/order. Mechanical hash checks did not substitute for reading. C is not the root17 author and did not edit the authored rows, queue or compiled source."
+}
