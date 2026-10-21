@@ -1,7 +1,8 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
 import { createEntryDetailController } from "./entry-detail.js?v=96";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
-import { ownerWordbookLink, publicEntryIdFromUrl } from "./owner-public-library.js?v=98";
+import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=99";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";
@@ -14,7 +15,6 @@ import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=82";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
-import { dictionarySearchUrl } from "./dictionary-navigation.js?v=80";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -64,7 +64,7 @@ const TYPE_LABELS = {
   sentence: "句子", quote: "名言", proverb: "谚语"
 };
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
-const adminUrl = ownerWordbookLink();
+const adminUrl = ownerLibraryLink();
 const personalLink = document.getElementById("personal-link");
 if (personalLink) personalLink.href = personalWordbookUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
@@ -80,8 +80,19 @@ const compactMedia = window.matchMedia("(max-width: 720px)");
 const adjustOptions = () => { refs.libraryOptions.open = !compactMedia.matches; };
 adjustOptions();
 compactMedia.addEventListener("change", adjustOptions);
+let publicConfirmations = [];
+let libraryLookup = null;
+function publicEntries() {
+  const base = state.snapshot?.entries || [];
+  const merged = new Map(ownerPublicEntries(state.snapshot, publicConfirmations).map(entry => [entry.id, entry]));
+  const ids = new Set(base.map(entry => entry.id));
+  // Preserve the reading order of existing chapter words; put only confirmed
+  // new public cards first. Never store this overlay as an authoritative GET.
+  return [...publicConfirmations.filter(item => !item.absorbed && !ids.has(item.entry.id)).map(item => item.entry),
+    ...base.map(entry => merged.get(entry.id) || entry)];
+}
 const entryDetail = createEntryDetailController({
-  getEntries: () => state.snapshot?.entries || [],
+  getEntries: publicEntries,
   contextualizeEntry: (entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId),
   onNavigate: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
 });
@@ -378,7 +389,7 @@ async function saveReviewRating(entryId, rating) {
 }
 
 function render() {
-  const entries = state.snapshot?.entries || [];
+  const entries = publicEntries();
   renderCollectionNavigation(entries);
   const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId)
     .map((entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId));
@@ -415,7 +426,7 @@ function render() {
   if (passagesView) document.getElementById("chapter-quiz-button").hidden = true;
   const searchLabel = refs.librarySearch.closest("label");
   searchLabel.querySelector("span").textContent = passagesView ? "搜索摘句" : "搜索已收录词卡";
-  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "搜索英文、中文或原文形式 · 查新词请用上方“中英查词”";
+  searchLabel.querySelector(".field-hint").textContent = passagesView ? "搜索原句、参考译意或阅读笔记" : "筛选当前词本或章节 · 查新词用本页上方查词框";
   refs.librarySearch.placeholder = passagesView ? "搜索当前章节或词本的摘句" : "搜索本章或词本已有的词";
   refs.viewControls.querySelectorAll("button[data-view]").forEach((control) => {
     if (control.dataset.view === "synonyms") control.hidden = !SYNONYM_FEATURE_ENABLED;
@@ -488,7 +499,8 @@ function render() {
   const searchMiss = Boolean(query) && queryMatches.length === 0;
   refs.searchEmpty.hidden = groupedView || passagesView || !searchMiss;
   if (searchMiss) {
-    refs.searchDictionaryLink.href = dictionarySearchUrl(state.query);
+    refs.searchDictionaryLink.href = "#library-lookup";
+    refs.searchDictionaryLink.textContent = "在本页查这个词";
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     const limited = state.collectionId !== "all";
     refs.searchEmptyTitle.textContent = `${state.chapterId !== "all" ? "本章" : limited ? "本词本" : "已发布词库"}未找到“${displayQuery}”。`;
@@ -500,6 +512,7 @@ function render() {
   refs.emptyMessage.hidden = groupedView || passagesView || filtered.length > 0 || searchMiss || collectionEntries.length === 0;
   void refreshStudySummary(collectionEntries);
   openLinkedEntry();
+  libraryLookup?.refreshReceipts();
 }
 
 async function fetchLatestSnapshot() {
@@ -539,6 +552,8 @@ async function performLoad({ background = false } = {}) {
       refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
       return;
     }
+    publicConfirmations = reconcileOwnerPublicConfirmations({ ...snapshot,
+      readSource: source === "live" ? "live" : "deployed-fallback" }, publicConfirmations);
     if (state.snapshot?.revisionId === snapshot.revisionId) {
       refs.entryGrid.setAttribute("aria-busy", "false");
       refs.dataStatus.textContent = source === "live"
@@ -736,6 +751,25 @@ refs.exportPublic.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
+libraryLookup = mountLibraryLookup({ document, window,
+  onCollected(entry, { added }) {
+    publicConfirmations = [{ entry, added }, ...publicConfirmations.filter(item => item.entry.id !== entry.id)];
+    navigationKey = "";
+    render();
+    void loadWordbook({ background: true, force: true });
+  },
+  onOpenEntry: (entry, invoker) => openEntry(entry, invoker),
+  resolveEntry: id => publicEntries().find(entry => entry.id === id)
+});
+refs.searchDictionaryLink.addEventListener("click", event => {
+  event.preventDefault();
+  const input = document.getElementById("lookup-input");
+  input.value = state.query; libraryLookup.change(state.query);
+  document.getElementById("library-lookup").scrollIntoView({ block: "nearest" });
+  input.focus({ preventScroll: true });
+  void libraryLookup.submit(state.query);
+});
+document.getElementById("dictionary-link").addEventListener("click", () => document.getElementById("lookup-input").focus());
 if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";
@@ -744,6 +778,7 @@ setupPwa({ installButton: refs.installButton, updateBanner: refs.updateBanner, a
   await chapterQuiz.flushPendingSave();
   await learningBackup.flushPendingSave();
   if (pendingReviewSave) await pendingReviewSave;
+  if (libraryLookup.hasUnsettled()) throw new Error("请先确认公开收录完成或重试未确认的词，再更新应用。");
 } });
 const refreshWhileVisible = () => {
   if (document.visibilityState === "hidden") return;

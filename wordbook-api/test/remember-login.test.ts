@@ -89,6 +89,71 @@ it("binds the remember choice to one-use OAuth state and sends only an opaque 30
   expect(await decryptSecret(rows[0].githubRefreshTokenCipher as string, SECRET)).toBe(REFRESH);
 });
 
+it("returns a successful library OAuth transaction only to the fixed same-origin homepage", async () => {
+  githubMock();
+  const login = await api("/api/v1/auth/login?view=library&remember=1&returnTo=https://evil.example/");
+  const authorization = new URL(login.headers.get("location")!);
+  expect(authorization.searchParams.get("scope")).toBe("offline_access");
+  const state = authorization.searchParams.get("state")!;
+  const oauthCookie = login.headers.get("set-cookie")!.split(";", 1)[0];
+  const callback = await api(`/api/v1/auth/callback?code=test-code&state=${state}&view=owner&returnTo=https://evil.example/`, { Cookie: oauthCookie });
+  expect(callback.status).toBe(302);
+  expect(callback.headers.get("location")).toBe("/?auth=owner#library-lookup");
+  const cookie = callback.headers.get("set-cookie")!;
+  expect(cookie).toMatch(/__Host-zhuo_session=[A-Za-z0-9_-]{64};/);
+  expect(cookie).toContain("HttpOnly; Secure; SameSite=Lax");
+  const seconds = Number(cookie.match(/Max-Age=(\d+)/)![1]);
+  expect(seconds).toBeGreaterThan(REMEMBER_SESSION_TTL_SECONDS - 10);
+  expect(seconds).toBeLessThanOrEqual(REMEMBER_SESSION_TTL_SECONDS);
+  expect(cookie).not.toContain(ACCESS);
+  expect(cookie).not.toContain(REFRESH);
+  const replay = await api(`/api/v1/auth/callback?code=test-code&state=${state}`, { Cookie: oauthCookie });
+  expect(replay.headers.get("location")).toBe("/owner.html?login=error&reason=oauth_state_invalid");
+});
+
+it("cannot change a legacy owner return through callback parameters or arbitrary login targets", async () => {
+  githubMock();
+  for (const view of ["", "owner", "https://evil.example/", "//evil.example/", "Library"]) {
+    const login = await api(`/api/v1/auth/login?view=${encodeURIComponent(view)}&returnTo=https://evil.example/`);
+    const state = new URL(login.headers.get("location")!).searchParams.get("state")!;
+    const oauthCookie = login.headers.get("set-cookie")!.split(";", 1)[0];
+    const callback = await api(`/api/v1/auth/callback?code=test-code&state=${state}&view=library&returnToLibrary=true&returnTo=https://evil.example/`, { Cookie: oauthCookie });
+    expect(callback.headers.get("location")).toBe("/owner.html?login=ok");
+  }
+});
+
+it("keeps a failed library OAuth attempt on the existing owner error gate", async () => {
+  const mock = githubMock();
+  const login = await api("/api/v1/auth/login?view=library");
+  const state = new URL(login.headers.get("location")!).searchParams.get("state")!;
+  const callback = await api(`/api/v1/auth/callback?code=test-code&state=${state}&view=library`);
+  expect(callback.headers.get("location")).toBe("/owner.html?login=error&reason=oauth_state_invalid");
+  expect(callback.headers.get("set-cookie")).not.toContain("__Host-zhuo_session=");
+  expect(mock.mock).not.toHaveBeenCalled();
+});
+
+it("rejects nonboolean internal library return choices before saving OAuth state", async () => {
+  const stateHash = "c".repeat(64);
+  for (const returnToLibrary of ["true", "false", 1, 0, null, {}, []]) {
+    const response = await call("/oauth/create", { stateHash, verifier: "v".repeat(43), expiresAt: Date.now() + 60_000, returnToLibrary });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ error: { code: "invalid_internal_request" } });
+    const stored = await runInDurableObject(owner(), async (_instance, state) => state.storage.get(`oauth:${stateHash}`));
+    expect(stored).toBeUndefined();
+  }
+});
+
+it("normalizes omitted and legacy stored library choices to false, never a stored URL", async () => {
+  const stateHash = "d".repeat(64);
+  expect((await call("/oauth/create", { stateHash, verifier: "v".repeat(43), expiresAt: Date.now() + 60_000 })).status).toBe(200);
+  expect(await (await call("/oauth/consume", { stateHash })).json()).toMatchObject({ returnToLibrary: false });
+  await runInDurableObject(owner(), async (_instance, state) => {
+    await state.storage.put(`oauth:${stateHash}`, { verifier: "v".repeat(43), expiresAt: Date.now() + 60_000,
+      createdAt: Date.now(), returnTo: "https://evil.example/" });
+  });
+  expect(await (await call("/oauth/consume", { stateHash })).json()).toEqual({ verifier: "v".repeat(43), remember: false, returnToLibrary: false });
+});
+
 it("keeps unchecked, legacy and no-refresh sessions short, and bounds long sessions by refresh expiry", async () => {
   for (const choice of [{ remember: false, refresh: true }, { remember: true, refresh: false }]) {
     const session = await seed(choice);
@@ -193,11 +258,11 @@ it("classifies rate-limited OAuth refresh as retryable without exposing provider
 
 it("consumes the remembered OAuth transaction atomically under concurrent callbacks", async () => {
   const stateHash = "a".repeat(64);
-  expect((await call("/oauth/create", { stateHash, verifier: "v".repeat(43), expiresAt: Date.now() + 60_000, remember: true })).status).toBe(200);
+  expect((await call("/oauth/create", { stateHash, verifier: "v".repeat(43), expiresAt: Date.now() + 60_000, remember: true, returnToLibrary: true })).status).toBe(200);
   const responses = await Promise.all([call("/oauth/consume", { stateHash }), call("/oauth/consume", { stateHash })]);
   expect(responses.map(response => response.status).sort()).toEqual([200, 401]);
   const success = responses.find(response => response.ok)!;
-  expect(await success.json()).toMatchObject({ remember: true });
+  expect(await success.json()).toMatchObject({ remember: true, returnToLibrary: true });
 });
 
 it("cleanup waits for token rotation and re-reads rather than deleting a refreshed session", async () => {

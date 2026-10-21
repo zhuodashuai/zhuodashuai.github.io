@@ -18,6 +18,8 @@ test("an anonymous exact entry ID opens the complete published card even outside
   page.on("request", request => { if (!["GET", "HEAD"].includes(request.method()) && new URL(request.url()).pathname.startsWith("/api/")) writes.push(request.url()); });
   await page.goto(`/?entry=${encodeURIComponent(target.id)}&book=never-let-me-go&chapter=chapter-1`);
   await expectFullPublicEntry(page, target);
+  await expect(page.locator("#owner-link")).toHaveAttribute("href", `${ORIGIN}/?auth=owner&book=never-let-me-go&chapter=chapter-1#library-lookup`);
+  await expect(page.locator("#dictionary-link")).toHaveAttribute("href", "#library-lookup");
   expect(new URL(page.url()).searchParams.get("entry")).toBe(target.id);
   await page.reload();
   await expectFullPublicEntry(page, target);

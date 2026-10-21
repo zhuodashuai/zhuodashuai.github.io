@@ -629,8 +629,10 @@ test("Chapter 1 学习进度仅属于本章并在刷新后保留", async ({ page
 
 test("词卡搜索无结果时提供只读词典，不直接写入或调用AI", async ({ page }) => {
   let aiRequestCount = 0;
+  const mutations = [];
   page.on("request", (request) => {
     if (request.url().includes("/api/v1/owner/ai/organize")) aiRequestCount += 1;
+    if (!["GET", "HEAD", "OPTIONS"].includes(request.method())) mutations.push(request.url());
   });
 
   await page.goto("/");
@@ -639,9 +641,10 @@ test("词卡搜索无结果时提供只读词典，不直接写入或调用AI", 
   await expect(page.locator("#search-empty-title")).toHaveText("已发布词库未找到“unpublishedtestword”。");
   await expect(page.locator("#search-empty")).toContainText("可以检查拼写，或扩大搜索范围");
   await expect(page.locator("#search-whole-book")).toBeHidden();
-  // A missed card search may enter the read-only dictionary, never the editor.
+  // A missed card search now uses the homepage's read-only dictionary, never
+  // the editor or a navigation to the standalone dictionary page.
   await expect(page.locator("#search-empty a")).toHaveCount(1);
-  await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", "http://127.0.0.1:4187/dictionary.html#q=unpublishedtestword");
+  await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", "#library-lookup");
   expect(aiRequestCount).toBe(0);
 
   await page.locator("#library-search").fill("unpublishedtestword & <script>");
@@ -649,9 +652,30 @@ test("词卡搜索无结果时提供只读词典，不直接写入或调用AI", 
     .toHaveText("已发布词库未找到“unpublishedtestword & <script>”。");
   expect(aiRequestCount).toBe(0);
 
+  await page.locator('#collection-tabs button[data-value="never-let-me-go"]').click();
+  await page.locator('#chapter-tabs button[data-value="chapter-1"]').click();
+  await page.locator("#library-search").fill("abacus");
+  await expect(page.locator("#search-empty")).toBeVisible();
+  const originalUrl = page.url();
+  await page.locator("#search-dictionary-link").click();
+  await expect(page.locator("#lookup-input")).toHaveValue("abacus");
+  await expect(page.locator("#lookup-result")).toBeVisible();
+  await expect(page.locator("#lookup-term")).toHaveText("abacus");
+  await expect(page.locator("#lookup-meaning")).toContainText("算盘");
+  expect(page.url()).toBe(originalUrl);
+  expect(new URL(page.url()).pathname).toBe("/");
+  await expect(page.locator('#chapter-tabs button[data-value="chapter-1"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#lookup-collect")).toBeHidden();
+  await expect(page.locator("#lookup-receipts button[data-lookup-entry]")).toHaveCount(0);
+  expect(mutations).toEqual([]);
+  expect(aiRequestCount).toBe(0);
+
+  await page.locator('#collection-tabs button[data-value="all"]').click();
   await page.locator("#library-search").fill("jab at");
   await expect(page.locator("#search-empty")).toBeHidden();
   await expect(page.getByRole("button", { name: "查看 jab at 的完整词条" })).toBeVisible();
+  expect(mutations).toEqual([]);
+  expect(aiRequestCount).toBe(0);
 });
 
 test("公开页带来的英文只在卓身份验证后预填，不自动调用 AI 或建立草稿", async ({ page }) => {

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { ownerPublicEntries, ownerWordbookLink, publicEntryIdFromUrl, publicEntryUrl, reconcileOwnerPublicConfirmations } from "../js/owner-public-library.js";
+import { ownerLibraryLink, ownerPublicEntries, ownerWordbookLink, publicEntryIdFromUrl, publicEntryUrl, reconcileOwnerPublicConfirmations } from "../js/owner-public-library.js";
 import { createDictionaryCollectionQueue } from "../js/dictionary-collection.js";
 import { createBlankEntry } from "../js/wordbook-schema.js";
 
@@ -38,6 +38,43 @@ test("owner navigation uses the fixed authentication origin, with an explicit ow
   assert.deepEqual([...deployed.searchParams], [["auth", "owner"]]);
   assert.equal(deployed.hash, "");
   assert.equal(ownerWordbookLink({ href: "http://127.0.0.1:4187/dictionary.html#q=test" }), "http://127.0.0.1:4187/personal.html?auth=owner");
+});
+
+test("same-page owner navigation targets the fixed public library root and retains only safe book and chapter scope", () => {
+  for (const from of [
+    "https://zhuodashuai.github.io/vocab/?book=great-gatsby&chapter=chapter-2&entry=private-note&auth=member#q=private-word",
+    "https://untrusted.example/nested/personal.html?book=great-gatsby&chapter=chapter-2&redirect=https%3A%2F%2Funtrusted.example&csrf=private-token#lookup=private-word"
+  ]) {
+    const target = new URL(ownerLibraryLink({ href: from }));
+    assert.equal(target.origin, "https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev");
+    assert.equal(target.pathname, "/");
+    assert.deepEqual([...target.searchParams], [["auth", "owner"], ["book", "great-gatsby"], ["chapter", "chapter-2"]]);
+    assert.equal(target.hash, "#library-lookup");
+    assert.doesNotMatch(target.href, /private-word|private-note|private-token|untrusted\.example/u);
+  }
+});
+
+test("same-page owner links keep loopback development local while still targeting the library root", () => {
+  for (const origin of ["http://127.0.0.1:4187", "http://localhost:4187", "http://[::1]:4187"]) {
+    const target = new URL(ownerLibraryLink({ href: `${origin}/nested/dictionary.html?book=sample-book&chapter=all#q=secret` }));
+    assert.equal(target.origin, origin); assert.equal(target.pathname, "/");
+    assert.deepEqual([...target.searchParams], [["auth", "owner"], ["book", "sample-book"], ["chapter", "all"]]);
+    assert.equal(target.hash, "#library-lookup");
+  }
+});
+
+test("same-page owner scope rejects unsafe, empty and overlong values without forwarding unrelated query or fragment data", () => {
+  for (const invalid of ["", "../private", "two words", "UPPERCASE", "bad\u0000value", "bad&auth=member", "x".repeat(101)]) {
+    const source = new URL("https://zhuodashuai.github.io/vocab/");
+    source.searchParams.set("book", invalid); source.searchParams.set("chapter", invalid);
+    source.searchParams.set("q", "private-word"); source.searchParams.set("auth", "member"); source.hash = "lookup=private-word";
+    const target = new URL(ownerLibraryLink({ href: source.href }));
+    assert.deepEqual([...target.searchParams], [["auth", "owner"]]);
+    assert.equal(target.pathname, "/"); assert.equal(target.hash, "#library-lookup");
+  }
+  const boundary = "a".repeat(100);
+  const target = new URL(ownerLibraryLink({ href: `https://zhuodashuai.github.io/vocab/?book=${boundary}&chapter=${boundary}` }));
+  assert.equal(target.searchParams.get("book"), boundary); assert.equal(target.searchParams.get("chapter"), boundary);
 });
 
 test("API confirmations survive a stale snapshot, and newer edits win without mutating either source", () => {
