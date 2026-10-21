@@ -1,4 +1,4 @@
-import { createServer } from "node:http";
+import { createE2EHttpServer } from "./http-transport.mjs";
 import { createHash, randomBytes } from "node:crypto";
 import { gzipSync } from "node:zlib";
 import { readFile } from "node:fs/promises";
@@ -711,7 +711,7 @@ async function api(request, response, url) {
 }
 
 const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
-const server = createServer(async (request, response) => {
+const server = createE2EHttpServer(async (request, response) => {
   try {
     const url = new URL(request.url, "http://127.0.0.1:4187");
     if (url.pathname.startsWith("/api/")) return await api(request, response, url);
