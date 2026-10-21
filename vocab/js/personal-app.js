@@ -18,7 +18,7 @@ import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expa
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
-import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=98";
+import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=99";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();

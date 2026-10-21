@@ -29,6 +29,7 @@ interface OAuthTransaction {
   expiresAt: number;
   createdAt: number;
   remember?: boolean;
+  returnToLibrary?: boolean;
 }
 
 interface OwnerSession {
@@ -216,6 +217,7 @@ export class OwnerControl implements DurableObject {
     const verifier = internalString(body, "verifier", 43, 128);
     const expiresAt = Number(body.expiresAt);
     if (body.remember !== undefined && typeof body.remember !== "boolean") throw new ApiError(400, "invalid_internal_request", "Invalid remember choice");
+    if (body.returnToLibrary !== undefined && typeof body.returnToLibrary !== "boolean") throw new ApiError(400, "invalid_internal_request", "Invalid library return choice");
     if (!Number.isFinite(expiresAt) || expiresAt <= Date.now() || expiresAt > Date.now() + 15 * 60 * 1000) {
       throw new ApiError(400, "invalid_internal_request", "Invalid OAuth expiry");
     }
@@ -224,7 +226,8 @@ export class OwnerControl implements DurableObject {
       verifier,
       expiresAt,
       createdAt: Date.now(),
-      remember: body.remember === true
+      remember: body.remember === true,
+      returnToLibrary: body.returnToLibrary === true
     });
     return jsonResponse({ ok: true });
   }
@@ -240,7 +243,8 @@ export class OwnerControl implements DurableObject {
     if (!transaction || transaction.expiresAt <= Date.now()) {
       throw new ApiError(401, "oauth_state_invalid", "登录请求已过期或已使用，请重新开始。");
     }
-    return jsonResponse({ verifier: transaction.verifier, remember: transaction.remember === true });
+    return jsonResponse({ verifier: transaction.verifier, remember: transaction.remember === true,
+      returnToLibrary: transaction.returnToLibrary === true });
   }
 
   private async createSession(body: Record<string, unknown>): Promise<Response> {

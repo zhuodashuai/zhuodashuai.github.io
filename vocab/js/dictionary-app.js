@@ -419,4 +419,4 @@ export function mountDictionaryPage(document, window) {
   return controller;
 }
 
-if (typeof document !== "undefined" && typeof window !== "undefined") mountDictionaryPage(document, window);
+if (typeof document !== "undefined" && typeof window !== "undefined" && document.body?.dataset.page === "dictionary") mountDictionaryPage(document, window);

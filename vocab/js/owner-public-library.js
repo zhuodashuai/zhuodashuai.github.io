@@ -15,6 +15,18 @@ export function ownerWordbookLink(location = globalThis.location) {
   return url.href;
 }
 
+export function ownerLibraryLink(location = globalThis.location) {
+  const url = new URL("./", personalWordbookUrl(location));
+  url.searchParams.set("auth", "owner");
+  const current = new URL(location?.href || url.href);
+  for (const key of ["book", "chapter"]) {
+    const value = current.searchParams.get(key);
+    if (value && /^[a-z0-9-]{1,100}$/u.test(value)) url.searchParams.set(key, value);
+  }
+  url.hash = "library-lookup";
+  return url.href;
+}
+
 export function publicEntryIdFromUrl(href) {
   const id = new URL(href).searchParams.get("entry");
   return typeof id === "string" && id.length > 0 && id.length <= 200 && !/[\u0000-\u001f\u007f]/u.test(id) ? id : "";

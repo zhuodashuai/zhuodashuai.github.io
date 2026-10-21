@@ -123,10 +123,12 @@ async function login(request: Request, env: Env): Promise<Response> {
   const verifier = randomToken(64);
   const challenge = await sha256Base64Url(verifier);
   const remember = new URL(request.url).searchParams.get("remember") === "1";
+  const returnToLibrary = new URL(request.url).searchParams.get("view") === "library";
   await controlCall(env, "/oauth/create", {
     stateHash: await sha256Hex(state),
     verifier,
     remember,
+    returnToLibrary,
     expiresAt: Date.now() + OAUTH_STATE_TTL_SECONDS * 1000
   });
   const authorization = new URL(createAuthorizationUrl(secrets.GITHUB_APP_CLIENT_ID, callbackUrl(request), state, challenge));
@@ -178,7 +180,9 @@ async function callback(request: Request, env: Env): Promise<Response> {
     const ttl = Number.isFinite(expiresAt)
       ? Math.max(1, Math.min(REMEMBER_SESSION_TTL_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)))
       : SESSION_TTL_SECONDS;
-    const response = redirectResponse("/owner.html?login=ok", {
+    // Only the server-bound, one-use OAuth transaction selects this fixed
+    // return target. Callback query parameters are never redirect authority.
+    const response = redirectResponse(transaction.returnToLibrary === true ? "/?auth=owner#library-lookup" : "/owner.html?login=ok", {
       "Set-Cookie": sessionCookie(rawSession, ttl)
     });
     response.headers.append("Set-Cookie", clearOauthStateCookie());

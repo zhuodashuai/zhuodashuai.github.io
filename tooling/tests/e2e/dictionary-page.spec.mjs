@@ -395,18 +395,24 @@ test("adding a public result only opens the unsigned personal login flow, never 
   }
 });
 
-test("an empty 616-card home search links to the real public dictionary rather than pretending the new word is absent everywhere", async ({ page }) => {
+test("an empty home-card search queries the real dictionary inline without pretending the new word is absent everywhere", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#entry-count")).toHaveText(String(publicSnapshot.entries.length));
   await page.getByLabel("搜索已收录词卡").fill("abacus");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(0);
   await expect(page.locator("#search-empty")).toBeVisible();
-  await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", /dictionary\.html#q=abacus$/u);
+  await expect(page.locator("#search-dictionary-link")).toHaveAttribute("href", "#library-lookup");
+  const originalUrl = page.url();
   const calls = observeRequests(page);
   await page.locator("#search-dictionary-link").click();
-  await expect(page).toHaveURL(/\/dictionary\.html#q=abacus$/u);
-  await expect(page.locator("#dictionary-term")).toHaveText("abacus");
-  await expect(page.locator("#dictionary-meaning")).toContainText("算盘");
+  await expect(page.locator("#lookup-input")).toHaveValue("abacus");
+  await expect(page.locator("#lookup-result")).toBeVisible();
+  await expect(page.locator("#lookup-term")).toHaveText("abacus");
+  await expect(page.locator("#lookup-meaning")).toContainText("算盘");
+  expect(page.url()).toBe(originalUrl);
+  expect(new URL(page.url()).pathname).toBe("/");
+  await expect(page.locator("#lookup-collect")).toBeHidden();
+  await expect(page.locator("#lookup-receipts button[data-lookup-entry]")).toHaveCount(0);
   expectPublicOnly(calls);
 });
 
