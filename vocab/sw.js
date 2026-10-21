@@ -1,10 +1,10 @@
-const CACHE_NAME = "zhuo-wordbook-v99";
+const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
   "./library-lookup.css?v=99", "./library-lookup.css",
-  "./js/library-lookup-ui.js?v=99", "./js/library-lookup-ui.js",
+  "./js/library-lookup-ui.js?v=100", "./js/library-lookup-ui.js",
   "./js/library-lookup-controller.js?v=99", "./js/library-lookup-controller.js",
   "./guide-related.css?v=95", "./guide-related.css",
   "./js/chinese-search.js?v=95", "./js/chinese-search.js",
@@ -12,8 +12,9 @@ const SHELL = [
   "./data/WORDNET-3.0-LICENSE.txt", "./data/CHINESE-OPEN-WORDNET-LICENSE.txt",
   "./js/owner-public-library.js", "./js/owner-public-library.js?v=99",
   "./js/dictionary-collection.js", "./js/dictionary-collection.js?v=98",
-  "./personal.html", "./personal.css?v=98",
-  "./js/personal-app.js?v=99", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
+  "./personal.html", "./personal.css?v=100",
+  "./js/personal-app.js?v=100", "./js/personal-api.js?v=100", "./js/personal-storage.js?v=82",
+  "./js/personal-folders.js?v=100", "./js/personal-folders.js", "./js/entry-sort.js?v=100", "./js/entry-sort.js",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=82", "./js/personal-study.js?v=77",
   "./js/personal-dictionary.js?v=97", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
@@ -31,8 +32,8 @@ const SHELL = [
   "./quick-notes.html", "./quick-notes.css?v=77",
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
-  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./manifest.webmanifest",
-  "./js/public-app.js?v=99", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./styles.css?v=100", "./manifest.webmanifest",
+  "./js/public-app.js?v=100", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",

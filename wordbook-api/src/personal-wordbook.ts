@@ -3,6 +3,7 @@ import { ApiError, jsonResponse, sha256Hex } from "./security";
 import { MEMBER_UUID, assertPrivateSession, memberAuthStub, memberError, memberFields, memberInternalCall, memberText, readMemberJson, type MemberEnv } from "./member-security";
 import { SOURCE_LIMITS, selectionRequest, validateSourceContext, type SourceContext, type PreparedSelection } from "./personal-selection";
 import { EMPTY_LEARNING, LEARNING_LIMITS, nextPersonalReview, type LearningMetadata, type PersonalReview } from "./personal-learning";
+import { applyPrivateFolderMutation, assertFolderMutationUnused, listPrivateFolders, prepareFolderMutation, removeEntryFromPrivateFolders, type FolderAction } from "./private-folders";
 
 export interface PersonalEntry {
   id: string;
@@ -115,6 +116,7 @@ export class PersonalWordbook implements DurableObject {
       // A concurrent deletion may have begun while authentication was in flight.
       if (await transaction.get("deleted")) throw new ApiError(410, "account_deleted", "这个个人词库已删除。");
       const metadata = { ...EMPTY, ...await transaction.get<Metadata>("meta") };
+      await assertFolderMutationUnused(transaction, body.mutationId);
       const reviewedMutation = await transaction.get<MutationRecord>(`review-mutation:${body.mutationId}`);
       if (reviewedMutation && reviewedMutation.expiresAt > Date.now()) throw new ApiError(409, "idempotency_key_reused", "这个操作标识已用于复习记录。");
       const known = await transaction.get<MutationRecord>(mutationKey);
@@ -175,6 +177,7 @@ export class PersonalWordbook implements DurableObject {
         await transaction.put(`normalized:${entry.normalized}`, entry.id);
       } else {
         await transaction.delete(`entry:${entryId}`);
+        await removeEntryFromPrivateFolders(transaction, entryId);
         const review = await transaction.get<PersonalReview>(`review:${entryId}`);
         if (review) {
           const learning = { ...EMPTY_LEARNING, ...await transaction.get<LearningMetadata>("learning-meta") };
@@ -214,6 +217,7 @@ export class PersonalWordbook implements DurableObject {
     const response = await this.ctx.storage.transaction(async transaction => {
       if (await transaction.get("deleted")) throw new ApiError(410, "account_deleted", "这个个人词库已删除。");
       const metadata = { ...EMPTY, ...await transaction.get<Metadata>("meta") };
+      await assertFolderMutationUnused(transaction, request.mutationId);
       const reviewedMutation = await transaction.get<MutationRecord>(`review-mutation:${request.mutationId}`);
       if (reviewedMutation && reviewedMutation.expiresAt > Date.now()) throw new ApiError(409, "idempotency_key_reused", "这个操作标识已用于复习记录。");
       const known = await transaction.get<MutationRecord>(mutationKey);
@@ -308,6 +312,7 @@ export class PersonalWordbook implements DurableObject {
       if (await transaction.get("deleted")) throw new ApiError(410, "account_deleted", "这个个人词库已删除。");
       if (!await transaction.get(`entry:${body.entryId}`)) throw new ApiError(404, "entry_missing", "这个词不在自己的词库中。");
       const metadata = { ...EMPTY_LEARNING, ...await transaction.get<LearningMetadata>("learning-meta") };
+      await assertFolderMutationUnused(transaction, body.mutationId);
       const vocabularyMutation = await transaction.get<MutationRecord>(`mutation:${body.mutationId}`);
       if (vocabularyMutation && vocabularyMutation.expiresAt > Date.now()) throw new ApiError(409, "idempotency_key_reused", "这个操作标识已用于词库内容。");
       const previous = await transaction.get<PersonalReview>(`review:${body.entryId}`);
@@ -340,6 +345,21 @@ export class PersonalWordbook implements DurableObject {
     return jsonResponse(result);
   }
 
+  private async folders(body: Record<string, unknown>, action?: FolderAction): Promise<Response> {
+    const auth = ["userId", "sessionHash"];
+    if (!action) {
+      memberFields(body, auth, ["authType"]);
+      await this.authenticate(body, false);
+      return jsonResponse(await this.ctx.storage.transaction(listPrivateFolders));
+    }
+    memberFields(body, [...auth, "csrfToken", "mutationId", ...(action === "create" ? ["name"] : ["folderId", "revision"]),
+      ...(action === "rename" ? ["name"] : action === "entries" ? ["entryIds", "mode"] : [])], ["authType"]);
+    await this.authenticate(body, true);
+    const prepared = await prepareFolderMutation(body, action);
+    await this.applyWriteRate();
+    return jsonResponse(await this.ctx.storage.transaction(transaction => applyPrivateFolderMutation(transaction, prepared)));
+  }
+
   private async destroy(body: Record<string, unknown>): Promise<Response> {
     memberFields(body, ["userId", "proof"]);
     this.assertBinding(body.userId);
@@ -365,6 +385,11 @@ export class PersonalWordbook implements DurableObject {
         case "/select": return await this.select(body);
         case "/learning": return await this.learning(body);
         case "/review": return await this.review(body);
+        case "/folders": return await this.folders(body);
+        case "/folders/create": return await this.folders(body, "create");
+        case "/folders/rename": return await this.folders(body, "rename");
+        case "/folders/delete": return await this.folders(body, "delete");
+        case "/folders/entries": return await this.folders(body, "entries");
         case "/create": return await this.mutate(body, "create");
         case "/update": return await this.mutate(body, "update");
         case "/delete": return await this.mutate(body, "delete");
