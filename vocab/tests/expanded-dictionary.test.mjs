@@ -197,6 +197,57 @@ test("literal punctuation headword is retained and normalized terminal punctuati
   assert.equal((await searchExpandedDictionary("mar", data)).results[0].partOfSpeech, "verb");
 });
 
+test("real dotted canonical heads do not depend on an unused normalized shard", async t => {
+  const root = new URL("../data/expanded-dictionary/", import.meta.url);
+  const manifestBytes = await readFile(new URL("manifest.json", root));
+  const manifest = JSON.parse(manifestBytes);
+  for (const [term, normalized] of [["e.g.", "e.g"], ["Mar.", "mar"]]) {
+    const literal = manifest.english.shards[bucket(fold(term))];
+    const fallback = manifest.english.shards[bucket(normalized)];
+    assert.notEqual(literal.bucket, fallback.bucket);
+    const literalBytes = await readFile(new URL(literal.file, root));
+    const fallbackBytes = await readFile(new URL(fallback.file, root));
+    const payload = JSON.parse(literalBytes);
+    const ref = payload.keys.find(([key]) => key === fold(term))[1].find(item => item.kind === "canonical");
+    assert.equal(payload.records.find(row => row.id === ref.id).term, term);
+    for (const mode of ["503", "delayed", "hanging"]) await t.test(`${term}: ${mode} fallback`, async () => {
+      const requests = [];
+      const fetchImpl = async url => {
+        const path = String(url).split("/expanded-dictionary/")[1]; requests.push(path);
+        if (path === "manifest.json") return new Response(manifestBytes);
+        if (path === literal.file) return new Response(literalBytes);
+        if (path === fallback.file) {
+          if (mode === "503") return new Response("unavailable", { status: 503 });
+          if (mode === "hanging") return new Promise(() => {});
+          await new Promise(resolve => setTimeout(resolve, 50));
+          return new Response(fallbackBytes);
+        }
+        return new Response("missing", { status: 404 });
+      };
+      const result = await searchExpandedDictionary(term, { fetchImpl, timeoutMs: 1000 });
+      assert.equal(result.results[0].term, term);
+      assert.equal(result.hasMore, false);
+      assert.deepEqual(requests, ["manifest.json", literal.file]);
+    });
+  }
+});
+
+test("a literal context alias cannot hide a normalized canonical head", async () => {
+  const data = fixture([entry("point", "分数"), entry("score", "得分")], [
+    { target: "point", term: "score.", partOfSpeech: "noun", meaning: "章内分数" }
+  ]);
+  const result = (await searchExpandedDictionary("score.", data)).results[0];
+  assert.equal(result.term, "score"); assert.equal(result.source, "ECDICT");
+  assert.equal(result.matchedForm, undefined);
+});
+
+test("literal dotted case ambiguity is resolved before a different normalized head", async () => {
+  const data = fixture([entry("Mar.", "三月"), entry("mar.", "另一个原始词头"), entry("mar", "损坏")]);
+  assert.equal((await searchExpandedDictionary("Mar.", data)).results[0].term, "Mar.");
+  assert.equal((await searchExpandedDictionary("mar.", data)).results[0].term, "mar.");
+  await assert.rejects(searchExpandedDictionary("MAR.", data), error => error.code === "ambiguous_dictionary_match");
+});
+
 test("phrase edge punctuation is ignored only after a literal head and never edits internal lexical punctuation", async () => {
   const data = fixture([entry("jab at", "刺向"), entry("look after", "照顾"), entry("by some fluke", "侥幸"),
     entry("e.g.", "例如"), entry("C++", "编程语言"), entry("24/7", "全天候"), entry("don't", "不要")]);
@@ -281,11 +332,66 @@ test("Chinese results are rank-ordered, deduplicated by canonical ID, limited wi
   assert.equal(result.hasMore, true); assert.ok(data.requests.length < 35);
 });
 
+test("unplanned Chinese ranks whole atoms inside the loaded window with stable source order", async () => {
+  const data = fixture([
+    ...Array.from({ length: 21 }, (_, index) => entry(`mention${index}`, "有关声音的说明")),
+    entry("sound", "声音"), entry("voice", "声音"), entry("tail", "声音装置")
+  ]);
+  const result = await searchExpandedDictionary("声音", data);
+  assert.deepEqual(result.results.map(row => row.term), ["sound", "voice", ...Array.from({ length: 18 }, (_, i) => `mention${i}`)]);
+  assert.equal(result.hasMore, true);
+  const requests = data.requests.length;
+  assert.deepEqual(await searchExpandedDictionary("声音", data), result);
+  assert.equal(data.requests.length, requests);
+  assert.equal(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length,
+    new Set(data.rows.map(row => row.id % 128)).size);
+});
+
+test("unplanned Chinese selects the full atom and POS from one source variant", async () => {
+  const data = fixture([entry("sound", "vi. 发出声音", { partOfSpeech: "verb", variants: [
+    { partOfSpeech: "adjective", meaning: "健全的", source: "core" },
+    { partOfSpeech: "noun", meaning: "声音", source: "original" }
+  ] })]);
+  const result = (await searchExpandedDictionary("声音", data)).results[0];
+  assert.equal(result.source, "卓式原创词典"); assert.equal(result.partOfSpeech, "noun"); assert.equal(result.meaning, "声音");
+  assert.ok(result.alternatives.some(row => row.source === "ECDICT" && row.partOfSpeech === "verb" && row.meaning.includes("发出声音")));
+  assert.ok(result.alternatives.some(row => row.source === "ECDICT 核心校订" && row.partOfSpeech === "adjective" && row.meaning.includes("健全的")));
+});
+
+test("unplanned Chinese real-data atoms are retained without fetching beyond the first window", async t => {
+  const root = new URL("../data/expanded-dictionary/", import.meta.url);
+  const manifest = JSON.parse(await readFile(new URL("manifest.json", root), "utf8"));
+  for (const [query, head] of [["声音", "sound"], ["居住", "dwell"]]) await t.test(`${query}: ${head}`, async () => {
+    const postingShard = JSON.parse(await readFile(new URL(manifest.chinese.shards[bucket(query)].file, root), "utf8"));
+    const firstWindow = postingShard.postings.find(([token]) => token === query)[1].slice(0, 24);
+    const expectedFiles = new Set(firstWindow.map(id => manifest.english.shards[id % 128].file));
+    const requests = [], fetchImpl = async url => {
+      requests.push(String(url)); return new Response(await readFile(new URL(url)));
+    };
+    const result = await searchExpandedDictionary(query, { fetchImpl });
+    const target = result.results.find(row => row.term === head);
+    assert.ok(target, `${query} must retain the already loaded whole-atom head ${head}`);
+    assert.equal(result.hasMore, true);
+    assert.deepEqual(target, (await searchExpandedDictionary(head, { fetchImpl })).results[0]);
+    assert.deepEqual(new Set(requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).map(url => url.split("/expanded-dictionary/")[1])), expectedFiles);
+    assert.ok(expectedFiles.size <= 24);
+  });
+});
+
 test("adversarial Chinese bigram candidates cannot cause a full dictionary download", async () => {
   const data = fixture(Array.from({ length: 800 }, (_, index) => entry(`falseword${index}`, "甲乙；乙丙")));
   const result = await searchExpandedDictionary("甲乙丙", data);
   assert.deepEqual(result.results, []); assert.equal(result.hasMore, true);
   assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 32);
+});
+
+test("unplanned Chinese does not inspect a 513th candidate even in an already loaded shard", async () => {
+  const terms = [];
+  for (let index = 0; terms.length < 513; index++) if (bucket(`cap${index}`) === 0) terms.push(`cap${index}`);
+  const data = fixture(terms.map((term, index) => entry(term, index === 512 ? "甲乙丙" : "甲乙；乙丙")));
+  const result = await searchExpandedDictionary("甲乙丙", data);
+  assert.deepEqual(result.results, []); assert.equal(result.hasMore, true);
+  assert.equal(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length, 1);
 });
 
 test("single-character Chinese lookup is supported while empty/unsafe inputs never fetch", async () => {

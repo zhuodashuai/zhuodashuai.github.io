@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, dictionaryMeaningLines, dictionaryChoicePreview, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
+import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, dictionaryMeaningLines, dictionaryChoicePreview, dictionaryChoiceDescription, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
 
 const row = (term = "watch") => ({ term, partOfSpeech: "noun · verb", meaning: "① n. 手表\n② v. 观看", source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" });
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
@@ -60,6 +60,20 @@ test("candidate previews stay short and readable without changing the full sourc
   assert.equal(dictionaryChoicePreview("词".repeat(81)), "词".repeat(80) + "…");
   assert.equal(dictionaryChoicePreview("😀".repeat(81)), "😀".repeat(80) + "…");
   assert.equal(dictionaryChoicePreview(""), "");
+});
+
+test("candidate descriptions prefer the scoped sense without mutating the complete source entry", () => {
+  const entry = { ...row("foundation"), meaning: "① n. 基础；地基\n② n. 基金会", matchedSense: "建筑物的地基",
+    matchedPartOfSpeech: "noun", alternatives: [{ meaning: "创建；创立", partOfSpeech: "noun", source: "other source" }] };
+  const before = structuredClone(entry);
+  Object.freeze(entry.alternatives[0]); Object.freeze(entry.alternatives); Object.freeze(entry);
+  assert.equal(dictionaryChoiceDescription(entry), "建筑物的地基");
+  assert.deepEqual(entry, before);
+  assert.equal(dictionaryChoiceDescription({ ...entry, matchedSense: " \n " }), dictionaryChoicePreview(entry.meaning));
+  assert.equal(dictionaryChoiceDescription({ ...entry, matchedSense: null }), dictionaryChoicePreview(entry.meaning));
+  assert.equal(dictionaryChoiceDescription({ matchedSense: "词".repeat(81), meaning: "完整原义" }), "词".repeat(80) + "…");
+  assert.equal(dictionaryChoiceDescription({ meaning: " ① n. 苹果\n② adj. 苹果的 " }), "① n. 苹果 ② adj. 苹果的");
+  assert.equal(dictionaryChoiceDescription(undefined), "");
 });
 
 test("English result preserves all POS, complete meaning and independent source variants", async () => {
@@ -252,12 +266,14 @@ test("public document has labelled Enter form, no account or provider calls, and
   const script = await readFile(new URL("../js/dictionary-app.js", import.meta.url), "utf8");
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
-  assert.match(html, /dictionary\.css\?v=95/u); assert.match(html, /dictionary-app\.js\?v=96/u);
+  assert.match(html, /dictionary\.css\?v=97/u); assert.match(html, /dictionary-app\.js\?v=97/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=95/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=97/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
   assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
+  assert.match(html, /<details id="dictionary-choice-disclosure" open>/u);
+  assert.match(html, /<summary[^>]*class="choice-summary"[\s\S]*?切换词条[\s\S]*?<\/summary>/u);
   assert.match(html, /仅提供拼写建议，点选后查词/u);
   assert.match(script, /import\("\.\/dictionary-examples\.js\?v=96"\)/u);
   assert.ok(html.indexOf('id="dictionary-add"') < html.indexOf('id="dictionary-example-panel"'));

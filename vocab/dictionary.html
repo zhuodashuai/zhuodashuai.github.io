@@ -7,7 +7,7 @@
   <meta name="description" content="卓的中英词典：免登录查询英文词、词形和中文释义。">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="icon" href="assets/icon-192.png" type="image/png">
-  <link rel="stylesheet" href="dictionary.css?v=95">
+  <link rel="stylesheet" href="dictionary.css?v=97">
   <title>中英词典 · 卓的单词本</title>
 </head>
 <body data-page="dictionary">
@@ -47,8 +47,11 @@
     </section>
     <section id="dictionary-results" class="results-layout" aria-label="查询结果" aria-busy="false">
       <aside id="dictionary-choice-panel" class="choice-panel" aria-labelledby="dictionary-choice-title" hidden>
-        <h2 id="dictionary-choice-title">匹配词条 <span id="dictionary-choice-count"></span></h2>
-        <ul id="dictionary-choices"></ul>
+        <details id="dictionary-choice-disclosure" open>
+          <summary class="choice-summary"><h2 id="dictionary-choice-title">匹配词条 <span id="dictionary-choice-count"></span></h2><span class="choice-toggle">切换词条 <span aria-hidden="true">⌄</span></span></summary>
+          <ul id="dictionary-choices"></ul>
+          <p id="dictionary-more" class="hint choice-more" hidden>候选较多，可换更具体的中文继续查。</p>
+        </details>
       </aside>
       <article id="dictionary-result" class="result-card" aria-labelledby="dictionary-term" hidden>
         <div class="result-title-row">
@@ -63,7 +66,7 @@
         </section>
         <section id="dictionary-example-panel" class="example-panel" aria-labelledby="dictionary-example-title" hidden>
           <h3 id="dictionary-example-title">原创学习例句</h3>
-          <p class="source">原创例句·AI复核（精选义项） · 按下列义项阅读，不代表全部用法</p>
+          <p class="source">原创例句 · AI 复核 · 仅覆盖所列义项</p>
           <p id="dictionary-example-status" class="hint" role="status" aria-live="polite"></p>
           <div id="dictionary-example-content"></div>
           <button id="dictionary-example-retry" type="button" class="quiet-button" hidden>重试例句</button>
@@ -79,6 +82,6 @@
     </section>
   </main>
   <footer><p>基础释义来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT</a>（<a href="data/expanded-dictionary/ECDICT-LICENSE.txt">MIT 许可证</a>）；其他释义逐项标明来源。</p><p>仅查询本站公开索引，不调用在线翻译或 AI。</p></footer>
-  <script type="module" src="js/dictionary-app.js?v=96"></script>
+  <script type="module" src="js/dictionary-app.js?v=97"></script>
 </body>
 </html>
