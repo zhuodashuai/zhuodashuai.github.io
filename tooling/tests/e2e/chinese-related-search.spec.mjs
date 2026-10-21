@@ -17,6 +17,7 @@ test("Chinese happiness finds real related English meanings on a phone without c
     if (new URL(request.url()).origin !== "http://127.0.0.1:4187") foreign.push(request.url());
   });
   await page.goto("/dictionary.html"); await query(page, "开心");
+  await page.locator("#dictionary-choice-disclosure > summary").click();
   const choices = page.locator("#dictionary-choices button[data-dictionary-term]");
   await expect(choices.first()).toHaveAttribute("data-dictionary-term", "chuffed");
   const happy = page.locator('#dictionary-choices button[data-dictionary-term="happy"]');
@@ -41,6 +42,7 @@ test("mobile colloquial doctor query uses related meanings without rewriting sou
     if (new URL(request.url()).origin !== "http://127.0.0.1:4187") foreign.push(request.url());
   });
   await page.goto("/dictionary.html"); await query(page, "大夫");
+  await page.locator("#dictionary-choice-disclosure > summary").click();
   const choices = page.locator("#dictionary-choices button[data-dictionary-term]");
   const terms = await choices.evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm));
   expect(terms).toContain("doctor"); expect(terms).toContain("physician");

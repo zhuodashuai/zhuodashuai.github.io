@@ -1,6 +1,6 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
-import { personalDictionaryResult } from "./personal-dictionary.js?v=95";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry } from "./chinese-search.js?v=95";
+import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=95";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -297,11 +297,14 @@ async function englishSearch(query, context) {
   const literal = fold(query), unwrapped = query.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
   const canonical = fold(canonicalizeLookupInput(unwrapped || query));
   const wanted = [...new Set([literal, canonical])];
-  const shards = await Promise.all([...new Set(wanted.map(bucketFor))].map(async bucket => [bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs)]));
-  const byBucket = new Map(shards);
-  const rows = wanted.map(key => { const shard = byBucket.get(bucketFor(key)); return { refs: shard.lookup.get(key) || [], shard }; });
-  for (let index = 0; index < rows.length; index++) {
-    const row = rows[index], canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
+  const rows = [];
+  for (let index = 0; index < wanted.length; index++) {
+    // A true literal head needs no normalized alternative. Loading that shard
+    // first would let an unrelated failure or timeout hide a healthy exact hit.
+    // Keep a literal form/context pending until the normalized canonical check.
+    const key = wanted[index], shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
+    const row = { refs: shard.lookup.get(key) || [], shard }; rows.push(row);
+    const canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
     if (canonicalRefs.length) {
       const exactSpelling = index === 0 ? exactQuery : canonicalizeLookupInput(exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim());
       const precise = canonicalRefs.filter(ref => spelling(row.shard.records.get(ref.id).term) === exactSpelling);
@@ -364,8 +367,10 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
   }
   // All aliases share one bounded scan and download budget, not one per alias.
   const ids = [...candidates.keys()].sort((a, b) => candidates.get(a) - candidates.get(b) || a - b);
-  const results = [], resultIds = new Map(); let examined = 0;
+  const results = [], resultIds = new Map(), wholeMeaningResults = new Set(); let examined = 0;
   const relatedOrder = (a, b) => terms.indexOf(a.matchedChinese) - terms.indexOf(b.matchedChinese)
+    || resultIds.get(a) - resultIds.get(b);
+  const freeOrder = (a, b) => Number(wholeMeaningResults.has(b)) - Number(wholeMeaningResults.has(a))
     || resultIds.get(a) - resultIds.get(b);
   // A posting's priority is only a lower bound: its earlier alias can be a
   // compound/mention while a later alias is the actual definition atom. Keep
@@ -398,10 +403,11 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
       if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source))) continue;
-      let selected, matched;
+      let selected, matched, wholeMeaning = false;
       for (const term of terms) {
-        selected = variants.find(item => plan ? matchesChineseSearchEntry(record.term, item.meaning, term, item.partOfSpeech, item.source) : fold(item.meaning).includes(term));
-        if (selected) { matched = term; break; }
+        const whole = !plan ? variants.find(item => matchesChineseSearchMeaning(item.meaning, term)) : null;
+        selected = whole || variants.find(item => plan ? matchesChineseSearchEntry(record.term, item.meaning, term, item.partOfSpeech, item.source) : fold(item.meaning).includes(term));
+        if (selected) { matched = term; wholeMeaning = Boolean(whole); break; }
       }
       if (selected) {
         const result = { ...display(record, selected, manifest),
@@ -413,10 +419,17 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
         if (relatedPlan) {
           resultIds.set(result, id); results.sort(relatedOrder);
           if (results.length > limit + 1) resultIds.delete(results.pop());
+        } else if (!plan) {
+          resultIds.set(result, id);
+          if (wholeMeaning) wholeMeaningResults.add(result);
         }
       }
-      if (!relatedPlan && results.length > limit) break;
+      if (plan && !relatedPlan && results.length > limit) break;
     }
+    // Free substring queries may already have downloaded a whole-meaning hit
+    // later in this window. Rank all its candidates before truncating, without
+    // fetching another window for a better global rank or changing reviewed plans.
+    if (!plan) results.sort(freeOrder);
   }
   return { query, results: results.slice(0, limit), hasMore: results.length > limit || examined < ids.length };
 }

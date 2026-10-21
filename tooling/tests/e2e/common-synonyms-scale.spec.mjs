@@ -61,6 +61,7 @@ test("common adjectives find the complete finite group with Enter on a narrow ph
   const dictionaryRequests = [];
   page.on("request", request => { if (request.url().includes("/data/expanded-dictionary/")) dictionaryRequests.push(request.url()); });
   await publicQuery(page, group);
+  await page.locator("#dictionary-choice-disclosure > summary").click();
   await page.locator(`#dictionary-choices button[data-dictionary-term="${group.heads[0]}"]`).click();
   await expectActualEvidence(page, group, group.heads[0]);
   for (const head of group.forbidden || []) await expect(page.locator(`#dictionary-choices button[data-dictionary-term="${head}"]`)).toHaveCount(0);

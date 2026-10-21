@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=95";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=97";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
@@ -27,6 +27,13 @@ export function dictionaryMeaningLines(value) {
 export function dictionaryChoicePreview(value) {
   const characters = Array.from(value.replace(/\s+/gu, " ").trim());
   return characters.length > 80 ? `${characters.slice(0, 80).join("")}…` : characters.join("");
+}
+
+// A reviewed query sense is a better disambiguation hint than the first of
+// several unrelated meanings. This never replaces the complete source card.
+export function dictionaryChoiceDescription(entry) {
+  return dictionaryChoicePreview(typeof entry?.matchedSense === "string" && entry.matchedSense.trim()
+    ? entry.matchedSense : entry?.meaning || "");
 }
 
 /** Rank examples for the selected sense without altering their source data. */
@@ -227,6 +234,17 @@ export function mountDictionaryPage(document, window) {
   const suggestionPanel = get("dictionary-suggestion-panel"), suggestionStatus = get("dictionary-suggestion-status");
   const suggestionList = get("dictionary-suggestions");
   const count = get("dictionary-count"), resultsRegion = get("dictionary-results"), heading = get("dictionary-term");
+  const choiceDisclosure = get("dictionary-choice-disclosure");
+  const compactChoices = window.matchMedia?.("(max-width: 860px)");
+  let lastChoiceQuery = null;
+  function resetChoiceDisclosure() {
+    const open = !compactChoices?.matches;
+    const hidesFocus = !open && choices.contains(document.activeElement);
+    choiceDisclosure.open = open;
+    if (hidesFocus) heading.focus({ preventScroll: true });
+  }
+  compactChoices?.addEventListener?.("change", resetChoiceDisclosure);
+  resetChoiceDisclosure();
   let lastResults = null, lastSelected = null;
   const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");
   const exampleContent = get("dictionary-example-content"), exampleRetry = get("dictionary-example-retry");
@@ -277,6 +295,7 @@ export function mountDictionaryPage(document, window) {
   } });
 
   const controller = createDictionaryController({ relatedSearch: searchRelatedChineseDictionary, onChange(state) {
+    if (state.input !== lastChoiceQuery) { lastChoiceQuery = state.input; resetChoiceDisclosure(); }
     const busy = state.phase === "loading";
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
     cancel.hidden = !busy; resultsRegion.setAttribute("aria-busy", String(busy));
@@ -303,29 +322,37 @@ export function mountDictionaryPage(document, window) {
     });
     get("dictionary-owner-link").href = ownerDictionaryLink(state.input, window.location);
     result.hidden = state.phase !== "ready";
-    get("dictionary-choice-panel").hidden = state.phase !== "ready" || state.results.length < 2;
+    // Reserve the compact switcher while related results are pending, rather
+    // than inserting a large list above a definition the reader has started.
+    get("dictionary-choice-panel").hidden = state.phase !== "ready"
+      || state.results.length < 2 && state.relatedPhase !== "loading";
     if (state.results !== lastResults) {
       lastResults = state.results; choices.replaceChildren();
       state.results.forEach((entry, index) => {
         const item = document.createElement("li"), button = document.createElement("button"); button.type = "button";
         button.dataset.dictionaryTerm = entry.term; button.setAttribute("aria-controls", "dictionary-result");
         const term = document.createElement("strong"); term.textContent = entry.term; term.lang = "en"; button.append(term);
-        const pos = document.createElement("span"); pos.textContent = entry.partOfSpeech || "词性未标注"; button.append(pos);
+        const pos = document.createElement("span"); pos.className = "choice-pos";
+        pos.textContent = entry.matchedPartOfSpeech || entry.partOfSpeech || "词性未标注"; button.append(pos);
         const meaning = document.createElement("span"); meaning.className = "choice-meaning";
-        meaning.textContent = dictionaryChoicePreview(entry.meaning); button.append(meaning);
+        meaning.textContent = dictionaryChoiceDescription(entry); button.append(meaning);
         if (entry.matchType === "related") {
           const badge = document.createElement("span"); badge.className = "related-badge";
           badge.textContent = `近义关联：${entry.matchedChinese}`; button.append(badge);
         }
         button.addEventListener("click", () => {
-          controller.select(index); heading.focus({ preventScroll: true });
+          controller.select(index);
+          if (compactChoices?.matches) choiceDisclosure.open = false;
+          heading.focus({ preventScroll: true });
           heading.scrollIntoView({ block: "nearest" });
         });
         item.append(button); choices.append(item);
       });
     }
     [...choices.querySelectorAll("button")].forEach((button, index) => button.setAttribute("aria-pressed", String(index === state.selectedIndex)));
-    get("dictionary-choice-count").textContent = state.results.length ? `${state.results.length}${state.hasMore ? "+" : ""} 项` : "";
+    // hasMore can mean an unexamined posting, not a confirmed extra match.
+    get("dictionary-choice-count").textContent = state.results.length ? `${state.results.length} 项` : "";
+    get("dictionary-more").hidden = !state.hasMore;
     const selected = state.phase === "ready" ? state.results[state.selectedIndex] : null;
     if (!selected) {
       clearExamples();
@@ -371,7 +398,7 @@ export function mountDictionaryPage(document, window) {
     if (controller.getState().phase === "ready") {
       // Present multiple matches before their auto-preview; a single match can
       // take the reader directly to the definition, even above a phone keyboard.
-      const target = controller.getState().results.length > 1 ? choices.querySelector("button") : heading;
+      const target = controller.getState().results.length > 1 && choiceDisclosure.open ? choices.querySelector("button") : heading;
       target.focus({ preventScroll: true }); target.scrollIntoView({ block: "nearest" });
     }
   }

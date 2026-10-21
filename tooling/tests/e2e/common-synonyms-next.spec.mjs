@@ -41,6 +41,8 @@ async function query(page, group, term = group.terms[0]) {
   await expect(page.locator("#dictionary-related-status")).not.toContainText("正在补充");
 }
 async function selectHead(page, group, head = group.heads[0]) {
+  const disclosure = page.locator("#dictionary-choice-disclosure");
+  if (!await disclosure.evaluate(element => element.open)) await disclosure.locator(":scope > summary").click();
   await page.locator(`#dictionary-choices button[data-dictionary-term="${head}"]`).click();
   await expect(page.locator("#dictionary-term")).toHaveText(head);
   const pos = await page.locator("#dictionary-pos").textContent();

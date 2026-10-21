@@ -1,4 +1,4 @@
-import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=88";
+import { MEMBER_DICTIONARY_MANIFEST } from "./member-dictionary-manifest.js?v=97";
 import { canonicalizeLookupInput, normalizeEnglish, validateEnglishInput } from "./wordbook-schema.js?v=82";
 import { CORE_POS_CORRECTIONS } from "./core-pos-corrections.js?v=88";
 import { chineseSearchPlan, matchesChineseSearchEntry } from "./chinese-search.js?v=95";
