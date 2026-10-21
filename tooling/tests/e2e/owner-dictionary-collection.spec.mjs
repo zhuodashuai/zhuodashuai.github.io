@@ -88,6 +88,9 @@ test("Chinese preview never writes, an actual choice click collects that head, a
   await page.locator('#member-dictionary-choices button[data-dictionary-term="apple"]').click();
   await expect(page.locator("#member-dictionary-word")).toHaveText("apple");
   await expect(page.locator("#member-dictionary-collection-status")).toContainText(/公开词库/u);
+  // The saving message also mentions 公开词库. Wait for the validated receipt,
+  // not merely the start of the write, before reading the public snapshot.
+  await expect(page.locator("#member-dictionary-public-link")).toBeVisible();
   expect(writes).toBe(1);
   const apple = (await publicSnapshot(context)).entries.find(entry => entry.normalized === "apple");
   expect(apple).toBeTruthy(); await expect(publicRow(page, apple.id)).toBeVisible();
@@ -98,6 +101,7 @@ test("Chinese preview never writes, an actual choice click collects that head, a
   expect(writes).toBe(1);
   await page.locator("#member-dictionary-use").click();
   await expect(page.locator("#member-dictionary-collection-status")).toContainText(/公开词库/u);
+  await expect(page.locator("#member-dictionary-public-link")).toBeVisible();
   expect(writes).toBe(2);
 });
 
