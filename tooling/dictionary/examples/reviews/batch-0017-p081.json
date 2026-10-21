@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "ea7a958a27e21f82983249ea5141c4f9e40937b2ff7759ad04a892f2a35ca1e0",
+  "reviewer": "AI/examples17_reviewer_c",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "supraventricular"
+  ],
+  "issues": [],
+  "reviewMethod": "Independent C actually read the entire single frozen source object: exact term, adjective POS, complete medical meaning, complete MIT variant, rank and all lexical-evidence fields, as well as every pack-level metadata field. Actually read the complete root-decision-p081.json, all five fields of the saved bilingual pair, current LOCK and entire fresh canonical source. Separately opened and actually read NHLBI's Supraventricular arrhythmias paragraph and its supraventricular tachycardia collocation; independently read the primary hospital/NHS indexed definitions explicitly explaining the above-ventricle heart sense. The Cambridge URL returned403 in this run and its definition was not independently read or counted as verification; the MW-targeted search also did not provide a usable editorial entry. Frozen 室上的 is therefore narrowly selected as the heart adjective 室上性的, not a generic room or a new chemical sense. The ordinary invented lecture/heart-diagram sentence uses the adjective naturally within supraventricular tachycardia and its Chinese translation accurately preserves the lecture topic, several simplified diagrams and heart object. It asserts no real patient's condition, diagnosis, symptom threshold, treatment, prognosis or therapeutic efficacy. No known substantive language issue was found. After actual reading, independently verified raw/LOCK hash, exact canonical source hash, source-to-TSV equality, the only canonical head and order. The author is root17, not C, and no author text, queue or compiled pack was edited. This approval is a genuine one-row language decision, not hash-only approval."
+}
