@@ -90,6 +90,14 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
     if (typeof id !== "string" || !/^member-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(id)) throw new Error("个人词条编号不正确。");
     return `/entries/${encodeURIComponent(id)}`;
   };
+  const folderPath = (id) => {
+    if (typeof id !== "string" || !/^folder-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/u.test(id)) throw new Error("收藏夹编号不正确。");
+    return `/folders/${encodeURIComponent(id)}`;
+  };
+  const folderOptions = options => {
+    if (!options || typeof options.expectedUserId !== "string" || !USER_ID.test(options.expectedUserId)) throw new PersonalApiError("请先确认当前账号。", { code: "invalid_expected_user" });
+    return options;
+  };
   return {
     session: (options) => request("/session", options),
     collectDictionary: (body, csrfToken, options) => request("/dictionary-collection", { ...options, authType: "github-owner", owner: true, method: "POST", body, csrfToken }),
@@ -98,6 +106,11 @@ export function createPersonalApi({ fetchImpl = globalThis.fetch, timeoutMs = 20
     resetPassword: (body, options) => request("/password/reset", { ...options, authType: "member", method: "POST", body }),
     logout: (csrfToken, options) => request("/logout", { ...options, method: "POST", body: {}, csrfToken }),
     entries: (options) => request("/entries", options),
+    folders: (options) => request("/folders", folderOptions(options)),
+    createFolder: (body, csrfToken, options) => request("/folders", { ...folderOptions(options), method: "POST", body, csrfToken }),
+    renameFolder: (id, body, csrfToken, options) => request(folderPath(id), { ...folderOptions(options), method: "PUT", body, csrfToken }),
+    removeFolder: (id, body, csrfToken, options) => request(folderPath(id), { ...folderOptions(options), method: "DELETE", body, csrfToken }),
+    folderEntries: (id, body, csrfToken, options) => request(`${folderPath(id)}/entries`, { ...folderOptions(options), method: "POST", body, csrfToken }),
     learning: (options) => request("/learning", options),
     select: (body, csrfToken, options) => request("/selections", { ...options, method: "POST", body, csrfToken }),
     review: (id, body, csrfToken, options) => request(entryPath(id).replace("/entries/", "/reviews/"), { ...options, method: "POST", body, csrfToken }),

@@ -2,7 +2,7 @@ import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putRe
 import { createEntryDetailController } from "./entry-detail.js?v=96";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
-import { mountLibraryLookup } from "./library-lookup-ui.js?v=99";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=100";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";
@@ -15,6 +15,7 @@ import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=82";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
+import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
 
 const refs = Object.fromEntries([
   "owner-link", "library-heading", "library-search", "filter-row", "collection-tabs", "chapter-tabs", "entry-grid", "entry-count", "data-status", "load-error",
@@ -23,7 +24,7 @@ const refs = Object.fromEntries([
   "dialog-example-en", "dialog-example-zh", "dialog-usage-section", "dialog-usage", "dialog-extra-section", "dialog-extra", "dialog-source-section", "dialog-source-status",
   "dialog-source-link", "dialog-source-list", "dialog-tags", "dialog-review-section", "dialog-review-status", "dialog-review-actions", "study-button", "due-count",
   "install-button", "update-banner", "apply-update", "view-controls", "synonym-panel", "synonym-intro", "synonym-empty", "synonym-count",
-  "compact-navigation", "book-select", "chapter-select", "chapter-previous", "chapter-next", "chapter-stepper", "study-summary", "recall-controls", "recall-reveal", "search-whole-book", "search-empty-message", "search-dictionary-link", "library-options"
+  "compact-navigation", "book-select", "chapter-select", "chapter-previous", "chapter-next", "chapter-stepper", "study-summary", "recall-controls", "recall-reveal", "search-whole-book", "search-empty-message", "search-dictionary-link", "library-options", "library-sort"
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const initialParameters = new URLSearchParams(window.location.search);
@@ -33,6 +34,7 @@ const state = {
   filter: "all",
   query: "",
   liveEtag: "",
+  sort: initialParameters.has("sort") ? normalizeEntrySort(initialParameters.get("sort")) : null,
   collectionId: pendingEntryId ? "all" : initialParameters.get("book") || "all",
   chapterId: pendingEntryId ? "all" : initialParameters.get("chapter") || "all",
   view: pendingEntryId ? "cards" : initialParameters.get("view") === "passages" ? "passages"
@@ -170,6 +172,8 @@ function updateCollectionUrl() {
   else url.searchParams.set("chapter", state.chapterId);
   if (["synonyms", "passages"].includes(state.view)) url.searchParams.set("view", state.view);
   else url.searchParams.delete("view");
+  if (state.sort) url.searchParams.set("sort", state.sort);
+  else url.searchParams.delete("sort");
   window.history.replaceState(null, "", url);
 }
 
@@ -404,8 +408,10 @@ function render() {
     control.setAttribute("aria-pressed", String(control.dataset.filter === state.filter));
   });
   const query = normalizePublicSearchQuery(state.query);
+  const displaySort = state.sort || (state.chapterId !== "all" ? "source" : "newest");
+  refs.librarySort.value = displaySort;
   const queryMatches = rankExactEntryMatches(
-    collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)),
+    sortWordbookEntries(collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)), displaySort),
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
@@ -421,6 +427,7 @@ function render() {
   });
   const groupedView = SYNONYM_FEATURE_ENABLED && state.view === "synonyms";
   const passagesView = state.view === "passages";
+  refs.librarySort.closest("label").hidden = groupedView || passagesView;
   // Reading quotations should not be covered by the chapter's floating quiz
   // launcher. updateScope above restores it when returning to vocabulary.
   if (passagesView) document.getElementById("chapter-quiz-button").hidden = true;
@@ -668,6 +675,12 @@ refs.recallReveal.addEventListener("click", () => {
   refs.dialogMeaning.focus({ preventScroll: true });
 });
 refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; updateCollectionUrl(); render(); });
+refs.librarySort.addEventListener("change", () => {
+  pronunciation.stop();
+  state.sort = normalizeEntrySort(refs.librarySort.value);
+  updateCollectionUrl();
+  render();
+});
 refs.viewControls.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-view]");
   if (!control) return;

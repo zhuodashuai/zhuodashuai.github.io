@@ -1,7 +1,7 @@
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { setupPwa } from "./pwa.js?v=77";
 import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=82";
-import { createPersonalApi } from "./personal-api.js?v=82";
+import { createPersonalApi } from "./personal-api.js?v=100";
 import {
   createPersonalDraftStore, createPersonalExpiryTimer, createPersonalMutationTracker, createPersonalSessionScope,
   isPersonalDraftDirty, personalDraft, serializePersonalExport,
@@ -19,6 +19,9 @@ import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
 import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=99";
+import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
+import { createPersonalFolderMutation, filterPersonalFolderEntries, serializePersonalFolderExport,
+  validatePersonalFolderName, validatePersonalFolderResult, validatePersonalFolders } from "./personal-folders.js?v=100";
 
 const $ = (id) => document.getElementById(id);
 const api = createPersonalApi();
@@ -27,6 +30,7 @@ const dictionaryDraftOrigins = new Map(); // Same-UID, memory-only automatic-fil
 const mutations = createPersonalMutationTracker();
 const scope = createPersonalSessionScope();
 const expiryTimer = createPersonalExpiryTimer();
+const folderMutation = createPersonalFolderMutation();
 const LOCK_KEY = "zhuo-member-explicit-login-required"; // Nonsecret logout intent only.
 const tabId = crypto.randomUUID();
 const authParameter = new URLSearchParams(window.location.search).get("auth");
@@ -64,7 +68,11 @@ const state = {
   collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
   publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
   dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full", dictionaryCollectionPhase: "idle",
-  ownerPublicBusy: false, ownerPublicLoaded: false, ownerPublicError: "", ownerPublicLimit: 20
+  ownerPublicBusy: false, ownerPublicLoaded: false, ownerPublicError: "", ownerPublicLimit: 20,
+  folders: [], foldersRevision: 0, foldersLoaded: false, foldersFresh: false, foldersBusy: false, folderWriteBusy: false,
+  folderId: "all", folderMessage: "", folderEditor: null,
+  entrySort: normalizeEntrySort(new URLSearchParams(window.location.search).get("sort") === "source" ? null : new URLSearchParams(window.location.search).get("sort")),
+  lastArchivedFolderId: null, dictionaryPrivateReceipt: null
 };
 const dictionaryCollector = createDictionaryCollectionQueue({
   collect: (body, { signal, csrfToken }) => api.collectDictionary(body, csrfToken, { signal }),
@@ -95,6 +103,206 @@ function status(message, kind = "saved") {
   $("member-status").dataset.tone = ["error", "locked"].includes(kind) ? "error" : kind === "saved" ? "success" : "neutral";
 }
 
+function clearFolders() {
+  folderMutation.clear();
+  Object.assign(state, { folders: [], foldersRevision: 0, foldersLoaded: false, foldersFresh: false, foldersBusy: false,
+    folderWriteBusy: false, folderId: "all", folderMessage: "", folderEditor: null, lastArchivedFolderId: null });
+  for (const id of ["member-folders-status", "member-detail-folders"]) $(id).textContent = "";
+  for (const id of ["member-folder-filter", "member-dictionary-folder", "member-entry-folder", "member-source-folder", "member-detail-folder"]) $(id).replaceChildren();
+  $("member-folder-name").value = "";
+  if ($("member-folder-dialog").open) $("member-folder-dialog").close();
+}
+
+function renderFolders() {
+  const ready = state.phase === "ready" && Boolean(state.user);
+  const pending = folderMutation.snapshot(state.user?.id);
+  const available = ready && state.foldersLoaded;
+  const writable = available && !state.folderWriteBusy && !state.entryBusy && !pending;
+  const custom = state.folders.map(folder => ({ id: folder.id, title: folder.name }));
+  if (state.foldersLoaded && state.folderId !== "all" && state.folderId !== "unfiled" && !state.folders.some(folder => folder.id === state.folderId)) state.folderId = "all";
+  selectOptions($("member-folder-filter"), [{ id: "all", title: "全部词条" }, { id: "unfiled", title: "未分类" }, ...custom], state.folderId);
+  $("member-folder-filter").disabled = !available;
+  $("member-sort").value = state.entrySort;
+  $("member-sort").disabled = !ready;
+  for (const id of ["member-dictionary-folder", "member-entry-folder", "member-source-folder"]) {
+    const selected = $(id).value;
+    selectOptions($(id), [{ id: "unfiled", title: "未分类 / 不另归类" }, ...custom], custom.some(folder => folder.id === selected) ? selected : "unfiled");
+    $(id).disabled = !ready || state.entryBusy || state.folderWriteBusy || Boolean(pending);
+  }
+  $("member-folder-new").disabled = !writable || state.folders.length >= 50;
+  $("member-dictionary-folder-new").disabled = !writable || state.folders.length >= 50;
+  $("member-dictionary-folder-new").hidden = !state.dictionaryResult;
+  for (const id of ["member-folder-rename", "member-folder-delete"]) $(id).disabled = !writable || !state.folders.some(folder => folder.id === state.folderId);
+  $("member-folders-refresh").disabled = !ready || state.foldersBusy || state.folderWriteBusy;
+  $("member-folders-status").textContent = state.folderMessage || (state.foldersBusy ? "正在读取收藏夹…" : "");
+  $("member-folder-retry").hidden = !pending;
+  $("member-folder-dismiss").hidden = !pending;
+  $("member-folder-retry").disabled = !ready || state.folderWriteBusy || state.entryBusy;
+  $("member-folder-dismiss").disabled = !ready || state.folderWriteBusy;
+  $("member-folder-retry").textContent = pending?.afterSave ? "只重试这次归类" : "重试这次分类操作";
+  $("member-folder-save").disabled = !ready || state.folderWriteBusy || Boolean(state.folderEditor?.needsReopen);
+  $("member-folder-save").textContent = pending ? "重试同一操作" : "保存分类";
+  $("member-folder-name").readOnly = Boolean(pending);
+  $("member-folder-name-hint").textContent = $("member-folder-dialog").open && state.folderMessage ? state.folderMessage : "最多40个字符，仅自己可见。";
+  $("member-dictionary-save").disabled = !ready || !state.entriesLoaded || state.listBusy || state.entryBusy
+    || state.dictionaryBusy || !state.dictionaryResult || state.folderWriteBusy || Boolean(pending);
+  $("member-source-folder-label").hidden = $("member-source-panel").hidden;
+  const recentFolder = state.folders.find(folder => folder.id === state.lastArchivedFolderId);
+  $("member-folder-locate").hidden = !ready || !recentFolder || recentFolder.id === state.folderId;
+  $("member-folder-locate").textContent = recentFolder ? `查看“${recentFolder.name}”` : "查看刚归类的词";
+  const detailSelection = $("member-detail-folder").value;
+  selectOptions($("member-detail-folder"), custom.length ? custom : [{ id: "", title: "先新建收藏夹" }],
+    custom.some(folder => folder.id === detailSelection) ? detailSelection : custom.some(folder => folder.id === state.folderId) ? state.folderId : custom[0]?.id || "");
+  $("member-detail-folder").disabled = !writable || !custom.length;
+  const target = state.folders.find(folder => folder.id === $("member-detail-folder").value);
+  const included = target?.entryIds.includes(detailEntry?.id);
+  $("member-detail-folder-add").disabled = !writable || !detailEntry || !target || included;
+  $("member-detail-folder-remove").disabled = !writable || !detailEntry || !target || !included;
+  $("member-detail-folders").textContent = detailEntry && available
+    ? state.folders.filter(folder => folder.entryIds.includes(detailEntry.id)).map(folder => folder.name).join(" · ") || "未分类"
+    : ready ? "分类尚未读取，可稍后刷新。" : "";
+}
+
+async function loadFolders({ clearMessage = true } = {}) {
+  if (state.phase !== "ready" || !state.user || state.foldersBusy || state.folderWriteBusy) return false;
+  const token = scope.capture(), uid = state.user.id;
+  const initiallyLoaded = state.foldersLoaded;
+  state.foldersBusy = true; state.foldersFresh = false; renderFolders();
+  try {
+    const result = validatePersonalFolders(await request(signal => api.folders(privateOptions(signal, { expectedUserId: uid }))));
+    if (!scope.current(token)) return false;
+    if (result.revision >= state.foldersRevision) { state.folders = result.folders; state.foldersRevision = result.revision; }
+    state.foldersLoaded = true;
+    state.foldersFresh = true;
+    if (clearMessage && !folderMutation.hasPending()) state.folderMessage = "";
+    if (!initiallyLoaded) selectFolder(state.folderId);
+    renderFolders(); renderEntries(); return true;
+  } catch (error) {
+    if (scope.current(token) && !error?.stale) {
+      if (error.status === 401) handleFailure(error);
+      else state.folderMessage = "收藏夹暂时未读取，查词和保存仍可使用。点击“刷新分类”重试。";
+    }
+    return false;
+  } finally { if (scope.current(token)) { state.foldersBusy = false; renderFolders(); } }
+}
+
+async function executeFolderMutation() {
+  const operation = folderMutation.snapshot(state.user?.id);
+  if (!operation || state.phase !== "ready" || !state.user || state.folderWriteBusy) return false;
+  const token = scope.capture(), csrf = state.csrfToken;
+  let reload = false;
+  state.folderWriteBusy = true; state.folderMessage = operation.afterSave ? `${operation.label}已保存，正在确认归类…` : "正在保存分类…";
+  renderChrome();
+  try {
+    const result = validatePersonalFolderResult(await request(signal => {
+      const options = { signal, authType: operation.authType, expectedUserId: operation.userId };
+      if (operation.kind === "create") return api.createFolder(operation.body, csrf, options);
+      if (operation.kind === "rename") return api.renameFolder(operation.folderId, operation.body, csrf, options);
+      if (operation.kind === "delete") return api.removeFolder(operation.folderId, operation.body, csrf, options);
+      return api.folderEntries(operation.folderId, operation.body, csrf, options);
+    }), operation.folderId);
+    if (!scope.current(token)) return false;
+    const expectedAction = operation.kind === "create" ? "created" : operation.kind === "delete" ? "deleted" : "updated";
+    if (![expectedAction, "idempotent"].includes(result.action)) throw new Error("分类操作返回的状态不一致。");
+    // A newer complete snapshot wins over an older mutation response. Replays
+    // return today's folder, not a historical membership list to resurrect.
+    if (result.revision >= state.foldersRevision) {
+      state.folders = state.folders.filter(folder => folder.id !== (result.folder?.id || operation.folderId));
+      if (result.folder) state.folders.push(result.folder);
+      state.foldersRevision = result.revision;
+    }
+    folderMutation.clear();
+    const current = state.folders.find(folder => folder.id === (result.folder?.id || operation.folderId));
+    const confirmed = operation.kind === "delete" ? !current : operation.kind === "entries"
+      ? Boolean(current && operation.body.entryIds.every(id => current.entryIds.includes(id) === (operation.body.mode === "add")))
+      : Boolean(current && current.name === operation.body.name);
+    state.folderMessage = operation.afterSave
+      ? confirmed ? `${operation.label}已保存，已存入“${current?.name || "收藏夹"}”。` : `${operation.label}已保存；云端最新分类已改变，未确认目标归类。请核对后重新选择。`
+      : !confirmed ? "云端最新分类已改变，本次操作未确认。已读取最新状态，请核对后重新操作。"
+        : operation.kind === "delete" ? "分类已删除，词条和复习记录仍保留。" : "收藏夹已同步。";
+    if (operation.kind === "create" && current && confirmed) selectFolder(current.id);
+    if (operation.kind === "entries" && operation.body.mode === "add" && confirmed) state.lastArchivedFolderId = operation.folderId;
+    if (operation.afterSave) updateDictionaryPrivateReceipt(operation.body.entryIds || [], state.folderMessage);
+    if ($("member-folder-dialog").open) $("member-folder-dialog").close();
+    renderEntries(); renderFolders();
+    return confirmed;
+  } catch (error) {
+    if (!scope.current(token) || error?.stale) return false;
+    if (error.status === 401) { handleFailure(error); return false; }
+    // Definitive conflicts need a fresh, explicit user decision, not a silent
+    // rewrite of the old revision/body under its existing mutation ID.
+    const definitive = error.status >= 400 && error.status < 500 && ![408, 429].includes(error.status);
+    if (definitive) { folderMutation.clear(); reload = true; }
+    state.folderMessage = `${operation.afterSave ? `${operation.label}已保存，但归类` : "分类操作"}未确认。${definitive
+      ? `${error.message || "云端版本已改变"} 请刷新分类，核对后重新操作。`
+      : "可显式重试同一操作；不会重新创建词条。"}`;
+    if (error.code === "revision_conflict" && state.folderEditor?.id) {
+      state.folderEditor.needsReopen = true;
+      state.folderMessage += " 当前名称输入仍保留；请关闭窗口，核对最新分类后重新选择改名。";
+    }
+    if (operation.afterSave) status(state.folderMessage, "error");
+    if (operation.afterSave) updateDictionaryPrivateReceipt(operation.body.entryIds || [], state.folderMessage);
+    return false;
+  } finally { if (scope.current(token)) { state.folderWriteBusy = false; renderChrome(); renderEntries(); if (reload) void loadFolders({ clearMessage: false }); } }
+}
+
+async function changeFolder(kind, folder, body, { afterSave = false, label = "词条" } = {}) {
+  if (state.phase !== "ready" || !state.user || state.folderWriteBusy) return false;
+  try {
+    folderMutation.begin({ userId: state.user.id, authType: state.authType, kind, folderId: folder?.id || null, afterSave, label, body });
+    return await executeFolderMutation();
+  } catch (error) { state.folderMessage = error.message; renderFolders(); return false; }
+}
+
+async function archiveSavedEntries(entryIds, folderId, label) {
+  if (folderId === "unfiled") return true; // Never erase an existing word's other memberships.
+  if (folderMutation.hasPending()) {
+    state.folderMessage = `${label}已保存；另一次分类操作尚未确认，本次尚未归类。请先核对原操作，再从词卡归类。`;
+    status(state.folderMessage, "error"); updateDictionaryPrivateReceipt(entryIds, state.folderMessage); renderFolders(); return false;
+  }
+  const folder = state.folders.find(value => value.id === folderId);
+  if (!folder) { state.folderMessage = `${label}已保存；目标收藏夹已不存在，未归类。请刷新后重新选择。`; status(state.folderMessage, "error"); renderFolders(); return false; }
+  return changeFolder("entries", folder, { entryIds: [...new Set(entryIds)], mode: "add", revision: folder.revision }, { afterSave: true, label });
+}
+
+function openFolderEditor(rename = false) {
+  if (state.phase !== "ready" || !state.foldersLoaded || state.folderWriteBusy || folderMutation.hasPending()) return;
+  const folder = rename ? state.folders.find(value => value.id === state.folderId) : null;
+  if (rename && !folder) return;
+  state.folderEditor = folder ? { id: folder.id, revision: folder.revision } : { id: null };
+  $("member-folder-title").textContent = rename ? "重命名收藏夹" : "新建收藏夹";
+  $("member-folder-name").value = folder?.name || "";
+  state.folderMessage = "";
+  $("member-folder-dialog").showModal(); renderFolders(); $("member-folder-name").focus();
+}
+
+async function saveFolder(event) {
+  event.preventDefault();
+  if (folderMutation.hasPending()) { await executeFolderMutation(); return; }
+  if (!state.folderEditor || state.phase !== "ready") return;
+  let name;
+  try { name = validatePersonalFolderName($("member-folder-name").value); }
+  catch (error) { state.folderMessage = error.message; renderFolders(); return; }
+  const editor = state.folderEditor;
+  await changeFolder(editor.id ? "rename" : "create", editor.id ? editor : null,
+    { name, ...(editor.id ? { revision: editor.revision } : {}) });
+}
+
+async function deleteFolder() {
+  const folder = state.folders.find(value => value.id === state.folderId);
+  if (!folder || state.folderWriteBusy || folderMutation.hasPending() || state.phase !== "ready") return;
+  if (!window.confirm(`删除收藏夹“${folder.name}”吗？只删除分类，所有词条和复习记录都会保留。`)) return;
+  await changeFolder("delete", folder, { revision: folder.revision });
+}
+
+function selectFolder(folderId) {
+  state.folderId = folderId;
+  renderFolders();
+  const target = state.folders.some(folder => folder.id === folderId) ? folderId : "unfiled";
+  for (const id of ["member-dictionary-folder", "member-entry-folder", "member-source-folder"]) $(id).value = target;
+  renderEntries(); renderFolders();
+}
+
 function lockMarker(value) {
   try {
     if (value === undefined) return sessionStorage.getItem(LOCK_KEY) === "1";
@@ -118,6 +326,7 @@ function clearPasswords() {
 }
 
 function clearPrivateDom() {
+  clearFolders();
   detailLearningExamples.clear();
   resetDictionary();
   $("member-dictionary-term").value = "";
@@ -274,7 +483,7 @@ function renderChrome() {
     : "个人词条与学习记录默认私有，不进入公开 GitHub。普通账号请妥善保存恢复码。";
   $("member-dictionary-note").textContent = publicCollection
     ? "按 Enter 查词并公开收录；多个结果时，点选要收录的词。"
-    : "按 Enter 查询；选择“填入新词草稿”后保存到自己的私人词本。不调用在线翻译或 AI。";
+    : "按 Enter 查询，选择收藏夹直接存入；也可先填入草稿再修改。不调用在线翻译或 AI。";
   $("member-dictionary-use").disabled = !ready || state.dictionaryBusy || !state.dictionaryResult
     || (publicCollection ? ["queued", "saving", "saved"].includes(state.dictionaryCollectionPhase) : state.entryBusy || !state.entriesLoaded || state.listBusy);
   $("member-dictionary-use").textContent = publicCollection
@@ -290,6 +499,9 @@ function renderChrome() {
   $("member-learning-refresh").disabled = !ready || state.learningBusy || state.entryBusy || Boolean(state.study?.busy || state.study?.pending);
   renderLearning();
   if (state.study) renderStudy();
+  renderFolders();
+  const receipt = state.dictionaryPrivateReceipt;
+  $("member-dictionary-private-open").disabled = !ready || !receipt || !state.entries.some(entry => entry.id === receipt.entryId && entry.normalized === receipt.normalized);
 }
 
 class StaleResponse extends Error { constructor() { super("账号已改变，旧请求已忽略。"); this.stale = true; } }
@@ -420,6 +632,7 @@ async function loadEntries({ announce = true } = {}) {
     // Study/ratings/export retain their own learningLoaded/learningBusy guards.
     state.listBusy = false;
     void loadLearning({ announce: false });
+    void loadFolders();
     renderChrome();
     if (!scope.current(token) || state.phase !== "ready") return false;
     if (announce) status(state.authType === "github-owner" ? "" : "已读取云端词本；当前编辑内容未被替换。", "saved");
@@ -438,6 +651,7 @@ function selectOptions(element, options, selected) {
 }
 
 function resetDictionary() {
+  clearDictionaryPrivateReceipt();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
   $("member-dictionary-collection-status").textContent = "";
@@ -455,6 +669,7 @@ function resetDictionary() {
 }
 
 function showDictionaryResult(result) {
+  clearDictionaryPrivateReceipt();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
   $("member-dictionary-public-link").hidden = true;
@@ -621,6 +836,65 @@ function useDictionaryResult() {
   $("member-entry-form").scrollIntoView({ block: "nearest", behavior: "auto" });
 }
 
+function clearDictionaryPrivateReceipt() {
+  state.dictionaryPrivateReceipt = null;
+  $("member-dictionary-private-status").textContent = "";
+  $("member-dictionary-private-status").hidden = true;
+  $("member-dictionary-private-open").hidden = true;
+}
+
+function updateDictionaryPrivateReceipt(entryIds, message) {
+  const normalized = normalizeEnglish(state.dictionaryResult?.term || "");
+  const entry = state.entries.find(value => entryIds.includes(value.id) && value.normalized === normalized);
+  if (state.phase !== "ready" || !state.user || !entry) return;
+  state.dictionaryPrivateReceipt = { entryId: entry.id, normalized };
+  $("member-dictionary-private-status").textContent = message;
+  $("member-dictionary-private-status").hidden = false;
+  $("member-dictionary-private-open").hidden = false;
+}
+
+async function saveDictionaryToFolder() {
+  const result = state.dictionaryResult;
+  if (state.phase !== "ready" || !state.user || !result || state.entryBusy || state.listBusy || !state.entriesLoaded
+    || state.folderWriteBusy || folderMutation.hasPending()) return;
+  const uid = state.user.id, token = scope.capture(), csrf = state.csrfToken;
+  const folderId = $("member-dictionary-folder").value || "unfiled";
+  const label = `“${result.term}”`;
+  let entry = state.entries.find(value => value.normalized === normalizeEnglish(result.term));
+  state.entryBusy = true; renderChrome();
+  try {
+    if (!entry) {
+      const payload = validatePersonalInput({ term: result.term, partOfSpeech: result.partOfSpeech || "", meaning: result.meaning, note: "" });
+      const slot = `dictionary-private:${normalizeEnglish(result.term)}`;
+      const body = { ...payload, mutationId: mutations.idFor(uid, slot, payload) };
+      let saved;
+      try { saved = await request(signal => api.add(body, csrf, privateOptions(signal, { expectedUserId: uid }))); }
+      catch (error) {
+        if (error.code !== "duplicate_entry" || error.status !== 409) throw error;
+        // Concurrent saves reuse the existing ID, meaning, note and study state.
+        saved = { entry: error.details?.existing, revision: state.revision };
+      }
+      if (!scope.current(token)) return;
+      entry = validatePersonalEntry(saved.entry);
+      if (entry.normalized !== normalizeEnglish(result.term)) throw new Error("保存结果与查询的词条不一致，请刷新核对。");
+      if (!Number.isSafeInteger(saved.revision) || saved.revision < 0) throw new Error("词条保存结果尚未完整确认。");
+      state.entries = [...state.entries.filter(value => value.id !== entry.id), entry];
+      state.revision = Math.max(state.revision, saved.revision);
+      mutations.clear(uid, slot);
+      renderEntries();
+    }
+    updateDictionaryPrivateReceipt([entry.id], `${label}已保存到私人词本${folderId === "unfiled" ? "；未更改其他分类。" : "，正在确认归类…"}`);
+    const confirmed = await archiveSavedEntries([entry.id], folderId, label);
+    if (!scope.current(token)) return;
+    if (confirmed) {
+      const message = folderId === "unfiled" ? `${label}已在私人词本中；未更改其他分类。` : `${label}已存入“${state.folders.find(folder => folder.id === folderId)?.name || "所选收藏夹"}”。`;
+      status(`${message}未覆盖已有释义或备注。`, "saved"); updateDictionaryPrivateReceipt([entry.id], message);
+    }
+  } catch (error) {
+    if (scope.current(token) && !error?.stale) handleFailure(error, "未确认保存到私人词本，可用相同内容重试");
+  } finally { if (scope.current(token)) { state.entryBusy = false; renderChrome(); renderEntries(); } }
+}
+
 async function collectDictionaryResult() {
   const result = state.dictionaryResult;
   if (state.phase !== "ready" || !state.user || state.authType !== "github-owner" || !result
@@ -738,7 +1012,7 @@ async function loadLearning({ announce = true } = {}) {
   } finally { if (scope.current(token)) { state.learningBusy = false; renderChrome(); } }
 }
 
-function currentStudyEntries() { return filterPersonalEntries(state.entries, state.collectionId, state.chapterId); }
+function currentStudyEntries() { return filterPersonalFolderEntries(filterPersonalEntries(state.entries, state.collectionId, state.chapterId), state.folders, state.folderId); }
 
 function renderLearning() {
   const ready = state.phase === "ready" && state.user && state.entriesLoaded && state.learningLoaded && !state.learningBusy;
@@ -822,12 +1096,13 @@ async function addSelections() {
   catch (error) { $("member-source-status").textContent = error.message; return; }
   const uid = state.user.id;
   const token = scope.capture();
+  const folderId = $("member-source-folder").value || "unfiled";
   const body = { ...payload, mutationId: mutations.idFor(uid, "selections", payload) };
   const csrf = state.csrfToken;
   state.entryBusy = true; renderChrome(); renderSource();
   status("正在把选中的词加入私人词本…", "loading");
   try {
-    const result = await request((signal) => api.select(body, csrf, privateOptions(signal)));
+    const result = await request((signal) => api.select(body, csrf, privateOptions(signal, { expectedUserId: uid })));
     if (!scope.current(token)) return;
     if (!Array.isArray(result.entries) || !Number.isSafeInteger(result.revision) || result.revision < 0
       || ![result.added, result.reused, result.contextAdded].every((number) => Number.isSafeInteger(number) && number >= 0)) throw new Error("选词保存结果不完整，请保留勾选后重试。");
@@ -842,8 +1117,10 @@ async function addSelections() {
     if (!scope.current(token)) return;
     renderEntries(); renderSource();
     const message = `已确认：新增 ${result.added} 条，复用 ${result.reused} 条，补充 ${result.contextAdded} 处来源。当前编辑未被替换。`;
-    $("member-source-status").textContent = message;
-    status(message, "saved");
+    const archived = await archiveSavedEntries(affected.map(entry => entry.id), folderId, "选中的词条");
+    if (!scope.current(token)) return;
+    $("member-source-status").textContent = archived ? message : `${message} ${state.folderMessage}`;
+    status(archived ? message : state.folderMessage, archived ? "saved" : "error");
   } catch (error) {
     if (!scope.current(token) || error?.stale) return;
     $("member-source-status").textContent = "加入尚未确认；勾选仍保留，可用同一批词重试。";
@@ -978,10 +1255,13 @@ async function verifySession({ recheckIfPending = false } = {}) {
   }
   verificationRecheckQueued = false;
   const previousUserId = state.user?.id || pendingVerificationUserId;
+  const pendingFolderOperation = folderMutation.snapshot(state.user?.id);
+  const previousFolderId = state.folderId;
   pendingVerificationUserId = previousUserId;
   if (state.user) captureDraft();
   clearSession();
   state.phase = "checking";
+  const verificationToken = scope.capture();
   renderChrome();
   status("正在验证账号…", "loading");
   const task = (async () => {
@@ -999,7 +1279,14 @@ async function verifySession({ recheckIfPending = false } = {}) {
         lockSession("当前浏览器的账号已改变。请明确重新登录后查看自己的词本；旧页面输入没有转给其他人。");
         return;
       }
+      if (!scope.current(verificationToken)) return;
       adoptSession(result);
+      // A focus check clears all private UI first. Only this still-current,
+      // same-identity verification may restore the uncertain tracker, never
+      // replay a write or restore old folder rows/messages.
+      if (pendingFolderOperation && state.phase === "ready" && state.user?.id === pendingFolderOperation.userId
+        && state.authType === pendingFolderOperation.authType) folderMutation.restore(pendingFolderOperation);
+      if (state.user?.id === previousUserId) state.folderId = previousFolderId;
       await loadEntries();
     } catch (error) {
       if (error?.stale) return;
@@ -1173,6 +1460,7 @@ function showEntry(entry) {
   $("member-detail-example").textContent = detailed && context ? [context.exampleEn, context.exampleZh].filter(Boolean).join("\n") : "";
   void detailLearningExamples.show(entry);
   $("member-detail-edit").disabled = state.entryBusy;
+  renderFolders();
   if (!$("member-detail-dialog").open) $("member-detail-dialog").showModal();
 }
 
@@ -1180,8 +1468,8 @@ function renderEntries() {
   if (state.phase !== "ready") { $("member-entry-list").replaceChildren(); return; }
   const query = normalizePublicSearchQuery($("member-search").value);
   renderPrivateScope();
-  const entries = filterPersonalEntries(state.entries, state.collectionId, state.chapterId).filter((entry) => !query || normalizePublicSearchQuery([entry.term, entry.meaning, entry.note].join(" ")).includes(query))
-    .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt) || left.id.localeCompare(right.id));
+  const entries = sortWordbookEntries(filterPersonalFolderEntries(filterPersonalEntries(state.entries, state.collectionId, state.chapterId), state.folders, state.folderId)
+    .filter((entry) => !query || normalizePublicSearchQuery([entry.term, entry.meaning, entry.note].join(" ")).includes(query)), state.entrySort);
   const rows = entries.map((entry) => {
     const row = document.createElement("article");
     row.className = "personal-entry";
@@ -1210,7 +1498,7 @@ function renderEntries() {
   });
   $("member-entry-list").replaceChildren(...rows);
   $("member-empty").hidden = entries.length > 0 || !state.entriesLoaded;
-  $("member-empty").textContent = query ? "没有匹配的词条。" : "这里还很安静。记下你的第一个词吧。";
+  $("member-empty").textContent = query ? "没有匹配的词条。" : state.folderId !== "all" ? "这个分类暂无词条。" : "这里还很安静。记下你的第一个词吧。";
   renderLearning();
 }
 
@@ -1232,6 +1520,7 @@ async function saveEntry(event) {
   catch (error) { status(error.message, "error"); return; }
   const uid = state.user.id;
   const token = scope.capture();
+  const folderId = $("member-entry-folder").value || "unfiled";
   const slot = draft.id ? `update:${draft.id}` : "create";
   if (draft.sourceContexts?.length && !draft.meaningEdited && draft.meaning === draft.baseline.meaning) {
     input.meaning = state.entries.find((entry) => entry.id === draft.id)?.meaning ?? input.meaning;
@@ -1248,7 +1537,7 @@ async function saveEntry(event) {
   renderChrome(); renderEntries();
   status("正在保存到你的账号…", "loading");
   try {
-    const result = await request((signal) => draft.id ? api.update(draft.id, body, csrf, privateOptions(signal)) : api.add(body, csrf, privateOptions(signal)));
+    const result = await request((signal) => draft.id ? api.update(draft.id, body, csrf, privateOptions(signal, { expectedUserId: uid })) : api.add(body, csrf, privateOptions(signal, { expectedUserId: uid })));
     if (!scope.current(token)) return;
     const entry = validatePersonalEntry(result.entry);
     if (!Number.isSafeInteger(result.revision) || result.revision < 0) throw new Error("保存结果尚未完整确认，请保留当前输入后重试。");
@@ -1258,7 +1547,8 @@ async function saveEntry(event) {
     drafts.clear(uid);
     fillEditor(personalDraft());
     renderEntries();
-    status("已保存到你的私人词本。", "saved");
+    const archived = await archiveSavedEntries([entry.id], folderId, `“${entry.term}”`);
+    if (scope.current(token) && archived) status("已保存到你的私人词本。", "saved");
   } catch (error) {
     if (!scope.current(token) || error?.stale) return;
     if (error.status === 409 && ["duplicate_entry", "revision_conflict"].includes(error.code)) showConflict(error);
@@ -1285,6 +1575,7 @@ async function deleteEntry(entry) {
     state.revision = Math.max(state.revision, result.revision);
     state.entries = state.entries.filter((value) => value.id !== entry.id);
     state.reviews = state.reviews.filter((review) => review.entryId !== entry.id);
+    void loadFolders();
     if (state.editor?.id === entry.id) fillEditor(personalDraft());
     if (detailEntry?.id === entry.id && $("member-detail-dialog").open) $("member-detail-dialog").close();
     status("词条已从你的私人词本删除。", "saved");
@@ -1298,6 +1589,7 @@ async function deleteEntry(entry) {
 async function logout() {
   if (state.phase !== "ready" || !state.user || !discardAllowed()) return;
   if (dictionaryCollector.hasUnsettled() && !window.confirm("还有公开收录尚未确认。建议先等待完成或重试；现在退出会中止此页的收录队列。确定退出吗？")) return;
+  if (folderMutation.hasPending() && !window.confirm("还有收藏夹操作未确认。已保存的词不会丢失；退出会清除此页的重试信息，稍后请刷新核对分类。确定退出吗？")) return;
   const csrf = state.csrfToken;
   lockSession("正在退出。个人内容已从此页隐藏…", { discardDrafts: true, notify: true });
   const token = scope.capture();
@@ -1374,11 +1666,49 @@ $("member-dictionary-form").addEventListener("submit", event => void queryDictio
 $("member-dictionary-full").addEventListener("click", event => void queryDictionary(event, { full: true }));
 $("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
 $("member-dictionary-use").addEventListener("click", useDictionaryResult);
+$("member-dictionary-save").addEventListener("click", () => void saveDictionaryToFolder());
+$("member-dictionary-folder-new").addEventListener("click", () => openFolderEditor());
+$("member-dictionary-private-open").addEventListener("click", () => {
+  const receipt = state.dictionaryPrivateReceipt;
+  if (state.phase !== "ready" || !state.user || !receipt || normalizeEnglish(state.dictionaryResult?.term || "") !== receipt.normalized) return;
+  const entry = state.entries.find(value => value.id === receipt.entryId && value.normalized === receipt.normalized);
+  if (entry) showEntry(contextualizePersonalEntry(entry, state.collectionId, state.chapterId));
+});
 $("member-collection-queue-retry").addEventListener("click", retryDictionaryQueue);
 $("member-owner-public-search").addEventListener("input", () => { state.ownerPublicLimit = 20; renderOwnerPublic(); });
 $("member-owner-public-refresh").addEventListener("click", () => void loadOwnerPublic());
 $("member-owner-public-more").addEventListener("click", () => { state.ownerPublicLimit += 20; renderOwnerPublic(); });
 $("member-search").addEventListener("input", renderEntries);
+$("member-folder-filter").addEventListener("change", () => selectFolder($("member-folder-filter").value));
+$("member-sort").addEventListener("change", () => {
+  state.entrySort = normalizeEntrySort($("member-sort").value);
+  const url = new URL(window.location.href);
+  if (state.entrySort === "newest") url.searchParams.delete("sort"); else url.searchParams.set("sort", state.entrySort);
+  history.replaceState(history.state, "", url); renderEntries();
+});
+$("member-folders-refresh").addEventListener("click", () => void loadFolders());
+$("member-folder-new").addEventListener("click", () => openFolderEditor());
+$("member-folder-rename").addEventListener("click", () => openFolderEditor(true));
+$("member-folder-delete").addEventListener("click", () => void deleteFolder());
+$("member-folder-locate").addEventListener("click", () => {
+  if (!state.folders.some(folder => folder.id === state.lastArchivedFolderId)) return;
+  $("member-private-tools").open = true; selectFolder(state.lastArchivedFolderId);
+  $("member-entry-list").scrollIntoView({ block: "nearest", behavior: "auto" });
+});
+$("member-folder-form").addEventListener("submit", event => void saveFolder(event));
+$("member-folder-cancel").addEventListener("click", () => $("member-folder-dialog").close());
+$("member-folder-retry").addEventListener("click", () => void executeFolderMutation());
+$("member-folder-dismiss").addEventListener("click", () => {
+  if (state.folderWriteBusy || !folderMutation.hasPending()) return;
+  if (!window.confirm("停止重试这次分类操作？服务器可能已经完成，请稍后刷新核对；已保存的词不受影响。")) return;
+  folderMutation.clear(); state.folderMessage = "本次分类未确认，请刷新核对。已保存的词仍保留。"; renderFolders();
+});
+$("member-detail-folder").addEventListener("change", renderFolders);
+for (const mode of ["add", "remove"]) $(`member-detail-folder-${mode}`).addEventListener("click", () => {
+  const folder = state.folders.find(value => value.id === $("member-detail-folder").value);
+  if (state.phase !== "ready" || !detailEntry || !folder || state.entryBusy || state.folderWriteBusy || folderMutation.hasPending()) return;
+  void changeFolder("entries", folder, { entryIds: [detailEntry.id], mode, revision: folder.revision });
+});
 $("member-book").addEventListener("change", () => { state.collectionId = $("member-book").value; state.chapterId = "all"; renderEntries(); });
 $("member-chapter").addEventListener("change", () => { state.chapterId = $("member-chapter").value; renderEntries(); });
 $("member-source-toggle").addEventListener("click", () => void openSource());
@@ -1435,8 +1765,14 @@ $("member-detail-edit").addEventListener("click", () => {
 $("member-export").addEventListener("click", () => {
   if (state.phase !== "ready" || !state.user || !state.entriesLoaded || !state.learningLoaded || state.learningBusy) return;
   try {
-    download(`${serializePersonalExport(state.entries, state.user.username, new Date().toISOString(), state.reviews)}\n`, `my-wordbook-${state.user.username}-${new Date().toISOString().slice(0, 10)}.json`);
-    status("已导出个人词条和云端学习记录。文件包含个人内容，请妥善保管。", "saved");
+    const backup = serializePersonalExport(state.entries, state.user.username, new Date().toISOString(), state.reviews);
+    const foldersConfirmed = state.foldersFresh && !state.folderWriteBusy && !folderMutation.hasPending();
+    const withFolders = state.foldersLoaded ? JSON.stringify({ ...JSON.parse(serializePersonalFolderExport(backup, state.folders, state.foldersRevision)), foldersStatus: foldersConfirmed ? "confirmed" : "stale" }, null, 2)
+      : JSON.stringify({ ...JSON.parse(backup), folders: null, foldersRevision: null, foldersStatus: "unavailable" }, null, 2);
+    download(`${withFolders}\n`, `my-wordbook-${state.user.username}-${new Date().toISOString().slice(0, 10)}.json`);
+    status(state.foldersLoaded ? foldersConfirmed ? "已导出个人词条、收藏夹和云端学习记录。文件包含个人内容，请妥善保管。"
+      : "已导出词条、学习记录与上次确认的分类快照；收藏夹尚未重新确认，备份已标记 stale。"
+      : "已导出词条和学习记录；分类未确认，本次未包含收藏夹。请刷新分类后重新导出完整备份。", state.foldersLoaded && foldersConfirmed ? "saved" : "error");
   } catch (error) { handleFailure(error, "导出失败"); }
 });
 $("member-logout").addEventListener("click", () => void logout());
@@ -1466,7 +1802,7 @@ $("delete-account-form").addEventListener("submit", (event) => void deleteAccoun
 $("delete-account-cancel").addEventListener("click", () => $("delete-account-dialog").close());
 $("delete-account-dialog").addEventListener("close", () => { if ($("delete-account-dialog").open) return; $("delete-account-password").value = ""; $("delete-account-confirmation").value = ""; });
 window.addEventListener("beforeunload", (event) => {
-  if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) { event.preventDefault(); event.returnValue = ""; }
+  if (drafts.hasUnsaved() || state.recovery || state.entryBusy || state.folderWriteBusy || folderMutation.hasPending() || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) { event.preventDefault(); event.returnValue = ""; }
 });
 window.addEventListener("pagehide", () => {
   cancelOnlineVerification();
@@ -1479,7 +1815,7 @@ window.addEventListener("pageshow", (event) => {
   if (originReady && event.persisted) void verifySession();
 });
 window.addEventListener("focus", () => {
-  if (originReady && ["ready", "verification-unavailable"].includes(state.phase) && !state.entryBusy && !state.listBusy) void verifySession();
+  if (originReady && ["ready", "verification-unavailable"].includes(state.phase) && !state.entryBusy && !state.listBusy && !state.folderWriteBusy) void verifySession();
 });
 window.addEventListener("online", () => {
   if (!originReady || onlineVerificationTimer !== null || state.authBusy || state.recovery || lockMarker()
@@ -1517,7 +1853,7 @@ try {
     originReady = true;
     renderChrome();
     setupPwa({ updateBanner: $("update-banner"), applyUpdateButton: $("apply-update"), autoApplyUpdate: false, beforeApplyUpdate: async () => {
-      if (state.recovery || state.entryBusy || drafts.hasUnsaved() || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) throw new Error("请先保存词条、勾选或恢复码，并确认收录队列完成，再更新应用。");
+      if (state.recovery || state.entryBusy || state.folderWriteBusy || folderMutation.hasPending() || drafts.hasUnsaved() || state.study?.pending || state.selectedSources.size || dictionaryCollector.hasUnsettled()) throw new Error("请先保存词条、勾选或恢复码，并确认分类和收录队列完成，再更新应用。");
     } });
     void verifySession();
   }

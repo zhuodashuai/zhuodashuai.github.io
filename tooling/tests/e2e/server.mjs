@@ -7,6 +7,7 @@ import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot,
 import { SYNONYM_FEATURE_ENABLED, isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
 import { collectionMemberships } from "../../../vocab/js/collections.js";
 import { scheduleReview } from "../../../vocab/js/review.js";
+import { clearFixtureFolders, folderFixtureFields, folderFixtureMutationAvailable, handleFolderFixture, removeFixtureEntryFromFolders } from "./personal-folders-fixture.mjs";
 
 const root = resolve("vocab");
 const baseline = parsePublicSnapshot(JSON.parse(await readFile(join(root, "data/owner-wordbook.json"), "utf8")));
@@ -276,7 +277,7 @@ async function memberApi(request, response, url) {
       : path === "selections" ? ["entryIds", "collectionId", "chapterId", "mutationId"]
       : /^reviews\//u.test(path) ? ["rating", "revision", "mutationId"]
       : path === "entries" ? ["term", "mutationId"]
-      : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : [];
+      : /^entries\//u.test(path) ? request.method === "DELETE" ? ["revision", "mutationId"] : ["revision", "term", "mutationId"] : folderFixtureFields(path, request.method) || [];
     const optional = ["register", "login"].includes(path) ? ["remember"]
       : (path === "entries" || /^entries\//u.test(path)) && request.method !== "DELETE" ? ["meaning", "note", "partOfSpeech"] : [];
     if (!payload || typeof payload !== "object" || Array.isArray(payload)
@@ -335,6 +336,7 @@ async function memberApi(request, response, url) {
     account.entries = [];
     account.reviews.clear();
     account.mutations.clear();
+    clearFixtureFolders(account);
     revokeMemberFixtureSessions(state, account);
     state.memberAccounts.delete(account.username);
     return memberJson(response, 200, { ok: true }, { "Set-Cookie": "e2e_member_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Strict" });
@@ -347,6 +349,11 @@ async function memberApi(request, response, url) {
     if (expectedUser !== undefined && expectedUser !== account.id) return memberError(response, 401, "member_session_changed", "账号已改变，请重新登录确认。");
     return memberJson(response, 200, path === "learning" ? { revision: account.revision, reviews: structuredClone([...account.reviews.values()]) }
       : { revision: account.revision, entries: structuredClone(account.entries), limit: 1000 });
+  }
+  if (await handleFolderFixture({ request, response, path, payload, account, json: memberJson, error: memberError })) return;
+  if (["selections", "entries"].includes(path) || /^(?:entries|reviews)\//u.test(path)) {
+    try { await folderFixtureMutationAvailable(account, payload?.mutationId); }
+    catch (failure) { return memberError(response, failure.status, failure.code, failure.message, failure.details); }
   }
   if (path === "selections" && request.method === "POST") return memberFixtureSelection(request, response, state, account, payload);
   const reviewMatch = path.match(/^reviews\/([^/]+)$/u);
@@ -372,9 +379,11 @@ async function memberApi(request, response, url) {
     if (id && index < 0) return memberError(response, 404, "entry_missing", "词条不存在或不属于当前账户。");
     if (id && payload.revision !== account.entries[index].revision) return memberError(response, 409, "revision_conflict", "词条已被另一个窗口修改，请刷新后再试。", { existing: account.entries[index], revision: account.revision });
     if (request.method === "DELETE") {
-      account.entries.splice(index, 1);
-      account.reviews.delete(id);
-      account.revision++;
+      await removeFixtureEntryFromFolders(account, id, () => {
+        account.entries.splice(index, 1);
+        account.reviews.delete(id);
+        account.revision++;
+      });
       return mutation.save(200, { revision: account.revision, entry: null, action: "deleted" });
     }
     if (typeof payload.term !== "string" || !payload.term.trim() || [...payload.term].length > 200

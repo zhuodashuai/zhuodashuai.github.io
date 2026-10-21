@@ -1,5 +1,5 @@
 import { createLibraryLookupController } from "./library-lookup-controller.js?v=99";
-import { createPersonalApi } from "./personal-api.js?v=82";
+import { createPersonalApi } from "./personal-api.js?v=100";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink } from "./owner-public-library.js?v=99";
 import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=99";

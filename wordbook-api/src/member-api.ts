@@ -5,6 +5,7 @@ import {
   type MemberAuthType, type MemberEnv, type MemberIdentity
 } from "./member-security";
 import { prepareSelection, selectionRequest } from "./personal-selection";
+import { validFolderId } from "./private-folders";
 
 const PREFIX = "/api/v1/member";
 
@@ -85,7 +86,7 @@ async function routeMemberRequest(request: Request, env: MemberEnv, options: { r
       }
     }
     const entryId = path.startsWith(`${PREFIX}/entries/`) ? path.slice(`${PREFIX}/entries/`.length) : "";
-    if ([`${PREFIX}/entries`, `${PREFIX}/learning`].includes(path) && request.method === "GET") {
+    if ([`${PREFIX}/entries`, `${PREFIX}/learning`, `${PREFIX}/folders`].includes(path) && request.method === "GET") {
       const auth = await authenticationContext(request, env, false);
       // An account cookie can change in a different tab without delivering a
       // broadcast. This is an expectation check only, never a tenant selector.
@@ -94,7 +95,7 @@ async function routeMemberRequest(request: Request, env: MemberEnv, options: { r
         throw new ApiError(401, "member_session_changed", "当前登录账号已变化，请重新确认身份后读取自己的词库。");
       }
       const stub = env.PERSONAL_WORDBOOK.get(env.PERSONAL_WORDBOOK.idFromName(`user:${auth.user.id}`));
-      return jsonResponse(await memberInternalCall(stub, path.endsWith("/learning") ? "/learning" : "/entries", { userId: auth.user.id, sessionHash: auth.sessionHash, authType: auth.authType }));
+      return jsonResponse(await memberInternalCall(stub, path.endsWith("/learning") ? "/learning" : path.endsWith("/folders") ? "/folders" : "/entries", { userId: auth.user.id, sessionHash: auth.sessionHash, authType: auth.authType }));
     }
     if (!["POST", "PUT", "DELETE"].includes(request.method)) throw new ApiError(405, "method_not_allowed", "此个人词库接口不支持该方法。");
     assertSameOriginWrite(request);
@@ -116,6 +117,30 @@ async function routeMemberRequest(request: Request, env: MemberEnv, options: { r
       return jsonResponse(await memberInternalCall(memberAuthStub(env), "/password/reset", { ...body, ipHash }), 200, { "Set-Cookie": clearMemberCookie() });
     }
     const auth = await authenticationContext(request, env, true);
+    if (path === `${PREFIX}/folders` || path.startsWith(`${PREFIX}/folders/`)) {
+      const expectedUser = request.headers.get("x-member-user");
+      if (expectedUser !== null && expectedUser !== auth.user.id) throw new ApiError(401, "member_session_changed", "当前登录账号已变化，请重新确认身份后操作自己的收藏夹。");
+      const suffix = path.slice(`${PREFIX}/folders`.length);
+      const pieces = suffix ? suffix.slice(1).split("/") : [];
+      const folderId = pieces[0];
+      let operation: string;
+      if (!suffix && request.method === "POST") {
+        memberFields(body, ["name", "mutationId"]);
+        operation = "/folders/create";
+      } else {
+        if (!validFolderId(folderId)) throw new ApiError(400, "invalid_folder_id", "收藏夹 ID 不正确。");
+        if (pieces.length === 1 && request.method === "PUT") {
+          memberFields(body, ["name", "revision", "mutationId"]); operation = "/folders/rename";
+        } else if (pieces.length === 1 && request.method === "DELETE") {
+          memberFields(body, ["revision", "mutationId"]); operation = "/folders/delete";
+        } else if (pieces.length === 2 && pieces[1] === "entries" && request.method === "POST") {
+          memberFields(body, ["entryIds", "mode", "revision", "mutationId"]); operation = "/folders/entries";
+        } else throw new ApiError(404, "member_not_found", "收藏夹接口不存在。");
+      }
+      const stub = env.PERSONAL_WORDBOOK.get(env.PERSONAL_WORDBOOK.idFromName(`user:${auth.user.id}`));
+      return jsonResponse(await memberInternalCall(stub, operation, { ...body, ...(folderId ? { folderId } : {}), userId: auth.user.id,
+        sessionHash: auth.sessionHash, csrfToken: auth.csrfToken, authType: auth.authType }));
+    }
     if (path === `${PREFIX}/logout` && request.method === "POST") {
       memberFields(body, []);
       if (auth.authType === "github-owner") {
