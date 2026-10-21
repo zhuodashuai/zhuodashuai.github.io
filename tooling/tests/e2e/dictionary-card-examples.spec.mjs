@@ -141,6 +141,11 @@ for (const mode of ["member", "github-owner"]) test(`${mode} saved details show 
   await page.goto(`/personal.html?auth=${mode === "member" ? "member" : "owner"}`);
   await expect(page.locator("#member-entry-list")).toHaveAttribute("aria-busy", "false");
   await expect(page.locator(".personal-entry")).toHaveCount(1);
+  if (mode === "github-owner") {
+    await expect(page.locator("#member-private-tools")).toHaveJSProperty("open", false);
+    await page.locator("#member-private-tools > summary").click();
+    await expect(page.locator("#member-private-tools")).toHaveJSProperty("open", true);
+  }
   expect(requests).toHaveLength(0);
   await page.getByRole("button", { name: `查看 ${term}`, exact: true }).click();
   await expectExamples(page, term);

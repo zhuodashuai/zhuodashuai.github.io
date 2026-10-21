@@ -19,6 +19,7 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
+    "owner-public-library.js",
     "dictionary-examples-ui.js",
     "chinese-search.js", "chinese-related-common.js",
     "dictionary-suggestions.js", "core-pos-corrections.js", "dictionary-collection.js", "runtime-config.js", "public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-examples.js", "dictionary-navigation.js", "personal-app.js", "personal-lookup-flow.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
@@ -26,7 +27,7 @@ test("changed module APIs use one versioned browser graph before any service wor
     "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
     "chapter-quiz.js", "quiz-storage.js", "chapter-quiz-ui.js", "public-snapshot.js", "learning-backup.js", "learning-backup-ui.js", "pwa.js", "synonym-view.js", "quick-notes-storage.js", "quick-notes-app.js"
   ]);
-  const version = file => ["dictionary-app.js", "expanded-dictionary.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js", "public-app.js", "owner-app.js", "personal-app.js", "dictionary-app.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js", "expanded-dictionary.js", "dictionary-app.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js", "member-dictionary-manifest.js"].includes(file) ? 88 : ["dictionary-collection.js"].includes(file) ? 85 : ["dictionary-examples.js"].includes(file) ? 84 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","dictionary-app.js","dictionary-collection.js","entry-detail.js","expanded-dictionary.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-app.js","owner-backup.js","owner-storage.js","personal-api.js","personal-app.js","personal-dictionary.js","personal-lookup-flow.js","personal-selection.js","personal-storage.js","public-app.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82 : ["owner-app.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-examples.js", "personal-app.js", "personal-lookup-flow.js", "personal-dictionary.js"].includes(file) ? 81
+  const version = file => ["personal-app.js","public-app.js","dictionary-collection.js","owner-public-library.js"].includes(file) ? 98 : ["dictionary-app.js", "expanded-dictionary.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js", "public-app.js", "owner-app.js", "personal-app.js", "dictionary-app.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js", "expanded-dictionary.js", "dictionary-app.js", "personal-app.js", "owner-app.js", "personal-dictionary.js", "personal-lookup-flow.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js", "member-dictionary-manifest.js"].includes(file) ? 88 : ["dictionary-collection.js"].includes(file) ? 85 : ["dictionary-examples.js"].includes(file) ? 84 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","dictionary-app.js","dictionary-collection.js","entry-detail.js","expanded-dictionary.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-app.js","owner-backup.js","owner-storage.js","personal-api.js","personal-app.js","personal-dictionary.js","personal-lookup-flow.js","personal-selection.js","personal-storage.js","public-app.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82 : ["owner-app.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-examples.js", "personal-app.js", "personal-lookup-flow.js", "personal-dictionary.js"].includes(file) ? 81
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
   const files = await readdir(new URL("../js/", import.meta.url));
@@ -95,11 +96,11 @@ test("the academic profile provides a discoverable route to the word cabinet", (
 });
 
 test("the PWA shell separates the public reader from the authenticated owner app", () => {
-  assert.match(serviceWorker, /zhuo-wordbook-v97/);
+  assert.match(serviceWorker, /zhuo-wordbook-v98/);
   assert.match(serviceWorker, /\.\/owner\.html/);
   assert.match(serviceWorker, /\.\/guide\.html/);
   assert.match(serviceWorker, /\.\/styles\.css\?v=96/);
-  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=96/);
+  assert.match(serviceWorker, /\.\/js\/public-app\.js\?v=98/);
   assert.match(serviceWorker, /\.\/js\/owner-app\.js\?v=97/);
   assert.match(serviceWorker, /\.\/js\/dictionary-suggestions\.js\?v=89/);
   assert.match(serviceWorker, /\/data\/dictionary-suggestions\/manifest\.json/);
@@ -121,12 +122,12 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=96"/);
+  assert.match(vocabHtml, /src="js\/public-app\.js\?v=98"/);
   assert.match(vocabHtml, /href="styles\.css\?v=96"/);
   assert.match(ownerHtml, /src="js\/owner-app\.js\?v=97"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);
   assert.match(guideHtml, /href="styles\.css\?v=96"/);
-  assert.match(vocabHtml, /id="owner-link"[^>]*>所有者登录/);
+  assert.match(vocabHtml, /id="owner-link"[^>]*>卓的公开词本/);
   assert.match(ownerHtml, /id="login-link"[^>]*>使用 GitHub 登录/);
   assert.match(ownerHtml, /id="auth-gate"[^>]*>[\s\S]*?只有你可以进入/);
   assert.match(ownerHtml, /id="owner-workspace" hidden inert/);
@@ -145,7 +146,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(ownerHtml, /id="capture-title">添加词条/);
   assert.match(ownerHtml, /id="capture-input"[^>]*aria-describedby="capture-key-hint"/);
   assert.match(ownerHtml, /href="guide\.html" aria-label="使用手册">说明<\/a>/);
-  assert.match(ownerHtml, /href="\.\/" aria-label="查看公开词库">词库<\/a>/);
+  assert.match(ownerHtml, /href="\.\/" aria-label="查看公开词库">公开词库<\/a>/);
   assert.match(ownerHtml, /id="retry-queue"[^>]*hidden/);
   assert.match(ownerHtml, /<details class="backup-panel">/);
   assert.doesNotMatch(ownerHtml, /只写英文，剩下的交给整理器|草稿与同步队列/);

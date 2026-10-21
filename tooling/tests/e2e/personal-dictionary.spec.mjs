@@ -417,7 +417,9 @@ test("member cards show only POS, Chinese and personal note while owner source e
   expect((await entries(context))[0].sourceContexts[0].definition).toBe(sourceContext.definition);
   await context.addCookies([{ name: "e2e_auth", value: "owner", url: ORIGIN }]);
   const owner = await (await api(context, "GET", "session", undefined, undefined, "github-owner")).json(); await selectSource(context, owner, "github-owner");
-  await open(page, "zhuodashuai", "owner"); await row(page, source.term).locator('[data-action="view"]').click();
+  await open(page, "zhuodashuai", "owner");
+  await page.locator("#member-private-tools > summary").click();
+  await row(page, source.term).locator('[data-action="view"]').click();
   await expect(page.locator("#member-detail-definition")).toHaveText(sourceContext.definition);
   await expect(page.locator("#member-detail-usage")).toHaveText(sourceContext.usage);
   await expect(page.locator("#member-detail-example")).toContainText(sourceContext.exampleEn);

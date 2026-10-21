@@ -84,6 +84,9 @@ test("private selection and learning boot with the versioned graph and the exist
   const diagnostic = await poisonOldModuleUrls(page);
   await page.goto("/personal.html?auth=owner");
   await expect(page.locator("#member-username")).toHaveText("@zhuodashuai");
+  await expect(page.locator("#member-private-tools")).toHaveJSProperty("open", false);
+  await page.locator("#member-private-tools > summary").click();
+  await expect(page.locator("#member-private-tools")).toHaveJSProperty("open", true);
   await page.locator("#member-source-toggle").click();
   await expect(page.locator("#member-source-book option[value='never-let-me-go']")).toHaveCount(1);
   await page.locator("#member-source-book").selectOption("never-let-me-go");
