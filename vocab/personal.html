@@ -10,7 +10,7 @@
   <link rel="icon" href="assets/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="personal.css?v=96">
+  <link rel="stylesheet" href="personal.css?v=98">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -19,7 +19,7 @@
     <nav aria-label="页面操作"><a href="./">公开词库</a><span id="member-auth-type" hidden></span><span id="member-username" hidden></span><button type="button" id="member-logout" disabled hidden>退出</button></nav>
   </header>
   <main id="main">
-    <div class="page-heading"><div><p class="eyebrow">A SPACE OF YOUR OWN</p><h1>我的词本</h1><p class="lede">记下英文，也留下自己的理解。</p></div><span class="private-badge" id="member-privacy-badge">仅自己可见</span></div>
+    <div class="page-heading"><div><p class="eyebrow">A SPACE OF YOUR OWN</p><h1 id="member-heading">我的词本</h1><p class="lede" id="member-heading-note">记下英文，也留下自己的理解。</p></div><span class="private-badge" id="member-privacy-badge">仅自己可见</span></div>
     <p class="privacy-note" id="member-privacy-note">个人词条与学习记录默认私有，不进入公开 GitHub。普通账号请妥善保存恢复码。</p>
     <p id="member-status" class="status" role="status" aria-live="polite">正在确认安全连接…</p>
     <p id="member-loading">正在验证账号…</p>
@@ -50,12 +50,22 @@
         <p id="member-dictionary-note" class="field-note dictionary-note">按 Enter 查询 · 不调用在线翻译或 AI。</p>
         <p id="member-dictionary-status" role="status" aria-live="polite"></p>
         <p id="member-dictionary-collection-status" role="status" aria-live="polite" hidden></p>
-        <a id="member-dictionary-public-link" href="./" hidden>在公开词库查看 →</a>
+        <a id="member-dictionary-public-link" href="./" hidden>查看这张公开词卡 →</a>
         <aside id="member-collection-queue" hidden aria-label="公开收录队列"><p id="member-collection-queue-summary" role="status" aria-live="polite"></p><details><summary>查看未完成的词</summary><ul id="member-collection-queue-list"></ul></details><button type="button" id="member-collection-queue-retry" hidden>重试未确认的收录</button></aside>
         <button type="button" id="member-dictionary-full" hidden disabled aria-describedby="member-dictionary-status">搜索完整词典</button>
         <div id="member-dictionary-choices" class="dictionary-choices" hidden></div>
         <div id="member-dictionary-result" class="dictionary-result" hidden><div class="dictionary-heading"><h3 id="member-dictionary-word" lang="en"></h3><p id="member-dictionary-pos"></p></div><p id="member-dictionary-meaning" class="multiline"></p><div id="member-dictionary-alternatives"></div><button type="button" id="member-dictionary-use" disabled>填入新词草稿</button></div>
       </section>
+      <section id="member-owner-public-panel" class="panel owner-public-panel" aria-labelledby="member-owner-public-heading" hidden>
+        <div class="owner-public-heading"><h2 id="member-owner-public-heading">卓的公开词本</h2><a id="member-owner-editor-link" href="owner.html">手动添加 / 编辑</a></div>
+        <div id="member-owner-public-recent" class="owner-public-recent" aria-label="本次公开收录记录"></div>
+        <div class="owner-public-toolbar"><label class="search-label" for="member-owner-public-search"><span>搜索已收录词卡</span><input id="member-owner-public-search" type="search" autocomplete="off" maxlength="200" placeholder="英文或中文释义"></label><button id="member-owner-public-refresh" type="button" disabled>刷新</button></div>
+        <p id="member-owner-public-status" class="field-note" role="status" aria-live="polite"></p>
+        <div id="member-owner-public-list" class="owner-public-list" aria-busy="true"></div>
+        <button id="member-owner-public-more" class="owner-public-more" type="button" hidden>显示更多</button>
+      </section>
+      <details id="member-private-tools" class="private-tools" open>
+        <summary>私人学习与手动记录</summary>
       <section class="learning-strip panel" aria-label="我的云端学习"><div><h2>学自己的词</h2><p id="member-learning-summary" role="status">正在读取云端学习记录…</p></div><div class="button-row"><button type="button" id="member-study-all" class="primary" disabled>学习全部</button><button type="button" id="member-review-due" disabled>复习到期</button><button type="button" id="member-learning-refresh" disabled>刷新学习记录</button></div></section>
       <button type="button" id="member-source-toggle" class="source-launch" aria-expanded="false" aria-controls="member-source-panel" disabled>＋ 从公开词库选词</button>
       <section id="member-source-panel" class="panel source-panel" aria-labelledby="member-source-title" hidden><div class="dialog-heading"><h2 id="member-source-title">把想学的词收进来</h2><button type="button" id="member-source-close" aria-label="收起公开选词">×</button></div><p class="field-note">只加入你勾选的词。释义和章节来源由服务器读取，不会复制别人的学习记录。</p><div class="source-filters"><label for="member-source-book">公开词本<select id="member-source-book"><option value="all">全部公开词本</option></select></label><label for="member-source-chapter">章节<select id="member-source-chapter"><option value="all">全书</option></select></label><label for="member-source-search">搜索<input type="search" id="member-source-search" autocomplete="off" maxlength="200" placeholder="搜索本章的词或中文"></label></div><div class="button-row source-actions"><button type="button" id="member-source-all">勾选当前结果</button><button type="button" id="member-source-clear">清空勾选</button><span id="member-source-selected-count">已选 0 / 100</span><button type="button" id="member-source-add" class="primary" disabled>加入我的词本</button></div><p id="member-source-status" role="status" aria-live="polite"></p><div id="member-source-list" class="source-grid" aria-busy="false"></div></section>
@@ -67,6 +77,7 @@
       </div>
       <details id="member-learning-history" class="panel learning-history"><summary>最近学习记录</summary><ol id="member-learning-history-list"></ol><p class="field-note">记录是你的记忆自评，不是选择题测试正确率。</p></details>
       <details class="account-tools panel"><summary>备份与账号</summary><p>导出包含已保存的个人词条与云端学习记录，不含密码、恢复码或登录信息。未保存的输入只留在当前页面。</p><p id="member-owner-account-note" hidden>当前使用 GitHub 身份，没有单独的密码账号；这里不会删除 GitHub 账号或公开词库。</p><div class="button-row"><button type="button" id="member-export" disabled>导出个人词本 JSON</button><button type="button" id="member-delete-account" class="danger" disabled>删除我的账号</button></div></details>
+      </details>
     </section>
   </main>
   <footer>你的词语，你的理解。<a href="./">回到卓的公开词库</a></footer>
@@ -74,6 +85,6 @@
   <dialog id="member-study-dialog" class="personal-study-dialog" aria-labelledby="member-study-term"><div class="dialog-heading"><p id="member-study-progress"></p><button type="button" id="member-study-close" aria-label="关闭学习">×</button></div><p id="member-study-source" class="field-note"></p><h2 id="member-study-term" lang="en"></h2><p id="member-study-prompt">先回想中文，再查看答案。</p><button type="button" id="member-study-reveal" class="primary">显示释义</button><div id="member-study-answer" hidden><p id="member-study-pos" class="entry-pos"></p><p id="member-study-meaning" class="multiline"></p><p id="member-study-usage" class="multiline"></p><p id="member-study-example" class="multiline"></p><p id="member-study-note" class="multiline"></p></div><fieldset id="member-study-ratings" disabled hidden><legend>你记得怎么样？</legend><div class="button-row"><button type="button" data-member-rating="again">再来一次</button><button type="button" data-member-rating="hard">有点难</button><button type="button" data-member-rating="good">记得</button><button type="button" data-member-rating="easy">很熟</button></div></fieldset><p id="member-study-status" role="status" aria-live="polite"></p><div class="button-row"><button type="button" id="member-study-retry" hidden>重试这次自评</button><button type="button" id="member-study-sync" hidden>核对云端学习记录</button></div></dialog>
   <dialog id="delete-account-dialog" aria-labelledby="delete-account-title"><h2 id="delete-account-title">删除我的账号</h2><p>将删除你的个人词条和账号，不能撤销。不会影响卓的公开词库。建议先导出备份。</p><form id="delete-account-form" method="post"><fieldset disabled><label for="delete-account-password">当前密码</label><input type="password" id="delete-account-password" name="password" autocomplete="current-password" maxlength="256" required><label for="delete-account-confirmation">输入 DELETE 确认删除</label><input id="delete-account-confirmation" name="confirmation" autocomplete="off" spellcheck="false" pattern="DELETE" required><div class="button-row"><button type="submit" id="delete-account-submit" class="danger">永久删除账号</button><button type="button" id="delete-account-cancel">取消</button></div></fieldset></form></dialog>
   <aside id="update-banner" class="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">保存后更新</button></aside>
-  <script type="module" src="js/personal-app.js?v=97"></script>
+  <script type="module" src="js/personal-app.js?v=98"></script>
 </body>
 </html>

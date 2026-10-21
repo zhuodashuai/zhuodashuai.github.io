@@ -19,7 +19,8 @@ test("ordinary accounts are discoverable without replacing the public reader or 
   const app = await source("../js/public-app.js");
   const guide = await source("../guide.html");
   assert.match(html, /id="personal-link"[^>]*>我的词本<\/a>/);
-  assert.match(html, /id="owner-link"[^>]*>所有者登录<\/a>/);
+  assert.match(html, /id="owner-link"[^>]*>卓的公开词本<\/a>/);
+  assert.match(html, /id="owner-link"[^>]*personal\.html\?auth=owner/);
   assert.match(app, /if \(personalLink\) personalLink.href = personalWordbookUrl\(\)/);
   assert.match(guide, /id="personal-accounts"/);
   assert.match(guide, /恢复码/);
@@ -40,7 +41,7 @@ test("member storage migration is additive and keeps the owner's existing Durabl
 
 test("personal shell is precached but private API bypasses all service-worker caching", async () => {
   const sw = await source("../sw.js");
-  for (const item of ["personal.html", "personal.css?v=96", "js/personal-app.js?v=97", "js/personal-lookup-flow.js?v=97", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=82", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=97", "js/expanded-dictionary.js?v=97", "js/core-pos-corrections.js?v=88", "js/member-dictionary-manifest.js?v=97", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
+  for (const item of ["personal.html", "personal.css?v=98", "js/personal-app.js?v=98", "js/personal-lookup-flow.js?v=97", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=82", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=97", "js/expanded-dictionary.js?v=97", "js/core-pos-corrections.js?v=88", "js/member-dictionary-manifest.js?v=97", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
     assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
   }
   assert.ok(sw.includes('/\\/personal(?:\\.html)?\\/?$/.test(url.pathname) ? "./personal.html"'));
@@ -71,7 +72,7 @@ test("basic member dictionary never imports a provider pipeline or an owner AI c
 test("existing owner authentication has a private learning entrance without another registration", async () => {
   const owner = await source("../owner.html");
   const guide = await source("../guide.html");
-  assert.match(owner, /id="owner-personal-link" href="personal\.html\?auth=owner">我的学习词本<\/a>/);
+  assert.match(owner, /id="owner-personal-link" href="personal\.html\?auth=owner">查词并公开收录<\/a>/);
   assert.match(guide, /不需要另注册/);
   assert.match(guide, /学习全部/);
   assert.match(guide, /复习到期/);

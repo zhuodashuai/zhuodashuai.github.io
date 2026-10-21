@@ -1,6 +1,7 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
 import { createEntryDetailController } from "./entry-detail.js?v=96";
-import { ownerAdminUrl, personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
+import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
+import { ownerWordbookLink, publicEntryIdFromUrl } from "./owner-public-library.js?v=98";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";
@@ -26,14 +27,15 @@ const refs = Object.fromEntries([
 ].map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
 
 const initialParameters = new URLSearchParams(window.location.search);
+let pendingEntryId = publicEntryIdFromUrl(window.location.href);
 const state = {
   snapshot: null,
   filter: "all",
   query: "",
   liveEtag: "",
-  collectionId: initialParameters.get("book") || "all",
-  chapterId: initialParameters.get("chapter") || "all",
-  view: initialParameters.get("view") === "passages" ? "passages"
+  collectionId: pendingEntryId ? "all" : initialParameters.get("book") || "all",
+  chapterId: pendingEntryId ? "all" : initialParameters.get("chapter") || "all",
+  view: pendingEntryId ? "cards" : initialParameters.get("view") === "passages" ? "passages"
     : SYNONYM_FEATURE_ENABLED && initialParameters.get("view") === "synonyms" ? "synonyms" : "cards",
   studyScopeEntries: [],
   studyQueue: [],
@@ -62,7 +64,7 @@ const TYPE_LABELS = {
   sentence: "句子", quote: "名言", proverb: "谚语"
 };
 const ATTRIBUTION_LABELS = { verified: "出处已核验", candidate: "候选出处，尚未核验", unverified: "出处未核验", disputed: "出处存在争议" };
-const adminUrl = ownerAdminUrl();
+const adminUrl = ownerWordbookLink();
 const personalLink = document.getElementById("personal-link");
 if (personalLink) personalLink.href = personalWordbookUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
@@ -149,6 +151,8 @@ function button(label, { pressed = false, count = null, value = "" } = {}) {
 
 function updateCollectionUrl() {
   const url = new URL(window.location.href);
+  pendingEntryId = "";
+  url.searchParams.delete("entry");
   if (state.collectionId === "all") url.searchParams.delete("book");
   else url.searchParams.set("book", state.collectionId);
   if (state.collectionId === "all" || state.chapterId === "all") url.searchParams.delete("chapter");
@@ -348,6 +352,18 @@ function openEntry(entry, invoker, { fromStudy = false } = {}) {
   void renderSelectedReviewState(entry);
 }
 
+function openLinkedEntry() {
+  if (!pendingEntryId) return;
+  const entry = state.snapshot?.entries.find(candidate => candidate.id === pendingEntryId);
+  if (!entry) return; // A stale cache cannot consume a newer card's intent.
+  pendingEntryId = "";
+  const url = new URL(window.location.href);
+  for (const key of ["book", "chapter", "view"]) url.searchParams.delete(key);
+  window.history.replaceState(null, "", url);
+  const invoker = [...refs.entryGrid.querySelectorAll("button[data-entry-id]")].find(button => button.dataset.entryId === entry.id) || refs.librarySearch;
+  openEntry(entry, invoker);
+}
+
 async function saveReviewRating(entryId, rating) {
   for (let attempt = 0; attempt < 3; attempt += 1) {
     const current = await getReviewState(entryId);
@@ -483,6 +499,7 @@ function render() {
   }
   refs.emptyMessage.hidden = groupedView || passagesView || filtered.length > 0 || searchMiss || collectionEntries.length === 0;
   void refreshStudySummary(collectionEntries);
+  openLinkedEntry();
 }
 
 async function fetchLatestSnapshot() {
@@ -527,6 +544,7 @@ async function performLoad({ background = false } = {}) {
       refs.dataStatus.textContent = source === "live"
         ? `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")}`
         : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
+      if (pendingEntryId) refs.dataStatus.textContent += " · 暂未找到链接中的公开词卡，可刷新重试。";
       return;
     }
     state.snapshot = snapshot;
@@ -535,6 +553,7 @@ async function performLoad({ background = false } = {}) {
       : `更新于 ${new Date(snapshot.exportedAt).toLocaleDateString("zh-CN")} · 备用快照`;
     refs.exportPublic.disabled = false;
     render();
+    if (pendingEntryId) refs.dataStatus.textContent += " · 暂未找到链接中的公开词卡，可刷新重试。";
     if (state.selectedEntry) {
       state.selectedEntry = entryDetail.refresh();
       if (state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
@@ -633,7 +652,7 @@ refs.recallReveal.addEventListener("click", () => {
   refs.dialogMeaning.tabIndex = -1;
   refs.dialogMeaning.focus({ preventScroll: true });
 });
-refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; render(); });
+refs.librarySearch.addEventListener("input", () => { pronunciation.stop(); state.query = refs.librarySearch.value; updateCollectionUrl(); render(); });
 refs.viewControls.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-view]");
   if (!control) return;

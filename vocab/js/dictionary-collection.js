@@ -57,7 +57,7 @@ export function createDictionaryCollectionQueue({ collect, onChange = () => {}, 
     // The observer gets public confirmation only, never a transport error, CSRF
     // token, idempotency key, account callback or AbortController.
     try { onChange({ term: item?.term || "", phase: item?.phase || "idle", message: item?.message || "",
-      ...(entry ? { entry } : {}), ...(authenticationRequired ? { authenticationRequired: true } : {}), ...state }); } catch { /* Observers cannot change write authority. */ }
+      ...(entry ? { entry, added: item.added } : {}), ...(authenticationRequired ? { authenticationRequired: true } : {}), ...state }); } catch { /* Observers cannot change write authority. */ }
   }
   function current(options) {
     try { return typeof options?.isCurrent === "function" && options.isCurrent() === true; }
@@ -123,6 +123,7 @@ export function createDictionaryCollectionQueue({ collect, onChange = () => {}, 
             return;
           }
           const entry = confirmation(value, item.term);
+          item.added = value.added;
           item.phase = "saved"; item.message = value.added ? "已收录到卓的公开词库。" : "公开词库已经收录；原有内容已保留。";
           forgetCredentials(item); finish(item, true); publish(item, entry);
         } catch (error) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "zhuo-wordbook-v97";
+const CACHE_NAME = "zhuo-wordbook-v98";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
@@ -7,9 +7,10 @@ const SHELL = [
   "./js/chinese-search.js?v=95", "./js/chinese-search.js",
   "./js/chinese-related-common.js?v=95", "./js/chinese-related-common.js",
   "./data/WORDNET-3.0-LICENSE.txt", "./data/CHINESE-OPEN-WORDNET-LICENSE.txt",
-  "./js/dictionary-collection.js", "./js/dictionary-collection.js?v=85",
-  "./personal.html", "./personal.css?v=96",
-  "./js/personal-app.js?v=97", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
+  "./js/owner-public-library.js", "./js/owner-public-library.js?v=98",
+  "./js/dictionary-collection.js", "./js/dictionary-collection.js?v=98",
+  "./personal.html", "./personal.css?v=98",
+  "./js/personal-app.js?v=98", "./js/personal-api.js?v=82", "./js/personal-storage.js?v=82",
   "./js/personal-app.js", "./js/personal-api.js", "./js/personal-storage.js", "./js/runtime-config.js?v=77",
   "./js/personal-selection.js?v=82", "./js/personal-study.js?v=77",
   "./js/personal-dictionary.js?v=97", "./js/personal-dictionary.js", "./js/core-dictionary.js?v=77",
@@ -28,7 +29,7 @@ const SHELL = [
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
   "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./manifest.webmanifest",
-  "./js/public-app.js?v=96", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/public-app.js?v=98", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",

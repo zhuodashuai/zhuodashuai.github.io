@@ -107,18 +107,27 @@ test("member colloquial doctor lookup can fill a draft only after selection with
   expect(writes).toEqual([]);
 });
 
-test("owner colloquial doctor association remains read-only until explicit public collection", async ({ context, page }) => {
+test("owner colloquial doctor preview is read-only and clicking its related choice explicitly collects that head", async ({ context, page }) => {
   await openOwner(context, page);
   const writes = [];
   page.on("request", request => { if (!["GET", "HEAD"].includes(request.method()) && new URL(request.url()).pathname.startsWith("/api/")) writes.push(request.url()); });
   await query(page, "大夫", { empty: true });
-  await expect(choice(page, "doctor")).toBeVisible(); await choice(page, "doctor").click();
+  await expect(choice(page, "doctor")).toBeVisible();
+  expect(writes).toEqual([]);
+  await choice(page, "doctor").click();
   await expect(page.locator("#member-dictionary-word")).toHaveText("doctor");
   await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：医生");
-  await expect(page.locator("#member-dictionary-use")).toHaveText("收录到卓的公开词库");
-  await expect(page.locator("#member-dictionary-collection-status")).toBeHidden();
+  await expect(page.locator("#member-dictionary-collection-status")).toContainText("公开词库");
+  await expect(page.locator("#member-dictionary-public-link")).toBeVisible();
   await expect(page.locator("#member-term")).toHaveValue("");
-  expect(writes).toEqual([]);
+  expect(writes.map(url => new URL(url).pathname)).toEqual(["/api/v1/owner/dictionary-collection"]);
+  const response = await context.request.get(`${ORIGIN}/api/v1/public/wordbook`);
+  expect(response.status()).toBe(200);
+  const doctor = (await response.json()).entries.find(entry => entry.normalized === "doctor");
+  expect(doctor).toBeTruthy();
+  await expect(page.locator(`#member-owner-public-list button[data-owner-public-entry="${doctor.id}"]`)).toBeVisible();
+  const link = new URL(await page.locator("#member-dictionary-public-link").getAttribute("href"), ORIGIN);
+  expect(link.origin).toBe(ORIGIN); expect(link.searchParams.get("entry")).toBe(doctor.id);
 });
 
 test("optional related downloads never delay the direct card or replace a selected direct meaning", async ({ context, page }) => {

@@ -205,6 +205,7 @@ test("existing GitHub owner login opens a separate cloud wordbook without regist
   const auto = await (await api(context, "GET", "session", undefined, undefined, "auto")).json(); expect(auto.authType).toBe("member");
   const owner = await (await api(context, "GET", "session", undefined, undefined, "github-owner")).json(); expect(owner.authType).toBe("github-owner"); expect(owner.user.id).not.toBe(member.user.id);
   await open(page, "zhuodashuai", "?auth=owner"); await expect(page.locator("#member-auth-type")).toContainText("GitHub");
+  await page.locator("#member-private-tools > summary").click();
   await sourceScope(page); await page.locator(`.source-select[data-entry-id="${chapter("chapter-1")[1].id}"]`).check(); await page.locator("#member-source-add").click();
   await expect(page.locator(".personal-entry")).toHaveCount(1);
   await page.locator("#member-study-all").click(); await page.locator("#member-study-reveal").click(); await page.locator('[data-member-rating="good"]').click();
