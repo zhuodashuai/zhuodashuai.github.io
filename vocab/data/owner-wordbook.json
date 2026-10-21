@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
-  "exportedAt": "2026-10-17T22:59:21.959Z",
-  "revisionId": "510876ad-ba2c-476e-b5b2-d81d13fcab1c",
-  "lastMutationId": "synonyms-4f2e0a38-2c0d-4cf5-85ca-61262d3c541b",
+  "exportedAt": "2026-10-21T12:07:21.977Z",
+  "revisionId": "a23351b8-22ed-4a7b-957d-df5eebf44eb9",
+  "lastMutationId": "d82d9392-bd5c-4114-9c36-a8be3e2a9ab1",
   "entries": [
     {
       "id": "public-jab-at",
@@ -67663,6 +67663,56 @@
       "organizationMethod": "manual",
       "createdAt": "2026-10-17T21:14:10.727Z",
       "updatedAt": "2026-10-17T21:14:10.727Z"
+    },
+    {
+      "id": "public-098feb4b-89b3-48c2-bea6-f3162cf94b3d",
+      "revision": 1,
+      "originalInput": "idiosyncratic",
+      "term": "idiosyncratic",
+      "normalized": "idiosyncratic",
+      "standardForm": "idiosyncratic",
+      "entryType": "word",
+      "correction": {
+        "status": "exact",
+        "original": "idiosyncratic",
+        "suggestion": "",
+        "chosen": "idiosyncratic",
+        "confidence": 1,
+        "source": "verified-local-dictionary"
+      },
+      "phonetic": "",
+      "partOfSpeech": "adjective",
+      "meaning": "a. 特质的, 异质的, 特殊的\n[医] 特[异反]应性的, 特异体质的",
+      "definition": "",
+      "senses": [],
+      "synonyms": [],
+      "collocations": [],
+      "exampleEn": "",
+      "exampleZh": "",
+      "usage": "",
+      "register": "",
+      "confusedWith": [],
+      "forms": [],
+      "tags": [],
+      "author": "",
+      "sourceTitle": "ECDICT",
+      "sourceWork": "",
+      "sourceDate": "",
+      "sourceUrl": "https://github.com/skywind3000/ECDICT",
+      "attributionStatus": "unverified",
+      "attributionNote": "词典来源：ECDICT；许可：MIT。仅保留已核对的词性和中文释义，未补写英文定义或例句。",
+      "sources": [
+        {
+          "title": "ECDICT · MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "kind": "dictionary",
+          "retrievedAt": "2026-10-21T12:07:21.977Z"
+        }
+      ],
+      "readingContexts": [],
+      "organizationMethod": "local-dictionary",
+      "createdAt": "2026-10-21T12:07:21.977Z",
+      "updatedAt": "2026-10-21T12:07:21.977Z"
     }
   ]
 }
