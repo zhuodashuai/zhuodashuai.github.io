@@ -36,9 +36,10 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     # The full Chrome regression now takes about 15-16 minutes on hosted
-    # runners, in addition to builds and Worker tests. Leave cleanup margin;
+    # runners, in addition to builds and Worker tests. Installing Chrome can
+    # itself take over 9 minutes on a cold runner. Leave setup/cleanup margin;
     # individual test deadlines, zero retries and every assertion stay intact.
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
