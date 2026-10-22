@@ -1,0 +1,2546 @@
+{
+  "schemaVersion": 1,
+  "stage": "finite99-prepared-sources-not-built-not-published",
+  "queuedHeads": 100,
+  "entries": [
+    {
+      "term": "a bit of",
+      "source": {
+        "id": 8994864,
+        "term": "a bit of",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "一点",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71395,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "一点",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c535983ca50448189861f240d8ff2080a2a8d69fcbaefc2438727e6be77e9c50",
+      "pairJsonSha256": "c530855486344d53e628922498503eb9efee728a0793c8acfa3c187c5c5dbf2a",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "a good few",
+      "source": {
+        "id": 8997491,
+        "term": "a good few",
+        "partOfSpeech": "determiner",
+        "meaning": "相当多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71452,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "相当多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "95e504408d2c55e38033d85747c639c893e8b83babc208981db4cb94119eea12",
+      "pairJsonSha256": "378e536084131afa7c82d94b41efb1215480984ece41ce3f1d07dfc544f5aa57",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "a good many",
+      "source": {
+        "id": 8997556,
+        "term": "a good many",
+        "partOfSpeech": "determiner",
+        "meaning": "很多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71454,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "很多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b22747a2463e212e534503bd3aa97caf32061391c94dd1b78708eb106558a85b",
+      "pairJsonSha256": "e2e6f1448f42020f913de7516260af97a69ca6529c53b27206d191a56b7f7ecf",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "a great many",
+      "source": {
+        "id": 8997780,
+        "term": "a great many",
+        "partOfSpeech": "determiner",
+        "meaning": "许许多多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71456,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "许许多多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "88808a7a5571f35a36e72a2d47850a423a8152515c1f65aa72c250f1480362b3",
+      "pairJsonSha256": "b146430278f9a85ad0768031b942cbf2d67d540fe5b314a1295caabf0aa02693",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "all kinds of",
+      "source": {
+        "id": 9022600,
+        "term": "all kinds of",
+        "partOfSpeech": "determiner phrase",
+        "meaning": "各种各样的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71836,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "各种各样的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "356eea27e5c7065f045f2b094c9955e97e331dcb7f105d11e3dc91d54ffd4ab8",
+      "pairJsonSha256": "4c70752bb35b51c0b5dfec127c2a060a2377aacff7b545749be109bc33c0728d",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "all manner of",
+      "source": {
+        "id": 9022786,
+        "term": "all manner of",
+        "partOfSpeech": "phrase",
+        "meaning": "各种各类的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71837,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "各种各类的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0bc34afb2c8671f16bb2b445d2d23297a2e38703af71b9097c3651a32e818063",
+      "pairJsonSha256": "12b3c595ad00999363a1ef4e2602665ce7e968cb004052928df197494594d9a6",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "and all that",
+      "source": {
+        "id": 9028458,
+        "term": "and all that",
+        "partOfSpeech": "phrase",
+        "meaning": "诸如此类",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71921,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "诸如此类",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6400432496ab9a40d6f1e6d88cd088785495bc9fb94ae4869ceae084a3597c79",
+      "pairJsonSha256": "276ecbae4d87ed78a0df441c3b9fe2032fee3a6cc6d95c17293f91365147055b",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "and everything",
+      "source": {
+        "id": 9028587,
+        "term": "and everything",
+        "partOfSpeech": "phrase",
+        "meaning": "等等",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71925,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "等等",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e6892d0d2698edc6ba4b6ac36b46574baccd70d6bd16a51fefe11fd3d4e41c23",
+      "pairJsonSha256": "c6cc0d12db3ae6ecf7b788063abd1b44a72080081ccdb4f5711107ff3ff2ed36",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "and the like",
+      "source": {
+        "id": 9029136,
+        "term": "and the like",
+        "partOfSpeech": "phrase",
+        "meaning": "等等\n[经] 依次类推",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71931,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "等等\n[经] 依次类推",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "cf490a853c0c5fc50975ff9334a611d5fab900adfc4823b333f5dcaecb41c408",
+      "pairJsonSha256": "8df72d19637a2e04cfaef2835b1ecd9a19a85c2ea65be0f31af007e6203319bf",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "any old",
+      "source": {
+        "id": 9031800,
+        "term": "any old",
+        "partOfSpeech": "determiner",
+        "meaning": "任何一个,随便哪个…",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71968,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "任何一个,随便哪个…",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "718511cb37ff931071fc3bdc3211350ccf38f5f02c8b109a272af02de987a4ef",
+      "pairJsonSha256": "a9d347f54431f3e9a4f52e39b106bdefbf7a76be39abcbf5f3eceb0adddb0a45",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "anything goes",
+      "source": {
+        "id": 9032107,
+        "term": "anything goes",
+        "partOfSpeech": "phrase",
+        "meaning": "怎么都行; 任何事情都可能发生",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71979,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "怎么都行; 任何事情都可能发生",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b3663943fcbdbdb5dc97fc2eeba320c13447700ee61d36e366c973eb22ca2c5a",
+      "pairJsonSha256": "6f593759235662a92b525b2e25ec0bcb2ac9f49bbcb8aa5e89ea3f1885a5bc79",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "as ever",
+      "source": {
+        "id": 9040695,
+        "term": "as ever",
+        "partOfSpeech": "phrase",
+        "meaning": "依旧,仍旧,照常",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72195,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "依旧,仍旧,照常",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "04348c99da62e7057ec617b622977a422adcdc604d07aab5f26aa47fd092e0c3",
+      "pairJsonSha256": "50caaa20c8a96e529954e6bb41d10b98b22f9b268b0ca4f755c53650d56d6e9f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "as if",
+      "source": {
+        "id": 9041716,
+        "term": "as if",
+        "partOfSpeech": "conjunction · interjection",
+        "meaning": "好像",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72212,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "好像",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "58fcb9d204be8f1cbaa4a6b2fadbcccb04aad3ba24779201ac8b1723f299af31",
+      "pairJsonSha256": "fbec0356ce42323f80bc3ad50c19e8aa58db441f60a369e1aef5753de8536cdc",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "as the case may be",
+      "source": {
+        "id": 9044012,
+        "term": "as the case may be",
+        "partOfSpeech": "phrase",
+        "meaning": "看情况\n[法] 看情况, 根据具体情况",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72240,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "看情况\n[法] 看情况, 根据具体情况",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0bdc03d226a45df0d334b70c5b34d0fb5d70542cd4d3a27bbe67c547818e80f2",
+      "pairJsonSha256": "cbd457ebd605caf709db435b4c810aec90113985247ee7f3f322dab5d4028d04",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "as things stand",
+      "source": {
+        "id": 9044314,
+        "term": "as things stand",
+        "partOfSpeech": "clause",
+        "meaning": "按照现状来看",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72245,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "按照现状来看",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b241780873ec83c79a83f3b56f1b9aa06d6a7721fea64d320737ced47028a7a8",
+      "pairJsonSha256": "4a41d9e1f7e27904363d6bf25b32472596f160f99a37653170f999536de26a76",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "born and bred",
+      "source": {
+        "id": 9141992,
+        "term": "born and bred",
+        "partOfSpeech": "phrase",
+        "meaning": "在…生长大的，地地道道的，…本地的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 73369,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "在…生长大的，地地道道的，…本地的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6db105d17d5059bf5e5e63579ff66cc465d1e36987cd99ed736ca7b180c6654c",
+      "pairJsonSha256": "4a773d0be383eea900c747ffd672c8b6b69b3fb48865806af3851cecdb57874d",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "but then",
+      "source": {
+        "id": 9173979,
+        "term": "but then",
+        "partOfSpeech": "conjunction",
+        "meaning": "但另一方面",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 73791,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "但另一方面",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "3f5cabc41db9c0931780c639f43aebe7dce3c280244a3cbf022f5510b0df0ef0",
+      "pairJsonSha256": "dab12c642d4c95ba48e3f3126c3bdbc5b9d997703ae4ecb32b1a491c968d1e64",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "by name",
+      "source": {
+        "id": 9179991,
+        "term": "by name",
+        "partOfSpeech": "phrase",
+        "meaning": "名叫..., 用名字, 凭名字",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 73856,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "名叫..., 用名字, 凭名字",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ed9e44fbba603da2fbfbf7625f7e73e6401ad40c3a3373224c7f2daff3c5d634",
+      "pairJsonSha256": "16eaff70c74c58ed0dfe003b216809bb07b347f22608d2893488d27ca36180d7",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "by way of",
+      "source": {
+        "id": 9181748,
+        "term": "by way of",
+        "partOfSpeech": "phrase",
+        "meaning": "经由, 作为, 为了\n[经] 当作, 为了, 通过",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 73880,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "经由, 作为, 为了\n[经] 当作, 为了, 通过",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "5d5fb543f281264947eb8c1f86ed2e966bf0d53beb579ee46b8829f2e934f2cf",
+      "pairJsonSha256": "7a58b1a546631ea06010def0900ac8cd5e833e8ffa7902ea6c2fb19fb9d6582f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "each and every",
+      "source": {
+        "id": 9401030,
+        "term": "each and every",
+        "partOfSpeech": "determiner",
+        "meaning": "每个",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 76474,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "每个",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "1413277d1ac71cdc0c6dc617b4d549b75950790a1fc3f357ae814495e877e484",
+      "pairJsonSha256": "44d6fc0bb53f1746bce566b44a065e9ac8cc20f8d922362941ce8a754f4384c0",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "fair enough",
+      "source": {
+        "id": 9437813,
+        "term": "fair enough",
+        "partOfSpeech": "phrase",
+        "meaning": "很好,行",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 76898,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "很好,行",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "083cbde0b5c2b28884dea4ca871a8e6701d42446468d342b4fe35ac355e1c151",
+      "pairJsonSha256": "f4e3971f36b8b95cddb6f5e70fb8afc2f09df102fd0a67f111959a1cc4bb654a",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "first things first",
+      "source": {
+        "id": 9467400,
+        "term": "first things first",
+        "partOfSpeech": "phrase",
+        "meaning": "重要的事先做",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 77301,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "重要的事先做",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "736d534d2238e1b9890af3dfa2319496a73e7880b40bab7e021a491992376dea",
+      "pairJsonSha256": "93cd87584455bfcc5b4a20531f272d3e6aec6ac1ee00c069ebe7195e69b1431a",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "goodness knows",
+      "source": {
+        "id": 9560575,
+        "term": "goodness knows",
+        "partOfSpeech": "phrase",
+        "meaning": "天晓得!谁也不知道；上帝作证",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 78503,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "天晓得!谁也不知道；上帝作证",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6e9ff6fab6c2e2e3dff166afd338f1d95dd25408985489be097af8b2b302fa9e",
+      "pairJsonSha256": "8bf29dd7f1f2362d0be419ebbfcd3c3dd2484dc768c036c344a26f736b5607a3",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "green with envy",
+      "source": {
+        "id": 9568462,
+        "term": "green with envy",
+        "partOfSpeech": "phrase",
+        "meaning": "非常嫉妒的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 78601,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "非常嫉妒的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "5daa4545c7c08fc7d21687100783695723ebaf6d0b1663306eccc2c76cd00b49",
+      "pairJsonSha256": "79271f0544a2f5e2a8b2d32b61bca9a04d9f38d723ec6bde305483c57c06c9a0",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "half the battle",
+      "source": {
+        "id": 9582479,
+        "term": "half the battle",
+        "partOfSpeech": "phrase",
+        "meaning": "成功一半",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 78763,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "成功一半",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "919976ddec8396237d17b76adf7ab7d8ccbb2f8d09fe25e26c7a152dd13f5435",
+      "pairJsonSha256": "0445f901abc6088b7b17b767743b041d1aa7ee1b0546bd124345c8d74c240f4e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "if necessary",
+      "source": {
+        "id": 9648937,
+        "term": "if necessary",
+        "partOfSpeech": "clause",
+        "meaning": "如果必要的话",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 79706,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "如果必要的话",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "205f9c97152636e50954c90cac799923d4e8a789771b0db07499392bd24c919c",
+      "pairJsonSha256": "a3fbe7dc0340fcd474d2c2ff05189cf1012760bdb87dc1047e9241bf3c86f546",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "if the worst comes to the worst",
+      "source": {
+        "id": 9649168,
+        "term": "if the worst comes to the worst",
+        "partOfSpeech": "clause",
+        "meaning": "万一出现最坏的情况,在万不得已的时候",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 79710,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "万一出现最坏的情况,在万不得已的时候",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "61db3e22262cdb4feecccd1ef97e4962d1cd1cd99c0ae1e9aabbdd15cb2aeefe",
+      "pairJsonSha256": "9861a82178afa7bb4e00e181574a8b25b01053cdd596aab05b722508bd837c01",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "in search of",
+      "source": {
+        "id": 9679943,
+        "term": "in search of",
+        "partOfSpeech": "phrase",
+        "meaning": "寻找",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80042,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "寻找",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e0ec36ba0894cb84d7fb93bc012142b576f6b1cfbffc942b24d56a791a8a1f7f",
+      "pairJsonSha256": "82647f03c7f71aff034af055f1a0b281b40132cd0fe8d9f84955b55715e86bec",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "in the abstract",
+      "source": {
+        "id": 9683297,
+        "term": "in the abstract",
+        "partOfSpeech": "phrase",
+        "meaning": "抽象地, 理论上",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80081,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "抽象地, 理论上",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ab0c26941e4a3c2b9cd1f5150344c6edbd93bae28eb503b73962b57a818014ea",
+      "pairJsonSha256": "a78c8a0201b9ee0c36cb5f89440cf60b78c9b56573c5df62b8a100b8fe1a268f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "inasmuch as",
+      "source": {
+        "id": 9700001,
+        "term": "inasmuch as",
+        "partOfSpeech": "conjunction",
+        "meaning": "由于, 因为",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80276,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "由于, 因为",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b756538ed0d46b62bd26d0ab0755a4b34f25aed4c9ba3e081e21b6e25794ad18",
+      "pairJsonSha256": "e8f13c7a7305e2536a48c1a95d5009cdc85abca4335b277ee979ab6f33b6c28e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "insofar as",
+      "source": {
+        "id": 9708807,
+        "term": "insofar as",
+        "partOfSpeech": "conjunction",
+        "meaning": "在...的限度内, 在...的范围内, 到如此程度",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "在...的限度内, 在...的范围内, 到如此程度",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "在...的限度内, 在...的范围内, 到如此程度",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 80349,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "deac687fa1f950f0bd39f36d5feb843b5c5a4c04c922667ed0f8c592891c9d04",
+      "pairJsonSha256": "0e3e1e00b237bd099354aa2667612cfa1d262d8057a88cc88f5fdd0c4fb14510",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "judging by",
+      "source": {
+        "id": 9724836,
+        "term": "judging by",
+        "partOfSpeech": "participial phrase",
+        "meaning": "根据…来判断",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80901,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "根据…来判断",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "7c130335716a2c70512be7c401055adc8195d31791f31146e5bc04f5d64c461b",
+      "pairJsonSha256": "e9aee79a2b1cbe625e158f5971167e1264d29737799156837828113fc8fb33a1",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "judging from",
+      "source": {
+        "id": 9724997,
+        "term": "judging from",
+        "partOfSpeech": "participial phrase",
+        "meaning": "根据…来判断",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80902,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "根据…来判断",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "bd16a5e7b6e1e1fa6f7dfe5eff9a7fcbc3f2c5901335ea932d53f170942d5273",
+      "pairJsonSha256": "5e431efc57065c60e9da8d453cf6ab2f9e9d14a8105738a7d0b9caa5cef61d20",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "less and less",
+      "source": {
+        "id": 9763334,
+        "term": "less and less",
+        "partOfSpeech": "determiner",
+        "meaning": "越来越少",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 81467,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "越来越少",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "f8dde77e92fe9d0735d3897d9b1cb724ec1c15032b16648ff1de425afde8ddad",
+      "pairJsonSha256": "5fe5f79281044b48102f3e32049e51e0e2747eac22ec6bd5bfc4d334d7b3853b",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "more like",
+      "source": {
+        "id": 9853123,
+        "term": "more like",
+        "partOfSpeech": "phrase",
+        "meaning": "大约,差不多,更接近…",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 82653,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "大约,差不多,更接近…",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "d6b7ac2c3112404181a788a8e1db41442c80ad14fcdc2e55c7151ad4afb18479",
+      "pairJsonSha256": "5370db28ebcfc5e459764cf4e3be5d4b4619a144f1906308ccbabeb267e3c6c7",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "much less",
+      "source": {
+        "id": 9861229,
+        "term": "much less",
+        "partOfSpeech": "conjunction",
+        "meaning": "更不",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 82754,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "更不",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "120de3d4c6322825e1dd207a39f114d36bd62dccd05b27beca1effc3380aba8e",
+      "pairJsonSha256": "c08e34cf16e73d41f67331ae813430c94d4797fdd5e6b43fa43f8cccef8e5e16",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no fewer than",
+      "source": {
+        "id": 9883866,
+        "term": "no fewer than",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "不少于...",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83031,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不少于...",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c09db12f4d770127723c86f99be1e51800623cdce2824061a849a7320e7bf7f7",
+      "pairJsonSha256": "ef89b034138ab85b15390597a6cf4f5401f60672d1b6775dd656dc2b29f5a6a8",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no lack of",
+      "source": {
+        "id": 9884388,
+        "term": "no lack of",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "不缺乏,大量,很多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83040,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不缺乏,大量,很多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "3ef91dd0cdee176af218debae34ceb0bda88b374993ff81db5469252ba4577eb",
+      "pairJsonSha256": "ecdda83fb8d2bc4ab062bb18cec64cf20624a7d5aad2a82ece0f7a53bf91f985",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no matter how",
+      "source": {
+        "id": 9885309,
+        "term": "no matter how",
+        "partOfSpeech": "conjunction phrase",
+        "meaning": "不管如何",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83048,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不管如何",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "8ee44173e46338c049531fce5ce805e919b3ec736dce2fa23364031d4b95709a",
+      "pairJsonSha256": "7398b77e9bc38949880e52ba47885e6d5639457e038c54d1ee21287b9f37d0aa",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no matter what",
+      "source": {
+        "id": 9885343,
+        "term": "no matter what",
+        "partOfSpeech": "phrase",
+        "meaning": "无论如何，不管怎样",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83049,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "无论如何，不管怎样",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c68006ed252d5897c1520b0641a3eae36d28fb8cb8cc729bd68c2581cd517dc9",
+      "pairJsonSha256": "eda184747bb3be8ddd4226732aa1375aa42c79bfd54642adf45abe1646d423ab",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no more than",
+      "source": {
+        "id": 9885650,
+        "term": "no more than",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "至多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83055,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "至多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b0e641cded3667b84f5a83f8502868b707413caa7dd33e38194f61b2f483a59e",
+      "pairJsonSha256": "9a7cf9b446d544816b168a736158678318aeeb536a3a2a7783f974119ea93f33",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no strings attached",
+      "source": {
+        "id": 9886008,
+        "term": "no strings attached",
+        "partOfSpeech": "phrase",
+        "meaning": "不附带条件,无限制",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83064,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不附带条件,无限制",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c969c7536b52ad0bb8d6f42af585695b53fc138d45a59dde8856427f9d01a6e4",
+      "pairJsonSha256": "f2bacb3a1caa576b53af7feb2f3240cfcb7d0dfa0ed55806d85b0ee8005728f5",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no thanks to",
+      "source": {
+        "id": 9886176,
+        "term": "no thanks to",
+        "partOfSpeech": "phrase",
+        "meaning": "并非由于",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83066,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "并非由于",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ef9a4befcd5b9737574371d2d057775d721fb1816f4b5fd3f51535e6c5fa3eab",
+      "pairJsonSha256": "717aaa831600148dbcc9233dac848fbb1884c1123681fbf5eefaac5fda00b197",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "none other than",
+      "source": {
+        "id": 9892548,
+        "term": "none other than",
+        "partOfSpeech": "phrase",
+        "meaning": "不是别人而正是..., 不是他物而正是...",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83123,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不是别人而正是..., 不是他物而正是...",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "d21b399845f836c19913a7898664a153f98999c1e9edcfa06001a4e6fb26aeda",
+      "pairJsonSha256": "2ed8bcd748ee7770e46e939dbd8ad600ba5158eb9020cb2d394942ba7dc02f42",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "not a few",
+      "source": {
+        "id": 9894783,
+        "term": "not a few",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "不少",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83150,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不少",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "9d28ad9de6ee58b796f78fd2efdbfd4602c40a2af97ceee256d57214ae5687ba",
+      "pairJsonSha256": "0b81cb5121c646854024ea9dfcc8e349e78b6b27c11c5808eabd16f8add1d47a",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "not a patch on",
+      "source": {
+        "id": 9894828,
+        "term": "not a patch on",
+        "partOfSpeech": "phrase",
+        "meaning": "比不上,不能与…相比,远不如",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83153,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "比不上,不能与…相比,远不如",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0d031619bc5d9fb1af2ae22272b8ca5a0256bfe8717d2d20f712126d87029ba3",
+      "pairJsonSha256": "b2513f216239f753e8cc6d313df7adf03b1d4fc45c3771794642fbbdc6d9e8e2",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "not to be sneezed at",
+      "source": {
+        "id": 9896067,
+        "term": "not to be sneezed at",
+        "partOfSpeech": "infinitival phrase",
+        "meaning": "不可轻视, 值得考虑",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83190,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不可轻视, 值得考虑",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "8fd1d889b287cf1134db6e34eff294a2c94c19f78a127d0e39abe2f26ddea60e",
+      "pairJsonSha256": "6a69bd8cdc9d8c903f9b9ee2828487469c10ff202ce2f74568f4c86154e59b7c",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "not to speak of",
+      "source": {
+        "id": 9896554,
+        "term": "not to speak of",
+        "partOfSpeech": "conjunction",
+        "meaning": "更不用说",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83194,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "更不用说",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "4f38f1b732c756fadcaed711e66fa9f8a6747f81d7dd6f8c0a5ddc476c327d74",
+      "pairJsonSha256": "5e779f9bf418cf049cfe36e471feacb0a533282324abda6e531a3587938cb859",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "nothing short of",
+      "source": {
+        "id": 9897945,
+        "term": "nothing short of",
+        "partOfSpeech": "phrase",
+        "meaning": "简直不比...差, 简直可以说...",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83214,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "简直不比...差, 简直可以说...",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "4d8af48af1780bb65ccf3c1687ce2979d9ad8795ca4823a40b1057ee85718108",
+      "pairJsonSha256": "5617356dccf03fe32034d274034f4a3e852dff1cc7bd97c62a4dc0358b70b22f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "of a piece with",
+      "source": {
+        "id": 9903875,
+        "term": "of a piece with",
+        "partOfSpeech": "phrase",
+        "meaning": "与…一致,与…紧密相连,与…性质相同",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83290,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "与…一致,与…紧密相连,与…性质相同",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6af98e98ebe94e66bb9120da9f01190cdac8437a1d12205204ce3394c9d04e10",
+      "pairJsonSha256": "60b75deb2e87293999ccf78ce9dbf1dbac6275dabe1cbbdbee1723820c6be18f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "once or twice",
+      "source": {
+        "id": 9937005,
+        "term": "once or twice",
+        "partOfSpeech": "phrase",
+        "meaning": "一两次, 几次",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83687,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "一两次, 几次",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "4388d665e4b0863b6d170cb1cfdf10459f864a51e25ec6c8678b1f8cceff588e",
+      "pairJsonSha256": "0a790e412cf0831dd459f3522631fff1eb152f1ffa67f75870eaf06e887dd6b7",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "out on a limb",
+      "source": {
+        "id": 9957477,
+        "term": "out on a limb",
+        "partOfSpeech": "phrase",
+        "meaning": "处于危险的境地, 孤立无援",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83963,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "处于危险的境地, 孤立无援",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "23c45888fd2fc06b2f518e829f576ca16135ae3175d0b4bbf530c0f14032894f",
+      "pairJsonSha256": "96d06b37f9d65132b558be838a8be4bbf520127c54313ee58bc252aa1ff238b0",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "present company excepted",
+      "source": {
+        "id": 10057141,
+        "term": "present company excepted",
+        "partOfSpeech": "phrase",
+        "meaning": "在场者除外",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 85042,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "在场者除外",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0ca53b69ea785c7448985224a4115741fd67836f354d3730354a14947ebce899",
+      "pairJsonSha256": "7400c2c68a4cf18eb39df2ea2cde3fd48dfdd9c7f77cbc62f21867301bbb155e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "provided",
+      "source": {
+        "id": 10070886,
+        "term": "provided",
+        "partOfSpeech": "conjunction",
+        "meaning": "conj. 倘若, 以...为条件",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "conjunction",
+            "meaning": "conj. 倘若, 以...为条件",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 85180,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "b5bb754098a698219111bdb51faaeeaff3b8f100274c874bd1238517de5f1a94",
+      "pairJsonSha256": "1a22767429ffa1a078165c7db0f226ba88b4177a6d1f6dab673e191a86a6957d",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "providing",
+      "source": {
+        "id": 10070993,
+        "term": "providing",
+        "partOfSpeech": "conjunction",
+        "meaning": "conj. 以...为条件, 假如",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 85182,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "8dd732b8d8120e3a77ec9a1a8c16b62d407ff4ddeb2defe51c15da35863c8563",
+      "pairJsonSha256": "83d0f917c12408740530b66ffea0400c325b3c427413872e5d00a52ded833ba8",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "seeing as",
+      "source": {
+        "id": 10190520,
+        "term": "seeing as",
+        "partOfSpeech": "conjunction",
+        "meaning": "conj. 鉴于, 既然",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 86682,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "3e43532b41cfac5175684a1d26b40bb57b17e9ce4f725954703ba23d02c2721c",
+      "pairJsonSha256": "4fce1c1db64e8b8a8b7113c342709f22bf02e95b144543694f8d6bb32cc0ff40",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "seeing that",
+      "source": {
+        "id": 10190705,
+        "term": "seeing that",
+        "partOfSpeech": "conjunction",
+        "meaning": "conj. 鉴于, 既然",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 86683,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "f2cc2819f0ff6d9396dc2b1b8ea9944a922ad1b221946634e8ecbf6b16ba14bf",
+      "pairJsonSha256": "c0af32df2134ffccc48eae3876dd4ecea1682d635188fd961f880de466b7a760",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "skin and bone",
+      "source": {
+        "id": 10253473,
+        "term": "skin and bone",
+        "partOfSpeech": "idiom",
+        "meaning": "极瘦的, 皮包骨的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 87412,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "极瘦的, 皮包骨的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a911e596f2ff788655dae168e46480ce926e606abde59d4253142263cd101a5b",
+      "pairJsonSha256": "a268104c7bd73a7fd6bfd150a7da3d1a69aa23297432357b87c6d0b62f09d0f2",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "so much for",
+      "source": {
+        "id": 10274715,
+        "term": "so much for",
+        "partOfSpeech": "phrase",
+        "meaning": "到此为止, 结束, 完了",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 87640,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "到此为止, 结束, 完了",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "253bdf0f203c5e7f932fdfe397e4179d163d14fccccc81c5d682c712574cc45f",
+      "pairJsonSha256": "1eca08cdb065fceeddd2be1a701c64fd42c197339bf5c62053323bba83126c74",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "so much the better",
+      "source": {
+        "id": 10274943,
+        "term": "so much the better",
+        "partOfSpeech": "phrase",
+        "meaning": "那就更好了",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 87642,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "那就更好了",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e23234a829cc079de2544015845c361432ad07c6e7720490d2492461f9b8fe03",
+      "pairJsonSha256": "d05190d0c17dc756b6b085600aa545d90dad1c0865ede3db256508aabc9b2e06",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "such as it is",
+      "source": {
+        "id": 10355437,
+        "term": "such as it is",
+        "partOfSpeech": "clause",
+        "meaning": "质量不过如此的(东西), 虽然不过如此, 尽管不怎么好",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 88564,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "质量不过如此的(东西), 虽然不过如此, 尽管不怎么好",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "cc90d0fd894a21e5532644e6c575707d36523297a5edf04165d83f8e9a80dedc",
+      "pairJsonSha256": "bcc70d722c74b64bc34a38683c8fdaa7342066f3607fb70939f6c3c7a17c38be",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "talking of",
+      "source": {
+        "id": 10385054,
+        "term": "talking of",
+        "partOfSpeech": "participial phrase",
+        "meaning": "谈到",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 88989,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "谈到",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "53b1501f23186dc2b9793748b5be5825c50db18eaaf2f25236b14172a409bb2d",
+      "pairJsonSha256": "86f8da1d8d7ff858a771777d941c75451c13f6360f77624a0a1abf1c6aa393ff",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "the sooner the better",
+      "source": {
+        "id": 10406655,
+        "term": "the sooner the better",
+        "partOfSpeech": "clause",
+        "meaning": "越快越好",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89369,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "越快越好",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e5b20a29584b6b378b956dba8f049c9ae7891110c7d57d61118e8ef3441b50bf",
+      "pairJsonSha256": "c69eb74927f165b01a2fb5f6c3a1745ec22567ada5da9697bbc7e340b488162f",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "the thing is",
+      "source": {
+        "id": 10407000,
+        "term": "the thing is",
+        "partOfSpeech": "phrase",
+        "meaning": "问题是",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89376,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "问题是",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "86058486f8808e72b4a16a0d55e5797e228031f7abfc5cec39bd0781593e8ce0",
+      "pairJsonSha256": "a12fd1d30bc101e72bcba42ac252be8ecc572a6afca3d85db589f5d67fea40b8",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "time flies",
+      "source": {
+        "id": 10421265,
+        "term": "time flies",
+        "partOfSpeech": "phrase",
+        "meaning": "乌飞兔走；时光飞逝",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89632,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "乌飞兔走；时光飞逝",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b4a02b5c30f68656a68015bc2d8799c6388a5434f83d10d0e960878e4968313e",
+      "pairJsonSha256": "1b58a3cd9bae3ecacdbbdd0ce8a9d8038f88d73b5b95988c8d4b1a2cf4e8c55c",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to be frank with you",
+      "source": {
+        "id": 10428280,
+        "term": "to be frank with you",
+        "partOfSpeech": "infinitival phrase",
+        "meaning": "坦白地说",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89717,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "坦白地说",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "1e0b0ba032354ef3b530b2c332cf600d16aef3660d0e76a8c285b296739b59de",
+      "pairJsonSha256": "3508ba6230f79f68a4534a9a7bc71ce7593eaf8badc488077bba9a1f060990b2",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to be honest",
+      "source": {
+        "id": 10428328,
+        "term": "to be honest",
+        "partOfSpeech": "phrase",
+        "meaning": "老实说,说实在的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89719,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "老实说,说实在的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a2049d9d24f23dd030be2627b1328f02a113c5611b2497a0c4eb8229c046722d",
+      "pairJsonSha256": "c0039e29905cac9debb4afb8da81172b99ea8e384b28848dc88031205937904a",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to make a long story short",
+      "source": {
+        "id": 10430238,
+        "term": "to make a long story short",
+        "partOfSpeech": "infinitival phrase",
+        "meaning": "长话短说,简而言之",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89757,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "长话短说,简而言之",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "2553ab6f05575f6b9fd3692447156407b4f4b7f64006ccc3da28f6e23779458f",
+      "pairJsonSha256": "7fe76ad354062a5e167108e6b57a02cfc8ff16e722a76d8bb2b68dd8a1229494",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to put it mildly",
+      "source": {
+        "id": 10431103,
+        "term": "to put it mildly",
+        "partOfSpeech": "infinitival phrase",
+        "meaning": "说得婉转些",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89767,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "说得婉转些",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "2f6e954909ab52bbd69d03a1be38dcb2fb8f1de2153365fea7652a2050789a4c",
+      "pairJsonSha256": "87b64ee618a70340bc945473297bf16adfb64dc80d69c2348c7d4d2a4bca8dc0",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to say nothing of",
+      "source": {
+        "id": 10431199,
+        "term": "to say nothing of",
+        "partOfSpeech": "conjunction",
+        "meaning": "更不待言, 以及",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89773,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "更不待言, 以及",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "7b009f164ffec7c2ae11c24ab0c6ea613e292945692cf408a8a4586d4a222c88",
+      "pairJsonSha256": "f52c3ab0ace45ba1aa4b40516da3d3f27aed3a885836a8e928e2459541d0759b",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to tell you the truth",
+      "source": {
+        "id": 10432174,
+        "term": "to tell you the truth",
+        "partOfSpeech": "phrase",
+        "meaning": "实话跟你说吧,说实在话,老实说",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89792,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "实话跟你说吧,说实在话,老实说",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "457a593f613f656238e776e1e345af5576dd5081fd1b371e6f2f16d7fdf5441e",
+      "pairJsonSha256": "72563b200b6bd4662af7b5b7d433ac2c8c8dc777b728e6892e980c9789b0a3ec",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "to the extent that",
+      "source": {
+        "id": 10433698,
+        "term": "to the extent that",
+        "partOfSpeech": "conjunction",
+        "meaning": "达到这种程度以致…; 就…来说; 在…方面来说; 在这个意义上",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89810,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "达到这种程度以致…; 就…来说; 在…方面来说; 在这个意义上",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "40db5939f6b29e92cf000cb045a467b3d40a41c42671f3706a1de16dede9c03f",
+      "pairJsonSha256": "3c35de8c8d2d15a9317d6dee3b46fa3ea1ad0db94b03f4e3138d757d0ec83c6c",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "be going to",
+      "source": {
+        "id": 10566859,
+        "term": "be going to",
+        "partOfSpeech": "phrase",
+        "meaning": "将要；打算",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "将要；打算",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "将要；打算",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 91532,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "86abbeb840dd96200720251ec3934924a4fcbf76e57d29405f93df82c8dce69b",
+      "pairJsonSha256": "40806b2481f6faee002a29965a0645c9731e4fb8bf1cf5d149f2ad75aad12c56",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "anyone's guess",
+      "source": {
+        "id": 13100512,
+        "term": "anyone's guess",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 谁也说不准；没有人能确定答案。",
+        "forms": [
+          "anybody's guess"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "3c305dbfd4f75b8f26493984bcaf8e55223451e08c6282c21ff1a4d8f0861766",
+      "pairJsonSha256": "aecbffba7974be35a2078b83473ffcab1469d741bd10e0cd38cc98ca60d30faa",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "as good as",
+      "source": {
+        "id": 13100590,
+        "term": "as good as",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 几乎等于；实际效果上无异于。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "a1aff26eb20d86ae5d26ac757b09754fd4f5d9d1f613399e945318d547c7fded",
+      "pairJsonSha256": "868a76c3a70b58679577fd03afad78d68f808bf15bb37860cb9093545f271ccb",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "bare one's soul",
+      "source": {
+        "id": 13101318,
+        "term": "bare one's soul",
+        "partOfSpeech": "idiom",
+        "meaning": "① 袒露内心；显露一个人深藏的感受或真实自我。",
+        "forms": [
+          "bared one's soul",
+          "baring one's soul"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "008225a366ad4db20f76c77d0eba4fd78f8c7fb085631fad844c16485d2ed52a",
+      "pairJsonSha256": "5a6ae016271645987eadbef9e8f0e49f5419904b9f79af7be314f99b25a559be",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "be cut out for",
+      "source": {
+        "id": 13102035,
+        "term": "be cut out for",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 天生适合或具备从事某事的性格、能力；常用于否定句表示不适合。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "d40d1dd05e660fae6c4704193ff8618449c175f2e82ba606fb27bc04850f4dd8",
+      "pairJsonSha256": "43cfd84e79e708686d136dac7cae0daa5eba16f1e34062dd4c9ce985110f461b",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "be in awe of",
+      "source": {
+        "id": 13102573,
+        "term": "be in awe of",
+        "partOfSpeech": "idiom",
+        "meaning": "① 对……深感敬佩；为……而赞叹。",
+        "forms": [
+          "was in awe of",
+          "were in awe of"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "711e71f48c1bc48b780a6b0ff552105eedb9e53970b141bf6ef9e886e390a229",
+      "pairJsonSha256": "242d6d64cbecbf053fe3fec431c28e51c62f7542dba09e32cf196bf9bbc4def6",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "be in hot water",
+      "source": {
+        "id": 13102675,
+        "term": "be in hot water",
+        "partOfSpeech": "idiom",
+        "meaning": "惹上麻烦；因做错事而可能受到责备。",
+        "forms": [
+          "been in hot water",
+          "is in hot water",
+          "was in hot water"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "454947c9fcd9f8cc0999b0a2b3079aa53af4049add15a701c300c95e19b554e7",
+      "pairJsonSha256": "c6244b042e77b2785465e2202225ae91338f4c1f59d9d11dd9f41a057f455b8d",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "be up to something",
+      "source": {
+        "id": 13103894,
+        "term": "be up to something",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 暗中打着什么主意；正在策划某件可能不太正当的事。",
+        "forms": [
+          "was up to something",
+          "were up to something"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "44006aec6ac70f44eff4a8c85ba12f206f3b99d4a21048f17776cb64a787cf6a",
+      "pairJsonSha256": "73516ed7ce2510eb1c5dfb33d413c8f380b742777f2a08a3225877b2ba2d11fe",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "bring out the best in somebody",
+      "source": {
+        "id": 13104955,
+        "term": "bring out the best in somebody",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 激发某人最好的一面；使某人的优点或能力充分发挥出来。",
+        "forms": [
+          "bringing out the best in somebody",
+          "brought out the best in somebody"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "c9bed2dcfc241b3607a809963505e37146858c89c5966ec611c8d45e5529f703",
+      "pairJsonSha256": "fddde993fbf2f92cd97e2ba2d3257e508fbaaf6b6b50ce32d47651ad7ab3d378",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "come to a head",
+      "source": {
+        "id": 13106601,
+        "term": "come to a head",
+        "partOfSpeech": "idiom",
+        "meaning": "发展到关键关头；矛盾集中显现、到了必须处理的地步。",
+        "forms": [
+          "came to a head",
+          "comes to a head",
+          "coming to a head"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "c5c7ec9fb1e958c63a5394e56291f753712dd4883e36f87d3c747ca32ffab54d",
+      "pairJsonSha256": "9b51917c7f5cda19e37e432c454d1d94c4953f9e495edf1abee6fba9b2d91902",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "come to the fore",
+      "source": {
+        "id": 13106721,
+        "term": "come to the fore",
+        "partOfSpeech": "idiom",
+        "meaning": "① 凸显出来；从背景中变得强烈而显眼。",
+        "forms": [
+          "came to the fore",
+          "coming to the fore"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "3164ce61c1a7934ad49198d2fd9ccf093b58aa72abcaae5fef57e4b40cd7858a",
+      "pairJsonSha256": "441d0d0c2b8d4b2213f2ba2ae674b65c24888772c80f5274a5b70ce714f6510e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "don't get me wrong",
+      "source": {
+        "id": 13109016,
+        "term": "don't get me wrong",
+        "partOfSpeech": "fixed expression",
+        "meaning": "① 别误会我的意思；用于防止对方把自己的话理解得过头或理解反了。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "a3a005a493605c2a2ef174cd79970b3d4b64db6b75dfb77d7a64663382897a8f",
+      "pairJsonSha256": "dc96a94ff6016f4369b52039c0918ecb2f97a1e0768c833875e466d5d6e94e70",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "drop a hint",
+      "source": {
+        "id": 13109680,
+        "term": "drop a hint",
+        "partOfSpeech": "idiom",
+        "meaning": "① 给出暗示；不直接说破地透露想法或意愿。",
+        "forms": [
+          "dropped a hint",
+          "dropping hints",
+          "drops a hint"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "7510eced4bce121fc20db5c9d113020143cef6c47a3004e67e0523d2bbf0845b",
+      "pairJsonSha256": "d94f4aee769177f1a99174310e905e544f9b66d1e8538607699f4488fd93b7d6",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "fall short of",
+      "source": {
+        "id": 13110599,
+        "term": "fall short of",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 未达到某种标准或期望；比参照对象差、不足。",
+        "forms": [
+          "fallen short of",
+          "falling short of",
+          "falls short of",
+          "fell short of"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "89f607425d3505777f5d21d601934a5efd17c083d601cb9497d2a4872ca4d9c4",
+      "pairJsonSha256": "1dcb0687d9f29ac28508d53ee923fb67451d2930aa57f0a946dcec76f23bcb8e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "have a say",
+      "source": {
+        "id": 13114387,
+        "term": "have a say",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 有发言权；能够对决定发表意见并产生一定影响。",
+        "forms": [
+          "had a say"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "112ca88bebf053f5342cfff81d7e0dcfea8d8c1eef06ef9f71facf305fa75087",
+      "pairJsonSha256": "35ee1199bad50be619483f2507532b6c12373e69ba1be6e6d2c096c2f63d493c",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "hold one's own",
+      "source": {
+        "id": 13115850,
+        "term": "hold one's own",
+        "partOfSpeech": "idiom",
+        "meaning": "不落下风；面对对手或挑战仍能应付自如。",
+        "forms": [
+          "held one's own",
+          "hold her own",
+          "holding one's own"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "da8ea3403c126db51b02802ed7c5977a34a1625d1d6fb0c0cfc96fdc8e9eeda7",
+      "pairJsonSha256": "dbc0a5522a253c161b0b9aa2932244e3cfee0cd14b3ce7f4a3247ec56974f83e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "in a new light",
+      "source": {
+        "id": 13116963,
+        "term": "in a new light",
+        "partOfSpeech": "idiom",
+        "meaning": "① 从新的角度；以不同于以前的方式看待。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "1fbb62cb2e5caa067b1f64d7d6825308ed27e119f8bd97155c1a4193c5c5dc4d",
+      "pairJsonSha256": "d1e2decc4e14368e9736d4dcaadef28669b453bbe92da8b4e95926b69dce5416",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "in store",
+      "source": {
+        "id": 13117147,
+        "term": "in store",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 将要发生的；在未来等待着某人的。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "c39e8fdcd9aa442079d102cb9c2ce2980c74c7b070c8514cdd4ddc12680b5cdb",
+      "pairJsonSha256": "bdc606ddc05fd5188fdaf1430c3b4b7dd2e00ebb92423214d12fba1f4a67ce6e",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "keep things in perspective",
+      "source": {
+        "id": 13118182,
+        "term": "keep things in perspective",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 理性看待事情的轻重与全貌；不让局部的挫折压倒整体判断。",
+        "forms": [
+          "kept things in perspective"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "e3e6e3f1f68c60e0ceede470993cf2f30f0bcbf13d2c42713b89374931f1c206",
+      "pairJsonSha256": "9aedf69065f4421d99e6239460587fed43ef6278dbdf49f03ba6d3a4cbb16000",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "make the best of it",
+      "source": {
+        "id": 13119624,
+        "term": "make the best of it",
+        "partOfSpeech": "idiom",
+        "meaning": "在不理想的情况下尽力应付；尽量利用现有条件。",
+        "forms": [
+          "made the best of it",
+          "making the best of it"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "6ad440bf4e5f155a540b18ad1bfbf2599824ae8bed8d6b086ea46a3a43c0b112",
+      "pairJsonSha256": "e7d46ab7c858c4a9cd6f668fdb8de7a06dd8c910b976907132d4ff78cfe26f31",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "no hard feelings",
+      "source": {
+        "id": 13120904,
+        "term": "no hard feelings",
+        "partOfSpeech": "fixed expression",
+        "meaning": "没有怨气；别往心里去。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "5cc26bce39b41000a71754a0714a64b1f26ef02ae10d78e3ee07abd5b2809932",
+      "pairJsonSha256": "d29bf7b56a15be37481af79241e6b11f33379f5d3e08c1234cba7436b0abf571",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "nooks and crannies",
+      "source": {
+        "id": 13121239,
+        "term": "nooks and crannies",
+        "partOfSpeech": "idiom",
+        "meaning": "各个角落；犄角旮旯。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "3922cb7270c34d6d59ec1393f646389b6fd05a294e39d1d4af472131151c87ab",
+      "pairJsonSha256": "21b6fbe26bc0fa8de8088692d0605698385bab4071a8b440aaea6a7a4c358228",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "not breathe a word",
+      "source": {
+        "id": 13121300,
+        "term": "not breathe a word",
+        "partOfSpeech": "idiom",
+        "meaning": "一个字也不透露；严守秘密。",
+        "forms": [
+          "didn't breathe a word",
+          "not to breathe a word"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "80347d4cf175f7fafb5a0da16767c8be90d243f7d284fc7284cd77cdd2650f19",
+      "pairJsonSha256": "ad9502c25e0be982af72fc83ac6af26922c1fd92cec20b1d83ba359a4e51d382",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "stand a chance",
+      "source": {
+        "id": 13128388,
+        "term": "stand a chance",
+        "partOfSpeech": "idiom",
+        "meaning": "① 有机会成功。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "5dab7433ed87b194df60a9c981e5fcaacdfa5797d96928ecdfa707dc291db311",
+      "pairJsonSha256": "3e295e001826be5b9cc61cf540c54bdc275f536d6bc87ef8f679e50316f66e38",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "take offence",
+      "source": {
+        "id": 13129876,
+        "term": "take offence",
+        "partOfSpeech": "idiom",
+        "meaning": "觉得受到冒犯；因某人的话或行为而不快。",
+        "forms": [
+          "taken offence",
+          "takes offence",
+          "taking offence",
+          "took offence"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "5bbacf15fdf2c93d5161bb7c1248448d7a0bb0fa0c6b779a6ca097e15968a078",
+      "pairJsonSha256": "38dbb98f8445ab81d20951276ea6b0c979d03556624493ec258015c8281d20fc",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "the nuts and bolts",
+      "source": {
+        "id": 13131145,
+        "term": "the nuts and bolts",
+        "partOfSpeech": "idiom",
+        "meaning": "① 基本原理和实际操作细节。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "d473fd3fc8a806a0024cdf6cebe6092b98b0e561678d3d5fc604420ca46ee1e9",
+      "pairJsonSha256": "2a24b3ecd6891da24cf7997cbeed655857d9c3330125ae72bc158816464fa579",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    },
+    {
+      "term": "turn a corner",
+      "source": {
+        "id": 13132062,
+        "term": "turn a corner",
+        "partOfSpeech": "idiom",
+        "meaning": "出现转机；经历困难后开始好转。",
+        "forms": [
+          "turned a corner",
+          "turning a corner",
+          "turns a corner"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "8b92f1450ebf80d9c4c30a7ce989fc63389546ff7e66598d075d07f846292657",
+      "pairJsonSha256": "7e3dd36547518a58f8e7b7ed94a2f79ea9d3d336ccf3f6c2569ed13bcbda1c91",
+      "sourceChanged": false,
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "e"
+    }
+  ],
+  "authorHolds": [
+    {
+      "term": "too good to be true",
+      "reason": "The current primary and MIT variant only say 太玄了以致不真实, an imprecise wording which does not clearly express the favourable or attractive appearance carried by good. Under this task's strict no-source-rewrite scope, defer a pair until this wording receives a separate bounded sense review. The phrase itself is valid; this is not a permanent exclusion or a claim that no usable example could exist.",
+      "ordinal": 73,
+      "source": {
+        "id": 10438604,
+        "term": "too good to be true",
+        "partOfSpeech": "phrase",
+        "meaning": "太玄了以致不真实",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89881,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "太玄了以致不真实",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "bd5daf1af9a1460fedbcb7f088d997af8009ab78d26e8324d258decf75466fb9",
+      "existingHolds": [],
+      "pair": null,
+      "permanentExclusion": false
+    }
+  ],
+  "oldHoldsRetained": true,
+  "published": false
+}

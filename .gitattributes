@@ -12,3 +12,10 @@ tooling/dictionary/examples/archives/** text eol=lf
 tooling/dictionary/examples/source/batch-002[34]-*.json text eol=lf
 tooling/dictionary/examples/reviews/batch-002[34]-*.json text eol=lf
 tooling/dictionary/examples/queues/batch-002[34]*.json text eol=lf
+# Keep exact D25 opinions, generated inputs and historical index bytes portable.
+tooling/dictionary/examples/evidence/** text eol=lf
+tooling/dictionary/examples/source/batch-0025-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0025-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0025*.json text eol=lf
+tooling/dictionary/examples/index.json text eol=lf
+tooling/dictionary/chinese-related-common-examples.json text eol=lf
