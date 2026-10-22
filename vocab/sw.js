@@ -1,16 +1,20 @@
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
-// uses v103 while legacy URL aliases and warmed shards stay available.
+// uses v104 while legacy URL aliases and warmed shards stay available.
 const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/expanded-dictionary.js?v=104", "./js/dictionary-app.js?v=104",
+  "./js/library-lookup-controller.js?v=104", "./js/library-lookup-ui.js?v=104",
+  "./js/public-app.js?v=104", "./js/personal-app.js?v=104", "./js/owner-app.js?v=104",
+  "./js/dictionary-entry.js?v=104", "./dictionary-source-revisions.html", "./dictionary-pos-notation-revisions.html",
   "./js/expanded-dictionary.js?v=103", "./js/dictionary-app.js?v=103",
   "./js/library-lookup-controller.js?v=103", "./js/library-lookup-ui.js?v=103",
   "./js/public-app.js?v=103", "./js/personal-app.js?v=103", "./js/owner-app.js?v=103",
-  "./js/dictionary-entry.js?v=103", "./dictionary-source-revisions.html",
+  "./js/dictionary-entry.js?v=103",
   "./app-navigation.css?v=101", "./app-navigation.css",
   "./library-lookup.css?v=99", "./library-lookup.css",
   "./js/library-lookup-ui.js?v=100", "./js/library-lookup-ui.js",

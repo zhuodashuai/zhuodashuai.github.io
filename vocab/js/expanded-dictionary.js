@@ -263,7 +263,7 @@ function waitFor(promise, signal, timeoutMs) {
 function readable(record, selected) {
   // MIT definitions use compact POS-labelled lines. Reuse the existing display
   // formatter, but never relabel provenance or number an already numbered card.
-  if (!["mit", "core", "pos-reviewed", "grammar-reviewed"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
+  if (!["mit", "core", "pos-reviewed", "grammar-reviewed", "pos-notation-reviewed"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
   const formatted = personalDictionaryResult({ word: record.term, partOfSpeech: selected.partOfSpeech, meaning: selected.meaning });
   return formatted ? { ...selected, partOfSpeech: formatted.partOfSpeech || selected.partOfSpeech,
     meaning: formatted.meaning.length <= 2000 ? formatted.meaning : selected.meaning } : selected;

@@ -12,13 +12,22 @@ test("dictionary direct entry initializes PWA without blocking lookup or forcing
   assert.match(html, /id="apply-update"/u);
   assert.match(app, /import \{ setupPwa \} from "\.\/pwa\.js\?v=77"/u);
   assert.match(app, /import \{ installDictionaryOfflineWarm \} from "\.\/dictionary-offline-warm\.js\?v=102"/u);
-  assert.match(app, /import "\.\/dictionary-app\.js\?v=103"/u);
-  assert.ok(app.indexOf('import "./dictionary-app.js?v=103"') < app.indexOf("setupPwa({"));
+  assert.match(app, /import "\.\/dictionary-app\.js\?v=104"/u);
+  assert.ok(app.indexOf('import "./dictionary-app.js?v=104"') < app.indexOf("setupPwa({"));
   const initialization = app.slice(app.lastIndexOf('if (typeof document !== "undefined"'));
   assert.ok(initialization.indexOf("installDictionaryOfflineWarm()") < initialization.indexOf("setupPwa({"));
   assert.doesNotMatch(initialization, /autoApplyUpdate:\s*true|await navigator\.serviceWorker\.ready/u);
   assert.match(sw, /zhuo-wordbook-v100/u);
-  for (const url of ["dictionary.html", "dictionary.css?v=101", "app-navigation.css?v=101", "js/dictionary-entry.js?v=103", "js/dictionary-entry.js?v=102", "js/dictionary-entry.js", "js/dictionary-offline-warm.js?v=102", "js/dictionary-offline-warm.js", "js/dictionary-app.js?v=103", "js/dictionary-app.js?v=99", "js/pwa.js?v=77", "dictionary-source-revisions.html"]) {
+  for (const url of ["dictionary.html", "dictionary.css?v=101", "app-navigation.css?v=101", "js/dictionary-entry.js?v=104", "js/dictionary-entry.js?v=103", "js/dictionary-entry.js?v=102", "js/dictionary-entry.js", "js/dictionary-offline-warm.js?v=102", "js/dictionary-offline-warm.js", "js/dictionary-app.js?v=104", "js/dictionary-app.js?v=103", "js/dictionary-app.js?v=99", "js/pwa.js?v=77", "dictionary-source-revisions.html", "dictionary-pos-notation-revisions.html"]) {
     assert.ok(sw.includes(`"./${url}"`), `Missing direct-entry dependency ${url}`);
   }
+});
+
+test("POS notation graph update retains every previous v103 module alias and all warmed dictionary caches",async()=>{
+  const sw=await readFile(new URL('../sw.js',import.meta.url),'utf8');
+  for(const name of ['expanded-dictionary','dictionary-app','library-lookup-controller','library-lookup-ui',
+    'public-app','personal-app','owner-app','dictionary-entry']){
+    for(const version of [103,104])assert(sw.includes(`"./js/${name}.js?v=${version}"`));
+  }
+  assert.match(sw,/const CACHE_NAME = "zhuo-wordbook-v100"/u);
 });

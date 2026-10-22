@@ -5,9 +5,12 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
 import {applyDictionarySourceRevisions,verifyDictionarySourceRevisions} from './dictionary-source-revisions.mjs';
+import {applyDictionaryPosNotationRevisions,verifyDictionaryPosNotationRevisions} from './dictionary-pos-notation-revisions.mjs';
 
 export const SOURCE_LINEAGE_BASE_VERSION='474e8115824074012f7a918453f977f3a8d21c6ae25016c8a44a1fc8c2d264cc';
 const BASE_MANIFEST_SHA='fb729e8f3334658e5f82df311390710dc3f05d278c125197e95de5ed1f96dd30';
+export const SOURCE_LINEAGE_NOTATION_BASE_VERSION='9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b';
+const NOTATION_BASE_MANIFEST_SHA='c609196db70d0563c9ea92136cf6e4bd2d958359c954058f88862f1839d207b7';
 const ROOT=path.resolve(import.meta.dirname,'../..');
 const SHA=/^[a-f0-9]{64}$/u;
 const hash=value=>createHash('sha256').update(value).digest('hex');
@@ -105,28 +108,69 @@ export function assertExactRevisionNamespace(before,after,verifiedPack){
     ledgerSha256:applied.report.ledgerSha256,reviewSha256:applied.report.reviewSha256};
 }
 
-/** Never silently replace a frozen source version with today's version or accept arbitrary mismatch. */
+/** The new finite POS/notation step does not inherit the four-grammar authority. */
+export function assertExactPosNotationNamespace(before,after,verifiedPack){
+  assert.equal(dictionaryNamespaceVersion(before),before.manifest.version);
+  assert.equal(dictionaryNamespaceVersion(after),after.manifest.version);
+  const applied=applyDictionaryPosNotationRevisions([...before.records.values()],verifiedPack);
+  assert.equal(after.records.size,before.records.size);
+  for(const row of applied.records)assert.deepEqual(after.records.get(row.term),row,'Unapproved POS/notation source change '+row.term);
+  assert(!Object.hasOwn(before.manifest.sources,'pos-notation-reviewed'),'Notation step must start before its source existed');
+  assert.deepEqual(after.manifest.sources,{...before.manifest.sources,'pos-notation-reviewed':verifiedPack.source},'Only the exact reviewed notation attribution may be added');
+  const sorted=map=>[...map].sort(([a],[b])=>cmp(a,b));
+  assert.deepEqual(sorted(after.keys),sorted(before.keys),'POS notation does not change any canonical, valid form, parent or context reference');
+  assert.deepEqual(sorted(after.tokens),sorted(before.tokens),'Only ASCII POS notation changed: all Chinese postings must be identical');
+  assert.deepEqual(after.manifest.counts,before.manifest.counts);
+  return {historicalVersion:before.manifest.version,currentVersion:after.manifest.version,
+    changedTerms:applied.report.changedTerms,unchangedRecords:before.records.size-3,
+    englishReferencesUnchanged:true,chinesePostingsUnchanged:true,
+    ledgerSha256:applied.report.ledgerSha256,reviewSha256:applied.report.reviewSha256};
+}
+
+/** Only named byte-pinned archives are a source of historical evidence. */
+export async function readHistoricalDictionaryNamespace(version,{root=ROOT}={}){
+  const expected=version===SOURCE_LINEAGE_BASE_VERSION?BASE_MANIFEST_SHA:
+    version===SOURCE_LINEAGE_NOTATION_BASE_VERSION?NOTATION_BASE_MANIFEST_SHA:null;
+  assert(expected,'No reviewed transition for this historical version');
+  const file=path.join(root,'tooling/dictionary/source-revisions','baseline-'+version+'.manifest.json');
+  const bytes=await readFile(file);assert.equal(hash(bytes),expected,'Historical manifest archive changed');
+  const manifest=JSON.parse(bytes);assert.equal(manifest.version,version);
+  const namespace=await readDictionaryNamespace(manifest,path.join(root,'vocab/data/expanded-dictionary'));
+  assert.equal(namespace.records.size,102609);return namespace;
+}
+
+/** Check the exact registered chain; never rebase a frozen source onto today. */
 export async function assertHistoricalDictionaryLineage(historicalVersion,currentManifest,currentCanonical,{root=ROOT}={}){
-  assert.equal(historicalVersion,SOURCE_LINEAGE_BASE_VERSION,'No reviewed transition for this historical version');
-  const revisionDirectory=path.join(root,'tooling/dictionary/source-revisions');
-  const archivedBytes=await readFile(path.join(revisionDirectory,'baseline-'+SOURCE_LINEAGE_BASE_VERSION+'.manifest.json'));
-  assert.equal(hash(archivedBytes),BASE_MANIFEST_SHA,'Historical manifest archive changed');
-  const historicalManifest=JSON.parse(archivedBytes);assert.equal(historicalManifest.version,historicalVersion);
-  const directory=path.join(root,'vocab/data/expanded-dictionary');
+  assert([SOURCE_LINEAGE_BASE_VERSION,SOURCE_LINEAGE_NOTATION_BASE_VERSION].includes(historicalVersion),'No reviewed transition for this historical version');
+  const directory=path.join(root,'vocab/data/expanded-dictionary'),revisionDirectory=path.join(root,'tooling/dictionary/source-revisions');
   const actualManifest=await json(path.join(directory,'manifest.json'));
   assert.deepEqual(currentManifest,actualManifest,'Historical assertion must refer to the actual current manifest');
-  const before=await readDictionaryNamespace(historicalManifest,directory);
   const after=await readDictionaryNamespace(actualManifest,directory);
-  assert.equal(before.records.size,102609);assert.equal(after.records.size,102609);
-  assert(currentCanonical instanceof Map);assert.equal(currentCanonical.size,after.records.size);
+  assert.equal(after.records.size,102609);assert(currentCanonical instanceof Map);assert.equal(currentCanonical.size,after.records.size);
   for(const[term,row]of after.records)assert.deepEqual(currentCanonical.get(term),row);
-  if(historicalVersion===actualManifest.version){
-    assert.deepEqual(after.records,before.records);assert.deepEqual(after.keys,before.keys);assert.deepEqual(after.tokens,before.tokens);
-    return {historicalVersion,currentVersion:actualManifest.version,changedTerms:[],unchangedRecords:102609};
+  const original=await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_BASE_VERSION,{root});
+  const identity=()=>({historicalVersion,currentVersion:actualManifest.version,changedTerms:[],unchangedRecords:102609});
+  if(actualManifest.version===SOURCE_LINEAGE_BASE_VERSION){
+    assert.equal(historicalVersion,SOURCE_LINEAGE_BASE_VERSION,'A later historical source cannot regress to an earlier current namespace');
+    assert.deepEqual(after.records,original.records);assert.deepEqual(after.keys,original.keys);assert.deepEqual(after.tokens,original.tokens);return identity();
   }
-  const [pack,integrity,review]=await Promise.all(['finite-grammar-0001.json','finite-grammar-0001.integrity.json',
+  const [grammarPack,grammarIntegrity,grammarReview]=await Promise.all(['finite-grammar-0001.json','finite-grammar-0001.integrity.json',
     'finite-grammar-0001.review.json'].map(file=>json(path.join(revisionDirectory,file))));
-  const verified=verifyDictionarySourceRevisions(pack,integrity,review);
-  assert.equal(verified.pack.originalDictionaryVersion,historicalVersion);
-  return assertExactRevisionNamespace(before,after,verified);
+  const grammar=verifyDictionarySourceRevisions(grammarPack,grammarIntegrity,grammarReview);
+  const bridge=await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_NOTATION_BASE_VERSION,{root});
+  // The earlier comparison stays unchanged: exactly four stale form references,
+  // unchanged meanings/variants/Chinese postings and no arbitrary source delta.
+  const grammarTransition=assertExactRevisionNamespace(original,bridge,grammar);
+  if(actualManifest.version===SOURCE_LINEAGE_NOTATION_BASE_VERSION){
+    assert.deepEqual(after.manifest,bridge.manifest,'Identity at the D22 source must still match its byte-pinned historical manifest');
+    return historicalVersion===SOURCE_LINEAGE_BASE_VERSION?grammarTransition:identity();
+  }
+  const [pack,integrity,review]=await Promise.all(['finite-pos-notation-0001.json','finite-pos-notation-0001.integrity.json',
+    'finite-pos-notation-0001.review.json'].map(file=>json(path.join(revisionDirectory,file))));
+  const notation=verifyDictionaryPosNotationRevisions(pack,integrity,review);
+  const notationTransition=assertExactPosNotationNamespace(bridge,after,notation);
+  if(historicalVersion===SOURCE_LINEAGE_NOTATION_BASE_VERSION)return notationTransition;
+  return {historicalVersion,currentVersion:actualManifest.version,
+    changedTerms:[...grammarTransition.changedTerms,...notationTransition.changedTerms],unchangedRecords:102602,
+    transitions:[grammarTransition,notationTransition],scope:'Both separate finite transitions, not a generic version mismatch waiver'};
 }

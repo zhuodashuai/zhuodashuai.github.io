@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {verifyDictionarySourceRevisions,applyDictionarySourceRevisions} from '../lib/dictionary-source-revisions.mjs';
 import {assertExactRevisionNamespace,dictionaryNamespaceVersion,assertHistoricalDictionaryLineage,
-  SOURCE_LINEAGE_BASE_VERSION,readDictionaryNamespace} from '../lib/dictionary-source-lineage.mjs';
+  SOURCE_LINEAGE_BASE_VERSION,SOURCE_LINEAGE_NOTATION_BASE_VERSION,readDictionaryNamespace} from '../lib/dictionary-source-lineage.mjs';
 const root=new URL('../../',import.meta.url);
 const json=async file=>JSON.parse(await readFile(new URL(file,root),'utf8'));
 const[pack,integrity,review]=await Promise.all(['finite-grammar-0001.json','finite-grammar-0001.integrity.json','finite-grammar-0001.review.json']
@@ -71,5 +71,11 @@ test('actual current canonical dictionary is linked to the byte-pinned archived 
   const current=await readDictionaryNamespace(manifest,fileURLToPath(new URL('vocab/data/expanded-dictionary/',root)));
   const result=await assertHistoricalDictionaryLineage(SOURCE_LINEAGE_BASE_VERSION,manifest,current.records);
   assert.equal(result.historicalVersion,SOURCE_LINEAGE_BASE_VERSION);assert.equal(result.currentVersion,manifest.version);
-  assert.equal(result.unchangedRecords,manifest.version===SOURCE_LINEAGE_BASE_VERSION?102609:102605);
+  const expectedUnchanged=new Map([
+    [SOURCE_LINEAGE_BASE_VERSION,102609],
+    [SOURCE_LINEAGE_NOTATION_BASE_VERSION,102605],
+    ['5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432',102602]
+  ]);
+  assert(expectedUnchanged.has(manifest.version),'Actual source is not one of the three reviewed registered stages');
+  assert.equal(result.unchangedRecords,expectedUnchanged.get(manifest.version));
 });

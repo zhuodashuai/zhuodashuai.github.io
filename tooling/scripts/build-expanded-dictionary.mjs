@@ -12,6 +12,13 @@ import { dictionarySupplementIntegrity, renderDictionarySupplementReferences, va
 import { applyDictionaryPosOverlay, dictionaryPosIntegrity, DICTIONARY_POS_SOURCE,
   validateDictionaryPos, verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 import { applyDictionarySourceRevisions, verifyDictionarySourceRevisions } from "../lib/dictionary-source-revisions.mjs";
+import { applyDictionaryPosNotationRevisions, verifyDictionaryPosNotationRevisions } from "../lib/dictionary-pos-notation-revisions.mjs";
+import { assertHistoricalDictionaryLineage, assertExactPosNotationNamespace,
+  readHistoricalDictionaryNamespace, readDictionaryNamespace,
+  SOURCE_LINEAGE_NOTATION_BASE_VERSION } from "../lib/dictionary-source-lineage.mjs";
+import { isDeepStrictEqual } from "node:util";
+import { assertPinnedDictionarySeedIntegrity, parsePinnedDictionarySeedArchive,
+  DICTIONARY_SEED_ARCHIVE_FILE } from "../lib/dictionary-seed-archive.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const BUCKETS = 128;
@@ -116,7 +123,7 @@ function originalRows(pack) {
 
 /** The caller supplies a hash-verified catalogue; authors cannot self-sign via CLI. */
 export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null, posPack = null,
-  sourceRevisionPack = null }) {
+  sourceRevisionPack = null, posNotationRevisionPack = null }) {
   const seed = normalizeExpandedSeed(prepared);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
   const supplement = supplementPack === null ? null : validateDictionarySupplement(supplementPack);
@@ -216,6 +223,16 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     sourceRevisionReport = revised.report;
     sources["grammar-reviewed"] = { ...sourceRevisionPack.source };
   }
+  let posNotationRevisionReport = null;
+  if (posNotationRevisionPack !== null) {
+    // Separate exact-three authority. Superseded incorrect labels are historical
+    // evidence, not active alternative senses. Immutable MIT recovery uses the
+    // original byte-pinned archive, not these current primary records.
+    const revised = applyDictionaryPosNotationRevisions(records, posNotationRevisionPack);
+    records = revised.records;
+    posNotationRevisionReport = revised.report;
+    sources["pos-notation-reviewed"] = { ...posNotationRevisionPack.source };
+  }
   // Derive aliases only from final active forms, never from historical
   // seed.forms. In particular, the finite revision must not regenerate the
   // four stale form references from its preserved source-recovery metadata.
@@ -270,8 +287,9 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
       ...(sourceRevisionReport ? { subsequentlyRevised: sourceRevisionReport.supersededPosReviewed,
         finalPosReviewed: records.filter(record => record.source === "pos-reviewed").length } : {}) } } : {}),
     ...(sourceRevisionReport ? { sourceRevisions: sourceRevisionReport } : {}),
+    ...(posNotationRevisionReport ? { posNotationRevisions: posNotationRevisionReport } : {}),
     ...(supplement ? { supplementRows: supplement.entries.length, supplementIntegrity: dictionarySupplementIntegrity(supplement) } : {}),
-    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}${sourceRevisionReport ? "; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance" : ""}; no publisher dictionary text.` };
+    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}${sourceRevisionReport ? "; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance" : ""}${posNotationRevisionReport ? "; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history" : ""}; no publisher dictionary text.` };
   return { manifest, files, report, records, seed };
 }
 
@@ -331,47 +349,142 @@ export function validateExpandedBuild(build) {
   return { canonicalRecords: canonicalCount, englishKeys: keys, chineseTokens: tokens, allReferencesVerified: true, allHanPostingsVerified: true };
 }
 
-export async function recoverExpandedSeed(directory, integrity) {
-  const manifest = JSON.parse(await readFile(resolve(directory, "manifest.json"), "utf8"));
-  if (manifest.schemaVersion !== 2 || !HASH.test(manifest.version)) throw new Error("Invalid existing expanded manifest.");
-  const rows = [];
-  for (const descriptor of manifest.english.shards) {
-    if (!new RegExp(`^${manifest.version}/en-[0-9]{3}\\.json$`, "u").test(descriptor.file)) throw new Error("Unsafe existing shard path.");
-    const bytes = await readFile(resolve(directory, descriptor.file));
-    if (expandedSha256(bytes) !== descriptor.sha256 || bytes.length !== descriptor.bytes) throw new Error("Existing shard has changed.");
-    for (const record of JSON.parse(bytes).records) {
-      if (record.id % BUCKETS !== descriptor.bucket || !record.seed) continue;
-      const mit = [record, ...(record.variants || [])].find(item => item.source === "mit");
-      if (!mit) throw new Error("Missing MIT variant for immutable source seed.");
-      rows.push({ term: record.term, partOfSpeech: mit.partOfSpeech, meaning: mit.meaning, ...record.seed });
+/** Explicit low-level reader for independently supplied manifests and fixtures.
+ * This authenticates EN copies and MIT rows, not current ZH/lineage authority. */
+export async function recoverExpandedSeedFromManifest(directory, integrity, manifest, { readBytes = readFile } = {}) {
+  const invalid = message => { throw new Error(`Invalid expanded seed recovery: ${message}.`); };
+  const integer = (value, maximum) => Number.isSafeInteger(value) && value >= 0 && value <= maximum;
+  const exactKeys = (value, required, optional = []) => value && typeof value === "object" && !Array.isArray(value)
+    && required.every(key => Object.hasOwn(value, key))
+    && Object.keys(value).every(key => required.includes(key) || optional.includes(key));
+  if (!exactKeys(manifest, ["schemaVersion", "version", "counts", "sources", "english", "chinese"])
+    || manifest.schemaVersion !== 2 || !HASH.test(manifest.version)
+    || !exactKeys(manifest.counts, ["records", "englishKeys", "chineseTokens"])
+    || !integer(manifest.counts.records, 200_000) || !integer(manifest.counts.englishKeys, 1_000_000)
+    || !integer(manifest.counts.chineseTokens, 200_000)
+    || !exactKeys(manifest.english, ["buckets", "shards"]) || manifest.english.buckets !== BUCKETS
+    || !Array.isArray(manifest.english.shards) || manifest.english.shards.length !== BUCKETS
+    || !manifest.sources || !isDeepStrictEqual(manifest.sources.mit, integrity?.source)) invalid("manifest or MIT source identity");
+  const all = new Map(), identities = new Map(), canonicals = new Map(), seenKeys = new Set();
+  let keyCount = 0;
+  for (const [bucket, descriptor] of manifest.english.shards.entries()) {
+    if (!exactKeys(descriptor, ["bucket", "file", "sha256", "bytes", "count"])
+      || descriptor.bucket !== bucket || descriptor.file !== `${manifest.version}/en-${String(bucket).padStart(3, "0")}.json`
+      || !HASH.test(descriptor.sha256) || !integer(descriptor.bytes, 8 * 1024 * 1024) || descriptor.bytes < 1
+      || !integer(descriptor.count, 200_000)) invalid("English descriptor/path");
+    const bytes = await readBytes(resolve(directory, descriptor.file));
+    if (!(bytes instanceof Uint8Array) || expandedSha256(bytes) !== descriptor.sha256 || bytes.length !== descriptor.bytes) {
+      throw new Error("Existing shard has changed.");
     }
+    let shard;
+    try { shard = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)); }
+    catch { invalid("English shard JSON"); }
+    if (!exactKeys(shard, ["schemaVersion", "kind", "bucket", "records", "keys"])
+      || shard.schemaVersion !== 2 || shard.kind !== "en" || shard.bucket !== bucket
+      || !Array.isArray(shard.records) || shard.records.length > 30_000
+      || !Array.isArray(shard.keys) || shard.keys.length !== descriptor.count) invalid("English shard header");
+    const local = new Map(), referenced = new Set(), canonicalReferences = new Set();
+    for (const record of shard.records) {
+      if (!exactKeys(record, ["id", "term", "partOfSpeech", "meaning", "forms", "source"], ["variants", "seed", "workbook"])
+        || !integer(record.id, 30_000_000) || local.has(record.id) || term(record.term) !== record.term
+        || record.id % BUCKETS !== expandedBucket(expandedKey(record.term))
+        || text(record.partOfSpeech, 200, "recovery POS", { empty: true }) !== record.partOfSpeech
+        || text(record.meaning, 2000, "recovery meaning", { chinese: true }) !== record.meaning
+        || !isDeepStrictEqual(forms(record.forms, record.term), record.forms)
+        || typeof record.source !== "string" || !Object.hasOwn(manifest.sources, record.source)
+        || record.variants !== undefined && (!Array.isArray(record.variants) || record.variants.length > 8)) invalid("physical record");
+      for (const variant of record.variants || []) {
+        if (!exactKeys(variant, ["partOfSpeech", "meaning", "source"])
+          || text(variant.partOfSpeech, 200, "recovery variant POS", { empty: true }) !== variant.partOfSpeech
+          || text(variant.meaning, 2000, "recovery variant meaning", { chinese: true }) !== variant.meaning
+          || typeof variant.source !== "string" || !Object.hasOwn(manifest.sources, variant.source)) invalid("variant");
+      }
+      if (record.seed !== undefined && (!exactKeys(record.seed, ["rank", "forms", "workbook"])
+        || !integer(record.seed.rank, 200_000) || typeof record.seed.workbook !== "boolean"
+        || !isDeepStrictEqual(forms(record.seed.forms, `${record.term} seed`), record.seed.forms))) invalid("seed metadata");
+      if (identities.has(record.term) && identities.get(record.term) !== record.id) invalid("conflicting canonical term");
+      identities.set(record.term, record.id);
+      if (all.has(record.id) && !isDeepStrictEqual(all.get(record.id), record)) invalid("conflicting physical copy");
+      all.set(record.id, record); local.set(record.id, record);
+      if (record.id % BUCKETS === bucket) {
+        if (canonicals.has(record.id)) invalid("duplicate canonical copy");
+        canonicals.set(record.id, record);
+      }
+    }
+    for (const item of shard.keys) {
+      if (!Array.isArray(item) || item.length !== 2) invalid("key row");
+      const [key, refs] = item;
+      if (typeof key !== "string" || expandedKey(key) !== key || expandedBucket(key) !== bucket
+        || seenKeys.has(key) || !Array.isArray(refs) || !refs.length || refs.length > 100) invalid("key identity");
+      seenKeys.add(key); keyCount++;
+      const exactRefs = new Set();
+      for (const ref of refs) {
+        const refIdentity = JSON.stringify([ref?.id, ref?.kind, ref?.term, ref?.partOfSpeech, ref?.meaning]);
+        if (!exactKeys(ref, ["id", "kind"], ["term", "partOfSpeech", "meaning"]) || !local.has(ref.id)
+          || exactRefs.has(refIdentity)) invalid("reference/local copy");
+        const record = local.get(ref.id); exactRefs.add(refIdentity); referenced.add(ref.id);
+        if (ref.kind === "canonical") {
+          if (expandedKey(record.term) !== key || ref.term !== undefined || ref.partOfSpeech !== undefined || ref.meaning !== undefined) invalid("canonical reference");
+          canonicalReferences.add(ref.id);
+        } else if (ref.kind === "form") {
+          if (typeof ref.term !== "string" || term(ref.term) !== ref.term || expandedKey(ref.term) !== key || !record.forms.some(form => expandedKey(form) === key)
+            || ref.partOfSpeech !== undefined || ref.meaning !== undefined) invalid("active form reference");
+        } else if (ref.kind === "context") {
+          if (typeof ref.term !== "string" || term(ref.term) !== ref.term || expandedKey(ref.term) !== key
+            || text(ref.partOfSpeech, 200, "recovery context POS", { empty: true }) !== ref.partOfSpeech
+            || text(ref.meaning, 2000, "recovery context meaning", { chinese: true }) !== ref.meaning) invalid("context reference");
+        } else invalid("reference kind");
+      }
+    }
+    if (referenced.size !== local.size) invalid("unreferenced physical record");
+    for (const record of local.values()) if (record.id % BUCKETS === bucket
+      && !canonicalReferences.has(record.id)) invalid("missing canonical reference");
+  }
+  if (canonicals.size !== manifest.counts.records || canonicals.size !== all.size || keyCount !== manifest.counts.englishKeys) invalid("canonical/key coverage");
+  const rows = [];
+  for (const record of canonicals.values()) {
+    if (!record.seed) continue;
+    const candidates = [record, ...(record.variants || [])].filter(item => item.source === "mit");
+    if (candidates.length !== 1) throw new Error("Missing or ambiguous MIT variant for immutable source seed.");
+    const mit = candidates[0];
+    rows.push({ term: record.term, partOfSpeech: mit.partOfSpeech, meaning: mit.meaning, ...record.seed });
   }
   const prepared = { schemaVersion: 1, source: integrity.source, rows,
     headlistSha256: integrity.headlistSha256, workbookHeadsSha256: integrity.workbookHeadsSha256 };
-  if (JSON.stringify(expandedSeedIntegrity(prepared)) !== JSON.stringify(integrity)) throw new Error("MIT semantic root mismatch; neither regenerated shard hashes nor a rewritten manifest can approve changed definitions.");
+  if (!isDeepStrictEqual(expandedSeedIntegrity(prepared), integrity)) throw new Error("MIT semantic root mismatch; neither regenerated shard hashes nor a rewritten manifest can approve changed definitions.");
   return prepared;
+}
+
+/** Compatibility reader for small explicit fixtures; production uses the pinned archive below. */
+export async function recoverExpandedSeed(directory, integrity) {
+  const manifest = JSON.parse(await readFile(resolve(directory, "manifest.json"), "utf8"));
+  return recoverExpandedSeedFromManifest(directory, integrity, manifest);
+}
+
+/** Never consult active primary/variants or fall back when the original archive fails. */
+export async function recoverPinnedExpandedSeedArchive({ root = ROOT, integrity } = {}) {
+  assertPinnedDictionarySeedIntegrity(integrity);
+  const manifest = parsePinnedDictionarySeedArchive(await readFile(resolve(root, DICTIONARY_SEED_ARCHIVE_FILE)));
+  return recoverExpandedSeedFromManifest(resolve(root, "vocab/data/expanded-dictionary"), integrity, manifest);
 }
 export async function generateExpandedDictionary({ root = ROOT, preparedPath, check = false } = {}) {
   const directory = resolve(root, "vocab/data/expanded-dictionary");
   const integrityPath = resolve(root, "tooling/dictionary/expanded-source-integrity.json");
   let integrity;
   try { integrity = JSON.parse(await readFile(integrityPath, "utf8")); } catch (error) { if (error.code !== "ENOENT") throw error; }
+  if (!integrity) throw new Error("Missing reviewed MIT seed integrity; the existing recovery root cannot be bootstrapped automatically.");
+  assertPinnedDictionarySeedIntegrity(integrity);
   let prepared;
   if (preparedPath) {
     prepared = JSON.parse(await readFile(preparedPath, "utf8"));
     const candidate = expandedSeedIntegrity(prepared);
-    if (integrity && JSON.stringify(candidate) !== JSON.stringify(integrity)) throw new Error("Prepared source does not match the reviewed MIT semantic root.");
-    if (!integrity) {
-      if (check) throw new Error("Missing reviewed source integrity root.");
-      integrity = candidate; await mkdir(resolve(root, "tooling/dictionary"), { recursive: true });
-      await writeFile(integrityPath, `${JSON.stringify(integrity, null, 2)}\n`);
-    }
+    if (!isDeepStrictEqual(candidate, integrity)) throw new Error("Prepared source does not match the reviewed MIT semantic root.");
   } else {
-    if (!integrity) throw new Error("First bootstrap requires --prepared=<private prepared-input.json>; subsequent builds use tracked shards and the independent integrity root.");
-    prepared = await recoverExpandedSeed(directory, integrity);
+    prepared = await recoverPinnedExpandedSeedArchive({ root, integrity });
   }
   const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes, posBytes, posIntegrityBytes,
-    sourceRevisionBytes, sourceRevisionIntegrityBytes, sourceRevisionReviewBytes] = await Promise.all([
+    sourceRevisionBytes, sourceRevisionIntegrityBytes, sourceRevisionReviewBytes,
+    notationBytes, notationIntegrityBytes, notationReviewBytes] = await Promise.all([
     readFile(resolve(root, "vocab/data/ecdict-core.json")), readFile(resolve(root, "vocab/data/owner-wordbook.json")),
     loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"), reviewDirectory: resolve(root, "tooling/dictionary/reviews") }),
     readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8"),
@@ -381,17 +494,29 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     readFile(resolve(root, "tooling/dictionary/pos/integrity.json"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.json"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.integrity.json"), "utf8"),
-    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.review.json"), "utf8")
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.review.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-pos-notation-0001.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-pos-notation-0001.integrity.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-pos-notation-0001.review.json"), "utf8")
   ]);
   const supplementPack = verifyDictionarySupplement(JSON.parse(supplementBytes), JSON.parse(supplementIntegrityBytes));
   const posPack = verifyDictionaryPos(JSON.parse(posBytes), JSON.parse(posIntegrityBytes));
   const sourceRevisionPack = verifyDictionarySourceRevisions(JSON.parse(sourceRevisionBytes),
     JSON.parse(sourceRevisionIntegrityBytes), JSON.parse(sourceRevisionReviewBytes));
+  const posNotationRevisionPack = verifyDictionaryPosNotationRevisions(JSON.parse(notationBytes),
+    JSON.parse(notationIntegrityBytes), JSON.parse(notationReviewBytes));
   const referencesHTML = renderDictionarySupplementReferences(supplementPack);
   const referencesPath = resolve(root, "vocab/dictionary-references.html");
   const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes),
-    originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack });
+    originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack, posNotationRevisionPack });
   const verification = validateExpandedBuild(build);
+  // Authenticate the proposed output as well as the old active state. A changed
+  // core/public/editorial input cannot ride along with these three corrections.
+  const baseline = await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_NOTATION_BASE_VERSION, { root });
+  const candidate = { manifest: build.manifest, records: new Map(build.records.map(record => [record.term, record])),
+    keys: new Map(build.manifest.english.shards.flatMap(descriptor => JSON.parse(build.files.get(descriptor.file)).keys)),
+    tokens: new Map(build.manifest.chinese.shards.flatMap(descriptor => JSON.parse(build.files.get(descriptor.file)).postings)) };
+  const sourceTransition = assertExactPosNotationNamespace(baseline, candidate, posNotationRevisionPack);
   const manifestBytes = json(build.manifest);
   if (check) {
     if (await readFile(resolve(directory, "manifest.json"), "utf8") !== manifestBytes) throw new Error("Expanded manifest is stale.");
@@ -399,6 +524,16 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     if (await readFile(referencesPath, "utf8") !== referencesHTML) throw new Error("Dictionary supplement reference page is stale.");
     for (const [file, bytes] of build.files) if (await readFile(resolve(directory, file), "utf8") !== bytes) throw new Error(`Expanded shard is stale: ${file}.`);
   } else {
+    // A reproducible seed must not silently launder a changed active namespace.
+    // Validate its complete registered historical chain before moving a pointer.
+    const currentManifest = JSON.parse(await readFile(resolve(directory, "manifest.json"), "utf8"));
+    const current = await readDictionaryNamespace(currentManifest, directory);
+    await assertHistoricalDictionaryLineage(SOURCE_LINEAGE_NOTATION_BASE_VERSION, currentManifest, current.records, { root });
+    for (const [file, bytes] of build.files) {
+      let existing;
+      try { existing = await readFile(resolve(directory, file)); } catch (error) { if (error.code !== "ENOENT") throw error; }
+      if (existing && !existing.equals(Buffer.from(bytes))) throw new Error(`Refusing to overwrite immutable expanded shard: ${file}.`);
+    }
     await mkdir(resolve(directory, build.manifest.version), { recursive: true });
     for (const [file, bytes] of build.files) await writeFile(resolve(directory, file), bytes);
     await writeFile(resolve(directory, "manifest.json"), manifestBytes);
@@ -406,7 +541,7 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     await writeFile(referencesPath, referencesHTML);
     await writeFile(resolve(directory, "source-audit.json"), `${JSON.stringify({ ...build.report, integrity, verification }, null, 2)}\n`);
   }
-  return { ...build.report, verification };
+  return { ...build.report, verification, sourceTransition };
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const input = process.argv.find(argument => argument.startsWith("--prepared="))?.slice("--prepared=".length);

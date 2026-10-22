@@ -1,4 +1,4 @@
-import { createDictionaryController } from "./dictionary-app.js?v=103";
+import { createDictionaryController } from "./dictionary-app.js?v=104";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
 import { validatePersonalSession, createPersonalExpiryTimer } from "./personal-storage.js?v=82";
 

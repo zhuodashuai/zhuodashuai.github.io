@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { expandedKey, expandedSeedIntegrity, normalizeExpandedTerm,
-  recoverExpandedSeed, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
+  recoverPinnedExpandedSeedArchive, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
 import { loadOriginalCatalogue } from "../lib/original-dictionary-catalogue.mjs";
 import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { preloadExpandedDictionary, searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../../vocab/js/expanded-dictionary.js";
@@ -58,10 +58,10 @@ test("30k import retains at least 102,609 complete canonical records with every 
   });
 });
 
-test("all shipped MIT semantic fields recover to the separately tracked source root", async () => {
+test("all original MIT semantic fields recover from the byte-pinned archive to the separately tracked source root", async () => {
   const integrity = await readJSON(new URL("../dictionary/expanded-source-integrity.json", import.meta.url));
-  const recovered = await recoverExpandedSeed(fileURLToPath(directory), integrity);
-  assert.ok(recovered.rows.length >= 102325);
+  const recovered = await recoverPinnedExpandedSeedArchive({ root: fileURLToPath(new URL("../../", import.meta.url)), integrity });
+  assert.equal(recovered.rows.length, 102325);
   assert.deepEqual(expandedSeedIntegrity(recovered), integrity);
   assert.ok(!recovered.rows.some(row => ["fan mail", "stuffed mushroom"].includes(expandedKey(row.term))),
     "corrupt source rows are excluded instead of silently changing licensed wording");
