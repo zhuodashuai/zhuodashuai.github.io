@@ -12,6 +12,8 @@ export const D25_PUBLISHED_IDENTITY=null;
 // No reviewed target-source evolution is registered. A later exact target
 // change requires a new independent compatibility binding, not a blanket skip.
 export const D25_TARGET_SOURCE_EVOLUTIONS=Object.freeze([]);
+// Exact, finite historical checkout transports; never a general normalizer.
+export const D25_LEGACY_TRANSPORT_PIN='0ffb3950de71e8be657e2c4c06a46aa5fc58c2de8ab4142527283fc6a15409be';
 export const D25_EXISTING_PINS=Object.freeze({authorSha256:'6d642fd0a0299bfe1b7420db2f825534f9ad3b0227ab98db05558d2a5edf65f3',authorBytes:380063,languageReviewSha256:'ba88f8ee11c07b2c3fb7728ffe3b7830a93acddcccada2ac980b1dc4af6be828',languageReviewBytes:210090,sourceVersion:'cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644',sourceManifestSha256:'2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f',beforeExampleVersion:'9d88df54348516f0c4d6d554e0eb49348512a6026c693bae5ee88ad0959e0210',beforeExampleManifestSha256:'b73f2da425af9350b6ed1b4f4ebd14681f024202e11353c51d5801b610253c61',beforeIndexSha256:'3d534e73d1a7328b35707909efe5af61f0bc4f10f50bdd4be2abb0e3947f0916',d24ProvenanceSha256:'830604f402655af18086e0e8e60e83f62defb8c28708b9781fb308485d13d811'});
 export const D25_REPRESENTATIVES=Object.freeze([
  Object.freeze({term:'a bit of',query:'a bit of',family:'quantifier literal',width:390}),
@@ -38,6 +40,12 @@ export function requireD25PublishedIdentity(){
  for(const key of ['commit','tree'])assert.match(identity[key],/^[a-f0-9]{40}$/u);assert.match(identity.productionProofSha256,/^[a-f0-9]{64}$/u);return identity;
 }
 export function d25MeaningLines(meaning){return (/^\s*(?:[①-⑳]|\d+[.、])/u.test(meaning)?meaning:'① '+meaning).split(/\r?\n/u).filter(line=>line.trim());}
+export function assertD25HistoricalTransport(raw,file,pin,registry){
+ assert(Buffer.isBuffer(raw));assert.equal(pin.path,file);assert.equal(registry.schemaVersion,1);assert.equal(registry.kind,'D25-exact-finite-historical-CRLF-LF-transports');
+ const matches=registry.entries.filter(row=>row.file===file);assert(matches.length<=1);const actual={bytes:raw.length,sha256:sha(raw)};
+ if(matches.length){const row=matches[0];assert.deepEqual(row.historical,{bytes:pin.bytes,sha256:pin.sha256});if(actual.sha256===row.gitLf.sha256){assert.equal(actual.bytes,row.gitLf.bytes);return 'exact-registered-git-lf';}}
+ assert.deepEqual(actual,{bytes:pin.bytes,sha256:pin.sha256},'Historical content moved, not an exact registered checkout transport: '+file);return 'exact-historical-raw';
+}
 export async function loadD25RegressionFixture(options={}){
  const pins=requireD25BuiltPins(); // Before options dereference, reads or product imports.
  const root=options.root??new URL('../../',import.meta.url);
@@ -90,7 +98,8 @@ export async function loadD25RegressionFixture(options={}){
  const oldFiles=[...oldProvenance.baselineSourceFiles,'batch-0024-p001.json'];assert.equal(oldFiles.length,533);assert.equal(sha(Buffer.from(JSON.stringify({schemaVersion:1,sourceFiles:oldFiles},null,2)+'\n')),D25_EXISTING_PINS.beforeIndexSha256);
  const historicalIndex=JSON.parse(await read('tooling/dictionary/examples/archives/batch-0025-index.snapshot.json',pins.historicalIndexSha256));assert.deepEqual(historicalIndex,{schemaVersion:1,sourceFiles:[...oldFiles,'batch-0025-p001.json']});
  const currentIndex=JSON.parse(await read('tooling/dictionary/examples/index.json'));assert.equal(currentIndex.schemaVersion,1);assert.deepEqual(currentIndex.sourceFiles.slice(0,historicalIndex.sourceFiles.length),historicalIndex.sourceFiles,'Current index lost exact historical D25 prefix');assert.equal(new Set(currentIndex.sourceFiles).size,currentIndex.sourceFiles.length);
- for(const file of oldFiles)for(const kind of ['source','reviews']){const relative='tooling/dictionary/examples/'+kind+'/'+file,pin=provenance.inputPins.find(row=>row.path===relative);assert(pin&&!pin.absent);await read(relative,pin.sha256,pin.bytes);}
+ const legacyTransport=JSON.parse(await read('tooling/dictionary/examples/archives/batch-0025-legacy-transport.json',D25_LEGACY_TRANSPORT_PIN));assert.equal(legacyTransport.originalProvenanceSha256,pins.provenanceSha256);assert.equal(legacyTransport.entries.length,132);assert.equal(new Set(legacyTransport.entries.map(row=>row.file)).size,132);const historicalPaths=new Set(oldFiles.flatMap(file=>['source','reviews'].map(kind=>'tooling/dictionary/examples/'+kind+'/'+file)));assert.equal(historicalPaths.size,1066);for(const row of legacyTransport.entries)assert(historicalPaths.has(row.file),'No transport waiver for nonhistorical inputs');
+ for(const file of oldFiles)for(const kind of ['source','reviews']){const relative='tooling/dictionary/examples/'+kind+'/'+file,pin=provenance.inputPins.find(row=>row.path===relative);assert(pin&&!pin.absent);const raw=await read(relative);assertD25HistoricalTransport(raw,relative,pin,legacyTransport);}
  const product=await import(pathToFileURL(path.join(base,'vocab/js/expanded-dictionary.js'))),formatter=await import(pathToFileURL(path.join(base,'vocab/js/personal-dictionary.js')));
  const fetchImpl=async value=>{const file=fileURLToPath(value);assert(path.resolve(file).startsWith(path.resolve(base,'vocab/data/expanded-dictionary')+path.sep),'Only local public source assets');const bytes=await fs.readFile(file);return new Response(bytes,{headers:{'content-length':String(bytes.length)}});};
  function readable(record,item){if(!['mit','core','pos-reviewed','grammar-reviewed','pos-notation-reviewed'].includes(item.source)||/^\s*(?:[①-⑳]|\d+[.、])/u.test(item.meaning))return item;const f=formatter.personalDictionaryResult({word:record.term,partOfSpeech:item.partOfSpeech,meaning:item.meaning});return f?{...item,partOfSpeech:f.partOfSpeech||item.partOfSpeech,meaning:f.meaning.length<=2000?f.meaning:item.meaning}:item;}
