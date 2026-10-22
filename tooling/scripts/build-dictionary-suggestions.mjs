@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { expandedBucket, expandedKey, expandedSha256, normalizeExpandedTerm } from "./build-expanded-dictionary.mjs";
+import { DICTIONARY_SOURCE_REVISION_SOURCE } from "../lib/dictionary-source-revisions.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const HASH = /^[a-f0-9]{64}$/u;
@@ -10,7 +11,7 @@ const ELIGIBLE = /^[a-z]+(?:[ '-][a-z]+)*$/u;
 const BUCKETS = 128;
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 64;
-const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed"]);
+const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed", "grammar-reviewed"]);
 const cmp = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const json = value => `${JSON.stringify(value)}\n`;
 const invalid = message => { throw new Error(`Invalid suggestion source: ${message}`); };
@@ -33,6 +34,10 @@ function validateManifest(manifest) {
     if (!SOURCES.has(source) || !metadata || typeof metadata.name !== "string" || !metadata.name.trim()
       || typeof metadata.license !== "string" || !metadata.license.trim() || typeof metadata.url !== "string"
       || !/^https:\/\//u.test(metadata.url)) invalid("provenance table");
+    if (source === "grammar-reviewed" && (!HASH.test(metadata.sha256)
+      || Object.entries(DICTIONARY_SOURCE_REVISION_SOURCE).some(([key, value]) => metadata[key] !== value))) {
+      invalid("grammar revision provenance");
+    }
   }
   let totalKeys = 0;
   for (const [bucket, descriptor] of manifest.english.shards.entries()) {

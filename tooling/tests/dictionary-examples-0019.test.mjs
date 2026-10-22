@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {loadExampleBuild,exampleSourceHash,validateExampleReview} from '../scripts/build-dictionary-examples.mjs';
 import {parseDictionaryExamplesManifest,parseDictionaryExamplesShard} from '../../vocab/js/dictionary-examples.js';
 import {publishedPosSupports,isAllowedSelectedPos} from '../lib/dictionary-example-pos-policy.mjs';
+import {assertHistoricalDictionaryLineage,SOURCE_LINEAGE_BASE_VERSION} from '../lib/dictionary-source-lineage.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const json=async relative=>JSON.parse(await readFile(new URL(relative,import.meta.url),'utf8'));
 const outcome=await json('../dictionary/examples/queues/batch-0019-outcome.json');
@@ -33,9 +34,10 @@ test('D19 reports actual approvals and explicit holds while preserving the102609
  assert.equal(new Set(outcome.deferred.map(row=>row.term)).size,outcome.deferred.length);
  for(const item of outcome.deferred){assert(queued.has(item.term));assert(!rows.some(row=>row.term===item.term));assert(item.reason.trim());assert.equal(item.sourceSha256,sha(JSON.stringify(queued.get(item.term).source)));}
 });
-test('every full frozen D19 source still equals the released canonical record including nested provenance',()=>{
+test('every full frozen D19 source retains its genuine archived version and exact current record',async()=>{
  for(const[term,entry]of queued){assert.deepEqual(entry.source,canonical.get(term));assert.equal(entry.sourceSha256,sha(JSON.stringify(entry.source)));assert.equal(entry.admission,null);}
- assert.equal(provenance.sourceDictionaryVersion,dictionary.version);assert.equal(queueSummary.sourceDictionaryVersion,dictionary.version);
+ assert.equal(provenance.sourceDictionaryVersion,SOURCE_LINEAGE_BASE_VERSION);assert.equal(queueSummary.sourceDictionaryVersion,provenance.sourceDictionaryVersion);
+ await assertHistoricalDictionaryLineage(provenance.sourceDictionaryVersion,dictionary,canonical);
 });
 test('selected tags stay source-supported and never infer a role from Chinese or word endings',()=>{
  for(const row of rows){assert(isAllowedSelectedPos(row.partOfSpeech));assert(publishedPosSupports(queued.get(row.term).source,row.partOfSpeech));}

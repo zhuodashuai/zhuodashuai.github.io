@@ -2,7 +2,7 @@ import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putRe
 import { createEntryDetailController } from "./entry-detail.js?v=96";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
-import { mountLibraryLookup } from "./library-lookup-ui.js?v=100";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=103";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";

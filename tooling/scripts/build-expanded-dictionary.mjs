@@ -11,6 +11,7 @@ import { dictionarySupplementIntegrity, renderDictionarySupplementReferences, va
   verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { applyDictionaryPosOverlay, dictionaryPosIntegrity, DICTIONARY_POS_SOURCE,
   validateDictionaryPos, verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
+import { applyDictionarySourceRevisions, verifyDictionarySourceRevisions } from "../lib/dictionary-source-revisions.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const BUCKETS = 128;
@@ -114,7 +115,8 @@ function originalRows(pack) {
 }
 
 /** The caller supplies a hash-verified catalogue; authors cannot self-sign via CLI. */
-export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null, posPack = null }) {
+export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null, posPack = null,
+  sourceRevisionPack = null }) {
   const seed = normalizeExpandedSeed(prepared);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
   const supplement = supplementPack === null ? null : validateDictionarySupplement(supplementPack);
@@ -174,6 +176,9 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
   const priority = new Map(seed.rows.map((item, index) => [item.term, index]));
   const sorted = [...cards.values()].sort((a, b) => (priority.get(a.term) ?? Number.MAX_SAFE_INTEGER) - (priority.get(b.term) ?? Number.MAX_SAFE_INTEGER) || cmp(a.term, b.term));
   let records = [];
+  // Reading contexts have separate source/POS/gloss semantics. Keep them out of
+  // active inflection forms, and bind them to the unchanged canonical id.
+  const contextsById = new Map();
   const references = new Map();
   function reference(key, ref) {
     const existing = references.get(key) || [];
@@ -189,9 +194,7 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
       forms: [...card.forms].sort(cmp), source: primary.source,
       ...(ordered.length > 1 ? { variants: ordered.slice(1) } : {}), ...(card.seed ? { seed: card.seed } : {}) };
     records.push(record);
-    reference(expandedKey(card.term), { id, kind: "canonical" });
-    for (const form of record.forms) reference(expandedKey(form), { id, kind: "form", term: form });
-    for (const context of card.contexts) reference(context.key, { id, kind: "context", term: context.term, partOfSpeech: context.partOfSpeech, meaning: context.meaning });
+    contextsById.set(id, card.contexts);
   }
   const posMissingBefore = records.filter(record => !record.partOfSpeech.trim()).length;
   let posReport = null;
@@ -203,6 +206,25 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     // available for independent MIT seed recovery and provenance inspection.
     if (posReport.applied) sources["pos-reviewed"] = { ...DICTIONARY_POS_SOURCE,
       sha256: dictionaryPosIntegrity(posReview).semanticSha256 };
+  }
+  let sourceRevisionReport = null;
+  if (sourceRevisionPack !== null) {
+    // A verified, independently source-reviewed finite contract is required.
+    // Its overlay runs AFTER the old POS stage, without mutating the MIT seed.
+    const revised = applyDictionarySourceRevisions(records, sourceRevisionPack);
+    records = revised.records;
+    sourceRevisionReport = revised.report;
+    sources["grammar-reviewed"] = { ...sourceRevisionPack.source };
+  }
+  // Derive aliases only from final active forms, never from historical
+  // seed.forms. In particular, the finite revision must not regenerate the
+  // four stale form references from its preserved source-recovery metadata.
+  for (const record of records) {
+    const id = record.id;
+    reference(expandedKey(record.term), { id, kind: "canonical" });
+    for (const form of record.forms) reference(expandedKey(form), { id, kind: "form", term: form });
+    for (const context of contextsById.get(id) || []) reference(context.key,
+      { id, kind: "context", term: context.term, partOfSpeech: context.partOfSpeech, meaning: context.meaning });
   }
   const chinese = new Map();
   for (const record of records) {
@@ -244,9 +266,12 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     ambiguousAliasKeys: [...references.values()].filter(refs => !refs.some(ref => ref.kind === "canonical") && new Set(refs.map(ref => ref.id)).size > 1).length,
     totalShardBytes: [...files.values()].reduce((total, bytes) => total + Buffer.byteLength(bytes), 0),
     ...(posReview ? { posReview: { ...posReport, integrity: dictionaryPosIntegrity(posReview),
-      missingBefore: posMissingBefore, missingAfter: records.filter(record => !record.partOfSpeech.trim()).length } } : {}),
+      missingBefore: posMissingBefore, missingAfter: records.filter(record => !record.partOfSpeech.trim()).length,
+      ...(sourceRevisionReport ? { subsequentlyRevised: sourceRevisionReport.supersededPosReviewed,
+        finalPosReviewed: records.filter(record => record.source === "pos-reviewed").length } : {}) } } : {}),
+    ...(sourceRevisionReport ? { sourceRevisions: sourceRevisionReport } : {}),
     ...(supplement ? { supplementRows: supplement.entries.length, supplementIntegrity: dictionarySupplementIntegrity(supplement) } : {}),
-    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}; no publisher dictionary text.` };
+    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}${sourceRevisionReport ? "; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance" : ""}; no publisher dictionary text.` };
   return { manifest, files, report, records, seed };
 }
 
@@ -268,7 +293,18 @@ export function validateExpandedBuild(build) {
     }
     for (const [key, refs] of shard.keys) {
       if (expandedBucket(key) !== descriptor.bucket || !refs.length) throw new Error("Invalid English key bucket.");
-      for (const ref of refs) if (!available.has(ref.id)) throw new Error("Alias would require a second English shard.");
+      for (const ref of refs) {
+        const target = available.get(ref.id);
+        if (!target) throw new Error("Alias would require a second English shard.");
+        if (!["canonical", "form", "context"].includes(ref.kind)
+          || ref.kind === "canonical" && expandedKey(target.term) !== key
+          || ref.kind === "form" && (!target.forms.some(form => expandedKey(form) === key)
+            || ref.term === undefined || expandedKey(ref.term) !== key)
+          || ref.kind === "context" && (typeof ref.term !== "string" || expandedKey(ref.term) !== key
+            || typeof ref.meaning !== "string" || !HAN.test(ref.meaning) || typeof ref.partOfSpeech !== "string")) {
+          throw new Error("English reference is inconsistent with the final active record.");
+        }
+      }
     }
   }
   for (const record of records) {
@@ -334,20 +370,27 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     if (!integrity) throw new Error("First bootstrap requires --prepared=<private prepared-input.json>; subsequent builds use tracked shards and the independent integrity root.");
     prepared = await recoverExpandedSeed(directory, integrity);
   }
-  const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes, posBytes, posIntegrityBytes] = await Promise.all([
+  const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes, posBytes, posIntegrityBytes,
+    sourceRevisionBytes, sourceRevisionIntegrityBytes, sourceRevisionReviewBytes] = await Promise.all([
     readFile(resolve(root, "vocab/data/ecdict-core.json")), readFile(resolve(root, "vocab/data/owner-wordbook.json")),
     loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"), reviewDirectory: resolve(root, "tooling/dictionary/reviews") }),
     readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/supplements/import-2026-10-19.json"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/supplements/integrity.json"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/pos/pos-completion-2026-10-19.json"), "utf8"),
-    readFile(resolve(root, "tooling/dictionary/pos/integrity.json"), "utf8")
+    readFile(resolve(root, "tooling/dictionary/pos/integrity.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.integrity.json"), "utf8"),
+    readFile(resolve(root, "tooling/dictionary/source-revisions/finite-grammar-0001.review.json"), "utf8")
   ]);
   const supplementPack = verifyDictionarySupplement(JSON.parse(supplementBytes), JSON.parse(supplementIntegrityBytes));
   const posPack = verifyDictionaryPos(JSON.parse(posBytes), JSON.parse(posIntegrityBytes));
+  const sourceRevisionPack = verifyDictionarySourceRevisions(JSON.parse(sourceRevisionBytes),
+    JSON.parse(sourceRevisionIntegrityBytes), JSON.parse(sourceRevisionReviewBytes));
   const referencesHTML = renderDictionarySupplementReferences(supplementPack);
   const referencesPath = resolve(root, "vocab/dictionary-references.html");
-  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes), originalPack: catalogue.pack, supplementPack, posPack });
+  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes),
+    originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack });
   const verification = validateExpandedBuild(build);
   const manifestBytes = json(build.manifest);
   if (check) {

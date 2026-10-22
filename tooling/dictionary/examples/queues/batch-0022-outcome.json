@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0022",
+  "canonicalHeads": 102609,
+  "beforeHeads": 85181,
+  "beforeExamples": 86570,
+  "newHeads": 78,
+  "newPairs": 78,
+  "afterHeads": 85259,
+  "afterExamples": 86648,
+  "remainingHeads": 17350,
+  "complete": false,
+  "baselineExampleVersion": "aad44cb969693e134e9b09821a694c69c84d12f124eed69dfa9902971306c1f0",
+  "examplesVersion": "e929d35b959c01772ab80d36db38775c7ecf8d4490c28c6928a3d29674f30ebc",
+  "deferred": [
+    {
+      "term": "plc",
+      "stage": "authoring",
+      "reason": "The frozen lowercase head is the controller sense, not the public-limited-company suffix. A natural exact-case controller use and the questionable plcs plural have not been established here; do not silently change the head to PLC or import the company sense.",
+      "sourceSha256": "7c3a01cecb786f049bd69fda80f50d6e1b98cb6a3a6ccc8876b7dc619c935209"
+    },
+    {
+      "term": "APR",
+      "stage": "authoring",
+      "reason": "The indexed original IBM MFT manual now establishes Alternate Path Retry as an I/O retry option, but the frozen Chinese 替换通路再试器 appears to name a component. A specific selected Chinese function/component reconciliation remains needed; the indexed identity result is not ignored or treated as a failed lookup, and a financial APR sense remains excluded.",
+      "sourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d"
+    },
+    {
+      "term": "ML",
+      "stage": "authoring",
+      "reason": "The source combines a law degree, motorboat and millilitre under uppercase ML. A law-degree expansion distinct from LLM and an exact uppercase volume-unit use were not settled; silently using ml or treating ML as machine learning would change the frozen identity.",
+      "sourceSha256": "6957e6015ce818db9005c333323e96628f8a2c197c3c064029c34395d05604b3"
+    },
+    {
+      "term": "Hm",
+      "stage": "authoring",
+      "reason": "The source licenses only the medical 显性远视 noun. The ordinary hesitation interjection is not available. Exact Hm notation and the selected ophthalmic quantity need original evidence; an invented chart label would not be a lexical-use example.",
+      "sourceSha256": "042431d4b9eebdb80af22aca29a40f5c87b77d2e1ec112817fe7d273a6d99f3b"
+    },
+    {
+      "term": "PT",
+      "stage": "authoring",
+      "reason": "Platinum is conventionally Pt, not the frozen PT. Point, processing time and programmable terminal are separate abbreviations, not interchangeable noun senses. No exact PT technical branch has been resolved here, so neither platinum nor a generic workstation is invented.",
+      "sourceSha256": "e7019e95ea5fb27da8534c0ab8137cbbb410675dcf796039c3fbe62a4155008f"
+    },
+    {
+      "term": "MG",
+      "stage": "authoring",
+      "reason": "The source gives 微粒剂 and the element magnesium, not milligrams or a car brand. Mg and mg have distinct standard casing; exact MG microgranule nomenclature remains unresolved. Do not repair the symbol through a sentence.",
+      "sourceSha256": "85c364f67f5d7541a6ece74b6f3a5b53bf25a1b917e2823fa0d39cff2016a77e"
+    },
+    {
+      "term": "POO",
+      "stage": "authoring",
+      "reason": "Only postal money order is frozen, alongside pooing/poos forms from another sense. The exact uppercase postal abbreviation was not established. No excrement example is permitted by this source, and an opaque payment-record listing would not resolve the acronym.",
+      "sourceSha256": "2216e2f09930309fa2961bd3694c69c03d577c2d6d5a3d042419a14d1d8f2d34"
+    },
+    {
+      "term": "ST",
+      "stage": "authoring",
+      "reason": "The frozen source combines old computing abbreviations and sulfathiazole. Exact ST use for one branch has not been established here; no invented clinical scene, treatment claim or grammatical verb use is supplied from the mixed POS metadata.",
+      "sourceSha256": "915ca83c918227c5fa067aba5276722fb7c5d4cdd0a345a19b377be08b564153"
+    },
+    {
+      "term": "Ltd",
+      "stage": "authoring",
+      "reason": "The frozen gloss is only 有限的 with noun/adjective tags. The normal company-name suffix needs an explicitly supported incorporated/limited-liability function, not a fictitious firm name used to hide the selected POS question. No general legal status is inferred from that one gloss.",
+      "sourceSha256": "dc49bccd8272474b869a9486ad1738f519012a667eeaef0ad9769cd77073ac9d"
+    },
+    {
+      "term": "Inc",
+      "stage": "authoring",
+      "reason": "The sole licensed role is adjective but the Chinese gives a company/entity description. A company suffix placed in an invented business name would not independently settle its selected adjectival function or repair the gloss. Preserve the exact source for a finite suffix-role review.",
+      "sourceSha256": "149e8382d031846cd48deb04176ca1d3aa713536fa08d3f5b4194ee6c57ea6a2"
+    },
+    {
+      "term": "UN",
+      "stage": "authoring",
+      "reason": "Only pronoun is licensed by the source. 联合国 is a separate appended meaning that requires a nominal/proper-name role; the dialect 家伙/东西 branch would require a distinct natural pronoun use, not an invented United Nations sentence.",
+      "sourceSha256": "9c45c93106a5ddedbb25855e4b4658413ab789e86d0d3fefdaede102a4c86d4e"
+    },
+    {
+      "term": "CM",
+      "stage": "authoring",
+      "reason": "The frozen head mixes centimetres, computing memory/control terms and curium. Standard cm/Cm do not equal CM in symbol identity. An exact computing CM branch must be established before a nominal example can be written without silently normalizing case.",
+      "sourceSha256": "1d1076a49c5fc24f9c1916e794ab25a20ba2e8fea16a97e14560408e896d641f"
+    },
+    {
+      "term": "Nt",
+      "stage": "authoring",
+      "reason": "The radon gloss may refer to historical niton notation, but current radon is Rn. The exact historical Nt form was not verified in a primary period source here. Do not make a current chemical-symbol claim or a generic archival-label sentence.",
+      "sourceSha256": "af9c982ce415b5255fbc17aa72a12d3574a8dd7b12174b3ff48a3a21b0f783aa"
+    },
+    {
+      "term": "MAX",
+      "stage": "authoring",
+      "reason": "Only noun is enabled while the Chinese is the bare maximum modifier 最大. A MAX function, constant or form-field name would not establish the missing selected lexical noun sense. Keep pending a concrete POS/sense reconciliation.",
+      "sourceSha256": "a6c227fdcee597fd8bc6e6b14b2f329882b1b4835299d2dc8105a49aea535775"
+    },
+    {
+      "term": "ALI",
+      "stage": "authoring",
+      "reason": "The narrow computing 异步线路接口 branch lacks a verified exact hardware/software referent and initialism use. A personal name or generic interface example would not validate this identity; establish the relevant original system terminology first.",
+      "sourceSha256": "6eb42cbf985c73b3e2c544264ad06de1972235bd9eb4267caf551f12a5cfe554"
+    },
+    {
+      "term": "du",
+      "stage": "authoring",
+      "reason": "The lowercase head mixes definition-use and depleted uranium. Standard DU in the latter branch and the unrelated Unix du utility cannot silently replace this exact source. A natural standalone definition-use nominal is not established here.",
+      "sourceSha256": "a45dc28149da08a21c8af46e1176f1e487071b0d5ecdf49c6a5b71010ebb342d"
+    },
+    {
+      "term": "CH",
+      "stage": "authoring",
+      "reason": "The source lists several unrelated computing expansions, without identifying one exact initialism convention. Channel/channel-number labels or arbitrary interface field names would not demonstrate lexical CH use. No technical branch was selected by guessing the first gloss.",
+      "sourceSha256": "ef9e7a05c4d42680b8dd2b1d8bfc03cf888214b97e5ef1bd051d3f8303661e49"
+    },
+    {
+      "term": "DI",
+      "stage": "authoring",
+      "reason": "Data input, data item, device independence and double integer are distinct computing concepts. An exact DI acronym usage for a particular branch was not resolved; no table-column label or named software function is substituted for an actual example.",
+      "sourceSha256": "d901bc091c51763b4187b3350a48d2686b6031d8b19b5530a3e9523996d23b9f"
+    },
+    {
+      "term": "dos",
+      "stage": "authoring",
+      "reason": "The source concerns the DOS operating system/command but freezes lowercase dos. A case-aware original usage and the boundary between OS name and internal command need settlement; ordinary do plurals or a disguised filename would not realize this source sense.",
+      "sourceSha256": "a58e15cbd663b0b2ad3c3d2a79687997a44f944adde80225f12d9059aa5648cd"
+    },
+    {
+      "term": "EM",
+      "stage": "authoring",
+      "reason": "The computing end-of-medium control and historical emanation substance are different meanings. Exact EM use in a particular original technical convention is not settled here. No medical/chemical example or decorative control-code label is invented.",
+      "sourceSha256": "c02ad2d87be90c223883173a4bfc7c5553564797eb68eaa0423254f65661bd4b"
+    },
+    {
+      "term": "cor",
+      "stage": "authoring",
+      "reason": "The source is the Latin/anatomical heart noun, not the English interjection cor. Natural standalone use of this exact Latin form in an English sentence was not established; a diagram label or silently expanded cor pulmonale phrase would not demonstrate the selected bare-heart sense.",
+      "sourceSha256": "23684bcaf18cc55129cce574a568eced1d11a2d3da6335de63f071b188b54cd5"
+    },
+    {
+      "term": "INT",
+      "stage": "authoring",
+      "reason": "The bare source combines integer and interrupt. A language-specific INT type/function or processor instruction is not interchangeable with the generic noun. An exact selected convention and real usage must be established without treating a code identifier as ordinary English evidence.",
+      "sourceSha256": "a1c0c559716411362a5df740339b5fac66e30956faf779ce81323bb835c18ce1"
+    },
+    {
+      "term": "Lt",
+      "stage": "authoring",
+      "reason": "The only gloss is LT线上末端, not lieutenant. This narrow electrical expansion does not identify the relevant line/system clearly enough for a natural sentence; a military title would be an unsupported meaning.",
+      "sourceSha256": "36530eca5c0be7f39a0fd55fa89b412095fb9a55a7312090a6375bbd2fb97c5e"
+    },
+    {
+      "term": "ABS",
+      "stage": "authoring",
+      "reason": "The source is 绝对 or an old US standards bureau abbreviation. Anti-lock brakes and ABS plastic are absent. A substantive noun sense or historically exact organization identity must be established, not a MAX-like function/field mention.",
+      "sourceSha256": "292019ae7dd777a7c454aa17b46fc593acddce71b590e9a785cab108e036d3d0"
+    },
+    {
+      "term": "HAL",
+      "stage": "authoring",
+      "reason": "The source freezes 硬件描象层, whereas the original Microsoft/Android documents identify a hardware abstraction layer. The damaged Chinese would need an explicit separately reviewed source/meaning clarification; do not silently replace 描象 with 抽象 in an example.",
+      "sourceSha256": "c07434c80a2233d0f547b1ad39255cc1276a3e0a8c55b9827fb67e4df58de766"
+    },
+    {
+      "term": "Rab",
+      "stage": "authoring",
+      "reason": "The nominal branch gives a personal-name transliteration while the radio-access-bearer expansion belongs to an abbreviation branch and normally has distinct RAB casing. A generic invented person cannot establish the technical identity or its nominal role. Preserve both source branches for targeted review.",
+      "sourceSha256": "820bbbcaa7b8af963caea1dd9253cff53de9931c2467b14f084d81ece5cbf466"
+    },
+    {
+      "term": "Det",
+      "stage": "authoring",
+      "reason": "The original ATSDR identity table and PubChem index corroborate DET under DEET. They do not silently correct this mixed-case Det head or the frozen 避蚊氨 wording (distinct from the usual amide/避蚊胺 identity). Exact-case and Chinese chemical-name clarification must be separately reviewed; no safety, efficacy or application sentence is supplied.",
+      "sourceSha256": "2637c21c7ea8f47af00e7fac2eba0f0aec4da82a366930fd13fbb7fad4c477ea"
+    },
+    {
+      "term": "MAS",
+      "stage": "authoring",
+      "reason": "Only the narrow mixed-lower-alcohols chemical expansion is frozen. Magic-angle spinning and other familiar MAS expansions are not this source. The exact mixture/convention remains unresolved and must not be hidden behind a stock-room listing.",
+      "sourceSha256": "79d0f199ed9b327ac15a66eadf2270a2546cb365a991fec41922cd942e40e0bb"
+    },
+    {
+      "term": "ALF",
+      "stage": "authoring",
+      "reason": "The source identifies Alfred's personal-name nickname but freezes all capitals. A generic fictional ALF would not establish a normal name form, while Animal Liberation Front or the television character would add unsupported meanings. Keep for exact-name/POS review.",
+      "sourceSha256": "540c62be487b9c46288a06b3e10254f9ba62a9903c03bc30122813b6a1983f28"
+    },
+    {
+      "term": "mel",
+      "stage": "authoring",
+      "reason": "The frozen medical honey gloss is a Latin/formulary term, not the psychoacoustic mel unit. Natural standalone English honey use of mel has not been established here; a recipe, medicine bottle or material list would not settle that lexical identity.",
+      "sourceSha256": "9ec436d4c2013f3faca6192cf67a9fcb67d9dfd23f36b724429fcc0bb437990c"
+    },
+    {
+      "term": "NED",
+      "stage": "authoring",
+      "reason": "The source identifies the Oxford dictionary but does not delimit the historical New English Dictionary abbreviation or edition. Direct publisher history access returned a JavaScript challenge, and no publisher evidence resolving that exact branch was obtained in this finite check. This is an unresolved identity, not proof that NED is invalid.",
+      "sourceSha256": "8c987e70b751bbbad0e3bac5a2568e480e7552acb86ea4fb8a39307a877043eb"
+    },
+    {
+      "term": "MCC",
+      "stage": "authoring",
+      "reason": "The only enabled role is proper noun, but the source lists generic computing communications/control centres. It does not name a particular institution; Marylebone Cricket Club is absent. Inventing a centre name would bypass the published POS/sense mismatch.",
+      "sourceSha256": "cc70ec4903d10e4b96c224805e99cdf2ea76f652725be43226b32d3598bc6f2c"
+    },
+    {
+      "term": "Kev",
+      "stage": "authoring",
+      "reason": "The energy-unit identity is clear, but the NASA/NIST primary material uses keV/eV conventions, not this exact Kev casing. Do not silently recase a technical unit or use a person named Kev to evade the source meaning.",
+      "sourceSha256": "974a7cf47a335926380890f142373587736f2752d26664ac2cc2c5d19f943844"
+    },
+    {
+      "term": "AV",
+      "stage": "authoring",
+      "reason": "Array/vector, attribute value, validity and average value are several distinct source branches. Audiovisual is absent. A concrete exact AV convention is not resolved; no arbitrary worksheet field or generic software acronym is used as evidence.",
+      "sourceSha256": "e0340a41a98f25a3113946eb5df6cc324cfa96106e51fa71ba0f06eaa4977877"
+    },
+    {
+      "term": "RO",
+      "stage": "authoring",
+      "reason": "The source only licenses noun for the receive-only description. Read-only is not present, and a mode label is not by itself an established noun use of receive-only. Exact technical role/expansion evidence is needed rather than a forced adjectival example.",
+      "sourceSha256": "cf02ae1fe85bd27df0ab421afb9149c90f4761640a17eed1ed6a2cd1a06f62f7"
+    },
+    {
+      "term": "ari",
+      "stage": "authoring",
+      "reason": "Original ICAR advisory text establishes the phrase Ari Lac, and university course material describes immature harvesting before swarming. That narrows the material identity, but does not yet establish the exact bare lowercase ari as an English noun rather than the modifier in ari lac; the raw source also contains 木熟虫胶 wording. Keep the precise head/role/Chinese clarification pending rather than invent a material-stock listing.",
+      "sourceSha256": "3932e9449c0208c229e4376c8511befad24de1ba840beaab4a0d791bde76c211"
+    },
+    {
+      "term": "dup",
+      "stage": "authoring",
+      "reason": "The source licenses a verb with 打开/重复, but a computing dup function name does not automatically establish natural English verbal use. No exact supported inflected forms are published. Defer rather than disguise a function call or silently change the head to dupe.",
+      "sourceSha256": "5fccf815f21e18dc8b40cd6595e4a595b3cef80c8a7fe7a37fde6035fdeb803f"
+    },
+    {
+      "term": "Nez",
+      "stage": "authoring",
+      "reason": "Personal-name transliterations and Northern Economic Zone are mixed in this nominal source. The exact identity/casing of one supported English use is not settled; inventing a person would not establish which lexical branch is being taught.",
+      "sourceSha256": "b17d624c09460143ebcb16ed153704b4c45ff9bfcfa3e696e9a6f0fe74cbd3f6"
+    },
+    {
+      "term": "qqv",
+      "stage": "authoring",
+      "reason": "The complete source explicitly describes a Latin cross-reference abbreviation, but the only closed allowed tag returned is verb. A book-reference marker cannot be recast as an English verb; it needs a separate POS/admission review rather than an invented action sentence.",
+      "sourceSha256": "cc92b116d025d57228715743de0144dc63490a77dee3a0ec35fea2dc757cf889"
+    },
+    {
+      "term": "Huy",
+      "stage": "authoring",
+      "reason": "The source mixes personal names with a Humberside abbreviation without establishing one precise nominal identity. A generic person or an invented county report would not resolve that ambiguity; no claim that the head is invalid is made.",
+      "sourceSha256": "e7f98ba4dfbd0924e28f672fe0bc0d82e8ed8784c8686275da97960efe0aed9d"
+    },
+    {
+      "term": "bon",
+      "stage": "authoring",
+      "reason": "The source explicitly labels the adjective French. A bon voyage formula or French quoted dialogue would not demonstrate a standalone English adjective with this exact source sense. Keep pending an independently justified borrowing/phrase entry, without using unrelated boned/boning forms.",
+      "sourceSha256": "517b5fc59afb3d12c6f3da2e3782b29735d89e3232c8c3d9514e219d528cab7d"
+    },
+    {
+      "term": "ely",
+      "stage": "authoring",
+      "reason": "The source supplies a male given name but freezes lowercase ely and no alternate forms. The place Ely and a capitalized invented person would alter the exact head/case branch. An exact name-form clarification is required first.",
+      "sourceSha256": "64acf3818cf3031e52586fb76d548de836b7d1ce922efa43ec156ffa17287f2c"
+    },
+    {
+      "term": "kew",
+      "stage": "authoring",
+      "reason": "The source describes London's named botanical garden but freezes lowercase kew with only noun support. A primary proper-name/case reconciliation is needed; do not silently capitalize it or turn a field label into a natural use.",
+      "sourceSha256": "237f443fab67d3d5d6b9c61e778562b87e5b83e496bd39948aa42a5754364a34"
+    },
+    {
+      "term": "lyn",
+      "stage": "authoring",
+      "reason": "The source is a given-name gloss with a lowercase head and no forms. An ordinary capitalized Lyn person example would not establish the frozen spelling/case. No separate common-noun sense is supplied.",
+      "sourceSha256": "6f1a74a1b0874cc3eb76c460af0c1da4d79de2f186bf1063e99f44d20c56c369"
+    },
+    {
+      "term": "ADA",
+      "stage": "authoring",
+      "reason": "The frozen computing automatic-data-acquisition/dynamic-analysis program expansions are not the Ada language or a disability statute. The particular program/system and natural ADA usage remain unresolved; an unrelated familiar acronym is not substituted.",
+      "sourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491"
+    },
+    {
+      "term": "dow",
+      "stage": "authoring",
+      "reason": "The source mixes Dow Chemical and the Dow Jones index under lowercase dow. These are distinct proper referents and neither identity/case is licensed clearly as a current common noun. Do not make a market claim or silently change to Dow.",
+      "sourceSha256": "8ba1b87f10035539d7f3b2455ac1268f3b6bb71b886dc91455c1ce9a83200458"
+    },
+    {
+      "term": "und",
+      "stage": "authoring",
+      "reason": "The raw source explicitly says comb. and a water/wave combining form, while the generated POS is noun. A bound morpheme cannot be demonstrated as a free noun by a quotation or word-parts worksheet. Exact POS/source repair is needed.",
+      "sourceSha256": "57e1bb7dc8a5c3ebeca78e4f06674a1cae5b11d3267fe11d8fe6c61d2b891ca8"
+    },
+    {
+      "term": "gus",
+      "stage": "authoring",
+      "reason": "The only meaning is the given name Gus but the source freezes lowercase gus and no forms. A capitalized person or a quoted name tag would bypass the unresolved exact-form/POS question. No independent common-noun meaning is inferred.",
+      "sourceSha256": "84b7f22b532cfb10e02b2e4d9ecb4b9076317d41614d4997def9bd2cd8beb689"
+    }
+  ],
+  "reentries": [
+    {
+      "term": "Middle England",
+      "originalReviewSha256": "9cb7991a1ba389b36da6405f6674a20c6bf89fe86c891f537a6ce3ad147a9224",
+      "oldSourceSha256": "db808c6453f7fb1c6c4b3292cf7cb4947b697898e323644cf1beec272298a655",
+      "oldPairSha256": "422f3a2e7facfc27b2cd1ded38859751e6a7e75c7461b42313f34610f6b3ebbb",
+      "exactOldHold": "HOLD: both selected Chinese meaning and translation drop the frozen source's outside-London restriction and instead teach British middle classes generally. My own Cambridge original indexed definition explicitly retains outside London. Keep the English scenario, but a separately reviewed selected-meaning/translation correction is needed; do not silently broaden the frozen sense.",
+      "replacementPairSha256": "6a824a3c31d57cb35debf993992f986a268724a108652fdcde06e7201397e994",
+      "newReviewSha256": "2233c6eabd1e1eb6fccc59db2bd732d6574708895982615f8ce6fc52d812a281",
+      "mandatoryErratumSha256": "bbdc1de739ffe3185aeaa1f78e27662f41d7d0a986ab810332d03fee56f23da2"
+    },
+    {
+      "term": "bicarb",
+      "originalReviewSha256": "9cb7991a1ba389b36da6405f6674a20c6bf89fe86c891f537a6ce3ad147a9224",
+      "oldSourceSha256": "0fdb63f080ef71744ff88046ed586e4e55f6353a126920d8f6ae275a86d3a327",
+      "oldPairSha256": "8d893aa6436300098601c07a7e012ca1f61abb7c3982b096077fd8580f5ccf4c",
+      "exactOldHold": "HOLD: under bicarb in the worksheet makes bicarb a field-name/string mention rather than demonstrating the bicarbonate noun in use. My own NHS lab abbreviation entry confirms that bicarb can denote bicarbonate, but does not cure this sentence's label-only teaching value. A genuine bounded technical noun example is needed, not a replacement with baking soda.",
+      "replacementPairSha256": "b101c03ea0bd9f3a0b91316c1176f79cbe5939d3fd47d1c5466c671238aa98ab",
+      "newReviewSha256": "2233c6eabd1e1eb6fccc59db2bd732d6574708895982615f8ce6fc52d812a281",
+      "mandatoryErratumSha256": "bbdc1de739ffe3185aeaa1f78e27662f41d7d0a986ab810332d03fee56f23da2"
+    },
+    {
+      "term": "are",
+      "originalOutcomeSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+      "exactHistoricalHold": {
+        "term": "are",
+        "reason": "Canonical noun evidence is an area unit, but existing gloss only describes an inflected form of be.",
+        "stage": "authoring"
+      },
+      "beforeSourceSha256": "e828935cad697619a4cb1eaf2c97c5994241c73b9e056d2737e72ec90c9aeac3",
+      "afterSourceSha256": "bfddf568c202ae14f6f89bb0305de47f624721d8718d7b47d5feb99e35078dec",
+      "replacementPairSha256": "5fba8ca8c6c7187cdfc3ebde81249c52a4663512590f648aa91755f324861428",
+      "newReviewSha256": "95f0631e7804bcc299cd09a59b9a60e42fad2f3faf2755484ee3e9544095b348"
+    },
+    {
+      "term": "been",
+      "originalOutcomeSha256": "c2f04c6f51887be451ceaa80f27d58b6acf1618b86f79c15d27d8530d7137af5",
+      "exactHistoricalHold": {
+        "term": "been",
+        "reason": "仅 be 的过去分词，无中文词义；be 的存在、系词、助动词功能不能任取一项作已刊实义。",
+        "stage": "authoring",
+        "pack": "p012"
+      },
+      "beforeSourceSha256": "4030727ee7158361c13f84ba0496def845fa6b294949ed380202da9965f5bdd2",
+      "afterSourceSha256": "771941a3ded55caa4964753774da3560ad86508c66d6276fc404d601bbcc5ed8",
+      "replacementPairSha256": "41eb84e7917e257822ea5ffa8da7c389e35825e3134c096d815aa4791ff0326d",
+      "newReviewSha256": "95f0631e7804bcc299cd09a59b9a60e42fad2f3faf2755484ee3e9544095b348"
+    }
+  ]
+}

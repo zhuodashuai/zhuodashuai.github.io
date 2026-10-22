@@ -263,7 +263,7 @@ function waitFor(promise, signal, timeoutMs) {
 function readable(record, selected) {
   // MIT definitions use compact POS-labelled lines. Reuse the existing display
   // formatter, but never relabel provenance or number an already numbered card.
-  if (!["mit", "core", "pos-reviewed"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
+  if (!["mit", "core", "pos-reviewed", "grammar-reviewed"].includes(selected.source) || /^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) return selected;
   const formatted = personalDictionaryResult({ word: record.term, partOfSpeech: selected.partOfSpeech, meaning: selected.meaning });
   return formatted ? { ...selected, partOfSpeech: formatted.partOfSpeech || selected.partOfSpeech,
     meaning: formatted.meaning.length <= 2000 ? formatted.meaning : selected.meaning } : selected;
@@ -278,7 +278,8 @@ function display(record, selected, manifest, matchedForm) {
     (item.source !== selected.source || item.meaning !== selected.meaning || item.partOfSpeech !== selected.partOfSpeech)
     // The immutable source row remains in the data for attribution/rebuilds.
     // Repeating its identical gloss with an empty label is not another sense.
-    && !(selected.source === "pos-reviewed" && item.meaning === selected.meaning && !item.partOfSpeech.trim()))
+    && !((selected.source === "pos-reviewed" || selected.source === "grammar-reviewed" && item.source === "mit")
+      && item.meaning === selected.meaning && !item.partOfSpeech.trim()))
     .map(item => { const provenance = manifest.sources.get(item.source), formatted = readable(record, item); return { partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning,
       source: provenance.name, license: provenance.license, url: provenance.url }; });
   if (alternatives.length) result.alternatives = alternatives;

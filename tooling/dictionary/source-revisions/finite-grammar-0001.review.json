@@ -1,0 +1,601 @@
+{
+  "schemaVersion": 1,
+  "stage": "independent-exact-future-source-and-pair-review-not-implemented-not-admitted-not-published",
+  "createdAt": "2026-10-22T16:46:50.412Z",
+  "sourceCandidateAuthorPrincipal": "c",
+  "pairAuthorPrincipal": "root",
+  "reviewerPrincipal": "e2",
+  "independence": "Reviewer e2 authored neither these four candidate source objects nor these four Root pairs. The older E2 architecture design is background, not authority or a review of these new bytes.",
+  "bindings": [
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\c-finite-source-independent-design.json",
+      "sha256": "d04af902ceb81a938bb1440c6d22196ae9c422fc068b1cd32a8a70c418117d5b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\root-four-revised-grammar-pairs.json",
+      "sha256": "310a880ad46636a8c74b73973cadce3717d0fbb0a4b6f23a9ab49006061eef5b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\qa\\e2-four-finite-source-pairs-mechanical.json",
+      "sha256": "0e80442408bfae11c508a6c251a70c97b473e3e773885ad3552f2328e9a29edd"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\manifest.json",
+      "sha256": "fb729e8f3334658e5f82df311390710dc3f05d278c125197e95de5ed1f96dd30"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\expanded-source-integrity.json",
+      "sha256": "12e7659baeeca2667d7a1e563c9ca56eb207eb6e4a2d56634e5ca0970493ef82"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\source-audit.json",
+      "sha256": "20134d021c8d28c41b0c987451b371095444aa76a0cccf570f7a77cbdb31e2b1"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0020\\drafts\\future-authoring\\e2-finite-grammar-source-design.json",
+      "sha256": "23f4d8f56bb189c814ee79bf736183a4bab2c8ce386aa2aed85b073d062ecc83"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0020\\drafts\\future-authoring\\c-finite-grammar-repair-review.json",
+      "sha256": "fa58362a27411e926322f14179045069913728ce680a74f4cb5eac68845f09fd"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\pos\\pos-completion-2026-10-19.json",
+      "sha256": "7e7c47e683ee59c8a28f7f624a7792d239074e35d94c3f6fcf1aea31aa05fcc5"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\pos\\integrity.json",
+      "sha256": "4a89b74e7459307cb046fa2d43e9ddf59c7f95daf505f806dd940c89ff544e21"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\index.json",
+      "sha256": "69ff1b098d5968de56303a80ca152be16d9e2cce68306662ce185188698c72c0"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\scripts\\build-expanded-dictionary.mjs",
+      "sha256": "c2514f425de85b91d2689627afa8ec8cb107e235441ceba4997a2ae280dd1b97"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\lib\\dictionary-pos.mjs",
+      "sha256": "c559738ec85beef8f2abd4b3a3be5a21af6dc0eb106ce13271a7c5231273ff63"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\lib\\dictionary-example-pos-policy.mjs",
+      "sha256": "66de2961cbc2052556590407712f3a10479b8a804320c473203fcb97ea5a372d"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\js\\expanded-dictionary.js",
+      "sha256": "b943da7e62c452db28b14ec270e4a624c5a85bb6baff5761f148fc05350bf890"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\scripts\\build-dictionary-suggestions.mjs",
+      "sha256": "12c99234eb99952ea278125ba801dd2e23c3779f541bf5dcd6f2e9b1c28094ba"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\tests\\expanded-dictionary-build.test.mjs",
+      "sha256": "a6e64bfcd9d75c8340e04fd668817b3504633de6749e1b86fc09f41bfcdf2d04"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\tests\\dictionary-pos-data.test.mjs",
+      "sha256": "5da695230e4cf02d582c9cdd1a297c7d1f8e2263cdaed74f84fe6b4c174a2aa5"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\tests\\dictionary-examples-0019.test.mjs",
+      "sha256": "4e4d12716e0e15b7401a8cace25d7aacb244dbc32ac3b5722eebfc6895671920"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\tests\\dictionary-examples-0020.test.mjs",
+      "sha256": "40042db40a5ca9aa7113279225696ed61334c66581b529a4bd89fd9d9737c83e"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\tests\\dictionary-examples-0021.test.mjs",
+      "sha256": "4f3a03d178eeae936e46d88aeaf0da745bdfd3f5611b5a8f773d22c33315f256"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\c-finite-source-design-probe.mjs",
+      "sha256": "37c55e494bec95f668c234be360b8238307cc25d8f13483279e5939348daac35"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\c-finite-source-independent-design.json",
+      "sha256": "d04af902ceb81a938bb1440c6d22196ae9c422fc068b1cd32a8a70c418117d5b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0019\\drafts\\next-authoring\\root-four-short-original.tsv",
+      "sha256": "077a09baf558953d402e76fc74dbf6f378e7eab142e85b967f3024093f5dccd6"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0019\\drafts\\next-authoring\\root-five-inflected-verbs.tsv",
+      "sha256": "9be2245a33b6fcfded41de6cac65f5b3b6af824bd2d1c0d44e43f9e8dfab1997"
+    }
+  ],
+  "readingEvidence": {
+    "candidateDesign": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\c-finite-source-independent-design.json",
+      "sha256": "d04af902ceb81a938bb1440c6d22196ae9c422fc068b1cd32a8a70c418117d5b",
+      "totalLines": 1003,
+      "completeHumanReadRanges": [
+        [
+          1,
+          180
+        ],
+        [
+          181,
+          400
+        ],
+        [
+          401,
+          600
+        ],
+        [
+          601,
+          800
+        ],
+        [
+          801,
+          1003
+        ]
+      ],
+      "note": "All ranges were personally read in bounded untruncated output; includes each whole before/after source, parent sources, exact old holds, candidate ledger and blockers. Earlier 1–400 ranges were read before this context compaction; no sampling claim."
+    },
+    "pairFile": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\drafts\\finite-source\\root-four-revised-grammar-pairs.json",
+      "sha256": "310a880ad46636a8c74b73973cadce3717d0fbb0a4b6f23a9ab49006061eef5b",
+      "completeFileRead": true,
+      "wholeBeforeSourcesRead": 4,
+      "wholeAfterSourcesRead": 4,
+      "wholeFiveFieldPairsRead": 4,
+      "secondRead": "All complete saved source/pair rows were read again in the successful independent mechanical-probe output."
+    },
+    "exactHistoricalHoldsRead": [
+      {
+        "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json",
+        "sha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+        "holds": [
+          {
+            "term": "are",
+            "reason": "Canonical noun evidence is an area unit, but existing gloss only describes an inflected form of be.",
+            "stage": "authoring"
+          }
+        ]
+      },
+      {
+        "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json",
+        "sha256": "c2f04c6f51887be451ceaa80f27d58b6acf1618b86f79c15d27d8530d7137af5",
+        "holds": [
+          {
+            "term": "been",
+            "reason": "仅 be 的过去分词，无中文词义；be 的存在、系词、助动词功能不能任取一项作已刊实义。",
+            "stage": "authoring",
+            "pack": "p012"
+          }
+        ]
+      }
+    ],
+    "oldThreePairIdentity": "Actual D19 two TSV files were read. Exact are/did/had five fields match saved Root pairs; been is a new separately read Root sentence.",
+    "outputLimits": "A broad rg output over both outcome files was truncated and is not counted as reading the full outcomes. Only the exact two parsed hold objects, including reason/stage/pack, were reread completely in bounded probe output. Unrelated entries and test files are not claimed wholly read."
+  },
+  "primaryEvidence": [
+    {
+      "id": "bc-be",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verb-be",
+      "access": "direct publisher page personally read via web open turn3470view1",
+      "readLines": "7–47 and 53–68",
+      "supports": "Forms of be include are for you/we/they and been as past participle; link-verb complements include prepositional phrases. No example copied."
+    },
+    {
+      "id": "bc-past-simple",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-simple",
+      "access": "direct publisher page personally read via web open turn3470view2",
+      "readLines": "11–114,115–132 and147–159",
+      "supports": "Irregular do→did and have→had; did forms simple-past questions. No example copied."
+    },
+    {
+      "id": "bc-present-perfect",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect",
+      "access": "direct publisher page personally read via web open turn3470view0",
+      "readLines": "7–19 and90–116",
+      "supports": "Present have plus past participle; situations beginning in the past and continuing now; since identifies the past starting point. No example copied."
+    },
+    {
+      "id": "cambridge-have-indexed",
+      "url": "https://dictionary.cambridge.org/dictionary/english/have",
+      "access": "publisher-indexed result personally read turn3472search1/2; direct page failed403 turn3471view1",
+      "supports": "Verb have has a possession sense and past/past-participle had. Indexed access is not a direct full-entry read."
+    },
+    {
+      "id": "oxford-have-indexed",
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/have_1",
+      "access": "publisher-indexed result personally read turn3472search3",
+      "supports": "Possess/hold main-verb have and positive past statements with had. Indexed access is not a direct full-entry read."
+    }
+  ],
+  "perTerm": [
+    {
+      "term": "are",
+      "beforeSource": {
+        "id": 1734477,
+        "term": "are",
+        "partOfSpeech": "noun",
+        "meaning": "be的现在时复数或第二人称单数",
+        "forms": [
+          "ares"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 13550,
+          "forms": [
+            "ares"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "be的现在时复数或第二人称单数",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSourceSha256": "e828935cad697619a4cb1eaf2c97c5994241c73b9e056d2737e72ec90c9aeac3",
+      "proposedSource": {
+        "id": 1734477,
+        "term": "are",
+        "partOfSpeech": "verb",
+        "meaning": "be的现在时复数或第二人称单数",
+        "forms": [],
+        "source": "grammar-reviewed",
+        "seed": {
+          "rank": 13550,
+          "forms": [
+            "ares"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "be的现在时复数或第二人称单数",
+            "source": "mit"
+          }
+        ]
+      },
+      "proposedSourceSha256": "bfddf568c202ae14f6f89bb0305de47f624721d8718d7b47d5feb99e35078dec",
+      "pair": [
+        "are",
+        "verb",
+        "be 的第二人称单数及各人称复数现在时形式",
+        "The chairs are beside the fireplace, not by the window.",
+        "椅子在壁炉旁，不在窗边。"
+      ],
+      "pairSha256": "5fba8ca8c6c7187cdfc3ebde81249c52a4663512590f648aa91755f324861428",
+      "pairHashEncoding": "five-fields-joined-by-single-tab-no-line-ending",
+      "authorship": "unchanged-root-original-pair-rebound-only-to-proposed-source",
+      "independentLanguageReview": null,
+      "formalAdmission": false,
+      "sourceRepairApplied": false,
+      "candidateSourceDecision": "conditionally-suitable-exact-source-transition",
+      "languageDecision": "approve-exact-five-field-pair",
+      "admissionDecision": "hold-until-separate-future-source-implementation-and-finite-reentry-gates",
+      "selectedFunction": "Present-simple be, third-person plural subject; link verb followed by a locative prepositional phrase.",
+      "sourceOpinion": "The published noun tag conflicts with its own be-inflection gloss. Changing this exact record to verb resolves that mismatch without adding the separate area-unit homograph. Empty active forms is correct for this inflected grammar entry; the inherited ares is not a plural of verbal are. Seed and MIT variant must remain historical unchanged objects.",
+      "englishOpinion": "The complete sentence is ordinary natural English. The plural chairs agrees with are; beside the fireplace contrasts clearly with by the window. It illustrates actual are use, not a quotation of a headword.",
+      "chineseOpinion": "The selected Chinese labels the form rather than mis-teaching an area unit. The translation faithfully conveys the chairs location and its contrast, with natural Chinese omission of an English copula.",
+      "primaryEvidence": [
+        "bc-be"
+      ],
+      "historicalHold": "batch-0013-outcome.json exact are hold remains valid for the old noun-labelled source. This receipt is an opinion on the new bfddf568… source only, not retroactive approval of e828935c….",
+      "finiteConditions": [
+        "The exact are beforeSHA→afterSHA transition must be implemented and separately verified before admission.",
+        "Any short-head exception must bind term are, id1734477, this proposed sourceSHA, all five pair cells/pairSHA and the exact batch13 hold file/record; it must not admit other 1–3 letter heads, noun senses or unspecified be functions."
+      ],
+      "coverageAdded": 0
+    },
+    {
+      "term": "did",
+      "beforeSource": {
+        "id": 9346366,
+        "term": "did",
+        "partOfSpeech": "verb",
+        "meaning": "do的过去式",
+        "forms": [
+          "dids"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 75799,
+          "forms": [
+            "dids"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "do的过去式",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSourceSha256": "44f918b9913e0c3666b33908f6d0fd54fb5f72219a39404bacbacb6ffdacacc3",
+      "proposedSource": {
+        "id": 9346366,
+        "term": "did",
+        "partOfSpeech": "verb",
+        "meaning": "do的过去式",
+        "forms": [],
+        "source": "grammar-reviewed",
+        "seed": {
+          "rank": 75799,
+          "forms": [
+            "dids"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "do的过去式",
+            "source": "mit"
+          }
+        ]
+      },
+      "proposedSourceSha256": "e5681a63b84992d3d86f48ee162bed0fa5707078cb53cadab819a70dea2c741b",
+      "pair": [
+        "did",
+        "verb",
+        "do 的过去式（此处用于一般过去时疑问句）",
+        "Did you lock the side door before you left?",
+        "你离开前锁好侧门了吗？"
+      ],
+      "pairSha256": "77588dd8ee9757bbce139234e1ea89ecba6ca5946dcc38f8ddb13bcec0260078",
+      "pairHashEncoding": "five-fields-joined-by-single-tab-no-line-ending",
+      "authorship": "unchanged-root-original-pair-rebound-only-to-proposed-source",
+      "independentLanguageReview": null,
+      "formalAdmission": false,
+      "sourceRepairApplied": false,
+      "candidateSourceDecision": "conditionally-suitable-exact-source-transition",
+      "languageDecision": "approve-exact-five-field-pair",
+      "admissionDecision": "hold-until-separate-future-source-implementation-and-finite-reentry-gates",
+      "selectedFunction": "Past-simple interrogative auxiliary do, followed by the base verb lock; the before-clause uses independent simple past left.",
+      "sourceOpinion": "The do-past-form gloss and verb category support the selected grammatical form. The pair explicitly chooses the question function instead of translating auxiliary did as 做. Active dids is spurious for this entry; removing only its exact form→id reference while keeping do→did and the canonical did reference is the correct narrow correction.",
+      "englishOpinion": "Did you lock the side door before you left? is a natural coherent question. Did plus base lock is correct. The past event ordering is ordinary and does not require a past-perfect rewrite.",
+      "chineseOpinion": "你离开前锁好侧门了吗？ faithfully preserves the addressee, side door, past-before relation and yes/no question. 锁好 is a natural resultative rendering of locking rather than an unrelated action.",
+      "primaryEvidence": [
+        "bc-past-simple"
+      ],
+      "historicalHold": "No did-specific source-queue hold is claimed by the two bound historical outcome records. This does not globally waive other history or the source-revision gate.",
+      "finiteConditions": [
+        "Implement and verify only 44f918b9…→e5681a63…; leave immutable seed and variants exact.",
+        "The short-head admission must bind did/id9346366/new sourceSHA/five-field pairSHA and the explicit interrogative function, not grant a generic short verb or auxiliary exemption."
+      ],
+      "coverageAdded": 0
+    },
+    {
+      "term": "had",
+      "beforeSource": {
+        "id": 9580946,
+        "term": "had",
+        "partOfSpeech": "verb",
+        "meaning": "have的过去式和过去分词",
+        "forms": [
+          "hads"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 78745,
+          "forms": [
+            "hads"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "have的过去式和过去分词",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSourceSha256": "5fe060dfb509c5c0bc6e77ab921a1a5f7412196ad78d40495b80ef3a373d86f4",
+      "proposedSource": {
+        "id": 9580946,
+        "term": "had",
+        "partOfSpeech": "verb",
+        "meaning": "have的过去式和过去分词",
+        "forms": [],
+        "source": "grammar-reviewed",
+        "seed": {
+          "rank": 78745,
+          "forms": [
+            "hads"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "have的过去式和过去分词",
+            "source": "mit"
+          }
+        ]
+      },
+      "proposedSourceSha256": "fbff1820898bd346fee8844faccccc1ff62e89678045a751f7e63b1f2b430b63",
+      "pair": [
+        "had",
+        "verb",
+        "have 的过去式（此处表示过去拥有）",
+        "She had a spare key, so we could get inside.",
+        "她有一把备用钥匙，所以我们能进去。"
+      ],
+      "pairSha256": "d4fd0dfe85931e443f4543f5c0691b0a2bfdf9cdf8eef8e7023329e6f5d49368",
+      "pairHashEncoding": "five-fields-joined-by-single-tab-no-line-ending",
+      "authorship": "unchanged-root-original-pair-rebound-only-to-proposed-source",
+      "independentLanguageReview": null,
+      "formalAdmission": false,
+      "sourceRepairApplied": false,
+      "candidateSourceDecision": "conditionally-suitable-exact-source-transition",
+      "languageDecision": "approve-exact-five-field-pair",
+      "admissionDecision": "hold-until-separate-future-source-implementation-and-finite-reentry-gates",
+      "selectedFunction": "Main-verb have in the simple past, possession/availability of a spare key, not the perfect auxiliary.",
+      "sourceOpinion": "The have past/past-participle cross-reference supports choosing its simple-past form, and independent publisher evidence confirms the possession use. The example-selected Chinese explicitly narrows the use. Active hads is not a form of verbal had. Preserve have→had, the canonical had reference, raw seed and MIT variant.",
+      "englishOpinion": "The two clauses form a natural explanation: possession of a spare key enabled entry. Could get inside is suitable past ability in this context; no clinical, numerical or historical factual claim is being introduced.",
+      "chineseOpinion": "她有一把备用钥匙，所以我们能进去。 accurately carries possession, spare key and the resulting ability to enter. Chinese does not need an artificial 曾经 marker here; the selected gloss separately states the past-form function.",
+      "primaryEvidence": [
+        "bc-past-simple",
+        "cambridge-have-indexed",
+        "oxford-have-indexed"
+      ],
+      "historicalHold": "No had-specific hold is asserted from the two exact historical outcome records. Source correction and finite admission remain separate requirements.",
+      "finiteConditions": [
+        "Implement and verify only 5fe060df…→fbff1820…; do not change original seed forms or alias strings globally.",
+        "The short-head admission must bind had/id9580946/new sourceSHA/whole pairSHA and the main-verb possession selection; it must not automatically admit perfect-auxiliary or be-had adjective uses."
+      ],
+      "coverageAdded": 0
+    },
+    {
+      "term": "been",
+      "beforeSource": {
+        "id": 9097027,
+        "term": "been",
+        "partOfSpeech": "verb",
+        "meaning": "be的过去分词",
+        "forms": [
+          "beens"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72851,
+          "forms": [
+            "beens"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "be的过去分词",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSourceSha256": "4030727ee7158361c13f84ba0496def845fa6b294949ed380202da9965f5bdd2",
+      "proposedSource": {
+        "id": 9097027,
+        "term": "been",
+        "partOfSpeech": "verb",
+        "meaning": "be的过去分词",
+        "forms": [],
+        "source": "grammar-reviewed",
+        "seed": {
+          "rank": 72851,
+          "forms": [
+            "beens"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "be的过去分词",
+            "source": "mit"
+          }
+        ]
+      },
+      "proposedSourceSha256": "771941a3ded55caa4964753774da3560ad86508c66d6276fc404d601bbcc5ed8",
+      "pair": [
+        "been",
+        "verb",
+        "be 的过去分词〔此处与 have 构成现在完成时，表示从过去持续到现在的关系〕",
+        "We have been close friends since primary school.",
+        "我们从小学起就一直是要好的朋友。"
+      ],
+      "pairSha256": "41eb84e7917e257822ea5ffa8da7c389e35825e3134c096d815aa4791ff0326d",
+      "pairHashEncoding": "five-fields-joined-by-single-tab-no-line-ending",
+      "authorship": "new-root-original-pair",
+      "independentLanguageReview": null,
+      "formalAdmission": false,
+      "sourceRepairApplied": false,
+      "candidateSourceDecision": "conditionally-suitable-exact-source-transition",
+      "languageDecision": "approve-exact-five-field-pair",
+      "admissionDecision": "hold-until-separate-future-source-implementation-and-finite-reentry-gates",
+      "selectedFunction": "Past participle of link verb be in have been close friends: present-perfect simple expressing a relationship starting in the past and continuing now.",
+      "sourceOpinion": "The source is a grammatical cross-reference, not a published arbitrary Chinese lexical sense. This exact selected-function annotation is accurate and now independently justified by primary grammar evidence; it is not authority to choose any be function. Removing active beens is correct while preserving original seed/variant and the valid be→been reference.",
+      "englishOpinion": "We have been close friends since primary school. is natural, complete and grammatically correct. Have plus been forms the present-perfect simple, close friends is its predicative complement, and since primary school gives the starting period. It does not claim a passive or progressive use.",
+      "chineseOpinion": "我们从小学起就一直是要好的朋友。 faithfully expresses both a friendship beginning in primary school and its continuation to the present. 要好的朋友 is an idiomatic translation of close friends; no invented event or unsupported sense is added.",
+      "primaryEvidence": [
+        "bc-be",
+        "bc-present-perfect"
+      ],
+      "historicalHold": "batch-0017-outcome.json exact been/p012 hold remains preserved. The old raw cross-reference did not license an arbitrary existence/copula/auxiliary selection. Only this exact new state-continuation pair has now received a fresh conditional opinion; historical approval is not rewritten.",
+      "finiteConditions": [
+        "Implement and verify exact 4030727e…→771941a3… without changing seed/variants.",
+        "A later re-entry receipt must bind batch17 file SHA and exact been/p012 hold, the proposed sourceSHA, this five-field pairSHA and the present-perfect relationship annotation with primary evidence.",
+        "Do not treat this opinion as a general rule allowing arbitrary examples for grammatical cross-reference entries."
+      ],
+      "coverageAdded": 0
+    }
+  ],
+  "designAssessment": {
+    "decision": "The exact four-source seed-preserving candidate is suitable as a narrowly bounded future repair specification, not an implementation-ready or published source.",
+    "noSubstantiveLanguageDefectFound": true,
+    "verifiedMechanics": {
+      "allEnglishShardDescriptors": 128,
+      "canonicalHeads": 102609,
+      "untouchedCanonicalHeads": 102605,
+      "physicalChangedRecordCopies": 8,
+      "originalSeedRows": 102325,
+      "originalSeedRoot": "228cea0075dc455d4e9fb4633cdc7a9671a39f88b4b031b5643e8207d6f4a98b",
+      "activeKeysBefore": 140862,
+      "candidateKeysAfter": 140858,
+      "exactRemovedFormReferences": 4,
+      "parentReferenceGroupsPreserved": 3
+    },
+    "provenance": "Original MIT seed/variants and old pos-reviewed composite must remain recoverable. The new grammar-reviewed editorial source is not an MIT licence claim or a retroactive POS-pack approval. The complete old composite lives in ledger.before, not as a false live area-unit variant.",
+    "knownNotImplemented": "The public source-revisions notice, new source-consumer support, ordered exact overlay, source-count accounting, rebuilt namespace/suggestions, historical version-lineage resolver and finite admission are absent from this proposal-only task. None is deemed passed by this receipt.",
+    "candidateLedgerContentSha256": "c83bcb4d6648ba9463971076469a0c1c4f86e747e28026a03eb66010ef92f8ef",
+    "requiredFutureGates": [
+      "Pin all four complete before/after objects and this independent receipt; hard-fail any stale, missing, duplicate, unexpected or partially matching target. Apply overlay after seed recovery and existing POS overlay, before active aliases/postings are generated.",
+      "Keep all original seed rank/forms/workbook and variants byte-semantically exact. Recompute original MIT recovery root228cea… from the eventual new namespace. Do not copy seed.forms into active aliases after the correction overlay.",
+      "Rebuild and validate all English/Chinese descriptors and suggestions in a fresh content-addressed dictionary namespace; retain all old namespaces/raw proof files. Prove 102605 non-target records and every non-target reference unchanged, with exactly these four form→id references removed and all canonical/context/valid parent refs retained.",
+      "Implement grammar-reviewed provenance descriptor and readable public notice, exact ledger hash and narrow source whitelists. Test positive new source and negative unknown/mislabeled/stale source cases. Keep old POS applied counts separate from subsequently revised/final counts; do not rewrite old POS evidence.",
+      "Preserve old source/review/outcome hashes. A finite approved transition resolver must bind the old immutable namespace, exact four transitions and invariance of unchanged records; never disable all source-dictionary-version or source-equality assertions.",
+      "Separate source-repair completion from four example admissions. Exact short heads are/did/had require source/pair-bound exceptions, while are and been additionally require precise batch13/batch17 re-entry. Keep these historical holds as history rather than deleting or backdating them.",
+      "Use a separate future source-changing release plan, independently review actual implementation and finite exceptions, verify rollback and direct-query/offline wholepairs. Do not reuse or modify frozen D21 755 example-only contract or count these four in current coverage."
+    ],
+    "negativeTestsRequired": [
+      "Corrupt beforeSHA/raw meaning/seed/variants; missing/duplicate target; wrong afterPOS/source/forms; stale unknown source descriptor.",
+      "Reinsert ares/dids/hads/beens from immutable seed; retain an exact stale ref; globally delete a string homograph; drop valid do→did/have→had/be→been or context/canonical refs.",
+      "Clone an approved pair with changed Chinese/EN/POS/function or another short head; wrong historical hold stage/pack/file; arbitrary dictionary version mismatch; altered historical review bytes."
+    ],
+    "independentImplementationReviewRequired": true
+  },
+  "actualTests": {
+    "mechanicalProbePassed": true,
+    "scope": "Read-only source/shard/hash/reference/seed/old-pair identity assertions only; no builder output generation, browser, API, production or full future implementation test run.",
+    "probe": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0021\\qa\\e2-four-finite-source-pairs-probe.mjs",
+      "sha256": "e371db1ff4f6bd8f86e3db31bd60659b98f0fcdf8ed693291d1663b90db538eb"
+    },
+    "repoObservation": {
+      "before": {
+        "head": "f7ac2d596b83addee66cf89555fb245db3d6ef2b",
+        "status": ""
+      },
+      "after": {
+        "head": "f7ac2d596b83addee66cf89555fb245db3d6ef2b",
+        "status": ""
+      }
+    }
+  },
+  "currentD21ApprovedCountUnchanged": 755,
+  "formalAdmissions": 0,
+  "sourceRepairsApplied": 0,
+  "coverageAdded": 0,
+  "published": false,
+  "limits": [
+    "Conditional exact-source/language opinions are not implementation approval, formal source admission or a promise of automatic future release.",
+    "No commercial dictionary example sentence was used. Grammar evidence is independently accessed and not inherited from Root/C read claims.",
+    "Current repository was read-only and remained f7ac2d5/clean during the mechanical probe; this is not a claim that PR40 is merged or deployed.",
+    "No frozen D21 tools, input packs, prior reviews or proposal files were edited."
+  ]
+}

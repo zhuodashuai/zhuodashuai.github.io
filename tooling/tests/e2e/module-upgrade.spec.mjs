@@ -8,20 +8,36 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 // A cache namespace is not a module graph version: independent modules can
 // legitimately keep their previous URL when their content has not changed.
 // Read only explicit versioned JS literals; never execute the service worker.
-const declaredModuleVersions = new Map();
+const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
+const reviewedAliases=new Map([
+  ['expanded-dictionary.js',['97','103']],['dictionary-app.js',['99','103']],
+  ['library-lookup-controller.js',['99','103']],['library-lookup-ui.js',['100','103']],
+  ['public-app.js',['101','103']],['personal-app.js',['100','103']],
+  ['owner-app.js',['97','103']],['dictionary-entry.js',['102','103']]
+]);
 for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
   const url = new URL(match[1], "http://127.0.0.1:4187/");
   const name = url.pathname.split("/").at(-1);
   const version = url.searchParams.get("v");
-  if (declaredModuleVersions.has(name) && declaredModuleVersions.get(name) !== version) {
-    throw new Error(`Module upgrade fixture found conflicting SHELL versions for ${name}.`);
-  }
-  declaredModuleVersions.set(name, version);
+  const versions=cachedModuleVersions.get(name)||new Set();versions.add(version);cachedModuleVersions.set(name,versions);
 }
+for(const[name,versions]of cachedModuleVersions){
+  if(reviewedAliases.has(name)){
+    expect([...versions].sort((a,b)=>Number(a)-Number(b))).toEqual(reviewedAliases.get(name));
+    // Only the active graph uses v103. Old cache aliases stay available to
+    // offline/previous clients; their presence must not exempt a stale import.
+    declaredModuleVersions.set(name,'103');
+  }else{
+    if(versions.size!==1)throw new Error(`Module upgrade fixture found conflicting SHELL versions for ${name}.`);
+    declaredModuleVersions.set(name,[...versions][0]);
+  }
+}
+for(const name of reviewedAliases.keys())if(!declaredModuleVersions.has(name))throw new Error(`Missing reviewed module ${name}.`);
 
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
+  ...reviewedAliases.keys(),
   "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
@@ -94,4 +110,12 @@ test("private selection and learning boot with the versioned graph and the exist
   await expect(page.locator("#member-source-list .source-select")).toHaveCount(29);
   expect(diagnostic.consumedOldUrls).toEqual([]);
   expect(diagnostic.errors).toEqual([]);
+});
+
+test("direct dictionary boot rejects stale lookup modules despite retained legacy offline cache aliases",async({page})=>{
+  const diagnostic=await poisonOldModuleUrls(page);
+  await page.goto('/dictionary.html#q=happy');await expect(page.locator('#dictionary-term')).toHaveText('happy');
+  await expect(page.locator('#dictionary-example-content summary')).toHaveCount(2);
+  await expect(page.locator('#dictionary-example-content summary').first()).toBeVisible();
+  expect(diagnostic.consumedOldUrls).toEqual([]);expect(diagnostic.errors).toEqual([]);
 });
