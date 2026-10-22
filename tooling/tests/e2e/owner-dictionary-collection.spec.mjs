@@ -18,6 +18,11 @@ test.beforeEach(async ({ context }) => {
     await route.fulfill({ response });
   });
 });
+test.afterEach(async ({ context }) => {
+  // Drain the isolated public-snapshot mock before its API context is disposed.
+  // Waiting preserves handler errors instead of silently ignoring them.
+  await context.unrouteAll({ behavior: "wait" });
+});
 async function open(page) {
   await page.goto("/personal.html?auth=owner");
   await expect(page.locator("#member-workspace")).toBeVisible();
