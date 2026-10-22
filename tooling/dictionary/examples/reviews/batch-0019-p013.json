@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "0debde7b524f8b739259a8de14f75d39e7ebfe803c58662a05c76fd8c0181068",
+  "reviewer": "AI/examples19_reviewer_e",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "annatto",
+    "annealer",
+    "Annecy",
+    "Annetta",
+    "Anniston",
+    "annulation",
+    "annulene",
+    "anodization",
+    "anolyte",
+    "anomer",
+    "anomerization",
+    "ansatz",
+    "Anshan",
+    "Antaeus",
+    "antebrachial",
+    "antebrachium",
+    "anteflexed",
+    "anteflexion",
+    "antegrade",
+    "anterolateral",
+    "anterosuperior",
+    "anteroventral",
+    "anteversion",
+    "anteverted"
+  ],
+  "issues": [
+    {
+      "term": "Annemarie",
+      "blocking": true,
+      "reason": "The English says her sister, without saying older or younger; Chinese 姐姐 specifies an older sister. The source female-name role and ordinary scene are sound, but the unsupported kinship age needs a separately source-bound translation amendment, not an edit to the frozen evidence."
+    },
+    {
+      "term": "Anqing",
+      "blocking": true,
+      "reason": "The English my cousin leaves sex, relative age and paternal-versus-maternal cousin branch unspecified. Chinese 表弟 adds all of male/younger/表 rather than 堂. Keep this immutable row review-held pending a bounded amendment; the Anqing place identity itself is sound."
+    },
+    {
+      "term": "Ansbach",
+      "blocking": true,
+      "reason": "English my grandmother does not identify paternal versus maternal lineage, but Chinese 我祖母 fixes the paternal side. The city's source identity and exhibition scene are sound; a separately bound kinship precision amendment is needed before this row can count."
+    }
+  ],
+  "reviewMethod": "Genuine different-principal independent reading by E, not author Root: personally read all 190 complete frozen source objects with whole Chinese meanings, POS, forms, seed/source metadata, every variant, hashes, lexical evidence/admission; all 27 retained complete five-field pairs; every one of the 163 source-specific author-hold reasons and the complete root-p013-self-read notes. Complete untruncated combined source/pair/hold ranges were1-25,26-50,51-75,76-100,101-125,126-150,151-175,176-190. The earlier large LOCK display was truncated and was not counted as a complete read; each held source/reason was instead actually read in those bounded ranges. Independently read the manufacturer's substantive annatto-cheese passage directly, and substantive indexed original IUPAC annulation/annulenes/anomers entries plus the original NCBI-hosted uterus physiology-variant paragraph. Failed direct IUPAC and NCBI requests are explicitly distinguished from indexed substantive reading; Root's accesses are not attributed to this reviewer. Assessed actual English naturalness, concrete source sense/POS, faithful Chinese and head realization per saved row. Three kinship translations over-specify information absent from their English and are held: Annemarie, Anqing, Ansbach. Other24 saved rows have individual concrete approval reasons. All163 author holds remain excluded and in the goal backlog; reading their reasons is not certification that the heads are invalid or permanently unresolvable. All frozen author/LOCK/compiled/audit/queue/notes bytes remain untouched; future amendments require separate source-bound evidence and fresh review. Mechanical freshness and principal independence checks do not substitute for the actual reading. Staged only, no repository edit, materialization or publication by this reader."
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "reviewedAt": "2026-10-20",
-  "dictionaryExamplesVersion": "607a62a0614c35d437be636eb3bf9d13fb5c80bb332c9bfb53b430456a7cbe2b",
-  "dictionaryExamplesManifestSha256": "d345501173206feb24e5025661566f01be8f782c36f595d7f102efb366cd52e4",
+  "dictionaryExamplesVersion": "ecbf796a417d9a21ff4bbba145a6d384b081949915ebac9b09140e35b9846db9",
+  "dictionaryExamplesManifestSha256": "cda8e54935293d53250c37757392719cbcc7ea01141d5d01ed58fad530891986",
   "catalogueSha256": "ba140d2fdbdeda2aa0c89f553b949a2438a5928ea22e63a70a6fa93e4f906558",
   "policy": "Each approved example sense was checked against the particular POS, WordNet gloss, usage boundary, Chinese definition and English sentence. Missing or uncertain matches remain explicit empty arrays. Exact identity and bilingual content must still agree at runtime.",
   "groups": [
