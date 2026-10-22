@@ -1,0 +1,68 @@
+/* Shared shell only: forms, private state, and origin-local storage stay separate. */
+.app-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem 1.5rem;
+  min-height: 78px;
+  padding-block: .75rem;
+}
+.app-header-main { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-width: 0; }
+.app-header .brand, .app-header .personal-brand { min-width: 0; flex-shrink: 0; }
+.app-account { display: flex; align-items: center; justify-content: flex-end; gap: .6rem; min-width: 0; margin-left: auto; }
+.app-account button { flex-shrink: 0; min-height: 44px; white-space: nowrap; }
+.app-account #member-username { max-width: 9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-header .app-primary-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-row: auto;
+  grid-column: auto;
+  align-items: stretch;
+  justify-content: initial;
+  gap: .3rem;
+  min-width: 0;
+  font-size: .9rem;
+}
+.app-header .app-primary-nav > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: .5rem .8rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: inherit;
+  background: transparent;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.app-header .app-primary-nav > a:hover { background: #e7eee5; }
+.app-header .app-primary-nav > a[aria-current="page"] { color: #173a32; border-color: #a6b8aa; background: #e3ece2; font-weight: 700; }
+.app-footer { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: .6rem 1.5rem; }
+.app-footer > p { margin: .6rem 0; }
+.app-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: .2rem .8rem; }
+.app-footer nav > a, .app-footer nav > button { display: inline-flex; align-items: center; min-height: 44px; padding: .35rem 0; font: inherit; color: inherit; background: transparent; border: 0; border-radius: 5px; }
+.app-footer nav > button { text-decoration: underline; text-underline-offset: .18em; }
+.app-footer [aria-current="page"] { font-weight: 700; text-decoration: none; }
+@media (max-width: 900px) {
+  .app-header { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .app-header > .brand, .app-header > .personal-brand { justify-self: start; }
+  .app-header .app-primary-nav { width: 100%; }
+}
+@media (max-width: 720px) {
+  .app-header { gap: .35rem; padding-block: .7rem; }
+  .app-header .brand, .app-header .personal-brand { gap: .5rem; min-height: 36px; }
+  .app-header .brand strong, .app-header .personal-brand strong { font-size: .92rem; white-space: nowrap; }
+  .app-header .brand small, .app-header .personal-brand small { display: none; }
+  .app-header .brand-seal { width: 36px; height: 36px; border-radius: 9px; font-size: 1.15rem; }
+  .app-header .app-primary-nav { flex-basis: auto; gap: .25rem; }
+  .app-header .app-primary-nav > a { padding: .5rem .2rem; font-size: .84rem; }
+  .app-account { gap: .35rem; }
+  .app-account #member-username { max-width: 90px; font-size: .8rem; }
+  .app-account #member-auth-type { display: none; }
+  .app-account button { padding: .4rem .65rem; font-size: .8rem; }
+  .app-footer { flex-direction: column; align-items: flex-start; }
+}

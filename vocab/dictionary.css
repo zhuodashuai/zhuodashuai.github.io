@@ -15,6 +15,7 @@
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+.update-banner { position: fixed; z-index: 40; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); left: 1rem; max-width: 30rem; margin-left: auto; display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); box-shadow: 0 4px 24px #173a3226; }
 body { margin: 0; font-size: 16px; line-height: 1.6; }
 a { color: var(--accent); text-underline-offset: 3px; }
 button, input { font: inherit; }

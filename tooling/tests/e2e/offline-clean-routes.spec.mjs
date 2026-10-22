@@ -145,7 +145,7 @@ test("offline actual guide navbar and its fragment dictionary link survive redir
   test.setTimeout(90_000);
   const before = await prepareRedirectedShell({ context, page }, info, { warmGuideQuery: true });
   await page.goto(BOOK_PATH);
-  const guide = page.locator('header nav a[href="guide.html"]');
+  const guide = page.locator('footer nav a[href="guide.html"]');
   await expect(guide).toHaveAttribute("href", "guide.html");
   await context.setOffline(true);
   try {

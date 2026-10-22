@@ -782,7 +782,14 @@ refs.searchDictionaryLink.addEventListener("click", event => {
   input.focus({ preventScroll: true });
   void libraryLookup.submit(state.query);
 });
-document.getElementById("dictionary-link").addEventListener("click", () => document.getElementById("lookup-input").focus());
+document.getElementById("dictionary-link").addEventListener("click", event => {
+  event.preventDefault();
+  // The browser's default fragment jump otherwise moves focus back from the
+  // input to the section after this handler. Keep the selected book/chapter.
+  try { history.replaceState(null, "", `${location.pathname}${location.search}#library-lookup`); } catch { /* Lookup remains usable if history is restricted. */ }
+  document.getElementById("library-lookup").scrollIntoView({ block: "nearest" });
+  document.getElementById("lookup-input").focus({ preventScroll: true });
+});
 if (adminUrl) refs.ownerLink.href = adminUrl;
 else {
   refs.ownerLink.href = "owner.html";

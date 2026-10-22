@@ -723,6 +723,11 @@ const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; cha
 const server = createE2EHttpServer(async (request, response) => {
   try {
     const url = new URL(request.url, "http://127.0.0.1:4187");
+    // Opt-in first-install race: dictionary data can finish before the new
+    // worker script arrives. No other browser run gets this artificial delay.
+    if (url.pathname === "/sw.js" && cookies(request).e2e_dictionary_first_install === "1") {
+      await new Promise(resolveDelay => setTimeout(resolveDelay, 5_000));
+    }
     if (url.pathname.startsWith("/api/")) return await api(request, response, url);
     if (url.pathname === "/__e2e__/append-public" && request.method === "POST") {
       const payload = await body(request);
