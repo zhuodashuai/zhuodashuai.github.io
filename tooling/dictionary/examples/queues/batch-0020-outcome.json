@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0020",
+  "queuedHeads": 540,
+  "authoredHeads": 434,
+  "approvedHeads": 426,
+  "authorHeldHeads": 106,
+  "reviewHeldHeads": 8,
+  "beforeHeads": 84000,
+  "beforeExamples": 85389,
+  "afterHeads": 84426,
+  "afterExamples": 85815,
+  "canonicalHeads": 102609,
+  "remainingHeads": 18183,
+  "complete": false,
+  "baselineExampleVersion": "ecbf796a417d9a21ff4bbba145a6d384b081949915ebac9b09140e35b9846db9",
+  "examplesVersion": "3c60c619f24b4783809424ff57e3cb88d86311b62ef174c40ebb6d4866fb53f1",
+  "deferred": [
+    {
+      "term": "anthocephalous",
+      "reason": "The source specifically labels a flower-shaped head malformation. Exact historical anatomical identity was not closed in the finite original-head lookup; do not substitute a botanical flower-bearing sense or invent a particular congenital diagnosis from the components.",
+      "stage": "authoring",
+      "sourceSha256": "dd7b414414a9b97a966e3c6ae4a317cb485bf7d295b04eda0d5e784131ca39a0"
+    },
+    {
+      "term": "anthormon",
+      "reason": "The terse 抑素/抗内分泌素 label does not establish whether the historical referent is an antibody, an endocrine inhibitor or a hypothesized factor. An exact original definition/status is needed before teaching a material as an established modern hormone.",
+      "stage": "authoring",
+      "sourceSha256": "85934402775b66a17c9746724610ea10139e8b00abd2a0bc72085902b7119fce"
+    },
+    {
+      "term": "anthracenone",
+      "reason": "The exact-head PubChem request actually returned CID18614983, 2H-anthracen-1-one, whereas generic 蒽酮 is commonly read as anthrone. Need an exact isomer/name-scope decision before equating those structures; the registry response is not automatic approval of the frozen Chinese.",
+      "stage": "authoring",
+      "sourceSha256": "55b7ea3e195ef899500e1ed6f02065aec7aa6e686c219ec8d74cb831e6df10d8"
+    },
+    {
+      "term": "anthracidin",
+      "reason": "The frozen killing-anthrax substance name has a 茵/菌 spelling defect and must be distinguished from anthracin, which the original Stedman actually defines separately. No original exact anthracidin identity was read; do not infer that it is the toxin or hide the gap in a bottle-label sentence.",
+      "stage": "authoring",
+      "sourceSha256": "b42ca3de3333bc094767c48fca17b925474dec8cd3218f869f300792072db784"
+    },
+    {
+      "term": "anthracomucin",
+      "reason": "Source names a specific historical anthrax-bacterial mucin. Original bounded lookup did not establish this substance's exact identity or status, especially relative to anthramucin; a neutral archival noun context alone would not close it.",
+      "stage": "authoring",
+      "sourceSha256": "ec04efafca24ae1450de0d670fca4c0d4099f74df7424c8d6bc4ba4b466178e6"
+    },
+    {
+      "term": "anthracotherapy",
+      "reason": "The sole Chinese 炭疗法 leaves the treatment modality unresolved: charcoal/carbon use must not be confused with modern carbon-ion radiation therapy. No exact original passage was read establishing which historical procedure this head denotes.",
+      "stage": "authoring",
+      "sourceSha256": "e8f496e9f8e6a900f1e6e53bc5eff34827b3b9c87f21cd5a8089bd43011d703a"
+    },
+    {
+      "term": "anthraflavon",
+      "reason": "This exact historical chemical head must be distinguished from anthraflavine and ordinary flavone. Frozen 蒽黄酮 alone does not establish a unique compound or preparation; the bounded original lookup did not close that referent.",
+      "stage": "authoring",
+      "sourceSha256": "24f9e9a53f82d20a304d7feffc44264163b7a9acc35fe8da9edd4096d6e8374c"
+    },
+    {
+      "term": "anthraglucorhamnin",
+      "reason": "The exact old glycoside identity corresponding to 鼠李蒽苷 remains unresolved. PubChem returned no CID for this request, which is not evidence the name is invalid; an original synonym/structure source is still required before claiming a material identity.",
+      "stage": "authoring",
+      "sourceSha256": "d9b56b78615b0787f3d99481367d422cf5fc835ab87a1d029de29e1fe9a8b5dd"
+    },
+    {
+      "term": "anthraglucorhein",
+      "reason": "Original Stedman actually read establishes a glucoside from rhubarb, not by itself the precise rhein/大黄酸 glycoside structure implied by the frozen Chinese. PubChem had no exact CID match. Need finite chemical scope closure rather than silently treating all rhubarb glucosides as the same compound.",
+      "stage": "authoring",
+      "sourceSha256": "733e0e68ec1abb023e7d359be0983bbb3cca8080966d20dc3835bf599eb116b4"
+    },
+    {
+      "term": "anthramucin",
+      "reason": "Frozen 炭疽菌粘液素 may refer to the historical material also called anthracomucin, but an exact original synonym or identity passage was not read. Do not manufacture a second verified substance from a similar-looking name.",
+      "stage": "authoring",
+      "sourceSha256": "6052dfca3f37d94197e26216489e40f6841408dec0e7d32c186e27a415e3309f"
+    },
+    {
+      "term": "anthranone",
+      "reason": "The exact spelling and ketone identity relative to anthrone/anthracenone remain unclosed. PubChem was server-busy, not an invalid-head finding; a subsequent exact original/registry lookup is needed before an isomer-specific example.",
+      "stage": "authoring",
+      "sourceSha256": "dd0929e05bcd880f79eb3c77b486645cf6d869d7a9ff35e3520977d39351936a"
+    },
+    {
+      "term": "anthrasol",
+      "reason": "Original Stedman actually read describes a coal-tar distillate resembling olive oil in colour, whereas the frozen Chinese says colourless coal tar. Must reconcile that direct colour/material-scope conflict rather than use an opaque jar sentence that hides it.",
+      "stage": "authoring",
+      "sourceSha256": "5b7c3e5cabdcf7beb2a9320df47d9c50a5425f372fff74ed2d7f604b14d51c08"
+    },
+    {
+      "term": "anthrindan",
+      "reason": "Frozen 环戊烷并蒽 does not establish the exact fused-ring structure or this particular historical spelling. PubChem had no CID match, not proof of invalidity; retain for an original exact-name/structure check instead of inferring a fusion from the suffix.",
+      "stage": "authoring",
+      "sourceSha256": "555846e6cd9db7d0bd336d9525a56144b12c2a5484d7a23e386c871a8e7c575d"
+    },
+    {
+      "term": "anthropocracy",
+      "reason": "The frozen medical active-treatment sense must be distinguished from governance-by-humans senses suggested by this head. No exact original medical entry was found in the finite lookup; do not compose a political example or claim a treatment theory without a precise source.",
+      "stage": "authoring",
+      "sourceSha256": "87da267fcdb01d496f0032e91e42c582536222ace4eb19f5bfc12cea9dfc1903"
+    },
+    {
+      "term": "anthropoglot",
+      "reason": "The source role is noun but the Chinese is an adjective-like able-to-speak description of a parrot. Original Century actually read defines an animal with a human-like tongue; that alone does not establish actual speech ability. Both role and anatomical-versus-speaking scope need reconciliation.",
+      "stage": "authoring",
+      "sourceSha256": "e656acb1d31dbb89a5a11eea8bad7381e819bead5d8d58fe435f13892ff5a54e"
+    },
+    {
+      "term": "anthroxan",
+      "reason": "Frozen 苯甲内酰胺/邻苯甲内酰胺 gives a specific lactam identity without an exact original structural reference. PubChem was busy, not a negative identity result; do not silently infer a familiar benzolactam from the spelling.",
+      "stage": "authoring",
+      "sourceSha256": "2b4c825a5b129bb41d5e36948dd2ba236ece58e9d55eb6be3e646d5500aa3144"
+    },
+    {
+      "term": "anti-icteric",
+      "reason": "Only adjective is currently source-supported, but the original Century head actually read defines a remedy noun for jaundice. The adjective branch may exist, but has not been separately verified; require that finite role check rather than use the noun or force a quoted adjective into noun position.",
+      "stage": "authoring",
+      "sourceSha256": "8ff3e8f60979f99b1f72fe352c20753591fda48373c571c8c40b2f00b7e5bd0c"
+    },
+    {
+      "term": "anti-immune",
+      "reason": "The sole 抗免疫的 label does not distinguish activity directed against an immune body from general immune suppression. The original Stedman amboceptor context names an anti-immune body but does not close this exact adjective's selected branch; avoid equating them automatically.",
+      "stage": "authoring",
+      "sourceSha256": "db2e5db6824698f6dfa8d8bef6cbed0d710f805f9d1524b165896a730c6da2a1"
+    },
+    {
+      "term": "anti-influenza",
+      "reason": "Frozen allowed role is noun while 抗流感病毒 describes an opposing action/property without naming a noun referent. Ordinary attributive anti-influenza use would be adjective. Needs a finite noun-role/sense correction before a valid source-matched sentence.",
+      "stage": "authoring",
+      "sourceSha256": "88076e4fd461dc8edd08238113399749bca3ac45bc964e1f72858c17df3898f6"
+    },
+    {
+      "term": "anti-insulin",
+      "reason": "Frozen noun/抗胰岛素 does not state whether the referent is an antibody to insulin or a substance opposing insulin activity. These are not interchangeable identities; require an exact original branch before treating anti-insulin as a free noun.",
+      "stage": "authoring",
+      "sourceSha256": "fd503a0b8c43e8d3e54a7dd57f23e1c4673f76a238b5d2824b135e0e57760a7b"
+    },
+    {
+      "term": "anti-isolysin",
+      "reason": "Frozen 抗同种溶素 points to a specific old immunological referent, but no original exact-head/target definition was read. It cannot be inferred simply from anti- plus isolysin or counted as verified from a laboratory-container context.",
+      "stage": "authoring",
+      "sourceSha256": "dd3d31c9b21eba16fc7751960b6515bc95f347e1b82524ade6cc21f7e6154d84"
+    },
+    {
+      "term": "anti-JH",
+      "reason": "The frozen noun role and 抗保幼激素 wording leave open whether this is an inhibitor substance, an activity abbreviation or merely an adjectival label. Exact English nominal usage and juvenile-hormone target scope need evidence; do not infer an antibody from the prefix.",
+      "stage": "authoring",
+      "sourceSha256": "2a145af4b66b28867792fa43ea793735e90a54046b3fca2d6cb6388419a421f3"
+    },
+    {
+      "term": "anti-La",
+      "reason": "Source calls this an anti-Lutheran antibody, whereas the original South Tees NHS anti-La page actually read concerns antibodies to La in nuclear ribonucleoprotein complexes. The Lutheran/Lu versus La antigen identity conflict must be resolved before a learner example; no silent substitution of a different antibody.",
+      "stage": "authoring",
+      "sourceSha256": "a2c80d5520ae88b6cf13e5e1ac6cbd64e7d0dd5d046793125ded4ad6f795370d"
+    },
+    {
+      "term": "anti-pollution",
+      "reason": "Source supports noun only, whereas natural anti-pollution measures/campaign uses are adjectival. The finite lookup found no primary exact free-noun branch closing this mismatch; do not make a noun by merely mentioning the word or change the allowed role silently.",
+      "stage": "authoring",
+      "sourceSha256": "e2ebb44e03284a95f37a2405d0c78be1febfcf728511b9f99d53419c3f50c5f8"
+    },
+    {
+      "term": "anti-reticulo-endothelialcytotoxic",
+      "reason": "This unusually long historical adjective has ambiguous scope: against a reticuloendothelial cytotoxin versus cytotoxic to reticuloendothelial cells. Frozen 抗网状内皮细胞毒的 does not settle the direction, and no exact original passage was read.",
+      "stage": "authoring",
+      "sourceSha256": "370f77c449fe924e69fa49e88fb7b6cb12b9f91fe136c31b5e1d1d6989b23a30"
+    },
+    {
+      "term": "anti-Semitic",
+      "reason": "Source is noun only but both Chinese branches are explicitly adjectival 反犹的/反犹主义的. A genuine adjective-role repair is needed; do not invent a person noun or use a quoted adjective as apparent noun evidence.",
+      "stage": "authoring",
+      "sourceSha256": "21bc43b10c9535a1aaf7f1f06dbe3f8b8e37481db56c2f69199a2741df33cf2f"
+    },
+    {
+      "term": "anti-squeak",
+      "reason": "Frozen noun 消声器 suggests a device, while this English formation may refer to a squeak-reducing product/additive or an adjective. The exact material/device role has not been closed by a primary source; do not automatically call it a muffler.",
+      "stage": "authoring",
+      "sourceSha256": "2d730cdb2fdcc79d847a4fea11e431d63ebd1de03aa713f5d62f766fc53b1d97"
+    },
+    {
+      "term": "anti-tumor",
+      "reason": "Only noun is frozen, but the Chinese 抗肿瘤 is adjectival/action wording and does not identify a substance. A natural anti-tumor drug sentence would use an adjective, so the source role/sense must be repaired explicitly first.",
+      "stage": "authoring",
+      "sourceSha256": "77c10e7fe273bc749f754c16960d9fc4bcbcfad0a9496b0a3a2d24b90f59905a"
+    },
+    {
+      "term": "anti-variants",
+      "reason": "The terse 防差异剂 does not identify a material class, domain or exact English plural usage. No original exact-head passage was found; cannot infer it is a chemical additive merely from the 化 tag or manufacture a functional mechanism.",
+      "stage": "authoring",
+      "sourceSha256": "f9434536b395a305c4bb5739479cebd9cd537870df2f864d8134e7436c5a9223"
+    },
+    {
+      "term": "anti-virus",
+      "reason": "Frozen noun role with generic 反病毒/防病毒 leaves the medical-versus-software sense unstated. Primary Cambridge actually read gives adjective, while Collins gives noun modifier rather than an unequivocal free software noun. Need a finite free-noun/domain decision before silently adding 软件 or changing POS.",
+      "stage": "authoring",
+      "sourceSha256": "51bc6b46b49c253b97342c710535051989a6e467b695c2ec1f4179f5198c7648"
+    },
+    {
+      "term": "antiabric",
+      "reason": "Must distinguish this exact head from independently queued antiabrin. The original Stedman lookup established antiabrin, not this spelling or its noun role; do not infer a nominal antitoxin identity from an apparent adjective ending.",
+      "stage": "authoring",
+      "sourceSha256": "6de0a704779e90546b9b6d07aefe34fcc45e5fadc3eaa6d49e08e8c560d65223"
+    },
+    {
+      "term": "antiaiabetin",
+      "reason": "The exact head has unusual -iaiabet- spelling and a historical mixture/treatment claim. No original identity or formulation record was read. Do not silently normalize it to antidiabetin or present an unverified mixture as a diabetes treatment.",
+      "stage": "authoring",
+      "sourceSha256": "999ed0cbe61f49fe1ad28f1fa7c11b0d8aefaec02dc1979c1a8fd2dcae08af34"
+    },
+    {
+      "term": "antialbumin",
+      "reason": "Original Stedman actually read gives a hypothesized albumin constituent supplying antialbumose during digestion, not an antibody to albumin. Frozen 抗白蛋白 could be misread in that modern antibody sense; the historical Chinese scope needs an explicit clarification before use.",
+      "stage": "authoring",
+      "sourceSha256": "dd943c2a3d6d265fef6c6671a9d5120c0dd2112c8e744ff7659a94ebbecebdfb"
+    },
+    {
+      "term": "antialbumose",
+      "reason": "Frozen sole Chinese 抗ж is corrupt and not a usable substantive definition. Original Century/Stedman have a digestion-product branch, but silently replacing the corrupt source with a newly translated biochemical definition is outside this authoring preview.",
+      "stage": "authoring",
+      "sourceSha256": "258e40e126b1834720d86c3e4a64033be34ad1d3b51f4e61d3f79497b6b83cc5"
+    },
+    {
+      "term": "antiamebic",
+      "reason": "Only adjective is source-supported while its sole Chinese 抗阿米巴药 is a medicine noun. Must verify and explicitly align the adjectival anti-amoebic sense rather than use the drug noun or infer missing 的 without a source decision.",
+      "stage": "authoring",
+      "sourceSha256": "7fa9ee36299645fde518b5842568e0dd52c47a1c956f0cc791d93921df0b68da"
+    },
+    {
+      "term": "antiamylase",
+      "reason": "Source 抗淀粉酶 as a noun does not resolve antibody-to-amylase versus amylase-inhibiting substance. The exact intended old referent needs a primary branch check; a generic assay sentence would hide that distinction.",
+      "stage": "authoring",
+      "sourceSha256": "c73b335a3796447121992e29658c9811e5200adaa7cfe06aa2cd482c5ec2c86b"
+    },
+    {
+      "term": "antianaphylaxin",
+      "reason": "The exact historical head must be distinguished from the original Stedman antianaphylactin that was actually read. Shared 抗过敏素 Chinese alone does not establish an exact synonym/variant or its target; retain for a finite original synonym check.",
+      "stage": "authoring",
+      "sourceSha256": "46e6391c25d3b85ac2c72d3ba15b7f5146f07ec7a6e3007249a370d9eee09c60"
+    },
+    {
+      "term": "antianemin",
+      "reason": "Frozen definition includes a particular animal-liver extract and cobalt/B12 composition. Exact historical preparation identity and claimed composition were not independently closed; do not imply a pure compound or assert a treatment mechanism from the name.",
+      "stage": "authoring",
+      "sourceSha256": "a767c28d32589d86f2e8c77c492d546d783aded67b1c4bd30b0f9ce932ca63b0"
+    },
+    {
+      "term": "antiantidote",
+      "reason": "The old noun 抗解毒药 may indicate an agent opposing an antidote, not an ordinary antidote. No exact original referent or direction of action was read; cannot reverse the prefix or pretend a neutral bottle validates the concept.",
+      "stage": "authoring",
+      "sourceSha256": "3c9f474fdfcd65dbae4b37803cd20710ae79e2674efe60b7799e427359c864b0"
+    },
+    {
+      "term": "antiantienzyme",
+      "reason": "The double-antagonism target behind 抗抗酶 is not closed by an original exact-head entry. Need to distinguish an antibody to an antienzyme from a general enzyme activator rather than infer a biochemical role from repeated prefixes.",
+      "stage": "authoring",
+      "sourceSha256": "61a671b5aa7a5df12d6dc83938ddb123a87f5134c52fd006b5a17f1616e9d045"
+    },
+    {
+      "term": "antiarachnolysin",
+      "reason": "Original Stedman actually read defines an antivenin counteracting spider poison broadly, while the frozen Chinese specifies an anti-spider-hemolysin substance. Need evidence closing the narrower hemolytic target, not silently broaden or identify every antivenin with this target.",
+      "stage": "authoring",
+      "sourceSha256": "84b718c9124ceba019f5bdf3b5a5860716ffc0199e243248c696e01c9a415ccb"
+    },
+    {
+      "term": "antiaysuric",
+      "reason": "The unusual exact spelling may be a transcription issue relative to antidysuric; the finite original lookup did not verify it. Do not silently correct letters or invent a therapeutic adjective from 抗排尿困难的.",
+      "stage": "authoring",
+      "sourceSha256": "9b18ccd819244b15e9df790db0b3ec0bbc4fb8d057989a421630d54b9e267bb6"
+    },
+    {
+      "term": "antibioticogram",
+      "reason": "Frozen 抗菌素谱 is ambiguous between an antibiotic's antimicrobial spectrum and an isolate's antibiotic-susceptibility profile. Exact original branch/spelling evidence is still needed before a diagnostic-chart example; these two kinds of spectrum must not be conflated.",
+      "stage": "authoring",
+      "sourceSha256": "930e606e924b3e03cd02966ca260bc00d643dbc9a7880975b0f586c2b487adb5"
+    },
+    {
+      "term": "antibiotin",
+      "reason": "Only adjective is frozen but Chinese 抗生物素/卵白素 names a substance and may refer to avidin. No exact adjectival branch was read; cannot treat a protein noun as an adjective or imply every anti-biotin reagent is avidin.",
+      "stage": "authoring",
+      "sourceSha256": "7c315b2d2df081594898c887d0f053f3ae9db1bb613386d3427616e9f744596b"
+    },
+    {
+      "term": "antiblastin",
+      "reason": "The exact antibiotic identity behind 抗瘟菌素 remains unresolved, including whether it is a compound, preparation or historical microbial product. An original naming reference is required; do not derive a modern antitumour or anti-rice-blast mechanism from the spelling.",
+      "stage": "authoring",
+      "sourceSha256": "69a087d91063a2ec675490e7d134d21d8b3f0979aa25b98dba87a8e0bd0ce08d"
+    },
+    {
+      "term": "antibond",
+      "reason": "Frozen noun 反键 with form antibonding does not establish whether the head denotes a bond, orbital or an obsolete nominal concept. The related adjective/participle cannot supply free-noun proof; exact chemical noun scope needs a finite source decision.",
+      "stage": "authoring",
+      "sourceSha256": "44c2e78d7aaecc6c4be72d3406c2b34951b878a9a2502f68e4c7e9ae08d563c2"
+    },
+    {
+      "term": "Anthonomus",
+      "reason": "English enlarges the specimen itself while Chinese explicitly says drawing it larger. Make the English object the drawing or image of the specimen, then independently reread the exact amended pair.",
+      "stage": "independent-review",
+      "sourceSha256": "8c3d68a9deccab59255413382d374a8078575009b41e21c8adff8c4ca70af842"
+    },
+    {
+      "term": "Anthropoidea",
+      "reason": "The selected Chinese label may imply apes only while primary ITIS Simiiformes report explicitly includes monkeys and Hominoidea and notes historical name confusion. Old-classification qualifier alone does not teach that scope; bind a finite broad-scope clarification before approval.",
+      "stage": "independent-review",
+      "sourceSha256": "a4912a70eb0acf12e6aac25ff851c278206a664a396192daa1b9b6e7d8e90ccc"
+    },
+    {
+      "term": "anti-inflammatory",
+      "reason": "Adjective and anti-inflammatory-cream meaning are sound, but Chinese 那支 introduces tube-like count/container not stated by English cream. Use unmarked 那种/该乳膏 or explicitly supply tube in English and reread amended whole pair.",
+      "stage": "independent-review",
+      "sourceSha256": "0dae96dd28f8289773f30e5c3a28981b47efd2e79cade2c94d48a80898f58a38"
+    },
+    {
+      "term": "anticataphylactic",
+      "reason": "The frozen gloss suggests opposing destruction of defensive power. The personally read original Stedman cataphylaxis context instead discusses interference with transport of protective agents to infection. Exact direction of this adjective is not closed; no protection-versus-inhibition example is invented from morphology.",
+      "stage": "authoring",
+      "sourceSha256": "15b11deef0f283057462830cf7c876ad01c69f4d8a02cde38054a60d598411cf"
+    },
+    {
+      "term": "anticathexis",
+      "reason": "Direct original MW exact noun defines a psychoanalytic diversion of ego energy suppressing impulses, not ordinary aversion. The sole frozen Chinese 反感 does not close that technical sense; an everyday-dislike sentence would teach the wrong concept.",
+      "stage": "authoring",
+      "sourceSha256": "e3bf0eac9fa0473580b73ce34b784360fb3a9a8ff4fd565c6c43e21b71cc7139"
+    },
+    {
+      "term": "antichlor",
+      "reason": "The frozen Chinese 阴氢剂 conflicts with the directly read original MW chlorine-removal agent definition and original Stedman context. Hydrogen and chlorine are not silently interchanged; the meaning needs a separately bound repair.",
+      "stage": "authoring",
+      "sourceSha256": "7d81963dd5bec5e56c041e45a1bd3254fd5887bbab3de2717be6761876586560"
+    },
+    {
+      "term": "anticolloidoclastic",
+      "reason": "The frozen blood-cell-collapse-crisis adjective requires exact historical colloidoclasis role and inhibitory direction. The finite original Stedman head lookup did not establish it; it is not safely replaced by a general anti-haemolytic or colloid-stabilising claim.",
+      "stage": "authoring",
+      "sourceSha256": "668cdbe751976c91d8d5730b0e93c6e2b671bec7a66050fad9c26595637d9d6b"
+    },
+    {
+      "term": "anticrisis",
+      "reason": "The frozen permitted role is adjective, but the Chinese 防猝变剂 and actually read original Stedman exact head both describe a noun agent. The adjacent adjective anticritical cannot supply a silent POS promotion for this canonical head.",
+      "stage": "authoring",
+      "sourceSha256": "254501ad10640dee05152d3fa90d17670e2f01ba517a19024563ca20767ca2b5"
+    },
+    {
+      "term": "anticynarase",
+      "reason": "The exact Chinese enzyme identity 红蓝花酶 is unresolved against cynarase's possible plant-enzyme role. No unsupported plant correction or antibody/inhibitor specificity is introduced; the exact source-bound target needs closure.",
+      "stage": "authoring",
+      "sourceSha256": "c79ee0ff02dae44a4af29a1e5c92047474536e1751c77d1f18df68f729abb5cb"
+    },
+    {
+      "term": "antidolorin",
+      "reason": "The actually read original Stedman exact head identifies a proprietary preparation of ethyl chloride, whereas the frozen source equates the head directly with 氯乙烷. A preparation and pure substance are not automatically identical; no neutral bottle example is used to conceal that boundary.",
+      "stage": "authoring",
+      "sourceSha256": "a9e2efe69ee89e6179c661fd2128e3be4e096c9fd0fa7a04b51e95a5fbb7a346"
+    },
+    {
+      "term": "antiexpectorant",
+      "reason": "The frozen 抗祛痰剂 is not automatically an ordinary cough suppressant: inhibition of expectoration, opposition to an expectorant drug and reduction of cough are different claims. The bounded original lookup did not close the intended noun role.",
+      "stage": "authoring",
+      "sourceSha256": "66c0e788536bc19889c77dc83769ac4316c9fe93c1f43dc81289f91e1f6aee40"
+    },
+    {
+      "term": "antifibrin-ferment",
+      "reason": "Historical fibrin-ferment can denote a clot-forming agent, whereas 纤维蛋白酶 may be read as a fibrin-digesting enzyme. Inhibiting formation versus inhibiting breakdown must not be reversed. The exact target identity/direction remains unresolved.",
+      "stage": "authoring",
+      "sourceSha256": "d74aea88193c2d0abafe3b0d2287f203ba1df05603188df4f45b805c7aeb1565"
+    },
+    {
+      "term": "antiflamison",
+      "reason": "The frozen old name 抗炎松 and 乙酰水杨酸孕烯醇酮 do not establish whether the named material is a particular ester, combination or proprietary preparation. The finite exact PUG probe returned 404, not invalidity; identity remains specifically unclosed, so the initial generic analytical-report draft was withdrawn.",
+      "stage": "authoring",
+      "sourceSha256": "ecb82704e562f63bb32370e7f0e49b30f3dae973835ea892e0ece4dc73f01dc1"
+    },
+    {
+      "term": "antifongin",
+      "reason": "The only Chinese is the broad 抗真菌素. This exact spelling is not silently merged with the separately queued antifungin magnesium-borate preparation. Exact original named identity was not closed by the finite PUG probe; its 404 is not invalidity. The initial generic analysis draft was withdrawn rather than treating a trade/homonym identity as proved.",
+      "stage": "authoring",
+      "sourceSha256": "480fc743bb2ac24388ca584fae83e74bb7a07257d649ff50fa1b8e8814834493"
+    },
+    {
+      "term": "antifungin",
+      "reason": "Original Stedman actually read describes a proprietary preparation containing magnesium borate, while the frozen source gives 硼酸镁 and 抗丝菌素 as apparent equivalents. A preparation, pure salt and possible antibiotic identity must not be silently collapsed.",
+      "stage": "authoring",
+      "sourceSha256": "18dc325b4213de22162119eab5c47c6e1abde32251b22fa11d610c67fe602fb0"
+    },
+    {
+      "term": "antigentophil",
+      "reason": "The source's exact extra-t spelling has no occurrence alias, and the bounded original head lookup did not establish its relation to the separately queued antigenophil. No silent typo repair or deliberately doubtful target spelling is used as a learning sentence.",
+      "stage": "authoring",
+      "sourceSha256": "67d029301aecffad806c05a4e0f80436d1f4afc77b09cb63eff17b23b7e34cb4"
+    },
+    {
+      "term": "antihaemolytic",
+      "reason": "The frozen role permits only adjective but supplies the noun meaning 抗溶血剂, unlike the separately queued antihemolytic source which expressly contains an adjective branch. A finite same-head role/meaning clarification is required rather than borrowing the other canonical record.",
+      "stage": "authoring",
+      "sourceSha256": "7c9f3caeabe7d7ebc43b9999f63e2a0da56e8c39bdb7833497282fd46e10bebc"
+    },
+    {
+      "term": "antihemagglutinin",
+      "reason": "The frozen role permits only adjective, but both the Chinese 抗红细胞凝集素 and personally read original Stedman exact head define a noun antibody. Attributive use of a noun does not automatically establish lexical adjective POS.",
+      "stage": "authoring",
+      "sourceSha256": "2c726cbe4217852256fb0cc6e131b18aebd8dc2a63063be3a7e96717290c259a"
+    },
+    {
+      "term": "antihyperlipoproteinemia",
+      "reason": "The frozen source calls the -emia head a drug agent. That exact spelling must not be silently changed to the separately queued -emic drug/adjective head. The agent-versus-condition morphology conflict remains to be independently resolved.",
+      "stage": "authoring",
+      "sourceSha256": "5b8ffefe4fd02c1635acc340fdfe4718f5e490c424975dca196e96fd704dbe26"
+    },
+    {
+      "term": "antihypo",
+      "reason": "The exact named material 高碳酸钾 is not closed against possible historical photographic hypo-removal preparations or other percarbonate/persulfate identities. The finite PUG probe returned 404, not lexical invalidity; no potassium salt is guessed.",
+      "stage": "authoring",
+      "sourceSha256": "ff02f030e2ee2ee7027a7e2e0216af15cf6279c1a1c9b4d518972b1b1923bb2e"
+    },
+    {
+      "term": "antiimmune",
+      "reason": "The frozen noun 抗免疫质 may refer to a named immune-body antagonist, but the personally read original Stedman window has the two-word head antiimmune body, not an established standalone countable noun. No automatic adjective-to-agent conversion or two-word occurrence alias is invented.",
+      "stage": "authoring",
+      "sourceSha256": "1d15ac2435ea310a4fee517e519451403cba8bd09c64cbefa75a404515316e6f"
+    },
+    {
+      "term": "antikataphylactic",
+      "reason": "Like the separate c-spelling canonical head, the frozen anti-defensive-destruction gloss does not settle whether the historical adjective inhibits transport of protective agents or prevents their destruction. The directly read original cataphylaxis context does not resolve that direction, and no spelling merge is made.",
+      "stage": "authoring",
+      "sourceSha256": "b9187daf319ac35231e222a2034b72e65b2f7c22efa0fb4921c0c35953ceaf6f"
+    },
+    {
+      "term": "antiketoplastic",
+      "reason": "The personally read original Stedman exact entry describes reduced ketone-compound excretion in urine or breath, while the frozen gloss 抗生酮的 is about ketone formation. Excretion reduction does not itself prove production reduction, so no causative example conflates them.",
+      "stage": "authoring",
+      "sourceSha256": "d28bfd3370128ad9cb78278fb481938b456cf2d2da2a30c68747990d4ff6e0a1"
+    },
+    {
+      "term": "antilepsis",
+      "reason": "The frozen 诱导疗法 is too unspecific to equate with modern induction therapy, counter-irritation, or prevention of a disease attack. The finite original lookup did not close this exact noun's selected historical branch; no medical procedure is invented.",
+      "stage": "authoring",
+      "sourceSha256": "129bf37398fd57b342cb57e86916ae125fe6169f9059f122c848a07eb1c0000c"
+    },
+    {
+      "term": "antileptic",
+      "reason": "The frozen adjective 诱导的 conflicts with the personally read original Stedman exact adjective describing prevention of a disease attack. An induction example or a preventive example would silently repair one side; exact source alignment remains pending.",
+      "stage": "authoring",
+      "sourceSha256": "190828c1171c3a0bf5b46323e520d42a31d243fdc8e196f49790e0d778d075a0"
+    },
+    {
+      "term": "antilipase",
+      "reason": "The frozen permitted role is adjective but the supplied 抗脂酶 denotes a noun anti-enzyme material. Neither a real adjectival target nor an explicit adjective sense was established by the bounded original lookup; an attributive noun is not treated as proof.",
+      "stage": "authoring",
+      "sourceSha256": "3ef5456f407df1c810215cc1867f7ca4bc99790c53ad12a822f73ed004bddb7f"
+    },
+    {
+      "term": "antilipfanogen",
+      "reason": "The exact lipfanogen target and Chinese 成球脂质 were not resolved by the finite original lexical lookup. No similarly spelled lipid factor, modern antibody target or guessed physiological role is substituted.",
+      "stage": "authoring",
+      "sourceSha256": "54c3e651261b5843b03b36393e94e82285fb41b84f5b05fc5b273bde75bf89c4"
+    },
+    {
+      "term": "antimalum",
+      "reason": "The frozen generic antirheumatic-use label, with 冶/治 textual ambiguity, does not close the exact historical preparation identity or composition. The finite original named PUG probe returned 404, not invalidity; a generic purchase-record sentence would not resolve that missing identity.",
+      "stage": "authoring",
+      "sourceSha256": "2a467d72d9934c6e716a7233ab4c36d41d62fa6aa096f8bd6e41abf9421e3562"
+    },
+    {
+      "term": "antimellin",
+      "reason": "The two frozen Chinese names 蒲桃皮苷 and 梅甙 do not by themselves establish one exact modern glycoside or historical extract identity. The finite exact PUG probe returned 404, not invalidity; no plant identity, pure-compound structure or antidiabetic property is guessed.",
+      "stage": "authoring",
+      "sourceSha256": "d2846cd7f42d53c405923b431b4f72b1b3ec3ac3f7917f1db8b2df312ffeba8b"
+    },
+    {
+      "term": "antiheparin",
+      "reason": "English original trace is narrowed to 原始谱线 in Chinese. Trace can be a recorded curve/tracing and does not establish a spectroscopic method. Use a modality-neutral 曲线/记录 or make a specific trace type explicit in English, then independently reread the revised pair.",
+      "stage": "independent-review",
+      "sourceSha256": "f40654fdd3d8f49d9e27252c6df57cadd0afff33e507e1d07a3bfe3ed0b34b9c"
+    },
+    {
+      "term": "antilactoserum",
+      "reason": "The target noun itself matches the old source, but original milk serum is rendered 原乳血清. Ordinary milk serum is 乳清, while 原乳血清 ambiguously implies raw milk/blood serum. Original Stedman’s lactoserum context does not justify that Chinese wording. Clarify the exact comparator in both languages; do not silently conflate the anti-serum with milk or a modern immune preparation.",
+      "stage": "independent-review",
+      "sourceSha256": "3e49618e7c3c1c784e91e4cc5ac723a00210430bf333629934b0b1b679b6c252"
+    },
+    {
+      "term": "antimer",
+      "reason": "Its in The measured rotation was opposite to that of its antimer has no explicit substance antecedent: the grammatical subject is a rotation, which cannot have an enantiomer. Chinese likewise leaves 其 without the compound. State the compound/substance whose optical rotation is compared, then independently review both complete sentences.",
+      "stage": "independent-review",
+      "sourceSha256": "930c469fd05bb98e7f11d3ecafe79b8457dacab50daec1e124bbfe53afcc87df"
+    },
+    {
+      "term": "antimeristem",
+      "reason": "Original Stedman actually read describes an alleged antitoxin for a supposed malignant-growth microorganism. Frozen 抗分生霉素 suggests an antibiotic/preparation identity that this does not establish. Needs a historically qualified source reconciliation, not a generic bottle sentence.",
+      "stage": "authoring",
+      "sourceSha256": "2216dd17b41285474dfdcc01d6cb08bc6cce61d2c2dad752a319dc82489c8d7d"
+    },
+    {
+      "term": "antimicrobin",
+      "reason": "Frozen 灭菌质 does not close whether this exact historical name is a specific preparation, an immune factor or a general antimicrobial substance. Neither original bounded head search located its identity; no named molecule or modern sterilizing claim is inferred. Failed lookup does not prove invalidity.",
+      "stage": "authoring",
+      "sourceSha256": "79ea870171f04d9ff729b14e2d5a134582376a1888b694616f505acfea32d3c0"
+    },
+    {
+      "term": "antiminth",
+      "reason": "Original NIH PubChem CID5281033 explicitly lists Antiminth under pyrantel pamoate, while frozen Chinese gives unqualified pyrantel. Salt/preparation versus parent-compound identity needs a finite source amendment rather than silently claiming the pure parent compound.",
+      "stage": "authoring",
+      "sourceSha256": "3fb83189c366b78257f4767a1e43be77fb88bf2d90e1cecaa6fda430a4169c21"
+    },
+    {
+      "term": "antimonine",
+      "reason": "The precise old chemical head is glossed as antimony lactate, but exact naming and salt/composition have not been closed by an original head. It must not be conflated with the antimonate/antimonite entries or hidden in an unspecified sample sentence.",
+      "stage": "authoring",
+      "sourceSha256": "6d673661b0d396d77542ad6a6b4571d911c631a7413e9063f5f6f6d15400c223"
+    },
+    {
+      "term": "antimycoin",
+      "reason": "Frozen 抗霉菌素 does not identify the exact antibiotic represented by this unusual -mycoin spelling. The common antimycin spelling and other antifungal names cannot be substituted from appearance; original exact-head identity remains unresolved.",
+      "stage": "authoring",
+      "sourceSha256": "743dbc9b329d60bb343a8f91d5bf2cbe3726229c3552ada64615e34d3c9d7d7c"
+    },
+    {
+      "term": "antinvasin",
+      "reason": "Frozen 抗侵袭素 alone does not distinguish an antibody against an invasin from another invasion-inhibiting factor. Exact historical referent and scope remain unclosed; do not infer a bacterial mechanism from the prefix.",
+      "stage": "authoring",
+      "sourceSha256": "85af8b2675d6426bcf8cfd9de5baf2eb9a009fcdf0557308bb65aa8d76b7e2a3"
+    },
+    {
+      "term": "antiopbidica",
+      "reason": "Frozen snake-venom-antidote head has -opb- where the recognizable ophid- element would suggest a different spelling. No exact original variant was located; silently correcting the letters or quoting a label would not validate this canonical head.",
+      "stage": "authoring",
+      "sourceSha256": "ce3814306c92c41c5e6ff68c95e6fd5b00f4c47678aa19f857494140fa8e7b15"
+    },
+    {
+      "term": "antiotomy",
+      "reason": "Frozen tonsil-removal sense lacks an exact original head passage. The spelling must be distinguished from possible historical tonsil-operation names and transcription errors before an anatomical operation example is composed.",
+      "stage": "authoring",
+      "sourceSha256": "ab956dcf930272366c648eab03a0df949ef8aac78d1bd9f0e8542136c3b7e8c7"
+    },
+    {
+      "term": "antioxidase",
+      "reason": "Frozen 抗氧化酶 is ambiguous between an agent against oxidase and an antioxidant enzyme. Those are not interchangeable mechanisms; exact original head meaning is needed rather than assume the familiar antioxidant-enzyme interpretation.",
+      "stage": "authoring",
+      "sourceSha256": "feab94d78d2e51fb1fccaf3264e9b081f32982051a010d33e2cc99da723f09ed"
+    },
+    {
+      "term": "antiozidant",
+      "reason": "The exact head spelling differs from both antiozonant and antioxidant while Chinese specifies anti-ozone agent. Original spelling/synonym evidence is unresolved; no silent normalization or inferred polymer-protection claim.",
+      "stage": "authoring",
+      "sourceSha256": "4e0bec29b301a668a97ff5c7e78e43ad2775de2bc125d0205f08a7f142a72fb5"
+    },
+    {
+      "term": "antiparasympathomimetic",
+      "reason": "Frozen 拟抗副交感 is scope-ambiguous: opposing parasympathomimetic activity is not the same as a parasympathomimetic or a nonspecific anticholinergic effect. Exact original grammatical/physiological scope needs closing before an effect sentence.",
+      "stage": "authoring",
+      "sourceSha256": "aa9567efb88da8d81ee86e28a7d780408600e9bd8625568ed887f9355b81117a"
+    },
+    {
+      "term": "antiphrynin",
+      "reason": "Frozen anti-toad-toxin name is not independently established by the original antiphrynolysin head, which is a separately queued spelling. Exact antibody/preparation identity remains for original-source checking, not inferred from related word formation.",
+      "stage": "authoring",
+      "sourceSha256": "9d1970d1c23aad2450b3173496b3ab664ecfd42872a9779182fe972360f7585a"
+    },
+    {
+      "term": "antiphthisin",
+      "reason": "Original Stedman OCR has a possible neighboring antiphthisin/Klebs-tuberculin cross-reference, but the head is corrupted and the frozen defence-protein alias is not established by that passage. Exact historical preparation and Chinese scope require reconciliation.",
+      "stage": "authoring",
+      "sourceSha256": "0df572a837d214ccdac98cf2f840578969fb88a853c614255d0ac0980e48ccc4"
+    },
+    {
+      "term": "antipirochetic",
+      "reason": "Original Stedman passage actually read uses antispirochetic, not the exact frozen antipirochetic spelling. The missing s cannot be silently supplied; an exact variant authority is still needed.",
+      "stage": "authoring",
+      "sourceSha256": "1b0ee7fcf285a0b6cd9bc22e9f71778c090f5b8b789054efb7b45f771b1b5062"
+    },
+    {
+      "term": "antipnein",
+      "reason": "Frozen 抗内呼吸素 names a specific supposed cellular-respiration factor. Original identity and historical status were not closed by the bounded dictionaries; no modern inhibitory mechanism or chemical identity is invented.",
+      "stage": "authoring",
+      "sourceSha256": "a9ac08594ef92d26f8a261ed521eed398b5f9b1a8b528d47f5b89806ddb86464"
+    },
+    {
+      "term": "antiprostate",
+      "reason": "Frozen only allowed role is adjective, but its sole Chinese sense is a gland noun. Both original Stedman and Century passages actually read identify Cowper's gland. A noun sentence would violate the frozen role; an adjectival relation would silently repair it.",
+      "stage": "authoring",
+      "sourceSha256": "4073044c9166cfbda3518ab579c240d2fc75f8566beb8dddc7235ee27e458efd"
+    },
+    {
+      "term": "antiretrovirals",
+      "reason": "Exact plural -s head normally denotes drugs, but frozen only allowed POS and Chinese are adjective. It cannot be used as a plural noun or silently changed to antiretroviral without a separately evidenced role/source correction.",
+      "stage": "authoring",
+      "sourceSha256": "74b60ea6c8bca554b1aefd8b08abe093c1d9bed7020579401257c03308b3dad2"
+    },
+    {
+      "term": "antirheoscope",
+      "reason": "Frozen visual-vertigo inspection instrument is a very specific historical apparatus. Exact original apparatus identity and operational scope were not located, and a modern optokinetic device must not be substituted by guesswork.",
+      "stage": "authoring",
+      "sourceSha256": "81ff93aeb1fbe7bd3638d60e87f1eb20742c6de8969f84b338b0eb5d5d0d783f"
+    },
+    {
+      "term": "antiriboflavin",
+      "reason": "Original author PubMed5096136 title actually read establishes antiriboflavin as an activity modifier, not the frozen sole noun role. Need an exact source supporting a noun class/material use or a finite POS decision; do not turn title evidence into unverified noun proof.",
+      "stage": "authoring",
+      "sourceSha256": "957f298d11f8599ad7a5b7a3c7324b7380ba53cacc9877d8426c6acd00bc97e2"
+    },
+    {
+      "term": "antirlorigen",
+      "reason": "Frozen anti-florigen concept has unusual -rlorigen spelling, unlike familiar antiflorigen. Exact original spelling remains unchecked; the floral-inhibitor sense cannot be validated merely by correcting the first internal letter.",
+      "stage": "authoring",
+      "sourceSha256": "d8a4a0b4c75909c28a0e87f33bca3f42b0aaf095dd9bfd1347d644d6c5b47018"
+    },
+    {
+      "term": "antiscirrhous",
+      "reason": "Scirrhous refers specifically to a hard tumour, whereas frozen 抗硬化 can imply general sclerosis prevention. Exact historical branch needs original definition and a non-conflating Chinese label, not a generalized anti-sclerosis claim.",
+      "stage": "authoring",
+      "sourceSha256": "8c29376ea07bfd3a420cb8723d5029d215a0f970f49ea796083dd59055c68f71"
+    },
+    {
+      "term": "antisensedigonucleotides",
+      "reason": "Frozen exact head is a fused/malformed string unlike the usual antisense oligonucleotides phrase. No original exact lexical form was located; cannot substitute the familiar phrase while claiming this head has a valid occurrence.",
+      "stage": "authoring",
+      "sourceSha256": "13e9a52e71c58cead681a36a1d0596ea4c3c556a081743cefcfe04c310bde73f"
+    },
+    {
+      "term": "antisensibilisin",
+      "reason": "Frozen 抗过敏素 does not establish whether this old term is an anti-sensitizer antibody, a general anti-allergy factor or a named preparation. No exact original identity was resolved; modern allergy-treatment use would be an unsupported extrapolation.",
+      "stage": "authoring",
+      "sourceSha256": "2e42f0fd2450d46578c957cca8cf639f151631a98a90ee049356125a2c5de929"
+    },
+    {
+      "term": "antisocialism",
+      "reason": "Frozen medical dislike-of-socializing sense must be distinguished from the familiar political opposition-to-socialism noun. No original historical psychiatric head was read closing this branch; avoid pathologizing ordinary social preferences or switching to the political meaning.",
+      "stage": "authoring",
+      "sourceSha256": "a2b1598e7535a9a0b910c4f5ac1b15ca4ef9925b5a9240a0f6b95a0ac238723c"
+    },
+    {
+      "term": "antisomorphism",
+      "reason": "Frozen anti-isomorphism/anti-isomorphy could be a spelling or word-boundary issue relative to antiisomorphism. An exact original mathematical/chemical head and mapping sense remain unresolved; no invented algebraic property or silent normalization.",
+      "stage": "authoring",
+      "sourceSha256": "c8e501c70db50391491569d7c56a02cebb6e605d7fca337f6d2769b2a5b9f6cd"
+    },
+    {
+      "term": "antispermotoxin",
+      "reason": "Original Stedman neighboring passage actually read instead has a possible antispermatoxin head. Exact -spermo- spelling and its relation to spermotoxin need their own source; no unverified synonym or immune effect is inferred.",
+      "stage": "authoring",
+      "sourceSha256": "97e753c40aef2413fa1b7681ad0df06d719bea73d617554631d86d23c9a1e264"
+    },
+    {
+      "term": "antisteapsin",
+      "reason": "Original Stedman exact head actually read defines a fat-splitting enzyme, whereas frozen Chinese says anti-pancreatic-lipase. Active enzyme and enzyme inhibitor are opposites; this source conflict requires repair before a learner example.",
+      "stage": "authoring",
+      "sourceSha256": "73e57373cf8f3ffc7a58939f2e6b7e9dfaf88e78dc068d6b4a5c7e8ec7602f9c"
+    },
+    {
+      "term": "antisymphatin",
+      "reason": "Frozen old sympathetic-factor antagonist has no exact original identity in the bounded search. The head must not be silently changed to antisympathin or interpreted as a modern named adrenergic antagonist from its components.",
+      "stage": "authoring",
+      "sourceSha256": "f3c81cbebb1f57c0c21af265a1ae64160999d43daa1b6fbc220ad954473f3c29"
+    },
+    {
+      "term": "antithenar",
+      "reason": "Frozen allowed POS is adjective but Chinese is a region noun. Original Stedman cross-refers to hypothenar; original Century gives muscle nouns with different scope. Exact adjectival use and anatomical sense require reconciliation, not inferred suffix conversion.",
+      "stage": "authoring",
+      "sourceSha256": "db651a530d10b4cb2ee956c5614db22808d36a5dbc30fa32f6e06cca4a55ee31"
+    },
+    {
+      "term": "antithromboplastin",
+      "reason": "Frozen 抗凝血酶致活酶 is terminologically unclear relative to thromboplastin/tissue factor and prothrombin activation. Exact historical inhibitory entity and Chinese target must be verified before an anticoagulation-related assertion.",
+      "stage": "authoring",
+      "sourceSha256": "a4d0e319c11c6fe6e884cf3811e3eda8b924fae9b6149eeaa07b97f87fe210e2"
+    },
+    {
+      "term": "antithyroidin",
+      "reason": "Original Stedman exact head actually read denotes a historical serum preparation, while frozen 抗甲状腺素 could imply an anti-thyroxine substance. Need a finite identity/status label that does not turn the old serum into a defined modern hormone antagonist.",
+      "stage": "authoring",
+      "sourceSha256": "8b42b4c444535477737e76549b3b3a51e5f306cb9fb89af2da0c68668b0534a6"
+    },
+    {
+      "term": "antitode",
+      "reason": "The frozen antidote sense accompanies a transposed-letter spelling. An original exact variant reference is required; using familiar antidote or putting antitode in quoted text would not establish a valid occurrence of this canonical head.",
+      "stage": "authoring",
+      "sourceSha256": "cd7bf798dbb3127b470f2d1cbdaf0edf25e3bfa324d8408729cbdf3b65192184"
+    },
+    {
+      "term": "antitropin",
+      "reason": "Original Stedman exact head actually read gives broad antibody, but frozen selected Chinese is specifically antiopsonin. Exact historical narrower branch is not established by the generic antibody cross-reference; do not conflate the two.",
+      "stage": "authoring",
+      "sourceSha256": "6e6772bdae976a6825ed78e896cf8d39fc4c56dea3629643e6e1cbdb275a7bf0"
+    },
+    {
+      "term": "antitryptase",
+      "reason": "Frozen anti-trypsin concept must be distinguished from modern anti-tryptase antibodies, whose target is a different enzyme. No exact historical original head was read establishing the old trypsin-inhibitor use; a modern immunostaining example would teach the wrong sense.",
+      "stage": "authoring",
+      "sourceSha256": "283752b4b8c7f8492963de004d1c72ae9366754563abcd0233fcde6bcc48a9be"
+    },
+    {
+      "term": "antiplasmodial",
+      "reason": "Frozen source and variant say only 杀疟原虫的, while candidate meaning is broader 抗疟原虫的 and sentence asserts no killing. C independently read primary growth-inhibition usage (PMID 23403429), supporting the broader real word but not silently amending the frozen sense. Retain this draft pending an explicit source-sense clarification or killing-specific selection; not a claim the headword is invalid.",
+      "stage": "independent-review",
+      "sourceSha256": "d294fdf0b33bbf202d098df78b86bb669677bbd2217ece083ae5cabf23ede86e"
+    },
+    {
+      "term": "antisideric",
+      "reason": "Source 抗铁的/忌铁的 does not resolve physiological antagonism versus chemical incompatibility. Candidate specifically asserts 与铁不相容 and a mixture compatibility example. C's finite original Stedman/Century lookup produced no matching head; independently found secondary descriptions instead concern counteracting iron's physiological action. Exact old incompatibility branch remains unclosed, so do not pass merely because the chemist questions it. Not proof that the word is invalid.",
+      "stage": "independent-review",
+      "sourceSha256": "bf0dbbbbd17c21259d0674dfdf63968f0fc3f4a86951fffc3388fb853cf42957"
+    }
+  ],
+  "reviewScope": "Actual different-principal selected-sense AI whole-source/whole-pair reading, not human certification, complete-sense coverage or full dictionary completion."
+}
