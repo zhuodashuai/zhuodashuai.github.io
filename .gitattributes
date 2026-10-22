@@ -2,3 +2,8 @@
 vocab/data/expanded-dictionary/** text eol=lf
 vocab/data/dictionary-examples/** text eol=lf
 vocab/data/dictionary-suggestions/** text eol=lf
+# Reviewed historical manifests and correction evidence are also byte-hashed.
+tooling/dictionary/source-revisions/** text eol=lf
+tooling/dictionary/examples/source/batch-0022-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0022-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0022*.json text eol=lf

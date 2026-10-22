@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {loadExampleBuild,exampleSourceHash,validateExampleReview} from '../scripts/build-dictionary-examples.mjs';
 import {parseDictionaryExamplesManifest,parseDictionaryExamplesShard} from '../../vocab/js/dictionary-examples.js';
 import {publishedPosSupports,isAllowedSelectedPos} from '../lib/dictionary-example-pos-policy.mjs';
+import {assertHistoricalDictionaryLineage,SOURCE_LINEAGE_BASE_VERSION} from '../lib/dictionary-source-lineage.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const json=async relative=>JSON.parse(await readFile(new URL(relative,import.meta.url),'utf8'));
 const outcome=await json('../dictionary/examples/queues/batch-0021-outcome.json'),provenance=await json('../dictionary/examples/queues/batch-0021-provenance.json');
@@ -30,8 +31,8 @@ test('D21 reports755 actual approvals,142 source holds and12 pair holds while re
  assert.equal(new Set(outcome.deferred.map(x=>x.term)).size,154);
  for(const item of outcome.deferred){assert(queued.has(item.term));assert(!rows.some(row=>row.term===item.term));assert(item.reason.trim());assert.equal(item.sourceSha256,sha(JSON.stringify(queued.get(item.term).source)));}
 });
-test('every D21 full source including nested provenance still equals exact released canonical record',()=>{
- assert.equal(provenance.sourceDictionaryVersion,dictionary.version);
+test('every D21 full source retains exact records and its verified archived dictionary lineage',async()=>{
+ assert.equal(provenance.sourceDictionaryVersion,SOURCE_LINEAGE_BASE_VERSION);await assertHistoricalDictionaryLineage(provenance.sourceDictionaryVersion,dictionary,canonical);
  for(const [term,item]of queued){assert.deepEqual(item.source,canonical.get(term));assert.equal(item.sourceSha256,sha(JSON.stringify(item.source)));}
 });
 test('every retained exact five-field pair has an explicit actual different-principal source-bound reading',()=>{

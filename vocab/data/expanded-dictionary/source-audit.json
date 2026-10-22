@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "version": "474e8115824074012f7a918453f977f3a8d21c6ae25016c8a44a1fc8c2d264cc",
+  "version": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
   "counts": {
     "records": 102609,
-    "englishKeys": 140862,
+    "englishKeys": 140858,
     "chineseTokens": 160071
   },
   "mitRows": 102325,
@@ -24,7 +24,7 @@
   "originalCheckedRows": 1030,
   "canonicalCasefoldCollisions": 1,
   "ambiguousAliasKeys": 176,
-  "totalShardBytes": 58323988,
+  "totalShardBytes": 58322672,
   "posReview": {
     "id": "pos-completion-2026-10-19",
     "reviewedRows": 38825,
@@ -45,7 +45,50 @@
       "semanticSha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
     },
     "missingBefore": 41546,
-    "missingAfter": 2722
+    "missingAfter": 2722,
+    "subsequentlyRevised": 4,
+    "finalPosReviewed": 38820
+  },
+  "sourceRevisions": {
+    "id": "finite-grammar-0001",
+    "applied": 4,
+    "supersededPosReviewed": 4,
+    "changedTerms": [
+      "are",
+      "did",
+      "had",
+      "been"
+    ],
+    "originalDictionaryVersion": "474e8115824074012f7a918453f977f3a8d21c6ae25016c8a44a1fc8c2d264cc",
+    "ledgerSha256": "cdf8077a3337d7a9618fae69b5f9b05af6a6a65dd99e409b284307721e1120e1",
+    "reviewSha256": "a4dccc2531ebe53c4ed6da70ff2c9737b204ec8b4faf542f901d641f57b1f5eb",
+    "scope": "Exact active metadata only; immutable MIT seed/variants retained; prior source opinion is not code or example-admission approval",
+    "transitions": [
+      {
+        "term": "are",
+        "id": 1734477,
+        "beforeSha256": "e828935cad697619a4cb1eaf2c97c5994241c73b9e056d2737e72ec90c9aeac3",
+        "afterSha256": "bfddf568c202ae14f6f89bb0305de47f624721d8718d7b47d5feb99e35078dec"
+      },
+      {
+        "term": "did",
+        "id": 9346366,
+        "beforeSha256": "44f918b9913e0c3666b33908f6d0fd54fb5f72219a39404bacbacb6ffdacacc3",
+        "afterSha256": "e5681a63b84992d3d86f48ee162bed0fa5707078cb53cadab819a70dea2c741b"
+      },
+      {
+        "term": "had",
+        "id": 9580946,
+        "beforeSha256": "5fe060dfb509c5c0bc6e77ab921a1a5f7412196ad78d40495b80ef3a373d86f4",
+        "afterSha256": "fbff1820898bd346fee8844faccccc1ff62e89678045a751f7e63b1f2b430b63"
+      },
+      {
+        "term": "been",
+        "id": 9097027,
+        "beforeSha256": "4030727ee7158361c13f84ba0496def845fa6b294949ed380202da9965f5bdd2",
+        "afterSha256": "771941a3ded55caa4964753774da3560ad86508c66d6276fc404d601bbcc5ed8"
+      }
+    ]
   },
   "supplementRows": 53,
   "supplementIntegrity": {
@@ -55,7 +98,7 @@
     "semanticSha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
   },
   "commercialDefinitionsUsed": false,
-  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; no publisher dictionary text.",
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance; no publisher dictionary text.",
   "integrity": {
     "schemaVersion": 1,
     "source": {
@@ -72,7 +115,7 @@
   },
   "verification": {
     "canonicalRecords": 102609,
-    "englishKeys": 140862,
+    "englishKeys": 140858,
     "chineseTokens": 160071,
     "allReferencesVerified": true,
     "allHanPostingsVerified": true

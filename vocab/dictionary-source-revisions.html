@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183b32">
+  <meta name="description" content="少量词条的语法形态校订范围、原始来源与可复核记录。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>语法形态校订 · 卓的单词本</title>
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="dictionary.css?v=101">
+  <link rel="stylesheet" href="app-navigation.css?v=101">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到校订说明</a>
+  <header class="topbar app-header">
+    <a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span>卓的单词本</span></a>
+    <nav class="app-primary-nav" aria-label="主要导航"><a href="./">公开词本</a><a href="dictionary.html">查词</a><a href="quick-notes.html">随手记</a><a href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">我的词本</a></nav>
+  </header>
+  <main id="main">
+    <section class="search-panel" aria-labelledby="revision-title">
+      <h1 id="revision-title">语法形态校订</h1>
+      <p>“原有释义＋语法形态校订”表示中文释义保留原来源，当前使用的词性和词形链接经过另外记录的项目校订。它不是 ECDICT 原数据，也不是整部词典已获专家审定的声明。</p>
+    </section>
+    <article class="result-card" aria-labelledby="scope-title">
+      <h2 id="scope-title">本次仅涉及四条记录</h2>
+      <ul>
+        <li><span lang="en">are</span>：当前释义指 <span lang="en">be</span> 的动词形式，因此使用动词标签；不把同形的面积单位名词套到该释义上。</li>
+        <li><span lang="en">did / had / been</span>：保留原有动词标签与释义。</li>
+        <li>这四条动词记录不再使用 <span lang="en">ares / dids / hads / beens</span> 作为其后续词形。这里只移除四条具体链接，不删除同形的独立词条或其他语境。</li>
+      </ul>
+      <p>原始 MIT 数据、旧词性证据、原始词形列表及修订前后的完整记录均保留供核对。正常的 <span lang="en">do → did、have → had、be → been</span> 关联继续保留；个人词条、学习记录和书中原句不由这项校订修改。</p>
+      <h2>资料与核验范围</h2>
+      <p>本次参考 British Council 的 <a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/verb-be">动词 be</a>、<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/past-simple">一般过去时</a>及<a href="https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/present-perfect">现在完成时</a>语法说明。本站例句另行原创，不复制这些资料中的例句。</p>
+      <p>来源修订与例句审核分开：修正了词性或索引，不代表例句已自动通过审核。例句仍须按照具体用法独立核验。项目审查包含 AI 交叉复核，不冒充人工专家认证。</p>
+      <p><a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/source-revisions/finite-grammar-0001.json">四条修订前后记录</a> · <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/source-revisions/finite-grammar-0001.integrity.json">独立校验指纹</a> · <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/blob/main/tooling/dictionary/source-revisions/finite-grammar-0001.review.json">来源与例句的独立意见</a></p>
+      <p class="hint">校订在构建阶段完成；查词不会因此调用在线翻译或 AI。中文释义仍适用其原有许可，语法元数据修订属于项目编辑，不冒充 MIT 来源文本。</p>
+    </article>
+  </main>
+  <footer class="app-footer"><nav aria-label="帮助与更多"><a href="dictionary.html">返回查词</a><a href="guide.html">使用手册</a></nav></footer>
+</body>
+</html>

@@ -1,0 +1,2694 @@
+{
+  "schemaVersion": 1,
+  "sourceDictionaryVersion": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
+  "baselineExampleVersion": "aad44cb969693e134e9b09821a694c69c84d12f124eed69dfa9902971306c1f0",
+  "queuedHeads": 126,
+  "batches": [
+    {
+      "batchId": "examples-0022-p001",
+      "file": "batch-0022-p001.json",
+      "terms": [
+        "FAX",
+        "SAC",
+        "Dr",
+        "Co",
+        "DNA",
+        "NHS",
+        "ITV",
+        "QC",
+        "OP",
+        "GM",
+        "RC",
+        "HON",
+        "RNA",
+        "DIY",
+        "Fr",
+        "MC",
+        "MAG",
+        "RPM",
+        "PG",
+        "MEP",
+        "PE",
+        "Er",
+        "de",
+        "IBM",
+        "DEC",
+        "BBC",
+        "La",
+        "Ca",
+        "FA",
+        "bp",
+        "Li",
+        "Meg",
+        "ICL",
+        "Val",
+        "PAM",
+        "Ni",
+        "DJ",
+        "DOC",
+        "DEL",
+        "SID",
+        "CBI",
+        "EMI",
+        "SQL",
+        "OEM",
+        "WC",
+        "FC",
+        "MAO",
+        "DSS",
+        "ES",
+        "AP",
+        "GLC",
+        "CP",
+        "YR",
+        "EMU",
+        "NAM",
+        "NCC",
+        "VAX",
+        "CR",
+        "PCB",
+        "AIX",
+        "tsp",
+        "koi",
+        "PnP",
+        "til",
+        "viz",
+        "Te",
+        "APP",
+        "nat",
+        "SP",
+        "JP",
+        "CC",
+        "GEC"
+      ]
+    },
+    {
+      "batchId": "examples-0022-p002",
+      "file": "batch-0022-p002.json",
+      "terms": [
+        "Middle England",
+        "bicarb"
+      ]
+    },
+    {
+      "batchId": "examples-0022-p003",
+      "file": "batch-0022-p003.json",
+      "terms": [
+        "are",
+        "did",
+        "had",
+        "been"
+      ]
+    }
+  ],
+  "retainedHolds": [
+    {
+      "term": "plc",
+      "source": {
+        "id": 1809582,
+        "term": "plc",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 可编程逻辑控制器",
+        "forms": [
+          "plcs"
+        ],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 可编程逻辑控制器",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 可编程逻辑控制器",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14140,
+          "forms": [
+            "plcs"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "7c3a01cecb786f049bd69fda80f50d6e1b98cb6a3a6ccc8876b7dc619c935209",
+      "authorHold": {
+        "term": "plc",
+        "sourceSha256": "7c3a01cecb786f049bd69fda80f50d6e1b98cb6a3a6ccc8876b7dc619c935209",
+        "source": {
+          "id": 1809582,
+          "term": "plc",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 可编程逻辑控制器",
+          "forms": [
+            "plcs"
+          ],
+          "source": "pos-reviewed",
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 可编程逻辑控制器",
+              "source": "core"
+            },
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 可编程逻辑控制器",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 14140,
+            "forms": [
+              "plcs"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The frozen lowercase head is the controller sense, not the public-limited-company suffix. A natural exact-case controller use and the questionable plcs plural have not been established here; do not silently change the head to PLC or import the company sense."
+      },
+      "authorHoldSha256": "271e88fc83142da431543ffd5477eb2fb4652ef04f68007b28d63d000f167171",
+      "independentReason": "The exact lowercase controller head is not the company suffix. No pair has been supplied or independently established for this exact-case technical head; keep its case/plural problem open rather than silently replacing it with PLC."
+    },
+    {
+      "term": "APR",
+      "source": {
+        "id": 1839698,
+        "term": "APR",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 替换通路再试器",
+        "forms": [
+          "aprs"
+        ],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 替换通路再试器",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 替换通路再试器",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14375,
+          "forms": [
+            "aprs"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d",
+      "authorHold": {
+        "term": "APR",
+        "sourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d",
+        "source": {
+          "id": 1839698,
+          "term": "APR",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 替换通路再试器",
+          "forms": [
+            "aprs"
+          ],
+          "source": "pos-reviewed",
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 替换通路再试器",
+              "source": "core"
+            },
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 替换通路再试器",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 14375,
+            "forms": [
+              "aprs"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The indexed original IBM MFT manual now establishes Alternate Path Retry as an I/O retry option, but the frozen Chinese 替换通路再试器 appears to name a component. A specific selected Chinese function/component reconciliation remains needed; the indexed identity result is not ignored or treated as a failed lookup, and a financial APR sense remains excluded."
+      },
+      "authorHoldSha256": "625856ff8be2856a97e8c9c41da62218ef8e1816c1b7d9decc7003254aaa80f9",
+      "independentReason": "IBM evidence identifies Alternate Path Retry, but does not by itself resolve whether the frozen Chinese retry-device wording correctly denotes that option. Preserve this specific source-identity mismatch; no annual-percentage-rate example or new nominal component is licensed."
+    },
+    {
+      "term": "ML",
+      "source": {
+        "id": 1857404,
+        "term": "ML",
+        "partOfSpeech": "noun",
+        "meaning": "法学硕士, 摩托艇, 汽艇\n[医] 毫升",
+        "forms": [
+          "mls"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 14513,
+          "forms": [
+            "mls"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "法学硕士, 摩托艇, 汽艇\n[医] 毫升",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6957e6015ce818db9005c333323e96628f8a2c197c3c064029c34395d05604b3",
+      "authorHold": {
+        "term": "ML",
+        "sourceSha256": "6957e6015ce818db9005c333323e96628f8a2c197c3c064029c34395d05604b3",
+        "source": {
+          "id": 1857404,
+          "term": "ML",
+          "partOfSpeech": "noun",
+          "meaning": "法学硕士, 摩托艇, 汽艇\n[医] 毫升",
+          "forms": [
+            "mls"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 14513,
+            "forms": [
+              "mls"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "法学硕士, 摩托艇, 汽艇\n[医] 毫升",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source combines a law degree, motorboat and millilitre under uppercase ML. A law-degree expansion distinct from LLM and an exact uppercase volume-unit use were not settled; silently using ml or treating ML as machine learning would change the frozen identity."
+      },
+      "authorHoldSha256": "216e1a35e6bebda4a808c53fb19c05b07b115fabd79fcbd84cac4ce5f907e0b1",
+      "independentReason": "The supplied branches mix a law degree, motor boat and volume notation; uppercase ML is not automatically mL. No exact selected branch and natural whole pair have been established, so machine learning cannot be imported to fill the gap."
+    },
+    {
+      "term": "Hm",
+      "source": {
+        "id": 1921742,
+        "term": "Hm",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 显性远视",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 15016,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 显性远视",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "042431d4b9eebdb80af22aca29a40f5c87b77d2e1ec112817fe7d273a6d99f3b",
+      "authorHold": {
+        "term": "Hm",
+        "sourceSha256": "042431d4b9eebdb80af22aca29a40f5c87b77d2e1ec112817fe7d273a6d99f3b",
+        "source": {
+          "id": 1921742,
+          "term": "Hm",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 显性远视",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 15016,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[医] 显性远视",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source licenses only the medical 显性远视 noun. The ordinary hesitation interjection is not available. Exact Hm notation and the selected ophthalmic quantity need original evidence; an invented chart label would not be a lexical-use example."
+      },
+      "authorHoldSha256": "53822352333fafd83b99dbf4724a511fcfd07ad7ed089a99bef8d92b7ea89b11",
+      "independentReason": "The frozen noun is a medical hyperopia notation, not a hesitation interjection. No actual exact-case notation use has been closed; a familiar hmm utterance would change the source sense and role."
+    },
+    {
+      "term": "PT",
+      "source": {
+        "id": 2013057,
+        "term": "PT",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+        "forms": [
+          "pts"
+        ],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 15730,
+          "forms": [
+            "pts"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "e7019e95ea5fb27da8534c0ab8137cbbb410675dcf796039c3fbe62a4155008f",
+      "authorHold": {
+        "term": "PT",
+        "sourceSha256": "e7019e95ea5fb27da8534c0ab8137cbbb410675dcf796039c3fbe62a4155008f",
+        "source": {
+          "id": 2013057,
+          "term": "PT",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+          "forms": [
+            "pts"
+          ],
+          "source": "pos-reviewed",
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+              "source": "core"
+            },
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 点, 处理时间, 可编程序终端\n[医] 铂(78号元素)",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 15730,
+            "forms": [
+              "pts"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Platinum is conventionally Pt, not the frozen PT. Point, processing time and programmable terminal are separate abbreviations, not interchangeable noun senses. No exact PT technical branch has been resolved here, so neither platinum nor a generic workstation is invented."
+      },
+      "authorHoldSha256": "bc3472155271ba36074c335d3f47f7bb04b6552490290d4b68b8a105852e86a9",
+      "independentReason": "Platinum would require Pt, not the frozen PT, and the other source branches are not resolved here. Do not turn a case-sensitive symbol issue into a guessed modern abbreviation or an unsupported example."
+    },
+    {
+      "term": "MG",
+      "source": {
+        "id": 2137037,
+        "term": "MG",
+        "partOfSpeech": "noun",
+        "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+        "forms": [
+          "mgs"
+        ],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 16698,
+          "forms": [
+            "mgs"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "85c364f67f5d7541a6ece74b6f3a5b53bf25a1b917e2823fa0d39cff2016a77e",
+      "authorHold": {
+        "term": "MG",
+        "sourceSha256": "85c364f67f5d7541a6ece74b6f3a5b53bf25a1b917e2823fa0d39cff2016a77e",
+        "source": {
+          "id": 2137037,
+          "term": "MG",
+          "partOfSpeech": "noun",
+          "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+          "forms": [
+            "mgs"
+          ],
+          "source": "pos-reviewed",
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+              "source": "core"
+            },
+            {
+              "partOfSpeech": "",
+              "meaning": "[化] 微粒剂\n[医] 镁(12号元素)",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 16698,
+            "forms": [
+              "mgs"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source gives 微粒剂 and the element magnesium, not milligrams or a car brand. Mg and mg have distinct standard casing; exact MG microgranule nomenclature remains unresolved. Do not repair the symbol through a sentence."
+      },
+      "authorHoldSha256": "a0234fd68171aa7d0b254de91a7deea7d574bc6de82015ec2820ffc6aea8cef8",
+      "independentReason": "The exact uppercase source mixes microgranules and magnesium-related wording; neither Mg nor mg can silently replace MG. No independently settled exact use is supplied, and a car-brand sentence would import an absent sense."
+    },
+    {
+      "term": "POO",
+      "source": {
+        "id": 2139837,
+        "term": "POO",
+        "partOfSpeech": "noun",
+        "meaning": "邮政汇票",
+        "forms": [
+          "pooing",
+          "poos"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 16720,
+          "forms": [
+            "pooing",
+            "poos"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "邮政汇票",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "2216e2f09930309fa2961bd3694c69c03d577c2d6d5a3d042419a14d1d8f2d34",
+      "authorHold": {
+        "term": "POO",
+        "sourceSha256": "2216e2f09930309fa2961bd3694c69c03d577c2d6d5a3d042419a14d1d8f2d34",
+        "source": {
+          "id": 2139837,
+          "term": "POO",
+          "partOfSpeech": "noun",
+          "meaning": "邮政汇票",
+          "forms": [
+            "pooing",
+            "poos"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 16720,
+            "forms": [
+              "pooing",
+              "poos"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "邮政汇票",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Only postal money order is frozen, alongside pooing/poos forms from another sense. The exact uppercase postal abbreviation was not established. No excrement example is permitted by this source, and an opaque payment-record listing would not resolve the acronym."
+      },
+      "authorHoldSha256": "1bc9e5f0661d80d1ed75080e799c85414787bb353180d811403f79b6154d9d74",
+      "independentReason": "The source branch is postal order while the stored inflections look like another word. No natural verified payment use is supplied; an excrement example would be a different source sense, so preserve the specific hold."
+    },
+    {
+      "term": "ST",
+      "source": {
+        "id": 2176450,
+        "term": "ST",
+        "partOfSpeech": "noun · verb",
+        "meaning": "[计] 段表, 状态, 系统测试, 直端连接器\n[化] 磺胺噻唑",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17006,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 段表, 状态, 系统测试, 直端连接器\n[化] 磺胺噻唑",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "915ca83c918227c5fa067aba5276722fb7c5d4cdd0a345a19b377be08b564153",
+      "authorHold": {
+        "term": "ST",
+        "sourceSha256": "915ca83c918227c5fa067aba5276722fb7c5d4cdd0a345a19b377be08b564153",
+        "source": {
+          "id": 2176450,
+          "term": "ST",
+          "partOfSpeech": "noun · verb",
+          "meaning": "[计] 段表, 状态, 系统测试, 直端连接器\n[化] 磺胺噻唑",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17006,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 段表, 状态, 系统测试, 直端连接器\n[化] 磺胺噻唑",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun",
+          "verb"
+        ],
+        "reason": "The frozen source combines old computing abbreviations and sulfathiazole. Exact ST use for one branch has not been established here; no invented clinical scene, treatment claim or grammatical verb use is supplied from the mixed POS metadata."
+      },
+      "authorHoldSha256": "080a758f32199b60d2f51ad213de3495eb094c8cc45e0e97497c26d51f7a4981",
+      "independentReason": "Segment-table, status, system-test and other technical branches remain unresolved as an exact nominal identity. No real whole pair is offered; an arbitrary ST label would not establish the lexical sense."
+    },
+    {
+      "term": "Ltd",
+      "source": {
+        "id": 2178987,
+        "term": "Ltd",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "有限的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17026,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "有限的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "dc49bccd8272474b869a9486ad1738f519012a667eeaef0ad9769cd77073ac9d",
+      "authorHold": {
+        "term": "Ltd",
+        "sourceSha256": "dc49bccd8272474b869a9486ad1738f519012a667eeaef0ad9769cd77073ac9d",
+        "source": {
+          "id": 2178987,
+          "term": "Ltd",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "有限的",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17026,
+            "forms": [],
+            "workbook": true
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "有限的",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun",
+          "adjective"
+        ],
+        "reason": "The frozen gloss is only 有限的 with noun/adjective tags. The normal company-name suffix needs an explicitly supported incorporated/limited-liability function, not a fictitious firm name used to hide the selected POS question. No general legal status is inferred from that one gloss."
+      },
+      "authorHoldSha256": "bc92d9e208fc8e91fa4728b5f8f28c0ce50ea75c58d2b58cbbeb02f546606839",
+      "independentReason": "A company suffix does not automatically resolve the frozen noun/adjective limited wording and its syntactic function. No completed pair is being approved; retain the role clarification need rather than hide it inside an invented firm name."
+    },
+    {
+      "term": "Inc",
+      "source": {
+        "id": 2179527,
+        "term": "Inc",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 根据法律组成的公司, 公司",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 17030,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "149e8382d031846cd48deb04176ca1d3aa713536fa08d3f5b4194ee6c57ea6a2",
+      "authorHold": {
+        "term": "Inc",
+        "sourceSha256": "149e8382d031846cd48deb04176ca1d3aa713536fa08d3f5b4194ee6c57ea6a2",
+        "source": {
+          "id": 2179527,
+          "term": "Inc",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 根据法律组成的公司, 公司",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 17030,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "adjective"
+        ],
+        "reason": "The sole licensed role is adjective but the Chinese gives a company/entity description. A company suffix placed in an invented business name would not independently settle its selected adjectival function or repair the gloss. Preserve the exact source for a finite suffix-role review."
+      },
+      "authorHoldSha256": "5772bf63da62c0e0ff8c9cf45199ebbe3f5db1b5bf090137f4c57aedd254ff5b",
+      "independentReason": "The adjectival source label and company-related Chinese require explicit suffix/function clarification. No exact whole pair has been closed, and simply placing Inc after a fictional company is not independent POS evidence."
+    },
+    {
+      "term": "UN",
+      "source": {
+        "id": 2183258,
+        "term": "UN",
+        "partOfSpeech": "pronoun",
+        "meaning": "pron. 家伙, 东西\n[经] 联合国",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 17059,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "9c45c93106a5ddedbb25855e4b4658413ab789e86d0d3fefdaede102a4c86d4e",
+      "authorHold": {
+        "term": "UN",
+        "sourceSha256": "9c45c93106a5ddedbb25855e4b4658413ab789e86d0d3fefdaede102a4c86d4e",
+        "source": {
+          "id": 2183258,
+          "term": "UN",
+          "partOfSpeech": "pronoun",
+          "meaning": "pron. 家伙, 东西\n[经] 联合国",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 17059,
+            "forms": [],
+            "workbook": true
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "pronoun"
+        ],
+        "reason": "Only pronoun is licensed by the source. 联合国 is a separate appended meaning that requires a nominal/proper-name role; the dialect 家伙/东西 branch would require a distinct natural pronoun use, not an invented United Nations sentence."
+      },
+      "authorHoldSha256": "932dc2ff473cd5b99752573be666ba002f36947428d560fee94b98b223385c77",
+      "independentReason": "The only enabled source role is pronoun for the colloquial item/person branch; United Nations text does not license a new noun role here. Preserve the source-role mismatch and do not approve an organization sentence under pronoun."
+    },
+    {
+      "term": "CM",
+      "source": {
+        "id": 2200749,
+        "term": "CM",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+        "forms": [
+          "cms"
+        ],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 17196,
+          "forms": [
+            "cms"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "1d1076a49c5fc24f9c1916e794ab25a20ba2e8fea16a97e14560408e896d641f",
+      "authorHold": {
+        "term": "CM",
+        "sourceSha256": "1d1076a49c5fc24f9c1916e794ab25a20ba2e8fea16a97e14560408e896d641f",
+        "source": {
+          "id": 2200749,
+          "term": "CM",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+          "forms": [
+            "cms"
+          ],
+          "source": "pos-reviewed",
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+              "source": "core"
+            },
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 厘米, 中央存储器, 通信多路转换器, 控制标志, 磁心存储器\n[医] 锔(96号元素)",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 17196,
+            "forms": [
+              "cms"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The frozen head mixes centimetres, computing memory/control terms and curium. Standard cm/Cm do not equal CM in symbol identity. An exact computing CM branch must be established before a nominal example can be written without silently normalizing case."
+      },
+      "authorHoldSha256": "5882b94b8c791197ab0b593509feb99e85d32cd2a7c3405d7cde3d1b5a66799f",
+      "independentReason": "The frozen uppercase head is not automatically centimetre cm or curium Cm, and other listed technical branches remain unresolved. Retain exact-case and identity uncertainty rather than normalize it away."
+    },
+    {
+      "term": "Nt",
+      "source": {
+        "id": 2223519,
+        "term": "Nt",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 氡, 镭射气(86号元素)",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17374,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 氡, 镭射气(86号元素)",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "af9c982ce415b5255fbc17aa72a12d3574a8dd7b12174b3ff48a3a21b0f783aa",
+      "authorHold": {
+        "term": "Nt",
+        "sourceSha256": "af9c982ce415b5255fbc17aa72a12d3574a8dd7b12174b3ff48a3a21b0f783aa",
+        "source": {
+          "id": 2223519,
+          "term": "Nt",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 氡, 镭射气(86号元素)",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17374,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[医] 氡, 镭射气(86号元素)",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The radon gloss may refer to historical niton notation, but current radon is Rn. The exact historical Nt form was not verified in a primary period source here. Do not make a current chemical-symbol claim or a generic archival-label sentence."
+      },
+      "authorHoldSha256": "a4d46cf9cd9ca351a651cee85362cafa50f4f0ceb7411ed82ee7df9d155d5491",
+      "independentReason": "Historical niton notation and current radon notation require a time-bound exact source resolution. No verified period use is supplied; retain the hold without declaring a historical word invalid or silently writing Rn."
+    },
+    {
+      "term": "MAX",
+      "source": {
+        "id": 2224409,
+        "term": "MAX",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 最大",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17381,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 最大",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a6c227fdcee597fd8bc6e6b14b2f329882b1b4835299d2dc8105a49aea535775",
+      "authorHold": {
+        "term": "MAX",
+        "sourceSha256": "a6c227fdcee597fd8bc6e6b14b2f329882b1b4835299d2dc8105a49aea535775",
+        "source": {
+          "id": 2224409,
+          "term": "MAX",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 最大",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17381,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 最大",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Only noun is enabled while the Chinese is the bare maximum modifier 最大. A MAX function, constant or form-field name would not establish the missing selected lexical noun sense. Keep pending a concrete POS/sense reconciliation."
+      },
+      "authorHoldSha256": "5887ade8cc15250e355beef48f02caea17ef9a72357791587d18c10ff6877013",
+      "independentReason": "The noun label and bare maximum wording do not yet establish a natural nominal exact-head use. A constant or software function named MAX alone would be mention, not the required lexical example."
+    },
+    {
+      "term": "ALI",
+      "source": {
+        "id": 2227211,
+        "term": "ALI",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 异步线路接口",
+        "forms": [
+          "ali"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17403,
+          "forms": [
+            "ali"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 异步线路接口",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "6eb42cbf985c73b3e2c544264ad06de1972235bd9eb4267caf551f12a5cfe554",
+      "authorHold": {
+        "term": "ALI",
+        "sourceSha256": "6eb42cbf985c73b3e2c544264ad06de1972235bd9eb4267caf551f12a5cfe554",
+        "source": {
+          "id": 2227211,
+          "term": "ALI",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 异步线路接口",
+          "forms": [
+            "ali"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17403,
+            "forms": [
+              "ali"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 异步线路接口",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The narrow computing 异步线路接口 branch lacks a verified exact hardware/software referent and initialism use. A personal name or generic interface example would not validate this identity; establish the relevant original system terminology first."
+      },
+      "authorHoldSha256": "a4c9e86f2bab1a37be4c2153750320b4766e9fd9311e81a8b2b9346494bf4c71",
+      "independentReason": "The asynchronous-line-interface source branch needs exact system identity. No full actual use is supplied, and a person's name Ali would substitute an unsupported sense/case."
+    },
+    {
+      "term": "du",
+      "source": {
+        "id": 2230386,
+        "term": "du",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 定义使用\n[化] 贫化铀",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17427,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 定义使用\n[化] 贫化铀",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a45dc28149da08a21c8af46e1176f1e487071b0d5ecdf49c6a5b71010ebb342d",
+      "authorHold": {
+        "term": "du",
+        "sourceSha256": "a45dc28149da08a21c8af46e1176f1e487071b0d5ecdf49c6a5b71010ebb342d",
+        "source": {
+          "id": 2230386,
+          "term": "du",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 定义使用\n[化] 贫化铀",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17427,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 定义使用\n[化] 贫化铀",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The lowercase head mixes definition-use and depleted uranium. Standard DU in the latter branch and the unrelated Unix du utility cannot silently replace this exact source. A natural standalone definition-use nominal is not established here."
+      },
+      "authorHoldSha256": "f906f242409202256fa5d99b4ceaa68360e1d60577a70246352820f121e2a350",
+      "independentReason": "Depleted uranium convention normally differs in case and the other source verb needs resolution. Do not import the Unix command or turn the head into DU without a separate source repair."
+    },
+    {
+      "term": "CH",
+      "source": {
+        "id": 2235598,
+        "term": "CH",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 改变, 通道, 信道, 字符, 检验",
+        "forms": [
+          "chs"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17468,
+          "forms": [
+            "chs"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 改变, 通道, 信道, 字符, 检验",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ef9e7a05c4d42680b8dd2b1d8bfc03cf888214b97e5ef1bd051d3f8303661e49",
+      "authorHold": {
+        "term": "CH",
+        "sourceSha256": "ef9e7a05c4d42680b8dd2b1d8bfc03cf888214b97e5ef1bd051d3f8303661e49",
+        "source": {
+          "id": 2235598,
+          "term": "CH",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 改变, 通道, 信道, 字符, 检验",
+          "forms": [
+            "chs"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17468,
+            "forms": [
+              "chs"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 改变, 通道, 信道, 字符, 检验",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source lists several unrelated computing expansions, without identifying one exact initialism convention. Channel/channel-number labels or arbitrary interface field names would not demonstrate lexical CH use. No technical branch was selected by guessing the first gloss."
+      },
+      "authorHoldSha256": "68fdda4e86740f7cce73ba39b17dfb84d6a2752fb1ecec18844bf0c43ce45d9d",
+      "independentReason": "The several computing expansions have not been tied to a specific established nominal referent. A labelled channel or variable would not settle this source, so no coverage is claimed."
+    },
+    {
+      "term": "DI",
+      "source": {
+        "id": 2261486,
+        "term": "DI",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 数据输入, 数据项, 设备独立性, 双整数",
+        "forms": [
+          "dis"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17670,
+          "forms": [
+            "dis"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 数据输入, 数据项, 设备独立性, 双整数",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "d901bc091c51763b4187b3350a48d2686b6031d8b19b5530a3e9523996d23b9f",
+      "authorHold": {
+        "term": "DI",
+        "sourceSha256": "d901bc091c51763b4187b3350a48d2686b6031d8b19b5530a3e9523996d23b9f",
+        "source": {
+          "id": 2261486,
+          "term": "DI",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 数据输入, 数据项, 设备独立性, 双整数",
+          "forms": [
+            "dis"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17670,
+            "forms": [
+              "dis"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 数据输入, 数据项, 设备独立性, 双整数",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Data input, data item, device independence and double integer are distinct computing concepts. An exact DI acronym usage for a particular branch was not resolved; no table-column label or named software function is substituted for an actual example."
+      },
+      "authorHoldSha256": "3b4d305158e319f620cd0495cc65e706b2f3d06459d8279d45446d3e974f2668",
+      "independentReason": "Data input, data item, device independence and double-integer branches are not interchangeable. No exact selected system/role has been closed, so a convenient invented DI label cannot count as a noun example."
+    },
+    {
+      "term": "dos",
+      "source": {
+        "id": 2268709,
+        "term": "dos",
+        "partOfSpeech": "noun",
+        "meaning": "磁盘操作系统\n[计] 磁盘操作系统; DOS内部命令:该命令用于将DOS核心部分装入高内存区\n且允许其设备驱动程序或常驻程序装入上层内存块",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17727,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "磁盘操作系统\n[计] 磁盘操作系统; DOS内部命令:该命令用于将DOS核心部分装入高内存区\n且允许其设备驱动程序或常驻程序装入上层内存块",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a58e15cbd663b0b2ad3c3d2a79687997a44f944adde80225f12d9059aa5648cd",
+      "authorHold": {
+        "term": "dos",
+        "sourceSha256": "a58e15cbd663b0b2ad3c3d2a79687997a44f944adde80225f12d9059aa5648cd",
+        "source": {
+          "id": 2268709,
+          "term": "dos",
+          "partOfSpeech": "noun",
+          "meaning": "磁盘操作系统\n[计] 磁盘操作系统; DOS内部命令:该命令用于将DOS核心部分装入高内存区\n且允许其设备驱动程序或常驻程序装入上层内存块",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17727,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "磁盘操作系统\n[计] 磁盘操作系统; DOS内部命令:该命令用于将DOS核心部分装入高内存区\n且允许其设备驱动程序或常驻程序装入上层内存块",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source concerns the DOS operating system/command but freezes lowercase dos. A case-aware original usage and the boundary between OS name and internal command need settlement; ordinary do plurals or a disguised filename would not realize this source sense."
+      },
+      "authorHoldSha256": "5d1055266c398941b176e8a68326d199dd2ca1120f4128eea4e0e7d4331f0727",
+      "independentReason": "The lowercase head has an OS/command-source issue that a capitalized DOS example would not repair. No ordinary plural do sense or new command identity is imported."
+    },
+    {
+      "term": "EM",
+      "source": {
+        "id": 2277239,
+        "term": "EM",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 媒体用毕符\n[化] 射气",
+        "forms": [
+          "ems"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 17793,
+          "forms": [
+            "ems"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 媒体用毕符\n[化] 射气",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c02ad2d87be90c223883173a4bfc7c5553564797eb68eaa0423254f65661bd4b",
+      "authorHold": {
+        "term": "EM",
+        "sourceSha256": "c02ad2d87be90c223883173a4bfc7c5553564797eb68eaa0423254f65661bd4b",
+        "source": {
+          "id": 2277239,
+          "term": "EM",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 媒体用毕符\n[化] 射气",
+          "forms": [
+            "ems"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 17793,
+            "forms": [
+              "ems"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 媒体用毕符\n[化] 射气",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The computing end-of-medium control and historical emanation substance are different meanings. Exact EM use in a particular original technical convention is not settled here. No medical/chemical example or decorative control-code label is invented."
+      },
+      "authorHoldSha256": "e5d8f414963f4ec406410a5aa990d991abd960d75e7dde3951a74180757e7328",
+      "independentReason": "The source control-character/emanation expansions remain unresolved for a selected exact use. A generic EM label or a new electromagnetic adjective is not automatically this noun source."
+    },
+    {
+      "term": "cor",
+      "source": {
+        "id": 2338479,
+        "term": "cor",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 心脏, 心",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 18272,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 心脏, 心",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "23684bcaf18cc55129cce574a568eced1d11a2d3da6335de63f071b188b54cd5",
+      "authorHold": {
+        "term": "cor",
+        "sourceSha256": "23684bcaf18cc55129cce574a568eced1d11a2d3da6335de63f071b188b54cd5",
+        "source": {
+          "id": 2338479,
+          "term": "cor",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 心脏, 心",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 18272,
+            "forms": [],
+            "workbook": true
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[医] 心脏, 心",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source is the Latin/anatomical heart noun, not the English interjection cor. Natural standalone use of this exact Latin form in an English sentence was not established; a diagram label or silently expanded cor pulmonale phrase would not demonstrate the selected bare-heart sense."
+      },
+      "authorHoldSha256": "b85935bc5f5923cc959a5f6d075a3950f13cc21aae9730fb06306b0e50358923",
+      "independentReason": "The frozen branch is Latin anatomical heart, not the English interjection cor. A natural exact-head English noun use remains unwritten/unresolved; do not replace it with the familiar exclamation."
+    },
+    {
+      "term": "INT",
+      "source": {
+        "id": 2343262,
+        "term": "INT",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 整数, 中断",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 18309,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 整数, 中断",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a1c0c559716411362a5df740339b5fac66e30956faf779ce81323bb835c18ce1",
+      "authorHold": {
+        "term": "INT",
+        "sourceSha256": "a1c0c559716411362a5df740339b5fac66e30956faf779ce81323bb835c18ce1",
+        "source": {
+          "id": 2343262,
+          "term": "INT",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 整数, 中断",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 18309,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 整数, 中断",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The bare source combines integer and interrupt. A language-specific INT type/function or processor instruction is not interchangeable with the generic noun. An exact selected convention and real usage must be established without treating a code identifier as ordinary English evidence."
+      },
+      "authorHoldSha256": "00ed0999f65bcaf5c247ac0a7159872ac5f35c16e1ea660b6ab2152297ee3a0c",
+      "independentReason": "Integer and interrupt branches need a real selected nominal use. Naming a function or type INT would only cite an identifier, so it is not enough to close the source-role issue."
+    },
+    {
+      "term": "Lt",
+      "source": {
+        "id": 2367853,
+        "term": "Lt",
+        "partOfSpeech": "noun",
+        "meaning": "[电] LT线上末端",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 18501,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[电] LT线上末端",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "36530eca5c0be7f39a0fd55fa89b412095fb9a55a7312090a6375bbd2fb97c5e",
+      "authorHold": {
+        "term": "Lt",
+        "sourceSha256": "36530eca5c0be7f39a0fd55fa89b412095fb9a55a7312090a6375bbd2fb97c5e",
+        "source": {
+          "id": 2367853,
+          "term": "Lt",
+          "partOfSpeech": "noun",
+          "meaning": "[电] LT线上末端",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 18501,
+            "forms": [],
+            "workbook": true
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[电] LT线上末端",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The only gloss is LT线上末端, not lieutenant. This narrow electrical expansion does not identify the relevant line/system clearly enough for a natural sentence; a military title would be an unsupported meaning."
+      },
+      "authorHoldSha256": "9efbe271f26bd89e2096c75f87630bb1ef6a507a35c52fe8c7add31af784c7ee",
+      "independentReason": "The supplied electrical line-end branch does not license lieutenant. Exact-case use of that technical source has not been established, so preserve the hold rather than substitute a title."
+    },
+    {
+      "term": "ABS",
+      "source": {
+        "id": 2390331,
+        "term": "ABS",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 绝对, 美国标准局",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 18678,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 绝对, 美国标准局",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "292019ae7dd777a7c454aa17b46fc593acddce71b590e9a785cab108e036d3d0",
+      "authorHold": {
+        "term": "ABS",
+        "sourceSha256": "292019ae7dd777a7c454aa17b46fc593acddce71b590e9a785cab108e036d3d0",
+        "source": {
+          "id": 2390331,
+          "term": "ABS",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 绝对, 美国标准局",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 18678,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 绝对, 美国标准局",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source is 绝对 or an old US standards bureau abbreviation. Anti-lock brakes and ABS plastic are absent. A substantive noun sense or historically exact organization identity must be established, not a MAX-like function/field mention."
+      },
+      "authorHoldSha256": "ee8b49873ab125157aa82efc29f51ca98d1e79e5702ee62d786159ed8d026af7",
+      "independentReason": "The frozen absolute/standards-bureau branches do not automatically license braking systems or plastic. A selected exact nominal identity and whole pair are still absent; keep the mismatch visible."
+    },
+    {
+      "term": "HAL",
+      "source": {
+        "id": 2428330,
+        "term": "HAL",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 硬件描象层",
+        "forms": [
+          "hals"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 18975,
+          "forms": [
+            "hals"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 硬件描象层",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c07434c80a2233d0f547b1ad39255cc1276a3e0a8c55b9827fb67e4df58de766",
+      "authorHold": {
+        "term": "HAL",
+        "sourceSha256": "c07434c80a2233d0f547b1ad39255cc1276a3e0a8c55b9827fb67e4df58de766",
+        "source": {
+          "id": 2428330,
+          "term": "HAL",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 硬件描象层",
+          "forms": [
+            "hals"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 18975,
+            "forms": [
+              "hals"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 硬件描象层",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source freezes 硬件描象层, whereas the original Microsoft/Android documents identify a hardware abstraction layer. The damaged Chinese would need an explicit separately reviewed source/meaning clarification; do not silently replace 描象 with 抽象 in an example."
+      },
+      "authorHoldSha256": "089d926c94c435425546b4148fa9f0fd14a9457dcef19ba8c512c921b9e081e1",
+      "independentReason": "The frozen Chinese contains 描象 rather than 抽象 in the hardware-abstraction sense. Correct official identity alone does not silently amend that raw source; preserve the specific textual source-repair requirement."
+    },
+    {
+      "term": "Rab",
+      "source": {
+        "id": 2452058,
+        "term": "Rab",
+        "partOfSpeech": "noun · abbreviation",
+        "meaning": "n. (Rab)人名；(阿富、巴基、阿拉伯)拉布；\nabbr. 无线接入承载",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 19160,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "820bbbcaa7b8af963caea1dd9253cff53de9931c2467b14f084d81ece5cbf466",
+      "authorHold": {
+        "term": "Rab",
+        "sourceSha256": "820bbbcaa7b8af963caea1dd9253cff53de9931c2467b14f084d81ece5cbf466",
+        "source": {
+          "id": 2452058,
+          "term": "Rab",
+          "partOfSpeech": "noun · abbreviation",
+          "meaning": "n. (Rab)人名；(阿富、巴基、阿拉伯)拉布；\nabbr. 无线接入承载",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 19160,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The nominal branch gives a personal-name transliteration while the radio-access-bearer expansion belongs to an abbreviation branch and normally has distinct RAB casing. A generic invented person cannot establish the technical identity or its nominal role. Preserve both source branches for targeted review."
+      },
+      "authorHoldSha256": "649c9bfc074c9564107d26232a99b3bd2e1b459aaf141137f7bd4aa4a7532554",
+      "independentReason": "Personal-name and radio-bearer branches are mixed; no whole pair has been finalized for either. Retention is conservative incomplete identity/case work, not a ruling that the named-person branch is invalid or that all names require technical proof."
+    },
+    {
+      "term": "Det",
+      "source": {
+        "id": 2455650,
+        "term": "Det",
+        "partOfSpeech": "noun",
+        "meaning": "[机] 避蚊氨",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 19188,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[机] 避蚊氨",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "2637c21c7ea8f47af00e7fac2eba0f0aec4da82a366930fd13fbb7fad4c477ea",
+      "authorHold": {
+        "term": "Det",
+        "sourceSha256": "2637c21c7ea8f47af00e7fac2eba0f0aec4da82a366930fd13fbb7fad4c477ea",
+        "source": {
+          "id": 2455650,
+          "term": "Det",
+          "partOfSpeech": "noun",
+          "meaning": "[机] 避蚊氨",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 19188,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[机] 避蚊氨",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The original ATSDR identity table and PubChem index corroborate DET under DEET. They do not silently correct this mixed-case Det head or the frozen 避蚊氨 wording (distinct from the usual amide/避蚊胺 identity). Exact-case and Chinese chemical-name clarification must be separately reviewed; no safety, efficacy or application sentence is supplied."
+      },
+      "authorHoldSha256": "1269acae357863d9ba457cd2f3567c1367d612e69eaa7653d50450ad2f403ad2",
+      "independentReason": "Original ATSDR evidence supports DET/DEET identity but does not fix exact Det case or the raw Chinese 氨/胺 defect. Preserve the revised specific source hold, without claiming no primary hit or adding pesticide-use advice."
+    },
+    {
+      "term": "MAS",
+      "source": {
+        "id": 2457720,
+        "term": "MAS",
+        "partOfSpeech": "noun",
+        "meaning": "[化] 低碳混合醇",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 19204,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[化] 低碳混合醇",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "79d0f199ed9b327ac15a66eadf2270a2546cb365a991fec41922cd942e40e0bb",
+      "authorHold": {
+        "term": "MAS",
+        "sourceSha256": "79d0f199ed9b327ac15a66eadf2270a2546cb365a991fec41922cd942e40e0bb",
+        "source": {
+          "id": 2457720,
+          "term": "MAS",
+          "partOfSpeech": "noun",
+          "meaning": "[化] 低碳混合醇",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 19204,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[化] 低碳混合醇",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Only the narrow mixed-lower-alcohols chemical expansion is frozen. Magic-angle spinning and other familiar MAS expansions are not this source. The exact mixture/convention remains unresolved and must not be hidden behind a stock-room listing."
+      },
+      "authorHoldSha256": "3c4244400abd0cb8193aeff3940c4179dfd4bcc3be507510135be231e6c5a5c1",
+      "independentReason": "The source concerns low-carbon mixed alcohols, not the familiar magic-angle-spinning expansion. No exact established mixture abbreviation/use was closed, so an unrelated spectroscopy example cannot fill it."
+    },
+    {
+      "term": "ALF",
+      "source": {
+        "id": 2508882,
+        "term": "ALF",
+        "partOfSpeech": "noun",
+        "meaning": "n. 阿尔夫(Alfred的昵称)(m.)",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 19604,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "540c62be487b9c46288a06b3e10254f9ba62a9903c03bc30122813b6a1983f28",
+      "authorHold": {
+        "term": "ALF",
+        "sourceSha256": "540c62be487b9c46288a06b3e10254f9ba62a9903c03bc30122813b6a1983f28",
+        "source": {
+          "id": 2508882,
+          "term": "ALF",
+          "partOfSpeech": "noun",
+          "meaning": "n. 阿尔夫(Alfred的昵称)(m.)",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 19604,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source identifies Alfred's personal-name nickname but freezes all capitals. A generic fictional ALF would not establish a normal name form, while Animal Liberation Front or the television character would add unsupported meanings. Keep for exact-name/POS review."
+      },
+      "authorHoldSha256": "f0804df6f53b8ae11a643eb824efd25711d62d898c8ef31ddfb537cec6053aac",
+      "independentReason": "The source nickname branch needs an exact all-capitals identity decision; no whole pair is finalized. Do not import a television character or advocacy abbreviation, and do not assert the name itself is invalid."
+    },
+    {
+      "term": "mel",
+      "source": {
+        "id": 2512273,
+        "term": "mel",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 蜂蜜",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 19631,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 蜂蜜",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "9ec436d4c2013f3faca6192cf67a9fcb67d9dfd23f36b724429fcc0bb437990c",
+      "authorHold": {
+        "term": "mel",
+        "sourceSha256": "9ec436d4c2013f3faca6192cf67a9fcb67d9dfd23f36b724429fcc0bb437990c",
+        "source": {
+          "id": 2512273,
+          "term": "mel",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 蜂蜜",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 19631,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[医] 蜂蜜",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The frozen medical honey gloss is a Latin/formulary term, not the psychoacoustic mel unit. Natural standalone English honey use of mel has not been established here; a recipe, medicine bottle or material list would not settle that lexical identity."
+      },
+      "authorHoldSha256": "ded20079142bee498916693538233f5f281be3d3bd225dbfa5c528645cf331a9",
+      "independentReason": "The source is Latin/medical honey, not the psychoacoustic unit. Natural bare-English use for this source sense has not been established, and a measurement example would substitute a different sense."
+    },
+    {
+      "term": "NED",
+      "source": {
+        "id": 2523656,
+        "term": "NED",
+        "partOfSpeech": "noun · phrase",
+        "meaning": "牛津大词典",
+        "forms": [
+          "neds"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 19720,
+          "forms": [
+            "neds"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "牛津大词典",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "8c987e70b751bbbad0e3bac5a2568e480e7552acb86ea4fb8a39307a877043eb",
+      "authorHold": {
+        "term": "NED",
+        "sourceSha256": "8c987e70b751bbbad0e3bac5a2568e480e7552acb86ea4fb8a39307a877043eb",
+        "source": {
+          "id": 2523656,
+          "term": "NED",
+          "partOfSpeech": "noun · phrase",
+          "meaning": "牛津大词典",
+          "forms": [
+            "neds"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 19720,
+            "forms": [
+              "neds"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "牛津大词典",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source identifies the Oxford dictionary but does not delimit the historical New English Dictionary abbreviation or edition. Direct publisher history access returned a JavaScript challenge, and no publisher evidence resolving that exact branch was obtained in this finite check. This is an unresolved identity, not proof that NED is invalid."
+      },
+      "authorHoldSha256": "7ab78907e40bdfee601097686818e0d1f1f7bc02792861e15549c9bac37991ba",
+      "independentReason": "The historical dictionary-title abbreviation and exact edition/identity need resolution. An inaccessible publisher page is not proof of lexical invalidity, but no independently closed whole pair is available here."
+    },
+    {
+      "term": "MCC",
+      "source": {
+        "id": 2575814,
+        "term": "MCC",
+        "partOfSpeech": "proper noun",
+        "meaning": "[计] 主通信中心, 维护控制中心, 多信道通信中心",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 20128,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 主通信中心, 维护控制中心, 多信道通信中心",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "cc70ec4903d10e4b96c224805e99cdf2ea76f652725be43226b32d3598bc6f2c",
+      "authorHold": {
+        "term": "MCC",
+        "sourceSha256": "cc70ec4903d10e4b96c224805e99cdf2ea76f652725be43226b32d3598bc6f2c",
+        "source": {
+          "id": 2575814,
+          "term": "MCC",
+          "partOfSpeech": "proper noun",
+          "meaning": "[计] 主通信中心, 维护控制中心, 多信道通信中心",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 20128,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 主通信中心, 维护控制中心, 多信道通信中心",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "proper noun"
+        ],
+        "reason": "The only enabled role is proper noun, but the source lists generic computing communications/control centres. It does not name a particular institution; Marylebone Cricket Club is absent. Inventing a centre name would bypass the published POS/sense mismatch."
+      },
+      "authorHoldSha256": "533a97a7545678b4a3195c4c0c38102d8c78797398722bd4da40606e7ebb91d5",
+      "independentReason": "A proper-noun-only source is paired with generic maintenance/communications-centre wording, without a specific named entity. Do not silently change it to common noun or import a cricket-club identity."
+    },
+    {
+      "term": "Kev",
+      "source": {
+        "id": 2584561,
+        "term": "Kev",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 千电子伏特",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 20196,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 千电子伏特",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "974a7cf47a335926380890f142373587736f2752d26664ac2cc2c5d19f943844",
+      "authorHold": {
+        "term": "Kev",
+        "sourceSha256": "974a7cf47a335926380890f142373587736f2752d26664ac2cc2c5d19f943844",
+        "source": {
+          "id": 2584561,
+          "term": "Kev",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 千电子伏特",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 20196,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[医] 千电子伏特",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The energy-unit identity is clear, but the NASA/NIST primary material uses keV/eV conventions, not this exact Kev casing. Do not silently recase a technical unit or use a person named Kev to evade the source meaning."
+      },
+      "authorHoldSha256": "c37e57c7285f69392752a9222c2465b4bfc9081484f11f687c877aa1e79bfbe4",
+      "independentReason": "The energy-unit convention keV differs from frozen Kev; no exact historical or other selected branch is closed. Keep this case-sensitive source issue instead of silently adopting a standard unit spelling or a personal name."
+    },
+    {
+      "term": "AV",
+      "source": {
+        "id": 2593710,
+        "term": "AV",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 数组/向量, 属性值, 有效, 平均值",
+        "forms": [
+          "avs"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 20268,
+          "forms": [
+            "avs"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 数组/向量, 属性值, 有效, 平均值",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e0340a41a98f25a3113946eb5df6cc324cfa96106e51fa71ba0f06eaa4977877",
+      "authorHold": {
+        "term": "AV",
+        "sourceSha256": "e0340a41a98f25a3113946eb5df6cc324cfa96106e51fa71ba0f06eaa4977877",
+        "source": {
+          "id": 2593710,
+          "term": "AV",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 数组/向量, 属性值, 有效, 平均值",
+          "forms": [
+            "avs"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 20268,
+            "forms": [
+              "avs"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 数组/向量, 属性值, 有效, 平均值",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Array/vector, attribute value, validity and average value are several distinct source branches. Audiovisual is absent. A concrete exact AV convention is not resolved; no arbitrary worksheet field or generic software acronym is used as evidence."
+      },
+      "authorHoldSha256": "9df772f67ea36ad006dc53b1cf637ecc93e3c0ca975831c556b75ef4bafa0db1",
+      "independentReason": "The supplied computing branches do not by themselves include the familiar audiovisual expansion. A precise selected expansion and actual noun use remain unresolved, so no new whole pair is approved."
+    },
+    {
+      "term": "RO",
+      "source": {
+        "id": 2600078,
+        "term": "RO",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 只接收",
+        "forms": [
+          "ros"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 20318,
+          "forms": [
+            "ros"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 只接收",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "cf02ae1fe85bd27df0ab421afb9149c90f4761640a17eed1ed6a2cd1a06f62f7",
+      "authorHold": {
+        "term": "RO",
+        "sourceSha256": "cf02ae1fe85bd27df0ab421afb9149c90f4761640a17eed1ed6a2cd1a06f62f7",
+        "source": {
+          "id": 2600078,
+          "term": "RO",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 只接收",
+          "forms": [
+            "ros"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 20318,
+            "forms": [
+              "ros"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 只接收",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source only licenses noun for the receive-only description. Read-only is not present, and a mode label is not by itself an established noun use of receive-only. Exact technical role/expansion evidence is needed rather than a forced adjectival example."
+      },
+      "authorHoldSha256": "69fc1ec7949125ddc3b5c35936d0c6a7cf8dce399108c57d848035d9eac86809",
+      "independentReason": "The receive-only source looks adjectival despite its noun label, and read-only is not the same expansion. No finite role clarification is complete, so a convenient device label does not settle it."
+    },
+    {
+      "term": "ari",
+      "source": {
+        "id": 2604009,
+        "term": "ari",
+        "partOfSpeech": "noun",
+        "meaning": "[化] 未熟紫胶; 木熟虫胶(紫胶虫涌散前采收的紫胶)",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 20348,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[化] 未熟紫胶; 木熟虫胶(紫胶虫涌散前采收的紫胶)",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "3932e9449c0208c229e4376c8511befad24de1ba840beaab4a0d791bde76c211",
+      "authorHold": {
+        "term": "ari",
+        "sourceSha256": "3932e9449c0208c229e4376c8511befad24de1ba840beaab4a0d791bde76c211",
+        "source": {
+          "id": 2604009,
+          "term": "ari",
+          "partOfSpeech": "noun",
+          "meaning": "[化] 未熟紫胶; 木熟虫胶(紫胶虫涌散前采收的紫胶)",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 20348,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[化] 未熟紫胶; 木熟虫胶(紫胶虫涌散前采收的紫胶)",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Original ICAR advisory text establishes the phrase Ari Lac, and university course material describes immature harvesting before swarming. That narrows the material identity, but does not yet establish the exact bare lowercase ari as an English noun rather than the modifier in ari lac; the raw source also contains 木熟虫胶 wording. Keep the precise head/role/Chinese clarification pending rather than invent a material-stock listing."
+      },
+      "authorHoldSha256": "0a36e81d8766d0d120cc3b46abc8ad9eb574ee010f8b18368fefff5d99eeec5e",
+      "independentReason": "Original ICAR evidence resolves immature arecanut identity, but exact bare lower-case noun use and the raw 木熟/未熟 damage remain open. Preserve that specific revised hold; do not claim the primary search was unsuccessful or call the source invalid."
+    },
+    {
+      "term": "dup",
+      "source": {
+        "id": 2610086,
+        "term": "dup",
+        "partOfSpeech": "verb",
+        "meaning": "vt. 打开；重复",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 20396,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "5fccf815f21e18dc8b40cd6595e4a595b3cef80c8a7fe7a37fde6035fdeb803f",
+      "authorHold": {
+        "term": "dup",
+        "sourceSha256": "5fccf815f21e18dc8b40cd6595e4a595b3cef80c8a7fe7a37fde6035fdeb803f",
+        "source": {
+          "id": 2610086,
+          "term": "dup",
+          "partOfSpeech": "verb",
+          "meaning": "vt. 打开；重复",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 20396,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "verb"
+        ],
+        "reason": "The source licenses a verb with 打开/重复, but a computing dup function name does not automatically establish natural English verbal use. No exact supported inflected forms are published. Defer rather than disguise a function call or silently change the head to dupe."
+      },
+      "authorHoldSha256": "ade2b92327a0c64a3404330c980903b0422eb04dd8e1a4a0c9773c37dc361a6a",
+      "independentReason": "The source open/repeat verb branches and forms have not been established in actual English use. A software function named dup would not alone demonstrate the requested ordinary verb sense or license dupe."
+    },
+    {
+      "term": "Nez",
+      "source": {
+        "id": 2615858,
+        "term": "Nez",
+        "partOfSpeech": "noun",
+        "meaning": "n. (Nez)人名；(法)内；(西)内斯\n北方经济区（northern economic zone ）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 20441,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "b17d624c09460143ebcb16ed153704b4c45ff9bfcfa3e696e9a6f0fe74cbd3f6",
+      "authorHold": {
+        "term": "Nez",
+        "sourceSha256": "b17d624c09460143ebcb16ed153704b4c45ff9bfcfa3e696e9a6f0fe74cbd3f6",
+        "source": {
+          "id": 2615858,
+          "term": "Nez",
+          "partOfSpeech": "noun",
+          "meaning": "n. (Nez)人名；(法)内；(西)内斯\n北方经济区（northern economic zone ）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 20441,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "Personal-name transliterations and Northern Economic Zone are mixed in this nominal source. The exact identity/casing of one supported English use is not settled; inventing a person would not establish which lexical branch is being taught."
+      },
+      "authorHoldSha256": "d6766489cd96a2ba600c7e96cad86f30c1e24464b7b2171dc7e9ff3c60b87481",
+      "independentReason": "Personal-name and regional-zone expansions have not been selected and settled as an exact whole pair. Retention means unfinished identity/case work, not that all person-name senses are disallowed."
+    },
+    {
+      "term": "qqv",
+      "source": {
+        "id": 2617459,
+        "term": "qqv",
+        "partOfSpeech": "abbreviation · verb",
+        "meaning": "abbr. quae vide[拉丁语]参见;又见[参见q.v.]",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 20454,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "cc92b116d025d57228715743de0144dc63490a77dee3a0ec35fea2dc757cf889",
+      "authorHold": {
+        "term": "qqv",
+        "sourceSha256": "cc92b116d025d57228715743de0144dc63490a77dee3a0ec35fea2dc757cf889",
+        "source": {
+          "id": 2617459,
+          "term": "qqv",
+          "partOfSpeech": "abbreviation · verb",
+          "meaning": "abbr. quae vide[拉丁语]参见;又见[参见q.v.]",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 20454,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "verb"
+        ],
+        "reason": "The complete source explicitly describes a Latin cross-reference abbreviation, but the only closed allowed tag returned is verb. A book-reference marker cannot be recast as an English verb; it needs a separate POS/admission review rather than an invented action sentence."
+      },
+      "authorHoldSha256": "73c27f006a1845f247fc1d72e4bd10ed502418de53f4ac54fb99ef3bee40d11e",
+      "independentReason": "The Latin reference abbreviation's editorial function does not become an ordinary English verb merely because the published closed role is verb. Keep this explicit role/source issue instead of manufacturing a conjugated use."
+    },
+    {
+      "term": "Huy",
+      "source": {
+        "id": 2618349,
+        "term": "Huy",
+        "partOfSpeech": "noun · abbreviation",
+        "meaning": "n. (Huy)人名；(德)许伊；(法)于伊；(柬)辉\nabbr. 亨伯赛德郡（英国, Humberside）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 20461,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "e7f98ba4dfbd0924e28f672fe0bc0d82e8ed8784c8686275da97960efe0aed9d",
+      "authorHold": {
+        "term": "Huy",
+        "sourceSha256": "e7f98ba4dfbd0924e28f672fe0bc0d82e8ed8784c8686275da97960efe0aed9d",
+        "source": {
+          "id": 2618349,
+          "term": "Huy",
+          "partOfSpeech": "noun · abbreviation",
+          "meaning": "n. (Huy)人名；(德)许伊；(法)于伊；(柬)辉\nabbr. 亨伯赛德郡（英国, Humberside）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 20461,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source mixes personal names with a Humberside abbreviation without establishing one precise nominal identity. A generic person or an invented county report would not resolve that ambiguity; no claim that the head is invalid is made."
+      },
+      "authorHoldSha256": "67547e518a853f4aca2e145a3bd09c4908796212efe288e17d5e7dbe5d59c17f",
+      "independentReason": "The mixed name/Humberside-abbreviation source lacks a finalized selected identity and whole pair. Preserve the specific incompleteness; do not substitute a place or a person merely to claim coverage."
+    },
+    {
+      "term": "bon",
+      "source": {
+        "id": 2674800,
+        "term": "bon",
+        "partOfSpeech": "adjective",
+        "meaning": "a. （法）好的",
+        "forms": [
+          "boned",
+          "boning",
+          "bons"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20902,
+          "forms": [
+            "boned",
+            "boning",
+            "bons"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "517b5fc59afb3d12c6f3da2e3782b29735d89e3232c8c3d9514e219d528cab7d",
+      "authorHold": {
+        "term": "bon",
+        "sourceSha256": "517b5fc59afb3d12c6f3da2e3782b29735d89e3232c8c3d9514e219d528cab7d",
+        "source": {
+          "id": 2674800,
+          "term": "bon",
+          "partOfSpeech": "adjective",
+          "meaning": "a. （法）好的",
+          "forms": [
+            "boned",
+            "boning",
+            "bons"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 20902,
+            "forms": [
+              "boned",
+              "boning",
+              "bons"
+            ],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "adjective"
+        ],
+        "reason": "The source explicitly labels the adjective French. A bon voyage formula or French quoted dialogue would not demonstrate a standalone English adjective with this exact source sense. Keep pending an independently justified borrowing/phrase entry, without using unrelated boned/boning forms."
+      },
+      "authorHoldSha256": "12f93dd1d5b9d5de7cbbeef68b11db7f73acd77187e66584b2bccca4588c0ae1",
+      "independentReason": "The source explicitly marks French good, and phrases such as bon voyage do not prove a freely usable English adjective. No real selected whole pair is supplied; the unrelated boned/boning forms do not repair it."
+    },
+    {
+      "term": "ely",
+      "source": {
+        "id": 2681127,
+        "term": "ely",
+        "partOfSpeech": "noun",
+        "meaning": "n. 伊利（男子名）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 20952,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "64acf3818cf3031e52586fb76d548de836b7d1ce922efa43ec156ffa17287f2c",
+      "authorHold": {
+        "term": "ely",
+        "sourceSha256": "64acf3818cf3031e52586fb76d548de836b7d1ce922efa43ec156ffa17287f2c",
+        "source": {
+          "id": 2681127,
+          "term": "ely",
+          "partOfSpeech": "noun",
+          "meaning": "n. 伊利（男子名）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 20952,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source supplies a male given name but freezes lowercase ely and no alternate forms. The place Ely and a capitalized invented person would alter the exact head/case branch. An exact name-form clarification is required first."
+      },
+      "authorHoldSha256": "5d635cbbf4a6b126b98e802f5a82f27eaff5d9fc18b9bd56b501cca6ab6487ee",
+      "independentReason": "The frozen lowercase proper-name head needs a bounded case/identity resolution. No uppercase Ely substitution or completed pair is being approved."
+    },
+    {
+      "term": "kew",
+      "source": {
+        "id": 2714590,
+        "term": "kew",
+        "partOfSpeech": "noun",
+        "meaning": "n. 裘园（伦敦市郊著名植物园）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 21213,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "237f443fab67d3d5d6b9c61e778562b87e5b83e496bd39948aa42a5754364a34",
+      "authorHold": {
+        "term": "kew",
+        "sourceSha256": "237f443fab67d3d5d6b9c61e778562b87e5b83e496bd39948aa42a5754364a34",
+        "source": {
+          "id": 2714590,
+          "term": "kew",
+          "partOfSpeech": "noun",
+          "meaning": "n. 裘园（伦敦市郊著名植物园）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 21213,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source describes London's named botanical garden but freezes lowercase kew with only noun support. A primary proper-name/case reconciliation is needed; do not silently capitalize it or turn a field label into a natural use."
+      },
+      "authorHoldSha256": "49885ebb9183fdd9f0f16c7c052b6b84550d9a01a389a8a1087a0ef2598973b5",
+      "independentReason": "The lowercase head points to a capitalized place/gardens name but has no exact-case repair. Keep the source mismatch visible; no sentence with Kew is silently counted for kew."
+    },
+    {
+      "term": "lyn",
+      "source": {
+        "id": 2764232,
+        "term": "lyn",
+        "partOfSpeech": "noun",
+        "meaning": "n. 林恩（男子名）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 21601,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "6f1a74a1b0874cc3eb76c460af0c1da4d79de2f186bf1063e99f44d20c56c369",
+      "authorHold": {
+        "term": "lyn",
+        "sourceSha256": "6f1a74a1b0874cc3eb76c460af0c1da4d79de2f186bf1063e99f44d20c56c369",
+        "source": {
+          "id": 2764232,
+          "term": "lyn",
+          "partOfSpeech": "noun",
+          "meaning": "n. 林恩（男子名）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 21601,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source is a given-name gloss with a lowercase head and no forms. An ordinary capitalized Lyn person example would not establish the frozen spelling/case. No separate common-noun sense is supplied."
+      },
+      "authorHoldSha256": "9ebd96a72d32d297c7d9b486735a900b7793fa54e4f612b327326da4b3a62202",
+      "independentReason": "The lowercase personal-name source needs case clarification before a capitalized name example can bind. No pair is present and no automatic Lyn repair is approved."
+    },
+    {
+      "term": "ADA",
+      "source": {
+        "id": 2777787,
+        "term": "ADA",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 数据自动采集程序, 自动动态分析程序",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 21707,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 数据自动采集程序, 自动动态分析程序",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491",
+      "authorHold": {
+        "term": "ADA",
+        "sourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491",
+        "source": {
+          "id": 2777787,
+          "term": "ADA",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 数据自动采集程序, 自动动态分析程序",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 21707,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[计] 数据自动采集程序, 自动动态分析程序",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The frozen computing automatic-data-acquisition/dynamic-analysis program expansions are not the Ada language or a disability statute. The particular program/system and natural ADA usage remain unresolved; an unrelated familiar acronym is not substituted."
+      },
+      "authorHoldSha256": "1c000e5b28cab98d86e5a2924fa7bb71b5684191fd18705b803e7d509e9c5eca",
+      "independentReason": "The source contains specific data-acquisition/analysis expansions; neither the Ada language nor disability legislation is automatically included. No actual selected technical branch has been closed."
+    },
+    {
+      "term": "dow",
+      "source": {
+        "id": 2783321,
+        "term": "dow",
+        "partOfSpeech": "noun",
+        "meaning": "n. 美国陶氏；美国陶氏化学；道琼斯平均指数",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 21750,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "8ba1b87f10035539d7f3b2455ac1268f3b6bb71b886dc91455c1ce9a83200458",
+      "authorHold": {
+        "term": "dow",
+        "sourceSha256": "8ba1b87f10035539d7f3b2455ac1268f3b6bb71b886dc91455c1ce9a83200458",
+        "source": {
+          "id": 2783321,
+          "term": "dow",
+          "partOfSpeech": "noun",
+          "meaning": "n. 美国陶氏；美国陶氏化学；道琼斯平均指数",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 21750,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The source mixes Dow Chemical and the Dow Jones index under lowercase dow. These are distinct proper referents and neither identity/case is licensed clearly as a current common noun. Do not make a market claim or silently change to Dow."
+      },
+      "authorHoldSha256": "e7b52aa1f7e136cfea58379e7d6e2f7f6376ab958be434076842920de1bb1f4c",
+      "independentReason": "The lowercase company/index wording needs exact identity and case resolution. No market observation, Dow name substitution or new whole pair is approved."
+    },
+    {
+      "term": "und",
+      "source": {
+        "id": 2792602,
+        "term": "und",
+        "partOfSpeech": "noun",
+        "meaning": "comb. 表示“水, 波浪”",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 21823,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "comb. 表示“水, 波浪”",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "57e1bb7dc8a5c3ebeca78e4f06674a1cae5b11d3267fe11d8fe6c61d2b891ca8",
+      "authorHold": {
+        "term": "und",
+        "sourceSha256": "57e1bb7dc8a5c3ebeca78e4f06674a1cae5b11d3267fe11d8fe6c61d2b891ca8",
+        "source": {
+          "id": 2792602,
+          "term": "und",
+          "partOfSpeech": "noun",
+          "meaning": "comb. 表示“水, 波浪”",
+          "forms": [],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 21823,
+            "forms": [],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "comb. 表示“水, 波浪”",
+              "source": "mit"
+            }
+          ]
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The raw source explicitly says comb. and a water/wave combining form, while the generated POS is noun. A bound morpheme cannot be demonstrated as a free noun by a quotation or word-parts worksheet. Exact POS/source repair is needed."
+      },
+      "authorHoldSha256": "42263ba02bb588048d218b6e5d4e38c29f9b83245a008cd68aabf49b829d6c43",
+      "independentReason": "The source is a bound water/wave combining form despite a noun label. That does not supply a standalone English noun; keep the morphological source-role issue open."
+    },
+    {
+      "term": "gus",
+      "source": {
+        "id": 2820366,
+        "term": "gus",
+        "partOfSpeech": "noun",
+        "meaning": "n. 格斯（男子名）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 22040,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "84b7f22b532cfb10e02b2e4d9ecb4b9076317d41614d4997def9bd2cd8beb689",
+      "authorHold": {
+        "term": "gus",
+        "sourceSha256": "84b7f22b532cfb10e02b2e4d9ecb4b9076317d41614d4997def9bd2cd8beb689",
+        "source": {
+          "id": 2820366,
+          "term": "gus",
+          "partOfSpeech": "noun",
+          "meaning": "n. 格斯（男子名）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 22040,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "sourceSupportedSelectedPoses": [
+          "noun"
+        ],
+        "reason": "The only meaning is the given name Gus but the source freezes lowercase gus and no forms. A capitalized person or a quoted name tag would bypass the unresolved exact-form/POS question. No independent common-noun meaning is inferred."
+      },
+      "authorHoldSha256": "0a3bc0080d12a675a2d7320a759111ae019b4897e54f0ae945f376f2bb807ce2",
+      "independentReason": "The lowercase personal-name head needs an exact-case source resolution. No capitalized Gus example or implied author-written pair is counted."
+    }
+  ]
+}
