@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0024",
+  "stage": "five-exact-reviewed-example-sources-admitted-not-built-not-published",
+  "queuedHeads": 5,
+  "retainedIndependentOpinions": 5,
+  "deferred": [],
+  "beforeHeads": 85262,
+  "beforeExamples": 86651,
+  "plannedAfterHeads": 85267,
+  "plannedAfterExamples": 86656,
+  "plannedRemainingHeads": 17342,
+  "actualCoverageAdded": 0,
+  "complete": false,
+  "examplesBuilt": false,
+  "published": false
+}

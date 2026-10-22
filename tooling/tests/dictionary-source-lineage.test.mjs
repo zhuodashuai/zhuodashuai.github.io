@@ -74,8 +74,9 @@ test('actual current canonical dictionary is linked to the byte-pinned archived 
   const expectedUnchanged=new Map([
     [SOURCE_LINEAGE_BASE_VERSION,102609],
     [SOURCE_LINEAGE_NOTATION_BASE_VERSION,102605],
-    ['5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432',102602]
+    ['5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432',102602],
+    ['cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644',102597]
   ]);
-  assert(expectedUnchanged.has(manifest.version),'Actual source is not one of the three reviewed registered stages');
+  assert(expectedUnchanged.has(manifest.version),'Actual source is not one of the four exact reviewed registered stages');
   assert.equal(result.unchangedRecords,expectedUnchanged.get(manifest.version));
 });

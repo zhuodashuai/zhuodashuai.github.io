@@ -7,3 +7,8 @@ tooling/dictionary/source-revisions/** text eol=lf
 tooling/dictionary/examples/source/batch-0022-*.json text eol=lf
 tooling/dictionary/examples/reviews/batch-0022-*.json text eol=lf
 tooling/dictionary/examples/queues/batch-0022*.json text eol=lf
+# Preserve raw review and historical-example manifest hashes in Windows clones.
+tooling/dictionary/examples/archives/** text eol=lf
+tooling/dictionary/examples/source/batch-002[34]-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-002[34]-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-002[34]*.json text eol=lf

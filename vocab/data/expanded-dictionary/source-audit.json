@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "version": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+  "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
   "counts": {
     "records": 102609,
     "englishKeys": 140858,
-    "chineseTokens": 160071
+    "chineseTokens": 160083
   },
   "mitRows": 102325,
   "workbookMitRows": 57095,
@@ -24,7 +24,7 @@
   "originalCheckedRows": 1030,
   "canonicalCasefoldCollisions": 1,
   "ambiguousAliasKeys": 176,
-  "totalShardBytes": 58322738,
+  "totalShardBytes": 58323316,
   "posReview": {
     "id": "pos-completion-2026-10-19",
     "reviewedRows": 38825,
@@ -47,7 +47,23 @@
     "missingBefore": 41546,
     "missingAfter": 2722,
     "subsequentlyRevised": 4,
-    "finalPosReviewed": 38820
+    "subsequentlyRevisedScope": "Historical grammar-stage count only; not the sum of all later stages",
+    "supersededPosReviewedByStage": [
+      {
+        "id": "finite-grammar-0001",
+        "count": 4
+      },
+      {
+        "id": "future-pos-notation-three-0001",
+        "count": 0
+      },
+      {
+        "id": "semantic-common-five-0001",
+        "count": 5
+      }
+    ],
+    "finalPosReviewed": 38815,
+    "finalPosReviewedScope": "Actual final primary-source count, not new POS approval"
   },
   "sourceRevisions": {
     "id": "finite-grammar-0001",
@@ -124,6 +140,124 @@
       }
     ]
   },
+  "semanticRevisions": {
+    "kind": "pure-future-semantic-in-memory-result-not-materialization-or-admission",
+    "authorityId": "semantic-common-five-0001",
+    "candidateSha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6",
+    "reviewSha256": "bb756de5fac506ca8db1fef2571aae343206bdd85e992cbf652ba980d97fdb86",
+    "beforeDictionaryVersion": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+    "canonicalRecords": 102609,
+    "changedRecords": 5,
+    "unchangedRecords": 102604,
+    "changes": [
+      {
+        "term": "affordable",
+        "id": 696511,
+        "beforeSha256": "2377ee764319279714c7c51853de8dc0e40b61dadbfea9587050af2c959e1819",
+        "afterSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+        "pairSha256": "0dabb458079236d524059866894c788f7da238251ace04cfc2c73ea7900db540",
+        "changedFields": [
+          "meaning",
+          "source",
+          "variants"
+        ]
+      },
+      {
+        "term": "discretionary",
+        "id": 822339,
+        "beforeSha256": "4d7f996f7255552c5fb1b96c4c49af805c4e012fa71893388179aa32ae300a3c",
+        "afterSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+        "pairSha256": "01f3b65c78e237ca2ab8d0c8e7b1e217be95b41e1c6980218d1064eb8cd2505e",
+        "changedFields": [
+          "meaning",
+          "source",
+          "variants"
+        ]
+      },
+      {
+        "term": "download",
+        "id": 1224057,
+        "beforeSha256": "0262aed73b92af25881b672800ca3560c8671dc2881a39017e6fc1bd475b915e",
+        "afterSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+        "pairSha256": "5ee491b257713b26fef4e2a7721ea7aefe1b2c93ea229be0ff3807d18cef99c3",
+        "changedFields": [
+          "meaning",
+          "source",
+          "variants"
+        ]
+      },
+      {
+        "term": "competitiveness",
+        "id": 1238295,
+        "beforeSha256": "c48d735e5b29c3992e72501a175f6a81aa33499f320e30a7003df415669976f5",
+        "afterSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+        "pairSha256": "f9cbafa325e16ffd3777b358171dea5f165413290cf0905d8beffcbae4fc45ac",
+        "changedFields": [
+          "meaning",
+          "source",
+          "variants"
+        ]
+      },
+      {
+        "term": "revitalization",
+        "id": 1322858,
+        "beforeSha256": "509826c5f4a91bbc117e0be6988f87ecb121787bedc20f05d0543a7fbda7d123",
+        "afterSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+        "pairSha256": "b025c38f09ce03a27bc7b18e76f75bfe5521a4212831243329ad7f6bf0517143",
+        "changedFields": [
+          "meaning",
+          "source",
+          "variants"
+        ]
+      }
+    ],
+    "allEnglishReferencesPreserved": true,
+    "englishKeyRows": 140858,
+    "englishKeysSha256": "42c2154fe8dd1b8ab3caf2c2c1dc042a498fec784402d3ca83b37d3045d97923",
+    "fullBaselineCanonicalSha256": "bd89627f7f941c9bcf49995a24489ba0b4239beb376ee7ea4228c130f24104df",
+    "changedCanonicalAggregateSha256": "cecfea44411fc061d85f5f6b5a3d82396a416e5d3f7c885e791a6e6156c5eb68",
+    "historicalHoldsPreserved": 9,
+    "quarantinedTuples": 4,
+    "retiredTuples": 1,
+    "runtimeSource": {
+      "key": "semantic-editorial",
+      "descriptor": {
+        "name": "卓式词典·释义校订",
+        "license": "项目原创中文释义；Princeton WordNet 3.1 为参考证据，适用其独立许可；原 ECDICT 数据保留 MIT 许可。",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-semantic-revisions.html"
+      },
+      "proposalSha256": "e5213e9251b57909d8167bcb1041ac8a560600fef4b16857d2c90d92ea78b7f3",
+      "reviewSha256": "056fe3b41602c8642a0f92100ee577aab2396194d836b2124fcec8c542a243ec",
+      "noticeDraftSha256": "5e462671ef106480432eb09bd07ce869090d3d9cef9aac7f946cff73b4e5dd78",
+      "noticePublishedClaim": false
+    },
+    "chinesePostings": {
+      "rebuilt": false,
+      "requiredTargetIds": [
+        696511,
+        822339,
+        1224057,
+        1238295,
+        1322858
+      ],
+      "requireAllNonTargetPostingsUnchanged": true,
+      "requireOnlyReviewedActiveSensesForTargetIds": true,
+      "allChinesePostingsUnchangedClaim": false
+    },
+    "stillRequired": [
+      "Different-principal implementation review of this separate semantic family",
+      "Honest source notice and licence/primary provenance",
+      "Actual reviewed finite source materialization and new content-addressed dictionary root",
+      "Fresh exact disk-source/pair historical-hold reentry",
+      "Separate example admission/build and full local/live verification"
+    ],
+    "originalLanguageOpinionRemainsConditional": true,
+    "actualNamespaceGenerated": false,
+    "actualSourceFilesWritten": 0,
+    "newExampleAdmissions": 0,
+    "coverageAdded": 0,
+    "published": false
+  },
   "supplementRows": 53,
   "supplementIntegrity": {
     "schemaVersion": 1,
@@ -132,7 +266,7 @@
     "semanticSha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
   },
   "commercialDefinitionsUsed": false,
-  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history; no publisher dictionary text.",
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history; five exact selected Chinese meanings are separately reviewed project editorial text; unresolved legacy technical tuples remain archived, not active Chinese search evidence; no publisher dictionary text.",
   "integrity": {
     "schemaVersion": 1,
     "source": {
@@ -150,7 +284,7 @@
   "verification": {
     "canonicalRecords": 102609,
     "englishKeys": 140858,
-    "chineseTokens": 160071,
+    "chineseTokens": 160083,
     "allReferencesVerified": true,
     "allHanPostingsVerified": true
   }

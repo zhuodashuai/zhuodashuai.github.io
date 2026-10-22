@@ -1,0 +1,584 @@
+{
+  "schemaVersion": 1,
+  "id": "future-semantic-common-five-0001-v2",
+  "stage": "complete-future-source-quarantine-candidates-authored-awaiting-fresh-independent-review-not-applied-not-admitted",
+  "authorPrincipal": "root",
+  "currentDictionaryVersion": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+  "currentExamplesVersion": "4506265fab099d7b70a59bb3667ab8276c083f14c66f4d149cacf73c5c7e8f92",
+  "proposedSourceDescriptor": {
+    "id": "semantic-editorial",
+    "name": "卓式词典·释义校订",
+    "license": "Selected Chinese glosses are original project editorial writing. Exact previous ECDICT MIT lexical rows remain recoverable in the immutable archive/history. Princeton WordNet3.1 is independent lexical evidence under its own licence.",
+    "url": "https://zhuodashuai.github.io/vocab/dictionary-semantic-revisions.html",
+    "noticeNotCreatedOrPublishedYet": true
+  },
+  "bindings": [
+    {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0022/drafts/next-source-diagnostics/root-common-five.json",
+      "bytes": 16143,
+      "sha256": "431a1d5ddc03899914bf82d56f26ca00e19020c897d500323837a8c2af4d2a55"
+    },
+    {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0022/qa/e-common-five-conditional-independent-review.json",
+      "bytes": 24101,
+      "sha256": "d393b54282ed9379265f8d52b7e9ad02fa63138183bd8bc0be8eefb287f571f7"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/expanded-dictionary/manifest.json",
+      "bytes": 54705,
+      "sha256": "da424df6edf245db2da69925a1c6e5e2d0936f3458709aa0ded1dde82983a82b"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+      "bytes": 17056,
+      "sha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+      "bytes": 190486,
+      "sha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895"
+    }
+  ],
+  "entries": [
+    {
+      "term": "affordable",
+      "id": 696511,
+      "beforeSha256": "2377ee764319279714c7c51853de8dc0e40b61dadbfea9587050af2c959e1819",
+      "afterCandidateSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+      "before": {
+        "id": 696511,
+        "term": "affordable",
+        "partOfSpeech": "adjective",
+        "meaning": "[计] 普及型",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 5441,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 普及型",
+            "source": "mit"
+          }
+        ]
+      },
+      "afterCandidate": {
+        "id": 696511,
+        "term": "affordable",
+        "partOfSpeech": "adjective",
+        "meaning": "负担得起的；价格在经济承受范围内的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 5441,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "pair": [
+        "affordable",
+        "adjective",
+        "负担得起的；价格在经济承受范围内的",
+        "The rent was affordable, but the flat was far from my workplace.",
+        "房租我负担得起，但那套公寓离我的工作地点很远。"
+      ],
+      "pairSha256": "0dabb458079236d524059866894c788f7da238251ace04cfc2c73ea7900db540",
+      "selectedPrimaryEvidence": {
+        "id": "pwn31:00938372-s",
+        "file": "data.adj",
+        "partOfSpeech": "adjective",
+        "lexfile": 0,
+        "definition": "that you have the financial means for",
+        "matched": "exact-case-preserved-lemma",
+        "matchedLemma": "affordable",
+        "rawLine": "00938372 00 s 03 low-cost 0 low-priced 0 affordable 0 002 & 00937468 a 0000 + 02750326 v 0301 | that you have the financial means for; \"low-cost housing\"  "
+      },
+      "supplementaryPrimaryLookup": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/affordable",
+        "checkedAt": "2026-10-22",
+        "checkScope": "Official publisher search-result body read in this turn; direct fetch for competitiveness and revitalization returned403, not claimed as a successful direct-page fetch.",
+        "copiedDefinitionOrExample": false
+      },
+      "retiredActiveVariants": [],
+      "preservedTechnicalVariants": [],
+      "retainedHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "affordable",
+            "stage": "authoring",
+            "reason": "Canonical gloss only says computing 普及型. Modern affordable is about price being within one's means; using 负担得起的 would add an absent sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/affordable"
+            ]
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "affordable",
+            "reason": "Existing gloss only says computing 普及型; it does not support the evidenced financial affordability sense.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "completeAfterSourceRecordIndependentlyReviewed": false,
+      "pairAdmitted": false,
+      "sourceApplied": false,
+      "quarantinedActiveVariants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 普及型",
+          "source": "mit"
+        }
+      ],
+      "quarantineReason": "This exact technical tuple is not independently confirmed for routine learning display/search. Its full raw source remains in before and immutable historical recovery; no claim that every possible technical use is wrong."
+    },
+    {
+      "term": "discretionary",
+      "id": 822339,
+      "beforeSha256": "4d7f996f7255552c5fb1b96c4c49af805c4e012fa71893388179aa32ae300a3c",
+      "afterCandidateSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+      "before": {
+        "id": 822339,
+        "term": "discretionary",
+        "partOfSpeech": "adjective",
+        "meaning": "[计] 选择的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 6424,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 选择的",
+            "source": "mit"
+          }
+        ]
+      },
+      "afterCandidate": {
+        "id": 822339,
+        "term": "discretionary",
+        "partOfSpeech": "adjective",
+        "meaning": "可自行酌情决定的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 6424,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "pair": [
+        "discretionary",
+        "adjective",
+        "可自行酌情决定的",
+        "The manager has discretionary authority to waive the fee in exceptional cases.",
+        "经理有权在特殊情况下酌情免收这项费用。"
+      ],
+      "pairSha256": "01f3b65c78e237ca2ab8d0c8e7b1e217be95b41e1c6980218d1064eb8cd2505e",
+      "selectedPrimaryEvidence": {
+        "id": "pwn31:00723263-s",
+        "file": "data.adj",
+        "partOfSpeech": "adjective",
+        "lexfile": 0,
+        "definition": "having or using the ability to act or decide according to your own discretion or judgment",
+        "matched": "exact-case-preserved-lemma",
+        "matchedLemma": "discretionary",
+        "rawLine": "00723263 00 s 02 discretionary 0 discretional 0 003 & 00722368 a 0000 + 14019309 n 0101 + 05206024 n 0102 | having or using the ability to act or decide according to your own discretion or judgment; \"The commission has discretionary power to award extra funds\"  "
+      },
+      "supplementaryPrimaryLookup": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/discretionary",
+        "checkedAt": "2026-10-22",
+        "checkScope": "Official publisher search-result body read in this turn; direct fetch for competitiveness and revitalization returned403, not claimed as a successful direct-page fetch.",
+        "copiedDefinitionOrExample": false
+      },
+      "retiredActiveVariants": [],
+      "preservedTechnicalVariants": [],
+      "retainedHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "discretionary",
+            "stage": "authoring",
+            "reason": "Canonical computing gloss 选择的 is too vague to establish the discretionary choice/authority sense. Cambridge defines decisions left to a person's judgement; cannot confidently treat this as the same selected sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/discretionary"
+            ]
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "discretionary",
+            "reason": "Existing gloss 选择的 does not clearly support acting at one's discretion or unearmarked funds.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "completeAfterSourceRecordIndependentlyReviewed": false,
+      "pairAdmitted": false,
+      "sourceApplied": false,
+      "quarantinedActiveVariants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 选择的",
+          "source": "mit"
+        }
+      ],
+      "quarantineReason": "This exact technical tuple is not independently confirmed for routine learning display/search. Its full raw source remains in before and immutable historical recovery; no claim that every possible technical use is wrong."
+    },
+    {
+      "term": "download",
+      "id": 1224057,
+      "beforeSha256": "0262aed73b92af25881b672800ca3560c8671dc2881a39017e6fc1bd475b915e",
+      "afterCandidateSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+      "before": {
+        "id": 1224057,
+        "term": "download",
+        "partOfSpeech": "verb",
+        "meaning": "[计] 卸载, 下栽",
+        "forms": [
+          "downloaded",
+          "downloading",
+          "downloads"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 9562,
+          "forms": [
+            "downloaded",
+            "downloading",
+            "downloads"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 卸载, 下栽",
+            "source": "mit"
+          }
+        ]
+      },
+      "afterCandidate": {
+        "id": 1224057,
+        "term": "download",
+        "partOfSpeech": "verb",
+        "meaning": "下载〔把文件或程序从远端计算机传到本地〕",
+        "forms": [
+          "downloaded",
+          "downloading",
+          "downloads"
+        ],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9562,
+          "forms": [
+            "downloaded",
+            "downloading",
+            "downloads"
+          ],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "pair": [
+        "download",
+        "verb",
+        "下载〔把文件或程序从远端计算机传到本地〕",
+        "Download the route map before you leave the hotel.",
+        "离开酒店前下载好路线图。"
+      ],
+      "pairSha256": "5ee491b257713b26fef4e2a7721ea7aefe1b2c93ea229be0ff3807d18cef99c3",
+      "selectedPrimaryEvidence": {
+        "id": "pwn31:02238486-v",
+        "file": "data.verb",
+        "partOfSpeech": "verb",
+        "lexfile": 40,
+        "definition": "transfer a file or program from a central computer to a smaller computer or to a computer at a remote location",
+        "matched": "exact-case-preserved-lemma",
+        "matchedLemma": "download",
+        "rawLine": "02238486 40 v 01 download 0 002 @ 02236972 v 0000 ! 02238680 v 0101 01 + 08 00 | transfer a file or program from a central computer to a smaller computer or to a computer at a remote location  "
+      },
+      "supplementaryPrimaryLookup": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/download",
+        "checkedAt": "2026-10-22",
+        "checkScope": "Official publisher search-result body read in this turn; direct fetch for competitiveness and revitalization returned403, not claimed as a successful direct-page fetch.",
+        "copiedDefinitionOrExample": false
+      },
+      "retiredActiveVariants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 卸载, 下栽",
+          "source": "mit"
+        }
+      ],
+      "preservedTechnicalVariants": [],
+      "retainedHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "download",
+            "stage": "authoring",
+            "reason": "Supplied 卸载 reverses or confuses the operation, and 下栽 is a typo rather than a usable Chinese sense. A reliable example with 下载 would require an explicit source-gloss correction.",
+            "sources": []
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "download",
+            "reason": "Existing gloss 卸载, 下栽 contains an incompatible unloading sense and an apparent typo; do not silently repair to 下载.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "completeAfterSourceRecordIndependentlyReviewed": false,
+      "pairAdmitted": false,
+      "sourceApplied": false,
+      "quarantinedActiveVariants": [],
+      "quarantineReason": "No further candidate change: the specifically erroneous download tuple is already proposed for retirement and remains fully archived."
+    },
+    {
+      "term": "competitiveness",
+      "id": 1238295,
+      "beforeSha256": "c48d735e5b29c3992e72501a175f6a81aa33499f320e30a7003df415669976f5",
+      "afterCandidateSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+      "before": {
+        "id": 1238295,
+        "term": "competitiveness",
+        "partOfSpeech": "noun",
+        "meaning": "[经] 竞争",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 9674,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[经] 竞争",
+            "source": "mit"
+          }
+        ]
+      },
+      "afterCandidate": {
+        "id": 1238295,
+        "term": "competitiveness",
+        "partOfSpeech": "noun",
+        "meaning": "好胜心；争强好胜的倾向",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9674,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "pair": [
+        "competitiveness",
+        "noun",
+        "好胜心；争强好胜的倾向",
+        "Her competitiveness turned a friendly quiz into a serious contest.",
+        "她的好胜心让一场友好的问答活动变成了认真的较量。"
+      ],
+      "pairSha256": "f9cbafa325e16ffd3777b358171dea5f165413290cf0905d8beffcbae4fc45ac",
+      "selectedPrimaryEvidence": {
+        "id": "pwn31:04844656-n",
+        "file": "data.noun",
+        "partOfSpeech": "noun",
+        "lexfile": 7,
+        "definition": "an aggressive willingness to compete",
+        "matched": "exact-case-preserved-lemma",
+        "matchedLemma": "competitiveness",
+        "rawLine": "04844656 07 n 02 competitiveness 0 fight 0 004 @ 04844463 n 0000 + 02412468 v 0201 + 00083473 a 0101 + 00514412 a 0101 | an aggressive willingness to compete; \"the team was full of fight\"  "
+      },
+      "supplementaryPrimaryLookup": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/competitiveness",
+        "checkedAt": "2026-10-22",
+        "checkScope": "Official publisher search-result body read in this turn; direct fetch for competitiveness and revitalization returned403, not claimed as a successful direct-page fetch.",
+        "copiedDefinitionOrExample": false
+      },
+      "retiredActiveVariants": [],
+      "preservedTechnicalVariants": [],
+      "retainedHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "competitiveness",
+            "stage": "authoring",
+            "reason": "The only gloss 竞争 names competition; the noun normally denotes competitive ability or disposition. Adding 竞争力 would silently supply an absent sense.",
+            "sources": []
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "competitiveness",
+            "reason": "Existing gloss 竞争 names competition rather than the evidenced disposition or quality of being competitive.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "completeAfterSourceRecordIndependentlyReviewed": false,
+      "pairAdmitted": false,
+      "sourceApplied": false,
+      "quarantinedActiveVariants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[经] 竞争",
+          "source": "mit"
+        }
+      ],
+      "quarantineReason": "This exact technical tuple is not independently confirmed for routine learning display/search. Its full raw source remains in before and immutable historical recovery; no claim that every possible technical use is wrong."
+    },
+    {
+      "term": "revitalization",
+      "id": 1322858,
+      "beforeSha256": "509826c5f4a91bbc117e0be6988f87ecb121787bedc20f05d0543a7fbda7d123",
+      "afterCandidateSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+      "before": {
+        "id": 1322858,
+        "term": "revitalization",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 复苏, 回生, 复新",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 10334,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 复苏, 回生, 复新",
+            "source": "mit"
+          }
+        ]
+      },
+      "afterCandidate": {
+        "id": 1322858,
+        "term": "revitalization",
+        "partOfSpeech": "noun",
+        "meaning": "复兴；重振〔重新恢复活跃和重要地位〕",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 10334,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": []
+      },
+      "pair": [
+        "revitalization",
+        "noun",
+        "复兴；重振〔重新恢复活跃和重要地位〕",
+        "New workshops and late-opening cafés contributed to the revitalization of the old harbour.",
+        "新开设的工坊和营业至深夜的咖啡馆促进了老港区的复兴。"
+      ],
+      "pairSha256": "b025c38f09ce03a27bc7b18e76f75bfe5521a4212831243329ad7f6bf0517143",
+      "selectedPrimaryEvidence": {
+        "id": "pwn31:01049262-n",
+        "file": "data.noun",
+        "partOfSpeech": "noun",
+        "lexfile": 4,
+        "definition": "bringing again into activity and prominence",
+        "matched": "exact-case-preserved-lemma",
+        "matchedLemma": "revitalization",
+        "rawLine": "01049262 04 n 05 revival 1 resurgence 0 revitalization 0 revitalisation 0 revivification 0 012 @ 07371988 n 0000 + 00024272 v 0509 + 00164466 v 0402 + 00164466 v 0301 + 02020960 a 0201 + 02630887 v 0201 + 00168718 v 0101 + 00169106 v 0101 ~ 01049727 n 0000 ~ 01049861 n 0000 ~ 01049983 n 0000 ~ 01050134 n 0000 | bringing again into activity and prominence; \"the revival of trade\"; \"a revival of a neglected play by Moliere\"; \"the Gothic revival in architecture\"  "
+      },
+      "supplementaryPrimaryLookup": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/revitalization",
+        "checkedAt": "2026-10-22",
+        "checkScope": "Official publisher search-result body read in this turn; direct fetch for competitiveness and revitalization returned403, not claimed as a successful direct-page fetch.",
+        "copiedDefinitionOrExample": false
+      },
+      "retiredActiveVariants": [],
+      "preservedTechnicalVariants": [],
+      "retainedHolds": [
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "revitalization",
+            "reason": "Medical-only source labels are insufficient to attach an ordinary urban or commercial revival example; the medical sense is not precisely confirmed.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "completeAfterSourceRecordIndependentlyReviewed": false,
+      "pairAdmitted": false,
+      "sourceApplied": false,
+      "quarantinedActiveVariants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[医] 复苏, 回生, 复新",
+          "source": "mit"
+        }
+      ],
+      "quarantineReason": "This exact technical tuple is not independently confirmed for routine learning display/search. Its full raw source remains in before and immutable historical recovery; no claim that every possible technical use is wrong."
+    }
+  ],
+  "exactDuplicateChecks": {
+    "comparedHeads": 85262,
+    "comparedBilingualPairs": 86651,
+    "canonicalHeads": 102609,
+    "newHeads": 5,
+    "collisions": [],
+    "kind": "Exact normalized sentence check only, not a plagiarism proof"
+  },
+  "unimplementedRequiredSteps": [
+    "Fresh independent full before/after/pair review of these exact v2 hashes. The original v1 opinions and holds remain unchanged; none is an approval of v2.",
+    "A separately reviewed finite semantic source family must preserve raw seed/history and all unrelated records/aliases/postings. No broadened frozen grammar/POS-label bypass.",
+    "Regenerate Chinese postings from only the explicitly active senses for the five affected IDs. Quarantine only the four exact unverified tuples and retire only the erroneous download tuple; preserve every unrelated head posting.",
+    "Create the honest editorial source notice, perform actual source materialization, and obtain exact-after-source historical-hold re-entry review before any example admission.",
+    "Only then deterministic example rebuild, full regression and production verification. No coverage is added by this future proposal."
+  ],
+  "sourceChangesApplied": 0,
+  "exampleCoverageAdded": 0,
+  "published": false,
+  "goalComplete": false,
+  "previousDraft": {
+    "file": "file:///C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0023/drafts/semantic-common-five-0001.json",
+    "bytes": 23273,
+    "sha256": "c4a96f77aa357bcbc960a837d8f576a407c7c7e8dc25e9b55c86e93ca575bad1"
+  },
+  "responseToIndependentReview": {
+    "file": "file:///C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0023/qa/e2-semantic-common-five-independent-review.json",
+    "bytes": 24740,
+    "sha256": "222cef20d5c263285325ef0e6ee4cafc395ac9fbebbfcb6a3e785dae009268e2",
+    "noOpinionUpgraded": true,
+    "previousFourHoldsPreservedInOriginalReceipt": true
+  }
+}

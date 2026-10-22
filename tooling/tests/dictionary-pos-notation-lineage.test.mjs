@@ -95,7 +95,9 @@ for(const [name,value]of [['unverified raw pack',pack],['copied verified object'
 }
 
 test('both historical reader and chain assertion reject an unregistered historical version before reading a namespace',async()=>{
-  for(const version of ['f'.repeat(64),FINAL_VERSION,'9f27',null]){
+  // The prior5c82 final is now a separately raw-pinned semantic baseline.
+  // Merely creating a cabcf archive does not register it as a historical base.
+  for(const version of ['f'.repeat(64),'cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644','9f27',null]){
     await assert.rejects(readHistoricalDictionaryNamespace(version),/No reviewed transition/u);
     await assert.rejects(assertHistoricalDictionaryLineage(version,{},new Map()),/No reviewed transition/u);
   }
@@ -127,7 +129,8 @@ test('actual D22 source identity is valid only for the named exact registered hi
   const expected=new Map([
     [SOURCE_LINEAGE_BASE_VERSION,{fromOriginal:102609,fromNotation:null}],
     [SOURCE_LINEAGE_NOTATION_BASE_VERSION,{fromOriginal:102605,fromNotation:102609}],
-    [FINAL_VERSION,{fromOriginal:102602,fromNotation:102606}]
+    [FINAL_VERSION,{fromOriginal:102602,fromNotation:102606}],
+    ['cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644',{fromOriginal:102597,fromNotation:102601}]
   ]);
   assert(expected.has(manifest.version),'Unknown current namespace must not inherit a generic version mismatch waiver');
   const current=manifest.version===SOURCE_LINEAGE_BASE_VERSION||manifest.version===SOURCE_LINEAGE_NOTATION_BASE_VERSION

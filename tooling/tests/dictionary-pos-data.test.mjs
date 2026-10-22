@@ -5,6 +5,7 @@ import test from "node:test";
 import { verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 import { generateDictionaryPos } from "../scripts/build-dictionary-pos.mjs";
 import {verifyDictionarySourceRevisions} from '../lib/dictionary-source-revisions.mjs';
+import {loadVerifiedSemanticRevision} from '../lib/dictionary-source-lineage.mjs';
 
 const read = async path => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const pack = await read("../dictionary/pos/pos-completion-2026-10-19.json");
@@ -34,13 +35,22 @@ test("every applied shipped label matches an approved original meaning and retai
     .map(file=>read('../dictionary/source-revisions/'+file)));
   const revisions=verifyDictionarySourceRevisions(revisionPack,revisionIntegrity,revisionReview);
   const revised=new Map(revisions.pack.entries.map(entry=>[entry.term,entry]));
-  let applied = 0,subsequentlyRevised=0;
+  const semantic=await loadVerifiedSemanticRevision(),semanticRevised=new Map(semantic.entries.map(entry=>[entry.term,entry]));
+  let applied = 0,subsequentlyRevised=0,subsequentlySemantic=0;
   for (const descriptor of manifest.english.shards) {
     const shard = await read(`../../vocab/data/expanded-dictionary/${descriptor.file}`);
     for (const row of shard.records) {
-      if (row.id % 128 !== descriptor.bucket || !['pos-reviewed','grammar-reviewed'].includes(row.source)) continue;
+      if (row.id % 128 !== descriptor.bucket || !['pos-reviewed','grammar-reviewed','semantic-editorial'].includes(row.source)) continue;
       const review = approved.get(row.term);
       assert.ok(review, row.term);
+      if(row.source==='semantic-editorial'){
+        const transition=semanticRevised.get(row.term);assert.ok(transition,row.term);assert.deepEqual(row,transition.after);
+        assert.equal(transition.before.source,'pos-reviewed');assert.equal(transition.before.partOfSpeech,review.partOfSpeech);
+        assert.equal(hash(transition.before.meaning),review.meaningSha256,'Original POS opinion still binds its original meaning');
+        assert.ok(transition.before.variants.some(item=>item.source===review.baseSource&&item.meaning===transition.before.meaning&&!item.partOfSpeech.trim()));
+        assert.deepEqual(row.seed,transition.before.seed);assert.deepEqual(row.forms,transition.before.forms);
+        subsequentlySemantic++;continue;
+      }
       if(row.source==='grammar-reviewed'){
         const transition=revised.get(row.term);assert.ok(transition,row.term);assert.deepEqual(row,transition.after);
         assert.equal(transition.before.partOfSpeech,review.partOfSpeech,'Old POS evidence must remain truthful');
@@ -55,7 +65,11 @@ test("every applied shipped label matches an approved original meaning and retai
         && item.meaning === row.meaning && !item.partOfSpeech.trim()), row.term);
     }
   }
-  assert.equal(applied+subsequentlyRevised, audit.posReview.applied);
+  assert.equal(applied+subsequentlyRevised+subsequentlySemantic, audit.posReview.applied);
+  assert.equal(subsequentlySemantic,5);
+  assert.deepEqual(audit.posReview.supersededPosReviewedByStage,[
+    {id:revisions.pack.id,count:4},{id:'future-pos-notation-three-0001',count:0},{id:semantic.authorityId,count:5}]);
+  assert.deepEqual(manifest.sources['semantic-editorial'],{...semantic.source,sha256:semantic.candidateSha256});
   if(audit.sourceRevisions){
     assert.equal(subsequentlyRevised,4);assert.equal(audit.sourceRevisions.applied,4);
     assert.equal(audit.sourceRevisions.ledgerSha256,revisions.integrity.semanticSha256);
