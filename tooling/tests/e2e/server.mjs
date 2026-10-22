@@ -746,7 +746,18 @@ const server = createE2EHttpServer(async (request, response) => {
       const snapshot = cookies(request).e2e_pages_stale === "1" ? baseline : runState(request).snapshot;
       return json(response, 200, snapshot);
     }
-    const rawPath = /^\/personal\/?$/.test(url.pathname) ? "/personal.html"
+    // Explicit per-browser fixture only: mirror the Worker's clean-HTML
+    // redirects so Chromium really precaches redirected shell Responses.
+    // Existing tests keep the original static routing unless they opt in.
+    const cleanHtmlRedirects = cookies(request).e2e_clean_html_redirects === "1";
+    const cleanRoutes = new Map([["/dictionary.html", "/dictionary"], ["/guide.html", "/guide"]]);
+    if (cleanHtmlRedirects && ["GET", "HEAD"].includes(request.method) && cleanRoutes.has(url.pathname)) {
+      response.writeHead(308, { Location: `${cleanRoutes.get(url.pathname)}${url.search}`, "Cache-Control": "no-store", Vary: "Cookie" });
+      response.end();
+      return;
+    }
+    const rawPath = cleanHtmlRedirects && ["/dictionary", "/guide"].includes(url.pathname) ? `${url.pathname}.html`
+      : /^\/personal\/?$/.test(url.pathname) ? "/personal.html"
       : url.pathname.endsWith("/") ? `${url.pathname}index.html` : url.pathname;
     const safe = normalize(rawPath).replace(/^(?:\.\.[/\\])+/, "").replace(/^[/\\]+/, "");
     const file = resolve(root, safe);

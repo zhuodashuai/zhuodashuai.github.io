@@ -69,6 +69,20 @@ self.addEventListener("message", (event) => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
 
+function navigationCacheResponse(request, response) {
+  if (request.mode !== "navigate" || !response.redirected || response.type !== "basic") return response;
+  try {
+    if (new URL(response.url).origin !== self.location.origin) return response;
+  } catch { return response; }
+  // Clean-URL hosts precache *.html after following a same-origin redirect.
+  // Navigation uses redirect:manual, so returning that internal redirect list
+  // causes a network error offline. Keep the streamed body/status/headers, but
+  // give this cached navigation a fresh Response without redirect metadata.
+  return new Response(response.body, {
+    status: response.status, statusText: response.statusText, headers: response.headers
+  });
+}
+
 async function networkFirst(request, fallbackUrl = "") {
   const cache = await caches.open(CACHE_NAME);
   const controller = new AbortController();
@@ -104,10 +118,10 @@ async function networkFirst(request, fallbackUrl = "") {
     return await Promise.race([network, timeout]);
   } catch {
     const cached = await cache.match(request, { ignoreSearch: false });
-    if (cached?.ok) return cached;
+    if (cached?.ok) return navigationCacheResponse(request, cached);
     if (fallbackUrl) {
       const fallback = await cache.match(fallbackUrl);
-      if (fallback?.ok) return fallback;
+      if (fallback?.ok) return navigationCacheResponse(request, fallback);
     }
     if (failedResponse) return failedResponse;
     return new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
