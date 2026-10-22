@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "stage": "finite99-prepared-sources-not-built-not-published",
+  "beforeHeads": 85267,
+  "beforeExamples": 86656,
+  "plannedAddedHeads": 99,
+  "plannedAfterHeads": 85366,
+  "plannedAfterExamples": 86755,
+  "plannedRemainingHeads": 17243,
+  "authorHeldHeads": 1,
+  "deferred": [
+    {
+      "term": "too good to be true",
+      "reason": "The current primary and MIT variant only say 太玄了以致不真实, an imprecise wording which does not clearly express the favourable or attractive appearance carried by good. Under this task's strict no-source-rewrite scope, defer a pair until this wording receives a separate bounded sense review. The phrase itself is valid; this is not a permanent exclusion or a claim that no usable example could exist.",
+      "ordinal": 73,
+      "source": {
+        "id": 10438604,
+        "term": "too good to be true",
+        "partOfSpeech": "phrase",
+        "meaning": "太玄了以致不真实",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89881,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "太玄了以致不真实",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "bd5daf1af9a1460fedbcb7f088d997af8009ab78d26e8324d258decf75466fb9",
+      "existingHolds": [],
+      "pair": null,
+      "permanentExclusion": false
+    }
+  ],
+  "actualCoverageAdded": 0,
+  "examplesBuilt": false,
+  "published": false,
+  "complete": false
+}
