@@ -13,9 +13,10 @@ import { applyDictionaryPosOverlay, dictionaryPosIntegrity, DICTIONARY_POS_SOURC
   validateDictionaryPos, verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 import { applyDictionarySourceRevisions, verifyDictionarySourceRevisions } from "../lib/dictionary-source-revisions.mjs";
 import { applyDictionaryPosNotationRevisions, verifyDictionaryPosNotationRevisions } from "../lib/dictionary-pos-notation-revisions.mjs";
-import { assertHistoricalDictionaryLineage, assertExactPosNotationNamespace,
+import { assertHistoricalDictionaryLineage, assertExactPosNotationNamespace, assertExactSemanticNamespace, loadVerifiedSemanticRevision,
   readHistoricalDictionaryNamespace, readDictionaryNamespace,
-  SOURCE_LINEAGE_NOTATION_BASE_VERSION } from "../lib/dictionary-source-lineage.mjs";
+  SOURCE_LINEAGE_NOTATION_BASE_VERSION, SOURCE_LINEAGE_SEMANTIC_BASE_VERSION } from "../lib/dictionary-source-lineage.mjs";
+import { applySemanticRevisionInMemory } from "../lib/dictionary-semantic-revisions.mjs";
 import { isDeepStrictEqual } from "node:util";
 import { assertPinnedDictionarySeedIntegrity, parsePinnedDictionarySeedArchive,
   DICTIONARY_SEED_ARCHIVE_FILE } from "../lib/dictionary-seed-archive.mjs";
@@ -123,7 +124,7 @@ function originalRows(pack) {
 
 /** The caller supplies a hash-verified catalogue; authors cannot self-sign via CLI. */
 export function buildExpandedDictionary({ prepared, corePayload, publicPayload, originalPack, supplementPack = null, posPack = null,
-  sourceRevisionPack = null, posNotationRevisionPack = null }) {
+  sourceRevisionPack = null, posNotationRevisionPack = null, semanticRevisionPack = null }) {
   const seed = normalizeExpandedSeed(prepared);
   const snapshot = parsePublicSnapshot(publicPayload, { allowLegacy: false });
   const supplement = supplementPack === null ? null : validateDictionarySupplement(supplementPack);
@@ -243,6 +244,16 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     for (const context of contextsById.get(id) || []) reference(context.key,
       { id, kind: "context", term: context.term, partOfSpeech: context.partOfSpeech, meaning: context.meaning });
   }
+  const keyRows = [...references].sort(([a], [b]) => cmp(a, b)).map(([key, refs]) => [key, refs.sort((a, b) => a.id - b.id || cmp(a.kind, b.kind) || cmp(JSON.stringify(a), JSON.stringify(b)))]);
+  let semanticRevisionReport = null;
+  if (semanticRevisionPack !== null) {
+    // The full source and final English references, not a version string alone,
+    // are bound by this separate finite capability. It is consumed exactly once.
+    const revised = applySemanticRevisionInMemory({ dictionaryVersion: SOURCE_LINEAGE_SEMANTIC_BASE_VERSION, records, englishKeys: keyRows }, semanticRevisionPack);
+    records = revised.records;
+    semanticRevisionReport = revised.report;
+    sources["semantic-editorial"] = { ...semanticRevisionPack.source, sha256: semanticRevisionPack.candidateSha256 };
+  }
   const chinese = new Map();
   for (const record of records) {
     const tokens = new Set([record, ...(record.variants || [])].flatMap(variant => expandedChineseTokens(variant.meaning)));
@@ -250,7 +261,6 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
       const ids = chinese.get(token) || []; ids.push(record.id); chinese.set(token, ids);
     }
   }
-  const keyRows = [...references].sort(([a], [b]) => cmp(a, b)).map(([key, refs]) => [key, refs.sort((a, b) => a.id - b.id || cmp(a.kind, b.kind) || cmp(JSON.stringify(a), JSON.stringify(b)))]);
   const tokenRows = [...chinese].sort(([a], [b]) => cmp(a, b));
   const counts = { records: records.length, englishKeys: keyRows.length, chineseTokens: tokenRows.length };
   const version = expandedSha256(JSON.stringify({ records, keyRows, tokenRows, sources, counts }));
@@ -285,11 +295,19 @@ export function buildExpandedDictionary({ prepared, corePayload, publicPayload, 
     ...(posReview ? { posReview: { ...posReport, integrity: dictionaryPosIntegrity(posReview),
       missingBefore: posMissingBefore, missingAfter: records.filter(record => !record.partOfSpeech.trim()).length,
       ...(sourceRevisionReport ? { subsequentlyRevised: sourceRevisionReport.supersededPosReviewed,
-        finalPosReviewed: records.filter(record => record.source === "pos-reviewed").length } : {}) } } : {}),
+        subsequentlyRevisedScope: "Historical grammar-stage count only; not the sum of all later stages",
+        supersededPosReviewedByStage: [
+          { id: sourceRevisionPack.pack.id, count: sourceRevisionReport.supersededPosReviewed },
+          ...(posNotationRevisionReport ? [{ id: posNotationRevisionPack.pack.id, count: posNotationRevisionPack.pack.entries.filter(entry => entry.before.source === "pos-reviewed").length }] : []),
+          ...(semanticRevisionReport ? [{ id: semanticRevisionPack.authorityId, count: semanticRevisionPack.entries.filter(entry => entry.before.source === "pos-reviewed").length }] : [])
+        ],
+        finalPosReviewed: records.filter(record => record.source === "pos-reviewed").length,
+        finalPosReviewedScope: "Actual final primary-source count, not new POS approval" } : {}) } } : {}),
     ...(sourceRevisionReport ? { sourceRevisions: sourceRevisionReport } : {}),
     ...(posNotationRevisionReport ? { posNotationRevisions: posNotationRevisionReport } : {}),
+    ...(semanticRevisionReport ? { semanticRevisions: semanticRevisionReport } : {}),
     ...(supplement ? { supplementRows: supplement.entries.length, supplementIntegrity: dictionarySupplementIntegrity(supplement) } : {}),
-    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}${sourceRevisionReport ? "; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance" : ""}${posNotationRevisionReport ? "; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history" : ""}; no publisher dictionary text.` };
+    commercialDefinitionsUsed: false, sourcePolicy: `Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants${supplement ? "; supplemental editorial paraphrases have a separate non-MIT source and public references" : ""}${posReview ? "; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses" : ""}${sourceRevisionReport ? "; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance" : ""}${posNotationRevisionReport ? "; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history" : ""}${semanticRevisionReport ? "; five exact selected Chinese meanings are separately reviewed project editorial text; unresolved legacy technical tuples remain archived, not active Chinese search evidence" : ""}; no publisher dictionary text.` };
   return { manifest, files, report, records, seed };
 }
 
@@ -467,7 +485,7 @@ export async function recoverPinnedExpandedSeedArchive({ root = ROOT, integrity 
   const manifest = parsePinnedDictionarySeedArchive(await readFile(resolve(root, DICTIONARY_SEED_ARCHIVE_FILE)));
   return recoverExpandedSeedFromManifest(resolve(root, "vocab/data/expanded-dictionary"), integrity, manifest);
 }
-export async function generateExpandedDictionary({ root = ROOT, preparedPath, check = false } = {}) {
+export async function generateExpandedDictionary({ root = ROOT, preparedPath, check = false, preview = false } = {}) {
   const directory = resolve(root, "vocab/data/expanded-dictionary");
   const integrityPath = resolve(root, "tooling/dictionary/expanded-source-integrity.json");
   let integrity;
@@ -507,17 +525,25 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     JSON.parse(notationIntegrityBytes), JSON.parse(notationReviewBytes));
   const referencesHTML = renderDictionarySupplementReferences(supplementPack);
   const referencesPath = resolve(root, "vocab/dictionary-references.html");
-  const build = buildExpandedDictionary({ prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes),
-    originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack, posNotationRevisionPack });
+  const baseInputs = { prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes),
+    originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack, posNotationRevisionPack };
+  const preSemantic = buildExpandedDictionary(baseInputs);
+  validateExpandedBuild(preSemantic);
+  const semanticBase = await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_SEMANTIC_BASE_VERSION, { root });
+  if (JSON.stringify(preSemantic.manifest) !== JSON.stringify(semanticBase.manifest)) throw new Error("The complete pre-semantic build must reproduce the byte-pinned 5c82 source; a matching count/version claim is insufficient.");
+  const build = buildExpandedDictionary({ ...baseInputs, semanticRevisionPack: await loadVerifiedSemanticRevision({ root }) });
   const verification = validateExpandedBuild(build);
   // Authenticate the proposed output as well as the old active state. A changed
   // core/public/editorial input cannot ride along with these three corrections.
   const baseline = await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_NOTATION_BASE_VERSION, { root });
-  const candidate = { manifest: build.manifest, records: new Map(build.records.map(record => [record.term, record])),
-    keys: new Map(build.manifest.english.shards.flatMap(descriptor => JSON.parse(build.files.get(descriptor.file)).keys)),
-    tokens: new Map(build.manifest.chinese.shards.flatMap(descriptor => JSON.parse(build.files.get(descriptor.file)).postings)) };
-  const sourceTransition = assertExactPosNotationNamespace(baseline, candidate, posNotationRevisionPack);
+  const namespace = item => ({ manifest: item.manifest, records: new Map(item.records.map(record => [record.term, record])),
+    keys: new Map(item.manifest.english.shards.flatMap(descriptor => JSON.parse(item.files.get(descriptor.file)).keys)),
+    tokens: new Map(item.manifest.chinese.shards.flatMap(descriptor => JSON.parse(item.files.get(descriptor.file)).postings)) });
+  const candidate = namespace(build);
+  const notationTransition = assertExactPosNotationNamespace(baseline, namespace(preSemantic), posNotationRevisionPack);
+  const sourceTransition = assertExactSemanticNamespace(semanticBase, candidate, await loadVerifiedSemanticRevision({ root }));
   const manifestBytes = json(build.manifest);
+  if (preview) return { kind: "in-memory-only-preview-not-written-or-admitted", build, verification, sourceTransition, predecessorNotationTransition: notationTransition };
   if (check) {
     if (await readFile(resolve(directory, "manifest.json"), "utf8") !== manifestBytes) throw new Error("Expanded manifest is stale.");
     if (await readFile(resolve(directory, "ECDICT-LICENSE.txt"), "utf8") !== license) throw new Error("Expanded MIT license notice is missing or changed.");
@@ -541,7 +567,7 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     await writeFile(referencesPath, referencesHTML);
     await writeFile(resolve(directory, "source-audit.json"), `${JSON.stringify({ ...build.report, integrity, verification }, null, 2)}\n`);
   }
-  return { ...build.report, verification, sourceTransition };
+  return { ...build.report, verification, sourceTransition, predecessorNotationTransition: notationTransition };
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const input = process.argv.find(argument => argument.startsWith("--prepared="))?.slice("--prepared=".length);

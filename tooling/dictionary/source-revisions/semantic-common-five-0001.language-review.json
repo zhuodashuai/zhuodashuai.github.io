@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "stage": "future-exact-five-candidate-source-and-whole-pair-independent-language-review-not-implementation-or-reentry",
+  "authorPrincipal": "root",
+  "reviewerPrincipal": "c",
+  "complete": true,
+  "createdAt": "2026-10-22T20:01:39Z",
+  "input": {
+    "file": "drafts/semantic-common-five-0001-v2.json",
+    "bytes": 24860,
+    "sha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
+  },
+  "mechanicalProof": {
+    "file": "qa/c-semantic-common-five-v2-mechanical.json",
+    "bytes": 112632,
+    "sha256": "d131e7deb9936e4ce2ac4f96c13e4a1929c00b606f8d4050ff7d871760f5b578",
+    "recordingScript": {
+      "file": "qa/c-semantic-common-five-v2-check.mjs",
+      "sha256": "886b6b43f7d2154b44c120ec4b99f32cd0b824cc07f8fb5374c7d12c27c9f861"
+    },
+    "automatedLanguageApproval": false,
+    "initialDevelopmentFailures": [
+      "First independent mechanical reader incorrectly assumed a canonical row was stored only once; canonical rows legitimately repeat in English form-reference shards. The reader was corrected to require deep equality for each repeated canonical term, not to ignore conflicting rows. No output was saved by that failed invocation.",
+      "Second reader incorrectly assumed examples were entry.examples; the actual schema has entry.senses[].examples. The reader was corrected to traverse the actual structure. No output was saved by that failed invocation. The third invocation passed the complete checks and saved the append-only mechanical proof."
+    ]
+  },
+  "actualReading": {
+    "completeDraftRanges": ["1-160", "159-318", "319-488", "489-end"],
+    "independentlyRebuiltWholeSourceAndPairRanges": ["mechanical entries affordable and discretionary, including all raw primary branches and exact old holds", "mechanical entries download, competitiveness and revitalization, including all raw primary branches and exact old holds"],
+    "fullBeforeSources": 5,
+    "fullAfterCandidates": 5,
+    "completeFiveCellPairs": 5,
+    "actualOriginalWordNetRawBranches": 6,
+    "actualOriginalHistoricalHolds": 9,
+    "v1OpinionReadForDeltaOnly": true,
+    "inheritedAuthorOrReviewerSelfreadSubstitutedForThisReading": false
+  },
+  "currentBaselineObserved": {
+    "dictionaryVersion": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+    "examplesVersion": "4506265fab099d7b70a59bb3667ab8276c083f14c66f4d149cacf73c5c7e8f92",
+    "canonicalHeads": 102609,
+    "exampleHeads": 85262,
+    "examplePairs": 86651,
+    "rawSourceShardsRehashed": 256,
+    "rawExampleShardsRehashed": 256,
+    "exactNewEnglishSentenceCollisions": 0,
+    "noSemanticPlagiarismClaim": true
+  },
+  "primaryEvidenceActuallyRead": {
+    "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-supplement-2026-10-19/work/wn3.1.dict.tar.gz",
+    "bytes": 16358468,
+    "sha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a",
+    "publisher": "Princeton WordNet 3.1",
+    "officialUrl": "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz",
+    "method": "C independently decoded the pinned original archive, parsed all four data files, selected all exact-case headword lemmas and personally read all six full raw branches, including the second discretionary sense.",
+    "cambridgePagesOrIndexedBodiesVisitedByCThisReview": false,
+    "otherPrincipalsCambridgeVisitsNotClaimedAsMyOwn": true
+  },
+  "entries": [
+    {
+      "term": "affordable",
+      "beforeSha256": "2377ee764319279714c7c51853de8dc0e40b61dadbfea9587050af2c959e1819",
+      "afterCandidateSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+      "pairSha256": "0dabb458079236d524059866894c788f7da238251ace04cfc2c73ea7900db540",
+      "wholeFiveCellPair": ["affordable", "adjective", "负担得起的；价格在经济承受范围内的", "The rent was affordable, but the flat was far from my workplace.", "房租我负担得起，但那套公寓离我的工作地点很远。"],
+      "decision": "conditionally-support-exact-future-whole-source-and-pair",
+      "reason": "WordNet00938372 is the adjective for being within financial means. The independently written Chinese defines that selected financial sense precisely. The rent/commute concession is natural English; Chinese preserves both clauses, with 我 naturally anchored by my workplace. v2 now has no active unconfirmed 普及型 alternate. Its exact historical MIT tuple remains in before/quarantine, so this opinion does not assert that every possible specialized computing use is false.",
+      "preservedIdentityAndMetadata": ["id696511", "term", "adjective POS", "all forms", "all immutable seed fields", "original key set"],
+      "historicalHoldsStillUnchanged": 2,
+      "actualSourceApplied": false,
+      "exampleAdmitted": false
+    },
+    {
+      "term": "discretionary",
+      "beforeSha256": "4d7f996f7255552c5fb1b96c4c49af805c4e012fa71893388179aa32ae300a3c",
+      "afterCandidateSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+      "pairSha256": "01f3b65c78e237ca2ab8d0c8e7b1e217be95b41e1c6980218d1064eb8cd2505e",
+      "wholeFiveCellPair": ["discretionary", "adjective", "可自行酌情决定的", "The manager has discretionary authority to waive the fee in exceptional cases.", "经理有权在特殊情况下酌情免收这项费用。"],
+      "decision": "conditionally-support-exact-future-whole-source-and-pair",
+      "reason": "The selected WordNet00723263 sense concerns decisions based on one's judgement; discretionary authority to waive a fee directly instantiates it. Chinese accurately captures managerial authority, case-specific judgement and the exceptional-case qualification. C separately read WordNet02010282 for unearmarked funds and did not silently merge that different selected use. Removing only the unconfirmed active 选择的 tuple resolves the v1 whole-record display objection while its exact raw history stays recoverable.",
+      "preservedIdentityAndMetadata": ["id822339", "term", "adjective POS", "all forms", "all immutable seed fields", "original key set"],
+      "historicalHoldsStillUnchanged": 2,
+      "actualSourceApplied": false,
+      "exampleAdmitted": false
+    },
+    {
+      "term": "download",
+      "beforeSha256": "0262aed73b92af25881b672800ca3560c8671dc2881a39017e6fc1bd475b915e",
+      "afterCandidateSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+      "pairSha256": "5ee491b257713b26fef4e2a7721ea7aefe1b2c93ea229be0ff3807d18cef99c3",
+      "wholeFiveCellPair": ["download", "verb", "下载〔把文件或程序从远端计算机传到本地〕", "Download the route map before you leave the hotel.", "离开酒店前下载好路线图。"],
+      "decision": "conditionally-support-exact-future-whole-source-and-pair",
+      "reason": "WordNet02238486 establishes the verb for transferring a file/program to a receiving computer. The proposed original Chinese provides a usable network-to-local selected sense instead of reversing it to 卸载 or perpetuating the 下栽 typo. The travel-map imperative is ordinary natural usage and its Chinese translation preserves the before-leaving timing. C reviewed this exact unchanged v1/v2 after-source freshly rather than adopting E2's older opinion. The valid downloaded/downloading/downloads aliases and their seed history stay exact.",
+      "preservedIdentityAndMetadata": ["id1224057", "term", "verb POS", "downloaded/downloading/downloads forms", "all immutable seed fields", "original key set"],
+      "historicalHoldsStillUnchanged": 2,
+      "actualSourceApplied": false,
+      "exampleAdmitted": false
+    },
+    {
+      "term": "competitiveness",
+      "beforeSha256": "c48d735e5b29c3992e72501a175f6a81aa33499f320e30a7003df415669976f5",
+      "afterCandidateSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+      "pairSha256": "f9cbafa325e16ffd3777b358171dea5f165413290cf0905d8beffcbae4fc45ac",
+      "wholeFiveCellPair": ["competitiveness", "noun", "好胜心；争强好胜的倾向", "Her competitiveness turned a friendly quiz into a serious contest.", "她的好胜心让一场友好的问答活动变成了认真的较量。"],
+      "decision": "conditionally-support-exact-future-whole-source-and-pair",
+      "reason": "WordNet04844656 supports the disposition or eagerness to compete, not merely an event called competition. The selected original Chinese 好胜心/争强好胜的倾向 clearly supplies that disposition. The quiz-to-serious-contest contrast is natural and faithfully translated; it does not pretend to cover every business 竞争力 use. v2 keeps the underspecified economics 竞争 tuple out of active alternatives without deleting its original record or declaring every historical economics usage wrong.",
+      "preservedIdentityAndMetadata": ["id1238295", "term", "noun POS", "all forms", "all immutable seed fields", "original key set"],
+      "historicalHoldsStillUnchanged": 2,
+      "actualSourceApplied": false,
+      "exampleAdmitted": false
+    },
+    {
+      "term": "revitalization",
+      "beforeSha256": "509826c5f4a91bbc117e0be6988f87ecb121787bedc20f05d0543a7fbda7d123",
+      "afterCandidateSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+      "pairSha256": "b025c38f09ce03a27bc7b18e76f75bfe5521a4212831243329ad7f6bf0517143",
+      "wholeFiveCellPair": ["revitalization", "noun", "复兴；重振〔重新恢复活跃和重要地位〕", "New workshops and late-opening cafés contributed to the revitalization of the old harbour.", "新开设的工坊和营业至深夜的咖啡馆促进了老港区的复兴。"],
+      "decision": "conditionally-support-exact-future-whole-source-and-pair",
+      "reason": "WordNet01049262 establishes renewed activity/prominence, including commercial/cultural revival. The explicit selected Chinese 复兴/重振 and old-harbour regeneration context match it; new workshops and cafés open late coherently contribute to that revival. The Chinese preserves the contributing factors and revitalization result. The former medical-labelled tuple is now quarantined, not asserted to be a fully confirmed medical sense and not irrecoverably deleted. This is a specific ordinary revival selection, not a medical definition or claim that all senses have been covered.",
+      "preservedIdentityAndMetadata": ["id1322858", "term", "noun POS", "all forms", "all immutable seed fields", "original key set"],
+      "historicalHoldsStillUnchanged": 1,
+      "actualSourceApplied": false,
+      "exampleAdmitted": false
+    }
+  ],
+  "scopeConclusions": {
+    "exactCandidateWholeSourcesConditionallySupported": 5,
+    "exactWholePairsConditionallySupported": 5,
+    "newLanguageHolds": 0,
+    "historicalHoldsPreserved": 9,
+    "changedFieldsPerTargetOnly": ["meaning", "source", "variants"],
+    "seedFormsIdsPosAndUnlistedKeysUnchanged": true,
+    "fourExactTechnicalTuplesQuarantinedNotDeclaredUniversallyFalse": true,
+    "oneExactDownloadTupleRetiredWithFullHistoryRetained": true,
+    "oldV1OpinionsRewrittenOrUpgraded": false,
+    "sourceApplied": 0,
+    "admissionAdded": 0,
+    "coverageAdded": 0,
+    "published": false
+  },
+  "requiredFutureConditions": [
+    "A new separately reviewed finite semantic source contract is required. Existing finite grammar/POS-only modules must not be broadened silently to arbitrary lexical rewrites.",
+    "Bind these exact five before/after/pair hashes, preserve every other source record/reference, retain raw seed/source history, and regenerate only the selected affected Chinese postings with explicit conservation tests.",
+    "Create and publish the honest project-editorial source notice and its licence/evidence explanation; the proposed notice does not exist yet.",
+    "After actual source materialization, a different-principal exact disk-source-bound historical-hold reentry opinion is still required before examples can be admitted.",
+    "Deterministic admission, generated examples, full tests and real two-origin release verification remain separate later gates. No current D23 data or PR42 content is changed by this review."
+  ],
+  "privateRecordsAccessed": false,
+  "repositoryEdits": 0,
+  "networkRequests": 0,
+  "limits": [
+    "This is a fresh C language/full-candidate review of v2, not a human-certified editorial review, a code audit, a source application, formal historical reentry, or an online publication proof.",
+    "Only the five explicit selected senses and whole pairs are supported; absent senses are not automatically approved. Original technical tuples stay recoverable but are not promoted as confirmed live senses.",
+    "The mechanical English-sentence check proves normalized exact non-collision with 85262 local heads/86651 existing pairs, not uniqueness against every text ever written."
+  ]
+}

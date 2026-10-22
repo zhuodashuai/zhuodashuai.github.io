@@ -5,6 +5,8 @@ import { pathToFileURL } from "node:url";
 import { expandedBucket, expandedKey, expandedSha256, normalizeExpandedTerm } from "./build-expanded-dictionary.mjs";
 import { DICTIONARY_SOURCE_REVISION_SOURCE } from "../lib/dictionary-source-revisions.mjs";
 import { DICTIONARY_POS_NOTATION_REVISION_SOURCE } from "../lib/dictionary-pos-notation-revisions.mjs";
+import { SEMANTIC_RUNTIME_SOURCE } from "../lib/dictionary-semantic-revisions.mjs";
+import { getSemanticAuthority } from "../lib/dictionary-semantic-authorities.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const HASH = /^[a-f0-9]{64}$/u;
@@ -12,7 +14,7 @@ const ELIGIBLE = /^[a-z]+(?:[ '-][a-z]+)*$/u;
 const BUCKETS = 128;
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 64;
-const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed", "grammar-reviewed", "pos-notation-reviewed"]);
+const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed", "grammar-reviewed", "pos-notation-reviewed", "semantic-editorial"]);
 const cmp = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const json = value => `${JSON.stringify(value)}\n`;
 const invalid = message => { throw new Error(`Invalid suggestion source: ${message}`); };
@@ -44,6 +46,11 @@ function validateManifest(manifest) {
       || Object.entries(DICTIONARY_POS_NOTATION_REVISION_SOURCE).some(([key, value]) => metadata[key] !== value))) {
       invalid("POS notation revision provenance");
     }
+    if (source === "semantic-editorial" && (metadata.sha256 !== "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
+      || Object.keys(metadata).sort().join() !== "license,name,sha256,url"
+      || Object.entries(SEMANTIC_RUNTIME_SOURCE).some(([key, value]) => metadata[key] !== value))) {
+      invalid("finite semantic revision provenance");
+    }
   }
   let totalKeys = 0;
   for (const [bucket, descriptor] of manifest.english.shards.entries()) {
@@ -68,6 +75,11 @@ function validateRecord(record, sources) {
   for (const item of record.variants || []) {
     if (!item || !sources.has(item.source) || typeof item.partOfSpeech !== "string" || typeof item.meaning !== "string"
       || !/\p{Script=Han}/u.test(item.meaning)) invalid("variant provenance");
+    if (item.source === "semantic-editorial") invalid("the finite semantic source has no approved alternative tuples");
+  }
+  if (record.source === "semantic-editorial") {
+    const target = getSemanticAuthority("semantic-common-five-0001").targets.find(item => item.term === record.term);
+    if (!target || record.id !== target.id || expandedSha256(JSON.stringify(record)) !== target.afterSha256) invalid("unapproved finite semantic record");
   }
   for (const form of record.forms) {
     if (typeof form !== "string" || !form.trim() || form.length > 200 || /[\p{Cc}\p{Cf}<>]/u.test(form)) invalid("form");
@@ -121,6 +133,10 @@ export function buildDictionarySuggestions({ manifest, shards }) {
     if (referenced.size !== records.size) invalid("unreferenced record");
   }
   if (canonical.size !== manifest.counts.records || canonicalIds.size !== allRecords.size) invalid("canonical coverage");
+  if (Object.hasOwn(manifest.sources, "semantic-editorial")) {
+    const targets = getSemanticAuthority("semantic-common-five-0001").targets;
+    if (targets.some(target => canonical.get(target.term)?.source !== "semantic-editorial")) invalid("missing finite semantic source record");
+  }
   const rows = [...canonical.values()].filter(record => {
     const key = expandedKey(record.term);
     return key.length >= MIN_LENGTH && key.length <= MAX_LENGTH && ELIGIBLE.test(key);

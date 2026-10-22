@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "id": "e-semantic-editorial-runtime-descriptor-notice-draft-0001",
+  "stage": "external-draft-awaiting-distinct-principal-review-not-a-runtime-authority-or-publication",
+  "authorPrincipal": "e",
+  "sourceKey": "semantic-editorial",
+  "runtimeDescriptor": {
+    "name": "卓式词典·释义校订",
+    "license": "项目原创中文释义；Princeton WordNet 3.1 为参考证据，适用其独立许可；原 ECDICT 数据保留 MIT 许可。",
+    "url": "https://zhuodashuai.github.io/vocab/dictionary-semantic-revisions.html"
+  },
+  "descriptorContract": {
+    "requiredRuntimeFields": ["name", "license", "url"],
+    "optionalRuntimeFieldsNotUsedHere": ["commit", "sha256"],
+    "sourceKeyBelongsOutsideDescriptor": true,
+    "nameMaximumUtf16Length": 100,
+    "licenseMaximumUtf16Length": 200,
+    "urlMaximumUtf16Length": 500,
+    "httpsAndNoUrlCredentials": true,
+    "parserBroadened": false
+  },
+  "draftStatus": {
+    "noticeCreatedInActualRepository": false,
+    "noticePublished": false,
+    "descriptorInstalled": false,
+    "sourceApplied": 0,
+    "exampleAdmitted": 0,
+    "coverageAdded": 0,
+    "goalComplete": false,
+    "frozenCandidateDescriptorOrReviewChanged": false
+  },
+  "scope": {
+    "candidate": {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0023/drafts/semantic-common-five-0001-v2.json",
+      "bytes": 24860,
+      "sha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
+    },
+    "originalConditionalLanguageReview": {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0023/qa/c-semantic-common-five-v2-independent-review.json",
+      "bytes": 12849,
+      "sha256": "bb756de5fac506ca8db1fef2571aae343206bdd85e992cbf652ba980d97fdb86",
+      "notReentryOrImplementationApproval": true
+    },
+    "selectedTermsOnly": ["affordable", "discretionary", "download", "competitiveness", "revitalization"],
+    "originalWordNetArchive": {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-supplement-2026-10-19/work/wn3.1.dict.tar.gz",
+      "bytes": 16358468,
+      "sha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a",
+      "officialUrl": "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz",
+      "actualReading": "All six exact raw branches and original data.adj header licence personally read by E. The second discretionary funds branch is not automatically selected."
+    },
+    "originalEcdictCommit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+    "originalEcdictLicenceUrl": "https://raw.githubusercontent.com/skywind3000/ECDICT/bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b/LICENSE",
+    "cambridgeDirectPageVerificationClaimed": false,
+    "princetonOrEcdictEndorsementClaimed": false,
+    "newLicenceGrantForProjectContentInvented": false
+  },
+  "noticeTextFile": "e-semantic-revisions-notice-draft.html",
+  "integrationConditions": [
+    "This is a new external transport/notice proposal, not a change to the exact long descriptor inside the frozen candidate, the original conditional receipt, or the E prototype authority. Any future registered runtime descriptor and provenance hashes require a separately reviewed exact implementation binding.",
+    "The existing spelling-suggestions builder does not currently accept semantic-editorial. A future finite exact-descriptor gate must be separately reviewed; do not merely bypass it or broaden the source parser.",
+    "Before actual publication, a new notice revision must truthfully identify implemented scope and exact public revision/history links. Do not silently remove this draft status and claim an unperformed source application, historical-hold reentry or example admission.",
+    "Keep full original ECDICT records and the nine historical holds with their original licence/copyright notices. Preserve the four exact unverified technical tuples in recoverable quarantine and the specific erroneous download tuple in recoverable retired history. No universal invalidity claim.",
+    "Any distributed WordNet raw evidence retains the complete original WordNet 3.1 copyright/licence/disclaimer. Project Chinese and project examples are not relabelled as ECDICT text or as a publisher's Chinese translation."
+  ]
+}

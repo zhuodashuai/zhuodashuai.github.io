@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-exact-five-actual-materialized-source-whole-pair-historical-reentry-review-not-importer-or-publication-approval",
+  "stage": "actual-cabcf-local-disk-reentry-opinion-before-example-admission",
+  "complete": true,
+  "authorPrincipal": "root",
+  "sourceAuthorPrincipal": "root",
+  "pairAuthorPrincipal": "root",
+  "sourceGeneratorPrincipal": "root",
+  "runtimeProposalAuthorPrincipal": "e",
+  "reviewerPrincipal": "c",
+  "createdAt": "2026-10-22T21:14:51.081Z",
+  "actualDictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "actualSourceManifest": {
+    "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/expanded-dictionary/manifest.json",
+    "bytes": 55060,
+    "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+  },
+  "actualSourceLocallyInstalledObserved": true,
+  "sourcePublished": false,
+  "mechanicalObservation": {
+    "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024/qa/c-materialized-semantic-five-mechanical.json",
+    "bytes": 4162319,
+    "sha256": "3cf3b063875151f720c3770ebe1327df2dd9b952d5b5b3e62381aee4e742b574"
+  },
+  "recordingScript": {
+    "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024\\qa\\c-record-materialized-semantic-five-review.mjs",
+    "bytes": 13264,
+    "sha256": "f6b016620113a9cc5a4ec597d8407ba7f9ecde7efb1d7d5d16293d40242c0b07"
+  },
+  "rawProofCopies": [
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/semantic-common-five-0001.candidate.json",
+      "bytes": 24860,
+      "sha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/semantic-common-five-0001.language-review.json",
+      "bytes": 12849,
+      "sha256": "bb756de5fac506ca8db1fef2571aae343206bdd85e992cbf652ba980d97fdb86"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/semantic-common-five-0001.runtime-proposal.json",
+      "bytes": 4285,
+      "sha256": "e5213e9251b57909d8167bcb1041ac8a560600fef4b16857d2c90d92ea78b7f3"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/semantic-common-five-0001.runtime-review.json",
+      "bytes": 16466,
+      "sha256": "056fe3b41602c8642a0f92100ee577aab2396194d836b2124fcec8c542a243ec"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/semantic-common-five-0001.notice-draft.html",
+      "bytes": 3466,
+      "sha256": "5e462671ef106480432eb09bd07ce869090d3d9cef9aac7f946cff73b4e5dd78"
+    }
+  ],
+  "physicalSourceProof": {
+    "shardsChecked": 256,
+    "eachRawBytesAndSha256Checked": true,
+    "contentRootRecomputed": true,
+    "descriptorSetSha256": "5fd4efab32742c928332c6cc6bea504b1bfc3300470cfb4f26763e67a7314db4",
+    "completeDescriptorsBoundInMechanicalObservation": true,
+    "baselineShardsChecked": 256,
+    "baselineManifest": {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/source-revisions/baseline-5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432.manifest.json",
+      "bytes": 54705,
+      "sha256": "da424df6edf245db2da69925a1c6e5e2d0936f3458709aa0ded1dde82983a82b"
+    }
+  },
+  "conservation": {
+    "canonicalRecords": 102609,
+    "changedRecords": 5,
+    "unchangedRecords": 102604,
+    "englishKeyRows": 140858,
+    "allEnglishReferencesUnchanged": true,
+    "chineseTokens": 160083,
+    "changedChineseTokenRows": 131,
+    "addedPostingPairs": 110,
+    "removedPostingPairs": 25,
+    "onlyFiveTargetIdsChanged": true,
+    "nonTargetChinesePostingsUnchanged": true,
+    "allTargetMembershipFromFinalActiveSenses": true,
+    "oldGrammar4AndPos3Unchanged": true,
+    "idsPosFormsAndImmutableSeedPreserved": true,
+    "oldSourcesUnchangedOnlyExactSemanticDescriptorAdded": true
+  },
+  "baselineExamples": {
+    "manifest": {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/dictionary-examples/manifest-v2.json",
+      "bytes": 57577,
+      "sha256": "f363840f5fcce67f80a0949fd0567383ebf08a00873e69e3543bc2ad7411621b"
+    },
+    "version": "4506265fab099d7b70a59bb3667ab8276c083f14c66f4d149cacf73c5c7e8f92",
+    "heads": 85262,
+    "pairs": 86651,
+    "all256RawShardsChecked": true,
+    "contentRootRecomputed": true,
+    "allExistingPairsTraversed": true,
+    "newFiveHeadCollisions": 0,
+    "newFiveNormalizedEnglishSentenceCollisions": 0,
+    "normalization": "NFKC, lowercase, collapse whitespace, trim; exact production builder rule, not semantic plagiarism testing",
+    "noSemanticPlagiarismClaim": true,
+    "examplesAdmittedAtObservation": 0
+  },
+  "actualReading": {
+    "allFiveWholeBeforeAndActualSourceRecordsPersonallyRead": true,
+    "allFiveCompleteEnglishChinesePairsPersonallyRead": true,
+    "allNineOriginalHoldsWithDiscoveredPhysicalPointersPersonallyRead": true,
+    "boundedReadingRanges": [
+      "mechanical perTerm0-1 full records/pairs/holds",
+      "mechanical perTerm2-4 full records/pairs/holds"
+    ],
+    "originalWordNetSixBranchesPersonallyReread": true,
+    "priorConditionalLanguageReceiptNotSubstitutedForActualDiskReading": true,
+    "onlyExactFiveSelectedSensesReviewed": true,
+    "humanExpertCertification": false
+  },
+  "primaryEvidence": {
+    "originalArchive": {
+      "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-supplement-2026-10-19/work/wn3.1.dict.tar.gz",
+      "bytes": 16358468,
+      "sha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a"
+    },
+    "rawBranches": [
+      {
+        "member": "dict/data.adj",
+        "rawLine": "00723263 00 s 02 discretionary 0 discretional 0 003 & 00722368 a 0000 + 14019309 n 0101 + 05206024 n 0102 | having or using the ability to act or decide according to your own discretion or judgment; \"The commission has discretionary power to award extra funds\"  ",
+        "rawLineSha256": "a15dfdd02217d975f4accf6fdd986564f4b607fd2b679021f465f29c84ca0db0"
+      },
+      {
+        "member": "dict/data.adj",
+        "rawLine": "00938372 00 s 03 low-cost 0 low-priced 0 affordable 0 002 & 00937468 a 0000 + 02750326 v 0301 | that you have the financial means for; \"low-cost housing\"  ",
+        "rawLineSha256": "09db15e8753ef8af1ee18450e526c9532e3d0dd0c5c6728983bfc54b37418040"
+      },
+      {
+        "member": "dict/data.adj",
+        "rawLine": "02010282 00 s 01 discretionary 0 001 & 02009910 a 0000 | (especially of funds) not earmarked; available for use as needed; \"discretionary funds\"; \"discretionary income\"  ",
+        "rawLineSha256": "190696c8b8f876e8b97f09615958653a03b112a7f3a5ef5d170c6b001c2b9f2c"
+      },
+      {
+        "member": "dict/data.verb",
+        "rawLine": "02238486 40 v 01 download 0 002 @ 02236972 v 0000 ! 02238680 v 0101 01 + 08 00 | transfer a file or program from a central computer to a smaller computer or to a computer at a remote location  ",
+        "rawLineSha256": "e63b93ce8afae2a40869a3091c54632a038ca1327326e05d032b89b8ccfe6674"
+      },
+      {
+        "member": "dict/data.noun",
+        "rawLine": "01049262 04 n 05 revival 1 resurgence 0 revitalization 0 revitalisation 0 revivification 0 012 @ 07371988 n 0000 + 00024272 v 0509 + 00164466 v 0402 + 00164466 v 0301 + 02020960 a 0201 + 02630887 v 0201 + 00168718 v 0101 + 00169106 v 0101 ~ 01049727 n 0000 ~ 01049861 n 0000 ~ 01049983 n 0000 ~ 01050134 n 0000 | bringing again into activity and prominence; \"the revival of trade\"; \"a revival of a neglected play by Moliere\"; \"the Gothic revival in architecture\"  ",
+        "rawLineSha256": "d897d7c50a15a5c4084ee31ce7e76957f19fb383f383c288906d349223438cbe"
+      },
+      {
+        "member": "dict/data.noun",
+        "rawLine": "04844656 07 n 02 competitiveness 0 fight 0 004 @ 04844463 n 0000 + 02412468 v 0201 + 00083473 a 0101 + 00514412 a 0101 | an aggressive willingness to compete; \"the team was full of fight\"  ",
+        "rawLineSha256": "3ca6ce8b937fd788ed31b6ed0b03d275152d2a3e33a7591586de2de86ac778b7"
+      }
+    ],
+    "cambridgeDirectVisitsClaimedByC": false,
+    "networkRequests": 0
+  },
+  "perTerm": [
+    {
+      "term": "affordable",
+      "id": 696511,
+      "before": {
+        "id": 696511,
+        "term": "affordable",
+        "partOfSpeech": "adjective",
+        "meaning": "[计] 普及型",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 5441,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 普及型",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSha256": "2377ee764319279714c7c51853de8dc0e40b61dadbfea9587050af2c959e1819",
+      "actualSource": {
+        "id": 696511,
+        "term": "affordable",
+        "partOfSpeech": "adjective",
+        "meaning": "负担得起的；价格在经济承受范围内的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 5441,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "actualSourceSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+      "expectedAfterSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+      "canonicalPhysicalProof": {
+        "bucket": 63,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-063.json",
+        "sha256": "ec89cfb4059c0079fd0426b8fccc4f7efbe37b5cc146c165ea1e42d8f02521aa",
+        "bytes": 372738,
+        "count": 1154,
+        "recordPointer": "/records/126"
+      },
+      "pair": [
+        "affordable",
+        "adjective",
+        "负担得起的；价格在经济承受范围内的",
+        "The rent was affordable, but the flat was far from my workplace.",
+        "房租我负担得起，但那套公寓离我的工作地点很远。"
+      ],
+      "pairTSVSha256": "0dabb458079236d524059866894c788f7da238251ace04cfc2c73ea7900db540",
+      "priorHolds": [
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+          "fileBytes": 17056,
+          "fileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "pointer": "/deferred/0",
+          "raw": {
+            "term": "affordable",
+            "stage": "authoring",
+            "reason": "Canonical gloss only says computing 普及型. Modern affordable is about price being within one's means; using 负担得起的 would add an absent sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/affordable"
+            ]
+          },
+          "rawSemanticSha256": "5162bf2825bb45989538c3b83c2fddf3f3d64e7973b9c08b34d7d24867941510"
+        },
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+          "fileBytes": 190486,
+          "fileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "pointer": "/deferred/8",
+          "raw": {
+            "term": "affordable",
+            "reason": "Existing gloss only says computing 普及型; it does not support the evidenced financial affordability sense.",
+            "stage": "authoring"
+          },
+          "rawSemanticSha256": "def08c6787d9cac688c509e76b0728629abf6470a8e77a8f82c360646a9d1add"
+        }
+      ],
+      "quarantinedRawTuples": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 普及型",
+          "source": "mit"
+        }
+      ],
+      "retiredRawTuples": [],
+      "preservedActiveTuples": [],
+      "exampleTargetHeadAlreadyPresent": false,
+      "normalizedEnglishSentenceAlreadyPresent": false,
+      "decision": "approve-exact-actual-materialized-source-and-five-cell-pair-for-finite-historical-reentry",
+      "actualSourceAndPairApproved": true,
+      "reviewerPrincipal": "c",
+      "manualReview": {
+        "sense": "Financial affordability adjective; not the old computing 普及型 tuple.",
+        "english": "The rent/commute concession is idiomatic. It uses affordable predicatively for a price within financial means.",
+        "chinese": "房租我负担得起 preserves the financial judgement; 但…离我的工作地点很远 faithfully preserves the contrast and my workplace.",
+        "oldBlockerResolved": "Both old holds objected that the active Chinese supplied only computing 普及型. Actual cabcf now supplies the explicit financial means definition under the separate editorial source; the exact old tuple is archived/quarantined, not reasserted as an active sense or declared universally false."
+      },
+      "exactSourceAndPairReentryOnly": true,
+      "newImporterCodeApproval": false,
+      "exampleAdmitted": false,
+      "sourcePublished": false
+    },
+    {
+      "term": "discretionary",
+      "id": 822339,
+      "before": {
+        "id": 822339,
+        "term": "discretionary",
+        "partOfSpeech": "adjective",
+        "meaning": "[计] 选择的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 6424,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 选择的",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSha256": "4d7f996f7255552c5fb1b96c4c49af805c4e012fa71893388179aa32ae300a3c",
+      "actualSource": {
+        "id": 822339,
+        "term": "discretionary",
+        "partOfSpeech": "adjective",
+        "meaning": "可自行酌情决定的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 6424,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "actualSourceSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+      "expectedAfterSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+      "canonicalPhysicalProof": {
+        "bucket": 67,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-067.json",
+        "sha256": "c0046121c7d80e194fb73a310715c9510827e2e39d767e553c6048aa0ef6ab0c",
+        "bytes": 351356,
+        "count": 1105,
+        "recordPointer": "/records/156"
+      },
+      "pair": [
+        "discretionary",
+        "adjective",
+        "可自行酌情决定的",
+        "The manager has discretionary authority to waive the fee in exceptional cases.",
+        "经理有权在特殊情况下酌情免收这项费用。"
+      ],
+      "pairTSVSha256": "01f3b65c78e237ca2ab8d0c8e7b1e217be95b41e1c6980218d1064eb8cd2505e",
+      "priorHolds": [
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+          "fileBytes": 17056,
+          "fileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "pointer": "/deferred/8",
+          "raw": {
+            "term": "discretionary",
+            "stage": "authoring",
+            "reason": "Canonical computing gloss 选择的 is too vague to establish the discretionary choice/authority sense. Cambridge defines decisions left to a person's judgement; cannot confidently treat this as the same selected sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/discretionary"
+            ]
+          },
+          "rawSemanticSha256": "6f94335a47f36f20d4347d0ead9575662ece4023f07b95e86b2a24c9b5399ec5"
+        },
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+          "fileBytes": 190486,
+          "fileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "pointer": "/deferred/253",
+          "raw": {
+            "term": "discretionary",
+            "reason": "Existing gloss 选择的 does not clearly support acting at one's discretion or unearmarked funds.",
+            "stage": "authoring"
+          },
+          "rawSemanticSha256": "761d8a2c583350fc633ffa1e0cf6abaed8a10440892f5073a892373ecb609070"
+        }
+      ],
+      "quarantinedRawTuples": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 选择的",
+          "source": "mit"
+        }
+      ],
+      "retiredRawTuples": [],
+      "preservedActiveTuples": [],
+      "exampleTargetHeadAlreadyPresent": false,
+      "normalizedEnglishSentenceAlreadyPresent": false,
+      "decision": "approve-exact-actual-materialized-source-and-five-cell-pair-for-finite-historical-reentry",
+      "actualSourceAndPairApproved": true,
+      "reviewerPrincipal": "c",
+      "manualReview": {
+        "sense": "Adjective for deciding according to personal judgement; not automatic inclusion of the other funds-not-earmarked branch.",
+        "english": "Discretionary authority to waive a fee in exceptional cases is a precise natural instance of this selected judgement sense.",
+        "chinese": "经理有权…酌情免收… preserves the authority, discretionary judgement, fee and exceptional-case restriction.",
+        "oldBlockerResolved": "The vague computing 选择的 previously did not establish this sense. Actual cabcf now explicitly reads 可自行酌情决定的 and no active unconfirmed technical alternate remains; both old holds stay unchanged."
+      },
+      "exactSourceAndPairReentryOnly": true,
+      "newImporterCodeApproval": false,
+      "exampleAdmitted": false,
+      "sourcePublished": false
+    },
+    {
+      "term": "download",
+      "id": 1224057,
+      "before": {
+        "id": 1224057,
+        "term": "download",
+        "partOfSpeech": "verb",
+        "meaning": "[计] 卸载, 下栽",
+        "forms": [
+          "downloaded",
+          "downloading",
+          "downloads"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 9562,
+          "forms": [
+            "downloaded",
+            "downloading",
+            "downloads"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 卸载, 下栽",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSha256": "0262aed73b92af25881b672800ca3560c8671dc2881a39017e6fc1bd475b915e",
+      "actualSource": {
+        "id": 1224057,
+        "term": "download",
+        "partOfSpeech": "verb",
+        "meaning": "下载〔把文件或程序从远端计算机传到本地〕",
+        "forms": [
+          "downloaded",
+          "downloading",
+          "downloads"
+        ],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9562,
+          "forms": [
+            "downloaded",
+            "downloading",
+            "downloads"
+          ],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "actualSourceSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+      "expectedAfterSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+      "canonicalPhysicalProof": {
+        "bucket": 121,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-121.json",
+        "sha256": "f1431e85a84f20b3e713078029e1e463d1d2172731e7dd9e84ddd1b9678a9ab5",
+        "bytes": 342998,
+        "count": 1066,
+        "recordPointer": "/records/202"
+      },
+      "pair": [
+        "download",
+        "verb",
+        "下载〔把文件或程序从远端计算机传到本地〕",
+        "Download the route map before you leave the hotel.",
+        "离开酒店前下载好路线图。"
+      ],
+      "pairTSVSha256": "5ee491b257713b26fef4e2a7721ea7aefe1b2c93ea229be0ff3807d18cef99c3",
+      "priorHolds": [
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+          "fileBytes": 17056,
+          "fileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "pointer": "/deferred/10",
+          "raw": {
+            "term": "download",
+            "stage": "authoring",
+            "reason": "Supplied 卸载 reverses or confuses the operation, and 下栽 is a typo rather than a usable Chinese sense. A reliable example with 下载 would require an explicit source-gloss correction.",
+            "sources": []
+          },
+          "rawSemanticSha256": "32f5a9ba5fb8f43dbd1fb7ef73dafabb3ca58951c7b0cb69b60d383a62044a95"
+        },
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+          "fileBytes": 190486,
+          "fileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "pointer": "/deferred/270",
+          "raw": {
+            "term": "download",
+            "reason": "Existing gloss 卸载, 下栽 contains an incompatible unloading sense and an apparent typo; do not silently repair to 下载.",
+            "stage": "authoring"
+          },
+          "rawSemanticSha256": "b1b6896419225a95b471094c68a8328329d0f485c7ef4d160ae66b259660f647"
+        }
+      ],
+      "quarantinedRawTuples": [],
+      "retiredRawTuples": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[计] 卸载, 下栽",
+          "source": "mit"
+        }
+      ],
+      "preservedActiveTuples": [],
+      "exampleTargetHeadAlreadyPresent": false,
+      "normalizedEnglishSentenceAlreadyPresent": false,
+      "decision": "approve-exact-actual-materialized-source-and-five-cell-pair-for-finite-historical-reentry",
+      "actualSourceAndPairApproved": true,
+      "reviewerPrincipal": "c",
+      "manualReview": {
+        "sense": "Verb for transferring a file/program from a remote computer to the local receiver.",
+        "english": "The map-download imperative is ordinary, concrete usage; before you leave the hotel supplies the intended timing.",
+        "chinese": "离开酒店前下载好路线图 accurately preserves the requested action and its timing.",
+        "oldBlockerResolved": "Both old holds required a visible source-gloss correction rather than silently treating 卸载/下栽 as 下载. Actual cabcf performs that explicit separately attributed correction; all downloaded/downloading/downloads forms and immutable seed remain intact. The exact erroneous original tuple is recoverably retired."
+      },
+      "exactSourceAndPairReentryOnly": true,
+      "newImporterCodeApproval": false,
+      "exampleAdmitted": false,
+      "sourcePublished": false
+    },
+    {
+      "term": "competitiveness",
+      "id": 1238295,
+      "before": {
+        "id": 1238295,
+        "term": "competitiveness",
+        "partOfSpeech": "noun",
+        "meaning": "[经] 竞争",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 9674,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[经] 竞争",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSha256": "c48d735e5b29c3992e72501a175f6a81aa33499f320e30a7003df415669976f5",
+      "actualSource": {
+        "id": 1238295,
+        "term": "competitiveness",
+        "partOfSpeech": "noun",
+        "meaning": "好胜心；争强好胜的倾向",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9674,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "actualSourceSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+      "expectedAfterSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+      "canonicalPhysicalProof": {
+        "bucket": 23,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-023.json",
+        "sha256": "e64f8d3abce4269f5f98789f71bafce0515fc329d3fe6ff299438800d07be0e6",
+        "bytes": 359286,
+        "count": 1104,
+        "recordPointer": "/records/198"
+      },
+      "pair": [
+        "competitiveness",
+        "noun",
+        "好胜心；争强好胜的倾向",
+        "Her competitiveness turned a friendly quiz into a serious contest.",
+        "她的好胜心让一场友好的问答活动变成了认真的较量。"
+      ],
+      "pairTSVSha256": "f9cbafa325e16ffd3777b358171dea5f165413290cf0905d8beffcbae4fc45ac",
+      "priorHolds": [
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+          "fileBytes": 17056,
+          "fileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "pointer": "/deferred/6",
+          "raw": {
+            "term": "competitiveness",
+            "stage": "authoring",
+            "reason": "The only gloss 竞争 names competition; the noun normally denotes competitive ability or disposition. Adding 竞争力 would silently supply an absent sense.",
+            "sources": []
+          },
+          "rawSemanticSha256": "1d774cf9d542b4aac9a9afd8968acff95cc630d2aa1eee6ba0edae5838b37ead"
+        },
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+          "fileBytes": 190486,
+          "fileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "pointer": "/deferred/191",
+          "raw": {
+            "term": "competitiveness",
+            "reason": "Existing gloss 竞争 names competition rather than the evidenced disposition or quality of being competitive.",
+            "stage": "authoring"
+          },
+          "rawSemanticSha256": "de231b291d872027a117c39466a575f850d3a65a1e5a64eea1ae642b3c2ee304"
+        }
+      ],
+      "quarantinedRawTuples": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[经] 竞争",
+          "source": "mit"
+        }
+      ],
+      "retiredRawTuples": [],
+      "preservedActiveTuples": [],
+      "exampleTargetHeadAlreadyPresent": false,
+      "normalizedEnglishSentenceAlreadyPresent": false,
+      "decision": "approve-exact-actual-materialized-source-and-five-cell-pair-for-finite-historical-reentry",
+      "actualSourceAndPairApproved": true,
+      "reviewerPrincipal": "c",
+      "manualReview": {
+        "sense": "Noun for eagerness/disposition to compete, specifically 好胜心, not every economic competitive-ability use.",
+        "english": "Her competitiveness turning a friendly quiz into a serious contest naturally illustrates the disposition to compete.",
+        "chinese": "她的好胜心…友好的问答活动…认真的较量 faithfully preserves both the disposition and the friendly-versus-serious contrast.",
+        "oldBlockerResolved": "The former 竞争 labelled only competition rather than the selected disposition. Actual cabcf now explicitly defines 好胜心；争强好胜的倾向. This closes these two source-specific blockers for this exact pair, not all economics senses; the prior underspecified tuple remains in history."
+      },
+      "exactSourceAndPairReentryOnly": true,
+      "newImporterCodeApproval": false,
+      "exampleAdmitted": false,
+      "sourcePublished": false
+    },
+    {
+      "term": "revitalization",
+      "id": 1322858,
+      "before": {
+        "id": 1322858,
+        "term": "revitalization",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 复苏, 回生, 复新",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 10334,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 复苏, 回生, 复新",
+            "source": "mit"
+          }
+        ]
+      },
+      "beforeSha256": "509826c5f4a91bbc117e0be6988f87ecb121787bedc20f05d0543a7fbda7d123",
+      "actualSource": {
+        "id": 1322858,
+        "term": "revitalization",
+        "partOfSpeech": "noun",
+        "meaning": "复兴；重振〔重新恢复活跃和重要地位〕",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 10334,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": []
+      },
+      "actualSourceSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+      "expectedAfterSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+      "canonicalPhysicalProof": {
+        "bucket": 106,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-106.json",
+        "sha256": "da329a1838c68318db8bbe99ec6f5029e0c31baf71beef0b748a0bf330886f98",
+        "bytes": 358390,
+        "count": 1109,
+        "recordPointer": "/records/223"
+      },
+      "pair": [
+        "revitalization",
+        "noun",
+        "复兴；重振〔重新恢复活跃和重要地位〕",
+        "New workshops and late-opening cafés contributed to the revitalization of the old harbour.",
+        "新开设的工坊和营业至深夜的咖啡馆促进了老港区的复兴。"
+      ],
+      "pairTSVSha256": "b025c38f09ce03a27bc7b18e76f75bfe5521a4212831243329ad7f6bf0517143",
+      "priorHolds": [
+        {
+          "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+          "fileBytes": 190486,
+          "fileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "pointer": "/deferred/725",
+          "raw": {
+            "term": "revitalization",
+            "reason": "Medical-only source labels are insufficient to attach an ordinary urban or commercial revival example; the medical sense is not precisely confirmed.",
+            "stage": "authoring"
+          },
+          "rawSemanticSha256": "afec553f64da16ed7f88be1f8b32f25146f19e89b8211603e0a35972769b6b5c"
+        }
+      ],
+      "quarantinedRawTuples": [
+        {
+          "partOfSpeech": "",
+          "meaning": "[医] 复苏, 回生, 复新",
+          "source": "mit"
+        }
+      ],
+      "retiredRawTuples": [],
+      "preservedActiveTuples": [],
+      "exampleTargetHeadAlreadyPresent": false,
+      "normalizedEnglishSentenceAlreadyPresent": false,
+      "decision": "approve-exact-actual-materialized-source-and-five-cell-pair-for-finite-historical-reentry",
+      "actualSourceAndPairApproved": true,
+      "reviewerPrincipal": "c",
+      "manualReview": {
+        "sense": "Noun for renewed activity/prominence, selected ordinary revival sense, not a medical definition.",
+        "english": "Workshops and late-opening cafés contributing to an old harbour revival is natural, concrete revitalization usage.",
+        "chinese": "新开设的工坊和营业至深夜的咖啡馆促进了老港区的复兴 preserves both contributing activities and the renewal result.",
+        "oldBlockerResolved": "The old hold rejected attaching an urban/commercial example to an unconfirmed medical-only gloss. Actual cabcf now expressly selects ordinary 复兴/重振 and isolates the exact unresolved medical tuple without asserting that all medical uses are invalid."
+      },
+      "exactSourceAndPairReentryOnly": true,
+      "newImporterCodeApproval": false,
+      "exampleAdmitted": false,
+      "sourcePublished": false
+    }
+  ],
+  "oldHistoricalHoldCount": 9,
+  "oldHistoricalHoldFiles": [
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0011-outcome.json",
+      "bytes": 17056,
+      "sha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/queues/batch-0013-outcome.json",
+      "bytes": 190486,
+      "sha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895"
+    }
+  ],
+  "oldHoldsRewritten": false,
+  "upstreamCodeAudits": [
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024/qa/c-semantic-port-independent-audit.json",
+      "bytes": 12144,
+      "sha256": "eb1a3f00e279ab47abe2eca6c3c42b10d0ec0ee39985ec10bef4363d723e8b80"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024/qa/e2-root-integration-independent-audit.json",
+      "bytes": 17084,
+      "sha256": "de9f4f87eb0349758171443c262ce320d34575af08d9429c127af9e9c1e3eb16"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024/qa/e-composition-backend-notice-independent-audit.json",
+      "bytes": 9157,
+      "sha256": "171d97e632d746a474a77cc838c780f7f71813d1b44d8764c7ebc548d7648562"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0024/qa/e-semantic-integration-independent-final-result.json",
+      "bytes": 18483,
+      "sha256": "235958bd6f55fb7806db96e7e669fab3809a4ed4c89078f25cf09cd442ae84d7"
+    }
+  ],
+  "actualCodeBindings": [
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/scripts/build-expanded-dictionary.mjs",
+      "bytes": 43385,
+      "sha256": "8f13ccd5a93fbdbbe01efd8f0ee9da3976782a7c287edd1fd8787c3d625cd0cc"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/lib/dictionary-source-lineage.mjs",
+      "bytes": 19914,
+      "sha256": "87ce477791f6cb3ce57d645b9651f04e6f32c2b5362fa6ad54a9ed3cbc494492"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/lib/dictionary-semantic-authorities.mjs",
+      "bytes": 5373,
+      "sha256": "6dbc40870a0ad3c03e2cdb0f3edf667349dfeeceb0f32b22492d8ceedf5c08d5"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/lib/dictionary-semantic-revisions.mjs",
+      "bytes": 18528,
+      "sha256": "c94153841d16cd36601f0fc65528c0d15ad8f343f56b24b3017c01c56636aa84"
+    }
+  ],
+  "upstreamAuditLimits": "C eb1a is the actual different-principal E-port code audit. E2 de9f is Root integration code review; E171d covers Root projection/backend fixture/notice/SW. E2359 records actual27 integration tests and honestly preserves its wrapper-count error; it does not independently approve E engine. None is treated as a source-language or publication opinion.",
+  "publicAssetAndExampleInputsUnchanged": [
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/owner-wordbook.json",
+      "bytes": 3090428,
+      "sha256": "4063f5bdeccd6b21a38aa45a55eb40e91596c4800b8bc17f5955923c4be9db0e"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/book-passages.json",
+      "bytes": 427614,
+      "sha256": "3c01b7e2226fe5d98be1d6f142ca5686da1a54219b87a680859a22c674958993"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/ecdict-core.json",
+      "bytes": 1963100,
+      "sha256": "e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/member-dictionary.json",
+      "bytes": 843625,
+      "sha256": "932408e43361be26db2308062f1e6c818ef02d8dc2e1a131d49b77cb3229ef21"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/tooling/dictionary/examples/index.json",
+      "bytes": 14620,
+      "sha256": "9f6d3926d2387add0f8273c34324e55fba7f8c720f0e99b7dcc1329fbd3a6d07"
+    },
+    {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/dictionary-examples/manifest-v2.json",
+      "bytes": 57577,
+      "sha256": "f363840f5fcce67f80a0949fd0567383ebf08a00873e69e3543bc2ad7411621b"
+    }
+  ],
+  "laterSuggestionsStage": {
+    "manifest": {
+      "file": "C:/Users/14038/Documents/Codex/2026-08-27/https-github-com-zhuodashuai-zhuodashuai-github/work/member-fast-search/vocab/data/dictionary-suggestions/manifest.json",
+      "bytes": 13053,
+      "sha256": "a0345498305f0dc6a55ec79e4997fa995b943917d52cc5efd69cdd16e5b35680"
+    },
+    "dictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+    "version": "5769e2b8c1cc5c8d8d08cff1bb152b00bd96eef61da094214254d99865b5ff40",
+    "rebuiltByRootAfterEarlierSnapshot": true,
+    "oldMaterializationProtectedHashNotRewritten": true,
+    "independentAllSuggestionShardsRecheckedByThisReentry": false,
+    "notNeededToInferSourceLanguageOrExampleApproval": true
+  },
+  "observedRepo": {
+    "head": "06db7f682f05a9d72239c07221a2afca66f7e40e",
+    "tree": "9eea18e12e4fc63c81bc9a8f3bc00262745317f3",
+    "branch": "codex/dictionary-examples-0024"
+  },
+  "scope": {
+    "finiteReentryLanguageAndActualSourceOpinion": true,
+    "approvedExactSourcesAndPairs": 5,
+    "newLanguageHolds": 0,
+    "importerCodeApproval": false,
+    "sourceGeneratorExecutedByC": false,
+    "repositoryWrites": 0,
+    "exampleAdmission": 0,
+    "coverageAdded": 0,
+    "privateRecordsAccessed": false,
+    "accountOperations": 0,
+    "networkRequests": 0,
+    "productionRequests": 0,
+    "published": false,
+    "goalComplete": false
+  },
+  "limits": [
+    "Only the actual cabcf five full-source records and unchanged Root whole pairs are supported for a future finite admission. This is not an importer code audit or permission to skip deterministic input/collision/conservation gates.",
+    "All nine original hold objects and older conditional receipts remain immutable history. Their blockers are addressed by the observed new selected active sources, not by overwriting or relabelling earlier decisions.",
+    "Four exact old unverified technical tuples remain quarantined and one specific erroneous download tuple retired with raw history. This does not deny every possible technical or alternate meaning.",
+    "Actual examples still450626/85262heads/86651pairs at this observation, with zero added coverage. Publication, CI/deploy and full browser/private learning checks remain separate.",
+    "First mechanical-reader invocation omitted the newly registered exact candidate sha256 provenance field; it failed before saving evidence. The corrected reader requires that exact fourth metadata field, and its original tool failure is disclosed in the mechanical observation. No product rule was weakened."
+  ]
+}

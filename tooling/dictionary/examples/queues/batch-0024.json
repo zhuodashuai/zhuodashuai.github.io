@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0024",
+  "sourceDictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "baselineExampleVersion": "4506265fab099d7b70a59bb3667ab8276c083f14c66f4d149cacf73c5c7e8f92",
+  "queuedHeads": 5,
+  "entries": [
+    {
+      "term": "affordable",
+      "source": {
+        "id": 696511,
+        "term": "affordable",
+        "partOfSpeech": "adjective",
+        "meaning": "负担得起的；价格在经济承受范围内的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 5441,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "sourceSha256": "663fb65a43ad83128801778ed6806f57e13db80de42514b79a8e16024f6640e1",
+      "pair": [
+        "affordable",
+        "adjective",
+        "负担得起的；价格在经济承受范围内的",
+        "The rent was affordable, but the flat was far from my workplace.",
+        "房租我负担得起，但那套公寓离我的工作地点很远。"
+      ],
+      "pairSha256": "0dabb458079236d524059866894c788f7da238251ace04cfc2c73ea7900db540",
+      "sourceAuthorPrincipal": "root",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "c",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "affordable",
+            "stage": "authoring",
+            "reason": "Canonical gloss only says computing 普及型. Modern affordable is about price being within one's means; using 负担得起的 would add an absent sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/affordable"
+            ]
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "affordable",
+            "reason": "Existing gloss only says computing 普及型; it does not support the evidenced financial affordability sense.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    },
+    {
+      "term": "discretionary",
+      "source": {
+        "id": 822339,
+        "term": "discretionary",
+        "partOfSpeech": "adjective",
+        "meaning": "可自行酌情决定的",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 6424,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "sourceSha256": "d44ae48e987d3d8c8592ad00b54bbc5441fb2a86916a90c83f8e29568983844d",
+      "pair": [
+        "discretionary",
+        "adjective",
+        "可自行酌情决定的",
+        "The manager has discretionary authority to waive the fee in exceptional cases.",
+        "经理有权在特殊情况下酌情免收这项费用。"
+      ],
+      "pairSha256": "01f3b65c78e237ca2ab8d0c8e7b1e217be95b41e1c6980218d1064eb8cd2505e",
+      "sourceAuthorPrincipal": "root",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "c",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "discretionary",
+            "stage": "authoring",
+            "reason": "Canonical computing gloss 选择的 is too vague to establish the discretionary choice/authority sense. Cambridge defines decisions left to a person's judgement; cannot confidently treat this as the same selected sense.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/learner-english/discretionary"
+            ]
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "discretionary",
+            "reason": "Existing gloss 选择的 does not clearly support acting at one's discretion or unearmarked funds.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    },
+    {
+      "term": "download",
+      "source": {
+        "id": 1224057,
+        "term": "download",
+        "partOfSpeech": "verb",
+        "meaning": "下载〔把文件或程序从远端计算机传到本地〕",
+        "forms": [
+          "downloaded",
+          "downloading",
+          "downloads"
+        ],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9562,
+          "forms": [
+            "downloaded",
+            "downloading",
+            "downloads"
+          ],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "sourceSha256": "0d3c6d99cdef71e2329adc6b0559d754285b156f7d7ce6ef2668dc9e44fef2c3",
+      "pair": [
+        "download",
+        "verb",
+        "下载〔把文件或程序从远端计算机传到本地〕",
+        "Download the route map before you leave the hotel.",
+        "离开酒店前下载好路线图。"
+      ],
+      "pairSha256": "5ee491b257713b26fef4e2a7721ea7aefe1b2c93ea229be0ff3807d18cef99c3",
+      "sourceAuthorPrincipal": "root",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "c",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "download",
+            "stage": "authoring",
+            "reason": "Supplied 卸载 reverses or confuses the operation, and 下栽 is a typo rather than a usable Chinese sense. A reliable example with 下载 would require an explicit source-gloss correction.",
+            "sources": []
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "download",
+            "reason": "Existing gloss 卸载, 下栽 contains an incompatible unloading sense and an apparent typo; do not silently repair to 下载.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    },
+    {
+      "term": "competitiveness",
+      "source": {
+        "id": 1238295,
+        "term": "competitiveness",
+        "partOfSpeech": "noun",
+        "meaning": "好胜心；争强好胜的倾向",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 9674,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": []
+      },
+      "sourceSha256": "8067d83968bdcfba98c555fc18f2d3064964b760c13a0121826747ce45e63bd2",
+      "pair": [
+        "competitiveness",
+        "noun",
+        "好胜心；争强好胜的倾向",
+        "Her competitiveness turned a friendly quiz into a serious contest.",
+        "她的好胜心让一场友好的问答活动变成了认真的较量。"
+      ],
+      "pairSha256": "f9cbafa325e16ffd3777b358171dea5f165413290cf0905d8beffcbae4fc45ac",
+      "sourceAuthorPrincipal": "root",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "c",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0011-outcome.json",
+          "outcomeFileSha256": "b00de3e17cedadbfd31c9eb75b64512b51439d481cd05b12f14ba0a5bb8d5e30",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "competitiveness",
+            "stage": "authoring",
+            "reason": "The only gloss 竞争 names competition; the noun normally denotes competitive ability or disposition. Adding 竞争力 would silently supply an absent sense.",
+            "sources": []
+          }
+        },
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "competitiveness",
+            "reason": "Existing gloss 竞争 names competition rather than the evidenced disposition or quality of being competitive.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    },
+    {
+      "term": "revitalization",
+      "source": {
+        "id": 1322858,
+        "term": "revitalization",
+        "partOfSpeech": "noun",
+        "meaning": "复兴；重振〔重新恢复活跃和重要地位〕",
+        "forms": [],
+        "source": "semantic-editorial",
+        "seed": {
+          "rank": 10334,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": []
+      },
+      "sourceSha256": "84a28b7716bb7a3fa978c8e8f09f73a8bae7afebb618e16423748b8b92d7fe07",
+      "pair": [
+        "revitalization",
+        "noun",
+        "复兴；重振〔重新恢复活跃和重要地位〕",
+        "New workshops and late-opening cafés contributed to the revitalization of the old harbour.",
+        "新开设的工坊和营业至深夜的咖啡馆促进了老港区的复兴。"
+      ],
+      "pairSha256": "b025c38f09ce03a27bc7b18e76f75bfe5521a4212831243329ad7f6bf0517143",
+      "sourceAuthorPrincipal": "root",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "c",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0013-outcome.json",
+          "outcomeFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+          "trackedAtHead": true,
+          "raw": {
+            "term": "revitalization",
+            "reason": "Medical-only source labels are insufficient to attach an ordinary urban or commercial revival example; the medical sense is not precisely confirmed.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    }
+  ],
+  "oldHoldsRetained": true
+}

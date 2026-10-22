@@ -49,6 +49,17 @@ for(const descriptor of oldManifest.shards){
   for(const sense of row.senses)for(const pair of sense.examples){oldPairs++;oldEnglish.add(normalizedEnglish(pair.en));}
  }
 }
+// D23's exact corpus is historical evidence, not the mutable current pointer.
+const historicalBytes=await read('tooling/dictionary/examples/archives/baseline-'+exampleVersion+'.manifest.json');
+assert.equal(historicalBytes.length,57577);assert.equal(sha(historicalBytes),'f363840f5fcce67f80a0949fd0567383ebf08a00873e69e3543bc2ad7411621b');
+const historicalManifest=parseDictionaryExamplesManifest(JSON.parse(historicalBytes)),historicalEntries=new Map();let historicalPairs=0;
+for(const descriptor of historicalManifest.shards){
+ const bytes=await read('vocab/data/dictionary-examples/'+descriptor.file);assert.equal(bytes.length,descriptor.bytes);assert.equal(sha(bytes),descriptor.sha256);
+ for(const[term,row]of parseDictionaryExamplesShard(JSON.parse(bytes),historicalManifest,descriptor)){
+  assert(!historicalEntries.has(term));historicalEntries.set(term,row);
+  historicalPairs+=row.senses.reduce((total,sense)=>total+sense.examples.length,0);
+ }
+}
 
 test('D23 complete frozen corrected source is exactly5c82; current registered lineage is independent',async()=>{
  assert.equal(manifest.version,sourceVersion);assert.equal(manifest.english.shards.length,128);assert.equal(manifest.chinese.shards.length,128);
@@ -73,7 +84,7 @@ test('D23 source and mapped review retain the exact independently read three who
  for(const[index,row]of approved.entries()){
   const opinion=diskReceipt.perTerm[index],cells=[row.term,row.partOfSpeech,row.meaningZh,row.en,row.zh];
   assert.deepEqual(cells,opinion.pair);assert.equal(sha(cells.join('\t')),opinion.pairSha256);assert.deepEqual(namespace.records.get(row.term),opinion.actualSource);
-  const installed=currentEntries.get(row.term);assert.equal(installed.senses.length,1);const sense=installed.senses[0];
+  const installed=historicalEntries.get(row.term);assert.equal(installed.senses.length,1);const sense=installed.senses[0];
   assert.equal(sense.partOfSpeech,row.partOfSpeech);assert.equal(sense.meaningZh,row.meaningZh);assert.equal(sense.reviewer,review.reviewer);
   assert.deepEqual(sense.examples,[{en:row.en,zh:row.zh}]);
  }
@@ -93,45 +104,44 @@ test('all three original historical holds retain complete raw hashes, pointers a
  }
 });
 
-test('all old531 source-index entries remain in exact original order, followed only by the new pack',async()=>{
+test('frozen D23 index is exactly old531 plus its new pack, and remains the current index prefix',async()=>{
  assert.equal(provenance.baselineSourceFiles.length,531);assert.equal(provenance.baselineSourceFiles.at(-1),'batch-0022-p003.json');
  const oldIndexBytes=Buffer.from(JSON.stringify({schemaVersion:1,sourceFiles:provenance.baselineSourceFiles},null,2)+'\n');
  assert.equal(oldIndexBytes.length,14592);assert.equal(sha(oldIndexBytes),'69e2f317cb0c2ebb52d59ffcb5be539e835d7ec930eb0d3ad0bf402a0feea58a');
  assert.deepEqual(provenance.inputs.find(row=>row.file==='tooling/dictionary/examples/index.json'),
   {file:'tooling/dictionary/examples/index.json',bytes:14592,sha256:'69e2f317cb0c2ebb52d59ffcb5be539e835d7ec930eb0d3ad0bf402a0feea58a'});
- const index=await json('tooling/dictionary/examples/index.json');assert.equal(index.sourceFiles.length,532);
- assert.deepEqual(index.sourceFiles,[...provenance.baselineSourceFiles,'batch-0023-p001.json']);assert.equal(new Set(index.sourceFiles).size,532);
+ const historicalFiles=[...provenance.baselineSourceFiles,'batch-0023-p001.json'];assert.equal(historicalFiles.length,532);assert.equal(new Set(historicalFiles).size,532);
+ const historicalIndexBytes=Buffer.from(JSON.stringify({schemaVersion:1,sourceFiles:historicalFiles},null,2)+'\n');
+ assert.equal(historicalIndexBytes.length,14620);assert.equal(sha(historicalIndexBytes),'9f6d3926d2387add0f8273c34324e55fba7f8c720f0e99b7dcc1329fbd3a6d07');
+ const index=await json('tooling/dictionary/examples/index.json');assert(index.sourceFiles.length>=532);
+ assert.deepEqual(index.sourceFiles.slice(0,532),historicalFiles);assert.equal(new Set(index.sourceFiles).size,index.sourceFiles.length);
 });
 
 test('all85259 old heads and86648 whole bilingual pairs are unchanged and exactly three new heads exist',()=>{
  assert.equal(oldManifest.version,oldExampleVersion);assert.equal(oldManifest.shards.length,256);assert.deepEqual(oldManifest.counts,{heads:85259,examples:86648});
  assert.equal(oldEntries.size,85259);assert.equal(oldPairs,86648);
- for(const[term,row]of oldEntries)assert.deepEqual(currentEntries.get(term),row,'Changed historical whole entry '+term);
- assert.deepEqual([...currentEntries.keys()].filter(term=>!oldEntries.has(term)).sort(),[...terms].sort());
+ for(const[term,row]of oldEntries)assert.deepEqual(historicalEntries.get(term),row,'Changed historical whole entry '+term);
+ assert.deepEqual([...historicalEntries.keys()].filter(term=>!oldEntries.has(term)).sort(),[...terms].sort());
  const oldSorted=[...oldEntries.values()].sort((a,b)=>a.term<b.term?-1:a.term>b.term?1:0);
  assert.equal(sha(JSON.stringify({schemaVersion:2,bucketCount:256,entries:oldSorted})),oldExampleVersion);
  const allNewEnglish=new Set();
- for(const term of terms)for(const sense of currentEntries.get(term).senses)for(const pair of sense.examples){
+ for(const term of terms)for(const sense of historicalEntries.get(term).senses)for(const pair of sense.examples){
   const key=normalizedEnglish(pair.en);assert(!oldEnglish.has(key),'New English duplicates an earlier whole example');assert(!allNewEnglish.has(key));allNewEnglish.add(key);
  }
  assert.equal(allNewEnglish.size,3);
  const fullEnglishOwners=new Map();
- for(const[term,row]of currentEntries)for(const sense of row.senses)for(const pair of sense.examples){
+ for(const[term,row]of historicalEntries)for(const sense of row.senses)for(const pair of sense.examples){
   const key=normalizedEnglish(pair.en),owner=fullEnglishOwners.get(key);
   assert(owner===undefined||owner===term,'Normalized English is reused across different headwords');fullEnglishOwners.set(key,term);
  }
 });
 
-test('actual new build independently proves85262heads86651pairs while original prebuild facts stay0coverage',async()=>{
- assert.equal(build.manifest.version,exampleVersion);
- assert.deepEqual(build.manifest.counts,{heads:85262,examples:86651});assert.equal(102609-build.manifest.counts.heads,17347);
- assert.equal(build.manifest.shards.length,256);const bytes=await read('vocab/data/dictionary-examples/manifest-v2.json');assert.deepEqual(bytes,build.files.get('manifest-v2.json'));
- assert.equal(sha(bytes),'f363840f5fcce67f80a0949fd0567383ebf08a00873e69e3543bc2ad7411621b');
- const actual=parseDictionaryExamplesManifest(JSON.parse(bytes));assert.equal(actual.version,build.manifest.version);
- let heads=0,pairs=0;
- for(const descriptor of actual.shards){const content=await read('vocab/data/dictionary-examples/'+descriptor.file);assert.equal(content.length,descriptor.bytes);assert.equal(sha(content),descriptor.sha256);assert.deepEqual(content,build.files.get(descriptor.file));
-  for(const[term,row]of parseDictionaryExamplesShard(JSON.parse(content),actual,descriptor)){heads++;pairs+=row.senses.reduce((total,sense)=>total+sense.examples.length,0);assert.deepEqual(row,currentEntries.get(term));}}
- assert.equal(heads,85262);assert.equal(pairs,86651);
+test('frozen D23 build proves85262heads86651pairs while original prebuild facts stay0coverage',()=>{
+ assert.equal(historicalManifest.version,exampleVersion);assert.equal(historicalManifest.shards.length,256);
+ assert.deepEqual(historicalManifest.counts,{heads:85262,examples:86651});assert.equal(102609-historicalManifest.counts.heads,17347);
+ assert.equal(historicalEntries.size,85262);assert.equal(historicalPairs,86651);
+ const entries=[...historicalEntries.values()].sort((a,b)=>a.term<b.term?-1:a.term>b.term?1:0);
+ assert.equal(sha(JSON.stringify({schemaVersion:2,bucketCount:256,entries})),exampleVersion);
  assert.equal(outcome.beforeHeads,85259);assert.equal(outcome.beforeExamples,86648);assert.equal(outcome.plannedAfterHeads,85262);
  assert.equal(outcome.plannedAfterExamples,86651);assert.equal(outcome.plannedRemainingHeads,17347);assert.deepEqual(outcome.deferred,[]);
  assert.equal(outcome.actualCoverageAdded,0);assert.equal(provenance.coverageAdded,0);assert.equal(provenance.newLanguageDecisions,0);
@@ -139,4 +149,14 @@ test('actual new build independently proves85262heads86651pairs while original p
  assert.equal(outcome.published,false);assert.equal(provenance.published,false);assert.equal(diskReceipt.scope.exampleAdmission,0);
  assert.equal(provenance.stage,'three-exact-reviewed-example-sources-admitted-not-built-not-published');
  assert.equal(outcome.stage,provenance.stage);
+});
+
+test('every frozen D23 whole entry survives and the actual current build/shards are verified separately',async()=>{
+ for(const[term,row]of historicalEntries)assert.deepEqual(currentEntries.get(term),row,'Changed historical D23 whole entry '+term);
+ const bytes=await read('vocab/data/dictionary-examples/manifest-v2.json');assert.deepEqual(bytes,build.files.get('manifest-v2.json'));
+ const actual=parseDictionaryExamplesManifest(JSON.parse(bytes));assert.equal(actual.version,build.manifest.version);assert.equal(actual.shards.length,256);
+ let heads=0,pairs=0;
+ for(const descriptor of actual.shards){const content=await read('vocab/data/dictionary-examples/'+descriptor.file);assert.equal(content.length,descriptor.bytes);assert.equal(sha(content),descriptor.sha256);assert.deepEqual(content,build.files.get(descriptor.file));
+  for(const[term,row]of parseDictionaryExamplesShard(JSON.parse(content),actual,descriptor)){heads++;pairs+=row.senses.reduce((total,sense)=>total+sense.examples.length,0);assert.deepEqual(row,currentEntries.get(term));}}
+ assert.deepEqual(actual.counts,{heads,examples:pairs});assert(heads>=85262);assert(pairs>=86651);
 });

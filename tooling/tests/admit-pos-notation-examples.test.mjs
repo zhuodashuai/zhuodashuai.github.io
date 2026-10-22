@@ -10,7 +10,9 @@ const json=async file=>JSON.parse(await readFile(new URL(file,directory)));
 const pack=await json('finite-pos-notation-0001.json'),integrity=await json('finite-pos-notation-0001.integrity.json'),
  review=await json('finite-pos-notation-0001.review.json');
 const admissionBytes=await readFile(new URL('finite-pos-notation-0001.admission-review.json',directory));
-const sourceManifestBytes=await readFile(new URL('../../vocab/data/expanded-dictionary/manifest.json',import.meta.url));
+// This frozen admission opinion belongs to its raw-pinned historical5c82
+// source, not whichever later dictionary the mutable active pointer serves.
+const sourceManifestBytes=await readFile(new URL('baseline-5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432.manifest.json',directory));
 const clone=value=>structuredClone(value),sha=value=>createHash('sha256').update(value).digest('hex');
 const reject=fn=>assert.throws(fn,/Invalid dictionary POS notation revision:|POS3 admission not ready:/u);
 function freeze(value){if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;}
@@ -89,6 +91,7 @@ test('forged or copied plans are refused before filesystem reads or writes',asyn
 });
 
 test('real raw-pinned disk review binds actual 5c82 manifest and only finite language reentry',()=>{
+ assert.equal(sha(sourceManifestBytes),'da424df6edf245db2da69925a1c6e5e2d0936f3458709aa0ded1dde82983a82b');
  const receipt=verifyPosNotationAdmissionReceipt(admissionBytes,sourceManifestBytes,pack,integrity,review);
  assert.equal(sha(admissionBytes),'7b5b3cb13e10be6d1e9989bc0585e838a860a16ff479d71cb54dc9b12b4f11b1');
  assert.equal(receipt.actualSourceManifest.sha256,sha(sourceManifestBytes));assert.equal(receipt.actualSourceManifest.bytes,sourceManifestBytes.length);
