@@ -1,0 +1,945 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0021",
+  "queuedHeads": 909,
+  "authoredHeads": 767,
+  "approvedHeads": 755,
+  "authorHeldHeads": 142,
+  "reviewHeldHeads": 12,
+  "beforeHeads": 84426,
+  "beforeExamples": 85815,
+  "afterHeads": 85181,
+  "afterExamples": 86570,
+  "canonicalHeads": 102609,
+  "remainingHeads": 17428,
+  "complete": false,
+  "baselineExampleVersion": "3c60c619f24b4783809424ff57e3cb88d86311b62ef174c40ebb6d4866fb53f1",
+  "examplesVersion": "aad44cb969693e134e9b09821a694c69c84d12f124eed69dfa9902971306c1f0",
+  "deferred": [
+    {
+      "term": "antitulase",
+      "reason": "The frozen gloss specifies an immune serum against tubercle-bacillus wax. The finite original Stedman retrieval exposed running headers and a continuation about animals receiving tulase, but not a complete uncorrupted exact-head definition tying the wax target to that serum. The specific historical immune material must be reconciled before supplying a definite English substance identity; header hits are not counted as verification.",
+      "stage": "authoring",
+      "sourceSha256": "d02ce047696200d07ebea1e6a58570e06daa1b9bb151250f4c9d60464bae8dc2"
+    },
+    {
+      "term": "antitumorigenesis",
+      "reason": "The sole source-supported role is adjective, whereas the -genesis head naturally denotes a process or prevention of a process and the Chinese is the bare event phrase 抗肿瘤发生. I cannot silently relabel it noun, substitute antitumorigenic, or use a noun adjunct merely to bypass the frozen adjective requirement; this exact role needs finite lexical reconciliation.",
+      "stage": "authoring",
+      "sourceSha256": "feeef03145cf81d77b69acb25c28cf2880aeaef1b2ea39cc4cdb8107733eb225"
+    },
+    {
+      "term": "antiveneral",
+      "reason": "The frozen head lacks the second e in the familiar antivenereal spelling. The Chinese 抗性病的 alone does not establish that this exact shortened spelling is an attested medical adjective. I will not repair the canonical term or pretend an example containing antivenereal covers antiveneral.",
+      "stage": "authoring",
+      "sourceSha256": "e8f59b1c92b43ee3ed95814db84734417daf5c7c54e735cc3fbd6d47d536522c"
+    },
+    {
+      "term": "antivirubin",
+      "reason": "抗病毒红素 names a particular historical red material, not a licence to invent the producer, pigment structure, antiviral activity or equivalence with another similarly named antibiotic. The finite original transcription had no exact identity passage. The named material's exact original identity remains unresolved; a broad antiviral-compound sentence would hide that gap.",
+      "stage": "authoring",
+      "sourceSha256": "9c735672ada463c1e25214a8fee61c7d0539aacf5ba2ae6bded7358d037f6b46"
+    },
+    {
+      "term": "antivirulin",
+      "reason": "The frozen Chinese narrows the substance to an anti-rabies-virus material, but the spelling could also be read as a historical factor against virulence more generally. The bounded original search did not identify the exact preparation or close that target distinction. Do not silently turn it into antivenom, a generic antiviral, or an asserted modern rabies treatment.",
+      "stage": "authoring",
+      "sourceSha256": "093299ff6aab3d2853207ea5ccc71fbfb24b5a8578988b6b38ee55e1773d1c2f"
+    },
+    {
+      "term": "antivirus",
+      "reason": "This exact source contains only medical 抗病毒素 and 细菌滤液 branches, not the familiar computer-security program. A historical bacterial filtrate and an agent against viruses must not be conflated simply because the modern head is familiar. The specific old medical entity and its source sense require reconciliation before an original example can safely select it; no software example is used as false coverage.",
+      "stage": "authoring",
+      "sourceSha256": "a009c990ce2ad9ae402c8a90f3a1b07740c4e2e5d95baf8b992fd56b588535d9"
+    },
+    {
+      "term": "antixenic",
+      "reason": "The medical gloss 异物反应的 does not itself settle whether the adjective describes a foreign-body reaction, opposition to a foreign agent, or a distinct host-selection/antixenosis usage. The original bounded search found no exact entry to resolve the relation. I will not infer an insect or plant-resistance mechanism from a differently scoped medical gloss.",
+      "stage": "authoring",
+      "sourceSha256": "d79eabbe31784c154635bd74aee5333ce3c86a01b06572d1a611e1c3774c71fa"
+    },
+    {
+      "term": "antizymohexase",
+      "reason": "The sole noun role and gloss 抗醛缩酶 do not distinguish an anti-aldolase antibody from a non-antibody enzyme inhibitor or another old antienzyme substance. No exact original material was recovered in the finite search. Naming one molecular category would add an unclosed identity rather than merely illustrating the frozen head.",
+      "stage": "authoring",
+      "sourceSha256": "3f94efc59783d3514fc4db5b1532dcb4756a4df9665d0dc8cfa3a979bc0911f3"
+    },
+    {
+      "term": "antopxidation",
+      "reason": "The sequence -opx- is inconsistent with the familiar antioxidation spelling, while the Chinese simply gives 抗氧化作用/氧化抑制作用. An exact historical spelling attestation is needed; an example of antioxidation cannot silently repair and cover the different frozen head antopxidation.",
+      "stage": "authoring",
+      "sourceSha256": "a1b6e63a74c80f7f30a690c535632284d15aed780e61187bc1314842abbc8764"
+    },
+    {
+      "term": "antozone",
+      "reason": "The source presents 单原子氧 as an unqualified chemical identity, whereas antozone is associated with historical and disputed oxygen-species naming. I cannot present it as a current settled synonym for atomic oxygen, or choose a different historical substance without an exact original passage. The unresolved identity needs a finite, explicitly historical source decision.",
+      "stage": "authoring",
+      "sourceSha256": "ed827cef3f680f6ba36f192eb9839a6c6c4e15baed7031293205d40016934b26"
+    },
+    {
+      "term": "antrophose",
+      "reason": "The gloss 中枢性光幻觉 does not close the unusual exact head spelling or identify its relationship to better-known photopsia/phosphene terminology. The finite original transcription had no exact entry. Substituting a familiar visual phenomenon or guessing an anatomical mechanism would change the source rather than supply a verified selected sense.",
+      "stage": "authoring",
+      "sourceSha256": "001d9d6037199a1145c8f4d11323e6f45316840db44830fa0a20d5151eb4c05f"
+    },
+    {
+      "term": "anysin",
+      "reason": "The gloss 鱼石脂 names an historically variable preparation rather than a unique simple molecule, and this exact head's status as a synonym, trade name or distinct preparation remains unclosed. The bounded original search supplied no exact identity. I will not invent a formula, brand provenance or preparation-specific action from the bare Chinese label.",
+      "stage": "authoring",
+      "sourceSha256": "e75c043f894ddb5fae8d36f354a8e49ec7cac0200de9b78483751ec9abcdf036"
+    },
+    {
+      "term": "aobilirubin",
+      "reason": "The expected azo- relation in 偶氮胆红素 conflicts with the frozen ao- spelling. I cannot silently substitute azobilirubin or claim that a sentence using the latter verifies this exact head. Exact spelling and chemical identity need separate source reconciliation.",
+      "stage": "authoring",
+      "sourceSha256": "5e990ff1332cbdc1c9eccb78cd56dc2e707d0bc3ef86ddc14164c99050ad9ee9"
+    },
+    {
+      "term": "aoetic",
+      "reason": "The cognition/intellect gloss resembles the noetic family, but the exact frozen aoetic spelling is not established by that resemblance. The original bounded search supplied no exact head passage. A noetic example would repair spelling by inference and is not admitted as coverage for aoetic.",
+      "stage": "authoring",
+      "sourceSha256": "912a1ffbee14c6edee19c00e488d5a0f459b4c37ac831a0b8b92b62fc82a4205"
+    },
+    {
+      "term": "aortism",
+      "reason": "The source says 主动脉病体质, while the actual original Stedman head cross-refers to Hodgson's disease. That specific old disease cross-reference does not by itself establish a general aortic-disease constitution or predisposition. The exact historical sense must be followed through before writing a sentence that implies a general constitutional diagnosis; it must not be confused with Hodgkin's disease.",
+      "stage": "authoring",
+      "sourceSha256": "cd6f0bf880bc434390690c84b6abe19f59a163866391fd4e4ad93604da108984"
+    },
+    {
+      "term": "aosmic",
+      "reason": "The frozen gloss means lacking an odour, which must be distinguished from anosmic meaning unable to smell. The normalized original candidate was actually the separate Latin acid abbreviation a. osmicum, not this head. Exact spelling and the object-property versus sensory-ability distinction remain unresolved, so that false positive is not used to approve an adjective example.",
+      "stage": "authoring",
+      "sourceSha256": "d85af4582439e6f295329b3c3cc206c9b552afbee66d4093ac0e9f29905431ab"
+    },
+    {
+      "term": "AOSP",
+      "reason": "The frozen source specifically denotes an automatic operating and scheduling program, not the familiar Android Open Source Project. No original documentation for the exact legacy expansion was established in this finite authoring pass. A modern Android example would teach the wrong published sense, while inventing a legacy program's features would add unsupported identity.",
+      "stage": "authoring",
+      "sourceSha256": "941b07e017abdce21a5af7069d9ca3225791664cbb89c95491293fc3c3d40b2e"
+    },
+    {
+      "term": "aotemia",
+      "reason": "The frozen head lacks the z in the familiar azotemia family while retaining the Chinese 氮血症. An exact attested variant is not established merely by that gloss. I will not silently correct the head or use azotemia in the example as if it covered aotemia.",
+      "stage": "authoring",
+      "sourceSha256": "0b73dd22b170cb171e8d695525304d30033c1cdf1d6fb8b9623154c0e181171e"
+    },
+    {
+      "term": "aotenesis",
+      "reason": "The Chinese 氮质过多症 suggests a nitrogen-related azot- family, but the frozen aotenesis spelling has not been reconciled to an exact original term. A sentence about a different azot- head would be an undocumented spelling repair, not a source-bound example of this head.",
+      "stage": "authoring",
+      "sourceSha256": "ef28c6edb41e3b151012696cbfd82cb7ae72f4ce6a5e058f07a50e3ae1385a5b"
+    },
+    {
+      "term": "aotocatalyst",
+      "reason": "The initial aoto- conflicts with the familiar autocatalyst spelling, while the Chinese gives an autocatalytic-agent sense. Exact attestation of this head is required; neither an autocatalyst sentence nor an automatic canonical correction is an acceptable substitute.",
+      "stage": "authoring",
+      "sourceSha256": "dd37b1790841540c6095c87d2c1d7925d40056aa4f2a76e874d36127ee810769"
+    },
+    {
+      "term": "apaconitine",
+      "reason": "The Chinese 阿朴乌头碱 points toward the apoaconitine family, but the exact apaconitine spelling and its chemical identity were not closed by the bounded original search. I will not silently insert the missing-looking o or invent a structural equivalence among toxic aconite alkaloids.",
+      "stage": "authoring",
+      "sourceSha256": "78a5f8885408c0996fd50c1e41dd014a5339ac5ee81e15f543709a5d078d84ba"
+    },
+    {
+      "term": "apagallin",
+      "reason": "The gloss names a specific mercury tetraiodophenolphthalein material, but the exact apagallin spelling and substance identity have not been tied to a primary record here. It must not be conflated with a similarly spelled reagent or reduced to a generic mercury compound. A named chemical identity check is needed before composing a definite substance example.",
+      "stage": "authoring",
+      "sourceSha256": "8410fcc8053d4824fa1299331b3e6e9b6e15397f6b76264c87056f7f3e3e0a4a"
+    },
+    {
+      "term": "aparioneurosis",
+      "reason": "The bare Chinese 焦虑性神经机能病 does not settle the exact historical spelling or its relation to similarly formed old anxiety-neurosis names. I cannot infer a current diagnosis, insert a suspected missing consonant, or use ordinary anxiety as proof that this exact medical head is established.",
+      "stage": "authoring",
+      "sourceSha256": "8c002468e16b2ada311d34c3552d18dd94207983a72b33cbe69264b4cb0a570a"
+    },
+    {
+      "term": "apastic",
+      "reason": "The source 绝食的 could be read as deliberate abstinence or as an old lack-of-appetite/eating state, which are not interchangeable. The finite original search did not provide an exact entry resolving that distinction. I will not make a hunger-strike story stand in for an unclosed medical appetite sense, or the reverse.",
+      "stage": "authoring",
+      "sourceSha256": "605e32b316c58116abd457f831a57dea63a1d597aa57e041e43c82fb67dc53c6"
+    },
+    {
+      "term": "apellous",
+      "reason": "The source combines the broad absence of skin with the much narrower absence of foreskin. Before presenting this as an English anatomical adjective, the intended exact historical skin-versus-prepuce scope needs confirmation. Neither a general skinless specimen nor an inferred circumcision history is supplied as a substitute for that unresolved sense selection.",
+      "stage": "authoring",
+      "sourceSha256": "ce84d066b8567118bef5e4b40d3a169fa940d91b31217cbda5771cc019a3dac1"
+    },
+    {
+      "term": "aphalangia",
+      "reason": "The frozen 无指趾 wording can imply absence of entire digits, while the phalang- family may concern absent phalangeal bones or parts of digits. Those anatomical extents cannot be assumed identical. The finite original search did not close the exact head's extent, so an image example claiming complete missing fingers or toes would overstate what is established.",
+      "stage": "authoring",
+      "sourceSha256": "b44c9b00cf7d355a7c0a345f06146b14b3236dd27c5d10ddc9f4dd9e923746fa"
+    },
+    {
+      "term": "aphanicin",
+      "reason": "束生藻色素乙 is a specific old pigment label whose exact identity, producer naming and relation to other algal pigments remain unclosed. The original bounded search recovered no exact entry. I will not substitute a familiar phycobilin or invent a spectrum, structure or producing organism simply to obtain a chemical example.",
+      "stage": "authoring",
+      "sourceSha256": "5f82704915d1f79f2b23a018c8a2e372eceb72d40a41d35d4af6c6812111b0f6"
+    },
+    {
+      "term": "Aphanocapsa",
+      "reason": "The Chinese labels this taxon a 含藻色质杆菌属, so any example asserting rod-shaped morphology or treating it as a particular modern bacterial genus needs an exact taxonomy/name reconciliation. The full source does not resolve that historical wording against the intended cyanobacterial taxon. I will not overwrite the canonical Chinese genus label or add a modern morphology claim by inference.",
+      "stage": "authoring",
+      "sourceSha256": "4ef040043cecd4003782ae54f6e813ebb8e400940208ede8321e80dd1c02349b"
+    },
+    {
+      "term": "aphaptotropism",
+      "reason": "The source only says 失向性, which does not identify the stimulus, absence of response, or direction of a plant response. The haptotropism family raises a specific touch-response question that the broad Chinese does not close. No exact original entry was recovered, so a negative-touch-growth experiment would add an unverified scientific sense.",
+      "stage": "authoring",
+      "sourceSha256": "9e80ca200494925ee9049122821fe8f84aa48958a68d71eb986f38449d4bacb5"
+    },
+    {
+      "term": "aphemesthesia",
+      "reason": "There is an actual source conflict: the original Stedman passage describes loss of the sense of one's own articulate speech and inability to recognize what oneself is saying, whereas the frozen Chinese says 听读不能. I cannot silently replace a hearing/reading disability with this speech-self-recognition branch. The exact source needs a finite semantic amendment before an example can count.",
+      "stage": "authoring",
+      "sourceSha256": "030937b1ccf204c35f01612f56cbecffe9fa4420b02405d49e0c577d32d4ee3b"
+    },
+    {
+      "term": "Aphidan",
+      "reason": "The Chinese 丰丙磷 identifies a particular pesticide, but the exact trade-name/active-substance equivalence has not been tied to a primary chemical identity record here. Similar aphid-related product names do not prove that identity. I will not guess the active ingredient, formula, target organism, use or safety properties from the name.",
+      "stage": "authoring",
+      "sourceSha256": "01bf3314b8779d02c7c6701902830ecaa61d255f7caf34aac7ea5aaf8ff0b3d9"
+    },
+    {
+      "term": "aphonogelia",
+      "reason": "The gloss 大笑不能 may be read as inability to laugh, whereas the phono-/gelia construction could denote inability to produce audible laughter or silent laughter. Those are not the same event or ability. The finite original search did not establish the exact distinction, so no generic inability-to-laugh story is used to mask the uncertainty.",
+      "stage": "authoring",
+      "sourceSha256": "14a9077b7d0783da2d1e422fa0fc9a5fd521f4e092f3866c1d933b77b040c0dc"
+    },
+    {
+      "term": "aphoresis",
+      "reason": "The source mixes 分离 and 无耐受力, which have different semantic roles. The only normalized original candidate was a broken line continuing cataphoresis, not an exact aphoresis entry. I will not silently substitute apheresis, a laboratory separation procedure, or a drug-intolerance sense until this exact old head and selected branch are reconciled.",
+      "stage": "authoring",
+      "sourceSha256": "37ce82292723fbbe781be194ced4e5ccfee2d24e6805c0c384e02e7ba81465a0"
+    },
+    {
+      "term": "aphosphagenic",
+      "reason": "The source's broad 缺磷的 can imply general phosphorus deficiency, while the phosphagen- part raises the narrower issue of lacking phosphagen or its production. These biochemical claims cannot be equated without an exact definition. No original head passage was recovered, so a general nutrient-deficiency example would risk teaching a different sense.",
+      "stage": "authoring",
+      "sourceSha256": "6296226f7c5c21b1e7160fefcf6cfc1e29eecf9d4cabf8b5eef0bebd14833de2"
+    },
+    {
+      "term": "Aphriza",
+      "reason": "The entire frozen Chinese is the unexplained transliteration 阿奇里 and does not settle whether a person, place or biological taxon is meant. I cannot add a bird genus, species or modern taxonomic placement from recognition of the Latin-looking head alone. A substantive exact-source identity decision is required rather than an invented proper-name scene.",
+      "stage": "authoring",
+      "sourceSha256": "75b461b4479b126de2a01df8d43874756c0919d29691d42c8cd9487547c48c49"
+    },
+    {
+      "term": "aphronia",
+      "reason": "The gloss 辨解不能 is too underspecified to distinguish impaired judgement, reasoning, comprehension or another old mental-state classification. The finite original search supplied no exact entry. I will not label a fictional person's confusion with an unsupported current diagnosis or silently choose a more specific cognitive deficit.",
+      "stage": "authoring",
+      "sourceSha256": "6fa7311c67edeaf9b61aedb8f9d42dc3a668e67a5f7b5108ed3a42b8d4596970"
+    },
+    {
+      "term": "apicolocator",
+      "reason": "The frozen 牙尖定位器 does not establish whether the instrument locates a crown cusp or a root apex. Modern apex-locator terminology cannot silently repair that anatomy. The finite original search found machine-translated implant-locator patent uses, not an exact original lexical definition that resolves this source's target.",
+      "stage": "authoring",
+      "sourceSha256": "6120717c48513107c89d076dced52e7fce785064a66f6bfe0390155f9eb74e70"
+    },
+    {
+      "term": "Apiezon",
+      "reason": "Only adjective is permitted, whereas all supplied Chinese labels name grease, oil or paste. A trademark used as a noun modifier does not establish a lexical adjective; retain the actual source-role conflict instead of adding a default noun.",
+      "stage": "authoring",
+      "sourceSha256": "19286c4c13f4cff6f3249e33e14ea96d61b327c33ddd489c828e33455b8417ba"
+    },
+    {
+      "term": "apilak",
+      "reason": "The frozen source equates this exact name with royal jelly itself, but the named Apilak/Apilac preparation may refer to a manufactured royal-jelly product. Raw bee secretion versus a specific preparation is not established by the source. No ingredient, formula or efficacy is guessed from that trade-name possibility.",
+      "stage": "authoring",
+      "sourceSha256": "044ba050a56ee9d636b2094088b0f744b22291a8e2c9fe29efbf236d266c361a"
+    },
+    {
+      "term": "apinol",
+      "reason": "The only gloss 臭松油 does not close the exact old pine-oil product, extract or composition identity. The finite original Stedman candidate lookup supplied no exact entry and the exact PubChem request returned 404, neither proving invalidity. A bottle or order sentence would conceal rather than resolve this specific named-material boundary.",
+      "stage": "authoring",
+      "sourceSha256": "a668f01db384484815d20334c18769e9a187fe9017afc6266808fa8b58853b03"
+    },
+    {
+      "term": "apioectomy",
+      "reason": "The direct original Stedman windows establish apiceotomy/apicotomy/apicoectomy, and original OQLF explicitly lists apiectomy. Exact apioectomy is present in government and provider documents, but those occurrences do not independently distinguish an accepted lexical variant from repeated missing-c typographical usage. Preserve the canonical head; do not silently teach apicoectomy or invent an occurrence alias.",
+      "stage": "authoring",
+      "sourceSha256": "5a5dabd356e72fe4976d8fa1c2ed5decb707eb664b18a9d16bc720bf9282d320"
+    },
+    {
+      "term": "apisin",
+      "reason": "Frozen 蜂螫毒 names whole bee venom, while exact apisin also raises a specific bee-protein versus venom-mixture identity boundary. No original exact definition was closed in this finite check. It must not be silently equated with the separately queued apitoxin or an isolated venom peptide.",
+      "stage": "authoring",
+      "sourceSha256": "b2d760c413d7aa23fe41358f06950161d14f60b3a3a5735a1d2805d8270c0f5d"
+    },
+    {
+      "term": "aplsnogamete",
+      "reason": "The exact head contains lsno rather than the expected lano sequence of aplanogamete, but no exact-source alias or original spelling evidence closes that discrepancy. An example cannot silently substitute aplanogamete or declare this canonical spelling invalid on morphology alone.",
+      "stage": "authoring",
+      "sourceSha256": "774c774977b380d52579a69c2d8dce2976333ac3b032bf7e7547093abede8b1d"
+    },
+    {
+      "term": "aplysiopurpurin",
+      "reason": "The frozen 海螺紫 leaves unresolved the named sea-hare pigment versus other marine-shellfish purple pigments or mixtures. No original exact identity was closed by the bounded lookup. Do not equate a similar colour name with a specific modern compound or silently change the animal source.",
+      "stage": "authoring",
+      "sourceSha256": "8975c07105a907257b60b814e3194ab424df324a098dada64d40c29a9e96f8b3"
+    },
+    {
+      "term": "apoaconitine",
+      "reason": "The named alkaloid 阿朴乌头硷 needs exact historical entity closure rather than substitution of a similarly named aconitine degradation product or isomer. Original Stedman had no exact candidate; PubChem first returned 503 and a later exact request 404. Neither response proves lexical invalidity or a chemical synonym.",
+      "stage": "authoring",
+      "sourceSha256": "8cb8ba2b1dbd9339676b7e0bb3205f1a726bba9504587aef758c767965bb6346"
+    },
+    {
+      "term": "apocamphor",
+      "reason": "The old 阿朴樟脑/脱甲樟脑 labels do not determine which exact demethylated camphor structure is intended. The exact PubChem request returned 404, not invalidity, and no original head was established. No norcamphor identity or molecular structure is inferred from the prefix.",
+      "stage": "authoring",
+      "sourceSha256": "7220486f15646fd20ae5fa10b6b848ba3712ea1927f77bfe0c4c5370d91c77c0"
+    },
+    {
+      "term": "Apodacea",
+      "reason": "The frozen 无足亚纲 supplies a taxonomic rank and translated shape but does not identify the actual historical organism group. No original exact classification was closed in the finite lookup. It cannot be merged with Apoda, Apodes or a modern legless class from name resemblance.",
+      "stage": "authoring",
+      "sourceSha256": "ce20658a28d6c6c21d5f2374458f4694654fca96fcb5d9ed3fbd0b249c76605b"
+    },
+    {
+      "term": "Apodes",
+      "reason": "The frozen 无足亚目 does not close which historical taxonomic use is selected. It is not safely interchangeable with the separately queued Apoda order or Apodi bird suborder. An unspecified specimen-cabinet example would fail to resolve this exact rank/entity boundary.",
+      "stage": "authoring",
+      "sourceSha256": "a660254503822994777c6a477b64fff1920db10858d67f194aee98516b2a6996"
+    },
+    {
+      "term": "Apoidea",
+      "reason": "The frozen 蜜蜂总料 contains a specific rank-label corruption, apparently 料 versus 科. Correcting this to 蜜蜂总科 requires an explicit source-bound amendment and independent check; no silent rank repair is performed just to add a sentence.",
+      "stage": "authoring",
+      "sourceSha256": "f28041af413cfd411db798c8686816aaeb60b44ec38e6099ab6cba3ade690d62"
+    },
+    {
+      "term": "apomyoglobin",
+      "reason": "The frozen 脱辅基红蛋白 omits 肌 and does not clearly distinguish myoglobin from haemoglobin. An apo-myoglobin versus apo-haemoglobin example would silently repair that material identity. Bind the exact muscle-protein clarification separately before admission.",
+      "stage": "authoring",
+      "sourceSha256": "c9f1843aeaedc248bcde3d306dd50a4ed81f03590abdddc0fedfc2b967309838"
+    },
+    {
+      "term": "apopyle",
+      "reason": "The frozen human/general 肛门 gloss conflicts with original zoological definitions of sponge chamber/excurrent-system pores; the term also has specific fish-clasper use. Original Canadian TERMIUM defines the sponge pore, not an ordinary human anus. Select and repair an exact source branch before composing a medical/anatomical example.",
+      "stage": "authoring",
+      "sourceSha256": "1801ef8e9212da98a5e482b06b729d20a2ebfe412c9846957171328b1d899b95"
+    },
+    {
+      "term": "apotele",
+      "reason": "Frozen 游离嵴 does not match the original OQLF acarological entry for the terminal appendage article bearing claws or the movable cheliceral finger. A free ridge cannot silently be recast as an arthropod claw/pretarsal structure. Exact anatomical branch requires correction.",
+      "stage": "authoring",
+      "sourceSha256": "a2409fb3181a32398c425dde51f06ca078c1bf70f7cc0a8d8e4c38d7b07a5196"
+    },
+    {
+      "term": "AppleLink",
+      "reason": "Frozen AppleLink库文件 denotes a particular library/file role, whereas the known product name also denotes an online communications service. No exact original file format or library entity was established from this input; a service sentence would silently replace the supplied sense.",
+      "stage": "authoring",
+      "sourceSha256": "3985bcab92503413d14e0e1cfe4e3e137c4aec1c97e393f4565ea64f0ed904d5"
+    },
+    {
+      "term": "AppleShare",
+      "reason": "Frozen AppleShare文件 gives a file role rather than explicitly the file-sharing/server software or protocol. An ordinary software sentence would be a silent sense repair. The exact legacy file identity needs original source closure, not default acceptance of the familiar product name.",
+      "stage": "authoring",
+      "sourceSha256": "3e04eedd011d35fa0a88803c7eb1540c878170a63327a6469ffe9c68805d154c"
+    },
+    {
+      "term": "aprammatica",
+      "reason": "Exact head spelling is not established by the bounded original lookup, while the Chinese corresponds to absent grammar and nearby agrammatical/agrammatism terminology. No automatic r/g correction, identity merge or invented old diagnosis is made; original exact lexical evidence is required.",
+      "stage": "authoring",
+      "sourceSha256": "2aaf76b2309a5f2976c3099f2f86b8f1c4c669f3b33f89ee76444e2649b76236"
+    },
+    {
+      "term": "apranesthesia",
+      "reason": "The frozen lower-body sensory-loss label does not establish this exact historical spelling or distinguish it from similarly named regional anaesthesia conditions. The finite original lookup did not resolve it. Do not turn it into administered anaesthesia, paraplegia or a different canonical head.",
+      "stage": "authoring",
+      "sourceSha256": "cfb67458567de66087620574eefc8fe982639a8ce37faadfca7ed9308b037e82"
+    },
+    {
+      "term": "Aplysiidae",
+      "reason": "Noun family sense is fine, but passive English only says specimens were photographed. Chinese adds 工作人员 as the photographer, an actor not specified by the saved English. Remove that addition or write an explicitly matched new pair.",
+      "stage": "independent-review",
+      "sourceSha256": "99588042a8a64b22fcc2d6073b7d9b11f78bae2ab6846d20d91eca179eef6c90"
+    },
+    {
+      "term": "apocathartic",
+      "reason": "Historical eliminative adjective is source-supported, but English's relative clause says the advertisement lacked supporting observations. Chinese 因为 asserts that this caused the historian's challenge, a causal link the sentence does not explicitly give. Keep both facts without adding a reason.",
+      "stage": "independent-review",
+      "sourceSha256": "36da86a083b40dd69f6882aba9cb88a9a2cfc812f430890f8c53aa04de81597c"
+    },
+    {
+      "term": "apods",
+      "reason": "Plural noun limbless animals is supported, but several apods denotes a quantity of animals, not necessarily several kinds. Chinese 几种 adds taxonomic/category multiplicity. Use an individual quantity or explicitly match a revised English sentence.",
+      "stage": "independent-review",
+      "sourceSha256": "e1707af3f66f25bb97b952a95a69ab009ca2c34c98160395bc8341371609294d"
+    },
+    {
+      "term": "Aponomma",
+      "reason": "Historical genus sense is supported, but English comparison is passive and does not identify who performed it. Chinese inserts 研究人员. Preserve an unspecified comparison or explicitly supply the same actor in a separately revised pair.",
+      "stage": "independent-review",
+      "sourceSha256": "c456b7f8c261a0fa0c064ed2c5502dadddfa1cb62ea863f7d6e39b46a9c2effc"
+    },
+    {
+      "term": "apoprotein",
+      "reason": "Noun protein component is correct, but kept measurements separate does not specify storage; Chinese 分开保存 asserts saving/storing the measurements. Translate separate treatment without a storage event, or match an explicitly revised English pair.",
+      "stage": "independent-review",
+      "sourceSha256": "fb1af0109b2adef5eba062c8cab2c7c625b64f0aa638d2d826bc01dec604ca3b"
+    },
+    {
+      "term": "Aporocactus",
+      "reason": "Noun cactus genus is fine, but moved away from the shelf does not specify an initial position beside it rather than on it. Chinese 从架子旁 adds that spatial relation. Preserve the noncommittal location in a revised sentence.",
+      "stage": "independent-review",
+      "sourceSha256": "806b0e85aef221c34b5751dfab1a1f36da5a628b92bcb251f0bff07b36ba012c"
+    },
+    {
+      "term": "aprobarbital",
+      "reason": "Noun drug name is source-supported, but English had lost the supplier's address gives no loss mechanism. Chinese 地址已经脱落 asserts physical detachment. Preserve missing address without specifying how it disappeared.",
+      "stage": "independent-review",
+      "sourceSha256": "4e79d084f126cb09760360c28522cb64b1bca0ff13a88ec762977b44145ed521"
+    },
+    {
+      "term": "aptamers",
+      "reason": "Plural noun oligonucleotide aptamers is supported, but two aptamers does not explicitly identify two kinds. Chinese 这两种 adds a type/category distinction; differing binding alone does not force it. Match the numerical referents without that added classification.",
+      "stage": "independent-review",
+      "sourceSha256": "4230b22cc569fadc227b4faa4fb2d44c55a14ab8260254bc7eb95c63a775798a"
+    },
+    {
+      "term": "aquamycin",
+      "reason": "Frozen 水霉素 is only a transliteration/old material name. Finite original-dictionary lookup did not close that entity; the independently retrieved modern manufacturer Aquamycin product does not establish it is the same historical antibiotic. Do not use a generic bottle to hide the unresolved exact identity.",
+      "stage": "authoring",
+      "sourceSha256": "67210ad6d30664be436cd9bf6691266a43f86bd918d089300e4f4aef20eee3e8"
+    },
+    {
+      "term": "aquaphone",
+      "reason": "Frozen 医/听水音器 does not specify a clinical versus engineering leak-listening instrument. Finite original head search found no definition; secondary leak-detector usage is not primary closure of this exact old medical source, and a submerged hydrophone example would assume a different device.",
+      "stage": "authoring",
+      "sourceSha256": "63ba32f0242e755a4ebe67b4c0b2da31a2b2e287c1c8c6eb7c3cb8f5a085a29e"
+    },
+    {
+      "term": "aquo-acid",
+      "reason": "水系酸 does not resolve the acid-system classification or a coordinated-water acid. No exact original definition was closed in finite original-text search; do not equate it with every aqueous acidic solution or invent a ligand mechanism.",
+      "stage": "authoring",
+      "sourceSha256": "c22cabca38bf0050f93f03e930e74034c687ac914ba646763d03bd4518e78294"
+    },
+    {
+      "term": "Arabism",
+      "reason": "Frozen 总称阿拉伯国家 points to a collective region meaning, whereas recognizable Arabism can denote Arabic usage, culture or an Arab political movement. Do not silently use the separate Arabdom source to license that sense or select a political sense absent from this frozen gloss.",
+      "stage": "authoring",
+      "sourceSha256": "f6a2ab391c408711bb89eccd0caa451c5f812212b84e887b4b243659fbf68348"
+    },
+    {
+      "term": "arachanol",
+      "reason": "Exact old sterol identity behind 皮囊瘤甾醇 was not established in the finite original head search and exact web query. Do not substitute a similar arach- compound or merely describe an unidentified sample vial.",
+      "stage": "authoring",
+      "sourceSha256": "5be142338c0289427e1b5e12a645365ca78709468cb42b084d886f80b6ec297a"
+    },
+    {
+      "term": "arachnology",
+      "reason": "Frozen gloss says all arthropod study, broader than arachnid/spider study associated with this head. Must reconcile target scope before writing a source-bound discipline example; cannot silently turn arthropodology into arachnology.",
+      "stage": "authoring",
+      "sourceSha256": "75d52e7fc3ed1b586f74c64022070ae94f19b31314938c74eb088bb37f0c6478"
+    },
+    {
+      "term": "arachnorhinitis",
+      "reason": "Frozen 蜘蛛性鼻炎 leaves the alleged spider-related cause and even the exact old entity unresolved. Original head lookup and exact query did not close it; ordinary arachnoiditis or mite rhinitis cannot be inferred from this spelling.",
+      "stage": "authoring",
+      "sourceSha256": "779c5c11673fc5f1d8b471c438d46b686161de2084bcce2dfba960942f3db41c"
+    },
+    {
+      "term": "arack",
+      "reason": "C actually read original Stedman distilled-liquor definition naming dates/rice/palm sap, not specifically pomace liquor. Frozen 粕酒 fixes a different feedstock branch. Needs an explicit source-sense reconciliation rather than a general drinking sentence masking that difference.",
+      "stage": "authoring",
+      "sourceSha256": "72a7447a353acd06de29c9bcb06fd0a00cd77f9795b36de083dd23a851464ef0"
+    },
+    {
+      "term": "araliin",
+      "reason": "The only frozen Chinese identity contains the literal garbled character ┦木素. A plant-extract sample scene would not establish which old material the damaged name identifies; no silent character repair.",
+      "stage": "authoring",
+      "sourceSha256": "9da1692147eff0d5beee65f66878164c848bbbd6e5199787c74628eec112c5ba"
+    },
+    {
+      "term": "Aramus",
+      "reason": "Frozen [网络]阿拉莫斯 does not identify person, place or bird genus. A real genus with this spelling would not by itself close which referent this transliteration denotes; retain identity hold instead of inventing a zoological role.",
+      "stage": "authoring",
+      "sourceSha256": "81eb2f4fae204d66f59b3e449f6356ca5cca3501f7076aab71238e5dee417b86"
+    },
+    {
+      "term": "Aranea",
+      "reason": "Source mixes 变形蛛/园蛛/蜘蛛亚纲 without settling genus, animal or higher rank. Do not substitute the different exact Araneae or Araneus queue head or choose a modern taxon silently.",
+      "stage": "authoring",
+      "sourceSha256": "b408b939c2fd5d0a0647754c3f54a60dd747e7c246512f2a34a1c268bf354a38"
+    },
+    {
+      "term": "araneous",
+      "reason": "C actually read original Stedman definition like a cobweb, whereas frozen Chinese says spider-shaped. A spider body and its web are not interchangeable morphology; needs an explicit cobweb-like sense clarification before an example can count.",
+      "stage": "authoring",
+      "sourceSha256": "8cabe581ee4a8d0daf81e65b928a285598605bcd9a678f98ff455a902488b4b3"
+    },
+    {
+      "term": "Araujia",
+      "reason": "Frozen 阿劳嘉 supplies only a transliteration and no referent. The recognizable botanical genus cannot be assumed to be the intended identity merely from that string; no invented genus/classification sense without closure.",
+      "stage": "authoring",
+      "sourceSha256": "ff96a67ebfb149fd4f43ee334f192101108d00fa905e9224807cfe4632c974b0"
+    },
+    {
+      "term": "arbacin",
+      "reason": "Specific sea-urchin protamine identity is not closed in the finite original source search. Secondary translation results conflate protamine, histone and sperm-activating peptides, so do not choose a molecular entity just from 海胆精蛋白.",
+      "stage": "authoring",
+      "sourceSha256": "31775e6f350b8d210735cf671665a125ea8626b28ef825a09f7d0e95fc8d5286"
+    },
+    {
+      "term": "arbasin",
+      "reason": "Frozen specifically says sea-urchin histone, while retrieved secondary translations also pair this spelling with the protamine head arbacin. Histone and protamine are not the same material; no exact original identity was closed.",
+      "stage": "authoring",
+      "sourceSha256": "a98ddd558b6c70267ed7b6c9e35c5f613b61c7264af68c6c6700da664f5b7482"
+    },
+    {
+      "term": "arbomycin",
+      "reason": "阿鲍霉素 is only an old antibiotic transliteration in the frozen source, with no exact chemical or preparation identity closed by the finite original search. Do not replace with a similarly spelled antibiotic or hide uncertainty in a label sentence.",
+      "stage": "authoring",
+      "sourceSha256": "d4a629a4a5e1f57c72d07db8d9e5a572254564931f792f6164fd717a35eb3f7f"
+    },
+    {
+      "term": "arbutase",
+      "reason": "Frozen 杨梅酶/草莓酶 does not establish substrate or a unique enzyme. Independently found original KNAW passage concerns hydrolysis of arbutin, not necessarily an enzyme extracted from strawberry/bayberry. Needs a finite source reconciliation rather than inventing a fruit-specific catalytic role.",
+      "stage": "authoring",
+      "sourceSha256": "af58ce6f83038fe37116898b5ff8d4c268c2be8d3120b732b76e968bde679cfd"
+    },
+    {
+      "term": "Archangelica",
+      "reason": "Frozen 独活属 has a possible old Chinese taxon mapping, while independently retrieved Kew material concerns Archangelica combinations now associated with Angelica. Exact historical genus-to-Chinese mapping was not closed; a plant-label scene would conceal that unresolved referent.",
+      "stage": "authoring",
+      "sourceSha256": "955e869588b2c0663e3097f9a9a844c672a57617dbfa7e59476500ced6b6a0f5"
+    },
+    {
+      "term": "Archimycetes",
+      "reason": "Frozen 古生菌 can suggest archaea, while independently found old dictionary usage concerns historical fungal groups. Exact old classification and Chinese referent need primary closure; must not claim that this is modern Archaea.",
+      "stage": "authoring",
+      "sourceSha256": "d20380babc12c7c06c524c37cd99c6091abbdac4f04d1e9d82ccae3766531a9b"
+    },
+    {
+      "term": "archocystocolposyrinx",
+      "reason": "C actually read original Stedman exact head defining rectum/bladder/vagina fistula, while frozen Chinese specifically says anus/bladder/vagina. These anatomical sites cannot simply be treated as identical. Initial proposed pair has been withdrawn before LOCK pending precise source qualification.",
+      "stage": "authoring",
+      "sourceSha256": "497fb95b0ce9a4f9a2cd486dba585a6542d467776a6f969e690ba93c3b605287"
+    },
+    {
+      "term": "archocystosyrinx",
+      "reason": "Original Stedman exact head personally read says rectovesical fistula, while frozen Chinese says anus/bladder fistula. Initial drafted pair would preserve the inaccurate anatomical mapping, so withdrawn before LOCK rather than counted through an old-name annotation alone.",
+      "stage": "authoring",
+      "sourceSha256": "9b18ffd7262fd6ef5dd9ab978defca04cc8be6d9b4a9bee79edc41aff8df420a"
+    },
+    {
+      "term": "archostegnosis",
+      "reason": "Frozen exact steg spelling was not closed by C's finite original lookup or exact query; the actual original head personally read was archostenosis. Do not silently use the independently queued steno spelling as proof of this variant. First draft withdrawn before LOCK.",
+      "stage": "authoring",
+      "sourceSha256": "d478e4445cd20e78916041c994f8b2946bdc19dff4f8a0cbc512bf1d7d066a08"
+    },
+    {
+      "term": "archusia",
+      "reason": "Frozen hypothetical cell-growth material is not established by the different spelling archusis found in secondary indexing. Exact head versus hypothetical entity remains unclosed in the finite original search; no invented real growth-factor sample.",
+      "stage": "authoring",
+      "sourceSha256": "b9a151d2ca8e37d692d63eb23b596c1337ccb731a4a70f04ad87fc15df10f826"
+    },
+    {
+      "term": "archyl",
+      "reason": "Original Stedman passage personally read gives archyle for hypothetical primitive matter, not this exact no-e head. Finite exact query did not establish an accepted historical variant; do not silently repair it or confuse it with current company/person names.",
+      "stage": "authoring",
+      "sourceSha256": "ab8f68fe1de84347e706f9dbc85270868a46b69abb8ede443f023953930f9a62"
+    },
+    {
+      "term": "arcosih",
+      "reason": "Exact terminal h spelling is not established by evidence for other antibiotic names such as arcosin. Frozen 子囊霉素 alone cannot close the particular drug identity; no silent head correction.",
+      "stage": "authoring",
+      "sourceSha256": "97dd23bf1930a084744d9895605aa5f3b038ecd0a2e7379d62d8c249b69aa16f"
+    },
+    {
+      "term": "arecane",
+      "reason": "Frozen chemical 槟榔碱 and medical 槟榔泻碱 do not close which individual alkaloid this exact old spelling denotes. C read distinct arecaine and arecoline original heads, but neither establishes arecane as the same compound; no automatic alias merge.",
+      "stage": "authoring",
+      "sourceSha256": "e67dd0f5e8f6b376dacf83cbacd41aee5c656c46d5a7a8b4f94c28afc9ade525"
+    },
+    {
+      "term": "Arecidae",
+      "reason": "Frozen 天南星亚纲 versus the recognizable palm-related subclass name needs an exact historical classification mapping; do not automatically equate Arecidae with the distinct Araceae or Arales queue heads.",
+      "stage": "authoring",
+      "sourceSha256": "abaffae2108530d12526ab2baf143c02f7cde8097ec29693d8ab756e3241c55c"
+    },
+    {
+      "term": "Arenaria-Melanocephala",
+      "reason": "Source is a partial transliteration with no identified bird/plant referent, and the exact hyphenated capitalized head is not established as a published binomial variant. Do not infer a bird species merely by replacing the hyphen and lowercase pattern or confuse it with the separate plant genus Arenaria.",
+      "stage": "authoring",
+      "sourceSha256": "6c60db31042a5fbbee2d466b06e0595bf2c51d65442ab272e3f03eedf6e31767"
+    },
+    {
+      "term": "areometsr",
+      "reason": "Exact head areometsr appears damaged relative to areometer; liquid-hydrometer gloss alone does not establish this spelling. Do not silently rename the source head.",
+      "stage": "authoring",
+      "sourceSha256": "2e29a970befca302be4432be340b317b2ea09ff0363d0a8ac6e9923fa79cacf4"
+    },
+    {
+      "term": "arepycnometer",
+      "reason": "Exact arepycnometer identity needs attestation; it may be confused with areopycnometer. The thick-liquid gloss is not enough to decide which head or instrument is intended.",
+      "stage": "authoring",
+      "sourceSha256": "95ef3bd1bc56a6c9fecdcf7fc103b7ab65573b48b81db79200707a60a5e8670f"
+    },
+    {
+      "term": "arevareva",
+      "reason": "The historical disease label arevareva and the gloss 毒椒皮病 need a primary identity check, including whether 毒椒 denotes kava here. Do not invent a pepper-poisoning explanation.",
+      "stage": "authoring",
+      "sourceSha256": "93f9cb27816c42c304e74ed0bc36db097394c131ce1de21d2fa6865e1f83470a"
+    },
+    {
+      "term": "arfonad",
+      "reason": "Arfonad is an old proprietary drug name, but this source salt string 樟脑碘酸三甲噻方 needs reconciliation with the actual active salt. A generic blood-pressure-drug sentence would hide the unresolved identity.",
+      "stage": "authoring",
+      "sourceSha256": "8b3b44419ea0eafa0e0c6d2130c402147999a58f2eab4bbc617e07a3cd273cb1"
+    },
+    {
+      "term": "arganogen",
+      "reason": "The exact head arganogen may be damaged or confused with organogen; 有机物元素 does not identify a stable English term. No automatic correction or elementary-constituent example.",
+      "stage": "authoring",
+      "sourceSha256": "908e4aa191a701d80cf736ed08994653b6dc582336c5b6c86c8826959aa26976"
+    },
+    {
+      "term": "Argasoid",
+      "reason": "The named copper alloy Argasoid needs an attested trade identity/composition before a substantive example. The Chinese transliteration alone is insufficient.",
+      "stage": "authoring",
+      "sourceSha256": "f77e571450ac5fd3cca2e379a60e0c76d99b30cf4f0bb45fc8818a94e45ee7e3"
+    },
+    {
+      "term": "argatoxyl",
+      "reason": "Argatoxyl is a historical silver organoarsenic name. The exact salt/compound mapping to 对氨基苯基砷酸银 has not been independently established; no generic vial-label sentence in its place.",
+      "stage": "authoring",
+      "sourceSha256": "493fcf33df85ff2ed8fa94a69637aead5571f94f6196c37e5bbc0bf684ef15d7"
+    },
+    {
+      "term": "argema",
+      "reason": "The archaic ocular term argema needs confirmation of its exact lesion and limbal site. Do not broaden 角膜缘溃疡 to any corneal ulcer or invent a clinical finding.",
+      "stage": "authoring",
+      "sourceSha256": "79ed727cc55dab6f3a3b26e215b44ecfc69d7bf8c2b29f08c10ab497765e46e6"
+    },
+    {
+      "term": "argenine",
+      "reason": "Exact argenine versus the usual arginine is unresolved. The Chinese 精氨酸 cannot authorize silently replacing the source spelling.",
+      "stage": "authoring",
+      "sourceSha256": "8314b4ecd5974e0deec6bd0ff0c84e7c1cb0694730a62fd37a6ccfccec41e56b"
+    },
+    {
+      "term": "argenol",
+      "reason": "Argenol needs attestation as the particular silver-vitellin preparation named by 卵黄磷蛋白银; it must not be casually equated with every silver protein product.",
+      "stage": "authoring",
+      "sourceSha256": "90fbb4245aa3810f336066fa197897f73cb409f32d35ef500f9fa264e2f09869"
+    },
+    {
+      "term": "argentaffinoma",
+      "reason": "Argentaffinoma is historical tumour terminology; its exact scope relative to argentaffin-cell tumours/carcinoid needs primary confirmation before a medical example.",
+      "stage": "authoring",
+      "sourceSha256": "e1d29daeddb99820bfb63ddab869f3f2b6dce193f2726b015301dc67bdbef303"
+    },
+    {
+      "term": "argenti",
+      "reason": "Argenti is a Latin genitive form in medicinal names. The noun-only published slot and 银 gloss do not establish an ordinary English noun use; a quoted Latin-label sentence would evade that POS issue.",
+      "stage": "authoring",
+      "sourceSha256": "e649772371b4d9c82b9866932a4bf32e280376eb23896caaaa00bee5cf2a6467"
+    },
+    {
+      "term": "Argenting",
+      "reason": "The head Argenting does not securely identify the country Argentina. No country example under this spelling without a source correction decision.",
+      "stage": "authoring",
+      "sourceSha256": "e10550b268cef26b125516b317068562f40ca2445448d85d7cb151d119a5999d"
+    },
+    {
+      "term": "argentocyanides",
+      "reason": "Argentocyanides is a plural technical class name; the gloss 银氰化物 does not distinguish silver cyanide from cyanide complexes. Exact class identity must be resolved before a chemical statement.",
+      "stage": "authoring",
+      "sourceSha256": "6b399e57f1bf7be9a295518eab80a0da35f7bbbbb648a2525aa24998ddb6428b"
+    },
+    {
+      "term": "argentol",
+      "reason": "Argentol is an old preparation/compound name; the mapping between 银酚 and 羟基喹啉磺酸银 has not been established. Do not treat those labels as self-evidently identical.",
+      "stage": "authoring",
+      "sourceSha256": "cb799f176216daa42b1f2e68c1dfd5f06cbddda660e8a051510b811714e07f3b"
+    },
+    {
+      "term": "argentoproteinum",
+      "reason": "Argentoproteinum may be pharmaceutical Latin for a silver-protein preparation, but exact head use and product class require attestation; do not default to an English substance noun solely from 蛋白银.",
+      "stage": "authoring",
+      "sourceSha256": "eb3234a1cf25e1076e66c6d4d697467927fd07b1f5deeb6544a52b9f32a95470"
+    },
+    {
+      "term": "argentose",
+      "reason": "Argentose needs a primary match to the particular silver nucleoprotein named by 核蛋白银. Similar silver drug names are not evidence of equivalence.",
+      "stage": "authoring",
+      "sourceSha256": "cc35e73aa09613b5f0c3e96132539c6bc88b25fdc3bf09f791d9704800f195a6"
+    },
+    {
+      "term": "argicillin",
+      "reason": "The antibiotic head argicillin and 羟甲基短杆菌肽 require exact identity reconciliation. The name must not be conflated with penicillins or other similarly named antibiotics.",
+      "stage": "authoring",
+      "sourceSha256": "0785495e6ff66932d80cf9b1467c1bec688123d31c1b3e6a685fa1ee353a0f08"
+    },
+    {
+      "term": "arginaemia",
+      "reason": "Exact arginaemia needs attestation as a variant of the inherited arginine disorder. The neighbouring verified argininemia head does not authorize merging this spelling.",
+      "stage": "authoring",
+      "sourceSha256": "0b3d6ba12f9682e826e7dfd82400044098e7b4b8dff924486a2728ea473365cf"
+    },
+    {
+      "term": "argininosuccinicacidemia",
+      "reason": "Argininosuccinicacidemia has a concatenated head and the incomplete Chinese 精氨基琥珀酸血. Confirm the exact disease/sense rather than substituting aciduria or a generic blood finding.",
+      "stage": "authoring",
+      "sourceSha256": "dc8199e315169dc941b5c01111da87f0babbd95a581aabc6586428b0b709ea56"
+    },
+    {
+      "term": "argininuria",
+      "reason": "Argininuria needs an exact historical spelling and sense check: urinary presence versus excessive excretion of arginine. No inference from the better-known disease names nearby.",
+      "stage": "authoring",
+      "sourceSha256": "9d936913041c574d72c0a96dfc1d87263442ab07f82bd1b07cd53322cb91116e"
+    },
+    {
+      "term": "arginyluccinicaciduria",
+      "reason": "Exact arginyluccinicaciduria appears damaged relative to argininosuccinic aciduria. Do not silently repair the missing sequence or assume source-form equivalence.",
+      "stage": "authoring",
+      "sourceSha256": "79f737ef333f2739afe6e60c0374ffa42aed72e251d76d6032146b8c0b968eef"
+    },
+    {
+      "term": "Argiopidae",
+      "reason": "Argiopidae needs a historical taxonomic/rank check relative to Araneidae. A current-family assertion would not be justified merely by the older 金蛛科 gloss.",
+      "stage": "authoring",
+      "sourceSha256": "6c66d3151c1ae5be146613f0c7ff6f4f4b28e3eeb161ecc3a87f481f35d7cf36"
+    },
+    {
+      "term": "argolaval",
+      "reason": "Argolaval is a historical named silver-nitrate/urotropine preparation. Exact formulation identity has not been established, so a chemical or treatment claim would be premature.",
+      "stage": "authoring",
+      "sourceSha256": "da025c7c89f55b1075185eab6661b9db7de8d1a53ecb228c9f69289ae5dfefd4"
+    },
+    {
+      "term": "argomycin",
+      "reason": "Argomycin has conflicting-looking Chinese labels 金船霉素 and 阿格霉素. Establish the antibiotic identity before writing an example; do not infer it from the suffix alone.",
+      "stage": "authoring",
+      "sourceSha256": "18d71cb8374af43dc0d4a31514c3f79fd256d8404bd1ae2aeb8c6651b50e9c49"
+    },
+    {
+      "term": "argvalin",
+      "reason": "Argvalin and 精缬氨素 do not establish whether the intended entity is a peptide, antibiotic or named preparation. Primary identity evidence is still needed.",
+      "stage": "authoring",
+      "sourceSha256": "953bb5cbfcbfe0a6324ec4d3195f199c321e9b00f0cb14a94a996cad85ec713d"
+    },
+    {
+      "term": "argyn",
+      "reason": "The proprietary proper noun argyn requires confirmation as the particular silver-protein trade name. Do not infer brand identity from its resemblance to argyrol.",
+      "stage": "authoring",
+      "sourceSha256": "f8602ed7c067fedd2c5276553a47123b37d1454a6ba0624bf53e007634d1cbee"
+    },
+    {
+      "term": "argyria",
+      "reason": "Argyria is supplied only as 银中毒, which can misleadingly imply all systemic silver poisoning rather than silver deposition/discolouration. A sense clarification is needed before an example is admitted.",
+      "stage": "authoring",
+      "sourceSha256": "36b4cd2459ce5a81e8128ae60021176259c46af81de3342f730ae184db746dd7"
+    },
+    {
+      "term": "argyriasis",
+      "reason": "Argyriasis is an older alias needing exact attestation. Sources checked for argyria/argyrosis did not by themselves establish this exact spelling; no automatic alias admission.",
+      "stage": "authoring",
+      "sourceSha256": "30ea85eeac4eee9864917d5b441dd2c9485353bd8b434320a18d7e6515ae7c98"
+    },
+    {
+      "term": "argyrine",
+      "reason": "Argyrine is mapped to 七叶树硷/马栗硷, but the exact historical entity and alkaloid-versus-other-constituent identity are unresolved. Do not guess from the Chinese tree name.",
+      "stage": "authoring",
+      "sourceSha256": "c20a42e33108c00595e197bb92597f454b9e8ed934a2e0abca4a5c7d5972368b"
+    },
+    {
+      "term": "argyrism",
+      "reason": "Argyrism needs exact historical synonym attestation; the confirmed silver-deposition discussion under other heads does not alone establish this head.",
+      "stage": "authoring",
+      "sourceSha256": "b4f891d980863c9e8c8403e78a12adfa8855879b7f5d1b168ad2a1fb16f06669"
+    },
+    {
+      "term": "argyrite",
+      "reason": "Argyrite needs an attested mineral-name relationship to 辉银矿/argentite rather than an inferred near-spelling equivalence. No chemical formula or mineral identity assertion yet.",
+      "stage": "authoring",
+      "sourceSha256": "e92c8bbd2dc4c055e624695079dcd9d2e4b144210bdc00b85f713b78488f43a2"
+    },
+    {
+      "term": "arheol",
+      "reason": "Arheol needs an exact historical chemical match to 白檀油烯醇. Do not silently substitute santalol or assume a particular isomer.",
+      "stage": "authoring",
+      "sourceSha256": "7bc1871e2b0a9d9a08bcd9cb3643102615ee8df964bf0422a54252dc79f6f888"
+    },
+    {
+      "term": "arhigosis",
+      "reason": "Arhigosis and the loss-of-cold-sensation gloss need exact spelling/clinical-term attestation. No automatic equivalence with similarly spelled sensory terms.",
+      "stage": "authoring",
+      "sourceSha256": "4561648908eaeb508ae7161ed6eb80c5c3ac329bbd39e64046bac15aa91a0772"
+    },
+    {
+      "term": "arhinencephalia",
+      "reason": "Arhinencephalia requires exact historical anatomical scope: absence of olfactory brain structures is not absence of the nose or the entire brain. No congenital-anomaly example until clarified.",
+      "stage": "authoring",
+      "sourceSha256": "7fb58ca7422876d9c32369eb265f29154e9393010acddfbc58e6d475cb580341"
+    },
+    {
+      "term": "arhythmia",
+      "reason": "Single-r arhythmia may be a historical variant, but that exact form must be attested. Do not silently replace it with arrhythmia or turn a spelling guess into a medical example.",
+      "stage": "authoring",
+      "sourceSha256": "5c7fcd07a3a0865f9494a2d1d4a7deb03c513f374a7ad3c0e198445c4d420e8f"
+    },
+    {
+      "term": "God forbid",
+      "reason": "God forbid has an interjection/adverbial-phrase source, but the published selected POS list only permits adverb. Its ordinary parenthetical/interjection use needs a finite POS admission decision rather than forcing an adverb tag.",
+      "stage": "authoring",
+      "sourceSha256": "d00a299b0877400fcfb5fd545ede94b09ef568947ccf513d39b21e85f24c13c0"
+    },
+    {
+      "term": "Hons",
+      "reason": "Hons is bound here to plural HON and an old chemical amino-acid gloss, not to honours. The acronym/compound identity is unresolved; no university-degree example may be substituted.",
+      "stage": "authoring",
+      "sourceSha256": "c748465b1a943ba258a4d38c4cebbec68eee18b5b65f101bd17cef02d774d066"
+    },
+    {
+      "term": "SASE",
+      "reason": "SASE is bound only to 特定应用服务元素. Verify the legacy computing expansion/standard; the familiar envelope or security-architecture expansions are not supported substitutes.",
+      "stage": "authoring",
+      "sourceSha256": "a6d4f2c118bf49314819aabaac8767c08678df2a69034185dcb01e29bbcc6ea6"
+    },
+    {
+      "term": "barley sugar",
+      "reason": "Barley sugar denotes a confection in ordinary use, whereas the source gives 麦芽糖, a chemical sugar. Resolve this confection-versus-maltose mismatch instead of writing a misleading chemistry example.",
+      "stage": "authoring",
+      "sourceSha256": "f14a2274df0150b5bc24df55f479e8a59d7698f1f3e67c841c03ab90cb0b8fc0"
+    },
+    {
+      "term": "basket case",
+      "reason": "Only the historical 全肢断离者 sense is supplied for basket case. The modern distressed-person sense is unsupported, and the dated stigmatizing literal usage needs historical verification and labelling.",
+      "stage": "authoring",
+      "sourceSha256": "800e98694c883d0c7b22dd04c8c50b366b3a594e734e4a57c73d02182d413020"
+    },
+    {
+      "term": "cardinal point",
+      "reason": "Cardinal point is bound to the chemical/technical gloss 基点, not to compass directions. The particular optical/technical sense must be identified before an example is selected.",
+      "stage": "authoring",
+      "sourceSha256": "b27a73ba47f9ae779829b281e44d1de2659e934978baa8b1869317d4aa74d608"
+    },
+    {
+      "term": "catch-all",
+      "reason": "Catch-all is bound to a separator/catch-liquid apparatus sense 分沫器/截液器, not a general umbrella category. The exact technical apparatus use needs attestation.",
+      "stage": "authoring",
+      "sourceSha256": "c2726fe266948a578a0e0a2809535c2c773001ca82e95a7c2ea2ee21c6c85e52"
+    },
+    {
+      "term": "full blast",
+      "reason": "Full blast is bound to the noun sense 鼓风炉全风. No loud-music/intensity idiom may be substituted; confirm the industrial airflow terminology before authoring.",
+      "stage": "authoring",
+      "sourceSha256": "3d37878c40ec48ad82e44265958098ce04aafa03d94f33aae741f0f5b4eae0fc"
+    },
+    {
+      "term": "British Asian",
+      "reason": "HOLD: the source only permits proper noun, but a British Asian is an indefinite countable person-category noun in this sentence, not an individual proper name. My Cambridge publisher entry independently marks noun [C]. Correct the source/POS through a bounded future proposal; do not promote capitalization to proof of proper-noun role.",
+      "stage": "independent-review",
+      "sourceSha256": "0d61ef38e60bd55349dc7ad5dfddb25686cb020c6ece814df2635014f334ebd9"
+    },
+    {
+      "term": "Middle England",
+      "reason": "HOLD: both selected Chinese meaning and translation drop the frozen source's outside-London restriction and instead teach British middle classes generally. My own Cambridge original indexed definition explicitly retains outside London. Keep the English scenario, but a separately reviewed selected-meaning/translation correction is needed; do not silently broaden the frozen sense.",
+      "stage": "independent-review",
+      "sourceSha256": "db808c6453f7fb1c6c4b3292cf7cb4947b697898e323644cf1beec272298a655"
+    },
+    {
+      "term": "bicarb",
+      "reason": "HOLD: under bicarb in the worksheet makes bicarb a field-name/string mention rather than demonstrating the bicarbonate noun in use. My own NHS lab abbreviation entry confirms that bicarb can denote bicarbonate, but does not cure this sentence's label-only teaching value. A genuine bounded technical noun example is needed, not a replacement with baking soda.",
+      "stage": "independent-review",
+      "sourceSha256": "0fdb63f080ef71744ff88046ed586e4e55f6353a126920d8f6ae275a86d3a327"
+    },
+    {
+      "term": "hit and miss",
+      "reason": "Frozen input only licenses adverb. Personally read the publisher's MW hit-and-miss entry, which labels the expression adjective, as does Cambridge. The source also gives 胡乱地, so the meaning itself may be recoverable, but finite scrutiny did not establish a natural exact open-spelled adverb use. Do not relabel an adjective example as adverb merely to install a pair; independently settle that exact role first.",
+      "stage": "authoring",
+      "sourceSha256": "77f412bdc69a5523d0d919e8df74d5ec0697a2135fd9c16912dcaf4ceef11c1e"
+    },
+    {
+      "term": "hit or miss",
+      "reason": "MW explicitly confirms the open-spelled adverb meaning haphazardly, but the frozen Chinese source supplies only 不论成功与否. A natural random-search example would silently replace this with 胡乱地, while an adjective example would violate the only allowed adverb role. Source sense alignment needs a separately bound clarification; not marked covered.",
+      "stage": "authoring",
+      "sourceSha256": "37ed506078d83c097992b734f18116a780e738505e619ef5f1d053be4dfe2498"
+    },
+    {
+      "term": "in the fullness of time",
+      "reason": "The frozen definition is 任满一届,如期结束. Personally read Cambridge's publisher definition and Chinese 到时候,迟早: the idiom refers to something happening after enough time, not finishing a term of office or an event ending on schedule. A standard natural example would teach an unsupported changed sense under the frozen definition.",
+      "stage": "authoring",
+      "sourceSha256": "77ff1150fbab8febef9ff15e0ca55137e5f4f57d6e6e3461569e60a5d48e80ba"
+    },
+    {
+      "term": "ionizer",
+      "reason": "The only frozen medical sense is 电离剂, an agent. Cambridge's actual publisher entry identifies an electrical ion-generating device and supplies 负离子发生器, not a chemical agent. A household-machine sentence would hide this agent/device mismatch; a chemical-agent sentence has not been established by the finite original lookup.",
+      "stage": "authoring",
+      "sourceSha256": "0f104c3c6f4415c5270c6dbdf03fe6a4a67edbf7155f192387e2ce73e0075631"
+    },
+    {
+      "term": "jelly roll",
+      "reason": "The frozen medical Chinese is just 凝胶卷. Personally read original structural research PMC2678837: jelly-roll is a protein fold/topology of beta sheets, not a physical roll of gel. That specific topology is not established by the bare frozen gloss, and an ordinary cake sentence would plainly switch domains. Keep the exact medical identity unresolved rather than invent a gel object or silently rewrite the sense.",
+      "stage": "authoring",
+      "sourceSha256": "9eb2594dda1095e4ad1f5ea65e283e1cefe18e434f2c80295b2446135389724b"
+    },
+    {
+      "term": "nothing much",
+      "reason": "Only adverb is licensed. Publisher Cambridge gives the idiom 'very little' with nominal/pronominal examples such as having very little to do; its parent nothing entry explicitly labels the relevant indefinite pronoun. A natural 'Nothing much happened' sentence is not an adverb example. Finite original scrutiny did not close a natural exact phrase used adverbially under 很少.",
+      "stage": "authoring",
+      "sourceSha256": "40e4d71d90c0fa7e410506cc683bc7808392ab0445320b9dbfbe19657fc93136"
+    },
+    {
+      "term": "out-of-body",
+      "reason": "The sole frozen medical gloss is 体外. The familiar out-of-body experience describes a perceived separation from the body, whereas physical extracorporeal circulation describes an actual outside-body location. This input does not identify which medical use is intended. Do not invent a physical procedure or replace the gloss with a psychological experience without a source-bound clarification.",
+      "stage": "authoring",
+      "sourceSha256": "22f762638c6392955b88afdcf37340f0981b3fdb9e72a670bba08d0ba8206e3b"
+    },
+    {
+      "term": "skull cap",
+      "reason": "Frozen medical meaning 前顶 does not identify the calvaria. Personally read the original PubMed16425160 abstract using calvaria(skull cap), and the NLM MedGen record independently maps skull cap to calvaria. Neither establishes 前顶 as the intended equivalent. A cap/clothing example or a translated 颅盖 example would silently replace the frozen medical sense.",
+      "stage": "authoring",
+      "sourceSha256": "9c01cc6a54b614c061282a78f7080e31bfa5a8c9f8d4e151eebc83373dd74202"
+    },
+    {
+      "term": "unsubscribe",
+      "reason": "Frozen input labels unsubscribe only noun and supplies an -ing form; personally read MW's actual entry, which labels the lexical verb and defines stopping a subscription. 'Click to unsubscribe' is a verb, and a quoted button label is not evidence of a lexical noun sense. Do not exploit the label to bypass the frozen noun role.",
+      "stage": "authoring",
+      "sourceSha256": "571a407fccb9cab6fc6b4e10133ead17a12c7206fd9e98299657fdd791bc5277"
+    },
+    {
+      "term": "apple of Peru",
+      "reason": "Frozen source combines Chinese 曼陀罗 with the explicit taxon Nicandra physalodes. Personally read Kew's medicinal common-name mapping: apple of Peru is applied to Nicandra and also Datura species in different source traditions; RHS confirms Nicandra usage. This confirms ambiguity rather than equating the Chinese 曼陀罗 taxon with Nicandra. A new pair must not join the wrong Chinese and Latin plant identities.",
+      "stage": "authoring",
+      "sourceSha256": "f9f0b66aeba9eac8a1caa913f5a2a5ac57c2b2a89bcf47fc087d873ca5fe8a6f"
+    },
+    {
+      "term": "Benday",
+      "reason": "Only verb is licensed, while the sole frozen Chinese 彭戴 is a name/transliteration without a verbal printing definition. A finite search found an externally reproduced verb definition for the Ben Day printing process, but not a directly retrieved publisher entry closing that definition against this frozen computing-tagged source. 'Use a Benday pattern' would be noun/adjective, not the required verb. Preserve the issue pending specific source repair.",
+      "stage": "authoring",
+      "sourceSha256": "274d14a5659a30bab29d11cb8610019a3f23b993c8334e00ad74d6ace9b8ecd2"
+    },
+    {
+      "term": "G-force",
+      "reason": "Frozen Chinese is 地球引力,重力. Personally read NASA's original instructional PDF extract defining G-force as force felt relative to ordinary weight and distinguishing zero/two-g from unchanged Earth gravity. Thus simply translating an aircraft acceleration/load example as 地球引力 would teach the wrong physical quantity; exact selected-sense correction needs separate review.",
+      "stage": "authoring",
+      "sourceSha256": "f61c0900fc1f85f74eb99cde31e7f62b1f5146802dbd3802a5b6c99bb3899fa2"
+    },
+    {
+      "term": "lady slipper",
+      "reason": "The only frozen medical Chinese is 凤仙花. Personally read RHS's exact lady slipper page, which identifies Phragmipedium in Orchidaceae, while the actual NC State Impatiens balsamina page lists balsam names but does not close this English alias. Historical usage may exist, but the finite original-source lookup does not prove it. Do not replace 凤仙花 with an orchid or confidently join two different plant families.",
+      "stage": "authoring",
+      "sourceSha256": "69b8fb496af75c25fdc4e1a2fe082c5f0fa442e15bcc5cbeecdf52c939664e83"
+    },
+    {
+      "term": "Reduced Instruction Set Computing",
+      "reason": "Frozen Chinese names a computer, 精简指令集计算机, while the full English normally names a computing architecture/approach. Actual IBM original documents themselves vary: the TS7700 glossary gives a computer definition, whereas the IBM Redbook SG245967 gives a processor architecture. This finite evidence does not justify pretending the grammatical computing concept and a physical computer are one exact selected sense. Keep pending a clear sense decision rather than write a machine-name or doctrine sentence under the other meaning.",
+      "stage": "authoring",
+      "sourceSha256": "6ca45b2c169e328dd2065935ff3e360f4446cfe8d888b8174a64d4dad201b495"
+    },
+    {
+      "term": "plaster of Paris",
+      "reason": "The English casting scene and 熟石膏 are plausible, but the frozen Chinese is 煅硬膏, 干燥硫酸钙, while the selected gloss silently changes 硬膏 to 石膏. The actual MW entry identifies a partly hydrated calcined-gypsum material. The damaged/underspecified source material identity needs a separately bound Chinese/source clarification before this example gloss can stand as matched evidence; do not silently repair it through an example.",
+      "stage": "independent-review",
+      "sourceSha256": "57794ff3662d6665acdaa4e30cba83c70f9e49672983e4cbd09649ce3db260cc"
+    }
+  ],
+  "reviewScope": "Actual different-principal selected-sense AI whole-source/whole-pair reading, not human certification, complete-sense coverage or full dictionary completion."
+}
