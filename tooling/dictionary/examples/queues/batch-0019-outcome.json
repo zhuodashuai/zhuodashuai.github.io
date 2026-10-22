@@ -1,0 +1,2395 @@
+{
+  "schemaVersion": 1,
+  "batchId": "0019",
+  "queuedHeads": 2000,
+  "authoredHeads": 1677,
+  "approvedHeads": 1661,
+  "authorHeldHeads": 323,
+  "reviewHeldHeads": 16,
+  "beforeHeads": 82339,
+  "afterHeads": 84000,
+  "beforeExamples": 83728,
+  "afterExamples": 85389,
+  "canonicalHeads": 102609,
+  "remainingHeads": 18609,
+  "complete": false,
+  "newRoleApproved": 613,
+  "baselineExampleVersion": "607a62a0614c35d437be636eb3bf9d13fb5c80bb332c9bfb53b430456a7cbe2b",
+  "examplesVersion": "ecbf796a417d9a21ff4bbba145a6d384b081949915ebac9b09140e35b9846db9",
+  "deferred": [
+    {
+      "term": "thine",
+      "sourceSha256": "3c8647e93c461febfd3bca56d8efcc74d1ea1996d9f90b03b34708e65afa51e3",
+      "pack": "p004",
+      "stage": "independent-review",
+      "reason": "English is thine asserts possession, but Chinese 归你了 adds a new transfer/change of ownership not entailed by that assertion. Archaic pronoun role and sense themselves are sound; retain unchanged pending a separately bound precision amendment."
+    },
+    {
+      "term": "anigh",
+      "sourceSha256": "45cea3d79e2f6199a470d905ea3f86ec776058945deedc56668b89f793ee2f9a",
+      "pack": "p004",
+      "stage": "independent-review",
+      "reason": "English keep the cart near the wall does not explicitly require movement or contact; Chinese 靠着墙走 adds both a walking/travel action and a potentially stronger contact relation. The old dialect preposition itself is supported."
+    },
+    {
+      "term": "as of",
+      "sourceSha256": "1d2a9c9a473e12164abd3f76261dd0d34e99cc6a0916d0d145d80a6bd6a97a47",
+      "pack": "p004",
+      "stage": "independent-review",
+      "reason": "English only says that three costumes still needed buttons as of this morning. Chinese 需要缝纽扣 adds a sewing operation not specified by needing buttons; keep the immutable row pending a narrow separately bound translation amendment."
+    },
+    {
+      "term": "from side to side",
+      "sourceSha256": "939651dd7c14286b874aeb6a172c935c52f55e954459ce25a649c9b062a97434",
+      "pack": "p004",
+      "stage": "independent-review",
+      "reason": "The swaying phrase and scene are sound, but unqualified carriage does not explicitly settle a horse-drawn versus rail subtype whereas Chinese asserts 马车. Retain unchanged pending a bounded amendment either clarifying the intended English vehicle or neutralizing the Chinese subtype."
+    },
+    {
+      "term": "dans",
+      "reason": "The frozen sense is explicitly French. I have not established an English preposition borrowing matching this exact head; inserting a French quotation would not demonstrate ordinary English learner usage. Retain for language-scope review, not as an invalid French word.",
+      "sourceSha256": "486044686cd1a7c8b24efa7459738d48fd6b0d0b6650ed16edbe502aa1fa5400",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "mein",
+      "reason": "The frozen 我的 sense is explicitly German. Ordinary modern mein before a noun is possessive-determiner use; I have not established an English pronoun borrowing, nor an exact independent-pronoun construction with this spelling and this sense. Do not replace it with meins or quote foreign speech to bypass the gap.",
+      "sourceSha256": "b351f974684edc75aa8aa7afbf19f72638354a47d4e80c2c7194f9dbcac49f36",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "alla",
+      "reason": "Primary Merriam-Webster supports complete Italian-origin musical expressions such as alla marcia, but that does not independently establish the bare head as an English preposition with the frozen generic 如同 sense. Do not transfer the complete expression's adverb/adjective tag to this bare head.",
+      "sourceSha256": "8e4134be5f1bacc4e4e7bb622a7e290ed5672e970ec44088c225dd5d33d4f39c",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "entre",
+      "reason": "The frozen sense is explicitly Spanish. No English preposition borrowing matching this exact head and 在…之间 sense was established; a Spanish quotation alone would not close the English usage gate.",
+      "sourceSha256": "8a49bef67d10a72e7fc5da8352f0d839c81553bb9cf370704fa5877dc28d6ac1",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "any-thing",
+      "reason": "The exact hyphenated pronoun head lacks a source-pinned historical-spelling justification here. Cambridge grammar supports single-word anything as an indefinite pronoun. I have not proved the hyphenated head invalid, but will not silently strip its hyphen or present it as normal modern spelling.",
+      "sourceSha256": "2fc4e448254907c812e5e24ef647714f4cf053653f40271297fc477d927c9bda",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "anybodies",
+      "reason": "Frozen pronoun with a plural-form gloss is not supported by the ordinary singular indefinite-pronoun grammar actually read from Cambridge. A possible plural noun or quoted-label use would change the selected role. No exact suitable pronoun use was established; do not reduce the canonical head to anybody.",
+      "sourceSha256": "410f30be162b1c3cfed0c89f1a586d164e286602287a68a7773e1eb4b63e1d04",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "anyones",
+      "reason": "The exact final-s spelling is not the ordinary singular indefinite pronoun anyone, and is not a possessive apostrophe spelling. No matching pronoun use was established. Do not silently remove s, add an apostrophe, or use a plural noun instead.",
+      "sourceSha256": "4928b2ec50b587a8ed467445c0f7443c37c69ef8eabecfaf286a5f48ed8ee59c",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "anythings",
+      "reason": "The frozen pronoun label and 任何事 gloss do not establish a final-s indefinite-pronoun form. Cambridge's ordinary anything construction is singular. A plural noun/metalinguistic use would not demonstrate this selected pronoun role; exact form left pending rather than repaired.",
+      "sourceSha256": "f370fdc5ecb5e01b50fca28c9691facd2e76fc361baa6ef8d687919fe622cbcc",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "as often as not",
+      "reason": "The meaning is clear and primary dictionaries support the idiom, but the frozen only-enabled role is prepositional phrase. Larousse explicitly classifies it as phrasal adverb, and I have not resolved the source-role analysis well enough to teach the frozen PP tag. This is a role hold, not a rejection of the idiom or its meaning.",
+      "sourceSha256": "0592bc1a086b21ecef3265cc1051f2cdf74f4b7edb3273843d91e4dc36ab522b",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "as you please",
+      "reason": "Primary Dictionary.com supports the two meanings, but the normal as + finite-clause expression does not unambiguously demonstrate the frozen prepositional-phrase role under the present source-only contract. Leave for a finite grammatical-role decision rather than silently choose adverb/conjunction or assume a modern grammatical framework.",
+      "sourceSha256": "3770006e0b36aad15b8f1c0533cfcc43aacd7465e9f74b391e3e72f1d474597e",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "beyond reasonable doubt",
+      "reason": "Frozen Chinese 有合理怀疑 reverses the positive idiom's polarity. Cambridge's UK phrase corresponds to proof excluding reasonable doubt, not having reasonable doubt. A correct English example with a corrected Chinese label would silently repair the frozen source, so no pair is authored against this gloss.",
+      "sourceSha256": "e919915bb8fccb5c88213fad9d8e710577d52e7695b992eb60f8da0614e58e25",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "down with",
+      "reason": "The frozen 打倒 sense is the slogan/interjection use, while only preposition is enabled from source preposition · interjection. A sickness construction would introduce a different source-absent sense. Do not force the overthrow slogan to be a preposition or change the Chinese sense.",
+      "sourceSha256": "7bf10df750f06d169b78d3fcb426df26f871ee88b3e5d2a0701e03b6f31362ac",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "full of",
+      "reason": "The frozen only-enabled prepositional-phrase tag conflicts with the ordinary adjective full plus of-complement analysis actually supported by Cambridge's full adjective entry. The meaning is not disputed; a finite source-role resolution is needed before selecting a different tag or teaching the whole head as PP.",
+      "sourceSha256": "b2ab11d24c40644a6bd6ce1449f51917d847e45bfad9f634c0505d2143dba554",
+      "pack": "p004",
+      "stage": "authoring"
+    },
+    {
+      "term": "in harness",
+      "reason": "The complete frozen Chinese gives only 受约束. The personally read primary Collins entry supports being at work and cooperating, but does not close equivalence to this general constraint gloss. I have not substituted either familiar branch or an invented restraint use. Hold for a finite source-sense clarification; not a finding that the head is invalid.",
+      "sourceSha256": "e94914c3a0249d434d1f061f8c1949b28493fb14f304faf85875a101f05ed74d",
+      "pack": "p005",
+      "stage": "authoring"
+    },
+    {
+      "term": "in train",
+      "reason": "The complete frozen source and its only variant say 准备就绪. Actual direct Collins exact-entry reading supports an event/process happening or starting, not mere completed readiness. I cannot match the preserved Chinese sense without a separately adjudicated sense correction; I have not treated the word as invalid or silently used the underway sense.",
+      "sourceSha256": "c3c2ce0df8452fc5eef444a95139479b14fc840b5336a7337351462fc4e32d49",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "of all things",
+      "reason": "The complete frozen Chinese source says only 首先. Actual direct Merriam-Webster exact-entry reading supports emphasis on the least expected thing, not temporal priority. No phrase-first or literal of-all-things sentence is used to disguise this source mismatch. Separate source/sense adjudication is needed.",
+      "sourceSha256": "069edbad3b359b5f09a633f26dfbe60f95bc4d367efbbcd528f1dac908abfb9a",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "off camera",
+      "reason": "The frozen selected role is prepositional phrase, but the sole Chinese gloss describes a standby television camera device, not an off-camera state. Direct Collins exact entry describes action outside filming/view. A sentence using the familiar off-screen sense would not establish the published equipment-noun Chinese sense; this individual mismatch is deferred.",
+      "sourceSha256": "7dd4115e51139955f1290adc45b033878c94ddfd38b5ccba2c743820cf9fac72",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "off the shelf",
+      "reason": "The complete frozen Chinese source says only 复活. Actual original-publisher Collins lexical definitions support ready-made/stock availability. I have no source-specific evidence for the revival gloss and will not replace it silently or count a literal removal-from-a-shelf scene as this sense.",
+      "sourceSha256": "4ef0f3c3204b1a58d679b5ffe423e85b9a95c326563f88bf9af4921136d38428",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "on a shoestring",
+      "reason": "The frozen sole Chinese gloss is 白手起家地. Direct Collins exact-entry reading supports doing something with very little money, which does not imply starting from nothing or founding a business. A faithful general learning label requires a finite sense/translation decision; I have not added a no-capital assertion to force equivalence.",
+      "sourceSha256": "0596981c99a5f1f4cdf3b364e150686b2203666ebb9773e6af8a265e57222865",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "on course",
+      "reason": "The frozen only gloss is 在…的过程中. The readily familiar navigation/progress-on-plan expression is not simply a general during/in-the-process-of preposition. Exact Collins and Merriam-Webster entry opens failed, which is not evidence of invalidity. The source-specific alignment remains unresolved, so I have deferred this head rather than using a different known sense.",
+      "sourceSha256": "e6803c5c5129bd2279bc63f2e6cd7114fb32bc11f4d44392437eaa0b220c5e85",
+      "pack": "p006",
+      "stage": "authoring"
+    },
+    {
+      "term": "under canvas",
+      "sourceSha256": "c6176cacf50d51b059b3463c5c82d2310602fbc39cbd1b2ff06a8acdf6827b41",
+      "pack": "p007",
+      "stage": "independent-review",
+      "reason": "Our first night under canvas need not be the first occasion in the speakers' lives that they stayed in a tent; it may be the first night of a trip. Chinese 我们第一次住帐篷的那晚 adds the first-experience assertion. The camping sense and English are otherwise sound; retain immutable pending a separately bound translation amendment."
+    },
+    {
+      "term": "without obligation",
+      "reason": "The sole published Chinese is the chemistry-tagged 不计价. The personally read Collins entry instead makes a trial offer conditional on trying and being satisfied before paying; its thesaurus also lists free, but that does not establish this particular chemistry sense or unrestricted no-charge meaning. I have not composed a pair by silently replacing the published sense with no obligation to purchase.",
+      "sourceSha256": "3f6a401560cb2315dbea00f03b926deaea4d3c09bc5830b79b59cddb022af43e",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "as soon as",
+      "reason": "Published meaning 一...就 requires the temporal conjunction use in a natural clause. This queue currently permits only preposition from its mixed preposition/conjunction source. I will not label a conjunction example preposition or silently expand the enabled POS contract.",
+      "sourceSha256": "4b1ded6dad5ed7bff61fea79ed6c6168772d7b53582061e70e2db8ade85c75fb",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Pinot",
+      "reason": "The only source Chinese is 加州葡萄. Personally read Collins distinguishes Pinot grape varieties from their wines and does not identify Pinot with California grapes generally. The frozen Chinese is too geographically broad/underspecified to select a reliable equivalent without a finite source-sense decision; no wine sense or silently repaired 皮诺葡萄 label is substituted here.",
+      "sourceSha256": "199ae20a98a8e8d63b6ba63ad72437fa1d51a16e171c5522e188afbb94aa5211",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Montezuma",
+      "reason": "The frozen noun gloss and variant only transliterate 蒙特苏马, without specifying which person or other named referent. I have not selected a ruler, place, or fictional random namesake by capitalization/familiarity alone.",
+      "sourceSha256": "ea3955e66ed56e963f39634d7b05ca49288b617b5376fefd08778e195369d051",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Acipenser",
+      "reason": "The entire Chinese genus gloss is corrupted as Ы鱼属, with a Cyrillic character in place of its identifying Chinese text. I have not silently repaired it to 鲟鱼属 or used the adjacent Acipenseridae source as authority to rewrite this head's source.",
+      "sourceSha256": "4e20f80112711d398e5b27dabb6a102dbef2010981d52d14178d295e24c64f87",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Acroclinium",
+      "reason": "Frozen Chinese is solely 秋水仙碱, a chemical sense. Personally read Kew records exact Acroclinium as a botanical synonym associated with Rhodanthe, not evidence for that chemical identity. A plant sentence would change the published sense; a colchicine sentence would assert an unsupported English head/chemical mapping.",
+      "sourceSha256": "3c6069f998b69d214c8063bcc0455ce9b4a29f397d08cd86a7c6b1dded46cd02",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Acrostichum",
+      "reason": "The source begins with corrupted ǎ蕨属 and gives 金蕨属 in parentheses. The personally read original Flora of China identifies genus 卤蕨属 and 金蕨 as a species alias for Acrostichum aureum, not clear evidence for the frozen genus-level 金蕨属 equivalence. I am not upgrading a species alias to the genus or silently repairing the corrupted first label.",
+      "sourceSha256": "fcd9a1beaa2cc58b8084dddbf37e9e8631cd64386f766dc98e4e66609d6b4e0f",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Actinaria",
+      "reason": "The source is 肉珊瑚目. Personally read Merriam-Webster treats exact Actinaria as a synonym of Actiniaria, but I have not established that the frozen Chinese denotes this same historical order rather than another coral grouping. I have not substituted the neighbouring head's 海葵目 label or pronounced the old head invalid.",
+      "sourceSha256": "1a52ae103ca68df051536bf836ecf598fe8ae4b93821edccd3ff1415017c695d",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Actiniopteris",
+      "reason": "Frozen Chinese 凤尾蕨属 is not the exact genus mapping found in personally read original iPlant, which gives 眉刷蕨属; Kew confirms the exact English genus. Different preferred names alone do not prove that every historical alias is wrong, but no primary evidence closed this particular alias. A limited source-mapping hold is safer than silently replacing the Chinese genus.",
+      "sourceSha256": "88070666ead3c81596ab00863129645011906273f4017e14b897dea469654be3",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Aegypiidae",
+      "reason": "The sole frozen gloss is the malformed 构成鹫科. The initial verb 构成 is not a usable noun meaning and the intended historical family boundaries have not been independently resolved. I have not simply deleted that text and asserted an exact modern family mapping.",
+      "sourceSha256": "7c22878f9b85aaee6f3cecad9e6e5805b6db3760688ef9fe8a1445ee57f8f750",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "Aepyorniformes",
+      "reason": "Frozen Chinese 山楂 denotes hawthorn, while this Latin-looking zoological head has no source evidence tying it to that plant. I have not changed the spelling or replaced the Chinese with an inferred elephant-bird order. This specific head/gloss conflict needs source repair or a separately bound decision, not a fabricated plant example.",
+      "sourceSha256": "abc8e6b949e575c88d546a72b1d0b95fe61d06653b8cf2608eef7b7c5f543d78",
+      "pack": "p007",
+      "stage": "authoring"
+    },
+    {
+      "term": "amsacrine",
+      "sourceSha256": "1067819d38b53fadcd8a14adf957d0cdd74f85872bcfa41327310079f380a778",
+      "pack": "p008",
+      "stage": "independent-review",
+      "reason": "英文after discovering the missing vial通常是找到了那只失踪药瓶，中文却说发现药瓶不见了，事件反向；不能沿用该完整句对。"
+    },
+    {
+      "term": "amyline",
+      "sourceSha256": "7f6bd67ddf2068a1ab28bef3d2811688d0e7104f0e2554d046235b8dda29540f",
+      "pack": "p008",
+      "stage": "independent-review",
+      "reason": "冻结义指淀粉粒纤维素膜，但有限原出版检索未核实该确切旧结构身份；找到的现代激素或药名不能代替。旧原词典大PDF超限且TERMIUM403均非无效证据，暂不把当前结构场景算作已核准。"
+    },
+    {
+      "term": "amylit",
+      "sourceSha256": "ff9a170f1da914b8ac40a5b9201d56711fa219d0bd965fe507ce0e75a76647d1",
+      "pack": "p008",
+      "stage": "independent-review",
+      "reason": "WIPO原商标资料及原化学手册索引明确Amylit为酶制剂商品而非已闭合的单一酶名；冻结无条件麦芽糖化酶标签尚需有限双语身份确认，当前句对不能据此计为准确覆盖。"
+    },
+    {
+      "term": "Algeripithecus",
+      "reason": "The source supplies only the transliteration 阿尔贝皮库斯, without a taxonomic or person role. I have not independently closed the exact bilingual identity sufficiently to add a fossil-genus role or fictional person role. Hold this identity question, not the canonical head itself.",
+      "sourceSha256": "7be8b4f7c4f2285e4ef84b1b0e22ac3b7aa01d1ee1162c7d680290e49d3e604e",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Allionia",
+      "reason": "The source gives 洋葱, but the personally read primary Kew/USDA indexed records identify Allionia as a genus in Nyctaginaceae, not the ordinary onion referent. A corrected Chinese identity needs a finite source repair; no Allium substitution or invented onion scene.",
+      "sourceSha256": "eb5478b6e6653e95b456cbafaf09d3df722945e7e82c9e65dedb048402fbe02c",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Allioniaceae",
+      "reason": "The source gives 洋葱科. Original Smithsonian botanical material places this historical family around Mirabilis and related plants; equivalence to the published onion-family gloss is not established. I have not silently replaced the source Chinese family or borrowed another family identity.",
+      "sourceSha256": "c8e4572b4d68b4cff01dcbd88bbd3454645651ced85af2c83d179f1fb4b9c5db",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Amianthum",
+      "reason": "The source gives only 杏仁. The original botanical index located in the bounded search lists Amianthum among Liliaceae names, while the located taxonomic descriptions concern a different plant genus. The almond identity is not closed; do not rescue it by silently changing the head to Amianthium or the Chinese to another plant.",
+      "sourceSha256": "58a7bc0b7ad921acc8b2d5af306d27c3378053cdf7ce17b8d049d8da11a3a7ba",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Ammodytes",
+      "reason": "The source explicitly selects a botanical sand-growing plant. Primary marine registry and Harvard museum records instead identify the exact Ammodytes as a fish genus. I have not substituted a fish sense unsupported by this frozen Chinese branch or shortened the head to another word.",
+      "sourceSha256": "0c1289b2809c403d8a64d7db3f234f3b5f150c6187a64784e809807a30be929a",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Amphibolips",
+      "reason": "The source gives 两栖动物, but the personally direct-read Iziko Museum WaspWeb places the exact genus among Hymenoptera/Cynipidae. This is a substantive entity/domain conflict, not permission to invent an amphibian example or silently repair the Chinese.",
+      "sourceSha256": "2f9c2fc2e59d624513ede21dee7499069b9d1a8541017906c684ed130a84ec25",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amphiploidy",
+      "reason": "The source says simple 双倍体性. The primary Collins indexed entry points to amphidiploidy, and the scholarly plant-hybrid material concerns hybrid/polyploid sets rather than generic diploidy. A finite Chinese clarification is needed before an accurate selected-sense pair can be retained.",
+      "sourceSha256": "32c5aeeea96e60c55e394f008efd366a81851f92403314f8c1b799473e386dfc",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Amphitritinae",
+      "reason": "The source says 须头虫科, but the Australian Museum original paper explicitly treats Amphitritinae as a subfamily within Terebellidae. I have not promoted a subfamily to the published family rank or silently relabelled the Chinese; exact historical rank/name reconciliation remains pending.",
+      "sourceSha256": "003ba5aa1358c306887820d303001ec6c27942c6367946b7c9b853ed182b970d",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amphitropic",
+      "reason": "The source supplies only 横生的 without specifying the structure or domain. The bounded lookup did not close the exact adjective/domain relationship; using a familiar amphitropous ovule or a modern amphitropic protein would risk replacing the source branch. Lack of a successful page is not a finding of invalid spelling.",
+      "sourceSha256": "3d58e97e2ff157a0d5355d85e65eddbfeffea349fbee77103e6db87951920375",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amphogenic",
+      "reason": "The direct Collins definition is producing male and female offspring, whereas the frozen 两性生殖的 can naturally mean sexual reproduction generally. I will not conflate those concepts; a source-bound narrow clarification is needed rather than an unqualified reproduction example.",
+      "sourceSha256": "373c8380463de1a3f031b681ec75428350507ea0c9911aaa3adbba345aa31ead",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amphotere",
+      "reason": "The source fixes the noun as 两性元素. I have not closed whether the exact noun is used for an element, a substance, or another amphoteric entity, and the primary endpoint did not provide a usable entry. Hold the exact chemical class/Chinese relation; do not invent a named element or treat a failed lookup as invalidity.",
+      "sourceSha256": "def471dab376934852cf15cc674ef27dae343a3027a9586d2a03700c02c8dfe4",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amplexation",
+      "reason": "The frozen sense is a specific clavicle-fracture enclosing treatment. The bounded search did not verify that exact medical procedure sense; the independently located general embrace sense cannot be substituted. An invented treatment description would overreach the source evidence.",
+      "sourceSha256": "eee1752e61931ca8334d37e12a4931a9164d87fe0d39f690145b735f91cb7104",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "Amsterdammer",
+      "reason": "The published Chinese describes the cities Amsterdam, but the primary Dutch ANW entry identifies an Amsterdam inhabitant/person role. I have not treated the derived person head as a city or silently rewritten the Chinese as a demonym; exact English/source-role reconciliation remains pending.",
+      "sourceSha256": "fd2302b5d218d079f0ea52da83d319ee474642444127799ab060e08f934a9fe3",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amycin",
+      "reason": "The source equates the exact head with 阿霉素, but the bounded primary search established Adriamycin/doxorubicin information, not this shorter exact name. That is insufficient to infer identity of amycin or to write a drug/material scene as if it had been confirmed.",
+      "sourceSha256": "0cde8a8253598d730dc5e2cc1ed253ff3f26a40baca296532741de5ad290e2ce",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amygdale",
+      "reason": "The source says 杏仁孔. Direct Merriam-Webster defines the exact variant through amygdule as a rounded nodule in amygdaloid, rather than an unfilled cavity. I have not translated a mineral filling as an empty hole or changed the canonical head; a finite geology/source-label decision is needed.",
+      "sourceSha256": "693827e72be59b21daa6940f317f97c6c21aa8b0890a75ba44b2bcefcc9d0b8c",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "amylaceum",
+      "reason": "Primary publisher material supports glucose in the full Latin compound saccharum amylaceum. It does not establish the bare amylaceum as the selected English noun; using the Latin adjectival component to satisfy a noun row would evade the source/POS requirement. Hold for exact usage/role evidence, not because glucose is unsupported generally.",
+      "sourceSha256": "c2c22a7d81d0758001d56344c2cfc05a94ff530fe7b45d9220cba40ce172b9aa",
+      "pack": "p008",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaesthesin",
+      "sourceSha256": "61cc1a7886fe8f25309d775a425433e0173a9a9e31685897acda2f06c76dcb13",
+      "pack": "p009",
+      "stage": "independent-review",
+      "reason": "英文将chromatogram色谱图与benzocaine reference sample实体样品直接比较，比较对象层级不一致；应明确对照样品的色谱记录而非实物，当前原句不作为精确科研例句发布。"
+    },
+    {
+      "term": "amylocainehydrochloride",
+      "reason": "The immutable head is a single concatenated surface, but the chemically intelligible salt name is two words. No published occurrence form authorises inserting a space. The exact merged English surface and source salt identity need source repair, not a new sentence containing a silently corrected head.",
+      "sourceSha256": "491b9ae4268e6ee11c5f256056fd43970790e247df842457a13b692a52ab1bf2",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amylocyanin",
+      "reason": "The two source branches describe 淀粉蓝素 and 菌淀粉青素. The precise historical coloured substance and relation between those branches remain unclosed; the PubChem no-hit does not disprove it. A generic coloured vial would hide rather than resolve this specific identity.",
+      "sourceSha256": "5aa51ce41cf07bc52043c10032a945673c8889ae88330c3ffa7d7e7df3b8964d",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amylohemicellulose",
+      "reason": "The source identifies 类直链淀粉, but the exact historical amylohemicellulose carbohydrate/fraction identity is not established by the original lexical windows. I will not substitute familiar hemicellulose or amylose chemistry merely from the compound's spelling; a PubChem no-hit is not invalidity evidence.",
+      "sourceSha256": "de4cc5348b8414ed1352b262071df25abbfdfb0dd2b4b5b6da5ed6f8042be13f",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amyloprolamine",
+      "reason": "The exact published spelling and 麦蛋白 identity are unresolved against the more familiar prolamine/prolamin terminology. No source form permits correcting or merging the spelling, and an unspecified protein experiment would not settle that lexical boundary.",
+      "sourceSha256": "ab33de2a04764f4bc97f4cdd22daefbce2c2b0acd9f33c36679100bc1b5f5763",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amylosis",
+      "reason": "The frozen sense is 蛋白样变性, not the more familiar 淀粉样变性. The exact historical relationship is not resolved in the original entries inspected; I will not silently turn it into amyloidosis or pretend that a generic pathology report proves the Chinese branch.",
+      "sourceSha256": "f9b053967aa549b99e227380db8a8ae13c77508b3a5719f492a8ab84952de9bf",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amyloysis",
+      "reason": "The exact head lacks the l present in familiar amylolysis. Its precise published surface is not closed by the bounded original-lexicon search, and there are no source forms permitting that correction. The source starch-breakdown concept alone does not license substituting a different English head.",
+      "sourceSha256": "2b652b8fdac1ebb577008ed65d2f8ff6c1ffa78db336d1c00470fe2ddad3cce2",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amylzyme",
+      "reason": "The source gives a starch enzyme, but the exact name's identity as a generic enzyme versus a historical named preparation remains unresolved in the inspected original evidence. A failed MW request is not a negative lexical result. I have not invented enzyme properties or a modern assay to mask that uncertainty.",
+      "sourceSha256": "e8c14895b279a15146488e9c859d61ca9f7e53707f343051dd7c528d8b3e887f",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "amyrol",
+      "reason": "The exact 白檀油醇 substance or historical preparation identity remains unclosed, including whether it is an oil alcohol, a mixture or a proprietary name. A PubChem no-hit is not invalidity evidence; an unspecified bottle scene would not establish the selected chemical identity.",
+      "sourceSha256": "f0e1b1e4a0f6d01dfc22c3f61a4749976ac62cd35f293048d0df71e67da79832",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anabacteria",
+      "reason": "The source means 变性菌液, a preparation rather than simply plural bacteria. The exact historical liquid/preparation role is unresolved, so I cannot write about living organisms or modern bacterial growth and pass that off as the frozen sense.",
+      "sourceSha256": "5a48e04ab2cf0fb0db294b75a61301381bc61e62d89f3cf10478e1242ca4a9e5",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anabena",
+      "reason": "The source names 太湖念珠藻属, while the exact English surface differs from the familiar Anabaena spelling. The precise taxonomic name/variant and unusual Chinese genus wording are unresolved; neither a silent spelling correction nor a generic algae specimen closes them.",
+      "sourceSha256": "9e5412c697013df0d024f54d8a75b74e60b5c5017ecf28ce53c04df3dc4a27fb",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anabrus",
+      "reason": "The source's 肛门 anatomy sense conflicts with the actual original Century head, a genus of wingless orthopteran insects. I will not create an anatomy example or silently replace the frozen Chinese with a biological genus. This is a specific head–meaning mismatch, not rejection because it is rare.",
+      "sourceSha256": "aea0454fbc27304bc08de1949a2e8c8a0395f136a540dd547fdd1e40bbaa9f36",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaceliadelphous",
+      "reason": "The precise conjoined-anatomy term and source chest-versus-upper-abdominal union scope are not closed in the original lexical evidence inspected. I have not manufactured a fetal anatomical description from the prefix or used a vague illustration to conceal the unresolved identity.",
+      "sourceSha256": "c5deaed042f1fc99605f0731c07e240465120c6611aae9235d9e62bbbd1471e4",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anacoresis",
+      "reason": "The exact head's 非特异免疫性 sense is not established by the separately attested anachoresis bacterial-attraction entries. I cannot borrow that neighbouring spelling/meaning or collapse nonspecific immunity into microbial localisation.",
+      "sourceSha256": "2a41d2f0a194cb33c445341c72ac5f17e511792b942e883a1532925052c5b850",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anacyclus",
+      "reason": "The frozen 鳄鱼 sense conflicts with original botanical Anacyclus contexts in the medical lexicons. A crocodile example would teach a concrete wrong head–meaning association, while substituting a plant genus would be an unapproved source repair.",
+      "sourceSha256": "e937a137a56bd231342e7836ff12aed0a6b5c45bf1376e4a9d306dbfbac30d03",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anadidymus",
+      "reason": "Both original Gould and Stedman describe union below and separation above, whereas the frozen 双下身联胎/上身联胎 wording appears to reverse that arrangement. No clinical anatomy sentence is retained until the exact Chinese anatomical scope is independently repaired; the term itself is not declared invalid.",
+      "sourceSha256": "0e9344a5edfc6a91ede65bb72c6950e77829a9b193f28cdab8da0853935d0301",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaerase",
+      "reason": "The exact historical enzyme identity behind 厌氧酶 is unresolved. It cannot safely be treated as any enzyme used without oxygen or as the separately named anaerobiase; I have not invented an assay around an unclosed substrate/function.",
+      "sourceSha256": "d8a510772f3878a4f83a7fc6ff39d6e73ce5c567d206c486f6263df1f582bfe2",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaerobiase",
+      "reason": "The source specifies an anaerobic proteolytic enzyme, but its exact historical enzyme/preparation role is not established by the inspected original entries. I cannot turn it into a general anaerobic organism or assert a particular protein-digestion result merely from the suffix.",
+      "sourceSha256": "36f99f5dfd6bd5eb3410b3c23ed220f41e6323a6929d6d06bc3b8882a488fa35",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anagnoic",
+      "reason": "The exact gn spelling is not established for the source's respiratory/asphyxia-relieving adjective. It must not be silently replaced by the more familiar anapnoic or used to imply a substance relieves asphyxia without a closed lexical identity.",
+      "sourceSha256": "88b817e67b145e922782315a2515c3379ed571593747b5368898ce4b4cb90cf9",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anagocytic",
+      "reason": "The source specifically says inhibiting cell regeneration, but other retrieved medical material used the exact form in an antibody-production context. That evidence is insufficient to reconcile the opposed functions, so I do not manufacture a cell-growth or immunity claim.",
+      "sourceSha256": "283ddb2b870246d7f4e8a40ed798fcd010c94a118d95377d16973b0853b2b79d",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anagogy",
+      "reason": "The original Century entry links anagogy to anagoge, but the frozen branch is ideal mental/spiritual content in a medical context. The familiar scriptural-interpretation sense does not automatically establish that branch; a literary interpretation example would silently change the selected sense.",
+      "sourceSha256": "1eb898db59004bad95adfd877d3bdfb7c5d20b7af608249516ec894b846c6955",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anagotoxic",
+      "reason": "The exact historical adjective's 抗毒的 role remains unresolved in the inspected original sources. I have not confused it with a similar immunological spelling or invented antitoxic performance for a serum to create coverage.",
+      "sourceSha256": "3be70e225134095248931027ae640d8d33853df3971a95a538718e9026ffddda",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anahaemin",
+      "reason": "The specific 肝造血素 material/preparation identity is unresolved, including the boundary between an old named liver extract and an isolated active factor. PubChem returned a busy503, not a negative identity result; no efficacy or blood-production effect has been fabricated.",
+      "sourceSha256": "dd40c1e10e74de7ea7ee1c34a3dbdd16ed2ba33f0a201196d6390cf06ebaaab6",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anaira",
+      "reason": "The exact capitalised genus and 柯桠树属 cross-language identity remain unclosed. I have not silently corrected it to a more familiar botanical spelling or used an arbitrary herbarium packet as proof of a genus identity I cannot justify.",
+      "sourceSha256": "7fb2c0cf10ca46f79b4aeef6fd61d958ff6611fc39fddebe843c8d4ff307ee4a",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anakinetomeric",
+      "reason": "The source supplies only 高能的 under a medical domain. The exact specialised energy-related scope is unresolved; it cannot safely be applied to an energetic person, a high-energy molecule or a radiation beam without knowing which role the historical head actually denotes.",
+      "sourceSha256": "0473125902300a642b48789e7d4a837f2c9e929f4c74dae60f05237b4ec410f1",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anallachrom",
+      "reason": "The exact 七叶亭酸 chemical/old synonym identity is unresolved. PubChem was busy503, not a negative result. I have not silently substituted aesculetin or a related chromophore and then claimed that a generic chemical sample establishes the frozen acid.",
+      "sourceSha256": "5c2df6a1d9d23196f56a131eacac40c666a965ca546db5081a171d6e09d17b6a",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Analmatic",
+      "reason": "The capitalised automatic checking/analysis device appears to require an exact named instrument or system identity, which is not closed by this source. I cannot pretend it is any generic analyser or invent a manufacturer/model/function to make the sentence concrete.",
+      "sourceSha256": "eced415b7428c39ba7b0769451cb372b34eca7bfc2aa98a10391c5e24b07fe85",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "analysin",
+      "reason": "The source is a specific 枯草杆菌溶素 rather than generic analysis or an arbitrary enzyme. Its exact historical bacterial-lysin material identity remains unclosed; the PubChem503 is only an access limit, not a reason to rename the substance or assert lytic activity.",
+      "sourceSha256": "46f5c745f52cc67e83fa730717ac2034f676f9d81eb508ee8f39434088b852c9",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anandia",
+      "reason": "The frozen sense is motor aphasia. The unrelated biological genus of similar spelling cannot rescue it, and the exact medical English form has not been established by the original entries inspected. No animal or generic speech-loss example is used as a substitute.",
+      "sourceSha256": "c254638b5825c76012ccf1be94044982e998dc4da4530111a1a5e580dbeb95c2",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anapepsia",
+      "reason": "The source specifically means pepsin deficiency, not simply general indigestion. Retrieved foreign-language dictionary occurrences and failed exact MW access do not independently establish that exact English sense. I do not conflate pepsin absence, low gastric acid and inability to digest food.",
+      "sourceSha256": "ce03936fcf6f8371d753cbf7e37d5bd75076ddf29036c0f419962eaf3b70cbcc",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anapetia",
+      "reason": "The frozen vascular-dilation sense has foreign-language dictionary parallels, but the exact English historical form and vessel-versus-visceral-orifice scope are not closed by a primary English entry. I have not imported a Portuguese/French head as automatic English evidence or asserted a vascular mechanism.",
+      "sourceSha256": "0c0eb6ea4c43e90763d54f1bba62ba74b7a7fef95fa490f53d1e86cb33d54117",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaphylatoxis",
+      "reason": "The source specifically names a reaction attributed to anaphylatoxin, not the toxin itself. The exact historical reaction-name identity is unresolved; the positive GDT evidence for anaphylactotoxin/anaphylotoxin does not automatically verify this different suffix.",
+      "sourceSha256": "564c5790ae627fdee6d16639bf0947378af23b123db55f6e581e85d127f36d65",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaphylatoxism",
+      "reason": "The source names anaphylatoxin poisoning, which must not be collapsed into either the toxin substance or every allergic reaction. The exact old syndrome/poisoning role remains unclosed in the original entries inspected; no modern clinical conclusion is fabricated.",
+      "sourceSha256": "3226089bf3626aaf54341b083a9c2c4d33e0964f4705d3f4096665fcfc5b53df",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaphylaxin",
+      "reason": "The source's 过敏素 could denote a sensitising substance or a historically proposed factor, not necessarily the currently familiar anaphylatoxin peptides. Its exact identity remains unresolved, so I do not invent serum/complement activity to force a shared meaning.",
+      "sourceSha256": "2b4dacbf84d0c1c81cd8105f526eca2c98ec9b657fc8713a5c7e33c3add4b1ee",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anaplasma",
+      "reason": "Stedman genuinely records an old protozoan-body classification, but that alone does not close the frozen Chinese 微粒孢子虫属 identity. The modern bacterial role must not be substituted automatically, nor may every historical protozoan be equated with that precise Chinese genus name.",
+      "sourceSha256": "a38b6df0f748940a40e9b191ecccc54fa9e7578e7465ba93a9eabe4ebe533036",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anaplocephala",
+      "reason": "The exact a/o spelling and 裸头绦虫属 relationship to familiar Anoplocephala remain unresolved. Exact occurrences in some university veterinary texts are not enough to establish whether this is an accepted historical variant or repeated misprint; the canonical head is preserved for a finite nomenclature check.",
+      "sourceSha256": "6107086befcb74ea8db4ac84f6dbb832bcde1d9157e20610603a5a1b0531e4d3",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anaplotheriidae",
+      "reason": "The exact Anaplotheriidae spelling and 非独兽科 identity remain unclosed against the familiar Anoplotheriidae a/o variant. No published forms permit correction, and an unspecified fossil family scene cannot establish that the canonical head and source family are the same entity.",
+      "sourceSha256": "d532860a92f86c7cffdf1a0d7db5fe7a9719e4ebc5c6d8de42a94ff2448acd3b",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anaplotherioidea",
+      "reason": "The exact Anaplotherioidea spelling and 非独兽超科 identity require the same specific a/o nomenclature check, independently of the family-level head. I have not silently renamed it Anoplotherioidea or treated a fossil diagram as evidence of the taxonomic equivalence.",
+      "sourceSha256": "d001a468f573cc01f18f21fc4bc4d7cd8c9ed817b25d5fb9201eb07e6d26c9c6",
+      "pack": "p009",
+      "stage": "authoring"
+    },
+    {
+      "term": "anelectrotonic",
+      "sourceSha256": "04ccc275f0ecfba73d89cb1a46dfaaa985e22d5aff8bf2e650fc34b9de690d01",
+      "pack": "p010",
+      "stage": "independent-review",
+      "reason": "English compares two responses without saying they are different kinds; Chinese 那两种阳极电紧张反应 adds distinct response categories. The source sense and adjective are compatible, but this exact pair needs a finite precision revision before counting coverage."
+    },
+    {
+      "term": "anergasia",
+      "sourceSha256": "054a03fee181c0fed9ae4aba15305af044d6599b837bd1cf4f8e805187c2de6d",
+      "pack": "p010",
+      "stage": "independent-review",
+      "reason": "English records the patient's profound lack of activity; Chinese specifies 活动能力严重缺乏, which asserts a deficit of ability rather than the observed inactivity. Frozen sense is compatible, but this exact translated claim needs a separate precision revision, not silent approval."
+    },
+    {
+      "term": "anastrophic",
+      "reason": "Frozen medical senses combine reversed direction with passivation/reactivation. The indexed 1951 tooth-paper title establishes another dental context but not either exact Chinese branch. No exact original definition was read closing this selected medical sense; do not borrow the familiar rhetorical anastrophe meaning.",
+      "sourceSha256": "d77de18ca4cc7f47d1ff0a04521f34dd071ec0d0396349530d26e445f1da5bbd",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anathion",
+      "reason": "Frozen 四硫双羟乙酸钠盐 is a precise chemical identity, not enough to verify whether this exact old name denotes a compound or a preparation. Original bounded head lookup did not resolve its composition; a neutral vial sentence would only conceal the unresolved identity.",
+      "sourceSha256": "74e9a9ab60c899ce59eaefe3cfeaffc56f34525363fe2f97938e5d3a8ec7f7b3",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anathreptic",
+      "reason": "Frozen adjective conflates muscle regeneration with nourishment. The similarly spelled anatreptic is a different word; the bounded original head search did not close anathreptic and the selected Chinese branch. Do not infer a muscle-regenerating claim from the suffix.",
+      "sourceSha256": "ddf88421d1ca648a33f56d2c388fe46b01d6d69e829b80d1d20f00d5b121b975",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anatopism",
+      "reason": "Frozen 失仪症 is a medical behavioural label. The original Century head actually read instead gives incongruous arrangement, specifically in art. This does not validate the frozen medical branch, so neither an artistic example nor an invented diagnosis can be substituted silently.",
+      "sourceSha256": "9e3eaea2a0b605ecf7b29b57c66fd4ea84060374ffc9b346089b9ab8beb97e23",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anatoxireaction",
+      "reason": "The precise frozen diphtheria-toxoid sensitivity test requires exact historical test identity; no original head passage was located in the finite lookup. Do not infer a testing procedure or equate it with general toxoid reaction.",
+      "sourceSha256": "c9d69fb7e866cfd6ebf6a12d1a9014d9f6cf4379019edfad0ed4a3a29dd91e2d",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anatriptic",
+      "reason": "Frozen allowed role is adjective but its only Chinese sense 揉擦剂 is a remedy noun. The original Stedman passage actually read likewise defines a remedy applied by friction/inunction. A finite role/sense repair is required before a source-compatible sentence.",
+      "sourceSha256": "97065d4464cd30536ea13759071520c36049d998d93c058fe33acc6b4cdf0a80",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anatrophic",
+      "reason": "Original Stedman actually read gives nourishing and preventing/curing atrophy. Frozen 防衰 may be read as anti-ageing, which is not the precise atrophy concept. Do not publish an anti-ageing property or silently replace the selected Chinese with a materially narrower medical definition.",
+      "sourceSha256": "a728dee7905c8a01365e0ff3d19b1583bfc0962df6d7a9dad8b837da0628170f",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anatropic",
+      "reason": "Frozen upward-latent-squint adjective could be confused with botanical anatropous and the general upturned sense. Original Stedman read confirms related noun anatropia, not this exact adjective, while the original terminology result was Catalan, not proof of English spelling/role. Exact English medical adjective remains for finite verification.",
+      "sourceSha256": "62cdf065717b12a0e79a330474bbc0266050876c873bd16b8179b329bef37549",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anaudia",
+      "reason": "Frozen 听觉缺失 is hearing loss; this head is associated with speech/voice loss, not deafness. The finite primary lookup did not close the exact original head, so the hearing/speech conflict must be resolved before any example rather than reinforce the frozen mismatch.",
+      "sourceSha256": "2678bf18d61a86c4688e903611475fc0810eeb9167bea0478af2b2fe406e3520",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anchone",
+      "reason": "Frozen 癔病喉痉挛 is a historical diagnostic/causal formulation. Exact original head and historical scope were not resolved by the finite search; avoid teaching a modern psychogenic diagnosis or inferring causation from an undifferentiated throat symptom.",
+      "sourceSha256": "831e9587703252e2bcefed14bf4cb2cf913df6d344d17feff2909be7038ee322",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anconad",
+      "reason": "Frozen role is adjective, whereas both original Century and Stedman passages actually read express the direction toward the elbow. A movement sentence would use a directional adverb; converting it into an elbow-related adjective would silently change the frozen role/sense.",
+      "sourceSha256": "0bc07f87576eb95485afb372ad2f54435297861a3453a3f8d0f57e930ab1f218",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Ancylastomatidae",
+      "reason": "Exact frozen family spelling has -astom- rather than the separately queued Ancylostomatidae. The bounded original search did not verify the variant as a historical taxonomic name. Do not silently normalize the letters or teach it as an accepted family spelling.",
+      "sourceSha256": "c1f2dcf43686deff4aa95c824a1837f91e3bf26dd132428bf54caeab8a4763ff",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "ancylastomiasis",
+      "reason": "Frozen hookworm-disease spelling has -astom- rather than the familiar -ostom-. An original exact-head variant reference is still needed; neither an assumed typo correction nor familiarity with hookworm disease verifies this written form.",
+      "sourceSha256": "3c33bb3bf3dbb49ec8aee43a69b2eaadc5392da407c8800ce5cfa6e8684652f8",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Ancylostomum",
+      "reason": "Frozen exact genus spelling differs from independently queued Ancylostoma. The finite original lookup did not establish this as a taxonomic synonym or historical genus. Must close that precise naming status rather than infer it from shared hookworm Chinese.",
+      "sourceSha256": "31327d3243cd67876e805311112e96505e22da0ac49173e1b210d2b932c730a6",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Andaman",
+      "reason": "Frozen sole role/sense is a person noun 安达曼人, whereas the original Century window read contains Andaman only inside the separate Andamanese entry. It does not establish a count-person use of bare Andaman. Place-name usage would not match the frozen person branch.",
+      "sourceSha256": "bf0438850098633d3bf7e92abb431cb4ee4e130dda08574711f8adcab910cef5",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Andmanese",
+      "reason": "Frozen ethnonym omits an internal a compared with Andamanese. The exact spelling is not closed by an original source; do not disguise an unverified ethnonym in a quoted label or silently use the conventional form.",
+      "sourceSha256": "a99748fc2c919a6664713fe0a3cd0b9bf6763e1a631606022771a95423ebc994",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "andreoblastoma",
+      "reason": "Frozen ovarian male-cell-tumour term differs from independently queued androblastoma/andreioma. Exact historical head identity remains unresolved; an archive-report sentence would not establish whether this is a recognized variant or a transcription problem.",
+      "sourceSha256": "7e7824ec8fd0cae8b758b677b387ea3b2b32a30040356316fe3040af2d38ecfb",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androcyte",
+      "reason": "Frozen medical 精子细胞 may refer to a spermatid, but the exact cell type and domain need original verification, especially against botanical male-cell usage. No exact original head was found in the bounded lookup; do not infer a mammalian cell identity from the components.",
+      "sourceSha256": "4fdba164b00aac91f327e9a1b23e19635fd4c278c0d7f2293ca1393126cf30b8",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androdedotaxin",
+      "reason": "Frozen 羊踯躅毒素 resembles the separately queued andromedotoxin family but the exact head has unusual -dedotaxin spelling. Original chemical identity/spelling was not closed; do not silently replace it or manufacture a compound example.",
+      "sourceSha256": "0e898664ac54fdfd5795401543a646cab6b1889254acbb7d1cbe86631d614df8",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Andrographus",
+      "reason": "Frozen [机] 雄茸属 has a domain/Chinese-identity problem. A primary botanical key indexed this exact spelling, but that does not establish this Chinese taxon or its relation to Andrographis. Need source reconciliation rather than choose a familiar plant genus silently.",
+      "sourceSha256": "fa88bd04f9c819a80fef1676424fe8d00a51d2ab452d7e17f998af8716542b25",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androgyneity",
+      "reason": "Original Century head actually read combines historical androgyny/bisexuality/hermaphroditism, while frozen medical branches conflate anatomy with feminization and outdated classifications. Must explicitly settle a non-conflating historical sense before an example, not present sex traits or sexual orientation as interchangeable.",
+      "sourceSha256": "bd82c8695f8a5ff3731a4369cdc7f3dcc37b7e38a811244ab32e3c8c6d3ffa92",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androgynoid",
+      "reason": "Frozen noun labels a person with obsolete female-male/false-hermaphrodite terminology. Exact historical noun role and anatomical scope remain unchecked; an unsupported modern patient label risks conflating sex traits, gender expression and identity.",
+      "sourceSha256": "42ae0a20fd6d533c7135005110fe6e4f6427350438a29ccfe82b7477047cbbe6",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androgynus",
+      "reason": "Original Stedman head actually read is a historical person noun for hermaphrodite. Frozen multiple branches include feminized men and intersex traits without distinction. A finite historically framed selected-sense/status clarification is required before teaching a learner-facing person label.",
+      "sourceSha256": "4dc71f645c898ff3ea8abfbedb475c48da218e2ee5b8d71404fc172a4c651ca1",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androkin",
+      "reason": "Frozen 雄甾酮 does not independently verify this exact old chemical/trade name. No original head passage was read closing androkin versus androsterone or a preparation; do not assert identity through a generic container sentence.",
+      "sourceSha256": "f57a85082320d34b3dc734e8885aacdbd611a9e4c6b88f0b7eb43d8c3f5cc5ad",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "andrometoxin",
+      "reason": "Frozen 石南毒素 gives a broad old toxin name, but exact spelling/substance identity relative to andromedotoxin remains unresolved. No exact primary head was located; retain for original synonym evidence, not silent chemical normalization.",
+      "sourceSha256": "be29f2b4465e8f33fcecd67a14665f56aaa7afae4bcf3fab20c37a8c3b103ec4",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androphilous",
+      "reason": "Frozen branch is specifically human-blood-preferring mosquitoes. The primary EMBRAPA terminology result actually read gives broader association with humans/artificial conditions, not that exact feeding preference. Need an original exact English mosquito branch before a blood-feeding example; broader ecology is not equivalent proof.",
+      "sourceSha256": "57c42dc4ace21eeea9572d52fedf6261e125e50e6085e937b0b36dbb7f5b245b",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "androtin",
+      "reason": "Frozen source conflates a specific steroid compound with an old androgen-class name. The exact historical referent/preparation was not closed by a primary passage; a sentence must not imply pure androsterone identity or silently switch to the broader class.",
+      "sourceSha256": "3ba23e17b6c527d1ff90cef407eb688e9dbafe79cc6f30429455fb729a02e7c9",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Andvar",
+      "reason": "Frozen dwarf-name spelling differs from common Andvari, but no original exact mythological head was read establishing this variant. Must verify the name before presenting it as a character; do not declare it invalid merely from no search match.",
+      "sourceSha256": "1d0e0e60394aa8b8276e9b497a2c108e507c80ee1f3df2e5352368da9b52cdc5",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anedeous",
+      "reason": "Frozen 无生殖器的 does not close the exact uncommon adjective spelling. The finite original search found no head, and the potential anaedous spelling cannot be substituted without evidence. Retain for exact historical spelling/sense check rather than invent an anatomical usage.",
+      "sourceSha256": "9fcf2cc37c50df7990f6efb3a5bb406ac6634414053f8ee4a8de2c856ad50870",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "aneio-elephantiasis",
+      "reason": "Frozen 血管象皮病 has an unusual aneio- prefix, possibly a transcription issue relative to angio-. No exact original spelling was resolved. Neither silently repairing the letters nor describing a generic elephantiasis case would verify this head.",
+      "sourceSha256": "e52085067f9cc80b9f9b21e37dfeb5049669250452afdc83e0bd84035d6c6aee",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anemonella",
+      "reason": "Frozen Chinese is only 银莲花, but original Kew records this exact historical genus as a synonym of Thalictrum. Cannot imply it is the genus Anemone or silently repair the Chinese taxon.",
+      "sourceSha256": "6d5e42f2fb9584ebd1380ad93520bcd41307d2bf4a44b467d8babc691bbad9ba",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anemonsite",
+      "reason": "Frozen 混合长石 gives no exact mineral identity or historical naming authority. The bounded original-source lookup did not locate a head; this is an unresolved mineral-name verification, not evidence the word is invalid.",
+      "sourceSha256": "c67304b32d2306d38b8c7e0f20541c49fd99da2f20f80181a0299f977d7cf48b",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anemopathy",
+      "reason": "Original Stedman gives wind-caused disease and aerotherapy, whereas the frozen branch says 气体吸入疗法. Exact historical aerotherapy/inhalation scope is not closed; do not silently use the unrelated wind-disease branch.",
+      "sourceSha256": "ddd54dd25710d2123b3dbf652e04b037283e922605bec17b6b7a40fc3ba4814c",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anemopsis",
+      "reason": "Frozen 凤尾虫 conflicts with botanical genus Anemopsis in original botanical authorities. A sentence must not conceal this plant/animal identity problem; needs source correction before an example.",
+      "sourceSha256": "17d26f6438778646777250a1b1b7f3237a44e48baf5ca9abf6eb81e76279d753",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anemotrophy",
+      "reason": "Original Century and Stedman define deficient formation of blood; frozen 血液滋养不足 may instead imply deficient nourishment by blood. Exact Chinese concept needs repair rather than a vague nutrition sentence.",
+      "sourceSha256": "1ae02a289965ffed2ad57633000d9fad0959ffbb439a68c8bd02414fdb961158",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anemydria",
+      "reason": "Frozen 血内水分不足 is a rare historical medical label. Original bounded head lookup did not close the exact spelling and blood-water concept; retain for finite source research, not claim a verified modern condition.",
+      "sourceSha256": "9b0c047bf09935fe05692b6b134df0a48c6359c10c97a40de21f449fa63a076c",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anencephaloneuria",
+      "reason": "Frozen 脑兴奋不足 lacks an exact historical head source; cannot infer the brain/excitability sense just from components or confuse it with anencephaly.",
+      "sourceSha256": "c32d90121f188ac5ab0f4e9863c9b5f61103d0caa8bc59788eb23089038e649e",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "aneosinophilia",
+      "reason": "Frozen 嗜酸细胞减少 does not distinguish absent cells from low counts. Original case-series abstract PubMed 34766200 expressly distinguishes aneosinophilia from eosinopenia; an exact Chinese sense correction is needed before a learner example.",
+      "sourceSha256": "841878680a059ba75f34773d8af0ecd24a675b4a35bef4b4a8758bf6079927b4",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anerethisia",
+      "reason": "Frozen 兴奋缺失 is too terse to close the exact obsolete head and domain. Bounded original-source lookup did not resolve it; do not invent a modern psychological usage.",
+      "sourceSha256": "4e25a329a02960c4900be08cc03d2c885463ecc51a9bc967f1e35a45356b8817",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "aneretic",
+      "reason": "Frozen 破坏的(对动物组织) needs original exact-head evidence to establish the tissue-destructive adjective rather than infer it from the spelling. This precise historical sense remains unchecked.",
+      "sourceSha256": "cc9a3d03cdb15da4c48bc51a1f6ff547eba4a1144228a6f3fcb2af01c26d5e8c",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anergastic",
+      "reason": "Frozen 器质性精神病的 concerns a historical psychiatric classification. No exact original classification passage was read establishing this adjective; avoid teaching it as a current diagnosis or extrapolating from general anergy.",
+      "sourceSha256": "d9d5ff40b4b70e529a783857548a8f9324ff68987aba25aefe6800a3f7c93074",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anes",
+      "reason": "Only frozen 麻醉法 supports this very short head, which may be an abbreviation. Need an exact English expansion/case/punctuation authority before treating it as an ordinary noun in a sentence.",
+      "sourceSha256": "5905c449dbc123b761cd596ae54f2d5c57d1125f6dc1f14f8515b40d9ef84985",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anesin",
+      "reason": "Original Stedman identifies a trade name for a solution of chloretone; frozen 三氯叔丁醇 is the unqualified substance. Cannot imply pure compound identity merely by writing a bottle-storage sentence.",
+      "sourceSha256": "948dad65034cf1aeb544597e1d72b56fa203e28f678778aed9a13ccad45dcd23",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anesole",
+      "reason": "Frozen four chemical synonyms do not independently establish this exact spelling rather than anethole/anisole. An exact chemical naming reference is required; do not silently substitute a familiar compound.",
+      "sourceSha256": "014124ba3e7ff0795d66fcc22fe8ae71fba6c780333e12b7e7f8a657b654fad6",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anestrin",
+      "reason": "Frozen 抑动情素 includes an anterior-pituitary origin claim. The original identity, historical status and claimed factor are not closed; avoid asserting an unverified hormone mechanism or hiding it in an unnamed vial.",
+      "sourceSha256": "690e4daadca9db76f0e49500c9c27a4ec438fccc19ebf180507ea81197b50cd9",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anethopathy",
+      "reason": "Frozen 明知故犯性病态人格 is an obsolete moral/psychiatric concept. Need original exact historical definition and status before composing a potentially stigmatizing modern diagnosis.",
+      "sourceSha256": "a394052c3094c96dc9cc1154ccb2d5171e0ad4e2f27132d584ddd5cda9c110c2",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "anetic",
+      "reason": "Original Century specifically gives pain-assuaging/anodyne. Frozen 弛缓的,缓和的 can be mistaken for a relaxed patient or tone; the selected Chinese needs finite pain-relief clarification before a safe example.",
+      "sourceSha256": "f93903984282d7ca8e97e2049d68db33f5241034bceb35c527d996cbd1eff64e",
+      "pack": "p010",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiosis",
+      "sourceSha256": "f7a75533696ca84d840257e57c33960e9740049ca655ccf2b4810dc5b80237d1",
+      "pack": "p011",
+      "stage": "independent-review",
+      "reason": "英文只说明肖像在他患病抗争期间被画，未指定画者；中文却成了他在患病期间画的肖像，添加画作者身份。当前整对需有限修正后另审。"
+    },
+    {
+      "term": "anfleurage",
+      "reason": "Exact English anfleurage spelling in the frozen fat-extraction-method branch was not closed by a primary lexical entry; the limited results mixed a modern named product with non-English method descriptions. Do not silently substitute enfleurage or use the unrelated brand as this noun sense. This is an unresolved exact-form/sense hold, not an invalid-head ruling.",
+      "sourceSha256": "72dc578c15a7192a9cbea5d4255d2720f639efacda1ed00ee513c7a460399007",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "Angelrest",
+      "reason": "Frozen meaning specifies acetate tow, but original Swiss customs and EPA fibre tables actually read assign Angelrest to polyester. The exact material identity therefore conflicts; no silent replacement of the source composition or use of a neutral brand scene to conceal it.",
+      "sourceSha256": "33430a0dcf2a6e80bd6ee82f07b9c5102c5c99dbbd311f1b3a8fd957217f5cd4",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiocardioraphy",
+      "reason": "The frozen cardiac-imaging meaning resembles angiocardiography, but this exact head lacks its g. Only repeated derivative dictionary entries surfaced for the exact form; no primary spelling/meaning closure was obtained. Do not correct the canonical head or use a distinct suturing/imaging term as a substitute.",
+      "sourceSha256": "adfefec9bbf8c0b970388727bba037c68a967682f03b59fee57021b7da7d56e5",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiocarpy",
+      "reason": "Frozen Chinese is the fragment n. n.[医]心血管, whereas personally read original botanical dictionaries/glossaries put angiocarpy in enclosed reproductive/fruit development. The cardiovascular versus botanical domain is not equivalent, so neither branch is invented or silently substituted.",
+      "sourceSha256": "9ed44255aacceef0cfe5c26911db37df14deb45f9be59b46dab2c0459f8331f8",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiolupoid",
+      "reason": "The exact primary clinical literature actually read identifies angiolupoid as a cutaneous sarcoidosis variant, while frozen Chinese calls it 毛细管扩张性狼疮疹. Whether that old Chinese wording is a defensible historical label rather than a different lupus identity is not closed; hold for a finite identity/label adjudication instead of writing a possibly false lupus example.",
+      "sourceSha256": "ed82aabcb84d2927f98f93a1375a909f1b381d5db5a12dc5e16abb28c05be16d",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiosenic",
+      "reason": "The frozen adjective duplicates the angiogenic Chinese branch, but the exact s spelling was not independently established in a primary source; derivative translations are insufficient to silently treat it as angiogenic. No correction, alias merge or invalid-head claim is made.",
+      "sourceSha256": "3cd857919b44abfd656c601fc054b4093517e66242202b34e6152b5c8cd79e3e",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiospermin",
+      "reason": "Frozen Chinese suggests a specific material 被子植物素, but the limited exact-form search did not close a primary chemical/material identity and predominantly returned botanical-language homonyms or inflections. Do not infer an isolated substance from the -in ending or substitute angiosperm plant identity.",
+      "sourceSha256": "5418c188b26a1c6bdc66b80ac4b351250391d620c11d2d69e327d60ef1a97fea",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "Angiostomidae",
+      "reason": "The exact frozen 小杆科 family identity was not closed: UC Davis's personally read family material uses Angiostomatidae and cites historical Angiostomidae, without establishing this Chinese family mapping. Do not silently normalize the spelling, rank or family to a different nematode family.",
+      "sourceSha256": "04bc1177232716dcde7fc64fd4ad6f4cb48a783a021ad9f7220443382ff1d002",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "angiotonic",
+      "reason": "Personally read University of Salamanca lexical evidence specifies increasing vessel-wall tension; the frozen Chinese only says 血管紧张的 and the initial broad response example did not clearly carry the causative sense. Withhold for an explicit same-sense label/role closure rather than using a vague tension-related adjective or introducing a drug effect.",
+      "sourceSha256": "e2341616fe158ffe7a0a951461ba0422bb802141aa6c3b654bfc6b42032d0a1e",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anglical",
+      "reason": "Frozen POS is adjective but the sole Chinese branch is the unrelated noun 心理学. The actual source therefore supplies no coherent psychology-related adjective sense; do not invent psychological meaning, use an Anglican homonym, or repair the canonical/source without separate evidence.",
+      "sourceSha256": "34f0d1908a08944b165b2fff6d825c39d94189c412afb07ac12d9f5359d25812",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anglicanization",
+      "reason": "The frozen Chinese names 英国圣公会 as an institution, while personally read primary author material uses Anglicanization for a process. A church-body scene would use the wrong head and a conversion/expansion scene would silently change the source branch; hold this exact mismatch for finite source repair.",
+      "sourceSha256": "2772ca9c197b8d59a31bf48202b8799643968d7be2f81526cd7ddad67ac033ec",
+      "pack": "p011",
+      "stage": "authoring"
+    },
+    {
+      "term": "anhydration",
+      "sourceSha256": "3ecbca3b93e55df0afb9e7d8eb278ee733d0b3ad0a8274abb00ac366f79a1f08",
+      "pack": "p012",
+      "stage": "independent-review",
+      "reason": "The English says the researcher separated pre- and post-dehydration measurements, which can be an analytical grouping; Chinese 分开保存 adds a storage action not stated by the whole English sentence. Retain the source but obtain a faithful pair without that added event."
+    },
+    {
+      "term": "Anglococcus",
+      "reason": "The frozen genus head Anglococcus is not silently equated with the similarly spelled Angiococcus. The exact canonical spelling paired with 囊球菌属 has not been closed by the bounded original-source checks; a generic bacterium sentence would hide that identity gap. Source retained for exact taxonomic repair.",
+      "sourceSha256": "db19948b254449d56c2fd1f0f03ea57ab251cdd6edc9470537dd33ceb14e4ea8",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "AngloFrisian",
+      "reason": "The source permits adjective/noun but freezes the merged surface AngloFrisian with no Anglo-Frisian form. The finite exact publisher search did not establish a natural unhyphenated target occurrence. This is a surface-alignment hold, not rejection of the Anglo-Frisian language grouping or permission to add a missing alias.",
+      "sourceSha256": "1a94dffaddd09fe8bb6678a7e315b70f32c6a31fe0ac231eea2b221e06018d3b",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anglophony",
+      "reason": "The source offers only 英语. Actual original university/journal indexed usage concerns English-speaking communities, writings or the Anglophone world; the finite checks did not justify teaching the language-only gloss as equivalent to that broader role. No source expansion or definition-only filler is substituted.",
+      "sourceSha256": "d3b5063f7ceb281a50d45b5cab91573eba93d58ee47af22a4820ddb225d6cce6",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anhemothigmic",
+      "reason": "The exact frozen adjective means 遇血促凝的. Bounded original lexical searching and E's separate full-source check did not settle this exact contact/coagulation direction. No opposite meaning is inferred from an-, and no promoting-clotting example is invented from unresolved morphology.",
+      "sourceSha256": "db9ce81d75b660be75cd55883cc611dfad54d346b0223243f7c73ae4b5964e8a",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anhima",
+      "reason": "The frozen noun has only the unexplained place-like Chinese 安岛, while the recognisable scientific homonym is a bird genus. Those are not interchangeable source branches; no genus or invented island scene is used to wash away the unresolved head/meaning identity.",
+      "sourceSha256": "d73b3127019f0d06d57ea44d9f19712995c220bc83e8a5e16731a0ab93d4a7d2",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anhweiaconitine",
+      "reason": "The exact source 安徽乌头碱 must not silently be changed to a similarly spelled aconitine derivative. The finite PUG query returned 404, which is not proof of invalidity; exact original identity and spelling remain unclosed, so a specific chemical sample is not invented.",
+      "sourceSha256": "a7ddc61864cbb44f181808ad6e49f14a890bd2055cb14d4a53b7c3c9bd4d819a",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anhydrosulfite",
+      "reason": "The published Chinese specifies 亚硫酸酯酐, not simply a sulfite salt or pyrosulfite. The selected anhydride/ester role was not resolved in the targeted original-lexicon lookup. No silent salt substitution or generic jar sentence is used.",
+      "sourceSha256": "5a7173093a5e9faf3a1535c8bafde4b9657657cb63d470c704c137f5b968f608",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "ani-mals",
+      "reason": "The frozen source explicitly calls this the plural of animal, but the exact canonical form contains an internal line-break-like hyphen and has no animals occurrence form. Natural animals is not an admitted alias, and deliberately writing ani-mals would teach a doubtful surface.",
+      "sourceSha256": "87b8dcc44d9f65d91b18df3f79c0f02569fd7afcd075be58649c3feb8d9995c8",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anideation",
+      "reason": "The source says 理想缺失. That must not automatically be rewritten as inability to form ideas merely from ideation morphology; the bounded original-lexicon lookup did not close the exact ideals-versus-idea-formation branch. A diagnostic narrative would therefore hide an unresolved meaning.",
+      "sourceSha256": "1a344670123b56129a9aa1301b91c0959233714f0388fc016454e84ea3c4a3a1",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anil-quinoline",
+      "reason": "The exact old compound 缩苯胺喹啉 was not identified in the original lexical windows or finite PUG probe. The 404 is not invalidity evidence. It is not safe to replace the exact compound with an arbitrary mixture of aniline and quinoline or claim a structural identity.",
+      "sourceSha256": "aafc6fdfd3f5e4258f77f96b2dba052faae5bdc1593859fc092c82e44ce403e0",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anilinate",
+      "reason": "The source specifies 苯胺金属, while possible salt/anilinic-acid interpretations are not automatically the same metal derivative. Original lexical lookup and the bounded exact PUG query did not close the selected role. No unrelated salt is substituted; the no-hit does not declare the head invalid.",
+      "sourceSha256": "1ce3a870b5d15c28b639707ab447034cd77371ae1728fcb7435ff6dfd64fd592",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anilinophil",
+      "reason": "An initial noun draft was actually withdrawn: the source requires the noun 嗜苯胺体, whereas the directly read original Stedman entry supports adjective dye affinity. The finite noun query did not establish an original reliable noun-body usage. Grammatical conversion of that adjective into an invented countable body is not used as evidence.",
+      "sourceSha256": "d34e24d6e83ee145b768cd884fbc69345234d525041b9cd403361eccc2a11e7f",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anillidae",
+      "reason": "The exact frozen family spelling Anillidae paired with 环蛇科 remains distinct from the familiar Aniliidae spelling. No missing-l correction or current snake-family identity is silently imported; exact source-bound taxonomic identity needs repair.",
+      "sourceSha256": "5e8707b633231659c59aa8fe8545c9c4dbe9543fd1e90f342be6d736263673b0",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anisacetone",
+      "reason": "The Chinese 对甲氧苯基茴丙酮 is not silently merged with the separately queued anisylacetone/茴香酮. A finite exact PUG query returned 404, not lexical invalidity; the precise named compound versus adjacent homonym remains unresolved.",
+      "sourceSha256": "3aaad084ef6cbd5d00983fe7b6d5917b7b2147c8fdbcbd31098d9a788925f9d9",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anisakidae",
+      "reason": "The familiar scientific family identity does not by itself justify the frozen Chinese 无饰科. Exact Chinese-role equivalence was not closed in the bounded source check, so it is not silently normalised to another modern family name or rescued by a vague specimen sentence.",
+      "sourceSha256": "8c7440baf351b789a5ecc03d960d67211d04a11c25338e4984426764d3cff324",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anisotachys",
+      "reason": "The frozen POS is noun for 脉迟速不等, but the original Gould and original medical-glossary definitions actually read describe an epithet applied to a quick unequal pulse. They do not establish the required noun usage. No adjective-to-noun policy promotion is made.",
+      "sourceSha256": "9cc93fe0b8dc94629e4a3eb775985c5cc5071891725e7367b1667593fd1bdfcc",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "ankylopoietic",
+      "reason": "The frozen adjective 关节强硬的 must not automatically be equated with the causative forming/producing-ankylosis branch encountered in lexical searching. The original primary entry could not be successfully retrieved, so the exact state-versus-causation alignment remains unresolved. Failed access is not invalidity evidence.",
+      "sourceSha256": "c7dffaa0159913b7826a1317c738d8981854a6041257b8c7fb38e7112f298fa5",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "anli-invasin",
+      "reason": "The exact frozen surface anli-invasin paired with 抗侵袭素 appears to require checking l versus t, but no anti-invasin form is provided. No OCR correction, head merge or deliberately misspelled English example is introduced.",
+      "sourceSha256": "c10fd491626e2f13ee1923908c056a851642a043e93cb1290d2e9f543002472b",
+      "pack": "p012",
+      "stage": "authoring"
+    },
+    {
+      "term": "Annemarie",
+      "sourceSha256": "33ca6fc37d1390cb0a708b5dc7c306fa8226b34bf11839ba18c039edba884669",
+      "pack": "p013",
+      "stage": "independent-review",
+      "reason": "The English says her sister, without saying older or younger; Chinese 姐姐 specifies an older sister. The source female-name role and ordinary scene are sound, but the unsupported kinship age needs a separately source-bound translation amendment, not an edit to the frozen evidence."
+    },
+    {
+      "term": "Anqing",
+      "sourceSha256": "6bad92ac72d4c1c9c970dfa99d808ac98de271fafca567e422ba0982fa5ccad5",
+      "pack": "p013",
+      "stage": "independent-review",
+      "reason": "The English my cousin leaves sex, relative age and paternal-versus-maternal cousin branch unspecified. Chinese 表弟 adds all of male/younger/表 rather than 堂. Keep this immutable row review-held pending a bounded amendment; the Anqing place identity itself is sound."
+    },
+    {
+      "term": "Ansbach",
+      "sourceSha256": "7a1e5839061e910777c5e58cee01cc9b286da380c3a8d1d4fd5ee59c8d4ade61",
+      "pack": "p013",
+      "stage": "independent-review",
+      "reason": "English my grandmother does not identify paternal versus maternal lineage, but Chinese 我祖母 fixes the paternal side. The city's source identity and exhibition scene are sound; a separately bound kinship precision amendment is needed before this row can count."
+    },
+    {
+      "term": "annaline",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 硫酸钙; 淀积硫酸钙 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "92db4e2bb1ec866878c4d05ffdf3d078c044a00a6a5cadf0c830dead4423db8a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annato",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 胭脂树(Bixa orellana); 胭脂树萃(用作染料) branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "74effe4661325730413073be5f57ca38b5dad2191792ce58f17ed1decc5ef68e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annelation",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 增环反应; 成环; 成环反应 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b74539f39dde00f97388cae88e73f1df81ea8e6e63c297292ae9c133e4f3547d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Annelida",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [动]环节动物门, 环虫类 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2b75aba316777bf3ccd6d4e33f3add919487dc0b2a1c0344dc04ef3c39f8c29b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annerdite",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 黑铀铌钇矿 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "9e0eabc680f933e578d39fdd6a5ff322cbef10d59e46bc2650ee37cefb56c76b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annexitis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 子宫附件炎 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "888df951f5ddf8046040dcd858d808c9ca75c8e91b91bf6fc18b5ecec83fdb19",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annidalin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 碘化百里香酚 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c3af3b6aaf373d956d4c2011bda5ba0b2f2c5c8a71bd252e0b9c62882511310a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anniellidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact 北美蛇蜥科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f4331bf3e56b8e9056b518f3f893b4121c14929bb8568fd42118ebae24d4e14c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Annonaceae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [植] 番荔枝科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "bafe4d2073708ace0820b6d590ecd18ea3c51d3a2ebc14a5ff9fe3bd62a8e82a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annonaceous",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [植]番荔枝科的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b08981da0010243527dab87fc4d87abd96b1b025bbe01f17b08536512257bae7",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annotinine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 经年石松宁 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "42da1277600517cc22452dea60df7b980a3f033160793156a5745a3a2edaaf07",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annotta",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 胭脂树红 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f8378a786ff20d845a2142b7d1c688fb280f9e8a7c01404599595f60a4adb481",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annotto",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 果红(染料) branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6a934ab03d40835eba17456e92a230d4a5349431c855a4711d4a6b20cf0c1d64",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Annulaceae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact [医] 环斑病毒科(植物病毒) branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "a5f61ac6df486c2d824edb041d8a8b2705ca70986db91c99cbec26509fdf8259",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Annularia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 轮叶属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d04e0bb0eea75d85f4d78573589a84f021853eba8d35d596937dc3b6d25e57c0",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annulo-spiral",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 环螺形的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7164bc2d7afe395493b96f0ea13739e9054937db4d3010fac1203e976ea8f2bd",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "annulose",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. 有环的 / [医] 有环的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ac3ce90a070dc8f7fff6eb19328b7168bdbe90206717f93e4c25da23b73aa223",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anobiidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 番死虫科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "3b00bb8cf85223b4a498603d90944ced82823d42271431dda1436b27798e5a1d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anocathartic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 催吐的, 引吐的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "8aaaa627083b0ed1588d3aba1e472d248d3032aff2364934b5c247411fd6fc6a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoceliadelphous",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 胸部联胎的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "e75e1cce8af43682584c44cfd2a8d5bdd8b146c0b113ce13ddc0aae6c815cacf",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anocentor",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 暗眼蜱属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "589097ded6b25d5aa02cbe5fc99325a8dd6260a7fedb349bc554789415554e7d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anococcygeal",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 肛尾的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "429d795ab99bb3182a5a24a02792c071dff6412747010a4b31e82be5047eb4ab",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoderm",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 肛膜 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7c9ae6cb6ef937fd9aca179ee559637179927a847dad985bd082de351aa76ace",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anodmia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 嗅觉缺失 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2a7c7748d931a0f70b81a0ccd5cc7003c3e3ff0f0548b7257d847873b11f76d6",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anodonta",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [无脊椎] 无齿蚌属 / 河蚌 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c0b4813d3d1ca16f16eab5ccd8187ff74259f8e47c0302583b064626b87c9323",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anodontia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [医]先天性无齿症 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "4aae906bd2d49c33e1ec59748ee4ff870e4003a113d4ce7ff54d35bc08216d5d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anodontism",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 牙全部缺失, 无牙 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "9f7f1d4488d14814184b712b124e0c82cefb1d108cecbec56e6ab66bbaf82400",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anodynon",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 氯乙烷 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7aad9bd46df121edadb930ab286071fd53830432e8b05604b90ab154f38d5b8b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anoectochilus",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 开唇兰属；金线莲；金线莲兰属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d1db7b942dada83268c6d35985c29ba1cace91a28b09a7c791adc96407816bda",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoetic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 智力缺失的, 无意识的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ef38dab8bbff434fee6f13b21d08b94835680194e5c0a1b303c7afc5ccaabd36",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anogen",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 对碘苯磺酸亚汞 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c6d5f42ae452ecee9269193e8405d0d6230fc5dd58ebedba2ea9d690f5e3306e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anogramma",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 翠蕨属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "143347eea7090bac09040065b8ad7f01556494f537d16cacb78b98135b750acc",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 精神错乱, 白痴 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "bbef4f7d560bc5b2fb1893282d576471fe2a7d491511d90f46b4df584c3aa56a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anol",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 对丙烯酚; 对丙烯基苯酚 / [医] 对丙烯基苯酚 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "58906db745160156d5c26852f4fb009e07407cd18f3acf6c34973f331abd4dd9",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anolobine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 番荔枝叶碱 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "cad5116f4a3254d3ea33ce8301e04ec3a0bdbd8892cdb6bd03ec18f626b3c886",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomala",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 金龟子；异丽金龟属；冠盖绣球 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "5443b96ac17051e975b060eb92d2cb7640ac1821c8b56f1bf748818e3b8f2481",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomalinacea",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 不规则总科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b3e11a23ff51e6fb3189ef80c504ca04bfc3485a667a212745e88192e9c7ae75",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomalogy",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 异常学 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "771b7def3eac6e782ba9b731b39992dfbfd08874d3ab3f60abab9c7e62a76b22",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomalopia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 视觉异常 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "e6881d3a6d33145c47922c1b43a9637b51166796d77f4cdd23471cd5322439ec",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomalopidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 灯眼鱼科；发光金眼鲷科；奇眼鲷科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "fefba6ab2b0119426042e98d2bb063e992c47db35fc14d851ce9ae7b1fc829f2",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomalure",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [动]鳞尾松鼠 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "48b713860dc8452fb51535b1c25df674b1317d6a2c2e8f151f3fadaac3e8dbd5",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomiidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 不等蛤科；银蛤科；二名法 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "eafe7e4e32b792fea4cabb0e0d33f19a2750f8ca423e86a3995acce577bb1170",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomite",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [矿]褐云母 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6a681074e258a1368cf84e11ebfb962c89a56ff4854e1df66218af830cfd40b4",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomocoela",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 异凹亚目 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "1d141d301375c4cc6ef0bb89e571f3a50ffc79059807a58a7128bb937c1e3f5a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomodontia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无前牙动物 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "786af9adbaaf31715f6024b5b58c1bcd82978d801a34583e7d303be933e300a3",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomous",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 无肩的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f3cfc605bc0bddc0dc8e5915d790befc02421af9f056b5bb65e10106c4b861e5",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anomphalacea",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 异节螺超科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "cad04a554fb7b133db9e7ba2fb9b3d1c858a1ae32ce544e378216f52743b2f62",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anomphalus",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无脐畸胎 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "3fb4aa4b8c94fc4924d45dce0efba073d5eb91045fb01cda484fdd1d15db5013",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anonaceine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 番荔枝碱 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c0bb46e575b357604ce94a2186645f0a787fb89bfdac49a71e9d33d0f8f49d3c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anonaceous",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [植]番荔枝科的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "9066ed45b61580d0fdf24de9a7194ca7f748b0df22828a24898f5f203d4e5a62",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anonaine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 番荔枝碱 / [医] 番荔枝硷 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "939da8b9b14fd6b2afa40e581f838d5b8dd44581983dbdce792472b70c71a9f9",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anone",
+      "reason": "Source gives cyclohexanol but the -one head raises a substance-identity conflict with cyclohexanone; do not select either without an authoritative exact-head check.",
+      "sourceSha256": "30f5d91892156bfcdcc5c2bc3b54bea89e789df050642c4c87db7c0106ecbc60",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anonychia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无甲[畸形] branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d58f9845a761174adc6b50208dbc973843df7fcca18e5bc147a13e33eabe716f",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anonyma",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [解]无名动脉,头臂(动脉)干 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d02659c9d36e2eb4a28fea41220011dc6a5433c9cc29966e699b8fe8d8512422",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoopsia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [医]上斜视 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "4b1eb393d740086f62685f05a1aa59983dc605318f5108291dbe59bc085eab35",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anophelicide",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 杀蚊的, 杀蚊药 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "85a33e64790bcab76d29ae2a6de4e35753186f6ca435cea25862986b8bb4eb28",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anophthalmia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无眼[畸形] branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "966d6788a0d444b7620857f1944e369c6ec436e6322388b1cf2770ae6c57e935",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anophthalmus",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无眼畸胎 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ad9fe24a0763d960bca43e897fd40ad17a397f77386a9c538c7fcec0aa85f133",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoplasty",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 肛门成形术 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "279ceb4dc124df11c2fb2eaba1b2cfa27f6a86747954bdbe577d38fb22398473",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anoplocephala",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact [医] 裸头绦虫属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ef7159ef715c7fb366fe993d1cf21fb9a9b34a12b4cb9044597325fa6b712096",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anoplocephalidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact [医] 裸头[绦虫]科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2bfaeba004c7069e1e4de9d8bee42fcda5b1f4d3cc6c6dfc904dd8488509315c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoplopoma",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医]裸头鱼 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "e07f92cdb17d4c0b7e9ab8441ec06f23b8fc4c0a729835ee1321578ce9164baa",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anoplura",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 虱目 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "04a1b8a342e9d91e5f0e40d66c90b5c8851ad3820633aa07e8f2ee817207dddf",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anopsia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [医]上斜视 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f37e8ef07e640341f98e7c35990b3af8dbecb25e0097c0c4a8c02ca90b95cbd9",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anopubic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 肛门耻骨的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "54fe339325e72f3705028276613da872dee3cb0b4d9e58f1b5167719c0d162ed",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorchid",
+      "reason": "Published role is adjective but the only Chinese branch is a person noun 无睾者; source needs an explicit role/sense repair first.",
+      "sourceSha256": "be51b47d63f930ce25496524c161344ca33104d600618816cc0a0d34133bd298",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorchidic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 无睾的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f67db5d1bd8acde7b1c75a7e7633b323a942d18fa7e6db263ecf8f0d5e937585",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoretic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [医]厌食的, 减食欲的, 厌食剂, 消瘦剂, 减肥剂 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d12bf4dc5516c5ca47f5c9bf8bd0fe2464a703c356784e174f2be929971dbd87",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorganology",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无生物学 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f5201000e9d185e1aa73a85bcd11bd59e30ba0b4d2002bffcf71405fb5f5fd2d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorgasmy",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 性感缺失 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "5cb37eb095cd763786f527fc5d49976dd581fe356d1a3dd42d4551c5022e7cd1",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorgastic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [医]性快感缺乏的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "81054b1b13bf85b5837b46a6deefca0a806ad0b0728d6016ff5fe54250830014",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anormal",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 反常的, 异常的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "0cbb9ad9f7dca37270d5635cbd86c806846e2bcd8a5b363f7e6a106400edbc81",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorrhorrhea",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 浆液缺乏, 浆液分泌不足 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c5f76d56f880e2855593963d9eb5339a377c73de0356f2ed9479c56d57ea263e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorthoclase",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 歪长石 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "21f436d99bb1c87deb84f6d3e70c3acd2fac80fd84c05df696f01a30288464d7",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorthoscope",
+      "reason": "Source calls this an amblyopia/eye-axis instrument; this may be confused with the optical distorted-image apparatus. Exact apparatus identity needs a primary check.",
+      "sourceSha256": "4a9e62be309952e73687ea73825b2d3e0809829100c6818ac92c60ba2ddc8c2e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anorthosis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 直立不能 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b9697b7f5d40cfb77560b33005cd2ad592e5b6475eb7525510079c471ba4bdd6",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoscopy",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 肛门镜检查 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "611d494694416a16c4b4638a0299d6a2a80bdeb403a7de6e708b11a99c073722",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosigmoidoscopic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 直肠乙状结肠镜检查的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c229d188cae63b7e5d64ccd6d19b2f34bc10b8fff6f67f02d4bd0e16e795c83d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosigmoidoscopy",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 直肠乙状结肠镜检查 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "9cd9b7465385ef064be59ddba59ece23177df95edb8ef80a12bee0befa0dabd2",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosodiaphoria",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 漠视疾病 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d228ab85505d568526664ad6e2356bdf52ed2dc97deb3e4b9c82a374d1442e70",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosognosia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 疾病感缺失 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2e82fa942f997ddc4cfa1898cbc69a30d54d9178c81c2f876fdb54b961bb1762",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosphrasia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 嗅觉缺失 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7873d4fd5f5ed5d4f1cb3760e80216482285044be16a5fee559f15fff6ea9c80",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anospinal",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 肛门脊髓的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b7abcd2ef6009d1dc7b5dc1f07221e8471b51baf788ce08ab21e4c0d260e3851",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anosteoplasia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 骨成形不全 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "e03731e41045f315e2127c08963570f846b7137ffd9e6055b52f4e17384abe8a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anostosis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 骨发育不全 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "474c50d7befd33fa4e2abaccaeccbc76bdad615b8bda935b0b4df8494a9be526",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anostraca",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact 无甲目 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "63ba6458c9d0e1ea54e95eadcb0f11f2446db4c7a549bcb997256773ad46b155",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anotia",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无耳[畸形] branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "a46360775abb3ceabbae7c14b472948daf61bb0e9c83278fc7c884fb00cc2b99",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anotus",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无耳畸胎 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c5a51b1b46e4fe0d2452bb707742885ede4fc71eecf08a5389f115de74f4c588",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anovaria",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无卵巢[畸形] branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d320c47cd046cc760e6ffe537013e9bed0f2ed3b772683d86e242ffc0d467c4d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anovarism",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 无卵巢[畸形] branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6470c8cc11443a7910541a688ade3d70c4e5f94192378360d658fc814213f69b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anovesical",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 肛门膀胱的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "9a1d6a1f8648d69bb5e48bb2b367bfa0026103ce13247cd5587afa3e5dc1fe4f",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anovular",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [医]无卵性的, 阻止排卵的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "bfb1565fb5348f89c9ad0b52f37bee85b9a279da47a226bb11700a5ad7a9817b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anovulatory",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [医]无卵性的, 阻止排卵的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d2c5ba4b9fdc2c779daef9afeedf1d6e737db99d883be660ffaadadad8c86272",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoxia-photometer",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 光电血氧计 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "628470b0a62e332c51f8a527edd65e0afc87d40df2162d0b428c6a1861468ded",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoxoluin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 醋酸不溶性蛋白 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "0f7a6c724af3e9edfc3e9fbbe181ee96761b6e9a0f09f84164a7c69a20ce7dab",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoxolyin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 醋酸不溶性蛋白 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "fd4b27374559b2498749705a814af9185a51edb15db3546529f1b5c91a1241b8",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anoxybiontic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 厌氧的(菌) branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6fba151546dbb3e4c651386f8cfe310eb70d1fdaf0dcc5d3ed9648d4ddc7bd4b",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anreofuscin",
+      "reason": "Rare chemical head may be an OCR substitution for aureofuscin; exact drug/substance identity is unresolved.",
+      "sourceSha256": "ae37fa14242f772d8a615962f14395c46616a02a24129f452a34080c99b3ffc9",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anrist",
+      "reason": "Possible OCR/spelling corruption of aurist; 耳科学家 alone does not verify this head.",
+      "sourceSha256": "12571e07352880e11c890f178f485979a113b79ccfcffecf85c6d7511dcb31d8",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "ANSA",
+      "reason": "Uppercase network acronym and lower-case anatomical loop senses are conflated; a source-bound case-specific admission is needed.",
+      "sourceSha256": "4d1c96c2aac6b97bf6936e3b78c14ed9ca550107c5b5f6d80cec3eecca9204ba",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "ansae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 袢 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "23fec6f6bba647ce3d14e204ac05454b66feec856ed9e3e368f8acd7acca04a0",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Ansar",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact 二甲胂酸 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f707bcf2442c64e7cc5abd7a46cbdc9957da1f19df1cd532a32fec63c441c57a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anseres",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 雁鸭亚目 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "4dc5c504db61c11650866f1711e57281f73e99a1586e26fd17e38b92da2848c3",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anserinae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 雁亚科；雁并科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7de5d0c33f4639e3d3337108f2d53807031986c34505bd7c4732fb9215cd6288",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "ansiform",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 袢状的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "006657110a8143e9be4bfd06d2b32ee4f0ab5f0d101d9aac57c026ddbaa0438d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "ansolysen",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 重酒石酸五吡咯烷 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "5b046c674a1c1479fc9784afb3ace117f2d475c51cc2896c31d05aa034434a58",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antacidin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 葡萄糖二酸钙 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "da405580c660e87994dc452794888f61f5204f641d97e46756b575b15fe565c4",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antacidine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 葡糖二酸钙 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "5683624214abcd23147b7a670c7358d517c4f91f4c29133f6fbce6b8e4b3ab12",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antaen",
+      "reason": "Rare adjective spelling may be confused with Antaean; require exact-head evidence before producing a supposed literary usage.",
+      "sourceSha256": "3f185e650b4073d8f8a3f2b7cb121f9151ddbab9cd012a82bcbde36529a6149c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antagonization",
+      "reason": "Chinese source contains corrupted 对Ж and a dental occlusion branch; exact spelling/role/sense must be verified rather than repairing it silently.",
+      "sourceSha256": "33ed1d707ef48a7deec8d404f4ddb03a3619ef00d1e3e758936e6f7b01ef39f8",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antagonizer",
+      "reason": "Chinese source contains corrupted 对Ж架 and several unrelated device/agent branches; an exact selected branch needs independent evidence.",
+      "sourceSha256": "203104f7e44ce14d62f25f20ac6a1121398e9018d1aaefb4df0fcbafa29c22b5",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antalgesic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [医] 止痛的, 止痛药 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "361a65e6318d5322fbfa1dff2a97b7f7e030362a044553f47c9f52bfaa6c3389",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antalgica",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 止痛药 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f1f53544951d0ea9d2e300c03994fae2d511b977925bd0942514553e1b31ce88",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antaphroditic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [医] 制欲的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "15e92db00b12fec94db21baf0b0b742e175a7f8b7084fe8bfc0105eeeb1ded57",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antapoplectic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [医] 防止中风的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "755fda182a895bac88c0b305206bec1de9bc2cc8216d3e21c255de50e13c50de",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antasthenic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 恢复体力的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ce5564b07a797d1148c653e0dfae7004eecc72a247339430404d4170686f3f7d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antazoline",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 安他唑啉 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6f1f8cde1c712ca3ed3290fd7482e2fe3664dc906c2d62bb4bf1ad3f6aef2af1",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "ante-chamber",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医]前腔 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "cc134c3e8855e6815aee08ef30de2b8b48260026e9f26a498caa02b27696020e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antedon",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 海羊齿；海羊齿属；海羊齿类 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "746538eca3becac3faa8a852bc756f6feba5e0ed1cb819da00dc9086343a3d80",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antedonidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 海羊齿科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "0beffd88040bab8da5479cc3dbee28b2b14d09df3f9f652bd64863fba5e5dad0",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antefebrile",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 发热前的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "8314d65d69e55c557487b339c1af978152455772d44ffe37f7aed321d07c7eac",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antehypophysis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 垂体前叶 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "35cc0d3079513a8825345becef55ea139d98a654ee14061ac06fa8d56dda1304",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antemetic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [化] 止吐剂 / [医] 止吐的, 止吐剂 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "72467dc87d74e57d95cb39948c85a8823af53f633b1e9b1d85b1e6c7a14abda6",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antennaria",
+      "reason": "Source mixes 围角片 with a botanical genus and a questionable Chinese genus name; do not hide this by choosing one unverified branch.",
+      "sourceSha256": "6cbfea42ce14c8c91c9d35d74a67ca7a9071f19d281f5b51a923d49f25d40d1e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antennariidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 躄鱼科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "86c9af1c6998ecd4317ad1281b5bfe2bf48e57ad4430e382e800c27f36aaaea1",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antephialtic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun · adjective head and its exact [医] 抗梦魇的, 抗夜惊的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c0618870d66a54a6804a68cceb1d6bf017400d0e4e954ca2d4d3a332f71b3c37",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antepituitary",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 垂体前叶 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "df18bf1a693a17382282be729269fa242940232354033c73bf2ffda0f39da8b4",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteposition",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 前位 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "bcbcc2bfe79029c1494cca20dce39f801a8832f0bcf83e6105aaf988b4eb9518",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteprostate",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 尿道球腺 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "71cf758ef7f50751a2de45f0f08632553cba07f709b45b4600ae7bb512f5cbad",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteprostatitis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 尿道球腺炎 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7564482b0e2d4d8b6a46bdd82e8dbc45392fa448b6519f1a7ca70f4e8c975d93",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antepyretic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 发热前的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2bb9272f1a4bc2f1534d43290fc0d3ec01a765abc16afd565e46335ddc20d384",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anterethic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 减轻刺激的, 缓和性的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "e502be34027ed2dc518fec381cb5c513843bcc4c58411920b966a21d5af90439",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antergic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 对抗的, 拮抗的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "c8ce8990beeccb5578ef8db4eff65b2a347ecb7e9513d8c50f2b5e76654fb9cd",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antero-external",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 前外的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "4842552deae6e53ef8ce8b7ea52c93b6a77d8de03a823106c28f61b55b52a576",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antero-inferior",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 前下的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d4db75247a9b0ef245b372bac05622ed7d7dca3496ad40b7c30846ae04834e7d",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antero-internal",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 前内的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "314686a57d41dfd21b2b09fac6e4de445342c8e7fc06f3de86eaa2fd40b53747",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteromedian",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 前正中的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d3d8aa3173aec00d21507b805bc75756e83a4849dd643ebb6b8459a5499d3341",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteron",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact [医] 安特龙(孕马血清促性腺提取液的商品名) branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "f9f5cc43cd8cfc7a8d12f82a91a799fdf11cb48913a1deb82f6a8078af569a49",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anteroparietal",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 顶前的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "151b074940d9bdb8fd7ede719dc39cf0059eb415bc76f3e4f141643284045d5a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antexed",
+      "reason": "Possible OCR contraction of anteflexed; do not create an apparent English adjective from an unverified spelling.",
+      "sourceSha256": "24dfa4ea805999838f38d0c69a83ed43f71109bf8cb5e93916b23b1cc7487d0c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthanthrene",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 二苯并[cd,jk]芘 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "2c728c273947006a5681d381fde9e5d9800f726ccb30a63499e17001fc3adc29",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthanthrone",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 二苯并[cd,jk]芘-5,10-二酮 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ff2f1b086f2192439c7765aa0360cd77ff780b23c24440ebba4c0bcc13be793e",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthela",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 芦花絮 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "7fef3b3834ec053ad49d0bc5b69ca04ed7822c39be3f4bac4eaa1a3c308da151",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthelmycin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 抗蠕霉素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b8f209e39e5a43563c4ed6f9e422123351edf85e4a47219c7af10f2db19768bb",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthelone",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 尿抑胃素, 抗溃疡素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "1011fc9711671dbc11553da5ed831c840dd91a523052c973d610d4cc805697cd",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antheloticum",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [医] 除胼胝剂, 鸡眼药 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "cb1624bf712ab879a22cb5f358b639c896c935251f44a2c81c8cc104775af80c",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthelvencin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 萎蠕菌素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "67dd0d78b78c434fdcbb973361c7bf86615d5bf82998af975938d911cc04d1b8",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthema",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [医]疹, 皮疹 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "3c08b81a115e09de439010f353c2c1bfd0aced5be04e768c79b19dcb6a21ed08",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthemis",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact n. [植] 春黄菊属；西洋甘菊 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "90dc54669c451ce5db3b94d87c17e1ce978d4d16c526a88f424eec7fc4299e15",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthemol",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 春黄菊脑 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "5c9a77ff031925560f86b07848781a1d23addf9f1483210cea9e95bc5e429a57",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthemorrhagic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 止血的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6084b6fb2a34c2ec737dc140dd150b32fc2c8883ba6f42c3b9c6284bc7b213fe",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antheraea",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 柞蚕属；天蚕蛾属；目天蚕蛾属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "d0271488721adc4adf3934ddd5f8b52ceb24376d3bfc153204c7a6876161a70a",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antheraxanthin",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 花药黄质; 表氧化玉米黄质 / [医] 表氧[化]玉米黄素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "6639ad3f4225797c380f8359d04b4f84387f2086d99189797104f77a225e75da",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anthericum",
+      "reason": "Source gloss is only 花药, apparently mixing the plant genus with the organ anther; no learner example until the genus identity and Chinese are reconciled.",
+      "sourceSha256": "d0fa08c04d6b05577e52c40e72a384f03a5df9afdbbd2890001ccec205df44ac",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antheridiogen",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 成精子囊素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "87ec1614e7c864445bd94a6fdd637361c9b26aa193246a9ee97a221cbd3f7486",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antheridiol",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 雄器形成激素 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "1d091ba67e5c1d67fa111fd1a2c8342272b80db21e44aa923f7aaee5f73ce7cd",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Antheropeas",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 蚁草 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "a70cef2266c6df33fdc3480b2ed16767cb456a14703e0834574a3ce4224117f8",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "antherpetic",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact [医] 治疱疹的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "da9824df8fb5e7ab095a5159cfe8b3219d1a5d22c5fd82d5360ed9752eba4ea4",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anthicidae",
+      "reason": "After reading the whole source, I have not yet independently verified this rare proper noun head and its exact 蚁形甲科 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "946ede29c5ecf51dfe5c4d8c453d5573dfb3185d3330d0cdc506ec8aa95a4138",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "Anthidium",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [网络] 黄斑蜂属 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "15f02b58226bd29aadd1271b00da99a14679253ad6092c662ed2490ba7d449f2",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthiolimine",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 安锑锂明 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "b88763bbe64f16582ca237c8f7c9686a5082fd30468f341870b9e6f8f7a3f594",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthion",
+      "reason": "After reading the whole source, I have not yet independently verified this rare noun head and its exact [化] 过二硫酸钾 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "792bf5f2e50701e7c3acf146ff5c4be09ab5827e520bfa0fd576e79b60455f94",
+      "pack": "p013",
+      "stage": "authoring"
+    },
+    {
+      "term": "anthocarpous",
+      "reason": "After reading the whole source, I have not yet independently verified this rare adjective head and its exact a. [植]掺花果的 branch. A learner sentence would currently assert an unchecked spelling, historical label or scientific identity; retain pending for exact-source research, not count as covered.",
+      "sourceSha256": "ab5a5cf20ee3a932d521ccaa1bc98413570007f1fa6d67f70baa63e99af64590",
+      "pack": "p013",
+      "stage": "authoring"
+    }
+  ],
+  "reviewScope": "Original selected-sense bilingual examples actually AI cross-read; not human certification, not every sense or full dictionary completion."
+}
