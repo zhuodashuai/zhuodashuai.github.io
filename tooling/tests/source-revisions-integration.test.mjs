@@ -7,7 +7,7 @@ import { verifyDictionaryPos } from "../lib/dictionary-pos.mjs";
 import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { verifyDictionarySourceRevisions, DICTIONARY_SOURCE_REVISION_SOURCE } from "../lib/dictionary-source-revisions.mjs";
 import { buildExpandedDictionary, expandedSeedIntegrity, expandedBucket, expandedKey, expandedSha256,
-  recoverExpandedSeed, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
+  recoverPinnedExpandedSeedArchive, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
 import { buildDictionarySuggestions } from "../scripts/build-dictionary-suggestions.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
@@ -43,7 +43,7 @@ test("actual four-record integration preserves old source identity and all non-t
   // hashes/paths/sizes/counts, rather than trusting rewritten descriptor data.
   assert.equal(expandedSha256(JSON.stringify(oldDescriptors)), "0ccf8055e3c1ffec7e0dd582fbb1178db323ee1eb07a2d07c2dd9ebcebcc4805");
   const integrity = await read("tooling/dictionary/expanded-source-integrity.json");
-  const prepared = await recoverExpandedSeed(directory, integrity);
+  const prepared = await recoverPinnedExpandedSeedArchive({ root, integrity });
   assert.equal(expandedSeedIntegrity(prepared).semanticSha256, seedRoot);
   const catalogue = await loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"),
     reviewDirectory: resolve(root, "tooling/dictionary/reviews") });

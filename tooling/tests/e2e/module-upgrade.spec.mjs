@@ -10,10 +10,10 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 // Read only explicit versioned JS literals; never execute the service worker.
 const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
-  ['expanded-dictionary.js',['97','103']],['dictionary-app.js',['99','103']],
-  ['library-lookup-controller.js',['99','103']],['library-lookup-ui.js',['100','103']],
-  ['public-app.js',['101','103']],['personal-app.js',['100','103']],
-  ['owner-app.js',['97','103']],['dictionary-entry.js',['102','103']]
+  ['expanded-dictionary.js',['97','103','104']],['dictionary-app.js',['99','103','104']],
+  ['library-lookup-controller.js',['99','103','104']],['library-lookup-ui.js',['100','103','104']],
+  ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104']],
+  ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']]
 ]);
 for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
   const url = new URL(match[1], "http://127.0.0.1:4187/");
@@ -24,9 +24,9 @@ for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["
 for(const[name,versions]of cachedModuleVersions){
   if(reviewedAliases.has(name)){
     expect([...versions].sort((a,b)=>Number(a)-Number(b))).toEqual(reviewedAliases.get(name));
-    // Only the active graph uses v103. Old cache aliases stay available to
+    // Only the active graph uses v104. Old cache aliases stay available to
     // offline/previous clients; their presence must not exempt a stale import.
-    declaredModuleVersions.set(name,'103');
+    declaredModuleVersions.set(name,'104');
   }else{
     if(versions.size!==1)throw new Error(`Module upgrade fixture found conflicting SHELL versions for ${name}.`);
     declaredModuleVersions.set(name,[...versions][0]);

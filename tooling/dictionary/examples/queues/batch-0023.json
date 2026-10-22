@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "batchId": "examples-0023",
+  "sourceDictionaryVersion": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+  "baselineExampleVersion": "e929d35b959c01772ab80d36db38775c7ecf8d4490c28c6928a3d29674f30ebc",
+  "queuedHeads": 3,
+  "entries": [
+    {
+      "term": "headdress",
+      "source": {
+        "id": 2636670,
+        "term": "headdress",
+        "partOfSpeech": "noun",
+        "meaning": "n. 饰头巾, 头式",
+        "forms": [
+          "headdresses"
+        ],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 20604,
+          "forms": [
+            "headdresses"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "54cb94e85187ae7cdfa317d978c2bcad9b05dbda35acc2686ffe7f01b5108a14",
+      "pair": [
+        "headdress",
+        "noun",
+        "头饰；头部服饰",
+        "The dancer adjusted her headdress before stepping onto the stage.",
+        "舞者上台前调整了一下头饰。"
+      ],
+      "pairSha256": "8a7671baf029af9a3273993de4d1fdb0d8e37495baf146287a1485605afdf633",
+      "sourceAuthorPrincipal": "c",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0010-outcome.json",
+          "outcomeFileSha256": "69875bcfcd884381f20260f74c58d6eb84e5f3b0e5a7d9c9c95171c770b0c502",
+          "pointer": "/deferred/4",
+          "raw": {
+            "term": "headdress",
+            "stage": "authoring",
+            "reason": "The queued/base part of speech is adjective, but the standard head-covering sense is a noun. Authoring a noun sentence would conflict with the supplied POS; deferred without changing primary data.",
+            "sources": [
+              "https://www.merriam-webster.com/dictionary/headdress"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "term": "longingly",
+      "source": {
+        "id": 3253174,
+        "term": "longingly",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 渴望地, 切望地",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 25421,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "2ada0a55be37d2f49cbb5739e7b3af3146e34bf6dcaa34320e8634583a706485",
+      "pair": [
+        "longingly",
+        "adverb",
+        "渴望地；满怀向往地",
+        "He gazed longingly at the sea from his office window.",
+        "他从办公室的窗户满怀向往地望着大海。"
+      ],
+      "pairSha256": "c6755e47f8cc6642ef437f7596306af0b08a8f281539e522951fa7c2c67d4eab",
+      "sourceAuthorPrincipal": "c",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0012-outcome.json",
+          "outcomeFileSha256": "98d5d42bc868d758647d9dc567b3c3d76026355cc584d77555a9b965118d72ac",
+          "pointer": "/deferred/12",
+          "raw": {
+            "term": "longingly",
+            "stage": "authoring",
+            "reason": "Canonical POS is adjective, but this head is an adverb. Its Chinese gloss is adverbial as well. An example would require correcting the canonical POS first.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/english/longingly",
+              "https://www.oxfordlearnersdictionaries.com/definition/english/longingly"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "term": "moonless",
+      "source": {
+        "id": 3431945,
+        "term": "moonless",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 无月亮的",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 26818,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "8e93f93be43b1b8bc857fc778853734a0fc535aa5197513a0ebb987eea318695",
+      "pair": [
+        "moonless",
+        "adjective",
+        "没有月亮或看不见月亮的",
+        "We followed the torchlight along the path on a moonless night.",
+        "在一个看不见月亮的夜晚，我们循着手电筒的光沿小路前行。"
+      ],
+      "pairSha256": "93a37ebe520f36327a9366670dd5e77761f01c87b273b01732c8619580c2d716",
+      "sourceAuthorPrincipal": "c",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "historicalHolds": [
+        {
+          "outcomeFile": "batch-0016-outcome.json",
+          "outcomeFileSha256": "e707e6e754bf8784a168ff71193ce7e0dd32442c9b08d54d795bad1ea299d94a",
+          "pointer": "/deferred/1991",
+          "raw": {
+            "term": "moonless",
+            "reason": "Only noun POS is queued, but the published meaning and head are adjectival.",
+            "stage": "authoring"
+          }
+        }
+      ]
+    }
+  ],
+  "oldHoldsRetained": true
+}

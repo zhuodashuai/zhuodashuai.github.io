@@ -42,7 +42,7 @@ test("member storage migration is additive and keeps the owner's existing Durabl
 
 test("personal shell is precached but private API bypasses all service-worker caching", async () => {
   const sw = await source("../sw.js");
-  for (const item of ["personal.html", "personal.css?v=100", "js/personal-app.js?v=103", "js/personal-app.js?v=100", "js/personal-folders.js?v=100", "js/entry-sort.js?v=100", "js/personal-lookup-flow.js?v=97", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=100", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=97", "js/expanded-dictionary.js?v=103", "js/expanded-dictionary.js?v=97", "js/core-pos-corrections.js?v=88", "js/member-dictionary-manifest.js?v=97", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
+  for (const item of ["personal.html", "personal.css?v=100", "js/personal-app.js?v=104", "js/personal-app.js?v=100", "js/personal-folders.js?v=100", "js/entry-sort.js?v=100", "js/personal-lookup-flow.js?v=97", "js/dictionary-navigation.js?v=80", "js/personal-api.js?v=100", "js/personal-storage.js?v=82", "js/personal-selection.js?v=82", "js/personal-study.js?v=77", "js/personal-dictionary.js?v=97", "js/expanded-dictionary.js?v=104", "js/expanded-dictionary.js?v=97", "js/core-pos-corrections.js?v=88", "js/member-dictionary-manifest.js?v=97", "js/core-dictionary.js?v=77", "js/runtime-config.js?v=77"]) {
     assert.ok(sw.includes(`"./${item}"`), `${item} missing from shell`);
   }
   assert.ok(sw.includes('/\\/personal(?:\\.html)?\\/?$/.test(url.pathname) ? "./personal.html"'));

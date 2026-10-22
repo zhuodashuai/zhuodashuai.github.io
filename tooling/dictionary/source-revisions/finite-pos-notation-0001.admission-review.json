@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-exact-three-materialized-source-whole-pair-reentry-review-not-importer-or-publication-approval",
+  "authorPrincipal": "c",
+  "pairAuthorPrincipal": "root",
+  "sourceGeneratorPrincipal": "root",
+  "reviewerPrincipal": "e",
+  "complete": true,
+  "actualDictionaryVersion": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+  "actualSourceManifest": {
+    "file": "vocab/data/expanded-dictionary/manifest.json",
+    "bytes": 54705,
+    "sha256": "da424df6edf245db2da69925a1c6e5e2d0936f3458709aa0ded1dde82983a82b",
+    "counts": {
+      "records": 102609,
+      "englishKeys": 140858,
+      "chineseTokens": 160071
+    }
+  },
+  "physicalSourceProof": {
+    "sourceShards": 256,
+    "englishShards": 128,
+    "chineseShards": 128,
+    "allRawDescriptorSha256AndBytesVerified": true,
+    "totalBytes": 58322738,
+    "descriptorSetSha256": "e09db0b9c1ddc73ddc62ca229503a6b2027eb318a66d3fc91a405f3e2cf80434",
+    "englishDescriptorsSha256": "c7b55900cf3ad1405485b1390a742e27cdb8e0711662dc10bce28640b4ad2fbd",
+    "chineseDescriptorsSha256": "95c557ac8c833c5ea0865ddbae54112e1fd690283d16e8d33b9d7c74daf57ea9",
+    "contentAddressedRootRecalculated": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
+    "observationArtifact": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0023\\qa\\e-pos3-materialized-source-observation.json",
+      "bytes": 374313,
+      "sha256": "fe4369bf5bc029cdf83f32064e0683d62bb5ad15185c4f4f4007e30858094113"
+    },
+    "evidenceBoundary": "The original observation preserves all256 complete descriptors and all raw byte hashes, old256 shard checks and target full source objects. A later importer must itself revalidate the actual manifest and all physical shards; this receipt is not a substitute for importer code review."
+  },
+  "conservation": {
+    "historicalVersion": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
+    "baselineManifestSha256": "c609196db70d0563c9ea92136cf6e4bd2d958359c954058f88862f1839d207b7",
+    "changed": 3,
+    "unchanged": 102606,
+    "allEnglishReferencesIdentical": true,
+    "allChinesePostingsIdentical": true,
+    "oldRawSourceShardsAlsoVerified": 256
+  },
+  "examplesBaseline": {
+    "file": "vocab/data/dictionary-examples/manifest-v2.json",
+    "bytes": 57577,
+    "sha256": "27ec47fe51962cacf4a1829eb8c3bf71d4d2ea4bcd9eea39f92cba43863c86e1",
+    "version": "e929d35b959c01772ab80d36db38775c7ecf8d4490c28c6928a3d29674f30ebc",
+    "heads": 85259,
+    "pairs": 86648,
+    "all256RawShardsVerified": true,
+    "targetHeadsAlreadyCovered": 0,
+    "exactNormalizedEnglishCollisions": 0
+  },
+  "sourceLedger": {
+    "file": "tooling/dictionary/source-revisions/finite-pos-notation-0001.json",
+    "bytes": 13533,
+    "sha256": "658091b073f90d829bb901d11853e4a1a510653fdd08d0e8a2563a5e6827f3d9",
+    "semanticSha256": "3a5409dad7b45fd84d3644886ab89fa03ab0ea85d96c6f61b4ebf78263a86c19"
+  },
+  "precedingLanguageOpinions": [
+    {
+      "role": "Original conditional Root whole-pair review",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0022\\qa\\e-pos-three-conditional-independent-review.json",
+      "bytes": 12721,
+      "sha256": "03abaca02c23deb111c691f37b9641916f80ac61ba2854932a3e9804a68b07b6"
+    },
+    {
+      "role": "Exact before/after-source and unchanged Root whole-pair conditional review",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0022\\qa\\e-pos-three-exact-source-independent-review.json",
+      "bytes": 17636,
+      "sha256": "98d0e8dede6697d2a4828de9e12553644c894c2c6722f61645ed4028934e4de7"
+    }
+  ],
+  "upstreamAudits": [
+    {
+      "scope": "POS3 finite implementation",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0023\\qa\\e-pos-notation-implementation-independent-audit.json",
+      "bytes": 8977,
+      "sha256": "52500062952768679341c4b6dd35bfaf59345b1a69e742915d08a8e50d116822",
+      "authorPrincipal": "c",
+      "reviewerPrincipal": "e",
+      "qualification": "Exact original audit bytes retained; their source/version observations describe their actual earlier audit time, not an assertion of live deployment."
+    },
+    {
+      "scope": "Production POS3 integration",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0023\\qa\\e-pos-notation-integration-independent-audit.json",
+      "bytes": 13928,
+      "sha256": "b390bf2ff524f5d351d1fd1a23105618e1472b7bf7faf47afa02a3324917ff46",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "qualification": "Exact original audit bytes retained; their source/version observations describe their actual earlier audit time, not an assertion of live deployment."
+    },
+    {
+      "scope": "Client runtime and coherent asset graph",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0023\\qa\\e2-pos-notation-runtime-independent-audit.json",
+      "bytes": 11854,
+      "sha256": "70a122cda7c175f44c09eca491316247309d7a8256f423702c2cee6aa671d68c",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e2",
+      "qualification": "Exact original audit bytes retained; their source/version observations describe their actual earlier audit time, not an assertion of live deployment."
+    },
+    {
+      "scope": "Original pinned seed recovery implementation",
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0023\\qa\\c-seed-archive-independent-audit.json",
+      "bytes": 5134,
+      "sha256": "094348ddabdba0939abbe4b8abc872b60a123db0382dc9a05878e8b138a5080d",
+      "authorPrincipal": "e2",
+      "reviewerPrincipal": "c",
+      "qualification": "Historical reader audit bound seed module244d08 and then-builder589245; current production composition delta is separately bound by integration auditb390. Do not relabel old builder bytes as current."
+    }
+  ],
+  "upstreamCodeBindings": [
+    {
+      "file": "tooling/lib/dictionary-pos-notation-revisions.mjs",
+      "bytes": 14210,
+      "sha256": "5d9bdb235624a8251b8df09e3eccf81bae44715e6b2bdeb7d1f17a35f9370c7f"
+    },
+    {
+      "file": "tooling/scripts/build-expanded-dictionary.mjs",
+      "bytes": 40543,
+      "sha256": "dc4fff2b8f512d2b66568863e13a4889ea40ce3e3078c26ab61488ac7642c43f"
+    },
+    {
+      "file": "tooling/scripts/build-dictionary-suggestions.mjs",
+      "bytes": 11996,
+      "sha256": "2fc7ccc2710d2169b10c5a6eb3cb78ff2f23368d618ce73f022884e62d9d2b51"
+    },
+    {
+      "file": "tooling/lib/dictionary-seed-archive.mjs",
+      "bytes": 3052,
+      "sha256": "244d08a47c10828efb9324e836131017322e3edbda1c4fc51477908ab8aad51b"
+    },
+    {
+      "file": "vocab/js/expanded-dictionary.js",
+      "bytes": 30806,
+      "sha256": "36ed1861693ef23bc4d0d82a361725a9fcd14db3d4faadb216bda5ce1b18b804"
+    },
+    {
+      "file": "vocab/dictionary-pos-notation-revisions.html",
+      "bytes": 3725,
+      "sha256": "62c9a3e6075c6ae8a1a84ce2110a7a93594253191b4c00a7f4bf7198a85ed87a"
+    }
+  ],
+  "actualReading": {
+    "wholeMaterializedSources": 3,
+    "wholeOriginalFiveFieldPairs": 3,
+    "fullOriginalHoldObjects": 3,
+    "actualSourceAndPairReadView": "106d92",
+    "earlierRawPrimaryReferenceReadViews": [
+      "889707",
+      "97842f",
+      "1e8721"
+    ],
+    "upstreamActualScopeReportsReadView": "fc0a73",
+    "generatorExitReportedByRoot": true,
+    "generatorLogReadView": "b3a274",
+    "full256SourceRawChecks": "Performed independently after Root reported actual generator exit0; not inferred from its stdout or earlier in-memory test.",
+    "currentExampleCheck": "All256 example shards actually rehashed;85259 heads/86648 pairs remain and none of these3 heads or exact normalized English pairs is already present."
+  },
+  "perTerm": [
+    {
+      "term": "headdress",
+      "id": 2636670,
+      "decision": "approve-exact-whole-pair-reentry-against-materialized-source",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "beforeSha256": "06cdffb56af1b77e87193c97755bcffc95c962e6ee9d2ceba65c8816cd2a7712",
+      "afterSha256": "54cb94e85187ae7cdfa317d978c2bcad9b05dbda35acc2686ffe7f01b5108a14",
+      "before": {
+        "id": 2636670,
+        "term": "headdress",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 饰头巾, 头式",
+        "forms": [
+          "headdresses"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20604,
+          "forms": [
+            "headdresses"
+          ],
+          "workbook": true
+        }
+      },
+      "actualSource": {
+        "id": 2636670,
+        "term": "headdress",
+        "partOfSpeech": "noun",
+        "meaning": "n. 饰头巾, 头式",
+        "forms": [
+          "headdresses"
+        ],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 20604,
+          "forms": [
+            "headdresses"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalDescriptor": {
+        "bucket": 126,
+        "file": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432/en-126.json",
+        "sha256": "c02a24a51b382a08124e8f6586808bc53504278436b90187a47f138d05d96d2a",
+        "bytes": 341976,
+        "count": 1061
+      },
+      "pair": [
+        "headdress",
+        "noun",
+        "头饰；头部服饰",
+        "The dancer adjusted her headdress before stepping onto the stage.",
+        "舞者上台前调整了一下头饰。"
+      ],
+      "pairSha256": "8a7671baf029af9a3273993de4d1fdb0d8e37495baf146287a1485605afdf633",
+      "pairHashEncoding": "SHA256 UTF8 five fields joined by one TAB, no trailing newline",
+      "selectedPartOfSpeech": "noun",
+      "actualSourceAndSentenceSense": "The actual materialized noun source n. 饰头巾, 头式 now supplies the same headwear meaning as the Root sentence. Her headdress is a countable noun object of adjusted, not an adjective or a metalinguistic mention.",
+      "wholePairFidelity": "The dancer adjusts her headwear before stepping on stage. Chinese preserves actor, possessive object, action and temporal relation without adding a costume type.",
+      "originalSourceAndPrimaryReviewSha256": "98d0e8dede6697d2a4828de9e12553644c894c2c6722f61645ed4028934e4de7",
+      "primaryReferenceRows": [
+        {
+          "file": "data.noun",
+          "synset": "03507653",
+          "wnPos": "n",
+          "rawLine": "03507653 06 n 02 headdress 0 headgear 0 011 @ 03055525 n 0000 ~ 02957776 n 0000 ~ 03502782 n 0000 ~ 03518281 n 0000 ~ 03536461 n 0000 ~ 03602510 n 0000 ~ 03612399 n 0000 ~ 03779503 n 0000 ~ 04462319 n 0000 ~ 04505684 n 0000 ~ 04592604 n 0000 | clothing for the head  ",
+          "rawFileSha256": "2cad22fe43461ee7ae61a564ae6a518c57445c8597e53542caddb5c26a6a5d94"
+        }
+      ],
+      "priorHolds": [
+        {
+          "outcomeFile": "batch-0010-outcome.json",
+          "outcomeFileSha256": "69875bcfcd884381f20260f74c58d6eb84e5f3b0e5a7d9c9c95171c770b0c502",
+          "pointer": "/deferred/4",
+          "raw": {
+            "term": "headdress",
+            "stage": "authoring",
+            "reason": "The queued/base part of speech is adjective, but the standard head-covering sense is a noun. Authoring a noun sentence would conflict with the supplied POS; deferred without changing primary data.",
+            "sources": [
+              "https://www.merriam-webster.com/dictionary/headdress"
+            ]
+          }
+        }
+      ],
+      "specificHoldReentryResolution": "The old author hold object correctly recorded adjective metadata at that time. Actual source54cb94 now has noun and n. with the complete lexical remainder/ID/seed/plural preserved, so only this exact whole pair may re-enter; the old hold itself is not edited or deleted.",
+      "historicalHoldsEdited": false,
+      "sourceChangedByReviewer": false,
+      "languageReentryOpinionOnly": true,
+      "exampleAdmitted": false,
+      "coverageAdded": 0,
+      "published": false
+    },
+    {
+      "term": "longingly",
+      "id": 3253174,
+      "decision": "approve-exact-whole-pair-reentry-against-materialized-source",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "beforeSha256": "2367e2af3bf507dd2386beed707e38c8e041f7d6d41879b36ce8119a73927cf8",
+      "afterSha256": "2ada0a55be37d2f49cbb5739e7b3af3146e34bf6dcaa34320e8634583a706485",
+      "before": {
+        "id": 3253174,
+        "term": "longingly",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 渴望地, 切望地",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 25421,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "actualSource": {
+        "id": 3253174,
+        "term": "longingly",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 渴望地, 切望地",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 25421,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalDescriptor": {
+        "bucket": 54,
+        "file": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432/en-054.json",
+        "sha256": "5baef9206ebfe3f026535194a5300212b4854b1e7f055b46ddbd5244b2291f85",
+        "bytes": 347713,
+        "count": 1092
+      },
+      "pair": [
+        "longingly",
+        "adverb",
+        "渴望地；满怀向往地",
+        "He gazed longingly at the sea from his office window.",
+        "他从办公室的窗户满怀向往地望着大海。"
+      ],
+      "pairSha256": "c6755e47f8cc6642ef437f7596306af0b08a8f281539e522951fa7c2c67d4eab",
+      "pairHashEncoding": "SHA256 UTF8 five fields joined by one TAB, no trailing newline",
+      "selectedPartOfSpeech": "adverb",
+      "actualSourceAndSentenceSense": "The actual materialized adverb source adv. 渴望地, 切望地 supplies the yearning-manner reading. Longingly modifies gazed rather than describing an adjective property.",
+      "wholePairFidelity": "满怀向往地 captures yearning, and both texts retain the sea viewed from the office window. This is not a mere long-duration gaze or an added relationship assumption.",
+      "originalSourceAndPrimaryReviewSha256": "98d0e8dede6697d2a4828de9e12553644c894c2c6722f61645ed4028934e4de7",
+      "primaryReferenceRows": [
+        {
+          "file": "data.adv",
+          "synset": "00391325",
+          "wnPos": "r",
+          "rawLine": "00391325 02 r 02 longingly 0 yearningly 0 000 | in a yearning manner; \"he spent the rest of the act gazing longingly over my right shoulder at the illuminated word `Exit'\"  ",
+          "rawFileSha256": "aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3"
+        }
+      ],
+      "priorHolds": [
+        {
+          "outcomeFile": "batch-0012-outcome.json",
+          "outcomeFileSha256": "98d5d42bc868d758647d9dc567b3c3d76026355cc584d77555a9b965118d72ac",
+          "pointer": "/deferred/12",
+          "raw": {
+            "term": "longingly",
+            "stage": "authoring",
+            "reason": "Canonical POS is adjective, but this head is an adverb. Its Chinese gloss is adverbial as well. An example would require correcting the canonical POS first.",
+            "sources": [
+              "https://dictionary.cambridge.org/us/dictionary/english/longingly",
+              "https://www.oxfordlearnersdictionaries.com/definition/english/longingly"
+            ]
+          }
+        }
+      ],
+      "specificHoldReentryResolution": "The old hold correctly refused an adverb sentence against adjective metadata. Actual source2ada0a corrects only role/leading marker/source attribution; it now supports this exact unchanged pair. No unrelated new adverb sense or general hold waiver is authorized.",
+      "historicalHoldsEdited": false,
+      "sourceChangedByReviewer": false,
+      "languageReentryOpinionOnly": true,
+      "exampleAdmitted": false,
+      "coverageAdded": 0,
+      "published": false
+    },
+    {
+      "term": "moonless",
+      "id": 3431945,
+      "decision": "approve-exact-whole-pair-reentry-against-materialized-source",
+      "authorPrincipal": "root",
+      "reviewerPrincipal": "e",
+      "beforeSha256": "221719398506406c1f63af63c6181638e131aaa41c6f452e18a62e5f4e6e861b",
+      "afterSha256": "8e93f93be43b1b8bc857fc778853734a0fc535aa5197513a0ebb987eea318695",
+      "before": {
+        "id": 3431945,
+        "term": "moonless",
+        "partOfSpeech": "noun",
+        "meaning": "n. 无月亮的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 26818,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "actualSource": {
+        "id": 3431945,
+        "term": "moonless",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 无月亮的",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 26818,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalDescriptor": {
+        "bucket": 9,
+        "file": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432/en-009.json",
+        "sha256": "307af3121b0d6795fa8f7ca8860712d41f3dbdd023bb2acbf28cbe408448e14f",
+        "bytes": 372534,
+        "count": 1182
+      },
+      "pair": [
+        "moonless",
+        "adjective",
+        "没有月亮或看不见月亮的",
+        "We followed the torchlight along the path on a moonless night.",
+        "在一个看不见月亮的夜晚，我们循着手电筒的光沿小路前行。"
+      ],
+      "pairSha256": "93a37ebe520f36327a9366670dd5e77761f01c87b273b01732c8619580c2d716",
+      "pairHashEncoding": "SHA256 UTF8 five fields joined by one TAB, no trailing newline",
+      "selectedPartOfSpeech": "adjective",
+      "actualSourceAndSentenceSense": "The actual materialized adjective source a. 无月亮的 supports an attributive adjective modifying night. The already-read exact WordNet branch permits a moon absent or not visible.",
+      "wholePairFidelity": "The Chinese preserves we following torchlight along the path on a night with no visible moon. British torchlight permits 手电筒的光; no weather cause, celestial claim or extra event is inserted.",
+      "originalSourceAndPrimaryReviewSha256": "98d0e8dede6697d2a4828de9e12553644c894c2c6722f61645ed4028934e4de7",
+      "primaryReferenceRows": [
+        {
+          "file": "data.adj",
+          "synset": "00278997",
+          "wnPos": "a",
+          "rawLine": "00278997 00 a 01 moonless 0 001 ! 00278872 a 0101 | without a moon or a visible moon; \"the dark moonless night\"; \"a moonless planet\"  ",
+          "rawFileSha256": "ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc"
+        }
+      ],
+      "priorHolds": [
+        {
+          "outcomeFile": "batch-0016-outcome.json",
+          "outcomeFileSha256": "e707e6e754bf8784a168ff71193ce7e0dd32442c9b08d54d795bad1ea299d94a",
+          "pointer": "/deferred/1991",
+          "raw": {
+            "term": "moonless",
+            "reason": "Only noun POS is queued, but the published meaning and head are adjectival.",
+            "stage": "authoring"
+          }
+        }
+      ],
+      "specificHoldReentryResolution": "The former noun-only source was a real mismatch and its old hold is retained. Actual source8e93f9 supplies adjective/a. without changing lexical remainder, ID or seed, permitting only this source-bound original pair to re-enter.",
+      "historicalHoldsEdited": false,
+      "sourceChangedByReviewer": false,
+      "languageReentryOpinionOnly": true,
+      "exampleAdmitted": false,
+      "coverageAdded": 0,
+      "published": false
+    }
+  ],
+  "counts": {
+    "sourceRows": 102609,
+    "wholeSourcesRead": 3,
+    "wholePairsRead": 3,
+    "specificHistoricalHoldsRead": 3,
+    "sourceBoundLanguageReentryOpinions": 3,
+    "oldHistoricalHoldsDeleted": 0,
+    "exampleAdmissions": 0,
+    "coverageAdded": 0,
+    "published": 0
+  },
+  "conditions": [
+    "Importer/materializer code must be separately reviewed by a different actual principal before execution; source-language approval is not importer code approval.",
+    "Only these exact3 after-source objects and exact original five-field pairs may re-enter against this actual5c82/da424d manifest, after normal duplicate/conservation/admission checks.",
+    "The3 old holds remain exact historical facts and the original98d0,03abaca and upstream code/runtime/seed reports remain unchanged. This new opinion does not globally waive held words.",
+    "Source is materialized locally by Root but not claimed published. No new example coverage exists until a separately tested importer writes actual rows and normal release/production verification succeeds.",
+    "Already saved public/personal cards, book-original sentences and private study records are not implicitly migrated or overwritten."
+  ],
+  "scope": {
+    "reviewerRepositoryFilesAuthorizedToAdd": 1,
+    "reviewerSourceChangesApplied": 0,
+    "sourceAlreadyMaterializedByRoot": true,
+    "oldReviewOrHoldEdits": 0,
+    "importerCodeApproval": false,
+    "exampleAdmission": 0,
+    "coverageAdded": 0,
+    "published": false
+  },
+  "result": "All three exact original whole pairs are linguistically satisfactory against the newly materialized complete sources. Finite source-bound re-entry opinion only; no example import or publication has been performed."
+}

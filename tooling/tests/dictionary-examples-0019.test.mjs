@@ -6,17 +6,19 @@ import {createHash} from 'node:crypto';
 import {loadExampleBuild,exampleSourceHash,validateExampleReview} from '../scripts/build-dictionary-examples.mjs';
 import {parseDictionaryExamplesManifest,parseDictionaryExamplesShard} from '../../vocab/js/dictionary-examples.js';
 import {publishedPosSupports,isAllowedSelectedPos} from '../lib/dictionary-example-pos-policy.mjs';
-import {assertHistoricalDictionaryLineage,SOURCE_LINEAGE_BASE_VERSION} from '../lib/dictionary-source-lineage.mjs';
+import {assertHistoricalDictionaryLineage,readHistoricalDictionaryNamespace,SOURCE_LINEAGE_BASE_VERSION} from '../lib/dictionary-source-lineage.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const json=async relative=>JSON.parse(await readFile(new URL(relative,import.meta.url),'utf8'));
 const outcome=await json('../dictionary/examples/queues/batch-0019-outcome.json');
 const provenance=await json('../dictionary/examples/queues/batch-0019-provenance.json');
 const queueSummary=await json('../dictionary/examples/queues/batch-0019.json');
 const build=await loadExampleBuild(),built=new Map(build.entries.map(row=>[row.term,row]));
-const dictionary=await json('../../vocab/data/expanded-dictionary/manifest.json'),canonical=new Map();
+const dictionary=await json('../../vocab/data/expanded-dictionary/manifest.json'),currentCanonical=new Map();
 for(const descriptor of dictionary.english.shards)for(const source of (await json('../../vocab/data/expanded-dictionary/'+descriptor.file)).records){
- if(canonical.has(source.term))assert.deepEqual(source,canonical.get(source.term));else canonical.set(source.term,source);
+ if(currentCanonical.has(source.term))assert.deepEqual(source,currentCanonical.get(source.term));else currentCanonical.set(source.term,source);
 }
+// Frozen source opinions refer to 474e, never to a later active correction.
+const historical=await readHistoricalDictionaryNamespace(SOURCE_LINEAGE_BASE_VERSION),canonical=historical.records;
 const rows=[],queued=new Map(),packs=[];
 for(const queue of provenance.sourceQueues){
  const file=queue.batchId.replace('examples-','batch-')+'.json';
@@ -34,10 +36,12 @@ test('D19 reports actual approvals and explicit holds while preserving the102609
  assert.equal(new Set(outcome.deferred.map(row=>row.term)).size,outcome.deferred.length);
  for(const item of outcome.deferred){assert(queued.has(item.term));assert(!rows.some(row=>row.term===item.term));assert(item.reason.trim());assert.equal(item.sourceSha256,sha(JSON.stringify(queued.get(item.term).source)));}
 });
-test('every full frozen D19 source retains its genuine archived version and exact current record',async()=>{
+test('every full frozen D19 source retains its genuine byte-pinned archived record; current lineage is checked separately',async()=>{
  for(const[term,entry]of queued){assert.deepEqual(entry.source,canonical.get(term));assert.equal(entry.sourceSha256,sha(JSON.stringify(entry.source)));assert.equal(entry.admission,null);}
  assert.equal(provenance.sourceDictionaryVersion,SOURCE_LINEAGE_BASE_VERSION);assert.equal(queueSummary.sourceDictionaryVersion,provenance.sourceDictionaryVersion);
- await assertHistoricalDictionaryLineage(provenance.sourceDictionaryVersion,dictionary,canonical);
+ assert.equal(historical.manifest.version,provenance.sourceDictionaryVersion);
+ const currentLineage=await assertHistoricalDictionaryLineage(provenance.sourceDictionaryVersion,dictionary,currentCanonical);
+ assert.equal(currentLineage.historicalVersion,provenance.sourceDictionaryVersion);assert.equal(currentLineage.currentVersion,dictionary.version);
 });
 test('selected tags stay source-supported and never infer a role from Chinese or word endings',()=>{
  for(const row of rows){assert(isAllowedSelectedPos(row.partOfSpeech));assert(publishedPosSupports(queued.get(row.term).source,row.partOfSpeech));}

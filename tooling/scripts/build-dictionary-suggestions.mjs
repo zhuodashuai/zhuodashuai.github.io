@@ -4,6 +4,7 @@ import { dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { expandedBucket, expandedKey, expandedSha256, normalizeExpandedTerm } from "./build-expanded-dictionary.mjs";
 import { DICTIONARY_SOURCE_REVISION_SOURCE } from "../lib/dictionary-source-revisions.mjs";
+import { DICTIONARY_POS_NOTATION_REVISION_SOURCE } from "../lib/dictionary-pos-notation-revisions.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const HASH = /^[a-f0-9]{64}$/u;
@@ -11,7 +12,7 @@ const ELIGIBLE = /^[a-z]+(?:[ '-][a-z]+)*$/u;
 const BUCKETS = 128;
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 64;
-const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed", "grammar-reviewed"]);
+const SOURCES = new Set(["core", "mit", "public", "original", "supplement", "pos-reviewed", "grammar-reviewed", "pos-notation-reviewed"]);
 const cmp = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const json = value => `${JSON.stringify(value)}\n`;
 const invalid = message => { throw new Error(`Invalid suggestion source: ${message}`); };
@@ -37,6 +38,11 @@ function validateManifest(manifest) {
     if (source === "grammar-reviewed" && (!HASH.test(metadata.sha256)
       || Object.entries(DICTIONARY_SOURCE_REVISION_SOURCE).some(([key, value]) => metadata[key] !== value))) {
       invalid("grammar revision provenance");
+    }
+    if (source === "pos-notation-reviewed" && (metadata.sha256 !== "3a5409dad7b45fd84d3644886ab89fa03ab0ea85d96c6f61b4ebf78263a86c19"
+      || Object.keys(metadata).sort().join() !== "license,name,sha256,url"
+      || Object.entries(DICTIONARY_POS_NOTATION_REVISION_SOURCE).some(([key, value]) => metadata[key] !== value))) {
+      invalid("POS notation revision provenance");
     }
   }
   let totalKeys = 0;

@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "id": "future-pos-notation-three-0001",
+  "authorPrincipal": "c",
+  "baselineSourceVersion": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
+  "sourceDescriptorProposal": {
+    "id": "pos-notation-reviewed",
+    "name": "原有释义＋词性标记校订",
+    "license": "Lexical Chinese retains ECDICT MIT licensing; POS and inline labels are project editorial corrections. Princeton WordNet 3.1 is reference evidence under its own licence.",
+    "url": "https://zhuodashuai.github.io/vocab/dictionary-pos-notation-revisions.html"
+  },
+  "entries": [
+    {
+      "term": "headdress",
+      "id": 2636670,
+      "beforeSha256": "06cdffb56af1b77e87193c97755bcffc95c962e6ee9d2ceba65c8816cd2a7712",
+      "afterSha256": "54cb94e85187ae7cdfa317d978c2bcad9b05dbda35acc2686ffe7f01b5108a14",
+      "before": {
+        "id": 2636670,
+        "term": "headdress",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 饰头巾, 头式",
+        "forms": [
+          "headdresses"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20604,
+          "forms": [
+            "headdresses"
+          ],
+          "workbook": true
+        }
+      },
+      "after": {
+        "id": 2636670,
+        "term": "headdress",
+        "partOfSpeech": "noun",
+        "meaning": "n. 饰头巾, 头式",
+        "forms": [
+          "headdresses"
+        ],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 20604,
+          "forms": [
+            "headdresses"
+          ],
+          "workbook": true
+        }
+      },
+      "allowedFieldChanges": [
+        "partOfSpeech",
+        "meaning",
+        "source"
+      ],
+      "notationOnly": {
+        "beforeMarker": "a.",
+        "afterMarker": "n.",
+        "lexicalRemainderExactlyPreserved": true
+      },
+      "activeVariantDisposition": {
+        "beforeHadVariants": false,
+        "afterHasVariants": false,
+        "rawSupersededTripleLocation": "This external finite ledger before/history only; never inserted in active record.variants"
+      },
+      "history": {
+        "fullRawBeforeRecord": {
+          "id": 2636670,
+          "term": "headdress",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 饰头巾, 头式",
+          "forms": [
+            "headdresses"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 20604,
+            "forms": [
+              "headdresses"
+            ],
+            "workbook": true
+          }
+        },
+        "supersededRawPrimaryTriple": {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 饰头巾, 头式",
+          "source": "mit"
+        },
+        "priorHolds": [
+          {
+            "outcomeFile": "batch-0010-outcome.json",
+            "outcomeFileSha256": "69875bcfcd884381f20260f74c58d6eb84e5f3b0e5a7d9c9c95171c770b0c502",
+            "pointer": "/deferred/4",
+            "raw": {
+              "term": "headdress",
+              "stage": "authoring",
+              "reason": "The queued/base part of speech is adjective, but the standard head-covering sense is a noun. Authoring a noun sentence would conflict with the supplied POS; deferred without changing primary data.",
+              "sources": [
+                "https://www.merriam-webster.com/dictionary/headdress"
+              ]
+            }
+          }
+        ],
+        "oldHoldClosed": false
+      },
+      "ownPrimaryReading": {
+        "archiveSha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a",
+        "allExactPrimaryRows": [
+          {
+            "file": "data.noun",
+            "synset": "03507653",
+            "wnPos": "n",
+            "rawLine": "03507653 06 n 02 headdress 0 headgear 0 011 @ 03055525 n 0000 ~ 02957776 n 0000 ~ 03502782 n 0000 ~ 03518281 n 0000 ~ 03536461 n 0000 ~ 03602510 n 0000 ~ 03612399 n 0000 ~ 03779503 n 0000 ~ 04462319 n 0000 ~ 04505684 n 0000 ~ 04592604 n 0000 | clothing for the head  ",
+            "rawFileSha256": "2cad22fe43461ee7ae61a564ae6a518c57445c8597e53542caddb5c26a6a5d94"
+          }
+        ],
+        "sourceRoleRationale": "The unchanged lexical Chinese names headwear; noun metadata and n. notation match clothing for the head and the existing plural headdresses. This does not add a cultural or specialist sense."
+      },
+      "unchangedConditionalRootPair": {
+        "pair": [
+          "headdress",
+          "noun",
+          "头饰；头部服饰",
+          "The dancer adjusted her headdress before stepping onto the stage.",
+          "舞者上台前调整了一下头饰。"
+        ],
+        "pairSha256": "8a7671baf029af9a3273993de4d1fdb0d8e37495baf146287a1485605afdf633",
+        "authorPrincipal": "root",
+        "existingReviewerPrincipal": "e",
+        "reviewFile": "qa/e-pos-three-conditional-independent-review.json",
+        "reviewSha256": "03abaca02c23deb111c691f37b9641916f80ac61ba2854932a3e9804a68b07b6",
+        "decision": "conditionally-satisfactory-POS-repair-required",
+        "exactAfterSourceIndependentlyReviewed": false
+      },
+      "independentlyApproved": false,
+      "implemented": false,
+      "admitted": false
+    },
+    {
+      "term": "longingly",
+      "id": 3253174,
+      "beforeSha256": "2367e2af3bf507dd2386beed707e38c8e041f7d6d41879b36ce8119a73927cf8",
+      "afterSha256": "2ada0a55be37d2f49cbb5739e7b3af3146e34bf6dcaa34320e8634583a706485",
+      "before": {
+        "id": 3253174,
+        "term": "longingly",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 渴望地, 切望地",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 25421,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "after": {
+        "id": 3253174,
+        "term": "longingly",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 渴望地, 切望地",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 25421,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "allowedFieldChanges": [
+        "partOfSpeech",
+        "meaning",
+        "source"
+      ],
+      "notationOnly": {
+        "beforeMarker": "a.",
+        "afterMarker": "adv.",
+        "lexicalRemainderExactlyPreserved": true
+      },
+      "activeVariantDisposition": {
+        "beforeHadVariants": false,
+        "afterHasVariants": false,
+        "rawSupersededTripleLocation": "This external finite ledger before/history only; never inserted in active record.variants"
+      },
+      "history": {
+        "fullRawBeforeRecord": {
+          "id": 3253174,
+          "term": "longingly",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 渴望地, 切望地",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 25421,
+            "forms": [],
+            "workbook": true
+          }
+        },
+        "supersededRawPrimaryTriple": {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 渴望地, 切望地",
+          "source": "mit"
+        },
+        "priorHolds": [
+          {
+            "outcomeFile": "batch-0012-outcome.json",
+            "outcomeFileSha256": "98d5d42bc868d758647d9dc567b3c3d76026355cc584d77555a9b965118d72ac",
+            "pointer": "/deferred/12",
+            "raw": {
+              "term": "longingly",
+              "stage": "authoring",
+              "reason": "Canonical POS is adjective, but this head is an adverb. Its Chinese gloss is adverbial as well. An example would require correcting the canonical POS first.",
+              "sources": [
+                "https://dictionary.cambridge.org/us/dictionary/english/longingly",
+                "https://www.oxfordlearnersdictionaries.com/definition/english/longingly"
+              ]
+            }
+          }
+        ],
+        "oldHoldClosed": false
+      },
+      "ownPrimaryReading": {
+        "archiveSha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a",
+        "allExactPrimaryRows": [
+          {
+            "file": "data.adv",
+            "synset": "00391325",
+            "wnPos": "r",
+            "rawLine": "00391325 02 r 02 longingly 0 yearningly 0 000 | in a yearning manner; \"he spent the rest of the act gazing longingly over my right shoulder at the illuminated word `Exit'\"  ",
+            "rawFileSha256": "aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3"
+          }
+        ],
+        "sourceRoleRationale": "The unchanged Chinese already expresses manner with 地. Adverb metadata and adv. notation match the primary yearning-manner sense and the modifier longingly in the Root pair."
+      },
+      "unchangedConditionalRootPair": {
+        "pair": [
+          "longingly",
+          "adverb",
+          "渴望地；满怀向往地",
+          "He gazed longingly at the sea from his office window.",
+          "他从办公室的窗户满怀向往地望着大海。"
+        ],
+        "pairSha256": "c6755e47f8cc6642ef437f7596306af0b08a8f281539e522951fa7c2c67d4eab",
+        "authorPrincipal": "root",
+        "existingReviewerPrincipal": "e",
+        "reviewFile": "qa/e-pos-three-conditional-independent-review.json",
+        "reviewSha256": "03abaca02c23deb111c691f37b9641916f80ac61ba2854932a3e9804a68b07b6",
+        "decision": "conditionally-satisfactory-POS-repair-required",
+        "exactAfterSourceIndependentlyReviewed": false
+      },
+      "independentlyApproved": false,
+      "implemented": false,
+      "admitted": false
+    },
+    {
+      "term": "moonless",
+      "id": 3431945,
+      "beforeSha256": "221719398506406c1f63af63c6181638e131aaa41c6f452e18a62e5f4e6e861b",
+      "afterSha256": "8e93f93be43b1b8bc857fc778853734a0fc535aa5197513a0ebb987eea318695",
+      "before": {
+        "id": 3431945,
+        "term": "moonless",
+        "partOfSpeech": "noun",
+        "meaning": "n. 无月亮的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 26818,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "after": {
+        "id": 3431945,
+        "term": "moonless",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 无月亮的",
+        "forms": [],
+        "source": "pos-notation-reviewed",
+        "seed": {
+          "rank": 26818,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "allowedFieldChanges": [
+        "partOfSpeech",
+        "meaning",
+        "source"
+      ],
+      "notationOnly": {
+        "beforeMarker": "n.",
+        "afterMarker": "a.",
+        "lexicalRemainderExactlyPreserved": true
+      },
+      "activeVariantDisposition": {
+        "beforeHadVariants": false,
+        "afterHasVariants": false,
+        "rawSupersededTripleLocation": "This external finite ledger before/history only; never inserted in active record.variants"
+      },
+      "history": {
+        "fullRawBeforeRecord": {
+          "id": 3431945,
+          "term": "moonless",
+          "partOfSpeech": "noun",
+          "meaning": "n. 无月亮的",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 26818,
+            "forms": [],
+            "workbook": true
+          }
+        },
+        "supersededRawPrimaryTriple": {
+          "partOfSpeech": "noun",
+          "meaning": "n. 无月亮的",
+          "source": "mit"
+        },
+        "priorHolds": [
+          {
+            "outcomeFile": "batch-0016-outcome.json",
+            "outcomeFileSha256": "e707e6e754bf8784a168ff71193ce7e0dd32442c9b08d54d795bad1ea299d94a",
+            "pointer": "/deferred/1991",
+            "raw": {
+              "term": "moonless",
+              "reason": "Only noun POS is queued, but the published meaning and head are adjectival.",
+              "stage": "authoring"
+            }
+          }
+        ],
+        "oldHoldClosed": false
+      },
+      "ownPrimaryReading": {
+        "archiveSha256": "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a",
+        "allExactPrimaryRows": [
+          {
+            "file": "data.adj",
+            "synset": "00278997",
+            "wnPos": "a",
+            "rawLine": "00278997 00 a 01 moonless 0 001 ! 00278872 a 0101 | without a moon or a visible moon; \"the dark moonless night\"; \"a moonless planet\"  ",
+            "rawFileSha256": "ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc"
+          }
+        ],
+        "sourceRoleRationale": "The unchanged Chinese is adjectival, not a moon or an astronomical noun. Adjective metadata and a. notation align with no moon/no visible moon without adding a new lexical branch."
+      },
+      "unchangedConditionalRootPair": {
+        "pair": [
+          "moonless",
+          "adjective",
+          "没有月亮或看不见月亮的",
+          "We followed the torchlight along the path on a moonless night.",
+          "在一个看不见月亮的夜晚，我们循着手电筒的光沿小路前行。"
+        ],
+        "pairSha256": "93a37ebe520f36327a9366670dd5e77761f01c87b273b01732c8619580c2d716",
+        "authorPrincipal": "root",
+        "existingReviewerPrincipal": "e",
+        "reviewFile": "qa/e-pos-three-conditional-independent-review.json",
+        "reviewSha256": "03abaca02c23deb111c691f37b9641916f80ac61ba2854932a3e9804a68b07b6",
+        "decision": "conditionally-satisfactory-POS-repair-required",
+        "exactAfterSourceIndependentlyReviewed": false
+      },
+      "independentlyApproved": false,
+      "implemented": false,
+      "admitted": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
+  "version": "5c82c9c5641e3ba478f1dc68378901e9612dc23372c6efafb6f985558ce8c432",
   "counts": {
     "records": 102609,
     "englishKeys": 140858,
@@ -24,7 +24,7 @@
   "originalCheckedRows": 1030,
   "canonicalCasefoldCollisions": 1,
   "ambiguousAliasKeys": 176,
-  "totalShardBytes": 58322672,
+  "totalShardBytes": 58322738,
   "posReview": {
     "id": "pos-completion-2026-10-19",
     "reviewedRows": 38825,
@@ -90,6 +90,40 @@
       }
     ]
   },
+  "posNotationRevisions": {
+    "id": "future-pos-notation-three-0001",
+    "applied": 3,
+    "changedTerms": [
+      "headdress",
+      "longingly",
+      "moonless"
+    ],
+    "originalDictionaryVersion": "9f27bbc2f083007095b2e6830a87b2d0a7e18353f91a2e962b82443b2480339b",
+    "sourceId": "pos-notation-reviewed",
+    "ledgerSha256": "3a5409dad7b45fd84d3644886ab89fa03ab0ea85d96c6f61b4ebf78263a86c19",
+    "reviewSha256": "78171150bcebbdc72ab5380d17a9ab9f6fd23d27eb1ed99b40ed70d85c4b2dc8",
+    "scope": "Exact POS and leading notation only; lexical remainder, IDs, forms and immutable seed preserved; no active historical variants or admission approval",
+    "transitions": [
+      {
+        "term": "headdress",
+        "id": 2636670,
+        "beforeSha256": "06cdffb56af1b77e87193c97755bcffc95c962e6ee9d2ceba65c8816cd2a7712",
+        "afterSha256": "54cb94e85187ae7cdfa317d978c2bcad9b05dbda35acc2686ffe7f01b5108a14"
+      },
+      {
+        "term": "longingly",
+        "id": 3253174,
+        "beforeSha256": "2367e2af3bf507dd2386beed707e38c8e041f7d6d41879b36ce8119a73927cf8",
+        "afterSha256": "2ada0a55be37d2f49cbb5739e7b3af3146e34bf6dcaa34320e8634583a706485"
+      },
+      {
+        "term": "moonless",
+        "id": 3431945,
+        "beforeSha256": "221719398506406c1f63af63c6181638e131aaa41c6f452e18a62e5f4e6e861b",
+        "afterSha256": "8e93f93be43b1b8bc857fc778853734a0fc535aa5197513a0ebb987eea318695"
+      }
+    ]
+  },
   "supplementRows": 53,
   "supplementIntegrity": {
     "schemaVersion": 1,
@@ -98,7 +132,7 @@
     "semanticSha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
   },
   "commercialDefinitionsUsed": false,
-  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance; no publisher dictionary text.",
+  "sourcePolicy": "Licensed MIT meanings plus tracked editorial/public and hash-reviewed original variants; supplemental editorial paraphrases have a separate non-MIT source and public references; independently reviewed word-level POS retain unchanged source meanings and never assert aligned Chinese senses; exact independently reviewed grammar metadata revisions preserve immutable MIT seeds and the prior POS-stage history under separate provenance; three separately reviewed POS/leading-label corrections preserve lexical Chinese and all references, with raw originals retained only in the archived source history; no publisher dictionary text.",
   "integrity": {
     "schemaVersion": 1,
     "source": {

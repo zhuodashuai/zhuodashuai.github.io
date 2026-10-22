@@ -1,9 +1,9 @@
-import { createLibraryLookupController } from "./library-lookup-controller.js?v=103";
+import { createLibraryLookupController } from "./library-lookup-controller.js?v=104";
 import { createPersonalApi } from "./personal-api.js?v=100";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink } from "./owner-public-library.js?v=99";
-import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=103";
-import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=103";
+import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=104";
+import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=104";
 
 export function mountLibraryLookup({ document, window, onCollected, onOpenEntry, resolveEntry } = {}) {
   const get = id => document.getElementById(id);
