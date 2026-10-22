@@ -46,7 +46,7 @@ async function expandChoices(page, key = "Enter") {
 for (const viewport of [{ width: 320, height: 740 }, { width: 390, height: 844 }, { width: 768, height: 1024 }]) {
   test(`dictionary layout keeps navigation, search and a real result readable at ${viewport.width}px`, async ({ page }, info) => {
     await page.setViewportSize(viewport); await open(page);
-    await expect(page.getByRole("navigation", { name: "页面导航" }).getByRole("link", { name: "中英词典", exact: true })).toHaveAttribute("aria-current", "page");
+    await expect(page.getByRole("navigation", { name: "主要导航" }).getByRole("link", { name: "查词", exact: true })).toHaveAttribute("aria-current", "page");
     const input = await box(page.locator("#dictionary-query"));
     const submit = await box(page.locator("#dictionary-submit"));
     expect(input.y + input.height).toBeLessThan(viewport.height - 24);

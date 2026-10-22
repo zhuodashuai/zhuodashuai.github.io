@@ -1,8 +1,12 @@
+// Keep the existing cache namespace: this additive shell update must not erase
+// public dictionary/example shards already warmed for offline reading. The
+// install fetches each shell asset with cache:reload; new entry/CSS URLs use v101.
 const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./app-navigation.css?v=101", "./app-navigation.css",
   "./library-lookup.css?v=99", "./library-lookup.css",
   "./js/library-lookup-ui.js?v=100", "./js/library-lookup-ui.js",
   "./js/library-lookup-controller.js?v=99", "./js/library-lookup-controller.js",
@@ -22,7 +26,8 @@ const SHELL = [
   "./js/personal-lookup-flow.js?v=97", "./js/personal-lookup-flow.js",
   "./js/expanded-dictionary.js?v=97", "./js/expanded-dictionary.js",
   "./js/dictionary-suggestions.js?v=89", "./js/dictionary-suggestions.js",
-  "./dictionary.html", "./dictionary-references.html", "./dictionary-pos.html", "./data/WORDNET-3.1-LICENSE.txt", "./dictionary.css?v=97", "./dictionary.css",
+  "./dictionary.html", "./dictionary-references.html", "./dictionary-pos.html", "./data/WORDNET-3.1-LICENSE.txt", "./dictionary.css?v=101", "./dictionary.css?v=97", "./dictionary.css",
+  "./js/dictionary-entry.js?v=101", "./js/dictionary-entry.js",
   "./js/dictionary-app.js?v=99", "./js/dictionary-app.js", "./js/dictionary-navigation.js?v=80", "./js/dictionary-navigation.js",
   "./js/dictionary-examples.js?v=96", "./js/dictionary-examples.js",
   "./js/dictionary-examples-ui.js?v=96", "./js/dictionary-examples-ui.js",
@@ -33,7 +38,7 @@ const SHELL = [
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
   "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./styles.css?v=100", "./manifest.webmanifest",
-  "./js/public-app.js?v=100", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
+  "./js/public-app.js?v=101", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",
   "./js/chapter-quiz.js", "./js/quiz-storage.js", "./js/chapter-quiz-ui.js",

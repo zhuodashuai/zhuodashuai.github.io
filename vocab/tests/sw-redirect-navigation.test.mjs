@@ -308,7 +308,7 @@ test("POSTs and cross-origin requests are not intercepted or cached", () => {
   assert.equal(sw.writes.length, 0);
 });
 
-test("installing the byte-only SW fix keeps v100 warmed dictionary and example entries through activation", async () => {
+test("additive shell updates keep existing v100 warmed dictionary and example entries through activation", async () => {
   const dictionaryUrl = `${origin}/vocab/data/expanded-dictionary/existing-version/en-042.json`;
   const examplesUrl = `${origin}/vocab/data/dictionary-examples/existing-version/examples-042.json`;
   const warmEntries = new Map([
