@@ -12,16 +12,17 @@
   <title>使用手册 · 卓的单词本</title>
   <link rel="stylesheet" href="styles.css?v=100">
   <link rel="stylesheet" href="guide-related.css?v=95">
+  <link rel="stylesheet" href="app-navigation.css?v=105">
 </head>
-<body data-page="guide">
+<body class="app-shell" data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="回到单词本"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>使用手册</small></span></a>
-    <nav class="top-actions" aria-label="页面操作">
-      <a class="quiet-link" href="./">回到词库</a>
-      <a class="quiet-link" href="dictionary.html">中英查词</a>
+  <header class="topbar app-header">
+    <a class="brand" href="./" aria-label="回到单词本"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>ZHUO'S WORDBOOK</small></span></a>
+    <nav class="top-actions app-primary-nav" aria-label="主要导航">
+      <a class="quiet-link" href="./">公开词本</a>
+      <a class="quiet-link" href="dictionary.html">查词</a>
       <a class="quiet-link quick-notes-link" href="https://zhuodashuai.github.io/vocab/quick-notes.html">随手记</a>
-      <a class="quiet-link" href="https://zhuodashuai.github.io/">学术主页</a>
+      <a class="quiet-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">我的词本</a>
     </nav>
   </header>
 
@@ -756,6 +757,7 @@
     </nav>
   </main>
 
-  <footer class="site-footer"><p><strong>卓的单词本</strong> · 公开数据以 GitHub 仓库为准。</p></footer>
+  <footer class="site-footer app-footer"><p><strong>卓的单词本</strong> · 公开数据以 GitHub 仓库为准。</p><nav aria-label="帮助与更多"><a href="guide.html" aria-current="page">使用手册</a><a href="https://zhuodashuai.github.io/">学术主页</a></nav></footer>
+  <script type="module" src="js/app-navigation-entry.js?v=105"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
+import { copyPublicNavigationContext } from "./app-navigation.js?v=105";
 import { setupPwa } from "./pwa.js?v=77";
 import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=82";
 import { createPersonalApi } from "./personal-api.js?v=100";
@@ -1843,9 +1844,10 @@ if (channel) channel.onmessage = (event) => {
 // The Pages copy must leave before any credentials can be entered. Never use
 // query parameters, referrers, or user-supplied hosts as a redirect destination.
 try {
-  const target = new URL(personalWordbookUrl());
+  let target = new URL(personalWordbookUrl());
   const lookup = dictionaryQueryFromHash(window.location.hash);
   if (lookup) target.hash = new URLSearchParams({ lookup }).toString();
+  target = new URL(copyPublicNavigationContext(window.location.href, target.href));
   if (requestedAuth === "github-owner") target.searchParams.set("auth", "owner");
   else if (requestedAuth === "member") target.searchParams.set("auth", "member");
   if (target.origin !== window.location.origin) window.location.replace(target.href);

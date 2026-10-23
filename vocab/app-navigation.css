@@ -1,5 +1,22 @@
 /* Shared shell only: forms, private state, and origin-local storage stay separate. */
+html { scroll-padding-top: var(--app-header-clearance, 9rem); }
+.app-shell { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.app-shell > main { flex: 1 0 auto; width: 100%; margin-block: 0; }
+body.app-shell[data-page="public"] > main,
+body.app-shell[data-page="owner"] > main,
+body.app-shell[data-page="guide"] > main { width: min(1480px, calc(100% - 40px)); }
+body.app-shell[data-page="quick-notes"] > main { width: min(900px, calc(100% - 40px)); }
+.app-shell > .skip-link { position: fixed; z-index: 100; }
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex: 0 0 auto;
+  width: min(1160px, calc(100% - 32px));
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-inline: 0;
+  background: var(--paper, #f4f2eb);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
@@ -42,6 +59,9 @@
 .app-header .app-primary-nav > a:hover { background: #e7eee5; }
 .app-header .app-primary-nav > a[aria-current="page"] { color: #173a32; border-color: #a6b8aa; background: #e3ece2; font-weight: 700; }
 .app-footer { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: .6rem 1.5rem; }
+.app-shell > .app-footer { flex-shrink: 0; width: min(1160px, calc(100% - 32px)); margin-block: 0; padding-inline: 0; }
+/* Existing side panels must sit below, not underneath, the persistent header. */
+.app-shell .editor-panel, .app-shell .draft-rail { top: var(--app-header-clearance, 9rem); }
 .app-footer > p { margin: .6rem 0; }
 .app-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: .2rem .8rem; }
 .app-footer nav > a, .app-footer nav > button { display: inline-flex; align-items: center; min-height: 44px; padding: .35rem 0; font: inherit; color: inherit; background: transparent; border: 0; border-radius: 5px; }
@@ -53,6 +73,7 @@
   .app-header .app-primary-nav { width: 100%; }
 }
 @media (max-width: 720px) {
+  body.app-shell[data-page="public"] > main { width: calc(100% - 20px); }
   .app-header { gap: .35rem; padding-block: .7rem; }
   .app-header .brand, .app-header .personal-brand { gap: .5rem; min-height: 36px; }
   .app-header .brand strong, .app-header .personal-brand strong { font-size: .92rem; white-space: nowrap; }
@@ -65,4 +86,15 @@
   .app-account #member-auth-type { display: none; }
   .app-account button { padding: .4rem .65rem; font-size: .8rem; }
   .app-footer { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 640px) {
+  body.app-shell[data-page="owner"] > main,
+  body.app-shell[data-page="guide"] > main { width: calc(100% - 24px); }
+}
+@media (max-width: 600px) {
+  body.app-shell[data-page="quick-notes"] > main { width: calc(100% - 28px); }
+}
+@media print {
+  .app-header { position: static; }
+  .app-shell { display: block; min-height: 0; }
 }
