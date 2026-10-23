@@ -3,10 +3,10 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), "utf8");
-const names = ["index.html", "personal.html", "dictionary.html", "quick-notes.html", "owner.html"];
+const names = ["index.html", "personal.html", "dictionary.html", "quick-notes.html", "owner.html", "guide.html"];
 const labels = ["公开词本", "查词", "随手记", "我的词本"];
 
-test("all five static shells expose the same primary navigation and a quiet manual footer", async () => {
+test("all six static shells expose the same primary navigation and a quiet manual footer", async () => {
   for (const file of names) {
     const html = await read(file);
     const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/u)?.[0];
@@ -17,8 +17,12 @@ test("all five static shells expose the same primary navigation and a quiet manu
     assert.deepEqual(texts, labels, file);
     assert.equal((html.match(/aria-current="page"/gu) || []).length, 1, file);
     assert.doesNotMatch(header, /使用手册|安装应用|学术主页/u, file);
-    assert.match(html, /<footer\b[^>]*>[\s\S]*?href="guide\.html">使用手册<\/a>/u, file);
-    assert.match(html, /href="app-navigation\.css\?v=101"/u, file);
+    assert.match(html, /<footer\b[^>]*>[\s\S]*?href="guide\.html"(?: aria-current="page")?>使用手册<\/a>/u, file);
+    assert.match(html, /href="app-navigation\.css\?v=105"/u, file);
+    assert.match(html, /<body class="app-shell"/u, file);
+    assert.match(html, /src="js\/app-navigation-entry\.js\?v=107"/u, file);
+    const modules = [...html.matchAll(/<script type="module" src="([^"]+)"/gu)].map(match => match[1]);
+    assert.equal(modules[0], "js/app-navigation-entry.js?v=107", `${file} installs navigation before slow application imports`);
   }
 });
 

@@ -12,9 +12,20 @@ const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
   ['expanded-dictionary.js',['97','103','104']],['dictionary-app.js',['99','103','104']],
   ['library-lookup-controller.js',['99','103','104']],['library-lookup-ui.js',['100','103','104']],
-  ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104']],
-  ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']]
+  ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104','105','107']],
+  ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']],
+  ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']]
 ]);
+// Reviewed retained cache aliases and the active import graph are independent.
+// Do not derive an active version from the largest (or any other) cache alias.
+const reviewedActiveVersions=new Map([
+  ['expanded-dictionary.js','104'],['dictionary-app.js','104'],
+  ['library-lookup-controller.js','104'],['library-lookup-ui.js','104'],
+  ['public-app.js','104'],['personal-app.js','107'],
+  ['owner-app.js','104'],['dictionary-entry.js','104'],
+  ['app-navigation.js','107'],['app-navigation-entry.js','107']
+]);
+expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
 for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
   const url = new URL(match[1], "http://127.0.0.1:4187/");
   const name = url.pathname.split("/").at(-1);
@@ -24,9 +35,11 @@ for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["
 for(const[name,versions]of cachedModuleVersions){
   if(reviewedAliases.has(name)){
     expect([...versions].sort((a,b)=>Number(a)-Number(b))).toEqual(reviewedAliases.get(name));
-    // Only the active graph uses v104. Old cache aliases stay available to
-    // offline/previous clients; their presence must not exempt a stale import.
-    declaredModuleVersions.set(name,'104');
+    // Old cache aliases stay available to offline/previous clients; their
+    // presence never exempts a stale import from the poison handler below.
+    const active=reviewedActiveVersions.get(name);
+    expect(versions.has(active)).toBe(true);
+    declaredModuleVersions.set(name,active);
   }else{
     if(versions.size!==1)throw new Error(`Module upgrade fixture found conflicting SHELL versions for ${name}.`);
     declaredModuleVersions.set(name,[...versions][0]);

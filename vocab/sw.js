@@ -7,6 +7,10 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/app-navigation.js?v=107", "./js/app-navigation-entry.js?v=107", "./js/personal-app.js?v=107",
+  "./js/app-navigation.js?v=105", "./js/app-navigation.js",
+  "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js",
+  "./js/personal-app.js?v=105", "./app-navigation.css?v=105",
   "./js/expanded-dictionary.js?v=104", "./js/dictionary-app.js?v=104",
   "./js/library-lookup-controller.js?v=104", "./js/library-lookup-ui.js?v=104",
   "./js/public-app.js?v=104", "./js/personal-app.js?v=104", "./js/owner-app.js?v=104",

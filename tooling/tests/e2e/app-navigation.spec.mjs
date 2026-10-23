@@ -6,11 +6,12 @@ const pages = [
   ["/personal.html", "我的词本"],
   ["/dictionary.html", "查词"],
   ["/quick-notes.html", "随手记"],
-  ["/owner.html", null]
+  ["/owner.html", null],
+  ["/guide.html", null]
 ];
 
 for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }, { width: 1440, height: 900 }]) {
-  test(`all five shells retain compact usable main navigation at ${viewport.width}px`, async ({ page }) => {
+  test(`all six shells retain compact usable main navigation at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport);
     const writes = [];
     page.on("request", request => { if (!["GET", "HEAD"].includes(request.method())) writes.push(request.url()); });
@@ -22,10 +23,10 @@ for (const viewport of [{ width: 360, height: 640 }, { width: 390, height: 844 }
       if (current) await expect(nav.getByRole("link", { name: current, exact: true })).toHaveAttribute("aria-current", "page");
       else {
         await expect(nav.locator('[aria-current="page"]')).toHaveCount(0);
-        await expect(page.locator('footer a[aria-current="page"]')).toHaveText("管理");
+        await expect(page.locator('footer a[aria-current="page"]')).toHaveText(path === "/owner.html" ? "管理" : "使用手册");
       }
       await expect(page.locator('header a[href="guide.html"]')).toHaveCount(0);
-      await expect(page.locator('footer a[href="guide.html"]')).toBeVisible();
+      await expect(page.locator('footer a[href^="guide.html"], footer a[href*="/guide.html"]')).toBeVisible();
       const geometry = await nav.locator("a").evaluateAll(links => ({
         width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
         boxes: links.map(link => {

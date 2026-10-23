@@ -145,8 +145,14 @@ test("offline actual guide navbar and its fragment dictionary link survive redir
   test.setTimeout(90_000);
   const before = await prepareRedirectedShell({ context, page }, info, { warmGuideQuery: true });
   await page.goto(BOOK_PATH);
-  const guide = page.locator('footer nav a[href="guide.html"]');
-  await expect(guide).toHaveAttribute("href", "guide.html");
+  const guide = page.locator("footer nav").getByRole("link", { name: "使用手册", exact: true });
+  const guideUrl = new URL(await guide.getAttribute("href"), page.url());
+  expect(guideUrl.origin).toBe(ORIGIN);
+  expect(guideUrl.pathname).toBe("/guide.html");
+  expect(guideUrl.search).toBe("");
+  expect([...new URLSearchParams(guideUrl.hash.slice(1))]).toEqual([
+    ["wb_book", "never-let-me-go"], ["wb_chapter", "chapter-1"], ["wb_site", "local"]
+  ]);
   await context.setOffline(true);
   try {
     await guide.click();

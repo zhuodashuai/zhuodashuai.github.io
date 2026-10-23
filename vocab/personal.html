@@ -11,9 +11,9 @@
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="personal.css?v=100">
-  <link rel="stylesheet" href="app-navigation.css?v=101">
+  <link rel="stylesheet" href="app-navigation.css?v=105">
 </head>
-<body>
+<body class="app-shell">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="personal-topbar app-header">
     <div class="app-header-main"><a class="personal-brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>MY WORD CABINET</small></span></a><div class="app-account"><span id="member-auth-type" hidden></span><span id="member-username" hidden></span><button type="button" id="member-logout" disabled hidden>退出</button></div></div>
@@ -92,6 +92,7 @@
   <dialog id="member-study-dialog" class="personal-study-dialog" aria-labelledby="member-study-term"><div class="dialog-heading"><p id="member-study-progress"></p><button type="button" id="member-study-close" aria-label="关闭学习">×</button></div><p id="member-study-source" class="field-note"></p><h2 id="member-study-term" lang="en"></h2><p id="member-study-prompt">先回想中文，再查看答案。</p><button type="button" id="member-study-reveal" class="primary">显示释义</button><div id="member-study-answer" hidden><p id="member-study-pos" class="entry-pos"></p><p id="member-study-meaning" class="multiline"></p><p id="member-study-usage" class="multiline"></p><p id="member-study-example" class="multiline"></p><p id="member-study-note" class="multiline"></p></div><fieldset id="member-study-ratings" disabled hidden><legend>你记得怎么样？</legend><div class="button-row"><button type="button" data-member-rating="again">再来一次</button><button type="button" data-member-rating="hard">有点难</button><button type="button" data-member-rating="good">记得</button><button type="button" data-member-rating="easy">很熟</button></div></fieldset><p id="member-study-status" role="status" aria-live="polite"></p><div class="button-row"><button type="button" id="member-study-retry" hidden>重试这次自评</button><button type="button" id="member-study-sync" hidden>核对云端学习记录</button></div></dialog>
   <dialog id="delete-account-dialog" aria-labelledby="delete-account-title"><h2 id="delete-account-title">删除我的账号</h2><p>将删除你的个人词条和账号，不能撤销。不会影响卓的公开词库。建议先导出备份。</p><form id="delete-account-form" method="post"><fieldset disabled><label for="delete-account-password">当前密码</label><input type="password" id="delete-account-password" name="password" autocomplete="current-password" maxlength="256" required><label for="delete-account-confirmation">输入 DELETE 确认删除</label><input id="delete-account-confirmation" name="confirmation" autocomplete="off" spellcheck="false" pattern="DELETE" required><div class="button-row"><button type="submit" id="delete-account-submit" class="danger">永久删除账号</button><button type="button" id="delete-account-cancel">取消</button></div></fieldset></form></dialog>
   <aside id="update-banner" class="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">保存后更新</button></aside>
-  <script type="module" src="js/personal-app.js?v=104"></script>
+  <script type="module" src="js/app-navigation-entry.js?v=107"></script>
+  <script type="module" src="js/personal-app.js?v=107"></script>
 </body>
 </html>
