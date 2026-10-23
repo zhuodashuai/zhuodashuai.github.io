@@ -25,4 +25,3 @@ test('D30 rejects unrelated metadata edits and permits only three exact checkout
  for(const wrong of [oldCommon,Buffer.from(common.toString().replace('"reviewedAt": "2026-10-20"','"reviewedAt": "2026-10-21"')),Buffer.from(common.toString().replace(D30_BUILD.version,'0'.repeat(64))),Buffer.from(common.toString().replace('{','{"unexpected":true,'))])
   assert.throws(()=>assertD30MetadataTransition(attrs,wrong,D30_BUILD));
 });
-

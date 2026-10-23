@@ -41,6 +41,3 @@ for(const item of f.representatives)test('D30 complete primary card and bilingua
  expect(await details.evaluate(element=>element.scrollWidth<=element.clientWidth+1)).toBe(true);
  expect(errors).toEqual([]);expect(forbidden).toEqual([]);
 });
-
-
-
