@@ -38,7 +38,13 @@ test('native Chrome Fetch decodes real 1688-byte HTTP gzip to the exact1660-byte
   let catalogue;page.on('response',r=>{if(new URL(r.url()).pathname==='/vocab/'+fixture.cataloguePath)catalogue=r;});
   const result=await loadInBrowser(page);expect(result).toEqual({ok:true,cells:GEO_PAIR});
   expect(catalogue.status()).toBe(200);expect(catalogue.headers()['content-encoding']).toBe('gzip');expect(catalogue.headers()['content-length']).toBe('1688');
-  const bytes=await catalogue.body();expect(bytes.length).toBe(1660);expect(Buffer.from(bytes).equals(fixture.catalogueBytes)).toBe(true);
+  // Read the decoded body through native Fetch, not Chrome DevTools' response
+  // retention buffer: after the loader closes, CDP may already evict that body.
+  // This is a second real HTTP GET, with no route, fetch override or fixture cache.
+  const decoded=await page.evaluate(async path=>{const response=await fetch(path,{cache:'no-store'});return {status:response.status,encoding:response.headers.get('content-encoding'),wireLength:response.headers.get('content-length'),bytes:[...new Uint8Array(await response.arrayBuffer())]};},'/vocab/'+fixture.cataloguePath);
+  expect(decoded.status).toBe(200);expect(decoded.encoding).toBe('gzip');expect(decoded.wireLength).toBe('1688');
+  const bytes=Buffer.from(decoded.bytes);expect(bytes.length).toBe(1660);expect(bytes.equals(fixture.catalogueBytes)).toBe(true);
+  expect(observed.filter(r=>r.url==='/vocab/'+fixture.cataloguePath)).toHaveLength(2);
   expect(observed.some(r=>r.url==='/vocab/'+fixture.deltaPath)).toBe(true);expect(observed.every(r=>r.method==='GET')).toBe(true);expect(errors).toEqual([]);
 });
 test('native HTTP gzip cannot conceal a delivered artifact larger than its exact cap',async({page})=>{
