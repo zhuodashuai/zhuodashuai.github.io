@@ -1,4 +1,4 @@
-import { navigationHref, readPublicNavigationContext } from "./app-navigation.js?v=105";
+import { navigationHref, readPublicNavigationContext } from "./app-navigation.js?v=107";
 
 const installed = new WeakMap();
 const LINKS = [

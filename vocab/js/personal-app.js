@@ -1,5 +1,5 @@
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
-import { copyPublicNavigationContext } from "./app-navigation.js?v=105";
+import { copyPublicNavigationContext } from "./app-navigation.js?v=107";
 import { setupPwa } from "./pwa.js?v=77";
 import { normalizeEnglish, normalizePublicSearchQuery } from "./wordbook-schema.js?v=82";
 import { createPersonalApi } from "./personal-api.js?v=100";

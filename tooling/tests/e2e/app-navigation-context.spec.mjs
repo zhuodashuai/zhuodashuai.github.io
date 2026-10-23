@@ -1,8 +1,9 @@
 import { expect, test } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 
 test.use({ serviceWorkers: "block" });
 const fields = { book: "never-let-me-go", chapter: "chapter-1", view: "cards", sort: "source" };
-const fragment = new URLSearchParams(Object.entries(fields).map(([key, value]) => [`wb_${key}`, value])).toString();
+const fragment = new URLSearchParams([...Object.entries(fields).map(([key, value]) => [`wb_${key}`, value]), ["wb_site", "local"]]).toString();
 const nav = page => page.getByRole("navigation", { name: "主要导航", exact: true });
 
 function recordWrites(page) {
@@ -40,7 +41,7 @@ for (const width of [390, 1440]) {
     await expect(page.locator("#member-auth")).toBeVisible();
     const transit = new URL(page.url());
     const scope = { ...fields, chapter: "chapter-2", view: "passages", sort: "za" };
-    expect(Object.fromEntries(new URLSearchParams(transit.hash.slice(1)))).toEqual(Object.fromEntries(Object.entries(scope).map(([key, value]) => [`wb_${key}`, value])));
+    expect(Object.fromEntries(new URLSearchParams(transit.hash.slice(1)))).toEqual({ ...Object.fromEntries(Object.entries(scope).map(([key, value]) => [`wb_${key}`, value])), wb_site: "local" });
     await expect(nav(page).locator("a")).toHaveText(["公开词本", "查词", "随手记", "我的词本"]);
     await nav(page).getByRole("link", { name: "公开词本", exact: true }).click();
     await expectPublicScope(page, scope);
@@ -121,7 +122,7 @@ test("unsafe and unrelated destinations remain untouched; fixed notes/auth origi
     const footer = document.querySelector(".app-footer");
     const values = ["javascript:alert(1)", "//evil.test/", "https://evil.test/personal.html", "/api/v1/member/entries", "quality/", "https://zhuodashuai.github.io/"];
     const links = values.map(href => { const link = document.createElement("a"); link.setAttribute("href", href); footer.append(link); return link; });
-    const module = await import("/js/app-navigation-entry.js?v=106");
+    const module = await import("/js/app-navigation-entry.js?v=107");
     module.setupAppNavigation().refresh();
     const result = links.map(link => link.getAttribute("href")); links.forEach(link => link.remove()); return { values, result };
   });
@@ -174,4 +175,64 @@ test("ordinary header returns public chapter before delayed personal imports or 
     releaseImport();
     await page.unroute(pattern, delayImport);
   }
+});
+
+test("two-origin static responders retain separate public records without copying storage", async ({ context, page }) => {
+  const pagesRoot = "https://zhuodashuai.github.io/vocab/";
+  const workerRoot = "https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/";
+  const entry = await readFile(new URL("../../../vocab/js/app-navigation-entry.js", import.meta.url));
+  const helper = await readFile(new URL("../../../vocab/js/app-navigation.js", import.meta.url));
+  const writes = recordWrites(page);
+  const blocked = [];
+  // Every request is answered locally or aborted, including modules. There is
+  // no production request, authenticated response, private state or API body.
+  await context.route("**/*", async route => {
+    const request = route.request();
+    const url = new URL(request.url());
+    if (request.method() !== "GET" || ![new URL(pagesRoot).origin, new URL(workerRoot).origin].includes(url.origin)) {
+      blocked.push(request.url()); await route.abort(); return;
+    }
+    if (["/vocab/js/app-navigation-entry.js", "/js/app-navigation-entry.js"].includes(url.pathname)) {
+      await route.fulfill({ contentType: "text/javascript; charset=utf-8", body: entry }); return;
+    }
+    if (["/vocab/js/app-navigation.js", "/js/app-navigation.js"].includes(url.pathname)) {
+      await route.fulfill({ contentType: "text/javascript; charset=utf-8", body: helper }); return;
+    }
+    if (request.resourceType() === "document" && ["/vocab/", "/", "/personal.html", "/vocab/quick-notes.html"].includes(url.pathname)) {
+      await route.fulfill({ contentType: "text/html; charset=utf-8", body: `<!doctype html><html><head><meta charset="utf-8"><title>Isolated public-origin fixture</title></head><body>
+        <header class="app-header"><a class="brand" href="./">Public origin fixture</a><nav class="app-primary-nav" aria-label="主要导航">
+        <a href="./">公开词本</a><a href="dictionary.html">查词</a><a href="${pagesRoot}quick-notes.html">随手记</a><a href="${workerRoot}personal.html">我的词本</a>
+        </nav></header><main>Static fixture only; no account or application storage code.</main>
+        <script type="module" src="js/app-navigation-entry.js?v=107"></script></body></html>` }); return;
+    }
+    if (url.pathname.endsWith("/favicon.ico")) { await route.fulfill({ status: 204, body: "" }); return; }
+    blocked.push(request.url()); await route.abort();
+  });
+  const fixtureKey = "navigation-public-origin-fixture";
+  await page.goto(`${pagesRoot}?${new URLSearchParams(fields)}`);
+  await page.evaluate(key => localStorage.setItem(key, "pages-public-records"), fixtureKey);
+  await nav(page).getByRole("link", { name: "我的词本", exact: true }).click();
+  expect(new URL(page.url()).origin).toBe(new URL(workerRoot).origin);
+  expect(new URLSearchParams(new URL(page.url()).hash.slice(1)).get("wb_site")).toBe("pages");
+  await page.evaluate(key => localStorage.setItem(key, "worker-public-records"), fixtureKey);
+  await nav(page).getByRole("link", { name: "公开词本", exact: true }).click();
+  expect(new URL(page.url()).origin).toBe(new URL(pagesRoot).origin);
+  expect(new URL(page.url()).pathname).toBe("/vocab/");
+  expect(Object.fromEntries(new URL(page.url()).searchParams)).toEqual(fields);
+  expect(new URL(page.url()).hash).toBe("");
+  expect(await page.evaluate(key => localStorage.getItem(key), fixtureKey)).toBe("pages-public-records");
+  await page.goto(`${workerRoot}?${new URLSearchParams(fields)}`);
+  expect(await page.evaluate(key => localStorage.getItem(key), fixtureKey)).toBe("worker-public-records");
+  await nav(page).getByRole("link", { name: "随手记", exact: true }).click();
+  expect(new URL(page.url()).origin).toBe(new URL(pagesRoot).origin);
+  expect(new URLSearchParams(new URL(page.url()).hash.slice(1)).get("wb_site")).toBe("worker");
+  expect(await page.evaluate(key => localStorage.getItem(key), fixtureKey)).toBe("pages-public-records");
+  await nav(page).getByRole("link", { name: "公开词本", exact: true }).click();
+  expect(new URL(page.url()).origin).toBe(new URL(workerRoot).origin);
+  expect(new URL(page.url()).pathname).toBe("/");
+  expect(Object.fromEntries(new URL(page.url()).searchParams)).toEqual(fields);
+  expect(new URL(page.url()).hash).toBe("");
+  expect(await page.evaluate(key => localStorage.getItem(key), fixtureKey)).toBe("worker-public-records");
+  expect(blocked).toEqual([]);
+  expect(writes).toEqual([]);
 });

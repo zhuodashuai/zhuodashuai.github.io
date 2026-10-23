@@ -151,7 +151,7 @@ test("offline actual guide navbar and its fragment dictionary link survive redir
   expect(guideUrl.pathname).toBe("/guide.html");
   expect(guideUrl.search).toBe("");
   expect([...new URLSearchParams(guideUrl.hash.slice(1))]).toEqual([
-    ["wb_book", "never-let-me-go"], ["wb_chapter", "chapter-1"]
+    ["wb_book", "never-let-me-go"], ["wb_chapter", "chapter-1"], ["wb_site", "local"]
   ]);
   await context.setOffline(true);
   try {
