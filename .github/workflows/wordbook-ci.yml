@@ -14,6 +14,8 @@ on:
       - "pnpm-workspace.yaml"
       - "tooling/playwright.config.mjs"
       - ".github/workflows/wordbook-ci.yml"
+      - ".github/scripts/**"
+      - "_config.yml"
   push:
     branches: [main, "codex/**"]
     paths:
@@ -28,11 +30,38 @@ on:
       - "pnpm-workspace.yaml"
       - "tooling/playwright.config.mjs"
       - ".github/workflows/wordbook-ci.yml"
+      - ".github/scripts/**"
+      - "_config.yml"
 
 permissions:
   contents: read
 
 jobs:
+  # This is a real Pages build and package measurement, not a projection or
+  # deployment. Keep all existing static URLs, including rollback resources.
+  pages-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+          verbose: false
+      - name: Verify all published static bytes before packaging
+        run: node .github/scripts/check-pages-package.mjs --site=_site
+      - name: Measure the actual GNU Pages archive
+        run: |
+          tar --dereference --hard-dereference --directory _site -cf "$RUNNER_TEMP/pages-preflight.tar" --exclude=.git --exclude=.github .
+          node .github/scripts/check-pages-package.mjs --site=_site --tar="$RUNNER_TEMP/pages-preflight.tar"
+
   verify:
     runs-on: ubuntu-latest
     # The full Chrome regression now takes about 15-16 minutes on hosted
@@ -95,7 +124,7 @@ jobs:
   # which is how a merged change can stay invisible on the admin page.
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: verify
+    needs: [verify, pages-package]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

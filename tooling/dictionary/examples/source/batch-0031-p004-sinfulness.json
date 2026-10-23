@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-0031-p004-sinfulness",
+  "authorship": "independent-composition",
+  "authorPrincipal": "d31_author_root_sinfulness",
+  "entries": [
+    {
+      "term": "sinfulness",
+      "partOfSpeech": "noun",
+      "meaningZh": "有罪",
+      "en": "During confession, he acknowledged the sinfulness of his actions without blaming his younger brother.",
+      "zh": "忏悔时，他承认自己的行为有罪，没有归咎于弟弟。"
+    }
+  ],
+  "projectionOnly": true,
+  "exactAuthorEvidence": [
+    {
+      "term": "sinfulness",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p004-nonproper-original-author-pack-0001.json",
+          "bytes": 1416850,
+          "sha256": "8c87d4bdef78980592985416654efe6b9956a83b5b7fc17add0d82c845ec7f7e"
+        },
+        "pointer": "/entries/8",
+        "objectSha256": "13a5e2a79fa3ca325c29d2f951421592fd11cd3051fbbaef061d83987b37a62d"
+      },
+      "selectedChildAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p004-sinfulness-precision-author-child-0001.json",
+          "bytes": 8191,
+          "sha256": "ab532eea12caff2bcf0ed8e7571e298024d86a8dc2949c29d0e8b87b49ae295e"
+        },
+        "pointer": "",
+        "objectSha256": "8e7a5a3c143e2507af2c507ac06788853eef81432fe66c113c29d993ead6d755",
+        "completeObject": {
+          "schemaVersion": 1,
+          "kind": "Distinct D31 P004 sinfulness one-English-cell precision child, original unchanged",
+          "authorPrincipal": "d31_author_root_sinfulness",
+          "inputs": [
+            {
+              "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p004-nonproper-original-author-pack-0001.json",
+              "bytes": 1416850,
+              "sha256": "8c87d4bdef78980592985416654efe6b9956a83b5b7fc17add0d82c845ec7f7e"
+            },
+            {
+              "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\root-sinfulness-translation-precision-0001.json",
+              "bytes": 1010,
+              "sha256": "305618283ad80551a07b7c7da0128c4ea151f1cbc4831e49da5a203fb9b8abcb"
+            }
+          ],
+          "originalAuthorEntry": {
+            "ordinal": 13,
+            "term": "sinfulness",
+            "source": {
+              "id": 3923835,
+              "term": "sinfulness",
+              "partOfSpeech": "noun",
+              "meaning": "n. 有罪；作恶多端",
+              "forms": [],
+              "source": "mit",
+              "seed": {
+                "rank": 30661,
+                "forms": [],
+                "workbook": true
+              }
+            },
+            "sourceSha256": "930b4704b4d8494b6b45f606c2b6f3cd190d70e7c501e311b60ab6ec707d9aa2",
+            "sourceRawBindings": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-123.json",
+                "bytes": 371284,
+                "sha256": "3e4401537541db5be5a5d7b357687b4348d85c5a9d03f9691c423d8f58e70063",
+                "pointer": "/records/526"
+              }
+            ],
+            "priorReasonBearingQueueObjects": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json",
+                "rawFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+                "pointer": "/deferred/794",
+                "completeObject": {
+                  "term": "sinfulness",
+                  "reason": "Chinese guilt or wrongdoing gloss does not securely match the supplied estrangement-from-God definition.",
+                  "stage": "authoring"
+                },
+                "objectSha256": "416badeef6c459f7ea6776b51e020aaf86901cf3727f739cf4543dfd34321a0b"
+              }
+            ],
+            "sourceFormReferences": {
+              "declaredForms": [],
+              "seedForms": [],
+              "allActualKeysReferencingCanonicalId": [
+                {
+                  "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-123.json",
+                  "rawFileSha256": "3e4401537541db5be5a5d7b357687b4348d85c5a9d03f9691c423d8f58e70063",
+                  "key": "sinfulness",
+                  "references": [
+                    {
+                      "id": 3923835,
+                      "kind": "canonical"
+                    }
+                  ]
+                }
+              ],
+              "relevantCanonicalAndFormKeys": [
+                {
+                  "key": "sinfulness",
+                  "actualBindings": [
+                    {
+                      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-123.json",
+                      "rawFileSha256": "3e4401537541db5be5a5d7b357687b4348d85c5a9d03f9691c423d8f58e70063",
+                      "pointer": "/keys/968",
+                      "completeKeyTuple": [
+                        "sinfulness",
+                        [
+                          {
+                            "id": 3923835,
+                            "kind": "canonical"
+                          }
+                        ]
+                      ],
+                      "allReferencedCompleteSourceObjects": [
+                        {
+                          "id": 3923835,
+                          "term": "sinfulness",
+                          "partOfSpeech": "noun",
+                          "meaning": "n. 有罪；作恶多端",
+                          "forms": [],
+                          "source": "mit",
+                          "seed": {
+                            "rank": 30661,
+                            "forms": [],
+                            "workbook": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "lexicalCrossReferenceContext": [],
+            "contextSourcesNotSelectedApprovedOrChanged": true,
+            "pair": [
+              "sinfulness",
+              "noun",
+              "有罪",
+              "During confession, he acknowledged the sinfulness of his actions without blaming his brother.",
+              "忏悔时，他承认自己的行为有罪，没有归咎于弟弟。"
+            ],
+            "pairSha256": "158ac82c907dcea34a088880cfa3cf6f21464d45de30c815a6de2d77bed7bc8b",
+            "authorPrincipal": "d31_author_p004",
+            "authorSelfRead": {
+              "wholeFiveCells": true,
+              "completeSource": true,
+              "completeFormsAndLookupClosure": true,
+              "allHistoricalObjects": true,
+              "notIndependentApproval": true
+            },
+            "specificHistoryResponse": "This is moral/religious wrongdoing, not a legal conviction or a narrow philosophical definition of estrangement. The publisher noun entry includes committing or involving sin.",
+            "priorReasonResponses": [
+              {
+                "originalReasonBinding": {
+                  "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json",
+                  "rawFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+                  "pointer": "/deferred/794",
+                  "completeObject": {
+                    "term": "sinfulness",
+                    "reason": "Chinese guilt or wrongdoing gloss does not securely match the supplied estrangement-from-God definition.",
+                    "stage": "authoring"
+                  },
+                  "objectSha256": "416badeef6c459f7ea6776b51e020aaf86901cf3727f739cf4543dfd34321a0b"
+                },
+                "authorResponse": "This is moral/religious wrongdoing, not a legal conviction or a narrow philosophical definition of estrangement. The publisher noun entry includes committing or involving sin.",
+                "wholeObjectPreserved": true,
+                "resolvedByIndependentReview": false
+              }
+            ],
+            "surfaceBinding": {
+              "kind": "unchanged-canonical-contiguous-surface",
+              "canonical": "sinfulness",
+              "noNewAlias": true
+            },
+            "sourcePrecisionCaveats": {
+              "wholeUnchangedMeaning": "n. 有罪；作恶多端",
+              "noSiblingParentVariantOrOtherSourceApprovalInferred": true,
+              "noSourceOrFormRepair": true,
+              "wholeSourceAndPairIndependentReviewPending": true
+            },
+            "independentlyReviewed": false,
+            "admitted": false,
+            "coverageAdded": 0
+          },
+          "originalPair": [
+            "sinfulness",
+            "noun",
+            "有罪",
+            "During confession, he acknowledged the sinfulness of his actions without blaming his brother.",
+            "忏悔时，他承认自己的行为有罪，没有归咎于弟弟。"
+          ],
+          "originalPairSha256": "158ac82c907dcea34a088880cfa3cf6f21464d45de30c815a6de2d77bed7bc8b",
+          "repairPair": [
+            "sinfulness",
+            "noun",
+            "有罪",
+            "During confession, he acknowledged the sinfulness of his actions without blaming his younger brother.",
+            "忏悔时，他承认自己的行为有罪，没有归咎于弟弟。"
+          ],
+          "repairPairSha256": "d3f31f869af9408b52e57871254bc0e6f12b4a033af12be32b912ae9428870ae",
+          "reason": "The original English brother did not specify age, while its Chinese translation 弟弟 did. Add younger only to the English sentence, preserving the original author object, selected religious/moral sense, source, POS, gloss and Chinese translation. This is an authored precision proposal, not independent approval.",
+          "rootPersonallyRead": {
+            "wholeCurrentSource": true,
+            "wholeCanonicalAndFormClosure": true,
+            "wholeOldReasonAndAuthorResponse": true,
+            "wholeOriginalFiveCells": true,
+            "wholeProposedFiveCells": true
+          },
+          "sourceChanged": false,
+          "formsChanged": false,
+          "otherFourCellsChanged": false,
+          "oldObjectsPreserved": true,
+          "independentlyReviewed": false,
+          "admitted": false,
+          "coverageAdded": 0
+        }
+      }
+    }
+  ]
+}

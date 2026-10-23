@@ -1,0 +1,12 @@
+# Preserve Jekyll 3.10 / GitHub Pages defaults. Only the final entry is new:
+# this unpublished review queue stays in Git and CI, not the public site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - tooling/dictionary/examples/queues/batch-0031.json

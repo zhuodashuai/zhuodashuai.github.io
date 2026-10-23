@@ -1,0 +1,35 @@
+# Public lookup shards are byte-hashed. Preserve identical bytes on Windows/CI.
+vocab/data/expanded-dictionary/** text eol=lf
+vocab/data/dictionary-examples/** text eol=lf
+vocab/data/dictionary-suggestions/** text eol=lf
+# Reviewed historical manifests and correction evidence are also byte-hashed.
+tooling/dictionary/source-revisions/** text eol=lf
+tooling/dictionary/examples/source/batch-0022-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0022-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0022*.json text eol=lf
+# Preserve raw review and historical-example manifest hashes in Windows clones.
+tooling/dictionary/examples/archives/** text eol=lf
+tooling/dictionary/examples/source/batch-002[34]-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-002[34]-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-002[34]*.json text eol=lf
+# Keep exact D25 opinions, generated inputs and historical index bytes portable.
+tooling/dictionary/examples/evidence/** text eol=lf
+tooling/dictionary/examples/source/batch-0025-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0025-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0025*.json text eol=lf
+tooling/dictionary/examples/index.json text eol=lf
+tooling/dictionary/chinese-related-common-examples.json text eol=lf
+# D26 exact reviewed packs/whole-hold evidence must survive Windows checkout.
+tooling/dictionary/examples/source/batch-0026-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0026-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0026*.json text eol=lf
+# D28 source-bound independent opinions and retained holds use exact LF bytes.
+tooling/dictionary/examples/source/batch-0028-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0028-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0028*.json text eol=lf
+tooling/dictionary/examples/source/batch-0029-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0029-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0029*.json text eol=lf
+tooling/dictionary/examples/source/batch-0030-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0030-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0030*.json text eol=lf

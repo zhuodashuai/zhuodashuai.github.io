@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "4653d2ca1b856ecdc9ab607db4a7449abcbe570a2c0b4bc59f09eaa0ceb753c9",
+  "reviewer": "AI/d31_reviewer_prepare_register",
+  "reviewerPrincipal": "d31_reviewer_prepare_register",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "blighter",
+    "hayseed",
+    "horseshit",
+    "softie"
+  ],
+  "issues": [],
+  "mechanicalProjectionOfExistingPinnedOpinionsOnly": true,
+  "exactSelectedPairBindings": [
+    {
+      "term": "blighter",
+      "sourceId": 4836868,
+      "sourceSha256": "2a28da7247649fa0dee5dfc91a10cc933930f5b01ba3f44004aeb8a17b4b0884",
+      "pairSha256": "9ea5f6533823bee0263bc201993575520e5c574d5e8b19a46084049375ffe3b2",
+      "authorPrincipal": "d31_author_role",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p003-register-independent\\INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+        "bytes": 112397,
+        "sha256": "5df5e9516f4ff0d9cf623527c97a17f1fb77b7e9f7fb8fe1506e4311cabbb20f"
+      },
+      "pointer": "/decisions/0",
+      "decisionObjectSha256": "0616e753019738f621fb62936873ff5429269c373274022314806f4d4591549a"
+    },
+    {
+      "term": "hayseed",
+      "sourceId": 4856608,
+      "sourceSha256": "df5e29ea288c1917c734385b5c309a4cc8361ed168d129bc96461c9e314e8b89",
+      "pairSha256": "b611acb2c4609fd69b2390f53b051961d7133a787bc21c309c85580d0a39e12b",
+      "authorPrincipal": "d31_author_role",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p003-register-independent\\INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+        "bytes": 112397,
+        "sha256": "5df5e9516f4ff0d9cf623527c97a17f1fb77b7e9f7fb8fe1506e4311cabbb20f"
+      },
+      "pointer": "/decisions/1",
+      "decisionObjectSha256": "0a468d2c3866ae9d51ae1949d444383700ae4d95550216e1d48b1e431c92bd98"
+    },
+    {
+      "term": "horseshit",
+      "sourceId": 4889008,
+      "sourceSha256": "66a7a0784ccde9901a903962ec6a487d1731ff8be1867aa99e46874bba3108ab",
+      "pairSha256": "565290aee29b795cb75833757f591b4f66d91f60d5b8179da4b33a694625add8",
+      "authorPrincipal": "d31_author_role",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p003-register-independent\\INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+        "bytes": 112397,
+        "sha256": "5df5e9516f4ff0d9cf623527c97a17f1fb77b7e9f7fb8fe1506e4311cabbb20f"
+      },
+      "pointer": "/decisions/2",
+      "decisionObjectSha256": "324e293f79bd8fdfe54f68754697de5ee56528e1e70434a005bf0053d59557ab"
+    },
+    {
+      "term": "softie",
+      "sourceId": 4891171,
+      "sourceSha256": "a85288f651a6d38d0a1688e7b3c137dee6c190d6d3abd65672c4fd8b592ec87d",
+      "pairSha256": "53c95c8904344021ef5a2cc6b8a1bfbb4f8f5d0c86436da408b8eb708077d16c",
+      "authorPrincipal": "d31_author_role",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p003-register-independent\\INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+        "bytes": 112397,
+        "sha256": "5df5e9516f4ff0d9cf623527c97a17f1fb77b7e9f7fb8fe1506e4311cabbb20f"
+      },
+      "pointer": "/decisions/3",
+      "decisionObjectSha256": "3148a510082d4f293888196452a1bddf72b6fc8cff85cc073431b02d7255c072"
+    }
+  ],
+  "allHoldsAndAllEarlierOriginalOpinionsRetained": true,
+  "newLanguageApprovalGenerated": false
+}

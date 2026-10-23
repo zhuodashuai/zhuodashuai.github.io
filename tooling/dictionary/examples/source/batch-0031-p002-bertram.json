@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-0031-p002-bertram",
+  "authorship": "independent-composition",
+  "authorPrincipal": "d31_author_root_bertram",
+  "entries": [
+    {
+      "term": "bertram",
+      "partOfSpeech": "noun",
+      "meaningZh": "伯特伦",
+      "en": "Bertram lowered the microphone so that the youngest speaker could reach it.",
+      "zh": "伯特伦把麦克风调低，让年纪最小的发言者够得着。"
+    }
+  ],
+  "projectionOnly": true,
+  "exactAuthorEvidence": [
+    {
+      "term": "bertram",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p002-proper-name-original-author-pack-0001.json",
+          "bytes": 749098,
+          "sha256": "68bcaef867a32b1e549c66b05ff14c5ef96ad2f225a89a7bc400e7e75b03fff6"
+        },
+        "pointer": "/entries/20",
+        "objectSha256": "174ff2cbc7001b1b8d3d1ece15d3ab66058769ac482bb974f3e1bc0a96a77595"
+      },
+      "selectedChildAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p002-bertram-polish-author-pack-0001.json",
+          "bytes": 7325,
+          "sha256": "2bb4e0c3120eb533e077d2d6ec6d4723ead2c3a46a8ca601366094065d313a71"
+        },
+        "pointer": "",
+        "objectSha256": "d49f171e4f0c0bd92f7006dd440f0f214392b52612fa033c25d196bdbe9cef02",
+        "completeObject": {
+          "schemaVersion": 1,
+          "kind": "Distinct D31 P002 Bertram Chinese fluency child proposed for independent review only; original approved proposal preserved",
+          "authorPrincipal": "d31_author_root_bertram",
+          "inputs": [
+            {
+              "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p002-proper-name-original-author-pack-0001.json",
+              "bytes": 749098,
+              "sha256": "68bcaef867a32b1e549c66b05ff14c5ef96ad2f225a89a7bc400e7e75b03fff6"
+            },
+            {
+              "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\root-bertram-translation-polish-0001.json",
+              "bytes": 897,
+              "sha256": "ac7254bd2a9c6bdfd927e8db146ca8fc0c623d87176d7dd2d2d3a56c55034201"
+            }
+          ],
+          "originalAuthorEntry": {
+            "ordinal": 23,
+            "term": "bertram",
+            "source": {
+              "id": 3717182,
+              "term": "bertram",
+              "partOfSpeech": "noun",
+              "meaning": "n. 伯特伦（男子名）",
+              "forms": [],
+              "source": "mit",
+              "seed": {
+                "rank": 29047,
+                "forms": [],
+                "workbook": false
+              }
+            },
+            "sourceSha256": "3e6cb49f0e3228efb86141d09468e6cca372d271a4cd116b7d56e8e2bdc7a152",
+            "priorReasonBearingQueueObjects": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json",
+                "rawFileSha256": "e707e6e754bf8784a168ff71193ce7e0dd32442c9b08d54d795bad1ea299d94a",
+                "pointer": "/deferred/303",
+                "completeObject": {
+                  "term": "bertram",
+                  "reason": "Proper-name-only: male given name.",
+                  "stage": "authoring"
+                },
+                "objectSha256": "62994a9fc7417fa9f1ba4ff26132fd1f92ff6f296f66c048f975df8ad1905075"
+              }
+            ],
+            "sourceFormReferences": {
+              "declaredForms": [],
+              "seedForms": [],
+              "allActualKeysReferencingCanonicalId": [
+                {
+                  "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-062.json",
+                  "rawFileSha256": "538aaf51da0429a4e0bcec8a9fe53b9d11d48246b4a69683d960034daadd388f",
+                  "key": "bertram",
+                  "references": [
+                    {
+                      "id": 3717182,
+                      "kind": "canonical"
+                    }
+                  ]
+                }
+              ],
+              "relevantCanonicalAndFormKeys": [
+                {
+                  "key": "bertram",
+                  "actualBindings": [
+                    {
+                      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-062.json",
+                      "rawFileSha256": "538aaf51da0429a4e0bcec8a9fe53b9d11d48246b4a69683d960034daadd388f",
+                      "pointer": "/keys/242",
+                      "completeKeyTuple": [
+                        "bertram",
+                        [
+                          {
+                            "id": 3717182,
+                            "kind": "canonical"
+                          }
+                        ]
+                      ],
+                      "allReferencedCompleteSourceObjects": [
+                        {
+                          "id": 3717182,
+                          "term": "bertram",
+                          "partOfSpeech": "noun",
+                          "meaning": "n. 伯特伦（男子名）",
+                          "forms": [],
+                          "source": "mit",
+                          "seed": {
+                            "rank": 29047,
+                            "forms": [],
+                            "workbook": false
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "pair": [
+              "bertram",
+              "noun",
+              "伯特伦",
+              "Bertram lowered the microphone so that the youngest speaker could reach it.",
+              "伯特伦把麦克风调低，让年纪最小的发言者能够够到。"
+            ],
+            "pairSha256": "1f5684458eeac3d4a116fb60cf2982aa156adb5f2d84a16c635fcdd59ef7f0fa",
+            "authorPrincipal": "d31_author_p002",
+            "fictionalScene": true,
+            "authorSelfRead": {
+              "wholeFiveCells": true,
+              "completeSource": true,
+              "completeFormsAndLookupClosure": true,
+              "allHistoricalObjects": true,
+              "notIndependentApproval": true
+            },
+            "priorReasonResponses": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json",
+                "rawFileSha256": "e707e6e754bf8784a168ff71193ce7e0dd32442c9b08d54d795bad1ea299d94a",
+                "pointer": "/deferred/303",
+                "objectSha256": "62994a9fc7417fa9f1ba4ff26132fd1f92ff6f296f66c048f975df8ad1905075",
+                "originalReason": "Proper-name-only: male given name.",
+                "authorResponse": "The retained reason is a proper/personal-name authoring deferral, not a common lexical-sense approval. This new fictional scene uses Bertram as the exact existing name 伯特伦: Bertram lowered the microphone so that the youngest speaker could reach it. Chinese keeps that same name and scene: 伯特伦把麦克风调低，让年纪最小的发言者能够够到。 No common-noun meaning, historical biography, place claim, new alias or form is being supplied. The old object remains unchanged; independent whole-source and whole-pair judgment is still required.",
+                "resolvedByIndependentReview": false
+              }
+            ],
+            "sourcePrecisionCaveats": {
+              "selectedSense": "Existing personal-name noun / 伯特伦",
+              "wholeUnchangedMeaning": "n. 伯特伦（男子名）",
+              "noOtherSourceBranchOrNamedHistoricalPersonApproved": true,
+              "noGenericNameOrCaseWaiver": true,
+              "independentSourceAndPairReviewPending": true
+            },
+            "independentlyReviewed": false,
+            "admitted": false,
+            "coverageAdded": 0
+          },
+          "originalPair": [
+            "bertram",
+            "noun",
+            "伯特伦",
+            "Bertram lowered the microphone so that the youngest speaker could reach it.",
+            "伯特伦把麦克风调低，让年纪最小的发言者能够够到。"
+          ],
+          "originalPairSha256": "1f5684458eeac3d4a116fb60cf2982aa156adb5f2d84a16c635fcdd59ef7f0fa",
+          "repairPair": [
+            "bertram",
+            "noun",
+            "伯特伦",
+            "Bertram lowered the microphone so that the youngest speaker could reach it.",
+            "伯特伦把麦克风调低，让年纪最小的发言者够得着。"
+          ],
+          "repairPairSha256": "5d8fac9b4bb2c3c86491b325f3dbaf3741236b9147cd323db74d0728f514b4b0",
+          "reason": "Separate optional Chinese fluency improvement after reading the whole original source, seed/form closure, old reason object and five cells. Replace the clumsy modal-plus-verb sequence 能够够到 with the idiomatic potential construction 够得着. The younger speaker's ability to reach the lowered microphone remains exact; no new action, gender, source sense or English change. Original approved proposal remains preserved, not retrospectively rejected.",
+          "sourceChanged": false,
+          "formsChanged": false,
+          "otherFourCellsChanged": false,
+          "oldObjectsPreserved": true,
+          "independentlyReviewed": false,
+          "admitted": false,
+          "coverageAdded": 0
+        }
+      }
+    }
+  ]
+}
