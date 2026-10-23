@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {buildMemberDictionary} from '../scripts/build-member-dictionary.mjs';
 import {loadD29Fixture,D29_BUILD,assertD29MetadataTransition,assertD29ProtectedBytes} from './d29-regression-fixture.mjs';
 
 // Install/run only after the normal build has been performed and D29_BUILD
@@ -58,4 +60,54 @@ test('D29 rejects any protected content outside the exact observed raw transport
   assert.throws(()=>assertD29ProtectedBytes(file,Buffer.concat([raw,Buffer.from('\n')])));
  }
  assert.throws(()=>assertD29ProtectedBytes('vocab/data/unspecified.json',Buffer.from('{}')));
+});
+
+test('D29 derives the CI member transport from exact inputs; only two provenance hashes differ',async()=>{
+ const sha=b=>createHash('sha256').update(b).digest('hex');
+ const forms={};
+ for(const name of ['ecdict-core','owner-wordbook']){
+  const file='vocab/data/'+name+'.json',raw=await fs.readFile(new URL('../../'+file,import.meta.url));
+  assertD29ProtectedBytes(file,raw);
+  // Reconstruct both specific known input transports, then verify their exact
+  // raw tuples BEFORE building. This is not a normalized acceptance boundary.
+  const lf=Buffer.from(raw.toString('utf8').replace(/\r\n/gu,'\n'));
+  const windows=Buffer.from(lf.toString('utf8').replace(/\n/gu,'\r\n'));
+  const pins=name==='ecdict-core'
+   ? [[1963099,'eb430465c024ce3fd6c1ace668eb437135ed8b52ecffcacf8be05b49e070f5f6'],[1963100,'e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302']]
+   : [[3022710,'4c3fb9ae6d0e0ec9cb85a0d989c677a6d7942e72d0468d73ad2dc30a1785fa4c'],[3090428,'4063f5bdeccd6b21a38aa45a55eb40e91596c4800b8bc17f5955923c4be9db0e']];
+  assert.deepEqual([lf.length,sha(lf)],pins[0]);assert.deepEqual([windows.length,sha(windows)],pins[1]);
+  assertD29ProtectedBytes(file,lf);assertD29ProtectedBytes(file,windows);
+  forms[name]={lf,windows};
+ }
+ const build=(core,owner)=>Buffer.from(JSON.stringify(buildMemberDictionary(JSON.parse(core),JSON.parse(owner),{
+  coreFileSha256:sha(core),publicFileSha256:sha(owner)
+ }))+'\n');
+ const original=build(forms['ecdict-core'].windows,forms['owner-wordbook'].windows);
+ const ci=build(forms['ecdict-core'].lf,forms['owner-wordbook'].lf);
+ assert.deepEqual(assertD29ProtectedBytes('vocab/data/member-dictionary.json',original),{
+  bytes:843625,sha256:'932408e43361be26db2308062f1e6c818ef02d8dc2e1a131d49b77cb3229ef21'});
+ assert.deepEqual(assertD29ProtectedBytes('vocab/data/member-dictionary.json',ci),{
+  bytes:843625,sha256:'efaf0d86965569a358d8e0530b259b4f2c5236a17af9483b098f2db0f9a632f0'});
+ const old=JSON.parse(original),restored=JSON.parse(ci);
+ for(const key of ['core','published']){
+  assert.notEqual(restored.source[key].fileSha256,old.source[key].fileSha256);
+  restored.source[key].fileSha256=old.source[key].fileSha256;
+ }
+ // Restoring precisely these two fields recovers EVERY original output byte,
+ // including all head/POS/gloss/form/alias rows, counts and source identities.
+ assert.deepEqual(Buffer.from(JSON.stringify(restored)+'\n'),original);
+ for(const mutate of [
+  doc=>{doc.core[0][2]+='错误释义';},
+  doc=>{doc.published[0][1]='verb';},
+  doc=>{doc.counts.core++;},
+  doc=>{doc.source.core.name='different';},
+  doc=>{doc.extra=true;}
+ ]){
+  const changed=JSON.parse(ci);mutate(changed);
+  assert.notDeepEqual(changed,JSON.parse(ci));
+  assert.throws(()=>assertD29ProtectedBytes('vocab/data/member-dictionary.json',Buffer.from(JSON.stringify(changed)+'\n')));
+ }
+ // Even mixed provenance from otherwise valid transports is not registered.
+ for(const raw of [build(forms['ecdict-core'].lf,forms['owner-wordbook'].windows),build(forms['ecdict-core'].windows,forms['owner-wordbook'].lf)])
+  assert.throws(()=>assertD29ProtectedBytes('vocab/data/member-dictionary.json',raw));
 });

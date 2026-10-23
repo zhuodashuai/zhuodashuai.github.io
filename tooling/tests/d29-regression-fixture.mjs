@@ -51,8 +51,10 @@ const PROOF_INPUTS=Object.freeze({
  eRepair:'c0ecf4ae5fe87934bbff6f04e2f2b217b329cb12fd3f1ab235bef29d38629b2c',
  eProjection:'6edf360e3af775e8c85a2c19767f1c05c2818cfb39b18b78528f6e8e9ed885dc'
 });
-// Exact independently read working-tree and Git-blob transports. Nothing is
-// newline-normalized and no future content changes can match these raw tuples.
+// Exact independently read working-tree and Git-blob transports. The member
+// builder also records input-file hashes, so Linux regeneration has one exact
+// additional tuple, derived and compared in dictionary-examples-0029.test.mjs.
+// Nothing is newline-normalized at this boundary; other content is rejected.
 const PROTECTED_RAW_FORMS=Object.freeze({
  'vocab/data/owner-wordbook.json':[
   {bytes:3090428,sha256:'4063f5bdeccd6b21a38aa45a55eb40e91596c4800b8bc17f5955923c4be9db0e'},
@@ -64,7 +66,8 @@ const PROTECTED_RAW_FORMS=Object.freeze({
   {bytes:1963100,sha256:'e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302'},
   {bytes:1963099,sha256:'eb430465c024ce3fd6c1ace668eb437135ed8b52ecffcacf8be05b49e070f5f6'}],
  'vocab/data/member-dictionary.json':[
-  {bytes:843625,sha256:'932408e43361be26db2308062f1e6c818ef02d8dc2e1a131d49b77cb3229ef21'}]
+  {bytes:843625,sha256:'932408e43361be26db2308062f1e6c818ef02d8dc2e1a131d49b77cb3229ef21'},
+  {bytes:843625,sha256:'efaf0d86965569a358d8e0530b259b4f2c5236a17af9483b098f2db0f9a632f0'}]
 });
 const sha=b=>createHash('sha256').update(b).digest('hex'),sem=x=>sha(JSON.stringify(x));
 const fold=s=>s.normalize('NFKC').toLowerCase().replace(/\s+/gu,' ').trim();
@@ -72,7 +75,7 @@ const sorted=a=>a.slice().sort();
 export function assertD29ProtectedBytes(file,raw){
  assert(Object.hasOwn(PROTECTED_RAW_FORMS,file),'Unspecified protected file');assert(Buffer.isBuffer(raw));
  const found=PROTECTED_RAW_FORMS[file].find(form=>raw.length===form.bytes&&sha(raw)===form.sha256);
- assert(found,'Protected bytes differ from both exact observed transports: '+file);return found;
+ assert(found,'Protected bytes differ from the exact registered raw transports: '+file);return found;
 }
 
 // Finite release transitions for the two metadata files that necessarily move.
