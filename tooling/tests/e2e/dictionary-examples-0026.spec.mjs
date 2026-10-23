@@ -1,0 +1,31 @@
+import {test,expect} from '@playwright/test';
+import {loadD26Fixture,meaningLines} from '../d26-regression-fixture.mjs';
+const fixture=await loadD26Fixture();
+test.use({serviceWorkers:'block'});
+for(const [i,item]of fixture.representatives.entries())test('D26 complete source and selected pair: '+item.term,async({page})=>{
+  const errors=[],forbidden=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.route('**/*',route=>{const r=route.request(),u=new URL(r.url());if(r.method()!=='GET'||u.pathname.startsWith('/api/')){forbidden.push({method:r.method(),path:u.pathname});return route.abort('blockedbyclient');}return route.continue();});
+  await page.setViewportSize({width:item.width,height:844});await page.goto('./dictionary.html');
+  await page.locator('#dictionary-query').fill(item.term);await page.locator('#dictionary-query').press('Enter');
+  const d=item.display,p=item.pair;
+  await expect(page.locator('#dictionary-term')).toHaveText(d.term);
+  await expect(page.locator('#dictionary-pos')).toHaveText(d.partOfSpeech||'词性未标注');
+  await expect(page.locator('#dictionary-meaning .meaning-line')).toHaveText(meaningLines(d.meaning));
+  await expect(page.locator('#dictionary-source a')).toHaveText(d.source);await expect(page.locator('#dictionary-source a')).toHaveAttribute('href',d.url);
+  if(d.license)await expect(page.locator('#dictionary-source')).toContainText(d.license);
+  const alternatives=d.alternatives||[],panel=page.locator('#dictionary-variant-panel'),variants=page.locator('#dictionary-variants .variant');
+  await expect(variants).toHaveCount(alternatives.length);
+  if(alternatives.length){await expect(panel).toBeVisible();if(!await panel.evaluate(el=>el.open))await page.locator('#dictionary-variant-summary').click();for(const [j,v]of alternatives.entries()){const section=variants.nth(j);await expect(section.locator('h3')).toHaveText(v.source);await expect(section.locator('.part-of-speech')).toHaveText(v.partOfSpeech||'词性未标注');await expect(section.locator('.meaning .meaning-line')).toHaveText(meaningLines(v.meaning));await expect(section.locator('.source a')).toHaveAttribute('href',v.url);}}else await expect(panel).toBeHidden();
+  const content=page.locator('#dictionary-example-content'),details=content.locator('details');
+  await expect(details).toHaveCount(1);await expect(details.locator('summary')).toHaveText(`1. ${p.partOfSpeech} · ${p.meaningZh}`);
+  if(!await details.evaluate(el=>el.open))await details.locator('summary').click();
+  await expect(content.locator('p[lang="en"]')).toHaveText(p.en);await expect(content.locator('p[lang="en"]')).toBeVisible();
+  await expect(content.locator('p[lang="zh-CN"]')).toHaveText(p.zh);await expect(content.locator('p[lang="zh-CN"]')).toBeVisible();
+  await expect(page.locator('header .app-primary-nav a')).toHaveText(['公开词本','查词','随手记','我的词本']);
+  await expect(page.locator('header .app-primary-nav a[aria-current="page"]')).toHaveText('查词');
+  await expect(page.locator('header a[href="guide.html"]')).toHaveCount(0);await expect(page.locator('footer a[href="guide.html"]')).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  expect(await content.evaluate(el=>el.scrollWidth<=el.clientWidth+1)).toBe(true);
+  if(i===0){const url=page.url();await page.locator('footer a[href="guide.html"]').click();await expect(page.locator('main h1')).toHaveText('使用手册');await page.goBack();expect(page.url()).toBe(url);await expect(content.locator('p[lang="en"]')).toHaveText(p.en);}
+  expect(forbidden).toEqual([]);expect(errors).toEqual([]);
+});

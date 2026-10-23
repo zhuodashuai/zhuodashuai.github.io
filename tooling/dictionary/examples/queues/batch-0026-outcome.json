@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "stage": "finite83-composite-sources-not-built-not-published",
+  "beforeHeads": 85366,
+  "beforeExamples": 86755,
+  "plannedAddedHeads": 83,
+  "plannedAfterHeads": 85449,
+  "plannedAfterExamples": 86838,
+  "plannedRemainingHeads": 17160,
+  "authorHeldHeads": 9,
+  "deferred": [
+    {
+      "term": "every bit as",
+      "reason": "The complete current source labels every bit as as quantifier phrase, but the actual sentence uses the whole expression to modify an equative adjective comparison. The selected Chinese meaning and whole EN/ZH sentence are intelligible, yet that does not establish the current selected POS/role. Retain the item as an author role-scope hold until an independently supported, exact finite POS/source decision; do not certify the existing quantifier label merely because it is published.",
+      "requiredFutureWork": "Independently verify the precise degree-comparison phrase function and current taxonomy, then prepare a separately reviewed exact source/POS correction if needed. Preserve every original source field and this withdrawn pair as history. No source rewrite, gate waiver or admission occurs here.",
+      "ordinal": 5,
+      "source": {
+        "id": 9425213,
+        "term": "every bit as",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "完全一样",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 76744,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "完全一样",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b2328761fa822ca6c6f547881e38bbd3c2eeb2c83db9b13794036f86c545155a",
+      "pair": null,
+      "existingHolds": [],
+      "historicalWithdrawnPair": [
+        "every bit as",
+        "quantifier phrase",
+        "完全一样",
+        "The revised ending is every bit as moving as the original.",
+        "修改后的结尾和原来的结尾同样感人。"
+      ],
+      "historicalWithdrawnPairSha256": "572134b3721d138d52027e3193ff3b206fb2b204c7ce03a99e0140adaf169cb6",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "ere",
+      "reason": "The conjunction/preposition before sense is directly supported by MW, but the active forms list contains eres, not a supported form of those selected roles. A separate finite form-role review or source correction is needed before treating the whole unchanged record as clean. This is not a claim that the head ere is invalid.",
+      "requiredFutureWork": "Keep the exact raw seed/forms history; assess active eres against the selected grammatical roles without silently rewriting this source.",
+      "permanentExclusion": false,
+      "ordinal": 66,
+      "source": {
+        "id": 3276233,
+        "term": "ere",
+        "partOfSpeech": "conjunction · preposition",
+        "meaning": "conj. 在...以前, 毋宁\nprep. 在...以前, 毋宁",
+        "forms": [
+          "eres"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 25601,
+          "forms": [
+            "eres"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "6a9743eeeaaff6fb821ee6070bfe5b9003ddcc77458ce15d657dca74f36d0bd9",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "cum",
+      "reason": "The active cumming/cums forms belong to a different verbal/sexual family rather than the selected compound-linking or financial roles. MW's direct page also distinguishes lexical categories. This unchanged-source batch must not use a correct compound sentence to certify those cross-sense aliases.",
+      "requiredFutureWork": "Independently review role-separated active forms and keep all genuine original identities/history; do not call the whole word invalid or erase financial senses by assumption.",
+      "permanentExclusion": false,
+      "ordinal": 67,
+      "source": {
+        "id": 3192344,
+        "term": "cum",
+        "partOfSpeech": "preposition · adjective · adverb",
+        "meaning": "prep. 和, 附有, 与\na. 附有红利的\nadv. 附有红利地",
+        "forms": [
+          "cumming",
+          "cums"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 24946,
+          "forms": [
+            "cum",
+            "cumming",
+            "cums"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "6189a783547944f128a26f55e3916d9084cd539d1234ee1adeb9a5f6f387986a",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "vee",
+      "reason": "The source publishes noun/adjective V-shape roles but includes veeing, a verbal-looking form not established here for those roles. The selected noun would be writable, but the full active form-role scope needs its own evidence before this strict no-rewrite batch can certify it.",
+      "requiredFutureWork": "Check whether a separately evidenced verb identity warrants that form and isolate its provenance rather than automatically approving or deleting it.",
+      "permanentExclusion": false,
+      "ordinal": 70,
+      "source": {
+        "id": 3976435,
+        "term": "vee",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. V字形物\na. V字形的",
+        "forms": [
+          "veeing",
+          "vees"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 31072,
+          "forms": [
+            "veeing",
+            "vees"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "f11266a9c59ebb6c41169926f835cca769979bbe5a32751c05200267b52fcaad",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "ran",
+      "reason": "The source correctly identifies run's past tense but publishes rans as an active form. The current selected verb role does not justify that extra inflection; own British Council table confirms run/ran/run. Preserve the head for a future exact grammatical form repair, not permanent exclusion.",
+      "requiredFutureWork": "A finite source/form-role proposal preserving raw seed and historical holds, followed by independent rereview.",
+      "permanentExclusion": false,
+      "ordinal": 74,
+      "source": {
+        "id": 10097142,
+        "term": "ran",
+        "partOfSpeech": "verb",
+        "meaning": "run的过去式",
+        "forms": [
+          "rans"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 85553,
+          "forms": [
+            "rans"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "run的过去式",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ae40fa7b38dc379059ef676920633ac14de4bedf6b3786cf80d1ab93f5edb079",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "got",
+      "reason": "The current verb record also contains an unseparated biochemical abbreviation gloss. The ordinary got form is supported by the direct British Council table, but a correct past-tense example must not certify the casing/POS scope of the unrelated enzyme identity in the full current primary record.",
+      "requiredFutureWork": "Clarify the active selected verb versus biochemical abbreviation provenance in a separately reviewed finite source plan, keeping the original raw record.",
+      "permanentExclusion": false,
+      "ordinal": 75,
+      "source": {
+        "id": 9562029,
+        "term": "got",
+        "partOfSpeech": "verb",
+        "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 78523,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "e07457f8a6d57761396c5c59a7f0c6223b1d7bed29cbcae2dde03744ab0903b1",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "met",
+      "reason": "The source identifies meet's past/past-participial met yet includes active mets and an unseparated methionine gloss. The direct British Council table supports meet/met/met, not a regular mets form for that selected verb. The chemical/proper or nominal identities need separate role/case evidence, not automatic invalidation.",
+      "requiredFutureWork": "Exact role-separated source/form review preserving original history; no example admission based only on the familiar verb.",
+      "permanentExclusion": false,
+      "ordinal": 77,
+      "source": {
+        "id": 9833897,
+        "term": "met",
+        "partOfSpeech": "verb",
+        "meaning": "meet的过去式和过去分词\n[化] 甲硫氨酸; 蛋氨酸",
+        "forms": [
+          "mets"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 82440,
+          "forms": [
+            "mets"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "meet的过去式和过去分词\n[化] 甲硫氨酸; 蛋氨酸",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "4965546b244541820ab5015bc9a2d5b59bfec2f4243e588239eecb91151aa51b",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "yup",
+      "reason": "The yes-response meaning is intelligible, but the current interjection row's yups form is not established here for that selected role. Direct MW separates an adverbial yes response from a noun meaning yuppie, making blind whole-record approval unsafe.",
+      "requiredFutureWork": "Narrowly review the active form/POS family and any nominal response uses; do not infer that yup or every yups occurrence is invalid.",
+      "permanentExclusion": false,
+      "ordinal": 78,
+      "source": {
+        "id": 2648921,
+        "term": "yup",
+        "partOfSpeech": "interjection",
+        "meaning": "int. [俚]是的（等于yes）",
+        "forms": [
+          "yups"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20700,
+          "forms": [
+            "yups"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "838d7a2534a905157c74ee35d26397d89ae8db7b6b182c7c71b97d034186c983",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "hah",
+      "reason": "The canonical exclamation is usable, but the current interjection-only source includes hahs without role-specific evidence in this task. Any nominalized laugh/utterance identity must be checked separately rather than treating a natural interjection sentence as approval of all active forms.",
+      "requiredFutureWork": "Independent finite role/form evidence, preserving the raw source; no permanent exclusion of the canonical exclamation.",
+      "permanentExclusion": false,
+      "ordinal": 81,
+      "source": {
+        "id": 2838238,
+        "term": "hah",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 哈, 嘿",
+        "forms": [
+          "hahs"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 22179,
+          "forms": [
+            "hahs"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "6d7f92f964647f93387887b9227eea4974b69f1b8abc6e3e83ea7cfe0791c44e",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    }
+  ],
+  "actualCoverageAdded": 0,
+  "examplesBuilt": false,
+  "published": false,
+  "complete": false
+}
