@@ -1,0 +1,2256 @@
+{
+  "schemaVersion": 1,
+  "kind": "Finite exact D30 historical approved-pack raw checkout transports",
+  "baselineCommit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+  "frozenCandidateSha256": "9bcaa04738a07a63debc43e67cc1a49784db9aba92ac58d1eb7a5b71b3f1e8ba",
+  "totalCompared": 1086,
+  "unchanged": 954,
+  "changed": 132,
+  "scope": "Only these enumerated whole raw working/Git blob tuples. CRLF-to-LF is used solely during independent derivation to prove equality, never to accept unknown bytes at validation time. Every parsed original source/review object is identical. No source meaning, POS, form, pair, old reason or reviewer decision is changed.",
+  "rows": [
+    {
+      "file": "tooling/dictionary/examples/source/batch-0001-a.json",
+      "kind": "source",
+      "name": "batch-0001-a.json",
+      "working": {
+        "bytes": 27956,
+        "sha256": "19979e23888554e07c200d37cf8664f08bf530e2ca8fd210359ae7cae7f448f4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "cbdc15d33f35517c0d6072b20afac3c1467fd4ad",
+        "bytes": 27849,
+        "sha256": "4ce28826628e87837336432c8bf8348f4ebce302e21583ddfa1e19d21f26baba"
+      },
+      "removedCrBytes": 107,
+      "wholeJsonSha256": "ed8ae10e3899cff9508b2077757f3bd3bf6a840bc2b689fc73dacd5cdc796ed2"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0001-a.json",
+      "kind": "reviews",
+      "name": "batch-0001-a.json",
+      "working": {
+        "bytes": 1234,
+        "sha256": "ae98d29919cc94307736ca94cba7e3642c1dfefab16b394bed8f0c4edf0ee4d8"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "9aed40d06cf2d3ce5eb2daef4bc07df6113ec3cf",
+        "bytes": 1226,
+        "sha256": "694c0e014b8feb64687feda415ccbfa59a7a7248836d0dda8b8674b7632c597f"
+      },
+      "removedCrBytes": 8,
+      "wholeJsonSha256": "257a5d6161d27ce42cc41ced80fb0c7fcb34a6b0aa2bc3aa5850a1196b18c71a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0001-b.json",
+      "kind": "source",
+      "name": "batch-0001-b.json",
+      "working": {
+        "bytes": 23382,
+        "sha256": "d5ce9af072cfdd80e3ce158dbfafc58f1a791dadd1fc317637fce888f9676344"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "fe5ac10592b8d1045f2de3a28d81bdaab103d751",
+        "bytes": 23275,
+        "sha256": "acead984eb1803fa620c914b473c406950084c43be48fdb3f5068612e172c5c0"
+      },
+      "removedCrBytes": 107,
+      "wholeJsonSha256": "92bca795b4c1b82e4ea47fddaa132bcc58538c7a5aae016a5e2d9e511068abd8"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0001-b.json",
+      "kind": "reviews",
+      "name": "batch-0001-b.json",
+      "working": {
+        "bytes": 2374,
+        "sha256": "05ebfa5d8f0561c5890e9686af93d7b8608742340924c15447a1181ce2feceec"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "1bab36139f9336e73c7be7b67375d0491099b31e",
+        "bytes": 2350,
+        "sha256": "b3052b5b09fb29310311b114dbcac3a24576547fda33182cff0ef069b06f2723"
+      },
+      "removedCrBytes": 24,
+      "wholeJsonSha256": "b71d2509193ca542dfd5e8e90b14b0ec9bcf64c906dd8371281950a0d57bdae4"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0002-a.json",
+      "kind": "source",
+      "name": "batch-0002-a.json",
+      "working": {
+        "bytes": 48898,
+        "sha256": "3eafea900a883e6a9bd1a6032f8d5bfc56723b8cb1dec765b9007636d59e799e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "336863ed1665acd488ac1a77e452792724731ec4",
+        "bytes": 48691,
+        "sha256": "799b579d4b7dca7e8fb3b82add410f3d31e979df25b5a40984952cccd60cf7d5"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "b1e7ce4f71e0c47e419315e8c58a4353a3d7ef73248c451dd097bbbc8107ca2d"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0002-a.json",
+      "kind": "reviews",
+      "name": "batch-0002-a.json",
+      "working": {
+        "bytes": 3447,
+        "sha256": "98a91a025edb69f2e5a0c2cca2ee769eb2b8a53c584e5bf38603bdd3a3996e67"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "8d46988a67b255c5c906d19bb3c50d9a589dfa87",
+        "bytes": 3405,
+        "sha256": "b5dbb87514bddaf8650c043bca26249d4369e7562f687de005e41ae9a3f746bf"
+      },
+      "removedCrBytes": 42,
+      "wholeJsonSha256": "eca4f89b03fafff457f101296125cbb8a4cc7138e0fc4e0ad1a4ae4c85909160"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0002-b.json",
+      "kind": "source",
+      "name": "batch-0002-b.json",
+      "working": {
+        "bytes": 47691,
+        "sha256": "9251cacd9f718722e180cb2bfc90c522bc93d30a200ad2bf4072ec627477c289"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d1eeed8c3a5f27f2ee4c34a38a4cc0f2eaf9c0ac",
+        "bytes": 47484,
+        "sha256": "3d0e6603aa24ac8c8efde671cd39e1c26939f460715c52fdf10ac7fcd76f8af2"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "7495c83e05cd566dac075e0f87cd0f3c6fde34941d569465cdd69fdaa700f1b1"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0002-b.json",
+      "kind": "reviews",
+      "name": "batch-0002-b.json",
+      "working": {
+        "bytes": 3968,
+        "sha256": "83fe303f3a2ebbf8f8e80059126c6bcec525588da6cc5c67213e547b0adbb51a"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "ad063e06cf169245ce8899aff6f8aa0fbd603f61",
+        "bytes": 3933,
+        "sha256": "bae91ff292e83c883134afd7fb0c015e2f6599982caaf4ea414dd0d3f8a8904c"
+      },
+      "removedCrBytes": 35,
+      "wholeJsonSha256": "b86e3e398b2603cbb5997bc7d35205ce74d52f5f5e92bceda8f9e08788f3b00a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0002-c.json",
+      "kind": "source",
+      "name": "batch-0002-c.json",
+      "working": {
+        "bytes": 50642,
+        "sha256": "ff46b9242df0617415d39402820dd7e99fa88dc746e2ba829063da9fe76ba3a5"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "977a1fd597e35af3b60ab41d2faf1a3fda256cf0",
+        "bytes": 50435,
+        "sha256": "f27e1c39f93dcafbebbe6eea4b625142145da17be9df1fd901506b9bd5fa337e"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "a5eda345598e1eb8148c674e079beaa62241ba73e158c66cd4d31ce537cfd6fd"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0002-c.json",
+      "kind": "reviews",
+      "name": "batch-0002-c.json",
+      "working": {
+        "bytes": 4376,
+        "sha256": "999b5237c8105fcd2c62d6949b2cb6ed84610d7a56036cae5cd5af156d633a7e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "15aa9779416e467992c37ecd19e51e52317832b9",
+        "bytes": 4148,
+        "sha256": "74f68b76e38cfa0eb750539f29494b10c0793d484430589c95376a00aec2dd97"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "e2388d4938153a3b77325fb85f3d0d20ed273537959b0a1da929d71fc4820776"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0002-d.json",
+      "kind": "source",
+      "name": "batch-0002-d.json",
+      "working": {
+        "bytes": 51827,
+        "sha256": "dabc98528f2798af04a55234819eb1c31dd4d753de9ab55ebd87ed356a10ee07"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "9f64c272fd898c732a13ae0d889afc00dba5a8e6",
+        "bytes": 51620,
+        "sha256": "ad4dd37bf4d4bc2f1270d34f4db76b6f4a89caed9882e72e24abc4e1504ea05a"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "7464c573f23118e55ec48528671cc26d465378d1801a5e8c6323d06c96cdab0f"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0002-d.json",
+      "kind": "reviews",
+      "name": "batch-0002-d.json",
+      "working": {
+        "bytes": 3764,
+        "sha256": "a142b04e1aa5504f97dffbc684bd0e221ecd94d0c48a449f40a3fe25fa44fb19"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "fd733491604849cd654fa7ad9f1df23e8546db3e",
+        "bytes": 3730,
+        "sha256": "416e9bbbce8e6c84bca1c4594642ad5512564a1cd56eaf13cb7fdb73be0ee4ff"
+      },
+      "removedCrBytes": 34,
+      "wholeJsonSha256": "285bc05479e493913d5ce48beb907236614198e653363fdf8e4677cb35437ec6"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-a.json",
+      "kind": "source",
+      "name": "batch-0003-a.json",
+      "working": {
+        "bytes": 42347,
+        "sha256": "b3b38597e86e7f787775740fec45542967c552a704eff8f54400dfc21b9c20a7"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "e7d322524ef3167841a21689492e7909c27a84d2",
+        "bytes": 40940,
+        "sha256": "84fd70a75d2ec8f05558580e9152d4b9a02a9e14390701519e56e4520fd295b0"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "2f17506e1e431b92fdd548f2c08bdd823c9caa159d15637c9683991f53e583be"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-a.json",
+      "kind": "reviews",
+      "name": "batch-0003-a.json",
+      "working": {
+        "bytes": 3042,
+        "sha256": "13a1c47418b1a53bebacc6fdcd82ae28a8d2b1340c55f3a15fa089559391f38e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "3b23e1317c24a9f0a89b5ab205591745b8f14907",
+        "bytes": 3007,
+        "sha256": "20c0f4aa7a3d5a761b37cf3d4e0fff049a9b633eb0e7db708aaf892a48c656b5"
+      },
+      "removedCrBytes": 35,
+      "wholeJsonSha256": "d99f84f213b342813e76f4c7eae7737b5420d4b10f6ff5a4d7191e25fe495cae"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-b.json",
+      "kind": "source",
+      "name": "batch-0003-b.json",
+      "working": {
+        "bytes": 42837,
+        "sha256": "87c5d74e6c782b3a97d1e10785997c8895d508cba8f520b5e38c0376a0127015"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a2996aa77c2e6d18bfe19ead941482949f0b6a00",
+        "bytes": 41430,
+        "sha256": "d9300d436899f09e5414165836841b0aed3aab837b3c45a7491db5d81f43d5ae"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "5dfa5ecfe585f05dfda28d120e04a54655b22c0f49055791aeba0c55579f2d4d"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-b.json",
+      "kind": "reviews",
+      "name": "batch-0003-b.json",
+      "working": {
+        "bytes": 2558,
+        "sha256": "8defa4a2cc1956473a96c34f45489f7a9c339f35f579c6d4215cc2c1f83f0b34"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7d99337b0ea7db02d4bece56a6ce29bf074f783d",
+        "bytes": 2526,
+        "sha256": "e3b9bf97b013eba00f27b5d0e485807952c7f524459a1b80bcaefb759abf21aa"
+      },
+      "removedCrBytes": 32,
+      "wholeJsonSha256": "677c1c94f45d93466dc5da53e4e204228b5436802c97448a47989c772624a9a0"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-c.json",
+      "kind": "source",
+      "name": "batch-0003-c.json",
+      "working": {
+        "bytes": 43227,
+        "sha256": "b4819ddd85d6e55a3dfa775e0e07748b2a5ba012e127556a9c65b0ef4e5eb226"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "c980875e93c546a54ae34933177cff0a906b09bc",
+        "bytes": 41820,
+        "sha256": "4a4ea359b74586903609645fa464f4eaf1b0f493ec69b2f812eda6e1ef347fda"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "5fe8cb728d5b345b1c416fbf9536cae43b7e9fa64a3b5be506514b234a58d8e0"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-c.json",
+      "kind": "reviews",
+      "name": "batch-0003-c.json",
+      "working": {
+        "bytes": 2880,
+        "sha256": "83ff63366dc2e124e9f8e46e3fe30ebbdb634e41f955f0ee7848f56651854e3e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "eaa005ea1bf84388963e39d222a2381efed42e48",
+        "bytes": 2847,
+        "sha256": "3eb86e8663f7237547a13efc7579fa983e7087cb7727d42533d13339119d177d"
+      },
+      "removedCrBytes": 33,
+      "wholeJsonSha256": "3af31f59314851504b4df62ec8d4ea8f218af81370864e28e22f0c7f270d224f"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-d.json",
+      "kind": "source",
+      "name": "batch-0003-d.json",
+      "working": {
+        "bytes": 43638,
+        "sha256": "00ac65b32a9460c9bcb874496c0e3608ec9b6d6675650d3fb4d139d8242e39a6"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "5260152866542959c057ce6f1bbf06ac0cb78772",
+        "bytes": 42231,
+        "sha256": "2ab3d057e106b731c643e155d414250cf951e640c951d5e9b6027bc15d2c2fed"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "20f911f894262cd15cb9cd504218c69c18d7f49bde41584bba7e3872779e63fc"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-d.json",
+      "kind": "reviews",
+      "name": "batch-0003-d.json",
+      "working": {
+        "bytes": 2249,
+        "sha256": "19082a4c6ee8f4cbc4a0b507d84a818cea7c07375dffee047f3b451aa6f44b2f"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7f0c33e4f389f9de83a0f980fed3a12398783ba1",
+        "bytes": 2218,
+        "sha256": "f984af50afacdd7c4f13676f237101f86d71b1c3d98e277178da3900dc78953d"
+      },
+      "removedCrBytes": 31,
+      "wholeJsonSha256": "d18a93ff6585313037dc4d9eaa968e4953a01ce8be7aae2688b437122e94c289"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-e.json",
+      "kind": "source",
+      "name": "batch-0003-e.json",
+      "working": {
+        "bytes": 43937,
+        "sha256": "0b5bc4e0507485dccc3edc3348c8076036f3b09c6248b1e51db13dc84c3ed1e6"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "2aa9ca7a3cfecf469a3688b2b0d310cba0cb6785",
+        "bytes": 42530,
+        "sha256": "de0e467dafa248eb5d8c206b773bdf50ac0fcd731906b127fe622fbc6abe3035"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "d14fe54cc5ec9292b7256f66581104d1c6db80fe3206b89047a790d5d508f35f"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-e.json",
+      "kind": "reviews",
+      "name": "batch-0003-e.json",
+      "working": {
+        "bytes": 4326,
+        "sha256": "188a2d778893f7cf76f8c9562cb106c2236e1a03057309644cce488f936d1a87"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "14b1c3de765da64aace0830b877237505a603ac3",
+        "bytes": 4098,
+        "sha256": "f02f72348bb47c18cf9ed4f0c0d5f36ed5ecf10ed2924b37b26f2091a0768570"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "2c72efb6e0df126945021ab4fd50f972e67a1d365bac9b57ae23c49b580dd79e"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-f.json",
+      "kind": "source",
+      "name": "batch-0003-f.json",
+      "working": {
+        "bytes": 44723,
+        "sha256": "af5e20d0d48883b9e392fe707a88b8451fc254c8afd1964b70153c03ba119647"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "8a478438e0e57deae71bebc204e932d41b3255e4",
+        "bytes": 43316,
+        "sha256": "7aa57d37ae235e62ab3e0f01796b87cbad7d6056b803cca69c0b724b6747c0a7"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "9dc339a5a90a9556b5c137ca421415bf2cb917346413277d642d859dd200ee56"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-f.json",
+      "kind": "reviews",
+      "name": "batch-0003-f.json",
+      "working": {
+        "bytes": 4462,
+        "sha256": "4ac4329ee13077d4b649c75f8adf173723d93397bc4750dcbe174656d401c336"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "9f39058f7d152f928e7bc0873fab39042ef25ef7",
+        "bytes": 4234,
+        "sha256": "ea8ef70e0791b37b3c9a8be8f99b16ad36a3b31f0583e5aaa326d98fbfb2f023"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "1fc591d9e652fa9686aa3fdd9eb5a0f39d9c12e5ae62cba1cefab4155cf8930c"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-g.json",
+      "kind": "source",
+      "name": "batch-0003-g.json",
+      "working": {
+        "bytes": 44210,
+        "sha256": "01d20a3423752fd0410c132e7b83258ae47bd76cf3d95e47518baa4fc8dfbbc9"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "32e5e75bd1113a772f927edadfcb685275d8a1ec",
+        "bytes": 42803,
+        "sha256": "6fc5286098d05305dc70c463bbf6359fa9b73c000c39e1f8de90ee3af3af7482"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "72a5a900157f38c36a632dc51b3edc28c807abaf8be682f1e1bb72c4936f4f81"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-g.json",
+      "kind": "reviews",
+      "name": "batch-0003-g.json",
+      "working": {
+        "bytes": 3411,
+        "sha256": "ee1ba3a46c961fb9dd50e80aa3951f61e020dce6002892fafb802751d85412a9"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d6b3ff4a4c4a7ae8a4932c61a71518b59f2e86ab",
+        "bytes": 3202,
+        "sha256": "f62edb20974b03640466528efbd5f09f2b0e8a873f967b5ffa442ab33990d845"
+      },
+      "removedCrBytes": 209,
+      "wholeJsonSha256": "ef172aeab24ee2e3c8c332183873f297fb618a173070d97ef11dfa4adb224110"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-h.json",
+      "kind": "source",
+      "name": "batch-0003-h.json",
+      "working": {
+        "bytes": 44616,
+        "sha256": "f47d9515b93d0b7a19049091d3e6c32b0f9cd48709f94ccb478f8373bec5f7c3"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "c170fb04f59bc744700a00f37334085e6b7829b0",
+        "bytes": 43209,
+        "sha256": "48a31479dc64c7b1a6d165d049f852fdd0cf814895240bbe026f5437d22f22f1"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "164ce3caa9c2fe2dea15254dd80da6ad5a672285cee0e391e1b5bea909c95772"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-h.json",
+      "kind": "reviews",
+      "name": "batch-0003-h.json",
+      "working": {
+        "bytes": 4426,
+        "sha256": "259e45d6a3d82a9742f5547fe586facf2480c6b79ca7f5eb7b12b47e23cb66c7"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "fb8e1f77cb849e16a7d289e7e04befb9991c3508",
+        "bytes": 4198,
+        "sha256": "d134afa97648a48d230322a610794145ce283d9500317f113023519b98155f35"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "713e5b294e2d0a81d0e11a7a683533baf80a195ad098295c4f2cc23dc25410f0"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-i.json",
+      "kind": "source",
+      "name": "batch-0003-i.json",
+      "working": {
+        "bytes": 42021,
+        "sha256": "b4390370764857c3a8a35100b40c7991b88e670b759c91f14e1a5a97fabe8538"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "737af45567afa0c82697af0050868686eab5411a",
+        "bytes": 41814,
+        "sha256": "d12d39d9602108b62c175a25e175341f8c1f2d91a50d022f1b6e2a36513bcbc0"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "89f3b5485d060753fea3d54ba2726cc86faa62385a6edaeae1d0c19db2c5473e"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-i.json",
+      "kind": "reviews",
+      "name": "batch-0003-i.json",
+      "working": {
+        "bytes": 4902,
+        "sha256": "e0d77d941f14d5b2c4c50244a9d959681ba2ee0461493df93a4bfd08b9b23630"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "2bd9f70a557f461a05061054d6df276cbf09a7d6",
+        "bytes": 4662,
+        "sha256": "4b33528bcf029770e1f1c29b486f6b7cb8c65435b1f20a58613d558aa3820639"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "e42bd18b040a6852e66ac415d9c081e5fcd0667a8691ba54729b9cf550711c3e"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-j.json",
+      "kind": "source",
+      "name": "batch-0003-j.json",
+      "working": {
+        "bytes": 42225,
+        "sha256": "72e5a82c730a2442c27c12f650fa1b1b11f060253d3377d1db8564e73acad361"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "185511cdf5ca60ad19cc27987e37541fff65128e",
+        "bytes": 42018,
+        "sha256": "cd6dbd730438d4e90d89812fdce729db28562fdc16df0fc88485fdabe0ea45f7"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "2867dd5eaf7823fd7a16c2ccb4bf3002738c3602a044b594a25d4af282781093"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-j.json",
+      "kind": "reviews",
+      "name": "batch-0003-j.json",
+      "working": {
+        "bytes": 4798,
+        "sha256": "2dea73869fb0aae0a964d7471cef53e4ce8afe12289d9e7bd78213ce899fccb3"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d14fd5180e31aea859b6b95a7b08b86481907ca2",
+        "bytes": 4558,
+        "sha256": "3ddb00b6c78ee5243189d0a54df0c33fbf407adc43fbcb5747c5e23a16135dc5"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "120acf8ab4ae17e29444374a5a62f38387d64779f78e131cc8d5134ef2129289"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-k.json",
+      "kind": "source",
+      "name": "batch-0003-k.json",
+      "working": {
+        "bytes": 42388,
+        "sha256": "12449773aaf08dc90d7c49d241dcd6a61e178dc0bdc06c11c673cb78f1405dac"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "38b766fb8a3b9b24aebdc89f44656ac59deb5914",
+        "bytes": 42181,
+        "sha256": "f9213956b9c48a74545490ed78fca47ea60136ad508761c4b3977cda9949623f"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "7808cf672e7b5f6ef6ffc82d34464a1db289bdc43f71a2283f9138113bb0dc88"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-k.json",
+      "kind": "reviews",
+      "name": "batch-0003-k.json",
+      "working": {
+        "bytes": 4192,
+        "sha256": "3d225bf407a3f24aa419ad9053101c3865488675cc2c651472ae140b9c6f08bd"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "89b3123b85720850b99188703558873a70742fc9",
+        "bytes": 3964,
+        "sha256": "06f19b9c175f9de30ac9507ecfe460f8ab23de437b8cd830c1e44defe3bf5fcd"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "a25af151ec32940fda79ef602411b3058d8cec8827ee04da8fa8c42ec073eb13"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0003-l.json",
+      "kind": "source",
+      "name": "batch-0003-l.json",
+      "working": {
+        "bytes": 43585,
+        "sha256": "0279f1dba7b1ef9a755d3820f55c7188371e081dc244d8929918037b390346bc"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d93065305afb9ba5f18530d7401b1983c631d276",
+        "bytes": 43378,
+        "sha256": "4baae046a4e67e31f5c7a51e2d50428c5def8aaf3a4d61208859a962b639290a"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "8bf88516421167878dc068d6137c3251e166e63d21ea69a3d687e925985b1e39"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0003-l.json",
+      "kind": "reviews",
+      "name": "batch-0003-l.json",
+      "working": {
+        "bytes": 3702,
+        "sha256": "7722471caedfd1088b879862c9f440f1c3f9981ec030a75edb64deb681e768fd"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7b3dfe0e7de18f1b73ad9863b0a19f67ad7393ec",
+        "bytes": 3486,
+        "sha256": "57bf6e732bebdbb26227dabdf77289d5c452bffe5eff28188affc8ad277bbfe7"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "35dd5767bc4bb68d0df7af7771a1a003d8f08a7a032236a45cb9057c5cabcf3f"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-a.json",
+      "kind": "source",
+      "name": "batch-0004-a.json",
+      "working": {
+        "bytes": 38940,
+        "sha256": "f1237514a3691373f85afcb6583834d96e3b188fe60fa78df3b905a0200d709b"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "abdd43643dfda4e7a1752b4293bdc9c5f139b8aa",
+        "bytes": 38733,
+        "sha256": "141ed4184c40a9b342b0d4f65a50b3e557a766a28d236573889853a6f926a738"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "22464ea4e7033d22c62f30ada3115aa997b01af0461210331a36c9507c644204"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-a.json",
+      "kind": "reviews",
+      "name": "batch-0004-a.json",
+      "working": {
+        "bytes": 3673,
+        "sha256": "b164501149183ba50666d1e42592dc2f762aa96ecb72d19da24b0f3130641759"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "125e83a46bd18e0c90444532016a27db90e4885d",
+        "bytes": 3457,
+        "sha256": "b5454bcd6d1edbe9ceceee9feed44cf829fbe51a6fbb3d3a17c5b78fd0da10f3"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "059e2f9bb958241eb6404cb1ca963e5cfb8e43ef5e0cd39284792a0e319eec46"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-b.json",
+      "kind": "source",
+      "name": "batch-0004-b.json",
+      "working": {
+        "bytes": 39225,
+        "sha256": "9714112ca9cfc4091cb950062f5bc050189c66256167821fb852c83d3e0550ef"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "563f6ce4b54df971daa03b0a0c5d2eadbfdcef25",
+        "bytes": 39018,
+        "sha256": "2d50fa6758a75689739df982d8675d39301f53773937cd63c05369060c58f814"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "28513702cde56c682b01a187c3326e137f846431930e9b485f41dfbb472abeb9"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-b.json",
+      "kind": "reviews",
+      "name": "batch-0004-b.json",
+      "working": {
+        "bytes": 3627,
+        "sha256": "d25e5ea20197b841b21ab6728977007534c35f70a50343fb77243db67820cf89"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "90a86097bf7bd8f7d0dd5edda7baa47db9b803b1",
+        "bytes": 3411,
+        "sha256": "0de69cad0161a98d219b48be2497442a4240f7d16f0ee0be4f9e022f6e3ff653"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "15bdd0557b0c14641d03b8c512f07418c2e236a410ff6e2329bed77e56519c0a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-c.json",
+      "kind": "source",
+      "name": "batch-0004-c.json",
+      "working": {
+        "bytes": 40115,
+        "sha256": "86d171d4abba93d864445ecb158ee2e6d23df9e7e5c665e2935cd9910c6f65fd"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a7742c084e22208a63403e1cd2f17a701b7f349b",
+        "bytes": 39908,
+        "sha256": "a224b065077a849c790f43b2663d2038688d7105ad435388cc97bdbcd34c660b"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "f3901543568ac5467e7857ca4a69c2cc81052aba4446c222d44a89bc739b2c1d"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-c.json",
+      "kind": "reviews",
+      "name": "batch-0004-c.json",
+      "working": {
+        "bytes": 3910,
+        "sha256": "39d56c39f87d439962c9498e7202c4e2ab86653717b1a9b310b60d6043c85d32"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "96c8740d6ffa2529de6ec5cdffefe03b068c8909",
+        "bytes": 3688,
+        "sha256": "1fe2f04f80a6742baae65967ef4c1fa02d7a445b4f1f51fa6e427d0ac29866fa"
+      },
+      "removedCrBytes": 222,
+      "wholeJsonSha256": "46077842821bc0e5c13e7603256a4e5eeb10ba2898cd3e79bcde30e43bcb2010"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-d.json",
+      "kind": "source",
+      "name": "batch-0004-d.json",
+      "working": {
+        "bytes": 40600,
+        "sha256": "0d1c0159a1210d180cea91dfff7d3b923ee7711e2ee921ab803c34d9d0d75418"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "60327210011c0204ffd74cfa071b47e7c0ddfbb3",
+        "bytes": 40393,
+        "sha256": "d6daea5fbdbe9c08f051e1bdd7b6c07322eb291d524d5be51ea4d8bfddfece45"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "63ae9e80c26386d114cecf42ce0bff93a09ec0ce434136bc5c083af4334cedc4"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-d.json",
+      "kind": "reviews",
+      "name": "batch-0004-d.json",
+      "working": {
+        "bytes": 4474,
+        "sha256": "0b539be7b6ad96fcf7f2016c67d5a8e597698c73fce6d9981582a0937e73838f"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "3724d1270bcd474a276b7da7f504a86d92132bdb",
+        "bytes": 4240,
+        "sha256": "0756f9bd885d04ad765a2b0ead8a8972c4d33fba3565c95ca708d06fb088012d"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "ba0a6dc1c381c0c257b7fede56ad6648c37f0bbda380af9255d797e6c98af75a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-e.json",
+      "kind": "source",
+      "name": "batch-0004-e.json",
+      "working": {
+        "bytes": 37184,
+        "sha256": "ae69dbea0bcdce7372fa3b2573b3753355ededfc9536668eec08efe827613edc"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "842dd6d4439daeee052c0557938d9af240671c07",
+        "bytes": 36977,
+        "sha256": "ad15b3af4f9f2191091b696b38879f795b1117833754f267b75ecc406ce5384d"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "0a6e974377da211f6561ce81bd1810c6601447988065bcbdbb0b1574b014d5f5"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-e.json",
+      "kind": "reviews",
+      "name": "batch-0004-e.json",
+      "working": {
+        "bytes": 4566,
+        "sha256": "42249fcfaa21337c1bfd4c79fa731727c9327d7453a9e297045f7bf9ea22e4c6"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "49eccd0736daba04a8a5924d1c64a786f6b702f1",
+        "bytes": 4332,
+        "sha256": "7506b8e1485ab44c074d68afbfa105e704443ab9a0f25f0d77961b5ceacb3d36"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "d7d97b0a2d546a3a5d940674465b4fd6cc1d6724c7d8d97734da19b41de7c775"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-f.json",
+      "kind": "source",
+      "name": "batch-0004-f.json",
+      "working": {
+        "bytes": 37143,
+        "sha256": "34046d8594a54ad0e46b0fb87e595b4c283535e7dd844cccffb18704171218c3"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "5d3dfc8c2bb2d77e21c3a17f8413708dabd1884d",
+        "bytes": 36936,
+        "sha256": "ceb1262e4f4c767572b485820707b5fd393397b206c05b852bf021601df8cc7a"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "87cc625334d4bcb9ec4d5618959a6d031e6c853b0f9bf5bfdd77e2b9cd6a6f7c"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-f.json",
+      "kind": "reviews",
+      "name": "batch-0004-f.json",
+      "working": {
+        "bytes": 4822,
+        "sha256": "8749860aa2ef032c0559de9466b870a7b5d3e7ee9c9fab1c0e90a426967530e4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "5e6ae3b79b4fca2b418cbb4e9d8df9742c11f77b",
+        "bytes": 4582,
+        "sha256": "859ef3e8c57ff28093e33f2b3d24715b31e70910e90f2fa9ada107fd37fa778b"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "37e75e4eb526791ac8361660a401a18b6624353d5f8c892d980b7e05bcba08df"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-g.json",
+      "kind": "source",
+      "name": "batch-0004-g.json",
+      "working": {
+        "bytes": 37600,
+        "sha256": "47e66476e790c8d1dcf25a52536921017ca80baa27b1284fbe2c479c5b0a57cb"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "678c2a9e971fea50011630af1aba6775c63c5a0d",
+        "bytes": 37393,
+        "sha256": "e4126a516a1e3ca9631c3799858cd7f36e049d12e2b45759d017c71f0e783e3c"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "713d519e561dfbb2b8a308b34f1c8f2383b6c7a1c6a09c9bade73d36e48a55e2"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-g.json",
+      "kind": "reviews",
+      "name": "batch-0004-g.json",
+      "working": {
+        "bytes": 4912,
+        "sha256": "eca7228b80e79d42cba1b12da60a2e2f53a417070782abc2ce7ce6911817770e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "24324dbbc0b79e2945fdb4880d25b6f226a450d4",
+        "bytes": 4672,
+        "sha256": "2d61f66ee6b5eb3b55bfb1baeb4968f001571b52314c72b9a0ee93ba3f64095e"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "57947a481479f56da49500ca071fe7ba29025a0d64c091b5334fb0181cb5358a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-h.json",
+      "kind": "source",
+      "name": "batch-0004-h.json",
+      "working": {
+        "bytes": 37923,
+        "sha256": "771de43af229e38418a4dbd36762db674151a99796ba0447a2667f314059177c"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "8fcdb0f6a74413f333fb4da7073275afbbb1eb93",
+        "bytes": 37716,
+        "sha256": "3f8d52280a26b2ab5ca76067dd03ec0a1d921fb7df8f49c83b03710bc0349a5b"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "82e22a7637b32cddd9e9e940d0e0cc03cb0eebd746f8b15e4aa892d67ad463cc"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-h.json",
+      "kind": "reviews",
+      "name": "batch-0004-h.json",
+      "working": {
+        "bytes": 4866,
+        "sha256": "278b527e7972189e9957a7bc639905ea45ad5243ccf0accd0fceb3a747b64175"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a8611ae062a93e7bfa4b5e9b854b9d152e96d281",
+        "bytes": 4626,
+        "sha256": "df411adb59a75d5c839f460a384a51265f69be0c1af2aba3d43b0cfc6e40ef12"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "874213982b5f153fcdc06b5c12b80df083133b0e5be7e83e5eabdac5c019231b"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-i.json",
+      "kind": "source",
+      "name": "batch-0004-i.json",
+      "working": {
+        "bytes": 47189,
+        "sha256": "b44e59637899c1bdcb3523bf2a2b560625629236224362da8ed216c456013720"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "e605118b261293a0874e82ff89722ee134d70162",
+        "bytes": 45782,
+        "sha256": "4806892a78dd8d14bf6f20fed2e8c05419523c7475eab716ef740ce37a099fc3"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "6aa683b79c91e1f7c7e6d5b70205800e706f506ae0e26971283c79138b71e890"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-i.json",
+      "kind": "reviews",
+      "name": "batch-0004-i.json",
+      "working": {
+        "bytes": 4633,
+        "sha256": "6c4b7a70b5b29c561204790bd52330f8c99b6ffe30a331c96e49a1ebb9acf129"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "8e2626e8ef380dcc9a6ab56ebf363a5d3360532a",
+        "bytes": 4399,
+        "sha256": "0a558e4979f988bcd23281754d9272efc719345eb04753e1522323acef86dc85"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "0ed0c315098fb43b508735cde5b58fb6baabffd6714f7c9bf85cb8a31317c0c5"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-j.json",
+      "kind": "source",
+      "name": "batch-0004-j.json",
+      "working": {
+        "bytes": 46861,
+        "sha256": "f6f9f10f0fde8a8acba16966b43b03098e411538be0f5e8d740e5d64b36bc714"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7bd7bb9d25d02fcb65af687083fed3b14cb6a582",
+        "bytes": 45454,
+        "sha256": "496e96e39c1ade456e0ca2d0fc0812195584126b26b70faf99c7556e9c324846"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "ec0d08c02fade7dd7ba104f55db5d7ecd010298fc5e1cb9e44aaa5779f9989d1"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-j.json",
+      "kind": "reviews",
+      "name": "batch-0004-j.json",
+      "working": {
+        "bytes": 4671,
+        "sha256": "55684398b014b0c6808164d8adf962858ed7dc696448fa972bf8dc6e79077732"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "f6ed07cb4be64e5aafafa1d28e29a59906380afd",
+        "bytes": 4437,
+        "sha256": "65bc217e6cb97724ce1b57b798a36e3a3bdffbefcd9f768b09cc3ce9bc4d5a51"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "70bb8cb285886ae306e5ccd6682d61d5d3d79b189d73ffe9499600cb5d336ed9"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-k.json",
+      "kind": "source",
+      "name": "batch-0004-k.json",
+      "working": {
+        "bytes": 47048,
+        "sha256": "7cd46dbda05ddcded50a5f4b79b47758eec4323197453b54beff756b1aadc1e4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "257433256543bf67968a53de579ea060b561737f",
+        "bytes": 45641,
+        "sha256": "c3334fcccd70cf4569fc5e901184d617b589406cee3f3ac5925df0f5c9ad210d"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "1bc200bf8d3355542e1fcf316bf46008929909ba53b4b94346c84205bae0258f"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-k.json",
+      "kind": "reviews",
+      "name": "batch-0004-k.json",
+      "working": {
+        "bytes": 5055,
+        "sha256": "3179fc1b01b0dcdea4c7a59bfbb27d3936be50bdf5e3abeff32059481d5fd10b"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "bbf7a60a5bcd9efc5c59138a22fdd64201c3bd56",
+        "bytes": 4815,
+        "sha256": "717f14a213369f4f7d6a0e7fd15a4ea7457171c8fb599dbc730190ba80338276"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "131a56ab4d90ea4086b436ee009c5f975e4fdcff07812b35ecef8fb92a227edd"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0004-l.json",
+      "kind": "source",
+      "name": "batch-0004-l.json",
+      "working": {
+        "bytes": 47158,
+        "sha256": "2aec098bb2efa64646db8d92f5999a53c8a38370b329e6e4157ca12b6af377b7"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "c1c13e5d074f5b59d263b9f5da54d491288e97f2",
+        "bytes": 45751,
+        "sha256": "863a116173c7ff0519619ea824c79cea844688758036fcb31006af77b66efc62"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "d2136a774c2f9aa5af8ca1729b13cab45bcfd6354327b8471686017da1a8a6bb"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0004-l.json",
+      "kind": "reviews",
+      "name": "batch-0004-l.json",
+      "working": {
+        "bytes": 5013,
+        "sha256": "e9d409c1482ccf0ee075286ac619af629b05f5c7d7f944719603662e402fc3e4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "2b4b09a3b405a98b9fa7cf3423725aac9b07b63d",
+        "bytes": 4773,
+        "sha256": "134582ee4a18f21accb23dd1fdfb35c413265d6efa4bdd25e05af90525868757"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "80a2d63fa00a7f7040e197204ec5d860d2ed692df2016741a57fc917cf1e6fd0"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-a.json",
+      "kind": "source",
+      "name": "batch-0005-a.json",
+      "working": {
+        "bytes": 39271,
+        "sha256": "3f4591bd82b4365e239df975b1ce3497f14e7a3c8ade78ea2ccce11f658b4723"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "00ac5ced12d499d8426c79389037d2b914c17037",
+        "bytes": 39064,
+        "sha256": "423218bea2b67d7096be9a12a177ead29e2a89131c5ed582367173e28442c7aa"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "74f7c05df07772082ff077544bffc29f0fcfa3ef981f32e5656ec0d637af1d5a"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-a.json",
+      "kind": "reviews",
+      "name": "batch-0005-a.json",
+      "working": {
+        "bytes": 5331,
+        "sha256": "e99e0c9ea02c8cc168dce314ece04f85caf031ff527b03f9aec52cc646aed98c"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "76a2a5bb07af9c48d1aece6f3dacf5e2519d6dfd",
+        "bytes": 5079,
+        "sha256": "abd9dedfb58d1333cf28d7f7ab71a9057763a251a4de90abeebc170aa0ec6c26"
+      },
+      "removedCrBytes": 252,
+      "wholeJsonSha256": "854eb5813e56a0a6acdeee36ddb437ab5a0bbb0bc656610d3ec3b15ea19a51a4"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-b.json",
+      "kind": "source",
+      "name": "batch-0005-b.json",
+      "working": {
+        "bytes": 39624,
+        "sha256": "846bedf6435b1938695ce25ec08a1a82e84892fa878432570b337c6d83f08d9e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "aa75ba4fa7e07947b2786f2993bb7225ace4f116",
+        "bytes": 39417,
+        "sha256": "5dbd75da36e4fc469ccb3d2dc9e4cb3fcf06c9b6506078d8826efc96752f1cea"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "c3b05fa84a96ad581dd951e94c75e0cfd58daa6b15025253614c04fcd37056e3"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-b.json",
+      "kind": "reviews",
+      "name": "batch-0005-b.json",
+      "working": {
+        "bytes": 7821,
+        "sha256": "b73a6e536b676c7967f774dd5c028fd0839597c0efbcbb6fe37a4ba2367ab389"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "64b7538508ea63b59684804f9c4361e2c5d4689f",
+        "bytes": 7515,
+        "sha256": "2cd0a5088050deac03674f225fc01de1e0d942039471ba5f09c17dbc79add6c5"
+      },
+      "removedCrBytes": 306,
+      "wholeJsonSha256": "e19f84a520cd6a0bdbfc4c754be638c920af7f35099704b16f7524308f296f71"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-c.json",
+      "kind": "source",
+      "name": "batch-0005-c.json",
+      "working": {
+        "bytes": 39568,
+        "sha256": "4893a19b5c3cfc577762dc597d265a74234f2b93095345f9d9f394d20d86e646"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "57dcb6042098bc6ff331fb42a83b6fad2067c59f",
+        "bytes": 39361,
+        "sha256": "ad96d0819eae184d61a25e83930937ff309ee7207ac1df869b81f0defbd44e12"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "646c20a65b348c50331c7d5eaaebe8577269fdad689213d301f12a9bd24f503e"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-c.json",
+      "kind": "reviews",
+      "name": "batch-0005-c.json",
+      "working": {
+        "bytes": 5697,
+        "sha256": "a3c771fa135672033af5c4cf9d02a09b6276215a8efa3e83d9e9904d5c9eed58"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "93b57ff1618ad7b05b259ea591974fc3da7b37e0",
+        "bytes": 5439,
+        "sha256": "658515ee454f8d5165e6465f288d2c4029dbd9f50f6e9a90355d6629a3cb5612"
+      },
+      "removedCrBytes": 258,
+      "wholeJsonSha256": "37df2fd59ab63a82db3b39200710b88ad22877dd8bc7b82ca953fa8b3f82c85c"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-d.json",
+      "kind": "source",
+      "name": "batch-0005-d.json",
+      "working": {
+        "bytes": 40432,
+        "sha256": "2ebd32cf0fab9ef9765e02b8ce9279b53c9fe117f65645194648a323aaaa480c"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "dafd2b08af8424bb21dc0a7b4021959317400692",
+        "bytes": 40225,
+        "sha256": "f0e046a3544658f66c109c06601ef3b5ef3c7014873b7b9d2ec3565662d3b83c"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "7f9281b8cf94d1039272bfa50b3ecd430e10bc9b9ceebb7f745e03796c8b2931"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-d.json",
+      "kind": "reviews",
+      "name": "batch-0005-d.json",
+      "working": {
+        "bytes": 6822,
+        "sha256": "1178d95d871645ac73699323c44b8ad5828437c540bf820dcc0f4637fac0c894"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "70a0e58b04c30d95f60cf03b87013892a8d9cc44",
+        "bytes": 6540,
+        "sha256": "67c8a9eb6660d2e4c215dbbc7efa7c2027929a21c14b4fa06d91ca36d48d4432"
+      },
+      "removedCrBytes": 282,
+      "wholeJsonSha256": "69e9353dd295d12ed0becc65ccbe2263b480e21b75a59eb5456a07529cf295e5"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-e.json",
+      "kind": "source",
+      "name": "batch-0005-e.json",
+      "working": {
+        "bytes": 38067,
+        "sha256": "c432b17e43fc98849dbb25d08bd793951ae122d29f0a121fc4878747171ab0b0"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "82068b20c648623f5da6d6851c337d2dcc20c5c0",
+        "bytes": 37864,
+        "sha256": "0abab3a27ef6da093ed623c2f4019b391e77e13b318865c05a854198b58d9c7c"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "1af73a75de7543b2bc46e6a8450c89d1cabb35057cdd7639b7f9f0eab67811e3"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-e.json",
+      "kind": "reviews",
+      "name": "batch-0005-e.json",
+      "working": {
+        "bytes": 4220,
+        "sha256": "348de93614ecdfc2999ea319c6a6d960d8bfaa2f90afc160ab3630679713bdf3"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "f79c32f8051524778bccdcb99cd8426311c0492f",
+        "bytes": 3992,
+        "sha256": "0a40f3c5d91dcd571c02e6df25f9244e00c9dc4ec35c67eb5a790b85229d451c"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "5eba98a98df9a936ad3d3e3f859e9812bfeefe13c5dfcd65820ca27d8b9d9d13"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-f.json",
+      "kind": "source",
+      "name": "batch-0005-f.json",
+      "working": {
+        "bytes": 38801,
+        "sha256": "cf799afa5a4d768c9657c8cf9e76086f9ff9f3dcdc5e97563e03024d298cb56c"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "43e11bd77f26b4b9179dff8769ffb598a980eb08",
+        "bytes": 38598,
+        "sha256": "56405e50e1f279a343215207cafe94ff72b2d24f708e0b28d8ec0c4fbeef4ab8"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "7ad96b5cd10593e619624bb635b34ec8fb0d85f70559b186ef604d535435424d"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-f.json",
+      "kind": "reviews",
+      "name": "batch-0005-f.json",
+      "working": {
+        "bytes": 4933,
+        "sha256": "da52a33f9864017a613603ee0c414ec279bb35ef06ee1df8f639371742ae4676"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a790dd612d50a0ab20bc3bdf97c79f4e18a0e429",
+        "bytes": 4687,
+        "sha256": "7df3c9c7df05a746f1b48093c0307fa70d9f814a8b4be9451829e40b00e231c0"
+      },
+      "removedCrBytes": 246,
+      "wholeJsonSha256": "b3165c68eae325b246d307daacd507fe73e5c3eba7c87986ec69f15ba86a1401"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-g.json",
+      "kind": "source",
+      "name": "batch-0005-g.json",
+      "working": {
+        "bytes": 38559,
+        "sha256": "23e90fd042ff8391697f65b50fe71e5fad0721013ae3f34f89b42b015f5e2102"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "654000790fbd12e17b0bfbcd835b2427b54bd91f",
+        "bytes": 38356,
+        "sha256": "01ad9687b6ae2f21b4eb2cc7782690c4e0a2c42761fcb80d668b4117f38ec6bd"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "026b45806d5852d3b1c1f64157915ab372e588eedfcedf28eb8d8b7c7b9a1a08"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-g.json",
+      "kind": "reviews",
+      "name": "batch-0005-g.json",
+      "working": {
+        "bytes": 4543,
+        "sha256": "d56cd5fdaaeabc29de78cd73e64107a5f57e991d44692d2cd6e27f8b5f13391b"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "81dc9b9d76b27167c127c9d3b2204273a5557013",
+        "bytes": 4309,
+        "sha256": "c9b5a19d7fac8f4ce6c846f9f0277096e040941628da154158972ebc7665373b"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "3706aa8a87cd7452bb258f9b7bb552e6885b1b83d028601c5a366b1ffaeccd06"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-h.json",
+      "kind": "source",
+      "name": "batch-0005-h.json",
+      "working": {
+        "bytes": 39781,
+        "sha256": "57bd570e2d3a9d293f73577dcb610d32cbe03c52289e9699522ec48a2885b90c"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "8f34e96222a8498b17df6e1a104f90a02781c53f",
+        "bytes": 39578,
+        "sha256": "df5537605e70067741753df551a46671f569fc8bd2bf7e293465ed6cec2e3693"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "bba273094de01349fbc844002844bb3eef63f7d10579d9f64013aeb9e8842ef4"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-h.json",
+      "kind": "reviews",
+      "name": "batch-0005-h.json",
+      "working": {
+        "bytes": 5072,
+        "sha256": "18bc99fd10f26a69d58caf56fee055690c2c40e1e17461eeee0c7251d0d9388e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "3bda8681640893dbb30649d7e4f47fe33504bfed",
+        "bytes": 4826,
+        "sha256": "549646f335e963da75ea2a338d3339b947bd9f849380b08cf68a9e792a7da931"
+      },
+      "removedCrBytes": 246,
+      "wholeJsonSha256": "a8239ac2ed1fcc2c43eb42d5467647fe978cee852c406ecd05c57a4aad4589f3"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-i.json",
+      "kind": "source",
+      "name": "batch-0005-i.json",
+      "working": {
+        "bytes": 48412,
+        "sha256": "04b72f7a719d424ee54096d244cfe275a11be1a37a23ecce95b003a0441b54b5"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "03ea5d46d3906864b16820614fa9c1704e4de94a",
+        "bytes": 47005,
+        "sha256": "7e73f92fc54aa4619f30c53bea1dc094008587b713644cca415768bfcb508dc6"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "afadbf51a2cd86186307e80ecf668329ce8f2c9052824e92cc4f289a5fad2d82"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-i.json",
+      "kind": "reviews",
+      "name": "batch-0005-i.json",
+      "working": {
+        "bytes": 5023,
+        "sha256": "a24b7694c5a7a5b33a14099a0cd60e422f704b3bc85e4b6a76c4ad9010704ebc"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "10f9aa86ea12a188b47002f854f1b5a3bab2203d",
+        "bytes": 4783,
+        "sha256": "6025e4bb480521d561fb11d02fa47ffac867e4c1ca76e5cc1cb75d73daab762b"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "89e1cf8b7bc19049e34c29c4a0ce47da3fd21269bdedd0abff2ce1c68f1fec2c"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-j.json",
+      "kind": "source",
+      "name": "batch-0005-j.json",
+      "working": {
+        "bytes": 47687,
+        "sha256": "945333986fdd6a91cd394604f53a96edef8e6157e6ee2fc4ac10ffa1fb4ef062"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "5f2eb069c555417a798e6c1de41609821d80f4b4",
+        "bytes": 46280,
+        "sha256": "57a5aab636ef00c0ec1ef8626af7ccb5a5405d90b11fa83546547c6725285fe2"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "4906a0d25a001e3c92157f7249de6bd551ac7405d2a6fb33db1f05f93fdfdfd7"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-j.json",
+      "kind": "reviews",
+      "name": "batch-0005-j.json",
+      "working": {
+        "bytes": 4007,
+        "sha256": "e4a3c98dd07e2879b6e4888361885501dc9876011e9a2d0147604a0d9ea60f67"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "6d68e7887ea855400a10cc628cd222ed04d4bc10",
+        "bytes": 3785,
+        "sha256": "efebe4fd8b3c3289cac9bfae0ab2cdcc188a6c603c38210728de9aea43df1a2b"
+      },
+      "removedCrBytes": 222,
+      "wholeJsonSha256": "b4d27c79935592f1efce7c5efdb23c19cb4459ba180dfa1137991a52ed3fad39"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-k.json",
+      "kind": "source",
+      "name": "batch-0005-k.json",
+      "working": {
+        "bytes": 48103,
+        "sha256": "4e5e5a952c0776d4ef0619140c12cf1b06bced016c027aeceb25ba4b83107c09"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "83a63598d54f538834e1054ef3ceb6b4c0a9ada1",
+        "bytes": 46696,
+        "sha256": "aa71b34b2e5853fbf8e6342998074ba35a1f0db1d4b547f7ad8acf68bb93e94b"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "b222c4d6b35e297320d935bfadfdb95c7a67955d180f414413de3a123dd52561"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-k.json",
+      "kind": "reviews",
+      "name": "batch-0005-k.json",
+      "working": {
+        "bytes": 4734,
+        "sha256": "d31ff83b6217ffa3b1067ba8f7e16975b8020f5efd35734b16498c3e88668fff"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7b76bd9eb0c445149ca4671dff4ee3253154d9b5",
+        "bytes": 4500,
+        "sha256": "c41e5d91fb0ce48eb096e96a7fd25e4db5dff5f3eae82e99815350bb81af9900"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "6a0b2647a42dcacce1ba51905a49ef9d67b6bfafa7fe1eea8b66912c91eec3d0"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0005-l.json",
+      "kind": "source",
+      "name": "batch-0005-l.json",
+      "working": {
+        "bytes": 47636,
+        "sha256": "528f68aaa2582b4ae805412deaef0103b03eb12707119d6f033f1ae1d4ac7d71"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "50331e3df0663186c05749322672a7c5ba320a1f",
+        "bytes": 46229,
+        "sha256": "b69b9bc63233f50c7492f1d7baa42071d33f981662a2d84bc53017de705dc9ab"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "37406a186d011054af60c37b38960aec6d6e991bcf4b2a825254c45ad4cfaa76"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0005-l.json",
+      "kind": "reviews",
+      "name": "batch-0005-l.json",
+      "working": {
+        "bytes": 4814,
+        "sha256": "9652c5e2ea8b3a5299a7a25075ffeba292f74848723c81e6f154d2eadea2a081"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a5f6da27d36040831c8ac8a282d7cee1da92e060",
+        "bytes": 4580,
+        "sha256": "8f0c47a0b02f3e2892cfb997f3bb0690e7f289371fd8f1931115176f359c70ee"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "e139330a2a904e76860efade37a6abc0e89f5b70b6430c4bbcf9c0d7eae571fb"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-a.json",
+      "kind": "source",
+      "name": "batch-0006-a.json",
+      "working": {
+        "bytes": 39532,
+        "sha256": "e68e91f14a82a4dba7b5f5ce83d4bb72c001d095febaa08b678df4df84923ceb"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "52beeb998998698aebcf7fbd628fe828784ec350",
+        "bytes": 39325,
+        "sha256": "01b1304b07af8b7c5384f75eeb74a452ed85b0450ad33c40e15f591ffc66f716"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "9cb44ac79442d813b9c4af6e73a42944fef299111f1b10ec0db20edd705c23f6"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-a.json",
+      "kind": "reviews",
+      "name": "batch-0006-a.json",
+      "working": {
+        "bytes": 4159,
+        "sha256": "b1aa1348fc66a97ce53ede7087b50d0a80b489cb0f3dd422b984cf42236a0ab3"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "7df0368ab0d5b3501c67af841d290bb512c7bb0c",
+        "bytes": 3943,
+        "sha256": "b180d83cb434570570f9863044ffc3a51b71c2d7a5c1c2d629b44bc8b8b5d319"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "8c825b99d8f8f093289fe4242fdbfd3a228f06b6897a2c7e8e062781397468a8"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-b.json",
+      "kind": "source",
+      "name": "batch-0006-b.json",
+      "working": {
+        "bytes": 39728,
+        "sha256": "563b98026e61f0a7016d9c053abd96dc1a3229da7186f224343fa15bd7573f50"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "dbe05d77b1d9cb9e7b698d1ea1e14726e548f349",
+        "bytes": 39521,
+        "sha256": "365fdf5e6424a1f8b974bdd552aa5120e7e1a7734cf3d834ec8160931c10af1b"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "8d40349e6fcc3ded2ed8a550d145baef2a0cb400a79b0e9a4782a7432481b5cc"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-b.json",
+      "kind": "reviews",
+      "name": "batch-0006-b.json",
+      "working": {
+        "bytes": 4186,
+        "sha256": "18c4431e9f75bf909a7408514900e1cc4b8cc9c3bf10a03d0f507e2dcc859dc1"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "b8374a7d61fbceb0016692951e66c207450b132b",
+        "bytes": 3970,
+        "sha256": "fe728aeffaef8af6950fddb8b273f514efa66f8a7837c02c7a074ab4928dc423"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "268ab66ff455f789f9c14371f0be410a7269f2ff42869d7cae2711fe88830ab9"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-c.json",
+      "kind": "source",
+      "name": "batch-0006-c.json",
+      "working": {
+        "bytes": 39813,
+        "sha256": "9c12ce86862032dd451a0cfb62777112ae08cf418303d361f83bd25595332f2f"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "b1bcc48106c82032b4db5eaa9cbc18e167fe49b9",
+        "bytes": 39606,
+        "sha256": "6f41c0ef78c202318806643bd67e51ab23ab9a5b205e0d238128273f6206dbc1"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "469f9dfc3849c3003067b51f9103c335ad216c655b3f8dbd4a54718dced0daf9"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-c.json",
+      "kind": "reviews",
+      "name": "batch-0006-c.json",
+      "working": {
+        "bytes": 3740,
+        "sha256": "14aec5d4ee4921d1cad69e653daadb701d10984b2e3aab3776de500635d5a3ea"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "ab90045720e99416aa630a35de2e3cf3e85ff07b",
+        "bytes": 3531,
+        "sha256": "67737fa61e02312e3fd1815e2117d6ce933014e4746973dbaea38c3638219f90"
+      },
+      "removedCrBytes": 209,
+      "wholeJsonSha256": "9e727d9152becada3feab5e5862e56541d959604785b981975f3bba90d3ef075"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-d.json",
+      "kind": "source",
+      "name": "batch-0006-d.json",
+      "working": {
+        "bytes": 39853,
+        "sha256": "edd5e63d9b4896b82121cac6c1586c073db2a326a23636513cdb221c3ccaeaf6"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "0ece490120cc9c3b7a440fd227517c07fc0b35c4",
+        "bytes": 39646,
+        "sha256": "66a857690be19dc54d514375f0be45a013ff3043f92edae02602fa2e44c3570a"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "3d3f87e57b20695440678b74eaa471f4e262847e78d716dc763b82802bb20249"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-d.json",
+      "kind": "reviews",
+      "name": "batch-0006-d.json",
+      "working": {
+        "bytes": 4071,
+        "sha256": "30039ddd3deb6414f0c911c3a26f7674c5e7e6393b1f262a6d31166e5a6d127a"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "54996cdf6a8ab739816452e64b0505564497c63a",
+        "bytes": 3855,
+        "sha256": "407faa3350308e2fcfc03d93bd79c97276a13e5d95b15c64bb51dbf7a1511e9c"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "873a62bcd23124cbb1717288ad2e456467aa8a8814e874d73c5e5b97e54d9f48"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-e.json",
+      "kind": "source",
+      "name": "batch-0006-e.json",
+      "working": {
+        "bytes": 39533,
+        "sha256": "83febbd49a0394d6d814bff9d976f2da5438954dba04eb6f404e060b3f5d85f2"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "bf325b210278a9eccbf5fe57084584cee2cbba24",
+        "bytes": 39330,
+        "sha256": "40424147341ce301c62e1f4c21b0a142d936c1ae03ffddfad83ecf3854648433"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "c5765abfb9a9baeec5559aaddb098df9423a91ab586531794c9f379784411abf"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-e.json",
+      "kind": "reviews",
+      "name": "batch-0006-e.json",
+      "working": {
+        "bytes": 5444,
+        "sha256": "f8c54ba1a159d01bd3c16e50740280aae5eb9f4fba4f45e703a0e4805e3e904b"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "4e04b2a1e2083fc4e9c4d8861943558b14810400",
+        "bytes": 5192,
+        "sha256": "15dea4d5572e62dd7bdb3a52f0e812b32e7157a880a98875fea3587b64dc0f48"
+      },
+      "removedCrBytes": 252,
+      "wholeJsonSha256": "8294f1e67cc7109b570a1f6169bd49646bd0da5f209cd62820f39f496898bd0a"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-f.json",
+      "kind": "source",
+      "name": "batch-0006-f.json",
+      "working": {
+        "bytes": 40352,
+        "sha256": "40dc62d5029206641d19c1ee2f69c60628255b9770b4594a3b3c5830dbd4232d"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "189c8ddb0876c7a579c7e650e42b95e14a1fbcc7",
+        "bytes": 40149,
+        "sha256": "1705466abd6e121da82f38c03994bbbbc743a1e8a5e7ccbbb7d0ba35dfb70cd0"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "d3fce430301fb378a472d25d72190bfaab6c4a8158d6e6b6d5ee51b39409db23"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-f.json",
+      "kind": "reviews",
+      "name": "batch-0006-f.json",
+      "working": {
+        "bytes": 4635,
+        "sha256": "d94b013e1c194b5ad4998ab628edfed2d3991629ac510a45accbf654b087f711"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "f6e28ef4df4d9cb17ff1d73efae5689c7f6ee259",
+        "bytes": 4401,
+        "sha256": "6ec810ecc26f2542c350e7ddb90f7f3232a3e8683a556d237c45f10df3daac4f"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "83390130139d38edbe59b8b8f7f80708a48528a84f004355aba59c500a604788"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-g.json",
+      "kind": "source",
+      "name": "batch-0006-g.json",
+      "working": {
+        "bytes": 39833,
+        "sha256": "42590529868ad8cc033b45cdfd51f1fff4f4407d027f42e4998dce4f04db221f"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a950924c9258dc86db424961dbfdebdc5bb7fdd3",
+        "bytes": 39630,
+        "sha256": "753ffa7f69f884ff243a4dc65d0cb91d1dae3d5e1d4b94ff665fe20edebec02e"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "47561c3825910f12a95c30efbfe7f2d885511f387fff1bed263bedb5a01a49c4"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-g.json",
+      "kind": "reviews",
+      "name": "batch-0006-g.json",
+      "working": {
+        "bytes": 4622,
+        "sha256": "8434d360443ee7c1bceafabab55b87e544b988a0357eb275b99c2321cfec3764"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "58f3dd573cf5b492f2dc70a750cfafe006f21bc4",
+        "bytes": 4388,
+        "sha256": "13ffad7f4722d70ac65a8efc45c70def2afc6bb1ef831a6c3ae65dd5abb0af85"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "7092dc2cf6e3970dd436c5a4aa4713bf5c6cf3e09fb0683b7493c4fb35cee0b1"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-h.json",
+      "kind": "source",
+      "name": "batch-0006-h.json",
+      "working": {
+        "bytes": 40263,
+        "sha256": "04c2128f85c98d09446479ff99a7700767cdc6ddf440417691238f460ed576a1"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "72de84f8c172794effb69e3d55ba925161b0aed8",
+        "bytes": 40060,
+        "sha256": "73989e1f3dc0302cb01c000e6171afdf5afdfe1d60b405f5987ab9d411d67e41"
+      },
+      "removedCrBytes": 203,
+      "wholeJsonSha256": "153c6055fad1a9501b8c368f70deb62cd55e3753a1b652c850a8974e1d84701e"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-h.json",
+      "kind": "reviews",
+      "name": "batch-0006-h.json",
+      "working": {
+        "bytes": 5491,
+        "sha256": "a8c231c9b3f7a6a2ebd80594ce56cca670627274ff03faef0fa360f9a2c7cd67"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "260f84dc2fb5787d0bcecb06d1c124a69f7764db",
+        "bytes": 5233,
+        "sha256": "a1e70b55dc05774de18c23ff3602e4ae01729fb865e0841e91accc5f03033400"
+      },
+      "removedCrBytes": 258,
+      "wholeJsonSha256": "a3a7aaa677d75eedcfaad7da0b6108746ecaa4b0cbc0c5707345f8b0f6720693"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-i.json",
+      "kind": "source",
+      "name": "batch-0006-i.json",
+      "working": {
+        "bytes": 47225,
+        "sha256": "fa29a9d75535dc695b047369caeb5a4900e5ceeebc4efcc100435028f53deac7"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "cf82f715e2c67f3a42641cc485f1ea92e6effadb",
+        "bytes": 45818,
+        "sha256": "938090796bfe347b49972415bb63391656063b866d29534b730ed5b6e61c4545"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "b44357091dc8981386e6dab6b67f6445f8112ecc43915ff55e9ee43dae1092ee"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-i.json",
+      "kind": "reviews",
+      "name": "batch-0006-i.json",
+      "working": {
+        "bytes": 4771,
+        "sha256": "d572406345da13b8e47f33ce3a3607df13bc34c4ed9f9b0f7669e45e59dcf64a"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "9fbb733bf0ffd4e24673f8747e2f7a5907e36623",
+        "bytes": 4537,
+        "sha256": "636126a7988773bd2d3c808c160292d3e3e5ee42ead05dee056a848ac12e25c5"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "90555766be0b4deb8acdcc4355244625f3e8720cfeaebab79c5c8d71dd626707"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-j.json",
+      "kind": "source",
+      "name": "batch-0006-j.json",
+      "working": {
+        "bytes": 47332,
+        "sha256": "6633e4eea861e0badd99101a8d6aae17077900f22c45c555bb0c8fb249ccc762"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "e3c45a0d696975097cc21ac0ba5b8649197059e7",
+        "bytes": 45925,
+        "sha256": "f9724a5d2e4cf5d59714d3652e28a899c026c32e122781d273e78daabd666ec2"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "7364fbb849abedb55ed15ef96a916ec0b5775913cbf06f63bff03dbce48ee5cc"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-j.json",
+      "kind": "reviews",
+      "name": "batch-0006-j.json",
+      "working": {
+        "bytes": 4252,
+        "sha256": "d602693d8dfe19dd17e967c53946d2ae3b970a62dda8100c5cacb91ffc4c2eb8"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "0c6cbe5ea4d077ef3e222b7762f9f205e9f88d94",
+        "bytes": 4030,
+        "sha256": "4c0293a4728bf9c23c929a098de07b4253c542e1dbfca62ac86a694275fd7935"
+      },
+      "removedCrBytes": 222,
+      "wholeJsonSha256": "36cb835e9ca6e91e4b5bb9a45bf65fec19bf9dbca228c10479e50e145d680922"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-k.json",
+      "kind": "source",
+      "name": "batch-0006-k.json",
+      "working": {
+        "bytes": 47099,
+        "sha256": "199db29bf4bfb7b46d8fba2049fd8fab508471dbbd33345f09c5a5ecea75b5e4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d24c986ae26785f8415ffc83e1dc16ca49d123a4",
+        "bytes": 45692,
+        "sha256": "4717e3b1c7b5b96697efb49963d3bcd61e14bfe1bd49db9899a22ed05b02c788"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "12d5afa2a23e3b2bb866f76a9a025111314d00cb153dfe3fb5a95b5ef8a6f678"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-k.json",
+      "kind": "reviews",
+      "name": "batch-0006-k.json",
+      "working": {
+        "bytes": 3950,
+        "sha256": "4a633c47ee2cbf00a2d74f7233b36401fcd3253ba0092d59dc2cbc0e76234263"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "30893c09a78cd70e560814e54715faf89de49ed2",
+        "bytes": 3734,
+        "sha256": "5c2b875b1f9831d90e1c96661cbf58c2ae6a019017160dcfa2c8f7f564f1aeed"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "f52e72de54a5b311f19193f7400b97324cd57dc970999d5cf4ce248e2063d88f"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0006-l.json",
+      "kind": "source",
+      "name": "batch-0006-l.json",
+      "working": {
+        "bytes": 46556,
+        "sha256": "758d569c8e0ae566b89bce2ec1a1caa3dccaeff318313617c1657ce8599c0de2"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d3515f9c22dd3be8e3aee9834f98dedf16929852",
+        "bytes": 46349,
+        "sha256": "ca7848ef9ec2d2e24fc3ce495da4b0d69bcd69963df8eedb524cd1600489f1df"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "421ad27c231aa7def8c2bff003a1b9b1f200291f36d880f578111843e7fbff99"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0006-l.json",
+      "kind": "reviews",
+      "name": "batch-0006-l.json",
+      "working": {
+        "bytes": 4548,
+        "sha256": "e7b581e5a710fea42039f93bdf5c2fec435b53bf24a320fff44ecfe34e131caf"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "6f488fdf3ef87d6fa88d5cb57213f8845d667474",
+        "bytes": 4320,
+        "sha256": "2fa6f4ab6a21eb19974aa2e1b9be916c0f78c74504651710a013734af0d55fe5"
+      },
+      "removedCrBytes": 228,
+      "wholeJsonSha256": "8f3002d380b825d06ebde64eea4f5c3eacf4edb68e0bd20e473742be5c140019"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-a.json",
+      "kind": "source",
+      "name": "batch-0007-a.json",
+      "working": {
+        "bytes": 41103,
+        "sha256": "59a2af2ab41873a3a6626053aeb75e3069d9d289c3ecee46be3c04aabb0249ba"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "bfdd95e021f271e059b75dea2e97a18ff9123f92",
+        "bytes": 40896,
+        "sha256": "7b34673daf4a834a6f3b4430db9dc908728ae0d6114f325fb1bf2f4504adde9e"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "356a0c9b2e0a3b56ec3eea85fd0e7cd4e25424f0b4e7a5223b3887842ce7314a"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-a.json",
+      "kind": "reviews",
+      "name": "batch-0007-a.json",
+      "working": {
+        "bytes": 4920,
+        "sha256": "e2c88fd7d6970dfc11d6fea3ff828e7acbcf45c2a6c8602d84791ca34a80b315"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "b31bb308b743211a534798684b90f6dfdfb0e52f",
+        "bytes": 4680,
+        "sha256": "3ac7cc4639dfb85e579fe3668c84a6693367c893e6f73f6541c9a0588992d68f"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "5d6509a3fb2461248da415a527977daf3545c1d524690f28872e3fb84f4d7987"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-b.json",
+      "kind": "source",
+      "name": "batch-0007-b.json",
+      "working": {
+        "bytes": 41448,
+        "sha256": "6008e13dcfe45c4746eec2c9143431ea112890c6004a8b90507d3a1a0aa84d27"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "5fb7651c45da52b8b9f090bb459638df156f726f",
+        "bytes": 41241,
+        "sha256": "b868bb7a8f86f49b0d4f7cd61be495fa21d8891f8f0c5c5fd78fbfcffe81d933"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "71283b730acefe2e0b846567f3b9fa321ecd2a3d5a0c52e8f4f1894b70f73dd5"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-b.json",
+      "kind": "reviews",
+      "name": "batch-0007-b.json",
+      "working": {
+        "bytes": 4872,
+        "sha256": "ed4b54d83888b27e7c83904bf0c275568d8a02e5a8b2fda868e662d72d337bf1"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "f247b23100607174ddf9d0064ef4430f21437460",
+        "bytes": 4632,
+        "sha256": "2793e34944dd0b02313f6cc04891253679218a3260cd808fd3d96b1e53573d85"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "344b472115cbdfbd71b9ba73fa194b88be401a27f1692e190522e79cab6bb798"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-c.json",
+      "kind": "source",
+      "name": "batch-0007-c.json",
+      "working": {
+        "bytes": 42159,
+        "sha256": "8bcee80280aa27ce4b938a1006ee2882f7a7d1f21c95ac858630687627a1ce0d"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "c562d8a9ee8d1dd8b85bffeb78dc025fa0121022",
+        "bytes": 41952,
+        "sha256": "92fd5b74542be4e89472edd3439b27ebd30fa2ef103ab5018775aa456e0e23c0"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "9323bc02207663424a10c75e8d53153a8c1a668bc49e8a0f571d9a168f6d078a"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-c.json",
+      "kind": "reviews",
+      "name": "batch-0007-c.json",
+      "working": {
+        "bytes": 4704,
+        "sha256": "63812a284735f7ddc1e348d4fb542e5e3e76f803bafcafa982df3f57714caa55"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "29c4c635978c4c0ecda0db323a28bd923831b369",
+        "bytes": 4470,
+        "sha256": "fc4daf00afd1d2d2db5b9b7508b622d7cf91e6a32084ad55dad8ac9eedc95af1"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "369d621c05e63af37777f3ecacc1b51199663ae858f01a814a2b90fadfed74f2"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-d.json",
+      "kind": "source",
+      "name": "batch-0007-d.json",
+      "working": {
+        "bytes": 48715,
+        "sha256": "c15e44cd51ab4f332d12fee76b16557c1da9d7a23bf0276ff8b58da06451d87d"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "39fd27c7ef9cd9d7833ba746e0bb8e1e56314069",
+        "bytes": 48508,
+        "sha256": "2a97bf284ce70f9df51bb6dff6df10433b051eaf122c0a70ecbf68d51e332dd9"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "54a5a310c028c33f74a365a413bfbd08abd732fb3c389ac7deb6cfbf1cb4b1c4"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-d.json",
+      "kind": "reviews",
+      "name": "batch-0007-d.json",
+      "working": {
+        "bytes": 3900,
+        "sha256": "282d7a577b0f9a111abbe885bbcd32caccce0fc02928500597b73f2b1b9033d7"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "d9a212314c5eb5cfa7de1fb283e3a698073bff30",
+        "bytes": 3684,
+        "sha256": "f2a33d80cd5d232bba2018d200d95d9ca1fd453d149b8efa48d6922a2ee5a37a"
+      },
+      "removedCrBytes": 216,
+      "wholeJsonSha256": "4380d93e16dc017d15bd81963579298b91406d26c55775b30d51f9f45e5ba330"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-e.json",
+      "kind": "source",
+      "name": "batch-0007-e.json",
+      "working": {
+        "bytes": 50518,
+        "sha256": "b0601bb607648a36f31902c5758dd299b17aeeb4e042684dab58ba45fba7c8eb"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "456e4ac0da749ebe36df845ae47047749684a4e6",
+        "bytes": 49111,
+        "sha256": "85c939dfabfe537e64746c61200762ef656b463bcd29777d1d9b4ea29c786b41"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "bf0bcc34e4d23187bfb32c29d24cff93a62494b82f28a72b8261e53d75ea081a"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-e.json",
+      "kind": "reviews",
+      "name": "batch-0007-e.json",
+      "working": {
+        "bytes": 5634,
+        "sha256": "0688855767857240707394c4d30842ad2c44a9f3ed4190fb08013f18f7d22705"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "4d9476ab6f215a7326025a49fd05663bda236f32",
+        "bytes": 5376,
+        "sha256": "e6c803867b0795b0e4de59ee0b8e3e3fe3ccc34723a005be28dd962425465676"
+      },
+      "removedCrBytes": 258,
+      "wholeJsonSha256": "05e32c551f350cc68bd51fe0a13a447afc9fccad2e37003269479e182a62695f"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-f.json",
+      "kind": "source",
+      "name": "batch-0007-f.json",
+      "working": {
+        "bytes": 50636,
+        "sha256": "b950e661c5ed8d440051546e8c781d5cfd7174e1b662a61187d01ebdf04431aa"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "45ad0c1febc3dfca822d8c7d7f853e4e07438e62",
+        "bytes": 49229,
+        "sha256": "90ffe7775737f994ce1790f743c19d8499698f3a38dbbafc14bb2ae3dfcfe6c3"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "12ec8a22f4866a532f44e316fadc0edd6f1a257be5ce64a21bcc69e20bedc4c8"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-f.json",
+      "kind": "reviews",
+      "name": "batch-0007-f.json",
+      "working": {
+        "bytes": 4736,
+        "sha256": "ea9411442daa8b97b8d4aebfc027116b40efb51b2715a5e5efdc508a2fa144d4"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a64019b473698b5bbdb165cab692e3b05ae09f54",
+        "bytes": 4502,
+        "sha256": "bbbd6000df8b4c944f899e1df1753e653131762167a79fc3a2c1970fac3bf2c0"
+      },
+      "removedCrBytes": 234,
+      "wholeJsonSha256": "fd9e0d07ea9a28b6e6d765ca819a9ae379b0e159dd24dfa76755cead1da8865b"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-g.json",
+      "kind": "source",
+      "name": "batch-0007-g.json",
+      "working": {
+        "bytes": 51361,
+        "sha256": "0c3b9d6467f0abb046578a4d737965fa4eb61f1a542ab189aed57f5de35f5111"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "03640596bb8ef951ac5935167ab98ee5758cd1bf",
+        "bytes": 49954,
+        "sha256": "d7652b45b68f1874832a532be02eb8b8a9a3826fb52d4ba357449f071f7d406a"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "495c0398b0c3d22d95ba2183bbe9d22714eee3662391cc85560e612cc396c8d8"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-g.json",
+      "kind": "reviews",
+      "name": "batch-0007-g.json",
+      "working": {
+        "bytes": 4886,
+        "sha256": "5321a34d636ab87f2add0d09ef2b383cd13739ae3f370810eaa1c4176b7cd8f5"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "3e34873848f69313ab04a579bda3b736de05a7e3",
+        "bytes": 4646,
+        "sha256": "5212fc80883e80462011717023b9c6f72bde590509f2e656557a80afeed94770"
+      },
+      "removedCrBytes": 240,
+      "wholeJsonSha256": "7ae621df0d0731023f7c55bf441166f50dc340e13c61c74b7e86a7a1c8b02202"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-h.json",
+      "kind": "source",
+      "name": "batch-0007-h.json",
+      "working": {
+        "bytes": 49485,
+        "sha256": "da72ed8ee2bc3c139c0024f43d39f834a47dfb8ad93701c634063174e11d2f89"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "27e7e6a079e6b4dc5d396cce5db11971552bd983",
+        "bytes": 49278,
+        "sha256": "6124300f26c0d173c91ee22dd42e64af22450bc3138c40bd8ca952fb8892387f"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "3166f6142acb231c90f56e5468a606554f14c1b8879ff2b44f63baee5c9498b4"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-h.json",
+      "kind": "reviews",
+      "name": "batch-0007-h.json",
+      "working": {
+        "bytes": 6380,
+        "sha256": "96cd0e7c7b1368142d2b790cb175f072b1439630ac1dfcfca592372d6859b7db"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "82a1d8b983198c86cef44bd0b47989579b27a8db",
+        "bytes": 6104,
+        "sha256": "65b7dc841d86c92d9e090d54c59e2762fb2ef56de526f92923b47aa0205028c6"
+      },
+      "removedCrBytes": 276,
+      "wholeJsonSha256": "4661615140ae22d8a22acb9739b58e84bd36be9d0783a4d63ceebc27deddc150"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-i.json",
+      "kind": "source",
+      "name": "batch-0007-i.json",
+      "working": {
+        "bytes": 47570,
+        "sha256": "f9891eb36a73bdcd54beea35b90a100b7d01b184dd2223c23907db6d0e7326a5"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "59917c598ec3d91fef3988dc7ee9244a25549089",
+        "bytes": 46163,
+        "sha256": "657cf81c0de5835899452e87f90f66889bbc44209b443e2dd9ac2e6545d0b518"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "fd7fa47a308d9b5f451fe77283a2088a5de34ab7c8173572b7fff95bd9525784"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-i.json",
+      "kind": "reviews",
+      "name": "batch-0007-i.json",
+      "working": {
+        "bytes": 5997,
+        "sha256": "eefcb1dd5d919b3d647c780094c770caa1a463621f0d1e95b2e01abfac37388b"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "ffa6c091fbf25b99fe8ab0c3cb5fa4a08d8efaeb",
+        "bytes": 5734,
+        "sha256": "6d1bccd221808e0199348d48412ba65d4b7acf3a518d2b2604f2c457942f6e36"
+      },
+      "removedCrBytes": 263,
+      "wholeJsonSha256": "6a0b42765267fe55908148b20eead6845a280f92b2373319f44c9742fcadac3d"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-j.json",
+      "kind": "source",
+      "name": "batch-0007-j.json",
+      "working": {
+        "bytes": 47440,
+        "sha256": "1eddd039a88b9aa11146cb10352e55ed90bb7a8bcb9dd93fb48e6404e21a5f37"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a4c23d7e48e6d51ad0220a7fc8afc477309976bd",
+        "bytes": 46033,
+        "sha256": "7c5164b1317aefcb76c80f1cbd28d1a92cc2da404bd4c3df20b5b86ff8d61049"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "2206b7a73bc0d23d96f59eb8568e600aa3c6a2f2f1606d3500523a07a6db4f25"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-j.json",
+      "kind": "reviews",
+      "name": "batch-0007-j.json",
+      "working": {
+        "bytes": 5550,
+        "sha256": "82987d8dedae37b026145171650ec99d5107f1476e4134627410e70720426ad2"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "f6d9300b34397399baaadc5d9784606573e06441",
+        "bytes": 5292,
+        "sha256": "991a53ac26d33e76952224fd24215a685d3502ce5f30db3de0165bfe331bbe43"
+      },
+      "removedCrBytes": 258,
+      "wholeJsonSha256": "f2d3de63dd7068669dbe80e95472b484b07fbe3943ea8c453beae2e2b252714b"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-k.json",
+      "kind": "source",
+      "name": "batch-0007-k.json",
+      "working": {
+        "bytes": 46916,
+        "sha256": "b014a0652f6351ae60d22c116afe3373958861e7c7838d03ac3206673244616e"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "bf291d882ff4682adfad9a2fe39a0d5568688eef",
+        "bytes": 45509,
+        "sha256": "da95060e7966d6cf672eaea286f6b9a539f6d86809329264904be346de9a69ba"
+      },
+      "removedCrBytes": 1407,
+      "wholeJsonSha256": "19c6482f765dca2b7bde8d208aa103e7d386081798ca1263295347ce247bc447"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-k.json",
+      "kind": "reviews",
+      "name": "batch-0007-k.json",
+      "working": {
+        "bytes": 5719,
+        "sha256": "ba9647e6fdaab017c7a7a18b8fece83fdc99ec236e56ad6549d35694a996dd8d"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a8a7e2eda2de31699c6a6d6dcf776d4300a7483f",
+        "bytes": 5469,
+        "sha256": "c06fb03ae37e34dc6502cb88ff9df898fefedf9b494807ed716abc312294dbec"
+      },
+      "removedCrBytes": 250,
+      "wholeJsonSha256": "3ff4011a51d2507fb9951b03921760a264f0f26f44f7ac3ecc69bb71ff11d4b9"
+    },
+    {
+      "file": "tooling/dictionary/examples/source/batch-0007-l.json",
+      "kind": "source",
+      "name": "batch-0007-l.json",
+      "working": {
+        "bytes": 44562,
+        "sha256": "519f239a9cd3acc995e867e2b7db5b7e09f7a40d65e08c9cbce81407a0821d9d"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "cab96b76bcb6d4e6c4573e3a766104fe15136bb8",
+        "bytes": 44355,
+        "sha256": "f4a39fddda61729ece171e197dee15c1e8f5f93a5290676172f9980f1bc66e0d"
+      },
+      "removedCrBytes": 207,
+      "wholeJsonSha256": "18c5cf2f9d1d8c41dc9081d3b7d99641bdb6114b9d9045ee4da48c0f353119ae"
+    },
+    {
+      "file": "tooling/dictionary/examples/reviews/batch-0007-l.json",
+      "kind": "reviews",
+      "name": "batch-0007-l.json",
+      "working": {
+        "bytes": 4946,
+        "sha256": "ed0b9f107aa1cd32afbbe1df2c28f6fb7ff56baef6c126c26c6e8aa86bd59746"
+      },
+      "git": {
+        "commit": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+        "blob": "a5833b4bf34527f83906414b491c5c845a73b348",
+        "bytes": 4713,
+        "sha256": "104bd6964735cb6029a2fc03cf2c1d2cba84a1cb9ac1b4c3c67130531fb1f534"
+      },
+      "removedCrBytes": 233,
+      "wholeJsonSha256": "43bdd11aaa6d26890365abdcfab46b08d723ed1e96ca43b42ee2abbc296ec1fd"
+    }
+  ]
+}

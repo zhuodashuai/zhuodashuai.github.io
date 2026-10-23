@@ -126,6 +126,17 @@ export function assertD29MetadataTransition(attributesRaw,commonRaw,build){
   commonRestoredRawSha256:COMMON_BEFORE.rawSha256,commonRestoredObjectSha256:COMMON_BEFORE.objectSha256};
 }
 
+// Genuine immutable committed D29 release metadata. Historical tests do not
+// reinterpret the current D30 metadata, and D30 separately tests its transition.
+export async function loadD29ReleaseMetadata(){
+ const root=fileURLToPath(new URL('../../',import.meta.url));
+ const attributesRaw=await fs.readFile(path.join(root,'tooling/dictionary/examples/archives/d29-release-metadata.attributes.txt'));
+ const commonRaw=await fs.readFile(path.join(root,'tooling/dictionary/examples/archives/d29-release-metadata.common.json'));
+ assert.equal(attributesRaw.length,2070);assert.equal(sha(attributesRaw),'e04a682e83aca77682cbd58718bd292b5a4ac566d64a25f3b88bbf5c3108bbb6');
+ assert.equal(commonRaw.length,189170);assert.equal(sha(commonRaw),'b33827a84dd150454b50fef7e4c297d556d9bc69f9d955c4cfe37cc4b5b2a6df');
+ return{attributesRaw,commonRaw};
+}
+
 export async function loadD29Fixture(){
  assert(D29_BUILD,'Actual D29 normal build has not been registered; projection is insufficient');
  assert.deepEqual(Object.keys(D29_BUILD).sort(),['version','manifestSha256','queueSha256','provenanceSha256'].sort());
@@ -147,7 +158,8 @@ export async function loadD29Fixture(){
  const source=await json('vocab/data/expanded-dictionary/manifest.json','2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f'),records=new Map(),descriptors=[...source.english.shards,...source.chinese.shards];
  assert.equal(source.counts.records,102609);assert.equal(descriptors.length,256);for(const d of descriptors){const raw=await read('vocab/data/expanded-dictionary/'+d.file);assert.equal(raw.length,d.bytes);assert.equal(sha(raw),d.sha256);if(d.file.includes('/en-'))for(const row of JSON.parse(raw).records){if(records.has(row.term))assert.deepEqual(records.get(row.term),row);else records.set(row.term,row);}}assert.equal(records.size,102609);
  for(const file of Object.keys(PROTECTED_RAW_FORMS))assertD29ProtectedBytes(file,await read(file));
- const metadataTransition=assertD29MetadataTransition(await read('.gitattributes'),await read('tooling/dictionary/chinese-related-common-examples.json'),D29_BUILD);
+ const historicalMetadata=await loadD29ReleaseMetadata();
+ const metadataTransition=assertD29MetadataTransition(historicalMetadata.attributesRaw,historicalMetadata.commonRaw,D29_BUILD);
  const queue=await json('tooling/dictionary/examples/queues/batch-0029.json',D29_BUILD.queueSha256),provenance=await json('tooling/dictionary/examples/queues/batch-0029-provenance.json',D29_BUILD.provenanceSha256);
  assert.equal(queue.entries.length,287);assert.equal(queue.deferred.length,115);assert.equal(queue.all402CompleteOriginalAuthorObjects.length,402);assert.equal(queue.all395ExactPriorReasonBindings.length,395);
  for(const doc of [queue,provenance]){assert.equal(doc.examplesBuilt,false);assert.equal(doc.published,false);assert.equal(doc.coverageAdded,0);}assert.equal(queue.sourceChanged,false);assert.equal(queue.formsChanged,false);assert.equal(provenance.newLanguageDecisions,0);assert.equal(provenance.sourceChanges,0);assert.equal(provenance.formsChanges,0);

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {buildMemberDictionary} from '../scripts/build-member-dictionary.mjs';
-import {loadD29Fixture,D29_BUILD,assertD29MetadataTransition,assertD29ProtectedBytes} from './d29-regression-fixture.mjs';
+import {loadD29Fixture,D29_BUILD,assertD29MetadataTransition,assertD29ProtectedBytes,loadD29ReleaseMetadata} from './d29-regression-fixture.mjs';
 
 // Install/run only after the normal build has been performed and D29_BUILD
 // has been filled from its actual saved manifest, queue and provenance bytes.
@@ -39,8 +39,7 @@ test('D29 admission evidence preserves scope boundaries after a real build',()=>
 test('D29 permits only the three LF rules and two actual common-review pointer changes',async()=>{
  assert.equal(f.metadataTransition.appendedRuleCount,3);
  assert.deepEqual(f.metadataTransition.commonFields,['dictionaryExamplesVersion','dictionaryExamplesManifestSha256']);
- const attributesRaw=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
- const commonRaw=await fs.readFile(new URL('../dictionary/chinese-related-common-examples.json',import.meta.url));
+ const {attributesRaw,commonRaw}=await loadD29ReleaseMetadata();
  assert.deepEqual(assertD29MetadataTransition(attributesRaw,commonRaw,D29_BUILD),f.metadataTransition);
  // These are substantive boundary changes, not formatter-shaped expectations.
  assert.throws(()=>assertD29MetadataTransition(Buffer.concat([attributesRaw,Buffer.from('# unauthorized fourth line\n')]),commonRaw,D29_BUILD));
