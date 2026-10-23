@@ -121,7 +121,7 @@ test("unsafe and unrelated destinations remain untouched; fixed notes/auth origi
     const footer = document.querySelector(".app-footer");
     const values = ["javascript:alert(1)", "//evil.test/", "https://evil.test/personal.html", "/api/v1/member/entries", "quality/", "https://zhuodashuai.github.io/"];
     const links = values.map(href => { const link = document.createElement("a"); link.setAttribute("href", href); footer.append(link); return link; });
-    const module = await import("/js/app-navigation-entry.js?v=105");
+    const module = await import("/js/app-navigation-entry.js?v=106");
     module.setupAppNavigation().refresh();
     const result = links.map(link => link.getAttribute("href")); links.forEach(link => link.remove()); return { values, result };
   });
@@ -133,4 +133,45 @@ test("no-context guide/lookup hrefs keep their original fallback syntax", async 
   await page.goto("/dictionary.html#q=Tajik");
   await expect(page.locator(".app-footer").getByRole("link", { name: "使用手册", exact: true })).toHaveAttribute("href", "guide.html");
   await expect(nav(page).getByRole("link", { name: "公开词本", exact: true })).toHaveAttribute("href", "./");
+});
+
+test("ordinary header returns public chapter before delayed personal imports or DOMContentLoaded", async ({ page }) => {
+  const writes = recordWrites(page);
+  let releaseImport;
+  let importRequested;
+  const importGate = new Promise(resolve => { releaseImport = resolve; });
+  const requested = new Promise(resolve => { importRequested = resolve; });
+  const pattern = "**/js/personal-storage.js*";
+  const delayImport = async route => {
+    importRequested();
+    await importGate;
+    await route.continue();
+  };
+  await page.addInitScript(() => {
+    globalThis.__navigationDclFired = false;
+    document.addEventListener("DOMContentLoaded", () => { globalThis.__navigationDclFired = true; }, { once: true });
+  });
+  await page.route(pattern, delayImport);
+  try {
+    await page.goto(`/personal.html?auth=member#lookup=river&${fragment}`, { waitUntil: "commit" });
+    await requested;
+    const primary = nav(page);
+    await expect(primary.locator("a")).toHaveText(["公开词本", "查词", "随手记", "我的词本"]);
+    await expect(primary.getByRole("link", { name: "公开词本", exact: true })).toHaveAttribute("href", /book=never-let-me-go/u);
+    expect(await page.evaluate(() => ({ ready: document.readyState, dcl: globalThis.__navigationDclFired }))).toEqual({ ready: "interactive", dcl: false });
+    await expect(page.locator("#member-dictionary-search")).toBeDisabled();
+    // Navigation must work while the actual application dependency is gated.
+    await primary.getByRole("link", { name: "公开词本", exact: true }).click({ noWaitAfter: true });
+    await page.waitForURL(url => url.pathname === "/", { waitUntil: "commit" });
+    const returned = new URL(page.url());
+    expect(Object.fromEntries(returned.searchParams)).toEqual(fields);
+    expect(returned.hash).toBe("");
+    releaseImport();
+    await page.waitForLoadState("domcontentloaded");
+    await expectPublicScope(page, fields);
+    expect(writes).toEqual([]);
+  } finally {
+    releaseImport();
+    await page.unroute(pattern, delayImport);
+  }
 });

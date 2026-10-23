@@ -196,3 +196,30 @@ test("header ResizeObserver is optional, measured and disconnected without missi
   document.querySelector = () => null;
   setupAppNavigation({ document, location: { href: pages } }).destroy();
 });
+
+test("interactive startup installs capture immediately, then refreshes the same controller after app assignments", () => {
+  const documentListeners = new Map(), windowListeners = new Map();
+  let href = "./";
+  const link = { getAttribute: () => href, setAttribute: (_, value) => { href = value; }, matches: () => true };
+  const window = { addEventListener: (name, callback) => windowListeners.set(name, callback), removeEventListener: name => windowListeners.delete(name) };
+  const document = { readyState: "interactive", defaultView: window, querySelector: () => null, querySelectorAll: () => [link],
+    addEventListener(name, callback, options) {
+      if (name === "DOMContentLoaded") assert.deepEqual(options, { once: true });
+      else assert.equal(options, true);
+      documentListeners.set(name, callback);
+    }, removeEventListener: name => documentListeners.delete(name) };
+  const controller = setupAppNavigation({ document, location: { href: `${worker}personal.html#${carried}` } });
+  assert.equal(setupAppNavigation({ document, location: { href: pages } }), controller);
+  assert.equal(documentListeners.has("click"), true);
+  assert.equal(documentListeners.has("auxclick"), true);
+  assert.deepEqual(Object.fromEntries(new URL(href).searchParams), context);
+  // Initial application link assignment does not require another installation.
+  href = "./";
+  documentListeners.get("DOMContentLoaded")();
+  assert.deepEqual(Object.fromEntries(new URL(href).searchParams), context);
+  href = "./";
+  windowListeners.get("load")();
+  assert.deepEqual(Object.fromEntries(new URL(href).searchParams), context);
+  controller.destroy();
+  assert.equal(documentListeners.size, 0); assert.equal(windowListeners.size, 0);
+});

@@ -40,10 +40,19 @@ export function setupAppNavigation({ document = globalThis.document, location = 
     observer.observe(header);
   }
   if (header) window?.addEventListener("resize", measureHeader);
+  // Install capture before the application's deferred import graph is ready,
+  // then repair any hrefs assigned by that application during initialization.
+  const onReady = () => { refresh(); measureHeader(); };
+  if (["loading", "interactive"].includes(document.readyState)) {
+    document.addEventListener("DOMContentLoaded", onReady, { once: true });
+    window?.addEventListener("load", onReady, { once: true });
+  }
   const controller = { refresh, destroy() {
     document.removeEventListener("click", onClick, true);
     document.removeEventListener("auxclick", onClick, true);
     window?.removeEventListener("resize", measureHeader);
+    document.removeEventListener("DOMContentLoaded", onReady);
+    window?.removeEventListener("load", onReady);
     observer?.disconnect();
     installed.delete(document);
   } };
@@ -53,13 +62,4 @@ export function setupAppNavigation({ document = globalThis.document, location = 
   return controller;
 }
 
-if (globalThis.document && globalThis.location) {
-  // Deferred application modules also assign navigation hrefs. Run after all of
-  // them, not merely at readyState=interactive while their imports are pending.
-  if (document.readyState === "complete") setupAppNavigation();
-  else {
-    const start = () => setupAppNavigation();
-    document.addEventListener("DOMContentLoaded", start, { once: true });
-    globalThis.addEventListener?.("load", start, { once: true });
-  }
-}
+if (globalThis.document && globalThis.location) setupAppNavigation();

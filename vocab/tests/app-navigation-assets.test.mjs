@@ -20,7 +20,9 @@ test("all six static shells expose the same primary navigation and a quiet manua
     assert.match(html, /<footer\b[^>]*>[\s\S]*?href="guide\.html"(?: aria-current="page")?>使用手册<\/a>/u, file);
     assert.match(html, /href="app-navigation\.css\?v=105"/u, file);
     assert.match(html, /<body class="app-shell"/u, file);
-    assert.match(html, /src="js\/app-navigation-entry\.js\?v=105"/u, file);
+    assert.match(html, /src="js\/app-navigation-entry\.js\?v=106"/u, file);
+    const modules = [...html.matchAll(/<script type="module" src="([^"]+)"/gu)].map(match => match[1]);
+    assert.equal(modules[0], "js/app-navigation-entry.js?v=106", `${file} installs navigation before slow application imports`);
   }
 });
 
