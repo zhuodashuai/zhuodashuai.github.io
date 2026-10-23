@@ -23,3 +23,7 @@ tooling/dictionary/chinese-related-common-examples.json text eol=lf
 tooling/dictionary/examples/source/batch-0026-*.json text eol=lf
 tooling/dictionary/examples/reviews/batch-0026-*.json text eol=lf
 tooling/dictionary/examples/queues/batch-0026*.json text eol=lf
+# D28 source-bound independent opinions and retained holds use exact LF bytes.
+tooling/dictionary/examples/source/batch-0028-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0028-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0028*.json text eol=lf
