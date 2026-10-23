@@ -36,3 +36,11 @@ tooling/dictionary/examples/queues/batch-0030*.json text eol=lf
 tooling/dictionary/examples/source/batch-0031-*.json text eol=lf
 tooling/dictionary/examples/reviews/batch-0031-*.json text eol=lf
 tooling/dictionary/examples/queues/batch-0031*.json text eol=lf
+# Gzip bodies use .bin so HTTP servers do not transparently decode the .gz
+# representation. Never apply text or line-ending conversion to these bytes.
+vocab/data/dictionary-examples/catalogue-v4/*.bin -text
+vocab/data/dictionary-examples/delta-v4/*.bin -text
+tooling/dictionary/examples/source/batch-0032-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0032-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0032*.json text eol=lf
+tooling/dictionary/examples/additive-index-v4.json text eol=lf

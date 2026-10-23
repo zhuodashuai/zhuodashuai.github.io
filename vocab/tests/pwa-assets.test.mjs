@@ -56,15 +56,15 @@ test("inline lookup, folders and existing entry points share one coherent module
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
   }
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=104"/u);
+  assert.match(vocabHtml, /src="js\/public-app-v108\.js"/u);
   assert.ok(serviceWorker.includes('"./js/owner-public-library.js?v=99"'));
   assert.ok(serviceWorker.includes('"./js/dictionary-app.js?v=104"'));
   // Existing entry points must not load a second version of a changed module.
   const dictionaryHtml = await readFile(new URL("../dictionary.html", import.meta.url), "utf8");
   const personalHtml = await readFile(new URL("../personal.html", import.meta.url), "utf8");
-  const personalApp = await readFile(new URL("../js/personal-app.js", import.meta.url), "utf8");
-  assert.match(dictionaryHtml, /src="js\/dictionary-entry\.js\?v=104"/u);
-  assert.match(personalHtml, /src="js\/personal-app\.js\?v=107"/u);
+  const personalApp = await readFile(new URL("../js/personal-app-v108.js", import.meta.url), "utf8");
+  assert.match(dictionaryHtml, /src="js\/dictionary-entry-v108\.js"/u);
+  assert.match(personalHtml, /src="js\/personal-app-v108\.js"/u);
   assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=99"/u);
   // The active import graph has one current URL (checked above); explicitly
   // retained cache aliases keep already-open/offline readers working too.
@@ -154,9 +154,9 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app\.js\?v=104"/);
+  assert.match(vocabHtml, /src="js\/public-app-v108\.js"/);
   assert.match(vocabHtml, /href="styles\.css\?v=100"/);
-  assert.match(ownerHtml, /src="js\/owner-app\.js\?v=104"/);
+  assert.match(ownerHtml, /src="js\/owner-app-v108\.js"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);
   assert.match(guideHtml, /href="styles\.css\?v=100"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>卓的公开词本/);

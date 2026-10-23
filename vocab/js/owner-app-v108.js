@@ -1,0 +1,1996 @@
+import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=82";
+import { createEntryDetailController } from "./entry-detail-v108.js";
+import {
+  claimNextOperation,
+  completeOperation,
+  deleteDraft,
+  enqueuePublish,
+  getDraft,
+  getPublicCache,
+  getQuarantineCount,
+  importDrafts,
+  listDrafts,
+  listOutbox,
+  markOperation,
+  putPublicCache,
+  reconcileCommittedOperations,
+  requireReviewForStoredOperations,
+  saveDraft,
+  subscribeStorageChanges
+} from "./owner-storage.js?v=82";
+import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist, canGrandfatherUnstructuredLegacy, createBlankEntry, filterSynonymsToOwnerTerms, findDuplicate, formatMeaningForDisplay, isPlausibleChineseMeaning, needsAiCompletion, normalizeEnglish, parsePublicSnapshot, rankExactEntryMatches, reconcileLexicalEntryForPublish, safeHttpsUrl, validateEnglishInput, validatePublicEntry } from "./wordbook-schema.js?v=82";
+import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=82";
+import { setupPwa } from "./pwa.js?v=77";
+import { lookupCoreEntry } from "./core-dictionary.js?v=77";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=104";
+import { preserveCollectionTags } from "./collections.js?v=82";
+import { buildSynonymGroups } from "./synonym-groups.js?v=82";
+import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
+import { createOwnerBackupBlob, readOwnerBackupFile } from "./owner-backup.js?v=82";
+
+const ids = [
+  "auth-gate", "auth-message", "login-link", "remember-login", "owner-workspace", "logout-button", "network-chip", "owner-avatar",
+  "owner-identity-text", "sync-dot", "sync-label", "sync-detail", "capture-form", "capture-input", "organize-button",
+  "manual-button", "ai-service-status", "capture-status", "draft-list", "retry-queue", "export-backup", "import-backup", "import-file",
+  "editor-empty", "entry-form", "editor-kicker", "editor-title", "draft-state", "editor-ai-status", "editor-ai-title", "editor-ai-message",
+  "retry-ai-draft", "draft-completion-notice", "draft-completion-message", "complete-draft", "correction-card", "correction-original",
+  "correction-suggestion", "accept-suggestion", "keep-original", "manual-correction", "field-original-input", "field-term",
+  "field-standard-form", "field-entry-type", "field-part-of-speech", "field-phonetic", "field-meaning", "field-definition",
+  "field-example-en", "field-example-zh", "field-usage", "field-register", "field-collocations", "synonyms-field", "field-synonyms", "field-confused",
+  "field-forms", "field-tags", "sense-list", "attribution-fieldset", "field-author", "field-source-title",
+  "field-source-work", "field-source-date", "field-attribution-status", "field-source-url", "field-attribution-note",
+  "source-candidates", "editor-error", "save-local", "publish-button", "discard-draft", "refresh-remote", "owner-entry-count",
+  "owner-search", "owner-entry-list", "conflict-dialog", "conflict-message", "conflict-fields", "conflict-use-merged",
+  "conflict-use-remote", "conflict-close", "reorganize-current", "install-button", "update-banner", "apply-update"
+];
+const refs = Object.fromEntries(ids.map((id) => [id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), document.getElementById(id)]));
+const entryDetail = createEntryDetailController({ getEntries: () => state.snapshot?.entries || [] });
+const state = {
+  session: null,
+  csrfToken: "",
+  remoteSha: "",
+  snapshot: null,
+  currentDraft: null,
+  saveTimer: null,
+  pendingSave: null,
+  draftSaveTask: null,
+  discardingDraftId: null,
+  queueBusy: false,
+  queueWakeTimer: null,
+  authChecking: false,
+  authGeneration: 0,
+  tabId: crypto.randomUUID(),
+  conflict: null,
+  ownerSearch: "",
+  ownerInputHandled: false,
+  organizingToken: null,
+  organizingButton: null,
+  commitLockedDraftId: null,
+  draftAiStatus: new Map(),
+  previewGeneration: 0,
+  phoneticEditRevisions: new Map(),
+  ownerEnteredTerms: [],
+  ownerPublishedTerms: [],
+  queueRecoveryComplete: false,
+  runClosing: false,
+  publishing: false,
+  publishAbortController: null,
+  synonymBusy: false,
+  synonymEntryId: "",
+  synonymAbortController: null,
+  synonymAutomatic: false,
+  synonymRunRevision: 0,
+  foregroundMutationPending: 0,
+  synonymBatchBusy: false,
+  synonymBatchStopped: false,
+  synonymAttempts: new Set(),
+  synonymTimer: null,
+  remoteMutationRevision: 0
+};
+let resolveQueueRecovery;
+const queueRecoveryPromise = new Promise((resolve) => { resolveQueueRecovery = resolve; });
+const runPresenceChannel = typeof BroadcastChannel === "function"
+  ? new BroadcastChannel("wordbook-owner-run-presence-v1")
+  : null;
+runPresenceChannel?.addEventListener("message", (event) => {
+  const message = event.data;
+  if (state.runClosing || message?.type !== "probe" || !message.requestId || message.requesterRunId === state.tabId) return;
+  runPresenceChannel.postMessage({ type: "present", requestId: message.requestId, runId: state.tabId });
+});
+const OWNER_INPUT_LIMIT = 240;
+const PENDING_OWNER_INPUT_KEY = "zhuo-wordbook:pending-owner-input";
+const LEXICAL_ENTRY_TYPES = new Set(["word", "phrase", "phrasal-verb", "idiom", "collocation"]);
+const STATE_LABELS = {
+  local_saved: "本地已保存", queued: "等待同步", pending: "等待同步", syncing: "正在同步", retry_wait: "同步失败，将安全重试",
+  awaiting_auth: "等待重新登录", review_required: "等待你复核", conflict: "同步冲突", failed: "同步失败", published: "已发布", cancelled: "已取消"
+};
+
+function setStatus(element, message) { element.textContent = message || ""; }
+function commaList(value, maximumItems = 30) { return String(value || "").split(/[,，;；\n]/).map((item) => item.trim()).filter(Boolean).slice(0, maximumItems); }
+function value(id) { return refs[id].value.trim(); }
+function setValue(id, candidate) { refs[id].value = candidate || ""; }
+
+function setMultilineText(element, value) {
+  const lines = String(value || "").split("\n");
+  element.replaceChildren();
+  lines.forEach((line, index) => {
+    if (index) element.append(document.createElement("br"));
+    element.append(line);
+  });
+}
+function isoNow() { return new Date().toISOString(); }
+
+let ownerSynonymIndex = null;
+function getOwnerSynonymIndex() {
+  if (ownerSynonymIndex?.snapshot === state.snapshot) return ownerSynonymIndex;
+  const entries = state.snapshot?.entries || [];
+  const fingerprints = SYNONYM_FEATURE_ENABLED ? indexSynonymFingerprints(entries, ownerSynonymIndex?.fingerprints) : null;
+  const groups = SYNONYM_FEATURE_ENABLED ? buildSynonymGroups(entries) : [];
+  const related = new Map(entries.map((entry) => [entry.id, new Map()]));
+  for (const group of groups) {
+    for (const member of group.members) {
+      const neighbours = related.get(member.entry.id);
+      for (const other of group.members) {
+        if (other.entry.id !== member.entry.id) neighbours?.set(other.entry.id, other.entry.term);
+      }
+    }
+  }
+  ownerSynonymIndex = { snapshot: state.snapshot, fingerprints, related };
+  return ownerSynonymIndex;
+}
+
+function synonymScanLabel(entry, index = getOwnerSynonymIndex()) {
+  if (!SYNONYM_FEATURE_ENABLED) return "";
+  if (!LEXICAL_ENTRY_TYPES.has(entry?.entryType)) return "";
+  if (state.synonymEntryId === entry.id) return "正在识别同义词…";
+  const scan = entry.synonymScan;
+  if (!scan || scan.sourceFingerprint !== index.fingerprints.fingerprints.get(entry.id)) return "同义词待识别";
+  if (scan.status === "complete") {
+    const relatedCount = index.related.get(entry.id)?.size || 0;
+    if (scan.candidatesFingerprint !== index.fingerprints.candidateFingerprint(entry.id)) {
+      return relatedCount ? `同义词待补查 · ${relatedCount} 个已有关联` : "同义词待补查 · 词库已更新";
+    }
+    return relatedCount ? `同义词已识别 · ${relatedCount} 个匹配` : "同义词已识别 · 暂未找到匹配";
+  }
+  const reason = String(scan.reason || "");
+  if (/quota|limit|budget/.test(reason)) return "同义词待识别 · 今日额度不足";
+  if (reason === "import_pending") return "同义词待识别 · 导入后排队中";
+  return "同义词待识别 · 可稍后重试";
+}
+
+function hasForegroundOwnerWork() {
+  return state.publishing || state.queueBusy || state.discardingDraftId || state.organizingToken || state.foregroundMutationPending
+    || state.currentDraft || refs.captureInput.value.trim();
+}
+
+function pauseAutomaticSynonymScans() {
+  window.clearTimeout(state.synonymTimer);
+  if (!state.synonymBusy || !state.synonymAutomatic) return;
+  // Aborting the browser cannot retract a server-side GitHub transaction.
+  // Ignore that scan's late response and let publication retain its normal
+  // SHA/three-way-merge checks if the optional enrichment committed first.
+  state.synonymRunRevision += 1;
+  state.synonymAbortController?.abort();
+  state.synonymAbortController = null;
+  state.synonymBusy = false;
+  state.synonymAutomatic = false;
+  state.synonymEntryId = "";
+  renderOwnerEntries();
+}
+
+function scheduleImportedSynonymScans() {
+  if (!SYNONYM_FEATURE_ENABLED) { window.clearTimeout(state.synonymTimer); return; }
+  if (state.runClosing || hasForegroundOwnerWork() || state.synonymBatchStopped || state.synonymBatchBusy || state.synonymAttempts.size >= 20) return;
+  window.clearTimeout(state.synonymTimer);
+  state.synonymTimer = window.setTimeout(() => { processImportedSynonymScans().catch(() => {}); }, 50);
+}
+
+async function scanPublishedSynonyms(entryId, { automatic = false } = {}) {
+  if (!SYNONYM_FEATURE_ENABLED) return false;
+  if (!automatic && !state.queueRecoveryComplete) await waitForQueueRecovery();
+  if (state.runClosing || state.synonymBusy || state.queueBusy || state.publishing || !state.queueRecoveryComplete) {
+    if (!automatic) setStatus(refs.captureStatus, "正在同步其他内容，请稍后重新识别同义词。");
+    return false;
+  }
+  requireVerifiedOwnerUi();
+  const entry = state.snapshot?.entries.find((candidate) => candidate.id === entryId);
+  if (!entry || !LEXICAL_ENTRY_TYPES.has(entry.entryType) || !navigator.onLine) return false;
+  const csrfToken = state.csrfToken;
+  const controller = new AbortController();
+  const runRevision = ++state.synonymRunRevision;
+  const isCurrent = () => state.synonymRunRevision === runRevision;
+  state.synonymBusy = true;
+  state.synonymAutomatic = automatic;
+  state.synonymEntryId = entryId;
+  state.synonymAbortController = controller;
+  renderOwnerEntries();
+  try {
+    const result = await recognizeEntrySynonyms(entryId, csrfToken, { signal: controller.signal });
+    if (!isCurrent()) return null;
+    if (state.runClosing || state.csrfToken !== csrfToken) return false;
+    const snapshot = parsePublicSnapshot(result.snapshot, { allowLegacy: false });
+    if (!/^[0-9a-f]{40}$/i.test(String(result.sha || ""))) throw new Error("同义词接口未返回有效版本，请刷新远端后重试。");
+    state.remoteMutationRevision += 1;
+    state.snapshot = snapshot;
+    state.remoteSha = result.sha;
+    // The scan changes only remote relation metadata. In-progress editor
+    // contents and its conflict baseline must not be overwritten here.
+    const localDrafts = await listDrafts();
+    if (!isCurrent()) return null;
+    updateOwnerTermIndexes(localDrafts);
+    await putPublicCache(snapshot, result.sha, "authenticated-synonym-scan");
+    if (!isCurrent()) return null;
+    state.synonymEntryId = "";
+    const updated = snapshot.entries.find((candidate) => candidate.id === entryId);
+    setSyncState("synced", "已连接 GitHub", `${synonymScanLabel(updated)} · SHA ${result.sha.slice(0, 7)}`);
+    return updated?.synonymScan?.status === "complete";
+  } catch (error) {
+    if (!isCurrent()) return null;
+    if (!state.runClosing && state.csrfToken === csrfToken) {
+      const message = `同义词识别暂未完成：${error.message || "请稍后重试"}。词条已保存，现有词库和草稿不受影响。`;
+      // Background scans must not replace input validation or draft guidance.
+      if (automatic) setSyncState("synced", "已连接 GitHub", message);
+      else setStatus(refs.captureStatus, message);
+    }
+    return false;
+  } finally {
+    if (isCurrent()) {
+      if (state.synonymAbortController === controller) state.synonymAbortController = null;
+      state.synonymBusy = false;
+      state.synonymAutomatic = false;
+      state.synonymEntryId = "";
+      if (!state.runClosing) {
+        renderOwnerEntries();
+        if (hasVerifiedOwnerUi()) await drainQueue();
+      }
+    }
+  }
+}
+
+async function processImportedSynonymScans() {
+  if (!SYNONYM_FEATURE_ENABLED) return;
+  if (state.runClosing || state.authChecking || state.synonymBatchBusy || state.synonymBatchStopped
+    || state.synonymBusy || hasForegroundOwnerWork() || !state.queueRecoveryComplete
+    || !hasVerifiedOwnerUi() || !navigator.onLine) return;
+  state.synonymBatchBusy = true;
+  let paused = false;
+  try {
+    while (!state.runClosing && navigator.onLine && hasVerifiedOwnerUi() && state.synonymAttempts.size < 20) {
+      if (hasForegroundOwnerWork() || state.synonymBusy) break;
+      const entry = state.snapshot?.entries.find((candidate) => LEXICAL_ENTRY_TYPES.has(candidate.entryType)
+        && candidate.synonymScan?.status === "pending" && candidate.synonymScan.reason === "import_pending"
+        && !state.synonymAttempts.has(candidate.id));
+      if (!entry) break;
+      state.synonymAttempts.add(entry.id);
+      const completed = await scanPublishedSynonyms(entry.id, { automatic: true });
+      if (completed === null) { paused = true; break; }
+      if (!completed) {
+        // A quota, service or network failure must not trigger an automatic
+        // retry loop, including through refresh or storage-change events.
+        state.synonymBatchStopped = true;
+        break;
+      }
+    }
+  } finally {
+    state.synonymBatchBusy = false;
+    if (paused) scheduleImportedSynonymScans();
+  }
+}
+
+function updateOwnerTermIndexes(drafts) {
+  const publicEntries = state.snapshot?.entries || [];
+  state.ownerEnteredTerms = buildOwnerEnteredTermAllowlist(drafts, publicEntries);
+  state.ownerPublishedTerms = buildOwnerEnteredTermAllowlist([], publicEntries);
+}
+
+function allowedSynonymsFor(term, candidates) {
+  return filterSynonymsToOwnerTerms(candidates, state.ownerEnteredTerms, term);
+}
+
+function sameNormalizedTermLists(left, right) {
+  return left.length === right.length
+    && left.every((term, index) => normalizeEnglish(term) === normalizeEnglish(right[index]));
+}
+
+async function discoverActiveOwnerRuns() {
+  if (!runPresenceChannel) return [];
+  const requestId = crypto.randomUUID();
+  const activeRunIds = new Set();
+  const receivePresence = (event) => {
+    const message = event.data;
+    if (message?.type === "present" && message.requestId === requestId && message.runId) {
+      activeRunIds.add(String(message.runId));
+    }
+  };
+  runPresenceChannel.addEventListener("message", receivePresence);
+  runPresenceChannel.postMessage({ type: "probe", requestId, requesterRunId: state.tabId });
+  await new Promise((resolve) => window.setTimeout(resolve, 180));
+  runPresenceChannel.removeEventListener("message", receivePresence);
+  return [...activeRunIds];
+}
+
+async function waitForQueueRecovery() {
+  if (state.runClosing) throw new Error("当前页面正在关闭；没有执行任何远端更改。 ");
+  if (state.queueRecoveryComplete) return;
+  await Promise.race([
+    queueRecoveryPromise,
+    new Promise((resolve) => window.setTimeout(resolve, 5_000))
+  ]);
+  if (!state.queueRecoveryComplete) throw new Error("发布队列仍在安全恢复中；没有执行任何远端更改，请稍后重新点击。 ");
+}
+
+function setOrganizingControlsDisabled(disabled) {
+  const aiUnavailable = !navigator.onLine;
+  // A trustworthy public snapshot is required before a new AI lookup so an
+  // already-published term can be rejected without wasting a model request.
+  refs.organizeButton.disabled = disabled || aiUnavailable || !state.snapshot;
+  refs.manualButton.disabled = disabled;
+  refs.reorganizeCurrent.disabled = disabled || aiUnavailable;
+  refs.completeDraft.disabled = disabled || aiUnavailable;
+  refs.retryAiDraft.disabled = disabled || aiUnavailable;
+}
+
+function currentDraftAiBusy() {
+  return state.currentDraft
+    && state.draftAiStatus.get(state.currentDraft.id)?.state === "busy";
+}
+
+function updatePublishButtonDisabled() {
+  refs.publishButton.disabled = state.publishing || Boolean(currentDraftAiBusy());
+}
+
+function setBusyIndicator(button, busy) {
+  if (!button) return;
+  button.setAttribute("aria-busy", String(busy));
+  button.querySelector(".button-busy-label")?.remove();
+  if (!busy) return;
+  const label = document.createElement("span");
+  label.className = "button-busy-label";
+  label.setAttribute("aria-hidden", "true");
+  label.textContent = button === refs.manualButton ? " · 正在建立…" : " · 正在处理…";
+  button.append(label);
+}
+
+function beginOrganizing(triggerButton = null) {
+  if (state.organizingToken) {
+    setStatus(refs.captureStatus, "已有一项 AI 整理正在进行；没有重复提交，也不会重复建立草稿。");
+    return null;
+  }
+  const token = crypto.randomUUID();
+  state.organizingToken = token;
+  state.organizingButton = triggerButton;
+  pauseAutomaticSynonymScans();
+  setOrganizingControlsDisabled(true);
+  setBusyIndicator(triggerButton, true);
+  return token;
+}
+
+function finishOrganizing(token) {
+  // A delayed/stale finally must never unlock controls owned by a newer run.
+  if (state.organizingToken !== token) return;
+  setBusyIndicator(state.organizingButton, false);
+  state.organizingButton = null;
+  state.organizingToken = null;
+  setOrganizingControlsDisabled(false);
+  scheduleImportedSynonymScans();
+}
+
+async function withOrganizingLock(task, triggerButton = null) {
+  const token = beginOrganizing(triggerButton);
+  if (!token) return false;
+  try {
+    await task();
+    return true;
+  } finally {
+    finishOrganizing(token);
+  }
+}
+
+function hasUsablePronunciation(value) {
+  const pronunciations = String(value || "").normalize("NFKC").match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+  return pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+}
+
+function renderEditorAiStatus(draftId = state.currentDraft?.id) {
+  const record = draftId ? state.draftAiStatus.get(draftId) : null;
+  refs.editorAiStatus.hidden = !record;
+  refs.editorAiStatus.dataset.state = record?.state || "";
+  setStatus(refs.editorAiTitle, record?.title || "");
+  setStatus(refs.editorAiMessage, record?.message || "");
+  refs.retryAiDraft.hidden = !record || !["error", "review"].includes(record.state);
+  refs.retryAiDraft.textContent = record?.state === "review" ? "继续用 AI 补全" : "重试补全这份草稿";
+  refs.retryAiDraft.disabled = Boolean(state.organizingToken) || !navigator.onLine;
+  if (record?.state === "busy") refs.entryForm.setAttribute("aria-busy", "true");
+  else refs.entryForm.removeAttribute("aria-busy");
+  updatePublishButtonDisabled();
+}
+
+function setDraftAiStatus(draftId, record) {
+  if (!draftId) return;
+  if (record) state.draftAiStatus.set(draftId, record);
+  else state.draftAiStatus.delete(draftId);
+  if (state.currentDraft?.id === draftId) renderEditorAiStatus(draftId);
+}
+
+function aiFailureStatus(draft, message) {
+  return {
+    state: "error",
+    title: `“${draft.value.term || draft.value.originalInput}”这次没有取得完整结果`,
+    message: `${message} 当前草稿和你的手工修改都已保留；可在这里重试，持续失败时请保留人工内容。`
+  };
+}
+
+function draftCompletionGaps(entry) {
+  const gaps = [];
+  if (!isPlausibleChineseMeaning(entry?.meaning, entry?.term)) gaps.push("可信的中文释义");
+  if (!String(entry?.definition || "").trim()) gaps.push("英文释义");
+  if (entry?.entryType === "word" && !hasUsablePronunciation(entry.phonetic)) gaps.push("IPA 音标");
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && !String(entry?.partOfSpeech || "").trim()) gaps.push("词性");
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && entry?.organizationMethod === "manual"
+    && (!Array.isArray(entry.senses) || entry.senses.length === 0)) {
+    if (!String(entry?.exampleEn || "").trim()) gaps.push("英文例句");
+    if (!isPlausibleChineseMeaning(entry?.exampleZh, entry?.term)) gaps.push("例句中文");
+  }
+  if (LEXICAL_ENTRY_TYPES.has(entry?.entryType) && entry?.tags?.includes("待复核")) gaps.push("经人工复核、可靠对齐的分义项");
+  return gaps;
+}
+
+function renderDraftCompletionNotice(entry) {
+  const gaps = draftCompletionGaps(entry);
+  refs.draftCompletionNotice.hidden = gaps.length === 0;
+  setStatus(refs.draftCompletionMessage, gaps.length
+    ? `仍缺少：${gaps.join("、")}。草稿没有损坏，也没有自动发布；可以一键只补空白字段。`
+    : "");
+}
+
+function editorNeedsAiCompletion(entry) {
+  if (needsAiCompletion(entry)) return true;
+  if (entry?.entryType !== "word") return false;
+  // Older AI drafts may be otherwise complete but still lack an IPA. Judge the
+  // duplicate itself rather than whichever draft happens to be open in the DOM.
+  return !hasUsablePronunciation(entry.phonetic);
+}
+
+function hasVerifiedOwnerUi() {
+  return state.session?.login === "zhuodashuai" && Number(state.session?.id) === 156042078 && Boolean(state.csrfToken);
+}
+
+function requireVerifiedOwnerUi() {
+  if (hasVerifiedOwnerUi()) return;
+  throw new OwnerApiError("登录已失效，管理功能已锁定。请重新登录。", {
+    status: 401,
+    code: "authentication_required"
+  });
+}
+
+function ownerInputRecordFromUrl() {
+  const params = new URLSearchParams(location.search);
+  if (!params.has("input")) return null;
+  const input = params.get("input") || "";
+  try {
+    if (input.length > OWNER_INPUT_LIMIT) throw new Error(`管理链接中的英文输入不能超过 ${OWNER_INPUT_LIMIT} 个字符。`);
+    return { input: validateEnglishInput(input), error: "" };
+  } catch (error) {
+    return { input: "", error: error.message || "管理链接中的英文输入无效。" };
+  }
+}
+
+function rememberOwnerInputForLogin() {
+  const record = ownerInputRecordFromUrl();
+  if (!record) {
+    try { sessionStorage.removeItem(PENDING_OWNER_INPUT_KEY); } catch { /* optional handoff storage */ }
+    return;
+  }
+  try { sessionStorage.setItem(PENDING_OWNER_INPUT_KEY, JSON.stringify(record)); } catch { /* OAuth can continue without storage. */ }
+}
+
+function pendingOwnerInputRecord() {
+  try {
+    const raw = sessionStorage.getItem(PENDING_OWNER_INPUT_KEY);
+    if (!raw) return null;
+    const record = JSON.parse(raw);
+    if (record?.error) return { input: "", error: String(record.error).slice(0, 300) };
+    const input = String(record?.input || "");
+    if (input.length > OWNER_INPUT_LIMIT) throw new Error(`管理链接中的英文输入不能超过 ${OWNER_INPUT_LIMIT} 个字符。`);
+    return { input: validateEnglishInput(input), error: "" };
+  } catch (error) {
+    return { input: "", error: error.message || "管理链接中的英文输入无效。" };
+  }
+}
+
+function clearOwnerInputHandoff() {
+  try { sessionStorage.removeItem(PENDING_OWNER_INPUT_KEY); } catch { /* optional handoff storage */ }
+  const url = new URL(location.href);
+  if (!url.searchParams.has("input")) return;
+  url.searchParams.delete("input");
+  history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
+function consumeOwnerInputAfterAuthentication() {
+  if (state.ownerInputHandled || !hasVerifiedOwnerUi()) return;
+  const record = ownerInputRecordFromUrl() || pendingOwnerInputRecord();
+  state.ownerInputHandled = true;
+  clearOwnerInputHandoff();
+  if (!record) return;
+  if (record.error) {
+    setStatus(refs.captureStatus, `${record.error} 未建立草稿，也没有调用 AI。`);
+    return;
+  }
+  refs.captureInput.value = record.input;
+  setStatus(refs.captureStatus, `已从公开页带入“${record.input}”。请点击“AI 自动整理”；尚未调用 AI，也没有建立或发布草稿。`);
+  window.setTimeout(() => {
+    refs.captureInput.focus({ preventScroll: true });
+    refs.captureInput.scrollIntoView({ block: "center" });
+  }, 0);
+}
+
+function setNetworkState() {
+  refs.networkChip.textContent = navigator.onLine ? "在线" : "离线 · 草稿仍可保存";
+  refs.networkChip.classList.toggle("offline", !navigator.onLine);
+  setOrganizingControlsDisabled(Boolean(state.organizingToken));
+  if (state.currentDraft) renderEditorAiStatus(state.currentDraft.id);
+}
+
+function setSyncState(kind, label, detail = "") {
+  refs.syncDot.parentElement.classList.toggle("synced", kind === "synced");
+  refs.syncDot.parentElement.classList.toggle("error", kind === "error");
+  setStatus(refs.syncLabel, label);
+  setStatus(refs.syncDetail, detail);
+}
+
+async function refreshAiStatus() {
+  try {
+    const health = await getHealth();
+    const activeProvider = health.aiEffectiveProvider || null;
+    const dailyLimit = Number(health.aiDailyRequestLimit) || 20;
+    if (activeProvider === "cloudflare") {
+      // This is a live status line, not documentation. The billing and model
+      // details it used to repeat now live once, in the panel's detail block.
+      setStatus(refs.aiServiceStatus, health.paidFallbackEnabled
+        ? `AI 已就绪 · 每天 ${dailyLimit} 次 —— 注意：已启用可能收费的备用引擎`
+        : `AI 已就绪 · 每天 ${dailyLimit} 次`);
+      return;
+    }
+    if (activeProvider === "openai") {
+      const fallbackNote = activeProvider !== health.aiProvider ? "备用" : "";
+      setStatus(refs.aiServiceStatus, `当前实际启用${fallbackNote} OpenAI，调用可能产生 API 费用。`);
+      return;
+    }
+    setStatus(refs.aiServiceStatus, "AI 未接通 · 仍可手动建草稿");
+  } catch {
+    setStatus(refs.aiServiceStatus, "读不到 AI 状态 · 草稿仍会存在本机");
+  }
+}
+
+function showEditorError(message = "") {
+  refs.editorError.hidden = !message;
+  setStatus(refs.editorError, message);
+}
+
+function createDraft(entry, { mode = "create", baseEntry = null } = {}) {
+  return {
+    id: crypto.randomUUID(),
+    scope: "owner-public",
+    mode,
+    entryId: entry.id,
+    value: structuredClone(entry),
+    base: {
+      entry: baseEntry ? structuredClone(baseEntry) : null,
+      entryUpdatedAt: baseEntry?.updatedAt || null,
+      remoteSha: state.remoteSha || null
+    },
+    localState: "local_saved",
+    createdAt: isoNow(),
+    updatedAt: isoNow(),
+    publishedAt: null,
+    lastOperationId: null
+  };
+}
+
+function renderCorrection(entry) {
+  const suggested = entry.correction?.status === "suggested" && entry.correction.suggestion;
+  refs.correctionCard.hidden = !suggested;
+  setStatus(refs.correctionOriginal, entry.correction?.original || entry.originalInput);
+  setStatus(refs.correctionSuggestion, entry.correction?.suggestion || "");
+}
+
+function renderSenses(entry) {
+  const fragments = (entry.senses || []).map((sense, index) => {
+    const section = document.createElement("section");
+    section.className = "sense-item";
+    const title = document.createElement("strong");
+    title.textContent = `${index + 1}. ${sense.partOfSpeech || "义项"}`;
+    const meaning = document.createElement("p");
+    meaning.textContent = [sense.meaningZh, sense.definitionEn].filter(Boolean).join(" · ");
+    section.append(title, meaning);
+    for (const example of sense.examples || []) {
+      const english = document.createElement("p");
+      english.className = "sense-example";
+      english.lang = "en";
+      english.textContent = example.en;
+      const chinese = document.createElement("p");
+      chinese.className = "sense-example-zh";
+      chinese.textContent = example.zh;
+      section.append(english, chinese);
+    }
+    const notes = [sense.usageNotes, sense.register ? `Register: ${sense.register}` : ""].filter(Boolean).join(" · ");
+    if (notes) {
+      const note = document.createElement("small");
+      note.className = "sense-note";
+      note.textContent = notes;
+      section.append(note);
+    }
+    return section;
+  });
+  if (!fragments.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "当前没有分义项；基础释义仍可正常保存。";
+    fragments.push(empty);
+  }
+  refs.senseList.replaceChildren(...fragments);
+}
+
+function renderSources(entry) {
+  const candidates = (entry.sources || []).filter((source) => source.url);
+  refs.sourceCandidates.replaceChildren(...candidates.map((source) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "source-candidate";
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = `${source.title || new URL(source.url).hostname} · ${source.kind}`;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "采用为候选来源";
+    button.addEventListener("click", () => {
+      refs.fieldSourceUrl.value = source.url;
+      refs.fieldSourceTitle.value = source.title || "";
+      refs.fieldAttributionStatus.value = "candidate";
+      scheduleDraftSave();
+    });
+    wrapper.append(link, document.createTextNode(" "), button);
+    return wrapper;
+  }));
+}
+
+function fillEditor(draft, { focus = true } = {}) {
+  state.currentDraft = structuredClone(draft);
+  if (state.currentDraft.localState !== "published") pauseAutomaticSynonymScans();
+  const entry = state.currentDraft.value;
+  const storedSynonyms = Array.isArray(entry.synonyms) ? entry.synonyms : [];
+  const cleanedSynonyms = allowedSynonymsFor(entry.term, storedSynonyms);
+  const changedStoredSynonyms = JSON.stringify(cleanedSynonyms) !== JSON.stringify(storedSynonyms);
+  const removedStaleSynonyms = !sameNormalizedTermLists(cleanedSynonyms, storedSynonyms);
+  entry.synonyms = cleanedSynonyms;
+  refs.editorEmpty.hidden = true;
+  refs.entryForm.hidden = false;
+  // The short AI commit lock belongs to one draft. If the owner opens another
+  // draft during that window, the newly visible editor must remain usable.
+  refs.entryForm.inert = state.commitLockedDraftId === draft.id;
+  refs.editorKicker.textContent = draft.mode === "edit" ? "Editing published entry" : "Recoverable local draft";
+  refs.editorTitle.textContent = draft.mode === "edit" ? `编辑 “${entry.term}”` : `整理 “${entry.term || entry.originalInput}”`;
+  refs.draftState.textContent = STATE_LABELS[draft.localState] || draft.localState;
+  setValue("fieldOriginalInput", entry.originalInput);
+  setValue("fieldTerm", entry.term);
+  setValue("fieldStandardForm", entry.standardForm);
+  refs.fieldEntryType.value = entry.entryType;
+  setValue("fieldPartOfSpeech", entry.partOfSpeech);
+  setValue("fieldPhonetic", entry.phonetic);
+  setValue("fieldMeaning", entry.meaning);
+  setValue("fieldDefinition", entry.definition);
+  setValue("fieldExampleEn", entry.exampleEn);
+  setValue("fieldExampleZh", entry.exampleZh);
+  setValue("fieldUsage", entry.usage);
+  setValue("fieldRegister", entry.register);
+  setValue("fieldCollocations", entry.collocations?.join("，"));
+  setValue("fieldSynonyms", entry.synonyms?.join("，"));
+  refs.synonymsField.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(entry.entryType);
+  setValue("fieldConfused", entry.confusedWith?.join("，"));
+  setValue("fieldForms", entry.forms?.join("，"));
+  setValue("fieldTags", entry.tags?.join("，"));
+  setValue("fieldAuthor", entry.author);
+  setValue("fieldSourceTitle", entry.sourceTitle);
+  setValue("fieldSourceWork", entry.sourceWork);
+  setValue("fieldSourceDate", entry.sourceDate);
+  refs.fieldAttributionStatus.value = entry.attributionStatus;
+  setValue("fieldSourceUrl", entry.sourceUrl);
+  setValue("fieldAttributionNote", entry.attributionNote);
+  refs.attributionFieldset.hidden = !["quote", "proverb"].includes(entry.entryType);
+  renderCorrection(entry);
+  renderSenses(entry);
+  renderSources(entry);
+  renderDraftCompletionNotice(entry);
+  renderEditorAiStatus(draft.id);
+  showEditorError(removedStaleSynonyms
+    ? "旧草稿中有些同义词并不是你已收录的独立词条，已从本地草稿移除，也不会发布。"
+    : "");
+  renderDrafts();
+  if (changedStoredSynonyms) scheduleDraftSave();
+  if (focus) window.setTimeout(() => refs.editorTitle.focus({ preventScroll: true }), 0);
+}
+
+function collectEntry({ strict = false } = {}) {
+  if (!state.currentDraft) throw new Error("没有打开的草稿。");
+  const previous = state.currentDraft.value;
+  const term = value("fieldTerm");
+  const rawSynonyms = SYNONYM_FEATURE_ENABLED
+    ? LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value) ? commaList(value("fieldSynonyms"), 20) : []
+    : structuredClone(previous.synonyms || []);
+  const synonyms = allowedSynonymsFor(term, rawSynonyms);
+  if (strict && !sameNormalizedTermLists(synonyms, rawSynonyms)) {
+    throw new Error("同义词只能选你已经收录、且当前仍在词库里的词条；请移除其余候选后再发布。");
+  }
+  if (strict) {
+    const publishedSynonyms = filterSynonymsToOwnerTerms(synonyms, state.ownerPublishedTerms, term);
+    if (!sameNormalizedTermLists(publishedSynonyms, synonyms)) {
+      throw new Error("这些同义词目前只有本地草稿、尚未公开。请先发布对应词条，再回来发布当前词条；或暂时从同义词字段移除。 ");
+    }
+  }
+  let entry = {
+    ...structuredClone(previous),
+    originalInput: value("fieldOriginalInput"),
+    term,
+    normalized: normalizeEnglish(term),
+    standardForm: value("fieldStandardForm") || term,
+    entryType: refs.fieldEntryType.value,
+    phonetic: value("fieldPhonetic"),
+    partOfSpeech: value("fieldPartOfSpeech"),
+    meaning: value("fieldMeaning"),
+    definition: value("fieldDefinition"),
+    collocations: commaList(value("fieldCollocations")),
+    synonyms,
+    exampleEn: value("fieldExampleEn"),
+    exampleZh: value("fieldExampleZh"),
+    usage: value("fieldUsage"),
+    register: value("fieldRegister"),
+    confusedWith: commaList(value("fieldConfused")),
+    forms: commaList(value("fieldForms")),
+    tags: commaList(value("fieldTags")),
+    author: value("fieldAuthor"),
+    sourceTitle: value("fieldSourceTitle"),
+    sourceWork: value("fieldSourceWork"),
+    sourceDate: value("fieldSourceDate"),
+    sourceUrl: value("fieldSourceUrl"),
+    attributionStatus: refs.fieldAttributionStatus.value,
+    attributionNote: value("fieldAttributionNote"),
+    updatedAt: isoNow()
+  };
+  if (entry.correction?.status === "exact" && normalizeEnglish(entry.originalInput) !== normalizeEnglish(term)) {
+    entry.correction = { ...entry.correction, status: "kept", chosen: term, source: "manual-edit" };
+  }
+  if (!strict) return entry;
+  validateEnglishInput(term);
+  if (LEXICAL_ENTRY_TYPES.has(entry.entryType) && entry.tags.includes("待复核")) {
+    throw new Error("这份草稿还不能发布：本地词典给出的中英文义项还没有对齐。可以继续用 AI 补全；如果你已经逐项核对过，从标签中移除“待复核”即可发布。");
+  }
+  const baseEntry = state.currentDraft.mode === "edit" ? state.currentDraft.base?.entry : null;
+  const allowLegacyWithoutSenses = canGrandfatherUnstructuredLegacy(baseEntry, entry);
+  entry = reconcileLexicalEntryForPublish(entry, { allowLegacyWithoutSenses });
+  if (entry.correction?.status === "suggested") throw new Error("请先选择“使用建议”“保留原文”或手动修改，不能静默采用拼写建议。");
+  if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "candidate"
+    && !entry.sourceUrl && !(entry.sources || []).some((source) => source.kind === "candidate" && source.url)) {
+    throw new Error("候选出处必须有可复查链接；否则请选择“出处未核验”并留空作者。");
+  }
+  if (["quote", "proverb"].includes(entry.entryType) && entry.attributionStatus === "unverified") {
+    entry.author = "";
+    entry.sourceTitle = "";
+    entry.sourceWork = "";
+    entry.sourceDate = "";
+    entry.sourceUrl = "";
+    entry.attributionNote ||= "出处未核验；未找到可复查的一手或权威来源。";
+  }
+  if (entry.sourceUrl) entry.sourceUrl = safeHttpsUrl(entry.sourceUrl);
+  return validatePublicEntry(entry);
+}
+
+async function persistCurrentDraft({ announce = false } = {}) {
+  requireVerifiedOwnerUi();
+  if (!state.currentDraft) return null;
+  const collected = collectEntry();
+  const rawSynonyms = SYNONYM_FEATURE_ENABLED ? commaList(value("fieldSynonyms"), 20) : collected.synonyms;
+  const changedSynonymDisplay = JSON.stringify(rawSynonyms) !== JSON.stringify(collected.synonyms);
+  const removedUnenteredSynonyms = !sameNormalizedTermLists(rawSynonyms, collected.synonyms);
+  if (announce && changedSynonymDisplay) setValue("fieldSynonyms", collected.synonyms.join("，"));
+  const snapshot = {
+    ...structuredClone(state.currentDraft),
+    value: collected,
+    localState: state.currentDraft.localState === "conflict" ? "conflict" : "local_saved"
+  };
+  state.pendingSave = { token: crypto.randomUUID(), draft: snapshot };
+  const saved = await flushPendingDraftSave();
+  if (announce) setStatus(refs.captureStatus, removedUnenteredSynonyms
+    ? "草稿已保存；不是你亲自收录的同义词候选已移除。"
+    : "草稿已可靠保存在当前设备。 ");
+  return saved;
+}
+
+async function flushPendingDraftSave() {
+  window.clearTimeout(state.saveTimer);
+  state.saveTimer = null;
+  // Every exit/export/update gate must await the same write, including one
+  // already started by the debounce timer. Keep unsaved work until IndexedDB
+  // confirms it so a failed write can be retried rather than silently skipped.
+  if (state.draftSaveTask) return state.draftSaveTask;
+  if (!state.pendingSave) return null;
+  const task = (async () => {
+    let saved = null;
+    while (state.pendingSave) {
+      const pending = state.pendingSave;
+      saved = await saveDraft(pending.draft);
+      if (state.pendingSave?.token === pending.token) state.pendingSave = null;
+      if (state.currentDraft?.id === saved.id) {
+        if (!state.pendingSave) state.currentDraft = saved;
+        else {
+          state.currentDraft.contentRevision = saved.contentRevision;
+          if (state.pendingSave.draft.id === saved.id) state.pendingSave.draft.contentRevision = saved.contentRevision;
+        }
+        refs.draftState.textContent = state.pendingSave ? "正在保存…" : STATE_LABELS[state.currentDraft.localState] || state.currentDraft.localState;
+      }
+      await renderDrafts();
+    }
+    return saved;
+  })();
+  state.draftSaveTask = task;
+  try {
+    return await task;
+  } finally {
+    if (state.draftSaveTask === task) state.draftSaveTask = null;
+  }
+}
+
+function scheduleDraftSave() {
+  if (!state.currentDraft) return;
+  refs.draftState.textContent = "正在保存…";
+  const draft = {
+    ...structuredClone(state.currentDraft),
+    value: collectEntry(),
+    localState: state.currentDraft.localState === "conflict" ? "conflict" : "local_saved"
+  };
+  const token = crypto.randomUUID();
+  state.pendingSave = { token, draft };
+  window.clearTimeout(state.saveTimer);
+  state.saveTimer = window.setTimeout(() => {
+    if (state.pendingSave?.token !== token) return;
+    flushPendingDraftSave().catch((error) => showEditorError(`本地保存失败：${error.message}`));
+  }, 400);
+}
+
+async function renderDrafts() {
+  const [drafts, operations] = await Promise.all([listDrafts(), listOutbox({ includeCompleted: true })]);
+  updateOwnerTermIndexes(drafts);
+  refs.retryQueue.hidden = !operations.some((operation) => (
+    String(operation.authorizedRunId || "") === state.tabId
+    && (operation.status === "awaiting_auth"
+      || operation.status === "retry_wait"
+      || (operation.status === "failed" && operation.lastError?.retryable))
+  ));
+  const operationById = new Map(operations.map((operation) => [operation.operationId, operation]));
+  const items = drafts.map((draft) => {
+    const operation = draft.lastOperationId ? operationById.get(draft.lastOperationId) : null;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "draft-item";
+    button.setAttribute("aria-current", String(state.currentDraft?.id === draft.id));
+    const term = document.createElement("strong");
+    term.textContent = draft.value?.term || draft.value?.originalInput || "未命名草稿";
+    const updated = document.createElement("small");
+    updated.textContent = `更新于 ${new Date(draft.updatedAt).toLocaleString("zh-CN")}`;
+    const status = document.createElement("span");
+    status.className = "state";
+    status.textContent = STATE_LABELS[operation?.status || draft.localState] || operation?.status || draft.localState;
+    button.append(term, updated, status);
+    button.addEventListener("click", async () => {
+      await flushPendingDraftSave();
+      let selected = await getDraft(draft.id) || draft;
+      if (operation?.status === "review_required") {
+        await markOperation(operation.operationId, "cancelled", { lastError: null });
+        selected = await saveDraft({ ...selected, localState: "local_saved", lastOperationId: null });
+        setStatus(refs.captureStatus, "这份发布任务来自已关闭的页面，已取消。请复核内容后重新发布。 ");
+      }
+      fillEditor(selected);
+    });
+    return button;
+  });
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.className = "rail-note";
+    empty.textContent = "还没有草稿。";
+    items.push(empty);
+  }
+  refs.draftList.replaceChildren(...items);
+}
+
+function renderOwnerEntries() {
+  const focused = refs.ownerEntryList.contains(document.activeElement) ? document.activeElement : null;
+  const focusedEntryId = focused?.dataset.entryId;
+  const focusedAction = focused?.dataset.entryAction;
+  const entries = state.snapshot?.entries || [];
+  const synonymIndex = getOwnerSynonymIndex();
+  const query = state.ownerSearch.toLocaleLowerCase("zh-CN").trim();
+  const shown = rankExactEntryMatches(
+    entries.filter((entry) => !query || [entry.term, entry.normalized, entry.standardForm, entry.partOfSpeech, entry.meaning, entry.definition, SYNONYM_FEATURE_ENABLED ? entry.synonyms.join(" ") : "", entry.tags.join(" ")].join(" ").toLocaleLowerCase("zh-CN").includes(query)),
+    query
+  );
+  refs.ownerEntryCount.textContent = String(entries.length);
+  const previousRows = new Map([...refs.ownerEntryList.children].map((row) => [row.dataset.entryId, row]));
+  const rows = shown.map((entry) => {
+    const row = previousRows.get(entry.id) || document.createElement("article");
+    const isNew = !previousRows.has(entry.id);
+    row.className = "owner-entry-row";
+    row.dataset.entryId = entry.id;
+    const currentEntry = () => state.snapshot?.entries.find((candidate) => candidate.id === entry.id);
+    const term = isNew ? document.createElement("button") : row.querySelector(".owner-entry-term-button");
+    term.type = "button";
+    term.className = "owner-entry-term-button";
+    term.dataset.entryId = entry.id;
+    term.dataset.entryAction = "detail";
+    term.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
+    const termLabel = isNew ? document.createElement("strong") : term.querySelector("strong");
+    termLabel.lang = "en";
+    termLabel.textContent = entry.term;
+    if (isNew) {
+      term.append(termLabel);
+      term.addEventListener("click", () => {
+        const latest = currentEntry();
+        if (latest) entryDetail.show(latest, { invoker: term });
+      });
+    }
+    const summary = isNew ? document.createElement("div") : row.querySelector(".owner-entry-summary");
+    summary.className = "owner-entry-summary";
+    const partOfSpeech = document.createElement("p");
+    partOfSpeech.className = "owner-entry-part-of-speech";
+    partOfSpeech.hidden = !entry.partOfSpeech;
+    partOfSpeech.textContent = entry.partOfSpeech ? `词性 · ${entry.partOfSpeech}` : "";
+    const meaning = document.createElement("p");
+    setMultilineText(meaning, formatMeaningForDisplay(entry));
+    const synonyms = document.createElement("p");
+    synonyms.className = "owner-entry-synonyms";
+    const relatedTerms = SYNONYM_FEATURE_ENABLED ? [...new Set(synonymIndex.related.get(entry.id)?.values() || [])] : [];
+    synonyms.hidden = relatedTerms.length === 0;
+    const relationshipLabel = relatedTerms.every((term) => entry.synonyms.includes(term)) ? "同义词：" : "同义词 / 近义词：";
+    synonyms.textContent = relatedTerms.length ? `${relationshipLabel}${relatedTerms.join("；")}` : "";
+    const scanStatus = document.createElement("p");
+    scanStatus.className = "owner-entry-synonym-status";
+    scanStatus.textContent = synonymScanLabel(entry, synonymIndex);
+    scanStatus.hidden = !scanStatus.textContent;
+    summary.replaceChildren(partOfSpeech, meaning, synonyms, scanStatus);
+    const actions = isNew ? document.createElement("div") : row.querySelector(".button-row");
+    actions.className = "button-row";
+    const edit = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="edit"]');
+    edit.type = "button";
+    edit.dataset.entryId = entry.id;
+    edit.dataset.entryAction = "edit";
+    edit.textContent = "编辑";
+    if (isNew) edit.addEventListener("click", async () => {
+      await flushPendingDraftSave();
+      const existingDrafts = await listDrafts();
+      const entry = currentEntry();
+      if (!entry) return;
+      const existing = existingDrafts.find((draft) => draft.mode === "edit" && draft.entryId === entry.id && draft.localState !== "published");
+      if (existing) fillEditor(existing);
+      else {
+        const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
+        fillEditor(draft);
+      }
+      document.getElementById("editor-shell").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    });
+    const remove = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="delete"]');
+    remove.type = "button";
+    remove.dataset.entryId = entry.id;
+    remove.dataset.entryAction = "delete";
+    remove.className = "danger-button";
+    remove.textContent = "删除";
+    if (isNew) remove.addEventListener("click", () => {
+      const latest = currentEntry();
+      if (latest) queueDelete(latest);
+    });
+    const recognize = isNew ? document.createElement("button") : actions.querySelector('[data-entry-action="recognize"]');
+    recognize.type = "button";
+    recognize.dataset.entryId = entry.id;
+    recognize.dataset.entryAction = "recognize";
+    recognize.textContent = "重新识别";
+    recognize.setAttribute("aria-label", `重新识别 ${entry.term} 的同义词`);
+    recognize.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(entry.entryType);
+    recognize.disabled = state.synonymBusy || state.queueBusy || state.publishing || !navigator.onLine;
+    if (isNew) {
+      recognize.addEventListener("click", () => scanPublishedSynonyms(entry.id).catch((error) => setStatus(refs.captureStatus, error.message)));
+      actions.append(edit, recognize, remove);
+      row.append(term, summary, actions);
+    }
+    return row;
+  });
+  // Background relation updates keep native buttons attached, including between
+  // Space keydown/keyup. Restoring focus to a replacement cannot retain activation.
+  const visibleRows = new Set(rows);
+  for (const row of [...refs.ownerEntryList.children]) {
+    if (!visibleRows.has(row)) row.remove();
+  }
+  rows.forEach((row, index) => {
+    if (refs.ownerEntryList.children[index] !== row) {
+      refs.ownerEntryList.insertBefore(row, refs.ownerEntryList.children[index] || null);
+    }
+  });
+  if (focusedEntryId && focusedAction) {
+    const buttons = [...refs.ownerEntryList.querySelectorAll("button[data-entry-id][data-entry-action]")];
+    const replacement = buttons.find((button) => button.dataset.entryId === focusedEntryId && button.dataset.entryAction === focusedAction);
+    // An in-flight scan can disable its action; keep keyboard focus on that
+    // entry's title instead of dropping it to the document body.
+    const target = replacement?.disabled
+      ? buttons.find((button) => button.dataset.entryId === focusedEntryId && button.dataset.entryAction === "detail")
+      : replacement;
+    target?.focus({ preventScroll: true });
+  }
+  entryDetail.refresh();
+}
+
+async function loadRemote({ quiet = false } = {}) {
+  if (!quiet) setSyncState("loading", "正在读取 GitHub", "不会覆盖本地草稿");
+  const observedMutation = state.remoteMutationRevision;
+  try {
+    const remote = await getOwnerWordbook();
+    // A GET started before a publish/scan must not replace its newer response.
+    if (state.runClosing || observedMutation !== state.remoteMutationRevision) return remote;
+    state.snapshot = parsePublicSnapshot(remote.snapshot);
+    state.remoteSha = String(remote.sha || "");
+    updateOwnerTermIndexes(await listDrafts());
+    await putPublicCache(state.snapshot, state.remoteSha, "authenticated-owner-api");
+    setSyncState("synced", "已连接 GitHub", `${state.snapshot.entries.length} 个公开词条 · SHA ${state.remoteSha.slice(0, 7)}`);
+    renderOwnerEntries();
+    scheduleImportedSynonymScans();
+    return remote;
+  } catch (error) {
+    try {
+      const cache = await getPublicCache();
+      if (cache?.snapshot) {
+        state.snapshot = parsePublicSnapshot(cache.snapshot);
+        state.remoteSha = cache.sha || "";
+        updateOwnerTermIndexes(await listDrafts());
+        renderOwnerEntries();
+      }
+    } catch { /* no valid cache */ }
+    setSyncState("error", "远端读取失败", error.message || "本地草稿不受影响");
+    throw error;
+  }
+}
+
+async function organizeDraftWithAi(draft, cleaned, { fillMissingOnly = false } = {}) {
+  const aiBaseline = structuredClone(draft.value);
+  // Foreground callers have already populated the editor, while background
+  // completion must not take it over. Repainting here would create a startup
+  // window where a fast edit after the AI click is replaced by an older snapshot.
+  const phoneticRevisionAtRequest = state.phoneticEditRevisions.get(draft.id) || 0;
+  let commitWindowLocked = false;
+  const startedAt = Date.now();
+  let localPreview = "";
+  let localPreviewSource = "";
+  let localPreviewWarning = "";
+  let previewActive = true;
+  const previewController = new AbortController();
+  const previewGeneration = state.previewGeneration;
+  const previewOwnerId = state.session?.id;
+  const previewCsrfToken = state.csrfToken;
+  const previewOrganizingToken = state.organizingToken;
+  const previewRunCurrent = () => previewActive && !state.runClosing
+    && state.previewGeneration === previewGeneration && hasVerifiedOwnerUi()
+    && state.session?.id === previewOwnerId && state.csrfToken === previewCsrfToken
+    && state.organizingToken === previewOrganizingToken;
+  const previewStillBusy = () => previewRunCurrent() && state.draftAiStatus.get(draft.id)?.state === "busy";
+  let elapsedTimer = null;
+  const renderBusyProgress = ({ initial = false } = {}) => {
+    if (!previewRunCurrent() || (!initial && !previewStillBusy())) return;
+    const elapsedSeconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+    const waitingHint = elapsedSeconds >= 10
+      ? ` 已等待 ${elapsedSeconds} 秒；免费模型生成完整分义项通常比本地查词慢。`
+      : "";
+    setDraftAiStatus(draft.id, {
+      state: "busy",
+      title: localPreview
+        ? `已先找到“${cleaned}”的本地中文候选，AI 仍在深度整理`
+        : `正在获取“${cleaned}”的中文释义与英文义项`,
+      message: localPreview
+        ? `${localPreviewSource} 候选：${localPreview}。${localPreviewWarning}AI 正在继续核对分义项、词性与双语例句；候选不会自动发布。${waitingHint}`
+        : `${localPreviewWarning}当前空白只是已安全保存的本地草稿，不是查询结果；AI 返回前仍可手工填写。${waitingHint}`
+    });
+  };
+  renderBusyProgress({ initial: true });
+  elapsedTimer = window.setInterval(renderBusyProgress, 5_000);
+  // This is public, read-only acceleration, independent of the AI request. It
+  // never writes fields, manufactures aligned senses or bypasses publish checks.
+  void (async () => {
+    let core = null;
+    try { core = await lookupCoreEntry(cleaned, { timeoutMs: 3_000 }); }
+    catch { /* A failed old asset may still use a validated expanded shard. */ }
+    if (!previewStillBusy()) return;
+    let candidate = core ? { term: core.word, meaning: core.meaning, source: "本地 ECDICT" } : null;
+    if (!candidate) {
+      try {
+        const expanded = await searchExpandedDictionary(cleaned, { signal: previewController.signal });
+        if (!previewStillBusy()) return;
+        if (expanded.results.length > 1) {
+          localPreviewWarning = "该形式存在多个候选，未自动选择或改词。";
+          renderBusyProgress();
+          return;
+        }
+        candidate = expanded.results[0] || null;
+      } catch (error) {
+        if (previewStillBusy() && error?.code === "ambiguous_dictionary_match") {
+          localPreviewWarning = "该词形对应多个词或语境，未自动选择或改词；可在中英词典中核对原形。";
+          renderBusyProgress();
+        }
+        return;
+      }
+    }
+    if (!candidate || !previewStillBusy()) return;
+    localPreview = String(candidate.meaning || "")
+        .replace(/\s*\r?\n\s*/g, "；")
+        .replace(/\s+/g, " ")
+        .slice(0, 260);
+    localPreviewSource = String(candidate.source || "本站词典");
+    if (candidate.matchedForm && normalizeEnglish(candidate.term) !== normalizeEnglish(cleaned)) {
+      localPreviewWarning = `词形“${cleaned}”可能对应“${candidate.term}”，这里只显示候选，不会自动改词。`;
+    }
+    if (localPreview) renderBusyProgress();
+  })().catch(() => { /* Dictionary availability cannot fail AI or mutate a draft. */ });
+  if (!state.session || !navigator.onLine) {
+    previewActive = false;
+    previewController.abort();
+    const message = !navigator.onLine
+      ? "当前设备离线，尚未向 AI 发送请求。"
+      : "登录已失效，还没有向 AI 发送请求。";
+    setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
+    setStatus(refs.captureStatus, `${message} 空白草稿已保存，联网并重新验证后可在编辑区重试。`);
+    window.clearInterval(elapsedTimer);
+    return;
+  }
+  setStatus(refs.captureStatus, "AI 正在整理；如果服务失败，当前草稿仍然保留。 ");
+  try {
+    updateOwnerTermIndexes(await listDrafts());
+    const allowedSynonyms = SYNONYM_FEATURE_ENABLED ? state.ownerEnteredTerms
+      .filter((term) => normalizeEnglish(term) !== normalizeEnglish(draft.value.term))
+      .slice(0, 200) : [];
+    const result = await organizeWithAi(cleaned, state.csrfToken, { allowedSynonyms });
+    const warnings = Array.isArray(result.warnings) ? result.warnings.map(String) : [];
+    updateOwnerTermIndexes(await listDrafts());
+    const stillAllowedSynonyms = filterSynonymsToOwnerTerms(allowedSynonyms, state.ownerEnteredTerms, draft.value.term);
+    const responseEntry = result.entry && typeof result.entry === "object" && !Array.isArray(result.entry) ? result.entry : {};
+    const rawResponseSynonyms = Array.isArray(responseEntry.synonyms) ? responseEntry.synonyms : [];
+    const filteredResponseSynonyms = filterSynonymsToOwnerTerms(rawResponseSynonyms, stillAllowedSynonyms, responseEntry.term || draft.value.term);
+    if (SYNONYM_FEATURE_ENABLED && filteredResponseSynonyms.length !== rawResponseSynonyms.length) {
+      warnings.push("AI 提出的未输入同义词已丢弃；这里只保留你已通过主输入框建立且仍存在的词条。");
+    }
+    const filteredResponseEntry = { ...responseEntry, synonyms: SYNONYM_FEATURE_ENABLED ? filteredResponseSynonyms : [] };
+    const claimsCuratedPhonetic = warnings.some((warning) => /音标.*(?:校订|词典).*锁定/u.test(warning));
+    const responsePhonetic = typeof filteredResponseEntry.phonetic === "string" ? filteredResponseEntry.phonetic.normalize("NFKC") : "";
+    const pronunciations = responsePhonetic.match(/\/([^/\r\n]+)\/|\[([^\]\r\n]+)\]/gu) || [];
+    const hasPlausiblePhonetic = pronunciations.some((segment) => /[A-Za-z\u0250-\u02AF]/u.test(segment));
+    if (claimsCuratedPhonetic && !hasPlausiblePhonetic) {
+      throw new OwnerApiError("AI 响应自相矛盾：服务声称已锁定音标，但没有返回有效 IPA。当前草稿没有被 AI 覆盖，请稍后重试。", {
+        status: 502,
+        code: "ai_response_contract"
+      });
+    }
+    const aiEntry = validatePublicEntry(filteredResponseEntry);
+    let reviewRequired = result.reviewRequired === true;
+    if (!reviewRequired) {
+      try {
+        assertCompleteAiCandidate(aiEntry);
+      } catch (error) {
+        // A deterministic exact-dictionary fallback can safely prevent an
+        // empty Chinese field without claiming that examples or sense
+        // alignment are complete. Downgrade it to an explicit review draft;
+        // every other provider response must satisfy the full success contract.
+        if (result.provider === "local-dictionary" && isPlausibleChineseMeaning(aiEntry.meaning, aiEntry.term)) {
+          reviewRequired = true;
+          warnings.push(`${error.message} 已按未完成的本地词典候选保留，不会标记为 AI 整理成功。`);
+        } else {
+          throw new OwnerApiError(`${error.message} 当前草稿没有被 AI 覆盖。`, {
+            status: 502,
+            code: "ai_response_contract"
+          });
+        }
+      }
+    }
+    if (reviewRequired) {
+      if (!isPlausibleChineseMeaning(aiEntry.meaning, aiEntry.term)) {
+        throw new OwnerApiError("本地词典候选没有返回有效中文释义；当前草稿没有被覆盖。", {
+          status: 502,
+          code: "ai_response_contract"
+        });
+      }
+    }
+    // From this point until the merged draft has been committed, no editor
+    // event may race the IndexedDB flush/get/save sequence. Edits made while
+    // the provider was running have already raised their field revisions and
+    // will be flushed below; the short commit window is then atomic from the
+    // owner's point of view.
+    if (state.currentDraft?.id === draft.id) {
+      state.commitLockedDraftId = draft.id;
+      refs.entryForm.inert = true;
+      commitWindowLocked = true;
+      await flushPendingDraftSave();
+    }
+    const latestDraft = await getDraft(draft.id);
+    if (!latestDraft) {
+      setDraftAiStatus(draft.id, null);
+      setStatus(refs.captureStatus, `“${cleaned}”的草稿已被删除；稍后返回的 AI 候选没有重新建立或覆盖任何草稿。`);
+      return;
+    }
+    const currentEntry = latestDraft.value;
+    const storedDictionaryCandidate = latestDraft.base?.dictionaryCandidate;
+    const dictionaryCandidateBaseline = storedDictionaryCandidate
+      || (aiBaseline.tags?.includes("待复核") && !(aiBaseline.senses || []).length ? aiBaseline : null);
+    const mergeResult = mergeAiCandidate(aiBaseline, currentEntry, aiEntry, { fillMissingOnly });
+    const mergedEntry = mergeResult.merged;
+    let preservedManualChanges = mergeResult.preservedManualChanges;
+    const completingUnreviewedDictionary = Boolean(dictionaryCandidateBaseline)
+      && !reviewRequired
+      && aiEntry.senses.length > 0;
+    if (completingUnreviewedDictionary) {
+      // The raw dictionary columns were deliberately retained only so Chinese
+      // was not blank; they were not declared aligned. Once a validated AI
+      // result arrives, replace each untouched candidate field while preserving
+      // anything Zhu edited during or before this request.
+      const candidateFields = [
+        "phonetic", "partOfSpeech", "meaning", "definition", "senses", "collocations", "synonyms",
+        "exampleEn", "exampleZh", "usage", "register", "confusedWith", "forms",
+        "tags", "sources", "attributionNote"
+      ];
+      for (const field of candidateFields) {
+        if (JSON.stringify(currentEntry[field]) === JSON.stringify(dictionaryCandidateBaseline[field])) {
+          mergedEntry[field] = structuredClone(aiEntry[field]);
+        }
+      }
+    }
+    mergedEntry.tags = preserveCollectionTags(currentEntry.tags, mergedEntry.tags);
+    mergedEntry.readingContexts = structuredClone(currentEntry.readingContexts || []);
+    if (!SYNONYM_FEATURE_ENABLED) {
+      // Pausing presentation and recognition is not a migration or deletion.
+      // An AI refresh retains valid existing references and hidden scan metadata;
+      // pausing does not bypass the original collected-term safety validation.
+      mergedEntry.synonyms = allowedSynonymsFor(currentEntry.term, currentEntry.synonyms || []);
+      if (Object.prototype.hasOwnProperty.call(currentEntry, "synonymScan")) mergedEntry.synonymScan = structuredClone(currentEntry.synonymScan);
+      else delete mergedEntry.synonymScan;
+    }
+    if (!reviewRequired && aiEntry.senses.length) {
+      mergedEntry.tags = mergedEntry.tags.filter((tag) => !["待复核", "ECDICT 原始释义"].includes(tag));
+    } else if (reviewRequired) {
+      mergedEntry.tags = [...new Set([...(mergedEntry.tags || []), "待复核"])].slice(0, 30);
+    }
+    const phoneticTouchedDuringRequest = (state.phoneticEditRevisions.get(draft.id) || 0) !== phoneticRevisionAtRequest;
+    if (phoneticTouchedDuringRequest) {
+      // This final override runs after every dictionary/AI merge so even an
+      // empty value the owner deliberately restored is not mistaken for an
+      // untouched legacy blank.
+      mergedEntry.phonetic = currentEntry.phonetic;
+      preservedManualChanges = true;
+    } else if (hasPlausiblePhonetic && !hasUsablePronunciation(mergedEntry.phonetic)) {
+      // An unchanged legacy blank must accept the validated response IPA even
+      // if older draft metadata made the generic merge treat it as different.
+      mergedEntry.phonetic = responsePhonetic;
+    }
+    mergedEntry.originalInput = currentEntry.originalInput;
+    mergedEntry.createdAt = currentEntry.createdAt;
+    mergedEntry.updatedAt = isoNow();
+    const nextBase = structuredClone(latestDraft.base || { entry: null, entryUpdatedAt: null, remoteSha: null });
+    if (reviewRequired && !nextBase.dictionaryCandidate) {
+      nextBase.dictionaryCandidate = structuredClone(mergedEntry);
+    } else if (completingUnreviewedDictionary) {
+      delete nextBase.dictionaryCandidate;
+    }
+    draft = {
+      ...latestDraft,
+      base: nextBase,
+      entryId: latestDraft.entryId,
+      value: mergedEntry,
+      updatedAt: isoNow()
+    };
+    const savedDraft = await saveDraft(draft);
+    const providerName = result.provider === "cloudflare" ? "Cloudflare Workers AI（账户额度）" : result.provider === "openai" ? "OpenAI" : result.provider === "local-dictionary" ? "本地 ECDICT 词典" : "AI";
+    const completionMessage = [
+      ...warnings,
+      reviewRequired
+        ? `${providerName} 已保留有效中文候选，但英文释义或分义项仍未完成，当前草稿保持“待复核”且不可直接发布。`
+        : preservedManualChanges
+        ? `${providerName} 返回期间的人工修改已保留，其余空白字段已补充。`
+        : `${providerName} 候选已写入草稿，请核对后再发布。`
+    ].join(" ");
+    setDraftAiStatus(draft.id, reviewRequired
+      ? {
+          state: "review",
+          title: `“${cleaned}”已保留中文，但整理尚未完成`,
+          message: completionMessage
+        }
+      : {
+          state: "success",
+          title: `“${cleaned}”的 AI 候选已经写入草稿`,
+          message: completionMessage
+        });
+    // A response belongs to the draft that initiated it, not whichever draft
+    // is currently visible. Persist A in the background and never pull the UI
+    // away from B when the owner switched drafts while waiting.
+    if (state.currentDraft?.id === draft.id) {
+      state.currentDraft = savedDraft;
+      fillEditor(savedDraft, { focus: false });
+      setStatus(refs.captureStatus, completionMessage);
+    } else {
+      await renderDrafts();
+      setStatus(refs.captureStatus, `“${cleaned}”已在后台完成并保存；当前打开的草稿没有被替换。`);
+    }
+  } catch (error) {
+    const message = error.message || "AI 暂时不可用";
+    setDraftAiStatus(draft.id, aiFailureStatus(draft, message));
+    setStatus(refs.captureStatus, `“${cleaned}”整理失败：${/草稿/.test(message) ? message : `${message} 当前草稿仍可手动填写。`}`);
+  } finally {
+    previewActive = false;
+    previewController.abort();
+    window.clearInterval(elapsedTimer);
+    if (commitWindowLocked) {
+      if (state.commitLockedDraftId === draft.id) state.commitLockedDraftId = null;
+      refs.entryForm.inert = false;
+    }
+    if (state.currentDraft?.id === draft.id) renderEditorAiStatus(draft.id);
+  }
+}
+
+async function openNewDraft(input, { ai = false } = {}) {
+  requireVerifiedOwnerUi();
+  await flushPendingDraftSave();
+  const cleaned = validateEnglishInput(input);
+  const blank = createBlankEntry(cleaned);
+  const localDrafts = await listDrafts();
+  updateOwnerTermIndexes(localDrafts);
+  const duplicate = state.snapshot ? findDuplicate(state.snapshot.entries, blank) : null;
+  if (duplicate) {
+    const existing = localDrafts.find((candidate) => candidate.mode === "edit"
+      && candidate.entryId === duplicate.id && candidate.localState !== "published");
+    const draft = existing || await saveDraft(createDraft(duplicate, { mode: "edit", baseEntry: duplicate }));
+    fillEditor(draft);
+    if (ai && editorNeedsAiCompletion(draft.value)) {
+      setStatus(refs.captureStatus, `已找到“${cleaned}”的未完成编辑草稿，正在只补空白字段；不会新增第二条公开词条。`);
+      await organizeDraftWithAi(draft, cleaned, { fillMissingOnly: true });
+      return;
+    }
+    setStatus(refs.captureStatus, existing
+      ? `“${cleaned}”的公开词条已存在；已打开现有编辑草稿，不会新增第二条公开记录。`
+      : `“${cleaned}”的公开词条已存在；已建立编辑草稿，不会新增第二条公开记录。`);
+    return;
+  }
+  const localDuplicate = localDrafts.find((candidate) => findDuplicate([candidate.value], blank));
+  if (localDuplicate) {
+    fillEditor(localDuplicate);
+    if (ai && editorNeedsAiCompletion(localDuplicate.value)) {
+      setStatus(refs.captureStatus, `已找到“${cleaned}”的未完成草稿，正在只补空白字段；不会新增第二条草稿。`);
+      await organizeDraftWithAi(localDuplicate, cleaned, { fillMissingOnly: true });
+      return;
+    }
+    setStatus(refs.captureStatus, `“${cleaned}” 已有本地草稿，没有重复创建，也没有重复消耗 AI 额度；如需刷新内容，请点击“重新用 AI 整理”。`);
+    return;
+  }
+  const draft = await saveDraft(createDraft(blank));
+  updateOwnerTermIndexes([draft, ...localDrafts]);
+  fillEditor(draft);
+  setStatus(refs.captureStatus, "空白草稿已先保存在本机。 ");
+  if (ai) await organizeDraftWithAi(draft, cleaned);
+}
+
+async function queueCurrentPublish() {
+  requireVerifiedOwnerUi();
+  pauseAutomaticSynonymScans();
+  if (currentDraftAiBusy()) {
+    throw new Error("AI 仍在整理当前词条；完成或失败后再发布，避免把未完成内容写入 GitHub。");
+  }
+  await waitForQueueRecovery();
+  await flushPendingDraftSave();
+  showEditorError();
+  const entry = collectEntry({ strict: true });
+  if (!/^[0-9a-f]{40}$/i.test(state.remoteSha)) throw new Error("还没有可信的 GitHub 文件 SHA；请先联网刷新一次远端，再建立离线发布队列。");
+  const duplicate = findDuplicate(state.snapshot?.entries || [], entry, state.currentDraft.mode === "edit" ? entry.id : "");
+  if (duplicate) throw new Error(`“${entry.term}” 与已发布的 “${duplicate.term}” 重复，请编辑现有词条进行合并。`);
+  state.currentDraft.value = entry;
+  const mutationId = crypto.randomUUID();
+  const request = {
+    clientProtocol: "v38",
+    queueProtocol: "v38",
+    baseSha: state.remoteSha,
+    mutationId,
+    mutation: state.currentDraft.mode === "edit"
+      ? { type: "update", entry, expectedUpdatedAt: state.currentDraft.base.entryUpdatedAt }
+      : { type: "add", entry }
+  };
+  const queued = await enqueuePublish(state.currentDraft, request, { authorizedRunId: state.tabId });
+  state.currentDraft = queued.draft;
+  fillEditor(state.currentDraft, { focus: false });
+  await drainQueue();
+}
+
+async function queueDelete(entry) {
+  requireVerifiedOwnerUi();
+  try { await waitForQueueRecovery(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
+  if (!window.confirm(`确定要从公开词库撤下 “${entry.term}” 吗？远端变化时删除会停止，不会覆盖。`)) return;
+  state.foregroundMutationPending += 1;
+  pauseAutomaticSynonymScans();
+  try {
+    const draft = await saveDraft(createDraft(entry, { mode: "edit", baseEntry: entry }));
+    await enqueuePublish(draft, {
+      clientProtocol: "v38",
+      queueProtocol: "v38",
+      baseSha: state.remoteSha,
+      mutationId: crypto.randomUUID(),
+      mutation: { type: "delete", id: entry.id, expectedUpdatedAt: entry.updatedAt }
+    }, { authorizedRunId: state.tabId });
+    await renderDrafts();
+    await drainQueue();
+  } finally {
+    state.foregroundMutationPending -= 1;
+    scheduleImportedSynonymScans();
+  }
+}
+
+function errorRecord(error) {
+  const interrupted = ["request_timeout", "request_aborted"].includes(error.code);
+  return { code: error.code || "request_failed", message: error.message || "同步失败", httpStatus: Number(error.status || 0), retryable: !interrupted && classifySyncFailure(error).retryable };
+}
+
+async function handleConflict(operation, error, tabId) {
+  const details = error.details && typeof error.details === "object" ? error.details : {};
+  if (!details.snapshot || !details.sha) {
+    await markOperation(operation.operationId, "conflict", { lastError: errorRecord(error) }, { leaseOwner: tabId });
+    return;
+  }
+  const remoteSnapshot = parsePublicSnapshot(details.snapshot);
+  const result = rebaseOperation(operation, remoteSnapshot, details.sha);
+  state.snapshot = remoteSnapshot;
+  state.remoteSha = details.sha;
+  await putPublicCache(remoteSnapshot, details.sha, "conflict-response");
+  renderOwnerEntries();
+  if (result.status === "idempotent") {
+    await completeOperation(operation.operationId, { tabId, sha: details.sha, snapshot: remoteSnapshot });
+    return;
+  }
+  if (result.status === "rebased") {
+    await markOperation(operation.operationId, "pending", {
+      request: result.request,
+      idempotencyKey: result.request.mutationId,
+      baseRemoteSha: details.sha,
+      baseEntry: result.remote,
+      desiredEntry: result.request.mutation.entry || null,
+      nextAttemptAt: isoNow(),
+      lastError: null
+    }, { leaseOwner: tabId });
+    return;
+  }
+  await markOperation(operation.operationId, "conflict", {
+    lastError: errorRecord(error),
+    conflict: { remoteSha: details.sha, remote: result.remote, conflicts: result.conflicts, merged: result.request.mutation.entry || null }
+  }, { leaseOwner: tabId });
+  state.conflict = { operation, result, remoteSnapshot, remoteSha: details.sha };
+  showConflict();
+}
+
+async function drainQueue() {
+  if (state.runClosing || state.discardingDraftId || state.queueBusy || state.synonymBusy || !state.queueRecoveryComplete || !state.session || !navigator.onLine) return;
+  state.queueBusy = true;
+  refs.retryQueue.disabled = true;
+  try {
+    while (!state.runClosing && !state.discardingDraftId && navigator.onLine) {
+      const operation = await claimNextOperation({ tabId: state.tabId, authorizedRunId: state.tabId });
+      if (!operation) break;
+      if (state.runClosing) {
+        await markOperation(operation.operationId, "review_required", {
+          reviewRequiredAt: isoNow(),
+          lastError: null
+        }, { leaseOwner: state.tabId }).catch(() => {});
+        break;
+      }
+      setSyncState("loading", "正在同步", operation.desiredEntry?.term || operation.entryId || "公开词库");
+      try {
+        const abortController = new AbortController();
+        state.publishAbortController = abortController;
+        const result = await publishMutation(operation.request, state.csrfToken, { signal: abortController.signal });
+        if (state.publishAbortController === abortController) state.publishAbortController = null;
+        if (state.runClosing) {
+          await markOperation(operation.operationId, "review_required", {
+            reviewRequiredAt: isoNow(),
+            lastError: null
+          }, { leaseOwner: state.tabId }).catch(() => {});
+          break;
+        }
+        const snapshot = parsePublicSnapshot(result.snapshot, { allowLegacy: false });
+        const completion = await completeOperation(operation.operationId, { tabId: state.tabId, sha: result.sha, snapshot });
+        state.remoteMutationRevision += 1;
+        state.snapshot = snapshot;
+        state.remoteSha = result.sha;
+        let hasUnpublishedEdits = completion.superseded;
+        if (state.currentDraft?.id === operation.draftId) {
+          const completedDraft = await getDraft(operation.draftId);
+          // The owner can keep typing while a publication is in flight. An
+          // input's 400 ms save may not have reached IndexedDB yet, and another
+          // draft can be selected while this read is waiting. Never replace
+          // that live form with the older, just-published snapshot.
+          if (state.currentDraft?.id === operation.draftId && completedDraft) {
+            const preserveLiveEditor = state.pendingSave?.draft.id === operation.draftId
+              || Boolean(state.draftSaveTask)
+              || Number(state.currentDraft.contentRevision || 0) > Number(completedDraft.contentRevision || 0);
+            hasUnpublishedEdits ||= preserveLiveEditor || completedDraft.localState !== "published";
+            if (!preserveLiveEditor) fillEditor(completedDraft, { focus: false });
+            else refs.draftState.textContent = state.pendingSave || state.draftSaveTask
+              ? "正在保存…" : STATE_LABELS[state.currentDraft.localState] || state.currentDraft.localState;
+          }
+        }
+        setSyncState(
+          "synced",
+          hasUnpublishedEdits ? "较早版本已发布；当前修改仍在本地" : "已发布",
+          hasUnpublishedEdits ? "请检查当前草稿并再次显式发布"
+            : [result.action || "更新", synonymScanLabel(snapshot.entries.find((entry) => entry.id === result.entry?.id)), `SHA ${String(result.sha).slice(0, 7)}`].filter(Boolean).join(" · ")
+        );
+        renderOwnerEntries();
+      } catch (error) {
+        state.publishAbortController = null;
+        if (state.runClosing) {
+          await markOperation(operation.operationId, "review_required", {
+            reviewRequiredAt: isoNow(),
+            lastError: null
+          }, { leaseOwner: state.tabId }).catch(() => {});
+          break;
+        }
+        if (error.status === 409) {
+          await handleConflict(operation, error, state.tabId);
+          continue;
+        }
+        // A timeout can follow a committed mutation whose response was lost.
+        // Keep its draft and operation for explicit review; never create a
+        // timer that replays an unconfirmed write automatically.
+        const interrupted = ["request_timeout", "request_aborted"].includes(error.code);
+        const classification = interrupted
+          ? { state: "review_required", retryable: false }
+          : classifySyncFailure(error);
+        if (classification.state === "retry_wait" && operation.attemptCount <= 8) {
+          const retryAt = nextRetryAt(operation.attemptCount, error.retryAfter);
+          await markOperation(operation.operationId, "retry_wait", {
+            nextAttemptAt: retryAt,
+            lastError: errorRecord(error)
+          }, { leaseOwner: state.tabId });
+          scheduleQueueWake(retryAt);
+        } else {
+          await markOperation(operation.operationId, classification.state, {
+            lastError: errorRecord(error),
+            ...(interrupted ? { reviewRequiredAt: isoNow() } : {})
+          }, { leaseOwner: state.tabId });
+        }
+        setSyncState("error", STATE_LABELS[classification.state], error.message);
+        if (classification.state === "awaiting_auth") await verifySession({ forceGate: true });
+        break;
+      }
+    }
+  } finally {
+    state.queueBusy = false;
+    refs.retryQueue.disabled = false;
+    await renderDrafts();
+    scheduleImportedSynonymScans();
+  }
+}
+
+function scheduleQueueWake(when) {
+  window.clearTimeout(state.queueWakeTimer);
+  const delay = Math.max(0, Math.min(60 * 60 * 1000, new Date(when).getTime() - Date.now()));
+  state.queueWakeTimer = window.setTimeout(() => drainQueue(), delay + 50);
+}
+
+function showConflict() {
+  if (!state.conflict) return;
+  const conflicts = state.conflict.result.conflicts || [];
+  refs.conflictMessage.textContent = "GitHub 的内容已经变化。系统已保留本地草稿，并自动合并了只有一侧变化的字段；下列字段需要卓亲自检查。";
+  refs.conflictFields.replaceChildren(...conflicts.map((conflict) => {
+    const item = document.createElement("li");
+    item.textContent = `字段 ${conflict.path}：本地与远端都发生了不同修改。`;
+    return item;
+  }));
+  refs.conflictUseMerged.hidden = !state.conflict.result.request.mutation.entry;
+  refs.conflictUseRemote.hidden = !state.conflict.result.remote;
+  refs.conflictDialog.showModal();
+}
+
+async function resolveConflict(choice) {
+  const conflict = state.conflict;
+  if (!conflict) return;
+  const current = await getDraft(conflict.operation.draftId);
+  await markOperation(conflict.operation.operationId, "cancelled", { lastError: null });
+  if (current) {
+    const selected = choice === "remote" ? conflict.result.remote : conflict.result.request.mutation.entry;
+    const updated = await saveDraft({
+      ...current,
+      value: selected,
+      entryId: selected.id,
+      mode: "edit",
+      base: { entry: conflict.result.remote, entryUpdatedAt: conflict.result.remote?.updatedAt || null, remoteSha: conflict.remoteSha },
+      localState: "local_saved",
+      lastOperationId: null
+    });
+    fillEditor(updated);
+    showEditorError(choice === "remote" ? "已改用远端版本；请检查后再编辑。" : "已把非冲突字段合并，并暂时保留本地冲突值；请逐项检查后重新发布。 ");
+  }
+  state.conflict = null;
+  refs.conflictDialog.close();
+}
+
+const OWNER_LOGOUT_LOCK_KEY = "zhuo-owner-explicit-login-required";
+let ownerLogoutLocked = false;
+try {
+  const loginUrl = new URL(location.href);
+  if (loginUrl.searchParams.get("login") === "ok") {
+    sessionStorage.removeItem(OWNER_LOGOUT_LOCK_KEY);
+    loginUrl.searchParams.delete("login");
+    history.replaceState(history.state, "", `${loginUrl.pathname}${loginUrl.search}${loginUrl.hash}`);
+  }
+  ownerLogoutLocked = sessionStorage.getItem(OWNER_LOGOUT_LOCK_KEY) === "1";
+} catch { /* The in-memory logout lock still protects this page. */ }
+
+function showOwnerLoginGate(message) {
+  state.session = null;
+  state.csrfToken = "";
+  state.queueRecoveryComplete = false;
+  refs.ownerWorkspace.hidden = true;
+  refs.ownerWorkspace.inert = true;
+  refs.logoutButton.hidden = true;
+  refs.authGate.hidden = false;
+  refs.loginLink.hidden = location.hostname === "zhuodashuai.github.io";
+  refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked });
+  refs.authMessage.textContent = message;
+}
+
+async function verifySession({ forceGate = false } = {}) {
+  if (ownerLogoutLocked) { showOwnerLoginGate("此页已退出，请使用 GitHub 明确重新登录。本机草稿仍保留。"); return; }
+  if (state.authChecking) return;
+  state.authChecking = true;
+  const generation = state.authGeneration;
+  const previouslyVerifiedSession = state.session;
+  const previousCsrfToken = state.csrfToken;
+  try {
+    const session = await getSession();
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
+    if (!session.authenticated || session.user?.login !== "zhuodashuai" || Number(session.user?.id) !== 156042078) {
+      throw new OwnerApiError("登录已失效，请重新登录。", { status: 401, code: "authentication_required" });
+    }
+    state.session = session.user;
+    state.csrfToken = session.csrfToken;
+    refs.ownerAvatar.src = session.user.avatarUrl || "assets/icon-192.png";
+    refs.ownerAvatar.alt = `GitHub 用户 @${session.user.login} 的头像`;
+    refs.ownerIdentityText.textContent = `@${session.user.login}`;
+    // Keep the workspace inert until duplicate detection has either a fresh
+    // GitHub snapshot or the last validated IndexedDB cache. Health, drafts and
+    // remote data are independent reads, so initialize them in parallel.
+    refs.ownerWorkspace.inert = true;
+    setOrganizingControlsDisabled(true);
+    await Promise.all([
+      refreshAiStatus(),
+      renderDrafts(),
+      loadRemote().catch(() => {})
+    ]);
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
+    refs.authGate.hidden = true;
+    refs.ownerWorkspace.hidden = false;
+    refs.ownerWorkspace.inert = false;
+    refs.logoutButton.hidden = false;
+    setOrganizingControlsDisabled(Boolean(state.organizingToken));
+    const quarantineCount = await getQuarantineCount();
+    if (quarantineCount) setStatus(refs.captureStatus, `有 ${quarantineCount} 条旧版本地数据因格式问题进入隔离区，没有被丢弃或发布。`);
+  } catch (error) {
+    if (generation !== state.authGeneration || ownerLogoutLocked) return;
+    const networkUnavailable = !navigator.onLine || error?.code === "network_error";
+    const verifiedPageContinuity = networkUnavailable && previouslyVerifiedSession && previousCsrfToken;
+    if (verifiedPageContinuity) {
+      state.session = previouslyVerifiedSession;
+      state.csrfToken = previousCsrfToken;
+      refs.ownerIdentityText.textContent = `@${previouslyVerifiedSession.login} · 离线，只存本地草稿`;
+      setOrganizingControlsDisabled(Boolean(state.organizingToken));
+      setSyncState("error", "离线 · 本页身份已验证", "发布任务只排队，联网后必须再次通过服务端会话验证");
+      return;
+    }
+    state.previewGeneration += 1;
+    state.session = null;
+    state.csrfToken = "";
+    state.queueRecoveryComplete = false;
+    refs.ownerWorkspace.hidden = true;
+    refs.ownerWorkspace.inert = true;
+    refs.logoutButton.hidden = true;
+    refs.authGate.hidden = false;
+    const onGitHubPages = location.hostname === "zhuodashuai.github.io";
+    refs.loginLink.hidden = onGitHubPages;
+    refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked });
+    refs.authMessage.textContent = onGitHubPages
+      ? "这里是 GitHub Pages 的公开只读副本。为避免把写入令牌放进前端，管理功能只在同源 serverless 管理地址开放；完成一次性部署后，公开页的“所有者登录”会跳转过去。"
+      : (networkUnavailable
+        ? "当前离线，管理区已锁定。联网并重新登录后，本机草稿都还在。"
+        : (forceGate ? "登录已失效。草稿与等待同步任务仍保存在本机，请重新登录。" : (error.message || "尚未登录。")));
+  } finally {
+    state.authChecking = false;
+  }
+}
+
+refs.captureForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  try {
+    await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: true }), refs.organizeButton);
+  } catch (error) {
+    setStatus(refs.captureStatus, error.message);
+  }
+});
+refs.captureInput.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || event.shiftKey || event.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
+  event.preventDefault();
+  if (event.repeat || refs.organizeButton.disabled) return;
+  refs.captureForm.requestSubmit(refs.organizeButton);
+});
+refs.captureInput.addEventListener("input", () => {
+  if (refs.captureInput.value.trim()) pauseAutomaticSynonymScans();
+  else scheduleImportedSynonymScans();
+});
+refs.manualButton.addEventListener("click", async () => {
+  try {
+    await withOrganizingLock(() => openNewDraft(refs.captureInput.value, { ai: false }), refs.manualButton);
+  } catch (error) {
+    setStatus(refs.captureStatus, error.message);
+  }
+});
+refs.entryForm.addEventListener("input", (event) => {
+  if (event.target === refs.fieldPhonetic && state.currentDraft?.id) {
+    const draftId = state.currentDraft.id;
+    state.phoneticEditRevisions.set(draftId, (state.phoneticEditRevisions.get(draftId) || 0) + 1);
+  }
+  renderDraftCompletionNotice(collectEntry());
+  scheduleDraftSave();
+});
+refs.fieldEntryType.addEventListener("change", () => {
+  refs.attributionFieldset.hidden = !["quote", "proverb"].includes(refs.fieldEntryType.value);
+  refs.synonymsField.hidden = !SYNONYM_FEATURE_ENABLED || !LEXICAL_ENTRY_TYPES.has(refs.fieldEntryType.value);
+  if (SYNONYM_FEATURE_ENABLED && refs.synonymsField.hidden && refs.fieldSynonyms.value.trim()) {
+    refs.fieldSynonyms.value = "";
+    showEditorError("句子、名言和谚语不保存同义词；原同义词内容已从这份草稿中移除。");
+  } else {
+    showEditorError();
+  }
+  scheduleDraftSave();
+});
+refs.acceptSuggestion.addEventListener("click", () => {
+  const correction = state.currentDraft.value.correction;
+  refs.fieldTerm.value = correction.suggestion;
+  refs.fieldStandardForm.value = correction.suggestion;
+  state.currentDraft.value.correction = { ...correction, status: "accepted", chosen: correction.suggestion };
+  renderCorrection(state.currentDraft.value);
+  scheduleDraftSave();
+});
+refs.keepOriginal.addEventListener("click", () => {
+  const correction = state.currentDraft.value.correction;
+  refs.fieldTerm.value = correction.original;
+  state.currentDraft.value.correction = { ...correction, status: "kept", chosen: correction.original };
+  renderCorrection(state.currentDraft.value);
+  scheduleDraftSave();
+});
+refs.manualCorrection.addEventListener("click", () => {
+  const correction = state.currentDraft.value.correction;
+  state.currentDraft.value.correction = { ...correction, status: "kept", chosen: refs.fieldTerm.value, source: "manual" };
+  refs.correctionCard.hidden = true;
+  refs.fieldTerm.focus();
+  scheduleDraftSave();
+});
+refs.saveLocal.addEventListener("click", () => persistCurrentDraft({ announce: true }).catch((error) => showEditorError(error.message)));
+async function organizeCurrentDraft({ fillMissingOnly = false, triggerButton = null } = {}) {
+  await withOrganizingLock(async () => {
+    try {
+      requireVerifiedOwnerUi();
+      // Capture the user's intent before the first await. Draft-rail navigation
+      // remains available while AI runs, so later reads must not silently switch
+      // the requested target from A to whichever draft is visible then.
+      const requestedDraftId = state.currentDraft?.id || "";
+      if (!requestedDraftId) throw new Error("请先打开一份草稿。");
+      await flushPendingDraftSave();
+      const draft = await getDraft(requestedDraftId);
+      if (!draft) throw new Error("请先打开一份草稿。");
+      await organizeDraftWithAi(draft, validateEnglishInput(draft.value.originalInput || draft.value.term), { fillMissingOnly });
+    } catch (error) {
+      setStatus(refs.captureStatus, error.message || "AI 暂时无法重新整理当前草稿。");
+    }
+  }, triggerButton);
+}
+refs.reorganizeCurrent.addEventListener("click", () => organizeCurrentDraft({ triggerButton: refs.reorganizeCurrent }));
+refs.completeDraft.addEventListener("click", () => organizeCurrentDraft({ fillMissingOnly: true, triggerButton: refs.completeDraft }));
+refs.retryAiDraft.addEventListener("click", () => organizeCurrentDraft({ fillMissingOnly: true, triggerButton: refs.retryAiDraft }));
+refs.entryForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (state.publishing) return;
+  state.publishing = true;
+  updatePublishButtonDisabled();
+  try {
+    await queueCurrentPublish();
+  } catch (error) {
+    showEditorError(error.message || "发布失败");
+  } finally {
+    state.publishing = false;
+    updatePublishButtonDisabled();
+    scheduleImportedSynonymScans();
+  }
+});
+async function discardCurrentDraft() {
+  if (!state.currentDraft || state.discardingDraftId) return;
+  if (state.publishing || state.queueBusy || state.organizingToken || state.commitLockedDraftId) {
+    showEditorError("正在整理或发布内容，请完成后再删除草稿。");
+    return;
+  }
+  if (!window.confirm("删除这份本地草稿吗？已发布的 GitHub 词条不会因此删除。")) return;
+  const discardedId = state.currentDraft.id;
+  state.discardingDraftId = discardedId;
+  const wasInert = refs.ownerWorkspace.inert;
+  // Keep the confirmed target stable while its last write finishes. Otherwise
+  // a debounce task can recreate the record after deletion, or a late switch
+  // can make this handler close a different draft's editor.
+  refs.ownerWorkspace.inert = true;
+  try {
+    await flushPendingDraftSave();
+    if (state.currentDraft?.id !== discardedId) throw new Error("当前草稿已改变，没有删除任何草稿，请重新确认。");
+    await deleteDraft(discardedId);
+    state.draftAiStatus.delete(discardedId);
+    state.currentDraft = null;
+    refs.entryForm.hidden = true;
+    refs.editorEmpty.hidden = false;
+    refs.editorAiStatus.hidden = true;
+    refs.draftCompletionNotice.hidden = true;
+    await renderDrafts();
+    setStatus(refs.captureStatus, "本地草稿已删除；已发布的词条没有改变。");
+  } catch (error) {
+    showEditorError(`删除未完成：${error?.message || "请重试。"}`);
+  } finally {
+    state.discardingDraftId = null;
+    refs.ownerWorkspace.inert = wasInert;
+    scheduleImportedSynonymScans();
+  }
+}
+refs.discardDraft.addEventListener("click", discardCurrentDraft);
+refs.refreshRemote.addEventListener("click", () => loadRemote().catch(() => {}));
+refs.retryQueue.addEventListener("click", async () => {
+  const operations = await listOutbox();
+  for (const operation of operations) {
+    if (String(operation.authorizedRunId || "") !== state.tabId) continue;
+    if (operation.status === "review_required") continue;
+    if (operation.status === "awaiting_auth" || operation.status === "retry_wait"
+      || (operation.status === "failed" && operation.lastError?.retryable)) {
+      await markOperation(operation.operationId, "pending", { nextAttemptAt: isoNow(), lastError: null });
+    }
+  }
+  await drainQueue();
+});
+refs.ownerSearch.addEventListener("input", () => { state.ownerSearch = refs.ownerSearch.value; renderOwnerEntries(); });
+refs.loginLink.addEventListener("click", rememberOwnerInputForLogin);
+refs.rememberLogin.addEventListener("change", () => { refs.loginLink.href = ownerLoginUrl({ remember: refs.rememberLogin.checked }); });
+refs.logoutButton.addEventListener("click", async () => {
+  const csrfToken = state.csrfToken;
+  ownerLogoutLocked = true;
+  try { sessionStorage.setItem(OWNER_LOGOUT_LOCK_KEY, "1"); } catch { /* In-memory lock remains active. */ }
+  state.authGeneration += 1;
+  state.previewGeneration += 1;
+  showOwnerLoginGate("正在退出。管理区已关闭，本机草稿仍保留。");
+  state.synonymBatchStopped = true;
+  state.synonymAbortController?.abort();
+  await flushPendingDraftSave().catch(() => {});
+  try {
+    await logout(csrfToken);
+    showOwnerLoginGate("已退出。下次请使用 GitHub 重新登录。");
+  } catch {
+    showOwnerLoginGate("退出请求暂未完成，此页已锁定。请使用 GitHub 明确重新登录。");
+  }
+});
+refs.conflictUseMerged.addEventListener("click", () => resolveConflict("merged"));
+refs.conflictUseRemote.addEventListener("click", () => resolveConflict("remote"));
+refs.conflictClose.addEventListener("click", () => refs.conflictDialog.close());
+
+refs.exportBackup.addEventListener("click", async () => {
+  try {
+    requireVerifiedOwnerUi();
+    await flushPendingDraftSave();
+    const drafts = await listDrafts();
+    const blob = createOwnerBackupBlob({ drafts, publicSnapshot: state.snapshot, exportedAt: isoNow() });
+    const url = URL.createObjectURL(blob);
+    try {
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `zhuo-wordbook-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      link.click();
+      setStatus(refs.captureStatus, "草稿备份已导出，包含刚刚保存的最新修改。");
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  } catch (error) {
+    setStatus(refs.captureStatus, `导出失败：${error.message}`);
+  }
+});
+refs.importBackup.addEventListener("click", () => {
+  try { requireVerifiedOwnerUi(); refs.importFile.click(); } catch (error) { setStatus(refs.captureStatus, error.message); }
+});
+refs.importFile.addEventListener("change", async () => {
+  try { requireVerifiedOwnerUi(); } catch (error) { setStatus(refs.captureStatus, error.message); return; }
+  const file = refs.importFile.files?.[0];
+  refs.importFile.value = "";
+  if (!file) return;
+  try {
+    const documentValue = await readOwnerBackupFile(file);
+    await importDrafts(documentValue.drafts);
+    await renderDrafts();
+    setStatus(refs.captureStatus, `已安全导入 ${documentValue.drafts.length} 份草稿；没有自动发布任何内容。`);
+  } catch (error) {
+    setStatus(refs.captureStatus, `导入失败：${error.message}`);
+  }
+});
+
+for (const type of ENTRY_TYPES) {
+  const option = document.createElement("option");
+  option.value = type;
+  option.textContent = type;
+  refs.fieldEntryType.append(option);
+}
+setNetworkState();
+window.addEventListener("online", () => {
+  setNetworkState();
+  window.setTimeout(() => {
+    if (state.runClosing) return;
+    if (!state.session) verifySession({ forceGate: true });
+    else drainQueue();
+  }, 50);
+});
+window.addEventListener("offline", setNetworkState);
+window.addEventListener("pagehide", () => {
+  state.previewGeneration += 1;
+  state.runClosing = true;
+  state.publishAbortController?.abort();
+  state.synonymAbortController?.abort();
+  window.clearTimeout(state.synonymTimer);
+  flushPendingDraftSave().catch(() => {});
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") flushPendingDraftSave().catch(() => {});
+});
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
+  state.runClosing = false;
+  verifySession({ forceGate: true });
+});
+window.addEventListener("wordbook:storage-blocked", () => setStatus(refs.captureStatus, "另一个旧页面阻止数据库升级；请关闭其他词库页面后刷新。"));
+window.addEventListener("wordbook:storage-upgrade-needed", () => setStatus(refs.captureStatus, "词库存储已在另一个页面升级，请刷新当前页面。"));
+subscribeStorageChanges(() => { renderDrafts(); });
+setupPwa({
+  installButton: refs.installButton,
+  updateBanner: refs.updateBanner,
+  applyUpdateButton: refs.applyUpdate,
+  beforeApplyUpdate: flushPendingDraftSave
+});
+async function initializeOwnerApp() {
+  await verifySession();
+  if (!hasVerifiedOwnerUi()) return;
+  const activeRunIds = await discoverActiveOwnerRuns();
+  const recovered = await requireReviewForStoredOperations({ activeRunIds });
+  if (recovered.length) await renderDrafts();
+  const reconciled = state.session && state.snapshot && /^[0-9a-f]{40}$/i.test(state.remoteSha)
+    ? await reconcileCommittedOperations(state.snapshot, state.remoteSha)
+    : [];
+  if (reconciled.length) await renderDrafts();
+  const remaining = Math.max(0, recovered.length - reconciled.length);
+  // Only after every pre-existing operation has been reconciled or converted
+  // to explicit review may online events, retry timers, or owner actions drain
+  // the queue.  This closes the OAuth/startup window where a network event
+  // could otherwise publish an old request before recovery finished.
+  state.queueRecoveryComplete = true;
+  resolveQueueRecovery();
+  if (remaining && state.session) {
+    setStatus(refs.captureStatus, `已与 GitHub 核对完 ${reconciled.length} 个中断的任务。另有 ${remaining} 个不会自动发布，请打开对应草稿复核后重新发布。`);
+  } else if (reconciled.length) {
+    setStatus(refs.captureStatus, `已从 GitHub 核对并恢复 ${reconciled.length} 个发布成功但响应中断的任务，没有重复提交。`);
+  }
+  consumeOwnerInputAfterAuthentication();
+  scheduleImportedSynonymScans();
+}
+
+initializeOwnerApp().catch((error) => {
+  resolveQueueRecovery();
+  refs.ownerWorkspace.hidden = true;
+  refs.authGate.hidden = false;
+  refs.authMessage.textContent = `管理端初始化失败：${error.message || "未知错误"}。没有执行任何发布。`;
+});

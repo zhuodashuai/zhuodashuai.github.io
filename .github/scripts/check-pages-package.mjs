@@ -7,6 +7,13 @@ import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 
 export const REVIEW_ONLY = 'tooling/dictionary/examples/queues/batch-0031.json';
+// These D32 proof paths have never been published. Keep them in Git and CI,
+// not in every Pages artifact. No previously served path is excluded here.
+const D32_COHORTS = ['p001', 'p002', 'p002-child', 'ive-child', 'root', 'source9-01', 'yuk-child',
+  'source9-02', 'source9-03', 'source9-04', 'role-01', 'role-02', 'role-03', 'role-04', 'role-05'];
+export const UNPUBLISHED_D32_PATHS = Object.freeze(['tooling/dictionary/examples/queues/batch-0032.json',
+  'tooling/dictionary/examples/queues/batch-0032-supplement.json',
+  ...D32_COHORTS.flatMap(name => ['source', 'reviews'].map(kind => `tooling/dictionary/examples/${kind}/batch-0032-${name}.json`))]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -21,7 +28,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -71,12 +78,13 @@ export function verifyStatic(directory, repo) {
   }
   assert(checked > 8000, `Incomplete static publication: ${checked}`);
   assert(!fs.existsSync(path.join(directory, REVIEW_ONLY)), 'Internal review queue was published');
+  for (const file of UNPUBLISHED_D32_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal D32 proof was published: ${file}`);
   // README indexes and converted documentation remain published too.
   for (const file of [...GENERATED_PATHS, 'index.html', 'vocab/index.html', 'vocab/personal.html',
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY };
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

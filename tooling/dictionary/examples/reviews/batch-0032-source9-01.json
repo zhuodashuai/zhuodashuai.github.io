@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "049e0aee024afe31489d5e47ed1537ac1e843615e6ae2797b000df039faab3be",
+  "reviewer": "AI/d32_reviewer_root_source9_c001_050",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "etc",
+    "xiv",
+    "xii",
+    "dom",
+    "yu",
+    "xvi",
+    "xiii",
+    "mae",
+    "yuck",
+    "pur",
+    "JD",
+    "Jun",
+    "nae",
+    "oui",
+    "guv",
+    "vin",
+    "xviii"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-source9-c001-050-original-author-pack-0001.json",
+      "bytes": 393121,
+      "sha256": "ebe9a25c2edd40367485c3fbd6bdaa46aa2934c062a2f79f342b4390535f8966"
+    },
+    "opinion": {
+      "file": "qa/d32-source9-reviewer-root/INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+      "bytes": 14182,
+      "sha256": "99251e674bcfa573233fe51cf7d6337df0c615b57255824effad95e8faa73959"
+    },
+    "rows": [
+      {
+        "term": "etc",
+        "canonicalId": 1796557,
+        "canonicalSourceSha256": "6eaef1c5907abe1df863600bcc29ec168d82f59df38441393f647a455fd5b2a1",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "94337617111d4bd44f54b8a00b62846b83d9178d66a6f8a9d94566f0179d62a4",
+        "wholeIndependentDecision": {
+          "term": "etc",
+          "canonicalId": 1796557,
+          "pair": [
+            "etc",
+            "phrase",
+            "等等",
+            "The volunteers stacked blankets, folding chairs, spare lamps, etc in the van.",
+            "志愿者把毯子、折叠椅、备用灯等物品堆放进货车。"
+          ],
+          "pairSha256": "94337617111d4bd44f54b8a00b62846b83d9178d66a6f8a9d94566f0179d62a4",
+          "decision": "support-exact-original",
+          "languageReason": "Open enumeration of concrete nouns matches 等等. British undotted etc is retained as authored; no new dotted lookup alias is implied."
+        }
+      },
+      {
+        "term": "xiv",
+        "canonicalId": 2711636,
+        "canonicalSourceSha256": "72587051b6b4806b93680190aada1da4c68057550b114ae5aba57030e4288c55",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "ab863381c30758aecc94fa93f701c2f72cc360fb90ab98251f41c4a4bd268a04",
+        "wholeIndependentDecision": {
+          "term": "xiv",
+          "canonicalId": 2711636,
+          "pair": [
+            "xiv",
+            "numeral",
+            "罗马数字 14",
+            "The missing paragraph was restored to chapter XIV of the manuscript.",
+            "缺失的段落已补回手稿的第十四章。"
+          ],
+          "pairSha256": "ab863381c30758aecc94fa93f701c2f72cc360fb90ab98251f41c4a4bd268a04",
+          "decision": "support-exact-original",
+          "languageReason": "Fourteen is correctly used as a chapter numeral; restored missing paragraph and Chinese 补回 agree."
+        }
+      },
+      {
+        "term": "xii",
+        "canonicalId": 2771065,
+        "canonicalSourceSha256": "3e0b6ab597faef44ea3f2df53c6b8db20959ac4e57c3de8e9e96e998c3ab1d44",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "d1b4e4f220d12fbc60a712f55ede6a75345a4644629b6b98a241f39d84e99be3",
+        "wholeIndependentDecision": {
+          "term": "xii",
+          "canonicalId": 2771065,
+          "pair": [
+            "xii",
+            "numeral",
+            "罗马数字 12",
+            "Both hands of the clock pointed to XII when the bell rang.",
+            "钟声响起时，两根指针都指向表盘上十二点的位置。"
+          ],
+          "pairSha256": "d1b4e4f220d12fbc60a712f55ede6a75345a4644629b6b98a241f39d84e99be3",
+          "decision": "support-exact-original",
+          "languageReason": "Both clock hands at Roman XII convey twelve. Chinese correctly localizes the mark without inventing date or time zone."
+        }
+      },
+      {
+        "term": "dom",
+        "canonicalId": 2829947,
+        "canonicalSourceSha256": "5bfe34e3ba9d23333b08c4d8b202759517e8770b1debc5c3e779119e06ad6b9e",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "405cf6862da78a0b9fa1099e663b178c2c01aaa24f2941e809ef588dc3361d54",
+        "wholeIndependentDecision": {
+          "term": "dom",
+          "canonicalId": 2829947,
+          "pair": [
+            "dom",
+            "noun",
+            "对罗马天主教等修士的尊称",
+            "Dom Peter showed the visitors the Benedictine abbey's herb garden.",
+            "彼得修士带领来访者参观本笃会修道院的药草园。"
+          ],
+          "pairSha256": "405cf6862da78a0b9fa1099e663b178c2c01aaa24f2941e809ef588dc3361d54",
+          "decision": "support-exact-original",
+          "languageReason": "Primary Collins monastic noun specifically includes Benedictines. Chinese 修士, not teacher or royal rank, fits the fictional abbey scene."
+        }
+      },
+      {
+        "term": "yu",
+        "canonicalId": 3008275,
+        "canonicalSourceSha256": "8acb24bf9a629ad7781b0b49ec5c21ecaf112fd5584b4e6d2d8cc25f615eb1c2",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "a4478f8c203aecda8a3b91b1bd38af48feb5d3dda64ea2442707f1c13d9cd1c5",
+        "wholeIndependentDecision": {
+          "term": "yu",
+          "canonicalId": 3008275,
+          "pair": [
+            "yu",
+            "noun",
+            "禹",
+            "For her project on Chinese legends, Mei chose to write about Yu.",
+            "梅在中国传说课题中选择以禹为写作对象。"
+          ],
+          "pairSha256": "a4478f8c203aecda8a3b91b1bd38af48feb5d3dda64ea2442707f1c13d9cd1c5",
+          "decision": "support-exact-original",
+          "languageReason": "Chinese-legend project identifies the existing Yu/禹 sense, without adding an unverified biographical event."
+        }
+      },
+      {
+        "term": "xvi",
+        "canonicalId": 3194046,
+        "canonicalSourceSha256": "8c81828ee56aedb991455ed0479d6d86989030c0d49838d0a745a3c76d9cc443",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "d30f57fd181db2184db31ffbe38ec5fc8e7984a31714d26f944aa92532361367",
+        "wholeIndependentDecision": {
+          "term": "xvi",
+          "canonicalId": 3194046,
+          "pair": [
+            "xvi",
+            "numeral",
+            "罗马数字 16",
+            "We entered through gate XVI after the queue at the main entrance stopped moving.",
+            "正门入口的队伍停滞不前后，我们从十六号门进去了。"
+          ],
+          "pairSha256": "d30f57fd181db2184db31ffbe38ec5fc8e7984a31714d26f944aa92532361367",
+          "decision": "support-exact-original",
+          "languageReason": "Roman sixteen labels a fictional gate. Queue stopped moving and 停滞不前 preserve the event and temporal order."
+        }
+      },
+      {
+        "term": "xiii",
+        "canonicalId": 3242672,
+        "canonicalSourceSha256": "811bd3d5f6134bd8a9797f1825f4abfed6bb7363d17535b44c1e26ca14b401bb",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "9b08db4b2288635b9a703f2c3ba6e4499389660a9cb0eb202b2fff930ea2ddf2",
+        "wholeIndependentDecision": {
+          "term": "xiii",
+          "canonicalId": 3242672,
+          "pair": [
+            "xiii",
+            "numeral",
+            "罗马数字 13",
+            "She turned to page xiii of the preface to check the editor's acknowledgements.",
+            "她翻到前言的第十三页，查看编者的致谢。"
+          ],
+          "pairSha256": "9b08db4b2288635b9a703f2c3ba6e4499389660a9cb0eb202b2fff930ea2ddf2",
+          "decision": "support-exact-original",
+          "languageReason": "Roman thirteen in preface pagination is natural; editor's acknowledgements and 编者的致谢 agree."
+        }
+      },
+      {
+        "term": "mae",
+        "canonicalId": 3244954,
+        "canonicalSourceSha256": "2c9616d24e2c4eed8edd0ccd4a8e01a2c3edc6d0141a7d5c3c3933de44814df7",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "92c67a22ed1f85da9fe8f4a7f1e900e7a839fba11a28b83d569904365468beb6",
+        "wholeIndependentDecision": {
+          "term": "mae",
+          "canonicalId": 3244954,
+          "pair": [
+            "mae",
+            "adjective",
+            "更多",
+            "The Scots crofter in our historical play calls, \"Bring mae logs from the cart.\"",
+            "在我们的历史剧中，苏格兰佃农喊道：“从车上多拿些木柴来。”"
+          ],
+          "pairSha256": "92c67a22ed1f85da9fe8f4a7f1e900e7a839fba11a28b83d569904365468beb6",
+          "decision": "support-exact-original",
+          "languageReason": "Primary Scottish archaic adjective more supports quantity before plural logs. Explicit historical-play dialogue bounds register; not the given name Mae or a new source POS."
+        }
+      },
+      {
+        "term": "yuck",
+        "canonicalId": 3282273,
+        "canonicalSourceSha256": "922a6bbc3f0112c94ae868a24f6137cc249848b629dc60505f8da2191ec7c1d1",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "c5af668b9c1ae405f247e2e2908a889da6d048334ca30aa6430ef94d75af2200",
+        "wholeIndependentDecision": {
+          "term": "yuck",
+          "canonicalId": 3282273,
+          "pair": [
+            "yuck",
+            "interjection",
+            "表示反感",
+            "\"Yuck, there's mould on the inside of this lid!\"",
+            "“真恶心，这个盖子里面都长霉了！”"
+          ],
+          "pairSha256": "c5af668b9c1ae405f247e2e2908a889da6d048334ca30aa6430ef94d75af2200",
+          "decision": "support-exact-original",
+          "languageReason": "Disgust interjection agrees with mould discovery and 真恶心; not the separate noun yuk. INT is a POS-marker false hint, not a lexical parent to overwrite."
+        }
+      },
+      {
+        "term": "pur",
+        "canonicalId": 3291284,
+        "canonicalSourceSha256": "7a6d4c1c8bf5d737463c36a840a9a4efd811e5a3cbb38229a8630b06bc181a81",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "e2c4b36c18ba115323d40d2f6d377bcb5279b5aaef36edcfc9482bdcefbae37c",
+        "wholeIndependentDecision": {
+          "term": "pur",
+          "canonicalId": 3291284,
+          "pair": [
+            "pur",
+            "verb",
+            "咕噜咕噜叫",
+            "When the kittens settle beside the warm stove, they begin to pur.",
+            "小猫们在温暖的炉子旁安顿下来后，就开始咕噜咕噜地叫。"
+          ],
+          "pairSha256": "e2c4b36c18ba115323d40d2f6d377bcb5279b5aaef36edcfc9482bdcefbae37c",
+          "decision": "support-exact-original",
+          "languageReason": "Primary pur variant of purr supports canonical verb use with kittens. Existing purr whole card remains separate, and the actual two-ID purring ambiguity is not a successful form claim."
+        }
+      },
+      {
+        "term": "JD",
+        "canonicalId": 3629787,
+        "canonicalSourceSha256": "1cf3f3df3f8d1b6e6ffb3d04bf084e8f6e5775408081cfb594cdf5552d960454",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "a8dc61a3e7001c5f7171647b9fa3db07745ca6adef85511c9f31443b37050a2c",
+        "wholeIndependentDecision": {
+          "term": "JD",
+          "canonicalId": 3629787,
+          "pair": [
+            "JD",
+            "noun",
+            "法学博士",
+            "She earned her JD before applying for work at the legal aid centre.",
+            "她在申请到法律援助中心工作之前，已获得法学博士学位。"
+          ],
+          "pairSha256": "a8dc61a3e7001c5f7171647b9fa3db07745ca6adef85511c9f31443b37050a2c",
+          "decision": "support-exact-original",
+          "languageReason": "Fictional law-degree attainment uses current source 法学博士. No licence, admission entitlement, PhD equivalence or current legal advice is asserted."
+        }
+      },
+      {
+        "term": "Jun",
+        "canonicalId": 3692738,
+        "canonicalSourceSha256": "0baa7412fe6ab81d111543e18c317c10c3a046d6cb5f694498aa168f69a20729",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "7fec504c1d4eb8d7eee94adbf6a81b99476bbf1ddc00ba3d001a1c95b8f3565c",
+        "wholeIndependentDecision": {
+          "term": "Jun",
+          "canonicalId": 3692738,
+          "pair": [
+            "Jun",
+            "noun",
+            "六月",
+            "The receipt was dated 12 Jun, although the parcel had arrived two days earlier.",
+            "收据上写着6月12日，但包裹其实早两天就已送到。"
+          ],
+          "pairSha256": "7fec504c1d4eb8d7eee94adbf6a81b99476bbf1ddc00ba3d001a1c95b8f3565c",
+          "decision": "support-exact-original",
+          "languageReason": "Written 12 Jun is a natural month abbreviation, not a personal name; two days earlier preserved without adding a year."
+        }
+      },
+      {
+        "term": "nae",
+        "canonicalId": 3771279,
+        "canonicalSourceSha256": "baa8fd4d169cfdeb06e1681190767fadf801bcb0ded56b915d4e366d23d9e6c3",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "44d89fd8b00f0b71b38aaccedd5a6c6ec336b7317771c7a9975590745bb37ebd",
+        "wholeIndependentDecision": {
+          "term": "nae",
+          "canonicalId": 3771279,
+          "pair": [
+            "nae",
+            "adjective · adverb",
+            "不",
+            "\"It's nae easy to mend a dry-stone wall in that wind,\" the Scottish farmer said.",
+            "苏格兰农民说：“刮着那样的风，修干砌石墙可不容易。”"
+          ],
+          "pairSha256": "44d89fd8b00f0b71b38aaccedd5a6c6ec336b7317771c7a9975590745bb37ebd",
+          "decision": "support-exact-original",
+          "languageReason": "Primary explicitly attests Scots no/not as adverb. Negative easy matches 不容易 in quoted Scottish speech; full source POS union is not expanded to unrelated no noun senses."
+        }
+      },
+      {
+        "term": "oui",
+        "canonicalId": 3799368,
+        "canonicalSourceSha256": "e8878f9a09661fa9653a2ab9c03ba103cd48a9e5112b7594b9521592dc2d4964",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "f523a9f916e86198234ab1560d946f08144596b684b05d8d54047cf36ac145f5",
+        "wholeIndependentDecision": {
+          "term": "oui",
+          "canonicalId": 3799368,
+          "pair": [
+            "oui",
+            "adverb",
+            "是的",
+            "\"Oui, the spare key is in the blue cupboard,\" she replied with a nod.",
+            "她点头答道：“是的，备用钥匙在蓝色的橱柜里。”"
+          ],
+          "pairSha256": "f523a9f916e86198234ab1560d946f08144596b684b05d8d54047cf36ac145f5",
+          "decision": "support-exact-original",
+          "languageReason": "Primary attests French affirmative as adverb. Affirmative reply plus nod and 是的 align; no generic claim of ordinary monolingual English usage."
+        }
+      },
+      {
+        "term": "guv",
+        "canonicalId": 3864301,
+        "canonicalSourceSha256": "3839a5435999662fb1135fb242a193b58b63ab6f6a3688fb1ac354a4bd4259f8",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "15a34d7367e61e818892fa91ec2e116d086a91332ca13b3b23ebbad90d973a29",
+        "wholeIndependentDecision": {
+          "term": "guv",
+          "canonicalId": 3864301,
+          "pair": [
+            "guv",
+            "noun",
+            "老爸",
+            "\"You can put your tools in my shed, guv,\" he told his father in his old-fashioned London way.",
+            "他用老派的伦敦口吻对父亲说：“老爸，你可以把工具放在我的棚屋里。”"
+          ],
+          "pairSha256": "15a34d7367e61e818892fa91ec2e116d086a91332ca13b3b23ebbad90d973a29",
+          "decision": "support-exact-original",
+          "languageReason": "Independently opened guv and linked governor father branch; father is explicitly established and old-fashioned British register stated, not generic boss/customer substitution."
+        }
+      },
+      {
+        "term": "vin",
+        "canonicalId": 3874058,
+        "canonicalSourceSha256": "6c2aba17828f4b9f71c237232514d99abcfde8f3e36c45b81936008c17fea0ff",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "38a6638398f567914c6a0a832156e9481e8738ac3aca9110c6f1dffcc6312a45",
+        "wholeIndependentDecision": {
+          "term": "vin",
+          "canonicalId": 3874058,
+          "pair": [
+            "vin",
+            "noun",
+            "葡萄酒",
+            "At the little French inn, we ordered some vin to go with the meal.",
+            "在那家法国小客栈里，我们点了些葡萄酒佐餐。"
+          ],
+          "pairSha256": "38a6638398f567914c6a0a832156e9481e8738ac3aca9110c6f1dffcc6312a45",
+          "decision": "support-exact-original",
+          "languageReason": "Primary French wine noun and declared vins form are attested. French-inn scene and 葡萄酒 align; no vehicle-code sense or new alias."
+        }
+      },
+      {
+        "term": "xviii",
+        "canonicalId": 3917844,
+        "canonicalSourceSha256": "5d7afc5c8084c354060b5e46860742fc8319163e415932dcecc324f0f3e52117",
+        "authorPrincipal": "d32_author_source9_master01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "0aa9f5b0493ad072090ecc389c1ff5afc1689f226ecb8ca11614941b0b422407",
+        "wholeIndependentDecision": {
+          "term": "xviii",
+          "canonicalId": 3917844,
+          "pair": [
+            "xviii",
+            "numeral",
+            "罗马数字 18",
+            "The search team found the survey notes in volume XVIII, beneath a loose map.",
+            "搜寻小组在第十八卷一张散页地图的下面找到了勘测笔记。"
+          ],
+          "pairSha256": "0aa9f5b0493ad072090ecc389c1ff5afc1689f226ecb8ca11614941b0b422407",
+          "decision": "support-exact-original",
+          "languageReason": "Roman eighteen labels a volume; survey notes found beneath a loose map is faithfully rendered without adding a real publication claim."
+        }
+      }
+    ]
+  }
+}

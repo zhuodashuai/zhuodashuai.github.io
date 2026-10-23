@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "59ecf86d03b302db443d3f88151c1a38944341cb5154e1a0dfcca69c63ddd841",
+  "reviewer": "AI/d32_reviewer_root_source9_c001_050",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "yuk"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-source9-c001-050-yuk-translation-child-author-pack-0001.json",
+      "bytes": 7590,
+      "sha256": "7feb69b2d35667a037c8b4491734091a5f3b5f2b1b7619800e5b7088d4e32d9a"
+    },
+    "opinion": {
+      "file": "qa/d32-source9-reviewer-root/YUK-TRANSLATION-CHILD-OPINION-0001.json",
+      "bytes": 2240,
+      "sha256": "7d30a36c61e595b79c3adad97ae102ff18ab2254b44721b80d332c82c8a17447"
+    },
+    "rows": [
+      {
+        "term": "yuk",
+        "canonicalId": 3511400,
+        "canonicalSourceSha256": "56daa1347daa4f4d48163dd1c32fd99e41c2114e9a7c2f731b96eca46386404f",
+        "authorPrincipal": "d32_author_source9_master01_yuk_child01",
+        "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+        "pairSha256": "c1e6061158a5c9e87fc42eadfd685cc79419fd00cf27fa51f8caad8fdfd1cebe",
+        "wholeIndependentDecision": {
+          "schemaVersion": 1,
+          "kind": "Root independent bounded review of Source9's distinct yuk translation child",
+          "reviewerPrincipal": "d32_reviewer_root_source9_c001_050",
+          "authorPrincipal": "d32_author_source9_master01_yuk_child01",
+          "input": {
+            "file": "drafts/d32-source9-c001-050-yuk-translation-child-author-pack-0001.json",
+            "bytes": 7590,
+            "sha256": "7feb69b2d35667a037c8b4491734091a5f3b5f2b1b7619800e5b7088d4e32d9a"
+          },
+          "originalOpinion": {
+            "file": "qa/d32-source9-reviewer-root/INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+            "sha256": "99251e674bcfa573233fe51cf7d6337df0c615b57255824effad95e8faa73959",
+            "unchanged": true
+          },
+          "term": "yuk",
+          "canonicalId": 3511400,
+          "pair": [
+            "yuk",
+            "noun",
+            "引起大笑的趣事",
+            "The scene with the runaway wig was the biggest yuk in the whole show.",
+            "假发失控的那一幕，是整场演出中最令人捧腹的一段趣事。"
+          ],
+          "pairSha256": "c1e6061158a5c9e87fc42eadfd685cc79419fd00cf27fa51f8caad8fdfd1cebe",
+          "decision": "support-exact-child-only",
+          "languageReason": "Root personally read the complete child and retained original source/context. Removing 突然 and 飞走 leaves the runaway wig's movement mechanism unspecified. 失控 preserves the comic runaway image; 那一幕 and 整场演出中最令人捧腹的一段趣事 preserve scene, biggest yuk and show. The existing noun sense means a laugh-provoking incident, not the disgust interjection. No English wording, POS, selected meaning, source, form or original decision changes.",
+          "actualChecks": {
+            "rawChildLengthAndHash": true,
+            "fullOriginalEntryExact": true,
+            "firstFourCellsExact": true,
+            "wholeSourceFormHistoryContextExact": true,
+            "completeSharedContextHashExact": true,
+            "pairHashExact": true,
+            "onlyZhChanged": true
+          },
+          "dedupBoundary": "English is byte-identical to the previously independently checked original. Prior zero-duplicate proof is reused explicitly, not represented as a new global scan. This is one alternate pair for the same canonical head, not an additional covered head.",
+          "retained": "Original17 supported + original yuk translation hold and all32 author source holds remain unchanged. Explicit candidate selection still required; no automatic substitution.",
+          "admitted": false,
+          "built": false,
+          "published": false,
+          "coverageAdded": 0
+        }
+      }
+    ]
+  }
+}

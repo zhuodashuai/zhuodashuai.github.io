@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "15b5e9fbeada697bc39cf04859cce30ce1a543930821a223410ab45571bb001f",
+  "reviewer": "AI/d32_reviewer_role_p002_child01",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "aloha",
+    "mhm"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-p002-translation-precision-child-author-pack-0001.json",
+      "bytes": 24028,
+      "sha256": "cfc8af762f1abf96af5ada5de6298cf8604e6e841a0d09c52efd89e5b3d7c3e5"
+    },
+    "opinion": {
+      "file": "qa/d32-p002-reviewer-role/TRANSLATION-CHILD-OPINION-0001.json",
+      "bytes": 4825,
+      "sha256": "a999ce8a432abf1a1dd205ef9042244562205e9097a509ce5784c9307c7901e3"
+    },
+    "rows": [
+      {
+        "term": "aloha",
+        "canonicalId": 3773866,
+        "canonicalSourceSha256": "ae4d7e4c28090bdc18bf60552d2c27a7c1386096f82b898e5e9145a2b96d0a4b",
+        "authorPrincipal": "d32_author_source9_p002_child01",
+        "reviewerPrincipal": "d32_reviewer_role_p002_child01",
+        "pairSha256": "f2e2622eeff09b60fe2581b6ed3afb1fe9ae377e59e0df285edf2624ce2c7df4",
+        "wholeIndependentDecision": {
+          "term": "aloha",
+          "decision": "support-exact-separately-authored-translation-child-for-possible-admission",
+          "pair": [
+            "aloha",
+            "interjection",
+            "再见",
+            "\"Aloha, and have a safe journey home!\" our host called as we left.",
+            "我们离开时，主人喊道：“再见，祝你们回家一路平安！”"
+          ],
+          "pairSha256": "f2e2622eeff09b60fe2581b6ed3afb1fe9ae377e59e0df285edf2624ce2c7df4",
+          "originalPairSha256": "2d84fc5c1782f1ee2e2874fb5c49a4aa75e888528204a98f2b558dccba16883d",
+          "originalOpinionDecision": "hold-original-pair-for-separate-author-translation-child",
+          "completeOriginalEntrySemanticSha256": "6ffb1d6775e2194d6e27990b45eb8c65a853943d1584c50611b223e7b440b0f8",
+          "sourceSha256": "ae4d7e4c28090bdc18bf60552d2c27a7c1386096f82b898e5e9145a2b96d0a4b",
+          "contextSemanticSha256": "1792172b7ae18f35afe22ab5b57785ca5499bf9cf8ea82cf3a95105bee3fef5a",
+          "onlyCell4ZhChanged": true,
+          "otherFourCellsAndWholeOriginalContextExact": true,
+          "reason": "回家 explicitly restores homeward destination; farewell/safe-journey wish/host/departure remain natural and exact. No new destination or cause is invented.",
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "mhm",
+        "canonicalId": 2178023,
+        "canonicalSourceSha256": "73bcf2121ddfe4653f034c58d9c03d4d143c8c2af2121e11e80f28d7f769af56",
+        "authorPrincipal": "d32_author_source9_p002_child01",
+        "reviewerPrincipal": "d32_reviewer_role_p002_child01",
+        "pairSha256": "0d24a89eb896a2e23491eea6d3fa742a809d77ea2e0d056c008ea9f9b02a60b5",
+        "wholeIndependentDecision": {
+          "term": "mhm",
+          "decision": "support-exact-separately-authored-translation-child-for-possible-admission",
+          "pair": [
+            "mhm",
+            "interjection",
+            "嗯",
+            "\"Mhm, I'm listening; tell me what happened after the lights went out.\"",
+            "“嗯，我在听；跟我说说灯灭了之后发生了什么。”"
+          ],
+          "pairSha256": "0d24a89eb896a2e23491eea6d3fa742a809d77ea2e0d056c008ea9f9b02a60b5",
+          "originalPairSha256": "d99f2c68ba295431436bdd65f0d231f8b3f46b4c5f0bf72240b410a33431c3b5",
+          "originalOpinionDecision": "hold-original-pair-for-separate-author-translation-child",
+          "completeOriginalEntrySemanticSha256": "dda6c03929734e47fa625059e7f5acc843dd5a2a2dd92d861b5980a5fde50a04",
+          "sourceSha256": "73bcf2121ddfe4653f034c58d9c03d4d143c8c2af2121e11e80f28d7f769af56",
+          "contextSemanticSha256": "e87dc51410f8c055ddf4141a51fd6986b8f550f96d4dd8e24869f1d180a222ad",
+          "onlyCell4ZhChanged": true,
+          "otherFourCellsAndWholeOriginalContextExact": true,
+          "reason": "灯灭了 translates the observed lighting event without asserting why; attentive-listening interjection and request to recount subsequent events stay natural and faithful.",
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      }
+    ]
+  }
+}

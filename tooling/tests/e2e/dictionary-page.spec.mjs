@@ -1,7 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { gunzipSync } from "node:zlib";
 import { dictionaryExampleBucket } from "../../../vocab/js/dictionary-examples.js";
+import { dictionaryExamplesRelease } from "../../../vocab/js/dictionary-examples-release-v4.js";
+import { catalogueVersion } from "../../../vocab/js/dictionary-examples-additive-codec.js";
+import { compressExampleArtifact } from "../../scripts/build-dictionary-examples-additive.mjs";
 
 const ORIGIN = process.env.WORDBOOK_E2E_ORIGIN || "http://127.0.0.1:4187";
 const publicSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
@@ -194,7 +198,23 @@ test("examples: a valid missing-material fixture stays hidden without claiming a
   descriptor.bytes = bytes.length; descriptor.sha256 = createHash("sha256").update(bytes).digest("hex");
   descriptor.heads -= Number(Boolean(removed)); descriptor.examples -= removedPairs;
   manifest.counts.heads -= Number(Boolean(removed)); manifest.counts.examples -= removedPairs;
-  await page.route("**/data/dictionary-examples/manifest-v2.json", route => route.fulfill({ json: manifest }));
+  // This is a complete valid test release, not a tampered response under the
+  // production immutable pins. The strict v4 reader must reject the latter.
+  const release = structuredClone(dictionaryExamplesRelease);
+  const manifestBytes = Buffer.from(JSON.stringify(manifest));
+  release.base.bytes = manifestBytes.length;
+  release.base.sha256 = createHash("sha256").update(manifestBytes).digest("hex");
+  release.base.counts = { ...manifest.counts };
+  const catalogue = JSON.parse(gunzipSync(await readFile(new URL(`../../../vocab/data/dictionary-examples/${release.catalogue.file}`, import.meta.url))));
+  catalogue.base = release.base;
+  catalogue.counts.heads -= Number(Boolean(removed)); catalogue.counts.examples -= removedPairs;
+  catalogue.version = await catalogueVersion(catalogue);
+  const artifact = compressExampleArtifact(catalogue);
+  release.catalogue = artifact.descriptor;
+  await page.route("**/js/dictionary-examples-release-v4.js", route => route.fulfill({ contentType: "text/javascript", body:
+    `export const dictionaryExamplesRelease=${JSON.stringify(release)};export const DICTIONARY_EXAMPLES_VERSION=${JSON.stringify(catalogue.version)};export const DICTIONARY_EXAMPLES_COUNTS=${JSON.stringify(catalogue.counts)};` }));
+  await page.route(`**/data/dictionary-examples/${release.catalogue.file}`, route => route.fulfill({ contentType: "application/octet-stream", body: artifact.bytes }));
+  await page.route("**/data/dictionary-examples/manifest-v2.json", route => route.fulfill({ contentType: "application/json", body: manifestBytes }));
   await page.route(`**/data/dictionary-examples/${descriptor.file}`, route => route.fulfill({ contentType: "application/json", body: bytes }));
   expect(payload.entries.some(item => item.term === "abacus")).toBe(false);
   const calls = observeRequests(page); await open(page); await query(page, "abacus");

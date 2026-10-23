@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "base": {
+    "file": "manifest-v2.json",
+    "bytes": 57577,
+    "sha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "version": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4",
+    "counts": {
+      "heads": 86415,
+      "examples": 87804
+    }
+  },
+  "source": {
+    "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+    "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+  },
+  "previousCatalogue": null,
+  "releases": [
+    {
+      "id": "examples-0032",
+      "sourceFiles": [
+        "batch-0032-p001.json",
+        "batch-0032-p002.json",
+        "batch-0032-p002-child.json",
+        "batch-0032-ive-child.json",
+        "batch-0032-root.json",
+        "batch-0032-source9-01.json",
+        "batch-0032-yuk-child.json",
+        "batch-0032-source9-02.json",
+        "batch-0032-source9-03.json",
+        "batch-0032-role-01.json",
+        "batch-0032-role-02.json",
+        "batch-0032-role-03.json",
+        "batch-0032-role-04.json",
+        "batch-0032-role-05.json",
+        "batch-0032-source9-04.json"
+      ]
+    }
+  ]
+}
