@@ -1,0 +1,4385 @@
+{
+  "schemaVersion": 1,
+  "stage": "finite83-composite-sources-not-built-not-published",
+  "queuedHeads": 92,
+  "entries": [
+    {
+      "ordinal": 1,
+      "term": "a hundred and one",
+      "id": 8998577,
+      "source": {
+        "id": 8998577,
+        "term": "a hundred and one",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "许多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71472,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "许多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "120c491778995e39114f5bc8ad1cc98103e0f9be5282f8f234b05ef1b6ee699b",
+      "selectedMeaningZh": "许多",
+      "selectedFunctionNote": "Nonliteral many tasks, not a counted total of101.",
+      "pair": [
+        "a hundred and one",
+        "quantifier phrase",
+        "许多",
+        "There are a hundred and one things to finish before the exhibition opens.",
+        "展览开幕前，还有许许多多的事情要完成。"
+      ],
+      "pairSha256": "bf73beeedc89340898fbbae919b972e513febd5291ebc0d7815cb859e1fd21cc",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "a hundred and one",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 2,
+      "term": "a thousand and one",
+      "id": 9002519,
+      "source": {
+        "id": 9002519,
+        "term": "a thousand and one",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "一千零一, 许许多多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71579,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "一千零一, 许许多多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "621f58b4f8678762e50d05146f2b94e40b91d04cdbd4e975c21a0b426b896bed",
+      "selectedMeaningZh": "许许多多",
+      "selectedFunctionNote": "Nonliteral numerous reasons, not a counted total of1001.",
+      "pair": [
+        "a thousand and one",
+        "quantifier phrase",
+        "许许多多",
+        "She found a thousand and one reasons to postpone the difficult conversation.",
+        "她找了许许多多的理由，想把那场难以启齿的谈话往后拖。"
+      ],
+      "pairSha256": "4118bb8225cf727ae206d8dd77a0fcf49ca4480aaeac0dee4c4e839501fdd293",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "a thousand and one",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 3,
+      "term": "any amount of",
+      "id": 9031356,
+      "source": {
+        "id": 9031356,
+        "term": "any amount of",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "任何数量的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 71962,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "任何数量的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "3268cdd662570c71fc8d2a0bee82159af965ce96bffd1d1bbd0f2e3ee47c9bff",
+      "selectedMeaningZh": "任何数量的",
+      "selectedFunctionNote": "Literal unrestricted quantity in a permission clause; not silently claiming the separate idiomatic large-quantity sense.",
+      "pair": [
+        "any amount of",
+        "quantifier phrase",
+        "任何数量的",
+        "You may donate any amount of money, however small it seems.",
+        "你可以捐出任意数额的钱，哪怕看起来很少。"
+      ],
+      "pairSha256": "81b14f9d6aa054bfad09650f931740a4a368b6842bd9769073a3630bbd6f8fe3",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "any amount of",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 4,
+      "term": "as many as",
+      "id": 9042512,
+      "source": {
+        "id": 9042512,
+        "term": "as many as",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "和...一样多",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 72223,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "和...一样多",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "58129fbf02275d79a01380301ac5057f5ac7e446e29f6a388d803c71f40afbbe",
+      "selectedMeaningZh": "和...一样多",
+      "selectedFunctionNote": "Free-choice elliptical comparative as many as you need, not the unsupported emphatic up-to-number use.",
+      "pair": [
+        "as many as",
+        "quantifier phrase",
+        "和...一样多",
+        "Take as many as you need, and leave the rest for tomorrow.",
+        "需要多少就拿多少，其余的留到明天。"
+      ],
+      "pairSha256": "b4d4e52c6c6f9d2852ed44cfa365d2b7a07c85a0fb81cff63198e5ee2de9881d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "as many as",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 6,
+      "term": "far be it from me",
+      "id": 9445526,
+      "source": {
+        "id": 9445526,
+        "term": "far be it from me",
+        "partOfSpeech": "clausal idiom",
+        "meaning": "我决不会(认为...)",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 77007,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "我决不会(认为...)",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0650586ad129f581ac4401e80b59e23177bd6db326fd938ed0db8b1911e78a59",
+      "selectedMeaningZh": "我决不会(认为...)",
+      "selectedFunctionNote": "Formal disclaimer about one's own presumption; retain the source parenthetical think function, without a sarcastic reversal.",
+      "pair": [
+        "far be it from me",
+        "clausal idiom",
+        "我决不会(认为...)",
+        "Far be it from me to think that my opinion is the only one that matters.",
+        "我绝不会认为只有自己的意见才重要。"
+      ],
+      "pairSha256": "57c2f310bb4cd0c2544318e8da2e600a226aaa2fd5b86da1fb096b7a6979357d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 16,
+      "surface": {
+        "surface": "far be it from me",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 7,
+      "term": "for pity's sake",
+      "id": 9490838,
+      "source": {
+        "id": 9490838,
+        "term": "for pity's sake",
+        "partOfSpeech": "interjection",
+        "meaning": "看在上帝面上, 千万, 看在老天爷份上, 务请",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 77596,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "看在上帝面上, 千万, 看在老天爷份上, 务请",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "a7ad2b8f2ee2ca083c9ca8b477ff27ccd8949833564c12e2ccf7e8ca71f3907b",
+      "selectedMeaningZh": "千万",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "for pity's sake",
+        "interjection",
+        "千万",
+        "For pity's sake, stop arguing and listen to what she is trying to tell you.",
+        "求求你们，别吵了，听听她到底想告诉你们什么。"
+      ],
+      "pairSha256": "98c7a17377305311d4698f75c9277b102debed37a4578683a1aed756127bafa0",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "for pity's sake",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 8,
+      "term": "if worst comes to worst",
+      "id": 9649314,
+      "source": {
+        "id": 9649314,
+        "term": "if worst comes to worst",
+        "partOfSpeech": "clause",
+        "meaning": "如果最坏的事情发生, 如果别无良策",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 79711,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "如果最坏的事情发生, 如果别无良策",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "e48001e3b3bf95910bae5fd573159a67974a8f85c898572be979905db43c9af1",
+      "selectedMeaningZh": "如果最坏的事情发生",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "if worst comes to worst",
+        "clause",
+        "如果最坏的事情发生",
+        "If worst comes to worst, we can stay with my cousin.",
+        "如果情况糟到最坏的地步，我们可以住到我表亲家里。"
+      ],
+      "pairSha256": "5d04c10d36282a42fb46fa7b248656cdc8e058e85fe47856f53af4b65bd57b06",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "if worst comes to worst",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 9,
+      "term": "if you please",
+      "id": 9649641,
+      "source": {
+        "id": 9649641,
+        "term": "if you please",
+        "partOfSpeech": "phrase",
+        "meaning": "请, 对不起, 你看, 你看怪不怪, 竟然",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 79717,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "请, 对不起, 你看, 你看怪不怪, 竟然",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "8d060fd9943091115b8b698ffd47b460675cfa0b9756aadae024df656555c9ed",
+      "selectedMeaningZh": "请",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "if you please",
+        "phrase",
+        "请",
+        "A little less noise, if you please; I'm trying to read.",
+        "请安静一点，我正在看书。"
+      ],
+      "pairSha256": "e2d83aab05f7bcf1673f6f9ff0f8bae189afdb951c325ef6fec672e9e248eef2",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "if you please",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 10,
+      "term": "no love lost between",
+      "id": 9884928,
+      "source": {
+        "id": 9884928,
+        "term": "no love lost between",
+        "partOfSpeech": "clausal idiom",
+        "meaning": "不再相爱,彼此厌恶",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83045,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "不再相爱,彼此厌恶",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0af4a0df046ca2a61c3bba1bb5aa96f59d138da11389883de600d84a4ce89608",
+      "selectedMeaningZh": "彼此厌恶",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "no love lost between",
+        "clausal idiom",
+        "彼此厌恶",
+        "There is no love lost between the two colleagues, despite their polite smiles.",
+        "尽管脸上带着客气的笑容，这两位同事其实彼此厌恶。"
+      ],
+      "pairSha256": "0787b53d7f4a1ad8be3fc2367e3baa917171b9f70e8f28af19fb5e905d9b0583",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "no love lost between",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 11,
+      "term": "not more than",
+      "id": 9895522,
+      "source": {
+        "id": 9895522,
+        "term": "not more than",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "至多, 不超过, 不比...更",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83175,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "至多, 不超过, 不比...更",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "29407299f4509742c0199ced20bd591c368012ab3fe93b366215cc6b850548f6",
+      "selectedMeaningZh": "不超过",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "not more than",
+        "quantifier phrase",
+        "不超过",
+        "Send not more than five photographs with your application, and label each one clearly.",
+        "申请时附上的照片不要超过五张，每张都要标注清楚。"
+      ],
+      "pairSha256": "3533e2c16fcaa356e450dbbba11c7b3a1fab941bb847037a9818c2431b702fc1",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "not more than",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 12,
+      "term": "not on",
+      "id": 9895927,
+      "source": {
+        "id": 9895927,
+        "term": "not on",
+        "partOfSpeech": "phrase",
+        "meaning": "办不到",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83179,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "办不到",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "2bc23591c140a024dc2cf5479003eb1d94c590ec58289f99317592ed7464ccc2",
+      "selectedMeaningZh": "办不到",
+      "selectedFunctionNote": "British informal impossibility, supported by the existing 办不到 meaning; not silently substituting the separate unacceptable sense.",
+      "pair": [
+        "not on",
+        "phrase",
+        "办不到",
+        "An overseas holiday is simply not on this year, given our tight budget.",
+        "今年预算这么紧，根本没法出国度假。"
+      ],
+      "pairSha256": "04510fb5eec66c02bb2012f50611940a12b128c95677a042b1a1535730659536",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "not on",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 3
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 13,
+      "term": "one person one vote",
+      "id": 9938264,
+      "source": {
+        "id": 9938264,
+        "term": "one person one vote",
+        "partOfSpeech": "fixed phrase",
+        "meaning": "[法] 一人一票",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83707,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[法] 一人一票",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "73a0805ee5ffaeecb5978927acf239042602e38415f19943dd83e945e08ee74e",
+      "selectedMeaningZh": "一人一票",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "one person one vote",
+        "fixed phrase",
+        "一人一票",
+        "We agreed to use one person one vote when choosing the new club leader.",
+        "我们同意在选新社团负责人时采用一人一票的办法。"
+      ],
+      "pairSha256": "00aab3ab6a2e50892f035e17b023372144af0e0b0f720093f90a897bd3effcfb",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "one person one vote",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 14,
+      "term": "or anything",
+      "id": 9946182,
+      "source": {
+        "id": 9946182,
+        "term": "or anything",
+        "partOfSpeech": "phrase",
+        "meaning": "或者怎么的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83826,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "或者怎么的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "d8a4daa605819e410675ad3af51347e63c2e808e0cb90da09b9f6e7e05d7fe16",
+      "selectedMeaningZh": "或者怎么的",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "or anything",
+        "phrase",
+        "或者怎么的",
+        "You don't have to bring a gift or anything; just come along.",
+        "你不用带礼物什么的，人来就好。"
+      ],
+      "pairSha256": "091d55a8e2050edd4c9fcf059f58f7533547e9e36aed890bb63a8f5959197486",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "or anything",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 15,
+      "term": "or not",
+      "id": 9946381,
+      "source": {
+        "id": 9946381,
+        "term": "or not",
+        "partOfSpeech": "particle · phrase",
+        "meaning": "或不",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 83829,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "或不",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "710e4742d55f05ec9876ecbebdafd8ff33f25f621f2338b7fb17d35d4efd8963",
+      "selectedMeaningZh": "或不",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "or not",
+        "particle · phrase",
+        "或不",
+        "Let me know whether you can join us or not.",
+        "请告诉我你能不能和我们一起参加。"
+      ],
+      "pairSha256": "28c7cca580071c846225fa380555ac6a8987b04653afb623aca68c7ade77a396",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "or not",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 16,
+      "term": "so far as",
+      "id": 10274166,
+      "source": {
+        "id": 10274166,
+        "term": "so far as",
+        "partOfSpeech": "conjunction",
+        "meaning": "远至…;就…来说,在…范围内,至于",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 87634,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "远至…;就…来说,在…范围内,至于",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ac83c72336d44db2f9964c85efa597a93d352e059119a456bbf752ce85fd0369",
+      "selectedMeaningZh": "就…来说",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "so far as",
+        "conjunction",
+        "就…来说",
+        "So far as I know, the final decision has not been made.",
+        "据我所知，最终决定还没有作出。"
+      ],
+      "pairSha256": "40d1d47cea48a0ee889f7cc57f433dcaffbccc42c26488d9e95877deaf31f906",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "so far as",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 17,
+      "term": "the better part of",
+      "id": 10404156,
+      "source": {
+        "id": 10404156,
+        "term": "the better part of",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "大部分的…;上策",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89221,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "大部分的…;上策",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "0f7a4f506aa0a54453c669ca39f48a5f7be7cc459d81267965491ae902b39f4c",
+      "selectedMeaningZh": "大部分的…",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "the better part of",
+        "quantifier phrase",
+        "大部分的…",
+        "We spent the better part of the afternoon untangling the cables.",
+        "我们花了下午的大部分时间来理清缠在一起的电线。"
+      ],
+      "pairSha256": "b06c596951940f22798e5e6fa7d9005d830c377f190c84e8d9c29ef7a85033d5",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "the better part of",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 18,
+      "term": "there is no question of",
+      "id": 10408367,
+      "source": {
+        "id": 10408367,
+        "term": "there is no question of",
+        "partOfSpeech": "clausal idiom",
+        "meaning": "...是毫无疑问的, ...是不可能的, ...是未经提出讨论过的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89415,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "...是毫无疑问的, ...是不可能的, ...是未经提出讨论过的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "5ce7aecb3167b6f91d3beb4ba3b4dec5e6120c02216b03efb056a45ac735d3c6",
+      "selectedMeaningZh": "...是不可能的",
+      "selectedFunctionNote": "Select the explicitly present impossibility sense only; do not endorse the source's other ambiguous alternatives.",
+      "pair": [
+        "there is no question of",
+        "clausal idiom",
+        "...是不可能的",
+        "There is no question of abandoning the project after so much work.",
+        "投入了这么多心血，我们不可能放弃这个项目。"
+      ],
+      "pairSha256": "a76cd2e04a46eb46c9383abd49cf177a9e824a1f47afda173e672f19385fb3fe",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "there is no question of",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 19,
+      "term": "to be reckoned with",
+      "id": 10428660,
+      "source": {
+        "id": 10428660,
+        "term": "to be reckoned with",
+        "partOfSpeech": "phrase",
+        "meaning": "认真考虑, 对付",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89722,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "认真考虑, 对付",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "8d16b6d082f780e4accdf99e305813f55f061c00fd6bec8839fadcf95e8e0cd8",
+      "selectedMeaningZh": "认真考虑",
+      "selectedFunctionNote": "A cost factor that must be considered, not an assertion of physical strength.",
+      "pair": [
+        "to be reckoned with",
+        "phrase",
+        "认真考虑",
+        "The cost of repairs is another factor to be reckoned with.",
+        "维修费用是另一个需要认真考虑的因素。"
+      ],
+      "pairSha256": "b64db10d380dad3955c734b5a2e4f9d12014a22352f15f743fbeb032b0b54cdf",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "to be reckoned with",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 20,
+      "term": "to speak of",
+      "id": 10431807,
+      "source": {
+        "id": 10431807,
+        "term": "to speak of",
+        "partOfSpeech": "phrase",
+        "meaning": "值得一提的",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89784,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "值得一提的",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "c754f4c0d03f5cd81c6d177ae74244adfbb52089cfc874125bee17d89a1fe4a0",
+      "selectedMeaningZh": "值得一提的",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "to speak of",
+        "phrase",
+        "值得一提的",
+        "The room had no windows to speak of, just a narrow slit near the ceiling.",
+        "那个房间没什么像样的窗户，只有靠近天花板的一道窄缝。"
+      ],
+      "pairSha256": "b70f2c80d52120d5898fbe196ee03a0eba0a81b914859a3dfa90fb11374aa68f",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "to speak of",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 21,
+      "term": "truth to tell",
+      "id": 10459882,
+      "source": {
+        "id": 10459882,
+        "term": "truth to tell",
+        "partOfSpeech": "interjection",
+        "meaning": "老实说",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 90144,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "老实说",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "82ee4b6de9edac4b38e1049d58aa6cdb88edd684c758bc18c364e54fd1a47ebf",
+      "selectedMeaningZh": "老实说",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "truth to tell",
+        "interjection",
+        "老实说",
+        "Truth to tell, I was relieved when the meeting was cancelled.",
+        "老实说，得知会议取消时，我松了一口气。"
+      ],
+      "pairSha256": "a7fd367bbe570f4368bdfab0ee42462a3188c3d0cc5e67f569618f65d6aa96b4",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "truth to tell",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 22,
+      "term": "uh huh",
+      "id": 10468917,
+      "source": {
+        "id": 10468917,
+        "term": "uh huh",
+        "partOfSpeech": "interjection",
+        "meaning": "（表示赞同、领悟、同意等）嗯, 呃, 噢",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "（表示赞同、领悟、同意等）嗯, 呃, 噢",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "（表示赞同、领悟、同意等）嗯, 呃, 噢",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 90283,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "ced4cb8345f2f6eb6b0d22d2ad6518b0bf054d0b4b93bc6fa4ee075861d9387e",
+      "selectedMeaningZh": "嗯",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "uh huh",
+        "interjection",
+        "嗯",
+        "Uh huh, I see why you moved the desk closer to the window.",
+        "嗯，我明白你为什么把书桌挪得更靠近窗户了。"
+      ],
+      "pairSha256": "556185638805b4b222591b9bf93bdc3821a9136bee0a72d62d6789ff62a36317",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "uh huh",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 23,
+      "term": "what the heck",
+      "id": 10528889,
+      "source": {
+        "id": 10528889,
+        "term": "what the heck",
+        "partOfSpeech": "phrase",
+        "meaning": "搞什么鬼（非正式，表示极度惊讶的语气）\n怎么回事（非正式，表示极度惊讶的语气）",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 90976,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "搞什么鬼（非正式，表示极度惊讶的语气）\n怎么回事（非正式，表示极度惊讶的语气）",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "628e74952d048421e7096ffca13500ebac092c4ca4d5f5523a9070394e8fc717",
+      "selectedMeaningZh": "搞什么鬼",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "what the heck",
+        "phrase",
+        "搞什么鬼",
+        "What the heck happened to all the labels on these folders?",
+        "这些文件夹上的标签到底都怎么了？"
+      ],
+      "pairSha256": "23349fadad9ad3a506cbb0589bdaf8b995729959fc1aa8e3f0bdc3ae65086591",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "what the heck",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 24,
+      "term": "what's up",
+      "id": 10529078,
+      "source": {
+        "id": 10529078,
+        "term": "what's up",
+        "partOfSpeech": "phrase",
+        "meaning": "[网络] 这是怎么回事",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 90982,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[网络] 这是怎么回事",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "1f14370fd93fcba33e854f53f4190e833cec6bb827ce838e3393777c0ebe9fa9",
+      "selectedMeaningZh": "这是怎么回事",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "what's up",
+        "phrase",
+        "这是怎么回事",
+        "What's up with the printer today? It keeps stopping halfway through each page.",
+        "打印机今天是怎么回事？每页打印到一半就停下来。"
+      ],
+      "pairSha256": "e8589eb132b995127ba003c04cd5487c62ceb9d6debc0c8d4c6a53943ef95190",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "what's up",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 25,
+      "term": "whoops",
+      "id": 10535481,
+      "source": {
+        "id": 10535481,
+        "term": "whoops",
+        "partOfSpeech": "interjection",
+        "meaning": "interj. 哎哟",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 91077,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "5519e60b7241e157a115571a00898578e835dabb7943179c37f9543004df2deb",
+      "selectedMeaningZh": "哎哟",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "whoops",
+        "interjection",
+        "哎哟",
+        "Whoops, I sent the attachment to the wrong address.",
+        "哎呀，我把附件发错地址了。"
+      ],
+      "pairSha256": "0fad77652a9eddd9dc3583e06e52ff5cf0ae14c3b38a850787b834bd753cfe57",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 9,
+      "surface": {
+        "surface": "whoops",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 26,
+      "term": "in order to",
+      "id": 10574059,
+      "source": {
+        "id": 10574059,
+        "term": "in order to",
+        "partOfSpeech": "conjunction",
+        "meaning": "为了…",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "为了…",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "为了…",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 91590,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "d9d8444d36ec9cfdeededc25eea90ab9fbdeb676f362c7db7d8ef6d074d89071",
+      "selectedMeaningZh": "为了…",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "in order to",
+        "conjunction",
+        "为了…",
+        "She reread the instructions in order to avoid repeating the same mistake.",
+        "为了避免再犯同样的错误，她重新读了一遍说明。"
+      ],
+      "pairSha256": "d236f4a752ee2e7430bd615fb8aa5ce798b8098488900a168b08d26df44675d8",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "in order to",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 27,
+      "term": "so that",
+      "id": 10580732,
+      "source": {
+        "id": 10580732,
+        "term": "so that",
+        "partOfSpeech": "conjunction",
+        "meaning": "所以",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "所以",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "所以",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 91643,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "ab572b886cc9fa322ed5d0f4ec1b486d7cf38c3ee3b059353d1242d001edc182",
+      "selectedMeaningZh": "所以",
+      "selectedFunctionNote": "Consequence/result only. The current Chinese 所以 does not support adding a purpose gloss; own Cambridge indexed grammar evidence confirms a result use.",
+      "pair": [
+        "so that",
+        "conjunction",
+        "所以",
+        "The path was flooded, so that we had to turn back.",
+        "小路被水淹了，所以我们只好折返。"
+      ],
+      "pairSha256": "bd1491b11b2d673e7f017739af231c0f06a980e1569ac916ad3dc27e521ab6b4",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "so that",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 0
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 28,
+      "term": "a jumble of swear words",
+      "id": 13099173,
+      "source": {
+        "id": 13099173,
+        "term": "a jumble of swear words",
+        "partOfSpeech": "collocation",
+        "meaning": "一连串乱七八糟的脏话。",
+        "forms": [
+          "jumble of swear words"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "2a2037b447bcab7cb17c2bc29809705f637db090400985625294beb82e7a2a39",
+      "selectedMeaningZh": "一连串乱七八糟的脏话。",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "a jumble of swear words",
+        "collocation",
+        "一连串乱七八糟的脏话。",
+        "His explanation dissolved into a jumble of swear words when the screen went blank.",
+        "屏幕没了显示时，他的解释就变成了一连串乱七八糟的脏话。"
+      ],
+      "pairSha256": "adfb6188772c335f6631cb97733246324549d85b35b68b9f2df61c79394d29ee",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "a jumble of swear words",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 29,
+      "term": "a stab of pain",
+      "id": 13099947,
+      "source": {
+        "id": 13099947,
+        "term": "a stab of pain",
+        "partOfSpeech": "collocation",
+        "meaning": "突然的一阵刺痛；心里突然涌起的一阵难受或心疼。",
+        "forms": [
+          "stab of pain"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "7c67ae9b307bce1b0311cf91ae80e2728f01635b9a1f3721bd6126c1661871e5",
+      "selectedMeaningZh": "突然的一阵刺痛",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "a stab of pain",
+        "collocation",
+        "突然的一阵刺痛",
+        "A stab of pain went through her when she saw the empty chair.",
+        "看到那把空椅子时，她心里突然一阵刺痛。"
+      ],
+      "pairSha256": "84544d3362184c40ed78fc23e11daac8936bf67b8e8be76024ba97b9af063be7",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "a stab of pain",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 30,
+      "term": "as the mood takes somebody",
+      "id": 13100767,
+      "source": {
+        "id": 13100767,
+        "term": "as the mood takes somebody",
+        "partOfSpeech": "adverbial clause",
+        "meaning": "① 随某人的心情；想做的时候就做，取决于当时有没有兴致。",
+        "forms": [
+          "as the mood took somebody"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "12cdc6a63e75708c2c448f69db89157e9d010d2ca9e23d52dce72a9da7226676",
+      "selectedMeaningZh": "随某人的心情",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "as the mood takes somebody",
+        "adverbial clause",
+        "随某人的心情",
+        "I sketch as the mood takes me, rather than following a daily routine.",
+        "我随兴致画素描，而不是每天按固定的安排来画。"
+      ],
+      "pairSha256": "cb84dd000964849256dfa22cf73f04890824dd2ffa1f970e8c47e8d5c22ccb05",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "as the mood takes me",
+        "kind": "exact finite pronoun instantiation",
+        "futureGate": "Only somebody→me in this complete sentence; preserve original clause, forms, record and selected sense. No wildcard surface approval."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 31,
+      "term": "be crawling with",
+      "id": 13101919,
+      "source": {
+        "id": 13101919,
+        "term": "be crawling with",
+        "partOfSpeech": "idiom",
+        "meaning": "① 挤满；到处都是（某类人或东西）。",
+        "forms": [
+          "was crawling with",
+          "were crawling with"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "8b05b70ab421f30f8b5c4905b9e09f60602c46fcbe58b8ce3b3f4be28f00275c",
+      "selectedMeaningZh": "挤满",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "be crawling with",
+        "idiom",
+        "挤满",
+        "The station was crawling with reporters after the unexpected announcement.",
+        "那条意外的消息宣布后，车站里挤满了记者。"
+      ],
+      "pairSha256": "bdb943c341b11a139c71f0b74ac35342c7ca91209a2f71373b25171822e738f8",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "was crawling with",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 32,
+      "term": "be for it",
+      "id": 13102296,
+      "source": {
+        "id": 13102296,
+        "term": "be for it",
+        "partOfSpeech": "idiom",
+        "meaning": "要倒霉了；要挨训或受罚了。",
+        "forms": [
+          "am for it",
+          "are for it",
+          "is for it",
+          "was for it",
+          "were for it"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "8c02a57f83537744119e997a8886a6f7eef98d74754fa8408328a1b0e2a524df",
+      "selectedMeaningZh": "要倒霉了",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "be for it",
+        "idiom",
+        "要倒霉了",
+        "We were for it when the teacher found the broken window.",
+        "老师发现那扇被打破的窗户时，我们就要倒霉了。"
+      ],
+      "pairSha256": "da934ad983e4ba74b57f802795dcccfb56e60d89a0efc562f1187a93033e03d6",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "were for it",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 33,
+      "term": "be taken by",
+      "id": 13103540,
+      "source": {
+        "id": 13103540,
+        "term": "be taken by",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 被……吸引、打动；对某人或某物很有好感。",
+        "forms": [
+          "be taken with"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "c922ea34e1d9644614645c92a9cc6588607de5e1fbad7711ee8ee41429e068fb",
+      "selectedMeaningZh": "被……吸引、打动",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "be taken by",
+        "idiomatic phrase",
+        "被……吸引、打动",
+        "She seemed to be taken by his calm manner and careful choice of words.",
+        "她似乎被他沉稳的举止和斟酌过的措辞打动了。"
+      ],
+      "pairSha256": "645962948069ccf9ced4f2fc3239170a070d3765e69556d1358ffdf2fc9ab449",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "be taken by",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 34,
+      "term": "be thrown by something",
+      "id": 13103651,
+      "source": {
+        "id": 13103651,
+        "term": "be thrown by something",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 因出乎意料的事而一时慌乱、失去应对能力；被弄得不知如何反应。",
+        "forms": [
+          "threw somebody",
+          "throw somebody",
+          "thrown"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "269ca45fee50ec71858d7cdfadff94cc24e52b18581b19591f66d6057a686d0b",
+      "selectedMeaningZh": "因出乎意料的事而一时慌乱",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "be thrown by something",
+        "idiomatic phrase",
+        "因出乎意料的事而一时慌乱",
+        "I was thrown by the sudden change of subject and lost my train of thought.",
+        "话题突然一变，我一时不知如何应对，思路也断了。"
+      ],
+      "pairSha256": "d0bd42bb20cce786e163c381b12b14292fa15cbe4f30a0199a9ae5f30c4f0969",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "thrown",
+        "actualFrame": "was thrown by the sudden change of subject",
+        "kind": "exact published form in a finite idiomatic frame",
+        "futureGate": "Bind thrown to this complete metaphorical disorientation frame, not physical throwing or any arbitrary occurrence of the word."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 35,
+      "term": "beneath someone's contempt",
+      "id": 13104048,
+      "source": {
+        "id": 13104048,
+        "term": "beneath someone's contempt",
+        "partOfSpeech": "idiom",
+        "meaning": "令人不屑一顾的；低劣或微不足道得连鄙视都不值得的。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "6a02a43845a96ed5c8758ee27c6013af16c537a3ddfd63c6d5f77959bc87803e",
+      "selectedMeaningZh": "低劣或微不足道得连鄙视都不值得的",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "beneath someone's contempt",
+        "idiom",
+        "低劣或微不足道得连鄙视都不值得的",
+        "She dismissed the malicious rumour as beneath her contempt.",
+        "她觉得那条恶意谣言连鄙视都不值得，根本不屑理会。"
+      ],
+      "pairSha256": "19d86eaa7be5608470d423c7ed5a894ff64480b741823554a5110b02d5f71de1",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 9,
+      "surface": {
+        "surface": "beneath her contempt",
+        "kind": "exact finite possessive instantiation",
+        "futureGate": "Only someone's→her in this whole pair; no generalized replacement approval."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 36,
+      "term": "hang on somebody's every word",
+      "id": 13113921,
+      "source": {
+        "id": 13113921,
+        "term": "hang on somebody's every word",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 聚精会神地听某人说的每一句话；听得极其入神。",
+        "forms": [
+          "hanging on somebody's every word",
+          "hung on somebody's every word"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "518eaba18883952c1884fe72385f90b5eb3cee42adfdb3e62bde239b4d1206bf",
+      "selectedMeaningZh": "聚精会神地听某人说的每一句话",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "hang on somebody's every word",
+        "idiomatic phrase",
+        "聚精会神地听某人说的每一句话",
+        "The children hung on the storyteller's every word until the final candle burned low.",
+        "直到最后一支蜡烛快燃尽，孩子们仍全神贯注地听着讲故事的人说的每一句话。"
+      ],
+      "pairSha256": "c5e67aa5d4def08cc757d6ff207b399157b55c943ea1cfe817b745cb41019c2e",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "hung on the storyteller's every word",
+        "kind": "published tense with finite possessive instantiation",
+        "futureGate": "Only the saved hung-on frame with the storyteller's; preserve the published placeholder forms unchanged."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 37,
+      "term": "have it in for somebody",
+      "id": 13114688,
+      "source": {
+        "id": 13114688,
+        "term": "have it in for somebody",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 对某人怀恨在心、存心找茬；似乎总想针对或为难某人。",
+        "forms": [
+          "had it in for somebody"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "60265a559abda530a297ae105fe621c4f1441d4a4667f3a1e47186b4584c7dd9",
+      "selectedMeaningZh": "对某人怀恨在心、存心找茬",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "have it in for somebody",
+        "idiomatic phrase",
+        "对某人怀恨在心、存心找茬",
+        "She seemed to have it in for me after I questioned her decision.",
+        "我质疑她的决定之后，她似乎就总想找我的茬。"
+      ],
+      "pairSha256": "c315cb68c44fec2095ba0cf806d99097f498b921a7d037c1224af4208b5a287a",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "have it in for me",
+        "kind": "exact finite object instantiation",
+        "futureGate": "Only somebody→me in this complete idiomatic sentence."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 38,
+      "term": "keep at bay",
+      "id": 13117593,
+      "source": {
+        "id": 13117593,
+        "term": "keep at bay",
+        "partOfSpeech": "phrase",
+        "meaning": "① 使危险暂时无法逼近。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "4e6859ae006f051feb3deb61a0b20a3e2f8bfc7a2d243ae67e5336fde92df5d2",
+      "selectedMeaningZh": "使危险暂时无法逼近",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "keep at bay",
+        "phrase",
+        "使危险暂时无法逼近",
+        "She held the door shut to keep the intruder at bay.",
+        "她抵住门不让它打开，以此挡住闯入者。"
+      ],
+      "pairSha256": "74f1a59328f8014b22188457020afbcbc644739a1a5fd815c567aa8d198ac0a8",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "keep the intruder at bay",
+        "kind": "finite discontinuous canonical frame",
+        "futureGate": "Only keep + the intruder + at bay in this whole pair; no broad gap matching or invented source forms."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 39,
+      "term": "lose one's marbles",
+      "id": 13118992,
+      "source": {
+        "id": 13118992,
+        "term": "lose one's marbles",
+        "partOfSpeech": "idiom",
+        "meaning": "① 脑子糊涂了；发疯了（口语、可能冒犯）。",
+        "forms": [
+          "losing one's marbles",
+          "lost one's marbles"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "9c5bcacaeeb3f335b7f6d13057a2756ede4077e6f3120f643bee305475576143",
+      "selectedMeaningZh": "脑子糊涂了",
+      "selectedFunctionNote": "Self-directed colloquial exaggeration. The full source's potentially-offensive caution remains; no clinical judgement is made.",
+      "pair": [
+        "lose one's marbles",
+        "idiom",
+        "脑子糊涂了",
+        "I thought I was losing my marbles when I couldn't find my keys in my own bag.",
+        "在自己的包里找不到钥匙时，我还以为自己脑子糊涂了。"
+      ],
+      "pairSha256": "62f00483a1f9192ec306cf5ede4e046af1bb4279ad9a7da40087020b90e68aec",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 17,
+      "surface": {
+        "surface": "losing my marbles",
+        "kind": "published tense with finite possessive instantiation",
+        "futureGate": "Only losing one's→losing my in this self-directed informal idiom; not a clinical claim or a blanket label for other people."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 40,
+      "term": "make a show of doing something",
+      "id": 13119161,
+      "source": {
+        "id": 13119161,
+        "term": "make a show of doing something",
+        "partOfSpeech": "idiom",
+        "meaning": "故意做出正在做某事的样子；摆出姿态给人看。",
+        "forms": [
+          "made a show of",
+          "makes a show of",
+          "making a show of"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "eb272c35af5e34bb8b136bcfa29592651d8420ec5bc4982f7b7972b425010c37",
+      "selectedMeaningZh": "摆出姿态给人看",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "make a show of doing something",
+        "idiom",
+        "摆出姿态给人看",
+        "He made a show of helping us pack, but left before the heavy work began.",
+        "他摆出帮我们收拾打包的样子，却在真正繁重的活儿开始之前就走了。"
+      ],
+      "pairSha256": "f22cb08a210b5b723673bf8df38e4c45ea121707574e4e37915f4e5dfb6edc48",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "made a show of",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 41,
+      "term": "mark time",
+      "id": 13119801,
+      "source": {
+        "id": 13119801,
+        "term": "mark time",
+        "partOfSpeech": "idiom",
+        "meaning": "① 原地等待而不取得进展；只是消磨时间。",
+        "forms": [
+          "marked time",
+          "marking time"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "1ee1f4ee2a35cad5f9746fd27c10c507e0200a1acb1a3e902bb79ebbc1725207",
+      "selectedMeaningZh": "原地等待而不取得进展",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "mark time",
+        "idiom",
+        "原地等待而不取得进展",
+        "We were marking time at the office until the new contract was signed.",
+        "新合同签署之前，我们在办公室里只是原地等待，工作毫无进展。"
+      ],
+      "pairSha256": "59537e15432bbd25165468ffb11d36365f890822006f3983644edd095d130846",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "marking time",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 42,
+      "term": "perfectly all right",
+      "id": 13122140,
+      "source": {
+        "id": 13122140,
+        "term": "perfectly all right",
+        "partOfSpeech": "expression",
+        "meaning": "完全可以；完全没问题。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "1267d14eb012c89a303ae270e3644b01539d131b5300bb7ded1daf1e1d25d36e",
+      "selectedMeaningZh": "完全没问题",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "perfectly all right",
+        "expression",
+        "完全没问题",
+        "It is perfectly all right to ask for clarification when the instructions seem unclear.",
+        "如果觉得说明不清楚，要求进一步解释完全没问题。"
+      ],
+      "pairSha256": "a2337cb98476f78153b0321af2a51432f20faefb0bb7b87cd8ce47330604ba28",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "perfectly all right",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 43,
+      "term": "put something behind you",
+      "id": 13123457,
+      "source": {
+        "id": 13123457,
+        "term": "put something behind you",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 把不愉快的事放到一边，继续向前；不再让它支配自己。",
+        "forms": [
+          "putting something behind you"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "27842dfccad9013ba95ef2831bc175a943ace569ee5c25201fa5f21230d378e0",
+      "selectedMeaningZh": "把不愉快的事放到一边，继续向前",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "put something behind you",
+        "idiomatic phrase",
+        "把不愉快的事放到一边，继续向前",
+        "It took her months to put the bitter argument behind her and rebuild their friendship.",
+        "她用了几个月才把那场充满怨怼的争吵抛在身后，并重建了两人的友谊。"
+      ],
+      "pairSha256": "534f351f8015651c4773662b8c1b2192e567d6dfd229b0d8a102abfbda05bcdb",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "put the bitter argument behind her",
+        "kind": "exact finite object and reflexive-reference instantiation",
+        "futureGate": "Only this argument object and subject-linked her; no mechanical wildcard or source-form rewrite."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 44,
+      "term": "put something right",
+      "id": 13123756,
+      "source": {
+        "id": 13123756,
+        "term": "put something right",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 纠正错误；补救、弥补被弄糟的事情。",
+        "forms": [
+          "putting something right"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "fdc2d9af893304efe3d5ac5cae92d8d7e4745f847c6374e3f7dfe07d75eb6aa6",
+      "selectedMeaningZh": "补救、弥补被弄糟的事情",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "put something right",
+        "idiomatic phrase",
+        "补救、弥补被弄糟的事情",
+        "I want to put things right before this mistake damages our friendship.",
+        "我想在这个错误损害我们的友谊之前把事情补救好。"
+      ],
+      "pairSha256": "485c3bf4c352f754c0f3cb27f6c1667622bf2349f967f48431aaa2c819b46fd7",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "put things right",
+        "kind": "exact finite object instantiation",
+        "futureGate": "Only something→things in this complete repair sense."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 45,
+      "term": "set one's heart on something",
+      "id": 13126870,
+      "source": {
+        "id": 13126870,
+        "term": "set one's heart on something",
+        "partOfSpeech": "idiom",
+        "meaning": "一心想要某物；下定决心要得到某物或实现某事。",
+        "forms": [
+          "set one's heart on",
+          "sets one's heart on",
+          "setting one's heart on"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "14e4b75fb7829e173014b2889aa78166128083c2a7f4f12d2a63ae97073f55d7",
+      "selectedMeaningZh": "下定决心要得到某物或实现某事",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "set one's heart on something",
+        "idiom",
+        "下定决心要得到某物或实现某事",
+        "She had set her heart on studying abroad, even though the application process looked daunting.",
+        "她一心想出国留学，尽管申请流程看起来令人望而生畏。"
+      ],
+      "pairSha256": "c515dd02c7465f30ad09708dbb2717579e90e4e498a859ed57252b6710d08a8e",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 15,
+      "surface": {
+        "surface": "set her heart on studying abroad",
+        "kind": "exact finite possessive and complement instantiation",
+        "futureGate": "Only her plus studying abroad in this complete determined-intention sense."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 46,
+      "term": "set something in motion",
+      "id": 13126960,
+      "source": {
+        "id": 13126960,
+        "term": "set something in motion",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 启动某个过程；使一连串后续事情开始发生。",
+        "forms": [
+          "setting something in motion"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "d65eab166a8920c67a3e30237eb2949c254083c00628dd6fef7109ea0022d24c",
+      "selectedMeaningZh": "使一连串后续事情开始发生",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "set something in motion",
+        "idiomatic phrase",
+        "使一连串后续事情开始发生",
+        "The new director's arrival set a series of changes in motion.",
+        "新主管的到来引发了一连串变化。"
+      ],
+      "pairSha256": "049f690a9ee38f767f783e60d109dd3c2e9ab0d09128ec4270ec4960de82c093",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "set a series of changes in motion",
+        "kind": "finite discontinuous canonical frame",
+        "futureGate": "Only something→a series of changes; original record and seed remain unchanged."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 47,
+      "term": "shoot daggers at someone",
+      "id": 13127100,
+      "source": {
+        "id": 13127100,
+        "term": "shoot daggers at someone",
+        "partOfSpeech": "idiom",
+        "meaning": "狠狠瞪着某人；向某人投去愤怒的目光。",
+        "forms": [
+          "shooting daggers at",
+          "shoots daggers at",
+          "shot daggers at"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "5bfd8e3fe1252f85168f80511a9fc6f0e7ddbad6d3224e83c6cecfafcd233a5d",
+      "selectedMeaningZh": "狠狠瞪着某人",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "shoot daggers at someone",
+        "idiom",
+        "狠狠瞪着某人",
+        "She shot daggers at me when I laughed during her serious announcement.",
+        "她郑重宣布事情时，我笑了出来，她便狠狠瞪着我。"
+      ],
+      "pairSha256": "5f28e1561fbd04ab14f9fd31b9e07d1446535b9f1df803f59aac0f1e82ec39e2",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "shot daggers at",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 48,
+      "term": "the penny drops",
+      "id": 13131284,
+      "source": {
+        "id": 13131284,
+        "term": "the penny drops",
+        "partOfSpeech": "idiomatic clause",
+        "meaning": "① 终于恍然大悟；过了一会儿才明白。",
+        "forms": [
+          "the penny dropped"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "3717558cc419fe9929e12bb61c8dfe9827ffc020731487a7cdb42aab6ba2778b",
+      "selectedMeaningZh": "过了一会儿才明白",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "the penny drops",
+        "idiomatic clause",
+        "过了一会儿才明白",
+        "I reread the final paragraph, and then the penny dropped.",
+        "我重读了最后一段，这才恍然大悟。"
+      ],
+      "pairSha256": "0599307be2e1263273d1a578cc9f93822b6593c481c471375d47ee4e1cb3aacf",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "the penny dropped",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 49,
+      "term": "think the world of somebody",
+      "id": 13131587,
+      "source": {
+        "id": 13131587,
+        "term": "think the world of somebody",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 非常欣赏、看重或喜爱某人；对某人评价极高。",
+        "forms": [
+          "thought the world of somebody"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "0053b057d92d7cb4834dc05f0c989dff1de2fb622bf2819bc38ca74010e2272e",
+      "selectedMeaningZh": "非常欣赏、看重或喜爱某人",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "think the world of somebody",
+        "idiomatic phrase",
+        "非常欣赏、看重或喜爱某人",
+        "My grandfather thought the world of the neighbour who checked on him each morning.",
+        "祖父十分喜爱那位每天早上来看望他的邻居。"
+      ],
+      "pairSha256": "3714cb2b2be1ad86ce94f344bdd37b48c56a277ce81d95fe6fb5847c5d30fa13",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "thought the world of the neighbour",
+        "kind": "published tense with finite object instantiation",
+        "futureGate": "Only this saved neighbour object and past thought frame; not all placeholder substitutions."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 50,
+      "term": "to the day",
+      "id": 13131749,
+      "source": {
+        "id": 13131749,
+        "term": "to the day",
+        "partOfSpeech": "idiom",
+        "meaning": "① 恰好相隔这么长时间，准确到某一天。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "6c2447f52e1657e298f9a51878d29461b4a1fec51eb452a57e7caa3860ce58f1",
+      "selectedMeaningZh": "恰好相隔这么长时间，准确到某一天",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "to the day",
+        "idiom",
+        "恰好相隔这么长时间，准确到某一天",
+        "We met again ten years to the day after our last conversation.",
+        "距离上次交谈整整十年后，我们又见面了，一天不差。"
+      ],
+      "pairSha256": "6929cb2380be78a6eacb614af359bf58c31e7312f27884dce9d651cb7727b57d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "to the day",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 51,
+      "term": "turn something over in one's mind",
+      "id": 13132195,
+      "source": {
+        "id": 13132195,
+        "term": "turn something over in one's mind",
+        "partOfSpeech": "idiom",
+        "meaning": "① 在脑海里反复考虑；从不同方面琢磨一件事。",
+        "forms": [
+          "turned something over in one's mind",
+          "turning something over in one's mind"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "434fdfd13c02bff617bad17c6b46858e113efc78d5df6c2e00b7e08c80161254",
+      "selectedMeaningZh": "在脑海里反复考虑",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "turn something over in one's mind",
+        "idiom",
+        "在脑海里反复考虑",
+        "I kept turning her final remark over in my mind on the walk home.",
+        "回家的路上，我一直在脑海里反复琢磨她最后说的那句话。"
+      ],
+      "pairSha256": "1fe8e107a7ebfb6ee4b2a3f4494d99c768ca620a69d587a12126664564460a13",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "turning her final remark over in my mind",
+        "kind": "published tense with finite object and possessive instantiation",
+        "futureGate": "Only this saved remark object, turning tense and my-mind frame."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 52,
+      "term": "wash one's hands of",
+      "id": 13132895,
+      "source": {
+        "id": 13132895,
+        "term": "wash one's hands of",
+        "partOfSpeech": "idiom",
+        "meaning": "① 不再插手或承担责任；表示与某事划清界限。",
+        "forms": [
+          "washed one's hands of",
+          "washing one's hands of"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "c5f14cc8614e1a5afc2187299459354a6514e850da8beb598ccbd850a617f390",
+      "selectedMeaningZh": "不再插手或承担责任",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "wash one's hands of",
+        "idiom",
+        "不再插手或承担责任",
+        "After the repeated delays, he decided to wash his hands of the entire scheme.",
+        "接连拖延之后，他决定彻底不再插手整个计划。"
+      ],
+      "pairSha256": "5af70c10f3cf7b144cc5dd0684c6481b1ad78c21e434d8d10ed4d3d06e45e912",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "wash his hands of",
+        "kind": "exact finite possessive instantiation",
+        "futureGate": "Only one's→his in this complete figurative withdrawal-of-responsibility sentence."
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 53,
+      "term": "when all is said and done",
+      "id": 13133470,
+      "source": {
+        "id": 13133470,
+        "term": "when all is said and done",
+        "partOfSpeech": "adverbial clause",
+        "meaning": "① 说到底；考虑过所有情况之后，最终最重要或最真实的仍是……。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "e0decb8095bc3b8a5aa5d755a13c14c06feef7dc6d5b532c4736973925351dd7",
+      "selectedMeaningZh": "说到底",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "when all is said and done",
+        "adverbial clause",
+        "说到底",
+        "When all is said and done, the decision is yours, not ours.",
+        "说到底，决定权在你，而不在我们。"
+      ],
+      "pairSha256": "b0402d61795f6ecb68c1b81841ad868c106328de9c34ad66dcbe5baaeee95e02",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "when all is said and done",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 54,
+      "term": "within the realms of possibility",
+      "id": 13133747,
+      "source": {
+        "id": 13133747,
+        "term": "within the realms of possibility",
+        "partOfSpeech": "idiomatic phrase",
+        "meaning": "① 在可能的范围内；并非完全不可能实现。",
+        "forms": [],
+        "source": "public"
+      },
+      "sourceSha256": "de9f70be0e1cf11563f134f2a22fb1a81ad97fbc444afb57b018187c82cd5e40",
+      "selectedMeaningZh": "并非完全不可能实现",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "within the realms of possibility",
+        "idiomatic phrase",
+        "并非完全不可能实现",
+        "Finishing the first draft by Friday is still within the realms of possibility.",
+        "周五之前完成初稿，还是有可能的。"
+      ],
+      "pairSha256": "485af936c54cfedcb716829a3e91e07475a505b6addf02bd112f5f563f21adab",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "within the realms of possibility",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 55,
+      "term": "work up the nerve",
+      "id": 13133930,
+      "source": {
+        "id": 13133930,
+        "term": "work up the nerve",
+        "partOfSpeech": "idiom",
+        "meaning": "① 鼓起勇气；克服紧张，准备去做令人害怕的事。",
+        "forms": [
+          "worked up the nerve",
+          "working up the nerve"
+        ],
+        "source": "public"
+      },
+      "sourceSha256": "3b66f09efa5ea3baee8989254085c2177206c79a6cb903ef1aca9b129ab6b415",
+      "selectedMeaningZh": "鼓起勇气",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "work up the nerve",
+        "idiom",
+        "鼓起勇气",
+        "I finally worked up the nerve to ask whether my proposal had been rejected.",
+        "我终于鼓起勇气，问自己的提案是不是被否决了。"
+      ],
+      "pairSha256": "1c4c28900279a597e974235c1f771cf509e9254555884a32d5400eb4665f780d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 14,
+      "surface": {
+        "surface": "worked up the nerve",
+        "kind": "exact published form"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 56,
+      "term": "can't",
+      "id": 1789398,
+      "source": {
+        "id": 1789398,
+        "term": "can't",
+        "partOfSpeech": "contraction",
+        "meaning": "不能；无法",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "vi. 不能",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 13979,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "9ec385d6743ac5cecb7b6e52b4205d33b387b83201fb37892e7156c3000aced9",
+      "selectedMeaningZh": "不能；无法",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "can't",
+        "contraction",
+        "不能；无法",
+        "I can't make sense of the instructions without seeing the diagram.",
+        "不看示意图，我就无法理解这些说明。"
+      ],
+      "pairSha256": "7766dc3e9a2d164191d1ab72172311dfb82658410143dca75b5110c9566c5db9",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "can't",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 57,
+      "term": "he's",
+      "id": 1789968,
+      "source": {
+        "id": 1789968,
+        "term": "he's",
+        "partOfSpeech": "contraction",
+        "meaning": "他是, 他有",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "他是, 他有",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "他是, 他有",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 13984,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "b973f2ce90f0bf911253081c11177e44be116dc4b379b6160677eec8e8439b81",
+      "selectedMeaningZh": "他是",
+      "selectedFunctionNote": "he is + adjective in this sentence; not he has.",
+      "pair": [
+        "he's",
+        "contraction",
+        "他是",
+        "He's unusually quiet today, though he usually starts every conversation.",
+        "他今天异常安静，尽管平时每次谈话都是他先开口。"
+      ],
+      "pairSha256": "d27467c873e453cd533cf489c3cdf8c7a4dfeaec6d87f1c4799fba2b739f26c7",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "he's",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 58,
+      "term": "we're",
+      "id": 1791351,
+      "source": {
+        "id": 1791351,
+        "term": "we're",
+        "partOfSpeech": "contraction",
+        "meaning": "(we are 的常用口语形式)",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "(we are 的常用口语形式)",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "(we are 的常用口语形式)",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 13994,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "235f12d7d45cfec31ec1f4b3683ce9a5f089c15d4147528fae9df0c3bb23cf8b",
+      "selectedMeaningZh": "we are 的常用口语形式",
+      "selectedFunctionNote": "we are + present participle in this sentence.",
+      "pair": [
+        "we're",
+        "contraction",
+        "we are 的常用口语形式",
+        "We're still waiting for confirmation before we book the tickets.",
+        "我们还在等确认消息，然后才订票。"
+      ],
+      "pairSha256": "9b2188ffd95d2eb47d5436fa7211ed19726954e09a4ece1f3f9502f7e23b5545",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "we're",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 59,
+      "term": "we've",
+      "id": 1791363,
+      "source": {
+        "id": 1791363,
+        "term": "we've",
+        "partOfSpeech": "contraction",
+        "meaning": "（尤当 have 为助动词时, we have 的常用口语形式）",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "（尤当 have 为助动词时, we have 的常用口语形式）",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "（尤当 have 为助动词时, we have 的常用口语形式）",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 13995,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "f3232e42cfae2f37a68b16967932e0816e09c23a3981ede4396a00ef253bb339",
+      "selectedMeaningZh": "we have 的常用口语形式",
+      "selectedFunctionNote": "we have as a perfect auxiliary, not possession.",
+      "pair": [
+        "we've",
+        "contraction",
+        "we have 的常用口语形式",
+        "We've already checked the figures twice, but one total still seems wrong.",
+        "我们已经核对过两遍数字了，但有个总数似乎仍不正确。"
+      ],
+      "pairSha256": "5bf1bf57048e7d988e17e46d5e9be9a8ed607490c301ffea06fb82d90b7d5237",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "we've",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 60,
+      "term": "he'd",
+      "id": 1794917,
+      "source": {
+        "id": 1794917,
+        "term": "he'd",
+        "partOfSpeech": "contraction",
+        "meaning": "他将, 他会, 他已经, 他有",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "他将, 他会, 他已经, 他有",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "他将, 他会, 他已经, 他有",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14025,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "e3ea029df8e12aa75af29238714643d92fa29e00f7524b23dcfe442391d68ee5",
+      "selectedMeaningZh": "他已经",
+      "selectedFunctionNote": "he had as a past-perfect auxiliary before already left; not he would.",
+      "pair": [
+        "he'd",
+        "contraction",
+        "他已经",
+        "He'd already left the office when your message arrived.",
+        "你的消息到来时，他已经离开办公室了。"
+      ],
+      "pairSha256": "3e6242ebaa05a248ae98b5e3ae5e00259c8646a07abf075b981424b8d12640db",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 9,
+      "surface": {
+        "surface": "he'd",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 61,
+      "term": "he'll",
+      "id": 1801027,
+      "source": {
+        "id": 1801027,
+        "term": "he'll",
+        "partOfSpeech": "contraction",
+        "meaning": "他将, 他愿意, 他必须, 他要",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "他将, 他愿意, 他必须, 他要",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "他将, 他愿意, 他必须, 他要",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14073,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "308182c88f24f232f9ad73294f92491459563f8d4a9d3c8ceffa9d3162a5508b",
+      "selectedMeaningZh": "他将",
+      "selectedFunctionNote": "he will referring to a future explanation, not a compulsory-must gloss.",
+      "pair": [
+        "he'll",
+        "contraction",
+        "他将",
+        "He'll explain the changes once everyone has a copy of the revised plan.",
+        "等每个人都拿到修改后的计划，他就会解释有哪些变动。"
+      ],
+      "pairSha256": "477d0f694d159db4eef4f45089f0c32f07d37296a5906749a8367d7a1f19d251",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "he'll",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 62,
+      "term": "it'll",
+      "id": 1801141,
+      "source": {
+        "id": 1801141,
+        "term": "it'll",
+        "partOfSpeech": "contraction",
+        "meaning": "it will的缩写, it shall的缩写",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "it will的缩写, it shall的缩写",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "it will的缩写, it shall的缩写",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14074,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "d4802c613f69017f39438a4896bdf0b67dbe7e0729b7622790571004f722d3f2",
+      "selectedMeaningZh": "it will的缩写",
+      "selectedFunctionNote": "it will in a future requirement statement; not it shall.",
+      "pair": [
+        "it'll",
+        "contraction",
+        "it will的缩写",
+        "It'll take more than a quick apology to rebuild their trust.",
+        "要重建他们的信任，远不止匆匆道个歉这么简单。"
+      ],
+      "pairSha256": "feba7125e5fba52c32cdc1ac06d6b9f63107f9b1abf27239e54ad1b6c62c2b44",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "it'll",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 63,
+      "term": "bio",
+      "id": 2836177,
+      "source": {
+        "id": 2836177,
+        "term": "bio",
+        "partOfSpeech": "noun",
+        "meaning": "n. 个人简历, 小传",
+        "forms": [
+          "bios"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 22163,
+          "forms": [
+            "bios"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "4d9fc18daab0e9972ca6354b4966c67c89e516a59669d41909fea5f76555f95b",
+      "selectedMeaningZh": "个人简历",
+      "selectedFunctionNote": "A short professional biography, not a claim that bio is interchangeable with a complete job-application CV in every context. The original personal-history glosses stay unchanged.",
+      "pair": [
+        "bio",
+        "noun",
+        "个人简历",
+        "Please send a short bio describing your research interests and recent work.",
+        "请发来一份简短的个人简介，介绍你的研究兴趣和近期工作。"
+      ],
+      "pairSha256": "f51ab8401465a3f09d23586a575e883290542019478be23659d3bbcdcc114b32",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "bio",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 64,
+      "term": "ppm",
+      "id": 2933216,
+      "source": {
+        "id": 2933216,
+        "term": "ppm",
+        "partOfSpeech": "noun",
+        "meaning": "[化] 百万分率",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 22921,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[化] 百万分率",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "22b6fb80ba859b00ba80832947b096aeb222f685173fc4bc781744bc164f66ed",
+      "selectedMeaningZh": "百万分率",
+      "selectedFunctionNote": "The existing noun label is retained for the unit notation in a prepositional complement; primary MW identifies the abbreviation expansion. No concentration limit, dosage, medical or safety value is supplied.",
+      "pair": [
+        "ppm",
+        "noun",
+        "百万分率",
+        "The report gives the measured concentration in ppm rather than as a percentage.",
+        "报告用百万分率而不是百分比来表示测得的浓度。"
+      ],
+      "pairSha256": "a1852362c05452e31ed228ed48893efb3ec36569aad04273f4002038cc02ad3d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "ppm",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 10
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 65,
+      "term": "qua",
+      "id": 3736286,
+      "source": {
+        "id": 3736286,
+        "term": "qua",
+        "partOfSpeech": "preposition",
+        "meaning": "prep. 作为",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 29196,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "6c6de3dea3c5da02b7b82b0cf201060cb554925b14eedfeb7b246643144e6fc5",
+      "selectedMeaningZh": "作为",
+      "selectedFunctionNote": "Formal academic as/in the capacity of; own direct MW evidence supports this preposition, not an everyday-frequency claim.",
+      "pair": [
+        "qua",
+        "preposition",
+        "作为",
+        "We are judging the essay qua argument, not as a piece of entertainment.",
+        "我们是在把这篇文章当作论证来评价，而不是把它当作消遣作品。"
+      ],
+      "pairSha256": "ecec07368f6e23c70056cd98b8893fb4e5aab3f144944ab461c98fdc7d0626f3",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "qua",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 1
+        },
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 2
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 68,
+      "term": "iff",
+      "id": 5080608,
+      "source": {
+        "id": 5080608,
+        "term": "iff",
+        "partOfSpeech": "conjunction",
+        "meaning": "[计] 如果仅仅, 当且仅当, \"等价\"",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 39709,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 如果仅仅, 当且仅当, \"等价\"",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "863d98415400c9ef0d526b7157df094db36e379881a2b82cfea2a6511e90e117",
+      "selectedMeaningZh": "当且仅当",
+      "selectedFunctionNote": "A hypothetical device's biconditional specification, not the military uppercase IFF abbreviation.",
+      "pair": [
+        "iff",
+        "conjunction",
+        "当且仅当",
+        "The alarm sounds iff both switches are on.",
+        "当且仅当两个开关均处于开启状态时，警报才会响。"
+      ],
+      "pairSha256": "ea69bf84095b25a0fc0059762fdfcf241ec72132e83970d4691208d6c10f1635",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 8,
+      "surface": {
+        "surface": "iff",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 11
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 69,
+      "term": "ska",
+      "id": 4807454,
+      "source": {
+        "id": 4807454,
+        "term": "ska",
+        "partOfSpeech": "noun",
+        "meaning": "n. 斯卡（牙买加的一种流行音乐）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 37571,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "d07cb8eb2e0de116d9bef6d6c457aa75c4e9dc20b31f96ddc618c6f490667ab5",
+      "selectedMeaningZh": "斯卡",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "ska",
+        "noun",
+        "斯卡",
+        "The band mixed ska with the slower rhythms of their earlier songs.",
+        "乐队把斯卡音乐和他们早期歌曲中较慢的节奏融合在一起。"
+      ],
+      "pairSha256": "aaf8fb8656c641c976beaec714729f8da4c2ec88485305b9a42423aee6e37bec",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "ska",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 15
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 71,
+      "term": "roo",
+      "id": 4292019,
+      "source": {
+        "id": 4292019,
+        "term": "roo",
+        "partOfSpeech": "noun",
+        "meaning": "n. [动]袋鼠",
+        "forms": [
+          "roos"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 33540,
+          "forms": [
+            "roos"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "2f7054ef00a940d0b4ab6bb5874c2d06dd05ee89aa2342ba3f592dc42189dbdd",
+      "selectedMeaningZh": "袋鼠",
+      "selectedFunctionNote": "Australian informal noun for a kangaroo; no new animal or geographical facts beyond that source identity.",
+      "pair": [
+        "roo",
+        "noun",
+        "袋鼠",
+        "A roo paused beside the fence before hopping back into the scrub.",
+        "一只袋鼠在围栏旁停了一会儿，随后又跳回灌木丛。"
+      ],
+      "pairSha256": "38ec597920adc923bb45bd774a373af5ee7dd85d84b717d2f3262ee486067e0d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "roo",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 12
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 72,
+      "term": "cha",
+      "id": 4406781,
+      "source": {
+        "id": 4406781,
+        "term": "cha",
+        "partOfSpeech": "noun",
+        "meaning": "n. （英俚）茶",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 34437,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "6caa777431d4c5d004f509d0c8ef15479853171add2d8892b1bdc7a98814ea21",
+      "selectedMeaningZh": "茶",
+      "selectedFunctionNote": "British slang noun for tea; direct Collins confirms this identity. MW's direct cha URL was only an index and is not cited as identity evidence.",
+      "pair": [
+        "cha",
+        "noun",
+        "茶",
+        "He asked for a mug of cha before settling down to read.",
+        "他要了一大杯茶，然后才安坐下来读书。"
+      ],
+      "pairSha256": "b5245d975b742f4dd4d6eef9c40936876732436f69dfcbc62c4e9c29986c967f",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "cha",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 14
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 73,
+      "term": "ova",
+      "id": 4278171,
+      "source": {
+        "id": 4278171,
+        "term": "ova",
+        "partOfSpeech": "noun",
+        "meaning": "卵, 卵细胞, 卵子\n[医] 卵",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 33432,
+          "forms": [
+            "ova"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "卵, 卵细胞, 卵子\n[医] 卵",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "7453b99e02eee6b715895d886e91ddf4e5ad9518df74b68dba29222ece51773a",
+      "selectedMeaningZh": "卵细胞",
+      "selectedFunctionNote": "Plural noun for egg cells; generic observational sentence only, not a clinical procedure or treatment recommendation.",
+      "pair": [
+        "ova",
+        "noun",
+        "卵细胞",
+        "The biologist examined the ova under a microscope and recorded their appearance.",
+        "生物学家在显微镜下观察卵细胞，并记录了它们的外观。"
+      ],
+      "pairSha256": "4fc084ad569a564fb55c81424e26c0cbb8ddee23fb5d6d82ee3a0eb465a6c7f9",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "ova",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 13
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 76,
+      "term": "hid",
+      "id": 9611738,
+      "source": {
+        "id": 9611738,
+        "term": "hid",
+        "partOfSpeech": "verb",
+        "meaning": "hide的过去式和过去分词",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 79278,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "hide的过去式和过去分词",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "59557dc0744a1210e0288769c3ac005394eb1ae2a52b3636fafb7710c48c21a1",
+      "selectedMeaningZh": "hide的过去式",
+      "selectedFunctionNote": "Preterite of hide in this whole pair. Own direct MW also records hid as a participial variant, so the source is not falsely rejected merely because hidden is more usual.",
+      "pair": [
+        "hid",
+        "verb",
+        "hide的过去式",
+        "He hid the unfinished letter beneath a stack of newspapers.",
+        "他把那封尚未写完的信藏在一摞报纸下面。"
+      ],
+      "pairSha256": "c283a1e0e925ad8c69d81ddfd2344a7de33ca62c93ab43caec66a06ed8090a73",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "hid",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 8
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 79,
+      "term": "jeez",
+      "id": 2828247,
+      "source": {
+        "id": 2828247,
+        "term": "jeez",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 呀",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 22101,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "b2ca6cd5ddf2c849ff939e34057e9c26932423a9eeba1a98be63eafbea804acd",
+      "selectedMeaningZh": "呀",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "jeez",
+        "interjection",
+        "呀",
+        "Jeez, I didn't realise the queue went all the way around the building.",
+        "哎呀，我没想到队伍竟然绕了整栋楼一圈。"
+      ],
+      "pairSha256": "ff3d37caf63a181df8ca5767199eb504ed1b172849481dfb36dcb2da2bdfa887",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 13,
+      "surface": {
+        "surface": "jeez",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 80,
+      "term": "touche",
+      "id": 2866823,
+      "source": {
+        "id": 2866823,
+        "term": "touche",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 讲得好！；一针见血。",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 22403,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "e454f3bfff363d63e8bf0d42d806223a1ee605d2b8b0d1920c5aca73f5bc8b01",
+      "selectedMeaningZh": "讲得好",
+      "selectedFunctionNote": "Unaccented published head retained. A concession to a pointed reply, not a literal fencing action. Source-supported 讲得好 is selected; the Chinese sentence naturally acknowledges the other person’s valid objection.",
+      "pair": [
+        "touche",
+        "interjection",
+        "讲得好",
+        "Touche, I complained about your lateness after arriving late myself.",
+        "说得对，我自己都迟到了，却还抱怨你迟到。"
+      ],
+      "pairSha256": "9bc0d600990b721f0db00c2610d44ff3392633bceeb28a88e443ad64a381a2d3",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "touche",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 82,
+      "term": "aargh",
+      "id": 2981120,
+      "source": {
+        "id": 2981120,
+        "term": "aargh",
+        "partOfSpeech": "interjection",
+        "meaning": "啊",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 23296,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "啊",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "5efbf33c8d2048635e37b20c1f45650c3eb1a49d05788d0b3dbd03574deb887b",
+      "selectedMeaningZh": "啊",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "aargh",
+        "interjection",
+        "啊",
+        "Aargh, the document closed before I had saved my last paragraph.",
+        "啊，我还没保存最后一段，文档就关闭了。"
+      ],
+      "pairSha256": "e5026b1c4fdbc10e93e973330fb8e8afc69406ee014c2430cdbb6097ef416972",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "aargh",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 83,
+      "term": "naw",
+      "id": 3043845,
+      "source": {
+        "id": 3043845,
+        "term": "naw",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. <俚> 不,不是, 没有(用以表示否定的回答)",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 23786,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "de601274f549a91fb98b66bbc4d0ddea95d1babe6213ade8faf09ffb17c511f3",
+      "selectedMeaningZh": "不",
+      "selectedFunctionNote": "Informal negative response as the existing adverb; direct MW lists naw as a variant of nah in this role.",
+      "pair": [
+        "naw",
+        "adverb",
+        "不",
+        "Naw, I'll walk rather than wait for the next bus.",
+        "不了，我宁可走路，也不等下一班公交车了。"
+      ],
+      "pairSha256": "81eccd1cd97f72708d7475f608ec7c3d3d7a235c0ced359e56af8f2d846204db",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "naw",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [
+        {
+          "file": "e2-current-source-primary-evidence.json",
+          "sha256": "dfc11aba32cd0223f06bd779276771e71d4dafbfdabaeec867479f1a07039b9f",
+          "index": 9
+        }
+      ],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 84,
+      "term": "ahem",
+      "id": 3545682,
+      "source": {
+        "id": 3545682,
+        "term": "ahem",
+        "partOfSpeech": "interjection",
+        "meaning": "interj. 呃哼",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 27706,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "50ca1bac131cb30d93d56bf039f8f986e4fc9d90493d77fdc1ac019c9edc8ce1",
+      "selectedMeaningZh": "呃哼",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "ahem",
+        "interjection",
+        "呃哼",
+        "Ahem, I think you've forgotten the question I actually asked.",
+        "呃哼，我想你已经忘了我实际问的那个问题。"
+      ],
+      "pairSha256": "d78e2e36788b2b5714eb478d26497469bffd8f02a33a6319cdfd2462eb7e387e",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "ahem",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 85,
+      "term": "ciao",
+      "id": 3934781,
+      "source": {
+        "id": 3934781,
+        "term": "ciao",
+        "partOfSpeech": "interjection",
+        "meaning": "int. （意）你好；再见（见面问候语或告别语）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 30747,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "0bcfc5d26ffaa8f69698c78478d9c3aebca58049276cba27d2e19693c5d73e91",
+      "selectedMeaningZh": "再见",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "ciao",
+        "interjection",
+        "再见",
+        "Ciao, I'll send you the photographs when I get home.",
+        "再见，等我到家就把照片发给你。"
+      ],
+      "pairSha256": "7fc2ae51c0df5a96295c58612608f2f8be3beceaf1df7ed6503ea683a6a23be5",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "ciao",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 86,
+      "term": "hiya",
+      "id": 3963304,
+      "source": {
+        "id": 3963304,
+        "term": "hiya",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 你好!",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 30970,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "f4368d7387c9083f814117e2d3b76ffed16524673e77cd0f4a8891e388883cb1",
+      "selectedMeaningZh": "你好",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "hiya",
+        "interjection",
+        "你好",
+        "Hiya, I didn't expect to see you at this exhibition.",
+        "嗨，我没想到会在这个展览上碰到你。"
+      ],
+      "pairSha256": "7d7af53fa1c7ae4e54a59b3bc2c3c43388e78caeeb7c26f696e6b7bad9d0145e",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 10,
+      "surface": {
+        "surface": "hiya",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 87,
+      "term": "crikey",
+      "id": 3780914,
+      "source": {
+        "id": 3780914,
+        "term": "crikey",
+        "partOfSpeech": "interjection",
+        "meaning": "interj. 唉呀",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 29545,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "8448e5545c35ab1fff2a5bce0e1f8e9696a9adf41ada636a007b4d7e4ab2dfc9",
+      "selectedMeaningZh": "唉呀",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "crikey",
+        "interjection",
+        "唉呀",
+        "Crikey, I hadn't realised how steep the path becomes after the bridge.",
+        "哎呀，我还真没想到过桥后这条路会变得这么陡。"
+      ],
+      "pairSha256": "889704cb8e4690049a80f49718f63c29eecf57c7b98b58193c32696e2a028048",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 12,
+      "surface": {
+        "surface": "crikey",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 88,
+      "term": "hurray",
+      "id": 4893496,
+      "source": {
+        "id": 4893496,
+        "term": "hurray",
+        "partOfSpeech": "interjection",
+        "meaning": "interj. 好哇",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 38244,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "abca264adc7bbf23907ba5debdc6d951be41611d8d9a204b170529bb042863e7",
+      "selectedMeaningZh": "好哇",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "hurray",
+        "interjection",
+        "好哇",
+        "Hurray, the committee has finally agreed to reopen the village library.",
+        "好哇，委员会终于同意重新开放村里的图书馆了。"
+      ],
+      "pairSha256": "82e68717946cfa7cbac512f005a781f661334d7c64f9d90d1c314578e9df528b",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "hurray",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 89,
+      "term": "yippee",
+      "id": 5262385,
+      "source": {
+        "id": 5262385,
+        "term": "yippee",
+        "partOfSpeech": "interjection",
+        "meaning": "interj. (表示开心、快乐)咦吡, 好啊",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 41130,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "a2ab462f4c58657fc480577a344c46b1986a82fceeae5cee06701b3d85c4fb55",
+      "selectedMeaningZh": "好啊",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "yippee",
+        "interjection",
+        "好啊",
+        "Yippee, we've finished the group project before the deadline.",
+        "好耶，我们在截止时间之前完成小组项目了。"
+      ],
+      "pairSha256": "9332058edc18e7cde13bcd345911f6b171d77f064b9eda4029a0128d825a31e0",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 9,
+      "surface": {
+        "surface": "yippee",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 90,
+      "term": "voila",
+      "id": 5763490,
+      "source": {
+        "id": 5763490,
+        "term": "voila",
+        "partOfSpeech": "interjection",
+        "meaning": "int. （法）瞧；可不是",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 45046,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "daf0014791b50678b9a87cea4d8b050f69ab79c5257d07cf1ebcd4f299c05b08",
+      "selectedMeaningZh": "瞧",
+      "selectedFunctionNote": "Unaccented published head retained; real exclamatory use introducing the finished result, not mention of a word label.",
+      "pair": [
+        "voila",
+        "interjection",
+        "瞧",
+        "Just tighten the last screw, and voila, the shelf is ready.",
+        "只要拧紧最后一颗螺丝——瞧，架子就装好了。"
+      ],
+      "pairSha256": "df2b79ecb9cb547a01f23dfb5e490475167139da1ad8bb69ee9c2cf94a1b5b45",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "voila",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 91,
+      "term": "attaboy",
+      "id": 5917315,
+      "source": {
+        "id": 5917315,
+        "term": "attaboy",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 好啊! 好样的!",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 46250,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "370878b03843fd0e3b6737acd140bc5292c7612a8f94268e494289abc431beee",
+      "selectedMeaningZh": "好样的",
+      "selectedFunctionNote": "Use only the source-supported selected meaning in this complete original sentence; retain every published POS/form/source field unchanged.",
+      "pair": [
+        "attaboy",
+        "interjection",
+        "好样的",
+        "Attaboy, you kept trying even after the first design fell apart.",
+        "好样的，第一次设计失败后，你仍然坚持尝试。"
+      ],
+      "pairSha256": "27486808e40ea4dd997407c44a56eb39f7fe5384bd3cf5f621c83c6df538e10d",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 11,
+      "surface": {
+        "surface": "attaboy",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "ordinal": 92,
+      "term": "atishoo",
+      "id": 9061422,
+      "source": {
+        "id": 9061422,
+        "term": "atishoo",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 阿嚏(打喷嚏的拟声)",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 72442,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "c77d6762d59cd8e7ec7e4dda344570731291239fd0c13d76b572a570d14e5bbb",
+      "selectedMeaningZh": "阿嚏",
+      "selectedFunctionNote": "Actual sneeze sound in dialogue followed by narrative context, not a headword quoted as a technical label.",
+      "pair": [
+        "atishoo",
+        "interjection",
+        "阿嚏",
+        "Atishoo! I sneezed just as the room fell silent.",
+        "阿嚏！房间刚安静下来，我就打了个喷嚏。"
+      ],
+      "pairSha256": "bd84ebd3800e61304a573b7570c0a077f40841a479fcb802f80a2d2a1d3a6f03",
+      "pairHashEncoding": "SHA256 of JSON.stringify([term, publishedPOS, selectedMeaningZh, en, zh])",
+      "authorPrincipal": "e2",
+      "wordCount": 9,
+      "surface": {
+        "surface": "atishoo",
+        "kind": "exact canonical surface"
+      },
+      "primaryEvidence": [],
+      "existingHolds": [],
+      "requiresSourceRewrite": false,
+      "requiresFormsRewrite": false,
+      "requiredFutureAdmission": "A different principal must read the entire source and pair. Exact selected-role/POS/surface gate and actual-current-baseline reentry are still required. No existing closed-POS, short-head or placeholder check is waived.",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    }
+  ],
+  "authorHolds": [
+    {
+      "term": "every bit as",
+      "reason": "The complete current source labels every bit as as quantifier phrase, but the actual sentence uses the whole expression to modify an equative adjective comparison. The selected Chinese meaning and whole EN/ZH sentence are intelligible, yet that does not establish the current selected POS/role. Retain the item as an author role-scope hold until an independently supported, exact finite POS/source decision; do not certify the existing quantifier label merely because it is published.",
+      "requiredFutureWork": "Independently verify the precise degree-comparison phrase function and current taxonomy, then prepare a separately reviewed exact source/POS correction if needed. Preserve every original source field and this withdrawn pair as history. No source rewrite, gate waiver or admission occurs here.",
+      "ordinal": 5,
+      "source": {
+        "id": 9425213,
+        "term": "every bit as",
+        "partOfSpeech": "quantifier phrase",
+        "meaning": "完全一样",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 76744,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "完全一样",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "b2328761fa822ca6c6f547881e38bbd3c2eeb2c83db9b13794036f86c545155a",
+      "pair": null,
+      "existingHolds": [],
+      "historicalWithdrawnPair": [
+        "every bit as",
+        "quantifier phrase",
+        "完全一样",
+        "The revised ending is every bit as moving as the original.",
+        "修改后的结尾和原来的结尾同样感人。"
+      ],
+      "historicalWithdrawnPairSha256": "572134b3721d138d52027e3193ff3b206fb2b204c7ce03a99e0140adaf169cb6",
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "ere",
+      "reason": "The conjunction/preposition before sense is directly supported by MW, but the active forms list contains eres, not a supported form of those selected roles. A separate finite form-role review or source correction is needed before treating the whole unchanged record as clean. This is not a claim that the head ere is invalid.",
+      "requiredFutureWork": "Keep the exact raw seed/forms history; assess active eres against the selected grammatical roles without silently rewriting this source.",
+      "permanentExclusion": false,
+      "ordinal": 66,
+      "source": {
+        "id": 3276233,
+        "term": "ere",
+        "partOfSpeech": "conjunction · preposition",
+        "meaning": "conj. 在...以前, 毋宁\nprep. 在...以前, 毋宁",
+        "forms": [
+          "eres"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 25601,
+          "forms": [
+            "eres"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "6a9743eeeaaff6fb821ee6070bfe5b9003ddcc77458ce15d657dca74f36d0bd9",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "cum",
+      "reason": "The active cumming/cums forms belong to a different verbal/sexual family rather than the selected compound-linking or financial roles. MW's direct page also distinguishes lexical categories. This unchanged-source batch must not use a correct compound sentence to certify those cross-sense aliases.",
+      "requiredFutureWork": "Independently review role-separated active forms and keep all genuine original identities/history; do not call the whole word invalid or erase financial senses by assumption.",
+      "permanentExclusion": false,
+      "ordinal": 67,
+      "source": {
+        "id": 3192344,
+        "term": "cum",
+        "partOfSpeech": "preposition · adjective · adverb",
+        "meaning": "prep. 和, 附有, 与\na. 附有红利的\nadv. 附有红利地",
+        "forms": [
+          "cumming",
+          "cums"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 24946,
+          "forms": [
+            "cum",
+            "cumming",
+            "cums"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "6189a783547944f128a26f55e3916d9084cd539d1234ee1adeb9a5f6f387986a",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "vee",
+      "reason": "The source publishes noun/adjective V-shape roles but includes veeing, a verbal-looking form not established here for those roles. The selected noun would be writable, but the full active form-role scope needs its own evidence before this strict no-rewrite batch can certify it.",
+      "requiredFutureWork": "Check whether a separately evidenced verb identity warrants that form and isolate its provenance rather than automatically approving or deleting it.",
+      "permanentExclusion": false,
+      "ordinal": 70,
+      "source": {
+        "id": 3976435,
+        "term": "vee",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. V字形物\na. V字形的",
+        "forms": [
+          "veeing",
+          "vees"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 31072,
+          "forms": [
+            "veeing",
+            "vees"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "f11266a9c59ebb6c41169926f835cca769979bbe5a32751c05200267b52fcaad",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "ran",
+      "reason": "The source correctly identifies run's past tense but publishes rans as an active form. The current selected verb role does not justify that extra inflection; own British Council table confirms run/ran/run. Preserve the head for a future exact grammatical form repair, not permanent exclusion.",
+      "requiredFutureWork": "A finite source/form-role proposal preserving raw seed and historical holds, followed by independent rereview.",
+      "permanentExclusion": false,
+      "ordinal": 74,
+      "source": {
+        "id": 10097142,
+        "term": "ran",
+        "partOfSpeech": "verb",
+        "meaning": "run的过去式",
+        "forms": [
+          "rans"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 85553,
+          "forms": [
+            "rans"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "run的过去式",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "ae40fa7b38dc379059ef676920633ac14de4bedf6b3786cf80d1ab93f5edb079",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "got",
+      "reason": "The current verb record also contains an unseparated biochemical abbreviation gloss. The ordinary got form is supported by the direct British Council table, but a correct past-tense example must not certify the casing/POS scope of the unrelated enzyme identity in the full current primary record.",
+      "requiredFutureWork": "Clarify the active selected verb versus biochemical abbreviation provenance in a separately reviewed finite source plan, keeping the original raw record.",
+      "permanentExclusion": false,
+      "ordinal": 75,
+      "source": {
+        "id": 9562029,
+        "term": "got",
+        "partOfSpeech": "verb",
+        "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+        "forms": [],
+        "source": "pos-reviewed",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "",
+            "meaning": "get的过去式和过去分词\n[化] 谷草转氨酶; 谷氨酸草酰乙酸转氨酶",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 78523,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "e07457f8a6d57761396c5c59a7f0c6223b1d7bed29cbcae2dde03744ab0903b1",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "met",
+      "reason": "The source identifies meet's past/past-participial met yet includes active mets and an unseparated methionine gloss. The direct British Council table supports meet/met/met, not a regular mets form for that selected verb. The chemical/proper or nominal identities need separate role/case evidence, not automatic invalidation.",
+      "requiredFutureWork": "Exact role-separated source/form review preserving original history; no example admission based only on the familiar verb.",
+      "permanentExclusion": false,
+      "ordinal": 77,
+      "source": {
+        "id": 9833897,
+        "term": "met",
+        "partOfSpeech": "verb",
+        "meaning": "meet的过去式和过去分词\n[化] 甲硫氨酸; 蛋氨酸",
+        "forms": [
+          "mets"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 82440,
+          "forms": [
+            "mets"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "meet的过去式和过去分词\n[化] 甲硫氨酸; 蛋氨酸",
+            "source": "mit"
+          }
+        ]
+      },
+      "sourceSha256": "4965546b244541820ab5015bc9a2d5b59bfec2f4243e588239eecb91151aa51b",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "yup",
+      "reason": "The yes-response meaning is intelligible, but the current interjection row's yups form is not established here for that selected role. Direct MW separates an adverbial yes response from a noun meaning yuppie, making blind whole-record approval unsafe.",
+      "requiredFutureWork": "Narrowly review the active form/POS family and any nominal response uses; do not infer that yup or every yups occurrence is invalid.",
+      "permanentExclusion": false,
+      "ordinal": 78,
+      "source": {
+        "id": 2648921,
+        "term": "yup",
+        "partOfSpeech": "interjection",
+        "meaning": "int. [俚]是的（等于yes）",
+        "forms": [
+          "yups"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20700,
+          "forms": [
+            "yups"
+          ],
+          "workbook": false
+        }
+      },
+      "sourceSha256": "838d7a2534a905157c74ee35d26397d89ae8db7b6b182c7c71b97d034186c983",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    },
+    {
+      "term": "hah",
+      "reason": "The canonical exclamation is usable, but the current interjection-only source includes hahs without role-specific evidence in this task. Any nominalized laugh/utterance identity must be checked separately rather than treating a natural interjection sentence as approval of all active forms.",
+      "requiredFutureWork": "Independent finite role/form evidence, preserving the raw source; no permanent exclusion of the canonical exclamation.",
+      "permanentExclusion": false,
+      "ordinal": 81,
+      "source": {
+        "id": 2838238,
+        "term": "hah",
+        "partOfSpeech": "interjection",
+        "meaning": "int. 哈, 嘿",
+        "forms": [
+          "hahs"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 22179,
+          "forms": [
+            "hahs"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceSha256": "6d7f92f964647f93387887b9227eea4974b69f1b8abc6e3e83ea7cfe0791c44e",
+      "pair": null,
+      "existingHolds": [],
+      "languageReviewed": false,
+      "admitted": false,
+      "published": false,
+      "coverageAdded": 0
+    }
+  ],
+  "oldHoldsRetained": true,
+  "published": false
+}

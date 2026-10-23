@@ -19,3 +19,7 @@ tooling/dictionary/examples/reviews/batch-0025-*.json text eol=lf
 tooling/dictionary/examples/queues/batch-0025*.json text eol=lf
 tooling/dictionary/examples/index.json text eol=lf
 tooling/dictionary/chinese-related-common-examples.json text eol=lf
+# D26 exact reviewed packs/whole-hold evidence must survive Windows checkout.
+tooling/dictionary/examples/source/batch-0026-*.json text eol=lf
+tooling/dictionary/examples/reviews/batch-0026-*.json text eol=lf
+tooling/dictionary/examples/queues/batch-0026*.json text eol=lf
