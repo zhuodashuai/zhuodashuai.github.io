@@ -104,7 +104,7 @@ export function buildDictionaryExamples({ originalPack, authored = [], knownTerm
     reviewScope: "AI cross-reviewed selected-sense examples, not human certification or complete dictionary coverage" }, null, 2) + "\n"));
   return { entries, manifest, files, originalHeads, originalExamples, addedHeads, addedExamples };
 }
-export async function loadExampleBuild() {
+export async function loadExampleBuild({ additionalAuthored = [] } = {}) {
   const catalogue = await loadOriginalCatalogue();
   const manifest = JSON.parse(await readFile(join(ROOT, "vocab/data/expanded-dictionary/manifest.json"), "utf8"));
   const terms = new Set();
@@ -119,7 +119,7 @@ export async function loadExampleBuild() {
     const review = JSON.parse(await readFile(join(ROOT, `tooling/dictionary/examples/reviews/${file}`), "utf8"));
     authored.push(...validateExampleReview(pack, review));
   }
-  return buildDictionaryExamples({ originalPack: catalogue.pack, authored, knownTerms: terms });
+  return buildDictionaryExamples({ originalPack: catalogue.pack, authored: [...authored, ...additionalAuthored], knownTerms: terms });
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const build = await loadExampleBuild();

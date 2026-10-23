@@ -1,5 +1,5 @@
-# Preserve Jekyll 3.10 / GitHub Pages defaults. Only the final entry is new:
-# this unpublished review queue stays in Git and CI, not the public site.
+# Preserve Jekyll 3.10 / GitHub Pages defaults and all previously served URLs.
+# Exact, never-published review files stay in Git/CI, not the public site.
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -10,3 +10,35 @@ exclude:
   - vendor/ruby/
   - CNAME
   - tooling/dictionary/examples/queues/batch-0031.json
+  - tooling/dictionary/examples/queues/batch-0032.json
+  - tooling/dictionary/examples/queues/batch-0032-supplement.json
+  - tooling/dictionary/examples/source/batch-0032-p001.json
+  - tooling/dictionary/examples/reviews/batch-0032-p001.json
+  - tooling/dictionary/examples/source/batch-0032-p002.json
+  - tooling/dictionary/examples/reviews/batch-0032-p002.json
+  - tooling/dictionary/examples/source/batch-0032-p002-child.json
+  - tooling/dictionary/examples/reviews/batch-0032-p002-child.json
+  - tooling/dictionary/examples/source/batch-0032-ive-child.json
+  - tooling/dictionary/examples/reviews/batch-0032-ive-child.json
+  - tooling/dictionary/examples/source/batch-0032-root.json
+  - tooling/dictionary/examples/reviews/batch-0032-root.json
+  - tooling/dictionary/examples/source/batch-0032-source9-01.json
+  - tooling/dictionary/examples/reviews/batch-0032-source9-01.json
+  - tooling/dictionary/examples/source/batch-0032-yuk-child.json
+  - tooling/dictionary/examples/reviews/batch-0032-yuk-child.json
+  - tooling/dictionary/examples/source/batch-0032-source9-02.json
+  - tooling/dictionary/examples/reviews/batch-0032-source9-02.json
+  - tooling/dictionary/examples/source/batch-0032-source9-03.json
+  - tooling/dictionary/examples/reviews/batch-0032-source9-03.json
+  - tooling/dictionary/examples/source/batch-0032-source9-04.json
+  - tooling/dictionary/examples/reviews/batch-0032-source9-04.json
+  - tooling/dictionary/examples/source/batch-0032-role-01.json
+  - tooling/dictionary/examples/reviews/batch-0032-role-01.json
+  - tooling/dictionary/examples/source/batch-0032-role-02.json
+  - tooling/dictionary/examples/reviews/batch-0032-role-02.json
+  - tooling/dictionary/examples/source/batch-0032-role-03.json
+  - tooling/dictionary/examples/reviews/batch-0032-role-03.json
+  - tooling/dictionary/examples/source/batch-0032-role-04.json
+  - tooling/dictionary/examples/reviews/batch-0032-role-04.json
+  - tooling/dictionary/examples/source/batch-0032-role-05.json
+  - tooling/dictionary/examples/reviews/batch-0032-role-05.json

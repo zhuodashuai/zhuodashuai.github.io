@@ -1,12 +1,20 @@
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
-// uses v104 while legacy URL aliases and warmed shards stay available.
+// uses the additive v108 graph while legacy aliases and warmed shards remain.
 const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/dictionary-app-v108.js", "./js/dictionary-entry-v108.js", "./js/dictionary-offline-warm-v108.js",
+  "./js/dictionary-examples-ui-v108.js", "./js/entry-detail-v108.js",
+  "./js/public-app-v108.js", "./js/owner-app-v108.js", "./js/personal-app-v108.js",
+  "./js/dictionary-examples-current-v4.js", "./js/dictionary-examples-release-v4.js",
+  "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",
+  // Directory metadata only: preserve previously visited delta URLs across an
+  // app update. Unvisited example/source shards are never installed in bulk.
+  "./data/dictionary-examples/catalogue-v4/d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f.bin",
   "./js/app-navigation.js?v=107", "./js/app-navigation-entry.js?v=107", "./js/personal-app.js?v=107",
   "./js/app-navigation.js?v=105", "./js/app-navigation.js",
   "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js",

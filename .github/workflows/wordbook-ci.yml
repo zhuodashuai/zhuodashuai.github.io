@@ -88,6 +88,7 @@ jobs:
           node tooling/scripts/build-dictionary-suggestions.mjs
           node tooling/scripts/build-dictionary-suggestions.mjs --check
           node tooling/scripts/build-dictionary-examples.mjs --check
+          node tooling/scripts/build-dictionary-examples-additive.mjs --check
           node tooling/scripts/build-common-synonyms.mjs --check
       - name: Secret boundary scan
         run: pnpm test:security
@@ -165,6 +166,7 @@ jobs:
           node tooling/scripts/build-expanded-dictionary.mjs
           node tooling/scripts/build-dictionary-suggestions.mjs
           node tooling/scripts/build-dictionary-examples.mjs --check
+          node tooling/scripts/build-dictionary-examples-additive.mjs --check
           pnpm --dir wordbook-api exec wrangler deploy
       - name: Confirm the deployed Worker is healthy
         if: steps.guard.outputs.configured == 'true'

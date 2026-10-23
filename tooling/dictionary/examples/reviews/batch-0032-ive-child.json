@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "7d6f6ca044b8968336a0c1fa6a5d45226d1e0b700f22cf9d6c00b0e89cf4afcc",
+  "reviewer": "AI/d32_reviewer_role_ive_child",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "I've"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-root-ive-xref-child-proposal-0001.json",
+      "bytes": 2359,
+      "sha256": "fa0dac22e9b530d2125d57e6859cae6eb76094bf00f874eb99062fb738c0bdb8"
+    },
+    "opinion": {
+      "file": "qa/d32-p002-reviewer-role/ROOT-IVE-CHILD-OPINION-0001.json",
+      "bytes": 6646,
+      "sha256": "ad695a1765771177cb5ea98d9390f192b63c626bb17a49e7a56ae52a4bd2a532"
+    },
+    "rows": [
+      {
+        "term": "I've",
+        "canonicalId": 1790536,
+        "canonicalSourceSha256": "8f9a57b624a551c3151d994fd5a16449570c7b7a003a62f3c0d8771ec374cd6a",
+        "authorPrincipal": "d32_author_root_ive_child",
+        "reviewerPrincipal": "d32_reviewer_role_ive_child",
+        "pairSha256": "1718ade578c9ec4bd3ee3e94834fbf2158b4810a55605aa33229447ebd187c00",
+        "wholeIndependentDecision": {
+          "schemaVersion": 1,
+          "kind": "Independent one-child opinion: explicit derived Chinese usage annotation for exact I've contraction",
+          "reviewerPrincipal": "d32_reviewer_role_ive_child",
+          "sealedAt": "2026-10-23T20:18:15.356Z",
+          "childProposal": {
+            "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0032\\drafts\\d32-root-ive-xref-child-proposal-0001.json",
+            "bytes": 2359,
+            "sha256": "fa0dac22e9b530d2125d57e6859cae6eb76094bf00f874eb99062fb738c0bdb8"
+          },
+          "sourcePacket": {
+            "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0032\\drafts\\d32-p002-full-source-reading-packet-0001.json",
+            "bytes": 1553814,
+            "sha256": "ecafcf11ee8af8d74ab5095c7a99ae19ace0a413da18356d0ca618a2fc15434f"
+          },
+          "unchangedStrictPolicyPreRead": {
+            "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0032\\qa\\d32-p002-reviewer-role\\SOURCE-PRE-READ-0001.json",
+            "bytes": 78820,
+            "sha256": "24fea755d4fb8285dadc8b278160be2ea539f94c47cc4bf34ea6406fdde21458"
+          },
+          "p001DedupInput": {
+            "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0032\\drafts\\d32-p001-original-author-pack-0001.json",
+            "bytes": 666034,
+            "sha256": "bf37c6572cbd1f49de4bdc40f59f9965ad1707051ce70b98cb6a3373b685ebc9"
+          },
+          "recipe": {
+            "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0032\\qa\\d32-p002-reviewer-role\\review-root-ive-child-0001.mjs",
+            "bytes": 9030,
+            "sha256": "4f3e64d28ba9512223cd0f50626f23bc7766168ae55948dfbe4923270451c9d6"
+          },
+          "decision": "support-exact-child-as-explicit-per-head-derived-usage-annotation-for-possible-admission",
+          "supportedExactPair": [
+            "I've",
+            "contraction",
+            "I have 的缩写；本例与过去分词连用，表示已经做过某事。",
+            "I've checked the address twice, but the driver still cannot find the building.",
+            "我已经核对过两遍地址了，但司机还是找不到那栋楼。"
+          ],
+          "pairSha256": "1718ade578c9ec4bd3ee3e94834fbf2158b4810a55605aa33229447ebd187c00",
+          "sourceId": 1790536,
+          "sourceSha256": "8f9a57b624a551c3151d994fd5a16449570c7b7a003a62f3c0d8771ec374cd6a",
+          "wholeContextPointer": "/entries/28",
+          "wholeContextSemanticSha256": "b9f78ff91a4e4dff04ee2a11c6f639ea7c8bc29cdc1888d1b2016714697266de",
+          "annotationClassification": {
+            "isLiteralRawChineseSourceSubstring": false,
+            "isNewChineseUsageAnnotation": true,
+            "explicitlyBoundToThisOneSentence": true,
+            "derivation": "Existing exact I've = I have expansion + I pronoun speaker + actual have auxiliary past-participle perfect branch.",
+            "notCanonicalSourceReplacement": true,
+            "noGlobalXrefPolicyWaiver": true,
+            "sourcePartOfSpeechUnchanged": "contraction"
+          },
+          "languageOpinion": {
+            "english": "Natural first-person present-perfect checked with a past participle, two completed checks and current relevance. But/still coherently contrasts the speaker's checks with the driver's continued difficulty; no grammatical or transitivity mismatch.",
+            "chinese": "我已经核对过两遍地址了 preserves first person, completion and twice. 但司机还是找不到那栋楼 faithfully preserves contrast, still, inability and the building, without inventing a journey destination or claiming the checks proved the address correct.",
+            "annotation": "I have 的缩写 correctly explains the exact contraction. 本例 confines 已经做过某事 to this completed-check use; it does not falsely define every present-perfect construction as a completed action or every have sense as 已经.",
+            "registerAndCountability": "Ordinary conversational contraction; address twice and singular the driver/building are natural. No technical I, possessive/causative have, medical/legal advice or real factual claim.",
+            "sourcePrecision": "Support follows an explicitly disclosed per-head composition, not pretending the raw cross-reference already contains Chinese. No five-cell edits were authored by this reviewer."
+          },
+          "preservation": {
+            "originalStrictPolicyHoldRetained": true,
+            "originalP002PacketAndAllPriorOpinionsUnchanged": true,
+            "allCompleteCurrentIveIHaveSourcesVariantsSeedsFormsAndKeysPersonallyRead": true,
+            "parentIAndHaveWholeCurrentExamplesDeepEqual": true,
+            "parentICompleteReasonCarrierRetained": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0021-provenance.json",
+                "scope": "queue-history",
+                "rawFileSha256": "188ea59b53fb86e75559eef03a8e2e17bebc21f70012ae614dce147a0ba7d14a",
+                "pointer": "/readers/6/perTerm/0",
+                "completeObject": {
+                  "term": "I",
+                  "decision": "approve",
+                  "reason": "The source pronoun means the speaker. Uppercase subject I with placed and the Chinese first-person map placement are natural and faithful; do not admit technical acronym branches or arbitrary one-letter heads."
+                },
+                "objectSha256": "1cfa55efeb0b1c341f9222f2c3c9fb992f01b5822c03fe25241fc7da0ed1d9a5"
+              }
+            ],
+            "noParentExampleOrMeaningApprovalCreated": true,
+            "noNewLookupAliasesOrFormRules": true
+          },
+          "checks": {
+            "childExactBytes": true,
+            "sourcePacketExactBytes": true,
+            "currentThreeSourceBodiesAndCanonicalKeyTuplesVerified": true,
+            "currentExample256BodiesVerified": true,
+            "currentOldHeads": 86415,
+            "currentOldEnglishPairs": 87804,
+            "oldEnglishDuplicates": 0,
+            "p001EnglishRowsChecked": 21,
+            "p001EnglishDuplicates": 0,
+            "newExampleRuntimeQueries": 0
+          },
+          "remainingIntegrationRequirements": [
+            "Root must make/register an explicit decision for this exact derived annotation; do not make a literal-substring validator silently accept all xrefs or relabel this annotation as raw source Chinese.",
+            "Carry proposal and independent opinion pins, original strict hold, complete I've/I/have contexts and original I opinion forward as provenance.",
+            "If ever built, actual I've/case/apostrophe canonical result must show this exact annotated contraction pair; preserve I and have whole existing examples and their role/form boundaries. No such new runtime result is claimed here."
+          ],
+          "knownSubstantiveExactChildErrors": [],
+          "noKnownSubstantiveErrorsFound": true,
+          "reviewerAuthoredRepairs": 0,
+          "sourceWrites": 0,
+          "formsWrites": 0,
+          "productWrites": 0,
+          "indexWrites": 0,
+          "builds": 0,
+          "imports": 0,
+          "admitted": false,
+          "published": false,
+          "coverageAdded": 0
+        }
+      }
+    ]
+  }
+}

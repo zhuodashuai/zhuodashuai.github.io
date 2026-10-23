@@ -1,0 +1,1334 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "48f0eb07eee7e098e16ba8621cd9006fcc4d93ee8b253a79cc8c6ceec4747fb1",
+  "reviewer": "AI/d32_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "wei",
+    "NOx",
+    "wey",
+    "Gaz",
+    "AAM",
+    "adsum",
+    "alack",
+    "alackaday",
+    "altho",
+    "amb",
+    "Capt.",
+    "Feb.",
+    "I bet",
+    "I dare say",
+    "I guess",
+    "I mean",
+    "I thought as much",
+    "Jan.",
+    "Jul.",
+    "Jun.",
+    "Mar.",
+    "Nov.",
+    "Oct.",
+    "VDT"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-source9-c151-200-original-author-pack-0001.json",
+      "bytes": 530116,
+      "sha256": "26800a9dc21efaa3bfe2eb2e7f453c9208f7ddf44c92abc8e75b09bd8a11f4d1"
+    },
+    "opinion": {
+      "file": "qa/d32-source9-c151-200-independent-role-review-0001.json",
+      "bytes": 117572,
+      "sha256": "a8337020314deafb726213b3d77e370aae8522a5c9ef706531afdd2c0c8ea78f"
+    },
+    "rows": [
+      {
+        "term": "wei",
+        "canonicalId": 6489920,
+        "canonicalSourceSha256": "38ee69b9f9c42a5dbd3f999e702abf7280254aad202f480b15339dd5e08db143",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "881c61a2808a08ce787afeb4eec71f91099de81ba886a099be513cdab3622279",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 151,
+          "term": "wei",
+          "canonicalId": 6489920,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "38ee69b9f9c42a5dbd3f999e702abf7280254aad202f480b15339dd5e08db143",
+          "completeRawSource": {
+            "id": 6489920,
+            "term": "wei",
+            "partOfSpeech": "noun",
+            "meaning": "n. 魏（姓氏）；魏（朝代）；渭河",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 50728,
+              "forms": [
+                "wei"
+              ],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "魏（姓氏）",
+            "wholeRawMeaning": "n. 魏（姓氏）；魏（朝代）；渭河",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "wei",
+            "noun",
+            "魏（姓氏）",
+            "The chair beside Professor Wei was left empty for the visiting speaker.",
+            "魏教授旁边的椅子空着，留给来访的演讲者。"
+          ],
+          "pairSha256": "881c61a2808a08ce787afeb4eec71f91099de81ba886a099be513cdab3622279",
+          "personalReason": "Fictional Professor Wei uses the listed surname, not an invented given-name sense. The reserved chair, its location and its visitor purpose are preserved. Dynasty/river branches are retained, not substituted into this pair; self-spelling seed is not a new alias.",
+          "sourceContextPointer": "/entries/150",
+          "sourceFormContextSha256": "f3aeefb0d78b03f1830bebfc21738b2994f938a8f9c28bd75259e9f267efe2a3",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "NOx",
+        "canonicalId": 6520998,
+        "canonicalSourceSha256": "18f8d0e42cb0c688f49560ae89e8387828730b9bb01a915418073aedfaedd0b9",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "bc444bef87989b617ba5ffb23c08e9ac92259f57bc8059873db11cf6ed86a82c",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 155,
+          "term": "NOx",
+          "canonicalId": 6520998,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "18f8d0e42cb0c688f49560ae89e8387828730b9bb01a915418073aedfaedd0b9",
+          "completeRawSource": {
+            "id": 6520998,
+            "term": "NOx",
+            "partOfSpeech": "noun",
+            "meaning": "n. [罗神]诺克斯(司夜女神)",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 50971,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "诺克斯(司夜女神)",
+            "wholeRawMeaning": "n. [罗神]诺克斯(司夜女神)",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "NOx",
+            "noun",
+            "诺克斯(司夜女神)",
+            "For her entrance as Nox, the Roman goddess of night, Maya wore a cloak scattered with silver stars.",
+            "玛雅扮演罗马司夜女神诺克斯出场时，披着一件缀有银色星星的斗篷。"
+          ],
+          "pairSha256": "bc444bef87989b617ba5ffb23c08e9ac92259f57bc8059873db11cf6ed86a82c",
+          "personalReason": "Explicit Roman night-goddess apposition selects Nox rather than nitrogen oxides. The fictional entrance/costume and silver-star cloak are faithfully translated; Nox is ordinary proper-name casing of the same folded key. Cell3 retains the goddess limitation.",
+          "sourceContextPointer": "/entries/154",
+          "sourceFormContextSha256": "bfeea172a723ba0398d0f5a65f4cef912dc36ae3108c13dd607135b6571506d9",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "wey",
+        "canonicalId": 6586608,
+        "canonicalSourceSha256": "bbe693efaf7910e1c3f25d1fc2443c8ceb9d20f12e211f43e7b2a52302df8234",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "e4203f6757da400b00250ab4cdaa46b44cb1171459d4d1077212b30580bb201f",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 160,
+          "term": "wey",
+          "canonicalId": 6586608,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "bbe693efaf7910e1c3f25d1fc2443c8ceb9d20f12e211f43e7b2a52302df8234",
+          "completeRawSource": {
+            "id": 6586608,
+            "term": "wey",
+            "partOfSpeech": "noun",
+            "meaning": "n. 韦 (旧时英国重量或容量单位)",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 51483,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "韦 (旧时英国重量或容量单位)",
+            "wholeRawMeaning": "n. 韦 (旧时英国重量或容量单位)",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "wey",
+            "noun",
+            "韦 (旧时英国重量或容量单位)",
+            "The old English account book lists a wey of wool among the goods delivered to the abbey.",
+            "那本旧时英国账簿在送往修道院的货物中列有一韦羊毛。"
+          ],
+          "pairSha256": "e4203f6757da400b00250ab4cdaa46b44cb1171459d4d1077212b30580bb201f",
+          "personalReason": "A commodity-bound historical British unit is used with wool in a historical English account, without a guessed conversion. Chinese preserves one wey and the delivered goods, not a modern metric quantity. The capacity branch is retained but not instantiated.",
+          "sourceContextPointer": "/entries/159",
+          "sourceFormContextSha256": "b6ae0e840c8b5edfd892cf8e2775dafe4318205d5ddda62d9e7158d3f3983f7c",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Gaz",
+        "canonicalId": 6609293,
+        "canonicalSourceSha256": "2f258ac64b19ba8a0c4f17e03593038729ef4a1c8f53f07c618c74151df24a3e",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "6ab02f8a945b6c6b23130961e1805bb90bbca755b36e256ac66a172db0959b86",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 161,
+          "term": "Gaz",
+          "canonicalId": 6609293,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "2f258ac64b19ba8a0c4f17e03593038729ef4a1c8f53f07c618c74151df24a3e",
+          "completeRawSource": {
+            "id": 6609293,
+            "term": "Gaz",
+            "partOfSpeech": "noun",
+            "meaning": "n. 嘎斯（俄罗斯汽车品牌名称）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 51662,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "嘎斯（俄罗斯汽车品牌名称）",
+            "wholeRawMeaning": "n. 嘎斯（俄罗斯汽车品牌名称）",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Gaz",
+            "noun",
+            "嘎斯（俄罗斯汽车品牌名称）",
+            "The old GAZ van rattled as it climbed the steep road to the farm.",
+            "那辆老旧的嘎斯厢式货车沿着通往农场的陡路爬行时，哐当作响。"
+          ],
+          "pairSha256": "6ab02f8a945b6c6b23130961e1805bb90bbca755b36e256ac66a172db0959b86",
+          "personalReason": "Fictional old GAZ van is a natural brand-attributive use of the listed Russian vehicle name, not an invented surname or vehicle model. The climbing road and rattling are preserved; no real corporate ownership/current production claim is made.",
+          "sourceContextPointer": "/entries/160",
+          "sourceFormContextSha256": "0433924917f3f76cb91a5935904030331e0207466eb9d66f114554f1a21ade77",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "AAM",
+        "canonicalId": 6645038,
+        "canonicalSourceSha256": "2be7ebcb0de9080141ace317a0194a85935a43b4004b5508f211bcba42a1b546",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "f345244d696217ef63e34c71cf3caa7820c3360e199374ad3b460c43530d62f0",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 167,
+          "term": "AAM",
+          "canonicalId": 6645038,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "2be7ebcb0de9080141ace317a0194a85935a43b4004b5508f211bcba42a1b546",
+          "completeRawSource": {
+            "id": 6645038,
+            "term": "AAM",
+            "partOfSpeech": "noun",
+            "meaning": "空对空导弹",
+            "forms": [
+              "aams"
+            ],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 51941,
+              "forms": [
+                "aams"
+              ],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "空对空导弹",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "空对空导弹",
+            "wholeRawMeaning": "空对空导弹",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "AAM",
+            "noun",
+            "空对空导弹",
+            "A wooden model of an AAM hung above the aircraft display.",
+            "飞机展品上方悬着一个木制空对空导弹模型。"
+          ],
+          "pairSha256": "f345244d696217ef63e34c71cf3caa7820c3360e199374ad3b460c43530d62f0",
+          "personalReason": "Count-noun abbreviation occurs in a harmless wooden display model; an AAM is phonologically appropriate. The whole Chinese model, material, placement and missile identity match. Declared aams is a regular nominal plural, not an interjection inflection.",
+          "sourceContextPointer": "/entries/166",
+          "sourceFormContextSha256": "d20e004ae7865dcbf8357b14c6cde48fb0b0a2976205474d6680f2a564311106",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "adsum",
+        "canonicalId": 7169075,
+        "canonicalSourceSha256": "e4ec9469fa35aa2c3c2c40d8a40a2b5959fa554b9c99e7c192c4037373c8f10d",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "b7620008ae4b1e210f4e451ce2cf00739a3e76c45874fdf3df66cd1e54ebd5be",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 170,
+          "term": "adsum",
+          "canonicalId": 7169075,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "e4ec9469fa35aa2c3c2c40d8a40a2b5959fa554b9c99e7c192c4037373c8f10d",
+          "completeRawSource": {
+            "id": 7169075,
+            "term": "adsum",
+            "partOfSpeech": "interjection",
+            "meaning": "interj. 到, 有",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 56050,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "到",
+            "wholeRawMeaning": "interj. 到, 有",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "adsum",
+            "interjection",
+            "到",
+            "\"Adsum!\" Thomas called from the back row when the headmaster read out his name.",
+            "校长点到托马斯的名字时，他从后排高声答道：“到！”"
+          ],
+          "pairSha256": "b7620008ae4b1e210f4e451ce2cf00739a3e76c45874fdf3df66cd1e54ebd5be",
+          "personalReason": "Latin-derived roll-call response is genuinely used as an interjection. The named pupil, back row, headmaster and response after the name are preserved; 到 does not assert possession or travel arrival.",
+          "sourceContextPointer": "/entries/169",
+          "sourceFormContextSha256": "3981a57a35975d0c84f60274867f234b328568430a09b68ef4680458636c787e",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "alack",
+        "canonicalId": 7521857,
+        "canonicalSourceSha256": "c7a667f47c207ade2e6a1621332ea2fb8b0620cd0d335a5f54b5800f28cccc12",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "1bf3c5650c5980bd874714b5e4910a61fca45b49b11636aa5b1b9a4b6a69cb43",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 177,
+          "term": "alack",
+          "canonicalId": 7521857,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "c7a667f47c207ade2e6a1621332ea2fb8b0620cd0d335a5f54b5800f28cccc12",
+          "completeRawSource": {
+            "id": 7521857,
+            "term": "alack",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 表示“忧伤”之义, 呜呼",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 58824,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "呜呼",
+            "wholeRawMeaning": "int. 表示“忧伤”之义, 呜呼",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "alack",
+            "interjection",
+            "呜呼",
+            "In the old play, the king cries, \"Alack, my son will not return!\"",
+            "在那部古老的戏剧中，国王悲呼：“呜呼，我的儿子不会回来了！”"
+          ],
+          "pairSha256": "1bf3c5650c5980bd874714b5e4910a61fca45b49b11636aa5b1b9a4b6a69cb43",
+          "personalReason": "Old-play framing supplies the archaic dramatic register, with genuine sorrow rather than a dictionary-definition filler. The king, son and non-return are exact; neither language adds a confirmed death.",
+          "sourceContextPointer": "/entries/176",
+          "sourceFormContextSha256": "083ba9bbb5577915ab9a55000121354a3d0413a44897a9d6fa1ce20bbfff76fc",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "alackaday",
+        "canonicalId": 7522026,
+        "canonicalSourceSha256": "cd2f9aa18a9d61079e9d185b0df73879b9237364639feaf4936e8b709b76bc7b",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "6b99eadaee947fa8cca6346a968024bb1d86d9f54e725fa0c48d1f508bbe3339",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 178,
+          "term": "alackaday",
+          "canonicalId": 7522026,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "cd2f9aa18a9d61079e9d185b0df73879b9237364639feaf4936e8b709b76bc7b",
+          "completeRawSource": {
+            "id": 7522026,
+            "term": "alackaday",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 呜呼, 哀哉",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 58825,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "哀哉",
+            "wholeRawMeaning": "int. 呜呼, 哀哉",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "alackaday",
+            "interjection",
+            "哀哉",
+            "\"Alackaday, the frost has taken every blossom,\" the gardener laments in the old tale.",
+            "“哀哉，霜冻毁了每一朵花！”老故事中的园丁这样悲叹道。"
+          ],
+          "pairSha256": "6b99eadaee947fa8cca6346a968024bb1d86d9f54e725fa0c48d1f508bbe3339",
+          "personalReason": "Old-tale lament preserves the archaic interjection and the loss of every blossom to frost. The Chinese uses 哀哉 and does not change the cause or extent. The false INT marker closure is retained separately, not a sense authority.",
+          "sourceContextPointer": "/entries/177",
+          "sourceFormContextSha256": "f1db2b0f3316558d537eef3ae7fbc413bf5f9c76b65302597c898130f2616d44",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "altho",
+        "canonicalId": 7837513,
+        "canonicalSourceSha256": "95787656d501cf478fa034e532b55bff5fcde4a1d3190822f8c63302cebcfbe3",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "5efa3411b8a2d8e3b22e29d051affa2713605a1ba036067b87665e1c401635f7",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 180,
+          "term": "altho",
+          "canonicalId": 7837513,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "95787656d501cf478fa034e532b55bff5fcde4a1d3190822f8c63302cebcfbe3",
+          "completeRawSource": {
+            "id": 7837513,
+            "term": "altho",
+            "partOfSpeech": "conjunction",
+            "meaning": "conj.虽然, 纵使",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 61305,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "虽然",
+            "wholeRawMeaning": "conj.虽然, 纵使",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "altho",
+            "conjunction",
+            "虽然",
+            "\"I'll walk home, altho it may take a while,\" she texted.",
+            "她发短信说：“我会走回家，虽然可能要花些时间。”"
+          ],
+          "pairSha256": "5efa3411b8a2d8e3b22e29d051affa2713605a1ba036067b87665e1c401635f7",
+          "personalReason": "Informal text-message quotation makes the shortened conjunction appropriate. Concession, walking home and possible duration all match. This is not recommended as formal spelling or treated as an invented punctuation alias.",
+          "sourceContextPointer": "/entries/179",
+          "sourceFormContextSha256": "7ff69b5ed42af2c5fa88816e3a500e7a245d42bfacdd4645b840537100684e86",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "amb",
+        "canonicalId": 7895331,
+        "canonicalSourceSha256": "e643089415a55d3632725bb4f30ea3ddc6bbf9d9b7d1214e5647f416dfaa09d7",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "c10f9355c7f22ca18f108b9dd7b34e6c9231a72502a8be69b505725c1e88cf7e",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 181,
+          "term": "amb",
+          "canonicalId": 7895331,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "e643089415a55d3632725bb4f30ea3ddc6bbf9d9b7d1214e5647f416dfaa09d7",
+          "completeRawSource": {
+            "id": 7895331,
+            "term": "amb",
+            "partOfSpeech": "noun",
+            "meaning": "高级内存缓冲器（Advanced Memory Buffer）",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 61758,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "高级内存缓冲器（Advanced Memory Buffer）",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "高级内存缓冲器",
+            "wholeRawMeaning": "高级内存缓冲器（Advanced Memory Buffer）",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "amb",
+            "noun",
+            "高级内存缓冲器",
+            "The technician circled the damaged AMB in the photograph of the memory module.",
+            "技术员在那张内存模块照片上圈出了损坏的高级内存缓冲器。"
+          ],
+          "pairSha256": "c10f9355c7f22ca18f108b9dd7b34e6c9231a72502a8be69b505725c1e88cf7e",
+          "personalReason": "The definite hardware component in a memory-module photograph is a genuine noun use of Advanced Memory Buffer. Both languages identify the damaged component being circled; this is not a product recommendation or operational claim.",
+          "sourceContextPointer": "/entries/180",
+          "sourceFormContextSha256": "279b16a0e0c28f0bb9028ab66459c49d1e624f0ca2749944db5d1baa8f75a6fe",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Capt.",
+        "canonicalId": 8957961,
+        "canonicalSourceSha256": "d3ecf3cfc2429cc10e82e66598d448d02fc52ec2459be895fd6d53963ef11a28",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "ef43a00007b7f9d989ea34c5f7466073a832049f9f51eb442f351e28b0b7493f",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 186,
+          "term": "Capt.",
+          "canonicalId": 8957961,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "d3ecf3cfc2429cc10e82e66598d448d02fc52ec2459be895fd6d53963ef11a28",
+          "completeRawSource": {
+            "id": 8957961,
+            "term": "Capt.",
+            "partOfSpeech": "noun",
+            "meaning": "陆军上尉, 海军上校",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70409,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "陆军上尉, 海军上校",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "陆军上尉",
+            "wholeRawMeaning": "陆军上尉, 海军上校",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Capt.",
+            "noun",
+            "陆军上尉",
+            "Army Capt. Nolan checked the names before the training exercise began.",
+            "陆军上尉诺兰在训练演习开始前核对了名单。"
+          ],
+          "pairSha256": "ef43a00007b7f9d989ea34c5f7466073a832049f9f51eb442f351e28b0b7493f",
+          "personalReason": "Army explicitly selects the supplied Army captain branch, avoiding confusion with the different Navy grade. The fictional written title, name, roster check and training timing are exact. The period is retained.",
+          "sourceContextPointer": "/entries/185",
+          "sourceFormContextSha256": "fd0a7d0da7f11a5a02c84143e8c80756de28775e636f21c561b972dabc1bd1ae",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Feb.",
+        "canonicalId": 8963876,
+        "canonicalSourceSha256": "0692758424df86269020d1c4ee5044ffebf3587fecf5664cee62e919eca9ade2",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "8fb80a2bedc6a30891c75d6eb1c62722f25dd5f4f288d0f406fbffbdca90cf2c",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 187,
+          "term": "Feb.",
+          "canonicalId": 8963876,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "0692758424df86269020d1c4ee5044ffebf3587fecf5664cee62e919eca9ade2",
+          "completeRawSource": {
+            "id": 8963876,
+            "term": "Feb.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 二月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 二月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70544,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "二月",
+            "wholeRawMeaning": "n. 二月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Feb.",
+            "noun",
+            "二月",
+            "The workshop will run from 8 to 12 Feb.",
+            "研讨会将于2月8日至12日举行。"
+          ],
+          "pairSha256": "8fb80a2bedc6a30891c75d6eb1c62722f25dd5f4f288d0f406fbffbdca90cf2c",
+          "personalReason": "Dotted February noun is used naturally in a British-style date range. The workshop/研讨会 reading is legitimate, and both endpoints and future schedule are preserved; no actual year/calendar event is asserted.",
+          "sourceContextPointer": "/entries/186",
+          "sourceFormContextSha256": "aef8ebd7deb5d3043fe95fc909037cf04199dabac5148202a61124357a4ad602",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "I bet",
+        "canonicalId": 8970219,
+        "canonicalSourceSha256": "df8a00b71a22694d5730baa4e8f9f3af2a9e2c180febbd98ef3e2ae202e95120",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "f54741a26e18fd9a1e647cc62b622df3b68448fb5ffe344a1edfc9418dfb77b1",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 188,
+          "term": "I bet",
+          "canonicalId": 8970219,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "df8a00b71a22694d5730baa4e8f9f3af2a9e2c180febbd98ef3e2ae202e95120",
+          "completeRawSource": {
+            "id": 8970219,
+            "term": "I bet",
+            "partOfSpeech": "clause",
+            "meaning": "我确信",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70697,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我确信",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "我确信",
+            "wholeRawMeaning": "我确信",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "I bet",
+            "clause",
+            "我确信",
+            "I bet the spare batteries are in the top drawer of the kitchen cabinet.",
+            "我敢说，备用电池就在厨房柜子最上面的抽屉里。"
+          ],
+          "pairSha256": "f54741a26e18fd9a1e647cc62b622df3b68448fb5ffe344a1edfc9418dfb77b1",
+          "personalReason": "An ordinary confident inference, not a monetary wager. 我敢说 preserves the confidence of the clause; spare batteries, top drawer and kitchen cabinet scope match.",
+          "sourceContextPointer": "/entries/187",
+          "sourceFormContextSha256": "2374e3160ef96b28304f0358968ac8aa068d27f15e7bf116f511d62089cb4765",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "I dare say",
+        "canonicalId": 8970273,
+        "canonicalSourceSha256": "70ca07253e0f75b477d5a12624af466f81930344646aebabfecde9af7a000c65",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "a80a599e68b003c6beabfb7ee7811d23d8ce24f40e3170af701c9f4b2fc62a99",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 189,
+          "term": "I dare say",
+          "canonicalId": 8970273,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "70ca07253e0f75b477d5a12624af466f81930344646aebabfecde9af7a000c65",
+          "completeRawSource": {
+            "id": 8970273,
+            "term": "I dare say",
+            "partOfSpeech": "clause",
+            "meaning": "我想, 大概",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70701,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我想, 大概",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "我想",
+            "wholeRawMeaning": "我想, 大概",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "I dare say",
+            "clause",
+            "我想",
+            "I dare say the café will be quieter after the lunchtime crowd leaves.",
+            "我想，午餐时段的客人离开后，咖啡馆会安静些。"
+          ],
+          "pairSha256": "a80a599e68b003c6beabfb7ee7811d23d8ce24f40e3170af701c9f4b2fc62a99",
+          "personalReason": "Tentative/probable judgment, not a literal challenge. 我想 and the comparative quiet after the lunch crowd preserve the English degree and timing.",
+          "sourceContextPointer": "/entries/188",
+          "sourceFormContextSha256": "a59e435d51eafea7780c7e7d1a67038e0232e070a96fea0550db16b28b9f7ac3",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "I guess",
+        "canonicalId": 8970465,
+        "canonicalSourceSha256": "e0fecefc6db0c27a2d233d9c0b3cde459c1d695f13e609fa9b2ead37b549add9",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "d22095c783bf960826711f4b3cb32cc82504e22b9412859d03ad8b09a280c608",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 190,
+          "term": "I guess",
+          "canonicalId": 8970465,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "e0fecefc6db0c27a2d233d9c0b3cde459c1d695f13e609fa9b2ead37b549add9",
+          "completeRawSource": {
+            "id": 8970465,
+            "term": "I guess",
+            "partOfSpeech": "clause",
+            "meaning": "我想,我认为",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70711,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我想,我认为",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "我想",
+            "wholeRawMeaning": "我想,我认为",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "I guess",
+            "clause",
+            "我想",
+            "I guess we'll have to carry the boxes upstairs one at a time.",
+            "我想，我们得把这些箱子一个一个搬上楼。"
+          ],
+          "pairSha256": "d22095c783bf960826711f4b3cb32cc82504e22b9412859d03ad8b09a280c608",
+          "personalReason": "Tentative logistical conclusion is natural in this clause construction. The Chinese preserves necessity, boxes, upstairs and one-at-a-time carrying without an added cause.",
+          "sourceContextPointer": "/entries/189",
+          "sourceFormContextSha256": "5d650efac111e28ef70b956038ccbb5c0e2a6182684613b711e674da921f031e",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "I mean",
+        "canonicalId": 8970709,
+        "canonicalSourceSha256": "9054fb2cec049873479f813a78b2c67c2fed197de541696b9e8b3f7fb0535b7d",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "3e405dfee204f260eb8d6cae3963677094a714bd184a3ffcb71524bfd89d893e",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 191,
+          "term": "I mean",
+          "canonicalId": 8970709,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "9054fb2cec049873479f813a78b2c67c2fed197de541696b9e8b3f7fb0535b7d",
+          "completeRawSource": {
+            "id": 8970709,
+            "term": "I mean",
+            "partOfSpeech": "particle",
+            "meaning": "我是说；我的意思是",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70720,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我是说；我的意思是",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "我是说",
+            "wholeRawMeaning": "我是说；我的意思是",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "I mean",
+            "particle",
+            "我是说",
+            "Leave it by the door—I mean the side door, not the front one.",
+            "把它放在门边——我是说侧门，不是前门。"
+          ],
+          "pairSha256": "3e405dfee204f260eb8d6cae3963677094a714bd184a3ffcb71524bfd89d893e",
+          "personalReason": "A discourse self-correction selects the current particle sense, not the independent lexical verb. The correction from an unspecified door to the side door, excluding the front, is exact.",
+          "sourceContextPointer": "/entries/190",
+          "sourceFormContextSha256": "07037383a16f403614ef59d1c2224a0a5e074905af03cf8582b9f04f6f1c5e4c",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "I thought as much",
+        "canonicalId": 8970772,
+        "canonicalSourceSha256": "a7cee51dfe3ae73538704d11903348e03dcd2e08394dbb0863fe1be9bf7a6aa1",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "7e2f35ee2805d684726e285ed488e0aa197ca00770ef4544ebf29e7ece3200ca",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 192,
+          "term": "I thought as much",
+          "canonicalId": 8970772,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "a7cee51dfe3ae73538704d11903348e03dcd2e08394dbb0863fe1be9bf7a6aa1",
+          "completeRawSource": {
+            "id": 8970772,
+            "term": "I thought as much",
+            "partOfSpeech": "clause",
+            "meaning": "我也料到",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70726,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我也料到",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "我也料到",
+            "wholeRawMeaning": "我也料到",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "I thought as much",
+            "clause",
+            "我也料到",
+            "\"The shop is closed today.\" \"I thought as much; the windows were dark when I passed.\"",
+            "“商店今天不营业。”“我也料到了；我路过时，窗户里黑乎乎的。”"
+          ],
+          "pairSha256": "7e2f35ee2805d684726e285ed488e0aa197ca00770ef4544ebf29e7ece3200ca",
+          "personalReason": "The first utterance confirms the prior expectation, making the idiom natural. The Chinese retains that expectation and dark windows when passing; it does not add power failure or a new cause of closure.",
+          "sourceContextPointer": "/entries/191",
+          "sourceFormContextSha256": "4970c04a86a675b1813362c9af1a9de1d27af1e0d60d402d06c581be16997ec6",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Jan.",
+        "canonicalId": 8972256,
+        "canonicalSourceSha256": "26a5d4779b97f1f7560a44447e26b4fd59d2d7f3ddbbd7f006439607a4f3fc7f",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "9d4c5f2d67674752b68890982a2d384c9fa87fd0038e9fd3640cf8a41f7ae87c",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 193,
+          "term": "Jan.",
+          "canonicalId": 8972256,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "26a5d4779b97f1f7560a44447e26b4fd59d2d7f3ddbbd7f006439607a4f3fc7f",
+          "completeRawSource": {
+            "id": 8972256,
+            "term": "Jan.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 一月, 元月",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 70796,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "一月",
+            "wholeRawMeaning": "n. 一月, 元月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Jan.",
+            "noun",
+            "一月",
+            "The diary entry for 3 Jan. describes the family's arrival in their new home.",
+            "1月3日那篇日记记录了那家人抵达新家的情景。"
+          ],
+          "pairSha256": "9d4c5f2d67674752b68890982a2d384c9fa87fd0038e9fd3640cf8a41f7ae87c",
+          "personalReason": "Exact dotted January month, not a person named Jan. Diary date, family arrival and new home are preserved; 元月 is an uninstantiated synonymous branch, not lost source data.",
+          "sourceContextPointer": "/entries/192",
+          "sourceFormContextSha256": "6b35c9e1d11e6241126e488d137a868b68f05acbe45e2b11e51b2145b6e0ec56",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Jul.",
+        "canonicalId": 8972854,
+        "canonicalSourceSha256": "953f0c752daeb36b53007792d705cc3642f2188bf3af02b72a7d2056e549f247",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "43d1a006f1e5472acb6d8cb7347d785b9b75cdb7d20c41ab83a5e3cf8f23c5dd",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 194,
+          "term": "Jul.",
+          "canonicalId": 8972854,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "953f0c752daeb36b53007792d705cc3642f2188bf3af02b72a7d2056e549f247",
+          "completeRawSource": {
+            "id": 8972854,
+            "term": "Jul.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 七月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 七月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70811,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "七月",
+            "wholeRawMeaning": "n. 七月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Jul.",
+            "noun",
+            "七月",
+            "The loan of the painting ends on 20 Jul., so it must be packed before then.",
+            "这幅画的借展期7月20日结束，因此必须在那之前把它包装好。"
+          ],
+          "pairSha256": "43d1a006f1e5472acb6d8cb7347d785b9b75cdb7d20c41ab83a5e3cf8f23c5dd",
+          "personalReason": "Exact dotted July with a painting loan deadline. 借展期 is a natural contextual rendering of a painting loan; both deadline and need to pack earlier are preserved.",
+          "sourceContextPointer": "/entries/193",
+          "sourceFormContextSha256": "362d2b42cb2e7affa7e453216a17dee9624cd72856a51659f03c86ed9cdc5517",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Jun.",
+        "canonicalId": 8972932,
+        "canonicalSourceSha256": "3ab483b69f6ad9b096dc862830f0a94296abc81108b8d4ed7489d0f5632c7cd9",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "17ee4294b214f539b2223ccfc8a21fe7ffcd32c29c54cd25567ee2628ed4537e",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 195,
+          "term": "Jun.",
+          "canonicalId": 8972932,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "3ab483b69f6ad9b096dc862830f0a94296abc81108b8d4ed7489d0f5632c7cd9",
+          "completeRawSource": {
+            "id": 8972932,
+            "term": "Jun.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 六月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 六月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70812,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "六月",
+            "wholeRawMeaning": "n. 六月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Jun.",
+            "noun",
+            "六月",
+            "The museum's handwritten receipt is dated 6 Jun., but the parcel did not arrive until the following week.",
+            "博物馆那张手写收据的日期是6月6日，但包裹直到下一周才送到。"
+          ],
+          "pairSha256": "17ee4294b214f539b2223ccfc8a21fe7ffcd32c29c54cd25567ee2628ed4537e",
+          "personalReason": "Exact dotted June ID8972932, not undotted Jun ID3692738. Receipt date and arrival only in the next week are exact; no invented weekday/year or punctuation-folding authority.",
+          "sourceContextPointer": "/entries/194",
+          "sourceFormContextSha256": "764778a10a60084264de4cb62992ec9936d78c695a53f62a0bfb62098db96175",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Mar.",
+        "canonicalId": 8975039,
+        "canonicalSourceSha256": "7337f5d31efb59163b2ee50f25883abdb6fc629990d1834e5445160b14bc3d26",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "7eb3df1b4783b00d16c2619ce4e34e2a1a51e0dbe28b0588fe70ba8942366968",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 196,
+          "term": "Mar.",
+          "canonicalId": 8975039,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "7337f5d31efb59163b2ee50f25883abdb6fc629990d1834e5445160b14bc3d26",
+          "completeRawSource": {
+            "id": 8975039,
+            "term": "Mar.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 三月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 三月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70871,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "三月",
+            "wholeRawMeaning": "n. 三月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Mar.",
+            "noun",
+            "三月",
+            "The rehearsal listed for 14 Mar. has been moved to the following Friday.",
+            "原定3月14日的排练已经改到了随后那个星期五。"
+          ],
+          "pairSha256": "7eb3df1b4783b00d16c2619ce4e34e2a1a51e0dbe28b0588fe70ba8942366968",
+          "personalReason": "Exact dotted March, not the lexical verb mar. Listed rehearsal date and move to the following Friday are faithfully rendered; no particular year or computed weekday claim.",
+          "sourceContextPointer": "/entries/195",
+          "sourceFormContextSha256": "419e2ff1a480e4bc855d47c8e9129c95d24613f1d772c1788017d156b2cdaabf",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Nov.",
+        "canonicalId": 8978942,
+        "canonicalSourceSha256": "9f441ee5e6ddf482cc30f1ec71ed123753abd9b51c56eec60ce01d78ce1d31dd",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "923187519d08c28d9a0bf45543142f8b7a8a421c509e6c6c24e7f5f46fcb4ec5",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 197,
+          "term": "Nov.",
+          "canonicalId": 8978942,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "9f441ee5e6ddf482cc30f1ec71ed123753abd9b51c56eec60ce01d78ce1d31dd",
+          "completeRawSource": {
+            "id": 8978942,
+            "term": "Nov.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 十一月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 十一月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70968,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "十一月",
+            "wholeRawMeaning": "n. 十一月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Nov.",
+            "noun",
+            "十一月",
+            "The faded postmark still shows 9 Nov., although the year is unreadable.",
+            "褪色的邮戳仍看得出11月9日，不过年份已无法辨认。"
+          ],
+          "pairSha256": "923187519d08c28d9a0bf45543142f8b7a8a421c509e6c6c24e7f5f46fcb4ec5",
+          "personalReason": "Exact dotted November in a fictional faded postmark. Day/month remain legible and year unreadable in both languages; Chinese does not silently supply the year.",
+          "sourceContextPointer": "/entries/196",
+          "sourceFormContextSha256": "c9c9f9c705c7cd2492277d04937338e1f409cec7bef79d00b5367af0d96674da",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "Oct.",
+        "canonicalId": 8978981,
+        "canonicalSourceSha256": "ebc9e42ad54868f25a3c7dada8763d55a78d2aa83bf0d34b8d5cd51a1f0e2fa2",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "e91cb51476174245e6a0b36a56eeae705aa682c1662e3d9238042dd9fefbaf52",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 198,
+          "term": "Oct.",
+          "canonicalId": 8978981,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "ebc9e42ad54868f25a3c7dada8763d55a78d2aa83bf0d34b8d5cd51a1f0e2fa2",
+          "completeRawSource": {
+            "id": 8978981,
+            "term": "Oct.",
+            "partOfSpeech": "noun",
+            "meaning": "n. 十月",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "n. 十月",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 70975,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "十月",
+            "wholeRawMeaning": "n. 十月",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "Oct.",
+            "noun",
+            "十月",
+            "The final costume fitting is pencilled in for 18 Oct., but the room is not yet confirmed.",
+            "最后一次试装暂定在10月18日，不过房间还没确定。"
+          ],
+          "pairSha256": "e91cb51476174245e6a0b36a56eeae705aa682c1662e3d9238042dd9fefbaf52",
+          "personalReason": "Exact dotted October. Pencilled in is correctly tentative 暂定, not confirmed; final fitting, date and unresolved room are preserved.",
+          "sourceContextPointer": "/entries/197",
+          "sourceFormContextSha256": "acbb3e098c7ca420c5330bad68a304cd206cd731186027b2cbb4556d156fea97",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      },
+      {
+        "term": "VDT",
+        "canonicalId": 8991769,
+        "canonicalSourceSha256": "d075c76e79037ea7279387739b5d65eb202d50a131b3d4364e0a2e0c6e913afe",
+        "authorPrincipal": "d32_author_source9_master04",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "1568ca36c9a7d2551d88adebb20149836ac0f5cccfaee38a6f38f106b2126141",
+        "wholeIndependentDecision": {
+          "masterOrdinal": 200,
+          "term": "VDT",
+          "canonicalId": 8991769,
+          "decision": "support",
+          "sourcePrecisionDecision": "support exact selected sense/POS and current raw source binding; no source/form rewrite or blanket parent approval",
+          "sourceSha256": "d075c76e79037ea7279387739b5d65eb202d50a131b3d4364e0a2e0c6e913afe",
+          "completeRawSource": {
+            "id": 8991769,
+            "term": "VDT",
+            "partOfSpeech": "noun",
+            "meaning": "视频显示终端",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 71308,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "视频显示终端",
+                "source": "mit"
+              }
+            ]
+          },
+          "selectedMeaningConservation": {
+            "kind": "exact literal substring of unchanged raw meaning",
+            "literal": "视频显示终端",
+            "wholeRawMeaning": "视频显示终端",
+            "domainOrRegisterOmission": false,
+            "scope": "Any register/domain needed by this selected sense is retained in cell3 and/or the complete sentence context, with whole raw source separately bound."
+          },
+          "pair": [
+            "VDT",
+            "noun",
+            "视频显示终端",
+            "She wiped the dust from the VDT before reconnecting it to the computer.",
+            "她先擦去视频显示终端上的灰尘，再把它重新连接到计算机。"
+          ],
+          "pairSha256": "1568ca36c9a7d2551d88adebb20149836ac0f5cccfaee38a6f38f106b2126141",
+          "personalReason": "A physical countable video-display terminal is the listed computing noun. Dust removal precedes reconnecting to the computer in both languages; no unrelated acronym expansion or medical-use advice.",
+          "sourceContextPointer": "/entries/199",
+          "sourceFormContextSha256": "8692fe4347d490aa88b247c852dfb20ed74e7a5a46b54bcf86ed5866f8c4243b",
+          "authorRepairWrittenByReviewer": false,
+          "newExampleRuntimeExecuted": false
+        }
+      }
+    ]
+  }
+}

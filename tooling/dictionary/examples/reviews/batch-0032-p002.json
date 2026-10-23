@@ -1,0 +1,3042 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8e6735e25e7c3678ba58df86458b5ec4e1b0a3e3020fffb9df44106559da533f",
+  "reviewer": "AI/d32_reviewer_role_p002",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "Psst",
+    "cripes",
+    "alley-oop",
+    "for God's sake",
+    "yah",
+    "bah",
+    "ho ho",
+    "please God",
+    "righto",
+    "Alhamdulillah",
+    "ssh",
+    "strewth",
+    "good evening",
+    "merci",
+    "oho",
+    "yum",
+    "dang",
+    "ahoy",
+    "whee",
+    "ah-choo",
+    "if I were you",
+    "I know",
+    "God knows",
+    "owt",
+    "I'll",
+    "coupla",
+    "24/7",
+    "viz.",
+    "i.e.",
+    "Ulm",
+    "Pym",
+    "PYE",
+    "aho",
+    "C++",
+    "Uwe",
+    "Huw",
+    "Luz",
+    "Zak",
+    "Wyn",
+    "vhs",
+    "asap",
+    "afk",
+    "cnn",
+    "ngo",
+    "aqi",
+    "govt",
+    "OUP",
+    "IMHO",
+    "Revd",
+    "Cllr",
+    "Co.",
+    "UI",
+    "HDL",
+    "IOC",
+    "NCO",
+    "ANCOVA",
+    "Oxfam",
+    "cbc",
+    "NSPCC",
+    "bsi"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-p002-original-author-pack-0001.json",
+      "bytes": 537843,
+      "sha256": "78f58111912a43b45af404fcb2c69af57f735ed1747fc97af6617e21790b0ff0"
+    },
+    "opinion": {
+      "file": "qa/d32-p002-reviewer-role/INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+      "bytes": 156421,
+      "sha256": "d20a3e66bdb907787f2f5580f11a497d8dcc7d99783ed8758807746a1d99a095"
+    },
+    "rows": [
+      {
+        "term": "Psst",
+        "canonicalId": 5944707,
+        "canonicalSourceSha256": "edb31d3b9f2dadb18e8682d9607a4e79ee600ae299c8dcf19d3981a820b4cf52",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "dadf5fbe0c5329272f7bbd5128398bc72f1fd55a0ab4329e8d40d1baaf83dcb1",
+        "wholeIndependentDecision": {
+          "term": "Psst",
+          "authorPackPointer": "/entries/0",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Psst",
+            "interjection",
+            "为引起人的注意时所发的声音",
+            "\"Psst! Your phone is still on the table,\" she whispered.",
+            "“喂，你的手机还在桌上。”她低声提醒道。"
+          ],
+          "pairSha256": "dadf5fbe0c5329272f7bbd5128398bc72f1fd55a0ab4329e8d40d1baaf83dcb1",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5944707,
+            "term": "Psst",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 为引起人的注意时所发的声音",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 46464,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "edb31d3b9f2dadb18e8682d9607a4e79ee600ae299c8dcf19d3981a820b4cf52",
+          "sourceReadingPacketPointer": "/entries/0",
+          "completeContextSemanticSha256": "e00ff89032205e083b09193cdf6248b9cf2db01d60278b1bd7192a97829a2b60",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 为引起人的注意时所发的声音",
+          "reason": "Whispered Psst is a quiet attention call, not the separate hush request; phone reminder and 还在桌上/低声提醒 preserve the useful message and manner. No acronym or new sound alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "cripes",
+        "canonicalId": 4817421,
+        "canonicalSourceSha256": "5a3c20ed15b9d52616b8724c15bfed090beb3527879e7bf2cbf9bc0d366e3df6",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "e247013e8ef02c3da094890d427f9cde8e53c75627ce91c6e95e40040b76d4ce",
+        "wholeIndependentDecision": {
+          "term": "cripes",
+          "authorPackPointer": "/entries/1",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "cripes",
+            "interjection",
+            "天哪",
+            "\"Cripes, this suitcase is heavier than it looks!\"",
+            "“天哪，这个行李箱比看起来还重！”"
+          ],
+          "pairSha256": "e247013e8ef02c3da094890d427f9cde8e53c75627ce91c6e95e40040b76d4ce",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4817421,
+            "term": "cripes",
+            "partOfSpeech": "interjection",
+            "meaning": "int. <粗>[表示惊讶、烦恼、厌恶等]天哪,啊呀[\"Christ!\" 的委婉语]",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 37649,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "5a3c20ed15b9d52616b8724c15bfed090beb3527879e7bf2cbf9bc0d366e3df6",
+          "sourceReadingPacketPointer": "/entries/1",
+          "completeContextSemanticSha256": "99ff51ee2a494781cc5b7f85ae37e25dbc3a3dc50059eed32512ab3f53f800cc",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. <粗>[表示惊讶、烦恼、厌恶等]天哪,啊呀[\"Christ!\" 的委婉语]",
+          "reason": "Suitcase surprise is idiomatic mild slang/euphemistic oath, not literal Christ address. 比看起来还重 retains comparative scope; full raw coarse/register description preserved.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "alley-oop",
+        "canonicalId": 7717109,
+        "canonicalSourceSha256": "c38e5606c4449b463ecf585d0f9f317d59046f1ef8e255509d73fece73b580db",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "632b2e59bcec6cf472f4c6dafcb716f334be9477ae333c92fc631d3f2b3efcaf",
+        "wholeIndependentDecision": {
+          "term": "alley-oop",
+          "authorPackPointer": "/entries/2",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "alley-oop",
+            "interjection",
+            "杭育",
+            "\"Alley-oop!\" we shouted as we lifted the sofa over the threshold.",
+            "我们一边喊着“嗨哟”，一边把沙发抬过门槛。"
+          ],
+          "pairSha256": "632b2e59bcec6cf472f4c6dafcb716f334be9477ae333c92fc631d3f2b3efcaf",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 7717109,
+            "term": "alley-oop",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 杭育（举重物等时发出的喊声）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 60358,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "c38e5606c4449b463ecf585d0f9f317d59046f1ef8e255509d73fece73b580db",
+          "sourceReadingPacketPointer": "/entries/2",
+          "completeContextSemanticSha256": "d1f3305b63328bde9f74d4fce612adf9aec696a1cada1589796ee7224d194402",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 杭育（举重物等时发出的喊声）",
+          "reason": "Heavy sofa over threshold supplies actual lifting-effort interjection; 嗨哟 is a natural contextual equivalent of source 杭育, not a changed canonical gloss. Not basketball; separate alleyoop is not reapproved.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "for God's sake",
+        "canonicalId": 9487260,
+        "canonicalSourceSha256": "73527c65347303b1d9a40467c7e7997f4b66c5a89e1c52a351fab5e06bbc36cf",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "d9f9438e462d1fd1646f945b904f322f9356600368f6b1a8a2ea3a65526ff130",
+        "wholeIndependentDecision": {
+          "term": "for God's sake",
+          "authorPackPointer": "/entries/3",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "for God's sake",
+            "interjection",
+            "看在老天爷份上",
+            "\"For God's sake, put the lid back on before the paint dries!\"",
+            "“看在老天爷份上，趁油漆还没干，赶快把盖子盖回去！”"
+          ],
+          "pairSha256": "d9f9438e462d1fd1646f945b904f322f9356600368f6b1a8a2ea3a65526ff130",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9487260,
+            "term": "for God's sake",
+            "partOfSpeech": "interjection",
+            "meaning": "看在上帝面上, 千万, 看在老天爷份上, 务请",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 77542,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "看在上帝面上, 千万, 看在老天爷份上, 务请",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "73527c65347303b1d9a40467c7e7997f4b66c5a89e1c52a351fab5e06bbc36cf",
+          "sourceReadingPacketPointer": "/entries/3",
+          "completeContextSemanticSha256": "2d0e24e1b36d90485ee6900bd3a0ddf42208161e872584b9606d1eff259b43be",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "看在上帝面上, 千万, 看在老天爷份上, 务请",
+          "reason": "Emphatic irritated plea plus put-lid-back before paint dries fits the interjection. 趁还没干/赶快盖回 preserves urgency and before-clause, no divine factual claim or parent sake example.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "yah",
+        "canonicalId": 3542437,
+        "canonicalSourceSha256": "07f9ccc3aba2478b6170fee73d8353082fe4f1bc250b9b74a01191ed01d2317b",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "3d58cdb5e322610382a89d0c6b28720b21515c0d751ffa3b274cd1f4f96072fd",
+        "wholeIndependentDecision": {
+          "term": "yah",
+          "authorPackPointer": "/entries/4",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "yah",
+            "interjection",
+            "(表示嘲笑、厌恶的)唷",
+            "\"Yah, you couldn't hit that target from here!\" the boy jeered.",
+            "“唷，站在这儿你可打不中那个靶子！”男孩嘲笑道。"
+          ],
+          "pairSha256": "3d58cdb5e322610382a89d0c6b28720b21515c0d751ffa3b274cd1f4f96072fd",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3542437,
+            "term": "yah",
+            "partOfSpeech": "interjection",
+            "meaning": "interj. (表示嘲笑、厌恶的)唷",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 27681,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "07f9ccc3aba2478b6170fee73d8353082fe4f1bc250b9b74a01191ed01d2317b",
+          "sourceReadingPacketPointer": "/entries/4",
+          "completeContextSemanticSha256": "4f19cc44e703737361a01a7a32eabfa13a4e3e492e43e81257a59718eaf37e20",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "interj. (表示嘲笑、厌恶的)唷",
+          "reason": "Boy jeered explicitly selects mocking interjection rather than yes/yeah. Chinese 嘲笑/可打不中 conveys the fictional taunt without endorsing it; target and from-here relation retained.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "bah",
+        "canonicalId": 3097004,
+        "canonicalSourceSha256": "9cf2c741aa1f305e6ed6f9cfae1b2441dadbefb0a37d9999ff710abf3c8848b7",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "d211373736b06a43dde5bf87484ecd51181b2850b2c4d510cc75a2e532788f33",
+        "wholeIndependentDecision": {
+          "term": "bah",
+          "authorPackPointer": "/entries/6",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "bah",
+            "interjection",
+            "呸",
+            "\"Bah! I'm not wasting another afternoon on that broken machine.\"",
+            "“呸！我才不要再在那台坏机器上浪费一个下午。”"
+          ],
+          "pairSha256": "d211373736b06a43dde5bf87484ecd51181b2850b2c4d510cc75a2e532788f33",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3097004,
+            "term": "bah",
+            "partOfSpeech": "interjection",
+            "meaning": "interj. 呸",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 24201,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "9cf2c741aa1f305e6ed6f9cfae1b2441dadbefb0a37d9999ff710abf3c8848b7",
+          "sourceReadingPacketPointer": "/entries/6",
+          "completeContextSemanticSha256": "03e219a0211c626f3982733a9e0811ed8d39c17bb849e61493b2139d5c378c36",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "interj. 呸",
+          "reason": "Dismissive unwillingness about a broken machine fits 呸; another afternoon maps naturally to 不要再…浪费一个下午, not literal spitting. Dialogue preserves informal contempt without a person-directed slur.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ho ho",
+        "canonicalId": 9623341,
+        "canonicalSourceSha256": "39db4b03570bb4de6641d617e936b9f394fb6a72f51d515080b0d0101faf7889",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "eb977ac1278e23fd820f899b5c57e0b970e2b0625926d39e2ae8c152b5102dac",
+        "wholeIndependentDecision": {
+          "term": "ho ho",
+          "authorPackPointer": "/entries/7",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ho ho",
+            "interjection",
+            "呵呵",
+            "\"Ho ho! That disguise fooled even me,\" the actor chuckled.",
+            "“呵呵！那身伪装连我都骗过了。”演员笑道。"
+          ],
+          "pairSha256": "eb977ac1278e23fd820f899b5c57e0b970e2b0625926d39e2ae8c152b5102dac",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9623341,
+            "term": "ho ho",
+            "partOfSpeech": "interjection",
+            "meaning": "exclam. （表示笑声）呵呵",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 79389,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "exclam. （表示笑声）呵呵",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "39db4b03570bb4de6641d617e936b9f394fb6a72f51d515080b0d0101faf7889",
+          "sourceReadingPacketPointer": "/entries/7",
+          "completeContextSemanticSha256": "4eda7692125556e5a143328b8d6e07bca292fe2530368aa92805aa4a4cab775d",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "exclam. （表示笑声）呵呵",
+          "reason": "Actor chuckled fixes laughter/amused delight; 那身伪装连我都骗过了 retains even-me emphasis. No modern Chinese sarcasm or exclusive Santa interpretation introduced.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "please God",
+        "canonicalId": 10027057,
+        "canonicalSourceSha256": "df17b735b1c223a986e0016eaced4a8023b612b8c7b99f51541312ee6f09d705",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "33e6c91f0ad3351edb1cfe38f21eb34172c1e5e8558880970074008a35f8017d",
+        "wholeIndependentDecision": {
+          "term": "please God",
+          "authorPackPointer": "/entries/8",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "please God",
+            "interjection",
+            "但愿",
+            "\"Please God, we'll reach the shelter before the storm arrives.\"",
+            "“但愿我们能在暴风雨到来前赶到避难所。”"
+          ],
+          "pairSha256": "33e6c91f0ad3351edb1cfe38f21eb34172c1e5e8558880970074008a35f8017d",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 10027057,
+            "term": "please God",
+            "partOfSpeech": "interjection",
+            "meaning": "但愿\n如果上帝愿意",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 84718,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "但愿\n如果上帝愿意",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "df17b735b1c223a986e0016eaced4a8023b612b8c7b99f51541312ee6f09d705",
+          "sourceReadingPacketPointer": "/entries/8",
+          "completeContextSemanticSha256": "a8ff6ac6957529b87ee314f3669d1016292ad0161779dbb31c32f49ab7b7e6d6",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "但愿\n如果上帝愿意",
+          "reason": "Future hopeful arrival before storm fits 但愿 and interjection, not transitive please. Shelter, storm and before relation preserved; no statement endorsing a supernatural outcome.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "righto",
+        "canonicalId": 5766462,
+        "canonicalSourceSha256": "312de502e99222bc31348ebe13a9d5eb20b80e4563cded52877b629cef4db73e",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "09d6ac070048c5dcc08feaba6e1096ca139845b44d81c1daedf984f376174b4c",
+        "wholeIndependentDecision": {
+          "term": "righto",
+          "authorPackPointer": "/entries/9",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "righto",
+            "interjection",
+            "好",
+            "\"Righto, I'll stack the chairs while you sweep the floor.\"",
+            "“好，你扫地，我来把椅子摞起来。”"
+          ],
+          "pairSha256": "09d6ac070048c5dcc08feaba6e1096ca139845b44d81c1daedf984f376174b4c",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5766462,
+            "term": "righto",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 好, 对",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 45069,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "312de502e99222bc31348ebe13a9d5eb20b80e4563cded52877b629cef4db73e",
+          "sourceReadingPacketPointer": "/entries/10",
+          "completeContextSemanticSha256": "23c58d78fe24463fd5a7c7a81af97fe44c0b3ae05eb990f2a91fec3ad9bd7921",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 好, 对",
+          "reason": "Informal assent to a work division is natural. 好/你扫地/我来摞椅子 preserves reciprocal actions and willingness, with no new form or adjective sense.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Alhamdulillah",
+        "canonicalId": 7643463,
+        "canonicalSourceSha256": "18c53a72c9b9d4366f4e49027c3b13610a126d9a0c96fbaff50ef31c44b5572b",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "d8f112cb1349d00cbec42607afeef4594d16842b45d4a4e7fd1032ff184cb58b",
+        "wholeIndependentDecision": {
+          "term": "Alhamdulillah",
+          "authorPackPointer": "/entries/10",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Alhamdulillah",
+            "interjection",
+            "感谢真主",
+            "\"Alhamdulillah, everyone is safely back home,\" she said with relief.",
+            "“感谢真主，大家都平安回到家了。”她如释重负地说道。"
+          ],
+          "pairSha256": "d8f112cb1349d00cbec42607afeef4594d16842b45d4a4e7fd1032ff184cb58b",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 7643463,
+            "term": "Alhamdulillah",
+            "partOfSpeech": "interjection",
+            "meaning": "一切赞美归于阿拉\n感谢真主（阿拉伯语，穆斯林教徒常说的）",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 59778,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "一切赞美归于阿拉\n感谢真主（阿拉伯语，穆斯林教徒常说的）",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "18c53a72c9b9d4366f4e49027c3b13610a126d9a0c96fbaff50ef31c44b5572b",
+          "sourceReadingPacketPointer": "/entries/11",
+          "completeContextSemanticSha256": "fa6a6768b8bf87b6e160a8dda0192388543214f9a03a9d19c640935f21bfe4f4",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "一切赞美归于阿拉\n感谢真主（阿拉伯语，穆斯林教徒常说的）",
+          "reason": "Respectful fictional grateful speech after safe return fits thanks/praise-to-Allah formula. 感谢真主/大家平安回家/如释重负 preserves theological referent and relief. Current raw Arabic/Muslim qualifier retained; no claim all speakers or English frequency. Independent DBP indexed full dictionary definitions support meaning, direct fetch timeout disclosed.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ssh",
+        "canonicalId": 5010513,
+        "canonicalSourceSha256": "256acfd06c5b57daf7d8741d5f886d128b87651ca23c2cbaf5fecc0cc2e75ae1",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "bd2144e4a0c0384bbb87cad43c7b0e97a7e01bf4bcc158253182dbae54c3339f",
+        "wholeIndependentDecision": {
+          "term": "ssh",
+          "authorPackPointer": "/entries/11",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ssh",
+            "interjection",
+            "嘘",
+            "\"Ssh, the recording has already started,\" he murmured.",
+            "“嘘，已经开始录音了。”他低声说。"
+          ],
+          "pairSha256": "bd2144e4a0c0384bbb87cad43c7b0e97a7e01bf4bcc158253182dbae54c3339f",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5010513,
+            "term": "ssh",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 嘘！",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 39158,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "256acfd06c5b57daf7d8741d5f886d128b87651ca23c2cbaf5fecc0cc2e75ae1",
+          "sourceReadingPacketPointer": "/entries/12",
+          "completeContextSemanticSha256": "23d53c3838e42a18a54bb8496eb1c0f03067c09dc42f115462cd1aacae1bcb56",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 嘘！",
+          "reason": "Ssh plus murmured/recording already started naturally asks quiet; Chinese 嘘/已经开始录音 faithful. This is the supplied hush interjection spelling, not Secure Shell. Publisher sh/shh was checked only for hush function, not falsely cited as explicit ssh spelling/alias proof.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "strewth",
+        "canonicalId": 5690708,
+        "canonicalSourceSha256": "982973ead7b827c4f9a7aad26f9234ffbf7a5b53ec00b8c7451e081f9b54d77c",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "f0b3b7fe8b405da4585ff0947c3b9f9cd7bbf027fd81d1babe72162576a390ac",
+        "wholeIndependentDecision": {
+          "term": "strewth",
+          "authorPackPointer": "/entries/12",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "strewth",
+            "interjection",
+            "哎哟",
+            "\"Strewth, I didn't expect the repair bill to be this high!\"",
+            "“哎哟，我没想到修理费竟然这么高！”"
+          ],
+          "pairSha256": "f0b3b7fe8b405da4585ff0947c3b9f9cd7bbf027fd81d1babe72162576a390ac",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5690708,
+            "term": "strewth",
+            "partOfSpeech": "interjection",
+            "meaning": "int. （表示惊讶、厌烦等）哎哟",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 44477,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "982973ead7b827c4f9a7aad26f9234ffbf7a5b53ec00b8c7451e081f9b54d77c",
+          "sourceReadingPacketPointer": "/entries/13",
+          "completeContextSemanticSha256": "af3c548417823aa45ca00e09da2ba83fd530ae7f3a99848cf0e5fc53981104c8",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. （表示惊讶、厌烦等）哎哟",
+          "reason": "Dismayed surprise at unexpectedly high repair bill is natural exclamation; 哎哟/没想到/竟然 retains affect without forcing physical pain. No claim of unmarked global modern usage.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "good evening",
+        "canonicalId": 9559380,
+        "canonicalSourceSha256": "d2531ce1a7616af3ad92a7e077b931a6159b322956956a0f3cbae1aee576e3d1",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "7998680c9ebeb8ae5b478c32a40c962f7f2995b136302354807b9d6f02871ca1",
+        "wholeIndependentDecision": {
+          "term": "good evening",
+          "authorPackPointer": "/entries/13",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "good evening",
+            "interjection",
+            "晚上好",
+            "\"Good evening, everyone; please take a seat near the front.\"",
+            "“大家晚上好，请到前面就座。”"
+          ],
+          "pairSha256": "7998680c9ebeb8ae5b478c32a40c962f7f2995b136302354807b9d6f02871ca1",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9559380,
+            "term": "good evening",
+            "partOfSpeech": "interjection",
+            "meaning": "晚上好",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 78492,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "晚上好",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "d2531ce1a7616af3ad92a7e077b931a6159b322956956a0f3cbae1aee576e3d1",
+          "sourceReadingPacketPointer": "/entries/14",
+          "completeContextSemanticSha256": "e9ace392d6bc20cf86a08b3b95aea61536da5e3d60ebdf3241c026131a83f9b0",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "晚上好",
+          "reason": "Greeting plus take-front-seats invitation is natural, not good-night farewell. 大家晚上好/到前面就座 retains addressees and location.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "merci",
+        "canonicalId": 5962967,
+        "canonicalSourceSha256": "40d11a795da69c1fb80d3ff9d302fec029e15bcd25d3d6c289ca8b764503522f",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "440b1d66d117712abf59120090fc035ff7773f4be888b38152203e62398bfb81",
+        "wholeIndependentDecision": {
+          "term": "merci",
+          "authorPackPointer": "/entries/14",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "merci",
+            "interjection",
+            "谢谢",
+            "\"Merci!\" she called to the cyclist who had stopped to return her scarf.",
+            "她向停下来归还围巾的骑车人喊道：“谢谢！”"
+          ],
+          "pairSha256": "440b1d66d117712abf59120090fc035ff7773f4be888b38152203e62398bfb81",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5962967,
+            "term": "merci",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 谢谢（法语）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 46606,
+              "forms": [
+                "merci"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "40d11a795da69c1fb80d3ff9d302fec029e15bcd25d3d6c289ca8b764503522f",
+          "sourceReadingPacketPointer": "/entries/15",
+          "completeContextSemanticSha256": "3c2e0c1c244d7805e86b1de4bff5463724a5f56b830f32bdca4a5b3c2ae2273a",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 谢谢（法语）",
+          "reason": "French thanks in actual dialogue to the cyclist who returned her scarf. Chinese preserves stopping, returning and thanks; no new English noun or separate self-form route from seed merci.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "oho",
+        "canonicalId": 5968599,
+        "canonicalSourceSha256": "8a1e86f31612a7a19b66427ed2b384c8128882503bb046341014a5a81c82b0a3",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "d22d6d34d6019d981e3c5c836a414d931a4675db602cdb059820123baec26366",
+        "wholeIndependentDecision": {
+          "term": "oho",
+          "authorPackPointer": "/entries/15",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "oho",
+            "interjection",
+            "啊哈",
+            "\"Oho, so that's where you hid the biscuits!\"",
+            "“啊哈，原来你把饼干藏在这儿了！”"
+          ],
+          "pairSha256": "d22d6d34d6019d981e3c5c836a414d931a4675db602cdb059820123baec26366",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5968599,
+            "term": "oho",
+            "partOfSpeech": "interjection",
+            "meaning": "interj. (表示惊讶、喜悦、嘲弄)哦嗬, 啊哈",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 46650,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "8a1e86f31612a7a19b66427ed2b384c8128882503bb046341014a5a81c82b0a3",
+          "sourceReadingPacketPointer": "/entries/16",
+          "completeContextSemanticSha256": "1c56b5695e5c2a9457751298622778d1982459878a1ed67dffc8aca4ff790f74",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "interj. (表示惊讶、喜悦、嘲弄)哦嗬, 啊哈",
+          "reason": "Amused discovery of hidden biscuits fits surprise/pleasure 啊哈; Chinese 原来/藏 preserves realization and intentional hiding, not a new mocking sense or definition filler.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "yum",
+        "canonicalId": 3074394,
+        "canonicalSourceSha256": "4cb5a7bdf4535c299aaf3610dcd7f6f23df53faeb265960949bc9c0ae5ef9003",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "bc1d70320d23898f21b8f540452d6dd681adc0be3ce85b0d4237833e2e668c3b",
+        "wholeIndependentDecision": {
+          "term": "yum",
+          "authorPackPointer": "/entries/16",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "yum",
+            "interjection",
+            "美味的",
+            "\"Yum! The peaches are even sweeter than yesterday's.\"",
+            "“真美味！这些桃子比昨天的还甜。”"
+          ],
+          "pairSha256": "bc1d70320d23898f21b8f540452d6dd681adc0be3ce85b0d4237833e2e668c3b",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3074394,
+            "term": "yum",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 极好的；妙的；美味的",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 24024,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "4cb5a7bdf4535c299aaf3610dcd7f6f23df53faeb265960949bc9c0ae5ef9003",
+          "sourceReadingPacketPointer": "/entries/17",
+          "completeContextSemanticSha256": "e345035f6eeef53c7e3165f0f04ab485b5ac1f83c8c7496f601994df280e2194",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 极好的；妙的；美味的",
+          "reason": "Actual taste-pleasure exclamation, not adjectival predicate. Peaches/sweeter-than-yesterday scope and 真美味 are faithful; raw cell3 美味的 is literally conserved and publisher interjection/gloss issue was already closed, not rewritten.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "dang",
+        "canonicalId": 5994589,
+        "canonicalSourceSha256": "f757f470d7d7aa73c56dbd7cbd8d25fd68a39f191498e3e8d21e70b8ca6f349c",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "603bfd4078cac48eda882bbcce3100fc2dfcc36086021afd5ad87b98411a1a3b",
+        "wholeIndependentDecision": {
+          "term": "dang",
+          "authorPackPointer": "/entries/17",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "dang",
+            "interjection",
+            "见鬼",
+            "\"Dang, the wind has blown my notes into the pond!\"",
+            "“见鬼，风把我的笔记吹进池塘了！”"
+          ],
+          "pairSha256": "603bfd4078cac48eda882bbcce3100fc2dfcc36086021afd5ad87b98411a1a3b",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5994589,
+            "term": "dang",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 讨厌；见鬼（等于damn）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 46853,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "f757f470d7d7aa73c56dbd7cbd8d25fd68a39f191498e3e8d21e70b8ca6f349c",
+          "sourceReadingPacketPointer": "/entries/18",
+          "completeContextSemanticSha256": "e93e8bc792485b34d47f7fe5752c07874f0a0d2a6e1edd320d17a7e89585f0e8",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 讨厌；见鬼（等于damn）",
+          "reason": "Mild frustration at wind-blown notes fits 见鬼; blown into pond and again-free wording retained. No verb/adjective meaning or reuse of damn parent old umbrella example.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ahoy",
+        "canonicalId": 5489120,
+        "canonicalSourceSha256": "ad07c555d56aa9a46af7e6a2018ecf10bc3ecee6f8df41930c752313d71c405d",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "7785148eac5634b1724a639a61674989e0a1d8f1a38494e6909976ab937c6377",
+        "wholeIndependentDecision": {
+          "term": "ahoy",
+          "authorPackPointer": "/entries/18",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ahoy",
+            "interjection",
+            "喂",
+            "\"Ahoy! Is there room at the jetty for one more boat?\"",
+            "“喂！码头还能再停一条船吗？”"
+          ],
+          "pairSha256": "7785148eac5634b1724a639a61674989e0a1d8f1a38494e6909976ab937c6377",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5489120,
+            "term": "ahoy",
+            "partOfSpeech": "interjection",
+            "meaning": "interj. 喂",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 42902,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "ad07c555d56aa9a46af7e6a2018ecf10bc3ecee6f8df41930c752313d71c405d",
+          "sourceReadingPacketPointer": "/entries/19",
+          "completeContextSemanticSha256": "f6db85c9168ecfb8bc874f426734c13501137fb9778fa6dfbee4c31660d09106",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "interj. 喂",
+          "reason": "Nautical attention call at jetty fits 喂 and room-for-another-boat question. Chinese 还能再停一条船 preserves capacity question rather than asserting safe mooring conditions.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "whee",
+        "canonicalId": 5640440,
+        "canonicalSourceSha256": "1346c0c873c66c59badce7ccd4eb1cb665ec47b064b8ac4f614a0a4b494ef33f",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "ec6e07fb642026d6dab6b555c9351895cbe2d52a88b875938dbf0259fc395be2",
+        "wholeIndependentDecision": {
+          "term": "whee",
+          "authorPackPointer": "/entries/20",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "whee",
+            "interjection",
+            "哟",
+            "\"Whee, this is fun!\" the child cried as the sled slid down the gentle slope.",
+            "“哟，太好玩了！”孩子坐着雪橇滑下缓坡，兴奋地喊道。"
+          ],
+          "pairSha256": "ec6e07fb642026d6dab6b555c9351895cbe2d52a88b875938dbf0259fc395be2",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5640440,
+            "term": "whee",
+            "partOfSpeech": "interjection",
+            "meaning": "int. [表示高兴、激动等]哟,啊",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 44084,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "1346c0c873c66c59badce7ccd4eb1cb665ec47b064b8ac4f614a0a4b494ef33f",
+          "sourceReadingPacketPointer": "/entries/21",
+          "completeContextSemanticSha256": "8ef7265b18926c37d4618cd3e91b6b446b3695aa4722216cd7120e194bcf007f",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. [表示高兴、激动等]哟,啊",
+          "reason": "Child excited at sled moving down gentle slope fits joy interjection, not fear. Chinese 太好玩/缓坡/兴奋 preserves affect/event; ordinary riding scene is coherent, not an instruction or claimed real accident.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ah-choo",
+        "canonicalId": 7418750,
+        "canonicalSourceSha256": "5e068d804aa547309407a9328da9edfa6791c097d218c516e9b024c0adf9f95c",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "be53c7749ddefe583071ec9f11ae8dcd31450647501d19821c2427ce71e8dad2",
+        "wholeIndependentDecision": {
+          "term": "ah-choo",
+          "authorPackPointer": "/entries/21",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ah-choo",
+            "interjection",
+            "哈啾",
+            "\"Ah-choo! Excuse me—the dust has made me sneeze.\"",
+            "“哈啾！不好意思，灰尘让我打喷嚏了。”"
+          ],
+          "pairSha256": "be53c7749ddefe583071ec9f11ae8dcd31450647501d19821c2427ce71e8dad2",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 7418750,
+            "term": "ah-choo",
+            "partOfSpeech": "interjection",
+            "meaning": "int. 哈啾（打喷嚏时所发的声音）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 58012,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "5e068d804aa547309407a9328da9edfa6791c097d218c516e9b024c0adf9f95c",
+          "sourceReadingPacketPointer": "/entries/22",
+          "completeContextSemanticSha256": "293d7b8bcbb8829a29236dccc830b96780d63898bea2be302fc6cdbe714b9125",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "int. 哈啾（打喷嚏时所发的声音）",
+          "reason": "Represented sneeze followed by apology/dust explanation is natural. 哈啾/不好意思/灰尘让我打喷嚏 retains cause/sound; no publisher ahchoo spelling registered as new alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "if I were you",
+        "canonicalId": 9648673,
+        "canonicalSourceSha256": "ee1485b773f4084b2a3000482cc1aa458ff9f3a41a6d77285f17868ddaa9f330",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "af2627d8a4a106369fd80e7d11ab82fcc2994e51fbd9bc40a892fec3fae24029",
+        "wholeIndependentDecision": {
+          "term": "if I were you",
+          "authorPackPointer": "/entries/22",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "if I were you",
+            "phrase",
+            "如果我是你的话",
+            "\"If I were you, I'd reserve a table before inviting everyone.\"",
+            "“如果我是你的话，我会先订好桌，再邀请大家。”"
+          ],
+          "pairSha256": "af2627d8a4a106369fd80e7d11ab82fcc2994e51fbd9bc40a892fec3fae24029",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9648673,
+            "term": "if I were you",
+            "partOfSpeech": "phrase",
+            "meaning": "如果我是你的话",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 79701,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "如果我是你的话",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "ee1485b773f4084b2a3000482cc1aa458ff9f3a41a6d77285f17868ddaa9f330",
+          "sourceReadingPacketPointer": "/entries/23",
+          "completeContextSemanticSha256": "8b3d61045890018513e65037a4a1a0f8991151f3bc941ef6e97413ccaf4530c5",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "如果我是你的话",
+          "reason": "Counterfactual advice with were and would before-inviting-everyone sequence is natural. 如果我是你/会先订好桌再邀请 preserves advice, no legal/medical directive.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "I know",
+        "canonicalId": 8970551,
+        "canonicalSourceSha256": "496fde185b74df40639088bee44b308ec0e35e7088f9fe29d6e54fcc0bc26cb8",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "9392bdab8d12df553253a5da615a1ede4ca8631ee952f317889713e095277213",
+        "wholeIndependentDecision": {
+          "term": "I know",
+          "authorPackPointer": "/entries/23",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "I know",
+            "phrase",
+            "我知道",
+            "\"I know which drawer holds the spare batteries.\"",
+            "“我知道备用电池放在哪个抽屉里。”"
+          ],
+          "pairSha256": "9392bdab8d12df553253a5da615a1ede4ca8631ee952f317889713e095277213",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 8970551,
+            "term": "I know",
+            "partOfSpeech": "phrase",
+            "meaning": "我知道",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70718,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我知道",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "496fde185b74df40639088bee44b308ec0e35e7088f9fe29d6e54fcc0bc26cb8",
+          "sourceReadingPacketPointer": "/entries/24",
+          "completeContextSemanticSha256": "e72e4087569dba9bd70ebc29c91aa016d13ee0f02d70f74750eb55f90f9016ba",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "我知道",
+          "reason": "Literal knowledge of drawer location, not an idea/empathetic discourse marker. 我知道备用电池在哪个抽屉 faithfully states knowledge and stored object.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "God knows",
+        "canonicalId": 8966205,
+        "canonicalSourceSha256": "f2038a4a2cb5f411d0df51a5aaca5086bba8f61f9bde214b80c33937067e205c",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "7f1ebf8a4d9057b7917e5376b44ad268a2b7818174f4ad49b977b5aad7300c8b",
+        "wholeIndependentDecision": {
+          "term": "God knows",
+          "authorPackPointer": "/entries/24",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "God knows",
+            "phrase",
+            "天知道",
+            "\"God knows how the missing glove ended up inside the lampshade.\"",
+            "“天知道那只不见了的手套怎么会跑到灯罩里去。”"
+          ],
+          "pairSha256": "7f1ebf8a4d9057b7917e5376b44ad268a2b7818174f4ad49b977b5aad7300c8b",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 8966205,
+            "term": "God knows",
+            "partOfSpeech": "phrase",
+            "meaning": "天知道,谁知道,没人知道",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70614,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "天知道,谁知道,没人知道",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "f2038a4a2cb5f411d0df51a5aaca5086bba8f61f9bde214b80c33937067e205c",
+          "sourceReadingPacketPointer": "/entries/25",
+          "completeContextSemanticSha256": "c7909060f8e38d86e7ababcfd5e816e0e867451bc4708d8a43850c3cdc8ca89d",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "天知道,谁知道,没人知道",
+          "reason": "Unexplained glove in lampshade fits idiomatic 天知道/没人知道 source. Chinese 怎么会/那只不见的手套/灯罩 preserves puzzlement, not literal omniscience or certainty branch.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "owt",
+        "canonicalId": 2915757,
+        "canonicalSourceSha256": "502f0d72d42b3f9b80da5650460228e5432d3edfab92f26526d8a6bce435e905",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "78e1623640fac56508d01c48f4f3016be319cd9272d4cc8abaa98164ede45e1a",
+        "wholeIndependentDecision": {
+          "term": "owt",
+          "authorPackPointer": "/entries/25",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "owt",
+            "pronoun",
+            "任何事",
+            "\"If there's owt I can do to help, just ask,\" he said in his Yorkshire accent.",
+            "他带着约克郡口音说：“如果有任何我能帮忙的事，尽管开口。”"
+          ],
+          "pairSha256": "78e1623640fac56508d01c48f4f3016be319cd9272d4cc8abaa98164ede45e1a",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 2915757,
+            "term": "owt",
+            "partOfSpeech": "pronoun",
+            "meaning": "pron. 任何事",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 22785,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "502f0d72d42b3f9b80da5650460228e5432d3edfab92f26526d8a6bce435e905",
+          "sourceReadingPacketPointer": "/entries/26",
+          "completeContextSemanticSha256": "2bba9cea0407ddce5bea63f311bd19b701670c1f8a460a1036c97b77862a4615",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "pron. 任何事",
+          "reason": "Explicit Yorkshire accent preserves Northern-English dialect pronoun. Any helping action fits 任何事 and 尽管开口; no standard-formal register or ought confusion.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "I'll",
+        "canonicalId": 1790265,
+        "canonicalSourceSha256": "d81e40c5bb27d449b7a26b2af1277534650e0fe9fca36c70fd3c96c795475b28",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "28e78c4a5873381a9375eff80f4a8851ea7f0b423143765bb3e2fc02a89cd5bf",
+        "wholeIndependentDecision": {
+          "term": "I'll",
+          "authorPackPointer": "/entries/26",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "I'll",
+            "contraction",
+            "我会",
+            "\"I'll leave the porch light on until you get home.\"",
+            "“我会一直开着门廊的灯，直到你回家。”"
+          ],
+          "pairSha256": "28e78c4a5873381a9375eff80f4a8851ea7f0b423143765bb3e2fc02a89cd5bf",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 1790265,
+            "term": "I'll",
+            "partOfSpeech": "contraction",
+            "meaning": "我将, 我会（=I shall）",
+            "forms": [],
+            "source": "pos-reviewed",
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "我将, 我会（=I shall）",
+                "source": "core"
+              },
+              {
+                "partOfSpeech": "",
+                "meaning": "我将, 我会（=I shall）",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 13986,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "d81e40c5bb27d449b7a26b2af1277534650e0fe9fca36c70fd3c96c795475b28",
+          "sourceReadingPacketPointer": "/entries/27",
+          "completeContextSemanticSha256": "7c64e83ff80e9c860a3817082242967829644959472ea4a3604868a4c3618ba3",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "我将, 我会（=I shall）",
+          "reason": "First-person future undertaking with leave-light-on until arrival is natural and compatible with I shall expansion. 我会一直开着/直到回家 preserves duration and pronoun, no borrowed noun-will sense.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "coupla",
+        "canonicalId": 6484545,
+        "canonicalSourceSha256": "82bac29a81797a424801b54d831b5a386c467c3e27251911ba5a0ee065f5cdb7",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "b69fde0e8016ce3585d80d00e4f724c81ba37cab4e03826b21741e9744f8ffad",
+        "wholeIndependentDecision": {
+          "term": "coupla",
+          "authorPackPointer": "/entries/27",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "coupla",
+            "contraction",
+            "两三个",
+            "\"Give me a coupla minutes to tie these bags shut.\"",
+            "“给我两三分钟，让我把这些袋口扎好。”"
+          ],
+          "pairSha256": "b69fde0e8016ce3585d80d00e4f724c81ba37cab4e03826b21741e9744f8ffad",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 6484545,
+            "term": "coupla",
+            "partOfSpeech": "contraction",
+            "meaning": "<口>两个, 两三个,几个(=couple of)",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 50686,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "<口>两个, 两三个,几个(=couple of)",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "82bac29a81797a424801b54d831b5a386c467c3e27251911ba5a0ee065f5cdb7",
+          "sourceReadingPacketPointer": "/entries/29",
+          "completeContextSemanticSha256": "95af29e9bb489b17f80b0909a28f5dc47bae55ab5ed2275546113bd81e56bcff",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "<口>两个, 两三个,几个(=couple of)",
+          "reason": "Marked informal request with a coupla minutes and plural noun is natural, source vague two/few rendered 两三分钟. Tie bags shut→把袋口扎好 retains action rather than romantic-couple sense.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "24/7",
+        "canonicalId": 13097625,
+        "canonicalSourceSha256": "11ce97e1f08999d5951a6d8e5b60b26f8e694c516c7db4e5a89d116ad6770188",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "0cb586febc29d8898cb3cb521a81df6058d1226a6d221cbf3af48177b0055462",
+        "wholeIndependentDecision": {
+          "term": "24/7",
+          "authorPackPointer": "/entries/28",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "24/7",
+            "adverb",
+            "全天不间断",
+            "The small monitoring station runs 24/7, even when the visitor centre is closed.",
+            "即使游客中心关门了，这座小型监测站也全天候不停运转。"
+          ],
+          "pairSha256": "0cb586febc29d8898cb3cb521a81df6058d1226a6d221cbf3af48177b0055462",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 13097625,
+            "term": "24/7",
+            "partOfSpeech": "adverb",
+            "meaning": "全天候；全天不间断；一天二十四小时、一周七天",
+            "forms": [],
+            "source": "core"
+          },
+          "sourceSha256": "11ce97e1f08999d5951a6d8e5b60b26f8e694c516c7db4e5a89d116ad6770188",
+          "sourceReadingPacketPointer": "/entries/30",
+          "completeContextSemanticSha256": "a460a300c0f525d3a1da57d2c06a366abd1c375a4c0be167d19f154438542076",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "全天候；全天不间断；一天二十四小时、一周七天",
+          "reason": "Adverb modifies station operation, preserving uninterrupted all-hours meaning. Even when visitor centre closed contrast exact; fictional facility, not a current opening schedule.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "viz.",
+        "canonicalId": 10497088,
+        "canonicalSourceSha256": "9f58e4dd950d6115ef495032a8e3d1153ff37e76dd81112a8ed76c68c5a4a07d",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "31d4dad398d5c44d1bb24ed84314dbbd1b59b6d1e1676a53d44590098589843b",
+        "wholeIndependentDecision": {
+          "term": "viz.",
+          "authorPackPointer": "/entries/29",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "viz.",
+            "adverb",
+            "即",
+            "The permit covers two rooms, viz., the kitchen and the adjoining storeroom.",
+            "许可证涵盖两个房间，即厨房及相邻的储藏室。"
+          ],
+          "pairSha256": "31d4dad398d5c44d1bb24ed84314dbbd1b59b6d1e1676a53d44590098589843b",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 10497088,
+            "term": "viz.",
+            "partOfSpeech": "adverb",
+            "meaning": "adv. 即, 就是说",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 90593,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "9f58e4dd950d6115ef495032a8e3d1153ff37e76dd81112a8ed76c68c5a4a07d",
+          "sourceReadingPacketPointer": "/entries/31",
+          "completeContextSemanticSha256": "7d08d03d51bb88bc2d409a9777b0c34838a30f9881119c7c7b5b72d731b8fbc7",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "adv. 即, 就是说",
+          "reason": "Written formal adverb enumerates exactly the two permitted rooms, not illustrative e.g. Chinese 即 plus two same rooms preserves exhaustive restatement; no actual permit rule asserted.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "i.e.",
+        "canonicalId": 9644893,
+        "canonicalSourceSha256": "9e2c25c3de2c545e15d9d0ee3a00ab93e4b1a6eef1a71d5007b8d5e45ffd8979",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "70dc0cd8ac6efa83164a958adf6cbc34c0d971f94d4c522d9b67b0cd53b02524",
+        "wholeIndependentDecision": {
+          "term": "i.e.",
+          "authorPackPointer": "/entries/30",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "i.e.",
+            "adverb",
+            "也就是",
+            "The instructions apply to the outer cover, i.e., the part with the blue handle.",
+            "这些说明适用于外罩，也就是带蓝色把手的那个部分。"
+          ],
+          "pairSha256": "70dc0cd8ac6efa83164a958adf6cbc34c0d971f94d4c522d9b67b0cd53b02524",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9644893,
+            "term": "i.e.",
+            "partOfSpeech": "adverb",
+            "meaning": "adv. 也就是",
+            "forms": [],
+            "source": "core",
+            "variants": [
+              {
+                "partOfSpeech": "adverb",
+                "meaning": "adv. 也就是",
+                "source": "mit"
+              }
+            ],
+            "seed": {
+              "rank": 79665,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "9e2c25c3de2c545e15d9d0ee3a00ab93e4b1a6eef1a71d5007b8d5e45ffd8979",
+          "sourceReadingPacketPointer": "/entries/32",
+          "completeContextSemanticSha256": "4c3f68b1aff743823a19b955ce599e55fe1424f542c6b579cbc9883bdc03d541",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "adv. 也就是",
+          "reason": "Restates the same outer cover as blue-handled part, not an example. Chinese 外罩/也就是/蓝色把手 exact, dotted spelling retained; id est parent unchanged.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Ulm",
+        "canonicalId": 5881755,
+        "canonicalSourceSha256": "8a32d483a807eca5819c879266a541fc1a7dd9981d2d49b43397c6a90683c387",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "38ec5214758aa6e3337a66424d7e74995c3bf07e856df347d888a804edade473",
+        "wholeIndependentDecision": {
+          "term": "Ulm",
+          "authorPackPointer": "/entries/31",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Ulm",
+            "proper noun",
+            "乌尔姆",
+            "We stayed in Ulm for two nights before continuing our journey.",
+            "我们在乌尔姆住了两晚，然后继续旅行。"
+          ],
+          "pairSha256": "38ec5214758aa6e3337a66424d7e74995c3bf07e856df347d888a804edade473",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5881755,
+            "term": "Ulm",
+            "partOfSpeech": "proper noun",
+            "meaning": "乌尔姆[德意志联邦共和国南部城市](或译乌耳姆)",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 45971,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "乌尔姆[德意志联邦共和国南部城市](或译乌耳姆)",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "8a32d483a807eca5819c879266a541fc1a7dd9981d2d49b43397c6a90683c387",
+          "sourceReadingPacketPointer": "/entries/33",
+          "completeContextSemanticSha256": "645b7738fb81db378a04301e57c908a0cd8971277edda8e16d3826f9c9ff4d1f",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "乌尔姆[德意志联邦共和国南部城市](或译乌耳姆)",
+          "reason": "Fictional two-night stay uses city proper noun; 乌尔姆/两晚/继续旅行 preserves location/duration/order. No new tourism/geographical assertion from an unvisited page.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Pym",
+        "canonicalId": 3765469,
+        "canonicalSourceSha256": "6fc175f952c2489c2977e4846e84acd605507060653a70c4667fbaad3b484682",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "cb6827620c63045d568e40c7beb5cd57fdd4a8be291cffa9e480f0036cb220fe",
+        "wholeIndependentDecision": {
+          "term": "Pym",
+          "authorPackPointer": "/entries/32",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Pym",
+            "proper noun",
+            "皮姆",
+            "Ms Pym kept the original receipts in a folder beside her desk.",
+            "皮姆女士把原始收据放在书桌旁的文件夹里。"
+          ],
+          "pairSha256": "cb6827620c63045d568e40c7beb5cd57fdd4a8be291cffa9e480f0036cb220fe",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3765469,
+            "term": "Pym",
+            "partOfSpeech": "proper noun",
+            "meaning": "皮姆(姓氏)",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 29424,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "皮姆(姓氏)",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "6fc175f952c2489c2977e4846e84acd605507060653a70c4667fbaad3b484682",
+          "sourceReadingPacketPointer": "/entries/34",
+          "completeContextSemanticSha256": "cff95fb8b48436cad99883c9bb76e3588396f63abd4dc9fad604ed1e5bc1afab",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "皮姆(姓氏)",
+          "reason": "Ms Pym establishes surname consistent with whole source; receipts/folder/beside-desk preserved. No real biography or invented given-name/gender etymology.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "PYE",
+        "canonicalId": 3995077,
+        "canonicalSourceSha256": "105aa462d094b5cea8875e5da955509e76956675fe1721ea3221d09ae1e90360",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "3dae7219ae6d668e481066a17f97d1ebbb675854a1ea22922f57f0d0b2b67b66",
+        "wholeIndependentDecision": {
+          "term": "PYE",
+          "authorPackPointer": "/entries/33",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "PYE",
+            "proper noun",
+            "派伊",
+            "Mr Pye offered to carry the last crate into the storeroom.",
+            "派伊先生主动提出把最后一只板条箱搬进储藏室。"
+          ],
+          "pairSha256": "3dae7219ae6d668e481066a17f97d1ebbb675854a1ea22922f57f0d0b2b67b66",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3995077,
+            "term": "PYE",
+            "partOfSpeech": "proper noun",
+            "meaning": "派伊(姓氏)",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 31218,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "派伊(姓氏)",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "105aa462d094b5cea8875e5da955509e76956675fe1721ea3221d09ae1e90360",
+          "sourceReadingPacketPointer": "/entries/35",
+          "completeContextSemanticSha256": "1e6edc45410b5d70d4ad3a1e0f3ac2da79705a98be1ea5b7a4bd32fe8f3c077c",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "派伊(姓氏)",
+          "reason": "Mr Pye is natural surname capitalization for current normalized head PYE; offer-to-carry stays 主动提出, last crate/storeroom exact. Not all-caps acronym, source unchanged.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "aho",
+        "canonicalId": 7427801,
+        "canonicalSourceSha256": "dffe593261e16571371896c1f2910888e250ad9b81f1d2ccf13890f5864d2f64",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "16a01eefd8d9cf574e61f2f5b7ed88899720146fbec89e68acc0d087ae5f2f95",
+        "wholeIndependentDecision": {
+          "term": "aho",
+          "authorPackPointer": "/entries/34",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "aho",
+            "proper noun",
+            "阿霍",
+            "Aho found a dry place for the coats while the others unpacked.",
+            "阿霍给外套找了个干燥的地方，其他人则忙着打开行李。"
+          ],
+          "pairSha256": "16a01eefd8d9cf574e61f2f5b7ed88899720146fbec89e68acc0d087ae5f2f95",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 7427801,
+            "term": "aho",
+            "partOfSpeech": "proper noun",
+            "meaning": "阿霍（人名）",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 58083,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "阿霍（人名）",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "dffe593261e16571371896c1f2910888e250ad9b81f1d2ccf13890f5864d2f64",
+          "sourceReadingPacketPointer": "/entries/36",
+          "completeContextSemanticSha256": "5c299e86661c443aaf7040a44b0a172640bc59aaf31187d4f23ca4c677ae078d",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "阿霍（人名）",
+          "reason": "Fictional Aho person finding dry coat storage while others unpack. Chinese 干燥地方/其他人打开行李 retains actions; no Japanese insult, name-role or nationality assumption.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "C++",
+        "canonicalId": 13097968,
+        "canonicalSourceSha256": "0eea6f022bcc2bbb60801f52373d2259d23d37628801c9f1b53e3c69041abbf9",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "4c0398109796fbfd4186624d49eb26d771a02721d1bed25dd73871e42bf6ebc4",
+        "wholeIndependentDecision": {
+          "term": "C++",
+          "authorPackPointer": "/entries/35",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "C++",
+            "proper noun",
+            "C++编程语言",
+            "Our team rewrote the image-processing tool in C++ to match the rest of the project.",
+            "我们团队用C++重写了图像处理工具，以便与项目的其余部分保持一致。"
+          ],
+          "pairSha256": "4c0398109796fbfd4186624d49eb26d771a02721d1bed25dd73871e42bf6ebc4",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 13097968,
+            "term": "C++",
+            "partOfSpeech": "proper noun",
+            "meaning": "C++编程语言；C++语言",
+            "forms": [],
+            "source": "core"
+          },
+          "sourceSha256": "0eea6f022bcc2bbb60801f52373d2259d23d37628801c9f1b53e3c69041abbf9",
+          "sourceReadingPacketPointer": "/entries/37",
+          "completeContextSemanticSha256": "bcec0f96152a5eb6cd795ab9df491bb4b7fa11a32eda6043de8735e14618cb66",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "C++编程语言；C++语言",
+          "reason": "Language proper noun with plus signs in coherent codebase-consistency rewrite scene. Chinese C++/重写图像处理工具/与其余项目一致 faithful; no unsupported performance/standard claim or C/C# alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Uwe",
+        "canonicalId": 5620160,
+        "canonicalSourceSha256": "9d8b35411369620fe221869a54bfa900946e30e2d9135d18877d1c403c2519ab",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "4e3532f98786291ced40fd8d2f311679225661551155a1b8f0d7c071e5a63ca1",
+        "wholeIndependentDecision": {
+          "term": "Uwe",
+          "authorPackPointer": "/entries/36",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Uwe",
+            "noun",
+            "乌维",
+            "Uwe held the gate open while his neighbour wheeled the bicycle through.",
+            "乌维扶着院门，让邻居推着自行车通过。"
+          ],
+          "pairSha256": "4e3532f98786291ced40fd8d2f311679225661551155a1b8f0d7c071e5a63ca1",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5620160,
+            "term": "Uwe",
+            "partOfSpeech": "noun",
+            "meaning": "n. 乌维（男子名）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 43926,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "9d8b35411369620fe221869a54bfa900946e30e2d9135d18877d1c403c2519ab",
+          "sourceReadingPacketPointer": "/entries/38",
+          "completeContextSemanticSha256": "927a40fdb218773f64eeb3544bb61bce5f27ee8d96feabb4fa7ddbdf941f696a",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "n. 乌维（男子名）",
+          "reason": "Fictional male-name actor holds gate for neighbour wheeling bicycle, consistent male-name source. Chinese 院门/推车通过 maintains event; no real biography or title/POS repair.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Huw",
+        "canonicalId": 4030947,
+        "canonicalSourceSha256": "0b5b65576ccb18f572c51fa583ff48bc0427abaf7fccc5ba54293d419d575a1b",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "7037afac363994e7609254ca06fe23eea2734b5ccd1abffeb228e57772740007",
+        "wholeIndependentDecision": {
+          "term": "Huw",
+          "authorPackPointer": "/entries/37",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Huw",
+            "noun",
+            "休",
+            "Huw drew a rough map on the back of the envelope.",
+            "休在信封背面画了一张简图。"
+          ],
+          "pairSha256": "7037afac363994e7609254ca06fe23eea2734b5ccd1abffeb228e57772740007",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4030947,
+            "term": "Huw",
+            "partOfSpeech": "noun",
+            "meaning": "n. (Huw)人名；(英)休",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 31498,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "0b5b65576ccb18f572c51fa583ff48bc0427abaf7fccc5ba54293d419d575a1b",
+          "sourceReadingPacketPointer": "/entries/39",
+          "completeContextSemanticSha256": "d1d6f999833bbd77907413ad1d9c7d764ae335ab9ed82d69bd3bc038c078016e",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "n. (Huw)人名；(英)休",
+          "reason": "Name 休 in fictional envelope/map scene. 简图/信封背面 exact; no Hugh alias or nationality biography inserted.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Luz",
+        "canonicalId": 5726688,
+        "canonicalSourceSha256": "e21201c78ae0578e2ea1054985d845191f2e37fa0a8cd9899cff2216be684fc1",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "bc4b5229b60f00ad93fcb04fc7b66cdba64cb7dd6c35ad1ca6cb3a3b2f6f6e88",
+        "wholeIndependentDecision": {
+          "term": "Luz",
+          "authorPackPointer": "/entries/38",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Luz",
+            "noun",
+            "卢斯",
+            "Luz folded the blanket neatly and placed it at the foot of the bed.",
+            "卢斯把毯子叠整齐，放在床尾。"
+          ],
+          "pairSha256": "bc4b5229b60f00ad93fcb04fc7b66cdba64cb7dd6c35ad1ca6cb3a3b2f6f6e88",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5726688,
+            "term": "Luz",
+            "partOfSpeech": "noun",
+            "meaning": "n. (Luz)人名；(西、葡)卢斯",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 44758,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "e21201c78ae0578e2ea1054985d845191f2e37fa0a8cd9899cff2216be684fc1",
+          "sourceReadingPacketPointer": "/entries/40",
+          "completeContextSemanticSha256": "9c146984e834c4913cf19df52ad9a44a39414f3501169ead4ab3ff1b387bedc0",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "n. (Luz)人名；(西、葡)卢斯",
+          "reason": "Name 卢斯, not Spanish light noun. Blanket folding/neatness/foot-of-bed preserved; no gender/country claim.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Zak",
+        "canonicalId": 4435549,
+        "canonicalSourceSha256": "99e1269c06eb2d17ae0b10eac6655fc35bb70cea182508ee71cf5b0b007ddfa7",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "93f65ac103b851a49c966cd53642363613ed6850261eb9b4c72c4c7838f2f4cf",
+        "wholeIndependentDecision": {
+          "term": "Zak",
+          "authorPackPointer": "/entries/39",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Zak",
+            "noun",
+            "扎克",
+            "Zak checked the seals on the boxes before loading them into the van.",
+            "扎克在把箱子装进货车前，检查了箱子上的封条。"
+          ],
+          "pairSha256": "93f65ac103b851a49c966cd53642363613ed6850261eb9b4c72c4c7838f2f4cf",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4435549,
+            "term": "Zak",
+            "partOfSpeech": "noun",
+            "meaning": "n. (Zak)人名；(德)察克；(俄、波、乌干)扎克；(瑞典)萨克",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 34662,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "99e1269c06eb2d17ae0b10eac6655fc35bb70cea182508ee71cf5b0b007ddfa7",
+          "sourceReadingPacketPointer": "/entries/41",
+          "completeContextSemanticSha256": "bc3ef7399475a581c0b29c21536d93dc27b9b119f849eff1499bda3811550e68",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "n. (Zak)人名；(德)察克；(俄、波、乌干)扎克；(瑞典)萨克",
+          "reason": "Uses an explicitly listed transliteration 扎克 without choosing nationality. Check seals before loading boxes into van preserved; no Zachary derivation or new spelling alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Wyn",
+        "canonicalId": 4146249,
+        "canonicalSourceSha256": "7636944ee669b09724f31036977129c4ed18071a4f2863b6018a8d78cca3c060",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "4bca758f404146a43e4d0387275b8fc1979a351548daa776ba3722147ec0b956",
+        "wholeIndependentDecision": {
+          "term": "Wyn",
+          "authorPackPointer": "/entries/40",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Wyn",
+            "noun",
+            "温",
+            "Wyn moved the reading lamp so that it no longer shone into the corridor.",
+            "温挪了挪阅读灯，不让灯光再照进走廊。"
+          ],
+          "pairSha256": "4bca758f404146a43e4d0387275b8fc1979a351548daa776ba3722147ec0b956",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4146249,
+            "term": "Wyn",
+            "partOfSpeech": "noun",
+            "meaning": "n. (Wyn)人名；(英)温",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 32400,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "7636944ee669b09724f31036977129c4ed18071a4f2863b6018a8d78cca3c060",
+          "sourceReadingPacketPointer": "/entries/42",
+          "completeContextSemanticSha256": "6926177d43ec7cc51e05dc2348fbe1e929f76df55316ac2006abe76830b33be2",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "n. (Wyn)人名；(英)温",
+          "reason": "Fictional person 温 moves lamp to stop light entering corridor; Chinese 挪灯/不再照走廊 preserves resulting purpose/state, no rune/letter meaning.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "vhs",
+        "canonicalId": 3944192,
+        "canonicalSourceSha256": "074a38c3713222a8f591262ca5b3f847218aecf0685e12d65e5a23d38866413d",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "5eba802ce3e2115fbd58bbdf5dc9c2bf43c5ba7b059b34d75fe889a1ccc08f5a",
+        "wholeIndependentDecision": {
+          "term": "vhs",
+          "authorPackPointer": "/entries/41",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "vhs",
+            "abbreviation",
+            "家用录像系统",
+            "The demonstration used VHS rather than a digital recording system.",
+            "演示采用的是家用录像系统（VHS），而非数字录像系统。"
+          ],
+          "pairSha256": "5eba802ce3e2115fbd58bbdf5dc9c2bf43c5ba7b059b34d75fe889a1ccc08f5a",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3944192,
+            "term": "vhs",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 家用录像系统（Video Home System）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 30821,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "074a38c3713222a8f591262ca5b3f847218aecf0685e12d65e5a23d38866413d",
+          "sourceReadingPacketPointer": "/entries/43",
+          "completeContextSemanticSha256": "0e5e18aa43c9d99da505bd97540bcfd7499dda3a94c17d1ba0b9f77fef41b684",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 家用录像系统（Video Home System）",
+          "reason": "Actual video-system abbreviation, not cassette substitute. Demonstration versus digital recording system preserved; uppercase conventional surface does not rewrite lowercase canonical source.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "asap",
+        "canonicalId": 5787932,
+        "canonicalSourceSha256": "34d4a8225fdbc12d5b53f8284981dfd6e369bcc8b4eb184b1b9cf4e5ba10f8bc",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "ee7bc5abefb68ff5a69cdc0ef333419898b87950e7b148718b5d5c269f9dcce4",
+        "wholeIndependentDecision": {
+          "term": "asap",
+          "authorPackPointer": "/entries/42",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "asap",
+            "abbreviation",
+            "尽快",
+            "Please send me the corrected address asap so I can print the labels.",
+            "请尽快把更正后的地址发给我，我好打印标签。"
+          ],
+          "pairSha256": "ee7bc5abefb68ff5a69cdc0ef333419898b87950e7b148718b5d5c269f9dcce4",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5787932,
+            "term": "asap",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 尽快（As Soon As Possible）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 45237,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "34d4a8225fdbc12d5b53f8284981dfd6e369bcc8b4eb184b1b9cf4e5ba10f8bc",
+          "sourceReadingPacketPointer": "/entries/44",
+          "completeContextSemanticSha256": "a0ebc59f3f054d9c0ec68bacdff72f31660dc51876e6659b5da5f96188f1abe7",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 尽快（As Soon As Possible）",
+          "reason": "Ordinary written abbreviated request with corrected address and printing purpose, 尽快/更正后/我好打印 exact. No invented deadline or formal full-phrase alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "afk",
+        "canonicalId": 7295375,
+        "canonicalSourceSha256": "66cb594c43c558c308f86db86169e0a727e7c49ec8f1ff0b4b2ed9cf4fe4c916",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "a39c9114533ca4ddf83fdd135e1094282bb949eb9cc0a8ee769ffbf31ac1400c",
+        "wholeIndependentDecision": {
+          "term": "afk",
+          "authorPackPointer": "/entries/43",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "afk",
+            "abbreviation",
+            "暂离",
+            "I set my chat status to AFK while I went downstairs to answer the door.",
+            "我下楼应门时，把聊天状态设为“暂离”。"
+          ],
+          "pairSha256": "a39c9114533ca4ddf83fdd135e1094282bb949eb9cc0a8ee769ffbf31ac1400c",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 7295375,
+            "term": "afk",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 暂离；稍后回来（Away From the Keyboard）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 57044,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "66cb594c43c558c308f86db86169e0a727e7c49ec8f1ff0b4b2ed9cf4fe4c916",
+          "sourceReadingPacketPointer": "/entries/45",
+          "completeContextSemanticSha256": "99da1643de9eabc88a3ff7af28456a466872ae4f9d6a2cf9eddcc17aa596c539",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 暂离；稍后回来（Away From the Keyboard）",
+          "reason": "Explicit temporary away-from-keyboard chat-status context while answering door matches 暂离. No permanent offline or automatic BRB equivalence; unselected return gloss retained separately.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "cnn",
+        "canonicalId": 3735790,
+        "canonicalSourceSha256": "2ed4c7f12cea83cfbe2d720c3cbb6ddafbd7a90f9478a87ca7f1196bd8fa8c6f",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "89cdb7fd60100491f17e8424ca8733307697ca7fcf006a8ba853979092fbafaf",
+        "wholeIndependentDecision": {
+          "term": "cnn",
+          "authorPackPointer": "/entries/44",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "cnn",
+            "abbreviation",
+            "美国有线电视新闻网络",
+            "We watched the live interview on CNN while waiting for the train.",
+            "等火车时，我们观看了美国有线电视新闻网络播出的直播采访。"
+          ],
+          "pairSha256": "89cdb7fd60100491f17e8424ca8733307697ca7fcf006a8ba853979092fbafaf",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3735790,
+            "term": "cnn",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 美国有线电视新闻网络（Cable News Network）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 29192,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "2ed4c7f12cea83cfbe2d720c3cbb6ddafbd7a90f9478a87ca7f1196bd8fa8c6f",
+          "sourceReadingPacketPointer": "/entries/46",
+          "completeContextSemanticSha256": "f892dca04e6aab32db64f4d91e27951da923caa1dab952fc77d05c0fe09c741a",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 美国有线电视新闻网络（Cable News Network）",
+          "reason": "Broadcasting-network identity, not neural-network abbreviation. Fictional live interview while train-waiting translated faithfully; no actual current reporting claim.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ngo",
+        "canonicalId": 4276727,
+        "canonicalSourceSha256": "d3fd775ee614b70afa6a47ca90efa5439f082388b4b836eb9845f445e806c831",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "4c667f7475a7b1a117f0a50dcada2b614c628d02b706cafe369039505692d6e7",
+        "wholeIndependentDecision": {
+          "term": "ngo",
+          "authorPackPointer": "/entries/45",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ngo",
+            "abbreviation",
+            "非政府组织",
+            "A local NGO helped the villagers repair the community well.",
+            "一家当地非政府组织帮助村民修复了公用水井。"
+          ],
+          "pairSha256": "4c667f7475a7b1a117f0a50dcada2b614c628d02b706cafe369039505692d6e7",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4276727,
+            "term": "ngo",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 民间组织；非政府组织（Non-Governmental Organization）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 33420,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "d3fd775ee614b70afa6a47ca90efa5439f082388b4b836eb9845f445e806c831",
+          "sourceReadingPacketPointer": "/entries/47",
+          "completeContextSemanticSha256": "40b8847fb6c7663778d2eb7318593f388aaa7b53bdca5b8d325f30524460e02e",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 民间组织；非政府组织（Non-Governmental Organization）",
+          "reason": "Count singular nongovernmental organization helping repair common well, not general political statement. 一家/当地/帮助修复/公用井 exact; no undeclared plural route.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "aqi",
+        "canonicalId": 8805770,
+        "canonicalSourceSha256": "92dca9b3d43c25a14a827d9b0acdbc8aff6a16fb23a5401a8d5a9a5a21c4d138",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "ce734fb0b177a4397f46bcc78fc2177318decb8d83db302135a5f08846be4fe2",
+        "wholeIndependentDecision": {
+          "term": "aqi",
+          "authorPackPointer": "/entries/46",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "aqi",
+            "abbreviation",
+            "空气质量指数",
+            "The screen at the station displayed the AQI beside the temperature.",
+            "车站的屏幕在温度旁边显示着空气质量指数。"
+          ],
+          "pairSha256": "ce734fb0b177a4397f46bcc78fc2177318decb8d83db302135a5f08846be4fe2",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 8805770,
+            "term": "aqi",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 空气质量指数（Air Quality Index）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 68902,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "92dca9b3d43c25a14a827d9b0acdbc8aff6a16fb23a5401a8d5a9a5a21c4d138",
+          "sourceReadingPacketPointer": "/entries/48",
+          "completeContextSemanticSha256": "e12f9e52bc1af8b0cc972b67ee1b137a524205a852611d42eda51fcb02d017a8",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 空气质量指数（Air Quality Index）",
+          "reason": "Index displayed beside temperature, natural noun use. Chinese location/relation/index preserved; no real pollutant value, health threshold or advice.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "govt",
+        "canonicalId": 9562761,
+        "canonicalSourceSha256": "c2c4b304442f86baa27d7223cd27984a8e91f297e6b069457b1295f54dd19ef1",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "0ff9663a1915c671775d5c347ca1ffc6d6f9d4d127f16f545f6328bd30f481cc",
+        "wholeIndependentDecision": {
+          "term": "govt",
+          "authorPackPointer": "/entries/47",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "govt",
+            "abbreviation",
+            "政府",
+            "The headline said the govt would publish the revised figures on Monday.",
+            "标题称，政府将于周一公布修订后的数据。"
+          ],
+          "pairSha256": "0ff9663a1915c671775d5c347ca1ffc6d6f9d4d127f16f545f6328bd30f481cc",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 9562761,
+            "term": "govt",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. government 政府",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 78534,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "c2c4b304442f86baa27d7223cd27984a8e91f297e6b069457b1295f54dd19ef1",
+          "sourceReadingPacketPointer": "/entries/49",
+          "completeContextSemanticSha256": "dcbad7651bb44d999edce4655356492936c38a08a82d641983c6aca0d3c5462d",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. government 政府",
+          "reason": "Written headline register fits government abbreviation. Reported future release on Monday remains 标题称/将于周一公布; no current real government statement asserted.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "OUP",
+        "canonicalId": 3789075,
+        "canonicalSourceSha256": "7eff81035e7c6c64c2450c1ca20df212914c8006ea96aa71b7332f8465104206",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "ccbc28afcea251be362cd03cef37ceff0fbea502bdcd7948fb6f4f83438836e7",
+        "wholeIndependentDecision": {
+          "term": "OUP",
+          "authorPackPointer": "/entries/48",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "OUP",
+            "abbreviation",
+            "牛津大学出版社",
+            "The librarian ordered the new reference books directly from OUP.",
+            "图书管理员直接向牛津大学出版社订购了新参考书。"
+          ],
+          "pairSha256": "ccbc28afcea251be362cd03cef37ceff0fbea502bdcd7948fb6f4f83438836e7",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3789075,
+            "term": "OUP",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 牛津大学出版社（Oxford University Press）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 29609,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "7eff81035e7c6c64c2450c1ca20df212914c8006ea96aa71b7332f8465104206",
+          "sourceReadingPacketPointer": "/entries/50",
+          "completeContextSemanticSha256": "3a9e7dbae752b79562c60685fc8dd0c6f091b9f76699babfddad826c5720a799",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 牛津大学出版社（Oxford University Press）",
+          "reason": "Publisher identity in fictional librarian purchase scene is exact, not dictionary-word definition filler. Direct purchase and new reference books preserved; no actual order/publication fact.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "IMHO",
+        "canonicalId": 8970882,
+        "canonicalSourceSha256": "7a5e026a1ea99d32c21eee6effcaa00dd6add12fd70e150f6186e88e8f787b94",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "083597bce5105b7753a5009f25ef4aa16509aaf5f52a25ff23a362be3db745c9",
+        "wholeIndependentDecision": {
+          "term": "IMHO",
+          "authorPackPointer": "/entries/49",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "IMHO",
+            "abbreviation",
+            "恕我直言",
+            "\"IMHO, the smaller design would fit this room better,\" she wrote in the group chat.",
+            "她在群聊里写道：“恕我直言，小一点的设计会更适合这个房间。”"
+          ],
+          "pairSha256": "083597bce5105b7753a5009f25ef4aa16509aaf5f52a25ff23a362be3db745c9",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 8970882,
+            "term": "IMHO",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 恕我直言（In My Humble Opinion）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 70747,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "7a5e026a1ea99d32c21eee6effcaa00dd6add12fd70e150f6186e88e8f787b94",
+          "sourceReadingPacketPointer": "/entries/51",
+          "completeContextSemanticSha256": "b3fe103802139681f128f76f5a63d91f9ea7a300eb8019af6667a78bdfb6ad50",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 恕我直言（In My Humble Opinion）",
+          "reason": "Mild comparative design opinion in group chat fits written personal-opinion marker. 恕我直言 acts as polite opinion/criticism preface here, not aggressive frankness fact claim; smaller/would-fit-room-better faithfully translated. This exact pragmatic use is supportable, not wholesale equivalence of all IMHO utterances or a rewritten source.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Revd",
+        "canonicalId": 2922498,
+        "canonicalSourceSha256": "69562a9d319b9d250307113c757d72716bbd1e7d94db0ed9e17518c0d9e1a4e1",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "bd5ef0fc9537bde5a8e5844e126b3b149e72de2e323eb2c0728c344082922c86",
+        "wholeIndependentDecision": {
+          "term": "Revd",
+          "authorPackPointer": "/entries/50",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Revd",
+            "abbreviation",
+            "牧师的尊称",
+            "The Revd Morgan thanked the volunteers for repairing the church garden gate.",
+            "摩根牧师感谢志愿者修好了教堂花园的门。"
+          ],
+          "pairSha256": "bd5ef0fc9537bde5a8e5844e126b3b149e72de2e323eb2c0728c344082922c86",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 2922498,
+            "term": "Revd",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 牧师的尊称（Reverend）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 22838,
+              "forms": [],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "69562a9d319b9d250307113c757d72716bbd1e7d94db0ed9e17518c0d9e1a4e1",
+          "sourceReadingPacketPointer": "/entries/52",
+          "completeContextSemanticSha256": "5327cc2fe887888440d87ad31905add1fb3eb70d64bd57d9f5c79f57c7af8291",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 牧师的尊称（Reverend）",
+          "reason": "The Revd + fictional surname is coherent British clerical honorific. Chinese 牧师/感谢志愿者修门 exact; no general noun/Rev. alias or real officeholder claim.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Cllr",
+        "canonicalId": 4322192,
+        "canonicalSourceSha256": "aeb9aebfae3fe79ccfbbad61a4977dbb23a87901c48e46922998396fa23124d4",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "621ba9a47ffa7ccb5638bbe3031ead7534c2279ecbab76bacb2cbbffebc9a968",
+        "wholeIndependentDecision": {
+          "term": "Cllr",
+          "authorPackPointer": "/entries/51",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Cllr",
+            "abbreviation",
+            "议员",
+            "Cllr Patel asked the council to improve lighting along the footpath.",
+            "帕特尔议员请求地方议会改善步道沿线的照明。"
+          ],
+          "pairSha256": "621ba9a47ffa7ccb5638bbe3031ead7534c2279ecbab76bacb2cbbffebc9a968",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4322192,
+            "term": "Cllr",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 议员（councillor）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 33776,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "aeb9aebfae3fe79ccfbbad61a4977dbb23a87901c48e46922998396fa23124d4",
+          "sourceReadingPacketPointer": "/entries/53",
+          "completeContextSemanticSha256": "91aaf6957b153d7a1a6883dbf33f5726b45d9ffa26111ffc3b0f0c5f252b08d9",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 议员（councillor）",
+          "reason": "Local council request fits councillor title, not national MP or counsellor. Chinese 地方议会/步道沿线照明 retains jurisdictional context and request, not completed improvements.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Co.",
+        "canonicalId": 8959883,
+        "canonicalSourceSha256": "6b75320bb98d8c552e3e91324a7775ae09fabc625bc14be0492052ff0aba9b03",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "274de4817e2f2c7b872e588683af6f3ebf71c7984dfbd54eb0dd3f6030b6f06d",
+        "wholeIndependentDecision": {
+          "term": "Co.",
+          "authorPackPointer": "/entries/52",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Co.",
+            "noun",
+            "公司",
+            "Bennett & Co. delivered the replacement hinges before the workshop opened.",
+            "贝内特公司在工坊开门前送来了替换用的铰链。"
+          ],
+          "pairSha256": "274de4817e2f2c7b872e588683af6f3ebf71c7984dfbd54eb0dd3f6030b6f06d",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 8959883,
+            "term": "Co.",
+            "partOfSpeech": "noun",
+            "meaning": "公司",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 70445,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "公司",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "6b75320bb98d8c552e3e91324a7775ae09fabc625bc14be0492052ff0aba9b03",
+          "sourceReadingPacketPointer": "/entries/54",
+          "completeContextSemanticSha256": "379b1276c257c59b8d063e23a9828692619bc23fbb1f534fa98473b63d732196",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "公司",
+          "reason": "Company suffix with fictional Bennett & Co. as delivery actor; replacement hinges and before-opening exact. No companionship/troupe/element Co meaning or no-period alias.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "UI",
+        "canonicalId": 2995195,
+        "canonicalSourceSha256": "36ca27dc69427fbc70eb26c532718ba2198f07350b9af130f8d9e651d1424498",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "cc8e04c7cce38b9d57b15c2bfc6fb98a6616763fcee49a0b25a7f6e0a81e5ffc",
+        "wholeIndependentDecision": {
+          "term": "UI",
+          "authorPackPointer": "/entries/53",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "UI",
+            "noun",
+            "用户接口",
+            "The revised UI keeps the search box visible while the results load.",
+            "修改后的用户界面会在加载结果时保持搜索框可见。"
+          ],
+          "pairSha256": "cc8e04c7cce38b9d57b15c2bfc6fb98a6616763fcee49a0b25a7f6e0a81e5ffc",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 2995195,
+            "term": "UI",
+            "partOfSpeech": "noun",
+            "meaning": "[计] 用户接口",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 23405,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[计] 用户接口",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "36ca27dc69427fbc70eb26c532718ba2198f07350b9af130f8d9e651d1424498",
+          "sourceReadingPacketPointer": "/entries/55",
+          "completeContextSemanticSha256": "22e9073d5d4a0ae74119bbbad16d7332183482fbe895629cdf0d3ef7190e6c65",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "[计] 用户接口",
+          "reason": "Computing interface with visible search box during load is clear; Chinese 用户界面 is natural contextual equivalent of literal source 用户接口, full parent preserved. Not a new unemployment-insurance sense or UI implementation claim.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "HDL",
+        "canonicalId": 4489791,
+        "canonicalSourceSha256": "1ab87c740c2a2a408cf1b87ea360db02503c0f329714c9dfd04bfe2389904635",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "6336ab349b0867e8a8a1ff6d9085c718859b2f09a2eec2df1473321084cda806",
+        "wholeIndependentDecision": {
+          "term": "HDL",
+          "authorPackPointer": "/entries/54",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "HDL",
+            "noun",
+            "高密度脂蛋白",
+            "The diagram shows HDL carrying cholesterol towards the liver.",
+            "图中显示高密度脂蛋白将胆固醇运往肝脏。"
+          ],
+          "pairSha256": "6336ab349b0867e8a8a1ff6d9085c718859b2f09a2eec2df1473321084cda806",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4489791,
+            "term": "HDL",
+            "partOfSpeech": "noun",
+            "meaning": "[化] 高密度脂蛋白",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 35086,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[化] 高密度脂蛋白",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "1ab87c740c2a2a408cf1b87ea360db02503c0f329714c9dfd04bfe2389904635",
+          "sourceReadingPacketPointer": "/entries/56",
+          "completeContextSemanticSha256": "18e8bfb6b0cc0ee6a109bf860314b2c1d57d3a519a02ae9bbb995475751ba656",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "[化] 高密度脂蛋白",
+          "reason": "High-density lipoprotein noun carries cholesterol towards liver in a diagram; NLM independently confirms identity/transport function. Chinese mirrors direction/object, not simply declaring HDL equals cholesterol, and contains no medical threshold/advice.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "IOC",
+        "canonicalId": 5784214,
+        "canonicalSourceSha256": "9def4e883824237da1a71d1fae87b7923bb5d469e9b0db1fafe4b171ab355b5d",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "a50c980941e22d2facc00a39ebc08b3086acfa48c2b6f5a1e3344922d8b7750f",
+        "wholeIndependentDecision": {
+          "term": "IOC",
+          "authorPackPointer": "/entries/55",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "IOC",
+            "noun",
+            "国际奥林匹克委员会",
+            "The journalist sent a request for comment to the IOC before publishing the article.",
+            "记者在发表文章前向国际奥林匹克委员会发送了置评请求。"
+          ],
+          "pairSha256": "a50c980941e22d2facc00a39ebc08b3086acfa48c2b6f5a1e3344922d8b7750f",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5784214,
+            "term": "IOC",
+            "partOfSpeech": "noun",
+            "meaning": "国际奥林匹克委员会",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 45208,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "国际奥林匹克委员会",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "9def4e883824237da1a71d1fae87b7923bb5d469e9b0db1fafe4b171ab355b5d",
+          "sourceReadingPacketPointer": "/entries/57",
+          "completeContextSemanticSha256": "3bd059523d550098ac85cce302edf862b29f500c689d3bb75b9c2ddbad110523",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "国际奥林匹克委员会",
+          "reason": "Specific Olympic committee in fictional journalist comment request before article publication. Chinese actor/request/timing exact; no invented live policy/event or current personnel.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "NCO",
+        "canonicalId": 3319291,
+        "canonicalSourceSha256": "ad229948160f8c8e74afe318dac12971bf6c76541c9ac209b47a77f1bbe483b2",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "9b1bf0b24c3d21f604b32fecc590139346aaba09d7976339dbd6075f6e444663",
+        "wholeIndependentDecision": {
+          "term": "NCO",
+          "authorPackPointer": "/entries/56",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "NCO",
+            "noun",
+            "军士",
+            "An experienced NCO showed the new recruits how to pack their equipment.",
+            "一名经验丰富的军士向新兵演示如何打包装备。"
+          ],
+          "pairSha256": "9b1bf0b24c3d21f604b32fecc590139346aaba09d7976339dbd6075f6e444663",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3319291,
+            "term": "NCO",
+            "partOfSpeech": "noun",
+            "meaning": "军士",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 25937,
+              "forms": [],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "军士",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "ad229948160f8c8e74afe318dac12971bf6c76541c9ac209b47a77f1bbe483b2",
+          "sourceReadingPacketPointer": "/entries/58",
+          "completeContextSemanticSha256": "92d306cfb77141164ca01134a055428a5c8418a955cc0c55d33830eba3242a5a",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "军士",
+          "reason": "Noncommissioned-officer noun training new recruits, not commissioned officer. 经验丰富/演示打包装备 preserves activity and experience, no exact cross-country rank claim or parent-example reuse.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ANCOVA",
+        "canonicalId": 3596809,
+        "canonicalSourceSha256": "44a3d653835d75fb10303eee775dc240bd888cc7db174bd91a09f6590b945fa6",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "c0306ea6d9a61a15d50da7a3a66d1334f1592466b4e78cc1a3eb6d8e3b41ee10",
+        "wholeIndependentDecision": {
+          "term": "ANCOVA",
+          "authorPackPointer": "/entries/57",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ANCOVA",
+            "abbreviation",
+            "协方差分析",
+            "We checked the ANCOVA results for copying errors before submitting the report.",
+            "提交报告前，我们检查了协方差分析结果中是否存在抄录错误。"
+          ],
+          "pairSha256": "c0306ea6d9a61a15d50da7a3a66d1334f1592466b4e78cc1a3eb6d8e3b41ee10",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3596809,
+            "term": "ANCOVA",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 协方差分析（analysis of covariance）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 28106,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "44a3d653835d75fb10303eee775dc240bd888cc7db174bd91a09f6590b945fa6",
+          "sourceReadingPacketPointer": "/entries/59",
+          "completeContextSemanticSha256": "48325fd374393ce47370e8af5f20204cc0cd11d5cff776086ea818e25f6d2dbc",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 协方差分析（analysis of covariance）",
+          "reason": "Covariance-analysis results checked for transcription errors, natural substantive data-review scene. Chinese method/抄录错误/提交前 exact; no unsupported statistical assumption/causal claim or software output.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "Oxfam",
+        "canonicalId": 2410782,
+        "canonicalSourceSha256": "583f4d1f8b76eba2aeb275219887d37d31f4f2a94106e09d4b7a208f6f4e4e1c",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "d2b5c2b9b1685b8c33a42ec77aee2b47f6bfe1940364c1d2139965e95460761f",
+        "wholeIndependentDecision": {
+          "term": "Oxfam",
+          "authorPackPointer": "/entries/58",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "Oxfam",
+            "abbreviation",
+            "牛津饥荒救济委员会",
+            "Founded in Britain in 1942, Oxfam originally organized famine relief.",
+            "牛津饥荒救济委员会于1942年在英国成立，最初组织饥荒救济工作。"
+          ],
+          "pairSha256": "d2b5c2b9b1685b8c33a42ec77aee2b47f6bfe1940364c1d2139965e95460761f",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 2410782,
+            "term": "Oxfam",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr.Oxford Committee for Famine Relief(英国) 牛津饥荒救济委员会",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 18838,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "583f4d1f8b76eba2aeb275219887d37d31f4f2a94106e09d4b7a208f6f4e4e1c",
+          "sourceReadingPacketPointer": "/entries/60",
+          "completeContextSemanticSha256": "f149922df7905d2099204fe26240983af57e50ee7479c66c0b5f0c9853b0e689",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr.Oxford Committee for Famine Relief(英国) 牛津饥荒救济委员会",
+          "reason": "Explicit Britain1942/originally famine-relief origination restricts historical Committee identity. Own history supports origin; Chinese exact founding/time/place/action, not equating modern International confederation with original Committee.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "cbc",
+        "canonicalId": 4370569,
+        "canonicalSourceSha256": "fa24195a2e6518ac28ce9139ceb661f64ab53c658f2281ac88f16b73c14caf81",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "f5b8bb2bbb97b130a6bd6d41ae32ec9855b0e283276e4397b2d430ea84430ec8",
+        "wholeIndependentDecision": {
+          "term": "cbc",
+          "authorPackPointer": "/entries/59",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "cbc",
+            "abbreviation",
+            "加拿大广播公司",
+            "The announcement was broadcast on CBC before the evening programme began.",
+            "晚间节目开始前，加拿大广播公司播出了这则公告。"
+          ],
+          "pairSha256": "f5b8bb2bbb97b130a6bd6d41ae32ec9855b0e283276e4397b2d430ea84430ec8",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 4370569,
+            "term": "cbc",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 加拿大广播公司（Canadian Broadcasting Corporation）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 34155,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "fa24195a2e6518ac28ce9139ceb661f64ab53c658f2281ac88f16b73c14caf81",
+          "sourceReadingPacketPointer": "/entries/61",
+          "completeContextSemanticSha256": "aebc14c8f4e24f0d1ef4da2595d28ca31f3fed9d34dd8eb385910b51ba35cfad",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 加拿大广播公司（Canadian Broadcasting Corporation）",
+          "reason": "Canadian broadcaster announcement before evening programme, not blood-count acronym. Chinese source identity/action/order faithful; no actual news fact.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "NSPCC",
+        "canonicalId": 3510672,
+        "canonicalSourceSha256": "694f4f0288190ff170452348c7e4e146d5ed4fa8c1907ab590fa643810f4732e",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "4f88ef6da0332b6f98a6835f13aba4b611fba0a4e6a9250d85da8bc08d657de9",
+        "wholeIndependentDecision": {
+          "term": "NSPCC",
+          "authorPackPointer": "/entries/60",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "NSPCC",
+            "abbreviation",
+            "英国全国防止虐待儿童学会",
+            "The training pack included an NSPCC leaflet about child protection.",
+            "培训材料中包含了一份英国全国防止虐待儿童学会的儿童保护宣传单。"
+          ],
+          "pairSha256": "4f88ef6da0332b6f98a6835f13aba4b611fba0a4e6a9250d85da8bc08d657de9",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 3510672,
+            "term": "NSPCC",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 英国全国防止虐待儿童学会（National Society for the Prevention of Cruelty to Children）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 27433,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "694f4f0288190ff170452348c7e4e146d5ed4fa8c1907ab590fa643810f4732e",
+          "sourceReadingPacketPointer": "/entries/62",
+          "completeContextSemanticSha256": "2c121138b1f4238c3fb27841f8aefb11b2995fd06684e90ec12f6ac2e608fb32",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 英国全国防止虐待儿童学会（National Society for the Prevention of Cruelty to Children）",
+          "reason": "Specific UK charity leaflet in fictional child-protection training pack. Chinese organization/material/topic exact, no real incident/statistics/contact/advice or generic child-protection synonym.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "bsi",
+        "canonicalId": 5279633,
+        "canonicalSourceSha256": "a08070cd68f1f5b8e32e5ac7ad43704447ba8e5df7d382c0c98ad71a9a2cc143",
+        "authorPrincipal": "d32_author_source9_p002",
+        "reviewerPrincipal": "d32_reviewer_role_p002",
+        "pairSha256": "3c98ddd6e5c543cfb61ef7cbbe3e1b5a195fe2fcb985eac2f7410051eeed6c8e",
+        "wholeIndependentDecision": {
+          "term": "bsi",
+          "authorPackPointer": "/entries/61",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "bsi",
+            "abbreviation",
+            "英国标准学会",
+            "We searched the BSI catalogue for the standard named in the specification.",
+            "我们在英国标准学会的目录中查找规格说明书里提到的标准。"
+          ],
+          "pairSha256": "3c98ddd6e5c543cfb61ef7cbbe3e1b5a195fe2fcb985eac2f7410051eeed6c8e",
+          "authorPrincipal": "d32_author_source9_p002",
+          "reviewerPrincipal": "d32_reviewer_role_p002",
+          "source": {
+            "id": 5279633,
+            "term": "bsi",
+            "partOfSpeech": "abbreviation",
+            "meaning": "abbr. 英国标准学会（British Standards Institution）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 41266,
+              "forms": [
+                "bsi"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "a08070cd68f1f5b8e32e5ac7ad43704447ba8e5df7d382c0c98ad71a9a2cc143",
+          "sourceReadingPacketPointer": "/entries/63",
+          "completeContextSemanticSha256": "a2733c2c4f9599e01974e097e07a5e78fb4f4a375be02314a3d5c321488a8a78",
+          "allCompleteContextsPersonallyRead": true,
+          "sourcePrecisionDecision": "literal selected source substring/POS retained; whole raw variants/forms/parent/history preserved; no unselected branch blanket approval",
+          "selectedMeaningIsExactRawSubstring": true,
+          "fullRawMeaning": "abbr. 英国标准学会（British Standards Institution）",
+          "reason": "Specific British Standards Institution catalogue lookup for a named specification standard. Chinese catalogue/search/referent exact; no certification, mandatory rule or bloodstream-infection expansion.",
+          "independentLanguageSupport": true,
+          "reviewerAuthoredCorrection": false,
+          "newExampleRuntimeProof": false
+        }
+      }
+    ]
+  }
+}

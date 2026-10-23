@@ -1,0 +1,1307 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "07708761d272087ab5ef6f5f9c5ace89702ed2510a6090ca8b571bc3b8c44a32",
+  "reviewer": "AI/d32_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "geo",
+    "gil",
+    "ess",
+    "voe",
+    "cig",
+    "oik",
+    "bub",
+    "rx",
+    "lao",
+    "yi",
+    "wes",
+    "ns",
+    "nv",
+    "nw",
+    "ka",
+    "kv",
+    "cpi",
+    "dax",
+    "ait",
+    "jus",
+    "aly"
+  ],
+  "issues": [],
+  "evidence": {
+    "author": {
+      "file": "drafts/d32-p001-original-author-pack-0001.json",
+      "bytes": 666034,
+      "sha256": "bf37c6572cbd1f49de4bdc40f59f9965ad1707051ce70b98cb6a3373b685ebc9"
+    },
+    "opinion": {
+      "file": "qa/d32-p001-reviewer-role/INDEPENDENT-LANGUAGE-REVIEW-0001.json",
+      "bytes": 133151,
+      "sha256": "a350876cabdf0600a6b0ac2dd920f1b2cb8812e3955ca0355d49188a902e132d"
+    },
+    "rows": [
+      {
+        "term": "geo",
+        "canonicalId": 5436674,
+        "canonicalSourceSha256": "0a419c7b846bfef813c1b9d5c753ab24c3b0b243d3907c9279a00cf1775b0cf9",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "f3d3f114c338701a53ce17adb4a60dac9a928344339773965b3fa355a8a67c23",
+        "wholeIndependentDecision": {
+          "ordinal": 1,
+          "term": "geo",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "geo",
+            "noun",
+            "海湾",
+            "We watched the sea surge into the narrow geo beneath the cliffs.",
+            "我们看着海水涌入悬崖下狭长的海湾。"
+          ],
+          "pairSha256": "f3d3f114c338701a53ce17adb4a60dac9a928344339773965b3fa355a8a67c23",
+          "authorPackPointer": "/entries/0",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 5436674,
+            "term": "geo",
+            "partOfSpeech": "noun",
+            "meaning": "n. 长狭潮道；海湾",
+            "forms": [
+              "geos"
+            ],
+            "source": "mit",
+            "seed": {
+              "rank": 42493,
+              "forms": [
+                "geos"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "0a419c7b846bfef813c1b9d5c753ab24c3b0b243d3907c9279a00cf1775b0cf9",
+          "sourcePacketPointer": "/entries/0",
+          "completeContextSemanticSha256": "95f8b6a738809739ee199538e84285c7716080f6fb789d86aaf78e202f990371",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 长狭潮道；海湾",
+          "selectedLiteralMeaning": "海湾",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Narrow rocky sea inlet, not geo- prefix or ravine.",
+            "en": "The sea surges into a countable narrow inlet beneath cliffs; watched + object + bare infinitive is natural. Scottish regional vocabulary is retained without falsely asserting a new worldwide sense.",
+            "zh": "海水涌入、悬崖下、狭长海湾 faithfully preserve the concrete action and location; no species/place fact added.",
+            "register": "Regional Scots noun; geos remains its ordinary declared plural, not an extra new alias."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "gil",
+        "canonicalId": 3613315,
+        "canonicalSourceSha256": "69a3ccab9bef30711ea4c8bc18f71283d6db98410331c61acb81fa4d71fe9053",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "6c360fd8674bbe9b3ed503673e329c23e4583b87e0907a26455b70d624824144",
+        "wholeIndependentDecision": {
+          "ordinal": 2,
+          "term": "gil",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "gil",
+            "noun",
+            "吉尔",
+            "Gil returned the borrowed camera and offered to pay for the damaged lens.",
+            "吉尔归还了借来的相机，并提出赔偿损坏的镜头。"
+          ],
+          "pairSha256": "6c360fd8674bbe9b3ed503673e329c23e4583b87e0907a26455b70d624824144",
+          "authorPackPointer": "/entries/1",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 3613315,
+            "term": "gil",
+            "partOfSpeech": "noun",
+            "meaning": "n. 吉尔（人名）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 28235,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "69a3ccab9bef30711ea4c8bc18f71283d6db98410331c61acb81fa4d71fe9053",
+          "sourcePacketPointer": "/entries/1",
+          "completeContextSemanticSha256": "b5099904f4ac41a83aae4d0e5fc78718c9bf05091d6c38c28c7bcf66c65e406d",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 吉尔（人名）",
+          "selectedLiteralMeaning": "吉尔",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Existing generic person-name noun 吉尔.",
+            "en": "Capitalized fictional Gil naturally returns a borrowed camera and offers compensation for the damaged lens; no gender, real biography or nationality asserted.",
+            "zh": "归还借来的相机 / 提出赔偿损坏的镜头 preserves both actions without converting an offer into payment.",
+            "register": "Proper sentence casing is compatible with normalized lowercase lookup; not approval of arbitrary names or casing rules."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ess",
+        "canonicalId": 6518638,
+        "canonicalSourceSha256": "3e0ae5ad24a1558eec81bb69b4c71d5301ba624d0e70966ad28c15bbf0e934a5",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "af8bbe1dcbc137c32013dad94f4e87e8f1f7d322730ff9ee89d7442eee1fe310",
+        "wholeIndependentDecision": {
+          "ordinal": 3,
+          "term": "ess",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ess",
+            "noun",
+            "S字形之物",
+            "The blacksmith bent the strip of iron into an ess, with a hook at each end.",
+            "铁匠把铁条弯成S形，两头各有一个钩。"
+          ],
+          "pairSha256": "af8bbe1dcbc137c32013dad94f4e87e8f1f7d322730ff9ee89d7442eee1fe310",
+          "authorPackPointer": "/entries/2",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 6518638,
+            "term": "ess",
+            "partOfSpeech": "noun",
+            "meaning": "n. 字母S, S字形之物\n[计] 电子交换系统",
+            "forms": [
+              "esses"
+            ],
+            "source": "mit",
+            "seed": {
+              "rank": 50952,
+              "forms": [
+                "esses"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "3e0ae5ad24a1558eec81bb69b4c71d5301ba624d0e70966ad28c15bbf0e934a5",
+          "sourcePacketPointer": "/entries/4",
+          "completeContextSemanticSha256": "ada8fe44e0663647d5e732ac5ec7f2ee56dc4ddead2eb707843347e2b6155431",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 字母S, S字形之物\n[计] 电子交换系统",
+          "selectedLiteralMeaning": "S字形之物",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Standalone countable S-shaped object, not suffix -ess or computing ESS.",
+            "en": "An ess is phonologically and grammatically sound; bending iron into an S with an end hook is a concrete S-shaped double-hook scene, not a dictionary-definition filler.",
+            "zh": "弯成S形 and 两头各有一个钩 exactly retain shape and construction.",
+            "register": "Standalone noun and plural esses supported; unrelated computing expansion retained in raw source but not newly approved by this pair."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "voe",
+        "canonicalId": 4255125,
+        "canonicalSourceSha256": "b9a2f86eb6f6c8c089a0fd54dcb760934f448c80b7f5553dc618232df7efaaae",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "101f405ae55475f75c2a2330f0a7e7b3288b62b53ec6165204d9bb56d3f153be",
+        "wholeIndependentDecision": {
+          "ordinal": 4,
+          "term": "voe",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "voe",
+            "noun",
+            "小湾",
+            "They steered the dinghy into a sheltered voe as the wind strengthened.",
+            "风势渐强，他们把小艇驶进一个避风的小湾。"
+          ],
+          "pairSha256": "101f405ae55475f75c2a2330f0a7e7b3288b62b53ec6165204d9bb56d3f153be",
+          "authorPackPointer": "/entries/3",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 4255125,
+            "term": "voe",
+            "partOfSpeech": "noun",
+            "meaning": "n. 小湾",
+            "forms": [
+              "voes"
+            ],
+            "source": "mit",
+            "seed": {
+              "rank": 33251,
+              "forms": [
+                "voes"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "b9a2f86eb6f6c8c089a0fd54dcb760934f448c80b7f5553dc618232df7efaaae",
+          "sourcePacketPointer": "/entries/6",
+          "completeContextSemanticSha256": "02944fb48be253d1a2d1256831536404cb64d40c3e826a9e5b2ce2df3fcf80d2",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 小湾",
+          "selectedLiteralMeaning": "小湾",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Regional Orkney/Shetland inlet or small bay.",
+            "en": "Steered the dinghy into a sheltered voe is natural transitive steering plus destination; strengthening wind supplies a plausible maritime situation.",
+            "zh": "风势渐强 / 驶进避风小湾 preserves progressive wind and destination rather than inventing rescue or danger.",
+            "register": "Regional noun is not relabelled neutral global usage; voes retained, no external alias invented."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "cig",
+        "canonicalId": 5439602,
+        "canonicalSourceSha256": "24fcf8def208dbe190a3f44c40fc5405c4c86dffc40dcb5f10cf692350223abc",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "0cb5cb4b67aa1b580bd5e76a7af7596be09b30bdbb0ceb084a94605b34f08d78",
+        "wholeIndependentDecision": {
+          "ordinal": 5,
+          "term": "cig",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "cig",
+            "noun",
+            "香烟",
+            "He opened the packet and counted the cigs before putting it back in the drawer.",
+            "他打开烟盒，数了数里面的香烟，然后把烟盒放回抽屉。"
+          ],
+          "pairSha256": "0cb5cb4b67aa1b580bd5e76a7af7596be09b30bdbb0ceb084a94605b34f08d78",
+          "authorPackPointer": "/entries/4",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 5439602,
+            "term": "cig",
+            "partOfSpeech": "noun",
+            "meaning": "n. <口>香烟, 雪茄烟(cigarette或cigar的缩略)",
+            "forms": [
+              "cigs"
+            ],
+            "source": "mit",
+            "seed": {
+              "rank": 42515,
+              "forms": [
+                "cigs"
+              ],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "24fcf8def208dbe190a3f44c40fc5405c4c86dffc40dcb5f10cf692350223abc",
+          "sourcePacketPointer": "/entries/8",
+          "completeContextSemanticSha256": "9a354bfb3358aaada0759b8be9b155fa3b861a3934d63828d9e6d0e58b06f731",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. <口>香烟, 雪茄烟(cigarette或cigar的缩略)",
+          "selectedLiteralMeaning": "香烟",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Colloquial cigarette branch; complete cigar branch separately checked, not silently rejected.",
+            "en": "Counted the cigs is a legitimate declared plural; putting it back refers to the packet. Ordinary fictional handling, not smoking instruction or endorsement.",
+            "zh": "香烟 and 烟盒 select the cigarette/packet context; opening, counting and replacing in the drawer all remain intact.",
+            "register": "Informal count noun/plural cigs. Parent cigarette and cigar sources/current whole examples stay separate and unchanged."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "oik",
+        "canonicalId": 6378138,
+        "canonicalSourceSha256": "c45100ef23025ad353e576c635e64f3f290f5d3b4d56ebffebc11c5f8a63d58e",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "0ac1b8b8c23b207dd9598a4e9767171dcc332b1779575cc40fd20405e9155226",
+        "wholeIndependentDecision": {
+          "ordinal": 6,
+          "term": "oik",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "oik",
+            "noun",
+            "粗人",
+            "She objected when he dismissed her neighbours as oiks.",
+            "他轻蔑地把她的邻居说成粗人，她对此表示反对。"
+          ],
+          "pairSha256": "0ac1b8b8c23b207dd9598a4e9767171dcc332b1779575cc40fd20405e9155226",
+          "authorPackPointer": "/entries/5",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 6378138,
+            "term": "oik",
+            "partOfSpeech": "noun",
+            "meaning": "n. [英][口]乡巴佬, 蠢货, 粗人",
+            "forms": [
+              "oiks"
+            ],
+            "source": "mit",
+            "seed": {
+              "rank": 49855,
+              "forms": [
+                "oiks"
+              ],
+              "workbook": true
+            }
+          },
+          "sourceSha256": "c45100ef23025ad353e576c635e64f3f290f5d3b4d56ebffebc11c5f8a63d58e",
+          "sourcePacketPointer": "/entries/9",
+          "completeContextSemanticSha256": "318cf8951a9e0d7a266608fba0ec8c1706eb46d6b03f55ca90fcb744e98b4913",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. [英][口]乡巴佬, 蠢货, 粗人",
+          "selectedLiteralMeaning": "粗人",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "British informal derogatory/class-laden noun 粗人.",
+            "en": "Dismissed her neighbours as oiks is an attributive insult explicitly opposed by she objected; the example does not present a class judgment as fact.",
+            "zh": "轻蔑地把…说成粗人 / 对此表示反对 accurately exposes the dismissal and opposition; no neutral endorsement.",
+            "register": "Count plural oiks valid; derogatory register is essential and preserved in the event, not erased by the selected literal substring."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "bub",
+        "canonicalId": 5423510,
+        "canonicalSourceSha256": "b7cc9facbb16e9bad975d846fd07c50cae978b0570208f35b6ff070771d13020",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "244c1d0046aef0086a3d521131711e9a172d10b4c7738a2fe592a1e498498f65",
+        "wholeIndependentDecision": {
+          "ordinal": 7,
+          "term": "bub",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "bub",
+            "noun",
+            "小家伙",
+            "\"Slow down, bub,\" he said, catching the boy by the sleeve.",
+            "“慢点，小家伙。”他说着，拉住了男孩的衣袖。"
+          ],
+          "pairSha256": "244c1d0046aef0086a3d521131711e9a172d10b4c7738a2fe592a1e498498f65",
+          "authorPackPointer": "/entries/6",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 5423510,
+            "term": "bub",
+            "partOfSpeech": "noun",
+            "meaning": "n. 小弟弟, 小家伙",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 42390,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "b7cc9facbb16e9bad975d846fd07c50cae978b0570208f35b6ff070771d13020",
+          "sourcePacketPointer": "/entries/10",
+          "completeContextSemanticSha256": "0681336c8198979086cd5f2bf777b9b2eb7cf5d41ce14f16f2e6b1cec54984d2",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 小弟弟, 小家伙",
+          "selectedLiteralMeaning": "小家伙",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Informal address to the explicitly present boy: 小家伙, not an invented biological brother.",
+            "en": "Slow down, bub is natural mildly admonishing direct speech; catching the boy by the sleeve gives a concrete youngster context and correct catch-by construction.",
+            "zh": "慢点，小家伙 / 拉住男孩的衣袖 follows the speech and action; does not add younger sibling or baby.",
+            "register": "US informal/slang, potentially insolent address. The quoted admonition fits that register rather than treating it as a formal label."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "rx",
+        "canonicalId": 4572695,
+        "canonicalSourceSha256": "31aeb1e161206ede027a480582d03a4ca9fd4ad8cb4fdb5168ec9bca27fece32",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "946223c13e0cb9813032c3b60cdeb104a692f9b1fb0dbe88f7d2c423f068b571",
+        "wholeIndependentDecision": {
+          "ordinal": 8,
+          "term": "rx",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "rx",
+            "noun",
+            "处方",
+            "The pharmacist asked for a clearer copy of the Rx because the date was illegible.",
+            "药剂师要求提供一份更清楚的处方副本，因为上面的日期难以辨认。"
+          ],
+          "pairSha256": "946223c13e0cb9813032c3b60cdeb104a692f9b1fb0dbe88f7d2c423f068b571",
+          "authorPackPointer": "/entries/7",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 4572695,
+            "term": "rx",
+            "partOfSpeech": "noun",
+            "meaning": "n. 处方；治疗方案",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 35735,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "31aeb1e161206ede027a480582d03a4ca9fd4ad8cb4fdb5168ec9bca27fece32",
+          "sourcePacketPointer": "/entries/11",
+          "completeContextSemanticSha256": "25f37a9e2f6b32ce21804975b194ac32036d98171be9ff879cf6365c440d2c82",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 处方；治疗方案",
+          "selectedLiteralMeaning": "处方",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Prescription noun 处方, not a new medical instruction or invented drug regimen.",
+            "en": "Copy of the Rx is conventional noun use and casing. Pharmacist asks for a clearer copy because the date is illegible; no treatment action recommended.",
+            "zh": "要求提供更清楚的处方副本 / 日期难以辨认 keeps request, reason and copy scope.",
+            "register": "Informal prescription abbreviation used as noun; source treatment-plan branch retained, not separately exemplified."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "lao",
+        "canonicalId": 4319139,
+        "canonicalSourceSha256": "26d2a7b4a9c3b3fc5d5e803156163f6b7080e1fbbcab1710341b0f034ecc1f81",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "f68892a4d00253fb19691fa78de13d73b809570eeb56f267638284057151f5f7",
+        "wholeIndependentDecision": {
+          "ordinal": 9,
+          "term": "lao",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "lao",
+            "noun",
+            "老挝语",
+            "She translated the announcement from Lao into English before reading it aloud.",
+            "她先把通知从老挝语译成英语，然后大声读了出来。"
+          ],
+          "pairSha256": "f68892a4d00253fb19691fa78de13d73b809570eeb56f267638284057151f5f7",
+          "authorPackPointer": "/entries/8",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 4319139,
+            "term": "lao",
+            "partOfSpeech": "noun",
+            "meaning": "n. 老挝语；老挝人",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 33752,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "26d2a7b4a9c3b3fc5d5e803156163f6b7080e1fbbcab1710341b0f034ecc1f81",
+          "sourcePacketPointer": "/entries/13",
+          "completeContextSemanticSha256": "4ae62cf4e3fb1f46c0a98bded07bed521a28b6d853a0662ae89498eca5aaf4a2",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 老挝语；老挝人",
+          "selectedLiteralMeaning": "老挝语",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Language noun 老挝语, not ethnic-person or adjectival branch.",
+            "en": "Translate from Lao into English then read aloud is natural language-noun syntax and chronological sequence.",
+            "zh": "先…译成英语，然后大声读出来 matches source language, target language and sequence.",
+            "register": "Conventional capitalized language name; no claim about all speakers or a real announcement."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "yi",
+        "canonicalId": 6299175,
+        "canonicalSourceSha256": "237e217c8cd102a72e96d7e60929665248219b1c900e1607fcf2d19633a8c6c9",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "9dbf86b35b83331e501e98ae106453492d086edff282d40803a79e7d1615a328",
+        "wholeIndependentDecision": {
+          "ordinal": 10,
+          "term": "yi",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "yi",
+            "noun",
+            "彝语",
+            "The archive includes a recording of her grandmother telling a story in Yi.",
+            "档案中收录了一段她祖母用彝语讲故事的录音。"
+          ],
+          "pairSha256": "9dbf86b35b83331e501e98ae106453492d086edff282d40803a79e7d1615a328",
+          "authorPackPointer": "/entries/9",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 6299175,
+            "term": "yi",
+            "partOfSpeech": "noun",
+            "meaning": "n. 彝人；彝语",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 49236,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "237e217c8cd102a72e96d7e60929665248219b1c900e1607fcf2d19633a8c6c9",
+          "sourcePacketPointer": "/entries/15",
+          "completeContextSemanticSha256": "82da808fd2b865606d86832592cd62db8993bb8cc4a90d6e3d581dd01598b38c",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 彝人；彝语",
+          "selectedLiteralMeaning": "彝语",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Language noun 彝语, not ISO yi for Yiddish or an ethical-philosophy term.",
+            "en": "Telling a story in Yi is a natural fictional recording context. It does not assert all Yi varieties form one standardized language/script or give unsupported demographic facts.",
+            "zh": "档案收录祖母用彝语讲故事的录音 preserves the archival object and actor without adding a recording date or standard variety.",
+            "register": "Capitalized language label. LOC names Sichuan Yi/Nuosu with ii/iii; that is used only to distinguish language identity, not to narrow/rewrite the raw Chinese source."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "wes",
+        "canonicalId": 2962734,
+        "canonicalSourceSha256": "f601513bb56e5478837b7d646d1872a7717faedeeff65fb63ba082530f5ad73b",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "682753315d2336d67c7fb4a7b5a4b66eb74cb66b5a03667c8da1c0a66cf3f6a3",
+        "wholeIndependentDecision": {
+          "ordinal": 11,
+          "term": "wes",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "wes",
+            "noun",
+            "韦斯",
+            "Wes stayed behind after the meeting to help stack the chairs.",
+            "韦斯在会议结束后留了下来，帮忙把椅子摞好。"
+          ],
+          "pairSha256": "682753315d2336d67c7fb4a7b5a4b66eb74cb66b5a03667c8da1c0a66cf3f6a3",
+          "authorPackPointer": "/entries/10",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 2962734,
+            "term": "wes",
+            "partOfSpeech": "noun",
+            "meaning": "n. 韦斯（Wesley的昵称, 男子名）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 23152,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "f601513bb56e5478837b7d646d1872a7717faedeeff65fb63ba082530f5ad73b",
+          "sourcePacketPointer": "/entries/17",
+          "completeContextSemanticSha256": "a4c9f71c41efd3e8bc4449e293ddd8ff91b3645a150b30a40dc55267852896a6",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 韦斯（Wesley的昵称, 男子名）",
+          "selectedLiteralMeaning": "韦斯",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Existing personal-name form of Wesley: 韦斯.",
+            "en": "Stayed behind after the meeting to help stack chairs is idiomatic, purposeful and fictional.",
+            "zh": "会议结束后留了下来 / 帮忙把椅子摞好 is exact in chronology and action, with no added social role.",
+            "register": "Capitalized name; actual Wesley parent and its pre-existing example are not borrowed, rewritten or newly approved."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ns",
+        "canonicalId": 3478118,
+        "canonicalSourceSha256": "df360c0b63a5cc7784c986df9ffea86ed708da2fc6d36e9cf85875ec0fd7679f",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "30e4cb0f87cc811fd3116bc5265dff339d7e8f0040616a8b099d587ceff4bbf3",
+        "wholeIndependentDecision": {
+          "ordinal": 12,
+          "term": "ns",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ns",
+            "noun",
+            "纳秒",
+            "The second pulse arrived 12 ns after the first.",
+            "第二个脉冲比第一个晚到12纳秒。"
+          ],
+          "pairSha256": "30e4cb0f87cc811fd3116bc5265dff339d7e8f0040616a8b099d587ceff4bbf3",
+          "authorPackPointer": "/entries/11",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 3478118,
+            "term": "ns",
+            "partOfSpeech": "noun",
+            "meaning": "[计] 毫微秒, 纳秒",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 27178,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[计] 毫微秒, 纳秒",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "df360c0b63a5cc7784c986df9ffea86ed708da2fc6d36e9cf85875ec0fd7679f",
+          "sourcePacketPointer": "/entries/18",
+          "completeContextSemanticSha256": "c3fc592e1963e3b77267606875e6eb208608af308bea6b51de54180bf6743539",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[计] 毫微秒, 纳秒",
+          "selectedLiteralMeaning": "纳秒",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Time unit nanosecond 纳秒.",
+            "en": "12 ns uses correct space and case, unchanged plural-invariant symbol; second pulse after first explicitly supplies the measured time interval.",
+            "zh": "第二个脉冲比第一个晚到12纳秒 exactly preserves order and interval.",
+            "register": "Technical symbol noun in a numeric measurement; no declared forms exist to clear by inference."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "nv",
+        "canonicalId": 4198853,
+        "canonicalSourceSha256": "22070e0564d4ad458e8fbc44360276704ac5d455921910d91fc628025aac3b50",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "7ca143d83bd0371152f2ab76f442efb3627254959e838186737bab8e4f5540e6",
+        "wholeIndependentDecision": {
+          "ordinal": 13,
+          "term": "nv",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "nv",
+            "noun",
+            "十亿分之一伏",
+            "The recorded signal was only 8 nV, so we repeated the measurement.",
+            "记录到的信号只有8纳伏，因此我们重新测量了一次。"
+          ],
+          "pairSha256": "7ca143d83bd0371152f2ab76f442efb3627254959e838186737bab8e4f5540e6",
+          "authorPackPointer": "/entries/12",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 4198853,
+            "term": "nv",
+            "partOfSpeech": "noun",
+            "meaning": "[电] 十亿分之一伏",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 32811,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[电] 十亿分之一伏",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "22070e0564d4ad458e8fbc44360276704ac5d455921910d91fc628025aac3b50",
+          "sourcePacketPointer": "/entries/19",
+          "completeContextSemanticSha256": "e2e4cbcc352a903e8f4a2f5374e756f61b7e7fe3fc86875fbbb31d1306c880c9",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[电] 十亿分之一伏",
+          "selectedLiteralMeaning": "十亿分之一伏",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Voltage unit one billionth of a volt: 十亿分之一伏.",
+            "en": "8 nV uses nano plus volt with correct case/spacing; recorded signal and repeated measurement are coherent fictional voltage-measurement prose, not NV company or unrelated abbreviation.",
+            "zh": "8纳伏 is exactly 8 times 10^-9 V, not an altered source definition; only / 因此重新测量 preserves smallness and consequence.",
+            "register": "Plural-invariant case-sensitive symbol; no new alias or source POS rewrite."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "nw",
+        "canonicalId": 3317938,
+        "canonicalSourceSha256": "a80aa32c2f21cfbf12b6319432963414c24dabd77d08f4778e1da848b13f60e5",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "91e332a4c8100fbcb8be86606ef8e6bb96f2e8e454499b47e685c3a0a5941b33",
+        "wholeIndependentDecision": {
+          "ordinal": 14,
+          "term": "nw",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "nw",
+            "noun",
+            "十亿分之一瓦",
+            "The detector measured 4 nW of optical power at the end of the fibre.",
+            "探测器在光纤末端测得4纳瓦的光功率。"
+          ],
+          "pairSha256": "91e332a4c8100fbcb8be86606ef8e6bb96f2e8e454499b47e685c3a0a5941b33",
+          "authorPackPointer": "/entries/13",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 3317938,
+            "term": "nw",
+            "partOfSpeech": "noun",
+            "meaning": "[电] 十亿分之一瓦",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 25927,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[电] 十亿分之一瓦",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "a80aa32c2f21cfbf12b6319432963414c24dabd77d08f4778e1da848b13f60e5",
+          "sourcePacketPointer": "/entries/20",
+          "completeContextSemanticSha256": "d97e9b913b9e5b4a610b49c70051dad40368c66780d44827eb484bf997eeaaf9",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[电] 十亿分之一瓦",
+          "selectedLiteralMeaning": "十亿分之一瓦",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Power unit one billionth of a watt: 十亿分之一瓦.",
+            "en": "4 nW of optical power at the end of the fibre is natural detector-measurement syntax; power is not confused with energy or compass NW.",
+            "zh": "4纳瓦的光功率 / 光纤末端 / 探测器测得 precisely preserves physical quantity and location.",
+            "register": "Correct nW spelling and numeric spacing, no plural-s or new forms."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ka",
+        "canonicalId": 3322193,
+        "canonicalSourceSha256": "7c8221b74c15299451cc3b7cca2137db51cfcd1d0c8007a4d83eaddd91d0ead8",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "7c881b02df24a87477456059156c2c9d36cfeb30b778c05008e6eaedccdd7f92",
+        "wholeIndependentDecision": {
+          "ordinal": 15,
+          "term": "ka",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ka",
+            "noun",
+            "千安培",
+            "The test current reached 2 kA before the circuit opened.",
+            "电路断开前，测试电流达到了2千安培。"
+          ],
+          "pairSha256": "7c881b02df24a87477456059156c2c9d36cfeb30b778c05008e6eaedccdd7f92",
+          "authorPackPointer": "/entries/14",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 3322193,
+            "term": "ka",
+            "partOfSpeech": "noun",
+            "meaning": "[电] 千安培",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 25960,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[电] 千安培",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "7c8221b74c15299451cc3b7cca2137db51cfcd1d0c8007a4d83eaddd91d0ead8",
+          "sourcePacketPointer": "/entries/21",
+          "completeContextSemanticSha256": "4c3f5457dfee606c808711807b088ce60796894d4083c7f80f457592457d3f3c",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[电] 千安培",
+          "selectedLiteralMeaning": "千安培",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Electrical current unit kiloampere 千安培.",
+            "en": "2 kA before the circuit opened preserves a current threshold and temporal event with correct case/space; not geological ka or an operating instruction.",
+            "zh": "电路断开前 / 测试电流达到了2千安培 preserves physical quantity, amount and sequence.",
+            "register": "Technical numeric symbol, invariant plural; existing [电] domain retained by explicit current/circuit context."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "kv",
+        "canonicalId": 5827988,
+        "canonicalSourceSha256": "0405c6815df2e31eaaadd5e37d75a3e36b5beb4776eb4adc96a3107b0f9687ab",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "77072f608ea901def9ef7bd2d47b693eadb95da9a1b04b34bf7f2a58da410c13",
+        "wholeIndependentDecision": {
+          "ordinal": 16,
+          "term": "kv",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "kv",
+            "noun",
+            "千伏",
+            "The X-ray machine's settings screen showed a tube voltage of 80 kV.",
+            "X光机的设置屏幕显示，管电压为80千伏。"
+          ],
+          "pairSha256": "77072f608ea901def9ef7bd2d47b693eadb95da9a1b04b34bf7f2a58da410c13",
+          "authorPackPointer": "/entries/15",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 5827988,
+            "term": "kv",
+            "partOfSpeech": "noun",
+            "meaning": "[医] 千伏[特]",
+            "forms": [],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 45550,
+              "forms": [],
+              "workbook": false
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[医] 千伏[特]",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "0405c6815df2e31eaaadd5e37d75a3e36b5beb4776eb4adc96a3107b0f9687ab",
+          "sourcePacketPointer": "/entries/22",
+          "completeContextSemanticSha256": "823c133f8eca8550413c614bdcff087ed788e17b23e88e092fa39963e42688fb",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[医] 千伏[特]",
+          "selectedLiteralMeaning": "千伏",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Medical-context voltage unit kilovolt 千伏.",
+            "en": "Tube voltage shown on an X-ray settings screen gives the existing [医] context; 80 kV is correctly cased/spaced. A fictional display is not a recommended patient dose or procedure.",
+            "zh": "X光机设置屏幕显示 / 管电压为80千伏 retains display, device, quantity and value.",
+            "register": "Technical invariant symbol; no source reclassification or equipment-setting advice."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "cpi",
+        "canonicalId": 11139901,
+        "canonicalSourceSha256": "c4e4a3b39c0cbbb10fb2ac716b0851ca404ba25805483307d8b4c901fdc2357b",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "fdf05c3ef4be296e50dc5456c2d152521d19e1a9b9db905971fcfa960754c02c",
+        "wholeIndependentDecision": {
+          "ordinal": 17,
+          "term": "cpi",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "cpi",
+            "noun",
+            "消费者物价指数",
+            "The analyst added a note explaining why the CPI was missing from the table.",
+            "分析员加了一条注释，解释表格中为什么没有列出消费者物价指数。"
+          ],
+          "pairSha256": "fdf05c3ef4be296e50dc5456c2d152521d19e1a9b9db905971fcfa960754c02c",
+          "authorPackPointer": "/entries/16",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 11139901,
+            "term": "cpi",
+            "partOfSpeech": "noun",
+            "meaning": "[计] 每英寸字符数\n[经] 消费者物价指数",
+            "forms": [
+              "cpis"
+            ],
+            "source": "pos-reviewed",
+            "seed": {
+              "rank": 96012,
+              "forms": [
+                "cpis"
+              ],
+              "workbook": true
+            },
+            "variants": [
+              {
+                "partOfSpeech": "",
+                "meaning": "[计] 每英寸字符数\n[经] 消费者物价指数",
+                "source": "mit"
+              }
+            ]
+          },
+          "sourceSha256": "c4e4a3b39c0cbbb10fb2ac716b0851ca404ba25805483307d8b4c901fdc2357b",
+          "sourcePacketPointer": "/entries/23",
+          "completeContextSemanticSha256": "9f774acac70293b3a472c3b9c9884209cdc3552737ab33f1001da099de79d951",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "[计] 每英寸字符数\n[经] 消费者物价指数",
+          "selectedLiteralMeaning": "消费者物价指数",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Economic Consumer Price Index branch, not characters per inch.",
+            "en": "The analyst and missing-table note are a natural fictional data-editing situation using the noun CPI; not a dictionary definition, current statistic or investment advice.",
+            "zh": "分析员加注释解释表中未列出消费者物价指数 preserves actor, act and omission; no real inflation claim added.",
+            "register": "Conventional capitalized economic acronym; cpis is lexical index plural territory, not an SI unit symbol, and is not a new alias approval."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "dax",
+        "canonicalId": 5497834,
+        "canonicalSourceSha256": "f8714b6573ba9ef70ff78c15f8d2920d3f34292eaf054b0aec33944ad99ace57",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "021703c9f29906000a67be4b942e946b2bd3702a83efeb870d8d13a6216aa93a",
+        "wholeIndependentDecision": {
+          "ordinal": 18,
+          "term": "dax",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "dax",
+            "noun",
+            "达克斯",
+            "We booked a room in Dax for the night and continued our journey the next morning.",
+            "我们在达克斯预订了一晚的房间，第二天早晨继续赶路。"
+          ],
+          "pairSha256": "021703c9f29906000a67be4b942e946b2bd3702a83efeb870d8d13a6216aa93a",
+          "authorPackPointer": "/entries/17",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 5497834,
+            "term": "dax",
+            "partOfSpeech": "noun",
+            "meaning": "n. 达克斯（法国西南部一座城市）",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 42970,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "f8714b6573ba9ef70ff78c15f8d2920d3f34292eaf054b0aec33944ad99ace57",
+          "sourcePacketPointer": "/entries/24",
+          "completeContextSemanticSha256": "bac91e2196d25d4752961375f5d24bddce8d3955e926bfa1939cc09d8a6b4a8a",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 达克斯（法国西南部一座城市）",
+          "selectedLiteralMeaning": "达克斯",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "French city Dax, not DAX stock index or a newly invented given name.",
+            "en": "Booked a room in Dax for the night then continued next morning is natural fictional travel prose with place-name syntax; no actual booking/recommendation claim.",
+            "zh": "在达克斯预订一晚房间 / 第二天早晨继续赶路 preserves place, duration and sequence.",
+            "register": "Proper place-name casing; full source city/location description retained; no failed-PDF or map-reading claim."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "ait",
+        "canonicalId": 7486321,
+        "canonicalSourceSha256": "5d9c1a5eb0460df759fe0a4e414cf124ff231173c14701ff5357f35005e4d78d",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "df4d52670ccd85dce4c646f2ba1e4529ff282a7bd759e24748cce195b15c5c3a",
+        "wholeIndependentDecision": {
+          "ordinal": 19,
+          "term": "ait",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "ait",
+            "noun",
+            "河中的小岛",
+            "A narrow channel separated the willow-covered ait from the riverbank.",
+            "一条狭窄的水道把那座长满柳树的河中小岛与河岸隔开。"
+          ],
+          "pairSha256": "df4d52670ccd85dce4c646f2ba1e4529ff282a7bd759e24748cce195b15c5c3a",
+          "authorPackPointer": "/entries/18",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 7486321,
+            "term": "ait",
+            "partOfSpeech": "noun",
+            "meaning": "n. 河中的小岛\n[计] 属性信息表, 自动信息测试",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 58543,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "5d9c1a5eb0460df759fe0a4e414cf124ff231173c14701ff5357f35005e4d78d",
+          "sourcePacketPointer": "/entries/25",
+          "completeContextSemanticSha256": "b937a5998c9554fc738ed7458199e0763ab425c0344f20936f8a1d3572aef8dc",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. 河中的小岛\n[计] 属性信息表, 自动信息测试",
+          "selectedLiteralMeaning": "河中的小岛",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "British dialect river-islet noun 河中的小岛.",
+            "en": "Willow-covered island separated from riverbank by narrow channel explicitly establishes river context and island topology; count singular ait is natural.",
+            "zh": "狭窄水道 / 长满柳树的河中小岛 / 河岸 retains each relation exactly.",
+            "register": "Dialect register preserved as a lexical restriction in review metadata; the pair does not approve unrelated computing expansions or invent eyot alias routing."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "jus",
+        "canonicalId": 3054705,
+        "canonicalSourceSha256": "1ca29e9dc60db72c4b3250cc7ef40ac0b9c1ce7da3b282d629f8bb77eb9e1ac5",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "49abc3fc2efdff7134a251cfa1235ced19c07ada7082b69b18f6251b601dac60",
+        "wholeIndependentDecision": {
+          "ordinal": 20,
+          "term": "jus",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "jus",
+            "noun",
+            "汁液",
+            "She saved the jus from the roasting tin and spooned it over the sliced beef.",
+            "她留下烤盘里的肉汁，用勺子浇在切好的牛肉上。"
+          ],
+          "pairSha256": "49abc3fc2efdff7134a251cfa1235ced19c07ada7082b69b18f6251b601dac60",
+          "authorPackPointer": "/entries/19",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 3054705,
+            "term": "jus",
+            "partOfSpeech": "noun",
+            "meaning": "n. （拉）法律；权利；法律原则；（法）汁液",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 23870,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "1ca29e9dc60db72c4b3250cc7ef40ac0b9c1ce7da3b282d629f8bb77eb9e1ac5",
+          "sourcePacketPointer": "/entries/26",
+          "completeContextSemanticSha256": "cf781b949a03be3799b22f3a1a8a5fd280d55649991f58f0fcc56bfa2a95e8f4",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. （拉）法律；权利；法律原则；（法）汁液",
+          "selectedLiteralMeaning": "汁液",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "French culinary juice/gravy branch 汁液, not Latin law/right/principle.",
+            "en": "The jus from a roasting tin spooned over sliced beef is natural mass-noun culinary usage; no incorrect plural/count construction or legal sense.",
+            "zh": "烤盘里的肉汁 / 用勺子浇在切好牛肉上 is the context-specific translation of existing juice, not an invented replacement canonical definition.",
+            "register": "Culinary French-origin noun; source legal branches remain complete and outside this selected-pair approval."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      },
+      {
+        "term": "aly",
+        "canonicalId": 7870267,
+        "canonicalSourceSha256": "2158ceccde9224a9a0e6dc84c83186b990618102665b6f3d5998711469e533c2",
+        "authorPrincipal": "d32_author_source9",
+        "reviewerPrincipal": "d32_reviewer_role",
+        "pairSha256": "5cd01e04cbf6510d7922b085fe089dca1ac9a1ac00589f1648dc5868dcb9e03c",
+        "wholeIndependentDecision": {
+          "ordinal": 21,
+          "term": "aly",
+          "decision": "support-exact-original-pair-for-possible-admission",
+          "pair": [
+            "aly",
+            "noun",
+            "阿利",
+            "Aly left a spare key with a neighbour before we set off for the weekend.",
+            "我们出发去度周末前，阿利在邻居那里留了一把备用钥匙。"
+          ],
+          "pairSha256": "5cd01e04cbf6510d7922b085fe089dca1ac9a1ac00589f1648dc5868dcb9e03c",
+          "authorPackPointer": "/entries/20",
+          "authorPrincipal": "d32_author_source9",
+          "reviewerPrincipal": "d32_reviewer_role",
+          "source": {
+            "id": 7870267,
+            "term": "aly",
+            "partOfSpeech": "noun",
+            "meaning": "n. (Aly)人名；(德、英、法、葡)阿利；(哈萨、乌兹、吉尔、塔吉、俄)阿雷；(几、阿拉伯)阿里",
+            "forms": [],
+            "source": "mit",
+            "seed": {
+              "rank": 61561,
+              "forms": [],
+              "workbook": false
+            }
+          },
+          "sourceSha256": "2158ceccde9224a9a0e6dc84c83186b990618102665b6f3d5998711469e533c2",
+          "sourcePacketPointer": "/entries/27",
+          "completeContextSemanticSha256": "51a4bf19beaee2384698b3b542932fb74ee495626375e9a053cbf099f0c7475b",
+          "completeContextPersonallyRead": true,
+          "completeCurrentCanonicalAndEveryFormRoleAuthenticated": true,
+          "sourcePrecisionDecision": "selected literal sense/POS supported; complete raw source/variants/forms retained, no source repair or unrelated-branch blanket approval",
+          "fullRawMeaning": "n. (Aly)人名；(德、英、法、葡)阿利；(哈萨、乌兹、吉尔、塔吉、俄)阿雷；(几、阿拉伯)阿里",
+          "selectedLiteralMeaning": "阿利",
+          "selectedMeaningIsExactRawSubstring": true,
+          "omittedDomainOrRegisterLimitsNotErased": true,
+          "reasoning": {
+            "sense": "Existing person-name noun, explicit source transliteration 阿利.",
+            "en": "Fictional capitalized Aly leaves a spare key with a neighbour before we set off for the weekend; natural leave-with and temporal clause.",
+            "zh": "阿利在邻居那里留备用钥匙 / 我们出发度周末前 preserves possession arrangement, actor and first-person plural.",
+            "register": "No nationality/gender/biography inferred from a transliteration; alternate source 阿雷/阿里 branches remain unchanged."
+          },
+          "originalCellsUnchanged": true,
+          "repairAuthoredByReviewer": false,
+          "independentLanguageSupport": true,
+          "newExampleRuntimeProof": false
+        }
+      }
+    ]
+  }
+}
