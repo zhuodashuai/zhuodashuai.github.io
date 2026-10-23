@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "272aae7659820b9444b115bd4781d84c49be567f87d871017daf86214e95b265",
+  "reviewer": "AI/d31_p002_review_source9_independent",
+  "reviewerPrincipal": "d31_p002_review_source9_independent",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "bertram"
+  ],
+  "issues": [],
+  "mechanicalProjectionOfExistingPinnedOpinionsOnly": true,
+  "exactSelectedPairBindings": [
+    {
+      "term": "bertram",
+      "sourceId": 3717182,
+      "sourceSha256": "3e6cb49f0e3228efb86141d09468e6cca372d271a4cd116b7d56e8e2bdc7a152",
+      "pairSha256": "5d8fac9b4bb2c3c86491b325f3dbaf3741236b9147cd323db74d0728f514b4b0",
+      "authorPrincipal": "d31_author_root_bertram",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p002-independent\\BERTRAM-CHILD-REVIEW-0001.json",
+        "bytes": 8417,
+        "sha256": "f763ec1be7db34df5191a4ad78bb339b84c88fd5b943bc115a5b68acd10250af"
+      },
+      "pointer": "",
+      "decisionObjectSha256": "3d08015cfd646c6846d9ea40bb536332fdff3dc0fdfb0311369b4eec347e9595"
+    }
+  ],
+  "allHoldsAndAllEarlierOriginalOpinionsRetained": true,
+  "newLanguageApprovalGenerated": false
+}

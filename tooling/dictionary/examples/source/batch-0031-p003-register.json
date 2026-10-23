@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-0031-p003-register",
+  "authorship": "independent-composition",
+  "authorPrincipal": "d31_author_role",
+  "entries": [
+    {
+      "term": "blighter",
+      "partOfSpeech": "noun",
+      "meaningZh": "n. 讨厌的人, 可厌的家伙",
+      "en": "\"That blighter has taken my umbrella again,\" the porter muttered.",
+      "zh": "“那个讨厌的家伙又把我的伞拿走了，”门房嘟囔道。"
+    },
+    {
+      "term": "hayseed",
+      "partOfSpeech": "noun",
+      "meaningZh": "n. 乡下佬",
+      "en": "\"Stop calling her a hayseed,\" the manager said to the sneering salesman.",
+      "zh": "“别再叫她乡下佬了，”经理对那个冷笑着的推销员说。"
+    },
+    {
+      "term": "horseshit",
+      "partOfSpeech": "noun",
+      "meaningZh": "n. 胡说, 谎话",
+      "en": "\"That's horseshit,\" the mechanic snapped, refusing to sign the forged inspection report.",
+      "zh": "“那纯属狗屁，”修理工厉声说道，拒绝在那份伪造的检验报告上签字。"
+    },
+    {
+      "term": "softie",
+      "partOfSpeech": "noun",
+      "meaningZh": "n. 1.柔弱的人 2.笨人",
+      "en": "His older brother teasingly called him a softie when he complained that the empty backpack was too heavy.",
+      "zh": "他抱怨空背包太重时，哥哥便打趣地叫他娇弱的家伙。"
+    }
+  ],
+  "projectionOnly": true,
+  "exactAuthorEvidence": [
+    {
+      "term": "blighter",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p003-register-four-original-author-pack-0001.json",
+          "bytes": 31278,
+          "sha256": "c08e0adc0f00994aa1dcbb31a083fd395bd5e304dbf4a64375b28441e19bfea9"
+        },
+        "pointer": "/entries/0",
+        "objectSha256": "f5bec87aaa37685f3b091e63fc8a50c16cbe8da43e584ec453df6e522d8eb698"
+      },
+      "selectedChildAuthorBinding": null
+    },
+    {
+      "term": "hayseed",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p003-register-four-original-author-pack-0001.json",
+          "bytes": 31278,
+          "sha256": "c08e0adc0f00994aa1dcbb31a083fd395bd5e304dbf4a64375b28441e19bfea9"
+        },
+        "pointer": "/entries/1",
+        "objectSha256": "a1ece28196f1b0f019d6f3fc48ad0ab4ecabfe5bcf94cfa2cb8be408d10ba596"
+      },
+      "selectedChildAuthorBinding": null
+    },
+    {
+      "term": "horseshit",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p003-register-four-original-author-pack-0001.json",
+          "bytes": 31278,
+          "sha256": "c08e0adc0f00994aa1dcbb31a083fd395bd5e304dbf4a64375b28441e19bfea9"
+        },
+        "pointer": "/entries/2",
+        "objectSha256": "0c21a6ca299ea7941c52938ad2ccdba7edc700440a869c4537969d62d0822b6d"
+      },
+      "selectedChildAuthorBinding": null
+    },
+    {
+      "term": "softie",
+      "originalAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p003-register-four-original-author-pack-0001.json",
+          "bytes": 31278,
+          "sha256": "c08e0adc0f00994aa1dcbb31a083fd395bd5e304dbf4a64375b28441e19bfea9"
+        },
+        "pointer": "/entries/3",
+        "objectSha256": "bb2e4fa2c6485b83eec93d57802dc0d02b2a533370a7c23b65497f46f3468eaa"
+      },
+      "selectedChildAuthorBinding": {
+        "input": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\drafts\\d31-p003-register-softie-one-cell-author-revision-0001.json",
+          "bytes": 8546,
+          "sha256": "b2cfe7412fa031619d48319fc39fc0858def1deceb09e1dd08dd07ff602f7133"
+        },
+        "pointer": "",
+        "objectSha256": "9e2d4ec9b6fc0331354b7d6b4490fd4217547b9392dab60a12fae60efcbac3a8",
+        "completeObject": {
+          "schemaVersion": 1,
+          "kind": "Distinct softie one-cell author revision only; original retained; not approval",
+          "authorPrincipal": "d31_author_role",
+          "frozenAt": "2026-10-23T16:08:08.730Z",
+          "originalPack": {
+            "file": "C:/Users/14038/Documents/ChatGPT/github.io/outputs/dictionary-examples-0031/drafts/d31-p003-register-four-original-author-pack-0001.json",
+            "bytes": 31278,
+            "sha256": "c08e0adc0f00994aa1dcbb31a083fd395bd5e304dbf4a64375b28441e19bfea9"
+          },
+          "completeOriginalEntry": {
+            "ordinal": 93,
+            "poolOrdinal": 1538,
+            "term": "softie",
+            "source": {
+              "id": 4891171,
+              "term": "softie",
+              "partOfSpeech": "noun",
+              "meaning": "n. 1.柔弱的人 2.笨人",
+              "forms": [],
+              "source": "mit",
+              "seed": {
+                "rank": 38226,
+                "forms": [],
+                "workbook": true
+              }
+            },
+            "sourceSha256": "a85288f651a6d38d0a1688e7b3c137dee6c190d6d3abd65672c4fd8b592ec87d",
+            "priorReasonBearingQueueObjects": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json",
+                "rawFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+                "pointer": "/deferred/815",
+                "completeObject": {
+                  "term": "softie",
+                  "reason": "Potentially insulting person label and orthographic variant of deferred softy; deferred under insulting-term rule.",
+                  "stage": "authoring"
+                },
+                "objectSha256": "1b9a526ed114c6c1bb0ab018186bd5bb09a2aaab541985f38021d943b8319620"
+              }
+            ],
+            "sourceFormReferences": {
+              "declaredForms": [],
+              "seedForms": [],
+              "allActualKeysReferencingCanonicalId": [
+                {
+                  "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-035.json",
+                  "rawFileSha256": "0b889f032c1bb35774968aaffb4201ff53579c341ea12be89f831656856c7411",
+                  "key": "softie",
+                  "references": [
+                    {
+                      "id": 4891171,
+                      "kind": "canonical"
+                    }
+                  ]
+                }
+              ],
+              "relevantCanonicalAndFormKeys": [
+                {
+                  "key": "softie",
+                  "actualBindings": [
+                    {
+                      "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\vocab\\data\\expanded-dictionary\\cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644\\en-035.json",
+                      "rawFileSha256": "0b889f032c1bb35774968aaffb4201ff53579c341ea12be89f831656856c7411",
+                      "pointer": "/keys/931",
+                      "completeKeyTuple": [
+                        "softie",
+                        [
+                          {
+                            "id": 4891171,
+                            "kind": "canonical"
+                          }
+                        ]
+                      ],
+                      "allReferencedCompleteSourceObjects": [
+                        {
+                          "id": 4891171,
+                          "term": "softie",
+                          "partOfSpeech": "noun",
+                          "meaning": "n. 1.柔弱的人 2.笨人",
+                          "forms": [],
+                          "source": "mit",
+                          "seed": {
+                            "rank": 38226,
+                            "forms": [],
+                            "workbook": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "lexicalCrossReferenceContext": [],
+            "contextSourcesNotSelectedApprovedOrChanged": true,
+            "pair": [
+              "softie",
+              "noun",
+              "n. 1.柔弱的人 2.笨人",
+              "His brother teasingly called him a softie when he complained that the empty backpack was too heavy.",
+              "他抱怨空背包太重时，哥哥便打趣地叫他娇弱的家伙。"
+            ],
+            "pairSha256": "68d9e2d5880cfed96093dbd000134ba94cf28113fde178fbb5ed3746bc7ddfa4",
+            "authorPrincipal": "d31_author_role",
+            "status": "new-register-sensitive-author-proposal-only",
+            "selectedSourceBranch": "柔弱的人 (first branch), not the distinct kind-hearted/sentimental branch; the separate 笨人 branch remains unchanged and is supported lexically, not exemplified by this pair.",
+            "registerDecision": "Informal and potentially disapproving, here a specifically attributed teasing person label, not a neutral factual diagnosis of weakness or intelligence.",
+            "wholePairReading": "Singular count complement after called him a. Empty and too heavy make the selected physical-weakness teasing reading explicit; brother, complained, and teasingly remain in Chinese. No source/form merge with softy is proposed.",
+            "primaryEvidence": [
+              {
+                "url": "https://www.merriam-webster.com/dictionary/softie",
+                "readScope": "Publisher full relevant softy/softie spelling, noun sense1 and separate sense2 read.",
+                "finding": "Softie is an alternative spelling; the weak/foolish-person branch is separate from softhearted/sentimental. Both current Chinese branches have lexical support."
+              },
+              {
+                "url": "https://www.collinsdictionary.com/us/dictionary/english/softie",
+                "readScope": "Publisher-indexed relevant COBUILD/British/American branch text read; not claimed as pixel inspection.",
+                "finding": "The informal softy variant includes weakly foolish/lacking-physical-endurance readings; the selected pair does not substitute the unrelated kind-person reading."
+              }
+            ],
+            "priorReasonResponses": [
+              {
+                "file": "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json",
+                "pointer": "/deferred/815",
+                "rawFileSha256": "d1ec5fa6db6537c81cb12a7d2cc89489064e677d6b2432349d5b28c92aadf895",
+                "objectSha256": "1b9a526ed114c6c1bb0ab018186bd5bb09a2aaab541985f38021d943b8319620",
+                "originalObjectPreserved": true,
+                "authorResponse": "Original complete register hold retained. Separate new contextual proposal, not erasure of the hold: Informal and potentially disapproving, here a specifically attributed teasing person label, not a neutral factual diagnosis of weakness or intelligence. 柔弱的人 (first branch), not the distinct kind-hearted/sentimental branch; the separate 笨人 branch remains unchanged and is supported lexically, not exemplified by this pair.",
+                "independentDisposition": null
+              }
+            ],
+            "sourceCell3LiteralUnchanged": true,
+            "allSourceVariantsSeedAndExhaustiveKeyFormClosuresPersonallyRead": true,
+            "allCompleteHistoricalObjectsPersonallyRead": true,
+            "wholeFiveCellsPersonallySelfRead": true,
+            "independentApproval": false,
+            "admitted": false,
+            "coverageAdded": 0
+          },
+          "originalPair": [
+            "softie",
+            "noun",
+            "n. 1.柔弱的人 2.笨人",
+            "His brother teasingly called him a softie when he complained that the empty backpack was too heavy.",
+            "他抱怨空背包太重时，哥哥便打趣地叫他娇弱的家伙。"
+          ],
+          "originalPairSha256": "68d9e2d5880cfed96093dbd000134ba94cf28113fde178fbb5ed3746bc7ddfa4",
+          "revisedPair": [
+            "softie",
+            "noun",
+            "n. 1.柔弱的人 2.笨人",
+            "His older brother teasingly called him a softie when he complained that the empty backpack was too heavy.",
+            "他抱怨空背包太重时，哥哥便打趣地叫他娇弱的家伙。"
+          ],
+          "revisedPairSha256": "53c95c8904344021ef5a2cc6b8a1bfbb4f8f5d0c86436da408b8eb708077d16c",
+          "changedCellIndicesZeroBased": [
+            3
+          ],
+          "reason": "Frozen self-read found English brother underspecified relative to Chinese 哥哥. Adding older makes the existing Chinese exact; all other four cells and complete source/variants/seed/form/key/history objects are unchanged.",
+          "wholeRevisedFiveCellsSelfRead": true,
+          "preciseReading": "The older brother is the explicitly teasing speaker; empty backpack and too heavy select the physical-weakness branch. The Chinese retains the older-brother relationship, complaint, empty bag, exaggerated weight, and teasing label. No kindness or intelligence claim is substituted.",
+          "independentApproval": false,
+          "sourceChanged": false,
+          "posChanged": false,
+          "formChanged": false,
+          "repositoryWrites": 0,
+          "admitted": false,
+          "built": false,
+          "published": false,
+          "coverageAdded": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "25b2a53a61cd117a539b42c3f9e9d131d889affefb983ac67639ad57f4b2d1b3",
+  "reviewer": "AI/d31_reviewer_role",
+  "reviewerPrincipal": "d31_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "sinfulness"
+  ],
+  "issues": [],
+  "mechanicalProjectionOfExistingPinnedOpinionsOnly": true,
+  "exactSelectedPairBindings": [
+    {
+      "term": "sinfulness",
+      "sourceId": 3923835,
+      "sourceSha256": "930b4704b4d8494b6b45f606c2b6f3cd190d70e7c501e311b60ab6ec707d9aa2",
+      "pairSha256": "d3f31f869af9408b52e57871254bc0e6f12b4a033af12be32b912ae9428870ae",
+      "authorPrincipal": "d31_author_root_sinfulness",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0031\\qa\\d31-p004-reviewer-role\\SINFULNESS-CHILD-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 4036,
+        "sha256": "4f749207e731d7c6b0b91848a8616b524ae44da17e046e3616b7876ecbabac55"
+      },
+      "pointer": "",
+      "decisionObjectSha256": "9a076c6d40a407a7d963980af7e21052317fc5fc5a8b2d5efed89894b3539fb1"
+    }
+  ],
+  "allHoldsAndAllEarlierOriginalOpinionsRetained": true,
+  "newLanguageApprovalGenerated": false
+}
