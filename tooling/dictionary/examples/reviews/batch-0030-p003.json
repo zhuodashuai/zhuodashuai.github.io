@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "36adf4019d74019ca879fe8ca3efb947bdcb64aa93b3ea3eef09350bd99e9983",
+  "reviewer": "AI/d30_reviewer_root",
+  "reviewerPrincipal": "root",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "velcro",
+    "brimmer",
+    "battleaxe",
+    "calculative",
+    "dishwater",
+    "holding pen",
+    "homeotic gene",
+    "pharisaic",
+    "blench",
+    "air-cool",
+    "daisy chain",
+    "dead air",
+    "circular file",
+    "bodega"
+  ],
+  "issues": [],
+  "mechanicalProjectionOfExistingPinnedOpinionsOnly": true,
+  "languageOpinionInputs": [
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+      "bytes": 51202,
+      "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\d30-p003-author\\evidence-addendum-0001.json",
+      "bytes": 3306,
+      "sha256": "a90db2cd0513b4f130ffea38950d1de269e97cb521797d2ebfdcf95415d8be72"
+    }
+  ],
+  "exactSelectedPairBindings": [
+    {
+      "term": "velcro",
+      "sourceId": 3899922,
+      "sourceSha256": "862a0ff83f1d4839b961a6a27735c28f3a29b2715ba540ebfc4cc062f189ec8b",
+      "pairSha256": "fc88959c9e5b028b92916bd1c1421f7dccb3db775f37fbd643b37d35165f58ed",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/0",
+      "decisionObjectSha256": "ff881ce7fb491cee41af3187519ded962646947769b4a2062ca4c4ecb3bfbbe8"
+    },
+    {
+      "term": "brimmer",
+      "sourceId": 4689237,
+      "sourceSha256": "901d73e6bb97079471641bc981285eeea0ca5cb07796e83fa0a66336029eba2d",
+      "pairSha256": "98cdd3236aee505191a98901506c810fc7bd6acf785ffd09f8138e29eef96f90",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/1",
+      "decisionObjectSha256": "1fd085ab4f596595a0616ea0711c60246bc0e1d45382c81355a8d6dc3a6229ff"
+    },
+    {
+      "term": "battleaxe",
+      "sourceId": 5012689,
+      "sourceSha256": "66e60e4de12989e23f3d38200c9af43cb1155850daba9bf5590ee9a1fc601aff",
+      "pairSha256": "0d9efcd32961b4db43ed5eaa36094f9b88504754b7221af30952c26367887780",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/2",
+      "decisionObjectSha256": "ab0236d6e703ee71801bf43dcb28dca5da70ef08f9e22391a2c83d90b981c9ec"
+    },
+    {
+      "term": "calculative",
+      "sourceId": 6157398,
+      "sourceSha256": "895939782a2fe27ce6acdb0bddaede04c988ceab3260fef0f1d2417b1bfbce03",
+      "pairSha256": "d8cd238dea9a9512c3b7f3d63400d13e58bc5d78e4c84221a3ec63c1145a2b61",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/3",
+      "decisionObjectSha256": "b8bb568667ede5850b00a3a01e1468aff60a92848b35a77d5fc689dda8ef6636"
+    },
+    {
+      "term": "dishwater",
+      "sourceId": 9358648,
+      "sourceSha256": "90171b6a08ea3c3eed78ae2ad61325b47e77138f3d1b83e10b0f0164252dd344",
+      "pairSha256": "ad20e73928e2e9de756d52bd8026e55d30ac25e36d60b994fd66378cbc2917bb",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/4",
+      "decisionObjectSha256": "0f074a553eedbc5eee23f0393efee6bf9355d5b5bb8e4f523e503747d06db74e"
+    },
+    {
+      "term": "holding pen",
+      "sourceId": 11671843,
+      "sourceSha256": "ed5a11a65ab484051affbe3f8669e2c00be54be2b81ce86226f9873753122d38",
+      "pairSha256": "3fe5da3bc32251965a5fc8d949b7e36949b6fdbc704aaca7cc4ab9bbdc82b585",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/5",
+      "decisionObjectSha256": "9bc67d8baad2cdd3411a84e5e1809d1564f7b1503f750b86f0f3f361b895fb30"
+    },
+    {
+      "term": "homeotic gene",
+      "sourceId": 11677082,
+      "sourceSha256": "909e205a43a3808c0b9efba5e3802e67cbf06b65b1231231122c48df724af755",
+      "pairSha256": "85270fb94517026c57c7020d97c9d071d241dfaee2adb57d9e83da5119f96f4a",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/6",
+      "decisionObjectSha256": "6a55a3a91208bdd3ab241c79f9847fd9e55fbb145599702f2d6511b3cd648edd"
+    },
+    {
+      "term": "pharisaic",
+      "sourceId": 1769901,
+      "sourceSha256": "69bd436b2e5bfb13e9a4e88b0d5d7b406b82079cc107d8d27ff19b66754a6d7b",
+      "pairSha256": "d5a6d603c138b7f7e210419382ac66a6aa87f2aa694a89654be7eac14e7b6d0c",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/7",
+      "decisionObjectSha256": "00577fc3bfd7901669633e113b633ffcf60d450733dbaa19de4d1fc74acacf4e"
+    },
+    {
+      "term": "blench",
+      "sourceId": 5943279,
+      "sourceSha256": "a73d59d3866f851f27bcefb4c7ff36fafffe6050ff3f551ab568f616f9a63e0d",
+      "pairSha256": "dca0dd2203a913168521bdb5d77f4309cd0468f54e5e8645788076e99de2073d",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/8",
+      "decisionObjectSha256": "6a84df0c1122017dca76c5646efdbc249e7bb1381c6be9c9925760087704521e"
+    },
+    {
+      "term": "air-cool",
+      "sourceId": 7453963,
+      "sourceSha256": "404bca31a571b929780e91b487d732a340d130dade33557fe94c3fdb453e5df5",
+      "pairSha256": "b574489db47ce7384580cc09ba9152772cad0ec12550132bb9bab41c7805c903",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/9",
+      "decisionObjectSha256": "3b6f394d36dba125843fce530a9575017a142b8ec0630a9687791e22edf246ec"
+    },
+    {
+      "term": "daisy chain",
+      "sourceId": 9318656,
+      "sourceSha256": "6b8c4fab059d47718c70c704bbb8d44055435d5448f40ed6219ee3b667affbd9",
+      "pairSha256": "67e879b80f5a5a49a86578418013001f0215e1193d6e886de6244e1def89829c",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/10",
+      "decisionObjectSha256": "84d8b390731146c36b5de0eaea818bd215aba6f8f13ed1c5afdca711016a9f47"
+    },
+    {
+      "term": "dead air",
+      "sourceId": 11186647,
+      "sourceSha256": "92646d56053d647f4bb7c0d48fa0338047134022c69e150c8ae8c507378710fd",
+      "pairSha256": "b8ea24cd76c0b493b25e50ae00b8faacf4854e6693c71968e5fe354ec72e2a98",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/11",
+      "decisionObjectSha256": "d79897e0bb6e871fdfdab5c8928a43c363a0deccbb98765c7279c0b11e1767b0"
+    },
+    {
+      "term": "circular file",
+      "sourceId": 11009750,
+      "sourceSha256": "ece39786bbb2262bd97cdea804cae1aec81c313cccba6d78a3fa00504d99d71d",
+      "pairSha256": "e7e9415c27366d1c288f37c1ee75b95cfd060852986a970a6a36362b346aa6cc",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/12",
+      "decisionObjectSha256": "696afdaa0343906cbf706b4e8ce227e834ca1f05902ddc6638e6042d3b4691cf"
+    },
+    {
+      "term": "bodega",
+      "sourceId": 3889561,
+      "sourceSha256": "5133c9e4272a5ea249cde93388b05d5bafdecc07ccbd073619e5db754bc69dff",
+      "pairSha256": "9b8b7badc41d8196908a307d5b09ab38df83f2b0da69b88211cbc1fbd937fdb4",
+      "decisionInput": {
+        "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0030\\qa\\root-p003-review\\P003-INDEPENDENT-REVIEW-0001.json",
+        "bytes": 51202,
+        "sha256": "d5f75ce495e875013b776b3346412076c2fbd66f2ca2d67ca013c064c07f38bd"
+      },
+      "pointer": "/decisions/13",
+      "decisionObjectSha256": "eb13ef4429eaa8872f9b309a770a583447ac144b546f71aa60d2e7a683d45495"
+    }
+  ],
+  "exclusionsRemainInConsolidatedCandidate": true,
+  "newLanguageApprovalGenerated": false
+}

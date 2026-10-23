@@ -1,0 +1,3440 @@
+{
+  "schemaVersion": 1,
+  "kind": "Exact frozen BEFORE214 canonical source-runtime displays; not new-example runtime proof",
+  "input": {
+    "file": "qa/d30-consolidated-admission-input-receipt-0002.json",
+    "bytes": 148831,
+    "sha256": "04e8d4bebb89f9ad2efe64b4ff9f552c856ada7ca410a31886793e8477d38e8c"
+  },
+  "sourceManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "exampleManifestSha256": "a8009291a26e57a9b496648b4d7685c3746054fc6c462fab5a0d8e4694c3d3c0",
+  "observedHead": "fef7a42862f64819f31bd3a678745344c5ca93cd",
+  "rows": [
+    {
+      "term": "solver",
+      "sourceId": 3136614,
+      "sourceSha256": "ba340464b0768a073f62733837a16e2b81e4f8aecf76478ff9cd2f5fea3f1aab",
+      "pairSha256": "d66d5896d717799afc5b174ae9cf4a6c3f433328b20b2643bab5e92fbc6d1d4d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "solver",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 解算机, 求解程序",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unfilled",
+      "sourceId": 3363270,
+      "sourceSha256": "bd8097335c8b31ac2ba1fef6514ad1bbd8e1e4f01c918ac44a057708dc1c5550",
+      "pairSha256": "72ab77d8613a599a9d3174ecb2d202e47b4fda61bd4c81b5333f11b5d79637ae",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unfilled",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 未填充的, 空的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "terminator",
+      "sourceId": 3374944,
+      "sourceSha256": "09ce5bd2fa8fd20e82689283b5e360a1d3a8524037555d4f0fa97245df66557d",
+      "pairSha256": "a4da42bdea07830c41cfa37658d94e3c648d2c144ea0ee17a86bef60f1163c37",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "terminator",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 终结者, 明暗界限\n   [计] 终结器",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "paging",
+      "sourceId": 3444449,
+      "sourceSha256": "9f7c09d03f3a2a28f7547abeb2987b3fe54ea4f662cff061e136658f9cf41f02",
+      "pairSha256": "60fb372408beb82da7a9171579b89ed1f42d2fce63c9cc9ee12be9584f418822",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "paging",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 页式调度",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "doneness",
+      "sourceId": 3476614,
+      "sourceSha256": "d232fb7306b30b6a1e3ffacdf2df00eefd76dd69364ce927fb7ec4a85f3dd652",
+      "pairSha256": "b7359569ae2c6c5c377c4ec68ef7efd26541ff012c8663080fc89cba002acbe7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "doneness",
+        "partOfSpeech": "noun",
+        "meaning": "① n. (肉)煮熟的程度",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "tempera",
+      "sourceId": 3485255,
+      "sourceSha256": "e7e023d3fba96072a2f66f066642b308631ad276a05264d9420b7655977f4872",
+      "pairSha256": "d612c775200f47d9b7b9da12013a1c5779f06d2888e4039c49f0a8eb218a6ee0",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "tempera",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 蛋彩画；蛋彩画法",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "intentionality",
+      "sourceId": 3494130,
+      "sourceSha256": "12de37a0d549d66edb5b39f58648777e464822aece56a9c3fbb5baa0ed869cc9",
+      "pairSha256": "5bec88857bcdde0f5e5f3162b608848c7cda3f18d3114a30356ecdc198932b23",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "intentionality",
+        "partOfSpeech": "noun",
+        "meaning": "① 意向性",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "harmonization",
+      "sourceId": 3525562,
+      "sourceSha256": "107841e98df8f5c0baf35154849220b8ec175f954bb682ab6bd6d751cb7f6641",
+      "pairSha256": "8838dedf1a10729bba459791756db7a30b26487e92d20338d57f76b982743d4e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "harmonization",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 调和化, 融洽, 一致",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "roadie",
+      "sourceId": 3545577,
+      "sourceSha256": "a5a800dfaafcbaae875c2dd481ce4c4d210180c948d9bea46eccbc492d3458be",
+      "pairSha256": "6741045ba05a093a71914b0c9d1195a1a2e9b4addb7b1ef631d3a712856c038f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "roadie",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 巡回乐队管理员",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "reassignment",
+      "sourceId": 3666345,
+      "sourceSha256": "d099f835ac23d7001079c3f23fc0474d10274055d3954ef6d81789b37bdd2ffa",
+      "pairSha256": "657b1a1b278bc9a2169f363f4c608edef726e2315e84712d2946068af3c70a79",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "reassignment",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 重赋值, 再赋值",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "gunnery",
+      "sourceId": 3677609,
+      "sourceSha256": "18b1425fca19344c5c2620035f59410b724b880fae5f2f09db5ddbb1b649546e",
+      "pairSha256": "af4a8f7fb89dde1de2cccdd227dcda5a9d8fe8e39bece0ae3a8fa9e0d621bd04",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "gunnery",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 火炮制造与射击学, 射击, 炮击, 枪炮制造",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "doublet",
+      "sourceId": 3690036,
+      "sourceSha256": "60d495c44c056a6912211391d56fe5ed5744fecc9669ef94e6ff6175ea6ded5c",
+      "pairSha256": "2c300816c99aa5784ce63dbec9c71d24e3141d0ab15c09dfe8780f136bcbd995",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "doublet",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 成对物, 偶极天线, 对称振子, 偶极子, 对偶物\n   [计] 二位字节",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "homebound",
+      "sourceId": 3715910,
+      "sourceSha256": "8b25bea794aa053375cbbb7e820cab49543a8693ce656cf22a8b31029bd5173f",
+      "pairSha256": "853a5da02758281816c475ff1b1e21cf85caf680c542a9936bab4f4b1183aea2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "homebound",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 回家(乡)的, 回本国的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "halfback",
+      "sourceId": 3716495,
+      "sourceSha256": "b611b7a1ceb97b8561748b779c8cad8d5d910bd0a090493d667959fbea6aaf65",
+      "pairSha256": "0ab07ff5b9a736383d5e1e28e819bc9edb341fce4e33e5e6b4729a2fe2ae907d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "halfback",
+        "partOfSpeech": "noun",
+        "meaning": "① n. (足球)前卫",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "carpool",
+      "sourceId": 3760615,
+      "sourceSha256": "f2679d1c94772d3c6746b660f0b4812e4ee1f35a89838a2d1c065e3810e979ca",
+      "pairSha256": "39edf7a2e8e860ca5799a9517a780ac7c9c492222b335492ba2f41bee463026f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "carpool",
+        "partOfSpeech": "verb",
+        "meaning": "① v. 合伙使用汽车",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "candidature",
+      "sourceId": 3760663,
+      "sourceSha256": "a2e5bedd68254bfbe313c6a2067f424640e9d78baa420f299bc6919cd92a0ed5",
+      "pairSha256": "4b92293593924d0a283cf0e3a263d59463d7b3cedfc99c1e2035bac7548534e6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "candidature",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 候选人的地位, 候选人资格\n   [法] 候选资格",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "sniffer",
+      "sourceId": 3798772,
+      "sourceSha256": "098b5b805949dd1cc28998e2e904f37d4fa3a44222bb7fc6bafe4e0bdf752aa8",
+      "pairSha256": "10a985f0e5b8368b2700010a04c2e892a3c661447b9dc7a830d9faedf6fb18be",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "sniffer",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 嗅探器",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "marque",
+      "sourceId": 3799564,
+      "sourceSha256": "0fdd4341c25819a247afa084d2c441006e81633aff5325134b65d8925f55c4cd",
+      "pairSha256": "59e3e6b2c4636b3ed983b3a9e5c64f4b008f5e287f086882334ace5c2a073426",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "marque",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 商品型号\n   [法] 商品的型号或样式, 报复性的捕夺",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "linearity",
+      "sourceId": 3835644,
+      "sourceSha256": "8eaf0c5a886de4dd9fe8b5598370cb5c811cfd1eb67711347bf5f1db00a1e065",
+      "pairSha256": "0a32467f041ba5d981636d476dbf1b9449f72dd4995b5c577cc41e5f33354e51",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "linearity",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 线性, 直线性\n   [电] 直线性",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "disenfranchisement",
+      "sourceId": 3932047,
+      "sourceSha256": "0db661e163cdb42face7a3b75fd7acbe307c632eef00e4709f040f75ce096f42",
+      "pairSha256": "1054eeb9a6900f0fd2c93cca4e951ebfbc3e00664b959eaa1a75470a288d7d1d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "disenfranchisement",
+        "partOfSpeech": "noun",
+        "meaning": "① [法] 剥夺公民权, 剥夺选举权, 剥夺特权",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "essentialism",
+      "sourceId": 3936310,
+      "sourceSha256": "e2893b07281821a006fa1a4aa6f26eb464acdea9fa517e46ede0661c0d1ee18b",
+      "pairSha256": "d6da2c896725506705da4c3fcf14af40da5490b6a3ef3d56eca0e37b759f6c83",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "essentialism",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 基本教育论, 本质先于存在论",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "pastoralist",
+      "sourceId": 4261471,
+      "sourceSha256": "d0ce323762d90a4a65b5845dd65c89705f80a2b3f84c166a6d7b999f022cd179",
+      "pairSha256": "a974d2adcef33c7d38202a1f84bc660f4b5e7bf076c4580a857884e6251f542c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "pastoralist",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 田园诗的作者, 田园剧的作者, 放牧者, 畜牧者",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dendrite",
+      "sourceId": 4342458,
+      "sourceSha256": "26f21e9b4b51e6f4c59a15f24bc41f5da9e00558202b64c0ce8c05b74f6c1d08",
+      "pairSha256": "8116fcf4ff90c3ddfe68d70fcb7aa4663f452e10fd14866dd1359f443fbbd903",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dendrite",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 树枝石, 树枝状石, 枝蔓晶\n   [化] 树枝晶",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "sideman",
+      "sourceId": 4431010,
+      "sourceSha256": "13c0c0ab84132dddc084ee3d5a4e949ef772174dfc4cd22f1bdcf7b23c758254",
+      "pairSha256": "6a464aedd25a380102b857be0ee7a45503f8226c4600e6e8297758f61e19eeea",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "sideman",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 伴奏者",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "compartmentalization",
+      "sourceId": 4602542,
+      "sourceSha256": "a2d5104ceb533428f52e63944633bf602bb2ccccb8bc6cdacd62dbc9e1079ff0",
+      "pairSha256": "67dba2544faae9a0f7e75b3432de904b3f31657dac580d8a2d762bd36ed9a3fb",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "compartmentalization",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 区室化",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "ancho",
+      "sourceId": 4746766,
+      "sourceSha256": "638677004f62f5493452de9be3dfbc3831a3ecf566ddc40c6e98f4ec2c5872ee",
+      "pairSha256": "ab53e47eeaeed2e758e825d12c03ac8b6162077c5f394ef6ddc56744e7615006",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "ancho",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 安蔻椒, 干波布拉诺椒",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "endnote",
+      "sourceId": 4750390,
+      "sourceSha256": "caf00947a9558b8699aa75578e7e3dbd6bb1ad6f15a5999a4a756585d92475a8",
+      "pairSha256": "1c5ef3f7b3b3ac45c9151095d6acb0e70abe1ed512bf64fe6b702d81f1a51890",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "endnote",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 尾注\n   [计] 尾注",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "incapacitation",
+      "sourceId": 4788468,
+      "sourceSha256": "49efe3713d9d4a209349e13eba3707994aefac6ea3a8aee8124d921b1d67651c",
+      "pairSha256": "2cca57b6bfef58299fef9d039f630ec25b7bbf34858c2c83cd45818062577d63",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "incapacitation",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 无能力, 无资格",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "cavitation",
+      "sourceId": 4998773,
+      "sourceSha256": "8f8709c8d1f2dbd856f90e8d84037d810da4c9bb361555c3e7398d4517dec660",
+      "pairSha256": "b2f09380943815c584beba8972c461fd834608d252ba8857794d0cd87f56aede",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "cavitation",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 成穴, 空化(作用)\n   [化] 空化; 空蚀; 气蚀; 汽蚀; 汽穴",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "sextuplet",
+      "sourceId": 5014737,
+      "sourceSha256": "04ebc4a369ff5e040b2d2d3399581d892fcc17570afae97a5dc0d5e69823f0d6",
+      "pairSha256": "9d616ea9b3eda0e69bb32b5a429c1a5334218ca8c930b55e10399a331f44e4b5",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "sextuplet",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 六胞胎之一, 六个一组\n   [医] 六胎儿",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "turnround",
+      "sourceId": 5039530,
+      "sourceSha256": "fe32a281fd1e4903b2e3cf812aa5ec7ca3514559c094e241e654d95c6dc6ae8e",
+      "pairSha256": "5694134617b66c7e9b5d5f0a8e710a10441fe09c3331f2110789c5b225e44776",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "turnround",
+        "partOfSpeech": "noun",
+        "meaning": "① (机车、货车)周转(时间)",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "invalidation",
+      "sourceId": 5057725,
+      "sourceSha256": "e566476b5467f8f4e17852d7bf5ed824330f4759e7ca200f1b103d156a5c4bfb",
+      "pairSha256": "9d04564d38e24f19e70571cc1002a737b96d2b20c7b200d06c4d253572ecd3c8",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "invalidation",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 无效, 失效\n   [法] 无效, 作废",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "downshift",
+      "sourceId": 5083255,
+      "sourceSha256": "d3bf3ab7f08bafc7d7ada7469586968324992e7e5535db7ae16cafae75b2ce75",
+      "pairSha256": "03e8c392ab2f5056fd5fa6be47da7ff106cd8b3a56116ce66a692b7582b89504",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "downshift",
+        "partOfSpeech": "verb",
+        "meaning": "① v. (汽车等)调低速档",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "incompletion",
+      "sourceId": 5100092,
+      "sourceSha256": "9c3a687ac4d5da4e42e565ae825678ca6eb3f959c3d95ed86338a9648194acd4",
+      "pairSha256": "2941416a7cc35c3cbea19dd102385c80c909f3d7e9bc60eaedd38bad5180fe9d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "incompletion",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 不完全",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "ball up",
+      "sourceId": 9076305,
+      "sourceSha256": "48b9591fef66c641ccfd9f698c8c8efa1c7fd36bb9d209ec55f01dbc628cfd28",
+      "pairSha256": "e1ce58c1a7d7e49c55b7f462462686d7beda279f42aa8b669ca162a43b6dd6c8",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "ball up",
+        "partOfSpeech": "verb",
+        "meaning": "① [机] 滚成球",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "beat out",
+      "sourceId": 9092849,
+      "sourceSha256": "11789ef699442778d578fa049e61e6a8967f76691d54080579e1c42b98f033b5",
+      "pairSha256": "e7d7cbf4e9fe7c59f32b21e4885fff9067e767ae0e428916fa6eba8243f96249",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "beat out",
+        "partOfSpeech": "verb",
+        "meaning": "① 敲平, 搞清",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "hang out",
+      "sourceId": 9589389,
+      "sourceSha256": "9c7eccce57d2e3d418ed3c8056bc1b5c591e7b161c87209bcadb00ffcf2babfa",
+      "pairSha256": "8d3f67ff8d85f4d582213c8221528cfe735a95c8f98df29208b128e8847cd4f9",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "hang out",
+        "partOfSpeech": "verb",
+        "meaning": "① 挂出",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "object lesson",
+      "sourceId": 9901586,
+      "sourceSha256": "fab71f4cb484671c6fc5393701d24980d4e53feb1ce4e91d1aa51832be41e091",
+      "pairSha256": "c709bf04965199df4173b044a6002fbdfa44824b42f409e807c0e589cc1344b6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "object lesson",
+        "partOfSpeech": "noun",
+        "meaning": "① 实物教学课, 直观教学课",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "peregrine falcon",
+      "sourceId": 9996557,
+      "sourceSha256": "0c62fcba1ff28fcba087db0c5c65cbf2074f86015df0865b547fd380c7fc6a3b",
+      "pairSha256": "c7156c8faee99725de1d8b66862997e1e61bcb26cd5ed41d47a3ca8751b6a1e7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "peregrine falcon",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 游隼",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "shut in",
+      "sourceId": 10236614,
+      "sourceSha256": "ea6b53f4c6970b954440258218a212eae5d72a93f1ea33d8260c2ade3ec6e68e",
+      "pairSha256": "eb1dfeb8b45908b8a6432dd0349e5d6e46535087aaff16dead45bb0e17b69023",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "shut in",
+        "partOfSpeech": "verb",
+        "meaning": "① 关进, 禁闭, 降临",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "walk over",
+      "sourceId": 10503738,
+      "sourceSha256": "158d25318c4b100aa1fc47fea2de1faedbad1ef0a8ba6c13410e51897ddcb62a",
+      "pairSha256": "d3b0569fa62242b018feaa6c762e248ff10c2df8fdcc40b123a820d058a3e6fd",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "walk over",
+        "partOfSpeech": "verb",
+        "meaning": "① 穿过; 走到另一地方; 把…带到另一地方; 无视…的愿望[感情]",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "bill of goods",
+      "sourceId": 10790343,
+      "sourceSha256": "8125d1b23c3400e3d9c82c0718a10f00d9edecf962b60d1479c0d175f746b33f",
+      "pairSha256": "fd5dc7e6a51f10f6fa085ec85d39e92768218fa8a077483dea0b2176b3ad4b71",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "bill of goods",
+        "partOfSpeech": "noun",
+        "meaning": "① [法] 货品清单",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "blaze out",
+      "sourceId": 10819787,
+      "sourceSha256": "f9c0edd79dc620e9e99a25ad5c728624ee68d4fbf323406d0e9217fa52fc2689",
+      "pairSha256": "9f6920302389d6e14632367575b9e610e33c5965f1e7d4be7da60d1d6809afbc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "blaze out",
+        "partOfSpeech": "verb",
+        "meaning": "① 燃烧, 燃起",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "blind side",
+      "sourceId": 10822391,
+      "sourceSha256": "7ae6fb5c3d40ded5b63c28f3eb5bfee50d95ce2022c6af30b886b39c4a9368b8",
+      "pairSha256": "2a1fd066eac156c2f490ed1fbccc403fdbb27133db88516b779d6f1167eaade6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "blind side",
+        "partOfSpeech": "noun",
+        "meaning": "① 无防备的一面",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "body structure",
+      "sourceId": 10838852,
+      "sourceSha256": "2b16bd751aea248a98228e17d1488d6e286fb55d0f95fe1a002d56a596b043d1",
+      "pairSha256": "d85e8cf0c76bf1c58304a1d2a25ad9306204494a881fd3c11b3f10aae7db99ca",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "body structure",
+        "partOfSpeech": "noun",
+        "meaning": "① 车身结构",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "brick over",
+      "sourceId": 10870196,
+      "sourceSha256": "8b65acd24b8b68ed5c0617db5b4ecbf61bd8699f35dc21bf6f839039291f0077",
+      "pairSha256": "f4a6499e1dee830fd3c2bc7b2d2d406fef127ded15cc61ef32c2488e08faa062",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "brick over",
+        "partOfSpeech": "verb",
+        "meaning": "① 用砖铺",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "business enterprise",
+      "sourceId": 10899046,
+      "sourceSha256": "46f901b68338feba4251ee249bcec6e550f6b49c9f7aa023bf49c691be195340",
+      "pairSha256": "119a3118c4db70229947a428c3e43a58ff01ff5660a9c6759728fdb92c29eef2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "business enterprise",
+        "partOfSpeech": "noun",
+        "meaning": "① [法]工商企业",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "buy at",
+      "sourceId": 10905516,
+      "sourceSha256": "fba6e3134a5d08b55253737334def1e538d8b9f7d1389a80994d5f9893c18538",
+      "pairSha256": "c47edbb412473c78d8b8a94661baf6400aeaf0d6541810cea6282fab88c21152",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "buy at",
+        "partOfSpeech": "verb",
+        "meaning": "① 以…价格买下：；以…方式买：",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "car carrier",
+      "sourceId": 10929289,
+      "sourceSha256": "92511c165bfffad2ad5d540ab590a16e48e7d210294284e3d578e5d184e80f56",
+      "pairSha256": "d967d7ab13490674086221e99bb4eeb888eb10149dc3797d925945bd29a7a1e9",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "car carrier",
+        "partOfSpeech": "noun",
+        "meaning": "① 汽车运载船，载车船",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "carry back",
+      "sourceId": 10942923,
+      "sourceSha256": "99a67b56d3f7ce1dce39b3fc099d6c093907c07c2c0b3fada14ce1ef47cdbb3a",
+      "pairSha256": "2bf2057be9d216780860cff998ed8403ccc5a854b01375ea7bb2a6016b19d627",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "carry back",
+        "partOfSpeech": "verb",
+        "meaning": "① 运回, 拿回, 使回忆起",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "chalk line",
+      "sourceId": 10972210,
+      "sourceSha256": "9d30ad7ea6e1d75d91d5d7742d7ae60e69e4f20a9e9d5626dcdbf207291c2465",
+      "pairSha256": "1e73b0082175750a7628b2b567e85cbedd8629359895818864e06728b9fcdf26",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "chalk line",
+        "partOfSpeech": "noun",
+        "meaning": "① 粉笔画的线",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "church key",
+      "sourceId": 11005693,
+      "sourceSha256": "56bfadbb5ccc0627bea3ed8fcd7ddbeae74f32a485a7f35c93f0e5a3645933ba",
+      "pairSha256": "8ef1397457e80206f52efba0db49a5e738df8453b0a2dab2a3acb67f8a5bd6d9",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "church key",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 瓶起子",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "click off",
+      "sourceId": 11023522,
+      "sourceSha256": "4c213e58e333849f6c22299177a14d818e2229eb2567b5009bb0f33ff0b86ce7",
+      "pairSha256": "92f04e2deae8858ac7558dbf2de528b2f46a11569f073fb9a88fe4263d4a88cc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "click off",
+        "partOfSpeech": "verb",
+        "meaning": "① 咔嗒地记录\n   迅速准确地列举",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "cloud up",
+      "sourceId": 11033495,
+      "sourceSha256": "d71420a90eee73629108eb20a56a5e8ad895d342e6fd94ef3fd20adb38496eca",
+      "pairSha256": "6c2aa51c826a28b90668dd10cf557c8c24f6cdaca62dd7c254bec8b56b8ddf9c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "cloud up",
+        "partOfSpeech": "verb",
+        "meaning": "① （使）模糊, 变得模糊",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "coefficient of elasticity",
+      "sourceId": 11041876,
+      "sourceSha256": "31ff0890c96ef0564963547691fdd9cf2dc0b582b69adeb5072f36cc56386c24",
+      "pairSha256": "29b2221e99916e76cc19bfcc329faee72faf61a4cea048066521f0a9889079ce",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "coefficient of elasticity",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 弹性系数",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "coefficient of friction",
+      "sourceId": 11042011,
+      "sourceSha256": "6a0efde8fd935b9ea26982d992c23575e921249b50f5ed52d2c28ac00b0a8aaa",
+      "pairSha256": "dc274aa28cbba8afd3ed212728e261125061685f9aa89f2cd790257c68e149f5",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "coefficient of friction",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 磨擦系数",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "commercial agency",
+      "sourceId": 11062894,
+      "sourceSha256": "fb50bb809f235f6df7e15fac4bbb23d25bbcdea7b15bd162111e0c6fc361d24f",
+      "pairSha256": "f7bb5a827519161788ccbeab84a5cb5489780086519e15ae0fbef6129169f6c1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "commercial agency",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 商业代理所, 商行",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "common chord",
+      "sourceId": 11067046,
+      "sourceSha256": "87d032be151993ea0a018e3417ba3cbb2cd31a1d4997d38f41f5b59b062d0325",
+      "pairSha256": "afb46e2145eb6b7e076f365c4501156ff1eec4d7799ffe6f268f3276e5c3923b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "common chord",
+        "partOfSpeech": "noun",
+        "meaning": "① 公弦",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "community chest",
+      "sourceId": 11075427,
+      "sourceSha256": "f701374db07321813f6a82b59a0423fd28535482bcce8691bc6868eed46434e5",
+      "pairSha256": "272fb3da73c668c2a8b6398a3ab240ed20fcde6960f57fccfca22ae10b90d057",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "community chest",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 募集的救济基金, 公有基金",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "computer-aided design",
+      "sourceId": 11087492,
+      "sourceSha256": "4572aca9133887b4da3392fedc0f0d7d2c3213f32872bc1c82df384785e352ec",
+      "pairSha256": "fca9e302b0dac71ce7ab038568b273315c21830f0136ea6442ee48cd18d9b16f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "computer-aided design",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 计算机辅助设计",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "contour sheet",
+      "sourceId": 11105046,
+      "sourceSha256": "c657c6ac24c83c0275436aa3de49272dc209749170ef0f2d57518dd878a6ae94",
+      "pairSha256": "585bb423fd05093d1348112a23195a86d07d0af120e4815ea8b8ed1d776e2b11",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "contour sheet",
+        "partOfSpeech": "noun",
+        "meaning": "① 等高线图",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "control rod",
+      "sourceId": 11107779,
+      "sourceSha256": "bd3b46eddd4e930bea60f88bc0879e17c3b8c7a62eda80bbb6fb4b502c2be38f",
+      "pairSha256": "3f8a48fb554916ba5e1dae109e8c52d78d2d54fe48ad18d96b01b8155e10ca08",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "control rod",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 控制棒",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "corneal transplant",
+      "sourceId": 11120710,
+      "sourceSha256": "19ce2ba4a281dbd9555ed113411a1e5785c864f9a8015c0572b4bcf9ae82e9ec",
+      "pairSha256": "12bf54f9a9ecc3586df7526b0441b3e6b2203298a6c9657df49a99f74b4fb9ae",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "corneal transplant",
+        "partOfSpeech": "noun",
+        "meaning": "① [医]角膜移植",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "cuneiform bone",
+      "sourceId": 11164309,
+      "sourceSha256": "8e87c6c5bf420c90359324e0ad57b8fa652db82eb3eab9d0bb9d72f00052066b",
+      "pairSha256": "1575bc22d3e49a8c1bc2bb4d39e1f3a3269dc31fd976d8e6650206fc038de9c4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "cuneiform bone",
+        "partOfSpeech": "noun",
+        "meaning": "① 楔骨",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dash down",
+      "sourceId": 11180763,
+      "sourceSha256": "98bd6e9be40612ed54c64d07600837346c2eb2bcad6c5726ff365a29ccad3399",
+      "pairSha256": "0a9cc795838319fbea51ae1902cae43d73bde1977b90f8cf9d9e4091e807ba53",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dash down",
+        "partOfSpeech": "verb",
+        "meaning": "① 使劲掷下",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "declare oneself",
+      "sourceId": 11194991,
+      "sourceSha256": "c70d22ee3729e5a25a7b9acedad30e653bbdfe69c59482d4fa31481f03f7f305",
+      "pairSha256": "494f29f6cdc70bb69edddc282d823fc719a8de06a52409f2e940b7cca16a7e9a",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "declare oneself",
+        "partOfSpeech": "verb",
+        "meaning": "① 发表意见, 显露身分",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "descant on",
+      "sourceId": 11212198,
+      "sourceSha256": "2bc70a8e626f41963a56061bbb352abfb0e92b22c093de1be08f3a55b0208981",
+      "pairSha256": "49ccd857bd592a3708f56237218d9307557de18ea0147ae8389de49e6b9d49af",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "descant on",
+        "partOfSpeech": "verb",
+        "meaning": "① 评论",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "desert boot",
+      "sourceId": 11213396,
+      "sourceSha256": "25f43f87884505387977047cc681b06689e4832c49ae36fe8a33be78932355cb",
+      "pairSha256": "e3af9e0e4797fe587084ee2db46af53f5fb768a743e3d5c55cbc4d6df5d67266",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "desert boot",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 沙漠靴, 沙地靴",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "devolve on",
+      "sourceId": 11218775,
+      "sourceSha256": "bb5ed0fc7ba928cf3d050811fe923c9dec8a85cd2917cd84099185ed3ad60f61",
+      "pairSha256": "08ccae43717b94e8e4e80090fc938a6d9753c5dfaa1525eeadbbe3b7f4d79d93",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "devolve on",
+        "partOfSpeech": "verb",
+        "meaning": "① 移交",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "direct transmission",
+      "sourceId": 11234152,
+      "sourceSha256": "70bbf9dea51aa701e95fd7e1fe6a4b2c4aed364b569be0516ed782ff60e997ba",
+      "pairSha256": "a8ff80bb25bafbc0b54c1d5acc808b7ec4f6394f4a1e53f01eb08b45afcec8ea",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "direct transmission",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 直接传输",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "display window",
+      "sourceId": 11242831,
+      "sourceSha256": "231d3416d662140f10931b50de7312092a686961e9fc74c6ef5e29697a01c396",
+      "pairSha256": "cd2c86148115252cdb07fb97693a9f8be9004286eab6e12b01709d04da06e7d8",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "display window",
+        "partOfSpeech": "noun",
+        "meaning": "① [电] 显示窗",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dramatic play",
+      "sourceId": 11270422,
+      "sourceSha256": "bb873ed10519fdb1779897ef031594024682e8cb3dfff33d9d346ae80b62ff7b",
+      "pairSha256": "3a92a64d55aaba3dfcc85555187c993f2252db3cfa0f9e0f5854d157f4d8da31",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dramatic play",
+        "partOfSpeech": "noun",
+        "meaning": "① 表演游戏",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "earth up",
+      "sourceId": 11300528,
+      "sourceSha256": "4ebcd12494c1faad88ccacef4d3759befe338b893b88fcddda188143db728c7d",
+      "pairSha256": "9247e167f72f8932395f826e2ba95503449ef045d6f1c76f164ea3d9c7d5b12c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "earth up",
+        "partOfSpeech": "verb",
+        "meaning": "① 以土覆盖, 把…埋入土中; 培土; 培",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "edge up",
+      "sourceId": 11308153,
+      "sourceSha256": "7ccc5910e5e0a589f0d96fdcd758a7dac741c999fe1a21da267f82a4630ade42",
+      "pairSha256": "75f26a9c831134b635a3f5a785126c067ddc07ec400521cb35ec88b9e9d5b0b9",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "edge up",
+        "partOfSpeech": "verb",
+        "meaning": "① 慢慢向上边靠拢",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "electrical work",
+      "sourceId": 11321988,
+      "sourceSha256": "17949d4aea212550675d78dd8c38190dfc46e75c2522ad6391c10bb54e48226d",
+      "pairSha256": "093e395a757853fab35785c9f7bb4141653118d3d34ac8851a64ce70c3e16c5c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "electrical work",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 电功",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "electronic instrument",
+      "sourceId": 11327168,
+      "sourceSha256": "ee089c43f62f9067c9c330f5719a7fb9d99cac2e2cb096bec46af9912284d843",
+      "pairSha256": "f4ee320e5614993680826b36e38b83ccb38441a77b603100c4de07c55c305dcc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "electronic instrument",
+        "partOfSpeech": "noun",
+        "meaning": "① [电] 电子仪器",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "enter upon",
+      "sourceId": 11342907,
+      "sourceSha256": "e41337863894d2666453863e15636ee771f9b5c7600a5292a112e13fcf24e6ec",
+      "pairSha256": "97493fd5961cc3936b65fd8fc4454960426b3dccd0db081cae14e4156a64a69b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "enter upon",
+        "partOfSpeech": "verb",
+        "meaning": "① 开始, 着手",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "executive officer",
+      "sourceId": 11361391,
+      "sourceSha256": "da86e1a389e96e88f731a159b7cb7baee2a9e21309ce6596cd390a84c7f7abed",
+      "pairSha256": "91fccc1a23c766a08d75e5d08e3bc68579769dbc2d48363abac50c84116b36a6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "executive officer",
+        "partOfSpeech": "noun",
+        "meaning": "① [法] 行政官, 行政官员",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "fall upon",
+      "sourceId": 11383736,
+      "sourceSha256": "723981a938f7de5a9a724c280270e801f99e89726f7eb2629953bdab50b661b4",
+      "pairSha256": "7b3a1bd3697ba9b6936d3cc88873fc3e2a19dd0dc1e86461f350b6cb16502ac0",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "fall upon",
+        "partOfSpeech": "verb",
+        "meaning": "① 开始行动, 进攻",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "female parent",
+      "sourceId": 11399987,
+      "sourceSha256": "52a3e4dd12870fa14031b0a8dd0f7aa07f99f4562a5216022da53f5c7a8addfc",
+      "pairSha256": "ae925079431a7d718468e4ba096b6e6c5523e27ee4539d32358090c2ff684a60",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "female parent",
+        "partOfSpeech": "noun",
+        "meaning": "① 母本",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "field of operation",
+      "sourceId": 11410753,
+      "sourceSha256": "5f88f503e3ae860719917780cc0a3eeb39d7e6ac426715d703e983b93ab7475c",
+      "pairSha256": "a4be1048f510593c0504ed53311ec91d3e21b1211871e2bafc869a2aff188bc4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "field of operation",
+        "partOfSpeech": "noun",
+        "meaning": "① [医] 手术区",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "fine spray",
+      "sourceId": 11422960,
+      "sourceSha256": "befea7bbdcbae24e632435773691701b34edfad1a71b78de597d28aa3160028f",
+      "pairSha256": "d3b1dee4204b0cf8140ad1a3011acf65ad612a3dffc9184961d521a299ba7c21",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "fine spray",
+        "partOfSpeech": "noun",
+        "meaning": "① 雾",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "first period",
+      "sourceId": 11432426,
+      "sourceSha256": "45b5dacb2a16a0649418de27f3598fe681042e45234b091c21a752be94249102",
+      "pairSha256": "1c31eff9fee139b46659199f7b3bacbb861af1eb69c11fd985dcfe3637f52acf",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "first period",
+        "partOfSpeech": "noun",
+        "meaning": "① 第一节（课时）",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "knowledge base",
+      "sourceId": 11807516,
+      "sourceSha256": "c40dc3c0db3a5eb50007a56e549d0e9adb8cfce5e226dfb76dd2856ccfa8df10",
+      "pairSha256": "2585738529a3f150d26180127961bcf59c14adc33f783941390eeabb8df0d407",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "knowledge base",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 知识库\n   [化] 知识库",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "imaginary part",
+      "sourceId": 11718483,
+      "sourceSha256": "caa4849f0c956901885a12e1eba72490e3a846f0960cb4f8b4afdce3ea842566",
+      "pairSha256": "6f44d46d6b9f45d66f8d32db8c5128a0145f46bde9a02c3c07d4654ff3cff7e3",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "imaginary part",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 虚部",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "keep open",
+      "sourceId": 11792608,
+      "sourceSha256": "8136d87ec3f41f1151871e1f38f556947ad353d2b0fc83c30a04ee87030206d9",
+      "pairSha256": "56e113abfcc8009ac81ff00c99f6b8276d4945933e5df5b3047aa897204e354e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "keep open",
+        "partOfSpeech": "verb",
+        "meaning": "① 仍营业, 仍开放; 使保持分开[张开]",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "fuel consumption rate",
+      "sourceId": 11502500,
+      "sourceSha256": "9d9ded4ea91124a01ff27193545596cd444949b22b133baf9b761b64de87335b",
+      "pairSha256": "70a361786fa20c11416046232212a3575b215a4f3c2b7655df23329fdb741176",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "fuel consumption rate",
+        "partOfSpeech": "noun",
+        "meaning": "① 燃料消耗率",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "garbage collection",
+      "sourceId": 11518088,
+      "sourceSha256": "6bf5cf179f57361b3ca03b5737a54f3bd711000439b308d26f160076e1720d4a",
+      "pairSha256": "7fe84f4d320d049072371eb133d377dc9562672e7565dd75c7c47b2c19713863",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "garbage collection",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 无用单元的收集",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "form of government",
+      "sourceId": 11477935,
+      "sourceSha256": "57084f2e9bbbaaf1ebc1e690ecaca406346cc4849f529e3279da82393526234a",
+      "pairSha256": "b76979ef336610ead41120c6c3a3fd3f4da21d6b29df04533776f910232bbd9f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "form of government",
+        "partOfSpeech": "noun",
+        "meaning": "① [法] 政体",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "foul out",
+      "sourceId": 11481531,
+      "sourceSha256": "4be8ce4c416c990c72a39b5b85e2e5264e9cb599a22a50d04c5713bdfc99e9c8",
+      "pairSha256": "b5787d3404ddaff88b78a9b5885963ee78841d5dd8cb261d6cfbbedfa82a21d4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "foul out",
+        "partOfSpeech": "verb",
+        "meaning": "① 因犯规被罚出场",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "glass over",
+      "sourceId": 11555411,
+      "sourceSha256": "750217546c567f81901ad984d8b62a45accd5b722069dd153baac37e689506e9",
+      "pairSha256": "c5d32d434ee9c76f478933ee94c088268464630b2ab141e5f519e4fc0369a735",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "glass over",
+        "partOfSpeech": "verb",
+        "meaning": "① 用玻璃覆盖[常用于被动语态]：",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "go deep",
+      "sourceId": 11560131,
+      "sourceSha256": "0735a81b72994913d47eb32fdce16e559598e89155080d49047795390e1a3b1c",
+      "pairSha256": "cc76b5e33ff49a641f2682027e812963517d6d0871d13308fa5dc6e7bf256999",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "go deep",
+        "partOfSpeech": "verb",
+        "meaning": "① 进入深处",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "have kittens",
+      "sourceId": 11633595,
+      "sourceSha256": "1ddbbb9ade570ee65c05f4182a7e0af2f8e3c0a125ed676a38b3b46f06ebb145",
+      "pairSha256": "4b299f166c1397e27580ee54064cb3a1150fac01437a8f5882a7ff003b81bbf5",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "have kittens",
+        "partOfSpeech": "verb",
+        "meaning": "① （英, 非正式）极度紧张, 心烦意乱",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "hot pot",
+      "sourceId": 11692127,
+      "sourceSha256": "0901c9e14cf45d2730b2634280d77e70846d08b275793090c041e6548ea772d9",
+      "pairSha256": "0a38c7067f1b0a4ef84f16ba4e8e3bf0e72f2fcb8852863f5396533bda438301",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "hot pot",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 火锅",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "home key",
+      "sourceId": 11675105,
+      "sourceSha256": "24971a956dd73acd43355cc7338f68ba9d6f51270ebc9ed7bef834c5c915e8fc",
+      "pairSha256": "3c5d5b4d68ec5c2ebe751e1f1394746f5d52219cf3259fd06aaa37b70983a003",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "home key",
+        "partOfSpeech": "noun",
+        "meaning": "① 起始键",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "lead sheet",
+      "sourceId": 11837920,
+      "sourceSha256": "436afc54900d503d355c0be2fd94ae5ffc729d3799a2cfd2e1af699cc9b2c048",
+      "pairSha256": "eaf1b2c57bb991021bc68204f275aaa516dd9b61032279262b16f1bc19fc76e8",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "lead sheet",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 铅片",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "internal representation",
+      "sourceId": 11756645,
+      "sourceSha256": "cf8c05e552d47f6e016420875764afccff627adb143a3e89217467ebc15295f5",
+      "pairSha256": "8f63cc9c53d4d72c511e6a784074490e0fd5464e017197559f455e8cecae00ed",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "internal representation",
+        "partOfSpeech": "noun",
+        "meaning": "① 内部表示法",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "heavy hitter",
+      "sourceId": 11644816,
+      "sourceSha256": "29e9cc22133c05b97a7e06b66de8fb5c302aea62ae00145377c6eaa5856d735b",
+      "pairSha256": "71f5ad9ccf95693b7fc94899d17f1931f83d27a3d8721bf8096af8ba944e4eae",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "heavy hitter",
+        "partOfSpeech": "noun",
+        "meaning": "① [体]有力击球员",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "fictive",
+      "sourceId": 3116323,
+      "sourceSha256": "278bacfbf472e9464d40ed15bd0479d43c505e4a2f3e0f2fcbf7724e65a2753c",
+      "pairSha256": "72a62dea89a44e6afd5a2808bc31d8f6130a555151c40eb8d5db4377d001947c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "fictive",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 虚构的, 虚伪的, 想象上的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "swanky",
+      "sourceId": 3554036,
+      "sourceSha256": "392e0abdc4e2a359ec5dfbe29605f8dcf65507313f9a9ff2a7f93afcca18c654",
+      "pairSha256": "2e15e3ee2f1e9d889dfa3da526c281785f2736191d2650a1aa19e5f759ee2057",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "swanky",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 爱出风头的, 炫耀的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "uncapped",
+      "sourceId": 4768575,
+      "sourceSha256": "8bbf897e13445a8ea2f57c03d1dcb3d5bc89900f1f0ab0314fa9c2e1e646ec9e",
+      "pairSha256": "373eeade3657cff87e4ffd39dd2ca50db9b1e87f1657e0485fc5517989a9769f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "uncapped",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 未授予队员帽的（队员）",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unreleased",
+      "sourceId": 3985293,
+      "sourceSha256": "6a106edc29bed60b4ca5f018f65c9bbd7ee6e708e4129bb75bc3b7329f2910c9",
+      "pairSha256": "f177badd2a5c7d9a693c42b36633c383729bd2799a454e9d19524a094cf19be4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unreleased",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 非除阻的；不吐放的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unmotivated",
+      "sourceId": 4161845,
+      "sourceSha256": "11e4a89d9ef3843309a68cfbe22a07dad374e766cf62f2057856c062ccf08518",
+      "pairSha256": "6abcc45b9805d3902fadea771b180d4766ba6ff82acac1f05a8df3912106c3ed",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unmotivated",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 动机不明的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unplaced",
+      "sourceId": 5405235,
+      "sourceSha256": "2655915ed3700b27aa2ef9d47cb68fdf052bd9d4354ed054891522a13424063f",
+      "pairSha256": "e80c4cdc25db2e8d18f8282b8786ef40f8473e6bd65aa08b1ce10dbc4fd5fc5c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unplaced",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 未受到安置的, 没有固定职位的, 没有固定位置的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unsupportable",
+      "sourceId": 5515337,
+      "sourceSha256": "75af656bc72d2d96464655d6ba28f8b9ea722d552c039b357ac348e5791035e8",
+      "pairSha256": "33380e865dc9b89feff99d2838f449fa28216d93ee3d319afeef3609a8aed174",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unsupportable",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 忍耐不住的, 不能忍受的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "preconquest",
+      "sourceId": 5552084,
+      "sourceSha256": "0f2c88b88f6916381be9407f586e50f085878e40b33f8f8aa62cb6c82a6bb7bd",
+      "pairSha256": "fb13b38090116855afcdbf6957e84e5e417d40ee8d23df209cb2d8b8a871f3cb",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "preconquest",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 被征服前的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "truffled",
+      "sourceId": 5653207,
+      "sourceSha256": "b6b9e1fd302992758f983f5a49ca71031ab61a01ec83e959f7afcf71c947be31",
+      "pairSha256": "f6c2dc7b8da3696e899e9c501e79e2a096930010bb912a76d645d334421d7998",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "truffled",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 用块菌烹调的,用块菌填馅的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "ensuite",
+      "sourceId": 5742518,
+      "sourceSha256": "56d8c1f1e2c3a3fb3da0de67b01e7ced1a3199a2ff8959e073f3a6e0c82bd94c",
+      "pairSha256": "7e25e93091eb8584af0e95952b309db13b667e1d1134e3f2b3d4815c3690dbee",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "ensuite",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 通常指 \"ensuite bathroom\",指那种直接与卧室相连的浴室, 可以理解为\"浴室套间\"",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "switchgrass",
+      "sourceId": 4870489,
+      "sourceSha256": "c7b11b5c3e4915415c8b92442264ab682b3ccb4c8dc38667418ccc59cd819537",
+      "pairSha256": "db622ebaaa5e34943979638efb171c19b91a9c08cb0e8868e86065d553773b2d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "switchgrass",
+        "partOfSpeech": "noun",
+        "meaning": "① n. [植]柳枝稷",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dodgem",
+      "sourceId": 5151879,
+      "sourceSha256": "d48badbc1208431b41c0139de492ed6a03638b384d8ad28c67561d959d756181",
+      "pairSha256": "16aa453979e511f4ed8190ee3afb14db1572e31df51bee19d0b6f3893ede4ea6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dodgem",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 躲闪车, 碰碰车",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "milk snake",
+      "sourceId": 11996230,
+      "sourceSha256": "5a0385ea1171f65f0e5c5daaa635df5102b2574f71a1d61cb3923926af9f8299",
+      "pairSha256": "c5d1d84d5ae80e96d4a559e4328dacf3363cb8bbaa4b53ceca5d22aa066b91fc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "milk snake",
+        "partOfSpeech": "noun",
+        "meaning": "① [动物]乳蛇(一种北美无毒小蛇)[亦称作 house snake, milk adder]",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "mole cricket",
+      "sourceId": 12010233,
+      "sourceSha256": "113c1aa36b4cf6572d6b3f2b669039f3647a5da086a874cffcbf3ebc9267c72d",
+      "pairSha256": "e47b3f1d231c98caf053712451e6ac10825c1b5be5e35adb83a12bf1cfd10df0",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "mole cricket",
+        "partOfSpeech": "noun",
+        "meaning": "① 蝼蛄",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "cypress family",
+      "sourceId": 11173824,
+      "sourceSha256": "4835305fc49710640bc47dfbb3b0006c337d944924c7e0239c8bf765daee9fb1",
+      "pairSha256": "7f1d311cef172bbb358634954884e362f183403f68abed1fbf009431880c9955",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "cypress family",
+        "partOfSpeech": "noun",
+        "meaning": "① un. 柏科\n   [网络] 柏木科",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "thinking cap",
+      "sourceId": 12836901,
+      "sourceSha256": "d0f5111f3108278e625ad7ede029aadedb4bfd60c16d79b28f32e4a620c05380",
+      "pairSha256": "f16d84e149a0b32452772cc034fead3f11017e796e85546ecd3ed9cc621501da",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "thinking cap",
+        "partOfSpeech": "noun",
+        "meaning": "① 思考, 思考状态",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "coulis",
+      "sourceId": 4803266,
+      "sourceSha256": "46fc6ae72e6c9d625d183be34580fea06573f36ffff213647d105b16b4aa2bdf",
+      "pairSha256": "7398a11f8b12584d9350dafffa41b5aca628ce7e25c569fa2c1c24395b560a28",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "coulis",
+        "partOfSpeech": "noun",
+        "meaning": "① 稀果酱",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dal",
+      "sourceId": 2952398,
+      "sourceSha256": "34350210fe4cd250bf198d085a2575ad3d5aac44516a3d89d341fead073dfa2e",
+      "pairSha256": "8c25d7e09c55f69a64f137ee9269e7b981390fe9c761bfebb20da11cac265a25",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dal",
+        "partOfSpeech": "noun",
+        "meaning": "① n. [植]木豆（等于dhal ）；木豆做的菜；一种带辣味的印度菜（用蚕豆, 豌豆或小扁豆制成）",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "overheating",
+      "sourceId": 3039419,
+      "sourceSha256": "43a3982aac51292dc15ca957ca8849fa05979ac468caf29401b4679b5a4ce187",
+      "pairSha256": "0ca64edcb0e63a521970879d2bbcb6deff89c5aafd0e2a26ebd8c7a8bae20670",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "overheating",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 过分的经济活动",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "myelogenous",
+      "sourceId": 5913000,
+      "sourceSha256": "c226ea7c9e14574a0564d677b6735a265e8473681261db2acfab83f374905720",
+      "pairSha256": "d2e35de85c322b094e545c53456937faadf882a0f99d32897395b522c51f8703",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "myelogenous",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 骨髓内产生的, 骨髓的\n   [医] 骨髓性的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "reformulate",
+      "sourceId": 3223149,
+      "sourceSha256": "a8c313d47444dde354a49ddffeb35ace683a766fb7b0d9224a3e26cf23fc3ded",
+      "pairSha256": "b0b0e3d6c05dd936caa919996eedd40759a6f96d07f3550874e6c2c9f81e292f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "reformulate",
+        "partOfSpeech": "verb",
+        "meaning": "① vt. 再用公式表示",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "reinforcer",
+      "sourceId": 3382008,
+      "sourceSha256": "68ffea2e1cd468ae60f959db5a9735d9e03831ddaa2d1b2c7249bea4aa90ef85",
+      "pairSha256": "1f283934dc47af91ea11b0ecbd3e21cac9942e9609837f94ac9bac18ebb6fbf1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "reinforcer",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 增强材料; 增强填料; 增强剂",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "pullback",
+      "sourceId": 3463389,
+      "sourceSha256": "695c42828195c4fcffb01c45a3ba8e396bcaa847f0116dbfbb1e0bbe082949c3",
+      "pairSha256": "90c16a1e41fad10057724fe0645838e19fd778af4f21c674ddf56602748959b6",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "pullback",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 拉回, 障碍, 阻扰",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "chump",
+      "sourceId": 3502716,
+      "sourceSha256": "792eb44b34816e054e70b0677bb3348ed67493e38138c82e86e501ca3d426cec",
+      "pairSha256": "e027f993ea713905f6009476a0d4356fbed6515de8f3494091a74326ccf5fe3e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "chump",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 大木块, (羊)腰臀部的肉, 傻瓜",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "sonogram",
+      "sourceId": 3537359,
+      "sourceSha256": "cc307eaa90482356ce5e67101a240dff8b01f3c3e02256d3bb7b90a98a660bd2",
+      "pairSha256": "abab7549230f31ab9d63fe608776f54dd0adbef3e9abe0fd1f63d241ae7312c2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "sonogram",
+        "partOfSpeech": "noun",
+        "meaning": "① 语图",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "cheapen",
+      "sourceId": 3604931,
+      "sourceSha256": "ce1c7cebc68d92d345949a94675f165a51550267eea664d26e362c56f446eb41",
+      "pairSha256": "bd87025b57d640997429ab5d15b2dbe4d99dd0fa36dd3bf8efeaeb2e08f7af1e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "cheapen",
+        "partOfSpeech": "verb",
+        "meaning": "① v. 减价, 跌价",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "diatonic scale",
+      "sourceId": 11222828,
+      "sourceSha256": "2b54728cad0b7ff0f89addc97779ee5a8fae1b4ff0a4302acd89e76b86e2cced",
+      "pairSha256": "5d7e44660aa3888600ce82a7cb650f148d7c600c8566d3d216cdc17ddfae52e4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "diatonic scale",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 全音阶",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "critical point",
+      "sourceId": 11151982,
+      "sourceSha256": "696d6c821fa95572b77830fc32320c2ca3a1d00fc0985b9d7036559d929a3104",
+      "pairSha256": "a63ad2cc807208bac31e067e424708f1877c4da24731bfee45038b6a8be9149e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "critical point",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 临界点\n   [化] 临界点",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "deep water",
+      "sourceId": 11197496,
+      "sourceSha256": "0a8864589e3d6fb271ce1ab0f7812207ea17d362601104b884c7126f897b23e6",
+      "pairSha256": "c1f329c9dad4df01e4ca0f007a21d0be7ea8addec042e383e55b5f7f15b091c2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "deep water",
+        "partOfSpeech": "noun",
+        "meaning": "① [医] 深层水",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "two-way street",
+      "sourceId": 12926378,
+      "sourceSha256": "788078211c7216a009a420fe9f5083c935b6fc81083262c01090178da39b46a0",
+      "pairSha256": "004904cd3e10d05ac8ec05a627846f792058df78d62b6657dbbd40773875bbdd",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "two-way street",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 人和人相互帮助和关心的关系, 而不是单方面做出努力。",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "uncorrectable",
+      "sourceId": 12933136,
+      "sourceSha256": "663a99c7beb62739da59a9c3553ab04596b56a0e7e1f41f8d26a5a598e6b80b7",
+      "pairSha256": "90460e2be54e2db5f3c28020ff3c47049f1d7eacfbea0faf1369c2bc68e42dc1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "uncorrectable",
+        "partOfSpeech": "adjective",
+        "meaning": "① [计] 不可校正的",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "unequal to",
+      "sourceId": 12935439,
+      "sourceSha256": "35c4c3ceda604668e949faa6097cdf8fa344e093218632d45a2306e1eda3661e",
+      "pairSha256": "aba9dfb7c850c94509f350baae2ab69c8698b94c4ffd28aa999403ba801b5a39",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "unequal to",
+        "partOfSpeech": "adjective",
+        "meaning": "① 不等于",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "tetrad",
+      "sourceId": 12828853,
+      "sourceSha256": "df05a6db7cd6a3f9797c5f51e55dbec1fce8e043f11a1f67eb7c110fc9c52843",
+      "pairSha256": "85a05ba261f95ec43602d21821d4eb9015b7bc46a4e8928fbfc96fc52f10ffaf",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "tetrad",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 四元组, 四个一组, 四分染色体\n   [计] 四位组",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "subsequence",
+      "sourceId": 12741720,
+      "sourceSha256": "26656e586e6036d2d73b8ab871892c461a9e9edeb913838151a4732f457c459c",
+      "pairSha256": "2e39dc19527ca0d2db039fb3c15975507145c5e71aa147f993186af34c42062f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "subsequence",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 随后, 后来, 随后发生的事情\n   [计] 子序列",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "stick up",
+      "sourceId": 12709376,
+      "sourceSha256": "6ba664622f3399e7c53b56d93df45556a8936884c1a9fb19a42f635df087427a",
+      "pairSha256": "a919daaf55b41758681c3eecab22fd6a48239b7beed6f624bb56f2b3ad1de500",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "stick up",
+        "partOfSpeech": "verb",
+        "meaning": "① 竖起",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "transmission mechanism",
+      "sourceId": 12891096,
+      "sourceSha256": "1c61d5066b0b6308cbba3e12ea897888d04c1048d50df79d13c32ce85b3ab427",
+      "pairSha256": "1da2d1eba121e37fb47e34250e327b328c05fde98cf7d6bd34172e0221c611bf",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "transmission mechanism",
+        "partOfSpeech": "noun",
+        "meaning": "① 传动机关[机构]",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "tanker plane",
+      "sourceId": 12798872,
+      "sourceSha256": "d88b678af5a4bdd036396ea8637e91942575ae6406efecd7f290cfdc2182982a",
+      "pairSha256": "3d109c4372382e1b43e112cf11358470084692dbc776a9fc30563a3f36185f94",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "tanker plane",
+        "partOfSpeech": "noun",
+        "meaning": "① 空中加油飞机",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "flat bone",
+      "sourceId": 11446456,
+      "sourceSha256": "bb74230038e3c86b822087a552e6b05eafc5f050b2f0491b438f88d8d8046180",
+      "pairSha256": "0b646307bb29fa31a5302bcce4c7cbe68fbf7761af071fb0a157038195605a04",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "flat bone",
+        "partOfSpeech": "noun",
+        "meaning": "① [医] 扁骨",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "force per unit area",
+      "sourceId": 11473792,
+      "sourceSha256": "7036f29a044ae1dddb1ca5db54fe3b7a4f568d5ccb285737786e3fc590e83890",
+      "pairSha256": "ab45e6fe2bdf5fb38650bbe4ec475e4a28d2c3406d14c0113fa677dbdb402aea",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "force per unit area",
+        "partOfSpeech": "noun",
+        "meaning": "① un. 单位面积上的力\n   [网络] 面分布力；单位面积受力；单位面积的力",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "front end",
+      "sourceId": 11498029,
+      "sourceSha256": "89d5eea9d44580547422d305f324db16112b906d193d0629b7c1c18798a7a871",
+      "pairSha256": "6f020597efd45f5ed99f80bf150890b60898e10c08a0ca46bea2f57e632cfe26",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "front end",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 前端处理机, 前端程序\n   [化] 前段",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "free state",
+      "sourceId": 11489234,
+      "sourceSha256": "4411b364479206b88c39b79dbae842b131a9f45896b19d14eb31b34e6a69f30f",
+      "pairSha256": "867a13e362696678cf58a1baba1ab36abf0bb37baa2741252b7cc3e686c85c66",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "free state",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 自由状态\n   [化] 游离状态; 单体状态",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "flame up",
+      "sourceId": 11444077,
+      "sourceSha256": "511963837990ec6e53a5c5221e52bac9d969a000fb817e4bb53759fe568b7509",
+      "pairSha256": "e7f493dd0db00cc11027e13083f70f30f976ebd43fa52ef53391402aea811345",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "flame up",
+        "partOfSpeech": "verb",
+        "meaning": "① 爆发",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "flying colours",
+      "sourceId": 11463559,
+      "sourceSha256": "6c4907a0fc7af83dde81ca406f1c1223f66f97ab147b43c9c5118b5ccc33322f",
+      "pairSha256": "d8f773c9a23fdbc3f548f378b43194d05e69548e241637ee0322d7b9cf2a3a09",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "flying colours",
+        "partOfSpeech": "noun",
+        "meaning": "① 迎风飘扬的旗帜, 大胜利",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "four flush",
+      "sourceId": 11482291,
+      "sourceSha256": "7cc570ef72e3a6db2adb84f0a705e6100ad2b92edb78c4cba169b601a6b2ee54",
+      "pairSha256": "6b548a97419916da4d1d8742fa23a23b9e3981f8b6c657895fe6ceaf8ce1378c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "four flush",
+        "partOfSpeech": "noun",
+        "meaning": "① n. <美>四张同花的牌",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "head lice",
+      "sourceId": 11636562,
+      "sourceSha256": "8fff2ee259742c24d1010c145a33ab03f3457d83a06b2d6eb63d317934ed13fc",
+      "pairSha256": "d1e2d5b1ca4abdbc19d0c6d2388c5bdc373a5fd64cfcf161146152e588aca201",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "head lice",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 头虱",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "jump on",
+      "sourceId": 11783602,
+      "sourceSha256": "d53554319774409311e733c7f65dc9d625f698a6ff189c511166d17097daf06c",
+      "pairSha256": "c42f8ba457b67b9247c241aecd488524ab06e96548ff3b7ca2177c067af01650",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "jump on",
+        "partOfSpeech": "verb",
+        "meaning": "① 扑向",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "keep abreast",
+      "sourceId": 11791190,
+      "sourceSha256": "fa9c7fc5163c6c4becefab8aefbed3261c402cfb1214d03cdfde38568564ed3d",
+      "pairSha256": "6541d24fb7847421ed566dc27597c57373ab36806d08b8afacf81539a3f046cc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "keep abreast",
+        "partOfSpeech": "verb",
+        "meaning": "① 并行\n   并排航行",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "keep note",
+      "sourceId": 11791956,
+      "sourceSha256": "1504507bd712ff184fe9da003c2a13c73bb7153c638a7834531c16d8e4bf2b97",
+      "pairSha256": "612f7b0f3b9fe5e04007de585cf852d6391f8ecdad4acc2bd15e5fade28e81ff",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "keep note",
+        "partOfSpeech": "verb",
+        "meaning": "① 记录\n   做笔记",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "laugh away",
+      "sourceId": 11829216,
+      "sourceSha256": "2ac8a21c76ef7640eaf6fa568533ce028f6eaf0879e27d141c1ae685fb3de805",
+      "pairSha256": "f8e8c69926c3c6d55923bed13ec19a30bccb34a238f8743fce88b7a0d11be445",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "laugh away",
+        "partOfSpeech": "verb",
+        "meaning": "① 谈笑中消磨时间",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "land resources",
+      "sourceId": 11819969,
+      "sourceSha256": "68fb7d5676cb2c41a2069673ae92c09e2c7c6cf5e433a415c6329bc975d9eebb",
+      "pairSha256": "fd88ac948747a8e94df37b265fa7a5cb9b30632c43eb334b691bb53db5d74894",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "land resources",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 陆地资源",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "magnetic field strength",
+      "sourceId": 11921020,
+      "sourceSha256": "43909214dea034e8a19cce2c5e6d3c1bfa3de8086b08fd63c1ecae295699d1ce",
+      "pairSha256": "dbfb64344dbe7c86006ddae88deeb3310cb044fd39d1c0749d44cc1deb89e361",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "magnetic field strength",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 磁场强度",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "male parent",
+      "sourceId": 11933872,
+      "sourceSha256": "a79c38ae77954b36a9a48f599b408e73b97d97097296314e09478b54cf8bec05",
+      "pairSha256": "59932526a1807fbde9f7e64e9cd63d59c57202d5f394371028f7a10fb19d9a0e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "male parent",
+        "partOfSpeech": "noun",
+        "meaning": "① 父本; 父体",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "margin of error",
+      "sourceId": 11945370,
+      "sourceSha256": "9911586632cc55fb6dc06d2e353d4967f33633258931f8be4ffd67be1052c9e1",
+      "pairSha256": "cc22ff607ae839c41652ba314a1a89b044f6af08a1e0b20bc7ede7ef81dc49f2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "margin of error",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 误差界限",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "matcher",
+      "sourceId": 11957921,
+      "sourceSha256": "102fd8687a669517416dea77815fb891149968c3971c17441e520cb628ed8610",
+      "pairSha256": "7835434d53f2621d6b1e421c7ea14b7a5a7ed63342de671c1bff6062209b5642",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "matcher",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 匹配程序, 配对程序",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "meet up with",
+      "sourceId": 11972593,
+      "sourceSha256": "ee78f879bfd1455b379d9858a9c1480287e27d98f60276155f330009c73bb302",
+      "pairSha256": "ddb14c82cd6775ead81aa010c89e264bf48e3c7179344359bd2cf512f513c32e",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "meet up with",
+        "partOfSpeech": "verb",
+        "meaning": "① 偶遇",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "mental object",
+      "sourceId": 11978143,
+      "sourceSha256": "c13f69fa5c08d1eb8da5b88325e39107c45387a23cf4f1b937b90bc7ed2828c4",
+      "pairSha256": "1826c72ed5102a13e0042dc822291d1f889ff5dc4486f3ed0d7f8cf448a39c5b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "mental object",
+        "partOfSpeech": "noun",
+        "meaning": "① 精神客体",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "motor control",
+      "sourceId": 12021883,
+      "sourceSha256": "7c66a7a3ba32402f602579c35265fbd3209e23b3e836f0b4b83c844e826e2bbe",
+      "pairSha256": "26c511e7bfafefc72c2635f49c734b6875da0a5137c19e2a3dc4c0e2eb898a62",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "motor control",
+        "partOfSpeech": "noun",
+        "meaning": "① [电] 马达控制",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "motor pool",
+      "sourceId": 12023292,
+      "sourceSha256": "aa4cacba2814767627dd985939ed314d0d53fa30ca20665986956796f769cf14",
+      "pairSha256": "70fb2667c294344cd1540868237b42b4c1c4bdc5055826040057645bd84fd1b7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "motor pool",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 车辆调配场",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "nose out",
+      "sourceId": 12086050,
+      "sourceSha256": "78e01bfd8672f19521ecdd5aad4addaaaa1ff627b48675805f4c8117de4c9fbd",
+      "pairSha256": "7558ce2c010553e5a45d954f1315a9efd79b7328c0af8c880803ffe87b80d9eb",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "nose out",
+        "partOfSpeech": "verb",
+        "meaning": "① 比...略胜一筹",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "oil heater",
+      "sourceId": 12107732,
+      "sourceSha256": "a1f15a8daa16b99a4144565297aabce3c2ce0a18c87a6ac5357e2ea5f39a4c01",
+      "pairSha256": "c6812aa182a5e3379fdcf821cc5854603026551805611dd9a6ffe740a37f5525",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "oil heater",
+        "partOfSpeech": "noun",
+        "meaning": "① [化] 油加热器",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "iconoscope",
+      "sourceId": 11712915,
+      "sourceSha256": "7f5f5be5e5a75f19e60f9a06c1c7ab778efd462724e722edd32eb3ccf3683b3a",
+      "pairSha256": "c3c75c7729e00a4b25ce0bfe12d1a48b22201c73a0eed20aad5d44a5a3d7c10b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "iconoscope",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 光电摄像管\n   [电] 光电摄像管",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "intercalary year",
+      "sourceId": 11752900,
+      "sourceSha256": "30043eed38cc0fa26431a345d566b87c1ae2431fff920e60c34f6c7fa73ce92a",
+      "pairSha256": "c173101fed8c4682baaa24053f1ba92f1e752b7a598a7564c0c65ac2dab5fec2",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "intercalary year",
+        "partOfSpeech": "noun",
+        "meaning": "① 闰年",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "light time",
+      "sourceId": 11867516,
+      "sourceSha256": "7a4d3ad7760385113317bfc73a921f7f7116e861020e51d41d598a017b0f1920",
+      "pairSha256": "15b87874bf21d9428e20471a56c40f3a10a551aae4e54bef13c83fadc7fa4317",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "light time",
+        "partOfSpeech": "noun",
+        "meaning": "① 光时，光行时",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "light touch",
+      "sourceId": 11867520,
+      "sourceSha256": "b576069e761767e2d57f8a039bdce32d0d83893e31685664c35247e18e630829",
+      "pairSha256": "f51c299dd4d4d240cd200c4107e69cbbcc39bb428db344c87bed3a662bdf7837",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "light touch",
+        "partOfSpeech": "noun",
+        "meaning": "① n. （弹钢琴的）轻触法; 灵巧的处事能力",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "radiolocation",
+      "sourceId": 12361027,
+      "sourceSha256": "44061a3499a236bc4846d569e2579c409320539506cb2804308e9a6bfbf2ec06",
+      "pairSha256": "466e5f5ba1e483f80f2be74d4b7dbaf12a54dbb83a90fb953ab4ecd5f88f0e12",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "radiolocation",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 无线电定位\n   [电] 无线电定位",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "problem solver",
+      "sourceId": 12306167,
+      "sourceSha256": "8917de70ec41f3e8769380ba76696a1532952c559407dfb6c57ca484c2274bb0",
+      "pairSha256": "f49e7787c29d5bee6607656c9c79e0cb01afdd9086cb29ccee2039f654e50f01",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "problem solver",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 问题求解程序",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "public library",
+      "sourceId": 12323163,
+      "sourceSha256": "6e424e616eda8ed709b050b28586e63551725722a65d0a126dff7e3194e374bb",
+      "pairSha256": "9a7c4b830efe23c6fd5095243dd37d8f00fcbe31008a06dbcc9e23a637ff04cf",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "public library",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 公用程序库",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "race problem",
+      "sourceId": 12351487,
+      "sourceSha256": "01d0c1b2e19744ea55c9b3ec2ae2a5db6025380a1e5b0bb7605618745edfd5b4",
+      "pairSha256": "6ce82e9f91e7ee44b2c656d0fa4fd4374432c5c334cd78c1b0aa545354fe87bb",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "race problem",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 竞争问题",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "relay link",
+      "sourceId": 12407102,
+      "sourceSha256": "c25057031bedaab5e6ef9505fdbee6b6fabc3abe86dbc7973312c4e59da06d67",
+      "pairSha256": "920f4c6269b04ec06abb210ec001282dc372dcaeab27a668f9fed1a99559dad1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "relay link",
+        "partOfSpeech": "noun",
+        "meaning": "① un. 中继线路；接力线路",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "restrictive clause",
+      "sourceId": 12419694,
+      "sourceSha256": "0cdc77a52d55dbba017fa936e4743eb0c674c864fb98515484097b2fd0e19ada",
+      "pairSha256": "24974db1cda25c100b56a03cf54b1fe7be7ed0dde5aa71ab971c80a7ddab3735",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "restrictive clause",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 限制条款",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "rough cut",
+      "sourceId": 12457258,
+      "sourceSha256": "ab1dc26379c62a83c9672a262cfff87ebdcc23a784246f0f5a012ca4c68cdb60",
+      "pairSha256": "1f2b7015ed49e49725b954948b814c2d9e8c6d9015c0b7e1498775d1b4f24ac5",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "rough cut",
+        "partOfSpeech": "noun",
+        "meaning": "① 粗切削, （锉的）粗纹",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "second half",
+      "sourceId": 12520074,
+      "sourceSha256": "83ca59280c3f5aa6875aa762aa0aaafa9288c7cd9b510cbbf793b9668e0b4823",
+      "pairSha256": "dd9f4c1f845e715b988d95b7ac54c3890843ab73c887f145eb1908941619698f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "second half",
+        "partOfSpeech": "noun",
+        "meaning": "① [经] 下半年",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "see the light",
+      "sourceId": 12525259,
+      "sourceSha256": "6929af9db9234fda063877d6ad675675d6d97ad8bfa94136975a33f30a3f934a",
+      "pairSha256": "438721283dd9ec0b1b9a46924cd508b1016feae7e12b6e26a179080b1aa46981",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "see the light",
+        "partOfSpeech": "verb",
+        "meaning": "① 公开, 被揭露, 领悟, 接受(某一看法或真相)",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "service abroad",
+      "sourceId": 12539469,
+      "sourceSha256": "312e3fee06b4d65922615b144c099fb684ff14871bdf36e2ac96e5b8b1af9e96",
+      "pairSha256": "b4998a28ff480ff61467a003587d90b18b21085688ec945667da8f380906b1b1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "service abroad",
+        "partOfSpeech": "noun",
+        "meaning": "① 域外送达",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "shove along",
+      "sourceId": 12569775,
+      "sourceSha256": "76cfc8e64b6a720b9dfb3ebc45f38d5251bd82dc313aeded2212fda5a1869fc9",
+      "pairSha256": "ac7ab6f61c3243122cdc69a4c139ae98071970f527c776e9ed7a038552007f5b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "shove along",
+        "partOfSpeech": "verb",
+        "meaning": "① 推着走",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "figure of eight",
+      "sourceId": 9456733,
+      "sourceSha256": "8e7ec8fcdc2a1ef32667d0ddee0f075c1ea66bafa3316892686c705086f6dedf",
+      "pairSha256": "a4926790ae380d712229c6a6eff3720ca6b2b69ba118779e3550e2e66e79418f",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "figure of eight",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 溜冰8字花式",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "free form",
+      "sourceId": 9502795,
+      "sourceSha256": "bbccb8f8390a92c0e7ad26927b0417f6ae4ce4669f83dcdf401caf8b3d7aa3ab",
+      "pairSha256": "61ca5ff39de63660da351a471ac7ce59733ea938dcce6fa5a54e46472f704055",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "free form",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 自由形式",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "buffer zone",
+      "sourceId": 9164715,
+      "sourceSha256": "efbf44f1faeb6a9aaaf0884a3c4ffa36097d429669d0cfe6003de689a6b0cb32",
+      "pairSha256": "a61d9062b7853d83433cf703aaaaab81d25bc1521b67f67df0469a1d11869a21",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "buffer zone",
+        "partOfSpeech": "noun",
+        "meaning": "① [电] 缓冲区",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "at fault",
+      "sourceId": 9052908,
+      "sourceSha256": "351f2841180a8e877afb1fcbfcc6ed5cb98af96f2083333175b230cb62b73cf7",
+      "pairSha256": "7d7c394838ed714d029529bd99ca0679945a71bef8836a6407077d27d525c332",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "at fault",
+        "partOfSpeech": "adjective",
+        "meaning": "① 感到困惑, 有故障",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "drift off",
+      "sourceId": 9387089,
+      "sourceSha256": "0fe978b92a80326f5e542b8b8f9dbc4efabcee4d91f724c4b27d110a4c39a5a6",
+      "pairSha256": "0c83259542989b9a5070ff76e82ffe2b020def9865a7ab8aa7cd2bfc2acbe886",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "drift off",
+        "partOfSpeech": "verb",
+        "meaning": "① （人）渐渐离开",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "good part",
+      "sourceId": 11570205,
+      "sourceSha256": "3b192610fc26b7419b45c4a7f4147108130ec3a1927c19e87390693e8aa63af8",
+      "pairSha256": "031fd7607fa6d6ed713d8c1508cace442b5fd93222d2e5fddf93b53a6801a89b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "good part",
+        "partOfSpeech": "noun",
+        "meaning": "① 好的部分",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "golden cup",
+      "sourceId": 11564120,
+      "sourceSha256": "ea5c67b3f47c0d7f708e8fabf95f49ef541690efd2ea8d0422a7d494d1ef04b1",
+      "pairSha256": "caf5ce436cd6c1a5b48cc95376dee47395a9fbb9207d481f6314fdd7af68c299",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "golden cup",
+        "partOfSpeech": "noun",
+        "meaning": "① 金杯",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "linear measure",
+      "sourceId": 11875952,
+      "sourceSha256": "260a777ecfb241200b1c5318dbd53ce069a0eea0146f9d16e737cc391d1df733",
+      "pairSha256": "0216e40f8a73fc7073f19cb5d4e1ab2077224f8f66785b1a41fd09fde11536a7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "linear measure",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 长度测量",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "velcro",
+      "sourceId": 3899922,
+      "sourceSha256": "862a0ff83f1d4839b961a6a27735c28f3a29b2715ba540ebfc4cc062f189ec8b",
+      "pairSha256": "fc88959c9e5b028b92916bd1c1421f7dccb3db775f37fbd643b37d35165f58ed",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "velcro",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 维可牢（一种尼龙搭扣的商标名称）",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "brimmer",
+      "sourceId": 4689237,
+      "sourceSha256": "901d73e6bb97079471641bc981285eeea0ca5cb07796e83fa0a66336029eba2d",
+      "pairSha256": "98cdd3236aee505191a98901506c810fc7bd6acf785ffd09f8138e29eef96f90",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "brimmer",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 满溢的杯, 满杯",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "battleaxe",
+      "sourceId": 5012689,
+      "sourceSha256": "66e60e4de12989e23f3d38200c9af43cb1155850daba9bf5590ee9a1fc601aff",
+      "pairSha256": "0d9efcd32961b4db43ed5eaa36094f9b88504754b7221af30952c26367887780",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "battleaxe",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 悍妇, 母夜叉; （旧时的）战斧",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "calculative",
+      "sourceId": 6157398,
+      "sourceSha256": "895939782a2fe27ce6acdb0bddaede04c988ceab3260fef0f1d2417b1bfbce03",
+      "pairSha256": "d8cd238dea9a9512c3b7f3d63400d13e58bc5d78e4c84221a3ec63c1145a2b61",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "calculative",
+        "partOfSpeech": "adjective",
+        "meaning": "① adj. 计算的, 善于计算的, 精明的",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dishwater",
+      "sourceId": 9358648,
+      "sourceSha256": "90171b6a08ea3c3eed78ae2ad61325b47e77138f3d1b83e10b0f0164252dd344",
+      "pairSha256": "ad20e73928e2e9de756d52bd8026e55d30ac25e36d60b994fd66378cbc2917bb",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dishwater",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 洗碟子的水, (美)(非正式)味道蹩脚的汤",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "holding pen",
+      "sourceId": 11671843,
+      "sourceSha256": "ed5a11a65ab484051affbe3f8669e2c00be54be2b81ce86226f9873753122d38",
+      "pairSha256": "3fe5da3bc32251965a5fc8d949b7e36949b6fdbc704aaca7cc4ab9bbdc82b585",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "holding pen",
+        "partOfSpeech": "noun",
+        "meaning": "① 候宰栏",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "homeotic gene",
+      "sourceId": 11677082,
+      "sourceSha256": "909e205a43a3808c0b9efba5e3802e67cbf06b65b1231231122c48df724af755",
+      "pairSha256": "85270fb94517026c57c7020d97c9d071d241dfaee2adb57d9e83da5119f96f4a",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "homeotic gene",
+        "partOfSpeech": "noun",
+        "meaning": "① 同源异形基因",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "pharisaic",
+      "sourceId": 1769901,
+      "sourceSha256": "69bd436b2e5bfb13e9a4e88b0d5d7b406b82079cc107d8d27ff19b66754a6d7b",
+      "pairSha256": "d5a6d603c138b7f7e210419382ac66a6aa87f2aa694a89654be7eac14e7b6d0c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "pharisaic",
+        "partOfSpeech": "adjective",
+        "meaning": "① 法利赛人的",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "blench",
+      "sourceId": 5943279,
+      "sourceSha256": "a73d59d3866f851f27bcefb4c7ff36fafffe6050ff3f551ab568f616f9a63e0d",
+      "pairSha256": "dca0dd2203a913168521bdb5d77f4309cd0468f54e5e8645788076e99de2073d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "blench",
+        "partOfSpeech": "verb",
+        "meaning": "① vi. 退缩, 畏缩",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "air-cool",
+      "sourceId": 7453963,
+      "sourceSha256": "404bca31a571b929780e91b487d732a340d130dade33557fe94c3fdb453e5df5",
+      "pairSha256": "b574489db47ce7384580cc09ba9152772cad0ec12550132bb9bab41c7805c903",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "air-cool",
+        "partOfSpeech": "verb",
+        "meaning": "① vt. (用)空气冷却",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "daisy chain",
+      "sourceId": 9318656,
+      "sourceSha256": "6b8c4fab059d47718c70c704bbb8d44055435d5448f40ed6219ee3b667affbd9",
+      "pairSha256": "67e879b80f5a5a49a86578418013001f0215e1193d6e886de6244e1def89829c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "daisy chain",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 菊花链",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dead air",
+      "sourceId": 11186647,
+      "sourceSha256": "92646d56053d647f4bb7c0d48fa0338047134022c69e150c8ae8c507378710fd",
+      "pairSha256": "b8ea24cd76c0b493b25e50ae00b8faacf4854e6693c71968e5fe354ec72e2a98",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dead air",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 静气",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "circular file",
+      "sourceId": 11009750,
+      "sourceSha256": "ece39786bbb2262bd97cdea804cae1aec81c313cccba6d78a3fa00504d99d71d",
+      "pairSha256": "e7e9415c27366d1c288f37c1ee75b95cfd060852986a970a6a36362b346aa6cc",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "circular file",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 循环文件",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "bodega",
+      "sourceId": 3889561,
+      "sourceSha256": "5133c9e4272a5ea249cde93388b05d5bafdecc07ccbd073619e5db754bc69dff",
+      "pairSha256": "9b8b7badc41d8196908a307d5b09ab38df83f2b0da69b88211cbc1fbd937fdb4",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "bodega",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 酒窖, 酒店",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "pager",
+      "sourceId": 2629196,
+      "sourceSha256": "356598839ee2029621fe0309438e9f6158cde365169159500c2dfcd1542626e8",
+      "pairSha256": "c25b8490382e92040917bc4428d3bf4e4826d14e8415973a47f87ac7ea14a753",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "pager",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 页调度程序",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "slider",
+      "sourceId": 2684668,
+      "sourceSha256": "97e6467c4c3ba6348760c2a4ba17fd53c17692624ac93771c73aee77cdd13037",
+      "pairSha256": "a5f1831a89e859561a9ff97677529bc20b344cab717243bd11a77dd8742896e1",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "slider",
+        "partOfSpeech": "noun",
+        "meaning": "① [电] 滑动器",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "orphaned",
+      "sourceId": 2701770,
+      "sourceSha256": "1849f52d5730fbdf4b0cfba9ade40e1752850410df6a4f6f34e37f4dbe2d1c28",
+      "pairSha256": "eabf5ec13d8cf438cb7799284b1c3e188aff875abd41f5808ae76a8a556ec128",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "orphaned",
+        "partOfSpeech": "adjective",
+        "meaning": "① [计][修]孤立",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "airwave",
+      "sourceId": 3263534,
+      "sourceSha256": "6b817fc805c2599a406775edcc1dc7a2f8d9374c2b53b5cfe2d2c79908bf772f",
+      "pairSha256": "bcbca2ad58a06894ca8464a58ff266948122f2cd26bd7d7ae227ba352e2fce56",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "airwave",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 电波, 波道",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "all fours",
+      "sourceId": 10628569,
+      "sourceSha256": "e14c754349d66d2eb15e7bf140a3b1b99805670c2d3cb3be60e3cf2c382d0a51",
+      "pairSha256": "c094d646a67e30e23378f520ed1b3fcc41cb89df455ffd8b39485e9bcef6726a",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "all fours",
+        "partOfSpeech": "noun",
+        "meaning": "① n. （动物的）四足; 四肢",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "apple of discord",
+      "sourceId": 10665152,
+      "sourceSha256": "44fac69d71e91426328c58ef05233be1fde92bfab3ce95a60ede4cd874a056bf",
+      "pairSha256": "d976c493aa82f6d5357d10dc456cb8e1969f6f5b7573c9de3f14eb77d717377d",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "apple of discord",
+        "partOfSpeech": "noun",
+        "meaning": "① 争端,祸根",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "anchor ring",
+      "sourceId": 10644982,
+      "sourceSha256": "3297154bfdddcdbbae1d9097246b1dfccabd61e5a67c26be86bfbb08d62aa261",
+      "pairSha256": "73384f798692770c772c911a70006ab8b94f7f82e0353cd6c517dc6f9ed50335",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "anchor ring",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 锚环",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "ash bin",
+      "sourceId": 10690966,
+      "sourceSha256": "ecd3aecd0378df986d37ec1c5603a61189a93c32772d5d446a32cea5e0c7f4f9",
+      "pairSha256": "5187f5ea0b26ebc65bd9a379bd0cbdc99588ae9173b8b9463f1b377f2bc1fd1b",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "ash bin",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 灰仓",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "back channel",
+      "sourceId": 10720417,
+      "sourceSha256": "20463dc4f8b2de6b1754f7d5b1aa6da8ce97442a88eb4788b2170f7d4cdbe322",
+      "pairSha256": "d41ee94e1bddcbea130d774430dac9300c98678cba465709c53da8e06e3b9c72",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "back channel",
+        "partOfSpeech": "noun",
+        "meaning": "① [计]反向信道",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "radio reflector",
+      "sourceId": 12359272,
+      "sourceSha256": "bc5d4f530e447ebe242403573891ba8316c2155d1f918f96d5070529ef855a2d",
+      "pairSha256": "9c3bdb6c148b086d92288eb0a3ed55d7948b7250ddaaf793dc370494a86e43a9",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "radio reflector",
+        "partOfSpeech": "noun",
+        "meaning": "① un. 无线电反射器",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "ordnance store",
+      "sourceId": 12131552,
+      "sourceSha256": "3084d9e7de20601724e25b9b4f2e9680aabec3f96b861145f646f028a3938a1c",
+      "pairSha256": "4f3ec00459b5e3af844b56ba0fc7fdfd268dcccbc8ee95502915a61ec5be704c",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "ordnance store",
+        "partOfSpeech": "noun",
+        "meaning": "① na. 军械库",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "pipe in",
+      "sourceId": 12229320,
+      "sourceSha256": "cebdd584518a87c962e183f03c906e8f49934c6034c3430f9806d2ceb73c6e9d",
+      "pairSha256": "def4c9a9d549976dba2bd37a19fdc961876d023a4c99066a5eee4ee9e9073688",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "pipe in",
+        "partOfSpeech": "verb",
+        "meaning": "① 用电讯设备传送, 吹奏管乐器迎入",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "dig in",
+      "sourceId": 9347506,
+      "sourceSha256": "b5685cf1f71d5ec9f1a3d0baf5c9aed81ca0f91a7c4ff664d2845c8e06ff1a8d",
+      "pairSha256": "4a3160b932ba2aed967501aa00a3eaf3864a486296a9ce290f97e4f7faaed952",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "dig in",
+        "partOfSpeech": "verb",
+        "meaning": "① 掘土以掺进",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "kick out",
+      "sourceId": 9734951,
+      "sourceSha256": "254c23254b49dfe64addeb7e0e0ea5f913b309241a8d47e661361ccda66cdbf5",
+      "pairSha256": "4c8443e637247ca66d9e95b3ae7166acf1234dada0a645a172d4f650c67d2edf",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "kick out",
+        "partOfSpeech": "verb",
+        "meaning": "① 把球踢出界",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "kick back",
+      "sourceId": 9734522,
+      "sourceSha256": "7c4dbc05e3b9f8b0cae2f7e80d0281986a36111423fe60524a17bd0328232ba5",
+      "pairSha256": "ee779f28371ccf168337e469dec11e162a2737777322d5a7dca0355101cd7374",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "kick back",
+        "partOfSpeech": "verb",
+        "meaning": "① 踢回",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "whiting",
+      "sourceId": 10534033,
+      "sourceSha256": "2558287c464d33bcde62591c76b1c83fefc38e1005ba493f081fa567573f6e97",
+      "pairSha256": "878acece3936f98137b72465b2ecc7569210b0f13543c4cafabcab1906b83202",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "whiting",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 白粉, 白垩\n   [医] 白粉, 精制碳酸钙",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "widening",
+      "sourceId": 10536300,
+      "sourceSha256": "b2fab586c0733146c2ee87bee8ee3c3f7ff3b3bf5adc71afbe8e5bbccb0dbb14",
+      "pairSha256": "79c3f1399438ddac539be3f652db2b1eb5681430f5da95196f8b417e720706a7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "widening",
+        "partOfSpeech": "noun",
+        "meaning": "① [计] 拓宽, 拓展",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "typecasting",
+      "sourceId": 10468314,
+      "sourceSha256": "f1d154794baee8293fc7bfd2dd3e38e14b0708508d43cd6429743596a5f89b81",
+      "pairSha256": "7d5b39d23e6df2adb86035b7727c5633ead1eae9dcaf2ec7a0534daff62f6ba7",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "typecasting",
+        "partOfSpeech": "noun",
+        "meaning": "① n. 铸字",
+        "source": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT"
+      },
+      "contextAliasUsed": false
+    },
+    {
+      "term": "after-filter",
+      "sourceId": 7313998,
+      "sourceSha256": "6a3d82578f7d68004a1e76265f3e9897545de2a19178dda87d937d48757fb7c6",
+      "pairSha256": "96e7480c5028c632aaece786df92f51c3919167ab564afe01dd0781feee9db83",
+      "pass": true,
+      "actualSourceDisplay": {
+        "term": "after-filter",
+        "partOfSpeech": "noun",
+        "meaning": "① [机] 后过滤器",
+        "source": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+      },
+      "contextAliasUsed": false
+    }
+  ],
+  "actualD30ExampleRuntimeProof": false,
+  "languageApprovalGenerated": false
+}
