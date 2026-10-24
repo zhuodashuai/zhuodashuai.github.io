@@ -253,6 +253,15 @@ for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+
 });
 for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
  const current=await fs.readFile(new URL(item.file,root));let text=current.toString();
+ // Undo only the fresh, named shell-navigation gate; all historical hashes below remain exact.
+ assert.equal(text.split('src="js/app-navigation-ready-v110.js"').length,2);
+ text=text.replace('src="js/app-navigation-ready-v110.js"',item.file==='vocab/personal.html'
+  ? 'src="js/app-navigation-ready-v109.js"' : 'src="js/app-navigation-entry.js?v=107"');
+ const ready110Tags=item.file==='vocab/personal.html' ? ['<footer class="app-footer">']
+  : ['<header class="topbar app-header">',item.file==='vocab/dictionary.html'
+   ? '<footer class="app-footer">' : '<footer class="site-footer app-footer">'];
+ for(const tag of ready110Tags){const gated=tag.slice(0,-1)+' inert data-app-navigation-pending>';
+  assert.equal(text.split(gated).length,2);text=text.replace(gated,tag);}
  if(item.file==='vocab/personal.html'){
   assert.equal(text.split('src="js/app-navigation-ready-v109.js"').length,2);
   assert.equal(text.split('<header class="personal-topbar app-header" inert data-app-navigation-pending>').length,2);

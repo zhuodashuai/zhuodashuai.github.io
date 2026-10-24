@@ -215,6 +215,45 @@ test("personal header cannot follow fallback URLs while navigation107 downloads,
   } finally { release(); await page.unroute(pattern, holdNavigation); }
 });
 
+test("guide navigation stays inert while navigation107 downloads, then its explicit return keeps the public chapter", async ({ page }) => {
+  const writes = recordWrites(page), documents = [], errors = [];
+  page.on("pageerror", error => errors.push(error.message));
+  page.on("request", request => { if (request.isNavigationRequest() && request.frame() === page.mainFrame()) documents.push(request.url()); });
+  let release, observe;
+  const gate = new Promise(resolve => { release = resolve; });
+  const observed = new Promise(resolve => { observe = resolve; });
+  const pattern = "**/js/app-navigation-entry.js?v=107";
+  const holdNavigation = async route => { observe(); await gate; await route.continue(); };
+  await page.route(pattern, holdNavigation);
+  try {
+    await page.goto(`/guide.html#${fragment}`, { waitUntil: "commit" });
+    await observed;
+    await expect(page.getByRole("heading", { name: "使用手册", exact: true })).toBeVisible();
+    for (const selector of [".app-header", ".app-footer", ".guide-footer-nav"]) {
+      await expect(page.locator(selector)).toHaveAttribute("inert", "");
+      await expect(page.locator(selector)).toHaveAttribute("data-app-navigation-pending", "");
+    }
+    const link = page.locator('.guide-footer-nav a[href="./"]');
+    await link.scrollIntoViewIfNeeded();
+    const before = page.url(), count = documents.length, box = await link.boundingBox();
+    expect(box).not.toBeNull();
+    // The static guide is visible, but an actual pointer must not follow ./
+    // before capture/context enhancement. No artificial app-ready condition.
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    expect(page.url()).toBe(before); expect(documents).toHaveLength(count);
+    release();
+    for (const selector of [".app-header", ".app-footer", ".guide-footer-nav"]) {
+      await expect(page.locator(selector)).not.toHaveAttribute("inert", "");
+      await expect(page.locator(selector)).not.toHaveAttribute("data-app-navigation-pending", "");
+    }
+    const readyLink = page.locator(".guide-footer-nav").getByRole("link", { name: "回到词库", exact: true });
+    await expect(readyLink).toHaveAttribute("href", /chapter=chapter-1/u);
+    await readyLink.click(); await expectPublicScope(page, fields);
+    expect(errors).toEqual([]); expect(writes).toEqual([]);
+  } finally { release(); await page.unroute(pattern, holdNavigation); }
+});
+
 for (const [mode, id, next] of [["owner", "member-standard-login-link", "member"], ["member", "member-github-owner-link", "owner"]]) {
   test(`personal ${mode} auth-mode link stays inert under independent app readiness until navigation107 captures scope`, async ({ page }) => {
     const writes = recordWrites(page), documents = [];
@@ -231,9 +270,9 @@ for (const [mode, id, next] of [["owner", "member-standard-login-link", "member"
     const personalDocument = url => /^\/personal(?:\.html)?$/u.test(url.pathname);
     const independentWrapper = async route => {
       const response = await route.fetch(), html = await response.text();
-      const before = '<script type="module" src="js/app-navigation-ready-v109.js"></script>';
+      const before = '<script type="module" src="js/app-navigation-ready-v110.js"></script>';
       expect(html.split(before)).toHaveLength(2);
-      await route.fulfill({ response, body: html.replace(before, '<script type="module" async src="js/app-navigation-ready-v109.js"></script>') });
+      await route.fulfill({ response, body: html.replace(before, '<script type="module" async src="js/app-navigation-ready-v110.js"></script>') });
     };
     await page.route(personalDocument, independentWrapper);
     await page.route(pattern, holdNavigation);
