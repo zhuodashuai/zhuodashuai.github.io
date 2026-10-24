@@ -7,6 +7,7 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/app-navigation-ready-v109.js",
   "./js/dictionary-app-v109.js", "./js/dictionary-entry-v109.js",
   "./js/dictionary-app-v108.js", "./js/dictionary-entry-v108.js", "./js/dictionary-offline-warm-v108.js",
   "./js/dictionary-examples-ui-v108.js", "./js/entry-detail-v108.js",

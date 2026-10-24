@@ -253,6 +253,16 @@ for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+
 });
 for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
  const current=await fs.readFile(new URL(item.file,root));let text=current.toString();
+ if(item.file==='vocab/personal.html'){
+  assert.equal(text.split('src="js/app-navigation-ready-v109.js"').length,2);
+  assert.equal(text.split('<header class="personal-topbar app-header" inert data-app-navigation-pending>').length,2);
+  text=text.replace('src="js/app-navigation-ready-v109.js"','src="js/app-navigation-entry.js?v=107"')
+   .replace('<header class="personal-topbar app-header" inert data-app-navigation-pending>','<header class="personal-topbar app-header">');
+  for(const[id,mode]of[['member-github-owner-link','owner'],['member-standard-login-link','member']]){
+   const gated=`id="${id}" href="personal.html?auth=${mode}" inert data-app-navigation-pending`;
+   assert.equal(text.split(gated).length,2);text=text.replace(gated,`id="${id}" href="personal.html?auth=${mode}"`);
+  }
+ }
  if(item.file==='vocab/dictionary.html'){
   assert.equal(text.split('src="js/dictionary-entry-v109.js"').length,2);
   assert.equal(text.split('<button id="dictionary-submit" type="submit" disabled>准备中…</button>').length,2);
