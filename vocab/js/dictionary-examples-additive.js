@@ -21,7 +21,12 @@ function wait(promise,signal,milliseconds){
 }
 async function bytes(response,maximum,signal){
   if(!response?.ok)throw invalid();const length=response.headers?.get('content-length');
-  if(length!=null&&(!/^\d+$/u.test(length)||Number(length)>maximum))throw invalid();
+  // Fetch already removes HTTP Content-Encoding. Content-Length still measures
+  // the wire representation, which can exceed an already-gzipped artifact's
+  // size when a CDN applies gzip again. Bound and authenticate the actual Fetch
+  // body below; an identity response can still be rejected early by its length.
+  const encoding=response.headers?.get('content-encoding')?.trim().toLowerCase();
+  if(length!=null&&(!/^\d+$/u.test(length)||(!encoding||encoding==='identity')&&Number(length)>maximum))throw invalid();
   if(!response.body?.getReader){const raw=new Uint8Array(await response.arrayBuffer());if(raw.length>maximum)throw invalid();return raw;}
   const reader=response.body.getReader(),chunks=[];let total=0,complete=false;const cancel=()=>{void reader.cancel().catch(()=>{});};
   signal.addEventListener('abort',cancel,{once:true});

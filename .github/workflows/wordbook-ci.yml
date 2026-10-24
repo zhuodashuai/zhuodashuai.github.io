@@ -104,7 +104,11 @@ jobs:
         run: pnpm --dir wordbook-api exec wrangler deploy --dry-run
       - name: Install stable Chrome for browser regression
         run: |
-          pnpm exec playwright install --with-deps chrome
+          if command -v google-chrome >/dev/null 2>&1; then
+            echo "Using the runner's installed stable Chrome; keeping every browser test and zero retries."
+          else
+            pnpm exec playwright install --with-deps chrome
+          fi
           google-chrome --version
       - name: Desktop, mobile, offline and PWA E2E
         run: pnpm test:e2e
