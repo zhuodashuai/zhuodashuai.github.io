@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "889e4d639f610eccd8c0078089ab55a781f6d54304a862f35b2447ab3a4cd26d",
+  "reviewer": "AI/d33_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "alberta"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinion": true,
+    "authorPrincipal": "/root",
+    "reviewerPrincipal": "d33_reviewer_role",
+    "author": {
+      "file": "drafts/d33-root-alberta-precision-child-0001.json",
+      "bytes": 883,
+      "sha256": "b38c39581e1c754ec2aa88e9c6e9a548868e120843ea2fdf62c5534c0f56c67b"
+    },
+    "opinion": {
+      "file": "qa/d33-root-alberta-child-independent-role-review-0001.json",
+      "bytes": 1857,
+      "sha256": "6fa0a67c2eedd98a77d9ac0b91654b2162d14fa9244b18ce6167fdf46737e227"
+    },
+    "rows": [
+      {
+        "term": "alberta",
+        "canonicalId": 3468250,
+        "canonicalSourceSha256": "99a11f34b0a7b66b602f99e3b614712ed2633b22fad6ae638c7738fc608a3b8f",
+        "masterEntryPointer": "/entries/432",
+        "wholeSourcePoolPointer": "/shared/completeSources/3468250",
+        "completeFormAndHistoryContextPointer": "/entries/432",
+        "pairSha256": "4b19370daac430ef5da36765fb4d289ac1df3a5e73dd23c2638e4e1bd592c045",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "drafts/d33-root-alberta-precision-child-0001.json",
+          "bytes": 883,
+          "sha256": "b38c39581e1c754ec2aa88e9c6e9a548868e120843ea2fdf62c5534c0f56c67b",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "3b74380309929b0d902b539e12958c722b5e696547f1667305d93fa973e182db"
+        },
+        "opinion": {
+          "file": "qa/d33-root-alberta-child-independent-role-review-0001.json",
+          "bytes": 1857,
+          "sha256": "6fa0a67c2eedd98a77d9ac0b91654b2162d14fa9244b18ce6167fdf46737e227",
+          "pointer": "",
+          "decision": "support",
+          "wholeDecisionSha256": "590f683969e573808b104c4f3beaafba0709fafcf6ade8fc0b4c8c282e977daa"
+        },
+        "selectedSenseOnly": true
+      }
+    ],
+    "selectedSenseScopeNotWholeSourceCertification": true
+  }
+}
