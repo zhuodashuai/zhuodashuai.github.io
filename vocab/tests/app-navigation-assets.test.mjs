@@ -20,9 +20,47 @@ test("all six static shells expose the same primary navigation and a quiet manua
     assert.match(html, /<footer\b[^>]*>[\s\S]*?href="guide\.html"(?: aria-current="page")?>使用手册<\/a>/u, file);
     assert.match(html, /href="app-navigation\.css\?v=105"/u, file);
     assert.match(html, /<body class="app-shell"/u, file);
-    assert.match(html, /src="js\/app-navigation-entry\.js\?v=107"/u, file);
+    const navigationModule = "js/app-navigation-ready-v110.js";
     const modules = [...html.matchAll(/<script type="module" src="([^"]+)"/gu)].map(match => match[1]);
-    assert.equal(modules[0], "js/app-navigation-entry.js?v=107", `${file} installs navigation before slow application imports`);
+    assert.equal(modules[0], navigationModule, `${file} installs navigation before slow application imports`);
+    assert.match(header, /^<header class="[^"]*app-header" inert data-app-navigation-pending>/u, file);
+    assert.match(html, /<footer class="[^"]*app-footer" inert data-app-navigation-pending>/u, file);
+    if (file === "guide.html") assert.match(html, /<nav class="guide-footer-nav" aria-label="继续浏览" inert data-app-navigation-pending>/u);
+  }
+});
+
+test("personal readiness wrapper keeps navigation107 aliases and gates only its header and two auth-mode links", async () => {
+  const wrapper = await read("js/app-navigation-ready-v109.js");
+  const sw = await read("sw.js");
+  assert.match(wrapper, /from "\.\/app-navigation-entry\.js\?v=107"/u);
+  assert(wrapper.indexOf("controller.refresh();") < wrapper.indexOf('target.removeAttribute("inert")'));
+  const current = await read("personal.html");
+  assert.equal(current.split('<footer class="app-footer" inert data-app-navigation-pending>').length, 2);
+  const personal = current.replace('<footer class="app-footer" inert data-app-navigation-pending>', '<footer class="app-footer">');
+  assert.equal((personal.match(/inert data-app-navigation-pending/gu) || []).length, 3);
+  for (const [id, mode] of [["member-github-owner-link", "owner"], ["member-standard-login-link", "member"]]) {
+    assert(personal.includes(`id="${id}" href="personal.html?auth=${mode}" inert data-app-navigation-pending`));
+    assert(wrapper.includes(`#${id}[data-app-navigation-pending]`));
+  }
+  assert.doesNotMatch(wrapper, /localStorage|sessionStorage|history\.|fetch\(|\.submit\(/u);
+  for (const url of ["./js/app-navigation-ready-v109.js", "./js/app-navigation-entry.js?v=107",
+    "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js"]) {
+    assert(sw.includes(`"${url}"`), url);
+  }
+});
+
+test("v110 unlocks only known shell navigation after capture refresh and retains every previous readiness URL", async () => {
+  const wrapper = await read("js/app-navigation-ready-v110.js"), sw = await read("sw.js");
+  assert.match(wrapper, /from "\.\/app-navigation-entry\.js\?v=107"/u);
+  for (const selector of [".app-header", ".app-footer", ".guide-footer-nav", "#member-github-owner-link", "#member-standard-login-link"]) {
+    assert(wrapper.includes(`${selector}[data-app-navigation-pending]`), selector);
+  }
+  assert(!wrapper.includes('"[data-app-navigation-pending]"'));
+  assert(wrapper.indexOf("controller.refresh();") < wrapper.indexOf('target.removeAttribute("inert")'));
+  assert.doesNotMatch(wrapper, /localStorage|sessionStorage|history\.|fetch\(|\.submit\(|personal-app|public-app|dictionary-app/u);
+  for (const url of ["./js/app-navigation-ready-v110.js", "./js/app-navigation-ready-v109.js",
+    "./js/app-navigation-entry.js?v=107", "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js"]) {
+    assert(sw.includes(`"${url}"`), url);
   }
 });
 

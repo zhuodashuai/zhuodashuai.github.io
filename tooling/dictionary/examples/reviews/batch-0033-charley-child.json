@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "5f354dbaf4c19599c76eacb4defdf18e672e2dbb797cca5e517b1b8cbb4f2bed",
+  "reviewer": "AI/d33_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "charley"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinion": true,
+    "authorPrincipal": "/root",
+    "reviewerPrincipal": "d33_reviewer_role",
+    "author": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-charley-precision-child-0001.json",
+      "bytes": 814,
+      "sha256": "649fa6792e0bf99e630b022911fcabe9e2e1d386d008320d5da600807d0d51ef"
+    },
+    "opinion": {
+      "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+      "bytes": 66997,
+      "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e"
+    },
+    "rows": [
+      {
+        "term": "charley",
+        "canonicalId": 2940369,
+        "canonicalSourceSha256": "5470e5937fc8a698e5efd5f9ddc7555a685980f62757410d9b10f2405bc4501f",
+        "masterEntryPointer": "/entries/422",
+        "wholeSourcePoolPointer": "/shared/completeSources/2940369",
+        "completeFormAndHistoryContextPointer": "/entries/422",
+        "pairSha256": "877b5b5f519ea8a7ad27f4312a2487b9281481e3d37c621bac11ddc984cd2caf",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-charley-precision-child-0001.json",
+          "bytes": 814,
+          "sha256": "649fa6792e0bf99e630b022911fcabe9e2e1d386d008320d5da600807d0d51ef",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "2c67878d96cbca11e96d9bb7b3701b94365608c19781e5b793865678580f9611"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/charleyChildDecision",
+          "decision": "support",
+          "wholeDecisionSha256": "c9b3efa45c5d1695fc76d3e71649ca1a1817f06f3452ce642277858c7e3a17f1"
+        },
+        "selectedSenseOnly": true
+      }
+    ],
+    "selectedSenseScopeNotWholeSourceCertification": true
+  }
+}

@@ -63,7 +63,7 @@ test("inline lookup, folders and existing entry points share one coherent module
   const dictionaryHtml = await readFile(new URL("../dictionary.html", import.meta.url), "utf8");
   const personalHtml = await readFile(new URL("../personal.html", import.meta.url), "utf8");
   const personalApp = await readFile(new URL("../js/personal-app-v108.js", import.meta.url), "utf8");
-  assert.match(dictionaryHtml, /src="js\/dictionary-entry-v108\.js"/u);
+  assert.match(dictionaryHtml, /src="js\/dictionary-entry-v109\.js"/u);
   assert.match(personalHtml, /src="js\/personal-app-v108\.js"/u);
   assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=99"/u);
   // The active import graph has one current URL (checked above); explicitly

@@ -251,12 +251,53 @@ for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+
  if(item.oldName==='dictionary-offline-warm.js'){const eol=old.includes(Buffer.from('\r\n'))?'\r\n':'\n';assert.equal(restored.split(warmerAddition+eol).length,2);restored=restored.replace(warmerAddition+eol,'');}
  assert.deepEqual(Buffer.from(restored),old,'No change beyond the named imports or one strict URL branch');
 });
-for(const item of html)test('v108 HTML changes only its main module src: '+item.file,async()=>{
- const current=await fs.readFile(new URL(item.file,root)),text=current.toString();
+for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
+ const current=await fs.readFile(new URL(item.file,root));let text=current.toString();
+ // Undo only the fresh, named shell-navigation gate; all historical hashes below remain exact.
+ assert.equal(text.split('src="js/app-navigation-ready-v110.js"').length,2);
+ text=text.replace('src="js/app-navigation-ready-v110.js"',item.file==='vocab/personal.html'
+  ? 'src="js/app-navigation-ready-v109.js"' : 'src="js/app-navigation-entry.js?v=107"');
+ const ready110Tags=item.file==='vocab/personal.html' ? ['<footer class="app-footer">']
+  : ['<header class="topbar app-header">',item.file==='vocab/dictionary.html'
+   ? '<footer class="app-footer">' : '<footer class="site-footer app-footer">'];
+ for(const tag of ready110Tags){const gated=tag.slice(0,-1)+' inert data-app-navigation-pending>';
+  assert.equal(text.split(gated).length,2);text=text.replace(gated,tag);}
+ if(item.file==='vocab/personal.html'){
+  assert.equal(text.split('src="js/app-navigation-ready-v109.js"').length,2);
+  assert.equal(text.split('<header class="personal-topbar app-header" inert data-app-navigation-pending>').length,2);
+  text=text.replace('src="js/app-navigation-ready-v109.js"','src="js/app-navigation-entry.js?v=107"')
+   .replace('<header class="personal-topbar app-header" inert data-app-navigation-pending>','<header class="personal-topbar app-header">');
+  for(const[id,mode]of[['member-github-owner-link','owner'],['member-standard-login-link','member']]){
+   const gated=`id="${id}" href="personal.html?auth=${mode}" inert data-app-navigation-pending`;
+   assert.equal(text.split(gated).length,2);text=text.replace(gated,`id="${id}" href="personal.html?auth=${mode}"`);
+  }
+ }
+ if(item.file==='vocab/dictionary.html'){
+  assert.equal(text.split('src="js/dictionary-entry-v109.js"').length,2);
+  assert.equal(text.split('<button id="dictionary-submit" type="submit" disabled>准备中…</button>').length,2);
+  text=text.replace('src="js/dictionary-entry-v109.js"','src="js/dictionary-entry-v108.js"')
+   .replace('<button id="dictionary-submit" type="submit" disabled>准备中…</button>','<button id="dictionary-submit" type="submit">查词</button>');
+ }
  assert.equal(text.split('src="'+item.to+'"').length,2);assert(!text.includes('src="'+item.from+'"'));
  const restored=Buffer.from(text.replace('src="'+item.to+'"','src="'+item.from+'"'));
  assert(item.allowedOldRaw.some(t=>t.bytes===restored.length&&t.sha256===sha(restored)));
  assert(text.includes('src="js/app-navigation-entry.js?v=107"'));
+});
+
+test('the fresh v109 application adds only the readiness adoption after listeners and preserves the whole v108 body',async()=>{
+ const before=(await fs.readFile(new URL('vocab/js/dictionary-app-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ const current=(await fs.readFile(new URL('vocab/js/dictionary-app-v109.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ const addition='  // The HTML gates native implicit submission until the actual listeners exist.\n  // Adopt text typed during module download without clearing it or waiting on data.\n  controller.change(input.value);\n\n';
+ assert.equal(current.split(addition).length,2);assert.equal(current.replace(addition,''),before);
+ assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
+ const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8');
+ assert.equal(entry.split('import "./dictionary-app-v109.js"').length,2);
+ const oldEntry=(await fs.readFile(new URL('vocab/js/dictionary-entry-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ assert.equal(entry.replace(/\r\n/gu,'\n').replace('./dictionary-app-v109.js','./dictionary-app-v108.js'),oldEntry);
+ assert(!entry.includes('dictionary-app-v108.js'));assert(entry.includes('from "./pwa.js?v=77"'));
+ assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
+ const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
+ for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
 });
 test('v108 does not retarget navigation107 and retains pwa77',async()=>{
  for(const item of navigation)assert(item.allowedSha.includes(sha(await fs.readFile(new URL(item.file,root)))));

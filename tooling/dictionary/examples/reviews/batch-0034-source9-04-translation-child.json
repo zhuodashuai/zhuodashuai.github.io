@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "b970ee61cd9028a71e50c4c7e140f0480a8360acbd7466bb9f6229e6f51a0fdf",
+  "reviewer": "AI/d34_reviewer_prepare",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "immersive"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d34_author_source9_translation_children",
+    "reviewerPrincipal": "d34_reviewer_prepare",
+    "supportedInventory": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+      "bytes": 434900,
+      "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+    },
+    "completeContextMaster": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+      "bytes": 9318104,
+      "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "immersive",
+        "canonicalId": 4311744,
+        "canonicalSourceSha256": "dc027ed93d161a268f21f909e9e7abb4655503ab69f51f44ada56f0c5721d83e",
+        "pairSha256": "24d810b80953a5f82bf09486fe47265cf7b7a00b0df41375df7465f893e4bb20",
+        "authorPrincipal": "d34_author_source9_translation_children",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c151-200-immersive-translation-child-0001.json",
+          "bytes": 7046,
+          "sha256": "528a4195000872079afe33108fe3cac0505027ed777980a1c93ff289b75a4e45",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "7fb6237eb45313718c7d76f57fed453f898fd99dd12de7810ad8e91da67f3eb7"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c151-200-immersive-child-independent-prepare-review-0001.json",
+          "bytes": 3984,
+          "sha256": "cb0638ed3bf9ea967e271dcaeafadd9ed8c9e5a772fe1e378dc06948539bd8a7",
+          "pointer": "/decisions/0",
+          "decision": "support-exact-author-translation-child-for-possible-admission",
+          "wholeDecisionSha256": "07efa7606d764bb6016faf09b917e446b2f209b9ea40c9c01e4d88ab64e57c85"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/172",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4311744",
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

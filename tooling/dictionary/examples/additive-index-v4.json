@@ -14,7 +14,14 @@
     "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
     "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   },
-  "previousCatalogue": null,
+  "previousCatalogue": {
+    "file": "catalogue-v4/966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8.bin",
+    "codec": "gzip",
+    "bytes": 3376,
+    "sha256": "966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8",
+    "decodedBytes": 8318,
+    "decodedSha256": "8f9eae7ad061cc59d6c36a0d3501353d742bace6a3b7f0bd8ba3238e70f727fa"
+  },
   "releases": [
     {
       "id": "examples-0032",
@@ -34,6 +41,51 @@
         "batch-0032-role-04.json",
         "batch-0032-role-05.json",
         "batch-0032-source9-04.json"
+      ]
+    },
+    {
+      "id": "examples-0033",
+      "sourceFiles": [
+        "batch-0033-role-01.json",
+        "batch-0033-source9-01.json",
+        "batch-0033-source9-01-children.json",
+        "batch-0033-prepare-root02.json",
+        "batch-0033-role-02.json",
+        "batch-0033-role-02-label-children.json",
+        "batch-0033-root-01.json",
+        "batch-0033-root-01-reentry.json",
+        "batch-0033-charley-child.json",
+        "batch-0033-alberta-child.json",
+        "batch-0033-source9-02.json",
+        "batch-0033-role-03.json",
+        "batch-0033-source9-03.json",
+        "batch-0033-source9-04.json",
+        "batch-0033-source9-04-children.json",
+        "batch-0033-role-04.json",
+        "batch-0033-root-second-reentries.json"
+      ]
+    },
+    {
+      "id": "examples-0034",
+      "sourceFiles": [
+        "batch-0034-source9-01.json",
+        "batch-0034-source9-01-translation-children.json",
+        "batch-0034-source9-01-annotations.json",
+        "batch-0034-source9-02.json",
+        "batch-0034-source9-02-annotations.json",
+        "batch-0034-source9-03.json",
+        "batch-0034-source9-03-annotations.json",
+        "batch-0034-source9-04.json",
+        "batch-0034-source9-04-annotations.json",
+        "batch-0034-source9-04-translation-child.json",
+        "batch-0034-role-01.json",
+        "batch-0034-role-02.json",
+        "batch-0034-role-stinker-child.json",
+        "batch-0034-role-03.json",
+        "batch-0034-role-04.json",
+        "batch-0034-root-01.json",
+        "batch-0034-root-01-translation-children.json",
+        "batch-0034-prepare-root02.json"
       ]
     }
   ]

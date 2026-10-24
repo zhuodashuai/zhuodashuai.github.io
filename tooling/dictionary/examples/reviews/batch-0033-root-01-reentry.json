@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "befe598524d2557c8da1e938e34afdeaf001e1687904a521d7071894278b1a09",
+  "reviewer": "AI/d33_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "Witney",
+    "Newry",
+    "Lisburn",
+    "cumbrian",
+    "popper"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinion": true,
+    "authorPrincipal": "/root",
+    "reviewerPrincipal": "d33_reviewer_role",
+    "author": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+      "bytes": 4990,
+      "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f"
+    },
+    "opinion": {
+      "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+      "bytes": 66997,
+      "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e"
+    },
+    "rows": [
+      {
+        "term": "Witney",
+        "canonicalId": 2908261,
+        "canonicalSourceSha256": "c86c8705dc44a3a1cb29bbd0ab05a04fc6f3f69b565b4ef851297179f743624c",
+        "masterEntryPointer": "/entries/403",
+        "wholeSourcePoolPointer": "/shared/completeSources/2908261",
+        "completeFormAndHistoryContextPointer": "/entries/403",
+        "pairSha256": "3bcad810a7a14be89384e3983aaa4dcbcbb5ec2ad08b4edbc7ef816d5d2bc9e7",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+          "bytes": 4990,
+          "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "5e8ded3097d52bbbcb6e7cc3a616aa63778d34ef3e2b63300cad3505dfc02758"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/reentryDecisions/0",
+          "decision": "support",
+          "wholeDecisionSha256": "9fe509fde9b541355d0126b0e2198abe6cfaf687ccb4c0d6b8f416c2ae58f3e2"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Newry",
+        "canonicalId": 2956896,
+        "canonicalSourceSha256": "15e5ed74c055a074be45972602091f8630e09f39e4b2bca9a4b4ff58f9efd7c4",
+        "masterEntryPointer": "/entries/434",
+        "wholeSourcePoolPointer": "/shared/completeSources/2956896",
+        "completeFormAndHistoryContextPointer": "/entries/434",
+        "pairSha256": "5feff45fbbd68364746b25125dc4c6d282fa9f962eafee90232e0fbf7cd6b82f",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+          "bytes": 4990,
+          "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "8762b5d4a49565a9a9f178f388185f20859e78f28c9d146fc3b288843aec1070"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/reentryDecisions/1",
+          "decision": "support",
+          "wholeDecisionSha256": "534156878fb9ca14c7537489d79d73ec79a3cb468af8e9be99ef7ca8566b940a"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Lisburn",
+        "canonicalId": 2966934,
+        "canonicalSourceSha256": "6dfc9de3be7edc54050e9f6e086217d90c4a5d979ae96a6d78b7beaa0c1f06c5",
+        "masterEntryPointer": "/entries/443",
+        "wholeSourcePoolPointer": "/shared/completeSources/2966934",
+        "completeFormAndHistoryContextPointer": "/entries/443",
+        "pairSha256": "217891c443f91213df9a04de76ea68c8bf9eabc2e25f3909ec914f5b1f5c8fa1",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+          "bytes": 4990,
+          "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f",
+          "pointer": "/entries/2",
+          "wholeOriginalAuthorObjectSha256": "d1e15fe8dad48a42553d60d3be966243a598dfa2feb01e810167ade194f4146c"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/reentryDecisions/2",
+          "decision": "support",
+          "wholeDecisionSha256": "c0f0f012ad4f0be264bdb4bcf666fa044552b5019489461e5344ca361f226bf1"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "cumbrian",
+        "canonicalId": 3480980,
+        "canonicalSourceSha256": "aa104fde6a72fd4431c38e593943bec593b1f357640311ebe7ade38b79fdad35",
+        "masterEntryPointer": "/entries/446",
+        "wholeSourcePoolPointer": "/shared/completeSources/3480980",
+        "completeFormAndHistoryContextPointer": "/entries/446",
+        "pairSha256": "4a85e9e50a75844e43402b9de85db6dc32380923c17be43d05b61282ed60ab2f",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+          "bytes": 4990,
+          "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f",
+          "pointer": "/entries/3",
+          "wholeOriginalAuthorObjectSha256": "9a46174aa777a9dd5aff80f8b0fbd193e173ace372ebeb09b2f33cab3dac6fee"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/reentryDecisions/3",
+          "decision": "support",
+          "wholeDecisionSha256": "4b2de0861564bc5dd1b69fa8d909b0a520b5440dbabd5c95a2e205b6351fcece"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "popper",
+        "canonicalId": 3468759,
+        "canonicalSourceSha256": "422507a31d80da13e8a8a858c8bf59a595f78980d89df7c4e2dcf89bfd18ac29",
+        "masterEntryPointer": "/entries/433",
+        "wholeSourcePoolPointer": "/shared/completeSources/3468759",
+        "completeFormAndHistoryContextPointer": "/entries/433",
+        "pairSha256": "5eb494f519b1a496a8ddb5985b0d96fc519939dd0690d51c176c7608389ce637",
+        "authorPrincipal": "/root",
+        "reviewerPrincipal": "d33_reviewer_role",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+          "bytes": 4990,
+          "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f",
+          "pointer": "/entries/4",
+          "wholeOriginalAuthorObjectSha256": "f9ac4c36ee5d47f3e870d6807da76cbbeec397deabf6f159d47f23bdef6864e1"
+        },
+        "opinion": {
+          "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+          "bytes": 66997,
+          "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e",
+          "pointer": "/reentryDecisions/4",
+          "decision": "support",
+          "wholeDecisionSha256": "009b4cdb9c77351094f7c58739cbf3c3e7d4fb5baa1ba8e0a8caa53177c337e6"
+        },
+        "selectedSenseOnly": true
+      }
+    ],
+    "selectedSenseScopeNotWholeSourceCertification": true
+  }
+}

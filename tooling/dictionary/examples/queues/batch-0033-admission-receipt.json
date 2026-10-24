@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "kind": "Immutable final D33 exact-selection admission-input receipt; not build/publication evidence",
+  "candidate": {
+    "file": "candidates/d33-reviewed-selection-0004.json",
+    "bytes": 1319187,
+    "sha256": "eb65d00c15ac695d8345f6522c6d8a6cf9e5862c32eccfa19ec3f7292fcca001"
+  },
+  "mechanicalReceipt": {
+    "file": "qa/d33-reviewed-selection-preview-receipt-0004.json",
+    "bytes": 30414,
+    "sha256": "1e3b6517437fd0a176cfd5d316081b097c7c4c1e27cdac3252b2fc0eb8f28454"
+  },
+  "counts": {
+    "consideredDistinctHeads": 500,
+    "selectedDistinctHeads": 288,
+    "standardSourceReviewPairs": 17,
+    "selectedOrdinaryPairs": 280,
+    "selectedAuthorChildren": 8,
+    "originalAuthorHoldObjectsRetained": 222,
+    "authorHoldsStillUnselected": 212,
+    "failedOriginalPairsRetained": 8,
+    "pendingRole02LabelHeads": 0,
+    "notSelectedDistinctHeads": 212
+  },
+  "standardPacks": [
+    {
+      "file": "batch-0033-role-01.json",
+      "rows": 27,
+      "authorPrincipal": "d33_author_role",
+      "reviewerPrincipal": "d33_review_source9_independent_role01",
+      "sourceSemanticHash": "a7cab74b3615bef6a775c4bb35c46fe4a697f08bfa2553ce201fe6010230f19c",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-role-01.json",
+        "bytes": 7670,
+        "sha256": "d868329114b3dfff2afc70b1e4d94232a4c1c52fac7bce2f3c0bbca7954260b3"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-role-01.json",
+        "bytes": 41170,
+        "sha256": "1c4943346f4d959dbb932ada2310488601d67b76afef7ef8d02b1e9d426ae9f7"
+      }
+    },
+    {
+      "file": "batch-0033-source9-01.json",
+      "rows": 22,
+      "authorPrincipal": "d33_author_source9_01",
+      "reviewerPrincipal": "d33_reviewer_prepare_source9_01",
+      "sourceSemanticHash": "9e09b18a15ea66aa30d329cc34e1bccbad4e86c5bbf1436a6c0749a20998bab7",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-source9-01.json",
+        "bytes": 6713,
+        "sha256": "fa30c813f3c86e2be273607b1224061c2d98c6273e10d8f54a7355a5b9840fd3"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-source9-01.json",
+        "bytes": 34151,
+        "sha256": "2764e1b12ebd58bcf270a67ade95cda758749fbe00abc50930a6f1a8f3abd1a1"
+      }
+    },
+    {
+      "file": "batch-0033-source9-01-children.json",
+      "rows": 2,
+      "authorPrincipal": "d33_author_source9_01_precision_child",
+      "reviewerPrincipal": "d33_reviewer_prepare_source9_01",
+      "sourceSemanticHash": "68882151242542bf6ca14d87d57bf6f9bae30f98c2dbe337353c5d8765d356ea",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-source9-01-children.json",
+        "bytes": 682,
+        "sha256": "6ce9e572a842bb0e6ad7e6196e4ada63b5348b1cef7072a45657b0c97985a242"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-source9-01-children.json",
+        "bytes": 3829,
+        "sha256": "ecf56bd77398e340f39bd525f541f1a80e7e96fd2d236aaa32302ba16b093879"
+      }
+    },
+    {
+      "file": "batch-0033-prepare-root02.json",
+      "rows": 32,
+      "authorPrincipal": "d33_author_prepare_root02",
+      "reviewerPrincipal": "AI/root-d33-prepare-root02",
+      "sourceSemanticHash": "de03706c00fec8e76354034490c82986cb1b0aea2915aeca0d9f68b6eacdd282",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-prepare-root02.json",
+        "bytes": 9493,
+        "sha256": "236840a5c27f922f12fa652f72e04b44acf2c3d5ad173e0ed6e5baa2f5b07b74"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-prepare-root02.json",
+        "bytes": 46142,
+        "sha256": "6bb2998865cf1c507eaa9de2e808ebddab67755b3d908835a0f2d98579c6b397"
+      }
+    },
+    {
+      "file": "batch-0033-role-02.json",
+      "rows": 29,
+      "authorPrincipal": "d33_author_role",
+      "reviewerPrincipal": "AI/root-d33-role02",
+      "sourceSemanticHash": "357504bd6f00c7ba2cb012606f0ef6f42110076375ea99dc2286e67130f1ffc9",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-role-02.json",
+        "bytes": 8142,
+        "sha256": "96499b8ba0a98c25af1ccdcfbbbb9a5cbea81069878cce40b59fcbf7bf44cc38"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-role-02.json",
+        "bytes": 40621,
+        "sha256": "c22497b05a4d11c5832c780564ffbcd98528f9ca5e38774afac54ed468aa8d3d"
+      }
+    },
+    {
+      "file": "batch-0033-role-02-label-children.json",
+      "rows": 2,
+      "authorPrincipal": "d33_author_role",
+      "reviewerPrincipal": "AI/root-d33-role02-label-children",
+      "sourceSemanticHash": "425d87c6a9bb7a47278fd6ed22aabb6b86f2648a2f7c313ad5942f6fc4ae48e4",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-role-02-label-children.json",
+        "bytes": 760,
+        "sha256": "781fdb0d88446b907808aafadfa324fa1ecab389408b25a4ff62530f1c405008"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-role-02-label-children.json",
+        "bytes": 3759,
+        "sha256": "feb5fde13127074942dc84764216d17166d36778260c7ee66c738fba9aa1e2f4"
+      }
+    },
+    {
+      "file": "batch-0033-root-01.json",
+      "rows": 19,
+      "authorPrincipal": "/root",
+      "reviewerPrincipal": "d33_reviewer_role",
+      "sourceSemanticHash": "8f4e6eb4c5af7efcf91577651f4d457fbbdae185b16af6454dd41ee39d2cd214",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-root-01.json",
+        "bytes": 5181,
+        "sha256": "fbc854aeab710a7ced21ac04201f63bf53f0a8a05703a4ba15b45ccd2ae98dd1"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-root-01.json",
+        "bytes": 28180,
+        "sha256": "20527fa6d853384a73bd4c42748272c7f2675f2b28e6fe8e7ae5eae62b01b61d"
+      }
+    },
+    {
+      "file": "batch-0033-root-01-reentry.json",
+      "rows": 5,
+      "authorPrincipal": "/root",
+      "reviewerPrincipal": "d33_reviewer_role",
+      "sourceSemanticHash": "befe598524d2557c8da1e938e34afdeaf001e1687904a521d7071894278b1a09",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-root-01-reentry.json",
+        "bytes": 1529,
+        "sha256": "f3fa273949b4484471a76670fde2f139b4555ad00c0efefc1a4c55554ea35b1e"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-root-01-reentry.json",
+        "bytes": 8139,
+        "sha256": "51704e8b50fc9c1955ad33f26e3bef63fd31af0af790651ec354ea94f3b75eb6"
+      }
+    },
+    {
+      "file": "batch-0033-charley-child.json",
+      "rows": 1,
+      "authorPrincipal": "/root",
+      "reviewerPrincipal": "d33_reviewer_role",
+      "sourceSemanticHash": "5f354dbaf4c19599c76eacb4defdf18e672e2dbb797cca5e517b1b8cbb4f2bed",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-charley-child.json",
+        "bytes": 376,
+        "sha256": "5d10ea79655f0092b65ba8501a2b9bb08b2bb0bf5c6df78229d6391412ad6c9b"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-charley-child.json",
+        "bytes": 2365,
+        "sha256": "a0dbc96d984005e94845ad1a61dd084d7de1950125ff1f3918ee40a7a6204a22"
+      }
+    },
+    {
+      "file": "batch-0033-alberta-child.json",
+      "rows": 1,
+      "authorPrincipal": "/root",
+      "reviewerPrincipal": "d33_reviewer_role",
+      "sourceSemanticHash": "889e4d639f610eccd8c0078089ab55a781f6d54304a862f35b2447ab3a4cd26d",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0001/source/batch-0033-alberta-child.json",
+        "bytes": 400,
+        "sha256": "dd352c897779c6552668f3d4c58b2de0a0fdeedf09a10d96f0415072ce5bb932"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0001/reviews/batch-0033-alberta-child.json",
+        "bytes": 2182,
+        "sha256": "2fca657ca57da844b709c6afb50054a4b5ae1c5141267bcbcb4106ff0b087873"
+      }
+    },
+    {
+      "file": "batch-0033-source9-02.json",
+      "rows": 25,
+      "authorPrincipal": "d33_author_source9_02",
+      "reviewerPrincipal": "AI/root-d33-source9-02",
+      "sourceSemanticHash": "fb816e8e33879fcbd2eac5fcd1b875e971f7e2759d21e6419f78a3daa2c9d4af",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0002/source/batch-0033-source9-02.json",
+        "bytes": 7357,
+        "sha256": "9b08577859cc282b42ba4ab345d687d8c3003299ca686f162c35826e44baebb7"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0002/reviews/batch-0033-source9-02.json",
+        "bytes": 35834,
+        "sha256": "0528b47f00998fea69a3dcb0720b937bff7d2092dfe80f944feb01cb3d10e94b"
+      }
+    },
+    {
+      "file": "batch-0033-role-03.json",
+      "rows": 38,
+      "authorPrincipal": "d33_author_role",
+      "reviewerPrincipal": "AI/root-d33-role03",
+      "sourceSemanticHash": "3a43b84dd8722f975f33b0ab4c2380b6e3d903ebee3ee4e50ab62da9b4568360",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0003/source/batch-0033-role-03.json",
+        "bytes": 10948,
+        "sha256": "42a00dd90b971e95905e473cf28138696bcdc3e058e2dbad44e797d1d85f5b88"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0003/reviews/batch-0033-role-03.json",
+        "bytes": 52939,
+        "sha256": "c7ba2eb70f89cd7782499db2349733cc91ef58745a0acdf063775ab68442cb68"
+      }
+    },
+    {
+      "file": "batch-0033-source9-03.json",
+      "rows": 26,
+      "authorPrincipal": "d33_author_source9_03",
+      "reviewerPrincipal": "d33_reviewer_prepare_source9_03",
+      "sourceSemanticHash": "af32fe00104f59605968a76b3356f584cbd1a0c0cd86030277ebc5cb9cc3291d",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0003/source/batch-0033-source9-03.json",
+        "bytes": 7645,
+        "sha256": "296172e50eaf82cc7e27cb8f253210f96b37c6b4a342137511c6301f28ac6715"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0003/reviews/batch-0033-source9-03.json",
+        "bytes": 37322,
+        "sha256": "0eca8c968721a8de3acd1db78c741d459563c4c1d7db8d7ffa5aad94eef0eae5"
+      }
+    },
+    {
+      "file": "batch-0033-source9-04.json",
+      "rows": 21,
+      "authorPrincipal": "d33_author_source9_04",
+      "reviewerPrincipal": "AI/root-d33-source9-04",
+      "sourceSemanticHash": "838037bdf12bc6ceee25747f76038ad41b0e51c4ce170987a91380e880af9093",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0004/source/batch-0033-source9-04.json",
+        "bytes": 6350,
+        "sha256": "a68146c467081bbf297225c3ed636ac2548942a458bdc359751b01651afe2849"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0004/reviews/batch-0033-source9-04.json",
+        "bytes": 30033,
+        "sha256": "c0cb3241e89719377e828ac17fe92854051f616bc60b329f774aa1ac56b7168b"
+      }
+    },
+    {
+      "file": "batch-0033-source9-04-children.json",
+      "rows": 2,
+      "authorPrincipal": "d33_author_source9_final_scope_children",
+      "reviewerPrincipal": "AI/root-d33-source9-04-children",
+      "sourceSemanticHash": "bc06413bd313f665ac2bd388fcd9216586630321994a552cefd0beada1d6be88",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0004/source/batch-0033-source9-04-children.json",
+        "bytes": 858,
+        "sha256": "2603d2a8cafd211ffa12338b6ba9878a528fbc8112717b2ef656bda17ba86a36"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0004/reviews/batch-0033-source9-04-children.json",
+        "bytes": 3793,
+        "sha256": "9b4acbc9ec0d421ff1cb648f281639b587f386102ba308080a65c99aabe4961e"
+      }
+    },
+    {
+      "file": "batch-0033-role-04.json",
+      "rows": 31,
+      "authorPrincipal": "d33_author_role",
+      "reviewerPrincipal": "d33_review_source9_role04",
+      "sourceSemanticHash": "3b85025c8df028c64dac4595792ba95ca5f0c76adf172de06e21f3054ab141d5",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0004/source/batch-0033-role-04.json",
+        "bytes": 9298,
+        "sha256": "174d5e6334b649f0ff5de2d499b26d4f94a037f139de8ec649dab289505730b4"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0004/reviews/batch-0033-role-04.json",
+        "bytes": 46654,
+        "sha256": "c0c670bf24827611d6b8c037d0ab480e8b526ada05e1577af9691f386876ede5"
+      }
+    },
+    {
+      "file": "batch-0033-root-second-reentries.json",
+      "rows": 5,
+      "authorPrincipal": "d33_author_root_second_reentry",
+      "reviewerPrincipal": "d33_review_source9_root_second_reentries",
+      "sourceSemanticHash": "bc0e3b11fbab1de1240ce1d83febdcd7d7f48fcedbe137946f759ef871f70f38",
+      "sourceRaw": {
+        "file": "candidates/d33-standard-preview-0004/source/batch-0033-root-second-reentries.json",
+        "bytes": 1871,
+        "sha256": "b3c1efd1c1174b99cbe317a4974060e8d14175f6dc9a65c42e6bf0d8ef245e11"
+      },
+      "reviewRaw": {
+        "file": "candidates/d33-standard-preview-0004/reviews/batch-0033-root-second-reentries.json",
+        "bytes": 8611,
+        "sha256": "0e49cc29bd44ed502ddfaae6dc321bab23673fcfd521f30705bf8b8848caacda"
+      }
+    }
+  ],
+  "selectedCanonicalSourcePairDigest": "1033af796e63f2bf22daf2253d390d45274d8c8f0e2b7c2f5e456949e2bc8316",
+  "all222OriginalHoldBindingsDigest": "e3d9b30302ef882849304d255068576bff31018fd6cfe21deaad573083179514",
+  "all8FailedOriginalPairsDigest": "3540b065186d044d954cfe52ea17eab34d285a64c8565b0850a5d86b9b1e36ca",
+  "completeOriginalContextMaster": {
+    "file": "drafts/d33-shared500-complete-context-packet-0001.json",
+    "bytes": 9473670,
+    "sha256": "0b3069047ba2d557bbede994dbbb1c3f7d83364dca7615b6950ba4004ebdb824"
+  },
+  "immutableAuthorOpinionEvidence": [
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c201-250-original-author-pack-0001.json",
+      "bytes": 19309,
+      "sha256": "4de39644288df21c4e191c8dad3908bd359159bf6761a452eef427fa038fec91"
+    },
+    {
+      "file": "qa/d33-role-c201-250-independent-source9-review-0001.json",
+      "bytes": 96968,
+      "sha256": "4a30470ebad871eea5b791f9eaa0a266912170c65337707d05ddd61e73f24e49"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-source9-c001-050-original-author-pack-0001.json",
+      "bytes": 509911,
+      "sha256": "b6d84c25a22cd70c2f06b3a8596abeda79c3c301630557ba5273ab55649f9beb"
+    },
+    {
+      "file": "qa/d33-source9-c001-050-independent-prepare-review-0001.json",
+      "bytes": 44924,
+      "sha256": "e8fc6afbb90ae73710c3e30cc0138edc70f404f4bf6a807fca800a128cc1d046"
+    },
+    {
+      "file": "drafts/d33-source9-c001-050-precision-children-0001.json",
+      "bytes": 12669,
+      "sha256": "679b252cba7d8a6b4caae4a1bd73fca581d70165b95f39eda0db0fa1dc5a7709"
+    },
+    {
+      "file": "qa/d33-source9-c001-050-two-children-independent-prepare-review-0001.json",
+      "bytes": 5978,
+      "sha256": "6ad9a6ae937cba71ffd9677aeb3ef80146e3c0d27143f26637b5a652175c2f59"
+    },
+    {
+      "file": "drafts/d33-prepare-root02-complete50-original-author-pack-0001.json",
+      "bytes": 286719,
+      "sha256": "101709bdb799a09c86b086f538c9c772cf59f15b3e21d1127cb88123330fd1d6"
+    },
+    {
+      "file": "qa/d33-prepare-root02-complete50-independent-root-review-0001.json",
+      "bytes": 33266,
+      "sha256": "a65a6457b0dae5f29428f3dac6fbba16d379d8d7316158d53ac19e567c030d47"
+    },
+    {
+      "file": "drafts/d33-role-c251-300-original-author-pack-0001.json",
+      "bytes": 18834,
+      "sha256": "2e4308bcad342501bc22853bdb01c290fd2f26482a13b1dc2ef215b3ea9ee7c8"
+    },
+    {
+      "file": "qa/d33-role-c251-300-independent-root-review-0001.json",
+      "bytes": 31518,
+      "sha256": "1e6060c8f12294f52b9064284a7fc5d310fb6174a9c8d5ff61dc6b121e254c6f"
+    },
+    {
+      "file": "drafts/d33-role-c251-300-visible-scope-child-author-pack-0001.json",
+      "bytes": 1957,
+      "sha256": "55c8a41318b3a48e8342f6344dc2a3f5debd49c71a5cda6d85b9f72c02053c46"
+    },
+    {
+      "file": "qa/d33-role-c251-300-two-label-children-independent-root-review-0001.json",
+      "bytes": 2797,
+      "sha256": "35c7cd5aafd578af2a519f6a536606c48ab96944e52e82fd828de3da0bf30d9b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-original-author-pack-0001.json",
+      "bytes": 10528,
+      "sha256": "83822e16307ca31628444287f26d11f4b54ea76e119bb9cde965985019b39b82"
+    },
+    {
+      "file": "qa/d33-root-c401-450-independent-role-review-0001.json",
+      "bytes": 66997,
+      "sha256": "e5eaf3bbedd6c8ba8904016633dac1cf11518b7f5fc2612b845ec96fac6eed0e"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-scoped-reentry-author-pack-0002.json",
+      "bytes": 4990,
+      "sha256": "49272e828e4fa9e81b6ab4a8d2aeab6d60f87eb5df4272f0b2cb104017ff194f"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-charley-precision-child-0001.json",
+      "bytes": 814,
+      "sha256": "649fa6792e0bf99e630b022911fcabe9e2e1d386d008320d5da600807d0d51ef"
+    },
+    {
+      "file": "drafts/d33-root-alberta-precision-child-0001.json",
+      "bytes": 883,
+      "sha256": "b38c39581e1c754ec2aa88e9c6e9a548868e120843ea2fdf62c5534c0f56c67b"
+    },
+    {
+      "file": "qa/d33-root-alberta-child-independent-role-review-0001.json",
+      "bytes": 1857,
+      "sha256": "6fa0a67c2eedd98a77d9ac0b91654b2162d14fa9244b18ce6167fdf46737e227"
+    },
+    {
+      "file": "drafts/d33-source9-c051-100-original-author-pack-0001.json",
+      "bytes": 436671,
+      "sha256": "a21c04a68bf47c898b4777a7d17afbbdedeb5932875dcb7bc85d99465ebaf3f5"
+    },
+    {
+      "file": "qa/d33-source9-c051-100-independent-root-review-0001.json",
+      "bytes": 25840,
+      "sha256": "4217a6deca73d7cc5dd1da75047c33b9f99ccca2ae51f36dc410001b6946543e"
+    },
+    {
+      "file": "drafts/d33-role-c301-350-original-author-pack-0001.json",
+      "bytes": 21248,
+      "sha256": "8a520588992968c208aae1f42ad8bd7a0cf75878059c3f78063054a750928df5"
+    },
+    {
+      "file": "qa/d33-role-c301-350-independent-root-review-0001.json",
+      "bytes": 31345,
+      "sha256": "d8081f2544a7417e5c71aa47eee4d3860b6e0d46f23deb35de41196a4864c866"
+    },
+    {
+      "file": "drafts/d33-source9-c101-150-original-author-pack-0001.json",
+      "bytes": 485316,
+      "sha256": "9ad49608f73990ba4d5669b44e9a9b336a61d5c0923d1ed1ffc9a706073aaf2f"
+    },
+    {
+      "file": "qa/d33-source9-c101-150-independent-prepare-review-0001.json",
+      "bytes": 58556,
+      "sha256": "6ec31e7aa5a17e0ad695f22444470df9429bb9ff72e7310a9baa787869a44831"
+    },
+    {
+      "file": "drafts/d33-source9-c151-200-original-author-pack-0001.json",
+      "bytes": 448760,
+      "sha256": "234751702ee3d3f8f8b0ae936167cf80bb371ecda976088622a56fed544d1138"
+    },
+    {
+      "file": "qa/d33-source9-c151-200-independent-root-review-0001.json",
+      "bytes": 28027,
+      "sha256": "f2fc8b3d0730eb74ad11b4c8e9ffb517daa63e8774ac1ae4444de10e6e3d497e"
+    },
+    {
+      "file": "drafts/d33-source9-c151-200-scope-children-0001.json",
+      "bytes": 16181,
+      "sha256": "0c2218af0ff2d824575d5c4611a24400416bafc13d013706bf505b933470a527"
+    },
+    {
+      "file": "qa/d33-source9-c151-200-two-children-independent-root-review-0001.json",
+      "bytes": 2802,
+      "sha256": "b6f4eac90b8e4f8862d949d0665c36de1e143b1a359cb8bece5742cdb7407714"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+      "bytes": 19742,
+      "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71"
+    },
+    {
+      "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+      "bytes": 86098,
+      "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-root-c401-450-second-scoped-reentries-0001.json",
+      "bytes": 5250,
+      "sha256": "e13c1e939bfa3a8508aa299bcc7f5a10e7c19bb576029def749eb7e9354ca747"
+    },
+    {
+      "file": "qa/d33-root-second-reentries-independent-source9-review-0001.json",
+      "bytes": 28845,
+      "sha256": "782195807e125c2fe2625de4bfd34b77cde97a2bb364cc8f2d984c93b34dd37b"
+    }
+  ],
+  "conservation": "Complete source/variants/forms/keys/parents/current examples/whole historical reason objects and every original failed pair remain bound in the immutable external master/candidate/opinions. No duplicate1.3MB candidate or9MB context copy, no unselected-head approval.",
+  "source": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "base": {
+    "file": "manifest-v2.json",
+    "bytes": 57577,
+    "sha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "version": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4",
+    "counts": {
+      "heads": 86415,
+      "examples": 87804
+    }
+  },
+  "previousCatalogue": {
+    "file": "catalogue-v4/d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f.bin",
+    "codec": "gzip",
+    "bytes": 1660,
+    "sha256": "d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f",
+    "decodedBytes": 4056,
+    "decodedSha256": "ace34696bc4c219181753da0b107bea2be86d93402c3efda107f6ff00f10664a"
+  },
+  "D32TransportHotfixMustPassBeforeMaterialization": true,
+  "actualNormalBuildRegistration": null,
+  "admissionExecuted": false,
+  "published": false,
+  "coverageAdded": 0
+}

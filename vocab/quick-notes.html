@@ -17,7 +17,7 @@
 </head>
 <body class="app-shell" data-page="quick-notes">
   <a class="skip-link" href="#quick-notes-text">跳到记词区</a>
-  <header class="topbar notes-topbar app-header">
+  <header class="topbar notes-topbar app-header" inert data-app-navigation-pending>
     <a class="brand" href="./"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong></span></a>
     <nav class="app-primary-nav" aria-label="主要导航"><a href="./">公开词本</a><a href="dictionary.html">查词</a><a class="quick-notes-link" href="quick-notes.html" aria-current="page">随手记</a><a href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">我的词本</a></nav>
   </header>
@@ -45,9 +45,9 @@
     </details>
     <noscript><p class="notes-error">需要启用 JavaScript 才能自动保存。当前页面中的文字不会自动保存，请先手动复制保留。</p></noscript>
   </main>
-  <footer class="site-footer app-footer"><nav aria-label="帮助与更多"><a href="guide.html">使用手册</a><a href="./">返回词库</a><a href="https://zhuodashuai.github.io/">学术主页</a></nav></footer>
+  <footer class="site-footer app-footer" inert data-app-navigation-pending><nav aria-label="帮助与更多"><a href="guide.html">使用手册</a><a href="./">返回词库</a><a href="https://zhuodashuai.github.io/">学术主页</a></nav></footer>
   <aside class="update-banner" id="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">保存后更新</button></aside>
-  <script type="module" src="js/app-navigation-entry.js?v=107"></script>
+  <script type="module" src="js/app-navigation-ready-v110.js"></script>
   <script type="module" src="js/quick-notes-app.js?v=77"></script>
 </body>
 </html>

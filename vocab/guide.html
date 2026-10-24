@@ -16,7 +16,7 @@
 </head>
 <body class="app-shell" data-page="guide">
   <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="topbar app-header">
+  <header class="topbar app-header" inert data-app-navigation-pending>
     <a class="brand" href="./" aria-label="回到单词本"><span class="brand-seal" aria-hidden="true">卓</span><span><strong>卓的单词本</strong><small>ZHUO'S WORDBOOK</small></span></a>
     <nav class="top-actions app-primary-nav" aria-label="主要导航">
       <a class="quiet-link" href="./">公开词本</a>
@@ -751,13 +751,13 @@
       <p>访客只是读一个静态词库，不登录，也不用提交任何东西。GitHub 登录只发生在卓自己的管理页，凭据只存在服务端。</p>
     </section>
 
-    <nav class="guide-footer-nav" aria-label="继续浏览">
+    <nav class="guide-footer-nav" aria-label="继续浏览" inert data-app-navigation-pending>
       <a class="primary-link" href="./">回到词库</a>
       <a class="quiet-link" href="quality/">100 词质量报告</a>
     </nav>
   </main>
 
-  <footer class="site-footer app-footer"><p><strong>卓的单词本</strong> · 公开数据以 GitHub 仓库为准。</p><nav aria-label="帮助与更多"><a href="guide.html" aria-current="page">使用手册</a><a href="https://zhuodashuai.github.io/">学术主页</a></nav></footer>
-  <script type="module" src="js/app-navigation-entry.js?v=107"></script>
+  <footer class="site-footer app-footer" inert data-app-navigation-pending><p><strong>卓的单词本</strong> · 公开数据以 GitHub 仓库为准。</p><nav aria-label="帮助与更多"><a href="guide.html" aria-current="page">使用手册</a><a href="https://zhuodashuai.github.io/">学术主页</a></nav></footer>
+  <script type="module" src="js/app-navigation-ready-v110.js"></script>
 </body>
 </html>

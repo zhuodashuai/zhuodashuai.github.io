@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "3b85025c8df028c64dac4595792ba95ca5f0c76adf172de06e21f3054ab141d5",
+  "reviewer": "AI/d33_review_source9_role04",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "addison",
+    "femme",
+    "wharton",
+    "pooh",
+    "johann",
+    "sofia",
+    "regan",
+    "toulouse",
+    "Harwich",
+    "angie",
+    "roth",
+    "doubleheader",
+    "waite",
+    "kane",
+    "Skipton",
+    "bentham",
+    "georg",
+    "farrell",
+    "mckenna",
+    "daimler",
+    "rutherford",
+    "kettering",
+    "myra",
+    "kant",
+    "hess",
+    "Didcot",
+    "Ripon",
+    "hegel",
+    "bengal",
+    "hanoi",
+    "redmond"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinion": true,
+    "authorPrincipal": "d33_author_role",
+    "reviewerPrincipal": "d33_review_source9_role04",
+    "author": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+      "bytes": 19742,
+      "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71"
+    },
+    "opinion": {
+      "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+      "bytes": 86098,
+      "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3"
+    },
+    "rows": [
+      {
+        "term": "addison",
+        "canonicalId": 2844485,
+        "canonicalSourceSha256": "ed23ff4e46f578bc38bb6caf5716b4d28e7238bbea02d156348f7d623d26dffe",
+        "masterEntryPointer": "/entries/351",
+        "wholeSourcePoolPointer": "/shared/completeSources/2844485",
+        "completeFormAndHistoryContextPointer": "/entries/351",
+        "pairSha256": "c4127142e12342b571b5fc453f3ece5ac77995e9bb7c87cc665c72ab3a6cb64d",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "12c3f70890bf10b69e881cd66181d1c0d40762b249ea26254b72335cdb6a374e"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/0",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "18ba0b024e9f05b5509bd5e82c32660d31e401d2819dffa9a7e6bee1b35aab8d"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "femme",
+        "canonicalId": 2716901,
+        "canonicalSourceSha256": "e719df6385e17df9c583cb20d00f17de381712edba5355c78dbb18d5c0487e69",
+        "masterEntryPointer": "/entries/352",
+        "wholeSourcePoolPointer": "/shared/completeSources/2716901",
+        "completeFormAndHistoryContextPointer": "/entries/352",
+        "pairSha256": "4e95c0fd1d1882a07d2bbd9f94e81f41db3273da349457efd9181ede1c2d1430",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "2f5a88e30882f8b8bc40e12ac82d58c2aef7b37c0d808bb1a90d5e87055b4c48"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/1",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "412278ed3b24fb7eb326477e565aa57b0775e9668b7a43154b17d0ce8d3e6442"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "wharton",
+        "canonicalId": 2847394,
+        "canonicalSourceSha256": "1b927c9d46478a9430a154613642a44a434048361601bd7e460a9cd76d48b8f1",
+        "masterEntryPointer": "/entries/354",
+        "wholeSourcePoolPointer": "/shared/completeSources/2847394",
+        "completeFormAndHistoryContextPointer": "/entries/354",
+        "pairSha256": "cc74021681ab8bcad41cb2aed80bbc1011f3f5e688c28bc309f6f566c9ebf39a",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/2",
+          "wholeOriginalAuthorObjectSha256": "b8477450c4c7e557951a754c74c06260c844c1e51389097653901886e5e1f6d1"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/2",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "d5f51d1bfd4ea25983019cf6937d2ca28aa715c2aa5edfcb9971b38b3aac4fe3"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "pooh",
+        "canonicalId": 3359567,
+        "canonicalSourceSha256": "db06922ebda9d24556171f87a0985c657fef20bb52d06c531ad14aab08a249ea",
+        "masterEntryPointer": "/entries/355",
+        "wholeSourcePoolPointer": "/shared/completeSources/3359567",
+        "completeFormAndHistoryContextPointer": "/entries/355",
+        "pairSha256": "0bf5afce5d1a952fdb11f21f52297d14b00681d36493fad0eecbeb93a91749cd",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/3",
+          "wholeOriginalAuthorObjectSha256": "3eeb1ecfee812392dc3fb1f4665264caa94076a307c63f25cc2cb5840e8004e7"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/3",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "f1562f33caf29c06ffcc619f20fe61c70f411e8e761ea5324cb177dd821737fd"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "johann",
+        "canonicalId": 2848713,
+        "canonicalSourceSha256": "0222726db515f7ab419f359a49e0673c0c5616564d7177610090556e73ad5d20",
+        "masterEntryPointer": "/entries/356",
+        "wholeSourcePoolPointer": "/shared/completeSources/2848713",
+        "completeFormAndHistoryContextPointer": "/entries/356",
+        "pairSha256": "04f0211a515ce526d182768dcf85514e92ec2c64f2c8bc54e5184b19bb18fd9e",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/4",
+          "wholeOriginalAuthorObjectSha256": "3b56f43c6197715789b2f06af52685e4acc3c144a7b17d2c7bb00a823e78ae63"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/4",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "ddaf3487db439639e704224990075ed552c06846db47a2dcaa01b3a00d32c5c7"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "sofia",
+        "canonicalId": 2849933,
+        "canonicalSourceSha256": "385e760c0bb9982013c91a4ef568eb42a74af0b55d7ccf9843822deb3d37be45",
+        "masterEntryPointer": "/entries/357",
+        "wholeSourcePoolPointer": "/shared/completeSources/2849933",
+        "completeFormAndHistoryContextPointer": "/entries/357",
+        "pairSha256": "68819f59ee6b7268bcc20669c8b1b5a3cefdca8f4f2a910ad2066d7296d503d5",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/5",
+          "wholeOriginalAuthorObjectSha256": "1cf8427ee7953830278f335afd4720b6761b66eeda8bd653ae517b2565b52b54"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/5",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "d1830cb106c62cb87505f152cbc4acbeb497e4a794aa559f0ddf739ac4693124"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "regan",
+        "canonicalId": 2850678,
+        "canonicalSourceSha256": "d89fd27bbbc704081469c40b1afeedb2444e9d70fe82ac187ad5023edaa66737",
+        "masterEntryPointer": "/entries/358",
+        "wholeSourcePoolPointer": "/shared/completeSources/2850678",
+        "completeFormAndHistoryContextPointer": "/entries/358",
+        "pairSha256": "288b7521faef472e24626aa958aed9263972e651cb3372c757d4ef1b36cce12d",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/6",
+          "wholeOriginalAuthorObjectSha256": "2536577e8459d7e697b38662c6617758e3b5089215e521bdf240fbcbfdac256b"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/6",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "4def4e39140a915c2f8c85aa1bed69821ae7535c0bd5e00fff4d240c038dd7e4"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "toulouse",
+        "canonicalId": 2851105,
+        "canonicalSourceSha256": "b5560f202178ebeade099b5a837d73f3a25e4d5c9ca872810065f19acc6f92a5",
+        "masterEntryPointer": "/entries/359",
+        "wholeSourcePoolPointer": "/shared/completeSources/2851105",
+        "completeFormAndHistoryContextPointer": "/entries/359",
+        "pairSha256": "6a434f1bc3a2ad146aef431a92f12cdd1521811ecb8064fa981e0821a443a746",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/7",
+          "wholeOriginalAuthorObjectSha256": "002a36d52709ab9497a9877b02c1daab90b9dfb7715c6264de5e4420a3fab598"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/7",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "f655b9365523cf1a343f98e7990ef41d01290db69fb62feb3cf47b06c084b421"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Harwich",
+        "canonicalId": 2856215,
+        "canonicalSourceSha256": "555dbb30690167fcb6da70de9e5e51ccdcd7ad98a30d84deb8a0c165d1f5a950",
+        "masterEntryPointer": "/entries/360",
+        "wholeSourcePoolPointer": "/shared/completeSources/2856215",
+        "completeFormAndHistoryContextPointer": "/entries/360",
+        "pairSha256": "2c7e6bce600cc978f7ec815e7c8b6cda8b7d0301a04a112a8ef5c625befa27b1",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/8",
+          "wholeOriginalAuthorObjectSha256": "105870a6a9ed3c94d3237f91fc2fb527503987afe9cc45f783b1e7e38c1187d9"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/8",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "6e74e67e75947dab4c6f1c57afe3ff0b3e63a5f585034ffd07e1ec8200c3c27f"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "angie",
+        "canonicalId": 2857073,
+        "canonicalSourceSha256": "9e4c7c69c2469046ec5e15d24b6f3d88c4125dcc3ae58aef17cb3a8dcbdc7177",
+        "masterEntryPointer": "/entries/361",
+        "wholeSourcePoolPointer": "/shared/completeSources/2857073",
+        "completeFormAndHistoryContextPointer": "/entries/361",
+        "pairSha256": "09efc2d0bfe19f88e3f96087d9c45b3cf6cdc0c44fde0ca21c12ffb98e42ad88",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/9",
+          "wholeOriginalAuthorObjectSha256": "5863b7a3b2c0078223ef1c571f961b5ad4e0db09ececd35f50dd138f1a84b8bc"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/9",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "b0c86862eefcc390024baa18dfdf8cd4d7bc46ace2d4de76494df6dbfd8b8827"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "roth",
+        "canonicalId": 2858002,
+        "canonicalSourceSha256": "a74417ad138a1a9c052b4f8926f92658017113964e9d66da7fef80f07e2a2721",
+        "masterEntryPointer": "/entries/362",
+        "wholeSourcePoolPointer": "/shared/completeSources/2858002",
+        "completeFormAndHistoryContextPointer": "/entries/362",
+        "pairSha256": "ed6e479eaa5bd09d624a961e208edbf580ae3368f623909b0f91ed2d5600039c",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/10",
+          "wholeOriginalAuthorObjectSha256": "fe35ba1823fcbd1d4a27ba5052038ead41580e603cea9f8308041c90df55133a"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/10",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "a25a526e8ab353c8df70857a7bc27aac07b8fe3e614a6dffccfff32530157fee"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "doubleheader",
+        "canonicalId": 3370573,
+        "canonicalSourceSha256": "f4936074a5a4a1a488c4e301d96766c8cf251f1813e9a520831152909a1b2315",
+        "masterEntryPointer": "/entries/363",
+        "wholeSourcePoolPointer": "/shared/completeSources/3370573",
+        "completeFormAndHistoryContextPointer": "/entries/363",
+        "pairSha256": "4f51cb18294363d469ed030bb3c1563aca41ecaac00f78b6df3db7a95eed7318",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/11",
+          "wholeOriginalAuthorObjectSha256": "5ee79b34f8f7d148a7283976ea2ed988c4dcf392d46e95a87f59b20fc203fb48"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/11",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "a1acb7cb1fc9e39d35dcd8def4a67d5402552cb7b6175d6bbc0657141d1e6b29"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "waite",
+        "canonicalId": 2859807,
+        "canonicalSourceSha256": "b6f85cbcd0fc033ddae649648f7393ba612d43acab3543444bb84254627820b4",
+        "masterEntryPointer": "/entries/364",
+        "wholeSourcePoolPointer": "/shared/completeSources/2859807",
+        "completeFormAndHistoryContextPointer": "/entries/364",
+        "pairSha256": "153571114d022486356a22e59980cc51952d115041eb11efbbfd5a925415113a",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/12",
+          "wholeOriginalAuthorObjectSha256": "5209ca7b6966ce446e5a0fb0524cdc65db48b248f33f8bab2dcc6cb5b3d7d6ef"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/12",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "341cb0a9d2277ce44a5759c65b0b1889b028f6ba2fb8088012a59c8a14f9e0d1"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "kane",
+        "canonicalId": 2860248,
+        "canonicalSourceSha256": "48813ea083da8e4ffb996d6089ec90f2fd88edef5cd7d06cd0605d5e6edc64dc",
+        "masterEntryPointer": "/entries/365",
+        "wholeSourcePoolPointer": "/shared/completeSources/2860248",
+        "completeFormAndHistoryContextPointer": "/entries/365",
+        "pairSha256": "edb1a423f8d6707b58d6bb8a6f67929b1d741cf61a8e8018291f726956717976",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/13",
+          "wholeOriginalAuthorObjectSha256": "7ae9db93c7fcad0491f3c62772773d6bad917685d1b08b6a6c45d63d9ab44af1"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/13",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "86a5256f38e65a45c997274d7b0b64063f2e21fece4f8ecb9ecefad6de67789b"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Skipton",
+        "canonicalId": 2864507,
+        "canonicalSourceSha256": "097c2488a536d90184ed71b56ab3067b54c473abd401b9d10bae5fc7e0e8c946",
+        "masterEntryPointer": "/entries/369",
+        "wholeSourcePoolPointer": "/shared/completeSources/2864507",
+        "completeFormAndHistoryContextPointer": "/entries/369",
+        "pairSha256": "0b85867e330e23a637d46f3d22cfbb243367f992c73583a205e24ed77e62c4f6",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/14",
+          "wholeOriginalAuthorObjectSha256": "8efc34731fe92ef1bd2c00b46f81e086fc1a74941d8fe07c8aa733daaef064bf"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/14",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "856512823ac7eed0f33d57c1a4f622c9f4c49cf077e58ab91f527b9207fac2a0"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "bentham",
+        "canonicalId": 2869608,
+        "canonicalSourceSha256": "650c09db4807a05c5589f9debd805d741597ef8c0d6c96e279c7a81cb44e8ea7",
+        "masterEntryPointer": "/entries/375",
+        "wholeSourcePoolPointer": "/shared/completeSources/2869608",
+        "completeFormAndHistoryContextPointer": "/entries/375",
+        "pairSha256": "ace974a9a6b277a193bd907e5fc2460fe4b92e46cea61ccedc53ea35d911197a",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/15",
+          "wholeOriginalAuthorObjectSha256": "a7d2c5ab78417c28b03f66b25829bec8fa934eb2ab45567ca5200f96c606bdf6"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/15",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "bd346b88e6a039fb60edd75e76c031210fc9fa58943cb5f726bf9bf83ec375a1"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "georg",
+        "canonicalId": 2871445,
+        "canonicalSourceSha256": "c3099ddeb5a724833bdac4dd0ee87edbd9b66a56ba40dce087be485d9d577d0d",
+        "masterEntryPointer": "/entries/376",
+        "wholeSourcePoolPointer": "/shared/completeSources/2871445",
+        "completeFormAndHistoryContextPointer": "/entries/376",
+        "pairSha256": "78a8a134f13e91fe0d82673ad8b9df4f15e2cb05903c86a67c9b0a50ca4a3844",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/16",
+          "wholeOriginalAuthorObjectSha256": "c67be3110dc36cce9bb16e570b247de472a21b0a6164146631b9f507896d5cf1"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/16",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "c36caec4066d55b2611296bc0c4e7e97c768ad9a2be16bdf3645e813fbb84f5d"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "farrell",
+        "canonicalId": 2871779,
+        "canonicalSourceSha256": "f0039dafdbb5316d9907aab02086b5f313dab5a14bf4fcc2a9538cdb68538974",
+        "masterEntryPointer": "/entries/377",
+        "wholeSourcePoolPointer": "/shared/completeSources/2871779",
+        "completeFormAndHistoryContextPointer": "/entries/377",
+        "pairSha256": "3e13fa689b3f51d14dd7212d7536755dea097f7099b872e897cbee02a0350810",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/17",
+          "wholeOriginalAuthorObjectSha256": "51ba84148693699fd5f2f0fd40b6f205dee4181fb329d96d0e13fcddb3e33b21"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/17",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "f01878986e714ea760238197311b7ef8bab4f0d79c28ad16fb46f4d400217c1b"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "mckenna",
+        "canonicalId": 2873528,
+        "canonicalSourceSha256": "35ff823b53e2ce77712e6c46c02ac8ce26211d0703670515b1ac945877bdfc51",
+        "masterEntryPointer": "/entries/378",
+        "wholeSourcePoolPointer": "/shared/completeSources/2873528",
+        "completeFormAndHistoryContextPointer": "/entries/378",
+        "pairSha256": "6cba5322aede8ff019bbbc914475c0bf13bd7aa0a4236d118bca219534d6482d",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/18",
+          "wholeOriginalAuthorObjectSha256": "7e69c8a7b1d22afb151ea8e0bc357dd2bd65630f5fd13e232963ea6eb1b843fc"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/18",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "382b825c322438537b6a9cb5a098be4e180a98aaaa711b60d207376c453d9905"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "daimler",
+        "canonicalId": 3386643,
+        "canonicalSourceSha256": "69b4730971c08a6fb418765f393e6ae6b3426b82893b30273e60c552f2fb9584",
+        "masterEntryPointer": "/entries/379",
+        "wholeSourcePoolPointer": "/shared/completeSources/3386643",
+        "completeFormAndHistoryContextPointer": "/entries/379",
+        "pairSha256": "b3903b7f317c03415e5a61d01bd8422c018fabc2fe8c164e23ad7ae5eebf91f2",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/19",
+          "wholeOriginalAuthorObjectSha256": "dbb923fee38c7dc634b0bb9156caa18edade03f5ca05286696a30744dda74fb1"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/19",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "4f58ae5f4c5a2b46bb9dd01ec213b5b337086c60e5de24ac68a86f34a64f0c90"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "rutherford",
+        "canonicalId": 2750590,
+        "canonicalSourceSha256": "7b9459e2726779fe8b33094dae8c630630c12f02500ee7025620b180d1f7760f",
+        "masterEntryPointer": "/entries/382",
+        "wholeSourcePoolPointer": "/shared/completeSources/2750590",
+        "completeFormAndHistoryContextPointer": "/entries/382",
+        "pairSha256": "0a14e23dbba3903c343bc97312862b87a4b8c786ae91a97350e6092f1e1cab1e",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/20",
+          "wholeOriginalAuthorObjectSha256": "56cf587f7eed69414285ec37b2c14a9ba85088a0c4ab721b3446bd54006a864e"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/20",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "08730985c839195e980044f83710cab313e76b488503d5115a3e63f5b56a64aa"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "kettering",
+        "canonicalId": 2879730,
+        "canonicalSourceSha256": "9f0219d955537ee86c7e8de6011d00a450d6656e6ff0e3fa5a6185c6e4cab467",
+        "masterEntryPointer": "/entries/385",
+        "wholeSourcePoolPointer": "/shared/completeSources/2879730",
+        "completeFormAndHistoryContextPointer": "/entries/385",
+        "pairSha256": "21077a6f5a704223e9e2e4172ac08a5b08d29e3a9b3c77d1153b0a64f32ba791",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/21",
+          "wholeOriginalAuthorObjectSha256": "a64bd69855bfb01301d972f64325a02b88819a4d31d93bc2a51943b8c5d61356"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/21",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "12235e7f83f67915701b4f4d9aacebc1e49d7e4fa25c72bd297741eb70901b0c"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "myra",
+        "canonicalId": 2879766,
+        "canonicalSourceSha256": "915119485157c0b39e236687bd6d14114a5b4f328155630c2d5d650c9a0e7b4b",
+        "masterEntryPointer": "/entries/386",
+        "wholeSourcePoolPointer": "/shared/completeSources/2879766",
+        "completeFormAndHistoryContextPointer": "/entries/386",
+        "pairSha256": "a71e015293883dfa467e9c4a5e06ae2112cd33ff582894e38779bd3782ae0aae",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/22",
+          "wholeOriginalAuthorObjectSha256": "c72d224fb200815fbcfae2f56a58def877b16f39d194a534d1341296a95cb241"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/22",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "b50e49da058b0e3cae28ce69e59ee53bb2c23c9aad5bd1dbf2877e1a5b9ec6d8"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "kant",
+        "canonicalId": 2880923,
+        "canonicalSourceSha256": "1775257dfb512cb03a85db13c932a9e8e2a6bc233af061e628794c0abe4742f0",
+        "masterEntryPointer": "/entries/387",
+        "wholeSourcePoolPointer": "/shared/completeSources/2880923",
+        "completeFormAndHistoryContextPointer": "/entries/387",
+        "pairSha256": "338a02dd0edb431db351ec4889b2ce11440151165be2652bc88c7c28f9c2af3c",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/23",
+          "wholeOriginalAuthorObjectSha256": "4ec996cd09d8a6054e01a7c4ae889a512367c24875e5f66c032a80a1a64967eb"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/23",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "712ef5ac1b83daecb7ad00ad135e308b0c9774641337fe52df1f1359f918bc0f"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "hess",
+        "canonicalId": 2884868,
+        "canonicalSourceSha256": "bbaefc4d82221217756100804775fdc9a3cc2ee1e8ae82fad2582f98215c33ab",
+        "masterEntryPointer": "/entries/389",
+        "wholeSourcePoolPointer": "/shared/completeSources/2884868",
+        "completeFormAndHistoryContextPointer": "/entries/389",
+        "pairSha256": "fb2490a0021616aec0ae3f207167151a90d3635af739a70557022d4a85b5c8cd",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/24",
+          "wholeOriginalAuthorObjectSha256": "ae73555eb525d6c3f7fc34cbdf28c7bbee2ac8e915b3822987c6fef866257a71"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/24",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "dd64e6b42f57eaf262baab9abbe7c7f8b4bcaa8b628b4d27583dae5c4c12b1ca"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Didcot",
+        "canonicalId": 2888836,
+        "canonicalSourceSha256": "a2357c3f2f34ee9309d43ecd791f585114369fb2cfcb51d2827fe5c0074a70f3",
+        "masterEntryPointer": "/entries/390",
+        "wholeSourcePoolPointer": "/shared/completeSources/2888836",
+        "completeFormAndHistoryContextPointer": "/entries/390",
+        "pairSha256": "f5c3121785a2dbce30b5c158c384fadeccf238e7521f7767e720537ec17ba2f7",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/25",
+          "wholeOriginalAuthorObjectSha256": "81d73978634389a0fbe1b409d92206ca7c88f7f80044eceb0dee49e0f9402d07"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/25",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "205d602f93412a6b6990d402e87f8cc625d9e170c6d0924012018ee37c2f4841"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "Ripon",
+        "canonicalId": 2890389,
+        "canonicalSourceSha256": "e84468506b16fb7c4338667ee71b1c0b7d2f6ae4aa08bbd8ce0e20f2fefc63c2",
+        "masterEntryPointer": "/entries/392",
+        "wholeSourcePoolPointer": "/shared/completeSources/2890389",
+        "completeFormAndHistoryContextPointer": "/entries/392",
+        "pairSha256": "9c0ecbda82cb128db38d224b01e0f4491e763bb8efac2b9faf520b36a6616547",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/26",
+          "wholeOriginalAuthorObjectSha256": "56d0c5eb86e81eae2478fc482153ce34099f6afae9451ef5159cbc43539c5130"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/26",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "fcd17f729a93fe9416fbf72811a2d2fbc63eb7a18e1f5c266cdd06ce17b9df05"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "hegel",
+        "canonicalId": 2893146,
+        "canonicalSourceSha256": "a5eba4619f1500129e33f32624a84e60ce953c429336dcdbf24f5dda38347c66",
+        "masterEntryPointer": "/entries/393",
+        "wholeSourcePoolPointer": "/shared/completeSources/2893146",
+        "completeFormAndHistoryContextPointer": "/entries/393",
+        "pairSha256": "0083c9be7ce61d4c00995cee6fd63215bb04ce85b35cd0a119725ce2fc2e06b9",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/27",
+          "wholeOriginalAuthorObjectSha256": "3dc8c1c99c8c85a210d657f01f7a5f2308b843524097dadf3d3c27d7773291ac"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/27",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "d3d9cf9eaf6b47b90749c3742b9b5e9b62cdb3bb34320677feafc364ea8070fb"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "bengal",
+        "canonicalId": 3409802,
+        "canonicalSourceSha256": "e8262c042bb6f942808ff07b45cb7813dff54e2d640e421830cfe52db1d8d455",
+        "masterEntryPointer": "/entries/397",
+        "wholeSourcePoolPointer": "/shared/completeSources/3409802",
+        "completeFormAndHistoryContextPointer": "/entries/397",
+        "pairSha256": "903632a4bce31c77eb588d1a4454b23cee00483c9ae8e0b7fb24728055bca104",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/28",
+          "wholeOriginalAuthorObjectSha256": "1eb84867f329728d5edb1091c2d811949e04e3ffc543eefffab9eb07091411f3"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/28",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "dfc2d064a5da1f2d4aa942caefa896ba26181f78c365b8491449d581a1c5e12d"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "hanoi",
+        "canonicalId": 2899400,
+        "canonicalSourceSha256": "e2d8d856a9794c594e6ea43596dec65246b0dfb8fa022936290e7697a77780df",
+        "masterEntryPointer": "/entries/398",
+        "wholeSourcePoolPointer": "/shared/completeSources/2899400",
+        "completeFormAndHistoryContextPointer": "/entries/398",
+        "pairSha256": "c0ccbb635626da2bcf511e2adf91afb01d0b04bb07aaf4f6916e283578ad936c",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/29",
+          "wholeOriginalAuthorObjectSha256": "9f928d8f951d36aaede981819ffe4d75ead85e8248f22fb1f52bf8afce374ba0"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/29",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "14f958108dcb065d9f86bc92ccad67f305237bdc8a701d066117251b63bdb5f5"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "redmond",
+        "canonicalId": 2900590,
+        "canonicalSourceSha256": "a68e580d91d9e45b390902a320537acd37e43092e0eb56bd2f9bd410f7aac199",
+        "masterEntryPointer": "/entries/399",
+        "wholeSourcePoolPointer": "/shared/completeSources/2900590",
+        "completeFormAndHistoryContextPointer": "/entries/399",
+        "pairSha256": "6bcf894086e542483ffadcdba93ab2af84f507468e608d4b431a00a613c35b19",
+        "authorPrincipal": "d33_author_role",
+        "reviewerPrincipal": "d33_review_source9_role04",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\drafts\\d33-role-c351-400-original-author-pack-0001.json",
+          "bytes": 19742,
+          "sha256": "087663983ed015fc1f751f3d4116d78dab0d9772931f0c6a08af235e6b97ed71",
+          "pointer": "/entries/30",
+          "wholeOriginalAuthorObjectSha256": "8469ce3f561c056884ed25f81ff16f9a856613f04bacff11e1fad8d34d8221b5"
+        },
+        "opinion": {
+          "file": "qa/d33-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 86098,
+          "sha256": "28619de0f80c29b3b79b295e2f3267fc92d3e286f0d4a55cff7a0dff920946e3",
+          "pointer": "/decisions/30",
+          "decision": "support-exact-selected-five-cells",
+          "wholeDecisionSha256": "9985447ae991de165980fdbefaca5ad99187e6f0837ce027067110f17ddf18c0"
+        },
+        "selectedSenseOnly": true
+      }
+    ],
+    "selectedSenseScopeNotWholeSourceCertification": true
+  }
+}

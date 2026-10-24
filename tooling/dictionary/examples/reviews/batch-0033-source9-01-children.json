@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "68882151242542bf6ca14d87d57bf6f9bae30f98c2dbe337353c5d8765d356ea",
+  "reviewer": "AI/d33_reviewer_prepare_source9_01",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "CORE",
+    "drop-out"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinion": true,
+    "authorPrincipal": "d33_author_source9_01_precision_child",
+    "reviewerPrincipal": "d33_reviewer_prepare_source9_01",
+    "author": {
+      "file": "drafts/d33-source9-c001-050-precision-children-0001.json",
+      "bytes": 12669,
+      "sha256": "679b252cba7d8a6b4caae4a1bd73fca581d70165b95f39eda0db0fa1dc5a7709"
+    },
+    "opinion": {
+      "file": "qa/d33-source9-c001-050-two-children-independent-prepare-review-0001.json",
+      "bytes": 5978,
+      "sha256": "6ad9a6ae937cba71ffd9677aeb3ef80146e3c0d27143f26637b5a652175c2f59"
+    },
+    "rows": [
+      {
+        "term": "CORE",
+        "canonicalId": 250238,
+        "canonicalSourceSha256": "7d964ec69652d9862a4e7499f8ed248172e868812ebdb48cc4a5aa0dcda0a57c",
+        "masterEntryPointer": "/entries/0",
+        "wholeSourcePoolPointer": "/shared/completeSources/250238",
+        "completeFormAndHistoryContextPointer": "/entries/0",
+        "pairSha256": "66ed9c63b7393d3abff508166fc6fa63e0b38e42d0aa03e5c6de681a82f2e27a",
+        "authorPrincipal": "d33_author_source9_01_precision_child",
+        "reviewerPrincipal": "d33_reviewer_prepare_source9_01",
+        "author": {
+          "file": "drafts/d33-source9-c001-050-precision-children-0001.json",
+          "bytes": 12669,
+          "sha256": "679b252cba7d8a6b4caae4a1bd73fca581d70165b95f39eda0db0fa1dc5a7709",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "57380efb6cfe277f40c5c67022e673db0dccbe34428674910a17257f67473ea0"
+        },
+        "opinion": {
+          "file": "qa/d33-source9-c001-050-two-children-independent-prepare-review-0001.json",
+          "bytes": 5978,
+          "sha256": "6ad9a6ae937cba71ffd9677aeb3ef80146e3c0d27143f26637b5a652175c2f59",
+          "pointer": "/rows/0",
+          "decision": "support-exact-author-child-five-cells-selected-sense-only",
+          "wholeDecisionSha256": "a61f779bb19a3a97d1cf5e95c8ec93d2381a5ce58f064e61bee38afd0bf34f8f"
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "drop-out",
+        "canonicalId": 1168069,
+        "canonicalSourceSha256": "242f24e886663b3a4cb9e48d87ee5821a70c00929871f95a345822689721a4fa",
+        "masterEntryPointer": "/entries/2",
+        "wholeSourcePoolPointer": "/shared/completeSources/1168069",
+        "completeFormAndHistoryContextPointer": "/entries/2",
+        "pairSha256": "f6c3e27f81d15823a75119073bd08867f1090d9852d4d7644d3c5a82f9fb81a2",
+        "authorPrincipal": "d33_author_source9_01_precision_child",
+        "reviewerPrincipal": "d33_reviewer_prepare_source9_01",
+        "author": {
+          "file": "drafts/d33-source9-c001-050-precision-children-0001.json",
+          "bytes": 12669,
+          "sha256": "679b252cba7d8a6b4caae4a1bd73fca581d70165b95f39eda0db0fa1dc5a7709",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "80dece907928fc10769d545137d33b8e65b9252dbe628c6cd7a06ce886a85716"
+        },
+        "opinion": {
+          "file": "qa/d33-source9-c001-050-two-children-independent-prepare-review-0001.json",
+          "bytes": 5978,
+          "sha256": "6ad9a6ae937cba71ffd9677aeb3ef80146e3c0d27143f26637b5a652175c2f59",
+          "pointer": "/rows/1",
+          "decision": "support-exact-author-child-five-cells-selected-sense-only",
+          "wholeDecisionSha256": "c6ade739d4bbd8481c6b3a0b38ab562d3b59ecd526ffd479360b1c9e881b961d"
+        },
+        "selectedSenseOnly": true
+      }
+    ],
+    "selectedSenseScopeNotWholeSourceCertification": true
+  }
+}
