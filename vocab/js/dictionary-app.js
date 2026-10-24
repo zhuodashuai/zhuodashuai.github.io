@@ -411,10 +411,6 @@ export function mountDictionaryPage(document, window) {
     input.value = query; controller.change(query); if (query) void run();
   });
 
-  // The HTML gates native implicit submission until the actual listeners exist.
-  // Adopt text typed during module download without clearing it or waiting on data.
-  controller.change(input.value);
-
   // Manifest warming is deliberately independent of form readiness. It never
   // reads an account, downloads every shard, or holds the input disabled.
   void refreshCount();
