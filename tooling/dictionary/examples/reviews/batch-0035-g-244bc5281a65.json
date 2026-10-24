@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "58e6638002fe76868ee2037c9c03b415c05e4caab099ea05a4818476f382433b",
+  "reviewer": "AI/d35_independent_source9",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "looney"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_role",
+    "reviewerPrincipal": "d35_independent_source9",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "looney",
+        "canonicalId": 5373675,
+        "canonicalSourceSha256": "3dbe83acd663988dd89571a5e042bdf07ae5ef7796e5cf6d3727cefccf3bbb7b",
+        "pairSha256": "103d0aa2c9cf3272b8af74acb2e76f80c797b37200ca2952780e31dc83a51707",
+        "authorPrincipal": "d35_author_role",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-looney-translation-scope-child-0001.json",
+          "bytes": 1532,
+          "sha256": "7cdd7c7a8cc94fc5c835086147d8e3d9daed8a379d8958f4baf717729ddba230",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "29724e744596e2c2194d9d712472e993ae678a0e32917a93a55159c144136a86"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-looney-child-independent-source9-review-0001.json",
+          "bytes": 1925,
+          "sha256": "5c93bc40c1adfd969b7bbb59997bfb3553e715c03b00b3faccd80baad04fafc6",
+          "pointer": "",
+          "decision": "supported-exact-ZH-only-child",
+          "wholeOpinionRowSha256": "37341a903187035209737dec075df961183b9d401adadfe213404db329ff55c8"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/255",
+          "completeSourceIds": [
+            5373675
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

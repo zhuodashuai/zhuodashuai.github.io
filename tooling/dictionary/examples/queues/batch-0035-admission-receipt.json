@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "kind": "D35 final398 draft admission-input receipt; NOT actual admission/build/publication",
+  "supportedInventory": {
+    "file": "candidates/d35-supported-input-inventory-0004.json",
+    "bytes": 1532427,
+    "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+  },
+  "counts": {
+    "masterReserved": 500,
+    "masterSelected": 392,
+    "reviewedMasterOriginalDecisions": 500,
+    "reviewedUnselected": 108,
+    "pendingMaster": 0,
+    "outsideMasterBacklogSelected": 6,
+    "totalConsidered": 506,
+    "totalPossibleInputs": 398,
+    "originalAuthorHoldObjectsRetained": 297,
+    "failedExactPairDecisionsRetained": 12
+  },
+  "standardPacks": [
+    {
+      "file": "batch-0035-g-4ce3447c8860.json",
+      "heads": 26,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-4ce3447c8860.json",
+        "bytes": 8282,
+        "sha256": "3147946c01f52eaaaaa50daa51d1faa94e1838842bae0893f4ce1d6d0c01c0aa"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-4ce3447c8860.json",
+        "bytes": 46079,
+        "sha256": "859e39b0a0c8ec76b863cfa7877328bedf486ca8283c60d5215668d3cdfa2e1d"
+      }
+    },
+    {
+      "file": "batch-0035-g-2b551c377f5b.json",
+      "heads": 2,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-2b551c377f5b.json",
+        "bytes": 800,
+        "sha256": "86d7b81129a3a8e135be44b895086e0129eae9fc0f25e2b23b811ce0a5c44c85"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-2b551c377f5b.json",
+        "bytes": 4271,
+        "sha256": "a2f662167d65ff2d3eecd0bc79b080f40cf8037f34de30ad6b540bfe91db7748"
+      }
+    },
+    {
+      "file": "batch-0035-g-fa55990f9ef2.json",
+      "heads": 5,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-fa55990f9ef2.json",
+        "bytes": 1749,
+        "sha256": "feca9285bce17b98b4a3faed5d2938fff93f2008d91e08c3bb1e09fcdb05d5cd"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-fa55990f9ef2.json",
+        "bytes": 9525,
+        "sha256": "dd3b7ddbdc50eee0cc27ad57fe49d302a6e66f70803bc7b7b5b47a970cc73667"
+      }
+    },
+    {
+      "file": "batch-0035-g-0533a5af8936.json",
+      "heads": 5,
+      "authorPrincipal": "d35_author_prepare_finite_hold_reentry",
+      "reviewerPrincipal": "d35_reviewer_root_prepare_five",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-0533a5af8936.json",
+        "bytes": 1858,
+        "sha256": "d9a4aad2662166971b8b1475c66dab4e321a3e3876c216a8413edc0956129e7c"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-0533a5af8936.json",
+        "bytes": 9762,
+        "sha256": "4a9ed26230f266108959e4ebf6a99777a4d06363e7791e3459c79410921d8588"
+      }
+    },
+    {
+      "file": "batch-0035-g-7f48d441d817.json",
+      "heads": 3,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-7f48d441d817.json",
+        "bytes": 1100,
+        "sha256": "b422f8af6916e82ab0c41f398cc72321af78e53a5e13f4674a39191e20d1ea2d"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-7f48d441d817.json",
+        "bytes": 5939,
+        "sha256": "6f4f4d87101c2a2fc853d1b7cdc9deea166ff9d3424badf9a03bad141a3b1113"
+      }
+    },
+    {
+      "file": "batch-0035-g-55aa424de92d.json",
+      "heads": 30,
+      "authorPrincipal": "d35_author_source9",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-55aa424de92d.json",
+        "bytes": 9513,
+        "sha256": "919c86f1cd5aa8e72002b0e5a5f97ddf7cd8ad3f8c6d7f11f5cdf2c0b8ecc003"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-55aa424de92d.json",
+        "bytes": 52251,
+        "sha256": "dd4d2bd8d18eab47e0cbaec5728303d6abdf22403859e9cb1af67fdc4ce72e2b"
+      }
+    },
+    {
+      "file": "batch-0035-g-f2b399ee5e83.json",
+      "heads": 1,
+      "authorPrincipal": "d35_author_source9",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-f2b399ee5e83.json",
+        "bytes": 418,
+        "sha256": "f317bf5c4b0da5048e808704b180295355385355bc88a9f856a8a3afa1bd66db"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-f2b399ee5e83.json",
+        "bytes": 2398,
+        "sha256": "85fe8daf1e7b2a84f476854b0dfc3888fbe604db946dd121c6069dcb52030c77"
+      }
+    },
+    {
+      "file": "batch-0035-g-d7176bbcf6ef.json",
+      "heads": 14,
+      "authorPrincipal": "d35_author_source9_explicit_selected_sense_children",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-d7176bbcf6ef.json",
+        "bytes": 5115,
+        "sha256": "f5a5e7710d014336a6eff11adb4289d3737b08e8d414ff739fa2f4d1509c761c"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-d7176bbcf6ef.json",
+        "bytes": 25509,
+        "sha256": "5c72a7a8df2945839c34845abd7445d5d7e8af466d96e7c248b8bb276b7ade3e"
+      }
+    },
+    {
+      "file": "batch-0035-g-8eb36bde185c.json",
+      "heads": 44,
+      "authorPrincipal": "d35_author_source9",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-8eb36bde185c.json",
+        "bytes": 14483,
+        "sha256": "e21269ce442bf1f0f442b707f63491c5352955431c844f987f6869bb791c2dfb"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-8eb36bde185c.json",
+        "bytes": 76856,
+        "sha256": "c0c537ff2adb85fe489a30f3b4a1549ae82b136a23fa436ecfbead93625b7092"
+      }
+    },
+    {
+      "file": "batch-0035-g-00d30f7058db.json",
+      "heads": 40,
+      "authorPrincipal": "d35_author_source9",
+      "reviewerPrincipal": "d35_reviewer_root_source9_151",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-00d30f7058db.json",
+        "bytes": 14389,
+        "sha256": "4da521aca901997c440c3274a765bad1720059b4e7629fc384ab03a5c2a37218"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-00d30f7058db.json",
+        "bytes": 71525,
+        "sha256": "c6ff5fdf2ee8687ebcc1039a36cc9a3af19933259f5666ffd9be49c82418f76b"
+      }
+    },
+    {
+      "file": "batch-0035-g-e1c448aea25b.json",
+      "heads": 42,
+      "authorPrincipal": "d35_author_source9",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-e1c448aea25b.json",
+        "bytes": 14500,
+        "sha256": "eb0e076b5b8ae40f837e6fcbe63dbf754d89f442812ab3988107a37ea7812db7"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-e1c448aea25b.json",
+        "bytes": 73476,
+        "sha256": "26545e5cee85e070529e9312cd84481d4856512e119191a6b61c16b8bef6b498"
+      }
+    },
+    {
+      "file": "batch-0035-g-c62ab98e1f78.json",
+      "heads": 30,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_independent_source9",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-c62ab98e1f78.json",
+        "bytes": 9835,
+        "sha256": "4f7daa6b0b06009a4280d090a4788ab852799473ac652debf3be23c3e3f8e706"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-c62ab98e1f78.json",
+        "bytes": 52375,
+        "sha256": "157208611484a53039ee491bffc72db0137087e601c0c05c75f020c39bf34c6c"
+      }
+    },
+    {
+      "file": "batch-0035-g-244bc5281a65.json",
+      "heads": 1,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_independent_source9",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-244bc5281a65.json",
+        "bytes": 487,
+        "sha256": "126d36ce33c142f8447e06be6b312f1fb4da20b0ce44de3827aafacca920af0d"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-244bc5281a65.json",
+        "bytes": 2395,
+        "sha256": "700044ad54e3758a72eb69774d2be5d4dcc6d0da5dac79e3a6ab812da2ec7a9f"
+      }
+    },
+    {
+      "file": "batch-0035-g-30e38eaca613.json",
+      "heads": 15,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_reviewer_root_role301",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-30e38eaca613.json",
+        "bytes": 4660,
+        "sha256": "1c1915cdc81fe84f36c68c8227d467c3d3cb6d93ba900a3f5c9c0c30689f531f"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-30e38eaca613.json",
+        "bytes": 26867,
+        "sha256": "d6823e8b8fff5125a786f607ae47b01e8d97003c819b325f26743a51288e16bc"
+      }
+    },
+    {
+      "file": "batch-0035-g-ecbd83d9ffe2.json",
+      "heads": 13,
+      "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+      "reviewerPrincipal": "d35_reviewer_root_role301",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-ecbd83d9ffe2.json",
+        "bytes": 4381,
+        "sha256": "f0263ecd0a8c31c1b0c4eaddd4aeb147a082867606a4e9503af350a8aab4bab4"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-ecbd83d9ffe2.json",
+        "bytes": 28785,
+        "sha256": "be4c30edaa03a8d4b8778b98d98545e38e3a32c7e924d6739e9aa002eb996b20"
+      }
+    },
+    {
+      "file": "batch-0035-g-05d6a5c16478.json",
+      "heads": 24,
+      "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+      "reviewerPrincipal": "d35_independent_source9",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-05d6a5c16478.json",
+        "bytes": 7712,
+        "sha256": "4d1f41181368575a3c82e83db17abb4e417ad8983325ba7df8a4d9230140d5d4"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-05d6a5c16478.json",
+        "bytes": 43439,
+        "sha256": "bbd690aabea00738eb1d3c845ce68a1d6f99572ab7eb25255dba9fc956e68a62"
+      }
+    },
+    {
+      "file": "batch-0035-g-6163d83d8100.json",
+      "heads": 14,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_independent_source9",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-6163d83d8100.json",
+        "bytes": 4482,
+        "sha256": "2a3c56e559723daceb57d391efd98ae9e2ebdc0bad019c2ba4ee8ecdeec81ce8"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-6163d83d8100.json",
+        "bytes": 24663,
+        "sha256": "0384ee3e142b3ab919e80a66f58d4c5c11aab699f9ad0e7cf8925b36033d4fb7"
+      }
+    },
+    {
+      "file": "batch-0035-g-33ce30595e6b.json",
+      "heads": 1,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_independent_source9",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-33ce30595e6b.json",
+        "bytes": 450,
+        "sha256": "a6afccd13aa1a832ea94ed04c3a9fdeb2d489d8e6768221faed400b48519921c"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-33ce30595e6b.json",
+        "bytes": 2403,
+        "sha256": "18847600db032eb8a1b6e28124131ab1032f2ac63ecb4d0c616f6ded291be03e"
+      }
+    },
+    {
+      "file": "batch-0035-g-91138cd596b2.json",
+      "heads": 15,
+      "authorPrincipal": "d35_author_role",
+      "reviewerPrincipal": "d35_reviewer_root_role401",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-91138cd596b2.json",
+        "bytes": 4387,
+        "sha256": "9c9b5b6ba2d65968f3343a6e49f3b860a194749ca289b5864f9909941a001059"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-91138cd596b2.json",
+        "bytes": 26804,
+        "sha256": "82ca0f596520dd6ad8bb20658998fd9368163b9f2ebba35bbcca17dff4612205"
+      }
+    },
+    {
+      "file": "batch-0035-g-c72d020e93bd.json",
+      "heads": 26,
+      "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+      "reviewerPrincipal": "d35_reviewer_root_role401",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-c72d020e93bd.json",
+        "bytes": 8065,
+        "sha256": "259b939a1af08a1ceb852b54adc14e3893d5a3c945645ad06de211cd8c630b9a"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-c72d020e93bd.json",
+        "bytes": 47784,
+        "sha256": "b83d9142e8545c3f36b05484601303952df7a916e9124e7dc59aa09de89a3801"
+      }
+    },
+    {
+      "file": "batch-0035-g-a4ec1ab77cfc.json",
+      "heads": 24,
+      "authorPrincipal": "d35_author_prepare_root02_annotations",
+      "reviewerPrincipal": "d35_reviewer_root_prepare01",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-a4ec1ab77cfc.json",
+        "bytes": 7955,
+        "sha256": "85033998315be15f6e08099e6bcfafff4314121e8c1088388c47504ec80b0fd1"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-a4ec1ab77cfc.json",
+        "bytes": 43492,
+        "sha256": "a2e229de9afbd1626f809470320040e9cc91e61101c351a60993c4c789f65e1b"
+      }
+    },
+    {
+      "file": "batch-0035-g-c9268209cbf6.json",
+      "heads": 15,
+      "authorPrincipal": "d35_author_prepare_root02",
+      "reviewerPrincipal": "d35_reviewer_root_prepare01",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-c9268209cbf6.json",
+        "bytes": 4566,
+        "sha256": "fe1bfafea97744ae19c87cc3f87dc9abb51d30dc36454ef880dcb52f3be81272"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-c9268209cbf6.json",
+        "bytes": 27157,
+        "sha256": "edd4599fc6f2b3f95d2e4418397d382867b0db3cec7185220b7730eb887cf0ce"
+      }
+    },
+    {
+      "file": "batch-0035-g-18b4bcf1bafa.json",
+      "heads": 2,
+      "authorPrincipal": "d35_author_prepare_root02_precision_children",
+      "reviewerPrincipal": "d35_reviewer_root_prepare01",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-18b4bcf1bafa.json",
+        "bytes": 791,
+        "sha256": "5bbaaafa9c25ecfc6ba2e788025d52e7782c8fccc6d6eeec20bb7baa880fa208"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-18b4bcf1bafa.json",
+        "bytes": 4336,
+        "sha256": "5d4f506827cf717423c5cb6ccda02dc5d21c94aaab6314ac92f1e2ffe48c8538"
+      }
+    },
+    {
+      "file": "batch-0035-g-bc6772007347.json",
+      "heads": 5,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-bc6772007347.json",
+        "bytes": 1763,
+        "sha256": "9ae32f9c93ea8ed3ce28637f9e75dff3b11baa4076bc1c62a68f15559bcb1525"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-bc6772007347.json",
+        "bytes": 10355,
+        "sha256": "74f759a16712d7e2578f8863345eb852f8323e95352e1b012680a2d5820b763b"
+      }
+    },
+    {
+      "file": "batch-0035-g-52fdefb5616c.json",
+      "heads": 1,
+      "authorPrincipal": "d35_author_root",
+      "reviewerPrincipal": "d35_reviewer_role",
+      "source": {
+        "file": "tooling/dictionary/examples/source/batch-0035-g-52fdefb5616c.json",
+        "bytes": 478,
+        "sha256": "9a7c58f6201b85e3d89d044b705bd29d7a7445343d6c3b7a1efb068929d16344"
+      },
+      "review": {
+        "file": "tooling/dictionary/examples/reviews/batch-0035-g-52fdefb5616c.json",
+        "bytes": 2299,
+        "sha256": "178516ad9ae24155c8b1b76e4772a9dc601dcfaa3669ab8e68c2914bcf8d5884"
+      }
+    }
+  ],
+  "selectedBindingDigest": "6eeccf8a4c5ed1db740d82ec45666b00bed6449f1e5926bec09a74388851acdd",
+  "all500OriginalDecisionBindingsDigest": "c81624e108b2b23fd09a7fca91b5f0509982836b85ad01bab66b99f106aeea99",
+  "retainedFailedExactPairDecisions": [
+    {
+      "term": "minx",
+      "pair": [
+        "minx",
+        "noun",
+        "轻佻的女子（过时或贬义称呼，使用时须留意语气）",
+        "In the old comedy, her jealous suitor calls her a minx after she flirts with his rival.",
+        "那部老喜剧中，她与情敌调情后，嫉妒的追求者便骂她是个轻佻的女子。"
+      ],
+      "pairSha256": "f3a23a77a540d853854a5408635dcd5c06d61e76a3d6015d949d6c6b744a28f5",
+      "decision": "hold-exact-original-pair",
+      "reason": "English his rival belongs to the jealous suitor; original Chinese 她与情敌 assigns the rival relation to her. Preserve original and require distinct translation child. Selected lexical sense/register itself is supportable.",
+      "independentOpinion": {
+        "file": "qa/d35-root-c001-050-independent-role-review-0001.json",
+        "bytes": 106174,
+        "sha256": "796ab6dab58193b75d8a664ae7506a0fa8870f1ac32fea56bb13825e448c1e6c",
+        "pointer": "/opinions/20",
+        "wholeOpinionRowSha256": "d7bbccdc158a2f8efb3d1ce4084e4bb107374e527cd763d0c90665b8f83f05a5"
+      }
+    },
+    {
+      "term": "idiotically",
+      "pair": [
+        "idiotically",
+        "adverb",
+        "极其愚蠢地（贬义，形容做法）",
+        "I idiotically put the spare key inside the suitcase I had just locked.",
+        "我竟然蠢到把备用钥匙放进了自己刚锁上的箱子里。"
+      ],
+      "pairSha256": "0b19613379f09f9f764ffee3ef5aa705f4fe3a53a2fda40b2692cd49c9a7a37b",
+      "decision": "hold-exact-original-pair",
+      "reason": "Original puts a key inside a suitcase it had just locked. An unmentioned reopening could rescue it, so not a logical impossibility; the intended locking-the-key-inside act is chronologically unclear without that extra event. Preserve original and require distinct event-clarity child.",
+      "independentOpinion": {
+        "file": "qa/d35-root-c001-050-independent-role-review-0001.json",
+        "bytes": 106174,
+        "sha256": "796ab6dab58193b75d8a664ae7506a0fa8870f1ac32fea56bb13825e448c1e6c",
+        "pointer": "/opinions/23",
+        "wholeOpinionRowSha256": "920ed96eae99f5658e3d345b4583192c1f9e0103cb2e64944626feb2044832fb"
+      }
+    },
+    {
+      "term": "tucson",
+      "pair": [
+        "tucson",
+        "noun",
+        "图森（城市名）",
+        "Her cousin in Tucson mailed her a box of old family photographs.",
+        "她住在图森的表亲给她寄来了一盒老家庭照片。"
+      ],
+      "pairSha256": "b12d0a7519c95d6c71b99624f637822884595f44360aa38769ba5efe1b0f4a74",
+      "decision": "hold-exact-original-pair",
+      "reason": "Original English cousin leaves maternal/paternal and 堂/表 lineage open; Chinese 表亲 selects only one family-branch class. Ordinary city usage is fine; distinct child must align the relationship scope.",
+      "independentOpinion": {
+        "file": "qa/d35-root-c001-050-independent-role-review-0001.json",
+        "bytes": 106174,
+        "sha256": "796ab6dab58193b75d8a664ae7506a0fa8870f1ac32fea56bb13825e448c1e6c",
+        "pointer": "/opinions/26",
+        "wholeOpinionRowSha256": "5efcbc1267297376a695936e28a1a77edc749ac24f8420d0a115af77850fe195"
+      }
+    },
+    {
+      "term": "rainout",
+      "pair": [
+        "rainout",
+        "noun",
+        "因雨取消的活动（此例另补常见名词义，不是原条的雨沉降物义）",
+        "The team arranged an indoor practice after the rainout.",
+        "比赛因雨取消后，球队安排了一次室内训练。"
+      ],
+      "pairSha256": "49c9af82a1ac7b7afe8eddf2ae648b825d06a6eed6e9e0b6c5def3b14de27b23",
+      "decision": "hold-exact-curated-sense-child-translation",
+      "reason": "The primary rainout noun genuinely supports a rain-cancelled event, separately from raw deposition. However English does not specify whether a game or outdoor practice was cancelled, whereas Chinese fixes 比赛. Keep this exact original child held pending an explicit author revision of the activity scope.",
+      "independentOpinion": {
+        "file": "qa/d35-root-seven-curated-sense-children-independent-role-review-0001.json",
+        "bytes": 24801,
+        "sha256": "f82de53cefb8d95f1ab218e333083361306e5414a2009a0a3ccf3232e703d101",
+        "pointer": "/opinions/0",
+        "wholeOpinionRowSha256": "fa67373876d3a76e46b2978279f7e6a9ff4cd083497032421eac21a998d8222f"
+      }
+    },
+    {
+      "term": "snorkeler",
+      "pair": [
+        "snorkeler",
+        "noun",
+        "浮潜者（此例指使用呼吸管游泳的人，不是呼吸管设备）",
+        "The snorkeler returned to shore with a photograph of a shoal of fish.",
+        "那位浮潜者拍下了一群鱼的照片，然后回到了岸上。"
+      ],
+      "pairSha256": "955902586a27618eff2a734669a29133195bc05ec7dcafc0f92203cdab4aa2db",
+      "decision": "hold-exact-curated-sense-child-translation",
+      "reason": "Exact MW listed agent noun under swim-with-snorkel supports the human sense. But English only states returning with a photograph; Chinese asserts the snorkeler took the picture and then returned. The lexical curation is supportable; retain this exact translation child held until event scope aligns.",
+      "independentOpinion": {
+        "file": "qa/d35-root-seven-curated-sense-children-independent-role-review-0001.json",
+        "bytes": 24801,
+        "sha256": "f82de53cefb8d95f1ab218e333083361306e5414a2009a0a3ccf3232e703d101",
+        "pointer": "/opinions/5",
+        "wholeOpinionRowSha256": "08628a9dd08c7a117738cf73c0b11beb5ec821a9271311d6ecbef47715bc81e0"
+      }
+    },
+    {
+      "term": "sahib",
+      "pair": [
+        "sahib",
+        "noun",
+        "先生；老爷（印度历史语境中对有权势男子的称呼）",
+        "In the historical novel, the servant addresses the officer as 'sahib'.",
+        "在那部历史小说里，仆人称那名军官为“老爷”。"
+      ],
+      "pairSha256": "a24a56d95c82335b7e9ced6004f236f626429a2ed32d95002baeb61f8a711e38",
+      "decision": "hold-exact-original-pair-translation-scope",
+      "reason": "HOLD: officer does not uniquely specify the military role asserted by 军官; source honorific itself is valid.",
+      "independentOpinion": {
+        "file": "qa/d35-prepare-c451-500-independent-root-review-0001.json",
+        "bytes": 307939,
+        "sha256": "f448a15463b9d245397c409bf4018c50e65f3dad01cfdeb627ce4e77438fd620",
+        "pointer": "/opinions/2",
+        "wholeOpinionRowSha256": "2accd04166102118db46487431ac8ecf76707bf390f8af078e7066fe43eff1b0"
+      }
+    },
+    {
+      "term": "simla",
+      "pair": [
+        "simla",
+        "noun",
+        "西姆拉（印度城市，Shimla的另一名称）",
+        "The faded postcard from Simla still carried my grandmother's handwriting.",
+        "那张来自西姆拉的褪色明信片上仍留着我祖母的笔迹。"
+      ],
+      "pairSha256": "8ecbd69e9ef859171c227e57cb7c96d4b7e4ac485a28846eb7962218b1f7b284",
+      "decision": "hold-exact-original-pair-translation-scope",
+      "reason": "HOLD: grandmother does not uniquely specify the paternal lineage asserted by 祖母; place sense is valid.",
+      "independentOpinion": {
+        "file": "qa/d35-prepare-c451-500-independent-root-review-0001.json",
+        "bytes": 307939,
+        "sha256": "f448a15463b9d245397c409bf4018c50e65f3dad01cfdeb627ce4e77438fd620",
+        "pointer": "/opinions/3",
+        "wholeOpinionRowSha256": "c71137c3b2fddc0619e3208a1344563d90f862c435f03793f5c4f8d393e1f7e7"
+      }
+    },
+    {
+      "term": "looney",
+      "pair": [
+        "looney",
+        "noun",
+        "大傻瓜；疯子（俚语，可能冒犯，此例为自嘲）",
+        "'I must be a looney,' he muttered, looking at the twelve alarm clocks he had packed.",
+        "“我准是个大傻瓜，”他嘀咕道，看着自己装进行李的十二个闹钟。"
+      ],
+      "pairSha256": "47e545d03d919f1c447025e40793eaa6cf1c1a54a49d8e866bc478fc229ae826",
+      "decision": "hold-original-translation",
+      "reason": "HOLD only cell5: packed does not specify travel luggage, but Chinese 装进行李 does. Exact fool noun/visible sensitive register/self-directed joke are otherwise supported. MW pack includes protective-container/shipping meanings; no travel or bag appears in the sentence. Preserve original and judge separately authored child, not reviewer rewrite.",
+      "independentOpinion": {
+        "file": "qa/d35-role-c251-300-independent-source9-review-0001.json",
+        "bytes": 100114,
+        "sha256": "cd21d1dd23ab9d424519e4b2297b8b719e5eec286de5ecfebdf8ac10f7225bb0",
+        "pointer": "/decisions/2",
+        "wholeOpinionRowSha256": "5723a12af6988539fccbb0aa80d5a9e15d651e938dfd24059dc8ab225495cf5d"
+      }
+    },
+    {
+      "term": "troller",
+      "pair": [
+        "troller",
+        "noun",
+        "小钓船",
+        "The little troller came back to harbour with a broken line trailing behind it.",
+        "那条小钓船回到港口时，后面拖着一根断掉的钓线。"
+      ],
+      "pairSha256": "75a74961b8029a2c64694797aa01025766d5e96963dc134b610d4093b0a59a91",
+      "decision": "hold-original-translation-precision",
+      "reason": "HOLD original translation specificity: a broken line aboard a boat need not specifically be a fishing line, whereas 钓线 fixes that narrower object. Boat noun itself is supported; the original exact pair stays held.",
+      "independentOpinion": {
+        "file": "qa/d35-source9-c051-100-independent-role-review-0001.json",
+        "bytes": 214882,
+        "sha256": "6be58aa216e7728d0e06f3618339c2c565e68f6f0badfe3806ad95dd5a379254",
+        "pointer": "/opinions/4",
+        "wholeOpinionRowSha256": "c62f65e1a77c83c985a762e1f82792796ad1ef14014f937069d24f5c23c74746"
+      }
+    },
+    {
+      "term": "chitlins",
+      "pair": [
+        "chitlins",
+        "noun",
+        "猪肠（尤指供食用的；chitterlings 的方言复数形式）",
+        "He carried a bowl of chitlins from the kitchen to the crowded table.",
+        "他端着一碗猪肠，从厨房走到坐满人的餐桌旁。"
+      ],
+      "pairSha256": "c40e38bb545c90fbaf4893c9c3692b949cef423cb84dc7b5eb3bb61822db97cd",
+      "decision": "hold-annotation-translation",
+      "reason": "HOLD cell5 only: the crowded table does not specify seated people and can be crowded with objects/dishes; Chinese坐满人的餐桌 commits to a people/seating scenario. Exact dialect plural food noun is independently closed by MW chitterlings/chitlins/intestines definition. Preserve the original annotation; any scene-precision repair requires a separate author child. No source/sense/POS objection.",
+      "independentOpinion": {
+        "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+        "bytes": 128552,
+        "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+        "pointer": "/decisions/16",
+        "wholeOpinionRowSha256": "f3c6acef656d4b4b1ca375d79879a31d995a286e8b5b6a5711ff751f5852b56d"
+      }
+    },
+    {
+      "term": "superiorly",
+      "pair": [
+        "superiorly",
+        "adverb",
+        "向头侧（解剖方位的上方；此例另选位置义）",
+        "The arrow points superiorly in the anatomical diagram.",
+        "解剖图中的箭头指向头侧。"
+      ],
+      "pairSha256": "56035d22006b5b7ac8080f1f6194bcaa6416268aab00550ab9e32582fcaa5139",
+      "decision": "hold-translation-scope-until-distinct-author-child",
+      "reason": "Unspecified anatomical diagram does not restrict superior=headward to upright humans; quadrupeds may use dorsal/anterior. Original pair remains held.",
+      "independentOpinion": {
+        "file": "qa/d35-role-c401-450-independent-root-review-0001.json",
+        "bytes": 88842,
+        "sha256": "583095d571b4787d20dc0e9f5fa51d7505ff8f49d8aaf1722464b711a80db57c",
+        "pointer": "/opinions/40",
+        "wholeOpinionRowSha256": "1cab936b648db0b5c6492d10bbe645a526e7a5cea753b6274aefaa2fdab2d40e"
+      }
+    },
+    {
+      "term": "swansong",
+      "pair": [
+        "swansong",
+        "noun",
+        "告别之作；最后的作品（此例为补全后的艺术创作义）",
+        "The director chose a family drama as her swansong before retirement.",
+        "那位导演选择了一部家庭剧情片，作为退休前的最后作品。"
+      ],
+      "pairSha256": "2328d12598b499ebc5af9fbddd84093711da66c19ca6c2e72ce6a7f47784f1aa",
+      "decision": "hold-exact-backlog-child-translation-medium",
+      "reason": "The exact closed-spelling final-work noun is independently supported, but English family drama does not distinguish stage play from film. Chinese 家庭剧情片 fixes film medium. Preserve this original child held pending a separate author precision child.",
+      "independentOpinion": {
+        "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+        "bytes": 21084,
+        "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+        "pointer": "/opinions/2",
+        "wholeOpinionRowSha256": "644a3b4111e429bfff08b27400a9a343cb540456c6d77a0ae8cff1bbedaf31de"
+      }
+    }
+  ],
+  "originalAuthorHoldObjectsRetained": 297,
+  "completeContextMaster": {
+    "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+    "bytes": 9532384,
+    "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+  },
+  "currentActualCatalogue": {
+    "file": "catalogue-v4/b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c.bin",
+    "codec": "gzip",
+    "bytes": 5069,
+    "sha256": "b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c",
+    "decodedBytes": 12626,
+    "decodedSha256": "9b5d94b29e7fbcaf32c2e6024b18aeb96aba9eab99cfe14c594f1726e4405e3f"
+  },
+  "applyRegistration": null,
+  "normalBuildRegistration": null,
+  "admitted": false,
+  "published": false,
+  "coverageAdded": 0,
+  "conservation": "Full raw author/opinion/context pointers retain all500 original decisions,297 original author holds and12 failed exact-pair decisions. Final398 includes392 master heads plus6 outside-backlog heads, with108 unselected master heads. No apply registration or added coverage."
+}

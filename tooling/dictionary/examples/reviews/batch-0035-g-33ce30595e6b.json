@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "dddb02fb5a94d7d6234cc68a4dcdca0c7738a0c1e1ed42e84b3e7e1d79d04c1b",
+  "reviewer": "AI/d35_independent_source9",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "chitlins"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_role",
+    "reviewerPrincipal": "d35_independent_source9",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "chitlins",
+        "canonicalId": 5532735,
+        "canonicalSourceSha256": "1a19b012dfe90da150574cedd00404dadfe98e0bf76c52d9f25a28a69eb48f6c",
+        "pairSha256": "0841f39385bb718f494e2d8d23d521c2374168cd5b7a499da934876265d0582a",
+        "authorPrincipal": "d35_author_role",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-chitlins-translation-scope-child-0001.json",
+          "bytes": 1629,
+          "sha256": "bb8668b1754eb7f64800be4e0adac98884ee8b2702977d789decbfd3fce7501f",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "625538837ed060eafc21322869f612caa52cabd3d043939538084417c8661267"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-chitlins-child-independent-source9-review-0001.json",
+          "bytes": 2303,
+          "sha256": "e1836e3f6853b73f5706b620e10a9c6b7729b1058b818e239bb2a4ed16757b76",
+          "pointer": "",
+          "decision": "supported-exact-ZH-only-child",
+          "wholeOpinionRowSha256": "04a17d54fd5d1740feedbeff504f19712a9ef38010c349a6ff875674ed785a82"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/356",
+          "completeSourceIds": [
+            5532735
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

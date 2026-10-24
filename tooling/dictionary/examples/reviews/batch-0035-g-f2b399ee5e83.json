@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "11aee51bf8567b95ea3a92a28551f558142c1ddaf07360a60c249cae6075bded",
+  "reviewer": "AI/d35_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "troller"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_source9",
+    "reviewerPrincipal": "d35_reviewer_role",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "troller",
+        "canonicalId": 5080779,
+        "canonicalSourceSha256": "debf6dbcd642aae2f3e616aea659c6c610feb058cfcfc466e5c280d64efeb914",
+        "pairSha256": "af76160725f4d149ec02d21558a05316abac24464a5e015524c31545fce800e8",
+        "authorPrincipal": "d35_author_source9",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-source9-c051-100-troller-english-child-0001.json",
+          "bytes": 1541,
+          "sha256": "a31e2f2cbf447c7d843d60e2c77c6bfa08645bd08cb0a89bb869a0709d3cf0e1",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "60a27b9dcd60f45b56e7f2138eeb1b41a7a43717354d5a930f889987f3a428bb"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-source9-troller-child-independent-role-review-0001.json",
+          "bytes": 2060,
+          "sha256": "044196a00e89e16471670e97c8177601d30ea3603da4b9a4bdbc26cb5a361cf0",
+          "pointer": "",
+          "decision": "support-exact-EN-only-translation-child",
+          "wholeOpinionRowSha256": "e517c70c1c719a81b5e0630c0db1157412e57aa0442bdda11782d1b31870a480"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/54",
+          "completeSourceIds": [
+            5080779
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}
