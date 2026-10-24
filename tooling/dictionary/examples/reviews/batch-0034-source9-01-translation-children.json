@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "f105a5717fb0ee6ca332c05f7874680ee874602c5b20ef22445db90db71c944c",
+  "reviewer": "AI/d34_reviewer_prepare",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "aire",
+    "lexington"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d34_author_source9_translation_children",
+    "reviewerPrincipal": "d34_reviewer_prepare",
+    "supportedInventory": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+      "bytes": 434900,
+      "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+    },
+    "completeContextMaster": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+      "bytes": 9318104,
+      "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "aire",
+        "canonicalId": 3919350,
+        "canonicalSourceSha256": "276d4c99b9a7eea7027dc5deec41b0dffcd186b711fe31ee0da361a5bda79aa6",
+        "pairSha256": "295cd142f71193d918fb603396002d78475106a0dcd2fe5d4d81eb6d692a60ae",
+        "authorPrincipal": "d34_author_source9_translation_children",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-two-translation-children-0001.json",
+          "bytes": 11209,
+          "sha256": "fdc02d4bf0565843d77948a460275e88b3b15fede04f4e5219ffe3b192ee5e62",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "604cda767160f29b8d0a2ec57386f9e3520ed6f51965f0d234d8a33788e4a1ef"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-two-children-independent-prepare-review-0001.json",
+          "bytes": 5195,
+          "sha256": "f4c17339f44646f37f04338104ec858c904db5631bb752745dd90934173c680a",
+          "pointer": "/decisions/0",
+          "decision": "support-exact-author-translation-child-for-possible-admission",
+          "wholeDecisionSha256": "72716c8918378ddeb10d9b261704efe2348c76040bc38407421fe2503e0103e4"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/7",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/3919350",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "lexington",
+        "canonicalId": 4000963,
+        "canonicalSourceSha256": "a10aba9d4ad224ff0323301a91ebd362d5989878bb7b610d9ffb2464c63ec2ff",
+        "pairSha256": "7ec9fd1e848bd1f97976cb86a697d874d1edd900e2bbba29a13093a39b1f2f03",
+        "authorPrincipal": "d34_author_source9_translation_children",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-two-translation-children-0001.json",
+          "bytes": 11209,
+          "sha256": "fdc02d4bf0565843d77948a460275e88b3b15fede04f4e5219ffe3b192ee5e62",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "2657d1a4e4484aabfb9e01d64278ed43121ea0d08c118de48e84e4e95648c9cd"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-two-children-independent-prepare-review-0001.json",
+          "bytes": 5195,
+          "sha256": "f4c17339f44646f37f04338104ec858c904db5631bb752745dd90934173c680a",
+          "pointer": "/decisions/1",
+          "decision": "support-exact-author-translation-child-for-possible-admission",
+          "wholeDecisionSha256": "970d9621abfbdb901ed7a9fd024ea2023e30778993c37011cdaa173105e63669"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/47",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4000963",
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

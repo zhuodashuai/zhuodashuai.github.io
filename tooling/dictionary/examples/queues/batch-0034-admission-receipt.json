@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "kind": "Immutable concise D34 exact274 admission-input receipt; NOT actual build/publication evidence",
+  "supportedInventory": {
+    "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+    "bytes": 434900,
+    "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+  },
+  "materializationInputPlan": {
+    "file": "candidates/d34-materialization-input-plan-0001.json",
+    "bytes": 748527,
+    "sha256": "4616dc5003710ee264e37428f304abd923f8aea9e39d065af36ce81195015a4e"
+  },
+  "counts": {
+    "consideredDistinctHeads": 500,
+    "selectedDistinctHeads": 274,
+    "notSelectedDistinctHeads": 226,
+    "standardSourceReviewPairs": 18,
+    "selectedOriginals": 231,
+    "selectedAnnotationChildren": 37,
+    "selectedTranslationChildren": 6,
+    "selectedChildren": 43,
+    "originalAuthorHoldObjectsRetained": 263,
+    "originalAuthorHoldsStillUnselected": 226,
+    "failedOriginalPairsRetained": 6,
+    "coverageAdded": 0
+  },
+  "standardPacks": [
+    {
+      "id": "source9-01",
+      "file": "batch-0034-source9-01.json",
+      "count": 23,
+      "authorPrincipal": "d34_author_source9",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "ddfd5d861d9334714e4efb2d73d90955d1e72e2f07e234bbef2bb4f1433dad5b",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-01.json",
+        "bytes": 7294,
+        "sha256": "07c5007cead3f805a8fd0727ac428c2bec539ca46f55c974ac5a7b047c2894e0"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-01.json",
+        "bytes": 37598,
+        "sha256": "d06d57b70a772277299952c1329d5fb9fe8038f7b8d39d8ec132ef2beec789f4"
+      }
+    },
+    {
+      "id": "source9-01-translation-children",
+      "file": "batch-0034-source9-01-translation-children.json",
+      "count": 2,
+      "authorPrincipal": "d34_author_source9_translation_children",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "f105a5717fb0ee6ca332c05f7874680ee874602c5b20ef22445db90db71c944c",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-01-translation-children.json",
+        "bytes": 707,
+        "sha256": "dc096d3a53f0ab7615e33bc0e96a25ccc8d3c014c0c4e9032fdbd22655bb6466"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-01-translation-children.json",
+        "bytes": 4351,
+        "sha256": "f373a5fef3c2dc46c15ed05ff472d79f37ec993b86b03940dfd1d3653815f113"
+      }
+    },
+    {
+      "id": "source9-01-annotations",
+      "file": "batch-0034-source9-01-annotations.json",
+      "count": 5,
+      "authorPrincipal": "d34_author_source9_annotations",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "8da729c82585bf303c9780f5465600f6702478358ca6d046160e4e37a7fce7de",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-01-annotations.json",
+        "bytes": 1976,
+        "sha256": "ab41195e40dcbfd828489e8f9ceeff57490c8780a3ee292f258a137e6648b7f4"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-01-annotations.json",
+        "bytes": 9174,
+        "sha256": "963d47cf267ead5b560f2c05a1bdb86a7d6ef7ed545ea5bc15a06d221c2a88b3"
+      }
+    },
+    {
+      "id": "source9-02",
+      "file": "batch-0034-source9-02.json",
+      "count": 29,
+      "authorPrincipal": "d34_author_source9",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "5abb86918408fbc20404b81439dbfede627725bf555ce8ca8930fa8831b88005",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-02.json",
+        "bytes": 8657,
+        "sha256": "59401148c30c69a6f96063dcb9a461654a888423a17693987ec7742c2750fb35"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-02.json",
+        "bytes": 47136,
+        "sha256": "6a48654af3be7efd0efcfa570408ec5ba390ff6ae58eacb2fbc09769a2e48eb0"
+      }
+    },
+    {
+      "id": "source9-02-annotations",
+      "file": "batch-0034-source9-02-annotations.json",
+      "count": 4,
+      "authorPrincipal": "d34_author_source9_annotations",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "ed887dd136cba551b5b7641f82cc2617625b78b0b6d7a7fe86c3a941f34030ee",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-02-annotations.json",
+        "bytes": 1655,
+        "sha256": "38ab0775e65a15edc5a979378402ca2bf0da824847ff96d37b197e150da85a6a"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-02-annotations.json",
+        "bytes": 7551,
+        "sha256": "694118565d6ffc5671dc3d5083f384415321b675cf82d87812ed0e0c2f1c5871"
+      }
+    },
+    {
+      "id": "source9-03",
+      "file": "batch-0034-source9-03.json",
+      "count": 23,
+      "authorPrincipal": "d34_author_source9",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "d26b66c589b103e57b59c33324824c0286f3b233e60ba1003ddb4d204d105fbf",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-03.json",
+        "bytes": 7122,
+        "sha256": "4703a6c66246cdcd84d978658221074c1737a2df6e3438eada5c0cac38a24630"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-03.json",
+        "bytes": 37663,
+        "sha256": "1f2175c65678e58d721628725fd4001bc479e8c53c36f1f1114f79e25ac29ad9"
+      }
+    },
+    {
+      "id": "source9-03-annotations",
+      "file": "batch-0034-source9-03-annotations.json",
+      "count": 1,
+      "authorPrincipal": "d34_author_source9_annotations",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "c787d8a4d8257c9d2308df6fa8158e50de4e7800e634c991957893d8bff8efba",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-03-annotations.json",
+        "bytes": 534,
+        "sha256": "46af068aaeec46dfba6684eeb649d651ad744860ba1a2a4755055c5c060255ce"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-03-annotations.json",
+        "bytes": 2720,
+        "sha256": "c4c6955d7a67afc371602cdf06be661db21b1c8371156361922997651a11bb96"
+      }
+    },
+    {
+      "id": "source9-04",
+      "file": "batch-0034-source9-04.json",
+      "count": 27,
+      "authorPrincipal": "d34_author_source9",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "afa8044a0a743a45ee86899b0f5e061604ecbabf6b7cfefaed1571637b5e67e9",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-04.json",
+        "bytes": 8755,
+        "sha256": "61633583181cb40c234963766671f29ab6e6ef090a1b5bd1dada388f6dba3d25"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-04.json",
+        "bytes": 44063,
+        "sha256": "a6e34c00c504c8f015185192849b6af5c98b2d17b8d19118df64344d0e820fbb"
+      }
+    },
+    {
+      "id": "source9-04-annotations",
+      "file": "batch-0034-source9-04-annotations.json",
+      "count": 6,
+      "authorPrincipal": "d34_author_source9_annotations",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "83922a87e7c9a32ef86838f41785718d89f7b3e8eb222be8486f274d209945e3",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-04-annotations.json",
+        "bytes": 2407,
+        "sha256": "1e713d0b567d11472c486fb31e317594d5eef606521d76f4127b56ab1b29a1a3"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-04-annotations.json",
+        "bytes": 10813,
+        "sha256": "d9c80580b468fc07711a6b6143fb30c887f3dd42586a906558d6a83ee02775c8"
+      }
+    },
+    {
+      "id": "source9-04-translation-child",
+      "file": "batch-0034-source9-04-translation-child.json",
+      "count": 1,
+      "authorPrincipal": "d34_author_source9_translation_children",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "b970ee61cd9028a71e50c4c7e140f0480a8360acbd7466bb9f6229e6f51a0fdf",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-source9-04-translation-child.json",
+        "bytes": 520,
+        "sha256": "8a24ca453c3bc7ae3de79daec3d3611d92aa35b8e006f3ecc1c3d0de83f860bf"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-source9-04-translation-child.json",
+        "bytes": 2735,
+        "sha256": "a2d7e7c404d4bd683ceadd8a77df0fe14241b9199fe63978fd77bcbd1748fad1"
+      }
+    },
+    {
+      "id": "role-01",
+      "file": "batch-0034-role-01.json",
+      "count": 24,
+      "authorPrincipal": "d34_author_role",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "4c3d47e306c0bcdf0ce5dda9af72e6ea397b5a37d384e2eca302655dd2eea288",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-role-01.json",
+        "bytes": 7746,
+        "sha256": "64a7a573f441869c20ed5479b210feb5b63cc5937f86403c07e88193fa71218a"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-role-01.json",
+        "bytes": 37739,
+        "sha256": "c4eea4b9d61e68f99a23932c9946d592973967d8cdd184d52db074d424248c40"
+      }
+    },
+    {
+      "id": "role-02",
+      "file": "batch-0034-role-02.json",
+      "count": 21,
+      "authorPrincipal": "d34_author_role",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "7e2c3b30ee54d704607bf768ebf337a36b7e5e83d600bcb90bcd051667375844",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-role-02.json",
+        "bytes": 6802,
+        "sha256": "1a722e0cde68d50cddb124c07a4816eee052b5791c72e017ba4e97b107bf77df"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-role-02.json",
+        "bytes": 33179,
+        "sha256": "e68ae6c6f5c6cb8918150b731ad7298cebb003bb54357f61909dec3f2b03b435"
+      }
+    },
+    {
+      "id": "role-stinker-child",
+      "file": "batch-0034-role-stinker-child.json",
+      "count": 1,
+      "authorPrincipal": "d34_author_role",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "31a09cbcac2ff0407af2cb7095700d7480c38a4e88ada206e1fadcf798b2a809",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-role-stinker-child.json",
+        "bytes": 472,
+        "sha256": "7a3b592fd848a2cb130dc80290d390fcd4ff85c14ebf0ef631463ae2a47499a3"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-role-stinker-child.json",
+        "bytes": 2566,
+        "sha256": "6b5067237a23e0fdb4257dc7270bea80283c040773582de5a230a1d1323a0ce8"
+      }
+    },
+    {
+      "id": "role-03",
+      "file": "batch-0034-role-03.json",
+      "count": 24,
+      "authorPrincipal": "d34_author_role",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "56ab11f2f658c337aa20feab2d5414a807011af1898cc92e8b3f7f1a5f667854",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-role-03.json",
+        "bytes": 7442,
+        "sha256": "2c159f224b55b024bb2b15188b2ac82b0099c640b217d4c907769b0f9653e0fe"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-role-03.json",
+        "bytes": 37781,
+        "sha256": "57823cf3882593382f7a2a6b7fcd61f10ad633766272916764b1fb62bffdbccf"
+      }
+    },
+    {
+      "id": "role-04",
+      "file": "batch-0034-role-04.json",
+      "count": 23,
+      "authorPrincipal": "d34_author_role",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "e9186531bcc79bb033dce92d95b3cd2afe89c7803e48b70e8f6edf44d22b4221",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-role-04.json",
+        "bytes": 7488,
+        "sha256": "35088b48445df5bc822e0a88d1f4b2f254896d11c9e0f243cdd8981378c56b3a"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-role-04.json",
+        "bytes": 36332,
+        "sha256": "96d7fcd69a7624d97ec74df8adba450713b55144d5f2793b916b8a34635aff2e"
+      }
+    },
+    {
+      "id": "root-01",
+      "file": "batch-0034-root-01.json",
+      "count": 23,
+      "authorPrincipal": "d34_author_root",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "f157973d91907f6748ce6e4a527af234edd1f0e7b1e44d25db99e95ad9b86fd2",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-root-01.json",
+        "bytes": 7748,
+        "sha256": "f35039dd8a85142dfbbca4602d0f81eff4cd86227a2a37dfedcc9e021da3fd29"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-root-01.json",
+        "bytes": 37310,
+        "sha256": "dd756935ef07568aae054b701762117f91a2a7a69b9d3e24a85f4dfbb2505c53"
+      }
+    },
+    {
+      "id": "root-01-translation-children",
+      "file": "batch-0034-root-01-translation-children.json",
+      "count": 2,
+      "authorPrincipal": "d34_author_root",
+      "reviewerPrincipal": "d34_reviewer_prepare",
+      "sourceSemanticHash": "6a537e2310024d816fa33c7b4a644c7e65896823183a55902d14994e141d04d5",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-root-01-translation-children.json",
+        "bytes": 789,
+        "sha256": "35f2c3d2c6d4d8223e7d80714bd2bbc74f2e7f057f60d4ad0fea00c8183d074d"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-root-01-translation-children.json",
+        "bytes": 4252,
+        "sha256": "3b8207bf303463c061832d4be0f343f59effa6b170a34e0801fed0a85a3c8fc5"
+      }
+    },
+    {
+      "id": "prepare-root02",
+      "file": "batch-0034-prepare-root02.json",
+      "count": 35,
+      "authorPrincipal": "d34_author_prepare_root02",
+      "reviewerPrincipal": "root",
+      "sourceSemanticHash": "02d07b893556701f1ea0f8a86f2a9dbeb1326220d12494c7d3460fdd5413218c",
+      "sourceRaw": {
+        "file": "candidates/d34-standard-preview-0001/source/batch-0034-prepare-root02.json",
+        "bytes": 11675,
+        "sha256": "286f868afc282fea2796d3853d022ab2fe1afcaa6d32c485e1c35c378ffdda95"
+      },
+      "reviewRaw": {
+        "file": "candidates/d34-standard-preview-0001/reviews/batch-0034-prepare-root02.json",
+        "bytes": 55601,
+        "sha256": "d03e7c445bdfdb4525c41713fb21a992d9b4cbe634ecc600c99bf3aea31718f9"
+      }
+    }
+  ],
+  "selectedBindingDigest": "fd27ca49a37bfbcc0b6b62a59cbb0b89959ddd33651015be321dec5d20cc1faf",
+  "all500OriginalDecisionBindingsDigest": "da4a835da4633a82ccd76255e75db56464a2ca87e14459fbd40c5126ba3a6aca",
+  "all263OriginalHoldBindingsDigest": "c70bc51535aaee06e5bd7c5f96fc870030e85571309273a0f001a67d1d4555dc",
+  "all6FailedOriginalPairsDigest": "c523d52fc68396e4522b62aa2da81040132993733f0db04450ccf6cb889b19a2",
+  "completeOriginalContextMaster": {
+    "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+    "bytes": 9318104,
+    "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+  },
+  "immutableAuthorOpinionEvidence": [
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-original-author-pack-0001.json",
+      "bytes": 109087,
+      "sha256": "0f5c3fd95b19c0e8582dfbc9a60d2e67995b1ada99eb8167217a6cab1d960944"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+      "bytes": 82130,
+      "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-two-translation-children-0001.json",
+      "bytes": 11209,
+      "sha256": "fdc02d4bf0565843d77948a460275e88b3b15fede04f4e5219ffe3b192ee5e62"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-two-children-independent-prepare-review-0001.json",
+      "bytes": 5195,
+      "sha256": "f4c17339f44646f37f04338104ec858c904db5631bb752745dd90934173c680a"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+      "bytes": 32994,
+      "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c051-100-original-author-pack-0001.json",
+      "bytes": 111506,
+      "sha256": "b17cd13a270540ba1792292f88bdbb09276e35f840efdffb9a7015503e81a7d3"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c051-100-independent-prepare-review-0001.json",
+      "bytes": 160390,
+      "sha256": "131d4c1a99bbb0498ded8ddc7016f376eeda95f256792d42a92e985f5b118348"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c051-100-explicit-annotation-children-0001.json",
+      "bytes": 28048,
+      "sha256": "959978966763aa4573b297da5e476163c03fc1f1191df9f763f1a2648d791c59"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c101-150-original-author-pack-0001.json",
+      "bytes": 104770,
+      "sha256": "1d4fb8b7fec23bc9d284e9268951c790da0070e4cb57901095285bd32c460d7d"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c101-150-independent-prepare-review-0001.json",
+      "bytes": 133823,
+      "sha256": "7f2bc2f8f81a718758e6fc3bd590f97e155c302af1684bb6ee055d7da42db658"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c101-150-explicit-annotation-children-0001.json",
+      "bytes": 11219,
+      "sha256": "accc6f7fd144896aedb075330330998c69e3cc423e5decec9035199801581294"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c151-200-original-author-pack-0001.json",
+      "bytes": 112307,
+      "sha256": "4a0894004f41b347e9106f60d7f81b3fc0a20a80f52ef7207d140799e55f0474"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c151-200-independent-prepare-review-0001.json",
+      "bytes": 167706,
+      "sha256": "48339080721faa58e8b6da385cc0b2ddbbc6d8cb18c1a0306225c6c5544efc5f"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c151-200-explicit-annotation-children-0001.json",
+      "bytes": 36542,
+      "sha256": "d99977b7208342ef190ddb3130e65c4a29f30aa301a293e6031814074f618ae8"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c151-200-immersive-translation-child-0001.json",
+      "bytes": 7046,
+      "sha256": "528a4195000872079afe33108fe3cac0505027ed777980a1c93ff289b75a4e45"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c151-200-immersive-child-independent-prepare-review-0001.json",
+      "bytes": 3984,
+      "sha256": "cb0638ed3bf9ea967e271dcaeafadd9ed8c9e5a772fe1e378dc06948539bd8a7"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c201-250-original-author-pack-0001.json",
+      "bytes": 18844,
+      "sha256": "8bf30b6b24382957db1be2679405e99bf55c17835a4298964dc97c54ce1d9f1a"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-c201-250-independent-root-review-0001.json",
+      "bytes": 57947,
+      "sha256": "7f7c58b06be45aae164779aebdc6f4e1e1c4acbdeda6302ea439c618ff76a152"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c201-250-xref-annotation-child-author-pack-0001.json",
+      "bytes": 3944,
+      "sha256": "b57ffc27b31643151cd07e5878e95eeb7f2edc2d49e0e76fce01bd46882d77fb"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c251-300-original-author-pack-0001.json",
+      "bytes": 17717,
+      "sha256": "1bf0a85ffa56142de03ed746bb94c2e881d3691aeaa44f0394b3e45293722b7e"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-c251-300-independent-root-review-0001.json",
+      "bytes": 56870,
+      "sha256": "16c2603b734dddf414e308b7399a4e6395e01e925f9ca444d7c586ade77501c7"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-stinker-translation-precision-child-0001.json",
+      "bytes": 1212,
+      "sha256": "d0106943ff6778cecba7ba0700c87ff359e9300605c3e64d334efa0c5a5792cd"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-stinker-child-independent-root-review-0001.json",
+      "bytes": 1712,
+      "sha256": "b67153c35995c44349fbfc5b11dd92d174a5e3ab4e9202c1c9c54c242f5da597"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c251-300-xref-annotation-child-author-pack-0001.json",
+      "bytes": 5279,
+      "sha256": "022f20eaf3c88c9dd8429bf85304d0cd431d97c4464891844bade7a5ffc98d00"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c301-350-xref-annotation-child-author-pack-0001.json",
+      "bytes": 6764,
+      "sha256": "5d641354ea17cd0a553892824d4c7c9f8b3badff4a2fc755b69cb7942bf24c03"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-c301-350-independent-root-review-0001.json",
+      "bytes": 59801,
+      "sha256": "47fe44f8cecdf85b78aa1cba1ea7a2e73f859c132f7835a502f582366d59de09"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c301-350-original-author-pack-0001.json",
+      "bytes": 17784,
+      "sha256": "83aae7d9ff26cf83bbc5fa04eedbad13d6e3753d0aa6b3b1539d3b7c7adbee15"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c351-400-xref-annotation-child-author-pack-0001.json",
+      "bytes": 6127,
+      "sha256": "03bae91b3f3369998284bb82251040ca5feae8ff61caaf11c4602385b18af16b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-c351-400-independent-root-review-0001.json",
+      "bytes": 57706,
+      "sha256": "6ad3a765f23fcc73a77cd14ff1bec5c96c0c14b3e3f7ced823b1b22dfff32e20"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-c351-400-original-author-pack-0001.json",
+      "bytes": 17575,
+      "sha256": "0f939290afc29f5d94f304ccecec3eb3800bb39be34afce975144ee353901c89"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-root-c401-450-original-author-pack-0001.json",
+      "bytes": 22145,
+      "sha256": "4c5414adebdb6b682afd6452330d39579a7615f28f9bcae1c4483fca9c9c5a9e"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-root-c401-450-independent-prepare-review-0001.json",
+      "bytes": 92061,
+      "sha256": "377013392b657d582017e8b2f7a1e55a487b9c0f747d1bba990673f3468979af"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-root-c401-450-two-translation-scope-children-0001.json",
+      "bytes": 2025,
+      "sha256": "cb2f92e2fedf428bbaa4a10ad5bad7f2c0593f6008283fd38f6da51e962bd98d"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-root-c401-450-two-children-independent-prepare-review-0001.json",
+      "bytes": 4825,
+      "sha256": "a6bf05aaca0f9c3359f4f9523bb90ffb7534507519217af7569a8f503b1cc54b"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-prepare-root02-c451-500-final-author-pack-0002.json",
+      "bytes": 129499,
+      "sha256": "a83c843d90a1500bb7589f35c1f65c04e34623a78c799c04add227ebd4c53113"
+    },
+    {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-prepare-root02-c451-500-independent-root-review-0001.json",
+      "bytes": 137162,
+      "sha256": "56734f76c36e54ec074816dd56973d69fd8470c09794ff23cb8dfc56f62e75b0"
+    }
+  ],
+  "source": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "base": {
+    "file": "manifest-v2.json",
+    "bytes": 57577,
+    "sha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "version": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4",
+    "counts": {
+      "heads": 86415,
+      "examples": 87804
+    }
+  },
+  "prerequisiteD33Candidate": {
+    "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0033\\candidates\\d33-reviewed-selection-0004.json",
+    "bytes": 1319187,
+    "sha256": "eb65d00c15ac695d8345f6522c6d8a6cf9e5862c32eccfa19ec3f7292fcca001"
+  },
+  "actualPreviousD33Catalogue": null,
+  "actualNormalBuildRegistration": null,
+  "conservation": "All500 original decisions,263 whole author holds,6 failed original pairs,complete source/forms/keys/current-card/history objects stay pinned by full raw file and JSON pointer, never deleted or retrospectively approved. Only274 exact supported pairs projected; no9MB master/history copy.",
+  "admissionExecuted": false,
+  "published": false,
+  "coverageAdded": 0
+}

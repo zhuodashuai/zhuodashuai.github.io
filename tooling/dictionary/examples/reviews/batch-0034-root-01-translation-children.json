@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "6a537e2310024d816fa33c7b4a644c7e65896823183a55902d14994e141d04d5",
+  "reviewer": "AI/d34_reviewer_prepare",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "gotcha",
+    "haifa"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d34_author_root",
+    "reviewerPrincipal": "d34_reviewer_prepare",
+    "supportedInventory": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+      "bytes": 434900,
+      "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+    },
+    "completeContextMaster": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+      "bytes": 9318104,
+      "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "gotcha",
+        "canonicalId": 4873893,
+        "canonicalSourceSha256": "da10b9f05fc80b39b3682320f9cb0cce1747e5007e0ccbafc1d9e417c2882e86",
+        "pairSha256": "32557b377ca42f14b280687f097c021c667afdd3ff9a5dd18d4794294ba140be",
+        "authorPrincipal": "d34_author_root",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-root-c401-450-two-translation-scope-children-0001.json",
+          "bytes": 2025,
+          "sha256": "cb2f92e2fedf428bbaa4a10ad5bad7f2c0593f6008283fd38f6da51e962bd98d",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "3d6474d29e6ecef0d00f0a1698a7585aca9859daacb29baebcc229107301bf55"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-root-c401-450-two-children-independent-prepare-review-0001.json",
+          "bytes": 4825,
+          "sha256": "a6bf05aaca0f9c3359f4f9523bb90ffb7534507519217af7569a8f503b1cc54b",
+          "pointer": "/decisions/0",
+          "decision": "support-exact-author-child-for-possible-admission",
+          "wholeDecisionSha256": "51ff84b7d6c0e1ecc5e7c66efe3713e2efd70e02a58e7371e7920488d01797b1"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/417",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4873893",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "haifa",
+        "canonicalId": 4918460,
+        "canonicalSourceSha256": "1d29def8c59233cf41e4f998ab0d579da6aa2bcdaf9b44c2fafbfcf8641d07c3",
+        "pairSha256": "3d091af97887ba2af182ceb9b0b6fb1a69624d0437ded8965de82d827ccaeff0",
+        "authorPrincipal": "d34_author_root",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-root-c401-450-two-translation-scope-children-0001.json",
+          "bytes": 2025,
+          "sha256": "cb2f92e2fedf428bbaa4a10ad5bad7f2c0593f6008283fd38f6da51e962bd98d",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "c57abc6e0f23ca7c7c0692d2d5e49db2f010cb4a98a51fb41f87af699e092730"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-root-c401-450-two-children-independent-prepare-review-0001.json",
+          "bytes": 4825,
+          "sha256": "a6bf05aaca0f9c3359f4f9523bb90ffb7534507519217af7569a8f503b1cc54b",
+          "pointer": "/decisions/1",
+          "decision": "support-exact-author-child-for-possible-admission",
+          "wholeDecisionSha256": "6de26ae1b37d0deee02eda0d997e47fd4f440f8937688a7dcf739daaaa42b0d9"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/439",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4918460",
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8da729c82585bf303c9780f5465600f6702478358ca6d046160e4e37a7fce7de",
+  "reviewer": "AI/d34_reviewer_prepare",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "parodic",
+    "normalisation",
+    "futilely",
+    "perceiver",
+    "goalmouth"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d34_author_source9_annotations",
+    "reviewerPrincipal": "d34_reviewer_prepare",
+    "supportedInventory": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+      "bytes": 434900,
+      "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+    },
+    "completeContextMaster": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+      "bytes": 9318104,
+      "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "parodic",
+        "canonicalId": 3947703,
+        "canonicalSourceSha256": "505596979e4a600650cbe973fad822b52cbc2fcde289e440359e7512cfa3c511",
+        "pairSha256": "0dc6f139717e4582a44c1a1b1622ff03c4aba00b4fb5bbcf82d044e7120b07fd",
+        "authorPrincipal": "d34_author_source9_annotations",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+          "bytes": 32994,
+          "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024",
+          "pointer": "/entries/0",
+          "wholeOriginalAuthorObjectSha256": "d455e07a7b2d86692d354ab82cd6d39d3d9daa77c195cefbf1c1079f4374c5ac"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+          "bytes": 82130,
+          "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6",
+          "pointer": "/opinions/25",
+          "decision": "support-exact-explicit-annotation-child-for-possible-admission",
+          "wholeDecisionSha256": "73ffcff6185616dc586bcbaa97ddd1caeaf37fd42f034b09ed2d1b54309c65d9"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/20",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/3947703",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "normalisation",
+        "canonicalId": 3952391,
+        "canonicalSourceSha256": "5c260d8ed2ee23aa3330d499281f07a55071547b2ab33d87a39863e0dd59031c",
+        "pairSha256": "2016a35b551486159e39c938d5893725ea1e44b3f189a12c35b9edf720fef5c9",
+        "authorPrincipal": "d34_author_source9_annotations",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+          "bytes": 32994,
+          "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024",
+          "pointer": "/entries/1",
+          "wholeOriginalAuthorObjectSha256": "dc38e5b47803657f3a90d5fc2dc259c06e46d6af2c1633db9ffae8dd08c908da"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+          "bytes": 82130,
+          "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6",
+          "pointer": "/opinions/26",
+          "decision": "support-exact-explicit-annotation-child-for-possible-admission",
+          "wholeDecisionSha256": "29c48aae2bb6cf7b89eb40565f542eb6d8dc5798f19b983810f306f44aacb1d6"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/26",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/3952391",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "futilely",
+        "canonicalId": 3965527,
+        "canonicalSourceSha256": "f5795c898e37cd9f0527e103140e6444d067b2e03fbb69dc54a22447a6a429c7",
+        "pairSha256": "f5b04c811e6d61cf3f5705b9d7e9ef050048a84bdf489d28db64a36366d333c8",
+        "authorPrincipal": "d34_author_source9_annotations",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+          "bytes": 32994,
+          "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024",
+          "pointer": "/entries/2",
+          "wholeOriginalAuthorObjectSha256": "97a7c1c05dbd8caffe0c5b08b7eb4003799c1337084db5c52229d948e3505627"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+          "bytes": 82130,
+          "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6",
+          "pointer": "/opinions/27",
+          "decision": "support-exact-explicit-annotation-child-for-possible-admission",
+          "wholeDecisionSha256": "e350ff7ae97cb4663db4105574ff010bb2683b5f2ee1189e2a3eb7075e9ee487"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/33",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/3965527",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "perceiver",
+        "canonicalId": 3985084,
+        "canonicalSourceSha256": "6935e52f7bd4effd47df73070aa76881a2a2c5a734eba8be7131eaa15d8c1a44",
+        "pairSha256": "4ac9e30a43b1b4f7a34628ded0e15311471e855826966cd4acec854f148a7941",
+        "authorPrincipal": "d34_author_source9_annotations",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+          "bytes": 32994,
+          "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024",
+          "pointer": "/entries/3",
+          "wholeOriginalAuthorObjectSha256": "92c9669c5c7dbb4767cc0c0a3308570d310587980fc7bbac563b80b82084b5d9"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+          "bytes": 82130,
+          "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6",
+          "pointer": "/opinions/28",
+          "decision": "support-exact-explicit-annotation-child-for-possible-admission",
+          "wholeDecisionSha256": "d509a5bcace42c4706aa61fab3108cfb039ba13866d227e5da95ca87e27ed94f"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/41",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/3985084",
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "goalmouth",
+        "canonicalId": 4001769,
+        "canonicalSourceSha256": "ae144600260415127b7344a629b7c6f56ba96421ea5d6dd5d3d6174043895d33",
+        "pairSha256": "8d43ffa8f9a28136ad5ecf8052d60cd09321158694a1846262e94e78547e0ef3",
+        "authorPrincipal": "d34_author_source9_annotations",
+        "reviewerPrincipal": "d34_reviewer_prepare",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-source9-c001-050-explicit-annotation-children-0001.json",
+          "bytes": 32994,
+          "sha256": "bf10e6d4e5c87eec956c3f4bb3693e115fbb3f2fc19037276d7764243ff47024",
+          "pointer": "/entries/4",
+          "wholeOriginalAuthorObjectSha256": "556aa1d10b7b77ecc65def263a153a0a43f8a398a6ca53505cf937ec81e7a27e"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-source9-c001-050-independent-prepare-review-0001.json",
+          "bytes": 82130,
+          "sha256": "30abc020564b369b3660673d6fe5e7d2812f6fedfb39e4ee7f90d949c8e18fa6",
+          "pointer": "/opinions/29",
+          "decision": "support-exact-explicit-annotation-child-for-possible-admission",
+          "wholeDecisionSha256": "fcd8d7bd8021ee97a9369998e67c87bc93ebaeb9c23065c9de2d0795be466f35"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/48",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4001769",
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

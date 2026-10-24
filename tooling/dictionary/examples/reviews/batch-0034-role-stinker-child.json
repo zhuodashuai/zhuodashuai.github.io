@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "31a09cbcac2ff0407af2cb7095700d7480c38a4e88ada206e1fadcf798b2a809",
+  "reviewer": "AI/root",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "stinker"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d34_author_role",
+    "reviewerPrincipal": "root",
+    "supportedInventory": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-supported-selected-pairs-inventory-0004.json",
+      "bytes": 434900,
+      "sha256": "1e95e6cdb983b4087f307775fe7ec08d27d9aed3325f5490827dd0861926f10c"
+    },
+    "completeContextMaster": {
+      "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-shared500-complete-context-packet-0001.json",
+      "bytes": 9318104,
+      "sha256": "21e4c01562bdb36b0a2871cf5297289350c8ea5d56b68d2858e1c887e1d2529e"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "stinker",
+        "canonicalId": 4506085,
+        "canonicalSourceSha256": "cc6c1f4ec05eedd363ed5672aae9d7c9bc4be7d35e29895a61aea90159846a96",
+        "pairSha256": "f9c7645c33efa5f9162d353c99a4c4450609441caad19cb7b27828301b3465b4",
+        "authorPrincipal": "d34_author_role",
+        "reviewerPrincipal": "root",
+        "author": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\drafts\\d34-role-stinker-translation-precision-child-0001.json",
+          "bytes": 1212,
+          "sha256": "d0106943ff6778cecba7ba0700c87ff359e9300605c3e64d334efa0c5a5792cd",
+          "pointer": "/pair",
+          "wholeOriginalAuthorObjectSha256": "f9c7645c33efa5f9162d353c99a4c4450609441caad19cb7b27828301b3465b4"
+        },
+        "opinion": {
+          "file": "C:\\Users\\14038\\Documents\\ChatGPT\\github.io\\outputs\\dictionary-examples-0034\\qa\\d34-role-stinker-child-independent-root-review-0001.json",
+          "bytes": 1712,
+          "sha256": "b67153c35995c44349fbfc5b11dd92d174a5e3ab4e9202c1c9c54c242f5da597",
+          "pointer": "",
+          "decision": "support-exact-child-five-cells",
+          "wholeDecisionSha256": "631e18e2e12822d2eab8afad2729e912314e9c152298f7d21f247ec475975b01"
+        },
+        "proofClassification": "separately-supported-child",
+        "masterEntryPointer": "/entries/261",
+        "wholeCanonicalSourcePointer": "/shared/completeSources/4506085",
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

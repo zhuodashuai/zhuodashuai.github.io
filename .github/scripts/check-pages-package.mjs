@@ -14,6 +14,81 @@ const D32_COHORTS = ['p001', 'p002', 'p002-child', 'ive-child', 'root', 'source9
 export const UNPUBLISHED_D32_PATHS = Object.freeze(['tooling/dictionary/examples/queues/batch-0032.json',
   'tooling/dictionary/examples/queues/batch-0032-supplement.json',
   ...D32_COHORTS.flatMap(name => ['source', 'reviews'].map(kind => `tooling/dictionary/examples/${kind}/batch-0032-${name}.json`))]);
+// Only these 72 fresh D33/D34 proof paths are omitted; old served URLs stay.
+export const UNPUBLISHED_NEXT_PATHS = Object.freeze([
+  "tooling/dictionary/examples/source/batch-0033-role-01.json",
+  "tooling/dictionary/examples/reviews/batch-0033-role-01.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-01.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-01.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-01-children.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-01-children.json",
+  "tooling/dictionary/examples/source/batch-0033-prepare-root02.json",
+  "tooling/dictionary/examples/reviews/batch-0033-prepare-root02.json",
+  "tooling/dictionary/examples/source/batch-0033-role-02.json",
+  "tooling/dictionary/examples/reviews/batch-0033-role-02.json",
+  "tooling/dictionary/examples/source/batch-0033-role-02-label-children.json",
+  "tooling/dictionary/examples/reviews/batch-0033-role-02-label-children.json",
+  "tooling/dictionary/examples/source/batch-0033-root-01.json",
+  "tooling/dictionary/examples/reviews/batch-0033-root-01.json",
+  "tooling/dictionary/examples/source/batch-0033-root-01-reentry.json",
+  "tooling/dictionary/examples/reviews/batch-0033-root-01-reentry.json",
+  "tooling/dictionary/examples/source/batch-0033-charley-child.json",
+  "tooling/dictionary/examples/reviews/batch-0033-charley-child.json",
+  "tooling/dictionary/examples/source/batch-0033-alberta-child.json",
+  "tooling/dictionary/examples/reviews/batch-0033-alberta-child.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-02.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-02.json",
+  "tooling/dictionary/examples/source/batch-0033-role-03.json",
+  "tooling/dictionary/examples/reviews/batch-0033-role-03.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-03.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-03.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-04.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-04.json",
+  "tooling/dictionary/examples/source/batch-0033-source9-04-children.json",
+  "tooling/dictionary/examples/reviews/batch-0033-source9-04-children.json",
+  "tooling/dictionary/examples/source/batch-0033-role-04.json",
+  "tooling/dictionary/examples/reviews/batch-0033-role-04.json",
+  "tooling/dictionary/examples/source/batch-0033-root-second-reentries.json",
+  "tooling/dictionary/examples/reviews/batch-0033-root-second-reentries.json",
+  "tooling/dictionary/examples/queues/batch-0033-admission-receipt.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-01.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-01.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-01-translation-children.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-01-translation-children.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-01-annotations.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-01-annotations.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-02.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-02.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-02-annotations.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-02-annotations.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-03.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-03.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-03-annotations.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-03-annotations.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-04.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-04.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-04-annotations.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-04-annotations.json",
+  "tooling/dictionary/examples/source/batch-0034-source9-04-translation-child.json",
+  "tooling/dictionary/examples/reviews/batch-0034-source9-04-translation-child.json",
+  "tooling/dictionary/examples/source/batch-0034-role-01.json",
+  "tooling/dictionary/examples/reviews/batch-0034-role-01.json",
+  "tooling/dictionary/examples/source/batch-0034-role-02.json",
+  "tooling/dictionary/examples/reviews/batch-0034-role-02.json",
+  "tooling/dictionary/examples/source/batch-0034-role-stinker-child.json",
+  "tooling/dictionary/examples/reviews/batch-0034-role-stinker-child.json",
+  "tooling/dictionary/examples/source/batch-0034-role-03.json",
+  "tooling/dictionary/examples/reviews/batch-0034-role-03.json",
+  "tooling/dictionary/examples/source/batch-0034-role-04.json",
+  "tooling/dictionary/examples/reviews/batch-0034-role-04.json",
+  "tooling/dictionary/examples/source/batch-0034-root-01.json",
+  "tooling/dictionary/examples/reviews/batch-0034-root-01.json",
+  "tooling/dictionary/examples/source/batch-0034-root-01-translation-children.json",
+  "tooling/dictionary/examples/reviews/batch-0034-root-01-translation-children.json",
+  "tooling/dictionary/examples/source/batch-0034-prepare-root02.json",
+  "tooling/dictionary/examples/reviews/batch-0034-prepare-root02.json",
+  "tooling/dictionary/examples/queues/batch-0034-admission-receipt.json"
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -28,7 +103,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -79,12 +154,13 @@ export function verifyStatic(directory, repo) {
   assert(checked > 8000, `Incomplete static publication: ${checked}`);
   assert(!fs.existsSync(path.join(directory, REVIEW_ONLY)), 'Internal review queue was published');
   for (const file of UNPUBLISHED_D32_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal D32 proof was published: ${file}`);
+  for (const file of UNPUBLISHED_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal proof was published: ${file}`);
   // README indexes and converted documentation remain published too.
   for (const file of [...GENERATED_PATHS, 'index.html', 'vocab/index.html', 'vocab/personal.html',
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length };
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

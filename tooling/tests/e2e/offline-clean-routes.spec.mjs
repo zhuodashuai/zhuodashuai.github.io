@@ -129,6 +129,7 @@ test("offline actual dictionary navbar HTML navigation and fragment reload retai
     // CacheStorage Response must be usable for an actual offline navigation.
     await link.click();
     await expect(page.locator("#dictionary-query")).toBeVisible();
+    await expect(page.locator("#dictionary-submit")).toBeEnabled();
     await page.locator("#dictionary-query").fill("Tajik");
     await page.locator("#dictionary-query").press("Enter");
     await checkTajik(page);

@@ -15,12 +15,12 @@
     "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   },
   "previousCatalogue": {
-    "file": "catalogue-v4/d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f.bin",
+    "file": "catalogue-v4/966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8.bin",
     "codec": "gzip",
-    "bytes": 1660,
-    "sha256": "d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f",
-    "decodedBytes": 4056,
-    "decodedSha256": "ace34696bc4c219181753da0b107bea2be86d93402c3efda107f6ff00f10664a"
+    "bytes": 3376,
+    "sha256": "966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8",
+    "decodedBytes": 8318,
+    "decodedSha256": "8f9eae7ad061cc59d6c36a0d3501353d742bace6a3b7f0bd8ba3238e70f727fa"
   },
   "releases": [
     {
@@ -63,6 +63,29 @@
         "batch-0033-source9-04-children.json",
         "batch-0033-role-04.json",
         "batch-0033-root-second-reentries.json"
+      ]
+    },
+    {
+      "id": "examples-0034",
+      "sourceFiles": [
+        "batch-0034-source9-01.json",
+        "batch-0034-source9-01-translation-children.json",
+        "batch-0034-source9-01-annotations.json",
+        "batch-0034-source9-02.json",
+        "batch-0034-source9-02-annotations.json",
+        "batch-0034-source9-03.json",
+        "batch-0034-source9-03-annotations.json",
+        "batch-0034-source9-04.json",
+        "batch-0034-source9-04-annotations.json",
+        "batch-0034-source9-04-translation-child.json",
+        "batch-0034-role-01.json",
+        "batch-0034-role-02.json",
+        "batch-0034-role-stinker-child.json",
+        "batch-0034-role-03.json",
+        "batch-0034-role-04.json",
+        "batch-0034-root-01.json",
+        "batch-0034-root-01-translation-children.json",
+        "batch-0034-prepare-root02.json"
       ]
     }
   ]

@@ -15,6 +15,8 @@ const SHELL = [
   // Directory metadata only: preserve previously visited delta URLs across an
   // app update. Unvisited example/source shards are never installed in bulk.
   "./data/dictionary-examples/catalogue-v4/d696a224f5e7c49a78b8e37317dbfed1a65667fcb3f6f085fed5bc0cf973171f.bin",
+  "./data/dictionary-examples/catalogue-v4/966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8.bin",
+  "./data/dictionary-examples/catalogue-v4/b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c.bin",
   "./js/app-navigation.js?v=107", "./js/app-navigation-entry.js?v=107", "./js/personal-app.js?v=107",
   "./js/app-navigation.js?v=105", "./js/app-navigation.js",
   "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js",
