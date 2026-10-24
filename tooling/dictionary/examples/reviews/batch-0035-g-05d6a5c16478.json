@@ -1,0 +1,947 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "10c8784d4988ed46f8cb37570eeb8f14e595889925a7b56922a88186c45f0dcc",
+  "reviewer": "AI/d35_independent_source9",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "liberatory",
+    "boogeyman",
+    "underperformance",
+    "governmentally",
+    "cutely",
+    "partyer",
+    "unchartered",
+    "carbonara",
+    "destabilisation",
+    "codpiece",
+    "blacktail",
+    "telepath",
+    "headhunt",
+    "believably",
+    "esthetically",
+    "otherworldliness",
+    "pinny",
+    "tongued",
+    "wraithlike",
+    "unemotionally",
+    "underwrote",
+    "trivially",
+    "lopsidedly",
+    "pinking"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+    "reviewerPrincipal": "d35_independent_source9",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "liberatory",
+        "canonicalId": 5525342,
+        "canonicalSourceSha256": "c3a912b512a429ba50ab12544c4fe495c0851dd2a33e63a87b96001489ccf604",
+        "pairSha256": "6f16f10f8b1b762bd593ca8f58d2d265439dcc6d46bce5aec35702361951d801",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "73a8185458eef90635cf0773fcf5d234ce06c216a069958e597cc57ab1c99d01"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/14",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "f16ef87875856ddd547c054e436bc57e706d4757b370b80e2c14709d072aa825"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/351",
+          "completeSourceIds": [
+            5525342
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "boogeyman",
+        "canonicalId": 5526506,
+        "canonicalSourceSha256": "7a7cc6e6d94183aa767a19ed7361d5e843e802d4934cd1951d3a64adf16ab9d1",
+        "pairSha256": "464428245429e0946a558483739e598efaa59e4926eb1bbd6d7b2665f6a0402e",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/1",
+          "wholeAuthorEntrySha256": "f81976d31cb8a7d6e329d7cff52a31638bd9d747b3c5977d8a239be52f8036d0"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/15",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "30bdbedb41893fba31e63d83db055fd63a14adb2a1ec829ed1070c047300006d"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/352",
+          "completeSourceIds": [
+            5526506
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "underperformance",
+        "canonicalId": 5535661,
+        "canonicalSourceSha256": "863bce959fd8e5e515e19f340910dbb06ce683ff04a37e3f91f331a0042af910",
+        "pairSha256": "d28b8f5a545d3d5747590cd95d2f86a896c56ad6771af83d6729a2d6e2d02f39",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/3",
+          "wholeAuthorEntrySha256": "ef023196559c6246683a040af63491e5f3b4ec06d6cec90ed58c591248b4c918"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/17",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "c19652799f57e3d7e36eb5be038667ef196fa08cc5972ea0a23154b464ff7fef"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/358",
+          "completeSourceIds": [
+            5535661
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "governmentally",
+        "canonicalId": 5540004,
+        "canonicalSourceSha256": "1a7e5710650ce9d620faae7724a1d4fec2cb680cf7bdeb131a340af003d877f3",
+        "pairSha256": "6b30cd284559d42098a71b57d8d9f4495e251a966891f8146eb83ae1353d41c0",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/4",
+          "wholeAuthorEntrySha256": "08bc8bdef6a81ffb7bea13880ca4a4c5668012583335044703c557957db27799"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/18",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "7458418abb5de31e1ff6cfc830b861466a581e17dbd2766c9796e4504df368fb"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/359",
+          "completeSourceIds": [
+            5540004,
+            2251387
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "cutely",
+        "canonicalId": 5540185,
+        "canonicalSourceSha256": "47461cd183adc3172f629a07884bc31f7800268f1d1e4e2269dfa6e5e822a69d",
+        "pairSha256": "a319a3342de40372d931537b1416f5742e0c604f92e1409db142f775a9a6adad",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/5",
+          "wholeAuthorEntrySha256": "178f25b7bbc27690341a535de926bc1a326512116f67e294d285beb2d87e9f01"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/19",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "8820394c0c8b2d90d56ca92b1ec2257922029b33746a7ce237c33bfb293b7f31"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/360",
+          "completeSourceIds": [
+            5540185
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "partyer",
+        "canonicalId": 5545804,
+        "canonicalSourceSha256": "ffe65732bdb24f7ebf5ded4a48a9b29965b850e954a8340406aa2e6f8435bac7",
+        "pairSha256": "d705fcbb07982adc2d478e9f6aaf6815e96d6d72c5313911ddacad5358bca4a3",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/6",
+          "wholeAuthorEntrySha256": "ddc0f4ac5cf8d766edb6ea1090aea60624494ae6a034e114df8e55f96144de4b"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/20",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "bc2854801763540a1605384ad9e3eeaf9ed8c698dcf705d482b42a490f94cd85"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/362",
+          "completeSourceIds": [
+            5545804
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "unchartered",
+        "canonicalId": 5547520,
+        "canonicalSourceSha256": "33c04c7f981c1d40d30e584d50f3eb98aad5e5e15e3d416b232d23c0b7975a00",
+        "pairSha256": "4b98e130263293a428f0891aed698cc64f74e716ca2e9b6f57ff943382d2d7ba",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/7",
+          "wholeAuthorEntrySha256": "62894dfc17e6bcac7d583d0ee4e7018f3b845d186a7e88197fbaadeeac5d4922"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/21",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "c0fa56b528ca8bd352f49cf561c17ceb9cfc27137883c414f21f142d36b0c150"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/364",
+          "completeSourceIds": [
+            5547520
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "carbonara",
+        "canonicalId": 5550978,
+        "canonicalSourceSha256": "577c45ebca4841d5dd915d9eded432ab0fe0d7deb629522f58bf233820cc5441",
+        "pairSha256": "033fa5694b1fa0f66aaae256d61165c5ca000285fbd511ac2d801a47f997ab03",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/8",
+          "wholeAuthorEntrySha256": "35ffd9e720c486c761c64f74ba1c4f1c6ebaa6869c92b5249e7bb11f7d5950e4"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/22",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "e5a53e42d7c09e6cfc20548739b8edd673777f079668b07b456bfc40b915c10f"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/370",
+          "completeSourceIds": [
+            5550978
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "destabilisation",
+        "canonicalId": 5551224,
+        "canonicalSourceSha256": "65be4ec4aa3137499cf336ea9616edca3a8af6c911ddf318925970f1f472ca7f",
+        "pairSha256": "b5d8f6ca2a2495ed71b65b4837e9d726067a037bcfce039837a9810db0e6d231",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/9",
+          "wholeAuthorEntrySha256": "32e5ba5366ed140e514ba95649147c367cfee7a26d2e072bc0ffe90f9ba784f4"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/23",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "29760179dc91e0654f2e6c5c8f0cffdb582ff8ed550e2ad7e91d0b49b6ea3ae6"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/371",
+          "completeSourceIds": [
+            5551224,
+            3373458
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "codpiece",
+        "canonicalId": 5555953,
+        "canonicalSourceSha256": "9c9df33b14b5f3e9ad8c8fc04ed72448f57a127980ba7c41260f043884f3fc84",
+        "pairSha256": "465da681d18f9e9e22d6ace091f9b2b007e69766ae4d76048cc4d81cb9891bc5",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/10",
+          "wholeAuthorEntrySha256": "2b749143c2aabd5d398a806c71fafa6390c437cd095d15edaeb7e9363aa0300e"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/24",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "4a7ea4f7ed6690d0dbcc6fe21453a9fef7be0cdb9e77d93884d3af7c834e5dfe"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/373",
+          "completeSourceIds": [
+            5555953
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "blacktail",
+        "canonicalId": 5565302,
+        "canonicalSourceSha256": "94474c67f0c57a28330d05712ad5a6e61705877cb0cee912c2e1cb2e6ad5a66b",
+        "pairSha256": "748a83cab4539fdd4dde6b16a337f926fb7f33364ae9caf12ffe7a04522d4f47",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/11",
+          "wholeAuthorEntrySha256": "d6eac671e6f9a09853fef8ac649c2a9eeee644962c1fd20b49f8141d1f917e3f"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/25",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "b52f9fb9d6b9ae7ae7e5e9fbd691a1e126b70c7a06d780e90cbb63bdf99e9125"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/380",
+          "completeSourceIds": [
+            5565302
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "telepath",
+        "canonicalId": 5567374,
+        "canonicalSourceSha256": "caf519a60a151f8961906163412e562e67c073a93dfbb563c0e8a053f91112b0",
+        "pairSha256": "cdbe9b0f75c5350000c831a16ae584857272080592a6ecedef4e207a291b6f02",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/12",
+          "wholeAuthorEntrySha256": "9b4b7db61a9faed5ebecfd74043edef18efe929583f2e17011ef8d87033076da"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/26",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "636b23e10e0f433ebf16f6c8840d8d59a4c498f95b8499684d879d438721e49f"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/381",
+          "completeSourceIds": [
+            5567374
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "headhunt",
+        "canonicalId": 5567670,
+        "canonicalSourceSha256": "daf95bdd36b88696791358767051f9855db216284840c44e4cb0feba42674f6b",
+        "pairSha256": "44f2d5c19b7529dbaca65b30bd3b66d14172353d03878f80b9467ec37f4af093",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/13",
+          "wholeAuthorEntrySha256": "fc429504f64f49ae9eec415e6c28ddee93c9deec194c978b9aab0df282fcbe36"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/27",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "305665f173a6ea999b8b56febf24a8dabda444f679dacfc522518bba97396e41"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/382",
+          "completeSourceIds": [
+            5567670,
+            3008666
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "believably",
+        "canonicalId": 5572876,
+        "canonicalSourceSha256": "e9533b66086fc5cd11f45d8b0f5d57387f77782bc01f9637c1fd7c05c3a6ee3c",
+        "pairSha256": "6ba3aabdd4c88d591f97e7af57c0360b19371139c3ef4d08711d350edfa81630",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/14",
+          "wholeAuthorEntrySha256": "d67158840155dec7d6485e01286e52cce38ea407e1e24514729f6d689fb62f58"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/28",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "47ee94bacb88810ae65e04410eb5a2de5a202ebaa0369a78e8e259dd299d06bd"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/384",
+          "completeSourceIds": [
+            5572876,
+            2025736
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "esthetically",
+        "canonicalId": 5573930,
+        "canonicalSourceSha256": "f389c6b1109afc8a970211d31016bff61876a8c1fa563184258bd5847473b95b",
+        "pairSha256": "620a49bc56d3ba1e15b3d9cb28ac46891fdaabd9e6b640dd965955b9a44d897b",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/15",
+          "wholeAuthorEntrySha256": "9a169732c02f3ae1f636d02e9552c5549cca55d08dda685130d4bf66132314e4"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/29",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "bc0de70c44200d2623573e2327ffa66db73d33eb83b3617fc6ee79e45e271579"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/385",
+          "completeSourceIds": [
+            5573930
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "otherworldliness",
+        "canonicalId": 5574439,
+        "canonicalSourceSha256": "5bf25b7164bd0249162a176dbe4a598fdd80e0a976b528e680cae11314209493",
+        "pairSha256": "b1f5f8e64f8b2fcc170534b4dd9dc20aa7e4dbe051caf4879d8d83ad31e4abaf",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/16",
+          "wholeAuthorEntrySha256": "9e4aad3ac4c5605e9ffaf8cade4e12cfd482b64b96eefdf08636bb712f7bac63"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/30",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "35947be994f50470b6a9a65b320958555725f5d3970300832f59a8f539f4e554"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/386",
+          "completeSourceIds": [
+            5574439
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "pinny",
+        "canonicalId": 5577173,
+        "canonicalSourceSha256": "44c6c3a7bca3c552fa625b7666cfee48a00cfc373b26cfe6d4473cd080174f70",
+        "pairSha256": "ad675c21d43cafdcc18b7aa9af361cb01e26499d51c3c14b324eb484edb26a3d",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/17",
+          "wholeAuthorEntrySha256": "ed0a18be568c90784987c7c3697799373387f9b06e0cee92812851341c7a59c9"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/31",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "7cdae78c3400cfb91675be8ee45bc80a9cc03ca683a988b3a31da51ad753b4ea"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/387",
+          "completeSourceIds": [
+            5577173
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "tongued",
+        "canonicalId": 5583739,
+        "canonicalSourceSha256": "8a170fa486fedfc03a151f1b8c1bad8a2edea04a44065c951c9afc534fde6783",
+        "pairSha256": "457719e0532cb667e5657f9b7ff4f96bc3b05253337f1cf952ed5b634c1feb24",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/18",
+          "wholeAuthorEntrySha256": "00330f49384439c0d9461154ced9ce985ef43c92c14398ae0166f9c43b5eeeec"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/32",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "e0124282494f44daf7fcbdf97bbb903261bfc01c0d52bd9aac3395bb55a2fd73"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/389",
+          "completeSourceIds": [
+            5583739,
+            391325
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "wraithlike",
+        "canonicalId": 5585613,
+        "canonicalSourceSha256": "2112104d168406e86ce3a4218eb2d52d37f0f7df1491d10ab1b309bfc5a0322e",
+        "pairSha256": "e36e5b2e777789575786c9ad26ecdeaf360a2065d6afe1ffe562673852902b12",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/19",
+          "wholeAuthorEntrySha256": "528a65b592d036a5590606c9fec64fae7cb28a1184f2bc48686a0fbfd7be6fca"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/33",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "5e319550622897d0f0706118dc8986b82617da8e48fb7f115126e26ded9402c5"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/391",
+          "completeSourceIds": [
+            5585613,
+            1586726
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "unemotionally",
+        "canonicalId": 5586985,
+        "canonicalSourceSha256": "316b9c3c9596b77377ce11bd15efd8ac014581748ee6ec98ef46fad32fd785f9",
+        "pairSha256": "0c979c24a35ffe6deb34a47022f8de0910f4ecd94e8477f3611dff09d1486b72",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/20",
+          "wholeAuthorEntrySha256": "060b45775b83c43476a0117e90225b6ecd17d9092a10895f70eb9531545ad0c2"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/34",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "e5be58129766805af852a0bd8d3c19e388c50c9e910e2e0a670d621a8323048d"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/392",
+          "completeSourceIds": [
+            5586985,
+            3595522
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "underwrote",
+        "canonicalId": 5587326,
+        "canonicalSourceSha256": "2d8873d8c5b1f6387c72ef94fa6abecaa38717f31229600ffa1ee7b77e34a666",
+        "pairSha256": "4437c8769433594bc858340ed2c4cd409774cdf0306d0f88624c38fad36bc7b9",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/21",
+          "wholeAuthorEntrySha256": "c2b78245298d2507d997f7305cd5d6d66005382e8ba13565acd64c6d0aaa52b7"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/35",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "38e6e40a01cb45b45799986c645c4d28c99c4a7cc06763b2220f552525a0bbf2"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/393",
+          "completeSourceIds": [
+            5587326,
+            664612,
+            2576503,
+            2788056
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "trivially",
+        "canonicalId": 5587677,
+        "canonicalSourceSha256": "c8d34da3911f2e25511a798f120603dd2c0ccef7a8d492e4766e23ccbf0a10f4",
+        "pairSha256": "6de3b2824d91ae1407c1a47b7e4bf62697af7ac09267bc27ad39ee59ffd63199",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/22",
+          "wholeAuthorEntrySha256": "27686e7a8f690f9206efb913a43432b414238dc41546c5f0dff8679b595cbf80"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/36",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "d53dff126484446eaa0bc0f2d4d777b33fb737cfd181dcee6d6c027c66f540f2"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/394",
+          "completeSourceIds": [
+            5587677
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "lopsidedly",
+        "canonicalId": 5591402,
+        "canonicalSourceSha256": "33808a33d42892c48f1880614524db6b04780f479aa00f0a826fef476a6668e4",
+        "pairSha256": "cadff8acf8a69f5a878b345294e75d160cfad1d204b09b381be325842c94002b",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/23",
+          "wholeAuthorEntrySha256": "6621f55991d66d539718599579c3897b9fd8bdd443e680931718d48a4fbd489b"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/37",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "3cc146543dd4623104c80d8431b832850068bf8aaa65d0be7d297cccb03c3cef"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/398",
+          "completeSourceIds": [
+            5591402,
+            1346113,
+            5266879
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "pinking",
+        "canonicalId": 5591603,
+        "canonicalSourceSha256": "8d51df38fb5eeefcb75681eec9d2a6f8ed3bb098da483c35c620e2a0c7bc4706",
+        "pairSha256": "9327578054712474dd7253e0a50aa6ed5204c579d4342c3ce538815b9b04952d",
+        "authorPrincipal": "d35_author_role_explicit_selected_sense_children",
+        "reviewerPrincipal": "d35_independent_source9",
+        "author": {
+          "file": "drafts/d35-role-c351-400-explicit-annotation-child-author-pack-0001.json",
+          "bytes": 18686,
+          "sha256": "2a9306d80d043312e43ab3bdeb5e44079f957b51f18654e3a8995310db5f1a5b",
+          "pointer": "/entries/24",
+          "wholeAuthorEntrySha256": "4178df528d8efc082cd603fe3de6d43344aa362cf8edf0f6b1f843874c69f643"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-role-c351-400-independent-source9-review-0001.json",
+          "bytes": 128552,
+          "sha256": "cfd09e1e7d5b86950e22c8e018fb7c340d6b86aab3c8526a49b8966c5bf294af",
+          "pointer": "/decisions/38",
+          "decision": "supported-exact-proposal",
+          "wholeOpinionRowSha256": "67b1880e2800ac2182dc8bcf44c4045a1087f9d0a0b5f359c27f401a58d20f5a"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/399",
+          "completeSourceIds": [
+            5591603,
+            289773
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

@@ -15,12 +15,12 @@
     "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   },
   "previousCatalogue": {
-    "file": "catalogue-v4/966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8.bin",
+    "file": "catalogue-v4/b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c.bin",
     "codec": "gzip",
-    "bytes": 3376,
-    "sha256": "966df4e6c8f525fe29d7672a262a1f0b3e0e8d878019b53a59f9e1a3965768d8",
-    "decodedBytes": 8318,
-    "decodedSha256": "8f9eae7ad061cc59d6c36a0d3501353d742bace6a3b7f0bd8ba3238e70f727fa"
+    "bytes": 5069,
+    "sha256": "b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c",
+    "decodedBytes": 12626,
+    "decodedSha256": "9b5d94b29e7fbcaf32c2e6024b18aeb96aba9eab99cfe14c594f1726e4405e3f"
   },
   "releases": [
     {
@@ -86,6 +86,36 @@
         "batch-0034-root-01.json",
         "batch-0034-root-01-translation-children.json",
         "batch-0034-prepare-root02.json"
+      ]
+    },
+    {
+      "id": "examples-0035",
+      "sourceFiles": [
+        "batch-0035-g-4ce3447c8860.json",
+        "batch-0035-g-2b551c377f5b.json",
+        "batch-0035-g-fa55990f9ef2.json",
+        "batch-0035-g-0533a5af8936.json",
+        "batch-0035-g-7f48d441d817.json",
+        "batch-0035-g-55aa424de92d.json",
+        "batch-0035-g-f2b399ee5e83.json",
+        "batch-0035-g-d7176bbcf6ef.json",
+        "batch-0035-g-8eb36bde185c.json",
+        "batch-0035-g-00d30f7058db.json",
+        "batch-0035-g-e1c448aea25b.json",
+        "batch-0035-g-c62ab98e1f78.json",
+        "batch-0035-g-244bc5281a65.json",
+        "batch-0035-g-30e38eaca613.json",
+        "batch-0035-g-ecbd83d9ffe2.json",
+        "batch-0035-g-05d6a5c16478.json",
+        "batch-0035-g-6163d83d8100.json",
+        "batch-0035-g-33ce30595e6b.json",
+        "batch-0035-g-91138cd596b2.json",
+        "batch-0035-g-c72d020e93bd.json",
+        "batch-0035-g-a4ec1ab77cfc.json",
+        "batch-0035-g-c9268209cbf6.json",
+        "batch-0035-g-18b4bcf1bafa.json",
+        "batch-0035-g-bc6772007347.json",
+        "batch-0035-g-52fdefb5616c.json"
       ]
     }
   ]

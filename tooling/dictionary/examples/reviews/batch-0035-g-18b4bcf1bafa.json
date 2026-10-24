@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "a96bc5184e6c64ee42f77ad4a8de81c4fe4ec06564749445aa57c3833d099d32",
+  "reviewer": "AI/d35_reviewer_root_prepare01",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "sahib",
+    "simla"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_prepare_root02_precision_children",
+    "reviewerPrincipal": "d35_reviewer_root_prepare01",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "sahib",
+        "canonicalId": 5684372,
+        "canonicalSourceSha256": "9f50f33129bcce48b6f76a18b3090768a7b8244bbfecd1558411ce5ebb99dbd3",
+        "pairSha256": "dcb5baf8726af03ad6695981da48c6efa8d320b3d78d93ff975b4a139fc018a4",
+        "authorPrincipal": "d35_author_prepare_root02_precision_children",
+        "reviewerPrincipal": "d35_reviewer_root_prepare01",
+        "author": {
+          "file": "drafts/d35-prepare-c451-500-two-translation-scope-children-0001.json",
+          "bytes": 17177,
+          "sha256": "d38b6309232d50c4e04f36c8feff333e8eb870e9f42b141a48952c9caf627d8c",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "7528fad3354cde5e3e5efa11cec4fe727b46f467181141e6f9115cb773811fdc"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-prepare-c451-500-independent-root-review-0001.json",
+          "bytes": 307939,
+          "sha256": "f448a15463b9d245397c409bf4018c50e65f3dad01cfdeb627ce4e77438fd620",
+          "pointer": "/followups/0",
+          "decision": "support-exact-distinct-English-scope-child-for-possible-future-admission",
+          "wholeOpinionRowSha256": "4960da3e3b0481dc95a595de12d53676aa7811d532164ddba7480b661e622133"
+        },
+        "principalCorrection": null,
+        "proofClassification": "source-aligned-selected-sense-with-explicit-register-or-referent",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/456",
+          "completeSourceIds": [
+            5684372
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "simla",
+        "canonicalId": 5687083,
+        "canonicalSourceSha256": "42c70bbd69aed7be6b71181181ded94f70df800a93687446d5367118b5701e70",
+        "pairSha256": "9be7ae9da7105f28fac051a2f3a3c595be8d14ff2173750bab8a1494b5f40a1a",
+        "authorPrincipal": "d35_author_prepare_root02_precision_children",
+        "reviewerPrincipal": "d35_reviewer_root_prepare01",
+        "author": {
+          "file": "drafts/d35-prepare-c451-500-two-translation-scope-children-0001.json",
+          "bytes": 17177,
+          "sha256": "d38b6309232d50c4e04f36c8feff333e8eb870e9f42b141a48952c9caf627d8c",
+          "pointer": "/entries/1",
+          "wholeAuthorEntrySha256": "62815380e4cf8ced89dc7a4c22954fa1d0635293e0fc6db69e83f81c81d1950e"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-prepare-c451-500-independent-root-review-0001.json",
+          "bytes": 307939,
+          "sha256": "f448a15463b9d245397c409bf4018c50e65f3dad01cfdeb627ce4e77438fd620",
+          "pointer": "/followups/1",
+          "decision": "support-exact-distinct-English-scope-child-for-possible-future-admission",
+          "wholeOpinionRowSha256": "36b097ab2f3afbca9f41b3a376a2e6b23f29f4fee5dc1172da84e1fa444c2ba0"
+        },
+        "principalCorrection": null,
+        "proofClassification": "source-aligned-selected-sense-with-explicit-register-or-referent",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/458",
+          "completeSourceIds": [
+            5687083
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

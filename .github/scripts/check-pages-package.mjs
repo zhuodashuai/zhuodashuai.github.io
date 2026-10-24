@@ -89,6 +89,61 @@ export const UNPUBLISHED_NEXT_PATHS = Object.freeze([
   "tooling/dictionary/examples/reviews/batch-0034-prepare-root02.json",
   "tooling/dictionary/examples/queues/batch-0034-admission-receipt.json"
 ]);
+// Exact new D35 author/reviewer provenance paths: retained in Git/CI, never
+// previously served. No broad folder exclusion and no old URL removal.
+export const UNPUBLISHED_D35_PATHS = Object.freeze([
+  "tooling/dictionary/examples/source/batch-0035-g-4ce3447c8860.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-4ce3447c8860.json",
+  "tooling/dictionary/examples/source/batch-0035-g-2b551c377f5b.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-2b551c377f5b.json",
+  "tooling/dictionary/examples/source/batch-0035-g-fa55990f9ef2.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-fa55990f9ef2.json",
+  "tooling/dictionary/examples/source/batch-0035-g-0533a5af8936.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-0533a5af8936.json",
+  "tooling/dictionary/examples/source/batch-0035-g-7f48d441d817.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-7f48d441d817.json",
+  "tooling/dictionary/examples/source/batch-0035-g-55aa424de92d.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-55aa424de92d.json",
+  "tooling/dictionary/examples/source/batch-0035-g-f2b399ee5e83.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-f2b399ee5e83.json",
+  "tooling/dictionary/examples/source/batch-0035-g-d7176bbcf6ef.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-d7176bbcf6ef.json",
+  "tooling/dictionary/examples/source/batch-0035-g-8eb36bde185c.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-8eb36bde185c.json",
+  "tooling/dictionary/examples/source/batch-0035-g-00d30f7058db.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-00d30f7058db.json",
+  "tooling/dictionary/examples/source/batch-0035-g-e1c448aea25b.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-e1c448aea25b.json",
+  "tooling/dictionary/examples/source/batch-0035-g-c62ab98e1f78.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-c62ab98e1f78.json",
+  "tooling/dictionary/examples/source/batch-0035-g-244bc5281a65.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-244bc5281a65.json",
+  "tooling/dictionary/examples/source/batch-0035-g-30e38eaca613.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-30e38eaca613.json",
+  "tooling/dictionary/examples/source/batch-0035-g-ecbd83d9ffe2.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-ecbd83d9ffe2.json",
+  "tooling/dictionary/examples/source/batch-0035-g-05d6a5c16478.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-05d6a5c16478.json",
+  "tooling/dictionary/examples/source/batch-0035-g-6163d83d8100.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-6163d83d8100.json",
+  "tooling/dictionary/examples/source/batch-0035-g-33ce30595e6b.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-33ce30595e6b.json",
+  "tooling/dictionary/examples/source/batch-0035-g-91138cd596b2.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-91138cd596b2.json",
+  "tooling/dictionary/examples/source/batch-0035-g-c72d020e93bd.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-c72d020e93bd.json",
+  "tooling/dictionary/examples/source/batch-0035-g-a4ec1ab77cfc.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-a4ec1ab77cfc.json",
+  "tooling/dictionary/examples/source/batch-0035-g-c9268209cbf6.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-c9268209cbf6.json",
+  "tooling/dictionary/examples/source/batch-0035-g-18b4bcf1bafa.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-18b4bcf1bafa.json",
+  "tooling/dictionary/examples/source/batch-0035-g-bc6772007347.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-bc6772007347.json",
+  "tooling/dictionary/examples/source/batch-0035-g-52fdefb5616c.json",
+  "tooling/dictionary/examples/reviews/batch-0035-g-52fdefb5616c.json",
+  "tooling/dictionary/examples/queues/batch-0035-admission-receipt.json",
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -103,7 +158,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -155,12 +210,13 @@ export function verifyStatic(directory, repo) {
   assert(!fs.existsSync(path.join(directory, REVIEW_ONLY)), 'Internal review queue was published');
   for (const file of UNPUBLISHED_D32_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal D32 proof was published: ${file}`);
   for (const file of UNPUBLISHED_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal proof was published: ${file}`);
+  for (const file of UNPUBLISHED_D35_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New D35 internal proof was published: ${file}`);
   // README indexes and converted documentation remain published too.
   for (const file of [...GENERATED_PATHS, 'index.html', 'vocab/index.html', 'vocab/personal.html',
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length };
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

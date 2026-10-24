@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { isCopiedStatic, inspectSite, checkTar, REVIEW_ONLY, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
+import { isCopiedStatic, inspectSite, checkTar, REVIEW_ONLY, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, UNPUBLISHED_D35_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
 
 test('Pages exclusions retain defaults and omit only specifically registered unpublished review files', () => {
   const text = fs.readFileSync(new URL('../../_config.yml', import.meta.url), 'utf8');
   const entries = text.split(/\r?\n/u).filter(line => /^  - /u.test(line)).map(line => line.slice(4).replace(/\/$/u, ''));
-  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS]);
+  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS]);
   assert.deepEqual(text.split(/\r?\n/u).filter(line => /^[a-z]/u.test(line)), ['exclude:']);
   for (const file of ['vocab/data/dictionary-examples/old/examples-1.json', 'tooling/dictionary/examples/queues/batch-0030.json',
     'tooling/dictionary/examples/queues/batch-0031-provenance.json', 'tooling/dictionary/examples/source/batch-0031-p004.json',
@@ -16,7 +16,13 @@ test('Pages exclusions retain defaults and omit only specifically registered unp
   assert.equal(UNPUBLISHED_D32_PATHS.length,32);
   assert.equal(UNPUBLISHED_NEXT_PATHS.length,72);
   assert.equal(new Set(UNPUBLISHED_NEXT_PATHS).size,72);
-  for (const file of [REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, '_config.yml', '.github/workflows/wordbook-ci.yml', 'vocab/_headers', 'node_modules/file.js',
+  assert.equal(UNPUBLISHED_D35_PATHS.length,51);
+  assert.equal(new Set(UNPUBLISHED_D35_PATHS).size,51);
+  const index=JSON.parse(fs.readFileSync(new URL('../../tooling/dictionary/examples/additive-index-v4.json',import.meta.url)));
+  const release=index.releases.find(r=>r.id==='examples-0035');
+  assert.deepEqual(UNPUBLISHED_D35_PATHS,[...release.sourceFiles.flatMap(f=>['source','reviews'].map(d=>'tooling/dictionary/examples/'+d+'/'+f)),'tooling/dictionary/examples/queues/batch-0035-admission-receipt.json']);
+  assert(isCopiedStatic('tooling/dictionary/examples/source/batch-0035-future.json'));
+  for (const file of [REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, '_config.yml', '.github/workflows/wordbook-ci.yml', 'vocab/_headers', 'node_modules/file.js',
     'vendor/bundle/lib.rb', 'style.scss']) assert(!isCopiedStatic(file));
 });
 

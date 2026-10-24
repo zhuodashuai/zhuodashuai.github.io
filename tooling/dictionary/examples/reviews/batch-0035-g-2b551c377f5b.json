@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "4855b7fab334cfc5d7c7fdf12c769cbd08813f791a72ede309d3d250d3e40ced",
+  "reviewer": "AI/d35_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "rainout",
+    "snorkeler"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_root",
+    "reviewerPrincipal": "d35_reviewer_role",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "rainout",
+        "canonicalId": 5002789,
+        "canonicalSourceSha256": "a61cd6cd20eed0c2debd962ac53a1d7b8ad8ce3a45b86d4ae789773bff735c21",
+        "pairSha256": "84feac884322d7a2cb73a16f0526c1cb358e1dd27ed98f367c9c8d582a84770d",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-curated-rainout-snorkeler-precision-children-0001.json",
+          "bytes": 1942,
+          "sha256": "3fceccffb2488d823cb31aee36fafce81901522967bbd444bedbfd2b332648c9",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "08ba0b6c2c48aa637eba6948c4bb29342baeb5312b1197228c60cd7b4694c955"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-curated-rainout-snorkeler-precision-independent-role-review-0001.json",
+          "bytes": 4453,
+          "sha256": "58105bd1a8faf1e8c1f136c30548a00d7cf0d86942ab9b930e2fbf24908718cf",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-distinct-curated-precision-child-for-possible-admission",
+          "wholeOpinionRowSha256": "8ccbc37499212a32a515b4da187f6a2e549341bc81b529b59e71e72816226b37"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/2",
+          "completeSourceIds": [
+            5002789
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "snorkeler",
+        "canonicalId": 5060500,
+        "canonicalSourceSha256": "02a72b7f24e9c6cf69747879b32edc2ced6273d1039aa6f0622fc4df9f0113df",
+        "pairSha256": "0d850f5ca341b63821c6b8bcf48b70f0fe4e500e049c033e6ea3ed20510039c7",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-curated-rainout-snorkeler-precision-children-0001.json",
+          "bytes": 1942,
+          "sha256": "3fceccffb2488d823cb31aee36fafce81901522967bbd444bedbfd2b332648c9",
+          "pointer": "/entries/1",
+          "wholeAuthorEntrySha256": "5bb570a8dc9235109587b0e698dd7fb7a8df5ca50bcd4f6c43606ecdb39d1d73"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-curated-rainout-snorkeler-precision-independent-role-review-0001.json",
+          "bytes": 4453,
+          "sha256": "58105bd1a8faf1e8c1f136c30548a00d7cf0d86942ab9b930e2fbf24908718cf",
+          "pointer": "/opinions/1",
+          "decision": "support-exact-distinct-curated-precision-child-for-possible-admission",
+          "wholeOpinionRowSha256": "cfc4a89bedacacaecd1dea06ba472495b1608caadda1ca788b4d3eab8a421012"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d35-shared500-complete-context-packet-0001.json",
+            "bytes": 9532384,
+            "sha256": "12570d3bb42647966d534c6c8232ea73bee0220b7024e1f8db3e3328d292705e"
+          },
+          "pointer": "/entries/37",
+          "completeSourceIds": [
+            5060500,
+            2966527
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

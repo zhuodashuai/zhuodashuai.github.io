@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "db52de88516acecc5e563d918240456679a2b7a6bacef16b0f24923877757249",
+  "reviewer": "AI/d35_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "footrace",
+    "ethnomusicologist",
+    "pastoralism",
+    "koan",
+    "pushback"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_root",
+    "reviewerPrincipal": "d35_reviewer_role",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "footrace",
+        "canonicalId": 4937252,
+        "canonicalSourceSha256": "87d8622ac56678c220fdd1135848337e0a4ac895671fe5d3cf7106f2e9af5aa2",
+        "pairSha256": "c91a111a8d00d759101638510e27afd2ee256b44e046f625a610db2b83509a25",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-six-d34-backlog-selected-sense-children-0001.json",
+          "bytes": 6700,
+          "sha256": "6fe9231e8ed4928954310f22a29d1adc1f09f4862a7ab6948d9070fd92bffeeb",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "0574c90d8e53741f82140b75cf4900e70e397a41292f21b3abaf3f00587901d7"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+          "bytes": 21084,
+          "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-backlog-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "e801cc1f3cd989321a22c3c7ed141edafe09f77955be7ff9c7761d21d8aab1c9"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d",
+          "reading": "Root personally read all50 complete source/parent/form/key/card/history contexts before original D34 authorship. These6 exact canonical records and entire prior individual hold reasons were reopened before fresh prose; narrow primary branches were independently read. No old history discarded."
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "ethnomusicologist",
+        "canonicalId": 4930097,
+        "canonicalSourceSha256": "54038329a611f89a18534056354a836676b6b93854c047ec23acff0a305430dd",
+        "pairSha256": "09a34079526d0413f7903d3b6dbe88bd7cee51a1f122ded78f19fef57cb6ad9d",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-six-d34-backlog-selected-sense-children-0001.json",
+          "bytes": 6700,
+          "sha256": "6fe9231e8ed4928954310f22a29d1adc1f09f4862a7ab6948d9070fd92bffeeb",
+          "pointer": "/entries/1",
+          "wholeAuthorEntrySha256": "5623a841c6267b2a3106b00f8be39285db41e95a1e153acc9322196189f5d66f"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+          "bytes": 21084,
+          "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+          "pointer": "/opinions/1",
+          "decision": "support-exact-backlog-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "3f3c7ff20ecdedf1288eddd5dbfe91b1a5d14ff37b96c342708cbf7493a5ccd8"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d",
+          "reading": "Root personally read all50 complete source/parent/form/key/card/history contexts before original D34 authorship. These6 exact canonical records and entire prior individual hold reasons were reopened before fresh prose; narrow primary branches were independently read. No old history discarded."
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "pastoralism",
+        "canonicalId": 4869780,
+        "canonicalSourceSha256": "e9121161fcf9e134df81da9f8555c17f52eb77dcb24e0e678ab276d0d74c1450",
+        "pairSha256": "e95f2093470f910f633f7459661979ddeb7b2d58d91a19281f5da7c611260018",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-six-d34-backlog-selected-sense-children-0001.json",
+          "bytes": 6700,
+          "sha256": "6fe9231e8ed4928954310f22a29d1adc1f09f4862a7ab6948d9070fd92bffeeb",
+          "pointer": "/entries/3",
+          "wholeAuthorEntrySha256": "74b744df1635481487ae6f2b22d1d81bf4abe06f5d9ded4d114cd97923da5c8a"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+          "bytes": 21084,
+          "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+          "pointer": "/opinions/3",
+          "decision": "support-exact-backlog-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "8eecd9359dbef97c58c7935def638885d0d19041e365f18304cec63b4cea8575"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d",
+          "reading": "Root personally read all50 complete source/parent/form/key/card/history contexts before original D34 authorship. These6 exact canonical records and entire prior individual hold reasons were reopened before fresh prose; narrow primary branches were independently read. No old history discarded."
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "koan",
+        "canonicalId": 4898460,
+        "canonicalSourceSha256": "41db371e367444e9cbfc6ea8dc41ce1224164e8c66ec4d9a6a2d20557ebb4e36",
+        "pairSha256": "8566572665cb02882e47760b18bd7f3239e2929244f5ad317d6dcf97bcf75a50",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-six-d34-backlog-selected-sense-children-0001.json",
+          "bytes": 6700,
+          "sha256": "6fe9231e8ed4928954310f22a29d1adc1f09f4862a7ab6948d9070fd92bffeeb",
+          "pointer": "/entries/4",
+          "wholeAuthorEntrySha256": "9411fd62dd67c73f482d13035f61870ff1a179c5ba9e0ee4f2bfe492bb433e86"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+          "bytes": 21084,
+          "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+          "pointer": "/opinions/4",
+          "decision": "support-exact-backlog-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "caf3b9a6216ed3e94b7b099c684c0930464a8b521671927907a60cf4b62b605e"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d",
+          "reading": "Root personally read all50 complete source/parent/form/key/card/history contexts before original D34 authorship. These6 exact canonical records and entire prior individual hold reasons were reopened before fresh prose; narrow primary branches were independently read. No old history discarded."
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "pushback",
+        "canonicalId": 4859754,
+        "canonicalSourceSha256": "f072aed528ce848b15ee41fa98cd8df70bcc9e0f730eb67ae79f5d04f3e8e0bf",
+        "pairSha256": "2dc609950273837dfce672c0491ab9295fd2845916f23a1431ee19a0bc46aad9",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-six-d34-backlog-selected-sense-children-0001.json",
+          "bytes": 6700,
+          "sha256": "6fe9231e8ed4928954310f22a29d1adc1f09f4862a7ab6948d9070fd92bffeeb",
+          "pointer": "/entries/5",
+          "wholeAuthorEntrySha256": "8a13c1e86926d2843ae0c65267bf436b11924aa3129920222a75ee3c7f409cc4"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-six-d34-backlog-independent-role-review-0001.json",
+          "bytes": 21084,
+          "sha256": "2871db466a30bb8177254c139fe09009b54dce27bdc821e375a236a64a7d7a70",
+          "pointer": "/opinions/5",
+          "decision": "support-exact-backlog-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "63e8121710530c6dfc4f149baf953d5e07972a01077d78462293ab72c2733765"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d",
+          "reading": "Root personally read all50 complete source/parent/form/key/card/history contexts before original D34 authorship. These6 exact canonical records and entire prior individual hold reasons were reopened before fresh prose; narrow primary branches were independently read. No old history discarded."
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

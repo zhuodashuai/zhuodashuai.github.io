@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "cd6fb508487401bf674c181013398db2b59ac879861ef0c370df00a00f7fae9c",
+  "reviewer": "AI/d35_reviewer_role",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "swansong"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "authorPrincipal": "d35_author_root",
+    "reviewerPrincipal": "d35_reviewer_role",
+    "supportedInventory": {
+      "file": "candidates/d35-supported-input-inventory-0004.json",
+      "bytes": 1532427,
+      "sha256": "802322dd50957dfaec96b198e68c90e48562c655a214a67860661a326123916c"
+    },
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "swansong",
+        "canonicalId": 4890829,
+        "canonicalSourceSha256": "b9313cdc5a688b9fdde9398bebffacadb529f9b1e97e39152c3594a582310337",
+        "pairSha256": "10a345d045f2e48a057f284e2507ebabf95e3b5315e1d0883a8624a30cc7eb31",
+        "authorPrincipal": "d35_author_root",
+        "reviewerPrincipal": "d35_reviewer_role",
+        "author": {
+          "file": "drafts/d35-root-backlog-swansong-medium-child-0001.json",
+          "bytes": 1450,
+          "sha256": "34f7fd95d239d052b7e92f3d7711bef4e235e574a0372eb8279808af2814753f",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "3aa31784f8bd284fd12fc6bb9c7bd5023334566c158c571d90f69d0148eeefe2"
+        },
+        "independentOpinion": {
+          "file": "qa/d35-root-backlog-swansong-medium-independent-role-review-0001.json",
+          "bytes": 5540,
+          "sha256": "c79b476ee63831c0582d95f8881aa1cee22d449ee2bd6d53290cfa7c02c166d2",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-distinct-swansong-medium-child-for-possible-future-admission",
+          "wholeOpinionRowSha256": "6200a52da13a3da916da0dd5ee66752d444d64f6e5baa4b8c000b0b1c58d479e"
+        },
+        "principalCorrection": null,
+        "proofClassification": "exact-visible-selected-meaning-per-pinned-independent-opinion",
+        "completeContext": {
+          "file": "../dictionary-examples-0034/drafts/d34-shared500-context-views-0001/root-01.json",
+          "sha256": "782192171a232750511730e337542c8d542823bcabd3f4853a4bdd7004d8ab6d"
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}
