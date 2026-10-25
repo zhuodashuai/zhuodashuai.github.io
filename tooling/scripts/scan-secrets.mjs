@@ -2,7 +2,9 @@ import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
 const candidates = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard", "-z"], {
-  encoding: "utf8"
+  encoding: "utf8",
+  // Content-addressed dictionary paths exceed Node's default 1 MiB stdout limit.
+  maxBuffer: 64 * 1024 * 1024
 }).split("\0").filter(Boolean);
 
 const excluded = /^(?:node_modules|\.git|\.wrangler|test-results|playwright-report)\//;
