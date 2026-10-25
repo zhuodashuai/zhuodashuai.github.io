@@ -35,11 +35,14 @@ test("every linked excerpt belongs to a real current word and chapter, with no d
     assert.ok(!links.has(key), `duplicate ${key}`);
     links.add(key);
   }
-  assert.equal(links.size, 653);
+  assert.equal([...links].filter(key => key.includes("\ncollection:never-let-me-go:")).length, 653);
+  assert.equal([...links].filter(key => key.includes("\ncollection:the-forsyte-saga:")).length, 108);
+  assert.equal(links.size, 761);
 });
 
 test("featured reading stays small and chapter-specific rather than generating more vocabulary", () => {
-  assert.equal(data.passages.filter(passage => passage.featured).length, 23);
+  assert.equal(data.passages.filter(passage => passage.featured).length, 24);
+  assert.equal(selectBookPassages(data, { bookId: "the-forsyte-saga", chapterId: "chapter-1" }).length, 1);
   for (let chapter = 1; chapter <= 23; chapter += 1) {
     const selected = selectBookPassages(data, { bookId: "never-let-me-go", chapterId: `chapter-${chapter}` });
     assert.equal(selected.length, 1);

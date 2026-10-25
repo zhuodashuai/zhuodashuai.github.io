@@ -206,6 +206,10 @@ function validateSource(source) {
     if (item.order !== undefined) {
       assert(Number.isSafeInteger(item.order) && item.order > 0 && item.order <= 100_000, `第 ${index + 1} 条 order 必须为 1 至 100000 的整数。`);
     }
+    if (item.reuseExistingEntryId !== undefined) {
+      assert(typeof item.reuseExistingEntryId === "string" && item.reuseExistingEntryId.trim()
+        && item.reuseExistingEntryId.length <= 180, `第 ${index + 1} 条复用编号不正确。`);
+    }
     if (item.senses !== undefined) {
       assert(Array.isArray(item.senses) && item.senses.length > 0 && item.senses.length <= 20, `第 ${index + 1} 条 senses 必须包含 1 至 20 个义项。`);
     }
@@ -253,7 +257,19 @@ export async function importReadingList({
     if (byStableId && sameMembership && byStableId.id !== sameMembership.id) {
       throw new Error(`词条“${item.term}”同时命中不同记录；已停止以避免重复。`);
     }
-    let existing = byStableId || sameMembership;
+    // A reviewed import may attach another book's context to an existing word.
+    // Require its exact ID; never guess an identity from a matching spelling.
+    // The canonical card, examples and review identity remain unchanged.
+    const explicitReuse = item.reuseExistingEntryId === undefined
+      ? null : byId.get(item.reuseExistingEntryId);
+    if (item.reuseExistingEntryId !== undefined) {
+      assert(explicitReuse && explicitReuse.normalized === normalized,
+        `词条“${item.term}”指定的复用记录不存在或属于另一词条。`);
+      assert((!byStableId || byStableId.id === explicitReuse.id)
+        && (!sameMembership || sameMembership.id === explicitReuse.id),
+      `词条“${item.term}”的复用编号与已有章节记录冲突。`);
+    }
+    let existing = byStableId || sameMembership || explicitReuse;
     if (!existing && sameTerms.length) {
       const reusable = sameTerms.filter((entry) => entry.sourceWork === source.collection.title
         && entry.tags.some((tag) => tag.startsWith(collectionPrefix)));

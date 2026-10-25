@@ -65,7 +65,7 @@ export async function loadD30Fixture(){
  const root=fileURLToPath(new URL('../../',import.meta.url)),rawCache=new Map();
  const read=async file=>{assert(!path.isAbsolute(file)&&!file.split('/').includes('..'));if(!rawCache.has(file))rawCache.set(file,await fs.readFile(path.join(root,file)));return rawCache.get(file);};
  const json=async(file,pin)=>{const b=await read(file);if(pin)assert.equal(sha(b),pin,file);return JSON.parse(b);};
- const {loadD29Fixture,D29_BUILD,assertD29ProtectedBytes}=await import('./d29-regression-fixture.mjs');
+ const {loadD29Fixture,D29_BUILD,assertD29ProtectedBytes,readD29ProtectedReleaseInput}=await import('./d29-regression-fixture.mjs');
  const inherited=await loadD29Fixture(),before=inherited.after,current=inherited.current;assert(before instanceof Map,'D29 after is a Map, not a manifest wrapper');assert.equal(before.size,85924);
  const beforeManifest=await json('tooling/dictionary/examples/archives/baseline-'+D29_BUILD.version+'.manifest.json',D29_BUILD.manifestSha256);assert.deepEqual(beforeManifest.counts,{heads:85924,examples:87313});assert.equal(beforeManifest.shards.length,256);
  for(const d of beforeManifest.shards){const raw=await read('vocab/data/dictionary-examples/'+d.file);assert.equal(raw.length,d.bytes);assert.equal(sha(raw),d.sha256);}
@@ -78,7 +78,7 @@ export async function loadD30Fixture(){
  const source=await json('vocab/data/expanded-dictionary/manifest.json',SOURCE_MANIFEST_SHA);assert.equal(source.version,SOURCE_VERSION);assert.equal(source.counts.records,102609);const descriptors=[...source.english.shards,...source.chinese.shards];assert.equal(descriptors.length,256);
  const records=new Map(),byId=new Map(),keyRows=new Map(),actualIdKeys=new Map(),sourceRawByRelative=new Map();
  for(const kind of['english','chinese'])for(const d of source[kind].shards){const file='vocab/data/expanded-dictionary/'+d.file,raw=await read(file);assert.equal(raw.length,d.bytes);assert.equal(sha(raw),d.sha256);sourceRawByRelative.set(file,raw);if(kind==='english'){const payload=JSON.parse(raw);for(const r of payload.records){if(records.has(r.term))assert.deepEqual(records.get(r.term),r);else records.set(r.term,r);if(byId.has(r.id))assert.deepEqual(byId.get(r.id),r);else byId.set(r.id,r);}for(const[key,refs]of payload.keys){assert(!keyRows.has(key));keyRows.set(key,refs);for(const id of new Set(refs.map(r=>r.id))){if(!actualIdKeys.has(id))actualIdKeys.set(id,[]);actualIdKeys.get(id).push(key);}}}}
- assert.equal(records.size,102609);assert.equal(byId.size,102609);for(const f of ['vocab/data/owner-wordbook.json','vocab/data/book-passages.json','vocab/data/ecdict-core.json','vocab/data/member-dictionary.json'])assertD29ProtectedBytes(f,await read(f));
+ assert.equal(records.size,102609);assert.equal(byId.size,102609);for(const f of ['vocab/data/owner-wordbook.json','vocab/data/book-passages.json','vocab/data/ecdict-core.json','vocab/data/member-dictionary.json'])assertD29ProtectedBytes(f,await readD29ProtectedReleaseInput(f,{root}));
  const historicalMetadata=await loadD30ReleaseMetadata();
  const metadataTransition=assertD30MetadataTransition(historicalMetadata.attributesRaw,historicalMetadata.commonRaw,D30_BUILD);
  const queue=await json('tooling/dictionary/examples/queues/batch-0030.json',D30_BUILD.queueSha256),provenance=await json('tooling/dictionary/examples/queues/batch-0030-provenance.json',D30_BUILD.provenanceSha256),c=queue.completeFrozenCandidate;

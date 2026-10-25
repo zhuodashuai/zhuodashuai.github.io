@@ -9,6 +9,7 @@ import { verifyDictionarySourceRevisions, DICTIONARY_SOURCE_REVISION_SOURCE } fr
 import { buildExpandedDictionary, expandedSeedIntegrity, expandedBucket, expandedKey, expandedSha256,
   recoverPinnedExpandedSeedArchive, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
 import { buildDictionarySuggestions } from "../scripts/build-dictionary-suggestions.mjs";
+import { loadExpandedPublicSource } from "../lib/expanded-public-source.mjs";
 
 const root = resolve(import.meta.dirname, "../..");
 const read = async file => JSON.parse(await readFile(resolve(root, file), "utf8"));
@@ -48,7 +49,7 @@ test("actual four-record integration preserves old source identity and all non-t
   const catalogue = await loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"),
     reviewDirectory: resolve(root, "tooling/dictionary/reviews") });
   const build = buildExpandedDictionary({ prepared, corePayload: await read("vocab/data/ecdict-core.json"),
-    publicPayload: await read("vocab/data/owner-wordbook.json"), originalPack: catalogue.pack,
+    publicPayload: await loadExpandedPublicSource({ root }), originalPack: catalogue.pack,
     supplementPack: verifyDictionarySupplement(await read("tooling/dictionary/supplements/import-2026-10-19.json"),
       await read("tooling/dictionary/supplements/integrity.json")),
     posPack: verifyDictionaryPos(await read("tooling/dictionary/pos/pos-completion-2026-10-19.json"),

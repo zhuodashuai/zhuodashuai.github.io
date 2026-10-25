@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { expandedKey, expandedSeedIntegrity, normalizeExpandedTerm,
   recoverPinnedExpandedSeedArchive, validateExpandedBuild } from "../scripts/build-expanded-dictionary.mjs";
 import { loadOriginalCatalogue } from "../lib/original-dictionary-catalogue.mjs";
+import { loadExpandedPublicSource } from "../lib/expanded-public-source.mjs";
 import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { preloadExpandedDictionary, searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../../vocab/js/expanded-dictionary.js";
 
@@ -92,12 +93,12 @@ test("53 supplementary cards keep exact meanings and references under a non-MIT 
   }
 });
 
-test("all current public cards and reviewed original entries retain their exact source variants as users keep adding", async () => {
+test("all 617 pinned public cards and reviewed original entries retain their exact expanded source variants", async () => {
   const data = await corpus();
-  const snapshot = await readJSON(new URL("../../vocab/data/owner-wordbook.json", import.meta.url));
+  const snapshot = await loadExpandedPublicSource();
   const { pack } = await loadOriginalCatalogue();
   const checked = pack.entries.filter(entry => entry.review.status === "checked");
-  assert.ok(snapshot.entries.length >= 616);
+  assert.equal(snapshot.entries.length, 617);
   assert.ok(checked.length >= 1030);
   assert.equal(data.manifest.sources.public.sha256, sha(JSON.stringify(snapshot)));
   assert.equal(data.manifest.sources.original.sha256, sha(JSON.stringify(pack)));
@@ -114,6 +115,47 @@ test("all current public cards and reviewed original entries retain their exact 
     assert.equal(found.meaning, entry.senses.map((sense, index) => `${index + 1}. ${sense.partOfSpeech}：${sense.definitionZh}`).join("\n"), entry.headword);
     assert.equal(found.partOfSpeech, [...new Set(entry.senses.map(sense => sense.partOfSpeech))].join(" · "), entry.headword);
   }
+});
+
+test("all 108 Forsyte chapter words remain in the live library and compact index without enlarging the pinned expanded public source", async () => {
+  const [data, pinned, live, member, chapter] = await Promise.all([
+    corpus(),
+    loadExpandedPublicSource(),
+    readJSON(new URL("../../vocab/data/owner-wordbook.json", import.meta.url)),
+    readJSON(new URL("../../vocab/data/member-dictionary.json", import.meta.url)),
+    readJSON(new URL("../../vocab/data/reading-lists/the-forsyte-saga/chapter-1.json", import.meta.url))
+  ]);
+  assert.equal(chapter.expectedItemCount, 108);
+  assert.equal(chapter.items.length, 108);
+  assert.equal(data.manifest.counts.records, 102609);
+  assert.equal(data.records.length, 102609);
+  assert.equal(data.manifest.sources.public.sha256, sha(JSON.stringify(pinned)));
+  assert.notEqual(data.manifest.sources.public.sha256, sha(JSON.stringify(live)));
+
+  const membership = "collection:the-forsyte-saga:chapter-1";
+  const pinnedTerms = new Set(pinned.entries.map(entry => normalizeExpandedTerm(entry.term)));
+  const liveByTerm = new Map(live.entries.map(entry => [entry.term, entry]));
+  const memberByTerm = new Map(member.published.map(row => [row[0], row]));
+  let reused = 0;
+  for (const item of chapter.items) {
+    const entry = liveByTerm.get(item.term);
+    assert.ok(entry, `${item.term}: available in the live main wordbook`);
+    assert.ok(entry.tags.includes(membership), `${item.term}: current chapter membership`);
+    const projected = memberByTerm.get(item.term);
+    assert.ok(projected, `${item.term}: available in the compact member index`);
+    assert.deepEqual(projected.slice(0, 3), [entry.term, entry.partOfSpeech, entry.meaning], item.term);
+    if (pinnedTerms.has(normalizeExpandedTerm(item.term))) reused++;
+    else {
+      // A head may already occur in the MIT/original dictionary. A new reading
+      // entry must not be retroactively attributed to the pinned public source.
+      const record = data.byTerm.get(normalizeExpandedTerm(item.term));
+      const variants = record ? [record, ...(record.variants || [])] : [];
+      assert.ok(!variants.some(row => row.source === "public"),
+        `${item.term}: no new public variant in the historical expanded dictionary`);
+    }
+  }
+  assert.equal(reused, 4);
+  assert.equal(chapter.items.length - reused, 104);
 });
 
 test("the actual lookup runtime parses all 128 English and 128 Chinese shards without a provider", async () => {

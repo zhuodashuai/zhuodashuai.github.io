@@ -15,6 +15,7 @@ import {readHistoricalDictionaryNamespace,loadVerifiedSemanticRevision,assertExa
 import {generateExpandedDictionary,recoverPinnedExpandedSeedArchive,buildExpandedDictionary,validateExpandedBuild,expandedSha256,expandedBucket,expandedKey,expandedChineseTokens} from '../scripts/build-expanded-dictionary.mjs';
 import {buildDictionarySuggestions,dictionarySuggestionPriority} from '../scripts/build-dictionary-suggestions.mjs';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {loadExpandedPublicSource} from '../lib/expanded-public-source.mjs';
 const ROOT=path.resolve(import.meta.dirname,'../..'),cmp=(a,b)=>a<b?-1:a>b?1:0;
 const json=async file=>JSON.parse(await readFile(path.join(ROOT,file),'utf8'));
 const revision=async name=>Promise.all(['.json','.integrity.json','.review.json'].map(s=>json('tooling/dictionary/source-revisions/'+name+s)));
@@ -58,7 +59,7 @@ async function fixture(){return shared??= (async()=>{
  const baseline=await readHistoricalDictionaryNamespace(SEMANTIC_BASE_VERSION,{root:ROOT});
  const seedIntegrity=await json('tooling/dictionary/expanded-source-integrity.json'),prepared=await recoverPinnedExpandedSeedArchive({root:ROOT,integrity:seedIntegrity});
  const catalogue=await loadOriginalCatalogue({indexPath:path.join(ROOT,'tooling/dictionary/source/index.json'),reviewDirectory:path.join(ROOT,'tooling/dictionary/reviews')});
- const inputs={prepared,corePayload:await json('vocab/data/ecdict-core.json'),publicPayload:await json('vocab/data/owner-wordbook.json'),originalPack:catalogue.pack,
+ const inputs={prepared,corePayload:await json('vocab/data/ecdict-core.json'),publicPayload:await loadExpandedPublicSource({root:ROOT}),originalPack:catalogue.pack,
   supplementPack:verifyDictionarySupplement(await json('tooling/dictionary/supplements/import-2026-10-19.json'),await json('tooling/dictionary/supplements/integrity.json')),
   posPack:verifyDictionaryPos(await json('tooling/dictionary/pos/pos-completion-2026-10-19.json'),await json('tooling/dictionary/pos/integrity.json')),
   sourceRevisionPack:verifyDictionarySourceRevisions(...await revision('finite-grammar-0001')),posNotationRevisionPack:verifyDictionaryPosNotationRevisions(...await revision('finite-pos-notation-0001'))};
