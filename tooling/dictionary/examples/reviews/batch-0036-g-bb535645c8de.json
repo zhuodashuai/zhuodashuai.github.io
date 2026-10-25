@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "6a723b31b1b85be2b280eadd84bf4cfbc49b8f4855508575f4ad5d5c75f9e1fc",
+  "reviewer": "AI/d36_reviewer_root_source9_0201",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "provincially"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "supportedInventory": {
+      "file": "candidates/d36-supported-input-inventory-0002.json",
+      "bytes": 4733444,
+      "sha256": "b3cb40182aa9e839ebee7c95d2de0928155b9f8eab29ad6c71b4de35c1516871"
+    },
+    "authorPrincipal": "d36_author_source9",
+    "reviewerPrincipal": "d36_reviewer_root_source9_0201",
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "provincially",
+        "canonicalId": 6114723,
+        "canonicalSourceSha256": "ada6a7057383775bfe2d918fbd8823cab5a142a0a30e75025c25c2c7fff8a038",
+        "pairSha256": "ccd260976ae9940eb6810cf1ea15a5d3f1fd3828cd699b5a6e0d5d73c9fe0fcd",
+        "author": {
+          "file": "drafts/d36-source9-provincially-meaning-precision-child-0001.json",
+          "bytes": 4889,
+          "sha256": "761bae059f84f05edb5d74da98f151680806370598704a78119fcd6d47b21114",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "5ca729065489730dea80239b5984d813632079b769a4bb870d2dbaad9d7bb8a0"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-source9-provincially-child-independent-root-review-0001.json",
+          "bytes": 3108,
+          "sha256": "d00d6ce36202fd5a24dbd51186d1c9e7b9c2b6a08ae5aa9752b8a6e7f497bbfb",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "bf4beca6bc79c3094b88b9b0a53e70f34b61cc243b89441e7851bb8268c6c48f"
+        },
+        "proofClassification": "explicit-new-curated-selected-meaning-not-raw-equivalence",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/201",
+          "wholeMasterEntrySha256": "497fe9df50f0daad701f49c0b07c154d9a20a25671021f280872c521c18425ad",
+          "completeReferencedSourceIds": [
+            6114723,
+            7176938
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:provincially",
+            "key:adv",
+            "key:advest"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 6114723,
+              "canonicalTerm": "provincially",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0014-outcome.json#/deferred/948"
+              ]
+            },
+            {
+              "canonicalId": 7176938,
+              "canonicalTerm": "adv",
+              "wholeHistoricalObjectIds": []
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

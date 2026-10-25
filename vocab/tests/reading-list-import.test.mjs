@@ -5,6 +5,8 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { importReadingList } from "../../tooling/scripts/import-reading-list.mjs";
+import { parsePublicSnapshot } from "../js/wordbook-schema.js";
+import { applyReviewRating, buildStudySummary } from "../js/study.js";
 
 const canonicalSnapshotUrl = new URL("../data/owner-wordbook.json", import.meta.url);
 const chapterTwoUrl = new URL("../data/reading-lists/never-let-me-go/chapter-2.json", import.meta.url);
@@ -311,6 +313,92 @@ test("source attributionNote is optional, trims valid text, and rejects invalid 
       assert.equal(await readFile(snapshotPath, "utf8"), snapshotRaw);
     }
   } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("an unchanged chapter reimport preserves later canonical enrichments and learning identity until the source is corrected", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "wordbook-reading-enrichment-"));
+  const snapshotPath = join(directory, "owner-wordbook.json");
+  const sourcePath = join(directory, "chapter-2.json");
+  try {
+    const template = JSON.parse(await readFile(chapterTwoUrl, "utf8"));
+    const source = {
+      ...template,
+      expectedItemCount: 1,
+      items: [template.items.find(item => item.term === "concussion")]
+    };
+    await writeFile(sourcePath, JSON.stringify(source), "utf8");
+    await writeFile(snapshotPath, JSON.stringify({
+      schemaVersion: 3, exportedAt: "2026-10-25T10:00:00.000Z",
+      revisionId: "reading-enrichment-fixture", lastMutationId: "", entries: []
+    }), "utf8");
+    const imported = await importReadingList({ sourcePath, snapshotPath, timestamp: "2026-10-25T10:00:00.000Z" });
+    const enriched = structuredClone(imported.snapshot);
+    const entry = enriched.entries[0];
+    const chapterContext = structuredClone(entry.readingContexts[0]);
+    const stableId = entry.id, createdAt = entry.createdAt;
+    entry.meaning += "\n② 强烈震动（后续文章补充）。";
+    entry.definition += " Also a violent shock, as in a later article.";
+    entry.senses[0].usageNotes += " 后续人工补充的辨析说明。";
+    entry.senses.push({
+      partOfSpeech: "noun", meaningZh: "强烈震动（后续文章补充）。",
+      definitionEn: "A violent shock or shaking.", usageNotes: "后续文章中的非医学义。",
+      register: "neutral", collocations: ["a sudden concussion"],
+      examples: [{ en: "The concussion shook the windows.", zh: "那阵强烈震动使窗户晃动。" }], confusables: []
+    });
+    entry.collocations.push("a sudden concussion");
+    entry.usage += "\n后续文章补充：另有强烈震动之义。";
+    entry.attributionNote += " 后续人工补充已另行核对。";
+    entry.synonyms = ["violent shock"];
+    entry.revision += 1;
+    entry.updatedAt = "2026-10-25T11:00:00.000Z";
+    enriched.exportedAt = entry.updatedAt;
+    enriched.revisionId = "later-owner-enrichment";
+    const expected = parsePublicSnapshot(enriched, { allowLegacy: false });
+    const learning = [applyReviewRating(stableId, null, "easy", new Date("2026-10-25T12:00:00.000Z"))];
+    const learningBefore = structuredClone(learning);
+    const summary = buildStudySummary(expected.entries, learning, new Date("2026-10-25T12:00:00.000Z"));
+    const bytes = `${JSON.stringify(expected, null, 2)}\n`;
+    await writeFile(snapshotPath, bytes, "utf8");
+
+    const repeated = await importReadingList({ sourcePath, snapshotPath, timestamp: "2026-10-25T13:00:00.000Z" });
+    assert.equal(repeated.changed, false);
+    assert.deepEqual(repeated.snapshot, expected, "unchanged chapter preserves every later canonical enrichment");
+    assert.deepEqual(repeated.chapterEntries[0].senses, expected.entries[0].senses);
+    assert.deepEqual(repeated.chapterEntries[0].collocations, expected.entries[0].collocations);
+    assert.equal(repeated.chapterEntries[0].attributionNote, expected.entries[0].attributionNote);
+    assert.deepEqual(repeated.chapterEntries[0].readingContexts[0], chapterContext);
+    assert.equal(await readFile(snapshotPath, "utf8"), bytes, "no-op import does not rewrite snapshot metadata or bytes");
+    assert.deepEqual(buildStudySummary(repeated.snapshot.entries, learning, new Date("2026-10-25T12:00:00.000Z")), summary);
+    assert.deepEqual(learning, learningBefore);
+
+    source.items[0].meaning = "① 脑震荡（章节源的真实修订）。";
+    source.items[0].definitionEn = "A brain injury caused by a blow or shaking, with a corrected chapter definition.";
+    source.items[0].collocations = ["recover from concussion"];
+    source.attributionNote = "章节来源的修订说明；学习例句为自拟。";
+    await writeFile(sourcePath, JSON.stringify(source), "utf8");
+    const corrected = await importReadingList({ sourcePath, snapshotPath, timestamp: "2026-10-25T14:00:00.000Z" });
+    assert.equal(corrected.changed, true);
+    const after = corrected.chapterEntries[0];
+    assert.equal(after.id, stableId);
+    assert.equal(after.createdAt, createdAt);
+    assert.equal(after.meaning, source.items[0].meaning);
+    assert.equal(after.definition, source.items[0].definitionEn);
+    assert.deepEqual(after.collocations, source.items[0].collocations);
+    assert.equal(after.senses.length, 1, "a real chapter correction still updates the chapter-owned senses");
+    assert.equal(after.attributionNote, source.attributionNote);
+    assert.equal(after.readingContexts[0].meaning, source.items[0].meaning);
+    assert.deepEqual(after.synonyms, expected.entries[0].synonyms, "unowned enrichments remain preserved even during correction");
+    assert.deepEqual(learning, learningBefore);
+    assert.equal(learning[0].entryId, after.id);
+    assert.deepEqual(buildStudySummary(corrected.snapshot.entries, learning, new Date("2026-10-25T12:00:00.000Z")), summary);
+    const correctedBytes = await readFile(snapshotPath, "utf8");
+    const final = await importReadingList({ sourcePath, snapshotPath, timestamp: "2026-10-25T15:00:00.000Z" });
+    assert.equal(final.changed, false);
+    assert.equal(await readFile(snapshotPath, "utf8"), correctedBytes);
+  } finally {
+    assert(directory.startsWith(join(tmpdir(), "wordbook-reading-enrichment-")));
     await rm(directory, { recursive: true, force: true });
   }
 });

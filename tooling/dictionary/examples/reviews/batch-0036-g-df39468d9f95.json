@@ -1,0 +1,998 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "984b39d6dde1472443b6a8359831ea17b1b978fa34767b907ace65eb5344fd80",
+  "reviewer": "AI/d36_reviewer_root_prepare_0951",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "actinometrical",
+    "actinomycetal",
+    "actinomycetous",
+    "actinopod",
+    "actinostome",
+    "actional",
+    "actophilous",
+    "actor-proof",
+    "actorish",
+    "actualist",
+    "actualistic",
+    "actualness",
+    "actuations",
+    "aculei",
+    "acultural",
+    "acuter",
+    "acyanogenic"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "supportedInventory": {
+      "file": "candidates/d36-supported-input-inventory-0002.json",
+      "bytes": 4733444,
+      "sha256": "b3cb40182aa9e839ebee7c95d2de0928155b9f8eab29ad6c71b4de35c1516871"
+    },
+    "authorPrincipal": "d36_author_prepare",
+    "reviewerPrincipal": "d36_reviewer_root_prepare_0951",
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "actinometrical",
+        "canonicalId": 7013588,
+        "canonicalSourceSha256": "65c57c0c34d066a6f95966f21482093122a55610b88e5eb664564a03c940e786",
+        "pairSha256": "a474df5d6c1b5e206a1dc2639bf84c9e68165324c81dd8ba3cb3248ecbcbec3f",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "89d823dde72f658e99116d5561f897988e952d275a151cbd34305c36ea087fdc"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "b3ebab5449858e2fa351ac3483a36758152e20be0fd42410e4366b82e1d8e671"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/950",
+          "wholeMasterEntrySha256": "ab2831cb27d7769668b0cd8859a6fe1b05f3521f32bbabd721b9df554d5b7522",
+          "completeReferencedSourceIds": [
+            7013588,
+            556,
+            7013362
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actinometrical",
+            "key:a",
+            "key:actinometer"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7013588,
+              "canonicalTerm": "actinometrical",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0014-outcome.json#/deferred/59"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            },
+            {
+              "canonicalId": 7013362,
+              "canonicalTerm": "actinometer",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0014-p030.json#/entries/34"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actinomycetal",
+        "canonicalId": 7014580,
+        "canonicalSourceSha256": "fdf67fb3f7b2b2fc8d67becc6f000a265ae8f3699cab7a6e0a5526799efe60e4",
+        "pairSha256": "539352342b3818b384e330de74ed56ad037cf83cc9ff8876b3e485efe0f22f05",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/1",
+          "wholeAuthorEntrySha256": "ddf245cdb9a40f75da6f6f0d3112d6cb690a0ec211d97487217fdc97b3b334ca"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/1",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "a8e48e475d9b3625b042cb7f67bf775ab1f5e6a5d5122bd0ede46c959705a25c"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/952",
+          "wholeMasterEntrySha256": "38c11d4926628d023da1ce4799f96c8212a1e2cdf902fbcae089f08718c48eaf",
+          "completeReferencedSourceIds": [
+            7014580,
+            556,
+            7014372
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actinomycetal",
+            "key:a",
+            "key:actinomyces"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7014580,
+              "canonicalTerm": "actinomycetal",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0014-outcome.json#/deferred/60"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            },
+            {
+              "canonicalId": 7014372,
+              "canonicalTerm": "actinomyces",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0016-p053.json#/entries/126"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actinomycetous",
+        "canonicalId": 7015242,
+        "canonicalSourceSha256": "ef8dbbb9d3a26b56510f9cf8e1524d240b428cffb1c9991a0ba6f44d7e120003",
+        "pairSha256": "9a18b645d9e0a2bd2c2f102571fb51da2a07ff8fa5f4913c7ac42dad54b2743c",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/2",
+          "wholeAuthorEntrySha256": "0248f3c95f074cae0c9b1fd65acd0dd051485e80bdb2c4087c73c3a603e6dcec"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/2",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "6df5328a1fc8c0fc953207e742e294f01490fd80e38592b29d270177cbae5ab0"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/953",
+          "wholeMasterEntrySha256": "eeaf39be49dcad7f7dc73c769e57b8d36b750d53afd912ec33fe174cd633d6cc",
+          "completeReferencedSourceIds": [
+            7015242,
+            556,
+            7014876
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actinomycetous",
+            "key:a",
+            "key:actinomycete",
+            "key:actinomycetes"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7015242,
+              "canonicalTerm": "actinomycetous",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0014-outcome.json#/deferred/61"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            },
+            {
+              "canonicalId": 7014876,
+              "canonicalTerm": "actinomycete",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0016-p053.json#/entries/127"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actinopod",
+        "canonicalId": 7017820,
+        "canonicalSourceSha256": "da22e45640f6b249c4aabeb6c6a09fc1f5606ee535a54692b48d03afba99296b",
+        "pairSha256": "9748e1f4a3b350217239e09760cbe575bdce045f9d7c931ea11d15fe5928e593",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/3",
+          "wholeAuthorEntrySha256": "f61d92a2d8a3b3a071edc2f9c765d19c322327ea25b42099dfa314d99114a1da"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/3",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "13197821fca89efe030cabb35f0f29f6818d28ab76b31c57bee286e77766f979"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/961",
+          "wholeMasterEntrySha256": "09ff8774215ac584ab341fd46c71f76341c6c1479cd60c7a098939f07a1386b4",
+          "completeReferencedSourceIds": [
+            7017820
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actinopod"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7017820,
+              "canonicalTerm": "actinopod",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json#/deferred/28"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actinostome",
+        "canonicalId": 7019969,
+        "canonicalSourceSha256": "1aa2622702036a5dcb75dc7dfb8c37335ff6d9c7e29c73c3d1b2ccbd0649e198",
+        "pairSha256": "d995a467a94d3ec732b53593a7c8b9a40c47c17bb93105b14129f0ac9cd320a8",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/4",
+          "wholeAuthorEntrySha256": "50f51d2c266afeed13a37707c16709de974a9db5bd210fee78b186e8df8b283a"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/4",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "993889502106742a3fd918f2b30d727ed89bc4dbadb73a48949d43a37d829a12"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/964",
+          "wholeMasterEntrySha256": "fc6de5e8200241789b6020df224e21a08502ff932d2286154f9a0cff1aaff3cd",
+          "completeReferencedSourceIds": [
+            7019969,
+            2242225
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actinostome",
+            "key:n"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7019969,
+              "canonicalTerm": "actinostome",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/538",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/38/entries/90"
+              ]
+            },
+            {
+              "canonicalId": 2242225,
+              "canonicalTerm": "N",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p002.json#/entries/134",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/1/entries/147"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actional",
+        "canonicalId": 7023970,
+        "canonicalSourceSha256": "9f2f9ed757d2067875d0b9c5e210aacc12cce470b8b577d44e3312128d0711b2",
+        "pairSha256": "ce9f77f9d8dc4c4822d0e45bb6e796d3e198a239eb282899b8f8f3d1f611e606",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/5",
+          "wholeAuthorEntrySha256": "038448691a1eefaf2bdfe0542307357780dff751640617d7eae3de1a5c0e52f8"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/5",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "16009a980500038e7e72f74433f05d7a2b1ec2c6803387bd446bd20d40dde918"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/970",
+          "wholeMasterEntrySha256": "1acc12325b70abcff5fe720e462ec5f8a7a9d2ead4bb76f7acddb6ffd9ebca0c",
+          "completeReferencedSourceIds": [
+            7023970,
+            7122742
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actional",
+            "key:adj"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7023970,
+              "canonicalTerm": "actional",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/544",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/0"
+              ]
+            },
+            {
+              "canonicalId": 7122742,
+              "canonicalTerm": "adj",
+              "wholeHistoricalObjectIds": []
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actophilous",
+        "canonicalId": 7029578,
+        "canonicalSourceSha256": "0603db71fccb8ce91205bbbcb7373e18da6d6d095c29a42fb24b07e3c3f9303e",
+        "pairSha256": "e508247849a6d33b46326b8b0a26f60b65525d4a8c6e0b5529e4c965744b1aba",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/6",
+          "wholeAuthorEntrySha256": "8de67a33661a01ed417f50c87f0b46fa59f64de24543125ba18fedf4c215b961"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/6",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "ac95b9b28774c8da1de56f0d0c1c0f71c52c621be09abc2f628cb0323b2fc625"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/980",
+          "wholeMasterEntrySha256": "fdda643b4146f9a366324b7d2a81dcc568e74a3aa104a68564d547200a463ffa",
+          "completeReferencedSourceIds": [
+            7029578
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actophilous"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7029578,
+              "canonicalTerm": "actophilous",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/556",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/4"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actor-proof",
+        "canonicalId": 7029849,
+        "canonicalSourceSha256": "c98288cdab79e2d7575a97d027ed552f6561fca73023d095c70ad82825672add",
+        "pairSha256": "4ac8cc50fe20275ba2454be2527aabd14f2349d38d756c5302e47fc90f8e786d",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/7",
+          "wholeAuthorEntrySha256": "9350a0867956f5abacb2e52f6aa82765fdc6cc55102cc6c90b4f769210ee953d"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/7",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "9a3dbb1071a0148add60d1889b74a5c8b5c7a8f164b9c6ca7a0cbc8ce77f4c40"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/981",
+          "wholeMasterEntrySha256": "bcc83e9e6cac079353955ad65cc298defdf58f1895a67090ae4de39270512d9a",
+          "completeReferencedSourceIds": [
+            7029849,
+            556
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actor-proof",
+            "key:a"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7029849,
+              "canonicalTerm": "actor-proof",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/557",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/5"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actorish",
+        "canonicalId": 7029938,
+        "canonicalSourceSha256": "8fbca08e526d88f3382ec106df7ce89e7bc41dc93b32cf88bad1647bb428e44f",
+        "pairSha256": "ce5293c4458b8a42cef662e36b1014e77429fe69a893bb259b2d9679afdc3409",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/8",
+          "wholeAuthorEntrySha256": "3db3c6e811a908bbda872689c54296a95933b3f849d71bbe8eafbe4414cb7ad0"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/8",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "0048202f5045230585153a416cd0873dab07ae889b046b63d7fb715357c3d843"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/982",
+          "wholeMasterEntrySha256": "859eeb98581b24e180a4f047581ce1849be358642e10d7064148cfdca3a50ae0",
+          "completeReferencedSourceIds": [
+            7029938,
+            556
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actorish",
+            "key:a"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7029938,
+              "canonicalTerm": "actorish",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/558",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/6"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actualist",
+        "canonicalId": 7031501,
+        "canonicalSourceSha256": "46baef95545ef61e9a5bbc4c6248da3764bc7c97501534113175f58b1efbcddb",
+        "pairSha256": "9c6e11e9a4adc13848c446df03620d2a7851fafba4430f2463062aa0453a8225",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/9",
+          "wholeAuthorEntrySha256": "7eb50ed058b2bd8d63be0645c2809a5a9f4231a9c00c43fdf0bcc96077f80629"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/9",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "8fdd75b85fbd948fd77435a33df043a1eaf556de3d9362d312626823b1747c73"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/984",
+          "wholeMasterEntrySha256": "a8d32275ec33b192e238994d637f2605e0b40cd0a28da11d9e7d1a412a98de2e",
+          "completeReferencedSourceIds": [
+            7031501,
+            2242225
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actualist",
+            "key:n"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7031501,
+              "canonicalTerm": "actualist",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/560",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/38/entries/119"
+              ]
+            },
+            {
+              "canonicalId": 2242225,
+              "canonicalTerm": "N",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p002.json#/entries/134",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/1/entries/147"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actualistic",
+        "canonicalId": 7031645,
+        "canonicalSourceSha256": "30a91d0e23582d9b81c690c8ddc01224f21913c0cd4a6b4949c437d2a629a2e3",
+        "pairSha256": "91d1d3ef419fc67b57f2f4408d5fbc0b5cb60a4a32a735509ccbbef726a6dae5",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/10",
+          "wholeAuthorEntrySha256": "b1210751773f9921043c3568896a1b10a0bced51999991145c672f18f5d11066"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/10",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "a38370d48b6a8ddce2b68c428058ef85bf8f1847d284db9f6760a0b8ab52bdad"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/985",
+          "wholeMasterEntrySha256": "6f43e2ae2fa2d9a7a09346854fe8424f602fb143ff9ae9a62267287dfc47da94",
+          "completeReferencedSourceIds": [
+            7031645,
+            556
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actualistic",
+            "key:a"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7031645,
+              "canonicalTerm": "actualistic",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/561",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/8"
+              ]
+            },
+            {
+              "canonicalId": 556,
+              "canonicalTerm": "a",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-a.json#/entries/3"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actualness",
+        "canonicalId": 7031848,
+        "canonicalSourceSha256": "6ff95e774409711f8b33576d6768ecb99c84821d21aa957214fa8e84191c4012",
+        "pairSha256": "5a3f6212ce60e97cf5a98ad7d7d6babda62244267c6d7fd58d5a450a8d67e147",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/11",
+          "wholeAuthorEntrySha256": "6d7a59913c813cdff18dbe68460f3364284af45712ae5e293449a69e74164737"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/11",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "8bfe00280ae79d59cb0e0191e071672cdd5fc5387d7313c085f6e5499ba3a238"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/987",
+          "wholeMasterEntrySha256": "3cec9cb838831d98063aa153312c81e4efd598eba8193b50ba67fffaa378c935",
+          "completeReferencedSourceIds": [
+            7031848,
+            2242225,
+            212087
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actualness",
+            "key:n",
+            "key:actual",
+            "key:actuals"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7031848,
+              "canonicalTerm": "actualness",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/563",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/38/entries/120"
+              ]
+            },
+            {
+              "canonicalId": 2242225,
+              "canonicalTerm": "N",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p002.json#/entries/134",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/1/entries/147"
+              ]
+            },
+            {
+              "canonicalId": 212087,
+              "canonicalTerm": "actual",
+              "wholeHistoricalObjectIds": []
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "actuations",
+        "canonicalId": 7032168,
+        "canonicalSourceSha256": "73d51916a8cd66fab813f6ff56ef6baefebf772a84517903dc97768f92a97047",
+        "pairSha256": "3881c7000219c5c2d4d0df87069f2be00b9ed8890a3d28ec171b1b80a579ee31",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/12",
+          "wholeAuthorEntrySha256": "8e317a5b489b1cb70e795cb78f15e63e8df4791182111a48d5e46bfd94c055b8"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/12",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "99047cc0fa8f03c01d34e922d341740b958f9e4f97318ba895392c071236cda7"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/988",
+          "wholeMasterEntrySha256": "0c4569bfa01eb96f9a3763f62ae86ce851bc81139431fdcfe277e3f815f65e50",
+          "completeReferencedSourceIds": [
+            7032168,
+            2242225
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:actuations",
+            "key:n"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7032168,
+              "canonicalTerm": "actuations",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json#/deferred/30"
+              ]
+            },
+            {
+              "canonicalId": 2242225,
+              "canonicalTerm": "N",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p002.json#/entries/134",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/1/entries/147"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "aculei",
+        "canonicalId": 7034678,
+        "canonicalSourceSha256": "fa6152dec0e52326f11d0b0bb57f836e922d0e6c2a593c862caf9e8da86cab00",
+        "pairSha256": "c5c609974da528a966238be655089dfde9ae086ff0e7384ef80c4d71184d1673",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/13",
+          "wholeAuthorEntrySha256": "7a148c9fc1549ded3dbc108d86823d31069c61234b37cbcb527e2822b43621bd"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/13",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "8b6df4ec67ee7c99124e942ade584f884c8396fd1c1c12d5413806992976667c"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/991",
+          "wholeMasterEntrySha256": "de27bcfe2a36b040b4f2cf5cfe0eb534ba29b3ef77c8c6ad75fb8d9b36ebdc90",
+          "completeReferencedSourceIds": [
+            7034678
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:aculei"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7034678,
+              "canonicalTerm": "aculei",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/567",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/38/entries/123"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "acultural",
+        "canonicalId": 7035106,
+        "canonicalSourceSha256": "eeb8610922d26c86b625da3ccc72aa85daed56187821e58775778fc450273948",
+        "pairSha256": "78632ff2f54de29bd784e2c8b1a3bbbc4fe771ae92e491281a7f739ae0a4c647",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/14",
+          "wholeAuthorEntrySha256": "883f1bdbcb6594a8d0eabce2e5efb6465b4c61c8f14599c5bb590e0bdc9a17bb"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/14",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "e0bfd2b10bdd39b67fea4cd497098af5bc29cc91b10d34d65ede0a360e73eb01"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/992",
+          "wholeMasterEntrySha256": "496440e9919543480a2efb26de155a8f0bb9410fe0894052860b5825eff5085c",
+          "completeReferencedSourceIds": [
+            7035106
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:acultural"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7035106,
+              "canonicalTerm": "acultural",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/568",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/11"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "acuter",
+        "canonicalId": 7038131,
+        "canonicalSourceSha256": "f5c6cf116ef1e40e17e4f45aa2461db38cc5961a97f373bdc17fe30e012b72f9",
+        "pairSha256": "bab915f25b0d629c813f0d0659ce53b02d6a9fbdf2a8596a4d09beaf87c6e3ba",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/15",
+          "wholeAuthorEntrySha256": "92ccc9cb767038e3a0604332282e02feaaf2b9da449caaf72258c9ac6ff120cd"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/15",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "85b52091b195b3070b10073654731ade05871974695cc90e4730c3428bb9a1bb"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/995",
+          "wholeMasterEntrySha256": "26adbe681aad57de234aa3df01c6af839b0001e31f5bb0f128a3af52642db9de",
+          "completeReferencedSourceIds": [
+            7038131,
+            415251
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:acuter",
+            "key:acute",
+            "key:acutes",
+            "key:acutest",
+            "key:acute embarrassment"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7038131,
+              "canonicalTerm": "acuter",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json#/deferred/31"
+              ]
+            },
+            {
+              "canonicalId": 415251,
+              "canonicalTerm": "acute",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0003-g.json#/entries/145"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      },
+      {
+        "term": "acyanogenic",
+        "canonicalId": 7040570,
+        "canonicalSourceSha256": "c18c03854e50b672d25c30f08c829d06b2ad373ff86a81e953d67fbb2fc0cba0",
+        "pairSha256": "534a69eecb2600d843d42c0521e59fe280851a6c9cc2102018645e24b31ee021",
+        "author": {
+          "file": "drafts/d36-prepare-0951-1000-author-pack-0001.json",
+          "bytes": 142519,
+          "sha256": "fa3cff76eb97219de3a87a9356cc536ee6195f97a25071a1dc5ba4d73c443e16",
+          "pointer": "/entries/16",
+          "wholeAuthorEntrySha256": "ed6598af91d324e390532836f1466ecbb81df0e1c46c0770420274b56f5a1227"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-prepare-0951-1000-independent-root-review-0001.json",
+          "bytes": 112562,
+          "sha256": "313c72e22b55fa8f74ecae24380707a20f3fdc67803f093a4d8c33b5195c1100",
+          "pointer": "/opinions/16",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "e06c649f1c14140ccff2164d1c8485c2d5fcad0d5b74535cbd3ab7bb5956493f"
+        },
+        "proofClassification": "explicit-visible-curated-or-derived-selected-sense-author-proposal",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/999",
+          "wholeMasterEntrySha256": "a4eaa40f93e9f6d819a46eab68fb50d114844a38cc2c91e923834ff301e0f198",
+          "completeReferencedSourceIds": [
+            7040570
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:acyanogenic"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 7040570,
+              "canonicalTerm": "acyanogenic",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/575",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/21/entries/21"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

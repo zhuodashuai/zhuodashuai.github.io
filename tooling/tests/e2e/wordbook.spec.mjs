@@ -140,8 +140,7 @@ test("Owner 已发布列表的词名可用键盘打开完整卡片，关闭后�
     await page.clock.runFor(200);
     expect(scanRequests).toBe(0);
     await page.locator("#owner-search").fill("hip");
-    const row = page.locator(".owner-entry-row", { hasText: "hip" });
-    const termButton = row.locator(".owner-entry-term-button");
+    const termButton = page.getByRole("button", { name: "查看 hip 的完整词条", exact: true });
     await expect(termButton).toHaveAccessibleName("查看 hip 的完整词条");
 
     await termButton.focus();

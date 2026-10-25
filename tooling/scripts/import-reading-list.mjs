@@ -292,18 +292,18 @@ export async function importReadingList({
         readingContexts: nextContexts
       };
 
-      // When this chapter owns the stable ID, the reviewed source file is the
-      // canonical chapter content. Keep identity, review-safe metadata and
-      // owner-only enrichments, but let corrected source fields flow through.
-      if (existing.id === requestedStableId) {
+      // A stable chapter ID allows source corrections, not a replay of old
+      // content over later canonical enrichments. Only a changed chapter
+      // context (or its first attachment) may replace these owned fields.
+      const ownsChapter = existing.id === requestedStableId;
+      const contextChanged = contextIndex === -1 || !sameJson(contexts[contextIndex], nextContext);
+      if (ownsChapter && contextChanged) {
         next = {
           ...next,
           originalInput: desired.originalInput,
           standardForm: desired.standardForm,
           entryType: desired.entryType,
           correction: desired.correction,
-          // An omitted transcription must not erase an owner's enrichment.
-          ...(item.phonetic !== undefined ? { phonetic: desired.phonetic } : {}),
           partOfSpeech: desired.partOfSpeech,
           meaning: desired.meaning,
           definition: desired.definition,
@@ -321,6 +321,9 @@ export async function importReadingList({
           attributionNote: desired.attributionNote
         };
       }
+      // Transcription is not stored in chapter contexts. Preserve its existing
+      // explicit-update contract without replaying unrelated lexical fields.
+      if (ownsChapter && item.phonetic !== undefined) next.phonetic = desired.phonetic;
       if (sameJson(next, existing)) continue;
       if (entrySynonymFingerprint(next) !== entrySynonymFingerprint(existing)) {
         next.synonymScan = pendingSynonymScan(next, current.entries, timestamp);
