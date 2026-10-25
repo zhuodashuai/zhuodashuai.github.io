@@ -17,6 +17,7 @@ import { assertHistoricalDictionaryLineage, assertExactPosNotationNamespace, ass
   readHistoricalDictionaryNamespace, readDictionaryNamespace,
   SOURCE_LINEAGE_NOTATION_BASE_VERSION, SOURCE_LINEAGE_SEMANTIC_BASE_VERSION } from "../lib/dictionary-source-lineage.mjs";
 import { applySemanticRevisionInMemory } from "../lib/dictionary-semantic-revisions.mjs";
+import { loadExpandedPublicSource } from "../lib/expanded-public-source.mjs";
 import { isDeepStrictEqual } from "node:util";
 import { assertPinnedDictionarySeedIntegrity, parsePinnedDictionarySeedArchive,
   DICTIONARY_SEED_ARCHIVE_FILE } from "../lib/dictionary-seed-archive.mjs";
@@ -503,7 +504,7 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
   const [coreBytes, publicBytes, catalogue, license, supplementBytes, supplementIntegrityBytes, posBytes, posIntegrityBytes,
     sourceRevisionBytes, sourceRevisionIntegrityBytes, sourceRevisionReviewBytes,
     notationBytes, notationIntegrityBytes, notationReviewBytes] = await Promise.all([
-    readFile(resolve(root, "vocab/data/ecdict-core.json")), readFile(resolve(root, "vocab/data/owner-wordbook.json")),
+    readFile(resolve(root, "vocab/data/ecdict-core.json")), loadExpandedPublicSource({ root }),
     loadOriginalCatalogue({ indexPath: resolve(root, "tooling/dictionary/source/index.json"), reviewDirectory: resolve(root, "tooling/dictionary/reviews") }),
     readFile(resolve(root, "vocab/data/ECDICT-LICENSE.txt"), "utf8"),
     readFile(resolve(root, "tooling/dictionary/supplements/import-2026-10-19.json"), "utf8"),
@@ -525,7 +526,7 @@ export async function generateExpandedDictionary({ root = ROOT, preparedPath, ch
     JSON.parse(notationIntegrityBytes), JSON.parse(notationReviewBytes));
   const referencesHTML = renderDictionarySupplementReferences(supplementPack);
   const referencesPath = resolve(root, "vocab/dictionary-references.html");
-  const baseInputs = { prepared, corePayload: JSON.parse(coreBytes), publicPayload: JSON.parse(publicBytes),
+  const baseInputs = { prepared, corePayload: JSON.parse(coreBytes), publicPayload: publicBytes,
     originalPack: catalogue.pack, supplementPack, posPack, sourceRevisionPack, posNotationRevisionPack };
   const preSemantic = buildExpandedDictionary(baseInputs);
   validateExpandedBuild(preSemantic);

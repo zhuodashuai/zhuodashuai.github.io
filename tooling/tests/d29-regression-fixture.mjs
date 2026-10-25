@@ -78,6 +78,33 @@ export function assertD29ProtectedBytes(file,raw){
  assert(found,'Protected bytes differ from the exact registered raw transports: '+file);return found;
 }
 
+// D29 authenticated these release-time inputs, not every later reading-library
+// publication. Exact Git blobs from the last pre-Forsyte commit also match the
+// original D29 tuples above. Never fall back to the mutable live files when an
+// archive is missing. The licensed immutable core remains a live protected input.
+export const D29_HISTORICAL_PUBLIC_INPUTS=Object.freeze({
+ 'vocab/data/owner-wordbook.json':Object.freeze({
+  file:'tooling/dictionary/public-source/owner-wordbook-fd742758.json',
+  bytes:3022710,sha256:'4c3fb9ae6d0e0ec9cb85a0d989c677a6d7942e72d0468d73ad2dc30a1785fa4c'}),
+ 'vocab/data/book-passages.json':Object.freeze({
+  file:'tooling/dictionary/public-source/book-passages-fd742758.json',
+  bytes:414570,sha256:'66cfc168b2786380a432492c4a8c693438e6f579b303119b970a995f396b09ba'}),
+ 'vocab/data/member-dictionary.json':Object.freeze({
+  file:'tooling/dictionary/public-source/member-dictionary-fd742758.json',
+  bytes:843625,sha256:'932408e43361be26db2308062f1e6c818ef02d8dc2e1a131d49b77cb3229ef21'})
+});
+export const D29_HISTORICAL_PUBLIC_COMMIT='fd742758b1d2b0937299063714fa42dd698a670a';
+export async function readD29ProtectedReleaseInput(file,{root=fileURLToPath(new URL('../../',import.meta.url))}={}){
+ assert(Object.hasOwn(PROTECTED_RAW_FORMS,file),'Unspecified protected file');
+ const archived=D29_HISTORICAL_PUBLIC_INPUTS[file];
+ const raw=await fs.readFile(path.join(root,archived?.file||file));
+ if(archived){
+  assert.equal(raw.length,archived.bytes,'D29 historical source size changed: '+file);
+  assert.equal(sha(raw),archived.sha256,'D29 historical source digest changed: '+file);
+ }
+ assertD29ProtectedBytes(file,raw);return raw;
+}
+
 // Finite release transitions for the two metadata files that necessarily move.
 // Each old prefix is an independently observed exact byte form, never a
 // normalized or ignored body. The third form is Windows core.autocrlf checkout
@@ -157,7 +184,7 @@ export async function loadD29Fixture(){
  for(const[term,row]of after)assert.deepEqual(current.entries.get(term),row,'Current corpus lost a D29 whole entry '+term);
  const source=await json('vocab/data/expanded-dictionary/manifest.json','2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f'),records=new Map(),descriptors=[...source.english.shards,...source.chinese.shards];
  assert.equal(source.counts.records,102609);assert.equal(descriptors.length,256);for(const d of descriptors){const raw=await read('vocab/data/expanded-dictionary/'+d.file);assert.equal(raw.length,d.bytes);assert.equal(sha(raw),d.sha256);if(d.file.includes('/en-'))for(const row of JSON.parse(raw).records){if(records.has(row.term))assert.deepEqual(records.get(row.term),row);else records.set(row.term,row);}}assert.equal(records.size,102609);
- for(const file of Object.keys(PROTECTED_RAW_FORMS))assertD29ProtectedBytes(file,await read(file));
+ for(const file of Object.keys(PROTECTED_RAW_FORMS))assertD29ProtectedBytes(file,await readD29ProtectedReleaseInput(file,{root}));
  const historicalMetadata=await loadD29ReleaseMetadata();
  const metadataTransition=assertD29MetadataTransition(historicalMetadata.attributesRaw,historicalMetadata.commonRaw,D29_BUILD);
  const queue=await json('tooling/dictionary/examples/queues/batch-0029.json',D29_BUILD.queueSha256),provenance=await json('tooling/dictionary/examples/queues/batch-0029-provenance.json',D29_BUILD.provenanceSha256);

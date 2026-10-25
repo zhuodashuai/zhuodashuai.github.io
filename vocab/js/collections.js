@@ -56,9 +56,10 @@ export function buildCollectionCatalog(entries) {
     const countedCollections = new Set();
     for (const membership of memberships) {
       if (!catalog.has(membership.collectionId)) {
+        const readingContext = readingContextForMembership(entry, membership.tag);
         catalog.set(membership.collectionId, {
           id: membership.collectionId,
-          title: String(entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
+          title: String(readingContext?.sourceWork || entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
           count: 0,
           chapters: new Map()
         });
@@ -122,7 +123,7 @@ export function collectionContextForEntry(entry, collectionId = "", chapterId = 
   const readingContext = readingContextForMembership(entry, membership.tag);
   return {
     ...membership,
-    collectionTitle: String(entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
+    collectionTitle: String(readingContext?.sourceWork || entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
     chapterTitle: `Chapter ${membership.chapterNumber}`,
     sourceTitle: String(readingContext?.sourceTitle || entry.sourceTitle || "").trim(),
     page: String(readingContext?.page || "").trim()

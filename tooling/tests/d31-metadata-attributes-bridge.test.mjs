@@ -5,7 +5,8 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {D31_LF_RULES,D31_BUILD,assertD31MetadataTransition} from './d31-regression-fixture.mjs';
-import {D31_PRIOR_ATTRIBUTES_TRANSPORTS,D32_ATTRIBUTES_SUFFIX_LINES,restoreD31HistoricalAttributes} from './d31-metadata-attributes-bridge.mjs';
+import {D31_PRIOR_ATTRIBUTES_TRANSPORTS,D32_ATTRIBUTES_SUFFIX_LINES,restoreD31HistoricalAttributes,
+ FORSYTE_PRIOR_D32_ATTRIBUTES,FORSYTE_PUBLIC_SOURCE_RULE,restoreForsytePriorD32Attributes} from './d31-metadata-attributes-bridge.mjs';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const before=await fs.readFile(new URL('../dictionary/examples/archives/d30-release-metadata.attributes.txt',import.meta.url));
@@ -76,8 +77,9 @@ test('D31 bridge handles raw buffers only and returns an independent historical 
  restored[0]^=1;assert.deepEqual(input,original);
 });
 
-test('Shipped D32 attributes are an exact bounded extension, not a rewritten D31 prefix',async()=>{
- const raw=await fs.readFile(new URL('../../.gitattributes',import.meta.url)),restored=restoreD31HistoricalAttributes(raw);
+test('Archived fd742 D32 attributes are an exact bounded extension, not a rewritten D31 prefix',async()=>{
+ const raw=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url)),restored=restoreD31HistoricalAttributes(raw);
+ assert.equal(raw.length,FORSYTE_PRIOR_D32_ATTRIBUTES.bytes);assert.equal(createHash('sha256').update(raw).digest('hex'),FORSYTE_PRIOR_D32_ATTRIBUTES.sha256);
  assert.notDeepEqual(raw,restored);assert.equal(assertD31MetadataTransition(restored,common,D31_BUILD).appendedRuleCount,3);
  const wanted=[
   'vocab/data/dictionary-examples/catalogue-v4/'+'a'.repeat(64)+'.bin',
@@ -89,4 +91,25 @@ test('Shipped D32 attributes are an exact bounded extension, not a rewritten D31
  ];
  const actual=execFileSync('git',['check-attr','text','eol','--',...wanted],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/u);
  assert.deepEqual(actual,wanted.flatMap((f,i)=>[f+': text: '+(i<2?'unset':'set'),f+': eol: lf']));
+});
+
+test('Forsyte attributes append exactly one LF public-source rule after the complete fd742 D32 bytes',async()=>{
+ const current=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
+ const restored=restoreForsytePriorD32Attributes(current,archived);
+ assert.deepEqual(restored,archived);
+ assert.equal(assertD31MetadataTransition(restoreD31HistoricalAttributes(restored),common,D31_BUILD).appendedRuleCount,3);
+ assert.throws(()=>restoreD31HistoricalAttributes(current),'The historical capability must still reject the later suffix directly');
+ const actual=execFileSync('git',['check-attr','text','eol','--','tooling/dictionary/public-source/example.txt'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/u);
+ assert.deepEqual(actual,['tooling/dictionary/public-source/example.txt: text: set','tooling/dictionary/public-source/example.txt: eol: lf']);
+ restored[0]^=1;assert.notDeepEqual(restored,archived);
+});
+
+test('Forsyte suffix compatibility rejects changed history, unknown/missing/duplicated suffixes and checkout conversion',async()=>{
+ const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
+ const suffix=Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE),valid=Buffer.concat([archived,suffix]);
+ const changed=Buffer.from(archived);changed[0]^=1;
+ for(const bad of[archived,Buffer.concat([changed,suffix]),Buffer.concat([suffix,archived]),Buffer.concat([archived,suffix,suffix]),Buffer.concat([valid,Buffer.from('# unrelated\n')]),Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE.replace('**','*'))]),Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE.replace(/\n/gu,'\r\n'))]),Buffer.from(valid.toString().replace(/\n/gu,'\r\n')),valid.subarray(0,valid.length-1)])assert.throws(()=>restoreForsytePriorD32Attributes(bad,archived));
+ assert.throws(()=>restoreForsytePriorD32Attributes(Buffer.concat([changed,suffix]),changed),'Even jointly changed history and current must fail the immutable archive pin');
+ for(const bad of['',null,new Uint8Array(valid)])assert.throws(()=>restoreForsytePriorD32Attributes(bad,archived));
 });

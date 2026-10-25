@@ -1,9 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {buildMemberDictionary} from '../scripts/build-member-dictionary.mjs';
-import {loadD29Fixture,D29_BUILD,assertD29MetadataTransition,assertD29ProtectedBytes,loadD29ReleaseMetadata} from './d29-regression-fixture.mjs';
+import {loadD29Fixture,D29_BUILD,assertD29MetadataTransition,assertD29ProtectedBytes,loadD29ReleaseMetadata,readD29ProtectedReleaseInput} from './d29-regression-fixture.mjs';
 
 // Install/run only after the normal build has been performed and D29_BUILD
 // has been filled from its actual saved manifest, queue and provenance bytes.
@@ -52,20 +51,20 @@ test('D29 permits only the three LF rules and two actual common-review pointer c
  assert.notEqual(wrongPointer,commonRaw.toString());
  assert.throws(()=>assertD29MetadataTransition(attributesRaw,Buffer.from(wrongPointer),D29_BUILD));
 });
-test('D29 rejects any protected content outside the exact observed raw transports',async()=>{
+test('D29 historical release inputs reject any content outside the exact observed raw transports',async()=>{
  for(const file of ['vocab/data/owner-wordbook.json','vocab/data/book-passages.json','vocab/data/ecdict-core.json','vocab/data/member-dictionary.json']){
-  const raw=await fs.readFile(new URL('../../'+file,import.meta.url));assertD29ProtectedBytes(file,raw);
+  const raw=await readD29ProtectedReleaseInput(file);assertD29ProtectedBytes(file,raw);
   const wrongBytes=Buffer.from(raw);wrongBytes[0]^=1;assert.throws(()=>assertD29ProtectedBytes(file,wrongBytes));
   assert.throws(()=>assertD29ProtectedBytes(file,Buffer.concat([raw,Buffer.from('\n')])));
  }
  assert.throws(()=>assertD29ProtectedBytes('vocab/data/unspecified.json',Buffer.from('{}')));
 });
 
-test('D29 derives the CI member transport from exact inputs; only two provenance hashes differ',async()=>{
+test('D29 derives the CI member transport from exact historical release inputs; only two provenance hashes differ',async()=>{
  const sha=b=>createHash('sha256').update(b).digest('hex');
  const forms={};
  for(const name of ['ecdict-core','owner-wordbook']){
-  const file='vocab/data/'+name+'.json',raw=await fs.readFile(new URL('../../'+file,import.meta.url));
+  const file='vocab/data/'+name+'.json',raw=await readD29ProtectedReleaseInput(file);
   assertD29ProtectedBytes(file,raw);
   // Reconstruct both specific known input transports, then verify their exact
   // raw tuples BEFORE building. This is not a normalized acceptance boundary.

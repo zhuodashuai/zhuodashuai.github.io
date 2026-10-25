@@ -13,6 +13,7 @@ import {recoverPinnedExpandedSeedArchive,expandedSeedIntegrity,buildExpandedDict
   validateExpandedBuild} from '../scripts/build-expanded-dictionary.mjs';
 import {buildDictionarySuggestions} from '../scripts/build-dictionary-suggestions.mjs';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {loadExpandedPublicSource} from '../lib/expanded-public-source.mjs';
 
 const root=path.resolve(import.meta.dirname,'../..');
 const json=async file=>JSON.parse(await readFile(path.join(root,file),'utf8'));
@@ -27,7 +28,7 @@ const seedIntegrity=await json('tooling/dictionary/expanded-source-integrity.jso
 const prepared=await recoverPinnedExpandedSeedArchive({root,integrity:seedIntegrity});
 const catalogue=await loadOriginalCatalogue();
 const inputs={prepared,corePayload:await json('vocab/data/ecdict-core.json'),
-  publicPayload:await json('vocab/data/owner-wordbook.json'),originalPack:catalogue.pack,
+  publicPayload:await loadExpandedPublicSource({root}),originalPack:catalogue.pack,
   supplementPack:verifyDictionarySupplement(await json('tooling/dictionary/supplements/import-2026-10-19.json'),
     await json('tooling/dictionary/supplements/integrity.json')),
   posPack:verifyDictionaryPos(await json('tooling/dictionary/pos/pos-completion-2026-10-19.json'),
