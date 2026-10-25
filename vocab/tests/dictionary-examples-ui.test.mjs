@@ -13,7 +13,7 @@ class Element {
 const root = { createElement: () => new Element() };
 const deferred = () => { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; };
 const flush = () => new Promise(done => setImmediate(done));
-const entry = term => ({ term, senses: [{ partOfSpeech: "noun", meaningZh: `${term} 的测试义项`,
+const entry = term => ({ term, senses: [{ partOfSpeech: "noun", meaningZh: `${term} 的测试义项`, source: DICTIONARY_EXAMPLE_SOURCE,
   examples: [{ en: `${term} appears in a controlled test sentence.`, zh: `${term} 的测试译文。` }] }] });
 const runtime = load => ({ DICTIONARY_EXAMPLE_SOURCE,
   createDictionaryExamplesController: options => createDictionaryExamplesController({ ...options, load }) });

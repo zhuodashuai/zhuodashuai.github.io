@@ -10,6 +10,7 @@ const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const HAN = /\p{Script=Han}/u;
 export const DICTIONARY_EXAMPLE_SOURCE = "原创例句·AI复核（精选义项）";
+export const DICTIONARY_EXAMPLE_SELF_CHECK_SOURCE = "原创例句·作者自查（精选义项）";
 let clients = new WeakMap();
 const active = new Set();
 
@@ -101,7 +102,7 @@ export function parseDictionaryExamplesShard(payload, manifest, descriptor) {
       if (!/^[a-zA-Z0-9:_-]+$/u.test(sense.id) || senseIds.has(sense.id)) throw invalid();
       senseIds.add(sense.id);
       text(sense.partOfSpeech, 80, { english: true }); text(sense.meaningZh, 2000, { chinese: true, multiline: true });
-      if (sense.source !== DICTIONARY_EXAMPLE_SOURCE || !/^AI\/[a-zA-Z0-9_-]{1,100}$/u.test(sense.reviewer)) throw invalid();
+      if (![DICTIONARY_EXAMPLE_SOURCE, DICTIONARY_EXAMPLE_SELF_CHECK_SOURCE].includes(sense.source) || !/^AI\/[a-zA-Z0-9_-]{1,100}$/u.test(sense.reviewer)) throw invalid();
       const examples = array(sense.examples, 8, 1).map(example => {
         object(example, ["en", "zh"]);
         text(example.en, 1200, { english: true, multiline: true }); text(example.zh, 1200, { chinese: true, multiline: true });

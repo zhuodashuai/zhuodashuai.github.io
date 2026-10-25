@@ -3,7 +3,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { gzipSync } from 'fflate';
-import { loadExampleBuild, validateExampleReview, validateExampleSourceIndex } from './build-dictionary-examples.mjs';
+import { loadExampleBuild, validateExampleReview, validateExampleSourceIndex, exampleReviewAudit } from './build-dictionary-examples.mjs';
 import { rawJson, catalogueVersion, parseArtifactReference, parseAdditiveCatalogue,
   parseAdditiveDelta, decodeGzipArtifact, LIMITS } from '../../vocab/js/dictionary-examples-additive-codec.js';
 
@@ -96,7 +96,7 @@ export async function buildAdditiveExamples({index,baseManifestBytes,sourceManif
   const audit={schemaVersion:4,version:catalogue.version,baseVersion:base.version,counts:catalogue.counts,addedHeads:seen.size,
     addedExamples:catalogue.counts.examples-base.counts.examples,retainedWholeBaseEntries:old.size,fullReferenceBuildVersion:referenceBuild.manifest.version,
     licensedMeaningsChanged:false,commercialExamplesUsed:false,bookQuotesReusedAsOriginal:false,
-    reviewScope:'AI cross-reviewed selected-sense examples, not human certification or complete dictionary coverage',catalogue:artifact.descriptor};
+    ...exampleReviewAudit(referenceBuild.entries),catalogue:artifact.descriptor};
   files.set(`audit-v4/${catalogue.version}.json`,Buffer.from(JSON.stringify(audit,null,2)+'\n'));
   // In particular, do not emit manifest-v2 or another 31 MB full snapshot.
   if([...files.keys()].some(file=>!(/^(?:catalogue-v4|delta-v4)\/[a-f0-9]{64}\.bin$/u.test(file)||/^audit-v4\/[a-f0-9]{64}\.json$/u.test(file))))throw Error('Forbidden full-snapshot output');
