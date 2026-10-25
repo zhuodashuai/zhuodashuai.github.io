@@ -6,6 +6,7 @@ import { loadOriginalCatalogue } from "../lib/original-dictionary-catalogue.mjs"
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const SOURCE = "原创例句·AI复核（精选义项）";
+const SELF_CHECK_SOURCE = "原创例句·作者自查（精选义项）";
 const sha = input => createHash("sha256").update(input).digest("hex");
 const CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const text = (value, maximum, han = false) => {
@@ -15,14 +16,20 @@ const text = (value, maximum, han = false) => {
 };
 export function exampleSourceHash(pack) {
   if (!pack || pack.schemaVersion !== 1 || pack.authorship !== "independent-composition" || !Array.isArray(pack.entries)) throw Error("Invalid authored-example source");
-  return sha(JSON.stringify({ schemaVersion: pack.schemaVersion, batchId: pack.batchId, authorship: pack.authorship, entries: pack.entries }));
+  if (Object.hasOwn(pack, "author") && !/^AI\/[a-z0-9_-]{1,100}$/u.test(pack.author)) throw Error("Invalid example author");
+  return sha(JSON.stringify({ schemaVersion: pack.schemaVersion, batchId: pack.batchId, authorship: pack.authorship, entries: pack.entries,
+    ...(Object.hasOwn(pack, "author") ? { author: pack.author } : {}) }));
 }
 export function validateExampleReview(pack, review) {
+  const selfCheck = review?.mode === "author-selfcheck";
+  const selectedTerms = selfCheck ? review.checkedTerms : review?.approvedTerms;
   if (!review || review.schemaVersion !== 1 || review.sourceSha256 !== exampleSourceHash(pack)
-    || !/^AI\/[a-z0-9_-]{1,100}$/u.test(review.reviewer) || review.independentOfAuthor !== true
-    || !Array.isArray(review.approvedTerms) || !Array.isArray(review.issues)) throw Error("Missing or stale independent example review");
-  const approved = new Set(review.approvedTerms), terms = new Set();
-  if (approved.size !== review.approvedTerms.length) throw Error("Duplicate reviewed term");
+    || !/^AI\/[a-z0-9_-]{1,100}$/u.test(review.reviewer)
+    || (selfCheck ? review.independentOfAuthor !== false || !pack.author || review.reviewer !== pack.author || Object.hasOwn(review, "approvedTerms")
+      : review.mode !== undefined || review.independentOfAuthor !== true || Object.hasOwn(review, "checkedTerms") || pack.author === review.reviewer)
+    || !Array.isArray(selectedTerms) || !Array.isArray(review.issues)) throw Error("Missing or stale example review or explicit author self-check");
+  const approved = new Set(selectedTerms), terms = new Set();
+  if (approved.size !== selectedTerms.length) throw Error("Duplicate selected example term");
   for (const row of pack.entries) {
     if (Object.keys(row).sort().join() !== "en,meaningZh,partOfSpeech,term,zh") throw Error("Unexpected authored example field");
     text(row.term, 200); text(row.partOfSpeech, 80); text(row.meaningZh, 2000, true); text(row.en, 1200); text(row.zh, 1200, true);
@@ -32,7 +39,18 @@ export function validateExampleReview(pack, review) {
   if ([...approved].some(term => !terms.has(term))) throw Error("Review approves an absent term");
   for (const issue of review.issues) if (!terms.has(issue.term)
     || issue.blocking === true && !issue.resolution?.trim() && approved.has(issue.term)) throw Error("Unresolved example issue");
-  return pack.entries.filter(row => approved.has(row.term)).map(row => ({ ...row, reviewer: review.reviewer }));
+  return pack.entries.filter(row => approved.has(row.term)).map(row => ({ ...row, reviewer: review.reviewer,
+    ...(selfCheck ? { source: SELF_CHECK_SOURCE } : {}) }));
+}
+export function exampleReviewAudit(entries) {
+  const modes = { independentlyReviewed: { senses: 0, examples: 0 }, authorSelfcheck: { senses: 0, examples: 0 } };
+  for (const entry of entries) for (const sense of entry.senses) {
+    const mode = sense.source === SELF_CHECK_SOURCE ? modes.authorSelfcheck : modes.independentlyReviewed;
+    mode.senses++; mode.examples += sense.examples.length;
+  }
+  if (!modes.authorSelfcheck.senses) return { reviewScope: "AI cross-reviewed selected-sense examples, not human certification or complete dictionary coverage" };
+  return { reviewScope: "Selected-sense original examples with separately recorded independent AI review and author self-check; not human certification or complete dictionary coverage",
+    reviewModes: modes };
 }
 export function validateExampleSourceIndex(index) {
   if (!index || typeof index !== "object" || Object.keys(index).sort().join() !== "schemaVersion,sourceFiles"
@@ -49,10 +67,11 @@ function bucket(term) {
 export function buildDictionaryExamples({ originalPack, authored = [], knownTerms }) {
   const allowed = new Set(knownTerms), heads = new Map(), seenSentences = new Map();
   let originalExamples = 0, addedExamples = 0, originalHeads = 0, addedHeads = 0;
-  function add(term, sense, origin) {
+  function add(term, sense, origin, source = SOURCE) {
     if (!allowed.has(term)) throw Error(`Example headword is absent from released dictionary: ${term}`);
     text(term, 200); text(sense.id, 120); text(sense.partOfSpeech, 80); text(sense.meaningZh, 2000, true);
     if (!Array.isArray(sense.examples) || !sense.examples.length || sense.examples.length > 8 || !/^AI\//u.test(sense.reviewer)) throw Error("Example lacks reviewed sense");
+    if (source !== SOURCE && source !== SELF_CHECK_SOURCE) throw Error("Invalid example review source");
     for (const example of sense.examples) {
       text(example.en, 1200); text(example.zh, 1200, true);
       const exact = example.en.normalize("NFKC").toLowerCase().replace(/\s+/gu, " ").trim();
@@ -62,7 +81,7 @@ export function buildDictionaryExamples({ originalPack, authored = [], knownTerm
     }
     const entry = heads.get(term) || { term, senses: [] };
     if (entry.senses.some(value => value.id === sense.id)) throw Error(`Duplicate example sense: ${term}`);
-    entry.senses.push({ ...sense, source: SOURCE });
+    entry.senses.push({ ...sense, source });
     heads.set(term, entry);
     if (origin === "original") originalExamples += sense.examples.length; else addedExamples += sense.examples.length;
   }
@@ -77,7 +96,7 @@ export function buildDictionaryExamples({ originalPack, authored = [], knownTerm
     addedHeads++;
     const senseKey = /^[a-zA-Z0-9:_-]+$/u.test(row.term) && row.term.length <= 100 ? row.term : sha(row.term).slice(0, 24);
     add(row.term, { id: `example:${senseKey}`, partOfSpeech: row.partOfSpeech, meaningZh: row.meaningZh,
-      examples: [{ en: row.en, zh: row.zh }], reviewer: row.reviewer }, "added");
+      examples: [{ en: row.en, zh: row.zh }], reviewer: row.reviewer }, "added", row.source ?? SOURCE);
   }
   const entries = [...heads.values()].sort((a, b) => a.term < b.term ? -1 : a.term > b.term ? 1 : 0);
   // Include the format in the namespace: never overwrite a legacy immutable
@@ -101,7 +120,7 @@ export function buildDictionaryExamples({ originalPack, authored = [], knownTerm
   files.set("manifest-v2.json", Buffer.from(JSON.stringify(manifest) + "\n"));
   files.set("source-audit-v2.json", Buffer.from(JSON.stringify({ schemaVersion: 2, version, counts, originalHeads, originalExamples, addedHeads, addedExamples,
     licensedMeaningsChanged: false, commercialExamplesUsed: false, bookQuotesReusedAsOriginal: false,
-    reviewScope: "AI cross-reviewed selected-sense examples, not human certification or complete dictionary coverage" }, null, 2) + "\n"));
+    ...exampleReviewAudit(entries) }, null, 2) + "\n"));
   return { entries, manifest, files, originalHeads, originalExamples, addedHeads, addedExamples };
 }
 export async function loadExampleBuild({ additionalAuthored = [] } = {}) {

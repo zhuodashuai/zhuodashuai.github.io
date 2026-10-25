@@ -247,6 +247,7 @@ export function mountDictionaryPage(document, window) {
   resetChoiceDisclosure();
   let lastResults = null, lastSelected = null;
   const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");
+  const exampleSource = get("dictionary-example-source");
   const exampleContent = get("dictionary-example-content"), exampleRetry = get("dictionary-example-retry");
   let exampleSequence = 0, exampleController = null, exampleModule = null;
   function renderExamples(state) {
@@ -255,6 +256,7 @@ export function mountDictionaryPage(document, window) {
     exampleStatus.textContent = state.message; exampleRetry.hidden = state.phase !== "error";
     exampleContent.replaceChildren();
     if (state.phase !== "ready") return;
+    if (exampleSource) exampleSource.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");
     const plan = dictionaryExampleSensePlan(state.entry, lastSelected);
     if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
     plan.items.forEach(({ sense, open, label }, index) => {

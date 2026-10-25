@@ -234,6 +234,33 @@ export const UNPUBLISHED_D41_PATHS = Object.freeze([
   "tooling/dictionary/examples/reviews/batch-0041-r-c462d41c3f32.json",
   "tooling/dictionary/examples/queues/batch-0041-admission-receipt.json"
 ]);
+export const UNPUBLISHED_D42_D43_PATHS = Object.freeze([
+  "tooling/dictionary/examples/source/batch-0042-s-0972627ebdc9.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-0972627ebdc9.json",
+  "tooling/dictionary/examples/source/batch-0042-s-18100ac42187.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-18100ac42187.json",
+  "tooling/dictionary/examples/source/batch-0042-s-064028557b94.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-064028557b94.json",
+  "tooling/dictionary/examples/source/batch-0042-s-4af49750f3d9.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-4af49750f3d9.json",
+  "tooling/dictionary/examples/source/batch-0042-s-fe389970650f.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-fe389970650f.json",
+  "tooling/dictionary/examples/source/batch-0042-s-2ffc0132fbb5.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-2ffc0132fbb5.json",
+  "tooling/dictionary/examples/source/batch-0042-s-31c1b114b943.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-31c1b114b943.json",
+  "tooling/dictionary/examples/source/batch-0042-s-33e4fc63a6ad.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-33e4fc63a6ad.json",
+  "tooling/dictionary/examples/source/batch-0042-s-92178edb527c.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-92178edb527c.json",
+  "tooling/dictionary/examples/source/batch-0042-s-e4d6661aac0b.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-e4d6661aac0b.json",
+  "tooling/dictionary/examples/source/batch-0042-s-28a13617e9cb.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-28a13617e9cb.json",
+  "tooling/dictionary/examples/source/batch-0042-s-3c4e63d9bbae.json",
+  "tooling/dictionary/examples/reviews/batch-0042-s-3c4e63d9bbae.json",
+  "tooling/dictionary/examples/queues/batch-0042-admission-receipt.json"
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -248,7 +275,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -309,7 +336,8 @@ export function verifyStatic(directory, repo) {
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length };
+  for (const file of UNPUBLISHED_D42_D43_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal example proof was published: ${file}`);
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

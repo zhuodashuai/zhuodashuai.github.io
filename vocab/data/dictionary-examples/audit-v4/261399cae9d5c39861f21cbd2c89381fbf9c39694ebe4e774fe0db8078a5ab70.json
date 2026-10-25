@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 4,
+  "version": "261399cae9d5c39861f21cbd2c89381fbf9c39694ebe4e774fe0db8078a5ab70",
+  "baseVersion": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4",
+  "counts": {
+    "heads": 98216,
+    "examples": 99605
+  },
+  "addedHeads": 11801,
+  "addedExamples": 11801,
+  "retainedWholeBaseEntries": 86415,
+  "fullReferenceBuildVersion": "0076c683bdef8364fc14b5d8c9bc792751214488f65f07548af5f3a22a8f068c",
+  "licensedMeaningsChanged": false,
+  "commercialExamplesUsed": false,
+  "bookQuotesReusedAsOriginal": false,
+  "reviewScope": "Selected-sense original examples with separately recorded independent AI review and author self-check; not human certification or complete dictionary coverage",
+  "reviewModes": {
+    "independentlyReviewed": {
+      "senses": 94603,
+      "examples": 94605
+    },
+    "authorSelfcheck": {
+      "senses": 5000,
+      "examples": 5000
+    }
+  },
+  "catalogue": {
+    "file": "catalogue-v4/1f73e2a2fb3a188b72ab47ffd2dee745f1b29f2d117810c197c1114baad12935.bin",
+    "codec": "gzip",
+    "bytes": 63709,
+    "sha256": "1f73e2a2fb3a188b72ab47ffd2dee745f1b29f2d117810c197c1114baad12935",
+    "decodedBytes": 201513,
+    "decodedSha256": "8e475d66940b4a8fd907ba543fe7a7d36ea304579751c830ced9adfe60bb2f5a"
+  }
+}

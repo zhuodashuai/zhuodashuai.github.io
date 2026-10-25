@@ -1,4 +1,4 @@
-// Strict additive example transport; legacy formats1/2 are not widened.
+// Strict additive transport with explicit reviewed and author-selfcheck sources.
 // Imported only by the new reader/build, never by the legacy v96 reader.
 const HASH=/^[a-f0-9]{64}$/u;
 const isHash=value=>typeof value==='string'&&HASH.test(value);
@@ -7,6 +7,7 @@ const BODY=/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2
 const HAN=/\p{Script=Han}/u;
 const FORMAT='immutable-gzip-base-plus-deltas-v1';
 const SOURCE='原创例句·AI复核（精选义项）';
+const SELF_CHECK_SOURCE='原创例句·作者自查（精选义项）';
 const MAX_HEADS=200000,MAX_PAIRS=400000,MAX_DELTAS=1024;
 const owned=new WeakMap();
 export const LIMITS=Object.freeze({catalogueEncoded:524288,catalogueDecoded:2097152,deltaEncoded:262144,deltaDecoded:1048576,deltaHeads:2000});
@@ -62,7 +63,7 @@ function learningEntry(row){
     object(sense,['id','partOfSpeech','meaningZh','examples','source','reviewer']);
     text(sense.id,120);if(!/^[a-zA-Z0-9:_-]+$/u.test(sense.id)||ids.has(sense.id))throw invalid();ids.add(sense.id);
     text(sense.partOfSpeech,80,{latin:true});text(sense.meaningZh,2000,{han:true,multiline:true});
-    if(sense.source!==SOURCE||!/^AI\/[a-zA-Z0-9_-]{1,100}$/u.test(sense.reviewer))throw invalid();
+    if(![SOURCE,SELF_CHECK_SOURCE].includes(sense.source)||!/^AI\/[a-zA-Z0-9_-]{1,100}$/u.test(sense.reviewer))throw invalid();
     for(const pair of list(sense.examples,8,1)){object(pair,['en','zh']);text(pair.en,1200,{latin:true,multiline:true});text(pair.zh,1200,{han:true,multiline:true});pairs++;}
   }
   return pairs;
