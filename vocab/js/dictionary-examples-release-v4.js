@@ -2,12 +2,12 @@
 function freeze(value){if(value&&typeof value==='object'){for(const child of Object.values(value))freeze(child);Object.freeze(value);}return value;}
 export const dictionaryExamplesRelease=freeze({
   "catalogue": {
-    "file": "catalogue-v4/1f73e2a2fb3a188b72ab47ffd2dee745f1b29f2d117810c197c1114baad12935.bin",
+    "file": "catalogue-v4/ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927.bin",
     "codec": "gzip",
-    "bytes": 63709,
-    "sha256": "1f73e2a2fb3a188b72ab47ffd2dee745f1b29f2d117810c197c1114baad12935",
-    "decodedBytes": 201513,
-    "decodedSha256": "8e475d66940b4a8fd907ba543fe7a7d36ea304579751c830ced9adfe60bb2f5a"
+    "bytes": 86538,
+    "sha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "decodedBytes": 282340,
+    "decodedSha256": "40578601275b2cbb18c0df24befc5d4c627de145a9c8559a48d10ae9b60b89d9"
   },
   "base": {
     "file": "manifest-v2.json",
@@ -24,5 +24,5 @@ export const dictionaryExamplesRelease=freeze({
     "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   }
 });
-export const DICTIONARY_EXAMPLES_VERSION='261399cae9d5c39861f21cbd2c89381fbf9c39694ebe4e774fe0db8078a5ab70';
-export const DICTIONARY_EXAMPLES_COUNTS=freeze({"heads":98216,"examples":99605});
+export const DICTIONARY_EXAMPLES_VERSION='7a23a613ebc8e97b4c4eddac2a9a34760113cf9da5a011d680cb33d04a2092fb';
+export const DICTIONARY_EXAMPLES_COUNTS=freeze({"heads":102609,"examples":103998});

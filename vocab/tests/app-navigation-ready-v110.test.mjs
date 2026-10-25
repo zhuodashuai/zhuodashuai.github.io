@@ -5,6 +5,12 @@ import { createHash } from "node:crypto";
 import { readyAppNavigation } from "../js/app-navigation-ready-v110.js";
 
 const selectors = [".app-header", ".app-footer", ".guide-footer-nav", "#member-github-owner-link", "#member-standard-login-link"];
+const d42SourceLabel = '<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
+const historicalSourceLabel = '<p class="source">原创例句 · AI 复核 · 仅覆盖所列义项</p>';
+function restoreD42SourceLabel(html) {
+  assert.equal(html.split(d42SourceLabel).length, 2, "Expected exactly the named D42 author-selfcheck source label");
+  return html.replace(d42SourceLabel, historicalSourceLabel);
+}
 function fixture({ failOnRefresh = 0 } = {}) {
   const listeners = new Map(), attributes = selectors.map(() => new Set(["inert", "data-app-navigation-pending"]));
   const unrelated = new Set(["inert", "data-app-navigation-pending"]);
@@ -51,7 +57,8 @@ test("v110 missing dependencies or failed explicit refresh keep every shell gate
 });
 
 // Exact pre-v110 working/Git transports observed at bdff7ecb. Undo only the
-// named script and newly gated navigation containers, never normalize bytes.
+// named script, newly gated navigation containers and D42's exact source label,
+// never normalize bytes or accept any other text changes.
 const shells = [
   ["index.html", "topbar app-header", "site-footer app-footer", 2, [[14587,"19188c085728a6f201631b0d7b814b59167f285ec44d1989f94d880958e08936"],[14463,"6a2c651a5f45aaab73a160d546475d2b2908c615a8c03a1d17306ba6df83e408"]]],
   ["personal.html", null, "app-footer", 4, [[23602,"717f07dafbd2027e29cad93793ef997ae3f69f2be2d2797f5b2480d4bef00224"],[23504,"0e83f53241c6fed5a6722c4cf862ca22429dbf7dc287e5e6fd28f2295e798214"]]],
@@ -63,6 +70,7 @@ const shells = [
 for (const [file, header, footer, count, beforePins] of shells) {
   test(`v110 ${file} changes only the named navigation script and finite initial gates`, async () => {
     let html = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
+    if (file === "dictionary.html") html = restoreD42SourceLabel(html);
     assert.equal((html.match(/inert data-app-navigation-pending/gu) || []).length, count);
     const from = 'src="js/app-navigation-ready-v110.js"'; assert.equal(html.split(from).length, 2);
     html = html.replace(from, file === "personal.html" ? 'src="js/app-navigation-ready-v109.js"' : 'src="js/app-navigation-entry.js?v=107"');
@@ -77,3 +85,9 @@ for (const [file, header, footer, count, beforePins] of shells) {
     assert(beforePins.some(([bytes, hash]) => raw.length === bytes && sha === hash), `${file} has an unrelated byte change`);
   });
 }
+
+test("v110 historical source-label restoration rejects other labels and preserves unrelated bytes", () => {
+  assert.throws(() => restoreD42SourceLabel(d42SourceLabel.replace("仅覆盖", "覆盖")));
+  assert.throws(() => restoreD42SourceLabel(d42SourceLabel + d42SourceLabel));
+  assert.equal(restoreD42SourceLabel(d42SourceLabel + "\n<!-- unrelated -->"), historicalSourceLabel + "\n<!-- unrelated -->");
+});
