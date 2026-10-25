@@ -1,0 +1,4045 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "2039d41620f0b1862ff9d6142dad9c0419c28882c9149e0bc1e4585b4447cd50",
+  "reviewer": "AI/d40_general_language_review",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "ABTA",
+    "Acas",
+    "Acipenser",
+    "Ackermann",
+    "Acrostichum",
+    "Amoco",
+    "Anaplasma",
+    "Ancylostomum",
+    "Azeri",
+    "BRAC",
+    "Benday",
+    "CAPM",
+    "CICS",
+    "CMEA",
+    "Caricom",
+    "DONOGHUE",
+    "ERCP",
+    "FIFA",
+    "FIMBRA",
+    "Hmmm",
+    "ICRC",
+    "IRAS",
+    "IRMA",
+    "LVMH",
+    "Lieut",
+    "MITI",
+    "MODI",
+    "MOMA",
+    "Moet",
+    "NERC",
+    "NVOCC",
+    "PFLP",
+    "PSOE",
+    "Reduced Instruction Set Computing",
+    "SEMA",
+    "SSRS",
+    "Socal",
+    "Swapo",
+    "Tues",
+    "UNEP",
+    "UNFPA",
+    "UNHCR",
+    "USAID",
+    "WAAF",
+    "WRVS",
+    "aaah",
+    "acacin",
+    "acarbia",
+    "acardia",
+    "accounter",
+    "accreditee",
+    "accroides",
+    "acephalia",
+    "acephalism",
+    "acephalostomia",
+    "acephalostomus",
+    "acephaly",
+    "acerotous",
+    "acerous",
+    "acetominophen",
+    "acetonitrate",
+    "acetylenetetrachloride",
+    "acetylenic",
+    "acetylizing",
+    "acetylketene",
+    "achillea",
+    "achromasia",
+    "acid rock",
+    "acid-form",
+    "acidbutyrometry",
+    "acidemia",
+    "acidophil",
+    "acmastic",
+    "acquest",
+    "acro-agonines",
+    "acrobrachycephaly",
+    "acromiale",
+    "acromikria",
+    "acronychous",
+    "act of terrorism",
+    "acter",
+    "actinide",
+    "actinodiastase",
+    "actinoerythrin",
+    "actiones",
+    "actotropomyosin",
+    "actus",
+    "acyeterion",
+    "acyloxy-derivatives",
+    "add-on",
+    "additron",
+    "ader wax",
+    "admiralty brass",
+    "admiralty metal",
+    "affine transformation",
+    "air search radar",
+    "alpha test",
+    "aminobenzoic acid",
+    "amlodipine besylate",
+    "amnio",
+    "anaphylaxin",
+    "anaplasmosis",
+    "anaplastic",
+    "anatriptic",
+    "anatrophic",
+    "anaudia",
+    "anchone",
+    "anconad",
+    "andf",
+    "androcyte",
+    "androecium",
+    "androgynus",
+    "andrometoxin",
+    "androstanedion",
+    "anelectrotonic",
+    "anemopathy",
+    "anemotrophy",
+    "anemydria",
+    "aneosinophilia",
+    "anerethisia",
+    "anti-JH",
+    "anti-creeper",
+    "anti-fluctuator",
+    "anti-flux",
+    "anti-icteric",
+    "anti-immune",
+    "anti-incrustator",
+    "anti-induction",
+    "anti-inflammatory",
+    "anti-insulin",
+    "anti-isolysin",
+    "anti-oxidation",
+    "anti-pollution",
+    "anti-rattler",
+    "anti-regular",
+    "anti-rumble",
+    "anti-squeak",
+    "antialbumin",
+    "antialbumose",
+    "antiamebic",
+    "antiamylase",
+    "antianemin",
+    "antiantidote",
+    "antiattrition",
+    "antibacklash",
+    "antibioticogram",
+    "antiblastin",
+    "antibond",
+    "antibugging",
+    "antichresis",
+    "anticoherer",
+    "antigenic determinant",
+    "arity",
+    "arte",
+    "arti",
+    "asean",
+    "aspheric",
+    "asyndetic",
+    "athlete's heart",
+    "authenticator",
+    "authoring language",
+    "autocoid",
+    "avec",
+    "back porch",
+    "backplate",
+    "bad hat",
+    "bafta",
+    "ballistic trajectory",
+    "banker's bill",
+    "banker's check",
+    "barky",
+    "barter away",
+    "beta test",
+    "bett",
+    "bfgf",
+    "bill of review",
+    "bird nest",
+    "bishop's cap",
+    "blae",
+    "blow gas",
+    "bone black",
+    "boost up",
+    "brane",
+    "briefcase computer",
+    "buffing wheel",
+    "bull's eye",
+    "bus traffic",
+    "butt end",
+    "buy back",
+    "caddis fly",
+    "cadmium cell",
+    "calefaction",
+    "call-out",
+    "cami",
+    "camphor ball",
+    "candlepower",
+    "canine distemper",
+    "capacity measure",
+    "captive finance company",
+    "carboxymethyl cellulose",
+    "cardiac monitor",
+    "carry-over",
+    "carrying charge",
+    "cash out",
+    "cass",
+    "cat's eye",
+    "cataloged procedure",
+    "cataract surgery",
+    "celestial guidance",
+    "center punch",
+    "ceri",
+    "chance variable",
+    "character reference",
+    "chem",
+    "chemin de fer",
+    "cherry red",
+    "cherry tree",
+    "chief operating officer",
+    "circulating library",
+    "civil order",
+    "clandestine operation",
+    "click-clack",
+    "column inch",
+    "comdex",
+    "cong",
+    "creb",
+    "dama",
+    "ecsc",
+    "emap",
+    "empath",
+    "exhaust hood",
+    "exhaust system",
+    "exotherm",
+    "expansion bolt",
+    "extension cord",
+    "external storage",
+    "extremely low frequency",
+    "fair deal",
+    "falling out",
+    "fatal accident",
+    "finger plate",
+    "firing range",
+    "flow off",
+    "fly sheet",
+    "foreign agent",
+    "foster care",
+    "foster child",
+    "frank breech",
+    "free hand",
+    "freon",
+    "friend of the court",
+    "function word",
+    "gas maser",
+    "gas tank",
+    "gass",
+    "gastrocolic omentum",
+    "gemm",
+    "genetic mutation",
+    "geometric progression",
+    "gill slit",
+    "glide slope",
+    "good time",
+    "gray market",
+    "gris",
+    "group action",
+    "hackney carriage",
+    "half step",
+    "hand calculator",
+    "hand line",
+    "handling charge",
+    "harmonic progression",
+    "harvest mite",
+    "haul up",
+    "hdtv",
+    "heli",
+    "hemal arch",
+    "heuristic program",
+    "hoister",
+    "hold-down",
+    "home loan",
+    "homing device",
+    "hydraulic brake",
+    "hydraulic ram",
+    "identity element",
+    "idler pulley",
+    "image orthicon",
+    "impulse turbine",
+    "incl",
+    "inhalation anaesthetic",
+    "integrated data processing",
+    "intelligence service",
+    "interlanguage",
+    "international atomic energy agency",
+    "investment banker",
+    "ischemic stroke",
+    "isometrical",
+    "jana",
+    "jim crow",
+    "junk shop",
+    "kill oneself",
+    "kissing bug",
+    "knee bend",
+    "lake bed",
+    "lateral geniculate",
+    "least squares",
+    "legal jointure",
+    "letter case",
+    "letter stock",
+    "lever lock",
+    "library program",
+    "licensed practical nurse",
+    "lime juice",
+    "line feed",
+    "linear unit",
+    "liner train",
+    "listening watch",
+    "living trust",
+    "load line",
+    "local call",
+    "logograph",
+    "loop topology",
+    "loss ratio",
+    "lower court",
+    "lysergic acid diethylamide",
+    "major key",
+    "malignant melanoma",
+    "manc",
+    "materials handling",
+    "matric",
+    "mechanical man",
+    "medica",
+    "mental process",
+    "metal saw",
+    "mexicana",
+    "mflops",
+    "microphone boom",
+    "migrant worker",
+    "mine detector",
+    "molisch test",
+    "money dealer",
+    "moral hazard",
+    "mosaic gold",
+    "mphil",
+    "multidimensional language",
+    "muntz metal",
+    "museo",
+    "name day",
+    "name part",
+    "nate",
+    "native language",
+    "natural law",
+    "natured",
+    "net estate",
+    "netmail",
+    "new deal",
+    "ni-hard",
+    "ni-resist",
+    "nmda",
+    "nol pros",
+    "nonvolatile storage",
+    "novo",
+    "nucleolar organizer",
+    "nuisance value",
+    "nybble",
+    "octonary",
+    "omnidirectional radio range",
+    "on air",
+    "open order",
+    "optical maser",
+    "order paper",
+    "out-of-body experience",
+    "outside loop",
+    "padder",
+    "paper mill",
+    "paso",
+    "pass across",
+    "pass-through",
+    "per centum",
+    "perv",
+    "phillips screw",
+    "phonetic transcription",
+    "photopigment",
+    "picture frame",
+    "piece goods",
+    "pocket flap",
+    "polar zone",
+    "poss",
+    "pot liquor",
+    "potential divider",
+    "power cord",
+    "pres",
+    "previous question",
+    "prob",
+    "proportional font",
+    "prowl car",
+    "pteroylmonoglutamic acid",
+    "pyrocellulose",
+    "queen post",
+    "question of law",
+    "racon",
+    "radar beacon",
+    "rare-earth element",
+    "rating system",
+    "reading program",
+    "real stuff",
+    "real thing",
+    "record changer",
+    "relay station",
+    "relay transmitter",
+    "restriction site",
+    "retd",
+    "reversionary annuity",
+    "riot act",
+    "rna polymerase",
+    "robot pilot",
+    "rona",
+    "royal court",
+    "sample distribution",
+    "scapa",
+    "scoring system",
+    "scot and lot",
+    "seaq",
+    "selective information",
+    "self-enclosed",
+    "semantic memory",
+    "set point",
+    "sewage farm",
+    "sexual assault",
+    "side judge",
+    "sky pilot",
+    "slave state",
+    "speech act",
+    "spewer",
+    "spill over",
+    "spirit rapping",
+    "split run",
+    "standard gauge",
+    "steelman",
+    "step out",
+    "stitching",
+    "straight pin",
+    "streaming",
+    "street value",
+    "suis",
+    "summary judgment",
+    "superhigh frequency",
+    "superoxide dismutase",
+    "swear out",
+    "swing shift",
+    "swore",
+    "tach",
+    "take in charge",
+    "tampering",
+    "tank circuit",
+    "tanned",
+    "tape deck",
+    "teasing",
+    "telco",
+    "telefax",
+    "telephone exchange",
+    "terahertz",
+    "terracing",
+    "thick skin",
+    "time lag",
+    "tinkering",
+    "toll collector",
+    "top executive",
+    "tout ensemble",
+    "transmission density",
+    "treble damages",
+    "trem",
+    "triangular prism",
+    "trip out",
+    "troy ounce",
+    "trust corporation",
+    "turn-off",
+    "turn-on",
+    "turtle dove",
+    "ucla",
+    "ultrahigh frequency",
+    "unassignable",
+    "unced",
+    "underrun",
+    "univ",
+    "unoriented",
+    "unreduced",
+    "unstratified language",
+    "unsubscribe",
+    "upsetting",
+    "upvc",
+    "urban renewal",
+    "urinary hesitancy",
+    "vapor density",
+    "veterinary surgeon",
+    "vocab",
+    "waco",
+    "water cooler",
+    "weaving",
+    "without obligation",
+    "woman about town",
+    "wysiwyg",
+    "yorkie",
+    "zoom in"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "newIndependentReviewByThisScript": false,
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "admissionReceipt": {
+      "file": "tooling/dictionary/examples/queues/batch-0041-admission-receipt.json",
+      "bytes": 10065102,
+      "sha256": "685c5b41379d0dee8da6a2bd559946cd50978279b2ab3b63b164414c3d63745e"
+    },
+    "rows": [
+      {
+        "term": "ABTA",
+        "canonicalId": 5404833,
+        "canonicalSourceSha256": "25374334f6bcdd114e6b866217fc250bfd2717e57df701825242d224f7b61fa9",
+        "receiptPointer": "/rows/4752",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "Acas",
+        "canonicalId": 4048261,
+        "canonicalSourceSha256": "0ee42f24c72147539b53afe8a76ffd1198a6b0dc2c5f711d29dda8a25a7ccfb6",
+        "receiptPointer": "/rows/4680",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Acipenser",
+        "canonicalId": 6932171,
+        "canonicalSourceSha256": "4e20f80112711d398e5b27dabb6a102dbef2010981d52d14178d295e24c64f87",
+        "receiptPointer": "/rows/3931",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "Ackermann",
+        "canonicalId": 6934723,
+        "canonicalSourceSha256": "605a6712f17703ac6cfcfd646cc036a00362449153bfce9a5a3225243e1e3098",
+        "receiptPointer": "/rows/3932",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "Acrostichum",
+        "canonicalId": 6993253,
+        "canonicalSourceSha256": "fcd9a1beaa2cc58b8084dddbf37e9e8631cd64386f766dc98e4e66609d6b4e0f",
+        "receiptPointer": "/rows/3940",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "Amoco",
+        "canonicalId": 5324590,
+        "canonicalSourceSha256": "082792dee2e69fb3c16c095c0ca0357826e866aef7df5f23284ba2e39ae8c591",
+        "receiptPointer": "/rows/4749",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "Anaplasma",
+        "canonicalId": 8140895,
+        "canonicalSourceSha256": "a38b6df0f748940a40e9b191ecccc54fa9e7578e7465ba93a9eabe4ebe533036",
+        "receiptPointer": "/rows/4026",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "Ancylostomum",
+        "canonicalId": 8171542,
+        "canonicalSourceSha256": "31327d3243cd67876e805311112e96505e22da0ac49173e1b210d2b932c730a6",
+        "receiptPointer": "/rows/4034",
+        "existingDecision": "support-original-selected-five-fields-with-separate-editorial-scope-hold"
+      },
+      {
+        "term": "Azeri",
+        "canonicalId": 4516852,
+        "canonicalSourceSha256": "559ab0b3bdc31247bbffe53006ed0451f9ef17345b7361b1c7245687f5484df5",
+        "receiptPointer": "/rows/4710",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "BRAC",
+        "canonicalId": 4611213,
+        "canonicalSourceSha256": "7b20a3ef95b504f0c134c6e33d9b21401d68265d031c913f8e48c5ea1602af2b",
+        "receiptPointer": "/rows/4724",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "Benday",
+        "canonicalId": 10780120,
+        "canonicalSourceSha256": "274d14a5659a30bab29d11cb8610019a3f23b993c8334e00ad74d6ace9b8ecd2",
+        "receiptPointer": "/rows/4327",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "CAPM",
+        "canonicalId": 4600930,
+        "canonicalSourceSha256": "1c2050632997f01525025c5dc2732e8885ed5a2e1bd1b2864dbd55758f709ada",
+        "receiptPointer": "/rows/4722",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "CICS",
+        "canonicalId": 4563535,
+        "canonicalSourceSha256": "07112ebb5b714fdfe13382d283e75646a75ac0d1777c125ee5b58f027689cd85",
+        "receiptPointer": "/rows/4718",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "CMEA",
+        "canonicalId": 4505915,
+        "canonicalSourceSha256": "f37e47d06728f2550986937f5c2d4e32b02ebfe3bbd34ac1bfd8954cc83fda73",
+        "receiptPointer": "/rows/4709",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Caricom",
+        "canonicalId": 4559333,
+        "canonicalSourceSha256": "0e1fd50f195e72f2fbb8169e5beeb468400bb5a5410f8af8abb62e2db9b4362c",
+        "receiptPointer": "/rows/4717",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "DONOGHUE",
+        "canonicalId": 5866122,
+        "canonicalSourceSha256": "c03cd93aee5ecdd8f168e91542f77fddfb25b92814291ab872d8fe1aecc1b09a",
+        "receiptPointer": "/rows/4765",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ERCP",
+        "canonicalId": 4645965,
+        "canonicalSourceSha256": "a0c09ea62d4fb690f2c694e70a696439d9e42ccb2209197c1f4212f96f8e008d",
+        "receiptPointer": "/rows/4729",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "FIFA",
+        "canonicalId": 4067545,
+        "canonicalSourceSha256": "ab6b78643e00fffd81800501335b0d43e682bd376c691abb3f3db27abd719c63",
+        "receiptPointer": "/rows/4681",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "FIMBRA",
+        "canonicalId": 4045090,
+        "canonicalSourceSha256": "37543789358bc22f6f906e98f591a6836005002550fa07919f2fc535352c46ae",
+        "receiptPointer": "/rows/4679",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Hmmm",
+        "canonicalId": 5150492,
+        "canonicalSourceSha256": "25ba4a831d3b10743e4db7e11b544f3f7070eb1c23e0b4d8fee966be0e15fc5e",
+        "receiptPointer": "/rows/4744",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ICRC",
+        "canonicalId": 4531170,
+        "canonicalSourceSha256": "d32d227faa9386fdc8fb56dfa42fca99d8c5a24e4f7ea24d92d3609543b4461b",
+        "receiptPointer": "/rows/4713",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "IRAS",
+        "canonicalId": 4462622,
+        "canonicalSourceSha256": "900c0926554d941b961e1a6c1b6cc81609cd662e9a8ee0813e4de305b7ddf3ad",
+        "receiptPointer": "/rows/4705",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "IRMA",
+        "canonicalId": 6035668,
+        "canonicalSourceSha256": "0ff8ce6446a12ca825fa1b99b67f71b052a10f2dda5107d3dc303756c839074f",
+        "receiptPointer": "/rows/4775",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "LVMH",
+        "canonicalId": 4476098,
+        "canonicalSourceSha256": "5b215140b043b389bcda6402e0f592df39c1403a79e9d6f7d473a4f0bb826cf4",
+        "receiptPointer": "/rows/4707",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Lieut",
+        "canonicalId": 5964368,
+        "canonicalSourceSha256": "14b7906f9354b49cd3833c204e88e3349041785421ce5b17e13a10eec118e515",
+        "receiptPointer": "/rows/4770",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "MITI",
+        "canonicalId": 4241588,
+        "canonicalSourceSha256": "1be8a2b3123fcaa98666f83aaf526e47a5fc537a01fa2e98ff2d367d41245645",
+        "receiptPointer": "/rows/4690",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "MODI",
+        "canonicalId": 4637406,
+        "canonicalSourceSha256": "097d4a8426ea50d65f80fc9bdbce3e11ff57617a95f22a601dd7dcfd0408a831",
+        "receiptPointer": "/rows/4728",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "MOMA",
+        "canonicalId": 4360651,
+        "canonicalSourceSha256": "0b574236136c15e062ed13334c2dc124298741c64da85fe5527e3a8ad0082640",
+        "receiptPointer": "/rows/4699",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Moet",
+        "canonicalId": 5510860,
+        "canonicalSourceSha256": "2546b0c39ad47dc4d170fe1716649409fd691ec4a445373caa38cd72397a299c",
+        "receiptPointer": "/rows/4755",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "NERC",
+        "canonicalId": 4305419,
+        "canonicalSourceSha256": "cc9e0bf8b4cd2c53992471fa317c6790c4fe876868c9e1004f535829c9ffed96",
+        "receiptPointer": "/rows/4694",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "NVOCC",
+        "canonicalId": 4678060,
+        "canonicalSourceSha256": "27eeb162f6a44286a00cf47d381ff4d0f7683a7ee90fcd1f125ba4187debe946",
+        "receiptPointer": "/rows/4734",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "PFLP",
+        "canonicalId": 4500847,
+        "canonicalSourceSha256": "556be99917bc0422415f4eff630a410e77e45c808955385761dbaf33436630a3",
+        "receiptPointer": "/rows/4708",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "PSOE",
+        "canonicalId": 4526220,
+        "canonicalSourceSha256": "90c8065812c35d60744cd5a6759d6455fd893b50e237c50704d1d3af049b3683",
+        "receiptPointer": "/rows/4712",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Reduced Instruction Set Computing",
+        "canonicalId": 12396863,
+        "canonicalSourceSha256": "6ca45b2c169e328dd2065935ff3e360f4446cfe8d888b8174a64d4dad201b495",
+        "receiptPointer": "/rows/4576",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "SEMA",
+        "canonicalId": 4548155,
+        "canonicalSourceSha256": "77cc577deebac3a2662e92ebc9b005592008135549369cdc99a3c2e2cc0d94fd",
+        "receiptPointer": "/rows/4716",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "SSRS",
+        "canonicalId": 4661264,
+        "canonicalSourceSha256": "a92ae1eb6c9d1b3db2a04847445d9269977fa0663723a377a35e60f21cc6fdee",
+        "receiptPointer": "/rows/4731",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "Socal",
+        "canonicalId": 5923249,
+        "canonicalSourceSha256": "31a6584afbcfce1d388f5e8bb368f3cd8c597d09e3a7ebc3946c26caf6463d07",
+        "receiptPointer": "/rows/4767",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "Swapo",
+        "canonicalId": 4279411,
+        "canonicalSourceSha256": "d44cf982919a1fe2fedce9445cb4041a7616364a937a7d170788c36b145e0006",
+        "receiptPointer": "/rows/4691",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "Tues",
+        "canonicalId": 4014402,
+        "canonicalSourceSha256": "ef9ffb2ceac903c56cdc67e34a2b2e7520c046c294a5c719ef8cc34bb698a19b",
+        "receiptPointer": "/rows/4678",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "UNEP",
+        "canonicalId": 4183271,
+        "canonicalSourceSha256": "8a80b7e74e738171e70269661517070af2fdcbb64d8bddc594386e057a5e0979",
+        "receiptPointer": "/rows/4686",
+        "existingDecision": "support-this-actual-child-selected-five-fields"
+      },
+      {
+        "term": "UNFPA",
+        "canonicalId": 4601175,
+        "canonicalSourceSha256": "800f515155d6bcf34e5d3373ac714a2f46aebc069dc339dcd18172b583cbc24a",
+        "receiptPointer": "/rows/4723",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "UNHCR",
+        "canonicalId": 4217863,
+        "canonicalSourceSha256": "4821f01e100ab99683b8b34944df5eeebde3f0ee0bb76fd96d9dd962a3f21a1a",
+        "receiptPointer": "/rows/4689",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "USAID",
+        "canonicalId": 6033557,
+        "canonicalSourceSha256": "c7c1bbda1b199666cc1783a8f4e213c1c351b4015881b67774925354f42a8b2d",
+        "receiptPointer": "/rows/4774",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "WAAF",
+        "canonicalId": 4336878,
+        "canonicalSourceSha256": "14d3707b4e7ad58aea71fdc0c5ebe1c0e244f77544b971abd4386d3e16225b64",
+        "receiptPointer": "/rows/4696",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "WRVS",
+        "canonicalId": 5509703,
+        "canonicalSourceSha256": "6de592d09dd83a2dabf40f73b62dc932a1fda567693a26cea95b25775ef87e41",
+        "receiptPointer": "/rows/4754",
+        "existingDecision": "support-actual-saved-exact-child-five-fields-language-only"
+      },
+      {
+        "term": "aaah",
+        "canonicalId": 5136446,
+        "canonicalSourceSha256": "a7612788c1f53eed448d0f1c5236d97101e36668e1e6b7c95c0cd2a7f3af442a",
+        "receiptPointer": "/rows/4743",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "acacin",
+        "canonicalId": 6770126,
+        "canonicalSourceSha256": "f301611014d70f0a39026cd6ed92d8e8391993cf13edf3d74582a416476dfa88",
+        "receiptPointer": "/rows/3906",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acarbia",
+        "canonicalId": 6784014,
+        "canonicalSourceSha256": "de70f9ec26fe78c09017353e631de72dfcfc75177d6dc21bad94429c82ab9dc2",
+        "receiptPointer": "/rows/3907",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acardia",
+        "canonicalId": 6784336,
+        "canonicalSourceSha256": "d1d18f32bb62b99b2b60cc9ccfba79d7028837a85caba30d90b4b74e800f2833",
+        "receiptPointer": "/rows/3908",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "accounter",
+        "canonicalId": 6815211,
+        "canonicalSourceSha256": "f2fc91704dd601e50918d49c5904198a4daf5bab1f2a825be0ef5cb23561ffbf",
+        "receiptPointer": "/rows/3909",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "accreditee",
+        "canonicalId": 6817706,
+        "canonicalSourceSha256": "902b11c036e6439769110ac44a29f2e1a0c2c53fb1da268bb2b2cc97547dcf9b",
+        "receiptPointer": "/rows/3910",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "accroides",
+        "canonicalId": 6819220,
+        "canonicalSourceSha256": "522af0e99f8381c9052f07938c16d0c19cf2855dcb37e395c86fa0d9b89a4eb4",
+        "receiptPointer": "/rows/3911",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acephalia",
+        "canonicalId": 6833175,
+        "canonicalSourceSha256": "8da6560916efc662cc349fd4faa42d576d8eb5775b6ffa07dc1530d6e45376d5",
+        "receiptPointer": "/rows/3912",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acephalism",
+        "canonicalId": 6833408,
+        "canonicalSourceSha256": "4ca22fb291d399cbb8f86ff93531dc0ae7749d998d76f10cf4ba620c786368bd",
+        "receiptPointer": "/rows/3913",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acephalostomia",
+        "canonicalId": 6835423,
+        "canonicalSourceSha256": "fcd7f33fdb5d9b85dcfd1c9050f6c0a5c724d7b46c864b9f25eb3e8f6c806693",
+        "receiptPointer": "/rows/3914",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acephalostomus",
+        "canonicalId": 6835577,
+        "canonicalSourceSha256": "5b792b9a85822b5b0d4e50ddb9e6765f31beb3feabd1ffea1feb0d981674d68d",
+        "receiptPointer": "/rows/3915",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acephaly",
+        "canonicalId": 6836156,
+        "canonicalSourceSha256": "e0ef3724d938ce79705b056f8d121291b9c8b3565edf14e134898297d6429e8c",
+        "receiptPointer": "/rows/3916",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acerotous",
+        "canonicalId": 6839110,
+        "canonicalSourceSha256": "8d5e2a34d2de8348db589d30ef24036e39fe72b7cf773fa5b4bd81fad0e42d71",
+        "receiptPointer": "/rows/3917",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acerous",
+        "canonicalId": 6839283,
+        "canonicalSourceSha256": "604b2aa938cf7e5fc29a2f05081cd33a94f9527efa3e13c51096cdff9a5f9722",
+        "receiptPointer": "/rows/3918",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acetominophen",
+        "canonicalId": 6856999,
+        "canonicalSourceSha256": "ee1067a38f2cfb4aadb7958312764789c64625c1eeec59576528126f1c56754d",
+        "receiptPointer": "/rows/3919",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acetonitrate",
+        "canonicalId": 6859642,
+        "canonicalSourceSha256": "222dad5f87751513b55f2ae4b1305d6fa742ca2a076004b0c43f2c1628415732",
+        "receiptPointer": "/rows/3920",
+        "existingDecision": "support-actual-saved-exact-child-five-fields-language-only"
+      },
+      {
+        "term": "acetylenetetrachloride",
+        "canonicalId": 6875703,
+        "canonicalSourceSha256": "1ec26285c130f5274eeaacc257f1992f0ff0f4d8cd4b38fa6a8d36892bfc88ba",
+        "receiptPointer": "/rows/3921",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acetylenic",
+        "canonicalId": 6876154,
+        "canonicalSourceSha256": "1fca4996f5f0868dc381eb0376ff16c997b424c815f429b933308571a5a190e9",
+        "receiptPointer": "/rows/3922",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acetylizing",
+        "canonicalId": 6879626,
+        "canonicalSourceSha256": "2cf47dfe35ec77c29f36b62fcb08f9b2bf815027b4c091efb7a49b5c4d4d7bb9",
+        "receiptPointer": "/rows/3923",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acetylketene",
+        "canonicalId": 6879759,
+        "canonicalSourceSha256": "12894b5efa4c971c82aefcb99bf227a87ccf55eef34741490e9909801c164717",
+        "receiptPointer": "/rows/3924",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "achillea",
+        "canonicalId": 6892268,
+        "canonicalSourceSha256": "ce6b0e279d1b6d20590c67b80996c68b2d4edd9a33e374617625d37498c1b9a9",
+        "receiptPointer": "/rows/3925",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "achromasia",
+        "canonicalId": 6902549,
+        "canonicalSourceSha256": "233506702ee9a67bc0f3260f6fbdbdcaa37bb88661c183d22da108fe8e5bb248",
+        "receiptPointer": "/rows/3926",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acid rock",
+        "canonicalId": 10596785,
+        "canonicalSourceSha256": "e7215123c3f2b2452194caf272eb28a6439bc493fe9711dceac863abbfe64fa2",
+        "receiptPointer": "/rows/4301",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "acid-form",
+        "canonicalId": 6913125,
+        "canonicalSourceSha256": "28ceb53c5528d6de27737de6071fd64bf555c29ff6c171fc1914ee7f87d083af",
+        "receiptPointer": "/rows/3927",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acidbutyrometry",
+        "canonicalId": 6916656,
+        "canonicalSourceSha256": "fb16f97a1b862397bf7ee4b6aff3d936a2b051787a212a1dd796a1c4f8122409",
+        "receiptPointer": "/rows/3928",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acidemia",
+        "canonicalId": 6916780,
+        "canonicalSourceSha256": "c867456bb51592d4728a5c7e97cdad88284b753b34faa0be63aa01a71060a4dd",
+        "receiptPointer": "/rows/3929",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acidophil",
+        "canonicalId": 6921784,
+        "canonicalSourceSha256": "7672c9de203f3439af294d59a77554bb55062c68ad2e05b8c807d53adff4da1a",
+        "receiptPointer": "/rows/3930",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acmastic",
+        "canonicalId": 6939796,
+        "canonicalSourceSha256": "62d455c99a29f4fb0250d5ddd9f1e636876e742268e54260332ee4d39bc38542",
+        "receiptPointer": "/rows/3933",
+        "existingDecision": "support-actual-saved-exact-child-five-fields-language-only"
+      },
+      {
+        "term": "acquest",
+        "canonicalId": 6959589,
+        "canonicalSourceSha256": "c95990a7ab6d6196b4841470371986375912dcec3feebd0283eadf2f58f79672",
+        "receiptPointer": "/rows/3934",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acro-agonines",
+        "canonicalId": 6971831,
+        "canonicalSourceSha256": "402a77600fab203855194fb3f5e1b9f33f527268741a26e85d9f5e2b810c82d9",
+        "receiptPointer": "/rows/3935",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acrobrachycephaly",
+        "canonicalId": 6974247,
+        "canonicalSourceSha256": "ac4862b8e84ef80373cfdf5704dc02f21adc4ded1de7e0751387c3884d149823",
+        "receiptPointer": "/rows/3936",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acromiale",
+        "canonicalId": 6984176,
+        "canonicalSourceSha256": "fd5324dac684e3ba636c6f49858088f43ee4344f06fc8b8bb8425e96e049e196",
+        "receiptPointer": "/rows/3937",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acromikria",
+        "canonicalId": 6984379,
+        "canonicalSourceSha256": "637bc566071308f9d0693261fbd8d22fbdad300f387b80002d8f8949b0df744a",
+        "receiptPointer": "/rows/3938",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acronychous",
+        "canonicalId": 6986921,
+        "canonicalSourceSha256": "ff7db7c11eb5bad836e5a1f31e3a92dc976e9acfaab1e162caca1bb113ed2ad1",
+        "receiptPointer": "/rows/3939",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "act of terrorism",
+        "canonicalId": 10600717,
+        "canonicalSourceSha256": "1c488ee5b15b8dc48e7bb544b62ccedc73379234b99fb67aaec51a68a42b9fa9",
+        "receiptPointer": "/rows/4302",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "acter",
+        "canonicalId": 7000840,
+        "canonicalSourceSha256": "2e1c988550dbf9ae697a46bca91c82bc7e8308320fbf6c73558171aafb340c61",
+        "receiptPointer": "/rows/3941",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actinide",
+        "canonicalId": 7005056,
+        "canonicalSourceSha256": "45e2fb669a6e81989000eaa21614fe43289792d2cf5e56ebbda35f6f32eae9af",
+        "receiptPointer": "/rows/3942",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actinodiastase",
+        "canonicalId": 7010297,
+        "canonicalSourceSha256": "9f1836ae09c87f7799698062b59325d9207e9d098716673e567d9d1e740c5f7c",
+        "receiptPointer": "/rows/3943",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actinoerythrin",
+        "canonicalId": 7010914,
+        "canonicalSourceSha256": "8a3707703e0024fdcd0a273cca1f4156014e755276bf20a5720b889c5c6007e7",
+        "receiptPointer": "/rows/3944",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actiones",
+        "canonicalId": 7024295,
+        "canonicalSourceSha256": "34bd21912149a043b71cb5b74b7bc56e05778ca2b0d4868ab83ac7e708cae6ad",
+        "receiptPointer": "/rows/3945",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actotropomyosin",
+        "canonicalId": 7030209,
+        "canonicalSourceSha256": "cea771dee714bcca2e9bfb58a922c020c0e6d2b12341a0d0cbed64577de87393",
+        "receiptPointer": "/rows/3946",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "actus",
+        "canonicalId": 7032331,
+        "canonicalSourceSha256": "ff7a558594f6a72b2b386539bf8505ce33ae7422f06885b4fe0a6385c56a5254",
+        "receiptPointer": "/rows/3947",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acyeterion",
+        "canonicalId": 7041408,
+        "canonicalSourceSha256": "068011af98fc6b7a1d7b870a700cc082ceac76ac622ee214015936f0733a9c49",
+        "receiptPointer": "/rows/3948",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "acyloxy-derivatives",
+        "canonicalId": 7043937,
+        "canonicalSourceSha256": "698066ea5b3a94d1b7aab0313952da64eb479d91e9cd0dadc933fd5441282378",
+        "receiptPointer": "/rows/3949",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "add-on",
+        "canonicalId": 7063158,
+        "canonicalSourceSha256": "d8eb694d8c3b8197389395e65b14e25e16d1f88cd8095fd799c36538a0796e66",
+        "receiptPointer": "/rows/3950",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "additron",
+        "canonicalId": 7070156,
+        "canonicalSourceSha256": "a6e88eb99de8ece98beb3316f5b3251c93402fcb90505d2029cc7011ca7af85b",
+        "receiptPointer": "/rows/3951",
+        "existingDecision": "support-original-selected-five-cells-binding"
+      },
+      {
+        "term": "ader wax",
+        "canonicalId": 10606927,
+        "canonicalSourceSha256": "f8375f6efc6cbb7b376f23b86f9e516cee62ba06d2e0a7e7d46bd7d6f9154965",
+        "receiptPointer": "/rows/4303",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "admiralty brass",
+        "canonicalId": 10609443,
+        "canonicalSourceSha256": "46278cd091922da8ab1629e956aac52205ab3e9329163afbc77814646d3c15bc",
+        "receiptPointer": "/rows/4304",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "admiralty metal",
+        "canonicalId": 10609737,
+        "canonicalSourceSha256": "27d5f9a10f6a29e882ff8655015e1822ed17f0a5a8b628d84991319796ac36ba",
+        "receiptPointer": "/rows/4305",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "affine transformation",
+        "canonicalId": 10614635,
+        "canonicalSourceSha256": "3aba78a4c9454e296756eeff93c347fba387ead4ee7608592d438ff948a8367a",
+        "receiptPointer": "/rows/4306",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "air search radar",
+        "canonicalId": 10622557,
+        "canonicalSourceSha256": "e98e55aee2baff480ad520b5e05d8e28484aaffdc63a6eb20554804c2ca6fb66",
+        "receiptPointer": "/rows/4307",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "alpha test",
+        "canonicalId": 10633833,
+        "canonicalSourceSha256": "04388ef8c8bac343c91dfa031a80988ae135205c771dd83dc0a1fd481122a453",
+        "receiptPointer": "/rows/4308",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "aminobenzoic acid",
+        "canonicalId": 10638710,
+        "canonicalSourceSha256": "798681ee2c587312c6843408edbe689a81eeda597f48ea5ae2da7dcfea4be53c",
+        "receiptPointer": "/rows/4309",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "amlodipine besylate",
+        "canonicalId": 10638744,
+        "canonicalSourceSha256": "44fcdc42f469a92157ac1cc2ede25f12f0c1ef8f5429e941504847b900681070",
+        "receiptPointer": "/rows/4310",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "amnio",
+        "canonicalId": 5639583,
+        "canonicalSourceSha256": "393949e3d6de88460f762b799a2258e0934a855f2651d0555db190b415fceccf",
+        "receiptPointer": "/rows/4758",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anaphylaxin",
+        "canonicalId": 8140106,
+        "canonicalSourceSha256": "2b4dacbf84d0c1c81cd8105f526eca2c98ec9b657fc8713a5c7e33c3add4b1ee",
+        "receiptPointer": "/rows/4025",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anaplasmosis",
+        "canonicalId": 8141130,
+        "canonicalSourceSha256": "f585a71aa32364dbd55aa8d8d38f5618682518a73554940148335b9de519cb37",
+        "receiptPointer": "/rows/4027",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anaplastic",
+        "canonicalId": 8141411,
+        "canonicalSourceSha256": "db6987e6cd2ad3ddc78ab2a9957fe07dffde1288f8bb7fcf342ca539a74ba479",
+        "receiptPointer": "/rows/4028",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anatriptic",
+        "canonicalId": 8156990,
+        "canonicalSourceSha256": "97065d4464cd30536ea13759071520c36049d998d93c058fe33acc6b4cdf0a80",
+        "receiptPointer": "/rows/4029",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anatrophic",
+        "canonicalId": 8157156,
+        "canonicalSourceSha256": "a728dee7905c8a01365e0ff3d19b1583bfc0962df6d7a9dad8b837da0628170f",
+        "receiptPointer": "/rows/4030",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anaudia",
+        "canonicalId": 8157834,
+        "canonicalSourceSha256": "2678bf18d61a86c4688e903611475fc0810eeb9167bea0478af2b2fe406e3520",
+        "receiptPointer": "/rows/4031",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anchone",
+        "canonicalId": 8162079,
+        "canonicalSourceSha256": "831e9587703252e2bcefed14bf4cb2cf913df6d344d17feff2909be7038ee322",
+        "receiptPointer": "/rows/4032",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anconad",
+        "canonicalId": 8168031,
+        "canonicalSourceSha256": "0bc07f87576eb95485afb372ad2f54435297861a3453a3f8d0f57e930ab1f218",
+        "receiptPointer": "/rows/4033",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "andf",
+        "canonicalId": 4672064,
+        "canonicalSourceSha256": "a62947ed7c9a4632052ab01456afe81b0ea11a02d1c557ecde97742fdde34ac2",
+        "receiptPointer": "/rows/4733",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "androcyte",
+        "canonicalId": 8187890,
+        "canonicalSourceSha256": "4fdba164b00aac91f327e9a1b23e19635fd4c278c0d7f2293ca1393126cf30b8",
+        "receiptPointer": "/rows/4035",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "androecium",
+        "canonicalId": 8188362,
+        "canonicalSourceSha256": "f31013b4c68e59616fb2abee2e591d48c01f97a77791f7c5dedc953c8ad5114a",
+        "receiptPointer": "/rows/4036",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "androgynus",
+        "canonicalId": 8191353,
+        "canonicalSourceSha256": "4dc71f645c898ff3ea8abfbedb475c48da218e2ee5b8d71404fc172a4c651ca1",
+        "receiptPointer": "/rows/4037",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "andrometoxin",
+        "canonicalId": 8193221,
+        "canonicalSourceSha256": "be29f2b4465e8f33fcecd67a14665f56aaa7afae4bcf3fab20c37a8c3b103ec4",
+        "receiptPointer": "/rows/4038",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "androstanedion",
+        "canonicalId": 8196294,
+        "canonicalSourceSha256": "b154e9c043be103080dab2a1ad57722f556b45af188e6b4a6aa1b9ed4051995e",
+        "receiptPointer": "/rows/4039",
+        "existingDecision": "support-original-selected-five-fields-with-separate-editorial-scope-hold"
+      },
+      {
+        "term": "anelectrotonic",
+        "canonicalId": 8202391,
+        "canonicalSourceSha256": "04ccc275f0ecfba73d89cb1a46dfaaa985e22d5aff8bf2e650fc34b9de690d01",
+        "receiptPointer": "/rows/4040",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anemopathy",
+        "canonicalId": 8207217,
+        "canonicalSourceSha256": "ddd54dd25710d2123b3dbf652e04b037283e922605bec17b6b7a40fc3ba4814c",
+        "receiptPointer": "/rows/4041",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anemotrophy",
+        "canonicalId": 8208803,
+        "canonicalSourceSha256": "1ae02a289965ffed2ad57633000d9fad0959ffbb439a68c8bd02414fdb961158",
+        "receiptPointer": "/rows/4042",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anemydria",
+        "canonicalId": 8209267,
+        "canonicalSourceSha256": "9b0c047bf09935fe05692b6b134df0a48c6359c10c97a40de21f449fa63a076c",
+        "receiptPointer": "/rows/4043",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "aneosinophilia",
+        "canonicalId": 8211502,
+        "canonicalSourceSha256": "841878680a059ba75f34773d8af0ecd24a675b4a35bef4b4a8758bf6079927b4",
+        "receiptPointer": "/rows/4044",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anerethisia",
+        "canonicalId": 8212614,
+        "canonicalSourceSha256": "4e25a329a02960c4900be08cc03d2c885463ecc51a9bc967f1e35a45356b8817",
+        "receiptPointer": "/rows/4045",
+        "existingDecision": "support-original-selected-five-fields-language-only"
+      },
+      {
+        "term": "anti-JH",
+        "canonicalId": 8463234,
+        "canonicalSourceSha256": "2a145af4b66b28867792fa43ea793735e90a54046b3fca2d6cb6388419a421f3",
+        "receiptPointer": "/rows/4183",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-creeper",
+        "canonicalId": 8450058,
+        "canonicalSourceSha256": "55dfb60fbb8180c1ab2238d2c5e056590d5c117ca5aa9592394df123de31660e",
+        "receiptPointer": "/rows/4173",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-fluctuator",
+        "canonicalId": 8455213,
+        "canonicalSourceSha256": "171807369e7ebab0ad031f326d195d2fd93ad3bd306d83b616e4e52b99c41726",
+        "receiptPointer": "/rows/4174",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-flux",
+        "canonicalId": 8455391,
+        "canonicalSourceSha256": "e1468888fbc52003a4dca369ccfbfcd4a610d9ec47a51863ef40d0b81f398894",
+        "receiptPointer": "/rows/4175",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-icteric",
+        "canonicalId": 8459959,
+        "canonicalSourceSha256": "8ff3e8f60979f99b1f72fe352c20753591fda48373c571c8c40b2f00b7e5bd0c",
+        "receiptPointer": "/rows/4176",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-immune",
+        "canonicalId": 8460501,
+        "canonicalSourceSha256": "db2e5db6824698f6dfa8d8bef6cbed0d710f805f9d1524b165896a730c6da2a1",
+        "receiptPointer": "/rows/4177",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-incrustator",
+        "canonicalId": 8460814,
+        "canonicalSourceSha256": "c2fa1f8a48ad0f250a271fbf9738330cfaef8fd628fefa940efc6e7c0537c85b",
+        "receiptPointer": "/rows/4178",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-induction",
+        "canonicalId": 8461039,
+        "canonicalSourceSha256": "2d3b7fd647851bf3886c5e9bbe8159ab656aeb1c735b6f1d8e3f1bc3b46a43f9",
+        "receiptPointer": "/rows/4179",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-inflammatory",
+        "canonicalId": 8461549,
+        "canonicalSourceSha256": "0dae96dd28f8289773f30e5c3a28981b47efd2e79cade2c94d48a80898f58a38",
+        "receiptPointer": "/rows/4180",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-insulin",
+        "canonicalId": 8461974,
+        "canonicalSourceSha256": "fd503a0b8c43e8d3e54a7dd57f23e1c4673f76a238b5d2824b135e0e57760a7b",
+        "receiptPointer": "/rows/4181",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-isolysin",
+        "canonicalId": 8462596,
+        "canonicalSourceSha256": "dd3d31c9b21eba16fc7751960b6515bc95f347e1b82524ade6cc21f7e6154d84",
+        "receiptPointer": "/rows/4182",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-oxidation",
+        "canonicalId": 8466787,
+        "canonicalSourceSha256": "8ee53671f080ffc102d5ebc125be127da265691049183e69d0b95d4ac5ac6588",
+        "receiptPointer": "/rows/4184",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-pollution",
+        "canonicalId": 8468546,
+        "canonicalSourceSha256": "e2ebb44e03284a95f37a2405d0c78be1febfcf728511b9f99d53419c3f50c5f8",
+        "receiptPointer": "/rows/4185",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-rattler",
+        "canonicalId": 8470568,
+        "canonicalSourceSha256": "725ec7e16b91710c75dcc0fe81c25fd88fe1ae20328d0a03ba6ce101e60f769a",
+        "receiptPointer": "/rows/4186",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-regular",
+        "canonicalId": 8471116,
+        "canonicalSourceSha256": "4c708910a661b8e7e0eb8b59bb54483da94c5666a679e03203a117675bc44826",
+        "receiptPointer": "/rows/4187",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-rumble",
+        "canonicalId": 8472517,
+        "canonicalSourceSha256": "cf40664b7ae4d0a346ca244a6927bd5085132fa0ccf08bbeea5d980b3516d90f",
+        "receiptPointer": "/rows/4188",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anti-squeak",
+        "canonicalId": 8475818,
+        "canonicalSourceSha256": "2d730cdb2fdcc79d847a4fea11e431d63ebd1de03aa713f5d62f766fc53b1d97",
+        "receiptPointer": "/rows/4189",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antialbumin",
+        "canonicalId": 8483803,
+        "canonicalSourceSha256": "dd943c2a3d6d265fef6c6671a9d5120c0dd2112c8e744ff7659a94ebbecebdfb",
+        "receiptPointer": "/rows/4190",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antialbumose",
+        "canonicalId": 8484057,
+        "canonicalSourceSha256": "258e40e126b1834720d86c3e4a64033be34ad1d3b51f4e61d3f79497b6b83cc5",
+        "receiptPointer": "/rows/4191",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antiamebic",
+        "canonicalId": 8485152,
+        "canonicalSourceSha256": "7fa9ee36299645fde518b5842568e0dd52c47a1c956f0cc791d93921df0b68da",
+        "receiptPointer": "/rows/4192",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antiamylase",
+        "canonicalId": 8485309,
+        "canonicalSourceSha256": "c73b335a3796447121992e29658c9811e5200adaa7cfe06aa2cd482c5ec2c86b",
+        "receiptPointer": "/rows/4193",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antianemin",
+        "canonicalId": 8486267,
+        "canonicalSourceSha256": "a767c28d32589d86f2e8c77c492d546d783aded67b1c4bd30b0f9ce932ca63b0",
+        "receiptPointer": "/rows/4194",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antiantidote",
+        "canonicalId": 8486959,
+        "canonicalSourceSha256": "3c9f474fdfcd65dbae4b37803cd20710ae79e2674efe60b7799e427359c864b0",
+        "receiptPointer": "/rows/4195",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antiattrition",
+        "canonicalId": 8490019,
+        "canonicalSourceSha256": "b2e1bf2426a516bc70bc4aeea1921055697b1507d07eb24c37dbd8bf5de16ec2",
+        "receiptPointer": "/rows/4196",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antibacklash",
+        "canonicalId": 8491234,
+        "canonicalSourceSha256": "1673af2235272bbc2a4a3aa74179f2b4375287fd222e16a9b03d8e47506e1f0f",
+        "receiptPointer": "/rows/4197",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antibioticogram",
+        "canonicalId": 8492479,
+        "canonicalSourceSha256": "930e606e924b3e03cd02966ca260bc00d643dbc9a7880975b0f586c2b487adb5",
+        "receiptPointer": "/rows/4198",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antiblastin",
+        "canonicalId": 8493186,
+        "canonicalSourceSha256": "69a087d91063a2ec675490e7d134d21d8b3f0979aa25b98dba87a8e0bd0ce08d",
+        "receiptPointer": "/rows/4199",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antibond",
+        "canonicalId": 8493956,
+        "canonicalSourceSha256": "44c2e78d7aaecc6c4be72d3406c2b34951b878a9a2502f68e4c7e9ae08d563c2",
+        "receiptPointer": "/rows/4200",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antibugging",
+        "canonicalId": 8495218,
+        "canonicalSourceSha256": "91a2e1811930ec7103b41f4263ed09a9c3cb62a8b0d1dd452b72ab74ede17e0c",
+        "receiptPointer": "/rows/4201",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antichresis",
+        "canonicalId": 8501808,
+        "canonicalSourceSha256": "429b5d629df9f3bb986fef2593bbe66eec8353b6ef097778fc03f187cebdeaf0",
+        "receiptPointer": "/rows/4202",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "anticoherer",
+        "canonicalId": 8505617,
+        "canonicalSourceSha256": "68866262196836c49a41913db0ce82ddb45471f385a1b0488ebc20e6fb85e760",
+        "receiptPointer": "/rows/4203",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "antigenic determinant",
+        "canonicalId": 10659098,
+        "canonicalSourceSha256": "d3f0521e9299bb323e9fb329c9132c339fd10d3df288d1b1a7e75efbf97069e2",
+        "receiptPointer": "/rows/4311",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "arity",
+        "canonicalId": 10672122,
+        "canonicalSourceSha256": "00360cec5d1b118198749398a3f8f1253433b2db5d86ba2189ee6458c588b945",
+        "receiptPointer": "/rows/4312",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "arte",
+        "canonicalId": 4210109,
+        "canonicalSourceSha256": "45d4a1b57b79d361fb32396375e5fd46be370ea5735faaedf542404a03d774ed",
+        "receiptPointer": "/rows/4688",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "arti",
+        "canonicalId": 4986201,
+        "canonicalSourceSha256": "d222064bc6b16d85f010db2749b27554cb86c8e61acc138aa51e79bea4938848",
+        "receiptPointer": "/rows/4740",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "asean",
+        "canonicalId": 4360239,
+        "canonicalSourceSha256": "f819fead857cfadf138baeaec516e4bbf3d14d8e92f87df4058f04a29bec929b",
+        "receiptPointer": "/rows/4698",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "aspheric",
+        "canonicalId": 10692850,
+        "canonicalSourceSha256": "a8191d7bb3959325d5c303391c5eb3211b6499b9e05aedd773256f3e63701767",
+        "receiptPointer": "/rows/4313",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "asyndetic",
+        "canonicalId": 10696427,
+        "canonicalSourceSha256": "6ae04be7a33b7f56a2742df72a53fe1ccfe4389899f4e8ca77fbfc957354f333",
+        "receiptPointer": "/rows/4314",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "athlete's heart",
+        "canonicalId": 10697362,
+        "canonicalSourceSha256": "03cd68ee804c37a6d3330a961139be99bf665b5399977e75d2dd9847f6a457b0",
+        "receiptPointer": "/rows/4315",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "authenticator",
+        "canonicalId": 10707944,
+        "canonicalSourceSha256": "487f92eaab83d35bbb0b504344a94f472368321c51405844119f34aa09495758",
+        "receiptPointer": "/rows/4316",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "authoring language",
+        "canonicalId": 10708140,
+        "canonicalSourceSha256": "25e1e50b9467ce56f8a272733c10a09a51abc2c9b198d3fb6fd123132b53349e",
+        "receiptPointer": "/rows/4317",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "autocoid",
+        "canonicalId": 10709693,
+        "canonicalSourceSha256": "a9fe7c17f348bc1ad632018eb52d6bf74dfc61306c1adc72dd8f0a69bac94e60",
+        "receiptPointer": "/rows/4318",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "avec",
+        "canonicalId": 5046390,
+        "canonicalSourceSha256": "6fe92f45b2175c7cd6a596d960401103ec22fd55f48e55396d77ae8af00be587",
+        "receiptPointer": "/rows/4741",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "back porch",
+        "canonicalId": 10721300,
+        "canonicalSourceSha256": "f4ec6f31a0010ec4ad3fee079b64acc6d071b715f20bfd8a62b5c2ce984d4ac7",
+        "receiptPointer": "/rows/4319",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "backplate",
+        "canonicalId": 10722954,
+        "canonicalSourceSha256": "174e1680d76ae395b332897d0444c824d1f88c3716ceb8092d0d95ced535e27d",
+        "receiptPointer": "/rows/4320",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bad hat",
+        "canonicalId": 10724837,
+        "canonicalSourceSha256": "1797f8818dbf22505f30ff2adf4135d15bec6b98c51d8035086a36aa90917800",
+        "receiptPointer": "/rows/4321",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bafta",
+        "canonicalId": 5686061,
+        "canonicalSourceSha256": "f9e7e6ed7d4d351a0704a6fbd06e5f77056728e624535d92b7fa8c838adb5f6d",
+        "receiptPointer": "/rows/4760",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ballistic trajectory",
+        "canonicalId": 10730505,
+        "canonicalSourceSha256": "97941cc6b1fcd5e51afe4dfeb2e5007735243316cfce86f0fd28863e55cead3f",
+        "receiptPointer": "/rows/4322",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "banker's bill",
+        "canonicalId": 10737083,
+        "canonicalSourceSha256": "3ea33838e0b9440404c44fba7bfb712c0cfaf2b325d963010a43bcb2c61c542c",
+        "receiptPointer": "/rows/4323",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "banker's check",
+        "canonicalId": 10737170,
+        "canonicalSourceSha256": "65822532f74653f9b8bd084a7d9d4c5de6f7d54fe586436dfe4af867f8c3a475",
+        "receiptPointer": "/rows/4324",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "barky",
+        "canonicalId": 10741358,
+        "canonicalSourceSha256": "9015de4f12630617ae776def60670394c796b12f0f9a4adf5a68b08801df4fbe",
+        "receiptPointer": "/rows/4325",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "barter away",
+        "canonicalId": 10744281,
+        "canonicalSourceSha256": "45cb71a75dc56051807f36826ed5c692c58513dccca5f4f00eddaaf14d43434b",
+        "receiptPointer": "/rows/4326",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "beta test",
+        "canonicalId": 10784453,
+        "canonicalSourceSha256": "6e52b53315bc55bbae33abbf054cac09515a71b999ec94440c09b67e2a57d0bc",
+        "receiptPointer": "/rows/4328",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bett",
+        "canonicalId": 5981112,
+        "canonicalSourceSha256": "8e067f029687505b02de1c58afdb3d69467a02a22434430596111b821f5803c1",
+        "receiptPointer": "/rows/4772",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bfgf",
+        "canonicalId": 4654612,
+        "canonicalSourceSha256": "91d0f273483d43ed6a5ef07b8fbaf03ad9d01cf2344b572de1a02d266ff4af9a",
+        "receiptPointer": "/rows/4730",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bill of review",
+        "canonicalId": 10791015,
+        "canonicalSourceSha256": "d56cb79580a4ae7aa5c1d72978aa566c1588cc20ef6810cfc5d687cfb831a27e",
+        "receiptPointer": "/rows/4329",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bird nest",
+        "canonicalId": 10798568,
+        "canonicalSourceSha256": "0915461bac7b80f5840bc6273282bc83fd1f238357ea3df11c2e6e8060ef9688",
+        "receiptPointer": "/rows/4330",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bishop's cap",
+        "canonicalId": 10802294,
+        "canonicalSourceSha256": "99873ed97ef67044f83ef286b41d757bbec9ad2eb4a7afdf42704962480e8704",
+        "receiptPointer": "/rows/4331",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "blae",
+        "canonicalId": 10818177,
+        "canonicalSourceSha256": "873697ce0100b28ebb4fd9b0713604705de35173fa3843a19f0123878cfaa031",
+        "receiptPointer": "/rows/4332",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "blow gas",
+        "canonicalId": 10827612,
+        "canonicalSourceSha256": "dae002e551ead3c1ba51385d702c05cb4b12b49b235be82ee77d96d9733972a7",
+        "receiptPointer": "/rows/4333",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bone black",
+        "canonicalId": 10843468,
+        "canonicalSourceSha256": "cfcb5414cc9583735c70cefd8aa133311a2bdf203d65b7c8a51e2b9f15a39644",
+        "receiptPointer": "/rows/4334",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "boost up",
+        "canonicalId": 10847305,
+        "canonicalSourceSha256": "b0255e72b00d412bf4139460441326053d1b82abc87d461808eba88e9ad87bd1",
+        "receiptPointer": "/rows/4335",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "brane",
+        "canonicalId": 4796425,
+        "canonicalSourceSha256": "42da94f400d56a8ee3b39480a55e9665c33f7850ea0f80fd91ec7bfa395ab690",
+        "receiptPointer": "/rows/4737",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "briefcase computer",
+        "canonicalId": 10872148,
+        "canonicalSourceSha256": "7f5c8137df99ec2fa23531b3d7e924ad979eee3616319865d70e8810984379db",
+        "receiptPointer": "/rows/4336",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "buffing wheel",
+        "canonicalId": 10885483,
+        "canonicalSourceSha256": "ac825bb641c44b6766167cb0f5d6316f1e81874fed62685592deb1aa0961f449",
+        "receiptPointer": "/rows/4337",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bull's eye",
+        "canonicalId": 10888759,
+        "canonicalSourceSha256": "9157e14fe09a7888db3591b166f0498c3c736c3278b8cd2dff7597b0d2e65ef3",
+        "receiptPointer": "/rows/4338",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "bus traffic",
+        "canonicalId": 10896456,
+        "canonicalSourceSha256": "f80a42cd64f2d7169a8ac80725edfbc38e5966291dc5f8183a83c975f0bde835",
+        "receiptPointer": "/rows/4339",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "butt end",
+        "canonicalId": 10902909,
+        "canonicalSourceSha256": "f510454fbacf17357725aaace9147c896a937dc699fefb55b9b4e08a40a92f80",
+        "receiptPointer": "/rows/4340",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "buy back",
+        "canonicalId": 10905630,
+        "canonicalSourceSha256": "3814bf82c4c4b35c6aeef48b571465dfc52a5f8d384e2a6d6f6676d56c4f7ebe",
+        "receiptPointer": "/rows/4341",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "caddis fly",
+        "canonicalId": 10910824,
+        "canonicalSourceSha256": "e24042ead1a2168c174ecbb00573e8eb74a043585d83235806c0b560d0b4586f",
+        "receiptPointer": "/rows/4342",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cadmium cell",
+        "canonicalId": 10911029,
+        "canonicalSourceSha256": "bb41bfcc50a2064c5e630a63a01a9e560634d4ebf78b4a4328600d1794a2c696",
+        "receiptPointer": "/rows/4343",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "calefaction",
+        "canonicalId": 10913858,
+        "canonicalSourceSha256": "4420d6253c015aed2e42551329d14ce32c6f45d259b412739eef826da065cca4",
+        "receiptPointer": "/rows/4344",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "call-out",
+        "canonicalId": 10916560,
+        "canonicalSourceSha256": "1851d7a429dcc1ecc415bd07b61cfd79d29afec569f0432e625f1d27fdfde7e9",
+        "receiptPointer": "/rows/4345",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cami",
+        "canonicalId": 5477407,
+        "canonicalSourceSha256": "6dabe4011e89013ac8d4e895735ffe844cda2d4243c7d91609a54238fbae28d3",
+        "receiptPointer": "/rows/4753",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "camphor ball",
+        "canonicalId": 10919150,
+        "canonicalSourceSha256": "6e2f58ae7d831a850218a955738cb3955e5b4d6f25cc6425ca819986da7c80ab",
+        "receiptPointer": "/rows/4346",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "candlepower",
+        "canonicalId": 10922193,
+        "canonicalSourceSha256": "9dee7ce43d95ef8df228868d3acc4e0a34c5e6e9e0c145ba4ea6b58a631f9824",
+        "receiptPointer": "/rows/4347",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "canine distemper",
+        "canonicalId": 10923388,
+        "canonicalSourceSha256": "b2a61f11396888898c7aafe7a0a736e8bc2265c4fe235f07bac3fb3ebd178b08",
+        "receiptPointer": "/rows/4348",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "capacity measure",
+        "canonicalId": 10926177,
+        "canonicalSourceSha256": "01b05a96ce5b2fb1e442e46350e44d5721c35a0cefa08e79068626da89549e8f",
+        "receiptPointer": "/rows/4349",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "captive finance company",
+        "canonicalId": 10928932,
+        "canonicalSourceSha256": "a4734891abd3f3ec776dd4d02158bc8d76e3d557a9874bc58fe6d147b61c3e79",
+        "receiptPointer": "/rows/4350",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "carboxymethyl cellulose",
+        "canonicalId": 10932520,
+        "canonicalSourceSha256": "1404e177e92bd73b939e039a7d4b76ab42b761b4267da7a9998498e2db2794b3",
+        "receiptPointer": "/rows/4351",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cardiac monitor",
+        "canonicalId": 10933772,
+        "canonicalSourceSha256": "f9cfe84d71c3f9f2bdfef2c4ba109e482a55218f345b7fa2b2035aef39e47e0e",
+        "receiptPointer": "/rows/4352",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "carry-over",
+        "canonicalId": 10943421,
+        "canonicalSourceSha256": "42355a430d91195d475a8fa1d964bf04d61b963550653256acd3072b3907f679",
+        "receiptPointer": "/rows/4353",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "carrying charge",
+        "canonicalId": 10943556,
+        "canonicalSourceSha256": "25fa32e266768f9e1afdc67409d028f16ca158778e8f8f5563f98f27b67ca424",
+        "receiptPointer": "/rows/4354",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cash out",
+        "canonicalId": 10948922,
+        "canonicalSourceSha256": "1a12486ba8062737a0cd1d5dddb7f6942ae949adf2fbd362166f23336d5b21b1",
+        "receiptPointer": "/rows/4355",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cass",
+        "canonicalId": 4351751,
+        "canonicalSourceSha256": "c83e65dcd0a7996a41f247cf8743cf53be348c1fd1ddf8c8df5189ea53b90c7d",
+        "receiptPointer": "/rows/4697",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "cat's eye",
+        "canonicalId": 10952324,
+        "canonicalSourceSha256": "b542b4cc5a00d526ddd3a11017adabc7a3e10ef776d620a17f8da14aa8ff1789",
+        "receiptPointer": "/rows/4356",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cataloged procedure",
+        "canonicalId": 10952592,
+        "canonicalSourceSha256": "d5baee4418c8800046ff10a1147c29b556dc6399af12278d00c403f7a185754e",
+        "receiptPointer": "/rows/4357",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cataract surgery",
+        "canonicalId": 10952923,
+        "canonicalSourceSha256": "38f402dc36f2450715fd6f4a7d3cdc5eee01f47ca38a1419af806ec060cbbef7",
+        "receiptPointer": "/rows/4358",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "celestial guidance",
+        "canonicalId": 10960329,
+        "canonicalSourceSha256": "1013dfc14278f89e2a924ecd3f959682cce1db4c6d9edd921d16034443ea5c47",
+        "receiptPointer": "/rows/4359",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "center punch",
+        "canonicalId": 10964716,
+        "canonicalSourceSha256": "3a48f3fc7229371c8ebada28394d938a096f382813db90682361c5af4289b482",
+        "receiptPointer": "/rows/4360",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ceri",
+        "canonicalId": 5128868,
+        "canonicalSourceSha256": "d71ed0b371a95822efd1a8ef48d9c3013c3cc982b5daddb1d07545654a62caaf",
+        "receiptPointer": "/rows/4742",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "chance variable",
+        "canonicalId": 10973951,
+        "canonicalSourceSha256": "540aac8f34257fdbfbd9ad02d48d5c1d81742d09aff13a10eca7979fb16a78e1",
+        "receiptPointer": "/rows/4361",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "character reference",
+        "canonicalId": 10976045,
+        "canonicalSourceSha256": "b15920d3a465c37e7edbd0a87da9b082503193329c011972beb5d887ec72ccea",
+        "receiptPointer": "/rows/4362",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "chem",
+        "canonicalId": 4363220,
+        "canonicalSourceSha256": "5b53f6c7f27bca2531c71bc380b532bb48b9e9833efcb63f4ee93f944abc1f04",
+        "receiptPointer": "/rows/4700",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "chemin de fer",
+        "canonicalId": 10983971,
+        "canonicalSourceSha256": "cb20452bca57b92f1c6258a78aa9efac64c1ec52e10184745878b30e846ce7fd",
+        "receiptPointer": "/rows/4363",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cherry red",
+        "canonicalId": 10985231,
+        "canonicalSourceSha256": "6698f0dc589a628a4ab83d8b309a8bca242ad145fc97d195c104691fd46025ec",
+        "receiptPointer": "/rows/4364",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "cherry tree",
+        "canonicalId": 10985520,
+        "canonicalSourceSha256": "f02b358e7401a7b501751555c7801e29d5107e35ea5998ef4bd1840a5df44b6d",
+        "receiptPointer": "/rows/4365",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "chief operating officer",
+        "canonicalId": 10991351,
+        "canonicalSourceSha256": "659e73b7a8814a0875a80aeb36250fd0035c578ae6b4e722c4ba76c3664b0e1a",
+        "receiptPointer": "/rows/4366",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "circulating library",
+        "canonicalId": 11010317,
+        "canonicalSourceSha256": "5f5a857c2d155b78bab634bf303c988d73782a81ce142045683c27335e93c90a",
+        "receiptPointer": "/rows/4367",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "civil order",
+        "canonicalId": 11015952,
+        "canonicalSourceSha256": "fe013d666816dc3e63e33da5d24cb4b180691aff22db3e7eb23bb9cc55d98fdf",
+        "receiptPointer": "/rows/4368",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "clandestine operation",
+        "canonicalId": 11017672,
+        "canonicalSourceSha256": "26f48e5c686a5c73aae41004a128e81ca18701cf2dda20fe55695a13d991951e",
+        "receiptPointer": "/rows/4369",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "click-clack",
+        "canonicalId": 11023710,
+        "canonicalSourceSha256": "75361fa4eb2613bea660a85d195636abc339d03353a98c9486023f86010d5341",
+        "receiptPointer": "/rows/4370",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "column inch",
+        "canonicalId": 11055677,
+        "canonicalSourceSha256": "7a35e822e262dadc1c285ec21ef6fe641403bc8cc45af8b0c2d455ded27e713a",
+        "receiptPointer": "/rows/4371",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "comdex",
+        "canonicalId": 4535915,
+        "canonicalSourceSha256": "79901d4d94a4177e46832009fb09bc0e404bd602aa06b303193742f36dc79077",
+        "receiptPointer": "/rows/4715",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "cong",
+        "canonicalId": 5703364,
+        "canonicalSourceSha256": "908509a123d0731a43a09a22ca2bcbd15abd373665b7c41babf5abdbca96e486",
+        "receiptPointer": "/rows/4761",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "creb",
+        "canonicalId": 4670855,
+        "canonicalSourceSha256": "f48fd822ab9b13400ad2042a1e331867595d7c98560466cc741d63fb7f81f183",
+        "receiptPointer": "/rows/4732",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "dama",
+        "canonicalId": 4177920,
+        "canonicalSourceSha256": "fa9df0e8dae8f3a59ca3fbf42d08860b15a9e63e34ef7b59c15098675a93a3c5",
+        "receiptPointer": "/rows/4685",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "ecsc",
+        "canonicalId": 4578343,
+        "canonicalSourceSha256": "dbc55453ac37d021dcbf196202125cd4a980b3aa018c78332ef61e82a669b54c",
+        "receiptPointer": "/rows/4720",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "emap",
+        "canonicalId": 5956886,
+        "canonicalSourceSha256": "16c081809fed047c66a908d7fa72457692a18378c485d1db2c7831213d5f5468",
+        "receiptPointer": "/rows/4769",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "empath",
+        "canonicalId": 5176800,
+        "canonicalSourceSha256": "8eb56c4f9cc75174615a540319d10e01a781ce1c1a2d453e2d45af3289e6b061",
+        "receiptPointer": "/rows/4745",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "exhaust hood",
+        "canonicalId": 11362325,
+        "canonicalSourceSha256": "8a06501e7e20d712ba3e5da55572303998937b34052e383c5594602a9c6188d4",
+        "receiptPointer": "/rows/4421",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "exhaust system",
+        "canonicalId": 11362782,
+        "canonicalSourceSha256": "9d7a587c82a7bbe2c0fd7ce922de6a9dd95a0b2ecfa72a17f877ff61f66f5f77",
+        "receiptPointer": "/rows/4422",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "exotherm",
+        "canonicalId": 11364069,
+        "canonicalSourceSha256": "44131f23ff7c202da89b764248c4b5afc9c5b4df5e98714fb20687d7b7d8b723",
+        "receiptPointer": "/rows/4423",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "expansion bolt",
+        "canonicalId": 11364369,
+        "canonicalSourceSha256": "e1ac9d3444182aec0f2b28a384863dbaed45523b310784a4becd25509ba0fe79",
+        "receiptPointer": "/rows/4424",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "extension cord",
+        "canonicalId": 11369726,
+        "canonicalSourceSha256": "24a8be193c5c7cd1a95003914955155ab089ec2d755553b9fa542018eb33df28",
+        "receiptPointer": "/rows/4425",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "external storage",
+        "canonicalId": 11371723,
+        "canonicalSourceSha256": "a376d8fdefa527ca79869bb326487e53ca7993f311ca13445efe9490ef9d9678",
+        "receiptPointer": "/rows/4426",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "extremely low frequency",
+        "canonicalId": 11373184,
+        "canonicalSourceSha256": "cf7ec501e8a5f8f42f41e395226460aded78f90b5f5c7f73c01239cc2eacc4a3",
+        "receiptPointer": "/rows/4427",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "fair deal",
+        "canonicalId": 11380859,
+        "canonicalSourceSha256": "619565a00c8929ba60c3fdbd7daad0d4d7c4949be3b6e75a010b46f38d681965",
+        "receiptPointer": "/rows/4428",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "falling out",
+        "canonicalId": 11384124,
+        "canonicalSourceSha256": "3c898a0cf3c27fd0f30a21b0cb346ef464cdae22e8d9540cd4c7783d31e7abe5",
+        "receiptPointer": "/rows/4429",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "fatal accident",
+        "canonicalId": 11393830,
+        "canonicalSourceSha256": "cb9a6980a43b9d343ecb737690775c27803c5d5dde36003f9a069137a12833a9",
+        "receiptPointer": "/rows/4430",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "finger plate",
+        "canonicalId": 11424192,
+        "canonicalSourceSha256": "bd9bf0ba09ac1350f9e19d9d3ad3829e5796e07368934f1344119612fcd23ead",
+        "receiptPointer": "/rows/4431",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "firing range",
+        "canonicalId": 11429803,
+        "canonicalSourceSha256": "47975a82ba31132a97672762ffd08393f2479eca02a90026a7e8326be8004ed4",
+        "receiptPointer": "/rows/4432",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "flow off",
+        "canonicalId": 11455388,
+        "canonicalSourceSha256": "bab67dc8561df823d2c1858be95b29a405fe3624e22ed5f426ceef61190fc244",
+        "receiptPointer": "/rows/4433",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "fly sheet",
+        "canonicalId": 11462545,
+        "canonicalSourceSha256": "aa90d31a0d6189d1cd2bc57881cc29b534ccbcae1241602e2a6018222abeb038",
+        "receiptPointer": "/rows/4434",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "foreign agent",
+        "canonicalId": 11475394,
+        "canonicalSourceSha256": "99986d366f6087b4d1cee6012a9d2c43060ae398b5f4b7b1fb707aa93479b64c",
+        "receiptPointer": "/rows/4435",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "foster care",
+        "canonicalId": 11480251,
+        "canonicalSourceSha256": "af35eda8bf5f4b974e1c66a28581d45b0c8b93f54ca933a47e5972769dfe73b9",
+        "receiptPointer": "/rows/4436",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "foster child",
+        "canonicalId": 11480408,
+        "canonicalSourceSha256": "8b9af6bc8a56ff5777cdb62ed468e91eedaf77f80d44a5922a9665c595b58ace",
+        "receiptPointer": "/rows/4437",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "frank breech",
+        "canonicalId": 11487016,
+        "canonicalSourceSha256": "4bda5a2af059dc9b26570bd34c07a90de4572973c4189a6b6e286468bbba25c2",
+        "receiptPointer": "/rows/4438",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "free hand",
+        "canonicalId": 11488380,
+        "canonicalSourceSha256": "9bb284c5ac222a58b42c2209f0d807dc0d647b0637fce7cf09142c7225ae756d",
+        "receiptPointer": "/rows/4439",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "freon",
+        "canonicalId": 11492357,
+        "canonicalSourceSha256": "2a3cb7d53cdf018e2fd657030515e1581b98a7661b75ec813e990071390c0cf0",
+        "receiptPointer": "/rows/4440",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "friend of the court",
+        "canonicalId": 11495482,
+        "canonicalSourceSha256": "2cc5d220e841141f749247a95102b52e9218adbc867bb5f3f0775b1a94f9a7d0",
+        "receiptPointer": "/rows/4441",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "function word",
+        "canonicalId": 11507095,
+        "canonicalSourceSha256": "e3aa014e0c4bd100f8e48efd254f545f6978f6081aa0e12c975a9e95462ccd47",
+        "receiptPointer": "/rows/4442",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gas maser",
+        "canonicalId": 11525618,
+        "canonicalSourceSha256": "cd8e7ff616e59d7db5230a2005b336c29754727b074ba086c0219efe642eea96",
+        "receiptPointer": "/rows/4443",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gas tank",
+        "canonicalId": 11527166,
+        "canonicalSourceSha256": "07c472440919dc4bf260af4a148f87202bdfcbeb033f0b0e277c811b04711599",
+        "receiptPointer": "/rows/4444",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gass",
+        "canonicalId": 4753859,
+        "canonicalSourceSha256": "0daad062fceeb3911fd6588948474c682f44ee140dc62f0cb3f0b407d95d364a",
+        "receiptPointer": "/rows/4736",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gastrocolic omentum",
+        "canonicalId": 11530054,
+        "canonicalSourceSha256": "dd2c4c28e8c556bb65b52dc2432fe443bd5466eb7449617a4929a34ffbc80cc8",
+        "receiptPointer": "/rows/4445",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gemm",
+        "canonicalId": 4625443,
+        "canonicalSourceSha256": "fb990c0aa8417e0e2d7b06754491842eab62d224eb89eb1f8f68b30140211d21",
+        "receiptPointer": "/rows/4727",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "genetic mutation",
+        "canonicalId": 11536531,
+        "canonicalSourceSha256": "1cd507e1eed875bcda553baed41d297657b59dfe83a21e40a1736b0b0a2f5e90",
+        "receiptPointer": "/rows/4446",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "geometric progression",
+        "canonicalId": 11541173,
+        "canonicalSourceSha256": "1bdbc9f8a070f74b66f1d493a990d9cffc751d76588930fb31e2bd6b8d90301a",
+        "receiptPointer": "/rows/4447",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gill slit",
+        "canonicalId": 11549949,
+        "canonicalSourceSha256": "9a018f7c43494610b0aaff42e6fb01d31571fff7043252ef9fd46bcc757cac41",
+        "receiptPointer": "/rows/4448",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "glide slope",
+        "canonicalId": 11556473,
+        "canonicalSourceSha256": "78b0c6e412f518f0e8714df1064172c548f4a81f80de108e2b10f800703a64b8",
+        "receiptPointer": "/rows/4449",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "good time",
+        "canonicalId": 11570849,
+        "canonicalSourceSha256": "1b25fc384cc39e7b4b627f91cc08ff02f8b63f9483598254dc2fb43e1823c899",
+        "receiptPointer": "/rows/4450",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gray market",
+        "canonicalId": 11585870,
+        "canonicalSourceSha256": "3bd4cdbcc6577a66315c9edad13bb552c0f982c7c9951f7c2f4165ab1b5ba02e",
+        "receiptPointer": "/rows/4451",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "gris",
+        "canonicalId": 4167380,
+        "canonicalSourceSha256": "e7363d62b78ceae4ba54f7008c0769c5a66de858c17e8c26cf6373aceef5285d",
+        "receiptPointer": "/rows/4684",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "group action",
+        "canonicalId": 11601478,
+        "canonicalSourceSha256": "11f985fa3fc788e31994364135a5610d155060d33e46501a664d2f7e382530cd",
+        "receiptPointer": "/rows/4452",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hackney carriage",
+        "canonicalId": 11612794,
+        "canonicalSourceSha256": "02633ea99e2fa68bddfc60cfe04aeee55127a2ec7fecc26c304c5560ce522f78",
+        "receiptPointer": "/rows/4453",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "half step",
+        "canonicalId": 11617822,
+        "canonicalSourceSha256": "cc9c65ddc6e71a8658cdd522c467c7773aa9acd324847866b7ff60a7e1eaa6bd",
+        "receiptPointer": "/rows/4454",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hand calculator",
+        "canonicalId": 11620512,
+        "canonicalSourceSha256": "21e65f496fd2d6b98e8632219e2ac0d1dd2eb64dcd496fe2d3f904454c12a600",
+        "receiptPointer": "/rows/4455",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hand line",
+        "canonicalId": 11621178,
+        "canonicalSourceSha256": "a5617f7f11d770058e4ed469a17d613f2e50a2a8a1deb0afd45b7420279801ec",
+        "receiptPointer": "/rows/4456",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "handling charge",
+        "canonicalId": 11622936,
+        "canonicalSourceSha256": "2e4f640b52de2f8a4b01c06f1a6f71c435198ddedf1962c9a19b0cf1974989b4",
+        "receiptPointer": "/rows/4457",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "harmonic progression",
+        "canonicalId": 11628933,
+        "canonicalSourceSha256": "1ad7fd2ced582bee0a7bb3d802c39761f23f7cfd3d71faa5404bfd433c42a91e",
+        "receiptPointer": "/rows/4458",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "harvest mite",
+        "canonicalId": 11630611,
+        "canonicalSourceSha256": "8d5699737623bee0725da4c9040950a86d0841fc82459cbfca0486977da2187f",
+        "receiptPointer": "/rows/4459",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "haul up",
+        "canonicalId": 11632132,
+        "canonicalSourceSha256": "419d29c931f2448e1e22dd5fdc755dffb88e0e5c3a836640ca2357d2ec94c376",
+        "receiptPointer": "/rows/4460",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hdtv",
+        "canonicalId": 4284131,
+        "canonicalSourceSha256": "c1834afdba57c9c54bcdc46c48e96320df1a8571bcc329764e65af577f6e924e",
+        "receiptPointer": "/rows/4692",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "heli",
+        "canonicalId": 5320517,
+        "canonicalSourceSha256": "c350790303032759d5c584a3367e5b9d6b42ebc7cf6560106d8b63ac138fc7ac",
+        "receiptPointer": "/rows/4748",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hemal arch",
+        "canonicalId": 11647796,
+        "canonicalSourceSha256": "4616f4caba3221590bcb5e7d600836af47d198ff02bc88d7c3b0afe6c4807ef4",
+        "receiptPointer": "/rows/4461",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "heuristic program",
+        "canonicalId": 11655119,
+        "canonicalSourceSha256": "21fb22c76479b466a8e14f6829ae0de7f5e50c1148701fbcf68f3538ece0a937",
+        "receiptPointer": "/rows/4462",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hoister",
+        "canonicalId": 11670283,
+        "canonicalSourceSha256": "4b2ccf1fad77a622b4e6cd70bed32dde40de73bee5117435126aed9b2f9cd011",
+        "receiptPointer": "/rows/4463",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hold-down",
+        "canonicalId": 11671323,
+        "canonicalSourceSha256": "7ead2e963f0f02e91a07aabf9c55b579ff010d791af02fd5990c441d1f33b4aa",
+        "receiptPointer": "/rows/4464",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "home loan",
+        "canonicalId": 11675220,
+        "canonicalSourceSha256": "415829c21068343cac1dbde86f0bbc729b4c1908212bfe97f5f869ad67fc2ced",
+        "receiptPointer": "/rows/4465",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "homing device",
+        "canonicalId": 11677425,
+        "canonicalSourceSha256": "f57c0b0d7934c07707cc9fba22b93c0d2d7367d361e2d0c1df2bb911053a0195",
+        "receiptPointer": "/rows/4466",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hydraulic brake",
+        "canonicalId": 11704013,
+        "canonicalSourceSha256": "3e3545783c5ae28d8c05c31f454dc8ef155eea4b9ad81ae66c4d106ac5936ff2",
+        "receiptPointer": "/rows/4467",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "hydraulic ram",
+        "canonicalId": 11704234,
+        "canonicalSourceSha256": "495699aa5b41c9bfe2ce1c64e4295129ebb14c3ac47c643566a88730fd4d3b77",
+        "receiptPointer": "/rows/4468",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "identity element",
+        "canonicalId": 11713443,
+        "canonicalSourceSha256": "1fca9166e194d71cc4636a0043078746f564027c005e36aa19a4070ada4af246",
+        "receiptPointer": "/rows/4469",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "idler pulley",
+        "canonicalId": 11714332,
+        "canonicalSourceSha256": "2fadf53af06c743f56fb329def94ea40d85cf13ec77edf5feb4460c501e90b04",
+        "receiptPointer": "/rows/4470",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "image orthicon",
+        "canonicalId": 11718038,
+        "canonicalSourceSha256": "b7096e1eb659683afe5e772c048967544eca06db3eb685976150fa1d96cd4862",
+        "receiptPointer": "/rows/4471",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "impulse turbine",
+        "canonicalId": 11721995,
+        "canonicalSourceSha256": "633413d7f2b792eb99148b8ae2abb080c336f391a2823958b09028cb91cdb3ea",
+        "receiptPointer": "/rows/4472",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "incl",
+        "canonicalId": 4154545,
+        "canonicalSourceSha256": "e7a81bd9c288f2df5062ef1f149caf71137195367dfce0f78819d80705a330d4",
+        "receiptPointer": "/rows/4683",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "inhalation anaesthetic",
+        "canonicalId": 11742239,
+        "canonicalSourceSha256": "139769d17b65a256e3769fcfa2305c1b650f12a82b0668f42669b1d14e4b24ca",
+        "receiptPointer": "/rows/4473",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "integrated data processing",
+        "canonicalId": 11751111,
+        "canonicalSourceSha256": "805bd2c36d14d16d0aedd6ee949e7e9efe1be802b824016a9aafea7d0077ba30",
+        "receiptPointer": "/rows/4474",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "intelligence service",
+        "canonicalId": 11752125,
+        "canonicalSourceSha256": "4677e12c0c6bccf1bb833061fb880b364963d2e0f8bf07cac3c9483a186328ff",
+        "receiptPointer": "/rows/4475",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "interlanguage",
+        "canonicalId": 11754623,
+        "canonicalSourceSha256": "7762ef81acfe310c55bd805d55638196c01434b92577a34141c65d123195d88a",
+        "receiptPointer": "/rows/4476",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "international atomic energy agency",
+        "canonicalId": 11757423,
+        "canonicalSourceSha256": "3d150c1b3663e3b8e3ceee8de1bd2692182ab003003e7f83f3c64d41b3b754a5",
+        "receiptPointer": "/rows/4477",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "investment banker",
+        "canonicalId": 11764701,
+        "canonicalSourceSha256": "10e522f59ead518d2b91b6f3ae8b90c2d96de8f406536ae1d6c7713118007da3",
+        "receiptPointer": "/rows/4478",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ischemic stroke",
+        "canonicalId": 11769064,
+        "canonicalSourceSha256": "0c89d8e781b047b064c0950fa817c15a4e879dc60f89811bd974618c8bef0c3a",
+        "receiptPointer": "/rows/4479",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "isometrical",
+        "canonicalId": 11770631,
+        "canonicalSourceSha256": "1cd70b8a004eb378d09e991ee064e6a14de8e6644c50de6dac4ece17ae915c1a",
+        "receiptPointer": "/rows/4480",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "jana",
+        "canonicalId": 5964989,
+        "canonicalSourceSha256": "217e18a24d4235c7287fc68bea73a10dab6bccee29babcb84382247d2dc39e0e",
+        "receiptPointer": "/rows/4771",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "jim crow",
+        "canonicalId": 11776578,
+        "canonicalSourceSha256": "ee6d0f9da79109a65a46779aa0dd6aabd23b8429ab5a25f553d84e93c40d66ac",
+        "receiptPointer": "/rows/4481",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "junk shop",
+        "canonicalId": 11787421,
+        "canonicalSourceSha256": "044cfc4eb6a000a5b43da89d1486e1dd2f18bd9dfa3e95c75d3934bf1a6627f7",
+        "receiptPointer": "/rows/4482",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "kill oneself",
+        "canonicalId": 11798099,
+        "canonicalSourceSha256": "8614b2c0d6d347ed63016c9fd957b35f95f573857b653213cf5d356f814236ac",
+        "receiptPointer": "/rows/4483",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "kissing bug",
+        "canonicalId": 11801791,
+        "canonicalSourceSha256": "7b91d5c8476ed7e40407f8372af405df7a74f20c530a6f35bdd9068f4e41d3ae",
+        "receiptPointer": "/rows/4484",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "knee bend",
+        "canonicalId": 11803945,
+        "canonicalSourceSha256": "9063638bd399ff84dee254cdb8f1826234d9148536c78f5b89c726cb52115474",
+        "receiptPointer": "/rows/4485",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lake bed",
+        "canonicalId": 11815689,
+        "canonicalSourceSha256": "9fb012b05c7c497fa99480c5d689dfab286c65dd6e2a31e2d857980509e12092",
+        "receiptPointer": "/rows/4486",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lateral geniculate",
+        "canonicalId": 11827569,
+        "canonicalSourceSha256": "6e2b3aba28ee4715e7b427a7c32c5d65a283fc93201923b327fba61e4e10fb4e",
+        "receiptPointer": "/rows/4487",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "least squares",
+        "canonicalId": 11843494,
+        "canonicalSourceSha256": "9925c469f0942f39b00526e63c5ad288522cac9b316e320f2be5dce40e94711b",
+        "receiptPointer": "/rows/4488",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "legal jointure",
+        "canonicalId": 11848616,
+        "canonicalSourceSha256": "3e6a2ba44f297d898187c61e131ba984addea31c0a2ca27ae6a2914d1ac65247",
+        "receiptPointer": "/rows/4489",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "letter case",
+        "canonicalId": 11856971,
+        "canonicalSourceSha256": "9d4d31e996cef0aa8fb2d27bdcda7de79982a50a548ccf41012680bfe6dba6f9",
+        "receiptPointer": "/rows/4490",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "letter stock",
+        "canonicalId": 11857451,
+        "canonicalSourceSha256": "7f51576faf4402032e28900e3146d3b92df5630ef1199d7478efd4747d557b3c",
+        "receiptPointer": "/rows/4491",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lever lock",
+        "canonicalId": 11858550,
+        "canonicalSourceSha256": "eb393619b12b505793020cdde639fa2b045807ae0720e63e9de4f2cb4eca398b",
+        "receiptPointer": "/rows/4492",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "library program",
+        "canonicalId": 11860396,
+        "canonicalSourceSha256": "a82fe0e1e5d3b3ccc7557344b704555669839572bcbd9144da2b526311a2fab0",
+        "receiptPointer": "/rows/4493",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "licensed practical nurse",
+        "canonicalId": 11860998,
+        "canonicalSourceSha256": "52a413ac3dc65f872f7b45d29079935c63db3e9a8458b854b7bf79484c92ad73",
+        "receiptPointer": "/rows/4494",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lime juice",
+        "canonicalId": 11870200,
+        "canonicalSourceSha256": "a7709a77e22d86c83203dfaca5cc4b45d990cab3142f1d1c08acf046e1e0a5ae",
+        "receiptPointer": "/rows/4495",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "line feed",
+        "canonicalId": 11871717,
+        "canonicalSourceSha256": "72521df100c37c4ed875902d1531513419771ee4feb3aeb46fe7026273ea1fc5",
+        "receiptPointer": "/rows/4496",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "linear unit",
+        "canonicalId": 11876462,
+        "canonicalSourceSha256": "3c68c56882264ea7461ff9779d556c70201fa4805d18d4d885f83874f37b54b2",
+        "receiptPointer": "/rows/4497",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "liner train",
+        "canonicalId": 11876689,
+        "canonicalSourceSha256": "91b111ece62059adad3275452603573aaea2e443b26aaab6bb972e79151aab58",
+        "receiptPointer": "/rows/4498",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "listening watch",
+        "canonicalId": 11881757,
+        "canonicalSourceSha256": "2137c91ff1070297b007f18121d8664e8b395650b64262d48a6e716b4f4b9dcb",
+        "receiptPointer": "/rows/4499",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "living trust",
+        "canonicalId": 11887234,
+        "canonicalSourceSha256": "6e39c605babefc89d183344072aedef34c24e0fcbd8beb5989e79cdc53a13037",
+        "receiptPointer": "/rows/4500",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "load line",
+        "canonicalId": 11887585,
+        "canonicalSourceSha256": "9bd9e532db06c5d0eb67ed5ea844b7c7fa1b7d8ab68fc6ca3c580d8e3a9d1140",
+        "receiptPointer": "/rows/4501",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "local call",
+        "canonicalId": 11889752,
+        "canonicalSourceSha256": "5d67683b240a1f1aae0afae47b4f561680a7ab46a5734a31cf679818e7185c62",
+        "receiptPointer": "/rows/4502",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "logograph",
+        "canonicalId": 11895058,
+        "canonicalSourceSha256": "a2021141ddbd51ec068a7a582dc8c0afe64d15a8014fd55d16cfd61beef177fe",
+        "receiptPointer": "/rows/4503",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "loop topology",
+        "canonicalId": 11901216,
+        "canonicalSourceSha256": "3b84b8183048121a1c6ddd5d59d3cafac46e9b4e66f8a97a99f94ec629317dbc",
+        "receiptPointer": "/rows/4504",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "loss ratio",
+        "canonicalId": 11902229,
+        "canonicalSourceSha256": "c2998924e47d063a9d194c1ffd045edfc6188a1565c58670639c8441897d8ef2",
+        "receiptPointer": "/rows/4505",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lower court",
+        "canonicalId": 11907265,
+        "canonicalSourceSha256": "9a7a1c0b9d4adaa49ac3f92904f01321316e55c62a949c66a9903ce5c74ca481",
+        "receiptPointer": "/rows/4506",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "lysergic acid diethylamide",
+        "canonicalId": 11915733,
+        "canonicalSourceSha256": "133ed25cf3c134950043a36e279a06af6de3cca2db8c99988e34320278e0544c",
+        "receiptPointer": "/rows/4507",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "major key",
+        "canonicalId": 11928317,
+        "canonicalSourceSha256": "e47b57d1796db73eddafe12329c194e58d264e44d5254743ba3cae9083774445",
+        "receiptPointer": "/rows/4508",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "malignant melanoma",
+        "canonicalId": 11934630,
+        "canonicalSourceSha256": "8fc9a2181bf12a858f27ef4cda99383954d3a9c8860c114d86867c84b03cb213",
+        "receiptPointer": "/rows/4509",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "manc",
+        "canonicalId": 4474596,
+        "canonicalSourceSha256": "ac444b8d000aab1fbd9b3edee26f8c60dff42aff54ef434bb3eb61edaa332f10",
+        "receiptPointer": "/rows/4706",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "materials handling",
+        "canonicalId": 11958742,
+        "canonicalSourceSha256": "73e98953d948b17fba17e52bdc9773f32c750de86269ce0232ea72bb4f417426",
+        "receiptPointer": "/rows/4510",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "matric",
+        "canonicalId": 11960301,
+        "canonicalSourceSha256": "d734e70c548ae30e900c0eb06ffaeb633f4cd069cbc3b5f64048d044a6b3f594",
+        "receiptPointer": "/rows/4511",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mechanical man",
+        "canonicalId": 11968490,
+        "canonicalSourceSha256": "2c91508240f6ffd685f99764f027a88e80e01125801c5202a3d17dc8eba65ed6",
+        "receiptPointer": "/rows/4512",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "medica",
+        "canonicalId": 6050520,
+        "canonicalSourceSha256": "d88df9236a89c71c0014755af762b02e125e672dac06b4aa336dbeee5adb612f",
+        "receiptPointer": "/rows/4777",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mental process",
+        "canonicalId": 11978405,
+        "canonicalSourceSha256": "d36b6cae37f3a25ac7fcb49884d1e9bb51ca4d4157886b7028820ab33bffd0e8",
+        "receiptPointer": "/rows/4513",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "metal saw",
+        "canonicalId": 11983169,
+        "canonicalSourceSha256": "87611346fd876d027e7a256021fad9c267b0f4b240aaf3eac3f962fb1ae29547",
+        "receiptPointer": "/rows/4514",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mexicana",
+        "canonicalId": 4916061,
+        "canonicalSourceSha256": "18e578af3045d282f5fc7bad489c9d2a0a737259010e982dbe25d0a5f4fb7a5a",
+        "receiptPointer": "/rows/4739",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mflops",
+        "canonicalId": 4624962,
+        "canonicalSourceSha256": "e886e1bbc339c2b0667ce85e5c39be610e2a474f40f19391896c9a21d9888c68",
+        "receiptPointer": "/rows/4726",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "microphone boom",
+        "canonicalId": 11988284,
+        "canonicalSourceSha256": "ac2848e83e98782adf4509b5ecc44d9b4105371f0af591b0fe8baf942f79efcf",
+        "receiptPointer": "/rows/4515",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "migrant worker",
+        "canonicalId": 11990523,
+        "canonicalSourceSha256": "e844bbcff4789fd742a58a8648839c3229c9eacbd5b15609b30f7adbce7375b3",
+        "receiptPointer": "/rows/4516",
+        "existingDecision": "support-this-exact-zh-only-child-five-fields-language-only"
+      },
+      {
+        "term": "mine detector",
+        "canonicalId": 11999044,
+        "canonicalSourceSha256": "b3139bb54849a67593faaeb491ad17b110018b418ac4b66796a1e557a99c1c5e",
+        "receiptPointer": "/rows/4517",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "molisch test",
+        "canonicalId": 12010456,
+        "canonicalSourceSha256": "d612fd1536b4dc69583a08a17e4311cdbdcb59927d31137fcd2a26cf2555b37a",
+        "receiptPointer": "/rows/4518",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "money dealer",
+        "canonicalId": 12012076,
+        "canonicalSourceSha256": "1cf88df2bfc596d0817d40bd49b40f8b96ccc9b4e99ce0e8d0cd399e4d365424",
+        "receiptPointer": "/rows/4519",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "moral hazard",
+        "canonicalId": 12017208,
+        "canonicalSourceSha256": "c7f9305bdb1078a05b75f788ebf34775020890361834f37b832a04b7256e1819",
+        "receiptPointer": "/rows/4520",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mosaic gold",
+        "canonicalId": 12019049,
+        "canonicalSourceSha256": "76411ccef164a7b12d6bccd396d85348ddd7a933cc9203ce377ae81f4a3ce6ec",
+        "receiptPointer": "/rows/4521",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "mphil",
+        "canonicalId": 4394741,
+        "canonicalSourceSha256": "b75923e36ce2cf4aafe26eddaeff5392d37a3a13b5c1f9662f938b67b0acbb84",
+        "receiptPointer": "/rows/4701",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "multidimensional language",
+        "canonicalId": 12031883,
+        "canonicalSourceSha256": "2cc43167e7ad18842b8ee2be9a74ef5d4c9a5d9ad31cb4b71b8d990f645edf2f",
+        "receiptPointer": "/rows/4522",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "muntz metal",
+        "canonicalId": 12034714,
+        "canonicalSourceSha256": "4cfe13c6874a6dc6f466d82e7b8ee67709e94cb4c76f39e9fb1a741a5a31377c",
+        "receiptPointer": "/rows/4523",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "museo",
+        "canonicalId": 5714284,
+        "canonicalSourceSha256": "26c436247b60f7ce49c3eee1e4a8011fac15b4fb8820326d2e160fe44e79829f",
+        "receiptPointer": "/rows/4762",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "name day",
+        "canonicalId": 12048320,
+        "canonicalSourceSha256": "7c2b9c383085b7657b57d525922bc9a8add800de0388ba5a45d64f44a4699e45",
+        "receiptPointer": "/rows/4524",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "name part",
+        "canonicalId": 12048499,
+        "canonicalSourceSha256": "de72d73d3292a6f3c7869ab79aff593ed4e0d277bdf67d5de10aec526b7cddef",
+        "receiptPointer": "/rows/4525",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nate",
+        "canonicalId": 4424203,
+        "canonicalSourceSha256": "29dafa08971468c800efa056b41313d8aac7a17f196d74b20b0935be54481015",
+        "receiptPointer": "/rows/4703",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "native language",
+        "canonicalId": 12053052,
+        "canonicalSourceSha256": "5288ff5edb20de2a81501435401767034d1963cfa6b40abc1eee0705d8137565",
+        "receiptPointer": "/rows/4526",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "natural law",
+        "canonicalId": 12054162,
+        "canonicalSourceSha256": "c2e510f7fc172afd32dd34d38d32b99a75dbe3c978819699132b07aae90d65ad",
+        "receiptPointer": "/rows/4527",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "natured",
+        "canonicalId": 4731178,
+        "canonicalSourceSha256": "b35fabafc763c9de2eef2ca3ea0e3274c10e5415546b3b3b41d034a7ebdc6674",
+        "receiptPointer": "/rows/4735",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "net estate",
+        "canonicalId": 12065784,
+        "canonicalSourceSha256": "efb66d67215e539fa06064a38b19955a1e5c426fc83aa7f773497d8562d39c19",
+        "receiptPointer": "/rows/4528",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "netmail",
+        "canonicalId": 12066415,
+        "canonicalSourceSha256": "15d4219bc1e2ff9d5a706b84632954d7a205f2cd0d1bce1e502a53e5f57adf0e",
+        "receiptPointer": "/rows/4529",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "new deal",
+        "canonicalId": 12068589,
+        "canonicalSourceSha256": "a94cd05d643b94e36ee13c37120c0f70d6c4abe0a2eb5b2228625a4c1185ad7e",
+        "receiptPointer": "/rows/4530",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ni-hard",
+        "canonicalId": 12069930,
+        "canonicalSourceSha256": "d299df0dddb4d14a6f0fc25297164ecf16f9200f50465c72730370dd87db0962",
+        "receiptPointer": "/rows/4531",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ni-resist",
+        "canonicalId": 12070101,
+        "canonicalSourceSha256": "3c4c4385ef194483d4ea6750f1320d5c9abfe191f88ba606080eabeb380ec88d",
+        "receiptPointer": "/rows/4532",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nmda",
+        "canonicalId": 4573923,
+        "canonicalSourceSha256": "58a0b3a909848d3097f5bd8f732aad3ac88a30acc003520266159d3d2f2b81d5",
+        "receiptPointer": "/rows/4719",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nol pros",
+        "canonicalId": 12077530,
+        "canonicalSourceSha256": "28eeba5e131a3b00e9c7909289061ac98298a3e3bd2083d41bd2e8004252cc2f",
+        "receiptPointer": "/rows/4533",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nonvolatile storage",
+        "canonicalId": 12082209,
+        "canonicalSourceSha256": "e0c3ca505ba23e9fb99dad4045419bf33389df177a062cf86a5c2ebfb2ba077e",
+        "receiptPointer": "/rows/4534",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "novo",
+        "canonicalId": 5317585,
+        "canonicalSourceSha256": "07dd0c8d987dbc65eff725167348774795a96c09e7578b162f9d2519d0f4bbb6",
+        "receiptPointer": "/rows/4747",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nucleolar organizer",
+        "canonicalId": 12090095,
+        "canonicalSourceSha256": "080ca407ef82c0d55ec3b71dd3cd06b75b9993b2eb41bfb4708c8bee4f3068bc",
+        "receiptPointer": "/rows/4535",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nuisance value",
+        "canonicalId": 12090610,
+        "canonicalSourceSha256": "8682496c6976c55eaaeff65e0c551fd26eccd36dc7348a5eae3b9eaa4c4cd8ac",
+        "receiptPointer": "/rows/4536",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "nybble",
+        "canonicalId": 12094375,
+        "canonicalSourceSha256": "a6c0f58fa16e1c045a4802e749f062236c546498934f9bb7ddd5d0f2c0987b33",
+        "receiptPointer": "/rows/4537",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "octonary",
+        "canonicalId": 12102170,
+        "canonicalSourceSha256": "ea49d4c0119f7db9f32842ab028eee5402f410106cc8ac590e997d7f8a0b9eb8",
+        "receiptPointer": "/rows/4538",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "omnidirectional radio range",
+        "canonicalId": 12112934,
+        "canonicalSourceSha256": "c5744f0192a30eab26173c8820c060685ab4fe69d1be3b7c8d35e16465fc8409",
+        "receiptPointer": "/rows/4539",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "on air",
+        "canonicalId": 12113508,
+        "canonicalSourceSha256": "bb2141aeebe14d5f072d440fc2195127a31debb07698b76681af38160d493d64",
+        "receiptPointer": "/rows/4540",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "open order",
+        "canonicalId": 12118509,
+        "canonicalSourceSha256": "2dafed4e85dc1c72a832e874d69a3d937878c366744f224721ed326d4c9f3976",
+        "receiptPointer": "/rows/4541",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "optical maser",
+        "canonicalId": 12126555,
+        "canonicalSourceSha256": "26591a110270c028c91051fb4096ad57bfdab2786d5c4c9dbb8e6e44d8549cdf",
+        "receiptPointer": "/rows/4542",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "order paper",
+        "canonicalId": 12130953,
+        "canonicalSourceSha256": "68e33be2c21a13bc156c5c8967ecba94eb5b8895385253df2b0ca36a5efd1b93",
+        "receiptPointer": "/rows/4543",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "out-of-body experience",
+        "canonicalId": 12139806,
+        "canonicalSourceSha256": "926baeaec726e9a11d0461e8667ba5f0d17f2541cfa70716ceae3fdf80313fa9",
+        "receiptPointer": "/rows/4544",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "outside loop",
+        "canonicalId": 12141842,
+        "canonicalSourceSha256": "ed45a4efcced878b81a6779612d1537e92c16cc05b1b3e3d1f2bb0a34bcb35cc",
+        "receiptPointer": "/rows/4545",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "padder",
+        "canonicalId": 12148125,
+        "canonicalSourceSha256": "c18b86e251d9b83e05ed0cd7ce93d8ef6dff9bdb2e7663ae0e9254703dae4a83",
+        "receiptPointer": "/rows/4546",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "paper mill",
+        "canonicalId": 12158993,
+        "canonicalSourceSha256": "8611d983b59db180020208d9e6dd01a09a877b14968e35049c6d5a6efefcb2a4",
+        "receiptPointer": "/rows/4547",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "paso",
+        "canonicalId": 5927292,
+        "canonicalSourceSha256": "e784883526f01f2bfed0197647c1b0a0262e97bc29b5bef3806702c7ab1792fd",
+        "receiptPointer": "/rows/4768",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pass across",
+        "canonicalId": 12172601,
+        "canonicalSourceSha256": "7d8fea56bf0f7613663b1c3ccc8272a9d69bfa09124d4f15598acf5e30e3ba80",
+        "receiptPointer": "/rows/4548",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pass-through",
+        "canonicalId": 12173284,
+        "canonicalSourceSha256": "fbd5ad0c62f2a6efe6027f68201cb68ce7a3c12dcad450825e2534d4f0a4112a",
+        "receiptPointer": "/rows/4549",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "per centum",
+        "canonicalId": 12194456,
+        "canonicalSourceSha256": "c8559dc4bbabd89d4c838e6eb5014056712e72c45fa6a2ae21d0e50908f2715c",
+        "receiptPointer": "/rows/4550",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "perv",
+        "canonicalId": 5580438,
+        "canonicalSourceSha256": "9c2d21da2a1fc0dc787189556ff0ffcadb6cdb5791e1832b8ae70253b4b16299",
+        "receiptPointer": "/rows/4757",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "phillips screw",
+        "canonicalId": 12208110,
+        "canonicalSourceSha256": "206848da704212d0c56f5f21588e3d57fc00ce632763bdc40dd3326fedef9948",
+        "receiptPointer": "/rows/4551",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "phonetic transcription",
+        "canonicalId": 12210013,
+        "canonicalSourceSha256": "c82a5f86678e946fcb8bd2cfb92ca4729139af0a63d0de94fdcc4f662cf443c4",
+        "receiptPointer": "/rows/4552",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "photopigment",
+        "canonicalId": 12213165,
+        "canonicalSourceSha256": "2d4e64115937a3205e70f162fadc5a8fbfb77ddc596f862a5fd2e7942da948b2",
+        "receiptPointer": "/rows/4553",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "picture frame",
+        "canonicalId": 12218800,
+        "canonicalSourceSha256": "67be666b02d3d2905d4c52275c92a60b82dd28ad3e5dec172fc872fff09963d1",
+        "receiptPointer": "/rows/4554",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "piece goods",
+        "canonicalId": 12219815,
+        "canonicalSourceSha256": "dad4486125ec8f54f6a00b4de2ebaca69c4783a098b4fa633abdabf7a43cc862",
+        "receiptPointer": "/rows/4555",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pocket flap",
+        "canonicalId": 12249550,
+        "canonicalSourceSha256": "6945741ef9f5278428bfac36f932fec628b1d0562088179c7e3359bcb70e499f",
+        "receiptPointer": "/rows/4556",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "polar zone",
+        "canonicalId": 12254551,
+        "canonicalSourceSha256": "42e8fb92550ba3eb96b7eb6ee7f11faa37654ecd5537e5e92ab2018486dcbc13",
+        "receiptPointer": "/rows/4557",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "poss",
+        "canonicalId": 6030478,
+        "canonicalSourceSha256": "abf8b9e06a3c6150bf4217b9e6dcef158b1fe810d66cefc22f54a35a99094916",
+        "receiptPointer": "/rows/4773",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pot liquor",
+        "canonicalId": 12273856,
+        "canonicalSourceSha256": "4ec303d2fd20b2c6b85f86fee2978700e1c3a99b649f06da66b27c7817017b50",
+        "receiptPointer": "/rows/4558",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "potential divider",
+        "canonicalId": 12276748,
+        "canonicalSourceSha256": "fd6a400483e2cc950aab21b40518a454fea88f237b29c93175825a192794f1d8",
+        "receiptPointer": "/rows/4559",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "power cord",
+        "canonicalId": 12280626,
+        "canonicalSourceSha256": "45fb3707752801da80c6d3e8b51a2bf8929f92ebdc50f404396f39d4b873abdb",
+        "receiptPointer": "/rows/4560",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pres",
+        "canonicalId": 4585743,
+        "canonicalSourceSha256": "5dca323904e0efe9732d929eb3804bec0844246205e5db3e0076e1bed3c592ef",
+        "receiptPointer": "/rows/4721",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "previous question",
+        "canonicalId": 12294468,
+        "canonicalSourceSha256": "030c8cdbec2c36ee96e4e0ce0876abc5e35faeca9f2ee0806df34d4a21df4614",
+        "receiptPointer": "/rows/4561",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "prob",
+        "canonicalId": 5360590,
+        "canonicalSourceSha256": "9ceb2fe2bf14964b5af59355ae8b9fd0743c643bca1db352c16fa49a920cc2d4",
+        "receiptPointer": "/rows/4750",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "proportional font",
+        "canonicalId": 12313855,
+        "canonicalSourceSha256": "8fedebbd8c13aa3b6ef54c3bbea0eeedebe08b8abf05bb3ced87a56bcd2a860e",
+        "receiptPointer": "/rows/4562",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "prowl car",
+        "canonicalId": 12317597,
+        "canonicalSourceSha256": "fce58ca49a05c366ccbc6e0f0b9a5eb13acdf775e5789bafc7a174f3075e465c",
+        "receiptPointer": "/rows/4563",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pteroylmonoglutamic acid",
+        "canonicalId": 12320830,
+        "canonicalSourceSha256": "a7a8b78b43d7e2d6895d6fbc7972ccab6e7abf36756d9b1da0838ac11710d3c3",
+        "receiptPointer": "/rows/4564",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "pyrocellulose",
+        "canonicalId": 12339601,
+        "canonicalSourceSha256": "4088204a3f6ca95a56d7c540c44a4a38ac788410750102768f2be048d88b6cab",
+        "receiptPointer": "/rows/4565",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "queen post",
+        "canonicalId": 12345117,
+        "canonicalSourceSha256": "92c7b453a0a6db1338ffd2a043de906d127657b2cc0abcb1989ea71766e0600a",
+        "receiptPointer": "/rows/4566",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "question of law",
+        "canonicalId": 12346510,
+        "canonicalSourceSha256": "9967a61ef9ecbad13c24f7c07572d85584561ed12c0ac6d7ba17837fe16e1999",
+        "receiptPointer": "/rows/4567",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "racon",
+        "canonicalId": 12353240,
+        "canonicalSourceSha256": "56a03751d3c66e208081f65c22ff219460871d251c80fd19af1398b0ae27c887",
+        "receiptPointer": "/rows/4568",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "radar beacon",
+        "canonicalId": 12353325,
+        "canonicalSourceSha256": "ef159c200d7f16d9e951ba83178f8d0ab19ddbe45523cba0fea0db85815117ef",
+        "receiptPointer": "/rows/4569",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "rare-earth element",
+        "canonicalId": 12373732,
+        "canonicalSourceSha256": "8a4746f38f71fdd2458a3a0776a24d753097b1e355cf2a9fba2a6ccdbb2e5eb3",
+        "receiptPointer": "/rows/4570",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "rating system",
+        "canonicalId": 12375185,
+        "canonicalSourceSha256": "de483b12d38e2f0da1e51c1982ce5cb08bd8d38ea79d6843735c1d23fb7a673f",
+        "receiptPointer": "/rows/4571",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "reading program",
+        "canonicalId": 12380455,
+        "canonicalSourceSha256": "0a01a12a3d3f9076b9c15ee1491fc56546af4a050e946acfdbbbcfbc415784e2",
+        "receiptPointer": "/rows/4572",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "real stuff",
+        "canonicalId": 12382143,
+        "canonicalSourceSha256": "c8c08a4ec52f0d0c7001545d580376c47317945577defc514be9a8e033926f6d",
+        "receiptPointer": "/rows/4573",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "real thing",
+        "canonicalId": 12382373,
+        "canonicalSourceSha256": "84c9a36b2319fbefa87f0071b63357c1602d5e476208eb77855bd97cebec2b0f",
+        "receiptPointer": "/rows/4574",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "record changer",
+        "canonicalId": 12386514,
+        "canonicalSourceSha256": "9ed37434236a5b5ae653f23e5bd791944853bdcbcc39a20f7b8509c3b7b871d2",
+        "receiptPointer": "/rows/4575",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "relay station",
+        "canonicalId": 12407306,
+        "canonicalSourceSha256": "e0a9362402cef16960bb25424d2901e02fc10086dfb7aed9e6d6291efdba9217",
+        "receiptPointer": "/rows/4577",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "relay transmitter",
+        "canonicalId": 12407429,
+        "canonicalSourceSha256": "de79aaa4cf59e6b63c676118ef265a1cff92b762bf0eaba57ea7200372a7c671",
+        "receiptPointer": "/rows/4578",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "restriction site",
+        "canonicalId": 12419484,
+        "canonicalSourceSha256": "642ce9c71365e8ac9a948580be577f8c0909e07a7deae2c3eb626c15628b9ac0",
+        "receiptPointer": "/rows/4579",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "retd",
+        "canonicalId": 4532696,
+        "canonicalSourceSha256": "bbdaa8a60f2acf637c2a2f5a2648a1bb1910a4c7aacd25a97fb3457bd55252b6",
+        "receiptPointer": "/rows/4714",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "reversionary annuity",
+        "canonicalId": 12424532,
+        "canonicalSourceSha256": "674c43ee5170c2b18430cbaf2e21b120b5e841366f01c8da1c68a09e335b53ce",
+        "receiptPointer": "/rows/4580",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "riot act",
+        "canonicalId": 12435795,
+        "canonicalSourceSha256": "388fec40fd03c692b13216137b4966be3b26351350309169e21d09b8d3474c32",
+        "receiptPointer": "/rows/4581",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "rna polymerase",
+        "canonicalId": 12438657,
+        "canonicalSourceSha256": "b135c585c7714f31f83226259262609a6f30a406a413579da4a12b0a07a9f6e3",
+        "receiptPointer": "/rows/4582",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "robot pilot",
+        "canonicalId": 12441481,
+        "canonicalSourceSha256": "c9479f5df83dc761d4c0ed9d531334bf3d3153b59288f96779cc212963186d60",
+        "receiptPointer": "/rows/4583",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "rona",
+        "canonicalId": 4184403,
+        "canonicalSourceSha256": "a805a35496f0e79ef181d1d067faf812ec240b91dbb80e4826827807d3ebc3bf",
+        "receiptPointer": "/rows/4687",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "royal court",
+        "canonicalId": 12461075,
+        "canonicalSourceSha256": "ff9659f4ab0bfef1fbbe9a4bfbf7388c64ec6af4dfdf6237b5f399ca84b9ba53",
+        "receiptPointer": "/rows/4584",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "sample distribution",
+        "canonicalId": 12482155,
+        "canonicalSourceSha256": "1874e20baf0b3ddbae3555936e3238034a388c985e3699216f80dfcc122f399e",
+        "receiptPointer": "/rows/4585",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "scapa",
+        "canonicalId": 4142473,
+        "canonicalSourceSha256": "e5c47a24ce59abb413c598c3a9d1828ead1f2e7d0a2381ec86448fa2cc982b6e",
+        "receiptPointer": "/rows/4682",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "scoring system",
+        "canonicalId": 12501203,
+        "canonicalSourceSha256": "b5bc4ed05df583667fdde43c7844d5fe80e9c6508c56d0aabf91b5638e8a15fd",
+        "receiptPointer": "/rows/4586",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "scot and lot",
+        "canonicalId": 12501582,
+        "canonicalSourceSha256": "f9e1120862d7009c21c4b4c8197fe5e77a58d4edc3e1beac4940a0c3face804b",
+        "receiptPointer": "/rows/4587",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "seaq",
+        "canonicalId": 5397063,
+        "canonicalSourceSha256": "004476577ef87515302b9486aa6c832848fd9be46087d7ec5e25e1c9c67b3336",
+        "receiptPointer": "/rows/4751",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "selective information",
+        "canonicalId": 12528327,
+        "canonicalSourceSha256": "4debf1c20a4e15d5df08b5daf80fa5c33825ce81b0bda349ffeb81b24c2161ff",
+        "receiptPointer": "/rows/4588",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "self-enclosed",
+        "canonicalId": 12528909,
+        "canonicalSourceSha256": "dc2b7a6d51aa1a73c1bd0ad1f85b944f50e62d8a8b1efb150d0bfdc0814b7f3f",
+        "receiptPointer": "/rows/4589",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "semantic memory",
+        "canonicalId": 12530412,
+        "canonicalSourceSha256": "3b0ec58584587bd2be1606e2cfaaf85e447ce37be2176429638022ae75176e89",
+        "receiptPointer": "/rows/4590",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "set point",
+        "canonicalId": 12543413,
+        "canonicalSourceSha256": "8a5efaf0300e999f811766b00837fa17a9455bd5e4154bb21401a4c07956bcf3",
+        "receiptPointer": "/rows/4591",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "sewage farm",
+        "canonicalId": 12545383,
+        "canonicalSourceSha256": "2512c8e03121958a46c2921be9c58d39cf7ae9b4df5adf31cdbefaecf4f315e2",
+        "receiptPointer": "/rows/4592",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "sexual assault",
+        "canonicalId": 12548824,
+        "canonicalSourceSha256": "746a55a05dddf5147cac6ca5e162b7b5dc9104d7ded0836b06ed0819f4fb6123",
+        "receiptPointer": "/rows/4593",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "side judge",
+        "canonicalId": 12575317,
+        "canonicalSourceSha256": "59843618f212b8a31430de2cfb23a779b473e5e2a302554e05f30e84dcc325a1",
+        "receiptPointer": "/rows/4594",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "sky pilot",
+        "canonicalId": 12598976,
+        "canonicalSourceSha256": "092f372a85127752f7155919abe3a5f9f648bcaa0779bfb6f9109d68ee734270",
+        "receiptPointer": "/rows/4595",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "slave state",
+        "canonicalId": 12601397,
+        "canonicalSourceSha256": "93a8cde57392a90cb529ad67c856c6709bcf1db28f155d3d95338ae176a3e714",
+        "receiptPointer": "/rows/4596",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "speech act",
+        "canonicalId": 12658523,
+        "canonicalSourceSha256": "9b09e28c81963d8624f0c826dcb7ce4be9730036c16aa87e5b472e2c4d7dd4f9",
+        "receiptPointer": "/rows/4597",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "spewer",
+        "canonicalId": 12662253,
+        "canonicalSourceSha256": "78364b9abce76610560668597b88c8dcfd8327d138dabd84d84a2ef151ba8ce4",
+        "receiptPointer": "/rows/4598",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "spill over",
+        "canonicalId": 12665965,
+        "canonicalSourceSha256": "85376392c92a165f894b744428a6c04cefd1ceb8fc6928e1d53055c3432fb8dc",
+        "receiptPointer": "/rows/4599",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "spirit rapping",
+        "canonicalId": 12669387,
+        "canonicalSourceSha256": "5becabcc690124571f211e5ec46400f8d8465caff4a24692eb8b539759117817",
+        "receiptPointer": "/rows/4600",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "split run",
+        "canonicalId": 12671974,
+        "canonicalSourceSha256": "69e47f120ae9e59737f5062062b210b7d66da09445f074e7afe6b8a376b3651e",
+        "receiptPointer": "/rows/4601",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "standard gauge",
+        "canonicalId": 12690699,
+        "canonicalSourceSha256": "92fa67ab659f1af94e0b4d45b543f0c1b6d78d64c4ff797ab80900218c4b9bce",
+        "receiptPointer": "/rows/4602",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "steelman",
+        "canonicalId": 12705488,
+        "canonicalSourceSha256": "4bb157603e7e58ff27a35e33cbb0200f046ac63c01ffdc1bd5f3bcf66796be1a",
+        "receiptPointer": "/rows/4603",
+        "existingDecision": "support-this-exact-zh-only-child-five-fields-language-only"
+      },
+      {
+        "term": "step out",
+        "canonicalId": 10328727,
+        "canonicalSourceSha256": "7107e49fd26446cb858362c4c3222b6d43278d66e73ac892a2d944be420a84f3",
+        "receiptPointer": "/rows/4277",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "stitching",
+        "canonicalId": 10333636,
+        "canonicalSourceSha256": "2a7f78c9b9b4616efd754b793f2247b75af36fd9bca74b85476ca9c884e03153",
+        "receiptPointer": "/rows/4278",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "straight pin",
+        "canonicalId": 12723060,
+        "canonicalSourceSha256": "11e3fa699f4d6cb77e299f2b24b0bba7239e6627217cf19dd29944bc2ac51b31",
+        "receiptPointer": "/rows/4604",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "streaming",
+        "canonicalId": 10341403,
+        "canonicalSourceSha256": "c64216ee4ae18cf6cb49db6577fa2e77fdfefe131257772443b8faedbc937839",
+        "receiptPointer": "/rows/4279",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "street value",
+        "canonicalId": 10342403,
+        "canonicalSourceSha256": "44f30fa6849f83da014e0548c5236b5c5929b440369ca6978dcc811efaffecff",
+        "receiptPointer": "/rows/4280",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "suis",
+        "canonicalId": 5733509,
+        "canonicalSourceSha256": "fc962c115a379d8e8a19175a0fd99985675c8ea518963a7e96a72c381f0930b6",
+        "receiptPointer": "/rows/4763",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "summary judgment",
+        "canonicalId": 12749517,
+        "canonicalSourceSha256": "84d5bb55cb210a42970eb0c593e457b050e38273c24389c952c884e7d0d0a90e",
+        "receiptPointer": "/rows/4605",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "superhigh frequency",
+        "canonicalId": 12753686,
+        "canonicalSourceSha256": "615f5bb004cb8253da36ccad785bcb69bf0569f32f9865806a56003b7f40d05d",
+        "receiptPointer": "/rows/4606",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "superoxide dismutase",
+        "canonicalId": 12756084,
+        "canonicalSourceSha256": "9d6022789c5a3848eff662b0fad33cacccebb43d2954ec7673411a95297545f4",
+        "receiptPointer": "/rows/4607",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "swear out",
+        "canonicalId": 12766985,
+        "canonicalSourceSha256": "f16b76001441e57ff1cbf0771d6ac78ce61dbda0ed1822396680e764792f7feb",
+        "receiptPointer": "/rows/4608",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "swing shift",
+        "canonicalId": 12774745,
+        "canonicalSourceSha256": "f4dc568614587667db6b2102c6606bd27b25d61251ee15332797a7b84cff1e3e",
+        "receiptPointer": "/rows/4609",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "swore",
+        "canonicalId": 10370601,
+        "canonicalSourceSha256": "ad070421eb3a60be966a99b14d204ee0ba7d4432df06bae1958728ccd30fdf96",
+        "receiptPointer": "/rows/4281",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tach",
+        "canonicalId": 5875605,
+        "canonicalSourceSha256": "c33cecfcb0ef043d88049d4cd685b9325002ea2aa6b43ad940f12bc82c344eaf",
+        "receiptPointer": "/rows/4766",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "take in charge",
+        "canonicalId": 12790279,
+        "canonicalSourceSha256": "031f50605ed422e13bf73bdce95dae4b40899274624ea974a04c1606aa03ec15",
+        "receiptPointer": "/rows/4610",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tampering",
+        "canonicalId": 10385816,
+        "canonicalSourceSha256": "02af9fe33b8102ea330b3faa260fd5201c6bac1c12146df3d82f8fa16f84639f",
+        "receiptPointer": "/rows/4282",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tank circuit",
+        "canonicalId": 12797874,
+        "canonicalSourceSha256": "a601e547c812b5da17d6d3deed185336ee9cbc66a930a5d671d31e7424999b18",
+        "receiptPointer": "/rows/4611",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tanned",
+        "canonicalId": 10386451,
+        "canonicalSourceSha256": "bfa0d07a632aa8cfdd5cdaf99e81b1846905430aae9a624360c8d17116774b9f",
+        "receiptPointer": "/rows/4283",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tape deck",
+        "canonicalId": 10387394,
+        "canonicalSourceSha256": "e7feb51859b63e56497f1b39a230169535bd4dc75a543816da1e3320f79480a3",
+        "receiptPointer": "/rows/4284",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "teasing",
+        "canonicalId": 10395618,
+        "canonicalSourceSha256": "9393d04d2184e54637a902eba86e2f1d8dd4e805c68c04e6ce9a817996ac3906",
+        "receiptPointer": "/rows/4285",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "telco",
+        "canonicalId": 4855004,
+        "canonicalSourceSha256": "26367749b4b676ec6e1c5ece7111c0fb239fa83bae1cd86a651510f9c0f1d77e",
+        "receiptPointer": "/rows/4738",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "telefax",
+        "canonicalId": 12812440,
+        "canonicalSourceSha256": "0e35d5906ba56b5e694c754644155a2226912e65820d88b103d9d6af3ec77586",
+        "receiptPointer": "/rows/4612",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "telephone exchange",
+        "canonicalId": 10398128,
+        "canonicalSourceSha256": "cd7e6a7023d50f398ce069df1e2f84cddb305a09832af9ab4c5949878881d1ad",
+        "receiptPointer": "/rows/4286",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "terahertz",
+        "canonicalId": 12823440,
+        "canonicalSourceSha256": "67b8c7b46089a34a1465f9096ac994d3c28b785cbdbe7c5e0c1f6cd365ee6b0c",
+        "receiptPointer": "/rows/4613",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "terracing",
+        "canonicalId": 10401726,
+        "canonicalSourceSha256": "92693a31e42aeb3d3d282a881a1e32759924b3f47cd7fc690a0568a9bf24293a",
+        "receiptPointer": "/rows/4287",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "thick skin",
+        "canonicalId": 12836047,
+        "canonicalSourceSha256": "14152f4243b85dd4964e5c03dd03bc77a86c47528a9ecc72801b0a261cd35b8e",
+        "receiptPointer": "/rows/4614",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "time lag",
+        "canonicalId": 10421596,
+        "canonicalSourceSha256": "bf4c258598bf732d107a71932123d7327ee9778911a1115e6522af139bb72e1d",
+        "receiptPointer": "/rows/4288",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tinkering",
+        "canonicalId": 10424262,
+        "canonicalSourceSha256": "110afc50e3f75124f496ea2cc05297c6f06aa9aeef6445b4e2bfb9b0e2935e4e",
+        "receiptPointer": "/rows/4289",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "toll collector",
+        "canonicalId": 12866507,
+        "canonicalSourceSha256": "a64ca6308d57de7197a73e19842bade6871c21296bf822d02f75842b52fd570f",
+        "receiptPointer": "/rows/4615",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "top executive",
+        "canonicalId": 12871426,
+        "canonicalSourceSha256": "6341e3f0fae065d56aa4d7b18f87037b802f468f3263b645b5f4993228abec4f",
+        "receiptPointer": "/rows/4616",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "tout ensemble",
+        "canonicalId": 12879056,
+        "canonicalSourceSha256": "06342cf7e599e1961bbfa9ed798672d0be31fc525191846a1a888e6f6cce8120",
+        "receiptPointer": "/rows/4617",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "transmission density",
+        "canonicalId": 12890833,
+        "canonicalSourceSha256": "37b869751d6aec721b42ddda47a0e19e7ca731ac583ba207c01358aad9911ca2",
+        "receiptPointer": "/rows/4618",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "treble damages",
+        "canonicalId": 12898021,
+        "canonicalSourceSha256": "64ac02ba054477466fe1c321da5b395c2a021e3c0440d8374116d33adc1810a9",
+        "receiptPointer": "/rows/4619",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "trem",
+        "canonicalId": 4616301,
+        "canonicalSourceSha256": "5611614b0a6a9061d89c659aa30bf2950194d6913701be8c3cffab7074d2673c",
+        "receiptPointer": "/rows/4725",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "triangular prism",
+        "canonicalId": 12903609,
+        "canonicalSourceSha256": "58a499a1e71d79a0f503097a37b0ce087087fb03ef3d4a77f106232a9450a197",
+        "receiptPointer": "/rows/4620",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "trip out",
+        "canonicalId": 12906690,
+        "canonicalSourceSha256": "00958e3eef7262f4d679af025bd607004f1ea3890b9b049f89b70697ee59cfb2",
+        "receiptPointer": "/rows/4621",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "troy ounce",
+        "canonicalId": 12910205,
+        "canonicalSourceSha256": "cef4f92591de46826fe15916cdd16f735dcd90f6cadfe1e95cb358eec4b8692d",
+        "receiptPointer": "/rows/4622",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "trust corporation",
+        "canonicalId": 12915467,
+        "canonicalSourceSha256": "82330324306c375c8bfd7dd868288ec56298c3dd5188046e7d0572384926bb2b",
+        "receiptPointer": "/rows/4623",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "turn-off",
+        "canonicalId": 10465242,
+        "canonicalSourceSha256": "34354a1b2ce7f32cb6616e579f925b751dfc1d4b143e3304083b09c27959a7d7",
+        "receiptPointer": "/rows/4290",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "turn-on",
+        "canonicalId": 10465280,
+        "canonicalSourceSha256": "e34839d0698bd9468da79869524383ff15b69c3a0bcb9a88f089f5fba16f10cc",
+        "receiptPointer": "/rows/4291",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "turtle dove",
+        "canonicalId": 10466097,
+        "canonicalSourceSha256": "cfe10f10e2d41a4ebd801c7daeeaa7768169a8a6f6ab20da512dd619cb8d6b16",
+        "receiptPointer": "/rows/4292",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ucla",
+        "canonicalId": 5680698,
+        "canonicalSourceSha256": "78a595d70ecc9cd0fe3cd80563c5998c62f55e070c14ff14cb7a67fa246b1829",
+        "receiptPointer": "/rows/4759",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "ultrahigh frequency",
+        "canonicalId": 12930255,
+        "canonicalSourceSha256": "f853c95b9f1f52eb388f4063298584a582322714a9374b09e23b4e96bdceb2ea",
+        "receiptPointer": "/rows/4624",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unassignable",
+        "canonicalId": 12932319,
+        "canonicalSourceSha256": "c8692d12182ef174ebb86144b6fc5b21738c10ac2143972dc6bf3d8da4f46a07",
+        "receiptPointer": "/rows/4625",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unced",
+        "canonicalId": 4402490,
+        "canonicalSourceSha256": "f9a4fd8ad756d13267824c45f7b1f8b767b0419dcb93bad1bd4e4a03dc7e1080",
+        "receiptPointer": "/rows/4702",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "underrun",
+        "canonicalId": 12933650,
+        "canonicalSourceSha256": "bdbb5e8ebe95df7a7fb770ce6ae54724048b96cb5c30bde928006003c33f4569",
+        "receiptPointer": "/rows/4626",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "univ",
+        "canonicalId": 5572525,
+        "canonicalSourceSha256": "cd5aedb9a8704cc7934e7951501939fdde93af02475498bac0055975fda73d80",
+        "receiptPointer": "/rows/4756",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unoriented",
+        "canonicalId": 12940454,
+        "canonicalSourceSha256": "69fc7647b5cfb3e4feda8d52f55269e244c18a920aa5478b4edb2ea30dea0ce5",
+        "receiptPointer": "/rows/4627",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unreduced",
+        "canonicalId": 12940684,
+        "canonicalSourceSha256": "e2ea5a5f6860b1d74a904a6d795a65ec52dea0c2b03a04ad49b07862d22639f4",
+        "receiptPointer": "/rows/4628",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unstratified language",
+        "canonicalId": 12941943,
+        "canonicalSourceSha256": "6ef22186f27cd45c67039bdf06046d29266d581f1bea2b8b89c10cd00835c55d",
+        "receiptPointer": "/rows/4629",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "unsubscribe",
+        "canonicalId": 10483094,
+        "canonicalSourceSha256": "571a407fccb9cab6fc6b4e10133ead17a12c7206fd9e98299657fdd791bc5277",
+        "receiptPointer": "/rows/4293",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "upsetting",
+        "canonicalId": 10488172,
+        "canonicalSourceSha256": "fef646e4c9d15973f072c8c8e447b3302e3d8a69bb1d3f14f16f3d041f0a2924",
+        "receiptPointer": "/rows/4294",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "upvc",
+        "canonicalId": 4324115,
+        "canonicalSourceSha256": "5c445725ea122f45d5aa24882c2ee4868cb31fcb07948eb63232324c2ec051b2",
+        "receiptPointer": "/rows/4695",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "urban renewal",
+        "canonicalId": 12945647,
+        "canonicalSourceSha256": "8f06a315345d4f8930f14c48f79754febbe3298795b0d19c21a1d3ea6215f519",
+        "receiptPointer": "/rows/4630",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "urinary hesitancy",
+        "canonicalId": 12945923,
+        "canonicalSourceSha256": "de513115c788a4702d07f07e5139f22dd6d242ca8189a660bae330e125e87ec6",
+        "receiptPointer": "/rows/4631",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "vapor density",
+        "canonicalId": 12952785,
+        "canonicalSourceSha256": "4e4b1b582279ada68c9015cdc89bb5be1317bec0f9134bab4facc64ccfd5d880",
+        "receiptPointer": "/rows/4632",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "veterinary surgeon",
+        "canonicalId": 10493885,
+        "canonicalSourceSha256": "97a52a462f11ced1b24b1219709b16ae4128603f55153491a3b6d7349cfbdcd5",
+        "receiptPointer": "/rows/4295",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "vocab",
+        "canonicalId": 5192012,
+        "canonicalSourceSha256": "513d7ab79de8d4832fb93ce6703598e28c26a2f4e4ef62caa9c27ce59d7e5efc",
+        "receiptPointer": "/rows/4746",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "waco",
+        "canonicalId": 6049335,
+        "canonicalSourceSha256": "1bd576e6c4853d03694855af676ede4a5eff09b5a791fe3a14e66152e586a939",
+        "receiptPointer": "/rows/4776",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "water cooler",
+        "canonicalId": 10511946,
+        "canonicalSourceSha256": "77c6ac442339dd4c6f69711fdffc9c2aeeec1f358aefd02f744fc191cc1a4f1e",
+        "receiptPointer": "/rows/4296",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "weaving",
+        "canonicalId": 10517846,
+        "canonicalSourceSha256": "dcc33a871e320ef6f82ea8ab91abf169f0d4451d45f9fbab9d28cecd2cec662d",
+        "receiptPointer": "/rows/4297",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "without obligation",
+        "canonicalId": 10548765,
+        "canonicalSourceSha256": "3f6a401560cb2315dbea00f03b926deaea4d3c09bc5830b79b59cddb022af43e",
+        "receiptPointer": "/rows/4298",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "woman about town",
+        "canonicalId": 10550512,
+        "canonicalSourceSha256": "6ba1ee543a268202530b7b2a8ff2e403c2b8761638ce36efdf2ab4f878a3e93b",
+        "receiptPointer": "/rows/4299",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "wysiwyg",
+        "canonicalId": 4444394,
+        "canonicalSourceSha256": "9bf5be853f80bdd29d923158718fb12ed4e13e0babfa73d39455a0ae081c3a40",
+        "receiptPointer": "/rows/4704",
+        "existingDecision": "support-original-selected-five-cells"
+      },
+      {
+        "term": "yorkie",
+        "canonicalId": 5826632,
+        "canonicalSourceSha256": "1b33e0e0910930832b5689618ab2344188be41174bc305d19dfec781363f704c",
+        "receiptPointer": "/rows/4764",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      },
+      {
+        "term": "zoom in",
+        "canonicalId": 10564729,
+        "canonicalSourceSha256": "dbab8500b749a9fdfa388cdee124030a36ece004de1939d17a42d2d2836b2196",
+        "receiptPointer": "/rows/4300",
+        "existingDecision": "support-original-selected-five-cells-language-only"
+      }
+    ]
+  }
+}

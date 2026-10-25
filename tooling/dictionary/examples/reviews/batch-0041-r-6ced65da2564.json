@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "db1fe5843813e19e5c7d9a51325fb7caf6b49ceef8593d87953accd55ee62446",
+  "reviewer": "AI/d38_reviewer_prepare",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "air marshal",
+    "air plant",
+    "all arounder",
+    "anchovy paste",
+    "anchovy sauce",
+    "anti-submarine rocket",
+    "anti-sway bar",
+    "approach pattern",
+    "aqua fortis",
+    "area unit",
+    "arena theater",
+    "armed combat",
+    "armored scale",
+    "arrival time",
+    "art director",
+    "arterial road",
+    "articulated lorry",
+    "as we say",
+    "associate degree",
+    "attack aircraft",
+    "attack dog",
+    "au naturel",
+    "back brace",
+    "backhand shot",
+    "baking chocolate",
+    "baleen whale",
+    "ball hawk",
+    "banana boat",
+    "band aid",
+    "banyan tree",
+    "bar fly",
+    "bar line",
+    "barber chair",
+    "bathtub gin",
+    "beach grass",
+    "bee house",
+    "beef broth",
+    "beef stock",
+    "bell shape",
+    "beta radiation",
+    "bikini pants",
+    "bilateral descent",
+    "bing cherry"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "newIndependentReviewByThisScript": false,
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "admissionReceipt": {
+      "file": "tooling/dictionary/examples/queues/batch-0041-admission-receipt.json",
+      "bytes": 10065102,
+      "sha256": "685c5b41379d0dee8da6a2bd559946cd50978279b2ab3b63b164414c3d63745e"
+    },
+    "rows": [
+      {
+        "term": "air marshal",
+        "canonicalId": 10621309,
+        "canonicalSourceSha256": "f2a9bcf1d8e9b4ab906a4fb8feaa184300153cee9b2cc875d6ed0116c795230d",
+        "receiptPointer": "/rows/1440",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "air plant",
+        "canonicalId": 10621826,
+        "canonicalSourceSha256": "d64d12a445c1ef2f68aeece80f35bf14e8ab234edcce43721430eb150017cb9c",
+        "receiptPointer": "/rows/1441",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "all arounder",
+        "canonicalId": 10628342,
+        "canonicalSourceSha256": "dfe5244247d4cc74d4e4a9a69ee53f70549202a7dfa4331763ed5fe63480b1f5",
+        "receiptPointer": "/rows/1445",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "anchovy paste",
+        "canonicalId": 10645428,
+        "canonicalSourceSha256": "21fc63044a5873d67925bfd46912ddaef62f7430d29af5c54a2ad9430ebb42fd",
+        "receiptPointer": "/rows/1449",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "anchovy sauce",
+        "canonicalId": 10645692,
+        "canonicalSourceSha256": "2982a68fd74dc8afd5ebfeb45c8983666b0bd287b21134ab7f8149d0bee8d2bd",
+        "receiptPointer": "/rows/1450",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "anti-submarine rocket",
+        "canonicalId": 10657144,
+        "canonicalSourceSha256": "5fda3db98515fb51af5c0ae60cfc933870e8fedd6b3f20c1a870b1eabe1ea114",
+        "receiptPointer": "/rows/1453",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "anti-sway bar",
+        "canonicalId": 10657277,
+        "canonicalSourceSha256": "f79da2f14a31b85682e914f68d244b35f8fab4aa2494c0544527b56976e3ea2f",
+        "receiptPointer": "/rows/1454",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "approach pattern",
+        "canonicalId": 10667107,
+        "canonicalSourceSha256": "3899a9bb6372b0ba0fff7746276e3f9d880c1b14fbb7c08b7b615f9f81d494ff",
+        "receiptPointer": "/rows/1458",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "aqua fortis",
+        "canonicalId": 10667774,
+        "canonicalSourceSha256": "467e834e434c2a5db4b60073f8def8870d72977657afd9a076d9d0e6543f53f1",
+        "receiptPointer": "/rows/1459",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "area unit",
+        "canonicalId": 10670962,
+        "canonicalSourceSha256": "3a5e5feb773337c37bb64d08bc7b5fd834ffb4e2f43d9d22617bd4b4f7892a9c",
+        "receiptPointer": "/rows/1461",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "arena theater",
+        "canonicalId": 10671153,
+        "canonicalSourceSha256": "c1b58a498bc7f031afcdcf981e459e78b5188026172aecd47caa51b1abc5f1a2",
+        "receiptPointer": "/rows/1462",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "armed combat",
+        "canonicalId": 10672668,
+        "canonicalSourceSha256": "a67823fdb63b40912e5bce00ae09f3adf7c0f1bb0598d96c87de9692364d8663",
+        "receiptPointer": "/rows/1463",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "armored scale",
+        "canonicalId": 10673791,
+        "canonicalSourceSha256": "5b60f1dfc177d291ba618db2747efc4ef73c5f5d3a40787feaa1e85f6d38a03b",
+        "receiptPointer": "/rows/1464",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "arrival time",
+        "canonicalId": 10676111,
+        "canonicalSourceSha256": "fb77c45d10434e30990a2ac7ff88dbacd7a6820389077615bdaee7fbc9fc512e",
+        "receiptPointer": "/rows/1465",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "art director",
+        "canonicalId": 10677598,
+        "canonicalSourceSha256": "552bd4084a920eab5269dc1a35131fa55be882688c66deac5eebaa458c8d0566",
+        "receiptPointer": "/rows/1468",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "arterial road",
+        "canonicalId": 10684769,
+        "canonicalSourceSha256": "b923290bf86478ba7cac5547acf447fc7c71b3bab9746eb6f5606c145e00ca99",
+        "receiptPointer": "/rows/1471",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "articulated lorry",
+        "canonicalId": 10685375,
+        "canonicalSourceSha256": "f7c0dd797721487341d0d1bc254df06bbd0b70e0d07e32b6e76e4053f2e9d121",
+        "receiptPointer": "/rows/1472",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "as we say",
+        "canonicalId": 10689704,
+        "canonicalSourceSha256": "98e53c84728726a419d1bca252ef2a15072126b0707a13c5ed1dd0f14d8b1f99",
+        "receiptPointer": "/rows/1474",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "associate degree",
+        "canonicalId": 10694339,
+        "canonicalSourceSha256": "f5c2f41268cddd67a12c2fe0efc9b3c7f931c0819f51c81acaa6ce1b3c9c98ac",
+        "receiptPointer": "/rows/1478",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "attack aircraft",
+        "canonicalId": 10701501,
+        "canonicalSourceSha256": "62863953e841c64c4747242e75c41c03519834dbe70929d5675fdc0fee42f35b",
+        "receiptPointer": "/rows/1480",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "attack dog",
+        "canonicalId": 10701663,
+        "canonicalSourceSha256": "e584b2dc61649f8b94e35310a11c3c8e2a0ba80983e5444e2e1cc05a9b6abbe4",
+        "receiptPointer": "/rows/1481",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "au naturel",
+        "canonicalId": 10703294,
+        "canonicalSourceSha256": "6af8a36b6cbcd7a8afa10749d94cda842d3a26c305c07687d0b7b067904f7ddc",
+        "receiptPointer": "/rows/1482",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "back brace",
+        "canonicalId": 10720249,
+        "canonicalSourceSha256": "9008116ca9e4728558948454dd8e49420458bc03238efe435b5107e1d452aa15",
+        "receiptPointer": "/rows/1487",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "backhand shot",
+        "canonicalId": 10722773,
+        "canonicalSourceSha256": "1e97369364a60479e3a37785a0241ccf58a2c750609921a868795eb0f0b3fbb0",
+        "receiptPointer": "/rows/1488",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "baking chocolate",
+        "canonicalId": 10727045,
+        "canonicalSourceSha256": "6e470b4e27d61689c10a6c1b87b05c34ba98e853f2dfcad5087c9cd865c79873",
+        "receiptPointer": "/rows/1490",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "baleen whale",
+        "canonicalId": 10728173,
+        "canonicalSourceSha256": "4779f8e50c4c2d82030ca0c6128df4140faaf071598e3f1dec07e6ff1becc3c6",
+        "receiptPointer": "/rows/1491",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "ball hawk",
+        "canonicalId": 10729201,
+        "canonicalSourceSha256": "9f66a333552b3fb9beffa561d0bf1c4ee6759d3793f39b3526c9bc0569753b8e",
+        "receiptPointer": "/rows/1492",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "banana boat",
+        "canonicalId": 10732942,
+        "canonicalSourceSha256": "83c38cfd0c03cbcfc091106828bfd565efcfc7bef20c7ed013bf5d407b0372ef",
+        "receiptPointer": "/rows/1497",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "band aid",
+        "canonicalId": 10733580,
+        "canonicalSourceSha256": "0934ed078ca2d3593d37d1c659b393d0c0033c2f4b865ed0fece5fab31656bd8",
+        "receiptPointer": "/rows/1498",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "banyan tree",
+        "canonicalId": 10737814,
+        "canonicalSourceSha256": "c701f4ec5b8107359a4bb3d36ce92295e18590e5491087eba54d8a6cb1399f43",
+        "receiptPointer": "/rows/1499",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bar fly",
+        "canonicalId": 10738783,
+        "canonicalSourceSha256": "2806268fee92cde475ca0850e940040573393c0b499f8f48d0f0a45cc2dba9a7",
+        "receiptPointer": "/rows/1500",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bar line",
+        "canonicalId": 10739108,
+        "canonicalSourceSha256": "dfe121dbb86e9a31ff0d74b62aecc44ca6ef2136ca63667377d837034b738d7f",
+        "receiptPointer": "/rows/1502",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "barber chair",
+        "canonicalId": 10740130,
+        "canonicalSourceSha256": "48c266390cf12fd79bb9dd9f8786d57418c9db739f8dbd6a7a268d6a29a96def",
+        "receiptPointer": "/rows/1504",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bathtub gin",
+        "canonicalId": 10753901,
+        "canonicalSourceSha256": "83fce15671596bcf336a50f009aca6ceddd045359cd0ebd0518ba88fa194fc15",
+        "receiptPointer": "/rows/1513",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "beach grass",
+        "canonicalId": 10759730,
+        "canonicalSourceSha256": "d4db762e12884dcce502bc8def5203529d1d621ff6adff44eba839787d79760e",
+        "receiptPointer": "/rows/1514",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bee house",
+        "canonicalId": 10769459,
+        "canonicalSourceSha256": "29d234a86eeb8f9132620e69546a59f08a8d7f2254a495f91843c65d7663e311",
+        "receiptPointer": "/rows/1519",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "beef broth",
+        "canonicalId": 10770406,
+        "canonicalSourceSha256": "85cbf06ab0bdf3a8d33af83b2e747c54a7c94f10dfbc8ef8bae7de1f85ae7ac5",
+        "receiptPointer": "/rows/1521",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "beef stock",
+        "canonicalId": 10771113,
+        "canonicalSourceSha256": "98151faf2224e5e0c02cf5c253a32718a85481407d3464e87aaf04295508b8f1",
+        "receiptPointer": "/rows/1522",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bell shape",
+        "canonicalId": 10776253,
+        "canonicalSourceSha256": "56e37ddc98a49c2f7d24a0b7fbe13223a5bd5afe94281e46dc64f0ab315534a1",
+        "receiptPointer": "/rows/1526",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "beta radiation",
+        "canonicalId": 10783848,
+        "canonicalSourceSha256": "8038541af48756003d241225d576d8c23e45e7ed053eefca457928a94e55e80e",
+        "receiptPointer": "/rows/1528",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bikini pants",
+        "canonicalId": 10788511,
+        "canonicalSourceSha256": "487d3ce75a76e2b67636ab94f4b966c0dbd5a39c6954efa1c69c92998e45f5e2",
+        "receiptPointer": "/rows/1530",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bilateral descent",
+        "canonicalId": 10788841,
+        "canonicalSourceSha256": "a35cd2d907d295e0ebc2bd42098e0ccb1540f3f4c3f5bf3571531951a84c2488",
+        "receiptPointer": "/rows/1531",
+        "existingDecision": "support-exact-original-selected-pair"
+      },
+      {
+        "term": "bing cherry",
+        "canonicalId": 10794508,
+        "canonicalSourceSha256": "3ab5ccd627c7e6f456dde7bafa1cf253c11dbe795fb891d0bd5e35f0e337b76a",
+        "receiptPointer": "/rows/1535",
+        "existingDecision": "support-exact-original-selected-pair"
+      }
+    ]
+  }
+}

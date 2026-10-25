@@ -22,6 +22,7 @@ const SHELL = [
   "./data/dictionary-examples/catalogue-v4/b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c.bin",
   "./data/dictionary-examples/catalogue-v4/4191b9ceb5740892393f3a4c4124d1d403df4780fc4c932bf973736f55745e0b.bin",
   "./data/dictionary-examples/catalogue-v4/0174f066dfd51f3827b8530ab61abb19038e03eff8e0a71a483e0973b886269c.bin",
+  "./data/dictionary-examples/catalogue-v4/377d80ccbe67306dd2067c26d12a3172fd601ade7603bec722e19405bd232098.bin",
   "./js/app-navigation.js?v=107", "./js/app-navigation-entry.js?v=107", "./js/personal-app.js?v=107",
   "./js/app-navigation.js?v=105", "./js/app-navigation.js",
   "./js/app-navigation-entry.js?v=106", "./js/app-navigation-entry.js?v=105", "./js/app-navigation-entry.js",
