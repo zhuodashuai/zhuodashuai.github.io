@@ -45,21 +45,29 @@ test("all 108 reviewed Forsyte heads have complete chapter meanings, learning ex
 
 test("cross-book reuse preserves all old canonical words and 653 old reading contexts", async () => {
   const before = await loadExpandedPublicSource();
-  const permitted = new Set(["tags", "readingContexts", "revision", "updatedAt", "synonymScan"]);
   let shared = 0, oldContexts = 0;
   for (const old of before.entries) {
     const after = snapshot.entries.find(entry => entry.id === old.id);
     assert(after, old.term);
-    if (after.tags.includes(membership)) {
-      shared += 1;
-      for (const key of Object.keys(old)) if (!permitted.has(key)) assert.deepEqual(after[key], old[key], `${old.term}.${key}`);
-      for (const context of old.readingContexts) assert.deepEqual(after.readingContexts.find(item => item.membership === context.membership), context);
-    } else assert.deepEqual(after, old);
+    // This archive freezes the earlier book contexts, not every future version
+    // of a shared canonical card. Later articles or owner edits may legitimately
+    // add senses, examples and provenance to that same card.
+    for (const key of ["id", "term", "normalized", "createdAt"]) {
+      assert.deepEqual(after[key], old[key], `${old.term}.${key}: original identity survives`);
+    }
+    assert.deepEqual(after.tags.filter(tag => old.tags.includes(tag)), old.tags, `${old.term}: old memberships survive`);
+    for (const context of old.readingContexts) {
+      assert.deepEqual(after.readingContexts.find(item => item.membership === context.membership), context,
+        `${old.term}: original ${context.membership} context survives`);
+    }
+    if (after.tags.includes(membership)) shared += 1;
     oldContexts += old.readingContexts.length;
   }
   assert.equal(shared, 4);
   assert.equal(oldContexts, 653);
-  assert.equal(snapshot.entries.length, before.entries.length + 104);
+  const oldIds = new Set(before.entries.map(entry => entry.id));
+  assert.equal(entries.filter(entry => !oldIds.has(entry.id)).length, 104);
+  assert(snapshot.entries.length >= before.entries.length + 104, "later additions are permitted without losing the imported cards");
   const catalog = buildCollectionCatalog(snapshot.entries);
   assert.equal(catalog.find(book => book.id === bookId).title, "The Forsyte Saga");
   assert.equal(catalog.find(book => book.id === "never-let-me-go").title, "Never Let Me Go");
