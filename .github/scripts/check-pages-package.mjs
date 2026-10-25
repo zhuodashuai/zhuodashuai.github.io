@@ -152,6 +152,63 @@ export const UNPUBLISHED_FORSYTE_ARCHIVE_PATHS = Object.freeze([
   'tooling/dictionary/public-source/book-passages-fd742758.json',
   'tooling/dictionary/public-source/gitattributes-fd742758.txt'
 ]);
+export const UNPUBLISHED_D36_PATHS = Object.freeze([
+  "tooling/dictionary/examples/source/batch-0036-g-43e1cded971d.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-43e1cded971d.json",
+  "tooling/dictionary/examples/source/batch-0036-g-0c086b1569a0.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-0c086b1569a0.json",
+  "tooling/dictionary/examples/source/batch-0036-g-f86437e16314.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-f86437e16314.json",
+  "tooling/dictionary/examples/source/batch-0036-g-620849f50e3b.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-620849f50e3b.json",
+  "tooling/dictionary/examples/source/batch-0036-g-0bdf225ffa8f.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-0bdf225ffa8f.json",
+  "tooling/dictionary/examples/source/batch-0036-g-6988c7e5e447.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-6988c7e5e447.json",
+  "tooling/dictionary/examples/source/batch-0036-g-754ecaa4d4a1.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-754ecaa4d4a1.json",
+  "tooling/dictionary/examples/source/batch-0036-g-6bfac72b4b5e.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-6bfac72b4b5e.json",
+  "tooling/dictionary/examples/source/batch-0036-g-709c1d680b03.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-709c1d680b03.json",
+  "tooling/dictionary/examples/source/batch-0036-g-bb535645c8de.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-bb535645c8de.json",
+  "tooling/dictionary/examples/source/batch-0036-g-d728f0933bd8.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-d728f0933bd8.json",
+  "tooling/dictionary/examples/source/batch-0036-g-f1a612e117d9.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-f1a612e117d9.json",
+  "tooling/dictionary/examples/source/batch-0036-g-cff6ff224298.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-cff6ff224298.json",
+  "tooling/dictionary/examples/source/batch-0036-g-aa9776b2c2e2.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-aa9776b2c2e2.json",
+  "tooling/dictionary/examples/source/batch-0036-g-dd3d1401e4e9.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-dd3d1401e4e9.json",
+  "tooling/dictionary/examples/source/batch-0036-g-5fc3466e0405.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-5fc3466e0405.json",
+  "tooling/dictionary/examples/source/batch-0036-g-dc15c0755087.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-dc15c0755087.json",
+  "tooling/dictionary/examples/source/batch-0036-g-964c96a84b1c.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-964c96a84b1c.json",
+  "tooling/dictionary/examples/source/batch-0036-g-4125fade4fd2.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-4125fade4fd2.json",
+  "tooling/dictionary/examples/source/batch-0036-g-954261769bc2.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-954261769bc2.json",
+  "tooling/dictionary/examples/source/batch-0036-g-41648ca85ec3.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-41648ca85ec3.json",
+  "tooling/dictionary/examples/source/batch-0036-g-f06e74efb79d.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-f06e74efb79d.json",
+  "tooling/dictionary/examples/source/batch-0036-g-e1033e35c3b7.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-e1033e35c3b7.json",
+  "tooling/dictionary/examples/source/batch-0036-g-e19724963c56.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-e19724963c56.json",
+  "tooling/dictionary/examples/source/batch-0036-g-c6093db07b22.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-c6093db07b22.json",
+  "tooling/dictionary/examples/source/batch-0036-g-b6ad5be42ee2.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-b6ad5be42ee2.json",
+  "tooling/dictionary/examples/source/batch-0036-g-df39468d9f95.json",
+  "tooling/dictionary/examples/reviews/batch-0036-g-df39468d9f95.json",
+  "tooling/dictionary/examples/queues/batch-0036-admission-receipt.json"
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -166,7 +223,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -220,12 +277,13 @@ export function verifyStatic(directory, repo) {
   for (const file of UNPUBLISHED_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal proof was published: ${file}`);
   for (const file of UNPUBLISHED_D35_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New D35 internal proof was published: ${file}`);
   for (const file of UNPUBLISHED_FORSYTE_ARCHIVE_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New Forsyte build/test archive was published: ${file}`);
+  for (const file of UNPUBLISHED_D36_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New D36 internal proof was published: ${file}`);
   // README indexes and converted documentation remain published too.
   for (const file of [...GENERATED_PATHS, 'index.html', 'vocab/index.html', 'vocab/personal.html',
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length };
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "ba33e0da85cbb019944117d38753c50c27fa0ac49c0b8fad197aed0234659f43",
+  "reviewer": "AI/d36_reviewer_prepare_role04",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "acarian"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "supportedInventory": {
+      "file": "candidates/d36-supported-input-inventory-0002.json",
+      "bytes": 4733444,
+      "sha256": "b3cb40182aa9e839ebee7c95d2de0928155b9f8eab29ad6c71b4de35c1516871"
+    },
+    "authorPrincipal": "d36_author_role",
+    "reviewerPrincipal": "d36_reviewer_prepare_role04",
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "acarian",
+        "canonicalId": 6785482,
+        "canonicalSourceSha256": "be5eabb6f89e9e5e5020c08cdf59e2e95f81415771208eeb69f2e7c4dca4996f",
+        "pairSha256": "8acaa4dd04d91566da74e473d5c271fff0aa4bd8c36d96e67f571afdb77613b0",
+        "author": {
+          "file": "drafts/d36-role-acarian-translation-precision-child-0001.json",
+          "bytes": 3824,
+          "sha256": "520330409259edc0b1cd0692cbefcc9861e016fc1930f1f5f7855d58d92000e6",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "e20e1750cd73838b302edb09701699b5ef26b10798e8ab691338f025cf66b723"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-role-acarian-child-independent-prepare-review-0001.json",
+          "bytes": 2791,
+          "sha256": "66daeb7eb6c6d333e2974702e75de1c1d9c7255d50848ad79c15ab9bf00ce7c1",
+          "pointer": "",
+          "decision": "support-exact-distinct-ZH-only-translation-child-for-possible-future-admission",
+          "wholeOpinionRowSha256": "0244c0b74c9b78c1178d623512f3b09c377c7e7baa95f267c57317fa8bdb9a51"
+        },
+        "proofClassification": "exact-visible-selected-sense-per-frozen-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/632",
+          "wholeMasterEntrySha256": "7addfa755159324becd8707c667288af0bb6df554ae85289a075bfebb8021094",
+          "completeReferencedSourceIds": [
+            6785482
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:acarian"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 6785482,
+              "canonicalTerm": "acarian",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-outcome.json#/deferred/221",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0017-provenance.json#/sourceQueues/36/entries/25"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

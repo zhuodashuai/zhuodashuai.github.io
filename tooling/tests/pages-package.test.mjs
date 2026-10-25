@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { isCopiedStatic, inspectSite, checkTar, REVIEW_ONLY, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, UNPUBLISHED_D35_PATHS, UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
+import { isCopiedStatic, inspectSite, checkTar, REVIEW_ONLY, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, UNPUBLISHED_D35_PATHS, UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, UNPUBLISHED_D36_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
 
 test('Pages exclusions retain defaults and omit only specifically registered unpublished review files', () => {
   const text = fs.readFileSync(new URL('../../_config.yml', import.meta.url), 'utf8');
   const entries = text.split(/\r?\n/u).filter(line => /^  - /u.test(line)).map(line => line.slice(4).replace(/\/$/u, ''));
-  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS]);
+  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, ...UNPUBLISHED_D36_PATHS]);
   assert.deepEqual(text.split(/\r?\n/u).filter(line => /^[a-z]/u.test(line)), ['exclude:']);
   for (const file of ['vocab/data/dictionary-examples/old/examples-1.json', 'tooling/dictionary/examples/queues/batch-0030.json',
     'tooling/dictionary/examples/queues/batch-0031-provenance.json', 'tooling/dictionary/examples/source/batch-0031-p004.json',
@@ -32,6 +32,12 @@ test('Pages exclusions retain defaults and omit only specifically registered unp
   for (const file of UNPUBLISHED_FORSYTE_ARCHIVE_PATHS) assert(!isCopiedStatic(file));
   assert(isCopiedStatic('tooling/dictionary/public-source/future-source.json'));
   assert(isCopiedStatic('tooling/dictionary/public-source/owner-wordbook-future.json'));
+  assert.equal(UNPUBLISHED_D36_PATHS.length, 55);
+  assert.equal(new Set(UNPUBLISHED_D36_PATHS).size, 55);
+  const d36 = index.releases.find(release => release.id === "examples-0036");
+  assert.deepEqual(UNPUBLISHED_D36_PATHS, [...d36.sourceFiles.flatMap(file => ["source", "reviews"].map(dir => "tooling/dictionary/examples/" + dir + "/" + file)), "tooling/dictionary/examples/queues/batch-0036-admission-receipt.json"]);
+  for (const file of UNPUBLISHED_D36_PATHS) assert(!isCopiedStatic(file));
+  assert(isCopiedStatic("tooling/dictionary/examples/source/batch-0036-future.json"));
   for (const file of [REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, '_config.yml', '.github/workflows/wordbook-ci.yml', 'vocab/_headers', 'node_modules/file.js',
     'vendor/bundle/lib.rb', 'style.scss']) assert(!isCopiedStatic(file));
 });

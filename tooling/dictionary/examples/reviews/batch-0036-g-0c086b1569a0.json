@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "4450bf4e4137097e5d9894a059b27b74bc36a83f94e8d814103a2d8b6a145a34",
+  "reviewer": "AI/d36_independent_reviewer_source9",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "sodality"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "supportedInventory": {
+      "file": "candidates/d36-supported-input-inventory-0002.json",
+      "bytes": 4733444,
+      "sha256": "b3cb40182aa9e839ebee7c95d2de0928155b9f8eab29ad6c71b4de35c1516871"
+    },
+    "authorPrincipal": "d36_author_root",
+    "reviewerPrincipal": "d36_independent_reviewer_source9",
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "sodality",
+        "canonicalId": 5824584,
+        "canonicalSourceSha256": "05ee2055a7c1a626cafdb87c8d8741ddf0f1b2de3653cfd81fa81f369621502c",
+        "pairSha256": "f002261e9c6c3259822ac61c5a94ebdca8d383c39a270eb335ea87a62e4ba4a4",
+        "author": {
+          "file": "drafts/d36-root-sodality-translation-precision-child-0001.json",
+          "bytes": 1344,
+          "sha256": "55593da18f8528352c60c375239ff21140a55189f0542a77a039aeec51bf9a33",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "0689310c48080b1fb5375460822c3abe2df7eae955ac1c7b4e655b5cdb3ad98b"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-root-sodality-child-independent-source9-review-0001.json",
+          "bytes": 1893,
+          "sha256": "31aa89ec0c619e7814cac33ec6984bdd03e6cd67d266c2229ef866ae5b82e1f5",
+          "pointer": "",
+          "decision": "support-exact-ZH-only-child",
+          "wholeOpinionRowSha256": "183e507d00342dbc97ccb40d926792219944afa5bc987f9a6a58159071b84a56"
+        },
+        "proofClassification": "exact-visible-selected-sense-per-frozen-independent-opinion",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/35",
+          "wholeMasterEntrySha256": "4333ac83d2c1a174fad047df4852d627b047c74cf1a3986457d5cfe66ff2e015",
+          "completeReferencedSourceIds": [
+            5824584,
+            2242225
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:sodality",
+            "key:sodalities",
+            "key:n"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 5824584,
+              "canonicalTerm": "sodality",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0013-outcome.json#/deferred/812"
+              ]
+            },
+            {
+              "canonicalId": 2242225,
+              "canonicalTerm": "N",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p002.json#/entries/134",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/1/entries/147"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}

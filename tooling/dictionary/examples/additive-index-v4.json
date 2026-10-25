@@ -15,12 +15,12 @@
     "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   },
   "previousCatalogue": {
-    "file": "catalogue-v4/b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c.bin",
+    "file": "catalogue-v4/4191b9ceb5740892393f3a4c4124d1d403df4780fc4c932bf973736f55745e0b.bin",
     "codec": "gzip",
-    "bytes": 5069,
-    "sha256": "b23d099a9751fff0b497cd003af4009fad8dc3066569c901e3063e31865c3e6c",
-    "decodedBytes": 12626,
-    "decodedSha256": "9b5d94b29e7fbcaf32c2e6024b18aeb96aba9eab99cfe14c594f1726e4405e3f"
+    "bytes": 7558,
+    "sha256": "4191b9ceb5740892393f3a4c4124d1d403df4780fc4c932bf973736f55745e0b",
+    "decodedBytes": 19019,
+    "decodedSha256": "f3a13542925af395bca472af78c87273ca1421d55c8125690fff7fd3a9d6f106"
   },
   "releases": [
     {
@@ -116,6 +116,38 @@
         "batch-0035-g-18b4bcf1bafa.json",
         "batch-0035-g-bc6772007347.json",
         "batch-0035-g-52fdefb5616c.json"
+      ]
+    },
+    {
+      "id": "examples-0036",
+      "sourceFiles": [
+        "batch-0036-g-43e1cded971d.json",
+        "batch-0036-g-0c086b1569a0.json",
+        "batch-0036-g-f86437e16314.json",
+        "batch-0036-g-620849f50e3b.json",
+        "batch-0036-g-0bdf225ffa8f.json",
+        "batch-0036-g-6988c7e5e447.json",
+        "batch-0036-g-754ecaa4d4a1.json",
+        "batch-0036-g-6bfac72b4b5e.json",
+        "batch-0036-g-709c1d680b03.json",
+        "batch-0036-g-bb535645c8de.json",
+        "batch-0036-g-d728f0933bd8.json",
+        "batch-0036-g-f1a612e117d9.json",
+        "batch-0036-g-cff6ff224298.json",
+        "batch-0036-g-aa9776b2c2e2.json",
+        "batch-0036-g-dd3d1401e4e9.json",
+        "batch-0036-g-5fc3466e0405.json",
+        "batch-0036-g-dc15c0755087.json",
+        "batch-0036-g-964c96a84b1c.json",
+        "batch-0036-g-4125fade4fd2.json",
+        "batch-0036-g-954261769bc2.json",
+        "batch-0036-g-41648ca85ec3.json",
+        "batch-0036-g-f06e74efb79d.json",
+        "batch-0036-g-e1033e35c3b7.json",
+        "batch-0036-g-e19724963c56.json",
+        "batch-0036-g-c6093db07b22.json",
+        "batch-0036-g-b6ad5be42ee2.json",
+        "batch-0036-g-df39468d9f95.json"
       ]
     }
   ]

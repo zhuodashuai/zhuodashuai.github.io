@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "4a0f67472b2afd4a229b04460cd01aac6fd86a3124ccb21021268ddd023fab3c",
+  "reviewer": "AI/d36_reviewer_root_source9_0101",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "demonizing"
+  ],
+  "issues": [],
+  "evidence": {
+    "mechanicalProjectionOfFrozenIndependentOpinions": true,
+    "supportedInventory": {
+      "file": "candidates/d36-supported-input-inventory-0002.json",
+      "bytes": 4733444,
+      "sha256": "b3cb40182aa9e839ebee7c95d2de0928155b9f8eab29ad6c71b4de35c1516871"
+    },
+    "authorPrincipal": "d36_author_source9",
+    "reviewerPrincipal": "d36_reviewer_root_source9_0101",
+    "selectedSenseScopeNotWholeSourceCertification": true,
+    "rows": [
+      {
+        "term": "demonizing",
+        "canonicalId": 5971885,
+        "canonicalSourceSha256": "2f2a46ccfa84fd4b0d60a6fe186233f5e2df9a1f48e7efb45026c0e94f61a869",
+        "pairSha256": "2cf96ef5ea0d4ee3b571c537f1929085e8969c164fadc04c5f43dea7a2990972",
+        "author": {
+          "file": "drafts/d36-source9-demonizing-meaning-precision-child-0001.json",
+          "bytes": 5062,
+          "sha256": "1f045cd16d39f83228b87bc94b7fb1c499433e7ce1ccd9c8afd71652c56cd2b8",
+          "pointer": "/entries/0",
+          "wholeAuthorEntrySha256": "b4378626b6fb1f03d94fbf0e3357e38bb21190ee2551604c0c6ec2b898653eac"
+        },
+        "independentOpinion": {
+          "file": "qa/d36-source9-demonizing-child-independent-root-review-0001.json",
+          "bytes": 2963,
+          "sha256": "1d0416295d269982007b757fa15a46e650efde5d0390bda2e4bdc4b6dd086776",
+          "pointer": "/opinions/0",
+          "decision": "support-exact-selected-pair-for-possible-future-admission",
+          "wholeOpinionRowSha256": "2c086e71235c83ab8c02c4b7c1f812d368b1e9a40ea6fda5c3373127469086bc"
+        },
+        "proofClassification": "explicit-new-curated-selected-meaning-not-raw-equivalence",
+        "completeContext": {
+          "master": {
+            "file": "drafts/d36-context1000-master-0001.json",
+            "bytes": 6942235,
+            "sha256": "ae0dca9edc6ed9c4b30fb883c5a04340b39ac16aeb4e2b7991a688fe02fddd5a"
+          },
+          "pointer": "/entries/115",
+          "wholeMasterEntrySha256": "828e66ffa10340c0bbc08da4e12033ddf6fbba6980d6e08c643d798fe2bd5cc0",
+          "completeReferencedSourceIds": [
+            5971885,
+            2693898,
+            6535175
+          ],
+          "allRelevantKeyPoolKeys": [
+            "key:demonizing",
+            "key:vt",
+            "key:demonize",
+            "key:demonized",
+            "key:demonizes"
+          ],
+          "historyViews": [
+            {
+              "canonicalId": 5971885,
+              "canonicalTerm": "demonizing",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0016-outcome.json#/deferred/827"
+              ]
+            },
+            {
+              "canonicalId": 2693898,
+              "canonicalTerm": "demonize",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0010-c.json#/entries/21"
+              ]
+            },
+            {
+              "canonicalId": 6535175,
+              "canonicalTerm": "VT",
+              "wholeHistoricalObjectIds": [
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\source\\batch-0018-p012.json#/entries/168",
+                "C:\\Users\\14038\\Documents\\Codex\\2026-08-27\\https-github-com-zhuodashuai-zhuodashuai-github\\work\\member-fast-search\\tooling\\dictionary\\examples\\queues\\batch-0018-provenance.json#/sourceQueues/11/entries/175"
+              ]
+            }
+          ]
+        },
+        "selectedSenseOnly": true
+      }
+    ]
+  }
+}
