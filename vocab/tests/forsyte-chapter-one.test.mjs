@@ -60,6 +60,17 @@ test("cross-book reuse preserves all old canonical words and 653 old reading con
       assert.deepEqual(after.readingContexts.find(item => item.membership === context.membership), context,
         `${old.term}: original ${context.membership} context survives`);
     }
+    if (old.readingContexts.length === 0) {
+      const pairs = entry => [
+        { en: entry.exampleEn, zh: entry.exampleZh },
+        ...entry.senses.flatMap(sense => sense.examples)
+      ].filter(pair => pair.en && pair.zh);
+      const retained = pairs(after);
+      for (const pair of pairs(old)) {
+        assert(retained.some(next => next.en === pair.en && next.zh === pair.zh),
+          `${old.term}: original learning example survives even without a book context`);
+      }
+    }
     if (after.tags.includes(membership)) shared += 1;
     oldContexts += old.readingContexts.length;
   }
