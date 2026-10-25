@@ -3,6 +3,26 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const root=new URL('../../',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
+const d42SenseSource='    source.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");';
+const d42SourceLabel='<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
+const historicalSourceLabel='<p class="source">原创例句 · AI 复核 · 仅覆盖所列义项</p>';
+function restoreD42SourceLabel(text){
+ assert.equal(text.split(d42SourceLabel).length,2,'Expected exactly the named D42 author-selfcheck source label');
+ return text.replace(d42SourceLabel,historicalSourceLabel);
+}
+function restoreD42ExampleUi(raw){
+ const text=raw.toString('utf8'),eol=text.includes('\r\n')?'\r\n':'\n';
+ const oldSource='      source.textContent = module.DICTIONARY_EXAMPLE_SOURCE;'+eol;
+ const controller='      controller ||= module.createDictionaryExamplesController({ onChange: render });'+eol;
+ const renderAnchor='    if (state.phase !== "ready") return;'+eol+d42SenseSource+eol+'    for (const sense of state.entry.senses) {';
+ const loadAnchor='      if (current !== sequence || selected !== entry) return false;'+eol+controller;
+ assert.equal(text.split(d42SenseSource+eol).length,2,'Expected exactly the named D42 per-sense source assignment');
+ assert.equal(text.split(renderAnchor).length,2,'D42 source assignment must occupy its exact ready-render location');
+ assert.equal(text.split(oldSource).length,1,'D42 must have replaced the old fixed source assignment');
+ assert.equal(text.split(controller).length,2,'Expected the unchanged controller anchor');
+ assert.equal(text.split(loadAnchor).length,2,'Expected the exact historical source-assignment location');
+ return Buffer.from(text.replace(d42SenseSource+eol,'').replace(controller,oldSource+controller));
+}
 const copies=[
   {
     "oldName": "dictionary-app.js",
@@ -244,7 +264,10 @@ const navigation=[
 ];
 const warmerAddition="    if (/^data\\/dictionary-examples\\/(?:catalogue-v4|delta-v4)\\/[a-f0-9]{64}\\.bin$/u.test(path)) return url.href;";
 for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+item.oldName,async()=>{
- const old=await fs.readFile(new URL('vocab/js/'+item.oldName,root)),next=await fs.readFile(new URL('vocab/js/'+item.newName,root));
+ const oldRaw=await fs.readFile(new URL('vocab/js/'+item.oldName,root)),nextRaw=await fs.readFile(new URL('vocab/js/'+item.newName,root));
+ // Undo only D42's named source-aware label change on both copies before the frozen comparison.
+ const old=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(oldRaw):oldRaw;
+ const next=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(nextRaw):nextRaw;
  assert(item.allowedOldRaw.some(t=>t.bytes===old.length&&t.sha256===sha(old)),'Original body differs from its exact Git/Windows pins');
  let restored=next.toString('utf8');
  for(const[from,to]of item.replacements){assert.equal(restored.split(to).length,2);restored=restored.replace(to,from);}
@@ -273,6 +296,7 @@ for(const item of html)test('the historical v108 HTML shell is exact after undoi
   }
  }
  if(item.file==='vocab/dictionary.html'){
+  text=restoreD42SourceLabel(text);
   assert.equal(text.split('src="js/dictionary-entry-v109.js"').length,2);
   assert.equal(text.split('<button id="dictionary-submit" type="submit" disabled>准备中…</button>').length,2);
   text=text.replace('src="js/dictionary-entry-v109.js"','src="js/dictionary-entry-v108.js"')
@@ -287,8 +311,14 @@ for(const item of html)test('the historical v108 HTML shell is exact after undoi
 test('the fresh v109 application adds only the readiness adoption after listeners and preserves the whole v108 body',async()=>{
  const before=(await fs.readFile(new URL('vocab/js/dictionary-app-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
  const current=(await fs.readFile(new URL('vocab/js/dictionary-app-v109.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ const sourceLookup='  const exampleSource = get("dictionary-example-source");\n';
+ const sourceRender='    if (exampleSource) exampleSource.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");\n';
+ assert.equal(current.split(sourceLookup).length,2);assert.equal(current.split(sourceRender).length,2);
+ assert.equal(current.split('  const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");\n'+sourceLookup+'  const exampleContent = get("dictionary-example-content"), exampleRetry = get("dictionary-example-retry");\n').length,2);
+ assert.equal(current.split('    if (state.phase !== "ready") return;\n'+sourceRender+'    const plan = dictionaryExampleSensePlan(state.entry, lastSelected);\n').length,2);
+ const historicalCurrent=current.replace(sourceLookup,'').replace(sourceRender,'');
  const addition='  // The HTML gates native implicit submission until the actual listeners exist.\n  // Adopt text typed during module download without clearing it or waiting on data.\n  controller.change(input.value);\n\n';
- assert.equal(current.split(addition).length,2);assert.equal(current.replace(addition,''),before);
+ assert.equal(current.split(addition).length,2);assert.equal(historicalCurrent.replace(addition,''),before);
  assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
  const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8');
  assert.equal(entry.split('import "./dictionary-app-v109.js"').length,2);
@@ -298,6 +328,19 @@ test('the fresh v109 application adds only the readiness adoption after listener
  assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
  const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
  for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
+});
+
+test('D42 historical restoration rejects altered or duplicated source additions and retains unrelated bytes',async()=>{
+ const ui=await fs.readFile(new URL('vocab/js/dictionary-examples-ui.js',root),'utf8');
+ const eol=ui.includes('\r\n')?'\r\n':'\n';
+ assert.throws(()=>restoreD42ExampleUi(Buffer.from(ui.replace(d42SenseSource,d42SenseSource.replace('；',';')))));
+ assert.throws(()=>restoreD42ExampleUi(Buffer.from(ui+eol+d42SenseSource+eol)));
+ assert.throws(()=>restoreD42ExampleUi(Buffer.from(ui.replace(d42SenseSource+eol,'')+eol+d42SenseSource+eol)));
+ const extra='\n// unrelated change\n';
+ assert.equal(restoreD42ExampleUi(Buffer.from(ui+extra)).toString(),restoreD42ExampleUi(Buffer.from(ui)).toString()+extra);
+ assert.throws(()=>restoreD42SourceLabel(d42SourceLabel.replace('仅覆盖','覆盖')));
+ assert.throws(()=>restoreD42SourceLabel(d42SourceLabel+d42SourceLabel));
+ assert.equal(restoreD42SourceLabel(d42SourceLabel+extra),historicalSourceLabel+extra);
 });
 test('v108 does not retarget navigation107 and retains pwa77',async()=>{
  for(const item of navigation)assert(item.allowedSha.includes(sha(await fs.readFile(new URL(item.file,root)))));
