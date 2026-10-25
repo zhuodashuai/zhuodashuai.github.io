@@ -165,3 +165,8 @@ exclude:
   - tooling/dictionary/examples/source/batch-0035-g-52fdefb5616c.json
   - tooling/dictionary/examples/reviews/batch-0035-g-52fdefb5616c.json
   - tooling/dictionary/examples/queues/batch-0035-admission-receipt.json
+  # Exact new build/test archives; never previously published.
+  - tooling/dictionary/public-source/owner-wordbook-fd742758.json
+  - tooling/dictionary/public-source/member-dictionary-fd742758.json
+  - tooling/dictionary/public-source/book-passages-fd742758.json
+  - tooling/dictionary/public-source/gitattributes-fd742758.txt

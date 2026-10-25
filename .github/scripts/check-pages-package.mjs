@@ -144,6 +144,14 @@ export const UNPUBLISHED_D35_PATHS = Object.freeze([
   "tooling/dictionary/examples/reviews/batch-0035-g-52fdefb5616c.json",
   "tooling/dictionary/examples/queues/batch-0035-admission-receipt.json",
 ]);
+// These four newly introduced source/test archives are used only by Node/CI.
+// Keep every older published tooling URL and every unknown future path intact.
+export const UNPUBLISHED_FORSYTE_ARCHIVE_PATHS = Object.freeze([
+  'tooling/dictionary/public-source/owner-wordbook-fd742758.json',
+  'tooling/dictionary/public-source/member-dictionary-fd742758.json',
+  'tooling/dictionary/public-source/book-passages-fd742758.json',
+  'tooling/dictionary/public-source/gitattributes-fd742758.txt'
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -158,7 +166,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -211,12 +219,13 @@ export function verifyStatic(directory, repo) {
   for (const file of UNPUBLISHED_D32_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal D32 proof was published: ${file}`);
   for (const file of UNPUBLISHED_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal proof was published: ${file}`);
   for (const file of UNPUBLISHED_D35_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New D35 internal proof was published: ${file}`);
+  for (const file of UNPUBLISHED_FORSYTE_ARCHIVE_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New Forsyte build/test archive was published: ${file}`);
   // README indexes and converted documentation remain published too.
   for (const file of [...GENERATED_PATHS, 'index.html', 'vocab/index.html', 'vocab/personal.html',
     'vocab/dictionary.html', 'vocab/guide.html']) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length };
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
