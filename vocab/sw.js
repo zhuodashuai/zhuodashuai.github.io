@@ -15,6 +15,7 @@ const SHELL = [
   "./js/public-app-v108.js", "./js/owner-app-v108.js", "./js/personal-app-v108.js",
   "./js/dictionary-examples-current-v4.js", "./js/dictionary-examples-release-v4.js",
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
+  "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
   "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",
   // Directory metadata only: preserve previously visited delta URLs across an
   // app update. Unvisited example/source shards are never installed in bulk.

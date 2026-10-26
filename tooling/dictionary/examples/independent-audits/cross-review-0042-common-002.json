@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0042-s-0972627ebdc9.json",
+  "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+  "reviewer": "AI/examples_runtime_release_audit",
+  "independentOfAuthor": true,
+  "createdAt": "2026-10-26T23:29:28.415Z",
+  "method": "All 100 rows were read individually for grammar, actual selected sense, POS, EN/ZH fidelity and useful context, and compared to full canonical lookup results. Specific unfamiliar technical/archaic claims were independently checked against the listed primary/dictionary sources where possible. Approval of a pair does not certify all other meanings of the head or external originality across the web.",
+  "scope": "Exact independently read pairs; no approval of unreviewed entries or other senses.",
+  "entries": [
+    {
+      "term": "QPR",
+      "pairDigest": "6a8b5eb4f2c75e793b8d5558382e996bd0af5459a14864a59f2b5482e1af97f2",
+      "canonicalId": 2942722,
+      "canonicalSourceSha256": "dfb2b4257fef01ec83948f86e083b3e24fff1837979c8e7a9a7af8d13349d065",
+      "verdict": "approved",
+      "notes": "QPR足球俱乐部义明确；围巾的自然实体语境，hung及above翻译准确。",
+      "references": []
+    },
+    {
+      "term": "icc",
+      "pairDigest": "1e890cd2bb57d1d7eaf81cde25b27d0a6a58e7602359628426c4dd6292f9fb64",
+      "canonicalId": 2948082,
+      "canonicalSourceSha256": "60c8b27552853d99f0aab341bf1d7a7414d90df1b16f315be4d3c5ec50cb4726",
+      "verdict": "approved",
+      "notes": "ICC国际商会义与trade讨论一致；没有误用国际刑事法院义。",
+      "references": []
+    },
+    {
+      "term": "bea",
+      "pairDigest": "f71cae8786891f29a4b799d690ae05728166f604de0c0718beb648be46dae78d",
+      "canonicalId": 2950707,
+      "canonicalSourceSha256": "fb0528c87790c4c9be9d3ae5a723adc62b143fa983fce96ac926764a68b8f622",
+      "verdict": "needs-fix",
+      "notes": "BEA经济分析局网站下载表格自然；原source误把BEA写成劳工部劳工统计局，需要修源而非改坏正确句。",
+      "references": [
+        "https://www.bea.gov/help/faq/601"
+      ]
+    },
+    {
+      "term": "ahh",
+      "pairDigest": "0a1d55317fbf1aafacd3ae562d46ef7ba87364b8d44ad7e15d6e3386e4c26021",
+      "canonicalId": 2952812,
+      "canonicalSourceSha256": "abbb6011753d457b781f9647aa229a901d644d09197980412522fa00018087ed",
+      "verdict": "approved",
+      "notes": "AHH活性搭配在原始研究摘要中有实际使用；句译对应，不含临床处置声明。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/6276423/"
+      ]
+    },
+    {
+      "term": "Yeo",
+      "pairDigest": "1e4f69f95dde0050d0a9e874f241a60c67ff3ff51fab33e6291299abd978d19a",
+      "canonicalId": 2953540,
+      "canonicalSourceSha256": "f9819b352a3dd04cd51645124cfcf628274ca6e36d3811e8b885fcbc145b2df6",
+      "verdict": "approved",
+      "notes": "Yeo作为旧式水手齐力呼号有历史戏剧和航海辞书用例；所设喊声语境与词性吻合。",
+      "references": [
+        "https://gsarchive.net/savoy/his_majesty/his_majesty_lib.pdf"
+      ]
+    },
+    {
+      "term": "peng",
+      "pairDigest": "00f478dbd6e93f3e8889e199ee51a7ab2459532d7ed8addea4f7ba68c9ee2733",
+      "canonicalId": 2955445,
+      "canonicalSourceSha256": "37ea7ae4331ab545c8d7e8f7d07b24f4e416fba05f6f34d8d236c57e3d51fc60",
+      "verdict": "approved",
+      "notes": "P.Eng.作为加拿大执业工程师称号由主管机构证实；原损坏词形peng在释义中已明确改成规范写法，例句称号后置自然。",
+      "references": [
+        "https://engineerscanada.ca/frequently-asked-questions"
+      ]
+    },
+    {
+      "term": "DoH",
+      "pairDigest": "faa18618a44c99ec904513ac913f6ef7c81c0979e0b5fc0fb52645c639d37cb5",
+      "canonicalId": 2957748,
+      "canonicalSourceSha256": "5bb5c3f137f31731cfad07254f4b2a4a9073feaf77159d680e977924e7cd65a9",
+      "verdict": "approved",
+      "notes": "DoH卫生部门缩写与council提交问题相合；没有声称具体当代机构仍以此名称存在。",
+      "references": []
+    },
+    {
+      "term": "FSA",
+      "pairDigest": "66cc9481bc66d885228a2181668712647c1d08afa3b9c560785e4c0e7ea9d1b5",
+      "canonicalId": 2960301,
+      "canonicalSourceSha256": "adff65fcc46f87744ba2f020dcbd207162a46b455f5b283bf6c1aec595362cd2",
+      "verdict": "needs-fix",
+      "notes": "金融FSA句子本身正确，但canonical唯一现有义为医药甲醛磺胺醋胺；这是新增另一义项，未满足按现有具体义项的要求。",
+      "references": [
+        "https://www.bankofengland.co.uk/glossary"
+      ]
+    },
+    {
+      "term": "CL",
+      "pairDigest": "1893e52ff9db4e4d1ad1b5d8ac2e879efd89b5ff35cd23ee352661b03f365d67",
+      "canonicalId": 2964634,
+      "canonicalSourceSha256": "0aa2db4c20d606e687c65a182a21827f60a74a89d165e37c62cde2275d0855af",
+      "verdict": "approved",
+      "notes": "IBM官方文档实际以CL指Command Language；附录解释CL命令的语境自然，命令语言译法有据。",
+      "references": [
+        "https://www.ibm.com/docs/en/ibm-mq/9.3.x?topic=mq-glossary"
+      ]
+    },
+    {
+      "term": "bst",
+      "pairDigest": "3d6b128727eeddcb372dd1125767e71c191d435d2c7fe7d117cf5a27213da57a",
+      "canonicalId": 2968034,
+      "canonicalSourceSha256": "4ed4a192d67958c9ea30fae5ee07dfde3192b067af0a9c22dbaa96cf26eb2d35",
+      "verdict": "approved",
+      "notes": "BST英国夏令时用于邀请函的开始时间，语法与译文均准确。",
+      "references": []
+    },
+    {
+      "term": "randomised",
+      "pairDigest": "3f0a029b6d40ab42652b4b29eb30b903fa40378c7f58fd260410ba5fba926bca",
+      "canonicalId": 2969863,
+      "canonicalSourceSha256": "9dc1cc4ff2247f42d3926f19d1af9a9eeda1a28767d7a99de9a10b355a4cdb81",
+      "verdict": "approved",
+      "notes": "randomised为过去式及物动词；照片排序随机化的例句自然，未混成随机抽样。",
+      "references": []
+    },
+    {
+      "term": "SMP",
+      "pairDigest": "3bc53046f7376af28d8580eb22c2cd0786afe1d51847b532a020cc3597f8b62f",
+      "canonicalId": 2971447,
+      "canonicalSourceSha256": "1ee583c56da6e013bcaab9e1e45a784c521168239d5247443901da49f8b26de2",
+      "verdict": "approved",
+      "notes": "SMP=sulfamethoxypyridazine在原始论文摘要明确出现；药物目录归类的虚构场景自然，无用药建议。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/8241826/"
+      ]
+    },
+    {
+      "term": "gcc",
+      "pairDigest": "90ca08ec2a99a0c92fc4359f54e8cec14d70d93c471323a2c092ab6cd69e0c32",
+      "canonicalId": 2975124,
+      "canonicalSourceSha256": "e88a75a4c8863984cd68d17ac36f8311446515c1344fe2436364c37a56c4be0f",
+      "verdict": "approved",
+      "notes": "GCC海湾合作委员会会议语境清楚，不是GCC编译器义。",
+      "references": []
+    },
+    {
+      "term": "hib",
+      "pairDigest": "442436d48d0b9ac1f7a7740994d7d34d2a801108fc421785c0a3a75ed664d9a3",
+      "canonicalId": 2978920,
+      "canonicalSourceSha256": "85a3c0bd75c520c682a3d4b3961637e53fc5c42f2afa34bae3b8c1696d8e227a",
+      "verdict": "unverified",
+      "notes": "hoop-iron bond实体在建筑史材料中可证，但HIB这个缩写及其当作可数实体的标准用法未获得足够独立的一手支持。",
+      "references": [
+        "https://static1.squarespace.com/static/665eb5267d514a33168dfeff/t/66740fcc202b032f9ae605aa/1718882257286/6.01%2Bbrickwork.pdf"
+      ]
+    },
+    {
+      "term": "IAEA",
+      "pairDigest": "499aeb2a6f2e5e2e65130e060e57c5d6e5f2c5555b7e18bc85e687bffba15b0e",
+      "canonicalId": 2981469,
+      "canonicalSourceSha256": "c7c6b6c64fd1075a8b6077e8caadc36d7040fc78f1139abf7807230ca38a0691",
+      "verdict": "approved",
+      "notes": "IAEA国际原子能机构报告搭配自然；an按字母读音正确，中文机构名已用准确现名。",
+      "references": []
+    },
+    {
+      "term": "jen",
+      "pairDigest": "4fa37ad708f10ffcb6d53c41aee23747aebb6777c7b569f2405da26909a82fff",
+      "canonicalId": 2983634,
+      "canonicalSourceSha256": "3a1b646ddfdd8c66b20d04b93e907964c187cc58aa524480260e3525ea5c460a",
+      "verdict": "approved",
+      "notes": "Jen女子名的大小写已在释义中说明；备用笔记本场景自然且句译准确。",
+      "references": []
+    },
+    {
+      "term": "ne",
+      "pairDigest": "73d2e1a11a95a8ce450f856e8f875dfe4a7760b86f1f9c6a0d9a07b5c8d0c7e2",
+      "canonicalId": 2985660,
+      "canonicalSourceSha256": "77dc9c80ed2a94e6f4477fcf95569697e1351f6339eae7ca6be15a853ed45b26",
+      "verdict": "approved",
+      "notes": "né是男性出生姓氏的书面标注，示例姓名结构正确；不混同女性née。",
+      "references": []
+    },
+    {
+      "term": "PSC",
+      "pairDigest": "e05b4a2bd4b5d035b015344e0c09bf4bd06e34392acff77eae92069a26f4f3d0",
+      "canonicalId": 2986965,
+      "canonicalSourceSha256": "05c280627e1c3077b1817f415aa92382221f7a98b39e726154278bb94fbd3c40",
+      "verdict": "unverified",
+      "notes": "PSC打印管理工具在旧技术书存在，但原例的打开程序并检查排队作业功能没有得到制造商文档独立确认。",
+      "references": []
+    },
+    {
+      "term": "Roh",
+      "pairDigest": "115437d940ea7c3b4e5a3b19ced93df3e26fc76751543b1dcfe9801186805432",
+      "canonicalId": 2988562,
+      "canonicalSourceSha256": "0bc8282f628a6a063b30e60f8fec817a347e123e1c857e071e350fb9bcfae4bd",
+      "verdict": "approved",
+      "notes": "Roh选姓氏而非其他缩写；fictional课后收笔记场景没有额外历史事实主张。",
+      "references": []
+    },
+    {
+      "term": "mdc",
+      "pairDigest": "285512b04cfb7c92856c03d16963354e96f7e22efb84c9d8695b781a60f6a7d0",
+      "canonicalId": 2989525,
+      "canonicalSourceSha256": "04ea2f8111beca33c4ca0fd0ec0bdd627cb37e28b50de53bc6a2f5ad3e554b37",
+      "verdict": "approved",
+      "notes": "MDCs复数形式与较发达国家义一致；与less developed countries并列清楚。",
+      "references": []
+    },
+    {
+      "term": "cfa",
+      "pairDigest": "3057ef0caebd5a4107f8a3c18d49105b16f9d44719a6b235a9397ad2e83c8fc7",
+      "canonicalId": 2990983,
+      "canonicalSourceSha256": "45835e88c5e21a752f57cfbd014763d85f2dc8a68bd5c02f42c29d213ea15046",
+      "verdict": "approved",
+      "notes": "CFA exams是自然搭配；特许金融分析师译法准确，未承诺取得资格。",
+      "references": []
+    },
+    {
+      "term": "SSDs",
+      "pairDigest": "2d4b1cb80e79781725371796838a415ca10a35e62298d141f325afb7fe80ccb2",
+      "canonicalId": 2992706,
+      "canonicalSourceSha256": "097dc570d7b7a7e4b20066087523141ec37dcf3e349b01e3b3c6060fbd5f8ac4",
+      "verdict": "approved",
+      "notes": "联合国原始统计文件证实SSDS全称；人口和经济数据联系的例句适合该体系。",
+      "references": [
+        "https://unstats.un.org/unsd/demographic-social/Standards-and-Methods/files/Technical-Report/others/seriesf_18-E.pdf"
+      ]
+    },
+    {
+      "term": "LDDC",
+      "pairDigest": "7b21366ffd163f54ff5baea1971f6d56a0396e68b966eaeabcb3e7f10df8fd3e",
+      "canonicalId": 2993768,
+      "canonicalSourceSha256": "6baab06ce0ccbccb5784b188a41e689f0cc423eadce9ab38b0515d675b0959ca",
+      "verdict": "approved",
+      "notes": "LDDC历史机构选义与规划档案/地图语境一致，没有把它误作国家分类。",
+      "references": []
+    },
+    {
+      "term": "OSF",
+      "pairDigest": "12f915737b44dcbbe80bba3a66c272a0393c863c53615d8091aef944624a0180",
+      "canonicalId": 2995299,
+      "canonicalSourceSha256": "8d540df69695b3c69bb9e369a968e94714541e44b6044f791ef217880718d659",
+      "verdict": "approved",
+      "notes": "OSF历史软件基金会与早期档案备忘录语境合适；缩写作机构名，中文准确。",
+      "references": []
+    },
+    {
+      "term": "hir",
+      "pairDigest": "379c7922453d670f08ec9f5de4490f3607f06145257a966349f89b9eb0db811b",
+      "canonicalId": 2998072,
+      "canonicalSourceSha256": "eff8d32d7f219d9056c63364ae5c32db0c2d62d2f74b9fe5e314d5443d1a015b",
+      "verdict": "approved",
+      "notes": "加拿大政府术语库证实HIR为hydrostatic impact rocket；照片归档句只作名称使用，没有臆测操作特征。",
+      "references": [
+        "https://www.btb.termiumplus.gc.ca/tpv2alpha/alpha-fra.html?i=&index=frr&lang=fra&srchtxt=ROQUETTE"
+      ]
+    },
+    {
+      "term": "qt",
+      "pairDigest": "baf6e36fd88354056b4b9fc7e9a47e09f3ddcf1794ce833ba07ba1ac54c15003",
+      "canonicalId": 2999672,
+      "canonicalSourceSha256": "a80bb7ba6007cbc140ea3b8564a4eec3d6aa6be42940ed2bc8ad23eb0712a204",
+      "verdict": "approved",
+      "notes": "qt作quart缩写、broth以液量计量自然；译为夸脱而非鉴定试验。",
+      "references": []
+    },
+    {
+      "term": "TCR",
+      "pairDigest": "1e1cdbea5bd85d47b2d7e9b4bd98f68174d7cb1c067ccbe4d720278e675c9824",
+      "canonicalId": 3001014,
+      "canonicalSourceSha256": "b561865c0c68e65a6397038bbb5be2826ecebfcac73cfd9e7fd7853e28b17fad",
+      "verdict": "approved",
+      "notes": "Vishay制造商资料证实TCR电阻温度系数；与标称电阻并列列规格自然准确。",
+      "references": [
+        "https://www.vishay.com/docs/30405/whitepapertcr.pdf"
+      ]
+    },
+    {
+      "term": "dlp",
+      "pairDigest": "2fe1d90bb9f8884e709a02f6bf8928b8e22f35e91fd687790ce7a7d02d83e130",
+      "canonicalId": 3003783,
+      "canonicalSourceSha256": "161f04535b1c557e1a58ffe7e8beac7335882a8c802d2794ee1491acb7a9d788",
+      "verdict": "approved",
+      "notes": "DLP投影仪搭配自然，Digital Light Processing译为数字光处理技术正确；不是政治党派义。",
+      "references": []
+    },
+    {
+      "term": "CCG",
+      "pairDigest": "54004ac67d22e8748e80daef9d36721325dcfee261629a309057b1055e0cc0af",
+      "canonicalId": 3005324,
+      "canonicalSourceSha256": "440b636c31cc02c16c2e808454f44aba73ba8f87a9be9bf8c625e069d766dd0b",
+      "verdict": "approved",
+      "notes": "原始研究使用CCG指costal cartilage graft；比较文献中对移植物的描述自然，不混入临床建议。",
+      "references": [
+        "https://www.jstage.jst.go.jp/article/josnusd/advpub/0/advpub_22-0447/_pdf"
+      ]
+    },
+    {
+      "term": "acet",
+      "pairDigest": "65dfa33c0ec49ef0ecb1d9fd6467eceebf5cfb5b79b7fe85138b64a280ea99b8",
+      "canonicalId": 3008084,
+      "canonicalSourceSha256": "7b27372f29d7afb0d78127e23c1177a1bc588a60c80af78de3845774203f554b",
+      "verdict": "needs-fix",
+      "notes": "canonical是化学noun次乙基/乙酰，当前例仅把acet-作为构词片段来讲解并改POS为combining form；不能以此前缀例句证明原noun义项覆盖。",
+      "references": []
+    },
+    {
+      "term": "untypical",
+      "pairDigest": "a88098d1aede93f305278f9c0b0f3986382ad40fa1814efa57bc6aacb28e860c",
+      "canonicalId": 3032690,
+      "canonicalSourceSha256": "80fb8f2cbacad9d56cfd4647f9f345416bebbeeb87cc01c6200626bc4f14a883",
+      "verdict": "needs-fix",
+      "notes": "untypical真实意思是不典型、不寻常；现有英文与译文正确，但canonical“一般”与其相反，需修源释义。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/untypical?topic=different-and-difference"
+      ]
+    },
+    {
+      "term": "BOT",
+      "pairDigest": "f2a6ea49fd405a2863374946a4862cdec69951d2b294de3a9f93e9244c2a2f44",
+      "canonicalId": 3040766,
+      "canonicalSourceSha256": "501f55c3af506c36a596a4a758ccdd05c29e160c8eacfb405b307aff7545c1c2",
+      "verdict": "needs-fix",
+      "notes": "聊天bot的英文与译文自然，但canonical BOT仅有磁带开始标志/计算机角色，当前客服bot是更宽的软件自动化义，需要明确扩展来源而非静默换义。",
+      "references": []
+    },
+    {
+      "term": "prosciutto",
+      "pairDigest": "d52f906981c7e04e30ab2570297f6603bc151b355798a09353209b4c03a4fd13",
+      "canonicalId": 3050301,
+      "canonicalSourceSha256": "a3db539a9707ead2cead34e7b7fbe14e48481610a4ed015724b29f9b2509310a",
+      "verdict": "needs-fix",
+      "notes": "prosciutto与melon配菜语境自然，风干火腿译法正确；canonical“熏火腿”有制作方式误导，需单独修源。",
+      "references": []
+    },
+    {
+      "term": "FOB",
+      "pairDigest": "44685270f9f5e51ad5a0a5fc52c916da015dd55f10f983d563f9cce85646b5ea",
+      "canonicalId": 3063264,
+      "canonicalSourceSha256": "1bb7d6b3e993f6ce4e6b9e1bfe115d40e5e3d52423c7bd94b330de9d1a062d6c",
+      "verdict": "needs-fix",
+      "notes": "ICC证实大写FOB的贸易义；新句正确，但canonical只有小写fob的表袋/骗人义，需修源或显式区分两词。",
+      "references": [
+        "https://library.iccwbo.org/clp/clp-incoterms.htm"
+      ]
+    },
+    {
+      "term": "vending",
+      "pairDigest": "30616564f0d02eda4b7b89ad15a00abc8479691407b6d5b8214b1fa6a93afb43",
+      "canonicalId": 3079106,
+      "canonicalSourceSha256": "e00e5ac8b2d38ab53f8d67249bd1870c8e149b058643192d3c28059477207ce0",
+      "verdict": "approved",
+      "notes": "vending machine固定搭配正确；机器卖完水的译文自然，与售卖用的选择义一致。",
+      "references": []
+    },
+    {
+      "term": "maidenhead",
+      "pairDigest": "c996767960a9582687e3733e39d1aba10207c2e46db7a7fad6c7ac0269bb8d42",
+      "canonicalId": 3099171,
+      "canonicalSourceSha256": "c43b51711bb9024cdbcc4871d26ef02cf7c7dc859d88e51fbd78d3608cb94720",
+      "verdict": "approved",
+      "notes": "maidenhead旧用贞操义明确，古歌谣语境适合其文学及历史语域；不混为现代医学术语。",
+      "references": []
+    },
+    {
+      "term": "unbeknownst",
+      "pairDigest": "ed1f136d795532b553c607dd28a6ca9650c32b75b6560340c6ec3fd55decdccb",
+      "canonicalId": 3114689,
+      "canonicalSourceSha256": "897ae80e32fb785a076c4b3f89b046afe27770935691a6cbe8346cb9ca19f4a2",
+      "verdict": "approved",
+      "notes": "Unbeknownst to us为正常句首副词结构；不知情与火车已取消的时序翻译正确。",
+      "references": []
+    },
+    {
+      "term": "impulsively",
+      "pairDigest": "e18ff7578a934d047ca63d091e6228f4cf6dfaa6be73dad7d9894c62690f2de9",
+      "canonicalId": 3137478,
+      "canonicalSourceSha256": "63cc5b6b8d264eaf452aa7f924b621a907713a264c8bfc4e30f23f6f1ab0d5a9",
+      "verdict": "needs-fix",
+      "notes": "impulsively是冲动地、未经考虑地；例句译文正确，canonical“有推动力地”则误导，应修源。",
+      "references": []
+    },
+    {
+      "term": "alm",
+      "pairDigest": "c7a3a1d64e409871bdc51fcc0941d5413e56fe0f2791ddbb6620c43224f94deb",
+      "canonicalId": 3151319,
+      "canonicalSourceSha256": "b960c25bd0d08eb2b24436a0ad5adfe490a47b9624a904818cc126c2e9c1d1f0",
+      "verdict": "unverified",
+      "notes": "Alm德语高山牧场义已查到，但当前英文借词地区用法的独立辞书证据仍不足，暂不批准自然英语使用的覆盖声明。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/german-english/alm"
+      ]
+    },
+    {
+      "term": "tai",
+      "pairDigest": "b87515b2669ae863042e645f11f29b822c88b7b2e9dd2df551291b00c12074da",
+      "canonicalId": 3154461,
+      "canonicalSourceSha256": "ccb48940a92e69b9e57da9402c50db3b3d26840d72cfbcdb26c21999fd30518f",
+      "verdict": "unverified",
+      "notes": "Thai Airways名称存在，但TAI作为这家航空公司实际使用的简称/时刻表名称未获足够一手确认；现官方代码THA且TAI也指另一航空工业公司，不能凭字母首字母猜定。",
+      "references": [
+        "https://suvarnabhumi.airportthai.co.th/service/airport-guide/detail/Airlineinfoupdate",
+        "https://www.taithailand.com/EN/blog/mdkbt67"
+      ]
+    },
+    {
+      "term": "stardust",
+      "pairDigest": "c4dac229256402ddc6edebfc49717fa10b2ee3da0efdcb2a3cc83525c91c17b1",
+      "canonicalId": 3167433,
+      "canonicalSourceSha256": "255585c7edfdb92f07eeb9a55f9313c683da457e7eddb61c5e9c5f8ac968b154",
+      "verdict": "needs-fix",
+      "notes": "stardust比喻舞台生涯的迷人光彩自然；当前canonical“星团、幻觉”未充分包含选定的魅力义，需要权威义项证据并修源显示。",
+      "references": []
+    },
+    {
+      "term": "MBE",
+      "pairDigest": "4a9068f6d8831b3253f3b4378721f708037c67c0c8d1afc819797ba806539892",
+      "canonicalId": 3173457,
+      "canonicalSourceSha256": "f6000e3c43d5d8e215fda73859eb631e70274d1519bf0116b102a4df628dabbc",
+      "verdict": "approved",
+      "notes": "MBE后置于姓名是自然勋衔用法，中文员佐级说明比原泛称更准确。",
+      "references": []
+    },
+    {
+      "term": "cum",
+      "pairDigest": "30ebf7aa56d3e82c1686a13707769c65fa4f7bcddced82f4092134fadac9b9bf",
+      "canonicalId": 3192344,
+      "canonicalSourceSha256": "6189a783547944f128a26f55e3916d9084cd539d1234ee1adeb9a5f6f387986a",
+      "verdict": "approved",
+      "notes": "workshop-cum-studio用cum连接两种功能，连字符和中文兼作结构正确。",
+      "references": []
+    },
+    {
+      "term": "legalistic",
+      "pairDigest": "8944444292773ce79c7ece75a91fe87835987e375fdf01862267d4c2092c505f",
+      "canonicalId": 3198274,
+      "canonicalSourceSha256": "f52bf9b3caba61d46f060c34e67547e783acd9eb25b1e622a4aa1e39f1eda618",
+      "verdict": "needs-fix",
+      "notes": "legalistic负面拘泥条文义与少妥协的上下文一致；源“尊重法律的”缺失关键负面限制，需修源。",
+      "references": []
+    },
+    {
+      "term": "backcourt",
+      "pairDigest": "1629f78c5c861220de8f4790e9b8d6eb4beb94d63dfc086bf751b1ca6695a5c7",
+      "canonicalId": 3203013,
+      "canonicalSourceSha256": "e08ca5001caf5fea715fe9dc456354d9bd36438bc1e1707e4e426de588f00c29",
+      "verdict": "approved",
+      "notes": "篮球后卫从后场带出球的叙述自然；后场取篮球场地义，无网球/行政义误混。",
+      "references": []
+    },
+    {
+      "term": "snowboarder",
+      "pairDigest": "b390934ea9bfd97f3a780a904893324ab7b4eec6d4247c5c6c25bb1248b09ce9",
+      "canonicalId": 3212837,
+      "canonicalSourceSha256": "71306ad576d516a0fa4d19f9a5c993c0da54da52d583983a35738f72115d3e1c",
+      "verdict": "needs-fix",
+      "notes": "snowboarder单板滑雪者及carve a turn自然，译文准确；canonical“雪山飞魂”像片名而非运动者释义，应修源或另分电影名。",
+      "references": []
+    },
+    {
+      "term": "confusingly",
+      "pairDigest": "3966a337ef181dbf3f34b1e7c2a782c9f2ce1c1b3ab0cdb125dc6e7b1cf9b6d7",
+      "canonicalId": 3216690,
+      "canonicalSourceSha256": "d7142db52833cb639ee252914289270bd8bcf81dc226047c26b7d7b2da7f059a",
+      "verdict": "approved",
+      "notes": "confusingly作全句副词合适；同房号贴两门造成混淆，英文与中文清楚对应。",
+      "references": []
+    },
+    {
+      "term": "jung",
+      "pairDigest": "e9e9d125377646d888832a90fbd1c9b472a8c7142b286c6c1ef7044580d834db",
+      "canonicalId": 3229247,
+      "canonicalSourceSha256": "58bc535fb8f8b947c9f2642c2ec7898ad60749f9d28009cb1f5716c0844322be",
+      "verdict": "approved",
+      "notes": "Jung作为姓氏符合源数据，博士带笔记的情景自然，不强行认定为某历史人物。",
+      "references": []
+    },
+    {
+      "term": "yorker",
+      "pairDigest": "7aa51d8448b9f458981491d08e3c6c196a900260bdef43029093271b0c8da435",
+      "canonicalId": 3230321,
+      "canonicalSourceSha256": "88192a17a792e25886e653dc0731bcfe61091caefcc46cc3546ca0ab2ea11f47",
+      "verdict": "approved",
+      "notes": "yorker落在击球手脚边的板球投球义正确，击球手挡开球以护柱门的句译一致。",
+      "references": []
+    },
+    {
+      "term": "monmouth",
+      "pairDigest": "dbc87b9214aed5b0f1694717c25b9f04d23f6ffd559468126db316c390c32046",
+      "canonicalId": 3247104,
+      "canonicalSourceSha256": "8a294a54bf6ebf5f7e334078d40d8185cd7c3c3cf012bf69549d70d8c0f99fbd",
+      "verdict": "needs-fix",
+      "notes": "例句将Monmouth当城镇使用，但canonical明确是原Monmouth郡；应核实并区分城镇与历史郡名，不能当同一具体地名。",
+      "references": []
+    },
+    {
+      "term": "preparer",
+      "pairDigest": "45d2c56fc3878af8f154c34262614036505e333bf0228ce9ac90e031d54f8ea2",
+      "canonicalId": 3249258,
+      "canonicalSourceSha256": "bc1887a48fba5143bf9e2a8d7dd53656d0b683fb0704f7ced4a6dfd88867bcb8",
+      "verdict": "needs-fix",
+      "notes": "preparer作人员及材料准备的句子自然，但canonical只有机器义“调制机”，当前改成人员义，需补证或对齐现有义项。",
+      "references": []
+    },
+    {
+      "term": "VAR",
+      "pairDigest": "b201bd70d3e788f1dedbf56e7917553205687d62796a5c4828f2ef73513026ca",
+      "canonicalId": 3254206,
+      "canonicalSourceSha256": "53fae6402d5cc6883dd06a0f895ef8e67603e2ccfd73edffbb8f459339841fc9",
+      "verdict": "needs-fix",
+      "notes": "VAR值增转售商义和采购定制软件语境正确；原“增值二手商”可能让学习者误以为卖二手物品，需修源译名。",
+      "references": []
+    },
+    {
+      "term": "rve",
+      "pairDigest": "112ba37aee731492c3ace4a097b98f3349f39334fcbf4206e918d73fe9c8c408",
+      "canonicalId": 3262196,
+      "canonicalSourceSha256": "950de7250e63f8d2bbbc14ae0e3d236cc4d1cb424d83264f5d8716620f1b62d2",
+      "verdict": "unverified",
+      "notes": "Radar-video extractor真实设备得到原研机构博物馆材料支持，但RVE缩写的独立一手证据不足，暂不批准整条缩写名称声明。",
+      "references": [
+        "https://www.museumwaalsdorp.nl/en/museum-waalsdorp-2/5547-2/radar-radar-video-extractor-for-ship-detection-1965-1979/"
+      ]
+    },
+    {
+      "term": "hag",
+      "pairDigest": "186b7d990009235e151daf8a4e7d673ab9cfbe239eda12cfc9e323b67b4311ac",
+      "canonicalId": 3269503,
+      "canonicalSourceSha256": "8a7951954cf282c84166ee35c2baf30ffac89c48f2853f8fac0ace6fec89a744",
+      "verdict": "approved",
+      "notes": "hag选故事中的女巫义，守桥情节自然；词义/语域已经标出，不是普通中性称呼。",
+      "references": []
+    },
+    {
+      "term": "ere",
+      "pairDigest": "cae05fdbcb00dedae52af6113f08ee981eb0a6d99c031fef828d591cd8ab9555",
+      "canonicalId": 3276233,
+      "canonicalSourceSha256": "6a9743eeeaaff6fb821ee6070bfe5b9003ddcc77458ce15d657dca74f36d0bd9",
+      "verdict": "approved",
+      "notes": "ere后接完整从句，取古语before连词义，暴风雨来临前到庇护处的句译正确。",
+      "references": []
+    },
+    {
+      "term": "outdone",
+      "pairDigest": "314f3b19ae6e79a70b958dab3527dca437b01e3821bfef5304dae4f289becafc",
+      "canonicalId": 3279787,
+      "canonicalSourceSha256": "8e0d65f29f1633c90701529b2d937e83dc7aacf4e44daa7ebe6921c0e680cc47",
+      "verdict": "approved",
+      "notes": "outdone为完成时过去分词，蛋糕与以前烘焙尝试比较属于正常转喻，英文中文均可接受。",
+      "references": []
+    },
+    {
+      "term": "aga",
+      "pairDigest": "8d41cd7cb9a2a137524653d95158c3fce1fe0967b70751a406543af338c8d497",
+      "canonicalId": 3288016,
+      "canonicalSourceSha256": "0bbea17eb0a88df3ea56013ed2261d97539f7cac66c43c9b442c0b443d8e9c82",
+      "verdict": "approved",
+      "notes": "aga取奥斯曼历史尊称，庭院接见旅人的语域合适，未误用其他同形缩写。",
+      "references": []
+    },
+    {
+      "term": "bain",
+      "pairDigest": "8832305ba9c31fe46c987489f0bd493dfbfc0ac6d964058a4b7c7face8e17dcc",
+      "canonicalId": 3294467,
+      "canonicalSourceSha256": "a200710b67bce1fcd4d6be4dd5200521f576ad41128fbde3bf848c8c973cf938",
+      "verdict": "approved",
+      "notes": "Bain取公司名而非普通姓氏；报告中由咨询公司制作的图表语境自然。",
+      "references": []
+    },
+    {
+      "term": "overridden",
+      "pairDigest": "047d64273d6a3480aff87914169e572ec15d1d0dd12c6a9baa599660c472d25f",
+      "canonicalId": 3297097,
+      "canonicalSourceSha256": "f02469e353670af806692351602446160fb15cf6d7d24ef55f05516fa915bcdf",
+      "verdict": "approved",
+      "notes": "was overridden为正确被动过去分词，新证据导致决定被推翻，语义时序对应。",
+      "references": []
+    },
+    {
+      "term": "melville",
+      "pairDigest": "067b8e4fb99320c15c261d8ece893576026ff56adcb34eabb8810f4f012548a8",
+      "canonicalId": 3299771,
+      "canonicalSourceSha256": "43ca826a8e28d8a00930a63572064510583d7feae9759a091026e09dc39184fe",
+      "verdict": "needs-fix",
+      "notes": "当前例专指Herman Melville姓氏/作家，但canonical仅男子名与加拿大湖泊；应补足作家/姓氏依据或改用已有男子名义，不能用熟悉人物代替源义。",
+      "references": []
+    },
+    {
+      "term": "dietrich",
+      "pairDigest": "e7d44c29a47cb4119f1828c70103350d9a728599e64ab148a6180a128c76965a",
+      "canonicalId": 3315273,
+      "canonicalSourceSha256": "8f10f90cf074353bc7bcb3f6d2babe934a16880fb1c026b3385866dc6e44d222",
+      "verdict": "approved",
+      "notes": "Dietrich人名大小写规范，展开地图的句译自然一致。",
+      "references": []
+    },
+    {
+      "term": "carnegie",
+      "pairDigest": "e50201c09dae2dc0c3d82caaf8a40a66681331ebd9421d20334aa8a5bfc7cb94",
+      "canonicalId": 3319803,
+      "canonicalSourceSha256": "0ec1d592431707d6d9ca40c5b48b0a95a2a9a91e7682db1465a3a4c1994b292d",
+      "verdict": "approved",
+      "notes": "Carnegie姓氏出现在捐赠名单是自然姓名例句，没有声称具体真实捐款事件。",
+      "references": []
+    },
+    {
+      "term": "schubert",
+      "pairDigest": "1a080c3fc1a10ade94713e9f4635a6e1639926a32fdc0816188fa5a66db446d6",
+      "canonicalId": 3324219,
+      "canonicalSourceSha256": "2f21ea88f342136bfce48690942c513587f7b7332e57ab969f1f97c94a83bf51",
+      "verdict": "approved",
+      "notes": "Schubert作曲家义正确；slow movement与pianist/recital的音乐语境自然，译为慢乐章准确。",
+      "references": []
+    },
+    {
+      "term": "worryingly",
+      "pairDigest": "38c7b90b06149397f53bc508f9ec6a5f4e9c0d2ad8be26f5e37e3026ae849ffd",
+      "canonicalId": 3328529,
+      "canonicalSourceSha256": "64266dbbd6b975b8ab0863c5d7f222a5d9d8cc473f7a9584c492d06e5adcc256",
+      "verdict": "needs-fix",
+      "notes": "worryingly作说话者评价为令人担忧地自然，裂缝增长情境清楚；源“焦虑地/烦恼地”与该副词功能不一致，应修源。",
+      "references": []
+    },
+    {
+      "term": "jameson",
+      "pairDigest": "566f42210670ac87e3920050d180cd3da22c51f0054afe513ab45e75fbbd9181",
+      "canonicalId": 3333894,
+      "canonicalSourceSha256": "9b996c8e7c8605d52c7751eab64d6efbeb7b54c4d76b4f25c7b7262d24e35bd2",
+      "verdict": "approved",
+      "notes": "Jameson姓氏、带来所缺收据的行动及对应译文自然；詹姆森是可用音译。",
+      "references": []
+    },
+    {
+      "term": "HRH",
+      "pairDigest": "dc4fdcc486d047c6ad4f567fbf6319733d952be56a395f865ef88b08895b68d4",
+      "canonicalId": 3336053,
+      "canonicalSourceSha256": "eb42bbe336e6d9a167a4b24016f76c4c0cd6cfa2b1c8636a61645793ed559357",
+      "verdict": "approved",
+      "notes": "HRH称号的缩写作为称呼使用正确；译为殿下，而非在例句断言人物一定是威尔士王子。",
+      "references": []
+    },
+    {
+      "term": "voltaire",
+      "pairDigest": "286287b40b54c4a9096672c3c575cbf293aa6965693d73f5d4bfae459a2f2ee3",
+      "canonicalId": 3341521,
+      "canonicalSourceSha256": "15b6308f5e948475e26bd72f7b6576218ba88bb3bbbb7853ab051deed56858fc",
+      "verdict": "approved",
+      "notes": "Voltaire伏尔泰及反讽文学语境准确，比较对象是虚构论文设定，不增加需核实的作品事实。",
+      "references": []
+    },
+    {
+      "term": "hanna",
+      "pairDigest": "eb4ff1b9a118fd1876efd2cab2d0869dd2e681dc686c06c5eb1458aac1597206",
+      "canonicalId": 3343917,
+      "canonicalSourceSha256": "c0066028495d0a6c2e98adfa9e9299461d521bf47d4f9292272ad9e439ea7c47",
+      "verdict": "approved",
+      "notes": "Hanna姓氏及对有疑问数字做铅笔记号的行动，句译对应自然。",
+      "references": []
+    },
+    {
+      "term": "brisbane",
+      "pairDigest": "4627f1cf7f03e947d714b0453259485ed2e315319d1bdb538aad103a52c25389",
+      "canonicalId": 3348985,
+      "canonicalSourceSha256": "28edbf291f19471a16d30ddf327294db348207902c08ab2c640f93f76c473cbc",
+      "verdict": "approved",
+      "notes": "Brisbane城市名大小写和音译规范；寄包裹与出发回家先后顺序准确。",
+      "references": []
+    },
+    {
+      "term": "verona",
+      "pairDigest": "25611bb33c09da9aca57c3b8670a1db360fb24c15f9a5a00261e90b07dcd986d",
+      "canonicalId": 3357166,
+      "canonicalSourceSha256": "4e0b783dcbb7a198d62affae588a1a5e7c35fcd7a545227e6a8eb05ae78f2473",
+      "verdict": "approved",
+      "notes": "Verona地名和在河边散步的旅行情境自然，不改变具体地理实体。",
+      "references": []
+    },
+    {
+      "term": "RAD",
+      "pairDigest": "f799b9fc17b7526e5f259bbd1e15c40eb67b389ff29a6d9f38d24f92f1e1ad34",
+      "canonicalId": 3365352,
+      "canonicalSourceSha256": "bd5ad1ee4965316ff6fe202aad07c83072476fb4edeb1968de2591bb6ca3b02a",
+      "verdict": "approved",
+      "notes": "NIST确认rad是吸收剂量单位，旧表用该非SI单位语境合适；不与弧度同形单位混淆。",
+      "references": [
+        "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8"
+      ]
+    },
+    {
+      "term": "westwood",
+      "pairDigest": "f269405de155c6160be0ef541edd057d497be4e17aa5dbbccb02b4b86a184f15",
+      "canonicalId": 3371799,
+      "canonicalSourceSha256": "2657eee77c17682bf29dd4cdc9c524c46b41bfc0679763eab06498086b41a907",
+      "verdict": "approved",
+      "notes": "Westwood选历史游戏公司，boxed game及展览情境自然；非泛指西部树林。",
+      "references": []
+    },
+    {
+      "term": "russ",
+      "pairDigest": "d4ee0788fecfae8e0dba7bb444f2b5d3c6607facdc9dbef87a418a9cfed7bed2",
+      "canonicalId": 3373870,
+      "canonicalSourceSha256": "5c4aa4860f93670677a9228abf76c27554598b3cc8ec07e979cbf5f757330764",
+      "verdict": "approved",
+      "notes": "Collins直接证实archaic Russ的Russian形容词义，旧俄文手稿句语域匹配。",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/russ"
+      ]
+    },
+    {
+      "term": "bosch",
+      "pairDigest": "3955289c39fa10396668eaf19b51bb8293a4eac9b1382065f79cd50f095b5986",
+      "canonicalId": 3377724,
+      "canonicalSourceSha256": "39e3710a79ee4974eba726991ee004b16af7e1ba829f329b7ea12b6327c3d4a3",
+      "verdict": "approved",
+      "notes": "Bosch公司品牌修饰motor正常，订替换电机的译文自然；没有对特定型号的技术断言。",
+      "references": []
+    },
+    {
+      "term": "halle",
+      "pairDigest": "f95c7d7d2c41b6e9287be6c6498786b7808447d3e0fed03fb33d9671da7c93a4",
+      "canonicalId": 3380085,
+      "canonicalSourceSha256": "cef0ea4f76b260f8e7f5399b012a65b71ba1cd0067422c270fe0ba8b5d004505",
+      "verdict": "approved",
+      "notes": "Halle德国城市名规范；票夹在旅游指南里的位置关系准确。",
+      "references": []
+    },
+    {
+      "term": "pretoria",
+      "pairDigest": "4284606dc96cdbdb5ccb6f6ac05fbaea775ab27d00cbc660db395e5b4e80b280",
+      "canonicalId": 3383749,
+      "canonicalSourceSha256": "5d3564957c711c2e9dfdcdafa1fca2a1465bcf96a692492b2f671349d10954a2",
+      "verdict": "approved",
+      "notes": "Pretoria地名正确，会议资料夹有街道地图的英文中文相符；本句不涉及行政首都争议。",
+      "references": []
+    },
+    {
+      "term": "zagreb",
+      "pairDigest": "efc56f71ea88b4be85094f3ec2074221d16d7c87ca570382f1167533098a0b96",
+      "canonicalId": 3388186,
+      "canonicalSourceSha256": "d13a1b4df4031331dcc4b64e130eca6118f30bb790d855067f5a728491ddeea4",
+      "verdict": "approved",
+      "notes": "Zagreb城市实体与萨格勒布一致，换火车语境正常；原source南斯拉夫归属已过时，应另列词典资料维护，例句未重复该错误。",
+      "references": []
+    },
+    {
+      "term": "vinci",
+      "pairDigest": "d20fc80f01add143e95988faecfdb855ae5e74d67beea9ee76aa3f7c8c1a7947",
+      "canonicalId": 3394310,
+      "canonicalSourceSha256": "b626ad619e3be2d1135cda31d1a53e21f133185f7fb35525e494e632ca3faab1",
+      "verdict": "approved",
+      "notes": "da Vinci使用艺术家通用姓氏组合且释义说明了完整形式，讲座展示一幅素描为自然语境。",
+      "references": []
+    },
+    {
+      "term": "donne",
+      "pairDigest": "407fa842f2b432caab97f1558ad2ed3a66acd43f12931901ddea9503eb7e01cf",
+      "canonicalId": 3405983,
+      "canonicalSourceSha256": "ee3c3c38113c0fffb8347adb8f7c430e39be7e653788e3fc1d8dcefcc2fab411",
+      "verdict": "approved",
+      "notes": "Donne多恩选诗人义，与研讨课讨论诗歌相合；未混成其他词类。",
+      "references": []
+    },
+    {
+      "term": "caine",
+      "pairDigest": "db8485522c49aba5bcb5da88f52c48cd287dec690c09eab0fca6e6aa0f5324e9",
+      "canonicalId": 3409597,
+      "canonicalSourceSha256": "a313a0218c994cddb7a13fb0a589c7a6e3d4d65d731098a1e12a99fa8de336c9",
+      "verdict": "needs-fix",
+      "notes": "Caine作普通姓氏的句子本身正确，但canonical把它错误当成Cain该隐；必须修源/区分拼写，不能以此声称已有圣经人名义得到了例示。",
+      "references": []
+    },
+    {
+      "term": "je",
+      "pairDigest": "6e7b6ae1d1181ad7881079e629f6d5529e3191f4db0598a523861f1243de3520",
+      "canonicalId": 3413832,
+      "canonicalSourceSha256": "b1c1986c8ea4d3c10ca954db88e79544636384f87ae0805804ed384c7e4f9883",
+      "verdict": "unverified",
+      "notes": "JE在这里被当job estimate缩写，但尚无足够独立一手使用证据；仅有旧词典释义不足以确认该项目文档用法。",
+      "references": []
+    },
+    {
+      "term": "koch",
+      "pairDigest": "a03845f43df560ac8f40e9f278f5ceadf7ab6532ec763fa43fef9169751a3e97",
+      "canonicalId": 3417748,
+      "canonicalSourceSha256": "73b46c289cfea1e290987a5f72c665f7ddaa35203132a68ebc211d92cab6ad7e",
+      "verdict": "approved",
+      "notes": "Koch姓氏和归还工具的句译自然；木箱描述没有额外人物事实。",
+      "references": []
+    },
+    {
+      "term": "nagasaki",
+      "pairDigest": "cac8c05996060d56d4d782cd62634fe77c2d6bfc97d637e756b7f88c1204188c",
+      "canonicalId": 3428396,
+      "canonicalSourceSha256": "d0b02d4278b7d25e2522440cfc7b31b21b90518ea945698daeab11f05b82ede2",
+      "verdict": "approved",
+      "notes": "Nagasaki指长崎城市，摄影相册的句译准确，没有改变地名指代。",
+      "references": []
+    },
+    {
+      "term": "GS",
+      "pairDigest": "1d54b75fff62e308b6a730e807cff70fccb4f3cfd285af429c4e89ef8bbc94a5",
+      "canonicalId": 3433903,
+      "canonicalSourceSha256": "0e78d1a443f937430373a02e6838d9fa512a361baeebac2b8fc9730d1e0566b2",
+      "verdict": "approved",
+      "notes": "GS按general secretary选义，与会议后秘书长发声明的名词语境一致，没有误用组分隔符义。",
+      "references": []
+    },
+    {
+      "term": "nr",
+      "pairDigest": "cd7f142d1c08d43b20e7969a64634d30f4ea5ad93e5cf6752c69d488d83d8b32",
+      "canonicalId": 3436921,
+      "canonicalSourceSha256": "bac668e366e53e09311f335bf748000f06822c8391382c00bb8085f7b42fca83",
+      "verdict": "approved",
+      "notes": "NR为天然橡胶类别缩写的材料样品标签语境合适，无性能/安全声明。",
+      "references": []
+    },
+    {
+      "term": "cary",
+      "pairDigest": "6820344b8d8a521be480b2a1212b1309e999f351cfcbc956a9c197bd263baab1",
+      "canonicalId": 3447240,
+      "canonicalSourceSha256": "da4c0ea1a36e03ade6a80f5c2e7cdaf1f0d26ddcb0d2e39946ac6592a2b10e87",
+      "verdict": "approved",
+      "notes": "Cary男子名及自愿搬较重箱子的句子自然，中文将carry正确译成搬。",
+      "references": []
+    },
+    {
+      "term": "baggie",
+      "pairDigest": "85eaa6cb1703fa7a787beaac7196b84ac4f13d06caedbc86da8e2e9570ec4673",
+      "canonicalId": 3453532,
+      "canonicalSourceSha256": "4c64736cb824a7b05af32cfd6fbf332dc67bebbc6f9d042e61960432b4ff2b44",
+      "verdict": "needs-fix",
+      "notes": "baggie小塑料袋装纽扣自然；canonical“垃圾袋”过窄且误导，应改源释义，不应把这句改成垃圾袋用法来迎合错误源。",
+      "references": []
+    },
+    {
+      "term": "rhode",
+      "pairDigest": "e993e67ab7c44746a6a98005baf29d561511eaf294c2fc47cd3c3ef504018db2",
+      "canonicalId": 3462243,
+      "canonicalSourceSha256": "1e9f2e9b01d4c049f605d332b63f6608f39d1752bee91ccf95b741d731c30476",
+      "verdict": "approved",
+      "notes": "Rhode Island完整州名与源罗德岛指代一致，释义已明确使用完整名称，不让学习者误以为Rhode独立是州名。",
+      "references": []
+    },
+    {
+      "term": "epstein",
+      "pairDigest": "a93df9964a7de82054572f172fd43046bf52e009ed7f057fc9d649ce3b9bb424",
+      "canonicalId": 3466105,
+      "canonicalSourceSha256": "8cae6ff42c6e2b7658c0590a5dd93842db2ab6849d728953448dc065e6376a70",
+      "verdict": "approved",
+      "notes": "Epstein姓氏，要求更清晰图表副本的句译准确自然。",
+      "references": []
+    },
+    {
+      "term": "pta",
+      "pairDigest": "05d1aa82f4aea9e34ac99884111eb89e901bd011a5b0a8bbd187c907198d6ead",
+      "canonicalId": 3469472,
+      "canonicalSourceSha256": "b0ffe2d1ed1b6d7f7a40b1ab4085fe8d0ec86859cfce57146e51e14373d76907",
+      "verdict": "needs-fix",
+      "notes": "PTA应为家长教师协会，例句及译文正确；canonical家庭教师协会误把parent当家庭，需修源显示。",
+      "references": []
+    },
+    {
+      "term": "arden",
+      "pairDigest": "55eefb3356bfee6ff3192b82d73415066fdfa2c50a0fc08e6b5539fabf9ad8f7",
+      "canonicalId": 3476185,
+      "canonicalSourceSha256": "9c8f32acc4ca3feb83fb690f33cb0d900ad4d983d5e1d73f14c65d164aa1c772",
+      "verdict": "approved",
+      "notes": "Arden历史英国森林地区义与林间小径相合；不是人名或任意浪漫地方义。",
+      "references": []
+    },
+    {
+      "term": "vichy",
+      "pairDigest": "2a4ad2eed0c592b0cfd62bc43a20c3c78f5ce0bfe02af2e8316a4fad7620b772",
+      "canonicalId": 3479310,
+      "canonicalSourceSha256": "1422449ed09a8f78c2e87dc7572975384156c72d613ec2a635fd02cf2bfe6f96",
+      "verdict": "approved",
+      "notes": "Vichy法国城市名，明信片晚于回家到达的时序明确，译文没有改变先后。",
+      "references": []
+    },
+    {
+      "term": "overhung",
+      "pairDigest": "3f3b33b8d39c05a20df780a5604d8fb20e175a8fb7570033c81a980967b19968",
+      "canonicalId": 3481959,
+      "canonicalSourceSha256": "f88603dceb6bc11db8c7349c86662d003d25cd1204b20927cbf8f5bd7b50a3dd",
+      "verdict": "approved",
+      "notes": "overhung为overhang过去式，阳台悬伸巷子上方是合适的具体位置语境。",
+      "references": []
+    },
+    {
+      "term": "bloomfield",
+      "pairDigest": "313a172e052478f9b8ddd27109d0b543120ae80840e46393447c6822b30318ef",
+      "canonicalId": 3488672,
+      "canonicalSourceSha256": "d490a2d68db33f4623bead6a731625c3abfa390b033db190d8e297937114f125",
+      "verdict": "approved",
+      "notes": "Bloomfield选语言学家义，语言研究方法的阅读章节自然，与原具名源相符。",
+      "references": []
+    },
+    {
+      "term": "frederic",
+      "pairDigest": "39133de5b30e6747539eb636838836995a98a8173afe530c33a8013670855e28",
+      "canonicalId": 3493779,
+      "canonicalSourceSha256": "e1113c717748dbed8273e08c5277796d7611d2f534deeba33c9c68333b106600",
+      "verdict": "needs-fix",
+      "notes": "英文只说等到所有人找到座位；中文额外加入“才继续”这一原句未表明的后续动作，建议删掉该添加。",
+      "references": []
+    },
+    {
+      "term": "nerdy",
+      "pairDigest": "43815c4363d468a7fa1bd4fa1ed8bfd217cf5f7ae453c73fe6b4f3a40ab7292c",
+      "canonicalId": 3495273,
+      "canonicalSourceSha256": "1e2546be4f9fc1d90cbb01bf9ae5ecca9641d170551587b82f53662f238e514d",
+      "verdict": "needs-fix",
+      "notes": "nerdy在旧电脑爱好者语境自然，精选义比原“傻瓜/蠢”更准确；为保证整卡一致需修源，不能让正确例句与错误主释义并存。",
+      "references": []
+    },
+    {
+      "term": "fulton",
+      "pairDigest": "ca33ee06b4a14b31ea968aea7ce1750e0e71799ef636194d302dd15bb0cd8d3a",
+      "canonicalId": 3497325,
+      "canonicalSourceSha256": "6697595a2b7a499010205278d14137b3639694788dc7037bd7791abe5cce1adf",
+      "verdict": "approved",
+      "notes": "Fulton姓氏及把图纸夹好再邮寄的事件次序准确自然。",
+      "references": []
+    },
+    {
+      "term": "kuala",
+      "pairDigest": "e4fd48c8049551fe253fca3c9d16238f91303198cf74a0ab59ce97e73f82fa3f",
+      "canonicalId": 3501147,
+      "canonicalSourceSha256": "aaa63f9d360008d722645e89c077988416caa2e874150e28fb084357be40b9c6",
+      "verdict": "needs-fix",
+      "notes": "kuala源noun河口，当前句只有专名Kuala Lumpur，未展示河口义；需要明确原语地名成分释义或可证英语借词用法，不应算作该noun义项已自然例示。",
+      "references": []
+    },
+    {
+      "term": "suzuki",
+      "pairDigest": "40ad4702939313ae769ff8a26584a6e859af1ee3f0db055e2d0a6cdcd83012c6",
+      "canonicalId": 3503648,
+      "canonicalSourceSha256": "d56f315b3512610797b5e0e34893780f64c9a4392cf32cd1b509f7ed69121cfc",
+      "verdict": "approved",
+      "notes": "Suzuki铃木品牌及一辆蓝色车停维修店外的句译自然；具体品牌跨汽车/摩托车的选择义已有说明。",
+      "references": []
+    },
+    {
+      "term": "Taj",
+      "pairDigest": "50189c8d6024b5b143eeadfb1be4f41d324382075b60a9c7a15891bc78dec72c",
+      "canonicalId": 3506404,
+      "canonicalSourceSha256": "ed425edce7aa859e3f9cce73c2310ad9dcfde31c40b0505a77b0223bb9152235",
+      "verdict": "approved",
+      "notes": "Taj取Taj Mahal简称且原词典包含该建筑义；照片悬在书架上方与中译准确一致。",
+      "references": []
+    }
+  ]
+}

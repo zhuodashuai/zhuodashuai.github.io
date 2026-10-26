@@ -6,6 +6,7 @@ import { DICTIONARY_EXAMPLE_SOURCE, createDictionaryExamplesController as legacy
 import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js';
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
 import { loadEverydayExamples } from './everyday-lookup.js';
+import { applyExampleCorrections } from './dictionary-example-corrections.js';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
 const active=new Set();
@@ -16,7 +17,7 @@ export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,...optio
   if(everyday)return Promise.resolve(everyday);
   let client=clients.get(fetchImpl);
   if(!client){client=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl});clients.set(fetchImpl,client);active.add(client);}
-  return client.load(term,{...options,lookupQuery:term});
+  return client.load(term,{...options,lookupQuery:term}).then(entry=>applyExampleCorrections(term,entry,{signal:options.signal}));
 }
 export function createDictionaryExamplesController({load=loadDictionaryExamples,onChange=()=>{}}={}){
   return legacyController({load,onChange});

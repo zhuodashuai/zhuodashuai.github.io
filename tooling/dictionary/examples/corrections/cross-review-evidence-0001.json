@@ -1,0 +1,366 @@
+{
+  "reviewedAt": "2026-10-26T23:31:26.234Z",
+  "reviewer": "AI/examples_runtime_release_audit",
+  "independentFromAuthor": true,
+  "author": "AI/example_quality_provenance_audit",
+  "inputFile": "outputs/examples-completion-audit-2026-10-26/quality-defects.json",
+  "inputSha256": "4e2d8d9d864a87489f28f713d38a87057ed10d82cbf0100b6db802c9f0107e44",
+  "method": "Individually read the ten proposed EN/ZH pairs and selected POS/meaning, inspected all canonical records and complete variants, and checked primary sources independently. No source sentences were copied into examples. Proposals are useful-context improvements; old metalinguistic sentences are not blanket-classified as false.",
+  "counts": {
+    "approved": 8,
+    "needs-fix": 2,
+    "unverified": 0
+  },
+  "entries": [
+    {
+      "term": "anhedonic",
+      "partOfSpeech": "adjective",
+      "meaningZh": "anhedonic：快感缺失的；难以体验愉悦的",
+      "proposedPair": {
+        "en": "During that anhedonic period, even her favourite music brought her no pleasure.",
+        "zh": "在那段快感缺失的时期，就连她最喜欢的音乐也无法给她带来愉悦。"
+      },
+      "pairDigest": "07c23db12903e75e8d7c4dc1f61d9bcb25b599071d6d22c90e22e96325e21be6",
+      "tupleDigest": "8e0202ddea3ceca2676973db8a9ac8e804cd228b83c84cf110f3784c7a26d1d9",
+      "candidateDigest": "ad8adeb6a2e93c4584fd6b54b461a2928a756882918514a422a3197af2e588a4",
+      "verdict": "approved",
+      "reason": "实际原始临床研究和综述用anhedonic描述低愉悦状态；During that anhedonic period作形容词限定period自然，喜爱的音乐也无愉悦这一具体情景符合所选义。中译准确，未增加诊断、因果或治疗主张。canonical为anhedonia形容词衍生，与当前义一致。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/6486255/",
+        "https://pubmed.ncbi.nlm.nih.gov/35156187/"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 8276970,
+          "term": "anhedonic",
+          "partOfSpeech": "adjective",
+          "meaning": "a. anhedonia的变形",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 64755,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "hla",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人类白细胞抗原的缩写（human leukocyte antigen）",
+      "proposedPair": {
+        "en": "The transplant team compared the donor's HLA type with the recipient's.",
+        "zh": "移植团队比较了供者与受者的人类白细胞抗原类型。"
+      },
+      "pairDigest": "4692e27f0ba7406d2186d2a76aacce44914dff8ac1800a8b7f1d0175ad3f4993",
+      "tupleDigest": "7de8067321c2c1765bfba69277442fa099c36f51231ed4b5ba5e5ab827b635cf",
+      "candidateDigest": "dd803a29df1569738ac8cbe651a72c239e2300e7a721881919777a5e4eafc3ad",
+      "verdict": "approved",
+      "reason": "NCI明确说明HLA matching在供者与受者移植前进行、HLAs构成tissue type。donor的HLA type与recipient的进行比较是自然可证语境；代词recipient's正确省略type，中文无漏译。canonical还含计算机体系结构义，但本句明确选择人类白细胞抗原。",
+      "references": [
+        "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/human-leukocyte-antigen-matching"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 4247808,
+          "term": "hla",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 人类白细胞抗原（human leukocyte antigen）；高层体系结构（The High Level Architecture）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 33194,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "iga",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "免疫球蛋白A的缩写（本例取免疫学名称，规范写作IgA）",
+      "proposedPair": {
+        "en": "The laboratory measured IgA in the saliva sample.",
+        "zh": "实验室测量了唾液样本中的免疫球蛋白A。"
+      },
+      "pairDigest": "6b7245576bad66e8b120e5541132d15d5ac09b81ae5e1398e92a0ab6400435ee",
+      "tupleDigest": "07d5828555b08f583780e7d5eec711fecbb741f259b6feb1cadbaf69188a52f7",
+      "candidateDigest": "d8462a00397385fc7ef85569023c2a5b862c819663df8479a4fb5566cffab84c",
+      "verdict": "needs-fix",
+      "reason": "拟句作为IgA免疫学句子可以成立，但现有canonical iga唯一释义是integrating gyro(scope) accelerometer，完整record无免疫球蛋白变体。不能借同字母串静默转成另一义。必须先建立有来源的对应义项/词头关系，不能将该提案计作现有canonical义覆盖。",
+      "references": [],
+      "canonicalRecords": [
+        {
+          "id": 4562280,
+          "term": "iga",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. integrating gyro (scope) accelerometer 综合回转（范围）加速计",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 35653,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "NOE",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "核欧沃豪斯效应的缩写（nuclear Overhauser effect）",
+      "proposedPair": {
+        "en": "The chemist used NOE data to compare two proposed structures for the molecule.",
+        "zh": "化学家利用核欧沃豪斯效应数据比较了该分子的两种候选结构。"
+      },
+      "pairDigest": "2f810f69c73c8f7505fcc3744cab3f2e96d987320f05f1ced51434a7888d6dd1",
+      "tupleDigest": "b92c28f58f8f77ab1a6ab07513b68d61901a09aca0d9750cedd11094c14329be",
+      "candidateDigest": "178660da0c6518cc5da2106584369e0fa0f69e2e5633831bc72e7084173e2a90",
+      "verdict": "needs-fix",
+      "reason": "拟句以NOE作光谱名词合理，词义也与canonical核欧沃豪斯效应一致，但canonical的pos-reviewed标签为adjective；完整variant仅有POS空白的MIT同义，没有abbreviation/noun变体。若质量层承诺严格匹配现有POS，须先单独修正POS，不能仅以该句批准完整绑定。",
+      "references": [],
+      "canonicalRecords": [
+        {
+          "id": 6089421,
+          "term": "NOE",
+          "partOfSpeech": "adjective",
+          "meaning": "[化] 核欧沃豪斯效应",
+          "forms": [
+            "noes"
+          ],
+          "source": "pos-reviewed",
+          "seed": {
+            "rank": 47596,
+            "forms": [
+              "noes"
+            ],
+            "workbook": false
+          },
+          "variants": [
+            {
+              "partOfSpeech": "",
+              "meaning": "[化] 核欧沃豪斯效应",
+              "source": "mit"
+            }
+          ]
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "AFSK",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "AFSK：音频频移键控",
+      "proposedPair": {
+        "en": "The modem used AFSK to send the short message over the radio link.",
+        "zh": "调制解调器使用音频频移键控，通过无线电链路发送了那条短消息。"
+      },
+      "pairDigest": "71f765684def4145d20806a3dd1ee64b9e7088144ba72e8385ab46a1b6ff9a19",
+      "tupleDigest": "04e2828baf22c677289c211b501bed64855da118c824c9045b7ddd6417dd4cfe",
+      "candidateDigest": "02c401a4a9b558d8a1e967b69c306920f82558308e946765f3143a41d38ff0c2",
+      "verdict": "approved",
+      "reason": "ARRL一手技术说明明确AFSK是音频频移键控并用于无线电数字/RTTY通信。modem发送短消息这一一般场景自然；中文对调制解调器、音频频移键控、无线电链路一一对应。canonical POS为空而非错误的另一词性，可由此证据补abbreviation。原作者引用PDF不必作为唯一依据，采用下面更直接的ARRL资料。",
+      "references": [
+        "https://www.arrl.org/files/file/Technology/tis/info/pdf/59241.pdf",
+        "https://www.arrl.org/files/file/Abbrev_AWE.pdf"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 7308692,
+          "term": "AFSK",
+          "partOfSpeech": "",
+          "meaning": "[计] 音频频移键控",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 57149,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "hpv",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人乳头瘤病毒（human papillomavirus，HPV）",
+      "proposedPair": {
+        "en": "The researchers studied how HPV enters cells.",
+        "zh": "研究人员研究了人乳头瘤病毒如何进入细胞。"
+      },
+      "pairDigest": "e331f9893b9216f92fe5a97e9956944735a1c02cd773854d1e0beea8a8c9b1ce",
+      "tupleDigest": "2c37a95ef95ee1674c975dd71b15b1f32d1ddfce3f2f3c4812f8aca8018fe626",
+      "candidateDigest": "2a3c855c14a572f20572087a4952342ca9392aeb17171b02f2b05ac2c75132d9",
+      "verdict": "approved",
+      "reason": "WHO一手页面明确HPV为human papillomavirus且感染皮肤/黏膜细胞。研究其进入细胞的机制这一虚构研究动作自然、无额外疗效或实验结果主张；中英准确，canonical所选微生物义吻合。",
+      "references": [
+        "https://www.who.int/teams/health-product-policy-and-standards/standards-and-specifications/norms-and-standards/vaccine-standardization/human-papillomavirus"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 4592105,
+          "term": "hpv",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. [微]人乳头状瘤病毒（human papillomavirus）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 35886,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "hav",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "甲型肝炎病毒（hepatitis A virus，HAV）",
+      "proposedPair": {
+        "en": "The laboratory detected HAV in the wastewater sample.",
+        "zh": "实验室在污水样本中检测到了甲型肝炎病毒。"
+      },
+      "pairDigest": "1832510a79c92f1146dbd175d7fa73c0ff64aa5a9280182438f0a0426071ec12",
+      "tupleDigest": "fda64dc46bdd85276dd3d580cace03b0b6b33d09453ed31b2b386bcde0e0c451",
+      "candidateDigest": "c70fd9e1b3b1b4295f36439edaa724c9bfb26c58da40e2a3d5d161cc0c822da1",
+      "verdict": "approved",
+      "reason": "CDC原始监测报告直接讨论HAV污水检测和实验室监测，支持该一般场景。detect HAV不在此句声称病毒可感染性或样本来自某真实地点；中译检测而非诊断，匹配canonical甲肝病毒义而非热空气硫化。",
+      "references": [
+        "https://www.cdc.gov/mmwr/volumes/74/wr/mm7405a3.htm"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 4669468,
+          "term": "hav",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 甲型肝炎病毒（Hepatitis A virus）；热空气硫化（Hot Air Vulcanization）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 36491,
+            "forms": [],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "OE",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "古英语的缩写（Old English）",
+      "proposedPair": {
+        "en": "The students compared an OE poem with its modern English translation.",
+        "zh": "学生们比较了一首古英语诗与它的现代英语译文。"
+      },
+      "pairDigest": "04c2d4b554708a12faeb4e2a2f3f0e7aea5f6fc7694df379ebc41aa83b90135e",
+      "tupleDigest": "aa8774c4a9471f8e7f2c713354cb1eb42e326e9731d27d0f073937b93b54aec3",
+      "candidateDigest": "8767d95b11946e368c129f6ef85fa265fc9b20758cf9c361960e5ba72484fb4a",
+      "verdict": "approved",
+      "reason": "Oxford University Press原书缩略语表明确OE=Old English。OE poem与modern English translation是自然学术搭配；OE按字母读音以元音开头，用an正确。中译完整，无将Old English误作任何古老英文。canonical明确收录该义。",
+      "references": [
+        "https://academic.oup.com/book/36264/chapter-abstract/316385526",
+        "https://www.oupjapan.co.jp/sites/default/files/contents/dictionaries/oed/help/abbrevs/langabbs-o.html"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 4387489,
+          "term": "OE",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. （常印在账单上）遗漏不在此限（omissions excepted）；古英语（Old English）",
+          "forms": [
+            "oes"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 34287,
+            "forms": [
+              "oes"
+            ],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "PMT",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "经前紧张的缩写（premenstrual tension）",
+      "proposedPair": {
+        "en": "She described her PMT symptoms during the appointment.",
+        "zh": "她在就诊时描述了自己的经前紧张症状。"
+      },
+      "pairDigest": "117531b1a43749b25e46565e27c570ac23f64389fc08cb1ce6cc6d9942c603d1",
+      "tupleDigest": "c0679fe782e92305cf4b1edcbe07c254970b1bb90a0988f3933fca1baae28779",
+      "candidateDigest": "b08bdd5326f8151a49ef8252eeaa25cb75bd0c7cd8e48389a3b71a99c22b33fd",
+      "verdict": "approved",
+      "reason": "NHS临床机构术语表直接释PMT为Premenstrual Tension并描述其症状。PMT symptoms、就诊时描述症状的场景自然，中文准确，无诊断/治疗承诺。NHS写作指南说明PMT较旧，语境仍可理解，建议释义保留较旧称呼这一语域信息。canonical的医学义明确存在，未取晶体管义。",
+      "references": [
+        "https://mft.nhs.uk/saint-marys/services/gynaecology/reproductive-medicine/glossary-of-fertility-terminology/",
+        "https://service-manual.nhs.uk/content/a-to-z-of-nhs-health-writing"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 5542678,
+          "term": "PMT",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 经期前紧张症状（Pre-Menstrual Tension）；钝化台面型晶体管（Passivated Mesa Transistor）",
+          "forms": [],
+          "source": "mit",
+          "seed": {
+            "rank": 43321,
+            "forms": [],
+            "workbook": true
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    },
+    {
+      "term": "efa",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "必需脂肪酸的缩写（essential fatty acids）",
+      "proposedPair": {
+        "en": "The researchers compared the EFA composition of the two seed oils.",
+        "zh": "研究人员比较了这两种种子油中的必需脂肪酸组成。"
+      },
+      "pairDigest": "e85511e549f166d18bb09ad91aa9f7a5fdf7e94ce86138eec12d123250d9d6f6",
+      "tupleDigest": "810e05affda0286c2ebe2e70b759bcb37e93b9d8864432f934272748ca138041",
+      "candidateDigest": "8a3403653bba8616ae6e8c8e8c5cb6552fe65e1464b0b89f8851291ebb4edd53",
+      "verdict": "approved",
+      "reason": "原始营养学综述明确使用essential fatty acids (EFA)，NIH资料说明植物来源相关必需脂肪酸。研究者比较两种种子油的EFA组成这一虚构研究动作合理，句子不报告未经证实的具体含量或健康作用。EFA用作composition的名词修饰语自然，中译准确。canonical只有同一必需脂肪酸义。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/7840871/",
+        "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+      ],
+      "canonicalRecords": [
+        {
+          "id": 6484329,
+          "term": "efa",
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. essential fatty acids 必需的脂肪酸",
+          "forms": [
+            "efas"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 50684,
+            "forms": [
+              "efas"
+            ],
+            "workbook": false
+          }
+        }
+      ],
+      "fullVariantsInspected": true
+    }
+  ]
+}
