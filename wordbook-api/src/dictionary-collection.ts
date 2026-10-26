@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { ApiError } from "./security";
 import { classifyInput, hasPlausibleChineseMeaning, normalizeEnglish, PublicEntrySchema, validateEnglishInput, type PublicEntry, type PublicSnapshot } from "./schema";
+import { EVERYDAY_LOOKUP_ENTRIES, type EverydayLookupEntry } from "../../vocab/js/everyday-lookup-data.js";
 
 const ROOT = "/data/expanded-dictionary/";
 const HASH = /^[a-f0-9]{64}$/;
@@ -18,6 +19,38 @@ function unavailable(): ApiError {
 
 function spelling(value: string): string {
   return value.normalize("NFKC").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, " ").trim();
+}
+
+/** Resolve only packaged English heads/forms, never Chinese search aliases or browser glosses. */
+function everydayHead(value: string): EverydayLookupEntry | undefined {
+  const exact = spelling(value), key = exact.toLocaleLowerCase("en-US");
+  const canonical = EVERYDAY_LOOKUP_ENTRIES.filter(row => spelling(row.term).toLocaleLowerCase("en-US") === key);
+  const matches = canonical.length ? canonical : EVERYDAY_LOOKUP_ENTRIES.filter(row =>
+    row.englishForms.some(form => spelling(form).toLocaleLowerCase("en-US") === key));
+  const precise = matches.filter(row => [row.term, ...row.englishForms].some(form => spelling(form) === exact));
+  const choices = precise.length ? precise : matches;
+  if (choices.length > 1) throw new ApiError(422, "dictionary_term_not_exact", "请选择明确的英文词条后重试收录。");
+  return choices[0];
+}
+
+function everydayEntry(row: EverydayLookupEntry): PublicEntry {
+  const now = new Date().toISOString();
+  const title = "卓的日常词组", url = "https://zhuodashuai.github.io/vocab/";
+  try {
+    validateEnglishInput(row.term);
+    if (!hasPlausibleChineseMeaning(row.meaning)) throw unavailable();
+    return PublicEntrySchema.parse({
+      id: `public-${crypto.randomUUID()}`, revision: 1, originalInput: row.term, term: row.term,
+      normalized: normalizeEnglish(row.term), standardForm: row.term, entryType: classifyInput(row.term),
+      correction: { status: "exact", original: row.term, suggestion: "", chosen: row.term, confidence: 1, source: "packaged-everyday-dictionary" },
+      phonetic: "", partOfSpeech: row.partOfSpeech, meaning: row.meaning, definition: "", senses: [], synonyms: [],
+      collocations: [], exampleEn: row.en, exampleZh: row.zh, usage: "", register: "", confusedWith: [],
+      forms: row.englishForms.filter(form => normalizeEnglish(form) !== normalizeEnglish(row.term)), tags: [], author: "",
+      sourceTitle: title, sourceWork: "", sourceDate: "", sourceUrl: url, attributionStatus: "unverified", attributionNote: "",
+      sources: [{ title, url, kind: "dictionary", retrievedAt: now }],
+      readingContexts: [], organizationMethod: "local-dictionary", createdAt: now, updatedAt: now
+    });
+  } catch { throw unavailable(); }
 }
 
 function bucketFor(value: string): number {
@@ -71,10 +104,12 @@ function json(bytes: Uint8Array): Record<string, any> {
   catch { throw unavailable(); }
 }
 
-/** Only canonical exact heads qualify. Client-provided definitions are never accepted. */
+/** Only canonical heads and explicitly packaged everyday forms qualify; browser definitions never do. */
 export async function resolveDictionaryCollection(term: string, assets: Assets): Promise<PublicEntry> {
   validateEnglishInput(term);
   if (term.length > 200) throw new ApiError(400, "invalid_dictionary_term", "词条过长，不能自动收录。");
+  const everyday = everydayHead(term);
+  if (everyday) return everydayEntry(everyday);
   const exact = spelling(term), key = exact.toLocaleLowerCase("en-US"), bucket = bucketFor(key);
   const manifest = json(await assetBytes(assets, `${ROOT}manifest.json`, 300_000));
   const english = object(manifest.english);
@@ -120,13 +155,18 @@ export async function resolveDictionaryCollection(term: string, assets: Assets):
   } catch { throw unavailable(); }
 }
 
-/** Match canonical heads and established correction aliases without overwriting. */
+/** Match existing heads/corrections first, then packaged everyday forms, without overwriting. */
 export function findCollectedEntry(snapshot: PublicSnapshot, term: string): PublicEntry | undefined {
   const key = normalizeEnglish(term);
-  return snapshot.entries.find(entry => {
+  const matches = (entry: PublicEntry, wanted: string): boolean => {
     const aliases = [entry.term, entry.normalized, entry.standardForm, entry.correction.chosen];
     if (["suggested", "accepted", "kept"].includes(entry.correction.status)) aliases.push(entry.correction.original);
     if (["suggested", "accepted"].includes(entry.correction.status)) aliases.push(entry.correction.suggestion);
-    return aliases.some(alias => normalizeEnglish(alias) === key);
-  });
+    return aliases.some(alias => normalizeEnglish(alias) === wanted);
+  };
+  const existing = snapshot.entries.find(entry => matches(entry, key));
+  if (existing) return existing;
+  const everyday = everydayHead(term);
+  return everyday && normalizeEnglish(everyday.term) !== key
+    ? snapshot.entries.find(entry => matches(entry, normalizeEnglish(everyday.term))) : undefined;
 }
