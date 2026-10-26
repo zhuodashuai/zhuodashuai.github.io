@@ -1,0 +1,260 @@
+{
+  "checkedAt": "2026-10-26T23:23:19.754Z",
+  "note": "Read-only audit. These are improvement candidates, not a claim that every metalinguistic sentence is invalid. Proposed pairs are original compositions requiring a different agent final review. References are factual validation anchors rather than copied sentences; their words are not used as examples.",
+  "candidates": [
+    {
+      "term": "anhedonic",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0043-s-f741c62be45c.json",
+      "partOfSpeech": "adjective",
+      "meaningZh": "anhedonic：快感缺失的；难以体验愉悦的",
+      "oldPair": {
+        "en": "The psychology glossary explains anhedonic without using it as a label for a person.",
+        "zh": "心理学词汇表解释了快感缺失的，但没有用它给某个人贴标签。"
+      },
+      "issue": "The old pair talks about a psychology glossary instead of using anhedonic as an adjective; the ZH translation is also awkwardly nominalised.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "During that anhedonic period, even her favourite music brought her no pleasure.",
+        "zh": "在那段快感缺失的时期，就连她最喜欢的音乐也无法给她带来愉悦。"
+      },
+      "references": [
+        "https://meshb.nlm.nih.gov/record/ui?ui=D059445"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "hla",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-0972627ebdc9.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人类白细胞抗原的缩写（human leukocyte antigen）",
+      "oldPair": {
+        "en": "The textbook explains the HLA abbreviation in its glossary.",
+        "zh": "课本在术语表中解释了人类白细胞抗原的缩写HLA。"
+      },
+      "issue": "The old pair merely says a textbook explains the abbreviation; this example demonstrates its selected biological sense in actual use.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The transplant team compared the donor's HLA type with the recipient's.",
+        "zh": "移植团队比较了供者与受者的人类白细胞抗原类型。"
+      },
+      "references": [
+        "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/human-leukocyte-antigen-matching"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "iga",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-0972627ebdc9.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "免疫球蛋白A的缩写（本例取免疫学名称，规范写作IgA）",
+      "oldPair": {
+        "en": "The glossary explains IgA alongside the other antibody classes.",
+        "zh": "术语表在介绍其他抗体类别的同时解释了免疫球蛋白A。"
+      },
+      "issue": "The old pair only lists IgA in a glossary; this example uses it in a plausible measurement context without inventing a clinical interpretation.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The laboratory measured IgA in the saliva sample.",
+        "zh": "实验室测量了唾液样本中的免疫球蛋白A。"
+      },
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/19641004/"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "NOE",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-18100ac42187.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "核欧沃豪斯效应的缩写（nuclear Overhauser effect）",
+      "oldPair": {
+        "en": "The spectroscopy glossary gives a short definition of NOE.",
+        "zh": "光谱学术语表简要解释了核欧沃豪斯效应。"
+      },
+      "issue": "The old pair only announces a short glossary definition; new pair demonstrates the selected spectroscopy sense and avoids procedural detail.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The chemist used NOE data to compare two proposed structures for the molecule.",
+        "zh": "化学家利用核欧沃豪斯效应数据比较了该分子的两种候选结构。"
+      },
+      "references": [
+        "https://goldbook.iupac.org/terms/view/08385/plain"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "AFSK",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-31c1b114b943.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "AFSK：音频频移键控",
+      "oldPair": {
+        "en": "The communications glossary explains AFSK beside other modulation terms.",
+        "zh": "通信词汇表在其他调制术语旁解释了音频频移键控。"
+      },
+      "issue": "The old pair only refers to a communications glossary; this uses the actual modulation abbreviation.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The modem used AFSK to send the short message over the radio link.",
+        "zh": "调制解调器使用音频频移键控，通过无线电链路发送了那条短消息。"
+      },
+      "references": [
+        "https://www.arrl.org/files/file/Technology/tis/info/pdf/9108028.pdf"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "hpv",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-e4d6661aac0b.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人乳头瘤病毒（human papillomavirus，HPV）",
+      "oldPair": {
+        "en": "The information leaflet explained what the abbreviation HPV stood for.",
+        "zh": "这份资料说明了HPV这一缩写的含义。"
+      },
+      "issue": "The old pair says a leaflet explains the abbreviation without using its selected virus sense in context.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The researchers studied how HPV enters cells.",
+        "zh": "研究人员研究了人乳头瘤病毒如何进入细胞。"
+      },
+      "references": [
+        "https://www.who.int/teams/health-product-policy-and-standards/standards-and-specifications/norms-and-standards/vaccine-standardization/human-papillomavirus"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "hav",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-e4d6661aac0b.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "甲型肝炎病毒（hepatitis A virus，HAV）",
+      "oldPair": {
+        "en": "The glossary expanded HAV as hepatitis A virus.",
+        "zh": "词汇表将HAV展开为hepatitis A virus，即甲型肝炎病毒。"
+      },
+      "issue": "The old pair only expands the abbreviation; new pair gives an evidenced environmental-surveillance context without diagnosis or advice.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The laboratory detected HAV in the wastewater sample.",
+        "zh": "实验室在污水样本中检测到了甲型肝炎病毒。"
+      },
+      "references": [
+        "https://www.cdc.gov/mmwr/volumes/74/wr/mm7405a3.htm"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "OE",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-0972627ebdc9.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "古英语的缩写（Old English）",
+      "oldPair": {
+        "en": "The glossary marks the oldest forms as OE.",
+        "zh": "术语表把最古老的那些形式标为古英语。"
+      },
+      "issue": "The old pair only labels a glossary entry OE; this is a more useful linguistic-context example.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The students compared an OE poem with its modern English translation.",
+        "zh": "学生们比较了一首古英语诗与它的现代英语译文。"
+      },
+      "references": [
+        "https://academic.oup.com/edited-volume/41359/chapter/352553493"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "PMT",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-18100ac42187.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "经前紧张的缩写（premenstrual tension）",
+      "oldPair": {
+        "en": "The health glossary explains the older term PMT.",
+        "zh": "健康术语表解释了经前紧张这一较旧术语的缩写PMT。"
+      },
+      "issue": "The old pair only says a health glossary explains the older term; new pair gives a natural noun-modifier context, with no treatment claims.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "She described her PMT symptoms during the appointment.",
+        "zh": "她在就诊时描述了自己的经前紧张症状。"
+      },
+      "references": [
+        "https://haemophilia.org.uk/wp-content/uploads/2025/09/CSL-Behring_Menorraghia_booklet_GBR-VCT-0204-June-2025.pdf"
+      ],
+      "status": "ready-for-independent-cross-review"
+    },
+    {
+      "term": "efa",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0042-s-18100ac42187.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "必需脂肪酸的缩写（essential fatty acids）",
+      "oldPair": {
+        "en": "The nutrition glossary includes EFA among its abbreviations.",
+        "zh": "营养学术语表在缩写中收录了必需脂肪酸的缩写EFA。"
+      },
+      "issue": "The old pair only includes EFA among glossary abbreviations; new pair uses the selected nutritional chemistry sense. No dose or health-effect assertion is added.",
+      "classification": "low-information metalinguistic example; not necessarily a false sentence",
+      "proposedPair": {
+        "en": "The researchers compared the EFA composition of the two seed oils.",
+        "zh": "研究人员比较了这两种种子油中的必需脂肪酸组成。"
+      },
+      "references": [
+        "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+      ],
+      "status": "ready-for-independent-cross-review"
+    }
+  ],
+  "unresolved": [
+    {
+      "term": "apecs",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0043-s-03414281a009.json",
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "apecs：旧数据误写；所指常用缩写APEC，Asia-Pacific Economic Cooperation，亚太经济合作组织",
+      "oldPair": {
+        "en": "The report summarises the APEC meeting.",
+        "zh": "报告概述了亚太经济合作组织会议。"
+      },
+      "issue": "Canonical head is reported as a damaged/incorrect form while its example uses a different corrected word. A natural sentence for the canonical spelling is not established; do not silently count this as verified natural English usage.",
+      "classification": "damaged-head/source-sense alignment requires separate lexical evidence",
+      "status": "unresolved-no-guessed-rewrite"
+    },
+    {
+      "term": "ammoninted",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0043-s-f741c62be45c.json",
+      "partOfSpeech": "adjective",
+      "meaningZh": "ammoniated：加氨的；含氨的",
+      "oldPair": {
+        "en": "The label uses ammoniated as a modifier.",
+        "zh": "标签把ammoniated用作修饰语。"
+      },
+      "issue": "Canonical head is reported as a damaged/incorrect form while its example uses a different corrected word. A natural sentence for the canonical spelling is not established; do not silently count this as verified natural English usage.",
+      "classification": "damaged-head/source-sense alignment requires separate lexical evidence",
+      "status": "unresolved-no-guessed-rewrite"
+    },
+    {
+      "term": "algiomotol",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0043-s-95c9c02b0072.json",
+      "partOfSpeech": "adjective",
+      "meaningZh": "algiomotor：与疼痛引发的运动有关的旧术语",
+      "oldPair": {
+        "en": "The old glossary uses algiomotor for a movement-related response to pain.",
+        "zh": "旧词汇表用algiomotor指与疼痛有关的运动反应。"
+      },
+      "issue": "Canonical head is reported as a damaged/incorrect form while its example uses a different corrected word. A natural sentence for the canonical spelling is not established; do not silently count this as verified natural English usage.",
+      "classification": "damaged-head/source-sense alignment requires separate lexical evidence",
+      "status": "unresolved-no-guessed-rewrite"
+    },
+    {
+      "term": "alkalifitable",
+      "sourceFile": "tooling/dictionary/examples/source/batch-0043-s-95c9c02b0072.json",
+      "partOfSpeech": "adjective",
+      "meaningZh": "alkalifiable：可碱化的",
+      "oldPair": {
+        "en": "The old chemistry glossary defines alkalifiable as capable of being made alkaline.",
+        "zh": "旧化学词汇表把alkalifiable解释为可以变成碱性的。"
+      },
+      "issue": "Canonical head is reported as a damaged/incorrect form while its example uses a different corrected word. A natural sentence for the canonical spelling is not established; do not silently count this as verified natural English usage.",
+      "classification": "damaged-head/source-sense alignment requires separate lexical evidence",
+      "status": "unresolved-no-guessed-rewrite"
+    }
+  ]
+}

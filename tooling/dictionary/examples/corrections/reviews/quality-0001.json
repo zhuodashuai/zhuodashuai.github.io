@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "37d85c6da5b8a21f1713eca4195891e5ab07db30ac6da440b07d6a3c1cdba686",
+  "reviewer": "AI/examples_runtime_release_audit",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "anhedonic",
+    "hla",
+    "AFSK",
+    "hpv",
+    "hav",
+    "OE",
+    "PMT",
+    "efa"
+  ],
+  "issues": [
+    {
+      "term": "iga",
+      "blocking": true,
+      "problem": "拟句作为IgA免疫学句子可以成立，但现有canonical iga唯一释义是integrating gyro(scope) accelerometer，完整record无免疫球蛋白变体。不能借同字母串静默转成另一义。必须先建立有来源的对应义项/词头关系，不能将该提案计作现有canonical义覆盖。",
+      "resolution": ""
+    },
+    {
+      "term": "NOE",
+      "blocking": true,
+      "problem": "拟句以NOE作光谱名词合理，词义也与canonical核欧沃豪斯效应一致，但canonical的pos-reviewed标签为adjective；完整variant仅有POS空白的MIT同义，没有abbreviation/noun变体。若质量层承诺严格匹配现有POS，须先单独修正POS，不能仅以该句批准完整绑定。",
+      "resolution": ""
+    }
+  ]
+}

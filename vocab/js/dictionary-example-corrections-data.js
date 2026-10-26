@@ -1,0 +1,107 @@
+// Generated from independently reviewed pairs; original immutable example assets remain intact.
+export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
+  {
+    "term": "AFSK",
+    "expectedEntrySha256": "dd185787865e50bba79b7a61757fb8e7c4a2b11a201436c199d47089e709bcde",
+    "canonicalId": 7308692,
+    "canonicalSourceSha256": "2ab07c547f8921ca81018a4b83e67af73b33cf266d4b99cce1ee794cc712c802",
+    "senseId": "example:AFSK",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "AFSK：音频频移键控",
+    "en": "The modem used AFSK to send the short message over the radio link.",
+    "zh": "调制解调器使用音频频移键控，通过无线电链路发送了那条短消息。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "OE",
+    "expectedEntrySha256": "864c28a2faf9a33498643c9d5b4899d60d70b5fd4103dbd2c5f3044118b43926",
+    "canonicalId": 4387489,
+    "canonicalSourceSha256": "8898b8d38876e0346e9a8be50dcbac108484dd8e570ac0a1e066da29fa3fe613",
+    "senseId": "example:OE",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "古英语的缩写（Old English）",
+    "en": "The students compared an OE poem with its modern English translation.",
+    "zh": "学生们比较了一首古英语诗与它的现代英语译文。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "PMT",
+    "expectedEntrySha256": "71e268cf57ad1e737effac588101af25d727337d8ab08c358a83e27c3786fc10",
+    "canonicalId": 5542678,
+    "canonicalSourceSha256": "c509cba6651ff0ed0a80968c290155a0d3686a5378d94bdb59cd479f01b562ef",
+    "senseId": "example:PMT",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "经前紧张的缩写（premenstrual tension）",
+    "en": "She described her PMT symptoms during the appointment.",
+    "zh": "她在就诊时描述了自己的经前紧张症状。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "anhedonic",
+    "expectedEntrySha256": "34dc4f19f3ef22db6911009c07f2797c6c10cbd028ffb7c42ce855ab156d5d5c",
+    "canonicalId": 8276970,
+    "canonicalSourceSha256": "e2b814cd9c0671ae9fa7f7ac40ddd51bbf470959c0550a206f37dff1002f3b91",
+    "senseId": "example:anhedonic",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "anhedonic：快感缺失的；难以体验愉悦的",
+    "en": "During that anhedonic period, even her favourite music brought her no pleasure.",
+    "zh": "在那段快感缺失的时期，就连她最喜欢的音乐也无法给她带来愉悦。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "efa",
+    "expectedEntrySha256": "d98070494790944ce6b096154d36318198f519564dad91758a508dddf4912491",
+    "canonicalId": 6484329,
+    "canonicalSourceSha256": "774bebf66805126b8e1d0269677bfbf42eb8ce960707f0a72a3e79ca33156fd8",
+    "senseId": "example:efa",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "必需脂肪酸的缩写（essential fatty acids）",
+    "en": "The researchers compared the EFA composition of the two seed oils.",
+    "zh": "研究人员比较了这两种种子油中的必需脂肪酸组成。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "hav",
+    "expectedEntrySha256": "09309b02df572f21541ed35932de599809b5e256bd31f244e79157772245b1a1",
+    "canonicalId": 4669468,
+    "canonicalSourceSha256": "ed0a172fe348f44a3463252f8f6f43903654963a33e231e3e97f735917d80ab8",
+    "senseId": "example:hav",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "甲型肝炎病毒（hepatitis A virus，HAV）",
+    "en": "The laboratory detected HAV in the wastewater sample.",
+    "zh": "实验室在污水样本中检测到了甲型肝炎病毒。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "hla",
+    "expectedEntrySha256": "8cd482ea286e173d5041efc72786c4173849f491aaf77ee78f0282bfec262dc4",
+    "canonicalId": 4247808,
+    "canonicalSourceSha256": "96e58f8c917d880454ec1deca6faef871656607a97e610e74da5e2f17d54c2eb",
+    "senseId": "example:hla",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "人类白细胞抗原的缩写（human leukocyte antigen）",
+    "en": "The transplant team compared the donor's HLA type with the recipient's.",
+    "zh": "移植团队比较了供者与受者的人类白细胞抗原类型。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "hpv",
+    "expectedEntrySha256": "6a8ecb1fb78c03fa620e19b2b0428e4cb32734b9eea9fd042cc7cce2ab888581",
+    "canonicalId": 4592105,
+    "canonicalSourceSha256": "58014bd6fde9568c79678d2fc03c8ed4bbf071dc81553b5d4efd3ccf764c786e",
+    "senseId": "example:hpv",
+    "exampleIndex": 0,
+    "partOfSpeech": "abbreviation",
+    "meaningZh": "人乳头瘤病毒（human papillomavirus，HPV）",
+    "en": "The researchers studied how HPV enters cells.",
+    "zh": "研究人员研究了人乳头瘤病毒如何进入细胞。",
+    "reviewer": "AI/examples_runtime_release_audit"
+  }
+].map(row => Object.freeze(row)));

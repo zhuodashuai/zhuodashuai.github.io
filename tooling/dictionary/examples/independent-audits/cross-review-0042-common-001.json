@@ -1,0 +1,938 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0042-s-0972627ebdc9.json",
+  "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+  "reviewer": "AI/coverage-semantic-independent-001",
+  "independentOfAuthor": true,
+  "createdAt": "2026-10-26T23:30:40.252Z",
+  "method": "每条原例句、所选词性/中文义、中文译句及全部当前canonical variants逐项阅读并判断；脚本只绑定原始row摘要与身份，不自动批准。对不熟悉的技术缩写和旧义采用一手资料核查，未确认不批准。",
+  "scope": "Exact independently read pairs; no approval of unreviewed entries or other senses.",
+  "entries": [
+    {
+      "term": "CD-ROM",
+      "pairDigest": "cebddc331ab2cf1a455da386ee5fef8f4cc35ba0acd8dc54d656855a187d6fb8",
+      "canonicalId": 1167489,
+      "canonicalSourceSha256": "836dc8634b09f346959622139a56625a0b646452aa25232db92b9191d87eab80",
+      "verdict": "needs-fix",
+      "notes": "英文和中文译句自然，所选只读光盘义正确；但当前exact canonical仅释光盘驱动器且无其他variant，须补正介质义及对应UI，不能把盘片与驱动器混算。",
+      "references": []
+    },
+    {
+      "term": "mathematic",
+      "pairDigest": "dc03cbd7accd82057b47fdc86c1b70874add66a2afd6fa91c160a49cb4a9f9c5",
+      "canonicalId": 1725820,
+      "canonicalSourceSha256": "4019b02d6edf924eba3959386333754c633ef62eddc6d17da521a7448a3bdf22",
+      "verdict": "needs-fix",
+      "notes": "例句实际使用mathematical，不是mathematic的屈折词形；不能只凭同词族把这个head计为已演示。应明确规范形式映射或另提供经核实的mathematic用例。",
+      "references": []
+    },
+    {
+      "term": "reservior",
+      "pairDigest": "ec767e0144959405182d1fe68aef74e6b2197a5d04e05089540045627cb1d985",
+      "canonicalId": 1775590,
+      "canonicalSourceSha256": "219b497ac748e6059df6da45999073cae8cf5c290d36db564f9e0402e1666049",
+      "verdict": "needs-fix",
+      "notes": "句子作为reservoir的水库例句准确，但原head是拼错的reservior。须建立明确拼写更正/别名关联后展示，不能无条件宣称规范原head已有对应使用例。",
+      "references": []
+    },
+    {
+      "term": "I'd",
+      "pairDigest": "0c82e01aae9faf0968437bcea5ef75337c97b1e63c9915e896ea0032822cb581",
+      "canonicalId": 1790087,
+      "canonicalSourceSha256": "43312a3a90f6c78124c909f84436f433a6ff704f7d4d91dbee0cea924b97f43b",
+      "verdict": "approved",
+      "notes": "I’d rather正确展开为I would rather，表达个人选择，中文宁愿准确；不是I had义。",
+      "references": []
+    },
+    {
+      "term": "that's",
+      "pairDigest": "ce9749dbba1c578d7b08e749541c50e0004ed0d1d879278e65a15623335876dd",
+      "canonicalId": 1790854,
+      "canonicalSourceSha256": "2846922f130491dcabb2ee8586b03ddb952da6e76c913d5c5f78e0048d2dc83a",
+      "verdict": "needs-fix",
+      "notes": "That’s the folder作为that is的口语缩写完全自然，译文准确；当前所有canonical释义却仅给解释性说法说得更精确些/简而言之，需先补正常见缩写义。",
+      "references": []
+    },
+    {
+      "term": "we'll",
+      "pairDigest": "212198827d207b19993c770b2eac5dc504452801a6327ec489095e0d03849660",
+      "canonicalId": 1795930,
+      "canonicalSourceSha256": "08b842e9b58b54e2c3d8795029f6345a469c2361313d76dc10aa7818a3cecf99",
+      "verdict": "approved",
+      "notes": "We’ll leave是we will的真实将来/意愿用法，备用钥匙和邻居的中英信息一致。源含we will/we shall。",
+      "references": []
+    },
+    {
+      "term": "VAT",
+      "pairDigest": "afff4713a647353925fc62e83428c0f3270bb0b36c1602a5ece686eca7ecc29c",
+      "canonicalId": 1804900,
+      "canonicalSourceSha256": "4427817026d0d42a27d7f2d73a260b62280c5bfa080e6f363e7ea5c5a792fbf8",
+      "verdict": "needs-fix",
+      "notes": "税种例句本身准确；exact VAT及所有variants目前只有大桶/装桶义，库中亦无另一个vat规范头可自动解决。须补正确VAT税种义并按大小写/义项呈现。",
+      "references": []
+    },
+    {
+      "term": "APR",
+      "pairDigest": "8b48d2b3bbcb6d1477dfba9c8173ac035159954800cabeabd95128cae03706c0",
+      "canonicalId": 1839698,
+      "canonicalSourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d",
+      "verdict": "needs-fix",
+      "notes": "贷款APR例句自然，年百分率义现实正确；但当前APR及所有variants仅是计算机替换通路再试器。需补金融义和匹配显示，不能假装已匹配旧具体义。",
+      "references": []
+    },
+    {
+      "term": "CID",
+      "pairDigest": "0f2ddaeeff791fcce068340096634f6642a091d6d9ce17264f22d6e3f44342ae",
+      "canonicalId": 1918559,
+      "canonicalSourceSha256": "58744e06a61f9d09beb32a3131e9c0668d7bbca8219f1f8e01fea7ace02caf23",
+      "verdict": "approved",
+      "notes": "源含刑事调查部门义，from the CID指该部门；证人请求交谈的语境和译文均自然。",
+      "references": []
+    },
+    {
+      "term": "unspoken",
+      "pairDigest": "3ee5596ff6969332e32af55f5a005a5709fde0c230b61c0e61d225e4eb696dfb",
+      "canonicalId": 1957796,
+      "canonicalSourceSha256": "647b635e4b99e770e30eaf32787cface6bbef96e88903de5ddaab5539a9272df",
+      "verdict": "approved",
+      "notes": "unspoken agreement与不提争吵形成实际未明言/心照不宣的语境，形容词用法和中译对应。源只有词形说明，没有相反具体义。",
+      "references": []
+    },
+    {
+      "term": "BSC",
+      "pairDigest": "ba98a8565996a70ed87c53ecfdcab9e89345a1f8c9b959fda2de6a2144817897",
+      "canonicalId": 2128851,
+      "canonicalSourceSha256": "917498f2bf18c0b9831b910ebb6e26d313d8cb6adc656738576909f6d35f3010",
+      "verdict": "needs-fix",
+      "notes": "Her BSc作为理学学士可用，但当前BSC仅列Bachelor of Science in Commerce的商学士，所有variants无理学学士义。不能通过改大小写静默抹去Commerce，应明确补义/规范缩写。",
+      "references": []
+    },
+    {
+      "term": "POO",
+      "pairDigest": "f8d868792b5e691e591c4bbc276e6802df59e8767d663d607fbf614ffce6dc41",
+      "canonicalId": 2139837,
+      "canonicalSourceSha256": "2216e2f09930309fa2961bd3694c69c03d577c2d6d5a3d042419a14d1d8f2d34",
+      "verdict": "approved",
+      "notes": "核对旧式P.O.O.=Post Office Order，职员核对汇票再登记付款为具体自然场景；释义已标旧式缩写，未冒充常用口语。",
+      "references": [
+        "https://dizionari.corriere.it/dizionario_inglese/Inglese/P/p_o_o_.shtml"
+      ]
+    },
+    {
+      "term": "hifi",
+      "pairDigest": "b63896f4067cfb714690b7cc664d091955836673bd659432e9b8df8f345f2360",
+      "canonicalId": 2150631,
+      "canonicalSourceSha256": "fe716fc2bd8bb17eae5b02b00a5c42c7db6a59426ba21be23a9084a3bc4c66cf",
+      "verdict": "approved",
+      "notes": "hi-fi是hifi的规范连字符拼写，扬声器还原声音的语境真实体现高保真技术，而非无内容提词。",
+      "references": []
+    },
+    {
+      "term": "IE",
+      "pairDigest": "b0c931b0652c7440b2ea3e35f7978d986a845f4b22ad70465531f26a62591d98",
+      "canonicalId": 2178931,
+      "canonicalSourceSha256": "1543973d0ccc5dec98e40b0793b8a88000ea5bd82b934eec4fcd44569cbe9151",
+      "verdict": "approved",
+      "notes": "IE的interrupt enable意义有Microchip原厂资料支持；工程图中的使能信号标记和中文一致。例句不声称某具体芯片结构。",
+      "references": [
+        "https://ww1.microchip.com/downloads/en/DeviceDoc/doc3538.pdf"
+      ]
+    },
+    {
+      "term": "UN",
+      "pairDigest": "24a4d5a74ad5badb5f81bf6b4391125b5257a3607c551a61f3d010409a8abcc0",
+      "canonicalId": 2183258,
+      "canonicalSourceSha256": "9c45c93106a5ddedbb25855e4b4658413ab789e86d0d3fefdaede102a4c86d4e",
+      "verdict": "approved",
+      "notes": "选源中明确存在的联合国义；代表和会议室语境自然。源的pronoun标签不适用于此机构义，所选abbreviation标签合理。",
+      "references": []
+    },
+    {
+      "term": "E",
+      "pairDigest": "8ec4da3823beb2e3ad0f8074a84e4a97ff8bb29b3c0a3bfdff1e463bba4356d1",
+      "canonicalId": 2197600,
+      "canonicalSourceSha256": "1e68ee2b5980f2bd5866850b75ef3ae4327f8eb6a705028308ad8aca45d3b728",
+      "verdict": "needs-fix",
+      "notes": "字母E的例句和译文自然，但当前E的全部canonical义均为计算机缩写，未含字母本身。需补字母义，而非把该句当成执行/误差等缩写义例句。",
+      "references": []
+    },
+    {
+      "term": "M",
+      "pairDigest": "e202f37bfbac74fcf4aab3a829e431cff77c867987309a9a519fb799e2832793",
+      "canonicalId": 2218616,
+      "canonicalSourceSha256": "e66657af56cf473527d3ff5d0367406a333e1bb7bd1cfb2b0490ee7ce3ae5b91",
+      "verdict": "needs-fix",
+      "notes": "罗马数字M的用例可成立，但当前M及全部variants没有罗马数字一千义，只有计算/医学缩写。需补对应义项后匹配，不应强造原错误义。",
+      "references": []
+    },
+    {
+      "term": "MAX",
+      "pairDigest": "f5ddef4aa71464adeeafcf5d49d5d2b11ea55259fd2a39ad811eb80835397d37",
+      "canonicalId": 2224409,
+      "canonicalSourceSha256": "a6c227fdcee597fd8bc6e6b14b2f329882b1b4835299d2dc8105a49aea535775",
+      "verdict": "approved",
+      "notes": "容器的最高液位标记MAX体现maximum/最大值，与原最大义一致，冠词和中译均自然。",
+      "references": []
+    },
+    {
+      "term": "du",
+      "pairDigest": "e32724ff70db655d209892a7553aebc75914beaa0bddc1121cf2040e2e919bb7",
+      "canonicalId": 2230386,
+      "canonicalSourceSha256": "a45dc28149da08a21c8af46e1176f1e487071b0d5ecdf49c6a5b71010ebb342d",
+      "verdict": "approved",
+      "notes": "已核对IAEA资料DU=depleted uranium；样品归档语境选择材料义，与源化学贫化铀义对应，不取define-use义。",
+      "references": [
+        "https://conferences.iaea.org/event/421/contributions/38084/"
+      ]
+    },
+    {
+      "term": "AL",
+      "pairDigest": "09ddc0d1e0a54d534f6d359027d087a771d552bec41bfce01006b0b4ac792842",
+      "canonicalId": 2245696,
+      "canonicalSourceSha256": "34ffd388e93920f9f39c497ae841d5c43cd71c5b280d457801eea98d25fdd038",
+      "verdict": "approved",
+      "notes": "选源明确列出的铝元素义，例句规范使用Al，meaning也明确大小写规范；图表与铜锌并列的材料语境自然。",
+      "references": []
+    },
+    {
+      "term": "restructuring",
+      "pairDigest": "e31ecd83c7cc8b1255be984a8a7cbabaebae2855bf67226d38f8ab300019c618",
+      "canonicalId": 2254798,
+      "canonicalSourceSha256": "fa6f6a1d06424b2d5d241b366b539e1e93612779912e1eaf4e9559a74cb68e0c",
+      "verdict": "needs-fix",
+      "notes": "部门重组的英文和译文自然；但原canonical只有计算机重构的这一词形性释义，未给组织重组名词义。需补相应义和词性后计为匹配。",
+      "references": []
+    },
+    {
+      "term": "dos",
+      "pairDigest": "b907f622295f9e553494d9a4c238bf9df85bc15f39ddb797d468b4a39b2a8d76",
+      "canonicalId": 2268709,
+      "canonicalSourceSha256": "a58e15cbd663b0b2ad3c3d2a79687997a44f944adde80225f12d9059aa5648cd",
+      "verdict": "approved",
+      "notes": "DOS prompt/旧电脑启动构成真实磁盘操作系统语境，与源系统名义和中译一致。",
+      "references": []
+    },
+    {
+      "term": "molly",
+      "pairDigest": "974828d332110f2511738c875e4325ac6e448bab76e9f8f9596fd12be9b84c9f",
+      "canonicalId": 2282180,
+      "canonicalSourceSha256": "8dc12464be5fe3529b78b1ff3b022e62b77590572c22f2468688677b9f3415d9",
+      "verdict": "needs-fix",
+      "notes": "鱼名molly的句子可用，但当前canonical全部仅旧俚语懦夫/娘娘腔男人。新鱼名义须独立补入并对应显示，不能把避开旧俚语当成已为旧义配例。",
+      "references": []
+    },
+    {
+      "term": "halifax",
+      "pairDigest": "31da49e550073513c541ca0017f40009518760460b1fd16e4451d2d22ea68bf6",
+      "canonicalId": 2295924,
+      "canonicalSourceSha256": "ad7d984e5b0bf8eca1c07affbc6973001ab0bb5c1c6e52dd505d9291251209f0",
+      "verdict": "approved",
+      "notes": "源本就指英国银行品牌；来信、银行对账单构成恰当具体语境，未重复源中未经核实的财富500强排名。",
+      "references": []
+    },
+    {
+      "term": "CNAA",
+      "pairDigest": "3cc8a95d7c2630e17602634a7be4d8cd2cfe036ac4d53cfc110f9623fddff651",
+      "canonicalId": 2310442,
+      "canonicalSourceSha256": "dc1435516cfd6f0673c3c9895fe91862f6476d727c9a29863b626d440ea3f2fd",
+      "verdict": "approved",
+      "notes": "已核实CNAA为原学位授予机构，degree certificate语境准确，中译与源机构名一致；建议后续解释academic awards在此为学历学位而非竞赛奖。",
+      "references": [
+        "https://university.open.ac.uk/validation-partnerships/awards-and-aftercare/cnaa-students"
+      ]
+    },
+    {
+      "term": "RUC",
+      "pairDigest": "8d9eba2eb15595eefca31113ecdc4b508935407b8f42a513985339a3dda8e694",
+      "canonicalId": 2340729,
+      "canonicalSourceSha256": "fc8d819ac3e4724a22f8634e4a6ab9330927ecee9ab3bbc3bb24ef739d7a58ca",
+      "verdict": "approved",
+      "notes": "档案和former RUC stations清楚采用历史警察部队义，译文保留旧机构范围而非称当前警队。",
+      "references": []
+    },
+    {
+      "term": "INT",
+      "pairDigest": "73138900101eb253695ae9d8386ccae5dbfa438d2d55b0014742832d4db6eedc",
+      "canonicalId": 2343262,
+      "canonicalSourceSha256": "a1c0c559716411362a5df740339b5fac66e30956faf779ce81323bb835c18ce1",
+      "verdict": "approved",
+      "notes": "计数器声明为INT是整数类型的实际编程用法，对应源中整数义；未误选中断义。",
+      "references": []
+    },
+    {
+      "term": "Lt",
+      "pairDigest": "7b468ae7c37e7cd5aededbfce316b03a7b20ba937071f9e5071d842f25b229c0",
+      "canonicalId": 2367853,
+      "canonicalSourceSha256": "36530eca5c0be7f39a0fd55fa89b412095fb9a55a7312090a6375bbd2fb97c5e",
+      "verdict": "needs-fix",
+      "notes": "Lt. Harris中尉用例自然，但exact Lt及全部variants只有电学LT线上末端，库内没有另一大小写规范头来自动匹配军衔。需补军衔义。",
+      "references": []
+    },
+    {
+      "term": "Oecd",
+      "pairDigest": "98fe2dd18923d5da27af4c9d7dc278dd220b6a31fb0ef888390e391e74cdbddd",
+      "canonicalId": 2375206,
+      "canonicalSourceSha256": "a5786eb8979358149a9a83d738e5d701e12c575019b3c0adf8c028a5e036b4c0",
+      "verdict": "approved",
+      "notes": "采用规范机构简称OECD，教育数据研讨语境符合机构义；与源已开发国家组织指向同一机构，未把简称当普通单词。",
+      "references": []
+    },
+    {
+      "term": "AEA",
+      "pairDigest": "7efb6f462ff05c53e72d555256b002e55e6570f249705dfea9d255bf5e3b30e3",
+      "canonicalId": 2382270,
+      "canonicalSourceSha256": "c4e987ae78772c1fd8f927b3b8c0d3deb9ac91014a5b771d99db10787c3eb40b",
+      "verdict": "approved",
+      "notes": "美国经济学会是源中明确列出的一个展开；会议日程和馆藏语境自然，未声称AEA只有这一个意思。",
+      "references": []
+    },
+    {
+      "term": "NAFTA",
+      "pairDigest": "60aa4e2bbfeb3452396716f55c2143f7805b45c29fcc68b669ef412f4873a541",
+      "canonicalId": 2390841,
+      "canonicalSourceSha256": "e7d2704c743e594b51769734bddd3892aa9ecfb45deaec2f2c2938f8c6ae2922",
+      "verdict": "approved",
+      "notes": "历史课程讨论协定，时态和语境没有把NAFTA误称为当前生效安排；中文争论对应debate。",
+      "references": []
+    },
+    {
+      "term": "HAL",
+      "pairDigest": "5498944a5dbbcd1fd292b6316af1714bcc2a332620e70cc6801997e73a753f54",
+      "canonicalId": 2428330,
+      "canonicalSourceSha256": "c07434c80a2233d0f547b1ad39255cc1276a3e0a8c55b9827fb67e4df58de766",
+      "verdict": "approved",
+      "notes": "Microsoft原厂文档确认HAL屏蔽底层硬件细节；原例准确表达该抽象作用，中译自然，与源硬件描象层的笔误所指相同。",
+      "references": [
+        "https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/windows-kernel-mode-hal-library"
+      ]
+    },
+    {
+      "term": "magnus",
+      "pairDigest": "4fc5d4c75727c2c39acb451d9cecef2f68fce628fa8a8efb8700a29c7e6c6673",
+      "canonicalId": 2440950,
+      "canonicalSourceSha256": "9b90c805a2c6fb34c104605fd17a8b42383937d8adcc054d6e51a1017e877334",
+      "verdict": "needs-fix",
+      "notes": "原例只说图表把magnus放在名字后，是谈论词的位置而非在解剖名中使用词义，学习内容不足。应提供真实肌名语境，如adductor magnus，并核对事实。",
+      "references": []
+    },
+    {
+      "term": "SGT",
+      "pairDigest": "00c499348152a0c3a2e35410cefa0a36ee532fdb03e440beab3db270134b8ebf",
+      "canonicalId": 2448977,
+      "canonicalSourceSha256": "50929b4017918fdd19bf83739cad39cdca5979b3e5ed5fce55671efac3a18b23",
+      "verdict": "unverified",
+      "notes": "IBM原厂资料能证实SGT=segment table，但指IMS部分重组结构；当前调试器/内存映射场景是否为同一缩写义未确认，不凭首字母构造情境批准。",
+      "references": [
+        "https://www.ibm.com/docs/en/ims/15.6.0?topic=formats-table-control-block-definitions"
+      ]
+    },
+    {
+      "term": "KPMG",
+      "pairDigest": "38b5634595b1ef56daf881b812fc00e5326d850d0947f9d752759eb332c35d84",
+      "canonicalId": 2455290,
+      "canonicalSourceSha256": "28bffb6a46165afa2954abaa52b2799ad1809b80464c1026ec1e02ea8b97d965",
+      "verdict": "approved",
+      "notes": "graduate role at KPMG为自然招聘语境；品牌名和机构网络释义准确，未夸大为单一全球法人。",
+      "references": []
+    },
+    {
+      "term": "caro",
+      "pairDigest": "b8e7043912e8d3ff71b8c9b039e890ddba483b6b57c080ee399b943fddc2e813",
+      "canonicalId": 2457354,
+      "canonicalSourceSha256": "39715504148b9d82025ebae84ab49a4b522c3851e12bd2a2bd6aea26b237ae58",
+      "verdict": "needs-fix",
+      "notes": "已核对拉丁语caro=肉，但句子只是把词译成flesh的说明，不是该名词义的实际使用例。不能用纯翻译断言充作自然英文学习例句。",
+      "references": [
+        "https://atlas.perseus.tufts.edu/dictionaries/entry/urn%3Acite2%3Ascaife-viewer%3Adictionary-entries.atlas_v1%3Alat.ls.perseus-eng2-n6848/"
+      ]
+    },
+    {
+      "term": "Trafalgar",
+      "pairDigest": "f6435267c3dd5a833926d05e9c6c564cc9c377a5490346f074064cba8c80ffe0",
+      "canonicalId": 2478061,
+      "canonicalSourceSha256": "de05755cda61d338755d62f315804deee4c37c5e538898118c245972e2d718a7",
+      "verdict": "needs-fix",
+      "notes": "Cape Trafalgar地名真实且句子自然；当前canonical只收人名义，所有variants无海角义。需补地理义再对应，不是把海角当成人名例句。",
+      "references": []
+    },
+    {
+      "term": "ALF",
+      "pairDigest": "05e440bbaa38ef58b0f0d7cb5603474383ec4044ae5dbc7cc34a27f3fb60f25e",
+      "canonicalId": 2508882,
+      "canonicalSourceSha256": "540c62be487b9c46288a06b3e10254f9ba62a9903c03bc30122813b6a1983f28",
+      "verdict": "approved",
+      "notes": "Alf是源列Alfred昵称的规范大小写形式，搬椅子进花园是自然的人物动作，中译准确。",
+      "references": []
+    },
+    {
+      "term": "Q",
+      "pairDigest": "912048b1fbe936bd0755a1c8ad0faa7ac1c0447e6c29b2a4530235dbd0bc0e20",
+      "canonicalId": 2542300,
+      "canonicalSourceSha256": "a16a25f39a4740c20b445084bb544898b63a01933699d5eab0587b66062bf086",
+      "verdict": "approved",
+      "notes": "源含queue/排队，任务到达率超过服务器处理率为具体队列语境；释义限定程序标记Q，没有宣称普遍词义只有队列。",
+      "references": []
+    },
+    {
+      "term": "mmm",
+      "pairDigest": "867bfef7fc47b2711aa72a5e2a95be5fb7aec51a5c34bda11c8f6cc5c09ed3a9",
+      "canonicalId": 2554822,
+      "canonicalSourceSha256": "6f96837b2b572544545fcac962c96751ae4b07280f4a10896c3dec582ed34b6e",
+      "verdict": "needs-fix",
+      "notes": "赞叹汤香的Mmm自然，中译也对；但当前canonical释义是医学毫微米，与interjection标签内部矛盾。需更正/补感叹词义并匹配UI。",
+      "references": []
+    },
+    {
+      "term": "goldberg",
+      "pairDigest": "d2f6332f7745154548ea3f85a688ba95fa0a4f14595bf0b341e54f50da79b861",
+      "canonicalId": 2577445,
+      "canonicalSourceSha256": "b0cfee6a64f18f32fb88f05e70b80e8c3d82d6f1c18858bfee622c2fdb779a42",
+      "verdict": "needs-fix",
+      "notes": "Goldberg姓氏用例本身无错，但当前源仅有旧歧视性普通名词义，全部variants无姓氏义。应另补中性人名义，而非假称该句已覆盖旧义。",
+      "references": []
+    },
+    {
+      "term": "Kev",
+      "pairDigest": "263b5fdb7fdb858d78123d330615b379eb583d347b35c3cfaea9b02af4a4e95c",
+      "canonicalId": 2584561,
+      "canonicalSourceSha256": "974a7cf47a335926380890f142373587736f2752d26664ac2cc2c5d19f943844",
+      "verdict": "approved",
+      "notes": "千电子伏特义与源一致，规范符号keV及其大小写已明确；光子能量图的单位语境准确。",
+      "references": []
+    },
+    {
+      "term": "BCCI",
+      "pairDigest": "fde307de35689dac98479af48c08fbdfdefbbdbc805843cc6fae0ce083b8dce2",
+      "canonicalId": 2595486,
+      "canonicalSourceSha256": "131851debcc38d350c0f703a1f94f2e4bdea6aa2b8f89bd378229b10b8c3e591",
+      "verdict": "approved",
+      "notes": "加拿大官方历史材料确认BCCI机构；往来信件的历史语境自然。作者将源的英国哥伦比亚地理误译改为加拿大不列颠哥伦比亚，指向同一源英文机构。",
+      "references": [
+        "https://publications.gc.ca/collections/collection_2012/icis-cihi/H118-79-2012-eng.pdf"
+      ]
+    },
+    {
+      "term": "lr",
+      "pairDigest": "c0ee2472372562de32174f35b303dc6375ad760c234f74fb4ab1c2d7ffc5e48b",
+      "canonicalId": 2601595,
+      "canonicalSourceSha256": "8d4138ee134c8b43fc877987dc2e16c50865d5ef065478715f4dea81c51c1afa",
+      "verdict": "approved",
+      "notes": "选源已列long range义，飞机远程型号LR的定语使用自然，未取其他报告/火箭缩写。",
+      "references": []
+    },
+    {
+      "term": "vga",
+      "pairDigest": "78d505c78b998c0f7ef6b0b43e82642b427979fd5d351f37003017d97107fe71",
+      "canonicalId": 2603089,
+      "canonicalSourceSha256": "05d7922d3f215ec7c5ea5236d1768d5d5cdddf4c1634850447c9100d1f707a03",
+      "verdict": "approved",
+      "notes": "旧显示器的VGA connector为自然且明确的视频图形阵列接口语境；译文不把它当可变增益放大器。",
+      "references": []
+    },
+    {
+      "term": "Unita",
+      "pairDigest": "8026c07c195fea31a73f6cdc73fcc774ed623038f3aa867b6ebb6a13571fb113",
+      "canonicalId": 2605842,
+      "canonicalSourceSha256": "094b07bc41b92c331b3b4b9569754e5f211941d2b4fbd95023c1f2aec7c7d3ac",
+      "verdict": "approved",
+      "notes": "规范UNITA机构名与源政治组织义对应，谈判场景自然，没有添加未核实年代或当前执政地位。",
+      "references": []
+    },
+    {
+      "term": "Csce",
+      "pairDigest": "c40d79b1eaf95d97391e0858a1f68c144ba354acc1507f32945c48c03072c4dc",
+      "canonicalId": 2608207,
+      "canonicalSourceSha256": "5370f93da39a73cedc342b5ad60b9226749cdeb95addb0e93def3a18aa60d3ec",
+      "verdict": "approved",
+      "notes": "ICE原始监管文件确认该历史交易所名称；研究交易记录的句子自然，中译对应，不与欧洲安全会议CSCE混用。",
+      "references": [
+        "https://www.ice.com/publicdocs/regulatory_filings/20-111_Amendments_to_Coffee_Rules.pdf"
+      ]
+    },
+    {
+      "term": "Cantona",
+      "pairDigest": "f20d65126b4d8c427ecb1ef76386322022d0cf23916c18cdd83b2b6608e8bf5f",
+      "canonicalId": 2609005,
+      "canonicalSourceSha256": "16e812a19891f1bb87c2f8a460e409198411d853025021652be9f76f811a755f",
+      "verdict": "unverified",
+      "notes": "仅找到重复该中译的聚合词典，未独立找到制造商/历史纺织资料确认该粘胶丝商标。厂内样品场景语言可通，但不能以同源释义循环证明纤维事实。",
+      "references": []
+    },
+    {
+      "term": "LDP",
+      "pairDigest": "a61a0c3fc3603384595f059b6547e155337dc4985891e2ee4d71e8bc736962e1",
+      "canonicalId": 2610615,
+      "canonicalSourceSha256": "f71613488cf2aa41e621c1c9f7a692336a8f688172d0f87d6e294d4d1b87561d",
+      "verdict": "approved",
+      "notes": "源含Liberal Democratic Party，提案与反对者比较构成真实政治组织语境；未替模糊缩写擅定国家。",
+      "references": []
+    },
+    {
+      "term": "tue",
+      "pairDigest": "71993c2f4802eb7315bb236e651c027d0ef119303027d1a75305044a30487848",
+      "canonicalId": 2612357,
+      "canonicalSourceSha256": "f39deb8a0b0aab32a684a8e8e64b7999ca7eac0143f8975d8410f4eea50a69d6",
+      "verdict": "approved",
+      "notes": "预约卡Tue. at ten是星期二的自然缩写用法，时间和中译完全对应。",
+      "references": []
+    },
+    {
+      "term": "NSAID",
+      "pairDigest": "720d9dca7031ad8d1f8c8eecf0a50b82daefbe9ecdbcaf47f9aefd6f05879f0e",
+      "canonicalId": 2614432,
+      "canonicalSourceSha256": "050e3246057378cd36c36e5be4d13e7630e0cba96b27998f56e132be3bd144e2",
+      "verdict": "approved",
+      "notes": "问是否已服用某药的语境准确使用NSAID单数和an，译文对应非甾体抗炎药，未给治疗或剂量建议。",
+      "references": []
+    },
+    {
+      "term": "Nez",
+      "pairDigest": "d3df1b6b048a583000985c78f7ed36d2454f80e07412900727f8c99ac78ce497",
+      "canonicalId": 2615858,
+      "canonicalSourceSha256": "b17d624c09460143ebcb16ed153704b4c45ff9bfcfa3e696e9a6f0fe74cbd3f6",
+      "verdict": "approved",
+      "notes": "源明确列人名及内斯译法，姓名作主语签访客簿自然；未虚构名字词源或某真实人物生平。",
+      "references": []
+    },
+    {
+      "term": "Huy",
+      "pairDigest": "d8c9f98fa9ab6a4069b059913607a7f9112dfbe0b744a0f03254de1bb6a44d60",
+      "canonicalId": 2618349,
+      "canonicalSourceSha256": "e7f98ba4dfbd0924e28f672fe0bc0d82e8ed8784c8686275da97960efe0aed9d",
+      "verdict": "approved",
+      "notes": "源含人名辉，set an extra place确指多摆一套餐具，中译准确，不是地名或郡缩写义。",
+      "references": []
+    },
+    {
+      "term": "rationalise",
+      "pairDigest": "11fe2d3b3071fc3fd9b6f17fa6bb4ba12d1e30dbc855e80ee816204a7d2a389f",
+      "canonicalId": 2624838,
+      "canonicalSourceSha256": "51ecbdf715f02304b1ece435a72949b5365a2b21e84a89f2de201bff5587ec3b",
+      "verdict": "approved",
+      "notes": "动词rationalise用于优化归档系统符合提高合理性/效率义，英式拼写和译文均自然。",
+      "references": []
+    },
+    {
+      "term": "panick",
+      "pairDigest": "188e8940fe8bf149af92b263f3fe07b54660c95f05c7ae0c8a86b6008e69a1a1",
+      "canonicalId": 2640205,
+      "canonicalSourceSha256": "5b845ff6310d7976526c8b68d34fe4d8ab0903cb8e5003b831e45e9920b8dd82",
+      "verdict": "unverified",
+      "notes": "原句panicked的用法和译文自然，语义也匹配恐慌；但panick作为可批准的旧动词拼写及其映射未由独立一手词典确认，暂不把现代词形自动计到旧head。",
+      "references": []
+    },
+    {
+      "term": "tantalising",
+      "pairDigest": "9e250355a180923fde271387fdaf9c99a14ba56c2ff39d30ed76d4afa0d7d459",
+      "canonicalId": 2656983,
+      "canonicalSourceSha256": "df1b638f5c391bc5e91c95637ec33f4d4137b9f392b943c53cf676d5419aee18",
+      "verdict": "approved",
+      "notes": "面包店诱人的气味自然体现形容词吸引而令人想要的义，英式拼写正确，中译忠实。",
+      "references": []
+    },
+    {
+      "term": "PENNINE",
+      "pairDigest": "3b2566bde3a221348d82ed9f87fcf52102d559d46758a78325cb45b39951b285",
+      "canonicalId": 2698208,
+      "canonicalSourceSha256": "a1619c56cffb2927e6389e665f4921b19c19f133fa97cdd782766bd5ce0b8f3f",
+      "verdict": "approved",
+      "notes": "Pennine ridge取源中Pennines地理义作定语，译为奔宁山脉的一道山脊自然；明确不取另列penninite矿物义。",
+      "references": []
+    },
+    {
+      "term": "HMSO",
+      "pairDigest": "66873f87fac68fd7ccdc10d1bd53dc5fe51c43490e660e81b61ccc7bc83f8e15",
+      "canonicalId": 2712376,
+      "canonicalSourceSha256": "3ed0acaaa77f267b8701ddeefd54690bebe896854b30a183c37ece9395fa337f",
+      "verdict": "approved",
+      "notes": "HMSO edition为出版版本的自然搭配，文书局机构义及图书馆找到版本的中译一致。",
+      "references": []
+    },
+    {
+      "term": "bryant",
+      "pairDigest": "2ce751414926e0226d49bcf57dc74dfd2e54170cf7f8b9cf9bb0ee2039b52384",
+      "canonicalId": 2714933,
+      "canonicalSourceSha256": "4c3d6995187dcb4ff1c2deb6cd4276697a8fa3cde2ce0e5ab68e1517f6f5437b",
+      "verdict": "approved",
+      "notes": "Bryant规范人名作主语，与源男子名范围相容；修好的钟和放置动作翻译准确，未编造真实人物事迹。",
+      "references": []
+    },
+    {
+      "term": "evaluator",
+      "pairDigest": "f00399e3406eea22856223ba574f941bc7cb0e3d946b32edd64a19a0a5e97f32",
+      "canonicalId": 2724506,
+      "canonicalSourceSha256": "f76769d8621c1038692f00b22ef64d90c8353abfc7fb02a64fc4f191c1cc23e2",
+      "verdict": "needs-fix",
+      "notes": "人工评估人员收到评分指南的例句自然，但当前全部canonical仅计算机求值/鉴别程序或器件义，没有人的评估者义。需补人义和正确UI配对。",
+      "references": []
+    },
+    {
+      "term": "mimick",
+      "pairDigest": "f140ff17b64f811a49f7d92d159080c8dfd508278114d50ba4f3928b1e1b75f7",
+      "canonicalId": 2727967,
+      "canonicalSourceSha256": "70477bbc8a5fe52d3ae603d76226130afb39a889aa73af952a98a4541cffd339",
+      "verdict": "unverified",
+      "notes": "原句to mimic自然且意思正确；目标head为mimick，未独立核实其旧拼写与规范mimic映射，不能仅删k后当作已验证同一head覆盖。",
+      "references": []
+    },
+    {
+      "term": "zealander",
+      "pairDigest": "6975ca52e1a630212c17533da17fd6fff430623bd49cac5374bf0d03074bda4b",
+      "canonicalId": 2736833,
+      "canonicalSourceSha256": "46d2175a8a76ece1cc275e79e9babb985f3b34d45af5d901fc519301a7d1ac33",
+      "verdict": "needs-fix",
+      "notes": "例句确实使用New Zealander新西兰人，但当前canonical指丹麦Zealand，全部variants无新西兰义；涉及国家和词形双重差异，需核实并补义/映射，不能混同。",
+      "references": []
+    },
+    {
+      "term": "moi",
+      "pairDigest": "38355000cd5e198b7af2073d97c6eb84550f8716f4ea13f6c3bc9fac78459c3d",
+      "canonicalId": 2741076,
+      "canonicalSourceSha256": "2529e442db8712c811f904a85a8dd15bde84439112bd661abd562359bed8cae4",
+      "verdict": "approved",
+      "notes": "车轮的质量和MOI给出明确转动惯量语境，与源该展开匹配，未混入感染复数或政府机构义。",
+      "references": []
+    },
+    {
+      "term": "judgmental",
+      "pairDigest": "bb43b249896b6eb4d2c63cf0cd2308bb17afd2283395667bb2e0e12cbe3854da",
+      "canonicalId": 2743412,
+      "canonicalSourceSha256": "5736ec89d3bc5e8aedea96d56af5f9415e9065914abe503dfd5d6806f9613ba2",
+      "verdict": "needs-fix",
+      "notes": "爱妄加评判的语气这一现代义和译文都自然；当前源只有审判的，所有variants缺所选人际评价义。需补该义，而非笼统当成审判义例句。",
+      "references": []
+    },
+    {
+      "term": "Safeway",
+      "pairDigest": "3462f0b7f789e5b2a31a585efe985e7a9dacbae55e6cf719c4c7459c10bd7eae",
+      "canonicalId": 2752023,
+      "canonicalSourceSha256": "a98b8b8af9be2025600b9eda339435474d36573606aea77bc16a21c57d96c9c9",
+      "verdict": "approved",
+      "notes": "源收连锁超市品牌，回家途中买面包的用例自然，中文未误作安全通道。",
+      "references": []
+    },
+    {
+      "term": "git",
+      "pairDigest": "7085b6c75dd97adc03f7db71bfd51733fdcc90045dba0ff1e7bf275c413492ed",
+      "canonicalId": 2768107,
+      "canonicalSourceSha256": "253e9fb71bcab07584691e910c78683319fbbaedf94a24fa261bf1fa69a0eab4",
+      "verdict": "approved",
+      "notes": "inconsiderate git为自然英式侮辱性名词表达，释义已标非正式及侮辱语气，与源饭桶类人称贬义对应。",
+      "references": []
+    },
+    {
+      "term": "ADA",
+      "pairDigest": "171227badf4a19be17dad82920a5cdb5f64309f9b4839f3a24073d6c195c9231",
+      "canonicalId": 2777787,
+      "canonicalSourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491",
+      "verdict": "needs-fix",
+      "notes": "Ada程序语言例句现实正确，但exact ADA及所有variants只含数据自动采集/动态分析程序，且无另一个Ada语言规范头。需补语言名义及大小写匹配。",
+      "references": []
+    },
+    {
+      "term": "underwritten",
+      "pairDigest": "beb3f543753e408bc8c33679348f879652835cd3779aad7ce5a839d41082b3c1",
+      "canonicalId": 2788056,
+      "canonicalSourceSha256": "ce75b64dfbe55d63369cf3ea63af99f4baa5455112a77469227288a275802889",
+      "verdict": "approved",
+      "notes": "was underwritten by a foundation是承担资助/经费担保的真实被动用法，中文保持财务担保而未误译为亲自举办。",
+      "references": []
+    },
+    {
+      "term": "tvs",
+      "pairDigest": "38047065b94ad36a32ac061b7840d1556a2e0e297904d3fd0930f01c92395711",
+      "canonicalId": 2793076,
+      "canonicalSourceSha256": "6a86d7651add9c5b43d61c5cffeb905f78b83f01985c8913ce43ae76808b2c8a",
+      "verdict": "approved",
+      "notes": "ST原厂资料证实TVS抑制器与电源浪涌保护场景，several TVSs为可用复数形式；所选器件义与源一致。",
+      "references": [
+        "https://www.st.com/en/protections-and-emi-filters/transient-voltage-suppressors-tvs.html?icmp=tt13040_gl_pron_oct2019"
+      ]
+    },
+    {
+      "term": "geordie",
+      "pairDigest": "ac794446c6a999aecc4b7a14dacb6f0e297fcfe701296731751f412263c0dfad",
+      "canonicalId": 2800830,
+      "canonicalSourceSha256": "488fb512b81a543ba0d38d9f52eda52aca1c92ba92dd68dd0928ae54ebbb08f2",
+      "verdict": "needs-fix",
+      "notes": "Geordie指泰恩赛德人和句子本身正确；当前geordie及所有variants仅基尼/运煤帆船，未含人称义。须补相应大小写及人称义再匹配。",
+      "references": []
+    },
+    {
+      "term": "wally",
+      "pairDigest": "7248ef7704b589ed235292d3e5ff77e3d1676373ff35aab693a8e878a2ff6d22",
+      "canonicalId": 2807812,
+      "canonicalSourceSha256": "0e32ffdcb9635913aec920666478251cc30ad3c3e6dd55183be1ee951224205f",
+      "verdict": "needs-fix",
+      "notes": "feel like a wally的傻瓜义自然，但当前canonical只标形容词好的/第一流的/大的，缺名词人称义。需补现代名词义和词性。",
+      "references": []
+    },
+    {
+      "term": "rae",
+      "pairDigest": "4ad42bb398a982b46305ed5e645875b2044dd4bfc0c58073363cc14f71f1531b",
+      "canonicalId": 2815867,
+      "canonicalSourceSha256": "4f7e1c7bbba90426c67e4a3061b6fe24ea3c5b008cb39e8bfddaf9fbc7f98650",
+      "verdict": "approved",
+      "notes": "源明确包含Research Assessment Exercise；old submission/archive正确限定旧评估制度材料，不与航空机构义混用。",
+      "references": []
+    },
+    {
+      "term": "alberto",
+      "pairDigest": "6383f7be598947ef76219cec5fee25b77f615ee97d83648632b6988f67fe609b",
+      "canonicalId": 2818384,
+      "canonicalSourceSha256": "9bcaa56b8404e554683df79520d027992fc3e7d3a3b0f03842071073b5c5ab0a",
+      "verdict": "approved",
+      "notes": "源为Alberto人名，例句仅把该人名用于自然动作，不声称某阿塞拜疆教练的真实生平；雨伞和门边的中译准确。",
+      "references": []
+    },
+    {
+      "term": "BMA",
+      "pairDigest": "3e3a0527d92a60b246602cf8a09dbd997351797172756333abf63c1413c9bf47",
+      "canonicalId": 2824187,
+      "canonicalSourceSha256": "c84356aea3158e6ac58aca3bbeb20686a3d518d2a1476ddb32cf20fa7400ed25",
+      "verdict": "needs-fix",
+      "notes": "英文请求BMA提供声明准确，但中文请求发表一份声明容易读成记者请求自己发表的许可。宜改为记者请求英国医学会提供一份声明；无需改英文。",
+      "references": []
+    },
+    {
+      "term": "evaluative",
+      "pairDigest": "672b522cb67a5a1a5feabc0834c6b80764e4ce22d23b431a8f96a316d6503494",
+      "canonicalId": 2830479,
+      "canonicalSourceSha256": "6a2ba240a441118cac5cf355e9929d6f163485d9cc0832e95e329663944164d6",
+      "verdict": "needs-fix",
+      "notes": "英文评价性评论的写作语境准确；当前源仅可估价的，与所选评价性的具体义不同，需更正/补义后呈现，不能称当前旧义已获例句。",
+      "references": []
+    },
+    {
+      "term": "hah",
+      "pairDigest": "5c97cf9da4396f22983bf43a4feb2754579d179b79804e9167f50d04c099f4a3",
+      "canonicalId": 2838238,
+      "canonicalSourceSha256": "6d7f92f964647f93387887b9227eea4974b69f1b8abc6e3e83ea7cfe0791c44e",
+      "verdict": "approved",
+      "notes": "Hah表达发现/得意，与I knew相呼应；零件在桌下的译文一致，感叹词语境清楚。",
+      "references": []
+    },
+    {
+      "term": "gertrude",
+      "pairDigest": "c0df007af89d71b2d809b70934c8672bd40e1683d4afd7bc1c8a5e3aef6bc452",
+      "canonicalId": 2841817,
+      "canonicalSourceSha256": "e2816c4d482ce9bb0910b5ac070510eea274921c457907e4c1fe698330a27c13",
+      "verdict": "needs-fix",
+      "notes": "Gertrude女子名和插花句自然；但当前gertrude全部只收婴儿内衣义，没有人名。需补名字义并按大小写区分。",
+      "references": []
+    },
+    {
+      "term": "DEM",
+      "pairDigest": "1b0ea21951459f5dbd421dac8d3a4d4cdd24874007b6c7cedc425c09a57bdf13",
+      "canonicalId": 2846173,
+      "canonicalSourceSha256": "f891462db4a4c0b7911401ce9e082e7166985987d9777246c2d0182f93497722",
+      "verdict": "needs-fix",
+      "notes": "DEM德国马克币码真实，但当前exact DEM及所有variants只有解调器，未含货币义。需补旧币码义并匹配，而非把发票句当解调器用例。",
+      "references": []
+    },
+    {
+      "term": "REC",
+      "pairDigest": "43d7950891ffa4d44181d3498613a71ce50a56320bad8422a1e0b2664aad0342",
+      "canonicalId": 2850249,
+      "canonicalSourceSha256": "812c8ae3abaadfe805e2cd17278a3495099096333ce721992d59d5a237fd6c5a",
+      "verdict": "approved",
+      "notes": "录制按钮/指示灯REC取源记录义，采访开始时亮灯提供具体场景，译文自然。",
+      "references": []
+    },
+    {
+      "term": "belmont",
+      "pairDigest": "555dff900d7d8f2fcecbf100a3ef19298f800f3c100e1274111bc8bab269ce16",
+      "canonicalId": 2855126,
+      "canonicalSourceSha256": "de73bc73271bee1ba3f7df97e98242ba15cad65bd27891a61e3b6effbeb4a8ec",
+      "verdict": "approved",
+      "notes": "源明确列酒店名Belmont，lobby和dinner的场景自然；未取香烟品牌义，中译准确。",
+      "references": []
+    },
+    {
+      "term": "hyena",
+      "pairDigest": "4b998adc15f1d1325956e0a4e0f95a282a40f850b2f1bb5d3ecf8f3422bdd008",
+      "canonicalId": 2861496,
+      "canonicalSourceSha256": "28541744c06096346be7c0861027bc7e2f3a042cc7449c401706725d4f88bfa1",
+      "verdict": "needs-fix",
+      "notes": "英文动物义和鬣狗中译正确；当前源把hyena错写袋狼，所有variants无正确动物释义。应先纠正词卡而不是按坏释义造袋狼例句。",
+      "references": []
+    },
+    {
+      "term": "vw",
+      "pairDigest": "898a4ed0484c77a04674f3d4fe814d8e509e537c8dd56ec26b4abb719b852583",
+      "canonicalId": 2865818,
+      "canonicalSourceSha256": "bf5c9a8c2cf293be0dbdba015b3abe7288bd6db0195655b10bfcfcb38eee9049",
+      "verdict": "approved",
+      "notes": "VW代Volkswagen的汽车名义与源相符；旧车停在花园门旁的句子及译文自然。",
+      "references": []
+    },
+    {
+      "term": "lin",
+      "pairDigest": "d8aa77b3a984ab4b25fd4100b6d5954c31d78f8a160203de78fa32448e1e384e",
+      "canonicalId": 2870264,
+      "canonicalSourceSha256": "dadd9f6da4db831daebfcbcb10671abbc2dea798e71d5a376ef29e4b9678dbf7",
+      "verdict": "approved",
+      "notes": "源人名林，Ms Lin和核对数字的具体动作自然；译文不增加人数或职务。",
+      "references": []
+    },
+    {
+      "term": "mgm",
+      "pairDigest": "9311cc271c799a31fe6983c13330c25187d6ac483f6f395c01339f2389a2d2ef",
+      "canonicalId": 2873696,
+      "canonicalSourceSha256": "509611fa6dc0e29d4fedef1827453546f31335b9a1d77b403e97e8a94a1cae3a",
+      "verdict": "approved",
+      "notes": "早期电影海报语境恰当使用MGM电影制片公司缩写，中英信息一致且未编造具体电影史。",
+      "references": []
+    },
+    {
+      "term": "EA",
+      "pairDigest": "8d6b768bd59bf56551ebbe9923c51eacc1b5d32068a78cb4447706ed2623a535",
+      "canonicalId": 2880275,
+      "canonicalSourceSha256": "c4db6b618e0d06add5e26c3abbdf503da316bc5d0236c9328c5a8cd479754547",
+      "verdict": "approved",
+      "notes": "源列有效地址，指令寄存器旁的架构示意图与该义相容；中译不取外部访问等其他展开。",
+      "references": []
+    },
+    {
+      "term": "aah",
+      "pairDigest": "5a47e158712a98acb44460ef64385755f61594e78e9ff9a33174c172d5eef42a",
+      "canonicalId": 2884621,
+      "canonicalSourceSha256": "da0ed1bb4875ea035d90e719be19771ad9669d0dc5680914fa5b7cc5de822027",
+      "verdict": "needs-fix",
+      "notes": "Aah表示领悟的口语例句自然，但当前aah所有canonical义只有军用缩写，词性亦为abbreviation；应补感叹词义及词性，不能当军用例句。",
+      "references": []
+    },
+    {
+      "term": "han",
+      "pairDigest": "a096c5f6f0de8418dd0890d8778a3819447e6e2a9f94ed8672607428f6eea633",
+      "canonicalId": 2888708,
+      "canonicalSourceSha256": "b3c2e195fc2dafb9accba45fe30da55598ed02e4cf44177a34965734d0b9a984",
+      "verdict": "approved",
+      "notes": "源明确有汉朝义，Han dynasty及陶器展览语境准确，中译保留朝代范围。",
+      "references": []
+    },
+    {
+      "term": "subprime",
+      "pairDigest": "df82709f1d0a750a33c67303f4e5bea8305aa674d99f43a597df6e0b8b1b6e46",
+      "canonicalId": 2896304,
+      "canonicalSourceSha256": "d1914394578642e73be18070ef09c57abdc7ba7e172a03ffeea32d63866dc12d",
+      "verdict": "needs-fix",
+      "notes": "CFPB确认弱信用借款人的次级贷款义，原例句对此准确；当前源却给准一流/准最低贷款利率的，不能据此教成优质贷款。需更正所显示金融义。",
+      "references": [
+        "https://www.consumerfinance.gov/ask-cfpb/what-is-a-subprime-mortgage-en-110/"
+      ]
+    },
+    {
+      "term": "pga",
+      "pairDigest": "872976deee4816cbcd9013c09af3e66dad8a5906a2cb67148e93a54b86bd166f",
+      "canonicalId": 2898811,
+      "canonicalSourceSha256": "bc3720acabafbfbfc9e7fce62707ae1c9d3f1bf225035106441065d0fe06c327",
+      "verdict": "approved",
+      "notes": "取源美国职业高尔夫协会机构义，clubhouse和赛事照片构成具体体育语境；未误称PGA Tour或虚构赛事名。",
+      "references": []
+    },
+    {
+      "term": "mia",
+      "pairDigest": "4661c96fde15e1d1b4f9c08f464b7cc9cb6ea4b9c49193f8599fa63a2e4315b5",
+      "canonicalId": 2907270,
+      "canonicalSourceSha256": "5a39d7f890a4497d63fee1cff583e8fb83a4023df825e06135faae0d9a8ae55f",
+      "verdict": "approved",
+      "notes": "listed the pilot as MIA是战时失踪状态的自然搭配，与源missing in action和中译一致。",
+      "references": []
+    },
+    {
+      "term": "RP",
+      "pairDigest": "21ef7333706207f9282dfb7869abce0acce79f7b9b8aff8184f0da0bf30da175",
+      "canonicalId": 2911743,
+      "canonicalSourceSha256": "75c171e3413f291c10a476bbca8e378e4c8a4af33fbb8e256a95643fab2d9ffb",
+      "verdict": "needs-fix",
+      "notes": "阅读器/打印机设备可有独立资料支持，英文打印纸质副本的语境可通；中译阅读打印机不自然且丢掉reader/printer组合，应改为阅读器／打印机或经明确限定的缩微阅读打印机。",
+      "references": [
+        "https://www.microfilmworld.com/minoltarp-101rp-405rp-407andrp-1824microfilmreaderprintersevisbeaton.aspx"
+      ]
+    },
+    {
+      "term": "dai",
+      "pairDigest": "e4bfbdf32da4ee0d4585919ecc78ad8cc585129c2b1ab5758f19b01078ce900d",
+      "canonicalId": 2914605,
+      "canonicalSourceSha256": "06016281bc0101659650e7194e532c1ae3e01d0cfd2022ebf3faed53067b327e",
+      "verdict": "unverified",
+      "notes": "未找到独立一手资料确认DAI=Direct Access Information这一具体计算机术语。泛泛写程序retrieve DAI不能证明缩写事实，不批准以自我重复的源释义为证。",
+      "references": []
+    },
+    {
+      "term": "hse",
+      "pairDigest": "3727e7dd36305ee41b71be3a36409ffa7e0290dfeb797b03ebaa23eb0b8daa24",
+      "canonicalId": 2919147,
+      "canonicalSourceSha256": "4290df2b012a7d18498b2af4cc64be888cd74772ad6539740d46841c0907c27a",
+      "verdict": "approved",
+      "notes": "选源明确列英国Health and Safety Executive义，记者索取其报告的场景自然，译文未误认爱尔兰卫生服务机构。",
+      "references": []
+    },
+    {
+      "term": "edn",
+      "pairDigest": "7666ffedcffcbbaeba7fbe73e4b64d545b3ecf4f08248fcf4807dafb55dfc365",
+      "canonicalId": 2921478,
+      "canonicalSourceSha256": "35b04895887c5e507ee4b380fb6fdec88e0c5d5e6861dcd631b19037042063eb",
+      "verdict": "needs-fix",
+      "notes": "edn.作edition缩写和读书清单句自然，但当前edn全部只收electrodesiccation医学缩写。需补版次义及标点形式映射后匹配。",
+      "references": []
+    },
+    {
+      "term": "taff",
+      "pairDigest": "9898ff7b807379c205af6d67a0618c6d1718306acf7b78cd2036aa4797e74a59",
+      "canonicalId": 2923154,
+      "canonicalSourceSha256": "495ba7c4ff46ac7d297bccf966bd1314f6b446e82c87af27af5a77ba0fca1260",
+      "verdict": "needs-fix",
+      "notes": "Taff绰号用例可以成立，但当前taff及所有variants仅形容词胖的，缺人称或绰号义，词性也不同。需补相应义并标语气，而非把其算成胖的例句。",
+      "references": []
+    },
+    {
+      "term": "eco",
+      "pairDigest": "7463d1f44a8884299a910747d76073d6591f65ff60a53551680a1f5ecb976f23",
+      "canonicalId": 2925666,
+      "canonicalSourceSha256": "27647ce7618019e753e09d7c36b8e4124e314f85bbbdf4b3d70e8401424b84ff",
+      "verdict": "approved",
+      "notes": "源列Economic Cooperation Organization，代表在该组织会议讨论运输提案的语境自然且范围恰当。",
+      "references": []
+    },
+    {
+      "term": "steen",
+      "pairDigest": "ea2a46dc38f16b6462039ca9e62d145ac9871c400bd0311dbe10b04db3ec4a09",
+      "canonicalId": 2932778,
+      "canonicalSourceSha256": "a3384133f10ee37da799c1cacdc632e028372aab04171f1d3a8774d5fdd1dc07",
+      "verdict": "approved",
+      "notes": "原出版俚语资料列steen为大量的，steen times在带抱怨的旧俚语句中可用；已标旧俚语，未说成现代常用书面词。",
+      "references": [
+        "https://s3.amazonaws.com/arena-attachments/936658/83f4b86fd8bd873bf51be339d3dfc8ff.pdf"
+      ]
+    },
+    {
+      "term": "deng",
+      "pairDigest": "fe128c020fac7c9a0dd8069faf19f3a5ea2bda90182f0221ec9cccb27d4bf3ba",
+      "canonicalId": 2934521,
+      "canonicalSourceSha256": "7fb2c5165a04b26496f021859be968a8ceb4bd0a441ca9418b22668cd5eb969b",
+      "verdict": "approved",
+      "notes": "D.Eng.为源Doctor of Engineering的正规缩写形式，项目源自工作问题的句子及中译自然；不取邓姓义。",
+      "references": []
+    },
+    {
+      "term": "maj",
+      "pairDigest": "a8f01dde2027a862be8c3a2be323c2c315cc21a39c03211e2dcbeb9167f76e3c",
+      "canonicalId": 2935587,
+      "canonicalSourceSha256": "0e0f2b25a995cd85cd07a7429da156997b10af45f19492fa3575174ca533ec64",
+      "verdict": "approved",
+      "notes": "源包含Major军衔义，Maj. Ellis按军官头衔使用正确，封好信封放桌上的译文对应。",
+      "references": []
+    },
+    {
+      "term": "kee",
+      "pairDigest": "5b9d923434986ae1011033f05e2552408458d658917f5f06e063d81c46639827",
+      "canonicalId": 2939752,
+      "canonicalSourceSha256": "9a3d5c563bb203fa66d3000b4e0f03ad6093a15be4fabb163f370719849ac323",
+      "verdict": "approved",
+      "notes": "源列Kee姓氏，Professor Kee是自然称谓；退回草稿及三条意见的中译准确。",
+      "references": []
+    }
+  ]
+}
