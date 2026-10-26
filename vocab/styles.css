@@ -284,6 +284,8 @@ dialog::backdrop { background: rgba(15,31,25,.62); backdrop-filter: blur(3px); }
 .detail-section > p { margin: .25rem 0; white-space: pre-line; }
 .detail-section ul { padding-left: 1.25rem; }
 .dictionary-learning-examples { min-width: 0; overflow-wrap: anywhere; }
+.dictionary-learning-examples > .dictionary-learning-source,
+.dictionary-learning-examples > .dictionary-learning-note { display: none; }
 .dictionary-learning-examples .dictionary-learning-source,
 .dictionary-learning-examples .dictionary-learning-note,
 .dictionary-learning-examples .dictionary-learning-status { color: var(--muted); font-size: .8rem; line-height: 1.6; }

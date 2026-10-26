@@ -11,6 +11,8 @@ select{font:inherit;width:100%;max-width:100%;padding:.7rem .8rem;background:#ff
 @media(max-width:720px){.dictionary-panel{padding:1rem}.dictionary-search button{padding:.65rem .85rem}.dictionary-note{font-size:.71rem}.dictionary-heading h3{font-size:1.25rem}}
 .dictionary-choices{max-height:19rem;overflow:auto;margin-top:.8rem;padding:.2rem}.dictionary-choice{display:flex;flex-direction:column;gap:.25rem;text-align:left;width:100%;border-radius:.6rem;padding:.7rem .85rem;margin:.35rem 0;white-space:normal;overflow-wrap:anywhere}.dictionary-choice strong{font-size:1rem}.dictionary-choice span{font-size:.78rem;line-height:1.55;color:var(--muted)}#member-dictionary-alternatives details{border:1px solid var(--line);border-radius:.6rem;margin:.6rem 0;padding:.65rem}#member-dictionary-alternatives summary{cursor:pointer;font-size:.82rem}#member-dictionary-alternatives p{font-size:.86rem;overflow-wrap:anywhere}
 .dictionary-learning-examples { min-width: 0; overflow-wrap: anywhere; margin: 1rem 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+.dictionary-learning-examples > .dictionary-learning-source,
+.dictionary-learning-examples > .dictionary-learning-note { display: none; }
 .dictionary-learning-examples .dictionary-learning-source,
 .dictionary-learning-examples .dictionary-learning-note,
 .dictionary-learning-examples .dictionary-learning-status { color: var(--muted); font-size: .8rem; line-height: 1.6; }
