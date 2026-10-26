@@ -101,6 +101,7 @@ details[open] > .choice-summary .choice-toggle > span { transform: rotate(180deg
 .source { font-size: .75rem; color: var(--muted); overflow-wrap: anywhere; margin: 0; }
 .example-panel { min-width: 0; border-top: 1px solid var(--line); margin-top: 22px; padding-top: 18px; }
 .example-panel > .source { margin-top: 5px; }
+#dictionary-example-source { display: none; }
 .example-sense { min-width: 0; margin-top: 12px; border: 1px solid #dce2d7; border-radius: 10px; padding: 0 14px; background: #f7f9f3; }
 summary { cursor: pointer; padding: 12px 0; font-weight: 650; }
 .example-sense summary { overflow-wrap: anywhere; white-space: pre-wrap; font-size: .9rem; }
