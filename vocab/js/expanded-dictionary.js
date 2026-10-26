@@ -1,6 +1,7 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=95";
+import { searchEverydayDictionary } from "./everyday-lookup.js";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -473,6 +474,11 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   let query = fold(exactQuery);
   if (HAN.test(query)) query = query.replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
   if (!query || /[<>]|javascript\s*:/iu.test(query) || !/[\p{Script=Latin}\p{Script=Han}\d]/u.test(query)) throw new Error("请输入要查询的英文或中文释义。");
+  if (signal?.aborted) throw stopped();
+  // Common phrase aliases are indexed as complete, sense-specific queries.
+  // They can answer immediately, without broadening or downloading the core.
+  const everyday = searchEverydayDictionary(input, { limit });
+  if (everyday) return everyday;
   const chinese = HAN.test(query);
   if (chinese && (!/^[\p{Script=Han}\s]+$/u.test(query) || [...query].length > 50)) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
   if (!chinese && !/[\p{Script=Latin}]/u.test(query) && query !== "24/7") throw new Error("请输入英文词或短语。");

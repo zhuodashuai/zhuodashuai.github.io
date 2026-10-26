@@ -1,5 +1,6 @@
 import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
+import { searchEverydayDictionary } from "./everyday-lookup.js";
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));
@@ -25,6 +26,8 @@ function knownExact(input, result) {
 export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, hotReverse, fullSearch,
   full = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
   if (signal?.aborted) throw abortError();
+  const everyday = searchEverydayDictionary(input);
+  if (everyday) return everyday;
   const hotController = new AbortController(), fullController = new AbortController();
   const timers = new Set();
   let rejectAbort;

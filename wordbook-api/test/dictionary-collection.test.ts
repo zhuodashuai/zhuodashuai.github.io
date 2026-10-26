@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { DictionaryCollectionRequestSchema, findCollectedEntry, resolveDictionaryCollection } from "../src/dictionary-collection";
 import { validateSnapshot, validateEnglishInput } from "../src/schema";
+import { EVERYDAY_LOOKUP_ENTRIES } from "../../vocab/js/everyday-lookup-data.js";
 
 function bucketFor(term: string): number {
   let hash = 2166136261;
@@ -8,12 +9,12 @@ function bucketFor(term: string): number {
   return hash % 128;
 }
 
-async function fixture(term = "apple", { kind = "canonical", corrupt = false, duplicate = false, meaning = "n. 苹果" } = {}) {
+async function fixture(term = "apple", { kind = "canonical", corrupt = false, duplicate = false, missing = false, meaning = "n. 苹果" } = {}) {
   const bucket = bucketFor(term), version = "a".repeat(64);
   const row = { id: bucket, term, partOfSpeech: "noun", meaning, forms: [], source: "mit" };
   const rows = duplicate ? [row, { ...row, id: bucket + 128 }] : [row];
   const text = JSON.stringify({ schemaVersion: 2, kind: "en", bucket, records: rows,
-    keys: [[term.toLowerCase(), rows.map(value => ({ id: value.id, kind }))]] });
+    keys: missing ? [] : [[term.toLowerCase(), rows.map(value => ({ id: value.id, kind }))]] });
   const bytes = new TextEncoder().encode(text);
   const hash = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(value => value.toString(16).padStart(2, "0")).join("");
   const descriptor = { bucket, file: `${version}/en-${String(bucket).padStart(3, "0")}.json`, bytes: bytes.byteLength, sha256: corrupt ? "b".repeat(64) : hash };
@@ -77,5 +78,49 @@ describe("verified owner dictionary collection", () => {
     snapshot.entries[0].correction = { status: "accepted", original: "aple", suggestion: "apple", chosen: "apple", confidence: 1, source: "manual" };
     expect(findCollectedEntry(snapshot, "aple")).toBe(snapshot.entries[0]);
     expect(findCollectedEntry(snapshot, "apples")).toBeUndefined();
+  });
+
+  it("collects packaged everyday heads with their own meanings and bilingual examples, without a dictionary or AI request", async () => {
+    let requests = 0;
+    const assets = { fetch: async () => { requests++; throw new Error("No asset lookup is needed for packaged entries"); } } as Pick<Fetcher, "fetch">;
+    expect(EVERYDAY_LOOKUP_ENTRIES.length).toBeGreaterThanOrEqual(40);
+    for (const row of EVERYDAY_LOOKUP_ENTRIES) {
+      const entry = await resolveDictionaryCollection(row.term, assets);
+      expect(entry.term).toBe(row.term); expect(entry.partOfSpeech).toBe(row.partOfSpeech); expect(entry.meaning).toBe(row.meaning);
+      expect(entry.exampleEn).toBe(row.en); expect(entry.exampleZh).toBe(row.zh);
+      expect(entry.exampleEn.trim().length).toBeGreaterThan(0); expect(entry.exampleZh).toMatch(/\p{Script=Han}/u);
+      expect(entry.sourceTitle).toBe("卓的日常词组"); expect(entry.organizationMethod).toBe("local-dictionary");
+      expect(validateSnapshot({ schemaVersion: 3, revisionId: "everyday-collection-revision", lastMutationId: "everyday-test-key", exportedAt: entry.updatedAt, entries: [entry] }).entries).toHaveLength(1);
+    }
+    expect(requests).toBe(0);
+    expect((await resolveDictionaryCollection("LiVe  AgEnT", assets)).term).toBe("live agent");
+  });
+
+  it("accepts only declared English spellings and keeps an existing collected everyday card unchanged", async () => {
+    const row = EVERYDAY_LOOKUP_ENTRIES.find(item => item.englishForms.some(form => form.toLowerCase() !== item.term.toLowerCase()));
+    expect(row).toBeDefined();
+    const form = row!.englishForms.find(value => value.toLowerCase() !== row!.term.toLowerCase())!;
+    const assets = { fetch: async () => { throw new Error("Packaged forms must not need assets"); } } as Pick<Fetcher, "fetch">;
+    const entry = await resolveDictionaryCollection(form, assets);
+    expect(entry.term).toBe(row!.term);
+    entry.meaning += "\n自己的学习备注。";
+    const snapshot = validateSnapshot({ schemaVersion: 3, revisionId: "everyday-collection-revision", lastMutationId: "everyday-test-key", exportedAt: entry.updatedAt, entries: [entry] });
+    const before = JSON.stringify(snapshot.entries[0]);
+    expect(findCollectedEntry(snapshot, form)).toBe(snapshot.entries[0]);
+    expect(findCollectedEntry(snapshot, entry.term.toUpperCase())).toBe(snapshot.entries[0]);
+    expect(JSON.stringify(snapshot.entries[0])).toBe(before);
+  });
+
+  it("cannot turn Chinese search aliases or browser-supplied everyday definitions into collection authority", async () => {
+    for (const fields of [{ meaning: "伪造释义" }, { source: "卓的日常词组" }, { exampleEn: "Forged." }]) {
+      expect(DictionaryCollectionRequestSchema.safeParse({ term: "live agent", mutationId: "everyday-test-key", ...fields }).success).toBe(false);
+    }
+    const { assets, seen } = await fixture();
+    for (const term of ["人工客服", "消毒酒精", "<script>live agent</script>"]) {
+      await expect(resolveDictionaryCollection(term, assets)).rejects.toMatchObject({ status: 400, code: "invalid_input" });
+    }
+    expect(seen).toHaveLength(0);
+    const unknown = "live agent secret override", missing = await fixture(unknown, { missing: true });
+    await expect(resolveDictionaryCollection(unknown, missing.assets)).rejects.toMatchObject({ status: 422, code: "dictionary_term_not_exact" });
   });
 });
