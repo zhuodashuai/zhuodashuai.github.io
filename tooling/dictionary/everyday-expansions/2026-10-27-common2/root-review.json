@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "5e465915f7acac60163ae2a1e045c005a1feabaee5008204416bca81800b7ad1",
+  "author": "AI/root-daily-common",
+  "reviewer": "AI/next_quality_inventory",
+  "independentOfAuthor": true,
+  "reviewedAt": "2026-10-27T15:00:59.865Z",
+  "decisions": [
+    {
+      "term": "stick to the pan",
+      "rowSha256": "8ef0420dadfb34343d5e6b4f3107a79fe09cbeaa42f1c35658b29916c6fe01fc",
+      "decision": "approve-new-row",
+      "reason": "Food adhesion is the selected stick-to relation; the rice/water example and Chinese translation match, without confusing a physical stick noun."
+    },
+    {
+      "term": "non-stick pan",
+      "rowSha256": "8fa175b673921b742d39b7276f9115dec75b368a18b72665cf022288e3c1223d",
+      "decision": "approve-new-row",
+      "reason": "Kitchen pan sense is precise. The definition says reduced adhesion rather than promising food can never stick; omelette example is idiomatic."
+    },
+    {
+      "term": "bring water to the boil",
+      "rowSha256": "77730363f9357f1a42e058fa48cf5d61e7de03bc18a3d520cf868ed904c9f056",
+      "decision": "approve-new-row",
+      "reason": "Correct causative boiling phrase, with accurate British the boil/American a boil distinction. The imperative and noodle translation align."
+    },
+    {
+      "term": "cook until tender",
+      "rowSha256": "c531a2606a562ef0c61821952338c92f79c6be41c108eeaf2b190194d523371c",
+      "decision": "approve-new-row",
+      "reason": "Food tenderness concerns ease of cutting/chewing. The carrot example matches that state without equating tender with universally overcooked."
+    },
+    {
+      "term": "portion out",
+      "rowSha256": "ff761e27fbdffb2abb3f6d3fc5489b5b995a83ca5edc4f948503f67b96644ead",
+      "decision": "approve-new-row",
+      "reason": "Dividing soup into portions/containers is natural usage; OALD portion verb explicitly supports division into portions and portion out."
+    },
+    {
+      "term": "reheat",
+      "rowSha256": "84081ba4b7345e28d35a9a1ab14d2e59f1448621245d0b9015da11f429d72ab2",
+      "decision": "approve-new-row",
+      "reason": "Revised meaning permits food or drink that has cooled, avoiding an unnecessary previously-cooked restriction. Past reheated and its Chinese soup translation agree."
+    },
+    {
+      "term": "peel",
+      "rowSha256": "3a21fc8ca240254a129c2dfc250814f303b659edbf8ba2f13aa1576db5f2d8a9",
+      "decision": "approve-new-row",
+      "reason": "Food preparation verb only; cucumber skin removal is exact and aliases refer to the same operation."
+    },
+    {
+      "term": "deseed",
+      "rowSha256": "049888ec61492745ce707602f6f82c07c7f70fa40878a950c0e605133c0fa17d",
+      "decision": "approve-new-row",
+      "reason": "Collins directly authenticates the verb for removing fruit/vegetable seeds. Pepper preparation and Chinese match."
+    },
+    {
+      "term": "julienne",
+      "rowSha256": "6a23f6414a886df76fab44960386afce2d9b3f152e9412cd2d19e4bae2503656",
+      "decision": "approve-new-row",
+      "reason": "Cambridge explicitly labels julienne transitive verb meaning cutting food into long thin pieces. Carrot/noodle-salad example is original and appropriate."
+    },
+    {
+      "term": "chop",
+      "rowSha256": "5be61fdc01a4021f0f37c1d2959770d799d9a2af7d4867749c531dbf1340a2f1",
+      "decision": "approve-new-row",
+      "reason": "Cutting food into pieces is accurate, and the contrast with finer mincing is reasonable. Parsley and potato translation retains the action."
+    },
+    {
+      "term": "whisk",
+      "rowSha256": "83806bc7442e930f0e1eacc1632a4554d40f1faf998555293f3085d3a09235dd",
+      "decision": "approve-new-row",
+      "reason": "Correct tool noun rather than whisk-away verb. Loop/wire structure and mixing egg/milk example match the primary kitchen-utensil definition."
+    },
+    {
+      "term": "beat the eggs",
+      "rowSha256": "ed1b2ebe398139f4fffa8e4195500345569778033d80d27e818de1bfbd667bd6",
+      "decision": "approve-new-row",
+      "reason": "Correct cooking phrase for beating/mixing eggs, with no unsupported requirement that all uses mean whipping stiff. Fork/pan sequence is coherent."
+    },
+    {
+      "term": "peeler",
+      "rowSha256": "4bb76391653441a925d8747e4d2ae9d095be6fc6eb6fc7999acd024535ab0686",
+      "decision": "approve-new-row",
+      "reason": "Correct fruit/vegetable skin-removal utensil. The original potato-skin example does not confuse a peeler with a citrus zester."
+    },
+    {
+      "term": "juicer",
+      "rowSha256": "ea2fe332bf94eb76a75908d4f9a17a2871d1e9ff82c92bff962775e5143957f8",
+      "decision": "approve-new-row",
+      "reason": "Correct juice-extraction appliance/tool noun. Orange-juice cleanup example and Chinese translation match."
+    },
+    {
+      "term": "air fryer",
+      "rowSha256": "f8a4663b75099608ef0d7ef850f22f0d2f4631814d8ced60d7f35aeda7fb7359",
+      "decision": "approve-new-row",
+      "reason": "Hot-air cooking appliance meaning matches primary dictionary description. Crisp potatoes are a natural particular example, without a health guarantee."
+    },
+    {
+      "term": "insulated travel mug",
+      "rowSha256": "eb5c515c4720c59d7c05e04909a5b06514afa466bd80c83ac11babdf4c6adfde",
+      "decision": "approve-new-row",
+      "reason": "Travel vessel plus insulation is an accurate transparent compound; Cambridge authenticates the vessel and Thermos own product describes actual double-wall insulation."
+    },
+    {
+      "term": "bring a packed lunch",
+      "rowSha256": "22f2f594532531f416d1378cf7730d7093102ee31bf153a34405c2732cd1f6d2",
+      "decision": "approve-new-row",
+      "reason": "Prepared lunch carried to school/work is correct and need not be rice. Campus example and Chinese are faithful."
+    },
+    {
+      "term": "blocked sink",
+      "rowSha256": "31dc9c1907e9594ef7d129d0cc5798e1d4e5c782712ad8bddc1622b351d30005",
+      "decision": "approve-new-row",
+      "reason": "Correct obstructed drainage context rather than merely a dirty basin. Plumber example and sink/hand-basin aliases fit."
+    },
+    {
+      "term": "blocked toilet",
+      "rowSha256": "09692aa8cde5e39c048cb5b9a6d93c2d9177f41499762608e6327c414d15ace1",
+      "decision": "approve-new-row",
+      "reason": "Correct obstruction of toilet drainage. Reporting it to a building manager is natural and does not prescribe repair actions."
+    },
+    {
+      "term": "mesh laundry bag",
+      "rowSha256": "4f44c56143e7f4fb49d33d3a4f247d62f396bb788d48f36a396bb26a17524d8e",
+      "decision": "approve-new-row",
+      "reason": "Net-material bag used for small/delicate washing items is a compositional household term. Scarf example and translation align."
+    },
+    {
+      "term": "colours run",
+      "rowSha256": "425e4ce948d423829da2a08c703280ea66305efed6e93f647e9ce00d6bcecaf7",
+      "decision": "approve-new-row",
+      "reason": "Revised POS phrase correctly permits the subject-plus-verb head. Dye bleeding/spreading is distinguished from gradual fading; the red-towel example matches."
+    },
+    {
+      "term": "remove mould",
+      "rowSha256": "7fdeec1009d644ae16e16ab1d5afb7733e5b30d19ce536e7fc050b0ea2e62d7d",
+      "decision": "approve-new-row",
+      "reason": "Mould growth/removal sense and British/American spelling variation are accurate. No instructions mix chemicals or assert a health treatment."
+    },
+    {
+      "term": "get damp",
+      "rowSha256": "cc347de771268d82ea50933794dce479d2c2bd717d8c3f94d916f09483ee3112",
+      "decision": "approve-new-row",
+      "reason": "Becoming slightly wet matches damp and the bedding example. Chinese 返潮 is explicitly context-dependent, not a different process forced into every use."
+    },
+    {
+      "term": "air the bedding",
+      "rowSha256": "d64dba087b1f83d5ce78a010f3f7464e50ffa8af2be71794805ee1a85c066a63",
+      "decision": "approve-new-row",
+      "reason": "OALD air verb supports clothing drying/freshening in a warm or airy place. No sunlight is required, and the open-window example/translation are natural."
+    },
+    {
+      "term": "refund the difference",
+      "rowSha256": "1a16496f41a7be3b758a25f961ce7268e25bd7c54422e225c8519873dd1e9a8b",
+      "decision": "approve-new-row",
+      "reason": "Paying back an overpaid difference is the intended shopping sense. The example states one shop agreed, not a universal entitlement."
+    },
+    {
+      "term": "pay the difference",
+      "rowSha256": "7b8dfc234964de91e6123ca1bcba933766f8d11c29e849b6cc477e7b3b426f73",
+      "decision": "approve-new-row",
+      "reason": "Paying an additional amount for a more expensive choice is correct. The larger-room example and Chinese do not confuse wage differentials."
+    },
+    {
+      "term": "not as described",
+      "rowSha256": "632b342fb37f9816f7952e2bd89d9318539e7bd8b0b4b9ad43a8c5a612990b57",
+      "decision": "approve-new-row",
+      "reason": "Revised return example is idiomatic. Adjectival complement accurately describes mismatch to the seller description, distinct from merely poor quality or wrong item."
+    },
+    {
+      "term": "run small",
+      "rowSha256": "fd97ca041ded5c15752b18082b00b65bcbef75d8203f2eae95317a8f0131c5be",
+      "decision": "approve-new-row",
+      "reason": "Established clothing-size idiom, with plural shoes and the correct run form. Chinese explains smaller fit relative to expected labelled size."
+    },
+    {
+      "term": "run large",
+      "rowSha256": "ff6035b4b96a3145c1679b090ef5c11dd04d26a5c3446b57e81e8bb268407c68",
+      "decision": "approve-new-row",
+      "reason": "Established clothing-size idiom, with singular jacket/runs. Choosing a smaller size is a coherent original example and accurately translated."
+    },
+    {
+      "term": "minimum order value",
+      "rowSha256": "42da6eab4ff7190863091dd381b6960be6799078bdcace9dc637c9ee90f9f7c9",
+      "decision": "approve-new-row",
+      "reason": "Final simplified definition is lexical and correctly covers a delivery minimum without asserting how every merchant counts fees. Particular fictional restaurant example is coherent."
+    },
+    {
+      "term": "add items to meet a minimum",
+      "rowSha256": "dee6a8eb1eb349b536e4accd74656c690403a66e7254c3d59f4d12c7a6aa754a",
+      "decision": "approve-new-row",
+      "reason": "Natural purpose phrase for adding goods to reach an order threshold. The example specifies a free-delivery minimum rather than conflating every discount scheme."
+    }
+  ],
+  "aliasDecisions": [
+    {
+      "term": "scorch",
+      "rowSha256": "94e5638d0bf8845bb165c0c0bb967de9808c1fbf2f45229603960c39a85564c1",
+      "targetEntrySha256": "3570c3f3fe458c25d63921d046542383b3e78c777cbc35ba11facffaabf420ee",
+      "decision": "approve-alias-only",
+      "reason": "糊底 is a direct kitchen-context surface for the existing explicit pan-bottom scorching sense."
+    },
+    {
+      "term": "blocked drain",
+      "rowSha256": "f0e465424024aedb384ad088aa490296c78db72203745d99f8a4caf08c149c96",
+      "targetEntrySha256": "d1fad545c91dccee217bd128bb17a969db240c795b910676eb84ed1ee9d89e9d",
+      "decision": "approve-alias-only",
+      "reason": "The two subject-state Chinese variants express the same existing drainage obstruction; no other sense or example is altered."
+    },
+    {
+      "term": "deposit",
+      "rowSha256": "2a5337839c08a76ed72ca6147765fc847fe539e8d8ea96b2097b3b34a105d159",
+      "targetEntrySha256": "2bb4f52f6e9c76dbb4af3828ad7553dc1850f98c78525350d637b97bcb92fb54",
+      "decision": "approve-alias-only",
+      "reason": "按金 is an ordinary regional Chinese name for a security deposit. Existing multiple money senses and their distinctions remain visible."
+    },
+    {
+      "term": "missing item",
+      "rowSha256": "ae6ebe64e047e532804cf7bfcd137e121121b32182b15a4d2b5d0e55221fee62",
+      "targetEntrySha256": "fa2370dfd6ccbd9fb373a7c2db59db6f2d928eefa44f1187a39226e767598aa8",
+      "decision": "approve-alias-only",
+      "reason": "漏发/少发 are order-fulfilment contexts for an item missing from the shipment, consistent with the existing three-mugs/two-arrived example."
+    },
+    {
+      "term": "split the bill",
+      "rowSha256": "9e2add3cd994951926c733603ccfd7154a890b63cf3c5e11ab6032fde6119b94",
+      "targetEntrySha256": "3ec718ec70a994fb056a43f78d0e46efc35cfd17c805aa79d7aea606b2b9c3cf",
+      "decision": "approve-alias-only",
+      "reason": "AA制/AA吃饭 are accepted bill-sharing search intents. 均摊饭钱 is a narrower equal-share scenario explicitly supported by the existing evenly-between-three example. The existing meaning still says splitting may be equal or agreed and does not claim that split the bill always means each person pays only their own consumption."
+    },
+    {
+      "term": "simmer over low heat",
+      "rowSha256": "aab50060362c79a8dec7c73510721b9021749feb3c1b6e3b335b80b3856ff8e6",
+      "targetEntrySha256": "fc8af02023a7e71178c5f167b1df917ca20df96f7422a3a5e1d992c6d8309fe0",
+      "decision": "approve-alias-only",
+      "reason": "小火煨煮 is a precise alternate wording for the existing gentle simmering over low heat."
+    }
+  ],
+  "holds": [],
+  "scope": "Independent reading of every exact final definition, POS, Chinese alias, form and original EN/ZH example; exact existing target tuples/hashes reread for six alias-only changes. No authorship or product edits by this reviewer. Build/runtime/canonical form collision checks are a separate release gate.",
+  "referenceNotes": [
+    "Publisher pages were consulted through direct opens or cached official search extracts. Initial direct Cambridge403 responses were not counted as substantive evidence; cached publisher text was subsequently read.",
+    "Direct primary dictionary readings confirmed julienne verb; whisk/peeler/juicer tool nouns; blocked; non-stick; air fryer; food stick-to; boil; tender food; reheat; peel; deseed; chop; beat eggs; packed lunch; mesh; mould; damp; refund; and the compositional minimum/describe senses.",
+    "OALD portion_2 and air_2 were read for portion division and clothes/bedding airing. Thermos own product page was read for actual insulation rather than inferred from an ordinary travel mug.",
+    "Run small/run large were evaluated as established compositional clothing idioms by the independent language reader. The generic run citation is not claimed to independently document every clothing nuance; primary retailer usage and the live idiomatic context were used as additional corroboration.",
+    "No publisher example was copied into the authored pairs; references are lexical evidence, not a declaration of third-party authorship of these original sentences."
+  ],
+  "supplementaryReferencesActuallyRead": [
+    "https://dictionary.cambridge.org/dictionary/english/portion-out",
+    "https://www.oxfordlearnersdictionaries.com/definition/english/portion_2",
+    "https://www.oxfordlearnersdictionaries.com/us/definition/english/air_2",
+    "https://www.thermos.com.au/product/400ml-thermocafe-foam-insulated-travel-mug-2/",
+    "https://dictionary.cambridge.org/dictionary/english/pay",
+    "https://www.llbean.com/llb/shop/5876569?attrValue_0=1267&bc=31-134&csp=f&feat=134-GN0&page=Novelty-Dog-Sweater-Fair-Isle-Medium&pos=1"
+  ],
+  "limitations": [
+    "This is a finite semantic review of the pinned31-row/six-alias pack, not approval of all licensed legacy meanings or of all searches. No product/runtime ownership policy is broadened by this report."
+  ]
+}

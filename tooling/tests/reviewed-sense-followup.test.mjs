@@ -9,7 +9,7 @@ test('all old31 selected rows and ordinary678 daily rows survive the format and 
  assert.equal(hash(baseline.rows),'099f9e71be6ebeae84d9c243f0045090f9fdeb951ef7d6b3de7ef2d438e1859e');
  assert.equal(baseline.rows.length,31);for(const row of baseline.rows)assert.deepEqual(current.get(row.term),row);
  const ordinary=EVERYDAY_LOOKUP_ENTRIES.filter(row=>row.reviewedCanonicalSense!==true);
- assert.equal(ordinary.length,678+159);assert.equal(hash(ordinary.slice(0,678)),'8e678c9727e2f1a6cca3e511ae10230b036af9a58f3fedc8cb0242b1f955face');
+ assert.equal(hash(ordinary.slice(0,837)),'70e0a1f37d9de106c1630345551a5e9d361a312592921a15a8eeca9662ff3ab4');assert.equal(hash(ordinary.slice(0,678)),'8e678c9727e2f1a6cca3e511ae10230b036af9a58f3fedc8cb0242b1f955face');
 });
 test('98 new exact tuples retain their actual different-principal approvals and canonical bindings; holds stay unresolved',async()=>{
  const expected={ '0003':'3bfa52d2b7d3d9483613dfc1aa53ce61dc5e59d4aaf5446a6b2548ce36e33205','0004':'a150e7bd7e7a947e8fd3a89416b51417e6f3135fce34e9c56f2103d172c70c3f' };

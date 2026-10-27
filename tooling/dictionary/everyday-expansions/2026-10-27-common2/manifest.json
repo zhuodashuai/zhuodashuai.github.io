@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "sourceFile": "root-proposals.json",
+      "reviewFile": "root-review.json",
+      "sourceSha256": "5e465915f7acac60163ae2a1e045c005a1feabaee5008204416bca81800b7ad1",
+      "reviewSha256": "9475ea47b57beac0afc75325ac74a1dd1f31b25ca822a439fc5a58819a98ff64",
+      "author": "AI/root-daily-common",
+      "reviewer": "AI/next_quality_inventory"
+    },
+    {
+      "sourceFile": "a-proposals.json",
+      "reviewFile": "a-review.json",
+      "sourceSha256": "3c1db3ab688a1000b1e92aa9e3bacb180349bdf9bf8c6d051488f13cd907b0e3",
+      "reviewSha256": "53693d82df9fd6a40b97eb17514ef45d8188919afa56d6ce49847448e8b6ba80",
+      "author": "AI/daily-common-next-a-author",
+      "reviewer": "AI/quality_release_capacity"
+    },
+    {
+      "sourceFile": "b-proposals.json",
+      "reviewFile": "b-review.json",
+      "sourceSha256": "da85d9712c6aec920e6ef2d8d58f6ce115ee925d7b9cad432715b6f7020efcda",
+      "reviewSha256": "c5ee206c75a00893ac76c5844a965c37322a30c01bf866885caff933e04f269c",
+      "author": "AI/daily-common-next-b",
+      "reviewer": "AI/daily-common-next-a-reviewer"
+    },
+    {
+      "sourceFile": "c-proposals.json",
+      "reviewFile": "c-review.json",
+      "sourceSha256": "8077f60eec5245d0ad3e1f635954d8edc23e316a26c7d6613938571b11be3a2f",
+      "reviewSha256": "e531689cc7ae03d04221ca0bbc10914330db58671cfd4068f8afb9fc8690a9a8",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-independent-c-reader"
+    },
+    {
+      "sourceFile": "e-proposals.json",
+      "reviewFile": "e-review.json",
+      "sourceSha256": "79a065e96f82efdcbe4712d82703812abae2506a1b9da405416877fadf54aadc",
+      "reviewSha256": "bcdf83ba680a7d02118afdc878db7bb722233d546672f08b2082889168f166b4",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-independent-e-reader"
+    },
+    {
+      "sourceFile": "f-proposals.json",
+      "reviewFile": "f-review.json",
+      "sourceSha256": "fb512c8a084de907f649699646d83c9d06ae70c4190ebeb677a760699b025469",
+      "reviewSha256": "43e398d0cd6e96c48e60e43c9656fa14fd487919ac26f955d802552ae408f423",
+      "author": "AI/root-daily-tail-repair",
+      "reviewer": "AI/daily-common-next-a-reviewer"
+    }
+  ],
+  "newEntries": 125,
+  "addedHeads": [
+    "stick to the pan",
+    "non-stick pan",
+    "bring water to the boil",
+    "cook until tender",
+    "portion out",
+    "reheat",
+    "peel",
+    "deseed",
+    "julienne",
+    "chop",
+    "whisk",
+    "beat the eggs",
+    "peeler",
+    "juicer",
+    "air fryer",
+    "insulated travel mug",
+    "bring a packed lunch",
+    "blocked sink",
+    "blocked toilet",
+    "mesh laundry bag",
+    "colours run",
+    "remove mould",
+    "get damp",
+    "air the bedding",
+    "refund the difference",
+    "pay the difference",
+    "not as described",
+    "run small",
+    "run large",
+    "minimum order value",
+    "add items to meet a minimum",
+    "online customer support",
+    "ticket number",
+    "withdraw a complaint",
+    "lost parcel",
+    "redelivery",
+    "dropped call",
+    "product specifications",
+    "buy one get one free",
+    "spend-and-save offer",
+    "partial shipment",
+    "trial-size product",
+    "no-questions-asked returns",
+    "tamper-evident seal",
+    "refurbished device",
+    "one bill, please",
+    "no added sugar",
+    "dietary restriction",
+    "spill a drink",
+    "dead outlet",
+    "smell of gas",
+    "non-slip mat",
+    "sealable bag",
+    "stuck drawer",
+    "connection time",
+    "check-in deadline",
+    "miss a connection",
+    "stop button",
+    "bus service suspension",
+    "move-in checklist",
+    "hand over the keys",
+    "lease expiry",
+    "renew a lease",
+    "deduction from the deposit",
+    "maintenance request",
+    "emergency repair",
+    "window condensation",
+    "ceiling leak",
+    "lock cylinder",
+    "spare key",
+    "feel bloated",
+    "acid reflux",
+    "stuffy nose",
+    "dry eyes",
+    "sprained ankle",
+    "tingling in the hands and feet",
+    "feel the cold",
+    "dry mouth",
+    "lack of sleep",
+    "unlock an account",
+    "identity verification",
+    "change of address",
+    "appointment confirmation",
+    "change a ticket",
+    "missing documents",
+    "electronic signature",
+    "residence permit",
+    "unpaid phone charges",
+    "phone service suspension",
+    "data plan",
+    "run out of mobile data",
+    "turn on a mobile hotspot",
+    "poor reception",
+    "cannot connect to the internet",
+    "Wi-Fi password",
+    "laundry pod",
+    "collar stain",
+    "static electricity",
+    "tumble-dry",
+    "spin-dry",
+    "timetable clash",
+    "submit an assignment late",
+    "submit by an extended deadline",
+    "revision suggestions",
+    "divide up group tasks",
+    "arrange a time",
+    "is this a good time to talk",
+    "have something urgent to deal with",
+    "be a little late",
+    "head off first",
+    "get in touch then",
+    "take turns paying for meals",
+    "get a ticket refund",
+    "miss the bus",
+    "on the way",
+    "fee-free",
+    "QR code for receiving payments",
+    "failed payment",
+    "payment reference",
+    "transfer money to the wrong account",
+    "freeze a bank card",
+    "itemized bill",
+    "submit a missing assignment",
+    "tableware",
+    "power outage"
+  ],
+  "addedRowsSha256": "945c654f54d9bde77fe9de9164083ca7dd77b91b233752d57cfcbf8fd3c6d170",
+  "newAliases": [
+    {
+      "term": "scorch",
+      "aliases": [
+        "糊底"
+      ],
+      "targetEntrySha256": "3570c3f3fe458c25d63921d046542383b3e78c777cbc35ba11facffaabf420ee"
+    },
+    {
+      "term": "blocked drain",
+      "aliases": [
+        "下水道堵了",
+        "排水管堵了"
+      ],
+      "targetEntrySha256": "d1fad545c91dccee217bd128bb17a969db240c795b910676eb84ed1ee9d89e9d"
+    },
+    {
+      "term": "deposit",
+      "aliases": [
+        "按金"
+      ],
+      "targetEntrySha256": "2bb4f52f6e9c76dbb4af3828ad7553dc1850f98c78525350d637b97bcb92fb54"
+    },
+    {
+      "term": "missing item",
+      "aliases": [
+        "漏发",
+        "少发"
+      ],
+      "targetEntrySha256": "fa2370dfd6ccbd9fb373a7c2db59db6f2d928eefa44f1187a39226e767598aa8"
+    },
+    {
+      "term": "split the bill",
+      "aliases": [
+        "AA制",
+        "AA吃饭",
+        "均摊饭钱"
+      ],
+      "targetEntrySha256": "3ec718ec70a994fb056a43f78d0e46efc35cfd17c805aa79d7aea606b2b9c3cf"
+    },
+    {
+      "term": "simmer over low heat",
+      "aliases": [
+        "小火煨煮"
+      ],
+      "targetEntrySha256": "fc8af02023a7e71178c5f167b1df917ca20df96f7422a3a5e1d992c6d8309fe0"
+    },
+    {
+      "term": "refund to the original payment method",
+      "aliases": [
+        "退回原支付方式"
+      ],
+      "targetEntrySha256": "fbf74e3052ba41855fe197b44fabb06f66c31e2e5acd3f7e45829e7f9ad7a93a"
+    },
+    {
+      "term": "delivery failure",
+      "aliases": [
+        "派送失败"
+      ],
+      "targetEntrySha256": "386c39dc5b99385b62e21e4c53d81fcad36c829c70d1d9381d8162a251883c0c"
+    },
+    {
+      "term": "split an order",
+      "aliases": [
+        "拆单"
+      ],
+      "targetEntrySha256": "0383d5304f72a3ea9f11a1e62085827105395ef8e75da5249db4b8bbbccb4a1b"
+    },
+    {
+      "term": "no coriander, please",
+      "aliases": [
+        "不加香菜"
+      ],
+      "targetEntrySha256": "da4e2e97f9af226cbd28cc6cfc0b82513140b64ff0b376f364b8b858100f02a8"
+    },
+    {
+      "term": "baggage claim",
+      "aliases": [
+        "行李认领",
+        "行李认领处"
+      ],
+      "targetEntrySha256": "1413298635d66985e8fb369bfdc2279fa90dbdff5a9e800191e51a5d66b22fa0"
+    },
+    {
+      "term": "carry-on baggage",
+      "aliases": [
+        "机舱行李"
+      ],
+      "targetEntrySha256": "6dfc52bdfb188d2661537f9043c535dbb9aa997e66d9928c56787f123fd58b3c"
+    },
+    {
+      "term": "hoarse",
+      "aliases": [
+        "嗓子哑"
+      ],
+      "targetEntrySha256": "0de07a76910027c1bf3cc2d12eae458f65efee1abfb0f5578b28139db11d70f8"
+    },
+    {
+      "term": "request an extension",
+      "aliases": [
+        "延期申请"
+      ],
+      "targetEntrySha256": "aad3db5313b57679fd469d8b6fa2c53fc321b66deeebef32c6c29a7393a3ffdb"
+    },
+    {
+      "term": "reschedule",
+      "aliases": [
+        "改个时间",
+        "换个时间"
+      ],
+      "targetEntrySha256": "30a954efb4a46b756b1bb75808cbf0672a9ab103e8c40768de5bec6c74e65f40"
+    }
+  ],
+  "expectedFinalOrdinaryCount": 962,
+  "expectedSelectedCount": 131
+}

@@ -22,7 +22,8 @@ test('daily additions are exact independently approved tuples and alias-only app
 });
 test('all previous daily tuples and selected-sense tuples remain exact',()=>{
  const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=rows.filter(r=>r.reviewedCanonicalSense);
- assert.equal(ordinary.length,837);assert.equal(hash(ordinary.slice(0,678)),baseline.ordinarySha256);
+ // Later approved batches append after these837 exact published tuples.
+ assert.equal(hash(ordinary.slice(0,837)),'70e0a1f37d9de106c1630345551a5e9d361a312592921a15a8eeca9662ff3ab4');assert.equal(hash(ordinary.slice(0,678)),baseline.ordinarySha256);
  assert.equal(hash(baseline.selectedHeads.map(term=>byHead.get(term))),baseline.selectedSha256);
  assert.equal(selected.length,131);for(const row of baseline.aliases)assert.deepEqual(aliases.find(r=>r.term===row.term),row);
 });

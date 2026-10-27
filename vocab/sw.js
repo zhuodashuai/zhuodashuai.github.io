@@ -1,4 +1,4 @@
-// Reviewed example/sense update 2026-10-27: preserve separate old meanings and warm shards.
+// Daily vocabulary expansion 2026-10-27 batch2: refresh exact Chinese intents and examples.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph

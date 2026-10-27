@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "fb512c8a084de907f649699646d83c9d06ae70c4190ebeb677a760699b025469",
+  "sourceRawSha256": "b0972349ff9ae658cfa9915b7056ce1c52327be5525fb3c5b3129d6d4bee8420",
+  "reviewer": "AI/daily-common-next-a-reviewer",
+  "independentOfAuthor": true,
+  "reviewedAuthor": "AI/root-daily-tail-repair",
+  "decisions": [
+    {
+      "term": "tableware",
+      "rowSha256": "0f67bdfedd7cba19009b635f76acced3e22cb7514ba1b87ed3944aef35daac67",
+      "decision": "approve-new-row",
+      "notes": "Refined noun definition accurately covers plates, bowls, cups and cutlery used for food. Removing internal bug comparisons improves learning copy without changing the lexical sense; all other fields are verified unchanged."
+    },
+    {
+      "term": "power outage",
+      "rowSha256": "cdc57b94dee78a515121197e804421bac6d0fe841d36f0fd34741f38441357a0",
+      "decision": "approve-new-row",
+      "notes": "Refined noun-phrase definition accurately describes interruption of electricity supply to a building or area. Removing the old debugging comparison does not broaden the sense; all other fields are verified unchanged."
+    }
+  ],
+  "aliasDecisions": [],
+  "issues": [],
+  "checks": {
+    "actualFinalRowsRead": 2,
+    "existingDailyHeadCollisions": 0,
+    "identicalExistingEnglishExamples": 0,
+    "englishForms": 0,
+    "baselineDailyCount": 949,
+    "baselineAllPackagedCount": 1080,
+    "noProductEdits": true
+  },
+  "sourceMethod": "Read primary Collins tableware directly and primary Cambridge power-outage indexed entry; inaccessible direct Cambridge fetches were not counted as successful. No borrowed publisher example sentences.",
+  "previousSourceSha256": "5a6973eea4443b9409040b3b19958ab25e59042df1a5d58321d56016c2bd527f",
+  "finalRevision": "Only the two Chinese meanings were simplified for learners; all examples, POS, aliases, references, forms and author fields match the previously independently read frozen rows."
+}
