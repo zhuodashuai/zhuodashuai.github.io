@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "846aded0b3abbdf484bc028529a69432bb8d20a49748bfc2ea9ab3ddf1591278",
+  "reviewer": "AI/examples_runtime_release_audit",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "fif",
+    "GMS",
+    "MFI",
+    "KI",
+    "centrale",
+    "a-scan",
+    "aacd",
+    "AAF",
+    "Aanderaa",
+    "aasl",
+    "abbi",
+    "abdomino",
+    "abgs",
+    "abietinal",
+    "ablatio",
+    "abruptio"
+  ],
+  "issues": [],
+  "reviewedAt": "2026-10-27T01:44:23.174Z",
+  "sourceFile": "audit-next-003-rewrite-proposals-source.json",
+  "method": "Independent individual EN/ZH/POS/selected-sense reading; full hash-authenticated canonical variants; exact original/new digests; primary dictionary/provider/research evidence checked; current reviewed/everyday/correction layers deduplicated. Combining-form example assessed as a declared morpheme contract, not broad same-family matching.",
+  "restoredContract": {
+    "sourceSha256": "846aded0b3abbdf484bc028529a69432bb8d20a49748bfc2ea9ab3ddf1591278",
+    "allOriginalLabelsExact": true,
+    "allPreviouslyReadENZHUnchanged": true,
+    "aScanScope": "Two observed echo peaks remains a minimal display-form use; no flaw diagnosis or instrument-performance claim is introduced by the narrower old label.",
+    "ablatioScope": "Retinal detachment is the selected detachment branch of the old detachment/excision gloss, not a claim that the branches are interchangeable.",
+    "abdominoScope": "Exact explicit combining-form morpheme in abdomino+pelvic, not arbitrary related-word substitution.",
+    "abietinalScope": "NIST confirms identity; primary resin-composition paper PMID42596784 independently confirms abietinal in colophonium, supporting the restored resin-association wording."
+  },
+  "counts": {
+    "audited": 16,
+    "approved": 16,
+    "needsFix": 0,
+    "unverified": 0
+  },
+  "decisions": [
+    {
+      "term": "fif",
+      "rowDigest": "f219fa9fda1fa1b8fd0ad04ed325c0bcc4fc8102c303040aced7909ef73d6b84",
+      "canonicalId": 6554626,
+      "canonicalSourceSha256": "1be34aebe291cf9a19adeb893ed578b3649a1d1fef08af2bd9eac898d647e58b",
+      "originalPairDigest": "7e99568dbe7aa9fab4a67c9e4cda42872867efe88913f4eb1086709e4410c601",
+      "verdict": "approved",
+      "notes": "Primary 1975 experimental paper explicitly defines FIF and concerns delayed hypersensitivity. Testing whether it could suppress a response is a concrete fictional research question, not an asserted treatment. EN/ZH, abbreviation and bound factor sense agree. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://rupress.org/jem/article-pdf/142/3/588/1087203/588.pdf"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "GMS",
+      "rowDigest": "a61cc76b390bb3ac06065370088d4fb5e950643302c58ef043784cfaa689205d",
+      "canonicalId": 6561318,
+      "canonicalSourceSha256": "bcff0af77b834f62b753e4aeadc219428433744dc9e2bf9f97a9879bf37da633",
+      "originalPairDigest": "367ce10216a09e7cd693411937ec18c3326a7b62b16a557ef6f8aeed6efc2090",
+      "verdict": "approved",
+      "notes": "AEON primary reports define GMS as stores providing food, clothing and home goods. Buying groceries and a coat at the same store is natural, selected source expansion agrees, and the Chinese preserves both categories. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://www.aeon.info/export/sites/default/common/images/en/environment/report/e_2012pdf/e_all.pdf",
+        "https://www.aeon.info/export/sites/default/common/images/en/environment/report/e_2005pdf/e_all.pdf"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "MFI",
+      "rowDigest": "c1c58b18ddaa38b9c098a0d859e7418fb8b94c0654c8b30ad0228f75ffaf526c",
+      "canonicalId": 6565545,
+      "canonicalSourceSha256": "cace73dc083928e3ea59e5a93d2937a5a830c9f14d3d4a65b851bf766674770d",
+      "originalPairDigest": "c4536c6db6e06d847064e483613ea737694b0edea368a4cba2057e0f6b91c7a1",
+      "verdict": "approved",
+      "notes": "The original measurement study explicitly defines mean fluorescence intensity MFI for labelled beads/cells. The row reports one fictional observed comparison rather than a universal staining effect or diagnostic threshold. EN/ZH and bound sense agree. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8348946/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "KI",
+      "rowDigest": "bda072d18e1bee2f9cbefd42dee41f349906c9a00a1cbbdf66a1c022501079cc",
+      "canonicalId": 6619193,
+      "canonicalSourceSha256": "596d6059f041c7fa1aeed6887588986b72ccecfa532f3efd47224a8b15796188",
+      "originalPairDigest": "8ae0745ca4810c694323c762fcf8d12ceb434b573c4df9c941391828e40c43dc",
+      "verdict": "approved",
+      "notes": "PubChem identifies chemical formula KI and white solid mixing with water. The row depicts ordinary material-level weighing/dissolving, with no quantities or therapeutic advice. Formula is a correct refinement of the source abbreviation/formula category; it does not claim ionic KI is a molecule. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pubchem.ncbi.nlm.nih.gov/compound/Potassium-Iodide",
+        "https://pubchem.ncbi.nlm.nih.gov/summary/summary.cgi?cid=4875"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "centrale",
+      "rowDigest": "c0b624ea5ebef2ea57171d3c64903e57bdfd1f690c6f41d360afe7c3c62990c7",
+      "canonicalId": 6625581,
+      "canonicalSourceSha256": "c1f3424c2e079de2223299e9f62293f2979f438ac7152e91ff130dc29ec9f47c",
+      "originalPairDigest": "2baf82afe35b1512842201e4a0629a74693ea17f41db1f5b606d073f4b22741a",
+      "verdict": "approved",
+      "notes": "Independent fossil-anatomy primary paper PMC7335049 explicitly identifies the centrale among carpal bones and compares its size. Measuring a fossil wrist bone is a concrete use of the bound central-bone noun, without equating all centralia to a human scaphoid. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8819371/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7335049/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "a-scan",
+      "rowDigest": "3c90da9cf32c2a24c595393407d8e3dcabd79c124ef30f229958936b78927a0c",
+      "canonicalId": 6635090,
+      "canonicalSourceSha256": "ca741542b0be945c447f9ceb666e49f029be360ef8da5da453a83bd2689b5dea",
+      "originalPairDigest": "a753595bc6f84bc567c317783346339e7a414217834c6a0107186fe879ace072",
+      "verdict": "approved",
+      "notes": "The equipment manufacturer defines ultrasonic A-scan as echo amplitude versus travel time and identifies peaks as echoes. Two observed peaks is a plausible concrete trace reading, with no fabricated defect diagnosis. EN/ZH and bound scan meaning agree. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://adobeassets.evidentscientific.com/content/dam/manuals/10-050863-01EN--ScanPlan--User.pdf",
+        "https://ims.evidentscientific.com/en/learn/ndt-tutorials/flaw-detection/display-formats"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "aacd",
+      "rowDigest": "7dbbd92ec1784cd24d39761c170366ab2164fff981c32f0d3433a811d86285ef",
+      "canonicalId": 6639368,
+      "canonicalSourceSha256": "f4f188999625e0afcb9bff311228033d81fc3e1c14dbfc3e6b294d2009b2c1f8",
+      "originalPairDigest": "4d40a014c0b738093aea8e923b31d434277a432012299b9e2040093418c0eb3b",
+      "verdict": "approved",
+      "notes": "The 1994 working-party paper establishes aging-associated cognitive decline; primary research also explicitly uses AACD for that concept. A comparison of memory scores in research groups is natural and introduces neither a diagnostic rule nor treatment recommendation. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/8054494/",
+        "https://pubmed.ncbi.nlm.nih.gov/19270764/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "AAF",
+      "rowDigest": "e8adf17af2dc18ecb7d187da64186eae7d3274b410398d95b0ec033257cf2b3b",
+      "canonicalId": 6641027,
+      "canonicalSourceSha256": "7662d9deed6a652e4fe3cab572dffae263a8e1d8c990d1bbbf15bfce9fc9597e",
+      "originalPairDigest": "52f58191c4ef29421c565998220df54fe8948f4aa2ad679a7cff652a3f97cf42",
+      "verdict": "approved",
+      "notes": "The US Air Force museum dates creation of the Army Air Forces to 1941, supporting the wartime service setting. An unnamed fictional relative avoids fabricated real-person biography. The source explicitly binds the American institution and Chinese agrees. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196920/aaf-established/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "Aanderaa",
+      "rowDigest": "af486ca1b33a47eca3b4531b535a4d09a0fe5b97cee7a3ab092d89bbf3ce5274",
+      "canonicalId": 6646564,
+      "canonicalSourceSha256": "80fd789c15fa063a0db86c2be8a75e62ea4e5dfba5c34c0e1e33fe3c567d7a1a",
+      "originalPairDigest": "94e86194a75480ba0a565b3c02af79e077eaedf1f9f5c3a2d83a1cb22187e66a",
+      "verdict": "approved",
+      "notes": "The manufacturer lists ocean-current meters among its products. Lowering a current meter into water is a concrete instrument use, without unsupported performance/depth claims; the Norwegian manufacturer/brand matches the transliterated canonical identity. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://www.aanderaa.com/documents",
+        "https://www.aanderaa.com/single-sensors"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "aasl",
+      "rowDigest": "f2b58aa64b4446b8310c9dedcdbefb8be580c19380c905948d4b1a70fb229553",
+      "canonicalId": 6652320,
+      "canonicalSourceSha256": "0e36ef47318ab73c83a410842c384b3d4e06f6718f4b43bde9c165b0ccd64504",
+      "originalPairDigest": "e3c9f40c99ab71858ee68dfc5b63f2a38c761a7572f7a72c6c3dc960f4806e48",
+      "verdict": "approved",
+      "notes": "The NSW government memorial explicitly uses AASL for anti-aircraft searchlight and describes beams searching the night sky. Crew is rendered as searchlight operators, not flight crew. The action and historical scope match the bound sense. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://www.anzacmemorial.nsw.gov.au/our-stories/our-stories/anti-aircraft-searchlights-australia-1939-1945"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "abbi",
+      "rowDigest": "fcd39cdf7b5f84eb1437f17c33bd01f220aaf2534d949d4478d242ac97a7c0dc",
+      "canonicalId": 6670019,
+      "canonicalSourceSha256": "bc30b7ec0fbaf8edab0c5cd3ad1ac15313872d231e5f64b45b58752b95ba9e43",
+      "originalPairDigest": "95405a564a54cadb40b102068313d2a08e9d3e4019055c9a931509e741de7975",
+      "verdict": "approved",
+      "notes": "The original histopathology paper explicitly describes the Advanced Breast Biopsy Instrumentation system and examination of obtained tissue. The fictional research scene contains no efficacy/diagnostic promise or medical instructions; English expansion establishes the device-system scope. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/10900616/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "abdomino",
+      "rowDigest": "d38dd355eeacae183adad474ea5098991ff9105dbb3bc274683294047db9a105",
+      "canonicalId": 6678018,
+      "canonicalSourceSha256": "4d56de7575803ec9fc6a4d111a464d9fc06403f90c1636e16411381e330b6205",
+      "originalPairDigest": "2b3bd14a4af22f2b3a22f8fad2b053e8446ca6560e6e3d316eefb48f2f729c2e",
+      "verdict": "approved",
+      "notes": "Strict combining-form check passed: canonical POS explicitly is combining form, and abdomino- occurs as the exact initial morpheme of abdomino+pelvic, not merely a related root or a replacement head. OpenStax uses abdominopelvic cavity and states the diaphragm separates it from thoracic cavity. The sentence gives substantive anatomy, not a glossary. Meaning/POS explicitly teach the bound component, not an independent adjective; no English-form alias is fabricated. The current review/build gate accepts this declared combining-form tuple. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-6-anatomical-terminology"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "abgs",
+      "rowDigest": "7c4551f7579aa114c4b0e1fdee60dd0fd1276f32595c1c5c4a71a556e49cd185",
+      "canonicalId": 6694444,
+      "canonicalSourceSha256": "a8031f182713ae18464c05ee15256aae8f567d8f32e35dc2b36c334afe1e03d8",
+      "originalPairDigest": "f9c568af2e4c9b465e1d23a52817917c64813ac3e7e875c52d1e40e54c9fae8f",
+      "verdict": "approved",
+      "notes": "MedlinePlus confirms arterial-blood-gas testing measures oxygen and carbon dioxide, and uses ABGs terminology. The sentence states an unspecified observed change, not its cause or a clinical recommendation. Plural abbreviation and EN/ZH agree. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://medlineplus.gov/lab-tests/arterial-blood-gas-abg-test/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "abietinal",
+      "rowDigest": "e10f17edd7209b3ffbc2490abe85376cfb02cd69520182a8fc8f433f18fad47c",
+      "canonicalId": 6699618,
+      "canonicalSourceSha256": "a29491291bf1a66c9aa22581ee5ceb9c701ee899cd55c1bd6470ea3172064bd8",
+      "originalPairDigest": "18e990c6bdfd0d23ab0bf25b7655aac1728e0d147f984eccc91272b1bd20e356",
+      "verdict": "approved",
+      "notes": "NIST Chemistry WebBook explicitly lists Abietinal as another name for Abietal. Separating the named substance from a sample is a natural fictional material use; no unsupported synthesis, source organism, reaction, or method is introduced. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=R167169",
+        "https://pubchem.ncbi.nlm.nih.gov/compound/Abietinal",
+        "https://pubmed.ncbi.nlm.nih.gov/42596784/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "ablatio",
+      "rowDigest": "0607c3281c1212226081736bb8b7c885cbf8c9ca13c3799c7bc9372884ae0614",
+      "canonicalId": 6711455,
+      "canonicalSourceSha256": "f522f28a4c3e25ac381b88fe36d5876ba17beda12667eb23dbfa51345131b019",
+      "originalPairDigest": "17ff8c0741ef168e3b9520f967d651bf39215368eb10e6e2a135c4c3b3e1f3d1",
+      "verdict": "approved",
+      "notes": "The primary publication title explicitly uses ablatio retinae; surgical-retinal-detachment literature supports the context. Ablatio is the actual nominal head of this Latin medical phrase, qualified by retinae, consistent with the bound detachment sense. One-year follow-up is fictional, not a claimed published result. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/25393439/",
+        "https://pubmed.ncbi.nlm.nih.gov/18887398/"
+      ],
+      "currentReplacementAlreadyPresent": false
+    },
+    {
+      "term": "abruptio",
+      "rowDigest": "6a7596418abb82ffb1e0cf56829043a6b4387ef8eb1a9f62725fe0c3c4c96d66",
+      "canonicalId": 6742771,
+      "canonicalSourceSha256": "366c3e81603fdac0884278305f0729b0ef9e91411ce690f90d9c1c133610abff",
+      "originalPairDigest": "5940153bdb6d0dcf884a16eec451b371d33dd49476d4f0ac332fecb00b3c7cff",
+      "verdict": "approved",
+      "notes": "The reviewed medical source/MedlinePlus confirm placental separation and possible bleeding. The row describes one fictional individual with heavy bleeding, not a universal symptom rule, diagnosis, or treatment advice. Abruptio is the nominal head of the medical phrase and selects the bound separation sense. Restored original meaningZh and POS were individually reread and remain semantically accurate for the new use; exact original strings and unchanged previously reviewed EN/ZH were independently checked.",
+      "references": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK482335/",
+        "https://medlineplus.gov/ency/patientinstructions/000605.htm"
+      ],
+      "currentReplacementAlreadyPresent": false
+    }
+  ]
+}

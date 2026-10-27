@@ -5,6 +5,7 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 import { loadExampleBuild, validateExampleReview } from './build-dictionary-examples.mjs';
 import { createAdditiveExamplesLoader } from '../../vocab/js/dictionary-examples-additive.js';
 import { dictionaryExamplesRelease } from '../../vocab/js/dictionary-examples-release-v4.js';
+import { EVERYDAY_LOOKUP_ENTRIES } from '../../vocab/js/everyday-lookup-data.js';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const hash = value => createHash('sha256').update(value).digest('hex');
@@ -24,6 +25,16 @@ export function parseCorrectionSourceManifest(bytes, release = dictionaryExample
 export function independentlyReviewedCorrections(pack, review) {
   if (review?.independentOfAuthor !== true || review.mode !== undefined) throw Error('Corrections need independent cross-review');
   return validateExampleReview(pack, review);
+}
+
+/** A translation repair may retain its own original English. A new sentence
+ * cannot borrow any other active word's example, including local supplements. */
+export function reserveCorrectionSentence(row, original, sentences) {
+  const key = ordered(row.en), owner = sentences.get(key);
+  if (owner && !(owner === row.term && row.en === original.en)) {
+    throw Error(`Duplicate English learning sentence: ${row.term} / ${owner}`);
+  }
+  sentences.set(key, row.term);
 }
 
 export function correctionFromReviewedPair({ row, original, previous, canonical }) {
@@ -58,6 +69,10 @@ export async function loadExampleCorrectionBuild({ root = ROOT } = {}) {
   for (const entry of reference.entries) for (const sense of entry.senses) for (const pair of sense.examples) {
     sentences.set(ordered(pair.en), entry.term);
   }
+  // These active local rows include both daily phrases and reviewed selected
+  // senses. They are outside the immutable example catalogue but still appear
+  // in the same learning UI and must participate in its duplicate boundary.
+  for (const row of EVERYDAY_LOOKUP_ENTRIES) sentences.set(ordered(row.en), row.term);
   const memo = new Map();
   const assets = join(root, 'vocab');
   async function localFetch(input) {
@@ -91,9 +106,7 @@ export async function loadExampleCorrectionBuild({ root = ROOT } = {}) {
         const originalPack = await json(join(base, 'source', origin));
         const originals = originalPack.entries.filter(item => item.term === row.term);
         if (originals.length !== 1) throw Error('Ambiguous original example');
-        const owner = sentences.get(ordered(row.en));
-        if (owner && !(owner === row.term && row.en === originals[0].en)) throw Error(`Duplicate English learning sentence: ${row.term} / ${owner}`);
-        sentences.set(ordered(row.en), row.term);
+        reserveCorrectionSentence(row, originals[0], sentences);
         const previous = await loader.load(row.term, { lookupQuery: row.term });
         corrections.push(correctionFromReviewedPair({ row, original: originals[0], previous, canonical: canonical.get(row.term) }));
       }

@@ -78,7 +78,10 @@ test('superseded Chinese hot-index errors are removed while compatible existing 
 test('new English and Chinese senses use identical local meanings, POS and examples at both public and personal entry points', async () => {
   const cases = [['CD-ROM', 'CD-ROM'], ["that's", "that's"], ['不典型的','untypical'],
     ['连帽卫衣','hoodie'], ['食品小塑料袋','baggie'], ['单板滑雪者','snowboarder'],
-    ['多才多艺的','multitalented'], ['核欧沃豪斯效应','NOE']];
+    ['多才多艺的','multitalented'], ['核欧沃豪斯效应','NOE'],
+    ['鬣狗','hyena'], ['冲动地','impulsively'], ['去皮玉米粒','hominy'],
+    ['喜欢拥抱别人的人','hugger'], ['薄弱地','tenuously'],
+    ['组织重组','restructuring'], ['国际空间站','ISS'], ['泰恩赛德人','geordie']];
   const fail = () => { throw Error('A local approved supplement should not download the large dictionary or call a provider'); };
   for (const [query, head] of cases) {
     const found = await searchExpandedDictionary(query, { fetchImpl: fail });
@@ -99,11 +102,14 @@ test('the real legacy reverse index no longer offers a food bag for a garbage-ba
   const found = await searchExpandedDictionary('垃圾袋', { fetchImpl });
   assert(found.results.some(row => row.term === 'bin liner'));
   assert(!found.results.some(row => row.term === 'baggie'));
+  const animal = await searchExpandedDictionary('袋狼', { fetchImpl });
+  assert(!animal.results.some(row => row.term === 'hyena'), 'A stale hyena definition cannot teach the wrong animal');
 });
 
 test('undeclared legacy forms cannot borrow an approved head meaning or leak back through the compact fallback', async () => {
   const fetchImpl = async input => new Response(await readFile(new URL(typeof input === 'string' || input instanceof URL ? input : input.url)));
-  for (const [form, head] of [['noes','NOE'], ['communitarians','communitarian']]) {
+  for (const [form, head] of [['noes','NOE'], ['communitarians','communitarian'],
+    ['huggered','hugger'], ['issed','ISS']]) {
     await assert.rejects(searchExpandedDictionary(form, { fetchImpl }), error => {
       assert.equal(error.code, 'unreviewed_dictionary_form');
       assert.match(error.message, /^请输入英文原形查询/u); return true;

@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/example_quality_provenance_audit",
+  "independentOfAuthor": true,
+  "author": "AI/root-example-author",
+  "sources": {
+    "corrections": {
+      "sourceFile": "root-corrections-source.json",
+      "sourceSha256": "645947e684b89fe139e271d7de58787b7073bc82350373ec2f3b7ad1bebf1468",
+      "jsonStringifySha256": "295ba7ac25ef1397f57327976f4fd28f96d42dec7fa49303ecf6b9050dbfec19",
+      "rawFileSha256": "1ef6b22ad26ccca66f5a8f7be3d9870635b3f59e3147c0123b93eebea83cac03"
+    },
+    "supplements": {
+      "sourceFile": "root-supplements-source.json",
+      "sourceSha256": "ac9a52f2f4f4bafbb38693170636745763bc8174fbd5c34e892f4180c3e04d39",
+      "rawFileSha256": "29c3c041fb14654f9c5ec50c4a32063ffa389b59f8d9d0b4f29b607316bed40b"
+    }
+  },
+  "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "verifiedEveryCanonicalShardAgainstManifest": true,
+  "method": "Independent second reader of all 22 exact new rows, their old rows and complete hash-authenticated current canonical records, every variant and all samefold case neighbours. Independent fresh primary lexical/institutional/technical checks were made; failed direct fetches were not treated as read, and accessible indexed source text was used where indicated. New selected-sense rows are explicitly new reviewed sources, never approval of missing or wrong original ECDICT senses. Examples were evaluated as original fictional uses, not as claims that the described events really occurred.",
+  "approvedTerms": {
+    "corrections": [
+      "BMA",
+      "frederic",
+      "caldwell",
+      "ming",
+      "buss",
+      "SNA",
+      "RP",
+      "UNO",
+      "magnus"
+    ],
+    "supplements": [
+      "hyena",
+      "judgmental",
+      "impulsively",
+      "hominy",
+      "hugger",
+      "tenuously",
+      "restructuring",
+      "springer",
+      "tum",
+      "oap",
+      "sixths",
+      "ISS",
+      "geordie"
+    ]
+  },
+  "issues": [],
+  "decisions": [
+    {
+      "group": "corrections",
+      "term": "BMA",
+      "rowDigest": "c90ac99e0b690f95839c4a4cf6d10417fceb9158594bed93472e1c11f17708e8",
+      "canonicalId": 2824187,
+      "canonicalSourceSha256": "c84356aea3158e6ac58aca3bbeb20686a3d518d2a1476ddb32cf20fa7400ed25",
+      "verdict": "approved",
+      "reason": "The medical-association sense is explicit. Requesting a statement from its press office is coherent; the corrected Chinese no longer implies the journalist personally publishes the association’s statement. POS and selected meaning remain unchanged.",
+      "references": [
+        "https://www.bma.org.uk/bma-media-centre"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "frederic",
+      "rowDigest": "e1bb561f3cd406b8ce7474c545e257524de4008e1496b7518d0e271bb3800975",
+      "canonicalId": 3493779,
+      "canonicalSourceSha256": "e1113c717748dbed8273e08c5277796d7611d2f534deeba33c9c68333b106600",
+      "verdict": "approved",
+      "reason": "The supplied canonical is the masculine personal name; capitalization is the ordinary proper-name form. The new Chinese accurately preserves waiting until seats are found and removes the unsupported action 才继续. No real biography is claimed.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "caldwell",
+      "rowDigest": "a9e0410b4c4b76d3d565b1442b577f1c9e055a0757462c9e11af313861ebf8c6",
+      "canonicalId": 3590533,
+      "canonicalSourceSha256": "a97b1183a88fe482bc0b1a52d3d0d9360c7d35419436f11e531fd333880e3c31",
+      "verdict": "approved",
+      "reason": "The surname sense is explicitly canonical. Lending the table and the purpose match; 售卖活动 correctly avoids adding charity/义卖, which the English sale does not establish. No geographic/person-name ambiguity remains in this selected sentence.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "ming",
+      "rowDigest": "4321754875e945145dfb74634caf1b1d851599b9c1ebeb69bf35c57bc2bb5b7c",
+      "canonicalId": 3770128,
+      "canonicalSourceSha256": "a9111142970e1e159636491f8381d286f91b35cc69d7c2ef0f3bbdad440e9715",
+      "verdict": "approved",
+      "reason": "Ming is the explicitly stored dynasty name used attributively for the bowl. The corrected Chinese preserves case lighting and removes unexpressed porcelain material; the new pair does not invent the bowl’s substance or provenance.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "buss",
+      "rowDigest": "4ad854473b76393e63c65fd464dc0c217007221ebd890aa1370b1b656b7f5e24",
+      "canonicalId": 3795646,
+      "canonicalSourceSha256": "0ec9d7c3db3039f4bac35bb1f1e6ae917937f9a0f0fa56892573064aaacb1194",
+      "verdict": "approved",
+      "reason": "The source contains the kiss noun; the count-noun pattern give someone a buss on the cheek is coherent. 匆匆吻了一下 conveys a brief/quick kiss rather than the prior unsupported gentleness; this is natural literary/old usage.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/buss"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "SNA",
+      "rowDigest": "b110feb47f243f87d7f1c1ba7d75dff3ca7602282d631178de04b205a17b26cd",
+      "canonicalId": 4392319,
+      "canonicalSourceSha256": "f82fa635b8c8f32a921a984b795f4e68fe5f31dea396e39c4e34955b26ed6728",
+      "verdict": "approved",
+      "reason": "IBM explicitly confirms Systems Network Architecture and communications among network resources. A server exchanging data with terminals over an SNA network is coherent. Chinese now gives the architecture relation naturally, with no doubled architecture-network phrase.",
+      "references": [
+        "https://www.ibm.com/docs/en/zos-basic-skills?topic=glossary-zos-terms-abbreviations"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "RP",
+      "rowDigest": "0dab8d5c980b4021380ac91accb6de704072e1a83659c17482d695ae8097eeb1",
+      "canonicalId": 2911743,
+      "canonicalSourceSha256": "75c171e3413f291c10a476bbca8e378e4c8a4af33fbb8e256a95643fab2d9ffb",
+      "verdict": "approved",
+      "reason": "The full canonical names reader/printer and the original Library Technology Reports item independently identifies a Minolta RP reader-printer in microfilming. The explicit parenthesis fixes the intended equipment reading; producing a print from a microfilm image is coherent, with faithful Chinese.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/10243214/"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "UNO",
+      "rowDigest": "e293b480acf6c45fda06e315bc89ff42f044ba96344068a6bbdb10f44fcce42f",
+      "canonicalId": 3812975,
+      "canonicalSourceSha256": "9f9679222aae6fcfd19a4b28910313c8330425c33d4bcc2f9576845c08721a0f",
+      "verdict": "approved",
+      "reason": "Collins explicitly confirms UNO as United Nations Organization. The selected name is canonical; calling on the organization to help mediate a dispute is an ordinary fictional request, not a claim that a particular intervention occurred. Chinese matches the request and help.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/uno"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "magnus",
+      "rowDigest": "3578c701ea34aed1a271cfc3078aa119aff8beca5dacba91f64df6de025ced95",
+      "canonicalId": 2440950,
+      "canonicalSourceSha256": "9b90c805a2c6fb34c104605fd17a8b42383937d8adcc054d6e51a1017e877334",
+      "verdict": "approved",
+      "reason": "The source gives Latin medical adjective 大的. The attested anatomical name adductor magnus uses precisely that adjective; pointing out the actual muscle on a diagram is concrete use of the name rather than explaining where the string is placed. Chinese 大收肌 is accurate.",
+      "references": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK534842/"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "hyena",
+      "rowDigest": "fdd3a8abb8a881e0c2920ff9dc32678be92aeb0f6e385d5d173937a42be0a813",
+      "canonicalId": 2861496,
+      "canonicalSourceSha256": "28541744c06096346be7c0861027bc7e2f3a042cc7449c401706725d4f88bfa1",
+      "verdict": "approved",
+      "reason": "The new source explicitly supplies the animal hyena/鬣狗, correcting the old record’s 袋狼 without relabelling ECDICT. Count noun and plural hyenas are genuine; the dry-riverbed observation is natural, with no species-specific behaviour claim or Chinese drift.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/hyena"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "judgmental",
+      "rowDigest": "e9c2234d9d017742c178ad7b4895a106a5012f51e8c8c4f1a19a9cb4127d7584",
+      "canonicalId": 2743412,
+      "canonicalSourceSha256": "5736ec89d3bc5e8aedea96d56af5f9415e9065914abe503dfd5d6806f9613ba2",
+      "verdict": "approved",
+      "reason": "Cambridge independently defines the disapproving adjective as too ready to criticize. The precise Chinese aliases all identify that attitude. Without sounding judgmental accurately matches 语气里没有妄加评判的意味; no unrelated judicial sense is imported.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/judgmental"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "impulsively",
+      "rowDigest": "aa7878c02cac4ef82ea32274ef01bc0b41a8a7a7d697ce9a15e2deb22aaa1cc5",
+      "canonicalId": 3137478,
+      "canonicalSourceSha256": "63cc5b6b8d264eaf452aa7f924b621a907713a264c8bfc4e30f23f6f1ab0d5a9",
+      "verdict": "approved",
+      "reason": "The independently confirmed adverb expresses acting suddenly without planning/considering consequences. The aliases are precise and the shopping-basket ticket sentence is natural; the Chinese preserves the impulsive action rather than a physical driving-force meaning.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/impulsively"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "hominy",
+      "rowDigest": "caf5bf398cf7123b489f41b95d937fa37116b707b2327a4215929a36148e16d6",
+      "canonicalId": 4396423,
+      "canonicalSourceSha256": "c0f81f12ce55876dd5cede02bdb9b88a8551189a4590e1316230fcf27e645786",
+      "verdict": "approved",
+      "reason": "Merriam-Webster confirms treated, dehulled corn kernels; the new source correctly distinguishes this ingredient from finished porridge. The mass-noun food use with beans and soup is coherent. Chinese aliases describe the selected ingredient rather than all corn or all grits.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/hominy"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "hugger",
+      "rowDigest": "affca7fdc2a517d62c8111821ce160ba1175f0f69fd77ad8fb9c9d18c0a37756",
+      "canonicalId": 4267851,
+      "canonicalSourceSha256": "fe87f752db528911f6454110a58f0f9a2c2e3856f791babfa7ecdc7614a6318d",
+      "verdict": "approved",
+      "reason": "Cambridge confirms a count noun for a person who likes expressing affection by hugging, with huggers plural. The exact aliases retain that person sense. The new wave-greeting example naturally demonstrates the speaker is not much of a hugger, and the Chinese meaning is equivalent.",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/hugger"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "tenuously",
+      "rowDigest": "a8edb59c895818d29ed41779b21277a0d3b7f613f03986ea69b0099d141e08cb",
+      "canonicalId": 4394759,
+      "canonicalSourceSha256": "c70b5ae49797a557518248f04e84332e664a94c986d318f89f9000b789ff5dd8",
+      "verdict": "approved",
+      "reason": "Cambridge confirms weak/uncertain connection and fragile attachment uses. The selected connection sense, adverb POS and Chinese aliases align. Mention of the same town offers only a slender link between reports; the colon rendering faithfully explains by a reference, without inventing causal evidence.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/tenuously"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "restructuring",
+      "rowDigest": "7c4f650da1631b2bb17f624ae856f17003758c6a747c9a7f82416cd14aea4bae",
+      "canonicalId": 2254798,
+      "canonicalSourceSha256": "fa6f6a1d06424b2d5d241b366b539e1e93612779912e1eaf4e9559a74cb68e0c",
+      "verdict": "approved",
+      "reason": "Cambridge confirms a count/uncount organization-change noun. Restructurings is a genuine possible plural, not a guessed verb form. A changed reporting line is a concrete organizational restructuring example; company/department/organization aliases are precise for this selected sense.",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/restructuring"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "springer",
+      "rowDigest": "4cae96b86ed8e226f2dd8098a522d8bf43aecbb20a13975fc408dcb6c06127c1",
+      "canonicalId": 3625755,
+      "canonicalSourceSha256": "aec62652befaa64863242863fcd282566e7b857598dd22994eeaa75705db125b",
+      "verdict": "approved",
+      "reason": "Merriam-Webster explicitly includes springer spaniel as a springer noun sense. The new source and aliases limit it to that dog and genuine springers plural. Carrying a ball back to an owner is natural and translates without adding breed-specific factual claims.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/springer"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "tum",
+      "rowDigest": "e1cbc408b4c6413e8289cc3deed4f837fd1972154d9e6e64740ab0354f392e7a",
+      "canonicalId": 3646493,
+      "canonicalSourceSha256": "74cd016fda3fbc1969818a40a9c40ddf522b1366402176f75404757d2312aa7e",
+      "verdict": "approved",
+      "reason": "Cambridge identifies the count noun as UK informal/child’s stomach word. Tums is a genuine plural. Patting one’s tum after feeling full is natural; the selected Chinese aliases preserve the register and the translation matches the speech and gesture.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/tum"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "oap",
+      "rowDigest": "962635dfae240048725418978dea01e8998b2e3e674de27c80b6f6fbdf73fdba",
+      "canonicalId": 3604135,
+      "canonicalSourceSha256": "d41284844fafa49ff60fb3b594c703c5571d7f6f30d4ddd4528b8cb0305951a9",
+      "verdict": "approved",
+      "reason": "Cambridge confirms OAP means an old-age pensioner/person, not the pension payment. The definition and aliases retain the recipient role, the UK/older label is supported, and OAPs is attested. Reduced membership fees are coherent and the Chinese preserves the beneficiary.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/oap"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "sixths",
+      "rowDigest": "065469069211969eb9ea500c00a64aaeb7ea48285f32394406cc792b7935bea4",
+      "canonicalId": 4464356,
+      "canonicalSourceSha256": "5204a2538d82884dd769d84ad13e186bc87193b18764516d33ed7c5119472979",
+      "verdict": "approved",
+      "reason": "Cambridge explicitly gives the fractional count-noun sense and sixths plural. Dividing/folding a paper strip into sixths naturally gives six equal portions; both Chinese aliases and example distinguish this from sixth form or an ordinal position.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/sixth"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "ISS",
+      "rowDigest": "ebd2ffa954778b34901c8ec1028acf16ae33885f6ddfd6901063ed6251bff587",
+      "canonicalId": 4540562,
+      "canonicalSourceSha256": "1df1e398ffc646c2517d0944d7e517c5dc446eca8459e781acc0e969ddfc3e12",
+      "verdict": "approved",
+      "reason": "NASA independently confirms ISS as International Space Station. The added source explicitly selects a space facility, not the old ion-scattering sense; no forms are invented. Astronauts waving to a camera inside it is natural, and Chinese matches the spatial and action details.",
+      "references": [
+        "https://www.nasa.gov/reference/international-space-station/"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "supplements",
+      "term": "geordie",
+      "rowDigest": "ce3bdc7f42cb05b38bec48faeb63a1bac94558bffe2e77c95b9c5a9592671d2c",
+      "canonicalId": 2800830,
+      "canonicalSourceSha256": "488fb512b81a543ba0d38d9f52eda52aca1c92ba92dd68dd0928ae54ebbb08f2",
+      "verdict": "approved",
+      "reason": "Cambridge confirms the Tyneside-person count noun, separately from the dialect. Geordies is a genuine plural with normal capitalization. The speaker’s origin remains after moving away; Chinese and exact aliases preserve the people/region sense without narrowing every Geordie to Newcastle.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/geordie"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    }
+  ],
+  "counts": {
+    "reviewed": 22,
+    "approved": 22,
+    "needsFix": 0,
+    "unverified": 0
+  },
+  "scope": "Only these 9 correction rows and 13 explicit new selected-sense rows at the exact recorded row/source/canonical digests. No approval of later changes or of other dictionary senses; no assertion that old raw dictionary definitions were repaired."
+}
