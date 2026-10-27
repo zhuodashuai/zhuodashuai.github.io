@@ -59,9 +59,12 @@ test('common Chinese queries return the intended person, action, product or sens
 test('qualifiers and unrelated senses cannot be discarded while expanding everyday Chinese queries', () => {
   for (const query of ['不是人工客服','不需要转机','转机的反义词','不退款','无需充电线',
     '有糖','无热量','食物不耐受','处方药','药物过敏','无性别厕所','客房保洁',
-    '课程大纲','双倍工资','内存','唇部磨砂','变压器','普通电炉','废品回收站']) {
+    '双倍工资','内存','唇部磨砂','变压器','普通电炉','废品回收站']) {
     assert.equal(searchEverydayDictionary(query), null, query);
   }
+  // A newly covered neighbouring concept must keep its own meaning rather
+  // than borrowing the older class-schedule alias.
+  assert.deepEqual(searchEverydayDictionary('课程大纲').results.map(row => row.term), ['syllabus']);
 });
 
 test('every listed Chinese alias, English head and genuine form resolves with an original bilingual example', () => {
