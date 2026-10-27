@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8077f60eec5245d0ad3e1f635954d8edc23e316a26c7d6613938571b11be3a2f",
+  "reviewer": "AI/root-independent-c-reader",
+  "independentOfAuthor": true,
+  "method": "Read all25 complete POS/meaning/alias/EN/ZH tuples, requested three semantic revisions, reread revised tuples and checked exact author source. Primary terminology cross-checks plus lexical review; not a claim that every cited publisher page was retrievable.",
+  "decisions": [
+    {
+      "term": "unpaid phone charges",
+      "rowSha256": "670b440b6699599df45cbbd74172ea03bd3fd4884f82652daa8368164247c2ee",
+      "decision": "approve-new-row",
+      "reason": "Unpaid means not yet paid; does not invent a postpaid overdue deadline or imply every account is billed monthly."
+    },
+    {
+      "term": "phone service suspension",
+      "rowSha256": "1fac21f623957f57e80987635c8463b30306ea4bbfd491a99076cfc01aa2e5d4",
+      "decision": "approve-new-row",
+      "reason": "Suspension identifies paused service without diagnosing nonpayment as its only cause."
+    },
+    {
+      "term": "data plan",
+      "rowSha256": "8aa21751ea6537050f9e2832faabf14f891259c0342b98417ff3fa81b97d5ee2",
+      "decision": "approve-new-row",
+      "reason": "A mobile-data service plan is distinct from phone storage; original example suits the noun phrase."
+    },
+    {
+      "term": "run out of mobile data",
+      "rowSha256": "5d186f377ab3f510ee196a07e71fd5e0f4791e500b9a60d5bdfe1c493acb2f49",
+      "decision": "approve-new-row",
+      "reason": "The allowance is used up; past-tense ran out in the example retains the same sense."
+    },
+    {
+      "term": "turn on a mobile hotspot",
+      "rowSha256": "036e4793049f60ecf6f0dd7e55f1b3f2449fd1bb7d399d9559d27b8d1080d1b8",
+      "decision": "approve-new-row",
+      "reason": "Revised definition shares a network connection without claiming all phone hotspots exclusively use cellular upstream."
+    },
+    {
+      "term": "poor reception",
+      "rowSha256": "19298777a04d2b2f63a2ef2d649d20431486e0f9056764a02fa39879fffd55f8",
+      "decision": "approve-new-row",
+      "reason": "Reception here is signal quality; breaking-up call demonstrates the sense rather than a reception desk."
+    },
+    {
+      "term": "cannot connect to the internet",
+      "rowSha256": "890cd27cc30e373e3fa8fd21faf095241a23a4e72da3b0974a8be6eb0b21eb8e",
+      "decision": "approve-new-row",
+      "reason": "A complete negative statement of connection failure; no inferred cause or deletion of the negative."
+    },
+    {
+      "term": "Wi-Fi password",
+      "rowSha256": "5449a6a0f9e70fe21466c80508ffc4fc1f8f7834591275f6cbae6dc873f6d33b",
+      "decision": "approve-new-row",
+      "reason": "Network access password, not an account password; mixed-script exact aliases retain Wi-Fi subject."
+    },
+    {
+      "term": "laundry pod",
+      "rowSha256": "5537fb16b97f0a1953ae6ab452e9d6b5d577045be8a5bd3f7a6490aebb91686f",
+      "decision": "approve-new-row",
+      "reason": "A unit-dose laundry product in soluble film; no handling or treatment instructions are introduced."
+    },
+    {
+      "term": "collar stain",
+      "rowSha256": "e42b8beb03e398c343e915ef3ee0d489bcf3dcc1603a265ef29b3486c229de2a",
+      "decision": "approve-new-row",
+      "reason": "A stain at the collar; example and three aliases preserve its location."
+    },
+    {
+      "term": "static electricity",
+      "rowSha256": "b26d2cb6358e5aef09093b4114d99b2c1577af21673b83ec0b6f989a2bced976",
+      "decision": "approve-new-row",
+      "reason": "Accumulated charge and sweater crackle support the ordinary physical sense; static cling is a possible effect, not a forced synonym."
+    },
+    {
+      "term": "tumble-dry",
+      "rowSha256": "c8a87e8d5e86eda89ace1c96ff26bc580bbab2499be8b9e0d523d81dbcb5244d",
+      "decision": "approve-new-row",
+      "reason": "Revised definition describes the rotating dryer without unnecessarily requiring heated air; distinct from spin-dry."
+    },
+    {
+      "term": "spin-dry",
+      "rowSha256": "bb9862588d4a6935a3b74e4e583fe222b6b8d8bb6fd6df8bfc3f0af552bce3f3",
+      "decision": "approve-new-row",
+      "reason": "Spin removes much water mechanically; aliases retain laundry context rather than mapping all dehydration to this verb."
+    },
+    {
+      "term": "timetable clash",
+      "rowSha256": "bd2e628677c4129fed9c71ca055ca95319a1721812bc517af97ae98e99b3eea0",
+      "decision": "approve-new-row",
+      "reason": "Overlapping class times are a timetable clash; independently checked UNSW class-registration and forms terminology."
+    },
+    {
+      "term": "submit an assignment late",
+      "rowSha256": "6e8c1c507891a332ec17e908e2ed9658368cdc01e68777f327b214eb8c66a802",
+      "decision": "approve-new-row",
+      "reason": "Revision now means after the deadline; removed the overbroad Chinese补交作业 alias."
+    },
+    {
+      "term": "submit by an extended deadline",
+      "rowSha256": "59614e6c09741d83bf5bc57c58107a61b08ebca8f6d0cb0818e7afc00ee17c9d",
+      "decision": "approve-new-row",
+      "reason": "Granted extension and revised deadline are preserved; does not equate any late submission with an approved extension."
+    },
+    {
+      "term": "revision suggestions",
+      "rowSha256": "af19cba5e122764e7505158b542a0ef2aaa3b5f13ba79e1e6de1bc1fbb75b8ee",
+      "decision": "approve-new-row",
+      "reason": "Suggestions for revising written work; plural noun agrees with the original example."
+    },
+    {
+      "term": "divide up group tasks",
+      "rowSha256": "5956d3803464914c7a18fd92ef9738e4d11736e45d9cbf75020bce58d1610f09",
+      "decision": "approve-new-row",
+      "reason": "Distribute group work among members; does not imply equal shares."
+    },
+    {
+      "term": "arrange a time",
+      "rowSha256": "709bc86e2508cb26a3e717e1907f3018c6be393559f1c87b6d9c4aa78b7181c9",
+      "decision": "approve-new-row",
+      "reason": "Agree a time for a meeting or discussion; a natural project-discussion sentence."
+    },
+    {
+      "term": "is this a good time to talk",
+      "rowSha256": "61620e6000100a95ae367751b7c03e6b66c3b7ba6d1043319df3d984523991aa",
+      "decision": "approve-new-row",
+      "reason": "A polite complete question; does not assert availability or request a general appointment."
+    },
+    {
+      "term": "have something urgent to deal with",
+      "rowSha256": "1593189feb3f511c7113986a9b305c187d9748c5f87348ca7ca99033b2b33b1c",
+      "decision": "approve-new-row",
+      "reason": "An urgent personal matter, without automatically labelling it a life-threatening emergency."
+    },
+    {
+      "term": "be a little late",
+      "rowSha256": "798002fe181991bff4783d1e6409e2d925b94e3d3b3e59608dcb54db17b53413",
+      "decision": "approve-new-row",
+      "reason": "Slight lateness of arrival is explicit; natural bus-delay reason in the original pair."
+    },
+    {
+      "term": "head off first",
+      "rowSha256": "f4a3dafbc27707431f2fe829c4b1749c60b9164ef868ea558ab12bfbc8289df7",
+      "decision": "approve-new-row",
+      "reason": "Leave ahead of others in this stated everyday context; not the head-off-prevent sense."
+    },
+    {
+      "term": "get in touch then",
+      "rowSha256": "a1e1b815bc2d3c1a3490ac1c1acde5179dab73a2ba5fde57df73b4f67ff2fbc1",
+      "decision": "approve-new-row",
+      "reason": "Then refers to the already discussed future time; confirmation example is aligned."
+    },
+    {
+      "term": "take turns paying for meals",
+      "rowSha256": "2ce7f8fbaaf5011759aef71ac8ad295771a06b43ff176883b2d31688c07281b2",
+      "decision": "approve-new-row",
+      "reason": "Alternating who pays for shared meals, distinct from splitting each individual bill."
+    }
+  ],
+  "aliasDecisions": [
+    {
+      "term": "reschedule",
+      "rowSha256": "8b6b3e65400eb822bb54c3763836f60df833a6247d9dfe4b3dae43cb179c8795",
+      "decision": "approve-alias-only",
+      "reason": "The existing reschedule verb means arrange a different time; two colloquial Chinese requests name that exact action and retain the original body."
+    }
+  ]
+}

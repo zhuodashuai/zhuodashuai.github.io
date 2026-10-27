@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/next_quality_inventory",
+  "entries": [
+    {
+      "term": "get a ticket refund",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 获得票款退款；通过退票等方式取回所付票款。",
+      "chineseAliases": [
+        "退票",
+        "退票退款",
+        "获得票款退款"
+      ],
+      "englishForms": [],
+      "en": "I asked whether I could get a ticket refund after the event was cancelled.",
+      "zh": "活动取消后，我询问是否可以获得票款退款。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/refund"
+      ]
+    },
+    {
+      "term": "miss the bus",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 没赶上公交车；到达太晚等原因使自己未能乘上原本要坐的公共汽车。",
+      "chineseAliases": [
+        "赶不上公交",
+        "没赶上公交车",
+        "错过公交车",
+        "赶不上公交车"
+      ],
+      "englishForms": [],
+      "en": "We missed the bus and waited for the next one.",
+      "zh": "我们没赶上公交车，只好等下一班。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/miss"
+      ]
+    },
+    {
+      "term": "on the way",
+      "partOfSpeech": "phrase",
+      "meaning": "① 在途中；在前往某地的路上。\n② 顺路；某个地点位于前往目的地所经的路线上。",
+      "chineseAliases": [
+        "顺路",
+        "在前往某地的路上",
+        "沿途经过"
+      ],
+      "englishForms": [],
+      "en": "The post office is on the way to the station.",
+      "zh": "去车站的路上会经过邮局。",
+      "references": [
+        "https://dictionary.cambridge.org/us/grammar/british-grammar/in-the-way-or-on-the-way."
+      ]
+    },
+    {
+      "term": "fee-free",
+      "partOfSpeech": "adjective",
+      "meaning": "① 免收相关费用的；在转账等服务场景中，可表示免手续费，不等于所有成本或价差都不存在。",
+      "chineseAliases": [
+        "免手续费",
+        "不收手续费",
+        "手续费全免"
+      ],
+      "englishForms": [],
+      "en": "The app offered a fee-free transfer that month.",
+      "zh": "那个月，这款应用提供了一次免手续费的转账。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/fee-free"
+      ]
+    },
+    {
+      "term": "QR code for receiving payments",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 收款码；由收款方提供、让他人扫码向其付款的二维码。这里指收款方的码，与付款方出示供商家扫描的付款码不同。",
+      "chineseAliases": [
+        "收款码",
+        "收款二维码",
+        "扫码收款码"
+      ],
+      "englishForms": [],
+      "en": "The stallholder displayed a QR code for receiving payments beside the price list.",
+      "zh": "摊主在价目表旁展示了收款二维码。",
+      "references": [
+        "https://stripe.com/resources/more/qr-codes-thailand"
+      ]
+    },
+    {
+      "term": "failed payment",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 支付失败；未能成功完成的付款。这个表达本身不说明具体失败原因。",
+      "chineseAliases": [
+        "支付失败",
+        "付款失败",
+        "扣款失败"
+      ],
+      "englishForms": [],
+      "en": "The failed payment appeared in the order history.",
+      "zh": "这笔失败的付款显示在了订单记录中。",
+      "references": [
+        "https://docs.stripe.com/declines/card"
+      ]
+    },
+    {
+      "term": "payment reference",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 付款备注；转账附言。付款时附上的文字、编号等说明，用于识别或说明这笔款项，不一定是银行自动生成的交易流水号。",
+      "chineseAliases": [
+        "转账备注",
+        "付款备注",
+        "转账附言"
+      ],
+      "englishForms": [],
+      "en": "I put the invoice number in the payment reference.",
+      "zh": "我在付款备注里填了发票号码。",
+      "references": [
+        "https://www.natwest.com/business/support-centre/making-and-accepting-payments/electronic-payments/sepa.html",
+        "https://www.natwest.com/support-centre/general-banking-information/general/why-some-payee-names-show-in-uppercase.html"
+      ]
+    },
+    {
+      "term": "transfer money to the wrong account",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 转错账；把钱转到了并非原本打算收款的账户。",
+      "chineseAliases": [
+        "转错账",
+        "转到错误账户",
+        "把钱转错账户"
+      ],
+      "englishForms": [],
+      "en": "I transferred money to the wrong account and contacted my bank.",
+      "zh": "我把钱转错了账户，随后联系了银行。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/transfer"
+      ]
+    },
+    {
+      "term": "freeze a bank card",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 冻结银行卡；暂时限制卡片的交易功能，常用于暂时锁卡，不等于冻结整个银行账户。",
+      "chineseAliases": [
+        "冻结银行卡",
+        "暂时锁卡",
+        "锁定银行卡"
+      ],
+      "englishForms": [],
+      "en": "I used the banking app to freeze a bank card I could not find.",
+      "zh": "我在银行应用里冻结了一张找不到的银行卡。",
+      "references": [
+        "https://www.lloydsbank.com/help-guidance/everyday-banking/card-and-pin-services/lost-or-stolen-cards.html"
+      ]
+    },
+    {
+      "term": "itemized bill",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 明细账单；逐项列出商品、服务或费用的账单，可用于向对方索取账单明细。",
+      "chineseAliases": [
+        "账单明细",
+        "明细账单",
+        "逐项列明的账单"
+      ],
+      "englishForms": [],
+      "en": "The hotel emailed me an itemized bill for the room and meals.",
+      "zh": "酒店通过电子邮件发来了客房和餐饮费用的明细账单。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/itemized"
+      ]
+    },
+    {
+      "term": "submit a missing assignment",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 补交之前缺交的作业；把原先尚未提交的那份作业交上去。这个表达本身不确定是否超过截止时间。",
+      "chineseAliases": [
+        "补交作业",
+        "补交未交的作业",
+        "补交缺交作业"
+      ],
+      "englishForms": [],
+      "en": "My tutor asked me to submit a missing assignment.",
+      "zh": "导师让我补交一份之前没交的作业。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/submit",
+        "https://dictionary.cambridge.org/dictionary/english/missing"
+      ]
+    }
+  ],
+  "aliases": [],
+  "notes": [
+    "Authored for independently measured remaining everyday intent gaps; author has not approved these rows.",
+    "补交作业 is intentionally a missing-submission sense, separate from C late-submission row; no deadline is inferred.",
+    "miss the bus uses explicit公交aliases; the generic赶不上车 remains ambiguous between bus/train/other transport.",
+    "Receiving-payment QR code is explicitly merchant/payee-presented; no blanket equivalence to a payer-presented付款码 is claimed.",
+    "Financial words are lexical learning material only. No recovery guarantee, refund entitlement, banking procedure or fee amount is supplied.",
+    "All examples and definitions are original; primary service/dictionary references support ordinary terminology. Existing968 curated and concurrent A/B/root/C literal heads/forms were checked for duplicates."
+  ]
+}

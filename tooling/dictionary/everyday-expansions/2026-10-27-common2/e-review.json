@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "79a065e96f82efdcbe4712d82703812abae2506a1b9da405416877fadf54aadc",
+  "reviewer": "AI/root-independent-e-reader",
+  "independentOfAuthor": true,
+  "method": "Independently read all11 exact head/POS/Chinese/aliases/EN/ZH tuples; checked sense boundaries against actual measured misses and accepted only explicit transport/payment roles. Original lexical examples, no promises about service outcomes.",
+  "decisions": [
+    {
+      "term": "get a ticket refund",
+      "rowSha256": "deeb9f0834844b971551e1d5b590f527fb003a6368ec7e569174deb0e9e0c871",
+      "decision": "approve-new-row",
+      "reason": "Refund receipt is not a standby ticket; no guaranteed entitlement or amount is stated."
+    },
+    {
+      "term": "miss the bus",
+      "rowSha256": "62a7225fce31cc6765652061770e7f4fd84534439352927f3319e4c39b5342c1",
+      "decision": "approve-new-row",
+      "reason": "Only explicit bus aliases are accepted; general车 could also mean train and is not forced to this sense."
+    },
+    {
+      "term": "on the way",
+      "rowSha256": "2a091657d53a7d5683c47981a5ec62956b5167bd1d9f5ea009f717b3868b8d9f",
+      "decision": "approve-new-row",
+      "reason": "Two numbered senses distinguish travelling en route and a location on that route; the post-office example demonstrates the second."
+    },
+    {
+      "term": "fee-free",
+      "rowSha256": "9e78213d710bab05390961696028aeafaa2030fd26f562823a7b4dc3f97bd8f8",
+      "decision": "approve-new-row",
+      "reason": "Fee-free modifies the specified service fee; it is not a promise that every exchange spread or other cost disappears."
+    },
+    {
+      "term": "QR code for receiving payments",
+      "rowSha256": "99b708cf5709fcd50a96a22e195c0c3ff03d5d2bc01380063d529e80b9a42873",
+      "decision": "approve-new-row",
+      "reason": "Payee-presented receiving code is explicitly distinguished from a payer-presented payment code; original shop-stall example is aligned."
+    },
+    {
+      "term": "failed payment",
+      "rowSha256": "0ccf2d54b94bb309b85e59f5822d7edd71fe560ae0fb7c17a0e79f61b6f36053",
+      "decision": "approve-new-row",
+      "reason": "A payment did not complete successfully, without inferring a cause or asserting a reversal occurred."
+    },
+    {
+      "term": "payment reference",
+      "rowSha256": "2519c9996f93b21da922fbfa42499df2a244974a961823f935f4a90ce8c18bb3",
+      "decision": "approve-new-row",
+      "reason": "Payment reference is attached information used to identify a payment; it need not be an automatically generated bank transaction ID."
+    },
+    {
+      "term": "transfer money to the wrong account",
+      "rowSha256": "2f777d71e26663cd7e217a31951759cc5587f78d4ac11e5592e4bfae027a81d3",
+      "decision": "approve-new-row",
+      "reason": "Money went to the unintended account; the example adds no refund or recovery guarantee."
+    },
+    {
+      "term": "freeze a bank card",
+      "rowSha256": "16f2d6709785f6d1bb9a3bcbfc332c49ba3eb7d9ddb75f230106167c533df1bf",
+      "decision": "approve-new-row",
+      "reason": "Temporary card transaction restriction, distinct from freezing the entire bank account; independently checked Lloyds terminology."
+    },
+    {
+      "term": "itemized bill",
+      "rowSha256": "86292a943524ff1298480caef83190a48f3362cae96b78612d4ad455e026cc17",
+      "decision": "approve-new-row",
+      "reason": "An itemized bill lists individual charges; room-and-meals original example clearly demonstrates the noun phrase."
+    },
+    {
+      "term": "submit a missing assignment",
+      "rowSha256": "c0d75a2a0eeced603367f83099203fcee19ceb20d3786ec43b2bb0ae22484a70",
+      "decision": "approve-new-row",
+      "reason": "Submit the previously missing work; no inference of lateness or an approved deadline extension, distinct from C late assignment row."
+    }
+  ],
+  "aliasDecisions": []
+}

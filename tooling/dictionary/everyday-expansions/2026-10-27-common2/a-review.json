@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "3c1db3ab688a1000b1e92aa9e3bacb180349bdf9bf8c6d051488f13cd907b0e3",
+  "reviewer": "AI/quality_release_capacity",
+  "independentOfAuthor": true,
+  "issues": [],
+  "decisions": [
+    {
+      "term": "online customer support",
+      "rowSha256": "3b5d3837f3019be7fcb362b3bbf50aa461070bc467d7456a77868e2b8165435b",
+      "decision": "approve-new-row",
+      "reason": "Online support means service through digital channels, not a guarantee of a human agent. Shopify describes chatbot, live-agent, email and other digital channels. Payment-page example and Chinese align.",
+      "referencesRead": [
+        "https://www.shopify.com/blog/digital-customer-service"
+      ]
+    },
+    {
+      "term": "ticket number",
+      "rowSha256": "a0ba3844068d1f63bbcb10fb52360eeec0853d50ae91a14b3365464b59956815",
+      "decision": "approve-new-row",
+      "reason": "Customer-support scope is explicit and distinct from a transport ticket. Zendesk establishes support tickets and identifying numbers; request to include that identifier is natural.",
+      "referencesRead": [
+        "https://support.zendesk.com/hc/en-us/articles/4408881925786-Lesson-1-From-support-requests-to-tickets"
+      ]
+    },
+    {
+      "term": "withdraw a complaint",
+      "rowSha256": "c922123af2efad2c3473e50560aea78af2b86df1c424b53a596abba5bdcfd850",
+      "decision": "approve-new-row",
+      "reason": "Cambridge explicitly gives withdraw a complaint and the irregular withdrew/withdrawn forms. Possessive her in the original sentence is a normal use of the same verb phrase; no policy effects are asserted.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/withdraw"
+      ]
+    },
+    {
+      "term": "lost parcel",
+      "rowSha256": "4cb50e37d0c46a6eb06944d0605d5c80b417a7258296d5fb212ebfc403b0448a",
+      "decision": "approve-new-row",
+      "reason": "Post Office distinguishes lost, delayed and damaged mail. The courier investigation example teaches actual loss without treating a delay as proved loss.",
+      "referencesRead": [
+        "https://www.postoffice.co.uk/contact-us/posting"
+      ]
+    },
+    {
+      "term": "redelivery",
+      "rowSha256": "07c5dab3396a98be9432c0490b8580a31377dff9fe42561de787b22204cffb42",
+      "decision": "approve-new-row",
+      "reason": "Royal Mail directly uses redelivery and redeliveries for a further delivery attempt following missed delivery. The invented scheduled-day example is natural and claims no universal free service.",
+      "referencesRead": [
+        "https://www.royalmail.com/receiving-mail/redelivery"
+      ]
+    },
+    {
+      "term": "dropped call",
+      "rowSha256": "3dc3326564ff929fdf51f0a10f2c73000a9ad9934c01009f733ad4d4bc965785",
+      "decision": "approve-new-row",
+      "reason": "Google Voice explicitly distinguishes missed or dropped calls. The meaning is an unintentionally interrupted call and the return-call sentence fits it; no missed-call synonym is added.",
+      "referencesRead": [
+        "https://support.google.com/voice/answer/10063441?hl=en"
+      ]
+    },
+    {
+      "term": "product specifications",
+      "rowSha256": "68fb268f808fae8b8068ed3aa14800d820fd9193a1ee2ed9fa4b7c19088fb790",
+      "decision": "approve-new-row",
+      "reason": "Cambridge authenticates detailed specifications, commonly plural. Product dimensions/materials/performance and the shelf-fitting example align; no dimensions are invented as product facts.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/specification"
+      ]
+    },
+    {
+      "term": "buy one get one free",
+      "rowSha256": "a572f88023fdb15335880d638a587a30a4a0940cf6c9b54c2e42cfd4f0392221",
+      "decision": "approve-new-row",
+      "reason": "Cambridge BOGO and BBC Learning English establish the retail expression. Eligible products/qualifying promotion scope is retained; the notebook sign is an original plausible scenario.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/bogo",
+        "https://downloads.bbc.co.uk/worldservice/learningenglish/uptodate/pdf/090421_uptodate_bogof_for_pdf_3.pdf"
+      ]
+    },
+    {
+      "term": "spend-and-save offer",
+      "rowSha256": "f497355e7d0899925448391a312c5ef65cb14bbfd73817fcfa9aac18c65049cd",
+      "decision": "approve-new-row",
+      "reason": "Tesco’s own spend-and-save promotion directly demonstrates threshold spending followed by a reduction. The definition does not teach all discounts as threshold offers or claim the historic promotion is current.",
+      "referencesRead": [
+        "https://www.tesco.com/shop/en-GB/buylists/frozen-spend-and-save/frozen-coupon"
+      ]
+    },
+    {
+      "term": "partial shipment",
+      "rowSha256": "d0c9f359addb2a64942e01e952dd2e9204add689cc541d6ba4bab1ba3406d4df",
+      "decision": "approve-new-row",
+      "reason": "DHL’s actual glossary explicitly defines delivery of one order in multiple shipments. The missing-item example and Chinese splitting into batches match that stated sense.",
+      "referencesRead": [
+        "https://www.dhl.com/discover/en-ca/logistics-advice/essential-guides/logistics-jargon-buster"
+      ]
+    },
+    {
+      "term": "trial-size product",
+      "rowSha256": "b7c5674cd61fb44fcd770b56947c8375436b848bc746890f8a8b4cf233e19655",
+      "decision": "approve-new-row",
+      "reason": "Boots explicitly markets trial-size shampoo/conditioner items in a paid trial set. The definition correctly avoids equating trial-size with free samples or all travel-size products.",
+      "referencesRead": [
+        "https://www.boots.com/amika-hydro-dream-hydration-routine-trial-set-210ml-10368900"
+      ]
+    },
+    {
+      "term": "no-questions-asked returns",
+      "rowSha256": "9861c36fb4ddcc2bdfd29735b1cc0abd9bd825f27e307b2cca62e4246c093da6",
+      "decision": "approve-new-row",
+      "reason": "Cambridge authenticates without first asking for reasons/explanations. The entry correctly allows separate time/item conditions; the fourteen-day shop example is an invented particular policy, not statutory advice.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/no-questions-asked"
+      ]
+    },
+    {
+      "term": "tamper-evident seal",
+      "rowSha256": "9e43ed61d9b8c4a1ded22e365595660d1dd00df33ce59e1ab162b23abd162e8d",
+      "decision": "approve-new-row",
+      "reason": "Cambridge explicitly includes tamper-evident seals/packaging showing whether opened or changed. Visible evidence is distinguished from impossible-to-open packaging, and torn seal example fits.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/tamper-evident"
+      ]
+    },
+    {
+      "term": "refurbished device",
+      "rowSha256": "b14792db20018481bcd37ad03ae927301b00d9c9293ceedaf8e0cebe4e35bfb0",
+      "decision": "approve-new-row",
+      "reason": "Apple’s own refurbishment page lists testing, inspection, cleaning and replacement as needed. New definition is appropriately general about variable scope and distinguishes refurbished from new.",
+      "referencesRead": [
+        "https://www.apple.com/shop/refurbished/about"
+      ]
+    },
+    {
+      "term": "one bill, please",
+      "rowSha256": "cf7b90d094b23b1028457188176ed58df6f2811d08a29765d7dd83ce8c4dc5ab",
+      "decision": "approve-new-row",
+      "reason": "Cambridge’s payment/restaurant bill sense supports the compositional request. Combining the bill is explicitly separated from equal splitting or one person ultimately paying every share.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/bill"
+      ]
+    },
+    {
+      "term": "no added sugar",
+      "rowSha256": "9f6f2b931aba7b82470184be50fd2b0f35f69ff1bd3b6c172306d610fad247fc",
+      "decision": "approve-new-row",
+      "reason": "NHS food-label page explicitly says naturally occurring sugar can remain in no-added-sugar products. The fruit-juice example matches this distinction without equating the phrase to sugar-free.",
+      "referencesRead": [
+        "https://www.myhealthlondon.nhs.uk/resources/internal/food-labels/"
+      ]
+    },
+    {
+      "term": "dietary restriction",
+      "rowSha256": "16dc39844699ae22e67e4d069003f061b4f979732ff031dae405444af69688ab",
+      "decision": "approve-new-row",
+      "reason": "The NHS institutional page directly uses dietary restrictions. General limits due to health/religion/other reasons are semantically appropriate; it is not treated as synonymous only with allergy.",
+      "referencesRead": [
+        "https://www.stockport.nhs.uk/patients-visitors/visitors/before/"
+      ]
+    },
+    {
+      "term": "spill a drink",
+      "rowSha256": "ee394d7704bdcb577ce910b2ddc2f880f4b068f47611acbc097cf18962817bbc",
+      "decision": "approve-new-row",
+      "reason": "Cambridge gives spill liquids outside a container and both spilled/spilt forms. The moving-bus/my-drink example is a normal instance of the same phrase and the Chinese preserves near-spill.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/us/dictionary/english/spill"
+      ]
+    },
+    {
+      "term": "dead outlet",
+      "rowSha256": "e1333ed09843fd78eae1b83e60c478763d56690ae08b89c2fc0554bbdeb0cbe8",
+      "decision": "approve-new-row",
+      "reason": "Cambridge authenticates dead equipment as not working. Electrical outlet is explicit, and laptop battery reliance is a plausible result without repair instructions.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/us/dictionary/english/dead"
+      ]
+    },
+    {
+      "term": "smell of gas",
+      "rowSha256": "7c1e5fea481564d7ebea0f57c3ec4e250339a1878d1d2c34edeb5c604e1d29d4",
+      "decision": "approve-new-row",
+      "reason": "Cadent’s primary report explicitly uses smell of gas in a reported gas-escape context. The entry describes an odor resembling domestic fuel gas; it does not assert that every smell proves a leak.",
+      "referencesRead": [
+        "https://cadentgas.com/news/october-2026/urgent-gas-repair-works-on-birmingham-road"
+      ]
+    },
+    {
+      "term": "non-slip mat",
+      "rowSha256": "66f660fb8c6a836a6e143dfa794e451d30d8ecf56a6b134d07dddd9c7f46eb52",
+      "decision": "approve-new-row",
+      "reason": "Cambridge defines non-slip as designed to prevent sliding. A mat used under a mixing bowl is within scope, and the definition does not promise absolute slip prevention.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/us/dictionary/english/non-slip"
+      ]
+    },
+    {
+      "term": "sealable bag",
+      "rowSha256": "78ce650bd7599ffce33dca3ecd1a64187adfed0695020d4f435aa564376c1364",
+      "decision": "approve-new-row",
+      "reason": "Merriam-Webster independently confirms sealable means capable of being sealed. IKEA provides a concrete bag example. The entry correctly does not require every sealable bag to be resealable.",
+      "referencesRead": [
+        "https://www.ikea.com/us/en/p/istad-resealable-bag-patterned-blue-red-40628344/"
+      ]
+    },
+    {
+      "term": "stuck drawer",
+      "rowSha256": "a2d687717b59984d53bc688f705afaf998bfece594366e02cadb47e6dc4b98d7",
+      "decision": "approve-new-row",
+      "reason": "Cambridge authenticates stuck as unable to move. The physical drawer/keys scenario and Chinese are consistent; inability to open is a valid narrower alias, not an invented synonym for a missing drawer.",
+      "referencesRead": [
+        "https://dictionary.cambridge.org/dictionary/english/stuck"
+      ]
+    }
+  ],
+  "aliasDecisions": [
+    {
+      "term": "refund to the original payment method",
+      "rowSha256": "f0eea6dc0fae93749ff5dc4d45939584be9779c23157bbce2ce853b7f7cdf206",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "fbf74e3052ba41855fe197b44fabb06f66c31e2e5acd3f7e45829e7f9ad7a93a",
+      "reason": "退回原支付方式 exactly matches the unchanged original-payment-method refund sense; it does not redirect payment to a new account."
+    },
+    {
+      "term": "delivery failure",
+      "rowSha256": "4aa62732a5687fd0c0737597748541a827700060ed653280bce13af821431569",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "386c39dc5b99385b62e21e4c53d81fcad36c829c70d1d9381d8162a251883c0c",
+      "reason": "派送失败 matches an unsuccessful delivery attempt in the unchanged target; it does not imply permanent parcel loss."
+    },
+    {
+      "term": "split an order",
+      "rowSha256": "5546ae5ff9df6f6a036e993ca44f9976a37d7268060820645fa8326f2d31b7e0",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "0383d5304f72a3ea9f11a1e62085827105395ef8e75da5249db4b8bbbccb4a1b",
+      "reason": "拆单 names the same action of splitting an order. The existing action body remains intact and is not merged with the separate shipment noun."
+    },
+    {
+      "term": "no coriander, please",
+      "rowSha256": "d28890727116dc130e5d1cf5ad87f0cb6095853f5b7de8ab676b2becb0e5972c",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "da4e2e97f9af226cbd28cc6cfc0b82513140b64ff0b376f364b8b858100f02a8",
+      "reason": "不加香菜 is the same dining request as the unchanged no-coriander expression; no allergy claim is added."
+    }
+  ],
+  "additionalPrimaryReferencesRead": {
+    "sealable bag": [
+      "https://www.merriam-webster.com/dictionary/sealable"
+    ]
+  },
+  "method": "Independent actual reading of all final EN/ZH, POS, numbered meaning, aliases/forms and primary dictionary/institutional/retailer source content, including primary indexed text when direct Cambridge pages returned403. Every old alias target body and exact hash was separately checked. This is semantic/data approval, not a claim that build, search/browser or publication checks have run."
+}

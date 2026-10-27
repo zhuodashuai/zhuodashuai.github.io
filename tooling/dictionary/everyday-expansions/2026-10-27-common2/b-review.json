@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "da85d9712c6aec920e6ef2d8d58f6ce115ee925d7b9cad432715b6f7020efcda",
+  "sourceRawSha256": "1afbd5185cdf7bebd92401c8dbfa73141b14bb954355ad43be37884b08a60626",
+  "reviewer": "AI/daily-common-next-a-reviewer",
+  "independentOfAuthor": true,
+  "reviewedAuthor": "AI/daily-common-next-b",
+  "createdAt": "2026-10-27T15:12:09.123Z",
+  "decisions": [
+    {
+      "term": "connection time",
+      "rowSha256": "dc24af0e0149a4f87432e2c6b7046488f65c41367b571e55c944d97c6d1ba34d",
+      "decision": "approve-new-row",
+      "notes": "The noun phrase means time between arriving and departing connecting services. BA directly uses connection times. The short-connection example and Chinese agree without guaranteeing that any particular interval is sufficient."
+    },
+    {
+      "term": "check-in deadline",
+      "rowSha256": "a7a36a4160bd9576da255d86d9f17f6477a76d9abfed7b556e7407798ffed92f",
+      "decision": "approve-new-row",
+      "notes": "BA defines this as the limit by which check-in must be completed. The revised actual-use sentence now demonstrates finishing before that deadline, with exact Chinese alignment; it is distinct from boarding time."
+    },
+    {
+      "term": "miss a connection",
+      "rowSha256": "42595800b6ed9374464ffda6f0def00774e9a9d63fb2dc1bb31e2087e42ac465",
+      "decision": "approve-new-row",
+      "notes": "The verb phrase concerns failure to catch an onward service. The conditional flight-delay example and scoped Chinese aliases are accurate, with genuine complete-phrase inflections."
+    },
+    {
+      "term": "stop button",
+      "rowSha256": "62782d8f7e81161dbcb3e8558da9a7ed897c0506331e7881c99e6f88549fb7e6",
+      "decision": "approve-new-row",
+      "notes": "Osaka Metro directly calls the button used to signal getting off a stop button. The bus/library example and Chinese fit that scoped usage, not an emergency-stop mechanism."
+    },
+    {
+      "term": "bus service suspension",
+      "rowSha256": "9d64785337144d68109ad6741e993aeb805bec09dc796c98e760f78058d73cf7",
+      "decision": "approve-new-row",
+      "notes": "Stagecoach directly describes bus services being suspended for a period. The row scopes suspension to temporary lack of service, not merely a closed stop. POS and Chinese match the travel consequence in the example."
+    },
+    {
+      "term": "move-in checklist",
+      "rowSha256": "60f7018558016fdeae4510796fcb20f15cd95d0ca7247476aac4b884c3b53463",
+      "decision": "approve-new-row",
+      "notes": "University of Iowa describes documenting existing unit condition on a move-in checklist. Recording the cracked window is a useful original example, distinct from a packing list."
+    },
+    {
+      "term": "hand over the keys",
+      "rowSha256": "4365707be8e1bca2dda29cb146ada83637c399f0456b1150cefeb24cebe94f3b",
+      "decision": "approve-new-row",
+      "notes": "Braintree Council directly uses this phrase for transferring a facility. The landlord/tenant scenario and separable-verb meaning are natural; handing keys over is not making duplicate keys."
+    },
+    {
+      "term": "lease expiry",
+      "rowSha256": "cfc3ecd9fbca0ae8545898c06d13430dc21cf419197e28bbec1d2d5c71e97712",
+      "decision": "approve-new-row",
+      "notes": "Bury Council directly uses lease expiry dates. The phrase, expiry-date calendar example and Chinese are precise without assuming any jurisdictional consequence of expiry."
+    },
+    {
+      "term": "renew a lease",
+      "rowSha256": "4ee5715ff6789f9d6c177df4bba4dc9c457c63b1b2fa8bb92d4103a6a42a0bda",
+      "decision": "approve-new-row",
+      "notes": "Fife Council directly distinguishes renewing an existing lease. The revised tenants asking to renew their lease for another year is natural and accurately translated."
+    },
+    {
+      "term": "deduction from the deposit",
+      "rowSha256": "8708c27bc480602a1d517898306c823da42ebf8253bd867d8982a7d4d8086000",
+      "decision": "approve-new-row",
+      "notes": "This is an amount removed from a previously paid deposit. The missing-key statement is a plausible fictional example; the definition does not claim any deduction is automatically justified."
+    },
+    {
+      "term": "maintenance request",
+      "rowSha256": "28c14587eade2ba304d80382470496c9d290106a0d860ffb84ad713ea684d378",
+      "decision": "approve-new-row",
+      "notes": "Berkeley Housing directly uses maintenance request for resident repair issues. The broken-heater scenario and Chinese repair-request noun match the service."
+    },
+    {
+      "term": "emergency repair",
+      "rowSha256": "6b3d997e16b8a5f7ed4d58cb965411871129a7b46df01e496487f002eb1f3de9",
+      "decision": "approve-new-row",
+      "notes": "Westminster distinguishes urgent danger/structural problems. A burst-pipe repair is a suitable original use, with no unsupported universal service deadline or repair instructions."
+    },
+    {
+      "term": "window condensation",
+      "rowSha256": "698c13d88d64347855334dd9258afd2aac94cfaf4d54deed0147dd8282f0a997",
+      "decision": "approve-new-row",
+      "notes": "Fife explains moist air condensing into water on a cold surface, including windows. The droplet example is accurate and does not confuse condensation with a building leak."
+    },
+    {
+      "term": "ceiling leak",
+      "rowSha256": "061ef0526e6b2e6ceb9c5ca972f96c3e320da5ce36133af7f22c5bed966d4646",
+      "decision": "approve-new-row",
+      "notes": "Renfrewshire explicitly discusses water leaking from ceilings and different possible origins. The damp-patch sentence, noun meaning and aliases agree without falsely naming the roof as the necessary cause."
+    },
+    {
+      "term": "lock cylinder",
+      "rowSha256": "959c2544958e02b4a5e3daa662840ad680e448ed86f10d1bcb127df6181bb50d",
+      "decision": "approve-new-row",
+      "notes": "ASSA ABLOY primary terminology and product material support the key-operated lock component. Replacing the damaged cylinder is accurately translated as replacing the core, not the whole lock."
+    },
+    {
+      "term": "spare key",
+      "rowSha256": "0c227e5f375f974183d40f9a7552d0d8f9c0a36370eb951ac245fdd7f676f1fe",
+      "decision": "approve-new-row",
+      "notes": "Spare here means kept as an extra for use when needed. Giving a sister an extra key is natural original usage and the Chinese aliases identify the same object."
+    },
+    {
+      "term": "feel bloated",
+      "rowSha256": "bffe87c129c903edef72f668d4bce75ac2e4e73e38dc3b2f78593e58d89f3f26",
+      "decision": "approve-new-row",
+      "notes": "NHS describes the tummy feeling full/uncomfortable. The selected verb phrase and Chinese symptom wording match, avoiding the malformed or unrelated source senses of bloating. No cause or treatment is inferred."
+    },
+    {
+      "term": "acid reflux",
+      "rowSha256": "1fc2e8e1086f6f8a37c3b646bda319cf6fa3e5e37f0582f2b4a3ddecc0f13276",
+      "decision": "approve-new-row",
+      "notes": "NHS defines acid travelling upward from the stomach. The nurse-symptom example is natural, and the row distinguishes the condition/description from diagnosing every burning or sour sensation."
+    },
+    {
+      "term": "stuffy nose",
+      "rowSha256": "8efaa6f91742d9cd05560c6879e78df5f0e7ac3667e0029a53543b64b894b86b",
+      "decision": "approve-new-row",
+      "notes": "MedlinePlus uses stuffy nose as a symptom. Nasal blockage and difficulty smelling the soup are semantically aligned; the row does not equate every case with a cold."
+    },
+    {
+      "term": "dry eyes",
+      "rowSha256": "46025bb292ea9db153e63b07c24be80d7efd13f337b45e35c6422d919a622e6a",
+      "decision": "approve-new-row",
+      "notes": "NHS authenticates the condition and eye discomfort. The plural head, dry-eye/video-call example and Chinese are consistent; no singular form is borrowed from an unrelated head."
+    },
+    {
+      "term": "sprained ankle",
+      "rowSha256": "3758906e517c96b5bd3f12aec5cd419ca9ea3d0fc3e05d4c586d2778a18e754f",
+      "decision": "approve-new-row",
+      "notes": "NHS distinguishes ligament sprains from muscle strains. The ankle-injury noun phrase and missed-walk example fit the scoped meaning and do not call it a fracture."
+    },
+    {
+      "term": "tingling in the hands and feet",
+      "rowSha256": "7e73faa80175970c27d7027ea8030eb38d70a49b5e109b7378b310f7f506cbfe",
+      "decision": "approve-new-row",
+      "notes": "NHS discusses pricking/tingling in hands and feet. The aliases are specifically 刺麻/针刺感, not all complete numbness, and the example only reports a sensation."
+    },
+    {
+      "term": "feel the cold",
+      "rowSha256": "1b5c1ab5244efd968b852e4fb36f51408c32ea92b8d97a550a6ed15f0b49b207",
+      "decision": "approve-new-row",
+      "notes": "Cambridge explicitly defines being more readily affected by cold. The flatmate comparison and extra-clothing context naturally express sensitivity, not psychological fear."
+    },
+    {
+      "term": "dry mouth",
+      "rowSha256": "b1d4ce38d1aa3f2c95d3985eb5c149fc26c83c4f9697812372b9c06fe2e2337b",
+      "decision": "approve-new-row",
+      "notes": "NHS treats this as internal mouth dryness. Difficulty speaking through a presentation is a plausible original use, and the row excludes the different cracked-lips condition."
+    },
+    {
+      "term": "lack of sleep",
+      "rowSha256": "3b82301da9aa2ebb87eb8b5719a25fd2be7e7dfb12fb08eb63409d0601b50ede",
+      "decision": "approve-new-row",
+      "notes": "NHLBI defines insufficient sleep and notes possible attention effects. The lecture example is natural and does not turn ordinary short sleep into a necessary insomnia diagnosis."
+    },
+    {
+      "term": "unlock an account",
+      "rowSha256": "49457e310d45dd2a2f124caabc6103bb3839121fd429fbe90e0861e7efdf4657",
+      "decision": "approve-new-row",
+      "notes": "Microsoft directly documents unlocking accounts. The selected action restores use of a locked account; failed-sign-in context and Chinese are accurate without claiming new account registration."
+    },
+    {
+      "term": "identity verification",
+      "rowSha256": "e659756c513d3151f8b3f5b74551b4737f316a7b04242082260cfadfe1774e58",
+      "decision": "approve-new-row",
+      "notes": "After revision, the definition broadly checks a claimed identity and treats documents/evidence as possible methods, not a necessary paper-document step. This matches NIST scope; the account activation example is natural."
+    },
+    {
+      "term": "change of address",
+      "rowSha256": "b2918aad3cbac5a58c8ad19fa2364cbf3bdc913a8c1231d2e6fd9cf1b94dcfdd",
+      "decision": "approve-new-row",
+      "notes": "USPS directly uses the phrase for updating addresses. The ordinary office-notification example and plural changes of address are correct and do not equate every update with mail forwarding."
+    },
+    {
+      "term": "appointment confirmation",
+      "rowSha256": "826fa6829b4a9ae730d2a3888e1a7b57a75dd0e6113039b543cd1740cc1b99f4",
+      "decision": "approve-new-row",
+      "notes": "The noun denotes information confirming appointment arrangements. An email containing a clinic address is a useful original context, with no implication of rescheduling."
+    },
+    {
+      "term": "change a ticket",
+      "rowSha256": "27cc4471daa0852adbfadba45246f4fcbae7a6739faa5d0c9509180be6dc3af0",
+      "decision": "approve-new-row",
+      "notes": "National Rail distinguishes changing an existing ticket from cancellation/refund. The tomorrow-train example and Chinese travel aliases fit the verb phrase; no universal exchange right is promised."
+    },
+    {
+      "term": "missing documents",
+      "rowSha256": "ff021b61b0189f8c8b19550db992abccab7f0202e2e36d0ebcda370a25b5af77",
+      "decision": "approve-new-row",
+      "notes": "The row selects application materials not yet supplied. A clerk sending a list is a natural context; singular missing document is a genuine number variant, not an unrelated canonical head."
+    },
+    {
+      "term": "electronic signature",
+      "rowSha256": "dfaa4440e34e4a9d84613dd78cf4397f72b01d7101985831dc31e3a11c73b71f",
+      "decision": "approve-new-row",
+      "notes": "After revision, electronic marks/data express signing or authenticating a document, not merely displaying identity. This respects the Law Commission distinction; the form example is accurately translated and makes no universal validity claim."
+    },
+    {
+      "term": "residence permit",
+      "rowSha256": "d3082956b3f5991fcb3f1b45cb67ecf093e32edefcb98d6d05af50ce3d26c0d3",
+      "decision": "approve-new-row",
+      "notes": "Cambridge authenticates an official permission document for residence. Checking its expiry before travel is natural and the Chinese correctly distinguishes it from proof of address."
+    }
+  ],
+  "aliasDecisions": [
+    {
+      "term": "baggage claim",
+      "rowSha256": "5efc19cb620a11789ba36ee059af39fd44cbafe2d112b22b17d580c3aa3f4e5b",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "1413298635d66985e8fb369bfdc2279fa90dbdff5a9e800191e51a5d66b22fa0",
+      "notes": "Both Chinese aliases denote the baggage-retrieval area already defined by this exact US travel noun phrase. No new lost-property sense is introduced."
+    },
+    {
+      "term": "carry-on baggage",
+      "rowSha256": "999a9323ace33c96a414d7725dedb4207a66cc18230c070af636ca55a153368b",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "6dfc52bdfb188d2661537f9043c535dbb9aa997e66d9928c56787f123fd58b3c",
+      "notes": "机舱行李 denotes the existing cabin/carry-on luggage sense, not checked baggage; the original body and example remain exact."
+    },
+    {
+      "term": "hoarse",
+      "rowSha256": "3c6b26853d76799d1462c2e2680534b56af9b33c3623d7f30adab00710358ce0",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "0de07a76910027c1bf3cc2d12eae458f65efee1abfb0f5578b28139db11d70f8",
+      "notes": "嗓子哑 is a concise colloquial equivalent of the existing hoarse-voice adjective, and the entry already covers 嗓子哑了."
+    },
+    {
+      "term": "request an extension",
+      "rowSha256": "a066219b814ab360cd5953fbf240a2ca3171046f7061a71b4fc8123b6d434bf9",
+      "decision": "approve-alias-only",
+      "targetEntrySha256": "aad3db5313b57679fd469d8b6fa2c53fc321b66deeebef32c6c29a7393a3ffdb",
+      "notes": "延期申请 refers to the same request for a later deadline as existing 申请延期. The exact body still states that asking does not mean approval."
+    }
+  ],
+  "issues": [],
+  "scope": "Actual 33 final EN/ZH/POS/Chinese aliases/forms rows and all four original alias target bodies read. Lexical meanings only; no medical treatment, dosing, legal entitlement or current transport schedule is taught. Primary dictionaries, health bodies, institutions, manufacturers and service providers were consulted; inaccessible Cambridge direct pages were not represented as successful fetches, and publisher-indexed text was used where available.",
+  "resolvedRevisions": [
+    "identity verification no longer requires submitted identity documents in every case.",
+    "electronic signature now requires signing/authenticating-document intent, not an identity marker alone.",
+    "check-in deadline now has a meaningful completed-before-deadline example.",
+    "renew a lease now has a natural their lease tenant example."
+  ],
+  "checks": {
+    "existingPackagedRows": 968,
+    "newRows": 33,
+    "exactExistingHeadOverwrites": 0,
+    "identicalExistingEnglishExamples": 0,
+    "authenticatedCanonicalHeads": 102609,
+    "fullCanonicalLiteralHeadFormCollisions": 0,
+    "aliasTargetHashesMatched": 4,
+    "noProductEdits": true
+  }
+}
