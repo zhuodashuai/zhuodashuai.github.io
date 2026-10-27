@@ -1,7 +1,8 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=95";
-import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult } from "./everyday-lookup.js";
+import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
+  isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -284,7 +285,10 @@ function display(record, selected, manifest, matchedForm) {
     .map(item => { const provenance = manifest.sources.get(item.source), formatted = readable(record, item); return { partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning,
       source: provenance.name, license: provenance.license, url: provenance.url }; });
   if (alternatives.length) result.alternatives = alternatives;
-  return result;
+  // An unapproved primary can still be rejected by the English-form guard.
+  // Chinese candidates are restricted before matching below. Never expose an
+  // unapproved side alternative alongside an approved retained primary.
+  return sanitizeRetainedCanonicalResult(result) || result;
 }
 function ambiguous() {
   const error = new Error("这个形式对应多个词或语境，请输入英文原形；本次没有自动选取。");
@@ -404,7 +408,8 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       // Reviewed replacement senses use their explicit local Chinese aliases.
       // Their stale legacy reverse postings must not keep teaching the old error.
       if (isSupersededChineseSenseHead(record.term)) continue;
-      const variants = [record, ...record.variants];
+      const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
+        || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
       if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source))) continue;

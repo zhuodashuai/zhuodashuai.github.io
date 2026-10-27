@@ -8,10 +8,19 @@
     {
       "source": "batch-0002.json",
       "review": "batch-0002.json"
+    },
+    {
+      "source": "batch-0003.json",
+      "review": "batch-0003.json"
+    },
+    {
+      "source": "batch-0004.json",
+      "review": "batch-0004.json"
     }
   ],
   "retainLegacyChineseHeads": [
     "bin liner"
   ],
-  "retentionNote": "bin liner has a compatible original noun definition for a bag lining a bin. Preserve its honest broad garbage-bag reverse matches while removing baggie and other superseded wrong-source postings. This does not authorize unreviewed senses."
+  "retentionNote": "bin liner has a compatible original noun definition for a bag lining a bin. Preserve its honest broad garbage-bag reverse matches while removing baggie and other superseded wrong-source postings. This does not authorize unreviewed senses.",
+  "retainedAlternativesPolicy": "retained-alternatives.json"
 }

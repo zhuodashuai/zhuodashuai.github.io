@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "VAT",
+      "canonicalSourceSha256": "4427817026d0d42a27d7f2d73a260b62280c5bfa080e6f363e7ea5c5a792fbf8",
+      "selectedRowSha256": "6449ad71c8405eb6d406d34ea88cf34ab998e340055f0e865b2cdfeb4f85f943",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 大桶\nvt. 装入大桶, 在大桶里处理",
+          "source": "core"
+        }
+      ],
+      "reason": "The lower-case vat noun and transitive verb are directly verified as vessel and putting/treating in a vat. Preserve separately from capital VAT tax. Retained old form vats must never gain the tax meaning.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/vat"
+      ],
+      "usageNote": "普通名词 vat 的大桶及装桶用法，区别于税种缩写 VAT。"
+    },
+    {
+      "term": "BSC",
+      "canonicalSourceSha256": "917498f2bf18c0b9831b910ebb6e26d313d8cb6adc656738576909f6d35f3010",
+      "selectedRowSha256": "0e730d8ff92aed9ab59ee4c75328577ee7f208a3a32127f4ce00300d0ceabf29",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 商学士（Bachelor of Science in Commerce）",
+          "source": "mit"
+        }
+      ],
+      "reason": "B.S.C. is explicitly listed as Bachelor of Science in Commerce, separately from BSc Bachelor of Science. The current Chinese Commerce degree gloss has a defensible distinct expansion; do not erase it through case folding.",
+      "references": [
+        "https://www.dictionary.com/browse/bsc"
+      ],
+      "usageNote": "这里的缩写展开为 Bachelor of Science in Commerce，指商科相关学位。"
+    },
+    {
+      "term": "clicker",
+      "canonicalSourceSha256": "75db89f24345878d68883c7406a6b9c5e3cf9b8e1ce55c732b161f988703adad",
+      "selectedRowSha256": "8b9178b4a0b676b2dfe03e75f2b02b6fcd7724df3d50afaf76f7ca6ffb149f04",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 鞋匠工头, (英)排字工头",
+          "source": "mit"
+        }
+      ],
+      "reason": "Collins explicitly lists an informal foreman in a shoe factory or printing works. The whole existing noun tuple is supported and is distinct from the hand-held classroom device.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/clicker"
+      ],
+      "usageNote": "非正式的工厂或印刷行业用语，指工头。"
+    },
+    {
+      "term": "hansom",
+      "canonicalSourceSha256": "163519eee7fb6b97f0e75297e73437ce14a061dcce848910693f758c705d4555",
+      "selectedRowSha256": "84e69a538378fadbaa6d170e56a4eaf3fd7460cb445c8676110cbd6df9c40ab1",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "proper noun",
+          "meaning": "汉瑟姆(姓氏)",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Hansom is a verified surname, including cab inventor Joseph Hansom in the Science Museum record. The capitalised surname must remain distinguished from the common-noun cab sense.",
+      "references": [
+        "https://collection.sciencemuseumgroup.org.uk/objects/co25602"
+      ],
+      "usageNote": "姓氏，通常首字母大写为 Hansom。"
+    },
+    {
+      "term": "chippie",
+      "canonicalSourceSha256": "e5db8baa5634d79d1766726cc5796a2547c553557e7acfa56c05fe7aeac623db",
+      "selectedRowSha256": "0365636f794fc1ef9601154e600b59b376e5a2f631af698b78f17904c88ea3bd",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 荡妇, 娼妓",
+          "source": "mit"
+        }
+      ],
+      "reason": "The US person senses are documented separately from the British chip shop. Preserve only with explicit US/slang/derogatory context in the display; neither person sense is a shop synonym.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/chippie",
+        "https://www.dictionary.com/browse/chippy"
+      ],
+      "usageNote": "美式旧俚语，含贬义或冒犯意味，不宜随便用来称呼他人。"
+    },
+    {
+      "term": "galumph",
+      "canonicalSourceSha256": "a9dd9651b99f1bb2bf912b2b745b0ef59d6d6c355233f7312016e1af545fe3bf",
+      "selectedRowSha256": "5a890fd8bb5ed14d240fe80ecdd4785c070df9012b84706383c5be7239dcc561",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vi. 得意扬扬地行进",
+          "source": "mit"
+        }
+      ],
+      "reason": "Collins records a now-rare intransitive triumphant/self-satisfied movement sense, separately from heavy clumsy movement. The old definition is not wholly wrong and must not be silently removed.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/galumph"
+      ],
+      "usageNote": "较少见或旧式用法，表示得意扬扬地行进。"
+    },
+    {
+      "term": "DCF",
+      "canonicalSourceSha256": "cbce30bf9ff5a38d07fdec21f6241b3faf83d3666cddac19de22a46c14e22399",
+      "selectedRowSha256": "791fd63718157dd2daff1491e7fd6219060f9206fa1e5ea1627e785b11116d54",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "[医] 直接离心浮选[法]",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "A primary Warwick thesis explicitly defines and discusses Direct Centrifugal Flotation (DCF). The old medical procedure meaning can remain separate from finance; its existing noun label denotes the named method.",
+      "references": [
+        "https://wrap.warwick.ac.uk/168140/1/WRAP_Theses_Morgan_2003.pdf"
+      ],
+      "usageNote": "医学或寄生虫检验用语，与财务上的折现现金流缩写分开。"
+    },
+    {
+      "term": "stablemate",
+      "canonicalSourceSha256": "f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f",
+      "selectedRowSha256": "9ddce35499c8c66e2d3aa9b196be984aaa751e1b76db5f4dba6b42a2fa7f4663",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 受雇于同一老板的拳击手",
+          "source": "mit"
+        }
+      ],
+      "reason": "原名词释义所指的拳击手同属一位经营者或经理，是 stablemate 的有效引申义；与本次新写的同厩马义不同，保留来源选项。MW 的 stablemate 第二义指 stable 的成员，stable 明列同一管理下的拳击手；Collins 与拳击器材商自己的术语表相互支持。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/stablemate",
+        "https://www.merriam-webster.com/dictionary/stable",
+        "https://www.collinsdictionary.com/dictionary/english/stablemate",
+        "https://www.titleboxing.com/pages/boxing-dictionary"
+      ]
+    },
+    {
+      "term": "presidentially",
+      "canonicalSourceSha256": "5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6",
+      "selectedRowSha256": "09eb24ac241670b4c0b8c0a614fa95513ad58eedd39ba63bfb3eb4a2bb485c11",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "以总统[议长、校长等]的资格",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "原副词释义是以 president 身份行事；MW 的精确 presidentially 词条明确该身份义，其 president 条目另列会议主持者、机构负责人、college president 与国家元首，因此原完整括注可以保留。该身份义不等同本次新例句的总统风范方式义。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/presidentially",
+        "https://www.merriam-webster.com/dictionary/president"
+      ]
+    },
+    {
+      "term": "uni",
+      "canonicalSourceSha256": "1b6ac8382f0cc7774cbe3d45bf999b7e30e6773c9cf6548d853d61377bed6ed8",
+      "selectedRowSha256": "226a276857363f2b97a190597c5ff29988a5ae3b3708f8f1ce5e7985e6751c48",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 印度联合新闻社（United News of India）",
+          "source": "mit"
+        }
+      ],
+      "reason": "UNI 是 United News of India 的确立简称，原 abbreviation 词性和整个机构名称释义有效。机构自己发布的 About UNI 明确该全称和缩写。它与本次英式口语 university 义不同，保留原来源选项，不宣称大学例句覆盖新闻社义。",
+      "references": [
+        "https://test.uniindia.com/aboutus.aspx"
+      ]
+    }
+  ]
+}

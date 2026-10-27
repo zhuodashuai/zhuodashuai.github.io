@@ -313,3 +313,14 @@ exclude:
   - tooling/dictionary/examples/independent-audits/cross-review-0042-next-003.json
   - tooling/dictionary/reviewed-senses/reviews/batch-0002.json
   - tooling/dictionary/reviewed-senses/source/batch-0002.json
+  - tooling/dictionary/reviewed-senses/source/batch-0003.json
+  - tooling/dictionary/reviewed-senses/reviews/batch-0003.json
+  - tooling/dictionary/reviewed-senses/source/batch-0004.json
+  - tooling/dictionary/reviewed-senses/reviews/batch-0004.json
+  - tooling/dictionary/reviewed-senses/retained-alternatives.json
+  - tooling/dictionary/reviewed-senses/followup-0003-baseline.json
+  - tooling/dictionary/reviewed-senses/followup-0003-context.json
+  - tooling/dictionary/reviewed-senses/followup-0003-provenance.json
+  - tooling/tests/retained-canonical-alternatives.test.mjs
+  - tooling/tests/reviewed-sense-followup.test.mjs
+  - tooling/tests/e2e/retained-senses.spec.mjs

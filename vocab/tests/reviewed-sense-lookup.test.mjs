@@ -144,7 +144,9 @@ test('internal canonical tracking fields never leak through search or example DT
   assert(reviewed.length > 0);
   for (const row of reviewed) {
     const result = searchEverydayDictionary(row.term).results[0];
-    assert.deepEqual(Object.keys(result).sort(), ['license','meaning','partOfSpeech','source','term','url']);
+    assert.deepEqual(Object.keys(result).sort(), row.retainedCanonicalAlternatives?.length
+      ? ['alternatives','license','meaning','partOfSpeech','source','term','url']
+      : ['license','meaning','partOfSpeech','source','term','url']);
     const example = loadEverydayExamples(row.term);
     assert.deepEqual(Object.keys(example).sort(), ['senses','term']);
     assert.deepEqual(Object.keys(example.senses[0]).sort(), ['examples','id','meaningZh','partOfSpeech','reviewer','source']);

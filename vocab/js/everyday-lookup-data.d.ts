@@ -14,6 +14,14 @@ export interface EverydayLookupEntry {
   readonly retainLegacyChinese?: boolean;
   readonly canonicalId?: number;
   readonly canonicalSourceSha256?: string;
+  readonly retainedCanonicalAlternatives?: readonly {
+    readonly partOfSpeech: string;
+    readonly meaning: string;
+    readonly source: string;
+    readonly license: string;
+    readonly url: string;
+    readonly usageNote?: string;
+  }[];
 }
 
 export const EVERYDAY_LOOKUP_ENTRIES: readonly EverydayLookupEntry[];

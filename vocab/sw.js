@@ -1,4 +1,4 @@
-// Daily Chinese lookup update 2026-10-27: refresh the shell and retain warm shards.
+// Reviewed example/sense update 2026-10-27: preserve separate old meanings and warm shards.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph

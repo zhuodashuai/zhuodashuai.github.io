@@ -304,6 +304,21 @@ export const UNPUBLISHED_QUALITY_NEXT_PATHS = Object.freeze([
   "tooling/dictionary/reviewed-senses/reviews/batch-0002.json",
   "tooling/dictionary/reviewed-senses/source/batch-0002.json"
 ]);
+// Only these fresh follow-up proof files are omitted. Their Git history and
+// CI checks remain available; every previously served resource is preserved.
+export const UNPUBLISHED_QUALITY_FOLLOWUP_PATHS = Object.freeze([
+  'tooling/dictionary/reviewed-senses/source/batch-0003.json',
+  'tooling/dictionary/reviewed-senses/reviews/batch-0003.json',
+  'tooling/dictionary/reviewed-senses/source/batch-0004.json',
+  'tooling/dictionary/reviewed-senses/reviews/batch-0004.json',
+  'tooling/dictionary/reviewed-senses/retained-alternatives.json',
+  'tooling/dictionary/reviewed-senses/followup-0003-baseline.json',
+  'tooling/dictionary/reviewed-senses/followup-0003-context.json',
+  'tooling/dictionary/reviewed-senses/followup-0003-provenance.json',
+  'tooling/tests/retained-canonical-alternatives.test.mjs',
+  'tooling/tests/reviewed-sense-followup.test.mjs',
+  'tooling/tests/e2e/retained-senses.spec.mjs',
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -318,7 +333,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file) || UNPUBLISHED_QUALITY_NEXT_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file) || UNPUBLISHED_QUALITY_NEXT_PATHS.includes(file) || UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -381,7 +396,8 @@ export function verifyStatic(directory, repo) {
   }
   for (const file of UNPUBLISHED_D42_D43_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal example proof was published: ${file}`);
   for (const file of UNPUBLISHED_QUALITY_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New quality proof was published: ${file}`);
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length };
+  for (const file of UNPUBLISHED_QUALITY_FOLLOWUP_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New follow-up proof was published: ${file}`);
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length, unpublishedQualityFollowupPaths: UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

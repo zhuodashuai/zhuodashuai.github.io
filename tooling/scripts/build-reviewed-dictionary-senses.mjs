@@ -6,6 +6,7 @@ import { loadExampleBuild, validateExampleReview } from './build-dictionary-exam
 import { parseCorrectionSourceManifest } from './build-dictionary-example-corrections.mjs';
 import { EVERYDAY_LOOKUP_ENTRIES } from '../../vocab/js/everyday-lookup-data.js';
 import { DICTIONARY_EXAMPLE_CORRECTIONS } from '../../vocab/js/dictionary-example-corrections-data.js';
+import { personalDictionaryResult } from '../../vocab/js/personal-dictionary.js';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const HASH = /^[a-f0-9]{64}$/u;
@@ -15,10 +16,118 @@ const hash = value => createHash('sha256').update(value).digest('hex');
 export const reviewedSensePackHash = pack => hash(JSON.stringify(pack));
 const sentenceKey = value => value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase();
 const json = async file => JSON.parse(await readFile(file, 'utf8'));
+// These are the exact heads shipped before retained-alternative policy existed.
+// Never derive this boundary from the growing current compiled module.
+const PRE_RETENTION_HEADS = new Set(['CD-ROM','ISS','NOE','baggie','bin liner','casualness','communitarian','geordie','hominy','hoodie','hugger','hyena','impulsively','judgmental','legalistic','meritocracy','multitalented','oap','permissiveness','rabbinical','remediate','restructuring','shakeout','sixths','snowboarder','springer','tenuously',"that's",'tum','unrated','untypical']);
+export const PRE_RETENTION_HEADS_SHA256 = '9391e01faab39b741e33eb760f05667f0bd354425f0f14281fb06a4e4f78c8c3';
 
 function text(value, max, han = false) {
   return typeof value === 'string' && Boolean(value.trim()) && value.length <= max
     && !CONTROL.test(value) && (!han || /\p{Script=Han}/u.test(value));
+}
+
+function exactObject(value, keys, optional = []) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+    || ![Object.prototype, null].includes(Object.getPrototypeOf(value))) return false;
+  const own = Reflect.ownKeys(value);
+  return keys.every(key => Object.hasOwn(value, key))
+    && own.every(key => typeof key === 'string' && [...keys, ...optional].includes(key)
+    && Object.getOwnPropertyDescriptor(value, key)?.enumerable === true
+    && Object.hasOwn(Object.getOwnPropertyDescriptor(value, key), 'value'));
+}
+
+function exactArray(value, nonempty = true) {
+  if (!Array.isArray(value) || Object.getPrototypeOf(value) !== Array.prototype
+    || nonempty && !value.length) return false;
+  const keys = Reflect.ownKeys(value);
+  return keys.length === value.length + 1 && keys.every(key => key === 'length'
+    || typeof key === 'string' && /^(?:0|[1-9]\d*)$/u.test(key) && Number(key) < value.length
+      && Object.getOwnPropertyDescriptor(value, key)?.enumerable === true
+      && Object.hasOwn(Object.getOwnPropertyDescriptor(value, key), 'value'));
+}
+
+/** Policy names exact old raw fields; display formatting is the same pure
+ * licensed-source formatter used by expanded-dictionary's readable() path. */
+export function retainedCanonicalDisplay(canonical, selected, descriptor) {
+  let formatted = selected;
+  if (['mit','core','pos-reviewed','grammar-reviewed','pos-notation-reviewed'].includes(selected.source)
+    && !/^\s*(?:[①-⑳]|\d+[.、])/u.test(selected.meaning)) {
+    const result = personalDictionaryResult({ word: canonical.term,
+      partOfSpeech: selected.partOfSpeech, meaning: selected.meaning });
+    if (result) formatted = { ...selected, partOfSpeech: result.partOfSpeech || selected.partOfSpeech,
+      meaning: result.meaning.length <= 2000 ? result.meaning : selected.meaning };
+  }
+  return { partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning,
+    source: descriptor.name, license: descriptor.license, url: descriptor.url };
+}
+
+/** This validates a separate reader's finite policy, not the linguistic
+ * truth of the old gloss. Only already-approved new source rows are eligible. */
+export function validateRetainedCanonicalAlternatives(policy, selections, canonicalRecords, descriptors) {
+  if (!exactObject(policy, ['schemaVersion','entries']) || policy.schemaVersion !== 1
+    || !exactArray(policy.entries, false) || !(selections instanceof Map)
+    || !(canonicalRecords instanceof Map) || !descriptors || typeof descriptors !== 'object') {
+    throw Error('Invalid exact retained-alternative policy');
+  }
+  const retained = new Map();
+  const keys = ['term','canonicalSourceSha256','selectedRowSha256','author','reviewer','independentOfAuthor','alternatives','reason','references'];
+  for (const entry of policy.entries) {
+    if (!exactObject(entry, keys, ['usageNote']) || !text(entry.term, 200) || retained.has(entry.term)
+      || PRE_RETENTION_HEADS.has(entry.term) || !HASH.test(entry.canonicalSourceSha256 || '')
+      || !HASH.test(entry.selectedRowSha256 || '') || !/^AI\/[a-z0-9_-]{1,100}$/u.test(entry.author || '')
+      || !/^AI\/[a-z0-9_-]{1,100}$/u.test(entry.reviewer || '') || entry.reviewer === entry.author
+      || entry.independentOfAuthor !== true || !text(entry.reason, 2000)
+      || !exactArray(entry.alternatives) || entry.alternatives.length > 20
+      || !exactArray(entry.references) || new Set(entry.references).size !== entry.references.length
+      || entry.references.some(url => !text(url, 2000) || (() => { try { return new URL(url).protocol !== 'https:'; } catch { return true; } })())
+      || Object.hasOwn(entry, 'usageNote') && !text(entry.usageNote, 400, true)) {
+      throw Error('Missing independent exact retained-alternative approval');
+    }
+    const selected = selections.get(entry.term), canonical = canonicalRecords.get(entry.term);
+    if (!selected || selected.author !== entry.author || !canonical || canonical.term !== entry.term
+      || selected.row?.term !== entry.term || selected.row.canonicalId !== canonical.id
+      || hash(JSON.stringify(canonical)) !== entry.canonicalSourceSha256
+      || selected.row.canonicalSourceSha256 !== entry.canonicalSourceSha256
+      || hash(JSON.stringify(selected.row)) !== entry.selectedRowSha256) {
+      throw Error(`Retained alternative lacks exact approved source identity: ${entry.term}`);
+    }
+    const variants = [canonical, ...(canonical.variants || [])], seen = new Set(), alternatives = [];
+    for (const old of entry.alternatives) {
+      if (!exactObject(old, ['partOfSpeech','meaning','source']) || !text(old.partOfSpeech, 80)
+        || !text(old.meaning, 2000) || !text(old.source, 100)
+        || !Object.hasOwn(descriptors, old.source)
+        || !variants.some(item => item.partOfSpeech === old.partOfSpeech
+          && item.meaning === old.meaning && item.source === old.source)) {
+        throw Error(`Retained alternative must be a complete unchanged canonical tuple: ${entry.term}`);
+      }
+      const key = JSON.stringify([old.partOfSpeech, old.meaning, old.source]);
+      if (seen.has(key)) throw Error(`Repeated retained canonical alternative: ${entry.term}`);
+      seen.add(key);
+      const descriptor = descriptors[old.source];
+      if (!text(descriptor?.name, 200) || !text(descriptor?.license, 2000)
+        || !text(descriptor?.url, 2000) || (() => { try { return new URL(descriptor.url).protocol !== 'https:'; } catch { return true; } })()) {
+        throw Error(`Retained alternative has no pinned source descriptor: ${entry.term}`);
+      }
+      alternatives.push({ ...retainedCanonicalDisplay(canonical, old, descriptor),
+        ...(Object.hasOwn(entry, 'usageNote') ? { usageNote: entry.usageNote } : {}) });
+    }
+    retained.set(entry.term, alternatives);
+  }
+  return retained;
+}
+
+export async function readRetainedAlternativesPolicy(index, directory) {
+  if (!Object.hasOwn(index, 'retainedAlternativesPolicy')) return undefined;
+  if (typeof index.retainedAlternativesPolicy !== 'string' || !/^[a-z0-9-]+\.json$/u.test(index.retainedAlternativesPolicy)) {
+    throw Error('Invalid retained-alternative policy path');
+  }
+  return json(join(directory, index.retainedAlternativesPolicy));
+}
+
+export function renderReviewedSenseModule(rows) {
+  return '// Generated independent selected-sense supplements; original canonical records and IDs remain unchanged.\n'
+    + 'export const REVIEWED_SENSE_ENTRIES = Object.freeze([\n' + rows.map(row => '  ' + JSON.stringify(row)).join(',\n') + '\n]'
+    + '.map(row => Object.freeze({ ...row, chineseAliases: Object.freeze(row.chineseAliases), englishForms: Object.freeze(row.englishForms), references: Object.freeze(row.references), ...(row.retainedCanonicalAlternatives ? { retainedCanonicalAlternatives: Object.freeze(row.retainedCanonicalAlternatives.map(alternative => Object.freeze({ ...alternative }))) } : {}) })));\n';
 }
 
 /** These are explicitly authored supplementary senses, not claims that a
@@ -92,23 +201,31 @@ export async function loadReviewedSenseBuild() {
   const sentences = new Map();
   for (const entry of full.entries) for (const sense of entry.senses) for (const pair of sense.examples) sentences.set(sentenceKey(pair.en), entry.term);
   for (const row of [...EVERYDAY_LOOKUP_ENTRIES.filter(item => item.reviewedCanonicalSense !== true), ...DICTIONARY_EXAMPLE_CORRECTIONS]) sentences.set(sentenceKey(row.en), row.term);
-  const rows = [], seen = new Set();
+  const rows = [], seen = new Set(), approvedSelections = new Map();
   for (const batch of index.batches) {
     if (!NAME.test(batch.source) || !NAME.test(batch.review)) throw Error('Invalid selected-sense source path');
     const pack = await json(join(base, 'reviewed-senses/source', batch.source));
     const review = await json(join(base, 'reviewed-senses/reviews', batch.review));
     for (const row of validateReviewedSensePack(pack, review, records, sentences, retainedChineseHeads)) {
       if (seen.has(row.term)) throw Error('Repeated reviewed canonical head');
+      approvedSelections.set(row.term, { author: pack.author, row: pack.entries.find(item => item.term === row.term) });
       seen.add(row.term); rows.push(row);
     }
   }
   if ([...retainedChineseHeads].some(term => !seen.has(term))) throw Error('Legacy Chinese retention requires an approved literal head');
+  const policy = await readRetainedAlternativesPolicy(index, join(base, 'reviewed-senses'));
+  if (policy !== undefined) {
+    // A declared policy is mandatory. Missing, malformed or stale data must not
+    // silently delete previously retained meanings on a later build.
+    const retained = validateRetainedCanonicalAlternatives(policy, approvedSelections, records, manifest.sources);
+    for (const row of rows) if (retained.has(row.term)) {
+      row.retainedCanonicalAlternatives = retained.get(row.term); row.retainLegacyChinese = true;
+    }
+  }
   rows.sort((a, b) => a.term < b.term ? -1 : a.term > b.term ? 1 : 0);
   // One JSON object per line keeps this mutable module readable without
   // duplicating indentation throughout every Pages/offline release.
-  const source = '// Generated independent selected-sense supplements; original canonical records and IDs remain unchanged.\n'
-    + 'export const REVIEWED_SENSE_ENTRIES = Object.freeze([\n' + rows.map(row => '  ' + JSON.stringify(row)).join(',\n') + '\n]'
-    + '.map(row => Object.freeze({ ...row, chineseAliases: Object.freeze(row.chineseAliases), englishForms: Object.freeze(row.englishForms), references: Object.freeze(row.references) })));\n';
+  const source = renderReviewedSenseModule(rows);
   return { rows, source };
 }
 

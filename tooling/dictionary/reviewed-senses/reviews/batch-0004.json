@@ -1,0 +1,858 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "a150e7bd7e7a947e8fd3a89416b51417e6f3135fce34e9c56f2103d172c70c3f",
+  "reviewer": "AI/next_quality_inventory",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "APR",
+    "evaluator",
+    "edn",
+    "prosciutto",
+    "pta",
+    "SOC",
+    "reductionist",
+    "VP",
+    "dino",
+    "stardust",
+    "aah",
+    "expansively",
+    "divestment",
+    "untucked",
+    "compellingly",
+    "rigatoni",
+    "chitter",
+    "airhead",
+    "fontina",
+    "stablemate",
+    "senselessly",
+    "soonest",
+    "mothership",
+    "dorado",
+    "weathervane",
+    "homogeneously",
+    "fundraise",
+    "presidentially",
+    "sixthly",
+    "fetchingly",
+    "uni",
+    "housecleaner",
+    "resoluteness",
+    "frontside",
+    "heterosexually",
+    "guar",
+    "hella",
+    "kerbstone",
+    "multimode",
+    "krait",
+    "trembly",
+    "dimethyl",
+    "a-flat",
+    "aaa-rated",
+    "energizer",
+    "VAR",
+    "nlp",
+    "ADA"
+  ],
+  "issues": [],
+  "authoredProposalSha256": "061aa667334b68f9e3abdf3f78e50becff6e62cdd74187109dd2200a0eb2aac6",
+  "createdAt": "2026-10-27T12:23:39.695Z",
+  "method": "逐条阅读48项提案以及50条原canonical完整variants、旧EN/ZH和失败理由；单独检索不确定的专业义项及词性。实际重读作者修订的PTA、uni、a-flat、aah、SOC、housecleaner、airhead、dorado，以及随后fundraise词形和homogeneously参考链接。脚本仅验证精确摘要、派生包恒等性和全词表身份冲突。未编写或修改作者的新例句。",
+  "decisions": [
+    {
+      "term": "APR",
+      "rowDigest": "f704dc2b7813fa881b85aa52c5c08eabc745a751454b8f6590208ae2d840975b",
+      "verdict": "approved",
+      "notes": "贷款利率相同而APR不同的情境真实，所选年化借款成本指标含费用边界，避免把其等同纯利息年率；APRs是合法复数。",
+      "references": [
+        "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-interest-rate-and-an-apr-en-135/"
+      ],
+      "sourceBinding": {
+        "canonicalId": 1839698,
+        "canonicalSourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d",
+        "originalPairDigest": "8b48d2b3bbcb6d1477dfba9c8173ac035159954800cabeabd95128cae03706c0",
+        "currentRawExampleEntrySha256": "a28cdc92a6a6fa74920b58a230dec69e78eb5da72f27028703ccac7e68865b6b"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "evaluator",
+      "rowDigest": "dd7b1318513cc7a050736b3514b759efe865ca7d4b15d9b18be0df8f3bae1536",
+      "verdict": "approved",
+      "notes": "两名人员各自评分再比较记录，真实展示人的评估者义；原计算机程序义不被借作本次依据。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/evaluator"
+      ],
+      "sourceBinding": {
+        "canonicalId": 2724506,
+        "canonicalSourceSha256": "f76769d8621c1038692f00b22ef64d90c8353abfc7fb02a64fc4f191c1cc23e2",
+        "originalPairDigest": "f00399e3406eea22856223ba574f941bc7cb0e3d946b32edd64a19a0a5e97f32",
+        "currentRawExampleEntrySha256": "371f5376fc9d071dd046be0a0c11e020e09ea96e26c0182bcb295cf7fdb8d46b"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "edn",
+      "rowDigest": "e0784a300338bea440365fa91031379608b3a33850f3a8b95f3dd97469802517",
+      "verdict": "approved",
+      "notes": "书目中一部修订版带新索引，edition缩写是实际指称而非空泛定义模板；edn.有MW与出版社用法证据，已无标点词头冲突。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/edn",
+        "https://academic.oup.com/BICS/pages/General_Instructions",
+        "https://www.merriam-webster.com/dictionary/edn."
+      ],
+      "sourceBinding": {
+        "canonicalId": 2921478,
+        "canonicalSourceSha256": "35b04895887c5e507ee4b380fb6fdec88e0c5d5e6861dcd631b19037042063eb",
+        "originalPairDigest": "7666ffedcffcbbaeba7fbe73e4b64d545b3ecf4f08248fcf4807dafb55dfc365",
+        "currentRawExampleEntrySha256": "5f7a1cc15d9249b01cfac410ec1d23fb3260947565c210340200fabeca21a779"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "prosciutto",
+      "rowDigest": "e8c774b97ccab27db2e84be1c3432c9f5b920f0a50a2e8fd0e855f2c6c5989ba",
+      "verdict": "approved",
+      "notes": "用薄片风干火腿裹芦笋，EN/ZH同义且自然；限定腌制风干义，未混入原来误导的熏制释义。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/prosciutto",
+        "https://www.prosciuttodiparma.com/en/preparation-of-parma-ham/"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3050301,
+        "canonicalSourceSha256": "a3db539a9707ead2cead34e7b7fbe14e48481610a4ed015724b29f9b2509310a",
+        "originalPairDigest": "d52f906981c7e04e30ab2570297f6603bc151b355798a09353209b4c03a4fd13",
+        "currentRawExampleEntrySha256": "c372f62457659d407db01fa8f5f9258e7d1c38714ca09e732237e1049133a828"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "pta",
+      "rowDigest": "06abcc0eec44ff9dcaea168781898c9a97547905a0ddc78b9724369ec4e29f96",
+      "verdict": "approved",
+      "notes": "协会筹得换椅子所需资金的用途与金额条件一致；修订中译没有再断言已完成更换，PTA大小写没有独立词头冲突。",
+      "references": [
+        "https://www.pta.org/home/About-National-Parent-Teacher-Association"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3469472,
+        "canonicalSourceSha256": "b0ffe2d1ed1b6d7f7a40b1ab4085fe8d0ec86859cfce57146e51e14373d76907",
+        "originalPairDigest": "05d1aa82f4aea9e34ac99884111eb89e901bd011a5b0a8bbd187c907198d6ead",
+        "currentRawExampleEntrySha256": "a692dd2cee1614b0266cf520bf46939c3a81a7b2b9b2d90ecec158edad15afd3"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "SOC",
+      "rowDigest": "7a0efb3d848db8ef9b35796721cb921809d439a57b1876557da5c68d46c437d2",
+      "verdict": "approved",
+      "notes": "控制器依测量估计电池荷电状态是恰当技术用法；定义限定当前剩余电量、通常百分数，未混为SOH或社科新闻缩写。",
+      "references": [
+        "https://afdc.energy.gov/files/u/publication/electric-school-bus-us-market-study-buyers-guide.pdf"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3790236,
+        "canonicalSourceSha256": "c647391fc08d9c78b78a0329f841ef16a1040c022165f46c78e40fd0525c4ff1",
+        "originalPairDigest": "67494c52740761c29267a228a4c450ea6e063ed39ab39a9fe51cb8e210d30170",
+        "currentRawExampleEntrySha256": "26e30b47d5a1da8d54031cd066d92216b003d13370b64bce73cf556b576509d6"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "reductionist",
+      "rowDigest": "7952f29103326039030c14e1e479c424a7f590ba9f758d8e1716be19106268da",
+      "verdict": "approved",
+      "notes": "形容词修饰explanation，可能忽视部分相互作用准确展示还原论解释；批评意味为可能而非把所有还原论一律判错。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/reductionist"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3883078,
+        "canonicalSourceSha256": "310c949187c589645da1db331f8c1474ab21434e17474d98d9848da8deb09249",
+        "originalPairDigest": "850cba55ef98697b594c23cf4be2c32495a4d5280c83c2fcc47a3b9a3ac4eee5",
+        "currentRawExampleEntrySha256": "656349f4d9eb5e6926e9bccd2c570a9a70a73e95d543462bb714b32608886aca"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "VP",
+      "rowDigest": "1a0db48e0c8c9b1f175c475db9797f7c441c26f52a560b5371fc4fbd18ec3d02",
+      "verdict": "approved",
+      "notes": "公司运营副总裁参观仓库，vice-president职务义与译文一致；不把原计算机处理器义当匹配依据。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/vp"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3990331,
+        "canonicalSourceSha256": "afa07a62198c0f20c0da45c78b6db967151b6a5f074f204d5dc7843587108aab",
+        "originalPairDigest": "614550a0658b9ad7bc30f95866e920525c60db5737e00c78a025d7dcc8f11d8e",
+        "currentRawExampleEntrySha256": "e37291b5f89b52a8dd10c4815ece428aadc82810c40a5e016e88dcf0d5efb3ee"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "dino",
+      "rowDigest": "f44317f88f1c7caccc9fc8883ebea7b978edbea0d0a279cfb0ede74b0f06e526",
+      "verdict": "approved",
+      "notes": "在贺卡上画恐龙是真实名词使用，明确非正式简称；未将意大利人或流浪汉旧义混用。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/dino"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4094141,
+        "canonicalSourceSha256": "eb7b89f1be70a1c1666abbec7c830678ec2bb89d8ab4be886a76826128774121",
+        "originalPairDigest": "1416841cee8bdfbb4bc34b24a960332fa014b4537af11dcc855bd59735534c9b",
+        "currentRawExampleEntrySha256": "80f27306a83a713183c10279ae3ed415cf1d1dffa6143760946d0d6367fc7822"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "stardust",
+      "rowDigest": "0b59e2222e657cdad4a0759088c7abd05b3e0c26315971c90aee6fa8cb74271d",
+      "verdict": "approved",
+      "notes": "歌手为音乐会增添魅力，展示比喻光彩而非具体星团；EN/ZH语气及少量程度一致。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stardust"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3167433,
+        "canonicalSourceSha256": "255585c7edfdb92f07eeb9a55f9313c683da457e7eddb61c5e9c5f8ac968b154",
+        "originalPairDigest": "c4dac229256402ddc6edebfc49717fa10b2ee3da0efdcb2a3cc83525c91c17b1",
+        "currentRawExampleEntrySha256": "99292d23af7eda3672c4e7d7219dc1ca2caf0856e98c5cc20d7009b014d9d4c7"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "aah",
+      "rowDigest": "5ef46420d5dd3329819bebb108b0ffb0f299cf5b66c90575e6e7ef8e7e870f84",
+      "verdict": "approved",
+      "notes": "句首感叹声表示突然领悟，Cambridge明确aah为ah的感叹词变体；已改用正确词性证据而非仅有动词的MW条目。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/aah",
+        "https://dictionary.cambridge.org/dictionary/english/ah",
+        "https://www.merriam-webster.com/dictionary/aah"
+      ],
+      "sourceBinding": {
+        "canonicalId": 2884621,
+        "canonicalSourceSha256": "da0ed1bb4875ea035d90e719be19771ad9669d0dc5680914fa5b7cc5de822027",
+        "originalPairDigest": "5a47e158712a98acb44460ef64385755f61594e78e9ff9a33174c172d5eef42a",
+        "currentRawExampleEntrySha256": "77a2afcd73febb3cbba4f1d6d3d6ade74ef13c302e17bc04c9ad70853a299e04"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "expansively",
+      "rowDigest": "d56a1745d0825c704b9f2d79956d5877693957f521dae6e037dd687bf8edd31d",
+      "verdict": "approved",
+      "notes": "主人热情地笑并让座，自然展示不拘束、友好的神态；不是物理空间扩张的机械副词模板。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/expansively"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3928905,
+        "canonicalSourceSha256": "f55c148840ee3fbe7fb796984baec40024f859f76d979113b929277f459566e7",
+        "originalPairDigest": "7de7bba64dffc6b4cae2b9811838a640b9177f0bef995eeec0303ec4696d093e",
+        "currentRawExampleEntrySha256": "48a94d3445aadd81c6d2cab8da2b9dffc19d4fe8fd450919cdfa78fa1bf17bbb"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "divestment",
+      "rowDigest": "e641227a61d40c73d6d562de7839f670dcf391eea580f3ef4078d4a937f33e5d",
+      "verdict": "approved",
+      "notes": "董事会批准出售所持股份，撤资/资产出售名词与句法、中文一致；不是原来源中的夺取。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/divestment"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4090780,
+        "canonicalSourceSha256": "a02de34ff12f187e596bb67694f503e8924b69d5dc0428b3cd610fe1a15840d1",
+        "originalPairDigest": "b45854063301098bb28aee01669b2852507cdf2f6f13d391a720edb96ff215fc",
+        "currentRawExampleEntrySha256": "bc5a5e03de9b9ca103556160eb6f29865a078d6cd3dd91764789f44e21369ab8"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "untucked",
+      "rowDigest": "f0695b9509b9a2f73bbf0da129d81784340d62396034eb5a275c0ba7ac66a262",
+      "verdict": "approved",
+      "notes": "把掖在床垫下的毯子抽出再叠好，体现untuck过去式的具体动作；不等于拆开物件。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/untuck"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4244050,
+        "canonicalSourceSha256": "fd2c1ee40e64967b6e838167562e913d803305ab17d5ffaa510c10053c018d01",
+        "originalPairDigest": "a8a043a863958311ec4ac58bd0c23a93826130d8ef69b85111488fd316b4e77f",
+        "currentRawExampleEntrySha256": "1aee75c0bedc59e887f37e068a073647ead8b2817de7b0081e0dbbf0919040f2"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "compellingly",
+      "rowDigest": "655b52e98dee9f87ab4935e2670bb30d94714f02a5e539c03e41f57ab0cf614e",
+      "verdict": "approved",
+      "notes": "展览以令人信服的方式说明湿地重要性，副词与中译一致；不是咄咄逼人的误释。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/compellingly"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4360524,
+        "canonicalSourceSha256": "54756cfcb4d19ee311b75cedb2af75babf5a4034b7c6ceb7ceb9ca4cd4826c49",
+        "originalPairDigest": "80effd9053338b551a0f21ef4f035bf92159f768892bdb46d342283fedb06bce",
+        "currentRawExampleEntrySha256": "2e1afb3cc484f4a956322a6be1ce66eb7a22775ef9834265f77e6ffd1cff7796"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "rigatoni",
+      "rowDigest": "22ac9df77ab04fba081632dbca5ea655a945b398433130a123a38cd3ad2db1d3",
+      "verdict": "approved",
+      "notes": "浅碗盛配番茄酱的粗管面是自然场景；所选外表有棱纹的管状面条已与错误贝壳形来源区分。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/rigatoni",
+        "https://dictionary.cambridge.org/dictionary/english/rigatoni?topic=pasta"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4593260,
+        "canonicalSourceSha256": "7b983839a90b96bccade57f10282d56bc2126310a4b88ab240793bd5da69c8ce",
+        "originalPairDigest": "3b53364cf3708284d526f73b3cd44e7581d6ae10d101cf6d5fc8cd2317661274",
+        "currentRawExampleEntrySha256": "67dd4ffacd8a84f2a8aaf474f813587e6634ce4699afefa56a5ca950650c5f84"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "chitter",
+      "rowDigest": "00239273998f9bdef50968f24ef8f899871df9f2c37b84e91a0519dfdacea950",
+      "verdict": "approved",
+      "notes": "能听到屋顶夹层里的蝙蝠细碎叫声，动词hear+bats+原形自然；不是发冷或闲谈义。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/chitter"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4659846,
+        "canonicalSourceSha256": "b6b9f66ba44cb6a80566a840cc0febf0a504d6c7be9da7b7838b41fe49761f1f",
+        "originalPairDigest": "e1f84e5534f59de107c10751d1812b65c9e3f6daed137556c3af9f80e5e0fc90",
+        "currentRawExampleEntrySha256": "e72e49a1540a83cc41753f9d9b5ba6f9bc1ce7038a54f4d09a5ccd40fbec415c"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "airhead",
+      "rowDigest": "409bf5154a229514fbba5eb9f298a0360bb31fd1ddab354dd89d7951b8978cf8",
+      "verdict": "approved",
+      "notes": "dismiss someone as an airhead指不认真看待某人，中文准确作当成没头脑的人，没有误译成解雇；非正式贬义明确。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/airhead"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4711373,
+        "canonicalSourceSha256": "68f158e3a4269998efd25a7b648a283dd8c37e30a1b72b0ca5b9f41a48c9a36e",
+        "originalPairDigest": "338f9196bd9932f2df3059e88ec9abe85789c5b2c0cfb22f5a754bdaabccb41d",
+        "currentRawExampleEntrySha256": "994d811b2664dc3cbf5ec44f78aad29b11875163dea92857e7ecb9855cd7e8cc"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "fontina",
+      "rowDigest": "87858df42716e0607130060f1c9925a6f974b2fa0eb2a096afeebcd85c157e9e",
+      "verdict": "approved",
+      "notes": "奶酪融入热polenta的用法自然；Fontina DOP牛乳限定有官方依据，芳提娜另有官方双语名称记录，不再泛称羊奶酪。",
+      "references": [
+        "https://www.fontina-dop.it/en/fontina-cheese-dop/milk/",
+        "https://eur-lex.europa.eu/eli/C/2024/7111/oj/eng",
+        "https://www.boe.es/doue/2020/408/M00003-00043.pdf",
+        "https://www.thinkusadairy.org/Documents/Customer%20Site/C3-Using%20Dairy/C3.7-Resources%20and%20Insights/03-Application%20and%20Technical%20Materials/PIZZA_ChineseSimplified.pdf"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4776490,
+        "canonicalSourceSha256": "3032c78880880d9e2b6044ab66871c6afa9a990bf1a7a7f6302e6fa1ef9e087d",
+        "originalPairDigest": "0631e02ee577342bfb56fb21880b3a4dc598159d05bf272788d32c0acaf045a5",
+        "currentRawExampleEntrySha256": "b4ad50a8008094aa2dbd943d8ff97de92f2308298ce525807cea6e478a08d3fb"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "stablemate",
+      "rowDigest": "9ddce35499c8c66e2d3aa9b196be984aaa751e1b76db5f4dba6b42a2fa7f4663",
+      "verdict": "approved",
+      "notes": "同厩伙伴进入运马车后小马安静，具体马义与译文一致；没有借拳击手引申义作为同义依据。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stablemate"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4813627,
+        "canonicalSourceSha256": "f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f",
+        "originalPairDigest": "3fe6131aba4beabe7c878f5a1a50ad667df008b22b5118575018d6a22d3fc463",
+        "currentRawExampleEntrySha256": "20a1bb2f1b0f70cfff3c479f899d34310f83f5a18c8c358b94350e9bccca6840"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "senselessly",
+      "rowDigest": "3b40bd7fa58c7aaec55970108ba58a44c0b4a63dfe119fa31ddf5ad1c587ab66",
+      "verdict": "approved",
+      "notes": "无意义地砸毁候车亭玻璃，副词程度和中译自然；与无知觉状态义不同。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/senselessly"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4845659,
+        "canonicalSourceSha256": "848e3045362f6fab73fc59b36e7318bcd4a84612fea1b3b973164025e312cfde",
+        "originalPairDigest": "eaf03017233d185d5b7d6db39266939126c2005eb954c08b8189af2c40f0fb94",
+        "currentRawExampleEntrySha256": "953a8bdbe5b969b84e99b7887cb2bccd44c685fd4cc43d915851a404ab3b364c"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "soonest",
+      "rowDigest": "69a70230a04b70855c1fcff5d051a63007f25738faa4ac049ab8f3ff661dfce3",
+      "verdict": "approved",
+      "notes": "询问最早可提供哪个预约时段，soon副词最高级及译文一致；无形容词词性混用。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/soon",
+        "https://www.merriam-webster.com/dictionary/soon"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4905778,
+        "canonicalSourceSha256": "4864a761ee0f40aefd5be9e10ee4c1e4be6eb3202556c460ef7c89f4fcd683b0",
+        "originalPairDigest": "9bcaa4b1a5b828336979cef006163dad33fd848b7fe2994ac00fe516b45e72e4",
+        "currentRawExampleEntrySha256": "73376147a11eb014a3f9842cdfa11ea7db23c79480052c0de584972a1a06210e"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "mothership",
+      "rowDigest": "e7c9431d28f845e20474ae168eb30ff0bdf6252e6b14d0080c21ae2b3384364d",
+      "verdict": "approved",
+      "notes": "潜水员将备用装备放在支援母船，真实船只语境与译文一致；不限定为航空母舰。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/mothership"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4944608,
+        "canonicalSourceSha256": "a16ff177242358042db792fb0dd75dfc10f32d2c9eeecb632f6326bff42ed587",
+        "originalPairDigest": "e84e651119e9f7ed868ebea9fb34d6f70936924e75ae29defcebefee155e5ed4",
+        "currentRawExampleEntrySha256": "f6f888a7f99ab5982a5bfac8772663c3560be0441cc6cf1e7a272e461c8f5782"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "dorado",
+      "rowDigest": "15362835380221a6ecf3fdd201f538afe4b20422b8a429b30c1f461f294a770d",
+      "verdict": "approved",
+      "notes": "保温袋带鲯鳅鱼片回家，食用鱼名义明确且中译没有再增添顾客角色；NOAA与中研院支持同一鱼种名称。",
+      "references": [
+        "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi",
+        "https://fishdb.sinica.edu.tw/taxon/381638-fishdb/specimen"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4987112,
+        "canonicalSourceSha256": "1dd64f6aadce7b16d08418cf90fa973b2c6d810fff13b6dac748b8e7574e6a73",
+        "originalPairDigest": "2685a83bcf241b50866e55cc416316123a9fbc00ebda2c58e971de539d166dff",
+        "currentRawExampleEntrySha256": "0293c68c12338abc210418ee1753a8bef4edbc2a78f92b1dadac6beaea0222ca"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "weathervane",
+      "rowDigest": "a45881f5853ac68bab12bdc24b49b35eaa29ec343a0f6715212b715093597eb2",
+      "verdict": "approved",
+      "notes": "谷仓上公鸡形风向标是真实器物名词例句；与原政治预测形容词义明确分开。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/weathervane"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5069851,
+        "canonicalSourceSha256": "c0e22d2b8a15108faf0143bf38d80ed605f79f58339325cd926b721bcb9c4e7c",
+        "originalPairDigest": "1fe50e6068398c077d1520af0f37837ee5050292bdaa98f495d5b26249fd8455",
+        "currentRawExampleEntrySha256": "bc5475ad8175167a61da18f37b11591c3c1302b59c923006a2b059affe956596"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "homogeneously",
+      "rowDigest": "1b5da6b97a5c41e7cf664c256fe66e5730094ee1d9b2fb0ce60638803ab27cad",
+      "verdict": "approved",
+      "notes": "搅拌至颜料在液体中均匀分散，副词和技术语义自然、EN/ZH完整对应；参考证据可用Cambridge或Collins homogeneous派生副词。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/homogeneously?topic=similar-and-the-same",
+        "https://www.collinsdictionary.com/dictionary/english/homogeneous"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5244877,
+        "canonicalSourceSha256": "0635e5d212b6f8751272cc916e131dcbb710ad60d4924242fb87de51f9c394f1",
+        "originalPairDigest": "6985c5d12ef94b96c90d4de07e0bde23c5c5725aa763a56869803c9242356c0c",
+        "currentRawExampleEntrySha256": "998fd34782787702ede4da79f064fc392066b8290379d407a6f244ced581a169"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "fundraise",
+      "rowDigest": "edebe66eb4852607d86286d470b8c7d86e83b00b3623b2eb76e8e0f50e15c53d",
+      "verdict": "approved",
+      "notes": "筹款语境、动词和中译正确。已实际重读修订行：仅保留fundraises/fundraised，移除了会覆盖独立规范词头的fundraising；全词表冲突检查为零。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/fundraise",
+        "https://www.merriam-webster.com/dictionary/fundraise"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5342818,
+        "canonicalSourceSha256": "443f6fe3428c2bcbec2c84e970891270939ed7c4350b66ffb25501eb24928548",
+        "originalPairDigest": "07ff3ab48ca22a1097d73c2fa9bb2721c31c30e205e0d27ae2f90bfba8478cd2",
+        "currentRawExampleEntrySha256": "2dfe258df95cbc76caa8135ade9327fa918ede8a09c21e799e8cd7e23f881654"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "presidentially",
+      "rowDigest": "09eb24ac241670b4c0b8c0a614fa95513ad58eedd39ba63bfb3eb4a2bb485c11",
+      "verdict": "approved",
+      "notes": "候选人以符合总统身份的风范回答问题，选定方式义并由Cambridge区分于总统作出的行政行为义。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/presidentially",
+        "https://dictionary.cambridge.org/us/dictionary/english/presidentially?topic=leaders-of-national-and-regional-governments"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5384608,
+        "canonicalSourceSha256": "5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6",
+        "originalPairDigest": "00fc34f711935f5155c65d90fac66cbd00657084b6e88dc151da6067aaa00c2d",
+        "currentRawExampleEntrySha256": "77b9ba9039a59a363ba9b6d91e999845a29cd4d00572f7a7f84a09208047173c"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "sixthly",
+      "rowDigest": "6f3a3b208d1b4de85452e359a53bbeaa9dc4828e3b2a40223a9d5afd3c3eafdf",
+      "verdict": "approved",
+      "notes": "规则列表中引出第六点，连接副词恰当；原处放置设备的要求和中文一致。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/sixthly"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5455408,
+        "canonicalSourceSha256": "06a92204c03657f1e7cf5ec579b5d3b25ac82e3da8327dc67ce18f612b11baec",
+        "originalPairDigest": "9c867d63b955f66c428e945e6328378a780ce85bbabf90de2a37b1a06c36a3bd",
+        "currentRawExampleEntrySha256": "4e7741c28bf37db753e33c9b03a5d3a574901882a51d56acf5a42303fc76d762"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "fetchingly",
+      "rowDigest": "40e336d078c81a02a8ee320f7404da54c9e0d0ea4805fcccaeb8a8f4eccdecf4",
+      "verdict": "approved",
+      "notes": "帽侧丝带系得别致迷人，副词修饰tied且中译自然；Collins精确条目支持此吸引力方式义。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/fetchingly"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5755590,
+        "canonicalSourceSha256": "d8b1b894ecbb8ed9d6c8a3d7b6d3ca9c21857da04d28c71969e8be888fdbf988",
+        "originalPairDigest": "54eb06c87296c552bb438b76cbb20356237de81a28a61be14814854310336119",
+        "currentRawExampleEntrySha256": "ed71dc45db9e80629f5d53b5ac09387a1a7e4f1fcfe05d8bc89f46777db8a4f9"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "uni",
+      "rowDigest": "226a276857363f2b97a190597c5ff29988a5ae3b3708f8f1ce5e7985e6751c48",
+      "verdict": "approved",
+      "notes": "大学的非正式简称自然用于开始大学生活；修订中文只把九月限定在开学，没有错误推定搬家日期。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/uni"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5807817,
+        "canonicalSourceSha256": "1b6ac8382f0cc7774cbe3d45bf999b7e30e6773c9cf6548d853d61377bed6ed8",
+        "originalPairDigest": "321d1d0e66534dc80decd40643c75f7409101355927e789cf6f656763a0a7941",
+        "currentRawExampleEntrySha256": "a066c7234ff497c3148a8d160126bf2ec4c63279da0d89b375d20420e59bc1f8"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "housecleaner",
+      "rowDigest": "c16bf7d7e8f7ea8a18e02a8a22269892302119fa53213bbabba5f992cb2a2f05",
+      "verdict": "approved",
+      "notes": "清洁人员询问哪些房间最需清理，职业人员名词与中译一致；Collins派生名词及CA原始用例支持闭合拼写。",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/houseclean",
+        "https://www.dir.ca.gov/dosh/Domestic-Service-Workers/FAQ.html"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5912487,
+        "canonicalSourceSha256": "e1bec0b1986a1be167e5eb3150abf6d41cca3c9bbedef7074daf79ccbc492387",
+        "originalPairDigest": "0e03d1f478b1016b8f60d32242fb99276c903e02919dafbf01c95d8ee20d78f5",
+        "currentRawExampleEntrySha256": "bb776a9845b74e59618b14e805b2e37fa09ab5c5eb14d0ce66cbd3ad492fc183"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "resoluteness",
+      "rowDigest": "84ddbc4e6bb078b1f482935dd09df879bc02a4db055425a633373bc51aaa9223",
+      "verdict": "approved",
+      "notes": "坚定意志促使小组继续，名词品质与译文准确；没有再使用坚定地这一副词释义。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/resoluteness",
+        "https://www.collinsdictionary.com/us/dictionary/english/resoluteness"
+      ],
+      "sourceBinding": {
+        "canonicalId": 5943761,
+        "canonicalSourceSha256": "1c87b936c049d5928fac4e5bc3985f77aa50518ccec7435c22d183a0582adf3f",
+        "originalPairDigest": "ee157f124e537786412d2376a843e7b37b8fe7a26fc16d07bb732235f2be9ec0",
+        "currentRawExampleEntrySha256": "cbaa5ce5d4ca65719ec5407d857857f702df31580d10ad0405c8b3cded912500"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "frontside",
+      "rowDigest": "b488f254a1f341edd35f3cd8a3d8c1f5b983538c922a432703b1ae0a31891016",
+      "verdict": "approved",
+      "notes": "显微镜检查晶圆正面，imec一手技术文章支持frontside of wafer名词用法；中文别名仅晶圆正面/前侧，不扩张为泛化所有正面。",
+      "references": [
+        "https://www.imec-int.com/en/articles/imec-demonstrates-critical-building-blocks-backside-power-delivery-network",
+        "https://www.imec-int.com/en/articles/trends-semiconductor-industry"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6112947,
+        "canonicalSourceSha256": "8470b5bf54686894a773b2346e35107d00014ed8aadd846b033842d62a74f132",
+        "originalPairDigest": "387ec0d43f6312ebe1a542d0c1e9ecc6895177a37c1ac7cb7291d5fe5da35e13",
+        "currentRawExampleEntrySha256": "a9fb68562f1ea58ab7b60cec4244ea1c7e3be7b705f2ed759e91c3a4bbc0907e"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "heterosexually",
+      "rowDigest": "751cc3aa1f7ead0ae43a3b1415a6ef6b948d7d6f1e44ca0132a6eb48a9e8b5f0",
+      "verdict": "approved",
+      "notes": "调查记录参与者是否有异性性行为，副词修饰active自然且有一手研究搭配；不以性行为强推个人身份认同。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/heterosexually"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6214939,
+        "canonicalSourceSha256": "7040e36db83e535ff1bcb7f9e1639505b47473d398239ced282f45e68676ee83",
+        "originalPairDigest": "d801c6f42701286e9e62ea4c2889c2db90a36d1389989a8ab495e2c543179eba",
+        "currentRawExampleEntrySha256": "d75251f2048499575825c5f363579c4f8896f36169260395a32e27780dd0c64f"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "guar",
+      "rowDigest": "7a33d2b91c6bf4897cabdc1169743ff8da4a22f3a253c6acfbcd7f272225fcf6",
+      "verdict": "approved",
+      "notes": "保留瓜尔豆收成为下季种子，真实植物用途名词句；Kew支持植物种名，未混保证缩写义。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/guar",
+        "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A489242-1/general-information"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6274686,
+        "canonicalSourceSha256": "4e00289c7d2bac4c297012ab9650d65c725e732000bbc49f17b420243c414e03",
+        "originalPairDigest": "c0c4acbd44bbf383f6672eabc2d86f701718ef4c136d82813b84e0e0e14561f8",
+        "currentRawExampleEntrySha256": "c34bb23b7737320c6d4328d5253fad6cc83da815ae6c61ccfb00536d24d778d0"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "hella",
+      "rowDigest": "36200b81421244c634de17f86f8f9b77c086b8de93bbd72eec86d7c892dfe042",
+      "verdict": "approved",
+      "notes": "徒步最后一段难走得很，自然美式俚语程度副词；不混作数量限定词。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/hella",
+        "https://dictionary.cambridge.org/us/dictionary/english/hella?topic=very-and-extreme"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6295301,
+        "canonicalSourceSha256": "625a1b718bd14afb4b3cbf117038e8efa54144ac9dc8f748d29ac3f3118c47e8",
+        "originalPairDigest": "b6c4911c8d5175a5e2c4ef053314e6755fe954d62de32cbda49c5a463a942cc7",
+        "currentRawExampleEntrySha256": "fa141ad8cc6e5610f35840b07ba0b8960025800f6aada491ecb1b2a5941d7f1c"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "kerbstone",
+      "rowDigest": "ff6a54f52e216dfe55465cc890f3a4ca622b47d08891f9973fe2ab8ba9f3a0fb",
+      "verdict": "approved",
+      "notes": "松动路缘石被踩后晃动，具体名词与EN/ZH吻合；未将道路构件和场外交易硬联。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/kerbstone"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6357554,
+        "canonicalSourceSha256": "bae34e9a5efedb2cdfa8b4bbdc671117b94b793572d6b5dff82bc412e8f6022f",
+        "originalPairDigest": "487dfaeb165eba80d9d888f88396d0ca7798b15fb7afb015eb6fff3bb324a756",
+        "currentRawExampleEntrySha256": "9f2f2eeb15dff27fb898ab03be0b5a1ff7063da57bfd0b63473f97730e25a62f"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "multimode",
+      "rowDigest": "a7b2aa00736a0b2d44fea42a26819e74451644b545840b01da28732b5c48e152",
+      "verdict": "approved",
+      "notes": "两办公室用一小段多模光纤连接，光学形容词修饰fibre；Cisco支持多传播模式，非计算机多状态。",
+      "references": [
+        "https://www.cisco.com/c/en/us/td/docs/routers/access/interfaces/adapt/STM1PA/STM1/STM1PAovr.pdf"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6372441,
+        "canonicalSourceSha256": "47beba24bc3be7163c9a58568dba8f3288afe93814b6712f1e159ba90397ebcd",
+        "originalPairDigest": "b71603f2536550d48b61b6bb840e8f738529e7b9615217a135cceea4d8c9d167",
+        "currentRawExampleEntrySha256": "5304e3123f35af3253102f93a1dbcf0623f9faa5806e9d9b628942d617369ead"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "krait",
+      "rowDigest": "b3513593b44932151e85b11e64c00250a37540aabe4bf1241311eca170de2bee",
+      "verdict": "approved",
+      "notes": "借指南区分环蛇和外形相似的蛇，具体动物识别场景自然；属级含义明确，未把所有环蛇都叫金环蛇。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/krait"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6419382,
+        "canonicalSourceSha256": "01a285de4077115dc2a8105e4748ee9bdcdc0683fe4823ca9d00a56046e3ade3",
+        "originalPairDigest": "76c43aae020bff06b3c43b1d3630e2a258df3d997c934de3dc9052204664a238",
+        "currentRawExampleEntrySha256": "56126a1dc6ca66398a0931a8b25c68e54bb794e1c4ce1cde46be107dbf418da7"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "trembly",
+      "rowDigest": "a5ff81335a9a5bd96c6c6ad2b9bcf383a96274af862f2a18b3e72eeb9dce1757",
+      "verdict": "approved",
+      "notes": "放下杯子时手仍轻颤，作表语形容词且译文准确；不是原错误副词标签。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/trembly"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6542190,
+        "canonicalSourceSha256": "cafd49a6ce9d7d9639c274cc46dbac305df53c1ab288b0f07b66ecc2a25ec471",
+        "originalPairDigest": "422596fb0fe587219d53f52b6dfb6f37e1ac663596e900b7b2c2a168e6170424",
+        "currentRawExampleEntrySha256": "7a79e96c19f1eb661005ee7370e4a4fed06f740e7c3c8af1de558049ddfecefa"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "dimethyl",
+      "rowDigest": "1cc8a148b1dcb2beb31d398bd06132718606486bff13ec632f8625dea71e6dbc",
+      "verdict": "approved",
+      "notes": "从反应混合物分离二甲基衍生物，化学形容词修饰derivative；Collins有明确形容词证据。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/dimethyl"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6604941,
+        "canonicalSourceSha256": "87793d4e5afc1abbbb4537fac09441db2e614cc9d646fdb9526f70c0626a63e6",
+        "originalPairDigest": "3c53662b819143990e070760e1213beb8b72dc125db46e17da305be608f5d938",
+        "currentRawExampleEntrySha256": "23e11e19965a2b4c2fb19be85c146d85e901a1d9d06cc9aed70e0cf3198196d5"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "a-flat",
+      "rowDigest": "af1558ef97fdb04a0b0278dd0e2dcf14b2c5a0d7156619f8f821013ed55dee91",
+      "verdict": "approved",
+      "notes": "小提琴独奏首音是降A音，音乐音名、首音事实与中译完全对应；新句消除了旧译文上方进入的歧义，大小写不覆盖其他规范词头。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/A-flat",
+        "https://www.yamaha.com/en/musical_instrument_guide/saxophone/play/play003.html"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6629492,
+        "canonicalSourceSha256": "b0b44382d8fac7667551b833b93eace58b531ba33766c69c1c239943648ff365",
+        "originalPairDigest": "c0bc517c3b9fac0b282245772b7193be5a8708d0c1dfa1eb4a71a5cf9796b31d",
+        "currentRawExampleEntrySha256": "586fb96db306a422c53316f5615c32833f29eeb32416773762dd78a62635a8c1"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "aaa-rated",
+      "rowDigest": "a6fe1f16f4641ba8a804777a99a0b52a50a011a7b0c3c364f6506e6ac8883230",
+      "verdict": "approved",
+      "notes": "基金单列AAA评级债券，形容词和中文一致；定义没有将评级当绝对无风险保证，S&P一手说明支持信用评级场景。",
+      "references": [
+        "https://www.spglobal.com/ratings/en/about/intro-to-credit-ratings"
+      ],
+      "sourceBinding": {
+        "canonicalId": 6637857,
+        "canonicalSourceSha256": "4c8a17672d986388c4b0e462e09c713bc134852730387db6c66f3fa4320d60f1",
+        "originalPairDigest": "5e5eac817aee0538241a6f40f393b189961aaa222196a35932cdf3245662963d",
+        "currentRawExampleEntrySha256": "bc15a0d4d34a092db9e0d502ba2ff59d1d5845670adf7eba6f136d4f20e070bf"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "energizer",
+      "rowDigest": "e2fb31cfbc617f5a96c7978a9369c32c673f8121349bfbbc22ab1b2be4a780c3",
+      "verdict": "approved",
+      "notes": "简短游戏使疲惫小组恢复活力，具体活动名词及译文自然；MW派生名词和一般energize义支持，不强作药剂义。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/energizer"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3891902,
+        "canonicalSourceSha256": "bbc0ec229ecc3265bb6ca4b71be658748271ccd3afb907f23d92010eb3cec23c",
+        "originalPairDigest": "9ae72c807a8b5d5986ba23046b1fdc849e826d546dbe059be4f63f75c483299b",
+        "currentRawExampleEntrySha256": "a437a3832d9449a401829f926ddda24516236e8ca4a81d495ee2760ae22be421"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "VAR",
+      "rowDigest": "5d03097709ce582b8bbc5dc312ebe23b231877027c71917a95671e4ffa8a9631",
+      "verdict": "approved",
+      "notes": "转售商先装额外模块再交付软件，直接展示增值功能/服务；与IBM定义和中文一致，未误为二手商。",
+      "references": [
+        "https://www.ibm.com/docs/en/configurepricequote/10.0.0?topic=glossary",
+        "https://www.lenovo.com/us/en/business/reseller-benefits/?IPromoID=LEN938463"
+      ],
+      "sourceBinding": {
+        "canonicalId": 3254206,
+        "canonicalSourceSha256": "53fae6402d5cc6883dd06a0f895ef8e67603e2ccfd73edffbb8f459339841fc9",
+        "originalPairDigest": "b201bd70d3e788f1dedbf56e7917553205687d62796a5c4828f2ef73513026ca",
+        "currentRawExampleEntrySha256": "9e85aace344e8b6c527e9c6a85239412f3c3ef2556b3608148f7e0d4d55760eb"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "nlp",
+      "rowDigest": "d63c005d020643bbb30c81b3692bc135af5921dab492947782f8ef0c02e993c3",
+      "verdict": "approved",
+      "notes": "用自然语言处理将相似客户问题分组，真实计算机语言处理用途；NLP非原来源的其他同字母缩写，大小写无独立词头冲突。",
+      "references": [
+        "https://www.ibm.com/think/topics/natural-language-processing",
+        "https://www.ibm.com/think/topics/natural-language-processing?tp=1"
+      ],
+      "sourceBinding": {
+        "canonicalId": 4498229,
+        "canonicalSourceSha256": "c0989fb8b05a20049869816dc5637f9db7ad5920cd46f8f23760dca674d0ece6",
+        "originalPairDigest": "710fcbba42f8404940e2d55937e059934a90848af5a86ff94c072bdc90c26acb",
+        "currentRawExampleEntrySha256": "fc3f30af678fc52d8804aead28f0c8d02951e2d108515ca0dece4326c1e676f2"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    },
+    {
+      "term": "ADA",
+      "rowDigest": "d750ccafb8c14781844fbbaddc2945300e149f8a590564e42a1ecccf90068eeb",
+      "verdict": "approved",
+      "notes": "用Ada重写监控程序，语言名称语法及中译自然；Ada协会明确不是缩写，同fold只含稳定规范键ADA，身份没有被另一个Ada词头覆盖。",
+      "references": [
+        "https://www.adaic.org/advantages/ada-overview/"
+      ],
+      "sourceBinding": {
+        "canonicalId": 2777787,
+        "canonicalSourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491",
+        "originalPairDigest": "171227badf4a19be17dad82920a5cdb5f64309f9b4839f3a24073d6c195c9231",
+        "currentRawExampleEntrySha256": "edc6a353c7f035648c47e5beb703a5ff0e93838fed941986aa7247c81fde30b5"
+      },
+      "scope": "Exact proposed selected sense, POS, complete original EN/ZH example, Chinese aliases and English forms. Does not approve or relabel the old raw pair."
+    }
+  ],
+  "evidence": {
+    "caseNeighbours": "B-case-neighbours.json",
+    "allForms": "b-all-forms-audit.json",
+    "primaryReferenceNotes": "B-primary-reference-notes.json"
+  },
+  "limits": "Only these exact 48 selected-sense tuples are approved. Original failed/unverified audit verdicts are not rewritten. Sources marked as search extracts were not falsely reported as full-page inspections; see separate reference notes. No claim of full dictionary or runtime completion."
+}
