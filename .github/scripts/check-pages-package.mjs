@@ -286,6 +286,24 @@ export const UNPUBLISHED_D42_D43_PATHS = Object.freeze([
   "tooling/dictionary/examples/reviews/batch-0043-s-9ed6fb2c5b64.json",
   "tooling/dictionary/examples/queues/batch-0043-admission-receipt.json"
 ]);
+// New offline quality evidence is retained in Git/CI. These exact 14 paths
+// have never been served; no old static URL or runtime dictionary is removed.
+export const UNPUBLISHED_QUALITY_NEXT_PATHS = Object.freeze([
+  "tooling/dictionary/examples/corrections/cross-review-evidence-0002.json",
+  "tooling/dictionary/examples/corrections/reviews/quality-0002.json",
+  "tooling/dictionary/examples/corrections/reviews/quality-next-001.json",
+  "tooling/dictionary/examples/corrections/reviews/quality-next-002.json",
+  "tooling/dictionary/examples/corrections/reviews/quality-next-003.json",
+  "tooling/dictionary/examples/corrections/source/quality-0002.json",
+  "tooling/dictionary/examples/corrections/source/quality-next-001.json",
+  "tooling/dictionary/examples/corrections/source/quality-next-002.json",
+  "tooling/dictionary/examples/corrections/source/quality-next-003.json",
+  "tooling/dictionary/examples/independent-audits/cross-review-0042-next-001.json",
+  "tooling/dictionary/examples/independent-audits/cross-review-0042-next-002.json",
+  "tooling/dictionary/examples/independent-audits/cross-review-0042-next-003.json",
+  "tooling/dictionary/reviewed-senses/reviews/batch-0002.json",
+  "tooling/dictionary/reviewed-senses/source/batch-0002.json"
+]);
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
@@ -300,7 +318,7 @@ export function isCopiedStatic(file) {
   // GitHub Pages/Jekyll ignores hidden and underscore-prefixed path segments.
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
-  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file)) return false;
+  if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file) || UNPUBLISHED_QUALITY_NEXT_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
   return !/\.(?:scss|sass)$/iu.test(file);
@@ -362,7 +380,8 @@ export function verifyStatic(directory, repo) {
     assert(fs.statSync(path.join(directory, file)).size > 0, `Missing generated/key page: ${file}`);
   }
   for (const file of UNPUBLISHED_D42_D43_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal example proof was published: ${file}`);
-  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length };
+  for (const file of UNPUBLISHED_QUALITY_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New quality proof was published: ${file}`);
+  return { checkedStaticFiles: checked, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
