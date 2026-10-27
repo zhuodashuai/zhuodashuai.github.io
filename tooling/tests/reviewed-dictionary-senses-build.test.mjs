@@ -44,8 +44,8 @@ test('changing canonical identity, selected meaning, translation or original exa
 test('English sentence reuse across the full library is rejected and legacy reverse matches require explicit retention policy', () => {
   const p = pack(), existing = new Map([[row.en.toLowerCase(), 'different word']]);
   assert.throws(() => validateReviewedSensePack(p, review(p), records, existing));
-  const [retained] = validateReviewedSensePack(p, review(p), records, new Map(), new Set(['hoodie']));
-  assert.equal(retained.retainLegacyChinese, true);
+  assert.throws(() => validateReviewedSensePack(p, review(p), records, new Map(), new Set(['hoodie'])),
+    /requires an exact retained-alternative policy/u);
 });
 
 test('the published supplementary source rebuilds from pinned canonical records, full-library deduplication and real independent approvals', async () => {

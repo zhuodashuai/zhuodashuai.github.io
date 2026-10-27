@@ -5,7 +5,8 @@ import { readFile, mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve, sep } from 'node:path';
 import { validateRetainedCanonicalAlternatives, retainedCanonicalDisplay, readRetainedAlternativesPolicy,
-  renderReviewedSenseModule, PRE_RETENTION_HEADS_SHA256 } from '../scripts/build-reviewed-dictionary-senses.mjs';
+  renderReviewedSenseModule, PRE_RETENTION_HEADS_SHA256, legacyChineseRetentionHeads,
+  validateReviewedSensePack, reviewedSensePackHash } from '../scripts/build-reviewed-dictionary-senses.mjs';
 import { personalDictionaryResult } from '../../vocab/js/personal-dictionary.js';
 
 const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -87,6 +88,28 @@ test('fixed pre-retention head authority stays exactly the original31 and cannot
   assert.equal(heads.length, 31); assert.equal(digest(heads), PRE_RETENTION_HEADS_SHA256);
   for (const head of heads) assert.throws(() => validate(fixture(head)), /Missing independent exact retained-alternative approval/u);
   assert(validate(fixture('future-new-head')).has('future-new-head'));
+});
+
+test('the legacy Chinese compatibility list cannot bypass exact new-head policies at the load boundary or direct pack validation', () => {
+  assert.deepEqual([...legacyChineseRetentionHeads({})], []);
+  assert.deepEqual([...legacyChineseRetentionHeads({ retainLegacyChineseHeads: ['bin liner'] })], ['bin liner']);
+  for (const values of [['BOT'], ['bin liner','BOT'], ['bin liner','bin liner'], ['Bin liner'], 'bin liner', null, undefined]) {
+    assert.throws(() => legacyChineseRetentionHeads({ retainLegacyChineseHeads: values }), /exact retained-alternative policy/u);
+  }
+  for (const term of ['BOT','bin liner']) {
+    const f = fixture(term), pack = { schemaVersion: 1, author: f.entry.author, entries: [f.row] };
+    const review = { schemaVersion: 1, sourceSha256: reviewedSensePackHash(pack), reviewer: f.entry.reviewer,
+      independentOfAuthor: true, approvedTerms: [term], issues: [] };
+    if (term === 'BOT') {
+      assert.throws(() => validateReviewedSensePack(pack, review, f.records, new Map(), new Set(['BOT'])), /exact retained-alternative policy/u);
+      const ordinary = validateReviewedSensePack(pack, review, f.records);
+      assert.equal(ordinary[0].retainLegacyChinese, false);
+    } else {
+      const compatible = validateReviewedSensePack(pack, review, f.records, new Map(), new Set(['bin liner']));
+      assert.equal(compatible[0].retainLegacyChinese, true);
+    }
+    assert.throws(() => validateReviewedSensePack(pack, review, f.records, new Map(), ['bin liner']), /exact retained-alternative policy/u);
+  }
 });
 
 test('a declared policy file is mandatory and invalid paths cannot silently fall back to the legacy empty policy', async () => {

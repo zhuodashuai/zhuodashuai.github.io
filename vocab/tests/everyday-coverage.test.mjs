@@ -37,7 +37,7 @@ const preciseCases = [
   ['点单',['place an order']], ['结账',['pay the bill','check out']],
   ['银行卡挂失',['report a card as lost']], ['挂失',['report something as lost']],
   ['入住',['check in at a hotel']], ['退房',['check out of a hotel']], ['前台',['front desk']],
-  ['租房押金',['security deposit']], ['改签',['change a booking']],
+  ['租房押金',['security deposit','tenancy deposit']], ['改签',['change a booking']],
   ['充值',['top up an account']], ['电池充电',['charge a battery']], ['停车费',['parking fee']],
   ['护垫',['pantyliner']], ['漱口水',['mouthwash']], ['洗面奶',['facial cleanser']],
   ['钥匙扣',['key ring']], ['便利贴',['sticky note']], ['收纳盒',['storage box']],
@@ -58,10 +58,11 @@ test('common Chinese queries return the intended person, action, product or sens
 
 test('qualifiers and unrelated senses cannot be discarded while expanding everyday Chinese queries', () => {
   for (const query of ['不是人工客服','不需要转机','转机的反义词','不退款','无需充电线',
-    '有糖','无热量','食物不耐受','处方药','药物过敏','无性别厕所','客房保洁',
+    '有糖','无热量','食物不耐受','处方药','无性别厕所','客房保洁',
     '双倍工资','内存','唇部磨砂','变压器','普通电炉','废品回收站']) {
     assert.equal(searchEverydayDictionary(query), null, query);
   }
+  assert.deepEqual(searchEverydayDictionary('药物过敏').results.map(row=>row.term),['drug allergy']);
   // A newly covered neighbouring concept must keep its own meaning rather
   // than borrowing the older class-schedule alias.
   assert.deepEqual(searchEverydayDictionary('课程大纲').results.map(row => row.term), ['syllabus']);

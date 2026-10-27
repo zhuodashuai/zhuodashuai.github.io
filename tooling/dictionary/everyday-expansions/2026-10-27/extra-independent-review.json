@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-household-independent-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "0897f5b82dd39319e8666e0628576dfa45db3ee14ac21ef0530aca9dbadda3a6",
+  "decisions": [
+    {
+      "term": "cook until done",
+      "rowSha256": "cafb458f6198c87f65ca69d019c26cf70884e77e9b1f0b92e27a4a7ae8b7d2f9",
+      "decision": "approve-new-row",
+      "assessment": "Verb phrase selects food fully cooked. Done is a cooking predicate, not finished-task noun; exact aliases do not erase negation from raw/undercooked. The original beans example and Chinese sequence agree."
+    },
+    {
+      "term": "eye drops",
+      "rowSha256": "e54c936bef424b5429c7f52f1d3948414d4ac9dfc5224efd76ee9bb610cf4a7d",
+      "decision": "approve-new-row",
+      "assessment": "Plural noun identifies liquid eye medicine, not the administering eyedropper. Bedside-table example describes placement without dosage or treatment advice; original EN and ZH agree."
+    },
+    {
+      "term": "electrician",
+      "rowSha256": "c42a8fbae8b0355bdccb6005026c411dd54bbd707d92ce704b58ec4b67710617",
+      "decision": "approve-new-row",
+      "assessment": "Person/profession noun for installing/repairing electrical equipment, not a unit, category acronym, or all engineers. Original hallway-switch example and Chinese agree."
+    }
+  ],
+  "unresolvedIssues": []
+}

@@ -9,7 +9,7 @@ test('all old31 selected rows and ordinary678 daily rows survive the format and 
  assert.equal(hash(baseline.rows),'099f9e71be6ebeae84d9c243f0045090f9fdeb951ef7d6b3de7ef2d438e1859e');
  assert.equal(baseline.rows.length,31);for(const row of baseline.rows)assert.deepEqual(current.get(row.term),row);
  const ordinary=EVERYDAY_LOOKUP_ENTRIES.filter(row=>row.reviewedCanonicalSense!==true);
- assert.equal(ordinary.length,678);assert.equal(hash(ordinary),'8e678c9727e2f1a6cca3e511ae10230b036af9a58f3fedc8cb0242b1f955face');
+ assert.equal(ordinary.length,678+159);assert.equal(hash(ordinary.slice(0,678)),'8e678c9727e2f1a6cca3e511ae10230b036af9a58f3fedc8cb0242b1f955face');
 });
 test('98 new exact tuples retain their actual different-principal approvals and canonical bindings; holds stay unresolved',async()=>{
  const expected={ '0003':'3bfa52d2b7d3d9483613dfc1aa53ce61dc5e59d4aaf5446a6b2548ce36e33205','0004':'a150e7bd7e7a947e8fd3a89416b51417e6f3135fce34e9c56f2103d172c70c3f' };
@@ -28,7 +28,7 @@ test('98 new exact tuples retain their actual different-principal approvals and 
    approved.push(row.term);
   }
  }
- assert.equal(approved.length,98);assert.equal(new Set(approved).size,98);assert.equal(current.size,129);
+ assert.equal(approved.length,98);assert.equal(new Set(approved).size,98);assert.equal(current.size,129+2);
  for(const held of['giga','reservior'])assert(!current.has(held));
 });
 test('the original1000 audit verdicts remain exact evidence rather than being relabelled after replacements',async()=>{

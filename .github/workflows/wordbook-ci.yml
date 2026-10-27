@@ -38,7 +38,7 @@ permissions:
 
 jobs:
   # This is a real Pages build and package measurement, not a projection or
-  # deployment. Keep all existing static URLs, including rollback resources.
+  # deployment. Keep runtime and rollback resources; developer evidence stays in Git.
   pages-package:
     runs-on: ubuntu-latest
     timeout-minutes: 15

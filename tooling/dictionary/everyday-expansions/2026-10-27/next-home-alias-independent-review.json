@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-second-daily-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "6c676fe9d5c5b4665bdd28ffa816fa0458e72922e98bb5e8c6268d04d8fa4401",
+  "decisions": [
+    {
+      "term": "escape route",
+      "rowSha256": "d71bfbf78b0372041b9d481a8756441e24d2c6ccd1462c003f3804cad50587e6",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "7a68f6aae3a330d1ca43c8640891f065ab5fe88a451fb6ef077369ee22ce7291",
+      "approvedNewChineseAliases": [
+        "消防通道"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Official Chinese sources use 消防通道 for personnel escape and for fire-vehicle access. Offer two separately defined choices; do not group the English terms as synonyms or rewrite the existing evacuation entry."
+    }
+  ],
+  "primaryReferenceObservation": "119.gov.cn exact article was independently read through the official indexed extract after direct access returned412; mem.gov.cn full text was read directly. No legal or engineering compliance advice is derived.",
+  "unresolvedIssues": []
+}

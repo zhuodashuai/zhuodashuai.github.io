@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-household-independent-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "d491a0557d16009306b9ea8cf2a4abb5e545c869fe5b19b1c4c30dbf5788d183",
+  "decisions": [
+    {
+      "term": "reschedule an appointment",
+      "rowSha256": "0f97be477b220c6fe92425e4bec32590e87dbc35e9d46e61168882fb6c18e202",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "b580eda1820b704d6e3344bd3b0a3bf5d6b9e4ed57a4581e8669fa6151ab9c1d",
+      "approvedNewChineseAliases": [
+        "预约改期"
+      ],
+      "assessment": "预约改期 keeps the appointment-change verb sense; not cancellation."
+    },
+    {
+      "term": "box up the leftovers",
+      "rowSha256": "54b11cd2ecd8ac14aca999e16d211e413c146939269d74b32680f6b54b93e785",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "db9ef86bdfa02eae6bc309b83475e1e10e098de21b8cf1e09d63e6f818791c31",
+      "approvedNewChineseAliases": [
+        "剩菜打包"
+      ],
+      "assessment": "剩菜打包 keeps putting uneaten food into a box; not ordering takeaway."
+    }
+  ],
+  "unresolvedIssues": []
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/quality_followup_author_a",
+  "author": "AI/root-admin-daily-author",
+  "independentOfAuthor": true,
+  "reviewedAt": "2026-10-27T13:38:43.918Z",
+  "decision": "approve-exact-compatible-verb-form",
+  "term": "reschedule",
+  "form": "rescheduling",
+  "selectedRowSha256": "30a954efb4a46b756b1bb75808cbf0672a9ab103e8c40768de5bec6c74e65f40",
+  "sourceFile": "admin-proposals.json",
+  "sourceFileSha256": "bbbc7ae92262089a11d95ef11496936e81b85351c9eff71449afb3d63bc03b2e",
+  "canonicalId": 10120438,
+  "canonicalSourceSha256": "c1166a38697a7bb9e2a4f2c747a52be0a8a7643b8ca6b239661e7c01af9579d8",
+  "exactCanonicalRecord": {
+    "id": 10120438,
+    "term": "rescheduling",
+    "partOfSpeech": "verb",
+    "meaning": "v. 重订时间表( reschedule的现在分词 )",
+    "forms": [],
+    "source": "mit",
+    "seed": {
+      "rank": 85820,
+      "forms": [
+        "rescheduling"
+      ],
+      "workbook": true
+    }
+  },
+  "sourceDescriptor": {
+    "name": "ECDICT",
+    "license": "MIT",
+    "url": "https://github.com/skywind3000/ECDICT",
+    "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+    "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+  },
+  "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "shardFile": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-118.json",
+  "shardSha256": "8adbeed48a56d349f5e6c0f4bfffb61ebab427455dfccd80f6bc015ed2cbf12f",
+  "shardBytes": 348922,
+  "auditFileSha256": "96b8e29140087ed69d6ff3751faea4c238027c63f268924bb429569d482ac1a4",
+  "auditIntegratedSourceSha256": "8a240156c6b115297d371a2b7b7c1f8c4e0ea3105ba33a570bec459616903d9f",
+  "rationale": [
+    "The authenticated canonical record explicitly labels rescheduling as verb and as the present participle of reschedule; it has no noun or independent-sense variant.",
+    "Oxford and Collins independently list rescheduling as the regular -ing/present-participle form of the verb reschedule.",
+    "The authored verb sense means changing an arranged time; the canonical timetable-rescheduling gloss is compatible with that same verb lexeme. Returning its reviewed lemma meaning/example with matchedForm=rescheduling is precise lemmatization for this record.",
+    "This approval is finite: the exact old canonical ID/hash and exact new selected row hash are required. It is not permission to suppress an independently defined noun, another POS, a different lexeme, or a future changed record."
+  ],
+  "limitations": [
+    "Rescheduling also has a separately recorded noun use in current learner dictionaries, including a finance use. That noun is not present in this exact canonical record and is not approved by this form exception.",
+    "Do not generalize this decision to fundraising, lettering, or any other -ing head.",
+    "Keep immutable original canonical data and source attribution. This decision authorizes only the explicit form-to-lemma resolution, not a rewrite of the source record."
+  ],
+  "references": [
+    {
+      "url": "https://www.oxfordlearnersdictionaries.co.uk/definition/english/reschedule",
+      "finding": "Official verb-forms table explicitly includes -ing form rescheduling; main verb is changing an arranged time."
+    },
+    {
+      "url": "https://www.collinsdictionary.com/us/dictionary/english/reschedule",
+      "finding": "Official word-forms list explicitly names present participle rescheduling; event-time-change sense matches."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/reschedule",
+      "finding": "Intermediate/Business verb senses support arranging for a different time, not only postponing."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/rescheduling",
+      "finding": "Separate noun entry confirms why this approval must stay bound to the actual canonical verb record rather than a blanket string-only exception."
+    }
+  ]
+}

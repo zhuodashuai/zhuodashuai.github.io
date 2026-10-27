@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-household-independent-reader",
+  "independentOfAuthor": true,
+  "sourceAuthor": "AI/next_quality_inventory",
+  "sourceSha256": "c1f0243857aa63034d988e35a750a5d618a0b7efc2e4fce720a6c7e6637239ad",
+  "readAllTupleCount": 60,
+  "decisions": [
+    {
+      "term": "spring onion",
+      "rowSha256": "8bab470c1a21f210da31f17f85014d43d559f19b1a2d2217b77dd8b4720646f7",
+      "decision": "approve-new-row",
+      "assessment": "Small green onion food sense; distinct from chive/leek and from unrelated clearcut. Original noodle garnish sentence and plural agree."
+    },
+    {
+      "term": "pot lid",
+      "rowSha256": "f0c3a90346392aacc9f75a62a5147a33b1a361e815de7c182e766accd89f7356",
+      "decision": "approve-new-row",
+      "assessment": "Concrete pan/pot cover noun, not a drainage cover; bilingual stirring sequence agrees."
+    },
+    {
+      "term": "sliced ginger",
+      "rowSha256": "70ee7edeb04540a672e1e3e717e47364d5c6e27df8c8600d777c355cc9ae802b",
+      "decision": "approve-new-row",
+      "assessment": "Ingredient preparation phrase: thin ginger slices, not the entire ginger plant."
+    },
+    {
+      "term": "minced garlic",
+      "rowSha256": "7bf6c7693c93a3c4fb1a77e41cfa85e231777e006ddb2dc482497a2c078421fa",
+      "decision": "approve-new-row",
+      "assessment": "Finely chopped garlic ingredient, not a garlic clove; original sauce example matches."
+    },
+    {
+      "term": "vegetable oil",
+      "rowSha256": "2657b9bda9abf8426340154d66daa2f1f11bfb93c39fade3c5340f8cea83838e",
+      "decision": "approve-new-row",
+      "assessment": "Selected edible plant-oil sense; not all plant-derived industrial oils."
+    },
+    {
+      "term": "fry until golden brown",
+      "rowSha256": "1fd67398ecb9a666561fdb5340fec6a29a09dfd4eee5a161c634640b1c429130",
+      "decision": "approve-new-row",
+      "assessment": "Cooking instruction, not a literal gold colour/material claim; potato-cake example selects pan-frying."
+    },
+    {
+      "term": "bring to the boil",
+      "rowSha256": "8fd0d6395d151dd32ff175f54c3063926087256076cf23cb1fdb62bdc28d7220",
+      "decision": "approve-new-row",
+      "assessment": "Causative heating to boiling, not continuing to simmer. UK the/US a distinction stated."
+    },
+    {
+      "term": "store at room temperature",
+      "rowSha256": "23a5fb66a897447934de9c4b63e7fbcc68eb2e7de247b1c7ed0a1b38c4623672",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "8b331d7b01c9f203401706cd99036fdaed25a3ca41b0cee7b8acd6a3930d50fb",
+      "approvedNewChineseAliases": [],
+      "preserveExistingRowExactly": true,
+      "assessment": "Duplicate approved admin head: preserve the independently approved target body and admit only exact additional Chinese names."
+    },
+    {
+      "term": "keep refrigerated",
+      "rowSha256": "11ae2bcd03fbc5192d7be82f5c6c9d985e0d59f1bebed19bd01b3615c62b5ba3",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "affa7c434acd9b03eafe0fc39106a8fc90aa4052bf88b120838991e93623ee10",
+      "approvedNewChineseAliases": [
+        "保持冷藏"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Duplicate approved admin head: preserve the independently approved target body and admit only exact additional Chinese names."
+    },
+    {
+      "term": "low-fat milk",
+      "rowSha256": "bd2cc2e049bfeb44617b44a335335a923531baf51e907183a1f9d55c9082f1f7",
+      "decision": "approve-new-row",
+      "assessment": "Lower-fat milk noun; no unsupported fat percentage or dietary recommendation."
+    },
+    {
+      "term": "sugar-free drink",
+      "rowSha256": "c457399591f0bb02632df6c125c431559dc2a05fdd05c960f49142b6886891b4",
+      "decision": "approve-new-row",
+      "assessment": "Revised zero-or-very-low sugar wording avoids absolute-zero and zero-calorie claims; no-added-sugar is not substituted."
+    },
+    {
+      "term": "a pinch of salt",
+      "rowSha256": "e374671477f64a6b92230e60d4faabb39a9c8e0740f4517fc5bbb326c39732e3",
+      "decision": "approve-new-row",
+      "assessment": "Small cooking quantity only; figurative scepticism is not mixed into the food sense."
+    },
+    {
+      "term": "fishy smell",
+      "rowSha256": "ac2e13829d20a8057f01f6bb79798ea225de196d4a0ea1ad4bac507b4a851784",
+      "decision": "approve-new-row",
+      "assessment": "Revised alias limited to fish-like odour, not every blood/meat odour; no suspicious/figurative adjective sense."
+    },
+    {
+      "term": "food-grade",
+      "rowSha256": "690ada7273a4f86877de45e5e4798f7dfbd26e84cbb8ac6942a545a6bcf8aa94",
+      "decision": "approve-new-row",
+      "assessment": "Material suitable for its corresponding food use, not a guarantee of edibility or all-temperature safety."
+    },
+    {
+      "term": "product barcode",
+      "rowSha256": "b8200504cf53649a336909b7ea75c7f24cbf7716f42c2858d7dd3cdfafe05cad",
+      "decision": "approve-new-row",
+      "assessment": "Product-identification coding pattern; no conflation with a phone payment code."
+    },
+    {
+      "term": "shelf label",
+      "rowSha256": "9f1f6ff681b9287809e495f16c7ee25c8359c442871b369369c68281a455eca2",
+      "decision": "approve-new-row",
+      "assessment": "Shelf product/price label, distinct from the product barcode; original checkout price comparison matches."
+    },
+    {
+      "term": "staffed checkout",
+      "rowSha256": "ceea22c32064cc7c3162928cafffaf1aeab61cedcebc7b62b04b7d28bf5fa53d",
+      "decision": "approve-new-row",
+      "assessment": "Cashier-assisted checkout, distinct from self-checkout and from a customer-service hotline."
+    },
+    {
+      "term": "security tag",
+      "rowSha256": "85aa3a3d48ba75a2b08ff5dd932cab91668da71c469433b1d3f06fe1dd2b631e",
+      "decision": "approve-new-row",
+      "assessment": "Retail anti-theft device, not an identity label; payment/removal sequence agrees."
+    },
+    {
+      "term": "tax-inclusive price",
+      "rowSha256": "99ca3726bba9a4e394e2fefdc19e282d19a11a09f22b485eb51eba10d083a2af",
+      "decision": "approve-new-row",
+      "assessment": "Tax already in displayed price; not a general promise about shipping or other charges."
+    },
+    {
+      "term": "tax-exclusive price",
+      "rowSha256": "b37ad2d254c614d8dd7f718023b01dec5a4078538426858443fa40459e27a619",
+      "decision": "approve-new-row",
+      "assessment": "Tax excluded from quoted amount; no percentage or legal pricing rule invented."
+    },
+    {
+      "term": "delivery area",
+      "rowSha256": "3b8d863b2d5dce3ae16f3bfa90ec7a65aed7376936ab88f3166ad7ea588e6982",
+      "decision": "approve-new-row",
+      "assessment": "Geographic delivery coverage, not a delivery time slot."
+    },
+    {
+      "term": "home collection",
+      "rowSha256": "7576faa93609ccc6bcfb516e40779aa60f17c287aea207695a0afed962bf95e1",
+      "decision": "approve-new-row",
+      "assessment": "Parcel pickup from home, not home delivery or an art collection; parcel-too-heavy context narrows it."
+    },
+    {
+      "term": "damaged parcel",
+      "rowSha256": "15747aa80bc20795679f92eca5cccd00df8d9eaa6d31228887bc3ab5e88dc415",
+      "decision": "approve-new-row",
+      "assessment": "Physical package damage, not presumed loss; photo-before-opening temporal relationship preserved."
+    },
+    {
+      "term": "prepaid shipping label",
+      "rowSha256": "cf1dab86db5cd03b80fcbba465404c676cf2e064f506a22700411e18079d570c",
+      "decision": "approve-new-row",
+      "assessment": "Postage-paid label; official USPS use independently checked, no assumption that every label is prepaid."
+    },
+    {
+      "term": "shipment tracking",
+      "rowSha256": "9e579a2d9d83a80bca0c5b95d2fe6bd1319995c5983b7ff64f64cd07f0b2af87",
+      "decision": "approve-new-row",
+      "assessment": "Viewing shipment progress/status, not tracking a person; depot arrival example agrees."
+    },
+    {
+      "term": "shipping not included",
+      "rowSha256": "95f39f1b10687a8b5fd9e9a66e64f00bda96e68dfadfad82e3dd3f081f561f4d",
+      "decision": "approve-new-row",
+      "assessment": "Listed price excludes delivery charge, not a claim the seller never ships."
+    },
+    {
+      "term": "hem trousers",
+      "rowSha256": "8c9ba9d346b0a21705e205163b048dd1dd3fa5e171262e5fd0a064069696c811",
+      "decision": "approve-new-row",
+      "assessment": "Sew/turn the bottom edge; meaning says often adjusts length rather than all kinds of tailoring."
+    },
+    {
+      "term": "trouser hem",
+      "rowSha256": "5358623cd5b0a3ca49b03719b269581ac2114018cc6839fcfea79d70512716d8",
+      "decision": "approve-new-row",
+      "assessment": "Finished bottom edge, not the whole trouser leg; loose stitching example fits."
+    },
+    {
+      "term": "resole shoes",
+      "rowSha256": "d40ce497d26217e99f380c32cdb6ccb67af56fda6887c8d2013bd6d5e8c663d3",
+      "decision": "approve-new-row",
+      "assessment": "Replace shoe soles, not generic repair or polishing."
+    },
+    {
+      "term": "shoe repair",
+      "rowSha256": "3cada315ede34ab9ced57791ad27bba64f026b44902ba6a5d6e9e919e5d73e66",
+      "decision": "approve-new-row",
+      "assessment": "General repair service, with resoling reference as one concrete example, not the sole repair type."
+    },
+    {
+      "term": "toe box",
+      "rowSha256": "ed646f527dff4a0b3bb7b6592e2551f674b95993e38610f398769652ff294246",
+      "decision": "approve-new-row",
+      "assessment": "Shoe area containing toes, not a separate storage box."
+    },
+    {
+      "term": "weatherstripping",
+      "rowSha256": "9da87a933e520a9bfbe459f5849fa1e0a63ea794a5022a876fcf8c632ceca695",
+      "decision": "approve-new-row",
+      "assessment": "Door/window sealing material noun. Separate canonical weather stripping form was removed to avoid shadowing it."
+    },
+    {
+      "term": "soundproofing material",
+      "rowSha256": "c15850cfb454b9e49557a07aa9b65baadbeed946934659807c5c1fe9240b874d",
+      "decision": "approve-new-row",
+      "assessment": "Reducing sound transmission, not merely absorbing room echoes; original partition example matches."
+    },
+    {
+      "term": "full-length mirror",
+      "rowSha256": "e0eea4e0fc04c70b174642bb805e300f3ffd334be8278d459eedceaf66b8700a",
+      "decision": "approve-new-row",
+      "assessment": "Full-body dressing mirror, not necessarily freestanding or floor-mounted."
+    },
+    {
+      "term": "rent increase",
+      "rowSha256": "f5c90a9e8a503df13142ba6a8c036f28ad8c72b2fc4f42d49d8de3c55c32f9c5",
+      "decision": "approve-new-row",
+      "assessment": "Rent becoming higher; proposed future increase remains proposed in Chinese, not already charged."
+    },
+    {
+      "term": "utility bill",
+      "rowSha256": "e3a64a52485ecbd0a4301a97fbe8f4baeda6ae22e0a285d4a241c94cc8ef95f8",
+      "decision": "approve-new-row",
+      "assessment": "Revised aliases identify the bill/document, not unqualified utility costs."
+    },
+    {
+      "term": "utilities included",
+      "rowSha256": "2043398fea1066e5aa2f99e20d79ef7b1cc611202c43aa320dcc33dcfcf6e903",
+      "decision": "approve-new-row",
+      "assessment": "Agreed utilities are included, not an invented promise of all possible utilities/unlimited use."
+    },
+    {
+      "term": "move-in inspection",
+      "rowSha256": "c668d9d07c66292317d9fa51666b7b14eeeb5d2eb9e85967b62a0c2b3ecadb3f",
+      "decision": "approve-new-row",
+      "assessment": "Initial housing-condition check; no legal rule or prescribed deadline claimed."
+    },
+    {
+      "term": "tenancy deposit",
+      "rowSha256": "364b241f40defe134476f93463858926934c0a8537f10a780b85f6c4a4a592a9",
+      "decision": "approve-new-row",
+      "assessment": "Security money for tenancy obligations, distinct from prepaid rent; no refund entitlement invented."
+    },
+    {
+      "term": "cleaning fee",
+      "rowSha256": "55a309a355a004343bdbffa07c1b8fb1d9cf003c0d314dca559609a1cb924a2e",
+      "decision": "approve-new-row",
+      "assessment": "Separate fee for cleaning, not a refundable security deposit."
+    },
+    {
+      "term": "read a meter",
+      "rowSha256": "05f0a1cdbcbeb8f294bcae70654b7f30412f9327cb77245fb001d1df1713ef73",
+      "decision": "approve-new-row",
+      "assessment": "Read a usage-measurement device; no implication the reading is necessarily reported or paid."
+    },
+    {
+      "term": "tyre blowout",
+      "rowSha256": "70c835e04ada34a7e7e53a8cf9153c9649248c26c73b883ef3e5ef779bbd3bfd",
+      "decision": "approve-new-row",
+      "assessment": "Sudden tyre failure/loss of air, distinct from a slow leak; UK/US spelling forms fit."
+    },
+    {
+      "term": "leaking tyre",
+      "rowSha256": "2f27abb110d6d67df600b7b81295bf2a7524b3abb844b757318877fff7c379a1",
+      "decision": "approve-new-row",
+      "assessment": "Air escaping from a tyre, not by itself a sudden blowout."
+    },
+    {
+      "term": "dead car battery",
+      "rowSha256": "96d7875d5a33abf6911fd3156af787e364385ce99131bb2da99eb69c40de023b",
+      "decision": "approve-new-row",
+      "assessment": "Insufficient starting power selected sense, not necessarily irreparable physical failure."
+    },
+    {
+      "term": "jump-start a car",
+      "rowSha256": "eec1b93da92e0d28c30d9be5ef519787f4b994db4a5148d07a3952e864ef21b7",
+      "decision": "approve-new-row",
+      "assessment": "External-source starting after low battery, not engine repair instructions."
+    },
+    {
+      "term": "child car seat",
+      "rowSha256": "0ce07dbf7328d3bfd862d9532723abbaa698a5225b508a91ee1cf4b5049050b7",
+      "decision": "approve-new-row",
+      "assessment": "Child travel safety seat, not any back seat; no age/size legal advice."
+    },
+    {
+      "term": "give up one's seat",
+      "rowSha256": "191125402e8a5cb9987a032e71ba2fd75f3827cd553939f9851f4a3bbbf3a2a4",
+      "decision": "approve-new-row",
+      "assessment": "Cede an occupied seat to another person, not cancel a booking; actual pronoun/past forms match."
+    },
+    {
+      "term": "miss the last bus",
+      "rowSha256": "59718bd082d2ed325797b441b7032fd1772667344225fdaa3a1aec9c0b004fa3",
+      "decision": "approve-new-row",
+      "assessment": "Revised aliases name a bus specifically; no train or generic last-service equivalence."
+    },
+    {
+      "term": "traffic congestion",
+      "rowSha256": "5662f0f5fae20e2098b90f3d86c848dae0897c565711fcbb0eb548e6ec9cdbc8",
+      "decision": "approve-new-row",
+      "assessment": "Road-traffic build-up; original duration and delay meaning agree."
+    },
+    {
+      "term": "self check-in",
+      "rowSha256": "3c548888d437f0472d7f39c88a237b0869311731be3c95b1deb2d1396c92a6c7",
+      "decision": "approve-new-row",
+      "assessment": "Selected hotel self-check-in rather than automatically an airline boarding procedure."
+    },
+    {
+      "term": "breakfast included",
+      "rowSha256": "29052e3939c112ca41c5d6624bcc410562b309b83ce979eebd197ed0235997b6",
+      "decision": "approve-new-row",
+      "assessment": "Breakfast cost included in room/package rate; no claim of a free room."
+    },
+    {
+      "term": "viewing platform",
+      "rowSha256": "cf3cf91e6e65b1eb204c714f03c9858baea3d6c057f8cf98794da9bc62f1ff00",
+      "decision": "approve-new-row",
+      "assessment": "A platform used for a view, not a software platform."
+    },
+    {
+      "term": "escape route",
+      "rowSha256": "7a68f6aae3a330d1ca43c8640891f065ab5fe88a451fb6ef077369ee22ce7291",
+      "decision": "approve-new-row",
+      "assessment": "Evacuation path, not necessarily a single doorway or a legal compliance guarantee."
+    },
+    {
+      "term": "takeaway container",
+      "rowSha256": "e0c2a6fe0c2a759ee1eb6c63a301f52d7d973e291d01dac75f880e3da7e895de",
+      "decision": "approve-new-row",
+      "assessment": "Container for takeaway food, not takeaway itself; leaking-sauce example agrees."
+    },
+    {
+      "term": "splatter screen",
+      "rowSha256": "6e49a64954d095a90cc5ccb5c79b66b3651e30907a2d55d7ea1e1b53746f01f4",
+      "decision": "approve-new-row",
+      "assessment": "Mesh cover to reduce splashes, not an airtight pot lid."
+    },
+    {
+      "term": "bag clip",
+      "rowSha256": "701f32ac5e536653544b9f1b7ca9aaa4f931ad8246c5c0fa0dbc9a9c48994d48",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "4a778a23c27adef6650054905c0a5c9d5e1e42501f3d1d6fccfab12b0c3027d1",
+      "approvedNewChineseAliases": [
+        "密封袋夹",
+        "袋口夹"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Duplicate approved admin head: preserve the independently approved target body and admit only exact additional Chinese names."
+    },
+    {
+      "term": "skirting board",
+      "rowSha256": "02b2c5e7a7ecf5033391c73b78c4115907a59dabe91935e1930f5ddd1b8b3374",
+      "decision": "approve-new-row",
+      "assessment": "Wall base trim, not a floor board; British term selected accurately."
+    },
+    {
+      "term": "roundabout",
+      "rowSha256": "65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961",
+      "decision": "approve-new-row",
+      "assessment": "Selected road-junction noun only, not playground equipment or indirect adjective."
+    },
+    {
+      "term": "windscreen wiper",
+      "rowSha256": "331f1aa8985872ff590e8c399aaf7ce8ce81a666b317ba6c502add2ba53f23f5",
+      "decision": "approve-new-row",
+      "assessment": "Moving windscreen rain-clearing device, not windscreen washer fluid."
+    },
+    {
+      "term": "antifreeze",
+      "rowSha256": "91419becf5a3e4e7293ae22ec1a01410235ff77a331493fd26058c1d6de22733",
+      "decision": "approve-new-row",
+      "assessment": "Freezing-point-lowering liquid used in coolant contexts; no drinking/use advice or safety claim."
+    }
+  ],
+  "resolvedRevisions": [
+    "fishy smell broad odour alias removed",
+    "utility bill fee alias removed",
+    "bus versus train alias narrowed",
+    "sugar-free does not require literally zero detectable sugar",
+    "three cross-author duplicate heads are alias/no-op only"
+  ],
+  "selectedPrimaryReferencesIndependentlyChecked": [
+    "https://www.oxfordlearnersdictionaries.com/definition/english/spring-onion",
+    "https://dictionary.cambridge.org/dictionary/english/weatherstripping",
+    "https://dictionary.cambridge.org/us/dictionary/english/roundabout",
+    "https://www.usps.com/ship/label-broker.htm"
+  ],
+  "unresolvedIssues": [],
+  "limitations": [
+    "Selected senses, not an exhaustive account of every head meaning.",
+    "No claim of fetching every referenced page; all tuple meanings/EN/ZH were independently read."
+  ]
+}

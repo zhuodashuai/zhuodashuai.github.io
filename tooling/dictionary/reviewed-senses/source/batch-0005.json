@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/next_quality_inventory",
+  "entries": [
+    {
+      "term": "cooking oil",
+      "partOfSpeech": "noun",
+      "meaning": "① 食用油；烹调用油。用于煎、炒等烹饪过程的油。",
+      "chineseAliases": [
+        "食用油",
+        "烹调用油",
+        "炒菜油"
+      ],
+      "englishForms": [
+        "cooking oils"
+      ],
+      "en": "We have plenty of rice but almost no cooking oil left.",
+      "zh": "我们有很多米，但食用油几乎用完了。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/cooking-oil"
+      ],
+      "canonicalId": 11110475,
+      "canonicalSourceSha256": "44df677d009f2718fe4ea5078a1876b0586a572e96369d19304a9e2b0f7cd975"
+    },
+    {
+      "term": "clearcut",
+      "partOfSpeech": "noun",
+      "meaning": "① 皆伐地；一片可用材树木近期已被全部采伐的林地。",
+      "chineseAliases": [
+        "皆伐地",
+        "皆伐后的林地"
+      ],
+      "englishForms": [],
+      "en": "A narrow path follows the edge of the clearcut.",
+      "zh": "一条狭窄的小路沿着皆伐地边缘延伸。",
+      "references": [
+        "https://cfs.nrcan.gc.ca/terms/read/416",
+        "https://extension.psu.edu/downloadable/download/sample/sample_id/13319/"
+      ],
+      "canonicalId": 5389522,
+      "canonicalSourceSha256": "d7cd073fa70fc06add27922f5583995e35c84e8bcdd00f2ae6892012ae83796a"
+    }
+  ]
+}

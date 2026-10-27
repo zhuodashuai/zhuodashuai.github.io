@@ -20,6 +20,9 @@ const json = async file => JSON.parse(await readFile(file, 'utf8'));
 // Never derive this boundary from the growing current compiled module.
 const PRE_RETENTION_HEADS = new Set(['CD-ROM','ISS','NOE','baggie','bin liner','casualness','communitarian','geordie','hominy','hoodie','hugger','hyena','impulsively','judgmental','legalistic','meritocracy','multitalented','oap','permissiveness','rabbinical','remediate','restructuring','shakeout','sixths','snowboarder','springer','tenuously',"that's",'tum','unrated','untypical']);
 export const PRE_RETENTION_HEADS_SHA256 = '9391e01faab39b741e33eb760f05667f0bd354425f0f14281fb06a4e4f78c8c3';
+// The older broad Chinese compatibility switch is pinned to its one already
+// shipped compatible head. New heads require exact independently read policy.
+const LEGACY_CHINESE_RETENTION_HEADS = new Set(['bin liner']);
 
 function text(value, max, han = false) {
   return typeof value === 'string' && Boolean(value.trim()) && value.length <= max
@@ -44,6 +47,15 @@ function exactArray(value, nonempty = true) {
     || typeof key === 'string' && /^(?:0|[1-9]\d*)$/u.test(key) && Number(key) < value.length
       && Object.getOwnPropertyDescriptor(value, key)?.enumerable === true
       && Object.hasOwn(Object.getOwnPropertyDescriptor(value, key), 'value'));
+}
+
+export function legacyChineseRetentionHeads(index) {
+  const values = Object.hasOwn(index, 'retainLegacyChineseHeads') ? index.retainLegacyChineseHeads : [];
+  if (!exactArray(values, false) || new Set(values).size !== values.length
+    || values.some(term => !LEGACY_CHINESE_RETENTION_HEADS.has(term))) {
+    throw Error('New Chinese sense retention requires an exact retained-alternative policy');
+  }
+  return new Set(values);
 }
 
 /** Policy names exact old raw fields; display formatting is the same pure
@@ -133,6 +145,10 @@ export function renderReviewedSenseModule(rows) {
 /** These are explicitly authored supplementary senses, not claims that a
  * frozen third-party record already contained a modern meaning or correct POS. */
 export function validateReviewedSensePack(pack, review, canonicalRecords, existingSentences = new Map(), retainedChineseHeads = new Set()) {
+  if (!(retainedChineseHeads instanceof Set)
+    || [...retainedChineseHeads].some(term => !LEGACY_CHINESE_RETENTION_HEADS.has(term))) {
+    throw Error('New Chinese sense retention requires an exact retained-alternative policy');
+  }
   if (!pack || pack.schemaVersion !== 1 || !/^AI\/[a-z0-9_-]{1,100}$/u.test(pack.author)
     || !Array.isArray(pack.entries) || !pack.entries.length
     || !review || review.schemaVersion !== 1 || review.sourceSha256 !== reviewedSensePackHash(pack)
@@ -180,7 +196,7 @@ export async function loadReviewedSenseBuild() {
   const base = join(ROOT, 'tooling/dictionary');
   const index = await json(join(base, 'reviewed-senses/index.json'));
   if (index.schemaVersion !== 1 || !Array.isArray(index.batches) || !index.batches.length) throw Error('Invalid reviewed-sense index');
-  const retainedChineseHeads = new Set(index.retainLegacyChineseHeads || []);
+  const retainedChineseHeads = legacyChineseRetentionHeads(index);
   const manifest = parseCorrectionSourceManifest(await readFile(join(ROOT, 'vocab/data/expanded-dictionary/manifest.json')));
   const records = new Map();
   for (const descriptor of manifest.english.shards) {

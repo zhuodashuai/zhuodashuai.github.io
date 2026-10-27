@@ -1,0 +1,573 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/quality_followup_author_a",
+  "independentOfAuthor": true,
+  "sourceAuthor": "AI/root-admin-daily-author",
+  "sourceFile": "admin-proposals.json",
+  "sourceFileSha256": "bbbc7ae92262089a11d95ef11496936e81b85351c9eff71449afb3d63bc03b2e",
+  "sourceSha256": "c8b5ad56201e398b8cb22d30b049ebb810b2e5bbc97dccadc07e23fe79031ee0",
+  "baselineFile": "admin-baseline.json",
+  "baselineFileSha256": "8ff909c8f05f26907d6d9b0ca22d7286ea5089ab09ceb91be27492a662ba2e89",
+  "baseline": {
+    "queryCount": 111,
+    "requests": 168,
+    "scope": "Actual file-backed lookup; no external providers; local timings not internet latency",
+    "currentPackagedRows": 807
+  },
+  "reviewedAt": "2026-10-27T13:23:18.823Z",
+  "summary": {
+    "entriesRead": 48,
+    "newRowsApproved": 45,
+    "existingHeadAliasDispositions": 3,
+    "newChineseAliasesForExistingHeads": 4,
+    "extraAliasesNoOp": 1,
+    "unresolvedIssues": 0
+  },
+  "resolvedRevisions": [
+    {
+      "term": "appointment time",
+      "old": "Your appointment time is printed on the confirmation email.",
+      "accepted": "Your appointment time is shown in the confirmation email.",
+      "reason": "Natural wording for a time displayed in an electronic message."
+    }
+  ],
+  "decisions": [
+    {
+      "term": "signature line",
+      "rowSha256": "18c7daf38874f08aabe8b3ee281ddf90ee0a43cd7d24202be1a20cd37b1fcebe",
+      "decision": "approve-new-row",
+      "assessment": "Signature location is a noun phrase; the original sentence requests signing and the narrow aliases preserve that function.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/signature"
+      ]
+    },
+    {
+      "term": "print out",
+      "rowSha256": "ca781ba1ce35de504b32916f7e981cb26d03e977c29951137460390233c0d150",
+      "decision": "approve-new-row",
+      "assessment": "Particle verb and separable-object explanation fit paper output; no printout noun sense is substituted.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/print"
+      ]
+    },
+    {
+      "term": "make a photocopy",
+      "rowSha256": "827c2e48d400669bdbea9fe3ad4f19309a3c1718cb9389400da747a398658139",
+      "decision": "approve-new-row",
+      "assessment": "Productive verb phrase for making a document copy; English and Chinese both request one photocopy.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/photocopy"
+      ]
+    },
+    {
+      "term": "electronic copy",
+      "rowSha256": "0a1654d1629c692f1cb9763bd72f85474786ed9fcc2e89d4ff0fcf37af8bab8c",
+      "decision": "approve-new-row",
+      "assessment": "Electronic copy remains distinct from a paper version; plural copies is genuine.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/electronic"
+      ]
+    },
+    {
+      "term": "hard copy",
+      "rowSha256": "f16d1f4f0842c87a3c8e0cf5e6a4f4d0a389875163e71407c1e1e20c54ceec03",
+      "decision": "approve-new-row",
+      "assessment": "Printed paper copy is the relevant noun phrase; application example preserves paper format.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/hard-copy"
+      ]
+    },
+    {
+      "term": "reschedule",
+      "rowSha256": "30a954efb4a46b756b1bb75808cbf0672a9ab103e8c40768de5bec6c74e65f40",
+      "decision": "approve-new-row",
+      "assessment": "Rescheduling changes an arranged time without necessarily delaying it; all verb inflections are correct.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/reschedule"
+      ]
+    },
+    {
+      "term": "appointment time",
+      "rowSha256": "4423ba96e9cdac1758aea3f53dc906fb337f898e9f703fe05f645612b841d436",
+      "decision": "approve-new-row",
+      "assessment": "Scheduled-visit time is correct; revised shown in the confirmation email is natural digital-medium wording.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/appointment"
+      ]
+    },
+    {
+      "term": "send a parcel",
+      "rowSha256": "705d48318c428abcd0271743fe2c61bc57c26fe75b69295796f19c367c2c0e34",
+      "decision": "approve-new-row",
+      "assessment": "Parcel delivery is a verb phrase; courier alias is qualified as context-dependent rather than an express-service promise.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/parcel"
+      ]
+    },
+    {
+      "term": "name on the invoice",
+      "rowSha256": "040857e7d86098ff8aed619e51d719f77faf2fa05951292ce8926447fff3ef01",
+      "decision": "approve-new-row",
+      "assessment": "Invoice-name wording supports the intended invoicing-name request; no jurisdiction-specific tax entitlement is claimed.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/invoice"
+      ]
+    },
+    {
+      "term": "call a number",
+      "rowSha256": "1dc0c3227fd0eee234ff664a2868954bd711b17eed84f89c3fe9d3b69aa52c25",
+      "decision": "approve-new-row",
+      "assessment": "Example establishes queue-ticket calling, not telephoning; baseline call number was a library/electrical noun false lead.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/call"
+      ]
+    },
+    {
+      "term": "it's my turn",
+      "rowSha256": "6fba15be6ac2eea1c419469e8c7b743151f9924e269299904609c1dbbf94aced",
+      "decision": "approve-new-row",
+      "assessment": "Expression indicates the current first-person turn without changing speaker roles or implying completion.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/turn"
+      ]
+    },
+    {
+      "term": "QR code",
+      "rowSha256": "7c55bf700712ce267515c30601dc597a3a0449cb94f0eb0de2bd1c258d1bb972",
+      "decision": "approve-new-row",
+      "assessment": "QR is a readable code type; Apple supports opening linked content through camera/code scanner.",
+      "references": [
+        "https://support.apple.com/en-us/102680"
+      ]
+    },
+    {
+      "term": "scan a code",
+      "rowSha256": "6853294ecfb387f74ddec7a7dfdffea26755dfaab42354451ed2143fbf96ec2f",
+      "decision": "approve-new-row",
+      "assessment": "Scanning reads a barcode or QR pattern; it is not arbitrary code execution.",
+      "references": [
+        "https://support.apple.com/en-us/102680"
+      ]
+    },
+    {
+      "term": "turn off notifications",
+      "rowSha256": "f192c8120bbb257050b9065004a7c1c7985bb9bb857a9d01e703875d11bcf37c",
+      "decision": "approve-new-row",
+      "assessment": "Turning notifications off disables selected app/service reminders; underlying messages are not claimed to be deleted.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/notification"
+      ]
+    },
+    {
+      "term": "screen recording",
+      "rowSha256": "c437def590cfdbf03f72628b433420b7a6c92d27db68e0d3784209693ba30bd9",
+      "decision": "approve-new-row",
+      "assessment": "Recording activity and resulting video are both covered; recordings plural is genuine.",
+      "references": [
+        "https://support.apple.com/en-ie/guide/iphone/iph52f6e1987/ios"
+      ]
+    },
+    {
+      "term": "silent mode",
+      "rowSha256": "bb86ebf71ba8a001e28b533ac0dd2436eca6ab74e4d863c6a19bbdcc0ce73643",
+      "decision": "approve-new-row",
+      "assessment": "Definition limits silence to usual call/notification alerts and avoids the false all-sounds claim.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/silent"
+      ]
+    },
+    {
+      "term": "turn on location services",
+      "rowSha256": "8bf7dd885f75f3a32b8b6010f9857e02b3403dbb34f313f81da627426b064167",
+      "decision": "approve-new-row",
+      "assessment": "Location services and per-app permission are distinguished; map-position example has reasonable scope.",
+      "references": [
+        "https://support.apple.com/en-us/102515"
+      ]
+    },
+    {
+      "term": "clear the cache",
+      "rowSha256": "730c890476893e936db2d1e6be0b1c6941911572bd84ef2812d817a27c95aa77",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "462b06fc3f0289393d99401388466377cda8c186af2b2a6085582c0a742c8709",
+      "approvedNewChineseAliases": [
+        "清空缓存"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Existing exact head: approve only new Chinese alias 清空缓存; replacement body is not approved for import.",
+      "references": [
+        "https://support.google.com/chrome/answer/2392709?hl=en"
+      ]
+    },
+    {
+      "term": "browsing history",
+      "rowSha256": "949af846ea54bfa3ae20a84f846f779b5710f54109173d840a6db810784963c0",
+      "decision": "approve-new-row",
+      "assessment": "History records visited pages, unlike cached files; searchable-history example is natural.",
+      "references": [
+        "https://support.google.com/chrome/answer/2392709?hl=en"
+      ]
+    },
+    {
+      "term": "unzip files",
+      "rowSha256": "6bfd122d408809e85392f7f9c8cf466174e6034dd6ae94e20298a5362ba374ab",
+      "decision": "approve-new-row",
+      "assessment": "Unzipping is limited to ZIP extraction, with extract covering broader formats; Microsoft confirms extraction behavior.",
+      "references": [
+        "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/zip-and-unzip-files"
+      ]
+    },
+    {
+      "term": "upload a file",
+      "rowSha256": "070b132478eb2870d45853cdfd009b646226616c0a38b1f7184a97680f876883",
+      "decision": "approve-new-row",
+      "assessment": "Uploading sends a local file to a remote site/system; PDF-format example does not describe downloading.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/upload"
+      ]
+    },
+    {
+      "term": "download link",
+      "rowSha256": "601e67eb2829a2cc37bcb4acc87278ec086c40cda0a7f583d059ae96717a2256",
+      "decision": "approve-new-row",
+      "assessment": "Download link is a retrievable-file link; expiry is an example circumstance, not a universal property.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/download"
+      ]
+    },
+    {
+      "term": "save as",
+      "rowSha256": "c33ea41714b8ae7bedcf68b9f617fd4d0d3fb8fca9a67c079366e65337ed59c2",
+      "decision": "approve-new-row",
+      "assessment": "Save As is a software command/verb phrase for saving under another name, location or format.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/save"
+      ]
+    },
+    {
+      "term": "copy a link",
+      "rowSha256": "460b8548fc4043e4e2a2340ad233978dd9256825da3da20df94eec2a6b01b5f1",
+      "decision": "approve-new-row",
+      "assessment": "Copying the URL into a clipboard differs from copying the file; paste-into-message example is coherent.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/copy"
+      ]
+    },
+    {
+      "term": "online meeting",
+      "rowSha256": "4463aac3602ad9cede27aa74db428ea430f8a6262836657ef8f08c41a55bf2c0",
+      "decision": "approve-new-row",
+      "assessment": "Online meeting is a transparent noun phrase; the example does not imply in-person attendance.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/online"
+      ]
+    },
+    {
+      "term": "network latency",
+      "rowSha256": "84e3aee759d53aa9302059cf9ce23fd738e34be0b833aadf49e83fa6b2f25039",
+      "decision": "approve-new-row",
+      "assessment": "Latency is transmission delay and differs from throughput/bandwidth; video-call delay example is appropriate.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/latency"
+      ]
+    },
+    {
+      "term": "reconnect",
+      "rowSha256": "f967bb5120ffe462c0d3a575e16e1f047d83825b6765f0bc2dffa81de5d6eda2",
+      "decision": "approve-new-row",
+      "assessment": "Reconnect restores a broken connection; inflections and network example are correct.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/reconnect"
+      ]
+    },
+    {
+      "term": "swap shifts",
+      "rowSha256": "907606913872ae8c69309a1415ab96806869f4f204aa33452406f8f376978ae1",
+      "decision": "approve-new-row",
+      "assessment": "Swapping shifts is mutual exchange, not every scheduling change; Chinese explicitly narrows 调班.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/swap"
+      ]
+    },
+    {
+      "term": "deposit refund",
+      "rowSha256": "63c2615434a6ebc8fd453427fb97bcc1523ce2df2f3140fc2ce9e7bd6d9f0fa0",
+      "decision": "approve-new-row",
+      "assessment": "Deposit refund names returned deposit money; full refund is not guaranteed.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/refund"
+      ]
+    },
+    {
+      "term": "back-in-stock notification",
+      "rowSha256": "f8510d4c6f4daa6575c02d9c8509ce1a28801cdb769e1a9a492767a40bc59c49",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "2cb1d24f536e3727799ac055ca3f0b1ca0f74081bc0ee3dbfe079597c92d3f3e",
+      "approvedNewChineseAliases": [
+        "补货通知"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Existing exact head: approve only new Chinese alias 补货通知; preserve original restock-versus-delivery clarification.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stock"
+      ]
+    },
+    {
+      "term": "shelf life",
+      "rowSha256": "0a373a384a0870283d186ab375f29b42543c2918d03b8cca279bdd260cda81a9",
+      "decision": "approve-new-row",
+      "assessment": "Shelf life is a duration under suitable storage, not a calendar expiry date; six-month example aligns.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/shelf-life"
+      ]
+    },
+    {
+      "term": "date of manufacture",
+      "rowSha256": "01227fb29f305aa0dbbc07955ea3845413d309118bd9e4585a08257fb8d58e45",
+      "decision": "approve-new-row",
+      "assessment": "Date of manufacture is a production date; dates plural and box-location example are natural.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/manufacture"
+      ]
+    },
+    {
+      "term": "dairy-free",
+      "rowSha256": "dd8ddd152ad0eb1d6d3afd42a6033a18e9a10022ad0142c769db9ca1816b37c0",
+      "decision": "approve-new-row",
+      "assessment": "Dairy-free means no milk products and differs from lactose-free; dessert question preserves that restriction.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/dairy-free"
+      ]
+    },
+    {
+      "term": "gluten-free",
+      "rowSha256": "9921b6b3d140cf40e9fdb4b5f96827efb8fb3803017af2c798cc0dae8301e443",
+      "decision": "approve-new-row",
+      "assessment": "Gluten-free describes gluten absence, not grain absence; dedicated menu use is natural.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/gluten-free"
+      ]
+    },
+    {
+      "term": "store at room temperature",
+      "rowSha256": "8b331d7b01c9f203401706cd99036fdaed25a3ca41b0cee7b8acd6a3930d50fb",
+      "decision": "approve-new-row",
+      "assessment": "Storage instruction leaves product-specific room-temperature range to its label; no degrees are invented.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/room-temperature"
+      ]
+    },
+    {
+      "term": "keep refrigerated",
+      "rowSha256": "affa7c434acd9b03eafe0fc39106a8fc90aa4052bf88b120838991e93623ee10",
+      "decision": "approve-new-row",
+      "assessment": "Refrigerated identifies chilled storage, not freezing; after-opening label context is natural.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/refrigerate"
+      ]
+    },
+    {
+      "term": "thaw in advance",
+      "rowSha256": "396fe9f114d082eb2c34e779e4870dc3e1b71ced3d3dc6f1172e21cb078b67e4",
+      "decision": "approve-new-row",
+      "assessment": "Thawing in advance means food defrosting before use; no unsafe timing or room-temperature instruction is added.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/thaw"
+      ]
+    },
+    {
+      "term": "bag clip",
+      "rowSha256": "4a778a23c27adef6650054905c0a5c9d5e1e42501f3d1d6fccfab12b0c3027d1",
+      "decision": "approve-new-row",
+      "assessment": "Bag clip helps close a food packet; no airtight guarantee is claimed; clips plural is correct.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/clip"
+      ]
+    },
+    {
+      "term": "another portion",
+      "rowSha256": "f7d05a2db29026e1445b85dbe829e51c3c4c547efa1ae528c8029399ba9ec29d",
+      "decision": "approve-new-row",
+      "assessment": "Portion is a food serving; request example means additional rice, not necessarily an entire dish.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/portion"
+      ]
+    },
+    {
+      "term": "no coriander, please",
+      "rowSha256": "da4e2e97f9af226cbd28cc6cfc0b82513140b64ff0b376f364b8b858100f02a8",
+      "decision": "approve-new-row",
+      "assessment": "Order excludes coriander; US cilantro leaf terminology is accurately qualified.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/coriander"
+      ]
+    },
+    {
+      "term": "less salt, please",
+      "rowSha256": "0399aefb01963fcca0013623cff854aa5583c9642d1e617a03f0ba770e76b147",
+      "decision": "approve-new-row",
+      "assessment": "Less salt requests a reduction rather than none; English reason and Chinese translation align.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/salt"
+      ]
+    },
+    {
+      "term": "sorry to bother you",
+      "rowSha256": "5e4445dc64e1cda59bd5d8bd62405438def7aa0c3eaaecf9e846feae430dbdf8",
+      "decision": "approve-alias-only",
+      "existingRowSha256": "6b1612c979f2d0bee653668b5d322c97797b37fd67b27e280787051bca452575",
+      "approvedNewChineseAliases": [
+        "抱歉打扰",
+        "不好意思打扰一下"
+      ],
+      "preserveExistingRowExactly": true,
+      "assessment": "Existing exact head: approve only 抱歉打扰 and 不好意思打扰一下; preserve existing body exactly.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/bother"
+      ]
+    },
+    {
+      "term": "excuse me",
+      "rowSha256": "d7066112aaa6993e3362229a34ade309cdd43b4932e0ae7805ce9d92122ff1cb",
+      "decision": "approve-new-row",
+      "assessment": "Excuse me is scoped to attention/getting past someone; both Chinese aliases request passage.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/excuse-me"
+      ]
+    },
+    {
+      "term": "could you help me",
+      "rowSha256": "f27c11bd66cfc1084396f4575893888b64e74d35411407441806d1960edf35ac",
+      "decision": "approve-new-row",
+      "assessment": "Polite help request is an expression; carry this box is a natural complement.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/help"
+      ]
+    },
+    {
+      "term": "I'll be right back",
+      "rowSha256": "cd1a489f727395db43ee5be6c11280e15984fa778d5a48b81018ce1b000a5629",
+      "decision": "approve-new-row",
+      "assessment": "Right back means brief departure and return; coat example does not imply return is already complete.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/back"
+      ]
+    },
+    {
+      "term": "I made a mistake",
+      "rowSha256": "b1730aa6cd2375593803bff9e21e5947cfcd6dcb7ea8c94b483b639f0ca8c6ce",
+      "decision": "approve-new-row",
+      "assessment": "Acknowledges an address-entry error; Chinese preserves tense and responsible person.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/mistake"
+      ]
+    },
+    {
+      "term": "I'm just browsing",
+      "rowSha256": "01831135ce54e80122c20d14cc22eadafb61be0908f453aefe47b5e3e05a5d1e",
+      "decision": "approve-new-row",
+      "assessment": "Shop browsing politely declines immediate assistance; it is not internet browsing history.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/browse"
+      ]
+    },
+    {
+      "term": "keep the change",
+      "rowSha256": "f608618183682ab6b7aff21916b7f89c679a64061dbdfdf97f9b97661cc5542b",
+      "decision": "approve-new-row",
+      "assessment": "Cash-change expression permits keeping the small overpayment, without imposing a tipping rule.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/change"
+      ]
+    }
+  ],
+  "extraAliasDecisions": [
+    {
+      "term": "proof of address",
+      "alias": "住址证明",
+      "decision": "approve-existing-no-op",
+      "existingRowSha256": "64a98589e4084c1fdc960d1c0074454819044e3c21cdc914fae31208cbf17f03",
+      "assessment": "Exact residential-address evidence alias, already present; do not duplicate or count as new coverage.",
+      "reference": "https://www.gov.uk/government/publications/proof-of-identity-checklist/proof-of-identity-checklist"
+    }
+  ],
+  "primaryEvidenceChecked": [
+    {
+      "url": "https://support.apple.com/en-us/102680",
+      "finding": "QR Camera/Code Scanner opens linked content."
+    },
+    {
+      "url": "https://support.apple.com/en-us/102515",
+      "finding": "Location Services and per-app location permission are separate."
+    },
+    {
+      "url": "https://support.apple.com/en-ie/guide/iphone/iph52f6e1987/ios",
+      "finding": "Actual Apple screen-recording guide."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/storage-filemanagement/zip-and-unzip-files",
+      "finding": "Actual Microsoft ZIP extraction guide."
+    },
+    {
+      "url": "https://support.google.com/chrome/answer/2392709?hl=en",
+      "finding": "History and cached images/files are distinct selectable deletion categories."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/shelf-life",
+      "finding": "Duration before product becomes too old; direct fetch403, primary indexed entry read."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/dairy-free?topic=various-qualities-of-food",
+      "finding": "Adjective: containing no milk products; primary indexed entry read."
+    },
+    {
+      "url": "https://support.apple.com/en-in/118444",
+      "finding": "Silent mode does not suppress Clock alarm sound."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/call?q=call_1",
+      "finding": "Transitive shouting/announcing sense is distinct from telephone sense."
+    },
+    {
+      "url": "https://betterq.app/docs/customer-display",
+      "finding": "Queue-system maker describes number/counter announcements."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/hard-copy",
+      "finding": "Printed paper copy, not electronic copy."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/portion-of?topic=food-general-words",
+      "finding": "Food serving to one person is recorded; no wording copied."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/latency",
+      "finding": "Computing sense is transfer delay."
+    },
+    {
+      "url": "https://www.twilio.com/docs/glossary/what-is-latency",
+      "finding": "Provider explains latency effects on voice/video communication."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/manufacture_2",
+      "finding": "Date of manufacture collocation explicitly recorded."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/signature",
+      "finding": "Personal handwritten name sense, distinct from characteristic sense."
+    },
+    {
+      "url": "https://www.coeliac.org.uk/living-with-coeliac-disease/food-and-drink/the-gluten-free-diet/what-is-the-gluten-free-diet/",
+      "finding": "Gluten-free foods include rice, supporting no-all-grains distinction."
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/proof-of-identity-checklist/proof-of-identity-checklist",
+      "finding": "Official address-evidence examples support narrow 住址证明 alias."
+    }
+  ],
+  "limitations": [
+    "Selected daily senses and natural examples reviewed; not exhaustive dictionary-sense coverage.",
+    "Compositional phrases are linguistically reviewed; broad base-word references do not establish every phrase as a fixed dictionary head.",
+    "Three duplicate-head bodies are not approved as replacements; only listed exact new Chinese aliases may be imported."
+  ]
+}

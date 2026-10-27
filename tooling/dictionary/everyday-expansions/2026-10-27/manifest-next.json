@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "sourceFile": "next-life-proposals.json",
+      "reviewFile": "next-life-independent-review.json",
+      "sourceSha256": "33161da06569abf8fa0faec13c869ea4d2a1b8574c0fab9f2571fdb62cba048b",
+      "reviewSha256": "8358ef6d5560a2e2a0aed4ddbce77a3b4066fdb2a3ef0e6ff8a2f280526b4cdf",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-second-daily-reader"
+    },
+    {
+      "sourceFile": "next-home-proposals.json",
+      "reviewFile": "next-home-independent-review.json",
+      "sourceSha256": "c9aae998e3f88eecda9868eef1a7b0b556472a40866fbea74ef91ee32b1fc2e5",
+      "reviewSha256": "c93051520ddc138e62aaa22bcfa716f006cfd39f5e8debd4ff3439ba8301aaf7",
+      "author": "AI/quality_release_capacity",
+      "reviewer": "AI/root-second-daily-reader"
+    },
+    {
+      "sourceFile": "next-health-proposals.json",
+      "reviewFile": "next-health-independent-review.json",
+      "sourceSha256": "dd3ae03faa07dee4b317b8c8ffef0ec574dbe077af90ae4c42647b230d2a80ec",
+      "reviewSha256": "3b913be7ad70634bce21cad633e80619ec6b271928b1a6db7ec333d490e17380",
+      "author": "AI/quality-followup-author-a-health",
+      "reviewer": "AI/root-second-daily-reader"
+    },
+    {
+      "sourceFile": "next-precision-proposals.json",
+      "reviewFile": "next-precision-independent-review.json",
+      "sourceSha256": "866a645d3b1883e86f5586e6267736949c0b047a9a63b027260088f8f5a75ff9",
+      "reviewSha256": "34950f179b38d259f5af33c057ba2c23f172471875833f58425c96aaab61ffd6",
+      "author": "AI/root-common-precision-author",
+      "reviewer": "AI/quality_release_capacity"
+    },
+    {
+      "sourceFile": "next-home-alias-proposals.json",
+      "reviewFile": "next-home-alias-independent-review.json",
+      "sourceSha256": "6c676fe9d5c5b4665bdd28ffa816fa0458e72922e98bb5e8c6268d04d8fa4401",
+      "reviewSha256": "1967c46ace2a3367d24a5e7e32141fdbe95f3cfa84259e33d31f1aeed2322cf3",
+      "author": "AI/quality_release_capacity",
+      "reviewer": "AI/root-second-daily-reader"
+    }
+  ],
+  "newEntries": 54,
+  "addedHeads": [
+    "no parking",
+    "tax refund counter",
+    "speeding ticket",
+    "currency exchange counter",
+    "toiletry bag",
+    "electric fly swatter",
+    "admission ticket",
+    "blind spot",
+    "non-slip sole",
+    "level crossing",
+    "shoes rub",
+    "radiator",
+    "dry-cleaning receipt",
+    "haircut appointment",
+    "collection notification",
+    "handyperson",
+    "sugar-free yogurt",
+    "duty-free allowance",
+    "stir-fry",
+    "drain",
+    "fire access route",
+    "tenancy agreement",
+    "gas detector",
+    "undercooked",
+    "housemate",
+    "drain cleaner",
+    "scorch",
+    "sublet",
+    "utility costs",
+    "notice to end a tenancy",
+    "proof of residence",
+    "payment without a password",
+    "out-of-stock notification",
+    "povidone-iodine",
+    "disposable gloves",
+    "disposable face mask",
+    "digital thermometer",
+    "cough syrup",
+    "nasal spray",
+    "motion sickness medicine",
+    "drug allergy",
+    "take on an empty stomach",
+    "take with food",
+    "medical record",
+    "follow-up appointment",
+    "nut allergy",
+    "peanut allergy",
+    "miss the last service",
+    "sign",
+    "attachment",
+    "paste",
+    "inventory",
+    "allergen",
+    "shipping cost"
+  ],
+  "addedRowsSha256": "bd7b203e62ca75996fc1680eb0a6f16f8f9cb23965975a60c00a5cd57453bbc4",
+  "newAliases": [
+    {
+      "term": "escape route",
+      "aliases": [
+        "消防通道"
+      ],
+      "targetEntrySha256": "7a68f6aae3a330d1ca43c8640891f065ab5fe88a451fb6ef077369ee22ce7291"
+    }
+  ],
+  "expectedFinalOrdinaryCount": 837,
+  "expectedSelectedCount": 131
+}
