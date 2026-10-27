@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/quality_release_capacity",
+  "independentOfAuthor": true,
+  "sourceSha256": "6389eb4177af124fdb1edb03368be892cd3c8a8a1a8146321d0d4c4aed54bf85",
+  "authoredProposalSha256": "2c7e5f93fbe3116aab4b86e77be0a738b669fe3c4c1c39c9719fd44c09385825",
+  "approvedTerms": [
+    "cooking oil",
+    "clearcut"
+  ],
+  "issues": [],
+  "decisions": [
+    {
+      "term": "cooking oil",
+      "decision": "approved",
+      "rowSha256": "2a8aa13d02748b4f6dc82d51a6315f2c89b960fa583e0ce118340f6cf2668d6b",
+      "canonicalId": 11110475,
+      "canonicalSourceSha256": "44df677d009f2718fe4ea5078a1876b0586a572e96369d19304a9e2b0f7cd975",
+      "independentlyReadReferences": [
+        {
+          "url": "https://www.collinsdictionary.com/dictionary/english/cooking-oil",
+          "access": "Direct page read; noun definition at lines219-225."
+        },
+        {
+          "url": "https://www.gov.uk/government/publications/importing-cooking-oils",
+          "access": "Direct official Food Standards Agency publication title verifies plural/type usage."
+        },
+        {
+          "url": "https://www.cfs.gov.hk/english/multimedia/multimedia_pub/files/know_more_oil_e.pdf",
+          "access": "Direct official government PDF; edible cooking oil use."
+        }
+      ],
+      "reason": "Noun identifies edible cooking oil rather than lamp fuel. The rice/oil contrast is idiomatic; the Chinese accurately conveys the almost depleted supply. Three Chinese aliases stay within food oil. Cooking oils is a valid plural for kinds/products, independently attested by the official UK publication title. Both existing canonical raw variants contain only the unsuitable lamp-oil gloss, so no old-sense retention is approved."
+    },
+    {
+      "term": "clearcut",
+      "decision": "approved",
+      "rowSha256": "085541a5feba41f55be5ff74c4e73eb44a5f05369f28572f6d3e764432b619be",
+      "canonicalId": 5389522,
+      "canonicalSourceSha256": "d7cd073fa70fc06add27922f5583995e35c84e8bcdd00f2ae6892012ae83796a",
+      "independentlyReadReferences": [
+        {
+          "url": "https://cfs.nrcan.gc.ca/terms/read/416",
+          "access": "Official cached search excerpt explicitly labels closed clearcut as an area noun. Direct page was403."
+        },
+        {
+          "url": "https://extension.psu.edu/downloadable/download/sample/sample_id/13319/",
+          "access": "Primary university PDF first open succeeded; cached query later confirmed closed forestry verb/context. Not used as the sole noun-definition evidence."
+        }
+      ],
+      "reason": "Exact closed head clearcut is a forestry area noun in the Canadian official glossary. Chinese correctly limits the definition to recently harvested merchantable trees; two aliases name the area, not the harvesting action. A path following its edge is a natural noun example with faithful Chinese. No clearcutting or clear-cut alias is declared. The separate hyphenated clear-cut canonical adjective remains unchanged; neither old closed-head variant supplies a verified forestry meaning to retain."
+    }
+  ]
+}

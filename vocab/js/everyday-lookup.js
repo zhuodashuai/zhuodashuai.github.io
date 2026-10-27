@@ -86,15 +86,71 @@ export function isSupersededChineseSenseHead(term) {
   return typeof term === "string" && supersededChineseHeads.has(term);
 }
 
+function retainedRow(term) {
+  if (typeof term !== 'string') return null;
+  const row = canonicalEnglish.get(englishKey(term));
+  return row?.term === term && row.reviewedCanonicalSense === true
+    && Array.isArray(row.retainedCanonicalAlternatives) && row.retainedCanonicalAlternatives.length ? row : null;
+}
+
+export function isRetainedCanonicalSenseHead(term) { return Boolean(retainedRow(term)); }
+
+function retainedProjection(old) {
+  return { partOfSpeech: old.partOfSpeech,
+    meaning: old.meaning + (old.usageNote ? '\n用法：' + old.usageNote : ''),
+    source: old.source, license: old.license, url: old.url };
+}
+
+/** Only the exact approved base or its exact approved-note projection matches.
+ * The second identity keeps the expanded/personal double guard idempotent. */
+export function matchesRetainedCanonicalAlternative(term, item) {
+  const row = retainedRow(term);
+  return Boolean(item && row?.retainedCanonicalAlternatives.some(old =>
+    ['partOfSpeech','source','license','url'].every(key => item[key] === old[key])
+      && (item.meaning === old.meaning || item.meaning === retainedProjection(old).meaning)));
+}
+
+/** Drop unapproved old variants, without promoting an alternative to primary
+ * or changing caller data. Policy evidence and internal IDs are never copied. */
+export function sanitizeRetainedCanonicalResult(item) {
+  const row = retainedRow(item?.term);
+  if (!row) return item;
+  if (!matchesRetainedCanonicalAlternative(item.term, item)) return null;
+  const approved = row.retainedCanonicalAlternatives.find(old =>
+    ['partOfSpeech','source','license','url'].every(key => item[key] === old[key])
+      && (item.meaning === old.meaning || item.meaning === retainedProjection(old).meaning));
+  const output = { ...item, ...retainedProjection(approved) };
+  if (Array.isArray(item.alternatives)) {
+    const kept = [], seen = new Set();
+    for (const candidate of item.alternatives) {
+      if (!matchesRetainedCanonicalAlternative(item.term, candidate)) continue;
+      const old = row.retainedCanonicalAlternatives.find(value =>
+        ['partOfSpeech','source','license','url'].every(key => candidate[key] === value[key])
+          && (candidate.meaning === value.meaning || candidate.meaning === retainedProjection(value).meaning));
+      const projected = retainedProjection(old), key = JSON.stringify(projected);
+      if (!seen.has(key)) { seen.add(key); kept.push(projected); }
+    }
+    if (kept.length) output.alternatives = kept;
+    else delete output.alternatives;
+  } else delete output.alternatives;
+  return output;
+}
+
 /** Call only after the explicit packaged head/form lookup missed. A legacy
  * form cannot borrow a newly selected meaning merely by resolving to its head. */
 export function guardLegacySupplementaryResult(result) {
-  const row = Array.isArray(result?.results) ? result.results.find(item => isReviewedCanonicalSenseHead(item.term)) : null;
-  if (row) {
-    const error = new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');
-    error.code = 'unreviewed_dictionary_form'; throw error;
-  }
-  return result;
+  if (!Array.isArray(result?.results)) return result;
+  let changed = false;
+  const results = result.results.map(item => {
+    if (!isReviewedCanonicalSenseHead(item?.term)) return item;
+    if (!matchesRetainedCanonicalAlternative(item.term, item)) {
+      const error = new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');
+      error.code = 'unreviewed_dictionary_form'; throw error;
+    }
+    const clean = sanitizeRetainedCanonicalResult(item);
+    changed ||= clean !== item; return clean;
+  });
+  return changed ? { ...result, results } : result;
 }
 
 function lookupChinese(query) {
@@ -128,6 +184,7 @@ export function searchEverydayDictionary(input, { limit = 20 } = {}) {
     results: rows.slice(0, count).map(row => ({
       term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
       source: row.dictionarySource || SOURCE, license: LICENSE, url: SOURCE_URL,
+      ...(row.retainedCanonicalAlternatives?.length ? { alternatives: row.retainedCanonicalAlternatives.map(retainedProjection) } : {}),
       ...(!HAN.test(normal) && query !== englishKey(row.term) ? { matchedForm: form } : {}),
     })),
     hasMore: rows.length > count,

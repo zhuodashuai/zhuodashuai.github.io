@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "c91f7ab2ed0a7e745edd32b90f4107178ed78448",
+  "sources": [
+    {
+      "sourceFile": "admin-proposals.json",
+      "reviewFile": "admin-independent-review.json",
+      "sourceSha256": "c8b5ad56201e398b8cb22d30b049ebb810b2e5bbc97dccadc07e23fe79031ee0",
+      "reviewSha256": "4d3796bd010f0c479dde546b3c6d9065e27e0596043f62d3c422f19daafa5ee7",
+      "author": "AI/root-admin-daily-author",
+      "reviewer": "AI/quality_followup_author_a"
+    },
+    {
+      "sourceFile": "household-proposals.json",
+      "reviewFile": "household-independent-review.json",
+      "sourceSha256": "c1f0243857aa63034d988e35a750a5d618a0b7efc2e4fce720a6c7e6637239ad",
+      "reviewSha256": "6c4f873b632c1d1a5f061c97fef1ac3a08fe3634d57e3cb13485696e9472d5bd",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-household-independent-reader"
+    },
+    {
+      "sourceFile": "extra-proposals.json",
+      "reviewFile": "extra-independent-review.json",
+      "sourceSha256": "0897f5b82dd39319e8666e0628576dfa45db3ee14ac21ef0530aca9dbadda3a6",
+      "reviewSha256": "ab627d70bb8fdc6957101bc80c70410e495c4a98ebccd007b3254891641be12a",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-household-independent-reader"
+    },
+    {
+      "sourceFile": "household-alias-proposals.json",
+      "reviewFile": "household-alias-independent-review.json",
+      "sourceSha256": "d491a0557d16009306b9ea8cf2a4abb5e545c869fe5b19b1c4c30dbf5788d183",
+      "reviewSha256": "23f949e890dcfe21f1a8430ee47bb90615ef3f3df916be6fc44d7fad16be04e6",
+      "author": "AI/next_quality_inventory",
+      "reviewer": "AI/root-household-independent-reader"
+    }
+  ],
+  "newEntries": 105,
+  "newAliases": [
+    {
+      "term": "clear the cache",
+      "aliases": [
+        "清空缓存"
+      ],
+      "targetEntrySha256": "462b06fc3f0289393d99401388466377cda8c186af2b2a6085582c0a742c8709"
+    },
+    {
+      "term": "back-in-stock notification",
+      "aliases": [
+        "补货通知"
+      ],
+      "targetEntrySha256": "2cb1d24f536e3727799ac055ca3f0b1ca0f74081bc0ee3dbfe079597c92d3f3e"
+    },
+    {
+      "term": "sorry to bother you",
+      "aliases": [
+        "抱歉打扰",
+        "不好意思打扰一下"
+      ],
+      "targetEntrySha256": "6b1612c979f2d0bee653668b5d322c97797b37fd67b27e280787051bca452575"
+    },
+    {
+      "term": "keep refrigerated",
+      "aliases": [
+        "保持冷藏"
+      ],
+      "targetEntrySha256": "affa7c434acd9b03eafe0fc39106a8fc90aa4052bf88b120838991e93623ee10"
+    },
+    {
+      "term": "bag clip",
+      "aliases": [
+        "密封袋夹",
+        "袋口夹"
+      ],
+      "targetEntrySha256": "4a778a23c27adef6650054905c0a5c9d5e1e42501f3d1d6fccfab12b0c3027d1"
+    },
+    {
+      "term": "reschedule an appointment",
+      "aliases": [
+        "预约改期"
+      ],
+      "targetEntrySha256": "b580eda1820b704d6e3344bd3b0a3bf5d6b9e4ed57a4581e8669fa6151ab9c1d"
+    },
+    {
+      "term": "box up the leftovers",
+      "aliases": [
+        "剩菜打包"
+      ],
+      "targetEntrySha256": "db9ef86bdfa02eae6bc309b83475e1e10e098de21b8cf1e09d63e6f818791c31"
+    }
+  ],
+  "addedHeads": [
+    "signature line",
+    "print out",
+    "make a photocopy",
+    "electronic copy",
+    "hard copy",
+    "reschedule",
+    "appointment time",
+    "send a parcel",
+    "name on the invoice",
+    "call a number",
+    "it's my turn",
+    "QR code",
+    "scan a code",
+    "turn off notifications",
+    "screen recording",
+    "silent mode",
+    "turn on location services",
+    "browsing history",
+    "unzip files",
+    "upload a file",
+    "download link",
+    "save as",
+    "copy a link",
+    "online meeting",
+    "network latency",
+    "reconnect",
+    "swap shifts",
+    "deposit refund",
+    "shelf life",
+    "date of manufacture",
+    "dairy-free",
+    "gluten-free",
+    "store at room temperature",
+    "keep refrigerated",
+    "thaw in advance",
+    "bag clip",
+    "another portion",
+    "no coriander, please",
+    "less salt, please",
+    "excuse me",
+    "could you help me",
+    "I'll be right back",
+    "I made a mistake",
+    "I'm just browsing",
+    "keep the change",
+    "spring onion",
+    "pot lid",
+    "sliced ginger",
+    "minced garlic",
+    "vegetable oil",
+    "fry until golden brown",
+    "bring to the boil",
+    "low-fat milk",
+    "sugar-free drink",
+    "a pinch of salt",
+    "fishy smell",
+    "food-grade",
+    "product barcode",
+    "shelf label",
+    "staffed checkout",
+    "security tag",
+    "tax-inclusive price",
+    "tax-exclusive price",
+    "delivery area",
+    "home collection",
+    "damaged parcel",
+    "prepaid shipping label",
+    "shipment tracking",
+    "shipping not included",
+    "hem trousers",
+    "trouser hem",
+    "resole shoes",
+    "shoe repair",
+    "toe box",
+    "weatherstripping",
+    "soundproofing material",
+    "full-length mirror",
+    "rent increase",
+    "utility bill",
+    "utilities included",
+    "move-in inspection",
+    "tenancy deposit",
+    "cleaning fee",
+    "read a meter",
+    "tyre blowout",
+    "leaking tyre",
+    "dead car battery",
+    "jump-start a car",
+    "child car seat",
+    "give up one's seat",
+    "miss the last bus",
+    "traffic congestion",
+    "self check-in",
+    "breakfast included",
+    "viewing platform",
+    "escape route",
+    "takeaway container",
+    "splatter screen",
+    "skirting board",
+    "roundabout",
+    "windscreen wiper",
+    "antifreeze",
+    "cook until done",
+    "eye drops",
+    "electrician"
+  ],
+  "addedRowsSha256": "8a240156c6b115297d371a2b7b7c1f8c4e0ea3105ba33a570bec459616903d9f",
+  "repairSourceSha256": "6389eb4177af124fdb1edb03368be892cd3c8a8a1a8146321d0d4c4aed54bf85",
+  "repairReviewSha256": "92f267685590dcbd04b11695bf182812f31ad9143d5127c49db7403a21be869f"
+}

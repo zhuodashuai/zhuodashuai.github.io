@@ -116,7 +116,9 @@ or invalidates the primary lookup. No provider request is involved.
 
 Rebuild/check with `node tooling/scripts/build-dictionary-examples.mjs` and
 `node tooling/scripts/build-dictionary-examples.mjs --check`. Independent review
-records and source compositions live under `tooling/dictionary/examples/`.
+records and source compositions remain in
+[the GitHub developer source tree](https://github.com/zhuodashuai/zhuodashuai.github.io/tree/main/tooling/dictionary/examples/),
+separate from the Pages lookup assets.
 The keyed manifest is intentionally bounded for this batch, not an assertion
 that the same key layout will scale unchanged to the final full catalogue.
 

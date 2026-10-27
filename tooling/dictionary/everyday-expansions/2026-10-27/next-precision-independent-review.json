@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/quality_release_capacity",
+  "independentOfAuthor": true,
+  "sourceAuthor": "AI/root-common-precision-author",
+  "sourceSha256": "866a645d3b1883e86f5586e6267736949c0b047a9a63b027260088f8f5a75ff9",
+  "readAllTupleCount": 6,
+  "decisions": [
+    {
+      "term": "sign",
+      "rowSha256": "f1f842f19fd490344496340cb244fff6e9c3c919273a2290119e346584061d23",
+      "decision": "approve-new-row",
+      "assessment": "Selected verb means writing one’s own name as confirmation/assent/identification, not a forged signature or a notice board. The reread revised EN and ZH now both locate the signature at the form bottom. Exact aliases remain actions; no ambiguous signed/signer morphology is invented.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/sign",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ]
+    },
+    {
+      "term": "attachment",
+      "rowSha256": "b6e07aaf5c732e9e922c33eec61ccc8236623b1bfdf009ee8461b49b36590d22",
+      "decision": "approve-new-row",
+      "assessment": "Both numbered noun senses are standard and distinct: an attached message/document file, and an extra machine part. The receipt-in-email example illustrates the first sense naturally and is faithfully translated; it does not imply that an attachment is a subsidiary company.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/attachment",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ]
+    },
+    {
+      "term": "paste",
+      "rowSha256": "bb308dc0b40b2cba3509b30e8ae8fb58ffaf768b0035dae41a705618d442f143",
+      "decision": "approve-new-row",
+      "assessment": "Two explicitly numbered verb senses preserve physical adhesive use and computer clipboard insertion. The address-into-delivery-form example demonstrates the computing action and the Chinese matches. It does not relabel the noun paste or claim that any stick/sticky item is a computer operation.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/paste",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ]
+    },
+    {
+      "term": "inventory",
+      "rowSha256": "8f67aa5b6bb5e3f3b8429ddedee8ca7e5f8ac101ca0ccb3ae8da4308f2bc7053",
+      "decision": "approve-new-row",
+      "assessment": "The two numbered noun senses separate stock on hand from its detailed list. Checking inventory before ordering paper is natural for supplies and the Chinese correctly says existing stock. No stock-market share or incompatible grammatical role is imported.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/inventory",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ]
+    },
+    {
+      "term": "allergen",
+      "rowSha256": "685b470e4c476b41a0002433923452753c8578455c91a8111d146966aa5660dc",
+      "decision": "approve-new-row",
+      "assessment": "Noun identifies a substance capable of causing an allergic reaction in a susceptible person; individual differences are appropriate. The label/milk example is a standard food-allergen category use corroborated by FDA primary material, not medical treatment or advice. The two exact aliases do not turn all causes of illness into allergens.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/allergen",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ],
+      "additionalPrimaryEvidence": [
+        {
+          "url": "https://www.fda.gov/industry/fda-basics-industry/what-major-food-allergen",
+          "access": "Official cached FDA text lists milk as a major food allergen; no treatment guidance imported."
+        }
+      ]
+    },
+    {
+      "term": "shipping cost",
+      "rowSha256": "31506be0b4e36397752a7f4e3815a6e08f2b69746259c260353cd097d0e37677",
+      "decision": "approve-new-row",
+      "assessment": "Noun phrase denotes the charge for sending goods rather than the sale price or travel mileage. The larger-parcel comparison and Chinese agree. Shipping costs is an ordinary plural for multiple charges, and no unrelated transport spelling/form is declared.",
+      "independentlyReadReferences": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/shipping",
+          "access": "Official cached primary dictionary search text read; direct open was403."
+        }
+      ]
+    }
+  ],
+  "resolvedIssues": [
+    {
+      "term": "sign",
+      "originalSourceSha256": "ff51309ab84f87287f0fd5fc81ea1e265a38c46833c0f903bfd4e1684d701237",
+      "issue": "The initial Chinese located the form at the page bottom instead of clearly locating the signature. Author revised EN/ZH; exact final tuple reread."
+    }
+  ],
+  "unresolvedIssues": []
+}

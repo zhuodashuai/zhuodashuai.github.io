@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/quality_release_capacity",
+  "entries": [
+    {
+      "term": "escape route",
+      "aliases": [
+        "消防通道"
+      ],
+      "boundExistingSha256": "7a68f6aae3a330d1ca43c8640891f065ab5fe88a451fb6ef077369ee22ce7291",
+      "boundPartOfSpeech": "noun phrase",
+      "boundMeaning": "① 逃生通道；从建筑物等地方撤离、脱离危险的路线。",
+      "reason": "消防通道在中文实际使用中可指人员逃生或消防车辆救援通道。此整句查询可显示两张有明确语境的卡：escape route 为人员撤离；新 fire access route 为消防车辆。不能因此把两个英文词条合并为同义词。",
+      "references": [
+        "https://www.119.gov.cn/include/inc/detail.html?id=1815292779442810882",
+        "https://www.mem.gov.cn/gk/jytabljggk/rddbjydfzy/202012/t20201209_375015.shtml"
+      ]
+    }
+  ]
+}

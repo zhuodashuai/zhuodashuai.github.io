@@ -31,6 +31,15 @@ function restoreSavedSenseContext(raw) {
  assert.equal(text.split(historical).length,1,'Old call must be replaced, not duplicated');
  return Buffer.from(text.replace(current,historical));
 }
+function restorePublicSavedSenseContext(text) {
+ const current='      void exampleController.show(term, { savedEntry: lastSelected });\n';
+ const historical='      void exampleController.show(term);\n';
+ const anchor='      exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });\n';
+ assert.equal(text.split(current).length,2,'Expected exactly one public saved-sense handoff');
+ assert.equal(text.split(historical).length,1,'Old public call must be replaced, not duplicated');
+ assert.equal(text.split(anchor+current).length,2,'Public saved-sense handoff must remain after the controller anchor');
+ return text.replace(current,historical);
+}
 const copies=[
   {
     "oldName": "dictionary-app.js",
@@ -316,7 +325,7 @@ for(const item of html)test('the historical v108 HTML shell is exact after undoi
  assert(text.includes('src="js/app-navigation-entry.js?v=107"'));
 });
 
-test('the fresh v109 application adds only the readiness adoption after listeners and preserves the whole v108 body',async()=>{
+test('the fresh v109 application preserves v108 after exact readiness, source and public saved-sense additions',async()=>{
  const before=(await fs.readFile(new URL('vocab/js/dictionary-app-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
  const current=(await fs.readFile(new URL('vocab/js/dictionary-app-v109.js',root),'utf8')).replace(/\r\n/gu,'\n');
  const sourceLookup='  const exampleSource = get("dictionary-example-source");\n';
@@ -324,7 +333,7 @@ test('the fresh v109 application adds only the readiness adoption after listener
  assert.equal(current.split(sourceLookup).length,2);assert.equal(current.split(sourceRender).length,2);
  assert.equal(current.split('  const examplePanel = get("dictionary-example-panel"), exampleStatus = get("dictionary-example-status");\n'+sourceLookup+'  const exampleContent = get("dictionary-example-content"), exampleRetry = get("dictionary-example-retry");\n').length,2);
  assert.equal(current.split('    if (state.phase !== "ready") return;\n'+sourceRender+'    const plan = dictionaryExampleSensePlan(state.entry, lastSelected);\n').length,2);
- const historicalCurrent=current.replace(sourceLookup,'').replace(sourceRender,'');
+ const historicalCurrent=restorePublicSavedSenseContext(current).replace(sourceLookup,'').replace(sourceRender,'');
  const addition='  // The HTML gates native implicit submission until the actual listeners exist.\n  // Adopt text typed during module download without clearing it or waiting on data.\n  controller.change(input.value);\n\n';
  assert.equal(current.split(addition).length,2);assert.equal(historicalCurrent.replace(addition,''),before);
  assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
@@ -336,6 +345,19 @@ test('the fresh v109 application adds only the readiness adoption after listener
  assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
  const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
  for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
+});
+
+test('public saved-sense restoration rejects changed, duplicated or relocated handoffs and keeps unrelated bytes',async()=>{
+ const current=(await fs.readFile(new URL('vocab/js/dictionary-app-v109.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ const call='      void exampleController.show(term, { savedEntry: lastSelected });\n';
+ assert.throws(()=>restorePublicSavedSenseContext(current.replace(call,call.replace('savedEntry','meaning'))));
+ assert.throws(()=>restorePublicSavedSenseContext(current+call));
+ assert.throws(()=>restorePublicSavedSenseContext(current.replace(call,'')+call));
+ assert.throws(()=>restorePublicSavedSenseContext(current+'      void exampleController.show(term);\n'));
+ const extra='\n// unrelated mutation\n';
+ assert.equal(restorePublicSavedSenseContext(current+extra),restorePublicSavedSenseContext(current)+extra);
+ const legacy=await fs.readFile(new URL('vocab/js/dictionary-app-v108.js',root),'utf8');
+ assert(!legacy.includes('savedEntry: lastSelected'),'Previously served v108 application remains unchanged');
 });
 
 test('D42 historical restoration rejects altered or duplicated source additions and retains unrelated bytes',async()=>{

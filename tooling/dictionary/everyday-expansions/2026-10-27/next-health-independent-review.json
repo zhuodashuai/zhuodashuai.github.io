@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-second-daily-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "dd3ae03faa07dee4b317b8c8ffef0ec574dbe077af90ae4c42647b230d2a80ec",
+  "decisions": [
+    {
+      "term": "povidone-iodine",
+      "rowSha256": "c3d5f0e1996fb8f25893ebca6a0c615b3fece3aac47dc07cf31eeaf00c5ae4a4",
+      "decision": "approve-new-row",
+      "assessment": "The PVP-iodine complex is identified, not elemental iodine or alcohol-based iodine tincture. Chinese says it is the ingredient in common iodophor preparations, not an assertion all branded iodine products have identical formulations. CDC complex description independently read."
+    },
+    {
+      "term": "disposable gloves",
+      "rowSha256": "96bb63112d2b1f9cdfba02a7e9988175396cce8a87b26603816c2195e4fc4390",
+      "decision": "approve-new-row",
+      "assessment": "Single-use product noun; no automatic sterile/material/protection equivalence. Sizes in the original example agree."
+    },
+    {
+      "term": "disposable face mask",
+      "rowSha256": "8ab5ceb5e9d00ef8b6e1b3ab59c6caff69a149be970a8d38e170a45e3aabe93e",
+      "decision": "approve-new-row",
+      "assessment": "Disposable-mask product noun without implying surgical classification or universal filtration performance."
+    },
+    {
+      "term": "digital thermometer",
+      "rowSha256": "845cba9a9384bf47d8a54a11dd753a17f8c5a20a90d27c662076ad14db9c5068",
+      "decision": "approve-new-row",
+      "assessment": "Selected body-temperature context is explicit; digital refers to numerical display and is not a claim of a universal measurement site."
+    },
+    {
+      "term": "cough syrup",
+      "rowSha256": "3dbf98b4c6365f2f0e5533f155249e02030828473f879f32a6036e02125b8898",
+      "decision": "approve-new-row",
+      "assessment": "Generic syrup preparation for cough, not one active ingredient; receipt example makes no efficacy or dosage claim."
+    },
+    {
+      "term": "nasal spray",
+      "rowSha256": "a5d168b2cf80e1448c243eb3506d20183e80b3ecdb213cfd84db1a6e9149dfa6",
+      "decision": "approve-new-row",
+      "assessment": "Nasal liquid-spray product, not a lung inhaler; no claim that every spray contains the same drug."
+    },
+    {
+      "term": "motion sickness medicine",
+      "rowSha256": "bc5324daeda25015d320f65c7f8b624711256d6aba6ecca81a0f118203b7ca0b",
+      "decision": "approve-new-row",
+      "assessment": "Generic motion-sickness medication; nausea in moving transport rather than a specific car-only drug. No recommendation or dose supplied."
+    },
+    {
+      "term": "drug allergy",
+      "rowSha256": "29e357cea544daa5de167363571ff9e2b0308c59a643d90d853e6cd5ac88b2a9",
+      "decision": "approve-new-row",
+      "assessment": "Immune-mediated allergy is kept separate from all adverse effects; MedlinePlus distinction independently read. Original history-record example makes no diagnosis."
+    },
+    {
+      "term": "take on an empty stomach",
+      "rowSha256": "cbf43675d95859e66a7560098af22dc5a90c69566911cb16b438bcaa235729ed",
+      "decision": "approve-new-row",
+      "assessment": "Medicine-label expression rather than a universal interval instruction. NHS SPS label usage independently read; example asks the pharmacist what label wording means."
+    },
+    {
+      "term": "take with food",
+      "rowSha256": "9181cadfb39f63e7955af8e2fe629307b94a1022a8e7353ac9079c782210555a",
+      "decision": "approve-new-row",
+      "assessment": "Food-associated administration label, distinct from physically mixing medicine into food or universally after a meal. Original example quotes a label."
+    },
+    {
+      "term": "medical record",
+      "rowSha256": "f1cf62ca6399a4a52c2d762d945c507c8cb6f18bb9ad903af0bfbc9d27d53e23",
+      "decision": "approve-new-row",
+      "assessment": "Patient health/encounter record, paper or electronic; no claim of universal record access procedure."
+    },
+    {
+      "term": "follow-up appointment",
+      "rowSha256": "9e5d6dfd334fd519b442455e026bd415319955eb825b0fffedb57e6fe855b4a1",
+      "decision": "approve-new-row",
+      "assessment": "Appointment after prior care, not guaranteed further treatment; Thursday-afternoon rescheduling preserved in Chinese."
+    },
+    {
+      "term": "nut allergy",
+      "rowSha256": "f8cd81b88462cb65e42376cae680a788a5c382572583f3132670831cf1311bc3",
+      "decision": "approve-new-row",
+      "assessment": "Selected tree-nut/cashew context explicitly scoped; peanuts are not automatically equated. Canadian primary source independently read; no claim that every tree nut necessarily triggers the person."
+    },
+    {
+      "term": "peanut allergy",
+      "rowSha256": "47f2a9c45cbabe58fe73daea7ca46ac8123c3c3fccbedffa66f17f3e8ba7e2a9",
+      "decision": "approve-new-row",
+      "assessment": "Peanut-specific allergy kept separate from tree nuts; no cross-tolerance advice or guarantee."
+    },
+    {
+      "term": "miss the last service",
+      "rowSha256": "f6bba702570c0447f899998294c39deb0f2500ef3bb8b1f136799d1db475b854",
+      "decision": "approve-new-row",
+      "assessment": "Service explicitly means public transport, bus or train without guessing one. Example describes hurrying to avoid missing it, not already missing it."
+    }
+  ],
+  "unresolvedIssues": [],
+  "scope": "Vocabulary and original bilingual examples only; no treatment, dosage or personalised medical advice.",
+  "selectedPrimaryReferencesIndependentlyRead": [
+    "https://medlineplus.gov/ency/article/000819.htm",
+    "https://sps.nhs.uk/articles/checking-if-medicines-can-be-given-with-food/",
+    "https://www.canada.ca/en/health-canada/services/food-nutrition/reports-publications/food-safety/tree-nuts-priority-food-allergens.html",
+    "https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/chemical-disinfectants.html"
+  ]
+}

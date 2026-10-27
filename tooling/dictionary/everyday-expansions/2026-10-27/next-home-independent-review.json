@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-second-daily-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "c9aae998e3f88eecda9868eef1a7b0b556472a40866fbea74ef91ee32b1fc2e5",
+  "decisions": [
+    {
+      "term": "stir-fry",
+      "rowSha256": "6bc194c6a468dbbae0f2bc06c26475ce1afc4e1e3639729c260ad857d188a094",
+      "decision": "approve-new-row",
+      "assessment": "Selected cooking verb, not the prepared dish noun; high-heat mixing sense independently checked against publisher definitions."
+    },
+    {
+      "term": "drain",
+      "rowSha256": "0fb93f1a57109311e03f63dbadc16dd2d9595a67055af4ad32e776da13442739",
+      "decision": "approve-new-row",
+      "assessment": "Selected cooking verb removes excess liquid from food, not a pipe noun or tiring adjective; drained/draining literal-head aliases were removed."
+    },
+    {
+      "term": "fire access route",
+      "rowSha256": "8e3dbfc653a9e4cecb0a2baa4ebd23b73914b5345d48d64e690c7107818e0589",
+      "decision": "approve-new-row",
+      "assessment": "Fire-vehicle access context explicitly distinct from personnel evacuation. Shared Chinese phrase must show separate entries, never English synonym equivalence."
+    },
+    {
+      "term": "tenancy agreement",
+      "rowSha256": "f9d2befc25ff4addfcad3f0cad7dc496dbd4858cc7aaf422e7cbf247a96bea22",
+      "decision": "approve-new-row",
+      "assessment": "Landlord/tenant housing contract; no mandatory jurisdiction form or tenancy rights invented."
+    },
+    {
+      "term": "gas detector",
+      "rowSha256": "ef2d392a2296a9cf496ae44b87270cb63858577d83965f33be42a23afaa24038",
+      "decision": "approve-new-row",
+      "assessment": "Selected domestic combustible-gas leak device context, not a smoke detector or automatically a carbon-monoxide detector."
+    },
+    {
+      "term": "undercooked",
+      "rowSha256": "4b4032d4171afdd5b9f7d7861213c0aa3042e84c8d91e5ae50ca1e038cfc6543",
+      "decision": "approve-new-row",
+      "assessment": "Food not fully cooked, distinct from wholly uncooked/raw. Rice example and Chinese both describe the middle remaining insufficiently cooked."
+    },
+    {
+      "term": "housemate",
+      "rowSha256": "4729f766d893c7f50a121477368ab5d6d9e38c2e67851bafd8a5274c6e986293",
+      "decision": "approve-new-row",
+      "assessment": "Requested usually-not-family qualification accepted, not an absolute rule. No forced shared-bedroom meaning."
+    },
+    {
+      "term": "drain cleaner",
+      "rowSha256": "519bfbe472ed09ba7bd9de80a4da18fd56950d5a7c261eba8a2c5d1878fbb76f",
+      "decision": "approve-new-row",
+      "assessment": "Selected chemical product for blocked drains, not a drain-cleaning employee or a safe-use procedure."
+    },
+    {
+      "term": "scorch",
+      "rowSha256": "3570c3f3fe458c25d63921d046542383b3e78c777cbc35ba11facffaabf420ee",
+      "decision": "approve-new-row",
+      "assessment": "Selected food-surface overheating/burning verb. Conditional milk/heat relationship preserved; existing scorching/scorched adjective heads are not shadowed."
+    },
+    {
+      "term": "sublet",
+      "rowSha256": "4afb680b4d4b861558c4595b8dd4f76c80feb8a3d386004be7d66337e5987cee",
+      "decision": "approve-new-row",
+      "assessment": "Tenant lets their rented property to another person; not property sale or a claim permission is automatic."
+    },
+    {
+      "term": "utility costs",
+      "rowSha256": "46b7a9e50292c38a8fe45fef124dbdce3d80199e9ecc1a22fc447dca207c02f4",
+      "decision": "approve-new-row",
+      "assessment": "Charges/costs themselves rather than the bill document. Internet and utility-cost division in example agree."
+    },
+    {
+      "term": "notice to end a tenancy",
+      "rowSha256": "20caaf674d94bf35e8e9cf4faf1fef4ac46715fdf76d7cbc8477a3af71878752",
+      "decision": "approve-new-row",
+      "assessment": "Notice of intended ending, not already moving out or a universal legally effective deadline."
+    },
+    {
+      "term": "proof of residence",
+      "rowSha256": "dd7fc8c56d29467ec3a4225562893814c8c4243c36ab98c83222a9eceb7e90b6",
+      "decision": "approve-new-row",
+      "assessment": "Evidence of living/address, not a residence permit or right to remain. The existing address-proof neighbour is compatible."
+    },
+    {
+      "term": "payment without a password",
+      "rowSha256": "897163cb7e46b7ba915d1b506dd2ab1018f5d64a838d260fc9606a6a298d99f5",
+      "decision": "approve-new-row",
+      "assessment": "Absence of password entry does not mean absence of authentication or approval. Fingerprint possibility is preserved."
+    },
+    {
+      "term": "out-of-stock notification",
+      "rowSha256": "30ea8580ec1bada57d7339147d5bfdf2daa2ce1bf1a02c6e6cbebef7c7dace43",
+      "decision": "approve-new-row",
+      "assessment": "Current shortage alert, not a back-in-stock arrival reminder. Manager-recipient example states stock shortage only."
+    }
+  ],
+  "resolvedRevisions": [
+    "housemate usually rather than absolute nonfamily",
+    "uniform numbered scorch definition",
+    "literal adjective forms not mapped to new cooking verb"
+  ],
+  "unresolvedIssues": []
+}

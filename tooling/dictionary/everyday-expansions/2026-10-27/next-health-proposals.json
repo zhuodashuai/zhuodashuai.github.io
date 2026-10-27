@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/quality-followup-author-a-health",
+  "scope": "Fifteen requested everyday health/supplies/transport lexical rows. Meanings and original examples only; no doses, treatment recommendations, or independent approval. Current packaged baseline had 914 heads and no exact head duplicates.",
+  "entries": [
+    {
+      "term": "povidone-iodine",
+      "partOfSpeech": "noun",
+      "meaning": "① 聚维酮碘；通常所说的碘伏中的含碘成分。是一种用于消毒制剂的碘与聚维酮的复合物，不等同于碘酒。",
+      "chineseAliases": ["碘伏", "聚维酮碘"],
+      "englishForms": ["povidone iodine"],
+      "en": "The ingredient list on the bottle includes povidone-iodine.",
+      "zh": "瓶上的成分表列有聚维酮碘。",
+      "references": ["https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/chemical-disinfectants.html", "https://www.kingstonandrichmond.nhs.uk/patients-and-families/patient-leaflets/use-povidone-iodine-pi-intraocular-procedures"]
+    },
+    {
+      "term": "disposable gloves",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 一次性手套；按使用一次后丢弃的用途设计的手套。这个名称本身不说明材质，也不表示一定经过灭菌。",
+      "chineseAliases": ["一次性手套"],
+      "englishForms": ["disposable glove"],
+      "en": "The cupboard contains disposable gloves in three sizes.",
+      "zh": "柜子里放着三种尺码的一次性手套。",
+      "references": ["https://www.england.nhs.uk/long-read/national-standards-of-healthcare-cleanliness-2025-health-and-safety/", "https://dictionary.cambridge.org/us/dictionary/english/disposable"]
+    },
+    {
+      "term": "disposable face mask",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 一次性口罩；供一次使用后丢弃的口罩。这个表达不指定医用等级、过滤性能或具体型号。",
+      "chineseAliases": ["一次性口罩"],
+      "englishForms": ["disposable face masks"],
+      "en": "I found a spare disposable face mask in my bag.",
+      "zh": "我在包里找到了一只备用的一次性口罩。",
+      "references": ["https://dictionary.cambridge.org/us/dictionary/english/disposable", "https://www.leicspart.nhs.uk/wp-content/uploads/2020/06/Face-mask-FAQs-regarding-staff_19620.pdf"]
+    },
+    {
+      "term": "digital thermometer",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 数字式温度计；这里指用电子方式测量体温、并以数字显示读数的电子体温计。这个名称不限定具体测量部位。",
+      "chineseAliases": ["电子体温计", "数字式体温计"],
+      "englishForms": ["digital thermometers"],
+      "en": "The digital thermometer has a large, easy-to-read display.",
+      "zh": "这支电子体温计的显示屏很大，读数容易看清。",
+      "references": ["https://www.nhs.uk/baby/health/how-to-take-your-babys-temperature/"]
+    },
+    {
+      "term": "cough syrup",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 止咳糖浆；用于咳嗽的糖浆状液体药品的统称。不是某一种固定成分或品牌的名称。",
+      "chineseAliases": ["止咳糖浆"],
+      "englishForms": ["cough syrups"],
+      "en": "The receipt lists a bottle of cough syrup and a box of tissues.",
+      "zh": "收据上列着一瓶止咳糖浆和一盒纸巾。",
+      "references": ["https://dictionary.cambridge.org/us/dictionary/english/cough-syrup"]
+    },
+    {
+      "term": "nasal spray",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 鼻喷剂；鼻腔喷雾剂。借助喷头将细小液滴喷入鼻腔的制剂或产品，不表示所有鼻喷剂都含有相同药物。",
+      "chineseAliases": ["鼻喷剂", "鼻腔喷雾剂"],
+      "englishForms": ["nasal sprays"],
+      "en": "She put the cap back on the nasal spray before packing it.",
+      "zh": "她把鼻喷剂的盖子盖好后才装进行李。",
+      "references": ["https://dictionary.cambridge.org/us/dictionary/english/nasal-spray?topic=describing-medical-treatment-generally"]
+    },
+    {
+      "term": "motion sickness medicine",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 晕车药；晕动症用药的泛称。motion sickness 也可涉及乘船或其他交通工具时的不适，不只指坐汽车；这个表达不是某一种特定药品名。",
+      "chineseAliases": ["晕车药", "晕动症用药"],
+      "englishForms": ["motion sickness medicines"],
+      "en": "The pharmacist wrote the name of the motion sickness medicine on my receipt.",
+      "zh": "药剂师把这种晕车药的名称写在了我的收据上。",
+      "references": ["https://wwwnc.cdc.gov/travel/page/motion-sickness", "https://www.nhs.uk/medicines/antihistamines/"]
+    },
+    {
+      "term": "drug allergy",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 药物过敏；免疫系统对某种药物产生过敏反应的情况。不等同于服药后出现的所有副作用或不良反应。",
+      "chineseAliases": ["药物过敏", "药品过敏"],
+      "englishForms": ["drug allergies"],
+      "en": "My medical record includes a drug allergy that was confirmed years ago.",
+      "zh": "我的病历记载了一项多年前确认的药物过敏。",
+      "references": ["https://medlineplus.gov/ency/article/000819.htm", "https://www.nice.org.uk/guidance/cg183/chapter/Recommendations"]
+    },
+    {
+      "term": "take on an empty stomach",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 空腹服用。药品标签上说明服用时与进食有关的一种表达；具体间隔不能只凭这几个词确定。",
+      "chineseAliases": ["空腹服用", "空腹用药"],
+      "englishForms": [],
+      "en": "I asked the pharmacist about the words 'take on an empty stomach' on the label.",
+      "zh": "我向药剂师询问了标签上“空腹服用”这句话的意思。",
+      "references": ["https://sps.nhs.uk/articles/checking-if-medicines-can-be-given-with-food/", "https://www.gosh.nhs.uk/conditions-and-treatments/medicines-information/medicines-advice/understanding-medicines/"]
+    },
+    {
+      "term": "take with food",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 随餐服用；与食物一起服用。是药品标签上涉及进食的一种说明，不等同于把药混入食物，也不应一律改译为饭后服用。",
+      "chineseAliases": ["随餐服用", "与食物同服"],
+      "englishForms": [],
+      "en": "The label on the new packet says 'Take with food.'",
+      "zh": "新包装的标签上写着“随餐服用”。",
+      "references": ["https://sps.nhs.uk/articles/checking-if-medicines-can-be-given-with-food/", "https://www.gosh.nhs.uk/conditions-and-treatments/medicines-information/medicines-advice/understanding-medicines/"]
+    },
+    {
+      "term": "medical record",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 病历；医疗记录。记载某人的就诊、检查、诊疗或其他医疗照护信息的记录，可为纸质或电子形式。",
+      "chineseAliases": ["就诊记录", "病历记录", "医疗记录"],
+      "englishForms": ["medical records"],
+      "en": "The clinic sent me an electronic copy of my medical record.",
+      "zh": "诊所给我发送了病历的电子副本。",
+      "references": ["https://www.england.nhs.uk/contact-us/common-questions/how-do-i-get-a-copy-of-my-health-medical-records/"]
+    },
+    {
+      "term": "follow-up appointment",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 复诊预约；后续就诊预约。在之前就诊或医疗照护之后安排的后续预约，不表示一定需要再次治疗。",
+      "chineseAliases": ["复诊预约", "后续就诊预约"],
+      "englishForms": ["follow-up appointments"],
+      "en": "The receptionist moved my follow-up appointment to Thursday afternoon.",
+      "zh": "接待员把我的复诊预约改到了周四下午。",
+      "references": ["https://www.cuh.nhs.uk/visiting-our-hospitals/your-appointment/follow-up-appointments/"]
+    },
+    {
+      "term": "nut allergy",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 坚果过敏；这里指对核桃、腰果等树坚果的过敏。花生属豆科，花生过敏应单独说明，不能自动等同于树坚果过敏。",
+      "chineseAliases": ["坚果过敏", "树坚果过敏"],
+      "englishForms": ["nut allergies"],
+      "en": "Her form lists a nut allergy and names cashews as the trigger.",
+      "zh": "她的表格注明了坚果过敏，并写明引发过敏的是腰果。",
+      "references": ["https://www.nhs.uk/conditions/food-allergy/", "https://www.canada.ca/en/health-canada/services/food-nutrition/reports-publications/food-safety/tree-nuts-priority-food-allergens.html"]
+    },
+    {
+      "term": "peanut allergy",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 花生过敏；对花生产生过敏反应的情况。花生属于豆科；花生过敏和树坚果过敏是需要区分的具体过敏类型。",
+      "chineseAliases": ["花生过敏"],
+      "englishForms": ["peanut allergies"],
+      "en": "He mentioned his peanut allergy when he booked the flight.",
+      "zh": "他预订航班时说明了自己对花生过敏。",
+      "references": ["https://www.nhs.uk/conditions/food-allergy/", "https://www.canada.ca/en/health-canada/services/food-nutrition/reports-publications/food-safety/tree-nuts-priority-food-allergens.html"]
+    },
+    {
+      "term": "miss the last service",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 错过末班车；没赶上某条公共交通线路当天最后一班。这里的 service 指交通班次，可以是公交、火车等，不限定某一种交通工具。",
+      "chineseAliases": ["错过末班车", "没赶上末班车"],
+      "englishForms": ["missed the last service", "missing the last service", "misses the last service"],
+      "en": "We hurried to the station so we would not miss the last service home.",
+      "zh": "我们赶往车站，以免错过回家的末班车。",
+      "references": ["https://www.oxfordlearnersdictionaries.com/us/definition/english/service_1", "https://www.collinsdictionary.com/dictionary/english/service"]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
-import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult } from "./everyday-lookup.js";
+import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
+  isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js";
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));
@@ -47,16 +48,53 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
     if (/\p{Script=Han}/u.test(input)) {
       const hot = settled(async () => {
         const found = await hotReverse(input, { signal: hotController.signal });
-        return { ...found, results: found.results.filter(row => !isSupersededChineseSenseHead(row.term)) };
+        let retainedMismatch = false;
+        const results = found.results.map(item => {
+          const clean = sanitizeRetainedCanonicalResult(item);
+          if (!clean && isRetainedCanonicalSenseHead(item?.term)) retainedMismatch = true;
+          return clean;
+        }).filter(row => row && !isSupersededChineseSenseHead(row.term));
+        return { result: { ...found, results }, retainedMismatch };
       });
+      const basic = value => ({ ...value.result, coverage: "basic" });
+      const retainedFull = async (expanded, hotValue) => {
+        // A compact projection with different provenance cannot authorize an
+        // old retained sense. Even alongside ordinary hits, try the verified
+        // source once; retain only ordinary basic hits if it is unavailable.
+        const outcome = await bounded(expanded, 15_000);
+        if (outcome.pending || outcome.error) {
+          if (outcome.error?.name === "AbortError") throw outcome.error;
+          if (hotValue.result.results.length) return basic(hotValue);
+          if (outcome.error) throw outcome.error;
+          throw new Error("完整词典读取超时，请重试。");
+        }
+        const verified = outcome.value, results = verified.results.slice(0, 20);
+        const seen = new Set(verified.results.map(item => normalizeEnglish(item.term)));
+        let appendedHot = false, truncated = verified.results.length > results.length;
+        // The complete index can lag a newer safe public hot head. Its own
+        // matching rows win, but a successful empty search must not erase a
+        // known ordinary hit. Only already-sanitized hot rows reach this merge.
+        for (const item of hotValue.result.results) {
+          const key = normalizeEnglish(item.term);
+          if (seen.has(key)) continue;
+          seen.add(key);
+          if (results.length < 20) { results.push(item); appendedHot = true; }
+          else truncated = true;
+        }
+        return { ...verified, results,
+          hasMore: Boolean(verified.hasMore || hotValue.result.hasMore || truncated),
+          ...(appendedHot ? { coverage: "basic" } : {}) };
+      };
       // Give the already-prewarmed small index a brief chance before starting a
       // much larger reverse search. Misses immediately use the complete index.
       const initial = await bounded(hot, chineseDelayMs);
-      if (initial.value?.results.length) return { ...initial.value, coverage: "basic" };
+      if (initial.value?.result.results.length && !initial.value.retainedMismatch) return basic(initial.value);
       const expanded = settled(fullLookup);
+      if (initial.value?.retainedMismatch) return await retainedFull(expanded, initial.value);
       if (!initial.pending) return take(await race([expanded]));
       const first = await race([hot.then(outcome => ({ hot: outcome })), expanded.then(outcome => ({ expanded: outcome }))]);
-      if (first.hot?.value?.results.length) return { ...first.hot.value, coverage: "basic" };
+      if (first.hot?.value?.retainedMismatch) return await retainedFull(expanded, first.hot.value);
+      if (first.hot?.value?.result.results.length) return basic(first.hot.value);
       if (first.expanded) return take(first.expanded);
       return take(await race([expanded]));
     }

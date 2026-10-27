@@ -1,0 +1,872 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/root-example-followup-b",
+  "entries": [
+    {
+      "term": "APR",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 年百分率（annual percentage rate）。以年率表示的借款成本指标，可能包括利息及某些费用；具体费用范围取决于产品和适用规则。",
+      "chineseAliases": [
+        "贷款年百分率",
+        "年百分率"
+      ],
+      "englishForms": [
+        "APRs"
+      ],
+      "en": "Both loan offers list the same interest rate, but their APRs differ.",
+      "zh": "两份贷款方案列出的利率相同，但年百分率不同。",
+      "references": [
+        "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-interest-rate-and-an-apr-en-135/"
+      ],
+      "canonicalId": 1839698,
+      "canonicalSourceSha256": "20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d"
+    },
+    {
+      "term": "evaluator",
+      "partOfSpeech": "noun",
+      "meaning": "① 评估者；评价人员。对质量、价值或表现作出评判的人。",
+      "chineseAliases": [
+        "评估者",
+        "评价人员"
+      ],
+      "englishForms": [
+        "evaluators"
+      ],
+      "en": "Two evaluators scored the interviews independently before comparing their notes.",
+      "zh": "两位评估人员先分别给面试评分，再比较各自的记录。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/evaluator"
+      ],
+      "canonicalId": 2724506,
+      "canonicalSourceSha256": "f76769d8621c1038692f00b22ef64d90c8353abfc7fb02a64fc4f191c1cc23e2"
+    },
+    {
+      "term": "edn",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 版；版次。edition 的缩写，常用于书目信息，也写作 edn.。",
+      "chineseAliases": [
+        "版次缩写",
+        "书目版次"
+      ],
+      "englishForms": [
+        "edn."
+      ],
+      "en": "The catalogue lists a revised edn. with a new index.",
+      "zh": "目录列出了带有新索引的修订版。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/edn",
+        "https://academic.oup.com/BICS/pages/General_Instructions"
+      ],
+      "canonicalId": 2921478,
+      "canonicalSourceSha256": "35b04895887c5e507ee4b380fb6fdec88e0c5d5e6861dcd631b19037042063eb"
+    },
+    {
+      "term": "prosciutto",
+      "partOfSpeech": "noun",
+      "meaning": "① 意大利风干火腿。这里取经腌制、风干而成的火腿义，通常切成薄片食用。",
+      "chineseAliases": [
+        "意大利风干火腿",
+        "意式风干火腿"
+      ],
+      "englishForms": [],
+      "en": "He wrapped each asparagus spear in a thin slice of prosciutto.",
+      "zh": "他给每根芦笋裹上一片薄薄的意大利风干火腿。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/prosciutto"
+      ],
+      "canonicalId": 3050301,
+      "canonicalSourceSha256": "a3db539a9707ead2cead34e7b7fbe14e48481610a4ed015724b29f9b2509310a"
+    },
+    {
+      "term": "pta",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 家长教师协会。Parent-Teacher Association 的缩写，通常写作 PTA。",
+      "chineseAliases": [
+        "家长教师协会"
+      ],
+      "englishForms": [
+        "PTA"
+      ],
+      "en": "The PTA raised enough money to replace the school library's worn chairs.",
+      "zh": "家长教师协会筹到了更换学校图书馆破旧椅子所需的足够资金。",
+      "references": [
+        "https://www.pta.org/home/About-National-Parent-Teacher-Association"
+      ],
+      "canonicalId": 3469472,
+      "canonicalSourceSha256": "b0ffe2d1ed1b6d7f7a40b1ab4085fe8d0ec86859cfce57146e51e14373d76907"
+    },
+    {
+      "term": "SOC",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 荷电状态。state of charge 的缩写，表示电池当前剩余电量的水平，通常用百分数表示。",
+      "chineseAliases": [
+        "电池荷电状态",
+        "荷电状态"
+      ],
+      "englishForms": [],
+      "en": "The controller estimates the battery's SOC from several measurements.",
+      "zh": "控制器根据多项测量结果估算电池的荷电状态。",
+      "references": [
+        "https://afdc.energy.gov/files/u/publication/electric-school-bus-us-market-study-buyers-guide.pdf"
+      ],
+      "canonicalId": 3790236,
+      "canonicalSourceSha256": "c647391fc08d9c78b78a0329f841ef16a1040c022165f46c78e40fd0525c4ff1"
+    },
+    {
+      "term": "reductionist",
+      "partOfSpeech": "adjective",
+      "meaning": "① 还原论的；用较简单的组成因素解释复杂事物的。有时含有把问题过度简化的批评意味。",
+      "chineseAliases": [
+        "还原论的",
+        "过度简化解释的"
+      ],
+      "englishForms": [],
+      "en": "A reductionist explanation can overlook how the different parts interact.",
+      "zh": "还原论式的解释可能忽视不同部分之间的相互作用。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/reductionist"
+      ],
+      "canonicalId": 3883078,
+      "canonicalSourceSha256": "310c949187c589645da1db331f8c1474ab21434e17474d98d9848da8deb09249"
+    },
+    {
+      "term": "VP",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 副总裁；副会长等。vice president 的缩写，具体职务名称取决于机构。",
+      "chineseAliases": [
+        "副总裁缩写",
+        "副会长缩写"
+      ],
+      "englishForms": [],
+      "en": "The VP of operations visited the new warehouse on Monday.",
+      "zh": "运营副总裁星期一参观了新仓库。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/vp"
+      ],
+      "canonicalId": 3990331,
+      "canonicalSourceSha256": "afa07a62198c0f20c0da45c78b6db967151b6a5f074f204d5dc7843587108aab"
+    },
+    {
+      "term": "dino",
+      "partOfSpeech": "noun",
+      "meaning": "① 恐龙。dinosaur 的非正式简称，也常用于谈论恐龙玩具或图画。",
+      "chineseAliases": [
+        "恐龙简称",
+        "恐龙非正式简称"
+      ],
+      "englishForms": [
+        "dinos"
+      ],
+      "en": "He drew a green dino with a long tail on the birthday card.",
+      "zh": "他在生日贺卡上画了一只长尾巴的绿色恐龙。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/dino"
+      ],
+      "canonicalId": 4094141,
+      "canonicalSourceSha256": "eb7b89f1be70a1c1666abbec7c830678ec2bb89d8ab4be886a76826128774121"
+    },
+    {
+      "term": "stardust",
+      "partOfSpeech": "noun",
+      "meaning": "① 梦幻般的魅力；令人着迷的光彩。这里取比喻义，常与明星或浪漫的吸引力有关。",
+      "chineseAliases": [
+        "星光般的魅力",
+        "梦幻般的魅力"
+      ],
+      "englishForms": [],
+      "en": "The singer brought a little stardust to the town's annual concert.",
+      "zh": "那位歌手给小镇的年度音乐会增添了几分星光般的魅力。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stardust"
+      ],
+      "canonicalId": 3167433,
+      "canonicalSourceSha256": "255585c7edfdb92f07eeb9a55f9313c683da457e7eddb61c5e9c5f8ac968b154"
+    },
+    {
+      "term": "aah",
+      "partOfSpeech": "interjection",
+      "meaning": "① 啊。表示领悟、满意或放松等感受的感叹声，具体语气由上下文决定。",
+      "chineseAliases": [
+        "表示领悟的啊",
+        "表示放松的啊"
+      ],
+      "englishForms": [],
+      "en": "Aah, that explains why the two keys look so similar!",
+      "zh": "啊，这就解释了为什么这两把钥匙看起来这么相似！",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/aah",
+        "https://dictionary.cambridge.org/dictionary/english/ah"
+      ],
+      "canonicalId": 2884621,
+      "canonicalSourceSha256": "da0ed1bb4875ea035d90e719be19771ad9669d0dc5680914fa5b7cc5de822027"
+    },
+    {
+      "term": "expansively",
+      "partOfSpeech": "adverb",
+      "meaning": "① 热情大方地；开朗舒展地。形容友好、不拘束的神态或举止。",
+      "chineseAliases": [
+        "热情大方地",
+        "开朗舒展地"
+      ],
+      "englishForms": [],
+      "en": "The host smiled expansively and made room for another guest.",
+      "zh": "主人热情大方地笑着，又为一位客人腾出了位置。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/expansively"
+      ],
+      "canonicalId": 3928905,
+      "canonicalSourceSha256": "f55c148840ee3fbe7fb796984baec40024f859f76d979113b929277f459566e7"
+    },
+    {
+      "term": "divestment",
+      "partOfSpeech": "noun",
+      "meaning": "① 撤资；出售所持投资或资产的行为。",
+      "chineseAliases": [
+        "撤资",
+        "出售所持资产"
+      ],
+      "englishForms": [
+        "divestments"
+      ],
+      "en": "The board approved the divestment of its shares in the shipping company.",
+      "zh": "董事会批准出售其持有的那家航运公司的股份。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/divestment"
+      ],
+      "canonicalId": 4090780,
+      "canonicalSourceSha256": "a02de34ff12f187e596bb67694f503e8924b69d5dc0428b3cd610fe1a15840d1"
+    },
+    {
+      "term": "untucked",
+      "partOfSpeech": "verb",
+      "meaning": "① 将原先塞入或掖住的部分抽出。untuck 的过去式或过去分词，常用于衣物下摆。",
+      "chineseAliases": [
+        "把掖着的下摆抽出",
+        "抽出衬衫下摆"
+      ],
+      "englishForms": [],
+      "en": "She untucked the blanket from beneath the mattress before folding it.",
+      "zh": "她先把掖在床垫下面的毯子抽出来，再将它叠好。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/untuck"
+      ],
+      "canonicalId": 4244050,
+      "canonicalSourceSha256": "fd2c1ee40e64967b6e838167562e913d803305ab17d5ffaa510c10053c018d01"
+    },
+    {
+      "term": "compellingly",
+      "partOfSpeech": "adverb",
+      "meaning": "① 有说服力地；令人信服地。",
+      "chineseAliases": [
+        "有说服力地",
+        "令人信服地"
+      ],
+      "englishForms": [],
+      "en": "The exhibition shows compellingly why these wetlands matter.",
+      "zh": "展览有说服力地说明了这些湿地为什么重要。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/compellingly"
+      ],
+      "canonicalId": 4360524,
+      "canonicalSourceSha256": "54756cfcb4d19ee311b75cedb2af75babf5a4034b7c6ceb7ceb9ca4cd4826c49"
+    },
+    {
+      "term": "rigatoni",
+      "partOfSpeech": "noun",
+      "meaning": "① 粗管通心粉。一种管状、外表带有棱纹的意大利面。",
+      "chineseAliases": [
+        "粗管通心粉",
+        "棱纹管状意面"
+      ],
+      "englishForms": [],
+      "en": "We served the rigatoni in shallow bowls with tomato sauce.",
+      "zh": "我们把配有番茄酱的粗管通心粉盛在浅碗里。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/rigatoni"
+      ],
+      "canonicalId": 4593260,
+      "canonicalSourceSha256": "7b983839a90b96bccade57f10282d56bc2126310a4b88ab240793bd5da69c8ce"
+    },
+    {
+      "term": "chitter",
+      "partOfSpeech": "verb",
+      "meaning": "① 吱吱叫；发出细碎而急促的声音。可用于小鸟等动物的叫声。",
+      "chineseAliases": [
+        "吱吱叫",
+        "动物发出细碎叫声"
+      ],
+      "englishForms": [
+        "chitters",
+        "chittered",
+        "chittering"
+      ],
+      "en": "We could hear bats chitter in the roof space after sunset.",
+      "zh": "日落后，我们能听到蝙蝠在屋顶夹层里吱吱叫。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/chitter"
+      ],
+      "canonicalId": 4659846,
+      "canonicalSourceSha256": "b6b9f66ba44cb6a80566a840cc0febf0a504d6c7be9da7b7838b41fe49761f1f"
+    },
+    {
+      "term": "airhead",
+      "partOfSpeech": "noun",
+      "meaning": "① 没头脑的人；傻乎乎的人。非正式用语，含贬义，可能冒犯他人。",
+      "chineseAliases": [
+        "没头脑的人",
+        "傻乎乎的人"
+      ],
+      "englishForms": [
+        "airheads"
+      ],
+      "en": "The manager dismissed him as an airhead without listening to his proposal.",
+      "zh": "经理没有听他的提议，就把他当成了一个没头脑的人。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/airhead"
+      ],
+      "canonicalId": 4711373,
+      "canonicalSourceSha256": "68f158e3a4269998efd25a7b648a283dd8c37e30a1b72b0ca5b9f41a48c9a36e"
+    },
+    {
+      "term": "fontina",
+      "partOfSpeech": "noun",
+      "meaning": "① 丰蒂纳奶酪。一种意大利奶酪；Fontina DOP 的制作原料是牛乳。",
+      "chineseAliases": [
+        "丰蒂纳奶酪",
+        "芳提娜奶酪"
+      ],
+      "englishForms": [],
+      "en": "A few slices of fontina melted into the hot polenta.",
+      "zh": "几片丰蒂纳奶酪融进了热玉米粥里。",
+      "references": [
+        "https://www.fontina-dop.it/en/fontina-cheese-dop/milk/",
+        "https://eur-lex.europa.eu/eli/C/2024/7111/oj/eng"
+      ],
+      "canonicalId": 4776490,
+      "canonicalSourceSha256": "3032c78880880d9e2b6044ab66871c6afa9a990bf1a7a7f6302e6fa1ef9e087d"
+    },
+    {
+      "term": "stablemate",
+      "partOfSpeech": "noun",
+      "meaning": "① 同厩的马。与另一匹马同在一个马厩或由同一训练团队饲养、训练的马。",
+      "chineseAliases": [
+        "同厩的马",
+        "同马厩的马"
+      ],
+      "englishForms": [
+        "stablemates"
+      ],
+      "en": "The young horse settled down when its stablemate entered the trailer.",
+      "zh": "与它同厩的马走进运马车后，那匹小马就安静下来了。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stablemate"
+      ],
+      "canonicalId": 4813627,
+      "canonicalSourceSha256": "f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f"
+    },
+    {
+      "term": "senselessly",
+      "partOfSpeech": "adverb",
+      "meaning": "① 毫无意义地；毫无道理地；不必要地。",
+      "chineseAliases": [
+        "毫无意义地",
+        "毫无道理地"
+      ],
+      "englishForms": [],
+      "en": "The vandals senselessly smashed the bus shelter's glass panels.",
+      "zh": "破坏者毫无道理地砸碎了候车亭的玻璃板。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/senselessly"
+      ],
+      "canonicalId": 4845659,
+      "canonicalSourceSha256": "848e3045362f6fab73fc59b36e7318bcd4a84612fea1b3b973164025e312cfde"
+    },
+    {
+      "term": "soonest",
+      "partOfSpeech": "adverb",
+      "meaning": "① 最早；最快。soon 的最高级，用来比较事情发生或完成的时间。",
+      "chineseAliases": [
+        "最早能",
+        "最快能"
+      ],
+      "englishForms": [],
+      "en": "Tell me which appointment you can offer soonest.",
+      "zh": "请告诉我，你最早能安排哪个预约时段。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/soon"
+      ],
+      "canonicalId": 4905778,
+      "canonicalSourceSha256": "4864a761ee0f40aefd5be9e10ee4c1e4be6eb3202556c460ef7c89f4fcd683b0"
+    },
+    {
+      "term": "mothership",
+      "partOfSpeech": "noun",
+      "meaning": "① 母船；支援母舰。为较小船只或飞行器提供停靠、补给等支持的较大载体。",
+      "chineseAliases": [
+        "支援母船",
+        "母船"
+      ],
+      "englishForms": [
+        "motherships"
+      ],
+      "en": "The divers stored their spare equipment aboard the mothership.",
+      "zh": "潜水员把备用装备存放在母船上。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/mothership"
+      ],
+      "canonicalId": 4944608,
+      "canonicalSourceSha256": "a16ff177242358042db792fb0dd75dfc10f32d2c9eeecb632f6326bff42ed587"
+    },
+    {
+      "term": "dorado",
+      "partOfSpeech": "noun",
+      "meaning": "① 鲯鳅。这里指又称 mahi-mahi 或 dolphinfish 的鱼，不是剑鱼。",
+      "chineseAliases": [
+        "鲯鳅",
+        "鬼头刀鱼"
+      ],
+      "englishForms": [],
+      "en": "I carried the dorado fillets home in an insulated bag.",
+      "zh": "我用保温袋把鲯鳅鱼片带回了家。",
+      "references": [
+        "https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"
+      ],
+      "canonicalId": 4987112,
+      "canonicalSourceSha256": "1dd64f6aadce7b16d08418cf90fa973b2c6d810fff13b6dac748b8e7574e6a73"
+    },
+    {
+      "term": "weathervane",
+      "partOfSpeech": "noun",
+      "meaning": "① 风向标。随风转动、指示风向的装置，常安装在屋顶等高处。",
+      "chineseAliases": [
+        "屋顶风向标",
+        "指示风向的装置"
+      ],
+      "englishForms": [
+        "weathervanes"
+      ],
+      "en": "A rooster-shaped weathervane stood on top of the barn.",
+      "zh": "谷仓顶上立着一个公鸡形状的风向标。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/weathervane"
+      ],
+      "canonicalId": 5069851,
+      "canonicalSourceSha256": "c0e22d2b8a15108faf0143bf38d80ed605f79f58339325cd926b721bcb9c4e7c"
+    },
+    {
+      "term": "homogeneously",
+      "partOfSpeech": "adverb",
+      "meaning": "① 均匀地；同质地。指组成或某种性质在各处保持一致。",
+      "chineseAliases": [
+        "均匀分布地",
+        "同质地"
+      ],
+      "englishForms": [],
+      "en": "Stir until the pigment is homogeneously dispersed throughout the liquid.",
+      "zh": "搅拌至颜料均匀分散在整个液体中。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/homogeneously?topic=similar-and-the-same",
+        "https://www.collinsdictionary.com/dictionary/english/homogeneous"
+      ],
+      "canonicalId": 5244877,
+      "canonicalSourceSha256": "0635e5d212b6f8751272cc916e131dcbb710ad60d4924242fb87de51f9c394f1"
+    },
+    {
+      "term": "fundraise",
+      "partOfSpeech": "verb",
+      "meaning": "① 筹款；募捐。为某个组织、项目或目的筹集资金。",
+      "chineseAliases": [
+        "筹款",
+        "为项目募捐"
+      ],
+      "englishForms": [
+        "fundraises",
+        "fundraised"
+      ],
+      "en": "The volunteers will fundraise for repairs to the community hall.",
+      "zh": "志愿者将为修缮社区礼堂筹款。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/fundraise"
+      ],
+      "canonicalId": 5342818,
+      "canonicalSourceSha256": "443f6fe3428c2bcbec2c84e970891270939ed7c4350b66ffb25501eb24928548"
+    },
+    {
+      "term": "presidentially",
+      "partOfSpeech": "adverb",
+      "meaning": "① 以总统般的风范；以符合总统身份的方式。这里取举止或表现方式义。",
+      "chineseAliases": [
+        "以总统般的风范",
+        "以符合总统身份的方式"
+      ],
+      "englishForms": [],
+      "en": "The candidate answered the difficult question calmly and presidentially.",
+      "zh": "那位候选人冷静地、以总统般的风范回答了这个棘手的问题。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/presidentially"
+      ],
+      "canonicalId": 5384608,
+      "canonicalSourceSha256": "5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6"
+    },
+    {
+      "term": "sixthly",
+      "partOfSpeech": "adverb",
+      "meaning": "① 第六。用于引出按顺序列举的第六点。",
+      "chineseAliases": [
+        "列举第六点",
+        "第六点上"
+      ],
+      "englishForms": [],
+      "en": "Sixthly, all visitors must leave the equipment exactly where they found it.",
+      "zh": "第六，所有访客都必须把设备留在原处。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/sixthly"
+      ],
+      "canonicalId": 5455408,
+      "canonicalSourceSha256": "06a92204c03657f1e7cf5ec579b5d3b25ac82e3da8327dc67ce18f612b11baec"
+    },
+    {
+      "term": "fetchingly",
+      "partOfSpeech": "adverb",
+      "meaning": "① 迷人地；讨人喜欢地。形容外观或装扮有吸引力。",
+      "chineseAliases": [
+        "迷人地",
+        "讨人喜欢地"
+      ],
+      "englishForms": [],
+      "en": "The ribbon was tied fetchingly at the side of her hat.",
+      "zh": "丝带在她帽子侧面系得很别致迷人。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/fetchingly"
+      ],
+      "canonicalId": 5755590,
+      "canonicalSourceSha256": "d8b1b894ecbb8ed9d6c8a3d7b6d3ca9c21857da04d28c71969e8be888fdbf988"
+    },
+    {
+      "term": "uni",
+      "partOfSpeech": "noun",
+      "meaning": "① 大学。university 的非正式简称，常见于英式、澳式等英语中。",
+      "chineseAliases": [
+        "大学",
+        "大学口语简称"
+      ],
+      "englishForms": [
+        "unis"
+      ],
+      "en": "I'm moving to another city to start uni in September.",
+      "zh": "我要搬到另一个城市，九月开始上大学。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/uni"
+      ],
+      "canonicalId": 5807817,
+      "canonicalSourceSha256": "1b6ac8382f0cc7774cbe3d45bf999b7e30e6773c9cf6548d853d61377bed6ed8"
+    },
+    {
+      "term": "housecleaner",
+      "partOfSpeech": "noun",
+      "meaning": "① 房屋清洁工；为他人打扫住宅的人。",
+      "chineseAliases": [
+        "房屋清洁工",
+        "住宅清洁工"
+      ],
+      "englishForms": [
+        "housecleaners"
+      ],
+      "en": "The housecleaner asked which rooms needed the most attention.",
+      "zh": "房屋清洁工问，哪些房间最需要仔细打扫。",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/houseclean",
+        "https://www.dir.ca.gov/dosh/Domestic-Service-Workers/FAQ.html"
+      ],
+      "canonicalId": 5912487,
+      "canonicalSourceSha256": "e1bec0b1986a1be167e5eb3150abf6d41cca3c9bbedef7074daf79ccbc492387"
+    },
+    {
+      "term": "resoluteness",
+      "partOfSpeech": "noun",
+      "meaning": "① 坚决；坚定的意志。下定决心后不轻易动摇的品质。",
+      "chineseAliases": [
+        "坚定的意志",
+        "坚决的品质"
+      ],
+      "englishForms": [],
+      "en": "Her quiet resoluteness persuaded the others to keep trying.",
+      "zh": "她沉静而坚定的意志说服其他人继续尝试。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/resoluteness"
+      ],
+      "canonicalId": 5943761,
+      "canonicalSourceSha256": "1c87b936c049d5928fac4e5bc3985f77aa50518ccec7435c22d183a0582adf3f"
+    },
+    {
+      "term": "frontside",
+      "partOfSpeech": "noun",
+      "meaning": "① 正面；前侧。这里指晶圆制造中加工器件、线路的这一面，与背面相对。",
+      "chineseAliases": [
+        "晶圆正面",
+        "晶圆前侧"
+      ],
+      "englishForms": [],
+      "en": "The technician inspected the frontside of the wafer under a microscope.",
+      "zh": "技术员在显微镜下检查了晶圆的正面。",
+      "references": [
+        "https://www.imec-int.com/en/articles/imec-demonstrates-critical-building-blocks-backside-power-delivery-network"
+      ],
+      "canonicalId": 6112947,
+      "canonicalSourceSha256": "8470b5bf54686894a773b2346e35107d00014ed8aadd846b033842d62a74f132"
+    },
+    {
+      "term": "heterosexually",
+      "partOfSpeech": "adverb",
+      "meaning": "① 以异性恋方式；在异性性行为方面。副词，具体指向取决于所修饰的表达。",
+      "chineseAliases": [
+        "以异性恋方式",
+        "在异性性行为方面"
+      ],
+      "englishForms": [],
+      "en": "The survey recorded how many participants were heterosexually active.",
+      "zh": "这项调查记录了有多少参与者有异性性行为。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/heterosexually"
+      ],
+      "canonicalId": 6214939,
+      "canonicalSourceSha256": "7040e36db83e535ff1bcb7f9e1639505b47473d398239ced282f45e68676ee83"
+    },
+    {
+      "term": "guar",
+      "partOfSpeech": "noun",
+      "meaning": "① 瓜尔豆。豆科植物，其种子可用于生产瓜尔胶。",
+      "chineseAliases": [
+        "瓜尔豆",
+        "瓜尔豆植物"
+      ],
+      "englishForms": [],
+      "en": "The growers kept part of the guar harvest for next season's seed.",
+      "zh": "种植者留下了一部分收获的瓜尔豆，供下一季播种。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/guar"
+      ],
+      "canonicalId": 6274686,
+      "canonicalSourceSha256": "4e00289c7d2bac4c297012ab9650d65c725e732000bbc49f17b420243c414e03"
+    },
+    {
+      "term": "hella",
+      "partOfSpeech": "adverb",
+      "meaning": "① 非常；十分。美式俚语，作程度副词修饰形容词等。",
+      "chineseAliases": [
+        "非常的俚语副词",
+        "十分的美式俚语"
+      ],
+      "englishForms": [],
+      "en": "That last stretch of the hike was hella tough.",
+      "zh": "徒步的最后那一段真是难走得很。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/hella"
+      ],
+      "canonicalId": 6295301,
+      "canonicalSourceSha256": "625a1b718bd14afb4b3cbf117038e8efa54144ac9dc8f748d29ac3f3118c47e8"
+    },
+    {
+      "term": "kerbstone",
+      "partOfSpeech": "noun",
+      "meaning": "① 路缘石。组成道路或人行道边缘的一块石料，英式拼写。",
+      "chineseAliases": [
+        "路缘石",
+        "人行道边缘石"
+      ],
+      "englishForms": [
+        "kerbstones"
+      ],
+      "en": "A loose kerbstone rocked when she stepped on it.",
+      "zh": "她踩上去时，一块松动的路缘石晃了一下。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/kerbstone"
+      ],
+      "canonicalId": 6357554,
+      "canonicalSourceSha256": "bae34e9a5efedb2cdfa8b4bbdc671117b94b793572d6b5dff82bc412e8f6022f"
+    },
+    {
+      "term": "multimode",
+      "partOfSpeech": "adjective",
+      "meaning": "① 多模的。光纤语境中指可支持多种光传播模式的。",
+      "chineseAliases": [
+        "多模光纤的多模",
+        "支持多种光传播模式的"
+      ],
+      "englishForms": [],
+      "en": "The two offices are linked by a short run of multimode fibre.",
+      "zh": "这两间办公室由一小段多模光纤连接。",
+      "references": [
+        "https://www.cisco.com/c/en/us/td/docs/routers/access/interfaces/adapt/STM1PA/STM1/STM1PAovr.pdf"
+      ],
+      "canonicalId": 6372441,
+      "canonicalSourceSha256": "47beba24bc3be7163c9a58568dba8f3288afe93814b6712f1e159ba90397ebcd"
+    },
+    {
+      "term": "krait",
+      "partOfSpeech": "noun",
+      "meaning": "① 环蛇；环蛇属（Bungarus）的毒蛇。该英文名称不只指金环蛇一种。",
+      "chineseAliases": [
+        "环蛇",
+        "环蛇属毒蛇"
+      ],
+      "englishForms": [
+        "kraits"
+      ],
+      "en": "The field guide helped us distinguish a krait from similar-looking snakes.",
+      "zh": "野外指南帮助我们区分环蛇和外观相似的蛇。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/krait"
+      ],
+      "canonicalId": 6419382,
+      "canonicalSourceSha256": "01a285de4077115dc2a8105e4748ee9bdcdc0683fe4823ca9d00a56046e3ade3"
+    },
+    {
+      "term": "trembly",
+      "partOfSpeech": "adjective",
+      "meaning": "① 颤抖的；发颤的。形容身体、声音等不稳定地轻轻抖动。",
+      "chineseAliases": [
+        "颤抖的",
+        "发颤的"
+      ],
+      "englishForms": [],
+      "en": "Her hands were still trembly when she set the cup down.",
+      "zh": "她放下杯子时，双手仍在发抖。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/trembly"
+      ],
+      "canonicalId": 6542190,
+      "canonicalSourceSha256": "cafd49a6ce9d7d9639c274cc46dbac305df53c1ab288b0f07b66ecc2a25ec471"
+    },
+    {
+      "term": "dimethyl",
+      "partOfSpeech": "adjective",
+      "meaning": "① 含两个甲基的；二甲基的。常见于化学名称或作名词前的修饰语。",
+      "chineseAliases": [
+        "二甲基的",
+        "含两个甲基的"
+      ],
+      "englishForms": [],
+      "en": "The chemist isolated a dimethyl derivative from the reaction mixture.",
+      "zh": "化学家从反应混合物中分离出一种二甲基衍生物。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/dimethyl"
+      ],
+      "canonicalId": 6604941,
+      "canonicalSourceSha256": "87793d4e5afc1abbbb4537fac09441db2e614cc9d646fdb9526f70c0626a63e6"
+    },
+    {
+      "term": "a-flat",
+      "partOfSpeech": "noun",
+      "meaning": "① 降A音。音乐中的一个音名，通常写作 A-flat 或 A♭。",
+      "chineseAliases": [
+        "降A音",
+        "降A这个音"
+      ],
+      "englishForms": [
+        "A-flat"
+      ],
+      "en": "The first note of the violin solo is A-flat.",
+      "zh": "小提琴独奏的第一个音是降A音。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/A-flat"
+      ],
+      "canonicalId": 6629492,
+      "canonicalSourceSha256": "b0b44382d8fac7667551b833b93eace58b531ba33766c69c1c239943648ff365"
+    },
+    {
+      "term": "aaa-rated",
+      "partOfSpeech": "adjective",
+      "meaning": "① 获评AAA级的。信用评级语境中表示获得相关评级机构的AAA评级，不等于绝对没有风险。",
+      "chineseAliases": [
+        "获评AAA级的",
+        "AAA信用评级的"
+      ],
+      "englishForms": [
+        "AAA-rated"
+      ],
+      "en": "The fund's report lists its AAA-rated bonds separately.",
+      "zh": "基金报告把其获评AAA级的债券单独列出。",
+      "references": [
+        "https://www.spglobal.com/ratings/en/about/intro-to-credit-ratings"
+      ],
+      "canonicalId": 6637857,
+      "canonicalSourceSha256": "4c8a17672d986388c4b0e462e09c713bc134852730387db6c66f3fa4320d60f1"
+    },
+    {
+      "term": "energizer",
+      "partOfSpeech": "noun",
+      "meaning": "① 使人振奋的人或事物；让人恢复活力的活动等。",
+      "chineseAliases": [
+        "使人振奋的事物",
+        "恢复活力的活动"
+      ],
+      "englishForms": [
+        "energizers"
+      ],
+      "en": "A quick game proved to be an effective energizer for the tired group.",
+      "zh": "对这个疲惫的小组来说，一个简短的游戏起到了有效的提神作用。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/energizer"
+      ],
+      "canonicalId": 3891902,
+      "canonicalSourceSha256": "bbc0ec229ecc3265bb6ca4b71be658748271ccd3afb907f23d92010eb3cec23c"
+    },
+    {
+      "term": "VAR",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 增值转售商。value-added reseller 的缩写，指为产品增加功能、组件或服务后再转售的商家。",
+      "chineseAliases": [
+        "增值转售商",
+        "增值经销商"
+      ],
+      "englishForms": [
+        "VARs"
+      ],
+      "en": "The VAR installed the extra modules before delivering the software package.",
+      "zh": "增值转售商在交付软件包前安装了额外模块。",
+      "references": [
+        "https://www.ibm.com/docs/en/configurepricequote/10.0.0?topic=glossary"
+      ],
+      "canonicalId": 3254206,
+      "canonicalSourceSha256": "53fae6402d5cc6883dd06a0f895ef8e67603e2ccfd73edffbb8f459339841fc9"
+    },
+    {
+      "term": "nlp",
+      "partOfSpeech": "abbreviation",
+      "meaning": "① 自然语言处理。natural language processing 的缩写，通常写作 NLP，涉及计算机对人类语言的处理。",
+      "chineseAliases": [
+        "自然语言处理"
+      ],
+      "englishForms": [
+        "NLP"
+      ],
+      "en": "The team used NLP to group similar questions from customer messages.",
+      "zh": "团队使用自然语言处理，把客户消息中相似的问题归为一组。",
+      "references": [
+        "https://www.ibm.com/think/topics/natural-language-processing"
+      ],
+      "canonicalId": 4498229,
+      "canonicalSourceSha256": "c0989fb8b05a20049869816dc5637f9db7ad5920cd46f8f23760dca674d0ece6"
+    },
+    {
+      "term": "ADA",
+      "partOfSpeech": "proper noun",
+      "meaning": "① Ada程序设计语言。语言名称规范写作 Ada，不是这里的其他大写缩写义。",
+      "chineseAliases": [
+        "Ada程序设计语言",
+        "Ada编程语言"
+      ],
+      "englishForms": [
+        "Ada"
+      ],
+      "en": "We rewrote the small monitoring program in Ada.",
+      "zh": "我们用Ada重写了那个小型监控程序。",
+      "references": [
+        "https://www.adaic.org/advantages/ada-overview/"
+      ],
+      "canonicalId": 2777787,
+      "canonicalSourceSha256": "552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491"
+    }
+  ]
+}

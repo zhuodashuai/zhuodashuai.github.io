@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-second-daily-reader",
+  "independentOfAuthor": true,
+  "sourceSha256": "33161da06569abf8fa0faec13c869ea4d2a1b8574c0fab9f2571fdb62cba048b",
+  "decisions": [
+    {
+      "term": "no parking",
+      "rowSha256": "7cf5d67a311a88b6060e33c0d91889f5cb1965e9be23322b8f8c9504868ac401",
+      "decision": "approve-new-row",
+      "assessment": "Sign wording prohibits parking; not a generic no-stopping equivalence. Original quotation is a parking sign."
+    },
+    {
+      "term": "tax refund counter",
+      "rowSha256": "6b141dd30891d6f21130e9e14906642fa77e298d5db08835a428b5acae811300",
+      "decision": "approve-new-row",
+      "assessment": "Service counter for tax refunds, not a guaranteed refund entitlement; original airport context fits."
+    },
+    {
+      "term": "speeding ticket",
+      "rowSha256": "3ec1118253100ba852a94d715eb01d3cc9f6884fde49e1ec735d7cebf88339af",
+      "decision": "approve-new-row",
+      "assessment": "Notice for exceeding a speed limit; no fine amount, deadline or jurisdiction procedure claimed."
+    },
+    {
+      "term": "currency exchange counter",
+      "rowSha256": "3316217233b175c86724ca7bb51d6f2c7556507739950c0f8efedc6cfbe11c6d",
+      "decision": "approve-new-row",
+      "assessment": "Place of changing currencies, not a foreign-exchange rate; across-from relationship preserved."
+    },
+    {
+      "term": "toiletry bag",
+      "rowSha256": "442f4a060088433a034d59e53f6ddb3069f30cb3be8d632a77406bcf5924aad3",
+      "decision": "approve-new-row",
+      "assessment": "Travel personal-care bag, not a washcloth or equipment box; toothbrushing/shampoo nouns fit."
+    },
+    {
+      "term": "electric fly swatter",
+      "rowSha256": "00f68ed9292001156d4f418421f831a71503599af9634bef251a62e9896777d3",
+      "decision": "approve-new-row",
+      "assessment": "Hand-held electrified racket for flying insects, not a stationary attraction lamp. Folding-handle example fits."
+    },
+    {
+      "term": "admission ticket",
+      "rowSha256": "1f659838c81f047d96e37df5e023c73d5728620c1d1c079bff7ac883d4731f6f",
+      "decision": "approve-new-row",
+      "assessment": "Entry authorisation ticket in the named visitor contexts, not a claim of unlimited or free access."
+    },
+    {
+      "term": "blind spot",
+      "rowSha256": "2aa965ca7b6dd9ba223b0c3cf8efdb55755ff66dd81faff3748bdb95c20deca2",
+      "decision": "approve-new-row",
+      "assessment": "Requested normal-view/mirror qualifier accepted: not claiming that no shoulder/head turn could reveal any hidden area."
+    },
+    {
+      "term": "non-slip sole",
+      "rowSha256": "6e65b4e57ebb5791bb19e0d5ece4e2ebd43bb5156414e307d3ccccae5e86d484",
+      "decision": "approve-new-row",
+      "assessment": "Sole designed to reduce slipping, not a guarantee of never slipping or a whole-shoe safety certification."
+    },
+    {
+      "term": "level crossing",
+      "rowSha256": "e5ec44ffaf0294813c54363db8f8bedb7c149f7f89f647aaf326bbfa1c8355a4",
+      "decision": "approve-new-row",
+      "assessment": "Road and rail same-level crossing; UK term not an overpass. Original bend is beyond it."
+    },
+    {
+      "term": "shoes rub",
+      "rowSha256": "552912055dcafd8a1e31101f66516dc02314f4ec56f13b380e76b087bc136a88",
+      "decision": "approve-new-row",
+      "assessment": "Natural shoes-as-subject expression for friction discomfort; no presumption of an injury or blister."
+    },
+    {
+      "term": "radiator",
+      "rowSha256": "36c8ed3271efb359ede995727bec4b9699b48a80a26ab199adcf0dfe702f2228",
+      "decision": "approve-new-row",
+      "assessment": "Selected room-heating appliance noun, not a car cooling radiator or electronics heatsink."
+    },
+    {
+      "term": "dry-cleaning receipt",
+      "rowSha256": "d83e99ad0a45e4a2521f0ac6e073c3694863cf794b3d7a50a378c1cddff5cb4f",
+      "decision": "approve-new-row",
+      "assessment": "Dry-cleaning service/payment document, not a care label. Original coat-pocket example agrees."
+    },
+    {
+      "term": "haircut appointment",
+      "rowSha256": "4690f4e8de72cb661eac6d7fb82914740a942c6f54dbca07701ec280aa3f9dce",
+      "decision": "approve-new-row",
+      "assessment": "Booked haircut service time; Saturday ten in morning is preserved in Chinese."
+    },
+    {
+      "term": "collection notification",
+      "rowSha256": "d9197e07e11b6900cf32a00b1b6543f5c1dee8eda7556fc6df3b45a544edf58d",
+      "decision": "approve-new-row",
+      "assessment": "Selected recipient-ready-to-collect context explicit. Does not equate every generic collection notice with readiness; no courier-pickup-completed claim."
+    },
+    {
+      "term": "handyperson",
+      "rowSha256": "f38577acf400e7f2d47e640d2debcf21b3c81ee68a632150edfce1d72ffc022e",
+      "decision": "approve-new-row",
+      "assessment": "General small repairs/maintenance person with no gender restriction or professional licence guarantee."
+    },
+    {
+      "term": "sugar-free yogurt",
+      "rowSha256": "1e14c3cd1e45d25bcc597cd1fdd33e33399606738dd2301564ffa24a9be559a1",
+      "decision": "approve-new-row",
+      "assessment": "Zero/trace-sugar selected product; not just no-added-sugar yoghurt. No zero-calorie or medical diet guarantee."
+    },
+    {
+      "term": "duty-free allowance",
+      "rowSha256": "88d59932448bd93fcdd1895dff23320ed09991702fb42d9633fff787f171357b",
+      "decision": "approve-new-row",
+      "assessment": "Travel import tax/duty limit concept, quantity/value, not an exemption promise or a numeric legal threshold."
+    }
+  ],
+  "resolvedRevisions": [
+    "blind spot ordinary-view qualification"
+  ],
+  "unresolvedIssues": [],
+  "scope": "Selected common lexical senses and original EN/ZH checked individually; no legal, medical or product safety guidance."
+}

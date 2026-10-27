@@ -284,7 +284,7 @@ export function mountDictionaryPage(document, window) {
     void exampleModule.then(module => {
       if (current !== exampleSequence || lastSelected?.term !== term) return;
       exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });
-      void exampleController.show(term);
+      void exampleController.show(term, { savedEntry: lastSelected });
     }).catch(() => {
       exampleModule = null;
       if (current === exampleSequence && lastSelected?.term === term) renderExamples({ phase: "error", message: "例句暂不可用，词义查询不受影响。" });

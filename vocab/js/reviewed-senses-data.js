@@ -1,764 +1,134 @@
 // Generated independent selected-sense supplements; original canonical records and IDs remain unchanged.
 export const REVIEWED_SENSE_ENTRIES = Object.freeze([
-  {
-    "term": "CD-ROM",
-    "partOfSpeech": "noun",
-    "meaning": "① 只读光盘：供计算机读取已存入数据的光盘。本例取光盘介质义，不指光盘驱动器。",
-    "chineseAliases": [
-      "只读光盘",
-      "唯读光盘"
-    ],
-    "englishForms": [
-      "CD-ROM",
-      "CD-ROMs"
-    ],
-    "en": "A CD-ROM containing the installation guide was tucked inside the manual.",
-    "zh": "手册里夹着一张存有安装指南的只读光盘。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/cd-rom"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 1167489,
-    "canonicalSourceSha256": "836dc8634b09f346959622139a56625a0b646452aa25232db92b9191d87eab80"
-  },
-  {
-    "term": "ISS",
-    "partOfSpeech": "abbreviation",
-    "meaning": "① 国际空间站；International Space Station 的缩写。这里取航天设施义。",
-    "chineseAliases": [
-      "国际空间站"
-    ],
-    "englishForms": [],
-    "en": "The astronauts waved to the camera from inside the ISS.",
-    "zh": "宇航员们在国际空间站内朝镜头挥了挥手。",
-    "references": [
-      "https://www.nasa.gov/reference/international-space-station/"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4540562,
-    "canonicalSourceSha256": "1df1e398ffc646c2517d0944d7e517c5dc446eca8459e781acc0e969ddfc3e12"
-  },
-  {
-    "term": "NOE",
-    "partOfSpeech": "abbreviation",
-    "meaning": "① 核奥弗豪泽效应的名词性缩写：核磁共振中，一组核的自旋跃迁受到扰动时，另一组核的共振信号强度发生变化的现象。本例取核磁共振术语义。",
-    "chineseAliases": [
-      "核奥弗豪泽效应",
-      "核欧沃豪斯效应",
-      "核Overhauser效应"
-    ],
-    "englishForms": [
-      "NOE"
-    ],
-    "en": "Measurements of the NOE helped the researcher identify protons that were close together in space.",
-    "zh": "核奥弗豪泽效应的测量结果帮助研究人员辨认出在空间中彼此接近的质子。",
-    "references": [
-      "https://goldbook.iupac.org/terms/view/08385",
-      "https://goldbook.iupac.org/terms/view/08387"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 6089421,
-    "canonicalSourceSha256": "3010fa1f6a08c43032912dade6c2b6a849df73eb78a0e44c3460ad4b0e51f2bc"
-  },
-  {
-    "term": "baggie",
-    "partOfSpeech": "noun",
-    "meaning": "① 常用于装食物的小塑料袋，美式非正式用语。本例取食品储物袋义，不指垃圾袋。",
-    "chineseAliases": [
-      "食品小塑料袋",
-      "小号食品塑料袋"
-    ],
-    "englishForms": [
-      "baggie",
-      "baggies"
-    ],
-    "en": "She packed the sliced apple in a baggie before leaving for class.",
-    "zh": "去上课前，她把切好的苹果装进了一个食品小塑料袋。",
-    "references": [
-      "https://www.ahdictionary.com/word/search.html?q=Baggies"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3453532,
-    "canonicalSourceSha256": "4c64736cb824a7b05af32cfd6fbf332dc67bebbc6f9d042e61960432b4ff2b44"
-  },
-  {
-    "term": "bin liner",
-    "partOfSpeech": "noun",
-    "meaning": "① 套在垃圾桶内、用来盛装垃圾的塑料内衬袋，英式英语。本例取套桶用袋义，不泛指所有塑料袋。",
-    "chineseAliases": [
-      "垃圾桶内衬袋",
-      "垃圾桶衬袋"
-    ],
-    "englishForms": [
-      "bin liner",
-      "bin liners",
-      "binliner",
-      "binliners"
-    ],
-    "en": "After emptying the kitchen bin, I fitted a clean bin liner inside it.",
-    "zh": "倒空厨房垃圾桶后，我在里面套上了一个干净的垃圾桶内衬袋。",
-    "references": [
-      "https://dictionary.cambridge.org/us/dictionary/english/bin-liner"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": true,
-    "canonicalId": 9111454,
-    "canonicalSourceSha256": "1cf62c69b4f6eba31dd0826b16cfdf875e02cf6c056ae87a3801761ffca754a8"
-  },
-  {
-    "term": "casualness",
-    "partOfSpeech": "noun",
-    "meaning": "① 不正式、不拘礼节的状态或程度。本例指着装要求的随意程度，不表示事情偶然发生。",
-    "chineseAliases": [
-      "随意程度",
-      "不正式的程度",
-      "不拘礼节的状态"
-    ],
-    "englishForms": [
-      "casualness"
-    ],
-    "en": "The casualness of the dress code surprised guests who had brought formal suits.",
-    "zh": "着装要求的随意程度让带了正装西服的宾客感到意外。",
-    "references": [
-      "https://www.oxfordlearnersdictionaries.com/definition/english/casualness"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3527103,
-    "canonicalSourceSha256": "564f35ab14ce5189190bbf134cfa861241c546c31f9de35b19bfd32b1b10f55e"
-  },
-  {
-    "term": "communitarian",
-    "partOfSpeech": "adjective",
-    "meaning": "① 社群主义的；重视共同体及其成员相互责任的。本例取社会政治思想中的形容词义。",
-    "chineseAliases": [
-      "社群主义的",
-      "重视共同体责任的"
-    ],
-    "englishForms": [
-      "communitarian"
-    ],
-    "en": "The essay takes a communitarian view of citizenship, stressing the responsibilities neighbours share.",
-    "zh": "这篇文章从社群主义的角度看待公民身份，强调邻里之间共同承担的责任。",
-    "references": [
-      "https://www.merriam-webster.com/dictionary/communitarian",
-      "https://plato.stanford.edu/entries/communitarianism/"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3574860,
-    "canonicalSourceSha256": "773f568aa204fea1bf909e71893598af6dc5c13018bf56791ddff982281feb86"
-  },
-  {
-    "term": "geordie",
-    "partOfSpeech": "noun",
-    "meaning": "① 英格兰东北部泰恩赛德地区的人，常写 Geordie。这里取人的含义，不是方言名。",
-    "chineseAliases": [
-      "泰恩赛德人",
-      "英格兰泰恩赛德地区的人"
-    ],
-    "englishForms": [
-      "Geordies"
-    ],
-    "en": "I'm a Geordie, but I moved away from Tyneside years ago.",
-    "zh": "我是泰恩赛德人，不过多年前就搬离那里了。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/geordie"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 2800830,
-    "canonicalSourceSha256": "488fb512b81a543ba0d38d9f52eda52aca1c92ba92dd68dd0928ae54ebbb08f2"
-  },
-  {
-    "term": "hominy",
-    "partOfSpeech": "noun",
-    "meaning": "① 经处理去皮的玉米粒，常用于汤、炖菜等。这里指食材，不是玉米粥成品。",
-    "chineseAliases": [
-      "去皮玉米粒",
-      "处理过的去皮玉米粒"
-    ],
-    "englishForms": [],
-    "en": "Beans and hominy made the soup thick and filling.",
-    "zh": "豆子和去皮玉米粒让这道汤浓稠又饱腹。",
-    "references": [
-      "https://www.merriam-webster.com/dictionary/hominy",
-      "https://dictionary.cambridge.org/dictionary/english/hominy"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4396423,
-    "canonicalSourceSha256": "c0f81f12ce55876dd5cede02bdb9b88a8551189a4590e1316230fcf27e645786"
-  },
-  {
-    "term": "hoodie",
-    "partOfSpeech": "noun",
-    "meaning": "① 连帽卫衣；带有兜帽的休闲运动上衣。本例取衣物义。",
-    "chineseAliases": [
-      "连帽卫衣",
-      "连帽运动衫"
-    ],
-    "englishForms": [
-      "hoodie",
-      "hoodies",
-      "hoody"
-    ],
-    "en": "He pulled on a dry hoodie after the rain soaked his shirt.",
-    "zh": "雨水淋湿衬衫后，他套上了一件干的连帽卫衣。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/hoodie",
-      "https://www.collinsdictionary.com/us/dictionary/english/hoodie"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4502737,
-    "canonicalSourceSha256": "5ea330bed1261013e737436b97791f3affc9e306c65fedbe8e4c13abed9308c3"
-  },
-  {
-    "term": "hugger",
-    "partOfSpeech": "noun",
-    "meaning": "① 喜欢通过拥抱表达亲近或喜爱的人。",
-    "chineseAliases": [
-      "喜欢拥抱别人的人",
-      "爱拥抱的人"
-    ],
-    "englishForms": [
-      "huggers"
-    ],
-    "en": "I'm not much of a hugger, so I greeted him with a wave.",
-    "zh": "我不太习惯拥抱别人，所以挥了挥手和他打招呼。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/hugger"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4267851,
-    "canonicalSourceSha256": "fe87f752db528911f6454110a58f0f9a2c2e3856f791babfa7ecdc7614a6318d"
-  },
-  {
-    "term": "hyena",
-    "partOfSpeech": "noun",
-    "meaning": "① 鬣狗。这里指动物，不是袋狼。",
-    "chineseAliases": [
-      "鬣狗",
-      "鬣狗这种动物"
-    ],
-    "englishForms": [
-      "hyenas"
-    ],
-    "en": "Through the binoculars, we watched a hyena cross the dry riverbed.",
-    "zh": "透过双筒望远镜，我们看着一只鬣狗穿过干涸的河床。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/hyena"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 2861496,
-    "canonicalSourceSha256": "28541744c06096346be7c0861027bc7e2f3a042cc7449c401706725d4f88bfa1"
-  },
-  {
-    "term": "impulsively",
-    "partOfSpeech": "adverb",
-    "meaning": "① 冲动地；没有事先周密考虑就行动地。",
-    "chineseAliases": [
-      "冲动地",
-      "未经考虑地",
-      "一时冲动地"
-    ],
-    "englishForms": [],
-    "en": "I impulsively added two concert tickets to my basket.",
-    "zh": "我一时冲动，往购物篮里加了两张演唱会门票。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/impulsively"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3137478,
-    "canonicalSourceSha256": "63cc5b6b8d264eaf452aa7f924b621a907713a264c8bfc4e30f23f6f1ab0d5a9"
-  },
-  {
-    "term": "judgmental",
-    "partOfSpeech": "adjective",
-    "meaning": "① 爱妄加评判的；动辄批评别人的，通常带贬义。",
-    "chineseAliases": [
-      "爱妄加评判的",
-      "动辄批评别人的",
-      "爱对人评头论足的"
-    ],
-    "englishForms": [],
-    "en": "He asked what had happened without sounding judgmental.",
-    "zh": "他询问事情的经过，语气里没有妄加评判的意味。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/judgmental"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 2743412,
-    "canonicalSourceSha256": "5736ec89d3bc5e8aedea96d56af5f9415e9065914abe503dfd5d6806f9613ba2"
-  },
-  {
-    "term": "legalistic",
-    "partOfSpeech": "adjective",
-    "meaning": "① 过分拘泥法律条文或细节的，常含批评意味。本例指答复过分注重条款而忽视实际解决办法。",
-    "chineseAliases": [
-      "拘泥法律条文的",
-      "过分注重法律细节的"
-    ],
-    "englishForms": [
-      "legalistic"
-    ],
-    "en": "The manager's legalistic reply quoted the contract but ignored our request for a practical solution.",
-    "zh": "经理的答复拘泥于法律条文，引用了合同，却没有理会我们希望找到实际解决办法的请求。",
-    "references": [
-      "https://www.collinsdictionary.com/us/dictionary/english/legalistic"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3198274,
-    "canonicalSourceSha256": "f52bf9b3caba61d46f060c34e67547e783acd9eb25b1e622a4aa1e39f1eda618"
-  },
-  {
-    "term": "meritocracy",
-    "partOfSpeech": "noun",
-    "meaning": "① 任人唯贤的制度：按能力与实际表现，而非财富、出身或关系来分配职位和晋升机会。本例取制度义。",
-    "chineseAliases": [
-      "任人唯贤制度",
-      "凭能力晋升的制度"
-    ],
-    "englishForms": [
-      "meritocracy",
-      "meritocracies"
-    ],
-    "en": "The firm called itself a meritocracy, but staff questioned whether family connections still mattered.",
-    "zh": "这家公司自称实行任人唯贤制度，但员工质疑家族关系是否仍在起作用。",
-    "references": [
-      "https://dictionary.cambridge.org/us/dictionary/english/meritocracy?topic=systems-of-government"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3668077,
-    "canonicalSourceSha256": "724aff700ea75f89a2dc860871a3e2de6bb7a43f469e5b9d92763eb24e88f417"
-  },
-  {
-    "term": "multitalented",
-    "partOfSpeech": "adjective",
-    "meaning": "① 多才多艺的；具有多方面才能的。本例形容一个人兼有音乐与绘画才能。",
-    "chineseAliases": [
-      "多才多艺的",
-      "具有多方面才能的"
-    ],
-    "englishForms": [
-      "multitalented",
-      "multi-talented"
-    ],
-    "en": "The multitalented designer wrote the music and drew the posters for the show.",
-    "zh": "这位多才多艺的设计师为演出创作了音乐，还绘制了海报。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/multi-talented"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4286957,
-    "canonicalSourceSha256": "85659af6930f3a2d281dae8398d1c28ea04a81248d8f776def4623294c11b1e4"
-  },
-  {
-    "term": "oap",
-    "partOfSpeech": "abbreviation",
-    "meaning": "① 领取老年养老金的人；old-age pensioner 的缩写，常写 OAP。英式用法，较旧。",
-    "chineseAliases": [
-      "领取老年养老金的人",
-      "领取老年养老金者"
-    ],
-    "englishForms": [
-      "OAPs"
-    ],
-    "en": "The centre offered a reduced membership fee to OAPs.",
-    "zh": "这个中心为领取老年养老金的人提供了优惠会费。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/oap"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3604135,
-    "canonicalSourceSha256": "d41284844fafa49ff60fb3b594c703c5571d7f6f30d4ddd4528b8cb0305951a9"
-  },
-  {
-    "term": "permissiveness",
-    "partOfSpeech": "noun",
-    "meaning": "① 放任或纵容的态度；容许一些人认为不妥的行为。本例指对学生迟到缺少约束的态度。",
-    "chineseAliases": [
-      "放任态度",
-      "纵容态度"
-    ],
-    "englishForms": [
-      "permissiveness"
-    ],
-    "en": "The headteacher worried that permissiveness about lateness would weaken the school rules.",
-    "zh": "校长担心，对迟到的放任态度会削弱校规的约束力。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/permissiveness",
-      "https://www.oxfordlearnersdictionaries.com/us/definition/english/permissiveness"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3751833,
-    "canonicalSourceSha256": "a4a7509b6529a53d4e20ed617ae3696f4888c20c57358f2e975808163d758139"
-  },
-  {
-    "term": "rabbinical",
-    "partOfSpeech": "adjective",
-    "meaning": "① 拉比的；与犹太教拉比及其教导、解释传统有关的。本例指拉比对文本的解读，不泛指希伯来语。",
-    "chineseAliases": [
-      "拉比的",
-      "与拉比有关的"
-    ],
-    "englishForms": [
-      "rabbinical",
-      "rabbinic"
-    ],
-    "en": "The historian compared rabbinical interpretations of the same passage.",
-    "zh": "这位历史学家比较了拉比们对同一段文字的不同解读。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/rabbinical?topic=religious-leaders-and-officials"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3696662,
-    "canonicalSourceSha256": "e01a8fe04e82beeaad69cc42cbf79f0f1e226154cd048df24620c6b1ec68c471"
-  },
-  {
-    "term": "remediate",
-    "partOfSpeech": "verb",
-    "meaning": "① 治理、修复受污染的环境。本例取及物动词义，指对受污染土壤进行修复。",
-    "chineseAliases": [
-      "治理污染",
-      "修复受污染土壤",
-      "修复污染场地"
-    ],
-    "englishForms": [
-      "remediate",
-      "remediates",
-      "remediated",
-      "remediating"
-    ],
-    "en": "The council hired specialists to remediate soil polluted by the old factory.",
-    "zh": "地方议会聘请了专家，治理被旧工厂污染的土壤。",
-    "references": [
-      "https://www.oxfordlearnersdictionaries.com/definition/english/remediate"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3761503,
-    "canonicalSourceSha256": "77f9e3e7958dfebd15b2b1a739ed89c2ec8f43b0d941d6941f4f1e01a5461ce4"
-  },
-  {
-    "term": "restructuring",
-    "partOfSpeech": "noun",
-    "meaning": "① 重组；对公司、部门或组织的结构重新安排。这里取组织重组义。",
-    "chineseAliases": [
-      "组织重组",
-      "部门重组",
-      "公司重组"
-    ],
-    "englishForms": [
-      "restructurings"
-    ],
-    "en": "After the restructuring, the design team reported directly to the director.",
-    "zh": "重组之后，设计团队直接向主管汇报。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/restructuring"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 2254798,
-    "canonicalSourceSha256": "fa6f6a1d06424b2d5d241b366b539e1e93612779912e1eaf4e9559a74cb68e0c"
-  },
-  {
-    "term": "shakeout",
-    "partOfSpeech": "noun",
-    "meaning": "① 行业洗牌：经济困难使部分企业退出市场或一些岗位被淘汰的调整过程。本例取企业淘汰义。",
-    "chineseAliases": [
-      "行业洗牌",
-      "行业淘汰性调整"
-    ],
-    "englishForms": [
-      "shakeout",
-      "shakeouts",
-      "shake-out",
-      "shake-outs"
-    ],
-    "en": "The industry shakeout forced several small publishers out of business.",
-    "zh": "这次行业洗牌迫使几家小型出版社倒闭。",
-    "references": [
-      "https://dictionary.cambridge.org/us/dictionary/english/shakeout"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3713967,
-    "canonicalSourceSha256": "2d341fc3f6fdd530d98ea6c9fe2d9307bc3fe35a17dfdfc9d6bc72a469199518"
-  },
-  {
-    "term": "sixths",
-    "partOfSpeech": "noun",
-    "meaning": "① 六分之一的份额；sixth 作分数名词时的复数形式。",
-    "chineseAliases": [
-      "六分之一的份额",
-      "六分之一份额的复数"
-    ],
-    "englishForms": [],
-    "en": "He folded the long strip of paper into sixths.",
-    "zh": "他把那张长纸条折成六等份。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/sixth"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4464356,
-    "canonicalSourceSha256": "5204a2538d82884dd769d84ad13e186bc87193b18764516d33ed7c5119472979"
-  },
-  {
-    "term": "snowboarder",
-    "partOfSpeech": "noun",
-    "meaning": "① 单板滑雪者：使用一块滑雪板进行滑雪运动的人。本例取运动参与者义。",
-    "chineseAliases": [
-      "单板滑雪者",
-      "单板滑雪运动者"
-    ],
-    "englishForms": [
-      "snowboarder",
-      "snowboarders"
-    ],
-    "en": "A snowboarder in a red jacket rested beside the lift.",
-    "zh": "一位穿红夹克的单板滑雪者在缆车旁休息。",
-    "references": [
-      "https://www.oxfordlearnersdictionaries.com/definition/english/snowboarder"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3212837,
-    "canonicalSourceSha256": "71306ad576d516a0fa4d19f9a5c993c0da54da52d583983a35738f72115d3e1c"
-  },
-  {
-    "term": "springer",
-    "partOfSpeech": "noun",
-    "meaning": "① 史宾格犬；springer spaniel 的简称，指一种猎犬。",
-    "chineseAliases": [
-      "史宾格犬",
-      "史宾格猎犬"
-    ],
-    "englishForms": [
-      "springers"
-    ],
-    "en": "The springer trotted back to its owner with a ball in its mouth.",
-    "zh": "那只史宾格犬叼着一个球，小跑着回到主人身边。",
-    "references": [
-      "https://www.merriam-webster.com/dictionary/springer"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3625755,
-    "canonicalSourceSha256": "aec62652befaa64863242863fcd282566e7b857598dd22994eeaa75705db125b"
-  },
-  {
-    "term": "tenuously",
-    "partOfSpeech": "adverb",
-    "meaning": "① （联系等）薄弱地；不牢固地。",
-    "chineseAliases": [
-      "薄弱地",
-      "不牢固地",
-      "联系不紧密地"
-    ],
-    "englishForms": [],
-    "en": "The two reports are only tenuously connected by a reference to the same town.",
-    "zh": "这两份报告之间仅有一丝联系：它们提到了同一个小镇。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/tenuously"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4394759,
-    "canonicalSourceSha256": "c70b5ae49797a557518248f04e84332e664a94c986d318f89f9000b789ff5dd8"
-  },
-  {
-    "term": "that's",
-    "partOfSpeech": "contraction",
-    "meaning": "① that is 的缩略形式，意为“那是、那就是”。本例用于指认物品。",
-    "chineseAliases": [
-      "那是",
-      "那就是"
-    ],
-    "englishForms": [
-      "that's"
-    ],
-    "en": "That's the notebook I left on the train.",
-    "zh": "那就是我落在火车上的笔记本。",
-    "references": [
-      "https://dictionary.cambridge.org/us/dictionary/english/that-s",
-      "https://dictionary.cambridge.org/us/grammar/british-grammar/that"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 1790854,
-    "canonicalSourceSha256": "2846922f130491dcabb2ee8586b03ddb952da6e76c913d5c5f78e0048d2dc83a"
-  },
-  {
-    "term": "tum",
-    "partOfSpeech": "noun",
-    "meaning": "① 肚子；腹部。英式非正式用语，也常见于儿语。",
-    "chineseAliases": [
-      "肚子（英式口语）",
-      "肚子的儿语说法"
-    ],
-    "englishForms": [
-      "tums"
-    ],
-    "en": "She patted her tum and said she couldn't eat another bite.",
-    "zh": "她拍了拍肚子，说自己一口也吃不下了。",
-    "references": [
-      "https://dictionary.cambridge.org/dictionary/english/tum"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3646493,
-    "canonicalSourceSha256": "74cd016fda3fbc1969818a40a9c40ddf522b1366402176f75404757d2312aa7e"
-  },
-  {
-    "term": "unrated",
-    "partOfSpeech": "adjective",
-    "meaning": "① 尚未评级或分级的。本例特指影片未获内容分级，不是“评价低”的意思。",
-    "chineseAliases": [
-      "尚未评级的",
-      "未分级的"
-    ],
-    "englishForms": [
-      "unrated"
-    ],
-    "en": "The festival screened an unrated documentary after the evening discussion.",
-    "zh": "晚间讨论结束后，电影节放映了一部未分级的纪录片。",
-    "references": [
-      "https://www.merriam-webster.com/dictionary/unrated"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 4336708,
-    "canonicalSourceSha256": "e2c65afe71086fa87d55b45ea8d85ab8f85d1d4e25b3b76594b8d041994c101f"
-  },
-  {
-    "term": "untypical",
-    "partOfSpeech": "adjective",
-    "meaning": "① 不典型的；不符合某人或事物一贯特点的。本例指行为不合往常。",
-    "chineseAliases": [
-      "不典型的",
-      "不合一贯特点的"
-    ],
-    "englishForms": [
-      "untypical"
-    ],
-    "en": "It was untypical of Nora to arrive without a plan.",
-    "zh": "毫无计划地到场，很不合诺拉一贯的作风。",
-    "references": [
-      "https://www.oxfordlearnersdictionaries.com/definition/english/untypical"
-    ],
-    "dictionarySource": "卓式词典·义项补充",
-    "exampleSource": "原创例句·AI复核（精选义项）",
-    "exampleReviewer": "AI/example_quality_provenance_audit",
-    "reviewedCanonicalSense": true,
-    "retainLegacyChinese": false,
-    "canonicalId": 3032690,
-    "canonicalSourceSha256": "80fb8f2cbacad9d56cfd4647f9f345416bebbeeb87cc01c6200626bc4f14a883"
-  }
-].map(row => Object.freeze({ ...row, chineseAliases: Object.freeze(row.chineseAliases), englishForms: Object.freeze(row.englishForms), references: Object.freeze(row.references) })));
+  {"term":"ADA","partOfSpeech":"proper noun","meaning":"① Ada程序设计语言。语言名称规范写作 Ada，不是这里的其他大写缩写义。","chineseAliases":["Ada程序设计语言","Ada编程语言"],"englishForms":["Ada"],"en":"We rewrote the small monitoring program in Ada.","zh":"我们用Ada重写了那个小型监控程序。","references":["https://www.adaic.org/advantages/ada-overview/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2777787,"canonicalSourceSha256":"552214b2ea28537d73d06f32390026c605b273c6fb432b27b1bf55a4f9c1d491"},
+  {"term":"APR","partOfSpeech":"abbreviation","meaning":"① 年百分率（annual percentage rate）。以年率表示的借款成本指标，可能包括利息及某些费用；具体费用范围取决于产品和适用规则。","chineseAliases":["贷款年百分率","年百分率"],"englishForms":["APRs"],"en":"Both loan offers list the same interest rate, but their APRs differ.","zh":"两份贷款方案列出的利率相同，但年百分率不同。","references":["https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-interest-rate-and-an-apr-en-135/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":1839698,"canonicalSourceSha256":"20f457a2c25b8e0b80e1f5540c24446d55bd4ba4b640f48b7301c42461451e7d"},
+  {"term":"ATC","partOfSpeech":"abbreviation","meaning":"① 空中交通管制的缩写（air traffic control）。","chineseAliases":["空中交通管制","空管缩写"],"englishForms":[],"en":"ATC instructed the pilot to hold position before take-off.","zh":"空中交通管制人员指示飞行员在起飞前原地等待。","references":["https://www.faa.gov/air_traffic/technology/adsb/atc"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5849969,"canonicalSourceSha256":"356bcd122eab8e9f2b14afe4d25019abc9ed4315a3e0e9caea28acf0ba253a83"},
+  {"term":"BOT","partOfSpeech":"noun","meaning":"① 软件机器人；自动执行特定任务的计算机程序。这个意思通常写作 bot。","chineseAliases":["软件机器人","自动任务程序"],"englishForms":["bot"],"en":"The bot sent a reminder whenever a booking was about to expire.","zh":"每当预订即将到期时，那个软件机器人就会发送提醒。","references":["https://dictionary.cambridge.org/dictionary/english/bot"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3040766,"canonicalSourceSha256":"501f55c3af506c36a596a4a758ccdd05c29e160c8eacfb405b307aff7545c1c2"},
+  {"term":"BSC","partOfSpeech":"abbreviation","meaning":"① 理学学士的缩写，规范写法通常为 BSc（Bachelor of Science）。","chineseAliases":["理学学士缩写","理学学士学位"],"englishForms":["BSc"],"en":"She completed a BSc in chemistry before joining the laboratory.","zh":"她取得化学理学学士学位后，才加入那间实验室。","references":["https://dictionary.cambridge.org/dictionary/english/bsc"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":2128851,"canonicalSourceSha256":"917498f2bf18c0b9831b910ebb6e26d313d8cb6adc656738576909f6d35f3010","retainedCanonicalAlternatives":[{"partOfSpeech":"abbreviation","meaning":"① abbr. 商学士（Bachelor of Science in Commerce）","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT","usageNote":"这里的缩写展开为 Bachelor of Science in Commerce，指商科相关学位。"}]},
+  {"term":"CD-ROM","partOfSpeech":"noun","meaning":"① 只读光盘：供计算机读取已存入数据的光盘。本例取光盘介质义，不指光盘驱动器。","chineseAliases":["只读光盘","唯读光盘"],"englishForms":["CD-ROM","CD-ROMs"],"en":"A CD-ROM containing the installation guide was tucked inside the manual.","zh":"手册里夹着一张存有安装指南的只读光盘。","references":["https://dictionary.cambridge.org/dictionary/english/cd-rom"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":1167489,"canonicalSourceSha256":"836dc8634b09f346959622139a56625a0b646452aa25232db92b9191d87eab80"},
+  {"term":"DCF","partOfSpeech":"abbreviation","meaning":"① 折现现金流的缩写（discounted cash flow），常用于把预期未来现金流折现以进行估值的方法。","chineseAliases":["折现现金流","折现现金流缩写"],"englishForms":[],"en":"We checked how a higher discount rate would change the DCF valuation.","zh":"我们检查了较高的折现率会怎样改变折现现金流估值。","references":["https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/free-cash-flow-valuation"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":4424162,"canonicalSourceSha256":"cbce30bf9ff5a38d07fdec21f6241b3faf83d3666cddac19de22a46c14e22399","retainedCanonicalAlternatives":[{"partOfSpeech":"noun","meaning":"① [医] 直接离心浮选[法]","source":"原有释义＋词性校订","license":"Meanings retain their original licences; POS sources and review methods are listed in the notice","url":"https://zhuodashuai.github.io/vocab/dictionary-pos.html","usageNote":"医学或寄生虫检验用语，与财务上的折现现金流缩写分开。"}]},
+  {"term":"Hf","partOfSpeech":"symbol","meaning":"① 铪的元素符号；铪是原子序数为 72 的金属元素。","chineseAliases":["铪","铪元素符号"],"englishForms":[],"en":"The alloy contains a small amount of Hf.","zh":"这种合金含有少量铪。","references":["https://periodic-table.rsc.org/element/72/hafnium"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4060323,"canonicalSourceSha256":"5d348225d437f1c24f64855eb287982e855d75f84a9de09077a27239aaa05698"},
+  {"term":"ISS","partOfSpeech":"abbreviation","meaning":"① 国际空间站；International Space Station 的缩写。这里取航天设施义。","chineseAliases":["国际空间站"],"englishForms":[],"en":"The astronauts waved to the camera from inside the ISS.","zh":"宇航员们在国际空间站内朝镜头挥了挥手。","references":["https://www.nasa.gov/reference/international-space-station/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4540562,"canonicalSourceSha256":"1df1e398ffc646c2517d0944d7e517c5dc446eca8459e781acc0e969ddfc3e12"},
+  {"term":"NFC","partOfSpeech":"abbreviation","meaning":"① 近场通信的缩写（near field communication）；让相近设备进行非接触通信的一种技术。","chineseAliases":["近场通信","近场通信缩写"],"englishForms":[],"en":"I held the phone near the reader to make an NFC payment.","zh":"我把手机靠近读卡器，进行近场通信支付。","references":["https://nfc-forum.org/learn/nfc-technology/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6219938,"canonicalSourceSha256":"b8a6f8c2e687aeb52cc618e747d21b3d025ee07c1b88e50f32cb9111629a899f"},
+  {"term":"NOE","partOfSpeech":"abbreviation","meaning":"① 核奥弗豪泽效应的名词性缩写：核磁共振中，一组核的自旋跃迁受到扰动时，另一组核的共振信号强度发生变化的现象。本例取核磁共振术语义。","chineseAliases":["核奥弗豪泽效应","核欧沃豪斯效应","核Overhauser效应"],"englishForms":["NOE"],"en":"Measurements of the NOE helped the researcher identify protons that were close together in space.","zh":"核奥弗豪泽效应的测量结果帮助研究人员辨认出在空间中彼此接近的质子。","references":["https://goldbook.iupac.org/terms/view/08385","https://goldbook.iupac.org/terms/view/08387"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6089421,"canonicalSourceSha256":"3010fa1f6a08c43032912dade6c2b6a849df73eb78a0e44c3460ad4b0e51f2bc"},
+  {"term":"SOC","partOfSpeech":"abbreviation","meaning":"① 荷电状态。state of charge 的缩写，表示电池当前剩余电量的水平，通常用百分数表示。","chineseAliases":["电池荷电状态","荷电状态"],"englishForms":[],"en":"The controller estimates the battery's SOC from several measurements.","zh":"控制器根据多项测量结果估算电池的荷电状态。","references":["https://afdc.energy.gov/files/u/publication/electric-school-bus-us-market-study-buyers-guide.pdf"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3790236,"canonicalSourceSha256":"c647391fc08d9c78b78a0329f841ef16a1040c022165f46c78e40fd0525c4ff1"},
+  {"term":"VAR","partOfSpeech":"abbreviation","meaning":"① 增值转售商。value-added reseller 的缩写，指为产品增加功能、组件或服务后再转售的商家。","chineseAliases":["增值转售商","增值经销商"],"englishForms":["VARs"],"en":"The VAR installed the extra modules before delivering the software package.","zh":"增值转售商在交付软件包前安装了额外模块。","references":["https://www.ibm.com/docs/en/configurepricequote/10.0.0?topic=glossary"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3254206,"canonicalSourceSha256":"53fae6402d5cc6883dd06a0f895ef8e67603e2ccfd73edffbb8f459339841fc9"},
+  {"term":"VAT","partOfSpeech":"abbreviation","meaning":"① 增值税的缩写（value added tax）。","chineseAliases":["增值税","增值税缩写"],"englishForms":[],"en":"The quotation includes delivery, but VAT is added separately.","zh":"报价包含送货费，但增值税另行加收。","references":["https://dictionary.cambridge.org/dictionary/english/vat"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":1804900,"canonicalSourceSha256":"4427817026d0d42a27d7f2d73a260b62280c5bfa080e6f363e7ea5c5a792fbf8","retainedCanonicalAlternatives":[{"partOfSpeech":"noun · verb","meaning":"① n. 大桶\n② vt. 装入大桶, 在大桶里处理","source":"ECDICT · 已上线核心整理","license":"MIT and project editorial additions","url":"https://github.com/skywind3000/ECDICT","usageNote":"普通名词 vat 的大桶及装桶用法，区别于税种缩写 VAT。"}]},
+  {"term":"VP","partOfSpeech":"abbreviation","meaning":"① 副总裁；副会长等。vice president 的缩写，具体职务名称取决于机构。","chineseAliases":["副总裁缩写","副会长缩写"],"englishForms":[],"en":"The VP of operations visited the new warehouse on Monday.","zh":"运营副总裁星期一参观了新仓库。","references":["https://dictionary.cambridge.org/dictionary/english/vp"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3990331,"canonicalSourceSha256":"afa07a62198c0f20c0da45c78b6db967151b6a5f074f204d5dc7843587108aab"},
+  {"term":"a-cup","partOfSpeech":"noun","meaning":"① A 罩杯；胸罩的一种罩杯规格，通常写作 A-cup 或 A cup。","chineseAliases":["A罩杯","A 罩杯"],"englishForms":["A-cup"],"en":"The assistant brought me an A-cup bra in a different colour.","zh":"店员给我拿来一件不同颜色的 A 罩杯胸罩。","references":["https://dictionary.cambridge.org/dictionary/english/cup"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6628445,"canonicalSourceSha256":"9933070f8ed0c774a402a38058ff3d661bb3495c49528cb8ecbbbff30b23a570"},
+  {"term":"a-flat","partOfSpeech":"noun","meaning":"① 降A音。音乐中的一个音名，通常写作 A-flat 或 A♭。","chineseAliases":["降A音","降A这个音"],"englishForms":["A-flat"],"en":"The first note of the violin solo is A-flat.","zh":"小提琴独奏的第一个音是降A音。","references":["https://www.merriam-webster.com/dictionary/A-flat"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6629492,"canonicalSourceSha256":"b0b44382d8fac7667551b833b93eace58b531ba33766c69c1c239943648ff365"},
+  {"term":"a-plus","partOfSpeech":"noun","meaning":"① A 加；表示优等成绩的等级，常写作 A+ 或 A plus。","chineseAliases":["A加成绩","A+成绩"],"englishForms":["A-plus"],"en":"The essay earned an A-plus for its clear argument.","zh":"那篇文章因论证清晰而获得了 A 加的成绩。","references":["https://dictionary.cambridge.org/dictionary/english/plus","https://www.collinsdictionary.com/dictionary/english/plus"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6634151,"canonicalSourceSha256":"7bb407375c2e37b856532299db9fb0713135abf5b739363441984f400972e72f"},
+  {"term":"aaa-rated","partOfSpeech":"adjective","meaning":"① 获评AAA级的。信用评级语境中表示获得相关评级机构的AAA评级，不等于绝对没有风险。","chineseAliases":["获评AAA级的","AAA信用评级的"],"englishForms":["AAA-rated"],"en":"The fund's report lists its AAA-rated bonds separately.","zh":"基金报告把其获评AAA级的债券单独列出。","references":["https://www.spglobal.com/ratings/en/about/intro-to-credit-ratings"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6637857,"canonicalSourceSha256":"4c8a17672d986388c4b0e462e09c713bc134852730387db6c66f3fa4320d60f1"},
+  {"term":"aah","partOfSpeech":"interjection","meaning":"① 啊。表示领悟、满意或放松等感受的感叹声，具体语气由上下文决定。","chineseAliases":["表示领悟的啊","表示放松的啊"],"englishForms":[],"en":"Aah, that explains why the two keys look so similar!","zh":"啊，这就解释了为什么这两把钥匙看起来这么相似！","references":["https://dictionary.cambridge.org/dictionary/english/aah","https://dictionary.cambridge.org/dictionary/english/ah"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2884621,"canonicalSourceSha256":"da0ed1bb4875ea035d90e719be19771ad9669d0dc5680914fa5b7cc5de822027"},
+  {"term":"abductive","partOfSpeech":"adjective","meaning":"① 溯因推理的；从观察到的现象出发，寻求合理解释的。这样的推理不保证结论必然为真。","chineseAliases":["溯因推理的","溯因的"],"englishForms":[],"en":"An abductive inference suggested that a leak, rather than rain, had caused the wet floor.","zh":"一次溯因推断提出，地板潮湿可能是漏水而非下雨造成的。","references":["https://plato.stanford.edu/entries/abduction/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6681656,"canonicalSourceSha256":"521e1832de74fe87e35982ad59905dd52cc8f136fea170c9bedafea0d5773af0"},
+  {"term":"airhead","partOfSpeech":"noun","meaning":"① 没头脑的人；傻乎乎的人。非正式用语，含贬义，可能冒犯他人。","chineseAliases":["没头脑的人","傻乎乎的人"],"englishForms":["airheads"],"en":"The manager dismissed him as an airhead without listening to his proposal.","zh":"经理没有听他的提议，就把他当成了一个没头脑的人。","references":["https://dictionary.cambridge.org/dictionary/english/airhead"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4711373,"canonicalSourceSha256":"68f158e3a4269998efd25a7b648a283dd8c37e30a1b72b0ca5b9f41a48c9a36e"},
+  {"term":"animalistic","partOfSpeech":"adjective","meaning":"① 野兽般的；表现出动物本能或未经控制的强烈欲望的。","chineseAliases":["野兽般的","表现动物本能的"],"englishForms":[],"en":"The creature let out an animalistic howl when the cage door closed.","zh":"笼门关上时，那个生物发出了一声野兽般的嚎叫。","references":["https://www.collinsdictionary.com/dictionary/english/animalistic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4749151,"canonicalSourceSha256":"7a59a6eb856417774108b55c8070b8cc2a750c46ccd5692f03ebe4fdff9ed369"},
+  {"term":"ayurvedic","partOfSpeech":"adjective","meaning":"① 阿育吠陀的；与起源于印度的阿育吠陀传统医学体系有关的。","chineseAliases":["阿育吠陀的","与阿育吠陀有关的"],"englishForms":["Ayurvedic"],"en":"The library displayed an ayurvedic manuscript beside a translation of its introduction.","zh":"图书馆把一份阿育吠陀手稿与其导言的译文放在一起展出。","references":["https://dictionary.cambridge.org/dictionary/english/ayurvedic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4180619,"canonicalSourceSha256":"3595887d0915d3a2d3a271827b1641ae5f5d42537e7ffb5d57bbdc7aec3199ac"},
+  {"term":"baggie","partOfSpeech":"noun","meaning":"① 常用于装食物的小塑料袋，美式非正式用语。本例取食品储物袋义，不指垃圾袋。","chineseAliases":["食品小塑料袋","小号食品塑料袋"],"englishForms":["baggie","baggies"],"en":"She packed the sliced apple in a baggie before leaving for class.","zh":"去上课前，她把切好的苹果装进了一个食品小塑料袋。","references":["https://www.ahdictionary.com/word/search.html?q=Baggies"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3453532,"canonicalSourceSha256":"4c64736cb824a7b05af32cfd6fbf332dc67bebbc6f9d042e61960432b4ff2b44"},
+  {"term":"bam","partOfSpeech":"interjection","meaning":"① 砰；嘭。模仿突然撞击声的感叹词，常用于非正式叙述。","chineseAliases":["砰的撞击声","嘭的撞击声"],"englishForms":[],"en":"Bam! A gust of wind slammed the loose shutter against the wall.","zh":"砰！一阵风把松动的百叶窗猛地拍到了墙上。","references":["https://dictionary.cambridge.org/dictionary/english/bam"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5560179,"canonicalSourceSha256":"ed00520a11b10c1547873cfb1d26e4b54ce32cbdaf488605904779ce5d76064e"},
+  {"term":"bin liner","partOfSpeech":"noun","meaning":"① 套在垃圾桶内、用来盛装垃圾的塑料内衬袋，英式英语。本例取套桶用袋义，不泛指所有塑料袋。","chineseAliases":["垃圾桶内衬袋","垃圾桶衬袋"],"englishForms":["bin liner","bin liners","binliner","binliners"],"en":"After emptying the kitchen bin, I fitted a clean bin liner inside it.","zh":"倒空厨房垃圾桶后，我在里面套上了一个干净的垃圾桶内衬袋。","references":["https://dictionary.cambridge.org/us/dictionary/english/bin-liner"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":9111454,"canonicalSourceSha256":"1cf62c69b4f6eba31dd0826b16cfdf875e02cf6c056ae87a3801761ffca754a8"},
+  {"term":"breaststroke","partOfSpeech":"noun","meaning":"① 蛙泳；双臂对称划水、双腿进行蛙式蹬夹动作的一种泳姿。","chineseAliases":["蛙泳"],"englishForms":[],"en":"I practised breaststroke in the shallow end while the faster swimmers used the next lane.","zh":"我在浅水区练习蛙泳，游得较快的人则使用旁边的泳道。","references":["https://dictionary.cambridge.org/dictionary/english/breaststroke"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3952768,"canonicalSourceSha256":"e08844325194a1389ec1ace760843caf36d8d507b69601244727cdd95124d148"},
+  {"term":"buzzy","partOfSpeech":"adjective","meaning":"① 热闹活跃的；因人多或活动丰富而让人感到兴奋的。非正式用语。","chineseAliases":["热闹活跃的","充满活力的氛围"],"englishForms":[],"en":"The night market felt buzzy as musicians played between the food stalls.","zh":"乐手在小吃摊之间演奏，让夜市显得热闹而充满活力。","references":["https://dictionary.cambridge.org/dictionary/english/buzzy"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5264879,"canonicalSourceSha256":"de1946d76b4b3b578b1b389335604db752a5ffe2beb4860d7a2c2a90451f8aff"},
+  {"term":"casualness","partOfSpeech":"noun","meaning":"① 不正式、不拘礼节的状态或程度。本例指着装要求的随意程度，不表示事情偶然发生。","chineseAliases":["随意程度","不正式的程度","不拘礼节的状态"],"englishForms":["casualness"],"en":"The casualness of the dress code surprised guests who had brought formal suits.","zh":"着装要求的随意程度让带了正装西服的宾客感到意外。","references":["https://www.oxfordlearnersdictionaries.com/definition/english/casualness"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3527103,"canonicalSourceSha256":"564f35ab14ce5189190bbf134cfa861241c546c31f9de35b19bfd32b1b10f55e"},
+  {"term":"chippie","partOfSpeech":"noun","meaning":"① 炸鱼薯条店；出售炸鱼、薯条等熟食的店。英式非正式用语，也写作 chippy。","chineseAliases":["炸鱼薯条店"],"englishForms":["chippies"],"en":"We bought a portion of chips at the chippie near the station.","zh":"我们在车站附近的炸鱼薯条店买了一份薯条。","references":["https://www.collinsdictionary.com/dictionary/english/chippy"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":5439627,"canonicalSourceSha256":"e5db8baa5634d79d1766726cc5796a2547c553557e7acfa56c05fe7aeac623db","retainedCanonicalAlternatives":[{"partOfSpeech":"noun","meaning":"① n. 荡妇, 娼妓","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT","usageNote":"美式旧俚语，含贬义或冒犯意味，不宜随便用来称呼他人。"}]},
+  {"term":"chitter","partOfSpeech":"verb","meaning":"① 吱吱叫；发出细碎而急促的声音。可用于小鸟等动物的叫声。","chineseAliases":["吱吱叫","动物发出细碎叫声"],"englishForms":["chitters","chittered","chittering"],"en":"We could hear bats chitter in the roof space after sunset.","zh":"日落后，我们能听到蝙蝠在屋顶夹层里吱吱叫。","references":["https://www.merriam-webster.com/dictionary/chitter"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4659846,"canonicalSourceSha256":"b6b9f66ba44cb6a80566a840cc0febf0a504d6c7be9da7b7838b41fe49761f1f"},
+  {"term":"clearcut","partOfSpeech":"noun","meaning":"① 皆伐地；一片可用材树木近期已被全部采伐的林地。","chineseAliases":["皆伐地","皆伐后的林地"],"englishForms":[],"en":"A narrow path follows the edge of the clearcut.","zh":"一条狭窄的小路沿着皆伐地边缘延伸。","references":["https://cfs.nrcan.gc.ca/terms/read/416","https://extension.psu.edu/downloadable/download/sample/sample_id/13319/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5389522,"canonicalSourceSha256":"d7cd073fa70fc06add27922f5583995e35c84e8bcdd00f2ae6892012ae83796a"},
+  {"term":"clicker","partOfSpeech":"noun","meaning":"① 手持答题器；供课堂参与者按键选择答案的反馈装置。","chineseAliases":["手持答题器","课堂答题器"],"englishForms":["clickers"],"en":"She used her clicker to vote before the lecturer revealed the answer.","zh":"她用手持答题器作答，之后讲师才公布答案。","references":["https://oit.colorado.edu/services/learning-spaces-technology/cuclickers-iclickers/accessibility"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":3823652,"canonicalSourceSha256":"75db89f24345878d68883c7406a6b9c5e3cf9b8e1ce55c732b161f988703adad","retainedCanonicalAlternatives":[{"partOfSpeech":"noun","meaning":"① n. 鞋匠工头, (英)排字工头","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT","usageNote":"非正式的工厂或印刷行业用语，指工头。"}]},
+  {"term":"cockapoo","partOfSpeech":"noun","meaning":"① 可卡贵宾犬；可卡犬与贵宾犬杂交而来的犬。","chineseAliases":["可卡贵宾犬","可卡犬贵宾犬杂交犬"],"englishForms":["cockapoos"],"en":"Their cockapoo waited by the door with its lead in its mouth.","zh":"他们养的可卡贵宾犬嘴里衔着牵引绳，在门边等着。","references":["https://dictionary.cambridge.org/dictionary/english/cockapoo"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6391114,"canonicalSourceSha256":"00b16de7619ef04c7d4fda86ff9d4a5c925e5f0f63748a7f86e8610c4e49c1fc"},
+  {"term":"communitarian","partOfSpeech":"adjective","meaning":"① 社群主义的；重视共同体及其成员相互责任的。本例取社会政治思想中的形容词义。","chineseAliases":["社群主义的","重视共同体责任的"],"englishForms":["communitarian"],"en":"The essay takes a communitarian view of citizenship, stressing the responsibilities neighbours share.","zh":"这篇文章从社群主义的角度看待公民身份，强调邻里之间共同承担的责任。","references":["https://www.merriam-webster.com/dictionary/communitarian","https://plato.stanford.edu/entries/communitarianism/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3574860,"canonicalSourceSha256":"773f568aa204fea1bf909e71893598af6dc5c13018bf56791ddff982281feb86"},
+  {"term":"compellingly","partOfSpeech":"adverb","meaning":"① 有说服力地；令人信服地。","chineseAliases":["有说服力地","令人信服地"],"englishForms":[],"en":"The exhibition shows compellingly why these wetlands matter.","zh":"展览有说服力地说明了这些湿地为什么重要。","references":["https://dictionary.cambridge.org/dictionary/english/compellingly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4360524,"canonicalSourceSha256":"54756cfcb4d19ee311b75cedb2af75babf5a4034b7c6ceb7ceb9ca4cd4826c49"},
+  {"term":"complementarily","partOfSpeech":"adverb","meaning":"① 互补地；以彼此补足、配合的方式。正式用语。","chineseAliases":["互补地","以互相补足的方式"],"englishForms":[],"en":"Interviews and survey data were used complementarily to explain the unexpected result.","zh":"研究中，访谈与调查数据相互补充，共同用于解释那个出人意料的结果。","references":["https://dictionary.cambridge.org/dictionary/english/complementarily","https://www.collinsdictionary.com/dictionary/english/complementary"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6425834,"canonicalSourceSha256":"1df860971205fd202ba10debb2cdc5055df05ba455b29ad7268079a0c488234d"},
+  {"term":"cooking oil","partOfSpeech":"noun","meaning":"① 食用油；烹调用油。用于煎、炒等烹饪过程的油。","chineseAliases":["食用油","烹调用油","炒菜油"],"englishForms":["cooking oils"],"en":"We have plenty of rice but almost no cooking oil left.","zh":"我们有很多米，但食用油几乎用完了。","references":["https://www.collinsdictionary.com/dictionary/english/cooking-oil"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":11110475,"canonicalSourceSha256":"44df677d009f2718fe4ea5078a1876b0586a572e96369d19304a9e2b0f7cd975"},
+  {"term":"deductibility","partOfSpeech":"noun","meaning":"① 可扣除性；某项费用是否可以在计算应税所得等时扣除的性质。这里取税务用法。","chineseAliases":["费用可扣除性","税前可扣除性"],"englishForms":[],"en":"Keep the receipts while we check the deductibility of these expenses.","zh":"我们核查这些费用是否可以税前扣除期间，请保留收据。","references":["https://www.irs.gov/credits-deductions/businesses","https://www.irs.gov/businesses/small-businesses-self-employed/burden-of-proof"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4590608,"canonicalSourceSha256":"91dfd59c909330e4b72360a7c12f4a4b14317f4f8269323e1f8917f1bb797f51"},
+  {"term":"delegator","partOfSpeech":"noun","meaning":"① 委派任务的人；把部分职责或工作交给他人去做的人。","chineseAliases":["委派任务的人","授权他人办事者"],"englishForms":["delegators"],"en":"An effective delegator gives colleagues a clear goal without dictating every step.","zh":"善于委派任务的人会给同事明确的目标，而不是规定每一个步骤。","references":["https://dictionary.cambridge.org/dictionary/english/delegator"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5916282,"canonicalSourceSha256":"a99bbd6cd545aa80dbe00afc256fc630f578c6ad5048a2b1241d3f95d4ff49fc"},
+  {"term":"dimethyl","partOfSpeech":"adjective","meaning":"① 含两个甲基的；二甲基的。常见于化学名称或作名词前的修饰语。","chineseAliases":["二甲基的","含两个甲基的"],"englishForms":[],"en":"The chemist isolated a dimethyl derivative from the reaction mixture.","zh":"化学家从反应混合物中分离出一种二甲基衍生物。","references":["https://www.collinsdictionary.com/dictionary/english/dimethyl"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6604941,"canonicalSourceSha256":"87793d4e5afc1abbbb4537fac09441db2e614cc9d646fdb9526f70c0626a63e6"},
+  {"term":"dino","partOfSpeech":"noun","meaning":"① 恐龙。dinosaur 的非正式简称，也常用于谈论恐龙玩具或图画。","chineseAliases":["恐龙简称","恐龙非正式简称"],"englishForms":["dinos"],"en":"He drew a green dino with a long tail on the birthday card.","zh":"他在生日贺卡上画了一只长尾巴的绿色恐龙。","references":["https://www.merriam-webster.com/dictionary/dino"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4094141,"canonicalSourceSha256":"eb7b89f1be70a1c1666abbec7c830678ec2bb89d8ab4be886a76826128774121"},
+  {"term":"divestment","partOfSpeech":"noun","meaning":"① 撤资；出售所持投资或资产的行为。","chineseAliases":["撤资","出售所持资产"],"englishForms":["divestments"],"en":"The board approved the divestment of its shares in the shipping company.","zh":"董事会批准出售其持有的那家航运公司的股份。","references":["https://dictionary.cambridge.org/dictionary/english/divestment"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4090780,"canonicalSourceSha256":"a02de34ff12f187e596bb67694f503e8924b69d5dc0428b3cd610fe1a15840d1"},
+  {"term":"dorado","partOfSpeech":"noun","meaning":"① 鲯鳅。这里指又称 mahi-mahi 或 dolphinfish 的鱼，不是剑鱼。","chineseAliases":["鲯鳅","鬼头刀鱼"],"englishForms":[],"en":"I carried the dorado fillets home in an insulated bag.","zh":"我用保温袋把鲯鳅鱼片带回了家。","references":["https://www.fisheries.noaa.gov/species/atlantic-mahi-mahi"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4987112,"canonicalSourceSha256":"1dd64f6aadce7b16d08418cf90fa973b2c6d810fff13b6dac748b8e7574e6a73"},
+  {"term":"doubtlessly","partOfSpeech":"adverb","meaning":"① 无疑地；毫无疑问地。较少见的副词形式。","chineseAliases":["无疑地","毫无疑问地"],"englishForms":[],"en":"The extra seats will doubtlessly be useful when our cousins visit.","zh":"表亲们来访时，多出的座位无疑会派上用场。","references":["https://www.collinsdictionary.com/dictionary/english/doubtless"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4842639,"canonicalSourceSha256":"8c3578df61957f3b24c5e8f3fce290e5a26dcfa172f215c565ef939eae54e48c"},
+  {"term":"dyno","partOfSpeech":"noun","meaning":"① 测功机的非正式简称；用来测量发动机等设备功率的装置（dynamometer）。","chineseAliases":["测功机简称","发动机测功机"],"englishForms":["dynos"],"en":"They put the engine on a dyno to measure its power under load.","zh":"他们把发动机装到测功机上，以测量它在负载下的功率。","references":["https://www.collinsdictionary.com/dictionary/english/dyno","https://www.collinsdictionary.com/dictionary/english/dynamometer"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6450125,"canonicalSourceSha256":"e376f77e94c4754b1e08a72d266972a6a1d07b224b7db308bd4a54d3f638eeed"},
+  {"term":"edn","partOfSpeech":"abbreviation","meaning":"① 版；版次。edition 的缩写，常用于书目信息，也写作 edn.。","chineseAliases":["版次缩写","书目版次"],"englishForms":["edn."],"en":"The catalogue lists a revised edn. with a new index.","zh":"目录列出了带有新索引的修订版。","references":["https://www.merriam-webster.com/dictionary/edn","https://academic.oup.com/BICS/pages/General_Instructions"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2921478,"canonicalSourceSha256":"35b04895887c5e507ee4b380fb6fdec88e0c5d5e6861dcd631b19037042063eb"},
+  {"term":"energizer","partOfSpeech":"noun","meaning":"① 使人振奋的人或事物；让人恢复活力的活动等。","chineseAliases":["使人振奋的事物","恢复活力的活动"],"englishForms":["energizers"],"en":"A quick game proved to be an effective energizer for the tired group.","zh":"对这个疲惫的小组来说，一个简短的游戏起到了有效的提神作用。","references":["https://www.merriam-webster.com/dictionary/energizer"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3891902,"canonicalSourceSha256":"bbc0ec229ecc3265bb6ca4b71be658748271ccd3afb907f23d92010eb3cec23c"},
+  {"term":"evaluative","partOfSpeech":"adjective","meaning":"① 评价性的；用于判断质量、价值或效果的。","chineseAliases":["评价性的","用于评估的"],"englishForms":[],"en":"Please add an evaluative paragraph explaining which design works best.","zh":"请补上一段评价性文字，说明哪种设计最好用。","references":["https://dictionary.cambridge.org/dictionary/english/evaluative"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2830479,"canonicalSourceSha256":"6a2ba240a441118cac5cf355e9929d6f163485d9cc0832e95e329663944164d6"},
+  {"term":"evaluator","partOfSpeech":"noun","meaning":"① 评估者；评价人员。对质量、价值或表现作出评判的人。","chineseAliases":["评估者","评价人员"],"englishForms":["evaluators"],"en":"Two evaluators scored the interviews independently before comparing their notes.","zh":"两位评估人员先分别给面试评分，再比较各自的记录。","references":["https://dictionary.cambridge.org/dictionary/english/evaluator"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2724506,"canonicalSourceSha256":"f76769d8621c1038692f00b22ef64d90c8353abfc7fb02a64fc4f191c1cc23e2"},
+  {"term":"expansively","partOfSpeech":"adverb","meaning":"① 热情大方地；开朗舒展地。形容友好、不拘束的神态或举止。","chineseAliases":["热情大方地","开朗舒展地"],"englishForms":[],"en":"The host smiled expansively and made room for another guest.","zh":"主人热情大方地笑着，又为一位客人腾出了位置。","references":["https://dictionary.cambridge.org/dictionary/english/expansively"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3928905,"canonicalSourceSha256":"f55c148840ee3fbe7fb796984baec40024f859f76d979113b929277f459566e7"},
+  {"term":"falafel","partOfSpeech":"noun","meaning":"① 炸豆丸子；通常以鹰嘴豆等豆类制成的油炸食物，可夹在饼中食用。","chineseAliases":["炸豆丸子","鹰嘴豆炸丸子"],"englishForms":[],"en":"He tucked two pieces of falafel into the warm flatbread and added salad.","zh":"他把两块炸豆丸子放进温热的薄饼里，又加了些沙拉。","references":["https://dictionary.cambridge.org/dictionary/english/falafel"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4693370,"canonicalSourceSha256":"dada76f134585e28f81d124f718148698963c222835958008db14e919205fe94"},
+  {"term":"fetchingly","partOfSpeech":"adverb","meaning":"① 迷人地；讨人喜欢地。形容外观或装扮有吸引力。","chineseAliases":["迷人地","讨人喜欢地"],"englishForms":[],"en":"The ribbon was tied fetchingly at the side of her hat.","zh":"丝带在她帽子侧面系得很别致迷人。","references":["https://www.collinsdictionary.com/dictionary/english/fetchingly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5755590,"canonicalSourceSha256":"d8b1b894ecbb8ed9d6c8a3d7b6d3ca9c21857da04d28c71969e8be888fdbf988"},
+  {"term":"fontina","partOfSpeech":"noun","meaning":"① 丰蒂纳奶酪。一种意大利奶酪；Fontina DOP 的制作原料是牛乳。","chineseAliases":["丰蒂纳奶酪","芳提娜奶酪"],"englishForms":[],"en":"A few slices of fontina melted into the hot polenta.","zh":"几片丰蒂纳奶酪融进了热玉米粥里。","references":["https://www.fontina-dop.it/en/fontina-cheese-dop/milk/","https://eur-lex.europa.eu/eli/C/2024/7111/oj/eng"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4776490,"canonicalSourceSha256":"3032c78880880d9e2b6044ab66871c6afa9a990bf1a7a7f6302e6fa1ef9e087d"},
+  {"term":"frontside","partOfSpeech":"noun","meaning":"① 正面；前侧。这里指晶圆制造中加工器件、线路的这一面，与背面相对。","chineseAliases":["晶圆正面","晶圆前侧"],"englishForms":[],"en":"The technician inspected the frontside of the wafer under a microscope.","zh":"技术员在显微镜下检查了晶圆的正面。","references":["https://www.imec-int.com/en/articles/imec-demonstrates-critical-building-blocks-backside-power-delivery-network"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6112947,"canonicalSourceSha256":"8470b5bf54686894a773b2346e35107d00014ed8aadd846b033842d62a74f132"},
+  {"term":"fundraise","partOfSpeech":"verb","meaning":"① 筹款；募捐。为某个组织、项目或目的筹集资金。","chineseAliases":["筹款","为项目募捐"],"englishForms":["fundraises","fundraised"],"en":"The volunteers will fundraise for repairs to the community hall.","zh":"志愿者将为修缮社区礼堂筹款。","references":["https://dictionary.cambridge.org/dictionary/english/fundraise"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5342818,"canonicalSourceSha256":"443f6fe3428c2bcbec2c84e970891270939ed7c4350b66ffb25501eb24928548"},
+  {"term":"galumph","partOfSpeech":"verb","meaning":"① 笨重而笨拙地走动；蹦跳着行进。非正式用语。","chineseAliases":["笨重地行进","笨拙地蹦着走"],"englishForms":["galumphs","galumphed","galumphing"],"en":"The puppy began to galumph down the narrow hallway.","zh":"那只小狗开始沿着狭窄的走廊笨拙地蹦着走。","references":["https://dictionary.cambridge.org/dictionary/english/galumph"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":5999509,"canonicalSourceSha256":"a9dd9651b99f1bb2bf912b2b745b0ef59d6d6c355233f7312016e1af545fe3bf","retainedCanonicalAlternatives":[{"partOfSpeech":"verb","meaning":"① vi. 得意扬扬地行进","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT","usageNote":"较少见或旧式用法，表示得意扬扬地行进。"}]},
+  {"term":"geordie","partOfSpeech":"noun","meaning":"① 英格兰东北部泰恩赛德地区的人，常写 Geordie。这里取人的含义，不是方言名。","chineseAliases":["泰恩赛德人","英格兰泰恩赛德地区的人"],"englishForms":["Geordies"],"en":"I'm a Geordie, but I moved away from Tyneside years ago.","zh":"我是泰恩赛德人，不过多年前就搬离那里了。","references":["https://dictionary.cambridge.org/dictionary/english/geordie"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2800830,"canonicalSourceSha256":"488fb512b81a543ba0d38d9f52eda52aca1c92ba92dd68dd0928ae54ebbb08f2"},
+  {"term":"guar","partOfSpeech":"noun","meaning":"① 瓜尔豆。豆科植物，其种子可用于生产瓜尔胶。","chineseAliases":["瓜尔豆","瓜尔豆植物"],"englishForms":[],"en":"The growers kept part of the guar harvest for next season's seed.","zh":"种植者留下了一部分收获的瓜尔豆，供下一季播种。","references":["https://www.merriam-webster.com/dictionary/guar"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6274686,"canonicalSourceSha256":"4e00289c7d2bac4c297012ab9650d65c725e732000bbc49f17b420243c414e03"},
+  {"term":"hansom","partOfSpeech":"noun","meaning":"① 汉瑟姆双轮马车；过去供载客使用、通常由一匹马拉的双轮车，常说 hansom cab。","chineseAliases":["汉瑟姆双轮马车"],"englishForms":["hansoms"],"en":"We hired a hansom for the short journey to the hotel.","zh":"我们雇了一辆汉瑟姆双轮马车，前往不远处的旅馆。","references":["https://dictionary.cambridge.org/dictionary/english/hansom-cab"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":5145753,"canonicalSourceSha256":"163519eee7fb6b97f0e75297e73437ce14a061dcce848910693f758c705d4555","retainedCanonicalAlternatives":[{"partOfSpeech":"proper noun","meaning":"① 汉瑟姆(姓氏)","source":"原有释义＋词性校订","license":"Meanings retain their original licences; POS sources and review methods are listed in the notice","url":"https://zhuodashuai.github.io/vocab/dictionary-pos.html","usageNote":"姓氏，通常首字母大写为 Hansom。"}]},
+  {"term":"hella","partOfSpeech":"adverb","meaning":"① 非常；十分。美式俚语，作程度副词修饰形容词等。","chineseAliases":["非常的俚语副词","十分的美式俚语"],"englishForms":[],"en":"That last stretch of the hike was hella tough.","zh":"徒步的最后那一段真是难走得很。","references":["https://www.merriam-webster.com/dictionary/hella"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6295301,"canonicalSourceSha256":"625a1b718bd14afb4b3cbf117038e8efa54144ac9dc8f748d29ac3f3118c47e8"},
+  {"term":"heterosexually","partOfSpeech":"adverb","meaning":"① 以异性恋方式；在异性性行为方面。副词，具体指向取决于所修饰的表达。","chineseAliases":["以异性恋方式","在异性性行为方面"],"englishForms":[],"en":"The survey recorded how many participants were heterosexually active.","zh":"这项调查记录了有多少参与者有异性性行为。","references":["https://www.collinsdictionary.com/dictionary/english/heterosexually"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6214939,"canonicalSourceSha256":"7040e36db83e535ff1bcb7f9e1639505b47473d398239ced282f45e68676ee83"},
+  {"term":"homie","partOfSpeech":"noun","meaning":"① 好友；同乡或同街区的伙伴。主要用于美式俚语。","chineseAliases":["同街区的好友","同乡伙伴"],"englishForms":["homies"],"en":"My homie from the old neighbourhood came over to help me move.","zh":"我在老街区的一位好友过来帮我搬家。","references":["https://dictionary.cambridge.org/dictionary/english/homey"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6239717,"canonicalSourceSha256":"e95ef681524b718dda5057fa249cf98c6a6ceb7a6e3513c47dda0c288d7a461f"},
+  {"term":"hominy","partOfSpeech":"noun","meaning":"① 经处理去皮的玉米粒，常用于汤、炖菜等。这里指食材，不是玉米粥成品。","chineseAliases":["去皮玉米粒","处理过的去皮玉米粒"],"englishForms":[],"en":"Beans and hominy made the soup thick and filling.","zh":"豆子和去皮玉米粒让这道汤浓稠又饱腹。","references":["https://www.merriam-webster.com/dictionary/hominy","https://dictionary.cambridge.org/dictionary/english/hominy"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4396423,"canonicalSourceSha256":"c0f81f12ce55876dd5cede02bdb9b88a8551189a4590e1316230fcf27e645786"},
+  {"term":"homogeneously","partOfSpeech":"adverb","meaning":"① 均匀地；同质地。指组成或某种性质在各处保持一致。","chineseAliases":["均匀分布地","同质地"],"englishForms":[],"en":"Stir until the pigment is homogeneously dispersed throughout the liquid.","zh":"搅拌至颜料均匀分散在整个液体中。","references":["https://dictionary.cambridge.org/us/dictionary/english/homogeneously?topic=similar-and-the-same","https://www.collinsdictionary.com/dictionary/english/homogeneous"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5244877,"canonicalSourceSha256":"0635e5d212b6f8751272cc916e131dcbb710ad60d4924242fb87de51f9c394f1"},
+  {"term":"hoodie","partOfSpeech":"noun","meaning":"① 连帽卫衣；带有兜帽的休闲运动上衣。本例取衣物义。","chineseAliases":["连帽卫衣","连帽运动衫"],"englishForms":["hoodie","hoodies","hoody"],"en":"He pulled on a dry hoodie after the rain soaked his shirt.","zh":"雨水淋湿衬衫后，他套上了一件干的连帽卫衣。","references":["https://dictionary.cambridge.org/dictionary/english/hoodie","https://www.collinsdictionary.com/us/dictionary/english/hoodie"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4502737,"canonicalSourceSha256":"5ea330bed1261013e737436b97791f3affc9e306c65fedbe8e4c13abed9308c3"},
+  {"term":"housecleaner","partOfSpeech":"noun","meaning":"① 房屋清洁工；为他人打扫住宅的人。","chineseAliases":["房屋清洁工","住宅清洁工"],"englishForms":["housecleaners"],"en":"The housecleaner asked which rooms needed the most attention.","zh":"房屋清洁工问，哪些房间最需要仔细打扫。","references":["https://www.collinsdictionary.com/us/dictionary/english/houseclean","https://www.dir.ca.gov/dosh/Domestic-Service-Workers/FAQ.html"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5912487,"canonicalSourceSha256":"e1bec0b1986a1be167e5eb3150abf6d41cca3c9bbedef7074daf79ccbc492387"},
+  {"term":"hugger","partOfSpeech":"noun","meaning":"① 喜欢通过拥抱表达亲近或喜爱的人。","chineseAliases":["喜欢拥抱别人的人","爱拥抱的人"],"englishForms":["huggers"],"en":"I'm not much of a hugger, so I greeted him with a wave.","zh":"我不太习惯拥抱别人，所以挥了挥手和他打招呼。","references":["https://dictionary.cambridge.org/dictionary/english/hugger"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4267851,"canonicalSourceSha256":"fe87f752db528911f6454110a58f0f9a2c2e3856f791babfa7ecdc7614a6318d"},
+  {"term":"hyena","partOfSpeech":"noun","meaning":"① 鬣狗。这里指动物，不是袋狼。","chineseAliases":["鬣狗","鬣狗这种动物"],"englishForms":["hyenas"],"en":"Through the binoculars, we watched a hyena cross the dry riverbed.","zh":"透过双筒望远镜，我们看着一只鬣狗穿过干涸的河床。","references":["https://dictionary.cambridge.org/dictionary/english/hyena"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2861496,"canonicalSourceSha256":"28541744c06096346be7c0861027bc7e2f3a042cc7449c401706725d4f88bfa1"},
+  {"term":"impulsively","partOfSpeech":"adverb","meaning":"① 冲动地；没有事先周密考虑就行动地。","chineseAliases":["冲动地","未经考虑地","一时冲动地"],"englishForms":[],"en":"I impulsively added two concert tickets to my basket.","zh":"我一时冲动，往购物篮里加了两张演唱会门票。","references":["https://dictionary.cambridge.org/dictionary/english/impulsively"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3137478,"canonicalSourceSha256":"63cc5b6b8d264eaf452aa7f924b621a907713a264c8bfc4e30f23f6f1ab0d5a9"},
+  {"term":"interactionist","partOfSpeech":"noun","meaning":"① 互动论者；重视人与人之间的互动如何形成社会意义的理论研究者。这里取社会学用法。","chineseAliases":["互动论者","社会互动理论研究者"],"englishForms":["interactionists"],"en":"The interactionist examined how greetings shaped the group’s sense of belonging.","zh":"那位互动论研究者考察了问候方式如何塑造群体的归属感。","references":["https://www.collinsdictionary.com/dictionary/english/interactionist","https://openstax.org/books/introduction-sociology-2e/pages/1-3-theoretical-perspectives"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4307009,"canonicalSourceSha256":"189ee674944e99ea513897d72886d55034d76064e172b72f4e939d0a421ffb74"},
+  {"term":"iteratively","partOfSpeech":"adverb","meaning":"① 迭代地；通过反复执行过程并逐步调整的方式。","chineseAliases":["迭代地","通过反复迭代"],"englishForms":[],"en":"We adjusted the model iteratively, checking each version against the test data.","zh":"我们迭代地调整模型，用测试数据检验每一个版本。","references":["https://dictionary.cambridge.org/dictionary/english/iteratively"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6544567,"canonicalSourceSha256":"ec7e9995492ef9ef34aea2a99f0e56c3031fc242744a6e969ea1b236284c49ca"},
+  {"term":"judgmental","partOfSpeech":"adjective","meaning":"① 爱妄加评判的；动辄批评别人的，通常带贬义。","chineseAliases":["爱妄加评判的","动辄批评别人的","爱对人评头论足的"],"englishForms":[],"en":"He asked what had happened without sounding judgmental.","zh":"他询问事情的经过，语气里没有妄加评判的意味。","references":["https://dictionary.cambridge.org/dictionary/english/judgmental"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2743412,"canonicalSourceSha256":"5736ec89d3bc5e8aedea96d56af5f9415e9065914abe503dfd5d6806f9613ba2"},
+  {"term":"kerbstone","partOfSpeech":"noun","meaning":"① 路缘石。组成道路或人行道边缘的一块石料，英式拼写。","chineseAliases":["路缘石","人行道边缘石"],"englishForms":["kerbstones"],"en":"A loose kerbstone rocked when she stepped on it.","zh":"她踩上去时，一块松动的路缘石晃了一下。","references":["https://www.collinsdictionary.com/dictionary/english/kerbstone"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6357554,"canonicalSourceSha256":"bae34e9a5efedb2cdfa8b4bbdc671117b94b793572d6b5dff82bc412e8f6022f"},
+  {"term":"krait","partOfSpeech":"noun","meaning":"① 环蛇；环蛇属（Bungarus）的毒蛇。该英文名称不只指金环蛇一种。","chineseAliases":["环蛇","环蛇属毒蛇"],"englishForms":["kraits"],"en":"The field guide helped us distinguish a krait from similar-looking snakes.","zh":"野外指南帮助我们区分环蛇和外观相似的蛇。","references":["https://www.merriam-webster.com/dictionary/krait"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6419382,"canonicalSourceSha256":"01a285de4077115dc2a8105e4748ee9bdcdc0683fe4823ca9d00a56046e3ade3"},
+  {"term":"legalistic","partOfSpeech":"adjective","meaning":"① 过分拘泥法律条文或细节的，常含批评意味。本例指答复过分注重条款而忽视实际解决办法。","chineseAliases":["拘泥法律条文的","过分注重法律细节的"],"englishForms":["legalistic"],"en":"The manager's legalistic reply quoted the contract but ignored our request for a practical solution.","zh":"经理的答复拘泥于法律条文，引用了合同，却没有理会我们希望找到实际解决办法的请求。","references":["https://www.collinsdictionary.com/us/dictionary/english/legalistic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3198274,"canonicalSourceSha256":"f52bf9b3caba61d46f060c34e67547e783acd9eb25b1e622a4aa1e39f1eda618"},
+  {"term":"lusciously","partOfSpeech":"adverb","meaning":"① 甘美诱人地；以让感官感到丰美、愉悦的方式。这里取食物口感用法。","chineseAliases":["甘美诱人地","食物丰美地"],"englishForms":[],"en":"The filling was lusciously smooth, with a gentle hint of vanilla.","zh":"馅料口感细腻诱人，带着淡淡的香草味。","references":["https://dictionary.cambridge.org/dictionary/english/lusciously"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5856983,"canonicalSourceSha256":"396fb940ad296228b5e84546909fc2afd2086f6872189940d29e584e021295cb"},
+  {"term":"mathematic","partOfSpeech":"adjective","meaning":"① 数学的；mathematical 的较少见形式。通常使用 mathematical。","chineseAliases":["数学的少见形式"],"englishForms":[],"en":"The argument rests on a mathematic proof rather than an appeal to intuition.","zh":"这个论证依据的是数学证明，而不是诉诸直觉。","references":["https://www.merriam-webster.com/dictionary/mathematic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":1725820,"canonicalSourceSha256":"4019b02d6edf924eba3959386333754c633ef62eddc6d17da521a7448a3bdf22"},
+  {"term":"meritocracy","partOfSpeech":"noun","meaning":"① 任人唯贤的制度：按能力与实际表现，而非财富、出身或关系来分配职位和晋升机会。本例取制度义。","chineseAliases":["任人唯贤制度","凭能力晋升的制度"],"englishForms":["meritocracy","meritocracies"],"en":"The firm called itself a meritocracy, but staff questioned whether family connections still mattered.","zh":"这家公司自称实行任人唯贤制度，但员工质疑家族关系是否仍在起作用。","references":["https://dictionary.cambridge.org/us/dictionary/english/meritocracy?topic=systems-of-government"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3668077,"canonicalSourceSha256":"724aff700ea75f89a2dc860871a3e2de6bb7a43f469e5b9d92763eb24e88f417"},
+  {"term":"mmm","partOfSpeech":"interjection","meaning":"① 嗯；唔。表示赞赏、满足、思索等的声音，具体语气取决于语境。","chineseAliases":["表示满足的嗯","表示赞赏的唔"],"englishForms":[],"en":"“Mmm, this pear is sweeter than I expected,” she said after the first bite.","zh":"她咬了一口后说：“嗯，这个梨比我想的还甜。”","references":["https://www.oxfordlearnersdictionaries.com/definition/english/mm_2"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2554822,"canonicalSourceSha256":"6f96837b2b572544545fcac962c96751ae4b07280f4a10896c3dec582ed34b6e"},
+  {"term":"mothership","partOfSpeech":"noun","meaning":"① 母船；支援母舰。为较小船只或飞行器提供停靠、补给等支持的较大载体。","chineseAliases":["支援母船","母船"],"englishForms":["motherships"],"en":"The divers stored their spare equipment aboard the mothership.","zh":"潜水员把备用装备存放在母船上。","references":["https://www.merriam-webster.com/dictionary/mothership"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4944608,"canonicalSourceSha256":"a16ff177242358042db792fb0dd75dfc10f32d2c9eeecb632f6326bff42ed587"},
+  {"term":"multimode","partOfSpeech":"adjective","meaning":"① 多模的。光纤语境中指可支持多种光传播模式的。","chineseAliases":["多模光纤的多模","支持多种光传播模式的"],"englishForms":[],"en":"The two offices are linked by a short run of multimode fibre.","zh":"这两间办公室由一小段多模光纤连接。","references":["https://www.cisco.com/c/en/us/td/docs/routers/access/interfaces/adapt/STM1PA/STM1/STM1PAovr.pdf"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6372441,"canonicalSourceSha256":"47beba24bc3be7163c9a58568dba8f3288afe93814b6712f1e159ba90397ebcd"},
+  {"term":"multitalented","partOfSpeech":"adjective","meaning":"① 多才多艺的；具有多方面才能的。本例形容一个人兼有音乐与绘画才能。","chineseAliases":["多才多艺的","具有多方面才能的"],"englishForms":["multitalented","multi-talented"],"en":"The multitalented designer wrote the music and drew the posters for the show.","zh":"这位多才多艺的设计师为演出创作了音乐，还绘制了海报。","references":["https://dictionary.cambridge.org/dictionary/english/multi-talented"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4286957,"canonicalSourceSha256":"85659af6930f3a2d281dae8398d1c28ea04a81248d8f776def4623294c11b1e4"},
+  {"term":"neem","partOfSpeech":"noun","meaning":"① 印度楝树；学名为 Azadirachta indica 的一种树。","chineseAliases":["印度楝树"],"englishForms":[],"en":"We rested in the shade of a neem tree beside the courtyard gate.","zh":"我们在庭院门旁一棵印度楝树的树荫下休息。","references":["https://mpns.science.kew.org/mpns-portal/drugDetail?drugName=nimtree"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5363010,"canonicalSourceSha256":"1cb1a602fd177993709dbc80c267b6376cac8a05acf7a87c88bfab254a69c00b"},
+  {"term":"nerdy","partOfSpeech":"adjective","meaning":"① 书呆子气的；特别痴迷某种专门知识的。非正式用语，可能带调侃或贬义。","chineseAliases":["书呆子气的","痴迷专门知识的"],"englishForms":[],"en":"His nerdy interest in train timetables turned out to be useful on our trip.","zh":"他对火车时刻表那种痴迷钻研的兴趣，在我们的旅途中派上了用场。","references":["https://dictionary.cambridge.org/dictionary/english/nerdy"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3495273,"canonicalSourceSha256":"1e2546be4f9fc1d90cbb01bf9ae5ecca9641d170551587b82f53662f238e514d"},
+  {"term":"nlp","partOfSpeech":"abbreviation","meaning":"① 自然语言处理。natural language processing 的缩写，通常写作 NLP，涉及计算机对人类语言的处理。","chineseAliases":["自然语言处理"],"englishForms":["NLP"],"en":"The team used NLP to group similar questions from customer messages.","zh":"团队使用自然语言处理，把客户消息中相似的问题归为一组。","references":["https://www.ibm.com/think/topics/natural-language-processing"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4498229,"canonicalSourceSha256":"c0989fb8b05a20049869816dc5637f9db7ad5920cd46f8f23760dca674d0ece6"},
+  {"term":"oap","partOfSpeech":"abbreviation","meaning":"① 领取老年养老金的人；old-age pensioner 的缩写，常写 OAP。英式用法，较旧。","chineseAliases":["领取老年养老金的人","领取老年养老金者"],"englishForms":["OAPs"],"en":"The centre offered a reduced membership fee to OAPs.","zh":"这个中心为领取老年养老金的人提供了优惠会费。","references":["https://dictionary.cambridge.org/dictionary/english/oap"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3604135,"canonicalSourceSha256":"d41284844fafa49ff60fb3b594c703c5571d7f6f30d4ddd4528b8cb0305951a9"},
+  {"term":"ocelot","partOfSpeech":"noun","meaning":"① 虎猫；一种产于美洲、皮毛有斑点的野生猫科动物。","chineseAliases":["虎猫","美洲虎猫"],"englishForms":["ocelots"],"en":"The camera recorded an ocelot slipping past the fallen tree at dusk.","zh":"摄像机拍到一只虎猫在黄昏时从倒下的树旁悄悄经过。","references":["https://dictionary.cambridge.org/dictionary/english/ocelot"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4908277,"canonicalSourceSha256":"99177700cb8464c937fa8a318d236fb20d9d0cf040e7e9b46c0787d609591f4e"},
+  {"term":"papillomavirus","partOfSpeech":"noun","meaning":"① 乳头瘤病毒；属于乳头瘤病毒科、主要感染上皮细胞的一类病毒，不只指人乳头瘤病毒。","chineseAliases":["乳头瘤病毒"],"englishForms":["papillomaviruses"],"en":"The lab tested the tissue sample for papillomavirus DNA.","zh":"实验室检测了那份组织样本中是否有乳头瘤病毒 DNA。","references":["https://ictv.global/report/chapter/papillomaviridae/papillomaviridae"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4602477,"canonicalSourceSha256":"51ab9f30f25338ef843494c598a52a95d85fa308d3d6369516f0a57824daec53"},
+  {"term":"permissiveness","partOfSpeech":"noun","meaning":"① 放任或纵容的态度；容许一些人认为不妥的行为。本例指对学生迟到缺少约束的态度。","chineseAliases":["放任态度","纵容态度"],"englishForms":["permissiveness"],"en":"The headteacher worried that permissiveness about lateness would weaken the school rules.","zh":"校长担心，对迟到的放任态度会削弱校规的约束力。","references":["https://dictionary.cambridge.org/dictionary/english/permissiveness","https://www.oxfordlearnersdictionaries.com/us/definition/english/permissiveness"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3751833,"canonicalSourceSha256":"a4a7509b6529a53d4e20ed617ae3696f4888c20c57358f2e975808163d758139"},
+  {"term":"phylogenetically","partOfSpeech":"adverb","meaning":"① 在系统发育关系上；从生物演化谱系的角度。","chineseAliases":["在系统发育关系上","从演化谱系角度"],"englishForms":[],"en":"The species look alike, but they are not closely related phylogenetically.","zh":"这些物种外形相似，但在系统发育关系上并不接近。","references":["https://dictionary.cambridge.org/dictionary/english/phylogenetically"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6362562,"canonicalSourceSha256":"6ccd7479a7e4d25bc9c54d24c994f6f7c34b0db27a203691cc967b22fcd75e42"},
+  {"term":"poetically","partOfSpeech":"adverb","meaning":"① 富有诗意地；以诗一般的语言或方式表达。","chineseAliases":["富有诗意地","以诗意的方式"],"englishForms":[],"en":"He spoke poetically of the river, calling it the city’s silver thread.","zh":"他富有诗意地谈起那条河，把它称作城市的银线。","references":["https://dictionary.cambridge.org/dictionary/english/poetically"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3970339,"canonicalSourceSha256":"da3f613bdd4be7e8aebada7e87dfc4a56aecd616ffd84131cd4e61cdeb063752"},
+  {"term":"preparer","partOfSpeech":"noun","meaning":"① 资料编制人员；准备或编制文件的人，例句中指报税表的编制者。","chineseAliases":["资料编制人员","报税表编制人员"],"englishForms":["preparers"],"en":"The tax return preparer asked for the missing receipts before finishing the forms.","zh":"报税表编制人员在填完表格前，要求提供缺少的收据。","references":["https://www.irs.gov/taxtopics/tc254"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3249258,"canonicalSourceSha256":"bc1887a48fba5143bf9e2a8d7dd53656d0b683fb0704f7ced4a6dfd88867bcb8"},
+  {"term":"presidentially","partOfSpeech":"adverb","meaning":"① 以总统般的风范；以符合总统身份的方式。这里取举止或表现方式义。","chineseAliases":["以总统般的风范","以符合总统身份的方式"],"englishForms":[],"en":"The candidate answered the difficult question calmly and presidentially.","zh":"那位候选人冷静地、以总统般的风范回答了这个棘手的问题。","references":["https://dictionary.cambridge.org/dictionary/english/presidentially"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":5384608,"canonicalSourceSha256":"5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6","retainedCanonicalAlternatives":[{"partOfSpeech":"adverb","meaning":"① 以总统[议长、校长等]的资格","source":"原有释义＋词性校订","license":"Meanings retain their original licences; POS sources and review methods are listed in the notice","url":"https://zhuodashuai.github.io/vocab/dictionary-pos.html"}]},
+  {"term":"preventively","partOfSpeech":"adverb","meaning":"① 预防性地；为了防止某种问题发生而采取行动。","chineseAliases":["预防性地","为了防止问题而"],"englishForms":[],"en":"Engineers replaced the cable preventively, before any fault had occurred.","zh":"工程师在尚未出现故障前，预防性地更换了那根电缆。","references":["https://www.collinsdictionary.com/dictionary/english/preventive"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6288082,"canonicalSourceSha256":"e90fd76d5ed71975080deae51b66dfc69a49bf2712a29daecf7c2ac0cc0e0b10"},
+  {"term":"probiotic","partOfSpeech":"adjective","meaning":"① 含益生菌的；与益生菌有关的。常用于食品或菌株的描述。","chineseAliases":["含益生菌的","益生菌的"],"englishForms":[],"en":"The carton clearly labels this yoghurt as probiotic.","zh":"包装盒清楚地标明这种酸奶含有益生菌。","references":["https://dictionary.cambridge.org/dictionary/english/probiotic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4796258,"canonicalSourceSha256":"41a2690be1935fa716e3bfe0c19a98a164708f50c65e0d6743db8592f772f70f"},
+  {"term":"prosciutto","partOfSpeech":"noun","meaning":"① 意大利风干火腿。这里取经腌制、风干而成的火腿义，通常切成薄片食用。","chineseAliases":["意大利风干火腿","意式风干火腿"],"englishForms":[],"en":"He wrapped each asparagus spear in a thin slice of prosciutto.","zh":"他给每根芦笋裹上一片薄薄的意大利风干火腿。","references":["https://dictionary.cambridge.org/dictionary/english/prosciutto"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3050301,"canonicalSourceSha256":"a3db539a9707ead2cead34e7b7fbe14e48481610a4ed015724b29f9b2509310a"},
+  {"term":"psychotically","partOfSpeech":"adverb","meaning":"① 以精神病性的方式；表示伴有妄想、幻觉等精神病性症状的状态，常见于临床表述。","chineseAliases":["以精神病性的方式","伴精神病性症状地"],"englishForms":[],"en":"The referral described her as psychotically depressed, with persistent delusions alongside her low mood.","zh":"转诊记录称她患有伴精神病性症状的抑郁，情绪低落的同时还持续存在妄想。","references":["https://www.collinsdictionary.com/dictionary/english/psychotically","https://pubmed.ncbi.nlm.nih.gov/22821385/"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5794197,"canonicalSourceSha256":"188118bce3a2b9b4260e9f16ab15a725599339b7cb5fd870609b7a7439b75381"},
+  {"term":"pta","partOfSpeech":"abbreviation","meaning":"① 家长教师协会。Parent-Teacher Association 的缩写，通常写作 PTA。","chineseAliases":["家长教师协会"],"englishForms":["PTA"],"en":"The PTA raised enough money to replace the school library's worn chairs.","zh":"家长教师协会筹到了更换学校图书馆破旧椅子所需的足够资金。","references":["https://www.pta.org/home/About-National-Parent-Teacher-Association"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3469472,"canonicalSourceSha256":"b0ffe2d1ed1b6d7f7a40b1ab4085fe8d0ec86859cfce57146e51e14373d76907"},
+  {"term":"rabbinical","partOfSpeech":"adjective","meaning":"① 拉比的；与犹太教拉比及其教导、解释传统有关的。本例指拉比对文本的解读，不泛指希伯来语。","chineseAliases":["拉比的","与拉比有关的"],"englishForms":["rabbinical","rabbinic"],"en":"The historian compared rabbinical interpretations of the same passage.","zh":"这位历史学家比较了拉比们对同一段文字的不同解读。","references":["https://dictionary.cambridge.org/dictionary/english/rabbinical?topic=religious-leaders-and-officials"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3696662,"canonicalSourceSha256":"e01a8fe04e82beeaad69cc42cbf79f0f1e226154cd048df24620c6b1ec68c471"},
+  {"term":"reductionist","partOfSpeech":"adjective","meaning":"① 还原论的；用较简单的组成因素解释复杂事物的。有时含有把问题过度简化的批评意味。","chineseAliases":["还原论的","过度简化解释的"],"englishForms":[],"en":"A reductionist explanation can overlook how the different parts interact.","zh":"还原论式的解释可能忽视不同部分之间的相互作用。","references":["https://dictionary.cambridge.org/dictionary/english/reductionist"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3883078,"canonicalSourceSha256":"310c949187c589645da1db331f8c1474ab21434e17474d98d9848da8deb09249"},
+  {"term":"remediate","partOfSpeech":"verb","meaning":"① 治理、修复受污染的环境。本例取及物动词义，指对受污染土壤进行修复。","chineseAliases":["治理污染","修复受污染土壤","修复污染场地"],"englishForms":["remediate","remediates","remediated","remediating"],"en":"The council hired specialists to remediate soil polluted by the old factory.","zh":"地方议会聘请了专家，治理被旧工厂污染的土壤。","references":["https://www.oxfordlearnersdictionaries.com/definition/english/remediate"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3761503,"canonicalSourceSha256":"77f9e3e7958dfebd15b2b1a739ed89c2ec8f43b0d941d6941f4f1e01a5461ce4"},
+  {"term":"resoluteness","partOfSpeech":"noun","meaning":"① 坚决；坚定的意志。下定决心后不轻易动摇的品质。","chineseAliases":["坚定的意志","坚决的品质"],"englishForms":[],"en":"Her quiet resoluteness persuaded the others to keep trying.","zh":"她沉静而坚定的意志说服其他人继续尝试。","references":["https://dictionary.cambridge.org/dictionary/english/resoluteness"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5943761,"canonicalSourceSha256":"1c87b936c049d5928fac4e5bc3985f77aa50518ccec7435c22d183a0582adf3f"},
+  {"term":"restructuring","partOfSpeech":"noun","meaning":"① 重组；对公司、部门或组织的结构重新安排。这里取组织重组义。","chineseAliases":["组织重组","部门重组","公司重组"],"englishForms":["restructurings"],"en":"After the restructuring, the design team reported directly to the director.","zh":"重组之后，设计团队直接向主管汇报。","references":["https://dictionary.cambridge.org/dictionary/english/restructuring"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":2254798,"canonicalSourceSha256":"fa6f6a1d06424b2d5d241b366b539e1e93612779912e1eaf4e9559a74cb68e0c"},
+  {"term":"rigatoni","partOfSpeech":"noun","meaning":"① 粗管通心粉。一种管状、外表带有棱纹的意大利面。","chineseAliases":["粗管通心粉","棱纹管状意面"],"englishForms":[],"en":"We served the rigatoni in shallow bowls with tomato sauce.","zh":"我们把配有番茄酱的粗管通心粉盛在浅碗里。","references":["https://dictionary.cambridge.org/dictionary/english/rigatoni"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4593260,"canonicalSourceSha256":"7b983839a90b96bccade57f10282d56bc2126310a4b88ab240793bd5da69c8ce"},
+  {"term":"scenographic","partOfSpeech":"adjective","meaning":"① 与场景的透视绘画或舞台背景绘制有关的。","chineseAliases":["透视场景绘画的","舞台背景绘制的"],"englishForms":[],"en":"The scenographic design used painted arches to suggest a much larger room.","zh":"舞台背景设计用画出的拱门营造出房间宽敞得多的感觉。","references":["https://www.collinsdictionary.com/dictionary/english/scenographic"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6353879,"canonicalSourceSha256":"17cddbc866197743802fdaa7091aa941c13f17bf159b5f5e2cbb10177c8caa4d"},
+  {"term":"senselessly","partOfSpeech":"adverb","meaning":"① 毫无意义地；毫无道理地；不必要地。","chineseAliases":["毫无意义地","毫无道理地"],"englishForms":[],"en":"The vandals senselessly smashed the bus shelter's glass panels.","zh":"破坏者毫无道理地砸碎了候车亭的玻璃板。","references":["https://dictionary.cambridge.org/dictionary/english/senselessly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4845659,"canonicalSourceSha256":"848e3045362f6fab73fc59b36e7318bcd4a84612fea1b3b973164025e312cfde"},
+  {"term":"shakeout","partOfSpeech":"noun","meaning":"① 行业洗牌：经济困难使部分企业退出市场或一些岗位被淘汰的调整过程。本例取企业淘汰义。","chineseAliases":["行业洗牌","行业淘汰性调整"],"englishForms":["shakeout","shakeouts","shake-out","shake-outs"],"en":"The industry shakeout forced several small publishers out of business.","zh":"这次行业洗牌迫使几家小型出版社倒闭。","references":["https://dictionary.cambridge.org/us/dictionary/english/shakeout"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3713967,"canonicalSourceSha256":"2d341fc3f6fdd530d98ea6c9fe2d9307bc3fe35a17dfdfc9d6bc72a469199518"},
+  {"term":"sixthly","partOfSpeech":"adverb","meaning":"① 第六。用于引出按顺序列举的第六点。","chineseAliases":["列举第六点","第六点上"],"englishForms":[],"en":"Sixthly, all visitors must leave the equipment exactly where they found it.","zh":"第六，所有访客都必须把设备留在原处。","references":["https://www.merriam-webster.com/dictionary/sixthly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5455408,"canonicalSourceSha256":"06a92204c03657f1e7cf5ec579b5d3b25ac82e3da8327dc67ce18f612b11baec"},
+  {"term":"sixths","partOfSpeech":"noun","meaning":"① 六分之一的份额；sixth 作分数名词时的复数形式。","chineseAliases":["六分之一的份额","六分之一份额的复数"],"englishForms":[],"en":"He folded the long strip of paper into sixths.","zh":"他把那张长纸条折成六等份。","references":["https://dictionary.cambridge.org/dictionary/english/sixth"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4464356,"canonicalSourceSha256":"5204a2538d82884dd769d84ad13e186bc87193b18764516d33ed7c5119472979"},
+  {"term":"smolt","partOfSpeech":"noun","meaning":"① 银化幼鲑；即将或刚开始降海生活、已发生适应海水变化的幼年鲑科鱼，并不按固定鱼龄定义。","chineseAliases":["银化幼鲑","降海阶段幼鲑"],"englishForms":["smolts"],"en":"The smolt moved downstream towards the estuary.","zh":"那条进入降海阶段的幼鲑向下游的河口游去。","references":["https://www.fisheries.noaa.gov/new-england-mid-atlantic/consultations/glossary-section-7-species-presence-greater-atlantic-region","https://www.fisheries.noaa.gov/west-coast/science-data/pacific-salmon-life-history-research"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4994958,"canonicalSourceSha256":"faa53cb0ca2a4a5d3f52a3ecfe576e5b3ef52acfa214fac67223433e59469d9c"},
+  {"term":"snowboarder","partOfSpeech":"noun","meaning":"① 单板滑雪者：使用一块滑雪板进行滑雪运动的人。本例取运动参与者义。","chineseAliases":["单板滑雪者","单板滑雪运动者"],"englishForms":["snowboarder","snowboarders"],"en":"A snowboarder in a red jacket rested beside the lift.","zh":"一位穿红夹克的单板滑雪者在缆车旁休息。","references":["https://www.oxfordlearnersdictionaries.com/definition/english/snowboarder"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3212837,"canonicalSourceSha256":"71306ad576d516a0fa4d19f9a5c993c0da54da52d583983a35738f72115d3e1c"},
+  {"term":"soonest","partOfSpeech":"adverb","meaning":"① 最早；最快。soon 的最高级，用来比较事情发生或完成的时间。","chineseAliases":["最早能","最快能"],"englishForms":[],"en":"Tell me which appointment you can offer soonest.","zh":"请告诉我，你最早能安排哪个预约时段。","references":["https://dictionary.cambridge.org/dictionary/english/soon"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4905778,"canonicalSourceSha256":"4864a761ee0f40aefd5be9e10ee4c1e4be6eb3202556c460ef7c89f4fcd683b0"},
+  {"term":"springer","partOfSpeech":"noun","meaning":"① 史宾格犬；springer spaniel 的简称，指一种猎犬。","chineseAliases":["史宾格犬","史宾格猎犬"],"englishForms":["springers"],"en":"The springer trotted back to its owner with a ball in its mouth.","zh":"那只史宾格犬叼着一个球，小跑着回到主人身边。","references":["https://www.merriam-webster.com/dictionary/springer"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3625755,"canonicalSourceSha256":"aec62652befaa64863242863fcd282566e7b857598dd22994eeaa75705db125b"},
+  {"term":"stablemate","partOfSpeech":"noun","meaning":"① 同厩的马。与另一匹马同在一个马厩或由同一训练团队饲养、训练的马。","chineseAliases":["同厩的马","同马厩的马"],"englishForms":["stablemates"],"en":"The young horse settled down when its stablemate entered the trailer.","zh":"与它同厩的马走进运马车后，那匹小马就安静下来了。","references":["https://dictionary.cambridge.org/dictionary/english/stablemate"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":4813627,"canonicalSourceSha256":"f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f","retainedCanonicalAlternatives":[{"partOfSpeech":"noun","meaning":"① n. 受雇于同一老板的拳击手","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT"}]},
+  {"term":"stardust","partOfSpeech":"noun","meaning":"① 梦幻般的魅力；令人着迷的光彩。这里取比喻义，常与明星或浪漫的吸引力有关。","chineseAliases":["星光般的魅力","梦幻般的魅力"],"englishForms":[],"en":"The singer brought a little stardust to the town's annual concert.","zh":"那位歌手给小镇的年度音乐会增添了几分星光般的魅力。","references":["https://dictionary.cambridge.org/dictionary/english/stardust"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3167433,"canonicalSourceSha256":"255585c7edfdb92f07eeb9a55f9313c683da457e7eddb61c5e9c5f8ac968b154"},
+  {"term":"tenuously","partOfSpeech":"adverb","meaning":"① （联系等）薄弱地；不牢固地。","chineseAliases":["薄弱地","不牢固地","联系不紧密地"],"englishForms":[],"en":"The two reports are only tenuously connected by a reference to the same town.","zh":"这两份报告之间仅有一丝联系：它们提到了同一个小镇。","references":["https://dictionary.cambridge.org/dictionary/english/tenuously"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4394759,"canonicalSourceSha256":"c70b5ae49797a557518248f04e84332e664a94c986d318f89f9000b789ff5dd8"},
+  {"term":"that's","partOfSpeech":"contraction","meaning":"① that is 的缩略形式，意为“那是、那就是”。本例用于指认物品。","chineseAliases":["那是","那就是"],"englishForms":["that's"],"en":"That's the notebook I left on the train.","zh":"那就是我落在火车上的笔记本。","references":["https://dictionary.cambridge.org/us/dictionary/english/that-s","https://dictionary.cambridge.org/us/grammar/british-grammar/that"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":1790854,"canonicalSourceSha256":"2846922f130491dcabb2ee8586b03ddb952da6e76c913d5c5f78e0048d2dc83a"},
+  {"term":"thousandths","partOfSpeech":"plural noun","meaning":"① 千分之一的份额；thousandth 在分数名词用法中的复数。","chineseAliases":["千分之一的份额"],"englishForms":[],"en":"The gap measured just three thousandths of an inch.","zh":"那道间隙只有千分之三英寸宽。","references":["https://dictionary.cambridge.org/dictionary/english/thousandth"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4958660,"canonicalSourceSha256":"87ee316a67978ef32071cc027cda4e0b1c713038d86d68b2026fec595c3ebeae"},
+  {"term":"touchback","partOfSpeech":"noun","meaning":"① 触回；美式橄榄球中，球因对方施加的推进力在本方所防守的球门线或其后成为死球的一种情形，具体规则另有条件；不是达阵。","chineseAliases":["触回","橄榄球触回"],"englishForms":["touchbacks"],"en":"The returner took a knee in the end zone, and the play ended in a touchback.","zh":"回攻球员在端区单膝跪地，这次攻防以触回结束。","references":["https://operations.nfl.com/rules-officiating/2026-nfl-rulebook"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5523843,"canonicalSourceSha256":"c2e3d7470368af3916e5e32d37c16d9d26e4f4c5d1846d19473bab54c400c408"},
+  {"term":"trembly","partOfSpeech":"adjective","meaning":"① 颤抖的；发颤的。形容身体、声音等不稳定地轻轻抖动。","chineseAliases":["颤抖的","发颤的"],"englishForms":[],"en":"Her hands were still trembly when she set the cup down.","zh":"她放下杯子时，双手仍在发抖。","references":["https://www.collinsdictionary.com/dictionary/english/trembly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6542190,"canonicalSourceSha256":"cafd49a6ce9d7d9639c274cc46dbac305df53c1ab288b0f07b66ecc2a25ec471"},
+  {"term":"triumphalist","partOfSpeech":"noun","meaning":"① 得意扬扬地宣扬胜利的人；因获胜或胜过别人而炫耀的人，通常带贬义。","chineseAliases":["得意扬扬宣扬胜利的人","炫耀胜利的人"],"englishForms":["triumphalists"],"en":"The triumphalist celebrated the result without mentioning how close the contest had been.","zh":"那位得意扬扬宣扬胜利的人庆祝结果时，没有提到双方的差距其实很小。","references":["https://dictionary.cambridge.org/dictionary/english/triumphalist"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4850335,"canonicalSourceSha256":"a3de245006604934adf0efabcdeedcfe1d578363a24194afbe5df55b75d9bb15"},
+  {"term":"tum","partOfSpeech":"noun","meaning":"① 肚子；腹部。英式非正式用语，也常见于儿语。","chineseAliases":["肚子（英式口语）","肚子的儿语说法"],"englishForms":["tums"],"en":"She patted her tum and said she couldn't eat another bite.","zh":"她拍了拍肚子，说自己一口也吃不下了。","references":["https://dictionary.cambridge.org/dictionary/english/tum"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3646493,"canonicalSourceSha256":"74cd016fda3fbc1969818a40a9c40ddf522b1366402176f75404757d2312aa7e"},
+  {"term":"uni","partOfSpeech":"noun","meaning":"① 大学。university 的非正式简称，常见于英式、澳式等英语中。","chineseAliases":["大学","大学口语简称"],"englishForms":["unis"],"en":"I'm moving to another city to start uni in September.","zh":"我要搬到另一个城市，九月开始上大学。","references":["https://dictionary.cambridge.org/dictionary/english/uni"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":true,"canonicalId":5807817,"canonicalSourceSha256":"1b6ac8382f0cc7774cbe3d45bf999b7e30e6773c9cf6548d853d61377bed6ed8","retainedCanonicalAlternatives":[{"partOfSpeech":"abbreviation","meaning":"① abbr. 印度联合新闻社（United News of India）","source":"ECDICT","license":"MIT","url":"https://github.com/skywind3000/ECDICT"}]},
+  {"term":"unrated","partOfSpeech":"adjective","meaning":"① 尚未评级或分级的。本例特指影片未获内容分级，不是“评价低”的意思。","chineseAliases":["尚未评级的","未分级的"],"englishForms":["unrated"],"en":"The festival screened an unrated documentary after the evening discussion.","zh":"晚间讨论结束后，电影节放映了一部未分级的纪录片。","references":["https://www.merriam-webster.com/dictionary/unrated"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4336708,"canonicalSourceSha256":"e2c65afe71086fa87d55b45ea8d85ab8f85d1d4e25b3b76594b8d041994c101f"},
+  {"term":"untucked","partOfSpeech":"verb","meaning":"① 将原先塞入或掖住的部分抽出。untuck 的过去式或过去分词，常用于衣物下摆。","chineseAliases":["把掖着的下摆抽出","抽出衬衫下摆"],"englishForms":[],"en":"She untucked the blanket from beneath the mattress before folding it.","zh":"她先把掖在床垫下面的毯子抽出来，再将它叠好。","references":["https://dictionary.cambridge.org/dictionary/english/untuck"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":4244050,"canonicalSourceSha256":"fd2c1ee40e64967b6e838167562e913d803305ab17d5ffaa510c10053c018d01"},
+  {"term":"untypical","partOfSpeech":"adjective","meaning":"① 不典型的；不符合某人或事物一贯特点的。本例指行为不合往常。","chineseAliases":["不典型的","不合一贯特点的"],"englishForms":["untypical"],"en":"It was untypical of Nora to arrive without a plan.","zh":"毫无计划地到场，很不合诺拉一贯的作风。","references":["https://www.oxfordlearnersdictionaries.com/definition/english/untypical"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/example_quality_provenance_audit","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3032690,"canonicalSourceSha256":"80fb8f2cbacad9d56cfd4647f9f345416bebbeeb87cc01c6200626bc4f14a883"},
+  {"term":"weathervane","partOfSpeech":"noun","meaning":"① 风向标。随风转动、指示风向的装置，常安装在屋顶等高处。","chineseAliases":["屋顶风向标","指示风向的装置"],"englishForms":["weathervanes"],"en":"A rooster-shaped weathervane stood on top of the barn.","zh":"谷仓顶上立着一个公鸡形状的风向标。","references":["https://www.merriam-webster.com/dictionary/weathervane"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/next_quality_inventory","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":5069851,"canonicalSourceSha256":"c0e22d2b8a15108faf0143bf38d80ed605f79f58339325cd926b721bcb9c4e7c"},
+  {"term":"westernizer","partOfSpeech":"noun","meaning":"① 西方化的倡导者或推动者；主张借鉴西方制度、习惯或文化的人。历史文献中也可特指俄国的西方派。","chineseAliases":["西方化倡导者","西方化推动者"],"englishForms":["westernizers"],"en":"As a westernizer, the reformer advocated adopting European legal institutions.","zh":"作为西方化的倡导者，这位改革者主张采用欧洲的法律制度。","references":["https://www.cambridge.org/core/books/abs/history-of-russian-philosophy-18301930/slavophiles-westernizers-and-the-birth-of-russian-philosophical-humanism/947D0DEAEDDE1A8B11A0C8ECDE6CC0E1","https://www.cambridge.org/core/books/abs/great-power-competition-and-the-path-to-democracy/autocracy-and-democracy-in-georgia-what-made-the-difference/3A79EBA3C58F8D5E243577455EB9F776"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":6157597,"canonicalSourceSha256":"c600db56f04015c4b20507a959f8d51c0b4c97ad91b5d5f2d044bf527e4fd0af"},
+  {"term":"worryingly","partOfSpeech":"adverb","meaning":"① 令人担忧地；用于指出某种情况让人不安。","chineseAliases":["令人担忧地","令人担忧的是"],"englishForms":[],"en":"Worryingly, the water level was still rising after the rain stopped.","zh":"令人担忧的是，雨停之后水位仍在上涨。","references":["https://dictionary.cambridge.org/dictionary/english/worryingly"],"dictionarySource":"卓式词典·义项补充","exampleSource":"原创例句·AI复核（精选义项）","exampleReviewer":"AI/quality_release_capacity","reviewedCanonicalSense":true,"retainLegacyChinese":false,"canonicalId":3328529,"canonicalSourceSha256":"64266dbbd6b975b8ab0863c5d7f222a5d9d8cc473f7a9584c492d06e5adcc256"}
+].map(row => Object.freeze({ ...row, chineseAliases: Object.freeze(row.chineseAliases), englishForms: Object.freeze(row.englishForms), references: Object.freeze(row.references), ...(row.retainedCanonicalAlternatives ? { retainedCanonicalAlternatives: Object.freeze(row.retainedCanonicalAlternatives.map(alternative => Object.freeze({ ...alternative }))) } : {}) })));

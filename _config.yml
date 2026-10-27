@@ -1,5 +1,6 @@
-# Preserve Jekyll 3.10 / GitHub Pages defaults and all previously served URLs.
-# Exact, never-published review files stay in Git/CI, not the public site.
+# Preserve Jekyll defaults and all runtime, learning and rollback resources.
+# Developer example/POS source trees stay in Git/CI; public evidence links use GitHub.
+# Older exact exclusions below remain registered alongside these bounded trees.
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -9,6 +10,8 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - CNAME
+  - tooling/dictionary/examples
+  - tooling/dictionary/pos
   - tooling/dictionary/examples/queues/batch-0031.json
   - tooling/dictionary/examples/queues/batch-0032.json
   - tooling/dictionary/examples/queues/batch-0032-supplement.json
@@ -313,3 +316,14 @@ exclude:
   - tooling/dictionary/examples/independent-audits/cross-review-0042-next-003.json
   - tooling/dictionary/reviewed-senses/reviews/batch-0002.json
   - tooling/dictionary/reviewed-senses/source/batch-0002.json
+  - tooling/dictionary/reviewed-senses/source/batch-0003.json
+  - tooling/dictionary/reviewed-senses/reviews/batch-0003.json
+  - tooling/dictionary/reviewed-senses/source/batch-0004.json
+  - tooling/dictionary/reviewed-senses/reviews/batch-0004.json
+  - tooling/dictionary/reviewed-senses/retained-alternatives.json
+  - tooling/dictionary/reviewed-senses/followup-0003-baseline.json
+  - tooling/dictionary/reviewed-senses/followup-0003-context.json
+  - tooling/dictionary/reviewed-senses/followup-0003-provenance.json
+  - tooling/tests/retained-canonical-alternatives.test.mjs
+  - tooling/tests/reviewed-sense-followup.test.mjs
+  - tooling/tests/e2e/retained-senses.spec.mjs
