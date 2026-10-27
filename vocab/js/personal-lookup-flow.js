@@ -1,10 +1,10 @@
 import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
-import { searchEverydayDictionary } from "./everyday-lookup.js";
+import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult } from "./everyday-lookup.js";
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));
-const failedClosed = error => ["ambiguous_dictionary_match", "invalid_dictionary_data"].includes(error?.code);
+const failedClosed = error => ["ambiguous_dictionary_match", "invalid_dictionary_data", "unreviewed_dictionary_form"].includes(error?.code);
 function knownExact(input, result) {
   if (!result || result.hasMore || result.results.length !== 1) return false;
   const value = result.results[0];
@@ -38,23 +38,33 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
   const race = values => Promise.race([...values, aborted]);
   const bounded = (operation, ms) => race([operation, wait(ms)]);
   const take = outcome => { if (outcome.error) throw outcome.error; return outcome.value; };
+  const fullLookup = async () => {
+    const value = await fullSearch(input, { signal: fullController.signal });
+    return /\p{Script=Han}/u.test(input) ? value : guardLegacySupplementaryResult(value);
+  };
   try {
-    if (full) return await race([Promise.resolve().then(() => fullSearch(input, { signal: fullController.signal }))]);
+    if (full) return await race([Promise.resolve().then(fullLookup)]);
     if (/\p{Script=Han}/u.test(input)) {
-      const hot = settled(() => hotReverse(input, { signal: hotController.signal }));
+      const hot = settled(async () => {
+        const found = await hotReverse(input, { signal: hotController.signal });
+        return { ...found, results: found.results.filter(row => !isSupersededChineseSenseHead(row.term)) };
+      });
       // Give the already-prewarmed small index a brief chance before starting a
       // much larger reverse search. Misses immediately use the complete index.
       const initial = await bounded(hot, chineseDelayMs);
       if (initial.value?.results.length) return { ...initial.value, coverage: "basic" };
-      const expanded = settled(() => fullSearch(input, { signal: fullController.signal }));
+      const expanded = settled(fullLookup);
       if (!initial.pending) return take(await race([expanded]));
       const first = await race([hot.then(outcome => ({ hot: outcome })), expanded.then(outcome => ({ expanded: outcome }))]);
       if (first.hot?.value?.results.length) return { ...first.hot.value, coverage: "basic" };
       if (first.expanded) return take(first.expanded);
       return take(await race([expanded]));
     }
-    const hot = settled(() => hotLookup(input, { signal: hotController.signal }));
-    const expanded = settled(() => fullSearch(input, { signal: fullController.signal }));
+    const hot = settled(async () => {
+      const value = await hotLookup(input, { signal: hotController.signal });
+      return isReviewedCanonicalSenseHead(value?.term) ? null : value;
+    });
+    const expanded = settled(fullLookup);
     const first = await race([hot.then(outcome => ({ hot: outcome })), expanded.then(outcome => ({ expanded: outcome }))]);
     if (first.expanded?.value && knownExact(input, first.expanded.value)) return first.expanded.value;
     let hotResult = first.hot;

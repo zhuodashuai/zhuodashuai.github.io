@@ -80,10 +80,10 @@ test("example identity is stable for English heads and explicit forms, never for
   for (const row of EVERYDAY_LOOKUP_ENTRIES) {
     const example = loadEverydayExamples(row.term); assert(example); assert.equal(example.term, row.term);
     assert.equal(example.senses.length, 1); const sense = example.senses[0];
-    assert.match(sense.id, /^everyday:[a-f0-9]{16}$/u); assert(!ids.has(sense.id)); ids.add(sense.id);
+    assert.match(sense.id, row.reviewedCanonicalSense ? /^reviewed-sense:[a-f0-9]{16}$/u : /^everyday:[a-f0-9]{16}$/u); assert(!ids.has(sense.id)); ids.add(sense.id);
     assert.equal(sense.partOfSpeech, row.partOfSpeech); assert.equal(sense.meaningZh, row.meaning);
     assert.deepEqual(sense.examples, [{ en: row.en, zh: row.zh }]);
-    assert.equal(sense.source, "原创例句·作者自查（精选义项）");
+    assert.equal(sense.source, row.exampleSource || "原创例句·作者自查（精选义项）");
     assert.equal(loadEverydayExamples(row.term.toUpperCase()).senses[0].id, sense.id);
   }
   for (const query of ["人工客服", "请问人工客服的英文是什么", "live agent?", '"live agent"', "what is live agent?"]) assert.equal(loadEverydayExamples(query), null, query);

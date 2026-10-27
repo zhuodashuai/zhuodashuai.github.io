@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8eaba35a23dc2c8f8530c2a2ca08e44c63e092572bf39a450b80523d65c24473",
+  "sourceRawSha256": "fd1273fc9aa38edd504748cf14128d43385812d2558e47a53b5604b1bf9c88d2",
+  "reviewer": "AI/example_quality_provenance_audit",
+  "independentOfAuthor": true,
+  "author": "AI/examples_runtime_release_audit",
+  "approvedTerms": [
+    "CD-ROM",
+    "that's",
+    "untypical",
+    "legalistic",
+    "unrated",
+    "multitalented",
+    "snowboarder",
+    "baggie",
+    "hoodie",
+    "casualness",
+    "communitarian",
+    "meritocracy",
+    "permissiveness",
+    "remediate",
+    "shakeout",
+    "rabbinical",
+    "NOE",
+    "bin liner"
+  ],
+  "issues": [],
+  "decisions": [
+    {
+      "term": "CD-ROM",
+      "rowDigest": "c9aa747d1d56e9908a3358c572f1262938a2a72578c00bf49d14986cefca38eb",
+      "verdict": "approved",
+      "reason": "名词、只读光盘介质义正确。已独立区分CD-ROM光盘与CD-ROM drive驱动器；两项中文别名均指介质，CD-ROMs复数真实，夹在手册内的安装光盘场景及中译自然。旧canonical光盘驱动器义错误由此显式新来源补正，不冒称旧源已含。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/cd-rom"
+        }
+      ],
+      "canonicalId": 1167489,
+      "canonicalSourceSha256": "836dc8634b09f346959622139a56625a0b646452aa25232db92b9191d87eab80",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 光盘驱动器"
+    },
+    {
+      "term": "that's",
+      "rowDigest": "6f9aa222419853124cecb178f94b9a36c55e386c4507bed8d889db26e9573336",
+      "verdict": "approved",
+      "reason": "contraction标注正确，本条明确只取that is而非that has。指认遗落笔记本的完整句法、that is收缩和中译对应；中文那是/那就是没有把误译为简而言之继续当定义。英文形式保留真实撇号。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/that-s"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/thats"
+        }
+      ],
+      "canonicalId": 1790854,
+      "canonicalSourceSha256": "2846922f130491dcabb2ee8586b03ddb952da6e76c913d5c5f78e0048d2dc83a",
+      "canonicalOriginalPartOfSpeech": "determiner · contraction",
+      "canonicalOriginalMeaning": "(=that is)说得更精确些, 简而言之"
+    },
+    {
+      "term": "untypical",
+      "rowDigest": "4424d5ae0bd7b9733844354a7b5d1fd62d13f56052e6af6f95494b887b923dd6",
+      "verdict": "approved",
+      "reason": "形容词及不符合一贯特点的选定义准确，untypical of somebody结构自然。诺拉通常有计划与本次无计划的隐含对照清楚，中译自然；别名未错误关联为典型/一般。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/dictionary/english/untypical"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/dictionary/english/untypical"
+        }
+      ],
+      "canonicalId": 3032690,
+      "canonicalSourceSha256": "80fb8f2cbacad9d56cfd4647f9f345416bebbeeb87cc01c6200626bc4f14a883",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "a. 一般"
+    },
+    {
+      "term": "legalistic",
+      "rowDigest": "12f40893da72c83cb1a558b63331946741747c04d696a9e46bbf5268fa82361c",
+      "verdict": "approved",
+      "reason": "形容词的批评色彩及过度拘泥法律细节义符合独立词典，不只是尊重法律。合同答复忽略实际解决办法的句子具体且自然，中文完整表达该对照，两别名准确。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/legalistic"
+        }
+      ],
+      "canonicalId": 3198274,
+      "canonicalSourceSha256": "f52bf9b3caba61d46f060c34e67547e783acd9eb25b1e622a4aa1e39f1eda618",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "a. 尊重法律的"
+    },
+    {
+      "term": "unrated",
+      "rowDigest": "8644af7731de9560caefd73edaa0fa0983e3070975efe17c8ddc738cbc73d651",
+      "verdict": "approved",
+      "reason": "形容词未获评级/内容分级义经独立词典确认，不是评价低或未征税。电影节放映未分级纪录片的场景与中译自然；aliases仅覆盖该选定义，未将税收旧义算作已核实电影义。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/unrated"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/unrated"
+        }
+      ],
+      "canonicalId": 4336708,
+      "canonicalSourceSha256": "e2c65afe71086fa87d55b45ea8d85ab8f85d1d4e25b3b76594b8d041994c101f",
+      "canonicalOriginalPartOfSpeech": "verb · adjective",
+      "canonicalOriginalMeaning": "未征税的"
+    },
+    {
+      "term": "multitalented",
+      "rowDigest": "349aa765e8460131d734520c011a7f7b8addbb2f5592fa7a18bffbe611e1a030",
+      "verdict": "approved",
+      "reason": "独立词典明确形容词及multi-talented/multitalented两拼法；不是本条旧源的名词多面手。设计师同时作曲和画海报体现多方面才能，中译对应，别名均为形容词。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/multi-talented?topic=skill-talent-and-ability"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/multitalented"
+        }
+      ],
+      "canonicalId": 4286957,
+      "canonicalSourceSha256": "85659af6930f3a2d281dae8398d1c28ea04a81248d8f776def4623294c11b1e4",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 多面手；多才多艺的人"
+    },
+    {
+      "term": "snowboarder",
+      "rowDigest": "c45bb1cc2dcecf8036ad0fe5c683d7357ccd3ec331cda96f7415ddee9f2c4e2e",
+      "verdict": "approved",
+      "reason": "可数名词单板滑雪参与者义准确，snowboarders复数真实。红夹克、缆车旁休息场景自然，中译为单板滑雪者而非电影名或泛指双板滑雪者；别名不要求必须职业运动员。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/snowboarder"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/snowboarder"
+        }
+      ],
+      "canonicalId": 3212837,
+      "canonicalSourceSha256": "71306ad576d516a0fa4d19f9a5c993c0da54da52d583983a35738f72115d3e1c",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "雪山飞魂"
+    },
+    {
+      "term": "baggie",
+      "rowDigest": "4f83e9f997dc5ca08ba285b88a6f58d8b0a41baf8201f291c406a28f2dd215f3",
+      "verdict": "approved",
+      "reason": "独立AHD及Collins确认小塑料储物袋/食品袋的非正式普通用法。分装苹果句自然，两项中文别名限定食品小袋，baggies复数真实；没有把垃圾袋或垃圾桶内衬袋错误关联进此选定义。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.ahdictionary.com/word/search.html?q=Baggies"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/baggie"
+        }
+      ],
+      "canonicalId": 3453532,
+      "canonicalSourceSha256": "4c64736cb824a7b05af32cfd6fbf332dc67bebbc6f9d042e61960432b4ff2b44",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "垃圾袋"
+    },
+    {
+      "term": "hoodie",
+      "rowDigest": "a6569f1f15d3a3773f62173e53ca2869e90e5580aa704298a5fdbf3d9b1f2760",
+      "verdict": "approved",
+      "reason": "可数名词连帽休闲运动上衣义正确，hoodies复数及hoody变体有独立词典依据。衬衫被雨淋湿后套上干卫衣的场景和中译自然；本条明确衣物义，不与旧源乌鸦义混同。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/dictionary/english/hoodie"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/dictionary/english/hoodie"
+        }
+      ],
+      "canonicalId": 4502737,
+      "canonicalSourceSha256": "5ea330bed1261013e737436b97791f3affc9e306c65fedbe8e4c13abed9308c3",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 有冠乌鸦"
+    },
+    {
+      "term": "casualness",
+      "rowDigest": "b9a691218da0753f3f7a447cde3a49dc9a66addca73010074fda5db59c3f1038",
+      "verdict": "approved",
+      "reason": "独立Oxford明确名词可指不正式程度，着装要求随意与宾客带正装的反差自然。中文及三个别名都指此处非正式/不拘礼节义，没有混入偶然发生义；不可数用法正确。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/casualness"
+        }
+      ],
+      "canonicalId": 3527103,
+      "canonicalSourceSha256": "564f35ab14ce5189190bbf134cfa861241c546c31f9de35b19bfd32b1b10f55e",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 偶然"
+    },
+    {
+      "term": "communitarian",
+      "rowDigest": "8fae9a900309ef1f6e7d3de294a596b261bcee3a7798229f1ff0bc2984e1c8e1",
+      "verdict": "approved",
+      "reason": "独立Merriam-Webster确认形容词，Stanford哲学条目支持重视共同体对身份、规范及责任的社会政治思想义。公民身份和邻里共同责任的句子贴合且自然，中译社群主义准确；没有把communitarian一概当communist或仅名词。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.merriam-webster.com/dictionary/communitarian"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://plato.stanford.edu/entries/communitarianism/"
+        }
+      ],
+      "canonicalId": 3574860,
+      "canonicalSourceSha256": "773f568aa204fea1bf909e71893598af6dc5c13018bf56791ddff982281feb86",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "a. 公有社会的, 鼓吹公有社会的"
+    },
+    {
+      "term": "meritocracy",
+      "rowDigest": "47df2bb453e71d3f1c26e7fd54656aac60d470152f234eafdb00c142d388394b",
+      "verdict": "approved",
+      "reason": "名词制度义与精英群体义已明确分开；两项中文别名限能力晋升/任人唯贤制度。自称任人唯贤但员工怀疑关系作用的句子具有批判距离，未把现实公司无条件认证为公平；meritocracies复数真实，中译自然。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/meritocracy"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/meritocracy"
+        }
+      ],
+      "canonicalId": 3668077,
+      "canonicalSourceSha256": "724aff700ea75f89a2dc860871a3e2de6bb7a43f469e5b9d92763eb24e88f417",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 精英领导阶级"
+    },
+    {
+      "term": "permissiveness",
+      "rowDigest": "2a45dbc34df8d6d88564d61276206576131477c1064fd90a43ea0a36e37c16e5",
+      "verdict": "approved",
+      "reason": "不可数名词放任/容忍被部分人认为不妥的行为，选定义准确，不是行政许可。迟到缺少约束的具体场景、校长担忧及中译自然，中文别名两者都指态度。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/dictionary/english/permissiveness"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/permissive"
+        }
+      ],
+      "canonicalId": 3751833,
+      "canonicalSourceSha256": "a4a7509b6529a53d4e20ed617ae3696f4888c20c57358f2e975808163d758139",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 许可"
+    },
+    {
+      "term": "remediate",
+      "rowDigest": "4bbb9bbfb6fe3510327e015f2e2841d0ea1bc5082e127aece8284e4e622379d4",
+      "verdict": "approved",
+      "reason": "独立词典确认及物动词，明确选环境污染治理义；不是旧源adjective。remediates/remediated/remediating均为真实规则词形；专家治理旧工厂污染土壤的句子自然，中文及别名与选定义匹配，无具体危险治理操作。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/dictionary/english/remediate"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/dictionary/english/remediate"
+        }
+      ],
+      "canonicalId": 3761503,
+      "canonicalSourceSha256": "77f9e3e7958dfebd15b2b1a739ed89c2ec8f43b0d941d6941f4f1e01a5461ce4",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "a. (= remedial)补救的; 治疗的; 矫正的"
+    },
+    {
+      "term": "shakeout",
+      "rowDigest": "5e3085f8d007abf794fee25fcdc08b0543363611cdd276ed593f9f4d2fc0c671",
+      "verdict": "approved",
+      "reason": "名词行业淘汰/企业退出义准确，不只轻度经济衰退。出版社在行业洗牌中倒闭的因果场景、中译和aliases自然；shake-out与shakeout及其复数有独立词典依据，并未错误加入shake out动词的过去式。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/dictionary/english/shakeout"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/dictionary/english/shake-out"
+        }
+      ],
+      "canonicalId": 3713967,
+      "canonicalSourceSha256": "2d341fc3f6fdd530d98ea6c9fe2d9307bc3fe35a17dfdfc9d6bc72a469199518",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. 轻度经济衰退,股票市场震动"
+    },
+    {
+      "term": "rabbinical",
+      "rowDigest": "33244ea0d43089d006864c728e611c85914c67c5772bbb05569d947dc1be9449",
+      "verdict": "approved",
+      "reason": "独立Oxford/Collins确认形容词，rabbinic为真实变体，选义是与拉比及其教导/诠释有关，不是泛指希伯来语。比较同一段文字的拉比解释这一句法、中译和两个别名准确自然。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/rabbinical"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/dictionary/english/rabbinical"
+        }
+      ],
+      "canonicalId": 3696662,
+      "canonicalSourceSha256": "e01a8fe04e82beeaad69cc42cbf79f0f1e226154cd048df24620c6b1ec68c471",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "a. 希伯莱语的"
+    },
+    {
+      "term": "NOE",
+      "rowDigest": "6374c48add0793047404eb8f088e139c877d6ca6e28dcae3ceae11aa8d61c39e",
+      "verdict": "approved",
+      "reason": "本条明确选核Overhauser效应；abbreviation标签及the NOE体现名词性，不是旧源adjective，也非nap-of-the-earth航空义。IUPAC及Oxford NMR支持扰动另一核自旋布居而改变共振强度、探查空间邻近质子的内容，EN/ZH自然准确。核奥弗豪泽效应与核Overhauser效应指同一效应；核欧沃豪斯效应为当前canonical已有旧音译的兼容检索别名，不将其声称为新规范译名。未加入旧source的noes复数。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://goldbook.iupac.org/terms/view/08385",
+          "retrieval": "Search-indexed full definition retrieved; direct page open returned 403."
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://nmr.chem.ox.ac.uk/nmr-glossary"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://lac.dicp.ac.cn/NMRjichuzhishijianjie.pdf"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://pharmacy.hebmu.edu.cn/trywhx/resources/43/201812211502.pdf"
+        }
+      ],
+      "canonicalId": 6089421,
+      "canonicalSourceSha256": "3010fa1f6a08c43032912dade6c2b6a849df73eb78a0e44c3460ad4b0e51f2bc",
+      "canonicalOriginalPartOfSpeech": "adjective",
+      "canonicalOriginalMeaning": "[化] 核欧沃豪斯效应"
+    },
+    {
+      "term": "bin liner",
+      "rowDigest": "dfe1656f9738e73f95866ecedcaf02e9a0d1d1006e66c7c86904d3f05550d83a",
+      "verdict": "approved",
+      "reason": "英式可数名词特指放入垃圾桶内盛垃圾的内衬塑料袋，独立Cambridge/Oxford/Collins一致支持。aliases只用垃圾桶内衬袋/衬袋，未泛化所有垃圾袋或食品小袋。倒空垃圾桶后套新袋的句子自然，binliners闭合复合拼法及普通复数真实。",
+      "checks": {
+        "partOfSpeech": "approved",
+        "selectedSense": "approved",
+        "chineseAliases": "approved",
+        "englishForms": "approved",
+        "englishExample": "approved",
+        "chineseTranslation": "approved",
+        "canonicalBinding": "approved"
+      },
+      "references": [
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/bin-liner"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/bin-liner"
+        },
+        {
+          "kind": "independently-inspected-primary-or-lexicographic-source",
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/bin-liner"
+        }
+      ],
+      "canonicalId": 9111454,
+      "canonicalSourceSha256": "1cf62c69b4f6eba31dd0826b16cfdf875e02cf6c056ae87a3801761ffca754a8",
+      "canonicalOriginalPartOfSpeech": "noun",
+      "canonicalOriginalMeaning": "n. （套入垃圾桶内的）塑料垃圾袋"
+    }
+  ],
+  "scope": {
+    "sourceFile": "outputs/examples-completion-audit-2026-10-26/sense-supplement-draft.json",
+    "entries": 18,
+    "canonicalInventory": "outputs/examples-completion-audit-2026-10-26/sense-supplement-review-inventory.json"
+  },
+  "method": "Read each actual draft row and independently checked POS, explicit selected sense, Chinese search aliases, attested regular/alternative forms and the complete original EN/ZH pair. Reauthenticated current canonical records, including every existing variant, against hashed English dictionary shards. Used independent publisher/official specialist sources rather than accepting author references unread. This review approves an explicit new sense supplement; it does not assert the old canonical ECDICT gloss/POS already contained it.",
+  "notes": [
+    "All 18 canonical IDs, literal terms and full-record JSON SHA256 values matched the current authenticated canonical data.",
+    "Chinese definitions and EN/ZH examples were judged natural and accurate by an AI reader independent of this draft author. This is not a human certification, exhaustive plagiarism check or approval of other senses/rows.",
+    "NOE old transliteration alias 核欧沃豪斯效应 is retained solely for compatibility with the exact current canonical chemical-effect label; the main new display meaning uses 核奥弗豪泽效应. No claim is made that every old transliteration is a preferred terminology standard.",
+    "No repository source, assets, commits or deployment were modified by this review."
+  ]
+}

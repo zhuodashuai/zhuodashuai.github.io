@@ -7,6 +7,13 @@ export interface EverydayLookupEntry {
   readonly en: string;
   readonly zh: string;
   readonly references: readonly string[];
+  readonly dictionarySource?: string;
+  readonly exampleSource?: string;
+  readonly exampleReviewer?: string;
+  readonly reviewedCanonicalSense?: boolean;
+  readonly retainLegacyChinese?: boolean;
+  readonly canonicalId?: number;
+  readonly canonicalSourceSha256?: string;
 }
 
 export const EVERYDAY_LOOKUP_ENTRIES: readonly EverydayLookupEntry[];

@@ -8,6 +8,8 @@ const LICENSE = "Original composition";
 const SOURCE_URL = "https://zhuodashuai.github.io/vocab/";
 const EXAMPLE_SOURCE = "原创例句·作者自查（精选义项）";
 const chinese = new Map(), canonicalEnglish = new Map(), englishForms = new Map();
+const reviewedCanonicalHeads = new Set();
+const supersededChineseHeads = new Set();
 
 function spelling(value) {
   return value.normalize("NFKC").replace(/[‘’‛ʼ]/gu, "'").replace(/[“”„‟]/gu, '"')
@@ -53,8 +55,31 @@ for (const row of EVERYDAY_LOOKUP_ENTRIES) {
   const key = englishKey(row.term);
   if (canonicalEnglish.has(key)) throw new Error("Duplicate everyday dictionary headword.");
   canonicalEnglish.set(key, row);
+  if (row.reviewedCanonicalSense === true) reviewedCanonicalHeads.add(row.term);
+  if (row.reviewedCanonicalSense === true && row.retainLegacyChinese !== true) supersededChineseHeads.add(row.term);
   for (const term of row.chineseAliases) add(chinese, chineseKey(spelling(term)), row);
   for (const term of row.englishForms) add(englishForms, englishKey(term), row);
+}
+
+/** Only the literal, reviewed canonical head qualifies. Search decoration,
+ * case folding and declared forms never authorize suppressing a core record. */
+export function isReviewedCanonicalSenseHead(term) {
+  return typeof term === "string" && reviewedCanonicalHeads.has(term);
+}
+
+export function isSupersededChineseSenseHead(term) {
+  return typeof term === "string" && supersededChineseHeads.has(term);
+}
+
+/** Call only after the explicit packaged head/form lookup missed. A legacy
+ * form cannot borrow a newly selected meaning merely by resolving to its head. */
+export function guardLegacySupplementaryResult(result) {
+  const row = Array.isArray(result?.results) ? result.results.find(item => isReviewedCanonicalSenseHead(item.term)) : null;
+  if (row) {
+    const error = new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');
+    error.code = 'unreviewed_dictionary_form'; throw error;
+  }
+  return result;
 }
 
 function lookupChinese(query) {
@@ -87,7 +112,7 @@ export function searchEverydayDictionary(input, { limit = 20 } = {}) {
     query,
     results: rows.slice(0, count).map(row => ({
       term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
-      source: SOURCE, license: LICENSE, url: SOURCE_URL,
+      source: row.dictionarySource || SOURCE, license: LICENSE, url: SOURCE_URL,
       ...(!HAN.test(normal) && query !== englishKey(row.term) ? { matchedForm: form } : {}),
     })),
     hasMore: rows.length > count,
@@ -105,8 +130,10 @@ export function loadEverydayExamples(term) {
   return {
     term: row.term,
     senses: [{
-      id: `everyday:${stableKey(row.term)}`, partOfSpeech: row.partOfSpeech, meaningZh: row.meaning,
-      examples: [{ en: row.en, zh: row.zh }], reviewer: "AI/everyday-original", source: EXAMPLE_SOURCE,
+      id: `${row.reviewedCanonicalSense === true ? "reviewed-sense" : "everyday"}:${stableKey(row.term)}`,
+      partOfSpeech: row.partOfSpeech, meaningZh: row.meaning,
+      examples: [{ en: row.en, zh: row.zh }],
+      reviewer: row.exampleReviewer || "AI/everyday-original", source: row.exampleSource || EXAMPLE_SOURCE,
     }],
   };
 }
