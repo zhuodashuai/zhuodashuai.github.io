@@ -1,4 +1,4 @@
-// Reviewed example quality update 2026-10-27: refresh the shell and retain warm shards.
+// Daily Chinese lookup update 2026-10-27: refresh the shell and retain warm shards.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
