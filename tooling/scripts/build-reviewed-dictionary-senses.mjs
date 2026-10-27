@@ -104,8 +104,10 @@ export async function loadReviewedSenseBuild() {
   }
   if ([...retainedChineseHeads].some(term => !seen.has(term))) throw Error('Legacy Chinese retention requires an approved literal head');
   rows.sort((a, b) => a.term < b.term ? -1 : a.term > b.term ? 1 : 0);
+  // One JSON object per line keeps this mutable module readable without
+  // duplicating indentation throughout every Pages/offline release.
   const source = '// Generated independent selected-sense supplements; original canonical records and IDs remain unchanged.\n'
-    + 'export const REVIEWED_SENSE_ENTRIES = Object.freeze(' + JSON.stringify(rows, null, 2)
+    + 'export const REVIEWED_SENSE_ENTRIES = Object.freeze([\n' + rows.map(row => '  ' + JSON.stringify(row)).join(',\n') + '\n]'
     + '.map(row => Object.freeze({ ...row, chineseAliases: Object.freeze(row.chineseAliases), englishForms: Object.freeze(row.englishForms), references: Object.freeze(row.references) })));\n';
   return { rows, source };
 }
