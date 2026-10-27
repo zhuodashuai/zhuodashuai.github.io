@@ -1,7 +1,7 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=95";
-import { searchEverydayDictionary } from "./everyday-lookup.js";
+import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult } from "./everyday-lookup.js";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -401,6 +401,9 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       examined++;
       const record = loaded.get(id % BUCKETS).records.get(id);
       if (!record || id % BUCKETS !== bucketFor(fold(record.term))) throw invalid();
+      // Reviewed replacement senses use their explicit local Chinese aliases.
+      // Their stale legacy reverse postings must not keep teaching the old error.
+      if (isSupersededChineseSenseHead(record.term)) continue;
       const variants = [record, ...record.variants];
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
@@ -490,7 +493,7 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
     const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery };
-    return chinese ? chineseSearch(query, count, context) : englishSearch(query, context);
+    return chinese ? chineseSearch(query, count, context) : guardLegacySupplementaryResult(await englishSearch(query, context));
   })();
   return waitFor(work, signal, duration);
 }

@@ -1,3 +1,4 @@
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js';
 export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
   {
     term: "live agent",
@@ -3956,6 +3957,7 @@ export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
       "https://www.hidglobal.com/products/crescendo"
     ]
   },
+  ...REVIEWED_SENSE_ENTRIES,
 ].map((entry) => Object.freeze({
   ...entry,
   chineseAliases: Object.freeze(entry.chineseAliases),

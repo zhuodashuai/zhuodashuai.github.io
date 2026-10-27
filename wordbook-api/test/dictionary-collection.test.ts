@@ -89,7 +89,7 @@ describe("verified owner dictionary collection", () => {
       expect(entry.term).toBe(row.term); expect(entry.partOfSpeech).toBe(row.partOfSpeech); expect(entry.meaning).toBe(row.meaning);
       expect(entry.exampleEn).toBe(row.en); expect(entry.exampleZh).toBe(row.zh);
       expect(entry.exampleEn.trim().length).toBeGreaterThan(0); expect(entry.exampleZh).toMatch(/\p{Script=Han}/u);
-      expect(entry.sourceTitle).toBe("卓的日常词组"); expect(entry.organizationMethod).toBe("local-dictionary");
+      expect(entry.sourceTitle).toBe(row.dictionarySource || "卓的日常词组"); expect(entry.organizationMethod).toBe("local-dictionary");
       expect(validateSnapshot({ schemaVersion: 3, revisionId: "everyday-collection-revision", lastMutationId: "everyday-test-key", exportedAt: entry.updatedAt, entries: [entry] }).entries).toHaveLength(1);
     }
     expect(requests).toBe(0);
@@ -122,5 +122,22 @@ describe("verified owner dictionary collection", () => {
     expect(seen).toHaveLength(0);
     const unknown = "live agent secret override", missing = await fixture(unknown, { missing: true });
     await expect(resolveDictionaryCollection(unknown, missing.assets)).rejects.toMatchObject({ status: 422, code: "dictionary_term_not_exact" });
+  });
+
+  it("saves reviewed supplementary meanings with their own source while preserving an existing user card", async () => {
+    const row = EVERYDAY_LOOKUP_ENTRIES.find(item => item.reviewedCanonicalSense === true)!;
+    expect(row).toBeDefined();
+    const assets = { fetch: async () => { throw new Error("A shipped reviewed source does not need a provider"); } } as Pick<Fetcher, "fetch">;
+    const entry = await resolveDictionaryCollection(row.term, assets);
+    expect(entry.sourceTitle).toBe("卓式词典·义项补充");
+    expect(entry.meaning).toBe(row.meaning); expect(entry.exampleEn).toBe(row.en); expect(entry.exampleZh).toBe(row.zh);
+    expect(entry.correction.source).toBe("reviewed-canonical-sense");
+    expect(JSON.stringify(entry)).not.toContain("canonicalSourceSha256");
+    entry.meaning = "自己保留的阅读语境释义。"; entry.usage = "自己的学习备注。";
+    const snapshot = validateSnapshot({ schemaVersion: 3, revisionId: "reviewed-source-existing-card", lastMutationId: "reviewed-source-test", exportedAt: entry.updatedAt, entries: [entry] });
+    const before = JSON.stringify(snapshot.entries[0]);
+    expect(findCollectedEntry(snapshot, row.term)).toBe(snapshot.entries[0]);
+    expect(JSON.stringify(snapshot.entries[0])).toBe(before);
+    expect(DictionaryCollectionRequestSchema.safeParse({ term: row.term, mutationId: "reviewed-source-test", dictionarySource: "forged" }).success).toBe(false);
   });
 });

@@ -35,14 +35,14 @@ function everydayHead(value: string): EverydayLookupEntry | undefined {
 
 function everydayEntry(row: EverydayLookupEntry): PublicEntry {
   const now = new Date().toISOString();
-  const title = "卓的日常词组", url = "https://zhuodashuai.github.io/vocab/";
+  const title = row.dictionarySource || "卓的日常词组", url = "https://zhuodashuai.github.io/vocab/";
   try {
     validateEnglishInput(row.term);
     if (!hasPlausibleChineseMeaning(row.meaning)) throw unavailable();
     return PublicEntrySchema.parse({
       id: `public-${crypto.randomUUID()}`, revision: 1, originalInput: row.term, term: row.term,
       normalized: normalizeEnglish(row.term), standardForm: row.term, entryType: classifyInput(row.term),
-      correction: { status: "exact", original: row.term, suggestion: "", chosen: row.term, confidence: 1, source: "packaged-everyday-dictionary" },
+      correction: { status: "exact", original: row.term, suggestion: "", chosen: row.term, confidence: 1, source: row.reviewedCanonicalSense ? "reviewed-canonical-sense" : "packaged-everyday-dictionary" },
       phonetic: "", partOfSpeech: row.partOfSpeech, meaning: row.meaning, definition: "", senses: [], synonyms: [],
       collocations: [], exampleEn: row.en, exampleZh: row.zh, usage: "", register: "", confusedWith: [],
       forms: row.englishForms.filter(form => normalizeEnglish(form) !== normalizeEnglish(row.term)), tags: [], author: "",
