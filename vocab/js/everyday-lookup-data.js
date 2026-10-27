@@ -2246,7 +2246,8 @@ export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
     "chineseAliases": [
       "补做考试",
       "缺考补考",
-      "缺考后的补考"
+      "缺考后的补考",
+      "补考"
     ],
     "englishForms": [
       "make-up exams",
@@ -2315,7 +2316,10 @@ export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
     "chineseAliases": [
       "教师答疑时间",
       "教授答疑时间",
-      "老师答疑时间"
+      "老师答疑时间",
+      "答疑时间",
+      "教师答疑",
+      "老师答疑"
     ],
     "englishForms": [],
     "en": "I will ask the professor about the assignment during office hours.",
@@ -3957,6 +3961,3482 @@ export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
       "https://www.hidglobal.com/products/crescendo"
     ]
   },
+    {
+      "term": "plunger",
+      "partOfSpeech": "noun",
+      "meaning": "① 皮搋子；管道疏通吸盘。带手柄和橡胶吸盘、用来疏通堵塞管道的工具。",
+      "chineseAliases": [
+        "皮搋子",
+        "马桶吸",
+        "马桶吸盘",
+        "管道疏通吸盘"
+      ],
+      "englishForms": [
+        "plungers"
+      ],
+      "en": "There is a plunger beside the downstairs toilet.",
+      "zh": "楼下的马桶旁边放着一个皮搋子。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/plunger"
+      ]
+    },
+    {
+      "term": "blocked drain",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 堵塞的下水道；堵住的排水管。指排水通路被异物等阻塞。",
+      "chineseAliases": [
+        "下水道堵塞",
+        "堵塞的下水道",
+        "排水管堵塞"
+      ],
+      "englishForms": [
+        "blocked drains"
+      ],
+      "en": "A blocked drain was causing water to collect in the shower.",
+      "zh": "排水管堵塞，导致淋浴间里积水。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/unblock"
+      ]
+    },
+    {
+      "term": "unblock a drain",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 疏通下水道；清除排水管里的堵塞物，使其恢复排水。",
+      "chineseAliases": [
+        "疏通下水道",
+        "疏通排水管"
+      ],
+      "englishForms": [
+        "unblocks a drain",
+        "unblocked a drain",
+        "unblocking a drain",
+        "unblock drains"
+      ],
+      "en": "The plumber came to unblock a drain beneath the sink.",
+      "zh": "水管工来疏通水槽下面的一根排水管。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/unblock"
+      ]
+    },
+    {
+      "term": "stepladder",
+      "partOfSpeech": "noun",
+      "meaning": "① 人字梯；可自行站立的折叠梯，展开后不用倚靠墙面。",
+      "chineseAliases": [
+        "人字梯",
+        "折叠人字梯"
+      ],
+      "englishForms": [
+        "stepladders"
+      ],
+      "en": "The folded stepladder fits behind the kitchen door.",
+      "zh": "折好的人字梯可以放在厨房门后。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/stepladder"
+      ]
+    },
+    {
+      "term": "crosshead screwdriver",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 十字螺丝刀；刀头用于转动十字槽螺钉的螺丝刀。",
+      "chineseAliases": [
+        "十字螺丝刀",
+        "十字起子",
+        "十字螺丝起子"
+      ],
+      "englishForms": [
+        "crosshead screwdrivers",
+        "cross-head screwdriver",
+        "cross-head screwdrivers"
+      ],
+      "en": "I put the crosshead screwdriver back in the toolbox.",
+      "zh": "我把十字螺丝刀放回了工具箱。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/crosshead-screwdriver"
+      ]
+    },
+    {
+      "term": "flathead screwdriver",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 一字螺丝刀；刀头呈扁平一字形、用于转动一字槽螺钉的螺丝刀。",
+      "chineseAliases": [
+        "一字螺丝刀",
+        "一字起子",
+        "平口螺丝刀"
+      ],
+      "englishForms": [
+        "flathead screwdrivers",
+        "flat-head screwdriver",
+        "flat-head screwdrivers"
+      ],
+      "en": "The flathead screwdriver has a blue handle.",
+      "zh": "那把一字螺丝刀有一个蓝色手柄。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/flathead-screwdriver"
+      ]
+    },
+    {
+      "term": "Allen key",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 内六角扳手。用于转动头部带内六角凹槽的螺钉，常呈 L 形；Allen 原为商标名称。",
+      "chineseAliases": [
+        "内六角扳手",
+        "艾伦扳手"
+      ],
+      "englishForms": [
+        "Allen keys"
+      ],
+      "en": "The desk came with a small Allen key.",
+      "zh": "这张书桌附带了一把小内六角扳手。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/allen-key"
+      ]
+    },
+    {
+      "term": "cable tie",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 扎带；束线带。可收紧并扣住的细长带子，常用来捆扎电线等物品。",
+      "chineseAliases": [
+        "扎带",
+        "束线带",
+        "塑料扎带",
+        "尼龙扎带"
+      ],
+      "englishForms": [
+        "cable ties"
+      ],
+      "en": "A cable tie keeps these loose wires together.",
+      "zh": "一根扎带把这些散乱的电线束在一起。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/cable-tie"
+      ]
+    },
+    {
+      "term": "double-sided tape",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 双面胶；双面胶带。两面都有黏胶、可夹在物体之间进行粘合的胶带。",
+      "chineseAliases": [
+        "双面胶",
+        "双面胶带"
+      ],
+      "englishForms": [],
+      "en": "She attached the photo to the card with double-sided tape.",
+      "zh": "她用双面胶把照片粘在卡片上。",
+      "references": [
+        "https://www.3m.com/3M/en_US/p/d/b5005644009/"
+      ]
+    },
+    {
+      "term": "electrical tape",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 电工胶带；绝缘胶带。用于电气绝缘、包扎等用途的专用胶带。",
+      "chineseAliases": [
+        "绝缘胶带",
+        "电工胶带",
+        "电气绝缘胶带"
+      ],
+      "englishForms": [],
+      "en": "The electrician took a roll of electrical tape from his bag.",
+      "zh": "电工从包里拿出了一卷绝缘胶带。",
+      "references": [
+        "https://www.3m.com/3M/en_US/electrical-construction-maintenance-us/products/electrical-tapes/"
+      ]
+    },
+    {
+      "term": "fitted sheet",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 床笠；带松紧边、可包住并固定在床垫上的床单。",
+      "chineseAliases": [
+        "床笠",
+        "松紧床笠"
+      ],
+      "englishForms": [
+        "fitted sheets"
+      ],
+      "en": "This fitted sheet is too small for our new mattress.",
+      "zh": "这张床笠对我们的新床垫来说太小了。",
+      "references": [
+        "https://www.ikea.com/us/en/p/dvala-fitted-sheet-white-60356573/"
+      ]
+    },
+    {
+      "term": "pillow insert",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 枕芯；靠垫芯。放在枕套或靠垫套里面、有填充物的内芯，区别于外面的套子。",
+      "chineseAliases": [
+        "枕芯",
+        "靠枕芯",
+        "靠垫芯",
+        "抱枕芯"
+      ],
+      "englishForms": [
+        "pillow inserts"
+      ],
+      "en": "The pillow insert fits neatly inside the new cover.",
+      "zh": "这个枕芯正好装进新枕套里。",
+      "references": [
+        "https://www.thecompanystore.com/pillow-inserts",
+        "https://www.ikea.com/us/en/cat/pillow-inserts-18904/"
+      ]
+    },
+    {
+      "term": "duvet",
+      "partOfSpeech": "noun",
+      "meaning": "① 被芯；蓬松的被子。内部填有羽绒、羽毛或合成材料等，通常另套被套使用；不是被套本身。",
+      "chineseAliases": [
+        "被芯",
+        "羽绒被芯"
+      ],
+      "englishForms": [
+        "duvets"
+      ],
+      "en": "I put the clean cover back on the duvet.",
+      "zh": "我把干净的被套重新套在被芯上。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/duvet"
+      ]
+    },
+    {
+      "term": "toilet roll",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 卷筒卫生纸；卫生纸卷。绕成卷、供如厕后清洁使用的柔软纸张。",
+      "chineseAliases": [
+        "卷筒卫生纸",
+        "卫生纸卷",
+        "卷纸卫生纸"
+      ],
+      "englishForms": [
+        "toilet rolls"
+      ],
+      "en": "We keep the spare toilet rolls in a basket by the door.",
+      "zh": "备用的卫生纸卷放在门旁的篮子里。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/toilet-roll?topic=toiletry-and-perfumes"
+      ]
+    },
+    {
+      "term": "fabric shaver",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 去毛球器；毛球修剪器。用于去除衣物等织物表面毛球的小型工具或电器。",
+      "chineseAliases": [
+        "去毛球器",
+        "毛球修剪器",
+        "衣物去球器"
+      ],
+      "englishForms": [
+        "fabric shavers"
+      ],
+      "en": "The fabric shaver removed the little pills from my sweater.",
+      "zh": "去毛球器去掉了我毛衣上的小毛球。",
+      "references": [
+        "https://www.domesticappliances.philips.co.in/collections/ironing/fabric-shaver"
+      ]
+    },
+    {
+      "term": "lint roller",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 粘毛滚筒；粘毛器。带黏性表面的滚筒，用来粘走衣物等表面的毛发和浮毛。",
+      "chineseAliases": [
+        "粘毛滚筒",
+        "黏毛滚筒",
+        "粘毛滚",
+        "粘毛器"
+      ],
+      "englishForms": [
+        "lint rollers"
+      ],
+      "en": "I used a lint roller to remove cat hair from my coat.",
+      "zh": "我用粘毛滚筒粘掉了大衣上的猫毛。",
+      "references": [
+        "https://www.ikea.com/se/en/p/baestis-lint-roller-grey-90425626/"
+      ]
+    },
+    {
+      "term": "garment steamer",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 挂烫机；衣物蒸汽熨烫机。用蒸汽帮助去除衣物褶皱的器具，可用于悬挂的衣物。",
+      "chineseAliases": [
+        "挂烫机",
+        "衣物挂烫机",
+        "蒸汽挂烫机"
+      ],
+      "englishForms": [
+        "garment steamers"
+      ],
+      "en": "The garment steamer has a removable water tank.",
+      "zh": "这台挂烫机有一个可拆卸水箱。",
+      "references": [
+        "https://www.home-appliances.philips/gb/en/p/STE1040_20"
+      ]
+    },
+    {
+      "term": "flip-flop",
+      "partOfSpeech": "noun",
+      "meaning": "① 人字拖；夹脚拖鞋。鞋带呈 V 形、从大脚趾与旁边脚趾之间穿过的露趾便鞋，通常用复数 flip-flops。",
+      "chineseAliases": [
+        "人字拖",
+        "人字拖鞋",
+        "夹脚拖鞋"
+      ],
+      "englishForms": [
+        "flip-flops"
+      ],
+      "en": "He left his flip-flops outside the bathroom.",
+      "zh": "他把人字拖留在了浴室外面。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/flip-flop"
+      ]
+    },
+    {
+      "term": "shampoo",
+      "partOfSpeech": "noun",
+      "meaning": "① 洗发水；洗发液。用来清洗头发的液体清洁用品。",
+      "chineseAliases": [
+        "洗发水",
+        "洗发液",
+        "洗头水"
+      ],
+      "englishForms": [
+        "shampoos"
+      ],
+      "en": "The shampoo bottle is almost empty.",
+      "zh": "那瓶洗发水快用完了。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/shampoo?topic=cleaning-and-tidying-places-and-things"
+      ]
+    },
+    {
+      "term": "hair conditioner",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 护发素；护发剂。用于改善头发柔顺度和外观的护发用品，区别于清洁头发的洗发水。",
+      "chineseAliases": [
+        "护发素",
+        "护发剂",
+        "头发护发素"
+      ],
+      "englishForms": [
+        "hair conditioners"
+      ],
+      "en": "My hair is easier to comb after I use hair conditioner.",
+      "zh": "用了护发素之后，我的头发更容易梳理。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english-chinese-simplified/conditioner"
+      ]
+    },
+    {
+      "term": "shower gel",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 沐浴露；沐浴啫喱。淋浴时用于清洁身体的液体或凝胶状清洁用品。",
+      "chineseAliases": [
+        "沐浴露",
+        "沐浴啫喱",
+        "淋浴凝胶"
+      ],
+      "englishForms": [
+        "shower gels"
+      ],
+      "en": "The shower gel has a light citrus scent.",
+      "zh": "这款沐浴露有淡淡的柑橘香味。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/shower-gel?topic=cleaning-agents"
+      ]
+    },
+    {
+      "term": "nail clippers",
+      "partOfSpeech": "plural noun",
+      "meaning": "① 指甲剪；指甲钳。用于修剪指甲的小工具，常说 a pair of nail clippers。",
+      "chineseAliases": [
+        "指甲剪",
+        "指甲钳"
+      ],
+      "englishForms": [],
+      "en": "I keep a pair of nail clippers in the bathroom drawer.",
+      "zh": "我在浴室抽屉里放着一把指甲剪。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/clipper"
+      ]
+    },
+    {
+      "term": "shaving foam",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 剃须泡沫。剃须时使用的泡沫状用品，区别于剃须刀本身。",
+      "chineseAliases": [
+        "剃须泡沫",
+        "刮胡泡沫",
+        "刮胡子泡沫"
+      ],
+      "englishForms": [],
+      "en": "There is a can of shaving foam next to the razor.",
+      "zh": "剃须刀旁边有一罐剃须泡沫。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/learner-english/foam",
+        "https://dictionary.cambridge.org/dictionary/english/shaving"
+      ]
+    },
+    {
+      "term": "electric shaver",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 电动剃须刀；电须刀。由电力驱动、用于剃除胡须的器具。",
+      "chineseAliases": [
+        "电动剃须刀",
+        "电须刀",
+        "电动刮胡刀"
+      ],
+      "englishForms": [
+        "electric shavers"
+      ],
+      "en": "My electric shaver needs charging before I can use it.",
+      "zh": "我的电动剃须刀需要先充电才能使用。",
+      "references": [
+        "https://www.usa.philips.com/c-p/PQ208_17/electric-shaver"
+      ]
+    },
+    {
+      "term": "set-top box",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 电视机顶盒；机顶盒。连接电视、用于接收和处理数字电视等节目信号的设备。",
+      "chineseAliases": [
+        "电视机顶盒",
+        "机顶盒",
+        "数字电视机顶盒"
+      ],
+      "englishForms": [
+        "set-top boxes"
+      ],
+      "en": "The remote control for the set-top box is on the sofa.",
+      "zh": "电视机顶盒的遥控器在沙发上。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/set-top-box?topic=television"
+      ]
+    },
+    {
+      "term": "Ethernet port",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 以太网接口；网口。用于连接以太网网线的接口。",
+      "chineseAliases": [
+        "网口",
+        "以太网接口",
+        "以太网端口",
+        "网线接口"
+      ],
+      "englishForms": [
+        "Ethernet ports"
+      ],
+      "en": "This laptop has no Ethernet port, so I use an adapter.",
+      "zh": "这台笔记本没有网口，所以我使用转接器。",
+      "references": [
+        "https://support.apple.com/en-al/guide/mac-help/mchlp1413/mac"
+      ]
+    },
+    {
+      "term": "wireless network adapter",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 无线网卡；无线网络适配器。让设备连接无线网络的硬件，可内置或外接。",
+      "chineseAliases": [
+        "无线网卡",
+        "无线网络适配器",
+        "无线网络卡"
+      ],
+      "englishForms": [
+        "wireless network adapters"
+      ],
+      "en": "The computer has a built-in wireless network adapter.",
+      "zh": "这台电脑内置了无线网卡。",
+      "references": [
+        "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/setting-up-a-wireless-network-in-windows"
+      ]
+    },
+    {
+      "term": "pair a Bluetooth device",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 与蓝牙设备配对；建立蓝牙设备之间的配对关系。配对不等于设备会始终保持连接。",
+      "chineseAliases": [
+        "蓝牙配对",
+        "与蓝牙设备配对",
+        "配对蓝牙设备"
+      ],
+      "englishForms": [
+        "pairs a Bluetooth device",
+        "paired a Bluetooth device",
+        "pairing a Bluetooth device",
+        "pair Bluetooth devices"
+      ],
+      "en": "I need to pair a Bluetooth device with this tablet.",
+      "zh": "我需要把一台蓝牙设备与这台平板电脑配对。",
+      "references": [
+        "https://support.apple.com/en-gb/105108"
+      ]
+    },
+    {
+      "term": "unpair a Bluetooth device",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 取消蓝牙设备的配对；移除已经建立的蓝牙配对关系，区别于暂时断开连接。",
+      "chineseAliases": [
+        "取消蓝牙配对",
+        "取消蓝牙设备配对",
+        "解除蓝牙配对",
+        "取消配对蓝牙设备"
+      ],
+      "englishForms": [
+        "unpairs a Bluetooth device",
+        "unpaired a Bluetooth device",
+        "unpairing a Bluetooth device",
+        "unpair Bluetooth devices"
+      ],
+      "en": "I unpaired a Bluetooth device that I no longer use.",
+      "zh": "我取消了一台已不用的蓝牙设备的配对。",
+      "references": [
+        "https://support.apple.com/en-gb/105108"
+      ]
+    },
+    {
+      "term": "screen sharing",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 屏幕共享。通过通话或协作软件等，让其他人看到自己的屏幕或选定窗口。",
+      "chineseAliases": [
+        "屏幕共享",
+        "共享屏幕"
+      ],
+      "englishForms": [],
+      "en": "Screen sharing helped us find the error together.",
+      "zh": "屏幕共享帮助我们一起找到了错误。",
+      "references": [
+        "https://support.microsoft.com/en-us/teams/chat/share-your-screen-in-a-chat-in-microsoft-teams"
+      ]
+    },
+    {
+      "term": "screen mirroring",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 屏幕镜像；镜像投屏。把本机屏幕的画面实时显示在另一块屏幕上；这里特指镜像屏幕，不是仅投放某个视频。",
+      "chineseAliases": [
+        "投屏",
+        "屏幕镜像",
+        "镜像投屏",
+        "手机屏幕镜像"
+      ],
+      "englishForms": [],
+      "en": "Screen mirroring lets the family see my phone photos on the TV.",
+      "zh": "通过屏幕镜像，全家人可以在电视上看我手机里的照片。",
+      "references": [
+        "https://support.apple.com/en-gb/102661?ct=t"
+      ]
+    },
+    {
+      "term": "restore from a backup",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 从备份恢复；使用先前保存的备份还原数据或设备内容。",
+      "chineseAliases": [
+        "恢复备份",
+        "从备份恢复",
+        "从备份还原"
+      ],
+      "englishForms": [
+        "restores from a backup",
+        "restored from a backup",
+        "restoring from a backup"
+      ],
+      "en": "We restored from a backup after replacing the damaged drive.",
+      "zh": "更换损坏的硬盘后，我们从备份恢复了数据。",
+      "references": [
+        "https://support.apple.com/en-gb/guide/iphone/iph1624229a/ios"
+      ]
+    },
+    {
+      "term": "missed call",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 未接来电。有人拨来但未被接听的电话。",
+      "chineseAliases": [
+        "未接来电",
+        "未接电话"
+      ],
+      "englishForms": [
+        "missed calls"
+      ],
+      "en": "I found two missed calls from my sister.",
+      "zh": "我看到姐姐打来了两个未接电话。",
+      "references": [
+        "https://support.apple.com/en-lamr/109317"
+      ]
+    },
+    {
+      "term": "call forwarding",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 呼叫转移；来电转接。把打到一个号码的来电转到另一个号码的电话服务。",
+      "chineseAliases": [
+        "来电转接",
+        "呼叫转移",
+        "来电转移"
+      ],
+      "englishForms": [],
+      "en": "Call forwarding sends calls from the office number to my mobile.",
+      "zh": "呼叫转移会把打到办公室号码的电话转到我的手机上。",
+      "references": [
+        "https://support.apple.com/en-lamr/109317"
+      ]
+    },
+    {
+      "term": "smoke alarm",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 烟雾报警器。检测到烟雾时发出警报的装置。",
+      "chineseAliases": [
+        "烟雾报警器",
+        "烟感报警器"
+      ],
+      "englishForms": [
+        "smoke alarms"
+      ],
+      "en": "The landlord replaced the old smoke alarm in the hallway.",
+      "zh": "房东更换了走廊里旧的烟雾报警器。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/smoke-alarm"
+      ]
+    },
+    {
+      "term": "carbon monoxide alarm",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 一氧化碳报警器；用于检测一氧化碳并发出警报的装置，区别于烟雾报警器。",
+      "chineseAliases": [
+        "一氧化碳报警器",
+        "一氧化碳警报器"
+      ],
+      "englishForms": [
+        "carbon monoxide alarms"
+      ],
+      "en": "The carbon monoxide alarm is separate from the smoke alarm.",
+      "zh": "一氧化碳报警器和烟雾报警器是两个不同的装置。",
+      "references": [
+        "https://www.kidde.com/support/carbon-monoxide-alarms/why-is-my-carbon-monoxide-alarm-beeping-or-chirping"
+      ]
+    },
+    {
+      "term": "circuit breaker trip",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 断路器跳闸；断路器自动断开电路的动作或事件。不是一般意义上的所有停电。",
+      "chineseAliases": [
+        "跳闸",
+        "断路器跳闸"
+      ],
+      "englishForms": [
+        "circuit breaker trips"
+      ],
+      "en": "The electrician investigated the cause of the circuit breaker trip.",
+      "zh": "电工检查了断路器跳闸的原因。",
+      "references": [
+        "https://iportal.se.com/Contents/docs/PowerPact%20B-Frame%20Circuit%20Breakers%20and%20Automatic%20Switches%20User%20Guide.pdf"
+      ]
+    },
+    {
+      "term": "paper towel",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 擦手纸；厨房纸。吸水性较强的纸巾，用于擦干双手、擦拭物品或吸收液体。",
+      "chineseAliases": [
+        "擦手纸",
+        "厨房纸",
+        "厨房纸巾",
+        "擦手纸巾"
+      ],
+      "englishForms": [
+        "paper towels"
+      ],
+      "en": "She dried her hands with a paper towel.",
+      "zh": "她用一张擦手纸擦干了双手。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/paper-towel"
+      ]
+    },
+    {
+      "term": "trouser hanger",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 裤架；裤子衣架。用于悬挂裤子的衣架。",
+      "chineseAliases": [
+        "裤架",
+        "裤子衣架",
+        "挂裤架"
+      ],
+      "englishForms": [
+        "trouser hangers"
+      ],
+      "en": "The trousers slipped off the trouser hanger during the move.",
+      "zh": "搬家时，那条裤子从裤架上滑落了。",
+      "references": [
+        "https://www.ikea.com/th/th/files/pdf/b5/93/b5936a03/003_25-may-hotel-furniture-package.pdf"
+      ]
+    },
+    {
+      "term": "pilling",
+      "partOfSpeech": "noun",
+      "meaning": "① 起球；衣物起球。织物表面形成小纤维球的现象。",
+      "chineseAliases": [
+        "衣服起球",
+        "衣物起球",
+        "织物起球",
+        "起毛球"
+      ],
+      "englishForms": [],
+      "en": "There is some pilling on the sleeves of this old jumper.",
+      "zh": "这件旧毛衣的袖子有些起球。",
+      "references": [
+        "https://www.ikea.com/be/en/circular/repair/cure-and-prevent-the-pilling-of-textiles-pub118a3730/"
+      ]
+    },
+    {
+      "term": "system backup",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 系统备份。为日后恢复系统而保存的相关数据副本，也指创建这种副本的过程。",
+      "chineseAliases": [
+        "系统备份",
+        "电脑系统备份"
+      ],
+      "englishForms": [
+        "system backups"
+      ],
+      "en": "The system backup is stored on an external drive.",
+      "zh": "系统备份保存在外置硬盘上。",
+      "references": [
+        "https://support.microsoft.com/en-us/accessibility/windows/use-a-screen-reader-to-back-up-and-restore-data-on-windows"
+      ]
+    },
+    {
+      "term": "download software",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 下载软件。把软件从网络或其他设备传输到本机；下载不等于已经完成安装。",
+      "chineseAliases": [
+        "软件下载",
+        "下载软件"
+      ],
+      "englishForms": [
+        "downloads software",
+        "downloaded software",
+        "downloading software"
+      ],
+      "en": "You can download software from the developer's website.",
+      "zh": "你可以从开发者的网站下载软件。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/download-software"
+      ]
+    },
+    {
+      "term": "mute",
+      "partOfSpeech": "verb",
+      "meaning": "① 使静音；关闭设备、应用或某一路音频的声音。具体静音范围取决于所操作的对象。",
+      "chineseAliases": [
+        "静音",
+        "设为静音",
+        "使静音"
+      ],
+      "englishForms": [
+        "mutes",
+        "muting"
+      ],
+      "en": "I muted the video while I answered the door.",
+      "zh": "我去应门时，把视频设为了静音。",
+      "references": [
+        "https://support.google.com/android/answer/9082609/change-volume-sound-amp-vibrate-settings"
+      ]
+    },
+    {
+      "term": "vibrate mode",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 振动模式；震动模式。电话或通知以振动而非铃声提醒的模式。",
+      "chineseAliases": [
+        "震动模式",
+        "振动模式",
+        "手机震动模式",
+        "手机振动模式"
+      ],
+      "englishForms": [],
+      "en": "My phone was in vibrate mode, so I felt the incoming call.",
+      "zh": "我的手机开着振动模式，所以来电时我感觉到了振动。",
+      "references": [
+        "https://support.google.com/android/answer/9082609/change-volume-sound-amp-vibrate-settings"
+      ]
+    },
+    {
+      "term": "Do Not Disturb mode",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 勿扰模式；免打扰模式。按设置限制来电或通知等打扰的设备模式，可以允许指定例外。",
+      "chineseAliases": [
+        "免打扰模式",
+        "勿扰模式",
+        "手机勿扰模式"
+      ],
+      "englishForms": [],
+      "en": "I enabled Do Not Disturb mode before going to bed.",
+      "zh": "睡觉前，我开启了勿扰模式。",
+      "references": [
+        "https://support.google.com/android/answer/9069335?hl=en"
+      ]
+    },
+    {
+      "term": "spam text message",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 垃圾短信。未经请求收到的推销、骚扰等短信，不等于所有陌生号码发来的短信。",
+      "chineseAliases": [
+        "垃圾短信",
+        "骚扰短信"
+      ],
+      "englishForms": [
+        "spam text messages"
+      ],
+      "en": "I deleted a spam text message advertising a fake prize.",
+      "zh": "我删除了一条以虚假奖品作宣传的垃圾短信。",
+      "references": [
+        "https://support.apple.com/en-lk/guide/iphone/iph203ab0be4/ios"
+      ]
+    },
+    {
+      "term": "call history",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 通话记录。设备或电话服务保存的已拨、已接、未接等电话记录。",
+      "chineseAliases": [
+        "通话记录",
+        "电话记录",
+        "电话通话记录"
+      ],
+      "englishForms": [
+        "call histories"
+      ],
+      "en": "I checked my call history to find the number I dialled yesterday.",
+      "zh": "我查看通话记录，找昨天拨过的号码。",
+      "references": [
+        "https://support.apple.com/en-ie/guide/iphone/iph21d1e1f56/ios"
+      ]
+    },
+    {
+      "term": "location services",
+      "partOfSpeech": "plural noun",
+      "meaning": "① 定位服务。设备用于确定或提供地理位置的功能或服务，可能结合 GPS、无线网络等信息。",
+      "chineseAliases": [
+        "定位服务",
+        "位置服务",
+        "手机定位服务"
+      ],
+      "englishForms": [],
+      "en": "The weather app asked for permission to use location services.",
+      "zh": "天气应用请求使用定位服务的权限。",
+      "references": [
+        "https://support.apple.com/en-us/102647"
+      ]
+    },
+    {
+      "term": "screen brightness",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 屏幕亮度。屏幕显示画面的明暗程度，可由设备设置调节。",
+      "chineseAliases": [
+        "屏幕亮度",
+        "显示屏亮度"
+      ],
+      "englishForms": [],
+      "en": "I lowered the screen brightness in the dark room.",
+      "zh": "在昏暗的房间里，我调低了屏幕亮度。",
+      "references": [
+        "https://support.google.com/pixelphone/answer/6111557?hl=en-GB"
+      ]
+    },
+    {
+      "term": "automatic screen rotation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 屏幕自动旋转。屏幕画面随设备方向自动切换横向或纵向显示的功能。",
+      "chineseAliases": [
+        "自动旋转",
+        "屏幕自动旋转",
+        "自动旋转屏幕"
+      ],
+      "englishForms": [],
+      "en": "Automatic screen rotation is turned off on this tablet.",
+      "zh": "这台平板电脑的屏幕自动旋转功能已关闭。",
+      "references": [
+        "https://support.google.com/pixelphone/answer/6111557?hl=en-GB"
+      ]
+    },
+    {
+      "term": "automatic screen lock",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 自动锁屏。设备在一定条件或一段未操作时间后自动锁定屏幕的功能。",
+      "chineseAliases": [
+        "自动锁屏",
+        "屏幕自动锁定",
+        "自动锁定屏幕"
+      ],
+      "englishForms": [],
+      "en": "I changed the automatic screen lock delay to one minute.",
+      "zh": "我把自动锁屏的等待时间改成了一分钟。",
+      "references": [
+        "https://support.apple.com/en-ie/guide/iphone/-iph7117338a8/ios"
+      ]
+    },
+    {
+      "term": "fingerprint unlock",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 指纹解锁。通过识别已登记的指纹来解除设备或应用的锁定。",
+      "chineseAliases": [
+        "指纹解锁",
+        "指纹开锁"
+      ],
+      "englishForms": [],
+      "en": "Fingerprint unlock works with either of my registered thumbs.",
+      "zh": "用我登记过的任意一个拇指都能进行指纹解锁。",
+      "references": [
+        "https://support.google.com/pixelphone/answer/6285273?hl=en"
+      ]
+    },
+    {
+      "term": "facial recognition",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 人脸识别；面部识别。根据面部特征识别或验证身份的技术，可用于设备解锁等场景。",
+      "chineseAliases": [
+        "人脸识别",
+        "面部识别",
+        "脸部识别"
+      ],
+      "englishForms": [],
+      "en": "This phone uses facial recognition to confirm the user's identity.",
+      "zh": "这部手机通过人脸识别确认用户身份。",
+      "references": [
+        "https://support.apple.com/en-gb/102381?pubDate=20261018"
+      ]
+    },
+    {
+      "term": "USB power adapter",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① USB 电源适配器；USB 充电头。连接电源、通过 USB 接口向设备供电的适配器，区别于充电线。",
+      "chineseAliases": [
+        "充电头",
+        "USB充电头",
+        "USB电源适配器",
+        "手机充电头"
+      ],
+      "englishForms": [
+        "USB power adapters",
+        "USB power adaptor",
+        "USB power adaptors"
+      ],
+      "en": "The USB power adapter and the charging cable are sold separately.",
+      "zh": "USB 充电头和充电线分开出售。",
+      "references": [
+        "https://support.apple.com/en-gb/120548"
+      ]
+    },
+    {
+      "term": "three-pin plug",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 三脚插头；三针插头。带三个插脚的电源插头；不同地区的形状和规格可能不同。",
+      "chineseAliases": [
+        "三脚插头",
+        "三针插头",
+        "三脚电源插头"
+      ],
+      "englishForms": [
+        "three-pin plugs"
+      ],
+      "en": "The lamp has a three-pin plug.",
+      "zh": "这盏灯配的是三脚插头。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/plug"
+      ]
+    },
+    {
+      "term": "fire blanket",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 灭火毯。由不易燃烧的材料制成、用于覆盖火焰以帮助灭火或阻止蔓延的专用毯子。",
+      "chineseAliases": [
+        "灭火毯",
+        "防火灭火毯"
+      ],
+      "englishForms": [
+        "fire blankets"
+      ],
+      "en": "The fire blanket hangs in a red pouch near the kitchen door.",
+      "zh": "灭火毯装在厨房门旁挂着的一个红色袋子里。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/fire-blanket"
+      ]
+    },
+    {
+      "term": "water leak",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 漏水；漏水处。水从管道、容器等不应出水的地方泄出的情况或位置。",
+      "chineseAliases": [
+        "漏水",
+        "漏水处",
+        "水管漏水"
+      ],
+      "englishForms": [
+        "water leaks"
+      ],
+      "en": "A water leak under the sink had soaked the cupboard floor.",
+      "zh": "水槽下面漏水，把橱柜底板浸湿了。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/leak"
+      ]
+    },
+    {
+      "term": "shrink",
+      "partOfSpeech": "verb",
+      "meaning": "① 缩小；收缩；（衣物等）缩水。变小或使尺寸变小。",
+      "chineseAliases": [
+        "缩水",
+        "衣服缩水",
+        "衣物缩水"
+      ],
+      "englishForms": [
+        "shrinks",
+        "shrank",
+        "shrunk",
+        "shrinking"
+      ],
+      "en": "These cotton sleeves may shrink slightly after washing.",
+      "zh": "这些棉质袖子洗后可能会稍微缩水。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english-italian/shrink"
+      ]
+    },
+    {
+      "term": "shoelace",
+      "partOfSpeech": "noun",
+      "meaning": "① 鞋带。穿过鞋孔、用于系紧鞋子的带子。",
+      "chineseAliases": [
+        "鞋带",
+        "系鞋的带子"
+      ],
+      "englishForms": [
+        "shoelaces"
+      ],
+      "en": "One shoelace came undone while I was walking home.",
+      "zh": "我走路回家时，一根鞋带松开了。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/shoelace"
+      ]
+    },
+    {
+      "term": "insole",
+      "partOfSpeech": "noun",
+      "meaning": "① 鞋垫；鞋内底。鞋里面、脚底踩着的那一层，或放进鞋内的垫片。",
+      "chineseAliases": [
+        "鞋垫",
+        "鞋内垫",
+        "鞋内底"
+      ],
+      "englishForms": [
+        "insoles"
+      ],
+      "en": "The left insole keeps sliding forward inside my shoe.",
+      "zh": "左脚鞋里的鞋垫总是往前滑。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/insole"
+      ]
+    },
+    {
+      "term": "bath towel",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 浴巾。洗澡或沐浴后用于擦干或包裹身体的较大毛巾。",
+      "chineseAliases": [
+        "浴巾",
+        "洗澡浴巾"
+      ],
+      "englishForms": [
+        "bath towels"
+      ],
+      "en": "I hung the damp bath towel on the rail to dry.",
+      "zh": "我把湿浴巾挂在杆子上晾干。",
+      "references": [
+        "https://www.ikea.com/th/th/files/pdf/b5/93/b5936a03/003_25-may-hotel-furniture-package.pdf"
+      ]
+    },
+    {
+      "term": "plug",
+      "partOfSpeech": "noun",
+      "meaning": "① 插头；电源插头。带插脚、插入插座以连接电源的部件，区别于插座。",
+      "chineseAliases": [
+        "插头",
+        "电源插头",
+        "电插头"
+      ],
+      "englishForms": [
+        "plugs"
+      ],
+      "en": "The plug was loose in the wall socket.",
+      "zh": "插头在墙上的插座里插得不牢。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/plug"
+      ]
+    },
+    {
+      "term": "disposable chopsticks",
+      "partOfSpeech": "plural noun phrase",
+      "meaning": "① 一次性筷子：通常用过一次便丢弃的筷子。",
+      "chineseAliases": [
+        "一次性筷子"
+      ],
+      "englishForms": [
+        "disposable chopsticks"
+      ],
+      "en": "The takeaway box came with a pair of disposable chopsticks.",
+      "zh": "外卖盒附了一双一次性筷子。",
+      "references": [
+        "https://www.legco.gov.hk/yr17-18/english/counmtg/papers/cm20180124-sp068-e.pdf"
+      ]
+    },
+    {
+      "term": "refill",
+      "partOfSpeech": "noun · verb",
+      "meaning": "① 续杯；给杯中再添饮品（动词）。② 再添的一份饮品（名词）。这里取餐饮用法。",
+      "chineseAliases": [
+        "续杯",
+        "续添饮品"
+      ],
+      "englishForms": [
+        "refill",
+        "refills",
+        "refilled",
+        "refilling"
+      ],
+      "en": "Could you refill my glass with water, please?",
+      "zh": "请给我的杯子再添些水，好吗？",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/refill"
+      ]
+    },
+    {
+      "term": "free refill",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 免费续杯；不另收费的续添饮品。是否提供、可续多少次要看具体服务，不自带无限次的意思。",
+      "chineseAliases": [
+        "免费续杯",
+        "免费的续杯"
+      ],
+      "englishForms": [
+        "free refill",
+        "free refills"
+      ],
+      "en": "The menu says that a free refill is included with this coffee.",
+      "zh": "菜单上写着，这杯咖啡包含一次免费续杯。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/refill"
+      ]
+    },
+    {
+      "term": "unsweetened",
+      "partOfSpeech": "adjective",
+      "meaning": "① 未添加糖或其他甜味物质的。点饮品时可用来表达不加糖，不表示原料本身一定完全没有糖。",
+      "chineseAliases": [
+        "不加糖",
+        "不加糖的",
+        "未加糖的",
+        "未加甜味剂的"
+      ],
+      "englishForms": [
+        "unsweetened"
+      ],
+      "en": "Could I have the iced tea unsweetened, with a slice of lemon?",
+      "zh": "我的冰茶可以不加糖，再放一片柠檬吗？",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/unsweetened?topic=flavours-and-tastes"
+      ]
+    },
+    {
+      "term": "less sugar",
+      "partOfSpeech": "phrase",
+      "meaning": "① 少糖；比通常的量少放一些糖。点单时的简略表达，并不指定固定甜度百分比。",
+      "chineseAliases": [
+        "少糖",
+        "少放糖",
+        "少加糖"
+      ],
+      "englishForms": [
+        "less sugar"
+      ],
+      "en": "I would like the milk tea with less sugar than usual.",
+      "zh": "我的奶茶想比平常少放些糖。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english-korean/less"
+      ]
+    },
+    {
+      "term": "less salt",
+      "partOfSpeech": "phrase",
+      "meaning": "① 少盐；比通常的量少放一些盐。这里是餐饮口味要求。",
+      "chineseAliases": [
+        "少盐",
+        "少放盐",
+        "少加盐"
+      ],
+      "englishForms": [
+        "less salt"
+      ],
+      "en": "Could the kitchen make my noodles with less salt?",
+      "zh": "厨房可以把我的面条做得少放些盐吗？",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english-korean/less",
+        "https://dictionary.cambridge.org/us/dictionary/english/ready-meal"
+      ]
+    },
+    {
+      "term": "mildly spicy",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "① 微辣的；辣味较轻、只有一点辣味的，用来形容食物。",
+      "chineseAliases": [
+        "微辣",
+        "微辣的",
+        "稍辣的"
+      ],
+      "englishForms": [
+        "mildly spicy"
+      ],
+      "en": "My sister ordered the mildly spicy curry.",
+      "zh": "我姐姐点了微辣的咖喱。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/mild"
+      ]
+    },
+    {
+      "term": "medium",
+      "partOfSpeech": "adjective",
+      "meaning": "① （肉的熟度）中等的；点牛排时常称五分熟。这里不取媒介或尺寸的名词义。",
+      "chineseAliases": [
+        "五分熟",
+        "五分熟的"
+      ],
+      "englishForms": [
+        "medium"
+      ],
+      "en": "The server asked whether I wanted my steak medium or well done.",
+      "zh": "服务员问我的牛排要五分熟还是全熟。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/medium?topic=preparing-food-using-heat"
+      ]
+    },
+    {
+      "term": "well-done",
+      "partOfSpeech": "adjective",
+      "meaning": "① （肉）完全烹熟的；点牛排时称全熟。这里不取赞扬别人做得好的用法。",
+      "chineseAliases": [
+        "全熟",
+        "全熟的",
+        "烹熟透的"
+      ],
+      "englishForms": [
+        "well-done"
+      ],
+      "en": "The well-done steak arrived with potatoes and green beans.",
+      "zh": "全熟牛排配着土豆和四季豆端了上来。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/well-done"
+      ]
+    },
+    {
+      "term": "wait for a table",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 等位；等待餐厅有空桌可以入座。",
+      "chineseAliases": [
+        "排队等位",
+        "等位",
+        "等餐桌"
+      ],
+      "englishForms": [
+        "wait for a table",
+        "waits for a table",
+        "waited for a table",
+        "waiting for a table"
+      ],
+      "en": "We waited for a table near the window and read the menu outside.",
+      "zh": "我们在外面看着菜单，等待一张靠窗的空桌。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/Word_on_the_Street_Jobs_Scene_1_Transcript.pdf",
+        "https://www.opentable.com/restaurant/profile/1045231"
+      ]
+    },
+    {
+      "term": "book a table",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 预订餐桌；提前请餐厅保留用餐座位。",
+      "chineseAliases": [
+        "预订餐桌",
+        "订餐桌",
+        "预约餐桌"
+      ],
+      "englishForms": [
+        "book a table",
+        "books a table",
+        "booked a table",
+        "booking a table"
+      ],
+      "en": "I booked a table for Saturday evening before inviting my friends.",
+      "zh": "我先预订了星期六晚上的餐桌，再邀请朋友。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/book?topic=rules-and-laws"
+      ]
+    },
+    {
+      "term": "table for two",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 供两人用餐的桌位；向餐厅询问两个人的座位时常用。",
+      "chineseAliases": [
+        "两人桌",
+        "两人餐桌",
+        "两个人的桌位"
+      ],
+      "englishForms": [
+        "table for two",
+        "tables for two"
+      ],
+      "en": "We asked for a table for two in the quieter part of the restaurant.",
+      "zh": "我们想在餐厅比较安静的区域要一张两人桌。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/Word_on_the_Street_Jobs_Scene_1_Transcript.pdf"
+      ]
+    },
+    {
+      "term": "restaurant waiting list",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 餐厅等位名单：登记等待空桌的客人姓名或号码的名单。",
+      "chineseAliases": [
+        "等位名单",
+        "餐厅等位名单",
+        "等位登记名单"
+      ],
+      "englishForms": [
+        "restaurant waiting list",
+        "restaurant waiting lists"
+      ],
+      "en": "Our name was added to the restaurant waiting list while we looked at the menu.",
+      "zh": "我们看菜单时，姓名被加入了餐厅等位名单。",
+      "references": [
+        "https://www.opentable.com/restaurant/profile/1045231"
+      ]
+    },
+    {
+      "term": "share a table",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 拼桌；与另一组客人共用一张餐桌。这里不只是与同行朋友一起吃饭。",
+      "chineseAliases": [
+        "拼桌",
+        "和别的客人拼桌"
+      ],
+      "englishForms": [
+        "share a table",
+        "shares a table",
+        "shared a table",
+        "sharing a table"
+      ],
+      "en": "We shared a table with another couple because the café was crowded.",
+      "zh": "咖啡馆很拥挤，我们就和另一对客人拼了桌。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/Word_on_the_Street_Jobs_Scene_1_Transcript.pdf"
+      ]
+    },
+    {
+      "term": "oat milk",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 燕麦奶；以燕麦和水等制成、用作奶类替代品的植物饮料。",
+      "chineseAliases": [
+        "燕麦奶",
+        "燕麦植物奶"
+      ],
+      "englishForms": [
+        "oat milk"
+      ],
+      "en": "The café ran out of oat milk just before my turn to order.",
+      "zh": "刚轮到我点单前，咖啡馆的燕麦奶用完了。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/oat-milk"
+      ]
+    },
+    {
+      "term": "lactose-free milk",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 无乳糖牛奶；经过处理、乳糖已被除去或分解的牛奶。它仍是乳制品，不等同植物奶。",
+      "chineseAliases": [
+        "无乳糖牛奶",
+        "无乳糖奶"
+      ],
+      "englishForms": [
+        "lactose-free milk"
+      ],
+      "en": "I put the carton of lactose-free milk on the middle shelf of the fridge.",
+      "zh": "我把那盒无乳糖牛奶放在冰箱中层。",
+      "references": [
+        "https://www.arlafoods.co.uk/brands/lactofree/all-articles/is-lactose-free-milk-dairy-free/"
+      ]
+    },
+    {
+      "term": "dinner plate",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 餐盘；盛放正餐饭菜的盘子，不是端餐用的托盘。",
+      "chineseAliases": [
+        "餐盘",
+        "正餐盘",
+        "盛饭菜的盘子"
+      ],
+      "englishForms": [
+        "dinner plate",
+        "dinner plates"
+      ],
+      "en": "She placed a clean dinner plate in front of each guest.",
+      "zh": "她在每位客人面前放了一个干净的餐盘。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/dinner"
+      ]
+    },
+    {
+      "term": "train platform",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 火车站台；供乘客等候、上下列车的站内平台，不指路边公交站。",
+      "chineseAliases": [
+        "火车站台",
+        "铁路站台",
+        "列车站台"
+      ],
+      "englishForms": [
+        "train platform",
+        "train platforms"
+      ],
+      "en": "The train platform was nearly empty when we arrived.",
+      "zh": "我们到达时，火车站台上几乎没有人。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/platform"
+      ]
+    },
+    {
+      "term": "change trains",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 换乘列车；下车后改乘另一班列车继续行程，也可用于地铁换乘。",
+      "chineseAliases": [
+        "地铁换乘",
+        "换乘列车",
+        "换乘地铁",
+        "火车换乘"
+      ],
+      "englishForms": [
+        "change trains",
+        "changes trains",
+        "changed trains",
+        "changing trains"
+      ],
+      "en": "You need to change trains once to reach the museum.",
+      "zh": "去博物馆需要换乘一次列车。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/change"
+      ]
+    },
+    {
+      "term": "ticket gate",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 检票口；车站核验车票后进入或离开的闸口，常指检票闸机。它不是列车停靠的站台。",
+      "chineseAliases": [
+        "检票口",
+        "检票闸机",
+        "车站检票口"
+      ],
+      "englishForms": [
+        "ticket gate",
+        "ticket gates"
+      ],
+      "en": "I waited beside the ticket gate while my friend looked for her ticket.",
+      "zh": "朋友找车票时，我在检票口旁等她。",
+      "references": [
+        "https://www.jreast.co.jp/e/downloads/pdf/jr-east_guide_e.pdf"
+      ]
+    },
+    {
+      "term": "passport control",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 护照检查处；在机场、港口或边境核查旅客护照的环节或区域，不等同检查携带物品的海关。",
+      "chineseAliases": [
+        "护照检查",
+        "护照检查处",
+        "边检护照检查"
+      ],
+      "englishForms": [
+        "passport control"
+      ],
+      "en": "We joined the queue for passport control after leaving the plane.",
+      "zh": "下飞机后，我们加入了护照检查的队伍。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/passport-control"
+      ]
+    },
+    {
+      "term": "customs declaration",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 海关申报；向海关正式报告进出境物品信息，也可指相关申报单。",
+      "chineseAliases": [
+        "海关申报",
+        "海关申报单",
+        "海关物品申报"
+      ],
+      "englishForms": [
+        "customs declaration",
+        "customs declarations"
+      ],
+      "en": "She checked the item descriptions before submitting the customs declaration.",
+      "zh": "提交海关申报单前，她检查了物品描述。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/customs-declaration"
+      ]
+    },
+    {
+      "term": "luggage locker",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 行李寄存柜；可暂时存放并锁住行李的储物柜，不指有人看管的寄存柜台。",
+      "chineseAliases": [
+        "行李寄存柜",
+        "自助行李寄存柜"
+      ],
+      "englishForms": [
+        "luggage locker",
+        "luggage lockers"
+      ],
+      "en": "We left the backpack in a luggage locker and explored the town.",
+      "zh": "我们把背包放在行李寄存柜里，然后去城里逛了逛。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/locker"
+      ]
+    },
+    {
+      "term": "baggage carousel",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 行李传送带；机场供旅客领取托运行李的循环传送装置。",
+      "chineseAliases": [
+        "行李传送带",
+        "机场行李传送带",
+        "行李转盘"
+      ],
+      "englishForms": [
+        "baggage carousel",
+        "baggage carousels"
+      ],
+      "en": "Our suitcase appeared on the baggage carousel just as we reached it.",
+      "zh": "我们刚走到行李传送带旁，箱子就出来了。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/carousel"
+      ]
+    },
+    {
+      "term": "accessible entrance",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 无障碍入口；为有无障碍通行需求的人提供的入口，例如方便轮椅使用者进入的入口。",
+      "chineseAliases": [
+        "无障碍入口",
+        "无障碍通行入口"
+      ],
+      "englishForms": [
+        "accessible entrance",
+        "accessible entrances"
+      ],
+      "en": "A sign beside the steps pointed towards the accessible entrance.",
+      "zh": "台阶旁的一块标牌指向无障碍入口。",
+      "references": [
+        "https://www.access-board.gov/ada/guides/chapter-4-entrances-doors-and-gates/"
+      ]
+    },
+    {
+      "term": "walking directions",
+      "partOfSpeech": "plural noun phrase",
+      "meaning": "① 步行路线指引；告诉行人如何步行到目的地的路线或导航说明。",
+      "chineseAliases": [
+        "步行路线",
+        "步行导航",
+        "步行指引"
+      ],
+      "englishForms": [
+        "walking directions"
+      ],
+      "en": "The walking directions took us through a small square behind the station.",
+      "zh": "步行导航路线带我们穿过了车站后面的一个小广场。",
+      "references": [
+        "https://support.google.com/maps/answer/144339?hl=en"
+      ]
+    },
+    {
+      "term": "pedestrian crossing button",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 行人过街按钮；在人行横道信号装置上，供行人提出过街请求的按钮。",
+      "chineseAliases": [
+        "行人过街按钮",
+        "行人过街信号按钮",
+        "过街按钮"
+      ],
+      "englishForms": [
+        "pedestrian crossing button",
+        "pedestrian crossing buttons"
+      ],
+      "en": "The pedestrian crossing button was mounted beside the kerb.",
+      "zh": "行人过街按钮安装在路缘旁。",
+      "references": [
+        "https://www.tfl.gov.uk/cdn/static/cms/documents/design-standards-signal-schemes.pdf"
+      ]
+    },
+    {
+      "term": "transit card",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 交通卡；用来支付公交、地铁等公共交通费用的卡。具体可用线路取决于当地系统。",
+      "chineseAliases": [
+        "交通卡",
+        "公交卡",
+        "公共交通卡"
+      ],
+      "englishForms": [
+        "transit card",
+        "transit cards"
+      ],
+      "en": "She tapped her transit card and walked through the gate.",
+      "zh": "她刷了一下交通卡，走过了闸机。",
+      "references": [
+        "https://www.clippercard.com/ClipperWeb/account-management.html"
+      ]
+    },
+    {
+      "term": "top up a transit card",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 给交通卡充值；向卡里添加以后乘车使用的余额。",
+      "chineseAliases": [
+        "交通卡充值",
+        "公交卡充值",
+        "给交通卡充值"
+      ],
+      "englishForms": [
+        "top up a transit card",
+        "tops up a transit card",
+        "topped up a transit card",
+        "topping up a transit card"
+      ],
+      "en": "I need to top up my transit card before tomorrow's commute.",
+      "zh": "明天通勤前，我需要给交通卡充值。",
+      "references": [
+        "https://tfl.gov.uk/maps_/pay-in-tfl-go"
+      ]
+    },
+    {
+      "term": "on-street parking",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 路边停车；在道路旁划设或允许的位置停车，不是驶入独立停车场停车。",
+      "chineseAliases": [
+        "路边停车",
+        "街边停车",
+        "道路旁停车"
+      ],
+      "englishForms": [
+        "on-street parking"
+      ],
+      "en": "We looked for on-street parking near the bookshop.",
+      "zh": "我们在书店附近找路边停车位。",
+      "references": [
+        "https://www.gov.uk/government/publications/know-your-traffic-signs/on-street-parking-control-signs-and-road-markings"
+      ]
+    },
+    {
+      "term": "time-limited parking",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 限时停车；设有最长允许停留时间的停车安排，不一定免费。",
+      "chineseAliases": [
+        "限时停车",
+        "有时限的停车"
+      ],
+      "englishForms": [
+        "time-limited parking"
+      ],
+      "en": "The sign indicated time-limited parking outside the shops.",
+      "zh": "标牌表明商店外实行限时停车。",
+      "references": [
+        "https://www.gov.uk/government/publications/know-your-traffic-signs/on-street-parking-control-signs-and-road-markings"
+      ]
+    },
+    {
+      "term": "shared bike",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 共享单车；供公众通过共享租借方式短时使用的自行车。",
+      "chineseAliases": [
+        "共享单车",
+        "共享自行车"
+      ],
+      "englishForms": [
+        "shared bike",
+        "shared bikes"
+      ],
+      "en": "We left the shared bikes in the marked parking area.",
+      "zh": "我们把共享单车停在了标记出的停车区。",
+      "references": [
+        "https://haveyoursay.threerivers.gov.uk/beryl-bikes-bays?tool=survey_tool&tool_id=beryl-bike"
+      ]
+    },
+    {
+      "term": "take a detour",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 绕行；暂时改走另一条路线，通常因为原路不通或想顺路到别处。",
+      "chineseAliases": [
+        "绕行",
+        "绕路",
+        "改道绕行"
+      ],
+      "englishForms": [
+        "take a detour",
+        "takes a detour",
+        "took a detour",
+        "taken a detour",
+        "taking a detour"
+      ],
+      "en": "We had to take a detour because the bridge was closed.",
+      "zh": "大桥关闭了，我们只好绕行。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/detour"
+      ]
+    },
+    {
+      "term": "timetable",
+      "partOfSpeech": "noun",
+      "meaning": "① 时刻表；列明公交、火车等交通工具到达或离开时间的表。本例取公共交通义。",
+      "chineseAliases": [
+        "时刻表",
+        "列车时刻表",
+        "公交时刻表"
+      ],
+      "englishForms": [
+        "timetable",
+        "timetables"
+      ],
+      "en": "I checked the timetable to see when the next train would leave.",
+      "zh": "我查了时刻表，看看下一班火车何时出发。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/timetable"
+      ]
+    },
+    {
+      "term": "course registration",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 选课登记；在学校系统中注册要修读的课程，不是酒店入住登记或机场值机。",
+      "chineseAliases": [
+        "选课",
+        "课程注册",
+        "选课登记",
+        "课程选修登记"
+      ],
+      "englishForms": [
+        "course registration"
+      ],
+      "en": "We completed course registration after meeting our advisers.",
+      "zh": "和导师会面后，我们完成了选课登记。",
+      "references": [
+        "https://www.college.upenn.edu/academics/course-selection/course-registration?page=1"
+      ]
+    },
+    {
+      "term": "add a course",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 加课；把一门课程加入自己的选课安排。",
+      "chineseAliases": [
+        "加课",
+        "加选课程",
+        "添加课程到课表"
+      ],
+      "englishForms": [
+        "add a course",
+        "adds a course",
+        "added a course",
+        "adding a course"
+      ],
+      "en": "She decided to add a course after discussing her timetable with an adviser.",
+      "zh": "和导师讨论课表后，她决定加选一门课程。",
+      "references": [
+        "https://www.college.upenn.edu/sites/default/files/files/HowToAddDropSwapClassesQRG.pdf"
+      ]
+    },
+    {
+      "term": "drop a course",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 退课；取消自己已经选修的一门课程，不表示退学。具体手续及记录依学校规定。",
+      "chineseAliases": [
+        "退课",
+        "退选课程",
+        "取消选修课程"
+      ],
+      "englishForms": [
+        "drop a course",
+        "drops a course",
+        "dropped a course",
+        "dropping a course"
+      ],
+      "en": "I decided to drop a course because two classes met at the same time.",
+      "zh": "两门课的上课时间冲突，我决定退掉其中一门。",
+      "references": [
+        "https://www.college.upenn.edu/sites/default/files/files/HowToAddDropSwapClassesQRG.pdf"
+      ]
+    },
+    {
+      "term": "prerequisite course",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 先修课；修读另一门课程前要求已经学过的课程。",
+      "chineseAliases": [
+        "先修课",
+        "先修课程",
+        "前置课程"
+      ],
+      "englishForms": [
+        "prerequisite course",
+        "prerequisite courses"
+      ],
+      "en": "Introductory statistics is a prerequisite course for this seminar.",
+      "zh": "统计学导论是这门研讨课的先修课程。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/prerequisite?topic=important-and-essential-things"
+      ]
+    },
+    {
+      "term": "syllabus",
+      "partOfSpeech": "noun",
+      "meaning": "① 课程大纲；说明课程内容、学习安排及有关要求的文件或计划。",
+      "chineseAliases": [
+        "课程大纲",
+        "教学大纲"
+      ],
+      "englishForms": [
+        "syllabus",
+        "syllabuses",
+        "syllabi"
+      ],
+      "en": "The syllabus lists the readings for the first four weeks.",
+      "zh": "课程大纲列出了前四周的阅读材料。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/syllabus"
+      ]
+    },
+    {
+      "term": "proof of enrolment",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 在读证明；证明目前在某学校或课程注册就读的正式材料。",
+      "chineseAliases": [
+        "在读证明",
+        "就读证明",
+        "当前在读证明"
+      ],
+      "englishForms": [
+        "proof of enrolment",
+        "proof of enrollment"
+      ],
+      "en": "The scholarship office asked for proof of enrolment for the current term.",
+      "zh": "奖学金办公室要求提供本学期的在读证明。",
+      "references": [
+        "https://www.unsw.edu.au/student/support/financial-support/centrelink"
+      ]
+    },
+    {
+      "term": "group assignment",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 小组作业；由一组学生合作完成的课程任务。",
+      "chineseAliases": [
+        "小组作业",
+        "分组作业",
+        "小组课程作业"
+      ],
+      "englishForms": [
+        "group assignment",
+        "group assignments"
+      ],
+      "en": "We divided the research for the group assignment before writing the report together.",
+      "zh": "我们先分担小组作业的资料研究，再一起撰写报告。",
+      "references": [
+        "https://www.student.unsw.edu.au/groupwork"
+      ]
+    },
+    {
+      "term": "academic integrity",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 学术诚信；在学习与研究中诚实地完成、呈现自己的工作，并恰当注明他人贡献等原则。",
+      "chineseAliases": [
+        "学术诚信",
+        "学术诚实原则"
+      ],
+      "englishForms": [
+        "academic integrity"
+      ],
+      "en": "The workshop used examples to explain academic integrity in group projects.",
+      "zh": "研讨活动用例子说明了小组项目中的学术诚信。",
+      "references": [
+        "https://catalog.upenn.edu/pennbook/code-of-academic-integrity/"
+      ]
+    },
+    {
+      "term": "citation style",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 引用格式；规定文内引用和资料来源信息如何书写、排列的一套规则。",
+      "chineseAliases": [
+        "引用格式",
+        "引文格式",
+        "引用规范"
+      ],
+      "englishForms": [
+        "citation style",
+        "citation styles"
+      ],
+      "en": "The instructor asked us to use one citation style consistently throughout the essay.",
+      "zh": "老师要求我们在整篇文章中统一使用一种引用格式。",
+      "references": [
+        "https://guides.library.upenn.edu/citationpractices/citationstyles"
+      ]
+    },
+    {
+      "term": "reference list",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 参考文献表；列出文中引用资料及其书目信息的清单，便于读者识别和查找来源。",
+      "chineseAliases": [
+        "参考文献",
+        "参考文献表",
+        "参考文献列表",
+        "文后参考文献"
+      ],
+      "englishForms": [
+        "reference list",
+        "reference lists"
+      ],
+      "en": "I noticed that one source cited in the essay was missing from the reference list.",
+      "zh": "我发现文章中引用的一项资料没有列在参考文献表里。",
+      "references": [
+        "https://apastyle.apa.org/style-grammar-guidelines/paper-format/reference-list"
+      ]
+    },
+    {
+      "term": "similarity check",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 查重；检查文本与已有资料的相似内容。结果显示相似之处，本身不等于认定抄袭。",
+      "chineseAliases": [
+        "查重",
+        "文本查重",
+        "相似度检查"
+      ],
+      "englishForms": [
+        "similarity check",
+        "similarity checks"
+      ],
+      "en": "The similarity check highlighted a quotation that already had a citation.",
+      "zh": "查重标出了一段已经注明引用出处的引文。",
+      "references": [
+        "https://guides.turnitin.com/hc/en-us/articles/23713493434253-Understanding-the-similarity-score-for-students"
+      ]
+    },
+    {
+      "term": "payslip",
+      "partOfSpeech": "noun",
+      "meaning": "① 工资单；列出一定期间工资收入及有关扣款的记录，英式英语常用。",
+      "chineseAliases": [
+        "薪资单",
+        "工资单",
+        "薪水单"
+      ],
+      "englishForms": [
+        "payslip",
+        "payslips",
+        "pay slip",
+        "pay slips"
+      ],
+      "en": "I saved the payslip in a folder with my employment contract.",
+      "zh": "我把工资单保存在放有劳动合同的文件夹里。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/pay-slip"
+      ]
+    },
+    {
+      "term": "net pay",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 实发工资；扣除税费及其他应扣项目后，实际支付给员工的工资金额。",
+      "chineseAliases": [
+        "实发工资",
+        "到手工资",
+        "税后实发工资"
+      ],
+      "englishForms": [
+        "net pay"
+      ],
+      "en": "The net pay shown on my payslip matched the amount in my bank account.",
+      "zh": "工资单上显示的实发工资与银行账户中的入账金额一致。",
+      "references": [
+        "https://www.gov.uk/guidance/check-if-the-tax-on-your-payslip-is-correct"
+      ]
+    },
+    {
+      "term": "gross pay",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 税前工资总额；尚未扣除税费及其他扣款的工资金额。",
+      "chineseAliases": [
+        "税前工资",
+        "税前工资总额",
+        "未扣款工资"
+      ],
+      "englishForms": [
+        "gross pay"
+      ],
+      "en": "The offer letter stated the gross pay but did not calculate my take-home amount.",
+      "zh": "录用信列明了税前工资，但没有计算我的到手金额。",
+      "references": [
+        "https://www.gov.uk/guidance/check-if-the-tax-on-your-payslip-is-correct"
+      ]
+    },
+    {
+      "term": "teaching assistant",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 教学助理、助教；协助教师开展教学和帮助学生学习的人。具体职责随学校与课程而异。",
+      "chineseAliases": [
+        "助教",
+        "教学助理",
+        "课程助教"
+      ],
+      "englishForms": [
+        "teaching assistant",
+        "teaching assistants"
+      ],
+      "en": "The teaching assistant helped our group understand the instructions for the exercise.",
+      "zh": "助教帮助我们小组理解了练习要求。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/teaching-assistant"
+      ]
+    },
+    {
+      "term": "internship",
+      "partOfSpeech": "noun",
+      "meaning": "① 实习；在公司或机构工作一段时间，以获得某类工作的实际经验。本例不取医生住院培训义。",
+      "chineseAliases": [
+        "实习",
+        "实习工作",
+        "工作实习"
+      ],
+      "englishForms": [
+        "internship",
+        "internships"
+      ],
+      "en": "During her internship, she kept a notebook of the tasks she was learning.",
+      "zh": "实习期间，她把正在学习的工作任务记在一本笔记本里。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/internship"
+      ]
+    },
+    {
+      "term": "resit",
+      "partOfSpeech": "noun · verb",
+      "meaning": "① 重考；再次参加考试，通常因为第一次未通过或表现不佳（动词，英式英语）。② 重考的那场考试（名词）；与缺考后补做考试应按具体情况区分。",
+      "chineseAliases": [
+        "补考",
+        "重考",
+        "未通过后的补考",
+        "不及格后的重考"
+      ],
+      "englishForms": [
+        "resit",
+        "resits",
+        "resat",
+        "resitting"
+      ],
+      "en": "He revised with a study group before the resit.",
+      "zh": "重考前，他和学习小组一起复习。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/resit"
+      ]
+    },
+    {
+      "term": "get a replacement student ID",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 补办学生证；取得因原证件遗失、损坏等原因而补发的学生证件。",
+      "chineseAliases": [
+        "补办学生证",
+        "申请补发学生证",
+        "补领学生证"
+      ],
+      "englishForms": [
+        "get a replacement student ID",
+        "gets a replacement student ID",
+        "got a replacement student ID",
+        "getting a replacement student ID"
+      ],
+      "en": "After losing my card, I asked how to get a replacement student ID.",
+      "zh": "学生证丢失后，我询问了怎样补办。",
+      "references": [
+        "https://shop.salford.ac.uk/product-catalogue/student-administration/student-id-cards/replacement-student-id-card"
+      ]
+    },
+    {
+      "term": "return window",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 退货期限；商家允许申请或办理退货的那段时间，不是每天接待退货的营业时段。",
+      "chineseAliases": [
+        "退货期限",
+        "可退货期限",
+        "退货窗口期"
+      ],
+      "englishForms": [
+        "return windows"
+      ],
+      "en": "I checked the return window before ordering the shoes.",
+      "zh": "订购那双鞋前，我查看了退货期限。",
+      "references": [
+        "https://www.target.com/help/article/000061980"
+      ]
+    },
+    {
+      "term": "request a refund",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 申请退款；提出退还已付款项的请求，不表示退款已经获批或到账。",
+      "chineseAliases": [
+        "申请退款",
+        "请求退款",
+        "提交退款申请"
+      ],
+      "englishForms": [
+        "requested a refund",
+        "requesting a refund",
+        "requests a refund"
+      ],
+      "en": "I requested a refund after the concert was cancelled.",
+      "zh": "演唱会取消后，我申请了退款。",
+      "references": [
+        "https://support.apple.com/en-lamr/118223"
+      ]
+    },
+    {
+      "term": "deny a refund",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 拒绝退款；不批准退还款项的请求。主动结构，主语是拒绝退款的店家、机构等。",
+      "chineseAliases": [
+        "拒绝退款"
+      ],
+      "englishForms": [
+        "denied a refund",
+        "denying a refund",
+        "denies a refund"
+      ],
+      "en": "The shop denied a refund because the shoes had been worn outdoors.",
+      "zh": "店家因为那双鞋已经穿到户外使用而拒绝退款。",
+      "references": [
+        "https://www.target.com/help/article/000061980"
+      ]
+    },
+    {
+      "term": "cancel an order",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 取消订单；要求停止一笔购买订单，不等同于已发货后办理退货。",
+      "chineseAliases": [
+        "取消订单",
+        "订单取消",
+        "撤销订单"
+      ],
+      "englishForms": [
+        "cancelled an order",
+        "canceled an order",
+        "cancelling an order",
+        "canceling an order",
+        "cancels an order"
+      ],
+      "en": "I cancelled an order for two lamps before it was dispatched.",
+      "zh": "那笔购买两盏灯的订单发货前，我把它取消了。",
+      "references": [
+        "https://www.apple.com/shop/help"
+      ]
+    },
+    {
+      "term": "refund status",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 退款处理状态；退款目前处于审核、处理中或已完成等哪个阶段。",
+      "chineseAliases": [
+        "退款进度",
+        "退款状态",
+        "退款处理状态"
+      ],
+      "englishForms": [
+        "refund statuses"
+      ],
+      "en": "The refund status changed from pending to completed this morning.",
+      "zh": "今天早上，退款状态从待处理变成了已完成。",
+      "references": [
+        "https://support.apple.com/en-lamr/118223",
+        "https://www.apple.com/shop/help/payments"
+      ]
+    },
+    {
+      "term": "exchange for the next size up",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 换大一码；将商品换成尺码序列中下一个较大的尺码，不泛指换成任意更大的尺码。",
+      "chineseAliases": [
+        "换大一码",
+        "换大一号",
+        "换为下一个较大尺码"
+      ],
+      "englishForms": [
+        "exchanged for the next size up",
+        "exchanging for the next size up"
+      ],
+      "en": "Could I exchange these trousers for the next size up?",
+      "zh": "这条裤子能换大一码吗？",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "exchange for the next size down",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 换小一码；将商品换成尺码序列中下一个较小的尺码，不泛指换成任意更小的尺码。",
+      "chineseAliases": [
+        "换小一码",
+        "换小一号",
+        "换为下一个较小尺码"
+      ],
+      "englishForms": [
+        "exchanged for the next size down",
+        "exchanging for the next size down"
+      ],
+      "en": "I need to exchange this jacket for the next size down.",
+      "zh": "我需要把这件夹克换小一码。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "missing item",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 订单中缺少或未收到的商品。本例指少收到一件，不是收到错误商品。",
+      "chineseAliases": [
+        "漏发商品",
+        "少发商品",
+        "订单中缺少的商品"
+      ],
+      "englishForms": [
+        "missing items"
+      ],
+      "en": "The packing list showed three mugs, but only two arrived; I reported the missing item.",
+      "zh": "装箱单上列了三个杯子，却只送到两个，我便报告了少发的那件商品。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "wrong item",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 发错或拿错的商品；实际收到或选中的物品不是所需的那件。本例指商家发错货。",
+      "chineseAliases": [
+        "发错商品",
+        "发错货",
+        "收到错误商品"
+      ],
+      "englishForms": [
+        "wrong items"
+      ],
+      "en": "The shop sent the wrong item: a desk lamp instead of a kettle.",
+      "zh": "店家发错了商品：我收到的是台灯，而不是水壶。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "damaged item",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 破损或受损的商品；本例指收到时已有损坏，不等同于完好但买错的商品。",
+      "chineseAliases": [
+        "商品损坏",
+        "破损商品",
+        "受损商品"
+      ],
+      "englishForms": [
+        "damaged items"
+      ],
+      "en": "I attached a photo of the damaged item to my message.",
+      "zh": "我在消息中附上了受损商品的照片。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "send a replacement",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 补发替换商品；寄出另一件来替代原来缺失、损坏或不合适的商品。是否收费要看具体约定。",
+      "chineseAliases": [
+        "补发商品",
+        "补发替换商品",
+        "寄出替换商品"
+      ],
+      "englishForms": [
+        "sent a replacement",
+        "sending a replacement",
+        "sends a replacement"
+      ],
+      "en": "The shop sent a replacement after the first lamp arrived broken.",
+      "zh": "第一盏灯送到时已经破损，店家随后补发了一盏。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "missing parts",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 缺少的部件或配件；本例指应随产品提供、实际却没有收到的零件。",
+      "chineseAliases": [
+        "缺少配件",
+        "缺少零件",
+        "少了配件"
+      ],
+      "englishForms": [
+        "missing part"
+      ],
+      "en": "We could not assemble the shelf because of the missing parts.",
+      "zh": "因为缺少零件，我们没能把架子组装起来。",
+      "references": [
+        "https://www.target.com/help/articles/returns-exchanges/returns"
+      ]
+    },
+    {
+      "term": "price match",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 价格匹配；商家按规定把同款商品价格调整到符合条件的较低价格。是否适用及比较对象由具体政策决定。",
+      "chineseAliases": [
+        "价格匹配",
+        "同款价格匹配"
+      ],
+      "englishForms": [
+        "price matches"
+      ],
+      "en": "I asked whether the store offered a price match for the identical lamp.",
+      "zh": "我询问这家店是否对那款完全相同的灯提供价格匹配。",
+      "references": [
+        "https://www.target.com/help/articles/policies-guidelines/price-match-guarantee?redirect=true"
+      ]
+    },
+    {
+      "term": "price protection",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 购物保价；购买后在规定条件内降价时，可按政策申请退还差价等调整。不是保证价格永远不变。",
+      "chineseAliases": [
+        "价格保护",
+        "购物保价",
+        "商品保价"
+      ],
+      "englishForms": [],
+      "en": "The receipt explained how long the price protection lasted.",
+      "zh": "收据说明了保价期持续多久。",
+      "references": [
+        "https://www.ikea.com/us/en/ikea-family/",
+        "https://www.apple.com/shop/help/payments"
+      ]
+    },
+    {
+      "term": "member price",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 会员价；符合会员条件的人购买指定商品或服务时可享受的价格。",
+      "chineseAliases": [
+        "会员价",
+        "会员价格",
+        "会员专享价"
+      ],
+      "englishForms": [
+        "member prices"
+      ],
+      "en": "The member price was shown below the regular price on the label.",
+      "zh": "标签上，会员价列在普通价格下方。",
+      "references": [
+        "https://www.ikea.com/us/en/files/pdf/00/78/0078e0c8/ikea-costa-mesa-local-ikea-family-offers-april-2024.pdf"
+      ]
+    },
+    {
+      "term": "minimum spend",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 最低消费金额；购买服务或享受某项优惠需要达到的支出门槛。具体要求取决于场所或活动。",
+      "chineseAliases": [
+        "最低消费",
+        "最低消费金额",
+        "消费门槛"
+      ],
+      "englishForms": [],
+      "en": "The offer had a minimum spend, so my small order did not qualify.",
+      "zh": "这项优惠设有最低消费门槛，因此我的小额订单不符合条件。",
+      "references": [
+        "https://www.ikea.com/be/en/customer-service/knowledge/articles/7bc11c74-703b-43fe-b1f9-1e79g659gg7d.html"
+      ]
+    },
+    {
+      "term": "wish list",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 心愿单；记录希望购买或获得的物品的清单，不代表已经下单。",
+      "chineseAliases": [
+        "心愿单",
+        "愿望清单",
+        "购物心愿单"
+      ],
+      "englishForms": [
+        "wish lists",
+        "wishlist",
+        "wishlists"
+      ],
+      "en": "I saved the backpack to my wish list while I compared the colours.",
+      "zh": "比较不同颜色时，我把那个背包存进了心愿单。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/wish-list?topic=wanting-things"
+      ]
+    },
+    {
+      "term": "back-in-stock notification",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 补货或重新到货提醒；商品恢复供货时发送的通知，不是已购买包裹的送达通知。",
+      "chineseAliases": [
+        "到货提醒",
+        "补货提醒",
+        "重新到货提醒"
+      ],
+      "englishForms": [
+        "back-in-stock notifications",
+        "back in stock notification",
+        "back in stock notifications"
+      ],
+      "en": "I received a back-in-stock notification for the blue mug.",
+      "zh": "我收到了蓝色杯子重新到货的提醒。",
+      "references": [
+        "https://www.ikea.com/ca/en/customer-service/knowledge/articles/g7f7ff0d-2903-4d89-ggee-b41c7602e011.html"
+      ]
+    },
+    {
+      "term": "payment method",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 付款方式；支付一笔费用所使用的方式，例如现金、银行卡或电子支付，不专指分期付款。",
+      "chineseAliases": [
+        "付款方式",
+        "支付方式",
+        "付款方法"
+      ],
+      "englishForms": [
+        "payment methods"
+      ],
+      "en": "The checkout page asked me to choose a payment method.",
+      "zh": "结账页面让我选择一种付款方式。",
+      "references": [
+        "https://www.apple.com/shop/help/payments"
+      ]
+    },
+    {
+      "term": "card decline",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 银行卡交易被拒；银行卡付款未获批准的情况，不等于商家已扣款后退款。",
+      "chineseAliases": [
+        "银行卡被拒",
+        "银行卡支付被拒",
+        "银行卡交易被拒"
+      ],
+      "englishForms": [
+        "card declines"
+      ],
+      "en": "The cashier saw a card decline and asked whether I had another way to pay.",
+      "zh": "收银员看到银行卡交易被拒，便问我有没有其他付款方式。",
+      "references": [
+        "https://docs.stripe.com/declines"
+      ]
+    },
+    {
+      "term": "duplicate charge",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 重复扣款；同一笔应付费用被收取超过一次，不是两笔正常的不同消费。",
+      "chineseAliases": [
+        "重复扣款",
+        "重复收费",
+        "同一笔费用重复扣款"
+      ],
+      "englishForms": [
+        "duplicate charges"
+      ],
+      "en": "The statement showed a duplicate charge for the same train ticket.",
+      "zh": "账单显示，同一张火车票被重复扣款了。",
+      "references": [
+        "https://www.chase.com/business/support/payments/dispute-chargebacks"
+      ]
+    },
+    {
+      "term": "pending transaction",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 待处理交易；银行或支付系统尚未最终处理、入账的交易，不表示一定会失败或已完成。",
+      "chineseAliases": [
+        "待处理交易",
+        "待入账交易",
+        "尚未入账的交易"
+      ],
+      "englishForms": [
+        "pending transactions"
+      ],
+      "en": "The hotel payment was still listed as a pending transaction.",
+      "zh": "酒店那笔付款仍列为待处理交易。",
+      "references": [
+        "https://www.chase.com/business/support/banking/online-banking"
+      ]
+    },
+    {
+      "term": "unauthorized transaction",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 未经授权的交易；本人没有作出或允许的扣款、转账等交易，不是单纯不满意的一次购买。",
+      "chineseAliases": [
+        "未授权交易",
+        "未经授权的交易",
+        "未经本人授权的交易"
+      ],
+      "englishForms": [
+        "unauthorized transactions",
+        "unauthorised transaction",
+        "unauthorised transactions"
+      ],
+      "en": "She reported an unauthorized transaction that she did not recognize.",
+      "zh": "她报告了一笔自己不认识、也未授权的交易。",
+      "references": [
+        "https://www.consumerfinance.gov/ask-cfpb/how-do-i-get-my-money-back-after-i-discover-an-unauthorized-transaction-or-money-missing-from-my-bank-account-en-1017/"
+      ]
+    },
+    {
+      "term": "chargeback",
+      "partOfSpeech": "noun",
+      "meaning": "① 银行卡争议退单；持卡人对交易提出争议后，由发卡机构通过支付网络撤回款项的处理。不同于商家主动退款，也不泛指拒绝付款。",
+      "chineseAliases": [
+        "银行卡争议退单",
+        "银行卡交易拒付",
+        "信用卡交易拒付",
+        "争议退单"
+      ],
+      "englishForms": [
+        "chargebacks"
+      ],
+      "en": "The bank notified the shop of a chargeback linked to a disputed purchase.",
+      "zh": "银行通知店家，有一笔争议购买引发了退单。",
+      "references": [
+        "https://docs.stripe.com/disputes"
+      ]
+    },
+    {
+      "term": "payment reversal",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 支付撤销或款项冲回；把先前的付款撤回，或解除相关资金占用的处理。具体机制可能不同，不能一概当作商家退款或银行卡争议退单。",
+      "chineseAliases": [
+        "撤销扣款",
+        "扣款撤销",
+        "支付撤销",
+        "付款冲回"
+      ],
+      "englishForms": [
+        "payment reversals"
+      ],
+      "en": "The statement showed a payment reversal after the order was cancelled.",
+      "zh": "订单取消后，账单显示了一笔付款冲回。",
+      "references": [
+        "https://stripe.com/resources/more/payment-reversals-101-types-and-how-to-prevent-them?__from__=talkingdev"
+      ]
+    },
+    {
+      "term": "proof of payment",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 付款凭证；能证明某笔费用已经支付的记录或文件，不一定与发票或购买商品的明细相同。",
+      "chineseAliases": [
+        "付款凭证",
+        "支付凭证",
+        "付款证明"
+      ],
+      "englishForms": [],
+      "en": "The booking office accepted the bank receipt as proof of payment.",
+      "zh": "预订处接受了那张银行收据作为付款凭证。",
+      "references": [
+        "https://www.w3.org/2013/10/payments/slides/session5_raggett.pdf"
+      ]
+    },
+    {
+      "term": "transaction history",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 交易记录；按时间保存的付款、转账或其他账户交易资料。",
+      "chineseAliases": [
+        "交易记录",
+        "交易历史",
+        "账户交易记录"
+      ],
+      "englishForms": [
+        "transaction histories"
+      ],
+      "en": "I found last month's bookstore payment in the transaction history.",
+      "zh": "我在交易记录里找到了上个月在书店的那笔付款。",
+      "references": [
+        "https://www.americanexpress.com/us/customer-service/faq.gift-card-balance-transaction-history.html"
+      ]
+    },
+    {
+      "term": "insufficient funds",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 资金或可用余额不足；账户内可用于该笔付款的资金不够，不是密码错误。",
+      "chineseAliases": [
+        "余额不足",
+        "资金不足",
+        "可用余额不足"
+      ],
+      "englishForms": [],
+      "en": "The payment failed with an insufficient funds message.",
+      "zh": "付款失败了，提示信息显示余额不足。",
+      "references": [
+        "https://docs.stripe.com/declines/codes"
+      ]
+    },
+    {
+      "term": "payment limit",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 支付限额；系统、账户或服务对单笔或某段时间内付款金额设定的上限，不是必须支付的最低金额。",
+      "chineseAliases": [
+        "支付限额",
+        "付款限额",
+        "支付金额上限"
+      ],
+      "englishForms": [
+        "payment limits"
+      ],
+      "en": "The app showed a daily payment limit on the account page.",
+      "zh": "应用在账户页面显示了每日支付限额。",
+      "references": [
+        "https://www.chase.com/content/dam/chase-ux/documents/commercial-banking/chase-connect/cc_quickguide_cashflow360_receivables.pdf"
+      ]
+    },
+    {
+      "term": "service fee",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 服务费；为提供服务或办理某项手续收取的费用。具体场景可译作手续费，不是会员会费。",
+      "chineseAliases": [
+        "手续费",
+        "办理手续费",
+        "服务手续费"
+      ],
+      "englishForms": [
+        "service fees"
+      ],
+      "en": "A service fee was added to the ticket price at checkout.",
+      "zh": "结账时，票价之外加收了一笔手续费。",
+      "references": [
+        "https://www.apple.com/shop/help/payments"
+      ]
+    },
+    {
+      "term": "forgot password",
+      "partOfSpeech": "expression",
+      "meaning": "① 忘记密码；登录界面常用的提示或找回密码入口文字。表示不记得密码，不表示密码已经重置。",
+      "chineseAliases": [
+        "忘记密码",
+        "忘了密码",
+        "密码忘了"
+      ],
+      "englishForms": [],
+      "en": "I selected Forgot password when I could not remember my login details.",
+      "zh": "想不起登录资料时，我选择了“忘记密码”。",
+      "references": [
+        "https://support.google.com/accounts/answer/7682439?hl=en"
+      ]
+    },
+    {
+      "term": "reset a password",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 重置密码；通过相应流程重新设置账户密码，不是仅输入原密码登录。",
+      "chineseAliases": [
+        "重置密码",
+        "重新设置密码",
+        "密码重置"
+      ],
+      "englishForms": [
+        "resetting a password",
+        "resets a password"
+      ],
+      "en": "The instructions explained how to reset a password after confirming the email address.",
+      "zh": "说明介绍了确认邮箱地址后如何重置密码。",
+      "references": [
+        "https://support.google.com/accounts/answer/41078?hl=en"
+      ]
+    },
+    {
+      "term": "stay signed in",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 保持登录状态；再次使用时仍处于已登录的会话中，不表示退出或注销账户。",
+      "chineseAliases": [
+        "保持登录",
+        "保持登入",
+        "保持登录状态"
+      ],
+      "englishForms": [
+        "staying signed in",
+        "stays signed in"
+      ],
+      "en": "I chose to stay signed in on my own laptop.",
+      "zh": "我在自己的笔记本电脑上选择了保持登录。",
+      "references": [
+        "https://support.google.com/accounts/answer/54490?hl=en-Gen"
+      ]
+    },
+    {
+      "term": "sign out",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "① 退出登录；结束当前账户会话，不等于删除或永久注销账户。",
+      "chineseAliases": [
+        "退出登录",
+        "退出登入",
+        "登出"
+      ],
+      "englishForms": [
+        "signed out",
+        "signing out",
+        "signs out"
+      ],
+      "en": "Maya signed out before returning the borrowed tablet.",
+      "zh": "玛雅归还借来的平板电脑前退出了登录。",
+      "references": [
+        "https://support.google.com/accounts/answer/54490?hl=en-Gen"
+      ]
+    },
+    {
+      "term": "delete an account",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 删除或注销网络账户；使该账户不再作为正常账户使用，不只是退出当前登录会话。",
+      "chineseAliases": [
+        "注销账号",
+        "注销账户",
+        "删除账户",
+        "删除账号"
+      ],
+      "englishForms": [
+        "deleted an account",
+        "deleting an account",
+        "deletes an account"
+      ],
+      "en": "He checked the saved files before choosing to delete an account he no longer used.",
+      "zh": "决定删除一个不再使用的账户前，他检查了已保存的文件。",
+      "references": [
+        "https://support.google.com/accounts/answer/32046?hl=en"
+      ]
+    },
+    {
+      "term": "create an account",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 创建或注册一个账户；为首次使用建立账户，不等同于登录已有账户。",
+      "chineseAliases": [
+        "注册账号",
+        "注册账户",
+        "创建账号",
+        "创建账户"
+      ],
+      "englishForms": [
+        "created an account",
+        "creating an account",
+        "creates an account"
+      ],
+      "en": "You can create an account with the email address you already use.",
+      "zh": "你可以用自己现有的邮箱地址创建一个账户。",
+      "references": [
+        "https://support.google.com/accounts/answer/27441?hl=en"
+      ]
+    },
+    {
+      "term": "locked account",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 被系统锁定、暂时不能正常登录或使用的账户；不表示账户一定已经被盗。",
+      "chineseAliases": [
+        "账户被锁定",
+        "账号被锁定",
+        "锁定的账户"
+      ],
+      "englishForms": [
+        "locked accounts"
+      ],
+      "en": "The screen displayed a message about a locked account.",
+      "zh": "屏幕显示了一条关于账户被锁定的提示。",
+      "references": [
+        "https://support.microsoft.com/en-us/accounts-billing/manage/microsoft-account-has-been-locked"
+      ]
+    },
+    {
+      "term": "compromised account",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 遭到未经授权访问或控制的账户；日常可说账户被盗，不只是自己忘记了密码。",
+      "chineseAliases": [
+        "账户被盗",
+        "账号被盗",
+        "账户遭入侵",
+        "被盗账户"
+      ],
+      "englishForms": [
+        "compromised accounts"
+      ],
+      "en": "Messages sent from the compromised account confused her friends.",
+      "zh": "从那个被盗账户发出的消息让她的朋友们感到困惑。",
+      "references": [
+        "https://support.google.com/accounts/answer/6294825?hl=en"
+      ]
+    },
+    {
+      "term": "two-step verification",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 两步验证；登录时通过两个步骤核验身份，常在密码之外再确认一次。不是把同一密码输入两遍。",
+      "chineseAliases": [
+        "两步验证",
+        "两步身份验证",
+        "二步验证"
+      ],
+      "englishForms": [
+        "two step verification",
+        "2-step verification"
+      ],
+      "en": "After I enabled two-step verification, signing in required an extra identity check.",
+      "zh": "启用两步验证后，我登录时还需要再核验一次身份。",
+      "references": [
+        "https://support.google.com/accounts/answer/185839?hl=en"
+      ]
+    },
+    {
+      "term": "privacy settings",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 隐私设置；控制个人信息、活动资料等如何被显示、使用或分享的选项，不是单纯更换密码。",
+      "chineseAliases": [
+        "隐私设置",
+        "账户隐私设置",
+        "隐私选项"
+      ],
+      "englishForms": [],
+      "en": "She changed her privacy settings so only friends could see her photos.",
+      "zh": "她修改了隐私设置，让只有朋友才能看到自己的照片。",
+      "references": [
+        "https://support.microsoft.com/en-us/accessibility/microsoft-account/use-a-screen-reader-to-manage-ad-settings-in-your-microsoft-account"
+      ]
+    },
+    {
+      "term": "notification settings",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 通知设置；选择是否接收提醒，以及提醒的渠道、声音等的选项。",
+      "chineseAliases": [
+        "通知设置",
+        "提醒设置",
+        "通知选项"
+      ],
+      "englishForms": [],
+      "en": "I changed the notification settings to stop the app from playing sounds.",
+      "zh": "我修改了通知设置，让应用不再播放提示音。",
+      "references": [
+        "https://support.google.com/a/users/answer/9308767?hl=en"
+      ]
+    },
+    {
+      "term": "email verification",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 邮箱验证；通过邮件链接、验证码等确认能使用某个邮箱地址，不是检查邮箱里是否有新邮件。",
+      "chineseAliases": [
+        "邮箱验证",
+        "电子邮箱验证",
+        "邮件地址验证"
+      ],
+      "englishForms": [],
+      "en": "Email verification was the last step in setting up the new account.",
+      "zh": "验证邮箱是创建这个新账户的最后一步。",
+      "references": [
+        "https://support.google.com/accounts/answer/27441?hl=en"
+      ]
+    },
+    {
+      "term": "recover an account",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 找回账户；恢复对原账户的访问，不表示另注册一个新账户或找回账户内的所有文件。",
+      "chineseAliases": [
+        "恢复账户",
+        "找回账户",
+        "找回账号",
+        "恢复账号"
+      ],
+      "englishForms": [
+        "recovered an account",
+        "recovering an account",
+        "recovers an account"
+      ],
+      "en": "The recovery form helped her recover an account she had not used for years.",
+      "zh": "找回表格帮助她重新访问了一个多年未用的账户。",
+      "references": [
+        "https://support.google.com/accounts/answer/7682439?hl=en"
+      ]
+    },
+    {
+      "term": "parcel locker",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 快递柜；供存放和领取包裹的专用柜格或柜组，常供收件人自助取件，不是普通行李寄存柜。",
+      "chineseAliases": [
+        "快递柜",
+        "包裹柜",
+        "自助取件柜"
+      ],
+      "englishForms": [
+        "parcel lockers"
+      ],
+      "en": "The message said my package was in a parcel locker near the entrance.",
+      "zh": "消息说，我的包裹放在入口附近的快递柜里。",
+      "references": [
+        "https://faq.usps.com/articles/FAQ/gopost-Package-Pickup"
+      ]
+    },
+    {
+      "term": "remaining balance",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 剩余余额；账户或礼品卡中尚余的金额。本例指礼品卡的余额，不是贷款未偿还的金额。",
+      "chineseAliases": [
+        "剩余余额",
+        "剩余账户余额",
+        "礼品卡剩余余额"
+      ],
+      "englishForms": [
+        "remaining balances"
+      ],
+      "en": "After buying the notebook, I checked the remaining balance on my gift card.",
+      "zh": "买完笔记本后，我查看了礼品卡的剩余余额。",
+      "references": [
+        "https://www.americanexpress.com/us/customer-service/faq.gift-card-balance-transaction-history.html"
+      ]
+    },
+    {
+      "term": "schedule a parcel pickup",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 预约快递取件；与承运方约定来收取待寄包裹的时间，不是预约自己到店领取订单。",
+      "chineseAliases": [
+        "预约取件",
+        "预约快递取件",
+        "预约上门取件"
+      ],
+      "englishForms": [
+        "scheduled a parcel pickup",
+        "scheduling a parcel pickup",
+        "schedules a parcel pickup",
+        "schedule a package pickup"
+      ],
+      "en": "I scheduled a parcel pickup for the box I needed to return.",
+      "zh": "我为那个需要退回的箱子预约了快递取件。",
+      "references": [
+        "https://tools.usps.com/schedule-pickup-steps.htm"
+      ]
+    },
+    {
+      "term": "sorry to bother you",
+      "partOfSpeech": "expression",
+      "meaning": "① 不好意思打扰了；提出请求、问问题或打断别人时使用的礼貌开场语。",
+      "chineseAliases": [
+        "不好意思打扰了",
+        "不好意思打扰你",
+        "抱歉打扰你"
+      ],
+      "englishForms": [
+        "I'm sorry to bother you",
+        "I am sorry to bother you"
+      ],
+      "en": "Sorry to bother you, but is this seat free?",
+      "zh": "不好意思打扰了，这个位子有人坐吗？",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/sorry-to-bother-you?topic=making-and-accepting-apologies"
+      ]
+    },
+    {
+      "term": "is now a good time to talk",
+      "partOfSpeech": "expression",
+      "meaning": "① 现在方便聊一下吗？先询问对方目前是否方便交谈，不是约定稍后一定要聊。",
+      "chineseAliases": [
+        "方便聊一下吗",
+        "现在方便聊一下吗",
+        "现在方便说话吗"
+      ],
+      "englishForms": [],
+      "en": "Is now a good time to talk, or should I call after your meeting?",
+      "zh": "现在方便聊一下吗，还是等你开完会我再打来？",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/sorry-to-bother-you?topic=making-and-accepting-apologies"
+      ]
+    },
+    {
+      "term": "I might be a little late",
+      "partOfSpeech": "expression",
+      "meaning": "① 我可能会晚一点到；表示有迟到的可能，还没有断定一定迟到。",
+      "chineseAliases": [
+        "我可能会晚一点到",
+        "我可能会迟到一会儿",
+        "我可能晚点到"
+      ],
+      "englishForms": [],
+      "en": "I might be a little late if the traffic stays this heavy.",
+      "zh": "如果交通一直这么拥堵，我可能会晚一点到。",
+      "references": [
+        "https://dictionary.cambridge.org/us/grammar/british-grammar/might"
+      ]
+    },
+    {
+      "term": "I'm almost there",
+      "partOfSpeech": "expression",
+      "meaning": "① 我快到了；在路上说明离目的地已经很近。本例说的是到达地点，不是任务快完成了。",
+      "chineseAliases": [
+        "我快到了",
+        "我马上就到了",
+        "快到目的地了"
+      ],
+      "englishForms": [
+        "I am almost there"
+      ],
+      "en": "I'm almost there; I can see the café across the road.",
+      "zh": "我快到了，已经能看到马路对面的咖啡馆了。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/LearnEnglish-Writing-A1-A-message-to-say-youre-late.pdf"
+      ]
+    },
+    {
+      "term": "I'll let you get back to it",
+      "partOfSpeech": "expression",
+      "meaning": "① 你先忙；结束打扰，让对方继续刚才的事情，语气通常体贴而非催促。",
+      "chineseAliases": [
+        "你先忙",
+        "你先继续忙",
+        "那你先忙"
+      ],
+      "englishForms": [
+        "I will let you get back to it"
+      ],
+      "en": "You look busy, so I'll let you get back to it.",
+      "zh": "你看起来很忙，那我就不打扰了，你先忙。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/sorry-to-bother-you?topic=making-and-accepting-apologies"
+      ]
+    },
+    {
+      "term": "let's make it another time",
+      "partOfSpeech": "expression",
+      "meaning": "① 改天吧；建议把约好的活动或见面改到另一个时间，尚未确定具体日期。",
+      "chineseAliases": [
+        "改天吧",
+        "改天再约",
+        "我们改天再约"
+      ],
+      "englishForms": [
+        "let us make it another time"
+      ],
+      "en": "I can't come on Friday, so let's make it another time.",
+      "zh": "我星期五来不了，我们改天再约吧。",
+      "references": []
+    },
+    {
+      "term": "it's all right",
+      "partOfSpeech": "expression",
+      "meaning": "① 没关系；回应道歉时表示自己并不介意。本例不是说某事与自己毫无关联。",
+      "chineseAliases": [
+        "没关系",
+        "没事的",
+        "这没关系"
+      ],
+      "englishForms": [
+        "it is all right",
+        "that's all right",
+        "that is all right"
+      ],
+      "en": "It's all right—you only kept me waiting for a minute.",
+      "zh": "没关系，你只让我等了一分钟。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/all-right"
+      ]
+    },
+    {
+      "term": "you're welcome",
+      "partOfSpeech": "expression",
+      "meaning": "① 不用客气；回答别人感谢的话，不是指欢迎别人进入某地。",
+      "chineseAliases": [
+        "不用客气",
+        "不客气",
+        "不用谢",
+        "别客气"
+      ],
+      "englishForms": [
+        "you are welcome"
+      ],
+      "en": "You're welcome; I'm glad the notes helped you.",
+      "zh": "不用客气，很高兴那些笔记帮到了你。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/you-re-welcome"
+      ]
+    },
+    {
+      "term": "thanks for your help",
+      "partOfSpeech": "expression",
+      "meaning": "① 谢谢帮忙；在致谢语境中也可表达“麻烦你了”。这是感谢帮助，不是直接要求别人答应一个请求。",
+      "chineseAliases": [
+        "麻烦你了",
+        "谢谢帮忙",
+        "谢谢你的帮助"
+      ],
+      "englishForms": [
+        "thank you for your help"
+      ],
+      "en": "Thanks for your help; we finished packing before the taxi arrived.",
+      "zh": "谢谢帮忙，我们在出租车到来前把东西收拾好了。",
+      "references": [
+        "https://downloads.bbc.co.uk/worldservice/learningenglish/howto/how_to_080528_ask_favour.pdf"
+      ]
+    },
+    {
+      "term": "sorry to keep you waiting",
+      "partOfSpeech": "expression",
+      "meaning": "① 让你久等了，抱歉；对别人因自己而等待表示歉意，不是命令对方继续等。",
+      "chineseAliases": [
+        "让你久等了",
+        "抱歉让你久等了",
+        "不好意思让你久等"
+      ],
+      "englishForms": [
+        "I'm sorry to keep you waiting",
+        "I am sorry to keep you waiting"
+      ],
+      "en": "Sorry to keep you waiting; the printer stopped working.",
+      "zh": "抱歉让你久等了，打印机刚才出故障了。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/LearnEnglish-Writing-A1-A-message-to-say-youre-late.pdf"
+      ]
+    },
+    {
+      "term": "I didn't mean to",
+      "partOfSpeech": "expression",
+      "meaning": "① 我不是故意的；否认有意做刚才那件事，可接动词说明具体行为。不是说没有理解词义。",
+      "chineseAliases": [
+        "我不是故意的",
+        "我不是有意的",
+        "我无意这样做"
+      ],
+      "englishForms": [
+        "I did not mean to"
+      ],
+      "en": "I didn't mean to wake you; the door slipped out of my hand.",
+      "zh": "我不是故意吵醒你的，门从我手里滑脱了。",
+      "references": [
+        "https://dictionary.cambridge.org/grammar/british-grammar/mean"
+      ]
+    },
+    {
+      "term": "I've changed my mind",
+      "partOfSpeech": "expression",
+      "meaning": "① 我改变主意了；已经作出了与之前不同的决定，不是仍在犹豫。",
+      "chineseAliases": [
+        "我改变主意了",
+        "我改主意了",
+        "我已经改变主意了"
+      ],
+      "englishForms": [
+        "I have changed my mind",
+        "I changed my mind"
+      ],
+      "en": "I've changed my mind; I'd rather take the train than drive.",
+      "zh": "我改变主意了，比起开车，我更愿意坐火车。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/change-mind"
+      ]
+    },
+    {
+      "term": "you're right",
+      "partOfSpeech": "expression",
+      "meaning": "① 你说得对；认可对方刚才的判断或意见，不是在指示向右转。",
+      "chineseAliases": [
+        "你说得对",
+        "你说的对",
+        "你是对的"
+      ],
+      "englishForms": [
+        "you are right"
+      ],
+      "en": "You're right—the library closes earlier on Sundays.",
+      "zh": "你说得对，图书馆星期天确实关门更早。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/right"
+      ]
+    },
+    {
+      "term": "I'm not sure",
+      "partOfSpeech": "expression",
+      "meaning": "① 我不确定；目前不能肯定某个事实或决定，不必然表示反对。",
+      "chineseAliases": [
+        "我不确定",
+        "我还不确定",
+        "我不能肯定"
+      ],
+      "englishForms": [
+        "I am not sure"
+      ],
+      "en": "I'm not sure which entrance is open after six.",
+      "zh": "我不确定六点以后哪个入口还开着。",
+      "references": []
+    },
+    {
+      "term": "I'll think about it",
+      "partOfSpeech": "expression",
+      "meaning": "① 我再考虑一下；暂不作决定，有时是委婉推迟答复，不等于已经答应。",
+      "chineseAliases": [
+        "我再考虑一下",
+        "我考虑考虑",
+        "我会考虑一下"
+      ],
+      "englishForms": [
+        "I will think about it"
+      ],
+      "en": "I'll think about it and let you know tomorrow.",
+      "zh": "我再考虑一下，明天告诉你。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/think-of"
+      ]
+    },
+    {
+      "term": "sounds good",
+      "partOfSpeech": "expression",
+      "meaning": "① 听起来不错；对建议或安排表示赞同。本例不是评价某段声音好听。",
+      "chineseAliases": [
+        "听起来不错",
+        "这个主意听着不错",
+        "这个安排不错"
+      ],
+      "englishForms": [
+        "that sounds good",
+        "it sounds good"
+      ],
+      "en": "Sounds good—let’s meet outside the bookshop at four.",
+      "zh": "听起来不错，我们四点在书店外见吧。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/sound"
+      ]
+    },
+    {
+      "term": "I'll take care of it",
+      "partOfSpeech": "expression",
+      "meaning": "① 我来处理；表示愿意负责把这件事办好，不是说已经处理完毕。",
+      "chineseAliases": [
+        "我来处理",
+        "这事我来办",
+        "交给我处理"
+      ],
+      "englishForms": [
+        "I will take care of it"
+      ],
+      "en": "Leave the room booking with me; I'll take care of it.",
+      "zh": "订会议室的事交给我，我来处理。",
+      "references": [
+        "https://www.wordsmyth.net/?as_level=3&rid=48219"
+      ]
+    },
+    {
+      "term": "let me carry that for you",
+      "partOfSpeech": "expression",
+      "meaning": "① 我帮你拿吧；主动提出替对方拿或搬眼前的东西，不是要求对方替自己拿。",
+      "chineseAliases": [
+        "我帮你拿吧",
+        "让我帮你拿",
+        "我帮你搬吧"
+      ],
+      "englishForms": [],
+      "en": "Let me carry that for you while you unlock the door.",
+      "zh": "你开门的时候，我帮你拿那个东西吧。",
+      "references": [
+        "https://downloads.bbc.co.uk/worldservice/learningenglish/howto/how_to_080528_ask_favour.pdf"
+      ]
+    },
+    {
+      "term": "it's up to you",
+      "partOfSpeech": "expression",
+      "meaning": "① 由你决定；在给予对方选择权的语境中可说“随便你”。语气不同也可能显得不耐烦，不等于我完全不关心。",
+      "chineseAliases": [
+        "随便你",
+        "由你决定",
+        "你自己决定"
+      ],
+      "englishForms": [
+        "it is up to you"
+      ],
+      "en": "We can walk or take the bus; it's up to you.",
+      "zh": "我们可以步行，也可以坐公交车，由你决定。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/learner-english/up"
+      ]
+    },
+    {
+      "term": "at your convenience",
+      "partOfSpeech": "prepositional phrase",
+      "meaning": "① 在你方便的时候；由对方选择合适的时间，不表示要求立刻处理。",
+      "chineseAliases": [
+        "按你方便的时间",
+        "在你方便时",
+        "你方便的时候"
+      ],
+      "englishForms": [],
+      "en": "We can review the photographs at your convenience next week.",
+      "zh": "我们下周可以在你方便时一起看那些照片。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/at-convenience?q=at-your-convenience"
+      ]
+    },
+    {
+      "term": "thanks in advance",
+      "partOfSpeech": "expression",
+      "meaning": "① 提前谢谢你；提出请求后预先表达感谢，不表示对方已经答应或完成了帮助。",
+      "chineseAliases": [
+        "提前谢谢你",
+        "先谢谢你",
+        "预先感谢"
+      ],
+      "englishForms": [
+        "thank you in advance"
+      ],
+      "en": "Could you check the room number for me? Thanks in advance.",
+      "zh": "能帮我核对一下房间号吗？先谢谢你。",
+      "references": [
+        "https://downloads.bbc.co.uk/worldservice/learningenglish/howto/how_to_080528_ask_favour.pdf"
+      ]
+    },
+    {
+      "term": "don't take it to heart",
+      "partOfSpeech": "expression",
+      "meaning": "① 别放在心上；劝人不要因批评、玩笑等过分难过或耿耿于怀，不是让人忘掉所有重要建议。",
+      "chineseAliases": [
+        "别放在心上",
+        "不要往心里去",
+        "别太往心里去"
+      ],
+      "englishForms": [
+        "do not take it to heart"
+      ],
+      "en": "Don't take it to heart; her comment was about the timetable, not your work.",
+      "zh": "别太往心里去，她评论的是时间安排，不是你的工作。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/take-to-heart?topic=continually-thinking-about"
+      ]
+    },
+    {
+      "term": "I owe you one",
+      "partOfSpeech": "idiom",
+      "meaning": "① 我欠你个人情；感谢对方帮忙，并表示以后愿意回报，不是具体欠一元钱。",
+      "chineseAliases": [
+        "我欠你个人情",
+        "欠你一个人情",
+        "我欠你一个人情"
+      ],
+      "englishForms": [],
+      "en": "You stayed to help with the boxes—I owe you one.",
+      "zh": "你留下来帮我搬箱子，这个人情我记下了。",
+      "references": [
+        "https://downloads.bbc.co.uk/worldservice/learningenglish/howto/how_to_080528_ask_favour.pdf"
+      ]
+    },
+    {
+      "term": "let's leave it for another time",
+      "partOfSpeech": "expression",
+      "meaning": "① 下次再说；建议把眼前的话题或事情留到另一次再谈、再处理，不保证已约定新时间。",
+      "chineseAliases": [
+        "下次再说",
+        "留到下次再说",
+        "改日再讨论"
+      ],
+      "englishForms": [
+        "let us leave it for another time"
+      ],
+      "en": "We're both tired; let's leave it for another time.",
+      "zh": "我们都累了，这件事下次再说吧。",
+      "references": []
+    },
+    {
+      "term": "something came up",
+      "partOfSpeech": "expression",
+      "meaning": "① 临时有事；发生了未预料的事情，常用来解释为什么需要改变计划，不一定是严重事故。",
+      "chineseAliases": [
+        "临时有事",
+        "突然有事",
+        "临时出了点事"
+      ],
+      "englishForms": [
+        "something has come up"
+      ],
+      "en": "I was going to join you for lunch, but something came up.",
+      "zh": "我本来打算和你一起吃午饭，但临时有点事。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/up?topic=functioning"
+      ]
+    },
+    {
+      "term": "cancel plans",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 取消原定安排；决定不进行之前计划好的活动，不只是把活动推迟到另一天。",
+      "chineseAliases": [
+        "取消计划",
+        "取消原定安排",
+        "取消原计划"
+      ],
+      "englishForms": [
+        "cancelled plans",
+        "canceled plans",
+        "cancelling plans",
+        "canceling plans",
+        "cancels plans"
+      ],
+      "en": "We cancelled our plans for a picnic when the storm arrived.",
+      "zh": "暴风雨来临后，我们取消了原定的野餐安排。",
+      "references": [
+        "https://www.dictionary.com/browse/cancel"
+      ]
+    },
+    {
+      "term": "I'm free",
+      "partOfSpeech": "expression",
+      "meaning": "① 我有空；在约时间的语境中表示自己没有其他安排，不是说自己免费或刚获自由。",
+      "chineseAliases": [
+        "我有空",
+        "我有时间",
+        "我现在有空"
+      ],
+      "englishForms": [
+        "I am free"
+      ],
+      "en": "I'm free after four, but I have to leave by six.",
+      "zh": "我四点以后有空，但六点前得走。",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/free"
+      ]
+    },
+    {
+      "term": "are you free",
+      "partOfSpeech": "expression",
+      "meaning": "① 你有空吗？询问对方某个时间是否有空，不是在询问价格是否免费。",
+      "chineseAliases": [
+        "你有空吗",
+        "你有没有空",
+        "你有时间吗"
+      ],
+      "englishForms": [],
+      "en": "Are you free on Saturday morning to help me choose a desk?",
+      "zh": "你星期六早上有空帮我挑一张书桌吗？",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/free"
+      ]
+    },
+    {
+      "term": "don't worry",
+      "partOfSpeech": "expression",
+      "meaning": "① 别担心；劝人放宽心，不是保证任何情况下都不会发生问题。",
+      "chineseAliases": [
+        "别担心",
+        "不要担心",
+        "不用担心"
+      ],
+      "englishForms": [
+        "do not worry"
+      ],
+      "en": "Don't worry about the rain; we can wait inside the café.",
+      "zh": "别担心下雨，我们可以在咖啡馆里等。",
+      "references": [
+        "https://learnenglish.britishcouncil.org/sites/podcasts/files/LearnEnglish-Writing-A1-A-message-to-say-youre-late.pdf"
+      ]
+    },
+    {
+      "term": "be denied a refund",
+      "partOfSpeech": "passive verb phrase",
+      "meaning": "① 未获准退款；退款申请被拒。说明申请退款的人未获准退款，不表示这个人拒绝给别人退款。",
+      "chineseAliases": [
+        "退款被拒",
+        "退款申请被拒",
+        "未获准退款"
+      ],
+      "englishForms": [
+        "was denied a refund",
+        "were denied a refund",
+        "is denied a refund",
+        "been denied a refund",
+        "being denied a refund"
+      ],
+      "en": "I was denied a refund, but the store offered me an exchange.",
+      "zh": "我的退款申请被拒了，不过店家提出可以换货。",
+      "references": [
+        "https://www.target.com/help/article/000061980"
+      ]
+    },
   ...REVIEWED_SENSE_ENTRIES,
 ].map((entry) => Object.freeze({
   ...entry,

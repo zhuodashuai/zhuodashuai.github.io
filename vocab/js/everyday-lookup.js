@@ -22,7 +22,9 @@ function safeInput(value) {
   return normal && !CONTROL.test(normal) && !UNSAFE.test(normal) ? normal : null;
 }
 function chineseKey(value) {
-  return value.replace(/\s+/gu, "").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "");
+  // Mixed Chinese terms such as USB充电头 retain their full subject, while
+  // Latin letter case does not create a different Chinese lookup intent.
+  return value.toLocaleLowerCase("en-US").replace(/\s+/gu, "").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "");
 }
 function englishKey(value) { return spelling(value).toLocaleLowerCase("en-US"); }
 function decoratedEnglish(value) {
