@@ -23,6 +23,14 @@ function restoreD42ExampleUi(raw){
  assert.equal(text.split(loadAnchor).length,2,'Expected the exact historical source-assignment location');
  return Buffer.from(text.replace(d42SenseSource+eol,'').replace(controller,oldSource+controller));
 }
+function restoreSavedSenseContext(raw) {
+ const current='      return await controller.show(entry.term, { savedEntry: entry });';
+ const historical='      return await controller.show(entry.term);';
+ const text=raw.toString('utf8');
+ assert.equal(text.split(current).length,2,'Expected exactly one saved-sense context handoff');
+ assert.equal(text.split(historical).length,1,'Old call must be replaced, not duplicated');
+ return Buffer.from(text.replace(current,historical));
+}
 const copies=[
   {
     "oldName": "dictionary-app.js",
@@ -267,7 +275,7 @@ for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+
  const oldRaw=await fs.readFile(new URL('vocab/js/'+item.oldName,root)),nextRaw=await fs.readFile(new URL('vocab/js/'+item.newName,root));
  // Undo only D42's named source-aware label change on both copies before the frozen comparison.
  const old=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(oldRaw):oldRaw;
- const next=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(nextRaw):nextRaw;
+ const next=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(restoreSavedSenseContext(nextRaw)):nextRaw;
  assert(item.allowedOldRaw.some(t=>t.bytes===old.length&&t.sha256===sha(old)),'Original body differs from its exact Git/Windows pins');
  let restored=next.toString('utf8');
  for(const[from,to]of item.replacements){assert.equal(restored.split(to).length,2);restored=restored.replace(to,from);}
@@ -341,6 +349,17 @@ test('D42 historical restoration rejects altered or duplicated source additions 
  assert.throws(()=>restoreD42SourceLabel(d42SourceLabel.replace('仅覆盖','覆盖')));
  assert.throws(()=>restoreD42SourceLabel(d42SourceLabel+d42SourceLabel));
  assert.equal(restoreD42SourceLabel(d42SourceLabel+extra),historicalSourceLabel+extra);
+});
+
+test('saved-sense restoration is one exact current-UI call and leaves every other byte accountable',async()=>{
+ const current=await fs.readFile(new URL('vocab/js/dictionary-examples-ui-v108.js',root),'utf8');
+ const call='      return await controller.show(entry.term, { savedEntry: entry });';
+ assert.throws(()=>restoreSavedSenseContext(Buffer.from(current.replace(call,call.replace('savedEntry','meaning')))));
+ assert.throws(()=>restoreSavedSenseContext(Buffer.from(current+'\n'+call)));
+ const extra='\n// unrelated mutation\n';
+ assert.equal(restoreSavedSenseContext(Buffer.from(current+extra)).toString(),restoreSavedSenseContext(Buffer.from(current)).toString()+extra);
+ const legacy=await fs.readFile(new URL('vocab/js/dictionary-examples-ui.js',root),'utf8');
+ assert(!legacy.includes('savedEntry: entry'),'Previously served legacy UI remains unchanged');
 });
 test('v108 does not retarget navigation107 and retains pwa77',async()=>{
  for(const item of navigation)assert(item.allowedSha.includes(sha(await fs.readFile(new URL(item.file,root)))));

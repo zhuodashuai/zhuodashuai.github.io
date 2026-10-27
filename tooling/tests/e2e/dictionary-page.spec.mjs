@@ -61,7 +61,8 @@ test("examples: actual reviewed sidecar shows its own senses and bilingual text 
   const calls = observeRequests(page);
   await page.setViewportSize({ width: 390, height: 844 }); await open(page); await query(page, "override");
   await expect(page.locator("#dictionary-example-content .example-sense")).toHaveCount(actual.senses.length);
-  await expect(page.locator("#dictionary-example-panel")).toContainText("原创例句 · AI 复核 · 仅覆盖所列义项");
+  await expect(page.locator("#dictionary-example-title")).toHaveText("原创学习例句");
+  await expect(page.locator("#dictionary-example-source")).toBeHidden();
   await expect(page.locator("#dictionary-example-content summary").first()).toContainText(actual.senses[0].meaningZh);
   await expect(page.locator('#dictionary-example-content p[lang="en"]').first()).toHaveText(actual.senses[0].examples[0].en);
   await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]').first()).toHaveText(actual.senses[0].examples[0].zh);
