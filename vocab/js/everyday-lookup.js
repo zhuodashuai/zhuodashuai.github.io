@@ -1,4 +1,7 @@
-import { EVERYDAY_LOOKUP_ENTRIES } from "./everyday-lookup-data.js";
+import * as packagedEveryday from "./everyday-lookup-data.js";
+// An old offline data module can still supply its original entries during an
+// interrupted shell update. Extra names appear once the data refresh arrives.
+const { EVERYDAY_LOOKUP_ENTRIES, EVERYDAY_CHINESE_ALIASES = [] } = packagedEveryday;
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const HAN = /\p{Script=Han}/u;
@@ -61,6 +64,16 @@ for (const row of EVERYDAY_LOOKUP_ENTRIES) {
   if (row.reviewedCanonicalSense === true && row.retainLegacyChinese !== true) supersededChineseHeads.add(row.term);
   for (const term of row.chineseAliases) add(chinese, chineseKey(spelling(term)), row);
   for (const term of row.englishForms) add(englishForms, englishKey(term), row);
+}
+for (const { term, aliases } of EVERYDAY_CHINESE_ALIASES) {
+  const row = canonicalEnglish.get(englishKey(term));
+  if (!row || row.term !== term || !Array.isArray(aliases) || !aliases.length) {
+    throw new Error("Invalid existing-head Chinese alias target.");
+  }
+  for (const alias of aliases) {
+    if (safeInput(alias) !== alias || !HAN.test(alias)) throw new Error("Invalid exact Chinese alias.");
+    add(chinese, chineseKey(alias), row);
+  }
 }
 
 /** Only the literal, reviewed canonical head qualifies. Search decoration,

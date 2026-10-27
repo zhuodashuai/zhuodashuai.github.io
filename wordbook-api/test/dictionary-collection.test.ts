@@ -85,7 +85,9 @@ describe("verified owner dictionary collection", () => {
     const assets = { fetch: async () => { requests++; throw new Error("No asset lookup is needed for packaged entries"); } } as Pick<Fetcher, "fetch">;
     expect(EVERYDAY_LOOKUP_ENTRIES.length).toBeGreaterThanOrEqual(40);
     for (const row of EVERYDAY_LOOKUP_ENTRIES) {
-      const entry = await resolveDictionaryCollection(row.term, assets);
+      let entry;
+      try { entry = await resolveDictionaryCollection(row.term, assets); }
+      catch (error) { throw new Error(`Packaged collection failed for ${row.term}`, { cause: error }); }
       expect(entry.term).toBe(row.term); expect(entry.partOfSpeech).toBe(row.partOfSpeech); expect(entry.meaning).toBe(row.meaning);
       expect(entry.exampleEn).toBe(row.en); expect(entry.exampleZh).toBe(row.zh);
       expect(entry.exampleEn.trim().length).toBeGreaterThan(0); expect(entry.exampleZh).toMatch(/\p{Script=Han}/u);

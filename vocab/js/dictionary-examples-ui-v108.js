@@ -65,7 +65,7 @@ export function createDictionaryExamplesSection({ root = document, after, before
       const module = await pendingModule;
       if (current !== sequence || selected !== entry) return false;
       controller ||= module.createDictionaryExamplesController({ onChange: render });
-      return await controller.show(entry.term);
+      return await controller.show(entry.term, { savedEntry: entry });
     } catch {
       pendingModule = null;
       if (current === sequence && selected === entry) render({ phase: "error", message: "学习例句暂不可用，原有内容仍可阅读。" });

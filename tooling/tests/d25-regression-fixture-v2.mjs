@@ -12,6 +12,20 @@ export const D25_PUBLISHED_IDENTITY=null;
 // No reviewed target-source evolution is registered. A later exact target
 // change requires a new independent compatibility binding, not a blanket skip.
 export const D25_TARGET_SOURCE_EVOLUTIONS=Object.freeze([]);
+// The immutable D25 source remains exact. This one later, explicitly selected
+// daily display is a separate source layer, not an evolution of the old record.
+export const D25_DAILY_DISPLAY_COMPATIBILITY=Object.freeze({
+ 'to be honest':Object.freeze({rowSha256:'c75251744de653a69b77b11aaabde9e19ded011d288ede7bf9788e779dd62894',display:Object.freeze({
+  term:'to be honest',partOfSpeech:'expression',meaning:'① 说实话；坦白说。用于引出自己真实的想法或感受，不是形容一个人诚实。',
+  source:'卓的日常词组',license:'Original composition',url:'https://zhuodashuai.github.io/vocab/'
+ })})
+});
+export function d25ExpectedCurrentDisplay(record,frozenDisplay,dailyEntries){
+ const binding=D25_DAILY_DISPLAY_COMPATIBILITY[record.term];if(!binding)return frozenDisplay;
+ const rows=dailyEntries.filter(row=>row.term===record.term);assert.equal(rows.length,1,'Registered daily head must remain unique');
+ assert.equal(hash(rows[0]),binding.rowSha256,'Unreviewed change to the exact D25 daily display');
+ return binding.display;
+}
 // Exact, finite historical checkout transports; never a general normalizer.
 export const D25_LEGACY_TRANSPORT_PIN='0ffb3950de71e8be657e2c4c06a46aa5fc58c2de8ab4142527283fc6a15409be';
 export const D25_EXISTING_PINS=Object.freeze({authorSha256:'6d642fd0a0299bfe1b7420db2f825534f9ad3b0227ab98db05558d2a5edf65f3',authorBytes:380063,languageReviewSha256:'ba88f8ee11c07b2c3fb7728ffe3b7830a93acddcccada2ac980b1dc4af6be828',languageReviewBytes:210090,sourceVersion:'cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644',sourceManifestSha256:'2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f',beforeExampleVersion:'9d88df54348516f0c4d6d554e0eb49348512a6026c693bae5ee88ad0959e0210',beforeExampleManifestSha256:'b73f2da425af9350b6ed1b4f4ebd14681f024202e11353c51d5801b610253c61',beforeIndexSha256:'3d534e73d1a7328b35707909efe5af61f0bc4f10f50bdd4be2abb0e3947f0916',d24ProvenanceSha256:'830604f402655af18086e0e8e60e83f62defb8c28708b9781fb308485d13d811'});
@@ -107,7 +121,8 @@ export async function loadD25RegressionFixture(options={}){
   const descriptor=sourceManifest.sources[record.source],primary=readable(record,record),out={term:record.term,partOfSpeech:primary.partOfSpeech,meaning:primary.meaning,source:descriptor.name,license:descriptor.license,url:descriptor.url};
   const alternatives=(record.variants||[]).filter(item=>!((record.source==='pos-reviewed'||record.source==='grammar-reviewed'&&item.source==='mit')&&item.meaning===record.meaning&&!item.partOfSpeech.trim())).map(item=>{const f=readable(record,item),s=sourceManifest.sources[item.source];return{partOfSpeech:f.partOfSpeech,meaning:f.meaning,source:s.name,license:s.license,url:s.url};});if(alternatives.length)out.alternatives=alternatives;return out;
  }
- const runtimeByTerm=new Map();for(const entry of author.entries){const response=await product.searchExpandedDictionary(entry.term,{fetchImpl,timeoutMs:30000});assert.equal(response.results.length,1,'Canonical lookup must remain unambiguous');const actual=response.results[0];assert.deepEqual(actual,expectedDisplay(entry.source),'Primary meaning/POS/provenance or retained alternatives changed '+entry.term);runtimeByTerm.set(entry.term,actual);}
+ const {EVERYDAY_LOOKUP_ENTRIES:dailyEntries}=await import(pathToFileURL(path.join(base,'vocab/js/everyday-lookup-data.js')));
+ const runtimeByTerm=new Map();for(const entry of author.entries){const response=await product.searchExpandedDictionary(entry.term,{fetchImpl,timeoutMs:30000});assert.equal(response.results.length,1,'Canonical lookup must remain unambiguous');const actual=response.results[0];assert.deepEqual(actual,d25ExpectedCurrentDisplay(entry.source,expectedDisplay(entry.source),dailyEntries),'Primary meaning/POS/provenance or retained alternatives changed '+entry.term);runtimeByTerm.set(entry.term,actual);}
  const representativeDisplays=[];for(const representative of D25_REPRESENTATIVES){const response=await product.searchExpandedDictionary(representative.query,{fetchImpl,timeoutMs:30000});assert.equal(response.results.length,1,'Representative query ambiguity must be resolved explicitly, not silently waived');assert.equal(response.results[0].term,representative.term);representativeDisplays.push({...representative,pair:pairByTerm.get(representative.term),canonicalDisplay:runtimeByTerm.get(representative.term),queryDisplay:response.results[0]});}
  return{author,languageReview,sourceManifest,records,activeSourceManifest,activeRecords,before,after,current,sourcePack,reviewPack,provenance,historicalIndex,currentIndex,pairByTerm,runtimeByTerm,representativeDisplays,bindings};
 }

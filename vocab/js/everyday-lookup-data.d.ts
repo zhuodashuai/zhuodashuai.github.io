@@ -17,3 +17,8 @@ export interface EverydayLookupEntry {
 }
 
 export const EVERYDAY_LOOKUP_ENTRIES: readonly EverydayLookupEntry[];
+export const EVERYDAY_CHINESE_ALIASES: readonly {
+  readonly term: string;
+  readonly aliases: readonly string[];
+  readonly targetEntrySha256: string;
+}[];

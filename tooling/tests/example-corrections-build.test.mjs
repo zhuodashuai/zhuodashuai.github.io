@@ -4,7 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { exampleSourceHash } from '../scripts/build-dictionary-examples.mjs';
 import { examplePairDigest } from '../scripts/audit-dictionary-example-reviews.mjs';
 import { correctionFromReviewedPair, independentlyReviewedCorrections,
-  loadExampleCorrectionBuild, parseCorrectionSourceManifest } from '../scripts/build-dictionary-example-corrections.mjs';
+  loadExampleCorrectionBuild, parseCorrectionSourceManifest, reserveCorrectionSentence } from '../scripts/build-dictionary-example-corrections.mjs';
+import { EVERYDAY_LOOKUP_ENTRIES } from '../../vocab/js/everyday-lookup-data.js';
 
 const original = { term: 'test', partOfSpeech: 'noun', meaningZh: '检验、测验。',
   en: 'The glossary explains the word test.', zh: '词汇表解释了测验这个词。' };
@@ -48,6 +49,23 @@ test('only independent approved pairs qualify; a source self-check cannot approv
   assert.equal(independentlyReviewedCorrections(pack, review).length, 1);
   assert.equal(independentlyReviewedCorrections(pack, { ...review, approvedTerms: [] }).length, 0);
   assert.throws(() => independentlyReviewedCorrections(pack, { ...review, reviewer: 'AI/author', independentOfAuthor: false, mode: 'author-selfcheck' }));
+});
+
+test('correction deduplication includes real daily and selected-sense examples while allowing own translation repairs', () => {
+  for (const existing of [EVERYDAY_LOOKUP_ENTRIES.find(row => !row.reviewedCanonicalSense),
+    EVERYDAY_LOOKUP_ENTRIES.find(row => row.reviewedCanonicalSense)]) {
+    assert(existing);
+    const key = existing.en.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase();
+    const sentences = new Map([[key, existing.term]]);
+    assert.throws(() => reserveCorrectionSentence({ ...row, en: existing.en }, original, sentences), /Duplicate English/u);
+    assert.throws(() => reserveCorrectionSentence({ ...row, en: `  ${existing.en.toUpperCase()}  ` }, original, sentences), /Duplicate English/u);
+    assert.equal(sentences.get(key), existing.term);
+  }
+  const own = new Map([[original.en.toLowerCase(), original.term]]);
+  reserveCorrectionSentence({ ...original, zh: '准确的新译文。' }, original, own);
+  assert.equal(own.size, 1);
+  reserveCorrectionSentence(row, original, own);
+  assert.equal(own.get(row.en.toLowerCase()), row.term);
 });
 
 test('checked-in corrections rebuild from exact active legacy pairs and independent approvals, with global English deduplication', async () => {

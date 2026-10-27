@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "944891bd45e5ee9ef35b3f782b670fc9ac54b87f0c23c2678ae903e8573fb5f7",
+  "reviewer": "AI/coverage-semantic-independent-next-002",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "spf",
+    "wal",
+    "GF",
+    "Sak",
+    "hitchen",
+    "queensberry",
+    "faire",
+    "cec",
+    "ezekiel",
+    "bem",
+    "entre",
+    "IOM",
+    "BAL",
+    "sce",
+    "NCP",
+    "hs",
+    "PCW",
+    "NAC",
+    "SK",
+    "rk",
+    "MEM",
+    "MTM"
+  ],
+  "issues": [],
+  "decisions": [
+    {
+      "term": "spf",
+      "rowDigest": "f320555f8066d43229bab2bb0bbf0dbe703edc0f64edfb170d35efda57ad9808",
+      "originalPairDigest": "6a0984655aaa68755092dddad61916cc2a61728eb650b59cee7cfee018d3cb29",
+      "canonicalId": 5557168,
+      "canonicalSourceSha256": "a1329697ed0987b0a60efe15e814e65eb6736c99749468df8cd3f7641ffd6902",
+      "verdict": "approved",
+      "reason": "FDA明确SPF为防晒产品标示的防晒系数。比较两瓶的数值是实际使用，而非仅报告标签排版；EN/ZH自然准确，无日晒时长或功效保证。",
+      "references": [
+        "https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "wal",
+      "rowDigest": "67dc562be69f70308049c7692ef0489096ba13b0c3245df629b423137182e329",
+      "originalPairDigest": "0623175f3524eb969ea4d6355b6b87c8beb8a05646794c34a82886a801e6170f",
+      "canonicalId": 5619931,
+      "canonicalSourceSha256": "3bfc486f6bdb019d5f882c120b1e45617fd6dc5241e654af00c9f0804df9c093",
+      "verdict": "approved",
+      "reason": "PostgreSQL原始文档明确崩溃后可用WAL记录重做并恢复数据库更改。该句描述一次已发生的恢复，不声称所有配置或损坏都保证恢复；committed对应已经提交，译文准确。",
+      "references": [
+        "https://www.postgresql.org/docs/16/wal-intro.html"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "GF",
+      "rowDigest": "0be645e743d5587773afe095be74d8d0fd1317a8b813b648a54c44134379f6df",
+      "originalPairDigest": "134aaacba47ab1cc7e8dd47e8ef376b9611560e5b560ab6af7183ee9b5228fa6",
+      "canonicalId": 5636000,
+      "canonicalSourceSha256": "687a92614e41c8697bfa40faf61739758d3b4c5054b213cb4335686af6b2aba9",
+      "verdict": "approved",
+      "reason": "独立取得原始细胞研究摘要，明确growth factor (GF)及其生长刺激活性。培养基中测量GF功能活性是合理研究情境，未把它误作酶活性，也未加入临床结果。EN/ZH与源生长因子义相符。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/2665839/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "Sak",
+      "rowDigest": "0ff0c33df433994030ec4426b16575c1a98fa8b8faffd032dd63bae42ed515e4",
+      "originalPairDigest": "599f59e18d39d70de3ea2ad7631d176078eb5ef50f5c4843664af3e4421c964a",
+      "canonicalId": 5655734,
+      "canonicalSourceSha256": "09ba4cfc46adffa15d6c7a629e2db9627042e30860f0f3e403eb6e790643a89c",
+      "verdict": "approved",
+      "reason": "IBM原始配置文档说明可启用SAK；Using SAK文档明确可信登录条件下可以出现新的登录画面。新句限定已配置AIX终端，描述具体过去事件，不声称任何系统上按键都必定出现同一画面；词义/译文一致。",
+      "references": [
+        "https://www.ibm.com/docs/tr/aix/7.2.0?topic=options-configuring-secure-attention-key",
+        "https://www.ibm.com/docs/en/aix/7.1.0?topic=options-using-secure-attention-key"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "hitchen",
+      "rowDigest": "6a6a83aa98eaeda54ef2140f1eac9e6932f86da57422c49f0489451c534133ef",
+      "originalPairDigest": "7581c974a5463fbadeb8fecb45dc96227286a668c001adf955d0c6a9f54c182a",
+      "canonicalId": 5668046,
+      "canonicalSourceSha256": "0b37ee72fc1bab1a7fb924867ad0992e440e08f5a4be698039173d828ed0001d",
+      "verdict": "approved",
+      "reason": "源含希钦姓氏。原英文neat bundle准确，新中文把neat从整捆纠正为整整齐齐地，保留实际人物动作；英文原句不变属于同head中译修正，不能因此算跨词重复。",
+      "references": [],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "queensberry",
+      "rowDigest": "17bd5d192033b93399d514ad5a087e7f02f25688d66c21050555f9e05cdde66a",
+      "originalPairDigest": "2778d1b27d2e904c2ad49ce34da2ca919db2b200af6d3dffc4ed15a8c6890232",
+      "canonicalId": 5728766,
+      "canonicalSourceSha256": "3cc821f4bc778766ca5462ff4d9eb777922774ba47310047fef3a76d2a4a1d93",
+      "verdict": "approved",
+      "reason": "源及variant明示昆斯伯里姓氏。搬沉箱进入储藏室是完整自然的虚构人物动作，中译保留heavy和into；不编造某位历史人物传记，替代只印名字的模板。",
+      "references": [],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "faire",
+      "rowDigest": "27afab8ffdc29527c3cdfd5191dbc0f9054e2688d106cdcf42c45d6b2f08c7af",
+      "originalPairDigest": "06de897ccba305440bafc258bc474510a4171ca76634e9ba41bb0a04e174bfdc",
+      "canonicalId": 5772130,
+      "canonicalSourceSha256": "27e86f58ae6ec4ca77281708b65d318349c2a6f08ef6ff1bb948f2a9f566c849",
+      "verdict": "approved",
+      "reason": "Académie française原词条明确faire表示制作并列faire du pain，法语Je vais faire du pain的近期将来表达及中文我要做面包正确。完整法语直接引语置于英文课堂问答框架，确实演示法语动词；原所选义明确限外语讲解，没有冒充普通英语用词。",
+      "references": [
+        "https://www.dictionnaire-academie.fr/article/A8F0082",
+        "https://www.larousse.fr/dictionnaires/college/faire/15975"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "cec",
+      "rowDigest": "5b16dd21340c67411e2cb57d06f499fbf0147fd46c1878b8833113be080c4298",
+      "originalPairDigest": "b4a311aa167eed3775fff90182fbbdc175140db980a120a9f0a79ada57d6fbfd",
+      "canonicalId": 5834562,
+      "canonicalSourceSha256": "876bea2d1df387528bd779991cdfb56328ffc0ffe08f3acf95a82585e536a97f",
+      "verdict": "approved",
+      "reason": "USDA明确CEC为土壤的阳离子交换容量且可土壤测试。实验室测量再比较样品是真实属性的使用；中文忠实，未引入肥料建议，也未混到公司/消费电子控制等其他缩写义。",
+      "references": [
+        "https://www.nrcs.usda.gov/state-offices/illinois/soil-tech-note-15a-cation-exchange-capacity"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "ezekiel",
+      "rowDigest": "ac255d80ca0c9ca4e1099daa33240c35aabf2a17f60f540679f48425143f7aa4",
+      "originalPairDigest": "5c0e2b88c1999f4d86ba53b5f147c7dada72ccf622fa93e25a0a8c4e57e28589",
+      "canonicalId": 5865604,
+      "canonicalSourceSha256": "ee2f08477ba76e9520bc4b0ff289f7f474678d60d3666ae199169aa57c391b25",
+      "verdict": "approved",
+      "reason": "完整源含圣经先知以西结，Met馆藏原记录确认有其描绘作品。讲师比较两幅描绘作品是合理虚构艺术课情境，depictions不强称版画为绘画，中文准确；不把题材人物误作画家。",
+      "references": [
+        "https://www.metmuseum.org/art/collection/search/828392"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "bem",
+      "rowDigest": "7aae3defcc5dd38aa2c336baafcf4948c5ed4230e9c55d2404333cd1e94ec631",
+      "originalPairDigest": "d1bd2e30c818825988a9701540b7a97d1886437bb53c202906b58a7c6bf187c5",
+      "canonicalId": 5889943,
+      "canonicalSourceSha256": "e5bead14e9ee85bb9ee05db87970ce0ba06f74f4259d2d502994fe6b60598425",
+      "verdict": "approved",
+      "reason": "英国政府原始授勋说明确认BEM可表彰长期社区慈善/志愿工作；获颁奖章的具体虚构场景自然，中文因果与多年志愿工作相符，不捏造真实获奖者。",
+      "references": [
+        "https://www.gov.uk/honours/types-of-honours-and-awards"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "entre",
+      "rowDigest": "8d2adc3bee94fc803370486cd90ebce78831f255bebf90fc9b68cb2867287e84",
+      "originalPairDigest": "357e7db969f0f995227b6326bb1615874ab02652a1c8836749d8bd49e74ea38f",
+      "canonicalId": 6137383,
+      "canonicalSourceSha256": "8a49bef67d10a72e7fc5da8352f0d839c81553bb9cf370704fa5877dc28d6ac1",
+      "verdict": "approved",
+      "reason": "Collins原西英条目确认空间两物之间用介词entre。Está entre el banco y la farmacia是完整自然的西语地点说明，中文银行和药店之间及指地图动作准确。英语框架明确其为西语引语，保留原外语讲解限制。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/spanish-english/entre_1",
+        "https://dictionary.cambridge.org/es/diccionario/espanol-ingles/entre"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "IOM",
+      "rowDigest": "5b189dfc49b426461d6f70a22a6fbbc012d069471ce243547391b57e4725ba35",
+      "originalPairDigest": "e78df854be5558a1be00b9a32f9f0953ce4718900a67fee8b4f0367f45e897b2",
+      "canonicalId": 6141780,
+      "canonicalSourceSha256": "bc64941fe2da5e6cbb59138e456c660b681ef4b2cde47e45293e2c19a4d36e02",
+      "verdict": "approved",
+      "reason": "马恩岛政府原资料使用IOM简称；整句描述骑自行车游览该岛一周，英文冠词和时间表达可用，中文完整保留。只取岛屿名义，不沿袭源括号英国造成英国组成部分的错误断言。",
+      "references": [
+        "https://www.gov.im/categories/travel-traffic-and-motoring/immigration/immigration-in-the-isle-of-man/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "BAL",
+      "rowDigest": "2180d8746751911f4f5f01df3eeb77af58a7fdd74108c8f8ed120e7e4a3a8000",
+      "originalPairDigest": "571bf39e5a3c81bfa3d1a3ff1da32b938928fa645254d480ec1f56d21fbab497",
+      "canonicalId": 6245856,
+      "canonicalSourceSha256": "bd5209128c295cb5a7a87eee0a8fead62e3b89273c16ee43fba3937f00e40b73",
+      "verdict": "approved",
+      "reason": "Baylor原作者编程教学与实际BAL代码明确此缩写指Basic Assembly Language及其编程用途。用它写短排序子程序是合理原创情景，未断言具体架构指令；中译自然，不混到BAL转移与连接指令或化合物义。",
+      "references": [
+        "https://cs.baylor.edu/~maurer/SieveE/bal.htm"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "sce",
+      "rowDigest": "7c1dfd219641a9521e400dbbac66603bed42d939ed8fcce92e13c811bf8d3024",
+      "originalPairDigest": "44cdeb4181be11d41c7d79a043c504a555477a7aa88ba94970646618ba2f5a6e",
+      "canonicalId": 6263522,
+      "canonicalSourceSha256": "9379392d375ca4556f63273ba62bc9cbbe59800a1b29691bbdcc26d5c3047425",
+      "verdict": "approved",
+      "reason": "Sony原始历史新闻稿直接使用SCE并说明其游戏开发发行工作。过去时的展会新游戏发布是合理虚构公司行为，不带虚构产品名、日期或真实发布史，中译忠实。",
+      "references": [
+        "https://sonyinteractive.com/en/press-releases/2005/sony-computer-entertainment-establishes-sce-worldwide-studios/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "NCP",
+      "rowDigest": "b158622a465400284979edd29730e739422d526e3e416fa1b5e17ae993431e81",
+      "originalPairDigest": "787e6ad5eed9948b31ab41cc14f5848622e6c1cd03ce24c835fd6f5d7a6f717c",
+      "canonicalId": 6323730,
+      "canonicalSourceSha256": "bfa9d0bdbde3ce952d891b873e709d59de329b0d0d53318c80ecf76f4924576b",
+      "verdict": "approved",
+      "reason": "IBM原始NCP generation文档说明NCP装入通信控制器，并配置其控制的线路、终端等。重连前检查NCP配置是合理具体工程动作，译文通信控制器准确；未混为网络协议或声称某条命令。",
+      "references": [
+        "https://www.ibm.com/docs/en/zos/3.1.0?topic=nodes-ncp-generation"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "hs",
+      "rowDigest": "7a527cd42a2aef900791235de6b68c293f5f340868e0d05f9637ba2c40d1fbf8",
+      "originalPairDigest": "bed0e96441e727d3a77b6ed2acf8a36f70e83d9f66a0785572418af9f142b62d",
+      "canonicalId": 6367276,
+      "canonicalSourceSha256": "9433089eb0965faf6991dbb20566aff077fc7f9ad1778ed2f65f60382efc7a68",
+      "verdict": "approved",
+      "reason": "USB-IF原始测试规范明确HS=High-Speed并测试主机端口。技术员测试USB端口高速模式的具体句子准确自然，中文保留模式和测试动作；不凭稀疏缩写泛造端口标准或速率。",
+      "references": [
+        "https://www.usb.org/sites/default/files/EHSET_v1.01(1).pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "PCW",
+      "rowDigest": "a42bf0402b7acc83c84acbcb22c96daf1d08b93549245eeb570f49762a1676cc",
+      "originalPairDigest": "87d077ff7b0e507427e00db7a204ab5519babf29033fff3e8955ae5a2c0d8e2d",
+      "canonicalId": 6411625,
+      "canonicalSourceSha256": "59c15aef0836fa9a0e53ad7bca3c1150815513886e96669c09b0e7c551355653",
+      "verdict": "approved",
+      "reason": "设备厂家原数据表明确Process Cooling Water (PCW)用于通过换热调节温度。带走设备热量是冷却水系统的实际作用，中译自然；没有伪造性能数值或把它混作物理化学加工。",
+      "references": [
+        "https://www.entegris.com/content/dam/web/resources/data-sheets/datasheet-liquidlens-upw-polishing-6192.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "NAC",
+      "rowDigest": "4d4b65067ae34bbedaff914d5fd186dace39a4ae09ae4a35145f4845297b9624",
+      "originalPairDigest": "63f1b5cda6979f0bf33ad1c167364a9d66402df34c8f895fa424895402fc5fd4",
+      "canonicalId": 6473961,
+      "canonicalSourceSha256": "22525ff375fdab06bec2e4eb7f20335a7eddaa7b3e7cacd1803c93b359fdcc5b",
+      "verdict": "approved",
+      "reason": "Cisco原始Network Admission Control部署指南明确可按端点合规情况准入或拒绝/限制接入。该句描述一次阻止不合规笔记本接入的合理策略行动，中译忠实，不泛称自动保障网络安全。",
+      "references": [
+        "https://www.cisco.com/en/US/solutions/ns340/ns394/ns171/ns466/ns617/net_design_guidance0900aecd80417226.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "SK",
+      "rowDigest": "fa7e29a90861edcc5e87155b413c3d66d1ec180b5e14ad634cd7ab17929d1a16",
+      "originalPairDigest": "ab676bcd5eee98079416497d8181f867bbfd17e43ea29fc5f67ef1a3b8ccae21",
+      "canonicalId": 6486091,
+      "canonicalSourceSha256": "9283cab0d2d8ad653b0331fda02aaa21e8924059cfd187c123003a15000aeb7a",
+      "verdict": "approved",
+      "reason": "原始研究确实测定并比较SK activity，指链激酶激活体系的功能活性；新句没有称链激酶本身具有内在蛋白酶活性。两个样品的活性比较及中译准确，无治疗或剂量断言。",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3279798/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6609762/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "rk",
+      "rowDigest": "d99cdfb81bdae288a146ed942ea7dc1ef3025d9aac89736c4da9c5c8e60f2a64",
+      "originalPairDigest": "83b8992a6eebd067ec0478bc6af27875f1f44474e5ce335b89a5da8b723e4e10",
+      "canonicalId": 6496218,
+      "canonicalSourceSha256": "6dcd32494acef71928188a47008dad52d8dde1474639b11c35a483bc4c72cef9",
+      "verdict": "approved",
+      "reason": "AAO原始术语表明确RK=radial keratotomy；询问眼科医生长期影响是实际术式名称使用，中文准确，没有提供具体疗效/风险率或个人医疗建议，保持历史医疗语域。",
+      "references": [
+        "https://www.aao.org/young-ophthalmologists/yo-info/article/learning-lingo-ophthalmic-abbreviations"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "MEM",
+      "rowDigest": "a5cba6e37aa17c33f7dcbea1e196072466eff9f1368ec2e1e607f79e23f2ab42",
+      "originalPairDigest": "550df7e892d417da6b62af9ecd03364d094fc233d3c713d34bb96bd96e58572b",
+      "canonicalId": 6500094,
+      "canonicalSourceSha256": "977e8a44e8bb78e226334063240efe5ab680ed5fef39a8f7ecdb0e71ffb2f2d8",
+      "verdict": "approved",
+      "reason": "FreeDOS自己的命令帮助明确MEM显示已安装和可用内存。运行命令查看DOS可用内存的句子与源功能一致，中文忠实，没有臆造开关或声称现代64位Windows仍支持。",
+      "references": [
+        "https://help.fdos.org/en/hhstndrd/base/mem.htm"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    },
+    {
+      "term": "MTM",
+      "rowDigest": "d5248be7bb2ee66d2698f325d39b433f1d7da8c308e05e1173f1c1c30ec937d2",
+      "originalPairDigest": "85fa5e1649403809baf804c00f0c0d33c74cfee93d8eeb4f580320d84a9596bd",
+      "canonicalId": 6508843,
+      "canonicalSourceSha256": "9b2e2f7938a874ec7cc683c59b525724e341f6f2243e82dd8da7e6ac29310354",
+      "verdict": "approved",
+      "reason": "方法协会原始说明确认Methods-Time Measurement分析任务方法与所需时间的关系。估算装配任务耗时是实际应用，EN/ZH自然；没有编造测定结果或把MTM误作动量指标。",
+      "references": [
+        "https://mtm.org/en/about-mtm/mtm"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": [],
+      "immutablePartOfSpeechPreserved": true,
+      "immutableMeaningZhPreserved": true
+    }
+  ],
+  "createdAt": "2026-10-27T01:53:43.867Z",
+  "authorReviewed": "AI/examples_runtime_release_audit",
+  "method": "独立于原作者完整逐条阅读原始及改写EN/ZH、精确selected POS/meaningZh、authenticated canonical全部variants和同fold邻词；专业缩写逐项查一手资料。所有批准均手写判断，脚本只验证source/pair/canonical摘要、原标签逐字不变和全库重复边界。",
+  "counts": {
+    "proposed": 22,
+    "approved": 22,
+    "needsFix": 0,
+    "unverified": 0
+  },
+  "structuralChecks": {
+    "fullActiveHeads": 102609,
+    "currentCorrectionHeads": 45,
+    "currentReviewedSenseHeads": 31,
+    "currentEverydayRows": 469,
+    "exactSourceRowKeys": true,
+    "literalPosAndMeaningPreserved": true,
+    "allCanonicalIdsAndHashesMatch": true,
+    "newEnglishDeduplicated": true,
+    "ownSameHeadTranslationRepair": "hitchen preserves its own English; all other heads cannot reuse that sentence."
+  },
+  "limits": [
+    "Selected senses only; not a whole-head/all-sense certification.",
+    "These are independent AI judgments, not human or clinical certification.",
+    "Some primary pages blocked direct fetch; evidence explicitly obtained from the same primary index/search extract or independently accessible original primary source.",
+    "Code binding review of the reviewer’s own001 proposals is separate and is not semantic self-approval."
+  ]
+}

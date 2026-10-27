@@ -43,7 +43,14 @@ const MEANING_PLACEHOLDERS = [
   /^见(?:\s+|[:：]\s*)\S+(?:\s+\S+)*$/u,
   /^见\s*\S+\s*(?:词条|条目)[。.]?$/u,
   /^见\s*["'“「『《][^"'”」』》]+["'”」』》][。.]?$/u,
-  /^同\s*\S+$/u
+  // 同 is also a real word prefix (同伴、同意、同时). Only an explicit
+  // cross-reference target qualifies; do not reject an entire definition.
+  /^同(?:\s+|[:：]\s*)\S+(?:\s+\S+)*$/u,
+  /^同\s*[A-Za-z][A-Za-z .'’-]*[。.]?$/u,
+  /^同\s*["'“「『《][^"'”」』》]+["'”」』》][。.]?$/u,
+  /^同(?:上文|下文|前文|后文|上述|下述|附件|附录|链接)/u,
+  /^同\s*[^。；;，,：:\n]+\s*(?:词条|条目)[。.]?$/u,
+  /^同(?:上|下|上文|下文|上述|下述|另一个词|另外一个词|另一词|此词|该词|这个词)[。.]?$/u
 ];
 const MINIMUM_MEANING_HAN = 2;
 

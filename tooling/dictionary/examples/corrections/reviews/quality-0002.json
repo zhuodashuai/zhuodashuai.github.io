@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "645947e684b89fe139e271d7de58787b7073bc82350373ec2f3b7ad1bebf1468",
+  "reviewer": "AI/example_quality_provenance_audit",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "BMA",
+    "frederic",
+    "caldwell",
+    "ming",
+    "buss",
+    "SNA",
+    "RP",
+    "UNO",
+    "magnus"
+  ],
+  "issues": [],
+  "decisions": [
+    {
+      "group": "corrections",
+      "term": "BMA",
+      "rowDigest": "c90ac99e0b690f95839c4a4cf6d10417fceb9158594bed93472e1c11f17708e8",
+      "canonicalId": 2824187,
+      "canonicalSourceSha256": "c84356aea3158e6ac58aca3bbeb20686a3d518d2a1476ddb32cf20fa7400ed25",
+      "verdict": "approved",
+      "reason": "The medical-association sense is explicit. Requesting a statement from its press office is coherent; the corrected Chinese no longer implies the journalist personally publishes the association’s statement. POS and selected meaning remain unchanged.",
+      "references": [
+        "https://www.bma.org.uk/bma-media-centre"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "frederic",
+      "rowDigest": "e1bb561f3cd406b8ce7474c545e257524de4008e1496b7518d0e271bb3800975",
+      "canonicalId": 3493779,
+      "canonicalSourceSha256": "e1113c717748dbed8273e08c5277796d7611d2f534deeba33c9c68333b106600",
+      "verdict": "approved",
+      "reason": "The supplied canonical is the masculine personal name; capitalization is the ordinary proper-name form. The new Chinese accurately preserves waiting until seats are found and removes the unsupported action 才继续. No real biography is claimed.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "caldwell",
+      "rowDigest": "a9e0410b4c4b76d3d565b1442b577f1c9e055a0757462c9e11af313861ebf8c6",
+      "canonicalId": 3590533,
+      "canonicalSourceSha256": "a97b1183a88fe482bc0b1a52d3d0d9360c7d35419436f11e531fd333880e3c31",
+      "verdict": "approved",
+      "reason": "The surname sense is explicitly canonical. Lending the table and the purpose match; 售卖活动 correctly avoids adding charity/义卖, which the English sale does not establish. No geographic/person-name ambiguity remains in this selected sentence.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "ming",
+      "rowDigest": "4321754875e945145dfb74634caf1b1d851599b9c1ebeb69bf35c57bc2bb5b7c",
+      "canonicalId": 3770128,
+      "canonicalSourceSha256": "a9111142970e1e159636491f8381d286f91b35cc69d7c2ef0f3bbdad440e9715",
+      "verdict": "approved",
+      "reason": "Ming is the explicitly stored dynasty name used attributively for the bowl. The corrected Chinese preserves case lighting and removes unexpressed porcelain material; the new pair does not invent the bowl’s substance or provenance.",
+      "references": [],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "buss",
+      "rowDigest": "4ad854473b76393e63c65fd464dc0c217007221ebd890aa1370b1b656b7f5e24",
+      "canonicalId": 3795646,
+      "canonicalSourceSha256": "0ec9d7c3db3039f4bac35bb1f1e6ae917937f9a0f0fa56892573064aaacb1194",
+      "verdict": "approved",
+      "reason": "The source contains the kiss noun; the count-noun pattern give someone a buss on the cheek is coherent. 匆匆吻了一下 conveys a brief/quick kiss rather than the prior unsupported gentleness; this is natural literary/old usage.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/buss"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "SNA",
+      "rowDigest": "b110feb47f243f87d7f1c1ba7d75dff3ca7602282d631178de04b205a17b26cd",
+      "canonicalId": 4392319,
+      "canonicalSourceSha256": "f82fa635b8c8f32a921a984b795f4e68fe5f31dea396e39c4e34955b26ed6728",
+      "verdict": "approved",
+      "reason": "IBM explicitly confirms Systems Network Architecture and communications among network resources. A server exchanging data with terminals over an SNA network is coherent. Chinese now gives the architecture relation naturally, with no doubled architecture-network phrase.",
+      "references": [
+        "https://www.ibm.com/docs/en/zos-basic-skills?topic=glossary-zos-terms-abbreviations"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "RP",
+      "rowDigest": "0dab8d5c980b4021380ac91accb6de704072e1a83659c17482d695ae8097eeb1",
+      "canonicalId": 2911743,
+      "canonicalSourceSha256": "75c171e3413f291c10a476bbca8e378e4c8a4af33fbb8e256a95643fab2d9ffb",
+      "verdict": "approved",
+      "reason": "The full canonical names reader/printer and the original Library Technology Reports item independently identifies a Minolta RP reader-printer in microfilming. The explicit parenthesis fixes the intended equipment reading; producing a print from a microfilm image is coherent, with faithful Chinese.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/10243214/"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "UNO",
+      "rowDigest": "e293b480acf6c45fda06e315bc89ff42f044ba96344068a6bbdb10f44fcce42f",
+      "canonicalId": 3812975,
+      "canonicalSourceSha256": "9f9679222aae6fcfd19a4b28910313c8330425c33d4bcc2f9576845c08721a0f",
+      "verdict": "approved",
+      "reason": "Collins explicitly confirms UNO as United Nations Organization. The selected name is canonical; calling on the organization to help mediate a dispute is an ordinary fictional request, not a claim that a particular intervention occurred. Chinese matches the request and help.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/uno"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    },
+    {
+      "group": "corrections",
+      "term": "magnus",
+      "rowDigest": "3578c701ea34aed1a271cfc3078aa119aff8beca5dacba91f64df6de025ced95",
+      "canonicalId": 2440950,
+      "canonicalSourceSha256": "9b90c805a2c6fb34c104605fd17a8b42383937d8adcc054d6e51a1017e877334",
+      "verdict": "approved",
+      "reason": "The source gives Latin medical adjective 大的. The attested anatomical name adductor magnus uses precisely that adjective; pointing out the actual muscle on a diagram is concrete use of the name rather than explaining where the string is placed. Chinese 大收肌 is accurate.",
+      "references": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK534842/"
+      ],
+      "checkedAllCanonicalVariants": true,
+      "caseNeighbours": []
+    }
+  ]
+}

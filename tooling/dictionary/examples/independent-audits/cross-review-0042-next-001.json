@@ -1,0 +1,3091 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "batch-0042-s-18100ac42187.json",
+  "sourceSha256": "18100ac42187055d567170548a52cbe0ea1e54ff320fa71bf78f774c2e6a365f",
+  "reviewer": "AI/coverage-semantic-independent-next-001",
+  "independentOfAuthor": true,
+  "createdAt": "2026-10-27T01:34:23.612Z",
+  "authorReviewed": "AI/prepare-author-selfcheck",
+  "range": {
+    "start": 0,
+    "endExclusive": 167
+  },
+  "sourceFileSha256": "201380ca4131ba2452128d030d1e4e8a0628872fa2904e4acc93502d41e50a5e",
+  "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "method": "独立于AI/prepare-author-selfcheck逐条阅读全部167条原始EN/ZH、所选词性/义项、actual canonical全部variants及同fold独立head；未确认缩写保留unverified。脚本仅绑定原始pair摘要和canonical身份。正确新义与错误旧源、错误例句分开判定；索引/词形模板不视为有效学习用例。",
+  "scope": "Exactly entries[0:167] of the named active source. Approval is limited to these pairs and their demonstrated senses; no blanket approval of the remaining pack, entire dictionary, or current runtime.",
+  "entries": [
+    {
+      "term": "PFK",
+      "pairDigest": "e38fb5a00e2b83fd8e8e04581cdb0f680cd9e5674f945668d9780e8fed40a842",
+      "canonicalId": 4586944,
+      "canonicalSourceSha256": "e7ef4e6d33848d1420f69acfb6b5dc30e66cc722d71fbb5e9d55d9f2edabc27f",
+      "verdict": "needs-fix",
+      "notes": "酶名与源扩展一致，但整句只说索引收录PFK，没有展示酶的实际使用或作用，不能据此完成学习例句覆盖。",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9241937/"
+      ],
+      "index": 0,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 磷酸果糖激酶（phosphofructokinase）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "sot",
+      "pairDigest": "356fef92954f6b1381d86ae4aae25d26d21ea6bbd97916f9c7edafa516b28018",
+      "canonicalId": 4588505,
+      "canonicalSourceSha256": "21686c2ee07acdc70985cdf410c7902545b5a50f858d950591aca028dd03e24b",
+      "verdict": "approved",
+      "notes": "lonely old sot真实用作贬义名词酒鬼；房东被小说描写的语境、中译及源名词义一致。",
+      "references": [],
+      "index": 1,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 醉鬼, 酗酒者\nvt. 因酗酒浪费掉\nvi. 酗酒",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "deductibility",
+      "pairDigest": "126956c57cd5a541ecc368edfaa3887174df56d3af4f5607ae1904ae2ea8a6b8",
+      "canonicalId": 4590608,
+      "canonicalSourceSha256": "91dfd59c909330e4b72360a7c12f4a4b14317f4f8269323e1f8917f1bb797f51",
+      "verdict": "needs-fix",
+      "notes": "税前可扣除性例句本身自然准确；exact源及全部variant却仅为可推断性，无税务义，须先更正当前词卡释义。",
+      "references": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/deducting-business-expenses"
+      ],
+      "index": 2,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "可推断性",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "rigatoni",
+      "pairDigest": "3b53364cf3708284d526f73b3cd44e7581d6ae10d101cf6d5fc8cd2317661274",
+      "canonicalId": 4593260,
+      "canonicalSourceSha256": "7b983839a90b96bccade57f10282d56bc2126310a4b88ab240793bd5da69c8ce",
+      "verdict": "needs-fix",
+      "notes": "粗管棱纹面条与酱汁的EN/ZH正确；当前源写成贝壳状，具体形状误导，不能与真实粗管面义混算。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/rigatoni"
+      ],
+      "index": 3,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "[单复同]n.[食]波纹贝壳状通心粉",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Ecoli",
+      "pairDigest": "18740bc61bb83f0e4468ba300eccfbfae6075ffd1ef667b13fe8afb51b6574fb",
+      "canonicalId": 4596569,
+      "canonicalSourceSha256": "8c86855ef8325e62a613d11580875996de5c95efb74a21da81086f87f076c83f",
+      "verdict": "needs-fix",
+      "notes": "句子使用规范E. coli，意思正确，但head是无分隔符Ecoli；应建立明确规范拼写映射，而非把不同书写直接算原head用例。",
+      "references": [],
+      "index": 4,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "大肠（杆）菌（产生于大肠的杆状菌）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "JNA",
+      "pairDigest": "ed00e35f079cca3396610e215d9b90f2ea897a666ac7a518573b8b49f658af72",
+      "canonicalId": 4597272,
+      "canonicalSourceSha256": "285416971ce3443f1c3129edda4067f35e895399f3c9d2f40de9b8eca8da3f32",
+      "verdict": "needs-fix",
+      "notes": "仅有图书目录列出术语卷的模板，未示范该解剖命名体系如何用于命名；旧专门缩写仍需来源佐证后重写。",
+      "references": [
+        "https://www.anatomy.or.jp/e-aboutus.html",
+        "https://ifaa.unifr.ch/Public/EntryPage/PDF/History%20FICAT.pdf"
+      ],
+      "index": 5,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[医] 耶拿解剖学名词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "edc",
+      "pairDigest": "3fa773aba06f9e65fb1b24a760a9559060e569fbae5e45a3a87c270bd35cd302",
+      "canonicalId": 4599037,
+      "canonicalSourceSha256": "07558727cb9b94a2d194b53cd4e403d03621618d98bcf78119942c60628705cc",
+      "verdict": "approved",
+      "notes": "源明给European Defence Community；历史课研究围绕该组织的争论是机构实际指称用法，中译共同体比旧集团更准确。",
+      "references": [],
+      "index": 6,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 欧洲防务集团（European Defence Community）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "papillomavirus",
+      "pairDigest": "ca245a91077bf2e2cc70674260ed9b40ff170825539c90f69b60867209468daa",
+      "canonicalId": 4602477,
+      "canonicalSourceSha256": "51ab9f30f25338ef843494c598a52a95d85fa308d3d6369516f0a57824daec53",
+      "verdict": "needs-fix",
+      "notes": "综述有一章介绍该词只提供主题提及，缺少病毒的真实使用语境；当前源还沿用旧病毒群表述，需另核实分类/释义对齐。",
+      "references": [],
+      "index": 7,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 乳头（状瘤）多瘤空泡（形）病毒组病毒",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "dvi",
+      "pairDigest": "6ff7eaedeeb833b80db50607f6d83a9aa5584959d5ab168cd2c342c72ea1a2dd",
+      "canonicalId": 4603650,
+      "canonicalSourceSha256": "fe63baeca171d87df6dfbb4e6e43928d92e39d4a7dac2853ab24f12f09048170",
+      "verdict": "needs-fix",
+      "notes": "显示器DVI插口与Digital Visual Interface义准确；exact源及全部variant只有Digital Video Interactive，是另一扩展，不能冒充已匹配。",
+      "references": [],
+      "index": 8,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 交互式数字视频系统（Digital Video Interactive）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fon",
+      "pairDigest": "7c55f8dc03968707eb837be2f401b48b280b13e7b1cb5586ba28dc6d9babafe1",
+      "canonicalId": 4613188,
+      "canonicalSourceSha256": "b19a60b4a15fcc8f28e2f850bc49e6aa4855648e53f6226e2cdee079250c8922",
+      "verdict": "approved",
+      "notes": "录音是一段Fon对话，真实展示语言名；源明确含丰语，规范大写Fon及中译对应。",
+      "references": [],
+      "index": 9,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 丰人, 丰语（西非洲达荷美, 多哥及象牙海岸）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "baldy",
+      "pairDigest": "37493517915783e672a5e0cf100593b5459c096cb20b521f4553950887053a52",
+      "canonicalId": 4617327,
+      "canonicalSourceSha256": "ba65ba60d9d1ce6e3db525fca59b992fe28fe77e2c75289159c1a0ee2124b535",
+      "verdict": "approved",
+      "notes": "被同学叫秃头的实际称呼语境准确，保留非正式/冒犯语气；源含秃子义。",
+      "references": [],
+      "index": 10,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. 秃子\nn. (Baldy)人名；(法)巴尔迪\na. 秃的；秃顶的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "FPR",
+      "pairDigest": "7e29e1046f6f45bc165fa0b088a9298e3ac7e282505ae1800e5727e94b07a95e",
+      "canonicalId": 4620091,
+      "canonicalSourceSha256": "5e8f28630cd35463150f28b8b4111d4fa26850fab6aa69fad7d98e537084cd47",
+      "verdict": "needs-fix",
+      "notes": "FPR荧光漂白恢复扩展可核实，但原句只是图书馆把论文编入类目；须换成实际测量或实验语境。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/786399/"
+      ],
+      "index": 11,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "[化] 荧光漂白恢复",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Ilsa",
+      "pairDigest": "e1f636b515b56666bf1d950f35e3a339fb33a70f838808969e9703af2f6d6ad2",
+      "canonicalId": 4625936,
+      "canonicalSourceSha256": "b88f28289428fbe378dcb96695b9073587bbbc5848f92eb8e005c5ab635ce055",
+      "verdict": "unverified",
+      "notes": "源给出罕见ILSA光谱缩写，作者却仅依输入命名并在综述列表提及；未独立确认该展开、大小写及真实学科用法，不批准。",
+      "references": [],
+      "index": 12,
+      "issueCategory": "unverified-specialist",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 分析用离子发光光谱学（ion luminescence spectroscopy for analysis）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "reyburn",
+      "pairDigest": "c3eeec1651fe3f0de1c2b93c4e23cbac020c8f44f90559659fb7d1f338a646e9",
+      "canonicalId": 4627938,
+      "canonicalSourceSha256": "3b335155a8c0e455ee0c3a5c53725cb4c8bc9c45e69a8e4fff7dfe36391a5a19",
+      "verdict": "approved",
+      "notes": "源明确雷伯恩姓氏，Reyburn作人物主语归还椅子的EN/ZH自然；只改姓名大小写，没有替换词族。",
+      "references": [],
+      "index": 13,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 雷伯恩",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "georgiade",
+      "pairDigest": "24bb3e9de6a6631f914a7025edf3bec745ad70ef78b039b515b2981e670c18e6",
+      "canonicalId": 4629436,
+      "canonicalSourceSha256": "b2ddd52dcc1427131257d775abcb76a79aaa28e5af790789240c66fe13f5ddd1",
+      "verdict": "approved",
+      "notes": "Georgiade提供宣传册照片的实际人物用法与源乔治亚德姓氏相符，中译完整。",
+      "references": [],
+      "index": 14,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 乔治亚德",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "LCH",
+      "pairDigest": "1cd44c6fbaaa0872c24a05e8a89a6645f84411bdfaba323806aba3df87039536",
+      "canonicalId": 4631024,
+      "canonicalSourceSha256": "038455433edfe9c587e7bec5f50aec4b0a8a5460e7949b2454f2215ffc58c864",
+      "verdict": "needs-fix",
+      "notes": "小扁豆血凝素缩写有一手研究佐证，但原句仅说脚注解释该缩写，未展示其实际作用/使用。",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/7523753/",
+        "https://pubmed.ncbi.nlm.nih.gov/3265705/"
+      ],
+      "index": 15,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 小扁豆血凝素（lens culinaris hemagglutinin）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fam",
+      "pairDigest": "d8c7703f3134bce4af1b2a6f812cc17a0fda0e444eae431d566b0fb3f0faf5f2",
+      "canonicalId": 4633055,
+      "canonicalSourceSha256": "63231de28b1a882027f47f5be0fce035055a27ad64ead95ed30c48d09e980bb6",
+      "verdict": "unverified",
+      "notes": "旧源的fast auxiliary memory展开不足以独立证实FAM这一专门名称及其在结构图中的实际用法；未确认不批准。",
+      "references": [],
+      "index": 16,
+      "issueCategory": "unverified-specialist",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 快速辅助存贮器（Fast Auxiliary Memory）；共济会（Free and Accepted Masons）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "BCR",
+      "pairDigest": "c6a14e11d717cf89ef545aa58d1a713f1ad858df3d374ec6f507fd5bbe656403",
+      "canonicalId": 4635776,
+      "canonicalSourceSha256": "88115bbe055f60a5046b77eded9919da4a9c05fb7da2e2d975e5635ab5aee5e5",
+      "verdict": "approved",
+      "notes": "NXP原厂手册证实BCR为Byte Count Register；调试器显示寄存器数值是实际技术用法，中译与源选义一致。",
+      "references": [
+        "https://www.nxp.com/docs/en/reference-manual/MC68302UM.pdf"
+      ],
+      "index": 17,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 烟煤研究所（Bituminous Coal Research Institute）；字节计数寄存器（Byte Count Register）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "uo",
+      "pairDigest": "6f420134c597e5c522111e0527f37f18aefcc67d4cdb5866a6bb786e5fe7f9b6",
+      "canonicalId": 4641901,
+      "canonicalSourceSha256": "041e8f85c6296f855d8747a6d9331dcc6329e25ca17a8bcd3c8823d88e433436",
+      "verdict": "approved",
+      "notes": "源含Ultima Online游戏，UO游戏截图是实际玩家物件语境，不是笼统提词；EN/ZH对应。",
+      "references": [],
+      "index": 18,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 尚未发出的定货单（undelivered orders）；网络创世纪（Ultima Online）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "kadi",
+      "pairDigest": "cd17d416d482f88d5eef7f45241f2ebd98f3d2e0b10edff075cb7de1305291ca",
+      "canonicalId": 4649714,
+      "canonicalSourceSha256": "42e522baad11053fa1271c53a6a406d8f62c21c40bba0d2ec3cca6b50ac064e1",
+      "verdict": "approved",
+      "notes": "争端提交给kadi审理，实际展示法官职务；源给cadi等价形式，与此伊斯兰法官义对应。",
+      "references": [],
+      "index": 19,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (=cadi)下级法官",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "vietminh",
+      "pairDigest": "178ccbcf805522c83945460da0876dc990ffee1391a4096e38596d2637fa99ac",
+      "canonicalId": 4651289,
+      "canonicalSourceSha256": "72004a86efa467aa9324582445d4b95b4bc974cbbe1d8f33f659cc256259214f",
+      "verdict": "needs-fix",
+      "notes": "Viet Minh组织名本身正确，但当前head只含成员/领导人/形容词，而句子指组织；还需明确分写组织名映射，不可无条件混算。",
+      "references": [],
+      "index": 20,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "越盟成员, 越盟领导人, 越盟的(西方报刊用语)",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "LTB",
+      "pairDigest": "a9e034a7e00673e520f148d69f212ee6b7ae17e78ff71aede9e26118da1c5301",
+      "canonicalId": 4652701,
+      "canonicalSourceSha256": "7a45754950469819e2d9a2c87bcea408cac72b786e844b27f916597e4fb80ab2",
+      "verdict": "unverified",
+      "notes": "未独立确认Listen to Believe公司实体或LTB的可靠名称来源；虚构一张发票不能证明该缩写词义存在。",
+      "references": [],
+      "index": 21,
+      "issueCategory": "unverified-entity",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 公司名（Listen to Believe）；论坛币",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Tock",
+      "pairDigest": "dceaaeba08daea2bdc75ec7ffdb2472fc2f3759d21871f2ee96859594c171285",
+      "canonicalId": 4655594,
+      "canonicalSourceSha256": "ac1d69459ca9de249b3b5a378c06a45def4ff5c3235234920234d78b23dfe7a4",
+      "verdict": "needs-fix",
+      "notes": "原作者明确承认Tock疑似误拼，却改用完整toco toucan；后者自然正确，但不是Tock的词形，须先核实并建立更正映射。",
+      "references": [],
+      "index": 22,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "托科鸟",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "sga",
+      "pairDigest": "25d335409de247ef5eb67fabad4f79d3fa4868ddd86d7403d956c0b59f9d47c6",
+      "canonicalId": 4658490,
+      "canonicalSourceSha256": "34dc62f1899ae486b184cda38dca7133951760b9903e08758f25840eae9993b7",
+      "verdict": "needs-fix",
+      "notes": "SSA确认真实行政术语SGA，但当前中文源执著惟利是图是错误逐词拼译；此外原句仅说表格有一个该项问题，缺乏实际用法。",
+      "references": [
+        "https://www.ssa.gov/faqs/en/questions/KA-01843.html",
+        "https://www.ssa.gov/OP_Home/cfr20/416/416-0972.htm"
+      ],
+      "index": 23,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. substantial gainful activity 执著的惟利是图的行为",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "chitter",
+      "pairDigest": "e1f84e5534f59de107c10751d1812b65c9e3f6daed137556c3af9f80e5e0fc90",
+      "canonicalId": 4659846,
+      "canonicalSourceSha256": "b6b9f66ba44cb6a80566a840cc0febf0a504d6c7be9da7b7838b41fe49761f1f",
+      "verdict": "needs-fix",
+      "notes": "小鸟吱叫的动词句自然，但当前全部源只有聊天/冷得发抖，未含鸟叫义；需先补已核实的该义。",
+      "references": [],
+      "index": 24,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vi. (美)闲谈, 聊天, (英)(非正式)冷得发抖",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "buddie",
+      "pairDigest": "299e5ec20414b900af46c1bcd1c95c597925fe86b0f9ff1f94a6312fcc365922",
+      "canonicalId": 4664034,
+      "canonicalSourceSha256": "492efae2ca28faceb6e6e278af3aa893107344b99dedbedb3a96dc15f59e9441",
+      "verdict": "needs-fix",
+      "notes": "实际使用buddy而非buddie；并且当前源只给兄弟，需核实拼写变体/伙伴义，不能按同词族直接批准。",
+      "references": [],
+      "index": 25,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 兄弟",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "lucker",
+      "pairDigest": "5d974596790d5d637dee4993f9b13cdaceab9ad6c598b7215b08d448e7ac1e41",
+      "canonicalId": 4668487,
+      "canonicalSourceSha256": "2cfd3faa08f6a4e15ef7284cb18172d66859763b5a2ee91b77caf1cb1e1b4933",
+      "verdict": "approved",
+      "notes": "Lucker作勒克姓氏人物主语，与源及寻找收据的双语句一致。",
+      "references": [],
+      "index": 26,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 勒克",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "gotobed",
+      "pairDigest": "af2aa752ea5c6c94170e094aa0faa81bf1b8019f7a678ccd233c9cb82a4f20dc",
+      "canonicalId": 4669629,
+      "canonicalSourceSha256": "8e712764827c005c45edc69c72ad8b38d7454c8f90639ac806b582987be3d2ca",
+      "verdict": "approved",
+      "notes": "Gotobed是源所给姓氏，所有格表示其地址；没有误拆为go to bed，中译对应。",
+      "references": [],
+      "index": 27,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 戈特贝德",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "daver",
+      "pairDigest": "ce041246001681acd9fc36f8db5d1492316d7e1f3d1627ef8a8793044362ded3",
+      "canonicalId": 4670551,
+      "canonicalSourceSha256": "ec5723485a5ea3458bf0ab8046abec3192d3b7032c31a29678b6f1cf4ddcff2e",
+      "verdict": "approved",
+      "notes": "源含Daver人名达韦尔；移动灯以靠近图纸是自然人物语境，proper noun是noun的明确子类。",
+      "references": [],
+      "index": 28,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (Daver)人名；(法、土)达韦尔",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "kente",
+      "pairDigest": "a6c99cc0c3e24a3626178824fc4d6e55acacb1a2a640851b7cf5fc5930e1bec4",
+      "canonicalId": 4674054,
+      "canonicalSourceSha256": "476c8a0a75652b8480b055acf094936515cc4e7ffda97edd5d7a3470bc44612a",
+      "verdict": "needs-fix",
+      "notes": "肯特布的句子和中译现实正确，但exact及全部variant只有瑞典人名肯特，没有织物义。",
+      "references": [],
+      "index": 29,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (Kente)人名；(瑞典)肯特",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "LCY",
+      "pairDigest": "6db115b3e9dd2ae72cacacdc8469161697762145d96731601a01228608e5619c",
+      "canonicalId": 4681299,
+      "canonicalSourceSha256": "66ef5af038a45ca4319adb657c1b1486b2744abc26b760fcd0ee7e45f4e21038",
+      "verdict": "approved",
+      "notes": "伦敦城市机场官方列出IATA LCY；预订信息中的抵达机场代码用法、缩写词性和中译都正确。",
+      "references": [
+        "https://privatejetcentre.londoncityairport.com/services"
+      ],
+      "index": 30,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 伦敦城市机场（London City Airport）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "falafel",
+      "pairDigest": "8b18604ce11b4964e229f0b4037f9dbaa5c62eb503fc92e03b045144061d3dea",
+      "canonicalId": 4693370,
+      "canonicalSourceSha256": "dada76f134585e28f81d124f718148698963c222835958008db14e919205fe94",
+      "verdict": "needs-fix",
+      "notes": "作者真实选义是炸豆丸子，句子将其与面包并列；当前只有沙拉三明治义，不能把丸子与三明治作为同一具体义算完成。",
+      "references": [],
+      "index": 31,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 沙拉三明治",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "carney",
+      "pairDigest": "e6869aee278196933c84e4f8e8919c313751b4d6a5a8f5623e582ef49fe68189",
+      "canonicalId": 4704835,
+      "canonicalSourceSha256": "41538d24324306aa8e3a3dc3cd7b48faf160b47317d637e14ec00e33ce25b8a0",
+      "verdict": "needs-fix",
+      "notes": "流动游乐场工作人员义在现实英语中可用，但当前只有哄骗动词/话语名词，无该人物义，须先补义。",
+      "references": [],
+      "index": 32,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb · noun",
+        "meaning": "v. 哄骗\nn. 哄骗的话",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "airhead",
+      "pairDigest": "338f9196bd9932f2df3059e88ec9abe85789c5b2c0cfb22f5a754bdaabccb41d",
+      "canonicalId": 4711373,
+      "canonicalSourceSha256": "68f158e3a4269998efd25a7b648a283dd8c37e30a1b72b0ca5b9f41a48c9a36e",
+      "verdict": "needs-fix",
+      "notes": "骂同事没脑子的句子自然且保留贬义；当前全部源仅空降物，与此人物义不相关。",
+      "references": [],
+      "index": 33,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 空降物",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ey",
+      "pairDigest": "fcfe3fba89f0b3b4d4f752698816ce2cb67d3b49fcd9b1d3ee8db5d4d43686e7",
+      "canonicalId": 4713691,
+      "canonicalSourceSha256": "28a3b69a2ba1115650c8272e5759780db44083d2f9357df905bd624709bc279f",
+      "verdict": "needs-fix",
+      "notes": "EY安永招聘活动现实合理；但当前exact只含医院/阿提哈德航空缩写，无安永实体义；没有同fold另头补救。",
+      "references": [],
+      "index": 34,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 医院；阿联酋阿提哈德航空公司",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "lve",
+      "pairDigest": "8e72f62106963f28dbe20bad633c843bed6235ef881004bf22badd3dfed0fd0b",
+      "canonicalId": 4719622,
+      "canonicalSourceSha256": "47ff3c7bd291e8af0cdb2ece7d543ab5aa2e6d35925822550cbb4e8e46cd18af",
+      "verdict": "needs-fix",
+      "notes": "原句仅在图表中设置LVE标题，没有展示心室射血事件或测量；罕见缩写展开也不因源元数据自动获得独立确认。",
+      "references": [],
+      "index": 35,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "[医][=left ventricular ejection]左心室射血",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "dominatrix",
+      "pairDigest": "3afab0b7f9e388e876d7318d3b2c608514f768ac476ba9c2c9ffeceda0befeb5",
+      "canonicalId": 4723228,
+      "canonicalSourceSha256": "9140f626706b61a58f406a1009a4fba03241ccbef65aea6ee2878a6d68c7515c",
+      "verdict": "needs-fix",
+      "notes": "成人支配角色/职业语境ENZH本身可读；当前只给母夜叉/女性施虐狂，未准确对应所选BDSM角色，须先修正当前卡片。",
+      "references": [],
+      "index": 36,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 母夜叉, 女性施虐狂",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "preye",
+      "pairDigest": "8fbc14ae13c5b9f6a4b8b833f336e1fdd1e59bde57735e4843a9fc3c45a81282",
+      "canonicalId": 4737272,
+      "canonicalSourceSha256": "7e2d56f0bd5cb1e913b45774145edcad99f6b039837456e10e6bd162a2bbfbe9",
+      "verdict": "approved",
+      "notes": "Preye姓氏人物为签名留空位，源、proper noun用法及中译一致。",
+      "references": [],
+      "index": 37,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 普雷",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "javelina",
+      "pairDigest": "259b94e0aff75e1ca9082a7549ba436b702332f3f62baca196cb9daccfefae57",
+      "canonicalId": 4739951,
+      "canonicalSourceSha256": "672842977e726810a6952fb1ddf3c8c7d8336c9ac41b952f07dd3bc2a741423b",
+      "verdict": "approved",
+      "notes": "源明确以peccary对应；美洲似猪哺乳动物穿过小径的实际名词用法和西猯译法一致，未误成标枪。",
+      "references": [],
+      "index": 38,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. [动] (=peccary)一种野猪",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "animalistic",
+      "pairDigest": "2f2d11f7c4da50382e5073a0ed567be37441162253d46c382fdb631f7cbc76f2",
+      "canonicalId": 4749151,
+      "canonicalSourceSha256": "7a59a6eb856417774108b55c8070b8cc2a750c46ccd5692f03ebe4fdff9ed369",
+      "verdict": "needs-fix",
+      "notes": "animalistic growl真实示范兽般/动物本能义，ENZH准确；当前只有兽性说的/色情的，需补所选普通形容义。",
+      "references": [],
+      "index": 39,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 兽性说的, 色情的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "mache",
+      "pairDigest": "d7ccd12189b65d6a6b872cd0b7ff7d87c049ac830943d4bee544e3151e2851b8",
+      "canonicalId": 4764991,
+      "canonicalSourceSha256": "fce9195f6a08fc80de2f61c127e49c124b7818293d318b99c67963192115e648",
+      "verdict": "needs-fix",
+      "notes": "沙拉叶菜mâche是真实义，但当前仅马谢人名式释义；另需明确带重音符拼写变体映射，不能把它算旧源已覆盖。",
+      "references": [],
+      "index": 40,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 马谢",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "bejesus",
+      "pairDigest": "ef5657af57b4532104ae9d52fcf4c54824d2d866adfbbc96ed3c8827b0e3b484",
+      "canonicalId": 4770654,
+      "canonicalSourceSha256": "6a2a34a0623c1290c7fe4e79cf75ff51c56bcf4241ddde2f1910ca15d1c9ea93",
+      "verdict": "needs-fix",
+      "notes": "惊叹句中的感叹词用法和中文自然；当前只有noun字段，未列感叹词义/用法，需词性显示对齐后计为完整。",
+      "references": [],
+      "index": 41,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 老天",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fontina",
+      "pairDigest": "0631e02ee577342bfb56fb21880b3a4dc598159d05bf272788d32c0acaf045a5",
+      "canonicalId": 4776490,
+      "canonicalSourceSha256": "3032c78880880d9e2b6044ab66871c6afa9a990bf1a7a7f6302e6fa1ef9e087d",
+      "verdict": "needs-fix",
+      "notes": "奶酪薄片句本身正确；Fontina DOP生产规则明确用牛乳，当前羊奶干酪是实质原释义错误，不能视为完整卡片。",
+      "references": [
+        "https://www.fontina-dop.it/en/fontina-dop-consortium/specifications-and-regulations/"
+      ],
+      "index": 42,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 意大利果仁味羊奶干酪",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "nob",
+      "pairDigest": "3c88972198ec9b1f2fe33bc18aa9cbebe936611c8237af1ba09c329d4cd399f1",
+      "canonicalId": 4786120,
+      "canonicalSourceSha256": "47f77b9bd76418ce98b78267c8f27f5730749e01dfd6262019105f280797659c",
+      "verdict": "approved",
+      "notes": "local nobs作大人物/上层人士，讨论选举的语境及中译对应，源含大人物义。",
+      "references": [],
+      "index": 43,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 头, 大人物\nvt. 打头",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "probiotic",
+      "pairDigest": "bd9873d555de26013b4da31a8b52cb25a8f924dd69962e1a009ba86fc55e755b",
+      "canonicalId": 4796258,
+      "canonicalSourceSha256": "41a2690be1935fa716e3bfe0c19a98a164708f50c65e0d6743db8592f772f70f",
+      "verdict": "needs-fix",
+      "notes": "益生菌酸奶的形容词用法正确且不含疗效承诺；当前全部源只有前生命期的，没有益生菌相关义。",
+      "references": [],
+      "index": 44,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "[生]前生命期的",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "frolick",
+      "pairDigest": "39fa1d4246ffb40fa006482cb744826989a1a2bd39d362272e75c5829651788a",
+      "canonicalId": 4803687,
+      "canonicalSourceSha256": "fd10c3653201942963c2b52347f7ff334cfde1d5c3f0d8895a917ffae82f62fe",
+      "verdict": "needs-fix",
+      "notes": "英文实际改为frolic；作者也承认通常拼写不同，须核实旧拼变体并明确关联，不能直接算frolick已用到。",
+      "references": [],
+      "index": 45,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vi. 嬉戏, 玩耍",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "nitro",
+      "pairDigest": "4727e5e591066bf1058e7412afad4419a418b674ccf0d04201287621f42f7560",
+      "canonicalId": 4805991,
+      "canonicalSourceSha256": "fe35652dcfaaa04912b740517da3f36b007c37c0db722872988901b1dd09dc5b",
+      "verdict": "needs-fix",
+      "notes": "硝化甘油简称语境可理解，但当前只有硝基，二者不是同一化学义项；应先补正确所选义。",
+      "references": [],
+      "index": 46,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 硝基",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "stablemate",
+      "pairDigest": "3fe6131aba4beabe7c878f5a1a50ad667df008b22b5118575018d6a22d3fc463",
+      "canonicalId": 4813627,
+      "canonicalSourceSha256": "f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f",
+      "verdict": "needs-fix",
+      "notes": "母马与同厩马的原义句自然；当前仅同老板拳击手这一引申人物义，未有同厩马义。",
+      "references": [],
+      "index": 47,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 受雇于同一老板的拳击手",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "outshone",
+      "pairDigest": "f73bec5d7cef234703ad4ce83b4a1c6e67da52ac868c8cc50702f9b99b838b80",
+      "canonicalId": 4823480,
+      "canonicalSourceSha256": "ca37040362d3a87febf7ca857c67e7f66ff601dc85cf1b44e6ba4ced91ad22d5",
+      "verdict": "approved",
+      "notes": "真实过去式outshone后接其他表演，表示更出色；源给outshine过去式/分词，没有相反具体义，中译自然。",
+      "references": [],
+      "index": 48,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "outshine的过去式和过去分词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "mein",
+      "pairDigest": "2080f454c07737a8edf05aa668ac13cda223e9292520313005aed67a099f6d36",
+      "canonicalId": 4832556,
+      "canonicalSourceSha256": "b351f974684edc75aa8aa7afbf19f72638354a47d4e80c2c7194f9dbcac49f36",
+      "verdict": "needs-fix",
+      "notes": "只写出外语词组标签，不是实际交际中的所有关系；所选德语限定词与源pronoun还需明确语法处理，不能靠模板过关。",
+      "references": [],
+      "index": 49,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "pronoun",
+        "meaning": "pron. （德）我的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "doubtlessly",
+      "pairDigest": "1a5ffd4ea58e9f44b56311ff39d67d3954c0cd85c99870a26cfa17c4b94fa361",
+      "canonicalId": 4842639,
+      "canonicalSourceSha256": "8c3578df61957f3b24c5e8f3fce290e5a26dcfa172f215c565ef939eae54e48c",
+      "verdict": "needs-fix",
+      "notes": "句中作无疑地副词，ENZH自然；当前POS却是adjective，须修当前词性，不能声称已相符。",
+      "references": [],
+      "index": 50,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 毫无疑问",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "senselessly",
+      "pairDigest": "eaf03017233d185d5b7d6db39266939126c2005eb954c08b8189af2c40f0fb94",
+      "canonicalId": 4845659,
+      "canonicalSourceSha256": "848e3045362f6fab73fc59b36e7318bcd4a84612fea1b3b973164025e312cfde",
+      "verdict": "needs-fix",
+      "notes": "争论毫无意义地继续的副词义正确；当前全部variant只给无知觉/不省人事，没有无意义义。",
+      "references": [],
+      "index": 51,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adverb",
+        "meaning": "毫无知觉地; 无意识地; 不省人事地",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "triumphalist",
+      "pairDigest": "53298c2c4858a15ec4f2274b2a7eb8dea9a70ba0c0cf9ac9f3f7cb085a7ab62e",
+      "canonicalId": 4850335,
+      "canonicalSourceSha256": "a3de245006604934adf0efabcdeedcfe1d578363a24194afbe5df55b75d9bb15",
+      "verdict": "needs-fix",
+      "notes": "例句是胜后得意宣扬者，与当前必胜信念者不等同；须核实并补正确胜利主义/炫耀胜利的选义。",
+      "references": [],
+      "index": 52,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 必胜信念者,必胜主义者",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "jodie",
+      "pairDigest": "1e2b83eb0a1275f2fd8d24f86aa270b08faa0bf08005cafc58555a09231dd76f",
+      "canonicalId": 4861368,
+      "canonicalSourceSha256": "9604e01a890ccf84707b43447e048dc64d953f517b6be86bb9614025b0dab226",
+      "verdict": "needs-fix",
+      "notes": "Jodie作乔迪人名本身自然，但当前只有美军俚语中的平民/缓役男子，无人名义。",
+      "references": [],
+      "index": 53,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. [美军俚]平民男子；征兵不录（或缓役）的男子（等于jodie）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ich",
+      "pairDigest": "38ddf34b03899d19e43527ab11aa535cf4fa46e5cc8552726d223f7acf2d7cc4",
+      "canonicalId": 4869239,
+      "canonicalSourceSha256": "b1ac0e8b66425966cd388b6bde734e9a4f0399870e233d2743ec0c47b9508f1b",
+      "verdict": "needs-fix",
+      "notes": "德语ich是我，不包含要；当前源把它译成我要，且原句只讨论句子起首词字样，应修义并换实际用法。",
+      "references": [],
+      "index": 54,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "pronoun",
+        "meaning": "（德）我要",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "lockhart",
+      "pairDigest": "500fba18bfa660b6518fa479bfc1f3d92617b141bc520e6a8655b03b2958f077",
+      "canonicalId": 4874811,
+      "canonicalSourceSha256": "e48a9c03d5baaee16fa067e291f2587d11b41ccbb9853ef7ee80103f9885db74",
+      "verdict": "approved",
+      "notes": "源明确Lockhart姓氏；请柬拼写校正的ENZH为正常人物用例。",
+      "references": [],
+      "index": 55,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 洛克哈特（姓氏）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "gwyn",
+      "pairDigest": "04ebd8b0f8f675de3f840eafbdfdb73b71f634637805027c6edfc09289a9b3fc",
+      "canonicalId": 4880000,
+      "canonicalSourceSha256": "21f348f3896243d9e0d828a9a07315269e6e98da32e4f72085fbd00cf53023b3",
+      "verdict": "approved",
+      "notes": "Gwyn作源所列女子名人物主语，收回空杯子的ENZH完整对应。",
+      "references": [],
+      "index": 56,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 格温（女人名）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "sud",
+      "pairDigest": "bf0e0ce5dfa494de278a657e1ab736433df60176e7c4e3c56697b7cfd7c8edb5",
+      "canonicalId": 4884003,
+      "canonicalSourceSha256": "30250cd918bbb8fd1960afda767c7b5d3762559f4b2da56540d3e189426aa69e",
+      "verdict": "needs-fix",
+      "notes": "原句只讨论研究人员如何定义SUD，没有展示相关事件或研究对象实际用法；旧源英文展开还截断death，需核实后重写。",
+      "references": [
+        "https://www.cdc.gov/nchs/nvss/manuals/2020/2a-appendix-2020.htm"
+      ],
+      "index": 57,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 突然意外死亡（sudden unexpected）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "expedit",
+      "pairDigest": "986b4ecf0af3e8ead1b39db11d759c491016371ab3437e0aef9abff36c02893c",
+      "canonicalId": 4900572,
+      "canonicalSourceSha256": "529734416f4a5b9848546292cea909bff012db040409ff6a72bb1b71d62dc833",
+      "verdict": "approved",
+      "notes": "IKEA原厂资料确认EXPEDIT是旧搁架系列；房间隔断用一组旧架子的语境、大小写和中译准确。",
+      "references": [
+        "https://www.ikea.com/global/en/stories/design/kallax-product-story-230131/"
+      ],
+      "index": 58,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 埃克佩迪（品牌名称）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "coeur",
+      "pairDigest": "81d5a5880ca45e447cb3805f9b2d710603618b82853fcc3c9b328959d7443f30",
+      "canonicalId": 4902625,
+      "canonicalSourceSha256": "9ccc547c02e826c12ae11337a0d8c944522ab1095f656f3587d83cde943599a6",
+      "verdict": "needs-fix",
+      "notes": "cri de coeur完整借用短语的肺腑呼吁义不同于当前医学心脏，不能把短语含某个法语成分算当前词头该医学义的用例。",
+      "references": [],
+      "index": 59,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "[医] 心脏心",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "soonest",
+      "pairDigest": "9bcaa4b1a5b828336979cef006163dad33fd848b7fe2994ac00fe516b45e72e4",
+      "canonicalId": 4905778,
+      "canonicalSourceSha256": "4864a761ee0f40aefd5be9e10ee4c1e4be6eb3202556c460ef7c89f4fcd683b0",
+      "verdict": "needs-fix",
+      "notes": "which train gets us there soonest是正确副词最高级用法；当前POS写adjective，须先更正显示。",
+      "references": [],
+      "index": 60,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 不久( soon的最高级 ); 即刻; 早; 快",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ocelot",
+      "pairDigest": "bf0a438a3c953a7b6269770933b70631cd742fbc0fe8b19dd88e37eae0c30674",
+      "canonicalId": 4908277,
+      "canonicalSourceSha256": "99177700cb8464c937fa8a318d236fb20d9d0cf040e7e9b46c0787d609591f4e",
+      "verdict": "needs-fix",
+      "notes": "美洲虎猫句现实正确；当前仅写豹猫易与亚洲豹猫混淆，需把确切动物/美洲物种义写清，不把模糊错名算精确对应。",
+      "references": [],
+      "index": 61,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 豹猫, 豹猫毛皮",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fornicate",
+      "pairDigest": "514a2b7fc1375099f3aef2986ed4eff7cf4d198dda66766e391ef3639a2e5f1b",
+      "canonicalId": 4914458,
+      "canonicalSourceSha256": "87adf9cdefd6793a95ec374d9bd42fcedcbd8c8d24fe075dbd225a3513d7a25e",
+      "verdict": "approved",
+      "notes": "fornicating在传教士谴责的宗教语境中表达非婚性行为，EN/ZH及动词形式自然。源虽用旧式通奸/非法性交措辞，后者在旧道德语域能够涵盖此义；不把该措辞解释成当代法律犯罪判断。经Oxford本词条核对，未因旧译措辞过时误拒绝正确例句。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/fornicate"
+      ],
+      "index": 62,
+      "issueCategory": "matched-legacy-register",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vi. 通奸\n[医] 穹窿状的, 非法性交",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "wat",
+      "pairDigest": "416b6e093bbd2364bc113c23b47ba254aaa518bf9c69b11e851f0b04605d2a47",
+      "canonicalId": 4917651,
+      "canonicalSourceSha256": "7b274fbdfd431550b3cf7fa4dac890d8f01214a1bf72cfc9ba3c2b75e3fdfc81",
+      "verdict": "approved",
+      "notes": "wat为佛寺，寺外脱鞋的实际场景、中译和源泰国佛寺义一致。",
+      "references": [],
+      "index": 63,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 泰国佛寺",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "regularise",
+      "pairDigest": "703faeec7198ca6f15f58cf52c1d70bf654b7bf1832671f8263a61e9425c05c3",
+      "canonicalId": 4927914,
+      "canonicalSourceSha256": "4001636d95ad0f80b6e30986bb3d29fc914bb20bee81f1c210fa2d76de123589",
+      "verdict": "approved",
+      "notes": "英式regularise实际搭配informal arrangement表示正规化；源明确等于regularize，译文正确。",
+      "references": [],
+      "index": 64,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vt.<主英> = regularize",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "successional",
+      "pairDigest": "50b03816d56d823f671b883b647b23b53cbd6b944092348c3ddcf9947d7eeb89",
+      "canonicalId": 4932987,
+      "canonicalSourceSha256": "92b966ac1b8c694d993f3452c342810386fd1cbc8b4bf9f122274d813f6976b2",
+      "verdict": "approved",
+      "notes": "successional stages展示按先后更替的阶段，源接连/连续义与本选义相容；比较照片中的阶段而非仅提词。",
+      "references": [],
+      "index": 65,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 接连的, 连续性的\n[法] 继续的, 连续的, 继承的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "womaniser",
+      "pairDigest": "a1a6bc8ffe3e0ad091852e2fbd2d22d822dccc5c46a200ef736e4e207e3bc940",
+      "canonicalId": 4936086,
+      "canonicalSourceSha256": "bc1e4a5d6832dedc0625b3a732ab2e3ae36da66d4829fd3454d52354833b0c49",
+      "verdict": "approved",
+      "notes": "人物被描写成追逐女性的男人，贬义语气保留；源给womanizer的英式等价写法，中译相符。",
+      "references": [],
+      "index": 66,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. <主英> = womanizer",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "mothership",
+      "pairDigest": "e84e651119e9f7ed868ebea9fb34d6f70936924e75ae29defcebefee155e5ed4",
+      "canonicalId": 4944608,
+      "canonicalSourceSha256": "a16ff177242358042db792fb0dd75dfc10f32d2c9eeecb632f6326bff42ed587",
+      "verdict": "needs-fix",
+      "notes": "小科考船返回支持母船的义正确，但源只有航母，不能把支持船只与特定航空母舰无条件等同。",
+      "references": [],
+      "index": 67,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 航母",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "IDI",
+      "pairDigest": "b1a3b50cbeba0ee54669b5c000000828ecd2dc4b3d911086b81ee81964590464",
+      "canonicalId": 4951851,
+      "canonicalSourceSha256": "c0cb49977fcc65ddb847e8572df6b79016bd58fd2e52d93e75b0d19bda2583f4",
+      "verdict": "approved",
+      "notes": "ITU标准明确IDI是网络地址的initial domain identifier字段；手册解释地址中的该字段具有具体技术对象，源与ENZH一致。",
+      "references": [
+        "https://www.itu.int/en/ITU-T/inr/unum/Pages/ituindaesa.aspx"
+      ],
+      "index": 68,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 以色列钻石协会（Israeli Diamond Industry）；综合控制直接点火（Integrated Direct Ignition）；初始域标识符（Initial Domain Identifier）；美国国际器件公司",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "thousandths",
+      "pairDigest": "97c9b6bb8a3752e6c1f8f620ed5def46bdadfc0dc1d7f785fc1b82561d3706e5",
+      "canonicalId": 4958660,
+      "canonicalSourceSha256": "87ee316a67978ef32071cc027cda4e0b1c713038d86d68b2026fec595c3ebeae",
+      "verdict": "needs-fix",
+      "notes": "测量千分之一毫米的分数名词用法正确；当前只有第一千的序数说明，无分数份额义。",
+      "references": [],
+      "index": 69,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 第一千( thousandth的名词复数 )",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "BHS",
+      "pairDigest": "82fa657ddeecff058ce6c5c88c79a4198b8ab2e9bf70a84cd08fa45394b9c259",
+      "canonicalId": 4963660,
+      "canonicalSourceSha256": "9bac25df04c51aea9fca1a82a437d2e2153268407206fb32abbb249a60f28bbf",
+      "verdict": "approved",
+      "notes": "BHS为行李处理系统获原厂资料核实；机场图中位于值机区后方是具体系统空间指称，不是仅索引列术语。",
+      "references": [
+        "https://www.vanderlande.com/references/oslo-airport/"
+      ],
+      "index": 70,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 行李处理系统（baggage handling system）；井眼状况（borehole status）；贝克绝望感量表（Beck Hopelessness Scale）；德国斯图嘎版希伯来文卷本（书名, Biblia Hebraica Stuttgartensia）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "FU",
+      "pairDigest": "197fb5b3d060bcd819271c400413c9be7bf735174ef56e6a0e59288cb11b4c3e",
+      "canonicalId": 4967044,
+      "canonicalSourceSha256": "ed192cabb624a1ff98007eac50580f33f2e5c3dd354ba1f7a57a2e4716da4f6a",
+      "verdict": "needs-fix",
+      "notes": "源有功能部件，但原句只说处理器图分别标示各FU，缺少部件承担运算等实际使用关系，需实质例句。",
+      "references": [
+        "https://docs.boom-core.org/en/latest/sections/execution-stages.html"
+      ],
+      "index": 71,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · adjective · phrase",
+        "meaning": "[计] 字段单元, 功能部件",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "arb",
+      "pairDigest": "7b44f15d6deb0b2bb677fc498363720eaea179f3b75442076c39ea6afbb05c1f",
+      "canonicalId": 4974664,
+      "canonicalSourceSha256": "0c2a33ece837ebd3f7a524920694bba635c96f96b84ad6a34e437f273628ea7f",
+      "verdict": "approved",
+      "notes": "源含Air Resources Board，引用委员会公开声明是机构实际行为语境，空气资源委员会译法一致。",
+      "references": [],
+      "index": 72,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 空气资源委员会（Air Resources Board）；航空注册局（Air Registration Board）；航空研究局（Air Pesearch Bureau）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "childs",
+      "pairDigest": "0afc13e1fa8e44c046d51e65cf22c67358b84e79d2b2b4880e4a09f61d99a4dc",
+      "canonicalId": 4976618,
+      "canonicalSourceSha256": "1787239b530365a8325af338563a6929ea42e4e193f0f203322946af90133d40",
+      "verdict": "approved",
+      "notes": "Childs为蔡尔兹人名；把照片装信封的实际人物句、中译相符。",
+      "references": [],
+      "index": 73,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 蔡尔兹（人名）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "dorado",
+      "pairDigest": "2685a83bcf241b50866e55cc416316123a9fbc00ebda2c58e971de539d166dff",
+      "canonicalId": 4987112,
+      "canonicalSourceSha256": "1dd64f6aadce7b16d08418cf90fa973b2c6d810fff13b6dac748b8e7574e6a73",
+      "verdict": "needs-fix",
+      "notes": "所选鲯鳅/mahi-mahi可用，但当前却是剑鱼，属于不同鱼类；需修正确具体动物义。",
+      "references": [],
+      "index": 74,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 剑鱼",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "overspent",
+      "pairDigest": "c03f4fb45dada389beac7763409bbe284e229aa783c9471b5ce4d3ef9d13564b",
+      "canonicalId": 4990737,
+      "canonicalSourceSha256": "b4baaf3c34d3841495ab09f90175fbb80e3b52679c4cc879ff66ddde33f1a743",
+      "verdict": "approved",
+      "notes": "源overspend过去式，布置花超预算导致鲜花资金不足，ENZH和词形准确。",
+      "references": [],
+      "index": 75,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "overspend的过去式和过去分词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "smolt",
+      "pairDigest": "b0b41a37dd0dae33859c8c035448045231bc0329b0d2b179e2d4685af3ff8354",
+      "canonicalId": 4994958,
+      "canonicalSourceSha256": "faa53cb0ca2a4a5d3f52a3ecfe576e5b3ef52acfa214fac67223433e59469d9c",
+      "verdict": "needs-fix",
+      "notes": "作者按幼鲑入海阶段释义合理；源把它固定为三龄小鲑鱼，年龄不等于该发育阶段，需更正源义范围。",
+      "references": [],
+      "index": 76,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 三龄大的小鲑鱼",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "groupy",
+      "pairDigest": "e73a15bf545ed5d760268dbab029bb779cfd26a748f43d1f8c27878cf1c14f4d",
+      "canonicalId": 4999215,
+      "canonicalSourceSha256": "fed4746bfd16ca4a8a6cee1e544e8fc160334fe966d2772095ba70be33028a73",
+      "verdict": "unverified",
+      "notes": "未独立确认groupy能自然表达作者所选带负面的小团体化；源偏合群/重群体，不足以批准该cliquey式句意。",
+      "references": [],
+      "index": 77,
+      "issueCategory": "unverified-usage",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 易于组合的；趋于归组的；合群的, 不搞个人英雄主义的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "rimbaud",
+      "pairDigest": "6a88447087ed7340a44de7fbbd50563cdf136244efc3418614c9a4db2f59ae8f",
+      "canonicalId": 5007871,
+      "canonicalSourceSha256": "d17d7d422860e168b8c3def907b15791fd0fc7dc6ee9665ab74f94cf037b9488",
+      "verdict": "approved",
+      "notes": "Rimbaud源含法国兰波姓名，诗人作品译本的常见作者代作品用法自然，ENZH对应。",
+      "references": [],
+      "index": 78,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (Rimbaud)人名；(法)兰波",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "pyro",
+      "pairDigest": "80cf3301f0a23ddbbde1698f0c8e4fe9c03a1cba6cd30d4c223b1da0e86103ac",
+      "canonicalId": 5014989,
+      "canonicalSourceSha256": "970ca3b9dc623f87d9964c4db498103a73f561caf40c24f8bb0abfca0b13602b",
+      "verdict": "needs-fix",
+      "notes": "舞台焰火简称在现实语境可理解；当前只有焦酚化学义，无舞台效果义。",
+      "references": [],
+      "index": 79,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 焦酚",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "nadia",
+      "pairDigest": "3140ddf9c7c37eb87d4fe9a3bb7b9c03bde8e6d35275b800fa5ed20d3fad5095",
+      "canonicalId": 5024682,
+      "canonicalSourceSha256": "b912b6dd0f96baeae2fb0975042d18c318dfc3cf3780f9cd8ae50a0df9b793b3",
+      "verdict": "approved",
+      "notes": "源明确人名纳迪亚，并非只允许某一名人；Nadia为朋友留座是自然名字用法，纳迪娅为音译变体。",
+      "references": [],
+      "index": 80,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 纳迪亚（人名, 特指香港女明星陈松龄）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "che",
+      "pairDigest": "b44992caf09ca7341dd644edf9c62aa3e6f66f013f2aa54c1282580ab97fd1bf",
+      "canonicalId": 5030961,
+      "canonicalSourceSha256": "98dbb3e8b5061b558452cf3541b75ae69d3280ce4e8e2d282df2adfde03eab5c",
+      "verdict": "needs-fix",
+      "notes": "源有胆碱酯酶，但原句仅说术语表把ChE列在酶缩写下；不展示酶的活动或其他实际指称关系。",
+      "references": [
+        "https://stacks.cdc.gov/view/cdc/186631/cdc_186631_DS1.pdf"
+      ],
+      "index": 81,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. [医]胆碱酯酶（等于cholinesterase）；充电指示灯；化学（等于Chemical）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ston",
+      "pairDigest": "a7d69eb71670f78b2bddde2157a77f24a48a1bbeef8d4f79ea3ee42dc0a5a47b",
+      "canonicalId": 5040059,
+      "canonicalSourceSha256": "c5564f6879c55e8cff838f90e78c72df64ad6e8546b9c03c6aa7e49541bee630",
+      "verdict": "unverified",
+      "notes": "未独立确认上海四通电器使用Ston这一具体品牌拼写；输入给定名称及虚构发票不能作独立实体证明。",
+      "references": [],
+      "index": 82,
+      "issueCategory": "unverified-entity",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 上海四通（电器品牌）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fie",
+      "pairDigest": "b219ca34c58209350fde03fa3585385323a98419360636f38dac21069d69db82",
+      "canonicalId": 5055343,
+      "canonicalSourceSha256": "7ea95108c9763a41485a3b8a49b0180f3c97802a9b8ee634e4044828b166b172",
+      "verdict": "approved",
+      "notes": "Fie on...是旧式责备/厌恶感叹，谴责不诚实的台词和中译一致，源词性相符。",
+      "references": [],
+      "index": 83,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "interjection",
+        "meaning": "interj. 咄, 呸",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "pirouet",
+      "pairDigest": "739c25b8021cd317ab30746aeea29b6e1a95573db7764011d327b22cd402464e",
+      "canonicalId": 5058697,
+      "canonicalSourceSha256": "d64c2e09722aafe3cc35619f897141cbb47e6fdffc069a547cd27f1f222c0225",
+      "verdict": "approved",
+      "notes": "源所列Pirouet姓氏作为寄送改正书页的人物主语，ENZH准确。",
+      "references": [],
+      "index": 84,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 皮鲁埃",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "vito",
+      "pairDigest": "3e17e4d0628d9206dda0255e98227902171a317e01353d3f5be8658bb75838d2",
+      "canonicalId": 5063017,
+      "canonicalSourceSha256": "de67ff839258006e57b8de3d9a50de28ab973800e540d2ebe40a26334934fcab",
+      "verdict": "approved",
+      "notes": "Vito男子名与源相符，从柜子取备用椅子的双语句完整自然。",
+      "references": [],
+      "index": 85,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 维托（男子名）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "canonise",
+      "pairDigest": "daeb4064fc65a5822547de493ae12e7f61e9d35faed76db78d5fd656c6552e89",
+      "canonicalId": 5067815,
+      "canonicalSourceSha256": "14681dd7b4dd5530c6c7231ae93d622b3ebb0727b8f47f1feaa183ce7833f847",
+      "verdict": "approved",
+      "notes": "canonise the novel指文学经典化，不误作封人为圣人；源为canonize英式等价词，实际宾语语境和中文一致。",
+      "references": [],
+      "index": 86,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vt.<主英>= canonize",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "weathervane",
+      "pairDigest": "1fe50e6068398c077d1520af0f37837ee5050292bdaa98f495d5b26249fd8455",
+      "canonicalId": 5069851,
+      "canonicalSourceSha256": "c0e22d2b8a15108faf0143bf38d80ed605f79f58339325cd926b721bcb9c4e7c",
+      "verdict": "needs-fix",
+      "notes": "物理风向标在屋顶转动的名词句正确；当前只有政治预测依据的形容词用法，没有该器物名词义。",
+      "references": [],
+      "index": 87,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 政治风方向标的（指表明当前投票倾向的一种可靠依据, 由此可预测选举结果）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "toynbee",
+      "pairDigest": "45cc7b9b2a420d3d65b0c9665cbe14013fd5fb770b3c99ad6e5431032e4a27c8",
+      "canonicalId": 5073597,
+      "canonicalSourceSha256": "2279360afec50b0c9405ab1b3e57cd9c6a932e7374a3dad3627c02f1cb8163ed",
+      "verdict": "needs-fix",
+      "notes": "仅说姓名出现在参考书目，是名字字样提及，没有人物实际指称/行为；应改为真实姓氏用句。",
+      "references": [],
+      "index": 88,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "托因比（姓氏）",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "USS",
+      "pairDigest": "b1ef993dd632f8e7576d9a7b19f70b94fb5e5738acc7d56ed7a977c9c69040ae",
+      "canonicalId": 5087390,
+      "canonicalSourceSha256": "fce8981fefd6c22d1a43b0b1c5f704e4c7924d6d01079a63390e62d07758699e",
+      "verdict": "needs-fix",
+      "notes": "军舰名前缀USS义现实正确，但源及全部variant仅工业标准/美国参议院，未含United States Ship；原句也只谈标签前缀字样。",
+      "references": [],
+      "index": 89,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "美国(工业)规格, 美国(工业)标准, 美国参议院",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "refocuse",
+      "pairDigest": "6865304de097bb1b7ed9d2de86dd62782fa9448267dcbb97f43db63e453eb4de",
+      "canonicalId": 5100471,
+      "canonicalSourceSha256": "51ab5410e03d275cb0243f868cb20761f57c567c114c5ef6495a4b7f1107578b",
+      "verdict": "needs-fix",
+      "notes": "句子真实使用refocus而非refocuse，后者不是前者屈折形式；需要规范拼写映射，不可直接算原head被展示。",
+      "references": [],
+      "index": 90,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "v. 再次聚焦",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "duell",
+      "pairDigest": "0a50a12d7eb706d18c91cf44a8d249cc5bfbf3d7a78cc6715f736dd45eaf12d3",
+      "canonicalId": 5120213,
+      "canonicalSourceSha256": "7afc3dfa3d181c2644eca04ca7c2d071c57811c7ae82a951f48d93afbe7b2b6f",
+      "verdict": "approved",
+      "notes": "Duell为源迪尤尔姓氏，地图下找书页的实际人物语境和译文一致。",
+      "references": [],
+      "index": 91,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 迪尤尔",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ist",
+      "pairDigest": "8eb4e8fb931fb7a2ddc0ce08fc3978eaf7ddd77df067c3d6333ad84d6d8fc21e",
+      "canonicalId": 5124915,
+      "canonicalSourceSha256": "5e6ea139d369bb9ebeea43a7a1db3fd7f0b12c3364170f904ec82a706460972c",
+      "verdict": "needs-fix",
+      "notes": "邀请函使用印度标准时间的句子本身正确；当前全部源只有休克疗法/星际航行/悬挂系统，无时区义。",
+      "references": [],
+      "index": 92,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 胰岛素休克疗法（insulin shock therapy）；星际航行（Interplanetary Space Travel）；独立悬挂减震系统（Independent Suspension Technology）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "goy",
+      "pairDigest": "8775296c93b458c5c39f791f54d81efd5f922d698cb4dd6b80b68ebaa981fd3a",
+      "canonicalId": 5130806,
+      "canonicalSourceSha256": "3c9b44758f726d2da588d5d882d1a87af0e01f0920b992331d7f1195760b2207",
+      "verdict": "approved",
+      "notes": "在明确犹太语境中将异邦人/异教徒具体化为非犹太人，回忆录友谊场景不添侮辱断言，符合源词义范围。",
+      "references": [],
+      "index": 93,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 异邦人, 异教徒",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Pru",
+      "pairDigest": "34d92e00d242dee3ec2ba2508de80734e9ee9c3154f8a0fbdc9eb2a75a303f7f",
+      "canonicalId": 5140246,
+      "canonicalSourceSha256": "cdd31e463bc56f5d8b7d7becc172155f3125252d0ee242ddaa992dfaf77d9d64",
+      "verdict": "unverified",
+      "notes": "当前只标Pru为缅甸布鲁人名与阻力单位；作者选英语女子名昵称普鲁，未独立核实昵称来源/与当前姓名项的对齐，暂不批准。",
+      "references": [],
+      "index": 94,
+      "issueCategory": "unverified-name-scope",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · abbreviation",
+        "meaning": "n. (Pru)人名；(缅)布鲁\nabbr. 外围阻力单位（Peripheral Resistance Unit）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "hansom",
+      "pairDigest": "9baa38364ef7007b40342e0a8e7456da6f5435732f9c473d69fd00e0dba9c89d",
+      "canonicalId": 5145753,
+      "canonicalSourceSha256": "163519eee7fb6b97f0e75297e73437ce14a061dcce848910693f758c705d4555",
+      "verdict": "needs-fix",
+      "notes": "hansom cab马车句本身正确，但当前hansom只有姓氏汉瑟姆，无马车名词义。",
+      "references": [],
+      "index": 95,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "汉瑟姆(姓氏)",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "alla",
+      "pairDigest": "91d40ef3b7d82695f91d896ab1cf6855a933eca743d554a3bb967436667ed8dc",
+      "canonicalId": 5154367,
+      "canonicalSourceSha256": "8e4134be5f1bacc4e4e7bb622a7e290ed5672e970ec44088c225dd5d33d4f39c",
+      "verdict": "approved",
+      "notes": "Collins确认alla marcia为进行曲风格的音乐术语；乐谱指示该演奏方式是实际借用短语用法，源如同…方式相容。",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/alla-marcia"
+      ],
+      "index": 96,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "preposition",
+        "meaning": "prep. 如同…一样的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "thankyou",
+      "pairDigest": "65437a5fcfc1568e56fe49268fdace1f2d11b1429ccc1fca9230a07e12a23076",
+      "canonicalId": 5157650,
+      "canonicalSourceSha256": "e391823846d2cc6336571fad0b6a00272dd95299499177366b89b0da80065c28",
+      "verdict": "needs-fix",
+      "notes": "例句采用规范thank-you名词，源head却拼为thankyou；作者自述规范写法不足以替代显式拼写映射/词形核实。",
+      "references": [],
+      "index": 97,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 谢谢",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "pf",
+      "pairDigest": "23b89aac0e130df46608afc04e0814852e346700211885303c4eeb299f12fea1",
+      "canonicalId": 5162795,
+      "canonicalSourceSha256": "48a886e46d9c3e4ecc373958c2b98b53b820249f9315d7c4521eec1684fab494",
+      "verdict": "needs-fix",
+      "notes": "pF作为皮法符号及电容值语境正确，源也有Picofarad缩写义；但当前noun/interjection不对应所选symbol，须更正词性/单位显示。",
+      "references": [],
+      "index": 98,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · interjection",
+        "meaning": "[电] Picofarad的简写",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "broadhead",
+      "pairDigest": "50ef88ca40a2098c22bdb1b6c4fad6212d2b8c6fe467f9c7ca94cfc9cecdd527",
+      "canonicalId": 5169185,
+      "canonicalSourceSha256": "6a7bab21fa464ebdf522dd427327938abe9eafdad75d848a71478af7cdcd40a5",
+      "verdict": "approved",
+      "notes": "Broadhead源含英格兰姓氏，放备用信封的人物行为自然，未误解成宽头箭头义。",
+      "references": [],
+      "index": 99,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] [英格兰人姓氏] 布罗德黑德绰号, 宽额或大头者, 来源于中世纪英语, 含义是“宽阔的+头”(broad+head)",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "underfed",
+      "pairDigest": "49195f77cb43a2c063ede2a858f017a3cdcb356914b236c8f4e800523739bc61",
+      "canonicalId": 5173640,
+      "canonicalSourceSha256": "525b01195e915d0a1f6fe331da72f3843bfd374f1676a83703bab577f7eea434",
+      "verdict": "approved",
+      "notes": "underfed作吃不饱的形容词修饰狗，源已有adjective并说明underfeed分词，ENZH自然。",
+      "references": [],
+      "index": 100,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "underfeed的过去式和过去分词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "cannibalise",
+      "pairDigest": "000565367c2326ba6787ba9e678165cb04d056b36a0c3e9a39fef43f85ef2c83",
+      "canonicalId": 5185382,
+      "canonicalSourceSha256": "53adf17e74eb8792a8012f117b84db84b8dfe92ee5382a810caf9866a3b98573",
+      "verdict": "approved",
+      "notes": "从坏自行车拆零件修别车是真实cannibalise用法；源明确UK等价cannibalize，未误译成食人。",
+      "references": [],
+      "index": 101,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "v. <主英>=cannibalize",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "landrover",
+      "pairDigest": "d612e1524b51c6c1a70dfa066bee36145a35f8e983bf0fd996df7bb60f4bf231",
+      "canonicalId": 5188936,
+      "canonicalSourceSha256": "08dd0aa3b9a8d58920dfc99899c292984226b261c6bf6c05b5fe221c9ac031f0",
+      "verdict": "needs-fix",
+      "notes": "真实品牌分写Land Rover的汽车例句正确，但当前head合写landrover且未给品牌规范形式关联；需明确词形/实体映射。",
+      "references": [],
+      "index": 102,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 多用途越野车",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "whiteside",
+      "pairDigest": "c69c95074b3cfa9038cd06d39dbeec621542414dd7894b4dd082693be19684fe",
+      "canonicalId": 5207909,
+      "canonicalSourceSha256": "3ab5eb853c1ee1aa834e30b966b91c2d2e8015e92cbd43437888f23882134259",
+      "verdict": "approved",
+      "notes": "Whiteside源为姓氏，带回修好招牌的实际人物用例与怀特赛德中译相符。",
+      "references": [],
+      "index": 103,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] [英格兰人、苏格兰人姓氏] 怀特赛德可能是住所名称, 来源于古英语, 含义是“白+山坡”(white+slope of a hill)",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ibsen",
+      "pairDigest": "754ac7efda06287fede646b44791fe86eb94f425983b459576cc6a446ac194e1",
+      "canonicalId": 5209508,
+      "canonicalSourceSha256": "a0ebc0fb6019461b65f3201aa8aba5e2448f6dfbbbcccf81194a0a77e8decc9c",
+      "verdict": "approved",
+      "notes": "源明确挪威戏剧作家易卜生，rehearse a scene from Ibsen是作者代作品的自然用法，译文准确。",
+      "references": [],
+      "index": 104,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 易卜生（姓氏）；易卜生（挪威戏剧作家）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "noo",
+      "pairDigest": "f4d358f7d88ac2593d2c1e7bf706e76ba18d63d87abd9c3e4a59d150ad935d6f",
+      "canonicalId": 5219343,
+      "canonicalSourceSha256": "dcb1e0ac1ed584cdad571df940323713c97bedb315aed2c72178eef632652111",
+      "verdict": "needs-fix",
+      "notes": "原句只有旧海图印着NOO字母的提词语境，未展示海军海洋局实际工作或机构指称；历史正式名称还待独立核实。",
+      "references": [
+        "https://vocab.nerc.ac.uk/collection/C75/current/NOO/"
+      ],
+      "index": 105,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. Navy Oceanographic Office <美国>海军海洋局",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Ure",
+      "pairDigest": "63d7c8f6d42c7930f874e895ccb330de3fb03060f379900665e66faeee91122f",
+      "canonicalId": 5221529,
+      "canonicalSourceSha256": "1fea848d17f8ff6ee943b92dd7fb72626dad79cdc6af49095aea36c6a78b9324",
+      "verdict": "approved",
+      "notes": "全部义项中明确有英国姓氏尤尔，本例只取人名归还书的用法，不借用尿素酶或后缀义。",
+      "references": [],
+      "index": 106,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 尿素酶\nn. (Ure)人名；(英)尤尔；(西、塞)乌雷\nsuff. 表“过程”；表“动作”；表“结果”",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "cpc",
+      "pairDigest": "2506f2f7e3a2d0d0a51294877cb1053f40fc9ddbea9a0de734abe36ee5960363",
+      "canonicalId": 5224703,
+      "canonicalSourceSha256": "a9fbbca8bbdd02505decba36194e798a6dfbe12189cac553bea746a2d7e63c4b",
+      "verdict": "approved",
+      "notes": "源包含Communist Party of China，比较其早期出版物的历史研究语境与机构名、缩写、中译相符。",
+      "references": [],
+      "index": 107,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 卡片编程计算器（Card Programmed Calculator）；中国共产党（Communist Party of China）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "qed",
+      "pairDigest": "d369a9213107008c53e630c885346d4090a217e20ab76b2ea0acb1d13a18a881",
+      "canonicalId": 5229453,
+      "canonicalSourceSha256": "318bbf4343d6f4432865338364ab52597a5bc07ad28305027c49c173f616230c",
+      "verdict": "needs-fix",
+      "notes": "QED作证毕放在证明末尾是真实用法；当前仅定量装置/量子电动力学/反应罩，未含拉丁证毕义。",
+      "references": [],
+      "index": 108,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. quantitative evaluative device 定量可估价的装置; quantum electrodynamics 量子电动力学; quick-reaction dome 快速反应罩",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "nsw",
+      "pairDigest": "eba94f775f333a86068d0f1583be6956959ae502e90c34c5995cd46aafa6f3ff",
+      "canonicalId": 5238211,
+      "canonicalSourceSha256": "2ba231f6b7a3c4962d044590b38658c6451f76c6a41e77e5399d9edf06039adb",
+      "verdict": "approved",
+      "notes": "NSW作为Sydney地址的州名缩写与New South Wales源完全对应，中文地理信息一致。",
+      "references": [],
+      "index": 109,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. （澳大利亚）新南威尔士（New South Wales）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "clarks",
+      "pairDigest": "217b61c0f1ec780ae475929498e7b4a33ec1ab747a12c9bbbb667ea872e91450",
+      "canonicalId": 5242895,
+      "canonicalSourceSha256": "b5b52b4cbde25052b870bfe3160032a9b87d5770ac55eeaaadf13b6070798e54",
+      "verdict": "approved",
+      "notes": "Clarks shoes为其乐品牌商品实际指称，源明确其乐品牌及姓氏，例句正确选择前者。",
+      "references": [],
+      "index": 110,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 英国其乐（品牌名）；克拉克（姓氏）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "homogeneously",
+      "pairDigest": "6985c5d12ef94b96c90d4de07e0bde23c5c5725aa763a56869803c9242356c0c",
+      "canonicalId": 5244877,
+      "canonicalSourceSha256": "0635e5d212b6f8751272cc916e131dcbb710ad60d4924242fb87de51f9c394f1",
+      "verdict": "needs-fix",
+      "notes": "颜色均匀分布的副词句正确，但当前POS是adjective且中文同一的/基因有损，须先修字段。",
+      "references": [],
+      "index": 111,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 同一的, 基因",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "schweitzer",
+      "pairDigest": "0a98cf404c91354bdc40282103fd95677e2bd87dec42bc219dc560498196353a",
+      "canonicalId": 5249097,
+      "canonicalSourceSha256": "1ec11ee18e514d8c0de0ec1c19dc1ddd9db1303a9f2c1e149d37f42be47ace10",
+      "verdict": "approved",
+      "notes": "源含施韦策姓氏，所有格指其肖像；ENZH一致，未给名人添加未经核实的生平事实。",
+      "references": [],
+      "index": 112,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 史怀哲（德国医学家和神学家以及哲学家）；施韦策（姓氏, 特指法国基督教牧师和哲学家, 曾经获得诺贝尔和平奖）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "femoris",
+      "pairDigest": "c910f76fb178fce689860006339380dba91f6d76c5abd01bae831ee063acb0d0",
+      "canonicalId": 5252414,
+      "canonicalSourceSha256": "26e95424bb786bccd8451e313dfa57be8705c9b1458465c4e0c8a51f739413fa",
+      "verdict": "approved",
+      "notes": "源拉丁医学股义与femoris属格一致；一手解剖研究确认biceps femoris在大腿后侧，图中肌肉定位不是孤立提词。",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12117529/"
+      ],
+      "index": 113,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "[医]（拉）股",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "highpoint",
+      "pairDigest": "7291beeb30edf030be1f2fd6b50f65ee8306df3c2cc265d77c041a3f713f0128",
+      "canonicalId": 5259433,
+      "canonicalSourceSha256": "399fb0378fc9f2ac23a7a60e1a696ec8929412d6aa1f487431060e951e38782a",
+      "verdict": "unverified",
+      "notes": "尚未独立确认源所指美国具体Highpoint是否为该合写形式；不能只凭来源标签就认定Highpoint/High Point等地名书写可互换。",
+      "references": [],
+      "index": 114,
+      "issueCategory": "unverified-place",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[地名] [美国] 海波因特",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "buzzy",
+      "pairDigest": "7c538832994a22bd5f85fde9dc59d62b2f666d6d0a8fd8530f1fa26ad24cf04b",
+      "canonicalId": 5264879,
+      "canonicalSourceSha256": "de1946d76b4b3b578b1b389335604db752a5ffe2beb4860d7a2c2a90451f8aff",
+      "verdict": "needs-fix",
+      "notes": "热闹活跃的咖啡馆气氛是正确形容义；当前全部源是伸缩式风钻名词，完全不同。",
+      "references": [],
+      "index": 115,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 伸缩式风钻",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "killdeer",
+      "pairDigest": "a5ca8700c58ff4e2b761eff404c7104c20b45661e4a45cb20592e88b92e214b7",
+      "canonicalId": 5271089,
+      "canonicalSourceSha256": "92706bf8e06d013f84f1d40f79e9766531f31cdf4d1f63dbc186c37605aa1735",
+      "verdict": "approved",
+      "notes": "源北美小水鸟与所选鸻鸟一致，碎石小径奔跑是实际鸟类指称，未把kill/deer拆译。",
+      "references": [],
+      "index": 116,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. [动] 小水鸟的一种(产于北美)",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ola",
+      "pairDigest": "6a51fc7cb6fe2230d8c72767a00d678ccc65afc2c4c652838625dabfca8e75d9",
+      "canonicalId": 5278133,
+      "canonicalSourceSha256": "f4f303438cdec26871809a36b268f4dd99253e0f01c35ec97ef80c2955cce08f",
+      "verdict": "unverified",
+      "notes": "旧产科OLA展开未取得独立一手核实；中文体位也应精确到胎儿枕骨方位，不能凭旧表自动批准。",
+      "references": [],
+      "index": 117,
+      "issueCategory": "unverified-specialist",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. occipito-laeva anterior 左前枕骨",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "aeroflot",
+      "pairDigest": "243616b35da5a8796fba3cb4639bbda45596fd94431db6d5ac9db85247dcf1e8",
+      "canonicalId": 5288365,
+      "canonicalSourceSha256": "1d4efd829f9e0fafb3246aad3798891edbc75089be58a0dc47dc81be8716ea49",
+      "verdict": "needs-fix",
+      "notes": "现代俄罗斯航空公司机票的句子正确；当前只释苏联民用航空总局，历史机关与现代公司范围不同，应更新选义/实体时间范围。",
+      "references": [],
+      "index": 118,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "<俄> n.苏联民用航空总局",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "bn",
+      "pairDigest": "de90c2bc9778ad5940addab786ae19d39b6ce9e0e0b098f6cc647548abe8c0ce",
+      "canonicalId": 5295825,
+      "canonicalSourceSha256": "4ac3193e05d777094b1b86110b81f422feb385ad3dcfc5b6c5ed4e6903646103",
+      "verdict": "approved",
+      "notes": "大学官方明确BN为Bachelor of Nursing；与其他资格一起列出是学位实际使用，源、ENZH和缩写义相符。",
+      "references": [
+        "https://calendar.ucalgary.ca/programs/BNBN"
+      ],
+      "index": 119,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 护理学士（Bachelor of Nursing）；平衡网络（Balancing Network）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "delle",
+      "pairDigest": "14e000382d4e7285f110f174b2d6e04c3face156c4fba328e906944933da5d6a",
+      "canonicalId": 5309077,
+      "canonicalSourceSha256": "88879bb0b98b68fd3509a703acd50c3e2ad061f62e5f135a32b1d5547607962d",
+      "verdict": "unverified",
+      "notes": "源特指染色红细胞中央透明区，原句仅说画出的cell中央小凹，既未保留红细胞限定，也未独立核实该旧术语的真实英语用法。",
+      "references": [],
+      "index": 120,
+      "issueCategory": "unverified-specialist",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "[医] 小凹(染色红细胞的中央透明区)",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "isla",
+      "pairDigest": "939f10324eecb0d087540cfb7b8c89083868fae15d8cae294ce9a513d10e978f",
+      "canonicalId": 5319406,
+      "canonicalSourceSha256": "cbc81281a1150a605b650d193ac2ba4e9f3f87a56c7b888b3d5ed0febba52fe4",
+      "verdict": "approved",
+      "notes": "源含女子名Isla，按字母顺序整理食谱卡的实际人物句与译文正确，不借用岛屿义。",
+      "references": [],
+      "index": 121,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 伊斯拉（女子名）；岛屿",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "sus",
+      "pairDigest": "1c2645c6e8b015a368f2b95e2384d5f7e69470ef60a27cc424a950e1c61ea9bc",
+      "canonicalId": 5333202,
+      "canonicalSourceSha256": "8fec72de3d246a4112a2ba1a63d87c0e07c99be7bb4abc2c5792ad5d72ac4210",
+      "verdict": "needs-fix",
+      "notes": "sounds a bit sus展示现代可疑的形容词，源只有可疑行为/嫌疑犯名词；需补形容词选义，不能按同头直接等同。",
+      "references": [],
+      "index": 122,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 可疑行为；嫌疑犯",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "pak",
+      "pairDigest": "5ea84afba484ce9c9382ae7bab2dacfb99711f7f456d0eee84707f2151ee6e8a",
+      "canonicalId": 5336499,
+      "canonicalSourceSha256": "ea3bac28a5e5685d9841106728427135e4b839d0371ab7d0c5a9aeff911d9db7",
+      "verdict": "needs-fix",
+      "notes": "作者改用Pak.表示国家巴基斯坦，但当前只有巴基斯坦人，不含国家缩写；仅旧地图标签还不足以补救该具体义差异。",
+      "references": [],
+      "index": 123,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 巴基斯坦人",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "fundraise",
+      "pairDigest": "07ff3ab48ca22a1097d73c2fa9bb2721c31c30e205e0d27ae2f90bfba8478cd2",
+      "canonicalId": 5342818,
+      "canonicalSourceSha256": "443f6fe3428c2bcbec2c84e970891270939ed7c4350b66ffb25501eb24928548",
+      "verdict": "needs-fix",
+      "notes": "plan to fundraise for...是正确动词，募捐方向及中译准确；当前noun词性错误，需修后计完整。",
+      "references": [],
+      "index": 124,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 募捐",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "partook",
+      "pairDigest": "799f381a1b749ca17a030bd0256aba12cdff01dedcec702bd13b8212739d91b2",
+      "canonicalId": 5346547,
+      "canonicalSourceSha256": "bec206e9573904fd8108af749cf3ddb8abd7165556137ccac9060c18ccecb6fc",
+      "verdict": "approved",
+      "notes": "partook of a meal为享用食物的正确过去式结构，源partake过去式与中文对应，语气偏正式可用。",
+      "references": [],
+      "index": 125,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "partake过去式",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "jl",
+      "pairDigest": "4f9ba9d9878bb226e611c16d2388fa87cca917a2ebf3e7fdf1f2ddc30837bd7a",
+      "canonicalId": 5356611,
+      "canonicalSourceSha256": "c44cc75ebedcf74ddea60a5f492ce6f258cec7c218e9b5a07bdd4161f9708ba5",
+      "verdict": "approved",
+      "notes": "源明确Japan Airlines；JL flight作航空公司代码修饰实际航班，ENZH相符，不把它当机场代码。",
+      "references": [],
+      "index": 126,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 日本航空（Japan Airlines）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "neem",
+      "pairDigest": "4cd6efc46e2e47229a1583223803f66fc5a4e18131832bb4ea10d4f33a2ea70d",
+      "canonicalId": 5363010,
+      "canonicalSourceSha256": "1cb1a602fd177993709dbc80c267b6376cac8a05acf7a87c88bfab254a69c00b",
+      "verdict": "needs-fix",
+      "notes": "印度楝树遮荫的句子正确；当前仅爱沙尼亚地名成分角，无植物义。",
+      "references": [],
+      "index": 127,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[地名] 角（爱沙尼亚语）",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "BAP",
+      "pairDigest": "7793b2490f184d5bb967c2655d5f438eaf6eb7c16934950f75259c082956a64e",
+      "canonicalId": 5367156,
+      "canonicalSourceSha256": "34b45a724a74d00803df91d7a7f6139668d14b92960f5ae42f81cbce44e41904",
+      "verdict": "unverified",
+      "notes": "未独立确认该历史基本汇编程序BAP的实际名称/系统语境；一份假想清单与源元数据不足以批准。",
+      "references": [],
+      "index": 128,
+      "issueCategory": "unverified-specialist",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "[计] 基本汇编程序",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "gobsmack",
+      "pairDigest": "52ebab2298950e74b4271ade2db2da8b72b22e2b03c132ccc47c9ada5f3fc1fd",
+      "canonicalId": 5375536,
+      "canonicalSourceSha256": "802c8ca1e4d22df39a37a8fb9023366da4c0b348ee796052c8778e6e35baefea",
+      "verdict": "unverified",
+      "notes": "gobsmacked形容词常见，但本例用罕见动词原形gobsmack；未获得可靠的一手词典词条确认此具体基式及惊讶而非窘困的当前源对齐，暂不批准。",
+      "references": [],
+      "index": 129,
+      "issueCategory": "unverified-usage",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "vt. <英><非正>使完全不知所措, 使窘困",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "renne",
+      "pairDigest": "55cf2b2351cb81028e860365e292581ff4920ca05eb7658cdad7b438b74da300",
+      "canonicalId": 5378427,
+      "canonicalSourceSha256": "c619e9788465377e807945c221e0fbb1fadeb2a72a260a7740a8a08940c257fc",
+      "verdict": "approved",
+      "notes": "Renne为源伦尼姓氏，对照邀请函核访客名单的实际人物用例与中文一致。",
+      "references": [],
+      "index": 130,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 伦尼",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Helier",
+      "pairDigest": "f2a03f2e8f3c83cef46fc612e046d77512136a9d189d2c5f90e7d529c0ba5876",
+      "canonicalId": 5379926,
+      "canonicalSourceSha256": "9cb49162e94c0be4951be375943f032c0c5aee951061378ed21cda84bd44451e",
+      "verdict": "needs-fix",
+      "notes": "St Helier完整地名句现实可用；当前Helier只释潮洞，不能借同一字符串片段自动改为圣赫利尔地名。",
+      "references": [],
+      "index": 131,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "潮洞",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "presidentially",
+      "pairDigest": "00fc34f711935f5155c65d90fac66cbd00657084b6e88dc151da6067aaa00c2d",
+      "canonicalId": 5384608,
+      "canonicalSourceSha256": "5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6",
+      "verdict": "needs-fix",
+      "notes": "例句中文为总统般的姿态，是方式义；当前仅以总统/议长等资格身份行事，不等于任何人摆出总统式风范。",
+      "references": [],
+      "index": 132,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "adverb",
+        "meaning": "以总统[议长、校长等]的资格",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "wellesley",
+      "pairDigest": "f656651119eac0e8dd64601b31185eb004687bd598c964ff020091e248bd0723",
+      "canonicalId": 5390905,
+      "canonicalSourceSha256": "5ad35fb3d75f7d4197a7f42c8efbc7621d90a71a6425015c1a84a2d0c80c06fb",
+      "verdict": "approved",
+      "notes": "Wellesley姓氏实际人物用法与源一致，韦尔斯利/韦尔兹利是音译差异，未更换英文实体。",
+      "references": [],
+      "index": 133,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 韦尔兹利（姓氏）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "DEF",
+      "pairDigest": "d2f2c982b74676c57ff3049eaafe1e0f5ca5b773a94896093d25a61300f23f34",
+      "canonicalId": 5395596,
+      "canonicalSourceSha256": "41a1fb37a715867b22127c44fe26ab0a2ff4930b2b66a960be50489efd361b46",
+      "verdict": "needs-fix",
+      "notes": "工作表留DEF标签仍是提词模板；当前[计]定义也不能未经核实迁移成任何课堂定义栏的标准缩写。",
+      "references": [],
+      "index": 134,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "[计] 数据输入设施, 定义\n[医] 乳牙龋数(率)(d=需补牙数,e=需拔牙数,f=已拔牙数)",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "murre",
+      "pairDigest": "b1bab13a2b21814f557af0fa48e4014f6112853aa2ed4e25d01149602612fc52",
+      "canonicalId": 5399862,
+      "canonicalSourceSha256": "331e40d7faf1599057da747c2e611fc9025c5984e2b507b33cfd1305f0a7a2f0",
+      "verdict": "approved",
+      "notes": "源海鸠与海面漂浮的鸟类名词语境一致，中译与岩石外侧位置准确对应。",
+      "references": [],
+      "index": 135,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "海鸠",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "SOPER",
+      "pairDigest": "30f8dd32da3f63a7c1d9b7e76004461c91a4ffb3e670b9460691a4938cbc57b4",
+      "canonicalId": 5402038,
+      "canonicalSourceSha256": "5bc8f400b3f82df9bee09c797e3fb48e16e0050dbfa738d2ad57bea74fac743a",
+      "verdict": "needs-fix",
+      "notes": "原作者承认SOPER疑为sopor误拼，句子实用sopor；须明确更正关联，不能把不存在的屈折转换当已覆盖。",
+      "references": [],
+      "index": 136,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. [医]迷睡, 昏睡, 酣睡",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "forman",
+      "pairDigest": "4cdbf56011653d33ca463b1fd39787e90fad68881083b1189298777d5b6ffbec",
+      "canonicalId": 5404020,
+      "canonicalSourceSha256": "80a961735bf71bab5ec6b5b1f6bddba7f6707db71a61d2b38520692b8305c0bc",
+      "verdict": "needs-fix",
+      "notes": "句子用foreman而非forman；真实工头句正确，但须修词头或显式拼写映射，不能假装forman是该词的普通形式。",
+      "references": [],
+      "index": 137,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 工头",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "bien",
+      "pairDigest": "ffb95d8ee7c85252bb10127cf5d8e7336f1988facdd6e92e11c72340b2de4151",
+      "canonicalId": 5408839,
+      "canonicalSourceSha256": "69f15c2bdb93dfad2333665841aa01622ef1f9e66164f69b8235fd87e4cf50b8",
+      "verdict": "needs-fix",
+      "notes": "只给练习标注bien的外语字样，且作者选法语副词良好地，当前只释名词好事；词性/具体义与用例均需处理。",
+      "references": [],
+      "index": 138,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 好事",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Trocadero",
+      "pairDigest": "1a3c98aec70cf7629a999f8ea7fb4227d4239a4c2dc50e82ae120ae59da5664d",
+      "canonicalId": 5409952,
+      "canonicalSourceSha256": "8739e5e958223b22f62288202eb15c62a962d245af9c02fcd69303fd7b0eb219",
+      "verdict": "approved",
+      "notes": "源明确巴黎特罗卡德罗广场，Trocadéro为其带原语重音符的合法书写；在那里约见的实际地名句和中文一致。",
+      "references": [],
+      "index": 139,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "",
+        "meaning": "特罗卡迪罗（巴黎著名广场名）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "auf",
+      "pairDigest": "99531d030a315dd5048d59c2befdc9cd5d85b7da9fc2b9d9b3e4d484b6116ede",
+      "canonicalId": 5415879,
+      "canonicalSourceSha256": "470d40a628fc0f0e38c0ed255a1dca5670510a3c5adf29e87baefda26b8ff847",
+      "verdict": "approved",
+      "notes": "AUF机构本身的法律信息确认法语名称，大学项目宣传册的实际机构修饰语境、源扩展与中文描述一致。",
+      "references": [
+        "https://adhesion.auf.org/mentions-legales"
+      ],
+      "index": 140,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 法语国家大学协会（Agence universitaire de la Francophonie）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "tatler",
+      "pairDigest": "b372d588624e7899280f40fca572b62fc0685dd307027da5aebf86e9746a1f4e",
+      "canonicalId": 5419385,
+      "canonicalSourceSha256": "43f603361fb736ddf084834ced428042538ac7632057e3ebf5b4d7d9683feb18",
+      "verdict": "approved",
+      "notes": "Tatler取源塔特勒姓氏，随信附地图的实际人物行为和中译一致，不借用杂志名。",
+      "references": [],
+      "index": 141,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "[人名] 塔特勒",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "whitman",
+      "pairDigest": "674459c993de61879f2aa0538dda518ab217421d7ecdd9085945d54ecb86c277",
+      "canonicalId": 5426585,
+      "canonicalSourceSha256": "30608c30a6712ab04a221736cadda0e373a28b932856ae9e2d60c8e8ce85be52",
+      "verdict": "approved",
+      "notes": "惠特曼姓氏用于其作品段落的自然作者转指，抄录阅读笔记的ENZH对应，没有附加未经证实的书名/生平。",
+      "references": [],
+      "index": 142,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 惠特曼（姓氏）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "HMG",
+      "pairDigest": "7740007445793d816cfbcab9f346ac433832e5d69e29bcb392f22c145178a92b",
+      "canonicalId": 5433355,
+      "canonicalSourceSha256": "07ebbe5cb17d77e1e2de2ec70da3bb87a3e55b9cac7105ddefeacb5beac0748f",
+      "verdict": "needs-fix",
+      "notes": "FDA资料证实HMG/hMG激素名称，但原句只是术语表展开缩写并声明不讨论治疗，缺乏学习用法，须重写。",
+      "references": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2000/21-197_Cetrotide_medr_P1.pdf"
+      ],
+      "index": 143,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun · proper noun",
+        "meaning": "[化] 人绝经促性腺素",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "chippie",
+      "pairDigest": "6c148fc0539a1ccad17053742869ccc4b8786ab1afc6fdcf0861d4a8efb4ee2b",
+      "canonicalId": 5439627,
+      "canonicalSourceSha256": "e5db8baa5634d79d1766726cc5796a2547c553557e7acfa56c05fe7aeac623db",
+      "verdict": "needs-fix",
+      "notes": "英国炸鱼薯条店义是另一现实现义；当前只有荡妇/娼妓，不能把店铺与侮辱女性名词混为一义。",
+      "references": [],
+      "index": 144,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 荡妇, 娼妓",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ionise",
+      "pairDigest": "e715aacb6b0954eae7277cf6be38bde68c9a21a504504add2377254dc5ebbf34",
+      "canonicalId": 5444600,
+      "canonicalSourceSha256": "5589846e81f2c6d4c95f12e0d3c86b909f9bacabc2b86075191aa1ece3f89f71",
+      "verdict": "approved",
+      "notes": "gases can ionise是真实物理过程的动词谓语，并非只列词条；源明确ionize英式等价词，中文气体能够电离正确。",
+      "references": [],
+      "index": 145,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "v. <主英>=ionize",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "crockett",
+      "pairDigest": "0fffeae8650408be5a8e9d749efee25a19241adf4da03d46fc8cf98e67065d79",
+      "canonicalId": 5453234,
+      "canonicalSourceSha256": "f9d602c4b09cde943aabbab60b52a6ae220b68360bd1e5c04db7b2970d61399b",
+      "verdict": "approved",
+      "notes": "源含克罗克特姓氏，本例人物放下修好框架，ENZH对应，不借用加州城市义。",
+      "references": [],
+      "index": 146,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 克罗克特（姓氏）；克罗克特市（位于美国加利福尼亚州）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "sixthly",
+      "pairDigest": "9c867d63b955f66c428e945e6328378a780ce85bbabf90de2a37b1a06c36a3bd",
+      "canonicalId": 5455408,
+      "canonicalSourceSha256": "06a92204c03657f1e7cf5ec579b5d3b25ac82e3da8327dc67ce18f612b11baec",
+      "verdict": "needs-fix",
+      "notes": "第六点的连接副词句正确；当前numeral分类不等于该副词用法，需先改当前词性。",
+      "references": [],
+      "index": 147,
+      "issueCategory": "canonical-pos-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "numeral",
+        "meaning": "num. 第六",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "majore",
+      "pairDigest": "ebbcf9fba32befcfca5b6c8cc8f2c5626e5f0418aaef57a408d460ebcf988ceb",
+      "canonicalId": 5461637,
+      "canonicalSourceSha256": "5d0bf2fedf68ee88064b2c432117417bbd61615e004882d52c60cadb48c38061",
+      "verdict": "approved",
+      "notes": "源含意大利Majore人名及马约雷音译，人物圈出日期位置的ENZH自然，没有借用葡语另一音译。",
+      "references": [],
+      "index": 148,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (Majore)人名；(意)马约雷；(葡)马若雷",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "francaise",
+      "pairDigest": "d235d2482807bd292fb447e3b385b176b14b79f2cb56081cd9f31bc357851b90",
+      "canonicalId": 5464261,
+      "canonicalSourceSha256": "3fd5a6b5ebebad16ec2aa1769f281bd4290fcfd98fa858f0c956b7bc05032aee",
+      "verdict": "needs-fix",
+      "notes": "à la française整组风格短语现实可用，但当前只有人名弗朗索瓦；短语和该人名不是同一具体义/词形。",
+      "references": [],
+      "index": 149,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "弗朗索瓦（人名）",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "syne",
+      "pairDigest": "ca87f2d6dcd7e672a353c301cd484f2b2c6cc574d5b1aa3551900b70dd260ab5",
+      "canonicalId": 5468072,
+      "canonicalSourceSha256": "977798403f269215a6cb46b2a6aa5d24c021bb90b2b98ab27ad4babd4f1b7bdd",
+      "verdict": "approved",
+      "notes": "Scots Language Centre教材明确years syne表示多少年前；该苏格兰副词ago义、EN实际时间修饰及中译均相符。",
+      "references": [
+        "https://media.scotslanguage.com/library/document/Kingly_Hooses_Guide_6.pdf"
+      ],
+      "index": 150,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 自那时起（等于since）；后来（等于later）；然后（等于then）；以前（等于ago）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "macarena",
+      "pairDigest": "f17d57da1f7d1654d256a9e37c3ab918e71ec42b096d7a98aa7cc04d383956f7",
+      "canonicalId": 5472071,
+      "canonicalSourceSha256": "5420de96f5970d7c8ff5deb0534aa96b16533c3ba7f938c1eb932f6353f00ea3",
+      "verdict": "needs-fix",
+      "notes": "现代Macarena集体舞句本身正确；当前赛前舞预祝胜利将其错误限为比赛用途，须补正确舞蹈身份。",
+      "references": [],
+      "index": 151,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 赛前舞（预祝胜利）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "overslept",
+      "pairDigest": "2c0f9d4994ee9cad2b63eb5d57aa67bcfc5ad058e1187bcaa2e7449a0635e2fc",
+      "canonicalId": 5483139,
+      "canonicalSourceSha256": "026a98c809344a6df5cefe121112ad907675a83befab3209e7195fcc6f9305b3",
+      "verdict": "approved",
+      "notes": "源oversleep过去式，睡过头而错过公交的ENZH为自然真实用法，词形正确。",
+      "references": [],
+      "index": 152,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "oversleep的过去式和过去分词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ender",
+      "pairDigest": "e11dd07c91ffb8c40abb1867e449f8a96e6e099387a5fd9be0e50bb6ee1d1dba",
+      "canonicalId": 5486333,
+      "canonicalSourceSha256": "e530119947c92fea01fbf05c4ae457ae5e53a72ad6fc8c2b979e3880632b36ec",
+      "verdict": "approved",
+      "notes": "全部义项里已有恩德男子名，本例人物留便条匹配该义，不误借游戏人物安德。",
+      "references": [],
+      "index": 153,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 安德（游戏中的人物名）；恩德（男子名）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "aliase",
+      "pairDigest": "23b105f82ad8eb5585b1270d33a93e0e7a19b102ae00b15b6c7f5232f058d975",
+      "canonicalId": 5488822,
+      "canonicalSourceSha256": "241f6a198cc0f17f3eb68bb7c4a7f71d79a411b32a4bf7f4b3f2b34e82642e44",
+      "verdict": "needs-fix",
+      "notes": "作者承认aliase有误并在句中改为alias；需先修规范head映射，不能视为其屈折形式。",
+      "references": [],
+      "index": 154,
+      "issueCategory": "target-spelling",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 别名",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "retold",
+      "pairDigest": "899bcca531604f551329de461d4fbeeb7715fdb5ea3943d0fa6f821fa0600927",
+      "canonicalId": 5495281,
+      "canonicalSourceSha256": "caaefecb3cea299a0b8beb448fc42afff4764b366de8346694b95d37d9cd388b",
+      "verdict": "approved",
+      "notes": "源retell过去式/分词，本例过去式转述事件且不夸张，中文完整准确。",
+      "references": [],
+      "index": 155,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "verb",
+        "meaning": "retell的过去式和过去分词",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "Norsk",
+      "pairDigest": "2a5248ec6779286da69225c2b57dd03761688204141897efd5c6b78c6d28e646",
+      "canonicalId": 5501038,
+      "canonicalSourceSha256": "db2008ca5f79b28cfdc9cc0323d4399ff8b38280bbfe856386e65ef926c644da",
+      "verdict": "needs-fix",
+      "notes": "挪威语义源已含，但原句只是语言菜单列出Norsk字样，与索引列词相同；应展示实际使用/学习/交流该语言的语境。",
+      "references": [],
+      "index": 156,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective · noun",
+        "meaning": "a. 挪威人的\nn. 挪威人[语]",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "illocutionary",
+      "pairDigest": "e4f420571d80a1b4f88ceb0243c1e3a435d7b4974f58fe39dab918f5a720904f",
+      "canonicalId": 5506615,
+      "canonicalSourceSha256": "bf7360495cdc0a43316919f81755133d82aa4dc138803bd8f7a444b80668a8e5",
+      "verdict": "needs-fix",
+      "notes": "英文illocutionary force of a polite request自然且有语言学依据，但中文言外行为力量生硬并易误读成物理力量，应使用施事效力等准确术语。",
+      "references": [
+        "https://plato.stanford.edu/entries/speech-acts/"
+      ],
+      "index": 157,
+      "issueCategory": "translation-terminology",
+      "canonicalEvidence": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. [语][哲]语内表现行为的",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "louie",
+      "pairDigest": "97d7905a65949bcf4f4d54d9d5169954c80002cf93feb9de6cebfd29d1d72f71",
+      "canonicalId": 5511337,
+      "canonicalSourceSha256": "7cb6903502aa9265d6e8e2e553d541560a6fd2699fc1f9764de40618afcd8cda",
+      "verdict": "approved",
+      "notes": "源Louie男子名/Louis异体明确，帮搬桌子扶门的ENZH自然，规范大写符合姓名。",
+      "references": [],
+      "index": 158,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "proper noun",
+        "meaning": "路易（男子名, Louis的异体）",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "menai",
+      "pairDigest": "8fc639dcca646605cdfccd07bacd2416d9becee55c39f25f7b3beb85eb1e9697",
+      "canonicalId": 5515125,
+      "canonicalSourceSha256": "9cf5fc10ec5dea8647a46fd8be5a1b2b2a590064612d146161504ab6a6d12ecd",
+      "verdict": "approved",
+      "notes": "源已有巴布Menai人名，本例人物打包照片匹配该义，未误改为梅纳伊海峡地名。",
+      "references": [],
+      "index": 159,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. (Menai)人名；(巴布)梅纳伊",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "ig",
+      "pairDigest": "8b80476c911140978dc3fa16e37210effb7ff6eddd438205f92cf4a620b9a15c",
+      "canonicalId": 5520665,
+      "canonicalSourceSha256": "91e116f45705122a3b80e92d179a39d791058201e9958f6753a2e865e6fc297d",
+      "verdict": "approved",
+      "notes": "源Inspector General，与报告转交监察长办公室的实际政府职务用法一致，译文准确。",
+      "references": [],
+      "index": 160,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 监察主任（Inspector General）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "touchback",
+      "pairDigest": "455bd71b8b798d5c678c97a94b30677e87dcb8030cff22febc069ca9e05e3a57",
+      "canonicalId": 5523843,
+      "canonicalSourceSha256": "c2e3d7470368af3916e5e32d37c16d9d26e4f4c5d1846d19473bab54c400c408",
+      "verdict": "needs-fix",
+      "notes": "踢球后裁判示意touchback的场景合理；当前持球触地容易误成touchdown，须以规则界定触回而非混淆两者。",
+      "references": [
+        "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook"
+      ],
+      "index": 161,
+      "issueCategory": "canonical-meaning-error",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. [美橄]持球触地",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "PSA",
+      "pairDigest": "67aeadf1f7cf613a5c0625cf499ce51a856f07be149599347de8c3a7fc3d8621",
+      "canonicalId": 5528111,
+      "canonicalSourceSha256": "c63ec1444f7e8e900b351f64f4993ffe4130e8d90ac1f7107eb35766ed0d0dcf",
+      "verdict": "needs-fix",
+      "notes": "电台公益广告的PSA义正确，但exact及所有variants只有化学/药物名，未包含public service announcement。",
+      "references": [],
+      "index": 162,
+      "issueCategory": "canonical-sense-alignment",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "[化] 酞磺醋胺; 酞磺胺醋酰\n[医] 酞酰磺乙酰胺, 酞[酰]磺醋胺, 羟苯甲酰磺乙酰胺",
+        "variantCount": 1,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "jansen",
+      "pairDigest": "c6383ad20f3b4c46aa5ed6976de52dcbfd2f8c9f5c1f463adb77c7c74245b9fa",
+      "canonicalId": 5536568,
+      "canonicalSourceSha256": "75f18ba4b21474b901390b0f0491de0bf1afbe59d0e8b2116629cfc2a72139f5",
+      "verdict": "approved",
+      "notes": "Jansen源为姓氏詹森，把说明书折进箱子的ENZH为真实人物使用而非字样提词。",
+      "references": [],
+      "index": 163,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 詹森（姓氏）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "PMT",
+      "pairDigest": "f7df021f4a7f71c42e6e39b710c17176f63a73825807b9de8b3fe41f8e42ea12",
+      "canonicalId": 5542678,
+      "canonicalSourceSha256": "c509cba6651ff0ed0a80968c290155a0d3686a5378d94bdb59cd479f01b562ef",
+      "verdict": "needs-fix",
+      "notes": "经前紧张扩展与源相符且NHS资料确认；原句只说健康术语表解释缩写，应改实际感受或讨论该状态的句子。",
+      "references": [
+        "https://www.wchc.nhs.uk/health-care/health/periods/periods/"
+      ],
+      "index": 164,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 经期前紧张症状（Pre-Menstrual Tension）；钝化台面型晶体管（Passivated Mesa Transistor）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "The original immutable pair remains failed, but the current corrections layer already supplies an independently approved effective replacement for this head. Preserve it; do not count a duplicate new rewrite."
+    },
+    {
+      "term": "ze",
+      "pairDigest": "177515eff9d8ee8b90b151b39ea80512e8ec3d4e0a6a5896f1550e1c81c9dc7c",
+      "canonicalId": 5545688,
+      "canonicalSourceSha256": "1eeff6be6b82e71b834874b2fa749421b78db646a99cc12e9c65608a134aa2fb",
+      "verdict": "needs-fix",
+      "notes": "zone electrophoresis及ZE缩写可核实，但原句仅按该缩写编入索引，未展示分离分析等真实方法用例。",
+      "references": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3842243/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3246011/"
+      ],
+      "index": 165,
+      "issueCategory": "metalinguistic-only",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. 玉米纤维；区带电泳（zone electrophoresis）",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    },
+    {
+      "term": "oot",
+      "pairDigest": "bd84a46dfb8ffae29cdb1fccf7ba0de3b840a6c1ea2ec8e692c3eac5a01b8153",
+      "canonicalId": 5550389,
+      "canonicalSourceSha256": "9d576d81d83599ffaf85c70c36d0e847923725819412cd5b5fdc2e470e5ac6c8",
+      "verdict": "approved",
+      "notes": "非正式消息说自己OOT直到周五，真实表达不在城里；源含out of town，与中文期限对应，不借用out of tolerance。",
+      "references": [],
+      "index": 166,
+      "issueCategory": "matched",
+      "canonicalEvidence": {
+        "partOfSpeech": "abbreviation",
+        "meaning": "abbr. out of tolerance 无法忍受; out of town 不在城里",
+        "variantCount": 0,
+        "sameFoldSiblingCount": 0
+      },
+      "currentReplacement": "No match in current 17 corrections or 31 reviewed-sense literal heads, nor the 456 everyday/reviewed head and English-form rows previously checked; see audit-next-001-current-alternatives.json."
+    }
+  ],
+  "counts": {
+    "audited": 167,
+    "approved": 74,
+    "needs-fix": 82,
+    "unverified": 11
+  }
+}

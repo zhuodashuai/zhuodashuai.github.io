@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "8fc8ee7ddac25137fb174818630e067848704ae0289e538cbf3e057ee864775b",
+  "reviewer": "AI/example_quality_provenance_audit",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "PFK",
+    "JNA",
+    "FPR",
+    "LCH",
+    "sud",
+    "FU",
+    "che",
+    "toynbee",
+    "noo",
+    "HMG",
+    "illocutionary",
+    "ze"
+  ],
+  "issues": [],
+  "decisions": [
+    {
+      "term": "PFK",
+      "rowDigest": "fd9aeb24f01b0e5dc7bbe447dd650f2c35b2ffc232978a8d5709c6736e48a7c3",
+      "originalPairDigest": "e38fb5a00e2b83fd8e8e04581cdb0f680cd9e5674f945668d9780e8fed40a842",
+      "canonicalId": 4586944,
+      "canonicalSourceSha256": "e7ef4e6d33848d1420f69acfb6b5dc30e66cc722d71fbb5e9d55d9f2edabc27f",
+      "verdict": "approved",
+      "reason": "PFK expands to phosphofructokinase in the canonical. Independently retrieved original enzyme-assay research explicitly measures PFK activity. A fictional comparison of two sample activities is concrete and natural; lower/second/first are faithfully retained in Chinese, without a claim about a published result.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/8929829/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "JNA",
+      "rowDigest": "cad4945fb8da0ee238ad3ff63cfe522a7b6ecc00c6a3865344fb4c29cd0adfc5",
+      "originalPairDigest": "ed00e35f079cca3396610e215d9b90f2ea897a666ac7a518573b8b49f658af72",
+      "canonicalId": 4597272,
+      "canonicalSourceSha256": "285416971ce3443f1c3129edda4067f35e895399f3c9d2f40de9b8eca8da3f32",
+      "verdict": "approved",
+      "reason": "The professional anatomy associations independently confirm the historical JNA naming system and competing terminology standards. Atlases adopting different standards can use different names; the fictional causal comparison is coherent. The name is already canonical and abbreviation precision does not introduce another grammatical sense.",
+      "references": [
+        "https://www.anatomy.or.jp/e-aboutus.html",
+        "https://ifaa.unifr.ch/Public/EntryPage/PDF/History%20FICAT.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "FPR",
+      "rowDigest": "54e6c35f6d66ca18280e14ebf4bfca6e0607cee370dc55f67f9cda5a97b40956",
+      "originalPairDigest": "7e29e1046f6f45bc165fa0b088a9298e3ac7e282505ae1800e5727e94b07a95e",
+      "canonicalId": 4620091,
+      "canonicalSourceSha256": "5e8f28630cd35463150f28b8b4111d4fa26850fab6aa69fad7d98e537084cd47",
+      "verdict": "approved",
+      "reason": "The original 1976 methods paper explicitly defines fluorescence photobleaching recovery/FPR and measurement of lateral mobility of fluorescently labelled molecules on cell surfaces. The new membrane-mobility sentence accurately demonstrates that method, with faithful Chinese and no unsupported experimental parameters.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/786399/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "LCH",
+      "rowDigest": "848031352853e425c60af3705c23cc5b67a59e73b7e23d3c30ead4e4036b07a8",
+      "originalPairDigest": "1cd44c6fbaaa0872c24a05e8a89a6645f84411bdfaba323806aba3df87039536",
+      "canonicalId": 4631024,
+      "canonicalSourceSha256": "038455433edfe9c587e7bec5f50aec4b0a8a5460e7949b2454f2215ffc58c864",
+      "verdict": "approved",
+      "reason": "The two original experimental papers independently use LcH/LCH for Lens culinaris hemagglutinin and describe cell-surface glycoprotein binding. The new sentence depicts a possible observed binding event, not a universal claim about every glycoprotein. Chinese preserves the agent and target roles.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/3265705/",
+        "https://pubmed.ncbi.nlm.nih.gov/7523753/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "sud",
+      "rowDigest": "a174584d03165ae66618486ab1a4538381e3a16b403103de0077741149101723",
+      "originalPairDigest": "bf0e0ce5dfa494de278a657e1ab736433df60176e7c4e3c56697b7cfd7c8edb5",
+      "canonicalId": 4884003,
+      "canonicalSourceSha256": "30250cd918bbb8fd1960afda767c7b5d3762559f4b2da56540d3e189426aa69e",
+      "verdict": "approved",
+      "reason": "CDC independently expands SUD as sudden unexpected death, resolving the omitted death in the source English without changing its explicit Chinese referent. Comparing circumstances of cases in two regions is a natural research use; no cause, rate or real regional finding is invented.",
+      "references": [
+        "https://www.cdc.gov/nchs/nvss/manuals/2024/2a-appendix-2024.htm"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "FU",
+      "rowDigest": "aa6905644a6caacd1291472a8a15e099a90a58475715ac5df324cfb92e09b49a",
+      "originalPairDigest": "197fb5b3d060bcd819271c400413c9be7bf735174ef56e6a0e59288cb11b4c3e",
+      "canonicalId": 4967044,
+      "canonicalSourceSha256": "ed192cabb624a1ff98007eac50580f33f2e5c3dd354ba1f7a57a2e4716da4f6a",
+      "verdict": "approved",
+      "reason": "The BOOM developers describe functional-unit scheduling readiness and a non-pipelined divider that cannot accept work while busy. The sentence is one instruction waiting for such a unit, not a claim that all FUs are non-pipelined. The stored functional-component meaning is selected and Chinese matches the dependency.",
+      "references": [
+        "https://docs.boom-core.org/en/latest/sections/execution-stages.html"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "che",
+      "rowDigest": "75d8e9be3356a9c8e8c1bf07375888c3ed46a41bda49183812dc384941bb9079",
+      "originalPairDigest": "b44992caf09ca7341dd644edf9c62aa3e6f66f013f2aa54c1282580ab97fd1bf",
+      "canonicalId": 5030961,
+      "canonicalSourceSha256": "98dbb3e8b5061b558452cf3541b75ae69d3280ce4e8e2d282df2adfde03eab5c",
+      "verdict": "approved",
+      "reason": "The original clinical measurement paper explicitly uses blood cholinesterase/ChE activity. Both sample count and laboratory action match in Chinese. The mixed-case ChE is an attested abbreviation of the selected canonical enzyme, not an unreviewed replacement sense or a fabricated derived form.",
+      "references": [
+        "https://stacks.cdc.gov/view/cdc/186631/cdc_186631_DS1.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "toynbee",
+      "rowDigest": "68dde5fe22cd879cf7c168da55aad177c83d866d1aff8877bfd70913a7ae7589",
+      "originalPairDigest": "45cc7b9b2a420d3d65b0c9665cbe14013fd5fb770b3c99ad6e5431032e4a27c8",
+      "canonicalId": 5073597,
+      "canonicalSourceSha256": "2279360afec50b0c9405ab1b3e57cd9c6a932e7374a3dad3627c02f1cb8163ed",
+      "verdict": "approved",
+      "reason": "The complete canonical explicitly identifies Toynbee as a surname. A fictional unnamed person waiting while a librarian fetches a book is natural and accurately translated; it does not invent a biography or claim the action of a particular historical Toynbee.",
+      "references": [],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "noo",
+      "rowDigest": "db43a1edf83bc4db5a8f25da7524154cf91e49f3408c4a67d19e465065b42df3",
+      "originalPairDigest": "f4d358f7d88ac2593d2c1e7bf706e76ba18d63d87abd9c3e4a59d150ad935d6f",
+      "canonicalId": 5219343,
+      "canonicalSourceSha256": "dcb1e0ac1ed584cdad571df940323713c97bedb315aed2c72178eef632652111",
+      "verdict": "approved",
+      "reason": "NERC/BODC independently identifies NOO as the historical US Navy Oceanographic Office, and a US Navy institutional document confirms its bathymetric/oceanographic data-provision role. Comparing depth measurements to its data is concrete and the Chinese preserves data provenance, without confusing NOO with NOAA.",
+      "references": [
+        "https://vocab.nerc.ac.uk/collection/C75/current/NOO/",
+        "https://www.secnav.navy.mil/fmc/fmb/Documents/03pres/proc/OPN_BA_5-7_book.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "HMG",
+      "rowDigest": "815f4e63278051d87e144fb5000c2fae7a83e36dfbda2f4cd33ff7b796a6c3e1",
+      "originalPairDigest": "7740007445793d816cfbcab9f346ac433832e5d69e29bcb392f22c145178a92b",
+      "canonicalId": 5433355,
+      "canonicalSourceSha256": "07ebbe5cb17d77e1e2de2ec70da3bb87a3e55b9cac7105ddefeacb5beac0748f",
+      "verdict": "approved",
+      "reason": "FDA original medical-review text explicitly expands HMG as human menopausal gonadotropin and places it in fertility treatment. A doctor discussing it as part of that treatment is a plausible fictional consultation. Chinese is equivalent; the sentence gives no regimen, dosage or advice.",
+      "references": [
+        "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2000/21-197_Cetrotide_medr_P1.pdf"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "illocutionary",
+      "rowDigest": "759f1372e3b9ef7d6bac2bbe432aaa04f123a03bd6b17038bb7f64cfc5052b08",
+      "originalPairDigest": "e4f420571d80a1b4f88ceb0243c1e3a435d7b4974f58fe39dab918f5a720904f",
+      "canonicalId": 5506615,
+      "canonicalSourceSha256": "bf7360495cdc0a43316919f81755133d82aa4dc138803bd8f7a444b80668a8e5",
+      "verdict": "approved",
+      "reason": "The original English correctly uses the technical collocation illocutionary force of a request. Stanford explains force as a speech-act dimension, and Cambridge explicitly gives the source wording 语内表现行为的 for this adjective, confirming it is not a different locutionary sense. The new Chinese 施事效力 fixes the physical-force mistranslation.",
+      "references": [
+        "https://plato.stanford.edu/entries/speech-acts/",
+        "https://dictionary.cambridge.org/dictionary/english-chinese-simplified/illocutionary"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    },
+    {
+      "term": "ze",
+      "rowDigest": "3450a78a131819c702caaf58080a2f880251660c28d03bf362bae0e123417992",
+      "originalPairDigest": "177515eff9d8ee8b90b151b39ea80512e8ec3d4e0a6a5896f1550e1c81c9dc7c",
+      "canonicalId": 5545688,
+      "canonicalSourceSha256": "1eeff6be6b82e71b834874b2fa749421b78db646a99cc12e9c65608a134aa2fb",
+      "verdict": "approved",
+      "reason": "Original electrophoresis research independently attests ZE for zone electrophoresis, and a protein-purification study measures protein mobility and migration velocity in this method. Two proteins migrating at different speeds is a possible concrete observation, not a universal result. The Chinese matches both process and comparison.",
+      "references": [
+        "https://pubmed.ncbi.nlm.nih.gov/8367394/",
+        "https://pubmed.ncbi.nlm.nih.gov/2187696/"
+      ],
+      "allVariantsRead": true,
+      "caseNeighbours": []
+    }
+  ],
+  "method": "Independent second reader manually read every one of the 12 newly authored five-field EN/ZH rows, old rows and complete authenticated canonical records/all variants and samefold case neighbours. Fresh primary lexical, institutional, technical and research sources were checked. New sentences were also checked against the complete current 103,998-pair corpus, active everyday/selected sources and all 17 compiled corrections for normalized exact duplication; existing effective alternatives were not recounted.",
+  "counts": {
+    "read": 12,
+    "approved": 12,
+    "needsFix": 0,
+    "unverified": 0
+  },
+  "sourceFile": "audit-next-001-rewrite-proposals-source.json",
+  "sourceFileRawSha256": "8d5eda5e968655cc63229d8df6f9af650044c6ff4d7ee01419f4aae55bc7e259",
+  "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "sourceAuthor": "AI/coverage-example-rewrite-next-001",
+  "sourceBindingVerified": true,
+  "productReviewValidatorPassed": true,
+  "samePosAndExactSelectedMeaningPreserved": true,
+  "noExistingEffectiveAlternativeHeadRecounted": true,
+  "evidenceLimits": [
+    "The direct PMC pages for the author-provided PFK and ZE references presented a recaptcha during this independent check; those inaccessible direct responses were not treated as read. Alternate readable original PubMed research was used and cited in the decisions.",
+    "The FDA scanned PDF returned no direct extracted text; its indexed original FDA text independently gave the HMG expansion and fertility-treatment context.",
+    "All examples are assessed as fictional learning examples, not assertions that their narrated observations or events occurred in a specific real study."
+  ],
+  "scope": "Only the 12 exact new row digests and recorded source/canonical hashes. This review does not approve the original low-information examples or declare other old dictionary senses accurate."
+}
