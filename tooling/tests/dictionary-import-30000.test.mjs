@@ -117,7 +117,7 @@ test("all 617 pinned public cards and reviewed original entries retain their exa
   }
 });
 
-test("all 108 Forsyte chapter words remain in the live library and compact index without enlarging the pinned expanded public source", async () => {
+test("all currently reviewed Forsyte chapter words remain live and member-indexed without enlarging the pinned expanded public source", async () => {
   const [data, pinned, live, member, chapter] = await Promise.all([
     corpus(),
     loadExpandedPublicSource(),
@@ -125,18 +125,23 @@ test("all 108 Forsyte chapter words remain in the live library and compact index
     readJSON(new URL("../../vocab/data/member-dictionary.json", import.meta.url)),
     readJSON(new URL("../../vocab/data/reading-lists/the-forsyte-saga/chapter-1.json", import.meta.url))
   ]);
-  assert.equal(chapter.expectedItemCount, 108);
-  assert.equal(chapter.items.length, 108);
+  // The chapter is curated independently of this historical dictionary import.
+  // Its current source list is the coverage contract; the pinned dictionary
+  // remains immutable when that reading list legitimately grows or changes.
+  assert.equal(chapter.collection.id, "the-forsyte-saga");
+  assert.equal(chapter.chapter.id, "chapter-1");
+  assert.ok(Number.isSafeInteger(chapter.expectedItemCount) && chapter.expectedItemCount > 0);
+  assert.equal(chapter.items.length, chapter.expectedItemCount);
+  assert.equal(new Set(chapter.items.map(item => normalizeExpandedTerm(item.term))).size, chapter.expectedItemCount);
   assert.equal(data.manifest.counts.records, 102609);
   assert.equal(data.records.length, 102609);
   assert.equal(data.manifest.sources.public.sha256, sha(JSON.stringify(pinned)));
   assert.notEqual(data.manifest.sources.public.sha256, sha(JSON.stringify(live)));
 
   const membership = "collection:the-forsyte-saga:chapter-1";
-  const pinnedTerms = new Set(pinned.entries.map(entry => normalizeExpandedTerm(entry.term)));
+  const pinnedByTerm = new Map(pinned.entries.map(entry => [normalizeExpandedTerm(entry.term), entry]));
   const liveByTerm = new Map(live.entries.map(entry => [entry.term, entry]));
   const memberByTerm = new Map(member.published.map(row => [row[0], row]));
-  let reused = 0;
   for (const item of chapter.items) {
     const entry = liveByTerm.get(item.term);
     assert.ok(entry, `${item.term}: available in the live main wordbook`);
@@ -144,18 +149,21 @@ test("all 108 Forsyte chapter words remain in the live library and compact index
     const projected = memberByTerm.get(item.term);
     assert.ok(projected, `${item.term}: available in the compact member index`);
     assert.deepEqual(projected.slice(0, 3), [entry.term, entry.partOfSpeech, entry.meaning], item.term);
-    if (pinnedTerms.has(normalizeExpandedTerm(item.term))) reused++;
-    else {
+    const pinnedEntry = pinnedByTerm.get(normalizeExpandedTerm(item.term));
+    const record = data.byTerm.get(normalizeExpandedTerm(item.term));
+    const variants = record ? [record, ...(record.variants || [])] : [];
+    if (pinnedEntry) {
+      const historical = variants.find(row => row.source === "public");
+      assert.ok(historical, `${item.term}: existing pinned public source remains available`);
+      assert.equal(historical.partOfSpeech, pinnedEntry.partOfSpeech.trim(), item.term);
+      assert.equal(historical.meaning, pinnedEntry.meaning.trim(), item.term);
+    } else {
       // A head may already occur in the MIT/original dictionary. A new reading
       // entry must not be retroactively attributed to the pinned public source.
-      const record = data.byTerm.get(normalizeExpandedTerm(item.term));
-      const variants = record ? [record, ...(record.variants || [])] : [];
       assert.ok(!variants.some(row => row.source === "public"),
         `${item.term}: no new public variant in the historical expanded dictionary`);
     }
   }
-  assert.equal(reused, 4);
-  assert.equal(chapter.items.length - reused, 104);
 });
 
 test("the actual lookup runtime parses all 128 English and 128 Chinese shards without a provider", async () => {
