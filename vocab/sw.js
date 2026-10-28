@@ -1,4 +1,4 @@
-// Canonical-sense example repairs: authenticate unchanged dictionary meanings.
+// Forsyte Chapter 1 refresh 2026-10-28: reload revised source projections and reading data.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
