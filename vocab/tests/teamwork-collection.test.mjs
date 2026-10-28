@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { contextualizeReadingEntry, normalizeEnglish, parsePublicSnapshot } from "../js/wordbook-schema.js";
-import { buildCollectionCatalog, filterEntriesByCollection } from "../js/collections.js";
+import { buildCollectionCatalog, collectionMemberships, filterEntriesByCollection } from "../js/collections.js";
 import { publicSelectionEntries } from "../js/personal-selection.js";
 import { createChapterQuiz, validateQuizAttempt } from "../js/chapter-quiz.js";
 import { buildDueQueue } from "../js/study.js";
@@ -37,8 +37,7 @@ for (const [index, source] of sources.entries()) {
     for (const excluded of source.curation.excludedItems) {
       assert.ok(excluded.reason, `${excluded.term}: exclusion must remain reviewable`);
       const canonical = snapshot.entries.find(entry => entry.normalized === normalizeEnglish(excluded.term));
-      assert.ok(canonical, `${excluded.term}: collection pruning must not remove an existing global card`);
-      assert.equal(canonical.tags.includes(membership), false, `${excluded.term}: excluded card remains outside this chapter`);
+      if (canonical) assert.equal(canonical.tags.includes(membership), false, `${excluded.term}: retained card remains outside this chapter`);
     }
     const views = selection(chapterId);
     const viewById = new Map(views.map(entry => [entry.id, entry]));
@@ -107,6 +106,17 @@ test("curation removes plain basic vocabulary while retaining advanced and non-o
     for (const term of expected[index].removed) assert.equal(terms.has(term), false, term);
     for (const term of expected[index].kept) assert.equal(terms.has(term), true, term);
   });
+});
+
+test("basic article exclusions do not fall back into the main wordbook", () => {
+  const excludedTerms = new Set(sources.flatMap(source => source.curation.excludedItems.map(item => normalizeEnglish(item.term))));
+  const main = filterEntriesByCollection(snapshot.entries, "main");
+  for (const entry of main) assert.equal(excludedTerms.has(entry.normalized), false, `${entry.term}: removed article basic leaked into main`);
+  for (const entry of snapshot.entries.filter(entry => excludedTerms.has(entry.normalized))) {
+    assert.ok(collectionMemberships(entry).length, `${entry.term}: retained basic must belong to another reading collection`);
+  }
+  const teamworkIds = new Set(selection("all").map(entry => entry.id));
+  for (const entry of main) assert.equal(teamworkIds.has(entry.id), false, `${entry.term}: main and Teamwork must not duplicate a card`);
 });
 
 test("the whole Teamwork wordbook deduplicates cards and shares review progress across its article chapters", () => {
