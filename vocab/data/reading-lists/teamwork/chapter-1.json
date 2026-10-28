@@ -1,0 +1,1670 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-1",
+    "number": 1,
+    "title": "The Truth About Hierarchy"
+  },
+  "sourceTitle": "Teamwork — The Truth About Hierarchy",
+  "articleTitle": "The Truth About Hierarchy",
+  "authors": "Bret Sanner; J. Stuart Bunderson",
+  "issue": "Winter 2018",
+  "sourceUrl": "https://shop.sloanreview.mit.edu/store/the-truth-about-hierarchy",
+  "expectedItemCount": 48,
+  "curation": {
+    "difficulty": "moderate",
+    "originalItemCount": 80,
+    "excludedItems": [
+      {
+        "term": "unlock innovation",
+        "pdfPage": 2,
+        "reason": "常见 unlock 比喻搭配，整体容易推知，精简时删除。"
+      },
+      {
+        "term": "pursuit",
+        "pdfPage": 2,
+        "reason": "常见的追求义，无本文特有难点，不为数量保留。"
+      },
+      {
+        "term": "resolve conflicts",
+        "pdfPage": 2,
+        "reason": "常规动宾搭配，含义直观，属于基础协作表达。"
+      },
+      {
+        "term": "leadership role",
+        "pdfPage": 2,
+        "reason": "字面组合即可理解，不需作为难词单列。"
+      },
+      {
+        "term": "take coordinated action",
+        "pdfPage": 2,
+        "reason": "常见行动搭配，整体意义透明。"
+      },
+      {
+        "term": "status",
+        "pdfPage": 2,
+        "reason": "地位义十分常见，此处不提供足够新的词汇难点。"
+      },
+      {
+        "term": "allocate",
+        "pdfPage": 2,
+        "reason": "资源分配的常规动词，此处词义直接，按用户方向删除。"
+      },
+      {
+        "term": "engage in",
+        "pdfPage": 3,
+        "reason": "常见学术参与表达，不属于本轮难词重点。"
+      },
+      {
+        "term": "get the most out of",
+        "pdfPage": 3,
+        "reason": "高频日常表达，整体意思较容易把握。"
+      },
+      {
+        "term": "get out of the way",
+        "pdfPage": 3,
+        "reason": "常见让开、减少干预表达，此处不够难。"
+      },
+      {
+        "term": "constraint",
+        "pdfPage": 3,
+        "reason": "常见学术及项目管理词，本文仅使用通常的限制义。"
+      },
+      {
+        "term": "accelerate",
+        "pdfPage": 3,
+        "reason": "常见加快义，没有需要单独保留的特殊用法。"
+      },
+      {
+        "term": "promising",
+        "pdfPage": 3,
+        "reason": "有前景是常见形容词义，不因创新主题而保留。"
+      },
+      {
+        "term": "capability",
+        "pdfPage": 3,
+        "reason": "能力义常见，本文没有额外难点。"
+      },
+      {
+        "term": "implement",
+        "pdfPage": 3,
+        "reason": "常见工作与学术动词，实施义直接。"
+      },
+      {
+        "term": "mechanism",
+        "pdfPage": 3,
+        "reason": "机制是常见学术义，此处不需额外词卡。"
+      },
+      {
+        "term": "be emotionally attached to",
+        "pdfPage": 3,
+        "reason": "常见且透明的情感依恋搭配，属于可理解的组合。"
+      },
+      {
+        "term": "aimless",
+        "pdfPage": 3,
+        "reason": "aim 加否定后缀即可理解，当前精简中不优先保留。"
+      },
+      {
+        "term": "speak up",
+        "pdfPage": 3,
+        "reason": "常见发言、提出意见表达，按用户要求删除基础项。"
+      },
+      {
+        "term": "brainstorming",
+        "pdfPage": 3,
+        "reason": "常见团队协作活动名称，不仅因主题相关而保留。"
+      },
+      {
+        "term": "integrate",
+        "pdfPage": 4,
+        "reason": "常见整合义，本文没有足够特殊的用法。"
+      },
+      {
+        "term": "diverse perspectives",
+        "pdfPage": 4,
+        "reason": "常见学术组合，多样观点可直接理解。"
+      },
+      {
+        "term": "performance-based culture",
+        "pdfPage": 4,
+        "reason": "performance-based 加 culture 的含义透明，不需难词卡。"
+      },
+      {
+        "term": "incompetent",
+        "pdfPage": 4,
+        "reason": "常见能力评价词，否定构词透明，精简时删除。"
+      },
+      {
+        "term": "expertise",
+        "pdfPage": 4,
+        "reason": "常见职场专长词，不因文章强调专家而继续保留。"
+      },
+      {
+        "term": "conscious awareness",
+        "pdfPage": 4,
+        "reason": "两个常见词的透明组合，缺少单独建卡的难点。"
+      },
+      {
+        "term": "power differences",
+        "pdfPage": 5,
+        "reason": "权力差异为字面组合，不属于需要重点记忆的难表达。"
+      },
+      {
+        "term": "group-oriented",
+        "pdfPage": 5,
+        "reason": "以群体为导向的含义可由构词直接推知。"
+      },
+      {
+        "term": "collaborate",
+        "pdfPage": 5,
+        "reason": "常见合作动词，不能仅因 Teamwork 核心主题而留。"
+      },
+      {
+        "term": "information sharing",
+        "pdfPage": 5,
+        "reason": "信息共享的基础透明组合，按用户要求删除。"
+      },
+      {
+        "term": "experimentation",
+        "pdfPage": 5,
+        "reason": "experiment 的常规名词派生，无明显额外语义难点。"
+      },
+      {
+        "term": "reflection",
+        "pdfPage": 5,
+        "reason": "反思是大学学习和职场中的常见义，本轮不再单列。"
+      }
+    ],
+    "notes": "Difficulty is a practical study judgment, not a claim about which words the learner personally knows."
+  },
+  "notes": "Attach these article contexts to existing canonical IDs; do not replace their lexical fields or use the literary chapter importer.",
+  "items": [
+    {
+      "term": "hierarchy",
+      "originalInput": "hierarchies",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "等级体系；组织层级",
+      "definitionEn": "A system in which people or groups are ranked by authority or status.",
+      "usage": "可指正式组织层级，也可指团队中自然形成的权力与地位差异。",
+      "exampleEn": "A clear hierarchy helped the team decide who had final approval.",
+      "exampleZh": "清晰的组织层级帮助团队确定了谁拥有最终批准权。",
+      "phonetic": "/ˈhaɪəˌrɑrki/",
+      "forms": [
+        "hierarchies"
+      ],
+      "collocations": [
+        "organizational hierarchy",
+        "clear hierarchy",
+        "team hierarchy"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织结构"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "组织结构",
+      "order": 1,
+      "reuseExistingEntryId": "public-hierarchy-hierarchy-ff88bf24"
+    },
+    {
+      "term": "espouse",
+      "originalInput": "espouse",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "公开支持；倡导某种观点",
+      "definitionEn": "To publicly support or advocate a belief, policy, or approach.",
+      "usage": "较正式，常接观点、价值观或政策；不等于实际执行。",
+      "exampleEn": "The director espouses a collaborative approach to problem-solving.",
+      "exampleZh": "这位主管倡导以协作方式解决问题。",
+      "phonetic": "/ɪˈspaʊz/",
+      "forms": [
+        "espouses",
+        "espoused",
+        "espousing"
+      ],
+      "collocations": [
+        "espouse a view",
+        "espouse a policy",
+        "espouse the virtues of"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "管理论证",
+      "order": 2,
+      "reuseExistingEntryId": "public-hierarchy-espouse-252fbd07"
+    },
+    {
+      "term": "virtue",
+      "originalInput": "virtues",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "优点；可取之处",
+      "definitionEn": "An advantage or desirable quality of something.",
+      "usage": "本文中的 virtues 指某种管理方法的优点，不是道德意义上的美德。",
+      "exampleEn": "One virtue of the new meeting format is that everyone gets a turn.",
+      "exampleZh": "新会议形式的一个优点是每个人都有发言机会。",
+      "phonetic": "/ˈvɝtʃu/",
+      "forms": [
+        "virtues"
+      ],
+      "collocations": [
+        "the virtues of",
+        "a key virtue",
+        "practical virtues"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "管理论证",
+      "order": 3,
+      "reuseExistingEntryId": "public-hierarchy-virtue-33713052"
+    },
+    {
+      "term": "intuitively appealing",
+      "originalInput": "intuitively appealing",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "直觉上很有吸引力的；乍看很有道理的",
+      "definitionEn": "Seeming attractive or convincing without detailed analysis.",
+      "usage": "表示第一感觉上有道理，不代表经过证据检验后仍然成立。",
+      "exampleEn": "An intuitively appealing policy may still create unexpected problems.",
+      "exampleZh": "一项乍看很有道理的政策仍可能带来意外问题。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "an intuitively appealing idea",
+        "an intuitively appealing explanation"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "管理论证",
+      "order": 4,
+      "reuseExistingEntryId": "public-hierarchy-intuitively-appealing-039c54ce"
+    },
+    {
+      "term": "stand up to scrutiny",
+      "originalInput": "stand up to scrutiny",
+      "entryType": "phrase",
+      "partOfSpeech": "idiom",
+      "meaning": "经得起仔细审查或推敲",
+      "definitionEn": "To remain convincing or valid when examined carefully.",
+      "usage": "stand up to 在此表示经受住；scrutiny 是仔细、严格的检查。",
+      "exampleEn": "Our hiring criteria must stand up to scrutiny from all departments.",
+      "exampleZh": "我们的招聘标准必须经得起各部门的仔细审查。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "stand up to close scrutiny",
+        "withstand scrutiny",
+        "subject to scrutiny"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "管理论证",
+      "order": 5,
+      "reuseExistingEntryId": "public-hierarchy-stand-up-to-scrutiny-0e48d656"
+    },
+    {
+      "term": "flat",
+      "originalInput": "flat",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "扁平化的；管理层级较少的",
+      "definitionEn": "Having few levels of management or formal authority.",
+      "usage": "用于组织结构；不表示团队成员在经验或实际影响力上完全相同。",
+      "exampleEn": "The startup has a flat structure, so engineers speak directly with the founder.",
+      "exampleZh": "这家初创企业采用扁平结构，因此工程师可以直接与创始人交流。",
+      "phonetic": "/flæt/",
+      "forms": [
+        "flatter",
+        "flattest"
+      ],
+      "collocations": [
+        "flat organization",
+        "flat structure",
+        "flat team"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织结构"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "组织结构",
+      "order": 6,
+      "reuseExistingEntryId": "public-hierarchy-flat-5dc27af2"
+    },
+    {
+      "term": "debunk",
+      "originalInput": "Debunking",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "揭穿；用证据驳斥错误观念",
+      "definitionEn": "To show that a widely held belief or claim is false.",
+      "usage": "常用于 debunk a myth；强调以事实揭示错误，不只是表达不同意见。",
+      "exampleEn": "The workshop used data to debunk the myth that longer meetings are more productive.",
+      "exampleZh": "研讨会用数据驳斥了会议越长效率越高的误解。",
+      "phonetic": "/diˈbʌŋk/",
+      "forms": [
+        "debunks",
+        "debunked",
+        "debunking"
+      ],
+      "collocations": [
+        "debunk a myth",
+        "debunk a claim",
+        "debunk an assumption"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "管理论证",
+      "order": 7,
+      "reuseExistingEntryId": "public-hierarchy-debunk-8a77aade"
+    },
+    {
+      "term": "chain of command",
+      "originalInput": "chain of command",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "指挥系统；上下级汇报与服从关系",
+      "definitionEn": "The ordered line of authority that shows who reports to or takes direction from whom.",
+      "usage": "重点是谁向谁汇报、谁有决定权；可用于企业、军队及项目团队。",
+      "exampleEn": "The escalation guide explains the chain of command during an outage.",
+      "exampleZh": "升级处理指南说明了系统故障期间的指挥与汇报关系。",
+      "phonetic": "",
+      "forms": [
+        "chains of command"
+      ],
+      "collocations": [
+        "a clear chain of command",
+        "follow the chain of command",
+        "establish a chain of command"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织结构"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "组织结构",
+      "order": 8,
+      "reuseExistingEntryId": "public-hierarchy-chain-of-command-9da94171"
+    },
+    {
+      "term": "interdisciplinary",
+      "originalInput": "interdisciplinary",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "跨学科的；融合多个专业领域的",
+      "definitionEn": "Involving knowledge or methods from more than one academic or professional discipline.",
+      "usage": "interdisciplinary team 指成员或工作结合不同专业；不只是跨部门。",
+      "exampleEn": "An interdisciplinary team combined design, psychology, and engineering expertise.",
+      "exampleZh": "一个跨学科团队整合了设计、心理学和工程方面的专长。",
+      "phonetic": "/ˌɪntɚˈdɪsəpləˌneri/",
+      "forms": [],
+      "collocations": [
+        "interdisciplinary team",
+        "interdisciplinary research",
+        "interdisciplinary approach"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队协作"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "团队协作",
+      "order": 9,
+      "reuseExistingEntryId": "public-hierarchy-interdisciplinary-27543642"
+    },
+    {
+      "term": "intervention",
+      "originalInput": "intervention",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "干预；为改变局面而进行的介入",
+      "definitionEn": "An action taken to influence or improve a situation.",
+      "usage": "在管理语境中可为必要协调，也可为过度干预，需结合上下文判断。",
+      "exampleEn": "A brief intervention from the team lead prevented the dispute from escalating.",
+      "exampleZh": "团队负责人的及时简短介入防止了争执升级。",
+      "phonetic": "/ˌɪntɚˈvɛnʃən/",
+      "forms": [
+        "interventions"
+      ],
+      "collocations": [
+        "management intervention",
+        "timely intervention",
+        "direct intervention"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 2,
+      "printedPage": 49,
+      "category": "领导与权力",
+      "order": 10,
+      "reuseExistingEntryId": "public-hierarchy-intervention-77f4c0b6"
+    },
+    {
+      "term": "autocratic",
+      "originalInput": "autocratic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "专断的；由一人集中决策的",
+      "definitionEn": "Exercising authority through strong personal control with little shared decision-making.",
+      "usage": "常用于领导风格；带有权力集中、较少征询他人意见的含义。",
+      "exampleEn": "An autocratic decision may be quick, but it can reduce staff commitment.",
+      "exampleZh": "专断的决定也许作出得很快，却可能降低员工的投入程度。",
+      "phonetic": "/ˌɔtəˈkrætɪk/",
+      "forms": [],
+      "collocations": [
+        "autocratic leadership",
+        "autocratic style",
+        "autocratic decision"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "领导与权力",
+      "order": 11,
+      "reuseExistingEntryId": "public-hierarchy-autocratic-28bab0cf"
+    },
+    {
+      "term": "empirical research",
+      "originalInput": "empirical research",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "实证研究；基于观察或数据的研究",
+      "definitionEn": "Research that uses observed or measured evidence to investigate a question.",
+      "usage": "empirical 强调经验观察或测量证据，并不自动保证结论正确。",
+      "exampleEn": "The training policy is supported by empirical research on team learning.",
+      "exampleZh": "这项培训政策有关于团队学习的实证研究作为支持。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "conduct empirical research",
+        "empirical evidence",
+        "empirical findings"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "管理论证",
+      "order": 12,
+      "reuseExistingEntryId": "public-hierarchy-empirical-research-a0826cad"
+    },
+    {
+      "term": "deploy",
+      "originalInput": "deployed",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "安排运用；有效配置",
+      "definitionEn": "To put a resource, method, or system into use for a particular purpose.",
+      "usage": "本文指运用组织层级；不局限于军队部署或软件上线。",
+      "exampleEn": "We should deploy senior specialists where their judgment adds the most value.",
+      "exampleZh": "我们应把资深专家安排在最能发挥其判断价值的地方。",
+      "phonetic": "/dɪˈplɔɪ/",
+      "forms": [
+        "deploys",
+        "deployed",
+        "deploying"
+      ],
+      "collocations": [
+        "deploy resources",
+        "deploy expertise",
+        "deploy a strategy"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "流程与资源"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "流程与资源",
+      "order": 13,
+      "reuseExistingEntryId": "public-hierarchy-deploy-b7bd55c1"
+    },
+    {
+      "term": "set the parameters",
+      "originalInput": "set the parameters",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "确定范围、边界或条件",
+      "definitionEn": "To establish the limits and conditions within which work or decisions should take place.",
+      "usage": "parameters 在此指工作边界或条件，不是统计学中的参数。",
+      "exampleEn": "Before brainstorming, we set the parameters for cost and delivery time.",
+      "exampleZh": "在头脑风暴前，我们确定了成本和交付时间方面的边界。",
+      "phonetic": "",
+      "forms": [
+        "sets the parameters",
+        "setting the parameters"
+      ],
+      "collocations": [
+        "set clear parameters",
+        "work within the parameters",
+        "define the parameters"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "流程与资源"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "流程与资源",
+      "order": 14,
+      "reuseExistingEntryId": "public-hierarchy-set-the-parameters-78eb441f"
+    },
+    {
+      "term": "paradox",
+      "originalInput": "paradox",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "看似矛盾却可能成立的情况",
+      "definitionEn": "A situation or statement that seems contradictory but may contain a valid truth.",
+      "usage": "本文的例子是：明确限制有时反而促进创造力。",
+      "exampleEn": "It is a paradox that a tighter brief can sometimes produce more creative ideas.",
+      "exampleZh": "更严格的任务要求有时反而能产生更有创意的想法，这看似矛盾。",
+      "phonetic": "/ˈpɛrəˌdɑks/",
+      "forms": [
+        "paradoxes"
+      ],
+      "collocations": [
+        "an apparent paradox",
+        "a paradox of creativity",
+        "resolve a paradox"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "管理论证",
+      "order": 15,
+      "reuseExistingEntryId": "public-hierarchy-paradox-45066dd9"
+    },
+    {
+      "term": "latitude",
+      "originalInput": "latitude",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "自由裁量空间；行动自由",
+      "definitionEn": "Freedom to choose how to act or make decisions within certain limits.",
+      "usage": "本文不是地理纬度；常用 give someone latitude to do something。",
+      "exampleEn": "The project sponsor gave us latitude to choose the testing method.",
+      "exampleZh": "项目发起人给了我们自主选择测试方法的空间。",
+      "phonetic": "/ˈlætəˌtud/",
+      "forms": [],
+      "collocations": [
+        "give someone latitude",
+        "wide latitude",
+        "latitude to experiment"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "领导与权力",
+      "order": 16,
+      "reuseExistingEntryId": "public-hierarchy-latitude-7ff87f6b"
+    },
+    {
+      "term": "assortment",
+      "originalInput": "assortment",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "各式各样的一组事物；多种选择",
+      "definitionEn": "A collection containing a variety of different things.",
+      "usage": "常接 of；强调种类多样，而不只是数量大。",
+      "exampleEn": "The workshop produced an assortment of ideas for improving onboarding.",
+      "exampleZh": "研讨会产生了多种改进入职培训的想法。",
+      "phonetic": "/əˈsɔrtmənt/",
+      "forms": [
+        "assortments"
+      ],
+      "collocations": [
+        "an assortment of ideas",
+        "a wide assortment",
+        "a large assortment"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "创新与决策",
+      "order": 17,
+      "reuseExistingEntryId": "public-nlmg-c11-assortment"
+    },
+    {
+      "term": "line up with",
+      "originalInput": "line up with",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "与……相符；与……一致",
+      "definitionEn": "To match or be consistent with another goal, condition, or set of resources.",
+      "usage": "本文指想法与企业能力及资源相匹配，不是排队。",
+      "exampleEn": "The new feature must line up with our customers' priorities.",
+      "exampleZh": "这项新功能必须符合客户的优先需求。",
+      "phonetic": "",
+      "forms": [
+        "lines up with",
+        "lined up with",
+        "lining up with"
+      ],
+      "collocations": [
+        "line up with priorities",
+        "line up with capabilities",
+        "line up with available resources"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "创新与决策",
+      "order": 18,
+      "reuseExistingEntryId": "public-hierarchy-line-up-with-179dcc15"
+    },
+    {
+      "term": "put something on the back burner",
+      "originalInput": "put on the back burner",
+      "entryType": "phrase",
+      "partOfSpeech": "idiom",
+      "meaning": "暂缓处理；降低某事的优先级",
+      "definitionEn": "To postpone work on something because other matters currently have higher priority.",
+      "usage": "可用 put/keep something on the back burner；通常是暂缓，并非彻底取消。",
+      "exampleEn": "We put the office redesign on the back burner to focus on the product launch.",
+      "exampleZh": "我们暂缓了办公室改造，以专注于产品发布。",
+      "phonetic": "",
+      "forms": [
+        "put on the back burner",
+        "putting something on the back burner"
+      ],
+      "collocations": [
+        "put a project on the back burner",
+        "keep an idea on the back burner",
+        "remain on the back burner"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "创新与决策",
+      "order": 19,
+      "reuseExistingEntryId": "public-hierarchy-put-something-on-the-back-burner-ac2911fc"
+    },
+    {
+      "term": "refine",
+      "originalInput": "refining",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "改进；使想法或方案更加完善",
+      "definitionEn": "To improve an idea, method, or design through small, careful changes.",
+      "usage": "强调在已有基础上完善；与 completely replace 的含义不同。",
+      "exampleEn": "Customer interviews helped us refine the proposal before presenting it.",
+      "exampleZh": "客户访谈帮助我们在展示前完善了提案。",
+      "phonetic": "/rɪˈfaɪn/",
+      "forms": [
+        "refines",
+        "refined",
+        "refining"
+      ],
+      "collocations": [
+        "refine an idea",
+        "refine a proposal",
+        "refine a process"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "学习与改进"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "学习与改进",
+      "order": 20,
+      "reuseExistingEntryId": "public-hierarchy-refine-7baef513"
+    },
+    {
+      "term": "converge on",
+      "originalInput": "converge on",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "逐渐就某个方向达成一致；汇聚到",
+      "definitionEn": "To gradually move toward the same decision, direction, or point.",
+      "usage": "团队讨论中指意见逐渐集中到一个共同方向；可接 a solution/a direction。",
+      "exampleEn": "After comparing the options, we converged on a simpler launch plan.",
+      "exampleZh": "比较各个选项后，我们逐渐就一个更简单的发布计划达成了一致。",
+      "phonetic": "",
+      "forms": [
+        "converges on",
+        "converged on",
+        "converging on"
+      ],
+      "collocations": [
+        "converge on a solution",
+        "converge on a direction",
+        "converge on a decision"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "创新与决策",
+      "order": 21,
+      "reuseExistingEntryId": "public-hierarchy-converge-on-b1b38638"
+    },
+    {
+      "term": "ridicule",
+      "originalInput": "ridicule",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "嘲笑；奚落",
+      "definitionEn": "Unkind laughter or remarks intended to make someone or something seem foolish.",
+      "usage": "本文为名词；也可作动词。fear of ridicule 可妨碍团队成员提出想法。",
+      "exampleEn": "New employees should be able to ask basic questions without fear of ridicule.",
+      "exampleZh": "新员工应该能够提出基础问题，而不用担心遭到嘲笑。",
+      "phonetic": "/ˈrɪdəˌkjul/",
+      "forms": [],
+      "collocations": [
+        "fear of ridicule",
+        "expose someone to ridicule",
+        "subject someone to ridicule"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "团队沟通",
+      "order": 22,
+      "reuseExistingEntryId": "public-hierarchy-ridicule-a5d065d2"
+    },
+    {
+      "term": "social sanction",
+      "originalInput": "social sanctions",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "群体为约束行为而施加的惩罚或排斥",
+      "definitionEn": "A social response, such as disapproval or exclusion, used to discourage behavior.",
+      "usage": "本文指负面社会后果，不是经济制裁，也不是 sanction 的批准义。",
+      "exampleEn": "Informal social sanctions can discourage employees from questioning an unsafe practice.",
+      "exampleZh": "非正式的群体惩罚可能让员工不敢质疑不安全的做法。",
+      "phonetic": "",
+      "forms": [
+        "social sanctions"
+      ],
+      "collocations": [
+        "negative social sanctions",
+        "informal social sanctions",
+        "impose social sanctions"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "团队沟通",
+      "order": 23,
+      "reuseExistingEntryId": "public-hierarchy-social-sanction-58951709"
+    },
+    {
+      "term": "norm",
+      "originalInput": "norms",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "群体规范；共同认可的行为标准",
+      "definitionEn": "A shared expectation about acceptable behavior within a group.",
+      "usage": "本文为群体行为规范；不是数学范数，也不是统计学中的常模。",
+      "exampleEn": "We established a norm that every proposal receives at least one constructive question.",
+      "exampleZh": "我们建立了一项规范：每个提案至少应得到一个建设性问题。",
+      "phonetic": "/nɔrm/",
+      "forms": [
+        "norms"
+      ],
+      "collocations": [
+        "team norms",
+        "establish norms",
+        "behavioral norms"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "团队沟通",
+      "order": 24,
+      "reuseExistingEntryId": "public-hierarchy-norm-733859c1"
+    },
+    {
+      "term": "ground rules",
+      "originalInput": "ground rules",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "基本规则；事先约定的行为准则",
+      "definitionEn": "Basic rules agreed in advance for how an activity or discussion will be conducted.",
+      "usage": "通常用复数；会议或协作开始前先约定的规则。",
+      "exampleEn": "Our ground rules ask participants to challenge ideas respectfully.",
+      "exampleZh": "我们的基本规则要求参与者以尊重的方式质疑观点。",
+      "phonetic": "",
+      "forms": [
+        "ground rule"
+      ],
+      "collocations": [
+        "set ground rules",
+        "establish ground rules",
+        "agree on ground rules"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "团队沟通",
+      "order": 25,
+      "reuseExistingEntryId": "public-hierarchy-ground-rules-b0d1d6d4"
+    },
+    {
+      "term": "haphazard",
+      "originalInput": "haphazard",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "缺乏计划的；杂乱无章的",
+      "definitionEn": "Done without a clear plan, order, or systematic method.",
+      "usage": "通常带负面意味，强调随意和缺乏组织，而不是富有创造性。",
+      "exampleEn": "A haphazard review process allowed the same error to appear twice.",
+      "exampleZh": "杂乱无章的审查流程让同一错误出现了两次。",
+      "phonetic": "/hæpˈhæzɚd/",
+      "forms": [],
+      "collocations": [
+        "a haphazard process",
+        "haphazard planning",
+        "a haphazard approach"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "流程与资源"
+      ],
+      "pdfPage": 3,
+      "printedPage": 50,
+      "category": "流程与资源",
+      "order": 26,
+      "reuseExistingEntryId": "public-hierarchy-haphazard-19121217"
+    },
+    {
+      "term": "heavy-handed",
+      "originalInput": "heavy-handed",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "手段强硬的；干预过度的",
+      "definitionEn": "Using more force, control, or authority than a situation reasonably requires.",
+      "usage": "用于领导或管理时常有负面意味，指控制方式过强。",
+      "exampleEn": "Heavy-handed supervision made experienced staff less willing to suggest improvements.",
+      "exampleZh": "过度强硬的监督让经验丰富的员工更不愿意提出改进建议。",
+      "phonetic": "/ˌhɛviˈhændɪd/",
+      "forms": [],
+      "collocations": [
+        "heavy-handed management",
+        "a heavy-handed approach",
+        "heavy-handed intervention"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "领导与权力",
+      "order": 27,
+      "reuseExistingEntryId": "public-hierarchy-heavy-handed-563437df"
+    },
+    {
+      "term": "stifle",
+      "originalInput": "stifle",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "压制；阻碍想法、学习或发展",
+      "definitionEn": "To prevent an idea, activity, or feeling from developing or being expressed.",
+      "usage": "本文为比喻义；stifle innovation/creativity 指扼杀创新或创造力。",
+      "exampleEn": "Punishing every failed experiment can stifle useful innovation.",
+      "exampleZh": "惩罚每一次失败的试验可能会压制有价值的创新。",
+      "phonetic": "/ˈstaɪfəl/",
+      "forms": [
+        "stifles",
+        "stifled",
+        "stifling"
+      ],
+      "collocations": [
+        "stifle innovation",
+        "stifle creativity",
+        "stifle learning"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "学习与改进"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "学习与改进",
+      "order": 28,
+      "reuseExistingEntryId": "public-hierarchy-stifle-04d37732"
+    },
+    {
+      "term": "dysfunctional",
+      "originalInput": "dysfunctional",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "运作失灵的；不能正常发挥作用的",
+      "definitionEn": "Failing to work effectively or to perform its intended function.",
+      "usage": "可修饰团队、关系、制度或组织层级；常指系统性运作问题。",
+      "exampleEn": "A dysfunctional approval process delayed even minor changes.",
+      "exampleZh": "一个运作失灵的审批流程连小改动都会耽误。",
+      "phonetic": "/dɪsˈfʌŋkʃənəl/",
+      "forms": [],
+      "collocations": [
+        "a dysfunctional team",
+        "a dysfunctional hierarchy",
+        "dysfunctional behavior"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织结构"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "组织结构",
+      "order": 29,
+      "reuseExistingEntryId": "public-hierarchy-dysfunctional-6a66942d"
+    },
+    {
+      "term": "stagnation",
+      "originalInput": "stagnation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "停滞；缺乏进展或发展",
+      "definitionEn": "A prolonged state of little or no progress, growth, or improvement.",
+      "usage": "通常为不可数名词；可用于企业发展、创新或经济活动。",
+      "exampleEn": "The company invited outside feedback to escape years of stagnation.",
+      "exampleZh": "公司征求了外部反馈，以摆脱多年的发展停滞。",
+      "phonetic": "/stæɡˈneɪʃən/",
+      "forms": [],
+      "collocations": [
+        "a period of stagnation",
+        "economic stagnation",
+        "avoid stagnation"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "学习与改进"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "学习与改进",
+      "order": 30,
+      "reuseExistingEntryId": "public-the-forsyte-saga-c1-stagnation"
+    },
+    {
+      "term": "pitfall",
+      "originalInput": "pitfalls",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "隐患；容易遇到的问题或陷阱",
+      "definitionEn": "A hidden or easily overlooked problem that may cause failure or difficulty.",
+      "usage": "通常用于提醒在采用某种方法或推进计划时避免常见问题。",
+      "exampleEn": "One pitfall of rapid hiring is inconsistent onboarding.",
+      "exampleZh": "快速招聘的一个隐患是入职培训缺乏一致性。",
+      "phonetic": "/ˈpɪtˌfɔl/",
+      "forms": [
+        "pitfalls"
+      ],
+      "collocations": [
+        "avoid pitfalls",
+        "a common pitfall",
+        "potential pitfalls"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "创新与决策",
+      "order": 31,
+      "reuseExistingEntryId": "public-hierarchy-pitfall-c4a30a06"
+    },
+    {
+      "term": "defer to",
+      "originalInput": "defers to",
+      "entryType": "phrase",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "听从；尊重并接受他人的判断或权威",
+      "definitionEn": "To accept another person's judgment or authority because of their expertise or position.",
+      "usage": "defer to someone 是听从某人；defer a task 是推迟任务，含义不同。",
+      "exampleEn": "For security decisions, we defer to the engineer with the relevant expertise.",
+      "exampleZh": "在安全决策上，我们听从具备相关专长的工程师。",
+      "phonetic": "",
+      "forms": [
+        "defers to",
+        "deferred to",
+        "deferring to"
+      ],
+      "collocations": [
+        "defer to an expert",
+        "defer to someone's judgment",
+        "defer to authority"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "领导与权力",
+      "order": 32,
+      "reuseExistingEntryId": "public-hierarchy-defer-to-15661887"
+    },
+    {
+      "term": "get bogged down in",
+      "originalInput": "get bogged down in",
+      "entryType": "phrase",
+      "partOfSpeech": "idiom",
+      "meaning": "陷入某事而难以推进；被……拖住",
+      "definitionEn": "To become so involved in difficulties or details that progress becomes slow or stops.",
+      "usage": "常接 details/conflicts/paperwork；也可说 be bogged down in。",
+      "exampleEn": "We got bogged down in minor formatting issues and missed the main decision.",
+      "exampleZh": "我们被细小的格式问题拖住，错过了作出主要决定的时机。",
+      "phonetic": "",
+      "forms": [
+        "gets bogged down in",
+        "got bogged down in",
+        "getting bogged down in"
+      ],
+      "collocations": [
+        "get bogged down in details",
+        "be bogged down in paperwork",
+        "get bogged down in conflict"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "流程与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "流程与资源",
+      "order": 33,
+      "reuseExistingEntryId": "public-hierarchy-get-bogged-down-in-bb727736"
+    },
+    {
+      "term": "stalemate",
+      "originalInput": "stalemates",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "僵局；各方均无法推进的局面",
+      "definitionEn": "A situation in which opposing sides cannot agree or make further progress.",
+      "usage": "可用于谈判或团队争论；原义来自国际象棋中的逼和局面。",
+      "exampleEn": "A neutral facilitator helped the departments break the stalemate.",
+      "exampleZh": "一位中立的协调人帮助各部门打破了僵局。",
+      "phonetic": "/ˈsteɪlˌmeɪt/",
+      "forms": [
+        "stalemates"
+      ],
+      "collocations": [
+        "reach a stalemate",
+        "break the stalemate",
+        "a prolonged stalemate"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "团队沟通",
+      "order": 34,
+      "reuseExistingEntryId": "public-hierarchy-stalemate-c71bfae2"
+    },
+    {
+      "term": "run the show",
+      "originalInput": "running the show",
+      "entryType": "phrase",
+      "partOfSpeech": "idiom",
+      "meaning": "主持大局；掌管事务",
+      "definitionEn": "To be the person who controls or manages an activity or organization.",
+      "usage": "偏口语，适用于讨论谁实际负责；正式文件可用 be in charge。",
+      "exampleEn": "Who will run the show while the project director is on leave?",
+      "exampleZh": "项目总监休假期间由谁主持大局？",
+      "phonetic": "",
+      "forms": [
+        "runs the show",
+        "ran the show",
+        "running the show"
+      ],
+      "collocations": [
+        "run the show effectively",
+        "let someone else run the show",
+        "who is running the show"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "领导与权力",
+      "order": 35,
+      "reuseExistingEntryId": "public-hierarchy-run-the-show-4f0d7358"
+    },
+    {
+      "term": "implicit bias",
+      "originalInput": "implicit biases",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "内隐偏见；无意识偏见",
+      "definitionEn": "An automatic assumption or preference that can influence judgment without conscious intention.",
+      "usage": "强调可能在无意识中影响判断；本文涉及用性别或族裔等错误信号判断专长。",
+      "exampleEn": "Structured interviews can help us examine implicit bias in hiring decisions.",
+      "exampleZh": "结构化面试可以帮助我们审视招聘决策中的无意识偏见。",
+      "phonetic": "",
+      "forms": [
+        "implicit biases"
+      ],
+      "collocations": [
+        "recognize implicit bias",
+        "reduce implicit bias",
+        "implicit bias in hiring"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织心理"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "组织心理",
+      "order": 36,
+      "reuseExistingEntryId": "public-hierarchy-implicit-bias-8d98f5e9"
+    },
+    {
+      "term": "counter",
+      "originalInput": "counter",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "抵消；对抗；采取措施应对",
+      "definitionEn": "To act against something in order to reduce its effect or influence.",
+      "usage": "本文为动词，不是柜台，也不是计数器。",
+      "exampleEn": "We asked a second reviewer to counter the effect of individual bias.",
+      "exampleZh": "我们请了第二位审查人，以抵消个人偏见的影响。",
+      "phonetic": "/ˈkaʊntɚ/",
+      "forms": [
+        "counters",
+        "countered",
+        "countering"
+      ],
+      "collocations": [
+        "counter bias",
+        "counter an argument",
+        "counter the effects of"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织心理"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "组织心理",
+      "order": 37,
+      "reuseExistingEntryId": "public-hierarchy-counter-efe899c7"
+    },
+    {
+      "term": "credible evidence",
+      "originalInput": "credible evidence",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "可信的证据",
+      "definitionEn": "Information or findings that provide a believable basis for a judgment.",
+      "usage": "credible 意为可信、可相信；不等于完全确定或绝对正确。",
+      "exampleEn": "The committee needs credible evidence before changing the promotion policy.",
+      "exampleZh": "委员会在修改晋升政策前需要可信的证据。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "provide credible evidence",
+        "credible evidence of improvement",
+        "base a decision on credible evidence"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "管理论证",
+      "order": 38,
+      "reuseExistingEntryId": "public-hierarchy-credible-evidence-c62a33a3"
+    },
+    {
+      "term": "vocal",
+      "originalInput": "vocal",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "积极表达意见的；敢于发声的",
+      "definitionEn": "Willing to express opinions openly and forcefully.",
+      "usage": "本文 less vocal members 指较少主动发言的成员，不一定是声音较小。",
+      "exampleEn": "The most vocal participant is not always the best-informed person.",
+      "exampleZh": "发言最积极的参与者并不总是掌握信息最充分的人。",
+      "phonetic": "/ˈvoʊkəl/",
+      "forms": [],
+      "collocations": [
+        "a vocal member",
+        "a vocal supporter",
+        "less vocal participants"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "团队沟通",
+      "order": 39,
+      "reuseExistingEntryId": "public-nlmg-c22-vocal"
+    },
+    {
+      "term": "make informed decisions",
+      "originalInput": "make informed decisions",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "基于充分信息作出决定",
+      "definitionEn": "To make choices using relevant knowledge, evidence, and understanding.",
+      "usage": "informed 在此表示有充分信息依据，而非仅仅已被告知。",
+      "exampleEn": "Clear cost estimates help clients make informed decisions.",
+      "exampleZh": "清晰的成本估算有助于客户作出有信息依据的决定。",
+      "phonetic": "",
+      "forms": [
+        "make an informed decision",
+        "made informed decisions",
+        "making informed decisions"
+      ],
+      "collocations": [
+        "make informed decisions about hiring",
+        "help someone make informed decisions",
+        "make better-informed decisions"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "创新与决策"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "创新与决策",
+      "order": 40,
+      "reuseExistingEntryId": "public-hierarchy-make-informed-decisions-6dac1009"
+    },
+    {
+      "term": "bombastic",
+      "originalInput": "bombastic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "言辞浮夸的；夸夸其谈的",
+      "definitionEn": "Using impressive-sounding language that is exaggerated or lacks substance.",
+      "usage": "带明显贬义；强调言辞浮夸，不只是自信或表达积极。",
+      "exampleEn": "His bombastic presentation impressed the room, but the figures did not support his claims.",
+      "exampleZh": "他夸夸其谈的演示让全场印象深刻，但数据并不支持他的说法。",
+      "phonetic": "/bɑmˈbæstɪk/",
+      "forms": [],
+      "collocations": [
+        "bombastic language",
+        "a bombastic speech",
+        "bombastic claims"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "团队沟通"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "团队沟通",
+      "order": 41,
+      "reuseExistingEntryId": "public-hierarchy-bombastic-a751e280"
+    },
+    {
+      "term": "pseudo-expert",
+      "originalInput": "pseudo-experts",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "假专家；缺乏真才实学却表现得像专家的人",
+      "definitionEn": "A person who presents themselves as knowledgeable without genuine expertise.",
+      "usage": "pseudo- 表示假的；带贬义，判断时应依据专业表现而非仅凭风格。",
+      "exampleEn": "A careful review of the evidence can expose a pseudo-expert.",
+      "exampleZh": "仔细审查证据可以揭露假专家。",
+      "phonetic": "",
+      "forms": [
+        "pseudo-experts"
+      ],
+      "collocations": [
+        "identify pseudo-experts",
+        "challenge a pseudo-expert's claims",
+        "the influence of pseudo-experts"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "领导与权力"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "领导与权力",
+      "order": 42,
+      "reuseExistingEntryId": "public-hierarchy-pseudo-expert-96b2f08c"
+    },
+    {
+      "term": "in one's own best interest",
+      "originalInput": "in their own best interest",
+      "entryType": "phrase",
+      "partOfSpeech": "prepositional phrase",
+      "meaning": "最符合某人自身利益的",
+      "definitionEn": "Likely to benefit a person personally.",
+      "usage": "本文用于讨论领导是否只为个人利益行事；own 强调自身，未必符合团队利益。",
+      "exampleEn": "Approving the shortcut may be in his own best interest, but it creates risks for the team.",
+      "exampleZh": "批准这个捷径也许最符合他个人利益，却会给团队带来风险。",
+      "phonetic": "",
+      "forms": [
+        "in their own best interest",
+        "in the team's best interest"
+      ],
+      "collocations": [
+        "act in one's own best interest",
+        "in their own best interest",
+        "in the team's best interest"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "目标与绩效"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "目标与绩效",
+      "order": 43,
+      "reuseExistingEntryId": "public-hierarchy-in-one-s-own-best-interest-9376cba8"
+    },
+    {
+      "term": "disconnect",
+      "originalInput": "disconnect",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "脱节；明显不一致",
+      "definitionEn": "A lack of connection or consistency between two things that should be related.",
+      "usage": "常用 a disconnect between A and B；本文指管理言辞与现实之间的脱节。",
+      "exampleEn": "There is a disconnect between our stated priorities and how we allocate staff time.",
+      "exampleZh": "我们宣称的优先事项与员工时间的实际分配之间存在脱节。",
+      "phonetic": "/ˈdɪskəˌnɛkt/",
+      "forms": [
+        "disconnects"
+      ],
+      "collocations": [
+        "a disconnect between",
+        "a clear disconnect",
+        "bridge the disconnect"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "管理论证",
+      "order": 44,
+      "reuseExistingEntryId": "public-hierarchy-disconnect-4f935a0f"
+    },
+    {
+      "term": "rhetoric",
+      "originalInput": "rhetoric",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "言辞；理论上的说法或宣传性表述",
+      "definitionEn": "Language used to present or persuade people of a position, especially when contrasted with actual practice.",
+      "usage": "本文与 reality 对照，指管理上说的与实际做的；不只指正式修辞学。",
+      "exampleEn": "Employees noticed a gap between the rhetoric about teamwork and the individual bonus system.",
+      "exampleZh": "员工注意到倡导团队合作的说辞与个人奖金制度之间存在差距。",
+      "phonetic": "/ˈrɛtərɪk/",
+      "forms": [],
+      "collocations": [
+        "rhetoric and reality",
+        "management rhetoric",
+        "political rhetoric"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "管理论证",
+      "order": 45,
+      "reuseExistingEntryId": "public-hierarchy-rhetoric-34244823"
+    },
+    {
+      "term": "misguided",
+      "originalInput": "misguided",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "受到错误观念引导的；判断失当的",
+      "definitionEn": "Based on a mistaken belief or poor understanding of a situation.",
+      "usage": "可修饰观点、政策或尝试；强调出发点或判断错误，不等同于恶意。",
+      "exampleEn": "The well-intended but misguided rule discouraged people from reporting small problems.",
+      "exampleZh": "这条善意却判断失当的规定让人不愿报告小问题。",
+      "phonetic": "/ˌmɪsˈɡaɪdɪd/",
+      "forms": [],
+      "collocations": [
+        "a misguided belief",
+        "a misguided policy",
+        "a misguided attempt"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "管理论证",
+      "order": 46,
+      "reuseExistingEntryId": "public-hierarchy-misguided-f15b13b8"
+    },
+    {
+      "term": "in light of",
+      "originalInput": "in light of",
+      "entryType": "phrase",
+      "partOfSpeech": "prepositional phrase",
+      "meaning": "根据；考虑到某项信息或情况",
+      "definitionEn": "Taking particular information or circumstances into account.",
+      "usage": "常用于根据新证据或情况重新评估决定；英式英语也常见 in the light of。",
+      "exampleEn": "In light of the pilot results, we revised the training schedule.",
+      "exampleZh": "考虑到试点结果，我们修改了培训安排。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "in light of the evidence",
+        "in light of new information",
+        "in light of the findings"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "管理论证"
+      ],
+      "pdfPage": 4,
+      "printedPage": 51,
+      "category": "管理论证",
+      "order": 47,
+      "reuseExistingEntryId": "public-hierarchy-in-light-of-deab23f4"
+    },
+    {
+      "term": "higher-up",
+      "originalInput": "higher-ups",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "上级；高层人员",
+      "definitionEn": "A person who holds a more senior or powerful position in an organization.",
+      "usage": "常用复数 higher-ups，较口语；正式表达可用 senior managers。",
+      "exampleEn": "The higher-ups asked for a concise summary of the project's main risks.",
+      "exampleZh": "高层人员要求简要总结项目的主要风险。",
+      "phonetic": "",
+      "forms": [
+        "higher-ups"
+      ],
+      "collocations": [
+        "the higher-ups",
+        "approval from higher-ups",
+        "report a concern to a higher-up"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Truth About Hierarchy",
+        "组织结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 52,
+      "category": "组织结构",
+      "order": 48,
+      "reuseExistingEntryId": "public-hierarchy-higher-up-81f38d42"
+    }
+  ]
+}
