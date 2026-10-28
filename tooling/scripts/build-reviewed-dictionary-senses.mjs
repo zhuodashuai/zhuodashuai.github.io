@@ -145,6 +145,9 @@ export function renderReviewedSenseModule(rows) {
 /** These are explicitly authored supplementary senses, not claims that a
  * frozen third-party record already contained a modern meaning or correct POS. */
 export function validateReviewedSensePack(pack, review, canonicalRecords, existingSentences = new Map(), retainedChineseHeads = new Set()) {
+  if (pack && Object.hasOwn(pack, 'exampleSource') && pack.exampleSource !== '原创学习例句') {
+    throw Error('Invalid selected-sense learner example source');
+  }
   if (!(retainedChineseHeads instanceof Set)
     || [...retainedChineseHeads].some(term => !LEGACY_CHINESE_RETENTION_HEADS.has(term))) {
     throw Error('New Chinese sense retention requires an exact retained-alternative policy');
@@ -185,7 +188,7 @@ export function validateReviewedSensePack(pack, review, canonicalRecords, existi
     output.push({ term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
       chineseAliases: [...row.chineseAliases], englishForms: [...row.englishForms], en: row.en, zh: row.zh,
       references: [...row.references], dictionarySource: '卓式词典·义项补充',
-      exampleSource: '原创例句·AI复核（精选义项）', exampleReviewer: review.reviewer,
+      exampleSource: pack.exampleSource ?? '原创例句·AI复核（精选义项）', exampleReviewer: review.reviewer,
       reviewedCanonicalSense: true, retainLegacyChinese: retainedChineseHeads.has(row.term), canonicalId: row.canonicalId, canonicalSourceSha256: row.canonicalSourceSha256 });
   }
   if ([...approved].some(term => !seen.has(term))) throw Error('Approval names an absent selected-sense row');

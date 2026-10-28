@@ -3,6 +3,7 @@ import{EVERYDAY_LOOKUP_ENTRIES as rows,EVERYDAY_CHINESE_ALIASES as aliases}from'
 import{searchEverydayDictionary,loadEverydayExamples}from'../../vocab/js/everyday-lookup.js';
 import{searchExpandedDictionary}from'../../vocab/js/expanded-dictionary.js';
 import{lookupPersonalDictionaryFast}from'../../vocab/js/personal-lookup-flow.js';
+import{historicalSelectedRows}from'./selected-sense-history-fixture.mjs';
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const read=async file=>JSON.parse(await readFile(new URL('../dictionary/everyday-expansions/2026-10-28-class/'+file,import.meta.url),'utf8'));
 const manifest=await read('manifest.json'),baseline=await read('baseline.json'),byHead=new Map(rows.map(row=>[row.term,row]));
@@ -25,7 +26,7 @@ test('common-class additions and alias-only changes match their complete indepen
   assert.equal(manifest.newAliases.length,9);assert.equal(manifest.newAliases.reduce((sum,row)=>sum+row.aliases.length,0),13);
 });
 test('all published ordinary/selected tuples and old alias records remain byte-semantically unchanged',()=>{
-  const ordinary=rows.filter(row=>!row.reviewedCanonicalSense),selected=rows.filter(row=>row.reviewedCanonicalSense);
+  const ordinary=rows.filter(row=>!row.reviewedCanonicalSense),selected=historicalSelectedRows(rows);
   assert.equal(baseline.ordinaryCount,962);assert.equal(hash(ordinary.slice(0,962)),baseline.ordinarySha256);
   assert(ordinary.length>=manifest.expectedOrdinaryCount);assert.equal(selected.length,baseline.selectedCount);assert.equal(hash(selected),baseline.selectedSha256);
   for(const row of baseline.aliases)assert.deepEqual(aliases.find(record=>record.term===row.term),row);

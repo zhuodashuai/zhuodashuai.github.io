@@ -30,6 +30,19 @@ test('unapproved rows, author checks and unresolved objections cannot grant a su
   }
 });
 
+test('new packs use the concise reviewed label without changing historical pack output', () => {
+  const old = pack();
+  const concise = { ...pack(), exampleSource: '原创学习例句' };
+  assert.equal(validateReviewedSensePack(old, review(old), records)[0].exampleSource, '原创例句·AI复核（精选义项）');
+  assert.equal(validateReviewedSensePack(concise, review(concise), records)[0].exampleSource, '原创学习例句');
+  for (const value of ['', null, '作者自查', {}]) {
+    const invalid = { ...pack(), exampleSource: value };
+    assert.throws(() => validateReviewedSensePack(invalid, review(invalid), records), /learner example source/u);
+  }
+  const stale = review(old);
+  assert.throws(() => validateReviewedSensePack(concise, stale, records), /independent selected-sense approval/u);
+});
+
 test('changing canonical identity, selected meaning, translation or original example invalidates the prior review', () => {
   for (const change of [{ canonicalId: 999 }, { canonicalSourceSha256: 'a'.repeat(64) }, { term: 'another head' }]) {
     const p = pack(); p.entries[0] = { ...p.entries[0], ...change };

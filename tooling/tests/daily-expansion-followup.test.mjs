@@ -2,6 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import fs f
 import {EVERYDAY_LOOKUP_ENTRIES as rows,EVERYDAY_CHINESE_ALIASES as aliases} from '../../vocab/js/everyday-lookup-data.js';
 import {searchEverydayDictionary,loadEverydayExamples} from '../../vocab/js/everyday-lookup.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {historicalSelectedRows} from './selected-sense-history-fixture.mjs';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const read=async f=>JSON.parse(await fs.readFile(new URL('../dictionary/everyday-expansions/2026-10-27/'+f,import.meta.url),'utf8'));
 const manifest=await read('manifest.json'),baseline=await read('baseline.json'),byHead=new Map(rows.map(r=>[r.term,r]));
@@ -21,7 +22,7 @@ test('daily additions are exact independently approved tuples and alias-only app
  for(const row of manifest.newAliases){assert.deepEqual(aliases.find(r=>r.term===row.term),row);assert.equal(hash(byHead.get(row.term)),row.targetEntrySha256);}
 });
 test('all previous daily tuples and selected-sense tuples remain exact',()=>{
- const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=rows.filter(r=>r.reviewedCanonicalSense);
+ const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=historicalSelectedRows(rows);
  // Later approved batches append after these837 exact published tuples.
  assert.equal(hash(ordinary.slice(0,837)),'70e0a1f37d9de106c1630345551a5e9d361a312592921a15a8eeca9662ff3ab4');assert.equal(hash(ordinary.slice(0,678)),baseline.ordinarySha256);
  assert.equal(hash(baseline.selectedHeads.map(term=>byHead.get(term))),baseline.selectedSha256);
