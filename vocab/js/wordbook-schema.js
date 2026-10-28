@@ -1,3 +1,5 @@
+import { namedReadingSourceTitle } from "./reading-source.js";
+
 export const PUBLIC_SCHEMA_VERSION = 3;
 export const ENTRY_TYPES = Object.freeze(["word", "phrase", "phrasal-verb", "idiom", "collocation", "sentence", "quote", "proverb"]);
 export const ATTRIBUTION_STATES = Object.freeze(["verified", "candidate", "unverified", "disputed"]);
@@ -769,16 +771,41 @@ export function readingContextForMembership(entry, membership) {
 
 export function contextualizeReadingEntry(entry, collectionId = "", chapterId = "") {
   const collection = String(collectionId || "").trim();
-  const chapter = String(chapterId || "").trim();
-  if (!entry || !collection || !chapter || collection === "all" || chapter === "all") return entry;
+  let chapter = String(chapterId || "").trim();
+  if (!entry || !collection || collection === "all") return entry;
+  if (!chapter || chapter === "all") {
+    // A named-source anthology keeps each card's first article context in the
+    // whole-book study view. Numbered novels retain their existing behavior.
+    const first = (entry.readingContexts || [])
+      .filter((context) => context.membership.startsWith(`collection:${collection}:chapter-`) && namedReadingSourceTitle(context))
+      .sort((left, right) => Number(left.membership.split(":").at(-1).slice(8)) - Number(right.membership.split(":").at(-1).slice(8)))[0];
+    if (!first) return entry;
+    chapter = first.membership.split(":").at(-1);
+  }
   const membership = `collection:${collection}:${chapter}`;
   const tags = Array.isArray(entry.tags) && entry.tags.includes(membership)
     ? [membership, ...entry.tags.filter((tag) => tag !== membership)]
     : entry.tags;
   const context = readingContextForMembership(entry, membership);
   if (!context) return tags === entry.tags ? entry : { ...entry, tags };
+  const articleTitle = namedReadingSourceTitle(context);
+  let provenance = {};
+  if (articleTitle) {
+    const normalized = (value) => String(value || "").normalize("NFKC").toLocaleLowerCase("en-US").replace(/\s+/gu, " ").trim();
+    const wanted = normalized(articleTitle);
+    const sameSource = [namedReadingSourceTitle(entry) || entry.sourceTitle, entry.sourceWork].some((title) => normalized(title) === wanted);
+    const urls = new Set((entry.sources || []).filter((source) => {
+      const title = normalized(source.title);
+      return source.kind === "primary" && (title === wanted || [" — ", " - ", ";"].some((boundary) => title.startsWith(`${wanted}${boundary}`)));
+    }).map((source) => source.url).filter(Boolean));
+    provenance = {
+      author: sameSource ? entry.author : "",
+      sourceUrl: urls.size === 1 ? [...urls][0] : sameSource ? entry.sourceUrl : ""
+    };
+  }
   return {
     ...entry,
+    ...provenance,
     originalInput: context.originalInput,
     entryType: context.entryType,
     partOfSpeech: context.partOfSpeech,

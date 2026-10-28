@@ -81,6 +81,29 @@ describe("private public-source selection and cloud review", () => {
     expect(response.headers.get("Cache-Control")).toBe("no-store"); expect(response.headers.get("Access-Control-Allow-Origin")).toBeNull();
   });
 
+  it("keeps article chapter names when selecting a shared card into the member study collection", async () => {
+    const auth = await register();
+    const articles = ["Collaborative Overload", "The Overcommitted Organization"];
+    const source = snapshot([entry({ id: "public-shared-article", term: "burnout", partOfSpeech: "noun", sourceWork: articles[0], sourceTitle: articles[0],
+      tags: articles.map((_, index) => `collection:teamwork:chapter-${index + 2}`),
+      readingContexts: articles.map((article, index) => ({ ...context(index + 2, `第${index + 2}篇文章的独立释义。`),
+        membership: `collection:teamwork:chapter-${index + 2}`, originalInput: "burnout", partOfSpeech: "noun",
+        definition: "Exhaustion from prolonged work pressure.", usage: "本文讨论长期过量工作造成的耗竭。",
+        exampleEn: "Repeated urgent requests increased the risk of burnout.", exampleZh: "反复的紧急请求增加了职业倦怠的风险。",
+        sourceWork: "Teamwork", sourceTitle: `Teamwork — ${article}` })) })]);
+    const response = await request("/selections", { method: "POST", auth, resolver: async () => source,
+      body: { entryIds: ["public-shared-article"], collectionId: "teamwork", chapterId: "all", mutationId: crypto.randomUUID() } });
+    expect(response.status).toBe(200);
+    const selected = await response.json() as { entries: PersonalEntry[]; added: number; contextAdded: number };
+    expect(selected).toMatchObject({ added: 1, contextAdded: 2 });
+    expect(selected.entries[0].sourceContexts?.map(({ bookTitle, chapterTitle, chapterId }) => ({ bookTitle, chapterTitle, chapterId }))).toEqual([
+      { bookTitle: "Teamwork", chapterTitle: articles[0], chapterId: "chapter-2" },
+      { bookTitle: "Teamwork", chapterTitle: articles[1], chapterId: "chapter-3" }
+    ]);
+    const saved = await (await request("/entries", { auth })).json() as { entries: PersonalEntry[] };
+    expect(saved.entries[0].sourceContexts).toEqual(selected.entries[0].sourceContexts);
+  });
+
   it("can select exact 24/7 and reuse an existing private card without admitting arbitrary numeric selections", async () => {
     const auth = await register();
     const makePublic = (term: string) => snapshot([entry({ id: "public-numeric-expression", term, entryType: "word", tags: [],

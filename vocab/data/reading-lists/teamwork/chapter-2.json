@@ -1,0 +1,2263 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-2",
+    "number": 2,
+    "title": "Collaborative Overload"
+  },
+  "sourceTitle": "Teamwork — Collaborative Overload",
+  "articleTitle": "Collaborative Overload",
+  "authors": "Rob Cross; Reb Rebele; Adam Grant",
+  "issue": "January-February 2016",
+  "sourceUrl": "https://hbr.org/2016/01/collaborative-overload",
+  "expectedItemCount": 70,
+  "curation": {
+    "difficulty": "moderate",
+    "originalItemCount": 98,
+    "excludedItems": [
+      {
+        "term": "exhaust",
+        "pdfPage": 1,
+        "reason": "疲惫与耗尽是常见通用义，基础难度"
+      },
+      {
+        "term": "connectivity",
+        "pdfPage": 4,
+        "reason": "连接性语义透明，大学学习中较常见"
+      },
+      {
+        "term": "mindset",
+        "pdfPage": 4,
+        "reason": "思维模式是常见通用词，无特殊新义"
+      },
+      {
+        "term": "beyond the scope of",
+        "pdfPage": 4,
+        "reason": "常见学术范围表达，整体语义较透明"
+      },
+      {
+        "term": "finite",
+        "pdfPage": 4,
+        "reason": "有限的通用义，大学读者通常较熟悉"
+      },
+      {
+        "term": "default",
+        "pdfPage": 4,
+        "reason": "默认的形容词义在日常技术语境常见"
+      },
+      {
+        "term": "hands-on",
+        "pdfPage": 4,
+        "reason": "直接实践的常见工作表达，难度较低"
+      },
+      {
+        "term": "redistribute",
+        "pdfPage": 5,
+        "reason": "重新分配语义可由词缀和常见词推知"
+      },
+      {
+        "term": "well-regarded",
+        "pdfPage": 5,
+        "reason": "受到好评的常见组合词，语义较透明"
+      },
+      {
+        "term": "in demand",
+        "pdfPage": 5,
+        "reason": "被需要的常见基础短语，无罕见义项"
+      },
+      {
+        "term": "supply and demand",
+        "pdfPage": 5,
+        "reason": "大学阶段常见基础经济概念，语义透明"
+      },
+      {
+        "term": "prioritize",
+        "pdfPage": 6,
+        "reason": "安排优先顺序是常见工作英语"
+      },
+      {
+        "term": "draw on",
+        "pdfPage": 6,
+        "reason": "常见通用表达；与另一篇同义，按统一精简标准移出。"
+      },
+      {
+        "term": "set boundaries",
+        "pdfPage": 6,
+        "reason": "设定边界是透明且常用的组合表达"
+      },
+      {
+        "term": "mentoring",
+        "pdfPage": 6,
+        "reason": "导师指导是大学与职场常见活动词"
+      },
+      {
+        "term": "free up",
+        "pdfPage": 6,
+        "reason": "腾出时间资源的常见短语，难度较低"
+      },
+      {
+        "term": "reassess",
+        "pdfPage": 6,
+        "reason": "重新评估可由常见词与前缀直接理解"
+      },
+      {
+        "term": "agenda",
+        "pdfPage": 6,
+        "reason": "会议议程是常见基础职场词"
+      },
+      {
+        "term": "transparent",
+        "pdfPage": 6,
+        "reason": "信息透明的常见比喻义，难度不高"
+      },
+      {
+        "term": "authorize",
+        "pdfPage": 6,
+        "reason": "授权的常见正式动词，无特殊语境新义"
+      },
+      {
+        "term": "rotate",
+        "pdfPage": 7,
+        "reason": "轮换职责是常见词义，难度较低"
+      },
+      {
+        "term": "overlap",
+        "pdfPage": 7,
+        "reason": "重合部分是常见通用义，无特殊新义"
+      },
+      {
+        "term": "peer recognition",
+        "pdfPage": 7,
+        "reason": "同事认可可直接组合推知，表达较基础"
+      },
+      {
+        "term": "relocate",
+        "pdfPage": 7,
+        "reason": "搬迁的常见工作词，构词与含义较透明"
+      },
+      {
+        "term": "formal authority",
+        "pdfPage": 7,
+        "reason": "正式职权是透明组合，词汇难度较低"
+      },
+      {
+        "term": "stereotype",
+        "pdfPage": 7,
+        "reason": "刻板印象相关通用词，大学语境较常见"
+      },
+      {
+        "term": "emotional exhaustion",
+        "pdfPage": 7,
+        "reason": "情绪耗竭可由常见词直观理解，避免与倦怠重复"
+      },
+      {
+        "term": "credit",
+        "pdfPage": 7,
+        "reason": "对贡献的认可属常用义，按要求删去"
+      }
+    ],
+    "notes": "Difficulty is a practical study judgment, not a claim about which words the learner personally knows."
+  },
+  "notes": "Attach these article contexts to existing canonical IDs; do not replace their lexical fields or use the literary chapter importer.",
+  "items": [
+    {
+      "term": "collaborative overload",
+      "originalInput": "Collaborative Overload",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "协作过载；团队协作需求超出可用时间和精力",
+      "definitionEn": "A situation in which demands for collaboration exceed the time and energy people can reasonably provide.",
+      "usage": "本文核心概念；问题在于需求过多或分配不均，并不表示合作本身没有价值。",
+      "exampleEn": "We reduced collaborative overload by routing routine questions to a shared knowledge base.",
+      "exampleZh": "我们把常见问题转交到共享知识库处理，从而减轻了协作过载。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "reduce collaborative overload",
+        "at risk of collaborative overload"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 1,
+      "printedPage": null,
+      "category": "协作负担",
+      "order": 1,
+      "reuseExistingEntryId": "public-teamwork-collaborative-overload-499ae0c4"
+    },
+    {
+      "term": "sap productivity",
+      "originalInput": "saps productivity",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "削弱生产力；逐渐消耗工作效率",
+      "definitionEn": "To gradually reduce the amount or quality of useful work people can produce.",
+      "usage": "sap 作动词表示削弱、消耗；语境强调过量协作对效率的影响。",
+      "exampleEn": "Repeated status calls can sap productivity when no decisions are needed.",
+      "exampleZh": "如果没有需要作出的决定，反复召开进度电话会议可能削弱工作效率。",
+      "phonetic": "",
+      "forms": [
+        "saps productivity",
+        "sapped productivity",
+        "sapping productivity"
+      ],
+      "collocations": [
+        "sap team productivity",
+        "sap employee morale"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 1,
+      "printedPage": null,
+      "category": "协作负担",
+      "order": 2,
+      "reuseExistingEntryId": "public-teamwork-sap-productivity-09bdd3b0"
+    },
+    {
+      "term": "cross-functional",
+      "originalInput": "cross-functional",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "跨职能的；涉及不同业务部门的",
+      "definitionEn": "Involving people or work from different functions or departments in an organization.",
+      "usage": "与 interdisciplinary 跨学科不同，通常强调销售、运营、技术等职能之间的合作。",
+      "exampleEn": "A cross-functional group reviewed how the pricing change would affect customers.",
+      "exampleZh": "一个跨职能小组审查了价格调整将如何影响客户。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "cross-functional team",
+        "cross-functional collaboration"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "组织协作",
+      "order": 3,
+      "reuseExistingEntryId": "public-teamwork-cross-functional-23bb57ff"
+    },
+    {
+      "term": "silo",
+      "originalInput": "silos",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "组织中的信息孤岛；各自为政的部门",
+      "definitionEn": "A part of an organization that works separately and shares too little information with others.",
+      "usage": "本文为组织管理比喻，不是储粮筒仓；常见 break down silos。",
+      "exampleEn": "Shared project goals helped the departments move beyond their silos.",
+      "exampleZh": "共同的项目目标帮助各部门走出了各自为政的状态。",
+      "phonetic": "/ˈsaɪloʊ/",
+      "forms": [
+        "silos"
+      ],
+      "collocations": [
+        "organizational silos",
+        "break down silos"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "组织协作",
+      "order": 4,
+      "reuseExistingEntryId": "public-teamwork-silo-30ec2f85"
+    },
+    {
+      "term": "break down",
+      "originalInput": "breaking down",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "（壁垒或隔阂）逐步瓦解；消除或削弱壁垒",
+      "definitionEn": "For a barrier or organizational separation to disappear or weaken, or to cause it to do so.",
+      "usage": "本文 silos are breaking down 指部门壁垒逐步瓦解；也可及物：break down barriers。区分计划或安排失败的另一义项。",
+      "exampleEn": "Joint customer interviews helped break down barriers between design and support.",
+      "exampleZh": "共同开展客户访谈帮助消除了设计与客服之间的壁垒。",
+      "phonetic": "",
+      "forms": [
+        "breaks down",
+        "broke down",
+        "broken down",
+        "breaking down"
+      ],
+      "collocations": [
+        "break down barriers",
+        "break down departmental silos"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "组织协作",
+      "order": 5,
+      "reuseExistingEntryId": "public-nlmg-c13-break-down"
+    },
+    {
+      "term": "balloon",
+      "originalInput": "ballooned",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "急剧增加；迅速膨胀",
+      "definitionEn": "To increase rapidly and become much larger.",
+      "usage": "本文指协作活动所占时间增长；动词用法常见于成本、预算或工作量。",
+      "exampleEn": "The review process ballooned as more teams requested a separate meeting.",
+      "exampleZh": "随着越来越多团队要求单独开会，审查流程迅速膨胀。",
+      "phonetic": "/bəˈlun/",
+      "forms": [
+        "balloons",
+        "ballooned",
+        "ballooning"
+      ],
+      "collocations": [
+        "costs balloon",
+        "a ballooning workload"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "协作负担",
+      "order": 6,
+      "reuseExistingEntryId": "public-teamwork-balloon-00477ad8"
+    },
+    {
+      "term": "spike",
+      "originalInput": "spikes",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "突然大幅上升；激增",
+      "definitionEn": "To rise sharply over a short period of time.",
+      "usage": "本文指资源消耗突然增加；区别于稳定、缓慢的上升。",
+      "exampleEn": "Requests for technical support spiked after the new platform launched.",
+      "exampleZh": "新平台上线后，技术支持请求激增。",
+      "phonetic": "/spaɪk/",
+      "forms": [
+        "spikes",
+        "spiked",
+        "spiking"
+      ],
+      "collocations": [
+        "demand spikes",
+        "costs spike"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "需求管理",
+      "order": 7,
+      "reuseExistingEntryId": "public-teamwork-spike-798552d3"
+    },
+    {
+      "term": "give someone pause",
+      "originalInput": "give us pause",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "使某人停下来认真考虑；引起顾虑",
+      "definitionEn": "To make someone hesitate or reconsider because something raises a concern.",
+      "usage": "pause 在此不是简单暂停活动，而是因发现问题而重新思考。",
+      "exampleEn": "The number of unresolved complaints gave the launch committee pause.",
+      "exampleZh": "尚未解决的投诉数量让发布委员会产生了顾虑。",
+      "phonetic": "",
+      "forms": [
+        "gives someone pause",
+        "gave someone pause",
+        "giving someone pause"
+      ],
+      "collocations": [
+        "give managers pause",
+        "give investors pause"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "判断与分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "判断与分析",
+      "order": 8,
+      "reuseExistingEntryId": "public-teamwork-give-someone-pause-1cdb6d36"
+    },
+    {
+      "term": "hover around",
+      "originalInput": "hovers around",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "在某个数值附近徘徊；大致保持在",
+      "definitionEn": "To remain close to a particular level or amount.",
+      "usage": "用于比例、成本等数值；不表示精确等于所给数字。",
+      "exampleEn": "Meeting attendance hovered around seventy percent throughout the pilot.",
+      "exampleZh": "试点期间，会议出席率一直在百分之七十左右徘徊。",
+      "phonetic": "",
+      "forms": [
+        "hovers around",
+        "hovered around",
+        "hovering around"
+      ],
+      "collocations": [
+        "hover around a level",
+        "hover around an average"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "判断与分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "判断与分析",
+      "order": 9,
+      "reuseExistingEntryId": "public-teamwork-hover-around-cd547ca1"
+    },
+    {
+      "term": "an avalanche of requests",
+      "originalInput": "an avalanche of",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "大量涌来的请求；使人应接不暇的请求",
+      "definitionEn": "A very large number of requests arriving in a way that is difficult to manage.",
+      "usage": "原文 avalanche of requests 跨行；avalanche 在此为雪崩式涌入的比喻。",
+      "exampleEn": "The policy change triggered an avalanche of requests for clarification.",
+      "exampleZh": "政策调整引发了大量要求解释的请求。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "face an avalanche of requests",
+        "trigger an avalanche of requests"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "协作负担",
+      "order": 10,
+      "reuseExistingEntryId": "public-teamwork-an-avalanche-of-requests-d4e43ae5"
+    },
+    {
+      "term": "burnout",
+      "originalInput": "burnout",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "职业倦怠；长期工作压力导致的身心耗竭",
+      "definitionEn": "A state of physical or emotional exhaustion associated with prolonged work-related stress.",
+      "usage": "此义通常不可数；不把一时疲惫直接等同于 burnout。",
+      "exampleEn": "The department reviewed workloads after several employees raised concerns about burnout.",
+      "exampleZh": "几名员工表达了对职业倦怠的担忧后，部门重新审视了工作量。",
+      "phonetic": "/ˈbɝnˌaʊt/",
+      "forms": [],
+      "collocations": [
+        "employee burnout",
+        "prevent burnout"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "员工体验",
+      "order": 11,
+      "reuseExistingEntryId": "public-teamwork-burnout-a4f4e73f"
+    },
+    {
+      "term": "turnover",
+      "originalInput": "turnover",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "员工流失；人员离职与更替",
+      "definitionEn": "The rate or process at which employees leave an organization and are replaced.",
+      "usage": "本文为人员流失义，不是营业额或库存周转率；通常不可数。",
+      "exampleEn": "The manager examined whether frequent weekend requests were increasing turnover.",
+      "exampleZh": "经理调查了频繁的周末工作请求是否正在增加员工流失。",
+      "phonetic": "/ˈtɝnˌoʊvɚ/",
+      "forms": [],
+      "collocations": [
+        "employee turnover",
+        "high turnover"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "员工体验",
+      "order": 12,
+      "reuseExistingEntryId": "public-teamwork-turnover-10de4146"
+    },
+    {
+      "term": "lopsided",
+      "originalInput": "lopsided",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "严重失衡的；分配明显不均的",
+      "definitionEn": "Unevenly balanced, with too much concentrated on one side or in one group.",
+      "usage": "本文指少数员工承担过多协作工作，而非物体外形歪斜。",
+      "exampleEn": "The workload became lopsided when every urgent request went to the same analyst.",
+      "exampleZh": "当每个紧急请求都交给同一位分析师时，工作量分配变得严重失衡。",
+      "phonetic": "/ˈlɑpˌsaɪdɪd/",
+      "forms": [],
+      "collocations": [
+        "a lopsided distribution",
+        "a lopsided workload"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "需求管理",
+      "order": 13,
+      "reuseExistingEntryId": "public-teamwork-lopsided-a0deb9d0"
+    },
+    {
+      "term": "value-added",
+      "originalInput": "value-added",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "增值的；带来实际额外价值的",
+      "definitionEn": "Producing an additional useful benefit beyond what was already available.",
+      "usage": "本文修饰有效协作或活动；不是仅增加活动数量，也不是增值税。",
+      "exampleEn": "We shortened routine updates to protect time for value-added analysis.",
+      "exampleZh": "我们缩短了常规汇报，以保留时间开展能带来额外价值的分析。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "value-added activities",
+        "value-added collaboration"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "目标与绩效"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与绩效",
+      "order": 14,
+      "reuseExistingEntryId": "public-teamwork-value-added-5e0f1cf7"
+    },
+    {
+      "term": "extra miler",
+      "originalInput": "extra miler",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "额外付出者；经常超出本职要求作贡献的员工",
+      "definitionEn": "An employee who regularly contributes beyond the formal requirements of their role.",
+      "usage": "这是文章引用的人员标签；常见相关表达 go the extra mile，不把该标签当作正式职位名称。",
+      "exampleEn": "The team valued its extra milers but checked that their help did not become an unlimited obligation.",
+      "exampleZh": "团队重视愿意额外付出的成员，也检查他们的帮助是否变成了没有边界的义务。",
+      "phonetic": "",
+      "forms": [
+        "extra milers"
+      ],
+      "collocations": [
+        "an extra miler on the team",
+        "recognize extra milers"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "组织协作",
+      "order": 15,
+      "reuseExistingEntryId": "public-teamwork-extra-miler-34265fc2"
+    },
+    {
+      "term": "virtuous cycle",
+      "originalInput": "virtuous cycle",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "良性循环；有利因素相互强化的过程",
+      "definitionEn": "A process in which positive effects reinforce one another and create further benefits.",
+      "usage": "cycle 强调反馈循环；与 vicious cycle 恶性循环相对，原文随后说循环可能变坏。",
+      "exampleEn": "Reliable documentation created a virtuous cycle of fewer interruptions and better updates.",
+      "exampleZh": "可靠的文档形成了打扰更少、更新更完善的良性循环。",
+      "phonetic": "",
+      "forms": [
+        "virtuous cycles"
+      ],
+      "collocations": [
+        "create a virtuous cycle",
+        "a virtuous cycle of improvement"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织心理"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "组织心理",
+      "order": 16,
+      "reuseExistingEntryId": "public-teamwork-virtuous-cycle-de151894"
+    },
+    {
+      "term": "bottleneck",
+      "originalInput": "bottlenecks",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "瓶颈；限制整体进展的环节或人员",
+      "definitionEn": "A point in a process where limited capacity slows the progress of the whole system.",
+      "usage": "本文指工作必须等少数关键协作者处理后才能推进。",
+      "exampleEn": "A single approval inbox became a bottleneck during the hiring surge.",
+      "exampleZh": "在集中招聘期间，唯一的审批收件箱成了流程瓶颈。",
+      "phonetic": "/ˈbɑtəlˌnɛk/",
+      "forms": [
+        "bottlenecks"
+      ],
+      "collocations": [
+        "workflow bottleneck",
+        "remove a bottleneck"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "流程与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "流程与资源",
+      "order": 17,
+      "reuseExistingEntryId": "public-teamwork-bottleneck-da24c316"
+    },
+    {
+      "term": "weigh in",
+      "originalInput": "weighed in",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "发表意见；介入讨论提供判断",
+      "definitionEn": "To contribute an opinion or judgment to a discussion or decision.",
+      "usage": "常用 weigh in on an issue；不是称重，也不同于 weigh up 评估。",
+      "exampleEn": "We asked the compliance specialist to weigh in before finalizing the contract.",
+      "exampleZh": "在敲定合同前，我们请合规专家发表意见。",
+      "phonetic": "",
+      "forms": [
+        "weighs in",
+        "weighed in",
+        "weighing in"
+      ],
+      "collocations": [
+        "weigh in on a decision",
+        "weigh in on a proposal"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "团队沟通"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队沟通",
+      "order": 18,
+      "reuseExistingEntryId": "public-teamwork-weigh-in-cbb34abc"
+    },
+    {
+      "term": "overtaxed",
+      "originalInput": "overtaxed",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "负担过重的；被过度消耗的",
+      "definitionEn": "Required to do more work or provide more effort than one can reasonably manage.",
+      "usage": "本文指人的时间和精力受到过度索取，不是税率过高。",
+      "exampleEn": "The overtaxed coordinator could no longer respond to every department promptly.",
+      "exampleZh": "这位负担过重的协调员已无法及时回复每个部门。",
+      "phonetic": "/ˌoʊvɚˈtækst/",
+      "forms": [],
+      "collocations": [
+        "overtaxed employees",
+        "an overtaxed team"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "协作负担",
+      "order": 19,
+      "reuseExistingEntryId": "public-teamwork-overtaxed-4a2811f3"
+    },
+    {
+      "term": "reap the rewards",
+      "originalInput": "reap the rewards",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "获得回报；享受努力带来的成果",
+      "definitionEn": "To receive the benefits produced by an effort, investment, or action.",
+      "usage": "常接 of；原义 reap 为收割，商业语境中为获得成果。",
+      "exampleEn": "Teams can reap the rewards of shared templates long after the first project ends.",
+      "exampleZh": "第一个项目结束很久以后，团队仍能从共享模板中获得回报。",
+      "phonetic": "",
+      "forms": [
+        "reaps the rewards",
+        "reaped the rewards",
+        "reaping the rewards"
+      ],
+      "collocations": [
+        "reap the rewards of collaboration",
+        "reap the rewards of investment"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "目标与绩效"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与绩效",
+      "order": 20,
+      "reuseExistingEntryId": "public-teamwork-reap-the-rewards-cf23de92"
+    },
+    {
+      "term": "inadvertently",
+      "originalInput": "inadvertently",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "无意地；不经意间",
+      "definitionEn": "Without intending to do something or realizing its consequences.",
+      "usage": "表示行为或结果不是有意造成，不等于结果没有责任或影响。",
+      "exampleEn": "The new approval rule inadvertently increased the manager's workload.",
+      "exampleZh": "新的审批规定无意中增加了经理的工作量。",
+      "phonetic": "/ˌɪnədˈvɝtəntli/",
+      "forms": [],
+      "collocations": [
+        "inadvertently create a problem",
+        "inadvertently exclude someone"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "判断与分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "判断与分析",
+      "order": 21,
+      "reuseExistingEntryId": "public-teamwork-inadvertently-e910f809"
+    },
+    {
+      "term": "deplete",
+      "originalInput": "depleting",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "耗尽；大幅消耗资源",
+      "definitionEn": "To use up or greatly reduce an available supply of something.",
+      "usage": "可接时间、精力或库存；本文对照说明共享知识通常不会耗掉持有者的知识。",
+      "exampleEn": "Constant interruptions depleted the analyst's energy before her main task began.",
+      "exampleZh": "在主要任务开始前，持续的打扰就大量消耗了分析师的精力。",
+      "phonetic": "/dɪˈplit/",
+      "forms": [
+        "depletes",
+        "depleted",
+        "depleting"
+      ],
+      "collocations": [
+        "deplete resources",
+        "deplete energy reserves"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "流程与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "流程与资源",
+      "order": 22,
+      "reuseExistingEntryId": "public-teamwork-deplete-0ce80ada"
+    },
+    {
+      "term": "repository",
+      "originalInput": "repositories",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "资料库；集中保存信息的地方",
+      "definitionEn": "A place or system where information or materials are stored for later use.",
+      "usage": "本文包括报告和知识库；不只指软件代码仓库。",
+      "exampleEn": "We created a searchable repository of answers to recurring customer questions.",
+      "exampleZh": "我们建立了一个可搜索的资料库，收录反复出现的客户问题的答案。",
+      "phonetic": "/rɪˈpɑzəˌtɔri/",
+      "forms": [
+        "repositories"
+      ],
+      "collocations": [
+        "a knowledge repository",
+        "a central repository"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "知识共享"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "知识共享",
+      "order": 23,
+      "reuseExistingEntryId": "public-teamwork-repository-e2885f2b"
+    },
+    {
+      "term": "incentivize",
+      "originalInput": "incentivizing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "通过激励促使某人采取行动",
+      "definitionEn": "To encourage a behavior by offering rewards or other benefits.",
+      "usage": "常用 incentivize someone to do something；激励是否奏效取决于奖励与目标是否一致。",
+      "exampleEn": "The bonus plan should incentivize accurate handovers rather than rushed closures.",
+      "exampleZh": "奖金计划应激励准确交接，而不是匆忙结案。",
+      "phonetic": "/ɪnˈsɛntɪˌvaɪz/",
+      "forms": [
+        "incentivizes",
+        "incentivized",
+        "incentivizing"
+      ],
+      "collocations": [
+        "incentivize collaboration",
+        "incentivize employees to improve"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "激励与评价",
+      "order": 24,
+      "reuseExistingEntryId": "public-teamwork-incentivize-3d7c829c"
+    },
+    {
+      "term": "strain",
+      "originalInput": "strains",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使承受过大压力；使资源紧张",
+      "definitionEn": "To place heavy demands on a person's or system's available capacity.",
+      "usage": "本文指过长的协作活动加重双方时间精力负担；不是肌肉拉伤义。",
+      "exampleEn": "Repeated urgent changes strained the small team's capacity.",
+      "exampleZh": "反复出现的紧急变更加重了小团队的负担。",
+      "phonetic": "/streɪn/",
+      "forms": [
+        "strains",
+        "strained",
+        "straining"
+      ],
+      "collocations": [
+        "strain resources",
+        "strain team capacity"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "协作负担",
+      "order": 25,
+      "reuseExistingEntryId": "public-teamwork-strain-cf0fa94d"
+    },
+    {
+      "term": "blue-chip",
+      "originalInput": "blue-chip",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "声誉卓著且实力雄厚的",
+      "definitionEn": "Established, financially strong, and widely respected.",
+      "usage": "本文修饰专业服务公司；并非字面上的蓝色芯片。",
+      "exampleEn": "She joined a blue-chip consulting firm with a large international client base.",
+      "exampleZh": "她加入了一家声誉卓著、拥有大量国际客户的咨询公司。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "a blue-chip company",
+        "a blue-chip client"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "商业组织"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "商业组织",
+      "order": 26,
+      "reuseExistingEntryId": "public-teamwork-blue-chip-10080f70"
+    },
+    {
+      "term": "hinder",
+      "originalInput": "hinders",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "阻碍；妨碍进展或表现",
+      "definitionEn": "To make an activity, process, or person's progress more difficult.",
+      "usage": "不一定完全阻止；可指拖慢或降低表现。",
+      "exampleEn": "Unclear ownership can hinder the team's ability to solve urgent problems.",
+      "exampleZh": "责任归属不清会妨碍团队解决紧急问题。",
+      "phonetic": "/ˈhɪndɚ/",
+      "forms": [
+        "hinders",
+        "hindered",
+        "hindering"
+      ],
+      "collocations": [
+        "hinder performance",
+        "hinder progress"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "流程与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "流程与资源",
+      "order": 27,
+      "reuseExistingEntryId": "public-teamwork-hinder-cd88bef0"
+    },
+    {
+      "term": "voluntary turnover",
+      "originalInput": "voluntary turnover",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "主动离职；员工自愿离开的流失",
+      "definitionEn": "Employee departures that occur because employees choose to leave.",
+      "usage": "区别于裁员或解雇导致的非自愿离职；此语义通常不可数。",
+      "exampleEn": "The firm interviewed departing staff to understand the rise in voluntary turnover.",
+      "exampleZh": "公司访谈了离职员工，以了解主动离职增加的原因。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "reduce voluntary turnover",
+        "a predictor of voluntary turnover"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "员工体验",
+      "order": 28,
+      "reuseExistingEntryId": "public-teamwork-voluntary-turnover-894e6b4a"
+    },
+    {
+      "term": "no good deed goes unpunished",
+      "originalInput": "no good deed goes unpunished",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "好心反招麻烦；善举有时会带来额外负担",
+      "definitionEn": "An ironic saying that helping others can sometimes lead to trouble or unwanted consequences.",
+      "usage": "常见讽刺性谚语，表示善举有时反而带来麻烦；本文借此描述助人者被更多请求压垮，并非作者原创句或鼓励拒绝帮助。",
+      "exampleEn": "After her helpful checklist led to twenty new requests, she joked that no good deed goes unpunished.",
+      "exampleZh": "她提供的实用清单引来了二十个新请求后，她打趣说真是好心反招麻烦。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "feel that no good deed goes unpunished",
+        "joke that no good deed goes unpunished"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "协作负担",
+      "order": 29,
+      "reuseExistingEntryId": "public-teamwork-no-good-deed-goes-unpunished-1953b63a"
+    },
+    {
+      "term": "disengaged",
+      "originalInput": "Disengaged",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "缺乏投入感的；对工作疏离的",
+      "definitionEn": "No longer mentally or emotionally involved in one's work.",
+      "usage": "本文指工作投入感低，不等于没有被安排工作；甚至可能同时工作过载。",
+      "exampleEn": "The employee appeared disengaged after months of unrecognized support work.",
+      "exampleZh": "连续几个月的支持工作未获认可后，这名员工显得对工作缺乏投入感。",
+      "phonetic": "/ˌdɪsɪnˈɡeɪdʒd/",
+      "forms": [],
+      "collocations": [
+        "disengaged employees",
+        "become disengaged"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "员工体验",
+      "order": 30,
+      "reuseExistingEntryId": "public-teamwork-disengaged-11666d1d"
+    },
+    {
+      "term": "engagement",
+      "originalInput": "engagement",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "工作投入感；对工作的心理参与和热情",
+      "definitionEn": "The degree of emotional and mental involvement people have in their work.",
+      "usage": "本文为员工投入度，不是婚约或预约；该义通常不可数。",
+      "exampleEn": "The survey measured engagement separately from the number of hours worked.",
+      "exampleZh": "问卷把工作投入感与工作时长分开测量。",
+      "phonetic": "/ɪnˈɡeɪdʒmənt/",
+      "forms": [],
+      "collocations": [
+        "employee engagement",
+        "engagement scores"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "员工体验",
+      "order": 31,
+      "reuseExistingEntryId": "public-teamwork-engagement-495b93a3"
+    },
+    {
+      "term": "apathy",
+      "originalInput": "apathy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "冷漠；缺乏兴趣和积极性",
+      "definitionEn": "A lack of interest, enthusiasm, or concern.",
+      "usage": "通常不可数；本文讨论投入感低可能对同事造成的影响。",
+      "exampleEn": "Managers addressed growing apathy by clarifying priorities and recognizing helpful work.",
+      "exampleZh": "管理者通过明确优先事项和认可助人贡献来应对日益加深的冷漠。",
+      "phonetic": "/ˈæpəθi/",
+      "forms": [],
+      "collocations": [
+        "growing apathy",
+        "workplace apathy"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "员工体验",
+      "order": 32,
+      "reuseExistingEntryId": "public-teamwork-apathy-f87fc5cd"
+    },
+    {
+      "term": "streamline",
+      "originalInput": "streamlining",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "精简流程；提高工作效率",
+      "definitionEn": "To make a process simpler and more efficient by removing unnecessary steps.",
+      "usage": "强调精简与理顺流程，不必然等于削减人员。",
+      "exampleEn": "We streamlined the approval process by removing duplicate reviews.",
+      "exampleZh": "我们通过取消重复审查精简了审批流程。",
+      "phonetic": "/ˈstrimˌlaɪn/",
+      "forms": [
+        "streamlines",
+        "streamlined",
+        "streamlining"
+      ],
+      "collocations": [
+        "streamline a process",
+        "streamline operations"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "流程与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "流程与资源",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-streamline-59afb3a4"
+    },
+    {
+      "term": "360-degree feedback",
+      "originalInput": "360-degree feedback",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "360度反馈；来自多方关系人的综合反馈",
+      "definitionEn": "Feedback about a person's work collected from several perspectives, such as managers, peers, and direct reports.",
+      "usage": "通常不是只由直属主管评分；具体反馈来源可因组织而异。",
+      "exampleEn": "The review combined project results with 360-degree feedback from colleagues.",
+      "exampleZh": "这次评价结合了项目结果与来自同事的360度反馈。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "collect 360-degree feedback",
+        "a 360-degree feedback process"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "激励与评价",
+      "order": 34,
+      "reuseExistingEntryId": "public-teamwork-360-degree-feedback-36cc56e5"
+    },
+    {
+      "term": "lever",
+      "originalInput": "levers",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "可用来促成改变的手段；管理杠杆",
+      "definitionEn": "A factor or action that can be used to influence a wider outcome.",
+      "usage": "本文为管理比喻，指可以调整的干预手段，不是物理杠杆。",
+      "exampleEn": "Changing approval limits was one lever for reducing unnecessary requests.",
+      "exampleZh": "调整审批权限上限是减少不必要请求的一项手段。",
+      "phonetic": "/ˈlɛvɚ/",
+      "forms": [
+        "levers"
+      ],
+      "collocations": [
+        "a policy lever",
+        "a lever for change"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "职责与边界"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "职责与边界",
+      "order": 35,
+      "reuseExistingEntryId": "public-teamwork-lever-21f2dcaa"
+    },
+    {
+      "term": "overburdened",
+      "originalInput": "overburdened",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "负担过重的；承担过多任务的",
+      "definitionEn": "Given more work or responsibility than can be managed comfortably or effectively.",
+      "usage": "本文修饰最常帮助别人的员工；不是能力弱，而可能是承担过多。",
+      "exampleEn": "The overburdened support lead delegated routine questions to a rotating team.",
+      "exampleZh": "负担过重的支持负责人把常规问题交给轮值团队处理。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "overburdened employees",
+        "an overburdened manager"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "协作负担",
+      "order": 36,
+      "reuseExistingEntryId": "public-teamwork-overburdened-117c8934"
+    },
+    {
+      "term": "ad hoc",
+      "originalInput": "ad hoc",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective",
+      "meaning": "临时的；为特定即时目的而安排的",
+      "definitionEn": "Created or arranged for a particular immediate purpose rather than as part of a regular system.",
+      "usage": "ad hoc 不一定表示草率或没有计划；本文用于临时发起的协作请求。",
+      "exampleEn": "We replaced repeated ad hoc briefings with one shared weekly update.",
+      "exampleZh": "我们用每周一次的共享更新替代了反复进行的临时情况说明。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "ad hoc requests",
+        "an ad hoc meeting"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "需求管理",
+      "order": 37,
+      "reuseExistingEntryId": "public-teamwork-ad-hoc-e6018157"
+    },
+    {
+      "term": "prone to",
+      "originalInput": "prone to",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "容易遭受或出现某种不良情况的",
+      "definitionEn": "Likely to experience something, especially an unwanted condition or problem.",
+      "usage": "常见 prone to + 名词或动名词，也可用 prone to do something；通常描述不良倾向或风险。",
+      "exampleEn": "Teams with unclear priorities are more prone to repeated interruptions.",
+      "exampleZh": "优先事项不清晰的团队更容易受到反复打扰。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "prone to stress",
+        "prone to making errors"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "员工体验"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "员工体验",
+      "order": 38,
+      "reuseExistingEntryId": "public-teamwork-prone-to-85f0bdee"
+    },
+    {
+      "term": "stem the tide",
+      "originalInput": "stem the tide",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "遏制不断增加的事物；阻止某种趋势继续扩大",
+      "definitionEn": "To stop or reduce a growing flow of something unwanted.",
+      "usage": "常接 of；本文指遏制持续涌入的请求，stem 在此为动词。",
+      "exampleEn": "A clear help page helped stem the tide of basic account questions.",
+      "exampleZh": "清晰的帮助页面有助于遏制不断涌入的基础账户问题。",
+      "phonetic": "",
+      "forms": [
+        "stems the tide",
+        "stemmed the tide",
+        "stemming the tide"
+      ],
+      "collocations": [
+        "stem the tide of requests",
+        "stem the tide of complaints"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "需求管理",
+      "order": 39,
+      "reuseExistingEntryId": "public-teamwork-stem-the-tide-5d66da7e"
+    },
+    {
+      "term": "recurring",
+      "originalInput": "recurring",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "反复发生的；定期重复的",
+      "definitionEn": "Happening repeatedly or at regular intervals.",
+      "usage": "本文 recurring meetings 指日历中定期重复的会议；不一定意味着每次都有必要。",
+      "exampleEn": "We removed a recurring meeting that no longer had a clear purpose.",
+      "exampleZh": "我们取消了一场已经没有明确目的的例行会议。",
+      "phonetic": "/rɪˈkɝɪŋ/",
+      "forms": [],
+      "collocations": [
+        "recurring meetings",
+        "a recurring problem"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "会议管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "会议管理",
+      "order": 40,
+      "reuseExistingEntryId": "public-teamwork-recurring-a4fdbb29"
+    },
+    {
+      "term": "hiatus",
+      "originalInput": "hiatus",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "暂停；一段中断期",
+      "definitionEn": "A temporary break in an activity or process.",
+      "usage": "通常暗含之后可能恢复；不是永久取消。",
+      "exampleEn": "The training sessions resumed after a short hiatus during the product launch.",
+      "exampleZh": "产品发布期间短暂停办后，培训课程恢复了。",
+      "phonetic": "/haɪˈeɪtəs/",
+      "forms": [
+        "hiatuses"
+      ],
+      "collocations": [
+        "after a hiatus",
+        "a brief hiatus"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "会议管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "会议管理",
+      "order": 41,
+      "reuseExistingEntryId": "public-teamwork-hiatus-3ec5ccc4"
+    },
+    {
+      "term": "vigilant",
+      "originalInput": "vigilant",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "警觉的；持续留意潜在问题的",
+      "definitionEn": "Careful and watchful in order to notice or prevent problems.",
+      "usage": "常接 about/against；本文强调认真审视会议安排，不是单纯勤奋。",
+      "exampleEn": "Project leads remained vigilant about meetings that duplicated written updates.",
+      "exampleZh": "项目负责人持续留意那些与书面更新重复的会议。",
+      "phonetic": "/ˈvɪdʒələnt/",
+      "forms": [],
+      "collocations": [
+        "remain vigilant",
+        "vigilant about risks"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "会议管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "会议管理",
+      "order": 42,
+      "reuseExistingEntryId": "public-teamwork-vigilant-82cacc9d"
+    },
+    {
+      "term": "risk-averse",
+      "originalInput": "risk-averse",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "厌恶风险的；倾向于回避风险的",
+      "definitionEn": "Preferring to avoid risk or uncertainty rather than accept possible losses.",
+      "usage": "本文指回避风险的组织文化可能促使成员过度请求审批。",
+      "exampleEn": "A risk-averse approval culture made staff seek permission for minor purchases.",
+      "exampleZh": "回避风险的审批文化让员工连小额采购都要请示。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "a risk-averse culture",
+        "risk-averse decision-makers"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "决策与权限"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "决策与权限",
+      "order": 43,
+      "reuseExistingEntryId": "public-teamwork-risk-averse-c2457218"
+    },
+    {
+      "term": "stakeholder",
+      "originalInput": "stakeholders",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "利益相关者；受决策影响或能影响决策的一方",
+      "definitionEn": "A person or group with an interest in, influence over, or exposure to the effects of an activity.",
+      "usage": "stakeholder 范围比 shareholder 股东更广，可包括客户、员工和合作方。",
+      "exampleEn": "We consulted key stakeholders before changing the service schedule.",
+      "exampleZh": "在调整服务时间表之前，我们咨询了主要利益相关方。",
+      "phonetic": "/ˈsteɪkˌhoʊldɚ/",
+      "forms": [
+        "stakeholders"
+      ],
+      "collocations": [
+        "key stakeholders",
+        "stakeholder consultation"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "决策与权限"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "决策与权限",
+      "order": 44,
+      "reuseExistingEntryId": "public-teamwork-stakeholder-e954fbfd"
+    },
+    {
+      "term": "leverage",
+      "originalInput": "Leverage",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "有效利用某种资源以取得更大效果",
+      "definitionEn": "To use an available resource or advantage to achieve a useful result.",
+      "usage": "本文为动词，指利用技术与空间；不是财务杠杆的名词义。",
+      "exampleEn": "We leveraged the existing forum to answer questions across all regional teams.",
+      "exampleZh": "我们利用现有论坛回答所有区域团队的问题。",
+      "phonetic": "/ˈlɛvɚɪdʒ/",
+      "forms": [
+        "leverages",
+        "leveraged",
+        "leveraging"
+      ],
+      "collocations": [
+        "leverage technology",
+        "leverage existing resources"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "流程与资源"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "流程与资源",
+      "order": 45,
+      "reuseExistingEntryId": "public-teamwork-leverage-3d192e12"
+    },
+    {
+      "term": "detrimental",
+      "originalInput": "detrimental",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "有害的；造成不利影响的",
+      "definitionEn": "Causing harm or making a situation worse.",
+      "usage": "常用 detrimental to something；effects 为被修饰名词时也常见。",
+      "exampleEn": "Frequent context switching can be detrimental to careful analytical work.",
+      "exampleZh": "频繁切换任务可能不利于需要细致思考的分析工作。",
+      "phonetic": "/ˌdɛtrəˈmɛntəl/",
+      "forms": [],
+      "collocations": [
+        "detrimental effects",
+        "detrimental to performance"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "协作负担",
+      "order": 46,
+      "reuseExistingEntryId": "public-teamwork-detrimental-37ad2e86"
+    },
+    {
+      "term": "colocate",
+      "originalInput": "colocate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "将需要协作的人员安排在同一地点",
+      "definitionEn": "To place people or activities together in the same physical location.",
+      "usage": "原文采用 colocate 拼写，也可见 co-locate；不是要求所有工作一律回到办公室。",
+      "exampleEn": "We colocated the testing and support teams during the two-week pilot.",
+      "exampleZh": "在为期两周的试点期间，我们把测试和支持团队安排在同一地点。",
+      "phonetic": "",
+      "forms": [
+        "colocates",
+        "colocated",
+        "colocating"
+      ],
+      "collocations": [
+        "colocate employees",
+        "colocate interdependent teams"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "组织协作",
+      "order": 47,
+      "reuseExistingEntryId": "public-teamwork-colocate-2d55c7ee"
+    },
+    {
+      "term": "interdependent",
+      "originalInput": "interdependent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "相互依赖的；彼此需要配合才能完成工作的",
+      "definitionEn": "Depending on one another so that each person's or part's work affects the others.",
+      "usage": "强调双向或多方依赖；不是单纯存在联系。",
+      "exampleEn": "The two interdependent teams agreed on a shared handover checklist.",
+      "exampleZh": "这两个相互依赖的团队约定使用一份共同的交接清单。",
+      "phonetic": "/ˌɪntɚdɪˈpɛndənt/",
+      "forms": [],
+      "collocations": [
+        "interdependent teams",
+        "highly interdependent tasks"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "组织协作",
+      "order": 48,
+      "reuseExistingEntryId": "public-teamwork-interdependent-23fa752e"
+    },
+    {
+      "term": "facilitate",
+      "originalInput": "facilitate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "促进；使某个过程更容易开展",
+      "definitionEn": "To make an activity or process easier to carry out.",
+      "usage": "不等于亲自替所有人完成任务；可通过安排环境、资源或流程来促进。",
+      "exampleEn": "A shared vocabulary facilitated communication between finance and engineering.",
+      "exampleZh": "共同的术语体系促进了财务与工程部门之间的沟通。",
+      "phonetic": "/fəˈsɪləˌteɪt/",
+      "forms": [
+        "facilitates",
+        "facilitated",
+        "facilitating"
+      ],
+      "collocations": [
+        "facilitate collaboration",
+        "facilitate an exchange"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "组织协作"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "组织协作",
+      "order": 49,
+      "reuseExistingEntryId": "public-teamwork-facilitate-2c3184ba"
+    },
+    {
+      "term": "impromptu",
+      "originalInput": "impromptu",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "即兴的；事先未安排的",
+      "definitionEn": "Happening without advance planning or preparation.",
+      "usage": "本文指简短的临时面对面合作；不等于低质量或没有价值。",
+      "exampleEn": "An impromptu conversation solved the issue before a formal meeting was needed.",
+      "exampleZh": "一次临时交谈在需要正式开会之前就解决了问题。",
+      "phonetic": "/ɪmˈprɑmptu/",
+      "forms": [],
+      "collocations": [
+        "an impromptu conversation",
+        "an impromptu meeting"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "会议管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "会议管理",
+      "order": 50,
+      "reuseExistingEntryId": "public-teamwork-impromptu-fc232d1e"
+    },
+    {
+      "term": "decision rights",
+      "originalInput": "decision rights",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "决策权；就特定事项作出决定的权限",
+      "definitionEn": "The authority assigned to a person or group to make particular decisions.",
+      "usage": "强调哪些决定由谁作出；不同于只提供建议或最后执行。",
+      "exampleEn": "The project charter clarified decision rights for changes to customer requirements.",
+      "exampleZh": "项目章程明确了变更客户需求的决策权限。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "assign decision rights",
+        "clarify decision rights"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "决策与权限"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "决策与权限",
+      "order": 51,
+      "reuseExistingEntryId": "public-teamwork-decision-rights-f490824a"
+    },
+    {
+      "term": "capital expenditure",
+      "originalInput": "capital expenditures",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "资本性支出；用于购置或改善长期资产的支出",
+      "definitionEn": "Money spent to acquire or improve assets expected to be used over a longer period.",
+      "usage": "常见缩写 CapEx；与日常运营支出不同，本文讨论这类支出的审批权限。",
+      "exampleEn": "The equipment upgrade required approval as a capital expenditure.",
+      "exampleZh": "这项设备升级需要作为资本性支出获得批准。",
+      "phonetic": "",
+      "forms": [
+        "capital expenditures"
+      ],
+      "collocations": [
+        "approve capital expenditures",
+        "planned capital expenditure"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "决策与权限"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "决策与权限",
+      "order": 52,
+      "reuseExistingEntryId": "public-teamwork-capital-expenditure-189069d4"
+    },
+    {
+      "term": "buffer",
+      "originalInput": "buffer",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "缓冲机制；减少直接冲击或需求压力的中间安排",
+      "definitionEn": "Something that absorbs pressure or reduces the direct effect of demands on a person or system.",
+      "usage": "本文指有人或机制先接住求助需求，保护最繁忙员工的时间。",
+      "exampleEn": "A rotating help desk created a buffer between routine questions and specialist work.",
+      "exampleZh": "轮值服务台在常规问题与专家工作之间形成了缓冲。",
+      "phonetic": "/ˈbʌfɚ/",
+      "forms": [
+        "buffers"
+      ],
+      "collocations": [
+        "create a buffer",
+        "a buffer against demands"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "需求管理",
+      "order": 53,
+      "reuseExistingEntryId": "public-teamwork-buffer-d0ca8c2a"
+    },
+    {
+      "term": "utility player",
+      "originalInput": "utility players",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "多面手；能够承担多种支持任务的人员",
+      "definitionEn": "A versatile person who can fill different roles or respond to varied needs.",
+      "usage": "原为体育用语；本文比喻可轮值处理不同求助任务的人员。",
+      "exampleEn": "Each week, a utility player handled small requests that would otherwise interrupt specialists.",
+      "exampleZh": "每周由一位多面手处理原本会打扰专家的小请求。",
+      "phonetic": "",
+      "forms": [
+        "utility players"
+      ],
+      "collocations": [
+        "designate a utility player",
+        "rotate the utility-player role"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "职责与边界"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "职责与边界",
+      "order": 54,
+      "reuseExistingEntryId": "public-teamwork-utility-player-011504f3"
+    },
+    {
+      "term": "deem",
+      "originalInput": "deemed",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "认为；认定",
+      "definitionEn": "To judge or consider someone or something to have a particular quality or status.",
+      "usage": "较正式；常用 deem someone something 或 be deemed to be。",
+      "exampleEn": "Only proposals deemed feasible by the review team moved to testing.",
+      "exampleZh": "只有被审查团队认定为可行的提案才进入测试阶段。",
+      "phonetic": "/dim/",
+      "forms": [
+        "deems",
+        "deemed",
+        "deeming"
+      ],
+      "collocations": [
+        "deem something necessary",
+        "be deemed suitable"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "判断与分析"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "判断与分析",
+      "order": 55,
+      "reuseExistingEntryId": "public-teamwork-deem-e3bc8268"
+    },
+    {
+      "term": "underperform",
+      "originalInput": "underperform",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "表现不及预期；未达到应有水平",
+      "definitionEn": "To perform less well than expected or required.",
+      "usage": "可用于个人、团队或项目；本文强调表现低可能与过载有关，而非缺乏能力。",
+      "exampleEn": "A talented employee may underperform when constant interruptions fragment the day.",
+      "exampleZh": "当持续打扰把一天切得支离破碎时，有才干的员工也可能表现不及预期。",
+      "phonetic": "/ˌʌndɚpɚˈfɔrm/",
+      "forms": [
+        "underperforms",
+        "underperformed",
+        "underperforming"
+      ],
+      "collocations": [
+        "underperform against expectations",
+        "an underperforming team"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "目标与绩效"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "目标与绩效",
+      "order": 56,
+      "reuseExistingEntryId": "public-teamwork-underperform-38499e5f"
+    },
+    {
+      "term": "kudos",
+      "originalInput": "kudos",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "赞誉；认可",
+      "definitionEn": "Praise or recognition given for an achievement.",
+      "usage": "通常不可数，虽以 s 结尾也不机械理解为复数；常用 earn/get kudos。",
+      "exampleEn": "The coordinator earned kudos for helping three teams meet the deadline.",
+      "exampleZh": "这位协调员因帮助三个团队按时完成任务而获得赞誉。",
+      "phonetic": "/ˈkudɑs/",
+      "forms": [],
+      "collocations": [
+        "earn kudos",
+        "receive kudos for"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "激励与评价",
+      "order": 57,
+      "reuseExistingEntryId": "public-teamwork-kudos-95f3e4b1"
+    },
+    {
+      "term": "amplify",
+      "originalInput": "amplify",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "扩大；增强某种效果或他人的成功",
+      "definitionEn": "To increase the strength, extent, or effect of something.",
+      "usage": "本文为比喻义，指帮助放大同事的成果；不只是扩音设备用语。",
+      "exampleEn": "Sharing the reusable tool amplified the impact of one analyst's work.",
+      "exampleZh": "分享这套可复用工具放大了一位分析师工作的影响。",
+      "phonetic": "/ˈæmpləˌfaɪ/",
+      "forms": [
+        "amplifies",
+        "amplified",
+        "amplifying"
+      ],
+      "collocations": [
+        "amplify success",
+        "amplify the impact of"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "目标与绩效"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "目标与绩效",
+      "order": 58,
+      "reuseExistingEntryId": "public-teamwork-amplify-29e60c5e"
+    },
+    {
+      "term": "performance metric",
+      "originalInput": "performance metrics",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "绩效指标；用于衡量表现的量化标准",
+      "definitionEn": "A measure used to evaluate how well a person, team, or process performs.",
+      "usage": "指标应与真实目标一致；本文提醒同时衡量个人成果与协作贡献。",
+      "exampleEn": "We added a performance metric for the quality of cross-team handovers.",
+      "exampleZh": "我们新增了一项衡量跨团队交接质量的绩效指标。",
+      "phonetic": "",
+      "forms": [
+        "performance metrics"
+      ],
+      "collocations": [
+        "value-added performance metrics",
+        "track performance metrics"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "激励与评价",
+      "order": 59,
+      "reuseExistingEntryId": "public-teamwork-performance-metric-07b5f641"
+    },
+    {
+      "term": "acquisition",
+      "originalInput": "acquisition",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "收购；一家公司购买另一家公司或其业务",
+      "definitionEn": "A transaction in which one company buys another company or part of its business.",
+      "usage": "本文为企业并购义；不是知识或技能的习得。",
+      "exampleEn": "During the acquisition, management mapped which employees held critical relationships.",
+      "exampleZh": "收购期间，管理层梳理了哪些员工掌握着关键关系。",
+      "phonetic": "/ˌækwəˈzɪʃən/",
+      "forms": [
+        "acquisitions"
+      ],
+      "collocations": [
+        "a corporate acquisition",
+        "complete an acquisition"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "商业组织"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "商业组织",
+      "order": 60,
+      "reuseExistingEntryId": "public-teamwork-acquisition-31de3129"
+    },
+    {
+      "term": "consolidate",
+      "originalInput": "consolidating",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "整合；把分散设施或业务合并集中",
+      "definitionEn": "To combine separate operations or facilities into a more unified arrangement.",
+      "usage": "本文指整合世界各地设施；不直接等于裁员，尽管重组可能伴随人员变化。",
+      "exampleEn": "The firm consolidated its regional support centers into two shared hubs.",
+      "exampleZh": "公司把区域支持中心整合为两个共享枢纽。",
+      "phonetic": "/kənˈsɑləˌdeɪt/",
+      "forms": [
+        "consolidates",
+        "consolidated",
+        "consolidating"
+      ],
+      "collocations": [
+        "consolidate facilities",
+        "consolidate operations"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "商业组织"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "商业组织",
+      "order": 61,
+      "reuseExistingEntryId": "public-teamwork-consolidate-291cf1ed"
+    },
+    {
+      "term": "retention bonus",
+      "originalInput": "retention bonuses",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "留任奖金；鼓励员工继续留职的奖励",
+      "definitionEn": "An additional payment offered to encourage an employee to remain with an organization.",
+      "usage": "重点是留住员工，不是新员工签约奖金；是否留任仍取决于具体条件。",
+      "exampleEn": "The retention bonus recognized specialists whose knowledge was essential during the transition.",
+      "exampleZh": "留任奖金认可了那些在过渡期拥有关键知识的专家。",
+      "phonetic": "",
+      "forms": [
+        "retention bonuses"
+      ],
+      "collocations": [
+        "offer a retention bonus",
+        "a retention bonus plan"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "激励与评价",
+      "order": 62,
+      "reuseExistingEntryId": "public-teamwork-retention-bonus-a0f2b760"
+    },
+    {
+      "term": "pinpoint",
+      "originalInput": "pinpoint",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "准确找出；精确识别",
+      "definitionEn": "To identify the exact location, source, or nature of something.",
+      "usage": "强调准确定位，而不只是笼统知道存在问题或重要人员。",
+      "exampleEn": "Network data helped us pinpoint who was receiving repeated requests.",
+      "exampleZh": "网络数据帮助我们准确找出了哪些人反复收到求助请求。",
+      "phonetic": "/ˈpɪnˌpɔɪnt/",
+      "forms": [
+        "pinpoints",
+        "pinpointed",
+        "pinpointing"
+      ],
+      "collocations": [
+        "pinpoint a problem",
+        "pinpoint key contributors"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "判断与分析"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "判断与分析",
+      "order": 63,
+      "reuseExistingEntryId": "public-teamwork-pinpoint-8c1414bd"
+    },
+    {
+      "term": "prerequisite",
+      "originalInput": "prerequisite",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "先决条件；必须事先满足的要求",
+      "definitionEn": "A condition that must be met before something else can happen.",
+      "usage": "常用 a prerequisite for/to；本文指有效共享资源应成为正面评价与晋升的条件。",
+      "exampleEn": "Reliable documentation became a prerequisite for handing the service to another team.",
+      "exampleZh": "可靠的文档成了把这项服务交接给另一团队的先决条件。",
+      "phonetic": "/priˈrɛkwəzɪt/",
+      "forms": [
+        "prerequisites"
+      ],
+      "collocations": [
+        "a prerequisite for promotion",
+        "meet a prerequisite"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "激励与评价",
+      "order": 64,
+      "reuseExistingEntryId": "public-teamwork-prerequisite-999b3833"
+    },
+    {
+      "term": "cross-sell",
+      "originalInput": "cross-sell",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "交叉销售；向已有客户销售相关的其他产品或服务",
+      "definitionEn": "To offer an existing customer additional related products or services.",
+      "usage": "不同于 upsell 推销更贵或更高阶版本；本文涉及不同业务间合作创造客户价值。",
+      "exampleEn": "The account teams worked together to cross-sell a reporting service to existing clients.",
+      "exampleZh": "客户团队协作向现有客户交叉销售一项报告服务。",
+      "phonetic": "",
+      "forms": [
+        "cross-sells",
+        "cross-sold",
+        "cross-selling"
+      ],
+      "collocations": [
+        "cross-sell services",
+        "cross-sell to existing customers"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "商业组织"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "商业组织",
+      "order": 65,
+      "reuseExistingEntryId": "public-teamwork-cross-sell-34b86008"
+    },
+    {
+      "term": "criterion",
+      "originalInput": "criterion",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "标准；用于判断或筛选的依据",
+      "definitionEn": "A standard used to make a judgment or decide whether something qualifies.",
+      "usage": "单数 criterion，复数 criteria；不要把 criteria 当作单数。",
+      "exampleEn": "One criterion for the award was the ability to help other teams succeed.",
+      "exampleZh": "该奖项的一项评选标准是帮助其他团队成功的能力。",
+      "phonetic": "/kraɪˈtɪriən/",
+      "forms": [
+        "criteria"
+      ],
+      "collocations": [
+        "a selection criterion",
+        "meet the criteria"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "激励与评价"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "激励与评价",
+      "order": 66,
+      "reuseExistingEntryId": "public-teamwork-criterion-5f435b82"
+    },
+    {
+      "term": "strike a healthy balance",
+      "originalInput": "strike a healthy balance",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "在不同要求之间取得合理平衡",
+      "definitionEn": "To achieve an appropriate balance between competing needs or priorities.",
+      "usage": "常用 strike a balance between A and B；healthy 表示合理、可持续。",
+      "exampleEn": "We tried to strike a healthy balance between deep work and helping colleagues.",
+      "exampleZh": "我们努力在专注工作与帮助同事之间取得合理平衡。",
+      "phonetic": "",
+      "forms": [
+        "strikes a healthy balance",
+        "struck a healthy balance",
+        "striking a healthy balance"
+      ],
+      "collocations": [
+        "strike a balance between priorities",
+        "strike the right balance"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "职责与边界"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "职责与边界",
+      "order": 67,
+      "reuseExistingEntryId": "public-teamwork-strike-a-healthy-balance-bbb82c08"
+    },
+    {
+      "term": "pressing",
+      "originalInput": "pressing",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "紧迫的；需要立即关注的",
+      "definitionEn": "Urgent and requiring prompt attention.",
+      "usage": "本文为紧迫义，不是压、按；不表示每个请求都应被标为紧急。",
+      "exampleEn": "The team postponed minor updates to address a pressing customer issue.",
+      "exampleZh": "团队推迟了小更新，以处理一个紧迫的客户问题。",
+      "phonetic": "/ˈprɛsɪŋ/",
+      "forms": [],
+      "collocations": [
+        "a pressing challenge",
+        "a pressing need"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "需求管理"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "需求管理",
+      "order": 68,
+      "reuseExistingEntryId": "public-teamwork-pressing-0b10367a"
+    },
+    {
+      "term": "bear the costs",
+      "originalInput": "bear the costs",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "承担代价；承受负面后果",
+      "definitionEn": "To experience or accept the financial, practical, or personal consequences of something.",
+      "usage": "costs 在此不仅是金钱，也包括时间、精力及工作受损的代价。",
+      "exampleEn": "Junior staff should not bear the costs of unclear management priorities.",
+      "exampleZh": "初级员工不应承担管理层优先事项不清的代价。",
+      "phonetic": "",
+      "forms": [
+        "bears the costs",
+        "bore the costs",
+        "borne the costs",
+        "bearing the costs"
+      ],
+      "collocations": [
+        "bear the costs of change",
+        "bear the financial costs"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "协作负担"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "协作负担",
+      "order": 69,
+      "reuseExistingEntryId": "public-teamwork-bear-the-costs-dffd9e0f"
+    },
+    {
+      "term": "the lion's share",
+      "originalInput": "lion’s share",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "最大的一份；绝大部分",
+      "definitionEn": "The largest share of something, especially work, responsibility, or benefits.",
+      "usage": "本文用于侧栏讨论女性承担较多协作工作；不是固定指超过某个精确百分比。",
+      "exampleEn": "One coordinator handled the lion's share of the event preparations.",
+      "exampleZh": "一位协调员承担了活动准备工作中的绝大部分。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "the lion's share of the work",
+        "receive the lion's share"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "Collaborative Overload",
+        "公平与分工"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "公平与分工",
+      "order": 70,
+      "reuseExistingEntryId": "public-teamwork-the-lion-s-share-6523c68e"
+    }
+  ]
+}

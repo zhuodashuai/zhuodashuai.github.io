@@ -1,4 +1,5 @@
 import { readingContextForMembership } from "./wordbook-schema.js?v=82";
+import { readingChapterTitle } from "./reading-source.js";
 
 export const COLLECTION_TAG_PREFIX = "collection:";
 export const MAIN_COLLECTION_ID = "main";
@@ -73,7 +74,7 @@ export function buildCollectionCatalog(entries) {
         const readingContext = readingContextForMembership(entry, membership.tag);
         collection.chapters.set(membership.chapterId, {
           id: membership.chapterId,
-          title: `Chapter ${membership.chapterNumber}`,
+          title: readingChapterTitle(readingContext || entry, membership.chapterNumber),
           number: membership.chapterNumber,
           count: 0,
           sourceTitle: String(readingContext?.sourceTitle || entry.sourceTitle || "").trim()
@@ -124,7 +125,7 @@ export function collectionContextForEntry(entry, collectionId = "", chapterId = 
   return {
     ...membership,
     collectionTitle: String(readingContext?.sourceWork || entry.sourceWork || "").trim() || titleFromSlug(membership.collectionId),
-    chapterTitle: `Chapter ${membership.chapterNumber}`,
+    chapterTitle: readingChapterTitle(readingContext || entry, membership.chapterNumber),
     sourceTitle: String(readingContext?.sourceTitle || entry.sourceTitle || "").trim(),
     page: String(readingContext?.page || "").trim()
   };
