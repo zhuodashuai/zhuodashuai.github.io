@@ -41,6 +41,12 @@ export const EVERYDAY_CHINESE_ALIASES = Object.freeze([
   {"term":"follow-up appointment","aliases":["随访预约"],"targetEntrySha256":"9e5d6dfd334fd519b442455e026bd415319955eb825b0fffedb57e6fe855b4a1"},
   {"term":"sore throat","aliases":["咽喉疼痛","喉咙疼"],"targetEntrySha256":"e3866570d282e2af82f893254df428e0beba1de8d5b3775a990c0c5228a25b0a"},
   {"term":"make an appointment","aliases":["约定面谈时间"],"targetEntrySha256":"0635fc5030f9c844eaebe66d57ee65cf87a6a003797fc01581420578aa8430aa"},
+  {"term":"come clean about","aliases":["坦白交代"],"targetEntrySha256":"da25d9e1b841a7d1f45d98bd4e219450f5c39347d276aa6e48fd496d0cd6d1bb"},
+  {"term":"right down the middle","aliases":["平均分成两份"],"targetEntrySha256":"344e62fea1eaeb04b9d1590f858620cf8564068953f1f4f0e58ad4322e7b5d09"},
+  {"term":"on my honor","aliases":["以名誉保证"],"targetEntrySha256":"4ec08af173fb3b750a617eab103779c22180cb5e148b82ef3e234d36b1a9c930"},
+  {"term":"clean up after oneself","aliases":["收拾自己弄乱的东西"],"targetEntrySha256":"fa42698fb1199dfa55929bd18139f280dbe84105da360e0411bfcd2ab7bcf108"},
+  {"term":"genetically predisposed to","aliases":["有遗传倾向"],"targetEntrySha256":"191ccf86efb2038e946b6ba4a5cfca5ce818896429a71709c80200908579f635"},
+  {"term":"sink like a stone","aliases":["急剧下降"],"targetEntrySha256":"a4bab8f777acf795c29937901e1a2540a3ea53c373daa13f765ba4e1d7b8b282"},
 ].map(row => Object.freeze({ ...row, aliases: Object.freeze(row.aliases) })));
 export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
   {term:"live agent",partOfSpeech:"noun phrase",meaning:"① 人工客服；真人客服。指实际接待或处理问题的工作人员，区别于聊天机器人。",chineseAliases:["人工客服","真人客服","人工客服人员","转人工","转接人工客服","找人工客服"],englishForms:["live agents"],en:"A live agent helped me correct the delivery address.",zh:"人工客服帮我更正了收货地址。",references:["https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-hand-off"],},

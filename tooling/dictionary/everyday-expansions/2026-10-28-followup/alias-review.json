@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/common-class-coverage-audit",
+  "author": "AI/common-class-vocabulary-author",
+  "independentOfAuthor": true,
+  "checkedAt": "2026-10-28T19:24:49.187Z",
+  "sourceSha256": "6c9bd4a45e33d27537557db37981761be5853181d5883b8192119802e1d3b8b0",
+  "sourceByteSha256": "9989bfdb3335bfe3019f72ac95c283429a6c3bf537b1221a32accfbad62b67fe",
+  "sourceFieldsUnchanged": true,
+  "currentRegistrySha256": "f1f4df6cb172403d328540bdf3526c407136800a2f37fe5258f2647ba755b2a6",
+  "counts": {
+    "approvedTargets": 6,
+    "approvedAliases": 6,
+    "heldIntents": 3,
+    "changedTargetRows": 0,
+    "changedRegistryEntries": 0,
+    "newEnglishHeads": 0,
+    "liveProviderQueries": 0,
+    "personalWrites": 0
+  },
+  "scope": "Exact six alias additions to already independently approved current target rows. No changed definitions/POS/examples, no new English or canonical semantic-coverage claim, and no product writes.",
+  "decisions": [
+    {
+      "term": "come clean about",
+      "rowSha256": "8ad1eec13b2795c8739ca62cdd350675c3b0452d8060b02280b9c23892a72f25",
+      "targetEntrySha256": "da25d9e1b841a7d1f45d98bd4e219450f5c39347d276aa6e48fd496d0cd6d1bb",
+      "aliases": [
+        "坦白交代"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "坦白交代 names revealing previously hidden facts, exactly the existing selected idiom. It does not broaden this to physical cleanliness or clarity."
+    },
+    {
+      "term": "right down the middle",
+      "rowSha256": "d541446869576b72b5288d2bd31ddd4e9e930009c42a6da3cd16122082fdc3c7",
+      "targetEntrySha256": "344e62fea1eaeb04b9d1590f858620cf8564068953f1f4f0e58ad4322e7b5d09",
+      "aliases": [
+        "平均分成两份"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "平均分成两份 names the existing equal two-share use. It is not an arbitrary multi-party division."
+    },
+    {
+      "term": "on my honor",
+      "rowSha256": "759358eca75bca6f1515211978f5aac809e385ea71c00d33524d399459fa2106",
+      "targetEntrySha256": "4ec08af173fb3b750a617eab103779c22180cb5e148b82ef3e234d36b1a9c930",
+      "aliases": [
+        "以名誉保证"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "以名誉保证 is the same honor-based assurance. The displayed first-person head remains explicit and no legal guarantee is added."
+    },
+    {
+      "term": "clean up after oneself",
+      "rowSha256": "f01b9ccbbaac5ca2047a8cbfb621b941857689cb08adf9184e88f282cc87d028",
+      "targetEntrySha256": "fa42698fb1199dfa55929bd18139f280dbe84105da360e0411bfcd2ab7bcf108",
+      "aliases": [
+        "收拾自己弄乱的东西"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "收拾自己弄乱的东西 is the cleanup action and mess already described by the row. It is not arranging all possessions or caring for another person."
+    },
+    {
+      "term": "genetically predisposed to",
+      "rowSha256": "7ba9b61affd5c8442efa47bcbdd0cfb90ddc366e860c8a3524a474377a1cbd41",
+      "targetEntrySha256": "191ccf86efb2038e946b6ba4a5cfca5ce818896429a71709c80200908579f635",
+      "aliases": [
+        "有遗传倾向"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "有遗传倾向 retains an increased genetic tendency, not certainty, inevitability, diagnosis or proof of a particular disease."
+    },
+    {
+      "term": "sink like a stone",
+      "rowSha256": "7942a55d2c1d051fbb62217d5dc6544f64ea6fc186869fe7fffa44960ac66db1",
+      "targetEntrySha256": "a4bab8f777acf795c29937901e1a2540a3ea53c373daa13f765ba4e1d7b8b282",
+      "aliases": [
+        "急剧下降"
+      ],
+      "decision": "approve-alias-only",
+      "reason": "急剧下降 is already explicitly included as the figurative falling-price/performance sense. It does not erase the separate literal sinking use or imply reaching the bottom."
+    }
+  ],
+  "holds": [
+    {
+      "query": "不把某事当回事",
+      "decision": "hold-broad-synonym",
+      "reason": "Ignoring a concern can lack the mockery/contempt required by scoff at."
+    },
+    {
+      "query": "各有利弊",
+      "decision": "hold-unrelated-sense",
+      "reason": "Having advantages and disadvantages does not equal accepting an outcome for better or worse."
+    },
+    {
+      "query": "电子烟",
+      "decision": "hold-noun-action-mismatch",
+      "reason": "The device noun is distinct from vaping as an action."
+    }
+  ],
+  "actualBeforeQueryEvidence": [
+    {
+      "query": "坦白交代",
+      "beforeResultHeads": [],
+      "exactTarget": "come clean about",
+      "targetSha256": "da25d9e1b841a7d1f45d98bd4e219450f5c39347d276aa6e48fd496d0cd6d1bb",
+      "proposedMeaningUnchanged": "① 坦白交代……；把此前隐瞒的事情或真相说出来。"
+    },
+    {
+      "query": "平均分成两份",
+      "beforeResultHeads": [],
+      "exactTarget": "right down the middle",
+      "targetSha256": "344e62fea1eaeb04b9d1590f858620cf8564068953f1f4f0e58ad4322e7b5d09",
+      "proposedMeaningUnchanged": "① 正好从中间分开；也可表示把费用等平均分成两份。"
+    },
+    {
+      "query": "以名誉保证",
+      "beforeResultHeads": [],
+      "exactTarget": "on my honor",
+      "targetSha256": "4ec08af173fb3b750a617eab103779c22180cb5e148b82ef3e234d36b1a9c930",
+      "proposedMeaningUnchanged": "① 我以自己的名誉保证，用来郑重表示自己说的是真话。"
+    },
+    {
+      "query": "收拾自己弄乱的东西",
+      "beforeResultHeads": [],
+      "exactTarget": "clean up after oneself",
+      "targetSha256": "fa42698fb1199dfa55929bd18139f280dbe84105da360e0411bfcd2ab7bcf108",
+      "proposedMeaningUnchanged": "① 收拾自己使用过或弄乱的地方；把自己留下的脏乱清理好。"
+    },
+    {
+      "query": "有遗传倾向",
+      "beforeResultHeads": [],
+      "exactTarget": "genetically predisposed to",
+      "targetSha256": "191ccf86efb2038e946b6ba4a5cfca5ce818896429a71709c80200908579f635",
+      "proposedMeaningUnchanged": "① 在遗传上较容易出现某种疾病或特征；有……的遗传倾向。"
+    },
+    {
+      "query": "急剧下降",
+      "beforeResultHeads": [],
+      "exactTarget": "sink like a stone",
+      "targetSha256": "a4bab8f777acf795c29937901e1a2540a3ea53c373daa13f765ba4e1d7b8b282",
+      "proposedMeaningUnchanged": "① 迅速沉下去；比喻价格、表现等急剧下降。"
+    }
+  ],
+  "firstPartyAssetRequests": 25,
+  "notes": [
+    "The future new precipitous selected sense may also legitimately answer 急剧下降. Integration tests should assert exact intended heads/meanings rather than assume this query must always return one result."
+  ],
+  "issues": [],
+  "runtimeAdmission": false,
+  "publicationApproval": false
+}
