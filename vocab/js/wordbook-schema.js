@@ -774,13 +774,15 @@ export function contextualizeReadingEntry(entry, collectionId = "", chapterId = 
   let chapter = String(chapterId || "").trim();
   if (!entry || !collection || collection === "all") return entry;
   if (!chapter || chapter === "all") {
-    // A named-source anthology keeps each card's first article context in the
-    // whole-book study view. Numbered novels retain their existing behavior.
-    const first = (entry.readingContexts || [])
-      .filter((context) => context.membership.startsWith(`collection:${collection}:chapter-`) && namedReadingSourceTitle(context))
+    // Anthologies use their first article; a single context in a numbered book
+    // is also unambiguous. Multi-chapter novel cards keep the existing default.
+    const matching = (entry.readingContexts || [])
+      .filter((context) => context.membership.startsWith(`collection:${collection}:chapter-`));
+    const first = matching.filter((context) => namedReadingSourceTitle(context))
       .sort((left, right) => Number(left.membership.split(":").at(-1).slice(8)) - Number(right.membership.split(":").at(-1).slice(8)))[0];
-    if (!first) return entry;
-    chapter = first.membership.split(":").at(-1);
+    const selected = first || (matching.length === 1 ? matching[0] : null);
+    if (!selected) return entry;
+    chapter = selected.membership.split(":").at(-1);
   }
   const membership = `collection:${collection}:${chapter}`;
   const tags = Array.isArray(entry.tags) && entry.tags.includes(membership)
@@ -789,10 +791,11 @@ export function contextualizeReadingEntry(entry, collectionId = "", chapterId = 
   const context = readingContextForMembership(entry, membership);
   if (!context) return tags === entry.tags ? entry : { ...entry, tags };
   const articleTitle = namedReadingSourceTitle(context);
+  const sourceName = articleTitle || context.sourceWork;
   let provenance = {};
-  if (articleTitle) {
+  if (sourceName) {
     const normalized = (value) => String(value || "").normalize("NFKC").toLocaleLowerCase("en-US").replace(/\s+/gu, " ").trim();
-    const wanted = normalized(articleTitle);
+    const wanted = normalized(sourceName);
     const sameSource = [namedReadingSourceTitle(entry) || entry.sourceTitle, entry.sourceWork].some((title) => normalized(title) === wanted);
     const urls = new Set((entry.sources || []).filter((source) => {
       const title = normalized(source.title);

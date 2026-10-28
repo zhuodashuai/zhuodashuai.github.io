@@ -13169,6 +13169,10 @@
         {
           "entryId": "public-the-forsyte-saga-c1-paragon",
           "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-insulation",
+          "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
     },
@@ -13252,6 +13256,10 @@
       "links": [
         {
           "entryId": "public-the-forsyte-saga-c1-in-defiance-of",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-attire",
           "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
@@ -13421,6 +13429,10 @@
         {
           "entryId": "public-the-forsyte-saga-c1-inquisitive",
           "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-assurance",
+          "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
     },
@@ -13463,6 +13475,10 @@
         {
           "entryId": "public-the-forsyte-saga-c1-sardonic",
           "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-jest",
+          "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
     },
@@ -13501,12 +13517,7 @@
         "printedPage": ""
       },
       "featured": true,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-have-one-s-own-way",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-f3c4b1eb6122a762",
@@ -13715,6 +13726,10 @@
         {
           "entryId": "public-the-forsyte-saga-c1-obstinacy",
           "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-tentative",
+          "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
     },
@@ -13879,12 +13894,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-shoulder-to-shoulder",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-5a9bba60ff244ced",
@@ -14177,12 +14187,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-liable-to",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-a590a54ac82eee26",
@@ -14222,10 +14227,6 @@
       "links": [
         {
           "entryId": "public-the-forsyte-saga-c1-stagnation",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        },
-        {
-          "entryId": "public-the-forsyte-saga-c1-be-bound-to",
           "membership": "collection:the-forsyte-saga:chapter-1"
         },
         {
@@ -14819,12 +14820,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-as-old-as-the-hills",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-b95dd17aa4ea19af",
@@ -14903,12 +14899,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-have-one-s-eye-on",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-9a02292fad7e9b64",
@@ -15008,12 +14999,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-be-after",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-67d208f62c3863a1",
@@ -15029,12 +15015,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-get-on",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-8c605201f94f55f6",
@@ -15071,12 +15052,7 @@
         "printedPage": ""
       },
       "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-mark-my-words",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "links": []
     },
     {
       "id": "forsyte-c1-88672c3206cc637d",
@@ -15193,20 +15169,15 @@
       "chapterId": "chapter-1",
       "text": "This was the occasion of an ‘At Home’ to celebrate the engagement of Miss June Forsyte, old Jolyon’s granddaughter, to Mr Philip Bosinney.",
       "translation": "这次家庭招待会，是为了庆祝Old Jolyon的孙女June Forsyte小姐与Philip Bosinney先生订婚。",
-      "note": "",
+      "note": "本章标题中的At Home指旧式的家庭招待会。",
       "source": {
         "title": "The Forsyte Saga",
         "edition": "所提供的第一章照片",
         "pdfPage": 1,
         "printedPage": ""
       },
-      "featured": false,
-      "links": [
-        {
-          "entryId": "public-the-forsyte-saga-c1-at-home",
-          "membership": "collection:the-forsyte-saga:chapter-1"
-        }
-      ]
+      "featured": true,
+      "links": []
     },
     {
       "id": "forsyte-c1-60fe61a21bf7277e",
@@ -15225,6 +15196,3764 @@
       "links": [
         {
           "entryId": "public-the-forsyte-saga-c1-settlement",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-87c8e3ba150485ab",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "illustrative of an obscure human problem",
+      "translation": "展示了一个难以解释清楚的人性问题",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-nlmg-c13-obscure",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-2e92880db7bbd95b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "has understood something of patriarchal life",
+      "translation": "对族长制的生活有所理解",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-patriarchal",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-00df8d07f85032dd",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the swarmings of savage hordes",
+      "translation": "成群涌动的野蛮部众",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-horde",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-59f5203c1281b479",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "plants less fibrous, sappy, and persistent",
+      "translation": "那些纤维组织、汁液和持久生命力都较逊色的植物",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-fibrous",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-sappy",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1401509dbfac9eb9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "flourishing with bland, full foliage",
+      "translation": "长得枝叶繁茂，呈现出平和安然的样子",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bland",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-cb80f36e97277ee9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "bland, full foliage",
+      "translation": "平和安然、繁密的枝叶",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-foliage",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-53abaac66b243e33",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "at the summit of its efflorescence",
+      "translation": "在它盛放繁荣的顶峰",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-efflorescence",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-dc76bffeed560584",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "In the bravery of light gloves, buff waistcoats, feathers and frocks",
+      "translation": "戴着浅色手套、穿着米黄色马甲，配着羽饰与裙装，盛装而来",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bravery",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c3bbab0ac84a40a5",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "buff waistcoats",
+      "translation": "米黄色的马甲",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-buff",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-waistcoat",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b940eec88320026c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "feathers and frocks",
+      "translation": "羽饰与裙装",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-frock",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9cfe7bd1016f02cb",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a plume of dyed pampas grass",
+      "translation": "一簇染过色的蒲苇羽毛状花穗",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-plume-of",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b77559414891d53c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "dyed pampas grass in a light blue vase",
+      "translation": "插在浅蓝色花瓶里的染色蒲苇",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pampas-grass",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4cec38f0ce7a5676",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "surrounded by the effigies of three generations",
+      "translation": "被三代人的肖像围绕着",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 1,
+        "printedPage": ""
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-effigy",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-d8e4fc043294a900",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "personifying the rigid possessiveness of the family idea",
+      "translation": "体现着家族观念中僵硬的占有欲",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-personify",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b56c92a3627da448",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a more than ordinarily groomed look",
+      "translation": "一种比平常更加精心修饰的外表",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-groomed",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-6ddc6bbcde8aadeb",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a brilliant respectability",
+      "translation": "一种光鲜耀目的体面",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-respectability",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8c9501802941ee7d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "The habitual sniff on the face of Soames Forsyte",
+      "translation": "Soames Forsyte脸上那种惯常的不屑神情",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sniff",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-fd2a4725d59ac512",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "an added perfection of raiment",
+      "translation": "衣着上一种额外的无可挑剔",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-raiment",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-13568f6cd174e710",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "was what the Forsytes scented",
+      "translation": "正是Forsyte家人嗅到的东西",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-scent",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-78513ff7138f299c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "put a burnish on their armour",
+      "translation": "给他们的盔甲擦出一层光泽",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-burnish",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b53c592118fa6437",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a man of bulk and stature",
+      "translation": "一个身材高大魁梧的男人",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-stature",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-2cbe9c3145082573",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "above his satin stock",
+      "translation": "在他的缎质领巾上方",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-stock",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-f00889b006e1197a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "with his permanent stoop",
+      "translation": "带着他那惯常弯腰驼背的姿态",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-stoop",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-600e93eaf29d58f2",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "an air of fixed absorption in some secret worry",
+      "translation": "一种心思牢牢陷于隐秘忧虑的神态",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 2,
+        "printedPage": "16"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-absorption",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e646ed30ad4e2c0c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "were framed within Dundreary whiskers",
+      "translation": "被邓德里式长络腮胡围着",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dundreary-whiskers",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-868782125403adf0",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "that aforesaid appearance of",
+      "translation": "前面已经提到的那种神态",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aforesaid",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-62a6b5dc8f6f6742",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "pondering one of his sardonic jests",
+      "translation": "琢磨着他的一句冷嘲笑话",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-nlmg-c12-ponder",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-599fa9f733f84f56",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Something inherent to the occasion",
+      "translation": "这个场合本身固有的某种东西",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-inherent",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-5540c1fa90d09216",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the two Forsyte maids",
+      "translation": "Forsyte家的两位未婚姑婆",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-maid",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8953de2f84ae8d49",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "some emphatic feather or brooch",
+      "translation": "某种惹眼的羽饰或胸针",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-brooch",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c828adc4d3ed76b9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "testified to the solemnity of the opportunity",
+      "translation": "表明她们把这个机会看得十分庄重",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-solemnity",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-516fbd55faa52a6c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "under the chandelier",
+      "translation": "在枝形吊灯下方",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-chandelier",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-0f720b6649a2b0ff",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "which drooped and spread below the level of his strong jaw",
+      "translation": "它低垂着，铺展到他强健的下巴以下",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-droop",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c6207daf83806f05",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "hollows at his temples",
+      "translation": "他太阳穴处的凹陷",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-temple",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1d18a3cbda4c5771",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "for innumerable years",
+      "translation": "多年来，仿佛已有数不清的年头",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-innumerable",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-30df15ad800e0699",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a certain steadfastness of chin",
+      "translation": "下巴所呈现的某种坚定不移的特征",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-steadfastness",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-62aa05cd88655639",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "marking a racial stamp",
+      "translation": "显出一种血统家系的印记",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-stamp",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-60e4f44847ef0c9a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "had a Quilpish look on his fleshy face",
+      "translation": "他那多肉的脸上带着Quilp般的怪诞神情",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 3,
+        "printedPage": "17"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-quilpish",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-cf71c6323cb9c050",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the very hall-mark and guarantee of the family fortunes",
+      "translation": "正是家族财富的标志与保证",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-hallmark",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-aa1fc9f860eb1a19",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "pallid strenuous Archibald",
+      "translation": "面色苍白、精力强劲的Archibald",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-strenuous",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-pallid",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-fc07d76e2c10a5b4",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the grave and foppishly determined Eustace",
+      "translation": "神情严肃、带着花花公子式执拗的Eustace",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-grave",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c13efc90ec709070",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "foppishly determined Eustace",
+      "translation": "带着花花公子式执拗的Eustace",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-foppish",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-bee62f2af7a6f113",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the minds of the Forsytes misgave them",
+      "translation": "Forsyte家人的心中生出了疑虑",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-misgive",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-6922cd1b5df887d1",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "he had paid his duty call to Aunts Ann, Juley, and Hester",
+      "translation": "他曾按礼节拜访Ann、Juley和Hester三位姑婆",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-duty-call",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-5c9437f9be8f14be",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a dusty thing with a shapeless crown",
+      "translation": "一件落满灰尘、帽顶不成形的东西",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-crown",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1bb57255259c33e7",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "had tried to shoo it off a chair",
+      "translation": "曾试图把它从椅子上赶走",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-shoo",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-14bc5e535ff069ec",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Very haughty",
+      "translation": "好一个傲慢家伙",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-haughty",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1687fe155cef1377",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "was bandied from mouth to mouth",
+      "translation": "在人们口中传来传去",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bandy",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8d96eb9bf7d3a71b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "The wild Buccaneer!",
+      "translation": "那狂野的海盗！",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 4,
+        "printedPage": "18"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-buccaneer",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-315a04cd6bc4c597",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "in her imperious brisk way",
+      "translation": "以她那强硬而干脆利落的方式",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-nlmg-c3-brisk",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-95b3528467eddbc7",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "No one had credited an answer so outrageous",
+      "translation": "谁也不肯相信这样离谱的回答",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-credit",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e21958657f00bb0e",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "an answer so outrageous",
+      "translation": "一个如此离谱的回答",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-outrageous",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-19209555310ecab1",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "in the London season",
+      "translation": "在伦敦社交季期间",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-season",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9528b88443193e79",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "though not yet nineteen, she was notorious",
+      "translation": "虽然还不到十九岁，她已经出了名",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-notorious",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-45634f5b5ef469bc",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "feathers were vulgar",
+      "translation": "羽饰很俗气",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-vulgar",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-69b77ca80b962fb2",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "against a common peril",
+      "translation": "对抗一个共同的威胁",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-peril",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-64d35d51e1a8584f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "trample the invader to death",
+      "translation": "把入侵者践踏致死",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-trample",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-7beca497b2eec802",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the question of wedding gifts was usually graduated in this way",
+      "translation": "婚礼送礼的份量通常按这样的方式分出等级",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-graduate",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-0cef25ebd8f88102",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "If he were sleek, well-brushed, prosperous-looking",
+      "translation": "如果他仪容光鲜、梳理整齐，看起来很富裕",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sleek",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c569aec356a47968",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "by a species of family adjustment",
+      "translation": "通过一种家族内部的调整",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-species",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-87fd01774b6e1123",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the exact niceties being regulated",
+      "translation": "那些精细的分寸与规矩受到调节",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-nicety",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-f64559daebf7a5fa",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "where dwelt Aunts Ann, Juley, and Hester",
+      "translation": "Ann、Juley和Hester三位姑婆就住在那里",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 5,
+        "printedPage": "19"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dwell",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a2ed851e67ceec51",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "his curly hair had a rumpled appearance",
+      "translation": "他的卷发显得蓬乱",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-rumpled",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b47af6c3106e3350",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the dashing Buccaneer",
+      "translation": "那位潇洒的海盗",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dashing",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-08fe0edbc39181e4",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "very prominent cheek-bones",
+      "translation": "非常突出的颧骨",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-prominent",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a0c286411e1decbf",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "bulged out in bumps over the eyes",
+      "translation": "在双眼上方隆起一块块凸起",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bulge",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-04cb837344e94070",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "He had sherry-coloured eyes",
+      "translation": "他的眼睛带着雪利酒般的色泽",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sherry",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-dbf63c7ffa58c02e",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Old Jolyon's coachman",
+      "translation": "Old Jolyon的马车夫",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-coachman",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c397ec92182c14ba",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "had remarked to the butler",
+      "translation": "曾对男管家说",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-butler",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-5df327438c2f1ce8",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "fending off this idle curiosity",
+      "translation": "挡住这种无聊的好奇打量",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-idle",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-86892860bb9ca830",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "too slender for her crown of red-gold hair",
+      "translation": "纤细得似乎承受不住她那一冠红金色的头发",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-slender",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-6ccd9fa553a9f5ca",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a heathen goddess",
+      "translation": "一位古代异教女神",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-heathen",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b4ba85dbe6c5a9b8",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "they were sensitive lips, sensuous and sweet",
+      "translation": "那是敏感、柔美而富有感官魅力的嘴唇",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sensuous",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-67345ca5072f7019",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Her figure swayed",
+      "translation": "她的身姿轻轻摇曳",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 6,
+        "printedPage": "20"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sway",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a217f5584696728e",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Irene is my greatest chum",
+      "translation": "伊琳是我最要好的朋友。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-chum",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-bdd75f97c3798855",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "he made the word a dactyl",
+      "translation": "他把这个名字读成了扬抑抑格的节奏。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dactyl",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-d38bebdd966c1256",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Grey curls banded her forehead",
+      "translation": "灰色鬈发像带子一样围着她的额头。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-band",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e0f2e96c1788812a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "had extinguished in the family all sense of time",
+      "translation": "使家里人仿佛完全失去了时间流逝的感觉。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-extinguish",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-3c7d066a1956b48d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "to James, uneasy of conscience",
+      "translation": "对良心不安的詹姆斯来说。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-uneasy-of-conscience",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4d10b351782612c0",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Putting the bowl pettishly down",
+      "translation": "带着不耐烦把碗放下。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pettishly",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-af544d9d7ac01269",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "this strange utterance",
+      "translation": "这句奇怪的话。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-utterance",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c2b598222eebd152",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "at public functions",
+      "translation": "在公共社交活动上。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 7,
+        "printedPage": "21"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-function",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4f7a6638f4279e1d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "admiration, envy, or contempt",
+      "translation": "钦佩、嫉妒或轻蔑。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-contempt",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-30a6375c06edb9c4",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "when business was at full tide",
+      "translation": "当生意正兴旺的时候。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-at-full-tide",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-383fba3caabad3ac",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the quite conspicuous proceeds",
+      "translation": "那笔相当可观的所得款项。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-conspicuous",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-828a0ef84418bb28",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "three per cent Consols",
+      "translation": "利率为百分之三的统一公债。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-consols",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-db90868e43094856",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "haunting the background of the Forsyte universe",
+      "translation": "像幽灵般隐约存在于福尔赛家族世界的背景中。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-haunt",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a18f7ed494721783",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the imprudence of marrying",
+      "translation": "结婚这种轻率之举。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-imprudence",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-ce265b706e7b2a55",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "encumbering himself in any way with children",
+      "translation": "以任何方式让子女成为自己的负担。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-encumber",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1cd10ac0e9df134a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "her square-chinned, aquiline old face",
+      "translation": "她下巴方正、带鹰钩鼻特征的年老面容。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aquiline",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8e741317723bc650",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the spidery fingers of her hands",
+      "translation": "她那细长如蜘蛛腿的手指。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-spidery",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9337b7cccc9b7810",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "pressed against each other and interlaced",
+      "translation": "相互抵着，并交错在一起。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-interlace",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-c323c64db41f2e24",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Opportunists and egoists one and all",
+      "translation": "人人都是投机者和利己者。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-opportunist",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-egoist",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-874319ef5fe25076",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "so much of this diphtheria about",
+      "translation": "眼下到处都有这种白喉。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 8,
+        "printedPage": "22"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-diphtheria",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-46a5db6c44104e7b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "that foreign governess",
+      "translation": "那个外国女家庭教师。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-governess",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-d81c42785b0e4cea",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "he said, pouting",
+      "translation": "他说着，噘起了嘴。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pout",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-39f2458a80f209fd",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a chest like a pouter pigeon's",
+      "translation": "胸部像鼓囊鸽一样鼓起。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pouter-pigeon",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-59c16ff196cf419b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "came strutting towards them",
+      "translation": "昂首挺胸地向他们走来。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-strut",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b6d4bbb3601b163b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "in his dandified way",
+      "translation": "以他那讲究派头的方式。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dandified",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-cdee8508a58a53de",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "aspirating the 'h' strongly",
+      "translation": "用力发出那个h气音。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aspirate",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a5f18e39d10fc975",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "an air of aggravation",
+      "translation": "一副恼怒的神情。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aggravation",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-362a985d49c0aa97",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "try to eclipse his ailments",
+      "translation": "试图让自己的病痛盖过他的。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-eclipse",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-021d6aba96932cb3",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Swithin protruded his pale round eyes",
+      "translation": "斯威辛把他那苍白的圆眼睛瞪得凸了出来。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 9,
+        "printedPage": "23"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-protrude",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-155c07aec7f1550a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "I'm in good case",
+      "translation": "我的体格好得很。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-in-good-case",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-f101af8540a2745b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "not one of your thread-papers like you",
+      "translation": "才不像你这种瘦得像纸片的人。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-thread-paper",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e2d512d23cd7678b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "he prized nothing so highly",
+      "translation": "没有什么是他如此看重的。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-prize",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-644dba6faf512412",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a resemblance to a turkey-cock",
+      "translation": "显出几分雄火鸡的模样。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-turkey-cock",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-d746a4e6590ddd7f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Swithin fixed him with a stare",
+      "translation": "斯威辛定定地盯着他。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-fix-someone-with-a-stare",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-062c047819fd70bc",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "take a compound",
+      "translation": "服用一种配制药剂。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-compound",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-7ea8224ff31f6364",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "James's visage",
+      "translation": "詹姆斯的面容。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 10,
+        "printedPage": "24"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-visage",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e9f1811b87936741",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a film like a bird's",
+      "translation": "一层像鸟眼上那样的薄膜。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-film",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e7de28306c59c7f5",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the bustling crowd",
+      "translation": "熙熙攘攘的人群。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bustling",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8762d3a4acd45e39",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "that inevitable ultimate departure of her own",
+      "translation": "她自己那不可避免的最终离去。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-departure",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-264b20af2bd566a1",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the innumerable avocations of the upper middle class",
+      "translation": "中产上层不计其数的职业和事务。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-avocation",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e666e87c92ba77f9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "she would have to lay down",
+      "translation": "她终须放下。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-lay-down",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a63431050f988fe5",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "to this she clung wistfully",
+      "translation": "她惆怅地依恋着这一切。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 11,
+        "printedPage": "25"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-cling",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1eed429c0036431a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "had cheated her of the complete fulness of her family pride",
+      "translation": "使她无法完整享有自己的家族自豪。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-cheat-someone-of-something",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-80f1b96bdb879dad",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a long-inflicted injury",
+      "translation": "多年以前留下的伤害。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-inflict",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b27ce7baadc39a0d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "her tenacious old heart",
+      "translation": "她那执拗而紧抓不放的年老的心。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-tenacious",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-0a1410de59760be3",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "looked downwards and aslant",
+      "translation": "向下斜着看。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aslant",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9209d9130fbfb406",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a gold-lacquered lustre",
+      "translation": "一件涂有金漆的垂饰装饰器物。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-lustre",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-adc75239d150f178",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "genuine old lacquer",
+      "translation": "真正的旧漆器。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-lacquer",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1ae50ecebebc01eb",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "rubbing it on the knobby bulbs",
+      "translation": "在那些圆鼓突起上摩擦手指。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bulb",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-0dbd5fcebd8fe6d9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the knobby bulbs",
+      "translation": "那些有疙瘩状突起的圆鼓部位。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-knobby",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8215c98ac67c4c9f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "It was seldom he was so confidential",
+      "translation": "他很少这样愿意私下交心。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-confidential",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-031d43368e424438",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "such a decided character",
+      "translation": "这样一个很有主见的人。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-decided",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-01e38b83b1c5e382",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Soames flushed",
+      "translation": "索姆斯的脸红了。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-flush",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b95f2cd0ac713679",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a handkerchief of the finest lawn",
+      "translation": "一块用极细薄布料制成的手帕。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-lawn",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-833e275988b2b456",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a sure trustee of the family soul",
+      "translation": "家族精神的可靠守护者。",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 12,
+        "printedPage": "26"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-trustee",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-dd826dd1e21abd18",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "embodied therein",
+      "translation": "体现在其中",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-therein",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-888cd1a356520f51",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "called by his intimates",
+      "translation": "他的密友们这样称呼他",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-intimate",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8d8eb33edbf4f671",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the position of a master-builder",
+      "translation": "建筑商的地位",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-master-builder",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9ab88bb510779c39",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "not greatly to their credit",
+      "translation": "并不怎么为他们增光",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-to-one-s-credit",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-9cfef803b8fd56a4",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "The only aristocratic trait",
+      "translation": "唯一的贵族特征",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-aristocratic",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-f1a29d461c8a05ef",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "with a mottled face",
+      "translation": "脸上颜色斑驳",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-mottled",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8298c07f934da74f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a fresh-coloured man",
+      "translation": "一个面色红润的男人",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-fresh-coloured",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-87ba3e97fea339b1",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a buttressed outer wall",
+      "translation": "一面有扶壁支撑的外墙",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-buttress",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-5dd329e85cce28a3",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "that little flibbertigibbet",
+      "translation": "那个轻浮的小子",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-flibbertigibbet",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-5a0ea2166f56bce0",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a stonemason by trade",
+      "translation": "以石匠为业",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 13,
+        "printedPage": "27"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-stonemason",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-e30c8257cd4b6d09",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "A haze hovered",
+      "translation": "一层薄雾盘桓着",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-haze",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-6ef5665a8d58f2c6",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Down in this hollow",
+      "translation": "在这片洼地里",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-hollow",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-818f3d110030ff58",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the primeval Forsytes",
+      "translation": "远古般的Forsyte家族先祖",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-primeval",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-1fac26c37c4a8593",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "honesty welled up",
+      "translation": "诚实之情涌上心头",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-nlmg-c15-well-up",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-58629d8955c8ffe1",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Yeomen—I suppose very small beer",
+      "translation": "自耕农——我想不过是些小人物",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-yeoman",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b9cec0a4b8a34728",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "afforded him consolation",
+      "translation": "给他带来慰藉",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-consolation",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-24fbd0a7e890b14b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "their sick domestics",
+      "translation": "他们生病的家佣",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-domestic",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b7e31e62f5b85e1d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "some primitive sect",
+      "translation": "某个早期教派",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sect",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-388c03840a985d07",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "churches of the Metropolis",
+      "translation": "大都市的教堂",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-metropolis",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8b5842cb9c52d177",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "slip from their clutches",
+      "translation": "从他们的掌控中溜走",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-clutches",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-21a1c45f847350c9",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "orange and blue chambers in Hyde Park Mansions",
+      "translation": "海德公园大厦中装饰成橙色与蓝色的居室",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-chambers",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a9e443317293be96",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "conceived and carried out the notion",
+      "translation": "构想并实行了这一主意",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-conceive",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4044c4f6fec547c4",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "in their own estimations",
+      "translation": "在他们自己的评价中",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-estimation",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a7698399ce68006c",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a pathetic attempt",
+      "translation": "一个无力而可怜的尝试",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pathetic",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-951b625f2c38439d",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "paid for pews",
+      "translation": "为教堂座席付费",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-pew",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-bea8f5f780f1a892",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "over the prospect",
+      "translation": "笼罩着眼前的景色",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-prospect",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-f9e7310fcb4226f5",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "watched like sentinels",
+      "translation": "像哨兵一样看守着",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 14,
+        "printedPage": "28"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-sentinel",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-886837cada24f84e",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a crick in the neck",
+      "translation": "脖子一阵僵痛",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-crick",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-ae3270bbbf9c7247",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a spacious abode",
+      "translation": "一处宽敞的住所",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-abode",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-108a7319bfda9350",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "James was musing",
+      "translation": "James正在沉思",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-muse",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-a759ca3c84822a7b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "recounted the details",
+      "translation": "叙说了细节",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-recount",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-aba6a2c213cd7b13",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "it's too dear",
+      "translation": "这太贵了",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-dear",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4e6f8726816eb062",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "into their barouche",
+      "translation": "进入他们的四轮敞式马车",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-barouche",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-8480889bf14083b0",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "twinkled at them",
+      "translation": "眼含笑意地望着他们",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-twinkle",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-79f189421436ea8a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "tall and majestic",
+      "translation": "高挑而庄重威严",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-majestic",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-841f76fddfacba48",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "auburn hair",
+      "translation": "红褐色的头发",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-auburn",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-48bd3bf0fd4c9e74",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Bobbing and bounding",
+      "translation": "上下颠动、弹跳着",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-bob",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        },
+        {
+          "entryId": "public-the-forsyte-saga-c1-bound",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-10ebe4b5729ab06a",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "each motion of their chariot",
+      "translation": "他们的马车每次晃动",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-chariot",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-782ce5a6c0e1ea51",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "Did you ever see such a collection of rumty-too people?",
+      "translation": "你见过这么一群庸常、上不了台面的人吗？",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-rumty-too",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-69780732a95b80da",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "saw Irene steal at him one of her unfathomable looks",
+      "translation": "看见Irene偷偷向他投去一个难以捉摸的眼神",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 15,
+        "printedPage": "29"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-steal-a-look",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-b27ceca877b13076",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "the jauntiness",
+      "translation": "那种轻快得意的神态",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-jauntiness",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-d338572323dcf29f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "married a good deal of money",
+      "translation": "娶到了一大笔钱",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-marry-money",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-56987999ed15ccbb",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a crossing-sweeper",
+      "translation": "一个扫路求赏的人",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-crossing-sweeper",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-6058849b9eb2138b",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "asked Roger presently",
+      "translation": "罗杰过了一会儿问道",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-presently",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-3f68ef774d0b9c35",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "half-cracked about her",
+      "translation": "为她迷得近乎发狂",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-half-cracked",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-954d92424ec05e29",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a ‘lunar,’",
+      "translation": "一次所谓的月距观测",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-lunar",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-4e697fcffbdfaca0",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "of promenade and conversation",
+      "translation": "散步与交谈的",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 16,
+        "printedPage": "30"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-promenade",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-3fbeb994d75eab0f",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "colour was heightened by exercise",
+      "translation": "面色因运动而更加红润",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 17,
+        "printedPage": "31"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-heighten",
+          "membership": "collection:the-forsyte-saga:chapter-1"
+        }
+      ]
+    },
+    {
+      "id": "forsyte-c1-54cade21417af434",
+      "bookId": "the-forsyte-saga",
+      "chapterId": "chapter-1",
+      "text": "a stubborn beggar",
+      "translation": "一个固执的家伙",
+      "note": "原文片段",
+      "source": {
+        "title": "The Forsyte Saga",
+        "edition": "所提供的第一章扫描PDF",
+        "pdfPage": 17,
+        "printedPage": "31"
+      },
+      "featured": false,
+      "links": [
+        {
+          "entryId": "public-the-forsyte-saga-c1-beggar",
           "membership": "collection:the-forsyte-saga:chapter-1"
         }
       ]
