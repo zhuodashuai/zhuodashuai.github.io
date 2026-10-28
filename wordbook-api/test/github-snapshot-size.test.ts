@@ -64,7 +64,9 @@ describe("bounded GitHub wordbook transport", () => {
         expect(body.sha).toBe(sha);
         expect(body.branch).toBe("main");
         const decoded = Uint8Array.from(atob(body.content), (character) => character.charCodeAt(0));
-        expect(JSON.parse(new TextDecoder().decode(decoded))).toEqual(document);
+        const serialized = new TextDecoder("utf-8", { fatal: true }).decode(decoded);
+        expect(serialized).toBe(`${JSON.stringify(JSON.parse(serialized), null, 2)}\n`);
+        expect(JSON.parse(serialized)).toEqual(document);
         expect(decoded.length).toBeGreaterThan(1_000_000);
         expect(decoded.length).toBeLessThan(MAX_SNAPSHOT_BYTES);
         return Response.json({ content: { sha: "b".repeat(40) }, commit: { sha: "c".repeat(40) } });
@@ -80,6 +82,39 @@ describe("bounded GitHub wordbook transport", () => {
     expect(remote.snapshot).toEqual(document);
     await expect(writeRemoteWordbook({ token: "test-token", config, expectedSha: remote.sha, snapshot: remote.snapshot, message: "Update wordbook" })).resolves.toMatchObject({ sha: "b".repeat(40) });
     expect(mock).toHaveBeenCalledTimes(3);
+  });
+
+  it("writes compact JSON losslessly when indentation alone exceeds the UTF-8 size limit", async () => {
+    const specialUsage = '中文语境 café 🙂 — "quoted" \\path\n第二行。';
+    const document = snapshot(Array.from({ length: 2800 }, (_, index) => entry({
+      id: `public-compact-fixture-${index}`, term: `compact fixture ${index}`,
+      ...(index === 0 ? { usage: specialUsage } : {})
+    })));
+    expect(validateSnapshot(document)).toEqual(document);
+    const pretty = `${JSON.stringify(document, null, 2)}\n`;
+    const compact = `${JSON.stringify(document)}\n`;
+    expect(encoder.encode(pretty).byteLength).toBeGreaterThan(MAX_SNAPSHOT_BYTES);
+    expect(encoder.encode(compact).byteLength).toBeLessThanOrEqual(MAX_SNAPSHOT_BYTES);
+    const mock = vi.fn(async (input: RequestInfo | URL, init: RequestInit = {}) => {
+      expect(String(input)).toBe(url.replace("?ref=main", ""));
+      expect(init.method).toBe("PUT");
+      const body = JSON.parse(String(init.body));
+      expect(body.sha).toBe("a".repeat(40));
+      expect(body.branch).toBe("main");
+      const decoded = Uint8Array.from(atob(body.content), (character) => character.charCodeAt(0));
+      expect(decoded.byteLength).toBeLessThanOrEqual(MAX_SNAPSHOT_BYTES);
+      const serialized = new TextDecoder("utf-8", { fatal: true }).decode(decoded);
+      expect(serialized).toBe(compact);
+      const restored = JSON.parse(serialized);
+      expect(restored).toEqual(document);
+      expect(restored.entries[0].usage).toBe(specialUsage);
+      expect(restored.entries[0].senses[0].usageNotes).toBe(specialUsage);
+      return Response.json({ content: { sha: "b".repeat(40) }, commit: { sha: "c".repeat(40) } });
+    });
+    vi.stubGlobal("fetch", mock);
+    await expect(writeRemoteWordbook({ token: "test-token", config, expectedSha: "a".repeat(40), snapshot: document,
+      message: "Update a large wordbook" })).resolves.toMatchObject({ sha: "b".repeat(40) });
+    expect(mock).toHaveBeenCalledOnce();
   });
 
   it("still reads base64 content without a second request", async () => {
@@ -190,6 +225,9 @@ describe("bounded GitHub wordbook transport", () => {
     const mock = vi.fn();
     vi.stubGlobal("fetch", mock);
     const document = snapshot([entry({ usage: "中".repeat(Math.ceil(MAX_SNAPSHOT_BYTES / 3)) })]) as PublicSnapshot;
+    const compact = `${JSON.stringify(document)}\n`;
+    expect(compact.length).toBeLessThan(MAX_SNAPSHOT_BYTES);
+    expect(encoder.encode(compact).byteLength).toBeGreaterThan(MAX_SNAPSHOT_BYTES);
     await expect(writeRemoteWordbook({ token: "test-token", config, expectedSha: "a".repeat(40), snapshot: document, message: "Too large" })).rejects.toMatchObject({ status: 413, code: "snapshot_too_large" });
     expect(mock).not.toHaveBeenCalled();
   });

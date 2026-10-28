@@ -409,8 +409,11 @@ export async function writeRemoteWordbook(args: {
   snapshot: PublicSnapshot;
   message: string;
 }): Promise<{ sha: string; commitSha: string; htmlUrl: string }> {
-  const serialized = `${JSON.stringify(args.snapshot, null, 2)}\n`;
-  if (new TextEncoder().encode(serialized).byteLength > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
+  const encoder = new TextEncoder();
+  let serialized = `${JSON.stringify(args.snapshot, null, 2)}\n`;
+  // Keep readable small files while avoiding a write failure caused only by indentation.
+  if (encoder.encode(serialized).byteLength > MAX_SNAPSHOT_BYTES) serialized = `${JSON.stringify(args.snapshot)}\n`;
+  if (encoder.encode(serialized).byteLength > MAX_SNAPSHOT_BYTES) throw oversizedSnapshot();
   const payload = await githubJson(contentsUrl(args.config), args.token, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

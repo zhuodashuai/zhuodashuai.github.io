@@ -26,7 +26,7 @@ function sharedCard() {
     readingContexts: [context("burnout", 3, "长期压力造成的耗竭", 4), context("burnout", 2, "职业倦怠", 1)] });
 }
 
-test("a whole named-source wordbook chooses the first article per shared card while global and novel views keep their behavior", () => {
+test("a whole wordbook chooses its own unambiguous context while global and multi-chapter novel defaults remain unchanged", () => {
   const card = sharedCard();
   const before = structuredClone(card);
   const wholeBook = publicSelectionEntries([card], "teamwork", "all")[0];
@@ -37,7 +37,10 @@ test("a whole named-source wordbook chooses the first article per shared card wh
   assert.equal(contextualizeReadingEntry(card, "all", "all"), card);
   const novel = { ...card, tags: ["collection:novel:chapter-1"],
     readingContexts: [{ ...context("burnout", 2, "小说语境"), membership: "collection:novel:chapter-1", sourceWork: "Novel", sourceTitle: "Novel — Chapter 1" }] };
-  assert.equal(contextualizeReadingEntry(novel, "novel", "all"), novel);
+  assert.equal(contextualizeReadingEntry(novel, "novel", "all").meaning, "小说语境");
+  const multiChapter = { ...novel, tags: [...novel.tags, "collection:novel:chapter-2"],
+    readingContexts: [...novel.readingContexts, { ...novel.readingContexts[0], membership: "collection:novel:chapter-2", sourceTitle: "Novel — Chapter 2" }] };
+  assert.equal(contextualizeReadingEntry(multiChapter, "novel", "all"), multiChapter);
   assert.deepEqual(card, before, "context projection never mutates the canonical card or its contexts");
 });
 
@@ -55,6 +58,26 @@ test("an article projection uses its own primary evidence URL and never displays
   assert.equal(contextualizeReadingEntry(missing, "teamwork", "chapter-3").sourceUrl, "");
   const ambiguous = { ...card, sources: [...card.sources, { title: articles[1], url: "https://example.com/other-edition", kind: "primary" }] };
   assert.equal(contextualizeReadingEntry(ambiguous, "teamwork", "chapter-3").sourceUrl, "");
+});
+
+test("a numbered novel chapter does not inherit another work's author or source link", () => {
+  const canonical = sharedCard();
+  const novelContext = { ...context("burnout", 2, "小说中的疲惫"),
+    membership: "collection:novel:chapter-1", sourceWork: "Novel", sourceTitle: "Novel — Chapter 1" };
+  const card = { ...canonical, tags: [...canonical.tags, novelContext.membership],
+    readingContexts: [...canonical.readingContexts, novelContext] };
+  const before = structuredClone(card);
+  const view = contextualizeReadingEntry(card, "novel", "chapter-1");
+  assert.equal(view.meaning, novelContext.meaning);
+  assert.equal(view.author, "");
+  assert.equal(view.sourceUrl, "");
+  const sameWork = { ...card, sourceWork: "Novel", sourceTitle: "Novel — Chapter 2", author: "The novelist", sourceUrl: "https://example.com/novel" };
+  const ownView = contextualizeReadingEntry(sameWork, "novel", "chapter-1");
+  assert.equal(ownView.author, sameWork.author);
+  assert.equal(ownView.sourceUrl, sameWork.sourceUrl);
+  const withEvidence = { ...card, sources: [...card.sources, { title: "Novel — Chapter 1", kind: "primary", url: "https://example.com/novel", retrievedAt: "2026-10-28T12:00:00Z" }] };
+  assert.equal(contextualizeReadingEntry(withEvidence, "novel", "chapter-1").sourceUrl, "https://example.com/novel");
+  assert.deepEqual(card, before);
 });
 
 test("article study, review IDs, and chapter quiz use the selected source without leaking a different chapter", () => {

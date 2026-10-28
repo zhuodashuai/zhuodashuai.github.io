@@ -7,6 +7,7 @@ import { contextualizeReadingEntry, parsePublicSnapshot } from "../js/wordbook-s
 const dataText = await readFile(new URL("../data/book-passages.json", import.meta.url), "utf8");
 const data = parseBookPassages(JSON.parse(dataText));
 const snapshot = parsePublicSnapshot(JSON.parse(await readFile(new URL("../data/owner-wordbook.json", import.meta.url), "utf8")));
+const forsyteSource = JSON.parse(await readFile(new URL("../data/reading-lists/the-forsyte-saga/chapter-1.json", import.meta.url), "utf8"));
 
 test("all existing novel chapter memberships have their own source example without changing their stored examples", () => {
   let contexts = 0;
@@ -36,13 +37,15 @@ test("every linked excerpt belongs to a real current word and chapter, with no d
     links.add(key);
   }
   assert.equal([...links].filter(key => key.includes("\ncollection:never-let-me-go:")).length, 653);
-  assert.equal([...links].filter(key => key.includes("\ncollection:the-forsyte-saga:")).length, 108);
-  assert.equal(links.size, 761);
+  assert.equal([...links].filter(key => key.includes("\ncollection:the-forsyte-saga:")).length, forsyteSource.expectedItemCount);
+  assert.equal(links.size, 653 + forsyteSource.expectedItemCount);
 });
 
 test("featured reading stays small and chapter-specific rather than generating more vocabulary", () => {
-  assert.equal(data.passages.filter(passage => passage.featured).length, 24);
-  assert.equal(selectBookPassages(data, { bookId: "the-forsyte-saga", chapterId: "chapter-1" }).length, 1);
+  assert.equal(data.passages.filter(passage => passage.featured).length, 25);
+  const forsyteReading = selectBookPassages(data, { bookId: "the-forsyte-saga", chapterId: "chapter-1" });
+  assert.equal(forsyteReading.length, 2);
+  assert.ok(forsyteReading.some(passage => /At Home/u.test(passage.note) && passage.links.length === 0), "the chapter title stays a reading note rather than a basic vocabulary card");
   for (let chapter = 1; chapter <= 23; chapter += 1) {
     const selected = selectBookPassages(data, { bookId: "never-let-me-go", chapterId: `chapter-${chapter}` });
     assert.equal(selected.length, 1);
