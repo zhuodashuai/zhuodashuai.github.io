@@ -14,7 +14,7 @@ const active=new Set();
 // Finite literal heads only. The build test checks this list against the
 // independently approved table. Do not fetch a new optional module for every
 // ordinary card, or make an incomplete offline update disable legacy examples.
-const canonicalRepairHeads=new Set(['DEM','hubble','melville','molly','monmouth','primo','steinway','wally','wot']);
+const canonicalRepairHeads=new Set(["DEM","E","FOB","M","abbr","bse","carney","flathead","foo","hubble","melville","molly","monmouth","primo","qed","sheepshead","situationist","steinway","sus","thankyou","wally","wot"]);
 function originalClient(fetchImpl) {
   let client=clients.get(fetchImpl);
   if(!client){client=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl});clients.set(fetchImpl,client);active.add(client);}
