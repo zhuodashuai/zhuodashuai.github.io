@@ -296,7 +296,9 @@ test("Never Let Me Go Chapter 4 preserves the original 11 and all 40 approved ad
     assert.equal(context.page, `p. ${item.page}`);
     assert.equal(entry.phonetic, item.phonetic ?? "");
     assert.equal(contextual.phonetic, item.phonetic ?? "");
-    for (const version of [entry, context, contextual]) {
+    // This source fixes the chapter context and its reader projection. A
+    // shared canonical card may also contain later article/owner enrichments.
+    for (const version of [context, contextual]) {
       for (const field of ["originalInput", "partOfSpeech", "meaning", "usage", "exampleEn", "exampleZh"]) {
         assert.equal(version[field], item[field], `${item.term}: ${field}`);
       }
