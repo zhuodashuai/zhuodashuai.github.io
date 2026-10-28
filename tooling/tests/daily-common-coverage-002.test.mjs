@@ -30,7 +30,9 @@ test('the measured daily expansion consists only of exact independently approved
 test('the published837 ordinary tuples, all131 selected meanings and old alias identities stay exact',()=>{
   const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=rows.filter(r=>r.reviewedCanonicalSense);
   assert.equal(baseline.ordinaryCount,837);assert.equal(hash(ordinary.slice(0,837)),baseline.ordinarySha256);
-  assert.equal(ordinary.length,manifest.expectedFinalOrdinaryCount);assert.equal(selected.length,131);assert.equal(hash(selected),baseline.selectedSha256);
+  // Later independently approved batches may append ordinary entries; every
+  // tuple and alias approved by this historical release remains exact above.
+  assert(ordinary.length>=manifest.expectedFinalOrdinaryCount);assert.equal(selected.length,131);assert.equal(hash(selected),baseline.selectedSha256);
   for(const record of baseline.aliases)assert.deepEqual(aliases.find(r=>r.term===record.term),record);
 });
 

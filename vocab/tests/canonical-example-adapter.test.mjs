@@ -5,6 +5,13 @@ import {CANONICAL_EXAMPLE_REPAIRS as table} from '../js/canonical-example-repair
 import {loadDictionaryExamples,createDictionaryExamplesController,resetDictionaryExamplesCacheForTests} from '../js/dictionary-examples-current-v4.js';
 
 const localFetch=async url=>new Response(await readFile(new URL(url)));
+test('the finite optional-import registry contains exactly the independently approved literal heads',async()=>{
+  const body=await readFile(new URL('../js/dictionary-examples-current-v4.js',import.meta.url),'utf8');
+  const declaration=body.match(/const canonicalRepairHeads=new Set\((\[[^\n]+\])\);/u);
+  assert(declaration,'The finite optional registry must remain explicit');
+  const heads=JSON.parse(declaration[1].replaceAll("'",'"'));
+  assert.deepEqual(heads,table.rows.map(row=>row.term));
+});
 test('every independently approved literal head reaches the current adapter and preserves saved dictionary fields',async()=>{
   for(const row of table.rows){
     const card={...row.acceptedDisplayContexts.at(-1),example:'My existing sentence.',note:'Keep my note.',progress:{box:4}};

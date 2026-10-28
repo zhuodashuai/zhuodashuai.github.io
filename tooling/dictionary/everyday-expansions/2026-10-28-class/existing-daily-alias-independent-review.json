@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "78640a35acfc626c9bbde0f2c40e35ccc686ea3d5a2856682c964a8cd0325482",
+  "reviewer": "AI/root-common-alias-review",
+  "independentOfAuthor": true,
+  "decisions": [
+    {
+      "term": "annual leave",
+      "rowSha256": "0f151417a0722a9c9d725c80162d7fcc97ec18ee061712fcc7c79f5806626fb2",
+      "decision": "approve-alias-only",
+      "reason": "年休假 is the same annual work-leave entitlement, not sick or parental leave."
+    },
+    {
+      "term": "paid annual leave",
+      "rowSha256": "0058ac3d8bfd7b67f9ae40b0a89305de5e9418abc5e2fc5a9b6b7f3c0bed1510",
+      "decision": "approve-alias-only",
+      "reason": "带薪年休假 retains both payment and annual-leave restrictions."
+    },
+    {
+      "term": "swap shifts",
+      "rowSha256": "e04d7a9764d7bcaaeecfa57a4c7dc8716d9ca4c6c554bda465407f3ae84b643d",
+      "decision": "approve-alias-only",
+      "reason": "Both proposed wordings explicitly mean exchanging work shifts, rather than arbitrary roster changes."
+    },
+    {
+      "term": "hand over work",
+      "rowSha256": "b31afacf33ee0b24729b3178d6095156cf4522818dd944f89604586981b6df8d",
+      "decision": "approve-alias-only",
+      "reason": "Both wordings name transferring the existing work/tasks to a colleague."
+    },
+    {
+      "term": "book a medical appointment",
+      "rowSha256": "07cbaf988778bc931dbfdb7b1b76a0e5391fd66455a5b95f5ec4ee5b88d43a63",
+      "decision": "approve-alias-only",
+      "reason": "Both wordings retain an advance medical appointment, not immediate treatment or an emergency service."
+    },
+    {
+      "term": "cancel an appointment",
+      "rowSha256": "bba89e016963ee731b6183b7376a90a7eeb08f3bac7883ec435dec1f639678b7",
+      "decision": "approve-alias-only",
+      "reason": "取消会面预约 removes the arranged meeting; it does not imply rescheduling."
+    },
+    {
+      "term": "reschedule an appointment",
+      "rowSha256": "b351e0c56552cab837ac42a25c03bbbec2d7a05753d0f1e491a7db73117362c1",
+      "decision": "hold-existing-registry-extension",
+      "reason": "Semantically valid but held to keep the already published alias record unchanged in this release."
+    },
+    {
+      "term": "follow-up appointment",
+      "rowSha256": "dde7c828fadcd40b98c04490adf386c9610ecdfebf56a58a9b05a1f3e23f0553",
+      "decision": "approve-alias-only",
+      "reason": "随访预约 is an arranged subsequent appointment and does not assert further treatment is necessary."
+    },
+    {
+      "term": "hoarse",
+      "rowSha256": "a11cc756efd5768c63353b7dfe5b4d0db0dfaf253a686b6d775f59845dea620c",
+      "decision": "hold-existing-registry-extension",
+      "reason": "Semantically valid but held to keep the already published alias record unchanged in this release."
+    },
+    {
+      "term": "sore throat",
+      "rowSha256": "ab23d5654e17f97eb5e6cee31061294b123d3497c3bd15b3fd7cae2b482acce3",
+      "decision": "approve-alias-only",
+      "reason": "Both wordings mean throat pain, not a specific cause or diagnosis."
+    },
+    {
+      "term": "make an appointment",
+      "rowSha256": "b3291083e2ab510d1f39e5f76e278d83954d6586f9c397bc0a5695e554758c87",
+      "decision": "approve-alias-only",
+      "reason": "约定面谈时间 is arranging the meeting time, not a claim that another party confirmed it."
+    }
+  ],
+  "issues": [],
+  "scope": "Approval of exact narrow lookup names only; no new English heads, definition/POS/example/source changes or canonical coverage claims."
+}
