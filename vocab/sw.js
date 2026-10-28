@@ -1,4 +1,4 @@
-// Daily vocabulary expansion 2026-10-27 batch2: refresh exact Chinese intents and examples.
+// Canonical-sense example repairs: authenticate unchanged dictionary meanings.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
@@ -15,6 +15,8 @@ const SHELL = [
   "./js/dictionary-examples-ui-v108.js", "./js/entry-detail-v108.js",
   "./js/public-app-v108.js", "./js/owner-app-v108.js", "./js/personal-app-v108.js",
   "./js/dictionary-examples-current-v4.js", "./js/dictionary-examples-release-v4.js",
+  "./js/dictionary-canonical-example-repairs.js", "./js/canonical-example-repair-source.js",
+  "./js/canonical-example-repairs-data.js",
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
   "./js/reviewed-senses-data.js",

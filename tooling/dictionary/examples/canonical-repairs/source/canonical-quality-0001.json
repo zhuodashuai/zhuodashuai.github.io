@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/quality-followup-next-a",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "hubble",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 3938005,
+      "canonicalSourceSha256": "2abed6ac798d72aaa46920f3a69495d82e73284ce60464f78dd2dd4c2e426fa8",
+      "exactCanonicalRecord": {
+        "id": 3938005,
+        "term": "hubble",
+        "partOfSpeech": "noun",
+        "meaning": "n. 小凸起, 小瘤",
+        "forms": [
+          "hubbling"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 30772,
+          "forms": [
+            "hubbling"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 315
+      },
+      "expectedOriginalEntry": {
+        "term": "hubble",
+        "senses": [
+          {
+            "id": "example:hubble",
+            "partOfSpeech": "proper noun",
+            "meaningZh": "哈勃太空望远镜的常用简称Hubble",
+            "examples": [
+              {
+                "en": "The lecturer showed an image taken by Hubble.",
+                "zh": "讲师展示了一幅由哈勃太空望远镜拍摄的图像。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "10681628d8607ad4367f124b1bce007228c6a00f1a5d977a1b9c40bb390734fe",
+      "retiredOriginalPair": {
+        "term": "hubble",
+        "partOfSpeech": "proper noun",
+        "meaningZh": "哈勃太空望远镜的常用简称Hubble",
+        "en": "The lecturer showed an image taken by Hubble.",
+        "zh": "讲师展示了一幅由哈勃太空望远镜拍摄的图像。"
+      },
+      "retiredOriginalPairSha256": "c0beffef45f2b8b1cb7a8ec960b78a66e50088b1d9b66656d77cca37badd69b1",
+      "acceptedDisplayContexts": [
+        {
+          "term": "hubble",
+          "partOfSpeech": "noun",
+          "meaning": "n. 小凸起, 小瘤"
+        },
+        {
+          "term": "hubble",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 小凸起, 小瘤"
+        }
+      ],
+      "replacementPair": {
+        "term": "hubble",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 小凸起, 小瘤",
+        "en": "His skate caught on a hubble in the ice, and he stumbled.",
+        "zh": "他的冰刀被冰面上的一处小凸起绊住，他踉跄了一下。"
+      },
+      "replacementPairSha256": "3346a3b26ce9915ff155676239a6432fdb56990f0c628640ef0b2853d4bae2c7",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/hubble"
+      ]
+    }
+  ]
+}

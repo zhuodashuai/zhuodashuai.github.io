@@ -1,0 +1,718 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/next_quality_inventory",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "wally",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 2807812,
+      "canonicalSourceSha256": "0e32ffdcb9635913aec920666478251cc30ad3c3e6dd55183be1ee951224205f",
+      "exactCanonicalRecord": {
+        "id": 2807812,
+        "term": "wally",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 好的, 第一流的, 大的",
+        "forms": [
+          "wallies"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 21942,
+          "forms": [
+            "wallies"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 70
+      },
+      "expectedOriginalEntry": {
+        "term": "wally",
+        "senses": [
+          {
+            "id": "example:wally",
+            "partOfSpeech": "noun",
+            "meaningZh": "笨蛋；傻瓜（英式非正式用语）",
+            "examples": [
+              {
+                "en": "I felt like a wally when I realised I had locked myself out.",
+                "zh": "发现自己把自己锁在门外时，我觉得自己像个笨蛋。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "77797e2149e4920b95d1aaf5c0e7ee94f1325770ce78c592e69e9de82173e787",
+      "retiredOriginalPair": {
+        "term": "wally",
+        "partOfSpeech": "noun",
+        "meaningZh": "笨蛋；傻瓜（英式非正式用语）",
+        "en": "I felt like a wally when I realised I had locked myself out.",
+        "zh": "发现自己把自己锁在门外时，我觉得自己像个笨蛋。"
+      },
+      "retiredOriginalPairSha256": "7248ef7704b589ed235292d3e5ff77e3d1676373ff35aab693a8e878a2ff6d22",
+      "acceptedDisplayContexts": [
+        {
+          "term": "wally",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 好的, 第一流的, 大的"
+        },
+        {
+          "term": "wally",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 好的, 第一流的, 大的"
+        }
+      ],
+      "replacementPair": {
+        "term": "wally",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 好的, 第一流的, 大的",
+        "en": "At the end of the harvest, they laid out a wally supper for the workers.",
+        "zh": "收割结束时，他们为工人们摆下了一顿丰盛的晚餐。"
+      },
+      "replacementPairSha256": "854d164ee81708880c5692f99dee54c326931be2ffc8f3795011ab5874044f05",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/wally",
+        "https://api.collinsdictionary.com/dictionary/american/wally",
+        "https://www.dsl.ac.uk/entry/snd00086355"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "primo",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 4085182,
+      "canonicalSourceSha256": "29572b31a10fa7c4296d580552797d2817dae1ae491073f088541fb2bdd06c0f",
+      "exactCanonicalRecord": {
+        "id": 4085182,
+        "term": "primo",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 第一的；首先的",
+        "forms": [
+          "primos"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 31923,
+          "forms": [
+            "primos"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 347
+      },
+      "expectedOriginalEntry": {
+        "term": "primo",
+        "senses": [
+          {
+            "id": "example:primo",
+            "partOfSpeech": "adjective",
+            "meaningZh": "极好的；上等的（非正式）",
+            "examples": [
+              {
+                "en": "They found a primo spot overlooking the stage.",
+                "zh": "他们找到了一个正对舞台的绝佳位置。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "8c8e89af283c87a309daa358699a7b148ef7f1d0215ee3849553b2e482cf2ab0",
+      "retiredOriginalPair": {
+        "term": "primo",
+        "partOfSpeech": "adjective",
+        "meaningZh": "极好的；上等的（非正式）",
+        "en": "They found a primo spot overlooking the stage.",
+        "zh": "他们找到了一个正对舞台的绝佳位置。"
+      },
+      "retiredOriginalPairSha256": "545592dec941c953ce7512372ca6e26b6523cf3e25a35280c68871da721a7dea",
+      "acceptedDisplayContexts": [
+        {
+          "term": "primo",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 第一的；首先的"
+        },
+        {
+          "term": "primo",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 第一的；首先的"
+        }
+      ],
+      "replacementPair": {
+        "term": "primo",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 第一的；首先的",
+        "en": "I practised the primo part while my sister worked on the secondo part.",
+        "zh": "我练习第一声部，姐姐则练习第二声部。"
+      },
+      "replacementPairSha256": "769d450f054d7d307dcefbc70cac8f8b624d77d024e0a71472d1f5fdd02ceb3f",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/primo",
+        "https://www.halleonard.com/series/PNDPLA",
+        "https://content.alfred.com/catpages/00-334.pdf"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "molly",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 2282180,
+      "canonicalSourceSha256": "8dc12464be5fe3529b78b1ff3b022e62b77590572c22f2468688677b9f3415d9",
+      "exactCanonicalRecord": {
+        "id": 2282180,
+        "term": "molly",
+        "partOfSpeech": "noun",
+        "meaning": "n. [俚]懦夫；娘娘腔的男人",
+        "forms": [
+          "mollied",
+          "mollies"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 17832,
+          "forms": [
+            "mollied",
+            "mollies"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 22
+      },
+      "expectedOriginalEntry": {
+        "term": "molly",
+        "senses": [
+          {
+            "id": "example:molly",
+            "partOfSpeech": "noun",
+            "meaningZh": "摩利鱼；水族饲养中常见的一类小鱼（本例取鱼名义）",
+            "examples": [
+              {
+                "en": "A small molly darted behind the aquarium plants.",
+                "zh": "一条小摩利鱼飞快地躲到了水族箱的水草后面。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "9a61a562d2071f983b7f492e48e09ee13a2c3e9b649cb825fe093c223341eb28",
+      "retiredOriginalPair": {
+        "term": "molly",
+        "partOfSpeech": "noun",
+        "meaningZh": "摩利鱼；水族饲养中常见的一类小鱼（本例取鱼名义）",
+        "en": "A small molly darted behind the aquarium plants.",
+        "zh": "一条小摩利鱼飞快地躲到了水族箱的水草后面。"
+      },
+      "retiredOriginalPairSha256": "974828d332110f2511738c875e4325ac6e448bab76e9f8f9596fd12be9b84c9f",
+      "acceptedDisplayContexts": [
+        {
+          "term": "molly",
+          "partOfSpeech": "noun",
+          "meaning": "n. [俚]懦夫；娘娘腔的男人"
+        },
+        {
+          "term": "molly",
+          "partOfSpeech": "noun",
+          "meaning": "① n. [俚]懦夫；娘娘腔的男人"
+        }
+      ],
+      "replacementPair": {
+        "term": "molly",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. [俚]懦夫；娘娘腔的男人",
+        "en": "The bully called him a molly because he would not join the fight.",
+        "zh": "他不肯参加打架，那个恶霸就骂他是个懦夫。"
+      },
+      "replacementPairSha256": "e505a173efa331ec1765a0a3949b19e1a924bb1cf4188fa06b0fbf1c273f1fc5",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/molly"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "wot",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 3740477,
+      "canonicalSourceSha256": "6ea74045d42bfc2bbaf092ea2018c395f982d1442b0cedfc3ee5dd241d9001f9",
+      "exactCanonicalRecord": {
+        "id": 3740477,
+        "term": "wot",
+        "partOfSpeech": "verb · adverb · pronoun · interjection",
+        "meaning": "vbl.wit的第1、3人称单数现在式",
+        "forms": [
+          "wots"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 29229,
+          "forms": [
+            "wot",
+            "wots"
+          ],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "vbl.wit的第1、3人称单数现在式",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 258
+      },
+      "expectedOriginalEntry": {
+        "term": "wot",
+        "senses": [
+          {
+            "id": "example:wot",
+            "partOfSpeech": "pronoun",
+            "meaningZh": "what的非标准口语拼写（本例用于对话）",
+            "examples": [
+              {
+                "en": "“Wot are you doing out here in the rain?”",
+                "zh": "“你在外面淋着雨干什么呢？”"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "be242062b1357fdd6412fa0b401bed9b4eb69c75ce58fd3c76b25d9fa874bf7d",
+      "retiredOriginalPair": {
+        "term": "wot",
+        "partOfSpeech": "pronoun",
+        "meaningZh": "what的非标准口语拼写（本例用于对话）",
+        "en": "“Wot are you doing out here in the rain?”",
+        "zh": "“你在外面淋着雨干什么呢？”"
+      },
+      "retiredOriginalPairSha256": "6cbe917173e1e1cbefa3e6f8528e75af447cdacc593ce62a4df1b05653c1f3fe",
+      "acceptedDisplayContexts": [
+        {
+          "term": "wot",
+          "partOfSpeech": "verb · adverb · pronoun · interjection",
+          "meaning": "vbl.wit的第1、3人称单数现在式"
+        },
+        {
+          "term": "wot",
+          "partOfSpeech": "verb · adverb · pronoun · interjection",
+          "meaning": "① vbl.wit的第1、3人称单数现在式"
+        }
+      ],
+      "replacementPair": {
+        "term": "wot",
+        "partOfSpeech": "verb · adverb · pronoun · interjection",
+        "meaningZh": "vbl.wit的第1、3人称单数现在式",
+        "en": "'I wot not whether the bridge is safe,' the traveller replied.",
+        "zh": "旅人回答：“我不知道那座桥是否安全。”"
+      },
+      "replacementPairSha256": "06a71b99212d0e9876ab61fa2659dd0c82eeb9382d99bcf94379eac94b135539",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/wot",
+        "https://www.merriam-webster.com/dictionary/wit"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "monmouth",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 3247104,
+      "canonicalSourceSha256": "8a294a54bf6ebf5f7e334078d40d8185cd7c3c3cf012bf69549d70d8c0f99fbd",
+      "exactCanonicalRecord": {
+        "id": 3247104,
+        "term": "monmouth",
+        "partOfSpeech": "noun",
+        "meaning": "n. 蒙默思郡（英国威尔士原郡名）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 25374,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 149
+      },
+      "expectedOriginalEntry": {
+        "term": "monmouth",
+        "senses": [
+          {
+            "id": "example:monmouth",
+            "partOfSpeech": "proper noun",
+            "meaningZh": "蒙茅斯（威尔士地名，规范写作Monmouth）",
+            "examples": [
+              {
+                "en": "They stopped in Monmouth on the way to the coast.",
+                "zh": "他们在前往海岸的途中在蒙茅斯停了下来。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "960b6e3e13fd79fcbfa7e194377bdbd84fa574a58adebbe78da57f8603e4bb7f",
+      "retiredOriginalPair": {
+        "term": "monmouth",
+        "partOfSpeech": "proper noun",
+        "meaningZh": "蒙茅斯（威尔士地名，规范写作Monmouth）",
+        "en": "They stopped in Monmouth on the way to the coast.",
+        "zh": "他们在前往海岸的途中在蒙茅斯停了下来。"
+      },
+      "retiredOriginalPairSha256": "dbc87b9214aed5b0f1694717c25b9f04d23f6ffd559468126db316c390c32046",
+      "acceptedDisplayContexts": [
+        {
+          "term": "monmouth",
+          "partOfSpeech": "noun",
+          "meaning": "n. 蒙默思郡（英国威尔士原郡名）"
+        },
+        {
+          "term": "monmouth",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 蒙默思郡（英国威尔士原郡名）"
+        }
+      ],
+      "replacementPair": {
+        "term": "monmouth",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 蒙默思郡（英国威尔士原郡名）",
+        "en": "The historian compared parish records from across the old county of Monmouth.",
+        "zh": "这位历史学家比较了旧蒙默思郡各地的教区档案。"
+      },
+      "replacementPairSha256": "6b82a27caea0285d07612ba208965037c67486076eadd7e1861dd23e66edbc38",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/Monmouth",
+        "https://www.visionofbritain.org.uk/unit/10156622",
+        "https://visionofbritain.org.uk/unit/10024870"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "melville",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 3299771,
+      "canonicalSourceSha256": "43ca826a8e28d8a00930a63572064510583d7feae9759a091026e09dc39184fe",
+      "exactCanonicalRecord": {
+        "id": 3299771,
+        "term": "melville",
+        "partOfSpeech": "noun",
+        "meaning": "n. 梅尔维尔（男子名）；梅尔维尔湖（位于加拿大东部）",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 25785,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 159
+      },
+      "expectedOriginalEntry": {
+        "term": "melville",
+        "senses": [
+          {
+            "id": "example:melville",
+            "partOfSpeech": "proper noun",
+            "meaningZh": "梅尔维尔；本例指作家Herman Melville",
+            "examples": [
+              {
+                "en": "The seminar returned to Melville’s descriptions of the sea.",
+                "zh": "研讨课又回到梅尔维尔对大海的描写。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "a20ba631b0a2cc238181a6d35595632cf3f080bedbf6634a2470510a5a4cc060",
+      "retiredOriginalPair": {
+        "term": "melville",
+        "partOfSpeech": "proper noun",
+        "meaningZh": "梅尔维尔；本例指作家Herman Melville",
+        "en": "The seminar returned to Melville’s descriptions of the sea.",
+        "zh": "研讨课又回到梅尔维尔对大海的描写。"
+      },
+      "retiredOriginalPairSha256": "067b8e4fb99320c15c261d8ece893576026ff56adcb34eabb8810f4f012548a8",
+      "acceptedDisplayContexts": [
+        {
+          "term": "melville",
+          "partOfSpeech": "noun",
+          "meaning": "n. 梅尔维尔（男子名）；梅尔维尔湖（位于加拿大东部）"
+        },
+        {
+          "term": "melville",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 梅尔维尔（男子名）；梅尔维尔湖（位于加拿大东部）"
+        }
+      ],
+      "replacementPair": {
+        "term": "melville",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 梅尔维尔（男子名）；梅尔维尔湖（位于加拿大东部）",
+        "en": "Melville, a boy in my class, prefers to be called Mel.",
+        "zh": "我们班有个男孩名叫梅尔维尔，他更喜欢别人叫他梅尔。"
+      },
+      "replacementPairSha256": "1908f20359b24ade0f8dc9790d56dbdf405394db6f7019146073fb367e0ee939",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/melville",
+        "https://www.gov.nl.ca/mca/files/waterres-reports-ground-water-chapter-18-goose-bay-ada.pdf"
+      ],
+      "additionalMatchedPairs": [
+        {
+          "term": "melville",
+          "partOfSpeech": "noun",
+          "meaningZh": "n. 梅尔维尔（男子名）；梅尔维尔湖（位于加拿大东部）",
+          "en": "Our boat reached the western shore of Lake Melville before the fog thickened.",
+          "zh": "雾变浓前，我们的船抵达了梅尔维尔湖西岸。"
+        }
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "steinway",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 5734085,
+      "canonicalSourceSha256": "7664cb56099367283d9ba11a68a0ebe26612e3458aa72f49f4687132c1945914",
+      "exactCanonicalRecord": {
+        "id": 5734085,
+        "term": "steinway",
+        "partOfSpeech": "noun",
+        "meaning": "斯坦韦\nn. (Steinway)人名；(德)施泰因韦；(英)斯坦韦",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 44816,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0042-s-18100ac42187.json",
+        "sourceSha256": "18100ac42187055d567170548a52cbe0ea1e54ff320fa71bf78f774c2e6a365f",
+        "index": 197
+      },
+      "expectedOriginalEntry": {
+        "term": "steinway",
+        "senses": [
+          {
+            "id": "example:steinway",
+            "partOfSpeech": "proper noun",
+            "meaningZh": "施坦威；本例指钢琴品牌Steinway",
+            "examples": [
+              {
+                "en": "A Steinway occupied the centre of the rehearsal room.",
+                "zh": "一架施坦威钢琴摆在排练室中央。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "0cb1a805f742707d3adaec69657cf9091c400b7a58708a474c084efa0a5c93d9",
+      "retiredOriginalPair": {
+        "term": "steinway",
+        "partOfSpeech": "proper noun",
+        "meaningZh": "施坦威；本例指钢琴品牌Steinway",
+        "en": "A Steinway occupied the centre of the rehearsal room.",
+        "zh": "一架施坦威钢琴摆在排练室中央。"
+      },
+      "retiredOriginalPairSha256": "5f1f3ab78d6eacbcafc14e54c62d8612f2c561b2be3a14135592a5c17a3d702e",
+      "acceptedDisplayContexts": [
+        {
+          "term": "steinway",
+          "partOfSpeech": "noun",
+          "meaning": "斯坦韦\nn. (Steinway)人名；(德)施泰因韦；(英)斯坦韦"
+        },
+        {
+          "term": "steinway",
+          "partOfSpeech": "noun",
+          "meaning": "① 斯坦韦\n② n. (Steinway)人名；(德)施泰因韦；(英)斯坦韦"
+        }
+      ],
+      "replacementPair": {
+        "term": "steinway",
+        "partOfSpeech": "noun",
+        "meaningZh": "斯坦韦\nn. (Steinway)人名；(德)施泰因韦；(英)斯坦韦",
+        "en": "In 1853, Henry E. Steinway and his sons started a piano-making business in New York.",
+        "zh": "一八五三年，亨利·E·斯坦韦和儿子们在纽约创办了一家钢琴制造企业。"
+      },
+      "replacementPairSha256": "4287fb21db8aeb77e610e5d24a41699440cfe13006740ade975ae159375b3c62",
+      "references": [
+        "https://www.steinway.com/news/features/steinway-an-american-story",
+        "https://www.steinway.com/news/features/Company-Town",
+        "https://eu.steinway.com/en/a-legend/news-events/news/170-years-steinway/"
+      ]
+    },
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "DEM",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 2846173,
+      "canonicalSourceSha256": "f891462db4a4c0b7911401ce9e082e7166985987d9777246c2d0182f93497722",
+      "exactCanonicalRecord": {
+        "id": 2846173,
+        "term": "DEM",
+        "partOfSpeech": "noun",
+        "meaning": "[计] 解调器",
+        "forms": [
+          "dems"
+        ],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 22241,
+          "forms": [
+            "dems"
+          ],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[计] 解调器",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "origin": {
+        "file": "batch-0042-s-0972627ebdc9.json",
+        "sourceSha256": "0972627ebdc95af4881b3d222e830eda4b1a4e7a0232828dd564a9d1ba974286",
+        "index": 77
+      },
+      "expectedOriginalEntry": {
+        "term": "DEM",
+        "senses": [
+          {
+            "id": "example:DEM",
+            "partOfSpeech": "abbreviation",
+            "meaningZh": "德国马克的旧货币代码",
+            "examples": [
+              {
+                "en": "The invoice recorded the price in DEM rather than dollars.",
+                "zh": "发票以德国马克而不是美元记录了价格。"
+              }
+            ],
+            "reviewer": "AI/prepare-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "6ef72474d57f2d4a1f4adc332ba2333a5a609733d5fa992da57adf64b61d16ad",
+      "retiredOriginalPair": {
+        "term": "DEM",
+        "partOfSpeech": "abbreviation",
+        "meaningZh": "德国马克的旧货币代码",
+        "en": "The invoice recorded the price in DEM rather than dollars.",
+        "zh": "发票以德国马克而不是美元记录了价格。"
+      },
+      "retiredOriginalPairSha256": "1b0ea21951459f5dbd421dac8d3a4d4cdd24874007b6c7cedc425c09a57bdf13",
+      "acceptedDisplayContexts": [
+        {
+          "term": "DEM",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 解调器"
+        },
+        {
+          "term": "DEM",
+          "partOfSpeech": "noun",
+          "meaning": "① [计] 解调器"
+        }
+      ],
+      "replacementPair": {
+        "term": "DEM",
+        "partOfSpeech": "noun",
+        "meaningZh": "[计] 解调器",
+        "en": "The technician traced the weak output signal to a faulty DEM in the receiver.",
+        "zh": "技术员查明，输出信号微弱是接收机中的解调器故障造成的。"
+      },
+      "replacementPairSha256": "28732e57fbabce02eec635eac497894d6505817bfd71cc5e7cdd36b9cd78646f",
+      "references": [
+        "https://soho.nascom.nasa.gov/publications/soho-documents/acronyms.html",
+        "https://software-dl.ti.com/simplelink/esd/simplelink_lowpower_f3_sdk/8.40.00.61/exports/docs/driverlib/cc27xx/driverlib/hw__lrfddbell_8h_source.html"
+      ]
+    }
+  ]
+}
