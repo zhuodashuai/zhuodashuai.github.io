@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "sourceFile": "authored-additions.json",
+      "reviewFile": "independent-additions-review.json",
+      "sourceSha256": "2991ffac44bb72a3d15ed11657c2ee07ad681e5c286f876d64f25e4b68703700",
+      "reviewSha256": "c5e0eff825a30795a39a6197b3edb65f35478d19c2d2611c7eb34981e9abe1b3"
+    },
+    {
+      "sourceFile": "authored-existing-daily-alias-proposals.json",
+      "reviewFile": "existing-daily-alias-independent-review.json",
+      "sourceSha256": "78640a35acfc626c9bbde0f2c40e35ccc686ea3d5a2856682c964a8cd0325482",
+      "reviewSha256": "0a8aac6195d5c1abbabb57c616fa61facd7c41f4889c50244024b06e1f285a1c"
+    }
+  ],
+  "addedHeads": [
+    "indicative of",
+    "correlate with",
+    "per se",
+    "take up an activity",
+    "run in families",
+    "on my honor",
+    "it just so happened that",
+    "for better or for worse",
+    "by training",
+    "pick on somebody",
+    "put money down",
+    "be up to somebody",
+    "speak to the fact that",
+    "right down the middle",
+    "the seven-year itch",
+    "come clean about",
+    "be upfront about",
+    "every other year",
+    "gold bug",
+    "heaven forbid",
+    "whip out",
+    "lay something out",
+    "ankle-biter",
+    "the flip side",
+    "just a hair over",
+    "sink like a stone",
+    "in this day and age",
+    "clean up after oneself",
+    "provide for oneself",
+    "get one's hands on",
+    "scoff at",
+    "obstructive sleep apnea",
+    "vaping",
+    "secondhand smoke",
+    "genetically predisposed to",
+    "maternity leave",
+    "paternity leave",
+    "get off work",
+    "out-of-pocket expense",
+    "submit a claim",
+    "proof of coverage",
+    "named beneficiary",
+    "prior authorization",
+    "written consent",
+    "household income",
+    "financial cushion",
+    "rainy-day fund",
+    "set money aside",
+    "fall behind on payments",
+    "live paycheck to paycheck",
+    "caregiving responsibilities",
+    "childcare arrangements",
+    "flexible working hours",
+    "keep somebody in the loop",
+    "on short notice",
+    "subject to approval",
+    "waive a fee",
+    "opt out of",
+    "supporting documents",
+    "be eligible for"
+  ],
+  "addedRowsSha256": "3d9ed429dad8b870753e9a6ea8d363c48661c5da3158f3ba6338adf5632894d0",
+  "newEntries": 60,
+  "newAliases": [
+    {
+      "term": "annual leave",
+      "aliases": [
+        "年休假"
+      ],
+      "targetEntrySha256": "c781b290a90c6a79c97acc3e8c6f1fbe10e4ce760c4b4cb436d4c377f8172d4f"
+    },
+    {
+      "term": "paid annual leave",
+      "aliases": [
+        "带薪年休假"
+      ],
+      "targetEntrySha256": "b969f5fbd5ccaa1fa52b6bc97f5ce9a4421a82a3a1823e40a571ddc25783c426"
+    },
+    {
+      "term": "swap shifts",
+      "aliases": [
+        "和同事换班",
+        "互换工作班次"
+      ],
+      "targetEntrySha256": "907606913872ae8c69309a1415ab96806869f4f204aa33452406f8f376978ae1"
+    },
+    {
+      "term": "hand over work",
+      "aliases": [
+        "移交工作",
+        "工作移交"
+      ],
+      "targetEntrySha256": "82ac96c07d26688ba8f18e209edb25d8e5409617b954ccf5246599721fb49f81"
+    },
+    {
+      "term": "book a medical appointment",
+      "aliases": [
+        "预约看医生",
+        "预约医疗服务"
+      ],
+      "targetEntrySha256": "c595b48ae235b80f0786e66435272efd901541a3db715f45712f2da86d887da7"
+    },
+    {
+      "term": "cancel an appointment",
+      "aliases": [
+        "取消会面预约"
+      ],
+      "targetEntrySha256": "39463b985cfce2ea2cbbdb35b67811294d538e6ed17e34c07f362307b1062396"
+    },
+    {
+      "term": "follow-up appointment",
+      "aliases": [
+        "随访预约"
+      ],
+      "targetEntrySha256": "9e5d6dfd334fd519b442455e026bd415319955eb825b0fffedb57e6fe855b4a1"
+    },
+    {
+      "term": "sore throat",
+      "aliases": [
+        "咽喉疼痛",
+        "喉咙疼"
+      ],
+      "targetEntrySha256": "e3866570d282e2af82f893254df428e0beba1de8d5b3775a990c0c5228a25b0a"
+    },
+    {
+      "term": "make an appointment",
+      "aliases": [
+        "约定面谈时间"
+      ],
+      "targetEntrySha256": "0635fc5030f9c844eaebe66d57ee65cf87a6a003797fc01581420578aa8430aa"
+    }
+  ],
+  "previousOrdinaryCount": 962,
+  "expectedOrdinaryCount": 1022,
+  "expectedSelectedCount": 131,
+  "scope": "Additional selected everyday meanings and narrow lookup names. Not new original-canonical coverage or a source-definition repair."
+}

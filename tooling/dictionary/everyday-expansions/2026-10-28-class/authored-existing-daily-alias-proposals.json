@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "kind": "authored-existing-daily-chinese-alias-proposals",
+  "author": "AI/common-class-coverage-audit",
+  "createdAt": "2026-10-28T17:23:15.888Z",
+  "scope": "Additional narrow Chinese wordings in the work/health themes. These are not counted as new English heads or as repairs of the167 attachment heads.",
+  "independentlyApproved": false,
+  "counts": {
+    "targets": 11,
+    "aliases": 16
+  },
+  "entries": [
+    {
+      "term": "annual leave",
+      "aliases": [
+        "年休假"
+      ],
+      "targetEntrySha256": "c781b290a90c6a79c97acc3e8c6f1fbe10e4ce760c4b4cb436d4c377f8172d4f",
+      "targetSnapshot": {
+        "term": "annual leave",
+        "partOfSpeech": "noun phrase",
+        "meaning": "① 年假；按年度安排或累积、通常带薪的工作休假。",
+        "chineseAliases": [
+          "年假",
+          "年度休假"
+        ],
+        "englishForms": [
+          "annual leave"
+        ],
+        "en": "I am taking annual leave in May.",
+        "zh": "我准备在五月休年假。",
+        "references": [
+          "https://dictionary.cambridge.org/dictionary/english/annual-leave"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "paid annual leave",
+      "aliases": [
+        "带薪年休假"
+      ],
+      "targetEntrySha256": "b969f5fbd5ccaa1fa52b6bc97f5ce9a4421a82a3a1823e40a571ddc25783c426",
+      "targetSnapshot": {
+        "term": "paid annual leave",
+        "partOfSpeech": "noun phrase",
+        "meaning": "① 带薪年假。按年度安排、休假期间仍领取相应报酬的假期，不等于病假。",
+        "chineseAliases": [
+          "带薪年假",
+          "带薪年度假期"
+        ],
+        "englishForms": [],
+        "en": "I plan to use some paid annual leave for a family trip.",
+        "zh": "我打算用几天带薪年假和家人旅行。",
+        "references": [
+          "https://www.gov.uk/taking-sick-leave?v=home&v=hrbrief"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "swap shifts",
+      "aliases": [
+        "和同事换班",
+        "互换工作班次"
+      ],
+      "targetEntrySha256": "907606913872ae8c69309a1415ab96806869f4f204aa33452406f8f376978ae1",
+      "targetSnapshot": {
+        "term": "swap shifts",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 调班；与同事互换工作班次。这里专指换班，不涵盖所有排班调整。",
+        "chineseAliases": [
+          "调班",
+          "互换班次"
+        ],
+        "englishForms": [],
+        "en": "Can we swap shifts on Friday?",
+        "zh": "我们周五能调班吗？",
+        "references": [
+          "https://dictionary.cambridge.org/dictionary/english/swap"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "hand over work",
+      "aliases": [
+        "移交工作",
+        "工作移交"
+      ],
+      "targetEntrySha256": "82ac96c07d26688ba8f18e209edb25d8e5409617b954ccf5246599721fb49f81",
+      "targetSnapshot": {
+        "term": "hand over work",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 交接工作。把正在负责的任务、材料和相关情况移交给接手的人。",
+        "chineseAliases": [
+          "交接工作",
+          "工作交接"
+        ],
+        "englishForms": [],
+        "en": "I will hand over my work to a colleague before my leave starts.",
+        "zh": "休假开始前，我会把工作交接给一位同事。",
+        "references": [
+          "https://www.ethicalstandards.org.uk/remote-working-policy"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "book a medical appointment",
+      "aliases": [
+        "预约看医生",
+        "预约医疗服务"
+      ],
+      "targetEntrySha256": "c595b48ae235b80f0786e66435272efd901541a3db715f45712f2da86d887da7",
+      "targetSnapshot": {
+        "term": "book a medical appointment",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 预约就诊；预约挂号。事先约定看医生或接受医疗服务的时间。",
+        "chineseAliases": [
+          "预约挂号",
+          "预约就诊"
+        ],
+        "englishForms": [
+          "booked a medical appointment",
+          "booking a medical appointment",
+          "books a medical appointment"
+        ],
+        "en": "I booked a medical appointment for Friday afternoon.",
+        "zh": "我预约了星期五下午去就诊。",
+        "references": [
+          "https://www.nhs.uk/nhs-app/help/appointments/hospital-and-other-appointments/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "cancel an appointment",
+      "aliases": [
+        "取消会面预约"
+      ],
+      "targetEntrySha256": "39463b985cfce2ea2cbbdb35b67811294d538e6ed17e34c07f362307b1062396",
+      "targetSnapshot": {
+        "term": "cancel an appointment",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 取消预约；取消已经约好的会面或就诊安排。取消不等于已经改约到新时间。",
+        "chineseAliases": [
+          "取消预约",
+          "取消就诊预约"
+        ],
+        "englishForms": [
+          "cancelled an appointment",
+          "canceled an appointment",
+          "cancelling an appointment",
+          "canceling an appointment",
+          "cancels an appointment"
+        ],
+        "en": "I called the clinic to cancel an appointment I could no longer attend.",
+        "zh": "我打电话给诊所，取消了一次无法赴约的就诊预约。",
+        "references": [
+          "https://www.nhs.uk/nhs-app/help/appointments/hospital-and-other-appointments/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "reschedule an appointment",
+      "aliases": [
+        "更改就诊预约时间"
+      ],
+      "targetEntrySha256": "b580eda1820b704d6e3344bd3b0a3bf5d6b9e4ed57a4581e8669fa6151ab9c1d",
+      "targetSnapshot": {
+        "term": "reschedule an appointment",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 改约时间；把原先预约的会面或就诊改到另一个时间。",
+        "chineseAliases": [
+          "改约时间",
+          "更改预约时间",
+          "重新安排预约时间"
+        ],
+        "englishForms": [
+          "rescheduled an appointment",
+          "rescheduling an appointment",
+          "reschedules an appointment"
+        ],
+        "en": "Could I reschedule an appointment from Monday morning to Tuesday afternoon?",
+        "zh": "我能把星期一上午的预约改到星期二下午吗？",
+        "references": [
+          "https://www.nhs.uk/nhs-app/help/appointments/hospital-and-other-appointments/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "follow-up appointment",
+      "aliases": [
+        "随访预约"
+      ],
+      "targetEntrySha256": "9e5d6dfd334fd519b442455e026bd415319955eb825b0fffedb57e6fe855b4a1",
+      "targetSnapshot": {
+        "term": "follow-up appointment",
+        "partOfSpeech": "noun phrase",
+        "meaning": "① 复诊预约；后续就诊预约。在之前就诊或医疗照护之后安排的后续预约，不表示一定需要再次治疗。",
+        "chineseAliases": [
+          "复诊预约",
+          "后续就诊预约"
+        ],
+        "englishForms": [
+          "follow-up appointments"
+        ],
+        "en": "The receptionist moved my follow-up appointment to Thursday afternoon.",
+        "zh": "接待员把我的复诊预约改到了周四下午。",
+        "references": [
+          "https://www.cuh.nhs.uk/visiting-our-hospitals/your-appointment/follow-up-appointments/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "hoarse",
+      "aliases": [
+        "嗓音沙哑",
+        "声音嘶哑"
+      ],
+      "targetEntrySha256": "0de07a76910027c1bf3cc2d12eae458f65efee1abfb0f5578b28139db11d70f8",
+      "targetSnapshot": {
+        "term": "hoarse",
+        "partOfSpeech": "adjective",
+        "meaning": "① 嗓音嘶哑的；声音沙哑的。声音变得粗哑或不清亮。",
+        "chineseAliases": [
+          "嗓子哑了",
+          "嗓音嘶哑",
+          "声音沙哑"
+        ],
+        "englishForms": [
+          "hoarser",
+          "hoarsest"
+        ],
+        "en": "My voice was hoarse after cheering at the match.",
+        "zh": "比赛中大声加油后，我的嗓子哑了。",
+        "references": [
+          "https://www.nnuh.nhs.uk/departments/speech-and-language-therapy/voice/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "sore throat",
+      "aliases": [
+        "咽喉疼痛",
+        "喉咙疼"
+      ],
+      "targetEntrySha256": "e3866570d282e2af82f893254df428e0beba1de8d5b3775a990c0c5228a25b0a",
+      "targetSnapshot": {
+        "term": "sore throat",
+        "partOfSpeech": "noun phrase",
+        "meaning": "① 喉咙痛；嗓子疼。喉部疼痛或不适的症状名称，本身不说明具体病因。",
+        "chineseAliases": [
+          "嗓子疼",
+          "嗓子痛",
+          "喉咙痛"
+        ],
+        "englishForms": [
+          "sore throats"
+        ],
+        "en": "I stayed home because I had a sore throat.",
+        "zh": "我因为嗓子疼待在家里。",
+        "references": [
+          "https://www.nhs.uk/symptoms/sore-throat/"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    },
+    {
+      "term": "make an appointment",
+      "aliases": [
+        "约定面谈时间"
+      ],
+      "targetEntrySha256": "0635fc5030f9c844eaebe66d57ee65cf87a6a003797fc01581420578aa8430aa",
+      "targetSnapshot": {
+        "term": "make an appointment",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 预约；约定会面时间。通常指提前安排去见某人或接受某项服务，不等于预约已获确认。",
+        "chineseAliases": [
+          "预约面谈",
+          "预约会面",
+          "约见"
+        ],
+        "englishForms": [],
+        "en": "I would like to make an appointment to discuss my course choices.",
+        "zh": "我想预约一次面谈，讨论选课。",
+        "references": [
+          "https://dictionary.cambridge.org/dictionary/english/office-hours?topic=days-and-times-of-day"
+        ]
+      },
+      "reason": "Exact alternative Chinese wording for the existing selected meaning; no POS, source, example, license or head replacement."
+    }
+  ]
+}

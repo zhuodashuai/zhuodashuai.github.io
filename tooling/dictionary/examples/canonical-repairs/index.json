@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "pins": {
+    "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+    "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+  },
+  "batches": [
+    {
+      "sourceFile": "canonical-quality-0001.json",
+      "reviewFile": "canonical-quality-0001.json"
+    },
+    {
+      "sourceFile": "canonical-quality-0002.json",
+      "reviewFile": "canonical-quality-0002.json"
+    }
+  ]
+}

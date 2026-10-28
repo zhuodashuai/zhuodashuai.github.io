@@ -15,6 +15,8 @@ const SHELL = [
   "./js/dictionary-examples-ui-v108.js", "./js/entry-detail-v108.js",
   "./js/public-app-v108.js", "./js/owner-app-v108.js", "./js/personal-app-v108.js",
   "./js/dictionary-examples-current-v4.js", "./js/dictionary-examples-release-v4.js",
+  "./js/dictionary-canonical-example-repairs.js", "./js/canonical-example-repair-source.js",
+  "./js/canonical-example-repairs-data.js",
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
   "./js/reviewed-senses-data.js",

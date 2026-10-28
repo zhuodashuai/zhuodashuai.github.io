@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "commit": "8e1a6cb87de936b7508e09ccb00eb7e954892630",
+  "ordinaryCount": 962,
+  "ordinarySha256": "bf38ac685cb5286d7b52b5e34828663e730e582254aaa24be42870b4d5a25268",
+  "selectedCount": 131,
+  "selectedSha256": "d6b0b0903c7effd9175e68a3e2a08998ea1cd5aeff69d1659c25fcc15e009fcd",
+  "aliases": [
+    {
+      "term": "receipt",
+      "aliases": [
+        "小票"
+      ],
+      "targetEntrySha256": "e0ffc220619c1a6c2ae16a75bec772d48d5312fdadf8141c92fdb5919c2a3af8"
+    },
+    {
+      "term": "out of stock",
+      "aliases": [
+        "断货"
+      ],
+      "targetEntrySha256": "303b4ac05116cda74fb8cd538997202c7cb5e39b778b0ab1e1c1764744c61257"
+    },
+    {
+      "term": "recycle bin",
+      "aliases": [
+        "回收站",
+        "Windows回收站"
+      ],
+      "targetEntrySha256": "665f793f7e7428bc3b1b8d37becd72fea7bd7a3556ed0ebceb0cb6a6a4b762e3"
+    },
+    {
+      "term": "transaction history",
+      "aliases": [
+        "银行流水",
+        "银行交易明细"
+      ],
+      "targetEntrySha256": "86c51d16cd72ce9a6dd0c45051367255f631f8a3e87cbe9630a962800aaee8a6"
+    },
+    {
+      "term": "it depends",
+      "aliases": [
+        "看情况吧"
+      ],
+      "targetEntrySha256": "096ca5335da16ea34b7264aa10bbd5fbf73baaeab91f68455f8a240e3e6a2c2e"
+    },
+    {
+      "term": "hoodie",
+      "aliases": [
+        "连帽衫"
+      ],
+      "targetEntrySha256": "54a4aeb1ec29d5351f7a708d0f1d5f5eaa238b0c43f8157c61711f210339c161"
+    },
+    {
+      "term": "facial cleanser",
+      "aliases": [
+        "洗面液"
+      ],
+      "targetEntrySha256": "c839112b7c6691c7254c860209bdc41223ec0a4b09a6ec551f28512a3305d48f"
+    },
+    {
+      "term": "clear the cache",
+      "aliases": [
+        "清空缓存"
+      ],
+      "targetEntrySha256": "462b06fc3f0289393d99401388466377cda8c186af2b2a6085582c0a742c8709"
+    },
+    {
+      "term": "back-in-stock notification",
+      "aliases": [
+        "补货通知"
+      ],
+      "targetEntrySha256": "2cb1d24f536e3727799ac055ca3f0b1ca0f74081bc0ee3dbfe079597c92d3f3e"
+    },
+    {
+      "term": "sorry to bother you",
+      "aliases": [
+        "抱歉打扰",
+        "不好意思打扰一下"
+      ],
+      "targetEntrySha256": "6b1612c979f2d0bee653668b5d322c97797b37fd67b27e280787051bca452575"
+    },
+    {
+      "term": "keep refrigerated",
+      "aliases": [
+        "保持冷藏"
+      ],
+      "targetEntrySha256": "affa7c434acd9b03eafe0fc39106a8fc90aa4052bf88b120838991e93623ee10"
+    },
+    {
+      "term": "bag clip",
+      "aliases": [
+        "密封袋夹",
+        "袋口夹"
+      ],
+      "targetEntrySha256": "4a778a23c27adef6650054905c0a5c9d5e1e42501f3d1d6fccfab12b0c3027d1"
+    },
+    {
+      "term": "reschedule an appointment",
+      "aliases": [
+        "预约改期"
+      ],
+      "targetEntrySha256": "b580eda1820b704d6e3344bd3b0a3bf5d6b9e4ed57a4581e8669fa6151ab9c1d"
+    },
+    {
+      "term": "box up the leftovers",
+      "aliases": [
+        "剩菜打包"
+      ],
+      "targetEntrySha256": "db9ef86bdfa02eae6bc309b83475e1e10e098de21b8cf1e09d63e6f818791c31"
+    },
+    {
+      "term": "escape route",
+      "aliases": [
+        "消防通道"
+      ],
+      "targetEntrySha256": "7a68f6aae3a330d1ca43c8640891f065ab5fe88a451fb6ef077369ee22ce7291"
+    },
+    {
+      "term": "scorch",
+      "aliases": [
+        "糊底"
+      ],
+      "targetEntrySha256": "3570c3f3fe458c25d63921d046542383b3e78c777cbc35ba11facffaabf420ee"
+    },
+    {
+      "term": "blocked drain",
+      "aliases": [
+        "下水道堵了",
+        "排水管堵了"
+      ],
+      "targetEntrySha256": "d1fad545c91dccee217bd128bb17a969db240c795b910676eb84ed1ee9d89e9d"
+    },
+    {
+      "term": "deposit",
+      "aliases": [
+        "按金"
+      ],
+      "targetEntrySha256": "2bb4f52f6e9c76dbb4af3828ad7553dc1850f98c78525350d637b97bcb92fb54"
+    },
+    {
+      "term": "missing item",
+      "aliases": [
+        "漏发",
+        "少发"
+      ],
+      "targetEntrySha256": "fa2370dfd6ccbd9fb373a7c2db59db6f2d928eefa44f1187a39226e767598aa8"
+    },
+    {
+      "term": "split the bill",
+      "aliases": [
+        "AA制",
+        "AA吃饭",
+        "均摊饭钱"
+      ],
+      "targetEntrySha256": "3ec718ec70a994fb056a43f78d0e46efc35cfd17c805aa79d7aea606b2b9c3cf"
+    },
+    {
+      "term": "simmer over low heat",
+      "aliases": [
+        "小火煨煮"
+      ],
+      "targetEntrySha256": "fc8af02023a7e71178c5f167b1df917ca20df96f7422a3a5e1d992c6d8309fe0"
+    },
+    {
+      "term": "refund to the original payment method",
+      "aliases": [
+        "退回原支付方式"
+      ],
+      "targetEntrySha256": "fbf74e3052ba41855fe197b44fabb06f66c31e2e5acd3f7e45829e7f9ad7a93a"
+    },
+    {
+      "term": "delivery failure",
+      "aliases": [
+        "派送失败"
+      ],
+      "targetEntrySha256": "386c39dc5b99385b62e21e4c53d81fcad36c829c70d1d9381d8162a251883c0c"
+    },
+    {
+      "term": "split an order",
+      "aliases": [
+        "拆单"
+      ],
+      "targetEntrySha256": "0383d5304f72a3ea9f11a1e62085827105395ef8e75da5249db4b8bbbccb4a1b"
+    },
+    {
+      "term": "no coriander, please",
+      "aliases": [
+        "不加香菜"
+      ],
+      "targetEntrySha256": "da4e2e97f9af226cbd28cc6cfc0b82513140b64ff0b376f364b8b858100f02a8"
+    },
+    {
+      "term": "baggage claim",
+      "aliases": [
+        "行李认领",
+        "行李认领处"
+      ],
+      "targetEntrySha256": "1413298635d66985e8fb369bfdc2279fa90dbdff5a9e800191e51a5d66b22fa0"
+    },
+    {
+      "term": "carry-on baggage",
+      "aliases": [
+        "机舱行李"
+      ],
+      "targetEntrySha256": "6dfc52bdfb188d2661537f9043c535dbb9aa997e66d9928c56787f123fd58b3c"
+    },
+    {
+      "term": "hoarse",
+      "aliases": [
+        "嗓子哑"
+      ],
+      "targetEntrySha256": "0de07a76910027c1bf3cc2d12eae458f65efee1abfb0f5578b28139db11d70f8"
+    },
+    {
+      "term": "request an extension",
+      "aliases": [
+        "延期申请"
+      ],
+      "targetEntrySha256": "aad3db5313b57679fd469d8b6fa2c53fc321b66deeebef32c6c29a7393a3ffdb"
+    },
+    {
+      "term": "reschedule",
+      "aliases": [
+        "改个时间",
+        "换个时间"
+      ],
+      "targetEntrySha256": "30a954efb4a46b756b1bb75808cbf0672a9ab103e8c40768de5bec6c74e65f40"
+    }
+  ]
+}
