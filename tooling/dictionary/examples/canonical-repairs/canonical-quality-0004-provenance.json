@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "baselineHead": "2b090b6d23a9789720a6cdbb4f4c4559e60348b6",
+  "sourceSha256": "9605e1e318fe3dbfd5819e37d421f01b1358b6aba7f525e1c86f90bc2f3121b5",
+  "reviewSha256": "308b53a91597300e99416eedf00d34cafeec97db6049ea84a12691d9d0735ac4",
+  "beforeRows": [
+    {
+      "term": "DEM",
+      "sha256": "cdfd1cdfd02dcae3fb108cbfab5430fecf18219965fda5a634a6a6d7860e3a81"
+    },
+    {
+      "term": "E",
+      "sha256": "5e859d4876066da697ee5efc710f504855b5a3cd26b9649c67315d8e01de67f3"
+    },
+    {
+      "term": "FOB",
+      "sha256": "c32145f20aa1e0c1198ff37480c15cb82c92beb5e5cf29ae59d6b72d51c858cb"
+    },
+    {
+      "term": "M",
+      "sha256": "f3aedf3b4f604d29d1191c8db26448db7eb7947f9e54c9ac43e95fc8a8677ef2"
+    },
+    {
+      "term": "abbr",
+      "sha256": "0546c5a424f5f0819165f08952d433bda10ca6af81f21aabc74a057a846e2072"
+    },
+    {
+      "term": "bse",
+      "sha256": "9e988c7d86bade5c269c3069393dfff59ac81cfbf4e60971f32da4bd4a3e69b9"
+    },
+    {
+      "term": "carney",
+      "sha256": "bacfd2e7dd5bec3825ad74a2d1e093a78bc42b1d4dc44bac9c47372d56f1bb62"
+    },
+    {
+      "term": "flathead",
+      "sha256": "76736c255a5165ffd16fe2fda2a968cc0977bc0ba8523531982f46d2067f79b9"
+    },
+    {
+      "term": "foo",
+      "sha256": "a26623708b3b54aa6e1086210def080059da8ad6c88efbdca57ae8004be96211"
+    },
+    {
+      "term": "hubble",
+      "sha256": "9982c3d017ab8c270187e2f08354524f1db602537d1fd96550e8f196d3e7bebe"
+    },
+    {
+      "term": "melville",
+      "sha256": "a3fe41677f6a1dab1829c6fb8a9e33ae1a601f8dc5c9e2766e470c6370e9cfb2"
+    },
+    {
+      "term": "molly",
+      "sha256": "4e4bb4f9fc81045a4ba9287515ab722d053eca034b94f32b754f67847497f33a"
+    },
+    {
+      "term": "monmouth",
+      "sha256": "94d1fa7e6d496e3fb440e80fd0a32eb567d159be3041a0effef4e82441f2a37d"
+    },
+    {
+      "term": "primo",
+      "sha256": "3320112539ce9174d220f04f785c6598dd19e22c62a81580882f1f77d1f67633"
+    },
+    {
+      "term": "qed",
+      "sha256": "e3a5598612982a18e63a165e3d72ee40214aa57b50b9dcd833d584eb461c827c"
+    },
+    {
+      "term": "sheepshead",
+      "sha256": "8344f43d471aff4af7b5688dd8c100962e985db31056f94e595afac2661f04e7"
+    },
+    {
+      "term": "situationist",
+      "sha256": "4e83f20287874e5d4350c14d054bdead4d4bf78abb0c4fa82cba920e27d9d422"
+    },
+    {
+      "term": "steinway",
+      "sha256": "c8d96599f8ec605376f7bcf066ec811515f7e5b0b4fd6d4c0cc0c1655e83eb83"
+    },
+    {
+      "term": "sus",
+      "sha256": "bebc7e148ac8c4940cf4f86420cb4b2e51a7fa1867fc766d4c9f702b81d2512b"
+    },
+    {
+      "term": "thankyou",
+      "sha256": "98b71901c6628dd32ce0045c2bcac5f88b7f5ed49ca6f74a027d85ea66ea1848"
+    },
+    {
+      "term": "wally",
+      "sha256": "8be9a86ae2548c259c3273f1257372abecb15f0176621a32e6d26a5a10475773"
+    },
+    {
+      "term": "wot",
+      "sha256": "a0747b5fc195cb00fb70811d179cbdce83afc061bbafff6c1daa5eeb9032db42"
+    }
+  ],
+  "newHeads": 29,
+  "newPairs": 29,
+  "combinedHeads": 51,
+  "combinedPairs": 52,
+  "compiledRowsSha256": "92c68983d1f1928ad492b2b1d74c91d6f95371b80b59ecb16e7ee888c8688e7e",
+  "scope": "One supported component of the unchanged canonical POS and full meaning; not approval of every possible sense."
+}

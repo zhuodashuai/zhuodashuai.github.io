@@ -32,6 +32,7 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
     const { lookup, owner, collection } = value;
     const section = get("library-lookup");
     section.dataset.phase = lookup.phase; section.dataset.auth = value.authPhase; section.dataset.owner = String(owner);
+    section.dataset.suggestionPhase = lookup.suggestionPhase || "idle";
     const receipts = value.receipts.map(item => ({ ...item,
       entry: resolveEntry ? resolveEntry(item.entry.id) : item.entry })).filter(item => item.entry);
     get("lookup-auth").textContent = value.authMessage || "查词无需登录";
@@ -41,10 +42,14 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
     get("lookup-note").textContent = owner ? "按 Enter 查词并公开收录；中文或纠错候选请点选。" : "本站词典直接查询；只有卓本人登录后才会公开收录。";
     get("lookup-submit").textContent = owner ? "查词并收录" : "查词";
     get("lookup-submit").disabled = lookup.phase === "loading";
-    get("lookup-cancel").hidden = lookup.phase !== "loading";
+    get("lookup-cancel").hidden = lookup.phase !== "loading" && lookup.suggestionPhase !== "loading";
     const selected = lookup.results[lookup.selectedIndex];
     const same = collection.term && selected?.term === collection.term;
     get("lookup-status").textContent = same && collection.message ? collection.message : lookup.message || "";
+    if (!selected && lookup.phase === "empty") {
+      if (lookup.suggestionPhase === "loading") get("lookup-status").textContent += " 正在查找相近拼写…";
+      if (lookup.suggestionPhase === "error") get("lookup-status").textContent += " 拼写建议暂不可用，按 Enter 可重试。";
+    }
     if (value.pendingCount > 1) get("lookup-status").textContent += ` · ${value.pendingCount} 项正在收录`;
     get("lookup-retry").hidden = !owner || !value.failedCount;
     get("lookup-result").hidden = !selected;

@@ -235,6 +235,55 @@ test("heppy remains a miss until a spelling suggestion is explicitly clicked in 
   expectNarrowCollection(calls);
 });
 
+test("healthy sequential spelling reads survive initial library rendering without collecting or changing the typo", async ({ page, context }) => {
+  const initial = await publicSnapshot(context);
+  expect(initial.entries.length).toBeGreaterThan(500);
+  let releaseSnapshot, snapshotReleased = false;
+  const snapshotGate = new Promise(resolve => { releaseSnapshot = resolve; });
+  await page.route(`**${PUBLIC}*`, async route => {
+    const response = await context.request.get(`${ORIGIN}${PUBLIC}`); await snapshotGate;
+    try { await route.fulfill({ response }); } catch { /* Cleanup may close an unfinished read. */ }
+  });
+  await page.route("**/data/dictionary-suggestions/**", async route => {
+    const response = await route.fetch();
+    if (!route.request().url().endsWith("manifest.json") && !snapshotReleased) { snapshotReleased = true; releaseSnapshot(); }
+    // Each healthy read takes less than the existing three-second resource
+    // limit; the two sequential stages exceed the obsolete aggregate limit.
+    await new Promise(resolve => setTimeout(resolve, 1700));
+    try { await route.fulfill({ response }); } catch { /* Editing or cleanup may cancel this optional read. */ }
+  });
+  try {
+    await page.setViewportSize({ width: 390, height: 844 }); await openOwner(context, page);
+    const calls = observe(page); await lookup(page, "heppy");
+    await expect(page.locator("#library-lookup")).toHaveAttribute("data-suggestion-phase", "loading");
+    await expect(page.locator("#lookup-status")).toContainText("正在查找相近拼写");
+    await expect(page.locator("#lookup-submit")).toBeEnabled();
+    await expect(page.locator("#lookup-cancel")).toBeVisible();
+    const suggestion = page.locator('#lookup-choices button[data-lookup-suggestion="0"]');
+    await expect(suggestion).toHaveText("你是否想查 happy？");
+    await expect(page.locator("#lookup-input")).toHaveValue("heppy");
+    await expect(page.locator("#lookup-result")).toBeHidden();
+    await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
+    expect(writes(calls)).toEqual([]); expect(await publicSnapshot(context)).toEqual(initial);
+    await suggestion.click(); await expect(page.locator("#lookup-term")).toHaveText("happy");
+    await collected(context, "happy"); expectNarrowCollection(calls);
+  } finally { releaseSnapshot(); }
+});
+
+test("inline spelling failure is visible and Enter can retry without silently collecting the suggested word", async ({ page, context }) => {
+  let unavailable = true;
+  await page.route("**/data/dictionary-suggestions/**", route => unavailable
+    ? route.fulfill({ status: 503, body: "Synthetic optional index outage" }) : route.continue());
+  await openOwner(context, page); const calls = observe(page); await lookup(page, "heppy");
+  await expect(page.locator("#library-lookup")).toHaveAttribute("data-suggestion-phase", "error");
+  await expect(page.locator("#lookup-status")).toContainText("拼写建议暂不可用");
+  await expect(page.locator("#lookup-submit")).toBeEnabled();
+  await expect(page.locator("#lookup-input")).toHaveValue("heppy"); expect(writes(calls)).toEqual([]);
+  unavailable = false; await page.locator("#lookup-input").press("Enter");
+  await expect(page.locator('#lookup-choices button[data-lookup-suggestion="0"]')).toHaveText("你是否想查 happy？");
+  await expect(page.locator("#lookup-result")).toBeHidden(); expect(writes(calls)).toEqual([]);
+});
+
 test("same-owner late A confirmation appears immediately while B is pending, without stealing B's result", async ({ page, context }) => {
   await openOwner(context, page); const calls = observe(page), originalUrl = page.url();
   let releaseA, releaseB, reachedA, reachedB, entryA;

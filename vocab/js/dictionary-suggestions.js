@@ -7,6 +7,9 @@ const HASH = /^[a-f0-9]{64}$/u;
 const WORD = /^[a-z]+(?:[ '-][a-z]+)*$/u;
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const MAX_BYTES = 1024 * 1024;
+// Shared public downloads have their own finite lifetime. A caller's shorter
+// wait budget must not cancel another caller using the same authenticated data.
+const TRANSPORT_TIMEOUT_MS = 15_000;
 const TTL = 60_000;
 let clients = new WeakMap();
 const controllers = new Set();
@@ -110,7 +113,10 @@ export function parseSuggestionShard(value, descriptor) {
 }
 
 async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false) {
-  const controller = new AbortController(); controllers.add(controller); let timer;
+  const controller = new AbortController(); controllers.add(controller); let timer, abort;
+  const cancelled = new Promise((_, reject) => {
+    abort = () => reject(stopped()); controller.signal.addEventListener("abort", abort, { once: true });
+  });
   const task = (async () => {
     const response = await fetchImpl(url, { credentials: "omit", cache: descriptor ? (reload ? "reload" : "force-cache") : "no-cache", signal: controller.signal });
     if (!response?.ok) throw new Error("拼写建议暂时不可用。");
@@ -137,8 +143,10 @@ async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false) {
     }
     try { return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)); } catch { throw invalid(); }
   })();
-  try { return await Promise.race([task, new Promise((_, reject) => { timer = setTimeout(() => { controller.abort(); reject(timeout()); }, timeoutMs); })]); }
-  finally { clearTimeout(timer); controllers.delete(controller); }
+  try { return await Promise.race([task, cancelled, new Promise((_, reject) => {
+    timer = setTimeout(() => { reject(timeout()); controller.abort(); }, timeoutMs);
+  })]); }
+  finally { clearTimeout(timer); controller.signal.removeEventListener("abort", abort); controllers.delete(controller); }
 }
 function clientFor(fetchImpl) {
   if (typeof fetchImpl !== "function") throw new Error("无法读取拼写建议。");
@@ -146,14 +154,14 @@ function clientFor(fetchImpl) {
   if (!client) { client = { manifest: null, at: 0, loading: null, shards: new Map(), pending: new Map(), failed: new Set() }; clients.set(fetchImpl, client); }
   return client;
 }
-async function manifestFor(client, dictionaryVersion, fetchImpl, timeoutMs) {
+async function manifestFor(client, dictionaryVersion, fetchImpl) {
   if (client.manifest?.dictionaryVersion === dictionaryVersion && Date.now() - client.at < TTL) return client.manifest;
   if (client.loading) {
     const value = await client.loading;
     return parseSuggestionManifest(value, dictionaryVersion);
   }
   const started = generation;
-  const loading = readJSON(MANIFEST_URL, fetchImpl, timeoutMs).then(value => {
+  const loading = readJSON(MANIFEST_URL, fetchImpl, TRANSPORT_TIMEOUT_MS).then(value => {
     const manifest = parseSuggestionManifest(value, dictionaryVersion);
     if (started === generation) {
       if (client.manifest?.version !== manifest.version) client.shards.clear();
@@ -163,12 +171,12 @@ async function manifestFor(client, dictionaryVersion, fetchImpl, timeoutMs) {
   }).finally(() => { if (client.loading === loading) client.loading = null; });
   client.loading = loading; return loading;
 }
-async function shardFor(client, descriptor, fetchImpl, timeoutMs) {
+async function shardFor(client, descriptor, fetchImpl) {
   const key = descriptor.file;
   if (client.shards.has(key)) return client.shards.get(key);
   if (client.pending.has(key)) return client.pending.get(key);
   const started = generation;
-  const loading = readJSON(new URL(descriptor.file, MANIFEST_URL), fetchImpl, timeoutMs, descriptor, client.failed.has(key)).then(value => {
+  const loading = readJSON(new URL(descriptor.file, MANIFEST_URL), fetchImpl, TRANSPORT_TIMEOUT_MS, descriptor, client.failed.has(key)).then(value => {
     const rows = parseSuggestionShard(value, descriptor);
     if (started === generation) { client.shards.set(key, rows); client.failed.delete(key); }
     return rows;
@@ -183,7 +191,10 @@ async function shardFor(client, descriptor, fetchImpl, timeoutMs) {
   client.pending.set(key, loading); return loading;
 }
 
-/** Lazy length shards, <=2 edits, <=5 explicit choices; no provider/query URL. */
+/** Lazy length shards, <=2 edits, <=5 explicit choices; no provider/query URL.
+ * timeoutMs bounds each resource wait, including a shared download. It must
+ * not discard healthy sequential reads just because library rendering used
+ * the main thread between them. Ranking is finite and cooperatively yields. */
 export async function suggestDictionaryTerms(input, { dictionaryVersion, signal, fetchImpl = globalThis.fetch, timeoutMs = 3000, limit = 5 } = {}) {
   const query = normalizeSuggestionQuery(input); if (!query) return [];
   if (signal?.aborted) throw stopped();
@@ -191,12 +202,22 @@ export async function suggestDictionaryTerms(input, { dictionaryVersion, signal,
   const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 3000;
   const count = Number.isSafeInteger(limit) ? Math.max(1, Math.min(5, limit)) : 5;
   const client = clientFor(fetchImpl), maximum = query.length >= 6 ? 2 : 1;
-  let timer, stop, abandoned = false;
+  let stop, abandoned = false;
+  const cancelled = new Promise((_, reject) => {
+    stop = () => { abandoned = true; reject(stopped()); };
+    signal?.addEventListener("abort", stop, { once: true });
+  });
+  const resource = async operation => {
+    let timer;
+    try { return await Promise.race([operation, cancelled,
+      new Promise((_, reject) => { timer = setTimeout(() => reject(timeout()), duration); })]); }
+    finally { clearTimeout(timer); }
+  };
   const task = (async () => {
-    const manifest = await manifestFor(client, dictionaryVersion, fetchImpl, duration);
+    const manifest = await resource(manifestFor(client, dictionaryVersion, fetchImpl));
     if (signal?.aborted) throw stopped();
     const descriptors = manifest.shards.filter(shard => Math.abs(shard.length - query.length) <= maximum);
-    const groups = await Promise.all(descriptors.map(shard => shardFor(client, shard, fetchImpl, duration)));
+    const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl))));
     if (signal?.aborted) throw stopped();
     if (groups.some(rows => rows.some(([term]) => fold(term) === query))) return [];
     const matches = []; let scanned = 0, lastYield = performance.now();
@@ -214,10 +235,8 @@ export async function suggestDictionaryTerms(input, { dictionaryVersion, signal,
     return ordered(matches, count);
   })();
   try {
-    return await Promise.race([task,
-      new Promise((_, reject) => { timer = setTimeout(() => { abandoned = true; reject(timeout()); }, duration); }),
-      new Promise((_, reject) => { stop = () => reject(stopped()); signal?.addEventListener("abort", stop, { once: true }); })]);
-  } finally { clearTimeout(timer); signal?.removeEventListener("abort", stop); }
+    return await Promise.race([task, cancelled]);
+  } finally { signal?.removeEventListener("abort", stop); }
 }
 
 export function resetDictionarySuggestionsForTests() {

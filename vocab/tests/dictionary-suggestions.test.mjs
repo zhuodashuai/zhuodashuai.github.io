@@ -139,3 +139,76 @@ test("hanging headers or bodies have a bounded optional deadline and are retryab
   resetDictionarySuggestionsForTests();
   assert.equal((await suggestDictionaryTerms("heppy", fixture()))[0].term, "happy");
 });
+
+function smallFixture() {
+  const version = "a".repeat(64), dictionaryVersion = "b".repeat(64), bodies = new Map();
+  const shards = Array.from({ length: 63 }, (_, index) => {
+    const length = index + 2, rows = length === 5 ? [["happy", 0], ["hippy", 2], ["hoppy", 2]] : [];
+    const body = JSON.stringify({ schemaVersion: 1, length, rows }), file = `${version}/length-${String(length).padStart(2, "0")}.json`;
+    bodies.set(file, body); return { length, file, sha256: sha(body), bytes: Buffer.byteLength(body), count: rows.length };
+  });
+  const directory = { schemaVersion: 1, dictionaryVersion, version,
+    counts: { canonicalHeads: 3, eligibleHeads: 3, excludedHeads: 0 }, minLength: 2, maxLength: 64, shards };
+  const requests = [];
+  const fetchImpl = async (url, options) => {
+    requests.push({ url: String(url), options });
+    const name = new URL(url).pathname.split("/dictionary-suggestions/")[1];
+    return new Response(name === "manifest.json" ? JSON.stringify(directory) : bodies.get(name));
+  };
+  return { dictionaryVersion, fetchImpl, requests };
+}
+const gate = () => { let resolve; const promise = new Promise(done => { resolve = done; }); return { promise, resolve }; };
+
+test("individually healthy manifest and shard waits do not lose a candidate to an expired whole-pipeline timer", async t => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  t.after(() => { t.mock.timers.reset(); resetDictionarySuggestionsForTests(); });
+  const data = smallFixture(), manifestSeen = gate(), shardsSeen = gate(), manifestGate = gate(), shardGate = gate(); let shardCount = 0;
+  const fetchImpl = async (url, options) => {
+    if (String(url).endsWith("manifest.json")) { manifestSeen.resolve(); await manifestGate.promise; }
+    else { if (++shardCount === 3) shardsSeen.resolve(); await shardGate.promise; }
+    return data.fetchImpl(url, options);
+  };
+  const observed = suggestDictionaryTerms("heppy", { dictionaryVersion: data.dictionaryVersion, fetchImpl, timeoutMs: 100 })
+    .then(value => ({ value }), error => ({ error }));
+  await manifestSeen.promise; t.mock.timers.tick(80); manifestGate.resolve();
+  await shardsSeen.promise; t.mock.timers.tick(80); shardGate.resolve();
+  const result = await observed;
+  assert.ifError(result.error); assert.equal(result.value[0].term, "happy");
+  assert.equal(data.requests.length, 4);
+});
+
+test("a short caller's resource deadline does not abort a longer caller sharing the same download", async t => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  t.after(() => { t.mock.timers.reset(); resetDictionarySuggestionsForTests(); });
+  const data = smallFixture(), seen = gate(), manifestGate = gate(); let downloadSignal;
+  const fetchImpl = async (url, options) => {
+    if (String(url).endsWith("manifest.json")) { downloadSignal = options.signal; seen.resolve(); await manifestGate.promise; }
+    return data.fetchImpl(url, options);
+  };
+  const longer = suggestDictionaryTerms("heppy", { dictionaryVersion: data.dictionaryVersion, fetchImpl, timeoutMs: 100 });
+  await seen.promise;
+  const shorter = suggestDictionaryTerms("heppy", { dictionaryVersion: data.dictionaryVersion, fetchImpl, timeoutMs: 10 })
+    .then(value => ({ value }), error => ({ error }));
+  t.mock.timers.tick(11); const early = await shorter;
+  assert.equal(early.error?.code, "dictionary_suggestions_timeout"); assert.equal(downloadSignal.aborted, false);
+  manifestGate.resolve(); assert.equal((await longer)[0].term, "happy");
+  assert.equal(data.requests.filter(item => item.url.endsWith("manifest.json")).length, 1);
+});
+
+test("a short first caller does not impose its wait budget on a later longer caller", async t => {
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  t.after(() => { t.mock.timers.reset(); resetDictionarySuggestionsForTests(); });
+  const data = smallFixture(), seen = gate(), manifestGate = gate(); let downloadSignal;
+  const fetchImpl = async (url, options) => {
+    if (String(url).endsWith("manifest.json")) { downloadSignal = options.signal; seen.resolve(); await manifestGate.promise; }
+    return data.fetchImpl(url, options);
+  };
+  const shorter = suggestDictionaryTerms("heppy", { dictionaryVersion: data.dictionaryVersion, fetchImpl, timeoutMs: 10 })
+    .then(value => ({ value }), error => ({ error }));
+  await seen.promise;
+  const longer = suggestDictionaryTerms("heppy", { dictionaryVersion: data.dictionaryVersion, fetchImpl, timeoutMs: 100 });
+  t.mock.timers.tick(11); const early = await shorter;
+  assert.equal(early.error?.code, "dictionary_suggestions_timeout"); assert.equal(downloadSignal.aborted, false);
+  t.mock.timers.tick(25); manifestGate.resolve(); assert.equal((await longer)[0].term, "happy");
+  assert.equal(data.requests.filter(item => item.url.endsWith("manifest.json")).length, 1);
+});
