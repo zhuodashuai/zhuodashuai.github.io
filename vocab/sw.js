@@ -242,3 +242,4 @@ self.addEventListener("fetch", (event) => {
 
 // Canonical example batch 0003: refresh the same cached shell without removing warmed offline shards.
 // Canonical example batch 0004 and per-resource spelling waits: refresh shell, preserve offline shards.
+// Canonical example batch 0005: refresh optional examples while retaining warmed offline data.
