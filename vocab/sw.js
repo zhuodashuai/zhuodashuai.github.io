@@ -83,7 +83,7 @@ const SHELL = [
   "./js/chapter-quiz.js?v=82", "./js/quiz-storage.js?v=82", "./js/chapter-quiz-ui.js?v=82",
   "./js/public-snapshot.js?v=82", "./js/learning-backup.js?v=82", "./js/learning-backup-ui.js?v=82",
   "./js/pwa.js?v=77", "./js/synonym-view.js?v=82",
-  "./js/wordbook-schema.js?v=82", "./js/collections.js?v=82", "./js/owner-backup.js?v=82", "./js/sync-logic.js?v=82",
+  "./js/wordbook-schema.js?v=82", "./js/collections.js?v=82", "./js/reading-source.js", "./js/owner-backup.js?v=82", "./js/sync-logic.js?v=82",
   "./data/owner-wordbook.json", "./data/book-passages.json", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/icon-maskable-192.png", "./assets/icon-maskable-512.png", "./assets/word-cabinet-og.png",
   "./quality/", "./quality/index.html", "./quality/styles.css", "./quality/report.js",

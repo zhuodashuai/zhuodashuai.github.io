@@ -1,6 +1,7 @@
 import { PublicEntrySchema, type PublicEntry } from "./schema";
 import { ApiError } from "./security";
 import { MEMBER_UUID, memberFields, memberText } from "./member-security";
+import { readingChapterTitle } from "../../vocab/js/reading-source.js";
 
 export interface SourceContext {
   key: string; entryId: string; term: string; collectionId: string; chapterId: string;
@@ -70,7 +71,7 @@ export function prepareSelection(request: SelectionRequest, input: unknown): Pre
       if (row.membership && !context) throw new ApiError(503, "source_context_unavailable", "这个章节缺少独立来源语境，请先修复公开来源；没有用其他章节的释义代替。");
       return validateSourceContext({ key: `${entry.id}:${row.collectionId}:${row.chapterId}`, entryId: entry.id, term: entry.term,
         collectionId: row.collectionId, chapterId: row.chapterId, bookTitle: row.collectionId === "main" ? "卓的主词本" : context?.sourceWork || entry.sourceWork || title(row.collectionId),
-        chapterTitle: row.chapterId === "all" ? "" : `Chapter ${row.number}`, sourceTitle: context?.sourceTitle ?? entry.sourceTitle,
+        chapterTitle: row.chapterId === "all" ? "" : readingChapterTitle(context ?? entry, row.number), sourceTitle: context?.sourceTitle ?? entry.sourceTitle,
         page: context?.page ?? "", originalInput: context?.originalInput ?? entry.originalInput,
         meaning: context?.meaning ?? entry.meaning, definition: context?.definition ?? entry.definition,
         exampleEn: context?.exampleEn ?? entry.exampleEn, exampleZh: context?.exampleZh ?? entry.exampleZh,

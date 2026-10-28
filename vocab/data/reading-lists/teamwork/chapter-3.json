@@ -1,0 +1,3067 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-3",
+    "number": 3,
+    "title": "The Overcommitted Organization"
+  },
+  "sourceTitle": "Teamwork — The Overcommitted Organization",
+  "articleTitle": "The Overcommitted Organization",
+  "authors": "Mark Mortensen; Heidi K. Gardner",
+  "issue": "September-October 2017",
+  "sourceUrl": "https://hbr.org/2017/09/the-overcommitted-organization",
+  "expectedItemCount": 94,
+  "curation": {
+    "difficulty": "moderate",
+    "originalItemCount": 120,
+    "excludedItems": [
+      {
+        "term": "on track",
+        "pdfPage": 4,
+        "reason": "常见基础进度表达，意思容易从日常语境理解"
+      },
+      {
+        "term": "fall behind schedule",
+        "pdfPage": 4,
+        "reason": "常见进度短语，整体含义透明"
+      },
+      {
+        "term": "brainpower",
+        "pdfPage": 4,
+        "reason": "构词与脑力义较直观，优先让位于更难词汇"
+      },
+      {
+        "term": "sit idle",
+        "pdfPage": 4,
+        "reason": "日常词组成的常见闲置表达"
+      },
+      {
+        "term": "knowledge transfer",
+        "pdfPage": 4,
+        "reason": "透明专业搭配，概念可由两个常用词理解"
+      },
+      {
+        "term": "draw on",
+        "pdfPage": 4,
+        "reason": "常见中级借助资源表达，严格学习集优先省略"
+      },
+      {
+        "term": "end-to-end",
+        "pdfPage": 4,
+        "reason": "从头到尾义较透明且商务中常见"
+      },
+      {
+        "term": "underutilized",
+        "pdfPage": 4,
+        "reason": "利用不足义可由常见前缀与词根直接理解"
+      },
+      {
+        "term": "retention",
+        "pdfPage": 5,
+        "reason": "员工留任为常见人事词，本文没有特别罕见的新义"
+      },
+      {
+        "term": "at a glance",
+        "pdfPage": 5,
+        "reason": "常见日常短语，通常不属于较难商务词汇"
+      },
+      {
+        "term": "drawback",
+        "pdfPage": 5,
+        "reason": "常见一般阅读词，没有特别的专业义"
+      },
+      {
+        "term": "adaptability",
+        "pdfPage": 5,
+        "reason": "一般能力词，含义与构词较透明"
+      },
+      {
+        "term": "coordination costs",
+        "pdfPage": 5,
+        "reason": "协调成本为透明组合，未增加明显词义难点"
+      },
+      {
+        "term": "constructive feedback",
+        "pdfPage": 6,
+        "reason": "常见基础职场搭配，含义直接"
+      },
+      {
+        "term": "introvert",
+        "pdfPage": 6,
+        "reason": "常见人格词，本文使用其一般含义"
+      },
+      {
+        "term": "dive in",
+        "pdfPage": 6,
+        "reason": "迅速投入的常见比喻表达，优先省略"
+      },
+      {
+        "term": "peer mentoring",
+        "pdfPage": 6,
+        "reason": "同事指导为透明组合，基础词义足以理解"
+      },
+      {
+        "term": "outdated assumptions",
+        "pdfPage": 6,
+        "reason": "两个常见词的透明组合"
+      },
+      {
+        "term": "competing priorities",
+        "pdfPage": 7,
+        "reason": "常见透明职场组合，没有独立词义难点"
+      },
+      {
+        "term": "hands-on",
+        "pdfPage": 7,
+        "reason": "常见通用表达；与另一篇同义，按统一精简标准移出。"
+      },
+      {
+        "term": "mandatory",
+        "pdfPage": 7,
+        "reason": "大学与职场中的常见基础规定用语"
+      },
+      {
+        "term": "spontaneous",
+        "pdfPage": 7,
+        "reason": "一般阅读常见形容词，本文没有罕见新义"
+      },
+      {
+        "term": "transferable skills",
+        "pdfPage": 8,
+        "reason": "职业准备中常见且含义透明的组合"
+      },
+      {
+        "term": "demotivated",
+        "pdfPage": 8,
+        "reason": "失去动力义可由常见词根和前缀理解"
+      },
+      {
+        "term": "resource utilization",
+        "pdfPage": 8,
+        "reason": "资源利用为透明商务组合，可不单独收入难词集"
+      },
+      {
+        "term": "thrive",
+        "pdfPage": 9,
+        "reason": "常见一般发展词，本文没有特别专业的新义"
+      }
+    ],
+    "notes": "Difficulty is a practical study judgment, not a claim about which words the learner personally knows."
+  },
+  "notes": "Attach these article contexts to existing canonical IDs; do not replace their lexical fields or use the literary chapter importer.",
+  "items": [
+    {
+      "term": "overcommitted",
+      "originalInput": "Overcommitted",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "承担过多任务或承诺的；工作安排过满的",
+      "definitionEn": "Having accepted more responsibilities than can be handled with the available time or resources.",
+      "usage": "标题指组织把人员过度分配到多个团队；并非单纯表示投入程度很高。",
+      "exampleEn": "An overcommitted analyst may miss important details even when each project looks manageable alone.",
+      "exampleZh": "即使每个项目单独看来都能应付，任务过多的分析师也可能漏掉重要细节。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "overcommitted employees",
+        "an overcommitted team",
+        "become overcommitted"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 1,
+      "printedPage": "",
+      "category": "工作负荷",
+      "order": 1,
+      "reuseExistingEntryId": "public-teamwork-overcommitted-2d94e9e7"
+    },
+    {
+      "term": "fight fires",
+      "originalInput": "fighting fires",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "忙于处理突发问题；四处救急",
+      "definitionEn": "To deal repeatedly with urgent problems instead of planned work.",
+      "usage": "管理语境为比喻义；强调不断救急，未必解决问题根源。",
+      "exampleEn": "We spent the morning fighting fires instead of preparing the customer workshop.",
+      "exampleZh": "我们整个上午都在处理突发问题，而没有准备客户研讨会。",
+      "phonetic": "",
+      "forms": [
+        "fights fires",
+        "fought fires",
+        "fighting fires"
+      ],
+      "collocations": [
+        "spend time fighting fires",
+        "constantly fight fires",
+        "fight fires at work"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "危机与风险",
+      "order": 2,
+      "reuseExistingEntryId": "public-teamwork-fight-fires-0c25087d"
+    },
+    {
+      "term": "security breach",
+      "originalInput": "security breach",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "安全失守事件；系统或信息被未经授权访问或泄露的事件",
+      "definitionEn": "An incident in which security protections are violated and protected systems or information are accessed or exposed without authorization.",
+      "usage": "breach 指防护被突破的事件；不应把所有潜在弱点都称为已发生的 breach。",
+      "exampleEn": "The security breach forced two product teams to pause their releases.",
+      "exampleZh": "这起安全事件迫使两个产品团队暂停发布。",
+      "phonetic": "",
+      "forms": [
+        "security breaches"
+      ],
+      "collocations": [
+        "investigate a security breach",
+        "respond to a security breach",
+        "a serious security breach"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "危机与风险",
+      "order": 3,
+      "reuseExistingEntryId": "public-teamwork-security-breach-4a232dbc"
+    },
+    {
+      "term": "multiteaming",
+      "originalInput": "multiteaming",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "同时参与多个团队的工作安排",
+      "definitionEn": "An arrangement in which a person belongs to and works on several teams at the same time.",
+      "usage": "本文核心术语；区别于 multitasking，同一人可以跨团队分时工作。",
+      "exampleEn": "Multiteaming gave the specialist broader experience but fragmented her calendar.",
+      "exampleZh": "同时参与多个团队让这位专家积累了更广的经验，也使她的日程变得零碎。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "the costs of multiteaming",
+        "manage multiteaming",
+        "multiteaming arrangements"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "多团队协作",
+      "order": 4,
+      "reuseExistingEntryId": "public-teamwork-multiteaming-f67608f9"
+    },
+    {
+      "term": "human capital",
+      "originalInput": "human capital",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "人力资本；人员所具备的知识、技能和能力",
+      "definitionEn": "The knowledge, skills, and abilities that people contribute to productive work.",
+      "usage": "通常不可数；强调人的能力价值，不把个人简单等同于可替换设备。",
+      "exampleEn": "The firm invested in human capital through mentoring and technical training.",
+      "exampleZh": "公司通过导师辅导和技术培训投资于人力资本。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "invest in human capital",
+        "develop human capital",
+        "human capital management"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "人才与资源",
+      "order": 5,
+      "reuseExistingEntryId": "public-teamwork-human-capital-ece4809a"
+    },
+    {
+      "term": "downtime",
+      "originalInput": "downtime",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "停工或空闲时间；未被有效利用的工作时段",
+      "definitionEn": "A period when a person, machine, or process is not operating or being used.",
+      "usage": "本文指项目间或项目放缓时的空闲；并非只指系统故障停机。",
+      "exampleEn": "We used the planned downtime to update the team's operating guide.",
+      "exampleZh": "我们利用计划中的空闲时间更新了团队操作指南。",
+      "phonetic": "/ˈdaʊnˌtaɪm/",
+      "forms": [],
+      "collocations": [
+        "reduce downtime",
+        "planned downtime",
+        "costly downtime"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "人才与资源",
+      "order": 6,
+      "reuseExistingEntryId": "public-teamwork-downtime-f14ff57c"
+    },
+    {
+      "term": "in-house",
+      "originalInput": "in-house",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "在组织内部；由内部人员完成",
+      "definitionEn": "Within an organization rather than through an outside provider.",
+      "usage": "本文 bring experts in-house 是把专家纳入内部；也可作形容词，如 in-house training。",
+      "exampleEn": "The agency brought the data analysis in-house to improve coordination.",
+      "exampleZh": "这家机构将数据分析转为内部完成，以改善协调。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "bring expertise in-house",
+        "develop skills in-house",
+        "handle work in-house"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "人才与资源",
+      "order": 7,
+      "reuseExistingEntryId": "public-teamwork-in-house-6536aff9"
+    },
+    {
+      "term": "dip in and out of",
+      "originalInput": "dip in and out of",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "间歇性参与；按需要短暂介入并退出",
+      "definitionEn": "To become involved in an activity for short periods rather than continuously.",
+      "usage": "常接项目或活动；本文描述专家按需参与，不是完整负责全过程。",
+      "exampleEn": "The architect dips in and out of the project when specialist decisions are needed.",
+      "exampleZh": "需要作出专业决策时，这位架构师会间歇性参与项目。",
+      "phonetic": "",
+      "forms": [
+        "dips in and out of",
+        "dipped in and out of",
+        "dipping in and out of"
+      ],
+      "collocations": [
+        "dip in and out of projects",
+        "dip in and out of discussions"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "多团队协作",
+      "order": 8,
+      "reuseExistingEntryId": "public-teamwork-dip-in-and-out-of-3ac53ccf"
+    },
+    {
+      "term": "dissemination",
+      "originalInput": "dissemination",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "传播；广泛分发信息或做法",
+      "definitionEn": "The process of spreading information or ideas to a wider audience.",
+      "usage": "通常不可数；常用 dissemination of information/knowledge。",
+      "exampleEn": "The internal forum supports the dissemination of lessons from completed projects.",
+      "exampleZh": "内部论坛帮助广泛传播已完成项目的经验教训。",
+      "phonetic": "/dɪˌsɛməˈneɪʃən/",
+      "forms": [],
+      "collocations": [
+        "the dissemination of knowledge",
+        "the dissemination of best practices",
+        "wide dissemination"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "知识与学习"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "知识与学习",
+      "order": 9,
+      "reuseExistingEntryId": "public-teamwork-dissemination-4d606104"
+    },
+    {
+      "term": "quantifiable",
+      "originalInput": "quantifiable",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "可量化的；能够用数字衡量的",
+      "definitionEn": "Able to be measured or expressed as an amount or number.",
+      "usage": "可量化不等于已被准确测量，也不意味着其他影响不重要。",
+      "exampleEn": "The proposal listed quantifiable savings alongside less tangible learning benefits.",
+      "exampleZh": "提案同时列出了可量化的节省和较难量化的学习收益。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "quantifiable benefits",
+        "quantifiable costs",
+        "a quantifiable improvement"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "管理分析",
+      "order": 10,
+      "reuseExistingEntryId": "public-teamwork-quantifiable-1fcc803d"
+    },
+    {
+      "term": "group cohesion",
+      "originalInput": "group cohesion",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "群体凝聚力；成员保持团结与联系的程度",
+      "definitionEn": "The strength of the bonds that hold members of a group together.",
+      "usage": "通常不可数；凝聚力较高不代表成员一定同意所有观点。",
+      "exampleEn": "Frequent staff changes weakened group cohesion during the rollout.",
+      "exampleZh": "推广过程中频繁的人员变动削弱了群体凝聚力。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "build group cohesion",
+        "weaken group cohesion",
+        "strong group cohesion"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "关系与信任",
+      "order": 11,
+      "reuseExistingEntryId": "public-teamwork-group-cohesion-55d52db6"
+    },
+    {
+      "term": "burnout",
+      "originalInput": "burnout",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "因长期工作压力而出现的精疲力竭与投入下降",
+      "definitionEn": "A state of exhaustion and reduced engagement associated with prolonged work pressure.",
+      "usage": "工作语境通常不可数；区别于一次短暂疲劳，不把一般忙碌直接诊断为 burnout。",
+      "exampleEn": "The manager reduced overlapping deadlines to lower the risk of burnout.",
+      "exampleZh": "经理减少了重叠的截止日期，以降低过度耗竭的风险。",
+      "phonetic": "/ˈbɝnˌaʊt/",
+      "forms": [],
+      "collocations": [
+        "employee burnout",
+        "the risk of burnout",
+        "prevent burnout"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "工作负荷",
+      "order": 12,
+      "reuseExistingEntryId": "public-teamwork-burnout-a4f4e73f"
+    },
+    {
+      "term": "crop up",
+      "originalInput": "crop up",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "意外出现；突然发生",
+      "definitionEn": "To appear or occur unexpectedly.",
+      "usage": "不及物；常接问题作主语，不能直接把宾语放在 crop up 后。",
+      "exampleEn": "Several coordination problems cropped up after the teams began sharing a designer.",
+      "exampleZh": "两个团队开始共用一名设计师后，出现了几个协调问题。",
+      "phonetic": "",
+      "forms": [
+        "crops up",
+        "cropped up",
+        "cropping up"
+      ],
+      "collocations": [
+        "problems crop up",
+        "issues crop up",
+        "crop up unexpectedly"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "危机与风险",
+      "order": 13,
+      "reuseExistingEntryId": "public-nlmg-c4-crop-up"
+    },
+    {
+      "term": "prevalent",
+      "originalInput": "prevalent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "普遍存在的；广泛流行的",
+      "definitionEn": "Common or widespread in a particular group, place, or period.",
+      "usage": "常用 prevalent in/among；只说明普遍程度，不评价做法优劣。",
+      "exampleEn": "Shared staffing is prevalent in consulting firms with specialized expertise.",
+      "exampleZh": "在需要专业技能的咨询公司中，共享人员配置十分普遍。",
+      "phonetic": "/ˈprɛvələnt/",
+      "forms": [],
+      "collocations": [
+        "a prevalent practice",
+        "prevalent in organizations",
+        "increasingly prevalent"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "管理分析",
+      "order": 14,
+      "reuseExistingEntryId": "public-teamwork-prevalent-6666c872"
+    },
+    {
+      "term": "concurrently",
+      "originalInput": "concurrently",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "同时地；在同一时期并行地",
+      "definitionEn": "At the same time as another activity or event.",
+      "usage": "本文指项目在时间上重叠，不代表员工在每一秒都同时做两件事。",
+      "exampleEn": "She supported three product launches concurrently during the summer.",
+      "exampleZh": "夏季期间，她同时为三个产品发布项目提供支持。",
+      "phonetic": "/kənˈkɝəntli/",
+      "forms": [],
+      "collocations": [
+        "work concurrently",
+        "run concurrently",
+        "manage projects concurrently"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "多团队协作",
+      "order": 15,
+      "reuseExistingEntryId": "public-teamwork-concurrently-e6c6c02c"
+    },
+    {
+      "term": "ubiquitous",
+      "originalInput": "ubiquitous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "几乎无处不在的；非常普遍的",
+      "definitionEn": "Present or encountered almost everywhere in a relevant setting.",
+      "usage": "语气强于 common；通常是概括表达，不必理解为绝无例外。",
+      "exampleEn": "Online dashboards are ubiquitous, but teams still need clear ownership of updates.",
+      "exampleZh": "在线仪表板几乎随处可见，但团队仍需明确谁负责更新。",
+      "phonetic": "/juˈbɪkwɪtəs/",
+      "forms": [],
+      "collocations": [
+        "become ubiquitous",
+        "increasingly ubiquitous",
+        "a ubiquitous feature"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "管理分析",
+      "order": 16,
+      "reuseExistingEntryId": "public-teamwork-ubiquitous-e0c5561d"
+    },
+    {
+      "term": "generalist",
+      "originalInput": "generalists",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "通才；知识涉及多个领域而非单一专长的人",
+      "definitionEn": "A person whose knowledge or work covers a broad range of areas.",
+      "usage": "与 specialist 对照；不等于缺乏专业能力。",
+      "exampleEn": "A generalist coordinated the launch while specialists handled technical decisions.",
+      "exampleZh": "一名通才协调了发布工作，专业人员则处理技术决策。",
+      "phonetic": "/ˈdʒɛnərəlɪst/",
+      "forms": [
+        "generalists"
+      ],
+      "collocations": [
+        "a skilled generalist",
+        "a generalist manager",
+        "generalists and specialists"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "人才与资源",
+      "order": 17,
+      "reuseExistingEntryId": "public-teamwork-generalist-5f10df40"
+    },
+    {
+      "term": "stretch resources",
+      "originalInput": "stretch resources",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "尽量发挥有限资源的作用；使资源承担更多任务",
+      "definitionEn": "To make limited resources cover a wider range or greater amount of work.",
+      "usage": "也可暗含资源被拉得过紧；需结合上下文判断是否过度。",
+      "exampleEn": "The new contract will stretch resources unless we adjust the delivery plan.",
+      "exampleZh": "如果不调整交付计划，新合同会让资源更加紧张。",
+      "phonetic": "",
+      "forms": [
+        "stretches resources",
+        "stretched resources",
+        "stretching resources"
+      ],
+      "collocations": [
+        "stretch limited resources",
+        "stretch resources too thin",
+        "stretch resources further"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "人才与资源",
+      "order": 18,
+      "reuseExistingEntryId": "public-teamwork-stretch-resources-688f6ce6"
+    },
+    {
+      "term": "loop someone into",
+      "originalInput": "loop them into projects",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "把某人纳入项目、讨论或信息交流",
+      "definitionEn": "To include someone in an activity or flow of information.",
+      "usage": "常用 loop someone into a project/discussion；代词放在 loop 与 into 之间。",
+      "exampleEn": "Please loop the support lead into the planning discussion.",
+      "exampleZh": "请让支持团队负责人加入计划讨论。",
+      "phonetic": "",
+      "forms": [
+        "loops someone into",
+        "looped someone into",
+        "looping someone into"
+      ],
+      "collocations": [
+        "loop someone into a project",
+        "loop someone into a discussion",
+        "loop a colleague into planning"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队沟通",
+      "order": 19,
+      "reuseExistingEntryId": "public-teamwork-loop-someone-into-fbbd8ea4"
+    },
+    {
+      "term": "lull",
+      "originalInput": "lulls",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "暂时的平静或活动减少；工作空档",
+      "definitionEn": "A temporary period of reduced activity or demand.",
+      "usage": "通常可数；本文是短暂空档，并非长期闲置。",
+      "exampleEn": "A lull in support requests gave the team time to review recurring issues.",
+      "exampleZh": "支持请求暂时减少，让团队有时间回顾反复出现的问题。",
+      "phonetic": "/lʌl/",
+      "forms": [
+        "lulls"
+      ],
+      "collocations": [
+        "a lull in activity",
+        "a temporary lull",
+        "during a lull"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "工作负荷",
+      "order": 20,
+      "reuseExistingEntryId": "public-teamwork-lull-72d8b6c9"
+    },
+    {
+      "term": "tenure",
+      "originalInput": "tenure",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "任职时长；在某组织工作的年限",
+      "definitionEn": "The length of time a person has worked in a particular role or organization.",
+      "usage": "本文指服务年限，不是大学里的终身教职制度。",
+      "exampleEn": "As tenure increased, employees often became responsible for more projects.",
+      "exampleZh": "随着任职年限增加，员工往往需要负责更多项目。",
+      "phonetic": "/ˈtɛnjər/",
+      "forms": [],
+      "collocations": [
+        "employee tenure",
+        "length of tenure",
+        "average tenure"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "人才与资源",
+      "order": 21,
+      "reuseExistingEntryId": "public-teamwork-tenure-6a6d2cb6"
+    },
+    {
+      "term": "bring something to bear on",
+      "originalInput": "bringing lessons from one project to bear on others",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "把知识、经验或资源运用于某事",
+      "definitionEn": "To apply relevant knowledge, experience, or resources to a problem or situation.",
+      "usage": "结构为 bring X to bear on Y；bear 在此不表示忍受。",
+      "exampleEn": "She brought her negotiation experience to bear on the supplier dispute.",
+      "exampleZh": "她运用自己的谈判经验来处理供应商争端。",
+      "phonetic": "",
+      "forms": [
+        "brings something to bear on",
+        "brought something to bear on",
+        "bringing something to bear on"
+      ],
+      "collocations": [
+        "bring expertise to bear on a problem",
+        "bring experience to bear on a decision"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "知识与学习"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "知识与学习",
+      "order": 22,
+      "reuseExistingEntryId": "public-teamwork-bring-something-to-bear-on-607db8d2"
+    },
+    {
+      "term": "play out",
+      "originalInput": "play out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "逐步展开；在实际情境中发展并产生结果",
+      "definitionEn": "To develop or happen over time in a real situation.",
+      "usage": "本文为不及物发展义；区别于 play out a scene 的演绎义。",
+      "exampleEn": "We waited to see how the new approval process would play out in practice.",
+      "exampleZh": "我们等待观察新的审批流程在实践中会如何展开。",
+      "phonetic": "",
+      "forms": [
+        "plays out",
+        "played out",
+        "playing out"
+      ],
+      "collocations": [
+        "play out in practice",
+        "play out over time",
+        "see how events play out"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "管理分析",
+      "order": 23,
+      "reuseExistingEntryId": "public-teamwork-play-out-7809fa21"
+    },
+    {
+      "term": "bandwidth",
+      "originalInput": "bandwidth",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "可投入的时间、精力或处理能力",
+      "definitionEn": "The time and mental capacity available to handle additional work.",
+      "usage": "本文是工作能力的比喻义，不是网络带宽；通常不可数。",
+      "exampleEn": "I do not have the bandwidth to review two proposals this afternoon.",
+      "exampleZh": "我今天下午没有足够的时间和精力审阅两份提案。",
+      "phonetic": "/ˈbændˌwɪdθ/",
+      "forms": [],
+      "collocations": [
+        "have the bandwidth",
+        "limited bandwidth",
+        "the bandwidth to take on work"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "工作负荷",
+      "order": 24,
+      "reuseExistingEntryId": "public-teamwork-bandwidth-2c7210c5"
+    },
+    {
+      "term": "full-time equivalent",
+      "originalInput": "full-time equivalent",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "全职当量；折合一名全职员工的工作量单位",
+      "definitionEn": "A unit expressing work capacity as a proportion of one full-time employee's workload.",
+      "usage": "常缩写 FTE；0.1 FTE 表示约一成全职工作量，不一定对应固定一人。",
+      "exampleEn": "The support task requires half a full-time equivalent over the next quarter.",
+      "exampleZh": "下一季度，这项支持任务需要相当于半个全职岗位的工作量。",
+      "phonetic": "",
+      "forms": [
+        "full-time equivalents"
+      ],
+      "collocations": [
+        "one full-time equivalent",
+        "a full-time equivalent position",
+        "calculate full-time equivalents"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "人才与资源",
+      "order": 25,
+      "reuseExistingEntryId": "public-teamwork-full-time-equivalent-9c82f669"
+    },
+    {
+      "term": "slicing and dicing",
+      "originalInput": "slicing and dicing",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "把任务或人员时间切分成许多小份的做法",
+      "definitionEn": "Dividing something into many small pieces or categories.",
+      "usage": "本文比喻把人员时间分配给过多项目；也可指把数据按不同维度细分。",
+      "exampleEn": "Endless slicing and dicing of staff time left no space for focused work.",
+      "exampleZh": "不断细分员工时间，导致没有空间进行专注工作。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "the slicing and dicing of time",
+        "slicing and dicing of resources"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "工作负荷",
+      "order": 26,
+      "reuseExistingEntryId": "public-teamwork-slicing-and-dicing-180d51ff"
+    },
+    {
+      "term": "undermine",
+      "originalInput": "undermine",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "削弱；损害某事的基础或效果",
+      "definitionEn": "To weaken something or make it less effective.",
+      "usage": "可接信任、信心、权威或收益；不一定指公开反对。",
+      "exampleEn": "Unclear priorities can undermine the benefits of flexible staffing.",
+      "exampleZh": "不明确的优先事项可能削弱灵活人员配置的好处。",
+      "phonetic": "/ˌʌndərˈmaɪn/",
+      "forms": [
+        "undermines",
+        "undermined",
+        "undermining"
+      ],
+      "collocations": [
+        "undermine trust",
+        "undermine confidence",
+        "undermine the benefits"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "关系与信任",
+      "order": 27,
+      "reuseExistingEntryId": "public-nlmg-c13-undermine"
+    },
+    {
+      "term": "capitalize on",
+      "originalInput": "capitalize on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "利用有利条件；充分发挥某事的优势",
+      "definitionEn": "To use an opportunity or advantage to achieve a useful result.",
+      "usage": "接机会、优势或经验；这里不是把单词首字母大写。",
+      "exampleEn": "The firm capitalized on its regional knowledge when entering the new market.",
+      "exampleZh": "进入新市场时，公司充分利用了自己的地区知识。",
+      "phonetic": "",
+      "forms": [
+        "capitalizes on",
+        "capitalized on",
+        "capitalizing on"
+      ],
+      "collocations": [
+        "capitalize on an opportunity",
+        "capitalize on expertise",
+        "capitalize on strengths"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "管理分析",
+      "order": 28,
+      "reuseExistingEntryId": "public-teamwork-capitalize-on-45671268"
+    },
+    {
+      "term": "friction",
+      "originalInput": "friction",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "摩擦；人际或流程之间的阻力与矛盾",
+      "definitionEn": "Tension or difficulty that prevents people or processes from working smoothly together.",
+      "usage": "本文是比喻义，不是物理摩擦；常用 friction between/among。",
+      "exampleEn": "A clearer handover process reduced friction between the sales and delivery teams.",
+      "exampleZh": "更清晰的交接流程减少了销售团队和交付团队之间的摩擦。",
+      "phonetic": "/ˈfrɪkʃən/",
+      "forms": [],
+      "collocations": [
+        "reduce friction",
+        "friction between teams",
+        "interpersonal friction"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "流程与协调",
+      "order": 29,
+      "reuseExistingEntryId": "public-teamwork-friction-b0de598f"
+    },
+    {
+      "term": "ward off",
+      "originalInput": "ward off",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "防止；抵御不希望发生的问题",
+      "definitionEn": "To prevent something harmful or unwanted from affecting someone.",
+      "usage": "可分开：ward problems off；宾语为代词时说 ward them off。",
+      "exampleEn": "Agreeing on resource priorities early helped ward off later disputes.",
+      "exampleZh": "尽早商定资源优先级有助于防止后续争端。",
+      "phonetic": "",
+      "forms": [
+        "wards off",
+        "warded off",
+        "warding off"
+      ],
+      "collocations": [
+        "ward off conflict",
+        "ward off problems",
+        "ward off political disputes"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "危机与风险",
+      "order": 30,
+      "reuseExistingEntryId": "public-teamwork-ward-off-60c590fb"
+    },
+    {
+      "term": "forge bonds",
+      "originalInput": "forges strong bonds",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "建立牢固联系；形成紧密关系",
+      "definitionEn": "To create strong relationships between people.",
+      "usage": "forge 在此不是伪造，而是逐步建立；bond 可指人际纽带。",
+      "exampleEn": "Working through the service failure together helped forge bonds across departments.",
+      "exampleZh": "共同处理服务故障有助于建立跨部门的牢固联系。",
+      "phonetic": "",
+      "forms": [
+        "forges bonds",
+        "forged bonds",
+        "forging bonds"
+      ],
+      "collocations": [
+        "forge strong bonds",
+        "forge bonds with colleagues",
+        "forge lasting bonds"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 31,
+      "reuseExistingEntryId": "public-teamwork-forge-bonds-400ae971"
+    },
+    {
+      "term": "breed suspicion",
+      "originalInput": "breed suspicion",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "引起猜疑；滋生不信任",
+      "definitionEn": "To create conditions that make people suspicious.",
+      "usage": "breed 的过去式和过去分词为 bred；这里是比喻义。",
+      "exampleEn": "Repeated unexplained delays can breed suspicion among project partners.",
+      "exampleZh": "反复出现而又没有解释的延误可能使项目伙伴相互猜疑。",
+      "phonetic": "",
+      "forms": [
+        "breeds suspicion",
+        "bred suspicion",
+        "breeding suspicion"
+      ],
+      "collocations": [
+        "breed suspicion among colleagues",
+        "breed unnecessary suspicion"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 32,
+      "reuseExistingEntryId": "public-teamwork-breed-suspicion-4c677acd"
+    },
+    {
+      "term": "far-flung",
+      "originalInput": "far-flung",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "分散在相距很远地点的",
+      "definitionEn": "Spread across places that are far apart.",
+      "usage": "用于人员、团队或业务网络；作形容词保留连字符。",
+      "exampleEn": "The far-flung team agreed on one shared window for urgent decisions.",
+      "exampleZh": "这支分布在遥远各地的团队约定了一个共同处理紧急决策的时间段。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "far-flung teams",
+        "far-flung contributors",
+        "far-flung offices"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "多团队协作",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-far-flung-0246a301"
+    },
+    {
+      "term": "give someone the benefit of the doubt",
+      "originalInput": "give one another the benefit of the doubt",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "在证据不足时善意理解某人；姑且相信对方",
+      "definitionEn": "To interpret someone's actions favorably when the available evidence is uncertain.",
+      "usage": "不是证明对方一定正确；结构为 give someone the benefit of the doubt。",
+      "exampleEn": "I gave the new coordinator the benefit of the doubt and asked why the update was late.",
+      "exampleZh": "我先善意理解这位新协调员，再询问更新迟交的原因。",
+      "phonetic": "",
+      "forms": [
+        "gives someone the benefit of the doubt",
+        "gave someone the benefit of the doubt",
+        "giving someone the benefit of the doubt"
+      ],
+      "collocations": [
+        "give a colleague the benefit of the doubt",
+        "give each other the benefit of the doubt"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 34,
+      "reuseExistingEntryId": "public-teamwork-give-someone-the-benefit-of-the-doubt-ca7198a2"
+    },
+    {
+      "term": "counterpart",
+      "originalInput": "counterpart",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "对应职位的人；另一组织或地区中职责相当的人",
+      "definitionEn": "A person who has a similar role in another group or organization.",
+      "usage": "常用 someone's counterpart in/at；不必与本人级别或背景完全相同。",
+      "exampleEn": "Our operations lead contacted her counterpart in the partner company.",
+      "exampleZh": "我们的运营负责人联系了合作公司中职责对应的人。",
+      "phonetic": "/ˈkaʊntərˌpɑrt/",
+      "forms": [
+        "counterparts"
+      ],
+      "collocations": [
+        "a regional counterpart",
+        "a British counterpart",
+        "work with one's counterpart"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队沟通",
+      "order": 35,
+      "reuseExistingEntryId": "public-teamwork-counterpart-9b828e2f"
+    },
+    {
+      "term": "frosty",
+      "originalInput": "frosty",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "冷淡的；不友好的",
+      "definitionEn": "Showing little warmth or friendliness toward another person.",
+      "usage": "本文形容人际态度，不是结霜；避免仅凭沉默就断定对方冷淡。",
+      "exampleEn": "His frosty reply made the new team member hesitate to ask another question.",
+      "exampleZh": "他冷淡的回复让新成员不敢继续提问。",
+      "phonetic": "/ˈfrɔsti/",
+      "forms": [
+        "frostier",
+        "frostiest"
+      ],
+      "collocations": [
+        "a frosty response",
+        "a frosty reception",
+        "frosty relations"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 36,
+      "reuseExistingEntryId": "public-teamwork-frosty-55fc6c43"
+    },
+    {
+      "term": "elitist",
+      "originalInput": "elitist",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "自视高人一等的；偏向少数精英的",
+      "definitionEn": "Treating a select group as superior or more deserving than others.",
+      "usage": "本文是对同事态度的初步判断；不等同于某人实际专业能力强。",
+      "exampleEn": "An elitist tone can discourage junior employees from offering useful ideas.",
+      "exampleZh": "自视高人一等的语气可能让初级员工不愿提出有用的想法。",
+      "phonetic": "/ɪˈlitɪst/",
+      "forms": [],
+      "collocations": [
+        "an elitist attitude",
+        "an elitist tone",
+        "elitist assumptions"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 37,
+      "reuseExistingEntryId": "public-teamwork-elitist-0a48dbe3"
+    },
+    {
+      "term": "missive",
+      "originalInput": "missives",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "信函；书面消息，常带正式或略夸张语气",
+      "definitionEn": "A written message or letter, often formal or lengthy.",
+      "usage": "较正式，也可略带幽默；本文用于会后发出的书面消息。",
+      "exampleEn": "The lengthy missive explained the concerns that had not come up during the call.",
+      "exampleZh": "这封长消息解释了通话中没有提到的顾虑。",
+      "phonetic": "/ˈmɪsɪv/",
+      "forms": [
+        "missives"
+      ],
+      "collocations": [
+        "a lengthy missive",
+        "a formal missive",
+        "send a missive"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队沟通",
+      "order": 38,
+      "reuseExistingEntryId": "public-teamwork-missive-5632d8ef"
+    },
+    {
+      "term": "open up about",
+      "originalInput": "open up about",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "敞开心扉谈论；坦诚分享个人想法或情况",
+      "definitionEn": "To speak more freely about personal thoughts, feelings, or experiences.",
+      "usage": "open up about something；本文不是打开物品或开办业务。",
+      "exampleEn": "The kickoff gave people a chance to open up about their development goals.",
+      "exampleZh": "启动会让大家有机会坦诚分享自己的发展目标。",
+      "phonetic": "",
+      "forms": [
+        "opens up about",
+        "opened up about",
+        "opening up about"
+      ],
+      "collocations": [
+        "open up about concerns",
+        "open up about goals",
+        "open up about difficulties"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队沟通",
+      "order": 39,
+      "reuseExistingEntryId": "public-teamwork-open-up-about-edf9ef33"
+    },
+    {
+      "term": "vulnerability",
+      "originalInput": "vulnerability",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "坦露不足或不确定性时的脆弱与开放",
+      "definitionEn": "The openness involved in allowing others to see one's limitations, doubts, or need for help.",
+      "usage": "本文强调信任中的开放，不把暴露技术安全漏洞与此混为一谈。",
+      "exampleEn": "Admitting uncertainty showed vulnerability and made the discussion more honest.",
+      "exampleZh": "承认不确定性展现了坦诚的脆弱，也使讨论更加真实。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "show vulnerability",
+        "display vulnerability",
+        "a willingness to show vulnerability"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 40,
+      "reuseExistingEntryId": "public-teamwork-vulnerability-32ceacc0"
+    },
+    {
+      "term": "kickoff",
+      "originalInput": "kickoffs",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "启动会；项目或团队工作的正式开始",
+      "definitionEn": "An initial event that marks the start of a project or team effort.",
+      "usage": "名词常写 kickoff；动词写作 kick off，本条只收名词义。",
+      "exampleEn": "The kickoff clarified who would approve changes to the project scope.",
+      "exampleZh": "启动会明确了由谁批准项目范围的变更。",
+      "phonetic": "/ˈkɪkˌɔf/",
+      "forms": [
+        "kickoffs"
+      ],
+      "collocations": [
+        "a team kickoff",
+        "a project kickoff",
+        "a kickoff meeting"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "流程与协调",
+      "order": 41,
+      "reuseExistingEntryId": "public-teamwork-kickoff-480005f5"
+    },
+    {
+      "term": "peer-to-peer accountability",
+      "originalInput": "peer-to-peer accountability",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "同事间相互负责、相互督促的机制",
+      "definitionEn": "Mutual responsibility among colleagues for meeting agreed standards and commitments.",
+      "usage": "peer 指职责关系相近的同事；不是只由上级监督下级。",
+      "exampleEn": "Peer-to-peer accountability helped the team address missed handovers quickly.",
+      "exampleZh": "同事间相互负责的机制帮助团队迅速处理了交接遗漏。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "build peer-to-peer accountability",
+        "strengthen peer-to-peer accountability",
+        "peer-to-peer accountability for results"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "责任与角色",
+      "order": 42,
+      "reuseExistingEntryId": "public-teamwork-peer-to-peer-accountability-0c989c02"
+    },
+    {
+      "term": "up front",
+      "originalInput": "up front",
+      "entryType": "phrase",
+      "partOfSpeech": "adverb phrase",
+      "meaning": "事先；在一开始就",
+      "definitionEn": "Before an activity begins or at an early stage.",
+      "usage": "本文为事先义，不是付款方式；作前置形容词时常写 up-front。",
+      "exampleEn": "We discussed the likely scheduling conflicts up front.",
+      "exampleZh": "我们事先讨论了可能出现的排期冲突。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "clarify expectations up front",
+        "agree up front",
+        "discuss priorities up front"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "流程与协调",
+      "order": 43,
+      "reuseExistingEntryId": "public-teamwork-up-front-3b1c70ab"
+    },
+    {
+      "term": "across the board",
+      "originalInput": "across the board",
+      "entryType": "idiom",
+      "partOfSpeech": "adverb phrase",
+      "meaning": "在所有方面或所有相关群体中；全面地",
+      "definitionEn": "In a way that applies to all relevant people, groups, or areas.",
+      "usage": "常作状语；作前置形容词时写 across-the-board。",
+      "exampleEn": "The change improved response times across the board.",
+      "exampleZh": "这项变化全面改善了响应时间。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "improve across the board",
+        "apply across the board",
+        "perform well across the board"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "管理分析",
+      "order": 44,
+      "reuseExistingEntryId": "public-teamwork-across-the-board-cdb47a6c"
+    },
+    {
+      "term": "onboard",
+      "originalInput": "onboard",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "帮助新成员了解并融入团队或工作流程",
+      "definitionEn": "To help a new employee or member understand a role, process, and team.",
+      "usage": "及物动词，onboard new members；本条不是介词短语 on board。",
+      "exampleEn": "A short guide helped us onboard two analysts without repeating every explanation.",
+      "exampleZh": "一份简短指南帮助我们让两名分析师上手，而不用重复每一项说明。",
+      "phonetic": "",
+      "forms": [
+        "onboards",
+        "onboarded",
+        "onboarding"
+      ],
+      "collocations": [
+        "onboard new members",
+        "onboard employees",
+        "onboard a new colleague"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队能力"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队能力",
+      "order": 45,
+      "reuseExistingEntryId": "public-teamwork-onboard-059d4967"
+    },
+    {
+      "term": "rule of thumb",
+      "originalInput": "rule of thumb",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "经验法则；便于实际判断的粗略准则",
+      "definitionEn": "A practical guideline based on experience rather than a precise calculation.",
+      "usage": "可数；不是适用于所有情况的严格规则。",
+      "exampleEn": "As a rule of thumb, we review team roles after a substantial change in membership.",
+      "exampleZh": "按照一个经验法则，成员发生较大变化后，我们会重新审视团队角色。",
+      "phonetic": "",
+      "forms": [
+        "rules of thumb"
+      ],
+      "collocations": [
+        "a useful rule of thumb",
+        "as a rule of thumb",
+        "a general rule of thumb"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "管理分析",
+      "order": 46,
+      "reuseExistingEntryId": "public-teamwork-rule-of-thumb-35f966f5"
+    },
+    {
+      "term": "portfolio",
+      "originalInput": "portfolio",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "一组相关的能力、项目或资源组合",
+      "definitionEn": "A collection of activities, skills, or resources considered together.",
+      "usage": "本文指个人带来的能力组合，不只指投资组合或作品集。",
+      "exampleEn": "The assignment drew on a broad portfolio of technical and client-facing skills.",
+      "exampleZh": "这项任务需要运用技术能力与面向客户的沟通能力等多方面技能。",
+      "phonetic": "/pɔrtˈfoʊlioʊ/",
+      "forms": [
+        "portfolios"
+      ],
+      "collocations": [
+        "a portfolio of skills",
+        "a portfolio of capabilities",
+        "a broad portfolio"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队能力"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队能力",
+      "order": 47,
+      "reuseExistingEntryId": "public-teamwork-portfolio-0e6a8e0b"
+    },
+    {
+      "term": "a knack for",
+      "originalInput": "a knack for",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "做某事的窍门或特别擅长之处",
+      "definitionEn": "A particular ability to do something skillfully, often with apparent ease.",
+      "usage": "for 后接名词或动名词；常用 have a knack for doing something。",
+      "exampleEn": "He has a knack for turning technical disagreements into clear choices.",
+      "exampleZh": "他特别善于把技术分歧转化为清晰的选项。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "have a knack for negotiation",
+        "a knack for explaining ideas",
+        "a knack for solving problems"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队能力"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队能力",
+      "order": 48,
+      "reuseExistingEntryId": "public-teamwork-a-knack-for-f5987920"
+    },
+    {
+      "term": "bristle at",
+      "originalInput": "bristle at",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "对某事感到恼火或表现出抵触",
+      "definitionEn": "To react with irritation or defensiveness to something.",
+      "usage": "常接 criticism、suggestions 或 assignments；at 后接引发抵触的事情。",
+      "exampleEn": "The specialist bristled at the suggestion that she needed no preparation time.",
+      "exampleZh": "有人暗示这位专家无需准备时间，她对此感到恼火。",
+      "phonetic": "",
+      "forms": [
+        "bristles at",
+        "bristled at",
+        "bristling at"
+      ],
+      "collocations": [
+        "bristle at criticism",
+        "bristle at a suggestion",
+        "bristle at assignments"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 49,
+      "reuseExistingEntryId": "public-teamwork-bristle-at-fb598d65"
+    },
+    {
+      "term": "pitch",
+      "originalInput": "pitch",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "推介；通过介绍方案争取客户或支持",
+      "definitionEn": "To present an idea or service in order to persuade someone to accept or support it.",
+      "usage": "常用 pitch an idea to someone 或 pitch to a client；本文不是音高或投掷义。",
+      "exampleEn": "The partners pitched a phased rollout to the prospective client.",
+      "exampleZh": "合伙人向潜在客户推介了分阶段推广方案。",
+      "phonetic": "/pɪtʃ/",
+      "forms": [
+        "pitches",
+        "pitched",
+        "pitching"
+      ],
+      "collocations": [
+        "pitch an idea",
+        "pitch a proposal to a client",
+        "pitch for new business"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队沟通",
+      "order": 50,
+      "reuseExistingEntryId": "public-teamwork-pitch-4502846f"
+    },
+    {
+      "term": "sideline",
+      "originalInput": "sideline",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "把某人排除在重要工作之外；使边缘化",
+      "definitionEn": "To prevent someone from taking an active or important role.",
+      "usage": "本文为动词，不是副业；被动结构 be sidelined 常见。",
+      "exampleEn": "Ignoring her specialist advice sidelined the person best placed to assess the risk.",
+      "exampleZh": "忽视她的专业意见，使最有条件评估风险的人被边缘化。",
+      "phonetic": "/ˈsaɪdˌlaɪn/",
+      "forms": [
+        "sidelines",
+        "sidelined",
+        "sidelining"
+      ],
+      "collocations": [
+        "sideline an expert",
+        "sideline a team member",
+        "be sidelined in a discussion"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "责任与角色",
+      "order": 51,
+      "reuseExistingEntryId": "public-teamwork-sideline-67ac0d4a"
+    },
+    {
+      "term": "cantankerous",
+      "originalInput": "cantankerous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "易争吵的；脾气暴躁而难以相处的",
+      "definitionEn": "Bad-tempered and inclined to argue or complain.",
+      "usage": "比仅表示不同意见语气更强；本文形容受挫后变得难以相处。",
+      "exampleEn": "A cantankerous response made it harder to resolve the staffing dispute.",
+      "exampleZh": "一个充满火气的回应使人员配置争端更难解决。",
+      "phonetic": "/kænˈtæŋkərəs/",
+      "forms": [],
+      "collocations": [
+        "a cantankerous colleague",
+        "a cantankerous mood",
+        "become cantankerous"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "关系与信任",
+      "order": 52,
+      "reuseExistingEntryId": "public-the-forsyte-saga-c1-cantankerous"
+    },
+    {
+      "term": "hone",
+      "originalInput": "honing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "磨炼；不断提高已有技能",
+      "definitionEn": "To improve a skill through focused practice or experience.",
+      "usage": "常接 skills、expertise 或 judgment；强调精进已有能力。",
+      "exampleEn": "She honed her interviewing skills while working with three different research teams.",
+      "exampleZh": "她在与三个不同研究团队合作时磨炼了自己的访谈技巧。",
+      "phonetic": "/hoʊn/",
+      "forms": [
+        "hones",
+        "honed",
+        "honing"
+      ],
+      "collocations": [
+        "hone a skill",
+        "hone expertise",
+        "hone one's judgment"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队能力"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队能力",
+      "order": 53,
+      "reuseExistingEntryId": "public-teamwork-hone-6528f84b"
+    },
+    {
+      "term": "streamline",
+      "originalInput": "streamlines",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "简化并理顺流程，使其更有效率",
+      "definitionEn": "To simplify a process so that it works more efficiently.",
+      "usage": "及物动词；简化不等于省去所有必要检查。",
+      "exampleEn": "A shared request form streamlined communication between the offices.",
+      "exampleZh": "一份共用的申请表简化了办公室之间的沟通。",
+      "phonetic": "/ˈstrimˌlaɪn/",
+      "forms": [
+        "streamlines",
+        "streamlined",
+        "streamlining"
+      ],
+      "collocations": [
+        "streamline communication",
+        "streamline a process",
+        "streamline decision-making"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "流程与协调",
+      "order": 54,
+      "reuseExistingEntryId": "public-teamwork-streamline-59afb3a4"
+    },
+    {
+      "term": "hold someone accountable",
+      "originalInput": "hold one another accountable",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "要求某人对自己的承诺、行为或结果负责",
+      "definitionEn": "To expect someone to explain and take responsibility for performance or results.",
+      "usage": "结构为 hold someone accountable for something；不只是事后指责。",
+      "exampleEn": "The team agreed to hold each other accountable for timely handovers.",
+      "exampleZh": "团队同意相互督促，确保按时交接。",
+      "phonetic": "",
+      "forms": [
+        "holds someone accountable",
+        "held someone accountable",
+        "holding someone accountable"
+      ],
+      "collocations": [
+        "hold colleagues accountable",
+        "hold someone accountable for results",
+        "hold leaders accountable"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "责任与角色",
+      "order": 55,
+      "reuseExistingEntryId": "public-teamwork-hold-someone-accountable-987a9b3e"
+    },
+    {
+      "term": "oversight",
+      "originalInput": "oversight",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "监督；持续检查并指导工作",
+      "definitionEn": "The activity of monitoring work to ensure that it is carried out appropriately.",
+      "usage": "本文指监督管理，不是 an oversight 所表示的疏漏。",
+      "exampleEn": "The new process reduced routine oversight without removing responsibility for quality.",
+      "exampleZh": "新流程减少了日常监督，却没有取消质量责任。",
+      "phonetic": "/ˈoʊvərˌsaɪt/",
+      "forms": [],
+      "collocations": [
+        "day-to-day oversight",
+        "management oversight",
+        "provide oversight"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "责任与角色",
+      "order": 56,
+      "reuseExistingEntryId": "public-teamwork-oversight-dd5c5362"
+    },
+    {
+      "term": "preemptively",
+      "originalInput": "preemptively",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "在问题出现前先行地；预先采取措施地",
+      "definitionEn": "In advance, with the aim of preventing an anticipated problem.",
+      "usage": "强调主动预防；预先行动并不保证所有风险都会消失。",
+      "exampleEn": "We discussed capacity preemptively rather than waiting for another missed deadline.",
+      "exampleZh": "我们预先讨论了工作容量，而没有等到再次错过截止日期。",
+      "phonetic": "/priˈɛmptɪvli/",
+      "forms": [],
+      "collocations": [
+        "act preemptively",
+        "identify risks preemptively",
+        "address conflicts preemptively"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "危机与风险",
+      "order": 57,
+      "reuseExistingEntryId": "public-teamwork-preemptively-51cd33dd"
+    },
+    {
+      "term": "crunch period",
+      "originalInput": "crunch periods",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "任务或时间压力特别集中的阶段",
+      "definitionEn": "A period when demanding work must be completed under strong time pressure.",
+      "usage": "crunch 在此不是咀嚼声；常指临近截止日期的高压阶段。",
+      "exampleEn": "The two managers moved their reviews to avoid overlapping crunch periods.",
+      "exampleZh": "两位经理调整了审查时间，以避免高压工作阶段重叠。",
+      "phonetic": "",
+      "forms": [
+        "crunch periods"
+      ],
+      "collocations": [
+        "a project crunch period",
+        "during a crunch period",
+        "anticipate crunch periods"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "工作负荷",
+      "order": 58,
+      "reuseExistingEntryId": "public-teamwork-crunch-period-ec73920f"
+    },
+    {
+      "term": "revamp",
+      "originalInput": "revamp",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "重新调整；大幅改进原有安排",
+      "definitionEn": "To revise or reorganize something substantially in order to improve it.",
+      "usage": "本文用于重新安排期限；语气通常强于一次小修改。",
+      "exampleEn": "We revamped the meeting schedule after mapping the teams' busiest weeks.",
+      "exampleZh": "梳理各团队最繁忙的周次后，我们重新调整了会议安排。",
+      "phonetic": "/riˈvæmp/",
+      "forms": [
+        "revamps",
+        "revamped",
+        "revamping"
+      ],
+      "collocations": [
+        "revamp a schedule",
+        "revamp a process",
+        "revamp a plan"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "流程与协调",
+      "order": 59,
+      "reuseExistingEntryId": "public-teamwork-revamp-7d1231a0"
+    },
+    {
+      "term": "at the outset",
+      "originalInput": "At the outset",
+      "entryType": "idiom",
+      "partOfSpeech": "adverb phrase",
+      "meaning": "在开始时；起初",
+      "definitionEn": "At the beginning of an activity or process.",
+      "usage": "常用 at the outset of something；不能换成 in the outset。",
+      "exampleEn": "At the outset, we agreed which decisions required the full team's input.",
+      "exampleZh": "一开始，我们就商定了哪些决策需要全体团队成员参与。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "at the outset of a project",
+        "clarify roles at the outset",
+        "agree at the outset"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "流程与协调",
+      "order": 60,
+      "reuseExistingEntryId": "public-teamwork-at-the-outset-4b0c86af"
+    },
+    {
+      "term": "critical juncture",
+      "originalInput": "critical junctures",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "关键时点；对后续走向很重要的阶段",
+      "definitionEn": "An important point at which decisions or events can strongly affect what follows.",
+      "usage": "juncture 指特定阶段或时点；critical 在此不是批评性的。",
+      "exampleEn": "A short check-in at a critical juncture prevented the two workstreams from diverging.",
+      "exampleZh": "关键时点的一次简短沟通，防止了两条工作线走向不同方向。",
+      "phonetic": "",
+      "forms": [
+        "critical junctures"
+      ],
+      "collocations": [
+        "at a critical juncture",
+        "reach a critical juncture",
+        "meet at critical junctures"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "进度管理"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "进度管理",
+      "order": 61,
+      "reuseExistingEntryId": "public-teamwork-critical-juncture-b3f8f6ca"
+    },
+    {
+      "term": "tide someone over",
+      "originalInput": "tide you over",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "暂时帮助某人渡过困难或填补空档",
+      "definitionEn": "To provide enough support for someone until a fuller solution becomes available.",
+      "usage": "代词放在 tide 与 over 之间，如 tide us over；强调暂时支持。",
+      "exampleEn": "A brief video update can tide us over until the full review next week.",
+      "exampleZh": "一段简短的视频更新可以在下周完整审查前暂时满足我们的需要。",
+      "phonetic": "",
+      "forms": [
+        "tides someone over",
+        "tided someone over",
+        "tiding someone over"
+      ],
+      "collocations": [
+        "tide the team over",
+        "tide someone over until a meeting",
+        "tide us over for a week"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "流程与协调"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "流程与协调",
+      "order": 62,
+      "reuseExistingEntryId": "public-teamwork-tide-someone-over-da0ad10a"
+    },
+    {
+      "term": "pick up cues",
+      "originalInput": "pick up cues",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "察觉信号；注意到暗示情绪或状态的线索",
+      "definitionEn": "To notice signs that reveal information about a person's feelings or situation.",
+      "usage": "pick up 在此是察觉，不是捡起；常用 cues about stress 或 cues from body language。",
+      "exampleEn": "Video calls helped the manager pick up cues about the team's workload.",
+      "exampleZh": "视频通话帮助经理察觉团队工作负荷方面的信号。",
+      "phonetic": "",
+      "forms": [
+        "picks up cues",
+        "picked up cues",
+        "picking up cues"
+      ],
+      "collocations": [
+        "pick up subtle cues",
+        "pick up cues from colleagues",
+        "pick up cues about stress"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队沟通"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "团队沟通",
+      "order": 63,
+      "reuseExistingEntryId": "public-teamwork-pick-up-cues-b45aa21f"
+    },
+    {
+      "term": "crowd out",
+      "originalInput": "crowded out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "挤占；排挤掉其他活动的空间或时间",
+      "definitionEn": "To displace something because competing demands use up the available space or resources.",
+      "usage": "常用 be crowded out by；代词宾语放中间，如 crowd it out。",
+      "exampleEn": "Urgent reporting requests crowded out time for learning and reflection.",
+      "exampleZh": "紧急的报告要求挤占了学习和反思的时间。",
+      "phonetic": "",
+      "forms": [
+        "crowds out",
+        "crowded out",
+        "crowding out"
+      ],
+      "collocations": [
+        "crowd out learning",
+        "crowd out time for reflection",
+        "be crowded out by deadlines"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作负荷"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "工作负荷",
+      "order": 64,
+      "reuseExistingEntryId": "public-teamwork-crowd-out-a2e5eaa1"
+    },
+    {
+      "term": "live up to expectations",
+      "originalInput": "lived up to expectations",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "达到预期；不辜负期望",
+      "definitionEn": "To perform as well as people expected.",
+      "usage": "常用 live up to someone's expectations；这里 live 不表示居住。",
+      "exampleEn": "The pilot did not live up to expectations, so we reviewed the original assumptions.",
+      "exampleZh": "试点未达到预期，因此我们重新审视了最初的假设。",
+      "phonetic": "",
+      "forms": [
+        "lives up to expectations",
+        "lived up to expectations",
+        "living up to expectations"
+      ],
+      "collocations": [
+        "live up to client expectations",
+        "fail to live up to expectations",
+        "live up to high expectations"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "目标与绩效"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "目标与绩效",
+      "order": 65,
+      "reuseExistingEntryId": "public-teamwork-live-up-to-expectations-3e6572ce"
+    },
+    {
+      "term": "day in and day out",
+      "originalInput": "day in and day out",
+      "entryType": "idiom",
+      "partOfSpeech": "adverb phrase",
+      "meaning": "日复一日；持续不断地",
+      "definitionEn": "Repeatedly over a long period, often as part of a routine.",
+      "usage": "强调长期反复；也常见 day in, day out。",
+      "exampleEn": "She modeled careful listening day in and day out until it became a team habit.",
+      "exampleZh": "她日复一日地示范认真倾听，最终使之成为团队习惯。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "work day in and day out",
+        "practice day in and day out",
+        "do something day in and day out"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "目标与绩效"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "目标与绩效",
+      "order": 66,
+      "reuseExistingEntryId": "public-teamwork-day-in-and-day-out-00b9ad9e"
+    },
+    {
+      "term": "retribution",
+      "originalInput": "retribution",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "报复性惩罚；因某种行为而受到的惩处",
+      "definitionEn": "Punishment imposed in response to behavior regarded as wrong.",
+      "usage": "本文 fear of retribution 指员工担心报告错误后受到惩罚；通常不可数。",
+      "exampleEn": "People reported small mistakes earlier when they no longer feared retribution.",
+      "exampleZh": "不再害怕受到惩罚后，大家更早地报告了小错误。",
+      "phonetic": "/ˌrɛtrəˈbjuʃən/",
+      "forms": [],
+      "collocations": [
+        "fear of retribution",
+        "without retribution",
+        "face retribution"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "关系与信任"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "关系与信任",
+      "order": 67,
+      "reuseExistingEntryId": "public-teamwork-retribution-dc9e2473"
+    },
+    {
+      "term": "designate",
+      "originalInput": "designate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "指定；任命某人承担特定职责",
+      "definitionEn": "To choose someone or something for a particular role or purpose.",
+      "usage": "常用 designate someone to do something 或 designate someone as a lead。",
+      "exampleEn": "The director designated two members to coordinate the customer handover.",
+      "exampleZh": "主管指定了两名成员协调客户交接。",
+      "phonetic": "/ˈdɛzɪɡˌneɪt/",
+      "forms": [
+        "designates",
+        "designated",
+        "designating"
+      ],
+      "collocations": [
+        "designate a team leader",
+        "designate someone to coordinate",
+        "designate responsibility"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "责任与角色",
+      "order": 68,
+      "reuseExistingEntryId": "public-teamwork-designate-d6173d87"
+    },
+    {
+      "term": "cross-train",
+      "originalInput": "cross-train",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "交叉培训；学习彼此岗位或专业的技能",
+      "definitionEn": "To learn or teach skills beyond a person's usual responsibilities.",
+      "usage": "既可说 employees cross-train，也可说 cross-train employees；本文不是体育训练。",
+      "exampleEn": "We cross-trained two coordinators so that either could handle urgent bookings.",
+      "exampleZh": "我们对两名协调员进行了交叉培训，让任何一人都能处理紧急预约。",
+      "phonetic": "",
+      "forms": [
+        "cross-trains",
+        "cross-trained",
+        "cross-training"
+      ],
+      "collocations": [
+        "cross-train employees",
+        "cross-train team members",
+        "cross-train across roles"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "知识与学习"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "知识与学习",
+      "order": 69,
+      "reuseExistingEntryId": "public-teamwork-cross-train-c18b8e95"
+    },
+    {
+      "term": "pull one's weight",
+      "originalInput": "pulling their weight",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "尽自己应尽的一份责任；承担合理份额的工作",
+      "definitionEn": "To contribute a fair share of the effort required by a group.",
+      "usage": "强调公平贡献，不只是工作时间很长；one's 随主语改变。",
+      "exampleEn": "Everyone needs a visible responsibility so that we can tell whether each person is pulling their weight.",
+      "exampleZh": "每个人都需要明确可见的责任，这样才能判断大家是否尽到了应尽的那份义务。",
+      "phonetic": "",
+      "forms": [
+        "pulls one's weight",
+        "pulled one's weight",
+        "pulling one's weight"
+      ],
+      "collocations": [
+        "pull one's weight on a team",
+        "expect colleagues to pull their weight",
+        "fail to pull one's weight"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "责任与角色",
+      "order": 70,
+      "reuseExistingEntryId": "public-teamwork-pull-one-s-weight-684e5bd8"
+    },
+    {
+      "term": "slack off",
+      "originalInput": "slack off",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "松懈；少做本应完成的工作",
+      "definitionEn": "To reduce effort or work less than expected.",
+      "usage": "本文指贡献不足；区别于名词 slack 所指的备用容量。",
+      "exampleEn": "Even after the deadline was extended, the team agreed not to slack off.",
+      "exampleZh": "即使截止日期被推迟，团队仍约定保持投入，不松懈。",
+      "phonetic": "",
+      "forms": [
+        "slacks off",
+        "slacked off",
+        "slacking off"
+      ],
+      "collocations": [
+        "slack off at work",
+        "start to slack off",
+        "avoid slacking off"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "责任与角色",
+      "order": 71,
+      "reuseExistingEntryId": "public-teamwork-slack-off-cb2b1f46"
+    },
+    {
+      "term": "defuse",
+      "originalInput": "defuse",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "缓和紧张局势；降低冲突的激烈程度",
+      "definitionEn": "To make a tense or potentially harmful situation less intense or dangerous.",
+      "usage": "比喻义；区别于 diffuse 的扩散义；缓和不一定等于完全解决。",
+      "exampleEn": "Acknowledging both teams' pressures helped defuse the argument about staffing.",
+      "exampleZh": "承认两个团队都面临压力，有助于缓和人员配置方面的争执。",
+      "phonetic": "/diˈfjuz/",
+      "forms": [
+        "defuses",
+        "defused",
+        "defusing"
+      ],
+      "collocations": [
+        "defuse tension",
+        "defuse a conflict",
+        "defuse an argument"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "危机与风险",
+      "order": 72,
+      "reuseExistingEntryId": "public-teamwork-defuse-f5d95c47"
+    },
+    {
+      "term": "interdependence",
+      "originalInput": "interdependence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "相互依赖；彼此的行动会影响对方的关系",
+      "definitionEn": "A relationship in which people or groups depend on or affect one another.",
+      "usage": "interdependence 常不可数；本文还出现 interdependency，核心意思相近。",
+      "exampleEn": "Mapping interdependence showed why a delay in one team affected three others.",
+      "exampleZh": "梳理相互依赖关系，揭示了为什么一个团队的延误会影响另外三个团队。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "team interdependence",
+        "manage interdependence",
+        "patterns of interdependence"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "多团队协作",
+      "order": 73,
+      "reuseExistingEntryId": "public-teamwork-interdependence-7124ead6"
+    },
+    {
+      "term": "dispersed",
+      "originalInput": "dispersed",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "分散的；没有集中在少数地点或群体中的",
+      "definitionEn": "Spread across a wide area or many groups rather than concentrated in a few places.",
+      "usage": "本文描述团队共享成员的分布方式，不必特指地理距离。",
+      "exampleEn": "Dispersed overlap meant that the staffing change affected many teams slightly.",
+      "exampleZh": "成员重叠关系较分散，意味着这次人员变化对许多团队都造成了轻微影响。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "a dispersed pattern",
+        "dispersed overlap",
+        "widely dispersed teams"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "多团队协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "多团队协作",
+      "order": 74,
+      "reuseExistingEntryId": "public-teamwork-dispersed-28a933f6"
+    },
+    {
+      "term": "disproportionately",
+      "originalInput": "disproportionately",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "不成比例地；相对于基准显得过大或过小地",
+      "definitionEn": "To a degree that is unusually large or small relative to a relevant comparison.",
+      "usage": "常与 large、small 或 affected 搭配；需说明相对于什么不成比例。",
+      "exampleEn": "The shared specialist's absence affected the smallest team disproportionately.",
+      "exampleZh": "共用专家的缺席对最小团队造成了不成比例的影响。",
+      "phonetic": "/ˌdɪsprəˈpɔrʃənətli/",
+      "forms": [],
+      "collocations": [
+        "disproportionately large effects",
+        "disproportionately high costs",
+        "be disproportionately affected"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "管理分析",
+      "order": 75,
+      "reuseExistingEntryId": "public-teamwork-disproportionately-43aa4b38"
+    },
+    {
+      "term": "all hands on deck",
+      "originalInput": "All hands on deck",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "所有可用人员都来帮忙；全员应急投入",
+      "definitionEn": "A call for everyone available to help with an urgent or demanding task.",
+      "usage": "来自船上全员到甲板的表达；管理语境通常为紧急动员。",
+      "exampleEn": "The service outage became an all-hands-on-deck situation for the support group.",
+      "exampleZh": "这次服务中断成了支持团队需要全员投入的紧急情况。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "call for all hands on deck",
+        "need all hands on deck",
+        "all hands on deck during a crisis"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "危机与风险",
+      "order": 76,
+      "reuseExistingEntryId": "public-teamwork-all-hands-on-deck-295acee9"
+    },
+    {
+      "term": "tolerance for ambiguity",
+      "originalInput": "tolerance for ambiguity",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "对模糊性和不确定性的容忍与适应能力",
+      "definitionEn": "The ability to work despite unclear information, roles, or outcomes.",
+      "usage": "ambiguity 通常不可数；容忍模糊不等于不需要澄清关键责任。",
+      "exampleEn": "Cross-functional projects often require tolerance for ambiguity during their early stages.",
+      "exampleZh": "跨职能项目在初期往往需要对模糊性有一定容忍能力。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "develop tolerance for ambiguity",
+        "a high tolerance for ambiguity",
+        "low tolerance for ambiguity"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "团队能力"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队能力",
+      "order": 77,
+      "reuseExistingEntryId": "public-teamwork-tolerance-for-ambiguity-d4c7a0c1"
+    },
+    {
+      "term": "commoditized",
+      "originalInput": "commoditized",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "被当作可互换商品或标准化资源的",
+      "definitionEn": "Treated as interchangeable units with little recognition of distinctive value.",
+      "usage": "本文指员工感觉个人能力与身份不受重视，不是一般的资源共享。",
+      "exampleEn": "Employees felt commoditized when staffing decisions ignored their interests and expertise.",
+      "exampleZh": "人员配置决策忽视个人兴趣和专长时，员工觉得自己被当成了可替换资源。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "feel commoditized",
+        "become commoditized",
+        "commoditized labor"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作动机"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "工作动机",
+      "order": 78,
+      "reuseExistingEntryId": "public-teamwork-commoditized-a389f946"
+    },
+    {
+      "term": "bird's-eye view",
+      "originalInput": "bird’s-eye view",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "全局视角；对整体关系的概览",
+      "definitionEn": "A broad view of a situation that shows how its main parts fit together.",
+      "usage": "比喻义；强调整体结构而非所有细节；也常写 birds-eye 的误拼应避免。",
+      "exampleEn": "The staffing map gave us a bird's-eye view of shared responsibilities.",
+      "exampleZh": "人员配置图让我们从全局看清了共用人员承担的责任。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "a bird's-eye view of the organization",
+        "gain a bird's-eye view",
+        "take a bird's-eye view"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "管理分析",
+      "order": 79,
+      "reuseExistingEntryId": "public-teamwork-bird-s-eye-view-09ad5f57"
+    },
+    {
+      "term": "susceptible to",
+      "originalInput": "susceptible to",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "易受某事影响或损害的",
+      "definitionEn": "Likely to be affected or harmed by a particular influence or problem.",
+      "usage": "to 后接名词或动名词；通常用于不利影响，而不是所有中性变化。",
+      "exampleEn": "Teams with one irreplaceable specialist are susceptible to sudden disruption.",
+      "exampleZh": "只有一名不可替代专家的团队容易受到突发中断的影响。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "susceptible to burnout",
+        "susceptible to disruption",
+        "highly susceptible to shocks"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "危机与风险",
+      "order": 80,
+      "reuseExistingEntryId": "public-teamwork-susceptible-to-dcb07cb4"
+    },
+    {
+      "term": "lead by example",
+      "originalInput": "lead by example",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "以身作则；用自己的行为示范要求",
+      "definitionEn": "To guide others by behaving in the way one expects them to behave.",
+      "usage": "不仅是给出一个口头例子；lead 的过去式、过去分词为 led。",
+      "exampleEn": "The director led by example by sharing lessons from her own failed project.",
+      "exampleZh": "主管分享了自己失败项目中的经验，以此以身作则。",
+      "phonetic": "",
+      "forms": [
+        "leads by example",
+        "led by example",
+        "leading by example"
+      ],
+      "collocations": [
+        "lead by example in sharing knowledge",
+        "leaders who lead by example"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "领导与参与"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "领导与参与",
+      "order": 81,
+      "reuseExistingEntryId": "public-teamwork-lead-by-example-ad54bead"
+    },
+    {
+      "term": "follow suit",
+      "originalInput": "follow suit",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "效仿；采取与别人相似的行动",
+      "definitionEn": "To do something similar to what another person or group has already done.",
+      "usage": "suit 不加冠词；此处不是跟随某套西装或提起诉讼。",
+      "exampleEn": "After one team published its lessons, several others followed suit.",
+      "exampleZh": "一个团队公布经验教训后，其他几个团队也纷纷效仿。",
+      "phonetic": "",
+      "forms": [
+        "follows suit",
+        "followed suit",
+        "following suit"
+      ],
+      "collocations": [
+        "encourage others to follow suit",
+        "other teams follow suit",
+        "quickly follow suit"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "领导与参与"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "领导与参与",
+      "order": 82,
+      "reuseExistingEntryId": "public-teamwork-follow-suit-79481304"
+    },
+    {
+      "term": "brown-bag lunch",
+      "originalInput": "brown-bag lunches",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "午餐学习交流会；常由参与者自带午餐的非正式活动",
+      "definitionEn": "An informal meeting or learning session held during lunch, often with participants bringing food.",
+      "usage": "管理语境常指午间分享活动；不是泛指所有装在纸袋里的午餐。",
+      "exampleEn": "A monthly brown-bag lunch helped engineers share practical testing lessons.",
+      "exampleZh": "每月一次的午餐交流会帮助工程师分享实际测试经验。",
+      "phonetic": "",
+      "forms": [
+        "brown-bag lunches"
+      ],
+      "collocations": [
+        "hold a brown-bag lunch",
+        "a brown-bag lunch session",
+        "organize brown-bag lunches"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "知识与学习"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "知识与学习",
+      "order": 83,
+      "reuseExistingEntryId": "public-teamwork-brown-bag-lunch-d25f4b8a"
+    },
+    {
+      "term": "make a point of",
+      "originalInput": "made a point of",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "特意去做；把某件事当作有意坚持的做法",
+      "definitionEn": "To deliberately ensure that something is done.",
+      "usage": "of 后接动名词，如 make a point of sharing；不是表达一个论点。",
+      "exampleEn": "The manager made a point of thanking people who helped another team.",
+      "exampleZh": "经理特意感谢了帮助其他团队的员工。",
+      "phonetic": "",
+      "forms": [
+        "makes a point of",
+        "made a point of",
+        "making a point of"
+      ],
+      "collocations": [
+        "make a point of sharing lessons",
+        "make a point of acknowledging contributions"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "领导与参与"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "领导与参与",
+      "order": 84,
+      "reuseExistingEntryId": "public-teamwork-make-a-point-of-860684e0"
+    },
+    {
+      "term": "testimonial",
+      "originalInput": "testimonials",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "亲身体验陈述；说明某种做法价值的见证或评价",
+      "definitionEn": "A statement describing personal experience with or support for something.",
+      "usage": "本文是员工介绍跨团队学习收益的陈述，不是法庭证词的特定义。",
+      "exampleEn": "The workshop included a testimonial from a coordinator who had used the new process.",
+      "exampleZh": "研讨会上，一位使用过新流程的协调员分享了亲身体验。",
+      "phonetic": "/ˌtɛstəˈmoʊniəl/",
+      "forms": [
+        "testimonials"
+      ],
+      "collocations": [
+        "a personal testimonial",
+        "share a testimonial",
+        "employee testimonials"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "知识与学习"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "知识与学习",
+      "order": 85,
+      "reuseExistingEntryId": "public-teamwork-testimonial-84dfaa84"
+    },
+    {
+      "term": "buffer against",
+      "originalInput": "Buffer against",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "缓冲；减轻某种冲击造成的影响",
+      "definitionEn": "To reduce the impact of a difficulty or shock.",
+      "usage": "buffer 可作名词或动词；本条为动词结构 buffer against shocks，不承诺彻底防止。",
+      "exampleEn": "A small reserve of specialist time buffered the team against sudden requests.",
+      "exampleZh": "少量预留的专家时间缓冲了突发请求对团队的冲击。",
+      "phonetic": "",
+      "forms": [
+        "buffers against",
+        "buffered against",
+        "buffering against"
+      ],
+      "collocations": [
+        "buffer against shocks",
+        "buffer against disruption",
+        "buffer against unexpected demands"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "危机与风险",
+      "order": 86,
+      "reuseExistingEntryId": "public-teamwork-buffer-against-c87ec9ba"
+    },
+    {
+      "term": "slack",
+      "originalInput": "slack",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "备用时间、人员或处理能力；资源余量",
+      "definitionEn": "Spare capacity that allows a system or team to absorb unexpected demands.",
+      "usage": "本文为不可数名词，不是懒散；区别于动词短语 slack off。",
+      "exampleEn": "We built some slack into the schedule to absorb urgent customer issues.",
+      "exampleZh": "我们在日程中预留了一些余量，以应对紧急客户问题。",
+      "phonetic": "/slæk/",
+      "forms": [],
+      "collocations": [
+        "build slack into a schedule",
+        "organizational slack",
+        "available slack"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "人才与资源",
+      "order": 87,
+      "reuseExistingEntryId": "public-teamwork-slack-877c3aec"
+    },
+    {
+      "term": "twiddle one's thumbs",
+      "originalInput": "twiddling their thumbs",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "无所事事地等待；闲着没事做",
+      "definitionEn": "To spend time waiting without doing anything useful.",
+      "usage": "本文否认保留资源余量就等于无所事事；one's 随主语改变。",
+      "exampleEn": "The spare engineer was not twiddling her thumbs; she was preparing the recovery checklist.",
+      "exampleZh": "这位暂时空闲的工程师并没有无所事事，而是在准备恢复清单。",
+      "phonetic": "",
+      "forms": [
+        "twiddles one's thumbs",
+        "twiddled one's thumbs",
+        "twiddling one's thumbs"
+      ],
+      "collocations": [
+        "sit twiddling one's thumbs",
+        "wait twiddling one's thumbs",
+        "leave someone twiddling their thumbs"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "人才与资源"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "人才与资源",
+      "order": 88,
+      "reuseExistingEntryId": "public-teamwork-twiddle-one-s-thumbs-8987ed4d"
+    },
+    {
+      "term": "change of pace",
+      "originalInput": "change of pace",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "节奏或内容的变化；不同于日常的调剂",
+      "definitionEn": "A different activity or routine that provides variety from usual work.",
+      "usage": "常用 a welcome change of pace；不只指速度变快或变慢。",
+      "exampleEn": "The customer workshop was a welcome change of pace from routine data cleaning.",
+      "exampleZh": "与日常数据清理相比，这次客户研讨会是令人愉快的工作调剂。",
+      "phonetic": "",
+      "forms": [
+        "changes of pace"
+      ],
+      "collocations": [
+        "a welcome change of pace",
+        "provide a change of pace",
+        "enjoy a change of pace"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "工作动机"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "工作动机",
+      "order": 89,
+      "reuseExistingEntryId": "public-teamwork-change-of-pace-1cc1ba2f"
+    },
+    {
+      "term": "exempt someone from",
+      "originalInput": "exempting members of those teams from answering",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "使某人免于某项要求、义务或安排",
+      "definitionEn": "To free someone from a requirement or obligation that would otherwise apply.",
+      "usage": "from 后接名词或动名词；也可用 be exempt from，语气不表示普遍免除责任。",
+      "exampleEn": "We exempted the launch team from routine reporting during the final testing week.",
+      "exampleZh": "在最后一周测试期间，我们免除了发布团队的常规报告任务。",
+      "phonetic": "",
+      "forms": [
+        "exempts someone from",
+        "exempted someone from",
+        "exempting someone from"
+      ],
+      "collocations": [
+        "exempt someone from a duty",
+        "exempt a team from routine meetings",
+        "exempt staff from reporting"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "责任与角色"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "责任与角色",
+      "order": 90,
+      "reuseExistingEntryId": "public-teamwork-exempt-someone-from-444e6baa"
+    },
+    {
+      "term": "take a hit",
+      "originalInput": "take a hit",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "受到打击或损失；遭受不利影响",
+      "definitionEn": "To suffer damage, loss, or a negative effect.",
+      "usage": "本文是团队项目受冲击的比喻义，不是实际被击打。",
+      "exampleEn": "Service quality took a hit when both experienced coordinators were reassigned.",
+      "exampleZh": "两名经验丰富的协调员都被调走后，服务质量受到了影响。",
+      "phonetic": "",
+      "forms": [
+        "takes a hit",
+        "took a hit",
+        "taken a hit",
+        "taking a hit"
+      ],
+      "collocations": [
+        "take a financial hit",
+        "take a hit from disruption",
+        "performance takes a hit"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "危机与风险",
+      "order": 91,
+      "reuseExistingEntryId": "public-teamwork-take-a-hit-ed70ce3c"
+    },
+    {
+      "term": "micromanagement",
+      "originalInput": "micromanagement",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "微观管理；对工作细节进行过度控制",
+      "definitionEn": "Excessively close control of how other people carry out their work.",
+      "usage": "通常不可数；必要监督不自动等于 micromanagement。",
+      "exampleEn": "Asking for hourly explanations made the new tracking system feel like micromanagement.",
+      "exampleZh": "要求每小时解释工作情况，使新的跟踪系统让人感觉像是过度管理。",
+      "phonetic": "/ˌmaɪkroʊˈmænɪdʒmənt/",
+      "forms": [],
+      "collocations": [
+        "avoid micromanagement",
+        "excessive micromanagement",
+        "a culture of micromanagement"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "领导与参与"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "领导与参与",
+      "order": 92,
+      "reuseExistingEntryId": "public-teamwork-micromanagement-97a712a3"
+    },
+    {
+      "term": "free rein",
+      "originalInput": "freer rein",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "行动或决策的自由；自主空间",
+      "definitionEn": "Freedom to act or make decisions without close control.",
+      "usage": "rein 指缰绳，不是 reign；常用 give someone free rein to do something。",
+      "exampleEn": "The sponsor gave the team free rein to choose its research methods.",
+      "exampleZh": "项目发起人给予团队自主选择研究方法的空间。",
+      "phonetic": "",
+      "forms": [],
+      "collocations": [
+        "give someone free rein",
+        "have free rein",
+        "free rein to experiment"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "领导与参与"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "领导与参与",
+      "order": 93,
+      "reuseExistingEntryId": "public-teamwork-free-rein-1b5da51e"
+    },
+    {
+      "term": "go unchecked",
+      "originalInput": "go unchecked",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "未受到检查、约束或纠正；任其发展",
+      "definitionEn": "To continue without being examined, limited, or corrected.",
+      "usage": "常用于风险、问题或行为；unchecked 不是未勾选复选框的意思。",
+      "exampleEn": "Conflicting priorities went unchecked until two important deadlines collided.",
+      "exampleZh": "相互冲突的优先事项一直未受到协调，直到两个重要截止日期撞在一起。",
+      "phonetic": "",
+      "forms": [
+        "goes unchecked",
+        "went unchecked",
+        "gone unchecked",
+        "going unchecked"
+      ],
+      "collocations": [
+        "allow problems to go unchecked",
+        "let risks go unchecked",
+        "costs go unchecked"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "危机与风险"
+      ],
+      "pdfPage": 9,
+      "printedPage": 9,
+      "category": "危机与风险",
+      "order": 94,
+      "reuseExistingEntryId": "public-teamwork-go-unchecked-91ad967d"
+    }
+  ]
+}

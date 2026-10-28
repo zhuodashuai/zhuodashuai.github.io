@@ -6,6 +6,7 @@ import { extname, join, normalize, resolve, sep } from "node:path";
 import { createBlankEntry, findDuplicate, normalizeEnglish, parsePublicSnapshot, validateEnglishInput, validatePublicEntry } from "../../../vocab/js/wordbook-schema.js";
 import { SYNONYM_FEATURE_ENABLED, isSynonymLexicalEntry, pendingSynonymScan } from "../../../vocab/js/synonym-evidence.js";
 import { collectionMemberships } from "../../../vocab/js/collections.js";
+import { readingChapterTitle } from "../../../vocab/js/reading-source.js";
 import { scheduleReview } from "../../../vocab/js/review.js";
 import { clearFixtureFolders, folderFixtureFields, folderFixtureMutationAvailable, handleFolderFixture, removeFixtureEntryFromFolders } from "./personal-folders-fixture.mjs";
 
@@ -198,7 +199,7 @@ function selectionContexts(entry, collectionId, chapterId) {
       key: `${entry.id}:${item.collectionId}:${item.chapterId}`, entryId: entry.id, term: entry.term,
       collectionId: item.collectionId, chapterId: item.chapterId,
       bookTitle: item.collectionId === "main" ? "卓的主词本" : context.sourceWork || entry.sourceWork || item.collectionId,
-      chapterTitle: item.chapterId === "all" ? "" : `Chapter ${item.chapterId.slice(8)}`,
+      chapterTitle: item.chapterId === "all" ? "" : readingChapterTitle(context, item.chapterNumber),
       sourceTitle: context.sourceTitle || entry.sourceTitle || "", page: context.page || "",
       originalInput: context.originalInput || entry.originalInput || entry.term,
       meaning: context.meaning || "", definition: context.definition || "",

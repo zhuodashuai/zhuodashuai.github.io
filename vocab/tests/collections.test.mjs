@@ -129,3 +129,34 @@ test("chapter meanings split each semicolon sense into a separate learning point
   assert.deepEqual(splitChineseMeaningPoints("焦躁不安的；情绪不平静的。"), ["焦躁不安的", "情绪不平静的"]);
   assert.deepEqual(splitChineseMeaningPoints("耸肩。"), ["耸肩"]);
 });
+
+test("named article chapters use their own context titles without changing membership order or shared review IDs", () => {
+  const articleContext = (chapter, article, order) => ({
+    membership: `collection:teamwork:chapter-${chapter}`, order,
+    sourceWork: "Teamwork", sourceTitle: `Teamwork — ${article}`, page: "p. 4"
+  });
+  const shared = {
+    id: "shared-article-card", term: "burnout",
+    sourceWork: "Collaborative Overload", sourceTitle: "Collaborative Overload",
+    tags: ["collection:teamwork:chapter-3", "collection:teamwork:chapter-2"],
+    readingContexts: [articleContext(3, "The Overcommitted Organization", 2), articleContext(2, "Collaborative Overload", 1)]
+  };
+  const earlier = {
+    id: "earlier-article-card", term: "multiteaming", tags: ["collection:teamwork:chapter-3"],
+    readingContexts: [articleContext(3, "The Overcommitted Organization", 1)]
+  };
+  const catalog = buildCollectionCatalog([...entries, shared, earlier]);
+  const teamwork = catalog.find((book) => book.id === "teamwork");
+  assert.equal(teamwork.title, "Teamwork");
+  assert.equal(teamwork.count, 2);
+  assert.deepEqual(teamwork.chapters.map(({ id, title, count }) => ({ id, title, count })), [
+    { id: "chapter-2", title: "Collaborative Overload", count: 1 },
+    { id: "chapter-3", title: "The Overcommitted Organization", count: 2 }
+  ]);
+  assert.equal(collectionContextForEntry(shared, "teamwork", "chapter-2").chapterTitle, "Collaborative Overload");
+  assert.equal(collectionContextForEntry(shared, "teamwork", "chapter-3").chapterTitle, "The Overcommitted Organization");
+  assert.deepEqual(filterEntriesByCollection([shared, earlier], "teamwork", "chapter-3").map(({ id }) => id), [
+    "earlier-article-card", "shared-article-card"
+  ]);
+  assert.equal(catalog.find((book) => book.id === "never-let-me-go").chapters[0].title, "Chapter 1");
+});
