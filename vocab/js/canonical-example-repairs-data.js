@@ -672,6 +672,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "bootstrap",
+      "canonicalId": 3656921,
+      "canonicalSourceSha256": "5fd7abad7f0fba8ed41e3bb8428f6114533a4382666d278eaca40df9c71e8c4d",
+      "exactCanonicalRecord": {
+        "id": 3656921,
+        "term": "bootstrap",
+        "partOfSpeech": "noun",
+        "meaning": "n. 解靴带\n[计] 引导程序, 引导自举",
+        "forms": [
+          "bootstraps"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 28575,
+          "forms": [
+            "bootstraps"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "bootstrap",
+        "senses": [
+          {
+            "id": "example:bootstrap",
+            "partOfSpeech": "verb",
+            "meaningZh": "靠有限的自身资源逐步建立或发展",
+            "examples": [
+              {
+                "en": "They bootstrapped the company with savings from their previous jobs.",
+                "zh": "他们用以前工作积攒的钱逐步创办了这家公司。"
+              }
+            ],
+            "reviewer": "AI/root-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "2dd4c35878311049c181be381062be6267306d4419c9a0f137b9d166f1a92538",
+      "acceptedDisplayContexts": [
+        {
+          "term": "bootstrap",
+          "partOfSpeech": "noun",
+          "meaning": "n. 解靴带\n[计] 引导程序, 引导自举"
+        },
+        {
+          "term": "bootstrap",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 解靴带\n   [计] 引导程序, 引导自举"
+        }
+      ],
+      "replacementPair": {
+        "term": "bootstrap",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 解靴带\n[计] 引导程序, 引导自举",
+        "en": "A damaged bootstrap prevented the computer from loading its operating system.",
+        "zh": "损坏的引导程序使计算机无法加载操作系统。"
+      },
+      "senseId": "canonical-example:3656921:5fd7abad7f0fba8ed41e3bb8428f6114533a4382666d278eaca40df9c71e8c4d",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "breakaway",
       "canonicalId": 2104114,
       "canonicalSourceSha256": "d158b165bc5723bc6448791c7405d74a0257c6de0fa554fa5c1d23e755ec012e",
@@ -942,6 +1011,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:1353280:c3528195f740dd0110217a655c242a05d642ddf8690c766778ac65f19d6f2a87",
       "reviewer": "AI/common-class-vocabulary-author"
+    },
+    {
+      "term": "cherokee",
+      "canonicalId": 2374717,
+      "canonicalSourceSha256": "161389599afa37628f8ae7c654ae9504a63ca94d664112fa70393377805c991a",
+      "exactCanonicalRecord": {
+        "id": 2374717,
+        "term": "cherokee",
+        "partOfSpeech": "noun",
+        "meaning": "n. 彻罗基族人（北美印第安人之一族）",
+        "forms": [
+          "cherokees"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 18555,
+          "forms": [
+            "cherokees"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "cherokee",
+        "senses": [
+          {
+            "id": "example:cherokee",
+            "partOfSpeech": "adjective",
+            "meaningZh": "切罗基族的",
+            "examples": [
+              {
+                "en": "A Cherokee artist contributed photographs to the exhibition.",
+                "zh": "一位切罗基族艺术家为展览提供了照片。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "acee2faa054176fa82a2af6ce94e52a69676bed03a9e2f7cb1ddd778e9e074d3",
+      "acceptedDisplayContexts": [
+        {
+          "term": "cherokee",
+          "partOfSpeech": "noun",
+          "meaning": "n. 彻罗基族人（北美印第安人之一族）"
+        },
+        {
+          "term": "cherokee",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 彻罗基族人（北美印第安人之一族）"
+        }
+      ],
+      "replacementPair": {
+        "term": "cherokee",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 彻罗基族人（北美印第安人之一族）",
+        "en": "She is a Cherokee, and her family has lived in this town for generations.",
+        "zh": "她是一位切罗基族人，她的家人在这座镇上生活了好几代。"
+      },
+      "senseId": "canonical-example:2374717:161389599afa37628f8ae7c654ae9504a63ca94d664112fa70393377805c991a",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "cleric",
@@ -1437,6 +1575,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "etcetera",
+      "canonicalId": 2377878,
+      "canonicalSourceSha256": "2af0d7017cea78045407a56d54778d19c7e121960bec6dd7f9562793148eaef5",
+      "exactCanonicalRecord": {
+        "id": 2377878,
+        "term": "etcetera",
+        "partOfSpeech": "noun",
+        "meaning": "n. 等等, 额外的人(或物)",
+        "forms": [
+          "etceteras"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 18580,
+          "forms": [
+            "etceteras"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "etcetera",
+        "senses": [
+          {
+            "id": "example:etcetera",
+            "partOfSpeech": "adverb",
+            "meaningZh": "等等",
+            "examples": [
+              {
+                "en": "The stall sold cups, bowls, plates, etcetera.",
+                "zh": "摊位售卖杯子、碗、盘子等等。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "1530b5b171e0d3c628edc7096ecc7f7bfed334f030dd6f61054a9efdaa892304",
+      "acceptedDisplayContexts": [
+        {
+          "term": "etcetera",
+          "partOfSpeech": "noun",
+          "meaning": "n. 等等, 额外的人(或物)"
+        },
+        {
+          "term": "etcetera",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 等等, 额外的人(或物)"
+        }
+      ],
+      "replacementPair": {
+        "term": "etcetera",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 等等, 额外的人(或物)",
+        "en": "We set aside a small box for cables, adapters, and the other etceteras needed for the presentation.",
+        "zh": "我们留了一个小盒子，装电缆、转接头以及演示所需的其他零碎物品。"
+      },
+      "senseId": "canonical-example:2377878:2af0d7017cea78045407a56d54778d19c7e121960bec6dd7f9562793148eaef5",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "fact-finding",
       "canonicalId": 2147311,
       "canonicalSourceSha256": "a595dca828f2999c5fe9fc94aa7eec888bdaddf2beb6a4dd5b8b99e2bee938d1",
@@ -1500,6 +1707,79 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:2147311:a595dca828f2999c5fe9fc94aa7eec888bdaddf2beb6a4dd5b8b99e2bee938d1",
       "reviewer": "AI/common-class-vocabulary-author"
+    },
+    {
+      "term": "farrow",
+      "canonicalId": 1584866,
+      "canonicalSourceSha256": "b6c85cf69c2841b496df8231cf72fe15b86b34d5ebe39be6f6a10ac866f34703",
+      "exactCanonicalRecord": {
+        "id": 1584866,
+        "term": "farrow",
+        "partOfSpeech": "noun",
+        "meaning": "n. 一窝小猪, 猪的一胎",
+        "forms": [
+          "farrowed",
+          "farrowing",
+          "farrows"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 12381,
+          "forms": [
+            "farrowed",
+            "farrowing",
+            "farrows"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "farrow",
+        "senses": [
+          {
+            "id": "example:farrow",
+            "partOfSpeech": "verb",
+            "meaningZh": "母猪产仔",
+            "examples": [
+              {
+                "en": "The sow farrowed in the warm barn during the night.",
+                "zh": "那头母猪夜里在温暖的牲口棚里产了仔。"
+              }
+            ],
+            "reviewer": "AI/examples4_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "d3b6d1c1535e66ee282301a25bc0d007a6e799a79f7f039469c2ed410e6d30c3",
+      "acceptedDisplayContexts": [
+        {
+          "term": "farrow",
+          "partOfSpeech": "noun",
+          "meaning": "n. 一窝小猪, 猪的一胎"
+        },
+        {
+          "term": "farrow",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 一窝小猪, 猪的一胎"
+        }
+      ],
+      "replacementPair": {
+        "term": "farrow",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 一窝小猪, 猪的一胎",
+        "en": "The sow's latest farrow consists of eight healthy piglets.",
+        "zh": "那头母猪最近一胎生下了八只健康的小猪。"
+      },
+      "senseId": "canonical-example:1584866:b6c85cf69c2841b496df8231cf72fe15b86b34d5ebe39be6f6a10ac866f34703",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "feminist",
@@ -1640,6 +1920,81 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-coverage-audit"
     },
     {
+      "term": "follow-up",
+      "canonicalId": 1843666,
+      "canonicalSourceSha256": "23a9927da8da93633f2b4aaf4e58c797ac30b0868009194c99124f3498d0ab6d",
+      "exactCanonicalRecord": {
+        "id": 1843666,
+        "term": "follow-up",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 继续的, 作为重复的",
+        "forms": [
+          "follow-ups"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 继续的, 作为重复的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14406,
+          "forms": [
+            "follow-ups"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "follow-up",
+        "senses": [
+          {
+            "id": "example:follow-up",
+            "partOfSpeech": "noun",
+            "meaningZh": "后续行动",
+            "examples": [
+              {
+                "en": "As a follow-up, we sent participants photographs of the finished mural.",
+                "zh": "作为后续行动，我们把完成后的壁画照片发给了参与者。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "2b2177ce764e7671e9e9cae5809722d0ec3a7158bad50fe0cbab4b78e4917705",
+      "acceptedDisplayContexts": [
+        {
+          "term": "follow-up",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 继续的, 作为重复的"
+        },
+        {
+          "term": "follow-up",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 继续的, 作为重复的"
+        }
+      ],
+      "replacementPair": {
+        "term": "follow-up",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 继续的, 作为重复的",
+        "en": "The researchers sent a follow-up questionnaire six months after the first interview.",
+        "zh": "首次访谈六个月后，研究人员又发出了一份后续问卷。"
+      },
+      "senseId": "canonical-example:1843666:23a9927da8da93633f2b4aaf4e58c797ac30b0868009194c99124f3498d0ab6d",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "foo",
       "canonicalId": 4241367,
       "canonicalSourceSha256": "f0d0d5c0c47e4959271b2ab3045273ead144f718ebfbdf727de81410ad1a03fd",
@@ -1774,6 +2129,221 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "gay",
+      "canonicalId": 186452,
+      "canonicalSourceSha256": "d50505ab4eff58652790a4ef6e64ba1ddc8567af48cdd578afee211424c93af9",
+      "exactCanonicalRecord": {
+        "id": 186452,
+        "term": "gay",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 欢快的, 艳丽的, 快乐的, 放荡的",
+        "forms": [
+          "gays"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 欢快的, 艳丽的, 快乐的, 放荡的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1456,
+          "forms": [
+            "gays"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "gay",
+        "senses": [
+          {
+            "id": "example:gay",
+            "partOfSpeech": "adjective",
+            "meaningZh": "同性恋的",
+            "examples": [
+              {
+                "en": "Her brother is gay and lives with his husband in a small coastal town.",
+                "zh": "她哥哥是同性恋，与丈夫住在一个海边小镇。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "25daeea995d7a52e8d36fc727945e6d6d555782f547b388dde8a23a16b12e4a1",
+      "acceptedDisplayContexts": [
+        {
+          "term": "gay",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 欢快的, 艳丽的, 快乐的, 放荡的"
+        },
+        {
+          "term": "gay",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 欢快的, 艳丽的, 快乐的, 放荡的"
+        }
+      ],
+      "replacementPair": {
+        "term": "gay",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 欢快的, 艳丽的, 快乐的, 放荡的",
+        "en": "The room looked gay with bright ribbons and bunches of fresh flowers.",
+        "zh": "鲜艳的彩带和一束束鲜花让房间显得喜庆明快。"
+      },
+      "senseId": "canonical-example:186452:d50505ab4eff58652790a4ef6e64ba1ddc8567af48cdd578afee211424c93af9",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
+      "term": "head-on",
+      "canonicalId": 1844323,
+      "canonicalSourceSha256": "af80758feafd34e4cfa25a10bb6c235815cad52851c92da71c3885f2706fa134",
+      "exactCanonicalRecord": {
+        "id": 1844323,
+        "term": "head-on",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 正面的",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 正面的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14411,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "head-on",
+        "senses": [
+          {
+            "id": "example:head-on",
+            "partOfSpeech": "adverb",
+            "meaningZh": "直接地面对",
+            "examples": [
+              {
+                "en": "She tackled the difficult question head-on during the interview.",
+                "zh": "采访中，她直面了那个棘手的问题。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "1cc0eb80ec4cee836c49c706e03ee0cd08dc86487a388352e8ffd92e8637d0aa",
+      "acceptedDisplayContexts": [
+        {
+          "term": "head-on",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 正面的"
+        },
+        {
+          "term": "head-on",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 正面的"
+        }
+      ],
+      "replacementPair": {
+        "term": "head-on",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 正面的",
+        "en": "A head-on collision blocked both lanes of the narrow road.",
+        "zh": "一次正面碰撞堵住了这条狭窄道路的两个车道。"
+      },
+      "senseId": "canonical-example:1844323:af80758feafd34e4cfa25a10bb6c235815cad52851c92da71c3885f2706fa134",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
+      "term": "hieroglyphic",
+      "canonicalId": 1597340,
+      "canonicalSourceSha256": "14c0321371fdaca67ee1b39ac51204d2e71eeb74ce2783cb980516340bacfb18",
+      "exactCanonicalRecord": {
+        "id": 1597340,
+        "term": "hieroglyphic",
+        "partOfSpeech": "noun",
+        "meaning": "n. 象形文字；象形文字写的文章",
+        "forms": [
+          "hieroglyphics"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 12479,
+          "forms": [
+            "hieroglyphics"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "hieroglyphic",
+        "senses": [
+          {
+            "id": "example:hieroglyphic",
+            "partOfSpeech": "adjective",
+            "meaningZh": "象形文字的；用象形文字书写的",
+            "examples": [
+              {
+                "en": "The guide translated a short hieroglyphic inscription on the wall.",
+                "zh": "导游翻译了墙上一段简短的象形文字铭文。"
+              }
+            ],
+            "reviewer": "AI/examples4_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "250b0d01f9d1aa0191e03f41ecdbd2bef8bad3a9f3552329bd2af1005e046331",
+      "acceptedDisplayContexts": [
+        {
+          "term": "hieroglyphic",
+          "partOfSpeech": "noun",
+          "meaning": "n. 象形文字；象形文字写的文章"
+        },
+        {
+          "term": "hieroglyphic",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 象形文字；象形文字写的文章"
+        }
+      ],
+      "replacementPair": {
+        "term": "hieroglyphic",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 象形文字；象形文字写的文章",
+        "en": "The guide pointed to a bird-shaped hieroglyphic carved above the doorway.",
+        "zh": "导游指着门口上方刻着的一个鸟形象形文字。"
+      },
+      "senseId": "canonical-example:1597340:14c0321371fdaca67ee1b39ac51204d2e71eeb74ce2783cb980516340bacfb18",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "hubble",
       "canonicalId": 3938005,
       "canonicalSourceSha256": "2abed6ac798d72aaa46920f3a69495d82e73284ce60464f78dd2dd4c2e426fa8",
@@ -1841,6 +2411,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:3938005:2abed6ac798d72aaa46920f3a69495d82e73284ce60464f78dd2dd4c2e426fa8",
       "reviewer": "AI/repair_source_review"
+    },
+    {
+      "term": "ice-cream",
+      "canonicalId": 1755675,
+      "canonicalSourceSha256": "0919fd8298620c2a0d7200fd5cd4933325cc0a813c0a6d00b87c95f41bde4f7a",
+      "exactCanonicalRecord": {
+        "id": 1755675,
+        "term": "ice-cream",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 冰淇淋的, 乳白色的",
+        "forms": [
+          "ice-creams"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 13716,
+          "forms": [
+            "ice-creams"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "ice-cream",
+        "senses": [
+          {
+            "id": "example:ice-cream",
+            "partOfSpeech": "noun",
+            "meaningZh": "冰淇淋",
+            "examples": [
+              {
+                "en": "The ice-cream stall opened beside the pier.",
+                "zh": "冰淇淋摊在码头旁开张。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "746e87f2c3f3cbd76ecac02981e3443a7deafe6a09584a5f78a6a46e9218f254",
+      "acceptedDisplayContexts": [
+        {
+          "term": "ice-cream",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 冰淇淋的, 乳白色的"
+        },
+        {
+          "term": "ice-cream",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 冰淇淋的, 乳白色的"
+        }
+      ],
+      "replacementPair": {
+        "term": "ice-cream",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 冰淇淋的, 乳白色的",
+        "en": "She wore an ice-cream jacket over a dark blue dress.",
+        "zh": "她在深蓝色连衣裙外穿了一件乳白色外套。"
+      },
+      "senseId": "canonical-example:1755675:0919fd8298620c2a0d7200fd5cd4933325cc0a813c0a6d00b87c95f41bde4f7a",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "indie",
@@ -2123,6 +2762,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       ]
     },
     {
+      "term": "midland",
+      "canonicalId": 2194236,
+      "canonicalSourceSha256": "81a8b3fdff48f26eaf5b8bcb7607d4aec42649fe5107b78276110bc983cd67c9",
+      "exactCanonicalRecord": {
+        "id": 2194236,
+        "term": "midland",
+        "partOfSpeech": "noun",
+        "meaning": "n. 中部地方, 内地",
+        "forms": [
+          "midlands"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 17145,
+          "forms": [
+            "midlands"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "midland",
+        "senses": [
+          {
+            "id": "example:midland",
+            "partOfSpeech": "adjective",
+            "meaningZh": "内陆的",
+            "examples": [
+              {
+                "en": "The novel follows a family living in a remote midland village.",
+                "zh": "这部小说讲述一个居住在偏远内陆村庄的家庭的故事。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "d4167802fd68b5f56b1e0774cc9b3b6c864d100e7711034d5c607b7ad2517ed1",
+      "acceptedDisplayContexts": [
+        {
+          "term": "midland",
+          "partOfSpeech": "noun",
+          "meaning": "n. 中部地方, 内地"
+        },
+        {
+          "term": "midland",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 中部地方, 内地"
+        }
+      ],
+      "replacementPair": {
+        "term": "midland",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 中部地方, 内地",
+        "en": "The old map divides the island into a coastal strip and a forested midland.",
+        "zh": "那张旧地图把岛分成一片沿海地带和一片林木茂密的内陆地区。"
+      },
+      "senseId": "canonical-example:2194236:81a8b3fdff48f26eaf5b8bcb7607d4aec42649fe5107b78276110bc983cd67c9",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "molly",
       "canonicalId": 2282180,
       "canonicalSourceSha256": "8dc12464be5fe3529b78b1ff3b022e62b77590572c22f2468688677b9f3415d9",
@@ -2259,6 +2967,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/repair_language_review"
     },
     {
+      "term": "navajo",
+      "canonicalId": 2314850,
+      "canonicalSourceSha256": "dfb7a43e8b3a286c448336b5a3bdbb30f49715e44cda9dc40cecd141f9e34260",
+      "exactCanonicalRecord": {
+        "id": 2314850,
+        "term": "navajo",
+        "partOfSpeech": "noun",
+        "meaning": "n. 纳瓦霍人（美国最大的印第安部落）",
+        "forms": [
+          "navajos"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 18087,
+          "forms": [
+            "navajos"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "navajo",
+        "senses": [
+          {
+            "id": "example:navajo",
+            "partOfSpeech": "adjective",
+            "meaningZh": "纳瓦霍族的",
+            "examples": [
+              {
+                "en": "A Navajo artist designed the exhibition's poster.",
+                "zh": "一位纳瓦霍族艺术家设计了展览海报。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "44b901016cc29db3e2ca4db8c5870eb47be487b70d24265e5b95eaae01127591",
+      "acceptedDisplayContexts": [
+        {
+          "term": "navajo",
+          "partOfSpeech": "noun",
+          "meaning": "n. 纳瓦霍人（美国最大的印第安部落）"
+        },
+        {
+          "term": "navajo",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 纳瓦霍人（美国最大的印第安部落）"
+        }
+      ],
+      "replacementPair": {
+        "term": "navajo",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 纳瓦霍人（美国最大的印第安部落）",
+        "en": "The speaker introduced herself as a Navajo from Arizona.",
+        "zh": "发言者介绍说，自己是一位来自亚利桑那州的纳瓦霍族人。"
+      },
+      "senseId": "canonical-example:2314850:dfb7a43e8b3a286c448336b5a3bdbb30f49715e44cda9dc40cecd141f9e34260",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "offside",
       "canonicalId": 2121769,
       "canonicalSourceSha256": "5307433f0f61a786f4587319b5be20460d6d66ef486c45875db86d4542604ff7",
@@ -2393,6 +3170,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "pinky",
+      "canonicalId": 3072380,
+      "canonicalSourceSha256": "dda6c9f0cdcae02cc8306fc6db9c4b485c5b962092020bd4a453bd514e680405",
+      "exactCanonicalRecord": {
+        "id": 3072380,
+        "term": "pinky",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 带淡红色的, 比较激进的",
+        "forms": [
+          "pinkies"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 24008,
+          "forms": [
+            "pinkies"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "pinky",
+        "senses": [
+          {
+            "id": "example:pinky",
+            "partOfSpeech": "noun",
+            "meaningZh": "小指，亦拼作pinkie，非正式用语",
+            "examples": [
+              {
+                "en": "He caught his pinky in the drawer and quickly pulled his hand away.",
+                "zh": "他的小指被抽屉夹了一下，便迅速把手抽开。"
+              }
+            ],
+            "reviewer": "AI/root-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "2c63b1e7a3fe00ba242ff5086b054f930e11dfdc47c0656a8e73d76c3e773511",
+      "acceptedDisplayContexts": [
+        {
+          "term": "pinky",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 带淡红色的, 比较激进的"
+        },
+        {
+          "term": "pinky",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 带淡红色的, 比较激进的"
+        }
+      ],
+      "replacementPair": {
+        "term": "pinky",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 带淡红色的, 比较激进的",
+        "en": "A pinky glow spread across the clouds just before sunrise.",
+        "zh": "日出前，云层间泛起淡粉色的霞光。"
+      },
+      "senseId": "canonical-example:3072380:dda6c9f0cdcae02cc8306fc6db9c4b485c5b962092020bd4a453bd514e680405",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "primo",
       "canonicalId": 4085182,
       "canonicalSourceSha256": "29572b31a10fa7c4296d580552797d2817dae1ae491073f088541fb2bdd06c0f",
@@ -2460,6 +3306,81 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:4085182:29572b31a10fa7c4296d580552797d2817dae1ae491073f088541fb2bdd06c0f",
       "reviewer": "AI/repair_language_review"
+    },
+    {
+      "term": "pro",
+      "canonicalId": 1810392,
+      "canonicalSourceSha256": "a0130fcfc9c65ccd4ef0bf61fe450e61a0c885f35f7016396e8fb969a992d160",
+      "exactCanonicalRecord": {
+        "id": 1810392,
+        "term": "pro",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 正面地\n[计] 可编程远程操作",
+        "forms": [
+          "pros"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adverb",
+            "meaning": "adv. 正面地\n[计] 可编程远程操作",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14146,
+          "forms": [
+            "pros"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "pro",
+        "senses": [
+          {
+            "id": "example:pro",
+            "partOfSpeech": "noun",
+            "meaningZh": "专业人士；行家（口语）",
+            "examples": [
+              {
+                "en": "She hired a pro to repair the damaged violin.",
+                "zh": "她请了一位行家修理那把损坏的小提琴。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "f399a5aa0c080347bba8b5ae22cb7d67708cc8286f108c0b19b29de1b4442cbb",
+      "acceptedDisplayContexts": [
+        {
+          "term": "pro",
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 正面地\n[计] 可编程远程操作"
+        },
+        {
+          "term": "pro",
+          "partOfSpeech": "adverb",
+          "meaning": "① adv. 正面地\n   [计] 可编程远程操作"
+        }
+      ],
+      "replacementPair": {
+        "term": "pro",
+        "partOfSpeech": "adverb",
+        "meaningZh": "adv. 正面地\n[计] 可编程远程操作",
+        "en": "In the debate on the proposal, three speakers argued pro and two argued con.",
+        "zh": "在讨论这项提案的辩论中，三位发言者赞成，两位反对。"
+      },
+      "senseId": "canonical-example:1810392:a0130fcfc9c65ccd4ef0bf61fe450e61a0c885f35f7016396e8fb969a992d160",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "qed",
@@ -2594,6 +3515,140 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:2043279:18e78d6fd66c496154ae7457954e47ce35300cb735636b02601557053938c4dd",
       "reviewer": "AI/common-class-vocabulary-author"
+    },
+    {
+      "term": "sabine",
+      "canonicalId": 2380261,
+      "canonicalSourceSha256": "9e18941d419f31198f677429c0fb95988e847af4282b75195a52f764e3f0ac0f",
+      "exactCanonicalRecord": {
+        "id": 2380261,
+        "term": "sabine",
+        "partOfSpeech": "noun",
+        "meaning": "n. 萨宾人",
+        "forms": [
+          "sabines"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 18598,
+          "forms": [
+            "sabines"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "sabine",
+        "senses": [
+          {
+            "id": "example:sabine",
+            "partOfSpeech": "adjective",
+            "meaningZh": "古萨宾人的",
+            "examples": [
+              {
+                "en": "The museum displayed a reconstructed Sabine helmet.",
+                "zh": "博物馆展示了一顶重建的古萨宾人头盔。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "0fad46a4d9b67f98d534cecb99ebb3da15737217c6895a030fe1651178e5edb0",
+      "acceptedDisplayContexts": [
+        {
+          "term": "sabine",
+          "partOfSpeech": "noun",
+          "meaning": "n. 萨宾人"
+        },
+        {
+          "term": "sabine",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 萨宾人"
+        }
+      ],
+      "replacementPair": {
+        "term": "sabine",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 萨宾人",
+        "en": "In the novel, a young Sabine travels to Rome to visit his older sister.",
+        "zh": "在这部小说中，一位年轻的萨宾人前往罗马探望姐姐。"
+      },
+      "senseId": "canonical-example:2380261:9e18941d419f31198f677429c0fb95988e847af4282b75195a52f764e3f0ac0f",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
+      "term": "sales",
+      "canonicalId": 1172663,
+      "canonicalSourceSha256": "1c29e23a0a0d5080481b7a380679bf5d044766857c34d93133e33dc1df564431",
+      "exactCanonicalRecord": {
+        "id": 1172663,
+        "term": "sales",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 销售的\n[计] 销售",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 9161,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "sales",
+        "senses": [
+          {
+            "id": "example:sales",
+            "partOfSpeech": "noun",
+            "meaningZh": "销售额",
+            "examples": [
+              {
+                "en": "Book sales increased after the author's visit.",
+                "zh": "作者来访后，图书销售额增加了。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "b3e05448ccd11d22605948aa4f6d90a29f23d0dc97a649ddf74b6243a8eafde0",
+      "acceptedDisplayContexts": [
+        {
+          "term": "sales",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 销售的\n[计] 销售"
+        },
+        {
+          "term": "sales",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 销售的\n   [计] 销售"
+        }
+      ],
+      "replacementPair": {
+        "term": "sales",
+        "partOfSpeech": "adjective",
+        "meaningZh": "a. 销售的\n[计] 销售",
+        "en": "The sales team prepared a separate brochure for the new model.",
+        "zh": "销售团队为这款新型号另外准备了一本宣传册。"
+      },
+      "senseId": "canonical-example:1172663:1c29e23a0a0d5080481b7a380679bf5d044766857c34d93133e33dc1df564431",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "savvy",
@@ -2744,6 +3799,71 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "semiliterate",
+      "canonicalId": 1778445,
+      "canonicalSourceSha256": "52be0931987008e5abb4999514d08f97d4f51c301e5c1b222f804f9e2ef0826b",
+      "exactCanonicalRecord": {
+        "id": 1778445,
+        "term": "semiliterate",
+        "partOfSpeech": "noun",
+        "meaning": "n. 半文盲",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 13894,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "semiliterate",
+        "senses": [
+          {
+            "id": "example:semiliterate",
+            "partOfSpeech": "adjective",
+            "meaningZh": "识字不多的",
+            "examples": [
+              {
+                "en": "The novel portrays a semiliterate narrator learning to read.",
+                "zh": "小说描写识字不多的叙述者学习阅读。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "20f940adbbe1ae3ff93e77573b953d568b9efe40e3ea40c6983486219b66169f",
+      "acceptedDisplayContexts": [
+        {
+          "term": "semiliterate",
+          "partOfSpeech": "noun",
+          "meaning": "n. 半文盲"
+        },
+        {
+          "term": "semiliterate",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 半文盲"
+        }
+      ],
+      "replacementPair": {
+        "term": "semiliterate",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 半文盲",
+        "en": "In his memoir, he describes himself as a semiliterate who could read only simple notices.",
+        "zh": "在回忆录中，他把自己描述为只能读懂简单告示的半文盲。"
+      },
+      "senseId": "canonical-example:1778445:52be0931987008e5abb4999514d08f97d4f51c301e5c1b222f804f9e2ef0826b",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "sheepshead",
       "canonicalId": 5705987,
       "canonicalSourceSha256": "6a5ffbe1b58410c624e42afdc463ddfb622078561a382babaa8ef14456fcd555",
@@ -2884,6 +4004,77 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-coverage-audit"
     },
     {
+      "term": "sooner",
+      "canonicalId": 1808965,
+      "canonicalSourceSha256": "0e9c9f422481b217c214761a9e22b0b3659cc46189988f16d61a5a8b165b48be",
+      "exactCanonicalRecord": {
+        "id": 1808965,
+        "term": "sooner",
+        "partOfSpeech": "noun",
+        "meaning": "n. (美)(非正式)抢先占有土地者, 抢先而获得不正当利益的人",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. (美)(非正式)抢先占有土地者, 抢先而获得不正当利益的人",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 14135,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "sooner",
+        "senses": [
+          {
+            "id": "example:sooner",
+            "partOfSpeech": "adverb",
+            "meaningZh": "更早；早一些，是 soon 的比较级",
+            "examples": [
+              {
+                "en": "Send the draft sooner so we have time to discuss it.",
+                "zh": "早点把草稿发来，这样我们才有时间讨论。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "0f6ee5ef1c09dbb63be6eb1d2b468c885ef9be1b1ccac4754e1a3897f9e3871c",
+      "acceptedDisplayContexts": [
+        {
+          "term": "sooner",
+          "partOfSpeech": "noun",
+          "meaning": "n. (美)(非正式)抢先占有土地者, 抢先而获得不正当利益的人"
+        },
+        {
+          "term": "sooner",
+          "partOfSpeech": "noun",
+          "meaning": "① n. (美)(非正式)抢先占有土地者, 抢先而获得不正当利益的人"
+        }
+      ],
+      "replacementPair": {
+        "term": "sooner",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. (美)(非正式)抢先占有土地者, 抢先而获得不正当利益的人",
+        "en": "The settler was accused of being a sooner who had entered the territory before it officially opened.",
+        "zh": "那名移民被指控是一个抢先进入尚未正式开放领土的偷占土地者。"
+      },
+      "senseId": "canonical-example:1808965:0e9c9f422481b217c214761a9e22b0b3659cc46189988f16d61a5a8b165b48be",
+      "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
       "term": "starboard",
       "canonicalId": 2050431,
       "canonicalSourceSha256": "38b3879c078da6845ff2ff903778829ab2f4dc5c70a2c7d9bc755cf291fe07df",
@@ -3020,6 +4211,77 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:5734085:7664cb56099367283d9ba11a68a0ebe26612e3458aa72f49f4687132c1945914",
       "reviewer": "AI/repair_language_review"
+    },
+    {
+      "term": "substantial",
+      "canonicalId": 221267,
+      "canonicalSourceSha256": "f8c49f80919633d7685dd4620d75a29f948ad78e1cca47ab44306ba52014001b",
+      "exactCanonicalRecord": {
+        "id": 221267,
+        "term": "substantial",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. 重要材料(或事物), 有实际价值的东西\na. 实质上的, 物质的, 有内容的, 结实的",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · adjective",
+            "meaning": "n. 重要材料(或事物), 有实际价值的东西\na. 实质上的, 物质的, 有内容的, 结实的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1728,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "substantial",
+        "senses": [
+          {
+            "id": "example:substantial",
+            "partOfSpeech": "adjective",
+            "meaningZh": "数量或程度相当大的",
+            "examples": [
+              {
+                "en": "Repairing the roof will require a substantial amount of money.",
+                "zh": "修理屋顶需要一笔数目不小的钱。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "a45b8586c06f19ccb15039d210e199ebcb3404029a0fbc83dea49f80ea32d812",
+      "acceptedDisplayContexts": [
+        {
+          "term": "substantial",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "n. 重要材料(或事物), 有实际价值的东西\na. 实质上的, 物质的, 有内容的, 结实的"
+        },
+        {
+          "term": "substantial",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "① n. 重要材料(或事物), 有实际价值的东西\n② adj. 实质上的, 物质的, 有内容的, 结实的"
+        }
+      ],
+      "replacementPair": {
+        "term": "substantial",
+        "partOfSpeech": "noun · adjective",
+        "meaningZh": "n. 重要材料(或事物), 有实际价值的东西\na. 实质上的, 物质的, 有内容的, 结实的",
+        "en": "The carpenter built a substantial oak table that barely moved when we leaned on it.",
+        "zh": "木匠做了一张结实的橡木桌，我们倚上去时，桌子几乎纹丝不动。"
+      },
+      "senseId": "canonical-example:221267:f8c49f80919633d7685dd4620d75a29f948ad78e1cca47ab44306ba52014001b",
+      "reviewer": "AI/canonical-0005-independent-review"
     },
     {
       "term": "sus",

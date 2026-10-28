@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "baselineHead": "af2081aab55a7e85ed4ed4c3cb0ed387c3d6d739",
+  "sourceByteSha256": "303bfe672721077c247a80371f900c565501a7efbb3d80ee3f0452287e6e23d7",
+  "sourceSha256": "70b829c2d954023966dd488c16d465e86e31a789feaa9840f366537c97bd3e90",
+  "reviewByteSha256": "da1b2ac5e9ac029d470d3382954b631b97f0a086c1ef7400728034732d8354ce",
+  "reviewSha256": "50c0e0d945138b8b63944361f641a77b7be97f5abb6b6ac071fe662281992066",
+  "beforeRows": [
+    {
+      "term": "DEM",
+      "sha256": "cdfd1cdfd02dcae3fb108cbfab5430fecf18219965fda5a634a6a6d7860e3a81"
+    },
+    {
+      "term": "E",
+      "sha256": "5e859d4876066da697ee5efc710f504855b5a3cd26b9649c67315d8e01de67f3"
+    },
+    {
+      "term": "FOB",
+      "sha256": "c32145f20aa1e0c1198ff37480c15cb82c92beb5e5cf29ae59d6b72d51c858cb"
+    },
+    {
+      "term": "M",
+      "sha256": "f3aedf3b4f604d29d1191c8db26448db7eb7947f9e54c9ac43e95fc8a8677ef2"
+    },
+    {
+      "term": "abbr",
+      "sha256": "0546c5a424f5f0819165f08952d433bda10ca6af81f21aabc74a057a846e2072"
+    },
+    {
+      "term": "aerospace",
+      "sha256": "48e9aa7993c45373b61ca31a5608c3b8c9dd267cfbb85a43d2e820c99ed9e684"
+    },
+    {
+      "term": "audio",
+      "sha256": "0427206b5af095a9584da84168f8d47ab9fe76fd0c5ab7d97624fbd9df9e0301"
+    },
+    {
+      "term": "blur",
+      "sha256": "5090635e15caa1d4fec660783edb13e21cdfb9657ba203ae0262988f7e105acf"
+    },
+    {
+      "term": "bootleg",
+      "sha256": "17ed2e590c579dc61525b4d21a31ff7514031fc2695438a342e945d6271311eb"
+    },
+    {
+      "term": "breakaway",
+      "sha256": "4e22989b02d45f738335d8b245c94eaa56fa64a876b93d844fa388dae6bae769"
+    },
+    {
+      "term": "bse",
+      "sha256": "9e988c7d86bade5c269c3069393dfff59ac81cfbf4e60971f32da4bd4a3e69b9"
+    },
+    {
+      "term": "carney",
+      "sha256": "bacfd2e7dd5bec3825ad74a2d1e093a78bc42b1d4dc44bac9c47372d56f1bb62"
+    },
+    {
+      "term": "cavalier",
+      "sha256": "837aafdf00af5dca6c8d618916df973360ecf1a9cc201117587ee21b0b1caff5"
+    },
+    {
+      "term": "cleric",
+      "sha256": "cbd440a7c38dab7161f710b9f8f429d0497c948237865cf50ba5c00194159a44"
+    },
+    {
+      "term": "dairy",
+      "sha256": "cdb463cd085097cad4cad87e89581516cfaa5811d19c7db6d5867fb66ec829b4"
+    },
+    {
+      "term": "deadpan",
+      "sha256": "22afc137b0ddd36f7fca8348bd611a8e3b5286245db248307c86e90a37508fec"
+    },
+    {
+      "term": "defeatist",
+      "sha256": "cc1e9777f3565aab12ea2e90e20633545f1bbbeb43890a267898d1dfdacbd96f"
+    },
+    {
+      "term": "downward",
+      "sha256": "a32d283858ccafa18d6deecbb59cef8e4fbc93a7092eb106b57c2e732d6273ab"
+    },
+    {
+      "term": "duff",
+      "sha256": "aef7cb33a441f4d2c1f41507a444344dc7374f4d1b2a3afe59d4754a733e6691"
+    },
+    {
+      "term": "ersatz",
+      "sha256": "55d81f62dc499c6d7d7ecf0a983db5bc2cae0dafe5c6cb5c7099197fb132fb60"
+    },
+    {
+      "term": "fact-finding",
+      "sha256": "60b3384047b1ecdea975b9812bc14d80c30f3b865094dfd5b8af3e5fc8d205f3"
+    },
+    {
+      "term": "feminist",
+      "sha256": "aa9639b2c06de7993a8b8f8a89b5983835a53c93fa2dd1c14d011338c98474f0"
+    },
+    {
+      "term": "flathead",
+      "sha256": "76736c255a5165ffd16fe2fda2a968cc0977bc0ba8523531982f46d2067f79b9"
+    },
+    {
+      "term": "foo",
+      "sha256": "a26623708b3b54aa6e1086210def080059da8ad6c88efbdca57ae8004be96211"
+    },
+    {
+      "term": "fore",
+      "sha256": "a95ba12da58bada261f6029506cfdbdef453a7b00742e76ee6efd26a00d681f2"
+    },
+    {
+      "term": "hubble",
+      "sha256": "9982c3d017ab8c270187e2f08354524f1db602537d1fd96550e8f196d3e7bebe"
+    },
+    {
+      "term": "indie",
+      "sha256": "2078b86f859edb7ce04fda54cb0a876b95c63941e4dbd318a9a8bdeb64f41609"
+    },
+    {
+      "term": "jettison",
+      "sha256": "8aefc7a39756dc353c39c2a256b10faf9e9e3f9cc9bdf602a344aab3766d00ca"
+    },
+    {
+      "term": "knock-on",
+      "sha256": "cb3d3bfe8a8432b86ba590d4cd868e25bf965eff2bcacabbce61075a956ad78b"
+    },
+    {
+      "term": "melville",
+      "sha256": "a3fe41677f6a1dab1829c6fb8a9e33ae1a601f8dc5c9e2766e470c6370e9cfb2"
+    },
+    {
+      "term": "molly",
+      "sha256": "4e4bb4f9fc81045a4ba9287515ab722d053eca034b94f32b754f67847497f33a"
+    },
+    {
+      "term": "monmouth",
+      "sha256": "94d1fa7e6d496e3fb440e80fd0a32eb567d159be3041a0effef4e82441f2a37d"
+    },
+    {
+      "term": "offside",
+      "sha256": "a4fce5420ff1334181ce61491bdaefeed9acd2ff7f3f17a7b2bfa408b4df74a1"
+    },
+    {
+      "term": "offstage",
+      "sha256": "a9f91e7673e469e01d434e3acc7941ffbfe6e0615d01d7fa3f1276c592ec321d"
+    },
+    {
+      "term": "primo",
+      "sha256": "3320112539ce9174d220f04f785c6598dd19e22c62a81580882f1f77d1f67633"
+    },
+    {
+      "term": "qed",
+      "sha256": "e3a5598612982a18e63a165e3d72ee40214aa57b50b9dcd833d584eb461c827c"
+    },
+    {
+      "term": "retro",
+      "sha256": "f18e53b93c51fd2df0b7298b7a41a0f93f68e5027fb7800db3b37494cb898482"
+    },
+    {
+      "term": "savvy",
+      "sha256": "406a58e24fa15238edb8bbcf60a3469281eb9e15e57f3aad5bf393c83bf01fe4"
+    },
+    {
+      "term": "scupper",
+      "sha256": "5bf5c25d879ff4767f31fc9beea0dd30835eefb8510afd47fac45def48fbed7a"
+    },
+    {
+      "term": "sheepshead",
+      "sha256": "8344f43d471aff4af7b5688dd8c100962e985db31056f94e595afac2661f04e7"
+    },
+    {
+      "term": "situationist",
+      "sha256": "4e83f20287874e5d4350c14d054bdead4d4bf78abb0c4fa82cba920e27d9d422"
+    },
+    {
+      "term": "starboard",
+      "sha256": "05130db31965b616ae057b1ade94d81c417ddadc2683e4f0afa9896121d65b05"
+    },
+    {
+      "term": "steinway",
+      "sha256": "c8d96599f8ec605376f7bcf066ec811515f7e5b0b4fd6d4c0cc0c1655e83eb83"
+    },
+    {
+      "term": "sus",
+      "sha256": "bebc7e148ac8c4940cf4f86420cb4b2e51a7fa1867fc766d4c9f702b81d2512b"
+    },
+    {
+      "term": "swank",
+      "sha256": "8a5b3adbacb328448325b4b109c0fbe3ab2e097238dfaa0c6cde8273748e4a65"
+    },
+    {
+      "term": "thankyou",
+      "sha256": "98b71901c6628dd32ce0045c2bcac5f88b7f5ed49ca6f74a027d85ea66ea1848"
+    },
+    {
+      "term": "uptown",
+      "sha256": "244889de20813de6795ee94a7de768f55a9d75f6bc554d0670b2c612d05fc126"
+    },
+    {
+      "term": "wally",
+      "sha256": "8be9a86ae2548c259c3273f1257372abecb15f0176621a32e6d26a5a10475773"
+    },
+    {
+      "term": "wholemeal",
+      "sha256": "22f339917e47dfae19f3a1fab0fc4449c2b9ad82e811cd16c47dd1d1db3e19ac"
+    },
+    {
+      "term": "wot",
+      "sha256": "a0747b5fc195cb00fb70811d179cbdce83afc061bbafff6c1daa5eeb9032db42"
+    },
+    {
+      "term": "x-ray",
+      "sha256": "a558e9dc547df9f3ec28ac823d4e4b1a17131bcced6574b9956c3770a9503e19"
+    }
+  ],
+  "newHeads": 18,
+  "newPairs": 18,
+  "combinedHeads": 69,
+  "combinedPairs": 70,
+  "compiledRowsSha256": "57bda18bf5cb59dc2cbecacda4f9bed63b9043f37d87ce039c91927fe42ee569",
+  "scope": "One supported component of unchanged canonical POS/fullmeaning; no all-senses or full-corpus approval."
+}
