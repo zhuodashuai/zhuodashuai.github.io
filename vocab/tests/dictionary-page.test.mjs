@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { createDictionaryController, createDictionaryCountLoader, initialDictionaryQuery, numberedDictionaryMeaning, dictionaryMeaningLines, dictionaryChoicePreview, dictionaryChoiceDescription, personalDictionaryLink, ownerDictionaryLink } from "../js/dictionary-app.js";
+import { createDictionaryController as createStandaloneDictionaryController } from "../js/dictionary-app-v109.js";
 
 const row = (term = "watch") => ({ term, partOfSpeech: "noun · verb", meaning: "① n. 手表\n② v. 观看", source: "ECDICT", license: "MIT", url: "https://github.com/skywind3000/ECDICT" });
 const deferred = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
@@ -95,6 +96,136 @@ test("Chinese choices are capped at twenty and retain selected variant POS", asy
   const selected = controller.getState().results[controller.getState().selectedIndex];
   assert.equal(selected.partOfSpeech, "adjective"); assert.equal(selected.source, "selected source");
 });
+
+for (const [name, create] of [["reusable", createDictionaryController], ["standalone", createStandaloneDictionaryController]]) {
+  test(`${name} pagination uses the next offset, deduplicates pages, and preserves the selected definition`, async () => {
+    const calls = [], first = Array.from({ length: 20 }, (_, index) => row(`head-${index}`));
+    const controller = create({ suggest: async () => [], search: async (_input, options) => {
+      calls.push(options);
+      return options.offset === 0 ? { results: first, hasMore: true, nextOffset: 20 }
+        : { results: [first[19], row("sweltering"), row("stifling")], hasMore: false, nextOffset: 23 };
+    } });
+    await controller.submit("热"); controller.select(7);
+    assert.equal(controller.getState().canLoadMore, true);
+    assert.equal(await controller.loadMore(), true);
+    assert.deepEqual(calls.map(item => [item.offset, item.limit]), [[0, 20], [20, 20]]);
+    assert.equal(controller.getState().results.length, 22);
+    assert.equal(controller.getState().results[controller.getState().selectedIndex], first[7]);
+    assert.deepEqual(controller.getState().results.slice(-2).map(item => item.term), ["sweltering", "stifling"]);
+    assert.equal(controller.getState().canLoadMore, false); assert.equal(await controller.loadMore(), false);
+  });
+
+  test(`${name} further direct matches precede associations without changing a selected associated word`, async () => {
+    const controller = create({ suggest: async () => [], search: async (_input, { offset }) => offset === 0
+      ? { results: [row("direct-first")], hasMore: true, nextOffset: 20 }
+      : { results: [row("direct-later")], hasMore: false, nextOffset: 21 },
+    relatedSearch: async () => ({ results: [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" }], hasMore: false }) });
+    await controller.submit("开心"); await settleSuggestions(); controller.select(1);
+    await controller.loadMore();
+    assert.deepEqual(controller.getState().results.map(item => item.term), ["direct-first", "direct-later", "happy"]);
+    assert.equal(controller.getState().selectedIndex, 2);
+    assert.equal(controller.getState().results[2].matchedChinese, "高兴");
+  });
+
+  test(`${name} a failed page keeps definitions and retries the same offset without concurrent requests`, async () => {
+    const delayed = deferred(), calls = []; let fail = true;
+    const controller = create({ suggest: async () => [], search: async (_input, options) => {
+      calls.push(options);
+      if (!options.offset) return { results: [row("hot")], hasMore: true, nextOffset: 20 };
+      if (fail) { await delayed.promise; throw new Error("private transport address"); }
+      return { results: [row("warm")], hasMore: false, nextOffset: 21 };
+    } });
+    await controller.submit("热");
+    const page = controller.loadMore(); assert.equal(controller.getState().morePhase, "loading");
+    assert.equal(controller.select(0), true); assert.equal(await controller.loadMore(), false);
+    delayed.resolve(); assert.equal(await page, false);
+    assert.equal(controller.getState().phase, "ready"); assert.equal(controller.getState().morePhase, "error");
+    assert.equal(controller.getState().results[0].term, "hot");
+    assert.doesNotMatch(controller.getState().message, /private|transport/u);
+    fail = false; assert.equal(await controller.loadMore(), true);
+    assert.deepEqual(calls.map(item => item.offset), [0, 20, 20]);
+    assert.deepEqual(controller.getState().results.map(item => item.term), ["hot", "warm"]);
+  });
+
+  test(`${name} unfinished associations do not advertise a hidden direct-pagination action`, async () => {
+    const related = [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" }];
+    const controller = create({ suggest: async () => [], search: async (_input, { offset }) => offset === 0
+      ? { results: [row("direct-first")], hasMore: true, nextOffset: 20 }
+      : { results: [row("direct-last")], hasMore: false, nextOffset: 21 },
+    relatedSearch: async () => ({ results: related, hasMore: true }) });
+    await controller.submit("开心"); await settleSuggestions();
+    assert.equal(controller.getState().canLoadMore, true);
+    assert.match(controller.getState().message, /查看更多/u);
+    await controller.loadMore();
+    assert.equal(controller.getState().hasMore, true);
+    assert.equal(controller.getState().canLoadMore, false);
+    assert.doesNotMatch(controller.getState().message, /查看更多/u);
+    assert.match(controller.getState().message, /部分近义关联未展开/u);
+
+    const onlyRelated = create({ suggest: async () => [], search: async () => ({ results: [], hasMore: false }),
+      relatedSearch: async () => ({ results: related, hasMore: true }) });
+    await onlyRelated.submit("开心"); await settleSuggestions();
+    assert.equal(onlyRelated.getState().hasMore, true);
+    assert.equal(onlyRelated.getState().canLoadMore, false);
+    assert.doesNotMatch(onlyRelated.getState().message, /查看更多/u);
+    assert.match(onlyRelated.getState().message, /部分近义关联未展开/u);
+  });
+
+  test(`${name} limited fallback stays selectable, advertises no pagination, and resets after a complete query`, async () => {
+    let limited = true;
+    const controller = create({ suggest: async () => [], search: async () => ({ results: [row("fallback")],
+      hasMore: true, nextOffset: 20, coverage: limited ? "limited" : "full" }),
+    relatedSearch: async () => ({ results: [{ ...row("happy"), matchType: "related", matchedChinese: "高兴" }], hasMore: false }) });
+    await controller.submit("开心"); await settleSuggestions();
+    assert.equal(controller.getState().phase, "ready"); assert.equal(controller.select(0), true);
+    assert.equal(controller.getState().coverage, "limited"); assert.equal(controller.getState().canLoadMore, false);
+    assert.match(controller.getState().message, /当前仅显示部分匹配，完整检索索引尚未更新，请刷新后重试。/u);
+    assert.doesNotMatch(controller.getState().message, /查看更多/u); assert.equal(await controller.loadMore(), false);
+    assert.deepEqual(controller.getState().results.map(item => item.term), ["fallback", "happy"]);
+    controller.change("新查询"); assert.equal(controller.getState().coverage, null);
+    limited = false; await controller.submit("新查询");
+    assert.equal(controller.getState().coverage, "full"); assert.equal(controller.getState().canLoadMore, true);
+    assert.doesNotMatch(controller.getState().message, /尚未更新|仅显示部分/u);
+  });
+
+  test(`${name} an empty limited fallback is not a confirmed miss or a spelling-suggestion request`, async () => {
+    let suggested = false;
+    const controller = create({ search: async () => ({ results: [], hasMore: false, coverage: "limited" }),
+      suggest: async () => { suggested = true; return []; } });
+    await controller.submit("热"); await settleSuggestions();
+    assert.equal(controller.getState().phase, "refine"); assert.equal(controller.getState().canLoadMore, false);
+    assert.equal(suggested, false); assert.match(controller.getState().message, /完整检索索引尚未更新/u);
+  });
+
+  test(`${name} a limited fallback during pagination preserves the existing ranked page and selected card`, async () => {
+    const controller = create({ suggest: async () => [], search: async (_input, { offset }) => offset === 0
+      ? { results: [row("hot"), row("warm")], hasMore: true, nextOffset: 20, coverage: "full" }
+      : { results: [row("old-scan-first")], hasMore: true, coverage: "limited", ranking: "limited" } });
+    await controller.submit("热"); controller.select(1); await controller.loadMore();
+    assert.deepEqual(controller.getState().results.map(item => item.term), ["hot", "warm"]);
+    assert.equal(controller.getState().selectedIndex, 1); assert.equal(controller.getState().coverage, "limited");
+    assert.equal(controller.getState().canLoadMore, false); assert.equal(controller.getState().phase, "ready");
+    assert.match(controller.getState().message, /当前仅显示部分匹配/u);
+  });
+
+  test(`${name} cancelled or stale pages cannot replace a newer query or its selected card`, async () => {
+    for (const action of ["edit", "cancel", "submit"]) {
+      const delayed = deferred(); let pageSignal;
+      const controller = create({ suggest: async () => [], search: async (query, options) => {
+        if (options.offset) { pageSignal = options.signal; return delayed.promise; }
+        return { results: [row(query)], hasMore: query === "热", nextOffset: 20 };
+      } });
+      await controller.submit("热"); const page = controller.loadMore();
+      if (action === "edit") controller.change("冷");
+      if (action === "cancel") controller.cancel();
+      if (action === "submit") await controller.submit("冷");
+      assert.equal(pageSignal.aborted, true);
+      delayed.resolve({ results: [row("stale")], hasMore: false, nextOffset: 21 }); await page;
+      assert.deepEqual(controller.getState().results.map(item => item.term), action === "edit" ? [] : [action === "cancel" ? "热" : "冷"]);
+      if (action === "cancel") { assert.equal(controller.getState().phase, "ready"); assert.equal(controller.getState().canLoadMore, true); }
+    }
+  });
+}
 
 test("optional Chinese associations never delay direct results or replace the selected card", async () => {
   const delayed = deferred(); const direct = [row("direct-a"), row("direct-b")];
@@ -269,7 +400,7 @@ test("public document has labelled Enter form, no account or provider calls, and
   assert.match(html, /dictionary\.css\?v=101/u); assert.match(html, /src="js\/dictionary-entry-v109\.js"/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=104/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=111/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
   assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
   assert.match(html, /<details id="dictionary-choice-disclosure" open>/u);

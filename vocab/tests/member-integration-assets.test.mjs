@@ -61,7 +61,7 @@ test("basic member dictionary never imports a provider pipeline or an owner AI c
   const core = await source("../js/core-dictionary.js");
   const html = await source("../personal.html");
   assert.match(app, /import \{ lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese \} from "\.\/personal-dictionary\.js\?v=97"/);
-  assert.match(app, /import \{ lookupPersonalDictionaryFast \} from "\.\/personal-lookup-flow\.js\?v=97"/);
+  assert.match(app, /import \{ lookupPersonalDictionaryFast \} from "\.\/personal-lookup-flow\.js\?v=111"/);
   assert.match(dictionary, /member-dictionary-manifest/);
   assert.doesNotMatch(app + dictionary + flow, /from ["'][^"']*(?:services|owner-api|workflow)\.js|organizeWithAi|freedictionaryapi|mymemory|languagetool|api\.openai|api\.anthropic/iu);
   assert.match(core, /new URL\("\.\.\/data\/ecdict-core\.json", import\.meta\.url\)/);

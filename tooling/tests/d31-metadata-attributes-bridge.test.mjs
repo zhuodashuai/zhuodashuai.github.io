@@ -94,7 +94,11 @@ test('Archived fd742 D32 attributes are an exact bounded extension, not a rewrit
 });
 
 test('Forsyte attributes append exactly one LF public-source rule after the complete fd742 D32 bytes',async()=>{
- const current=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const withRanking=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const rankingRule=Buffer.from('vocab/data/chinese-search-ranking/**/*.bin -text\n');
+ assert.deepEqual(withRanking.subarray(-rankingRule.length),rankingRule);
+ assert.equal(withRanking.toString().split(rankingRule.toString()).length,2,'Only the named ranking binary rule may follow the historical attributes');
+ const current=withRanking.subarray(0,-rankingRule.length);
  const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
  const restored=restoreForsytePriorD32Attributes(current,archived);
  assert.deepEqual(restored,archived);

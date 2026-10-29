@@ -1,9 +1,9 @@
-import { createLibraryLookupController } from "./library-lookup-controller.js?v=104";
+import { createLibraryLookupController } from "./library-lookup-controller.js?v=111";
 import { createPersonalApi } from "./personal-api.js?v=100";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink } from "./owner-public-library.js?v=99";
-import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=104";
-import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=104";
+import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=111";
+import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=111";
 
 export function mountLibraryLookup({ document, window, onCollected, onOpenEntry, resolveEntry } = {}) {
   const get = id => document.getElementById(id);
@@ -14,6 +14,10 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
   const logoutButton = document.createElement("button"); logoutButton.id = "lookup-logout";
   logoutButton.type = "button"; logoutButton.textContent = "退出"; logoutButton.hidden = true;
   ownerLogin.after(logoutButton);
+  const moreButton = document.createElement("button"); moreButton.id = "lookup-more";
+  moreButton.type = "button"; moreButton.className = "quiet-button"; moreButton.hidden = true;
+  moreButton.setAttribute("aria-controls", "lookup-choices");
+  get("lookup-choices").after(moreButton);
   const lockKey = "zhuo-member-explicit-login-required";
   let lockedInMemory = false, storageUnavailable = false;
   const explicitlyLocked = () => {
@@ -42,10 +46,13 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
     get("lookup-note").textContent = owner ? "按 Enter 查词并公开收录；中文或纠错候选请点选。" : "本站词典直接查询；只有卓本人登录后才会公开收录。";
     get("lookup-submit").textContent = owner ? "查词并收录" : "查词";
     get("lookup-submit").disabled = lookup.phase === "loading";
-    get("lookup-cancel").hidden = lookup.phase !== "loading" && lookup.suggestionPhase !== "loading";
+    get("lookup-cancel").hidden = lookup.phase !== "loading" && lookup.suggestionPhase !== "loading" && lookup.morePhase !== "loading";
+    moreButton.hidden = !lookup.canLoadMore; moreButton.disabled = lookup.morePhase === "loading";
+    moreButton.textContent = lookup.morePhase === "loading" ? "加载中…" : lookup.morePhase === "error" ? "重试加载更多" : "查看更多";
     const selected = lookup.results[lookup.selectedIndex];
     const same = collection.term && selected?.term === collection.term;
-    get("lookup-status").textContent = same && collection.message ? collection.message : lookup.message || "";
+    get("lookup-status").textContent = lookup.coverage === "limited" ? lookup.message
+      : same && collection.message ? collection.message : lookup.message || "";
     if (!selected && lookup.phase === "empty") {
       if (lookup.suggestionPhase === "loading") get("lookup-status").textContent += " 正在查找相近拼写…";
       if (lookup.suggestionPhase === "error") get("lookup-status").textContent += " 拼写建议暂不可用，按 Enter 可重试。";
@@ -65,9 +72,10 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
     get("lookup-collect").hidden = !owner || !selected || saved || value.pendingCount > 0;
     get("lookup-collect").textContent = "收录这个词";
     if (previousResults !== lookup.results || previousSuggestions !== lookup.suggestions) {
-      previousResults = lookup.results; previousSuggestions = lookup.suggestions;
       const choices = get("lookup-choices"), scrollTop = choices.scrollTop;
       const focusedChoice = choices.contains(document.activeElement) ? document.activeElement.dataset.lookupChoice : undefined;
+      const focusedTerm = focusedChoice === undefined ? undefined : previousResults?.[Number(focusedChoice)]?.term;
+      previousResults = lookup.results; previousSuggestions = lookup.suggestions;
       choices.replaceChildren();
       if (lookup.results.length > 1 || selected?.matchedForm || selected?.matchType === "related") {
         const note = document.createElement("p"); note.textContent = owner ? "点选要收录的词：" : "选择词条查看："; choices.append(note);
@@ -76,7 +84,10 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
       lookup.suggestions.forEach((row, index) => choices.append(button(`你是否想查 ${row.term}？`, "lookupSuggestion", index)));
       choices.hidden = !choices.childElementCount;
       choices.scrollTop = scrollTop;
-      if (focusedChoice !== undefined) choices.querySelector(`[data-lookup-choice="${Number(focusedChoice)}"]`)?.focus({ preventScroll: true });
+      if (focusedTerm !== undefined) {
+        const index = lookup.results.findIndex(row => row.term === focusedTerm);
+        choices.querySelector(`[data-lookup-choice="${index}"]`)?.focus({ preventScroll: true });
+      }
     }
     get("lookup-receipts").replaceChildren(...receipts.map(({ entry, added }) => {
       const control = button("", "lookupEntry", entry.id);
@@ -101,6 +112,9 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
   input.addEventListener("keydown", event => { if (event.key === "Enter" && (event.isComposing || event.keyCode === 229)) event.preventDefault(); });
   input.addEventListener("input", () => controller.change(input.value));
   get("lookup-cancel").addEventListener("click", () => controller.cancel());
+  moreButton.addEventListener("click", () => void controller.loadMore().then(() => {
+    if (moreButton.hidden && document.activeElement === moreButton) get("lookup-term").focus({ preventScroll: true });
+  }));
   get("lookup-retry").addEventListener("click", () => void controller.retry());
   get("lookup-collect").addEventListener("click", () => controller.select(controller.getState().lookup.selectedIndex));
   get("lookup-choices").addEventListener("click", event => {

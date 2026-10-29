@@ -5,6 +5,23 @@ import { searchEverydayDictionary, loadEverydayExamples } from "../js/everyday-l
 
 const heads = input => searchEverydayDictionary(input)?.results.map(row => row.term) || [];
 
+test("daily phrase aliases page with real offsets while default response shapes stay unchanged", () => {
+  const complete = searchEverydayDictionary("人工客服");
+  assert.ok(complete.results.length > 1);
+  assert.ok(!Object.hasOwn(complete, "offset")); assert.ok(!Object.hasOwn(complete, "total"));
+  const all = []; let offset = 0;
+  for (let index = 0; index <= complete.results.length; index++) {
+    const page = searchEverydayDictionary("人工客服", { limit: 1, offset });
+    assert.equal(page.offset, offset); assert.equal(page.total, complete.results.length);
+    all.push(...page.results); assert.equal(page.nextOffset, offset + page.results.length);
+    if (!page.hasMore) break;
+    offset = page.nextOffset;
+  }
+  assert.deepEqual(all, complete.results);
+  const end = searchEverydayDictionary("人工客服", { limit: 1, offset: complete.results.length });
+  assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
+});
+
 test("human-service queries resolve people rather than a customer, bot, or general service", () => {
   for (const query of ["人工客服", "真人客服"]) {
     const terms = heads(query);

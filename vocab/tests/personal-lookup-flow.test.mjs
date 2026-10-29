@@ -153,6 +153,45 @@ test("Chinese hot matches are explicitly partial and do not start the large sear
   assert.equal(result.coverage, "basic"); assert.equal(result.results[0].term, "apple"); assert.equal(fullCalls, 0);
 });
 
+test("current Chinese UI prefers complete ranked results over early compact hits and preserves paging metadata", async () => {
+  let completeCalls = 0;
+  const verified = { ...response(row("hot"), row("sweltering"), row("stifling")), hasMore: true, nextOffset: 3, total: 42 };
+  const result = await lookupPersonalDictionaryFast("热", options({ preferCompleteChinese: true,
+    hotReverse: async () => response(row("hot")), fullSearch: () => { completeCalls++; return later(verified, 20); } }));
+  assert.equal(completeCalls, 1);
+  assert.deepEqual(result.results, verified.results);
+  assert.equal(result.nextOffset, 3); assert.equal(result.total, 42); assert.equal(result.hasMore, true);
+  assert.notEqual(result.coverage, "basic");
+});
+
+test("ranked Chinese returns without waiting for a hung compact source and keeps safe offline fallback", async () => {
+  const verified = { ...response(row("sweltering")), nextOffset: 1 };
+  const fast = await lookupPersonalDictionaryFast("热", options({ preferCompleteChinese: true,
+    hotReverse: never, fullSearch: async () => verified, chineseDelayMs: 1000 }));
+  assert.deepEqual(fast, verified);
+  const partial = await lookupPersonalDictionaryFast("热", options({ preferCompleteChinese: true,
+    hotReverse: async () => response(row("hot")), fullSearch: async () => { throw new Error("offline"); } }));
+  assert.deepEqual(partial.results, [row("hot")]); assert.equal(partial.coverage, "basic");
+});
+
+test("ranked Chinese results and counts do not depend on which source resolves first", async () => {
+  const verified = { ...response(row("existing")), total: 1, nextOffset: 1 };
+  for (const compactFirst of [true, false]) {
+    const actual = await lookupPersonalDictionaryFast("新词", options({ preferCompleteChinese: true,
+      hotReverse: () => compactFirst ? response(row("new-public")) : later(response(row("new-public")), 20),
+      fullSearch: () => compactFirst ? later(verified, 20) : verified }));
+    assert.deepEqual(actual, verified);
+  }
+});
+
+test("ranked Chinese cancellation never turns a partial hit into a completed search", async () => {
+  const controller = new AbortController();
+  const pending = lookupPersonalDictionaryFast("热", options({ preferCompleteChinese: true, signal: controller.signal,
+    hotReverse: async () => response(row("hot")), fullSearch: never }));
+  await later(null, 5); controller.abort();
+  await assert.rejects(pending, error => error.name === "AbortError");
+});
+
 test("mid-load hot Chinese can win after full search starts; its caller is cancelled without any later replacement", async () => {
   let fullSignal, fullCalls = 0;
   const result = await lookupPersonalDictionaryFast("苹果", options({ hotReverse: () => later(response(row("apple")), 20),

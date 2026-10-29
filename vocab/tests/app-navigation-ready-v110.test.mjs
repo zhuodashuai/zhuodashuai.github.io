@@ -3,6 +3,7 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { readyAppNavigation } from "../js/app-navigation-ready-v110.js";
+import { restoreChineseSearchPaginationShell } from "../../tooling/tests/helpers/chinese-search-pagination-shell.mjs";
 
 const selectors = [".app-header", ".app-footer", ".guide-footer-nav", "#member-github-owner-link", "#member-standard-login-link"];
 const d42SourceLabel = '<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
@@ -70,6 +71,7 @@ const shells = [
 for (const [file, header, footer, count, beforePins] of shells) {
   test(`v110 ${file} changes only the named navigation script and finite initial gates`, async () => {
     let html = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
+    html = restoreChineseSearchPaginationShell(file, html);
     if (file === "dictionary.html") html = restoreD42SourceLabel(html);
     assert.equal((html.match(/inert data-app-navigation-pending/gu) || []).length, count);
     const from = 'src="js/app-navigation-ready-v110.js"'; assert.equal(html.split(from).length, 2);
@@ -90,4 +92,25 @@ test("v110 historical source-label restoration rejects other labels and preserve
   assert.throws(() => restoreD42SourceLabel(d42SourceLabel.replace("仅覆盖", "覆盖")));
   assert.throws(() => restoreD42SourceLabel(d42SourceLabel + d42SourceLabel));
   assert.equal(restoreD42SourceLabel(d42SourceLabel + "\n<!-- unrelated -->"), historicalSourceLabel + "\n<!-- unrelated -->");
+});
+
+test("historical pagination restoration rejects altered, duplicated or moved controls and keeps unrelated bytes", async () => {
+  const buttons = [
+    ["dictionary.html", '          <button id="dictionary-more" type="button" class="quiet-button choice-more" aria-controls="dictionary-choices" hidden>查看更多</button>'],
+    ["personal.html", '        <button type="button" id="member-dictionary-more" hidden disabled>查看更多</button>']
+  ];
+  for (const [file, button] of buttons) {
+    const current = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
+    const eol = current.includes("\r\n") ? "\r\n" : "\n";
+    assert.throws(() => restoreChineseSearchPaginationShell(file, current.replace(button, button.replace("查看更多", "更多"))));
+    assert.throws(() => restoreChineseSearchPaginationShell(file, current + eol + button));
+    assert.throws(() => restoreChineseSearchPaginationShell(file, current.replace(button + eol, "") + eol + button));
+    const unrelated = eol + "<!-- unrelated mutation -->";
+    assert.equal(restoreChineseSearchPaginationShell(file, current + unrelated), restoreChineseSearchPaginationShell(file, current) + unrelated);
+    const otherTransport = current.replace(/\r?\n/gu, eol === "\n" ? "\r\n" : "\n");
+    assert.equal(restoreChineseSearchPaginationShell(file, otherTransport),
+      restoreChineseSearchPaginationShell(file, current).replace(/\r?\n/gu, eol === "\n" ? "\r\n" : "\n"));
+  }
+  const untouched = '<div id="unrelated">unchanged</div>\n';
+  assert.equal(restoreChineseSearchPaginationShell("index.html", untouched), untouched);
 });

@@ -6,6 +6,7 @@ import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChine
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { dictionaryExampleSensePlan } from "../../vocab/js/dictionary-app.js";
+import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
 
 const manifest = JSON.parse(await readFile(new URL("../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
 const reviewed = JSON.parse(await readFile(new URL("../dictionary/chinese-related-common.json", import.meta.url), "utf8"));
@@ -162,7 +163,7 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
   const fetchImpl = async (url, options) => {
     const target = new URL(url);
     assert.equal(target.protocol, "file:"); assert.equal(target.search, "");
-    assert.match(target.pathname, /\/vocab\/data\/expanded-dictionary\//u);
+    assert.ok(/\/vocab\/data\/expanded-dictionary\//u.test(target.pathname) || isPinnedChineseRankingFixture(target));
     assert.equal(options.credentials, "omit"); assert.ok(!options.method || options.method === "GET");
     requests.push(String(target));
     if (!bytes.has(String(target))) bytes.set(String(target), readFile(target));

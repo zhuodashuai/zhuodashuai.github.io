@@ -21,6 +21,7 @@ export function dictionaryOfflineWarmUrl(value, baseUrl) {
       || url.origin !== base.origin || url.username || url.password || url.search || url.hash
       || url.href !== value || !url.pathname.startsWith(base.pathname)) return null;
     const path = url.pathname.slice(base.pathname.length);
+    if (/^data\/chinese-search-ranking\/[a-f0-9]{64}\/[a-f0-9]{64}\.bin$/u.test(path)) return url.href;
     if (path === "data/expanded-dictionary/manifest.json" || path === "data/dictionary-examples/manifest-v2.json") return url.href;
     const expanded = /^data\/expanded-dictionary\/[a-f0-9]{64}\/(?:en|zh)-(\d{3})\.json$/u.exec(path);
     if (expanded && Number(expanded[1]) < 128) return url.href;
