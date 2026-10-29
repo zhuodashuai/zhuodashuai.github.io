@@ -81,27 +81,45 @@ export function createCanonicalExampleComponentResolver(input,{fetchImpl=globalT
       if(signal?.aborted)controller.abort();
       let timer,rejectStop;const stopped=new Promise((_,reject)=>{rejectStop=()=>reject(stoppedCanonicalExample());});
       controller.signal.addEventListener('abort',rejectStop,{once:true});if(controller.signal.aborted)rejectStop();
-      const deadline=new Promise(resolve=>{timer=setTimeout(()=>{resolve(null);controller.abort();},timeoutMs);});
+      let originalLive,originalSnapshot;
+      const originalUnchanged=()=>originalSnapshot&&canonicalEqual(copy(originalLive),originalSnapshot)
+        &&(saved===undefined||canonicalEqual(canonicalSavedContext(saved,term),savedBefore));
+      const originalFallback=()=>{
+        canonicalAlive(controller.signal);if(closed)throw stoppedCanonicalExample();
+        return mode!=='component'&&originalUnchanged()?copy(originalSnapshot):null;
+      };
+      const deadline=new Promise(resolve=>{timer=setTimeout(()=>{
+        // A slow optional source must not erase an already authenticated DTO.
+        // Resolve its mode-specific fallback before cancelling pending waits.
+        try{resolve(originalFallback());}catch{resolve(null);}finally{controller.abort();}
+      },timeoutMs);});
       const work=(async()=>{
         // No recursive adapter: dependencies supply the original immutable loader.
-        const [canonical,original]=await Promise.allSettled([source.authenticate(row,{signal:controller.signal}),loadOriginalEntry(term,{signal:controller.signal,lookupQuery:term})]);
-        canonicalAlive(controller.signal);if(closed)throw stoppedCanonicalExample();if(original.status!=='fulfilled')return null;
-        const live=original.value,snapshot=copy(live);validateComponentOriginal(snapshot,term);
+        // Authenticate the old entry independently of the optional source wait.
+        // Old-selected cards need no optional source request at all.
+        const canonical=mode==='legacy'?null:source.authenticate(row,{signal:controller.signal})
+          .then(value=>({value}),()=>null);
+        const live=await loadOriginalEntry(term,{signal:controller.signal,lookupQuery:term});
+        canonicalAlive(controller.signal);if(closed)throw stoppedCanonicalExample();
+        const snapshot=copy(live);validateComponentOriginal(snapshot,term);
         if(!canonicalEqual(snapshot,row.expectedOriginalEntry)||await canonicalJSONDigest(snapshot)!==row.expectedOriginalEntrySha256)return null;
         if(JSON.stringify(copy(live))!==JSON.stringify(snapshot)||saved!==undefined&&!canonicalEqual(canonicalSavedContext(saved,term),savedBefore))return null;
-        canonicalAlive(controller.signal);
+        canonicalAlive(controller.signal);originalLive=live;originalSnapshot=snapshot;
+        if(mode==='legacy')return originalFallback();
+        const authenticated=await canonical;
+        canonicalAlive(controller.signal);if(closed)throw stoppedCanonicalExample();
         // Originals are valid. A failed optional source check cannot erase them.
-        if(mode==='legacy'||canonical.status!=='fulfilled')return mode==='component'?null:copy(snapshot);
-        if(!canonicalEqual(canonical.value,row.exactCanonicalRecord)
+        if(!authenticated)return originalFallback();
+        if(!canonicalEqual(authenticated.value,row.exactCanonicalRecord)
           ||await canonicalJSONDigest(row.componentPair)!==row.componentPairSha256
           ||row.componentId!==`canonical-component:${await canonicalJSONDigest([row.canonicalId,row.canonicalSourceSha256,row.componentPairSha256])}`)return null;
         canonicalAlive(controller.signal);
-        if(JSON.stringify(copy(live))!==JSON.stringify(snapshot)||saved!==undefined&&!canonicalEqual(canonicalSavedContext(saved,term),savedBefore))return null;
+        if(!originalUnchanged())return null;
         const p=row.componentPair,newSense={id:row.componentId,partOfSpeech:p.partOfSpeech,meaningZh:p.meaningZh,examples:[{en:p.en,zh:p.zh}],reviewer:row.reviewer,source:'原创学习例句'};
         return {term,senses:mode==='component'?[newSense]:[...copy(snapshot.senses),newSense]};
       })();
       try{return await Promise.race([work,deadline,stopped]);}
-      finally{clearTimeout(timer);signal?.removeEventListener('abort',stop);controller.signal.removeEventListener('abort',rejectStop);active.delete(controller);}
+      finally{clearTimeout(timer);signal?.removeEventListener('abort',stop);controller.signal.removeEventListener('abort',rejectStop);active.delete(controller);controller.abort();}
     }catch(error){if(closed||signal?.aborted)throw stoppedCanonicalExample();return null;}
   },close(){closed=true;for(const c of active)c.abort();active.clear();source.close();}};
 }

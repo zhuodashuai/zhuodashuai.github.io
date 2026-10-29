@@ -46,3 +46,33 @@ test('unrelated cards do not request the component graph',async({page})=>{
   await page.goto('/dictionary.html');await page.locator('#dictionary-query').fill('agitated');await page.locator('#dictionary-query').press('Enter');
   await expect(page.locator('#dictionary-example-content p[lang=en]').first()).not.toBeEmpty();expect(requested).toEqual([]);
 });
+
+test('both new assets absent retain exact old and authenticated canonical contexts for all eight heads',async({page})=>{
+  const log=observe(page);await page.route('**/js/canonical-example-components*.js',r=>r.abort('failed'));await page.goto('/dictionary.html');
+  const result=await page.evaluate(async rows=>{
+    const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js'),results=[];
+    for(const r of rows){const old=[],canonical=[];for(const savedEntry of r.legacyContexts)old.push(await load(r.term,{savedEntry}));for(const savedEntry of r.canonicalContexts)canonical.push(await load(r.term,{savedEntry}));results.push({term:r.term,old,canonical,unscoped:await load(r.term),newOnly:await load(r.term,{savedEntry:r.componentContexts[0]}),unrelated:await load(r.term,{savedEntry:{term:r.term,partOfSpeech:r.componentPair.partOfSpeech,meaning:'未审核的同词性含义',approved:true}})});}return results;
+  },table.rows);
+  for(const [i,r]of result.entries()){const row=table.rows[i];expect(r).toEqual({term:row.term,old:row.legacyContexts.map(()=>row.expectedOriginalEntry),canonical:row.canonicalContexts.map(()=>row.expectedOriginalEntry),unscoped:row.expectedOriginalEntry,newOnly:null,unrelated:null});}
+  expect(log).toEqual({writes:[],foreign:[],errors:[]});
+});
+
+test('both new assets and canonical source absent retain authenticated old-selected only',async({page})=>{
+  const log=observe(page),row=table.rows.find(r=>r.term==='burden');await page.route('**/js/canonical-example-components*.js',r=>r.abort('failed'));await page.goto('/dictionary.html');
+  await page.evaluate(async r=>{const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js');await load(r.term,{savedEntry:r.legacyContexts[0]});},row);
+  await page.route('**/data/expanded-dictionary/**',r=>r.abort('failed'));
+  const result=await page.evaluate(async r=>{const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js');return {old:await load(r.term,{savedEntry:r.legacyContexts[0]}),canonical:await load(r.term,{savedEntry:r.canonicalContexts[0]}),newOnly:await load(r.term,{savedEntry:r.componentContexts[0]}),unrelated:await load(r.term,{savedEntry:{term:r.term,partOfSpeech:'noun',meaning:'未审核含义',approved:true}})};},row);
+  expect(result).toEqual({old:row.expectedOriginalEntry,canonical:null,newOnly:null,unrelated:null});expect(log).toEqual({writes:[],foreign:[],errors:[]});
+});
+
+test('both-assets fallback rejects async card edits and cancellation during genuine source verification',async({page})=>{
+  const log=observe(page),row=table.rows.find(r=>r.term==='burden');await page.route('**/js/canonical-example-components*.js',r=>r.abort('failed'));await page.goto('/dictionary.html');
+  const result=await page.evaluate(async r=>{
+    const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js');let hold=false,started,release;
+    const ready=new Promise(resolve=>{started=resolve;}),gate=new Promise(resolve=>{release=resolve;}),fetchImpl=async(url,options)=>{if(hold&&String(url).includes('/expanded-dictionary/')){started();await gate;}return fetch(url,options);};
+    await load(r.term,{fetchImpl,savedEntry:r.legacyContexts[0]});hold=true;const card={...r.canonicalContexts[0]},pending=load(r.term,{fetchImpl,savedEntry:card});await ready;card.meaning='异步期间修改的含义';release();const mutated=await pending;
+    const controller=new AbortController(),fetchStalled=async(url,options)=>String(url).includes('/expanded-dictionary/')?new Promise(()=>{}):fetch(url,options);
+    const cancelled=load(r.term,{fetchImpl:fetchStalled,savedEntry:r.canonicalContexts[0],signal:controller.signal});setTimeout(()=>controller.abort(),15);let aborted;try{await cancelled;aborted=false;}catch(e){aborted=e.name==='AbortError';}return {mutated,aborted};
+  },row);
+  expect(result).toEqual({mutated:null,aborted:true});expect(log).toEqual({writes:[],foreign:[],errors:[]});
+});

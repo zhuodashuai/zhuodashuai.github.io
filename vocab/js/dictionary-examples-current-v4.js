@@ -29,6 +29,9 @@ async function componentFallback(term,before,fetchImpl,signal){
   const original=await originalClient(fetchImpl).load(term,{signal,lookupQuery:term});
   if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
   if(before===undefined)return original;
+  // Exact old-selected contexts are already authenticated by the immutable
+  // original reader and need neither optional component asset to survive.
+  if(original?.term===term&&original.senses.some(s=>before.partOfSpeech===s.partOfSpeech&&before.meaning===s.meaningZh))return original;
   try{
     // This data-only fallback can retain an authenticated old card when its
     // optional resolver module is unavailable. New/unrelated contexts get none.
@@ -36,8 +39,29 @@ async function componentFallback(term,before,fetchImpl,signal){
     if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
     const row=table.rows.find(r=>r.term===term);
     const allowed=row&&[...row.canonicalContexts,...row.legacyContexts].some(c=>JSON.stringify(c)===JSON.stringify(before));
-    return allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry)?original:null;
-  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;return null;}
+    if(allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry))return original;
+  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;}
+  // Both new assets may be absent during a partial offline update. The old
+  // canonical context needs genuine existing pins, never caller labels alone.
+  const controller=new AbortController(),stop=()=>controller.abort();signal?.addEventListener('abort',stop,{once:true});
+  let timer,client,rejectStopped;
+  const stopped=new Promise((_,reject)=>{rejectStopped=()=>reject(Object.assign(new Error('已停止读取例句。'),{name:'AbortError'}));});
+  controller.signal.addEventListener('abort',rejectStopped,{once:true});if(signal?.aborted)controller.abort();
+  const deadline=new Promise(resolve=>{timer=setTimeout(()=>{resolve(null);controller.abort();},5500);});
+  const snapshot=JSON.stringify(original);
+  const work=(async()=>{
+    const [{CANONICAL_EXAMPLE_REPAIRS:release},{createCanonicalSourceClient,canonicalDisplayContexts}]=await Promise.all([
+      import('./canonical-example-repairs-data.js'),import('./canonical-example-repair-source.js')]);
+    if(controller.signal.aborted)return null;
+    if(JSON.stringify(release.pins)!==JSON.stringify(dictionaryExamplesRelease.source))return null;
+    client=createCanonicalSourceClient(release.pins,{fetchImpl});active.add(client);
+    const record=await client.readLiteral(term,{signal:controller.signal});
+    return !controller.signal.aborted&&canonicalDisplayContexts(record).some(c=>JSON.stringify(c)===JSON.stringify(before))
+      &&JSON.stringify(original)===snapshot?original:null;
+  })();
+  try{return await Promise.race([work,deadline,stopped]);}
+  catch(error){if(signal?.aborted||error?.name==='AbortError'&&!controller.signal.aborted)throw error;return null;}
+  finally{clearTimeout(timer);signal?.removeEventListener('abort',stop);controller.signal.removeEventListener('abort',rejectStopped);controller.abort();client?.close();if(client)active.delete(client);}
 }
 // Finite literal heads only. The build test checks this list against the
 // independently approved table. Do not fetch a new optional module for every

@@ -189,23 +189,34 @@ export function createCanonicalSourceClient(inputPins, { fetchImpl = globalThis.
       return value;
     });
   }
-  return {
-    async authenticate(row, { signal } = {}) {
+  async function literalSource(term,signal) {
       alive(signal); const m = await wait(manifest(), signal); alive(signal);
-      const bucket = canonicalSourceBucket(row.term), descriptor = m.english.shards[bucket];
+      const bucket = canonicalSourceBucket(term), descriptor = m.english.shards[bucket];
       const shard = await wait(cached(descriptor.file, () => download(descriptor.file, 8388608, descriptor.sha256, descriptor.bytes)), signal); alive(signal);
       canonicalKeys(shard, ['schemaVersion','kind','bucket','records','keys']);
       if (shard.schemaVersion !== 2 || shard.kind !== 'en' || shard.bucket !== bucket || !Array.isArray(shard.records)
         || !Array.isArray(shard.keys) || shard.keys.length !== descriptor.count) throw invalid();
-      const owners = shard.records.filter(record => typeof record?.term === 'string' && canonicalFold(record.term) === canonicalFold(row.term));
-      const keys = shard.keys.filter(key => Array.isArray(key) && key[0] === canonicalFold(row.term));
-      if (owners.length !== 1 || owners[0].term !== row.term || keys.length !== 1 || keys[0].length !== 2
+      const owners = shard.records.filter(record => typeof record?.term === 'string' && canonicalFold(record.term) === canonicalFold(term));
+      const keys = shard.keys.filter(key => Array.isArray(key) && key[0] === canonicalFold(term));
+      if (owners.length !== 1 || owners[0].term !== term || keys.length !== 1 || keys[0].length !== 2
         || !Array.isArray(keys[0][1]) || keys[0][1].length !== 1) throw invalid();
       const ref = keys[0][1][0]; canonicalKeys(ref, ['id','kind']);
       const record = owners[0];
-      if (ref.kind !== 'canonical' || ref.id !== row.canonicalId || record.id !== row.canonicalId || record.id % 128 !== bucket
-        || !canonicalEqual(record, row.exactCanonicalRecord) || await canonicalJSONDigest(record) !== row.canonicalSourceSha256
-        || !canonicalEqual(m.sources?.[record.source], row.canonicalSourceDescriptor)) throw invalid();
+      if(ref.kind!=='canonical'||!Number.isSafeInteger(record.id)||ref.id!==record.id||record.id%128!==bucket)throw invalid();
+      alive(signal);return {record,descriptor:m.sources?.[record.source]};
+  }
+  return {
+    // Additional read-only API for exact-primary old-example fallback. Source
+    // bytes, literal ownership and descriptors use the same genuine pins/cache.
+    async readLiteral(term,{signal}={}) {
+      canonicalText(term,200);const {record,descriptor}=await literalSource(term,signal);
+      canonicalText(record.partOfSpeech,80);canonicalText(record.meaning,20000);
+      if(!descriptor)throw invalid();alive(signal);return record;
+    },
+    async authenticate(row, { signal } = {}) {
+      const {record,descriptor}=await literalSource(row.term,signal);
+      if(record.id!==row.canonicalId||!canonicalEqual(record,row.exactCanonicalRecord)
+        ||await canonicalJSONDigest(record)!==row.canonicalSourceSha256||!canonicalEqual(descriptor,row.canonicalSourceDescriptor))throw invalid();
       alive(signal); return record;
     },
     close() { closed = true; for (const c of active) c.abort(); active.clear(); cache.clear(); pending.clear(); cachedBytes = 0; }

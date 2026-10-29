@@ -104,3 +104,58 @@ test('abort, close and a bounded deadline settle even when the old dependency ig
   const closed=createCanonicalExampleComponentResolver(table,{fetchImpl,loadOriginalEntry:never});
   const pending=closed.load(row.term);closed.close();await assert.rejects(pending,{name:'AbortError'});
 });
+
+const deadlineRow=table.rows.find(r=>r.term==='burden');
+for(const [name,savedEntry]of [
+  ['unscoped',undefined],...deadlineRow.canonicalContexts.map((c,i)=>['canonical-'+i,c]),
+  ...deadlineRow.legacyContexts.map((c,i)=>['old-selected-'+i,c])
+])test(`optional-source deadline preserves the complete authenticated original: ${name}`,async()=>{
+  const resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:()=>new Promise(()=>{}),loadOriginalEntry:async()=>structuredClone(deadlineRow.expectedOriginalEntry),timeoutMs:45});
+  const start=performance.now();
+  try{assert.deepEqual(await resolver.load(deadlineRow.term,savedEntry?{savedEntry}:{}),deadlineRow.expectedOriginalEntry);assert(performance.now()-start<500);}
+  finally{resolver.close();}
+});
+
+test('old-selected contexts do not wait for an optional source with default per-download timeouts',async()=>{
+  let sourceCalls=0;const resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:async url=>{sourceCalls++;if(String(url).endsWith('/manifest.json')){await new Promise(r=>setTimeout(r,1000));return fetchImpl(url);}return new Promise(()=>{});},loadOriginalEntry:async()=>structuredClone(deadlineRow.expectedOriginalEntry)});
+  const start=performance.now();
+  try{assert.deepEqual(await resolver.load(deadlineRow.term,{savedEntry:deadlineRow.legacyContexts[0]}),deadlineRow.expectedOriginalEntry);assert(performance.now()-start<500);assert.equal(sourceCalls,0);}
+  finally{resolver.close();}
+});
+
+test('default combined source deadline preserves originals after a slow manifest and stalled shard',async()=>{
+  const {createAdditiveExamplesLoader}=await import('../js/dictionary-examples-additive.js'),{dictionaryExamplesRelease}=await import('../js/dictionary-examples-release-v4.js');
+  const reader=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl});
+  const old=await reader.load(deadlineRow.term,{lookupQuery:deadlineRow.term});reader.close();assert.deepEqual(old,deadlineRow.expectedOriginalEntry);
+  const resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:async url=>{if(String(url).endsWith('/manifest.json')){await new Promise(r=>setTimeout(r,1000));return fetchImpl(url);}return new Promise(()=>{});},loadOriginalEntry:async()=>structuredClone(old)});
+  const start=performance.now();
+  try{const [canonical,newOnly]=await Promise.all([resolver.load(deadlineRow.term,{savedEntry:deadlineRow.canonicalContexts[0]}),resolver.load(deadlineRow.term,{savedEntry:deadlineRow.componentContexts[0]})]);assert.deepEqual(canonical,old);assert.equal(newOnly,null);const elapsed=performance.now()-start;assert(elapsed>=5000&&elapsed<7500);}
+  finally{resolver.close();}
+});
+
+test('optional-source deadline cannot lend old examples to a new-only component context',async()=>{
+  const resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:()=>new Promise(()=>{}),loadOriginalEntry:async()=>structuredClone(deadlineRow.expectedOriginalEntry),timeoutMs:45});
+  try{assert.equal(await resolver.load(deadlineRow.term,{savedEntry:deadlineRow.componentContexts[0]}),null);}
+  finally{resolver.close();}
+});
+
+for(const change of ['card','original'])test(`optional-source fallback rejects ${change} mutation while the source is stalled`,async()=>{
+  const savedEntry={...deadlineRow.canonicalContexts[0]},old=structuredClone(deadlineRow.expectedOriginalEntry);
+  const resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:()=>new Promise(()=>{}),loadOriginalEntry:async()=>old,timeoutMs:45});
+  try{const pending=resolver.load(deadlineRow.term,{savedEntry});await new Promise(r=>setTimeout(r,10));if(change==='card')savedEntry.meaning='修改后的未审核含义';else old.senses[0].examples[0].zh='修改后的旧译文';assert.equal(await pending,null);}
+  finally{resolver.close();}
+});
+
+for(const change of ['abort','close'])test(`optional-source fallback obeys ${change} after the original is available`,async()=>{
+  const controller=new AbortController(),resolver=createCanonicalExampleComponentResolver(table,{fetchImpl:()=>new Promise(()=>{}),loadOriginalEntry:async()=>structuredClone(deadlineRow.expectedOriginalEntry),timeoutMs:100});
+  try{const pending=resolver.load(deadlineRow.term,{savedEntry:deadlineRow.canonicalContexts[0],signal:controller.signal});await new Promise(r=>setTimeout(r,10));if(change==='abort')controller.abort();else resolver.close();await assert.rejects(pending,{name:'AbortError'});}
+  finally{resolver.close();}
+});
+
+test('the shared pinned reader exposes exact literal primary records without aliases or caller metadata',async()=>{
+  const {createCanonicalSourceClient}=await import('../js/canonical-example-repair-source.js'),client=createCanonicalSourceClient(table.pins,{fetchImpl});
+  try{for(const row of table.rows)assert.deepEqual(await client.readLiteral(row.term),row.exactCanonicalRecord);for(const term of ['Burden','ｂｕｒｄｅｎ',' burden '])await assert.rejects(client.readLiteral(term));}
+  finally{client.close();}
+  const wrong=createCanonicalSourceClient({...table.pins,manifestSha256:'0'.repeat(64)},{fetchImpl});
+  try{await assert.rejects(wrong.readLiteral('burden'));}finally{wrong.close();}
+});
