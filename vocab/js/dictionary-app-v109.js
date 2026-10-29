@@ -1,6 +1,7 @@
 import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=104";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
+import { learningExampleSourceLabel } from "./example-source-label.js";
 
 // Queries live in the fragment only. No form control has a name, so even the
 // no-JavaScript form fallback cannot put a word into a request's query string.
@@ -256,7 +257,7 @@ export function mountDictionaryPage(document, window) {
     exampleStatus.textContent = state.message; exampleRetry.hidden = state.phase !== "error";
     exampleContent.replaceChildren();
     if (state.phase !== "ready") return;
-    if (exampleSource) exampleSource.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");
+    if (exampleSource) exampleSource.textContent = [...new Set(state.entry.senses.map(sense => learningExampleSourceLabel(sense.source)))].join("；");
     const plan = dictionaryExampleSensePlan(state.entry, lastSelected);
     if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
     plan.items.forEach(({ sense, open, label }, index) => {

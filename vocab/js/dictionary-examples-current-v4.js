@@ -7,6 +7,7 @@ import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js'
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
 import { loadEverydayExamples } from './everyday-lookup.js';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
+import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
 let repairClients=new WeakMap(), generation=0;
@@ -66,6 +67,17 @@ function sameSavedSense(sense, card) {
 export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEntry,...options}={}){
   if(typeof fetchImpl!=='function')return Promise.reject(new Error('无法读取学习例句。'));
   if(options.signal?.aborted){const error=new Error('已取消读取例句。');error.name='AbortError';return Promise.reject(error);}
+  // A selected replacement must keep independently approved old examples on
+  // these exact historic card identities. This grants no new pair or source sense.
+  if (savedEntry !== undefined && hasSelectedLegacyExampleHead(term)) {
+    const context = canonicalCard(savedEntry, term);
+    if (!context || context.term !== term) return Promise.resolve(null);
+    const binding = selectedLegacyOriginalContext(term, context);
+    if (binding) return originalClient(fetchImpl).load(term, { ...options, lookupQuery: term })
+      .then(entry => JSON.stringify(canonicalCard(savedEntry, term)) === JSON.stringify(context)
+        && matchesSelectedLegacyOriginalDTO(binding, entry) ? entry : null)
+      .catch(error => { if (options.signal?.aborted || error?.name === 'AbortError') throw error; return null; });
+  }
   if(canonicalRepairHeads.has(term)) {
     const context=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
     if(context===null)return Promise.resolve(null);
@@ -105,7 +117,7 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
       // change the meaning associated with an already started async request.
       const entry = options.savedEntry;
       managedGuard=undefined;
-      if(canonicalRepairHeads.has(term)&&entry!==undefined){
+      if((canonicalRepairHeads.has(term)||hasSelectedLegacyExampleHead(term))&&entry!==undefined){
         savedEntry=canonicalCard(entry,term);
         const identity=JSON.stringify(savedEntry);
         managedGuard=()=>identity!=='null'&&JSON.stringify(canonicalCard(entry,term))===identity;

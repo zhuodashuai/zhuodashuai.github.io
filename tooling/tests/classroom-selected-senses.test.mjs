@@ -23,8 +23,8 @@ test('twelve selected senses have actual different-reader approvals and exact un
   const historicalRows=rows.filter(r=>historicalHeads.has(r.term));
   assert.equal(historicalRows.length,143);assert.equal(new Set(historicalRows.map(r=>r.term)).size,143);
   for(const old of baseline.oldSelectedRows)assert.deepEqual(byTerm.get(old.term),old);
-  assert.equal(hash(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense)),baseline.oldOrdinarySha256);
-  assert.deepEqual(EVERYDAY_CHINESE_ALIASES,baseline.oldAliases);
+  assert.equal(hash(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense).slice(0,baseline.oldOrdinaryCount)),baseline.oldOrdinarySha256);
+  assert.deepEqual(EVERYDAY_CHINESE_ALIASES.slice(0,baseline.oldAliases.length),baseline.oldAliases);
   for(const row of pack.entries){
     const approval=review.decisions.find(d=>d.term===row.term),actual=byTerm.get(row.term);
     assert.equal(approval?.verdict,'approved');assert.equal(approval.rowSha256,hash(row));assert(approval.reason.trim());

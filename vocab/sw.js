@@ -19,6 +19,8 @@ const SHELL = [
   "./js/canonical-example-repairs-data.js",
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
+  "./js/selected-legacy-examples.js", "./js/selected-legacy-examples-data.js",
+  "./js/example-source-label.js",
   "./js/reviewed-senses-data.js",
   "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",
   // Directory metadata only: preserve previously visited delta URLs across an

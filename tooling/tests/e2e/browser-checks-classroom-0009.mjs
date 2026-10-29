@@ -38,7 +38,7 @@ export function prepareClassroomFixture(fixture) {
   const rejectedContexts=uniqueContexts([...input.legacyDisplayContexts.map(c=>({...c,kind:'complete-old-main-or-variant-context'})),...contextsFromDTO(input.originalDTO),{term:input.term,partOfSpeech:'interjection',meaning:entry.meaning,kind:'wrong-POS'},{term:input.term,partOfSpeech:entry.partOfSpeech,meaning:'A personal different sense.',kind:'different-personal-meaning'}]);
   must(rejectedContexts.every(c=>!acceptedContexts.some(x=>identity(x)===identity(c))),'disjoint accepted/rejected contexts');
   const queries=[{kind:'literal',query:input.term},...entry.englishForms.map(query=>({kind:'declared-form',query})),...entry.chineseAliases.map(query=>({kind:'approved-Chinese-alias',query}))];
-  return{term:input.term,route:'selected',primary,example:{partOfSpeech:entry.partOfSpeech,meaning:entry.meaning,pairs:[{en:entry.en,zh:entry.zh}]},queries,canonicalRecord:record,originalDTO:input.originalDTO,acceptedContexts,rejectedContexts};
+  return{term:input.term,route:'selected',primary,example:{partOfSpeech:entry.partOfSpeech,meaning:entry.meaning,pairs:[{en:entry.en,zh:entry.zh}]},queries,canonicalRecord:record,originalDTO:input.originalDTO,legacyContexts:input.canonicalContexts,acceptedContexts,rejectedContexts};
  });
  const queryCount=rows.reduce((n,r)=>n+r.queries.length,0);must(queryCount===74,'all74 queries');
  must(fixture.selectedSource.entries.reduce((n,e)=>n+e.englishForms.length,0)===16,'all16 forms');must(fixture.selectedSource.entries.reduce((n,e)=>n+e.chineseAliases.length,0)===43,'all43 Chinese aliases');
@@ -260,6 +260,12 @@ export async function verifyClassroomViewport({ context, base, fixture, modules,
     }
     for (const result of saved.rejected) {
       expect(result.newPairAbsent && result.onlyOriginalPairs, 'No new pair on an old/different saved sense: ' + result.term).toBe(true);
+      const row = rows.find(r => r.term === result.term);
+      if (row.legacyContexts.some(c => c.partOfSpeech === result.context.partOfSpeech && c.meaning === result.context.meaning)) {
+        expect(result.hidden, 'Exact historic cards keep all old examples: ' + result.term).toBe(false);
+        expect(result.labels).toEqual(row.originalDTO.senses.map(s => s.partOfSpeech + ' · ' + s.meaningZh));
+        expect(result.pairs).toEqual(row.originalDTO.senses.flatMap(s => s.examples));
+      }
       if (result.route === 'canonical') { expect(result.hidden).toBe(true); expect(result.pairs).toEqual([]); }
     }
     report.savedAccepted.push({ base, width, checks: saved.accepted }); report.savedRejected.push({ base, width, checks: saved.rejected });

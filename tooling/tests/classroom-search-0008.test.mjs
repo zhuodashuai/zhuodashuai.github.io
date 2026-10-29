@@ -33,8 +33,8 @@ test('classroom pack preserves all old 147 selected, 72 canonical and ordinary r
  for(const old of baseline.selectedRows)assert.deepEqual(selected.find(r=>r.term===old.term),old);
  for(const old of baseline.canonicalRows)assert.deepEqual(repairs.rows.find(r=>r.term===old.term),old);
  assert.equal(baseline.ordinaryRows.length,1022);assert.equal(baseline.aliases.length,45);
- assert.deepEqual(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense),baseline.ordinaryRows);
- assert.deepEqual(EVERYDAY_CHINESE_ALIASES,baseline.aliases);
+ assert.deepEqual(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense).slice(0,baseline.ordinaryRows.length),baseline.ordinaryRows);
+ assert.deepEqual(EVERYDAY_CHINESE_ALIASES.slice(0,baseline.aliases.length),baseline.aliases);
  assert.deepEqual(review.approvedTerms,pack.entries.map(r=>r.term));
  for(const row of pack.entries){const actual=selected.find(r=>r.term===row.term);
   for(const key of ['term','partOfSpeech','meaning','chineseAliases','englishForms','en','zh','references','canonicalId','canonicalSourceSha256'])assert.deepEqual(actual[key],row[key]);

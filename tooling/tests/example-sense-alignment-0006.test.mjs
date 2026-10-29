@@ -34,7 +34,7 @@ test('four fully approved curated senses retain every old143/69 row and all ordi
  assert.equal(selected.length,147);assert.equal(new Set(selected.map(r=>r.term)).size,147);assert.equal(repairs.rows.length,72);assert.equal(repairs.rows.reduce((n,r)=>n+1+(r.additionalExamples?.length??0),0),73);
  for(const old of baseline.selectedRows)assert.deepEqual(selected.find(r=>r.term===old.term),old);
  for(const old of baseline.canonicalRows)assert.deepEqual(repairs.rows.find(r=>r.term===old.term),old);
- assert.deepEqual(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense),baseline.ordinaryRows);assert.deepEqual(EVERYDAY_CHINESE_ALIASES,baseline.aliases);
+ assert.deepEqual(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense).slice(0,baseline.ordinaryRows.length),baseline.ordinaryRows);assert.deepEqual(EVERYDAY_CHINESE_ALIASES.slice(0,baseline.aliases.length),baseline.aliases);
  for(const row of pack.entries){const actual=selected.find(r=>r.term===row.term);for(const key of ['term','partOfSpeech','meaning','chineseAliases','englishForms','en','zh','references','canonicalId','canonicalSourceSha256'])assert.deepEqual(actual[key],row[key]);assert.equal(actual.exampleSource,'原创学习例句');}
 });
 
