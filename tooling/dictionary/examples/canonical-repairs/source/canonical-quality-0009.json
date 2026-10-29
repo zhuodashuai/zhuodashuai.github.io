@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/canonical-0004-0011-component-author",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "cart",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 469263,
+      "canonicalSourceSha256": "bc0ada86151da45d9b3e4c686f1f715db83b5b8908fa67f55870acb9b6e69232",
+      "exactCanonicalRecord": {
+        "id": 469263,
+        "term": "cart",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+        "forms": [
+          "carted",
+          "carting",
+          "carts"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3666,
+          "forms": [
+            "carted",
+            "carting",
+            "carts"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "origin": {
+        "file": "batch-0003-i.json",
+        "sourceSha256": "89f3b5485d060753fea3d54ba2726cc86faa62385a6edaeae1d0c19db2c5473e",
+        "index": 156
+      },
+      "expectedOriginalEntry": {
+        "term": "cart",
+        "senses": [
+          {
+            "id": "example:cart",
+            "partOfSpeech": "noun",
+            "meaningZh": "运货的小车",
+            "examples": [
+              {
+                "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+                "zh": "我们把折叠椅装上小推车，推到了外面。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "5e988abde5b2f7effe340c6579659d38e45700d1db024a30c3a4026fadd022ab",
+      "retiredOriginalPair": {
+        "term": "cart",
+        "partOfSpeech": "noun",
+        "meaningZh": "运货的小车",
+        "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+        "zh": "我们把折叠椅装上小推车，推到了外面。"
+      },
+      "retiredOriginalPairSha256": "d0ec71139131f5e4ab2d38109f856556af6f543f2a68519ebfa228912e710204",
+      "acceptedDisplayContexts": [
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载"
+        },
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载"
+        }
+      ],
+      "replacementPair": {
+        "term": "cart",
+        "partOfSpeech": "noun · verb",
+        "meaningZh": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+        "en": "The farmer's horse pulled a two-wheeled cart loaded with sacks of grain along the muddy lane.",
+        "zh": "农夫的马拉着一辆满载袋装谷物的两轮马车，沿泥泞的小路前行。"
+      },
+      "replacementPairSha256": "0661944926a3a2ff18baef406af02053d3696dc2cc963a3c729bb32edcd5c44f",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/cart_1"
+      ]
+    }
+  ]
+}

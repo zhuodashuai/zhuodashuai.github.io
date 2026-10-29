@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {REVIEWED_SENSE_ENTRIES as selected} from '../../vocab/js/reviewed-senses-data.js';
-import {CANONICAL_EXAMPLE_REPAIRS as repairs} from '../../vocab/js/canonical-example-repairs-data.js';
+import {REVIEWED_SENSE_ENTRIES as allSelected} from '../../vocab/js/reviewed-senses-data.js';
+import {CANONICAL_EXAMPLE_REPAIRS as allRepairs} from '../../vocab/js/canonical-example-repairs-data.js';
 import {EVERYDAY_LOOKUP_ENTRIES,EVERYDAY_CHINESE_ALIASES} from '../../vocab/js/everyday-lookup-data.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
@@ -17,6 +17,12 @@ const baseline=await read('everyday-expansions/2026-10-29-sense-alignment/baseli
 const manifest=await read('everyday-expansions/2026-10-29-sense-alignment/manifest.json');
 const pack=await read('reviewed-senses/source/batch-0007.json'),review=await read('reviewed-senses/reviews/batch-0007.json');
 const canonicalPacks=await Promise.all(['0006','0007','0008'].map(async n=>({source:await read('examples/canonical-repairs/source/canonical-quality-'+n+'.json'),review:await read('examples/canonical-repairs/reviews/canonical-quality-'+n+'.json')})));
+// This release proves the exact historical 147/72 rows. Later additive packs
+// have their own complete-current counts and must preserve every row here.
+const selectedHeads=new Set([...baseline.selectedRows,...pack.entries].map(r=>r.term));
+const canonicalHeads=new Set([...baseline.canonicalRows,...canonicalPacks.flatMap(p=>p.source.entries)].map(r=>r.term));
+const selected=allSelected.filter(r=>selectedHeads.has(r.term));
+const repairs={...allRepairs,rows:allRepairs.rows.filter(r=>canonicalHeads.has(r.term))};
 const fileFetch=async input=>{const url=new URL(input);assert.equal(url.protocol,'file:');return new Response(await readFile(url));};
 const noNetwork=()=>{throw Error('A packaged selected sense fell back to a dictionary/provider');};
 

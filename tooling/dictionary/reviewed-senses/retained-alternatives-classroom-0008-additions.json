@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "infirm",
+      "canonicalSourceSha256": "59467fd77ea72a548b50469b6170f130b184e6bd8d32d6485a6925fc6fadd03f",
+      "selectedRowSha256": "2c4fe6eddcbb348b643987ddd6933cb7a3e9b403aa8f28cc88e8a6b040ae9dc6",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 弱的, 虚弱的, 柔弱的\n[医] 衰弱的",
+          "source": "mit"
+        }
+      ],
+      "reason": "All old adjective fields 弱的/虚弱的/柔弱的/[医]衰弱的 are compatible weak/frail bodily meanings. Retain the complete unchanged MIT tuple, including the medical line, not only a selected synonym.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/infirm"
+      ]
+    },
+    {
+      "term": "caesarean section",
+      "canonicalSourceSha256": "786f0b22e2fbcb52750c3dee795a779c22a4bd5e0ef73ef59c30187b66aa2628",
+      "selectedRowSha256": "b7f0bb8672c7c6ad5690e85cbc37a699681992e9cb1171d4914c0c21482f0d60",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "剖腹产",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Retain the complete pos-reviewed noun tuple 剖腹产. The separately licensed MIT variant has an empty native POS; preserve that exact variant for audit but do not invent noun metadata or submit an empty POS to the strict policy schema.",
+      "references": [
+        "https://www.nhs.uk/tests-and-treatments/caesarean-section/"
+      ]
+    },
+    {
+      "term": "illegible",
+      "canonicalSourceSha256": "1394b898849de5d843aba424a7690aea7ef50d556f4015a61d96c247d5435886",
+      "selectedRowSha256": "bc81d3ced8b8fa68766a36a65efcc95a650be42bc60cba5125f54c4ca609d02f",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 难辨认的, 字迹模糊的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old 难辨认的/字迹模糊的 adjective tuple is compatible with unreadable writing. Keep it whole with the original MIT source fields.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/illegible"
+      ]
+    },
+    {
+      "term": "compatible",
+      "canonicalSourceSha256": "92369be48e334f5ec6fb558b97a1cb0d6eca7864b2feb6c507234e8d94e74f17",
+      "selectedRowSha256": "f575595c6f6ba41f01fecce1cba49a6a49a87cd68a1fca6cd7a2e15f230270c1",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+          "source": "mit"
+        }
+      ],
+      "reason": "Retain both complete core and MIT tuples: 能共处/可并立/适合 and the full computing 相容/兼容 line. These remain legitimate roles alongside the new interpersonal example; no computing field is pruned or represented as demonstrated by that example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/compatible"
+      ]
+    },
+    {
+      "term": "iffy",
+      "canonicalSourceSha256": "3db4b0871bee20915826dc1e49a483d2384ad3dd433d93b4fac3632d33c8d3f2",
+      "selectedRowSha256": "bcc58b1eb11ee621b3f7ff6d69f88ec3318a2728728bc58ea1fb7d8fb5badb32",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 富于偶然性的, 可怀疑的, 未确定的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The whole 富于偶然性的/可怀疑的/未确定的 adjective tuple is compatible with chancy or uncertain/questionable conditions. Retain all words under the original MIT attribution.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/iffy"
+      ]
+    },
+    {
+      "term": "dicey",
+      "canonicalSourceSha256": "46d33acafbdd6761513ea38fe22585c63631098127a7e33120b83b66157d305d",
+      "selectedRowSha256": "5cf6664c6a25e3232e1d95df6ff794b112b8151d773b0cf1cde92c77b87c2c58",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 不确定的, 危险的, 冒险性的",
+          "source": "mit"
+        }
+      ],
+      "reason": "All old fields 不确定的/危险的/冒险性的 describe the legitimate chancy/risky adjective. Retain the complete MIT tuple, not a danger-only extraction.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/dicey"
+      ]
+    },
+    {
+      "term": "fine print",
+      "canonicalSourceSha256": "540d4f80bd74e61c20b3ba1c1a5fbe386b188fdb2ff93850f2ccd53a9431bf3e",
+      "selectedRowSha256": "6645e9cd0a03a49d2af2571909de8d37a365f5bfd18a5a2aa281f8173b1db09e",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 极小的字体, （契约中）难懂的条文",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old tuple includes both very small type and obscure contractual clauses, both supported by publisher definitions. Keep both whole fields and original MIT attribution rather than retaining only 小字.",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/fine-print?topic=information-and-messages",
+        "https://www.merriam-webster.com/dictionary/fine%20print"
+      ]
+    }
+  ]
+}

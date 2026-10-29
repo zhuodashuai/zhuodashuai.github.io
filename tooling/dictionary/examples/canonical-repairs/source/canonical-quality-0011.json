@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/canonical-0005-0012-component-author",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "laundry",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 691174,
+      "canonicalSourceSha256": "37d3dafbdf653493b047d53a8b839c47e81e11c5d923af3b0df14e5fed64d00c",
+      "exactCanonicalRecord": {
+        "id": 691174,
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+        "forms": [
+          "laundries"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 5399,
+          "forms": [
+            "laundries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "origin": {
+        "file": "batch-0004-f.json",
+        "sourceSha256": "87cc625334d4bcb9ec4d5618959a6d031e6c853b0f9bf5bfdd77e2b9cd6a6f7c",
+        "index": 47
+      },
+      "expectedOriginalEntry": {
+        "term": "laundry",
+        "senses": [
+          {
+            "id": "example:laundry",
+            "partOfSpeech": "noun",
+            "meaningZh": "待洗衣物",
+            "examples": [
+              {
+                "en": "A basket of laundry waited beside the washing machine.",
+                "zh": "一篮待洗衣物放在洗衣机旁。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "ab383c01593eb97de87a05de6f55a7ce3acc6cc32d7da798197dc34a1f63129d",
+      "retiredOriginalPair": {
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaningZh": "待洗衣物",
+        "en": "A basket of laundry waited beside the washing machine.",
+        "zh": "一篮待洗衣物放在洗衣机旁。"
+      },
+      "retiredOriginalPairSha256": "592d2b8e3b79b7c68f0529b0533df3bae5d6c08d796118a9d9ea660eea33783b",
+      "acceptedDisplayContexts": [
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房"
+        },
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房"
+        }
+      ],
+      "replacementPair": {
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+        "en": "She carried the clean laundry upstairs and stacked the folded shirts in a drawer.",
+        "zh": "她把洗净的衣物搬到楼上，并把折好的衬衫整齐叠放进抽屉。"
+      },
+      "replacementPairSha256": "3ea2a355f179589547da2862bcac582fc9cd0adc996b313f5922c5fcd4232ea3",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/laundry"
+      ]
+    }
+  ]
+}

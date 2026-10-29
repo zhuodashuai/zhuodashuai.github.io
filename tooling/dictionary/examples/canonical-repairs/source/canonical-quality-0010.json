@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/root-classroom-search-author",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "TB",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 2079955,
+      "canonicalSourceSha256": "3a8fc2ab98d2e08d8a924206854569a1273e24ffbf7f00efde1933fcff48744a",
+      "exactCanonicalRecord": {
+        "id": 2079955,
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+        "forms": [
+          "tbs"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 16252,
+          "forms": [
+            "tbs"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "origin": {
+        "file": "batch-0018-p002.json",
+        "sourceSha256": "898e5eb2f8b011535d9c9ec669d34a04149f8798bf00e45eeedb6f7d5e5dbe9a",
+        "index": 18
+      },
+      "expectedOriginalEntry": {
+        "term": "TB",
+        "senses": [
+          {
+            "id": "example:TB",
+            "partOfSpeech": "noun",
+            "meaningZh": "太字节〔存储容量单位〕",
+            "examples": [
+              {
+                "en": "The backup required another two TB of storage space.",
+                "zh": "那份备份还需要两个太字节的存储空间。"
+              }
+            ],
+            "reviewer": "AI/examples18_reviewer_e",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "607e4c890c35c15a658c97b3090c0cca3de371bb0f224583fc5fd23bd7182106",
+      "retiredOriginalPair": {
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaningZh": "太字节〔存储容量单位〕",
+        "en": "The backup required another two TB of storage space.",
+        "zh": "那份备份还需要两个太字节的存储空间。"
+      },
+      "retiredOriginalPairSha256": "c9b2a38a99af9b16e17b4e0aeac9e7024ce4c4018362f79b50e263df12ef676d",
+      "acceptedDisplayContexts": [
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)"
+        },
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)"
+        }
+      ],
+      "replacementPair": {
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+        "en": "The public health leaflet explains how people can be tested for TB.",
+        "zh": "这份公共卫生宣传单介绍了人们可以如何接受结核病检测。"
+      },
+      "replacementPairSha256": "d3c157e55e113466a1ab169417e4246d8be76db43cf8d06aca47a7aa25025fa5",
+      "references": [
+        "https://www.cdc.gov/tb/about/index.html",
+        "https://www.merriam-webster.com/dictionary/terabyte"
+      ]
+    }
+  ]
+}
