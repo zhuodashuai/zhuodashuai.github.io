@@ -9,8 +9,36 @@ import { loadEverydayExamples } from './everyday-lookup.js';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
-let repairClients=new WeakMap(), generation=0;
+let repairClients=new WeakMap(), componentClients=new WeakMap(), generation=0;
 const active=new Set();
+// Eight selected roles only; these heads retain their complete valid old DTOs.
+const componentHeads=new Set(['respectable','persistently','burden','honor','snuff','fertilize','socialize','claim']);
+function componentClient(fetchImpl){
+  if(componentClients.has(fetchImpl))return componentClients.get(fetchImpl);
+  const started=generation;
+  const pending=import('./canonical-example-components.js').then(module=>{
+    if(started!==generation)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+    const client=module.createCanonicalExampleComponents({fetchImpl,loadOriginalEntry:(term,options)=>originalClient(fetchImpl).load(term,options)});
+    active.add(client);return client;
+  });
+  componentClients.set(fetchImpl,pending);
+  pending.catch(()=>{if(componentClients.get(fetchImpl)===pending)componentClients.delete(fetchImpl);});
+  return pending;
+}
+async function componentFallback(term,before,fetchImpl,signal){
+  const original=await originalClient(fetchImpl).load(term,{signal,lookupQuery:term});
+  if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+  if(before===undefined)return original;
+  try{
+    // This data-only fallback can retain an authenticated old card when its
+    // optional resolver module is unavailable. New/unrelated contexts get none.
+    const {CANONICAL_EXAMPLE_COMPONENTS:table}=await import('./canonical-example-components-data.js');
+    if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+    const row=table.rows.find(r=>r.term===term);
+    const allowed=row&&[...row.canonicalContexts,...row.legacyContexts].some(c=>JSON.stringify(c)===JSON.stringify(before));
+    return allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry)?original:null;
+  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;return null;}
+}
 // Finite literal heads only. The build test checks this list against the
 // independently approved table. Do not fetch a new optional module for every
 // ordinary card, or make an incomplete offline update disable legacy examples.
@@ -66,6 +94,17 @@ function sameSavedSense(sense, card) {
 export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEntry,...options}={}){
   if(typeof fetchImpl!=='function')return Promise.reject(new Error('无法读取学习例句。'));
   if(options.signal?.aborted){const error=new Error('已取消读取例句。');error.name='AbortError';return Promise.reject(error);}
+  if(componentHeads.has(term)){
+    if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
+    const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
+    if(before===null||before&&before.term!==term)return Promise.resolve(null);
+    return componentClient(fetchImpl).then(client=>client.load(term,{signal:options.signal,savedEntry,lookupQuery:term}))
+      .catch(error=>{
+        if(options.signal?.aborted||error?.name==='AbortError')throw error;
+        // A partial optional-module update must not erase valid base examples.
+        return componentFallback(term,before,fetchImpl,options.signal);
+      }).then(result=>savedEntry!==undefined&&JSON.stringify(canonicalCard(savedEntry,term))!==JSON.stringify(before)?null:result);
+  }
   if(canonicalRepairHeads.has(term)) {
     const context=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
     if(context===null)return Promise.resolve(null);
@@ -105,7 +144,7 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
       // change the meaning associated with an already started async request.
       const entry = options.savedEntry;
       managedGuard=undefined;
-      if(canonicalRepairHeads.has(term)&&entry!==undefined){
+      if((canonicalRepairHeads.has(term)||componentHeads.has(term))&&entry!==undefined){
         savedEntry=canonicalCard(entry,term);
         const identity=JSON.stringify(savedEntry);
         managedGuard=()=>identity!=='null'&&JSON.stringify(canonicalCard(entry,term))===identity;
@@ -119,5 +158,5 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
   };
 }
 export function resetDictionaryExamplesCacheForTests(){
-  generation++;for(const client of active)client.close();active.clear();clients=new WeakMap();repairClients=new WeakMap();
+  generation++;for(const client of active)client.close();active.clear();clients=new WeakMap();repairClients=new WeakMap();componentClients=new WeakMap();
 }
