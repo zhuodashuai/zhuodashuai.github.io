@@ -13,14 +13,15 @@ function active(binding) {
     && selectedKeys.every(key => equal(selected[key], binding.selectedRow[key]))
     && selected.reviewedCanonicalSense === true ? { group, selected } : null;
 }
-function forTerm(term) {
-  const binding = SELECTED_COMMON_SENSE_BINDINGS.find(row => row.groupTerms.includes(term));
-  const current = binding && active(binding);
-  return current ? { binding, ...current } : null;
+function activeBindingsForTerm(term) {
+  return SELECTED_COMMON_SENSE_BINDINGS.filter(row => row.groupTerms.includes(term)).flatMap(binding => {
+    const current = active(binding);
+    return current ? [{ binding, ...current }] : [];
+  });
 }
 
 /** Used only to keep a bound group complete if a literal selected alias exists. */
-export function hasSelectedCommonSensePlan(term) { return Boolean(forTerm(term)); }
+export function hasSelectedCommonSensePlan(term) { return activeBindingsForTerm(term).length > 0; }
 export function hasSelectedCommonSenseHead(term) {
   const binding=SELECTED_COMMON_SENSE_BINDINGS.find(row=>row.head===term);
   return Boolean(binding && active(binding));
@@ -35,8 +36,10 @@ export function isSelectedCommonSenseCanonicalCandidate(id, term) {
  * Compare the complete original raw record, including variants and seed, before
  * using the separately approved selected primary. Never project the old gloss. */
 export function selectedCommonSenseCandidate(record, origin, term) {
-  const current = forTerm(term);
-  if (!current || !record || !origin) return null;
+  if (!record || !origin) return null;
+  const current = activeBindingsForTerm(term).find(({ binding }) =>
+    binding.canonicalId === record.id && binding.head === record.term);
+  if (!current) return null;
   const { binding, group, selected } = current;
   if (record.id !== binding.canonicalId || record.term !== binding.head
     || origin.manifestVersion !== binding.canonicalManifestVersion
