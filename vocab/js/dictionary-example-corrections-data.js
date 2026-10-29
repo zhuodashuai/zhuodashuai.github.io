@@ -599,6 +599,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday_precision_0015_independent"
   },
   {
+    "term": "dignify",
+    "expectedEntrySha256": "9b9301f9687badc74a5004ee8833d0b7d53772127c2e96ed7baf9e07ba0c43ed",
+    "canonicalId": 1582671,
+    "canonicalSourceSha256": "64c3bf5cdfd496d4140b01aa1592d91d3e29a98b915e35777134f4e3d608e7fa",
+    "senseId": "example:dignify",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "抬高某事物的地位或重要性",
+    "en": "I will not dignify that absurd accusation with a reply.",
+    "zh": "我不会回应那项荒谬的指控，免得让它显得值得重视。",
+    "reviewer": "AI/literal_precision_0016_independent"
+  },
+  {
     "term": "efa",
     "expectedEntrySha256": "d98070494790944ce6b096154d36318198f519564dad91758a508dddf4912491",
     "canonicalId": 6484329,

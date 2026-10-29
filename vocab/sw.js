@@ -1,3 +1,4 @@
+// Preserve literal dotted dictionary heads before decorated shortcut matches.
 // Preserve classroom senses 0009 and bind obligation's selected duty sense, retaining old saved examples.
 // Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.
 // Refresh the decoded-body size check for HTTP-compressed ranking assets.
@@ -12,6 +13,7 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/dictionary-literal-heads-data.js",
   "./js/chinese-ranking.js?v=111", "./js/chinese-ranking-release.js?v=111",
   "./js/chinese-ranking.js", "./js/chinese-ranking-release.js", "./js/chinese-search.js?v=111",
   "./js/everyday-lookup.js?v=111",

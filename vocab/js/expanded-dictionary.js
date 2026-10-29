@@ -2,7 +2,8 @@ import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=111";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
-  isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=111";
+  isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
+  literalDictionarySpelling } from "./everyday-lookup.js?v=111";
 import { chineseVariantRank, chineseRankingNeedle, parseChineseRanking } from "./chinese-ranking.js?v=111";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
 import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
@@ -320,7 +321,7 @@ async function englishSearch(query, context) {
   // the saved headword, internal apostrophes, hyphens, plus signs or slashes.
   const literal = fold(query), unwrapped = query.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
   const canonical = fold(canonicalizeLookupInput(unwrapped || query));
-  const wanted = [...new Set([literal, canonical])];
+  const wanted = context.literalOnly ? [literal] : [...new Set([literal, canonical])];
   const rows = [];
   for (let index = 0; index < wanted.length; index++) {
     // A true literal head needs no normalized alternative. Loading that shard
@@ -338,6 +339,7 @@ async function englishSearch(query, context) {
       return { query, results: [display(record, record, manifest)], hasMore: false };
     }
   }
+  if (context.literalOnly) return { query, results: [], hasMore: false };
   const row = rows.find(item => item.refs.length);
   if (!row) return { query, results: [], hasMore: false };
   if (new Set(row.refs.map(ref => ref.id)).size > 1) throw ambiguous();
@@ -602,14 +604,21 @@ export async function preloadExpandedDictionary({ signal, fetchImpl = globalThis
 /** Exact English/form lookup or ranked Chinese substring search, with no AI. */
 export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) throw new Error("请输入不超过 200 个字符的英文或中文释义。");
-  const exactQuery = spelling(input).replace(/^["'“”‘’]+|["'“”‘’]+$/gu, "").trim();
+  const normalizedInput = spelling(input);
+  if (/[<>]|javascript\s*:/iu.test(normalizedInput)) throw new Error("请输入要查询的英文或中文释义。");
+  const everyday = searchEverydayDictionary(input, { limit, ...(offset === undefined ? {} : { offset }) });
+  const literalFallback = everyday ? null : searchEverydayDictionary(input,
+    { limit, ...(offset === undefined ? {} : { offset }), allowDottedFallback: true });
+  // Only indexed collisions need the extra decoration pass. Ordinary literal
+  // heads may themselves end in '?' or other punctuation and keep priority.
+  const exactQuery = literalFallback ? literalDictionarySpelling(normalizedInput)
+    : normalizedInput.replace(/^["'“”‘’]+|["'“”‘’]+$/gu, "").trim();
   let query = fold(exactQuery);
   if (HAN.test(query)) query = query.replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
   if (!query || /[<>]|javascript\s*:/iu.test(query) || !/[\p{Script=Latin}\p{Script=Han}\d]/u.test(query)) throw new Error("请输入要查询的英文或中文释义。");
   if (signal?.aborted) throw stopped();
   // Common phrase aliases are indexed as complete, sense-specific queries.
   // They can answer immediately, without broadening or downloading the core.
-  const everyday = searchEverydayDictionary(input, { limit, ...(offset === undefined ? {} : { offset }) });
   const groupPlan = HAN.test(query) ? chineseSearchPlan(query) : null;
   if (everyday && !(groupPlan && hasSelectedCommonSensePlan(groupPlan.term))) return everyday;
   const chinese = HAN.test(query);
@@ -624,6 +633,10 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
     const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery };
+    if (literalFallback) {
+      const literal = await englishSearch(query, { ...context, literalOnly: true });
+      return literal.results.length ? guardLegacySupplementaryResult(literal) : literalFallback;
+    }
     return chinese ? chineseSearch(query, count, context, null, start) : guardLegacySupplementaryResult(await englishSearch(query, context));
   })();
   return waitFor(work, signal, duration);

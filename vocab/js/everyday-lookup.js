@@ -1,4 +1,5 @@
 import * as packagedEveryday from "./everyday-lookup-data.js";
+import { LITERAL_DICTIONARY_HEADS } from "./dictionary-literal-heads-data.js";
 // An old offline data module can still supply its original entries during an
 // interrupted shell update. Extra names appear once the data refresh arrives.
 const { EVERYDAY_LOOKUP_ENTRIES, EVERYDAY_CHINESE_ALIASES = [] } = packagedEveryday;
@@ -13,6 +14,7 @@ const EXAMPLE_SOURCE = "原创例句·作者自查（精选义项）";
 const chinese = new Map(), canonicalEnglish = new Map(), englishForms = new Map();
 const reviewedCanonicalHeads = new Set();
 const supersededChineseHeads = new Set();
+const literalDictionaryHeads = new Set(LITERAL_DICTIONARY_HEADS.map(term => englishKey(term)));
 
 function spelling(value) {
   return value.normalize("NFKC").replace(/[‘’‛ʼ]/gu, "'").replace(/[“”„‟]/gu, '"')
@@ -30,6 +32,17 @@ function chineseKey(value) {
   return value.toLocaleLowerCase("en-US").replace(/\s+/gu, "").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "");
 }
 function englishKey(value) { return spelling(value).toLocaleLowerCase("en-US"); }
+/** Remove pasted quote/sentence decoration without deleting a lexical period.
+ * The generated collision index, rather than the length or case of a word,
+ * decides which literal heads need the verified main dictionary first. */
+export function literalDictionarySpelling(value) {
+  let clean = spelling(value);
+  for (let count = 0; count < 2; count++) {
+    clean = clean.replace(/^["']+|["']+$/gu, "").trim()
+      .replace(/[!?,;:。！？…，；：]+$/gu, "").trim();
+  }
+  return clean;
+}
 function decoratedEnglish(value) {
   let clean = value;
   // Two passes cover a closing quote followed by sentence punctuation, or the
@@ -163,7 +176,7 @@ function lookupChinese(query) {
 }
 
 /** Small, exact whole-query vocabulary lookup. No requests or word splitting. */
-export function searchEverydayDictionary(input, { limit = 20, offset } = {}) {
+export function searchEverydayDictionary(input, { limit = 20, offset, allowDottedFallback = false } = {}) {
   const normal = safeInput(input);
   if (!normal) return null;
   let query, rows, form;
@@ -172,6 +185,10 @@ export function searchEverydayDictionary(input, { limit = 20, offset } = {}) {
     if ([...query].length > 50) return null;
     rows = lookupChinese(query);
   } else {
+    // A punctuation-bearing canonical head is not a decorated different word.
+    // The caller may request the old candidate only as a fallback after a
+    // verified literal read; this option never grants it a different meaning.
+    if (!allowDottedFallback && literalDictionaryHeads.has(englishKey(literalDictionarySpelling(normal)))) return null;
     form = decoratedEnglish(normal);
     query = englishKey(form);
     const canonical = canonicalEnglish.get(query);

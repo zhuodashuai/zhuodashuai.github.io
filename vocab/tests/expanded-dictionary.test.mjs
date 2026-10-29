@@ -197,6 +197,45 @@ test("literal punctuation headword is retained and normalized terminal punctuati
   assert.equal((await searchExpandedDictionary("mar", data)).results[0].partOfSpeech, "verb");
 });
 
+test("a literal dotted head wins before the everyday abbreviation and its examples", async () => {
+  for (const query of ["Apr.", "apr.", "Ａｐｒ．", '"Apr."', '“Apr.”?!']) {
+    const data = fixture([entry("Apr.", "四月", { partOfSpeech: "abbreviation" })]);
+    const result = await searchExpandedDictionary(query, data);
+    assert.equal(result.results[0].term, "Apr.", query);
+    assert.match(result.results[0].meaning, /四月/u, query);
+    assert.ok(!/年百分率/u.test(result.results[0].meaning), query);
+    assert.equal(data.requests.length, 2, "only the manifest and literal shard are needed");
+  }
+  const unused = fixture();
+  assert.equal((await searchExpandedDictionary("APR", unused)).results[0].term, "APR");
+  assert.equal(unused.requests.length, 0, "undecorated packaged abbreviation stays instant");
+});
+
+test("a dotted packaged query falls back only after the literal canonical check, without reading normalized shards", async () => {
+  const data = fixture([entry("unrelated", "无关")]);
+  const result = await searchExpandedDictionary("APR.", data);
+  assert.equal(result.results[0].term, "APR");
+  assert.match(result.results[0].meaning, /年百分率/u);
+  assert.equal(data.requests.length, 2);
+  const broken = fixture();
+  broken.fetchImpl = async () => new Response("unavailable", { status: 503 });
+  await assert.rejects(searchExpandedDictionary("Apr.", broken));
+});
+
+test("quote and punctuation normalization cannot erase an unsafe original protocol or tag", async () => {
+  const data = fixture();
+  for (const input of ["javascript:", "Ｊａｖａｓｃｒｉｐｔ：", '"javascript:"?!', "＜script＞", "<happy>"]) {
+    await assert.rejects(searchExpandedDictionary(input, data), /请输入/u, input);
+  }
+  assert.equal(data.requests.length, 0);
+});
+
+test("literal question punctuation retains priority over a different normalized phrase", async () => {
+  const data = fixture([entry("What have we got to lose?", "我们有什么可失去的呢"),
+    entry("What have we got to lose", "另一个未加问号的原始词头")]);
+  assert.equal((await searchExpandedDictionary("What have we got to lose?", data)).results[0].term, "What have we got to lose?");
+});
+
 test("real dotted canonical heads do not depend on an unused normalized shard", async t => {
   const root = new URL("../data/expanded-dictionary/", import.meta.url);
   const manifestBytes = await readFile(new URL("manifest.json", root));
