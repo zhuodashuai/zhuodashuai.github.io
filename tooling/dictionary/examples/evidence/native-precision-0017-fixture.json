@@ -1,0 +1,1480 @@
+{
+  "schemaVersion": 1,
+  "kind": "four-native-selected-pair-precision-corrections; not new-head or raw-source migration",
+  "baseCommit": "8163bc392e82c1f442e4b263c319dc7362300686",
+  "baseTree": "16d7dec67087e58f72af1dcaba18c2e8f341798e",
+  "baselineCorrectionRows": [
+    {
+      "term": "AAF",
+      "expectedEntrySha256": "236b743e97a5681c6e31199f0b37c7e82b99852e877167064b8805adca89898a",
+      "canonicalId": 6641027,
+      "canonicalSourceSha256": "7662d9deed6a652e4fe3cab572dffae263a8e1d8c990d1bbbf15bfce9fc9597e",
+      "senseId": "example:AAF",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "美国原陆军航空队的缩写（Army Air Forces）",
+      "en": "Her grandfather served in the AAF during the Second World War.",
+      "zh": "她的祖父在第二次世界大战期间曾在美国陆军航空队服役。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "AFSK",
+      "expectedEntrySha256": "dd185787865e50bba79b7a61757fb8e7c4a2b11a201436c199d47089e709bcde",
+      "canonicalId": 7308692,
+      "canonicalSourceSha256": "2ab07c547f8921ca81018a4b83e67af73b33cf266d4b99cce1ee794cc712c802",
+      "senseId": "example:AFSK",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "AFSK：音频频移键控",
+      "en": "The modem used AFSK to send the short message over the radio link.",
+      "zh": "调制解调器使用音频频移键控，通过无线电链路发送了那条短消息。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "Aanderaa",
+      "expectedEntrySha256": "c37346c98cdd78a7a300dd739854b9cf6fa9f83917ce66819f2ee374f74e8c07",
+      "canonicalId": 6646564,
+      "canonicalSourceSha256": "80fd789c15fa063a0db86c2be8a75e62ea4e5dfba5c34c0e1e33fe3c567d7a1a",
+      "senseId": "example:Aanderaa",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "安德拉；本例指Aanderaa仪器品牌或企业名",
+      "en": "The team lowered the Aanderaa current meter into the water beside the pier.",
+      "zh": "研究团队把安德拉海流计放入码头旁的水中。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "BAL",
+      "expectedEntrySha256": "f82089c6cf557a792f2a048fe5c275ab3fbdb918f6b000df1cf095727e00d56e",
+      "canonicalId": 6245856,
+      "canonicalSourceSha256": "bd5209128c295cb5a7a87eee0a8fead62e3b89273c16ee43fba3937f00e40b73",
+      "senseId": "example:BAL",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "基本汇编语言的缩写（basic assembly language）",
+      "en": "She wrote the small sorting routine in BAL.",
+      "zh": "她用基本汇编语言编写了那段简短的排序程序。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "BMA",
+      "expectedEntrySha256": "bfc63b9d3c03330ca6d97b3f29d0e70b6b0b38ceea5814dd5fe4f072dccc70ec",
+      "canonicalId": 2824187,
+      "canonicalSourceSha256": "c84356aea3158e6ac58aca3bbeb20686a3d518d2a1476ddb32cf20fa7400ed25",
+      "senseId": "example:BMA",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "英国医学会（British Medical Association）的缩写",
+      "en": "The journalist requested a statement from the BMA.",
+      "zh": "记者请求英国医学会提供一份声明。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "FPR",
+      "expectedEntrySha256": "13ed442d842323e936e6413d07a7189e055aeb6bafe24b3aee93c4b2bf7fb782",
+      "canonicalId": 4620091,
+      "canonicalSourceSha256": "5e8f28630cd35463150f28b8b4111d4fa26850fab6aa69fad7d98e537084cd47",
+      "senseId": "example:FPR",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "荧光漂白恢复的缩写（fluorescence photobleaching recovery，较旧术语）",
+      "en": "The researchers used FPR to measure the mobility of labelled molecules in the membrane.",
+      "zh": "研究人员用荧光漂白恢复法测量膜内标记分子的移动性。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "FU",
+      "expectedEntrySha256": "b9366be3b9b23d147f1d52efcf2acfc721ae45664293a99ee4804b89bb51792e",
+      "canonicalId": 4967044,
+      "canonicalSourceSha256": "ed192cabb624a1ff98007eac50580f33f2e5c3dd354ba1f7a57a2e4716da4f6a",
+      "senseId": "example:FU",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "功能单元的缩写（functional unit）",
+      "en": "The instruction had to wait until the FU finished its current operation.",
+      "zh": "这条指令必须等到功能单元完成当前运算后才能执行。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "GF",
+      "expectedEntrySha256": "e4808d3602a505c36837a84f0afc1d44d31674dd7ff3e58fcd5494963f1c52c7",
+      "canonicalId": 5636000,
+      "canonicalSourceSha256": "687a92614e41c8697bfa40faf61739758d3b4c5054b213cb4335686af6b2aba9",
+      "senseId": "example:GF",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "生长因子的缩写（growth factor）",
+      "en": "The researchers measured GF activity in the cell-culture medium.",
+      "zh": "研究人员测量了细胞培养基中生长因子的活性。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "GMS",
+      "expectedEntrySha256": "ad8c25472af06fc26e54a6413be504c76592dcf78518f1840ca431b10706cfec",
+      "canonicalId": 6561318,
+      "canonicalSourceSha256": "bcff0af77b834f62b753e4aeadc219428433744dc9e2bf9f97a9879bf37da633",
+      "senseId": "example:GMS",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "综合百货商店的缩写（general merchandise store）",
+      "en": "We bought groceries and a winter coat at the same GMS.",
+      "zh": "我们在同一家综合百货商店买了食品杂货和一件冬季外套。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "HMG",
+      "expectedEntrySha256": "6eaac7540cd73ca1a496f30745d54187129ef04e837bee83bb25287299337d70",
+      "canonicalId": 5433355,
+      "canonicalSourceSha256": "07ebbe5cb17d77e1e2de2ec70da3bb87a3e55b9cac7105ddefeacb5beac0748f",
+      "senseId": "example:HMG",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人绝经期促性腺激素的缩写（本例限药物或激素名称阅读）",
+      "en": "Her doctor discussed HMG as part of the fertility treatment.",
+      "zh": "医生与她讨论了生育治疗中使用人绝经期促性腺激素的事。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "IOM",
+      "expectedEntrySha256": "f83bacdb753ab68b109c38e1c2b72e257992d5d13e79cd55e5dbccd174bbc935",
+      "canonicalId": 6141780,
+      "canonicalSourceSha256": "bc64941fe2da5e6cbb59138e456c660b681ef4b2cde47e45293e2c19a4d36e02",
+      "senseId": "example:IOM",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "马恩岛的缩写（Isle of Man）",
+      "en": "They spent a week exploring the IOM by bicycle.",
+      "zh": "他们骑着自行车游览了马恩岛一周。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "JNA",
+      "expectedEntrySha256": "2e1f9ef51179bf910d7e538f578cad60b4dd66c0b12c34d7280e4239cc99d0b5",
+      "canonicalId": 4597272,
+      "canonicalSourceSha256": "285416971ce3443f1c3129edda4067f35e895399f3c9d2f40de9b8eca8da3f32",
+      "senseId": "example:JNA",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "耶拿解剖学名词的缩写（Jena Nomina Anatomica，历史术语体系）",
+      "en": "The two atlases used different anatomical names because only one followed JNA.",
+      "zh": "这两本图谱使用了不同的解剖学名称，因为只有一本遵循耶拿解剖学名词体系。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "KI",
+      "expectedEntrySha256": "4ba7b482e6cac71385eabc1967f0809d437c4da71ee753c679f6656d5e0413b6",
+      "canonicalId": 6619193,
+      "canonicalSourceSha256": "596d6059f041c7fa1aeed6887588986b72ccecfa532f3efd47224a8b15796188",
+      "senseId": "example:KI",
+      "exampleIndex": 0,
+      "partOfSpeech": "formula",
+      "meaningZh": "碘化钾的化学式",
+      "en": "She weighed the KI crystals before dissolving them in water.",
+      "zh": "她先称量了碘化钾晶体，然后将其溶于水。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "LCH",
+      "expectedEntrySha256": "d4a63cb94e9e07cfb1460733060cf591670e24527f5ed8667f047ab324fb4250",
+      "canonicalId": 4631024,
+      "canonicalSourceSha256": "038455433edfe9c587e7bec5f50aec4b0a8a5460e7949b2454f2215ffc58c864",
+      "senseId": "example:LCH",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "小扁豆血凝素的缩写（Lens culinaris hemagglutinin）",
+      "en": "LCH bound to several glycoproteins on the cell surface.",
+      "zh": "小扁豆血凝素与细胞表面的几种糖蛋白结合。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "MEM",
+      "expectedEntrySha256": "99ec8f7abda7f9132c0a01420ecc0759d9426d0a154e9f4e398dd20166310ff0",
+      "canonicalId": 6500094,
+      "canonicalSourceSha256": "977e8a44e8bb78e226334063240efe5ab680ed5fef39a8f7ecdb0e71ffb2f2d8",
+      "senseId": "example:MEM",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "显示内存使用情况的DOS命令名称",
+      "en": "He ran MEM to check how much memory was available in DOS.",
+      "zh": "他运行了MEM命令，查看DOS系统中还有多少可用内存。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "MFI",
+      "expectedEntrySha256": "b45e2eaa370de1a135e099c31b1c10a4817becf3f5385194c3d96d87e72b05c5",
+      "canonicalId": 6565545,
+      "canonicalSourceSha256": "cace73dc083928e3ea59e5a93d2937a5a830c9f14d3d4a65b851bf766674770d",
+      "senseId": "example:MFI",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "平均荧光强度的缩写（mean fluorescence intensity）",
+      "en": "The MFI was higher in the stained sample than in the unstained sample.",
+      "zh": "染色样品的平均荧光强度高于未染色样品。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "MTM",
+      "expectedEntrySha256": "57d766715a3fcf73fdfa98979f5f0a4f0cba100bc57b87553cacc29f5bc00919",
+      "canonicalId": 6508843,
+      "canonicalSourceSha256": "9b2e2f7938a874ec7cc683c59b525724e341f6f2243e82dd8da7e6ac29310354",
+      "senseId": "example:MTM",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "方法时间测量的缩写（Methods-Time Measurement）",
+      "en": "The analyst used MTM to estimate how long the assembly task would take.",
+      "zh": "分析人员使用操作方法时间测量来估算那项装配任务需要多长时间。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "NAC",
+      "expectedEntrySha256": "b5abd4137a142c80e9ee194853634a4d3799dbb4c8e23099536762f0b56bfe11",
+      "canonicalId": 6473961,
+      "canonicalSourceSha256": "22525ff375fdab06bec2e4eb7f20335a7eddaa7b3e7cacd1803c93b359fdcc5b",
+      "senseId": "example:NAC",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "网络准入控制的缩写（network admission control）",
+      "en": "The NAC system blocked the noncompliant laptop from joining the network.",
+      "zh": "网络准入控制系统阻止了那台不符合要求的笔记本电脑接入网络。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "NCP",
+      "expectedEntrySha256": "0b8036be0d55cfaeab13cdce38ed4509b217c5a13816134817e17f1337aed0c3",
+      "canonicalId": 6323730,
+      "canonicalSourceSha256": "bfa9d0bdbde3ce952d891b873e709d59de329b0d0d53318c80ecf76f4924576b",
+      "senseId": "example:NCP",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "网络控制程序的缩写（network control program）",
+      "en": "The engineer checked the NCP configuration before reconnecting the communication controller.",
+      "zh": "工程师在重新连接通信控制器之前检查了网络控制程序的配置。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "OE",
+      "expectedEntrySha256": "864c28a2faf9a33498643c9d5b4899d60d70b5fd4103dbd2c5f3044118b43926",
+      "canonicalId": 4387489,
+      "canonicalSourceSha256": "8898b8d38876e0346e9a8be50dcbac108484dd8e570ac0a1e066da29fa3fe613",
+      "senseId": "example:OE",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "古英语的缩写（Old English）",
+      "en": "The students compared an OE poem with its modern English translation.",
+      "zh": "学生们比较了一首古英语诗与它的现代英语译文。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "PCW",
+      "expectedEntrySha256": "0ee2acefdb04b6952e4483e94c202f36768dc7d3263d0ca11b94fc68e605cfbf",
+      "canonicalId": 6411625,
+      "canonicalSourceSha256": "59c15aef0836fa9a0e53ad7bca3c1150815513886e96669c09b0e7c551355653",
+      "senseId": "example:PCW",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "工艺冷却水的缩写（process cooling water）",
+      "en": "The PCW system carried heat away from the equipment.",
+      "zh": "工艺冷却水系统带走了设备产生的热量。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "PFK",
+      "expectedEntrySha256": "1ceb40a4aad0ad297d167cf22412b2e2367f0021e2aaf1109773f9b15b928314",
+      "canonicalId": 4586944,
+      "canonicalSourceSha256": "e7ef4e6d33848d1420f69acfb6b5dc30e66cc722d71fbb5e9d55d9f2edabc27f",
+      "senseId": "example:PFK",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "磷酸果糖激酶的缩写（phosphofructokinase）",
+      "en": "The second sample showed lower PFK activity than the first.",
+      "zh": "第二份样品的磷酸果糖激酶活性低于第一份。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "PMT",
+      "expectedEntrySha256": "71e268cf57ad1e737effac588101af25d727337d8ab08c358a83e27c3786fc10",
+      "canonicalId": 5542678,
+      "canonicalSourceSha256": "c509cba6651ff0ed0a80968c290155a0d3686a5378d94bdb59cd479f01b562ef",
+      "senseId": "example:PMT",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "经前紧张的缩写（premenstrual tension）",
+      "en": "She described her PMT symptoms during the appointment.",
+      "zh": "她在就诊时描述了自己的经前紧张症状。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "RP",
+      "expectedEntrySha256": "680f74b64d7249280bcee87c6a630ca6a6a9d450b6cea2cdbe68dfdd888384e7",
+      "canonicalId": 2911743,
+      "canonicalSourceSha256": "75c171e3413f291c10a476bbca8e378e4c8a4af33fbb8e256a95643fab2d9ffb",
+      "senseId": "example:RP",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "阅读打印机的缩写（reader/printer；本例指设备）",
+      "en": "She used the RP (reader/printer) to print a copy of the microfilm image.",
+      "zh": "她用阅读器／打印机把缩微胶片上的影像打印了一份。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "SK",
+      "expectedEntrySha256": "cc4a539813424305460ee1a38dc5facec606a7d16b9bcb4374a86614875ec7b2",
+      "canonicalId": 6486091,
+      "canonicalSourceSha256": "9283cab0d2d8ad653b0331fda02aaa21e8924059cfd187c123003a15000aeb7a",
+      "senseId": "example:SK",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "链激酶的缩写（streptokinase，本例限名称阅读）",
+      "en": "The researchers compared the SK activity in the two samples.",
+      "zh": "研究人员比较了两份样品中链激酶的活性。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "SNA",
+      "expectedEntrySha256": "ddeb6b05b490a11d8860ec57799afb90c71f0f867e1fdedb75c2ca15c6e1c957",
+      "canonicalId": 4392319,
+      "canonicalSourceSha256": "f82fa635b8c8f32a921a984b795f4e68fe5f31dea396e39c4e34955b26ed6728",
+      "senseId": "example:SNA",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "系统网络体系结构的缩写（Systems Network Architecture）",
+      "en": "The new server exchanged data with older terminals over the SNA network.",
+      "zh": "新服务器通过采用SNA体系结构的网络与旧终端交换数据。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "Sak",
+      "expectedEntrySha256": "a0cbf002c8c7ee63a4f3228db754a5723055e93ef334e101bfef746b47effcaf",
+      "canonicalId": 5655734,
+      "canonicalSourceSha256": "09ba4cfc46adffa15d6c7a629e2db9627042e30860f0f3e403eb6e790643a89c",
+      "senseId": "example:Sak",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "安全注意键的缩写（secure attention key）",
+      "en": "On the configured AIX terminal, pressing the SAK brought up a new login screen.",
+      "zh": "在那台已完成相应配置的AIX终端上，按下安全注意键后出现了新的登录画面。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "UNO",
+      "expectedEntrySha256": "25696da49789bbc4cc4a8cf9e4eabc8f3cfd6c677b2651dfc9c9fd9f756b9a03",
+      "canonicalId": 3812975,
+      "canonicalSourceSha256": "9f9679222aae6fcfd19a4b28910313c8330425c33d4bcc2f9576845c08721a0f",
+      "senseId": "example:UNO",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "联合国组织的缩写（United Nations Organization）",
+      "en": "The delegates called on the UNO to help mediate the dispute.",
+      "zh": "代表们呼吁联合国帮助调解争端。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "a-scan",
+      "expectedEntrySha256": "6e4854d975a06c1a0b1545b3d78540b6d22cd824518fbc8e26131ce96cfb6df2",
+      "canonicalId": 6635090,
+      "canonicalSourceSha256": "ca741542b0be945c447f9ceb666e49f029be360ef8da5da453a83bd2689b5dea",
+      "senseId": "example:a-scan",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "A型扫描；以幅度等方式显示回波的扫描形式（本例限名称）",
+      "en": "The A-scan showed two distinct echo peaks.",
+      "zh": "A型扫描图上显示出两个清晰可辨的回波峰。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "aacd",
+      "expectedEntrySha256": "db1268942136989af7e37271bce7b2de8d27526a1b4044bbc811a4c57b416785",
+      "canonicalId": 6639368,
+      "canonicalSourceSha256": "f4f188999625e0afcb9bff311228033d81fc3e1c14dbfc3e6b294d2009b2c1f8",
+      "senseId": "example:aacd",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "年龄相关认知衰退的缩写（aging-associated cognitive decline）",
+      "en": "The study compared memory scores in participants with and without AACD.",
+      "zh": "这项研究比较了有年龄相关认知衰退和没有这种情况的参与者的记忆测试得分。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "aasl",
+      "expectedEntrySha256": "131c59887e12a8ed66267c83a6f2428d94bc025eabfd1d6cf2204f8c7405dd51",
+      "canonicalId": 6652320,
+      "canonicalSourceSha256": "0e36ef47318ab73c83a410842c384b3d4e06f6718f4b43bde9c165b0ccd64504",
+      "senseId": "example:aasl",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "防空探照灯的旧缩写（antiaircraft searchlight）",
+      "en": "The AASL beam swept across the night sky as the crew searched for aircraft.",
+      "zh": "探照灯操作人员搜寻飞机时，防空探照灯的光束扫过夜空。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "abbi",
+      "expectedEntrySha256": "fc7ce1a62931708fb2dcb9a2ca4403778c1f96ab740377a79f547ec1e6cafd37",
+      "canonicalId": 6670019,
+      "canonicalSourceSha256": "bc30b7ec0fbaf8edab0c5cd3ad1ac15313872d231e5f64b45b58752b95ba9e43",
+      "senseId": "example:abbi",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "高级乳腺活检设备系统的缩写（Advanced Breast Biopsy Instrumentation，历史设备名称）",
+      "en": "The researchers examined tissue samples obtained with the ABBI system.",
+      "zh": "研究人员检查了使用高级乳腺活检设备系统取得的组织样本。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "abdomino",
+      "expectedEntrySha256": "7c934a8ada130c3e71137e7bcee3c8c25eee15e2021522f6b80fe40ab394d69c",
+      "canonicalId": 6678018,
+      "canonicalSourceSha256": "4d56de7575803ec9fc6a4d111a464d9fc06403f90c1636e16411381e330b6205",
+      "senseId": "example:abdomino",
+      "exampleIndex": 0,
+      "partOfSpeech": "combining form",
+      "meaningZh": "腹部的；表示腹部的构词成分（常写abdomino-）",
+      "en": "The diaphragm forms a boundary between the thoracic and abdominopelvic cavities.",
+      "zh": "膈肌形成了胸腔与腹盆腔之间的分界。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "abgs",
+      "expectedEntrySha256": "fb6245d17636858055f972058770ce9eec020233db607d375c3ad0a11ba9ad67",
+      "canonicalId": 6694444,
+      "canonicalSourceSha256": "a8031f182713ae18464c05ee15256aae8f567d8f32e35dc2b36c334afe1e03d8",
+      "senseId": "example:abgs",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "动脉血气的复数缩写（arterial blood gases）",
+      "en": "The ABGs showed a change in oxygen and carbon dioxide levels.",
+      "zh": "动脉血气检查结果显示，氧气和二氧化碳水平发生了变化。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "abietinal",
+      "expectedEntrySha256": "63cfd0684afa86bb47f6e70da52f9685d1bd8eb4688d0ab6521f036f7d2e1880",
+      "canonicalId": 6699618,
+      "canonicalSourceSha256": "a29491291bf1a66c9aa22581ee5ceb9c701ee899cd55c1bd6470ea3172064bd8",
+      "senseId": "example:abietinal",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "枞醛；一种与松脂成分有关的化合物名称",
+      "en": "The chemist separated abietinal from the other compounds in the sample.",
+      "zh": "化学研究人员将样品中的枞醛与其他化合物分离开来。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "ablatio",
+      "expectedEntrySha256": "9fd0224f5917fd227f1fcae1bfecb0f9bfc36f7380e32d07ae66372f3e14d532",
+      "canonicalId": 6711455,
+      "canonicalSourceSha256": "f522f28a4c3e25ac381b88fe36d5876ba17beda12667eb23dbfa51345131b019",
+      "senseId": "example:ablatio",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "脱离；切除（拉丁语来源的医学旧词）",
+      "en": "The study followed patients for a year after surgery for ablatio retinae.",
+      "zh": "这项研究在患者接受视网膜脱离手术后随访了一年。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "abruptio",
+      "expectedEntrySha256": "12431bd5b9818cad69cd66e7cde7416b587eac4500a539bcdf824c8e7a0842a6",
+      "canonicalId": 6742771,
+      "canonicalSourceSha256": "366c3e81603fdac0884278305f0729b0ef9e91411ce690f90d9c1c133610abff",
+      "senseId": "example:abruptio",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "分离；脱离（拉丁语来源用词）",
+      "en": "Her abruptio placentae was accompanied by heavy bleeding.",
+      "zh": "她的胎盘早剥伴有大量出血。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "anhedonic",
+      "expectedEntrySha256": "34dc4f19f3ef22db6911009c07f2797c6c10cbd028ffb7c42ce855ab156d5d5c",
+      "canonicalId": 8276970,
+      "canonicalSourceSha256": "e2b814cd9c0671ae9fa7f7ac40ddd51bbf470959c0550a206f37dff1002f3b91",
+      "senseId": "example:anhedonic",
+      "exampleIndex": 0,
+      "partOfSpeech": "adjective",
+      "meaningZh": "anhedonic：快感缺失的；难以体验愉悦的",
+      "en": "During that anhedonic period, even her favourite music brought her no pleasure.",
+      "zh": "在那段快感缺失的时期，就连她最喜欢的音乐也无法给她带来愉悦。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "bem",
+      "expectedEntrySha256": "a857e90b867963dc8642add943a7ef4e7fe71acb839109d73609b7d97c2fcf10",
+      "canonicalId": 5889943,
+      "canonicalSourceSha256": "e5bead14e9ee85bb9ee05db87970ce0ba06f74f4259d2d502994fe6b60598425",
+      "senseId": "example:bem",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "大英帝国奖章的缩写（British Empire Medal）",
+      "en": "She received the BEM for years of voluntary work in her community.",
+      "zh": "她因多年在社区从事志愿工作而获颁大英帝国奖章。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "buss",
+      "expectedEntrySha256": "94a755d20d63639b9f91558efe3ebee9d3fb6836b89e4e8ff5d696d83b089686",
+      "canonicalId": 3795646,
+      "canonicalSourceSha256": "0ec9d7c3db3039f4bac35bb1f1e6ae917937f9a0f0fa56892573064aaacb1194",
+      "senseId": "example:buss",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "亲吻（旧用或文学用语）",
+      "en": "She gave the child a quick buss on the cheek.",
+      "zh": "她在孩子的脸颊上匆匆吻了一下。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "caldwell",
+      "expectedEntrySha256": "8d1dae45ed4b9ab15a1c63fe44fc746457f22c3419813983a394cf5fc8bf602f",
+      "canonicalId": 3590533,
+      "canonicalSourceSha256": "a97b1183a88fe482bc0b1a52d3d0d9360c7d35419436f11e531fd333880e3c31",
+      "senseId": "example:caldwell",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "考德威尔（姓氏，规范写作Caldwell）",
+      "en": "Caldwell lent us a folding table for the sale.",
+      "zh": "考德威尔借给我们一张折叠桌，用于售卖活动。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "cec",
+      "expectedEntrySha256": "d2717872e78724404f735fc9fdcd191a03f90bfe0c73f23b2cb5efd1696a0d28",
+      "canonicalId": 5834562,
+      "canonicalSourceSha256": "876bea2d1df387528bd779991cdfb56328ffc0ffe08f3acf95a82585e536a97f",
+      "senseId": "example:cec",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "阳离子交换容量的缩写（cation exchange capacity）",
+      "en": "The laboratory measured the soil's CEC before comparing the two samples.",
+      "zh": "实验室先测量了土壤的阳离子交换容量，然后再比较两份样品。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "centrale",
+      "expectedEntrySha256": "eb0f924fe8bc498e5d35544910b248a3201c556b51eb143e887691d57215412b",
+      "canonicalId": 6625581,
+      "canonicalSourceSha256": "c1f3424c2e079de2223299e9f62293f2979f438ac7152e91ff130dc29ec9f47c",
+      "senseId": "example:centrale",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "中央骨；某些解剖学命名中的中央小骨",
+      "en": "The palaeontologist measured the centrale in the fossil wrist.",
+      "zh": "古生物学家测量了化石腕部的中央骨。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "charade",
+      "expectedEntrySha256": "e1419434827f6467eb5bd6bdfdf43204f4eb1829a155423ab86495e791f21236",
+      "canonicalId": 1143695,
+      "canonicalSourceSha256": "55478ce8281db8a8729f2fd4c3c42032c39b4a68730ebe9bf30b154ab7fe5764",
+      "senseId": "example:charade",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "伪装",
+      "en": "Their polite conversation was a charade hiding mutual distrust.",
+      "zh": "他们客气的交谈只是一种伪装，掩盖着彼此的不信任。",
+      "reviewer": "AI/everyday-examples-independent-precision-0014"
+    },
+    {
+      "term": "che",
+      "expectedEntrySha256": "739c07c967e3f99969bf003ad4a919fbb361698059143c7e84580e95f87e704b",
+      "canonicalId": 5030961,
+      "canonicalSourceSha256": "98dbb3e8b5061b558452cf3541b75ae69d3280ce4e8e2d282df2adfde03eab5c",
+      "senseId": "example:che",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "胆碱酯酶的缩写（cholinesterase，常写ChE）",
+      "en": "The laboratory measured ChE activity in both blood samples.",
+      "zh": "实验室测定了两份血液样品中的胆碱酯酶活性。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "collude",
+      "expectedEntrySha256": "e1ca390957cd210ef065f9f1a32ffe9d9ae97f428bb1ce4c3350f1cf8cb0c2e4",
+      "canonicalId": 1471081,
+      "canonicalSourceSha256": "cb17b1e62d7c9070f13768bf95068c87621107b95a8ba209d3b05dd957043c59",
+      "senseId": "example:collude",
+      "exampleIndex": 0,
+      "partOfSpeech": "verb",
+      "meaningZh": "串通",
+      "en": "The fictional officials collude to hide the missing records.",
+      "zh": "故事中的官员串通藏匿那些下落不明的档案。",
+      "reviewer": "AI/everyday_precision_0015_independent"
+    },
+    {
+      "term": "dignify",
+      "expectedEntrySha256": "9b9301f9687badc74a5004ee8833d0b7d53772127c2e96ed7baf9e07ba0c43ed",
+      "canonicalId": 1582671,
+      "canonicalSourceSha256": "64c3bf5cdfd496d4140b01aa1592d91d3e29a98b915e35777134f4e3d608e7fa",
+      "senseId": "example:dignify",
+      "exampleIndex": 0,
+      "partOfSpeech": "verb",
+      "meaningZh": "抬高某事物的地位或重要性",
+      "en": "I will not dignify that absurd accusation with a reply.",
+      "zh": "我不会回应那项荒谬的指控，免得让它显得值得重视。",
+      "reviewer": "AI/literal_precision_0016_independent"
+    },
+    {
+      "term": "efa",
+      "expectedEntrySha256": "d98070494790944ce6b096154d36318198f519564dad91758a508dddf4912491",
+      "canonicalId": 6484329,
+      "canonicalSourceSha256": "774bebf66805126b8e1d0269677bfbf42eb8ce960707f0a72a3e79ca33156fd8",
+      "senseId": "example:efa",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "必需脂肪酸的缩写（essential fatty acids）",
+      "en": "The researchers compared the EFA composition of the two seed oils.",
+      "zh": "研究人员比较了这两种种子油中的必需脂肪酸组成。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "eminence",
+      "expectedEntrySha256": "5c23da05a3d043ef09da598b053589e57175a8428f854da43d4d03e1402888b2",
+      "canonicalId": 1148499,
+      "canonicalSourceSha256": "b94ae646116236bf39dd9742a2d2f6fe824b89b59952ddbbaaacff20507b875b",
+      "senseId": "example:eminence",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "显赫地位",
+      "en": "The biography charts her rise to eminence in astronomy.",
+      "zh": "这部传记记述了她在天文学界获得显赫地位的历程。",
+      "reviewer": "AI/everyday-examples-independent-precision-0014"
+    },
+    {
+      "term": "entre",
+      "expectedEntrySha256": "bc930c1b3f54567bff7ff6f24657af195a83e6a76b2b79770d2f0022989b2958",
+      "canonicalId": 6137383,
+      "canonicalSourceSha256": "8a49bef67d10a72e7fc5da8352f0d839c81553bb9cf370704fa5877dc28d6ac1",
+      "senseId": "example:entre",
+      "exampleIndex": 0,
+      "partOfSpeech": "preposition",
+      "meaningZh": "在……之间（西班牙语或法语词，本例为外语讲解）",
+      "en": "“Está entre el banco y la farmacia,” Ana explained in Spanish, pointing at the map.",
+      "zh": "安娜指着地图用西班牙语解释道：“它在银行和药店之间。”",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "ezekiel",
+      "expectedEntrySha256": "25fb69599a898b195f84f4c89eabd716426262aaff5ca7517dda84493707f33a",
+      "canonicalId": 5865604,
+      "canonicalSourceSha256": "ee2f08477ba76e9520bc4b0ff289f7f474678d60d3666ae199169aa57c391b25",
+      "senseId": "example:ezekiel",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "以西结；本例指圣经中的先知Ezekiel",
+      "en": "The lecturer compared two depictions of Ezekiel.",
+      "zh": "讲师比较了两幅描绘以西结的作品。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "faire",
+      "expectedEntrySha256": "7a40749299661c8fda6f0977c7b3ed0d2b76f2027d7645099e26431d07d59376",
+      "canonicalId": 5772130,
+      "canonicalSourceSha256": "27e86f58ae6ec4ca77281708b65d318349c2a6f08ef6ff1bb948f2a9f566c849",
+      "senseId": "example:faire",
+      "exampleIndex": 0,
+      "partOfSpeech": "verb",
+      "meaningZh": "做；从事（法语动词，本例限外语讲解）",
+      "en": "“Je vais faire du pain,” the student said in French when the teacher asked about his plans.",
+      "zh": "老师问起他的计划时，学生用法语说：“我要做面包。”",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "fif",
+      "expectedEntrySha256": "85aa2a012b1465a88b11d3051a2ebb58b8deafe78ab938f5ee05a0c068f51ae9",
+      "canonicalId": 6554626,
+      "canonicalSourceSha256": "1be34aebe291cf9a19adeb893ed578b3649a1d1fef08af2bd9eac898d647e58b",
+      "senseId": "example:fif",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "反馈抑制因子的缩写（feedback inhibition factor）",
+      "en": "The team tested whether FIF could suppress the delayed immune response.",
+      "zh": "研究团队检验了反馈抑制因子是否会抑制迟发性免疫反应。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "frederic",
+      "expectedEntrySha256": "47aa50a1e4e05f479b9fb72f1544a5f1bc9fe0267b23337186040fcb0f607961",
+      "canonicalId": 3493779,
+      "canonicalSourceSha256": "e1113c717748dbed8273e08c5277796d7611d2f534deeba33c9c68333b106600",
+      "senseId": "example:frederic",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "弗雷德里克（男子名，规范写作Frederic）",
+      "en": "Frederic waited until everyone had found a seat.",
+      "zh": "弗雷德里克一直等到所有人都找到座位。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "hav",
+      "expectedEntrySha256": "09309b02df572f21541ed35932de599809b5e256bd31f244e79157772245b1a1",
+      "canonicalId": 4669468,
+      "canonicalSourceSha256": "ed0a172fe348f44a3463252f8f6f43903654963a33e231e3e97f735917d80ab8",
+      "senseId": "example:hav",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "甲型肝炎病毒（hepatitis A virus，HAV）",
+      "en": "The laboratory detected HAV in the wastewater sample.",
+      "zh": "实验室在污水样本中检测到了甲型肝炎病毒。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "headway",
+      "expectedEntrySha256": "12498cda9bc7d7b714f441f40cde622209820b62b1e462fff31114b58fe49c8c",
+      "canonicalId": 1275738,
+      "canonicalSourceSha256": "154ed50e9bd3aa978b360a527e87b2df7861409140046bb3a1a02037d73cea48",
+      "senseId": "example:headway",
+      "exampleIndex": 0,
+      "partOfSpeech": "noun",
+      "meaningZh": "进展",
+      "en": "We made little headway until the missing plans arrived.",
+      "zh": "在缺失的图纸送来之前，我们几乎没取得什么进展。",
+      "reviewer": "AI/everyday-examples-independent-precision-0014"
+    },
+    {
+      "term": "hitchen",
+      "expectedEntrySha256": "9ef485ea96c4035e8b15eff7c00ea8b5139ced74db46afc10c5db0394b8f92dc",
+      "canonicalId": 5668046,
+      "canonicalSourceSha256": "0b37ee72fc1bab1a7fb924867ad0992e440e08f5a4be698039173d828ed0001d",
+      "senseId": "example:hitchen",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "希钦（姓氏，规范写作Hitchen）",
+      "en": "Hitchen tied the newspapers into a neat bundle.",
+      "zh": "希钦把报纸整整齐齐地捆成一捆。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "hla",
+      "expectedEntrySha256": "8cd482ea286e173d5041efc72786c4173849f491aaf77ee78f0282bfec262dc4",
+      "canonicalId": 4247808,
+      "canonicalSourceSha256": "96e58f8c917d880454ec1deca6faef871656607a97e610e74da5e2f17d54c2eb",
+      "senseId": "example:hla",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人类白细胞抗原的缩写（human leukocyte antigen）",
+      "en": "The transplant team compared the donor's HLA type with the recipient's.",
+      "zh": "移植团队比较了供者与受者的人类白细胞抗原类型。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "hpv",
+      "expectedEntrySha256": "6a8ecb1fb78c03fa620e19b2b0428e4cb32734b9eea9fd042cc7cce2ab888581",
+      "canonicalId": 4592105,
+      "canonicalSourceSha256": "58014bd6fde9568c79678d2fc03c8ed4bbf071dc81553b5d4efd3ccf764c786e",
+      "senseId": "example:hpv",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "人乳头瘤病毒（human papillomavirus，HPV）",
+      "en": "The researchers studied how HPV enters cells.",
+      "zh": "研究人员研究了人乳头瘤病毒如何进入细胞。",
+      "reviewer": "AI/examples_runtime_release_audit"
+    },
+    {
+      "term": "hs",
+      "expectedEntrySha256": "eb41ca37d199103cd892ba6d96894f7ba75b907e348c955c2453b3db1284adc2",
+      "canonicalId": 6367276,
+      "canonicalSourceSha256": "9433089eb0965faf6991dbb20566aff077fc7f9ad1778ed2f65f60382efc7a68",
+      "senseId": "example:hs",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "高速的缩写（high speed）",
+      "en": "The technician tested the USB port in HS mode.",
+      "zh": "技术员测试了USB端口在高速模式下的工作情况。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "illocutionary",
+      "expectedEntrySha256": "a03a72c3760d4d9da908f8947df70a3820c5e0e1703130381863983178cb53f8",
+      "canonicalId": 5506615,
+      "canonicalSourceSha256": "bf7360495cdc0a43316919f81755133d82aa4dc138803bd8f7a444b80668a8e5",
+      "senseId": "example:illocutionary",
+      "exampleIndex": 0,
+      "partOfSpeech": "adjective",
+      "meaningZh": "言外行为的；涉及话语所实施行为的（语言学）",
+      "en": "The class discussed the illocutionary force of a polite request.",
+      "zh": "课堂讨论了一句礼貌请求所具有的施事效力。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "immunize",
+      "expectedEntrySha256": "3a088b2c7e1296351c107a761e6adc5fc33ccabe317554a57ca87f01c8e2fa26",
+      "canonicalId": 1143625,
+      "canonicalSourceSha256": "0fed0df0a0b0b1829f527afb0c4232ecb6cf7c78e71335c86c6e962a4946f2ce",
+      "senseId": "example:immunize",
+      "exampleIndex": 0,
+      "partOfSpeech": "verb",
+      "meaningZh": "使获得免疫",
+      "en": "The archive includes plans to immunize cattle against disease.",
+      "zh": "档案中收有使牛对疾病产生免疫力的计划。",
+      "reviewer": "AI/everyday-examples-independent-precision-0014"
+    },
+    {
+      "term": "magnus",
+      "expectedEntrySha256": "57584ae0447345cc09599ad1552e22fb2d003b85dd24da651d769dff2c62db1e",
+      "canonicalId": 2440950,
+      "canonicalSourceSha256": "9b90c805a2c6fb34c104605fd17a8b42383937d8adcc054d6e51a1017e877334",
+      "senseId": "example:magnus",
+      "exampleIndex": 0,
+      "partOfSpeech": "adjective",
+      "meaningZh": "大的（拉丁语形容词；本例限解剖学名称中的magnus）",
+      "en": "The lecturer pointed to the adductor magnus on the diagram.",
+      "zh": "讲师指着图上的大收肌。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "meager",
+      "expectedEntrySha256": "e98fe269d450c0192d6f515a19338919eb4612602e41af7abfea4629588c85f5",
+      "canonicalId": 1253892,
+      "canonicalSourceSha256": "847d645f8036be63ef8a428a023b8cafa90d4e30bc69b62044e99fc1bb12906e",
+      "senseId": "example:meager",
+      "exampleIndex": 0,
+      "partOfSpeech": "adjective",
+      "meaningZh": "少得不足的",
+      "en": "The hikers shared their meager supply of chocolate.",
+      "zh": "徒步者们分吃了他们那点少得可怜的巧克力。",
+      "reviewer": "AI/everyday-examples-independent-precision-0014"
+    },
+    {
+      "term": "ming",
+      "expectedEntrySha256": "d251ddd3159cd8d185f788df70905835c9c35f870853b7111e05d0d0f445f9d0",
+      "canonicalId": 3770128,
+      "canonicalSourceSha256": "a9111142970e1e159636491f8381d286f91b35cc69d7c2ef0f3bbdad440e9715",
+      "senseId": "example:ming",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "明；本例指中国明朝（规范写作Ming）",
+      "en": "The museum placed the Ming bowl in a softly lit case.",
+      "zh": "博物馆把那只明代碗放在一个灯光柔和的展柜里。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "noo",
+      "expectedEntrySha256": "c89bdbf0c0982d4fac2bab9b58f8f3ccfa67d70f302324563b974efac584048a",
+      "canonicalId": 5219343,
+      "canonicalSourceSha256": "dcb1e0ac1ed584cdad571df940323713c97bedb315aed2c72178eef632652111",
+      "senseId": "example:noo",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "美国海军海洋局名称的缩写（Navy Oceanographic Office，历史资料用语）",
+      "en": "The team compared its depth measurements with data supplied by the NOO.",
+      "zh": "团队将自己的水深测量结果与美国海军海洋局提供的数据进行了比较。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "queensberry",
+      "expectedEntrySha256": "bc86d9d49743ba082ed14e84254fbbb39e7b9830a1b72d171732a7d18ab04a93",
+      "canonicalId": 5728766,
+      "canonicalSourceSha256": "3cc821f4bc778766ca5462ff4d9eb777922774ba47310047fef3a76d2a4a1d93",
+      "senseId": "example:queensberry",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "昆斯伯里（姓氏，规范写作Queensberry）",
+      "en": "Queensberry carried the heavy box into the storeroom.",
+      "zh": "昆斯伯里把沉重的箱子搬进了储藏室。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "rk",
+      "expectedEntrySha256": "cda5c1bdf4233cdcfc40db32a313e3a51d6f11bf61f81ceb62ed5d3e4f15e2e6",
+      "canonicalId": 6496218,
+      "canonicalSourceSha256": "6dcd32494acef71928188a47008dad52d8dde1474639b11c35a483bc4c72cef9",
+      "senseId": "example:rk",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "放射状角膜切开术的缩写（radial keratotomy，历史医疗术语）",
+      "en": "She asked the ophthalmologist about the long-term effects of RK.",
+      "zh": "她向眼科医生询问了放射状角膜切开术的长期影响。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "sce",
+      "expectedEntrySha256": "da40735e639fda977ef0c6f81f22164ed434e900ac3be3bab5b422492a876dd8",
+      "canonicalId": 6263522,
+      "canonicalSourceSha256": "9379392d375ca4556f63273ba62bc9cbbe59800a1b29691bbdcc26d5c3047425",
+      "senseId": "example:sce",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "索尼电脑娱乐的旧简称（Sony Computer Entertainment）",
+      "en": "SCE announced a new game at the show.",
+      "zh": "索尼电脑娱乐在展会上公布了一款新游戏。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "spf",
+      "expectedEntrySha256": "aa5baa50d3c050ea1baff078fc103688f9837a49b03efea9b86f5f658156cc1a",
+      "canonicalId": 5557168,
+      "canonicalSourceSha256": "a1329697ed0987b0a60efe15e814e65eb6736c99749468df8cd3f7641ffd6902",
+      "senseId": "example:spf",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "防晒系数的缩写（sun protection factor）",
+      "en": "She compared the SPF values on the two bottles of sunscreen.",
+      "zh": "她比较了两瓶防晒霜的防晒系数。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "sud",
+      "expectedEntrySha256": "051ebc1fe5fbc16c5d8b387ed2611242613488b6c51f3da43524fe23f4d6ca5a",
+      "canonicalId": 4884003,
+      "canonicalSourceSha256": "30250cd918bbb8fd1960afda767c7b5d3762559f4b2da56540d3e189426aa69e",
+      "senseId": "example:sud",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "突然意外死亡的缩写（sudden unexpected death）",
+      "en": "The study compared the circumstances of SUD cases in two regions.",
+      "zh": "这项研究比较了两个地区突然意外死亡病例的发生情况。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "toynbee",
+      "expectedEntrySha256": "96802c32719617cd1229c67af89897c531f4571da309f9265b39be3096a8273b",
+      "canonicalId": 5073597,
+      "canonicalSourceSha256": "2279360afec50b0c9405ab1b3e57cd9c6a932e7374a3dad3627c02f1cb8163ed",
+      "senseId": "example:toynbee",
+      "exampleIndex": 0,
+      "partOfSpeech": "proper noun",
+      "meaningZh": "托因比（姓氏，规范写作Toynbee）",
+      "en": "Toynbee waited outside while the librarian fetched the book.",
+      "zh": "图书管理员去取书时，托因比在外面等候。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    },
+    {
+      "term": "vengeful",
+      "expectedEntrySha256": "cdeee4bb438a804a8b69b4722d6e8bff3e64fabaee386c62adb0cd2d9c89b5ca",
+      "canonicalId": 1404749,
+      "canonicalSourceSha256": "f32fa80718d72fefb2c644877ca6903ddfa9744ab068c4f300b7104ff9193967",
+      "senseId": "example:vengeful",
+      "exampleIndex": 0,
+      "partOfSpeech": "adjective",
+      "meaningZh": "意图报复的",
+      "en": "The play's vengeful ruler cannot forgive an old insult.",
+      "zh": "剧中，怀有报复心的统治者无法原谅从前的侮辱。",
+      "reviewer": "AI/everyday_precision_0015_independent"
+    },
+    {
+      "term": "wal",
+      "expectedEntrySha256": "876febc694290cc85172f0b4f6d3241083b90c51157e9164b1a51b3616a3b0f5",
+      "canonicalId": 5619931,
+      "canonicalSourceSha256": "3bfc486f6bdb019d5f882c120b1e45617fd6dc5241e654af00c9f0804df9c093",
+      "senseId": "example:wal",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "预写式日志的缩写（write-ahead logging）",
+      "en": "After the crash, the database used WAL to recover committed changes.",
+      "zh": "数据库在崩溃后利用预写式日志恢复了已经提交的更改。",
+      "reviewer": "AI/coverage-semantic-independent-next-002"
+    },
+    {
+      "term": "ze",
+      "expectedEntrySha256": "1ad187c77fba910515d445a0041baca013c69552f7fe4fd6fe65423f5a702add",
+      "canonicalId": 5545688,
+      "canonicalSourceSha256": "1eeff6be6b82e71b834874b2fa749421b78db646a99cc12e9c65608a134aa2fb",
+      "senseId": "example:ze",
+      "exampleIndex": 0,
+      "partOfSpeech": "abbreviation",
+      "meaningZh": "区带电泳的缩写（zone electrophoresis）",
+      "en": "In ZE, the two proteins migrated at different speeds.",
+      "zh": "在区带电泳中，这两种蛋白质以不同的速度迁移。",
+      "reviewer": "AI/example_quality_provenance_audit"
+    }
+  ],
+  "baselineCorrectionRowsSha256": "b90f6e43e437e2579a8a188a6b76a1fc2647afb452680f6ad7dfc22a618a1e3c",
+  "expectedCurrentCorrectionCount": 79,
+  "rows": [
+    {
+      "term": "fainthearted",
+      "why": "Chinese cave reference clarified; English unchanged.",
+      "sourceFile": "tooling/dictionary/examples/corrections/source/quality-precision-0017-a.json",
+      "sourceByteSha256": "e1ebc73312618a0b74765e68a51748eb00ed6ee00a2b4a6a30d9ae52a34afa52",
+      "sourceBuildSha256": "b9d460944559e072490e58cce5b8388d7b031cd3d2939fb3935e2cc403f57e06",
+      "reviewFile": "tooling/dictionary/examples/corrections/reviews/quality-precision-0017-a.json",
+      "reviewByteSha256": "6b1de1aef557aa4850407c9f521a4ba67e06a2dc205e23778c65cb1d96e5d274",
+      "upstreamSource": "outputs/canonical-review-0016-hold-adjudication/authored-precision-proposals.json",
+      "upstreamByteSha256": "b4cd99589e402d275aa07a3416a9cf40b41d38d02ee6df5a0aa6db99634c3740",
+      "newPairAuthor": "AI/next15_release_audit_hold_precision_author",
+      "newPairReviewer": "AI/root_precision_0017_independent",
+      "originalSourceFile": "tooling/dictionary/examples/source/batch-0007-j.json",
+      "originalSourceByteSha256": "7c5164b1317aefcb76c80f1cbd28d1a92cc2da404bd4c3df20b5b86ff8d61049",
+      "originalSourceEntry": {
+        "term": "fainthearted",
+        "partOfSpeech": "adjective",
+        "meaningZh": "胆怯的",
+        "en": "The fainthearted character hesitates outside the dark cave.",
+        "zh": "胆怯的角色在黑洞外犹豫。"
+      },
+      "historicalOriginalAuthor": null,
+      "historicalAuthorInference": false,
+      "canonicalRecord": {
+        "id": 1749886,
+        "term": "fainthearted",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 懦弱的, 无精神的, 胆小的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 13670,
+          "forms": [
+            "fainthearted"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalRecordSha256": "8c6e9a1b9b26a58b101b6ce3897718c5bc454ad3a5b898953ab361d5ca9d5f84",
+      "canonicalPointer": {
+        "bucket": 126,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-126.json",
+        "sha256": "c02a24a51b382a08124e8f6586808bc53504278436b90187a47f138d05d96d2a",
+        "bytes": 341976,
+        "count": 1061,
+        "recordIndex": 250
+      },
+      "canonicalDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "originalDTO": {
+        "term": "fainthearted",
+        "senses": [
+          {
+            "id": "example:fainthearted",
+            "partOfSpeech": "adjective",
+            "meaningZh": "胆怯的",
+            "examples": [
+              {
+                "en": "The fainthearted character hesitates outside the dark cave.",
+                "zh": "胆怯的角色在黑洞外犹豫。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "2a2893d305cbc4407293a56413ae60ef2358393a336097dc269b8c4ea20a94d3",
+      "approvedPair": {
+        "term": "fainthearted",
+        "partOfSpeech": "adjective",
+        "meaningZh": "胆怯的",
+        "en": "The fainthearted character hesitates outside the dark cave.",
+        "zh": "胆怯的角色在黑暗的洞穴外犹豫不前。"
+      },
+      "newFiveFieldSha256": "499588e3034d66028144d9c78f3c27f0907199fb6d0b8bc946992d9c3fca7bfb",
+      "oldFiveFieldSha256": "d8c2a07c4c8dfa1334ab6b22accd2dcc4e7a6688784289dcf8852523bd4c9a3e",
+      "onlyChangedFiveFields": [
+        "zh"
+      ],
+      "compiledCorrection": {
+        "term": "fainthearted",
+        "expectedEntrySha256": "2a2893d305cbc4407293a56413ae60ef2358393a336097dc269b8c4ea20a94d3",
+        "canonicalId": 1749886,
+        "canonicalSourceSha256": "8c6e9a1b9b26a58b101b6ce3897718c5bc454ad3a5b898953ab361d5ca9d5f84",
+        "senseId": "example:fainthearted",
+        "exampleIndex": 0,
+        "partOfSpeech": "adjective",
+        "meaningZh": "胆怯的",
+        "en": "The fainthearted character hesitates outside the dark cave.",
+        "zh": "胆怯的角色在黑暗的洞穴外犹豫不前。",
+        "reviewer": "AI/root_precision_0017_independent"
+      },
+      "expectedCorrectedDTO": {
+        "term": "fainthearted",
+        "senses": [
+          {
+            "id": "example:fainthearted",
+            "partOfSpeech": "adjective",
+            "meaningZh": "胆怯的",
+            "examples": [
+              {
+                "en": "The fainthearted character hesitates outside the dark cave.",
+                "zh": "胆怯的角色在黑暗的洞穴外犹豫不前。"
+              }
+            ],
+            "reviewer": "AI/root_precision_0017_independent",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "wholeRawCanonicalGlossApproved": false,
+      "oldImmutableAssetsChanged": false
+    },
+    {
+      "term": "naysay",
+      "why": "English past inflection corrected to publisher-attested naysaid; Chinese unchanged.",
+      "sourceFile": "tooling/dictionary/examples/corrections/source/quality-precision-0017-a.json",
+      "sourceByteSha256": "e1ebc73312618a0b74765e68a51748eb00ed6ee00a2b4a6a30d9ae52a34afa52",
+      "sourceBuildSha256": "b9d460944559e072490e58cce5b8388d7b031cd3d2939fb3935e2cc403f57e06",
+      "reviewFile": "tooling/dictionary/examples/corrections/reviews/quality-precision-0017-a.json",
+      "reviewByteSha256": "6b1de1aef557aa4850407c9f521a4ba67e06a2dc205e23778c65cb1d96e5d274",
+      "upstreamSource": "outputs/canonical-review-0016-hold-adjudication/authored-precision-proposals.json",
+      "upstreamByteSha256": "b4cd99589e402d275aa07a3416a9cf40b41d38d02ee6df5a0aa6db99634c3740",
+      "newPairAuthor": "AI/next15_release_audit_hold_precision_author",
+      "newPairReviewer": "AI/root_precision_0017_independent",
+      "originalSourceFile": "tooling/dictionary/examples/source/batch-0007-k.json",
+      "originalSourceByteSha256": "da95060e7966d6cf672eaea286f6b9a539f6d86809329264904be346de9a69ba",
+      "originalSourceEntry": {
+        "term": "naysay",
+        "partOfSpeech": "verb",
+        "meaningZh": "否认反对",
+        "en": "He naysayed every proposal without suggesting alternatives.",
+        "zh": "他反对每项提案，却不提出替代办法。"
+      },
+      "historicalOriginalAuthor": null,
+      "historicalAuthorInference": false,
+      "canonicalRecord": {
+        "id": 1764278,
+        "term": "naysay",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 拒绝, 否认\nvt. 拒绝, 否认",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 13783,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalRecordSha256": "bb33c12327f09c1e6a012c9df6ac711caf18a00e41aa314ddaae43c44d9adee8",
+      "canonicalPointer": {
+        "bucket": 54,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-054.json",
+        "sha256": "5baef9206ebfe3f026535194a5300212b4854b1e7f055b46ddbd5244b2291f85",
+        "bytes": 347713,
+        "count": 1092,
+        "recordIndex": 283
+      },
+      "canonicalDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "originalDTO": {
+        "term": "naysay",
+        "senses": [
+          {
+            "id": "example:naysay",
+            "partOfSpeech": "verb",
+            "meaningZh": "否认反对",
+            "examples": [
+              {
+                "en": "He naysayed every proposal without suggesting alternatives.",
+                "zh": "他反对每项提案，却不提出替代办法。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "a35fdac868de7d1cf31d5abc456514c16d35311aee1885d44ce2e83a81ede5f1",
+      "approvedPair": {
+        "term": "naysay",
+        "partOfSpeech": "verb",
+        "meaningZh": "否认反对",
+        "en": "He naysaid every proposal without suggesting alternatives.",
+        "zh": "他反对每项提案，却不提出替代办法。"
+      },
+      "newFiveFieldSha256": "b9532203e3b37dbebdb48fc6404a520e81fe165b64a3fc728c0d106951bab2d5",
+      "oldFiveFieldSha256": "7a4617989046f6d147153199b233b10afd0996327d01824ce9963858b9c96cde",
+      "onlyChangedFiveFields": [
+        "en"
+      ],
+      "compiledCorrection": {
+        "term": "naysay",
+        "expectedEntrySha256": "a35fdac868de7d1cf31d5abc456514c16d35311aee1885d44ce2e83a81ede5f1",
+        "canonicalId": 1764278,
+        "canonicalSourceSha256": "bb33c12327f09c1e6a012c9df6ac711caf18a00e41aa314ddaae43c44d9adee8",
+        "senseId": "example:naysay",
+        "exampleIndex": 0,
+        "partOfSpeech": "verb",
+        "meaningZh": "否认反对",
+        "en": "He naysaid every proposal without suggesting alternatives.",
+        "zh": "他反对每项提案，却不提出替代办法。",
+        "reviewer": "AI/root_precision_0017_independent"
+      },
+      "expectedCorrectedDTO": {
+        "term": "naysay",
+        "senses": [
+          {
+            "id": "example:naysay",
+            "partOfSpeech": "verb",
+            "meaningZh": "否认反对",
+            "examples": [
+              {
+                "en": "He naysaid every proposal without suggesting alternatives.",
+                "zh": "他反对每项提案，却不提出替代办法。"
+              }
+            ],
+            "reviewer": "AI/root_precision_0017_independent",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "wholeRawCanonicalGlossApproved": false,
+      "oldImmutableAssetsChanged": false
+    },
+    {
+      "term": "defalcate",
+      "why": "Modern intransitive financial-misuse construction; translation preserves accusation.",
+      "sourceFile": "tooling/dictionary/examples/corrections/source/quality-precision-0017-b.json",
+      "sourceByteSha256": "9cd28b83dad6632e17f9bdfc3daff2cbbdfdceab9fb758c5b510a2a04e1177f3",
+      "sourceBuildSha256": "7f4eafe2abf26a2829350064280e8ff883d6f4ba0b551be08801e340159e0ddd",
+      "reviewFile": "tooling/dictionary/examples/corrections/reviews/quality-precision-0017-b.json",
+      "reviewByteSha256": "9e182d7cf3e3521b6346f77db3a633fca9afb1c5adc802730ed45ba498065d16",
+      "upstreamSource": "outputs/defalcate-0016-author/source.json",
+      "upstreamByteSha256": "b8a2f5c724ae2811da54f1aa3188c8e7612d3c0c185a227b2d55903b76dbeb0a",
+      "newPairAuthor": "AI/everyday_defalcate_0016",
+      "newPairReviewer": "AI/root_precision_0017_independent",
+      "originalSourceFile": "tooling/dictionary/examples/source/batch-0007-j.json",
+      "originalSourceByteSha256": "7c5164b1317aefcb76c80f1cbd28d1a92cc2da404bd4c3df20b5b86ff8d61049",
+      "originalSourceEntry": {
+        "term": "defalcate",
+        "partOfSpeech": "verb",
+        "meaningZh": "侵吞公款",
+        "en": "The novel follows a clerk who defalcates company funds.",
+        "zh": "小说讲述一名侵吞公司款项的职员。"
+      },
+      "historicalOriginalAuthor": null,
+      "historicalAuthorInference": false,
+      "canonicalRecord": {
+        "id": 1741042,
+        "term": "defalcate",
+        "partOfSpeech": "verb",
+        "meaning": "vi. 盗用公款, 侵吞公款\n[经] 侵吞, 盗用, 贪污",
+        "forms": [
+          "defalcated",
+          "defalcates",
+          "defalcating"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 13601,
+          "forms": [
+            "defalcated",
+            "defalcates",
+            "defalcating"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalRecordSha256": "d33ef7998a3c14fe34f64ae4a489a8b82304f00ceadae9d310cd9802086f0397",
+      "canonicalPointer": {
+        "bucket": 114,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-114.json",
+        "sha256": "325420e26684c495b0852700c52d000b50290bd91aebfded6831db55e43cea3f",
+        "bytes": 343016,
+        "count": 1078,
+        "recordIndex": 252
+      },
+      "canonicalDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "originalDTO": {
+        "term": "defalcate",
+        "senses": [
+          {
+            "id": "example:defalcate",
+            "partOfSpeech": "verb",
+            "meaningZh": "侵吞公款",
+            "examples": [
+              {
+                "en": "The novel follows a clerk who defalcates company funds.",
+                "zh": "小说讲述一名侵吞公司款项的职员。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "a0b060779668defc111de2c6c00933be8b8d1bc59c873e44d05fb1aa66699d1d",
+      "approvedPair": {
+        "term": "defalcate",
+        "partOfSpeech": "verb",
+        "meaningZh": "侵吞公款",
+        "en": "The novel follows a clerk accused of defalcating.",
+        "zh": "小说讲述一名被指控侵吞公款的职员的故事。"
+      },
+      "newFiveFieldSha256": "2cac1f4e48177e15b9f25c7ddd2c8ca1ec4f26bf9f308fa90560eebe9b6c78e0",
+      "oldFiveFieldSha256": "3e9386b9a0fe90c9c7398a77e5c7b5673079adc75d6666aa0395668302e03278",
+      "onlyChangedFiveFields": [
+        "en",
+        "zh"
+      ],
+      "compiledCorrection": {
+        "term": "defalcate",
+        "expectedEntrySha256": "a0b060779668defc111de2c6c00933be8b8d1bc59c873e44d05fb1aa66699d1d",
+        "canonicalId": 1741042,
+        "canonicalSourceSha256": "d33ef7998a3c14fe34f64ae4a489a8b82304f00ceadae9d310cd9802086f0397",
+        "senseId": "example:defalcate",
+        "exampleIndex": 0,
+        "partOfSpeech": "verb",
+        "meaningZh": "侵吞公款",
+        "en": "The novel follows a clerk accused of defalcating.",
+        "zh": "小说讲述一名被指控侵吞公款的职员的故事。",
+        "reviewer": "AI/root_precision_0017_independent"
+      },
+      "expectedCorrectedDTO": {
+        "term": "defalcate",
+        "senses": [
+          {
+            "id": "example:defalcate",
+            "partOfSpeech": "verb",
+            "meaningZh": "侵吞公款",
+            "examples": [
+              {
+                "en": "The novel follows a clerk accused of defalcating.",
+                "zh": "小说讲述一名被指控侵吞公款的职员的故事。"
+              }
+            ],
+            "reviewer": "AI/root_precision_0017_independent",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "wholeRawCanonicalGlossApproved": false,
+      "oldImmutableAssetsChanged": false
+    },
+    {
+      "term": "facilitation",
+      "why": "Same-sense precision replacement of an underspecified optional catalogue pair; old pair not declared categorically false.",
+      "sourceFile": "tooling/dictionary/examples/corrections/source/quality-precision-0017-c.json",
+      "sourceByteSha256": "4a4789ea00a7144b6eb5fdb03d1b2b06811adf519a6c57a555cf2b7d513a428a",
+      "sourceBuildSha256": "94d68c86f380235939c3c31bf86086bd83a2ee88a22516f65e14e58aec1cb1a0",
+      "reviewFile": "tooling/dictionary/examples/corrections/reviews/quality-precision-0017-c.json",
+      "reviewByteSha256": "a02ee2252efd91c187e6c5970969998810fb2002cd096814310fe74bb48d4faa",
+      "upstreamSource": "outputs/facilitation-technical-example-author-2026-10-29/v2/author-packet.json",
+      "upstreamByteSha256": "cc24634ced9f2aa71f881cd5ba0d203110fa18ba8260d25702b6e2a3613f4ecf",
+      "newPairAuthor": "AI/next15_release_audit",
+      "newPairReviewer": "AI/root_precision_0017_independent",
+      "originalSourceFile": "tooling/dictionary/examples/source/batch-0013-p001.json",
+      "originalSourceByteSha256": "0944c61c87b058b6c0909aac4f7be3a2c8bc0e5d3a76ffe59961cfc5586f8193",
+      "originalSourceEntry": {
+        "term": "facilitation",
+        "partOfSpeech": "noun",
+        "meaningZh": "助长作用",
+        "en": "Facilitation allowed two individually ineffective nerve impulses together to trigger a response.",
+        "zh": "通过助长作用，两个单独不足以引发反应的神经脉冲共同引发了反应。"
+      },
+      "historicalOriginalAuthor": null,
+      "historicalAuthorInference": false,
+      "canonicalRecord": {
+        "id": 1508570,
+        "term": "facilitation",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 容易化, 助长, 接通[作用]",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 11785,
+          "forms": [],
+          "workbook": false
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 容易化, 助长, 接通[作用]",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalRecordSha256": "0e55a0ab6f523d0c0041ab109da9c1f9c431c46a5a2bd7fe8c28acd6909fcd28",
+      "canonicalPointer": {
+        "bucket": 90,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-090.json",
+        "sha256": "66843f175f3b2d2d778ad66c032b24064f557564b8c3f1234726ec415b66c6d4",
+        "bytes": 365198,
+        "count": 1147,
+        "recordIndex": 244
+      },
+      "canonicalDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "originalDTO": {
+        "term": "facilitation",
+        "senses": [
+          {
+            "id": "example:facilitation",
+            "partOfSpeech": "noun",
+            "meaningZh": "助长作用",
+            "examples": [
+              {
+                "en": "Facilitation allowed two individually ineffective nerve impulses together to trigger a response.",
+                "zh": "通过助长作用，两个单独不足以引发反应的神经脉冲共同引发了反应。"
+              }
+            ],
+            "reviewer": "AI/examples13_root",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "075d0fe6db16c23286b61e37cd796380b12ebcc4261bd612fa37794cc8768e00",
+      "approvedPair": {
+        "term": "facilitation",
+        "partOfSpeech": "noun",
+        "meaningZh": "助长作用",
+        "en": "In this nerve experiment, facilitation was seen when the second of two closely spaced stimuli produced a stronger average response than the first.",
+        "zh": "在这次神经实验中，两次刺激的间隔很短，第二次引发的平均反应比第一次更强，显示出助长作用。"
+      },
+      "newFiveFieldSha256": "e7857e494c4dc6ea1466fb6613c1f3e6071f2996715435cb17ce366761316e2e",
+      "oldFiveFieldSha256": "511f9cae6089a5a463a1e6e462789db0f5044744d576aa9980dd85aa31d896e0",
+      "onlyChangedFiveFields": [
+        "en",
+        "zh"
+      ],
+      "compiledCorrection": {
+        "term": "facilitation",
+        "expectedEntrySha256": "075d0fe6db16c23286b61e37cd796380b12ebcc4261bd612fa37794cc8768e00",
+        "canonicalId": 1508570,
+        "canonicalSourceSha256": "0e55a0ab6f523d0c0041ab109da9c1f9c431c46a5a2bd7fe8c28acd6909fcd28",
+        "senseId": "example:facilitation",
+        "exampleIndex": 0,
+        "partOfSpeech": "noun",
+        "meaningZh": "助长作用",
+        "en": "In this nerve experiment, facilitation was seen when the second of two closely spaced stimuli produced a stronger average response than the first.",
+        "zh": "在这次神经实验中，两次刺激的间隔很短，第二次引发的平均反应比第一次更强，显示出助长作用。",
+        "reviewer": "AI/root_precision_0017_independent"
+      },
+      "expectedCorrectedDTO": {
+        "term": "facilitation",
+        "senses": [
+          {
+            "id": "example:facilitation",
+            "partOfSpeech": "noun",
+            "meaningZh": "助长作用",
+            "examples": [
+              {
+                "en": "In this nerve experiment, facilitation was seen when the second of two closely spaced stimuli produced a stronger average response than the first.",
+                "zh": "在这次神经实验中，两次刺激的间隔很短，第二次引发的平均反应比第一次更强，显示出助长作用。"
+              }
+            ],
+            "reviewer": "AI/root_precision_0017_independent",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "wholeRawCanonicalGlossApproved": false,
+      "oldImmutableAssetsChanged": false
+    }
+  ],
+  "allRawCanonicalMeaningsApproved": false,
+  "userSavedCardOrBookFieldsChanged": false,
+  "facilitationAdmissionPolicy": "outputs/facilitation-native-precision-2026-10-29/admission-policy.json"
+}

@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { DICTIONARY_EXAMPLE_CORRECTIONS as compiled } from '../../vocab/js/dictionary-example-corrections-data.js';
+import { DICTIONARY_EXAMPLE_CORRECTIONS as allCompiled } from '../../vocab/js/dictionary-example-corrections-data.js';
+import { historicalCorrections75 } from './helpers/correction-history-0075.mjs';
+const compiled = historicalCorrections75(allCompiled);
 import { applyExampleCorrections } from '../../vocab/js/dictionary-example-corrections.js';
 import { loadDictionaryExamples, resetDictionaryExamplesCacheForTests } from '../../vocab/js/dictionary-examples-current-v4.js';
 import { createAdditiveExamplesLoader } from '../../vocab/js/dictionary-examples-additive.js';
@@ -20,7 +22,7 @@ const fixture = await read(fixturePath);
 const [row] = fixture.rows;
 const fetchImpl = async input => new Response(await fs.readFile(new URL(input)));
 
-test('historical74 stays exact and dignify adds one independently reviewed Chinese-only correction to the75-row union', async () => {
+test('historical74 stays exact and dignify adds one independently reviewed Chinese-only correction to the historical75-row union', async () => {
   assert.equal(sha(await bytes(fixturePath)), '718151135297edd8a8cd644e182fa37fc8b5f91328d01b9a529aa56450b31ac0');
   assert.equal(fixture.rows.length, 1);
   const old = await read(fixture.baselineFixture);
