@@ -13,9 +13,9 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=97";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=97";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=111";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=104";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=111";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
@@ -69,6 +69,7 @@ const state = {
   collectionId: "all", chapterId: "all", reviews: [], learningRevision: 0, learningLoaded: false, learningBusy: false,
   publicSnapshot: null, sourceBusy: false, sourceBook: "all", sourceChapter: "all", selectedSources: new Set(), study: null,
   dictionaryBusy: false, dictionaryResult: null, dictionaryApplied: null, dictionaryCoverage: "full", dictionaryCollectionPhase: "idle",
+  dictionaryResults: [], dictionaryQuery: "", dictionaryNextOffset: null, dictionaryHasMore: false, dictionaryMoreBusy: false,
   ownerPublicBusy: false, ownerPublicLoaded: false, ownerPublicError: "", ownerPublicLimit: 20,
   folders: [], foldersRevision: 0, foldersLoaded: false, foldersFresh: false, foldersBusy: false, folderWriteBusy: false,
   folderId: "all", folderMessage: "", folderEditor: null,
@@ -469,7 +470,15 @@ function renderChrome() {
   $("member-dictionary-search").disabled = !ready || state.dictionaryBusy;
   $("member-dictionary-search").textContent = state.dictionaryBusy ? "正在查…" : state.authType === "github-owner" ? "查词并收录" : "查词";
   $("member-dictionary-full").disabled = !ready || state.dictionaryBusy;
-  $("member-dictionary-full").hidden = state.dictionaryCoverage !== "basic";
+  $("member-dictionary-full").hidden = !["basic", "limited"].includes(state.dictionaryCoverage);
+  $("member-dictionary-full").textContent = state.dictionaryCoverage === "limited" ? "重试完整检索" : "搜索完整词典";
+  // A previously cached HTML shell can briefly precede its new module graph.
+  const moreButton = $("member-dictionary-more");
+  if (moreButton) {
+    moreButton.hidden = !state.dictionaryHasMore || !Number.isSafeInteger(state.dictionaryNextOffset);
+    moreButton.disabled = !ready || state.dictionaryBusy || state.dictionaryMoreBusy;
+    moreButton.textContent = state.dictionaryMoreBusy ? "正在加载…" : "查看更多";
+  }
   const publicCollection = state.authType === "github-owner";
   const ownerReady = ready && publicCollection;
   document.body.classList.toggle("owner-workspace", ownerReady);
@@ -662,6 +671,10 @@ function resetDictionary() {
   dictionaryRelatedController?.abort(); dictionaryRelatedController = null;
   state.dictionaryBusy = false; state.dictionaryResult = null;
   state.dictionaryCoverage = "full";
+  state.dictionaryResults = []; state.dictionaryQuery = ""; state.dictionaryNextOffset = null;
+  state.dictionaryHasMore = false; state.dictionaryMoreBusy = false;
+  const moreStatus = $("member-dictionary-more-status");
+  if (moreStatus) moreStatus.textContent = "";
   $("member-dictionary-result").hidden = true;
   $("member-dictionary-choices").replaceChildren();
   $("member-dictionary-choices").hidden = true;
@@ -690,7 +703,7 @@ function showDictionaryResult(result) {
   }
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
   const destination = state.authType === "github-owner" ? "公开收录后可在下方词本找到" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
-  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${result.matchedSense ? `本次匹配：${result.matchedPartOfSpeech} · ${result.matchedSense}（限此义项） · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
+  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${result.matchedSense ? `本次匹配：${result.matchedPartOfSpeech} · ${result.matchedSense}（限此义项） · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : state.dictionaryCoverage === "limited" ? "当前仅显示部分匹配，完整检索索引尚未更新，请刷新后重试。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
@@ -713,12 +726,15 @@ function showDictionaryResult(result) {
 
 function showDictionaryChoices(results, hasMore) {
   const choices = $("member-dictionary-choices");
+  const focused = choices.contains(document.activeElement) ? document.activeElement.dataset.dictionaryTerm : null;
+  const previousScroll = choices.scrollTop;
+  state.dictionaryResults = results;
   choices.replaceChildren(); choices.hidden = results.length < 2 && !hasMore;
   if (choices.hidden) return;
   const caption = document.createElement("p"); caption.className = "field-note";
   const relatedCount = results.filter(result => result.matchType === "related").length;
   caption.textContent = state.dictionaryCoverage === "basic" ? `基础词库先显示 ${results.length - relatedCount} 项${relatedCount ? `，另有 ${relatedCount} 项近义关联` : ""}，完整词典还可能有其他匹配。点选英文查看释义。`
-    : hasMore ? `先显示 ${results.length} 项；可输入更具体的中文缩小范围。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
+    : hasMore ? `已显示 ${results.length} 项，可点击“查看更多”。点选英文查看释义。` : `找到 ${results.length} 项，点选英文查看释义。`;
   if (relatedCount && state.dictionaryCoverage !== "basic") caption.textContent += ` 其中 ${relatedCount} 项为近义关联，按实际词义选择。`;
   if (state.authType === "github-owner") caption.textContent = caption.textContent.replace("点选英文查看释义。", "点选英文即公开收录。");
   choices.append(caption);
@@ -742,6 +758,8 @@ function showDictionaryChoices(results, hasMore) {
     });
     choices.append(button);
   }
+  choices.scrollTop = previousScroll;
+  if (focused) [...choices.querySelectorAll("button[data-dictionary-term]")].find(button => button.dataset.dictionaryTerm === focused)?.focus({ preventScroll: true });
 }
 
 function startDictionaryRelations(query, direct, { token, sequence }) {
@@ -756,14 +774,14 @@ function startDictionaryRelations(query, direct, { token, sequence }) {
     return searchRelatedChineseDictionary(query, { signal: controller.signal, limit: 8, timeoutMs: 5000 });
   }).then(response => {
     if (!response || !current()) return;
-    const results = [...direct.results], seen = new Set(results.map(result => result.term.normalize("NFKC")));
+    const results = [...state.dictionaryResults], seen = new Set(results.map(result => normalizeEnglish(result.term)));
     for (const result of response.results) {
-      const key = result.term.normalize("NFKC");
+      const key = normalizeEnglish(result.term);
       if (seen.has(key)) continue;
       seen.add(key); results.push(result);
     }
-    if (results.length === direct.results.length) return;
-    showDictionaryChoices(results, direct.hasMore || response.hasMore);
+    if (results.length === state.dictionaryResults.length) return;
+    showDictionaryChoices(results, state.dictionaryHasMore);
     if (!state.dictionaryResult) showDictionaryResult(results[0]);
     renderChrome();
   }).catch(() => { /* Optional failure leaves every direct result usable. */ })
@@ -785,13 +803,17 @@ async function queryDictionary(event, { full = false } = {}) {
     const result = await request(async signal => {
       const stop = () => controller.abort(); signal.addEventListener("abort", stop, { once: true });
       try {
-        return await lookupPersonalDictionaryFast(query, { signal: controller.signal, full,
+        return await lookupPersonalDictionaryFast(query, { signal: controller.signal, full, preferCompleteChinese: true,
           hotLookup: lookupPersonalDictionary, hotReverse: searchPersonalDictionaryChinese, fullSearch: searchExpandedDictionary });
       }
       finally { signal.removeEventListener("abort", stop); }
     });
     if (!scope.current(token) || sequence !== dictionarySequence || query !== $("member-dictionary-term").value) return;
     state.dictionaryCoverage = result.coverage || "full";
+    state.dictionaryQuery = query;
+    state.dictionaryNextOffset = Number.isSafeInteger(result.nextOffset) ? result.nextOffset : null;
+    state.dictionaryHasMore = Boolean(result.coverage !== "limited" && result.hasMore && state.dictionaryNextOffset !== null);
+    state.dictionaryResults = result.results;
     const results = result.results;
     startDictionaryRelations(query, result, { token, sequence });
     if (!results.length) {
@@ -807,6 +829,43 @@ async function queryDictionary(event, { full = false } = {}) {
     if (scope.current(token) && sequence === dictionarySequence && !error?.stale) $("member-dictionary-status").textContent = `${error.message} 没有调用在线翻译或 AI，可重试。`;
   } finally {
     if (scope.current(token) && sequence === dictionarySequence) { state.dictionaryBusy = false; dictionaryController = null; renderChrome(); }
+  }
+}
+
+async function moreDictionaryResults(event) {
+  event.preventDefault();
+  if (state.phase !== "ready" || !state.user || state.dictionaryBusy || state.dictionaryMoreBusy
+    || !state.dictionaryHasMore || !Number.isSafeInteger(state.dictionaryNextOffset)) return;
+  const query = state.dictionaryQuery, sequence = dictionarySequence, token = scope.capture();
+  if (query !== $("member-dictionary-term").value) return;
+  const controller = new AbortController(); dictionaryController = controller;
+  state.dictionaryMoreBusy = true; $("member-dictionary-more-status").textContent = ""; renderChrome();
+  try {
+    const page = await searchExpandedDictionary(query, { signal: controller.signal, limit: 20, offset: state.dictionaryNextOffset });
+    if (!scope.current(token) || sequence !== dictionarySequence || controller.signal.aborted
+      || query !== $("member-dictionary-term").value || state.phase !== "ready") return;
+    if (page.coverage === "limited") {
+      state.dictionaryCoverage = "limited"; state.dictionaryNextOffset = null; state.dictionaryHasMore = false;
+      $("member-dictionary-more-status").textContent = "完整检索索引尚未更新，请刷新后重试；已显示的词条仍可查看。";
+      return;
+    }
+    const direct = state.dictionaryResults.filter(row => row.matchType !== "related");
+    const related = state.dictionaryResults.filter(row => row.matchType === "related");
+    const results = [], seen = new Set();
+    for (const row of [...direct, ...page.results, ...related]) {
+      const key = normalizeEnglish(row.term);
+      if (!seen.has(key)) { seen.add(key); results.push(row); }
+    }
+    const next = Number.isSafeInteger(page.nextOffset) && page.nextOffset > state.dictionaryNextOffset ? page.nextOffset : null;
+    state.dictionaryNextOffset = next; state.dictionaryHasMore = Boolean(page.hasMore && next !== null);
+    showDictionaryChoices(results, state.dictionaryHasMore);
+    $("member-dictionary-more-status").textContent = `已显示 ${results.length} 项${related.length ? "（含近义关联）" : ""}。`;
+  } catch (error) {
+    if (scope.current(token) && sequence === dictionarySequence && !controller.signal.aborted) {
+      $("member-dictionary-more-status").textContent = "暂时无法加载更多，已有结果仍可查看。请点击“查看更多”重试。";
+    }
+  } finally {
+    if (scope.current(token) && sequence === dictionarySequence) { state.dictionaryMoreBusy = false; dictionaryController = null; renderChrome(); }
   }
 }
 
@@ -1665,6 +1724,7 @@ $("member-entry-form").addEventListener("input", event => {
 });
 $("member-dictionary-form").addEventListener("submit", event => void queryDictionary(event));
 $("member-dictionary-full").addEventListener("click", event => void queryDictionary(event, { full: true }));
+$("member-dictionary-more")?.addEventListener("click", event => void moreDictionaryResults(event));
 $("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
 $("member-dictionary-use").addEventListener("click", useDictionaryResult);
 $("member-dictionary-save").addEventListener("click", () => void saveDictionaryToFolder());

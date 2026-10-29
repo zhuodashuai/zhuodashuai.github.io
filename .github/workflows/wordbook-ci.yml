@@ -85,6 +85,7 @@ jobs:
           node tooling/scripts/build-member-dictionary.mjs
           node tooling/scripts/build-expanded-dictionary.mjs
           node tooling/scripts/build-expanded-dictionary.mjs --check
+          node tooling/scripts/build-chinese-search-ranking.mjs --check
           node tooling/scripts/build-dictionary-suggestions.mjs
           node tooling/scripts/build-dictionary-suggestions.mjs --check
           node tooling/scripts/build-dictionary-examples.mjs --check

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "f5ec5db6b21663b1e5f97217069bb08590d7f667",
+  "purpose": "Immutable historical application graph before Chinese search ranking and pagination; current behavior is tested separately.",
+  "archive": {
+    "file": "f5ec5db-programs.json.gz",
+    "bytes": 153375,
+    "sha256": "7b2f56ff5fdc872c4b57c97875e80def7e79c9d137c40083b142fe7066b7cf9a",
+    "uncompressedBytes": 682332
+  },
+  "files": {
+    "dictionary-app.js": {
+      "bytes": 27482,
+      "sha256": "b3f79d355d1525093f11f4c04526b393bedce47760f320dbee4f8c402a7b4702",
+      "gitBlob": "5e95227edd875d75d9164d7878b8db6ca5ad2742"
+    },
+    "dictionary-app-v108.js": {
+      "bytes": 27488,
+      "sha256": "0973b981cd646edfe5f3e7578b595731d30c3a336c453f06d3dad408f0046d78",
+      "gitBlob": "ea5fb4fd87bdcac168cb1022ff84bf6804893d73"
+    },
+    "dictionary-entry.js": {
+      "bytes": 693,
+      "sha256": "827db615cdb51ea3a51dc52f922e3b0cf8ad72fd1af2338212feb584f984a67f",
+      "gitBlob": "e1f595d45a3393a76bdb26663157b3b32ed3b022"
+    },
+    "dictionary-entry-v108.js": {
+      "bytes": 691,
+      "sha256": "cb43b4cb6b78b93e04d79e7253146cc1cec03eeb7eaeabdf48fd22aa2f7dbc2c",
+      "gitBlob": "b270b81e6c4aa34971f9f332567f1846d4c2bb46"
+    },
+    "dictionary-examples-ui.js": {
+      "bytes": 3741,
+      "sha256": "badc4939a0c0db5bd58ddb1665a9fbd6bd32f7c416515cf1c4b75c9d7806b105",
+      "gitBlob": "feb1242c8977bb436b5c3ceeac912e6e3295c1e0"
+    },
+    "dictionary-examples-ui-v108.js": {
+      "bytes": 3770,
+      "sha256": "d6e4c20d87c0b7c46e4f7cfaddaabc1d00a76f7d19ef02da4846fcfdaf88a494",
+      "gitBlob": "7fbd1de931330bacabfa911f691573ded88319d7"
+    },
+    "entry-detail.js": {
+      "bytes": 18752,
+      "sha256": "5132a2c0499fcfc525805ede48673d02dc911da05dc9ece19dfce854a5d46c77",
+      "gitBlob": "f351d400dacaeddd526b613d7fcb1051477ff18a"
+    },
+    "entry-detail-v108.js": {
+      "bytes": 18752,
+      "sha256": "7003606b8a812e447684d5bd1e8e462d93bc2831f2c76bf97ed412440b136c71",
+      "gitBlob": "889ce4e8e520f53bb6a75c9b4534c2d63f80742d"
+    },
+    "public-app.js": {
+      "bytes": 41786,
+      "sha256": "d2ad956b8fb5c9f0c8ee340d65a39181ca251c239bad262faec269d69e4f9b17",
+      "gitBlob": "f9a41f114d10c55bf81a29154c3d95ad0d783fa8"
+    },
+    "public-app-v108.js": {
+      "bytes": 41786,
+      "sha256": "7123da847d9a23adb5fe5e9831586fcefaabcc98749291f3da661d8bbad5f426",
+      "gitBlob": "d282b4ebbe07d86738ae0e19f9e763b70a0af2b8"
+    },
+    "owner-app.js": {
+      "bytes": 97555,
+      "sha256": "2497f82365080a1f613407f140f4367eeadc9937cde3be377d7b355e881ef5ca",
+      "gitBlob": "60fb73783a92aa7ad1ea41bd4a2732ffcc98e7eb"
+    },
+    "owner-app-v108.js": {
+      "bytes": 97555,
+      "sha256": "c6ec4428cf97403765620887b8fab54e9410ade895b188d2c6eaca20707f76a0",
+      "gitBlob": "0b12ae01fb8a856975fe598c62dad8db4b023eef"
+    },
+    "personal-app.js": {
+      "bytes": 114712,
+      "sha256": "910a686162a1cf6b52cf6ab7a436704d81e93086ba73202cbda3316e68868cab",
+      "gitBlob": "dbe0a12a853d59e2581d8f4e440d3e7b16a0a10e"
+    },
+    "personal-app-v108.js": {
+      "bytes": 114712,
+      "sha256": "2b0b89deb66427c92881f23337f29a07d9ca4e800de2e49715bb831c582e6575",
+      "gitBlob": "e1dcad73caad3f44d76df34e000c2b5b8ad168cb"
+    },
+    "dictionary-offline-warm.js": {
+      "bytes": 8655,
+      "sha256": "8e3919b396b60675aef13a4bc4547306d8d6a7a350ff8e13c12ea188425bad90",
+      "gitBlob": "02961edcec02b9e4c2f1b4835a8302716c9631ef"
+    },
+    "dictionary-offline-warm-v108.js": {
+      "bytes": 8769,
+      "sha256": "3858963fee9d24b4d12d11a3a913b9f18fcc91d5028fb1ca32826a9487841874",
+      "gitBlob": "e60101fec3bb8d362345d7060c27c189ccef9eaf"
+    },
+    "dictionary-app-v109.js": {
+      "bytes": 27901,
+      "sha256": "b2cca0e3c5c46833e51b20bc5ca4330cd3aa526ba2c650c037e45d000f97c634",
+      "gitBlob": "9956fdf9763d14103eab2158e10fff20066bef5a"
+    }
+  }
+}

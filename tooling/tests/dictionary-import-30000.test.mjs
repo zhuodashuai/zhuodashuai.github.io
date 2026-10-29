@@ -9,6 +9,7 @@ import { loadOriginalCatalogue } from "../lib/original-dictionary-catalogue.mjs"
 import { loadExpandedPublicSource } from "../lib/expanded-public-source.mjs";
 import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { preloadExpandedDictionary, searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../../vocab/js/expanded-dictionary.js";
+import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
 
 // Release data contract, not a claim that every source gloss is human-certified.
 // These tests use tracked public assets only: never the user's private workbook.
@@ -173,6 +174,7 @@ test("the actual lookup runtime parses all 128 English and 128 Chinese shards wi
   const fetchImpl = async (url, options) => {
     assert.equal(options.credentials, "omit");
     const target = new URL(url);
+    if (isPinnedChineseRankingFixture(target)) return new Response(await readFile(target), { headers: { "content-type": "application/octet-stream" } });
     assert.ok(target.href.startsWith(directory.href), "only local first-party fixture files may be fetched");
     const file = decodeURIComponent(target.href.slice(directory.href.length));
     requested.add(file);

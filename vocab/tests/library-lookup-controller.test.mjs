@@ -152,6 +152,20 @@ test("Chinese, multiple, incomplete and morphological matches require explicit s
   }
 });
 
+test("reading further result pages never collects a word, including after owner login", async t => {
+  const { controller, calls } = harness(t, { search: async (_input, { offset }) => offset === 0
+    ? { results: [row("hot")], hasMore: true, nextOffset: 20 }
+    : { results: [row("sweltering"), row("stifling")], hasMore: false, nextOffset: 22 } });
+  await readyOwner(controller);
+  await controller.submit("热"); await controller.loadMore(); await tick();
+  assert.equal(calls.collections.length, 0);
+  assert.deepEqual(calls.searches.map(call => call.options.offset), [0, 20]);
+  assert.deepEqual(controller.getState().lookup.results.map(value => value.term), ["hot", "sweltering", "stifling"]);
+  assert.equal(controller.getState().lookup.results[controller.getState().lookup.selectedIndex].term, "hot");
+  controller.select(2); await tick();
+  assert.equal(calls.collections.length, 1); assert.equal(calls.collections[0].body.term, "stifling");
+});
+
 test("related associations append without writing; an explicit related choice collects its canonical head", async t => {
   const related = deferred();
   const { controller, calls } = harness(t, { search: async () => response(row("cheerful")),

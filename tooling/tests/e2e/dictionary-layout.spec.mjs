@@ -186,7 +186,7 @@ test("crossing the compact breakpoint opens desktop choices and does not strand 
   await noOverflow(page);
 });
 
-test("an unfinished phone reverse lookup shows a refinement hint only inside the expanded switcher and counts confirmed candidates", async ({ page }) => {
+test("phone reverse lookup offers further results inside the expanded switcher and counts confirmed candidates", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 }); await open(page); await query(page, "水");
   const choices = page.locator("#dictionary-choices button"), more = page.locator("#dictionary-more");
   const count = await choices.count();
@@ -196,7 +196,11 @@ test("an unfinished phone reverse lookup shows a refinement hint only inside the
   await expect(more).toBeHidden();
   await expandChoices(page);
   await expect(more).toBeVisible();
-  await expect(more).toHaveText("候选较多，可换更具体的中文继续查。");
+  await expect(more).toHaveText("查看更多");
+  const selected = await page.locator("#dictionary-term").innerText();
+  await more.click();
+  await expect.poll(() => choices.count()).toBeGreaterThan(count);
+  await expect(page.locator("#dictionary-term")).toHaveText(selected);
   await expect(page.locator("#dictionary-choice-count")).not.toContainText("+");
   await query(page, "abacus");
   await expect(more).toHaveJSProperty("hidden", true);

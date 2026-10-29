@@ -163,7 +163,7 @@ function lookupChinese(query) {
 }
 
 /** Small, exact whole-query vocabulary lookup. No requests or word splitting. */
-export function searchEverydayDictionary(input, { limit = 20 } = {}) {
+export function searchEverydayDictionary(input, { limit = 20, offset } = {}) {
   const normal = safeInput(input);
   if (!normal) return null;
   let query, rows, form;
@@ -179,15 +179,18 @@ export function searchEverydayDictionary(input, { limit = 20 } = {}) {
   }
   if (!rows?.length) return null;
   const count = Math.max(1, Math.min(50, Number.isSafeInteger(limit) ? limit : 20));
+  const start = Number.isSafeInteger(offset) && offset >= 0 ? Math.min(offset, 200_000) : 0;
+  const page = rows.slice(start, start + count);
   return {
     query,
-    results: rows.slice(0, count).map(row => ({
+    results: page.map(row => ({
       term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
       source: row.dictionarySource || SOURCE, license: LICENSE, url: SOURCE_URL,
       ...(row.retainedCanonicalAlternatives?.length ? { alternatives: row.retainedCanonicalAlternatives.map(retainedProjection) } : {}),
       ...(!HAN.test(normal) && query !== englishKey(row.term) ? { matchedForm: form } : {}),
     })),
-    hasMore: rows.length > count,
+    hasMore: rows.length > start + page.length,
+    ...(offset === undefined ? {} : { offset: start, nextOffset: start + page.length, total: rows.length }),
   };
 }
 

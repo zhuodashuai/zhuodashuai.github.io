@@ -1,4 +1,4 @@
-import { createDictionaryController } from "./dictionary-app.js?v=104";
+import { createDictionaryController } from "./dictionary-app.js?v=111";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
 import { validatePersonalSession, createPersonalExpiryTimer } from "./personal-storage.js?v=82";
 
@@ -97,6 +97,8 @@ export function createLibraryLookupController({ ownerRequested = false, ownerOri
     change(term); return submit(term);
   }
   function cancel() { sequence++; dictionary.cancel(); }
+  // Reading another page never chooses a term or enters the collection queue.
+  function loadMore() { return disposed ? Promise.resolve(false) : dictionary.loadMore(); }
   function retry() {
     if (!authorized()) return Promise.resolve(false);
     const verified = session, authority = epoch;
@@ -114,6 +116,6 @@ export function createLibraryLookupController({ ownerRequested = false, ownerOri
     try { await signOut({ csrfToken: verified.csrfToken }); return true; }
     catch { authMessage = "本页已停止公开收录；服务器退出尚未确认，请重新登录核对。"; publish(); return false; }
   }
-  return { change, submit, select, chooseSuggestion, cancel, verifyOwner, retry, lock, dispose, logout,
+  return { change, submit, loadMore, select, chooseSuggestion, cancel, verifyOwner, retry, lock, dispose, logout,
     hasUnsettled: () => collector.hasUnsettled(), getState };
 }

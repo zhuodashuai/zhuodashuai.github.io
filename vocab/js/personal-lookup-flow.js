@@ -25,7 +25,7 @@ function knownExact(input, result) {
 
 /** Race public sources only; a slow shared warmup cannot hold up another caller. */
 export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, hotReverse, fullSearch,
-  full = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
+  full = false, preferCompleteChinese = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
   if (signal?.aborted) throw abortError();
   const everyday = searchEverydayDictionary(input);
   if (everyday) return everyday;
@@ -85,8 +85,22 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
           hasMore: Boolean(verified.hasMore || hotValue.result.hasMore || truncated),
           ...(appendedHot ? { coverage: "basic" } : {}) };
       };
-      // Give the already-prewarmed small index a brief chance before starting a
-      // much larger reverse search. Misses immediately use the complete index.
+      // The current Chinese UI uses the complete ranked index. Keep the small
+      // source only as a verified, explicitly partial offline fallback. Legacy
+      // callers may still opt into their original compact-first behavior.
+      const ranked = preferCompleteChinese ? settled(fullLookup) : null;
+      if (ranked) {
+        const complete = await bounded(ranked, 15_000);
+        // The same verified query must have the same ranking/count regardless
+        // of which cache was quicker. Compact-only cards are an offline
+        // fallback, never silently appended to an otherwise complete page.
+        if (complete.value) return complete.value;
+        if (complete.error?.name === "AbortError") throw complete.error;
+        const fallback = await bounded(hot, chineseDelayMs);
+        if (fallback.value?.result.results.length) return basic(fallback.value);
+        if (complete.error) throw complete.error;
+        throw new Error("完整词典读取超时，请重试。");
+      }
       const initial = await bounded(hot, chineseDelayMs);
       if (initial.value?.result.results.length && !initial.value.retainedMismatch) return basic(initial.value);
       const expanded = settled(fullLookup);

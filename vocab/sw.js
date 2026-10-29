@@ -1,4 +1,4 @@
-// Classroom search additions 2026-10-29: refresh curated meanings and exact examples.
+// Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
@@ -8,6 +8,12 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/chinese-ranking.js?v=111", "./js/chinese-ranking-release.js?v=111",
+  "./js/chinese-ranking.js", "./js/chinese-ranking-release.js", "./js/chinese-search.js?v=111",
+  "./js/everyday-lookup.js?v=111",
+  "./js/expanded-dictionary.js?v=111", "./js/dictionary-app.js?v=111",
+  "./js/library-lookup-controller.js?v=111", "./js/library-lookup-ui.js?v=111",
+  "./js/personal-lookup-flow.js?v=111",
   "./js/app-navigation-ready-v110.js",
   "./js/app-navigation-ready-v109.js",
   "./js/dictionary-app-v109.js", "./js/dictionary-entry-v109.js",
@@ -225,7 +231,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request));
     return;
   }
-  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/dictionary-suggestions/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
+  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/chinese-search-ranking/") || url.pathname.includes("/data/dictionary-suggestions/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
     event.respondWith(reloadPublicShard(request, event));
     return;
   }
