@@ -586,6 +586,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "collude",
+    "expectedEntrySha256": "e1ca390957cd210ef065f9f1a32ffe9d9ae97f428bb1ce4c3350f1cf8cb0c2e4",
+    "canonicalId": 1471081,
+    "canonicalSourceSha256": "cb17b1e62d7c9070f13768bf95068c87621107b95a8ba209d3b05dd957043c59",
+    "senseId": "example:collude",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "串通",
+    "en": "The fictional officials collude to hide the missing records.",
+    "zh": "故事中的官员串通藏匿那些下落不明的档案。",
+    "reviewer": "AI/everyday_precision_0015_independent"
+  },
+  {
     "term": "efa",
     "expectedEntrySha256": "d98070494790944ce6b096154d36318198f519564dad91758a508dddf4912491",
     "canonicalId": 6484329,
@@ -909,6 +922,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "Toynbee waited outside while the librarian fetched the book.",
     "zh": "图书管理员去取书时，托因比在外面等候。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "vengeful",
+    "expectedEntrySha256": "cdeee4bb438a804a8b69b4722d6e8bff3e64fabaee386c62adb0cd2d9c89b5ca",
+    "canonicalId": 1404749,
+    "canonicalSourceSha256": "f32fa80718d72fefb2c644877ca6903ddfa9744ab068c4f300b7104ff9193967",
+    "senseId": "example:vengeful",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "意图报复的",
+    "en": "The play's vengeful ruler cannot forgive an old insult.",
+    "zh": "剧中，怀有报复心的统治者无法原谅从前的侮辱。",
+    "reviewer": "AI/everyday_precision_0015_independent"
   },
   {
     "term": "wal",
