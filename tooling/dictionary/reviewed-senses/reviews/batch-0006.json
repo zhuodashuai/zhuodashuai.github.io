@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceSha256": "3a733c7173a37413ebef1ccceee93b3fa757532e32364ccf9d326222a96056b8",
-  "reviewer": "AI/common-class-followup-independent-root",
+  "sourceSha256": "f4bfc5dfa7e8396cabe505a011b58e60d462fc9265f9b85ede8f4c5faea734ea",
+  "reviewer": "AI/canonical_0005_review",
   "independentOfAuthor": true,
   "approvedTerms": [
     "garnish",
@@ -18,84 +18,78 @@
     "strike it rich"
   ],
   "issues": [],
-  "checkedAt": "2026-10-28T23:06:58.381Z",
-  "reviewMethod": "Root actually read all12 complete POS/meanings/forms/ENZH rows and all proposed full retained tuples; consulted primary publisher and university references. No copied publisher example sentences.",
   "decisions": [
     {
       "term": "garnish",
       "verdict": "approved",
       "rowSha256": "ed66548fb38c8f2db2837a370b51eaef334b9760feb513a12b57746fc0f7d163",
-      "reason": "Transitive legal withholding, not food decoration. Passive future wages, part rather than all, notice and debt purpose are faithfully preserved. Merriam-Webster confirms the separate legal role. The sentence is fictional and asserts no jurisdiction-specific procedure."
+      "reason": "The future passive applies legal withholding to part of his wages, with repayment of the debt as purpose. The translation preserves all these details. The legal verb is independently attested and is distinct from decorating food; the invented notice is no claim about a real legal procedure."
     },
     {
       "term": "grand",
       "verdict": "approved",
       "rowSha256": "291193daff75d1a68d72e7d1bb08395c25a43d001db4c31b0b978adcfaf5c7d5",
-      "reason": "Informal countable money noun, 1000 dollars or pounds, unchanged plural grand. US$4000 establishes dollars; one grand over budget is exactly 1000 above the budget. No adjective inflections are borrowed."
+      "reason": "US$4,000 fixes the currency. One grand over budget means one thousand dollars above budget, exactly as translated. This is the informal monetary noun; no adjective comparative or superlative is proposed as its form."
     },
     {
       "term": "dedicated",
       "verdict": "approved",
       "rowSha256": "f0455852aeaf2f24b6e9af976661ffc91a08a9dd4e7411a222fe316434d4bbae",
-      "reason": "Purpose-specific adjective modifies notebook; not the devoted-person adjective or an automatic form of dedicate. Chinese retains dedicated notebook, heard words and bus. Empty declared forms prevent automatic past-verb expansion."
+      "reason": "A notebook kept for this particular activity is dedicated in the purpose-specific adjective sense. The Chinese preserves the dedicated notebook, words heard, and bus location. It does not misclassify the word as a past-tense action or describe a devoted person."
     },
     {
       "term": "substantially",
       "verdict": "approved",
       "rowSha256": "27014374b458acf05263b5981c9d701a5067d56b0c4de9c03000c52f32d263aa",
-      "reason": "Degree adverb modifying lower costs. EN and ZH both explicitly place the move nearer work before the reduction; no statistical significance claim or unsupported distance detail. Old essentially/mainly sense remains separate."
+      "reason": "The adverb measures how much lower the monthly travel costs are. The move closer to work and subsequent comparison make 大幅降低 natural. There is no statistical-significance assertion; the essentially/mostly sense remains a separate use."
     },
     {
       "term": "precipitous",
       "verdict": "approved",
-      "rowSha256": "2c941eda40df6495b152a003587a2226a4f2dc54a98de5d87dbb37dd0cc9eca3",
-      "reason": "Adjective describes a sudden adverse sales decline, not a physical cliff or rash action. Closing the bridge precedes falling sales in both languages. Keep the old rash-action gloss only with its attested usage caveat."
+      "rowSha256": "4ac451e596e159b318c317bd583bf5a5a5772c6fbdcac033c6845b4d80d79282",
+      "reason": "Precipitous modifies decline as an adjective describing a sudden adverse change. The shop, sales decline and bridge closure are faithful in Chinese. 急剧的, 骤然的 and 急剧变化的 are adjective descriptions, while the removed 急剧下降/骤然下降 name events. This language approval does not itself prove runtime search ranking."
     },
     {
       "term": "mandate",
       "verdict": "approved",
       "rowSha256": "b62b3a108512f804f7ab6fe099becfbfc29950829e7c5b39b4b73ce389388b37",
-      "reason": "Officially require, transitive verb with a noun object review. Chinese retains court, required review, company and payment records. It is not the historical administer-territory role or the noun command."
+      "reason": "Mandated takes a review as its object and means officially required. Court, company payment records and compulsory review are preserved. This transitive verb does not rely on the distinct historical territorial-administration verb or the command noun."
     },
     {
       "term": "at fault",
       "verdict": "approved",
       "rowSha256": "b1e2269f6c66d88e7e1db015daf5ff06fcba654c5c1a08734e4ae5b966c945dd",
-      "reason": "Predicative adjective phrase means responsible for an error. Sending invitations to the wrong address is accurately attributed to the speaker. The old perplexed/faulty whole tuple is NOT approved for active retention: a machine causing trouble is not simply equivalent to every machine having a fault."
+      "reason": "The speaker accepts responsibility for sending invitations to the wrong address. The predicative phrase and Chinese account of whose error it was match. The selected sense does not approve the entire unqualified old string about perplexity or malfunction."
     },
     {
       "term": "provision",
       "verdict": "approved",
       "rowSha256": "ea7e906f26bcee83b8fac78df8fb8bb74e3ea8f13945475f0385f4cfdaddbb19",
-      "reason": "Uncountable act of supplying, with provision of meals to residents, distinct from supplies, preparation and contractual terms. Chinese retains the council plan, hot meals and older residents; no inserted outcome claim."
+      "reason": "The provision of hot meals denotes the act of supplying, used as an uncountable noun. Chinese naturally expresses that action while preserving the council plan and older residents. The sentence does not claim that a plan has already been delivered."
     },
     {
       "term": "alumni",
       "verdict": "approved",
       "rowSha256": "f5e7a9591d772f07512cd9d2c4de922f113526812ee40654d8298af5303a9482",
-      "reason": "Plural school former attendees/graduates; modern mixed-gender groups are permitted, as the primary university style guide confirms. Several generations returning for an exhibition is naturally translated as multiple cohorts. Traditional male plural remains a scoped alternative."
+      "reason": "The plural subject is school former attendees or graduates. Multiple generations is naturally 多届 here, and returning for an exhibition is preserved. Both male groups and mixed-gender groups are attested; the definition does not make the plural male-only."
     },
     {
       "term": "default",
       "verdict": "approved",
       "rowSha256": "f98bd42c7fa4b332886a8e788068a05c8c736806742d78a84b5921eff8caebf2",
-      "reason": "Noun for the routine option absent a different agreement; not debt nonpayment. The shared desk and advance agreement for a separate room are preserved. Old computing and failure senses remain separate."
+      "reason": "The default is the arrangement applying absent advance agreement to use a separate room. The shared desk, exception and timing are all retained. The noun is a routine fallback option rather than a failure to repay debt."
     },
     {
       "term": "bargain for",
       "verdict": "approved",
       "rowSha256": "0c3378aacdb110b9949a20ed25ada20ee82685285d3d2eb41da07f6ec0302893",
-      "reason": "Bargain is negotiate, with for marking the sought condition; this is not anticipate/bargain on. Tenants negotiate for a longer notice period before signing; EN/ZH preserve parties, order and sought condition. Phrasal-pattern forms preserve tense."
+      "reason": "The tenants negotiate to obtain a longer notice period before signing. Bargain with for marking the desired terms is independently attested. 争取 does not claim that their demand succeeded. This differs from the phrasal expectation sense and does not require a purchase."
     },
     {
       "term": "strike it rich",
       "verdict": "approved",
       "rowSha256": "03595528cc36ae4feac4b712178231cf9be1780372db2603853700793342677b",
-      "reason": "Informal idiom for sudden substantial financial success. The example describes hope at launch, not an accomplished profit or guaranteed outcome. Chinese preserves first game and the wish to become rich; old mineral-deposit role is scoped to financial success."
+      "reason": "The idiom expresses hoped-for financial success when launching the first mobile game. The Chinese preserves hope rather than asserting actual profit. The definition and aliases concern wealth or financial success rather than arbitrary good fortune."
     }
-  ],
-  "originalSourceSha256": "0942f9bbc78eb3fc5d21e4a12828e4b44ec3d6545ab2e646b0a5d0ebdc56d53b",
-  "sourceV2OnlyMetadataAddition": true,
-  "canonicalRawMutationsApproved": false,
-  "fullCanonicalCoverageClaim": false
+  ]
 }

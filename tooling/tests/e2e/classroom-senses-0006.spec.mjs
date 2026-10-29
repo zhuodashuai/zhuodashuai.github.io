@@ -8,7 +8,7 @@ import {createAdditiveExamplesLoader} from '../../../vocab/js/dictionary-example
 import {canonicalDisplayContexts} from '../../../vocab/js/canonical-example-repair-source.js';
 const sha=b=>createHash('sha256').update(b).digest('hex'),hash=x=>sha(JSON.stringify(x));
 const source=JSON.parse(await readFile(new URL('../../dictionary/reviewed-senses/source/batch-0006.json',import.meta.url),'utf8'));
-assert.equal(hash(source),'3a733c7173a37413ebef1ccceee93b3fa757532e32364ccf9d326222a96056b8');
+assert.equal(hash(source),'f4bfc5dfa7e8396cabe505a011b58e60d462fc9265f9b85ede8f4c5faea734ea');
 assert.equal(source.exampleSource,'原创学习例句');assert.equal(source.entries.length,12);
 const dataRoot=new URL('../../../vocab/data/expanded-dictionary/',import.meta.url);
 const mb=await readFile(new URL('manifest.json',dataRoot));assert.equal(sha(mb),dictionaryExamplesRelease.source.manifestSha256);const manifest=JSON.parse(mb);

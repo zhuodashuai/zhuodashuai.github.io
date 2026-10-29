@@ -15,7 +15,7 @@ const pack=await read('reviewed-senses/source/batch-0006.json'),review=await rea
 const byTerm=new Map(rows.map(row=>[row.term,row]));
 const noNetwork=()=>{throw Error('Packaged selected senses must resolve without dictionary/provider requests');};
 test('twelve selected senses have actual different-reader approvals and exact unchanged old131 rows',()=>{
-  assert.equal(hash(manifest),'b7eb14c983a9fb9d8c46f4e1266ba88b0ff4085265266f21a69be4db26ea02f0');
+  assert.equal(hash(manifest),'f745e0b35224fb5ccef9375f03d6934b5b822afdf1bb4992b2a4bf6f05c0720f');
   assert.equal(hash(pack),manifest.sourceSha256);assert.equal(hash(review),manifest.reviewSha256);
   assert.equal(review.sourceSha256,hash(pack));assert(review.independentOfAuthor);assert.notEqual(review.reviewer,pack.author);
   assert.equal(pack.entries.length,12);assert.deepEqual(review.approvedTerms,pack.entries.map(r=>r.term));
@@ -54,4 +54,16 @@ test('whole old alternatives are precisely retained only for the eleven approved
   assert.equal(searchEverydayDictionary('默认安排和拖欠债务'),null);
   assert(!searchEverydayDictionary('grander')?.results.some(r=>r.term==='grand'));
   assert(!searchEverydayDictionary('dedicating')?.results.some(r=>r.term==='dedicated'));
+});
+
+// Adjectives must not replace the existing exact event expression.
+test('classroom adjective aliases preserve the established sharp-decline phrase and reject unrelated compounds',async()=>{
+  const exact=await searchExpandedDictionary('急剧下降',{fetchImpl:noNetwork});
+  assert.equal(exact.results[0].term,'sink like a stone');
+  assert(!exact.results.some(r=>r.term==='precipitous'));
+  for(const query of ['急剧的','骤然的','急剧变化的']){
+    const found=await searchExpandedDictionary(query,{fetchImpl:noNetwork});
+    assert.equal(found.results[0].term,'precipitous');assert.equal(found.results[0].partOfSpeech,'adjective');
+  }
+  for(const query of ['骤然下降','不是急剧的','急剧变化的天气和债务'])assert(!searchEverydayDictionary(query)?.results.some(r=>r.term==='precipitous'));
 });
