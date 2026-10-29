@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "acquire",
+      "canonicalSourceSha256": "56ff2abb4a5dca9bbef2271e361b73f81076c0c8952413472a9980d376526127",
+      "selectedRowSha256": "1c4f5191f8ae324436d328b695a69ce040084143e0ccacba7591dbbf77820ee9",
+      "author": "AI/everyday_examples_continue_classroom_next_five_0019_gloss_author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 获得, 学到\n[电] 目标锁定",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 获得, 学到\n[电] 目标锁定",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete obtain/learn/detector target-lock tuple is supported by MW, including its technical detector branch.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/acquire"
+      ],
+      "reviewer": "AI/root_classroom_next_five_0019_independent",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "shape",
+      "canonicalSourceSha256": "eceffe188a60959a09609bfef74175ef48ec1da1b33b4ec399e2cc388f0b54f9",
+      "selectedRowSha256": "8985e81e0194ec1cabd11a081235acdad35e12abea2a4d2489219d6240d7e164",
+      "author": "AI/everyday_examples_continue_classroom_next_five_0019_gloss_author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 形状, 形态, 外形, 形式, 身材\nvt. 定形, 使成形, 塑造, 计划, 使符合\nvi. 成形, 形成, 成长\n[计] 形状",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 形状, 形态, 外形, 形式, 身材\nvt. 定形, 使成形, 塑造, 计划, 使符合\nvi. 成形, 形成, 成长\n[计] 形状",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete noun-form/body and verb-form/adapt/plan/develop tuple is supported by MW and Oxford; W3C SVG independently confirms ordinary geometric shape usage in computing. No tail was pruned from either exact inherited tuple.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/shape",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/shape_1",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/shape_2",
+        "https://www.w3.org/TR/SVG2/shapes.html"
+      ],
+      "reviewer": "AI/root_classroom_next_five_0019_independent",
+      "independentOfAuthor": true
+    }
+  ]
+}

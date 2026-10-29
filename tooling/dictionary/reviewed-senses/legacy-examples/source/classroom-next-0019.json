@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "kind": "literal-head-exact-old-card-example-preservation",
+  "author": "AI/blind0015_language_legacy_0019_author",
+  "entries": [
+    {
+      "term": "acquire",
+      "canonicalId": 212755,
+      "canonicalSourceSha256": "56ff2abb4a5dca9bbef2271e361b73f81076c0c8952413472a9980d376526127",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-019.json",
+        "sha256": "4320e5a90e9b08042339a9b76f834751e3896f905f2c4654c82b474bbac13821",
+        "bytes": 344144,
+        "recordIndex": 29
+      },
+      "exactCanonicalRecord": {
+        "id": 212755,
+        "term": "acquire",
+        "partOfSpeech": "verb",
+        "meaning": "vt. 获得, 学到\n[电] 目标锁定",
+        "forms": [
+          "acquired",
+          "acquires",
+          "acquiring"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "vt. 获得, 学到\n[电] 目标锁定",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1662,
+          "forms": [
+            "acquired",
+            "acquires",
+            "acquiring"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0013.json",
+      "selectedSourcePackSha256": "05f26d0d40b5dad8a38e8908918c1670f3dca6448b359ea17ccb3383bee96d1d",
+      "selectedSourceRowSha256": "1c4f5191f8ae324436d328b695a69ce040084143e0ccacba7591dbbf77820ee9",
+      "selectedEntry": {
+        "term": "acquire",
+        "partOfSpeech": "verb",
+        "meaning": "① 获得；取得财物、资源等的所有权或控制权，可以通过购买等方式。\n② 学到；习得；逐渐具备某种知识、技能、特点或能力。\n③ 技术用语：探测并锁定目标，使雷达等设备能够持续跟踪它。",
+        "chineseAliases": [
+          "购得",
+          "取得所有权"
+        ],
+        "englishForms": [
+          "acquired",
+          "acquires",
+          "acquiring"
+        ],
+        "en": "The library acquired a small collection of historical maps last year.",
+        "zh": "图书馆去年获得了一小批历史地图。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/acquire"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/root_classroom_next_five_0019_independent",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": true,
+        "canonicalId": 212755,
+        "canonicalSourceSha256": "56ff2abb4a5dca9bbef2271e361b73f81076c0c8952413472a9980d376526127",
+        "retainedCanonicalAlternatives": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "① vt. 获得, 学到\n   [电] 目标锁定",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          {
+            "partOfSpeech": "verb",
+            "meaning": "① vt. 获得, 学到\n   [电] 目标锁定",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          }
+        ]
+      },
+      "selectedEntrySha256": "90f4f429b3116dca3083d4e7fde1cf1cf7dfd068e98517ac7273de320b6fc7ba",
+      "originalDTO": {
+        "term": "acquire",
+        "senses": [
+          {
+            "id": "example:acquire",
+            "partOfSpeech": "verb",
+            "meaningZh": "通过学习或经历逐渐掌握",
+            "examples": [
+              {
+                "en": "Children acquire new vocabulary while explaining their games to each other.",
+                "zh": "孩子们在互相解释游戏玩法时学会新词汇。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "3b6697fe0e639e7e5dbff48ca4d1878645ae654751190514fa45646252c1d791",
+      "acceptedSavedContexts": [
+        {
+          "term": "acquire",
+          "partOfSpeech": "verb",
+          "meaning": "vt. 获得, 学到\n[电] 目标锁定"
+        },
+        {
+          "term": "acquire",
+          "partOfSpeech": "verb",
+          "meaning": "① vt. 获得, 学到\n   [电] 目标锁定"
+        }
+      ]
+    },
+    {
+      "term": "norm",
+      "canonicalId": 424111,
+      "canonicalSourceSha256": "9f0364b5a8a866070d9e072a72e52b591d8ff20a00b906e9b0d05edfa3fcd43e",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-047.json",
+        "sha256": "e8d1a92d5d6aa86272fe559298219c4e9d067908c32460a30991c7531bc2fd83",
+        "bytes": 369247,
+        "recordIndex": 84
+      },
+      "exactCanonicalRecord": {
+        "id": 424111,
+        "term": "norm",
+        "partOfSpeech": "noun",
+        "meaning": "n. 基准, 模范, 标准, 准则, 平均数\n[化] 定额",
+        "forms": [
+          "norms"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 基准, 模范, 标准, 准则, 平均数\n[化] 定额",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3313,
+          "forms": [
+            "norms"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0013.json",
+      "selectedSourcePackSha256": "05f26d0d40b5dad8a38e8908918c1670f3dca6448b359ea17ccb3383bee96d1d",
+      "selectedSourceRowSha256": "497dcb872e90e1b966f128feb415ca6ee526c109a94824fc2b98ec28cec83f2a",
+      "selectedEntry": {
+        "term": "norm",
+        "partOfSpeech": "noun",
+        "meaning": "① 行为规范；群体共同接受、用来引导或约束行为的准则，常用复数 norms。\n② 常态；惯常的做法或通常存在的情况，常见于 the norm。\n③ 标准；基准；作为比较、判断或预期目标的尺度。\n④ 常模；平均水平，以某类群体的表现为基础建立的比较标准。\n⑤ 数学用语：范数，衡量向量等大小、满足正定性、绝对齐次性及三角不等式的非负函数。",
+        "chineseAliases": [
+          "公认行为准则",
+          "社会行为规范"
+        ],
+        "englishForms": [
+          "norms"
+        ],
+        "en": "The seminar asked how children learn the social norms of their community.",
+        "zh": "研讨课讨论了孩子如何学习所在社群的社会规范。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/norm",
+          "https://www.collinsdictionary.com/dictionary/english/norm"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/root_classroom_next_five_0019_independent",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": false,
+        "canonicalId": 424111,
+        "canonicalSourceSha256": "9f0364b5a8a866070d9e072a72e52b591d8ff20a00b906e9b0d05edfa3fcd43e"
+      },
+      "selectedEntrySha256": "5c5a230fc7c2206e65047150e17fd1b5fbe5b70f6bef1a964db559d7562800f8",
+      "originalDTO": {
+        "term": "norm",
+        "senses": [
+          {
+            "id": "example:norm",
+            "partOfSpeech": "noun",
+            "meaningZh": "常态",
+            "examples": [
+              {
+                "en": "Flexible hours have become the norm in our office.",
+                "zh": "弹性工作时间已成为我们办公室的常态。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "81f045acccae5e9a0269a9ae5932cfc898f15ae031f4fa82745bd6b351fbaf2c",
+      "acceptedSavedContexts": [
+        {
+          "term": "norm",
+          "partOfSpeech": "noun",
+          "meaning": "n. 基准, 模范, 标准, 准则, 平均数\n[化] 定额"
+        },
+        {
+          "term": "norm",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 基准, 模范, 标准, 准则, 平均数\n   [化] 定额"
+        }
+      ]
+    },
+    {
+      "term": "shape",
+      "canonicalId": 148134,
+      "canonicalSourceSha256": "eceffe188a60959a09609bfef74175ef48ec1da1b33b4ec399e2cc388f0b54f9",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-038.json",
+        "sha256": "6c2535164250bda903f86d3bf1a74762e190593124288a7c90960bc8015a5079",
+        "bytes": 339520,
+        "recordIndex": 29
+      },
+      "exactCanonicalRecord": {
+        "id": 148134,
+        "term": "shape",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 形状, 形态, 外形, 形式, 身材\nvt. 定形, 使成形, 塑造, 计划, 使符合\nvi. 成形, 形成, 成长\n[计] 形状",
+        "forms": [
+          "shaped",
+          "shapes",
+          "shaping"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 形状, 形态, 外形, 形式, 身材\nvt. 定形, 使成形, 塑造, 计划, 使符合\nvi. 成形, 形成, 成长\n[计] 形状",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1157,
+          "forms": [
+            "shaped",
+            "shapes",
+            "shaping"
+          ],
+          "workbook": false
+        }
+      },
+      "selectedBatch": "batch-0013.json",
+      "selectedSourcePackSha256": "05f26d0d40b5dad8a38e8908918c1670f3dca6448b359ea17ccb3383bee96d1d",
+      "selectedSourceRowSha256": "8985e81e0194ec1cabd11a081235acdad35e12abea2a4d2489219d6240d7e164",
+      "selectedEntry": {
+        "term": "shape",
+        "partOfSpeech": "verb · noun",
+        "meaning": "① 动词：塑造；影响某人或某事的发展方向、特点或行为方式。\n② 动词：使成形；把材料加工或安排成特定形状；也可指调整得合适。\n③ 动词：构思；拟定，使计划、政策或作品逐渐具有明确形式。\n④ 不及物动词：逐渐成形或发展，常见于 shape up；shape to do something 可表示摆出准备做某事的姿势。\n⑤ 名词：形状；外形；轮廓；具有某种形状的物体，也可指身材或隐约可见的人影、物影。\n⑥ 名词：状况；状态，常见于 in good shape；亦可指事物呈现或采取的具体形式。",
+        "chineseAliases": [
+          "影响发展方向",
+          "塑造特点"
+        ],
+        "englishForms": [
+          "shapes",
+          "shaping"
+        ],
+        "en": "The rules of a workplace can shape how employees share responsibilities.",
+        "zh": "工作场所的规则会影响员工如何分担职责。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/shape",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/shape_1",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/shape_2"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/root_classroom_next_five_0019_independent",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": true,
+        "canonicalId": 148134,
+        "canonicalSourceSha256": "eceffe188a60959a09609bfef74175ef48ec1da1b33b4ec399e2cc388f0b54f9",
+        "retainedCanonicalAlternatives": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 形状, 形态, 外形, 形式, 身材\n② vt. 定形, 使成形, 塑造, 计划, 使符合\n③ vi. 成形, 形成, 成长\n   [计] 形状",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 形状, 形态, 外形, 形式, 身材\n② vt. 定形, 使成形, 塑造, 计划, 使符合\n③ vi. 成形, 形成, 成长\n   [计] 形状",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          }
+        ]
+      },
+      "selectedEntrySha256": "c7bfc44b26323a200be4ac362cace6b151977c84ea42e87aee5c14a8b583367d",
+      "originalDTO": {
+        "term": "shape",
+        "senses": [
+          {
+            "id": "example:shape",
+            "partOfSpeech": "noun",
+            "meaningZh": "形状",
+            "examples": [
+              {
+                "en": "Cut the paper into the shape of a leaf.",
+                "zh": "把纸剪成叶子的形状。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "223aa690f5bf59944df2609cac9591bd84ed177dc9b0899e34d547b5c325af41",
+      "acceptedSavedContexts": [
+        {
+          "term": "shape",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 形状, 形态, 外形, 形式, 身材\nvt. 定形, 使成形, 塑造, 计划, 使符合\nvi. 成形, 形成, 成长\n[计] 形状"
+        },
+        {
+          "term": "shape",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 形状, 形态, 外形, 形式, 身材\n② vt. 定形, 使成形, 塑造, 计划, 使符合\n③ vi. 成形, 形成, 成长\n   [计] 形状"
+        }
+      ]
+    },
+    {
+      "term": "stall",
+      "canonicalId": 508153,
+      "canonicalSourceSha256": "cc75379664211eccfab6ffbca034fde254847e9bdd92ff8584323fb19151f74b",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-121.json",
+        "sha256": "f1431e85a84f20b3e713078029e1e463d1d2172731e7dd9e84ddd1b9678a9ab5",
+        "bytes": 342998,
+        "recordIndex": 88
+      },
+      "exactCanonicalRecord": {
+        "id": 508153,
+        "term": "stall",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 厩, 停车处, 牧师职位, 货摊, 托辞, 拖延\nvt. 关入厩, 停顿, 推托, 支吾, 使陷于泥中\nvi. 被关在厩内, 陷于泥中, 停止, 支吾",
+        "forms": [
+          "stalled",
+          "stalling",
+          "stalls"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 厩, 停车处, 牧师职位, 货摊, 托辞, 拖延\nvt. 关入厩, 停顿, 推托, 支吾, 使陷于泥中\nvi. 被关在厩内, 陷于泥中, 停止, 支吾",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3969,
+          "forms": [
+            "stalled",
+            "stalling",
+            "stalls"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0013.json",
+      "selectedSourcePackSha256": "05f26d0d40b5dad8a38e8908918c1670f3dca6448b359ea17ccb3383bee96d1d",
+      "selectedSourceRowSha256": "55dba1467c9b4cf24ec4bc095689e7d46422edbf10be3f413e6224b3964489ea",
+      "selectedEntry": {
+        "term": "stall",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 名词：牲畜栏；马厩或牲口棚内供一只牲畜使用的隔间。\n② 名词：售货摊位；摆放或出售商品的小摊、柜台等。\n③ 名词：小隔间，例如淋浴间或公共厕所中的厕格；美式英语中也可指划定的停车位。\n④ 名词：教堂内供唱诗班或神职人员使用的座席；英式英语中 the stalls 常指剧院靠近舞台的底层观众席。\n⑤ 动词：使停止或停滞；因故障、受阻等而停止运行或进展，也可表示使车辆陷住；发动机 stall 指熄火。\n⑥ 动词：故意拖延；以推托或转移注意等方式争取时间、拖住某人；名词也可指拖延的借口或计策。\n⑦ 动词：把牲畜关入栏内。\n⑧ 航空用语：失速，指迎角过大使机翼气流分离、升力下降的状态；也可作动词表示进入或使进入失速状态。",
+        "chineseAliases": [
+          "马厩隔间",
+          "牲畜栏位"
+        ],
+        "englishForms": [
+          "stalled",
+          "stalling",
+          "stalls"
+        ],
+        "en": "Each horse returned to its own stall after the lesson.",
+        "zh": "马术课结束后，每匹马都回到了自己在马厩里的隔间。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/stall",
+          "https://www.collinsdictionary.com/dictionary/english/stall"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/root_classroom_next_five_0019_independent",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": false,
+        "canonicalId": 508153,
+        "canonicalSourceSha256": "cc75379664211eccfab6ffbca034fde254847e9bdd92ff8584323fb19151f74b"
+      },
+      "selectedEntrySha256": "0c2978358eca30ea64da50caa9bc719801cec417d02a4b2044881cb3ff1d7f05",
+      "originalDTO": {
+        "term": "stall",
+        "senses": [
+          {
+            "id": "example:stall",
+            "partOfSpeech": "noun",
+            "meaningZh": "售货摊位",
+            "examples": [
+              {
+                "en": "We bought fresh peaches from a stall beside the station.",
+                "zh": "我们在车站旁的摊位买了新鲜桃子。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "a3ea78502811a3fd057cd8d2ce6b6a9a71cbc64f3cee63cd51abc59bc253063c",
+      "acceptedSavedContexts": [
+        {
+          "term": "stall",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 厩, 停车处, 牧师职位, 货摊, 托辞, 拖延\nvt. 关入厩, 停顿, 推托, 支吾, 使陷于泥中\nvi. 被关在厩内, 陷于泥中, 停止, 支吾"
+        },
+        {
+          "term": "stall",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 厩, 停车处, 牧师职位, 货摊, 托辞, 拖延\n② vt. 关入厩, 停顿, 推托, 支吾, 使陷于泥中\n③ vi. 被关在厩内, 陷于泥中, 停止, 支吾"
+        }
+      ]
+    }
+  ]
+}

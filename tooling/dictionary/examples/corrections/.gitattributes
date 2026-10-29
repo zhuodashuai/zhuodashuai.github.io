@@ -1,0 +1,3 @@
+# Exact correction approvals and source hashes require stable LF bytes.
+source/*.json text eol=lf
+reviews/*.json text eol=lf
