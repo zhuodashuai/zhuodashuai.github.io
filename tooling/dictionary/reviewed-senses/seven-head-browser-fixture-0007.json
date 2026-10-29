@@ -1,0 +1,826 @@
+{
+  "schemaVersion": 1,
+  "kind": "seven-head-sense-alignment-browser-fixture-v1",
+  "pins": {
+    "selectedSourceSha256": "b55a048c6df2f6bce3283be291997f9af0f5f29a689a52e7ad73646cf4d09136",
+    "selectedReviewSha256": "9ef7d6b29cca88a904cf2c4cab7eca90ce6468b74207cf895775b4f5684a4dcc",
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "memberDictionarySha256": "258c49c1c82947539bc61149c0e08b2bed8f73c413d9f3003d8e15cf95c19b0e"
+  },
+  "selectedSource": {
+    "schemaVersion": 1,
+    "author": "AI/common-lexical-sense-repair-author",
+    "entries": [
+      {
+        "term": "lane",
+        "partOfSpeech": "noun",
+        "meaning": "① 车道；道路上供一列车辆行驶的部分，通常用标线与其他车道分开。\n② 小路；小巷，指乡间的窄路或城镇中较窄的街巷。",
+        "chineseAliases": [
+          "车道",
+          "公路车道",
+          "乡间小路",
+          "小巷",
+          "小路",
+          "巷",
+          "弄",
+          "窄路"
+        ],
+        "englishForms": [
+          "lanes"
+        ],
+        "en": "The delivery van moved into the left lane before the road split.",
+        "zh": "送货车在道路分岔前驶入了左侧车道。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/lane"
+        ],
+        "canonicalId": 236591,
+        "canonicalSourceSha256": "eaac868f375a26d4d82865e22cfc65fbac4fa02d4dc665a9a5df452917d5724d"
+      },
+      {
+        "term": "capture",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 动词：捕获；俘虏；夺取，使人、物或地方处于控制之下。\n② 动词：赢得；获得，通过努力或竞争取得某物。\n③ 动词：拍摄；录制；采集信息，用相机、录音设备或计算机把影像、声音或数据等记录保存下来。\n④ 动词：吸引；迷住，引起并保持人的注意、兴趣或想象。\n⑤ 动词：描绘；表现，通过文字、图像等传达某种特征、情绪或场景。\n⑥ 名词：捕获；俘获，指抓获或取得控制的行为。\n⑦ 名词：捕获的人或物，如俘虏或缴获物。\n⑧ 名词：影像、声音或数据的录制、采集，也可指录制的影像等结果。",
+        "chineseAliases": [
+          "拍摄",
+          "拍下画面",
+          "记录影像",
+          "捕获",
+          "俘获",
+          "捕获之物",
+          "吸引注意",
+          "信息采集",
+          "夺取",
+          "录制"
+        ],
+        "englishForms": [
+          "captured",
+          "captures",
+          "capturing"
+        ],
+        "en": "The camera on the balcony can capture the whole stage in a single photograph.",
+        "zh": "阳台上的相机能在一张照片里拍下整个舞台。",
+        "references": [
+          "https://dictionary.cambridge.org/dictionary/english/capture",
+          "https://www.merriam-webster.com/dictionary/capture",
+          "https://www.collinsdictionary.com/us/dictionary/english/capture"
+        ],
+        "canonicalId": 233665,
+        "canonicalSourceSha256": "899544cc31500aeda55a1db7674e8f7e5664d57c416e664eaa5251d82dc8e617"
+      },
+      {
+        "term": "past",
+        "partOfSpeech": "noun · adjective · preposition · adverb",
+        "meaning": "① 名词：过去；往事，指已经过去的时间或发生过的事情，也可指个人、地方的以往经历和历史。\n② 名词：过去时；过去式，语法中表示过去时间的时态或该时态的动词形式。\n③ 形容词：过去的；从前的；刚过去或已经结束的；指人时也可表示曾任某职位的。\n④ 形容词：过去时的，与表达过去时间的动词形式有关。\n⑤ 介词：在……更远处；经过或越过……，表示位置在某点之外，或从旁边移动到更远处。\n⑥ 介词：晚于；超过，表示时间已过某一点，或超出某种能力、范围或限度。\n⑦ 副词：经过；过去，可表示从旁边经过，也可表示时间流逝。",
+        "chineseAliases": [
+          "过去",
+          "从前",
+          "以往",
+          "过去的",
+          "前任的",
+          "过去时",
+          "晚于",
+          "超出范围",
+          "往事",
+          "过去式",
+          "从旁经过",
+          "超出能力范围"
+        ],
+        "englishForms": [],
+        "en": "Sorting the shopkeeper's old receipts taught us more about the town's past.",
+        "zh": "整理店主的旧收据，让我们更了解了这座小镇的过去。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/past_1",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/past_2",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/past_3",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/past_4",
+          "https://www.merriam-webster.com/dictionary/past",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/pass_1"
+        ],
+        "canonicalId": 65693,
+        "canonicalSourceSha256": "7c994c4379e54df18ea8f9183030bce7f931a3992585a3a75f21a6ad73990f4a"
+      },
+      {
+        "term": "data",
+        "partOfSpeech": "noun (plural or uncountable)",
+        "meaning": "① 数据；为分析、推理或计算而收集、记录的事实、数值等信息。可按复数或不可数名词使用；与动词搭配时应保持一致。",
+        "chineseAliases": [
+          "数据",
+          "调查数据",
+          "观测数据",
+          "事实资料"
+        ],
+        "englishForms": [],
+        "en": "We used the survey data to decide where to put the extra bicycle racks.",
+        "zh": "我们利用调查数据来决定增设的自行车架放在哪里。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/us/definition/english/data",
+          "https://dictionary.cambridge.org/dictionary/english/data?q=data_1"
+        ],
+        "canonicalId": 84261,
+        "canonicalSourceSha256": "bc6c8f524da90140cd24422041b7c20d3c782a8d741bf9f1cc658cc9e91194dd"
+      }
+    ],
+    "exampleSource": "原创学习例句"
+  },
+  "rows": [
+    {
+      "route": "selected",
+      "term": "lane",
+      "canonicalRecord": {
+        "id": 236591,
+        "term": "lane",
+        "partOfSpeech": "noun",
+        "meaning": "n. 小路, 巷, 弄, 单行道",
+        "forms": [
+          "lanes"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 小路, 巷, 弄, 单行道",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1848,
+          "forms": [
+            "lanes"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "lane",
+          "partOfSpeech": "noun",
+          "meaning": "n. 小路, 巷, 弄, 单行道"
+        },
+        {
+          "term": "lane",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 小路, 巷, 弄, 单行道"
+        }
+      ],
+      "originalDTO": {
+        "term": "lane",
+        "senses": [
+          {
+            "id": "example:lane",
+            "partOfSpeech": "noun",
+            "meaningZh": "道路上供一列车辆行驶的车道",
+            "examples": [
+              {
+                "en": "A broken truck blocked the left lane near the tunnel entrance.",
+                "zh": "一辆故障卡车堵住了隧道入口附近的左侧车道。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      }
+    },
+    {
+      "route": "selected",
+      "term": "capture",
+      "canonicalRecord": {
+        "id": 233665,
+        "term": "capture",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 抓取, 战利品, 捕获之物\nvt. 抓取, 获得, 迷住\n[计] 截获命令",
+        "forms": [
+          "captured",
+          "captures",
+          "capturing"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 抓取, 战利品, 捕获之物\nvt. 抓取, 获得, 迷住\n[计] 截获命令",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1825,
+          "forms": [
+            "captured",
+            "captures",
+            "capturing"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "capture",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 抓取, 战利品, 捕获之物\nvt. 抓取, 获得, 迷住\n[计] 截获命令"
+        },
+        {
+          "term": "capture",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 抓取, 战利品, 捕获之物\n② vt. 抓取, 获得, 迷住\n   [计] 截获命令"
+        }
+      ],
+      "originalDTO": {
+        "term": "capture",
+        "senses": [
+          {
+            "id": "example:capture",
+            "partOfSpeech": "verb",
+            "meaningZh": "用照片影像等记录下来",
+            "examples": [
+              {
+                "en": "Try to capture the reflections before the wind disturbs the water.",
+                "zh": "试着在风吹皱水面之前拍下这些倒影。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      }
+    },
+    {
+      "route": "selected",
+      "term": "past",
+      "canonicalRecord": {
+        "id": 65693,
+        "term": "past",
+        "partOfSpeech": "noun · adjective · preposition",
+        "meaning": "n. 过去, 昔时, 往事, 早年经历, 过去时\na. 过去的, 结束的, 卸任的, 过去时的\nprep. 越过, 晚于, 超越, 超出...的可能性(能力、范围等)\npass的过去分词",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · adjective · preposition",
+            "meaning": "n. 过去, 昔时, 往事, 早年经历, 过去时\na. 过去的, 结束的, 卸任的, 过去时的\nprep. 越过, 晚于, 超越, 超出...的可能性(能力、范围等)\npass的过去分词",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 513,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "past",
+          "partOfSpeech": "noun · adjective · preposition",
+          "meaning": "n. 过去, 昔时, 往事, 早年经历, 过去时\na. 过去的, 结束的, 卸任的, 过去时的\nprep. 越过, 晚于, 超越, 超出...的可能性(能力、范围等)\npass的过去分词"
+        },
+        {
+          "term": "past",
+          "partOfSpeech": "noun · adjective · preposition",
+          "meaning": "① n. 过去, 昔时, 往事, 早年经历, 过去时\n② adj. 过去的, 结束的, 卸任的, 过去时的\n③ prep. 越过, 晚于, 超越, 超出...的可能性(能力、范围等)\n   pass的过去分词"
+        }
+      ],
+      "originalDTO": {
+        "term": "past",
+        "senses": [
+          {
+            "id": "example:past",
+            "partOfSpeech": "noun",
+            "meaningZh": "过去",
+            "examples": [
+              {
+                "en": "These photographs remind us of the past.",
+                "zh": "这些照片让我们想起过去。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      }
+    },
+    {
+      "route": "selected",
+      "term": "data",
+      "canonicalRecord": {
+        "id": 84261,
+        "term": "data",
+        "partOfSpeech": "noun",
+        "meaning": "pl. 资料, 数据\n[计] 数据; DOS内部命令:用于显示或设定系统的日期",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "pl. 资料, 数据\n[计] 数据; DOS内部命令:用于显示或设定系统的日期",
+            "source": "mit"
+          },
+          {
+            "partOfSpeech": "noun (plural or uncountable)",
+            "meaning": "1. noun (plural or uncountable)：数据；用来分析、推理或计算的信息。传统上是 datum 的复数，正式科研中可配复数动词；现代日常及计算机语境也常作不可数名词配单数动词。两种用法都存在，写作时宜保持一致。",
+            "source": "original"
+          }
+        ],
+        "seed": {
+          "rank": 658,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "data",
+          "partOfSpeech": "noun",
+          "meaning": "pl. 资料, 数据\n[计] 数据; DOS内部命令:用于显示或设定系统的日期"
+        },
+        {
+          "term": "data",
+          "partOfSpeech": "noun",
+          "meaning": "① pl. 资料, 数据\n   [计] 数据; DOS内部命令:用于显示或设定系统的日期"
+        }
+      ],
+      "originalDTO": {
+        "term": "data",
+        "senses": [
+          {
+            "id": "data-noun-information",
+            "partOfSpeech": "noun (plural or uncountable)",
+            "meaningZh": "数据；用来分析、推理或计算的信息。传统上是 datum 的复数，正式科研中可配复数动词；现代日常及计算机语境也常作不可数名词配单数动词。两种用法都存在，写作时宜保持一致。",
+            "examples": [
+              {
+                "en": "The data were collected over six weeks using the same procedure.",
+                "zh": "这些数据是在六周内使用同一程序收集的。"
+              },
+              {
+                "en": "The data is stored on a small external drive.",
+                "zh": "数据保存在一个小型外接存储器上。"
+              }
+            ],
+            "reviewer": "AI/batch-0003-noun-cross-review",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      }
+    },
+    {
+      "route": "canonical",
+      "term": "south",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "south",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 89978,
+        "canonicalSourceSha256": "02031b0a57f47f0ecfe1fb6a8872075efa50725413181d0d34de83c2c36ad110",
+        "exactCanonicalRecord": {
+          "id": 89978,
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+          "forms": [],
+          "source": "core",
+          "variants": [
+            {
+              "partOfSpeech": "noun · adjective · adverb · verb",
+              "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 702,
+            "forms": [],
+            "workbook": false
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT · 已上线核心整理",
+          "license": "MIT and project editorial additions",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+        },
+        "origin": {
+          "file": "batch-0003-c.json",
+          "sourceSha256": "5fe8cb728d5b345b1c416fbf9536cae43b7e9fa64a3b5be506514b234a58d8e0",
+          "index": 47
+        },
+        "expectedOriginalEntry": {
+          "term": "south",
+          "senses": [
+            {
+              "id": "example:south",
+              "partOfSpeech": "adverb",
+              "meaningZh": "向南",
+              "examples": [
+                {
+                  "en": "We drove south until we reached the coast.",
+                  "zh": "我们向南开车，直到到达海岸。"
+                }
+              ],
+              "reviewer": "AI/examples_0003_c",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "2e5b285f2f57a23e4d2bec6a78146b8bc84adf639d308936240f265795c4691e",
+        "retiredOriginalPair": {
+          "term": "south",
+          "partOfSpeech": "adverb",
+          "meaningZh": "向南",
+          "en": "We drove south until we reached the coast.",
+          "zh": "我们向南开车，直到到达海岸。"
+        },
+        "retiredOriginalPairSha256": "72e01194b908d950f1383f418461f15c87212cadff8e70328812972645dbc815",
+        "acceptedDisplayContexts": [
+          {
+            "term": "south",
+            "partOfSpeech": "noun · adjective · adverb · verb",
+            "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方"
+          },
+          {
+            "term": "south",
+            "partOfSpeech": "noun · adjective · adverb · verb",
+            "meaning": "① n. 南方, 南\n② adj. 南的, 向南的\n③ adv. 在南方\n④ vi. 转向南方"
+          }
+        ],
+        "replacementPair": {
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaningZh": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+          "en": "Our spare equipment is stored down south.",
+          "zh": "我们的备用设备存放在南方。"
+        },
+        "replacementPairSha256": "53897b7c4ed9967358383377e4f5fe87a4c50204a8dc487b75d1990fd557b726",
+        "references": [
+          "https://dictionary.cambridge.org/us/dictionary/english/south",
+          "https://www.collinsdictionary.com/us/dictionary/english/south"
+        ]
+      },
+      "nativePrimary": {
+        "term": "south",
+        "partOfSpeech": "noun · adjective · adverb · verb",
+        "meaning": "① n. 南方, 南\n② adj. 南的, 向南的\n③ adv. 在南方\n④ vi. 转向南方",
+        "source": "ECDICT"
+      },
+      "nativeProjectionEvidence": {
+        "memberDictionarySha256": "258c49c1c82947539bc61149c0e08b2bed8f73c413d9f3003d8e15cf95c19b0e",
+        "rawCoreTuple": [
+          "south",
+          "noun",
+          "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+          []
+        ],
+        "rawCoreTupleSha256": "63ca9ff749ff9b35c1bdc0d9f6f50ab4d0375e540bc8b6d4c3c42cc816f3b8a4",
+        "source": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "fileSha256": "e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302"
+        },
+        "scope": "Real legacy personal core projection. It has the same term/POS/meaning and its own ECDICT provenance; expanded-dictionary source metadata is a different presentation."
+      }
+    },
+    {
+      "route": "canonical",
+      "term": "contemporary",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "contemporary",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 249762,
+        "canonicalSourceSha256": "16f24a3b7cf9bac60ce59925416a902aca46b5a6bd14b90fa1506f5ba9ffaafd",
+        "exactCanonicalRecord": {
+          "id": 249762,
+          "term": "contemporary",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+          "forms": [
+            "contemporaries"
+          ],
+          "source": "core",
+          "variants": [
+            {
+              "partOfSpeech": "noun · adjective",
+              "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 1951,
+            "forms": [
+              "contemporaries"
+            ],
+            "workbook": true
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT · 已上线核心整理",
+          "license": "MIT and project editorial additions",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+        },
+        "origin": {
+          "file": "batch-0002-b.json",
+          "sourceSha256": "7495c83e05cd566dac075e0f87cd0f3c6fde34941d569465cdd69fdaa700f1b1",
+          "index": 178
+        },
+        "expectedOriginalEntry": {
+          "term": "contemporary",
+          "senses": [
+            {
+              "id": "example:contemporary",
+              "partOfSpeech": "adjective",
+              "meaningZh": "属于当今时代的",
+              "examples": [
+                {
+                  "en": "The museum pairs ancient pottery with contemporary paintings in the same room.",
+                  "zh": "博物馆把古代陶器与当代绘画搭配陈列在同一展厅。"
+                }
+              ],
+              "reviewer": "AI/independent-language-review-c",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "690a05c7c44836e8c70b9be5f4bd402f25ea9d1a0f21718e3545396fbf7ebd4b",
+        "retiredOriginalPair": {
+          "term": "contemporary",
+          "partOfSpeech": "adjective",
+          "meaningZh": "属于当今时代的",
+          "en": "The museum pairs ancient pottery with contemporary paintings in the same room.",
+          "zh": "博物馆把古代陶器与当代绘画搭配陈列在同一展厅。"
+        },
+        "retiredOriginalPairSha256": "a502bce624e5254bd5aabc512d482a41dbeba4730920d15582e2b1dc0e0a1762",
+        "acceptedDisplayContexts": [
+          {
+            "term": "contemporary",
+            "partOfSpeech": "noun · adjective",
+            "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的"
+          },
+          {
+            "term": "contemporary",
+            "partOfSpeech": "noun · adjective",
+            "meaning": "① n. 同时代的人\n② adj. 同时代的, 属于同一时期的"
+          }
+        ],
+        "replacementPair": {
+          "term": "contemporary",
+          "partOfSpeech": "noun · adjective",
+          "meaningZh": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+          "en": "The archive holds letters exchanged by two contemporary poets in the eighteenth century.",
+          "zh": "档案馆收藏着十八世纪两位同时代诗人的往来信件。"
+        },
+        "replacementPairSha256": "2e7a1becfb35f3b4716c6c5935a1de8c74c63f2a68ccd8c2afb3505f3e6cf6c6",
+        "references": [
+          "https://www.collinsdictionary.com/dictionary/english/contemporary"
+        ]
+      },
+      "nativePrimary": {
+        "term": "contemporary",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "① n. 同时代的人\n② adj. 同时代的, 属于同一时期的",
+        "source": "ECDICT"
+      },
+      "nativeProjectionEvidence": {
+        "memberDictionarySha256": "258c49c1c82947539bc61149c0e08b2bed8f73c413d9f3003d8e15cf95c19b0e",
+        "rawCoreTuple": [
+          "contemporary",
+          "noun",
+          "n. 同时代的人\na. 同时代的, 属于同一时期的",
+          [
+            "contemporaries"
+          ]
+        ],
+        "rawCoreTupleSha256": "0afe080a67346a18790b4eee6040884c1d5f5adec6974cf77f6bb7a5390bf49e",
+        "source": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "fileSha256": "e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302"
+        },
+        "scope": "Real legacy personal core projection. It has the same term/POS/meaning and its own ECDICT provenance; expanded-dictionary source metadata is a different presentation."
+      }
+    },
+    {
+      "route": "canonical",
+      "term": "characterize",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "characterize",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 392258,
+        "canonicalSourceSha256": "00770cf1bb33e048c12e7655f2fbe3b81805f1eec52b09642eb5716f8914be53",
+        "exactCanonicalRecord": {
+          "id": 392258,
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaning": "vt. 描绘...的特性, 刻划...的性格",
+          "forms": [
+            "characterized",
+            "characterizes",
+            "characterizing"
+          ],
+          "source": "core",
+          "variants": [
+            {
+              "partOfSpeech": "verb",
+              "meaning": "vt. 描绘...的特性, 刻划...的性格",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 3064,
+            "forms": [
+              "characterized",
+              "characterizes",
+              "characterizing"
+            ],
+            "workbook": true
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT · 已上线核心整理",
+          "license": "MIT and project editorial additions",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+        },
+        "origin": {
+          "file": "batch-0003-f.json",
+          "sourceSha256": "9dc339a5a90a9556b5c137ca421415bf2cb917346413277d642d859dd200ee56",
+          "index": 178
+        },
+        "expectedOriginalEntry": {
+          "term": "characterize",
+          "senses": [
+            {
+              "id": "example:characterize",
+              "partOfSpeech": "verb",
+              "meaningZh": "表现…的特征",
+              "examples": [
+                {
+                  "en": "Bright colours characterize her recent paintings.",
+                  "zh": "鲜艳的色彩是她近期画作的特征。"
+                }
+              ],
+              "reviewer": "AI/examples_0003_a",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "05738dd89af81090dd4109ce349cabd519b307d0fe0e67b38e17b3b084caf4d8",
+        "retiredOriginalPair": {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaningZh": "表现…的特征",
+          "en": "Bright colours characterize her recent paintings.",
+          "zh": "鲜艳的色彩是她近期画作的特征。"
+        },
+        "retiredOriginalPairSha256": "81a44972e446adcccf561603694e6ce4ebf11ca28a9502b022d4ccc78bb009e5",
+        "acceptedDisplayContexts": [
+          {
+            "term": "characterize",
+            "partOfSpeech": "verb",
+            "meaning": "vt. 描绘...的特性, 刻划...的性格"
+          },
+          {
+            "term": "characterize",
+            "partOfSpeech": "verb",
+            "meaning": "① vt. 描绘...的特性, 刻划...的性格"
+          }
+        ],
+        "replacementPair": {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaningZh": "vt. 描绘...的特性, 刻划...的性格",
+          "en": "The biographer characterizes the inventor as patient with machines but impatient with people.",
+          "zh": "传记作者把这位发明家描写成一个对机器有耐心、对人却不耐烦的人。"
+        },
+        "replacementPairSha256": "23ec7978a6bd1c37f5e2a43d972a4ff74caa342d5a41c346ec6b57956f22c621",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/characterize"
+        ]
+      },
+      "nativePrimary": {
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaning": "① vt. 描绘...的特性, 刻划...的性格",
+        "source": "ECDICT"
+      },
+      "nativeProjectionEvidence": {
+        "memberDictionarySha256": "258c49c1c82947539bc61149c0e08b2bed8f73c413d9f3003d8e15cf95c19b0e",
+        "rawCoreTuple": [
+          "characterize",
+          "verb",
+          "vt. 描绘...的特性, 刻划...的性格",
+          [
+            "characterized",
+            "characterizes",
+            "characterizing"
+          ]
+        ],
+        "rawCoreTupleSha256": "95b061544e662d7a955e132557efb0c5b84214a7bf819ff2f7009a9238358f46",
+        "source": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "fileSha256": "e226936f68144d47c50529607f994287ac9919870681567bfd61d46e38e5d302"
+        },
+        "scope": "Real legacy personal core projection. It has the same term/POS/meaning and its own ECDICT provenance; expanded-dictionary source metadata is a different presentation."
+      }
+    }
+  ],
+  "approvalEvidence": [
+    {
+      "source": "reviewed-senses/source/batch-0007.json",
+      "review": "reviewed-senses/reviews/batch-0007.json",
+      "sourceSha256": "b55a048c6df2f6bce3283be291997f9af0f5f29a689a52e7ad73646cf4d09136",
+      "reviewSha256": "9ef7d6b29cca88a904cf2c4cab7eca90ce6468b74207cf895775b4f5684a4dcc"
+    },
+    {
+      "source": "examples/canonical-repairs/source/canonical-quality-0006.json",
+      "review": "examples/canonical-repairs/reviews/canonical-quality-0006.json",
+      "sourceSha256": "73c5456654f108c403fcfa80b5b8f5ccaeb307c3b0abc7c194eb3143a6814b6c",
+      "reviewSha256": "1122f55da3ab33a7d193dab56ca292ab3a66f1b314473cfcead1b1dcb1fd6d6f"
+    },
+    {
+      "source": "examples/canonical-repairs/source/canonical-quality-0007.json",
+      "review": "examples/canonical-repairs/reviews/canonical-quality-0007.json",
+      "sourceSha256": "0f80bfe4870b340d1b722008ee5fc80bf1c513aa1670512fee1a71c160d42770",
+      "reviewSha256": "61280a977d1040c08362baa304eaa85228b893379d6a301858af9e315277c5ae"
+    },
+    {
+      "source": "examples/canonical-repairs/source/canonical-quality-0008.json",
+      "review": "examples/canonical-repairs/reviews/canonical-quality-0008.json",
+      "sourceSha256": "a8d77f9a43902847015724a1b7749f6b54a7c3cd4968b1d9542b28712ec406e9",
+      "reviewSha256": "73f552da957379a1fa11f77f552a88fcd7762803d84a41ec7daa141e1b9ee27b"
+    }
+  ],
+  "physicalSourceInputs": [
+    {
+      "path": "vocab/data/expanded-dictionary/cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-047.json",
+      "bytes": 369247,
+      "sha256": "e8d1a92d5d6aa86272fe559298219c4e9d067908c32460a30991c7531bc2fd83"
+    },
+    {
+      "path": "vocab/data/dictionary-examples/manifest-v2.json",
+      "bytes": 57577,
+      "sha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9"
+    },
+    {
+      "path": "vocab/data/dictionary-examples/afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-47.json",
+      "bytes": 131362,
+      "sha256": "5c7596b5d3b6b1baa3796385e3dd4f1d096dbe1ef95b4113b756abee4daeb93f"
+    },
+    {
+      "path": "vocab/data/expanded-dictionary/cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-065.json",
+      "bytes": 341908,
+      "sha256": "697acb1efbcf57eca01f46d827baaf79fd5ff00a86c8a71c9b4f7ae47a8f2622"
+    },
+    {
+      "path": "vocab/data/dictionary-examples/afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-193.json",
+      "bytes": 116517,
+      "sha256": "8ce19dee191443cb2ba9bef06f9307f75bf8d76b3d1ae52ef150a41a4ec05131"
+    },
+    {
+      "path": "vocab/data/expanded-dictionary/cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-029.json",
+      "bytes": 337850,
+      "sha256": "85e7134ca4e5950df67791f62c7680006e9a4510f1634703cbb2d5bc6a6bb6e5"
+    },
+    {
+      "path": "vocab/data/dictionary-examples/afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-29.json",
+      "bytes": 116317,
+      "sha256": "686a776a692cf0ad7f8e9809b2e3f19da6eb43ae592048ab316828339b83061a"
+    },
+    {
+      "path": "vocab/data/expanded-dictionary/cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-037.json",
+      "bytes": 343091,
+      "sha256": "9ceae971c2af8013d3a0dc8500fb3dbcaca0af3f51a39264129eae8ed72ca35f"
+    },
+    {
+      "path": "vocab/data/dictionary-examples/afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-165.json",
+      "bytes": 119214,
+      "sha256": "a4ccf1a12a2a370c38fb98922ba9ac869db83686f51f563fa36609ccacca9f96"
+    }
+  ],
+  "scope": "Exactly four curated senses and south/contemporary/characterize canonical examples, not a count-only or full-corpus proof."
+}

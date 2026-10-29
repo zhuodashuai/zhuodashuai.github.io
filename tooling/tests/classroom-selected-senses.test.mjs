@@ -19,7 +19,9 @@ test('twelve selected senses have actual different-reader approvals and exact un
   assert.equal(hash(pack),manifest.sourceSha256);assert.equal(hash(review),manifest.reviewSha256);
   assert.equal(review.sourceSha256,hash(pack));assert(review.independentOfAuthor);assert.notEqual(review.reviewer,pack.author);
   assert.equal(pack.entries.length,12);assert.deepEqual(review.approvedTerms,pack.entries.map(r=>r.term));
-  assert.equal(rows.length,143);assert.equal(new Set(rows.map(r=>r.term)).size,143);
+  const historicalHeads=new Set([...baseline.oldSelectedRows,...pack.entries].map(r=>r.term));
+  const historicalRows=rows.filter(r=>historicalHeads.has(r.term));
+  assert.equal(historicalRows.length,143);assert.equal(new Set(historicalRows.map(r=>r.term)).size,143);
   for(const old of baseline.oldSelectedRows)assert.deepEqual(byTerm.get(old.term),old);
   assert.equal(hash(EVERYDAY_LOOKUP_ENTRIES.filter(r=>!r.reviewedCanonicalSense)),baseline.oldOrdinarySha256);
   assert.deepEqual(EVERYDAY_CHINESE_ALIASES,baseline.oldAliases);

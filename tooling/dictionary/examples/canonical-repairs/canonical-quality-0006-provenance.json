@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "baselineHead": "007127945ebd30958a839b6d6286410156e5d043",
+  "oldCanonicalHeads": 69,
+  "oldCanonicalPairs": 70,
+  "newHeads": 3,
+  "newPairs": 3,
+  "combinedHeads": 72,
+  "combinedPairs": 73,
+  "entries": [
+    {
+      "term": "south",
+      "sourceFile": "canonical-quality-0006.json",
+      "reviewFile": "canonical-quality-0006.json",
+      "sourceSha256": "73c5456654f108c403fcfa80b5b8f5ccaeb307c3b0abc7c194eb3143a6814b6c",
+      "reviewSha256": "1122f55da3ab33a7d193dab56ca292ab3a66f1b314473cfcead1b1dcb1fd6d6f",
+      "rowSha256": "d2c5529e82bf949cc77e3804b332fc2b30af7d093ac85a6c41654564c1a2ec0a",
+      "author": "AI/root-south-location-author",
+      "reviewer": "AI/canonical_0005_review",
+      "oldPairLanguageValidAndPhysicallyPreserved": true,
+      "adapterSourceName": "south-format-adapter-source.json",
+      "adapterReviewName": "south-rebound-review.json"
+    },
+    {
+      "term": "contemporary",
+      "sourceFile": "canonical-quality-0007.json",
+      "reviewFile": "canonical-quality-0007.json",
+      "sourceSha256": "0f80bfe4870b340d1b722008ee5fc80bf1c513aa1670512fee1a71c160d42770",
+      "reviewSha256": "61280a977d1040c08362baa304eaa85228b893379d6a301858af9e315277c5ae",
+      "rowSha256": "f87deb4b693fe543fb04cd95675d4afb2967bb29642dbc4fbb8ebe40caa00015",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical-0005-contemporary-route-review",
+      "oldPairLanguageValidAndPhysicallyPreserved": true,
+      "adapterSourceName": "contemporary-format-adapter-source.json",
+      "adapterReviewName": "contemporary-rebound-review.json"
+    },
+    {
+      "term": "characterize",
+      "sourceFile": "canonical-quality-0008.json",
+      "reviewFile": "canonical-quality-0008.json",
+      "sourceSha256": "a8d77f9a43902847015724a1b7749f6b54a7c3cd4968b1d9542b28712ec406e9",
+      "reviewSha256": "73f552da957379a1fa11f77f552a88fcd7762803d84a41ec7daa141e1b9ee27b",
+      "rowSha256": "c58f7e6299f3841075499b84b5e20706f187714708d818e09ef7e252d4f89c97",
+      "author": "AI/canonical-0004-0010-component-author",
+      "reviewer": "AI/canonical-0005-0010-candidate-independent-review",
+      "oldPairLanguageValidAndPhysicallyPreserved": true,
+      "adapterSourceName": "characterize-source-original-bytes.json",
+      "adapterReviewName": "characterize-rebound-review.json"
+    }
+  ],
+  "baselineRowsSha256": "57bda18bf5cb59dc2cbecacda4f9bed63b9043f37d87ce039c91927fe42ee569",
+  "oldRows": [
+    {
+      "term": "DEM",
+      "sha256": "cdfd1cdfd02dcae3fb108cbfab5430fecf18219965fda5a634a6a6d7860e3a81"
+    },
+    {
+      "term": "E",
+      "sha256": "5e859d4876066da697ee5efc710f504855b5a3cd26b9649c67315d8e01de67f3"
+    },
+    {
+      "term": "FOB",
+      "sha256": "c32145f20aa1e0c1198ff37480c15cb82c92beb5e5cf29ae59d6b72d51c858cb"
+    },
+    {
+      "term": "M",
+      "sha256": "f3aedf3b4f604d29d1191c8db26448db7eb7947f9e54c9ac43e95fc8a8677ef2"
+    },
+    {
+      "term": "abbr",
+      "sha256": "0546c5a424f5f0819165f08952d433bda10ca6af81f21aabc74a057a846e2072"
+    },
+    {
+      "term": "aerospace",
+      "sha256": "48e9aa7993c45373b61ca31a5608c3b8c9dd267cfbb85a43d2e820c99ed9e684"
+    },
+    {
+      "term": "audio",
+      "sha256": "0427206b5af095a9584da84168f8d47ab9fe76fd0c5ab7d97624fbd9df9e0301"
+    },
+    {
+      "term": "blur",
+      "sha256": "5090635e15caa1d4fec660783edb13e21cdfb9657ba203ae0262988f7e105acf"
+    },
+    {
+      "term": "bootleg",
+      "sha256": "17ed2e590c579dc61525b4d21a31ff7514031fc2695438a342e945d6271311eb"
+    },
+    {
+      "term": "bootstrap",
+      "sha256": "4cf23352a49427d818a99383bee72b527e1723009fd3dbb47b4bf08925583945"
+    },
+    {
+      "term": "breakaway",
+      "sha256": "4e22989b02d45f738335d8b245c94eaa56fa64a876b93d844fa388dae6bae769"
+    },
+    {
+      "term": "bse",
+      "sha256": "9e988c7d86bade5c269c3069393dfff59ac81cfbf4e60971f32da4bd4a3e69b9"
+    },
+    {
+      "term": "carney",
+      "sha256": "bacfd2e7dd5bec3825ad74a2d1e093a78bc42b1d4dc44bac9c47372d56f1bb62"
+    },
+    {
+      "term": "cavalier",
+      "sha256": "837aafdf00af5dca6c8d618916df973360ecf1a9cc201117587ee21b0b1caff5"
+    },
+    {
+      "term": "cherokee",
+      "sha256": "63857762e52df4359ab1cf4a0fc1177ea2d90ff41e8d622fc60143fade3af03e"
+    },
+    {
+      "term": "cleric",
+      "sha256": "cbd440a7c38dab7161f710b9f8f429d0497c948237865cf50ba5c00194159a44"
+    },
+    {
+      "term": "dairy",
+      "sha256": "cdb463cd085097cad4cad87e89581516cfaa5811d19c7db6d5867fb66ec829b4"
+    },
+    {
+      "term": "deadpan",
+      "sha256": "22afc137b0ddd36f7fca8348bd611a8e3b5286245db248307c86e90a37508fec"
+    },
+    {
+      "term": "defeatist",
+      "sha256": "cc1e9777f3565aab12ea2e90e20633545f1bbbeb43890a267898d1dfdacbd96f"
+    },
+    {
+      "term": "downward",
+      "sha256": "a32d283858ccafa18d6deecbb59cef8e4fbc93a7092eb106b57c2e732d6273ab"
+    },
+    {
+      "term": "duff",
+      "sha256": "aef7cb33a441f4d2c1f41507a444344dc7374f4d1b2a3afe59d4754a733e6691"
+    },
+    {
+      "term": "ersatz",
+      "sha256": "55d81f62dc499c6d7d7ecf0a983db5bc2cae0dafe5c6cb5c7099197fb132fb60"
+    },
+    {
+      "term": "etcetera",
+      "sha256": "52a98ff192344e9604e18598ec88b21869d1a5206dbc910b61a251ba69f459e9"
+    },
+    {
+      "term": "fact-finding",
+      "sha256": "60b3384047b1ecdea975b9812bc14d80c30f3b865094dfd5b8af3e5fc8d205f3"
+    },
+    {
+      "term": "farrow",
+      "sha256": "91558b32c43e4c1d17406234e62d68b273cebd6e9daae4100eeb3202278c6098"
+    },
+    {
+      "term": "feminist",
+      "sha256": "aa9639b2c06de7993a8b8f8a89b5983835a53c93fa2dd1c14d011338c98474f0"
+    },
+    {
+      "term": "flathead",
+      "sha256": "76736c255a5165ffd16fe2fda2a968cc0977bc0ba8523531982f46d2067f79b9"
+    },
+    {
+      "term": "follow-up",
+      "sha256": "2d299c133ec8f97988133632b104f8d3f77edd9d2663eacf480e0e41ee2f203f"
+    },
+    {
+      "term": "foo",
+      "sha256": "a26623708b3b54aa6e1086210def080059da8ad6c88efbdca57ae8004be96211"
+    },
+    {
+      "term": "fore",
+      "sha256": "a95ba12da58bada261f6029506cfdbdef453a7b00742e76ee6efd26a00d681f2"
+    },
+    {
+      "term": "gay",
+      "sha256": "86c8598c01391479cd5d0b7e47e2acad3f59c356d2d05d4dfb9b131eecb4f82e"
+    },
+    {
+      "term": "head-on",
+      "sha256": "7e496c54890797b6b3b8b2f8af10680bc9531ae2aff875e62e7faaf00a2f76ab"
+    },
+    {
+      "term": "hieroglyphic",
+      "sha256": "e53109f3534a30a02501496e2766d785d32e83918a0402325141bd5e75313972"
+    },
+    {
+      "term": "hubble",
+      "sha256": "9982c3d017ab8c270187e2f08354524f1db602537d1fd96550e8f196d3e7bebe"
+    },
+    {
+      "term": "ice-cream",
+      "sha256": "30d1aedecdf1a432a5b1db429a213c20be335fe610d7a7259e2de9ce078a7c90"
+    },
+    {
+      "term": "indie",
+      "sha256": "2078b86f859edb7ce04fda54cb0a876b95c63941e4dbd318a9a8bdeb64f41609"
+    },
+    {
+      "term": "jettison",
+      "sha256": "8aefc7a39756dc353c39c2a256b10faf9e9e3f9cc9bdf602a344aab3766d00ca"
+    },
+    {
+      "term": "knock-on",
+      "sha256": "cb3d3bfe8a8432b86ba590d4cd868e25bf965eff2bcacabbce61075a956ad78b"
+    },
+    {
+      "term": "melville",
+      "sha256": "a3fe41677f6a1dab1829c6fb8a9e33ae1a601f8dc5c9e2766e470c6370e9cfb2"
+    },
+    {
+      "term": "midland",
+      "sha256": "1aaca45956915098471824327131920496652e87ec44c05ffc0690c26332ad06"
+    },
+    {
+      "term": "molly",
+      "sha256": "4e4bb4f9fc81045a4ba9287515ab722d053eca034b94f32b754f67847497f33a"
+    },
+    {
+      "term": "monmouth",
+      "sha256": "94d1fa7e6d496e3fb440e80fd0a32eb567d159be3041a0effef4e82441f2a37d"
+    },
+    {
+      "term": "navajo",
+      "sha256": "25fa0883f79d0d6507c8093b00b49f97cfb5357fc817673fd9564b2959cc90c9"
+    },
+    {
+      "term": "offside",
+      "sha256": "a4fce5420ff1334181ce61491bdaefeed9acd2ff7f3f17a7b2bfa408b4df74a1"
+    },
+    {
+      "term": "offstage",
+      "sha256": "a9f91e7673e469e01d434e3acc7941ffbfe6e0615d01d7fa3f1276c592ec321d"
+    },
+    {
+      "term": "pinky",
+      "sha256": "3fbb861d259e4a9a716846f4a06831b5aad72320aa55e4239835eb7839495dcd"
+    },
+    {
+      "term": "primo",
+      "sha256": "3320112539ce9174d220f04f785c6598dd19e22c62a81580882f1f77d1f67633"
+    },
+    {
+      "term": "pro",
+      "sha256": "93b626728e7c24e7a96bbd22a8ce354e001e35b908e200f54683b961c1256534"
+    },
+    {
+      "term": "qed",
+      "sha256": "e3a5598612982a18e63a165e3d72ee40214aa57b50b9dcd833d584eb461c827c"
+    },
+    {
+      "term": "retro",
+      "sha256": "f18e53b93c51fd2df0b7298b7a41a0f93f68e5027fb7800db3b37494cb898482"
+    },
+    {
+      "term": "sabine",
+      "sha256": "03710e66b15204efdc0d3f3f6f9a3ab23bdb35451cf1366c90038f1c55552841"
+    },
+    {
+      "term": "sales",
+      "sha256": "78d8233e4626e7db45d430792ba31d958b268555b3fe3dbb3107608048ebcf35"
+    },
+    {
+      "term": "savvy",
+      "sha256": "406a58e24fa15238edb8bbcf60a3469281eb9e15e57f3aad5bf393c83bf01fe4"
+    },
+    {
+      "term": "scupper",
+      "sha256": "5bf5c25d879ff4767f31fc9beea0dd30835eefb8510afd47fac45def48fbed7a"
+    },
+    {
+      "term": "semiliterate",
+      "sha256": "89d4a18dba96de5b2e92894eaa643adc694c5162c7cdf618c9f5a8ac074d28cd"
+    },
+    {
+      "term": "sheepshead",
+      "sha256": "8344f43d471aff4af7b5688dd8c100962e985db31056f94e595afac2661f04e7"
+    },
+    {
+      "term": "situationist",
+      "sha256": "4e83f20287874e5d4350c14d054bdead4d4bf78abb0c4fa82cba920e27d9d422"
+    },
+    {
+      "term": "sooner",
+      "sha256": "f9ac9cc8c6adb68dd530fca9b55b7c25fcd753ffc934aff33b3ea624fb90a49a"
+    },
+    {
+      "term": "starboard",
+      "sha256": "05130db31965b616ae057b1ade94d81c417ddadc2683e4f0afa9896121d65b05"
+    },
+    {
+      "term": "steinway",
+      "sha256": "c8d96599f8ec605376f7bcf066ec811515f7e5b0b4fd6d4c0cc0c1655e83eb83"
+    },
+    {
+      "term": "substantial",
+      "sha256": "34678a44744638162bd354b10d5d2289753815febe6abbdcdfce07dc09acb770"
+    },
+    {
+      "term": "sus",
+      "sha256": "bebc7e148ac8c4940cf4f86420cb4b2e51a7fa1867fc766d4c9f702b81d2512b"
+    },
+    {
+      "term": "swank",
+      "sha256": "8a5b3adbacb328448325b4b109c0fbe3ab2e097238dfaa0c6cde8273748e4a65"
+    },
+    {
+      "term": "thankyou",
+      "sha256": "98b71901c6628dd32ce0045c2bcac5f88b7f5ed49ca6f74a027d85ea66ea1848"
+    },
+    {
+      "term": "uptown",
+      "sha256": "244889de20813de6795ee94a7de768f55a9d75f6bc554d0670b2c612d05fc126"
+    },
+    {
+      "term": "wally",
+      "sha256": "8be9a86ae2548c259c3273f1257372abecb15f0176621a32e6d26a5a10475773"
+    },
+    {
+      "term": "wholemeal",
+      "sha256": "22f339917e47dfae19f3a1fab0fc4449c2b9ad82e811cd16c47dd1d1db3e19ac"
+    },
+    {
+      "term": "wot",
+      "sha256": "a0747b5fc195cb00fb70811d179cbdce83afc061bbafff6c1daa5eeb9032db42"
+    },
+    {
+      "term": "x-ray",
+      "sha256": "a558e9dc547df9f3ec28ac823d4e4b1a17131bcced6574b9956c3770a9503e19"
+    }
+  ],
+  "compiledRowsSha256": "6332258b054712f0befbdb9a35cc8832d8d6f6524f80a578539c002f5a7ccd92",
+  "rawCanonicalAndOriginalExamplesChanged": false,
+  "privateRecordsChanged": false,
+  "scope": "Three exact source-component examples. No lane/capture canonical admission; their fuller selected-sense route is separate. Complete old source and valid EN/ZH pairs remain stored, not relabelled as errors."
+}

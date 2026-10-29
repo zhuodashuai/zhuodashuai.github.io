@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "data",
+      "canonicalSourceSha256": "bc6c8f524da90140cd24422041b7c20d3c782a8d741bf9f1cc658cc9e91194dd",
+      "selectedRowSha256": "834a085a709e27e4a94defe0fc0741db82eac0a8f1513ad85a085e784687d1a5",
+      "author": "AI/common-lexical-sense-repair-author",
+      "reviewer": "AI/canonical-0004-lexical-v7",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun (plural or uncountable)",
+          "meaning": "1. noun (plural or uncountable)：数据；用来分析、推理或计算的信息。传统上是 datum 的复数，正式科研中可配复数动词；现代日常及计算机语境也常作不可数名词配单数动词。两种用法都存在，写作时宜保持一致。",
+          "source": "original"
+        }
+      ],
+      "reason": "The complete unchanged project-original noun tuple accurately explains information for analysis, reasoning or computation, traditional datum-plural agreement, and established modern mass-noun agreement. Both agreement choices are legitimate and independently illustrated by the preserved original examples. Retain this exact whole original tuple and its original source descriptor; do not retain or prune the separate core/MIT date-command tuples.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/data",
+        "https://dictionaryblog.cambridge.org/2020/05/13/gathering-compiling-and-analyzing-talking-about-data-1/"
+      ]
+    }
+  ]
+}

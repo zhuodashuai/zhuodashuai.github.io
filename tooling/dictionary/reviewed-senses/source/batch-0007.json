@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/common-lexical-sense-repair-author",
+  "entries": [
+    {
+      "term": "lane",
+      "partOfSpeech": "noun",
+      "meaning": "① 车道；道路上供一列车辆行驶的部分，通常用标线与其他车道分开。\n② 小路；小巷，指乡间的窄路或城镇中较窄的街巷。",
+      "chineseAliases": [
+        "车道",
+        "公路车道",
+        "乡间小路",
+        "小巷",
+        "小路",
+        "巷",
+        "弄",
+        "窄路"
+      ],
+      "englishForms": [
+        "lanes"
+      ],
+      "en": "The delivery van moved into the left lane before the road split.",
+      "zh": "送货车在道路分岔前驶入了左侧车道。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/lane"
+      ],
+      "canonicalId": 236591,
+      "canonicalSourceSha256": "eaac868f375a26d4d82865e22cfc65fbac4fa02d4dc665a9a5df452917d5724d"
+    },
+    {
+      "term": "capture",
+      "partOfSpeech": "noun · verb",
+      "meaning": "① 动词：捕获；俘虏；夺取，使人、物或地方处于控制之下。\n② 动词：赢得；获得，通过努力或竞争取得某物。\n③ 动词：拍摄；录制；采集信息，用相机、录音设备或计算机把影像、声音或数据等记录保存下来。\n④ 动词：吸引；迷住，引起并保持人的注意、兴趣或想象。\n⑤ 动词：描绘；表现，通过文字、图像等传达某种特征、情绪或场景。\n⑥ 名词：捕获；俘获，指抓获或取得控制的行为。\n⑦ 名词：捕获的人或物，如俘虏或缴获物。\n⑧ 名词：影像、声音或数据的录制、采集，也可指录制的影像等结果。",
+      "chineseAliases": [
+        "拍摄",
+        "拍下画面",
+        "记录影像",
+        "捕获",
+        "俘获",
+        "捕获之物",
+        "吸引注意",
+        "信息采集",
+        "夺取",
+        "录制"
+      ],
+      "englishForms": [
+        "captured",
+        "captures",
+        "capturing"
+      ],
+      "en": "The camera on the balcony can capture the whole stage in a single photograph.",
+      "zh": "阳台上的相机能在一张照片里拍下整个舞台。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/capture",
+        "https://www.merriam-webster.com/dictionary/capture",
+        "https://www.collinsdictionary.com/us/dictionary/english/capture"
+      ],
+      "canonicalId": 233665,
+      "canonicalSourceSha256": "899544cc31500aeda55a1db7674e8f7e5664d57c416e664eaa5251d82dc8e617"
+    },
+    {
+      "term": "past",
+      "partOfSpeech": "noun · adjective · preposition · adverb",
+      "meaning": "① 名词：过去；往事，指已经过去的时间或发生过的事情，也可指个人、地方的以往经历和历史。\n② 名词：过去时；过去式，语法中表示过去时间的时态或该时态的动词形式。\n③ 形容词：过去的；从前的；刚过去或已经结束的；指人时也可表示曾任某职位的。\n④ 形容词：过去时的，与表达过去时间的动词形式有关。\n⑤ 介词：在……更远处；经过或越过……，表示位置在某点之外，或从旁边移动到更远处。\n⑥ 介词：晚于；超过，表示时间已过某一点，或超出某种能力、范围或限度。\n⑦ 副词：经过；过去，可表示从旁边经过，也可表示时间流逝。",
+      "chineseAliases": [
+        "过去",
+        "从前",
+        "以往",
+        "过去的",
+        "前任的",
+        "过去时",
+        "晚于",
+        "超出范围",
+        "往事",
+        "过去式",
+        "从旁经过",
+        "超出能力范围"
+      ],
+      "englishForms": [],
+      "en": "Sorting the shopkeeper's old receipts taught us more about the town's past.",
+      "zh": "整理店主的旧收据，让我们更了解了这座小镇的过去。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/past_1",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/past_2",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/past_3",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/past_4",
+        "https://www.merriam-webster.com/dictionary/past",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/pass_1"
+      ],
+      "canonicalId": 65693,
+      "canonicalSourceSha256": "7c994c4379e54df18ea8f9183030bce7f931a3992585a3a75f21a6ad73990f4a"
+    },
+    {
+      "term": "data",
+      "partOfSpeech": "noun (plural or uncountable)",
+      "meaning": "① 数据；为分析、推理或计算而收集、记录的事实、数值等信息。可按复数或不可数名词使用；与动词搭配时应保持一致。",
+      "chineseAliases": [
+        "数据",
+        "调查数据",
+        "观测数据",
+        "事实资料"
+      ],
+      "englishForms": [],
+      "en": "We used the survey data to decide where to put the extra bicycle racks.",
+      "zh": "我们利用调查数据来决定增设的自行车架放在哪里。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/data",
+        "https://dictionary.cambridge.org/dictionary/english/data?q=data_1"
+      ],
+      "canonicalId": 84261,
+      "canonicalSourceSha256": "bc6c8f524da90140cd24422041b7c20d3c782a8d741bf9f1cc658cc9e91194dd"
+    }
+  ],
+  "exampleSource": "原创学习例句"
+}

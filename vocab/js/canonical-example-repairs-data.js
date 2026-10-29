@@ -1013,6 +1013,85 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-vocabulary-author"
     },
     {
+      "term": "characterize",
+      "canonicalId": 392258,
+      "canonicalSourceSha256": "00770cf1bb33e048c12e7655f2fbe3b81805f1eec52b09642eb5716f8914be53",
+      "exactCanonicalRecord": {
+        "id": 392258,
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaning": "vt. 描绘...的特性, 刻划...的性格",
+        "forms": [
+          "characterized",
+          "characterizes",
+          "characterizing"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "vt. 描绘...的特性, 刻划...的性格",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3064,
+          "forms": [
+            "characterized",
+            "characterizes",
+            "characterizing"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "characterize",
+        "senses": [
+          {
+            "id": "example:characterize",
+            "partOfSpeech": "verb",
+            "meaningZh": "表现…的特征",
+            "examples": [
+              {
+                "en": "Bright colours characterize her recent paintings.",
+                "zh": "鲜艳的色彩是她近期画作的特征。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "05738dd89af81090dd4109ce349cabd519b307d0fe0e67b38e17b3b084caf4d8",
+      "acceptedDisplayContexts": [
+        {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaning": "vt. 描绘...的特性, 刻划...的性格"
+        },
+        {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaning": "① vt. 描绘...的特性, 刻划...的性格"
+        }
+      ],
+      "replacementPair": {
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaningZh": "vt. 描绘...的特性, 刻划...的性格",
+        "en": "The biographer characterizes the inventor as patient with machines but impatient with people.",
+        "zh": "传记作者把这位发明家描写成一个对机器有耐心、对人却不耐烦的人。"
+      },
+      "senseId": "canonical-example:392258:00770cf1bb33e048c12e7655f2fbe3b81805f1eec52b09642eb5716f8914be53",
+      "reviewer": "AI/canonical-0005-0010-candidate-independent-review"
+    },
+    {
       "term": "cherokee",
       "canonicalId": 2374717,
       "canonicalSourceSha256": "161389599afa37628f8ae7c654ae9504a63ca94d664112fa70393377805c991a",
@@ -1149,6 +1228,81 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:1901661:f33362f04438eae2724f9a916e7816af14754d340dd74d3b601166fa632ab4db",
       "reviewer": "AI/common-class-vocabulary-author"
+    },
+    {
+      "term": "contemporary",
+      "canonicalId": 249762,
+      "canonicalSourceSha256": "16f24a3b7cf9bac60ce59925416a902aca46b5a6bd14b90fa1506f5ba9ffaafd",
+      "exactCanonicalRecord": {
+        "id": 249762,
+        "term": "contemporary",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+        "forms": [
+          "contemporaries"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · adjective",
+            "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1951,
+          "forms": [
+            "contemporaries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "contemporary",
+        "senses": [
+          {
+            "id": "example:contemporary",
+            "partOfSpeech": "adjective",
+            "meaningZh": "属于当今时代的",
+            "examples": [
+              {
+                "en": "The museum pairs ancient pottery with contemporary paintings in the same room.",
+                "zh": "博物馆把古代陶器与当代绘画搭配陈列在同一展厅。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "690a05c7c44836e8c70b9be5f4bd402f25ea9d1a0f21718e3545396fbf7ebd4b",
+      "acceptedDisplayContexts": [
+        {
+          "term": "contemporary",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "n. 同时代的人\na. 同时代的, 属于同一时期的"
+        },
+        {
+          "term": "contemporary",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "① n. 同时代的人\n② adj. 同时代的, 属于同一时期的"
+        }
+      ],
+      "replacementPair": {
+        "term": "contemporary",
+        "partOfSpeech": "noun · adjective",
+        "meaningZh": "n. 同时代的人\na. 同时代的, 属于同一时期的",
+        "en": "The archive holds letters exchanged by two contemporary poets in the eighteenth century.",
+        "zh": "档案馆收藏着十八世纪两位同时代诗人的往来信件。"
+      },
+      "senseId": "canonical-example:249762:16f24a3b7cf9bac60ce59925416a902aca46b5a6bd14b90fa1506f5ba9ffaafd",
+      "reviewer": "AI/canonical-0005-contemporary-route-review"
     },
     {
       "term": "dairy",
@@ -4073,6 +4227,77 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:1808965:0e9c9f422481b217c214761a9e22b0b3659cc46189988f16d61a5a8b165b48be",
       "reviewer": "AI/canonical-0005-independent-review"
+    },
+    {
+      "term": "south",
+      "canonicalId": 89978,
+      "canonicalSourceSha256": "02031b0a57f47f0ecfe1fb6a8872075efa50725413181d0d34de83c2c36ad110",
+      "exactCanonicalRecord": {
+        "id": 89978,
+        "term": "south",
+        "partOfSpeech": "noun · adjective · adverb · verb",
+        "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · adjective · adverb · verb",
+            "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 702,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "south",
+        "senses": [
+          {
+            "id": "example:south",
+            "partOfSpeech": "adverb",
+            "meaningZh": "向南",
+            "examples": [
+              {
+                "en": "We drove south until we reached the coast.",
+                "zh": "我们向南开车，直到到达海岸。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "2e5b285f2f57a23e4d2bec6a78146b8bc84adf639d308936240f265795c4691e",
+      "acceptedDisplayContexts": [
+        {
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方"
+        },
+        {
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaning": "① n. 南方, 南\n② adj. 南的, 向南的\n③ adv. 在南方\n④ vi. 转向南方"
+        }
+      ],
+      "replacementPair": {
+        "term": "south",
+        "partOfSpeech": "noun · adjective · adverb · verb",
+        "meaningZh": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+        "en": "Our spare equipment is stored down south.",
+        "zh": "我们的备用设备存放在南方。"
+      },
+      "senseId": "canonical-example:89978:02031b0a57f47f0ecfe1fb6a8872075efa50725413181d0d34de83c2c36ad110",
+      "reviewer": "AI/canonical_0005_review"
     },
     {
       "term": "starboard",

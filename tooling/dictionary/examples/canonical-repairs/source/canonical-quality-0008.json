@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/canonical-0004-0010-component-author",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "characterize",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 392258,
+      "canonicalSourceSha256": "00770cf1bb33e048c12e7655f2fbe3b81805f1eec52b09642eb5716f8914be53",
+      "exactCanonicalRecord": {
+        "id": 392258,
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaning": "vt. 描绘...的特性, 刻划...的性格",
+        "forms": [
+          "characterized",
+          "characterizes",
+          "characterizing"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "vt. 描绘...的特性, 刻划...的性格",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3064,
+          "forms": [
+            "characterized",
+            "characterizes",
+            "characterizing"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "origin": {
+        "file": "batch-0003-f.json",
+        "sourceSha256": "9dc339a5a90a9556b5c137ca421415bf2cb917346413277d642d859dd200ee56",
+        "index": 178
+      },
+      "expectedOriginalEntry": {
+        "term": "characterize",
+        "senses": [
+          {
+            "id": "example:characterize",
+            "partOfSpeech": "verb",
+            "meaningZh": "表现…的特征",
+            "examples": [
+              {
+                "en": "Bright colours characterize her recent paintings.",
+                "zh": "鲜艳的色彩是她近期画作的特征。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "05738dd89af81090dd4109ce349cabd519b307d0fe0e67b38e17b3b084caf4d8",
+      "retiredOriginalPair": {
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaningZh": "表现…的特征",
+        "en": "Bright colours characterize her recent paintings.",
+        "zh": "鲜艳的色彩是她近期画作的特征。"
+      },
+      "retiredOriginalPairSha256": "81a44972e446adcccf561603694e6ce4ebf11ca28a9502b022d4ccc78bb009e5",
+      "acceptedDisplayContexts": [
+        {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaning": "vt. 描绘...的特性, 刻划...的性格"
+        },
+        {
+          "term": "characterize",
+          "partOfSpeech": "verb",
+          "meaning": "① vt. 描绘...的特性, 刻划...的性格"
+        }
+      ],
+      "replacementPair": {
+        "term": "characterize",
+        "partOfSpeech": "verb",
+        "meaningZh": "vt. 描绘...的特性, 刻划...的性格",
+        "en": "The biographer characterizes the inventor as patient with machines but impatient with people.",
+        "zh": "传记作者把这位发明家描写成一个对机器有耐心、对人却不耐烦的人。"
+      },
+      "replacementPairSha256": "23ec7978a6bd1c37f5e2a43d972a4ff74caa342d5a41c346ec6b57956f22c621",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/characterize"
+      ]
+    }
+  ]
+}

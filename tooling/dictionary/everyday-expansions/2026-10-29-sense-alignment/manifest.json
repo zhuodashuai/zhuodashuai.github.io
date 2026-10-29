@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "baselineSha256": "2cdd7548c595a55d18e4e9abb2b91a1cca55073141960d57a982b12e4e67ccc9",
+  "baselineHead": "007127945ebd30958a839b6d6286410156e5d043",
+  "sourceSha256": "b55a048c6df2f6bce3283be291997f9af0f5f29a689a52e7ad73646cf4d09136",
+  "reviewSha256": "9ef7d6b29cca88a904cf2c4cab7eca90ce6468b74207cf895775b4f5684a4dcc",
+  "policySha256": "92d37286e8c7c5c1d1fb316ba1bc2aa3d746c04c24e70532abc8ef547fe6c230",
+  "newSelectedSenses": 4,
+  "newBilingualPairs": 4,
+  "newCanonicalHeads": 0,
+  "selectedTerms": [
+    "lane",
+    "capture",
+    "past",
+    "data"
+  ],
+  "retainedNewHeads": [
+    "data"
+  ],
+  "preservedSelectedRows": 143,
+  "preservedCanonicalRows": 69,
+  "preservedOrdinaryRows": 1022,
+  "preservedChineseAliasRecords": 45,
+  "newCompiledCanonicalTerms": [
+    "south",
+    "contemporary",
+    "characterize"
+  ],
+  "heldUnqualifiedCaptureAliases": [
+    "获得",
+    "赢得"
+  ],
+  "scope": "All18 curated roles remain, with one original pair demonstrating a genuine role per head. Whole old source tuples and stored examples remain physical; unapproved whole old source alternatives stay out of active results.",
+  "approvedExactChineseAliases": 34,
+  "withheldScopeKeys": [
+    {
+      "head": "capture",
+      "keys": [
+        "获得",
+        "赢得",
+        "迷住",
+        "描绘",
+        "表现",
+        "抓取",
+        "战利品",
+        "俘虏"
+      ]
+    },
+    {
+      "head": "past",
+      "keys": [
+        "经过"
+      ]
+    }
+  ]
+}
