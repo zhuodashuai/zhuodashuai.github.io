@@ -1,5 +1,8 @@
 import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs/promises';import{createHash}from'node:crypto';
-import{DICTIONARY_EXAMPLE_CORRECTIONS as compiled}from'../../vocab/js/dictionary-example-corrections-data.js';
+import{DICTIONARY_EXAMPLE_CORRECTIONS as allCompiled}from'../../vocab/js/dictionary-example-corrections-data.js';
+// The next release owns its added row and tests the complete75-row union.
+// This immutable historical assertion still compares every previous74 rows.
+const compiled=allCompiled.filter(row=>row.term!=='dignify');
 import{applyExampleCorrections}from'../../vocab/js/dictionary-example-corrections.js';
 import{loadDictionaryExamples,resetDictionaryExamplesCacheForTests}from'../../vocab/js/dictionary-examples-current-v4.js';
 import{createAdditiveExamplesLoader}from'../../vocab/js/dictionary-examples-additive.js';import{dictionaryExamplesRelease}from'../../vocab/js/dictionary-examples-release-v4.js';
@@ -7,7 +10,7 @@ import{exampleSourceHash}from'../scripts/build-dictionary-examples.mjs';import{i
 import{historicalCorrections72,HISTORICAL_72_ROWS,HISTORICAL_72_SHA256}from'./helpers/correction-history-0072.mjs';
 const sha=x=>createHash('sha256').update(x).digest('hex'),hash=x=>sha(JSON.stringify(x)),base=new URL('../dictionary/examples/',import.meta.url),read=async p=>JSON.parse(await fs.readFile(new URL(p,base))),fixture=await read('evidence/translation-precision-0015-fixture.json'),fetchImpl=async input=>new Response(await fs.readFile(new URL(input)));
 
-test('current global74 is exactly the unchanged sorted historical72 plus two independently reviewed Chinese corrections',async()=>{
+test('historical74 is exactly the unchanged sorted historical72 plus two independently reviewed Chinese corrections',async()=>{
  assert.equal(sha(await fs.readFile(new URL('evidence/translation-precision-0015-fixture.json',base))),'51ea649ad7e9c52419b32c27d25b67742b46b9b84ca6d56712fe6486d6ed4951');
  const source=await read('corrections/source/quality-precision-0015.json'),review=await read('corrections/reviews/quality-precision-0015.json');assert.equal(sha(await fs.readFile(new URL('corrections/source/quality-precision-0015.json',base))),fixture.sourceByteSha256);assert.equal(sha(await fs.readFile(new URL('corrections/reviews/quality-precision-0015.json',base))),fixture.reviewByteSha256);assert.equal(exampleSourceHash(source),'87e834be712b81c4f5a9ccb2d1b2499996e0a2d2cc5dbbae5ca77ab85a2ebe27');assert.equal(review.sourceSha256,exampleSourceHash(source));assert.notEqual(review.reviewer,source.author);assert.equal(independentlyReviewedCorrections(source,review).length,2);assert.deepEqual(source.entries.map(r=>r.term),['vengeful','collude']);assert.deepEqual(review.issues,[]);
  assert.equal(fixture.rows.length,2);assert.equal(fixture.baselineCorrectionRows.length,72);assert.deepEqual(fixture.baselineCorrectionRows,HISTORICAL_72_ROWS);assert.equal(hash(historicalCorrections72(compiled)),HISTORICAL_72_SHA256);assert.deepEqual(historicalCorrections72(compiled),fixture.baselineCorrectionRows);

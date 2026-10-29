@@ -30,6 +30,7 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
   full = false, preferCompleteChinese = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
   if (signal?.aborted) throw abortError();
   const everyday = searchEverydayDictionary(input);
+  const literalFirst = !everyday && searchEverydayDictionary(input, { allowDottedFallback: true });
   const groupPlan = typeof input === 'string' && /\p{Script=Han}/u.test(input)
     ? chineseSearchPlan(input.normalize('NFKC').replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu,'').trim()) : null;
   const completeSelectedGroup = groupPlan && hasSelectedCommonSensePlan(groupPlan.term);
@@ -51,7 +52,7 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
   try {
     // A compact old row cannot prove the new selected primary or complete its
     // existing group. Only the finitely bound group uses this verified route.
-    if (full || completeSelectedGroup) return await race([Promise.resolve().then(fullLookup)]);
+    if (full || completeSelectedGroup || literalFirst) return await race([Promise.resolve().then(fullLookup)]);
     if (/\p{Script=Han}/u.test(input)) {
       const hot = settled(async () => {
         const found = await hotReverse(input, { signal: hotController.signal });

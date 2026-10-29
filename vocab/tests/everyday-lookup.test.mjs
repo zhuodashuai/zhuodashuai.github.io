@@ -5,6 +5,15 @@ import { searchEverydayDictionary, loadEverydayExamples } from "../js/everyday-l
 
 const heads = input => searchEverydayDictionary(input)?.results.map(row => row.term) || [];
 
+test("a period can identify a different dictionary head and is deferred instead of silently stripped", () => {
+  for (const input of ["Apr.", "apr.", "Ａｐｒ．", '"Apr."', '“Apr.”?!']) {
+    assert.equal(searchEverydayDictionary(input), null, input);
+    assert.equal(searchEverydayDictionary(input, { allowDottedFallback: true }).results[0].term, "APR");
+  }
+  assert.equal(heads("APR")[0], "APR");
+  assert.equal(heads("APR!")[0], "APR");
+});
+
 test("daily phrase aliases page with real offsets while default response shapes stay unchanged", () => {
   const complete = searchEverydayDictionary("人工客服");
   assert.ok(complete.results.length > 1);

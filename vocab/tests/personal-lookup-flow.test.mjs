@@ -12,6 +12,20 @@ const later = (value, ms = 5) => new Promise(resolve => setTimeout(() => resolve
 const options = extra => ({ hotLookup: async () => null, hotReverse: async () => response(), fullSearch: async () => response(),
   hotGraceMs: 10, chineseDelayMs: 10, formWaitMs: 15, ...extra });
 
+test("dotted literal lookup cannot be overridden by a faster compact acronym or everyday answer", async () => {
+  let fullCalls = 0, hotCalls = 0;
+  const month = response(row("Apr.", { partOfSpeech: "abbreviation", meaning: "① 四月" }));
+  const result = await lookupPersonalDictionaryFast("Apr.", options({
+    hotLookup: async () => { hotCalls++; return row("APR", { meaning: "年百分率" }); },
+    fullSearch: async () => { fullCalls++; return later(month, 10); }
+  }));
+  assert.deepEqual(result, month);
+  assert.equal(fullCalls, 1); assert.equal(hotCalls, 0);
+  await assert.rejects(lookupPersonalDictionaryFast("Apr.", options({
+    hotLookup: async () => row("APR"), fullSearch: async () => { throw new Error("offline"); }
+  })), /offline/u);
+});
+
 test("English starts both sources immediately and a hung hot index cannot delay a warm expanded result", async () => {
   let hotCalls = 0, fullCalls = 0;
   for (let attempt = 0; attempt < 2; attempt++) {
