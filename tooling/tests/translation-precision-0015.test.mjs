@@ -1,8 +1,8 @@
 import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs/promises';import{createHash}from'node:crypto';
 import{DICTIONARY_EXAMPLE_CORRECTIONS as allCompiled}from'../../vocab/js/dictionary-example-corrections-data.js';
-// The next release owns its added row and tests the complete75-row union.
-// This immutable historical assertion still compares every previous74 rows.
-const compiled=allCompiled.filter(row=>row.term!=='dignify');
+import{historicalCorrections74}from'./helpers/correction-history-0075.mjs';
+// Later releases test the entire current union; this test pins all historical74.
+const compiled=historicalCorrections74(allCompiled);
 import{applyExampleCorrections}from'../../vocab/js/dictionary-example-corrections.js';
 import{loadDictionaryExamples,resetDictionaryExamplesCacheForTests}from'../../vocab/js/dictionary-examples-current-v4.js';
 import{createAdditiveExamplesLoader}from'../../vocab/js/dictionary-examples-additive.js';import{dictionaryExamplesRelease}from'../../vocab/js/dictionary-examples-release-v4.js';

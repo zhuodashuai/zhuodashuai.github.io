@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "party",
+      "canonicalSourceSha256": "60ec3acb800fa304aba351982e53fa2de1d283666bc7b968b36912aba8519faf",
+      "selectedRowSha256": "3c90c2fd6bc1c2132e022db9a8cdd0a1ad68973148c4aa5dca7238496b7ea38d",
+      "author": "AI/root_classroom_remaining_0018_author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 宴会, 党, 政党, 团体, 当事人, 聚会\nv. 举办聚会",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 宴会, 党, 政党, 团体, 当事人, 聚会\nv. 举办聚会",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old noun gathering/political party/group/participant branches and verb give-a-party branch are independently supported by the primary publisher entry. These exact core+mit raw tuples remain valid alongside the new selected agreement example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/party"
+      ],
+      "reviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "institution",
+      "canonicalSourceSha256": "8f948306f8ef24752256de7ccdd1b33ce4911e623514bd86f222263f4f84f130",
+      "selectedRowSha256": "6bc2a89e206d9ab84420c4bc275c34cf9d6fc9de2bc7ea669101ba9c65475376",
+      "author": "AI/root_classroom_remaining_0018_author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 机构, 惯例, 制度\n[医] 机关, 机构, 设施",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 机构, 惯例, 制度\n[医] 机关, 机构, 设施",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old organization, established practice/system and care-facility branches are independently supported by the primary publisher entry. These exact core+mit raw tuples remain valid alongside the new social-institution example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/institution"
+      ],
+      "reviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "dissolve",
+      "canonicalSourceSha256": "46f119c22737d1b80cc8f2312d574a7b2f34d66c1f51d1cba32566e82d846c84",
+      "selectedRowSha256": "baa26052d46e9f025a309b60587101f07940f8ce872d554283c06b158f7d6773",
+      "author": "AI/root_classroom_remaining_0018_author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "v. 溶解, 解散",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "v. 溶解, 解散",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old verb gloss is only 溶解, 解散. The primary publisher independently supports solution and formal disbanding/termination, so both exact core+mit tuples can remain alongside the new partnership example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/dissolve"
+      ],
+      "reviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+      "independentOfAuthor": true
+    }
+  ]
+}

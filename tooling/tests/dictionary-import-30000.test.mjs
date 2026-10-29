@@ -10,6 +10,7 @@ import { loadExpandedPublicSource } from "../lib/expanded-public-source.mjs";
 import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { preloadExpandedDictionary, searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../../vocab/js/expanded-dictionary.js";
 import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
+import {searchEverydayDictionary} from "../../vocab/js/everyday-lookup.js";
 
 // Release data contract, not a claim that every source gloss is human-certified.
 // These tests use tracked public assets only: never the user's private workbook.
@@ -185,7 +186,9 @@ test("the actual lookup runtime parses all 128 English and 128 Chinese shards wi
   const meta = await preloadExpandedDictionary({ fetchImpl });
   assert.deepEqual(meta.counts, data.manifest.counts);
   for (const shard of data.english) {
-    const candidate = shard.records.find(row => row.id % 128 === shard.bucket);
+    // Keep the full128-shard parser check even when an early head is curated
+    // and can now be returned without a network/file read.
+    const candidate = shard.records.find(row => row.id % 128 === shard.bucket && !searchEverydayDictionary(row.term));
     assert.ok(candidate, `English bucket ${shard.bucket}`);
     const found = await searchExpandedDictionary(candidate.term, { fetchImpl, limit: 1 });
     assert.equal(found.results[0]?.term, candidate.term);

@@ -1,3 +1,5 @@
+// Refresh six classroom sense supplements without changing saved-card contexts.
+// Refresh four independently reviewed example precision corrections; retain warm offline data.
 // Preserve literal dotted dictionary heads before decorated shortcut matches.
 // Preserve classroom senses 0009 and bind obligation's selected duty sense, retaining old saved examples.
 // Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.

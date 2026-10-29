@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 1,
+  "kind": "literal-head-exact-old-card-example-preservation",
+  "author": "AI/root_legacy_preservation_0018_author",
+  "entries": [
+    {
+      "term": "party",
+      "canonicalId": 19607,
+      "canonicalSourceSha256": "60ec3acb800fa304aba351982e53fa2de1d283666bc7b968b36912aba8519faf",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-023.json",
+        "sha256": "e64f8d3abce4269f5f98789f71bafce0515fc329d3fe6ff299438800d07be0e6",
+        "bytes": 359286,
+        "recordIndex": 2
+      },
+      "exactCanonicalRecord": {
+        "id": 19607,
+        "term": "party",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 宴会, 党, 政党, 团体, 当事人, 聚会\nv. 举办聚会",
+        "forms": [
+          "partied",
+          "parties",
+          "partying"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 宴会, 党, 政党, 团体, 当事人, 聚会\nv. 举办聚会",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 153,
+          "forms": [
+            "partied",
+            "parties",
+            "partying"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "3c90c2fd6bc1c2132e022db9a8cdd0a1ad68973148c4aa5dca7238496b7ea38d",
+      "selectedEntry": {
+        "term": "party",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 名词：协议、交易、争议或诉讼中的一方；当事人或当事方。\n② 名词：聚会；宴会，为社交、庆祝或娱乐而举办的活动。\n③ 名词：政党；为共同政治目标而组织起来的团体。\n④ 名词：一行人；共同参与某项活动的小组，也可指执行特定任务的一队军人。\n⑤ 名词：某个人；某位人士，常见于特定语境。\n⑥ 动词，非正式：参加或举办聚会；尽情玩乐。",
+        "chineseAliases": [
+          "协议中的一方",
+          "诉讼当事方"
+        ],
+        "englishForms": [
+          "parties",
+          "partied"
+        ],
+        "en": "Each party must keep a copy of the signed agreement.",
+        "zh": "协议各方都必须保留一份已签署的协议副本。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/party"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": true,
+        "canonicalId": 19607,
+        "canonicalSourceSha256": "60ec3acb800fa304aba351982e53fa2de1d283666bc7b968b36912aba8519faf",
+        "retainedCanonicalAlternatives": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 宴会, 党, 政党, 团体, 当事人, 聚会\n② v. 举办聚会",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 宴会, 党, 政党, 团体, 当事人, 聚会\n② v. 举办聚会",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          }
+        ]
+      },
+      "selectedEntrySha256": "44d6800ca7782139b8867cf04b49cfa1981be9c5fdd780cf89b2f0a7c3d4fb9f",
+      "originalDTO": {
+        "term": "party",
+        "senses": [
+          {
+            "id": "example:party",
+            "partOfSpeech": "noun",
+            "meaningZh": "聚会",
+            "examples": [
+              {
+                "en": "We held a small party on the terrace.",
+                "zh": "我们在露台上办了一个小聚会。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "4a1c490a8205530ad358641e1c05cedf74364a68ef2d585a4429c08866e706d6",
+      "acceptedSavedContexts": [
+        {
+          "term": "party",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 宴会, 党, 政党, 团体, 当事人, 聚会\nv. 举办聚会"
+        },
+        {
+          "term": "party",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 宴会, 党, 政党, 团体, 当事人, 聚会\n② v. 举办聚会"
+        }
+      ]
+    },
+    {
+      "term": "institution",
+      "canonicalId": 115333,
+      "canonicalSourceSha256": "8f948306f8ef24752256de7ccdd1b33ce4911e623514bd86f222263f4f84f130",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-005.json",
+        "sha256": "a7f2e5a9805eb11256ed80da3d21a03547ba5a48c2fcaeccfc2b145233fad06c",
+        "bytes": 352625,
+        "recordIndex": 20
+      },
+      "exactCanonicalRecord": {
+        "id": 115333,
+        "term": "institution",
+        "partOfSpeech": "noun",
+        "meaning": "n. 机构, 惯例, 制度\n[医] 机关, 机构, 设施",
+        "forms": [
+          "institutions"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 机构, 惯例, 制度\n[医] 机关, 机构, 设施",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 901,
+          "forms": [
+            "institutions"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "6bc2a89e206d9ab84420c4bc275c34cf9d6fc9de2bc7ea669101ba9c65475376",
+      "selectedEntry": {
+        "term": "institution",
+        "partOfSpeech": "noun",
+        "meaning": "① 社会制度；长期确立的社会惯例或关系，例如婚姻制度。\n② 机构；为教育、金融等目的而设立的组织。也可指提供长期照护等服务的机构或设施。\n③ 建立；设立；实行，指正式创立某种制度、规则等的行为，较正式。\n④ 已成为某地或某领域传统一部分的人或事物。",
+        "chineseAliases": [
+          "既定社会制度",
+          "长期确立的社会惯例"
+        ],
+        "englishForms": [
+          "institutions"
+        ],
+        "en": "The essay examines how the institution of marriage has changed over time.",
+        "zh": "这篇文章考察婚姻制度随着时间发生了怎样的变化。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/institution"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": true,
+        "canonicalId": 115333,
+        "canonicalSourceSha256": "8f948306f8ef24752256de7ccdd1b33ce4911e623514bd86f222263f4f84f130",
+        "retainedCanonicalAlternatives": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "① n. 机构, 惯例, 制度\n   [医] 机关, 机构, 设施",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          {
+            "partOfSpeech": "noun",
+            "meaning": "① n. 机构, 惯例, 制度\n   [医] 机关, 机构, 设施",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          }
+        ]
+      },
+      "selectedEntrySha256": "29a10e4daeafa0b81b23dfbadf7a3495cef4f078f7cd33e235190765eb48e837",
+      "originalDTO": {
+        "term": "institution",
+        "senses": [
+          {
+            "id": "example:institution",
+            "partOfSpeech": "noun",
+            "meaningZh": "为教育、研究等特定目的而设立的组织。",
+            "examples": [
+              {
+                "en": "This institution supports independent research rather than selling products or providing commercial advice.",
+                "zh": "这家机构支持独立研究，而不销售产品或提供商业咨询。"
+              }
+            ],
+            "reviewer": "AI/root-language-review",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "e29ad0131a959b5162e62a7766f3872059caa79cda30e7271f3819f472ab7360",
+      "acceptedSavedContexts": [
+        {
+          "term": "institution",
+          "partOfSpeech": "noun",
+          "meaning": "n. 机构, 惯例, 制度\n[医] 机关, 机构, 设施"
+        },
+        {
+          "term": "institution",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 机构, 惯例, 制度\n   [医] 机关, 机构, 设施"
+        }
+      ]
+    },
+    {
+      "term": "column",
+      "canonicalId": 253991,
+      "canonicalSourceSha256": "7793644d02d2ec2a58756417ed8b2ad63cf8103b59b8b3b075d33791057713c8",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-039.json",
+        "sha256": "c864d9d857d94ba5a8237f7eb3c6d986ddfaeb6d3251e7935be78b9810c0b6cd",
+        "bytes": 352378,
+        "recordIndex": 38
+      },
+      "exactCanonicalRecord": {
+        "id": 253991,
+        "term": "column",
+        "partOfSpeech": "noun",
+        "meaning": "n. 专栏, 圆柱, 纵队, 列, 柱形物\n[计] 列, 柱形图",
+        "forms": [
+          "columns"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 专栏, 圆柱, 纵队, 列, 柱形物\n[计] 列, 柱形图",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 1984,
+          "forms": [
+            "columns"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "0b2b6f4e020216fda2b959fc569725bbe802197d73567845da1d782cadee2b53",
+      "selectedEntry": {
+        "term": "column",
+        "partOfSpeech": "noun",
+        "meaning": "① 报刊专栏；通常定期刊登、围绕某类主题撰写的文章或栏目。\n② 栏；列，指印刷版面中竖排的一栏，或表格、数据及矩阵中的一列。\n③ 柱子；建筑中直立的支撑或装饰构件。\n④ 柱状物；形似柱子的烟、水等，也可指色谱分离所用的柱状装置。\n⑤ 纵队；人或车辆等排成的长列。",
+        "chineseAliases": [
+          "报刊专栏",
+          "定期专栏文章"
+        ],
+        "englishForms": [
+          "columns"
+        ],
+        "en": "Her weekly newspaper column explains everyday money problems in plain language.",
+        "zh": "她每周的报纸专栏用浅显的语言解释日常财务问题。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/column"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": false,
+        "canonicalId": 253991,
+        "canonicalSourceSha256": "7793644d02d2ec2a58756417ed8b2ad63cf8103b59b8b3b075d33791057713c8"
+      },
+      "selectedEntrySha256": "84d5495dd24ac71748054423bcf71964dee394344691017d82de7242b84c3155",
+      "originalDTO": {
+        "term": "column",
+        "senses": [
+          {
+            "id": "example:column",
+            "partOfSpeech": "noun",
+            "meaningZh": "建筑中直立承重或装饰的柱子",
+            "examples": [
+              {
+                "en": "A single stone column supports the small balcony above the entrance.",
+                "zh": "一根石柱支撑着入口上方的小阳台。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "211c8644ca20b889dac6963ddb5370c15c41fc1fc3469163fbb85669c62956f5",
+      "acceptedSavedContexts": [
+        {
+          "term": "column",
+          "partOfSpeech": "noun",
+          "meaning": "n. 专栏, 圆柱, 纵队, 列, 柱形物\n[计] 列, 柱形图"
+        },
+        {
+          "term": "column",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 专栏, 圆柱, 纵队, 列, 柱形物\n   [计] 列, 柱形图"
+        }
+      ]
+    },
+    {
+      "term": "in the picture",
+      "canonicalId": 9691315,
+      "canonicalSourceSha256": "1ae52c41621e847281e15a33f4f6f184a06584b0b3f8a4bb6c4bf066073f6d63",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-051.json",
+        "sha256": "f692653d19367b97dd2bfdede7ecb38c0c3ba8bbc34b127b483a83d54dd2ea2b",
+        "bytes": 374368,
+        "recordIndex": 988
+      },
+      "exactCanonicalRecord": {
+        "id": 9691315,
+        "term": "in the picture",
+        "partOfSpeech": "prepositional phrase",
+        "meaning": "让了解情况,受到注意",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 80172,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "让了解情况,受到注意",
+            "source": "mit"
+          }
+        ]
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "dc1fa502192013918bace51035f2a30bb33cd57d211df55d5efa04da8c04f090",
+      "selectedEntry": {
+        "term": "in the picture",
+        "partOfSpeech": "prepositional phrase",
+        "meaning": "① 参与其中；出现在某种局面或关系中，并在其中扮演角色。no longer in the picture 表示不再参与或已不再处于那种关系中。\n② 了解情况；掌握有关进展，常见于 keep somebody in the picture。",
+        "chineseAliases": [
+          "出现在某人的生活中",
+          "参与某种关系"
+        ],
+        "englishForms": [],
+        "en": "She was raising the twins alone; their father was no longer in the picture.",
+        "zh": "她独自抚养这对双胞胎；孩子的父亲已不再参与他们的生活。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/in%20the%20picture",
+          "https://dictionary.cambridge.org/us/dictionary/english/picture"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": false,
+        "canonicalId": 9691315,
+        "canonicalSourceSha256": "1ae52c41621e847281e15a33f4f6f184a06584b0b3f8a4bb6c4bf066073f6d63"
+      },
+      "selectedEntrySha256": "d09089801021a00b8843ddca689b7ed7187391a422d689e5918297f6420f4e50",
+      "originalDTO": {
+        "term": "in the picture",
+        "senses": [
+          {
+            "id": "example:94399ea6f1be61c824227e47",
+            "partOfSpeech": "prepositional phrase",
+            "meaningZh": "了解情况",
+            "examples": [
+              {
+                "en": "The daily calls kept her in the picture while she was away.",
+                "zh": "她不在期间，每天的电话让她一直了解情况。"
+              }
+            ],
+            "reviewer": "AI/examples19_reviewer_root",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "05b142ed27abea8c6e45db7c6ba61c9c861db52b30685a39a85ed026d2cff5be",
+      "acceptedSavedContexts": [
+        {
+          "term": "in the picture",
+          "partOfSpeech": "prepositional phrase",
+          "meaning": "让了解情况,受到注意"
+        },
+        {
+          "term": "in the picture",
+          "partOfSpeech": "prepositional phrase",
+          "meaning": "① 让了解情况,受到注意"
+        }
+      ]
+    },
+    {
+      "term": "precipitously",
+      "canonicalId": 2992079,
+      "canonicalSourceSha256": "3d51a5ff3d5b07e16e24ec923d4b369607bdc1f9774d1b767cd8414adb08910c",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-079.json",
+        "sha256": "147d094f33f859c3dc565b9c34acd658469fe743a20088514e95a52cd4673f32",
+        "bytes": 349468,
+        "recordIndex": 395
+      },
+      "exactCanonicalRecord": {
+        "id": 2992079,
+        "term": "precipitously",
+        "partOfSpeech": "adverb",
+        "meaning": "adv. 陡峭地, 陡然地, 出乎意料地",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 23381,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "6da06a8f891699bb6dbcb47d335e351b3c757ee4797556a278a81371d6720aff",
+      "selectedEntry": {
+        "term": "precipitously",
+        "partOfSpeech": "adverb",
+        "meaning": "① 急剧地；骤然地，形容数量、水平或情况突然发生大幅变化。\n② 陡峭地；几乎垂直地，形容地势、道路等升高或下降的方式。",
+        "chineseAliases": [
+          "骤然地",
+          "陡峭地"
+        ],
+        "englishForms": [],
+        "en": "Demand for the umbrellas fell precipitously when the long spell of rain ended.",
+        "zh": "持续多日的雨停了以后，对雨伞的需求急剧下降。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/precipitously"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": false,
+        "canonicalId": 2992079,
+        "canonicalSourceSha256": "3d51a5ff3d5b07e16e24ec923d4b369607bdc1f9774d1b767cd8414adb08910c"
+      },
+      "selectedEntrySha256": "e1c4de073f47fd041be92a3957d9e532d6687f322117d72c4cbd87ef4bf613bf",
+      "originalDTO": {
+        "term": "precipitously",
+        "senses": [
+          {
+            "id": "example:precipitously",
+            "partOfSpeech": "adverb",
+            "meaningZh": "陡峭地",
+            "examples": [
+              {
+                "en": "The path dropped precipitously towards the river beyond the last cottage.",
+                "zh": "越过最后一间小屋后，小路陡峭地向河边下延。"
+              }
+            ],
+            "reviewer": "AI/examples11_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "6c23bec5b579423d2868a83cea6b4dd3e0e69d25f49965e660b8c5f19053444b",
+      "acceptedSavedContexts": [
+        {
+          "term": "precipitously",
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 陡峭地, 陡然地, 出乎意料地"
+        },
+        {
+          "term": "precipitously",
+          "partOfSpeech": "adverb",
+          "meaning": "① adv. 陡峭地, 陡然地, 出乎意料地"
+        }
+      ]
+    },
+    {
+      "term": "dissolve",
+      "canonicalId": 473578,
+      "canonicalSourceSha256": "46f119c22737d1b80cc8f2312d574a7b2f34d66c1f51d1cba32566e82d846c84",
+      "canonicalAsset": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-106.json",
+        "sha256": "da329a1838c68318db8bbe99ec6f5029e0c31baf71beef0b748a0bf330886f98",
+        "bytes": 358390,
+        "recordIndex": 93
+      },
+      "exactCanonicalRecord": {
+        "id": 473578,
+        "term": "dissolve",
+        "partOfSpeech": "verb",
+        "meaning": "v. 溶解, 解散",
+        "forms": [
+          "dissolved",
+          "dissolves",
+          "dissolving"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "v. 溶解, 解散",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3699,
+          "forms": [
+            "dissolved",
+            "dissolves",
+            "dissolving"
+          ],
+          "workbook": true
+        }
+      },
+      "selectedBatch": "batch-0012.json",
+      "selectedSourcePackSha256": "150109ae48567ca50221570b16b14f99c0d907b773007952fe4aa16bae587a1f",
+      "selectedSourceRowSha256": "baa26052d46e9f025a309b60587101f07940f8ce872d554283c06b158f7d6773",
+      "selectedEntry": {
+        "term": "dissolve",
+        "partOfSpeech": "verb",
+        "meaning": "① 解除；终止，使婚姻、合伙关系或正式安排等结束。也可指解散组织、议会等。\n② 溶解；使固体进入液体并形成溶液。\n③ 消散；逐渐消失，形容雾气、希望等消失。\n④ dissolve into tears 或 laughter：因强烈情绪而哭起来或笑起来。\n⑤ 影视用语：使画面逐渐淡入淡出，过渡到另一个镜头。",
+        "chineseAliases": [
+          "使组织解散",
+          "终止合伙关系",
+          "使固体溶解"
+        ],
+        "englishForms": [
+          "dissolved",
+          "dissolves",
+          "dissolving"
+        ],
+        "en": "The two founders agreed to dissolve their partnership after the shop closed.",
+        "zh": "店铺关闭后，两位创办人同意解除合伙关系。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/dissolve"
+        ],
+        "dictionarySource": "卓式词典·义项补充",
+        "exampleSource": "原创学习例句",
+        "exampleReviewer": "AI/blind0015_language_classroom_remaining_0018_review",
+        "reviewedCanonicalSense": true,
+        "retainLegacyChinese": true,
+        "canonicalId": 473578,
+        "canonicalSourceSha256": "46f119c22737d1b80cc8f2312d574a7b2f34d66c1f51d1cba32566e82d846c84",
+        "retainedCanonicalAlternatives": [
+          {
+            "partOfSpeech": "verb",
+            "meaning": "① v. 溶解, 解散",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          {
+            "partOfSpeech": "verb",
+            "meaning": "① v. 溶解, 解散",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          }
+        ]
+      },
+      "selectedEntrySha256": "f52277fa8806353c8678449ad963368231e7216f0c8fa44b8cd0540eb1d857ed",
+      "originalDTO": {
+        "term": "dissolve",
+        "senses": [
+          {
+            "id": "example:dissolve",
+            "partOfSpeech": "verb",
+            "meaningZh": "溶解",
+            "examples": [
+              {
+                "en": "The sugar dissolved as she stirred the warm tea.",
+                "zh": "她搅动温茶时，糖溶解了。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "dbfaed0b4eee2eed8e0f161941e44918e747d11b494c022844eea9262ffeb08d",
+      "acceptedSavedContexts": [
+        {
+          "term": "dissolve",
+          "partOfSpeech": "verb",
+          "meaning": "v. 溶解, 解散"
+        },
+        {
+          "term": "dissolve",
+          "partOfSpeech": "verb",
+          "meaning": "① v. 溶解, 解散"
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { searchExpandedDictionary, searchRelatedChineseDictionary, preloadExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../js/expanded-dictionary.js";
+import {searchEverydayDictionary} from "../js/everyday-lookup.js";
 
 const fold = value => value.normalize("NFKC").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, " ").trim().toLowerCase();
 function bucket(value) { let hash = 2166136261; for (const char of value) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; } return hash % 128; }
@@ -550,7 +551,9 @@ test("every generated English and Chinese shard is compatible with the browser's
   const fetchImpl = async url => { requests.push(String(url)); return new Response(await readFile(new URL(url))); };
   for (const descriptor of manifest.english.shards) {
     const payload = JSON.parse(await readFile(new URL(descriptor.file, root), "utf8"));
-    const canonical = payload.records.find(row => row.id % 128 === descriptor.bucket);
+    // A newly curated first head may use the in-memory shortcut. Choose a real
+    // canonical owner that exercises this shard's strict parser instead.
+    const canonical = payload.records.find(row => row.id % 128 === descriptor.bucket && !searchEverydayDictionary(row.term));
     assert.ok(canonical, `missing canonical bucket ${descriptor.bucket}`);
     const result = await searchExpandedDictionary(canonical.term, { fetchImpl });
     assert.equal(result.results[0].term, canonical.term, `English bucket ${descriptor.bucket}`);

@@ -599,6 +599,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday_precision_0015_independent"
   },
   {
+    "term": "defalcate",
+    "expectedEntrySha256": "a0b060779668defc111de2c6c00933be8b8d1bc59c873e44d05fb1aa66699d1d",
+    "canonicalId": 1741042,
+    "canonicalSourceSha256": "d33ef7998a3c14fe34f64ae4a489a8b82304f00ceadae9d310cd9802086f0397",
+    "senseId": "example:defalcate",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "侵吞公款",
+    "en": "The novel follows a clerk accused of defalcating.",
+    "zh": "小说讲述一名被指控侵吞公款的职员的故事。",
+    "reviewer": "AI/root_precision_0017_independent"
+  },
+  {
     "term": "dignify",
     "expectedEntrySha256": "9b9301f9687badc74a5004ee8833d0b7d53772127c2e96ed7baf9e07ba0c43ed",
     "canonicalId": 1582671,
@@ -662,6 +675,32 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The lecturer compared two depictions of Ezekiel.",
     "zh": "讲师比较了两幅描绘以西结的作品。",
     "reviewer": "AI/coverage-semantic-independent-next-002"
+  },
+  {
+    "term": "facilitation",
+    "expectedEntrySha256": "075d0fe6db16c23286b61e37cd796380b12ebcc4261bd612fa37794cc8768e00",
+    "canonicalId": 1508570,
+    "canonicalSourceSha256": "0e55a0ab6f523d0c0041ab109da9c1f9c431c46a5a2bd7fe8c28acd6909fcd28",
+    "senseId": "example:facilitation",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "助长作用",
+    "en": "In this nerve experiment, facilitation was seen when the second of two closely spaced stimuli produced a stronger average response than the first.",
+    "zh": "在这次神经实验中，两次刺激的间隔很短，第二次引发的平均反应比第一次更强，显示出助长作用。",
+    "reviewer": "AI/root_precision_0017_independent"
+  },
+  {
+    "term": "fainthearted",
+    "expectedEntrySha256": "2a2893d305cbc4407293a56413ae60ef2358393a336097dc269b8c4ea20a94d3",
+    "canonicalId": 1749886,
+    "canonicalSourceSha256": "8c6e9a1b9b26a58b101b6ce3897718c5bc454ad3a5b898953ab361d5ca9d5f84",
+    "senseId": "example:fainthearted",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "胆怯的",
+    "en": "The fainthearted character hesitates outside the dark cave.",
+    "zh": "胆怯的角色在黑暗的洞穴外犹豫不前。",
+    "reviewer": "AI/root_precision_0017_independent"
   },
   {
     "term": "faire",
@@ -844,6 +883,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The museum placed the Ming bowl in a softly lit case.",
     "zh": "博物馆把那只明代碗放在一个灯光柔和的展柜里。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "naysay",
+    "expectedEntrySha256": "a35fdac868de7d1cf31d5abc456514c16d35311aee1885d44ce2e83a81ede5f1",
+    "canonicalId": 1764278,
+    "canonicalSourceSha256": "bb33c12327f09c1e6a012c9df6ac711caf18a00e41aa314ddaae43c44d9adee8",
+    "senseId": "example:naysay",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "否认反对",
+    "en": "He naysaid every proposal without suggesting alternatives.",
+    "zh": "他反对每项提案，却不提出替代办法。",
+    "reviewer": "AI/root_precision_0017_independent"
   },
   {
     "term": "noo",
