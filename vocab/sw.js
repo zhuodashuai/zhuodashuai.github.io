@@ -1,3 +1,4 @@
+// Reuse twelve authenticated original pairs with their specific labels; keep saved data and warmed shards.
 // Add three classroom-theme expressions; retain warmed dictionary and private learning data.
 // Refresh four reviewed classroom supplements; preserve original senses and learning data.
 // Refresh four reviewed Chinese example translations; retain all existing meanings and learning data.

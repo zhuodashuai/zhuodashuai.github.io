@@ -52,6 +52,11 @@
     {
       "source": "batch-0013.json",
       "review": "batch-0013.json"
+    },
+    {
+      "source": "batch-0014.json",
+      "review": "batch-0014.json",
+      "existingPairBindings": "existing-pairs/source/common-use-0020.json"
     }
   ],
   "retainLegacyChineseHeads": [

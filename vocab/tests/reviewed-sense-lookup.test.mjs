@@ -27,11 +27,12 @@ test('independently reviewed canonical sense rows expose their own dictionary so
     assert.equal(example.term, row.term);
     assert.equal(example.senses.length, 1);
     const sense = example.senses[0];
-    assert.match(sense.id, /^reviewed-sense:[a-f0-9]{16}$/u);
-    assert.equal(sense.partOfSpeech, row.partOfSpeech);
-    assert.equal(sense.meaningZh, row.meaning);
-    assert.equal(sense.reviewer, row.exampleReviewer);
-    assert.equal(sense.source, row.exampleSource);
+    if (Object.hasOwn(row,'existingExampleDTOJSON')) assert.deepEqual(example,JSON.parse(row.existingExampleDTOJSON));
+    else {
+      assert.match(sense.id,/^reviewed-sense:[a-f0-9]{16}$/u);
+      assert.equal(sense.partOfSpeech,row.partOfSpeech);assert.equal(sense.meaningZh,row.meaning);
+      assert.equal(sense.reviewer,row.exampleReviewer);assert.equal(sense.source,row.exampleSource);
+    }
     assert.deepEqual(sense.examples, [{ en: row.en, zh: row.zh }]);
     assert.equal(loadEverydayExamples(row.term.toUpperCase()).senses[0].id, sense.id);
     for (const alias of row.chineseAliases) {

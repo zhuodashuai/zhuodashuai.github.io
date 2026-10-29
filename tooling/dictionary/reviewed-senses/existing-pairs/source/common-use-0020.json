@@ -1,0 +1,1608 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/next15_release_audit_common_use_0020_gloss_author",
+  "scope": "Authored external exact same-head existing-pair association bindings. No composition, admission, runtime permission, or independent approval is asserted.",
+  "candidate": {
+    "head": "2049fba66b7f2ba40b4fc1e6b2574cbb5880e050",
+    "tree": "63bc6a6c2a2e887b31f41e69247b5bce2401a6b7",
+    "status": "M vocab/data/ecdict-core.json\n M vocab/data/owner-wordbook.json",
+    "branch": "codex/translation-precision-0019"
+  },
+  "selectedFullSourceByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+  "selectedFullSourceSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+  "entries": [
+    {
+      "term": "scary",
+      "canonicalId": 1850127,
+      "canonicalSourceSha256": "0d30af281ff11be428fbc521c42cb4567c7474ebfdb78f40b90076db46b7c75a",
+      "fullCanonicalRecord": {
+        "id": 1850127,
+        "term": "scary",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 容易受惊的, 胆小的, 提心吊胆的",
+        "forms": [
+          "scarier",
+          "scariest"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 14457,
+          "forms": [
+            "scarier",
+            "scariest"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 15,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-015.json",
+        "sha256": "2970ea4a6d75e31f7ffc89cbf50ccd50d49219937a745b3cda1dfcb12c2c1925",
+        "bytes": 357981,
+        "count": 1118,
+        "recordIndex": 273
+      },
+      "completeOldDTO": {
+        "term": "scary",
+        "senses": [
+          {
+            "id": "example:scary",
+            "partOfSpeech": "adjective",
+            "meaningZh": "吓人的",
+            "examples": [
+              {
+                "en": "The tunnel looked scary until we saw daylight ahead.",
+                "zh": "在我们看见前方的日光之前，那条隧道一直显得很吓人。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "f64c263df5d0ebbe3e51a8835cb450ba02bd86e6a7919d7b02faf8dba0695d97",
+      "oldFiveFieldPair": {
+        "term": "scary",
+        "partOfSpeech": "adjective",
+        "meaningZh": "吓人的",
+        "en": "The tunnel looked scary until we saw daylight ahead.",
+        "zh": "在我们看见前方的日光之前，那条隧道一直显得很吓人。"
+      },
+      "oldFiveFieldPairSha256": "6e1f1411127b0d8f9c07eadad3e4892110fbaab7e282dfcdfdbe9312a37b16dc",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-15.json",
+        "sha256": "58d89582e603a9614d9745b43d08e25da45f93ec4f957b1690c1716ed55a43f4",
+        "bucket": 15,
+        "bytes": 121970
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-a.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-a.json",
+        "sourceByteSha256": "73428f5943895774c3de5c6635178a02b874545fe5838b372c7d83f9fe2e1a5f",
+        "reviewByteSha256": "bc08867b9d7dcdc0e21fdf49623097d91c5c0bfd6f4d0268deafe5b44eef6f28",
+        "sourceSemanticSha256": "60b52c41bfa8a8d3869054060ae80e3eb765b1c7c90aa69ae7dbe04f1e73090d",
+        "entryIndex": 193,
+        "completeSourceEntry": {
+          "term": "scary",
+          "partOfSpeech": "adjective",
+          "meaningZh": "吓人的",
+          "en": "The tunnel looked scary until we saw daylight ahead.",
+          "zh": "在我们看见前方的日光之前，那条隧道一直显得很吓人。"
+        },
+        "sourceEntrySha256": "6e1f1411127b0d8f9c07eadad3e4892110fbaab7e282dfcdfdbe9312a37b16dc",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "scary",
+        "partOfSpeech": "adjective",
+        "meaning": "① 吓人的；使人害怕的，非正式用语，可形容地方、故事、经历或前景。\n② 容易受惊的；胆小的，形容容易感到害怕的人或动物。\n③ 感到害怕的；提心吊胆的，表示自身处于害怕的状态。",
+        "chineseAliases": [
+          "吓人的",
+          "使人害怕的"
+        ],
+        "englishForms": [
+          "scarier",
+          "scariest"
+        ],
+        "en": "The tunnel looked scary until we saw daylight ahead.",
+        "zh": "在我们看见前方的日光之前，那条隧道一直显得很吓人。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/scary",
+          "https://www.merriam-webster.com/dictionary/scary"
+        ],
+        "canonicalId": 1850127,
+        "canonicalSourceSha256": "0d30af281ff11be428fbc521c42cb4567c7474ebfdb78f40b90076db46b7c75a"
+      },
+      "newSourceRowSha256": "32c85c894ac1ce09055938a7ac8beef74530e2ff9bfa7e697e0728c18fac32df",
+      "exampleRole": "① fear-causing appearance; the tunnel is not a timid experiencer",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/scary",
+        "https://www.merriam-webster.com/dictionary/scary"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "downside",
+      "canonicalId": 1903374,
+      "canonicalSourceSha256": "d6cfc1d5b4fb79a301eccf97fc3f098ce86f387ac4759e2aa10809c00eed9cc8",
+      "fullCanonicalRecord": {
+        "id": 1903374,
+        "term": "downside",
+        "partOfSpeech": "noun",
+        "meaning": "n. 底侧；下降趋势",
+        "forms": [
+          "downsides"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 14873,
+          "forms": [
+            "downsides"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 14,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-014.json",
+        "sha256": "82ed85c07e548f304940feef7ebce89f5746ab5baaa149ab89c0adc75170df9d",
+        "bytes": 373884,
+        "count": 1148,
+        "recordIndex": 311
+      },
+      "completeOldDTO": {
+        "term": "downside",
+        "senses": [
+          {
+            "id": "example:downside",
+            "partOfSpeech": "noun",
+            "meaningZh": "不利的一面",
+            "examples": [
+              {
+                "en": "The downside of the beautiful attic was its low ceiling.",
+                "zh": "那间漂亮阁楼的缺点是天花板低。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "d8bf4c20cc59980cd88756b84862490a535bab5caa5efbd2b0175d6131c38e3d",
+      "oldFiveFieldPair": {
+        "term": "downside",
+        "partOfSpeech": "noun",
+        "meaningZh": "不利的一面",
+        "en": "The downside of the beautiful attic was its low ceiling.",
+        "zh": "那间漂亮阁楼的缺点是天花板低。"
+      },
+      "oldFiveFieldPairSha256": "ddc59b622873ae5dc861b26b88dee57088aaf1a9d4ebce1332df7a7cfac3e4ae",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-142.json",
+        "sha256": "20b76cbf07e86edfb968ff3fb6bc06c084e13f2f800cdcababb8c15e1753a172",
+        "bucket": 142,
+        "bytes": 118680
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-c.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-c.json",
+        "sourceByteSha256": "18006665aaef1eb0bf215eab34b74ddde67a03de048dfb5c083358d822d08525",
+        "reviewByteSha256": "497fb3e0070b4564d8073e646d14f2de5122d68066982f2a118fb291925cc8ee",
+        "sourceSemanticSha256": "22b1db62ff6798b56679dcab41187e91aae8b485d70c6f90beecd81edbfde76e",
+        "entryIndex": 189,
+        "completeSourceEntry": {
+          "term": "downside",
+          "partOfSpeech": "noun",
+          "meaningZh": "不利的一面",
+          "en": "The downside of the beautiful attic was its low ceiling.",
+          "zh": "那间漂亮阁楼的缺点是天花板低。"
+        },
+        "sourceEntrySha256": "ddc59b622873ae5dc861b26b88dee57088aaf1a9d4ebce1332df7a7cfac3e4ae",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "downside",
+        "partOfSpeech": "noun",
+        "meaning": "① 不利的一面；缺点，常用 downside of something 表示某事物的不足之处。\n② 下降趋势，例如价格等向下变动的趋势。",
+        "chineseAliases": [
+          "不利的一面",
+          "不足之处"
+        ],
+        "englishForms": [
+          "downsides"
+        ],
+        "en": "The downside of the beautiful attic was its low ceiling.",
+        "zh": "那间漂亮阁楼的缺点是天花板低。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/downside",
+          "https://www.merriam-webster.com/dictionary/downside"
+        ],
+        "canonicalId": 1903374,
+        "canonicalSourceSha256": "d6cfc1d5b4fb79a301eccf97fc3f098ce86f387ac4759e2aa10809c00eed9cc8"
+      },
+      "newSourceRowSha256": "f60adbd8c7c28350e9a32c61df9c025d262e316a54da62cbaeddc6a7e15eba52",
+      "exampleRole": "① the attic's disadvantage; no price trend is asserted",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/downside",
+        "https://www.merriam-webster.com/dictionary/downside"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "loo",
+      "canonicalId": 1907513,
+      "canonicalSourceSha256": "0c7a8a3f662273826c8180ea19290c30b4cb36f54df319cc563ca568ae05a087",
+      "fullCanonicalRecord": {
+        "id": 1907513,
+        "term": "loo",
+        "partOfSpeech": "noun",
+        "meaning": "n. 卢牌戏",
+        "forms": [
+          "looing",
+          "loos"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 14905,
+          "forms": [
+            "looing",
+            "loos"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 57,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-057.json",
+        "sha256": "6c3d61563a324188a4f9b7b23ca5cab82a5c2c3ed3ec8f2ffa8cc33e054b51f3",
+        "bytes": 344981,
+        "count": 1054,
+        "recordIndex": 273
+      },
+      "completeOldDTO": {
+        "term": "loo",
+        "senses": [
+          {
+            "id": "example:loo",
+            "partOfSpeech": "noun",
+            "meaningZh": "厕所（英式非正式用语）",
+            "examples": [
+              {
+                "en": "The loo is upstairs beside the small storage room.",
+                "zh": "厕所在楼上，挨着小储藏室。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "520d940d7c61b9d32e343bc25e1ddd3384c791cfe0a725426c85ecc44b2fbcfd",
+      "oldFiveFieldPair": {
+        "term": "loo",
+        "partOfSpeech": "noun",
+        "meaningZh": "厕所（英式非正式用语）",
+        "en": "The loo is upstairs beside the small storage room.",
+        "zh": "厕所在楼上，挨着小储藏室。"
+      },
+      "oldFiveFieldPairSha256": "6bb5588709eaaa490e8a974c4f6e09be4b7d218d1a96dc104c9167212db40805",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-185.json",
+        "sha256": "3a92f864df93e763ef7c342128289696887faef3c053a7d5d255dc5b4054a199",
+        "bucket": 185,
+        "bytes": 115002
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-d.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-d.json",
+        "sourceByteSha256": "dc15ad818b8546879c9057d915d4fc358717ba185c442e0736fdba4e19c20838",
+        "reviewByteSha256": "a9ced526a263076cdf72bd4f56c2f1e4f2d1f34434d3c49467383b6dfc30a7d0",
+        "sourceSemanticSha256": "976f2d3cec925fec11aae73c2c9c774411579d3022e52c8dcb789b498780cb49",
+        "entryIndex": 21,
+        "completeSourceEntry": {
+          "term": "loo",
+          "partOfSpeech": "noun",
+          "meaningZh": "厕所（英式非正式用语）",
+          "en": "The loo is upstairs beside the small storage room.",
+          "zh": "厕所在楼上，挨着小储藏室。"
+        },
+        "sourceEntrySha256": "6bb5588709eaaa490e8a974c4f6e09be4b7d218d1a96dc104c9167212db40805",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "loo",
+        "partOfSpeech": "noun",
+        "meaning": "① 厕所；洗手间，英式非正式用语，复数为 loos。\n② 卢牌戏，一种纸牌游戏，与厕所义分开理解。",
+        "chineseAliases": [
+          "厕所",
+          "英式洗手间"
+        ],
+        "englishForms": [
+          "loos"
+        ],
+        "en": "The loo is upstairs beside the small storage room.",
+        "zh": "厕所在楼上，挨着小储藏室。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/loo",
+          "https://www.merriam-webster.com/dictionary/loo"
+        ],
+        "canonicalId": 1907513,
+        "canonicalSourceSha256": "0c7a8a3f662273826c8180ea19290c30b4cb36f54df319cc563ca568ae05a087"
+      },
+      "newSourceRowSha256": "bb237f8bc41cd103010a2426f8b6927157d66009acca2799662bb4cc3fc7d11e",
+      "exampleRole": "① directions to a toilet; not a card-game instruction",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/loo",
+        "https://www.merriam-webster.com/dictionary/loo"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "perk",
+      "canonicalId": 1927005,
+      "canonicalSourceSha256": "29f26b9564c5e4732e4624347d733327d14f38fa0b46ac2a89533879fdff1d01",
+      "fullCanonicalRecord": {
+        "id": 1927005,
+        "term": "perk",
+        "partOfSpeech": "verb · noun",
+        "meaning": "vi. 昂首, 振作, 举止高傲, 神气活现, 滤煮\nvt. 竖起, 打扮, 使振作, 滤煮\nn. 小费",
+        "forms": [
+          "perked",
+          "perking",
+          "perks"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15057,
+          "forms": [
+            "perked",
+            "perking",
+            "perks"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 93,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-093.json",
+        "sha256": "c0c23072f31fc9910c0784fd364776720be445387cc273235e2a551761e557fb",
+        "bytes": 333893,
+        "count": 1050,
+        "recordIndex": 260
+      },
+      "completeOldDTO": {
+        "term": "perk",
+        "senses": [
+          {
+            "id": "example:perk",
+            "partOfSpeech": "noun",
+            "meaningZh": "工作附带福利",
+            "examples": [
+              {
+                "en": "Free concert tickets were a welcome perk of the job.",
+                "zh": "免费的音乐会票是这份工作令人欣喜的额外福利。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "9f4b6c57d1776cb22373a56b0a0aa2882ffd2670def7fa84d546f6227b4a3a62",
+      "oldFiveFieldPair": {
+        "term": "perk",
+        "partOfSpeech": "noun",
+        "meaningZh": "工作附带福利",
+        "en": "Free concert tickets were a welcome perk of the job.",
+        "zh": "免费的音乐会票是这份工作令人欣喜的额外福利。"
+      },
+      "oldFiveFieldPairSha256": "4ba8fe0461b3eb1656f71922067284b2f70a73f005766529748f0de237b298bc",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-221.json",
+        "sha256": "f1e2b2b8c182ed3c5fc35a57d2cda372884721f2d8c1388ea4cbe217152b33bb",
+        "bucket": 221,
+        "bytes": 105283
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-d.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-d.json",
+        "sourceByteSha256": "dc15ad818b8546879c9057d915d4fc358717ba185c442e0736fdba4e19c20838",
+        "reviewByteSha256": "a9ced526a263076cdf72bd4f56c2f1e4f2d1f34434d3c49467383b6dfc30a7d0",
+        "sourceSemanticSha256": "976f2d3cec925fec11aae73c2c9c774411579d3022e52c8dcb789b498780cb49",
+        "entryIndex": 164,
+        "completeSourceEntry": {
+          "term": "perk",
+          "partOfSpeech": "noun",
+          "meaningZh": "工作附带福利",
+          "en": "Free concert tickets were a welcome perk of the job.",
+          "zh": "免费的音乐会票是这份工作令人欣喜的额外福利。"
+        },
+        "sourceEntrySha256": "4ba8fe0461b3eb1656f71922067284b2f70a73f005766529748f0de237b298bc",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "perk",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 名词：工作附带的额外福利或好处，通常在工资之外，常用复数 perks。\n② 名词：某种身份、处境或活动附带的额外好处，不限于工作待遇。\n③ 动词：振作起来；恢复精神，通常用 perk up。\n④ 动词：昂首、伸颈；神气地挺起身体，或使某物迅速竖起。\n⑤ 动词：使外表更精神、好看，常用 perk something up。",
+        "chineseAliases": [
+          "额外福利",
+          "附带的好处"
+        ],
+        "englishForms": [
+          "perked",
+          "perking",
+          "perks"
+        ],
+        "en": "Free concert tickets were a welcome perk of the job.",
+        "zh": "免费的音乐会票是这份工作令人欣喜的额外福利。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/perk_1",
+          "https://www.merriam-webster.com/dictionary/perk",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/perk_2"
+        ],
+        "canonicalId": 1927005,
+        "canonicalSourceSha256": "29f26b9564c5e4732e4624347d733327d14f38fa0b46ac2a89533879fdff1d01"
+      },
+      "newSourceRowSha256": "449dbb0cf801d8e6f01b5dbf57f565803e40386637ba7e8574ae0d72a26b0dfb",
+      "exampleRole": "① job-related noncash benefit; the pair does not illustrate the verbs",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/perk_1",
+        "https://www.merriam-webster.com/dictionary/perk",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/perk_2"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "derail",
+      "canonicalId": 1953270,
+      "canonicalSourceSha256": "d0cbd434203933340b0801457ee8f26bcac6188482820272f7a0fa096ad7aa47",
+      "fullCanonicalRecord": {
+        "id": 1953270,
+        "term": "derail",
+        "partOfSpeech": "verb · noun",
+        "meaning": "vt. 使出轨\nn. 脱轨器\n[计] 转移指令",
+        "forms": [
+          "derailed",
+          "derailing",
+          "derails"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15262,
+          "forms": [
+            "derailed",
+            "derailing",
+            "derails"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 118,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-118.json",
+        "sha256": "8adbeed48a56d349f5e6c0f4bfffb61ebab427455dfccd80f6bc015ed2cbf12f",
+        "bytes": 348922,
+        "count": 1067,
+        "recordIndex": 286
+      },
+      "completeOldDTO": {
+        "term": "derail",
+        "senses": [
+          {
+            "id": "example:derail",
+            "partOfSpeech": "verb",
+            "meaningZh": "使偏离计划",
+            "examples": [
+              {
+                "en": "A missing permit threatened to derail the renovation.",
+                "zh": "缺少许可证可能使翻修计划受挫。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "e1b9657370756eee68ad81bf20ff2a625db69ee087d442d0437f32ea8deda7b2",
+      "oldFiveFieldPair": {
+        "term": "derail",
+        "partOfSpeech": "verb",
+        "meaningZh": "使偏离计划",
+        "en": "A missing permit threatened to derail the renovation.",
+        "zh": "缺少许可证可能使翻修计划受挫。"
+      },
+      "oldFiveFieldPairSha256": "e1c7ea62ab7374c1cf02116323e0bb9baca5dbfc6066f9147c41a9d14b4debcc",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-246.json",
+        "sha256": "4a1184f43f2d0b9f07c6f12ce49b1c54d05eea37ea55b39a8061ebb3da5a0d10",
+        "bucket": 246,
+        "bytes": 119049
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-e.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-e.json",
+        "sourceByteSha256": "7ca0a838df80cf0ae03a3ad007fb5344cbc4c0af739bdffc6c416b6a224a27c6",
+        "reviewByteSha256": "7a2214c8a81d122ea25acba2552fdfb9c208c92e3c3ca2b6a559ffff9ce1f288",
+        "sourceSemanticSha256": "32942a19a434de8f75d43a8728d793b5af6d03c78188a794ec23fb02538d4e4a",
+        "entryIndex": 162,
+        "completeSourceEntry": {
+          "term": "derail",
+          "partOfSpeech": "verb",
+          "meaningZh": "使偏离计划",
+          "en": "A missing permit threatened to derail the renovation.",
+          "zh": "缺少许可证可能使翻修计划受挫。"
+        },
+        "sourceEntrySha256": "e1c7ea62ab7374c1cf02116323e0bb9baca5dbfc6066f9147c41a9d14b4debcc",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "derail",
+        "partOfSpeech": "verb",
+        "meaning": "① 使计划、项目或进程受阻；使其偏离预定方向，比喻用法。\n② 使列车脱轨；列车脱轨，可作及物或不及物动词。",
+        "chineseAliases": [
+          "使计划受阻",
+          "扰乱进程"
+        ],
+        "englishForms": [
+          "derailed",
+          "derailing",
+          "derails"
+        ],
+        "en": "A missing permit threatened to derail the renovation.",
+        "zh": "缺少许可证可能使翻修计划受挫。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/derail"
+        ],
+        "canonicalId": 1953270,
+        "canonicalSourceSha256": "d0cbd434203933340b0801457ee8f26bcac6188482820272f7a0fa096ad7aa47"
+      },
+      "newSourceRowSha256": "219b6131895d8872289f87f67623e513e159a1e4b1b351c560ce312d376a423d",
+      "exampleRole": "① threatened disruption of a renovation, not a completed failure or physical train accident",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/derail"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "unwind",
+      "canonicalId": 2037224,
+      "canonicalSourceSha256": "7114731fe3306a3dc222439bb37dff3921cb39a9e434b1457a516a0ce9fc3445",
+      "fullCanonicalRecord": {
+        "id": 2037224,
+        "term": "unwind",
+        "partOfSpeech": "verb",
+        "meaning": "vt. 展开\n[化] 拆卷; 开卷",
+        "forms": [
+          "unwinding",
+          "unwinds",
+          "unwound"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15918,
+          "forms": [
+            "unwinding",
+            "unwinds",
+            "unwound"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 104,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-104.json",
+        "sha256": "5ddebfce628bdb35bd1f590c555ece3a3c3ec7875ce8d82cd8d86206281ea30c",
+        "bytes": 350389,
+        "count": 1094,
+        "recordIndex": 298
+      },
+      "completeOldDTO": {
+        "term": "unwind",
+        "senses": [
+          {
+            "id": "example:unwind",
+            "partOfSpeech": "verb",
+            "meaningZh": "放松",
+            "examples": [
+              {
+                "en": "She unwound by sketching the view from her window.",
+                "zh": "她画窗外的景色来放松。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "53f46dfd5a6719d315be580d8f2c55fb862a90c713163eb6daa401b5df384621",
+      "oldFiveFieldPair": {
+        "term": "unwind",
+        "partOfSpeech": "verb",
+        "meaningZh": "放松",
+        "en": "She unwound by sketching the view from her window.",
+        "zh": "她画窗外的景色来放松。"
+      },
+      "oldFiveFieldPairSha256": "7c16905e81f5ddce9eea4fc1be7d8617eb673c4c6902e44658fc047892252211",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-104.json",
+        "sha256": "e1a84519b52d2597a05f1a7f198ab191a5d6ed03908c5d931bee9181b37b27bd",
+        "bucket": 104,
+        "bytes": 121635
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-h.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-h.json",
+        "sourceByteSha256": "552ce478109f6e73b9fa3c4c65ee255683cab519d297281acf0a91aaabefcd67",
+        "reviewByteSha256": "1588375c9b84c239dbc52023157a0cac7c58d7201fb75d98a74a5428f6b4c730",
+        "sourceSemanticSha256": "3cd0de7c666626e7c2f5508aea11e86fef63cf63aaeddaaabfb90349102e52d8",
+        "entryIndex": 179,
+        "completeSourceEntry": {
+          "term": "unwind",
+          "partOfSpeech": "verb",
+          "meaningZh": "放松",
+          "en": "She unwound by sketching the view from her window.",
+          "zh": "她画窗外的景色来放松。"
+        },
+        "sourceEntrySha256": "7c16905e81f5ddce9eea4fc1be7d8617eb673c4c6902e44658fc047892252211",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "unwind",
+        "partOfSpeech": "verb",
+        "meaning": "① 放松下来；缓解紧张，指人从忙碌、压力或紧绷的状态中放松，作不及物动词。\n② 展开、解开卷绕着的东西；使其松开，也可指卷绕物自行松开，可作及物或不及物动词。",
+        "chineseAliases": [
+          "放松身心",
+          "缓解紧张"
+        ],
+        "englishForms": [
+          "unwinding",
+          "unwinds"
+        ],
+        "en": "She unwound by sketching the view from her window.",
+        "zh": "她画窗外的景色来放松。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/unwind"
+        ],
+        "canonicalId": 2037224,
+        "canonicalSourceSha256": "7114731fe3306a3dc222439bb37dff3921cb39a9e434b1457a516a0ce9fc3445"
+      },
+      "newSourceRowSha256": "23a34f24d358aa063c16b8fdeca5e95331a9b185834f47fd7871f225212d9b71",
+      "exampleRole": "① relaxing by sketching; unwound is the exact existing sentence form",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/unwind"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "binge",
+      "canonicalId": 2009178,
+      "canonicalSourceSha256": "e97d6e85b691c68f2fe88b64ea7975469bea244ae43a2414ce296bcf6c0ebd3f",
+      "fullCanonicalRecord": {
+        "id": 2009178,
+        "term": "binge",
+        "partOfSpeech": "noun",
+        "meaning": "n. 狂闹, 狂欢",
+        "forms": [
+          "binged",
+          "bingeing",
+          "binges"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15699,
+          "forms": [
+            "binged",
+            "bingeing",
+            "binges"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 90,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-090.json",
+        "sha256": "66843f175f3b2d2d778ad66c032b24064f557564b8c3f1234726ec415b66c6d4",
+        "bytes": 365198,
+        "count": 1147,
+        "recordIndex": 319
+      },
+      "completeOldDTO": {
+        "term": "binge",
+        "senses": [
+          {
+            "id": "example:binge",
+            "partOfSpeech": "noun",
+            "meaningZh": "一阵无节制的活动",
+            "examples": [
+              {
+                "en": "A reading binge kept her indoors all weekend.",
+                "zh": "她一阵猛读，整个周末都待在屋里。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "e40e93871f418526869cb5d8ae08bfea527dd48d8672bf197ea6033486a41e2f",
+      "oldFiveFieldPair": {
+        "term": "binge",
+        "partOfSpeech": "noun",
+        "meaningZh": "一阵无节制的活动",
+        "en": "A reading binge kept her indoors all weekend.",
+        "zh": "她一阵猛读，整个周末都待在屋里。"
+      },
+      "oldFiveFieldPairSha256": "034aa98b208a22fe61aa7b7119eec7f007ced342bcdc45815368c11538a0bd59",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-218.json",
+        "sha256": "891dc48a09522ee33e102cf613002d09c0417674c97a2ff2eda25f255459c403",
+        "bucket": 218,
+        "bytes": 131840
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-g.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-g.json",
+        "sourceByteSha256": "4d149f8d00823c3828b0301f81992430ab3f50b85917792ff8522e4a64bd6e21",
+        "reviewByteSha256": "53966fabcc9365d27eff71ea17e3be135a4a520bfc2194ed9f2c8dd09d1eaddb",
+        "sourceSemanticSha256": "a4fd0db7f0255562524638b134ba81bd8d9db3666fe41edeca5f9c4123ae32c0",
+        "entryIndex": 170,
+        "completeSourceEntry": {
+          "term": "binge",
+          "partOfSpeech": "noun",
+          "meaningZh": "一阵无节制的活动",
+          "en": "A reading binge kept her indoors all weekend.",
+          "zh": "她一阵猛读，整个周末都待在屋里。"
+        },
+        "sourceEntrySha256": "034aa98b208a22fe61aa7b7119eec7f007ced342bcdc45815368c11538a0bd59",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "binge",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 名词：一阵无节制、过量的活动，尤其常说暴食或酗酒，也可指一口气大量从事其他活动。\n② 不及物动词：暴食；狂饮，常用 binge on something，指吃喝过量，往往难以自制。",
+        "chineseAliases": [
+          "一阵无节制的活动",
+          "暴食狂饮"
+        ],
+        "englishForms": [
+          "binged",
+          "bingeing",
+          "binges"
+        ],
+        "en": "A reading binge kept her indoors all weekend.",
+        "zh": "她一阵猛读，整个周末都待在屋里。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/binge_1",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/binge_2"
+        ],
+        "canonicalId": 2009178,
+        "canonicalSourceSha256": "e97d6e85b691c68f2fe88b64ea7975469bea244ae43a2414ce296bcf6c0ebd3f"
+      },
+      "newSourceRowSha256": "c2cd2748593ba5f4f655214bc604de37cd34f60c1f9060474433598bf21125f9",
+      "exampleRole": "① noun reading binge; the eating/drinking verb role is independently qualified, not generalized from reading",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/binge_1",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/binge_2"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "spree",
+      "canonicalId": 1970346,
+      "canonicalSourceSha256": "ebf742cfd5277757ba5781b32ea33efaaf3b6ac86879a8ae50a0949760ab2b85",
+      "fullCanonicalRecord": {
+        "id": 1970346,
+        "term": "spree",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 戏耍, 喧闹, 宴会, 狂饮\nvi. 狂欢, 狂饮",
+        "forms": [
+          "sprees"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15396,
+          "forms": [
+            "sprees"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 42,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-042.json",
+        "sha256": "f908cb01f453e20e3788e3bff5105c04c76c67835d8dbdaa1fd7a4c2347a9389",
+        "bytes": 368005,
+        "count": 1167,
+        "recordIndex": 332
+      },
+      "completeOldDTO": {
+        "term": "spree",
+        "senses": [
+          {
+            "id": "example:spree",
+            "partOfSpeech": "noun",
+            "meaningZh": "一阵放纵的活动",
+            "examples": [
+              {
+                "en": "A shopping spree left him with too many bags.",
+                "zh": "一阵疯狂购物让他提了太多袋子。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "247de66c9f9d6ebc4f3456052b1010a7665b6888325c0562cea9c7b1614eee24",
+      "oldFiveFieldPair": {
+        "term": "spree",
+        "partOfSpeech": "noun",
+        "meaningZh": "一阵放纵的活动",
+        "en": "A shopping spree left him with too many bags.",
+        "zh": "一阵疯狂购物让他提了太多袋子。"
+      },
+      "oldFiveFieldPairSha256": "d98790e478e2d9150325255dc2ed596598e7dc142122a17d8a43d8d6e7fc5084",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-42.json",
+        "sha256": "c61e69893d7339571a02249384c6b99256cc44d7be128f9331cfd5c3f8dbf54e",
+        "bucket": 42,
+        "bytes": 127397
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-f.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-f.json",
+        "sourceByteSha256": "b5355b7b4eee214a67a5c152e02d1091df155ec291ba9b2cd5b1c991c4d2ca2d",
+        "reviewByteSha256": "41f003c6c1b612b0c2c8c0cfac1aefdd2d61945d601db1dbc1cb0473f4ce4720",
+        "sourceSemanticSha256": "5c948fcea191449d781cb3e7adb3b8e60282a09900758cdfa708ae32e6ab17b4",
+        "entryIndex": 81,
+        "completeSourceEntry": {
+          "term": "spree",
+          "partOfSpeech": "noun",
+          "meaningZh": "一阵放纵的活动",
+          "en": "A shopping spree left him with too many bags.",
+          "zh": "一阵疯狂购物让他提了太多袋子。"
+        },
+        "sourceEntrySha256": "d98790e478e2d9150325255dc2ed596598e7dc142122a17d8a43d8d6e7fc5084",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "spree",
+        "partOfSpeech": "noun",
+        "meaning": "① 一阵尽兴、往往过量的活动，常与 shopping 等连用，表示一阵放纵式的购物等行为。\n② 报刊用语：一连串、短时间内集中发生的某类活动，可用于犯罪或比赛得分等，不一定带有愉快的含义。",
+        "chineseAliases": [
+          "一阵放纵的活动",
+          "疯狂购物"
+        ],
+        "englishForms": [
+          "sprees"
+        ],
+        "en": "A shopping spree left him with too many bags.",
+        "zh": "一阵疯狂购物让他提了太多袋子。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/spree"
+        ],
+        "canonicalId": 1970346,
+        "canonicalSourceSha256": "ebf742cfd5277757ba5781b32ea33efaaf3b6ac86879a8ae50a0949760ab2b85"
+      },
+      "newSourceRowSha256": "7d0ea4fccc2b11a997748e32d8d0606664ee0c53a511a8c83deaf965a52ae61e",
+      "exampleRole": "① shopping noun; a crime spree is not characterized as enjoyable by the second role",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/spree"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "funky",
+      "canonicalId": 1953826,
+      "canonicalSourceSha256": "67e10ceaa8018e0c48c21efa3aeffd0832b593378830908763e70c74d5a55427",
+      "fullCanonicalRecord": {
+        "id": 1953826,
+        "term": "funky",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 畏缩的, 怯懦的, 恶臭的",
+        "forms": [
+          "funkier",
+          "funkiest"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15267,
+          "forms": [
+            "funkier",
+            "funkiest"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 34,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-034.json",
+        "sha256": "727a5df6129a258d6c13a3d52247d518fe3ce0c14428d1a137b296d11476859f",
+        "bytes": 354536,
+        "count": 1104,
+        "recordIndex": 296
+      },
+      "completeOldDTO": {
+        "term": "funky",
+        "senses": [
+          {
+            "id": "example:funky",
+            "partOfSpeech": "adjective",
+            "meaningZh": "新潮别致的",
+            "examples": [
+              {
+                "en": "Funky lamps brightened the otherwise plain reception area.",
+                "zh": "新潮别致的灯具让原本朴素的接待区亮眼起来。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "a68217fabf2430c1c9150373082ffc835615124a443887f899a19d93bee2de5c",
+      "oldFiveFieldPair": {
+        "term": "funky",
+        "partOfSpeech": "adjective",
+        "meaningZh": "新潮别致的",
+        "en": "Funky lamps brightened the otherwise plain reception area.",
+        "zh": "新潮别致的灯具让原本朴素的接待区亮眼起来。"
+      },
+      "oldFiveFieldPairSha256": "c764808281de2f1ae48b35920d9f3599020a811f53223e89bebb1a70bb9ebeb6",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-162.json",
+        "sha256": "cb006b09e480e703ee96a8922e07d75cdc817c87ef269c7b90cfd597428803d0",
+        "bucket": 162,
+        "bytes": 112713
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-e.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-e.json",
+        "sourceByteSha256": "7ca0a838df80cf0ae03a3ad007fb5344cbc4c0af739bdffc6c416b6a224a27c6",
+        "reviewByteSha256": "7a2214c8a81d122ea25acba2552fdfb9c208c92e3c3ca2b6a559ffff9ce1f288",
+        "sourceSemanticSha256": "32942a19a434de8f75d43a8728d793b5af6d03c78188a794ec23fb02538d4e4a",
+        "entryIndex": 166,
+        "completeSourceEntry": {
+          "term": "funky",
+          "partOfSpeech": "adjective",
+          "meaningZh": "新潮别致的",
+          "en": "Funky lamps brightened the otherwise plain reception area.",
+          "zh": "新潮别致的灯具让原本朴素的接待区亮眼起来。"
+        },
+        "sourceEntrySha256": "c764808281de2f1ae48b35920d9f3599020a811f53223e89bebb1a70bb9ebeb6",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "funky",
+        "partOfSpeech": "adjective",
+        "meaning": "① 新潮别致的；不循常规而时髦的，表示赞许。\n② 外观或感觉古怪、奇特的，可作较中性的描述，不自动等于赞美其时髦。\n③ 音乐有放克等风格、具有相应鲜明节奏或感觉的。\n④ 美式用法：有难闻气味的；发臭的。\n⑤ 惊慌的；害怕的，是与风格、音乐和气味义分开的用法。",
+        "chineseAliases": [
+          "新潮别致的",
+          "古怪奇特的"
+        ],
+        "englishForms": [
+          "funkier",
+          "funkiest"
+        ],
+        "en": "Funky lamps brightened the otherwise plain reception area.",
+        "zh": "新潮别致的灯具让原本朴素的接待区亮眼起来。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/funky",
+          "https://www.merriam-webster.com/dictionary/funky"
+        ],
+        "canonicalId": 1953826,
+        "canonicalSourceSha256": "67e10ceaa8018e0c48c21efa3aeffd0832b593378830908763e70c74d5a55427"
+      },
+      "newSourceRowSha256": "747f7850495e3d20d7f782c43f059b208a0699ea710b94f3287272b3aae3b868",
+      "exampleRole": "① attractive unconventional lamps; no unpleasant smell, music, or frightened experiencer is asserted",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/funky",
+        "https://www.merriam-webster.com/dictionary/funky"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "nutty",
+      "canonicalId": 1965975,
+      "canonicalSourceSha256": "86c35b1c72b6c565048abb1201214b64db1bf21cd8099005c749dd0f3e92b621",
+      "fullCanonicalRecord": {
+        "id": 1965975,
+        "term": "nutty",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 产坚果的",
+        "forms": [
+          "nutties"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 15362,
+          "forms": [
+            "nutties"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 23,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-023.json",
+        "sha256": "e64f8d3abce4269f5f98789f71bafce0515fc329d3fe6ff299438800d07be0e6",
+        "bytes": 359286,
+        "count": 1104,
+        "recordIndex": 290
+      },
+      "completeOldDTO": {
+        "term": "nutty",
+        "senses": [
+          {
+            "id": "example:nutty",
+            "partOfSpeech": "adjective",
+            "meaningZh": "有坚果味的",
+            "examples": [
+              {
+                "en": "The bread had a pleasantly nutty flavor.",
+                "zh": "面包带着宜人的坚果味。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "394b6e7ee4ae79c512243c1b938b0ca7a3d371b29fe3f81422eed8a8afd4bed3",
+      "oldFiveFieldPair": {
+        "term": "nutty",
+        "partOfSpeech": "adjective",
+        "meaningZh": "有坚果味的",
+        "en": "The bread had a pleasantly nutty flavor.",
+        "zh": "面包带着宜人的坚果味。"
+      },
+      "oldFiveFieldPairSha256": "34befdc6e49c01c410ac64767ec7675a3aca91d5ff74e3d4509419dcc4b50489",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-23.json",
+        "sha256": "3a64998c6d3420181207dc6f209fa1581d4eb748e3017f4d5ff0dcb309a105f8",
+        "bucket": 23,
+        "bytes": 123457
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-f.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-f.json",
+        "sourceByteSha256": "b5355b7b4eee214a67a5c152e02d1091df155ec291ba9b2cd5b1c991c4d2ca2d",
+        "reviewByteSha256": "41f003c6c1b612b0c2c8c0cfac1aefdd2d61945d601db1dbc1cb0473f4ce4720",
+        "sourceSemanticSha256": "5c948fcea191449d781cb3e7adb3b8e60282a09900758cdfa708ae32e6ab17b4",
+        "entryIndex": 47,
+        "completeSourceEntry": {
+          "term": "nutty",
+          "partOfSpeech": "adjective",
+          "meaningZh": "有坚果味的",
+          "en": "The bread had a pleasantly nutty flavor.",
+          "zh": "面包带着宜人的坚果味。"
+        },
+        "sourceEntrySha256": "34befdc6e49c01c410ac64767ec7675a3aca91d5ff74e3d4509419dcc4b50489",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_a",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "nutty",
+        "partOfSpeech": "adjective",
+        "meaning": "① 有坚果味的，描述味道，本身不证明食物实际含有坚果。\n② 含坚果的，描述成分，与仅有坚果风味分开判断。\n③ 非正式用语：有点古怪的；傻乎乎的。\n④ 非正式用语：非常喜欢、迷恋某人或某物，常用 nutty about somebody or something。",
+        "chineseAliases": [
+          "有坚果味的",
+          "含坚果的"
+        ],
+        "englishForms": [],
+        "en": "The bread had a pleasantly nutty flavor.",
+        "zh": "面包带着宜人的坚果味。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/nutty"
+        ],
+        "canonicalId": 1965975,
+        "canonicalSourceSha256": "86c35b1c72b6c565048abb1201214b64db1bf21cd8099005c749dd0f3e92b621"
+      },
+      "newSourceRowSha256": "6337a7c01d2622064c6ce77100a4806a7ccaafb3d4020e914e933e642d181ba1",
+      "exampleRole": "① flavor only; ingredients are not inferred from the original bread sentence",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/nutty"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "orchestrate",
+      "canonicalId": 1909091,
+      "canonicalSourceSha256": "643b83680953c268de9be5565ecfd2f3c5893c22ea419d303f0034f4c4784f54",
+      "fullCanonicalRecord": {
+        "id": 1909091,
+        "term": "orchestrate",
+        "partOfSpeech": "verb",
+        "meaning": "v. 编管弦乐曲",
+        "forms": [
+          "orchestrated",
+          "orchestrates",
+          "orchestrating"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 14917,
+          "forms": [
+            "orchestrated",
+            "orchestrates",
+            "orchestrating"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 99,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-099.json",
+        "sha256": "033252bad0a717e7f10668093924a609342e43e4e0f59795e0906124d419809b",
+        "bytes": 360573,
+        "count": 1104,
+        "recordIndex": 285
+      },
+      "completeOldDTO": {
+        "term": "orchestrate",
+        "senses": [
+          {
+            "id": "example:orchestrate",
+            "partOfSpeech": "verb",
+            "meaningZh": "精心安排",
+            "examples": [
+              {
+                "en": "She orchestrated a surprise reunion for the retiring conductor.",
+                "zh": "她为即将退休的指挥精心安排了一次惊喜重聚。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "e067084bcdfcc67d1f4ff799216b2913bb972538d6bff632594cb373d2f0c758",
+      "oldFiveFieldPair": {
+        "term": "orchestrate",
+        "partOfSpeech": "verb",
+        "meaningZh": "精心安排",
+        "en": "She orchestrated a surprise reunion for the retiring conductor.",
+        "zh": "她为即将退休的指挥精心安排了一次惊喜重聚。"
+      },
+      "oldFiveFieldPairSha256": "81f136fda747b8e70d32032431165851df0320cf70f3747b02eece0093a198e6",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-99.json",
+        "sha256": "9f61ec94379b4ad4b73b7a4d4756e60f7f7e272bf724f9e3e2680c7a4df1b37b",
+        "bucket": 99,
+        "bytes": 115041
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-d.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-d.json",
+        "sourceByteSha256": "dc15ad818b8546879c9057d915d4fc358717ba185c442e0736fdba4e19c20838",
+        "reviewByteSha256": "a9ced526a263076cdf72bd4f56c2f1e4f2d1f34434d3c49467383b6dfc30a7d0",
+        "sourceSemanticSha256": "976f2d3cec925fec11aae73c2c9c774411579d3022e52c8dcb789b498780cb49",
+        "entryIndex": 33,
+        "completeSourceEntry": {
+          "term": "orchestrate",
+          "partOfSpeech": "verb",
+          "meaningZh": "精心安排",
+          "en": "She orchestrated a surprise reunion for the retiring conductor.",
+          "zh": "她为即将退休的指挥精心安排了一次惊喜重聚。"
+        },
+        "sourceEntrySha256": "81f136fda747b8e70d32032431165851df0320cf70f3747b02eece0093a198e6",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "orchestrate",
+        "partOfSpeech": "verb",
+        "meaning": "① 精心安排、协调复杂的计划或活动，使各部分配合起来；可以暗中安排，但不必然含有秘密或负面含义。\n② 将乐曲编配为管弦乐；为管弦乐队安排各声部。",
+        "chineseAliases": [
+          "精心安排",
+          "协调策划"
+        ],
+        "englishForms": [
+          "orchestrated",
+          "orchestrates",
+          "orchestrating"
+        ],
+        "en": "She orchestrated a surprise reunion for the retiring conductor.",
+        "zh": "她为即将退休的指挥精心安排了一次惊喜重聚。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/orchestrate"
+        ],
+        "canonicalId": 1909091,
+        "canonicalSourceSha256": "643b83680953c268de9be5565ecfd2f3c5893c22ea419d303f0034f4c4784f54"
+      },
+      "newSourceRowSha256": "2d17e36cdb60e6f65a9c7c18d35e16f4d4e19c0b39232034b300fe1d94c58af8",
+      "exampleRole": "① coordinating a benign surprise reunion; not a musical scoring example",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/orchestrate"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    },
+    {
+      "term": "showcase",
+      "canonicalId": 1875728,
+      "canonicalSourceSha256": "c0d00239d41657c61c39a1ed43ff342c7148f64d07fd9f2ebae8833d584109d8",
+      "fullCanonicalRecord": {
+        "id": 1875728,
+        "term": "showcase",
+        "partOfSpeech": "noun",
+        "meaning": "n. 陈列橱\n[经] 商品陈列所, 货物陈列架",
+        "forms": [
+          "showcased",
+          "showcases",
+          "showcasing"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 14657,
+          "forms": [
+            "showcased",
+            "showcases",
+            "showcasing"
+          ],
+          "workbook": true
+        }
+      },
+      "sourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalManifest": {
+        "file": "vocab/data/expanded-dictionary/manifest.json",
+        "bytes": 55060,
+        "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "sourceVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644"
+      },
+      "canonicalSourcePointer": {
+        "bucket": 16,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-016.json",
+        "sha256": "94d4161fd191f58d2c4a404b1680d6184221be27766223c73aa2f800c80145f2",
+        "bytes": 362731,
+        "count": 1120,
+        "recordIndex": 300
+      },
+      "completeOldDTO": {
+        "term": "showcase",
+        "senses": [
+          {
+            "id": "example:showcase",
+            "partOfSpeech": "noun",
+            "meaningZh": "展示平台",
+            "examples": [
+              {
+                "en": "The festival provides a showcase for local ceramic artists.",
+                "zh": "这个节庆为本地陶艺家提供了展示平台。"
+              }
+            ],
+            "reviewer": "AI/examples8_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOldDTOSha256": "dfa0a911b46350fa8402d660cd2d00968ce67cd7e78f97afa95a68749b101f7d",
+      "oldFiveFieldPair": {
+        "term": "showcase",
+        "partOfSpeech": "noun",
+        "meaningZh": "展示平台",
+        "en": "The festival provides a showcase for local ceramic artists.",
+        "zh": "这个节庆为本地陶艺家提供了展示平台。"
+      },
+      "oldFiveFieldPairSha256": "5c3e3831da0655a1c3ac41a25a65704b54090cc33985d561973f96223812b280",
+      "oldExampleAsset": {
+        "kind": "base",
+        "file": "afff0148b5c2cf401feb1ef646bb61a3fc2bcefd984050b8a0609f711f47c3c4/examples-16.json",
+        "sha256": "c810d65eec637279f53d760a9efc0ccdd0aff41875c764409cce4aea37ca4a25",
+        "bucket": 16,
+        "bytes": 119690
+      },
+      "origin": {
+        "sourceFile": "tooling/dictionary/examples/source/batch-0008-b.json",
+        "reviewFile": "tooling/dictionary/examples/reviews/batch-0008-b.json",
+        "sourceByteSha256": "823d48742b08a77134c5b3abcf11f4404585fa1baee8d173c4471060d1ed80d0",
+        "reviewByteSha256": "0c6c1175e0b421b987852429952ff426fc9e1deb38b60451237fd8e30c828c40",
+        "sourceSemanticSha256": "7365cced870d0177d64816fcecaee2cec87bae90ab5da9d744b1b6f632f7aaf9",
+        "entryIndex": 184,
+        "completeSourceEntry": {
+          "term": "showcase",
+          "partOfSpeech": "noun",
+          "meaningZh": "展示平台",
+          "en": "The festival provides a showcase for local ceramic artists.",
+          "zh": "这个节庆为本地陶艺家提供了展示平台。"
+        },
+        "sourceEntrySha256": "5c3e3831da0655a1c3ac41a25a65704b54090cc33985d561973f96223812b280",
+        "historicalAuthorPrincipal": null,
+        "historicalReviewer": "AI/examples8_c",
+        "historicalReviewerIsNotAssumedAuthor": true
+      },
+      "newFullPackSha256": "98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb",
+      "newFullPackByteSha256": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+      "newSourceRow": {
+        "term": "showcase",
+        "partOfSpeech": "noun · verb",
+        "meaning": "① 名词：展示才华、优点或成果的机会、活动或平台，常用 a showcase for something。\n② 名词：玻璃陈列柜；用来展示物品的柜子。\n③ 及物动词：展示；使某人或某物的能力、优点或良好品质得到充分呈现。",
+        "chineseAliases": [
+          "展示平台",
+          "展示才华"
+        ],
+        "englishForms": [
+          "showcased",
+          "showcases",
+          "showcasing"
+        ],
+        "en": "The festival provides a showcase for local ceramic artists.",
+        "zh": "这个节庆为本地陶艺家提供了展示平台。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/showcase_1",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/showcase_2"
+        ],
+        "canonicalId": 1875728,
+        "canonicalSourceSha256": "c0d00239d41657c61c39a1ed43ff342c7148f64d07fd9f2ebae8833d584109d8"
+      },
+      "newSourceRowSha256": "039674db5b36f4174b5a2bb9a98116a8ccaed56f7f5a921d4a02dd8239f327b7",
+      "exampleRole": "① noun festival platform; the separately qualified verb permits verb forms without changing the original noun pair",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/showcase_1",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/showcase_2"
+      ],
+      "exactEnglishReused": true,
+      "exactChineseExampleReused": true,
+      "associationAuthor": "AI/next15_release_audit_common_use_0020_gloss_author",
+      "independentFullGlossApproval": false,
+      "technicalIndependentReview": false,
+      "nativeAdmission": false
+    }
+  ]
+}
