@@ -2,6 +2,8 @@ import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
 import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js";
+import { chineseSearchPlan } from './chinese-search.js?v=111';
+import { hasSelectedCommonSensePlan } from './selected-common-sense.js';
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));
@@ -28,7 +30,10 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
   full = false, preferCompleteChinese = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
   if (signal?.aborted) throw abortError();
   const everyday = searchEverydayDictionary(input);
-  if (everyday) return everyday;
+  const groupPlan = typeof input === 'string' && /\p{Script=Han}/u.test(input)
+    ? chineseSearchPlan(input.normalize('NFKC').replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu,'').trim()) : null;
+  const completeSelectedGroup = groupPlan && hasSelectedCommonSensePlan(groupPlan.term);
+  if (everyday && !completeSelectedGroup) return everyday;
   const hotController = new AbortController(), fullController = new AbortController();
   const timers = new Set();
   let rejectAbort;
@@ -44,7 +49,9 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
     return /\p{Script=Han}/u.test(input) ? value : guardLegacySupplementaryResult(value);
   };
   try {
-    if (full) return await race([Promise.resolve().then(fullLookup)]);
+    // A compact old row cannot prove the new selected primary or complete its
+    // existing group. Only the finitely bound group uses this verified route.
+    if (full || completeSelectedGroup) return await race([Promise.resolve().then(fullLookup)]);
     if (/\p{Script=Han}/u.test(input)) {
       const hot = settled(async () => {
         const found = await hotReverse(input, { signal: hotController.signal });

@@ -1,4 +1,4 @@
-// Classroom senses 0009 (15 admitted rows; obligation remains staging): refresh curated meanings and exact examples.
+// Preserve classroom senses 0009 and bind obligation's selected duty sense, retaining old saved examples.
 // Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.
 // Refresh the decoded-body size check for HTTP-compressed ranking assets.
 // Keep the existing cache namespace: this additive shell update must not erase
@@ -28,6 +28,7 @@ const SHELL = [
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
   "./js/reviewed-senses-data.js",
+  "./js/selected-common-sense.js", "./js/selected-common-sense-data.js",
   "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",
   // Directory metadata only: preserve previously visited delta URLs across an
   // app update. Unvisited example/source shards are never installed in bulk.
