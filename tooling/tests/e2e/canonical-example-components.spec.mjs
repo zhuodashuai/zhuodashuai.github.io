@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {CANONICAL_EXAMPLE_COMPONENTS as table} from '../../../vocab/js/canonical-example-components-data.js';
+test.use({serviceWorkers:'block',storageState:{cookies:[],origins:[]}});
 function observe(page,baseURL){const origin=new URL(baseURL).origin,writes=[],foreign=[],errors=[];page.on('request',r=>{if(!['GET','HEAD'].includes(r.method()))writes.push(r.url());if(new URL(r.url()).origin!==origin)foreign.push(r.url());});page.on('pageerror',e=>errors.push(e.message));return {writes,foreign,errors};}
 for(const [i,row]of table.rows.entries())test(`real dictionary card retains all old senses and adds its labelled component: ${row.term}`,async({page,baseURL},testInfo)=>{
   const log=observe(page,baseURL);await page.setViewportSize({width:i%2?390:1280,height:844});await page.goto('/dictionary.html');
