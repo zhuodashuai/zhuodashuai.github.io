@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "authorSourceSha256": "696a5dccb64049c6bdee05c61487e736c95eb3c9c5fa61d8dd9c5ad3a79d9596",
+  "independentReviewSha256": "e35ea2e0bbe43c6377effac65a9c0f99424dd628f241433c957a769777d3b4c1",
+  "logicalAdapter": "Keep the exact old1022 rows; register the same two independently approved aliases in existing EVERYDAY_CHINESE_ALIASES with complete old target-row hashes instead of changing the row chineseAliases field.",
+  "entries": [
+    {
+      "term": "pickup code",
+      "aliases": [
+        "取件码"
+      ],
+      "targetEntrySha256": "6a4c826e4bb818c385e8331ca7e07461d51a6d557da266723c4e314f5a972754"
+    },
+    {
+      "term": "hand sanitizer",
+      "aliases": [
+        "手消毒液"
+      ],
+      "targetEntrySha256": "3427e9ebd4447a032b4249b282bd6bb6a184932b4e385e721e51905589e49e9e"
+    }
+  ]
+}

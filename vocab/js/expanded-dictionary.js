@@ -5,6 +5,7 @@ import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupp
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=111";
 import { chineseVariantRank, chineseRankingNeedle, parseChineseRanking } from "./chinese-ranking.js?v=111";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -21,6 +22,9 @@ const MANIFEST_TTL_MS = 60_000;
 let generation = 0;
 let clients = new WeakMap();
 const activeControllers = new Set();
+// Only parseEnglish can create a provenance entry, after getJSON has verified
+// the complete immutable English shard bytes. Display records expose no token.
+const canonicalRecordOrigins = new WeakMap();
 
 function invalid(message = "本站扩展词典格式不正确，请刷新后重试。") {
   const error = new Error(message); error.code = "invalid_dictionary_data"; return error;
@@ -124,8 +128,12 @@ function parseEnglish(payload, manifest, descriptor) {
       array(row.seed.forms, 64).forEach(lexical);
       if (typeof row.seed.workbook !== "boolean") throw invalid();
     }
-    records.set(row.id, Object.freeze({ id: row.id, term: row.term, partOfSpeech: row.partOfSpeech,
-      meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) }));
+    const parsed = Object.freeze({ id: row.id, term: row.term, partOfSpeech: row.partOfSpeech,
+      meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) });
+    if (isSelectedCommonSenseCanonicalCandidate(row.id, row.term)) canonicalRecordOrigins.set(parsed, Object.freeze({ manifestVersion: manifest.version,
+      bucket: descriptor.bucket, file: descriptor.file, sha256: descriptor.sha256, bytes: descriptor.bytes,
+      rawRecordJSON: JSON.stringify(row) }));
+    records.set(row.id, parsed);
   }
   const lookup = new Map();
   for (const item of array(payload.keys, 40_000)) {
@@ -384,6 +392,14 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
   for (const id of ids) {
     const record = ranking.records.get(id);
     if (!record) throw invalid("中文候选与词典记录不一致，请刷新后重试。");
+    // Finite reviewed heads arrive from the private SHA-verified English
+    // parser. Broad-query ranking rows have no such raw-record provenance and
+    // cannot activate this separately reviewed canonical-sense group route.
+    const curated = plan ? selectedCommonSenseCandidate(record, canonicalRecordOrigins.get(record), plan.term) : null;
+    if (curated) {
+      if (curated.directTerms.includes(plan.term)) matches.push({ record, curated: curated.result, score: 0 });
+      continue;
+    }
     if (isSupersededChineseSenseHead(record.term)) continue;
     const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
       || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
@@ -397,7 +413,7 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
   }
   matches.sort((a, b) => a.score - b.score || a.record.id - b.record.id);
   const page = matches.slice(offset, offset + limit), nextOffset = offset + page.length;
-  return { query, results: page.map(({ record, selected }) => ({ ...display(record, selected, manifest),
+  return { query, results: page.map(({ record, selected, curated }) => curated ? { ...curated } : ({ ...display(record, selected, manifest),
     ...(sense ? { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense,
       matchedExampleSenseIds: (sense.exampleSenses?.[fold(record.term)] || []).map(item => item.id),
       matchedExampleSenseEvidence: sense.exampleSenses?.[fold(record.term)] || [] } : {}) })),
@@ -485,6 +501,22 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
       examined++;
       const record = loaded.get(id % BUCKETS).records.get(id);
       if (!record || id % BUCKETS !== bucketFor(fold(record.term))) throw invalid();
+      const curated = plan ? selectedCommonSenseCandidate(record, canonicalRecordOrigins.get(record), plan.term) : null;
+      if (curated) {
+        // Preserve the established direct/related partition, not just membership.
+        if (relatedPlan && curated.directTerms.includes(plan.term)) continue;
+        const matched = terms.find(term => curated.directTerms.includes(term));
+        if (matched) {
+          const result = { ...curated.result, ...(relatedPlan ? { matchType: 'related', matchedChinese: matched } : {}) };
+          results.push(result);
+          if (relatedPlan) {
+            resultIds.set(result, id); results.sort(relatedOrder);
+            if (results.length > limit + 1) resultIds.delete(results.pop());
+          }
+        }
+        if (plan && !relatedPlan && results.length > limit) break;
+        continue;
+      }
       // Reviewed replacement senses use their explicit local Chinese aliases.
       // Their stale legacy reverse postings must not keep teaching the old error.
       if (isSupersededChineseSenseHead(record.term)) continue;
@@ -568,7 +600,8 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   // Common phrase aliases are indexed as complete, sense-specific queries.
   // They can answer immediately, without broadening or downloading the core.
   const everyday = searchEverydayDictionary(input, { limit, ...(offset === undefined ? {} : { offset }) });
-  if (everyday) return everyday;
+  const groupPlan = HAN.test(query) ? chineseSearchPlan(query) : null;
+  if (everyday && !(groupPlan && hasSelectedCommonSensePlan(groupPlan.term))) return everyday;
   const chinese = HAN.test(query);
   if (chinese && (!/^[\p{Script=Han}\s]+$/u.test(query) || [...query].length > 50)) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
   if (!chinese && !/[\p{Script=Latin}]/u.test(query) && query !== "24/7") throw new Error("请输入英文词或短语。");

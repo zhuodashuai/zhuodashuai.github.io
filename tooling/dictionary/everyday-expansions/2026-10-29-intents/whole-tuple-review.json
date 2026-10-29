@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "cd8ddf4917fddf74f92a2ab22c9360d197f402f39fc75d9c3da813881cce8f44",
+  "authorPolicySha256": "d908c8aa5eba3bc821e0d9ef42e70409d3a303d4f36842ae78f4c7bff3301083",
+  "reviewer": "AI/everyday-examples-continue-independent-reader",
+  "independentOfAuthor": true,
+  "approvedEntries": [
+    {
+      "term": "painkiller",
+      "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6",
+      "selectedRowSha256": "6a1452015854acabe695625cb0a2ec2b11d93199ba68b505b0e39578fec86058",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 解痛药, 止痛片, 止痛药",
+          "source": "mit"
+        }
+      ],
+      "reason": "Whole MIT noun tuple supported. Old nurse/chart example stays exact."
+    },
+    {
+      "term": "allergy",
+      "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728",
+      "selectedRowSha256": "ec37cbd69fc33c28652c26efd1e943c32065adfc3c75c818989b510bca80405e",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both exact core/MIT tuples retain aversion as well as medical reactivity. The inherited [化] tag is historical editorial context, not a certified exclusive modern classification. Old food-allergy pair stays exact."
+    },
+    {
+      "term": "toilet paper",
+      "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338",
+      "selectedRowSha256": "06a5c9595014c9b63ac58f834260fb42e7a1923004081216b5c6a483c4b87f4a",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "卫生纸, 草纸",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Full pos-reviewed tuple keeps 草纸 in old toilet-paper use; blank-POS MIT tuple remains held whole. No POS fabricated for a raw variant."
+    },
+    {
+      "term": "hairdryer",
+      "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0",
+      "selectedRowSha256": "88896492eb983ffd9c968bd160cbe0359bc2c0cf33b26fc5605b70f614c251a7",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. （吹干头发的）吹风机",
+          "source": "mit"
+        }
+      ],
+      "reason": "Entire MIT tuple is supported; unplugged-before-leaving old example unchanged."
+    }
+  ],
+  "heldWholeTuples": [
+    {
+      "term": "toilet paper",
+      "wholeTuple": {
+        "partOfSpeech": "",
+        "meaning": "卫生纸, 草纸",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "6c7ab48f44c3f2f66125bea78bf96c9740ab1c3f7b62fbd4b1db1ced6f78b8e0",
+      "status": "HOLD-author-proposed-whole-tuple-scope",
+      "reason": "The inherited MIT variant has empty native POS. Preserve the full tuple; do not fabricate POS for it or count it as an approved retained alternative."
+    },
+    {
+      "term": "pharmacy",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 药房, 配药学, 制药业\n[医] 药学, 药剂学, 调剂学, 药房",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "a35a700339c3de6101989ec3b7b0d0157e6f4d6122e06b4ac4f6418e6283185d",
+      "status": "HOLD-author-proposed-whole-tuple-scope",
+      "reason": "The unqualified 制药业 tail can imply the pharmaceutical manufacturing industry. Consulted publisher entries establish preparation/dispensing science, art, practice/profession and dispensing places, but do not sufficiently establish that broad industry reading. Preserve this whole raw tuple in evidence, pending a different reader; do not prune it and call the remainder a retained whole tuple. New own definitions preserve all those independently established legitimate old roles."
+    }
+  ],
+  "sourcePruningApproved": false,
+  "arbitraryAuthorityFlagApproved": false,
+  "issues": []
+}

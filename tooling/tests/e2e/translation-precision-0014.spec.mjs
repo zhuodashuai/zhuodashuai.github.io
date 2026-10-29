@@ -1,0 +1,6 @@
+import{test,expect}from'@playwright/test';import{readFile}from'node:fs/promises';import{createHash}from'node:crypto';
+import{watchAnonymousStaticContext,assertClassroomTraffic}from'./browser-checks-classroom-0009.mjs';
+import{freshPrecisionReport,verifyPrecisionViewport}from'./browser-checks-translation-precision-0014.mjs';
+const bytes=await readFile(new URL('../../dictionary/examples/corrections/translation-precision-0014-fixture.json',import.meta.url));expect(createHash('sha256').update(bytes).digest('hex')).toBe('0d0e769d8f68d2737becd96bf9a153f440b2cf6fe1fdcf86570cac47fa5d313c');const fixture=JSON.parse(bytes);
+test.use({serviceWorkers:'block',storageState:{cookies:[],origins:[]}});
+for(const width of[390,1280])test('five ZH-only precision repairs preserve complete native DTOs and personal saved fields at '+width+'px',async({context},testInfo)=>{test.setTimeout(180000);const base='http://127.0.0.1:4187/',report=freshPrecisionReport();await watchAnonymousStaticContext(context,base,report,expect);try{await verifyPrecisionViewport({context,base,fixture,expect,report,width});assertClassroomTraffic(expect,report);}finally{await testInfo.attach('precision-'+width+'.json',{body:Buffer.from(JSON.stringify(report,null,2)),contentType:'application/json'});}});

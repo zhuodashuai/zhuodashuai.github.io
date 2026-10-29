@@ -1,0 +1,1658 @@
+{
+  "schemaVersion": 1,
+  "kind": "ten-everyday-intent-source-bound-fixture-0011",
+  "selectedSource": {
+    "schemaVersion": 1,
+    "author": "AI/canonical-0005-everyday-intent-gap-author",
+    "entries": [
+      {
+        "term": "painkiller",
+        "partOfSpeech": "noun",
+        "meaning": "① 止痛药；镇痛药，指用于减轻疼痛的药物。",
+        "chineseAliases": [
+          "止痛药",
+          "镇痛药",
+          "止痛片"
+        ],
+        "englishForms": [
+          "painkillers"
+        ],
+        "en": "The label on the painkiller bottle was too faded to read.",
+        "zh": "止痛药瓶上的标签褪色得太厉害，已经看不清了。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/painkiller"
+        ],
+        "canonicalId": 1038562,
+        "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6"
+      },
+      {
+        "term": "allergy",
+        "partOfSpeech": "noun",
+        "meaning": "① 过敏；变应性或变态反应，指免疫系统对某种物质产生的异常反应。\n② 非正式比喻：对某人或某事的强烈反感、厌恶，常用 allergy to 表达。",
+        "chineseAliases": [
+          "过敏",
+          "过敏反应",
+          "变应性"
+        ],
+        "englishForms": [
+          "allergies"
+        ],
+        "en": "The registration form asks whether I have an allergy to latex.",
+        "zh": "登记表询问我是否对乳胶过敏。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/allergy",
+          "https://www.merriam-webster.com/dictionary/allergy",
+          "https://www.collinsdictionary.com/dictionary/english/allergy"
+        ],
+        "canonicalId": 629503,
+        "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728"
+      },
+      {
+        "term": "toilet paper",
+        "partOfSpeech": "noun",
+        "meaning": "① 卫生纸；手纸，指如厕后清洁身体用的软纸，通常制成卷状。",
+        "chineseAliases": [
+          "卫生纸",
+          "手纸",
+          "厕用卫生纸"
+        ],
+        "englishForms": [],
+        "en": "There's a spare roll of toilet paper in the cupboard under the sink.",
+        "zh": "洗手池下方的柜子里有一卷备用卫生纸。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/toilet-paper"
+        ],
+        "canonicalId": 10436458,
+        "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338"
+      },
+      {
+        "term": "pharmacy",
+        "partOfSpeech": "noun",
+        "meaning": "① 药店；药房，指出售或配发药品的商店、柜台或场所。\n② 医院药房，指医院中配制、调配药品的部门。\n③ 药学；药剂学，指研究药物配制与调配的学科，也可指这方面的技术、工作或专业。",
+        "chineseAliases": [
+          "药店",
+          "药房",
+          "医院药房",
+          "药学",
+          "药剂学",
+          "配药学",
+          "调剂学"
+        ],
+        "englishForms": [
+          "pharmacies"
+        ],
+        "en": "The new pharmacy stays open after the other shops on the street have closed.",
+        "zh": "街上的其他商店关门后，那家新药店仍在营业。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/pharmacy",
+          "https://www.merriam-webster.com/dictionary/pharmacy",
+          "https://www.collinsdictionary.com/dictionary/english/pharmacy"
+        ],
+        "canonicalId": 811740,
+        "canonicalSourceSha256": "0a1b1c5f42dc9fe10402810e5c2b4c18ff755c9f0f81249027e0b10a45d8312d"
+      },
+      {
+        "term": "hairdryer",
+        "partOfSpeech": "noun",
+        "meaning": "① 吹风机；电吹风，指用气流（通常为热风）吹干头发的小型电器。",
+        "chineseAliases": [
+          "吹风机",
+          "电吹风",
+          "吹头发的吹风机"
+        ],
+        "englishForms": [
+          "hairdryers"
+        ],
+        "en": "The hotel keeps a hairdryer in a cloth bag beside the mirror.",
+        "zh": "酒店把吹风机放在镜子旁的布袋里。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/hairdryer"
+        ],
+        "canonicalId": 3507381,
+        "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0"
+      }
+    ],
+    "exampleSource": "原创学习例句"
+  },
+  "selectedReview": {
+    "schemaVersion": 1,
+    "sourceSha256": "c4782c13b6a029fe7fe6dd480fc4cdbe7443de9506d35138e87d940cda9fbff0",
+    "reviewer": "AI/root_pharmacy_alias_0011",
+    "independentOfAuthor": true,
+    "approvedTerms": [
+      "painkiller",
+      "allergy",
+      "toilet paper",
+      "pharmacy",
+      "hairdryer"
+    ],
+    "issues": []
+  },
+  "ordinarySource": {
+    "schemaVersion": 1,
+    "kind": "author-only-new-everyday-entry-proposal",
+    "author": "AI/canonical-0005-everyday-intent-gap-author",
+    "exampleSource": "原创学习例句",
+    "entries": [
+      {
+        "term": "pick up a parcel",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 领取包裹；收件人到指定地点取走自己的快递包裹。这里指收件人取件，区别于快递员上门收取寄件人的待寄包裹。",
+        "chineseAliases": [
+          "快递取件",
+          "领取快递",
+          "领取包裹",
+          "取快递"
+        ],
+        "englishForms": [],
+        "en": "I'll pick up my parcel from the collection point after class.",
+        "zh": "下课后，我会到取件点领取自己的包裹。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/pick-up",
+          "https://developer-docs.shipping.amazon.com/apis/docs/tutorial-deliver-to-counter-via-amazon-shipping"
+        ],
+        "exampleSource": "原创学习例句"
+      },
+      {
+        "term": "request time off at short notice",
+        "partOfSpeech": "verb phrase",
+        "meaning": "① 临时请假；在距拟休假时间很短时才提出请假请求。这个表达不限定请假原因，也不表示申请已经获准。",
+        "chineseAliases": [
+          "临时请假",
+          "临时申请休假",
+          "临近休假时间才请假"
+        ],
+        "englishForms": [],
+        "en": "I had to request time off at short notice to deal with an urgent repair at home.",
+        "zh": "为了处理家里的紧急维修，我不得不临时请假。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/time-off",
+          "https://www.oxfordlearnersdictionaries.com/definition/english/notice_2"
+        ],
+        "exampleSource": "原创学习例句"
+      },
+      {
+        "term": "my phone has run out of charge",
+        "partOfSpeech": "expression",
+        "meaning": "① 我的手机没电了，指手机电池的电量已经耗尽；不表示手机损坏或无法修复。使用时可按说话对象和时态调整人称、时态。",
+        "chineseAliases": [
+          "手机没电了",
+          "我的手机没电了",
+          "手机电量耗尽"
+        ],
+        "englishForms": [],
+        "en": "My phone ran out of charge while I was waiting for the bus.",
+        "zh": "等公交车时，我的手机没电了。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/charge_1"
+        ],
+        "exampleSource": "原创学习例句"
+      }
+    ]
+  },
+  "ordinaryReview": {
+    "schemaVersion": 1,
+    "sourceSha256": "72c94023b2833dc52f6584f169455d0ab75fae3a0c2625c522459f6d66c5ccd1",
+    "reviewer": "AI/everyday-examples-continue-independent-reader",
+    "independentOfAuthor": true,
+    "approvedTerms": [
+      "pick up a parcel",
+      "request time off at short notice",
+      "my phone has run out of charge"
+    ],
+    "issues": []
+  },
+  "ordinaryAdded": [
+    {
+      "term": "pick up a parcel",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 领取包裹；收件人到指定地点取走自己的快递包裹。这里指收件人取件，区别于快递员上门收取寄件人的待寄包裹。",
+      "chineseAliases": [
+        "快递取件",
+        "领取快递",
+        "领取包裹",
+        "取快递"
+      ],
+      "englishForms": [],
+      "en": "I'll pick up my parcel from the collection point after class.",
+      "zh": "下课后，我会到取件点领取自己的包裹。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/pick-up",
+        "https://developer-docs.shipping.amazon.com/apis/docs/tutorial-deliver-to-counter-via-amazon-shipping"
+      ],
+      "exampleSource": "原创学习例句",
+      "exampleReviewer": "AI/everyday-examples-continue-independent-reader"
+    },
+    {
+      "term": "request time off at short notice",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 临时请假；在距拟休假时间很短时才提出请假请求。这个表达不限定请假原因，也不表示申请已经获准。",
+      "chineseAliases": [
+        "临时请假",
+        "临时申请休假",
+        "临近休假时间才请假"
+      ],
+      "englishForms": [],
+      "en": "I had to request time off at short notice to deal with an urgent repair at home.",
+      "zh": "为了处理家里的紧急维修，我不得不临时请假。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/time-off",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/notice_2"
+      ],
+      "exampleSource": "原创学习例句",
+      "exampleReviewer": "AI/everyday-examples-continue-independent-reader"
+    },
+    {
+      "term": "my phone has run out of charge",
+      "partOfSpeech": "expression",
+      "meaning": "① 我的手机没电了，指手机电池的电量已经耗尽；不表示手机损坏或无法修复。使用时可按说话对象和时态调整人称、时态。",
+      "chineseAliases": [
+        "手机没电了",
+        "我的手机没电了",
+        "手机电量耗尽"
+      ],
+      "englishForms": [],
+      "en": "My phone ran out of charge while I was waiting for the bus.",
+      "zh": "等公交车时，我的手机没电了。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/charge_1"
+      ],
+      "exampleSource": "原创学习例句",
+      "exampleReviewer": "AI/everyday-examples-continue-independent-reader"
+    }
+  ],
+  "aliasProjection": [
+    {
+      "term": "pickup code",
+      "aliases": [
+        "取件码"
+      ],
+      "targetEntrySha256": "6a4c826e4bb818c385e8331ca7e07461d51a6d557da266723c4e314f5a972754"
+    },
+    {
+      "term": "hand sanitizer",
+      "aliases": [
+        "手消毒液"
+      ],
+      "targetEntrySha256": "3427e9ebd4447a032b4249b282bd6bb6a184932b4e385e721e51905589e49e9e"
+    }
+  ],
+  "aliasReview": {
+    "schemaVersion": 1,
+    "sourceSha256": "696a5dccb64049c6bdee05c61487e736c95eb3c9c5fa61d8dd9c5ad3a79d9596",
+    "reviewer": "AI/everyday-examples-continue-independent-reader",
+    "independentOfAuthor": true,
+    "approvedTerms": [
+      "pickup code",
+      "hand sanitizer"
+    ],
+    "exactAllowedChanges": [
+      {
+        "term": "pickup code",
+        "oldRowSha256": "6a4c826e4bb818c385e8331ca7e07461d51a6d557da266723c4e314f5a972754",
+        "proposedRowSha256": "d079df18ded58d29185f0fd70575b093416c7eb6192d8a71c8f8da0ca1cbea5c",
+        "onlyAllowedField": "chineseAliases",
+        "onlyAllowedAppend": [
+          "取件码"
+        ],
+        "preservedPairSha256": "d83c30b4dc6b4353c91da767ebb442391510705f0673f9ce882fb6cc3cc27bf7"
+      },
+      {
+        "term": "hand sanitizer",
+        "oldRowSha256": "3427e9ebd4447a032b4249b282bd6bb6a184932b4e385e721e51905589e49e9e",
+        "proposedRowSha256": "eabffb42b11529731842fb84341e22052e506c639b311930f41401fe9bb52e9f",
+        "onlyAllowedField": "chineseAliases",
+        "onlyAllowedAppend": [
+          "手消毒液"
+        ],
+        "preservedPairSha256": "f988272876eea193c0a1636f573d020dd88cbb402763b64bb0e677a4b4d08ee6"
+      }
+    ],
+    "issues": []
+  },
+  "policyAdditions": {
+    "schemaVersion": 1,
+    "entries": [
+      {
+        "term": "painkiller",
+        "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6",
+        "selectedRowSha256": "6a1452015854acabe695625cb0a2ec2b11d93199ba68b505b0e39578fec86058",
+        "author": "AI/canonical-0005-everyday-intent-gap-author",
+        "alternatives": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 解痛药, 止痛片, 止痛药",
+            "source": "mit"
+          }
+        ],
+        "reason": "The complete noun tuple lists synonymous pain-relief medicines. Keep every old phrase whole; new own definition covers that role.",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/painkiller"
+        ],
+        "reviewer": "AI/everyday-examples-continue-independent-reader",
+        "independentOfAuthor": true
+      },
+      {
+        "term": "allergy",
+        "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728",
+        "selectedRowSha256": "ec37cbd69fc33c28652c26efd1e943c32065adfc3c75c818989b510bca80405e",
+        "author": "AI/canonical-0005-everyday-intent-gap-author",
+        "alternatives": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+            "source": "core"
+          },
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+            "source": "mit"
+          }
+        ],
+        "reason": "Both complete core and MIT noun tuples include altered/abnormal reactivity and figurative aversion. Publisher entries independently attest both. Do not drop the aversion role merely because the new pair demonstrates a medical allergy. The [化] tag is retained verbatim as inherited editorial context, not certified as an exclusive modern discipline classification.",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/allergy",
+          "https://www.merriam-webster.com/dictionary/allergy",
+          "https://www.collinsdictionary.com/dictionary/english/allergy"
+        ],
+        "reviewer": "AI/everyday-examples-continue-independent-reader",
+        "independentOfAuthor": true
+      },
+      {
+        "term": "toilet paper",
+        "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338",
+        "selectedRowSha256": "06a5c9595014c9b63ac58f834260fb42e7a1923004081216b5c6a483c4b87f4a",
+        "author": "AI/canonical-0005-everyday-intent-gap-author",
+        "alternatives": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "卫生纸, 草纸",
+            "source": "pos-reviewed"
+          }
+        ],
+        "reason": "Keep the entire noun tuple. Its 草纸 gloss is read here in the old toilet-paper use; this is not a promise that all coarse paper is toilet paper.",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/toilet-paper"
+        ],
+        "usageNote": "旧释“草纸”在这里按厕用纸的旧称理解，不泛指所有粗糙纸张。",
+        "reviewer": "AI/everyday-examples-continue-independent-reader",
+        "independentOfAuthor": true
+      },
+      {
+        "term": "hairdryer",
+        "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0",
+        "selectedRowSha256": "88896492eb983ffd9c968bd160cbe0359bc2c0cf33b26fc5605b70f614c251a7",
+        "author": "AI/canonical-0005-everyday-intent-gap-author",
+        "alternatives": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. （吹干头发的）吹风机",
+            "source": "mit"
+          }
+        ],
+        "reason": "Keep the entire MIT noun tuple: a device specifically for drying hair. Alternate independent heads hair dryer/hair drier are preserved separately, not appropriated as this new head’s forms.",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/hairdryer"
+        ],
+        "reviewer": "AI/everyday-examples-continue-independent-reader",
+        "independentOfAuthor": true
+      }
+    ]
+  },
+  "heldWholeTuples": [
+    {
+      "term": "toilet paper",
+      "wholeTuple": {
+        "partOfSpeech": "",
+        "meaning": "卫生纸, 草纸",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "6c7ab48f44c3f2f66125bea78bf96c9740ab1c3f7b62fbd4b1db1ced6f78b8e0",
+      "status": "HOLD-author-proposed-whole-tuple-scope",
+      "reason": "The inherited MIT variant has empty native POS. Preserve the full tuple; do not fabricate POS for it or count it as an approved retained alternative."
+    },
+    {
+      "term": "pharmacy",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 药房, 配药学, 制药业\n[医] 药学, 药剂学, 调剂学, 药房",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "a35a700339c3de6101989ec3b7b0d0157e6f4d6122e06b4ac4f6418e6283185d",
+      "status": "HOLD-author-proposed-whole-tuple-scope",
+      "reason": "The unqualified 制药业 tail can imply the pharmaceutical manufacturing industry. Consulted publisher entries establish preparation/dispensing science, art, practice/profession and dispensing places, but do not sufficiently establish that broad industry reading. Preserve this whole raw tuple in evidence, pending a different reader; do not prune it and call the remainder a retained whole tuple. New own definitions preserve all those independently established legitimate old roles."
+    }
+  ],
+  "sourceDescriptors": {
+    "core": {
+      "name": "ECDICT · 已上线核心整理",
+      "license": "MIT and project editorial additions",
+      "url": "https://github.com/skywind3000/ECDICT",
+      "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+    },
+    "mit": {
+      "name": "ECDICT",
+      "license": "MIT",
+      "url": "https://github.com/skywind3000/ECDICT",
+      "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+      "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+    },
+    "public": {
+      "name": "卓的公开词库",
+      "license": "Public project content; not relabelled as ECDICT",
+      "url": "https://zhuodashuai.github.io/vocab/",
+      "sha256": "529cbe920a64eb60b3ce0d13654deaf6011795caf4c29daba91faae831e815ab"
+    },
+    "original": {
+      "name": "卓式原创释义（AI复核，精选义项）",
+      "license": "Project original content; AI-reviewed, not human-certified",
+      "url": "https://zhuodashuai.github.io/vocab/",
+      "sha256": "1770c9ede72a8584fbff994efb35ec442f071561fb3d01849f74258bd2723f32"
+    },
+    "supplement": {
+      "name": "词表补充整理（逐条标注来源）",
+      "license": "Project editorial content; not MIT or source quotations",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-references.html",
+      "sha256": "0ab9bc57ddd440be08f6b3cfaf28da868adb3a6a947a536a165227b5b917f601"
+    },
+    "pos-reviewed": {
+      "name": "原有释义＋词性校订",
+      "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+      "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+    },
+    "grammar-reviewed": {
+      "name": "原有释义＋语法形态校订",
+      "license": "Meanings retain their source licences; active grammar metadata is project editorial correction, not MIT source text",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-source-revisions.html",
+      "sha256": "cdf8077a3337d7a9618fae69b5f9b05af6a6a65dd99e409b284307721e1120e1"
+    },
+    "pos-notation-reviewed": {
+      "name": "原有释义＋词性标记校订",
+      "license": "Lexical Chinese retains ECDICT MIT licensing; POS and inline labels are project editorial corrections. Princeton WordNet 3.1 is reference evidence under its own licence.",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-pos-notation-revisions.html",
+      "sha256": "3a5409dad7b45fd84d3644886ab89fa03ab0ea85d96c6f61b4ebf78263a86c19"
+    },
+    "semantic-editorial": {
+      "name": "卓式词典·释义校订",
+      "license": "项目原创中文释义；Princeton WordNet 3.1 为参考证据，适用其独立许可；原 ECDICT 数据保留 MIT 许可。",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-semantic-revisions.html",
+      "sha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
+    }
+  },
+  "canonicalBindings": [
+    {
+      "term": "painkiller",
+      "route": "owned-selected-canonical-meaning-proposal",
+      "selectedRowSha256": "6a1452015854acabe695625cb0a2ec2b11d93199ba68b505b0e39578fec86058",
+      "exactKey": [
+        "painkiller",
+        [
+          {
+            "id": 1038562,
+            "kind": "canonical"
+          }
+        ]
+      ],
+      "exactCanonicalRecord": {
+        "id": 1038562,
+        "term": "painkiller",
+        "partOfSpeech": "noun",
+        "meaning": "n. 解痛药, 止痛片, 止痛药",
+        "forms": [
+          "painkillers"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 8113,
+          "forms": [
+            "painkillers"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "variantSourceDescriptors": {},
+      "sourcePointer": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-098.json",
+        "bucket": 98,
+        "recordIndex": 139,
+        "sha256": "e00ae66c58ed3b529f1b4b2485295aedb9d5deae52f4373ebbf2b0ff2eb40080",
+        "bytes": 329318
+      },
+      "canonicalContexts": [
+        {
+          "term": "painkiller",
+          "partOfSpeech": "noun",
+          "meaning": "n. 解痛药, 止痛片, 止痛药"
+        },
+        {
+          "term": "painkiller",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 解痛药, 止痛片, 止痛药"
+        }
+      ],
+      "formsOwnership": [
+        {
+          "form": "painkillers",
+          "key": [
+            "painkillers",
+            [
+              {
+                "id": 1038562,
+                "kind": "form",
+                "term": "painkillers"
+              }
+            ]
+          ],
+          "soleSameOwner": true
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "painkiller",
+        "senses": [
+          {
+            "id": "example:painkiller",
+            "partOfSpeech": "noun",
+            "meaningZh": "止痛药",
+            "examples": [
+              {
+                "en": "The nurse recorded the painkiller's name on the chart.",
+                "zh": "护士把止痛药的名称记在了记录表上。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "d1f5f90a6a65f10336122feb61d9f97f051ffd115dfdcb87d19858517efa5eac",
+      "oldPairs": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "止痛药",
+          "pair": {
+            "en": "The nurse recorded the painkiller's name on the chart.",
+            "zh": "护士把止痛药的名称记在了记录表上。"
+          },
+          "pairSha256": "3606b54e4e3ca09fba966cd52657d0282ddebb0254d33b6861d0a13da3c3bf6f"
+        }
+      ],
+      "oldPairDisposition": "Every complete old DTO/pair is physically retained verbatim in this packet; no old valid ENZH is replaced, declared wrong or globally invalidated.",
+      "originalSourceEntries": [
+        {
+          "file": "batch-0005-g.json",
+          "sourceFile": {
+            "file": "tooling/dictionary/examples/source/batch-0005-g.json",
+            "bytes": 38356,
+            "sha256": "01ad9687b6ae2f21b4eb2cc7782690c4e0a2c42761fcb80d668b4117f38ec6bd"
+          },
+          "sourceSemanticSha256": "026b45806d5852d3b1c1f64157915ab372e588eedfcedf28eb8d8b7c7b9a1a08",
+          "index": 130,
+          "completeOriginalSourceEntry": {
+            "term": "painkiller",
+            "partOfSpeech": "noun",
+            "meaningZh": "止痛药",
+            "en": "The nurse recorded the painkiller's name on the chart.",
+            "zh": "护士把止痛药的名称记在了记录表上。"
+          },
+          "completeOriginalSourceEntrySha256": "26a54e3e40bf7313b93c82157b3f5ad54ecd2b27ea75dc2a3cc9e0d634dcf128"
+        }
+      ]
+    },
+    {
+      "term": "allergy",
+      "route": "owned-selected-canonical-meaning-proposal",
+      "selectedRowSha256": "ec37cbd69fc33c28652c26efd1e943c32065adfc3c75c818989b510bca80405e",
+      "exactKey": [
+        "allergy",
+        [
+          {
+            "id": 629503,
+            "kind": "canonical"
+          }
+        ]
+      ],
+      "exactCanonicalRecord": {
+        "id": 629503,
+        "term": "allergy",
+        "partOfSpeech": "noun",
+        "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+        "forms": [
+          "allergies"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 4917,
+          "forms": [
+            "allergies"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "variantSourceDescriptors": {
+        "mit": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+          "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+        }
+      },
+      "sourcePointer": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-127.json",
+        "bucket": 127,
+        "recordIndex": 115,
+        "sha256": "3f38ef23ca6ba933f37b59c9cab6f870dfe3b1f83ca158f7cb4066617e4f978c",
+        "bytes": 350406
+      },
+      "canonicalContexts": [
+        {
+          "term": "allergy",
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性"
+        },
+        {
+          "term": "allergy",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 变应性, 反感, 厌恶\n   [化] 变态反应; 变应性"
+        }
+      ],
+      "formsOwnership": [
+        {
+          "form": "allergies",
+          "key": [
+            "allergies",
+            [
+              {
+                "id": 629503,
+                "kind": "form",
+                "term": "allergies"
+              }
+            ]
+          ],
+          "soleSameOwner": true
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "allergy",
+        "senses": [
+          {
+            "id": "example:allergy",
+            "partOfSpeech": "noun",
+            "meaningZh": "过敏",
+            "examples": [
+              {
+                "en": "The booking form includes a question about food allergies.",
+                "zh": "预订表上有一个关于食物过敏的问题。"
+              }
+            ],
+            "reviewer": "AI/examples4_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "0da3e6abd46ff5ba804b95ca1fcf93faff9ddadc59836125da1352683ec05374",
+      "oldPairs": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "过敏",
+          "pair": {
+            "en": "The booking form includes a question about food allergies.",
+            "zh": "预订表上有一个关于食物过敏的问题。"
+          },
+          "pairSha256": "74d2f91ea161d717b4f30ad54d515b22c56f15f948673a3cbd7423881f56c08b"
+        }
+      ],
+      "oldPairDisposition": "Every complete old DTO/pair is physically retained verbatim in this packet; no old valid ENZH is replaced, declared wrong or globally invalidated.",
+      "originalSourceEntries": [
+        {
+          "file": "batch-0004-c.json",
+          "sourceFile": {
+            "file": "tooling/dictionary/examples/source/batch-0004-c.json",
+            "bytes": 39908,
+            "sha256": "a224b065077a849c790f43b2663d2038688d7105ad435388cc97bdbcd34c660b"
+          },
+          "sourceSemanticSha256": "f3901543568ac5467e7857ca4a69c2cc81052aba4446c222d44a89bc739b2c1d",
+          "index": 176,
+          "completeOriginalSourceEntry": {
+            "term": "allergy",
+            "partOfSpeech": "noun",
+            "meaningZh": "过敏",
+            "en": "The booking form includes a question about food allergies.",
+            "zh": "预订表上有一个关于食物过敏的问题。"
+          },
+          "completeOriginalSourceEntrySha256": "ecfe868b9ec3e9a9e2d2393b78ddf6637e732d924f2f8e4894a416d2cdbdb129"
+        }
+      ]
+    },
+    {
+      "term": "toilet paper",
+      "route": "owned-selected-canonical-meaning-proposal",
+      "selectedRowSha256": "06a5c9595014c9b63ac58f834260fb42e7a1923004081216b5c6a483c4b87f4a",
+      "exactKey": [
+        "toilet paper",
+        [
+          {
+            "id": 10436458,
+            "kind": "canonical"
+          }
+        ]
+      ],
+      "exactCanonicalRecord": {
+        "id": 10436458,
+        "term": "toilet paper",
+        "partOfSpeech": "noun",
+        "meaning": "卫生纸, 草纸",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 89852,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "卫生纸, 草纸",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338",
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "variantSourceDescriptors": {
+        "mit": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+          "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+        }
+      },
+      "sourcePointer": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-106.json",
+        "bucket": 106,
+        "recordIndex": 948,
+        "sha256": "da329a1838c68318db8bbe99ec6f5029e0c31baf71beef0b748a0bf330886f98",
+        "bytes": 358390
+      },
+      "canonicalContexts": [
+        {
+          "term": "toilet paper",
+          "partOfSpeech": "noun",
+          "meaning": "卫生纸, 草纸"
+        },
+        {
+          "term": "toilet paper",
+          "partOfSpeech": "noun",
+          "meaning": "① 卫生纸, 草纸"
+        }
+      ],
+      "formsOwnership": [],
+      "completeOriginalDTO": {
+        "term": "toilet paper",
+        "senses": [
+          {
+            "id": "example:5b0c6c960a8049550bfdf569",
+            "partOfSpeech": "noun",
+            "meaningZh": "卫生纸",
+            "examples": [
+              {
+                "en": "The caretaker replenished the toilet paper before the visitors arrived.",
+                "zh": "管理员在游客到来前补充了卫生纸。"
+              }
+            ],
+            "reviewer": "AI/examples16_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "ed23b011bd5232b5a894093d4fc4203d7c2a1e89b16b753af175b83f40e1be0b",
+      "oldPairs": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "卫生纸",
+          "pair": {
+            "en": "The caretaker replenished the toilet paper before the visitors arrived.",
+            "zh": "管理员在游客到来前补充了卫生纸。"
+          },
+          "pairSha256": "07719bc5c4f54d4f21d323215976bc2d38294a6d00eab87f08c463ccff5b5f01"
+        }
+      ],
+      "oldPairDisposition": "Every complete old DTO/pair is physically retained verbatim in this packet; no old valid ENZH is replaced, declared wrong or globally invalidated.",
+      "originalSourceEntries": [
+        {
+          "file": "batch-0016-p055.json",
+          "sourceFile": {
+            "file": "tooling/dictionary/examples/source/batch-0016-p055.json",
+            "bytes": 44581,
+            "sha256": "56f96e9ef10c88f7cca0284908fdd211def991651685e3e62b3aba87d0215a0a"
+          },
+          "sourceSemanticSha256": "0b68e4066fa76397c17a130d8e170fad08a7567300f72fe265a0da2186791f53",
+          "index": 110,
+          "completeOriginalSourceEntry": {
+            "term": "toilet paper",
+            "partOfSpeech": "noun",
+            "meaningZh": "卫生纸",
+            "en": "The caretaker replenished the toilet paper before the visitors arrived.",
+            "zh": "管理员在游客到来前补充了卫生纸。"
+          },
+          "completeOriginalSourceEntrySha256": "f0284ae35d278b5e0249fa95c86d67c25dd8f137d5ab1ffcf6abb1edaaf8b68d"
+        }
+      ]
+    },
+    {
+      "term": "pharmacy",
+      "route": "owned-selected-canonical-meaning-proposal",
+      "selectedRowSha256": "7853a91ff93598b586782fd65a71011cd451a49ca8b821cca99d0012a8a4ef73",
+      "exactKey": [
+        "pharmacy",
+        [
+          {
+            "id": 811740,
+            "kind": "canonical"
+          }
+        ]
+      ],
+      "exactCanonicalRecord": {
+        "id": 811740,
+        "term": "pharmacy",
+        "partOfSpeech": "noun",
+        "meaning": "n. 药房, 配药学, 制药业\n[医] 药学, 药剂学, 调剂学, 药房",
+        "forms": [
+          "pharmacies"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 6341,
+          "forms": [
+            "pharmacies"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "0a1b1c5f42dc9fe10402810e5c2b4c18ff755c9f0f81249027e0b10a45d8312d",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "variantSourceDescriptors": {},
+      "sourcePointer": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-092.json",
+        "bucket": 92,
+        "recordIndex": 149,
+        "sha256": "f66e109f08b19ca5ac6ac6b901b517085b164af78580386588f4fdbc7dc63ce4",
+        "bytes": 370527
+      },
+      "canonicalContexts": [
+        {
+          "term": "pharmacy",
+          "partOfSpeech": "noun",
+          "meaning": "n. 药房, 配药学, 制药业\n[医] 药学, 药剂学, 调剂学, 药房"
+        },
+        {
+          "term": "pharmacy",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 药房, 配药学, 制药业\n   [医] 药学, 药剂学, 调剂学, 药房"
+        }
+      ],
+      "formsOwnership": [
+        {
+          "form": "pharmacies",
+          "key": [
+            "pharmacies",
+            [
+              {
+                "id": 811740,
+                "kind": "form",
+                "term": "pharmacies"
+              }
+            ]
+          ],
+          "soleSameOwner": true
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "pharmacy",
+        "senses": [
+          {
+            "id": "example:pharmacy",
+            "partOfSpeech": "noun",
+            "meaningZh": "药房",
+            "examples": [
+              {
+                "en": "The pharmacy occupies the corner opposite the library.",
+                "zh": "药房位于图书馆对面的街角。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "670582a0f41058b56921db516e3e4f77887ef79e71e9b264e15ea5f9054766f6",
+      "oldPairs": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "药房",
+          "pair": {
+            "en": "The pharmacy occupies the corner opposite the library.",
+            "zh": "药房位于图书馆对面的街角。"
+          },
+          "pairSha256": "52f70bf0e53fdf1a7185e8cf040ab3c5b395d7ae4a71ba42ef1df0a3e0baa492"
+        }
+      ],
+      "oldPairDisposition": "Every complete old DTO/pair is physically retained verbatim in this packet; no old valid ENZH is replaced, declared wrong or globally invalidated.",
+      "originalSourceEntries": [
+        {
+          "file": "batch-0004-j.json",
+          "sourceFile": {
+            "file": "tooling/dictionary/examples/source/batch-0004-j.json",
+            "bytes": 45454,
+            "sha256": "496e96e39c1ade456e0ca2d0fc0812195584126b26b70faf99c7556e9c324846"
+          },
+          "sourceSemanticSha256": "ec0d08c02fade7dd7ba104f55db5d7ecd010298fc5e1cb9e44aaa5779f9989d1",
+          "index": 180,
+          "completeOriginalSourceEntry": {
+            "term": "pharmacy",
+            "partOfSpeech": "noun",
+            "meaningZh": "药房",
+            "en": "The pharmacy occupies the corner opposite the library.",
+            "zh": "药房位于图书馆对面的街角。"
+          },
+          "completeOriginalSourceEntrySha256": "5740b91a7d6e3d9721697dfa980a7b310d522e9fcd115f1b4f902c77d48a3c8d"
+        }
+      ]
+    },
+    {
+      "term": "hairdryer",
+      "route": "owned-selected-canonical-meaning-proposal",
+      "selectedRowSha256": "88896492eb983ffd9c968bd160cbe0359bc2c0cf33b26fc5605b70f614c251a7",
+      "exactKey": [
+        "hairdryer",
+        [
+          {
+            "id": 3507381,
+            "kind": "canonical"
+          }
+        ]
+      ],
+      "exactCanonicalRecord": {
+        "id": 3507381,
+        "term": "hairdryer",
+        "partOfSpeech": "noun",
+        "meaning": "n. （吹干头发的）吹风机",
+        "forms": [
+          "hairdryers"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 27407,
+          "forms": [
+            "hairdryers"
+          ],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "variantSourceDescriptors": {},
+      "sourcePointer": {
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-053.json",
+        "bucket": 53,
+        "recordIndex": 424,
+        "sha256": "ddb5182041462121cf1846bfac3c349802b19f66614ce84b7ff4be1b805cfd6b",
+        "bytes": 340251
+      },
+      "canonicalContexts": [
+        {
+          "term": "hairdryer",
+          "partOfSpeech": "noun",
+          "meaning": "n. （吹干头发的）吹风机"
+        },
+        {
+          "term": "hairdryer",
+          "partOfSpeech": "noun",
+          "meaning": "① n. （吹干头发的）吹风机"
+        }
+      ],
+      "formsOwnership": [
+        {
+          "form": "hairdryers",
+          "key": [
+            "hairdryers",
+            [
+              {
+                "id": 3507381,
+                "kind": "form",
+                "term": "hairdryers"
+              }
+            ]
+          ],
+          "soleSameOwner": true
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "hairdryer",
+        "senses": [
+          {
+            "id": "example:hairdryer",
+            "partOfSpeech": "noun",
+            "meaningZh": "吹风机",
+            "examples": [
+              {
+                "en": "She unplugged the hairdryer before leaving the room.",
+                "zh": "她在离开房间前拔掉了吹风机的电源插头。"
+              }
+            ],
+            "reviewer": "AI/examples16_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "d72c91f9b5ab062ec674c521c2b044d8d036366e4383d5b02945b580545196b3",
+      "oldPairs": [
+        {
+          "partOfSpeech": "noun",
+          "meaningZh": "吹风机",
+          "pair": {
+            "en": "She unplugged the hairdryer before leaving the room.",
+            "zh": "她在离开房间前拔掉了吹风机的电源插头。"
+          },
+          "pairSha256": "2937cad567a58334f76e423916c60412a6f930f3b71bb22ec3f20b973173f2c9"
+        }
+      ],
+      "oldPairDisposition": "Every complete old DTO/pair is physically retained verbatim in this packet; no old valid ENZH is replaced, declared wrong or globally invalidated.",
+      "originalSourceEntries": [
+        {
+          "file": "batch-0016-p030.json",
+          "sourceFile": {
+            "file": "tooling/dictionary/examples/source/batch-0016-p030.json",
+            "bytes": 25341,
+            "sha256": "c8371fd530c102a81a99aec81aed8e26b8dba62bd60db033cb7176612595ee58"
+          },
+          "sourceSemanticSha256": "94f10e74c5ee17c7b8120571eef17bc7a740c9cdb7c7bdecf9309489cb317ba2",
+          "index": 14,
+          "completeOriginalSourceEntry": {
+            "term": "hairdryer",
+            "partOfSpeech": "noun",
+            "meaningZh": "吹风机",
+            "en": "She unplugged the hairdryer before leaving the room.",
+            "zh": "她在离开房间前拔掉了吹风机的电源插头。"
+          },
+          "completeOriginalSourceEntrySha256": "f375a5359adfd482e8e16f3a8391a61259694771a82ad034c39c8819f69bebfc"
+        }
+      ]
+    }
+  ],
+  "neighbours": [
+    {
+      "term": "killer",
+      "exactCanonicalRecord": {
+        "id": 296882,
+        "term": "killer",
+        "partOfSpeech": "noun",
+        "meaning": "n. (非正式)杀人者, 屠杀者, 猛兽, 致死(疾病), 杀手, 止痛药, 限制器, 瞄准器\n[计] 删除程序; 断路器",
+        "forms": [
+          "killers"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. (非正式)杀人者, 屠杀者, 猛兽, 致死(疾病), 杀手, 止痛药, 限制器, 瞄准器\n[计] 删除程序; 断路器",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 2319,
+          "forms": [
+            "killers"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "5f705dfb1a869eb7c494ac216ad25018254ae067e6806ce4ee47dda00890ef83",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "contexts": [
+        {
+          "term": "killer",
+          "partOfSpeech": "noun",
+          "meaning": "n. (非正式)杀人者, 屠杀者, 猛兽, 致死(疾病), 杀手, 止痛药, 限制器, 瞄准器\n[计] 删除程序; 断路器"
+        },
+        {
+          "term": "killer",
+          "partOfSpeech": "noun",
+          "meaning": "① n. (非正式)杀人者, 屠杀者, 猛兽, 致死(疾病), 杀手, 止痛药, 限制器, 瞄准器\n   [计] 删除程序; 断路器"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "killer",
+        "senses": [
+          {
+            "id": "example:killer",
+            "partOfSpeech": "noun",
+            "meaningZh": "杀害他人的人",
+            "examples": [
+              {
+                "en": "The fictional detective gradually discovers the killer's identity through a series of interviews.",
+                "zh": "这位虚构的侦探通过一连串访谈，逐渐查明了凶手的身份。"
+              }
+            ],
+            "reviewer": "AI/independent-language-review-a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "d27a57e1d500551ea788cf52e9c0725466767b93246798d344886248712a9bd0",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "irritable",
+      "exactCanonicalRecord": {
+        "id": 1004157,
+        "term": "irritable",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 易怒的, 急躁的\n[医] 应激性的, 过敏的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 7844,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "dc6125ad56ffdc58d09900a0b6fde36ab36094216c5060b5bb49969a7eb400ab",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "irritable",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 易怒的, 急躁的\n[医] 应激性的, 过敏的"
+        },
+        {
+          "term": "irritable",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 易怒的, 急躁的\n   [医] 应激性的, 过敏的"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "irritable",
+        "senses": [
+          {
+            "id": "example:irritable",
+            "partOfSpeech": "adjective",
+            "meaningZh": "易怒的",
+            "examples": [
+              {
+                "en": "The exhausted travelers grew irritable during the long delay.",
+                "zh": "漫长的延误使疲惫的旅客们变得烦躁。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "94cb0fe2261893a8e185cf30e3fd73129b5255a34c0481d7431ef67b62e5847e",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "bumf",
+      "exactCanonicalRecord": {
+        "id": 5435539,
+        "term": "bumf",
+        "partOfSpeech": "noun",
+        "meaning": "n. 卫生纸, 纸, 公文",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 42484,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "ed0a5abb67eab75c940c33910c2f3e71c0602d534fbddea08f10530e9ea71774",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "bumf",
+          "partOfSpeech": "noun",
+          "meaning": "n. 卫生纸, 纸, 公文"
+        },
+        {
+          "term": "bumf",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 卫生纸, 纸, 公文"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "bumf",
+        "senses": [
+          {
+            "id": "example:bumf",
+            "partOfSpeech": "noun",
+            "meaningZh": "公文",
+            "examples": [
+              {
+                "en": "The drawer was stuffed with unwanted office bumf.",
+                "zh": "抽屉里塞满了不需要的办公室文件。"
+              }
+            ],
+            "reviewer": "AI/examples13_cards4",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "aa82a46a55923545d9285cd09955b393d9d7238503251e70d4682ad3f5845c0c",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "apothecary",
+      "exactCanonicalRecord": {
+        "id": 1385909,
+        "term": "apothecary",
+        "partOfSpeech": "noun",
+        "meaning": "n. 药剂师, 药房\n[医] 药剂员; 药店",
+        "forms": [
+          "apothecaries"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 10827,
+          "forms": [
+            "apothecaries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "dd1decea00538db14498a28f00aba2e78678238f5cd06af5dfbdf1e7b96f3745",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "apothecary",
+          "partOfSpeech": "noun",
+          "meaning": "n. 药剂师, 药房\n[医] 药剂员; 药店"
+        },
+        {
+          "term": "apothecary",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 药剂师, 药房\n   [医] 药剂员; 药店"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "apothecary",
+        "senses": [
+          {
+            "id": "example:apothecary",
+            "partOfSpeech": "noun",
+            "meaningZh": "旧时药剂师",
+            "examples": [
+              {
+                "en": "The historical novel follows an apothecary in a crowded port.",
+                "zh": "历史小说讲述了一位药剂师在拥挤港口的经历。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "0475afa9bee843f71fb5a4d8a31750d2433c627811c1cd7316f80228cfeff10a",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "blower",
+      "exactCanonicalRecord": {
+        "id": 2657882,
+        "term": "blower",
+        "partOfSpeech": "noun",
+        "meaning": "n. 吹制工, 鼓风机, 吹风机\n[化] (鼓;吹;扇;排)风机",
+        "forms": [
+          "blowers"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20770,
+          "forms": [
+            "blowers"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "bbf53b010b312f408f2396eae3c2bd2b632241e0d0e14ff2c140f6021702071b",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "blower",
+          "partOfSpeech": "noun",
+          "meaning": "n. 吹制工, 鼓风机, 吹风机\n[化] (鼓;吹;扇;排)风机"
+        },
+        {
+          "term": "blower",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 吹制工, 鼓风机, 吹风机\n   [化] (鼓;吹;扇;排)风机"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "blower",
+        "senses": [
+          {
+            "id": "example:blower",
+            "partOfSpeech": "noun",
+            "meaningZh": "吹风机",
+            "examples": [
+              {
+                "en": "He used a leaf blower to clear the path after the storm.",
+                "zh": "暴风雨后，他用吹叶机清理了小路。"
+              }
+            ],
+            "reviewer": "AI/examples10_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "fe93f5bdfaa55c16ce218486cb43c4923a4153e4665ab2660e96c291c52e8b40",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "analgesic",
+      "exactCanonicalRecord": {
+        "id": 1476984,
+        "term": "analgesic",
+        "partOfSpeech": "adjective · noun",
+        "meaning": "a. 止痛的, 痛觉缺失的\nn. 止痛剂",
+        "forms": [
+          "analgesics"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 11538,
+          "forms": [
+            "analgesics"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "f46dba5fecbc0640425d983985c9a120a7b7f8b4631184e4c46835beae3cf38b",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "analgesic",
+          "partOfSpeech": "adjective · noun",
+          "meaning": "a. 止痛的, 痛觉缺失的\nn. 止痛剂"
+        },
+        {
+          "term": "analgesic",
+          "partOfSpeech": "adjective · noun",
+          "meaning": "① adj. 止痛的, 痛觉缺失的\n② n. 止痛剂"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "analgesic",
+        "senses": [
+          {
+            "id": "example:analgesic",
+            "partOfSpeech": "noun",
+            "meaningZh": "止痛药",
+            "examples": [
+              {
+                "en": "The report compared two analgesics used in the study.",
+                "zh": "报告比较了研究中使用的两种止痛药。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "f8bf362ba2e36ab9c3a45ed9fd428a81a5057f19d0498be61e4178cd32c1e730",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "allergic",
+      "exactCanonicalRecord": {
+        "id": 870308,
+        "term": "allergic",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 对...过敏的, 极反感的\n[医] 变应性的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 6799,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "9e3d9c8946410870d5867c9927a30a485c42fa5286e33c6d597575e40fadb997",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "allergic",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 对...过敏的, 极反感的\n[医] 变应性的"
+        },
+        {
+          "term": "allergic",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 对...过敏的, 极反感的\n   [医] 变应性的"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "allergic",
+        "senses": [
+          {
+            "id": "example:allergic",
+            "partOfSpeech": "adjective",
+            "meaningZh": "过敏的",
+            "examples": [
+              {
+                "en": "The character mentions being allergic to cats.",
+                "zh": "这个角色提到自己对猫过敏。"
+              }
+            ],
+            "reviewer": "AI/examples4_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "8adce4f749687aae74b067c56336c52fa39788abfbd61c33a496ff4ef5c719b6",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "hair dryer",
+      "exactCanonicalRecord": {
+        "id": 11613867,
+        "term": "hair dryer",
+        "partOfSpeech": "noun",
+        "meaning": "干发器",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 99715,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "干发器",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceSha256": "25a3744d90f480d6cfc0b264a68b4a840056040aa65e43f07b3d8fd9025f10a2",
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "contexts": [
+        {
+          "term": "hair dryer",
+          "partOfSpeech": "noun",
+          "meaning": "干发器"
+        },
+        {
+          "term": "hair dryer",
+          "partOfSpeech": "noun",
+          "meaning": "① 干发器"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "hair dryer",
+        "senses": [
+          {
+            "id": "example:042107b15c1a68db5ef05444",
+            "partOfSpeech": "noun",
+            "meaningZh": "吹风机",
+            "examples": [
+              {
+                "en": "The hair dryer fits in this drawer.",
+                "zh": "吹风机能放进这个抽屉。"
+              }
+            ],
+            "reviewer": "AI/examples15_reviewer_e",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "7e022a1ad7c601e7cada7ccef3905bf86415d6c1b1b3f21cf55d05d52d8d38ae",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    },
+    {
+      "term": "hair drier",
+      "exactCanonicalRecord": {
+        "id": 11613723,
+        "term": "hair drier",
+        "partOfSpeech": "noun",
+        "meaning": "n. 吹风机; 电吹风",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 99714,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "3817da310ca1212084b4a7e9c0ed9b3cf4d28efbeb302cc11e002a2cb27a8ab3",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "contexts": [
+        {
+          "term": "hair drier",
+          "partOfSpeech": "noun",
+          "meaning": "n. 吹风机; 电吹风"
+        },
+        {
+          "term": "hair drier",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 吹风机; 电吹风"
+        }
+      ],
+      "completeOriginalDTO": {
+        "term": "hair drier",
+        "senses": [
+          {
+            "id": "example:97b0bd3dc8c6806f0bb6bcba",
+            "partOfSpeech": "noun",
+            "meaningZh": "电吹风",
+            "examples": [
+              {
+                "en": "The hotel's hair drier stopped working halfway through.",
+                "zh": "酒店的电吹风用到一半就不工作了。"
+              }
+            ],
+            "reviewer": "AI/examples16_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "completeOriginalDTOSha256": "ae0e3b733cabd088edd69bcac33a1f62f3d4f7f50a234d8a1a0d8c5f0920f6b7",
+      "disposition": "Untouched. Different default intent does not invalidate the complete older entry or its English examples."
+    }
+  ]
+}

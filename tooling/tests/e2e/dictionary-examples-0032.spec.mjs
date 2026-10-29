@@ -134,7 +134,8 @@ async function dictionaryPair(page,fixture){
 async function sidecar(page,term,entry){
   const section=page.locator('.dictionary-learning-examples');
   await expect(section).toHaveAttribute('data-term',term);
-  await expect(section.locator('.dictionary-learning-source')).toHaveText(DICTIONARY_EXAMPLE_SOURCE);
+  expect(DICTIONARY_EXAMPLE_SOURCE).toBe('原创例句·AI复核（精选义项）');
+  await expect(section.locator('.dictionary-learning-source')).toHaveText('原创学习例句');
   await expect(section.locator('.dictionary-learning-note')).toContainText('不是书中原句');
   await expect(section.locator('.dictionary-learning-sense')).toHaveCount(entry.senses.length);
   for(const [i,sense]of entry.senses.entries()){
