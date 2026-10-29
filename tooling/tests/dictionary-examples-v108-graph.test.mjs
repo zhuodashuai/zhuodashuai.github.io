@@ -375,7 +375,7 @@ test('public saved-sense restoration rejects changed, duplicated or relocated ha
 });
 
 test('D42 historical restoration rejects altered or duplicated source additions and retains unrelated bytes',async()=>{
- const ui=await fs.readFile(new URL('vocab/js/dictionary-examples-ui.js',root),'utf8');
+ const ui=(await readV108HistoricalProgram('dictionary-examples-ui.js')).toString('utf8');
  const eol=ui.includes('\r\n')?'\r\n':'\n';
  assert.throws(()=>restoreD42ExampleUi(Buffer.from(ui.replace(d42SenseSource,d42SenseSource.replace('；',';')))));
  assert.throws(()=>restoreD42ExampleUi(Buffer.from(ui+eol+d42SenseSource+eol)));
