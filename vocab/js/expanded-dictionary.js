@@ -430,6 +430,14 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
   // Finite reviewed head sets can be verified completely from their few
   // existing English shards. They do not need the broad-query catalogue.
   const ranking = relatedPlan || heads ? null : await rankingFor(manifest, client, fetchImpl, timeoutMs);
+  // A complete primary lookup already authenticated these public tuples. Reuse
+  // them for an ordinary related scan instead of downloading its English
+  // shards again. These local projections never acquire raw-record provenance.
+  // Finite/source-bound plans still use their genuine English-shard route.
+  const relatedRanking = relatedPlan && !heads && !hasSelectedCommonSensePlan(plan.term)
+    && manifest.version === CHINESE_RANKING_RELEASE.dictionaryVersion
+    && manifest.integritySha256 === CHINESE_RANKING_RELEASE.sourceManifestSha256
+    && manifest.counts.records === CHINESE_RANKING_RELEASE.records ? client.ranking : null;
   if (signal?.aborted) throw stopped();
   if (heads) {
     // A reviewed lexical shortlist avoids spending the bounded reverse scan on
@@ -493,7 +501,9 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
     const buckets = [...new Set(next.map(id => id % BUCKETS))];
     await parallel(buckets, 6, async bucket => {
       if (signal?.aborted) throw stopped();
-      if (!loaded.has(bucket)) loaded.set(bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
+      if (!loaded.has(bucket)) loaded.set(bucket, relatedRanking
+        ? { records: relatedRanking.records }
+        : await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
     });
     if (signal?.aborted) throw stopped();
     for (const id of next) {
