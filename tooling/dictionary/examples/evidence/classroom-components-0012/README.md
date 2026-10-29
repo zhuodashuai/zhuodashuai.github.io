@@ -4,6 +4,8 @@ This separate example-only lane contains exactly eight language-reviewed roles. 
 
 `source.json` and `language-review.json` preserve the exact independent v2 language source and review. The compiler pins the source semantic hash and review byte hash. `bindings.json` binds each complete original canonical record, descriptor, original DTO and its new five-field pair. `admission.json` records the parent task's explicit finite display policy; it is not a historical author identity or independent implementation-review certificate. Root's independent implementation review remains pending before any future release.
 
+This input bundle uses the repository's existing LF-protected evidence subtree. Historical attributes remain exact. The new public generated JS permits only exact LF or exact whole-file CRLF checkout transport during its own freshness check; mixed line endings and changed source fail. This does not change any historical byte assertion or source hash.
+
 Each admission row binds the canonical ID/hash, complete original DTO hash, selected pair hash, and three finite context lists. The compiler derives those lists again and requires exact equality:
 
 - Literal unscoped lookup and exact raw/formatted canonical contexts return all old senses unchanged, followed by one separately labelled new component.

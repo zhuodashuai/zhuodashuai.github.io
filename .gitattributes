@@ -46,6 +46,3 @@ tooling/dictionary/examples/queues/batch-0032*.json text eol=lf
 tooling/dictionary/examples/additive-index-v4.json text eol=lf
 tooling/dictionary/public-source/** text eol=lf
 vocab/data/chinese-search-ranking/**/*.bin -text
-# Exact reviewed component inputs and deterministic output must survive checkout.
-tooling/dictionary/example-components/** text eol=lf
-vocab/js/canonical-example-components-data.js text eol=lf

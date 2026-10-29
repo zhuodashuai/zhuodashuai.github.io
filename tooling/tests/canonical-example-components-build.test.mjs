@@ -3,17 +3,23 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {compileCanonicalExampleComponents,renderCanonicalExampleComponents} from '../scripts/build-canonical-example-components.mjs';
+import {compileCanonicalExampleComponents,renderCanonicalExampleComponents,canonicalComponentOutputMatches} from '../scripts/build-canonical-example-components.mjs';
 import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-release-v4.js';
 import {CANONICAL_EXAMPLE_COMPONENTS as table} from '../../vocab/js/canonical-example-components-data.js';
-const root=path.resolve(import.meta.dirname,'../..'),dir=path.join(root,'tooling/dictionary/example-components'),inputs={};
+const root=path.resolve(import.meta.dirname,'../..'),dir=path.join(root,'tooling/dictionary/examples/evidence/classroom-components-0012'),inputs={};
 for(const [key,file]of [['source','source.json'],['languageReview','language-review.json'],['bindings','bindings.json'],['admission','admission.json']])inputs[key]=JSON.parse(await fs.readFile(path.join(dir,file)));
 const deps={pins:dictionaryExamplesRelease.source,readPublicAsset:rel=>fs.readFile(path.join(root,'vocab/data',rel)),loadOriginalEntry:async term=>structuredClone(inputs.bindings.rows.find(r=>r.term===term).originalDTO)};
 const h=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 test('exact eight-role builder preserves all original fields and selected labels',async()=>{
   const before=JSON.stringify(inputs),actual=await compileCanonicalExampleComponents(inputs,deps);assert.deepEqual(actual,table);assert.equal(JSON.stringify(inputs),before);
   for(const row of actual.rows){assert.equal(row.wholeRawSourceApproved,false);assert.equal(row.componentPair.meaningZh,inputs.source.entries.find(p=>p.term===row.term).meaningZh);assert.equal(row.expectedOriginalEntrySha256,h(row.expectedOriginalEntry));}
-  assert.equal(await fs.readFile(path.join(root,'vocab/js/canonical-example-components-data.js'),'utf8'),renderCanonicalExampleComponents(actual));
+  assert(canonicalComponentOutputMatches(await fs.readFile(path.join(root,'vocab/js/canonical-example-components-data.js'),'utf8'),renderCanonicalExampleComponents(actual)));
+});
+test('new generated output accepts exact LF or CRLF checkout bytes but rejects mixed or changed content',()=>{
+  const expected=renderCanonicalExampleComponents(table);
+  assert(canonicalComponentOutputMatches(expected,expected));
+  assert(canonicalComponentOutputMatches(expected.replaceAll('\n','\r\n'),expected));
+  for(const bad of [expected.replace('\n','\r\n'),expected+'\n',expected.replace('canonical definitions','changed definitions')])assert.equal(canonicalComponentOutputMatches(bad,expected),false);
 });
 for(const [name,change]of [
   ['new unapproved sentence',i=>i.source.entries[0].en='A different unreviewed sentence.'],

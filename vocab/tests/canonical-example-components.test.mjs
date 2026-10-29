@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {loadDictionaryExamples,resetDictionaryExamplesCacheForTests} from '../js/dictionary-examples-current-v4.js';
 import {CANONICAL_EXAMPLE_COMPONENTS as table} from '../js/canonical-example-components-data.js';
 import {createCanonicalExampleComponentResolver} from '../js/canonical-example-components.js';
-const root=new URL('../../',import.meta.url),dir=new URL('tooling/dictionary/example-components/',root);
+const root=new URL('../../',import.meta.url),dir=new URL('tooling/dictionary/examples/evidence/classroom-components-0012/',root);
 const {rows}=JSON.parse(await fs.readFile(new URL('bindings.json',dir))),source=JSON.parse(await fs.readFile(new URL('source.json',dir)));
 const fetchImpl=async(url)=>new Response(await fs.readFile(fileURLToPath(url)));
 test('only the eight reviewed literal heads enter the optional graph and its offline shell is complete',async()=>{

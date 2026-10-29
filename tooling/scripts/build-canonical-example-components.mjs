@@ -56,8 +56,11 @@ export async function compileCanonicalExampleComponents(inputs,{pins,readPublicA
   return validateCanonicalComponentTable({schemaVersion:1,kind:COMPONENT_KIND,pins,sourceSha256:exampleSourceHash(source),reviewSha256:hash(languageReview),admissionSha256:hash(admission),rows});
 }
 export const renderCanonicalExampleComponents=table=>'// Generated selected example components; canonical definitions and complete old DTOs remain unchanged.\nconst freeze=value=>{if(value&&typeof value===\'object\'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};\nexport const CANONICAL_EXAMPLE_COMPONENTS=freeze('+JSON.stringify(table,null,2)+');\n';
+// The new JS module is not a byte-hashed source asset. Accept only the two
+// complete Git checkout transports of its exact deterministic source.
+export const canonicalComponentOutputMatches=(actual,expected)=>actual===expected||actual===expected.replaceAll('\n','\r\n');
 export async function loadCanonicalExampleComponentBuild(){
-  const dir=path.join(ROOT,'tooling/dictionary/example-components'),inputs={};
+  const dir=path.join(ROOT,'tooling/dictionary/examples/evidence/classroom-components-0012'),inputs={};
   for(const [key,file]of [['source','source.json'],['languageReview','language-review.json'],['bindings','bindings.json'],['admission','admission.json']])inputs[key]=await json(path.join(dir,file));
   const loader=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl:async url=>new Response(await fs.readFile(new URL(url)))});
   // Only read authenticated released data; no normal dictionary/example compiler runs.
@@ -79,7 +82,7 @@ export async function loadCanonicalExampleComponentBuild(){
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
   const result=await loadCanonicalExampleComponentBuild(),file=path.join(ROOT,'vocab/js/canonical-example-components-data.js');
-  if(process.argv.includes('--check')){if(await fs.readFile(file,'utf8')!==result.source)throw Error('Stale component data');}
+  if(process.argv.includes('--check')){if(!canonicalComponentOutputMatches(await fs.readFile(file,'utf8'),result.source))throw Error('Stale component data');}
   else await fs.writeFile(file,result.source);
   console.log(JSON.stringify({componentHeads:result.table.rows.length,originalDefinitionsAndDTOsChanged:false,check:process.argv.includes('--check')}));
 }
