@@ -6,6 +6,7 @@ import {EVERYDAY_LOOKUP_ENTRIES as rows,EVERYDAY_CHINESE_ALIASES as aliases} fro
 import {searchEverydayDictionary,loadEverydayExamples} from '../../vocab/js/everyday-lookup.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
+import {historicalSelectedRows} from './selected-sense-history-fixture.mjs';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const read=async f=>JSON.parse(await readFile(new URL('../dictionary/everyday-expansions/2026-10-27-common2/'+f,import.meta.url),'utf8'));
 const manifest=await read('manifest.json'),baseline=await read('baseline.json'),byHead=new Map(rows.map(r=>[r.term,r]));
@@ -28,7 +29,7 @@ test('the measured daily expansion consists only of exact independently approved
 });
 
 test('the published837 ordinary tuples, all131 selected meanings and old alias identities stay exact',()=>{
-  const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=rows.filter(r=>r.reviewedCanonicalSense);
+  const ordinary=rows.filter(r=>!r.reviewedCanonicalSense),selected=historicalSelectedRows(rows);
   assert.equal(baseline.ordinaryCount,837);assert.equal(hash(ordinary.slice(0,837)),baseline.ordinarySha256);
   // Later independently approved batches may append ordinary entries; every
   // tuple and alias approved by this historical release remains exact above.

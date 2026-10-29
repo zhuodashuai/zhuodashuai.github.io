@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import {createHash} from 'node:crypto';
 import {REVIEWED_SENSE_ENTRIES} from '../../vocab/js/reviewed-senses-data.js';
 import {EVERYDAY_LOOKUP_ENTRIES} from '../../vocab/js/everyday-lookup-data.js';
+import {historicalSelectedRows} from './selected-sense-history-fixture.mjs';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const read=async file=>JSON.parse(await fs.readFile(new URL('../dictionary/reviewed-senses/'+file,import.meta.url),'utf8'));
 const baseline=await read('followup-0003-baseline.json'),context=await read('followup-0003-context.json');
@@ -28,7 +29,7 @@ test('98 new exact tuples retain their actual different-principal approvals and 
    approved.push(row.term);
   }
  }
- assert.equal(approved.length,98);assert.equal(new Set(approved).size,98);assert.equal(current.size,129+2);
+ assert.equal(approved.length,98);assert.equal(new Set(approved).size,98);assert.equal(historicalSelectedRows(REVIEWED_SENSE_ENTRIES).length,129+2);
  for(const held of['giga','reservior'])assert(!current.has(held));
 });
 test('the original1000 audit verdicts remain exact evidence rather than being relabelled after replacements',async()=>{
@@ -44,7 +45,7 @@ test('the original1000 audit verdicts remain exact evidence rather than being re
 test('only ten separately approved whole canonical choices receive retention and scoped notes',async()=>{
  const policy=await read('retained-alternatives.json');assert.equal(hash(policy),'9f078a7712ab791288b3ab1a3e789d784a3ee26d7e2e342242f7f87309813ac5');
  assert.equal(policy.entries.length,10);
- const actual=REVIEWED_SENSE_ENTRIES.filter(row=>row.retainedCanonicalAlternatives?.length);
+ const actual=REVIEWED_SENSE_ENTRIES.filter(row=>row.retainedCanonicalAlternatives?.length&&policy.entries.some(p=>p.term===row.term));
  assert.deepEqual(actual.map(row=>row.term).sort(),policy.entries.map(row=>row.term).sort());
  for(const row of actual){const p=policy.entries.find(p=>p.term===row.term);assert.equal(p.canonicalSourceSha256,row.canonicalSourceSha256);assert(row.retainLegacyChinese);
   assert.equal(p.selectedRowSha256,hash((await read('source/batch-'+(['stablemate','presidentially','uni'].includes(row.term)?'0004':'0003')+'.json')).entries.find(r=>r.term===row.term)));

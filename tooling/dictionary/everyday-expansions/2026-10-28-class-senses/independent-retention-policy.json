@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "garnish",
+      "canonicalSourceSha256": "8ff6fc4c372201c6b32a36765fa6db1fc404da4772d2415c3992aea0b1bf8998",
+      "selectedRowSha256": "ed66548fb38c8f2db2837a370b51eaef334b9760feb513a12b57746fc0f7d163",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 装饰, 装饰品\nvt. 装饰",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read the complete noun/verb decoration tuple. Merriam-Webster separately attests a decorative object or embellishment and the verb decorate, so both components of the unchanged MIT tuple can remain alongside the new legal verb.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/garnish"
+      ]
+    },
+    {
+      "term": "grand",
+      "canonicalSourceSha256": "39958c121bff39b0fa6bb1fc6a3b83d550bb6d4f9998fbeffd755e807dbfe081",
+      "selectedRowSha256": "291193daff75d1a68d72e7d1bb08395c25a43d001db4c31b0b978adcfaf5c7d5",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的\n[法] 重大的, 主要的, 伟大的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的\n[法] 重大的, 主要的, 伟大的",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read both identical core/MIT adjective tuples, including their legal-marked tail. Grand covers impressive scale and splendor, dignity, distinction, importance or high rank, and haughty self-importance. These are separate adjective uses; the bracketed label does not establish an exclusive legal technical sense.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/grand"
+      ],
+      "usageNote": "这里保留原有形容词用法；金额名词的复数仍用 grand，grander、grandest 属于形容词变化。"
+    },
+    {
+      "term": "dedicated",
+      "canonicalSourceSha256": "3943bd09769de008c71447ca4d9035648d29ebebcf24cbc3d345c5b6320fad7e",
+      "selectedRowSha256": "f0455852aeaf2f24b6e9af976661ffc91a08a9dd4e7411a222fe316434d4bbae",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 专注的, 献身的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 专注的, 献身的",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both complete adjective tuples describe commitment or devotion and are supported as adjective uses about people or their commitment. They are valid distinct alternatives to the selected object-purpose sense.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/dedicated"
+      ],
+      "usageNote": "形容人时还可表示专注、投入或献身；这里与专用于某项用途的意思分开。"
+    },
+    {
+      "term": "substantially",
+      "canonicalSourceSha256": "0010fe705181b0fe611b10e34b857187b6dd559a80c8cbff0efe3902d6558ca6",
+      "selectedRowSha256": "27014374b458acf05263b5981c9d701a5067d56b0c4de9c03000c52f32d263aa",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 实质上, 本质上, 大体上",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 实质上, 本质上, 大体上",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both full adverb tuples cover the essential/mostly sense, not only degree. Collins distinguishes largely correct or unchanged from large amounts of change. The old Chinese glosses are context-dependent paraphrases of the former.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/substantially"
+      ],
+      "usageNote": "也可表示大体上、实质上；大幅增加与大体相同须按语境区分。"
+    },
+    {
+      "term": "precipitous",
+      "canonicalSourceSha256": "4b15b8855e288671e6d2405f506367fc8ec2e5affb254bb20208b626bc688e65",
+      "selectedRowSha256": "4ac451e596e159b318c317bd583bf5a5a5772c6fbdcac033c6845b4d80d79282",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 陡峭的, 轻率的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The entire old adjective tuple has two components: steep and hasty/rash. Collins attests both and explicitly records disagreement over the hasty use. Retention is acceptable with that caveat; it is not certification that the original example illustrates every component.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/precipitous"
+      ],
+      "usageNote": "另有陡峭义；表示轻率、仓促行动的用法虽有收录，但存在用法争议。"
+    },
+    {
+      "term": "mandate",
+      "canonicalSourceSha256": "6bdcafcd9534b0f4720488905c14d511e653d6ff476ae4426209c81a4ddc5731",
+      "selectedRowSha256": "b62b3a108512f804f7ab6fe099becfbfc29950829e7c5b39b4b73ce389388b37",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 命令, 指令, 要求\nvt. 委任统治",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete noun/verb tuple is supported: command or authoritative instruction as noun, and assigning a territory under the historical League of Nations mandate as verb. The historic role is not a contemporary synonym for every act of requiring.",
+      "references": [
+        "https://www.ahdictionary.com/word/search.html?q=mandate"
+      ],
+      "usageNote": "命令、指令是名词用法；委任统治属于历史语境，与正式强制要求分开。"
+    },
+    {
+      "term": "provision",
+      "canonicalSourceSha256": "9069eb8846b0274ee28d93d437ccce1bce23b540d7ade85143d112f80d6b12c8",
+      "selectedRowSha256": "ea7e906f26bcee83b8fac78df8fb8bb74e3ea8f13945475f0385f4cfdaddbb19",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. (政府提供的)钱和设备, 准备, 供应品, 规定, 条款\nvt. 供给...食物及必需品",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. (政府提供的)钱和设备, 准备, 供应品, 规定, 条款\nvt. 供给...食物及必需品",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read both complete mixed-POS tuples. They cover supplied resources, advance preparation, supplies, formal conditions/clauses, and supplying food or necessities as verb. These are attested. Government money/equipment is a context in which resources are supplied, not an exclusive provider restriction.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/provision",
+        "https://dictionary.cambridge.org/dictionary/english/provision"
+      ],
+      "usageNote": "供应品通常用复数 provisions；条款、预先作安排及提供食物的动词义须分开理解。"
+    },
+    {
+      "term": "alumni",
+      "canonicalSourceSha256": "4a0bb26830400553bc70486cbf46f6b49cb490ce1dd920426cb617db137a854c",
+      "selectedRowSha256": "f5e7a9591d772f07512cd9d2c4de922f113526812ee40654d8298af5303a9482",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "pl. 男毕业生, 男校友",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "The full pos-reviewed noun tuple names the traditional male plural of alumnus and remains valid for that scope. The Wisconsin primary style guide confirms the male plural and also mixed-gender alumni; retaining the male case must not make it an exclusive restriction.",
+      "references": [
+        "https://editorial-styleguide.strategiccommunication.wisc.edu/term/alumn/"
+      ],
+      "usageNote": "原释保留传统男性复数用法；现代 alumni 也常指不同性别组成的校友群体。"
+    },
+    {
+      "term": "default",
+      "canonicalSourceSha256": "771d9a8f1091ee5f0a1b1eedcc8b46d83644107cf3d1f679efa608d4a168dfdc",
+      "selectedRowSha256": "f98bd42c7fa4b332886a8e788068a05c8c736806742d78a84b5921eff8caebf2",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 违约, 不履行责任, 缺席, 默认值\nv. 疏怠职责, 缺席, 拖欠, 默认\n[计] 默认; 默认值; 缺省值",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 违约, 不履行责任, 缺席, 默认值\nv. 疏怠职责, 缺席, 拖欠, 默认\n[计] 默认; 默认值; 缺省值",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both full mixed-POS tuples are supported for failure of obligation/payment/appearance and the automatic preset or fallback choice/value, including technical uses. Their noun and verb components are separately attested and remain valid beyond the selected shared-desk arrangement.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/default"
+      ]
+    },
+    {
+      "term": "bargain for",
+      "canonicalSourceSha256": "a17c2085f5f18e29a5ef26bf038d66b45ddf45646773e7aa17888c12dc723cff",
+      "selectedRowSha256": "0c3378aacdb110b9949a20ed25ada20ee82685285d3d2eb41da07f6ec0302893",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "指望, 想以廉价买",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "I read the complete expectation/cheap-purchase tuple rather than approving only its first half. Collins specifically attests expect/count on and try to get cheaply for bargain for. Both can remain as alternatives to negotiating for employment or contract terms.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/bargain-for",
+        "https://dictionary.cambridge.org/us/dictionary/english/bargain"
+      ]
+    },
+    {
+      "term": "strike it rich",
+      "canonicalSourceSha256": "731539ab88ccda0e437ebdb57353b9f45091238a04a215360c74e8e03f048515",
+      "selectedRowSha256": "03595528cc36ae4feac4b712178231cf9be1780372db2603853700793342677b",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "走运, 发现丰富的矿藏",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "The full original tuple is acceptable only with financial context for 走运: Collins attests rich mineral/oil discoveries and sudden or unexpected financial success. It does not support replacing the idiom with general luck in unrelated matters.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/strike-it-rich"
+      ],
+      "usageNote": "这里的走运指意外取得财务成功；发现富矿是传统用法，不泛指任何好运。"
+    }
+  ]
+}

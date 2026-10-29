@@ -5,8 +5,10 @@ import { searchEverydayDictionary, loadEverydayExamples, isReviewedCanonicalSens
 import { searchExpandedDictionary } from '../js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
 import { readFile } from 'node:fs/promises';
+import { historicalSelectedRows } from '../../tooling/tests/selected-sense-history-fixture.mjs';
 
 const reviewed = EVERYDAY_LOOKUP_ENTRIES.filter(row => row.reviewedCanonicalSense === true);
+const historicalHeads = new Set(historicalSelectedRows(reviewed).map(row=>row.term));
 const oldSource = '卓的日常词组';
 const oldExampleSource = '原创例句·作者自查（精选义项）';
 
@@ -15,7 +17,7 @@ test('independently reviewed canonical sense rows expose their own dictionary so
   for (const row of reviewed) {
     assert.equal(row.dictionarySource, '卓式词典·义项补充');
     assert.match(row.exampleReviewer, /^AI\/[a-z0-9_-]{1,100}$/u);
-    assert.equal(row.exampleSource, '原创例句·AI复核（精选义项）');
+    assert.equal(row.exampleSource, historicalHeads.has(row.term) ? '原创例句·AI复核（精选义项）' : '原创学习例句');
     const result = searchEverydayDictionary(row.term).results[0];
     assert.equal(result.term, row.term);
     assert.equal(result.source, row.dictionarySource);
