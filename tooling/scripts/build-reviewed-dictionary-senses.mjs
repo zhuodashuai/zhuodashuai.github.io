@@ -7,6 +7,7 @@ import { parseCorrectionSourceManifest } from './build-dictionary-example-correc
 import { EVERYDAY_LOOKUP_ENTRIES } from '../../vocab/js/everyday-lookup-data.js';
 import { DICTIONARY_EXAMPLE_CORRECTIONS } from '../../vocab/js/dictionary-example-corrections-data.js';
 import { personalDictionaryResult } from '../../vocab/js/personal-dictionary.js';
+import {createReviewedExistingPairAdmission,canReuseReviewedExistingPair,projectReviewedExistingPairRows} from './build-reviewed-existing-pairs.mjs';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const HASH = /^[a-f0-9]{64}$/u;
@@ -144,7 +145,7 @@ export function renderReviewedSenseModule(rows) {
 
 /** These are explicitly authored supplementary senses, not claims that a
  * frozen third-party record already contained a modern meaning or correct POS. */
-export function validateReviewedSensePack(pack, review, canonicalRecords, existingSentences = new Map(), retainedChineseHeads = new Set()) {
+export function validateReviewedSensePack(pack, review, canonicalRecords, existingSentences = new Map(), retainedChineseHeads = new Set(), existingPairAdmission) {
   if (pack && Object.hasOwn(pack, 'exampleSource') && pack.exampleSource !== '原创学习例句') {
     throw Error('Invalid selected-sense learner example source');
   }
@@ -183,7 +184,7 @@ export function validateReviewedSensePack(pack, review, canonicalRecords, existi
       throw Error(`Unresolved selected-sense issue: ${row.term}`);
     }
     const owner = existingSentences.get(sentenceKey(row.en));
-    if (owner) throw Error(`Duplicate selected-sense English example: ${row.term} / ${owner}`);
+    if (owner && !canReuseReviewedExistingPair(existingPairAdmission,pack,review,row,owner)) throw Error(`Duplicate selected-sense English example: ${row.term} / ${owner}`);
     existingSentences.set(sentenceKey(row.en), row.term);
     output.push({ term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
       chineseAliases: [...row.chineseAliases], englishForms: [...row.englishForms], en: row.en, zh: row.zh,
@@ -225,7 +226,12 @@ export async function loadReviewedSenseBuild() {
     if (!NAME.test(batch.source) || !NAME.test(batch.review)) throw Error('Invalid selected-sense source path');
     const pack = await json(join(base, 'reviewed-senses/source', batch.source));
     const review = await json(join(base, 'reviewed-senses/reviews', batch.review));
-    for (const row of validateReviewedSensePack(pack, review, records, sentences, retainedChineseHeads)) {
+    const existingPairAdmission=Object.hasOwn(batch,'existingPairBindings')
+      ?await createReviewedExistingPairAdmission(pack,review,{sourceFile:batch.source,reviewFile:batch.review,bindingFile:batch.existingPairBindings})
+      :undefined;
+    const validated=validateReviewedSensePack(pack, review, records, sentences, retainedChineseHeads,existingPairAdmission);
+    const compiled=existingPairAdmission?projectReviewedExistingPairRows(existingPairAdmission,pack,review,validated):validated;
+    for (const row of compiled) {
       if (seen.has(row.term)) throw Error('Repeated reviewed canonical head');
       approvedSelections.set(row.term, { author: pack.author, row: pack.entries.find(item => item.term === row.term) });
       seen.add(row.term); rows.push(row);

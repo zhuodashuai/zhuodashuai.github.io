@@ -5,7 +5,7 @@
 import { DICTIONARY_EXAMPLE_SOURCE, createDictionaryExamplesController as legacyController } from './dictionary-examples.js?v=96';
 import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js';
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
-import { loadEverydayExamples } from './everyday-lookup.js';
+import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples } from './everyday-lookup.js';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
 import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js';
 import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js';
@@ -120,6 +120,15 @@ function sameSavedSense(sense, card) {
 export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEntry,...options}={}){
   if(typeof fetchImpl!=='function')return Promise.reject(new Error('无法读取学习例句。'));
   if(options.signal?.aborted){const error=new Error('已取消读取例句。');error.name='AbortError';return Promise.reject(error);}
+  if(hasAssociatedEverydayExampleHead(term)){
+    if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
+    const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
+    if(before===null||before&&before.term!==term)return Promise.resolve(null);
+    const entry=loadAssociatedEverydayExamples(term,{context:before,sourcePins:dictionaryExamplesRelease.source});
+    return Promise.resolve(entry).then(result=>options.signal?.aborted
+      ?Promise.reject(Object.assign(new Error('已取消读取例句。'),{name:'AbortError'}))
+      :savedEntry!==undefined&&JSON.stringify(canonicalCard(savedEntry,term))!==JSON.stringify(before)?null:result);
+  }
   if(componentHeads.has(term)){
     if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
     const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
@@ -192,7 +201,7 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
       // change the meaning associated with an already started async request.
       const entry = options.savedEntry;
       managedGuard=undefined;
-      if((canonicalRepairHeads.has(term)||componentHeads.has(term)||hasSelectedCommonSenseHead(term)||hasSelectedLegacyExampleHead(term))&&entry!==undefined){
+      if((canonicalRepairHeads.has(term)||componentHeads.has(term)||hasSelectedCommonSenseHead(term)||hasSelectedLegacyExampleHead(term)||hasAssociatedEverydayExampleHead(term))&&entry!==undefined){
         savedEntry=canonicalCard(entry,term);
         const identity=JSON.stringify(savedEntry);
         managedGuard=()=>identity!=='null'&&JSON.stringify(canonicalCard(entry,term))===identity;

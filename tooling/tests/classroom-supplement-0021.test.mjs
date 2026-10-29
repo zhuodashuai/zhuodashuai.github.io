@@ -7,6 +7,7 @@ import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {searchEverydayDictionary} from '../../vocab/js/everyday-lookup.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
+import {historicalSelected187} from './helpers/classroom-history-0187.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const hash=value=>sha(JSON.stringify(value));
 const directory=new URL('../dictionary/everyday-expansions/2026-10-29-classroom-0021/',import.meta.url);
@@ -25,7 +26,7 @@ test('three new classroom-theme expressions bind exact independent approval and 
   const ordinary=entries.filter(row=>!row.reviewedCanonicalSense);
   assert.equal(ordinary.length,1028);
   assert.equal(baseline.ordinaryCount,1025);assert.equal(hash(ordinary.slice(0,1025)),baseline.ordinarySha256);
-  assert.equal(hash(entries.filter(row=>row.reviewedCanonicalSense)),baseline.selectedSha256);
+  assert.equal(hash(historicalSelected187(entries.filter(row=>row.reviewedCanonicalSense))),baseline.selectedSha256);
   assert.equal(hash(aliases),baseline.aliasesSha256);
   assert.deepEqual(ordinary.slice(1025,1028),source.entries);
   for(const row of source.entries){assert.equal(hash(row),review.reviewedRows.find(item=>item.term===row.term)?.rowSha256);}

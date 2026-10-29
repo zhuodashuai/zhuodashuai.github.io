@@ -211,6 +211,77 @@ export function searchEverydayDictionary(input, { limit = 20, offset, allowDotte
   };
 }
 
+function associatedOriginal(row) {
+  if (!row || !Object.hasOwn(row, 'existingExampleDTOJSON')) return null;
+  try {
+    if (typeof row.existingExampleDTOJSON !== 'string' || row.existingExampleDTOJSON.length > 16000) return null;
+    const entry = JSON.parse(row.existingExampleDTOJSON);
+    if (Object.keys(entry).sort().join('|') !== 'senses|term' || entry.term !== row.term
+      || !Array.isArray(entry.senses) || entry.senses.length !== 1) return null;
+    const sense = entry.senses[0];
+    if (Object.keys(sense).sort().join('|') !== 'examples|id|meaningZh|partOfSpeech|reviewer|source'
+      || !['id','meaningZh','partOfSpeech','reviewer','source'].every(key => typeof sense[key] === 'string' && sense[key].trim())
+      || !row.partOfSpeech.split(/\s*·\s*/u).includes(sense.partOfSpeech)
+      || !Array.isArray(sense.examples) || sense.examples.length !== 1
+      || Object.keys(sense.examples[0]).sort().join('|') !== 'en|zh'
+      || sense.examples[0].en !== row.en || sense.examples[0].zh !== row.zh) return null;
+    return entry;
+  } catch { return null; }
+}
+
+function associatedLiteral(term) {
+  if (typeof term !== 'string' || safeInput(term) !== term) return null;
+  const row = canonicalEnglish.get(englishKey(term));
+  return row?.term === term && Object.hasOwn(row, 'existingExampleDTOJSON') ? row : null;
+}
+
+// Dispatch recognizes declared forms and case variants so they cannot bypass
+// the stricter branch. This predicate grants nothing: the loader below still
+// requires the exact canonical head and an exact approved saved identity.
+export function hasAssociatedEverydayExampleHead(term) {
+  const normal = safeInput(term);
+  if (!normal || HAN.test(normal)) return false;
+  const canonical = canonicalEnglish.get(englishKey(normal));
+  const rows = canonical ? [canonical] : englishForms.get(englishKey(normal));
+  return rows?.length === 1 && Object.hasOwn(rows[0],'existingExampleDTOJSON');
+}
+
+function associatedDataFields(input, keys) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)
+    || ![Object.prototype,null].includes(Object.getPrototypeOf(input))) return null;
+  const own = Reflect.ownKeys(input);
+  if (own.length !== keys.length || own.some(key => typeof key !== 'string' || !keys.includes(key))) return null;
+  const result = {};
+  for (const key of keys) {
+    const descriptor = Object.getOwnPropertyDescriptor(input,key);
+    if (!descriptor?.enumerable || !Object.hasOwn(descriptor,'value') || typeof descriptor.value !== 'string' || !descriptor.value.trim()) return null;
+    result[key] = descriptor.value;
+  }
+  return result;
+}
+
+/** The builder authenticated these complete old pairs against their original
+ * assets. Local reuse keeps their specific POS/sense labels and exact finite
+ * saved-card identities; an invalid optional binding only hides the example. */
+export function loadAssociatedEverydayExamples(term, { context, sourcePins } = {}) {
+  const row = associatedLiteral(term), pins = associatedDataFields(sourcePins,['version','manifestSha256']);
+  if (!row || !pins || row.existingExampleSourceVersion !== pins.version
+    || row.existingExampleManifestSha256 !== pins.manifestSha256) return null;
+  const original = associatedOriginal(row);
+  if (!original) return null;
+  if (context === undefined) return original;
+  try {
+    if (typeof row.existingExampleContextsJSON !== 'string' || row.existingExampleContextsJSON.length > 64000) return null;
+    const allowed = JSON.parse(row.existingExampleContextsJSON);
+    if (!Array.isArray(allowed) || !allowed.length || allowed.length > 64
+      || allowed.some(identity => !identity || Object.keys(identity).sort().join('|') !== 'meaning|partOfSpeech|term'
+        || identity.term !== term || !['term','partOfSpeech','meaning'].every(key => typeof identity[key] === 'string' && identity[key].trim()))) return null;
+    const identity = associatedDataFields(context,['term','partOfSpeech','meaning']);
+    if (!identity) return null;
+    return allowed.some(allowedIdentity => ['term','partOfSpeech','meaning'].every(key => allowedIdentity[key] === identity[key])) ? original : null;
+  } catch { return null; }
+}
+
 /** Examples belong to a selected English head/form, never a Chinese question. */
 export function loadEverydayExamples(term) {
   const normal = safeInput(term);
@@ -219,6 +290,7 @@ export function loadEverydayExamples(term) {
   const forms = canonical ? [canonical] : englishForms.get(key);
   if (forms?.length !== 1) return null;
   const row = forms[0];
+  if (Object.hasOwn(row, 'existingExampleDTOJSON')) return associatedOriginal(row);
   return {
     term: row.term,
     senses: [{
