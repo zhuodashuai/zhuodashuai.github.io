@@ -2,6 +2,7 @@
 // Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.
 // Refresh the decoded-body size check for HTTP-compressed ranking assets.
 // Translation precision 0014: refresh five reviewed Chinese example translations.
+// Use the portable gzip header for reproducible Chinese ranking assets.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
