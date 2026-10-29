@@ -1,3 +1,4 @@
+// Add three classroom-theme expressions; retain warmed dictionary and private learning data.
 // Refresh four reviewed classroom supplements; preserve original senses and learning data.
 // Refresh four reviewed Chinese example translations; retain all existing meanings and learning data.
 // Refresh six classroom sense supplements without changing saved-card contexts.

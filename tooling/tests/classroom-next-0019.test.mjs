@@ -23,7 +23,9 @@ test('current187 is exactly unchanged historical183 plus four reviewed classroom
  assert.deepEqual(review.approvedTerms,['acquire','norm','shape','stall']);assert.equal(hash(source),'05f26d0d40b5dad8a38e8908918c1670f3dca6448b359ea17ccb3383bee96d1d');assert.notEqual(source.author,review.reviewer);assert(review.independentOfAuthor);
  assert.equal(selected.length,187);assert.equal(new Set(selected.map(r=>r.term)).size,187);assert.equal(hash(selected),fixture.expectedCurrent.selectedSha256);assert.equal(historicalSelected183(selected).length,183);assert.deepEqual(selected.filter(r=>!fixture.baseline.selectedHeads.includes(r.term)).map(r=>r.term),['acquire','norm','shape','stall']);
  assert.equal(legacy.length,30);historicalLegacy26(legacy);assert.deepEqual(legacy.slice(26).map(r=>r.term),review.approvedTerms);assert.equal(corrections.length,83);assert.equal(hash(corrections),fixture.baseline.corrections83Sha256);
- assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(hash(common),fixture.baseline.commonSha256);
+ // This historical release binds its original 1,025 complete ordinary rows;
+ // later independently reviewed append-only phrases have their own fixture.
+ assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(hash(common),fixture.baseline.commonSha256);
  assert.equal(approved.reduce((n,r)=>n+r.meaning.split('\n').length,0),22);assert.equal(approved.reduce((n,r)=>n+r.englishForms.length,0),9);assert.equal(approved.reduce((n,r)=>n+r.chineseAliases.length,0),8);
 });
 

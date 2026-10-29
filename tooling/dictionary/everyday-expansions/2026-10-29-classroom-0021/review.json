@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "fdbbbce7b3c17ff66546b1e67424cc69c152463472d220da9107c796840ad58e",
+  "sourceByteSha256": "d3b93a916c8a2547673c4dfb5bdad2dc20d3d279795c2f7b65a002b3e585a250",
+  "author": "AI/root_classroom_supplement_0021",
+  "reviewer": "AI/next15_release_audit_classroom_0021_independent_reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "at somebody's discretion",
+    "foot the bill",
+    "take a toll on"
+  ],
+  "issues": [],
+  "reviewedRows": [
+    {
+      "term": "at somebody's discretion",
+      "rowSha256": "faf9c8f2c2ed3d727a9d275e102d7332c4a4e5b2232b71e4d9a1e589a6feda19",
+      "partOfSpeech": "prepositional phrase",
+      "meaning": "① 由某人酌情决定；按照某人的判断或意愿。\n用法：at the manager's discretion＝由经理酌情决定。",
+      "en": "Extra time may be allowed at the instructor's discretion.",
+      "zh": "教师可酌情给予额外时间。",
+      "chineseAliases": [
+        "由某人酌情决定",
+        "酌情决定"
+      ],
+      "englishForms": [
+        "at one's discretion",
+        "at someone's discretion",
+        "at your discretion",
+        "at their discretion"
+      ],
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/discretion"
+      ],
+      "languageDecision": "PASS_AFTER_EXACT_ZH_EDIT",
+      "reason": "The prepositional construction means according to someone's judgment/choice. Removing unsupported 作答 makes the Chinese faithful to the unspecific extra time in the English. Teacher discretion and possibility, rather than a guaranteed extension, remain clear.",
+      "aliasAndFormReason": "All four possessive placeholder/person variants retain the same discretionary-decision relation; no change to with discretion meaning confidentiality.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "foot the bill",
+      "rowSha256": "7d9f21d665abbb4be2cc8200e2ba44acd4e2c352755665af5ce3df83e420ec20",
+      "partOfSpeech": "idiom",
+      "meaning": "① 支付费用；承担某事的账单。\n用法：foot the bill for something；foot 在这里是动词。",
+      "en": "The company agreed to foot the bill for the damaged equipment.",
+      "zh": "公司同意支付损坏设备的相关费用。",
+      "chineseAliases": [
+        "承担账单",
+        "支付这笔费用"
+      ],
+      "englishForms": [
+        "foots the bill",
+        "footed the bill",
+        "footing the bill"
+      ],
+      "references": [
+        "https://www.merriam-webster.com/dictionary/foot%20the%20bill"
+      ],
+      "languageDecision": "PASS_AFTER_NONBLOCKING_ZH_POLISH",
+      "reason": "The idiom means paying the cost and foot is a verb. The revised Chinese refers to costs related to damaged equipment without inventing whether the bill was specifically for repair or replacement.",
+      "aliasAndFormReason": "The three finite surface forms correctly inflect foot as a verb (foots/footed/footing); feet is not admitted. The two Chinese surfaces mean paying the relevant bill, not merely splitting it.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "take a toll on",
+      "rowSha256": "0189ca86155c86234fa4743d3e29005a3fba5138b290e813fa50c3ff212db7a0",
+      "partOfSpeech": "idiom",
+      "meaning": "① 对……造成损害或不良影响，常指逐渐累积的消耗。\n用法：take a heavy toll on / take its toll on；也可接人的健康、关系或某个行业。",
+      "en": "The constant uncertainty began to take a toll on their relationship.",
+      "zh": "持续的不确定性开始损害他们的关系。",
+      "chineseAliases": [
+        "对某事造成不良影响",
+        "造成持续损耗"
+      ],
+      "englishForms": [
+        "takes a toll on",
+        "took a toll on",
+        "taken a toll on",
+        "taking a toll on"
+      ],
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/toll_1"
+      ],
+      "languageDecision": "PASS",
+      "reason": "The idiom concerns detrimental effects and naturally fits accumulated uncertainty harming a relationship. Began and the relationship object are preserved; the definition says gradual consumption is common, not mandatory in every use.",
+      "aliasAndFormReason": "The four finite take inflections retain the exact a toll on construction; no toll-road/payment senses are aliased. Its-toll variants are explained in usage but are not falsely claimed as indexed forms here.",
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "reviewScope": "Exact three selected phrase rows, six Chinese aliases and eleven finite English aliases only. Independent editorial review of root-authored source; suggested ZH corrections were applied by author and exact final bytes reread. No claim that those two edits had a blind second composition reader.",
+  "mechanicalProof": {
+    "file": "0021-current-corpus-form-duplicate-proof.json",
+    "sha256": "b0f28fcb43105c15a2693b29a920f3e2f6c9d3efe38708e321e897ff586688bf",
+    "originalHeads": 102609,
+    "originalPairs": 103998,
+    "authenticatedBodies": 291,
+    "overlayTables": 7,
+    "uniqueNormalizedEN": 105357,
+    "allTwentyNormalizedENAndZHCollisions": 0,
+    "threeHeadAndElevenFormsAlreadyOwned": 0,
+    "sixChineseAliasesAlreadyExactlyOwned": 0
+  },
+  "ordinaryOnly": true,
+  "oldEntriesMustRemainExact": true,
+  "selectedSenseAuthorizationsGranted": 0,
+  "canonicalSourceChanged": false,
+  "productWrites": 0,
+  "nativeIntegrationOrPublicationClaim": false
+}
