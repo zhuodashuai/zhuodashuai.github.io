@@ -1,3 +1,4 @@
+// Refresh four reviewed Chinese example translations; retain all existing meanings and learning data.
 // Refresh six classroom sense supplements without changing saved-card contexts.
 // Refresh four independently reviewed example precision corrections; retain warm offline data.
 // Preserve literal dotted dictionary heads before decorated shortcut matches.
