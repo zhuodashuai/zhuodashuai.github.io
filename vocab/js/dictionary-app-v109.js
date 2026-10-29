@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=104";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=111";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
@@ -126,17 +126,48 @@ async function defaultDictionarySuggestions(input, { signal } = {}) {
 /** Sequence + abort guards also protect against a late, abort-ignoring loader. */
 export function createDictionaryController({ search = searchExpandedDictionary, suggest = defaultDictionarySuggestions,
   relatedSearch = async () => ({ results: [], hasMore: false }), onChange = () => {} } = {}) {
-  let sequence = 0, pending = null, suggestionPending = null, relatedPending = null;
-  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" };
+  let sequence = 0, pending = null, suggestionPending = null, relatedPending = null, morePending = null;
+  let directResults = [], relatedResults = [], directHasMore = false, relatedHasMore = false, nextOffset = 0, directCoverage = null;
+  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+    coverage: null, morePhase: "idle", message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" };
   function publish(next) { state = { ...state, ...next }; onChange(state); return state; }
-  function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null; relatedPending?.abort(); relatedPending = null; }
+  function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null;
+    relatedPending?.abort(); relatedPending = null; morePending?.abort(); morePending = null; }
+  function resetPages() { directResults = []; relatedResults = []; directHasMore = false; relatedHasMore = false; nextOffset = 0; directCoverage = null; }
+  function resultState() {
+    const selected = state.results[state.selectedIndex]?.term, seen = new Set();
+    const results = [...directResults, ...relatedResults].filter(row => !seen.has(row.term) && seen.add(row.term));
+    return { results, selectedIndex: Math.max(0, results.findIndex(row => row.term === selected)),
+      hasMore: directHasMore || relatedHasMore, coverage: directCoverage,
+      canLoadMore: directCoverage !== "limited" && directHasMore && nextOffset > 0 };
+  }
+  function resultMessage(results, hasMore, canLoadMore) {
+    if (directCoverage === "limited") return "当前仅显示部分匹配，完整检索索引尚未更新，请刷新后重试。";
+    return results.length ? (results.length === 1 && !hasMore ? "已找到词条。"
+      : `已显示 ${results.length} 项${canLoadMore ? "，可继续查看更多"
+        : hasMore ? "，部分近义关联未展开，可换更具体的中文继续查" : "，选择词条查看"}。`)
+      : hasMore ? `候选较多，当前范围尚未确认匹配。${canLoadMore ? "可继续查看更多，或用" : "请用"}更具体的中文释义查询。`
+        : "没有找到对应词条。请检查拼写，或改用英文原形、较短的中文释义。";
+  }
+  function pageOffset(response, offset, length) {
+    return Number.isSafeInteger(response.nextOffset) && response.nextOffset > offset
+      ? response.nextOffset : offset + length;
+  }
   function change(input) {
-    stop();
-    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
+    stop(); resetPages();
+    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+      coverage: null, morePhase: "idle", message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
   }
   function cancel() {
+    if (morePending) {
+      stop();
+      return publish({ morePhase: "idle", relatedPhase: state.relatedPhase === "loading" ? "idle" : state.relatedPhase,
+        message: "已停止加载，已显示的词条可继续查看。" });
+    }
     stop();
-    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, message: "已停止查询。", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
+    resetPages();
+    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+      coverage: null, morePhase: "idle", message: "已停止查询。", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
   }
   function startRelated(input, current) {
     if (!chineseSearchPlan(input.normalize("NFKC").replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim())) return;
@@ -149,16 +180,19 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
       return relatedSearch(input, { signal: controller.signal, limit: 8, timeoutMs: 5000 });
     }).then(response => {
       if (current !== sequence || controller.signal.aborted) return;
-      const seen = new Set(state.results.map(row => row.term));
+      const seen = new Set(directResults.map(row => row.term));
       const extra = (Array.isArray(response?.results) ? response.results : []).filter(row => {
         if (!row || row.matchType !== "related" || typeof row.term !== "string" || !row.term.trim()
           || typeof row.matchedChinese !== "string" || seen.has(row.term)) return false;
         seen.add(row.term); return true;
       }).slice(0, 8);
-      const results = extra.length ? [...state.results, ...extra] : state.results;
-      publish({ relatedPhase: "ready", results, hasMore: state.hasMore || Boolean(response?.hasMore),
-        ...(extra.length ? { phase: "ready", message: `找到 ${results.length} 项，近义关联已单独标注。` }
-          : !results.length && response?.hasMore ? { phase: "refine", message: "相关候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。" } : {}) });
+      relatedResults = extra; relatedHasMore = Boolean(response?.hasMore);
+      const next = resultState();
+      publish({ relatedPhase: "ready", ...next,
+        ...(extra.length ? { phase: "ready", message: `${resultMessage(next.results, next.hasMore, next.canLoadMore)}近义关联已单独标注。` }
+          : !next.results.length && response?.hasMore ? { phase: "refine", message: directCoverage === "limited"
+            ? resultMessage(next.results, next.hasMore, next.canLoadMore)
+            : "相关候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。" } : {}) });
     }).catch(() => {
       if (current === sequence && !controller.signal.aborted) publish({ relatedPhase: "error" });
     }).finally(() => { if (current === sequence) relatedPending = null; });
@@ -186,32 +220,65 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
   }
   async function submit(input = state.input) {
     if (state.phase === "loading" && input === state.input) return false;
-    stop();
+    stop(); resetPages();
     const current = sequence, controller = new AbortController(); pending = controller;
-    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, message: "正在查询…", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
+    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+      coverage: null, morePhase: "idle", message: "正在查询…", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
     try {
-      const response = await search(input, { signal: controller.signal, limit: 20 });
+      const response = await search(input, { signal: controller.signal, limit: 20, offset: 0 });
       if (current !== sequence || controller.signal.aborted) return false;
-      const results = response.results.slice(0, 20), hasMore = response.hasMore || response.results.length > 20;
-      publish({ phase: results.length ? "ready" : hasMore ? "refine" : "empty", results, selectedIndex: 0, hasMore,
-        message: results.length ? (results.length === 1 ? "已找到词条。" : `找到 ${results.length} 项${hasMore ? "，可换更具体的中文继续查" : "，选择词条查看"}。`)
-          : hasMore ? "候选较多，当前范围尚未确认匹配。请用更具体的中文释义继续查。"
-            : "没有找到对应词条。请检查拼写，或改用英文原形、较短的中文释义。" });
-      if (!results.length && !hasMore) startSuggestions(input, current);
+      directResults = response.results.slice(0, 20); directHasMore = Boolean(response.hasMore || response.results.length > 20);
+      directCoverage = response.coverage === "limited" ? "limited" : "full";
+      nextOffset = directCoverage === "limited" ? 0 : pageOffset(response, 0, directResults.length);
+      const next = resultState();
+      publish({ phase: next.results.length ? "ready" : next.hasMore || directCoverage === "limited" ? "refine" : "empty", ...next,
+        message: resultMessage(next.results, next.hasMore, next.canLoadMore) });
+      const { results, hasMore } = next;
+      if (!results.length && !hasMore && directCoverage !== "limited") startSuggestions(input, current);
       startRelated(input, current);
       return true;
     } catch (error) {
       if (current !== sequence || controller.signal.aborted) return false;
-      publish({ phase: error?.name === "AbortError" ? "cancelled" : "error", results: [], selectedIndex: 0, hasMore: false,
+      publish({ phase: error?.name === "AbortError" ? "cancelled" : "error", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
         message: error?.name === "AbortError" ? "已停止查询。" : queryError(error) });
       return false;
     } finally { if (current === sequence) pending = null; }
+  }
+  async function loadMore() {
+    if (!state.canLoadMore || morePending || pending || !["ready", "refine"].includes(state.phase)) return false;
+    const current = sequence, input = state.input, offset = nextOffset, controller = new AbortController(); morePending = controller;
+    publish({ morePhase: "loading", message: "正在加载更多，已显示的词条可继续查看…" });
+    try {
+      const response = await search(input, { signal: controller.signal, limit: 20, offset });
+      if (current !== sequence || controller.signal.aborted) return false;
+      // A release mismatch can fall back to an old bounded scan. Its offsets
+      // are not pages of the global ranking, so keep the current verified list.
+      if (response.coverage === "limited") {
+        directCoverage = "limited"; nextOffset = 0;
+        const next = resultState();
+        publish({ ...next, morePhase: "idle", message: resultMessage(next.results, next.hasMore, false) });
+        return true;
+      }
+      const page = response.results.slice(0, 20), after = pageOffset(response, offset, page.length);
+      if (response.hasMore && after <= offset) throw new Error("Invalid dictionary page.");
+      const seen = new Set(directResults.map(row => row.term));
+      directResults = [...directResults, ...page.filter(row => !seen.has(row.term) && seen.add(row.term))];
+      directHasMore = Boolean(response.hasMore || response.results.length > 20); nextOffset = after;
+      const next = resultState();
+      publish({ ...next, morePhase: "idle", phase: next.results.length ? "ready" : next.hasMore ? "refine" : "empty",
+        message: resultMessage(next.results, next.hasMore, next.canLoadMore) });
+      return true;
+    } catch (error) {
+      if (current !== sequence || controller.signal.aborted) return false;
+      publish({ morePhase: "error", message: "暂时无法加载更多；已显示的词条仍可查看，请重试。" });
+      return false;
+    } finally { if (morePending === controller) morePending = null; }
   }
   function select(index) {
     if (state.phase !== "ready" || !Number.isSafeInteger(index) || index < 0 || index >= state.results.length) return false;
     publish({ selectedIndex: index }); return true;
   }
-  return { change, cancel, submit, select, getState: () => state };
+  return { change, cancel, submit, loadMore, select, getState: () => state };
 }
 
 function sourceLine(document, result) {
@@ -300,8 +367,9 @@ export function mountDictionaryPage(document, window) {
     if (state.input !== lastChoiceQuery) { lastChoiceQuery = state.input; resetChoiceDisclosure(); }
     const busy = state.phase === "loading";
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
-    cancel.hidden = !busy; resultsRegion.setAttribute("aria-busy", String(busy));
-    status.textContent = state.message; status.dataset.phase = state.phase;
+    cancel.hidden = !busy && state.morePhase !== "loading";
+    resultsRegion.setAttribute("aria-busy", String(busy || state.morePhase === "loading"));
+    status.textContent = state.message; status.dataset.phase = state.coverage === "limited" ? "limited" : state.phase;
     const relatedStatus = get("dictionary-related-status");
     relatedStatus.textContent = state.relatedPhase === "loading" ? "正在补充近义关联，不影响查看已有释义…"
       : state.relatedPhase === "error" ? "近义关联暂不可用；已有释义仍可使用。"
@@ -326,9 +394,10 @@ export function mountDictionaryPage(document, window) {
     result.hidden = state.phase !== "ready";
     // Reserve the compact switcher while related results are pending, rather
     // than inserting a large list above a definition the reader has started.
-    get("dictionary-choice-panel").hidden = state.phase !== "ready"
-      || state.results.length < 2 && state.relatedPhase !== "loading";
+    get("dictionary-choice-panel").hidden = state.phase !== "ready" && !state.canLoadMore
+      || state.results.length < 2 && state.relatedPhase !== "loading" && !state.canLoadMore;
     if (state.results !== lastResults) {
+      const focusedTerm = choices.contains(document.activeElement) ? document.activeElement.dataset.dictionaryTerm : undefined;
       lastResults = state.results; choices.replaceChildren();
       state.results.forEach((entry, index) => {
         const item = document.createElement("li"), button = document.createElement("button"); button.type = "button";
@@ -350,11 +419,14 @@ export function mountDictionaryPage(document, window) {
         });
         item.append(button); choices.append(item);
       });
+      if (focusedTerm !== undefined) [...choices.querySelectorAll("button")]
+        .find(button => button.dataset.dictionaryTerm === focusedTerm)?.focus({ preventScroll: true });
     }
     [...choices.querySelectorAll("button")].forEach((button, index) => button.setAttribute("aria-pressed", String(index === state.selectedIndex)));
-    // hasMore can mean an unexamined posting, not a confirmed extra match.
     get("dictionary-choice-count").textContent = state.results.length ? `${state.results.length} 项` : "";
-    get("dictionary-more").hidden = !state.hasMore;
+    const more = get("dictionary-more");
+    more.hidden = !state.canLoadMore; more.disabled = state.morePhase === "loading";
+    more.textContent = state.morePhase === "loading" ? "加载中…" : state.morePhase === "error" ? "重试加载更多" : "查看更多";
     const selected = state.phase === "ready" ? state.results[state.selectedIndex] : null;
     if (!selected) {
       clearExamples();
@@ -407,6 +479,9 @@ export function mountDictionaryPage(document, window) {
   form.addEventListener("submit", event => { event.preventDefault(); if (!submit.disabled) void run(); });
   input.addEventListener("input", () => controller.change(input.value));
   cancel.addEventListener("click", () => { controller.cancel(); input.focus(); });
+  get("dictionary-more").addEventListener("click", () => void controller.loadMore().then(() => {
+    if (get("dictionary-more").hidden && document.activeElement === get("dictionary-more")) heading.focus({ preventScroll: true });
+  }));
   window.addEventListener("pagehide", () => controller.cancel());
   window.addEventListener("hashchange", () => {
     const query = initialDictionaryQuery(window.location.hash);

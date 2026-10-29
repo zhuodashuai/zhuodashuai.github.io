@@ -249,6 +249,13 @@ function definitionSegments(value) {
   segments.push(value.slice(start)); return segments;
 }
 
+/** Source atoms for ranking only; never substitute these for a definition. */
+export function chineseMeaningAtoms(meaning) {
+  if (typeof meaning !== "string" || meaning.length > 20_000 || BODY_CONTROL.test(meaning)) return [];
+  const value = meaning.replace(/[①-⑳]/gu, char => `${char.codePointAt(0) - 0x245f}. `).normalize("NFKC");
+  return definitionSegments(value).map(stripEditorialPrefix).filter(Boolean);
+}
+
 /** Match a definition atom, not a mention in an explanation or a compound. */
 export function matchesChineseSearchMeaning(meaning, term) {
   if (typeof meaning !== "string" || meaning.length > 20_000 || BODY_CONTROL.test(meaning)

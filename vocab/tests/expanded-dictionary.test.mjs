@@ -358,39 +358,38 @@ test("unplanned Chinese selects the full atom and POS from one source variant", 
   assert.ok(result.alternatives.some(row => row.source === "ECDICT 核心校订" && row.partOfSpeech === "adjective" && row.meaning.includes("健全的")));
 });
 
-test("unplanned Chinese real-data atoms are retained without fetching beyond the first window", async t => {
-  const root = new URL("../data/expanded-dictionary/", import.meta.url);
-  const manifest = JSON.parse(await readFile(new URL("manifest.json", root), "utf8"));
+test("unplanned Chinese real-data atoms use the complete source sidecar without English-shard scans", async t => {
   for (const [query, head] of [["声音", "sound"], ["居住", "dwell"]]) await t.test(`${query}: ${head}`, async () => {
-    const postingShard = JSON.parse(await readFile(new URL(manifest.chinese.shards[bucket(query)].file, root), "utf8"));
-    const firstWindow = postingShard.postings.find(([token]) => token === query)[1].slice(0, 24);
-    const expectedFiles = new Set(firstWindow.map(id => manifest.english.shards[id % 128].file));
     const requests = [], fetchImpl = async url => {
       requests.push(String(url)); return new Response(await readFile(new URL(url)));
     };
     const result = await searchExpandedDictionary(query, { fetchImpl });
     const target = result.results.find(row => row.term === head);
-    assert.ok(target, `${query} must retain the already loaded whole-atom head ${head}`);
+    assert.ok(target, `${query} must retain the whole-atom head ${head}`);
     assert.equal(result.hasMore, true);
+    assert.equal(result.ranking, "global");
+    assert.equal(requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length, 0);
+    assert.equal(requests.filter(url => /\.bin$/u.test(url)).length, 1);
     assert.deepEqual(target, (await searchExpandedDictionary(head, { fetchImpl })).results[0]);
-    assert.deepEqual(new Set(requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).map(url => url.split("/expanded-dictionary/")[1])), expectedFiles);
-    assert.ok(expectedFiles.size <= 24);
+    assert.equal(requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length, 1);
   });
 });
 
-test("adversarial Chinese bigram candidates cannot cause a full dictionary download", async () => {
+test("unbound legacy data stays bounded and labels an unconfirmed empty range as limited", async () => {
   const data = fixture(Array.from({ length: 800 }, (_, index) => entry(`falseword${index}`, "甲乙；乙丙")));
   const result = await searchExpandedDictionary("甲乙丙", data);
-  assert.deepEqual(result.results, []); assert.equal(result.hasMore, true);
+  assert.deepEqual(result.results, []); assert.equal(result.hasMore, false);
+  assert.equal(result.coverage, "limited"); assert.equal(result.nextOffset, 0);
   assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 32);
 });
 
-test("unplanned Chinese does not inspect a 513th candidate even in an already loaded shard", async () => {
+test("unbound legacy data does not inspect a 513th candidate or advertise an empty next page", async () => {
   const terms = [];
   for (let index = 0; terms.length < 513; index++) if (bucket(`cap${index}`) === 0) terms.push(`cap${index}`);
   const data = fixture(terms.map((term, index) => entry(term, index === 512 ? "甲乙丙" : "甲乙；乙丙")));
   const result = await searchExpandedDictionary("甲乙丙", data);
-  assert.deepEqual(result.results, []); assert.equal(result.hasMore, true);
+  assert.deepEqual(result.results, []); assert.equal(result.hasMore, false);
+  assert.equal(result.coverage, "limited");
   assert.equal(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length, 1);
 });
 

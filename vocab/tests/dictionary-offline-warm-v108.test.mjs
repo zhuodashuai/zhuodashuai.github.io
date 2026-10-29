@@ -13,6 +13,18 @@ test('v108 warmer permits only the two exact same-origin immutable binary shapes
  }
 });
 
+test('Chinese ranking warm URLs are immutable same-origin hashes in both active and legacy warmers',()=>{
+ const ranking=base+'data/chinese-search-ranking/'+hash+'/'+hash+'.bin';
+ for(const warmer of[current,legacy]){
+  assert.equal(warmer(ranking,base),ranking);
+  for(const value of[ranking+'?q=热',ranking+'#query',ranking.replace('wordbook.test','elsewhere.test'),
+   ranking.replace('.bin','.json'),ranking.replace(hash,hash.slice(1)),ranking.replace('/data/','/private/'),
+   ranking.replace('/chinese-search-ranking/','/%63hinese-search-ranking/'),ranking.replace('.bin','%2ebin')]){
+   assert.equal(warmer(value,base),null,value);
+  }
+ }
+});
+
 test('v108 warmer rejects cross-origin, private, query, encoded, traversal and noncanonical binary URLs',()=>{
  const value=url(),bad=[null,undefined,{},'',value+'?',value+'#',value+'?q=secret',value+'#secret',' '+value,value+'\n',
   value.replace('wordbook.test','other.test'),value.replace('https://','https://u:p@'),value.replace('https://','http://'),

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { chineseSearchPlan, chineseSearchHeads, matchesChineseSearchEntry } from "../../vocab/js/chinese-search.js";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
+import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
 
 const batches = await Promise.all(["003", "004"].map(async id => JSON.parse(await readFile(new URL(`../dictionary/chinese-related-${id}.json`, import.meta.url), "utf8"))));
 const bytes = new Map();
@@ -65,7 +66,7 @@ for (const catalogue of batches) for (const row of catalogue.groups) test(`catal
   const fetchImpl = async (url, options) => {
     const target = new URL(url);
     assert.equal(target.protocol, "file:"); assert.equal(target.search, "");
-    assert.match(target.pathname, /\/vocab\/data\/expanded-dictionary\//u);
+    assert.ok(/\/vocab\/data\/expanded-dictionary\//u.test(target.pathname) || isPinnedChineseRankingFixture(target));
     assert.equal(options.credentials, "omit"); assert.ok(!options.method || options.method === "GET");
     requests.push(String(target));
     if (!bytes.has(String(target))) bytes.set(String(target), readFile(target));

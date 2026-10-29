@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { chineseSearchPlan, matchesChineseSearchEntry } from "../../vocab/js/chinese-search.js";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
+import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
 
 test("the original 54 Chinese concept families still resolve real, correctly matched dictionary records", async () => {
   const seeds = ["开心", "不开心", "难过", "愤怒", "害怕", "担心", "疲倦", "困倦", "聪明", "愚蠢", "勇敢", "有礼貌",
@@ -14,7 +15,7 @@ test("the original 54 Chinese concept families still resolve real, correctly mat
   const queries = [...new Set(seeds.flatMap(term => { const plan = chineseSearchPlan(term); assert.ok(plan); return [plan.term, ...plan.aliases]; }))];
   const fetchImpl = async (url, options) => {
     const target = new URL(url); assert.equal(target.protocol, "file:"); assert.equal(target.search, "");
-    assert.match(target.pathname, /\/vocab\/data\/expanded-dictionary\//u); assert.equal(options.credentials, "omit");
+    assert.ok(/\/vocab\/data\/expanded-dictionary\//u.test(target.pathname) || isPinnedChineseRankingFixture(target)); assert.equal(options.credentials, "omit");
     return new Response(await readFile(target));
   };
   let checks = 0;

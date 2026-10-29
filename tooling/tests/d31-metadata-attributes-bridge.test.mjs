@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {D31_LF_RULES,D31_BUILD,assertD31MetadataTransition} from './d31-regression-fixture.mjs';
 import {D31_PRIOR_ATTRIBUTES_TRANSPORTS,D32_ATTRIBUTES_SUFFIX_LINES,restoreD31HistoricalAttributes,
- FORSYTE_PRIOR_D32_ATTRIBUTES,FORSYTE_PUBLIC_SOURCE_RULE,restoreForsytePriorD32Attributes} from './d31-metadata-attributes-bridge.mjs';
+ FORSYTE_PRIOR_D32_ATTRIBUTES,FORSYTE_PUBLIC_SOURCE_RULE,CHINESE_RANKING_BINARY_RULE,restoreForsytePriorD32Attributes} from './d31-metadata-attributes-bridge.mjs';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const before=await fs.readFile(new URL('../dictionary/examples/archives/d30-release-metadata.attributes.txt',import.meta.url));
@@ -94,7 +94,11 @@ test('Archived fd742 D32 attributes are an exact bounded extension, not a rewrit
 });
 
 test('Forsyte attributes append exactly one LF public-source rule after the complete fd742 D32 bytes',async()=>{
- const current=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const withRanking=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const rankingRule=Buffer.from('vocab/data/chinese-search-ranking/**/*.bin -text\n');
+ assert.deepEqual(withRanking.subarray(-rankingRule.length),rankingRule);
+ assert.equal(withRanking.toString().split(rankingRule.toString()).length,2,'Only the named ranking binary rule may follow the historical attributes');
+ const current=withRanking.subarray(0,-rankingRule.length);
  const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
  const restored=restoreForsytePriorD32Attributes(current,archived);
  assert.deepEqual(restored,archived);
@@ -112,4 +116,15 @@ test('Forsyte suffix compatibility rejects changed history, unknown/missing/dupl
  for(const bad of[archived,Buffer.concat([changed,suffix]),Buffer.concat([suffix,archived]),Buffer.concat([archived,suffix,suffix]),Buffer.concat([valid,Buffer.from('# unrelated\n')]),Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE.replace('**','*'))]),Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE.replace(/\n/gu,'\r\n'))]),Buffer.from(valid.toString().replace(/\n/gu,'\r\n')),valid.subarray(0,valid.length-1)])assert.throws(()=>restoreForsytePriorD32Attributes(bad,archived));
  assert.throws(()=>restoreForsytePriorD32Attributes(Buffer.concat([changed,suffix]),changed),'Even jointly changed history and current must fail the immutable archive pin');
  for(const bad of['',null,new Uint8Array(valid)])assert.throws(()=>restoreForsytePriorD32Attributes(bad,archived));
+});
+
+test('the new ranking binary rule is one exact final extension of the pinned historical input',async()=>{
+ const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
+ const historical=Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE)]),rule=Buffer.from(CHINESE_RANKING_BINARY_RULE);
+ assert.deepEqual(restoreForsytePriorD32Attributes(Buffer.concat([historical,rule]),archived),archived);
+ for(const invalid of[Buffer.concat([historical,rule,rule]),Buffer.concat([rule,historical]),
+  Buffer.concat([archived,rule,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE)]),
+  Buffer.concat([historical,Buffer.from(CHINESE_RANKING_BINARY_RULE.replace('**','*'))]),
+  Buffer.concat([historical,Buffer.from(CHINESE_RANKING_BINARY_RULE.replace(/\n/gu,'\r\n'))]),
+  Buffer.concat([historical,rule,Buffer.from('# unrelated\n')])])assert.throws(()=>restoreForsytePriorD32Attributes(invalid,archived));
 });

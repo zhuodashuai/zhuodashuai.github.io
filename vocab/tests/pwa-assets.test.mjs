@@ -33,12 +33,21 @@ test("changed module APIs use one versioned browser graph before any service wor
   const version = file => ["dictionary-entry.js", "expanded-dictionary.js", "dictionary-app.js", "library-lookup-controller.js", "library-lookup-ui.js", "public-app.js", "personal-app.js", "owner-app.js"].includes(file) ? 104 : ["dictionary-offline-warm.js"].includes(file) ? 102 : ["entry-sort.js", "personal-folders.js", "personal-api.js"].includes(file) ? 100 : ["owner-public-library.js"].includes(file) ? 99 : ["dictionary-collection.js"].includes(file) ? 98 : ["personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js"].includes(file) ? 88 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-backup.js","owner-storage.js","personal-storage.js","personal-selection.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
-  const currentVersion = file => ["personal-app.js", "app-navigation.js", "app-navigation-entry.js"].includes(file) ? 107 : version(file);
+  const currentVersion = file => ["expanded-dictionary.js", "dictionary-app.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js"].includes(file) ? 111
+    : ["personal-app.js", "app-navigation.js", "app-navigation-entry.js"].includes(file) ? 107 : version(file);
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
     const source = await readFile(new URL(`../js/${file}`, import.meta.url), "utf8");
     for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
       const target = match[1].slice(2).split("?")[0];
+      // The archived v108 entry keeps its original compatible dependency;
+      // only the two fresh ranking readers require the new atom export.
+      if (file === "dictionary-app-v108.js" && target === "expanded-dictionary.js") {
+        assert.equal(match[1], "./expanded-dictionary.js?v=104"); continue;
+      }
+      if (["expanded-dictionary.js", "chinese-ranking.js"].includes(file) && target === "chinese-search.js") {
+        assert.equal(match[1], "./chinese-search.js?v=111"); continue;
+      }
       if (changed.has(target)) assert.equal(match[1], `./${target}?v=${currentVersion(target)}`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
@@ -50,7 +59,7 @@ test("changed module APIs use one versioned browser graph before any service wor
 
 test("inline lookup, folders and existing entry points share one coherent module graph", async () => {
   for (const resource of ["library-lookup.css", "js/library-lookup-ui.js", "js/library-lookup-controller.js"]) {
-    const version = resource === "library-lookup.css" ? 99 : 104;
+    const version = resource === "library-lookup.css" ? 99 : 111;
     assert.ok(serviceWorker.includes(`"./${resource}?v=${version}"`), `${resource} needs its current offline URL`);
     assert.ok(serviceWorker.includes(`"./${resource}"`), `${resource} needs its bare offline URL`);
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
@@ -68,7 +77,7 @@ test("inline lookup, folders and existing entry points share one coherent module
   assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=99"/u);
   // The active import graph has one current URL (checked above); explicitly
   // retained cache aliases keep already-open/offline readers working too.
-  for (const [name, versions] of [["owner-public-library", ["99"]], ["dictionary-app", ["104", "103", "99"]], ["personal-app", ["107", "105", "104", "103", "100"]]]) {
+  for (const [name, versions] of [["owner-public-library", ["99"]], ["dictionary-app", ["111", "104", "103", "99"]], ["personal-app", ["107", "105", "104", "103", "100"]]]) {
     const urls = [...serviceWorker.matchAll(new RegExp(`"\\./js/${name}\\.js\\?v=(\\d+)"`, "gu"))];
     assert.deepEqual(urls.map(match => match[1]), versions, `${name} must have only its reviewed current and legacy cache URLs`);
   }

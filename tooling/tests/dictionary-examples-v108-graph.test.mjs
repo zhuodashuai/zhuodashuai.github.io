@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
+import { readV108HistoricalProgram, decodeHistoricalV108Archive, V108_HISTORICAL_COMMIT } from './helpers/historical-v108-programs.mjs';
+import { restoreChineseSearchPaginationShell } from './helpers/chinese-search-pagination-shell.mjs';
 const root=new URL('../../',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
 const d42SenseSource='    source.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");';
 const d42SourceLabel='<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
@@ -268,20 +270,22 @@ const navigation=[
     "file": "vocab/js/app-navigation.js",
     "allowedSha": [
       "cb995c795591f021bf631690701473be9a4a2af5c321decfaa6436cd926181cc",
-      "cb995c795591f021bf631690701473be9a4a2af5c321decfaa6436cd926181cc"
+      "0a7ec829b6cb48fa514e55809521485e70001d94c75b8612846b782ea2e5f947"
     ]
   },
   {
     "file": "vocab/js/app-navigation-entry.js",
     "allowedSha": [
       "34714ad53014d31d5899dd8f93bf236f4349a70bcfb13537e3fd1c6aef17e9d7",
-      "34714ad53014d31d5899dd8f93bf236f4349a70bcfb13537e3fd1c6aef17e9d7"
+      "21247ca81b5451a45ed7e032ddd67b8eaf5b6882ec6fb6be81de895de6db9e7f"
     ]
   }
 ];
 const warmerAddition="    if (/^data\\/dictionary-examples\\/(?:catalogue-v4|delta-v4)\\/[a-f0-9]{64}\\.bin$/u.test(path)) return url.href;";
-for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+item.oldName,async()=>{
- const oldRaw=await fs.readFile(new URL('vocab/js/'+item.oldName,root)),nextRaw=await fs.readFile(new URL('vocab/js/'+item.newName,root));
+// Current search behavior is covered by dictionary-page/library-lookup tests.
+// These historical copy assertions continue to use exactly the original pins.
+for(const item of copies)test('archived v108 exact mechanical copy preserves its old URL/body: '+item.oldName,async()=>{
+ const oldRaw=await readV108HistoricalProgram(item.oldName),nextRaw=await readV108HistoricalProgram(item.newName);
  // Undo only D42's named source-aware label change on both copies before the frozen comparison.
  const old=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(oldRaw):oldRaw;
  const next=item.oldName==='dictionary-examples-ui.js'?restoreD42ExampleUi(restoreSavedSenseContext(nextRaw)):nextRaw;
@@ -292,7 +296,7 @@ for(const item of copies)test('v108 exact mechanical copy keeps old URL/body: '+
  assert.deepEqual(Buffer.from(restored),old,'No change beyond the named imports or one strict URL branch');
 });
 for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
- const current=await fs.readFile(new URL(item.file,root));let text=current.toString();
+ const current=await fs.readFile(new URL(item.file,root));let text=restoreChineseSearchPaginationShell(item.file.split('/').at(-1),current.toString());
  // Undo only the fresh, named shell-navigation gate; all historical hashes below remain exact.
  assert.equal(text.split('src="js/app-navigation-ready-v110.js"').length,2);
  text=text.replace('src="js/app-navigation-ready-v110.js"',item.file==='vocab/personal.html'
@@ -325,9 +329,9 @@ for(const item of html)test('the historical v108 HTML shell is exact after undoi
  assert(text.includes('src="js/app-navigation-entry.js?v=107"'));
 });
 
-test('the fresh v109 application preserves v108 after exact readiness, source and public saved-sense additions',async()=>{
+test('the archived v109 application preserves v108 after exact readiness, source and public saved-sense additions',async()=>{
  const before=(await fs.readFile(new URL('vocab/js/dictionary-app-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
- const current=(await fs.readFile(new URL('vocab/js/dictionary-app-v109.js',root),'utf8')).replace(/\r\n/gu,'\n');
+ const current=(await readV108HistoricalProgram('dictionary-app-v109.js')).toString('utf8').replace(/\r\n/gu,'\n');
  const sourceLookup='  const exampleSource = get("dictionary-example-source");\n';
  const sourceRender='    if (exampleSource) exampleSource.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");\n';
  assert.equal(current.split(sourceLookup).length,2);assert.equal(current.split(sourceRender).length,2);
@@ -345,6 +349,16 @@ test('the fresh v109 application preserves v108 after exact readiness, source an
  assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
  const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
  for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
+});
+
+test('historical program fixtures bind exact Git blobs and reject altered archive bytes',async()=>{
+ assert.equal(V108_HISTORICAL_COMMIT,'f5ec5db6b21663b1e5f97217069bb08590d7f667');
+ const raw=await fs.readFile(new URL('tooling/tests/fixtures/dictionary-v108-graph/f5ec5db-programs.json.gz',root));
+ const packet=decodeHistoricalV108Archive(raw);
+ assert.equal(Object.keys(packet.files).length,17);
+ const changed=Buffer.from(raw);changed[Math.floor(changed.length/2)]^=1;
+ assert.throws(()=>decodeHistoricalV108Archive(changed),/integrity/u);
+ assert.throws(()=>decodeHistoricalV108Archive(raw.subarray(1)),/length/u);
 });
 
 test('public saved-sense restoration rejects changed, duplicated or relocated handoffs and keeps unrelated bytes',async()=>{

@@ -60,7 +60,8 @@ test('exact aliases preserve negations and distinct physical concepts',()=>{
  assert.equal(searchEverydayDictionary('车胎漏气').results[0].term,'leaking tyre');
 });
 test('two exact contaminated old Chinese heads stop producing unrelated reverse results; real neighbouring heads survive',async()=>{
- const fetchImpl=async input=>{const url=new URL(input);assert.equal(url.protocol,'file:');assert(url.pathname.includes('/vocab/data/expanded-dictionary/'));return new Response(await fs.readFile(fileURLToPath(url)),{headers:{'content-type':'application/json'}});};
+  const {isPinnedChineseRankingFixture}=await import('./helpers/chinese-ranking-fixture-asset.mjs');
+  const fetchImpl=async input=>{const url=new URL(input);assert.equal(url.protocol,'file:');assert(url.pathname.includes('/vocab/data/expanded-dictionary/')||isPinnedChineseRankingFixture(url));return new Response(await fs.readFile(fileURLToPath(url)),{headers:{'content-type':isPinnedChineseRankingFixture(url)?'application/octet-stream':'application/json'}});};
  for(const q of['小葱拌豆腐','厨用灯油']){const r=await searchExpandedDictionary(q,{fetchImpl});assert(!r.results.some(x=>['clearcut','cooking oil'].includes(x.term)),q);}
  const lamp=await searchExpandedDictionary('灯油',{fetchImpl});assert(lamp.results.some(r=>r.term==='kerosene'));assert(!lamp.results.some(r=>r.term==='cooking oil'));
  const adjective=await searchExpandedDictionary('clear-cut',{fetchImpl});assert.equal(adjective.results[0].term,'clear-cut');assert.match(adjective.results[0].partOfSpeech,/adjective/u);assert(!adjective.results[0].meaning.includes('皆伐地'));

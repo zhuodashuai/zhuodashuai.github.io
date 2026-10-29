@@ -1,12 +1,15 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=95";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=111";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
-  isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js";
+  isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=111";
+import { chineseVariantRank, chineseRankingNeedle, parseChineseRanking } from "./chinese-ranking.js?v=111";
+import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
 const MANIFEST_URL = new URL("../data/expanded-dictionary/manifest.json", import.meta.url);
+const RANKING_ROOT = new URL("../data/chinese-search-ranking/", import.meta.url);
 const BUCKETS = 128;
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
@@ -77,7 +80,7 @@ function sourceTable(value) {
   }
   return sources;
 }
-function parseManifest(payload) {
+function parseManifest(payload, integritySha256) {
   keys(payload, ["schemaVersion", "version", "counts", "sources", "english", "chinese"]);
   if (payload.schemaVersion !== 2 || !HASH.test(payload.version)) throw invalid();
   keys(payload.counts, ["records", "englishKeys", "chineseTokens"]);
@@ -95,7 +98,7 @@ function parseManifest(payload) {
     });
     if (count !== payload.counts[kind === "en" ? "englishKeys" : "chineseTokens"]) throw invalid();
   }
-  return Object.freeze({ ...payload, sources });
+  return Object.freeze({ ...payload, sources, integritySha256 });
 }
 function variant(value, sources) {
   keys(value, ["partOfSpeech", "meaning", "source"]);
@@ -174,7 +177,11 @@ function deadline(operation, timeoutMs, controller) {
   return Promise.race([operation, limit]).finally(() => clearTimeout(timer));
 }
 async function readBytes(response, maximum) {
-  if (Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
+  // Fetch exposes a decoded body while Content-Length may describe its outer
+  // HTTP gzip/br representation. Bound that header only for identity bodies;
+  // the streamed decoded bytes and exact asset digest are always checked.
+  const encoding = response.headers?.get?.("content-encoding")?.trim().toLowerCase();
+  if ((!encoding || encoding === "identity") && Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
   if (response.body?.getReader) {
     const reader = response.body.getReader(); const chunks = []; let total = 0;
     try {
@@ -192,16 +199,17 @@ async function readBytes(response, maximum) {
   if (result.byteLength > maximum) throw invalid();
   return result;
 }
-async function getJSON(url, { fetchImpl, timeoutMs, descriptor, reload = false }) {
+async function getJSON(url, { fetchImpl, timeoutMs, descriptor, reload = false, onIntegrity }) {
   const controller = new AbortController(); activeControllers.add(controller);
   const operation = (async () => {
     const response = await fetchImpl(url, { cache: descriptor ? (reload ? "reload" : "force-cache") : "no-cache", credentials: "omit", signal: controller.signal });
     if (!response?.ok) { const error = new Error(`本站扩展词典暂时读取失败（${response?.status || "network"}），请重试。`); error.code = "dictionary_network"; throw error; }
     const bytes = await readBytes(response, descriptor ? descriptor.bytes : 256 * 1024);
-    if (descriptor) {
-      if (bytes.byteLength !== descriptor.bytes || !globalThis.crypto?.subtle) throw invalid();
+    if (descriptor || onIntegrity) {
+      if (descriptor && bytes.byteLength !== descriptor.bytes || !globalThis.crypto?.subtle) throw invalid();
       const digest = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(byte => byte.toString(16).padStart(2, "0")).join("");
-      if (digest !== descriptor.sha256) throw invalid("本站扩展词典校验失败，请刷新后重试。");
+      if (descriptor && digest !== descriptor.sha256) throw invalid("本站扩展词典校验失败，请刷新后重试。");
+      onIntegrity?.(digest);
     }
     try { return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)); } catch { throw invalid(); }
   })();
@@ -214,7 +222,9 @@ async function manifestFor(client, fetchImpl, timeoutMs) {
   const startGeneration = generation;
   const loading = (async () => {
     try {
-      const parsed = parseManifest(await getJSON(MANIFEST_URL, { fetchImpl, timeoutMs: Math.min(timeoutMs, 2500) }));
+      let integritySha256;
+      const payload = await getJSON(MANIFEST_URL, { fetchImpl, timeoutMs: Math.min(timeoutMs, 2500), onIntegrity: digest => { integritySha256 = digest; } });
+      const parsed = parseManifest(payload, integritySha256);
       if (generation === startGeneration) { client.manifest = parsed; client.manifestAt = Date.now(); }
       return parsed;
     } catch (error) {
@@ -335,12 +345,75 @@ async function parallel(items, concurrency, callback) {
     while (cursor < items.length) { const item = items[cursor++]; await callback(item); }
   }));
 }
-async function chineseSearch(query, limit, context, relatedPlan = null) {
+async function rankingFor(manifest, client, fetchImpl, timeoutMs) {
+  if (manifest.version !== CHINESE_RANKING_RELEASE.dictionaryVersion) return null;
+  if (manifest.integritySha256 !== CHINESE_RANKING_RELEASE.sourceManifestSha256
+    || manifest.counts.records !== CHINESE_RANKING_RELEASE.records) throw invalid("中文检索索引与当前词典不一致，请更新后重试。");
+  if (client.ranking) return client.ranking;
+  if (client.rankingLoad) return client.rankingLoad;
+  const startGeneration = generation;
+  const controller = new AbortController(); activeControllers.add(controller);
+  const operation = (async () => {
+    const descriptor = CHINESE_RANKING_RELEASE;
+    const response = await fetchImpl(new URL(descriptor.file, RANKING_ROOT), {
+      cache: client.rankingFailed ? "reload" : "force-cache", credentials: "omit", signal: controller.signal,
+    });
+    if (!response?.ok) { const error = new Error("中文完整检索索引暂时读取失败，请重试。"); error.code = "dictionary_network"; throw error; }
+    const bytes = await readBytes(response, descriptor.bytes);
+    if (bytes.byteLength !== descriptor.bytes || !globalThis.crypto?.subtle) throw invalid();
+    const digest = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(byte => byte.toString(16).padStart(2, "0")).join("");
+    if (digest !== descriptor.sha256) throw invalid("中文检索索引校验失败，请刷新后重试。");
+    if (typeof DecompressionStream !== "function") throw new Error("当前浏览器不支持完整中文检索，请更新浏览器后重试。");
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+    const unpacked = await readBytes(new Response(stream), descriptor.uncompressedBytes);
+    if (unpacked.byteLength !== descriptor.uncompressedBytes) throw invalid();
+    let payload;
+    try { payload = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(unpacked)); } catch { throw invalid(); }
+    const value = { records: parseChineseRanking(payload, manifest) };
+    if (generation === startGeneration) { client.ranking = value; client.rankingFailed = false; }
+    return value;
+  })();
+  const loading = deadline(operation, timeoutMs, controller).catch(error => { if (generation === startGeneration) client.rankingFailed = true; throw error; })
+    .finally(() => { activeControllers.delete(controller); if (client.rankingLoad === loading) client.rankingLoad = null; });
+  client.rankingLoad = loading;
+  return client.rankingLoad;
+}
+
+function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit, offset) {
+  const matches = [];
+  for (const id of ids) {
+    const record = ranking.records.get(id);
+    if (!record) throw invalid("中文候选与词典记录不一致，请刷新后重试。");
+    if (isSupersededChineseSenseHead(record.term)) continue;
+    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    let selected = null, score = Infinity;
+    for (const item of variants) {
+      const rank = plan ? matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source) ? 0 : null
+        : chineseVariantRank(item.meaning, query);
+      if (rank !== null && rank < score) { selected = item; score = rank; }
+    }
+    if (selected) matches.push({ record, selected, score });
+  }
+  matches.sort((a, b) => a.score - b.score || a.record.id - b.record.id);
+  const page = matches.slice(offset, offset + limit), nextOffset = offset + page.length;
+  return { query, results: page.map(({ record, selected }) => ({ ...display(record, selected, manifest),
+    ...(sense ? { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense,
+      matchedExampleSenseIds: (sense.exampleSenses?.[fold(record.term)] || []).map(item => item.id),
+      matchedExampleSenseEvidence: sense.exampleSenses?.[fold(record.term)] || [] } : {}) })),
+    hasMore: nextOffset < matches.length, nextOffset, offset, total: matches.length, ranking: "global" };
+}
+
+async function chineseSearch(query, limit, context, relatedPlan = null, offset = 0) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
   const plan = relatedPlan || chineseSearchPlan(query);
   const sense = plan ? chineseSearchSense(plan.term) : null;
   const terms = relatedPlan ? plan.aliases : [plan?.term || query];
   const candidates = new Map(), loaded = new Map(), heads = chineseSearchHeads(plan?.term || query);
+  if (signal?.aborted) throw stopped();
+  // Finite reviewed head sets can be verified completely from their few
+  // existing English shards. They do not need the broad-query catalogue.
+  const ranking = relatedPlan || heads ? null : await rankingFor(manifest, client, fetchImpl, timeoutMs);
   if (signal?.aborted) throw stopped();
   if (heads) {
     // A reviewed lexical shortlist avoids spending the bounded reverse scan on
@@ -357,7 +430,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
       for (const ref of shard.lookup.get(fold(head)) || []) if (ref.kind === "canonical") candidates.set(ref.id, 0);
     }
   } else {
-    const tokenPlans = terms.map(chineseTokens);
+    const tokenPlans = terms.map(term => chineseTokens(ranking ? chineseRankingNeedle(term) : term));
     const tokens = [...new Set(tokenPlans.flat())], tokenShards = new Map();
     await parallel([...new Set(tokens.map(bucketFor))], 6, async bucket => {
       if (signal?.aborted) throw stopped();
@@ -373,7 +446,14 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
   }
   // All aliases share one bounded scan and download budget, not one per alias.
   const ids = [...candidates.keys()].sort((a, b) => candidates.get(a) - candidates.get(b) || a - b);
+  if (ranking) return globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit, offset);
+  if (!relatedPlan && heads) {
+    const records = new Map(ids.map(id => [id, loaded.get(id % BUCKETS)?.records.get(id)]));
+    if ([...records.values()].some(record => !record)) throw invalid();
+    return globallyRankedChinese(query, ids, { records }, manifest, plan, sense, limit, offset);
+  }
   const results = [], resultIds = new Map(), wholeMeaningResults = new Set(); let examined = 0;
+  const windowLimit = relatedPlan ? limit : offset + limit;
   const relatedOrder = (a, b) => terms.indexOf(a.matchedChinese) - terms.indexOf(b.matchedChinese)
     || resultIds.get(a) - resultIds.get(b);
   const freeOrder = (a, b) => Number(wholeMeaningResults.has(b)) - Number(wholeMeaningResults.has(a))
@@ -383,7 +463,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
   // looking until later candidates cannot improve the retained top results.
   const cannotImprove = id => relatedPlan && results.length > limit
     && candidates.get(id) > terms.indexOf(results.at(-1).matchedChinese);
-  while (examined < ids.length && examined < 512 && (relatedPlan || results.length <= limit)) {
+  while (examined < ids.length && examined < 512 && (relatedPlan || results.length <= windowLimit)) {
     if (signal?.aborted) throw stopped();
     if (cannotImprove(ids[examined])) break;
     const next = [], prospective = new Set(loaded.keys());
@@ -434,14 +514,16 @@ async function chineseSearch(query, limit, context, relatedPlan = null) {
           if (wholeMeaning) wholeMeaningResults.add(result);
         }
       }
-      if (plan && !relatedPlan && results.length > limit) break;
+      if (plan && !relatedPlan && results.length > windowLimit) break;
     }
     // Free substring queries may already have downloaded a whole-meaning hit
     // later in this window. Rank all its candidates before truncating, without
     // fetching another window for a better global rank or changing reviewed plans.
     if (!plan) results.sort(freeOrder);
   }
-  return { query, results: results.slice(0, limit), hasMore: results.length > limit || examined < ids.length };
+  const page = results.slice(offset, offset + limit), nextOffset = offset + page.length;
+  return { query, results: page, hasMore: (relatedPlan || page.length > 0) && (results.length > nextOffset || examined < ids.length),
+    ...(relatedPlan ? {} : { nextOffset, offset, coverage: "limited", ranking: "limited" }) };
 }
 
 /** Optional, non-transitive Chinese meaning associations; never writes cards. */
@@ -476,7 +558,7 @@ export async function preloadExpandedDictionary({ signal, fetchImpl = globalThis
 }
 
 /** Exact English/form lookup or ranked Chinese substring search, with no AI. */
-export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20 } = {}) {
+export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) throw new Error("请输入不超过 200 个字符的英文或中文释义。");
   const exactQuery = spelling(input).replace(/^["'“”‘’]+|["'“”‘’]+$/gu, "").trim();
   let query = fold(exactQuery);
@@ -485,7 +567,7 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   if (signal?.aborted) throw stopped();
   // Common phrase aliases are indexed as complete, sense-specific queries.
   // They can answer immediately, without broadening or downloading the core.
-  const everyday = searchEverydayDictionary(input, { limit });
+  const everyday = searchEverydayDictionary(input, { limit, ...(offset === undefined ? {} : { offset }) });
   if (everyday) return everyday;
   const chinese = HAN.test(query);
   if (chinese && (!/^[\p{Script=Han}\s]+$/u.test(query) || [...query].length > 50)) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
@@ -493,12 +575,13 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   if (signal?.aborted) throw stopped();
   const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 15_000;
   const count = Math.max(1, Math.min(50, Number.isSafeInteger(limit) ? limit : 20));
+  const start = Number.isSafeInteger(offset) && offset >= 0 ? Math.min(offset, 200_000) : 0;
   const client = clientFor(fetchImpl);
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
     const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery };
-    return chinese ? chineseSearch(query, count, context) : guardLegacySupplementaryResult(await englishSearch(query, context));
+    return chinese ? chineseSearch(query, count, context, null, start) : guardLegacySupplementaryResult(await englishSearch(query, context));
   })();
   return waitFor(work, signal, duration);
 }
