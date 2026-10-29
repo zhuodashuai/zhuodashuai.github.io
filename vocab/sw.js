@@ -1,4 +1,4 @@
-// Classroom senses 0009 (15 admitted rows; obligation remains staging): refresh curated meanings and exact examples.
+// Bind obligation's selected duty sense to its existing group, preserving old saved examples.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
@@ -20,6 +20,7 @@ const SHELL = [
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
   "./js/reviewed-senses-data.js",
+  "./js/selected-common-sense.js", "./js/selected-common-sense-data.js",
   "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",
   // Directory metadata only: preserve previously visited delta URLs across an
   // app update. Unvisited example/source shards are never installed in bulk.
