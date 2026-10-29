@@ -16,6 +16,19 @@ test("runtime fixture transports permit only the pinned local ranking binary", (
   }
 });
 
+test("ranking gzip uses the portable OS marker without changing its payload", async () => {
+  const bytes = await readFile(new URL(`../../vocab/data/chinese-search-ranking/${CHINESE_RANKING_RELEASE.file}`, import.meta.url));
+  assert.equal(bytes[9], 255, "Build-host metadata must not change the content-addressed filename");
+  const payload = gunzipSync(bytes), normalizedHashes = new Set();
+  for (const os of [0, 3, 10, 11, 255]) {
+    const encoded = Buffer.from(bytes); encoded[9] = os;
+    assert.deepEqual(gunzipSync(encoded), payload);
+    encoded[9] = 255;
+    normalizedHashes.add(createHash("sha256").update(encoded).digest("hex"));
+  }
+  assert.deepEqual([...normalizedHashes], [CHINESE_RANKING_RELEASE.sha256]);
+});
+
 test("Chinese ranking sidecar is fresh, hash-bound, and lossless for every canonical source variant", async () => {
   const release = await buildChineseSearchRanking({ check: true });
   assert.deepEqual(release, CHINESE_RANKING_RELEASE);

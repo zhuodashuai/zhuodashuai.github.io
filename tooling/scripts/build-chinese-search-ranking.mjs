@@ -30,6 +30,9 @@ export async function buildChineseSearchRanking({ root = ROOT, check = false } =
   if (canonical.size !== manifest.counts.records) throw new Error("Canonical dictionary count drift.");
   const payload = { schemaVersion: 1, dictionaryVersion: manifest.version, records: [...canonical.values()].sort((a, b) => a[0] - b[0]) };
   const uncompressed = Buffer.from(`${JSON.stringify(payload)}\n`), compressed = gzipSync(uncompressed, { level: 9 });
+  // RFC 1952 permits 255 (unknown) for OS. Keep this metadata independent of
+  // the build host so Windows and Linux produce the same hashed artifact.
+  compressed[9] = 255;
   // A .bin representation avoids HTTP servers treating the file suffix as a
   // Content-Encoding instruction and transparently decoding our hashed body.
   const digest = sha(compressed), filename = `${digest}.bin`;

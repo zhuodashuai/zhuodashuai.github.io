@@ -4,8 +4,8 @@ export const CHINESE_RANKING_RELEASE = Object.freeze({
   "dictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
   "sourceManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
   "records": 102609,
-  "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/9ec0448bf042a731eeb3be7a8a7c4be6d857c8ce6b2712f1b9c880093e11568a.bin",
-  "sha256": "9ec0448bf042a731eeb3be7a8a7c4be6d857c8ce6b2712f1b9c880093e11568a",
+  "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/f301d17c9217cfd2d27d0fdaaf454cd4b9a917793d5e6362ee34b56f0119c389.bin",
+  "sha256": "f301d17c9217cfd2d27d0fdaaf454cd4b9a917793d5e6362ee34b56f0119c389",
   "bytes": 3508216,
   "uncompressedBytes": 11028510
 });
