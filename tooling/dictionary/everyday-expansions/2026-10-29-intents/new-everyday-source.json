@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "kind": "author-only-new-everyday-entry-proposal",
+  "author": "AI/canonical-0005-everyday-intent-gap-author",
+  "exampleSource": "原创学习例句",
+  "entries": [
+    {
+      "term": "pick up a parcel",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 领取包裹；收件人到指定地点取走自己的快递包裹。这里指收件人取件，区别于快递员上门收取寄件人的待寄包裹。",
+      "chineseAliases": [
+        "快递取件",
+        "领取快递",
+        "领取包裹",
+        "取快递"
+      ],
+      "englishForms": [],
+      "en": "I'll pick up my parcel from the collection point after class.",
+      "zh": "下课后，我会到取件点领取自己的包裹。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/pick-up",
+        "https://developer-docs.shipping.amazon.com/apis/docs/tutorial-deliver-to-counter-via-amazon-shipping"
+      ],
+      "exampleSource": "原创学习例句"
+    },
+    {
+      "term": "request time off at short notice",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 临时请假；在距拟休假时间很短时才提出请假请求。这个表达不限定请假原因，也不表示申请已经获准。",
+      "chineseAliases": [
+        "临时请假",
+        "临时申请休假",
+        "临近休假时间才请假"
+      ],
+      "englishForms": [],
+      "en": "I had to request time off at short notice to deal with an urgent repair at home.",
+      "zh": "为了处理家里的紧急维修，我不得不临时请假。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/time-off",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/notice_2"
+      ],
+      "exampleSource": "原创学习例句"
+    },
+    {
+      "term": "my phone has run out of charge",
+      "partOfSpeech": "expression",
+      "meaning": "① 我的手机没电了，指手机电池的电量已经耗尽；不表示手机损坏或无法修复。使用时可按说话对象和时态调整人称、时态。",
+      "chineseAliases": [
+        "手机没电了",
+        "我的手机没电了",
+        "手机电量耗尽"
+      ],
+      "englishForms": [],
+      "en": "My phone ran out of charge while I was waiting for the bus.",
+      "zh": "等公交车时，我的手机没电了。",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/charge_1"
+      ],
+      "exampleSource": "原创学习例句"
+    }
+  ]
+}

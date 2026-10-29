@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "696a5dccb64049c6bdee05c61487e736c95eb3c9c5fa61d8dd9c5ad3a79d9596",
+  "reviewer": "AI/everyday-examples-continue-independent-reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "pickup code",
+    "hand sanitizer"
+  ],
+  "exactAllowedChanges": [
+    {
+      "term": "pickup code",
+      "oldRowSha256": "6a4c826e4bb818c385e8331ca7e07461d51a6d557da266723c4e314f5a972754",
+      "proposedRowSha256": "d079df18ded58d29185f0fd70575b093416c7eb6192d8a71c8f8da0ca1cbea5c",
+      "onlyAllowedField": "chineseAliases",
+      "onlyAllowedAppend": [
+        "取件码"
+      ],
+      "preservedPairSha256": "d83c30b4dc6b4353c91da767ebb442391510705f0673f9ce882fb6cc3cc27bf7"
+    },
+    {
+      "term": "hand sanitizer",
+      "oldRowSha256": "3427e9ebd4447a032b4249b282bd6bb6a184932b4e385e721e51905589e49e9e",
+      "proposedRowSha256": "eabffb42b11529731842fb84341e22052e506c639b311930f41401fe9bb52e9f",
+      "onlyAllowedField": "chineseAliases",
+      "onlyAllowedAppend": [
+        "手消毒液"
+      ],
+      "preservedPairSha256": "f988272876eea193c0a1636f573d020dd88cbb402763b64bb0e677a4b4d08ee6"
+    }
+  ],
+  "issues": []
+}

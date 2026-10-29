@@ -1,6 +1,7 @@
 // Preserve classroom senses 0009 and bind obligation's selected duty sense, retaining old saved examples.
 // Chinese ranking and pagination 2026-10-29: refresh search while preserving warmed dictionary data.
 // Refresh the decoded-body size check for HTTP-compressed ranking assets.
+// Translation precision 0014: refresh five reviewed Chinese example translations.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
@@ -27,6 +28,8 @@ const SHELL = [
   "./js/canonical-example-repairs-data.js",
   "./js/everyday-lookup.js", "./js/everyday-lookup-data.js",
   "./js/dictionary-example-corrections.js", "./js/dictionary-example-corrections-data.js",
+  "./js/selected-legacy-examples.js", "./js/selected-legacy-examples-data.js",
+  "./js/example-source-label.js",
   "./js/reviewed-senses-data.js",
   "./js/selected-common-sense.js", "./js/selected-common-sense-data.js",
   "./js/dictionary-examples-additive.js", "./js/dictionary-examples-additive-codec.js",

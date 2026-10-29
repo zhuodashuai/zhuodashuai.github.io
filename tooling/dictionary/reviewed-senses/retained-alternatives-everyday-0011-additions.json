@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "painkiller",
+      "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6",
+      "selectedRowSha256": "6a1452015854acabe695625cb0a2ec2b11d93199ba68b505b0e39578fec86058",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 解痛药, 止痛片, 止痛药",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete noun tuple lists synonymous pain-relief medicines. Keep every old phrase whole; new own definition covers that role.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/painkiller"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "allergy",
+      "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728",
+      "selectedRowSha256": "ec37cbd69fc33c28652c26efd1e943c32065adfc3c75c818989b510bca80405e",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both complete core and MIT noun tuples include altered/abnormal reactivity and figurative aversion. Publisher entries independently attest both. Do not drop the aversion role merely because the new pair demonstrates a medical allergy. The [化] tag is retained verbatim as inherited editorial context, not certified as an exclusive modern discipline classification.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/allergy",
+        "https://www.merriam-webster.com/dictionary/allergy",
+        "https://www.collinsdictionary.com/dictionary/english/allergy"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "toilet paper",
+      "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338",
+      "selectedRowSha256": "06a5c9595014c9b63ac58f834260fb42e7a1923004081216b5c6a483c4b87f4a",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "卫生纸, 草纸",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Keep the entire noun tuple. Its 草纸 gloss is read here in the old toilet-paper use; this is not a promise that all coarse paper is toilet paper.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/toilet-paper"
+      ],
+      "usageNote": "旧释“草纸”在这里按厕用纸的旧称理解，不泛指所有粗糙纸张。",
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "hairdryer",
+      "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0",
+      "selectedRowSha256": "88896492eb983ffd9c968bd160cbe0359bc2c0cf33b26fc5605b70f614c251a7",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. （吹干头发的）吹风机",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the entire MIT noun tuple: a device specifically for drying hair. Alternate independent heads hair dryer/hair drier are preserved separately, not appropriated as this new head’s forms.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/hairdryer"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    }
+  ]
+}

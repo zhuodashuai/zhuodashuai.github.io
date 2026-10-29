@@ -31,7 +31,8 @@ async function card(page, term) {
 async function expectExamples(page, term) {
   const view = sidecar(page), row = examples.get(term);
   await expect(view).toHaveAttribute("data-term", term);
-  await expect(view.locator(".dictionary-learning-source")).toHaveText(DICTIONARY_EXAMPLE_SOURCE);
+  expect(DICTIONARY_EXAMPLE_SOURCE).toBe("原创例句·AI复核（精选义项）");
+  await expect(view.locator(".dictionary-learning-source")).toHaveText("原创学习例句");
   await expect(view.locator(".dictionary-learning-note")).toHaveText("以下为独立学习例句，按各自词性和义项阅读，不是书中原句。");
   await expect(view.locator(".dictionary-learning-sense")).toHaveCount(row.senses.length);
   for (const [index, sense] of row.senses.entries()) {

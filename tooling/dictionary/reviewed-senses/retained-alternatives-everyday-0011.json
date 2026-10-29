@@ -1,0 +1,935 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "VAT",
+      "canonicalSourceSha256": "4427817026d0d42a27d7f2d73a260b62280c5bfa080e6f363e7ea5c5a792fbf8",
+      "selectedRowSha256": "6449ad71c8405eb6d406d34ea88cf34ab998e340055f0e865b2cdfeb4f85f943",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 大桶\nvt. 装入大桶, 在大桶里处理",
+          "source": "core"
+        }
+      ],
+      "reason": "The lower-case vat noun and transitive verb are directly verified as vessel and putting/treating in a vat. Preserve separately from capital VAT tax. Retained old form vats must never gain the tax meaning.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/vat"
+      ],
+      "usageNote": "普通名词 vat 的大桶及装桶用法，区别于税种缩写 VAT。"
+    },
+    {
+      "term": "BSC",
+      "canonicalSourceSha256": "917498f2bf18c0b9831b910ebb6e26d313d8cb6adc656738576909f6d35f3010",
+      "selectedRowSha256": "0e730d8ff92aed9ab59ee4c75328577ee7f208a3a32127f4ce00300d0ceabf29",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 商学士（Bachelor of Science in Commerce）",
+          "source": "mit"
+        }
+      ],
+      "reason": "B.S.C. is explicitly listed as Bachelor of Science in Commerce, separately from BSc Bachelor of Science. The current Chinese Commerce degree gloss has a defensible distinct expansion; do not erase it through case folding.",
+      "references": [
+        "https://www.dictionary.com/browse/bsc"
+      ],
+      "usageNote": "这里的缩写展开为 Bachelor of Science in Commerce，指商科相关学位。"
+    },
+    {
+      "term": "clicker",
+      "canonicalSourceSha256": "75db89f24345878d68883c7406a6b9c5e3cf9b8e1ce55c732b161f988703adad",
+      "selectedRowSha256": "8b9178b4a0b676b2dfe03e75f2b02b6fcd7724df3d50afaf76f7ca6ffb149f04",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 鞋匠工头, (英)排字工头",
+          "source": "mit"
+        }
+      ],
+      "reason": "Collins explicitly lists an informal foreman in a shoe factory or printing works. The whole existing noun tuple is supported and is distinct from the hand-held classroom device.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/clicker"
+      ],
+      "usageNote": "非正式的工厂或印刷行业用语，指工头。"
+    },
+    {
+      "term": "hansom",
+      "canonicalSourceSha256": "163519eee7fb6b97f0e75297e73437ce14a061dcce848910693f758c705d4555",
+      "selectedRowSha256": "84e69a538378fadbaa6d170e56a4eaf3fd7460cb445c8676110cbd6df9c40ab1",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "proper noun",
+          "meaning": "汉瑟姆(姓氏)",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Hansom is a verified surname, including cab inventor Joseph Hansom in the Science Museum record. The capitalised surname must remain distinguished from the common-noun cab sense.",
+      "references": [
+        "https://collection.sciencemuseumgroup.org.uk/objects/co25602"
+      ],
+      "usageNote": "姓氏，通常首字母大写为 Hansom。"
+    },
+    {
+      "term": "chippie",
+      "canonicalSourceSha256": "e5db8baa5634d79d1766726cc5796a2547c553557e7acfa56c05fe7aeac623db",
+      "selectedRowSha256": "0365636f794fc1ef9601154e600b59b376e5a2f631af698b78f17904c88ea3bd",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 荡妇, 娼妓",
+          "source": "mit"
+        }
+      ],
+      "reason": "The US person senses are documented separately from the British chip shop. Preserve only with explicit US/slang/derogatory context in the display; neither person sense is a shop synonym.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/chippie",
+        "https://www.dictionary.com/browse/chippy"
+      ],
+      "usageNote": "美式旧俚语，含贬义或冒犯意味，不宜随便用来称呼他人。"
+    },
+    {
+      "term": "galumph",
+      "canonicalSourceSha256": "a9dd9651b99f1bb2bf912b2b745b0ef59d6d6c355233f7312016e1af545fe3bf",
+      "selectedRowSha256": "5a890fd8bb5ed14d240fe80ecdd4785c070df9012b84706383c5be7239dcc561",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vi. 得意扬扬地行进",
+          "source": "mit"
+        }
+      ],
+      "reason": "Collins records a now-rare intransitive triumphant/self-satisfied movement sense, separately from heavy clumsy movement. The old definition is not wholly wrong and must not be silently removed.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/galumph"
+      ],
+      "usageNote": "较少见或旧式用法，表示得意扬扬地行进。"
+    },
+    {
+      "term": "DCF",
+      "canonicalSourceSha256": "cbce30bf9ff5a38d07fdec21f6241b3faf83d3666cddac19de22a46c14e22399",
+      "selectedRowSha256": "791fd63718157dd2daff1491e7fd6219060f9206fa1e5ea1627e785b11116d54",
+      "author": "AI/quality-followup-author-a",
+      "reviewer": "AI/quality_release_capacity",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "[医] 直接离心浮选[法]",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "A primary Warwick thesis explicitly defines and discusses Direct Centrifugal Flotation (DCF). The old medical procedure meaning can remain separate from finance; its existing noun label denotes the named method.",
+      "references": [
+        "https://wrap.warwick.ac.uk/168140/1/WRAP_Theses_Morgan_2003.pdf"
+      ],
+      "usageNote": "医学或寄生虫检验用语，与财务上的折现现金流缩写分开。"
+    },
+    {
+      "term": "stablemate",
+      "canonicalSourceSha256": "f3157e7976ca0d4b023ab7dfa9ec6fd91baaccfd2952906ec0d2ff981753700f",
+      "selectedRowSha256": "9ddce35499c8c66e2d3aa9b196be984aaa751e1b76db5f4dba6b42a2fa7f4663",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 受雇于同一老板的拳击手",
+          "source": "mit"
+        }
+      ],
+      "reason": "原名词释义所指的拳击手同属一位经营者或经理，是 stablemate 的有效引申义；与本次新写的同厩马义不同，保留来源选项。MW 的 stablemate 第二义指 stable 的成员，stable 明列同一管理下的拳击手；Collins 与拳击器材商自己的术语表相互支持。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/stablemate",
+        "https://www.merriam-webster.com/dictionary/stable",
+        "https://www.collinsdictionary.com/dictionary/english/stablemate",
+        "https://www.titleboxing.com/pages/boxing-dictionary"
+      ]
+    },
+    {
+      "term": "presidentially",
+      "canonicalSourceSha256": "5e535c6a6438dbbde849dab5bedcc41cb66102801313463c01390689784fb6b6",
+      "selectedRowSha256": "09eb24ac241670b4c0b8c0a614fa95513ad58eedd39ba63bfb3eb4a2bb485c11",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "以总统[议长、校长等]的资格",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "原副词释义是以 president 身份行事；MW 的精确 presidentially 词条明确该身份义，其 president 条目另列会议主持者、机构负责人、college president 与国家元首，因此原完整括注可以保留。该身份义不等同本次新例句的总统风范方式义。",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/presidentially",
+        "https://www.merriam-webster.com/dictionary/president"
+      ]
+    },
+    {
+      "term": "uni",
+      "canonicalSourceSha256": "1b6ac8382f0cc7774cbe3d45bf999b7e30e6773c9cf6548d853d61377bed6ed8",
+      "selectedRowSha256": "226a276857363f2b97a190597c5ff29988a5ae3b3708f8f1ce5e7985e6751c48",
+      "author": "AI/root-example-followup-b",
+      "reviewer": "AI/next_quality_inventory",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "abbreviation",
+          "meaning": "abbr. 印度联合新闻社（United News of India）",
+          "source": "mit"
+        }
+      ],
+      "reason": "UNI 是 United News of India 的确立简称，原 abbreviation 词性和整个机构名称释义有效。机构自己发布的 About UNI 明确该全称和缩写。它与本次英式口语 university 义不同，保留原来源选项，不宣称大学例句覆盖新闻社义。",
+      "references": [
+        "https://test.uniindia.com/aboutus.aspx"
+      ]
+    },
+    {
+      "term": "garnish",
+      "canonicalSourceSha256": "8ff6fc4c372201c6b32a36765fa6db1fc404da4772d2415c3992aea0b1bf8998",
+      "selectedRowSha256": "ed66548fb38c8f2db2837a370b51eaef334b9760feb513a12b57746fc0f7d163",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 装饰, 装饰品\nvt. 装饰",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read the complete noun/verb decoration tuple. Merriam-Webster separately attests a decorative object or embellishment and the verb decorate, so both components of the unchanged MIT tuple can remain alongside the new legal verb.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/garnish"
+      ]
+    },
+    {
+      "term": "grand",
+      "canonicalSourceSha256": "39958c121bff39b0fa6bb1fc6a3b83d550bb6d4f9998fbeffd755e807dbfe081",
+      "selectedRowSha256": "291193daff75d1a68d72e7d1bb08395c25a43d001db4c31b0b978adcfaf5c7d5",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的\n[法] 重大的, 主要的, 伟大的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 庄重的, 壮观的, 显赫的, 重大的, 最高的, 雄伟的, 宏大的, 豪华的, 傲慢的\n[法] 重大的, 主要的, 伟大的",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read both identical core/MIT adjective tuples, including their legal-marked tail. Grand covers impressive scale and splendor, dignity, distinction, importance or high rank, and haughty self-importance. These are separate adjective uses; the bracketed label does not establish an exclusive legal technical sense.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/grand"
+      ],
+      "usageNote": "这里保留原有形容词用法；金额名词的复数仍用 grand，grander、grandest 属于形容词变化。"
+    },
+    {
+      "term": "dedicated",
+      "canonicalSourceSha256": "3943bd09769de008c71447ca4d9035648d29ebebcf24cbc3d345c5b6320fad7e",
+      "selectedRowSha256": "f0455852aeaf2f24b6e9af976661ffc91a08a9dd4e7411a222fe316434d4bbae",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 专注的, 献身的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 专注的, 献身的",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both complete adjective tuples describe commitment or devotion and are supported as adjective uses about people or their commitment. They are valid distinct alternatives to the selected object-purpose sense.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/dedicated"
+      ],
+      "usageNote": "形容人时还可表示专注、投入或献身；这里与专用于某项用途的意思分开。"
+    },
+    {
+      "term": "substantially",
+      "canonicalSourceSha256": "0010fe705181b0fe611b10e34b857187b6dd559a80c8cbff0efe3902d6558ca6",
+      "selectedRowSha256": "27014374b458acf05263b5981c9d701a5067d56b0c4de9c03000c52f32d263aa",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 实质上, 本质上, 大体上",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "adv. 实质上, 本质上, 大体上",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both full adverb tuples cover the essential/mostly sense, not only degree. Collins distinguishes largely correct or unchanged from large amounts of change. The old Chinese glosses are context-dependent paraphrases of the former.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/substantially"
+      ],
+      "usageNote": "也可表示大体上、实质上；大幅增加与大体相同须按语境区分。"
+    },
+    {
+      "term": "precipitous",
+      "canonicalSourceSha256": "4b15b8855e288671e6d2405f506367fc8ec2e5affb254bb20208b626bc688e65",
+      "selectedRowSha256": "4ac451e596e159b318c317bd583bf5a5a5772c6fbdcac033c6845b4d80d79282",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 陡峭的, 轻率的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The entire old adjective tuple has two components: steep and hasty/rash. Collins attests both and explicitly records disagreement over the hasty use. Retention is acceptable with that caveat; it is not certification that the original example illustrates every component.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/precipitous"
+      ],
+      "usageNote": "另有陡峭义；表示轻率、仓促行动的用法虽有收录，但存在用法争议。"
+    },
+    {
+      "term": "mandate",
+      "canonicalSourceSha256": "6bdcafcd9534b0f4720488905c14d511e653d6ff476ae4426209c81a4ddc5731",
+      "selectedRowSha256": "b62b3a108512f804f7ab6fe099becfbfc29950829e7c5b39b4b73ce389388b37",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 命令, 指令, 要求\nvt. 委任统治",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete noun/verb tuple is supported: command or authoritative instruction as noun, and assigning a territory under the historical League of Nations mandate as verb. The historic role is not a contemporary synonym for every act of requiring.",
+      "references": [
+        "https://www.ahdictionary.com/word/search.html?q=mandate"
+      ],
+      "usageNote": "命令、指令是名词用法；委任统治属于历史语境，与正式强制要求分开。"
+    },
+    {
+      "term": "provision",
+      "canonicalSourceSha256": "9069eb8846b0274ee28d93d437ccce1bce23b540d7ade85143d112f80d6b12c8",
+      "selectedRowSha256": "ea7e906f26bcee83b8fac78df8fb8bb74e3ea8f13945475f0385f4cfdaddbb19",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. (政府提供的)钱和设备, 准备, 供应品, 规定, 条款\nvt. 供给...食物及必需品",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. (政府提供的)钱和设备, 准备, 供应品, 规定, 条款\nvt. 供给...食物及必需品",
+          "source": "mit"
+        }
+      ],
+      "reason": "I read both complete mixed-POS tuples. They cover supplied resources, advance preparation, supplies, formal conditions/clauses, and supplying food or necessities as verb. These are attested. Government money/equipment is a context in which resources are supplied, not an exclusive provider restriction.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/provision",
+        "https://dictionary.cambridge.org/dictionary/english/provision"
+      ],
+      "usageNote": "供应品通常用复数 provisions；条款、预先作安排及提供食物的动词义须分开理解。"
+    },
+    {
+      "term": "alumni",
+      "canonicalSourceSha256": "4a0bb26830400553bc70486cbf46f6b49cb490ce1dd920426cb617db137a854c",
+      "selectedRowSha256": "f5e7a9591d772f07512cd9d2c4de922f113526812ee40654d8298af5303a9482",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "pl. 男毕业生, 男校友",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "The full pos-reviewed noun tuple names the traditional male plural of alumnus and remains valid for that scope. The Wisconsin primary style guide confirms the male plural and also mixed-gender alumni; retaining the male case must not make it an exclusive restriction.",
+      "references": [
+        "https://editorial-styleguide.strategiccommunication.wisc.edu/term/alumn/"
+      ],
+      "usageNote": "原释保留传统男性复数用法；现代 alumni 也常指不同性别组成的校友群体。"
+    },
+    {
+      "term": "default",
+      "canonicalSourceSha256": "771d9a8f1091ee5f0a1b1eedcc8b46d83644107cf3d1f679efa608d4a168dfdc",
+      "selectedRowSha256": "f98bd42c7fa4b332886a8e788068a05c8c736806742d78a84b5921eff8caebf2",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 违约, 不履行责任, 缺席, 默认值\nv. 疏怠职责, 缺席, 拖欠, 默认\n[计] 默认; 默认值; 缺省值",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 违约, 不履行责任, 缺席, 默认值\nv. 疏怠职责, 缺席, 拖欠, 默认\n[计] 默认; 默认值; 缺省值",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both full mixed-POS tuples are supported for failure of obligation/payment/appearance and the automatic preset or fallback choice/value, including technical uses. Their noun and verb components are separately attested and remain valid beyond the selected shared-desk arrangement.",
+      "references": [
+        "https://www.collinsdictionary.com/us/dictionary/english/default"
+      ]
+    },
+    {
+      "term": "bargain for",
+      "canonicalSourceSha256": "a17c2085f5f18e29a5ef26bf038d66b45ddf45646773e7aa17888c12dc723cff",
+      "selectedRowSha256": "0c3378aacdb110b9949a20ed25ada20ee82685285d3d2eb41da07f6ec0302893",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "指望, 想以廉价买",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "I read the complete expectation/cheap-purchase tuple rather than approving only its first half. Collins specifically attests expect/count on and try to get cheaply for bargain for. Both can remain as alternatives to negotiating for employment or contract terms.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/bargain-for",
+        "https://dictionary.cambridge.org/us/dictionary/english/bargain"
+      ]
+    },
+    {
+      "term": "strike it rich",
+      "canonicalSourceSha256": "731539ab88ccda0e437ebdb57353b9f45091238a04a215360c74e8e03f048515",
+      "selectedRowSha256": "03595528cc36ae4feac4b712178231cf9be1780372db2603853700793342677b",
+      "author": "AI/common-class-vocabulary-author",
+      "reviewer": "AI/canonical_0005_review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "走运, 发现丰富的矿藏",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "The full original tuple is acceptable only with financial context for 走运: Collins attests rich mineral/oil discoveries and sudden or unexpected financial success. It does not support replacing the idiom with general luck in unrelated matters.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/strike-it-rich"
+      ],
+      "usageNote": "这里的走运指意外取得财务成功；发现富矿是传统用法，不泛指任何好运。"
+    },
+    {
+      "term": "data",
+      "canonicalSourceSha256": "bc6c8f524da90140cd24422041b7c20d3c782a8d741bf9f1cc658cc9e91194dd",
+      "selectedRowSha256": "834a085a709e27e4a94defe0fc0741db82eac0a8f1513ad85a085e784687d1a5",
+      "author": "AI/common-lexical-sense-repair-author",
+      "reviewer": "AI/canonical-0004-lexical-v7",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun (plural or uncountable)",
+          "meaning": "1. noun (plural or uncountable)：数据；用来分析、推理或计算的信息。传统上是 datum 的复数，正式科研中可配复数动词；现代日常及计算机语境也常作不可数名词配单数动词。两种用法都存在，写作时宜保持一致。",
+          "source": "original"
+        }
+      ],
+      "reason": "The complete unchanged project-original noun tuple accurately explains information for analysis, reasoning or computation, traditional datum-plural agreement, and established modern mass-noun agreement. Both agreement choices are legitimate and independently illustrated by the preserved original examples. Retain this exact whole original tuple and its original source descriptor; do not retain or prune the separate core/MIT date-command tuples.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/data",
+        "https://dictionaryblog.cambridge.org/2020/05/13/gathering-compiling-and-analyzing-talking-about-data-1/"
+      ]
+    },
+    {
+      "term": "infirm",
+      "canonicalSourceSha256": "59467fd77ea72a548b50469b6170f130b184e6bd8d32d6485a6925fc6fadd03f",
+      "selectedRowSha256": "2c4fe6eddcbb348b643987ddd6933cb7a3e9b403aa8f28cc88e8a6b040ae9dc6",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 弱的, 虚弱的, 柔弱的\n[医] 衰弱的",
+          "source": "mit"
+        }
+      ],
+      "reason": "All old adjective fields 弱的/虚弱的/柔弱的/[医]衰弱的 are compatible weak/frail bodily meanings. Retain the complete unchanged MIT tuple, including the medical line, not only a selected synonym.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/infirm"
+      ]
+    },
+    {
+      "term": "caesarean section",
+      "canonicalSourceSha256": "786f0b22e2fbcb52750c3dee795a779c22a4bd5e0ef73ef59c30187b66aa2628",
+      "selectedRowSha256": "b7f0bb8672c7c6ad5690e85cbc37a699681992e9cb1171d4914c0c21482f0d60",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "剖腹产",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Retain the complete pos-reviewed noun tuple 剖腹产. The separately licensed MIT variant has an empty native POS; preserve that exact variant for audit but do not invent noun metadata or submit an empty POS to the strict policy schema.",
+      "references": [
+        "https://www.nhs.uk/tests-and-treatments/caesarean-section/"
+      ]
+    },
+    {
+      "term": "illegible",
+      "canonicalSourceSha256": "1394b898849de5d843aba424a7690aea7ef50d556f4015a61d96c247d5435886",
+      "selectedRowSha256": "bc81d3ced8b8fa68766a36a65efcc95a650be42bc60cba5125f54c4ca609d02f",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 难辨认的, 字迹模糊的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old 难辨认的/字迹模糊的 adjective tuple is compatible with unreadable writing. Keep it whole with the original MIT source fields.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/illegible"
+      ]
+    },
+    {
+      "term": "compatible",
+      "canonicalSourceSha256": "92369be48e334f5ec6fb558b97a1cb0d6eca7864b2feb6c507234e8d94e74f17",
+      "selectedRowSha256": "f575595c6f6ba41f01fecce1cba49a6a49a87cd68a1fca6cd7a2e15f230270c1",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+          "source": "mit"
+        }
+      ],
+      "reason": "Retain both complete core and MIT tuples: 能共处/可并立/适合 and the full computing 相容/兼容 line. These remain legitimate roles alongside the new interpersonal example; no computing field is pruned or represented as demonstrated by that example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/compatible"
+      ]
+    },
+    {
+      "term": "iffy",
+      "canonicalSourceSha256": "3db4b0871bee20915826dc1e49a483d2384ad3dd433d93b4fac3632d33c8d3f2",
+      "selectedRowSha256": "bcc58b1eb11ee621b3f7ff6d69f88ec3318a2728728bc58ea1fb7d8fb5badb32",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 富于偶然性的, 可怀疑的, 未确定的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The whole 富于偶然性的/可怀疑的/未确定的 adjective tuple is compatible with chancy or uncertain/questionable conditions. Retain all words under the original MIT attribution.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/iffy"
+      ]
+    },
+    {
+      "term": "dicey",
+      "canonicalSourceSha256": "46d33acafbdd6761513ea38fe22585c63631098127a7e33120b83b66157d305d",
+      "selectedRowSha256": "5cf6664c6a25e3232e1d95df6ff794b112b8151d773b0cf1cde92c77b87c2c58",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 不确定的, 危险的, 冒险性的",
+          "source": "mit"
+        }
+      ],
+      "reason": "All old fields 不确定的/危险的/冒险性的 describe the legitimate chancy/risky adjective. Retain the complete MIT tuple, not a danger-only extraction.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/us/definition/english/dicey"
+      ]
+    },
+    {
+      "term": "fine print",
+      "canonicalSourceSha256": "540d4f80bd74e61c20b3ba1c1a5fbe386b188fdb2ff93850f2ccd53a9431bf3e",
+      "selectedRowSha256": "6645e9cd0a03a49d2af2571909de8d37a365f5bfd18a5a2aa281f8173b1db09e",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review",
+      "independentOfAuthor": true,
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 极小的字体, （契约中）难懂的条文",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old tuple includes both very small type and obscure contractual clauses, both supported by publisher definitions. Keep both whole fields and original MIT attribution rather than retaining only 小字.",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/fine-print?topic=information-and-messages",
+        "https://www.merriam-webster.com/dictionary/fine%20print"
+      ]
+    },
+    {
+      "term": "feasible",
+      "canonicalSourceSha256": "a17475c89f9ece1aa1de412fd499740a6dd00b4762fbc634582145e66e3794ab",
+      "selectedRowSha256": "5307f14c04ffe772add0c7cd15b68a3dbd3eed1330662effadfc88c21ad2272a",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能实行的, 可行的, 适宜的\n[法] 可行的, 可执行的, 可完成的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能实行的, 可行的, 适宜的\n[法] 可行的, 可执行的, 可完成的",
+          "source": "mit"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "① 可行的；在实际条件下有可能做成的。",
+          "source": "public"
+        }
+      ],
+      "reason": "Keep whole core, MIT and public adjective tuples. The publisher separately supports practicality, suitability and plausibility; every inherited legal/executable/completeable phrase remains an ordinary workable/capable meaning, not a new legal rule.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/feasible"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "preemptively",
+      "canonicalSourceSha256": "c8ea1fd65e5c2228f5c35edf2d8dae348fe5747be438c8de07d7e88afd93f56a",
+      "selectedRowSha256": "72e7729ddb7218798d79688a5d067e775a1dfbaecd5809ff84e868f7c9465deb",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "先发制人地",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Keep the complete pos-reviewed adverb main tuple. The empty-POS MIT variant remains separate and unapproved; no adjective/adverb label is manufactured for it.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/preemptively",
+        "https://dictionary.cambridge.org/us/dictionary/english/pre-emptively?topic=planning-expecting-and-arranging",
+        "https://dictionary.cambridge.org/dictionary/learner-english/pre-empt"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "nominate",
+      "canonicalSourceSha256": "f93216e0e29492c03a82190181fde40a8510b9e0f9c44799fcd0b0592404b678",
+      "selectedRowSha256": "2b904b0ccd3cab7dfbb0c33cdfe23ed1d228f9a07370a13a81095b3cfa268073",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 提名, 任命, 命名\n[法] 提名...为候选人, 指定, 推荐",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 提名, 任命, 命名\n[法] 提名...为候选人, 指定, 推荐",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both whole core and MIT verb tuples cover nomination, appointment, naming, designation and recommendation. All are represented by the new owned definitions; the example demonstrates only the designation/beneficiary role.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/nominate",
+        "https://www.merriam-webster.com/dictionary/nominate"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "conceive",
+      "canonicalSourceSha256": "2c8cc2a1c345ddeb87d1fa2863750bdff0e4da1f884b1e58929ab7af9eebecfd",
+      "selectedRowSha256": "7c9b37343b17f9e4c68f7f3684f290ec2021ea1d640092ffbbfe2abd978ed95f",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 构思, 认为\nvi. 怀孕",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 构思, 认为\nvi. 怀孕",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep both complete core and MIT verb tuples, including the entire transitive mental-role line and intransitive pregnancy line. The new pregnancy example does not invalidate the old design example or certify all roles by itself.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/conceive"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "squabble",
+      "canonicalSourceSha256": "ddf6381aef9c65adc319871a5449158b2e0cf88ce0babf4f5df0b935182798bd",
+      "selectedRowSha256": "d0f7b0db1a78080dd922ea7ab4da6842528ecc33609e9dee4f0d854bbc87c9e5",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb · noun",
+          "meaning": "vi. 争吵, 口角\nn. 争吵, 口角",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the entire MIT verb+noun tuple, both lines intact. New definitions preserve both grammatical roles; the new pair demonstrates the noun while the old pair remains a valid verb example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/squabble"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "litigator",
+      "canonicalSourceSha256": "eea5015298e2af0a8dd131846b944589609f7cdbe52568df7e1172abbb7e4acb",
+      "selectedRowSha256": "34ef71e2f95911ff9aac50ce4caa1876058718777977f89d820d48f59bac3916",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 诉讼律师",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old noun tuple 诉讼律师 is directly supported by Collins. The new wording also preserves the broader participant-in-litigation role found in Oxford/Merriam-Webster.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/litigator",
+        "https://www.merriam-webster.com/dictionary/litigator",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/litigator"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "sustenance",
+      "canonicalSourceSha256": "f4cb44142abf2509d64959c40064330ad780e894b49ac187a859e8d0c07104ee",
+      "selectedRowSha256": "ecd78e9fdfb1e822f28753c41a7521c59117480aef4c687cb910bb70fb4b562a",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 生活资料, 生计, 食物, 支持\n[法] 营养物, 维持, 支持",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep every word of the whole MIT noun tuple, including living resources, livelihood, food, support and the complete nutrition/maintenance/support line. Publisher roles cover both material and sustaining support.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/sustenance"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "forestall",
+      "canonicalSourceSha256": "48aefd3933443862931476e7f77a95aae1526e17c96c49c9a289b92018dbfc24",
+      "selectedRowSha256": "434ec5ba3204b7d5ad2e971aab1aae17b4bd6a39e3edd713440d0291db5b9bf4",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍\n[法] 先采取行动预防或阻止, 垄断",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the complete MIT verb tuple with the proposed usage note: prior prevention, acting ahead, historical trade interference and older obstruction are all separately attested. No part of the inherited trade/legal line is clipped.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/forestall"
+      ],
+      "usageNote": "旧释中的“垄断”在这里涉及旧时妨碍正常交易的贸易用法；“阻碍”也有较古旧用法。",
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "disclose",
+      "canonicalSourceSha256": "a37d2d24b3c87396cc0b4919154c3a944c4068d99557f0baac98e6bdf9011ef9",
+      "selectedRowSha256": "03ce408fe38a9afac501588f4937364f99023414f2039c0d8102fa2ad852bca1",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 揭露, 透露\n[法] 揭发, 揭露, 公开",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 揭露, 透露\n[法] 揭发, 揭露, 公开",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both whole core and MIT verb tuples remain compatible: revealing, making information known, exposing and making public are preserved. The new pair demonstrates information disclosure only.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/disclose"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "antiquated",
+      "canonicalSourceSha256": "0012e54f7ae8cc93e4b9519296805465cff58660899ae589f9fa37d584bcab69",
+      "selectedRowSha256": "68bbe2d369f396a2b97a6fbc4947656bca924cac4b65b4cb905297b3a0d38cbe",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 陈旧的, 过时的, 年老的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The entire adjective tuple 陈旧的/过时的/年老的 is attested; advanced age is separately included in the newly authored numbered definitions. The antiquate verb remains a different unchanged lemma, not a second canonical owner of antiquated.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/antiquated",
+        "https://www.collinsdictionary.com/dictionary/english/antiquated"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "unsettling",
+      "canonicalSourceSha256": "7d999b4128d5e265fc6f8f545e2629fc422fb69594e880442d777c77e8c57772",
+      "selectedRowSha256": "560eb756303552a2e707b25bef6c8a9bc513ba75d7b1550a4114ac2cbeec23bb",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 扰乱的, 使人不安的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The whole literal adjective 扰乱的/使人不安的 fits the new emotional-disturbance definition. The complete unsettle verb source and all its other roles are preserved under its own identity, not clipped or reassigned.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/unsettling"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "painkiller",
+      "canonicalSourceSha256": "b6b26bc786bed9d8ad05526e66fbf957eb9e65aadfacefd2ebd415af67483da6",
+      "selectedRowSha256": "6a1452015854acabe695625cb0a2ec2b11d93199ba68b505b0e39578fec86058",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 解痛药, 止痛片, 止痛药",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete noun tuple lists synonymous pain-relief medicines. Keep every old phrase whole; new own definition covers that role.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/painkiller"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "allergy",
+      "canonicalSourceSha256": "fe3bf1937408dc25c199837a90363c81c9251da3c4cd5a15ba116777863f5728",
+      "selectedRowSha256": "ec37cbd69fc33c28652c26efd1e943c32065adfc3c75c818989b510bca80405e",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 变应性, 反感, 厌恶\n[化] 变态反应; 变应性",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both complete core and MIT noun tuples include altered/abnormal reactivity and figurative aversion. Publisher entries independently attest both. Do not drop the aversion role merely because the new pair demonstrates a medical allergy. The [化] tag is retained verbatim as inherited editorial context, not certified as an exclusive modern discipline classification.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/allergy",
+        "https://www.merriam-webster.com/dictionary/allergy",
+        "https://www.collinsdictionary.com/dictionary/english/allergy"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "toilet paper",
+      "canonicalSourceSha256": "b8115372da84a34060de38fba2f548b0d987af1dd46f6b5d14e689ba934e7338",
+      "selectedRowSha256": "06a5c9595014c9b63ac58f834260fb42e7a1923004081216b5c6a483c4b87f4a",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "卫生纸, 草纸",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Keep the entire noun tuple. Its 草纸 gloss is read here in the old toilet-paper use; this is not a promise that all coarse paper is toilet paper.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/toilet-paper"
+      ],
+      "usageNote": "旧释“草纸”在这里按厕用纸的旧称理解，不泛指所有粗糙纸张。",
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "hairdryer",
+      "canonicalSourceSha256": "df0abc17b9ddc6c63f5d19a9040b7b46efc79d6f50bbd17a46bed6b118d5a9e0",
+      "selectedRowSha256": "88896492eb983ffd9c968bd160cbe0359bc2c0cf33b26fc5605b70f614c251a7",
+      "author": "AI/canonical-0005-everyday-intent-gap-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. （吹干头发的）吹风机",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the entire MIT noun tuple: a device specifically for drying hair. Alternate independent heads hair dryer/hair drier are preserved separately, not appropriated as this new head’s forms.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/hairdryer"
+      ],
+      "reviewer": "AI/everyday-examples-continue-independent-reader",
+      "independentOfAuthor": true
+    }
+  ]
+}

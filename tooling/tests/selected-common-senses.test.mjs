@@ -33,7 +33,7 @@ function localFetch() {
 
 test('selected common-sense mapping consumes actual independent finite source and preserves all484 old groups',()=>{
   assert.equal(COMMON_CHINESE_GROUPS.length,484);assert.equal(SELECTED_COMMON_SENSE_BINDINGS.length,1);
-  assert.equal(REVIEWED_SENSE_ENTRIES.length,172);assert.equal(new Set(REVIEWED_SENSE_ENTRIES.map(r=>r.term)).size,172);
+  assert.equal(REVIEWED_SENSE_ENTRIES.length,177);assert.equal(new Set(REVIEWED_SENSE_ENTRIES.map(r=>r.term)).size,177);
   const rows=validateSelectedCommonSenseBindings(source,review,context);assert.equal(rows.length,1);assert.deepEqual(rows[0],binding);
   assert.equal(binding.sourceId,'pwn30:01129920-n');assert.deepEqual(binding.runtimeGroup,COMMON_CHINESE_GROUPS.find(g=>g.id==='common-240'));
   assert.deepEqual(binding.runtimeGroup.heads,['duty','responsibility','obligation']);assert.equal(binding.canonicalId,374313);
