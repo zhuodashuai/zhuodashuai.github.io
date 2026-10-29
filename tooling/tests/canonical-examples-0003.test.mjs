@@ -6,6 +6,7 @@ import {CANONICAL_EXAMPLE_REPAIRS as table} from '../../vocab/js/canonical-examp
 import {EVERYDAY_LOOKUP_ENTRIES as rows,EVERYDAY_CHINESE_ALIASES as aliases} from '../../vocab/js/everyday-lookup-data.js';
 import {searchEverydayDictionary,loadEverydayExamples} from '../../vocab/js/everyday-lookup.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {historicalSelectedRows} from './selected-sense-history-fixture.mjs';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples,resetDictionaryExamplesCacheForTests} from '../../vocab/js/dictionary-examples-current-v4.js';
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -35,7 +36,8 @@ test('batch0003 contains only the13 exact independently approved canonical examp
 test('all old daily POS,meanings,examples and39 existing alias records remain exact',()=>{
   assert.equal(hash(baseline),'11b8a4bc2783eab9619b96e1127ca77591139f6f5197b4dcaebbe79ba5f5cb7b');
   assert.equal(baseline.head,'1446472ec3d7ba6cab25b2373ff0866d2b616520');assert.equal(baseline.rowsCount,1153);
-  const historical=rows.filter(row=>!row.reviewedCanonicalSense||!['garnish','grand','dedicated','substantially','precipitous','mandate','at fault','provision','alumni','default','bargain for','strike it rich'].includes(row.term));
+  const oldSelectedHeads=new Set(historicalSelectedRows(rows).map(row=>row.term));
+  const historical=rows.filter(row=>!row.reviewedCanonicalSense||oldSelectedHeads.has(row.term));
   assert.equal(historical.length,baseline.rowsCount);assert.equal(hash(historical),baseline.rowsSha256);
   assert.equal(baseline.aliasCount,39);assert.equal(hash(baseline.aliases),baseline.aliasSha256);
   assert.equal(aliases.length,45);assert.deepEqual(aliases.slice(0,39),baseline.aliases);

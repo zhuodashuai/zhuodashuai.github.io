@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical-same-sense-example-only-v1",
+  "author": "AI/root-south-location-author",
+  "entries": [
+    {
+      "kind": "canonical-same-sense-example-only-v1",
+      "term": "south",
+      "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+      "canonicalId": 89978,
+      "canonicalSourceSha256": "02031b0a57f47f0ecfe1fb6a8872075efa50725413181d0d34de83c2c36ad110",
+      "exactCanonicalRecord": {
+        "id": 89978,
+        "term": "south",
+        "partOfSpeech": "noun · adjective · adverb · verb",
+        "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · adjective · adverb · verb",
+            "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 702,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "origin": {
+        "file": "batch-0003-c.json",
+        "sourceSha256": "5fe8cb728d5b345b1c416fbf9536cae43b7e9fa64a3b5be506514b234a58d8e0",
+        "index": 47
+      },
+      "expectedOriginalEntry": {
+        "term": "south",
+        "senses": [
+          {
+            "id": "example:south",
+            "partOfSpeech": "adverb",
+            "meaningZh": "向南",
+            "examples": [
+              {
+                "en": "We drove south until we reached the coast.",
+                "zh": "我们向南开车，直到到达海岸。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "2e5b285f2f57a23e4d2bec6a78146b8bc84adf639d308936240f265795c4691e",
+      "retiredOriginalPair": {
+        "term": "south",
+        "partOfSpeech": "adverb",
+        "meaningZh": "向南",
+        "en": "We drove south until we reached the coast.",
+        "zh": "我们向南开车，直到到达海岸。"
+      },
+      "retiredOriginalPairSha256": "72e01194b908d950f1383f418461f15c87212cadff8e70328812972645dbc815",
+      "acceptedDisplayContexts": [
+        {
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaning": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方"
+        },
+        {
+          "term": "south",
+          "partOfSpeech": "noun · adjective · adverb · verb",
+          "meaning": "① n. 南方, 南\n② adj. 南的, 向南的\n③ adv. 在南方\n④ vi. 转向南方"
+        }
+      ],
+      "replacementPair": {
+        "term": "south",
+        "partOfSpeech": "noun · adjective · adverb · verb",
+        "meaningZh": "n. 南方, 南\na. 南的, 向南的\nadv. 在南方\nvi. 转向南方",
+        "en": "Our spare equipment is stored down south.",
+        "zh": "我们的备用设备存放在南方。"
+      },
+      "replacementPairSha256": "53897b7c4ed9967358383377e4f5fe87a4c50204a8dc487b75d1990fd557b726",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/south",
+        "https://www.collinsdictionary.com/us/dictionary/english/south"
+      ]
+    }
+  ]
+}

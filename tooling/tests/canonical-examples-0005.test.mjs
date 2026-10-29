@@ -8,7 +8,8 @@ const source=await read('source/canonical-quality-0005.json'),review=await read(
 test('batch0005 admits exactly18 independent source-bound pairs without changing canonical meanings',()=>{
  assert.equal(hash(source),'70b829c2d954023966dd488c16d465e86e31a789feaa9840f366537c97bd3e90');assert.equal(hash(review),'50c0e0d945138b8b63944361f641a77b7be97f5abb6b6ac071fe662281992066');
  assert.equal(review.sourceSha256,hash(source));assert.equal(review.independentOfAuthor,true);assert.notEqual(review.reviewer,source.author);assert.deepEqual(review.issues,[]);
- assert.equal(source.entries.length,18);assert.equal(review.decisions.length,18);assert.equal(table.rows.length,69);assert.equal(table.rows.reduce((n,r)=>n+1+(r.additionalExamples?.length??0),0),70);assert.equal(hash(table.rows),proof.compiledRowsSha256);
+ const historicalHeads=new Set([...proof.beforeRows,...source.entries].map(r=>r.term));const historicalRows=table.rows.filter(r=>historicalHeads.has(r.term));
+ assert.equal(source.entries.length,18);assert.equal(review.decisions.length,18);assert.equal(historicalRows.length,69);assert.equal(historicalRows.reduce((n,r)=>n+1+(r.additionalExamples?.length??0),0),70);assert.equal(hash(historicalRows),proof.compiledRowsSha256);
  for(const row of source.entries){
   const decision=review.decisions.find(d=>d.term===row.term);assert.equal(decision?.decision,'approve-canonical-example-repair');assert.equal(decision.rowSha256,hash(row));
   const compiled=table.rows.find(r=>r.term===row.term);assert(compiled,row.term);
