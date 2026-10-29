@@ -117,6 +117,35 @@ test("failed or corrupt ranking downloads fail explicitly and the next attempt r
   assert.deepEqual(rankingRequests.map(item => item.options.cache), ["force-cache", "reload", "reload"]);
 });
 
+test("a larger outer HTTP gzip length does not reject the exact decoded ranking binary", async () => {
+  const data = fileTransport(async url => {
+    if (!/\.bin$/u.test(String(url))) return null;
+    const bytes = await readFile(url);
+    // This Response represents what Fetch exposes after decoding HTTP gzip:
+    // headers retain the wire length, body retains our inner gzip asset bytes.
+    return new Response(bytes, { headers: { "content-encoding": "gzip", "content-length": String(bytes.length + 1088) } });
+  });
+  const result = await searchExpandedDictionary("热", data);
+  assert.equal(result.ranking, "global");
+  assert.ok(result.results.some(row => row.term === "sweltering"));
+  assert.ok(result.results.some(row => row.term === "stifling"));
+});
+
+test("HTTP encoding does not bypass decoded-body size bounds or identity length checks", async () => {
+  for (const encoding of ["gzip", "br", "identity", ""]) {
+    const data = fileTransport(async url => {
+      if (!/\.bin$/u.test(String(url))) return null;
+      const bytes = await readFile(url), headers = { "content-length": String(bytes.length + 1088) };
+      if (encoding) headers["content-encoding"] = encoding;
+      // Non-identity headers cannot predict the decoded size. The reader must
+      // still stop at descriptor.bytes, before hashing or gzip decompression.
+      const body = encoding && encoding !== "identity" ? Buffer.concat([bytes, Buffer.from([0])]) : bytes;
+      return new Response(body, { headers });
+    });
+    await assert.rejects(searchExpandedDictionary("热", data), { code: "invalid_dictionary_data" }, encoding || "no encoding");
+  }
+});
+
 test("a changed dictionary cannot reuse an old sidecar merely by retaining the version string", async () => {
   const data = fileTransport(async url => {
     if (!String(url).endsWith("/expanded-dictionary/manifest.json")) return null;
