@@ -5,13 +5,15 @@ import{loadDictionaryExamples,resetDictionaryExamplesCacheForTests}from'../../vo
 import{createAdditiveExamplesLoader}from'../../vocab/js/dictionary-examples-additive.js';
 import{dictionaryExamplesRelease}from'../../vocab/js/dictionary-examples-release-v4.js';
 import{exampleSourceHash}from'../scripts/build-dictionary-examples.mjs';
+import{historicalCorrections72,HISTORICAL_72_ROWS}from'./helpers/correction-history-0072.mjs';
 const sha=x=>createHash('sha256').update(x).digest('hex'),hash=x=>sha(JSON.stringify(x)),base=new URL('../dictionary/examples/corrections/',import.meta.url),read=async f=>JSON.parse(await fs.readFile(new URL(f,base))),fixture=await read('translation-precision-0014-fixture.json');
 const fileFetch=async input=>new Response(await fs.readFile(new URL(input)));
 
 test('five translation-only corrections retain exact approved English/POS/sense and all67 previous corrections',async()=>{
  assert.equal(sha(await fs.readFile(new URL('translation-precision-0014-fixture.json',base))),'0d0e769d8f68d2737becd96bf9a153f440b2cf6fe1fdcf86570cac47fa5d313c');
  const source=await read('source/quality-precision-0014.json'),review=await read('reviews/quality-precision-0014.json');assert.equal(sha(await fs.readFile(new URL('source/quality-precision-0014.json',base))),fixture.sourceByteSha256);assert.equal(sha(await fs.readFile(new URL('reviews/quality-precision-0014.json',base))),fixture.reviewByteSha256);assert.equal(exampleSourceHash(source),'e63ea584b9faf0fdafca8be7f2ed64500de7d29fe2d9ebebeada6e8a480af046');assert.equal(review.sourceSha256,exampleSourceHash(source));assert(review.independentOfAuthor);assert.notEqual(review.reviewer,source.author);assert.deepEqual(review.issues,[]);assert.deepEqual(source.entries.map(r=>r.term),['immunize','charade','eminence','meager','headway']);
- assert.equal(fixture.baselineCorrectionRows.length,67);assert.equal(compiled.length,72);for(const old of fixture.baselineCorrectionRows)assert.deepEqual(compiled.find(r=>r.term===old.term),old);
+ // Pin the historical72 whole objects/order; current global74 is checked separately.
+ assert.equal(fixture.baselineCorrectionRows.length,67);assert.equal(historicalCorrections72(compiled).length,72);assert.deepEqual(historicalCorrections72(compiled),HISTORICAL_72_ROWS);for(const old of fixture.baselineCorrectionRows)assert.deepEqual(compiled.find(r=>r.term===old.term),old);
  for(const row of fixture.rows){const approved=source.entries.find(r=>r.term===row.term);assert.deepEqual(approved,row.approvedPair);for(const k of['term','partOfSpeech','meaningZh','en'])assert.equal(approved[k],row.originalSourceEntry[k]);assert.notEqual(approved.zh,row.originalSourceEntry.zh);assert.deepEqual(compiled.find(r=>r.term===row.term),row.compiledCorrection);}
 });
 
