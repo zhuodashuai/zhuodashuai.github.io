@@ -651,6 +651,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday-examples-independent-precision-0014"
   },
   {
+    "term": "enlightened",
+    "expectedEntrySha256": "64fd60abae985d96c0e5287e118de61ab78f3c4b72a36d4edcb581b8394db6cd",
+    "canonicalId": 1905460,
+    "canonicalSourceSha256": "f0d2d95ce4c55511703c0d757b3ec20208b70257161583fa7101dfe8b1327f0c",
+    "senseId": "example:enlightened",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "开明的",
+    "en": "Her enlightened approach encouraged junior staff to question old routines.",
+    "zh": "她开明的做法鼓励初级员工质疑旧有惯例。",
+    "reviewer": "AI/everyday_examples_continue_precision_0019"
+  },
+  {
     "term": "entre",
     "expectedEntrySha256": "bc930c1b3f54567bff7ff6f24657af195a83e6a76b2b79770d2f0022989b2958",
     "canonicalId": 6137383,
@@ -740,6 +753,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "Frederic waited until everyone had found a seat.",
     "zh": "弗雷德里克一直等到所有人都找到座位。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "gent",
+    "expectedEntrySha256": "929b09335c01f135a2c199d148593a5d497617a7067240b86b3f0c553bbb2a83",
+    "canonicalId": 1988787,
+    "canonicalSourceSha256": "0bca0a989084782684f8fddab7651cbebb2f656058030adb1982e6ef22fee806",
+    "senseId": "example:gent",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "绅士",
+    "en": "An elderly gent offered us his umbrella.",
+    "zh": "一位老绅士表示愿意把自己的伞给我们用。",
+    "reviewer": "AI/everyday_examples_continue_precision_0019"
   },
   {
     "term": "hav",
@@ -976,6 +1002,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "sulk",
+    "expectedEntrySha256": "44cd508bbdb437a14f601172eb8b78e6e328f30a2288d66e07c8051e87c59c1b",
+    "canonicalId": 2069104,
+    "canonicalSourceSha256": "ede2e3cd2751f2a3590b43e12b77e596890a927baafcef005686ce62601eab41",
+    "senseId": "example:sulk",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "生闷气",
+    "en": "He sulked by the window after losing his place in the play.",
+    "zh": "失去戏里的角色后，他在窗边生闷气。",
+    "reviewer": "AI/everyday_examples_continue_precision_0019"
+  },
+  {
     "term": "toynbee",
     "expectedEntrySha256": "96802c32719617cd1229c67af89897c531f4571da309f9265b39be3096a8273b",
     "canonicalId": 5073597,
@@ -1013,6 +1052,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "After the crash, the database used WAL to recover committed changes.",
     "zh": "数据库在崩溃后利用预写式日志恢复了已经提交的更改。",
     "reviewer": "AI/coverage-semantic-independent-next-002"
+  },
+  {
+    "term": "writhe",
+    "expectedEntrySha256": "da19969f8d58590c8580c23a9b3d9dee74a3c52aa2b52fc12edd3e27829ff12b",
+    "canonicalId": 2020346,
+    "canonicalSourceSha256": "2329db88de0ff48c9e1d10990ed74404a5905454c972ce33a3a5f209ca9185cf",
+    "senseId": "example:writhe",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "扭动",
+    "en": "The eel writhed inside the shallow bucket.",
+    "zh": "鳗鱼在一个不深的桶里扭动。",
+    "reviewer": "AI/everyday_examples_continue_precision_0019"
   },
   {
     "term": "ze",

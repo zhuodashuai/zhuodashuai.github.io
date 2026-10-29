@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {DICTIONARY_EXAMPLE_CORRECTIONS as compiled} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {DICTIONARY_EXAMPLE_CORRECTIONS as allCompiled} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {historicalCorrections79} from './helpers/correction-history-0079.mjs';
+const compiled=historicalCorrections79(allCompiled);
 import {applyExampleCorrections} from '../../vocab/js/dictionary-example-corrections.js';
 import {loadDictionaryExamples,resetDictionaryExamplesCacheForTests} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {createAdditiveExamplesLoader} from '../../vocab/js/dictionary-examples-additive.js';
@@ -16,7 +18,7 @@ const fixture=await read('tooling/dictionary/examples/evidence/native-precision-
 const fetchImpl=async input=>new Response(await fs.readFile(new URL(input)));
 const byTerm=new Map(fixture.rows.map(r=>[r.term,r]));
 
-test('four precision corrections preserve the exact historical75 and form the complete79-row current union',()=>{
+test('four precision corrections preserve the exact historical75 and form the complete historical79-row union',()=>{
  assert.deepEqual(fixture.rows.map(r=>r.term),['fainthearted','naysay','defalcate','facilitation']);
  assert.equal(fixture.baselineCorrectionRows.length,75);assert.equal(hash(fixture.baselineCorrectionRows),HISTORICAL_75_SHA256);
  assert.deepEqual(fixture.baselineCorrectionRows,HISTORICAL_75_ROWS);assert.deepEqual(historicalCorrections75(compiled),HISTORICAL_75_ROWS);
