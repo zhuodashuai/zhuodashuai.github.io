@@ -32,11 +32,23 @@
     {
       "source": "batch-0008.json",
       "review": "batch-0008.json"
+    },
+    {
+      "source": "batch-0009.json",
+      "review": "batch-0009.json"
+    },
+    {
+      "source": "batch-0010.json",
+      "review": "batch-0010.json"
+    },
+    {
+      "source": "batch-0011.json",
+      "review": "batch-0011.json"
     }
   ],
   "retainLegacyChineseHeads": [
     "bin liner"
   ],
   "retentionNote": "bin liner has a compatible original noun definition for a bag lining a bin. Preserve its honest broad garbage-bag reverse matches while removing baggie and other superseded wrong-source postings. This does not authorize unreviewed senses.",
-  "retainedAlternativesPolicy": "retained-alternatives-classroom-0008.json"
+  "retainedAlternativesPolicy": "retained-alternatives-everyday-0011.json"
 }

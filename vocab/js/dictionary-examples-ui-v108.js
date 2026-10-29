@@ -1,3 +1,5 @@
+import { learningExampleSourceLabel } from "./example-source-label.js";
+
 function element(root, name, className = "", text = "") {
   const node = root.createElement(name);
   if (className) node.className = className;
@@ -33,7 +35,7 @@ export function createDictionaryExamplesSection({ root = document, after, before
     source.hidden = note.hidden = state.phase !== "ready";
     content.replaceChildren();
     if (state.phase !== "ready") return;
-    source.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");
+    source.textContent = [...new Set(state.entry.senses.map(sense => learningExampleSourceLabel(sense.source)))].join("；");
     for (const sense of state.entry.senses) {
       const article = element(root, "article", "dictionary-learning-sense");
       const label = element(root, "h4", "", `${sense.partOfSpeech} · ${sense.meaningZh}`);

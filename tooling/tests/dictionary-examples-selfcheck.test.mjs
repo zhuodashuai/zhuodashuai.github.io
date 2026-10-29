@@ -87,12 +87,13 @@ class Element {
   setAttribute(name, value) { this.attributes[name] = value; }
   addEventListener(name, callback) { this.listeners.set(name, callback); }
 }
-for (const [name, createSection] of [['legacy', legacySection], ['current', currentSection]]) test(`${name} card UI displays actual provenance for both modes`, async () => {
+for (const [name, createSection] of [['legacy', legacySection], ['current', currentSection]]) test(`${name} card UI uses concise labels while preserving source metadata for both modes`, async () => {
   const root = { createElement: () => new Element() };
   for (const source of [reviewedSource, selfSource]) {
     const entry = { term: 'sample', senses: [{ partOfSpeech: 'noun', meaningZh: '样本', source, examples: [{ en: row.en, zh: row.zh }] }] };
     const view = createSection({ root, loadModule: async () => ({ createDictionaryExamplesController: options => createDictionaryExamplesController({ ...options, load: async () => entry }) }) });
     assert.equal(await view.show({ term: 'sample' }), true);
-    assert.equal(view.section.children[1].textContent, source);
+    assert.equal(view.section.children[1].textContent, '原创学习例句');
+    assert.equal(entry.senses[0].source, source);
   }
 });

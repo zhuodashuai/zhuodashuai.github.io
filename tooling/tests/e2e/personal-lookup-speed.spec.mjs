@@ -76,14 +76,21 @@ test("entries unlock adding while delayed learning still locks study, scoring an
   } finally { release(); }
 });
 
-test("Chinese basic results are labelled partial, usable immediately, and complete search stays explicitly available", async ({ page }) => {
+test("Chinese basic fallback is labelled partial when the complete ranking is unavailable, and retry preserves the draft", async ({ page }) => {
+  let unavailable = true, blocked = 0;
+  await page.route('**/data/chinese-search-ranking/**', route => {
+    if (!unavailable) return route.continue();
+    blocked++; return route.fulfill({ status: 503, contentType: 'application/octet-stream', body: '' });
+  });
   await open(page); await query(page, "苹果");
+  expect(blocked).toBeGreaterThan(0);
   await expect(page.locator("#member-dictionary-status")).toContainText("基础词库结果（非完整搜索）");
   await expect(page.locator("#member-dictionary-full")).toBeVisible();
   await expect(page.locator("#member-dictionary-use")).toBeEnabled();
   const original = await page.locator("#member-dictionary-word").textContent();
   await page.locator("#member-dictionary-use").click();
   await expect(page.locator("#member-term")).toHaveValue(original);
+  unavailable = false;
   await page.locator("#member-dictionary-full").click();
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
   await expect(page.locator("#member-dictionary-full")).toBeHidden();
@@ -91,6 +98,28 @@ test("Chinese basic results are labelled partial, usable immediately, and comple
   await expect(page.locator(".dictionary-choice")).toHaveCount(20);
   // Searching more must not replace an explicitly filled draft.
   await expect(page.locator("#member-term")).toHaveValue(original);
+});
+
+test("successful Chinese lookup shows the complete globally ranked page without a misleading partial label", async ({ page }) => {
+  await open(page); await query(page, '苹果');
+  await expect(page.locator('#member-dictionary-status')).not.toContainText('非完整搜索');
+  await expect(page.locator('#member-dictionary-full')).toBeHidden();
+  await expect(page.locator('#member-dictionary-use')).toBeEnabled();
+  const expected = await page.evaluate(async () => {
+    const { searchExpandedDictionary } = await import('/js/expanded-dictionary.js?v=111');
+    const result = await searchExpandedDictionary('苹果');
+    if (result.ranking !== 'global' || result.coverage === 'basic') throw Error('expected complete global ranking');
+    return result.results.map(row => row.term);
+  });
+  expect(expected).toHaveLength(20);
+  await expect(page.locator('#member-dictionary-choices button[data-dictionary-term]')).toHaveCount(expected.length);
+  expect(await page.locator('#member-dictionary-choices button[data-dictionary-term]').evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm))).toEqual(expected);
+  await expect(page.locator('#member-dictionary-word')).toHaveText(expected[0]);
+  await page.locator('#member-dictionary-use').click();
+  await expect(page.locator('#member-term')).toHaveValue(expected[0]);
+  await query(page, '热');
+  await expect(page.locator('#member-dictionary-word')).toHaveText('hot');
+  await expect(page.locator('#member-term')).toHaveValue(expected[0]);
 });
 
 test("a Chinese hot miss still reaches the complete rare-word dictionary", async ({ page }) => {

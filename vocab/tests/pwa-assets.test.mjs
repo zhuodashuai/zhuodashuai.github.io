@@ -41,11 +41,12 @@ test("changed module APIs use one versioned browser graph before any service wor
     for (const match of source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/g)) {
       const target = match[1].slice(2).split("?")[0];
       // The archived v108 entry keeps its original compatible dependency;
-      // only the two fresh ranking readers require the new atom export.
+      // The current ranking readers and the source-bound personal path use
+      // the same current Chinese plan; retained entrypoints keep their URLs.
       if (file === "dictionary-app-v108.js" && target === "expanded-dictionary.js") {
         assert.equal(match[1], "./expanded-dictionary.js?v=104"); continue;
       }
-      if (["expanded-dictionary.js", "chinese-ranking.js"].includes(file) && target === "chinese-search.js") {
+      if (["expanded-dictionary.js", "chinese-ranking.js", "personal-lookup-flow.js"].includes(file) && target === "chinese-search.js") {
         assert.equal(match[1], "./chinese-search.js?v=111"); continue;
       }
       if (changed.has(target)) assert.equal(match[1], `./${target}?v=${currentVersion(target)}`, `${file} must not import a fresh old HTTP-cache dependency`);

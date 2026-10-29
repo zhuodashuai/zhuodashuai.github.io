@@ -10,20 +10,27 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 // Read only explicit versioned JS literals; never execute the service worker.
 const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
-  ['expanded-dictionary.js',['97','103','104']],['dictionary-app.js',['99','103','104']],
-  ['library-lookup-controller.js',['99','103','104']],['library-lookup-ui.js',['100','103','104']],
+  ['expanded-dictionary.js',['97','103','104','111']],['dictionary-app.js',['99','103','104','111']],
+  ['library-lookup-controller.js',['99','103','104','111']],['library-lookup-ui.js',['100','103','104','111']],
   ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104','105','107']],
   ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']],
-  ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']]
+  ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']],
+  ['personal-lookup-flow.js',['97','111']]
 ]);
 // Reviewed retained cache aliases and the active import graph are independent.
 // Do not derive an active version from the largest (or any other) cache alias.
 const reviewedActiveVersions=new Map([
-  ['expanded-dictionary.js','104'],['dictionary-app.js','104'],
-  ['library-lookup-controller.js','104'],['library-lookup-ui.js','104'],
+  ['expanded-dictionary.js','111'],['dictionary-app.js','111'],
+  ['library-lookup-controller.js','111'],['library-lookup-ui.js','111'],
   ['public-app.js','104'],['personal-app.js','107'],
   ['owner-app.js','104'],['dictionary-entry.js','104'],
-  ['app-navigation.js','107'],['app-navigation-entry.js','107']
+  ['app-navigation.js','107'],['app-navigation-entry.js','107'],
+  ['personal-lookup-flow.js','111']
+]);
+// These additive APIs have compatible callers at95 or bare URLs. Account for
+// their exact cache aliases without adding them to changedApiModules/poisoning.
+const reviewedCompatibleCacheAliases=new Map([
+  ['chinese-search.js',['95','111']],['everyday-lookup.js',['111']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
 for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
@@ -33,7 +40,9 @@ for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["
   const versions=cachedModuleVersions.get(name)||new Set();versions.add(version);cachedModuleVersions.set(name,versions);
 }
 for(const[name,versions]of cachedModuleVersions){
-  if(reviewedAliases.has(name)){
+  if(reviewedCompatibleCacheAliases.has(name)){
+    expect([...versions].sort((a,b)=>Number(a)-Number(b))).toEqual(reviewedCompatibleCacheAliases.get(name));
+  }else if(reviewedAliases.has(name)){
     expect([...versions].sort((a,b)=>Number(a)-Number(b))).toEqual(reviewedAliases.get(name));
     // Old cache aliases stay available to offline/previous clients; their
     // presence never exempts a stale import from the poison handler below.
@@ -46,6 +55,27 @@ for(const[name,versions]of cachedModuleVersions){
   }
 }
 for(const name of reviewedAliases.keys())if(!declaredModuleVersions.has(name))throw new Error(`Missing reviewed module ${name}.`);
+for(const name of reviewedCompatibleCacheAliases.keys())expect(cachedModuleVersions.has(name)).toBe(true);
+
+// The active readers of the added atom/ranking exports require111. Existing
+// plan-only consumers intentionally retain95; examples/personal retain their
+// compatible bare daily-lookup API. Never infer these contracts from max(v).
+for(const[file,edges]of[
+  ['dictionary-app-v109.js',[['chinese-search.js','./chinese-search.js?v=95']]],
+  ['dictionary-app.js',[['chinese-search.js','./chinese-search.js?v=95']]],
+  ['dictionary-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95']]],
+  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=111']]],
+  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=111']]],
+  ['personal-dictionary.js',[['chinese-search.js','./chinese-search.js?v=95']]],
+  ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=111'],['everyday-lookup.js','./everyday-lookup.js?v=111']]],
+  ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=111']]],
+  ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=111'],['everyday-lookup.js','./everyday-lookup.js']]],
+  ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js']]]
+]){
+  const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
+  const imports=[...source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
+  for(const[target,expected]of edges)expect(imports.filter(specifier=>specifier.slice(2).split('?')[0]===target),file+' -> '+target).toEqual([expected]);
+}
 
 test.use({ serviceWorkers: "block" });
 

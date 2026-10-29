@@ -7,6 +7,7 @@ import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { dictionaryExampleSensePlan } from "../../vocab/js/dictionary-app.js";
 import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
+import { SELECTED_COMMON_SENSE_BINDINGS } from '../../vocab/js/selected-common-sense-data.js';
 
 const manifest = JSON.parse(await readFile(new URL("../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
 const reviewed = JSON.parse(await readFile(new URL("../dictionary/chinese-related-common.json", import.meta.url), "utf8"));
@@ -71,6 +72,24 @@ function displayEvidence(evidence) {
   return { partOfSpeech: formatted.partOfSpeech, meaning: formatted.meaning, source: source.name, license: source.license, url: source.url };
 }
 function resultEvidence(group, result, terms) {
+  const selected = SELECTED_COMMON_SENSE_BINDINGS.find(row => row.head === result.term && row.groupId === group.id);
+  if (selected && result.matchedSourceEvidence?.kind === 'reviewed-canonical-primary') {
+    // A separate exact reviewed source contract. Never impersonate the old raw
+    // provenance, weaken its checks, or infer a link from shared Chinese text.
+    assert.deepEqual(selected.runtimeGroup, group);
+    assert.equal(result.partOfSpeech, selected.selectedRow.partOfSpeech);
+    assert.equal(result.meaning, selected.selectedRow.meaning);
+    assert.equal(result.source, '卓式词典·义项补充');
+    assert.equal(result.license, 'Original composition');
+    assert.equal(result.url, 'https://zhuodashuai.github.io/vocab/');
+    assert.deepEqual(result.matchedSourceEvidence, {
+      kind: 'reviewed-canonical-primary', groupId: selected.groupId, sourceId: selected.sourceId,
+      canonicalId: selected.canonicalId, canonicalSourceSha256: selected.canonicalSourceSha256,
+      selectedSourceSha256: selected.selectedSourceSha256, selectedRowSha256: selected.selectedRowSha256,
+    });
+    assert.ok(terms.some(term => selected.directTerms.includes(term)));
+    return selected;
+  }
   return group.evidence.filter(evidence => evidence.head === fold(result.term)
     && evidence.terms.some(term => terms.includes(term))).find(evidence => {
     const displayed = displayEvidence(evidence);
@@ -182,8 +201,10 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
       for (const item of found) {
         assert.equal(item.matchedPartOfSpeech, group.pos, `${input}/${item.term}: retain the reviewed target POS independently from the original record summary`);
         assert.equal(item.matchedSense, group.sense, `${input}/${item.term}: retain the reviewed sense boundary`);
-        assert.deepEqual(item.matchedExampleSenseEvidence, group.exampleSenses[item.term]);
-        assert.deepEqual(item.matchedExampleSenseIds, group.exampleSenses[item.term].map(row => row.id));
+        const selected = SELECTED_COMMON_SENSE_BINDINGS.find(row => row.groupId === group.id && row.head === item.term);
+        const proofs = selected ? [selected.selectedExampleProof] : group.exampleSenses[item.term];
+        assert.deepEqual(item.matchedExampleSenseEvidence, proofs);
+        assert.deepEqual(item.matchedExampleSenseIds, proofs.map(row => row.id));
       }
       for (const item of direct.results) assert.ok(resultEvidence(group, item, [term]), `${input}/${item.term}: direct result must retain its exact evidence variant and provenance`);
       for (const item of related.results) {

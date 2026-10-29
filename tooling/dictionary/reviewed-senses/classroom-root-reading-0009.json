@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/root-classroom-0009-independent-review",
+  "independentOfAuthor": true,
+  "sourceAuthor": "AI/canonical-0005-next-classroom-author",
+  "reviewedAt": "2026-10-29T03:24:02.288Z",
+  "original13SourceSha256": "b33712b961ee65fcc5202d05e18f1eb530faf4876ca29942bd7fa62e16a36b7b",
+  "corrected13SourceSha256": "de0f25b67c685922df9dbc9cb4280ba4c75344fbedcc30f6e6db6a251518be72",
+  "append3SourceSha256": "a50e92fe616da2474cdd4057dac5b00c93e90555dea6e3eac7e2d5a599d3094e",
+  "combinedSourceSha256": "37c3e3a106d8ad31653e01263c6e1f18ccd44d40f42f323950e3756f727c2cef",
+  "exactAliasCorrectionOnly": true,
+  "oldV1SourceAdmissionApproved": false,
+  "decisions": [
+    {
+      "term": "worrisome",
+      "rowSha256": "156b2b200a29141c50e7b6c2c7b390a4d3c542045d5bf1d11a225911559abc26",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Power cuts in a newly reopened building naturally exemplify cause for worry. Chinese preserves repeated outages, reopening and concern. Collins supports annoying and separately marks worry-prone as rare; the inherited life-of-toil gloss remains held.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "feasible",
+      "rowSha256": "5307f14c04ffe772add0c7cd15b68a3dbd3eed1330662effadfc88c21ad2272a",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Staffing separate entrance stalls with only two volunteers exemplifies practical feasibility. MW separately supports workable, suitable and plausible roles; Chinese conveys the same staffing constraint.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "preemptively",
+      "rowSha256": "72e7729ddb7218798d79688a5d067e775a1dfbaecd5809ff84e868f7c9465deb",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Moving a planned outdoor workshop before forecast storms is an anticipatory measure. Chinese makes prevention of disruption explicit without suggesting anyone can prevent a storm. POS is adverb; empty-POS MIT alternative stays unapproved.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "nominate",
+      "rowSha256": "2b904b0ccd3cab7dfbb0c33cdfe23ed1d228f9a07370a13a81095b3cfa268073",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Nominating a sister as beneficiary illustrates formal designation, not just award nomination. Chinese keeps named person, relation and form. The v1 noun-intent alias was rejected; v2 explicitly qualifies the verb intent and preserves named-beneficiary first hit.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "conceive",
+      "rowSha256": "7c9b37343b17f9e4c68f7f3684f290ec2021ea1d640092ffbbfe2abd978ed95f",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Conceiving a second child after moving to the coast is the pregnancy role. Mental conception, forming plans and conceiving of something remain separately defined and in both complete old verb tuples.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "obligation",
+      "rowSha256": "2ed4022d80c134b39e63c0facac10177d25bf3f4255afdc63a320d263188d563",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Declining an extra shift for a family obligation is natural duty/responsibility usage. Chinese family matter conveys required commitment. Contract, debt, debt-security and gratitude-debt are retained in own definitions, without certifying unqualified old favour as a whole source tuple.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "determinant",
+      "rowSha256": "6b3e3c8ec7876f6aeca5885f3a49c3dcb9716c96904b43882c111b041edd7941",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Distance influencing nursery choice demonstrates an influential factor, not an assertion that it is the sole cause. Noun and adjective remain distinct, and the mathematical determinant role is labelled separately; unsupported generic computing tail stays held.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "stigma",
+      "rowSha256": "e459a1ea91c031bdd558808f7b9c953eaa3e496ae902076bf8ff5dfff43d6784",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "A campaign reducing a social label that deters help-seeking illustrates social stigma. Chinese is faithful, although a later stylistic polish is optional. Collins separately attests botanical stigma, protozoan eyespot and insect spiracle; MW confirms diagnostic mark and religious marks. The old all-medical tag is not approved.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "squabble",
+      "rowSha256": "d0f7b0db1a78080dd922ea7ab4da6842528ecc33609e9dee4f0d854bbc87c9e5",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "An argument about a window seat is a petty quarrel. Noun example and Chinese match; the separate verb meaning and valid older verb example are preserved.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "litigator",
+      "rowSha256": "34ef71e2f95911ff9aac50ce4caa1876058718777977f89d820d48f59bac3916",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Hiring litigation counsel when a contract dispute reaches court is natural. Chinese keeps the temporal trigger and experience. Collins supports lawyer, while MW independently supports the broader person carrying on litigation.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "sustenance",
+      "rowSha256": "ecd78e9fdfb1e822f28753c41a7521c59117480aef4c687cb910bb70fb4b562a",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Soup and bread sustaining the rest of a walk illustrate material nourishment; Chinese preserves the food and remaining walk. Living resources, maintenance and sustaining support are separately defined.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "forestall",
+      "rowSha256": "434ec5ba3204b7d5ad2e971aab1aae17b4bd6a39e3edd713440d0291db5b9bf4",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Extending loans before a closure to avert overdue notices shows preventive action. The uncommon historical market-interference and archaic obstruction roles are explicitly qualified, with the complete old tuple retained alongside a qualification note.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "disclose",
+      "rowSha256": "03ce408fe38a9afac501588f4937364f99023414f2039c0d8102fa2ad852bca1",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "A report not revealing the survey funder illustrates making previously unknown information public. Chinese preserves the negative and payer, without inventing a confidentiality obligation.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "antiquated",
+      "rowSha256": "68bbe2d369f396a2b97a6fbc4947656bca924cac4b65b4cb905297b3a0d38cbe",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Coin-only old ticket machines being replaced exemplify outdated equipment. Chinese is faithful; MW independently supports advanced age as a separate role. The unique adjective identity is distinct from the unchanged antiquate verb/form owner.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "unsettling",
+      "rowSha256": "560eb756303552a2e707b25bef6c8a9bc513ba75d7b1550a4114ac2cbeec23bb",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Finding an open back door on returning home naturally causes unease. Chinese preserves the discovery and emotional response. Oxford labels the literal adjective; the whole separate unsettle verb remains untouched.",
+      "wholeLexicalInventoryCertified": false
+    },
+    {
+      "term": "palpitation",
+      "rowSha256": "6efc3667e3524ac120e323f2e540a89f6b8d06b264a67e942ed62021ee855b4e",
+      "POSMeaningEnglishChineseVerdict": "APPROVED-EXACT-SOURCE-BOUND-FIELDS",
+      "reason": "Describing a fluttering chest sensation uses the usual plural symptom form. NHS defines noticed or unusual heartbeat; the card does not equate it with every normal heartbeat or diagnose arrhythmia. MW separately supports rapid pulsation. The verified plural maps to the exact palpitation lemma.",
+      "wholeLexicalInventoryCertified": false
+    }
+  ],
+  "originals": [
+    {
+      "term": "worrisome",
+      "canonicalSourceSha256": "fce7ef877e10543b5f42cc976d76dfeb9868de063f5da8d27a87afe8ddab345e",
+      "originalDTOSha256": "bf0f5d3fb034c96e3f116002103541c6864dfff67f5838065358e29c4de732a5"
+    },
+    {
+      "term": "feasible",
+      "canonicalSourceSha256": "a17475c89f9ece1aa1de412fd499740a6dd00b4762fbc634582145e66e3794ab",
+      "originalDTOSha256": "91923fcd420236c043a5319e3c49a966a1474b53fbd33255562b6c4cd5d677c7"
+    },
+    {
+      "term": "preemptively",
+      "canonicalSourceSha256": "c8ea1fd65e5c2228f5c35edf2d8dae348fe5747be438c8de07d7e88afd93f56a",
+      "originalDTOSha256": "5e4ecb416426cb3cee82397a9e690ac40dfa304e996fb6fd9172ed2d192d5181"
+    },
+    {
+      "term": "nominate",
+      "canonicalSourceSha256": "f93216e0e29492c03a82190181fde40a8510b9e0f9c44799fcd0b0592404b678",
+      "originalDTOSha256": "de2b464a873f7accd2751d8d4c6ada887115ac0b021ac4ceeae1a3967514f2bc"
+    },
+    {
+      "term": "conceive",
+      "canonicalSourceSha256": "2c8cc2a1c345ddeb87d1fa2863750bdff0e4da1f884b1e58929ab7af9eebecfd",
+      "originalDTOSha256": "8d3326711210383fcf1d706c9140f8bd6e5c974cc2faff77b9392bf1faee6c31"
+    },
+    {
+      "term": "obligation",
+      "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6",
+      "originalDTOSha256": "3c967b1dc88a26d12d64cd97b3de9e710fd0fd6ae152765e0742de35cb6ea1e3"
+    },
+    {
+      "term": "determinant",
+      "canonicalSourceSha256": "17918fda92b67057f0863bc16a30e3679cc40f5bf7cd5615251b03f42e53637b",
+      "originalDTOSha256": "ed1ca9c63a4bed77846499c050957a6e81fdb510e4480bf41943f7a38d70a444"
+    },
+    {
+      "term": "stigma",
+      "canonicalSourceSha256": "8a0d00a749ce5ca5f3aab4a087269f43e6ff77f3824e19f11048c57f3e4ee85c",
+      "originalDTOSha256": "82aa2fba2427a956058289c49a401d5b8d4bc49f041fafdd06f4045a0f12520d"
+    },
+    {
+      "term": "squabble",
+      "canonicalSourceSha256": "ddf6381aef9c65adc319871a5449158b2e0cf88ce0babf4f5df0b935182798bd",
+      "originalDTOSha256": "77686d3d3fe72874e8487e34b787628e9160815c2d0b5be05e4cf1edbae950ae"
+    },
+    {
+      "term": "litigator",
+      "canonicalSourceSha256": "eea5015298e2af0a8dd131846b944589609f7cdbe52568df7e1172abbb7e4acb",
+      "originalDTOSha256": "1557e2d6cd5146ad81a856cef8196df2d7aabf725691e7433ad62c28d5bcd556"
+    },
+    {
+      "term": "sustenance",
+      "canonicalSourceSha256": "f4cb44142abf2509d64959c40064330ad780e894b49ac187a859e8d0c07104ee",
+      "originalDTOSha256": "00df8181c269d2bdeeebbff899358fa1309fc818f572bab47a6cd30346128b50"
+    },
+    {
+      "term": "forestall",
+      "canonicalSourceSha256": "48aefd3933443862931476e7f77a95aae1526e17c96c49c9a289b92018dbfc24",
+      "originalDTOSha256": "4c140c204af262d5757b1136ae8f293ed6dbfe528e7021a5c7bc32441b337e2e"
+    },
+    {
+      "term": "disclose",
+      "canonicalSourceSha256": "a37d2d24b3c87396cc0b4919154c3a944c4068d99557f0baac98e6bdf9011ef9",
+      "originalDTOSha256": "ec682163528224901adf17f7d2751331fba98f1a6c8add1de0ba5b63a7c0d822"
+    },
+    {
+      "term": "antiquated",
+      "canonicalSourceSha256": "0012e54f7ae8cc93e4b9519296805465cff58660899ae589f9fa37d584bcab69",
+      "originalDTOSha256": "a8b4568377c4def9cb119f6f72369996df1d4b3cd4292a32442d90788b0cfb55"
+    },
+    {
+      "term": "unsettling",
+      "canonicalSourceSha256": "7d999b4128d5e265fc6f8f545e2629fc422fb69594e880442d777c77e8c57772",
+      "originalDTOSha256": "b6cb7c1e9e758e778e0521e66c4d9da0c104dcd638fc84a590d0143c06fb770a"
+    },
+    {
+      "term": "palpitation",
+      "canonicalSourceSha256": "447d470ac07977926c8344c08738e9805c2a06a0b42abec8533ce6a614d2a067",
+      "originalDTOSha256": "6c00213856c2437e4994b5b1f03205d56e4c17aed43bc19a054ad2f3fa59b981"
+    }
+  ],
+  "aliasChecks": [
+    {
+      "term": "worrisome",
+      "query": "令人担忧的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "worrisome",
+      "query": "使人担心的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "feasible",
+      "query": "实际可行的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "feasible",
+      "query": "在实际条件下做得到的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "preemptively",
+      "query": "预先采取行动地",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "preemptively",
+      "query": "先发制人地",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "nominate",
+      "query": "提名候选人",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "nominate",
+      "query": "指定某人为受益人",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "nominate",
+      "query": "正式提名",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "conceive",
+      "query": "怀上孩子",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "conceive",
+      "query": "构思计划",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "conceive",
+      "query": "在头脑中想象",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "obligation",
+      "query": "应尽的责任",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "obligation",
+      "query": "必须履行的义务",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "obligation",
+      "query": "人情债",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "determinant",
+      "query": "决定因素",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "determinant",
+      "query": "影响结果的重要因素",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "determinant",
+      "query": "起决定作用的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "社会污名",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "负面社会评价",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "植物的柱头",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "原生生物眼点",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "昆虫气孔",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "动植物表面的小斑",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "动植物表面的小孔",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "特征性体征",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "stigma",
+      "query": "皮肤烙印",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "squabble",
+      "query": "为小事争吵",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "squabble",
+      "query": "琐事口角",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "litigator",
+      "query": "诉讼律师",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "litigator",
+      "query": "进行诉讼的人",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "sustenance",
+      "query": "维持生命的食物",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "sustenance",
+      "query": "维持生活所需",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "sustenance",
+      "query": "精神上的滋养",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "forestall",
+      "query": "预先阻止",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "forestall",
+      "query": "提前防止",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "forestall",
+      "query": "抢先化解",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "disclose",
+      "query": "披露信息",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "disclose",
+      "query": "透露未公开的信息",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "disclose",
+      "query": "使显露出来",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "antiquated",
+      "query": "陈旧过时的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "antiquated",
+      "query": "老旧落伍的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "unsettling",
+      "query": "扰乱心绪的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "unsettling",
+      "query": "使人感到不踏实的",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "palpitation",
+      "query": "心悸",
+      "noExistingExactPackagedCollision": true
+    },
+    {
+      "term": "palpitation",
+      "query": "明显感觉到心跳",
+      "noExistingExactPackagedCollision": true
+    }
+  ],
+  "retainedWholePolicyHeads": 11,
+  "retainedWholeTuples": 16,
+  "heldWholeTuples": [
+    {
+      "term": "worrisome",
+      "canonicalSourceSha256": "fce7ef877e10543b5f42cc976d76dfeb9868de063f5da8d27a87afe8ddab345e",
+      "wholeTuple": {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 令人烦恼的, 麻烦的, 劳碌命的",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "ab2268b9b965438cf3c1983e465b57493f41266c1aa387cf453204bd6d05b361",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "The whole inherited tuple includes 劳碌命的. Consulted publisher entries support worry-causing/annoying and a rarer worry-prone adjective, but do not certify that fate/life-of-toil gloss. Keep the complete raw tuple for audit; do not silently extract its first two phrases as a retained source alternative."
+    },
+    {
+      "term": "preemptively",
+      "canonicalSourceSha256": "c8ea1fd65e5c2228f5c35edf2d8dae348fe5747be438c8de07d7e88afd93f56a",
+      "wholeTuple": {
+        "partOfSpeech": "",
+        "meaning": "先发制人地",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "0bd1e04adb3a8ffc8581b1099f17a0d7abea1111bf2f8854d7858adc5ced9434",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "Empty native POS is retained as-is for audit but is not admitted to the finite whole-tuple policy."
+    },
+    {
+      "term": "obligation",
+      "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
+        "source": "core"
+      },
+      "wholeTupleSha256": "28aac7d247db665479c49a53fea9616bfa55f12f2444dffbb8249faa7c65b1d3",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "The whole core/MIT bundle includes unqualified 恩惠. Publisher evidence supports a debt of gratitude rather than certifying a gift/favor itself. Hold whole tuples pending independent judgment of that wording; this is uncertainty, not a claim that the valid old duty example is bad. All legitimate duty, contract, debt and gratitude roles remain in newly authored definitions."
+    },
+    {
+      "term": "obligation",
+      "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "579a038f92609bfd2419382391200f203ab32890cd8a302d147e0d791c485869",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "The whole core/MIT bundle includes unqualified 恩惠. Publisher evidence supports a debt of gratitude rather than certifying a gift/favor itself. Hold whole tuples pending independent judgment of that wording; this is uncertainty, not a claim that the valid old duty example is bad. All legitimate duty, contract, debt and gratitude roles remain in newly authored definitions."
+    },
+    {
+      "term": "determinant",
+      "canonicalSourceSha256": "17918fda92b67057f0863bc16a30e3679cc40f5bf7cd5615251b03f42e53637b",
+      "wholeTuple": {
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. 决定物, 决定因素\na. 决定性的\n[计] 判定",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "da10b1c93875ba11acf9b66408074f77108402d9a1c7890bbbbb671eca8ede1d",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "The entire MIT tuple includes the unqualified computing tail [计] 判定. The noun factor and adjective role are attested and preserved in new own text, but this generic computing rendering is not independently established. Do not prune the tail and pretend the remainder is an approved whole inherited tuple."
+    },
+    {
+      "term": "stigma",
+      "canonicalSourceSha256": "8a0d00a749ce5ca5f3aab4a087269f43e6ff77f3824e19f11048c57f3e4ee85c",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 耻辱, 污名, 烙印\n[医] 柱头; 小孔, 眼点; 气孔; 小斑; 特征",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "7053e17a43215bf76a1fc9341f8de83b69a236e7cd37f71965cdd1a41c2aab67",
+      "status": "HOLD-whole-tuple-pending-independent-review",
+      "reason": "The whole inherited tuple groups botanical/zoological features beneath a medical tag. Publisher evidence establishes these distinct roles, which are now explicitly described with their own fields; no whole-source approval of the inherited tag bundle is proposed. This is a scope hold, not a declaration that its individual scientific meanings are false."
+    },
+    {
+      "term": "palpitation",
+      "wholeTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 悸动, 跳动, 心跳\n[医] 心悸, 心跳",
+        "source": "mit"
+      },
+      "wholeTupleSha256": "eb4e05f7a2d508c52da1c79815bffdac5513a4331a5f2cdf3453387b8116f353",
+      "status": "HOLD-whole-generic-heartbeat-tuple",
+      "reason": "The inherited complete tuple has unqualified 心跳. The clinical concept is awareness of noticeable/unusual heartbeat and is not every normal heartbeat. The new own definition separately preserves rapid pulsation. Do not prune the inherited tuple or imply that medical symptom wording validates all plain heartbeats."
+    }
+  ],
+  "actualActiveEnglishUnionBefore": 105312,
+  "pending16": 16,
+  "combinedPotentialEnglishUnion": 105328,
+  "EnglishDuplicateHits": 0,
+  "sourceShardsReauthenticated": 128,
+  "authorFrozenFilesRehashed": 21,
+  "existingNamedBeneficiaryFirstHitPreserved": true,
+  "strictPureSelectedValidatorPassed": true,
+  "strictPureRetentionValidatorPassed": true,
+  "productOrIndexWrites": false,
+  "runtimeFirstHitApprovalAfterIntegration": false,
+  "publicationApproved": false,
+  "all102609SemanticCoverageComplete": false
+}

@@ -99,6 +99,25 @@
         "MEM": "batch-0042-s-18100ac42187.json",
         "MTM": "batch-0042-s-18100ac42187.json"
       }
+    },
+    {
+      "sourceFile": "quality-precision-0014.json",
+      "reviewFile": "quality-precision-0014.json",
+      "origins": {
+        "immunize": "batch-0005-k.json",
+        "charade": "batch-0005-k.json",
+        "eminence": "batch-0005-k.json",
+        "meager": "batch-0006-c.json",
+        "headway": "batch-0006-d.json"
+      }
+    },
+    {
+      "sourceFile": "quality-precision-0015.json",
+      "reviewFile": "quality-precision-0015.json",
+      "origins": {
+        "vengeful": "batch-0006-i.json",
+        "collude": "batch-0006-k.json"
+      }
     }
   ]
 }

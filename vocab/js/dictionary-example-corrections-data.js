@@ -560,6 +560,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/examples_runtime_release_audit"
   },
   {
+    "term": "charade",
+    "expectedEntrySha256": "e1419434827f6467eb5bd6bdfdf43204f4eb1829a155423ab86495e791f21236",
+    "canonicalId": 1143695,
+    "canonicalSourceSha256": "55478ce8281db8a8729f2fd4c3c42032c39b4a68730ebe9bf30b154ab7fe5764",
+    "senseId": "example:charade",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "伪装",
+    "en": "Their polite conversation was a charade hiding mutual distrust.",
+    "zh": "他们客气的交谈只是一种伪装，掩盖着彼此的不信任。",
+    "reviewer": "AI/everyday-examples-independent-precision-0014"
+  },
+  {
     "term": "che",
     "expectedEntrySha256": "739c07c967e3f99969bf003ad4a919fbb361698059143c7e84580e95f87e704b",
     "canonicalId": 5030961,
@@ -573,6 +586,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "collude",
+    "expectedEntrySha256": "e1ca390957cd210ef065f9f1a32ffe9d9ae97f428bb1ce4c3350f1cf8cb0c2e4",
+    "canonicalId": 1471081,
+    "canonicalSourceSha256": "cb17b1e62d7c9070f13768bf95068c87621107b95a8ba209d3b05dd957043c59",
+    "senseId": "example:collude",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "串通",
+    "en": "The fictional officials collude to hide the missing records.",
+    "zh": "故事中的官员串通藏匿那些下落不明的档案。",
+    "reviewer": "AI/everyday_precision_0015_independent"
+  },
+  {
     "term": "efa",
     "expectedEntrySha256": "d98070494790944ce6b096154d36318198f519564dad91758a508dddf4912491",
     "canonicalId": 6484329,
@@ -584,6 +610,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The researchers compared the EFA composition of the two seed oils.",
     "zh": "研究人员比较了这两种种子油中的必需脂肪酸组成。",
     "reviewer": "AI/examples_runtime_release_audit"
+  },
+  {
+    "term": "eminence",
+    "expectedEntrySha256": "5c23da05a3d043ef09da598b053589e57175a8428f854da43d4d03e1402888b2",
+    "canonicalId": 1148499,
+    "canonicalSourceSha256": "b94ae646116236bf39dd9742a2d2f6fe824b89b59952ddbbaaacff20507b875b",
+    "senseId": "example:eminence",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "显赫地位",
+    "en": "The biography charts her rise to eminence in astronomy.",
+    "zh": "这部传记记述了她在天文学界获得显赫地位的历程。",
+    "reviewer": "AI/everyday-examples-independent-precision-0014"
   },
   {
     "term": "entre",
@@ -664,6 +703,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/examples_runtime_release_audit"
   },
   {
+    "term": "headway",
+    "expectedEntrySha256": "12498cda9bc7d7b714f441f40cde622209820b62b1e462fff31114b58fe49c8c",
+    "canonicalId": 1275738,
+    "canonicalSourceSha256": "154ed50e9bd3aa978b360a527e87b2df7861409140046bb3a1a02037d73cea48",
+    "senseId": "example:headway",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "进展",
+    "en": "We made little headway until the missing plans arrived.",
+    "zh": "在缺失的图纸送来之前，我们几乎没取得什么进展。",
+    "reviewer": "AI/everyday-examples-independent-precision-0014"
+  },
+  {
     "term": "hitchen",
     "expectedEntrySha256": "9ef485ea96c4035e8b15eff7c00ea8b5139ced74db46afc10c5db0394b8f92dc",
     "canonicalId": 5668046,
@@ -729,6 +781,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "immunize",
+    "expectedEntrySha256": "3a088b2c7e1296351c107a761e6adc5fc33ccabe317554a57ca87f01c8e2fa26",
+    "canonicalId": 1143625,
+    "canonicalSourceSha256": "0fed0df0a0b0b1829f527afb0c4232ecb6cf7c78e71335c86c6e962a4946f2ce",
+    "senseId": "example:immunize",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "使获得免疫",
+    "en": "The archive includes plans to immunize cattle against disease.",
+    "zh": "档案中收有使牛对疾病产生免疫力的计划。",
+    "reviewer": "AI/everyday-examples-independent-precision-0014"
+  },
+  {
     "term": "magnus",
     "expectedEntrySha256": "57584ae0447345cc09599ad1552e22fb2d003b85dd24da651d769dff2c62db1e",
     "canonicalId": 2440950,
@@ -740,6 +805,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The lecturer pointed to the adductor magnus on the diagram.",
     "zh": "讲师指着图上的大收肌。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "meager",
+    "expectedEntrySha256": "e98fe269d450c0192d6f515a19338919eb4612602e41af7abfea4629588c85f5",
+    "canonicalId": 1253892,
+    "canonicalSourceSha256": "847d645f8036be63ef8a428a023b8cafa90d4e30bc69b62044e99fc1bb12906e",
+    "senseId": "example:meager",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "少得不足的",
+    "en": "The hikers shared their meager supply of chocolate.",
+    "zh": "徒步者们分吃了他们那点少得可怜的巧克力。",
+    "reviewer": "AI/everyday-examples-independent-precision-0014"
   },
   {
     "term": "ming",
@@ -844,6 +922,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "Toynbee waited outside while the librarian fetched the book.",
     "zh": "图书管理员去取书时，托因比在外面等候。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "vengeful",
+    "expectedEntrySha256": "cdeee4bb438a804a8b69b4722d6e8bff3e64fabaee386c62adb0cd2d9c89b5ca",
+    "canonicalId": 1404749,
+    "canonicalSourceSha256": "f32fa80718d72fefb2c644877ca6903ddfa9744ab068c4f300b7104ff9193967",
+    "senseId": "example:vengeful",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "意图报复的",
+    "en": "The play's vengeful ruler cannot forgive an old insult.",
+    "zh": "剧中，怀有报复心的统治者无法原谅从前的侮辱。",
+    "reviewer": "AI/everyday_precision_0015_independent"
   },
   {
     "term": "wal",

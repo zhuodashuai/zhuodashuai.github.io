@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "decidedBy": "AI/root",
+  "recordedAt": "2026-10-29T03:42:48.384Z",
+  "source16Sha256": "37c3e3a106d8ad31653e01263c6e1f18ccd44d40f42f323950e3756f727c2cef",
+  "source15Sha256": "b3efa851afdf0649c77719cc22a7531c70109b1773be0c01326b9a455bcfd14d",
+  "review15Sha256": "3fca02eaa8f0878cc3dfce50c481233612bd038986dcc74da4da1909aa78670e",
+  "retentionPolicyUnchangedSha256": "e370d10cca7f0e4901decae8bb33f27b82b49020c4d6169e7360b77fb247bc81",
+  "excludedProspectiveHeads": [
+    "obligation"
+  ],
+  "reason": "Actual full unit regression common-240 loses existing obligation hits and exact synonym evidence for 义务/职责/责任 because its new primary sense cannot authorize the old whole core/MIT tuple containing unqualified 恩惠. A new alias would bypass the group/evidence result instead of preserving it. Keep the complete approved linguistic candidate pending a genuine reviewed-source group integration; retain its old currently valid example and all baseline group behavior. No tail pruning, invented source approval, runtime flag or test weakening.",
+  "languageApprovalOf16Preserved": true,
+  "fullOldSourceDataUnmodified": true,
+  "wholeOldTupleHoldsPreserved": true,
+  "oldObligationCanonicalAndExampleRemainActive": true,
+  "heldStagingCommit": "e8032438be7edf782229e785fbb0826890f5cf2b",
+  "expectedSelected": 171,
+  "canonicalHeadsUnchanged": 75,
+  "canonicalPairsUnchanged": 76,
+  "queries": 74,
+  "newPairs": 15,
+  "roles": 42,
+  "policyHeads": 11,
+  "policyTuples": 16,
+  "all102609SemanticCoverageComplete": false,
+  "productOrIndexWrites": false,
+  "productionApproval": false
+}

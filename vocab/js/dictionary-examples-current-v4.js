@@ -7,10 +7,64 @@ import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js'
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
 import { loadEverydayExamples } from './everyday-lookup.js';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
+import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js';
+import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
-let repairClients=new WeakMap(), generation=0;
+let repairClients=new WeakMap(), componentClients=new WeakMap(), generation=0;
 const active=new Set();
+// Eight selected roles only; these heads retain their complete valid old DTOs.
+const componentHeads=new Set(['respectable','persistently','burden','honor','snuff','fertilize','socialize','claim']);
+function componentClient(fetchImpl){
+  if(componentClients.has(fetchImpl))return componentClients.get(fetchImpl);
+  const started=generation;
+  const pending=import('./canonical-example-components.js').then(module=>{
+    if(started!==generation)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+    const client=module.createCanonicalExampleComponents({fetchImpl,loadOriginalEntry:(term,options)=>originalClient(fetchImpl).load(term,options)});
+    active.add(client);return client;
+  });
+  componentClients.set(fetchImpl,pending);
+  pending.catch(()=>{if(componentClients.get(fetchImpl)===pending)componentClients.delete(fetchImpl);});
+  return pending;
+}
+async function componentFallback(term,before,fetchImpl,signal){
+  const original=await originalClient(fetchImpl).load(term,{signal,lookupQuery:term});
+  if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+  if(before===undefined)return original;
+  // Exact old-selected contexts are already authenticated by the immutable
+  // original reader and need neither optional component asset to survive.
+  if(original?.term===term&&original.senses.some(s=>before.partOfSpeech===s.partOfSpeech&&before.meaning===s.meaningZh))return original;
+  try{
+    // This data-only fallback can retain an authenticated old card when its
+    // optional resolver module is unavailable. New/unrelated contexts get none.
+    const {CANONICAL_EXAMPLE_COMPONENTS:table}=await import('./canonical-example-components-data.js');
+    if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+    const row=table.rows.find(r=>r.term===term);
+    const allowed=row&&[...row.canonicalContexts,...row.legacyContexts].some(c=>JSON.stringify(c)===JSON.stringify(before));
+    if(allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry))return original;
+  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;}
+  // Both new assets may be absent during a partial offline update. The old
+  // canonical context needs genuine existing pins, never caller labels alone.
+  const controller=new AbortController(),stop=()=>controller.abort();signal?.addEventListener('abort',stop,{once:true});
+  let timer,client,rejectStopped;
+  const stopped=new Promise((_,reject)=>{rejectStopped=()=>reject(Object.assign(new Error('已停止读取例句。'),{name:'AbortError'}));});
+  controller.signal.addEventListener('abort',rejectStopped,{once:true});if(signal?.aborted)controller.abort();
+  const deadline=new Promise(resolve=>{timer=setTimeout(()=>{resolve(null);controller.abort();},5500);});
+  const snapshot=JSON.stringify(original);
+  const work=(async()=>{
+    const [{CANONICAL_EXAMPLE_REPAIRS:release},{createCanonicalSourceClient,canonicalDisplayContexts}]=await Promise.all([
+      import('./canonical-example-repairs-data.js'),import('./canonical-example-repair-source.js')]);
+    if(controller.signal.aborted)return null;
+    if(JSON.stringify(release.pins)!==JSON.stringify(dictionaryExamplesRelease.source))return null;
+    client=createCanonicalSourceClient(release.pins,{fetchImpl});active.add(client);
+    const record=await client.readLiteral(term,{signal:controller.signal});
+    return !controller.signal.aborted&&canonicalDisplayContexts(record).some(c=>JSON.stringify(c)===JSON.stringify(before))
+      &&JSON.stringify(original)===snapshot?original:null;
+  })();
+  try{return await Promise.race([work,deadline,stopped]);}
+  catch(error){if(signal?.aborted||error?.name==='AbortError'&&!controller.signal.aborted)throw error;return null;}
+  finally{clearTimeout(timer);signal?.removeEventListener('abort',stop);controller.signal.removeEventListener('abort',rejectStopped);controller.abort();client?.close();if(client)active.delete(client);}
+}
 // Finite literal heads only. The build test checks this list against the
 // independently approved table. Do not fetch a new optional module for every
 // ordinary card, or make an incomplete offline update disable legacy examples.
@@ -66,6 +120,39 @@ function sameSavedSense(sense, card) {
 export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEntry,...options}={}){
   if(typeof fetchImpl!=='function')return Promise.reject(new Error('无法读取学习例句。'));
   if(options.signal?.aborted){const error=new Error('已取消读取例句。');error.name='AbortError';return Promise.reject(error);}
+  if(componentHeads.has(term)){
+    if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
+    const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
+    if(before===null||before&&before.term!==term)return Promise.resolve(null);
+    return componentClient(fetchImpl).then(client=>client.load(term,{signal:options.signal,savedEntry,lookupQuery:term}))
+      .catch(error=>{
+        if(options.signal?.aborted||error?.name==='AbortError')throw error;
+        // A partial optional-module update must not erase valid base examples.
+        return componentFallback(term,before,fetchImpl,options.signal);
+      }).then(result=>savedEntry!==undefined&&JSON.stringify(canonicalCard(savedEntry,term))!==JSON.stringify(before)?null:result);
+  }
+  const oldCard = savedEntry === undefined ? null : canonicalCard(savedEntry, term);
+  if (savedEntry !== undefined && hasSelectedCommonSenseHead(term) && (!oldCard || oldCard.term !== term)) return Promise.resolve(null);
+  const preserved = oldCard && selectedGroupOriginalContext(term, oldCard);
+  if (preserved) {
+    // Exact approved old context -> exact original DTO only. A later card edit
+    // or a changed immutable DTO cannot borrow this finite preservation route.
+    const snapshot = JSON.stringify(oldCard);
+    return originalClient(fetchImpl).load(term,{...options,lookupQuery:term}).then(entry =>
+      JSON.stringify(canonicalCard(savedEntry,term)) === snapshot
+        && matchesSelectedGroupOriginalDTO(preserved,entry) ? entry : null);
+  }
+  // A selected replacement must keep independently approved old examples on
+  // these exact historic card identities. This grants no new pair or source sense.
+  if (savedEntry !== undefined && hasSelectedLegacyExampleHead(term)) {
+    const context = canonicalCard(savedEntry, term);
+    if (!context || context.term !== term) return Promise.resolve(null);
+    const binding = selectedLegacyOriginalContext(term, context);
+    if (binding) return originalClient(fetchImpl).load(term, { ...options, lookupQuery: term })
+      .then(entry => JSON.stringify(canonicalCard(savedEntry, term)) === JSON.stringify(context)
+        && matchesSelectedLegacyOriginalDTO(binding, entry) ? entry : null)
+      .catch(error => { if (options.signal?.aborted || error?.name === 'AbortError') throw error; return null; });
+  }
   if(canonicalRepairHeads.has(term)) {
     const context=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
     if(context===null)return Promise.resolve(null);
@@ -105,7 +192,7 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
       // change the meaning associated with an already started async request.
       const entry = options.savedEntry;
       managedGuard=undefined;
-      if(canonicalRepairHeads.has(term)&&entry!==undefined){
+      if((canonicalRepairHeads.has(term)||componentHeads.has(term)||hasSelectedCommonSenseHead(term)||hasSelectedLegacyExampleHead(term))&&entry!==undefined){
         savedEntry=canonicalCard(entry,term);
         const identity=JSON.stringify(savedEntry);
         managedGuard=()=>identity!=='null'&&JSON.stringify(canonicalCard(entry,term))===identity;
@@ -119,5 +206,5 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
   };
 }
 export function resetDictionaryExamplesCacheForTests(){
-  generation++;for(const client of active)client.close();active.clear();clients=new WeakMap();repairClients=new WeakMap();
+  generation++;for(const client of active)client.close();active.clear();clients=new WeakMap();repairClients=new WeakMap();componentClients=new WeakMap();
 }

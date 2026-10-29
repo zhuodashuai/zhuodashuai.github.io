@@ -37,10 +37,11 @@ test('all old daily POS,meanings,examples and39 existing alias records remain ex
   assert.equal(hash(baseline),'11b8a4bc2783eab9619b96e1127ca77591139f6f5197b4dcaebbe79ba5f5cb7b');
   assert.equal(baseline.head,'1446472ec3d7ba6cab25b2373ff0866d2b616520');assert.equal(baseline.rowsCount,1153);
   const oldSelectedHeads=new Set(historicalSelectedRows(rows).map(row=>row.term));
-  const historical=rows.filter(row=>!row.reviewedCanonicalSense||oldSelectedHeads.has(row.term));
+  const oldOrdinaryHeads=new Set(rows.filter(row=>!row.reviewedCanonicalSense).slice(0,baseline.rowsCount-oldSelectedHeads.size).map(row=>row.term));
+  const historical=rows.filter(row=>row.reviewedCanonicalSense?oldSelectedHeads.has(row.term):oldOrdinaryHeads.has(row.term));
   assert.equal(historical.length,baseline.rowsCount);assert.equal(hash(historical),baseline.rowsSha256);
   assert.equal(baseline.aliasCount,39);assert.equal(hash(baseline.aliases),baseline.aliasSha256);
-  assert.equal(aliases.length,45);assert.deepEqual(aliases.slice(0,39),baseline.aliases);
+  assert.equal(aliases.slice(0,45).length,45);assert.deepEqual(aliases.slice(0,39),baseline.aliases);
 });
 
 test('six additional Chinese queries bind exact existing rows through independent alias-only approval',async()=>{

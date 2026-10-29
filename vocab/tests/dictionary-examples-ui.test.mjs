@@ -56,16 +56,17 @@ test("switching cards aborts the old caller and ignores an abort-ignoring late r
 });
 
 test("an optional failure can retry, shows its own POS, meaning and provenance, and missing material hides", async () => {
-  let calls = 0;
+  let calls = 0, returnedEntry;
   const view = createDictionaryExamplesSection({ root, loadModule: async () => runtime(async term => {
     if (++calls === 1) throw Error("Unavailable");
-    return term === "missing" ? null : entry(term);
+    return term === "missing" ? null : (returnedEntry = entry(term));
   }) });
   assert.equal(await view.show({ term: "example" }), false);
   const retry = view.section.children.at(-1);
   assert.equal(retry.hidden, false); retry.listeners.get("click")(); await flush();
   assert.equal(retry.hidden, true);
-  assert.ok(texts(view.section).includes(DICTIONARY_EXAMPLE_SOURCE));
+  assert.ok(texts(view.section).includes("原创学习例句"));
+  assert.equal(returnedEntry.senses[0].source, DICTIONARY_EXAMPLE_SOURCE);
   assert.ok(texts(view.section).includes("以下为独立学习例句，按各自词性和义项阅读，不是书中原句。"));
   assert.ok(texts(view.section).includes("noun · example 的测试义项"));
   assert.ok(!texts(view.section).some(text => /本次义项|匹配书中/u.test(text)));

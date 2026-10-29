@@ -1,0 +1,2 @@
+import base from './playwright.config.mjs';
+export default {...base,testMatch:'translation-precision-0015.spec.mjs',reporter:[...base.reporter,['json',{outputFile:'test-results/translation-precision-0015-browser.json'}]],use:{...base.use,baseURL:'http://127.0.0.1:4194',serviceWorkers:'block'},webServer:{...base.webServer,command:'node tooling/tests/e2e/translation-precision-static-server.mjs',url:'http://127.0.0.1:4194/',reuseExistingServer:false}};
