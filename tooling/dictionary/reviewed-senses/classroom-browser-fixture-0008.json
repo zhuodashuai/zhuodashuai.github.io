@@ -1,0 +1,1567 @@
+{
+  "schemaVersion": 1,
+  "kind": "classroom-search-twelve-head-browser-fixture-v1",
+  "independentFullFixtureSha256": "1b018fbb494488ecc832aa72a6c269c487dc87fa3c082d6eba31a1c5a8ccdca3",
+  "pins": {
+    "selectedSourceSha256": "ef5d02a941a861bf10e3ace67eefac444ea83699c8876b2ef9218b49b7aea326",
+    "selectedSourceByteSha256": "1be89a85f41674b8ef61fd245c443af06d27caf8efcdf3fb8a0a7e280fce30a6",
+    "selectedReviewSha256": "9f4075821a658d07e981835658c7d189d984f9d07fb23bcbe9d7e9e5ebfb7f8d",
+    "selectedReviewByteSha256": "290f05c0a5339adbb3657d9e4dfa55b37a85de895eac07702a0a9586ddc3e8b0",
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "memberDictionarySha256": "258c49c1c82947539bc61149c0e08b2bed8f73c413d9f3003d8e15cf95c19b0e"
+  },
+  "selectedSource": {
+    "schemaVersion": 1,
+    "author": "AI/root-classroom-search-author",
+    "entries": [
+      {
+        "term": "shortness of breath",
+        "partOfSpeech": "noun",
+        "meaning": "① 气短；呼吸困难，指感到呼吸费力或吸不到足够空气。并不专指呼吸浅或呼吸快。",
+        "chineseAliases": [
+          "气短",
+          "感觉呼吸费力",
+          "感觉吸不到足够空气"
+        ],
+        "englishForms": [],
+        "en": "At the appointment, she mentioned shortness of breath when climbing stairs.",
+        "zh": "就诊时，她提到自己爬楼梯时会感到气短。",
+        "references": [
+          "https://www.healthdirect.gov.au/symptoms/shortness-of-breath",
+          "https://www.nhs.uk/symptoms/shortness-of-breath/"
+        ],
+        "canonicalId": 10231887,
+        "canonicalSourceSha256": "d7fb2e0cb218f4b1964c3ea5b9964a95b6ba50451970f4f842c0edf1f2a0c1c7"
+      },
+      {
+        "term": "homemaker",
+        "partOfSpeech": "noun",
+        "meaning": "① 持家者；主要负责料理自己家庭的家务、照顾家人的人。这个称呼不限定性别；通常用于美式英语。",
+        "chineseAliases": [
+          "持家者",
+          "主要料理自己家庭的人"
+        ],
+        "englishForms": [
+          "homemakers"
+        ],
+        "en": "He became a full-time homemaker while his partner returned to work.",
+        "zh": "他的伴侣重返工作岗位时，他成了全职持家者。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/homemaker",
+          "https://dictionary.cambridge.org/us/dictionary/english/homemaker"
+        ],
+        "canonicalId": 2615570,
+        "canonicalSourceSha256": "ac57d315c03aa58f0a54ce7377ab51dd6dd94c5bc9a841e3f01f3de4ef3f0a62"
+      },
+      {
+        "term": "infirm",
+        "partOfSpeech": "adjective",
+        "meaning": "① 体弱的；身体衰弱的，常指因年老或长期疾病而虚弱。",
+        "chineseAliases": [
+          "体弱",
+          "身体衰弱的"
+        ],
+        "englishForms": [],
+        "en": "Her infirm father needed help carrying groceries up the stairs.",
+        "zh": "她体弱的父亲需要有人帮他把买来的食品杂货搬上楼。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/infirm"
+        ],
+        "canonicalId": 1427578,
+        "canonicalSourceSha256": "59467fd77ea72a548b50469b6170f130b184e6bd8d32d6485a6925fc6fadd03f"
+      },
+      {
+        "term": "caesarean section",
+        "partOfSpeech": "noun",
+        "meaning": "① 剖宫产；剖腹产，通过腹部和子宫的手术切口使婴儿出生的分娩方式。",
+        "chineseAliases": [
+          "剖宫产",
+          "剖腹产"
+        ],
+        "englishForms": [
+          "caesarean sections"
+        ],
+        "en": "At the appointment, the midwife explained what a planned caesarean section would involve.",
+        "zh": "就诊时，助产士解释了计划性剖宫产会涉及哪些步骤。",
+        "references": [
+          "https://www.nhs.uk/tests-and-treatments/caesarean-section/"
+        ],
+        "canonicalId": 10911237,
+        "canonicalSourceSha256": "786f0b22e2fbcb52750c3dee795a779c22a4bd5e0ef73ef59c30187b66aa2628"
+      },
+      {
+        "term": "illegible",
+        "partOfSpeech": "adjective",
+        "meaning": "① 字迹、文字或印刷内容难以辨认的；模糊得读不出来的。",
+        "chineseAliases": [
+          "字迹看不清",
+          "字迹难以辨认",
+          "文字难以辨认"
+        ],
+        "englishForms": [],
+        "en": "Rain had made the address on the parcel almost illegible.",
+        "zh": "雨水把包裹上的地址弄得几乎无法辨认了。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/illegible"
+        ],
+        "canonicalId": 1482116,
+        "canonicalSourceSha256": "1394b898849de5d843aba424a7690aea7ef50d556f4015a61d96c247d5435886"
+      },
+      {
+        "term": "compatible",
+        "partOfSpeech": "adjective",
+        "meaning": "① 合得来的；能够融洽相处的，指人彼此相处和谐。\n② 能并存的；相互一致的，指想法、安排等彼此不冲突。\n③ 兼容的；能配合使用的，指设备、软件或系统可以一起正常工作。",
+        "chineseAliases": [
+          "合得来的",
+          "能够融洽相处的"
+        ],
+        "englishForms": [],
+        "en": "After sharing a flat for a year, they knew they were compatible as housemates.",
+        "zh": "合租公寓一年后，他们知道彼此是合得来的室友。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/compatible"
+        ],
+        "canonicalId": 547251,
+        "canonicalSourceSha256": "92369be48e334f5ec6fb558b97a1cb0d6eca7864b2feb6c507234e8d94e74f17"
+      },
+      {
+        "term": "iffy",
+        "partOfSpeech": "adjective",
+        "meaning": "① 不确定的；没把握的，口语中常形容安排、可能性或条件尚不可靠。\n② 有问题的；状况不太好的，尤用于英式口语，可形容质量或状态令人怀疑的东西。",
+        "chineseAliases": [
+          "安排不太靠谱",
+          "安排没把握",
+          "前景不确定"
+        ],
+        "englishForms": [
+          "iffier",
+          "iffiest"
+        ],
+        "en": "The outdoor concert is looking iffy now that heavy rain is forecast.",
+        "zh": "现在预报会下大雨，这场户外音乐会能否举行还没把握。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/iffy"
+        ],
+        "canonicalId": 3284635,
+        "canonicalSourceSha256": "3db4b0871bee20915826dc1e49a483d2384ad3dd433d93b4fac3632d33c8d3f2"
+      },
+      {
+        "term": "dicey",
+        "partOfSpeech": "adjective",
+        "meaning": "① 有风险的；危险而结果难料的，口语中形容某个做法或局面可能出问题。",
+        "chineseAliases": [
+          "做法不太稳妥",
+          "有风险而结果难料"
+        ],
+        "englishForms": [
+          "dicier",
+          "diciest"
+        ],
+        "en": "Taking that narrow road after dark could be dicey, especially with all those potholes.",
+        "zh": "天黑后走那条窄路可能有风险，尤其是路上还有那么多坑。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/us/definition/english/dicey"
+        ],
+        "canonicalId": 2977277,
+        "canonicalSourceSha256": "46d33acafbdd6761513ea38fe22585c63631098127a7e33120b83b66157d305d"
+      },
+      {
+        "term": "fine print",
+        "partOfSpeech": "noun",
+        "meaning": "① 小号印刷文字，尤指协议或文件中容易被忽略、却可能包含重要限制条件的小字条款。",
+        "chineseAliases": [
+          "小字条款",
+          "合同中的小字条款"
+        ],
+        "englishForms": [],
+        "en": "The fine print says the introductory price ends after three months.",
+        "zh": "小字条款写明，优惠起步价在三个月后结束。",
+        "references": [
+          "https://dictionary.cambridge.org/us/dictionary/english/fine-print?topic=information-and-messages",
+          "https://www.merriam-webster.com/dictionary/fine%20print"
+        ],
+        "canonicalId": 9460398,
+        "canonicalSourceSha256": "540d4f80bd74e61c20b3ba1c1a5fbe386b188fdb2ff93850f2ccd53a9431bf3e"
+      }
+    ],
+    "exampleSource": "原创学习例句"
+  },
+  "counts": {
+    "heads": 12,
+    "selectedHeads": 9,
+    "canonicalHeads": 3,
+    "selectedNumberedRoles": 12,
+    "selectedAliases": 21,
+    "selectedEnglishForms": 6,
+    "selectedLiteralFormAliasQueries": 36,
+    "canonicalAcceptedSavedContexts": 6,
+    "canonicalRejectedSavedContexts": 12
+  },
+  "rows": [
+    {
+      "route": "selected",
+      "term": "shortness of breath",
+      "sourceEntry": {
+        "term": "shortness of breath",
+        "partOfSpeech": "noun",
+        "meaning": "① 气短；呼吸困难，指感到呼吸费力或吸不到足够空气。并不专指呼吸浅或呼吸快。",
+        "chineseAliases": [
+          "气短",
+          "感觉呼吸费力",
+          "感觉吸不到足够空气"
+        ],
+        "englishForms": [],
+        "en": "At the appointment, she mentioned shortness of breath when climbing stairs.",
+        "zh": "就诊时，她提到自己爬楼梯时会感到气短。",
+        "references": [
+          "https://www.healthdirect.gov.au/symptoms/shortness-of-breath",
+          "https://www.nhs.uk/symptoms/shortness-of-breath/"
+        ],
+        "canonicalId": 10231887,
+        "canonicalSourceSha256": "d7fb2e0cb218f4b1964c3ea5b9964a95b6ba50451970f4f842c0edf1f2a0c1c7"
+      },
+      "sourceEntrySha256": "434454976aa3c37690b1d75b8f6e6700d0febe6d73085c68e935c8661f7f9478",
+      "canonicalRecord": {
+        "id": 10231887,
+        "term": "shortness of breath",
+        "partOfSpeech": "noun",
+        "meaning": "[医] 呼吸浅促, 呼吸浅短, 气促",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 87147,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "[医] 呼吸浅促, 呼吸浅短, 气促",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "canonicalContexts": [
+        {
+          "term": "shortness of breath",
+          "partOfSpeech": "noun",
+          "meaning": "[医] 呼吸浅促, 呼吸浅短, 气促"
+        },
+        {
+          "term": "shortness of breath",
+          "partOfSpeech": "noun",
+          "meaning": "① [医] 呼吸浅促, 呼吸浅短, 气促"
+        }
+      ],
+      "originalDTO": {
+        "term": "shortness of breath",
+        "senses": [
+          {
+            "id": "example:8e11ac43dbca88a20e8231de",
+            "partOfSpeech": "noun",
+            "meaningZh": "气促",
+            "examples": [
+              {
+                "en": "The training case listed shortness of breath among the recorded observations.",
+                "zh": "培训病例将气促列为记录下来的观察情况之一。"
+              }
+            ],
+            "reviewer": "AI/examples14_reviewa5",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "05ee9c5243ac8a692fc451fbf43c15b39978a28ce905e63fb64cccc7adb9ff89"
+    },
+    {
+      "route": "selected",
+      "term": "homemaker",
+      "sourceEntry": {
+        "term": "homemaker",
+        "partOfSpeech": "noun",
+        "meaning": "① 持家者；主要负责料理自己家庭的家务、照顾家人的人。这个称呼不限定性别；通常用于美式英语。",
+        "chineseAliases": [
+          "持家者",
+          "主要料理自己家庭的人"
+        ],
+        "englishForms": [
+          "homemakers"
+        ],
+        "en": "He became a full-time homemaker while his partner returned to work.",
+        "zh": "他的伴侣重返工作岗位时，他成了全职持家者。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/homemaker",
+          "https://dictionary.cambridge.org/us/dictionary/english/homemaker"
+        ],
+        "canonicalId": 2615570,
+        "canonicalSourceSha256": "ac57d315c03aa58f0a54ce7377ab51dd6dd94c5bc9a841e3f01f3de4ef3f0a62"
+      },
+      "sourceEntrySha256": "1276d03cd833419f4cd25d1d5cee9e8d470429416c8747a6fbc816086031ed2b",
+      "canonicalRecord": {
+        "id": 2615570,
+        "term": "homemaker",
+        "partOfSpeech": "noun",
+        "meaning": "n. 主妇",
+        "forms": [
+          "homemakers"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 20439,
+          "forms": [
+            "homemakers"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "homemaker",
+          "partOfSpeech": "noun",
+          "meaning": "n. 主妇"
+        },
+        {
+          "term": "homemaker",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 主妇"
+        }
+      ],
+      "originalDTO": {
+        "term": "homemaker",
+        "senses": [
+          {
+            "id": "example:homemaker",
+            "partOfSpeech": "noun",
+            "meaningZh": "料理家庭的人",
+            "examples": [
+              {
+                "en": "As a homemaker, he manages the household while his wife works.",
+                "zh": "作为料理家庭的人，他在妻子上班时负责家务。"
+              }
+            ],
+            "reviewer": "AI/examples10_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "c07a7324ccd534bf751427f0c9f0723ebc1fad83533f10ac7321dfb1d640261a"
+    },
+    {
+      "route": "selected",
+      "term": "infirm",
+      "sourceEntry": {
+        "term": "infirm",
+        "partOfSpeech": "adjective",
+        "meaning": "① 体弱的；身体衰弱的，常指因年老或长期疾病而虚弱。",
+        "chineseAliases": [
+          "体弱",
+          "身体衰弱的"
+        ],
+        "englishForms": [],
+        "en": "Her infirm father needed help carrying groceries up the stairs.",
+        "zh": "她体弱的父亲需要有人帮他把买来的食品杂货搬上楼。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/infirm"
+        ],
+        "canonicalId": 1427578,
+        "canonicalSourceSha256": "59467fd77ea72a548b50469b6170f130b184e6bd8d32d6485a6925fc6fadd03f"
+      },
+      "sourceEntrySha256": "2c4fe6eddcbb348b643987ddd6933cb7a3e9b403aa8f28cc88e8a6b040ae9dc6",
+      "canonicalRecord": {
+        "id": 1427578,
+        "term": "infirm",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 弱的, 虚弱的, 柔弱的\n[医] 衰弱的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 11152,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "infirm",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 弱的, 虚弱的, 柔弱的\n[医] 衰弱的"
+        },
+        {
+          "term": "infirm",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 弱的, 虚弱的, 柔弱的\n   [医] 衰弱的"
+        }
+      ],
+      "originalDTO": {
+        "term": "infirm",
+        "senses": [
+          {
+            "id": "example:infirm",
+            "partOfSpeech": "adjective",
+            "meaningZh": "体弱的",
+            "examples": [
+              {
+                "en": "The memoir describes an infirm grandfather's quiet routines.",
+                "zh": "回忆录描写了一位体弱祖父安静的日常。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "53daad8d4fc1bab64596ddfddc1f485a8b0a0d154e808203b2dddc7a78954661"
+    },
+    {
+      "route": "selected",
+      "term": "caesarean section",
+      "sourceEntry": {
+        "term": "caesarean section",
+        "partOfSpeech": "noun",
+        "meaning": "① 剖宫产；剖腹产，通过腹部和子宫的手术切口使婴儿出生的分娩方式。",
+        "chineseAliases": [
+          "剖宫产",
+          "剖腹产"
+        ],
+        "englishForms": [
+          "caesarean sections"
+        ],
+        "en": "At the appointment, the midwife explained what a planned caesarean section would involve.",
+        "zh": "就诊时，助产士解释了计划性剖宫产会涉及哪些步骤。",
+        "references": [
+          "https://www.nhs.uk/tests-and-treatments/caesarean-section/"
+        ],
+        "canonicalId": 10911237,
+        "canonicalSourceSha256": "786f0b22e2fbcb52750c3dee795a779c22a4bd5e0ef73ef59c30187b66aa2628"
+      },
+      "sourceEntrySha256": "b7f0bb8672c7c6ad5690e85cbc37a699681992e9cb1171d4914c0c21482f0d60",
+      "canonicalRecord": {
+        "id": 10911237,
+        "term": "caesarean section",
+        "partOfSpeech": "noun",
+        "meaning": "剖腹产",
+        "forms": [],
+        "source": "pos-reviewed",
+        "seed": {
+          "rank": 94226,
+          "forms": [],
+          "workbook": true
+        },
+        "variants": [
+          {
+            "partOfSpeech": "",
+            "meaning": "剖腹产",
+            "source": "mit"
+          }
+        ]
+      },
+      "canonicalSourceDescriptor": {
+        "name": "原有释义＋词性校订",
+        "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+        "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+        "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+      },
+      "canonicalContexts": [
+        {
+          "term": "caesarean section",
+          "partOfSpeech": "noun",
+          "meaning": "剖腹产"
+        },
+        {
+          "term": "caesarean section",
+          "partOfSpeech": "noun",
+          "meaning": "① 剖腹产"
+        }
+      ],
+      "originalDTO": {
+        "term": "caesarean section",
+        "senses": [
+          {
+            "id": "example:a6b01dcc31bfe285b0c558cf",
+            "partOfSpeech": "noun",
+            "meaningZh": "剖腹产",
+            "examples": [
+              {
+                "en": "The records described her earlier caesarean section.",
+                "zh": "病历记述了她以前做过的剖腹产手术。"
+              }
+            ],
+            "reviewer": "AI/examples16_root",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "384f809881937bc20f9f86448a6fda40054f5857a14356f994af18c9bc6538d4"
+    },
+    {
+      "route": "selected",
+      "term": "illegible",
+      "sourceEntry": {
+        "term": "illegible",
+        "partOfSpeech": "adjective",
+        "meaning": "① 字迹、文字或印刷内容难以辨认的；模糊得读不出来的。",
+        "chineseAliases": [
+          "字迹看不清",
+          "字迹难以辨认",
+          "文字难以辨认"
+        ],
+        "englishForms": [],
+        "en": "Rain had made the address on the parcel almost illegible.",
+        "zh": "雨水把包裹上的地址弄得几乎无法辨认了。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/illegible"
+        ],
+        "canonicalId": 1482116,
+        "canonicalSourceSha256": "1394b898849de5d843aba424a7690aea7ef50d556f4015a61d96c247d5435886"
+      },
+      "sourceEntrySha256": "bc81d3ced8b8fa68766a36a65efcc95a650be42bc60cba5125f54c4ca609d02f",
+      "canonicalRecord": {
+        "id": 1482116,
+        "term": "illegible",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 难辨认的, 字迹模糊的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 11579,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "illegible",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 难辨认的, 字迹模糊的"
+        },
+        {
+          "term": "illegible",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 难辨认的, 字迹模糊的"
+        }
+      ],
+      "originalDTO": {
+        "term": "illegible",
+        "senses": [
+          {
+            "id": "example:illegible",
+            "partOfSpeech": "adjective",
+            "meaningZh": "字迹难以辨认的",
+            "examples": [
+              {
+                "en": "The address was almost illegible because rain had blurred the ink.",
+                "zh": "雨水晕开了墨迹，地址几乎无法辨认。"
+              }
+            ],
+            "reviewer": "AI/examples4_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "12954d71643b8f5b7eefa009fcd24d55e52290eb6b81f42b1c32f4a41942139c"
+    },
+    {
+      "route": "selected",
+      "term": "compatible",
+      "sourceEntry": {
+        "term": "compatible",
+        "partOfSpeech": "adjective",
+        "meaning": "① 合得来的；能够融洽相处的，指人彼此相处和谐。\n② 能并存的；相互一致的，指想法、安排等彼此不冲突。\n③ 兼容的；能配合使用的，指设备、软件或系统可以一起正常工作。",
+        "chineseAliases": [
+          "合得来的",
+          "能够融洽相处的"
+        ],
+        "englishForms": [],
+        "en": "After sharing a flat for a year, they knew they were compatible as housemates.",
+        "zh": "合租公寓一年后，他们知道彼此是合得来的室友。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/compatible"
+        ],
+        "canonicalId": 547251,
+        "canonicalSourceSha256": "92369be48e334f5ec6fb558b97a1cb0d6eca7864b2feb6c507234e8d94e74f17"
+      },
+      "sourceEntrySha256": "f575595c6f6ba41f01fecce1cba49a6a49a87cd68a1fca6cd7a2e15f230270c1",
+      "canonicalRecord": {
+        "id": 547251,
+        "term": "compatible",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+        "forms": [
+          "compatibles"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 4275,
+          "forms": [
+            "compatibles"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "compatible",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能共处的, 可并立的, 适合的\n[计] 相容的; 兼容的"
+        },
+        {
+          "term": "compatible",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 能共处的, 可并立的, 适合的\n   [计] 相容的; 兼容的"
+        }
+      ],
+      "originalDTO": {
+        "term": "compatible",
+        "senses": [
+          {
+            "id": "example:compatible",
+            "partOfSpeech": "adjective",
+            "meaningZh": "能够兼容或配合使用的",
+            "examples": [
+              {
+                "en": "Check that the new keyboard is compatible with your computer.",
+                "zh": "确认新键盘与你的电脑兼容。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "c2c2fb839348448953435f99e9b1d21c174c698627fa80793dfebc456810bd2e"
+    },
+    {
+      "route": "selected",
+      "term": "iffy",
+      "sourceEntry": {
+        "term": "iffy",
+        "partOfSpeech": "adjective",
+        "meaning": "① 不确定的；没把握的，口语中常形容安排、可能性或条件尚不可靠。\n② 有问题的；状况不太好的，尤用于英式口语，可形容质量或状态令人怀疑的东西。",
+        "chineseAliases": [
+          "安排不太靠谱",
+          "安排没把握",
+          "前景不确定"
+        ],
+        "englishForms": [
+          "iffier",
+          "iffiest"
+        ],
+        "en": "The outdoor concert is looking iffy now that heavy rain is forecast.",
+        "zh": "现在预报会下大雨，这场户外音乐会能否举行还没把握。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/iffy"
+        ],
+        "canonicalId": 3284635,
+        "canonicalSourceSha256": "3db4b0871bee20915826dc1e49a483d2384ad3dd433d93b4fac3632d33c8d3f2"
+      },
+      "sourceEntrySha256": "bcc58b1eb11ee621b3f7ff6d69f88ec3318a2728728bc58ea1fb7d8fb5badb32",
+      "canonicalRecord": {
+        "id": 3284635,
+        "term": "iffy",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 富于偶然性的, 可怀疑的, 未确定的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 25667,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "iffy",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 富于偶然性的, 可怀疑的, 未确定的"
+        },
+        {
+          "term": "iffy",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 富于偶然性的, 可怀疑的, 未确定的"
+        }
+      ],
+      "originalDTO": {
+        "term": "iffy",
+        "senses": [
+          {
+            "id": "example:iffy",
+            "partOfSpeech": "adjective",
+            "meaningZh": "（非正式）不确定的；靠不住的",
+            "examples": [
+              {
+                "en": "The weather looks iffy, so the picnic may move indoors.",
+                "zh": "天气看起来不太稳，野餐可能要改到室内。"
+              }
+            ],
+            "reviewer": "AI/examples12_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "f78c3b000401ff1c900eb27dfd9c8ddb7ee0642332f293d2578258f8f833b8e1"
+    },
+    {
+      "route": "selected",
+      "term": "dicey",
+      "sourceEntry": {
+        "term": "dicey",
+        "partOfSpeech": "adjective",
+        "meaning": "① 有风险的；危险而结果难料的，口语中形容某个做法或局面可能出问题。",
+        "chineseAliases": [
+          "做法不太稳妥",
+          "有风险而结果难料"
+        ],
+        "englishForms": [
+          "dicier",
+          "diciest"
+        ],
+        "en": "Taking that narrow road after dark could be dicey, especially with all those potholes.",
+        "zh": "天黑后走那条窄路可能有风险，尤其是路上还有那么多坑。",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/us/definition/english/dicey"
+        ],
+        "canonicalId": 2977277,
+        "canonicalSourceSha256": "46d33acafbdd6761513ea38fe22585c63631098127a7e33120b83b66157d305d"
+      },
+      "sourceEntrySha256": "5cf6664c6a25e3232e1d95df6ff794b112b8151d773b0cf1cde92c77b87c2c58",
+      "canonicalRecord": {
+        "id": 2977277,
+        "term": "dicey",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 不确定的, 危险的, 冒险性的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 23265,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "dicey",
+          "partOfSpeech": "adjective",
+          "meaning": "a. 不确定的, 危险的, 冒险性的"
+        },
+        {
+          "term": "dicey",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 不确定的, 危险的, 冒险性的"
+        }
+      ],
+      "originalDTO": {
+        "term": "dicey",
+        "senses": [
+          {
+            "id": "example:dicey",
+            "partOfSpeech": "adjective",
+            "meaningZh": "有风险的（非正式）",
+            "examples": [
+              {
+                "en": "Crossing the narrow bridge looked dicey after the heavy rain.",
+                "zh": "大雨过后，走过那座窄桥看起来有些危险。"
+              }
+            ],
+            "reviewer": "AI/examples11_c",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "0e2466110f811dc61a9ef0d7dd86347d370424c93df2d180f5b870a8469868d8"
+    },
+    {
+      "route": "selected",
+      "term": "fine print",
+      "sourceEntry": {
+        "term": "fine print",
+        "partOfSpeech": "noun",
+        "meaning": "① 小号印刷文字，尤指协议或文件中容易被忽略、却可能包含重要限制条件的小字条款。",
+        "chineseAliases": [
+          "小字条款",
+          "合同中的小字条款"
+        ],
+        "englishForms": [],
+        "en": "The fine print says the introductory price ends after three months.",
+        "zh": "小字条款写明，优惠起步价在三个月后结束。",
+        "references": [
+          "https://dictionary.cambridge.org/us/dictionary/english/fine-print?topic=information-and-messages",
+          "https://www.merriam-webster.com/dictionary/fine%20print"
+        ],
+        "canonicalId": 9460398,
+        "canonicalSourceSha256": "540d4f80bd74e61c20b3ba1c1a5fbe386b188fdb2ff93850f2ccd53a9431bf3e"
+      },
+      "sourceEntrySha256": "6645e9cd0a03a49d2af2571909de8d37a365f5bfd18a5a2aa281f8173b1db09e",
+      "canonicalRecord": {
+        "id": 9460398,
+        "term": "fine print",
+        "partOfSpeech": "noun",
+        "meaning": "n. 极小的字体, （契约中）难懂的条文",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 77220,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "fine print",
+          "partOfSpeech": "noun",
+          "meaning": "n. 极小的字体, （契约中）难懂的条文"
+        },
+        {
+          "term": "fine print",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 极小的字体, （契约中）难懂的条文"
+        }
+      ],
+      "originalDTO": {
+        "term": "fine print",
+        "senses": [
+          {
+            "id": "example:38dc87a6312d50636981b115",
+            "partOfSpeech": "noun",
+            "meaningZh": "极小的字体",
+            "examples": [
+              {
+                "en": "Read the fine print before signing anything.",
+                "zh": "签字前请阅读小字条款。"
+              }
+            ],
+            "reviewer": "AI/examples15_reviewer_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "c98201f499d1145adec22a8f60127096cf0ee90fe01cc98b17835ab2b9d001b3"
+    },
+    {
+      "route": "canonical",
+      "term": "cart",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "cart",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 469263,
+        "canonicalSourceSha256": "bc0ada86151da45d9b3e4c686f1f715db83b5b8908fa67f55870acb9b6e69232",
+        "exactCanonicalRecord": {
+          "id": 469263,
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+          "forms": [
+            "carted",
+            "carting",
+            "carts"
+          ],
+          "source": "core",
+          "variants": [
+            {
+              "partOfSpeech": "noun · verb",
+              "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 3666,
+            "forms": [
+              "carted",
+              "carting",
+              "carts"
+            ],
+            "workbook": true
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT · 已上线核心整理",
+          "license": "MIT and project editorial additions",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+        },
+        "origin": {
+          "file": "batch-0003-i.json",
+          "sourceSha256": "89f3b5485d060753fea3d54ba2726cc86faa62385a6edaeae1d0c19db2c5473e",
+          "index": 156
+        },
+        "expectedOriginalEntry": {
+          "term": "cart",
+          "senses": [
+            {
+              "id": "example:cart",
+              "partOfSpeech": "noun",
+              "meaningZh": "运货的小车",
+              "examples": [
+                {
+                  "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+                  "zh": "我们把折叠椅装上小推车，推到了外面。"
+                }
+              ],
+              "reviewer": "AI/examples_0003_b",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "5e988abde5b2f7effe340c6579659d38e45700d1db024a30c3a4026fadd022ab",
+        "retiredOriginalPair": {
+          "term": "cart",
+          "partOfSpeech": "noun",
+          "meaningZh": "运货的小车",
+          "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+          "zh": "我们把折叠椅装上小推车，推到了外面。"
+        },
+        "retiredOriginalPairSha256": "d0ec71139131f5e4ab2d38109f856556af6f543f2a68519ebfa228912e710204",
+        "acceptedDisplayContexts": [
+          {
+            "term": "cart",
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载"
+          },
+          {
+            "term": "cart",
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载"
+          }
+        ],
+        "replacementPair": {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaningZh": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+          "en": "The farmer's horse pulled a two-wheeled cart loaded with sacks of grain along the muddy lane.",
+          "zh": "农夫的马拉着一辆满载袋装谷物的两轮马车，沿泥泞的小路前行。"
+        },
+        "replacementPairSha256": "0661944926a3a2ff18baef406af02053d3696dc2cc963a3c729bb32edcd5c44f",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/cart_1"
+        ]
+      },
+      "sourceEntrySha256": "e207d055a5d9943c64b1642e134589ee16f91cd217219edacca7685bf32c52b5",
+      "canonicalRecord": {
+        "id": 469263,
+        "term": "cart",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+        "forms": [
+          "carted",
+          "carting",
+          "carts"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3666,
+          "forms": [
+            "carted",
+            "carting",
+            "carts"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载"
+        },
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载"
+        }
+      ],
+      "originalDTO": {
+        "term": "cart",
+        "senses": [
+          {
+            "id": "example:cart",
+            "partOfSpeech": "noun",
+            "meaningZh": "运货的小车",
+            "examples": [
+              {
+                "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+                "zh": "我们把折叠椅装上小推车，推到了外面。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "5e988abde5b2f7effe340c6579659d38e45700d1db024a30c3a4026fadd022ab",
+      "nativeProjections": [
+        {
+          "kind": "hot",
+          "result": {
+            "term": "cart",
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载",
+            "source": "ECDICT"
+          },
+          "accepted": true
+        },
+        {
+          "kind": "full",
+          "result": {
+            "term": "cart",
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "alternatives": [
+              {
+                "partOfSpeech": "noun · verb",
+                "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载",
+                "source": "ECDICT",
+                "license": "MIT",
+                "url": "https://github.com/skywind3000/ECDICT"
+              }
+            ]
+          },
+          "accepted": true
+        },
+        {
+          "kind": "fast",
+          "result": {
+            "term": "cart",
+            "partOfSpeech": "noun · verb",
+            "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载",
+            "source": "ECDICT"
+          },
+          "accepted": true
+        }
+      ],
+      "rejectedSavedContexts": [
+        {
+          "label": "old-specific-sense",
+          "term": "cart",
+          "partOfSpeech": "noun",
+          "meaning": "运货的小车"
+        },
+        {
+          "label": "wrong-POS",
+          "term": "cart",
+          "partOfSpeech": "interjection",
+          "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载"
+        },
+        {
+          "label": "unrelated-meaning",
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "Unrelated personal sense."
+        }
+      ]
+    },
+    {
+      "route": "canonical",
+      "term": "TB",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "TB",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 2079955,
+        "canonicalSourceSha256": "3a8fc2ab98d2e08d8a924206854569a1273e24ffbf7f00efde1933fcff48744a",
+        "exactCanonicalRecord": {
+          "id": 2079955,
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+          "forms": [
+            "tbs"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 16252,
+            "forms": [
+              "tbs"
+            ],
+            "workbook": true
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT",
+          "license": "MIT",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+          "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+        },
+        "origin": {
+          "file": "batch-0018-p002.json",
+          "sourceSha256": "898e5eb2f8b011535d9c9ec669d34a04149f8798bf00e45eeedb6f7d5e5dbe9a",
+          "index": 18
+        },
+        "expectedOriginalEntry": {
+          "term": "TB",
+          "senses": [
+            {
+              "id": "example:TB",
+              "partOfSpeech": "noun",
+              "meaningZh": "太字节〔存储容量单位〕",
+              "examples": [
+                {
+                  "en": "The backup required another two TB of storage space.",
+                  "zh": "那份备份还需要两个太字节的存储空间。"
+                }
+              ],
+              "reviewer": "AI/examples18_reviewer_e",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "607e4c890c35c15a658c97b3090c0cca3de371bb0f224583fc5fd23bd7182106",
+        "retiredOriginalPair": {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaningZh": "太字节〔存储容量单位〕",
+          "en": "The backup required another two TB of storage space.",
+          "zh": "那份备份还需要两个太字节的存储空间。"
+        },
+        "retiredOriginalPairSha256": "c9b2a38a99af9b16e17b4e0aeac9e7024ce4c4018362f79b50e263df12ef676d",
+        "acceptedDisplayContexts": [
+          {
+            "term": "TB",
+            "partOfSpeech": "noun",
+            "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)"
+          },
+          {
+            "term": "TB",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)"
+          }
+        ],
+        "replacementPair": {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaningZh": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+          "en": "The public health leaflet explains how people can be tested for TB.",
+          "zh": "这份公共卫生宣传单介绍了人们可以如何接受结核病检测。"
+        },
+        "replacementPairSha256": "d3c157e55e113466a1ab169417e4246d8be76db43cf8d06aca47a7aa25025fa5",
+        "references": [
+          "https://www.cdc.gov/tb/about/index.html",
+          "https://www.merriam-webster.com/dictionary/terabyte"
+        ]
+      },
+      "sourceEntrySha256": "456f0c94590f78577cca2a745b5656b0dcc58c4585b1bc68c7c89c41c0006a7f",
+      "canonicalRecord": {
+        "id": 2079955,
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+        "forms": [
+          "tbs"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 16252,
+          "forms": [
+            "tbs"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "canonicalContexts": [
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)"
+        },
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)"
+        }
+      ],
+      "originalDTO": {
+        "term": "TB",
+        "senses": [
+          {
+            "id": "example:TB",
+            "partOfSpeech": "noun",
+            "meaningZh": "太字节〔存储容量单位〕",
+            "examples": [
+              {
+                "en": "The backup required another two TB of storage space.",
+                "zh": "那份备份还需要两个太字节的存储空间。"
+              }
+            ],
+            "reviewer": "AI/examples18_reviewer_e",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "607e4c890c35c15a658c97b3090c0cca3de371bb0f224583fc5fd23bd7182106",
+      "nativeProjections": [
+        {
+          "kind": "hot",
+          "result": null,
+          "accepted": null
+        },
+        {
+          "kind": "full",
+          "result": {
+            "term": "TB",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          "accepted": true
+        },
+        {
+          "kind": "fast",
+          "result": {
+            "term": "TB",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)",
+            "source": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT"
+          },
+          "accepted": true
+        }
+      ],
+      "rejectedSavedContexts": [
+        {
+          "label": "old-specific-sense",
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "太字节〔存储容量单位〕"
+        },
+        {
+          "label": "wrong-POS",
+          "term": "TB",
+          "partOfSpeech": "interjection",
+          "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)"
+        },
+        {
+          "label": "unrelated-meaning",
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "Unrelated personal sense."
+        },
+        {
+          "label": "IT-only",
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "[计] 太字节(万亿字节)"
+        },
+        {
+          "label": "bacillus-only",
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "结核杆菌"
+        },
+        {
+          "label": "disease-only-not-whole-tuple",
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "结核病"
+        }
+      ]
+    },
+    {
+      "route": "canonical",
+      "term": "laundry",
+      "sourceEntry": {
+        "kind": "canonical-same-sense-example-only-v1",
+        "term": "laundry",
+        "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+        "canonicalId": 691174,
+        "canonicalSourceSha256": "37d3dafbdf653493b047d53a8b839c47e81e11c5d923af3b0df14e5fed64d00c",
+        "exactCanonicalRecord": {
+          "id": 691174,
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+          "forms": [
+            "laundries"
+          ],
+          "source": "core",
+          "variants": [
+            {
+              "partOfSpeech": "noun",
+              "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+              "source": "mit"
+            }
+          ],
+          "seed": {
+            "rank": 5399,
+            "forms": [
+              "laundries"
+            ],
+            "workbook": true
+          }
+        },
+        "canonicalSourceDescriptor": {
+          "name": "ECDICT · 已上线核心整理",
+          "license": "MIT and project editorial additions",
+          "url": "https://github.com/skywind3000/ECDICT",
+          "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+        },
+        "origin": {
+          "file": "batch-0004-f.json",
+          "sourceSha256": "87cc625334d4bcb9ec4d5618959a6d031e6c853b0f9bf5bfdd77e2b9cd6a6f7c",
+          "index": 47
+        },
+        "expectedOriginalEntry": {
+          "term": "laundry",
+          "senses": [
+            {
+              "id": "example:laundry",
+              "partOfSpeech": "noun",
+              "meaningZh": "待洗衣物",
+              "examples": [
+                {
+                  "en": "A basket of laundry waited beside the washing machine.",
+                  "zh": "一篮待洗衣物放在洗衣机旁。"
+                }
+              ],
+              "reviewer": "AI/examples4_a",
+              "source": "原创例句·AI复核（精选义项）"
+            }
+          ]
+        },
+        "expectedOriginalEntrySha256": "ab383c01593eb97de87a05de6f55a7ce3acc6cc32d7da798197dc34a1f63129d",
+        "retiredOriginalPair": {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaningZh": "待洗衣物",
+          "en": "A basket of laundry waited beside the washing machine.",
+          "zh": "一篮待洗衣物放在洗衣机旁。"
+        },
+        "retiredOriginalPairSha256": "592d2b8e3b79b7c68f0529b0533df3bae5d6c08d796118a9d9ea660eea33783b",
+        "acceptedDisplayContexts": [
+          {
+            "term": "laundry",
+            "partOfSpeech": "noun",
+            "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房"
+          },
+          {
+            "term": "laundry",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房"
+          }
+        ],
+        "replacementPair": {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaningZh": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+          "en": "She carried the clean laundry upstairs and stacked the folded shirts in a drawer.",
+          "zh": "她把洗净的衣物搬到楼上，并把折好的衬衫整齐叠放进抽屉。"
+        },
+        "replacementPairSha256": "3ea2a355f179589547da2862bcac582fc9cd0adc996b313f5922c5fcd4232ea3",
+        "references": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/laundry"
+        ]
+      },
+      "sourceEntrySha256": "7c9dafdd30504399da09b53304889a6b0aeff0b864cd754bd22d268e6d8b65fc",
+      "canonicalRecord": {
+        "id": 691174,
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+        "forms": [
+          "laundries"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 5399,
+          "forms": [
+            "laundries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房"
+        },
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房"
+        }
+      ],
+      "originalDTO": {
+        "term": "laundry",
+        "senses": [
+          {
+            "id": "example:laundry",
+            "partOfSpeech": "noun",
+            "meaningZh": "待洗衣物",
+            "examples": [
+              {
+                "en": "A basket of laundry waited beside the washing machine.",
+                "zh": "一篮待洗衣物放在洗衣机旁。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "ab383c01593eb97de87a05de6f55a7ce3acc6cc32d7da798197dc34a1f63129d",
+      "nativeProjections": [
+        {
+          "kind": "hot",
+          "result": {
+            "term": "laundry",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "ECDICT"
+          },
+          "accepted": true
+        },
+        {
+          "kind": "full",
+          "result": {
+            "term": "laundry",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "alternatives": [
+              {
+                "partOfSpeech": "noun",
+                "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房",
+                "source": "ECDICT",
+                "license": "MIT",
+                "url": "https://github.com/skywind3000/ECDICT"
+              }
+            ]
+          },
+          "accepted": true
+        },
+        {
+          "kind": "fast",
+          "result": {
+            "term": "laundry",
+            "partOfSpeech": "noun",
+            "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "ECDICT"
+          },
+          "accepted": true
+        }
+      ],
+      "rejectedSavedContexts": [
+        {
+          "label": "old-specific-sense",
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "待洗衣物"
+        },
+        {
+          "label": "wrong-POS",
+          "term": "laundry",
+          "partOfSpeech": "interjection",
+          "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房"
+        },
+        {
+          "label": "unrelated-meaning",
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "Unrelated personal sense."
+        }
+      ]
+    }
+  ]
+}

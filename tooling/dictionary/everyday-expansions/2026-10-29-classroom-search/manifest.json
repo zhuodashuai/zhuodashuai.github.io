@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "independently-read-classroom-search-and-specific-original-examples",
+  "baselineHead": "36ff3cd5cbc46d57b70583943c2c6fc209c80f60",
+  "baselineSemanticSha256": "9a0523fde259ef9ac8cf8f104905a07f513b3fd397908c05e921e0ae688f524a",
+  "selectedSourceSha256": "ef5d02a941a861bf10e3ace67eefac444ea83699c8876b2ef9218b49b7aea326",
+  "selectedReviewSha256": "9f4075821a658d07e981835658c7d189d984f9d07fb23bcbe9d7e9e5ebfb7f8d",
+  "newPolicySha256": "6f323d69a403250c2616b4ecd0662709e778eba8f1a3fd2bd068fa6fdfe4fccf",
+  "combinedPolicySha256": "f2e12f4bdd2c905b2ffd132c703fed7a4173129493ad62cfff3eaf11faf96487",
+  "selectedHeads": 9,
+  "selectedNumberedSenses": 12,
+  "newCanonicalHeads": 3,
+  "newExamplePairs": 12,
+  "canonicalRepairs": [
+    {
+      "term": "cart",
+      "name": "canonical-quality-0009.json",
+      "sourceSha256": "fe500e6d09632a543358d8f0624f80c70ce614f8ff91dba283270ce5d05627cc",
+      "reviewSha256": "a2eeddb41bfdb9ff89f63ac59a7dc32e0af326b93dc8595796d738fe190dd452",
+      "author": "AI/canonical-0004-0011-component-author",
+      "reviewer": "AI/canonical-0005-0011-candidate-independent-review"
+    },
+    {
+      "term": "TB",
+      "name": "canonical-quality-0010.json",
+      "sourceSha256": "00a87b2171b3d7dc51d7267ce59cafe33dd5f52436e0002bf911d4b68bb5ba81",
+      "reviewSha256": "1db8b01847db4745914696ac38ab6baf59cfba49d39c5dd1f437b2fa0985c0f6",
+      "author": "AI/root-classroom-search-author",
+      "reviewer": "AI/canonical-0005-classroom-import-review"
+    },
+    {
+      "term": "laundry",
+      "name": "canonical-quality-0011.json",
+      "sourceSha256": "054b403034d1a2f12e5050fbd145e8031c1eae0e047a3d09303b6be7b28f3e27",
+      "reviewSha256": "e61500c6ef848c33b1063d82ae2c6de68d6d454984f6b7fea34bd9ae4ae19716",
+      "author": "AI/canonical-0005-0012-component-author",
+      "reviewer": "AI/root-laundry-independent-review"
+    }
+  ],
+  "rawDictionaryAndOldSourceFilesModified": false,
+  "all102609SemanticCoverageComplete": false,
+  "provenance": "Different-reader approvals preserve complete original DTO/source tuples; old valid examples remain immutable. Nine selected meanings plus three exact canonical components; no arbitrary source or identity waiver."
+}

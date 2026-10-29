@@ -303,6 +303,75 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       "reviewer": "AI/common-class-coverage-audit"
     },
     {
+      "term": "TB",
+      "canonicalId": 2079955,
+      "canonicalSourceSha256": "3a8fc2ab98d2e08d8a924206854569a1273e24ffbf7f00efde1933fcff48744a",
+      "exactCanonicalRecord": {
+        "id": 2079955,
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+        "forms": [
+          "tbs"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 16252,
+          "forms": [
+            "tbs"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT",
+        "license": "MIT",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+        "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+      },
+      "expectedOriginalEntry": {
+        "term": "TB",
+        "senses": [
+          {
+            "id": "example:TB",
+            "partOfSpeech": "noun",
+            "meaningZh": "太字节〔存储容量单位〕",
+            "examples": [
+              {
+                "en": "The backup required another two TB of storage space.",
+                "zh": "那份备份还需要两个太字节的存储空间。"
+              }
+            ],
+            "reviewer": "AI/examples18_reviewer_e",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "607e4c890c35c15a658c97b3090c0cca3de371bb0f224583fc5fd23bd7182106",
+      "acceptedDisplayContexts": [
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)"
+        },
+        {
+          "term": "TB",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 结核, 肺结核, 结核病, 结核杆菌\n   [计] 太字节(万亿字节)"
+        }
+      ],
+      "replacementPair": {
+        "term": "TB",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 结核, 肺结核, 结核病, 结核杆菌\n[计] 太字节(万亿字节)",
+        "en": "The public health leaflet explains how people can be tested for TB.",
+        "zh": "这份公共卫生宣传单介绍了人们可以如何接受结核病检测。"
+      },
+      "senseId": "canonical-example:2079955:3a8fc2ab98d2e08d8a924206854569a1273e24ffbf7f00efde1933fcff48744a",
+      "reviewer": "AI/canonical-0005-classroom-import-review"
+    },
+    {
       "term": "abbr",
       "canonicalId": 6671294,
       "canonicalSourceSha256": "878971687cbe9af357a2483eb3f745190e69d3d4d7d9e32e9bcb808946076cb5",
@@ -942,6 +1011,85 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:4704835:41538d24324306aa8e3a3dc3cd7b48faf160b47317d637e14ec00e33ce25b8a0",
       "reviewer": "AI/common-class-coverage-audit"
+    },
+    {
+      "term": "cart",
+      "canonicalId": 469263,
+      "canonicalSourceSha256": "bc0ada86151da45d9b3e4c686f1f715db83b5b8908fa67f55870acb9b6e69232",
+      "exactCanonicalRecord": {
+        "id": 469263,
+        "term": "cart",
+        "partOfSpeech": "noun · verb",
+        "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+        "forms": [
+          "carted",
+          "carting",
+          "carts"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun · verb",
+            "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 3666,
+          "forms": [
+            "carted",
+            "carting",
+            "carts"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "cart",
+        "senses": [
+          {
+            "id": "example:cart",
+            "partOfSpeech": "noun",
+            "meaningZh": "运货的小车",
+            "examples": [
+              {
+                "en": "We loaded the folded chairs onto a cart and wheeled them outside.",
+                "zh": "我们把折叠椅装上小推车，推到了外面。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "5e988abde5b2f7effe340c6579659d38e45700d1db024a30c3a4026fadd022ab",
+      "acceptedDisplayContexts": [
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载"
+        },
+        {
+          "term": "cart",
+          "partOfSpeech": "noun · verb",
+          "meaning": "① n. 二轮运货马车\n② vi. 驾运货马车\n③ vt. 用车装载"
+        }
+      ],
+      "replacementPair": {
+        "term": "cart",
+        "partOfSpeech": "noun · verb",
+        "meaningZh": "n. 二轮运货马车\nvi. 驾运货马车\nvt. 用车装载",
+        "en": "The farmer's horse pulled a two-wheeled cart loaded with sacks of grain along the muddy lane.",
+        "zh": "农夫的马拉着一辆满载袋装谷物的两轮马车，沿泥泞的小路前行。"
+      },
+      "senseId": "canonical-example:469263:bc0ada86151da45d9b3e4c686f1f715db83b5b8908fa67f55870acb9b6e69232",
+      "reviewer": "AI/canonical-0005-0011-candidate-independent-review"
     },
     {
       "term": "cavalier",
@@ -2843,6 +2991,81 @@ export const CANONICAL_EXAMPLE_REPAIRS = deepFreeze({
       },
       "senseId": "canonical-example:2152719:7d2c5a1cddaacf45c8c0f198e1850320cc355d20104f2bd0ec791d55a34ac93d",
       "reviewer": "AI/common-class-vocabulary-author"
+    },
+    {
+      "term": "laundry",
+      "canonicalId": 691174,
+      "canonicalSourceSha256": "37d3dafbdf653493b047d53a8b839c47e81e11c5d923af3b0df14e5fed64d00c",
+      "exactCanonicalRecord": {
+        "id": 691174,
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+        "forms": [
+          "laundries"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 5399,
+          "forms": [
+            "laundries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "expectedOriginalEntry": {
+        "term": "laundry",
+        "senses": [
+          {
+            "id": "example:laundry",
+            "partOfSpeech": "noun",
+            "meaningZh": "待洗衣物",
+            "examples": [
+              {
+                "en": "A basket of laundry waited beside the washing machine.",
+                "zh": "一篮待洗衣物放在洗衣机旁。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedOriginalEntrySha256": "ab383c01593eb97de87a05de6f55a7ce3acc6cc32d7da798197dc34a1f63129d",
+      "acceptedDisplayContexts": [
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房"
+        },
+        {
+          "term": "laundry",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 洗衣店, 洗好的衣服, 洗涤\n   [机] 洗衣作, 洗衣店, 洗衣房"
+        }
+      ],
+      "replacementPair": {
+        "term": "laundry",
+        "partOfSpeech": "noun",
+        "meaningZh": "n. 洗衣店, 洗好的衣服, 洗涤\n[机] 洗衣作, 洗衣店, 洗衣房",
+        "en": "She carried the clean laundry upstairs and stacked the folded shirts in a drawer.",
+        "zh": "她把洗净的衣物搬到楼上，并把折好的衬衫整齐叠放进抽屉。"
+      },
+      "senseId": "canonical-example:691174:37d3dafbdf653493b047d53a8b839c47e81e11c5d923af3b0df14e5fed64d00c",
+      "reviewer": "AI/root-laundry-independent-review"
     },
     {
       "term": "melville",
