@@ -26,7 +26,9 @@ test('classroom pack preserves all old 147 selected, 72 canonical and ordinary r
  assert.equal(hash(manifest),'26d6eb52621881395f683019acd7afcc70517c1409bb9c44e563efd2e0ceee7a');
  assert.equal(hash(pack),manifest.selectedSourceSha256);assert.equal(hash(review),manifest.selectedReviewSha256);
  assert.equal(review.sourceSha256,hash(pack));assert(review.independentOfAuthor);assert.notEqual(review.reviewer,pack.author);assert.deepEqual(review.issues,[]);
- assert.equal(selected.length,156);assert.equal(new Set(selected.map(r=>r.term)).size,156);
+ const historicalTerms=new Set([...baseline.selectedRows,...pack.entries].map(r=>r.term));
+ const historicalSelected=selected.filter(r=>historicalTerms.has(r.term));
+ assert.equal(historicalSelected.length,156);assert.equal(new Set(historicalSelected.map(r=>r.term)).size,156);
  assert.equal(repairs.rows.length,75);assert.equal(repairs.rows.reduce((n,r)=>n+1+(r.additionalExamples?.length??0),0),76);
  for(const old of baseline.selectedRows)assert.deepEqual(selected.find(r=>r.term===old.term),old);
  for(const old of baseline.canonicalRows)assert.deepEqual(repairs.rows.find(r=>r.term===old.term),old);

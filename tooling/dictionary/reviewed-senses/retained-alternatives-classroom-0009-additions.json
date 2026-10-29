@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "term": "feasible",
+      "canonicalSourceSha256": "a17475c89f9ece1aa1de412fd499740a6dd00b4762fbc634582145e66e3794ab",
+      "selectedRowSha256": "5307f14c04ffe772add0c7cd15b68a3dbd3eed1330662effadfc88c21ad2272a",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能实行的, 可行的, 适宜的\n[法] 可行的, 可执行的, 可完成的",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 能实行的, 可行的, 适宜的\n[法] 可行的, 可执行的, 可完成的",
+          "source": "mit"
+        },
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "① 可行的；在实际条件下有可能做成的。",
+          "source": "public"
+        }
+      ],
+      "reason": "Keep whole core, MIT and public adjective tuples. The publisher separately supports practicality, suitability and plausibility; every inherited legal/executable/completeable phrase remains an ordinary workable/capable meaning, not a new legal rule.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/feasible"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "preemptively",
+      "canonicalSourceSha256": "c8ea1fd65e5c2228f5c35edf2d8dae348fe5747be438c8de07d7e88afd93f56a",
+      "selectedRowSha256": "72e7729ddb7218798d79688a5d067e775a1dfbaecd5809ff84e868f7c9465deb",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adverb",
+          "meaning": "先发制人地",
+          "source": "pos-reviewed"
+        }
+      ],
+      "reason": "Keep the complete pos-reviewed adverb main tuple. The empty-POS MIT variant remains separate and unapproved; no adjective/adverb label is manufactured for it.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/preemptively",
+        "https://dictionary.cambridge.org/us/dictionary/english/pre-emptively?topic=planning-expecting-and-arranging",
+        "https://dictionary.cambridge.org/dictionary/learner-english/pre-empt"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "nominate",
+      "canonicalSourceSha256": "f93216e0e29492c03a82190181fde40a8510b9e0f9c44799fcd0b0592404b678",
+      "selectedRowSha256": "2b904b0ccd3cab7dfbb0c33cdfe23ed1d228f9a07370a13a81095b3cfa268073",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 提名, 任命, 命名\n[法] 提名...为候选人, 指定, 推荐",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 提名, 任命, 命名\n[法] 提名...为候选人, 指定, 推荐",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both whole core and MIT verb tuples cover nomination, appointment, naming, designation and recommendation. All are represented by the new owned definitions; the example demonstrates only the designation/beneficiary role.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/nominate",
+        "https://www.merriam-webster.com/dictionary/nominate"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "conceive",
+      "canonicalSourceSha256": "2c8cc2a1c345ddeb87d1fa2863750bdff0e4da1f884b1e58929ab7af9eebecfd",
+      "selectedRowSha256": "7c9b37343b17f9e4c68f7f3684f290ec2021ea1d640092ffbbfe2abd978ed95f",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 构思, 认为\nvi. 怀孕",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 构思, 认为\nvi. 怀孕",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep both complete core and MIT verb tuples, including the entire transitive mental-role line and intransitive pregnancy line. The new pregnancy example does not invalidate the old design example or certify all roles by itself.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/conceive"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "squabble",
+      "canonicalSourceSha256": "ddf6381aef9c65adc319871a5449158b2e0cf88ce0babf4f5df0b935182798bd",
+      "selectedRowSha256": "d0f7b0db1a78080dd922ea7ab4da6842528ecc33609e9dee4f0d854bbc87c9e5",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb · noun",
+          "meaning": "vi. 争吵, 口角\nn. 争吵, 口角",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the entire MIT verb+noun tuple, both lines intact. New definitions preserve both grammatical roles; the new pair demonstrates the noun while the old pair remains a valid verb example.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/squabble"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "litigator",
+      "canonicalSourceSha256": "eea5015298e2af0a8dd131846b944589609f7cdbe52568df7e1172abbb7e4acb",
+      "selectedRowSha256": "34ef71e2f95911ff9aac50ce4caa1876058718777977f89d820d48f59bac3916",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 诉讼律师",
+          "source": "mit"
+        }
+      ],
+      "reason": "The complete old noun tuple 诉讼律师 is directly supported by Collins. The new wording also preserves the broader participant-in-litigation role found in Oxford/Merriam-Webster.",
+      "references": [
+        "https://www.collinsdictionary.com/dictionary/english/litigator",
+        "https://www.merriam-webster.com/dictionary/litigator",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/litigator"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "sustenance",
+      "canonicalSourceSha256": "f4cb44142abf2509d64959c40064330ad780e894b49ac187a859e8d0c07104ee",
+      "selectedRowSha256": "ecd78e9fdfb1e822f28753c41a7521c59117480aef4c687cb910bb70fb4b562a",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "n. 生活资料, 生计, 食物, 支持\n[法] 营养物, 维持, 支持",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep every word of the whole MIT noun tuple, including living resources, livelihood, food, support and the complete nutrition/maintenance/support line. Publisher roles cover both material and sustaining support.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/sustenance"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "forestall",
+      "canonicalSourceSha256": "48aefd3933443862931476e7f77a95aae1526e17c96c49c9a289b92018dbfc24",
+      "selectedRowSha256": "434ec5ba3204b7d5ad2e971aab1aae17b4bd6a39e3edd713440d0291db5b9bf4",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍\n[法] 先采取行动预防或阻止, 垄断",
+          "source": "mit"
+        }
+      ],
+      "reason": "Keep the complete MIT verb tuple with the proposed usage note: prior prevention, acting ahead, historical trade interference and older obstruction are all separately attested. No part of the inherited trade/legal line is clipped.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/forestall"
+      ],
+      "usageNote": "旧释中的“垄断”在这里涉及旧时妨碍正常交易的贸易用法；“阻碍”也有较古旧用法。",
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "disclose",
+      "canonicalSourceSha256": "a37d2d24b3c87396cc0b4919154c3a944c4068d99557f0baac98e6bdf9011ef9",
+      "selectedRowSha256": "03ce408fe38a9afac501588f4937364f99023414f2039c0d8102fa2ad852bca1",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 揭露, 透露\n[法] 揭发, 揭露, 公开",
+          "source": "core"
+        },
+        {
+          "partOfSpeech": "verb",
+          "meaning": "vt. 揭露, 透露\n[法] 揭发, 揭露, 公开",
+          "source": "mit"
+        }
+      ],
+      "reason": "Both whole core and MIT verb tuples remain compatible: revealing, making information known, exposing and making public are preserved. The new pair demonstrates information disclosure only.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/disclose"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "antiquated",
+      "canonicalSourceSha256": "0012e54f7ae8cc93e4b9519296805465cff58660899ae589f9fa37d584bcab69",
+      "selectedRowSha256": "68bbe2d369f396a2b97a6fbc4947656bca924cac4b65b4cb905297b3a0d38cbe",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 陈旧的, 过时的, 年老的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The entire adjective tuple 陈旧的/过时的/年老的 is attested; advanced age is separately included in the newly authored numbered definitions. The antiquate verb remains a different unchanged lemma, not a second canonical owner of antiquated.",
+      "references": [
+        "https://www.merriam-webster.com/dictionary/antiquated",
+        "https://www.collinsdictionary.com/dictionary/english/antiquated"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "unsettling",
+      "canonicalSourceSha256": "7d999b4128d5e265fc6f8f545e2629fc422fb69594e880442d777c77e8c57772",
+      "selectedRowSha256": "560eb756303552a2e707b25bef6c8a9bc513ba75d7b1550a4114ac2cbeec23bb",
+      "author": "AI/canonical-0005-next-classroom-author",
+      "alternatives": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "a. 扰乱的, 使人不安的",
+          "source": "mit"
+        }
+      ],
+      "reason": "The whole literal adjective 扰乱的/使人不安的 fits the new emotional-disturbance definition. The complete unsettle verb source and all its other roles are preserved under its own identity, not clipped or reassigned.",
+      "references": [
+        "https://www.oxfordlearnersdictionaries.com/definition/english/unsettling"
+      ],
+      "reviewer": "AI/root-classroom-0009-independent-review",
+      "independentOfAuthor": true
+    }
+  ]
+}

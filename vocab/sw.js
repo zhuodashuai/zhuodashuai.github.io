@@ -1,4 +1,4 @@
-// Classroom search additions 2026-10-29: refresh curated meanings and exact examples.
+// Classroom senses 0009 (16 approved rows): refresh curated meanings and exact examples.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
