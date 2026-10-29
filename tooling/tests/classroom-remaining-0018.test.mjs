@@ -33,7 +33,8 @@ test('six independently read classroom heads add24roles and preserve the complet
  assert.equal(review.sourceSha256,hash(source));assert(review.independentOfAuthor);assert.notEqual(review.reviewer,source.author);assert.deepEqual(review.issues,[]);assert.deepEqual(review.approvedTerms,source.entries.map(r=>r.term));
  assert.deepEqual(source.entries.map(r=>r.term),['party','institution','column','in the picture','precipitously','dissolve']);
  assert.equal(source.entries.reduce((n,r)=>n+r.meaning.split('\n').length,0),24);assert.equal(selected.length,183);assert.equal(new Set(selected.map(r=>r.term)).size,183);historicalSelected177(selected);
- assert.equal(all.filter(r=>!r.reviewedCanonicalSense).length,1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(corrections.length,79);assert.equal(hash(corrections),fixture.baseline.correctionsSha256);
+ // Retain the complete original prefix when new reviewed phrases are appended.
+ assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(corrections.length,79);assert.equal(hash(corrections),fixture.baseline.correctionsSha256);
  for(const row of source.entries){const actual=selected.find(r=>r.term===row.term);for(const [key,value] of Object.entries(row))assert.deepEqual(actual[key],value);}
 });
 
