@@ -177,7 +177,11 @@ function deadline(operation, timeoutMs, controller) {
   return Promise.race([operation, limit]).finally(() => clearTimeout(timer));
 }
 async function readBytes(response, maximum) {
-  if (Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
+  // Fetch exposes a decoded body while Content-Length may describe its outer
+  // HTTP gzip/br representation. Bound that header only for identity bodies;
+  // the streamed decoded bytes and exact asset digest are always checked.
+  const encoding = response.headers?.get?.("content-encoding")?.trim().toLowerCase();
+  if ((!encoding || encoding === "identity") && Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
   if (response.body?.getReader) {
     const reader = response.body.getReader(); const chunks = []; let total = 0;
     try {
