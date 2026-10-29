@@ -1,4 +1,4 @@
-// Classroom senses 0009 (16 approved rows): refresh curated meanings and exact examples.
+// Classroom senses 0009 (15 admitted rows; obligation remains staging): refresh curated meanings and exact examples.
 // Keep the existing cache namespace: this additive shell update must not erase
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph

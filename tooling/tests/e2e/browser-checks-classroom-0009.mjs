@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 
-// Read-only browser checks for the exact independently approved sixteen-head fixture.
-const SELECTED=Object.freeze(["worrisome","feasible","preemptively","nominate","conceive","obligation","determinant","stigma","squabble","litigator","sustenance","forestall","disclose","antiquated","unsettling","palpitation"]);
+// Read-only browser checks for the exact independently approved fifteen-head fixture.
+const SELECTED=Object.freeze(["worrisome","feasible","preemptively","nominate","conceive","determinant","stigma","squabble","litigator","sustenance","forestall","disclose","antiquated","unsettling","palpitation"]);
 const CANONICAL=Object.freeze([]);
 const HASH = /^[a-f0-9]{64}$/u;
 const SOURCE = '原创学习例句';
@@ -23,10 +23,10 @@ export const requiredRegressions = Object.freeze([
 ]);
 
 export function prepareClassroomFixture(fixture) {
- must(fixture?.schemaVersion===1&&fixture.kind==='classroom-sixteen-selected-browser-fixture-0009','exact fixture kind');
- must(jsonHash(fixture.selectedSource)==='37c3e3a106d8ad31653e01263c6e1f18ccd44d40f42f323950e3756f727c2cef','approved source pin');
- must(fixture.pins.selectedReviewSha256==='4f69974b993391f5b36826baa8e5f000832a4481d905a9f1fc90308185688b4b','different reader pin');
- must(exactHeads(fixture.rows.map(r=>r.term),SELECTED)&&fixture.rows.length===16,'sixteen exact heads');
+ must(fixture?.schemaVersion===1&&fixture.kind==='classroom-fifteen-selected-browser-fixture-0009','exact fixture kind');
+ must(jsonHash(fixture.selectedSource)==='b3efa851afdf0649c77719cc22a7531c70109b1773be0c01326b9a455bcfd14d','approved source pin');
+ must(fixture.pins.selectedReviewSha256==='3fca02eaa8f0878cc3dfce50c481233612bd038986dcc74da4da1909aa78670e','different reader pin');
+ must(exactHeads(fixture.rows.map(r=>r.term),SELECTED)&&fixture.rows.length===15,'fifteen exact heads');
  const rows=fixture.rows.map(input=>{const entry=input.sourceEntry,record=input.canonicalRecord;
   must(input.route==='selected'&&SELECTED.includes(input.term)&&entry.term===input.term,'exact selected route');
   must(jsonHash(entry)===input.sourceEntrySha256&&same(entry,fixture.selectedSource.entries.find(e=>e.term===input.term)),'complete source row');
@@ -40,9 +40,9 @@ export function prepareClassroomFixture(fixture) {
   const queries=[{kind:'literal',query:input.term},...entry.englishForms.map(query=>({kind:'declared-form',query})),...entry.chineseAliases.map(query=>({kind:'approved-Chinese-alias',query}))];
   return{term:input.term,route:'selected',primary,example:{partOfSpeech:entry.partOfSpeech,meaning:entry.meaning,pairs:[{en:entry.en,zh:entry.zh}]},queries,canonicalRecord:record,originalDTO:input.originalDTO,acceptedContexts,rejectedContexts};
  });
- const queryCount=rows.reduce((n,r)=>n+r.queries.length,0);must(queryCount===79,'all79 queries');
- must(fixture.selectedSource.entries.reduce((n,e)=>n+e.englishForms.length,0)===17,'all17 forms');must(fixture.selectedSource.entries.reduce((n,e)=>n+e.chineseAliases.length,0)===46,'all46 Chinese aliases');
- return{rows,pins:fixture.pins,queryCount,selectedQueryCount:79,acceptedSavedChecks:32,rejectedSavedChecks:rows.reduce((n,r)=>n+r.rejectedContexts.length*2,0)};
+ const queryCount=rows.reduce((n,r)=>n+r.queries.length,0);must(queryCount===74,'all74 queries');
+ must(fixture.selectedSource.entries.reduce((n,e)=>n+e.englishForms.length,0)===16,'all16 forms');must(fixture.selectedSource.entries.reduce((n,e)=>n+e.chineseAliases.length,0)===43,'all43 Chinese aliases');
+ return{rows,pins:fixture.pins,queryCount,selectedQueryCount:74,acceptedSavedChecks:30,rejectedSavedChecks:rows.reduce((n,r)=>n+r.rejectedContexts.length*2,0)};
 }
 
 export function freshClassroomReport() {
@@ -244,7 +244,7 @@ export async function verifyClassroomViewport({ context, base, fixture, modules,
     expect(native.selectedFallbackCalls).toBe(0); expect(native.hotLookupCalls).toBe(0); expect(native.fullSearchCalls).toBe(0);
     expect(native.hotReverseCalls).toBe(0); expect(native.reads.length).toBeGreaterThan(0);
     for (const result of native.canonical) { expect(result.hotLookupCalls).toBe(1); expect(result.fullSearchCalls).toBe(1); }
-    expect(native.originals).toHaveLength(16); expect(native.nativeProjections).toHaveLength(0);
+    expect(native.originals).toHaveLength(15); expect(native.nativeProjections).toHaveLength(0);
     for (const original of native.originals) expect(original.dto, 'Original DTO retained: ' + original.term).toEqual(rows.find(r => r.term === original.term).originalDTO);
     report.originals.push({ base, width, checks: native.originals }); delete native.originals;
     report.native.push({ base, width, ...native });

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "kind": "classroom-sixteen-selected-browser-fixture-0009",
+  "kind": "classroom-fifteen-selected-browser-fixture-0009",
   "pins": {
-    "selectedSourceSha256": "37c3e3a106d8ad31653e01263c6e1f18ccd44d40f42f323950e3756f727c2cef",
-    "selectedReviewSha256": "4f69974b993391f5b36826baa8e5f000832a4481d905a9f1fc90308185688b4b",
+    "selectedSourceSha256": "b3efa851afdf0649c77719cc22a7531c70109b1773be0c01326b9a455bcfd14d",
+    "selectedReviewSha256": "3fca02eaa8f0878cc3dfce50c481233612bd038986dcc74da4da1909aa78670e",
     "retentionPolicySha256": "e370d10cca7f0e4901decae8bb33f27b82b49020c4d6169e7360b77fb247bc81",
     "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
   },
@@ -109,26 +109,6 @@
         ],
         "canonicalId": 451651,
         "canonicalSourceSha256": "2c8cc2a1c345ddeb87d1fa2863750bdff0e4da1f884b1e58929ab7af9eebecfd"
-      },
-      {
-        "term": "obligation",
-        "partOfSpeech": "noun",
-        "meaning": "① 义务；责任，指法律、承诺、道德或社会关系要求履行的事情。\n② 负有义务的状态或责任感；受到承诺、约定等约束的情形。\n③ 具有约束力的承诺、契约或约定。\n④ 财务用语：债务；应付款项；负有偿付责任的债务凭证。\n⑤ 人情债；因受人帮助而感到应当感激或回报的责任。",
-        "chineseAliases": [
-          "应尽的责任",
-          "必须履行的义务",
-          "人情债"
-        ],
-        "englishForms": [
-          "obligations"
-        ],
-        "en": "I declined the extra weekend shift because of a family obligation.",
-        "zh": "因为家中有必须处理的事，我没有接下额外的周末班次。",
-        "references": [
-          "https://www.merriam-webster.com/dictionary/obligation"
-        ],
-        "canonicalId": 374313,
-        "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6"
       },
       {
         "term": "determinant",
@@ -909,123 +889,6 @@
           "term": "conceive",
           "partOfSpeech": "verb",
           "meaning": "① vt. 构思, 认为\n② vi. 怀孕"
-        }
-      ]
-    },
-    {
-      "term": "obligation",
-      "route": "selected",
-      "sourceEntry": {
-        "term": "obligation",
-        "partOfSpeech": "noun",
-        "meaning": "① 义务；责任，指法律、承诺、道德或社会关系要求履行的事情。\n② 负有义务的状态或责任感；受到承诺、约定等约束的情形。\n③ 具有约束力的承诺、契约或约定。\n④ 财务用语：债务；应付款项；负有偿付责任的债务凭证。\n⑤ 人情债；因受人帮助而感到应当感激或回报的责任。",
-        "chineseAliases": [
-          "应尽的责任",
-          "必须履行的义务",
-          "人情债"
-        ],
-        "englishForms": [
-          "obligations"
-        ],
-        "en": "I declined the extra weekend shift because of a family obligation.",
-        "zh": "因为家中有必须处理的事，我没有接下额外的周末班次。",
-        "references": [
-          "https://www.merriam-webster.com/dictionary/obligation"
-        ],
-        "canonicalId": 374313,
-        "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6"
-      },
-      "sourceEntrySha256": "2ed4022d80c134b39e63c0facac10177d25bf3f4255afdc63a320d263188d563",
-      "canonicalRecord": {
-        "id": 374313,
-        "term": "obligation",
-        "partOfSpeech": "noun",
-        "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
-        "forms": [
-          "obligations"
-        ],
-        "source": "core",
-        "variants": [
-          {
-            "partOfSpeech": "noun",
-            "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
-            "source": "mit"
-          }
-        ],
-        "seed": {
-          "rank": 2924,
-          "forms": [
-            "obligations"
-          ],
-          "workbook": true
-        }
-      },
-      "canonicalRecordSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6",
-      "canonicalSourceDescriptor": {
-        "name": "ECDICT · 已上线核心整理",
-        "license": "MIT and project editorial additions",
-        "url": "https://github.com/skywind3000/ECDICT",
-        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
-      },
-      "canonicalContexts": [
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
-        },
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
-        }
-      ],
-      "originalDTO": {
-        "term": "obligation",
-        "senses": [
-          {
-            "id": "example:obligation",
-            "partOfSpeech": "noun",
-            "meaningZh": "义务",
-            "examples": [
-              {
-                "en": "I felt an obligation to keep my promise.",
-                "zh": "我觉得自己有义务信守承诺。"
-              }
-            ],
-            "reviewer": "AI/examples_0003_a",
-            "source": "原创例句·AI复核（精选义项）"
-          }
-        ]
-      },
-      "originalDTOSha256": "3c967b1dc88a26d12d64cd97b3de9e710fd0fd6ae152765e0742de35cb6ea1e3",
-      "canonicalAsset": {
-        "bucket": 41,
-        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-041.json",
-        "sha256": "93563255ea3986dd832a765c40155aa355b6bb66648bbbd450602efe3429696a",
-        "bytes": 353646,
-        "count": 1091,
-        "recordIndex": 67
-      },
-      "legacyDisplayContexts": [
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
-        },
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
-        },
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
-        },
-        {
-          "term": "obligation",
-          "partOfSpeech": "noun",
-          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
         }
       ]
     },
@@ -2118,5 +1981,153 @@
       "url": "https://zhuodashuai.github.io/vocab/dictionary-semantic-revisions.html",
       "sha256": "802943b0dd8b8c34560e59bd14cbda07a0595bf58ed78e60a3a0a6a7530859a6"
     }
+  },
+  "prospectiveTechnicalHolds": [
+    {
+      "term": "obligation",
+      "route": "selected",
+      "sourceEntry": {
+        "term": "obligation",
+        "partOfSpeech": "noun",
+        "meaning": "① 义务；责任，指法律、承诺、道德或社会关系要求履行的事情。\n② 负有义务的状态或责任感；受到承诺、约定等约束的情形。\n③ 具有约束力的承诺、契约或约定。\n④ 财务用语：债务；应付款项；负有偿付责任的债务凭证。\n⑤ 人情债；因受人帮助而感到应当感激或回报的责任。",
+        "chineseAliases": [
+          "应尽的责任",
+          "必须履行的义务",
+          "人情债"
+        ],
+        "englishForms": [
+          "obligations"
+        ],
+        "en": "I declined the extra weekend shift because of a family obligation.",
+        "zh": "因为家中有必须处理的事，我没有接下额外的周末班次。",
+        "references": [
+          "https://www.merriam-webster.com/dictionary/obligation"
+        ],
+        "canonicalId": 374313,
+        "canonicalSourceSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6"
+      },
+      "sourceEntrySha256": "2ed4022d80c134b39e63c0facac10177d25bf3f4255afdc63a320d263188d563",
+      "canonicalRecord": {
+        "id": 374313,
+        "term": "obligation",
+        "partOfSpeech": "noun",
+        "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
+        "forms": [
+          "obligations"
+        ],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "noun",
+            "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 2924,
+          "forms": [
+            "obligations"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalRecordSha256": "08d90801abf6b543e65bed68342b422c03c1b610d26e55c82965476d488f60a6",
+      "canonicalSourceDescriptor": {
+        "name": "ECDICT · 已上线核心整理",
+        "license": "MIT and project editorial additions",
+        "url": "https://github.com/skywind3000/ECDICT",
+        "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+      },
+      "canonicalContexts": [
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
+        },
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
+        }
+      ],
+      "originalDTO": {
+        "term": "obligation",
+        "senses": [
+          {
+            "id": "example:obligation",
+            "partOfSpeech": "noun",
+            "meaningZh": "义务",
+            "examples": [
+              {
+                "en": "I felt an obligation to keep my promise.",
+                "zh": "我觉得自己有义务信守承诺。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "originalDTOSha256": "3c967b1dc88a26d12d64cd97b3de9e710fd0fd6ae152765e0742de35cb6ea1e3",
+      "canonicalAsset": {
+        "bucket": 41,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-041.json",
+        "sha256": "93563255ea3986dd832a765c40155aa355b6bb66648bbbd450602efe3429696a",
+        "bytes": 353646,
+        "count": 1091,
+        "recordIndex": 67
+      },
+      "legacyDisplayContexts": [
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
+        },
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
+        },
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "n. 义务, 责任, 约束, 契约, 恩惠, 债务\n[经] 待付款, 债务, 义务"
+        },
+        {
+          "term": "obligation",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 义务, 责任, 约束, 契约, 恩惠, 债务\n   [经] 待付款, 债务, 义务"
+        }
+      ]
+    }
+  ],
+  "integrationScopeDecision": {
+    "schemaVersion": 1,
+    "decidedBy": "AI/root",
+    "recordedAt": "2026-10-29T03:42:48.384Z",
+    "source16Sha256": "37c3e3a106d8ad31653e01263c6e1f18ccd44d40f42f323950e3756f727c2cef",
+    "source15Sha256": "b3efa851afdf0649c77719cc22a7531c70109b1773be0c01326b9a455bcfd14d",
+    "review15Sha256": "3fca02eaa8f0878cc3dfce50c481233612bd038986dcc74da4da1909aa78670e",
+    "retentionPolicyUnchangedSha256": "e370d10cca7f0e4901decae8bb33f27b82b49020c4d6169e7360b77fb247bc81",
+    "excludedProspectiveHeads": [
+      "obligation"
+    ],
+    "reason": "Actual full unit regression common-240 loses existing obligation hits and exact synonym evidence for 义务/职责/责任 because its new primary sense cannot authorize the old whole core/MIT tuple containing unqualified 恩惠. A new alias would bypass the group/evidence result instead of preserving it. Keep the complete approved linguistic candidate pending a genuine reviewed-source group integration; retain its old currently valid example and all baseline group behavior. No tail pruning, invented source approval, runtime flag or test weakening.",
+    "languageApprovalOf16Preserved": true,
+    "fullOldSourceDataUnmodified": true,
+    "wholeOldTupleHoldsPreserved": true,
+    "oldObligationCanonicalAndExampleRemainActive": true,
+    "heldStagingCommit": "e8032438be7edf782229e785fbb0826890f5cf2b",
+    "expectedSelected": 171,
+    "canonicalHeadsUnchanged": 75,
+    "canonicalPairsUnchanged": 76,
+    "queries": 74,
+    "newPairs": 15,
+    "roles": 42,
+    "policyHeads": 11,
+    "policyTuples": 16,
+    "all102609SemanticCoverageComplete": false,
+    "productOrIndexWrites": false,
+    "productionApproval": false
   }
 }
