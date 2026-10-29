@@ -109,26 +109,34 @@ test("an unavailable Chinese manifest is an honest retryable error, not an empty
   await expect(page.locator("#member-dictionary-result")).toBeHidden();
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
   fail = false; await query(page, "苹果");
-  await page.locator("#member-dictionary-full").click();
+  // A healthy current query already returns the complete ranked first page.
+  await expect(page.locator("#member-dictionary-full")).toBeHidden();
+  await expect(page.locator("#member-dictionary-status")).not.toContainText("非完整搜索");
   await expect(page.locator("#member-dictionary-result")).toBeVisible();
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
   await expect(page.locator(".dictionary-choice")).toHaveCount(20);
 });
 
 test("logout discards a delayed expanded lookup without resurrecting old results", async ({ page }) => {
-  let release, seen;
+  let release, seen, finished;
   const held = new Promise(resolve => { release = resolve; });
   const reached = new Promise(resolve => { seen = resolve; });
+  const settled = new Promise(resolve => { finished = resolve; });
   await page.route("**/data/expanded-dictionary/**/zh-*.json*", async route => {
     const response = await route.fetch(); seen(); await held;
     try { await route.fulfill({ response }); } catch { /* Logout intentionally aborts lookup. */ }
+    finally { finished(); }
   });
   try {
-    await query(page, "苹果");
-    await page.locator("#member-dictionary-full").click();
+    // Complete Chinese search starts on Enter; hold that first request rather
+    // than waiting for a compact preview before a now-unnecessary second click.
+    await page.locator("#member-dictionary-term").fill("苹果");
+    await page.locator("#member-dictionary-term").press("Enter");
     await reached;
+    await expect(page.locator("#member-dictionary-result")).toBeHidden();
     await page.locator("#member-logout").click(); await expect(page.locator("#member-workspace")).toBeHidden();
-    release(); await expect(page.locator("#member-dictionary-result")).toBeHidden();
+    release(); await settled;
+    await expect(page.locator("#member-dictionary-result")).toBeHidden();
     await expect(page.locator("#member-dictionary-choices")).toBeHidden();
     await expect(page.locator("#member-dictionary-term")).toHaveValue("");
   } finally { release(); }

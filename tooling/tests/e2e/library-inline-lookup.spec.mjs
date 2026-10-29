@@ -178,7 +178,8 @@ test("owner Enter confirms a public card in place, preserves chapter scope and p
 test("Chinese preview is passive, actual candidate clicks publish that head, and inflections require explicit collection", async ({ page, context }) => {
   await openOwner(context, page); const calls = observe(page), originalUrl = page.url();
   await lookup(page, "苹果");
-  const appleChoice = page.locator("#lookup-choices button[data-lookup-choice]").filter({ hasText: /^apple\b/u });
+  const appleChoice = page.locator("#lookup-choices button[data-lookup-choice]").filter({ hasText: /^apple\s+·/u });
+  await expect(appleChoice).toHaveCount(1);
   await expect(appleChoice).toBeVisible();
   expect(writes(calls)).toEqual([]);
   await expect(receipts(page)).toHaveCount(0);
