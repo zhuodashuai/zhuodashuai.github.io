@@ -208,31 +208,27 @@ test("phone reverse lookup offers further results inside the expanded switcher a
   await expect(page.locator("#dictionary-term")).toHaveText("abacus");
 });
 
-test("late Chinese associations keep the phone switcher compact without moving the definition already being read", async ({ page }) => {
+test("complete Chinese associations arrive together and keep the phone switcher compact without moving the selected definition", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const gate = deferred(); let seen = false;
-  const bucket = value => { let hash = 2166136261; for (const char of value) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; } return hash % 128; };
-  const aliases = new Set(["高兴", "快乐", "愉快"].map(bucket));
-  expect(aliases.has(bucket("开心"))).toBe(false);
-  await page.route(/\/expanded-dictionary\/[a-f0-9]{64}\/zh-(\d{3})\.json$/u, async route => {
-    const match = route.request().url().match(/zh-(\d{3})\.json$/u);
-    if (!aliases.has(Number(match[1]))) return route.continue();
+  await page.route(/\/chinese-search-ranking\/[^?]+[.]bin$/u, async route => {
     const response = await route.fetch(); seen = true; await gate.promise;
     await route.fulfill({ response }).catch(() => {});
   });
   try {
-    await open(page); await query(page, "开心");
+    await open(page);await page.locator('#dictionary-query').fill('开心');await page.locator('#dictionary-query').press('Enter');
     await expect.poll(() => seen).toBe(true);
+    await expect(page.locator('#dictionary-result')).toBeHidden();gate.resolve();
     await expect(page.locator("#dictionary-term")).toHaveText("chuffed");
-    await expect(page.locator("#dictionary-related-status")).toContainText("正在补充");
+    await expect(page.locator("#dictionary-submit")).toBeEnabled();
+    await expect(page.locator("#dictionary-related-status")).toContainText("近义关联仅供");
     await expect(page.locator("#dictionary-choice-panel")).toBeVisible();
     await expect(page.locator("#dictionary-choice-disclosure")).toHaveJSProperty("open", false);
     const originalMeaning = await page.locator("#dictionary-meaning").textContent();
     const positions = () => page.evaluate(() => Object.fromEntries(["dictionary-term", "dictionary-meaning"].map(id =>
       [id, document.getElementById(id).getBoundingClientRect().top + scrollY])));
     const before = await positions();
-    gate.resolve();
-    await expect(page.locator("#dictionary-related-status")).toContainText("近义关联仅供");
+    await page.waitForLoadState('networkidle');
     await expect(page.locator('#dictionary-choices button[data-dictionary-term="happy"]')).toHaveCount(1);
     await expect(page.locator("#dictionary-choice-disclosure")).toHaveJSProperty("open", false);
     await expect(page.locator("#dictionary-term")).toHaveText("chuffed");

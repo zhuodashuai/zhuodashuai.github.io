@@ -166,6 +166,20 @@ test("reading further result pages never collects a word, including after owner 
   assert.equal(calls.collections.length, 1); assert.equal(calls.collections[0].body.term, "stifling");
 });
 
+test("integrated association pages stay in the main stream without sidecar reads or automatic owner collection", async t => {
+  let legacyCalls = 0;
+  const { controller, calls } = harness(t, { relatedSearch: async () => { legacyCalls++; return response(row("unrequested sidecar")); },
+    search: async (_input, { offset }) => offset === 0
+      ? { results: [row("happy", { matchType: "related", matchedChinese: "高兴" })], hasMore: true, nextOffset: 1, relatedIntegrated: true }
+      : { results: [row("glad", { matchType: "related", matchedChinese: "高兴" })], hasMore: false, nextOffset: 2, relatedIntegrated: true } });
+  await readyOwner(controller); await controller.submit("开心"); await controller.loadMore(); await tick();
+  assert.equal(legacyCalls, 0); assert.equal(calls.collections.length, 0);
+  assert.deepEqual(controller.getState().lookup.results.map(item => item.term), ["happy", "glad"]);
+  assert.equal(controller.getState().lookup.results[0].matchedChinese, "高兴");
+  controller.select(1); await tick();
+  assert.equal(calls.collections.length, 1); assert.equal(calls.collections[0].body.term, "glad");
+});
+
 test("related associations append without writing; an explicit related choice collects its canonical head", async t => {
   const related = deferred();
   const { controller, calls } = harness(t, { search: async () => response(row("cheerful")),

@@ -1,9 +1,9 @@
-import { createLibraryLookupController } from "./library-lookup-controller.js?v=111";
+import { createLibraryLookupController } from "./library-lookup-controller.js?v=112";
 import { createPersonalApi } from "./personal-api.js?v=100";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink } from "./owner-public-library.js?v=99";
-import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=111";
-import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=111";
+import { dictionaryMeaningLines, dictionaryChoiceDescription } from "./dictionary-app.js?v=112";
+import { searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=112";
 
 export function mountLibraryLookup({ document, window, onCollected, onOpenEntry, resolveEntry } = {}) {
   const get = id => document.getElementById(id);
@@ -51,7 +51,7 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
     moreButton.textContent = lookup.morePhase === "loading" ? "加载中…" : lookup.morePhase === "error" ? "重试加载更多" : "查看更多";
     const selected = lookup.results[lookup.selectedIndex];
     const same = collection.term && selected?.term === collection.term;
-    get("lookup-status").textContent = lookup.coverage === "limited" ? lookup.message
+    get("lookup-status").textContent = ["limited", "basic"].includes(lookup.coverage) ? lookup.message
       : same && collection.message ? collection.message : lookup.message || "";
     if (!selected && lookup.phase === "empty") {
       if (lookup.suggestionPhase === "loading") get("lookup-status").textContent += " 正在查找相近拼写…";
@@ -79,7 +79,14 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
       choices.replaceChildren();
       if (lookup.results.length > 1 || selected?.matchedForm || selected?.matchType === "related") {
         const note = document.createElement("p"); note.textContent = owner ? "点选要收录的词：" : "选择词条查看："; choices.append(note);
-        lookup.results.forEach((row, index) => choices.append(button(`${row.term} · ${dictionaryChoiceDescription(row)}`, "lookupChoice", index)));
+        lookup.results.forEach((row, index) => {
+          const choice = button(`${row.term} · ${dictionaryChoiceDescription(row)}`, "lookupChoice", index);
+          if (row.matchType === "related") {
+            const note = document.createElement("span"); note.className = "related-badge";
+            note.textContent = `近义关联：${row.matchedChinese}`; choice.append(note);
+          }
+          choices.append(choice);
+        });
       }
       lookup.suggestions.forEach((row, index) => choices.append(button(`你是否想查 ${row.term}？`, "lookupSuggestion", index)));
       choices.hidden = !choices.childElementCount;

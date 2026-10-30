@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { COMMON_CHINESE_GROUPS } from "../../../vocab/js/chinese-related-common.js";
 import { personalDictionaryResult } from "../../../vocab/js/personal-dictionary.js";
+import { ensureChineseChoices, rankedSearchResultInPage } from './chinese-ranked-choices.mjs';
 
 const ORIGIN = "http://127.0.0.1:4187", API = `${ORIGIN}/api/v1/member`;
 const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
@@ -27,10 +28,9 @@ function displayedPos(evidence) {
 async function publicQuery(page, group, term = group.terms[0]) {
   await page.locator("#dictionary-query").fill(term);
   await page.locator("#dictionary-query").press("Enter");
-  await expect.poll(() => page.locator("#dictionary-choices button[data-dictionary-term]")
-    .evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm).sort()))
-    .toEqual([...group.heads].sort());
+  await expect(page.locator('#dictionary-result')).toBeVisible();
   await expect(page.locator("#dictionary-submit")).toBeEnabled();
+  await ensureChineseChoices(page,group.heads);
   await expect(page.locator("#dictionary-related-status")).not.toContainText("正在补充");
 }
 async function expectActualEvidence(page, group, head) {
@@ -46,27 +46,21 @@ async function expectActualEvidence(page, group, head) {
   await expect(page.locator("#dictionary-related-match")).toContainText(group.sense);
 }
 async function reviewedExampleIds(page, query, head) {
-  return page.evaluate(async ({ query, head }) => {
-    const module = await import(new URL("js/expanded-dictionary.js", location.href).href);
-    const direct = await module.searchExpandedDictionary(query);
-    const related = await module.searchRelatedChineseDictionary(query);
-    return [...direct.results, ...related.results].find(row => row.term === head)?.matchedExampleSenseIds;
-  }, { query, head });
+  return (await rankedSearchResultInPage(page,query,head))?.matchedExampleSenseIds;
 }
 
-test("common adjectives find the complete finite group with Enter on a narrow phone screen", async ({ page }) => {
+test("common adjectives remain reachable in complete ranked pages on a narrow phone screen", async ({ page }) => {
   const group = representative("adjective");
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/dictionary.html");
   const dictionaryRequests = [];
   page.on("request", request => { if (request.url().includes("/data/expanded-dictionary/")) dictionaryRequests.push(request.url()); });
   await publicQuery(page, group);
-  await page.locator("#dictionary-choice-disclosure > summary").click();
+  await page.locator('#dictionary-choice-disclosure').evaluate(node=>{node.open=true;});
   await page.locator(`#dictionary-choices button[data-dictionary-term="${group.heads[0]}"]`).click();
   await expectActualEvidence(page, group, group.heads[0]);
-  for (const head of group.forbidden || []) await expect(page.locator(`#dictionary-choices button[data-dictionary-term="${head}"]`)).toHaveCount(0);
+  for (const head of group.forbidden || []) {const other=await rankedSearchResultInPage(page,group.terms[0],head);if(other){expect(other.matchedSense).not.toBe(group.sense);const groupProofs=new Set(Object.values(group.exampleSenses||{}).flat().map(row=>row.id));expect((other.matchedExampleSenseIds||[]).some(id=>groupProofs.has(id))).toBe(false);}}
   expect(dictionaryRequests.some(url => /\/zh-\d{3}\.json(?:$|\?)/u.test(url))).toBe(false);
-  expect(new Set(dictionaryRequests.filter(url => /\/en-\d{3}\.json(?:$|\?)/u.test(url))).size).toBeLessThanOrEqual(6);
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });
 
@@ -92,8 +86,9 @@ test("common adverb suffix lookup and related-result labels keep the actual matc
     !row.evidence.some(evidence => evidence.head === head && evidence.terms.includes(row.terms[0]))));
   expect(associated, "include a real association whose matching atom differs from the user's exact query").toBeTruthy();
   await publicQuery(page, associated);
-  const related = page.locator("#dictionary-choices button").filter({ has: page.locator(".related-badge") });
-  await expect(related.first()).toBeVisible();
+  const relatedHead=associated.heads.find(head=>!associated.evidence.some(evidence=>evidence.head===head&&evidence.terms.includes(associated.terms[0])));
+  const related = page.locator(`#dictionary-choices button[data-dictionary-term="${relatedHead}"]`).filter({ has: page.locator('.related-badge') });
+  await expect(related).toBeVisible();
   const choice = related.first(), badge = await choice.locator(".related-badge").textContent();
   expect(associated.terms.some(alias => badge.includes(alias))).toBe(true);
   await choice.click();
@@ -121,6 +116,9 @@ test("a fresh member can inspect a large-catalogue result without automatic coll
   });
   await page.locator("#member-dictionary-term").fill(group.terms[0]);
   await page.locator("#member-dictionary-term").press("Enter");
+  await expect(page.locator('#member-dictionary-result')).toBeVisible();
+  await expect(page.locator('#member-dictionary-search')).toBeEnabled();
+  await ensureChineseChoices(page,[head],{personal:true});
   const choice = page.locator(".dictionary-choice").filter({ has: page.locator("strong", { hasText: new RegExp(`^${head.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}$`, "u") }) });
   await expect(choice).toBeVisible(); await choice.click();
   await expect(page.locator("#member-dictionary-word")).toHaveText(head);

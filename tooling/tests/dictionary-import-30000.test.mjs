@@ -11,6 +11,7 @@ import { verifyDictionarySupplement } from "../lib/dictionary-supplement.mjs";
 import { preloadExpandedDictionary, searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../../vocab/js/expanded-dictionary.js";
 import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
 import {searchEverydayDictionary} from "../../vocab/js/everyday-lookup.js";
+import {chineseSearchPlan} from "../../vocab/js/chinese-search.js";
 
 // Release data contract, not a claim that every source gloss is human-certified.
 // These tests use tracked public assets only: never the user's private workbook.
@@ -168,7 +169,7 @@ test("all currently reviewed Forsyte chapter words remain live and member-indexe
   }
 });
 
-test("the actual lookup runtime parses all 128 English and 128 Chinese shards without a provider", async () => {
+test("current runtime authenticates every English shard and the complete Chinese index; legacy parsing still authenticates all128 Chinese shards", async () => {
   const data = await corpus();
   resetExpandedDictionaryCacheForTests();
   const requested = new Set();
@@ -193,18 +194,42 @@ test("the actual lookup runtime parses all 128 English and 128 Chinese shards wi
     const found = await searchExpandedDictionary(candidate.term, { fetchImpl, limit: 1 });
     assert.equal(found.results[0]?.term, candidate.term);
   }
-  for (const shard of data.chinese) {
-    const [token] = [...shard.postings].filter(([, ids]) => ids.length).sort((a, b) => a[1].length - b[1].length)[0];
-    const found = await searchExpandedDictionary(token, { fetchImpl, limit: 1 });
-    assert.ok(found.results.length > 0, `Chinese bucket ${shard.bucket}: ${token}`);
-    assert.ok(found.results[0].meaning.includes(token), token);
-  }
+  const complete = await searchExpandedDictionary('热', { fetchImpl, limit: 1 });
+  assert.equal(complete.ranking, 'global'); assert.equal(complete.relatedIntegrated, true);
+  assert(complete.total > 1); assert.equal(complete.results.length, 1);
   assert.equal(data.manifest.english.shards.filter(item => requested.has(item.file)).length, 128);
-  assert.equal(data.manifest.chinese.shards.filter(item => requested.has(item.file)).length, 128);
+  assert.equal(data.manifest.chinese.shards.filter(item => requested.has(item.file)).length, 0,
+    'The complete source-bound index replaces legacy Chinese posting downloads');
   for (const input of ["safety oracle", "test oracle", "importance sampling", "fan mail", "stuffed mushroom"]) {
     const found = await searchExpandedDictionary(input, { fetchImpl });
     assert.equal(found.results[0]?.term, input);
     assert.match(found.results[0].meaning, /\p{Script=Han}/u);
   }
+  // Exercise the real old-catalogue parser with unchanged, individually pinned
+  // shard bodies. Only its manifest namespace changes, making the current
+  // ranking release deliberately ineligible; no fixture can claim global rank.
+  const olderVersion = 'a'.repeat(64), older = structuredClone(data.manifest), legacyRequested = new Set();
+  older.version = olderVersion;
+  for (const group of [older.english, older.chinese]) for (const shard of group.shards)
+    shard.file = shard.file.replace(data.manifest.version, olderVersion);
+  const legacyFetch = async (input, options) => {
+    assert.equal(options.credentials, 'omit'); assert(!options.method || options.method === 'GET');
+    const target = new URL(input); assert(target.href.startsWith(directory.href)); assert.equal(target.search, '');
+    const file = decodeURIComponent(target.href.slice(directory.href.length)); legacyRequested.add(file);
+    if (file === 'manifest.json') return new Response(JSON.stringify(older));
+    assert(file.startsWith(olderVersion + '/'), 'The limited parser may only read its own descriptor namespace');
+    const raw = data.files.get(file.replace(olderVersion, data.manifest.version)); assert(raw);
+    return new Response(raw);
+  };
+  for (const shard of data.chinese) {
+    const [token] = [...shard.postings].filter(([term, ids]) => ids.length && !chineseSearchPlan(term)
+      && !searchEverydayDictionary(term)).sort((a, b) => a[1].length - b[1].length)[0];
+    assert(token, `Uncurated token for Chinese bucket ${shard.bucket}`);
+    const found = await searchExpandedDictionary(token, { fetchImpl: legacyFetch, limit: 1 });
+    assert.equal(found.coverage, 'limited'); assert.equal(found.ranking, 'limited');
+    for (const result of found.results) assert(result.meaning.includes(token));
+    assert(legacyRequested.has(older.chinese.shards[shard.bucket].file), `Actual parser must read Chinese bucket ${shard.bucket}`);
+  }
+  assert.equal(older.chinese.shards.filter(item => legacyRequested.has(item.file)).length, 128);
   resetExpandedDictionaryCacheForTests();
 });

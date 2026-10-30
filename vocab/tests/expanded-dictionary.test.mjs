@@ -116,10 +116,18 @@ test("related meanings retain the one real source variant, deduplicate canonical
   assert.deepEqual((await searchRelatedChineseDictionary("开心", data)).results.map(row => row.term), ["happy"]);
   assert.deepEqual((await searchRelatedChineseDictionary("好吃", data)).results.map(row => row.term), ["tasty"]);
   const cold = fixture();
-  for (const query of ["happy", "heppy", "今天很开心", "安全", "毫不安全", null, "<开心>"]) {
+  for (const query of ["happy", "heppy", null, "<开心>"]) {
     assert.deepEqual((await searchRelatedChineseDictionary(query, cold)).results, []);
   }
   assert.equal(cold.requests.length, 0);
+  for (const query of ["今天很开心", "安全", "毫不安全"]) {
+    assert.deepEqual((await searchRelatedChineseDictionary(query, cold)).results, []);
+  }
+  // A valid Chinese query can require corpus-backed grammatical evidence
+  // before determining that no reviewed association applies. This unbound
+  // fixture has only a manifest; no source/shard candidate scan is warranted.
+  assert.equal(cold.requests.length, 1);
+  assert.ok(cold.requests[0].url.endsWith("manifest.json"));
 });
 
 test("related ranking does not let early alias mentions hide a later exact definition atom", async () => {
@@ -558,6 +566,19 @@ test("every generated English and Chinese shard is compatible with the browser's
     const result = await searchExpandedDictionary(canonical.term, { fetchImpl });
     assert.equal(result.results[0].term, canonical.term, `English bucket ${descriptor.bucket}`);
   }
+  // Production reverse search now uses the complete sidecar and deliberately
+  // does not fetch legacy posting shards. Exercise their strict compatibility
+  // parser through a separately identified, unbound legacy manifest instead.
+  const legacyVersion = "0".repeat(64), legacyManifest = structuredClone(manifest);
+  legacyManifest.version = legacyVersion;
+  for (const kind of ["english", "chinese"]) for (const descriptor of legacyManifest[kind].shards) {
+    descriptor.file = descriptor.file.replace(manifest.version, legacyVersion);
+  }
+  const legacyFetch = async url => {
+    requests.push(String(url));
+    if (String(url).endsWith("manifest.json")) return new Response(JSON.stringify(legacyManifest));
+    return new Response(await readFile(new URL(String(url).replace(legacyVersion, manifest.version))));
+  };
   // Find an unused Han character in each token bucket: this exercises every
   // posting parser without downloading English shards for broad known queries.
   for (const descriptor of manifest.chinese.shards) {
@@ -569,8 +590,10 @@ test("every generated English and Chinese shard is compatible with the browser's
       if (bucket(char) === descriptor.bucket && !present.has(char)) { query = char; break; }
     }
     assert.ok(query);
-    assert.deepEqual((await searchExpandedDictionary(query, { fetchImpl })).results, [], `Chinese bucket ${descriptor.bucket}`);
+    const result = await searchExpandedDictionary(query, { fetchImpl: legacyFetch });
+    assert.deepEqual(result.results, [], `Chinese bucket ${descriptor.bucket}`);
+    assert.equal(result.coverage, "limited");
   }
-  assert.equal(requests.filter(url => url.endsWith("manifest.json")).length, 1);
+  assert.equal(requests.filter(url => url.endsWith("manifest.json")).length, 2);
   assert.equal(requests.filter(url => /\/(?:en|zh)-\d{3}\.json$/u.test(url)).length, 256);
 });

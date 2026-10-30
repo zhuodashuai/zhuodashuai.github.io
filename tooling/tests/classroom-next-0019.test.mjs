@@ -10,11 +10,12 @@ import {DICTIONARY_EXAMPLE_CORRECTIONS as corrections} from '../../vocab/js/dict
 import {EVERYDAY_LOOKUP_ENTRIES as all,EVERYDAY_CHINESE_ALIASES as aliases} from '../../vocab/js/everyday-lookup-data.js';
 import {SELECTED_COMMON_SENSE_BINDINGS as common} from '../../vocab/js/selected-common-sense-data.js';
 import {historicalSelected183,historicalLegacy26} from './helpers/classroom-history-0183.mjs';
-import {searchExpandedDictionary,searchRelatedChineseDictionary,resetExpandedDictionaryCacheForTests} from '../../vocab/js/expanded-dictionary.js';
+import {searchExpandedDictionary,resetExpandedDictionaryCacheForTests} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples,resetDictionaryExamplesCacheForTests} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {createAdditiveExamplesLoader} from '../../vocab/js/dictionary-examples-additive.js';
 import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-release-v4.js';
+import {allChineseResults,assertAuditableChineseRow} from './helpers/general-chinese-search-contract.mjs';
 import {validateClassroomLegacySource0019,selectedLegacySourceHash} from '../scripts/build-selected-legacy-examples.mjs';
 import {validateReviewedSensePack} from '../scripts/build-reviewed-dictionary-senses.mjs';
 const hash=x=>createHash('sha256').update(typeof x==='string'?x:JSON.stringify(x)).digest('hex'),sha=x=>createHash('sha256').update(x).digest('hex'),root=new URL('../../',import.meta.url),read=async f=>JSON.parse(await fs.readFile(new URL(f,root)));
@@ -49,8 +50,19 @@ test('only acquire and shape add four exact whole old tuples while norm stall an
  for(const term of['acquire','shape'])assert.equal(selected.find(r=>r.term===term).retainedCanonicalAlternatives.length,2);for(const term of['norm','stall'])assert(!selected.find(r=>r.term===term).retainedCanonicalAlternatives);
 });
 
-test('all established Chinese group memberships partitions and scopes plus independent shaped and cite outputs stay exact',async()=>{
- try{for(const row of fixture.preservedGroupQueries){assert.deepEqual(await searchExpandedDictionary(row.query,{fetchImpl}),row.direct,row.query+' direct');assert.deepEqual(await searchRelatedChineseDictionary(row.query,{fetchImpl}),row.related,row.query+' related');}
+test('all established Chinese heads and exact source tuples remain reachable in the complete ranked stream while shaped and cite stay exact',async()=>{
+ const tuple=row=>Object.fromEntries(['partOfSpeech','meaning','source','license','url'].map(key=>[key,row[key]]));
+ try{for(const historical of fixture.preservedGroupQueries){
+  const current=await allChineseResults(historical.query);
+  for(const row of current.results)await assertAuditableChineseRow(historical.query,row);
+  for(const old of [...historical.direct.results,...historical.related.results]){
+   const found=current.results.find(row=>row.term===old.term);assert(found,historical.query+' lost reviewed head '+old.term);
+   assert([found,...(found.alternatives||[])].some(row=>hash(tuple(row))===hash(tuple(old))),historical.query+' lost exact approved historical source tuple for '+old.term);
+   // A changed primary may retain an old choice, but must not acquire its
+   // old POS/example permissions merely by sharing the English head.
+   if(hash(tuple(found))===hash(tuple(old)))for(const key of ['matchedPartOfSpeech','matchedSense','matchedExampleSenseIds','matchedExampleSenseEvidence'])if(old[key]!==undefined)assert.deepEqual(found[key],old[key],historical.query+' '+old.term+' '+key);
+  }
+ }
  assert.deepEqual(await searchExpandedDictionary('shaped',{fetchImpl}),fixture.preservedShaped.primary);assert.deepEqual(await loadDictionaryExamples('shaped',{fetchImpl}),fixture.preservedShaped.dto);const cite=fixture.bindings.find(r=>r.term==='cite');assert.deepEqual((await searchExpandedDictionary('cite',{fetchImpl})).results[0],cite.currentPrimary);assert.deepEqual(await loadDictionaryExamples('cite',{fetchImpl}),cite.originalDTO);
  }finally{resetExpandedDictionaryCacheForTests();resetDictionaryExamplesCacheForTests();}
 });

@@ -6,13 +6,14 @@ import { test, expect } from "@playwright/test";
 test.use({ serviceWorkers: "block" });
 const moduleFixture = `
 const rows = Array.from({length: 43}, (_, i) => ({term: "heat-fixture-" + i,
-  partOfSpeech: "adjective", meaning: "热的；第" + i + "项测试义项", source: "测试公开词典", license: "Original fixture", url: "https://example.com/"}));
+  partOfSpeech: "adjective", meaning: "热的；第" + i + "项测试义项", source: "测试公开词典", license: "Original fixture", url: "https://example.com/",
+  ...(i % 3 === 0 ? {matchType: "related", matchedChinese: "炎热"} : {})}));
 export async function searchExpandedDictionary(input, {offset = 0, limit = 20} = {}) {
   const end = Math.min(rows.length, offset + limit - (offset > 0 ? 1 : 0));
   const page = rows.slice(offset > 0 ? offset - 1 : 0, end);
-  return {query: input, results: page, hasMore: end < rows.length, nextOffset: end};
+  return {query: input, results: page, hasMore: end < rows.length, nextOffset: end, relatedIntegrated: true};
 }
-export async function searchRelatedChineseDictionary() { return {results: [], hasMore: false}; }
+export async function searchRelatedChineseDictionary() { throw Error("Integrated pages must not trigger a legacy sidecar"); }
 export async function preloadExpandedDictionary() { return {counts: {records: rows.length}, version: "a".repeat(64)}; }
 `;
 
@@ -34,6 +35,8 @@ for (const surface of ["inline", "standalone"]) {
     await choices.nth(5).click(); await expect(heading).toHaveText("heat-fixture-5");
     if (surface === "standalone") await page.locator("#dictionary-choice-disclosure").evaluate(node => { node.open = true; });
     await more.click(); await expect(choices).toHaveCount(39);
+    const pageTerms=await choices.allTextContents();
+    expect(pageTerms.map(text=>Number(text.match(/heat-fixture-(\d+)/u)[1]))).toEqual(Array.from({length:39},(_,i)=>i));
     await expect(heading).toHaveText("heat-fixture-5");
     await more.click(); await expect(choices).toHaveCount(43);
     await expect(more).toBeHidden(); await expect(heading).toHaveText("heat-fixture-5");

@@ -1,6 +1,7 @@
 import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs/promises';import{createHash}from'node:crypto';
 import{historicalCorrections72}from'./helpers/correction-history-0072.mjs';
 import{historicalSelected177}from'./helpers/selected-history-0177.mjs';
+import{allChineseResults,assertAuditableChineseRow}from'./helpers/general-chinese-search-contract.mjs';
 import{REVIEWED_SENSE_ENTRIES as selected}from'../../vocab/js/reviewed-senses-data.js';import{EVERYDAY_LOOKUP_ENTRIES as all,EVERYDAY_CHINESE_ALIASES as aliases}from'../../vocab/js/everyday-lookup-data.js';import{DICTIONARY_EXAMPLE_CORRECTIONS as corrections}from'../../vocab/js/dictionary-example-corrections-data.js';import{CANONICAL_EXAMPLE_REPAIRS as repairs}from'../../vocab/js/canonical-example-repairs-data.js';import{searchExpandedDictionary}from'../../vocab/js/expanded-dictionary.js';import{lookupPersonalDictionaryFast}from'../../vocab/js/personal-lookup-flow.js';import{loadDictionaryExamples,resetDictionaryExamplesCacheForTests}from'../../vocab/js/dictionary-examples-current-v4.js';import{createAdditiveExamplesLoader}from'../../vocab/js/dictionary-examples-additive.js';import{dictionaryExamplesRelease}from'../../vocab/js/dictionary-examples-release-v4.js';
 const hash=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex'),sha=x=>createHash('sha256').update(x).digest('hex'),folder=new URL('../dictionary/everyday-expansions/2026-10-29-intents/',import.meta.url),read=async f=>JSON.parse(await fs.readFile(new URL(f,folder))),baseline=await read('baseline.json'),fixture=await read('source-bound-fixture.json'),fileFetch=async input=>new Response(await fs.readFile(new URL(input))),forbidden=()=>{throw Error('Approved everyday intent reached a dictionary/provider fallback');};
 
@@ -12,8 +13,26 @@ test('historical177selected1025ordinary47aliases and historical72corrections pre
  const combined=JSON.parse(await fs.readFile(new URL('../dictionary/reviewed-senses/retained-alternatives-everyday-0011.json',import.meta.url)));assert.equal(combined.entries.length,44);assert.deepEqual(combined.entries.slice(0,40),baseline.retentionPolicy.entries);assert.deepEqual(combined.entries.slice(40),fixture.policyAdditions.entries);assert.equal(fixture.heldWholeTuples.length,2);for(const held of fixture.heldWholeTuples)assert(!combined.entries.find(p=>p.term===held.term)?.alternatives.some(p=>hash(p)===held.wholeTupleSha256));
 });
 
-test('all ten intent heads/forms/Chinese names use their reviewed exact meaning and pair without fallback',async()=>{
- const rows=[...fixture.selectedSource.entries,...fixture.ordinaryAdded,...fixture.aliasProjection.map(p=>all.find(r=>r.term===p.term))];let count=0;for(const row of rows){const extra=fixture.aliasProjection.find(p=>p.term===row.term)?.aliases??[];for(const query of new Set([row.term,...row.englishForms,...row.chineseAliases,...extra])){const result=await searchExpandedDictionary(query,{fetchImpl:forbidden}),first=result.results[0];assert.equal(first.term,row.term,query);assert.equal(first.partOfSpeech,row.partOfSpeech);assert.equal(first.meaning,row.meaning);assert.deepEqual(await lookupPersonalDictionaryFast(query,{hotLookup:forbidden,hotReverse:forbidden,fullSearch:forbidden}),result);const dto=await loadDictionaryExamples(row.term,{savedEntry:first,fetchImpl:forbidden});assert.deepEqual(dto.senses[0].examples,[{en:row.en,zh:row.zh}]);count++;}}assert.equal(count,56);
+test('ten reviewed intents preserve English offline lookup, complete Chinese recall and explicit offline partial coverage',async()=>{
+ const rows=[...fixture.selectedSource.entries,...fixture.ordinaryAdded,...fixture.aliasProjection.map(p=>all.find(r=>r.term===p.term))];let count=0;
+ for(const row of rows){const extra=fixture.aliasProjection.find(p=>p.term===row.term)?.aliases??[];
+  for(const query of new Set([row.term,...row.englishForms,...row.chineseAliases,...extra])){
+   const chinese=/\p{Script=Han}/u.test(query),result=chinese?await allChineseResults(query):await searchExpandedDictionary(query,{fetchImpl:forbidden});
+   if(chinese)for(const actual of result.results)await assertAuditableChineseRow(query,actual);
+   const found=result.results.find(actual=>actual.term===row.term);assert(found,query+' lost its reviewed intent head');
+   // The complete stream may prefer another exact source variant (e.g.
+   // 止痛片). The independently approved English choice and example permission
+   // remain bound to their own whole tuple, never copied onto that variant.
+   const first=chinese?(await searchExpandedDictionary(row.term,{fetchImpl:forbidden})).results[0]:found;
+   assert.equal(first.partOfSpeech,row.partOfSpeech);assert.equal(first.meaning,row.meaning);
+   if(chinese){
+    const partial=await searchExpandedDictionary(query,{fetchImpl:forbidden});assert.equal(partial.coverage,'basic');assert.equal(partial.relatedIntegrated,true);assert.equal(partial.hasMore,false);assert.equal(partial.nextOffset,null);assert(!Object.hasOwn(partial,'total'));
+    assert(partial.results.some(actual=>actual.term===row.term&&actual.partOfSpeech===row.partOfSpeech&&actual.meaning===row.meaning));
+    const personal=await lookupPersonalDictionaryFast(query,{hotLookup:forbidden,hotReverse:forbidden,fullSearch:forbidden});assert.equal(personal.coverage,'basic');assert.equal(personal.hasMore,false);assert.equal(personal.nextOffset,null);assert.deepEqual(personal.results,partial.results);
+   }else{assert.equal(result.results[0].term,row.term,query);assert.deepEqual(await lookupPersonalDictionaryFast(query,{hotLookup:forbidden,hotReverse:forbidden,fullSearch:forbidden}),result);}
+   const dto=await loadDictionaryExamples(row.term,{savedEntry:first,fetchImpl:forbidden});assert.deepEqual(dto.senses[0].examples,[{en:row.en,zh:row.zh}]);count++;
+  }
+ }assert.equal(count,56);
 });
 
 test('all original canonical records and DTOs remain exact; new pairs never migrate to old or incompatible saved senses',async()=>{

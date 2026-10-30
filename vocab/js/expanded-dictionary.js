@@ -1,10 +1,11 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=111";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=112";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
-  literalDictionarySpelling } from "./everyday-lookup.js?v=111";
-import { chineseVariantRank, chineseRankingNeedle, parseChineseRanking } from "./chinese-ranking.js?v=111";
+  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=112";
+import { chineseVariantRank, parseChineseRanking, normalizeChineseRankingQuery,
+  createChineseRankingContext } from "./chinese-ranking.js?v=112";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
 import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
 
@@ -389,6 +390,160 @@ async function rankingFor(manifest, client, fetchImpl, timeoutMs) {
   return client.rankingLoad;
 }
 
+// This complete corpus is the candidate universe. Editorial query families
+// add supported one-hop associations; they never restrict its heads or POS.
+function integratedCorpus(ranking, manifest) {
+  if (ranking.integratedCorpus) return ranking.integratedCorpus;
+  const corpus = new Map(), sourceRows = [], byTerm = new Map();
+  for (const record of ranking.records.values()) {
+    byTerm.set(spelling(record.term), record);
+    if (isSupersededChineseSenseHead(record.term)) continue;
+    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    if (!variants.length) continue;
+    const [primary, ...alternatives] = variants;
+    corpus.set(record.id, { id: record.id, term: record.term, ...primary, variants: alternatives });
+    sourceRows.push({ record, variants });
+  }
+  const everyday = everydayChineseEntries();
+  everyday.forEach((entry, index) => {
+    const dto = entry.result;
+    corpus.set(`everyday:${index}`, { term: dto.term, partOfSpeech: dto.partOfSpeech,
+      meaning: dto.meaning, source: "approved-everyday", variants: [] });
+  });
+  const textByMeaning = new Map();
+  const searchText = meaning => {
+    if (!textByMeaning.has(meaning)) textByMeaning.set(meaning, meaning.normalize("NFKC").toLowerCase());
+    return textByMeaning.get(meaning);
+  };
+  const searchRows = [...corpus].map(([key, record]) => ({ key, record,
+    text: [record, ...(record.variants || [])].map(item => searchText(item.meaning)).join("\u0000") }));
+  const value = { corpus, sourceRows, byTerm, everyday, searchRows, textByMeaning };
+  ranking.integratedCorpus = value;
+  return value;
+}
+
+async function authenticatedCommonProjections(terms, prepared, context) {
+  const wanted = terms.filter(term => hasSelectedCommonSensePlan(term));
+  const projections = new Map();
+  if (!wanted.length) return projections;
+  const { manifest, client, fetchImpl, timeoutMs, signal } = context;
+  const candidates = prepared.everyday.map(entry => prepared.byTerm.get(spelling(entry.result.term)))
+    .filter(record => record && isSelectedCommonSenseCanonicalCandidate(record.id, record.term));
+  const shards = new Map();
+  await parallel([...new Set(candidates.map(record => record.id % BUCKETS))], 6, async bucket => {
+    if (signal?.aborted) throw stopped();
+    shards.set(bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
+  });
+  if (signal?.aborted) throw stopped();
+  for (const candidate of candidates) {
+    const record = shards.get(candidate.id % BUCKETS).records.get(candidate.id);
+    for (const term of wanted) {
+      const projection = selectedCommonSenseCandidate(record, canonicalRecordOrigins.get(record), term);
+      if (projection?.directTerms.includes(term)) projections.set(`${term}\u0000${spelling(record.term)}`, projection.result);
+    }
+  }
+  return projections;
+}
+
+function sourceMatchEvidence(record, selected, term) {
+  const plan = chineseSearchPlan(term), sense = plan?.term === term ? chineseSearchSense(term) : null;
+  if (!sense || !matchesChineseSearchEntry(record.term, selected.meaning, term, selected.partOfSpeech, selected.source)) return {};
+  return { matchedPartOfSpeech: sense.pos, matchedSense: sense.sense,
+    matchedExampleSenseIds: (sense.exampleSenses?.[fold(record.term)] || []).map(item => item.id),
+    matchedExampleSenseEvidence: structuredClone(sense.exampleSenses?.[fold(record.term)] || []) };
+}
+
+async function integratedChineseMatches(query, ranking, context) {
+  if (ranking.lastChineseQuery?.query === query) return ranking.lastChineseQuery;
+  const prepared = integratedCorpus(ranking, context.manifest);
+  const relevantCorpus = needles => {
+    const folded = (Array.isArray(needles) ? needles : [needles]).map(needle => needle.normalize("NFKC").toLowerCase());
+    return new Map(prepared.searchRows.filter(row => folded.some(needle => row.text.includes(needle))).map(row => [row.key, row.record]));
+  };
+  const requested = everydayChineseQuery(query) || query;
+  // Normalisation needs every possible complete/base atom, not unrelated rows.
+  // This exact text prefilter has no head, POS, window or candidate-count cap.
+  let evidence = prepared.corpus;
+  if (/[的地]$/u.test(requested) && [...requested].length > 1) {
+    const base = requested.slice(0, -1), proposedBase = chineseSearchPlan(base);
+    const grammaticalAliases = proposedBase?.term === base ? proposedBase.aliases : [];
+    evidence = relevantCorpus([base, ...grammaticalAliases]);
+  }
+  const normalized = normalizeChineseRankingQuery(requested, evidence);
+  const term = normalized.term;
+  const proposed = chineseSearchPlan(term), plan = proposed?.term === term ? proposed : null;
+  const aliases = [...new Set(plan?.aliases || [])].filter(alias => alias !== term);
+  const rankContext = createChineseRankingContext(term, relevantCorpus(term), { partOfSpeechHint: normalized.partOfSpeechHint });
+  const needles = [...new Set([term, ...aliases])]
+    .map(value => value.normalize("NFKC").toLowerCase());
+  const common = await authenticatedCommonProjections([term, ...aliases], prepared, context);
+  if (context.signal?.aborted) throw stopped();
+  const best = new Map();
+  const keep = candidate => {
+    if (!Number.isFinite(candidate.score)) return;
+    const key = spelling(candidate.term), old = best.get(key);
+    if (!old || candidate.score < old.score || candidate.score === old.score && candidate.sourcePriority < old.sourcePriority) best.set(key, candidate);
+  };
+  const score = (record, selected, dto, declaredAliases, sourcePriority, order) => {
+    // This is a complete lexical prefilter, not a head or download budget:
+    // every literal and independently approved complete alias remains
+    // eligible. Most of the 102k rows need no definition-atom parsing at all.
+    const searchable = prepared.textByMeaning.get(selected.meaning) || selected.meaning.normalize("NFKC").toLowerCase();
+    if (!needles.some(needle => searchable.includes(needle))
+      && !declaredAliases?.some(alias => alias === term || aliases.includes(alias))) return;
+    const matches = [];
+    const direct = chineseVariantRank(selected.meaning, term, selected.partOfSpeech,
+      { context: rankContext, partOfSpeechHint: normalized.partOfSpeechHint });
+    if (direct !== null) matches.push({ score: direct, matchedChinese: term, related: false });
+    if (declaredAliases?.includes(term)) matches.push({ score: 0.25, matchedChinese: term, related: true });
+    for (const alias of aliases) {
+      // Associations require complete source atoms (or an explicitly approved
+      // complete alias). A compound or negated mention cannot grant a synonym.
+      if (matchesChineseSearchMeaning(selected.meaning, alias)) {
+        const rank = chineseVariantRank(selected.meaning, alias, selected.partOfSpeech,
+          { partOfSpeechHint: normalized.partOfSpeechHint });
+        if (rank !== null) matches.push({ score: rank + 0.25, matchedChinese: alias, related: true });
+      }
+      if (declaredAliases?.includes(alias)) matches.push({ score: 0.25, matchedChinese: alias, related: true });
+    }
+    for (const match of matches) keep({ term: record.term, record, selected, dto, sourcePriority, order, ...match });
+  };
+  for (const { record, variants } of prepared.sourceRows) {
+    for (const selected of variants) score(record, selected, null, null, 1, record.id);
+  }
+  prepared.everyday.forEach((entry, index) => {
+    const dto = entry.result, canonical = prepared.byTerm.get(spelling(dto.term));
+    const record = canonical || { term: dto.term, id: 30_000_001 + index };
+    score(record, dto, dto, entry.aliases, 0, record.id);
+  });
+  const matches = [...best.values()].sort((a, b) => a.score - b.score || Number(a.related) - Number(b.related)
+    || a.order - b.order || a.term.localeCompare(b.term, "en"));
+  const value = { query, normalized, matches, common };
+  ranking.lastChineseQuery = value;
+  return value;
+}
+
+async function integratedChinesePage(query, limit, offset, ranking, context, relatedOnly) {
+  const found = await integratedChineseMatches(query, ranking, context);
+  if (context.signal?.aborted) throw stopped();
+  const all = relatedOnly ? found.matches.filter(item => item.related) : found.matches;
+  const page = all.slice(offset, offset + limit), nextOffset = offset + page.length;
+  const results = page.map(item => {
+    let result;
+    if (item.dto) {
+      const projection = found.common.get(`${item.matchedChinese}\u0000${spelling(item.term)}`);
+      result = projection && projection.meaning === item.dto.meaning && projection.partOfSpeech === item.dto.partOfSpeech
+        ? { ...structuredClone(item.dto), ...structuredClone(projection) } : structuredClone(item.dto);
+    } else result = { ...display(item.record, item.selected, context.manifest),
+      ...sourceMatchEvidence(item.record, item.selected, item.matchedChinese) };
+    return { ...result, ...(item.related ? { matchType: "related", matchedChinese: item.matchedChinese } : {}) };
+  });
+  return { query, results, hasMore: nextOffset < all.length, nextOffset, offset, total: all.length,
+    ranking: "global", relatedIntegrated: true,
+    ...(found.normalized.term !== query ? { normalizedQuery: found.normalized.term } : {}) };
+}
+
 function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit, offset) {
   const matches = [];
   for (const id of ids) {
@@ -424,22 +579,18 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
 
 async function chineseSearch(query, limit, context, relatedPlan = null, offset = 0) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
+  const completeRanking = await rankingFor(manifest, client, fetchImpl, timeoutMs);
+  if (signal?.aborted) throw stopped();
+  if (completeRanking) return integratedChinesePage(query, limit, offset, completeRanking, context, Boolean(relatedPlan || context.relatedOnly));
+  if (context.relatedOnly && !relatedPlan) return { query, results: [], hasMore: false };
+  // Unbound older fixtures/catalogues retain their old bounded parser path.
+  // Its answers are explicitly limited; production above never uses its head,
+  // POS, download-window or candidate-count restrictions.
   const plan = relatedPlan || chineseSearchPlan(query);
   const sense = plan ? chineseSearchSense(plan.term) : null;
   const terms = relatedPlan ? plan.aliases : [plan?.term || query];
   const candidates = new Map(), loaded = new Map(), heads = chineseSearchHeads(plan?.term || query);
   if (signal?.aborted) throw stopped();
-  // Finite reviewed head sets can be verified completely from their few
-  // existing English shards. They do not need the broad-query catalogue.
-  const ranking = relatedPlan || heads ? null : await rankingFor(manifest, client, fetchImpl, timeoutMs);
-  // A complete primary lookup already authenticated these public tuples. Reuse
-  // them for an ordinary related scan instead of downloading its English
-  // shards again. These local projections never acquire raw-record provenance.
-  // Finite/source-bound plans still use their genuine English-shard route.
-  const relatedRanking = relatedPlan && !heads && !hasSelectedCommonSensePlan(plan.term)
-    && manifest.version === CHINESE_RANKING_RELEASE.dictionaryVersion
-    && manifest.integritySha256 === CHINESE_RANKING_RELEASE.sourceManifestSha256
-    && manifest.counts.records === CHINESE_RANKING_RELEASE.records ? client.ranking : null;
   if (signal?.aborted) throw stopped();
   if (heads) {
     // A reviewed lexical shortlist avoids spending the bounded reverse scan on
@@ -456,7 +607,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
       for (const ref of shard.lookup.get(fold(head)) || []) if (ref.kind === "canonical") candidates.set(ref.id, 0);
     }
   } else {
-    const tokenPlans = terms.map(term => chineseTokens(ranking ? chineseRankingNeedle(term) : term));
+    const tokenPlans = terms.map(chineseTokens);
     const tokens = [...new Set(tokenPlans.flat())], tokenShards = new Map();
     await parallel([...new Set(tokens.map(bucketFor))], 6, async bucket => {
       if (signal?.aborted) throw stopped();
@@ -472,11 +623,11 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
   }
   // All aliases share one bounded scan and download budget, not one per alias.
   const ids = [...candidates.keys()].sort((a, b) => candidates.get(a) - candidates.get(b) || a - b);
-  if (ranking) return globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit, offset);
   if (!relatedPlan && heads) {
     const records = new Map(ids.map(id => [id, loaded.get(id % BUCKETS)?.records.get(id)]));
     if ([...records.values()].some(record => !record)) throw invalid();
-    return globallyRankedChinese(query, ids, { records }, manifest, plan, sense, limit, offset);
+    return { ...globallyRankedChinese(query, ids, { records }, manifest, plan, sense, limit, offset),
+      coverage: "limited", ranking: "limited" };
   }
   const results = [], resultIds = new Map(), wholeMeaningResults = new Set(); let examined = 0;
   const windowLimit = relatedPlan ? limit : offset + limit;
@@ -503,9 +654,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
     const buckets = [...new Set(next.map(id => id % BUCKETS))];
     await parallel(buckets, 6, async bucket => {
       if (signal?.aborted) throw stopped();
-      if (!loaded.has(bucket)) loaded.set(bucket, relatedRanking
-        ? { records: relatedRanking.records }
-        : await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
+      if (!loaded.has(bucket)) loaded.set(bucket, await shardFor("en", bucket, manifest, client, fetchImpl, timeoutMs));
     });
     if (signal?.aborted) throw stopped();
     for (const id of next) {
@@ -571,21 +720,24 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
 }
 
 /** Optional, non-transitive Chinese meaning associations; never writes cards. */
-export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8 } = {}) {
+export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8, offset = 0 } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return { results: [], hasMore: false };
   const query = fold(input).replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
+  if (!HAN.test(query) || /[<>]|javascript\s*:/iu.test(query)
+    || (!/^[\p{Script=Han}\s]+$/u.test(query) && !everydayChineseQuery(query))
+    || [...query].length > 50) return { query, results: [], hasMore: false };
   const plan = chineseSearchPlan(query);
-  if (!plan) return { query, results: [], hasMore: false };
   if (signal?.aborted) throw stopped();
   const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? Math.min(timeoutMs, 15_000) : 5000;
-  const count = Math.max(1, Math.min(8, Number.isSafeInteger(limit) ? limit : 8));
+  const count = Math.max(1, Math.min(50, Number.isSafeInteger(limit) ? limit : 8));
+  const start = Number.isSafeInteger(offset) && offset >= 0 ? Math.min(offset, 200_000) : 0;
   const client = clientFor(fetchImpl);
   const controller = new AbortController();
   const stop = () => controller.abort(); signal?.addEventListener("abort", stop, { once: true });
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (controller.signal.aborted) throw stopped();
-    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal }, plan);
+    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal, relatedOnly: true }, plan, start);
   })();
   try { return await waitFor(work, signal, duration); }
   finally { controller.abort(); signal?.removeEventListener("abort", stop); }
@@ -617,12 +769,11 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   if (HAN.test(query)) query = query.replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
   if (!query || /[<>]|javascript\s*:/iu.test(query) || !/[\p{Script=Latin}\p{Script=Han}\d]/u.test(query)) throw new Error("请输入要查询的英文或中文释义。");
   if (signal?.aborted) throw stopped();
-  // Common phrase aliases are indexed as complete, sense-specific queries.
-  // They can answer immediately, without broadening or downloading the core.
-  const groupPlan = HAN.test(query) ? chineseSearchPlan(query) : null;
-  if (everyday && !(groupPlan && hasSelectedCommonSensePlan(groupPlan.term))) return everyday;
   const chinese = HAN.test(query);
-  if (chinese && (!/^[\p{Script=Han}\s]+$/u.test(query) || [...query].length > 50)) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
+  // English exact/form/period collisions retain their existing fast path.
+  // Chinese aliases enter the same complete candidate/ranking universe.
+  if (everyday && !chinese) return everyday;
+  if (chinese && ((!/^[\p{Script=Han}\s]+$/u.test(query) && !everydayChineseQuery(query)) || [...query].length > 50)) throw new Error("中文查询请只输入不超过 50 个字的中文释义。");
   if (!chinese && !/[\p{Script=Latin}]/u.test(query) && query !== "24/7") throw new Error("请输入英文词或短语。");
   if (signal?.aborted) throw stopped();
   const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 15_000;
@@ -639,7 +790,15 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
     }
     return chinese ? chineseSearch(query, count, context, null, start) : guardLegacySupplementaryResult(await englishSearch(query, context));
   })();
-  return waitFor(work, signal, duration);
+  try { return await waitFor(work, signal, duration); }
+  catch (error) {
+    if (!chinese || !everyday || start !== 0 || error?.name === "AbortError"
+      || ["invalid_dictionary_data", "ambiguous_dictionary_match", "unreviewed_dictionary_form"].includes(error?.code)) throw error;
+    // A validated packaged alias is useful offline, but its few rows are
+    // explicitly partial; it never masquerades as a complete reverse search.
+    return { query, results: everyday.results, hasMore: false, offset: 0, nextOffset: null,
+      coverage: "basic", relatedIntegrated: true };
+  }
 }
 
 export function resetExpandedDictionaryCacheForTests() {

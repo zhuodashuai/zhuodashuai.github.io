@@ -106,7 +106,7 @@ test("successful Chinese lookup shows the complete globally ranked page without 
   await expect(page.locator('#member-dictionary-full')).toBeHidden();
   await expect(page.locator('#member-dictionary-use')).toBeEnabled();
   const expected = await page.evaluate(async () => {
-    const { searchExpandedDictionary } = await import('/js/expanded-dictionary.js?v=111');
+    const { searchExpandedDictionary } = await import('/js/expanded-dictionary.js');
     const result = await searchExpandedDictionary('苹果');
     if (result.ranking !== 'global' || result.coverage === 'basic') throw Error('expected complete global ranking');
     return result.results.map(row => row.term);

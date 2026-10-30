@@ -98,6 +98,36 @@ test("Chinese choices are capped at twenty and retain selected variant POS", asy
 });
 
 for (const [name, create] of [["reusable", createDictionaryController], ["standalone", createStandaloneDictionaryController]]) {
+  test(`${name} integrated related matches use one ranked page stream without the legacy eight-result request`, async () => {
+    let legacyCalls = 0;
+    const first = [row("direct"), { ...row("related-first"), matchType: "related", matchedChinese: "高兴" }];
+    const controller = create({ suggest: async () => [], relatedSearch: async () => { legacyCalls++; throw new Error("Legacy sidecar must not run"); },
+      search: async (_input, { offset }) => offset === 0
+        ? { results: first, hasMore: true, nextOffset: 2, total: 4, relatedIntegrated: true }
+        : { results: [first[1], row("ranked-next"), { ...row("related-last"), matchType: "related", matchedChinese: "快乐" }], hasMore: false, nextOffset: 4, total: 4, relatedIntegrated: true } });
+    await controller.submit("开心"); await settleSuggestions(); controller.select(1);
+    assert.equal(controller.getState().relatedIntegrated, true); assert.equal(controller.getState().canLoadMore, true);
+    await controller.loadMore(); await settleSuggestions();
+    assert.equal(legacyCalls, 0);
+    assert.deepEqual(controller.getState().results.map(item => item.term), ["direct", "related-first", "ranked-next", "related-last"]);
+    assert.equal(controller.getState().results[controller.getState().selectedIndex], first[1]);
+    assert.equal(controller.getState().results[3].matchedChinese, "快乐");
+    assert.equal(controller.getState().canLoadMore, false);
+    controller.change("another"); assert.equal(controller.getState().relatedIntegrated, false);
+  });
+
+  test(`${name} verified alias fallback stays explicitly partial and offers no global paging`, async () => {
+    let legacyCalls = 0;
+    const controller = create({ suggest: async () => [], relatedSearch: async () => { legacyCalls++; return { results: [], hasMore: false }; },
+      search: async () => ({ results: [row("live agent")], hasMore: false, nextOffset: null, offset: 0,
+        coverage: "basic", relatedIntegrated: true }) });
+    await controller.submit("人工客服"); await settleSuggestions();
+    assert.equal(controller.getState().coverage, "basic"); assert.equal(controller.getState().phase, "ready");
+    assert.equal(controller.getState().canLoadMore, false); assert.equal(legacyCalls, 0);
+    assert.match(controller.getState().message, /完整中文检索暂不可用/u);
+    assert.equal(controller.select(0), true);
+  });
+
   test(`${name} pagination uses the next offset, deduplicates pages, and preserves the selected definition`, async () => {
     const calls = [], first = Array.from({ length: 20 }, (_, index) => row(`head-${index}`));
     const controller = create({ suggest: async () => [], search: async (_input, options) => {
@@ -400,7 +430,7 @@ test("public document has labelled Enter form, no account or provider calls, and
   assert.match(html, /dictionary\.css\?v=101/u); assert.match(html, /src="js\/dictionary-entry-v109\.js"/u);
   assert.doesNotMatch(html.match(/<form[\s\S]*?<\/form>/u)[0], /\bname=/u);
   assert.match(html, /connect-src 'self';/u); assert.match(html, /MIT 许可证/u);
-  assert.match(script, /expanded-dictionary\.js\?v=111/u); assert.match(script, /counts\.records/u);
+  assert.match(script, /expanded-dictionary\.js\?v=112/u); assert.match(script, /counts\.records/u);
   assert.match(script, /import\("\.\/dictionary-suggestions\.js\?v=89"\)/u);
   assert.match(html, /id="dictionary-suggestion-panel"[^>]*aria-labelledby="dictionary-suggestion-title"/u);
   assert.match(html, /<details id="dictionary-choice-disclosure" open>/u);
